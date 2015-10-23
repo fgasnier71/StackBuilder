@@ -283,10 +283,11 @@ namespace treeDiM.StackBuilder.Graphics
             {
                 Vector3D vecU = _points[2] - _points[1];
                 Vector3D vecV = _points[3] - _points[1];
-                ptInter = _points[0] + u * vecU + v * vecV;
+                ptInter = _points[1] + u * vecU + v * vecV;
                 return true;
             }
-            return false;
+            else
+                return false;
         }
 
         public bool IntersectTriangle(Ray ray, Vector3D pt0, Vector3D pt1, Vector3D pt2, out double u, out double v)
@@ -308,7 +309,7 @@ namespace treeDiM.StackBuilder.Graphics
             Vector3D tvec = pt0 - ray.Origin;
 
 		// calculate U parameter and test bounds
-		u = Vector3D.DotProduct(tvec, pvec) * invdet;
+		u = -Vector3D.DotProduct(tvec, pvec) * invdet;
 		if (u < 0.0 || u > 1.0)
 			return false;
 
@@ -316,7 +317,7 @@ namespace treeDiM.StackBuilder.Graphics
         Vector3D qvec = Vector3D.CrossProduct(tvec, edge1);
 
         // calculate vparameter
-        v = Vector3D.DotProduct(ray.Direction, qvec) * invdet;
+        v = -Vector3D.DotProduct(ray.Direction, qvec) * invdet;
         if (v < 0.0 || u + v > 1.0)
             return false;
 

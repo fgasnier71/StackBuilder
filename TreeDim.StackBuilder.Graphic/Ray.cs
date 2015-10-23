@@ -34,6 +34,8 @@ namespace treeDiM.StackBuilder.Graphics
         #region Public methods
         public Vector3D Point(double t)
         { return _orig + t * _dir; }
+        public Ray Transform(Transform3D transf)
+        { return new Ray(transf.transform(_orig), transf.transformRot(_dir)); }
         #endregion
 
         #region Data members
