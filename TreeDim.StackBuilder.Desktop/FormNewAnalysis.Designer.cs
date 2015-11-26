@@ -198,6 +198,7 @@
             // 
             // gbAllowedBoxPositions
             // 
+            resources.ApplyResources(this.gbAllowedBoxPositions, "gbAllowedBoxPositions");
             this.gbAllowedBoxPositions.Controls.Add(this.checkBoxAllowChangingLastLayerOrient);
             this.gbAllowedBoxPositions.Controls.Add(this.checkBoxAllowTwoLayerOrient);
             this.gbAllowedBoxPositions.Controls.Add(this.checkBoxPositionZ);
@@ -206,7 +207,6 @@
             this.gbAllowedBoxPositions.Controls.Add(this.pictureBoxPositionZ);
             this.gbAllowedBoxPositions.Controls.Add(this.pictureBoxPositionY);
             this.gbAllowedBoxPositions.Controls.Add(this.pictureBoxPositionX);
-            resources.ApplyResources(this.gbAllowedBoxPositions, "gbAllowedBoxPositions");
             this.gbAllowedBoxPositions.Name = "gbAllowedBoxPositions";
             this.gbAllowedBoxPositions.TabStop = false;
             // 
@@ -234,21 +234,22 @@
             // 
             // cbBox
             // 
+            resources.ApplyResources(this.cbBox, "cbBox");
             this.cbBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbBox.FormattingEnabled = true;
-            resources.ApplyResources(this.cbBox, "cbBox");
             this.cbBox.Name = "cbBox";
             this.cbBox.SelectedIndexChanged += new System.EventHandler(this.onBoxChanged);
             // 
             // cbPallet
             // 
+            resources.ApplyResources(this.cbPallet, "cbPallet");
             this.cbPallet.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbPallet.FormattingEnabled = true;
-            resources.ApplyResources(this.cbPallet, "cbPallet");
             this.cbPallet.Name = "cbPallet";
             // 
             // checkedListBoxPatterns
             // 
+            resources.ApplyResources(this.checkedListBoxPatterns, "checkedListBoxPatterns");
             this.checkedListBoxPatterns.CheckOnClick = true;
             this.checkedListBoxPatterns.FormattingEnabled = true;
             this.checkedListBoxPatterns.Items.AddRange(new object[] {
@@ -258,13 +259,12 @@
             resources.GetString("checkedListBoxPatterns.Items3"),
             resources.GetString("checkedListBoxPatterns.Items4"),
             resources.GetString("checkedListBoxPatterns.Items5")});
-            resources.ApplyResources(this.checkedListBoxPatterns, "checkedListBoxPatterns");
             this.checkedListBoxPatterns.Name = "checkedListBoxPatterns";
             // 
             // gbAllowedLayerPatterns
             // 
-            this.gbAllowedLayerPatterns.Controls.Add(this.checkedListBoxPatterns);
             resources.ApplyResources(this.gbAllowedLayerPatterns, "gbAllowedLayerPatterns");
+            this.gbAllowedLayerPatterns.Controls.Add(this.checkedListBoxPatterns);
             this.gbAllowedLayerPatterns.Name = "gbAllowedLayerPatterns";
             this.gbAllowedLayerPatterns.TabStop = false;
             // 
@@ -323,8 +323,8 @@
             // 
             // nudMaximumPalletWeight
             // 
-            this.nudMaximumPalletWeight.DecimalPlaces = 1;
             resources.ApplyResources(this.nudMaximumPalletWeight, "nudMaximumPalletWeight");
+            this.nudMaximumPalletWeight.DecimalPlaces = 1;
             this.nudMaximumPalletWeight.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -334,8 +334,8 @@
             // 
             // nudMaximumLoadOnBox
             // 
-            this.nudMaximumLoadOnBox.DecimalPlaces = 1;
             resources.ApplyResources(this.nudMaximumLoadOnBox, "nudMaximumLoadOnBox");
+            this.nudMaximumLoadOnBox.DecimalPlaces = 1;
             this.nudMaximumLoadOnBox.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -367,9 +367,9 @@
             // 
             // cbInterlayer
             // 
+            resources.ApplyResources(this.cbInterlayer, "cbInterlayer");
             this.cbInterlayer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbInterlayer.FormattingEnabled = true;
-            resources.ApplyResources(this.cbInterlayer, "cbInterlayer");
             this.cbInterlayer.Name = "cbInterlayer";
             // 
             // lbInterlayerFreq1
@@ -409,8 +409,8 @@
             // 
             // nudPalletOverhangX
             // 
-            this.nudPalletOverhangX.DecimalPlaces = 1;
             resources.ApplyResources(this.nudPalletOverhangX, "nudPalletOverhangX");
+            this.nudPalletOverhangX.DecimalPlaces = 1;
             this.nudPalletOverhangX.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -426,8 +426,8 @@
             // 
             // nudPalletOverhangY
             // 
-            this.nudPalletOverhangY.DecimalPlaces = 1;
             resources.ApplyResources(this.nudPalletOverhangY, "nudPalletOverhangY");
+            this.nudPalletOverhangY.DecimalPlaces = 1;
             this.nudPalletOverhangY.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -442,13 +442,13 @@
             // 
             // gbOverhangUnderhang
             // 
+            resources.ApplyResources(this.gbOverhangUnderhang, "gbOverhangUnderhang");
             this.gbOverhangUnderhang.Controls.Add(this.uLengthOverhangY);
             this.gbOverhangUnderhang.Controls.Add(this.uLengthOverhangX);
             this.gbOverhangUnderhang.Controls.Add(this.nudPalletOverhangY);
             this.gbOverhangUnderhang.Controls.Add(this.nudPalletOverhangX);
             this.gbOverhangUnderhang.Controls.Add(this.lbPalletOverhangWidth);
             this.gbOverhangUnderhang.Controls.Add(this.lbPalletOverhangLength);
-            resources.ApplyResources(this.gbOverhangUnderhang, "gbOverhangUnderhang");
             this.gbOverhangUnderhang.Name = "gbOverhangUnderhang";
             this.gbOverhangUnderhang.TabStop = false;
             // 
@@ -478,14 +478,15 @@
             // 
             // gbLayerAlignment
             // 
+            resources.ApplyResources(this.gbLayerAlignment, "gbLayerAlignment");
             this.gbLayerAlignment.Controls.Add(this.checkBoxAllowAlternateLayer);
             this.gbLayerAlignment.Controls.Add(this.checkBoxAllowAlignedLayer);
-            resources.ApplyResources(this.gbLayerAlignment, "gbLayerAlignment");
             this.gbLayerAlignment.Name = "gbLayerAlignment";
             this.gbLayerAlignment.TabStop = false;
             // 
             // gbStopStackingCondition
             // 
+            resources.ApplyResources(this.gbStopStackingCondition, "gbStopStackingCondition");
             this.gbStopStackingCondition.Controls.Add(this.uLengthPalletHeight);
             this.gbStopStackingCondition.Controls.Add(this.uMassPalletWeight);
             this.gbStopStackingCondition.Controls.Add(this.uMassLoadLowerCases);
@@ -498,23 +499,22 @@
             this.gbStopStackingCondition.Controls.Add(this.lbStopStacking);
             this.gbStopStackingCondition.Controls.Add(this.checkBoxMaximumPalletHeight);
             this.gbStopStackingCondition.Controls.Add(this.checkBoxMaximumNumberOfBoxes);
-            resources.ApplyResources(this.gbStopStackingCondition, "gbStopStackingCondition");
             this.gbStopStackingCondition.Name = "gbStopStackingCondition";
             this.gbStopStackingCondition.TabStop = false;
             // 
             // statusStripDef
             // 
+            resources.ApplyResources(this.statusStripDef, "statusStripDef");
             this.statusStripDef.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabelDef});
-            resources.ApplyResources(this.statusStripDef, "statusStripDef");
             this.statusStripDef.Name = "statusStripDef";
             this.statusStripDef.SizingGrip = false;
             // 
             // toolStripStatusLabelDef
             // 
+            resources.ApplyResources(this.toolStripStatusLabelDef, "toolStripStatusLabelDef");
             this.toolStripStatusLabelDef.ForeColor = System.Drawing.Color.Red;
             this.toolStripStatusLabelDef.Name = "toolStripStatusLabelDef";
-            resources.ApplyResources(this.toolStripStatusLabelDef, "toolStripStatusLabelDef");
             // 
             // checkBoxAntiSlipInterlayer
             // 
@@ -525,9 +525,9 @@
             // 
             // cbInterlayerAntiSlip
             // 
+            resources.ApplyResources(this.cbInterlayerAntiSlip, "cbInterlayerAntiSlip");
             this.cbInterlayerAntiSlip.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbInterlayerAntiSlip.FormattingEnabled = true;
-            resources.ApplyResources(this.cbInterlayerAntiSlip, "cbInterlayerAntiSlip");
             this.cbInterlayerAntiSlip.Name = "cbInterlayerAntiSlip";
             // 
             // tabControlAddFeat
@@ -543,36 +543,36 @@
             // 
             // tabPageInterlayer
             // 
+            resources.ApplyResources(this.tabPageInterlayer, "tabPageInterlayer");
             this.tabPageInterlayer.Controls.Add(this.cbInterlayer);
             this.tabPageInterlayer.Controls.Add(this.checkBoxInterlayer);
             this.tabPageInterlayer.Controls.Add(this.lbInterlayerFreq1);
             this.tabPageInterlayer.Controls.Add(this.nudInterlayerFreq);
             this.tabPageInterlayer.Controls.Add(this.lbInterlayerFreq2);
-            resources.ApplyResources(this.tabPageInterlayer, "tabPageInterlayer");
             this.tabPageInterlayer.Name = "tabPageInterlayer";
             this.tabPageInterlayer.UseVisualStyleBackColor = true;
             // 
             // tabPageInterlayerAntiSlip
             // 
+            resources.ApplyResources(this.tabPageInterlayerAntiSlip, "tabPageInterlayerAntiSlip");
             this.tabPageInterlayerAntiSlip.Controls.Add(this.checkBoxAntiSlipInterlayer);
             this.tabPageInterlayerAntiSlip.Controls.Add(this.cbInterlayerAntiSlip);
-            resources.ApplyResources(this.tabPageInterlayerAntiSlip, "tabPageInterlayerAntiSlip");
             this.tabPageInterlayerAntiSlip.Name = "tabPageInterlayerAntiSlip";
             this.tabPageInterlayerAntiSlip.UseVisualStyleBackColor = true;
             // 
             // tabPagePalletCorners
             // 
+            resources.ApplyResources(this.tabPagePalletCorners, "tabPagePalletCorners");
             this.tabPagePalletCorners.Controls.Add(this.cbPalletCorners);
             this.tabPagePalletCorners.Controls.Add(this.chkbPalletCorners);
-            resources.ApplyResources(this.tabPagePalletCorners, "tabPagePalletCorners");
             this.tabPagePalletCorners.Name = "tabPagePalletCorners";
             this.tabPagePalletCorners.UseVisualStyleBackColor = true;
             // 
             // cbPalletCorners
             // 
+            resources.ApplyResources(this.cbPalletCorners, "cbPalletCorners");
             this.cbPalletCorners.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbPalletCorners.FormattingEnabled = true;
-            resources.ApplyResources(this.cbPalletCorners, "cbPalletCorners");
             this.cbPalletCorners.Name = "cbPalletCorners";
             // 
             // chkbPalletCorners
@@ -584,16 +584,16 @@
             // 
             // tabPagePalletCap
             // 
+            resources.ApplyResources(this.tabPagePalletCap, "tabPagePalletCap");
             this.tabPagePalletCap.Controls.Add(this.cbPalletCap);
             this.tabPagePalletCap.Controls.Add(this.chkbPalletCap);
-            resources.ApplyResources(this.tabPagePalletCap, "tabPagePalletCap");
             this.tabPagePalletCap.Name = "tabPagePalletCap";
             // 
             // cbPalletCap
             // 
+            resources.ApplyResources(this.cbPalletCap, "cbPalletCap");
             this.cbPalletCap.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbPalletCap.FormattingEnabled = true;
-            resources.ApplyResources(this.cbPalletCap, "cbPalletCap");
             this.cbPalletCap.Name = "cbPalletCap";
             // 
             // chkbPalletCap
@@ -605,11 +605,11 @@
             // 
             // tabPagePalletFilm
             // 
+            resources.ApplyResources(this.tabPagePalletFilm, "tabPagePalletFilm");
             this.tabPagePalletFilm.Controls.Add(this.nudNumberOfTurns);
             this.tabPagePalletFilm.Controls.Add(this.lbNumberOfTurns);
             this.tabPagePalletFilm.Controls.Add(this.cbPalletFilm);
             this.tabPagePalletFilm.Controls.Add(this.chkbPalletFilm);
-            resources.ApplyResources(this.tabPagePalletFilm, "tabPagePalletFilm");
             this.tabPagePalletFilm.Name = "tabPagePalletFilm";
             // 
             // nudNumberOfTurns
@@ -639,9 +639,9 @@
             // 
             // cbPalletFilm
             // 
+            resources.ApplyResources(this.cbPalletFilm, "cbPalletFilm");
             this.cbPalletFilm.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbPalletFilm.FormattingEnabled = true;
-            resources.ApplyResources(this.cbPalletFilm, "cbPalletFilm");
             this.cbPalletFilm.Name = "cbPalletFilm";
             // 
             // chkbPalletFilm

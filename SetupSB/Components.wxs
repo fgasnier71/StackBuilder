@@ -41,8 +41,8 @@
         <File Source="..\treeDiM.StackBuilder.Desktop\Bin\Release\treeDiM.StackBuilder.Basics.dll" Checksum="yes" />
         <File Source="..\treeDiM.StackBuilder.Desktop\Bin\Release\treeDiM.StackBuilder.Reporting.dll" Checksum="yes" />
         <File Source="..\treeDiM.StackBuilder.Desktop\Bin\Release\treeDiM.StackBuilder.Desktop.chm" Checksum="yes" />
-        <File Source="..\treeDiM.StackBuilder.XmlFileProcessor\Bin\Release\treeDiM.StackBuilder.XmlFileProcessor.exe" Checksum="yes" />
-        <File Source="..\treeDiM.StackBuilder.XmlFileProcessor\Bin\Release\treeDiM.StackBuilder.XmlFileProcessor.exe.config" Checksum="yes" />
+        <File Source="..\TreeDim.StackBuilder.XmlFileProcessor\bin\Release\treeDiM.StackBuilder.XmlFileProcessor.exe" Checksum="yes" />
+        <File Source="..\TreeDim.StackBuilder.XmlFileProcessor\bin\Release\treeDiM.StackBuilder.XmlFileProcessor.exe.config" Checksum="yes" />
         <File Source="..\treeDiM.StackBuilder.Desktop\Bin\Release\treeDiM.StackBuilder.ColladaExporter.dll" Checksum="yes" />
         <File Source="..\treeDiM.Stackbuilder.Desktop\Bin\Release\treeDiM.StackBuilder.ExcelReader.dll" Checksum="yes"/>
         <File Id="Plossum_CommandLine.dll" Source="..\treeDiM.StackBuilder.XmlFileProcessor\Bin\Release\Plossum CommandLine.dll" Checksum="yes" />
