@@ -1017,6 +1017,9 @@
   <data name="cbColor.Items90" xml:space="preserve">
     <value>Color</value>
   </data>
+  <data name="cbColor.Items91" xml:space="preserve">
+    <value>Color</value>
+  </data>
   <data name="cbColor.Location" type="System.Drawing.Point, System.Drawing">
     <value>177, 37</value>
   </data>
@@ -1030,7 +1033,7 @@
     <value>cbColor</value>
   </data>
   <data name="&gt;&gt;cbColor.Type" xml:space="preserve">
-    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=1.1.5569.29609, Culture=neutral, PublicKeyToken=null</value>
+    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=1.1.5810.623, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;cbColor.Parent" xml:space="preserve">
     <value>gbFaceColor</value>
@@ -1132,7 +1135,7 @@
     <value>vcWeight</value>
   </data>
   <data name="&gt;&gt;vcWeight.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Basics.UCtrlDouble, treeDiM.StackBuilder.Basics, Version=2.0.23.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;vcWeight.Parent" xml:space="preserve">
     <value>gbWeight</value>
@@ -1157,13 +1160,17 @@
   </data>
   <data name="ovcNetWeight.Value" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
-    </value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAFN0cmVlRGlNLlN0YWNrQnVpbGRlci5CYXNpY3MsIFZlcnNpb249
+        Mi4wLjIyLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49bnVsbAUBAAAAJXRyZWVEaU0u
+        U3RhY2tCdWlsZGVyLkJhc2ljcy5PcHREb3VibGUCAAAACl9hY3RpdmF0ZWQEX3ZhbAAAAQYCAAAAAAAA
+        AAAAAAAACw==
+</value>
   </data>
   <data name="&gt;&gt;ovcNetWeight.Name" xml:space="preserve">
     <value>ovcNetWeight</value>
   </data>
   <data name="&gt;&gt;ovcNetWeight.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlOptDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Basics.UCtrlOptDouble, treeDiM.StackBuilder.Basics, Version=2.0.23.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;ovcNetWeight.Parent" xml:space="preserve">
     <value>gbWeight</value>
@@ -1310,7 +1317,7 @@
     <value>graphCtrl</value>
   </data>
   <data name="&gt;&gt;graphCtrl.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Graphics.Graphics3DControl, treeDiM.StackBuilder.Graphics, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Graphics.Graphics3DControl, treeDiM.StackBuilder.Graphics, Version=2.0.23.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;graphCtrl.Parent" xml:space="preserve">
     <value>$this</value>
@@ -1660,6 +1667,9 @@
   <data name="cbTapeColor.Items91" xml:space="preserve">
     <value>Color</value>
   </data>
+  <data name="cbTapeColor.Items92" xml:space="preserve">
+    <value>Color</value>
+  </data>
   <data name="cbTapeColor.Location" type="System.Drawing.Point, System.Drawing">
     <value>259, 35</value>
   </data>
@@ -1673,7 +1683,7 @@
     <value>cbTapeColor</value>
   </data>
   <data name="&gt;&gt;cbTapeColor.Type" xml:space="preserve">
-    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=1.1.5569.29609, Culture=neutral, PublicKeyToken=null</value>
+    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=1.1.5810.623, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;cbTapeColor.Parent" xml:space="preserve">
     <value>gbTape</value>
@@ -1807,6 +1817,9 @@
   <data name="&gt;&gt;gbTape.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>fr-FR</value>
+  </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>

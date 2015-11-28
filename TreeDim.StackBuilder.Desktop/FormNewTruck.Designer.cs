@@ -55,6 +55,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudHeight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudWidth)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudLength)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.graphCtrl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudAdmissibleLoadWeight)).BeginInit();
             this.statusStripDef.SuspendLayout();
             this.SuspendLayout();
@@ -208,7 +209,12 @@
             resources.GetString("cbColor.Items34"),
             resources.GetString("cbColor.Items35"),
             resources.GetString("cbColor.Items36"),
-            resources.GetString("cbColor.Items37")});
+            resources.GetString("cbColor.Items37"),
+            resources.GetString("cbColor.Items38"),
+            resources.GetString("cbColor.Items39"),
+            resources.GetString("cbColor.Items40"),
+            resources.GetString("cbColor.Items41"),
+            resources.GetString("cbColor.Items42")});
             this.cbColor.Name = "cbColor";
             this.cbColor.SelectedColorChanged += new System.EventHandler(this.onTruckPropertyChanged);
             // 
@@ -247,16 +253,16 @@
             // 
             // statusStripDef
             // 
+            resources.ApplyResources(this.statusStripDef, "statusStripDef");
             this.statusStripDef.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabelDef});
-            resources.ApplyResources(this.statusStripDef, "statusStripDef");
             this.statusStripDef.Name = "statusStripDef";
             // 
             // toolStripStatusLabelDef
             // 
+            resources.ApplyResources(this.toolStripStatusLabelDef, "toolStripStatusLabelDef");
             this.toolStripStatusLabelDef.ForeColor = System.Drawing.Color.Red;
             this.toolStripStatusLabelDef.Name = "toolStripStatusLabelDef";
-            resources.ApplyResources(this.toolStripStatusLabelDef, "toolStripStatusLabelDef");
             // 
             // FormNewTruck
             // 
@@ -294,11 +300,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudHeight)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudWidth)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudLength)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.graphCtrl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudAdmissibleLoadWeight)).EndInit();
             this.statusStripDef.ResumeLayout(false);
             this.statusStripDef.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
         #endregion
 
