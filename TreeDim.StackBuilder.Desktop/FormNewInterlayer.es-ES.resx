@@ -912,4 +912,16 @@
 	<data name="cbColor.Items30" xml:space="preserve">
 		<value>Color</value>
 	</data>
+	<data name="cbColor.Items32" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items34" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items31" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items33" xml:space="preserve">
+		<value>Color</value>
+	</data>
 </root>

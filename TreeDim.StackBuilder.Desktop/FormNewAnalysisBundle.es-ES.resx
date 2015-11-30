@@ -1024,10 +1024,10 @@
 		<value>de-DE</value>
 	</metadata>
 	<data name="$this.Text" xml:space="preserve">
-		<value>Create new cylinder analysis...</value>
+		<value>Crear nuevo análisis de cilindro …</value>
 	</data>
 	<data name="lbBundle.Text" xml:space="preserve">
-		<value>Bulto</value>
+		<value>Fajo</value>
 	</data>
 	<data name="lbBoxes.Text" xml:space="preserve">
 		<value>caja(s)</value>
@@ -1084,7 +1084,7 @@
 		<value>Palet</value>
 	</data>
 	<data name="gbOverhangUnderhang.Text" xml:space="preserve">
-		<value>Pallet saliente / colgando en</value>
+		<value>Palet saliente / colgando en</value>
 	</data>
 	<data name="lbMm1.Text" xml:space="preserve">
 		<value>mm</value>
@@ -1123,7 +1123,7 @@
 		<value>permitir capas alternas</value>
 	</data>
 	<data name="checkBoxInterlayerAntiSlip.Text" xml:space="preserve">
-		<value>Anti-Slip Interlayer</value>
+		<value>Antideslizante separadores</value>
 	</data>
 	<data name="uLengthPalletOverhangY.Text" xml:space="preserve">
 		<value>mm</value>
@@ -1163,5 +1163,11 @@
 	</data>
 	<data name="uLengthRowSpacing.Text" xml:space="preserve">
 		<value>mm</value>
+	</data>
+	<data name="label3.Text" xml:space="preserve">
+		<value>Cilindro</value>
+	</data>
+	<data name="lbInterlayerFreq1.Text" xml:space="preserve">
+		<value>cada</value>
 	</data>
 </root>

@@ -283,7 +283,7 @@
 		<value>Camiones</value>
 	</data>
 	<data name="ID_BUNDLE" xml:space="preserve">
-		<value>Bulto</value>
+		<value>Fajo</value>
 	</data>
 	<data name="ID_PALLETHEIGHT" xml:space="preserve">
 		<value>Altura del palet</value>
@@ -383,5 +383,29 @@
 	</data>
 	<data name="ID_LAYERS" xml:space="preserve">
 		<value>Capas</value>
+	</data>
+	<data name="ID_CYLINDER" xml:space="preserve">
+		<value>Cilindro</value>
+	</data>
+	<data name="ID_CASEOFBOXES" xml:space="preserve">
+		<value>Embalaje de cajas</value>
+	</data>
+	<data name="ID_PALLETCORNERS" xml:space="preserve">
+		<value>Esquinas</value>
+	</data>
+	<data name="ID_PALLETFILM" xml:space="preserve">
+		<value>Película</value>
+	</data>
+	<data name="ID_BOXES" xml:space="preserve">
+		<value>Cajas</value>
+	</data>
+	<data name="ID_CASES" xml:space="preserve">
+		<value>Embalajes</value>
+	</data>
+	<data name="ID_INTERLAYERS" xml:space="preserve">
+		<value>Separadores</value>
+	</data>
+	<data name="ID_PALLETS" xml:space="preserve">
+		<value>Palets</value>
 	</data>
 </root>

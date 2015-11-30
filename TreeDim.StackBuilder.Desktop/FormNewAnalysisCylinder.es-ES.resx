@@ -118,7 +118,7 @@
 		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
 	</resheader>
 	<data name="$this.Text" xml:space="preserve">
-    <value>Create new cylinder analysis...</value>
+    <value>Crear nuevo análisis de cilindro …</value>
   </data>
 	<data name="checkBoxMaximumPalletWeight.Text" xml:space="preserve">
 		<value>cuando el peso total del palet llegue a</value>
@@ -157,7 +157,7 @@
 		<value>cuando la altura del palet alcance</value>
 	</data>
 	<data name="gbOverhangUnderhang.Text" xml:space="preserve">
-		<value>Pallet saliente / colgando en</value>
+		<value>Palet saliente / colgando en</value>
 	</data>
 	<data name="lbDescription.Text" xml:space="preserve">
 		<value>Descripción</value>
@@ -187,7 +187,7 @@
 		<value>Fin de apilamiento:</value>
 	</data>
 	<data name="lbBundle.Text" xml:space="preserve">
-		<value>Bulto</value>
+		<value>Fajo</value>
 	</data>
 	<data name="checkBoxNumberOfPallets.Text" xml:space="preserve">
 		<value>Mostrar el número de palets que se tienen que apilar</value>
@@ -217,7 +217,7 @@
 		<value>mm</value>
 	</data>
 	<data name="checkBoxInterlayerAntiSlip.Text" xml:space="preserve">
-		<value>Anti-Slip Interlayer</value>
+		<value>Antideslizante separadores</value>
 	</data>
 	<data name="uLengthPalletOverhangY.Text" xml:space="preserve">
 		<value>mm</value>
@@ -257,5 +257,11 @@
 	</data>
 	<data name="uLengthRowSpacing.Text" xml:space="preserve">
 		<value>mm</value>
+	</data>
+	<data name="label3.Text" xml:space="preserve">
+		<value>Cilindro</value>
+	</data>
+	<data name="lbInterlayerFreq1.Text" xml:space="preserve">
+		<value>cada</value>
 	</data>
 </root>
