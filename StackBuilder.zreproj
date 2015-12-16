@@ -67,7 +67,7 @@ Kind regards</globalSetting>
     <globalSetting name="CreateNewFileForm.copyTextsCheckBox.Checked">True</globalSetting>
     <globalSetting name="CreateNewFileForm.automaticallyTranslateCheckBox.Checked">False</globalSetting>
     <globalSetting name="projectMruItems">&lt;?xml version='1.0' encoding='utf-8'?&gt;&lt;items&gt;&lt;item type="2" checksum="3478970994" /&gt;&lt;/items&gt;</globalSetting>
-    <globalSetting name="receiveFileFromTranslator.sourceFilePathTextEdit.Text">K:\GitHub\StackBuilder\StackBuilder_es-ES.xlsx</globalSetting>
+    <globalSetting name="receiveFileFromTranslator.sourceFilePathTextEdit.Text">K:\GitHub\StackBuilder\loc_StackBuilder_es-es.xlsx</globalSetting>
     <globalSetting name="receiveFileFromTranslator.fileGroupsListBox">
     </globalSetting>
     <globalSetting name="receiveFileFromTranslator.languagesToImportCheckListBox">1</globalSetting>
@@ -79,6 +79,18 @@ Kind regards</globalSetting>
     </description>
   </configuration>
   <fileGroups>
+    <fileGroup name="" projectFolderUniqueID="01a5823b-8e11-44e3-a5b1-3acb46084abd" orderPosition="0" ignoreDuringExportAndImport="False" uniqueID="7bb209c3-7279-4550-9e27-99e91f62f5ab">
+      <file filePath="TreeDim.StackBuilder.Desktop\AboutBox.resx" absoluteFilePath="K:\GitHub\StackBuilder\TreeDim.StackBuilder.Desktop\AboutBox.resx" uniqueID="be397258-05fa-4df8-afbb-25c3464687bf" />
+      <file filePath="TreeDim.StackBuilder.Desktop\AboutBox.ca-ES.resx" absoluteFilePath="K:\GitHub\StackBuilder\TreeDim.StackBuilder.Desktop\AboutBox.ca-ES.resx" uniqueID="81f0bc54-bf46-492b-a68c-d9a011998fb8" />
+      <file filePath="TreeDim.StackBuilder.Desktop\AboutBox.de-DE.resx" absoluteFilePath="K:\GitHub\StackBuilder\TreeDim.StackBuilder.Desktop\AboutBox.de-DE.resx" uniqueID="baf430f5-634b-40a6-b245-c3878d6bc60c" />
+      <file filePath="TreeDim.StackBuilder.Desktop\AboutBox.es-ES.resx" absoluteFilePath="K:\GitHub\StackBuilder\TreeDim.StackBuilder.Desktop\AboutBox.es-ES.resx" uniqueID="eb0e4542-14f6-43f1-8f57-8131a8fae54d" />
+      <file filePath="TreeDim.StackBuilder.Desktop\AboutBox.fr-FR.resx" absoluteFilePath="K:\GitHub\StackBuilder\TreeDim.StackBuilder.Desktop\AboutBox.fr-FR.resx" uniqueID="1da19b33-82e2-4316-98b7-e02152b6019b" />
+      <file filePath="TreeDim.StackBuilder.Desktop\AboutBox.it-IT.resx" absoluteFilePath="K:\GitHub\StackBuilder\TreeDim.StackBuilder.Desktop\AboutBox.it-IT.resx" uniqueID="894e8314-d7a0-49ff-84cf-085d669838ff" />
+      <file filePath="TreeDim.StackBuilder.Desktop\AboutBox.ja-JP.resx" absoluteFilePath="K:\GitHub\StackBuilder\TreeDim.StackBuilder.Desktop\AboutBox.ja-JP.resx" uniqueID="862cfc4b-6ec4-43c3-bfd7-0a3c69bf5485" />
+      <file filePath="TreeDim.StackBuilder.Desktop\AboutBox.nl-NL.resx" absoluteFilePath="K:\GitHub\StackBuilder\TreeDim.StackBuilder.Desktop\AboutBox.nl-NL.resx" uniqueID="9698a0d0-cb98-4f1d-90c3-f3ff9d1659ba" />
+      <remarks>
+      </remarks>
+    </fileGroup>
     <fileGroup name="" projectFolderUniqueID="349205d5-341e-4540-af09-fe413fa5db63" orderPosition="0" ignoreDuringExportAndImport="False" uniqueID="f251eb09-4c08-4403-b6ad-19906c16d748">
       <file filePath="OfficePickers\ColorPicker\ToolStripColorPicker.resx" absoluteFilePath="K:\GitHub\StackBuilder\OfficePickers\ColorPicker\ToolStripColorPicker.resx" uniqueID="879c713c-1857-4cfd-8157-a40c62eba6a5" />
       <file filePath="OfficePickers\ColorPicker\ToolStripColorPicker.it-IT.resx" absoluteFilePath="K:\GitHub\StackBuilder\OfficePickers\ColorPicker\ToolStripColorPicker.it-IT.resx" uniqueID="8d5e9d6f-04b2-446f-b9e9-185339fd9392" />
@@ -117,15 +129,37 @@ Kind regards</globalSetting>
       <remarks>
       </remarks>
     </fileGroup>
-    <fileGroup name="" projectFolderUniqueID="01a5823b-8e11-44e3-a5b1-3acb46084abd" orderPosition="0" ignoreDuringExportAndImport="False" uniqueID="7bb209c3-7279-4550-9e27-99e91f62f5ab">
-      <file filePath="TreeDim.StackBuilder.Desktop\AboutBox.resx" absoluteFilePath="K:\GitHub\StackBuilder\TreeDim.StackBuilder.Desktop\AboutBox.resx" uniqueID="be397258-05fa-4df8-afbb-25c3464687bf" />
-      <file filePath="TreeDim.StackBuilder.Desktop\AboutBox.ca-ES.resx" absoluteFilePath="K:\GitHub\StackBuilder\TreeDim.StackBuilder.Desktop\AboutBox.ca-ES.resx" uniqueID="81f0bc54-bf46-492b-a68c-d9a011998fb8" />
-      <file filePath="TreeDim.StackBuilder.Desktop\AboutBox.de-DE.resx" absoluteFilePath="K:\GitHub\StackBuilder\TreeDim.StackBuilder.Desktop\AboutBox.de-DE.resx" uniqueID="baf430f5-634b-40a6-b245-c3878d6bc60c" />
-      <file filePath="TreeDim.StackBuilder.Desktop\AboutBox.es-ES.resx" absoluteFilePath="K:\GitHub\StackBuilder\TreeDim.StackBuilder.Desktop\AboutBox.es-ES.resx" uniqueID="eb0e4542-14f6-43f1-8f57-8131a8fae54d" />
-      <file filePath="TreeDim.StackBuilder.Desktop\AboutBox.fr-FR.resx" absoluteFilePath="K:\GitHub\StackBuilder\TreeDim.StackBuilder.Desktop\AboutBox.fr-FR.resx" uniqueID="1da19b33-82e2-4316-98b7-e02152b6019b" />
-      <file filePath="TreeDim.StackBuilder.Desktop\AboutBox.it-IT.resx" absoluteFilePath="K:\GitHub\StackBuilder\TreeDim.StackBuilder.Desktop\AboutBox.it-IT.resx" uniqueID="894e8314-d7a0-49ff-84cf-085d669838ff" />
-      <file filePath="TreeDim.StackBuilder.Desktop\AboutBox.ja-JP.resx" absoluteFilePath="K:\GitHub\StackBuilder\TreeDim.StackBuilder.Desktop\AboutBox.ja-JP.resx" uniqueID="862cfc4b-6ec4-43c3-bfd7-0a3c69bf5485" />
-      <file filePath="TreeDim.StackBuilder.Desktop\AboutBox.nl-NL.resx" absoluteFilePath="K:\GitHub\StackBuilder\TreeDim.StackBuilder.Desktop\AboutBox.nl-NL.resx" uniqueID="9698a0d0-cb98-4f1d-90c3-f3ff9d1659ba" />
+    <fileGroup name="" projectFolderUniqueID="c905ceed-1323-4544-a3c0-48f56f50c8a6" orderPosition="0" ignoreDuringExportAndImport="False" uniqueID="4ccd9362-c8b1-470b-aa2f-936f23d85a7b">
+      <file filePath="TreeDim.StackBuilder.GUIExtension.Test\Properties\Resources.resx" absoluteFilePath="K:\GitHub\StackBuilder\TreeDim.StackBuilder.GUIExtension.Test\Properties\Resources.resx" uniqueID="f1e9cd99-b51d-494f-ad56-6fa1e511e945" />
+      <file filePath="TreeDim.StackBuilder.GUIExtension.Test\Properties\Resources.it-IT.resx" absoluteFilePath="K:\GitHub\StackBuilder\TreeDim.StackBuilder.GUIExtension.Test\Properties\Resources.it-IT.resx" uniqueID="07d7d344-8c05-4cb9-a44f-1d2014d484b4" />
+      <remarks>
+      </remarks>
+    </fileGroup>
+    <fileGroup name="" projectFolderUniqueID="df4f4f14-80ff-45eb-9072-c05d7ea3b973" orderPosition="0" ignoreDuringExportAndImport="False" uniqueID="f507427e-014a-463f-ab24-189e0a236eec">
+      <file filePath="TreeDim.StackBuilder.GUIExtension\Properties\Resources.resx" absoluteFilePath="K:\GitHub\StackBuilder\TreeDim.StackBuilder.GUIExtension\Properties\Resources.resx" uniqueID="0fc20503-7cce-485b-af09-8f8bb5f55ac2" />
+      <file filePath="TreeDim.StackBuilder.GUIExtension\Properties\Resources.fr-FR.resx" absoluteFilePath="K:\GitHub\StackBuilder\TreeDim.StackBuilder.GUIExtension\Properties\Resources.fr-FR.resx" uniqueID="6842d5c3-bf87-4d28-9dde-32f180f08f68" />
+      <file filePath="TreeDim.StackBuilder.GUIExtension\Properties\Resources.it-IT.resx" absoluteFilePath="K:\GitHub\StackBuilder\TreeDim.StackBuilder.GUIExtension\Properties\Resources.it-IT.resx" uniqueID="cd515cb7-e47a-45be-b7df-086bee83f085" />
+      <remarks>
+      </remarks>
+    </fileGroup>
+    <fileGroup name="" projectFolderUniqueID="aca8985f-0f00-4796-b447-690a9161b983" orderPosition="0" ignoreDuringExportAndImport="False" uniqueID="bef211e1-63ec-4967-a228-9cf5e573aa64">
+      <file filePath="TreeDim.StackBuilder.Graphic\Properties\Resource.resx" absoluteFilePath="K:\GitHub\StackBuilder\TreeDim.StackBuilder.Graphic\Properties\Resource.resx" uniqueID="f9115d24-c874-45f7-a7db-ab79c15e97cc" />
+      <remarks>
+      </remarks>
+    </fileGroup>
+    <fileGroup name="" projectFolderUniqueID="c7309dc6-0cd4-4357-b4e5-d38c7f46368b" orderPosition="0" ignoreDuringExportAndImport="False" uniqueID="ceb83278-a2ca-4ac7-a0f6-bc228940956f">
+      <file filePath="TreeDim.Update\Properties\Resources.resx" absoluteFilePath="K:\GitHub\StackBuilder\TreeDim.Update\Properties\Resources.resx" uniqueID="fd7496f7-3af2-4630-8e7c-29cbd31b500a" />
+      <file filePath="TreeDim.Update\Properties\Resources.de-DE.resx" absoluteFilePath="K:\GitHub\StackBuilder\TreeDim.Update\Properties\Resources.de-DE.resx" uniqueID="873ac807-ad51-4c2c-b1d8-40131fdbc95f" />
+      <file filePath="TreeDim.Update\Properties\Resources.fr-FR.resx" absoluteFilePath="K:\GitHub\StackBuilder\TreeDim.Update\Properties\Resources.fr-FR.resx" uniqueID="2ae2f8f8-a850-443e-9a0e-fdf65c610cdc" />
+      <file filePath="TreeDim.Update\Properties\Resources.it-IT.resx" absoluteFilePath="K:\GitHub\StackBuilder\TreeDim.Update\Properties\Resources.it-IT.resx" uniqueID="0886d4e8-c445-4eb1-8e8d-5b7facfe48e8" />
+      <file filePath="TreeDim.Update\Properties\Resources.ja-JP.resx" absoluteFilePath="K:\GitHub\StackBuilder\TreeDim.Update\Properties\Resources.ja-JP.resx" uniqueID="533b625d-8636-4eed-990d-c33ff13f71d8" />
+      <remarks>
+      </remarks>
+    </fileGroup>
+    <fileGroup name="" projectFolderUniqueID="d3a03767-d2ce-42f4-9632-4f3990e2308f" orderPosition="0" ignoreDuringExportAndImport="False" uniqueID="205530f3-4381-4626-b41d-57894aa33813">
+      <file filePath="treeDiM.StackBuilder.Plugin_INTEX\Properties\Resources.resx" absoluteFilePath="K:\GitHub\StackBuilder\treeDiM.StackBuilder.Plugin_INTEX\Properties\Resources.resx" uniqueID="473eb5a2-540f-4f03-9115-afab429ce181" />
+      <file filePath="treeDiM.StackBuilder.Plugin_INTEX\Properties\Resources.fr-FR.resx" absoluteFilePath="K:\GitHub\StackBuilder\treeDiM.StackBuilder.Plugin_INTEX\Properties\Resources.fr-FR.resx" uniqueID="2eff1cf8-e869-4ddc-a691-afc2157fb7ed" />
+      <file filePath="treeDiM.StackBuilder.Plugin_INTEX\Properties\Resources.it-IT.resx" absoluteFilePath="K:\GitHub\StackBuilder\treeDiM.StackBuilder.Plugin_INTEX\Properties\Resources.it-IT.resx" uniqueID="9e267e2a-5068-4756-8fb5-f139ccc40596" />
       <remarks>
       </remarks>
     </fileGroup>
@@ -276,15 +310,6 @@ Kind regards</globalSetting>
       <remarks>
       </remarks>
     </fileGroup>
-    <fileGroup name="" projectFolderUniqueID="01a5823b-8e11-44e3-a5b1-3acb46084abd" orderPosition="39" ignoreDuringExportAndImport="False" uniqueID="00000000-0000-0000-0000-000000000000">
-      <file filePath="TreeDim.StackBuilder.Desktop\FormExcelLibrary.resx" absoluteFilePath="K:\GitHub\StackBuilder\TreeDim.StackBuilder.Desktop\FormExcelLibrary.resx" uniqueID="00000000-0000-0000-0000-000000000000" />
-      <file filePath="TreeDim.StackBuilder.Desktop\FormExcelLibrary.de-DE.resx" absoluteFilePath="K:\GitHub\StackBuilder\TreeDim.StackBuilder.Desktop\FormExcelLibrary.de-DE.resx" uniqueID="00000000-0000-0000-0000-000000000000" />
-      <file filePath="TreeDim.StackBuilder.Desktop\FormExcelLibrary.es-ES.resx" absoluteFilePath="K:\GitHub\StackBuilder\TreeDim.StackBuilder.Desktop\FormExcelLibrary.es-ES.resx" uniqueID="00000000-0000-0000-0000-000000000000" />
-      <file filePath="TreeDim.StackBuilder.Desktop\FormExcelLibrary.fr-FR.resx" absoluteFilePath="K:\GitHub\StackBuilder\TreeDim.StackBuilder.Desktop\FormExcelLibrary.fr-FR.resx" uniqueID="00000000-0000-0000-0000-000000000000" />
-      <file filePath="TreeDim.StackBuilder.Desktop\FormExcelLibrary.it-IT.resx" absoluteFilePath="K:\GitHub\StackBuilder\TreeDim.StackBuilder.Desktop\FormExcelLibrary.it-IT.resx" uniqueID="00000000-0000-0000-0000-000000000000" />
-      <remarks>
-      </remarks>
-    </fileGroup>
     <fileGroup name="" projectFolderUniqueID="01a5823b-8e11-44e3-a5b1-3acb46084abd" orderPosition="16" ignoreDuringExportAndImport="False" uniqueID="b1dc0db3-ad44-4059-89e1-a8ec46bee66c">
       <file filePath="TreeDim.StackBuilder.Desktop\FormMain.resx" absoluteFilePath="K:\GitHub\StackBuilder\TreeDim.StackBuilder.Desktop\FormMain.resx" uniqueID="65525370-ec8e-4c15-affa-5b39f65d2b70" />
       <file filePath="TreeDim.StackBuilder.Desktop\FormMain.ca-ES.resx" absoluteFilePath="K:\GitHub\StackBuilder\TreeDim.StackBuilder.Desktop\FormMain.ca-ES.resx" uniqueID="95019677-4ff7-4e1c-aba8-594da81d147b" />
@@ -328,13 +353,13 @@ Kind regards</globalSetting>
       <remarks>
       </remarks>
     </fileGroup>
-    <fileGroup name="" projectFolderUniqueID="01a5823b-8e11-44e3-a5b1-3acb46084abd" orderPosition="20" ignoreDuringExportAndImport="False" uniqueID="6c6e21bb-78b9-45e4-bf6f-810fd92287ca">
-      <file filePath="TreeDim.StackBuilder.Desktop\FormNewAnalysisHCylinder.resx" absoluteFilePath="K:\GitHub\StackBuilder\TreeDim.StackBuilder.Desktop\FormNewAnalysisHCylinder.resx" uniqueID="79e2b14e-124b-4308-afb4-7357ea92d488" />
+    <fileGroup name="" projectFolderUniqueID="01a5823b-8e11-44e3-a5b1-3acb46084abd" orderPosition="19" ignoreDuringExportAndImport="False" uniqueID="f029e0c8-2905-48e1-acf4-da2631b45cd9">
+      <file filePath="TreeDim.StackBuilder.Desktop\FormNewAnalysisHCylinder.it-IT.resx" absoluteFilePath="K:\GitHub\StackBuilder\TreeDim.StackBuilder.Desktop\FormNewAnalysisHCylinder.it-IT.resx" uniqueID="ca286e1f-f1a2-4a4d-882d-f596d86572ae" />
       <remarks>
       </remarks>
     </fileGroup>
-    <fileGroup name="" projectFolderUniqueID="01a5823b-8e11-44e3-a5b1-3acb46084abd" orderPosition="19" ignoreDuringExportAndImport="False" uniqueID="f029e0c8-2905-48e1-acf4-da2631b45cd9">
-      <file filePath="TreeDim.StackBuilder.Desktop\FormNewAnalysisHCylinder.it-IT.resx" absoluteFilePath="K:\GitHub\StackBuilder\TreeDim.StackBuilder.Desktop\FormNewAnalysisHCylinder.it-IT.resx" uniqueID="ca286e1f-f1a2-4a4d-882d-f596d86572ae" />
+    <fileGroup name="" projectFolderUniqueID="01a5823b-8e11-44e3-a5b1-3acb46084abd" orderPosition="20" ignoreDuringExportAndImport="False" uniqueID="6c6e21bb-78b9-45e4-bf6f-810fd92287ca">
+      <file filePath="TreeDim.StackBuilder.Desktop\FormNewAnalysisHCylinder.resx" absoluteFilePath="K:\GitHub\StackBuilder\TreeDim.StackBuilder.Desktop\FormNewAnalysisHCylinder.resx" uniqueID="79e2b14e-124b-4308-afb4-7357ea92d488" />
       <remarks>
       </remarks>
     </fileGroup>
@@ -533,37 +558,12 @@ Kind regards</globalSetting>
       <remarks>
       </remarks>
     </fileGroup>
-    <fileGroup name="" projectFolderUniqueID="c905ceed-1323-4544-a3c0-48f56f50c8a6" orderPosition="0" ignoreDuringExportAndImport="False" uniqueID="4ccd9362-c8b1-470b-aa2f-936f23d85a7b">
-      <file filePath="TreeDim.StackBuilder.GUIExtension.Test\Properties\Resources.resx" absoluteFilePath="K:\GitHub\StackBuilder\TreeDim.StackBuilder.GUIExtension.Test\Properties\Resources.resx" uniqueID="f1e9cd99-b51d-494f-ad56-6fa1e511e945" />
-      <file filePath="TreeDim.StackBuilder.GUIExtension.Test\Properties\Resources.it-IT.resx" absoluteFilePath="K:\GitHub\StackBuilder\TreeDim.StackBuilder.GUIExtension.Test\Properties\Resources.it-IT.resx" uniqueID="07d7d344-8c05-4cb9-a44f-1d2014d484b4" />
-      <remarks>
-      </remarks>
-    </fileGroup>
-    <fileGroup name="" projectFolderUniqueID="df4f4f14-80ff-45eb-9072-c05d7ea3b973" orderPosition="0" ignoreDuringExportAndImport="False" uniqueID="f507427e-014a-463f-ab24-189e0a236eec">
-      <file filePath="TreeDim.StackBuilder.GUIExtension\Properties\Resources.resx" absoluteFilePath="K:\GitHub\StackBuilder\TreeDim.StackBuilder.GUIExtension\Properties\Resources.resx" uniqueID="0fc20503-7cce-485b-af09-8f8bb5f55ac2" />
-      <file filePath="TreeDim.StackBuilder.GUIExtension\Properties\Resources.fr-FR.resx" absoluteFilePath="K:\GitHub\StackBuilder\TreeDim.StackBuilder.GUIExtension\Properties\Resources.fr-FR.resx" uniqueID="6842d5c3-bf87-4d28-9dde-32f180f08f68" />
-      <file filePath="TreeDim.StackBuilder.GUIExtension\Properties\Resources.it-IT.resx" absoluteFilePath="K:\GitHub\StackBuilder\TreeDim.StackBuilder.GUIExtension\Properties\Resources.it-IT.resx" uniqueID="cd515cb7-e47a-45be-b7df-086bee83f085" />
-      <remarks>
-      </remarks>
-    </fileGroup>
-    <fileGroup name="" projectFolderUniqueID="aca8985f-0f00-4796-b447-690a9161b983" orderPosition="0" ignoreDuringExportAndImport="False" uniqueID="bef211e1-63ec-4967-a228-9cf5e573aa64">
-      <file filePath="TreeDim.StackBuilder.Graphic\Properties\Resource.resx" absoluteFilePath="K:\GitHub\StackBuilder\TreeDim.StackBuilder.Graphic\Properties\Resource.resx" uniqueID="f9115d24-c874-45f7-a7db-ab79c15e97cc" />
-      <remarks>
-      </remarks>
-    </fileGroup>
-    <fileGroup name="" projectFolderUniqueID="c7309dc6-0cd4-4357-b4e5-d38c7f46368b" orderPosition="0" ignoreDuringExportAndImport="False" uniqueID="ceb83278-a2ca-4ac7-a0f6-bc228940956f">
-      <file filePath="TreeDim.Update\Properties\Resources.resx" absoluteFilePath="K:\GitHub\StackBuilder\TreeDim.Update\Properties\Resources.resx" uniqueID="fd7496f7-3af2-4630-8e7c-29cbd31b500a" />
-      <file filePath="TreeDim.Update\Properties\Resources.de-DE.resx" absoluteFilePath="K:\GitHub\StackBuilder\TreeDim.Update\Properties\Resources.de-DE.resx" uniqueID="873ac807-ad51-4c2c-b1d8-40131fdbc95f" />
-      <file filePath="TreeDim.Update\Properties\Resources.fr-FR.resx" absoluteFilePath="K:\GitHub\StackBuilder\TreeDim.Update\Properties\Resources.fr-FR.resx" uniqueID="2ae2f8f8-a850-443e-9a0e-fdf65c610cdc" />
-      <file filePath="TreeDim.Update\Properties\Resources.it-IT.resx" absoluteFilePath="K:\GitHub\StackBuilder\TreeDim.Update\Properties\Resources.it-IT.resx" uniqueID="0886d4e8-c445-4eb1-8e8d-5b7facfe48e8" />
-      <file filePath="TreeDim.Update\Properties\Resources.ja-JP.resx" absoluteFilePath="K:\GitHub\StackBuilder\TreeDim.Update\Properties\Resources.ja-JP.resx" uniqueID="533b625d-8636-4eed-990d-c33ff13f71d8" />
-      <remarks>
-      </remarks>
-    </fileGroup>
-    <fileGroup name="" projectFolderUniqueID="d3a03767-d2ce-42f4-9632-4f3990e2308f" orderPosition="0" ignoreDuringExportAndImport="False" uniqueID="205530f3-4381-4626-b41d-57894aa33813">
-      <file filePath="treeDiM.StackBuilder.Plugin_INTEX\Properties\Resources.resx" absoluteFilePath="K:\GitHub\StackBuilder\treeDiM.StackBuilder.Plugin_INTEX\Properties\Resources.resx" uniqueID="473eb5a2-540f-4f03-9115-afab429ce181" />
-      <file filePath="treeDiM.StackBuilder.Plugin_INTEX\Properties\Resources.fr-FR.resx" absoluteFilePath="K:\GitHub\StackBuilder\treeDiM.StackBuilder.Plugin_INTEX\Properties\Resources.fr-FR.resx" uniqueID="2eff1cf8-e869-4ddc-a691-afc2157fb7ed" />
-      <file filePath="treeDiM.StackBuilder.Plugin_INTEX\Properties\Resources.it-IT.resx" absoluteFilePath="K:\GitHub\StackBuilder\treeDiM.StackBuilder.Plugin_INTEX\Properties\Resources.it-IT.resx" uniqueID="9e267e2a-5068-4756-8fb5-f139ccc40596" />
+    <fileGroup name="" projectFolderUniqueID="01a5823b-8e11-44e3-a5b1-3acb46084abd" orderPosition="39" ignoreDuringExportAndImport="False" uniqueID="a723bb75-dacd-439e-9ec5-70fd2e5d1df7">
+      <file filePath="TreeDim.StackBuilder.Desktop\FormExcelLibrary.resx" absoluteFilePath="K:\GitHub\StackBuilder\TreeDim.StackBuilder.Desktop\FormExcelLibrary.resx" uniqueID="6983b3c0-1392-4b67-b8f4-128d0523c3d3" />
+      <file filePath="TreeDim.StackBuilder.Desktop\FormExcelLibrary.de-DE.resx" absoluteFilePath="K:\GitHub\StackBuilder\TreeDim.StackBuilder.Desktop\FormExcelLibrary.de-DE.resx" uniqueID="a2b48d18-a35e-4109-b05b-11e416602faa" />
+      <file filePath="TreeDim.StackBuilder.Desktop\FormExcelLibrary.es-ES.resx" absoluteFilePath="K:\GitHub\StackBuilder\TreeDim.StackBuilder.Desktop\FormExcelLibrary.es-ES.resx" uniqueID="f62d1b1f-7f85-4542-bae9-680d2b62bc18" />
+      <file filePath="TreeDim.StackBuilder.Desktop\FormExcelLibrary.fr-FR.resx" absoluteFilePath="K:\GitHub\StackBuilder\TreeDim.StackBuilder.Desktop\FormExcelLibrary.fr-FR.resx" uniqueID="ee03ea07-6bed-4f32-8234-dff9b4245fb0" />
+      <file filePath="TreeDim.StackBuilder.Desktop\FormExcelLibrary.it-IT.resx" absoluteFilePath="K:\GitHub\StackBuilder\TreeDim.StackBuilder.Desktop\FormExcelLibrary.it-IT.resx" uniqueID="e55221ce-ba63-42b5-8051-d4eb208e9f38" />
       <remarks>
       </remarks>
     </fileGroup>

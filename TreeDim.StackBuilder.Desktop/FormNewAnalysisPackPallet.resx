@@ -413,7 +413,7 @@
     <value>uCtrlOptOverhangYMin</value>
   </data>
   <data name="&gt;&gt;uCtrlOptOverhangYMin.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlOptDouble, treeDiM.StackBuilder.Basics, Version=2.0.24.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Basics.UCtrlOptDouble, treeDiM.StackBuilder.Basics, Version=2.0.25.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlOptOverhangYMin.Parent" xml:space="preserve">
     <value>gbOverhang</value>
@@ -448,7 +448,7 @@
     <value>uCtrlOptOverhangXMin</value>
   </data>
   <data name="&gt;&gt;uCtrlOptOverhangXMin.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlOptDouble, treeDiM.StackBuilder.Basics, Version=2.0.24.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Basics.UCtrlOptDouble, treeDiM.StackBuilder.Basics, Version=2.0.25.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlOptOverhangXMin.Parent" xml:space="preserve">
     <value>gbOverhang</value>
@@ -475,7 +475,7 @@
     <value>uCtrlOverhangY</value>
   </data>
   <data name="&gt;&gt;uCtrlOverhangY.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlDouble, treeDiM.StackBuilder.Basics, Version=2.0.24.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Basics.UCtrlDouble, treeDiM.StackBuilder.Basics, Version=2.0.25.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlOverhangY.Parent" xml:space="preserve">
     <value>gbOverhang</value>
@@ -502,7 +502,7 @@
     <value>uCtrlOverhangX</value>
   </data>
   <data name="&gt;&gt;uCtrlOverhangX.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlDouble, treeDiM.StackBuilder.Basics, Version=2.0.24.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Basics.UCtrlDouble, treeDiM.StackBuilder.Basics, Version=2.0.25.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlOverhangX.Parent" xml:space="preserve">
     <value>gbOverhang</value>
@@ -561,7 +561,7 @@
     <value>uCtrlOptMinimumSpace</value>
   </data>
   <data name="&gt;&gt;uCtrlOptMinimumSpace.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlOptDouble, treeDiM.StackBuilder.Basics, Version=2.0.24.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Basics.UCtrlOptDouble, treeDiM.StackBuilder.Basics, Version=2.0.25.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlOptMinimumSpace.Parent" xml:space="preserve">
     <value>$this</value>
@@ -596,7 +596,7 @@
     <value>uCtrlOptMaximumWeight</value>
   </data>
   <data name="&gt;&gt;uCtrlOptMaximumWeight.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlOptDouble, treeDiM.StackBuilder.Basics, Version=2.0.24.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Basics.UCtrlOptDouble, treeDiM.StackBuilder.Basics, Version=2.0.25.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlOptMaximumWeight.Parent" xml:space="preserve">
     <value>groupBox1</value>
@@ -631,7 +631,7 @@
     <value>uCtrlOptMaximumHeight</value>
   </data>
   <data name="&gt;&gt;uCtrlOptMaximumHeight.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlOptDouble, treeDiM.StackBuilder.Basics, Version=2.0.24.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Basics.UCtrlOptDouble, treeDiM.StackBuilder.Basics, Version=2.0.25.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlOptMaximumHeight.Parent" xml:space="preserve">
     <value>groupBox1</value>
@@ -690,7 +690,7 @@
     <value>uCtrlOptMaximumLayerWeight</value>
   </data>
   <data name="&gt;&gt;uCtrlOptMaximumLayerWeight.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlOptDouble, treeDiM.StackBuilder.Basics, Version=2.0.24.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Basics.UCtrlOptDouble, treeDiM.StackBuilder.Basics, Version=2.0.25.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlOptMaximumLayerWeight.Parent" xml:space="preserve">
     <value>gbAdditionnalFiltering</value>
@@ -725,7 +725,7 @@
     <value>uCtrlOptMaximumSpace</value>
   </data>
   <data name="&gt;&gt;uCtrlOptMaximumSpace.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlOptDouble, treeDiM.StackBuilder.Basics, Version=2.0.24.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Basics.UCtrlOptDouble, treeDiM.StackBuilder.Basics, Version=2.0.25.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlOptMaximumSpace.Parent" xml:space="preserve">
     <value>gbAdditionnalFiltering</value>
@@ -782,6 +782,6 @@
     <value>FormNewAnalysisPackPallet</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Desktop.FormNewBase, treeDiM.StackBuilder.Desktop, Version=2.0.24.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Desktop.FormNewBase, treeDiM.StackBuilder.Desktop, Version=2.0.25.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>
