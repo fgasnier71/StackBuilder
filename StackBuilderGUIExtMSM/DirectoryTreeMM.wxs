@@ -3,7 +3,7 @@
   <Fragment>
     <Directory Id="TARGETDIR" Name="SourceDir">
       <Directory Id="MergeRedirectFolder">
-        <Directory Id="BIN32" Name="Bin8_32"/>
+        <Directory Id="BIN32" Name="Bin8_2D"/>
         <Directory Id="REPORTTEMPLATES" Name="ReportTemplates"/>
       </Directory>
     </Directory>
