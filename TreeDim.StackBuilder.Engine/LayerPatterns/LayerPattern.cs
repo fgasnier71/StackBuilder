@@ -19,6 +19,8 @@ namespace treeDiM.StackBuilder.Engine
         abstract public string Name { get; }
         abstract public bool GetLayerDimensions(Layer layer, out double actualLength, out double actualWidth);
         abstract public void GenerateLayer(Layer layer, double actualLength, double actualWidth);
+        public void GenerateLayer(Layer2D layer, double actualLength, double actualWidth)
+        { }
         abstract public int GetNumberOfVariants(Layer layer);
         abstract public bool CanBeSwapped { get; }
         abstract public bool CanBeInverted { get; }
@@ -69,6 +71,13 @@ namespace treeDiM.StackBuilder.Engine
                 throw new EngineException(string.Format("Pattern name={0} : actualWidth={1} > palletWidth={2} ?"
                     , this.Name, actualWidth, GetPalletWidth(layer)));
             return result;
+        }
+
+        public bool GetLayerDimensionsChecked(Layer2D layer, out double actualLength, out double actualWidth)
+        {
+            actualLength = 0.0;
+            actualWidth = 0.0;
+            return true;
         }
 
         public void AddPosition(Layer layer, Vector2D vPosition, HalfAxis.HAxis lengthAxis, HalfAxis.HAxis widthAxis)

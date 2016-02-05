@@ -127,11 +127,8 @@
   <data name="&gt;&gt;gbAllowedLayerPatterns.Type" xml:space="preserve">
     <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;checkBoxAllowAlternateLayer.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;checkBoxAllowAlignedLayer.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;cbInterlayer.Name" xml:space="preserve">
+    <value>cbInterlayer</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="uLengthPalletHeight.TabIndex" type="System.Int32, mscorlib">
@@ -140,17 +137,20 @@
   <data name="checkBoxMaximumNumberOfBoxes.TabIndex" type="System.Int32, mscorlib">
     <value>19</value>
   </data>
-  <data name="gbAllowedBoxPositions.Size" type="System.Drawing.Size, System.Drawing">
-    <value>377, 186</value>
-  </data>
   <data name="&gt;&gt;checkBoxPositionY.Parent" xml:space="preserve">
     <value>gbAllowedBoxPositions</value>
+  </data>
+  <data name="pictureBoxPositionX.Size" type="System.Drawing.Size, System.Drawing">
+    <value>107, 92</value>
   </data>
   <data name="&gt;&gt;chkbPalletCap.Parent" xml:space="preserve">
     <value>tabPagePalletCap</value>
   </data>
   <data name="checkBoxInterlayer.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
+  </data>
+  <data name="&gt;&gt;gbAllowedBoxPositions.ZOrder" xml:space="preserve">
+    <value>10</value>
   </data>
   <data name="&gt;&gt;checkBoxPositionX.Parent" xml:space="preserve">
     <value>gbAllowedBoxPositions</value>
@@ -176,14 +176,17 @@
   <data name="gbOverhangUnderhang.Location" type="System.Drawing.Point, System.Drawing">
     <value>5, 196</value>
   </data>
+  <data name="lbNumberOfTurns.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
   <data name="tabPageInterlayerAntiSlip.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 22</value>
   </data>
   <data name="&gt;&gt;checkBoxAntiSlipInterlayer.Type" xml:space="preserve">
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;cbPallet.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="uMassLoadLowerCases.TabIndex" type="System.Int32, mscorlib">
+    <value>28</value>
   </data>
   <data name="nudMaximumPalletHeight.Location" type="System.Drawing.Point, System.Drawing">
     <value>205, 62</value>
@@ -197,17 +200,11 @@
   <data name="checkBoxMaximumLoadOnBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>9, 113</value>
   </data>
-  <data name="checkBoxAllowAlternateLayer.TabIndex" type="System.Int32, mscorlib">
-    <value>42</value>
-  </data>
   <data name="nudMaximumPalletWeight.Location" type="System.Drawing.Point, System.Drawing">
     <value>205, 86</value>
   </data>
   <data name="&gt;&gt;nudMaximumPalletHeight.Parent" xml:space="preserve">
     <value>gbStopStackingCondition</value>
-  </data>
-  <data name="&gt;&gt;cbPallet.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;gbOverhangUnderhang.ZOrder" xml:space="preserve">
     <value>4</value>
@@ -236,32 +233,32 @@
   <data name="&gt;&gt;cbInterlayer.Type" xml:space="preserve">
     <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="checkBoxAllowTwoLayerOrient.Text" xml:space="preserve">
-    <value>allow using a combination of 2 layer directions</value>
-  </data>
-  <data name="tabPagePalletCorners.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+  <data name="checkBoxMaximumLoadOnBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>190, 17</value>
   </data>
   <data name="&gt;&gt;lbNumberOfTurns.Parent" xml:space="preserve">
     <value>tabPagePalletFilm</value>
   </data>
+  <data name="tabPagePalletCorners.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;toolStripStatusLabelDef.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="nudMaximumNumberOfBoxes.Location" type="System.Drawing.Point, System.Drawing">
+    <value>205, 38</value>
+  </data>
   <data name="&gt;&gt;checkBoxPositionZ.Type" xml:space="preserve">
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="chkbPalletFilm.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="tabControlAddFeat.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 90</value>
   </data>
   <data name="&gt;&gt;checkBoxAllowAlternateLayer.Parent" xml:space="preserve">
     <value>gbLayerAlignment</value>
   </data>
   <data name="&gt;&gt;tabPagePalletFilm.ZOrder" xml:space="preserve">
     <value>4</value>
-  </data>
-  <data name="gbAllowedBoxPositions.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
-  </data>
-  <data name="tbDescription.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
   </data>
   <data name="lbPalletOverhangWidth.TabIndex" type="System.Int32, mscorlib">
     <value>37</value>
@@ -281,20 +278,11 @@
   <data name="&gt;&gt;pictureBoxPositionZ.Type" xml:space="preserve">
     <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;pictureBoxPositionY.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;gbStopStackingCondition.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="nudMaximumLoadOnBox.TabIndex" type="System.Int32, mscorlib">
     <value>27</value>
-  </data>
-  <data name="lbBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>13, 63</value>
-  </data>
-  <data name="&gt;&gt;checkBoxMaximumLoadOnBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="label2.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -305,14 +293,11 @@
   <data name="uMassPalletWeight.Text" xml:space="preserve">
     <value>uMass</value>
   </data>
-  <data name="&gt;&gt;cbInterlayer.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="checkBoxPositionZ.Size" type="System.Drawing.Size, System.Drawing">
+    <value>33, 17</value>
   </data>
-  <data name="gbLayerAlignment.Size" type="System.Drawing.Size, System.Drawing">
-    <value>259, 78</value>
-  </data>
-  <data name="nudPalletOverhangY.Location" type="System.Drawing.Point, System.Drawing">
-    <value>83, 43</value>
+  <data name="&gt;&gt;nudNumberOfTurns.Parent" xml:space="preserve">
+    <value>tabPagePalletFilm</value>
   </data>
   <data name="&gt;&gt;gbOverhangUnderhang.Name" xml:space="preserve">
     <value>gbOverhangUnderhang</value>
@@ -338,17 +323,11 @@
   <data name="&gt;&gt;nudNumberOfTurns.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;nudNumberOfTurns.Parent" xml:space="preserve">
-    <value>tabPagePalletFilm</value>
-  </data>
   <data name="&gt;&gt;uLengthOverhangY.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="tbName.Size" type="System.Drawing.Size, System.Drawing">
     <value>150, 20</value>
-  </data>
-  <data name="&gt;&gt;uMassLoadLowerCases.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;bnCancel.ZOrder" xml:space="preserve">
     <value>15</value>
@@ -356,20 +335,23 @@
   <data name="uLengthOverhangX.Text" xml:space="preserve">
     <value>uLength</value>
   </data>
+  <data name="lbInterlayerFreq1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>39, 13</value>
+  </data>
   <data name="uMassPalletWeight.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="&gt;&gt;uLengthPalletHeight.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="checkBoxMaximumLoadOnBox.Text" xml:space="preserve">
+    <value>when load on lower boxes reaches</value>
+  </data>
+  <data name="&gt;&gt;nudInterlayerFreq.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="checkBoxMaximumPalletWeight.TabIndex" type="System.Int32, mscorlib">
     <value>22</value>
   </data>
   <data name="checkBoxMaximumPalletWeight.Text" xml:space="preserve">
     <value>when total pallet weight reaches</value>
-  </data>
-  <data name="&gt;&gt;checkBoxAllowTwoLayerOrient.Parent" xml:space="preserve">
-    <value>gbAllowedBoxPositions</value>
   </data>
   <data name="cbPalletFilm.Location" type="System.Drawing.Point, System.Drawing">
     <value>124, 9</value>
@@ -389,8 +371,8 @@
   <data name="toolStripStatusLabelDef.Text" xml:space="preserve">
     <value>toolStripStatusLabelDef</value>
   </data>
-  <data name="pictureBoxPositionY.Location" type="System.Drawing.Point, System.Drawing">
-    <value>131, 18</value>
+  <data name="gbLayerAlignment.TabIndex" type="System.Int32, mscorlib">
+    <value>43</value>
   </data>
   <data name="&gt;&gt;checkBoxMaximumLoadOnBox.Parent" xml:space="preserve">
     <value>gbStopStackingCondition</value>
@@ -398,11 +380,11 @@
   <data name="checkBoxMaximumLoadOnBox.TabIndex" type="System.Int32, mscorlib">
     <value>23</value>
   </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>584, 642</value>
+  </data>
   <data name="cbBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>129, 63</value>
-  </data>
-  <data name="lbBox.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
   </data>
   <data name="bnOk.Location" type="System.Drawing.Point, System.Drawing">
     <value>497, 9</value>
@@ -419,8 +401,8 @@
   <data name="label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="lbInterlayerFreq1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>39, 13</value>
+  <data name="&gt;&gt;cbPallet.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="&gt;&gt;cbPalletCorners.Parent" xml:space="preserve">
     <value>tabPagePalletCorners</value>
@@ -437,8 +419,8 @@
   <data name="checkBoxAllowChangingLastLayerOrient.Location" type="System.Drawing.Point, System.Drawing">
     <value>8, 163</value>
   </data>
-  <data name="&gt;&gt;nudMaximumPalletWeight.ZOrder" xml:space="preserve">
-    <value>4</value>
+  <data name="&gt;&gt;chkbPalletFilm.Parent" xml:space="preserve">
+    <value>tabPagePalletFilm</value>
   </data>
   <data name="&gt;&gt;checkBoxPositionX.ZOrder" xml:space="preserve">
     <value>4</value>
@@ -451,9 +433,6 @@
   </data>
   <data name="&gt;&gt;nudMaximumNumberOfBoxes.Type" xml:space="preserve">
     <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;nudMaximumLoadOnBox.Parent" xml:space="preserve">
-    <value>gbStopStackingCondition</value>
   </data>
   <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
     <value>13</value>
@@ -485,20 +464,14 @@
   <data name="nudMaximumLoadOnBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>205, 111</value>
   </data>
-  <data name="&gt;&gt;tbDescription.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
   <data name="lbPalletOverhangLength.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 22</value>
   </data>
   <data name="&gt;&gt;statusStripDef.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="checkBoxPositionZ.Location" type="System.Drawing.Point, System.Drawing">
-    <value>254, 117</value>
-  </data>
-  <data name="checkBoxPositionX.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 117</value>
+  <data name="cbInterlayer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 21</value>
   </data>
   <data name="lbInterlayerFreq1.TabIndex" type="System.Int32, mscorlib">
     <value>33</value>
@@ -512,14 +485,17 @@
   <data name="&gt;&gt;gbOverhangUnderhang.Type" xml:space="preserve">
     <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;gbOverhangUnderhang.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
   <data name="uMassLoadLowerCases.Location" type="System.Drawing.Point, System.Drawing">
     <value>270, 115</value>
   </data>
   <data name="checkedListBoxPatterns.Items" xml:space="preserve">
     <value>Column</value>
   </data>
-  <data name="gbOverhangUnderhang.Size" type="System.Drawing.Size, System.Drawing">
-    <value>304, 78</value>
+  <data name="&gt;&gt;nudMaximumNumberOfBoxes.Name" xml:space="preserve">
+    <value>nudMaximumNumberOfBoxes</value>
   </data>
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
     <value>13, 36</value>
@@ -544,9 +520,6 @@
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tbName.ZOrder" xml:space="preserve">
-    <value>12</value>
   </data>
   <data name="&gt;&gt;checkBoxAllowAlignedLayer.Parent" xml:space="preserve">
     <value>gbLayerAlignment</value>
@@ -576,8 +549,14 @@
   <data name="gbStopStackingCondition.Size" type="System.Drawing.Size, System.Drawing">
     <value>377, 138</value>
   </data>
-  <data name="cbInterlayerAntiSlip.Location" type="System.Drawing.Point, System.Drawing">
-    <value>124, 6</value>
+  <data name="lbPalletOverhangWidth.Text" xml:space="preserve">
+    <value>Width</value>
+  </data>
+  <data name="&gt;&gt;checkBoxPositionY.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="tabPagePalletCorners.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
   </data>
   <data name="checkBoxAllowAlignedLayer.Text" xml:space="preserve">
     <value>allow aligned layer</value>
@@ -593,9 +572,6 @@
   </data>
   <data name="&gt;&gt;checkedListBoxPatterns.ZOrder" xml:space="preserve">
     <value>0</value>
-  </data>
-  <data name="checkBoxPositionY.Size" type="System.Drawing.Size, System.Drawing">
-    <value>33, 17</value>
   </data>
   <data name="lbBox.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
@@ -615,17 +591,20 @@
   <data name="&gt;&gt;checkBoxMaximumPalletWeight.Name" xml:space="preserve">
     <value>checkBoxMaximumPalletWeight</value>
   </data>
+  <data name="&gt;&gt;label1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;nudMaximumPalletHeight.ZOrder" xml:space="preserve">
     <value>5</value>
+  </data>
+  <data name="chkbPalletCorners.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 9</value>
   </data>
   <data name="checkBoxMaximumPalletHeight.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="checkBoxPositionX.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
-  </data>
-  <data name="lbPallet.Size" type="System.Drawing.Size, System.Drawing">
-    <value>33, 13</value>
   </data>
   <data name="uMassPalletWeight.Size" type="System.Drawing.Size, System.Drawing">
     <value>38, 13</value>
@@ -638,6 +617,9 @@
   </data>
   <data name="&gt;&gt;lbNumberOfTurns.ZOrder" xml:space="preserve">
     <value>1</value>
+  </data>
+  <data name="gbLayerAlignment.Text" xml:space="preserve">
+    <value>Layer alignment</value>
   </data>
   <data name="lbInterlayerFreq2.Location" type="System.Drawing.Point, System.Drawing">
     <value>364, 10</value>
@@ -654,8 +636,8 @@
   <data name="&gt;&gt;cbPallet.Name" xml:space="preserve">
     <value>cbPallet</value>
   </data>
-  <data name="lbStopStacking.TabIndex" type="System.Int32, mscorlib">
-    <value>21</value>
+  <data name="&gt;&gt;uMassPalletWeight.Parent" xml:space="preserve">
+    <value>gbStopStackingCondition</value>
   </data>
   <data name="chkbPalletCorners.Text" xml:space="preserve">
     <value>Corners</value>
@@ -669,6 +651,9 @@
   <data name="&gt;&gt;label1.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
+  <data name="&gt;&gt;pictureBoxPositionX.Parent" xml:space="preserve">
+    <value>gbAllowedBoxPositions</value>
+  </data>
   <data name="checkBoxMaximumNumberOfBoxes.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -680,6 +665,9 @@
   </data>
   <data name="checkBoxAntiSlipInterlayer.Size" type="System.Drawing.Size, System.Drawing">
     <value>107, 17</value>
+  </data>
+  <data name="tbDescription.Location" type="System.Drawing.Point, System.Drawing">
+    <value>128, 36</value>
   </data>
   <data name="lbInterlayerFreq1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -702,6 +690,9 @@
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>35, 13</value>
   </data>
+  <data name="&gt;&gt;lbPalletOverhangLength.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
   <data name="&gt;&gt;tabPagePalletFilm.Name" xml:space="preserve">
     <value>tabPagePalletFilm</value>
   </data>
@@ -714,6 +705,9 @@
   <data name="&gt;&gt;tabPagePalletFilm.Type" xml:space="preserve">
     <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="statusStripDef.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 620</value>
+  </data>
   <data name="lbInterlayerFreq2.Size" type="System.Drawing.Size, System.Drawing">
     <value>34, 13</value>
   </data>
@@ -723,8 +717,8 @@
   <data name="tabPagePalletFilm.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 22</value>
   </data>
-  <data name="&gt;&gt;checkBoxMaximumNumberOfBoxes.ZOrder" xml:space="preserve">
-    <value>11</value>
+  <data name="&gt;&gt;checkBoxAllowAlignedLayer.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;checkBoxPositionZ.ZOrder" xml:space="preserve">
     <value>2</value>
@@ -741,20 +735,20 @@
   <data name="lbBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>31, 13</value>
   </data>
+  <data name="checkBoxAntiSlipInterlayer.TabIndex" type="System.Int32, mscorlib">
+    <value>50</value>
+  </data>
   <data name="lbPallet.Location" type="System.Drawing.Point, System.Drawing">
     <value>312, 63</value>
-  </data>
-  <data name="checkBoxAllowAlignedLayer.TabIndex" type="System.Int32, mscorlib">
-    <value>41</value>
-  </data>
-  <data name="chkbPalletCorners.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
   </data>
   <data name="&gt;&gt;checkBoxAllowAlternateLayer.Name" xml:space="preserve">
     <value>checkBoxAllowAlternateLayer</value>
   </data>
   <data name="&gt;&gt;uLengthOverhangX.Parent" xml:space="preserve">
     <value>gbOverhangUnderhang</value>
+  </data>
+  <data name="&gt;&gt;lbInterlayerFreq1.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="&gt;&gt;lbPalletOverhangWidth.Name" xml:space="preserve">
     <value>lbPalletOverhangWidth</value>
@@ -783,14 +777,14 @@
   <data name="&gt;&gt;tbDescription.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;tbName.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;uMassLoadLowerCases.Parent" xml:space="preserve">
     <value>gbStopStackingCondition</value>
   </data>
   <data name="chkbPalletCap.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
+  </data>
+  <data name="lbPalletOverhangWidth.Size" type="System.Drawing.Size, System.Drawing">
+    <value>35, 13</value>
   </data>
   <data name="cbBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>121, 21</value>
@@ -804,14 +798,11 @@
   <data name="bnCancel.Text" xml:space="preserve">
     <value>Cancel</value>
   </data>
-  <data name="&gt;&gt;nudMaximumNumberOfBoxes.Name" xml:space="preserve">
-    <value>nudMaximumNumberOfBoxes</value>
+  <data name="&gt;&gt;cbInterlayer.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="&gt;&gt;pictureBoxPositionX.Name" xml:space="preserve">
     <value>pictureBoxPositionX</value>
-  </data>
-  <data name="nudInterlayerFreq.Location" type="System.Drawing.Point, System.Drawing">
-    <value>304, 6</value>
   </data>
   <data name="&gt;&gt;checkBoxAllowChangingLastLayerOrient.Name" xml:space="preserve">
     <value>checkBoxAllowChangingLastLayerOrient</value>
@@ -825,32 +816,32 @@
   <data name="gbOverhangUnderhang.Text" xml:space="preserve">
     <value>Pallet overhang / underhang</value>
   </data>
+  <data name="lbPalletOverhangLength.Size" type="System.Drawing.Size, System.Drawing">
+    <value>40, 13</value>
+  </data>
   <data name="lbPalletOverhangLength.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="gbAllowedBoxPositions.Location" type="System.Drawing.Point, System.Drawing">
     <value>5, 280</value>
   </data>
-  <data name="&gt;&gt;cbPalletCap.Name" xml:space="preserve">
-    <value>cbPalletCap</value>
+  <data name="&gt;&gt;nudMaximumPalletWeight.ZOrder" xml:space="preserve">
+    <value>4</value>
   </data>
   <data name="lbStopStacking.Location" type="System.Drawing.Point, System.Drawing">
     <value>9, 20</value>
   </data>
-  <data name="&gt;&gt;lbStopStacking.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="&gt;&gt;nudInterlayerFreq.Name" xml:space="preserve">
-    <value>nudInterlayerFreq</value>
-  </data>
-  <data name="label2.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="&gt;&gt;pictureBoxPositionZ.Name" xml:space="preserve">
+    <value>pictureBoxPositionZ</value>
   </data>
   <data name="&gt;&gt;tabPagePalletCap.Type" xml:space="preserve">
     <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="cbPalletCorners.Size" type="System.Drawing.Size, System.Drawing">
-    <value>121, 21</value>
+  <data name="&gt;&gt;checkBoxMaximumNumberOfBoxes.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="&gt;&gt;cbPalletCap.Name" xml:space="preserve">
+    <value>cbPalletCap</value>
   </data>
   <data name="&gt;&gt;cbInterlayer.Parent" xml:space="preserve">
     <value>tabPageInterlayer</value>
@@ -872,9 +863,6 @@
   </data>
   <data name="gbStopStackingCondition.Text" xml:space="preserve">
     <value>Additional stop stacking condition</value>
-  </data>
-  <data name="&gt;&gt;gbAllowedLayerPatterns.Name" xml:space="preserve">
-    <value>gbAllowedLayerPatterns</value>
   </data>
   <data name="&gt;&gt;gbAllowedLayerPatterns.Parent" xml:space="preserve">
     <value>$this</value>
@@ -900,8 +888,8 @@
   <data name="checkBoxInterlayer.TabIndex" type="System.Int32, mscorlib">
     <value>31</value>
   </data>
-  <data name="&gt;&gt;tbDescription.Name" xml:space="preserve">
-    <value>tbDescription</value>
+  <data name="&gt;&gt;cbPalletFilm.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="nudInterlayerFreq.Size" type="System.Drawing.Size, System.Drawing">
     <value>45, 20</value>
@@ -915,8 +903,11 @@
   <data name="&gt;&gt;pictureBoxPositionY.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
-  <data name="&gt;&gt;nudMaximumPalletWeight.Name" xml:space="preserve">
-    <value>nudMaximumPalletWeight</value>
+  <data name="nudPalletOverhangY.TabIndex" type="System.Int32, mscorlib">
+    <value>39</value>
+  </data>
+  <data name="tabPageInterlayerAntiSlip.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
   </data>
   <data name="checkBoxMaximumPalletHeight.TabIndex" type="System.Int32, mscorlib">
     <value>20</value>
@@ -969,9 +960,6 @@
   <data name="&gt;&gt;tabPageInterlayerAntiSlip.Type" xml:space="preserve">
     <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;gbAllowedBoxPositions.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;pictureBoxPositionX.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
@@ -980,9 +968,6 @@
   </data>
   <data name="uLengthPalletHeight.Location" type="System.Drawing.Point, System.Drawing">
     <value>270, 66</value>
-  </data>
-  <data name="lbNumberOfTurns.Text" xml:space="preserve">
-    <value>Number of turns</value>
   </data>
   <data name="&gt;&gt;checkBoxMaximumPalletHeight.ZOrder" xml:space="preserve">
     <value>10</value>
@@ -993,11 +978,14 @@
   <data name="pictureBoxPositionY.Size" type="System.Drawing.Size, System.Drawing">
     <value>107, 92</value>
   </data>
+  <data name="bnOk.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
   <data name="cbPalletCap.Size" type="System.Drawing.Size, System.Drawing">
     <value>121, 21</value>
   </data>
-  <data name="&gt;&gt;cbInterlayer.Name" xml:space="preserve">
-    <value>cbInterlayer</value>
+  <data name="checkBoxPositionX.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 117</value>
   </data>
   <data name="pictureBoxPositionX.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -1005,8 +993,8 @@
   <data name="&gt;&gt;cbPalletFilm.Name" xml:space="preserve">
     <value>cbPalletFilm</value>
   </data>
-  <data name="&gt;&gt;lbNumberOfTurns.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="tabPagePalletFilm.Size" type="System.Drawing.Size, System.Drawing">
+    <value>559, 76</value>
   </data>
   <data name="&gt;&gt;checkBoxMaximumPalletHeight.Parent" xml:space="preserve">
     <value>gbStopStackingCondition</value>
@@ -1020,6 +1008,9 @@
   <data name="tabPageInterlayerAntiSlip.Text" xml:space="preserve">
     <value>Anti-slip interlayer</value>
   </data>
+  <data name="gbLayerAlignment.Size" type="System.Drawing.Size, System.Drawing">
+    <value>259, 78</value>
+  </data>
   <data name="checkedListBoxPatterns.Items3" xml:space="preserve">
     <value>Trilock</value>
   </data>
@@ -1028,6 +1019,9 @@
   </data>
   <data name="chkbPalletCap.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
+  </data>
+  <data name="bnCancel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
   </data>
   <data name="&gt;&gt;uLengthOverhangX.Name" xml:space="preserve">
     <value>uLengthOverhangX</value>
@@ -1041,8 +1035,8 @@
   <data name="&gt;&gt;lbInterlayerFreq2.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="cbBox.TabIndex" type="System.Int32, mscorlib">
-    <value>15</value>
+  <data name="tabPagePalletFilm.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
   </data>
   <data name="tabPagePalletFilm.Text" xml:space="preserve">
     <value>Film</value>
@@ -1052,6 +1046,9 @@
   </data>
   <data name="&gt;&gt;label1.Name" xml:space="preserve">
     <value>label1</value>
+  </data>
+  <data name="tabPageInterlayer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>559, 76</value>
   </data>
   <data name="&gt;&gt;label2.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -1092,11 +1089,17 @@
   <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
     <value>600, 680</value>
   </data>
+  <data name="lbPalletOverhangLength.Text" xml:space="preserve">
+    <value>Length</value>
+  </data>
   <data name="bnCancel.Location" type="System.Drawing.Point, System.Drawing">
     <value>497, 38</value>
   </data>
-  <data name="&gt;&gt;gbAllowedBoxPositions.ZOrder" xml:space="preserve">
-    <value>10</value>
+  <data name="cbPalletFilm.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="gbOverhangUnderhang.Size" type="System.Drawing.Size, System.Drawing">
+    <value>304, 78</value>
   </data>
   <data name="&gt;&gt;nudMaximumNumberOfBoxes.Parent" xml:space="preserve">
     <value>gbStopStackingCondition</value>
@@ -1113,8 +1116,8 @@
   <data name="&gt;&gt;cbPalletFilm.Parent" xml:space="preserve">
     <value>tabPagePalletFilm</value>
   </data>
-  <data name="&gt;&gt;pictureBoxPositionX.Parent" xml:space="preserve">
-    <value>gbAllowedBoxPositions</value>
+  <data name="&gt;&gt;uMassLoadLowerCases.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lbInterlayerFreq1.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -1122,17 +1125,11 @@
   <data name="tbDescription.Size" type="System.Drawing.Size, System.Drawing">
     <value>355, 20</value>
   </data>
-  <data name="&gt;&gt;uMassLoadLowerCases.Name" xml:space="preserve">
-    <value>uMassLoadLowerCases</value>
-  </data>
   <data name="&gt;&gt;cbInterlayerAntiSlip.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
   <data name="&gt;&gt;uLengthPalletHeight.ZOrder" xml:space="preserve">
     <value>0</value>
-  </data>
-  <data name="&gt;&gt;tabPagePalletCorners.Parent" xml:space="preserve">
-    <value>tabControlAddFeat</value>
   </data>
   <data name="&gt;&gt;uMassPalletWeight.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -1155,20 +1152,20 @@
   <data name="&gt;&gt;lbPalletOverhangLength.Name" xml:space="preserve">
     <value>lbPalletOverhangLength</value>
   </data>
-  <data name="checkBoxMaximumPalletWeight.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="checkBoxPositionZ.Location" type="System.Drawing.Point, System.Drawing">
+    <value>254, 117</value>
   </data>
   <data name="&gt;&gt;chkbPalletCap.Name" xml:space="preserve">
     <value>chkbPalletCap</value>
   </data>
-  <data name="tabControlAddFeat.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 90</value>
+  <data name="tbDescription.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
   </data>
-  <data name="statusStripDef.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 620</value>
+  <data name="checkBoxAllowTwoLayerOrient.Text" xml:space="preserve">
+    <value>allow using a combination of 2 layer directions</value>
   </data>
-  <data name="&gt;&gt;lbInterlayerFreq1.ZOrder" xml:space="preserve">
-    <value>2</value>
+  <data name="&gt;&gt;gbAllowedBoxPositions.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;label2.Parent" xml:space="preserve">
     <value>$this</value>
@@ -1185,8 +1182,8 @@
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>FormNewAnalysis</value>
   </data>
-  <data name="nudMaximumPalletHeight.Size" type="System.Drawing.Size, System.Drawing">
-    <value>55, 20</value>
+  <data name="cbPalletCorners.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
   <data name="uMassLoadLowerCases.Text" xml:space="preserve">
     <value>uMass</value>
@@ -1197,14 +1194,17 @@
   <data name="checkBoxPositionY.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
   </data>
-  <data name="lbNumberOfTurns.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="&gt;&gt;tbName.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;uMassPalletWeight.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="&gt;&gt;cbInterlayerAntiSlip.Type" xml:space="preserve">
     <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="tabPageInterlayerAntiSlip.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
+  <data name="&gt;&gt;cbPallet.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;checkBoxAllowAlignedLayer.Name" xml:space="preserve">
     <value>checkBoxAllowAlignedLayer</value>
@@ -1215,29 +1215,29 @@
   <data name="&gt;&gt;checkedListBoxPatterns.Type" xml:space="preserve">
     <value>System.Windows.Forms.CheckedListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;nudPalletOverhangX.Parent" xml:space="preserve">
-    <value>gbOverhangUnderhang</value>
+  <data name="pictureBoxPositionX.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 18</value>
   </data>
   <data name="checkBoxAllowTwoLayerOrient.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="&gt;&gt;lbInterlayerFreq1.Name" xml:space="preserve">
-    <value>lbInterlayerFreq1</value>
-  </data>
-  <data name="checkBoxAllowAlternateLayer.Text" xml:space="preserve">
-    <value>allow alternate layer</value>
+  <data name="lbBox.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="&gt;&gt;checkBoxPositionX.Type" xml:space="preserve">
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="cbPalletFilm.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+  <data name="&gt;&gt;checkBoxMaximumLoadOnBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;nudMaximumNumberOfBoxes.ZOrder" xml:space="preserve">
+    <value>6</value>
   </data>
   <data name="&gt;&gt;lbPalletOverhangWidth.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;nudInterlayerFreq.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;lbStopStacking.ZOrder" xml:space="preserve">
+    <value>9</value>
   </data>
   <data name="&gt;&gt;checkBoxAllowTwoLayerOrient.ZOrder" xml:space="preserve">
     <value>1</value>
@@ -1245,8 +1245,8 @@
   <data name="uLengthOverhangY.TabIndex" type="System.Int32, mscorlib">
     <value>41</value>
   </data>
-  <data name="gbStopStackingCondition.Location" type="System.Drawing.Point, System.Drawing">
-    <value>5, 472</value>
+  <data name="&gt;&gt;lbBox.ZOrder" xml:space="preserve">
+    <value>9</value>
   </data>
   <data name="&gt;&gt;tabPageInterlayer.Parent" xml:space="preserve">
     <value>tabControlAddFeat</value>
@@ -1257,17 +1257,17 @@
   <data name="&gt;&gt;checkBoxMaximumPalletWeight.Type" xml:space="preserve">
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="lbInterlayerFreq1.Text" xml:space="preserve">
-    <value>every  </value>
+  <data name="checkBoxAllowAlternateLayer.TabIndex" type="System.Int32, mscorlib">
+    <value>42</value>
   </data>
-  <data name="lbPalletOverhangWidth.Size" type="System.Drawing.Size, System.Drawing">
-    <value>35, 13</value>
+  <data name="&gt;&gt;gbAllowedLayerPatterns.Name" xml:space="preserve">
+    <value>gbAllowedLayerPatterns</value>
   </data>
   <data name="lbNumberOfTurns.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="nudNumberOfTurns.Location" type="System.Drawing.Point, System.Drawing">
-    <value>124, 41</value>
+  <data name="cbBox.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
   </data>
   <data name="&gt;&gt;bnCancel.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -1293,8 +1293,8 @@
   <data name="&gt;&gt;uMassLoadLowerCases.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="&gt;&gt;lbBox.ZOrder" xml:space="preserve">
-    <value>9</value>
+  <data name="&gt;&gt;nudInterlayerFreq.Name" xml:space="preserve">
+    <value>nudInterlayerFreq</value>
   </data>
   <data name="&gt;&gt;lbInterlayerFreq2.Parent" xml:space="preserve">
     <value>tabPageInterlayer</value>
@@ -1335,17 +1335,14 @@
   <data name="checkBoxAllowChangingLastLayerOrient.Text" xml:space="preserve">
     <value>allow changing last layer direction to use remaining space</value>
   </data>
-  <data name="&gt;&gt;lbPallet.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
   <data name="statusStripDef.Size" type="System.Drawing.Size, System.Drawing">
     <value>584, 22</value>
   </data>
-  <data name="pictureBoxPositionZ.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
   <data name="uLengthOverhangY.Location" type="System.Drawing.Point, System.Drawing">
     <value>143, 47</value>
+  </data>
+  <data name="&gt;&gt;checkBoxMaximumLoadOnBox.ZOrder" xml:space="preserve">
+    <value>7</value>
   </data>
   <data name="nudMaximumLoadOnBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>55, 20</value>
@@ -1356,11 +1353,11 @@
   <data name="&gt;&gt;gbAllowedBoxPositions.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="uMassLoadLowerCases.TabIndex" type="System.Int32, mscorlib">
-    <value>28</value>
+  <data name="cbInterlayerAntiSlip.Location" type="System.Drawing.Point, System.Drawing">
+    <value>124, 6</value>
   </data>
-  <data name="checkBoxAntiSlipInterlayer.TabIndex" type="System.Int32, mscorlib">
-    <value>50</value>
+  <data name="&gt;&gt;tbDescription.Name" xml:space="preserve">
+    <value>tbDescription</value>
   </data>
   <data name="&gt;&gt;tabPageInterlayerAntiSlip.Parent" xml:space="preserve">
     <value>tabControlAddFeat</value>
@@ -1398,8 +1395,8 @@
   <data name="checkBoxAllowAlignedLayer.Location" type="System.Drawing.Point, System.Drawing">
     <value>10, 20</value>
   </data>
-  <data name="checkBoxMaximumLoadOnBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>190, 17</value>
+  <data name="&gt;&gt;uLengthPalletHeight.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;chkbPalletFilm.Name" xml:space="preserve">
     <value>chkbPalletFilm</value>
@@ -1413,8 +1410,8 @@
   <data name="gbStopStackingCondition.TabIndex" type="System.Int32, mscorlib">
     <value>44</value>
   </data>
-  <data name="uMassPalletWeight.TabIndex" type="System.Int32, mscorlib">
-    <value>29</value>
+  <data name="&gt;&gt;tabPagePalletCorners.Parent" xml:space="preserve">
+    <value>tabControlAddFeat</value>
   </data>
   <data name="uLengthOverhangY.Text" xml:space="preserve">
     <value>uLength</value>
@@ -1422,8 +1419,8 @@
   <data name="checkBoxAllowChangingLastLayerOrient.Size" type="System.Drawing.Size, System.Drawing">
     <value>296, 17</value>
   </data>
-  <data name="&gt;&gt;gbOverhangUnderhang.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;nudPalletOverhangX.Parent" xml:space="preserve">
+    <value>gbOverhangUnderhang</value>
   </data>
   <data name="uMassLoadLowerCases.Size" type="System.Drawing.Size, System.Drawing">
     <value>38, 13</value>
@@ -1437,29 +1434,29 @@
   <data name="checkBoxAllowChangingLastLayerOrient.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
   </data>
-  <data name="lbPalletOverhangLength.Text" xml:space="preserve">
-    <value>Length</value>
+  <data name="label2.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
-  <data name="tabPagePalletFilm.Size" type="System.Drawing.Size, System.Drawing">
-    <value>559, 76</value>
+  <data name="&gt;&gt;checkBoxInterlayer.Parent" xml:space="preserve">
+    <value>tabPageInterlayer</value>
   </data>
-  <data name="tbName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>128, 10</value>
+  <data name="&gt;&gt;lbPallet.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="&gt;&gt;cbPalletCap.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="gbLayerAlignment.Text" xml:space="preserve">
-    <value>Layer alignment</value>
+  <data name="checkBoxPositionY.Size" type="System.Drawing.Size, System.Drawing">
+    <value>33, 17</value>
   </data>
-  <data name="&gt;&gt;lbPalletOverhangLength.ZOrder" xml:space="preserve">
-    <value>5</value>
+  <data name="lbBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 63</value>
   </data>
   <data name="pictureBoxPositionY.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
   </data>
-  <data name="&gt;&gt;cbPalletFilm.ZOrder" xml:space="preserve">
-    <value>2</value>
+  <data name="chkbPalletCorners.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
   <data name="&gt;&gt;gbLayerAlignment.Name" xml:space="preserve">
     <value>gbLayerAlignment</value>
@@ -1470,8 +1467,11 @@
   <data name="checkBoxPositionZ.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="&gt;&gt;toolStripStatusLabelDef.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="lbNumberOfTurns.Text" xml:space="preserve">
+    <value>Number of turns</value>
+  </data>
+  <data name="checkBoxAllowAlignedLayer.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="gbLayerAlignment.Location" type="System.Drawing.Point, System.Drawing">
     <value>316, 196</value>
@@ -1487,6 +1487,9 @@
   </data>
   <data name="&gt;&gt;pictureBoxPositionZ.Parent" xml:space="preserve">
     <value>gbAllowedBoxPositions</value>
+  </data>
+  <data name="nudNumberOfTurns.Size" type="System.Drawing.Size, System.Drawing">
+    <value>58, 20</value>
   </data>
   <data name="&gt;&gt;statusStripDef.Name" xml:space="preserve">
     <value>statusStripDef</value>
@@ -1506,6 +1509,9 @@
   <data name="gbAllowedLayerPatterns.Size" type="System.Drawing.Size, System.Drawing">
     <value>188, 186</value>
   </data>
+  <data name="&gt;&gt;checkBoxAllowAlternateLayer.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;nudMaximumLoadOnBox.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
@@ -1515,29 +1521,26 @@
   <data name="&gt;&gt;cbPalletCorners.Name" xml:space="preserve">
     <value>cbPalletCorners</value>
   </data>
-  <data name="checkBoxPositionZ.Size" type="System.Drawing.Size, System.Drawing">
-    <value>33, 17</value>
+  <data name="pictureBoxPositionY.Location" type="System.Drawing.Point, System.Drawing">
+    <value>131, 18</value>
   </data>
-  <data name="&gt;&gt;pictureBoxPositionZ.Name" xml:space="preserve">
-    <value>pictureBoxPositionZ</value>
+  <data name="lbPallet.Size" type="System.Drawing.Size, System.Drawing">
+    <value>33, 13</value>
   </data>
-  <data name="nudPalletOverhangY.TabIndex" type="System.Int32, mscorlib">
-    <value>39</value>
+  <data name="nudMaximumPalletHeight.Size" type="System.Drawing.Size, System.Drawing">
+    <value>55, 20</value>
   </data>
-  <data name="pictureBoxPositionX.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 18</value>
+  <data name="checkBoxMaximumPalletWeight.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
-  <data name="chkbPalletCorners.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 9</value>
+  <data name="&gt;&gt;nudMaximumLoadOnBox.Parent" xml:space="preserve">
+    <value>gbStopStackingCondition</value>
   </data>
   <data name="&gt;&gt;pictureBoxPositionY.Name" xml:space="preserve">
     <value>pictureBoxPositionY</value>
   </data>
-  <data name="&gt;&gt;chkbPalletFilm.Parent" xml:space="preserve">
-    <value>tabPagePalletFilm</value>
-  </data>
-  <data name="nudMaximumNumberOfBoxes.Location" type="System.Drawing.Point, System.Drawing">
-    <value>205, 38</value>
+  <data name="lbStopStacking.TabIndex" type="System.Int32, mscorlib">
+    <value>21</value>
   </data>
   <data name="&gt;&gt;chkbPalletCap.ZOrder" xml:space="preserve">
     <value>1</value>
@@ -1554,11 +1557,11 @@
   <data name="tabPagePalletCorners.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 22</value>
   </data>
-  <data name="&gt;&gt;uMassPalletWeight.Parent" xml:space="preserve">
-    <value>gbStopStackingCondition</value>
+  <data name="checkBoxAllowAlignedLayer.TabIndex" type="System.Int32, mscorlib">
+    <value>41</value>
   </data>
-  <data name="&gt;&gt;label1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;tbName.ZOrder" xml:space="preserve">
+    <value>12</value>
   </data>
   <data name="&gt;&gt;bnOk.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -1566,8 +1569,8 @@
   <data name="&gt;&gt;lbBox.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="cbInterlayer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>121, 21</value>
+  <data name="tbName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>128, 10</value>
   </data>
   <data name="&gt;&gt;lbStopStacking.Parent" xml:space="preserve">
     <value>gbStopStackingCondition</value>
@@ -1578,14 +1581,14 @@
   <data name="&gt;&gt;nudMaximumPalletWeight.Type" xml:space="preserve">
     <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="tabPagePalletFilm.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
+  <data name="&gt;&gt;lbInterlayerFreq1.Name" xml:space="preserve">
+    <value>lbInterlayerFreq1</value>
   </data>
   <data name="lbStopStacking.Text" xml:space="preserve">
     <value>Stop stacking:</value>
   </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>584, 642</value>
+  <data name="&gt;&gt;tbDescription.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="&gt;&gt;lbInterlayerFreq2.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -1599,14 +1602,11 @@
   <data name="cbInterlayerAntiSlip.Size" type="System.Drawing.Size, System.Drawing">
     <value>121, 21</value>
   </data>
-  <data name="tabPageInterlayer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>559, 76</value>
+  <data name="gbAllowedBoxPositions.Size" type="System.Drawing.Size, System.Drawing">
+    <value>377, 186</value>
   </data>
-  <data name="&gt;&gt;nudMaximumLoadOnBox.Name" xml:space="preserve">
-    <value>nudMaximumLoadOnBox</value>
-  </data>
-  <data name="pictureBoxPositionX.Size" type="System.Drawing.Size, System.Drawing">
-    <value>107, 92</value>
+  <data name="chkbPalletFilm.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="&gt;&gt;lbPalletOverhangWidth.Parent" xml:space="preserve">
     <value>gbOverhangUnderhang</value>
@@ -1629,6 +1629,9 @@
   <data name="cbPallet.Size" type="System.Drawing.Size, System.Drawing">
     <value>121, 21</value>
   </data>
+  <data name="chkbPalletFilm.Text" xml:space="preserve">
+    <value>Pallet film</value>
+  </data>
   <data name="&gt;&gt;cbPalletFilm.Type" xml:space="preserve">
     <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -1638,20 +1641,20 @@
   <data name="&gt;&gt;checkBoxPositionY.Name" xml:space="preserve">
     <value>checkBoxPositionY</value>
   </data>
-  <data name="&gt;&gt;checkBoxMaximumLoadOnBox.ZOrder" xml:space="preserve">
-    <value>7</value>
+  <data name="&gt;&gt;checkBoxAllowTwoLayerOrient.Parent" xml:space="preserve">
+    <value>gbAllowedBoxPositions</value>
   </data>
-  <data name="checkBoxMaximumLoadOnBox.Text" xml:space="preserve">
-    <value>when load on lower boxes reaches</value>
+  <data name="cbPalletCorners.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 21</value>
   </data>
-  <data name="&gt;&gt;uMassPalletWeight.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="&gt;&gt;checkBoxAllowAlternateLayer.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
-  <data name="tbDescription.Location" type="System.Drawing.Point, System.Drawing">
-    <value>128, 36</value>
+  <data name="pictureBoxPositionZ.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
   </data>
-  <data name="gbLayerAlignment.TabIndex" type="System.Int32, mscorlib">
-    <value>43</value>
+  <data name="nudPalletOverhangY.Location" type="System.Drawing.Point, System.Drawing">
+    <value>83, 43</value>
   </data>
   <data name="&gt;&gt;tabControlAddFeat.Parent" xml:space="preserve">
     <value>$this</value>
@@ -1659,14 +1662,11 @@
   <data name="&gt;&gt;tabPagePalletCap.Parent" xml:space="preserve">
     <value>tabControlAddFeat</value>
   </data>
-  <data name="&gt;&gt;checkBoxPositionY.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="lbInterlayerFreq1.Text" xml:space="preserve">
+    <value>every  </value>
   </data>
   <data name="&gt;&gt;nudNumberOfTurns.Type" xml:space="preserve">
     <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="uMassLoadLowerCases.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
   </data>
   <data name="&gt;&gt;uLengthOverhangX.ZOrder" xml:space="preserve">
     <value>1</value>
@@ -1674,8 +1674,8 @@
   <data name="&gt;&gt;cbBox.Type" xml:space="preserve">
     <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="nudNumberOfTurns.Size" type="System.Drawing.Size, System.Drawing">
-    <value>58, 20</value>
+  <data name="uMassPalletWeight.TabIndex" type="System.Int32, mscorlib">
+    <value>29</value>
   </data>
   <data name="checkBoxMaximumNumberOfBoxes.Text" xml:space="preserve">
     <value>when number of boxes reaches</value>
@@ -1683,11 +1683,11 @@
   <data name="checkedListBoxPatterns.Items1" xml:space="preserve">
     <value>Interlocked</value>
   </data>
-  <data name="lbPalletOverhangLength.Size" type="System.Drawing.Size, System.Drawing">
-    <value>40, 13</value>
+  <data name="&gt;&gt;lbNumberOfTurns.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="chkbPalletFilm.Text" xml:space="preserve">
-    <value>Pallet film</value>
+  <data name="gbAllowedBoxPositions.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
   </data>
   <data name="&gt;&gt;tabPagePalletCap.Name" xml:space="preserve">
     <value>tabPagePalletCap</value>
@@ -1695,7 +1695,7 @@
   <data name="lbNumberOfTurns.Location" type="System.Drawing.Point, System.Drawing">
     <value>8, 43</value>
   </data>
-  <data name="checkBoxAllowAlignedLayer.AutoSize" type="System.Boolean, mscorlib">
+  <data name="uMassLoadLowerCases.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="checkBoxPositionX.TabIndex" type="System.Int32, mscorlib">
@@ -1713,8 +1713,8 @@
   <data name="checkBoxAntiSlipInterlayer.Text" xml:space="preserve">
     <value>Anti slip interlayer</value>
   </data>
-  <data name="&gt;&gt;checkBoxAllowAlternateLayer.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;uMassLoadLowerCases.Name" xml:space="preserve">
+    <value>uMassLoadLowerCases</value>
   </data>
   <data name="&gt;&gt;nudPalletOverhangY.Type" xml:space="preserve">
     <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -1722,11 +1722,11 @@
   <data name="&gt;&gt;checkBoxMaximumLoadOnBox.Name" xml:space="preserve">
     <value>checkBoxMaximumLoadOnBox</value>
   </data>
-  <data name="cbPalletCorners.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+  <data name="gbStopStackingCondition.Location" type="System.Drawing.Point, System.Drawing">
+    <value>5, 472</value>
   </data>
-  <data name="tabPagePalletCorners.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
+  <data name="&gt;&gt;pictureBoxPositionY.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;checkBoxInterlayer.Name" xml:space="preserve">
     <value>checkBoxInterlayer</value>
@@ -1734,8 +1734,8 @@
   <data name="nudPalletOverhangX.Location" type="System.Drawing.Point, System.Drawing">
     <value>83, 18</value>
   </data>
-  <data name="bnCancel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
+  <data name="nudNumberOfTurns.Location" type="System.Drawing.Point, System.Drawing">
+    <value>124, 41</value>
   </data>
   <data name="checkBoxMaximumNumberOfBoxes.Location" type="System.Drawing.Point, System.Drawing">
     <value>9, 40</value>
@@ -1743,8 +1743,8 @@
   <data name="checkBoxAllowAlignedLayer.Size" type="System.Drawing.Size, System.Drawing">
     <value>112, 17</value>
   </data>
-  <data name="&gt;&gt;nudMaximumNumberOfBoxes.ZOrder" xml:space="preserve">
-    <value>6</value>
+  <data name="checkBoxAllowAlternateLayer.Text" xml:space="preserve">
+    <value>allow alternate layer</value>
   </data>
   <data name="&gt;&gt;bnOk.Parent" xml:space="preserve">
     <value>$this</value>
@@ -1752,11 +1752,11 @@
   <data name="&gt;&gt;tabControlAddFeat.Type" xml:space="preserve">
     <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="lbPalletOverhangWidth.Text" xml:space="preserve">
-    <value>Width</value>
+  <data name="&gt;&gt;nudMaximumPalletWeight.Name" xml:space="preserve">
+    <value>nudMaximumPalletWeight</value>
   </data>
-  <data name="&gt;&gt;checkBoxInterlayer.Parent" xml:space="preserve">
-    <value>tabPageInterlayer</value>
+  <data name="&gt;&gt;nudMaximumLoadOnBox.Name" xml:space="preserve">
+    <value>nudMaximumLoadOnBox</value>
   </data>
   <data name="&gt;&gt;tabPagePalletCorners.ZOrder" xml:space="preserve">
     <value>2</value>
@@ -1767,8 +1767,8 @@
   <data name="&gt;&gt;nudInterlayerFreq.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="bnOk.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
+  <data name="nudInterlayerFreq.Location" type="System.Drawing.Point, System.Drawing">
+    <value>304, 6</value>
   </data>
   <data name="&gt;&gt;checkBoxAllowChangingLastLayerOrient.Parent" xml:space="preserve">
     <value>gbAllowedBoxPositions</value>
@@ -1808,8 +1808,5 @@
   </metadata>
   <metadata name="statusStripDef.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>0, 579</value>
-  </metadata>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>es-ES</value>
   </metadata>
 </root>

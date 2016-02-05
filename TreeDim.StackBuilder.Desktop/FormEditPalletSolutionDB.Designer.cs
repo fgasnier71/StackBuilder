@@ -35,8 +35,18 @@
             this.gridSolutions = new SourceGrid.Grid();
             this.pictureBoxCase = new System.Windows.Forms.PictureBox();
             this.pictureBoxSolution = new System.Windows.Forms.PictureBox();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCase)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSolution)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
+            this.splitContainer2.Panel1.SuspendLayout();
+            this.splitContainer2.Panel2.SuspendLayout();
+            this.splitContainer2.SuspendLayout();
             this.SuspendLayout();
             // 
             // btClose
@@ -84,16 +94,44 @@
             this.pictureBoxSolution.Name = "pictureBoxSolution";
             this.pictureBoxSolution.TabStop = false;
             // 
+            // splitContainer1
+            // 
+            resources.ApplyResources(this.splitContainer1, "splitContainer1");
+            this.splitContainer1.Name = "splitContainer1";
+            // 
+            // splitContainer1.Panel1
+            // 
+            resources.ApplyResources(this.splitContainer1.Panel1, "splitContainer1.Panel1");
+            this.splitContainer1.Panel1.Controls.Add(this.gridSolutions);
+            this.splitContainer1.Panel1.Controls.Add(this.btClose);
+            this.splitContainer1.Panel1.Controls.Add(this.cbPalletDimensions);
+            this.splitContainer1.Panel1.Controls.Add(this.lbPalletDimensions);
+            // 
+            // splitContainer1.Panel2
+            // 
+            resources.ApplyResources(this.splitContainer1.Panel2, "splitContainer1.Panel2");
+            this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
+            // 
+            // splitContainer2
+            // 
+            resources.ApplyResources(this.splitContainer2, "splitContainer2");
+            this.splitContainer2.Name = "splitContainer2";
+            // 
+            // splitContainer2.Panel1
+            // 
+            resources.ApplyResources(this.splitContainer2.Panel1, "splitContainer2.Panel1");
+            this.splitContainer2.Panel1.Controls.Add(this.pictureBoxCase);
+            // 
+            // splitContainer2.Panel2
+            // 
+            resources.ApplyResources(this.splitContainer2.Panel2, "splitContainer2.Panel2");
+            this.splitContainer2.Panel2.Controls.Add(this.pictureBoxSolution);
+            // 
             // FormEditPalletSolutionDB
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.pictureBoxSolution);
-            this.Controls.Add(this.pictureBoxCase);
-            this.Controls.Add(this.cbPalletDimensions);
-            this.Controls.Add(this.lbPalletDimensions);
-            this.Controls.Add(this.btClose);
-            this.Controls.Add(this.gridSolutions);
+            this.Controls.Add(this.splitContainer1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormEditPalletSolutionDB";
@@ -102,8 +140,16 @@
             this.Load += new System.EventHandler(this.FormEditPalletSolutionDB_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCase)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSolution)).EndInit();
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel1.PerformLayout();
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
+            this.splitContainer2.Panel1.ResumeLayout(false);
+            this.splitContainer2.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
+            this.splitContainer2.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
         #endregion
@@ -114,5 +160,7 @@
         private SourceGrid.Grid gridSolutions;
         private System.Windows.Forms.PictureBox pictureBoxCase;
         private System.Windows.Forms.PictureBox pictureBoxSolution;
+        private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.SplitContainer splitContainer2;
     }
 }

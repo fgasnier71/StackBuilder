@@ -96,6 +96,7 @@
     <Compile Include="LayerPatterns\LayerPatternTrilock.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Solvers\CasePalletSolver.cs" />
+    <Compile Include="Solvers\LayerSolver.cs" />
     <Compile Include="Solvers\PackPalletSolver.cs" />
     <Compile Include="Solvers\TruckSolver.cs" />
   </ItemGroup>

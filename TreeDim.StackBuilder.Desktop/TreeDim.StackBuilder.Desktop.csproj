@@ -251,6 +251,12 @@
     <Compile Include="FormNewAnalysisBundle.Designer.cs">
       <DependentUpon>FormNewAnalysisBundle.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormNewAnalysisCasePallet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNewAnalysisCasePallet.Designer.cs">
+      <DependentUpon>FormNewAnalysisCasePallet.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormNewAnalysisCylinder.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -858,6 +864,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewAnalysisBundleCase.resx">
       <DependentUpon>FormNewAnalysisBundleCase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisCasePallet.resx">
+      <DependentUpon>FormNewAnalysisCasePallet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewAnalysisCylinder.de-DE.resx">
       <DependentUpon>FormNewAnalysisCylinder.cs</DependentUpon>

@@ -322,6 +322,9 @@
   <data name="tabPageInterlayer.Text" xml:space="preserve">
     <value>Separadores</value>
   </data>
+  <data name="tabPageInterlayerAntiSlip.Size" type="System.Drawing.Size, System.Drawing">
+    <value>560, 76</value>
+  </data>
   <data name="tabPageInterlayerAntiSlip.Text" xml:space="preserve">
     <value>Antideslizante separadores</value>
   </data>
@@ -331,6 +334,9 @@
   <data name="chkbPalletCorners.Text" xml:space="preserve">
     <value>Esquinas</value>
   </data>
+  <data name="tabPagePalletCorners.Size" type="System.Drawing.Size, System.Drawing">
+    <value>560, 76</value>
+  </data>
   <data name="tabPagePalletCorners.Text" xml:space="preserve">
     <value>Esquinas</value>
   </data>
@@ -339,6 +345,9 @@
   </data>
   <data name="chkbPalletCap.Text" xml:space="preserve">
     <value>tapa de Palet</value>
+  </data>
+  <data name="tabPagePalletCap.Size" type="System.Drawing.Size, System.Drawing">
+    <value>560, 76</value>
   </data>
   <data name="tabPagePalletCap.Text" xml:space="preserve">
     <value>tapa de Palet</value>
@@ -354,6 +363,9 @@
   </data>
   <data name="chkbPalletFilm.Text" xml:space="preserve">
     <value>película Palet</value>
+  </data>
+  <data name="tabPagePalletFilm.Size" type="System.Drawing.Size, System.Drawing">
+    <value>560, 76</value>
   </data>
   <data name="tabPagePalletFilm.Text" xml:space="preserve">
     <value>Película</value>

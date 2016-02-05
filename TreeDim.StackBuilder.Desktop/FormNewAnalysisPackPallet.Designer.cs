@@ -71,17 +71,17 @@
             // 
             // cbPack
             // 
+            resources.ApplyResources(this.cbPack, "cbPack");
             this.cbPack.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbPack.FormattingEnabled = true;
-            resources.ApplyResources(this.cbPack, "cbPack");
             this.cbPack.Name = "cbPack";
             this.cbPack.SelectedIndexChanged += new System.EventHandler(this.onConstraintSetModified);
             // 
             // cbPallet
             // 
+            resources.ApplyResources(this.cbPallet, "cbPallet");
             this.cbPallet.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbPallet.FormattingEnabled = true;
-            resources.ApplyResources(this.cbPallet, "cbPallet");
             this.cbPallet.Name = "cbPallet";
             this.cbPallet.SelectedIndexChanged += new System.EventHandler(this.onConstraintSetModified);
             // 
@@ -94,9 +94,9 @@
             // 
             // cbInterlayer
             // 
+            resources.ApplyResources(this.cbInterlayer, "cbInterlayer");
             this.cbInterlayer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbInterlayer.FormattingEnabled = true;
-            resources.ApplyResources(this.cbInterlayer, "cbInterlayer");
             this.cbInterlayer.Name = "cbInterlayer";
             this.cbInterlayer.SelectedIndexChanged += new System.EventHandler(this.onConstraintSetModified);
             // 
@@ -149,11 +149,11 @@
             // 
             // gbOverhang
             // 
+            resources.ApplyResources(this.gbOverhang, "gbOverhang");
             this.gbOverhang.Controls.Add(this.uCtrlOptOverhangYMin);
             this.gbOverhang.Controls.Add(this.uCtrlOptOverhangXMin);
             this.gbOverhang.Controls.Add(this.uCtrlOverhangY);
             this.gbOverhang.Controls.Add(this.uCtrlOverhangX);
-            resources.ApplyResources(this.gbOverhang, "gbOverhang");
             this.gbOverhang.Name = "gbOverhang";
             this.gbOverhang.TabStop = false;
             // 
@@ -224,9 +224,9 @@
             // 
             // groupBox1
             // 
+            resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Controls.Add(this.uCtrlOptMaximumWeight);
             this.groupBox1.Controls.Add(this.uCtrlOptMaximumHeight);
-            resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
             // 
@@ -284,9 +284,9 @@
             // 
             // gbAdditionnalFiltering
             // 
+            resources.ApplyResources(this.gbAdditionnalFiltering, "gbAdditionnalFiltering");
             this.gbAdditionnalFiltering.Controls.Add(this.uCtrlOptMaximumSpace);
             this.gbAdditionnalFiltering.Controls.Add(this.uCtrlOptMaximumLayerWeight);
-            resources.ApplyResources(this.gbAdditionnalFiltering, "gbAdditionnalFiltering");
             this.gbAdditionnalFiltering.Name = "gbAdditionnalFiltering";
             this.gbAdditionnalFiltering.TabStop = false;
             // 

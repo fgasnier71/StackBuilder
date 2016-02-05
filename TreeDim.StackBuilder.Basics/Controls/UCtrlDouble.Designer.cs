@@ -39,7 +39,7 @@
             this.lbUnit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lbUnit.AutoSize = true;
-            this.lbUnit.Location = new System.Drawing.Point(267, 4);
+            this.lbUnit.Location = new System.Drawing.Point(265, 4);
             this.lbUnit.Name = "lbUnit";
             this.lbUnit.Size = new System.Drawing.Size(24, 13);
             this.lbUnit.TabIndex = 4;

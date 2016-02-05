@@ -75,6 +75,12 @@
     <Compile Include="ConstraintSets\PackPalletConstraintSet.cs" />
     <Compile Include="Containers\PackArrangement.cs" />
     <Compile Include="Containers\PackProperties.cs" />
+    <Compile Include="Controls\UCtrlDualDouble.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UCtrlDualDouble.Designer.cs">
+      <DependentUpon>UCtrlDualDouble.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\UCtrlTriInt.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -140,6 +146,8 @@
     <Compile Include="ItemBase.cs" />
     <Compile Include="PalletSolutionDatabase.cs" />
     <Compile Include="Solutions\CylinderPalletSolution.cs" />
+    <Compile Include="Solutions\Layer2D.cs" />
+    <Compile Include="Solutions\LayerPosition.cs" />
     <Compile Include="Solutions\PackPalletSolution.cs" />
     <Compile Include="Solutions\SelSolution.cs" />
     <Compile Include="Solutions\PalletSolution.cs" />
@@ -197,6 +205,9 @@
     <Folder Include="Schemas\" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Controls\UCtrlDualDouble.resx">
+      <DependentUpon>UCtrlDualDouble.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\UCtrlTriInt.resx">
       <DependentUpon>UCtrlTriInt.cs</DependentUpon>
     </EmbeddedResource>

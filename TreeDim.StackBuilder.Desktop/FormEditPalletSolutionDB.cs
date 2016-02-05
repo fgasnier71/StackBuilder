@@ -270,6 +270,7 @@ namespace treeDiM.StackBuilder.Desktop
                 // instantiate solution viewer
                 CasePalletSolutionViewer sv = new CasePalletSolutionViewer(analysis.Solutions[0]);
                 sv.Draw(graphics);
+                graphics.Flush();
                 // show generated bitmap on picture box control
                 pictureBoxSolution.Image = graphics.Bitmap;
                 }
