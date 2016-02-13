@@ -9,26 +9,28 @@ using Sharp3D.Math.Core;
 
 namespace treeDiM.StackBuilder.Basics
 {
-    public class Layer2D
+    public class Layer2D : List<LayerPosition>
     {
         #region Data members
+        private string _patternName = string.Empty;
         private HalfAxis.HAxis _axisOrtho = HalfAxis.HAxis.AXIS_Z_P;
-        private bool _swapPos = false;
+        private bool _swapped = false;
+        private bool _inversed = false;
 
         private double _forcedSpace = 0.0;
         private double _maximumSpace = 0.0;
 
-        private List<LayerPosition> _list = new List<LayerPosition>();
         private Vector2D _dimContainer;
         private Vector3D _dimBox;
         #endregion
 
         #region Constructor
-        public Layer2D(Vector3D dimBox, Vector2D dimContainer, HalfAxis.HAxis axisOrtho)
+        public Layer2D(Vector3D dimBox, Vector2D dimContainer, HalfAxis.HAxis axisOrtho, bool swapped)
         {
             _axisOrtho = axisOrtho;
             _dimBox = dimBox;
             _dimContainer = dimContainer;
+            _swapped = swapped;
         }
         #endregion
 
@@ -65,7 +67,7 @@ namespace treeDiM.StackBuilder.Basics
                 );
 
             // add position
-            _list.Add(layerPos);
+            Add(layerPos);
         }
         public bool IsValidPosition(Vector2D vPosition, HalfAxis.HAxis lengthAxis, HalfAxis.HAxis widthAxis)
         {
@@ -85,7 +87,28 @@ namespace treeDiM.StackBuilder.Basics
         }
         public int PerPalletCount(double zHeight)
         {
-            return 0;
+            int noLayers = (int)(zHeight / LayerHeight);
+            return noLayers * Count;
+        }
+        public double LayerHeight
+        {
+            get
+            {
+                switch (_axisOrtho)
+                {
+                    case HalfAxis.HAxis.AXIS_X_N:
+                    case HalfAxis.HAxis.AXIS_X_P:
+                        return _dimBox.X;
+                    case HalfAxis.HAxis.AXIS_Y_N:
+                    case HalfAxis.HAxis.AXIS_Y_P:
+                        return _dimBox.Y;
+                    case HalfAxis.HAxis.AXIS_Z_N:
+                    case HalfAxis.HAxis.AXIS_Z_P:
+                        return _dimBox.Z;
+                    default:
+                        throw new Exception();
+                }
+            }
         }
         #endregion
 
@@ -209,12 +232,58 @@ namespace treeDiM.StackBuilder.Basics
                 }
             }
         }
+        public double PalletLength
+        {
+            get { return _dimContainer.X; }
+        }
+        public double PalletWidth
+        {
+            get { return _dimContainer.Y; }
+        }
+        public bool Swapped
+        {
+            get { return _swapped; }
+        }
+        public bool Inversed
+        {
+            get { return _inversed; }
+        }
         public int BoxCount
         {
-            get { return _list.Count; }
+            get { return Count; }
+        }
+        public int CountInHeight(double height)
+        {
+            return (int)Math.Floor(height / BoxHeight) * Count;
+        }
+        #endregion
+    }
+
+    #region Comparers
+    public class LayerComparerCount : IComparer<Layer2D>
+    {
+        #region Data members
+        private double _height = 0; 
+        #endregion
+
+        #region Constructor
+        public LayerComparerCount(double height)
+        {
+            _height = height;
         }
         #endregion
 
+        #region Implement IComparer
+        public int Compare(Layer2D layer0, Layer2D layer1)
+        {
+            int layer0Count = layer0.CountInHeight(_height);
+            int layer1Count = layer1.CountInHeight(_height);
 
+            if (layer0Count < layer1Count) return 1;
+            else if (layer0Count == layer1Count) return 0;
+            else return -1;
+        }
+        #endregion
     }
+    #endregion
 }

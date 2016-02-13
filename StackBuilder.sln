@@ -97,6 +97,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "treeDiM.StackBuilder.ExcelR
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "treeDiM.StackBuilder.Graphics.TestRayIntersect", "treeDiM.StackBuilder.Graphics.TestRayIntersect\treeDiM.StackBuilder.Graphics.TestRayIntersect.csproj", "{0684F710-6746-468B-9B93-AA033B142502}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "treeDiM.StackBuilder.Engine.TestLayerBuilder", "treeDiM.StackBuilder.Engine.TestLayerBuilder\treeDiM.StackBuilder.Engine.TestLayerBuilder.csproj", "{179C6BB2-E91E-455C-B561-553D17E28AF4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -459,6 +461,16 @@ Global
 		{0684F710-6746-468B-9B93-AA033B142502}.Release|Mixed Platforms.Build.0 = Release|x86
 		{0684F710-6746-468B-9B93-AA033B142502}.Release|x86.ActiveCfg = Release|x86
 		{0684F710-6746-468B-9B93-AA033B142502}.Release|x86.Build.0 = Release|x86
+		{179C6BB2-E91E-455C-B561-553D17E28AF4}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{179C6BB2-E91E-455C-B561-553D17E28AF4}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{179C6BB2-E91E-455C-B561-553D17E28AF4}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{179C6BB2-E91E-455C-B561-553D17E28AF4}.Debug|x86.ActiveCfg = Debug|x86
+		{179C6BB2-E91E-455C-B561-553D17E28AF4}.Debug|x86.Build.0 = Debug|x86
+		{179C6BB2-E91E-455C-B561-553D17E28AF4}.Release|Any CPU.ActiveCfg = Release|x86
+		{179C6BB2-E91E-455C-B561-553D17E28AF4}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{179C6BB2-E91E-455C-B561-553D17E28AF4}.Release|Mixed Platforms.Build.0 = Release|x86
+		{179C6BB2-E91E-455C-B561-553D17E28AF4}.Release|x86.ActiveCfg = Release|x86
+		{179C6BB2-E91E-455C-B561-553D17E28AF4}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -476,6 +488,7 @@ Global
 		{58436B36-D49F-4C14-92E7-EF083858003C} = {36E4D3C5-28FD-46B9-8763-C3316F67C6BE}
 		{8E3FC372-5F2A-4885-9667-83B41A325E4B} = {36E4D3C5-28FD-46B9-8763-C3316F67C6BE}
 		{0684F710-6746-468B-9B93-AA033B142502} = {36E4D3C5-28FD-46B9-8763-C3316F67C6BE}
+		{179C6BB2-E91E-455C-B561-553D17E28AF4} = {36E4D3C5-28FD-46B9-8763-C3316F67C6BE}
 		{125DBC33-AA7A-4F67-BD19-3D0BD6C6BA9B} = {F2DEFE3C-291D-4F9B-A01C-4EEA7988A183}
 		{A4249447-3954-42AB-AF4A-AEEB007BA105} = {F2DEFE3C-291D-4F9B-A01C-4EEA7988A183}
 		{EBD65A1F-9A23-4A42-81C1-40D03D50A6F5} = {F2DEFE3C-291D-4F9B-A01C-4EEA7988A183}

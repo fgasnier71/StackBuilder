@@ -10,12 +10,14 @@ using treeDiM.StackBuilder.Basics;
 
 namespace treeDiM.StackBuilder.Engine
 {
+/*
     public class Layer : List<LayerPosition>
     {
         #region Data members
         private HalfAxis.HAxis _axisOrtho = HalfAxis.HAxis.AXIS_Z_P;
         private HalfAxis.HAxis _lengthAxis = HalfAxis.HAxis.AXIS_X_P, _widthAxis = HalfAxis.HAxis.AXIS_Y_P;
         private bool _inversed = false;
+        private bool _swapped = false;
         private double _boxLength = 0.0, _boxWidth = 0.0, _boxHeight = 0.0;
         private double _palletLength = 0.0, _palletWidth = 0.0;
         private double _forcedSpace = 0.0;
@@ -29,11 +31,12 @@ namespace treeDiM.StackBuilder.Engine
         /// Layer pallet analysis constructor (inversed = false)
         /// </summary>
         public Layer(BProperties boxProperties, PalletProperties palletProperties, PalletCornerProperties cornerProperties,
-            PalletConstraintSet constraintSet, HalfAxis.HAxis axisOrtho)
+            PalletConstraintSet constraintSet, HalfAxis.HAxis axisOrtho, bool swapped)
         {
             double cornerThickness = null != cornerProperties ? cornerProperties.Thickness : 0.0;
             _axisOrtho = axisOrtho;
             _inversed = false;
+            _swapped = swapped;
             _palletLength = palletProperties.Length + constraintSet.OverhangX - 2.0 * cornerThickness;
             _palletWidth = palletProperties.Width + constraintSet.OverhangY - 2.0 * cornerThickness;
             Initialize(boxProperties);
@@ -42,11 +45,13 @@ namespace treeDiM.StackBuilder.Engine
         /// <summary>
         /// Layer pallet analysis constructor (inversed = false)
         /// </summary>
-        public Layer(BProperties boxProperties, PalletProperties palletProperties, PalletCornerProperties cornerProperties,
-            PalletConstraintSet constraintSet, HalfAxis.HAxis axisOrtho, bool inversed)
+        public Layer(BProperties boxProperties, PalletProperties palletProperties, PalletCornerProperties cornerProperties
+            , PalletConstraintSet constraintSet
+            , HalfAxis.HAxis axisOrtho, bool swapped, bool inversed)
         {
             double cornerThickness = null != cornerProperties ? cornerProperties.Thickness : 0.0;
             _axisOrtho = axisOrtho;
+            _swapped = swapped;
             _inversed = inversed;
             _palletLength = palletProperties.Length + constraintSet.OverhangX - 2.0 * cornerThickness;
             _palletWidth = palletProperties.Width + constraintSet.OverhangY - 2.0 * cornerThickness;
@@ -56,7 +61,8 @@ namespace treeDiM.StackBuilder.Engine
         /// <summary>
         /// Layer truck analysis constructor
         /// </summary>
-        public Layer(CasePalletSolution sol, TruckProperties truckProperties, TruckConstraintSet constraintSet, int orientation)
+        public Layer(CasePalletSolution sol, TruckProperties truckProperties, TruckConstraintSet constraintSet
+            , int orientation, bool swapped)
         {
             switch (orientation)
             {
@@ -71,18 +77,22 @@ namespace treeDiM.StackBuilder.Engine
         /// <summary>
         /// Layer case analysis constructor
         /// </summary>
-        public Layer(BProperties bProperties, BoxProperties caseProperties, HalfAxis.HAxis axisOrtho)
+        public Layer(BProperties bProperties, BoxProperties caseProperties
+            , HalfAxis.HAxis axisOrtho, bool swapped)
         {
             _axisOrtho = axisOrtho;
+            _swapped = swapped;
             _palletLength = caseProperties.InsideLength;
             _palletWidth = caseProperties.InsideWidth;
+
             Initialize(bProperties);
         }
 
         public Layer(PackProperties packProperties, PalletProperties palletProperties, PackPalletConstraintSet constraintSet
-            , HalfAxis.HAxis axisOrtho, bool inversed)
+            , HalfAxis.HAxis axisOrtho, bool swapped, bool inversed)
         {
             _axisOrtho = axisOrtho;
+            _swapped = swapped;
             _inversed = inversed;
             _forcedSpace = constraintSet.MinimumSpace.Value;
             _palletLength = palletProperties.Length + constraintSet.OverhangX + _forcedSpace ;
@@ -308,6 +318,10 @@ namespace treeDiM.StackBuilder.Engine
         {
             get { return _inversed; }
         }
+        public bool Swapped
+        {
+            get { return _swapped; }     
+        }
         public double MaximumSpace
         {
             get
@@ -319,4 +333,5 @@ namespace treeDiM.StackBuilder.Engine
         }
         #endregion
     }
+ * */
 }
