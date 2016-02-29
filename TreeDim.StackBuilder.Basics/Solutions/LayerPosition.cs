@@ -48,7 +48,6 @@ namespace treeDiM.StackBuilder.Basics
                 vMax.X = Math.Max(v.X, vMax.X);
                 vMax.Y = Math.Max(v.Y, vMax.Y);
             }
-
         }
         #endregion
 
@@ -72,10 +71,16 @@ namespace treeDiM.StackBuilder.Basics
         {
             get
             {
+                if (!IsValid)
+                    throw new Exception("Invalid position -> Can not compute DirectionHeight.");
                 return HalfAxis.ToHalfAxis(
                     Vector3D.CrossProduct(HalfAxis.ToVector3D(_lengthAxis), HalfAxis.ToVector3D(_widthAxis))
                     );
             }
+        }
+        public bool IsValid
+        {
+            get { return _lengthAxis != _widthAxis; }
         }
         #endregion
 

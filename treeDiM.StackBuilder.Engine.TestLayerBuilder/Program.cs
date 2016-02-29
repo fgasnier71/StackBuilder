@@ -18,24 +18,36 @@ namespace treeDiM.StackBuilder.Engine.TestLayerBuilder
     {
         static void Main(string[] args)
         {
-            LayerSolver solver = new LayerSolver();
 
             bool bestLayersOnly = true;
-            Vector3D dimBox = new Vector3D();
-            Vector2D dimContainer = new Vector2D();
-            ConstraintSetAbstract constraintSet = null;
-            List<Layer2D> layers = solver.BuildLayers(dimBox, dimContainer, constraintSet, bestLayersOnly);
+            Vector3D dimBox = new Vector3D(400.0, 300.0, 150.0);
+            Vector2D dimContainer = new Vector2D(1200.0, 1000.0);
+            ConstraintSetCasePallet constraintSet = new ConstraintSetCasePallet();
+            constraintSet.SetMaxHeight(1200.0); 
 
-            int solIndex = 0;
-            foreach (Layer2D layer in layers)
+            try
             {
-                string fileName = string.Format("Pallet_{0}.bmp", solIndex++);
-                string filePath = Path.Combine(Path.GetTempPath(), fileName);
+                LayerSolver solver = new LayerSolver();
+                List<Layer2D> layers = solver.BuildLayers(dimBox, dimContainer, constraintSet, bestLayersOnly);
 
-                Graphics2DImage graphics = new Graphics2DImage( new Size(150,150) );
-                LayerSolutionViewer solViewer = new LayerSolutionViewer(layer);
-                solViewer.Draw(graphics);
-                graphics.SaveAs(filePath);
+                int solIndex = 0;
+                foreach (Layer2D layer in layers)
+                {
+                    string fileName = string.Format("{0}_{1}.bmp", layer.Name, solIndex++);
+                    string filePath = Path.Combine(Path.GetTempPath(), fileName);
+                    Console.WriteLine(string.Format("Generating {0}...", filePath));
+
+                    Graphics2DImage graphics = new Graphics2DImage( new Size(150, 150) );
+                    SolutionViewerLayer solViewer = new SolutionViewerLayer(layer);
+                    BoxProperties bProperties = new BoxProperties(null, 400.0, 300.0, 150.0);
+                    bProperties.SetColor(Color.Brown);
+                    solViewer.Draw(graphics, bProperties, 1500.0);
+                    graphics.SaveAs(filePath);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
             }
         }
     }

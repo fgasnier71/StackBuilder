@@ -104,7 +104,7 @@ namespace treeDiM.StackBuilder.Engine
 
             if (!layer.IsValidPosition(new Vector2D(vPositionSwapped.X, vPositionSwapped.Y), lengthAxisSwapped, widthAxisSwapped))
             {
-                _log.Warn(string.Format("Attempt to add an invalid position in pattern = {0}, Swapped = true", this.Name));
+                _log.Warn(string.Format("Attempt to add an invalid position in pattern = {0}, Swapped = {1}", this.Name, layer.Swapped));
                 return;
             }
             layer.AddPosition(new Vector2D(vPositionSwapped.X, vPositionSwapped.Y), lengthAxisSwapped, widthAxisSwapped);
@@ -113,28 +113,46 @@ namespace treeDiM.StackBuilder.Engine
 
         #region Static methods
         public static LayerPattern[] All
-        {
-            get
-            {
-                return new LayerPattern[]
-                {
-                    new LayerPatternColumn()
-                    , new LayerPatternInterlocked()
-                    , new LayerPatternInterlockedSymetric()
-                    , new LayerPatternInterlockedSymetric2()
-                    , new LayerPatternInterlockedFilled()
-                    , new LayerPatternTrilock()
-                    , new LayerPatternDiagonale()
-                    , new LayerPatternSpirale()
-                    , new LayerPatternEnlargedSpirale()
-                };
+        { get { return _allPatterns; } }
 
+        public static LayerPattern GetByName(string patternName)
+        {
+            foreach (LayerPattern pattern in LayerPattern.All)
+            {
+                if (string.Equals(pattern.Name, patternName, StringComparison.CurrentCultureIgnoreCase))
+                    return pattern;
             }
+            // no pattern found!
+            throw new Exception(string.Format("Invalid pattern name = {0}", patternName));
+        }
+
+        public static int GetPatternNameIndex(string patternName)
+        {
+            int index = 0;
+            foreach (LayerPattern pattern in LayerPattern.All)
+            { 
+                if (string.Equals(pattern.Name, patternName, StringComparison.CurrentCultureIgnoreCase))
+                    return index;
+                ++index;
+            }
+            // no pattern found!
+            throw new Exception(string.Format("Invalid pattern name = {0}", patternName));
         }
         #endregion
 
         #region Data members
         protected static readonly ILog _log = LogManager.GetLogger(typeof(LayerPattern));
+        private static LayerPattern[] _allPatterns = {
+            new LayerPatternColumn()
+            , new LayerPatternInterlocked()
+            , new LayerPatternInterlockedSymetric()
+            , new LayerPatternInterlockedSymetric2()
+            , new LayerPatternInterlockedFilled()
+            , new LayerPatternTrilock()
+            , new LayerPatternDiagonale()
+            , new LayerPatternSpirale()
+            , new LayerPatternEnlargedSpirale()
+        };
         #endregion
     }
 }

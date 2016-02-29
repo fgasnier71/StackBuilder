@@ -55,7 +55,7 @@ namespace treeDiM.StackBuilder.Engine
 
                             TruckSolution sol = new TruckSolution("sol", truckAnalysis);
 
-                            BoxLayer boxLayer = new BoxLayer(0.0, string.Empty);
+                            BoxLayer boxLayer = new BoxLayer(0.0, 0);
                             foreach (LayerPosition layerPos in layer)
                                 boxLayer.AddPosition(layerPos.Position, layerPos.LengthAxis, layerPos.WidthAxis);
 

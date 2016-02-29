@@ -73,7 +73,7 @@ namespace treeDiM.StackBuilder.Engine
 
                     string title = string.Format("{0}-{1}", pattern.Name, axis.ToString());
                     double zLayer = 0.0;
-                    BoxLayer boxLayer = new BoxLayer(zLayer, "");
+                    BoxLayer boxLayer = new BoxLayer(zLayer, 0);
                     foreach (LayerPosition layerPos in layer)
                     {
                         LayerPosition layerPosTemp = AdjustLayerPosition(layerPos);

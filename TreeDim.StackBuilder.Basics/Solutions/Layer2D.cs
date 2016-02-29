@@ -3,12 +3,58 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 
 using Sharp3D.Math.Core;
+
+using log4net;
 #endregion
 
 namespace treeDiM.StackBuilder.Basics
 {
+
+    public class LayerDesc
+    {
+        #region Data members
+        string _patternName;
+        HalfAxis.HAxis _axis;
+        #endregion
+
+        #region Constructor
+        public LayerDesc(string patternName, HalfAxis.HAxis axis)
+        {
+            _patternName = patternName; _axis = axis;
+        }
+        #endregion
+
+        #region Public properties
+        public HalfAxis.HAxis AxisOrtho
+        { get { return _axis; } }
+        public string PatternName
+        {   get { return _patternName; } }
+        #endregion
+
+        #region Object override
+        public override string ToString()
+        {
+            return string.Format("{0} | {1}", _patternName, _axis);
+        }
+        public static LayerDesc Parse(string value)
+        {
+            Regex r = new Regex(@"(?<name>|(?<axis>))", RegexOptions.Singleline);
+            Match m = r.Match(value);
+            if (m.Success)
+            {
+                string patternName = m.Result("${name}");
+                HalfAxis.HAxis axis = HalfAxis.Parse( m.Result("${axis}"));
+                return new LayerDesc(patternName, axis);
+            }
+            else
+                throw new Exception("Failed to parse LayerDesc");
+        }
+        #endregion
+    }
+
     public class Layer2D : List<LayerPosition>
     {
         #region Data members
@@ -22,6 +68,10 @@ namespace treeDiM.StackBuilder.Basics
 
         private Vector2D _dimContainer;
         private Vector3D _dimBox;
+
+        private static readonly double _epsilon = 1.0e-03;
+
+        protected static ILog _log = LogManager.GetLogger(typeof(Layer2D));
         #endregion
 
         #region Constructor
@@ -78,9 +128,10 @@ namespace treeDiM.StackBuilder.Basics
             pts[1] = new Vector3D(vPosition.X, vPosition.Y, 0.0) + HalfAxis.ToVector3D(lengthAxis) * BoxLength;
             pts[2] = new Vector3D(vPosition.X, vPosition.Y, 0.0) + HalfAxis.ToVector3D(widthAxis) * BoxWidth;
             pts[3] = new Vector3D(vPosition.X, vPosition.Y, 0.0) + HalfAxis.ToVector3D(lengthAxis) * BoxLength + HalfAxis.ToVector3D(widthAxis) * BoxWidth;
+
             foreach (Vector3D pt in pts)
             {
-                if (pt.X < 0.0 || pt.X > _dimContainer.X || pt.Y < 0.0 || pt.Y > _dimContainer.Y)
+                if (pt.X < (0.0 - _epsilon) || pt.X > (_dimContainer.X + _epsilon) || pt.Y < (0.0 - _epsilon) || pt.Y > (_dimContainer.Y + _epsilon))
                     return false;
             }
             return true;
@@ -124,6 +175,11 @@ namespace treeDiM.StackBuilder.Basics
         }
         public void UpdateMaxSpace(double space)
         {
+            if (space < 0.0 - _epsilon)
+            {
+                _log.Error("Negative space value?");
+                return;
+            }
             if (double.IsInfinity(space) || double.IsNaN(space))
                 return;
             _maximumSpace = Math.Max(space, _maximumSpace);
@@ -131,6 +187,15 @@ namespace treeDiM.StackBuilder.Basics
         #endregion
 
         #region Public properties
+        public string PatternName
+        {
+            get { return _patternName; }
+            set { _patternName = value; }
+        }
+        public string Name
+        {
+            get { return string.Format("{0}_{1}_{2}", PatternName, HalfAxis.ToString(_axisOrtho), _swapped ? "t" : "f"); }
+        }
         public HalfAxis.HAxis AxisOrtho
         {
             get { return _axisOrtho; }
@@ -252,9 +317,17 @@ namespace treeDiM.StackBuilder.Basics
         {
             get { return Count; }
         }
+        public int NoLayers(double height)
+        {
+            return (int)Math.Floor(height / BoxHeight); 
+        }
         public int CountInHeight(double height)
         {
-            return (int)Math.Floor(height / BoxHeight) * Count;
+            return NoLayers(height) * Count;
+        }
+        public LayerDesc LayerDescriptor
+        {
+            get { return new LayerDesc(_patternName, _axisOrtho); }
         }
         #endregion
     }
@@ -280,7 +353,16 @@ namespace treeDiM.StackBuilder.Basics
             int layer1Count = layer1.CountInHeight(_height);
 
             if (layer0Count < layer1Count) return 1;
-            else if (layer0Count == layer1Count) return 0;
+            else if (layer0Count == layer1Count)
+            {
+                if (layer0.AxisOrtho < layer1.AxisOrtho)
+                    return 1;
+                else if (layer0.AxisOrtho == layer1.AxisOrtho)
+                {
+                    return 0;
+                }
+                else return -1;
+            }
             else return -1;
         }
         #endregion

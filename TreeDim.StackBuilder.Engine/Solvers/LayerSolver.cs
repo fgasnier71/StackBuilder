@@ -12,7 +12,7 @@ using treeDiM.StackBuilder.Basics;
 namespace treeDiM.StackBuilder.Engine
 {
 
-    public class LayerSolver
+    public class LayerSolver : ILayerSolver
     {
         #region Static data members
         #endregion
@@ -33,17 +33,20 @@ namespace treeDiM.StackBuilder.Engine
                     if ( !constraintSet.AllowOrientation(axisOrtho) )
                         continue;
                     // not swapped vs swapped pattern
-                    for (int iSwapped = 0; iSwapped < 2; ++iSwapped)
+                    for (int iSwapped = 0; iSwapped < 1; ++iSwapped)
                     {
                         // does swapping makes sense for this layer pattern ?
                         if (!pattern.CanBeSwapped && (iSwapped == 1))
                             continue;
                         // instantiate layer
                         Layer2D layer = new Layer2D(dimBox, dimContainer, axisOrtho, iSwapped == 1);
+                        layer.PatternName = pattern.Name;
                         double actualLength = 0.0, actualWidth = 0.0;
-                        bool bResult1 = pattern.GetLayerDimensionsChecked(layer, out actualLength, out actualWidth);
+                        if (!pattern.GetLayerDimensionsChecked(layer, out actualLength, out actualWidth))
+                            continue;
                         pattern.GenerateLayer(layer, actualLength, actualWidth);
-
+                        if (0 == layer.Count)
+                            continue;
                         listLayers0.Add(layer);
                     }
                 }
@@ -52,25 +55,19 @@ namespace treeDiM.StackBuilder.Engine
             // keep only best layers
             if (keepOnlyBest)
             {
-                // 1. get best count for each layer orientation
-                int[] vcounts = new int[] { 0, 0, 0, 0, 0, 0 };
+                // 1. get best count
+                int bestCount = 0;
                 foreach (Layer2D layer in listLayers0)
-                {
-                    int iDir = (int)layer.AxisOrtho;
-                    vcounts[iDir] = Math.Max(layer.Count, vcounts[iDir]);
-                }
-                for (int i = 0; i < 3; ++i)
-                {
-                    vcounts[i] = Math.Max(vcounts[i], vcounts[i + 1]);
-                    vcounts[i + 1] = Math.Max(vcounts[i], vcounts[i + 1]);
-                }
+                    bestCount = Math.Max(layer.CountInHeight(constraintSet.OptMaxHeight.Value), bestCount);
+
                 // 2. remove any layer that does not match the best count given its orientation
                 List<Layer2D> listLayers1 = new List<Layer2D>();
                 foreach (Layer2D layer in listLayers0)
                 {
-                    if (layer.Count >= vcounts[(int)layer.AxisOrtho])
+                    if (layer.CountInHeight(constraintSet.OptMaxHeight.Value) >= bestCount)
                         listLayers1.Add(layer);
                 }
+                // 3. copy back in original list
                 listLayers0.Clear();
                 listLayers0.AddRange(listLayers1);
             }
@@ -78,6 +75,21 @@ namespace treeDiM.StackBuilder.Engine
                 listLayers0.Sort(new LayerComparerCount(constraintSet.OptMaxHeight.Value));
 
             return listLayers0;
+        }
+
+        public Layer2D BuildLayer(Vector3D dimBox, Vector2D dimContainer, LayerDesc layerDesc)
+        {
+            // instantiate layer
+            Layer2D layer = new Layer2D(dimBox, dimContainer, layerDesc.AxisOrtho, false);
+            // get layer pattern
+            LayerPattern pattern = LayerPattern.GetByName(layerDesc.PatternName);
+            // dimensions
+            double actualLength = 0.0, actualWidth = 0.0;
+            if (!pattern.GetLayerDimensionsChecked(layer, out actualLength, out actualWidth))
+                return null;
+            pattern.GenerateLayer(layer, actualLength, actualWidth);
+
+            return layer;
         }
         #endregion
     }

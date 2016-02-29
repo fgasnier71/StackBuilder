@@ -145,7 +145,7 @@ namespace treeDiM.StackBuilder.Engine
 
                                         // select current layer type
                                         Layer2D currentLayer = iLayerIndex % 2 == 0 ? layer1T : layer2T;
-                                        BoxLayer layer = sol.CreateNewLayer(zLayer, pattern.Name);
+                                        BoxLayer layer = sol.CreateNewLayer(zLayer, 0);
 
                                         foreach (LayerPosition layerPos in currentLayer)
                                         {
