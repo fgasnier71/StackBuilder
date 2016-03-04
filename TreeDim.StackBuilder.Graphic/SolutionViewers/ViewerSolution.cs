@@ -125,16 +125,16 @@ namespace treeDiM.StackBuilder.Graphics
             if (null == _solution) return;
             AnalysisCasePallet analysisCasePallet = _solution.Analysis as AnalysisCasePallet;
 
-            if (null != analysisCasePallet)
-            {
-                Pallet pallet = new Pallet(analysisCasePallet.PalletProperties);
-                pallet.Draw(graphics, Transform3D.Identity);
-            }
+            // ### draw pallet
+            Pallet pallet = new Pallet(analysisCasePallet.PalletProperties);
+            pallet.Draw(graphics, Transform3D.Identity);
 
-            // draw solution
+            // ### draw solution
             uint layerId = 0, pickId = 0;
-            foreach (ILayer layer in _solution.Layers)
+            List<ILayer> layers = _solution.Layers;
+            foreach (ILayer layer in layers)
             {
+                // ### layer of boxes
                 BoxLayer blayer = layer as BoxLayer;
                 if (null != blayer)
                 {
@@ -147,48 +147,16 @@ namespace treeDiM.StackBuilder.Graphics
                     }
                     // add layer BBox
                     AddPickingBox(bbox, layerId);
-                    if (layerId == _solution.Selected)
-                    {
-                        Vector3D ptMin = bbox.PtMin;
-                        Vector3D ptMax = bbox.PtMax;
-
-                        Vector3D[] vertices = {
-                            new Vector3D(ptMin.X, ptMin.Y, ptMin.Z)       // 0
-                            , new Vector3D(ptMax.X, ptMin.Y, ptMin.Z)     // 1
-                            , new Vector3D(ptMax.X, ptMax.Y, ptMin.Z)     // 2
-                            , new Vector3D(ptMin.X, ptMax.Y, ptMin.Z)     // 3
-                            , new Vector3D(ptMin.X, ptMin.Y, ptMax.Z)     // 4
-                            , new Vector3D(ptMax.X, ptMin.Y, ptMax.Z)     // 5
-                            , new Vector3D(ptMax.X, ptMax.Y, ptMax.Z)     // 6
-                            , new Vector3D(ptMin.X, ptMax.Y, ptMax.Z)     // 7
-                        };
-                        Face[] faces = new Face[]
-                        {
-                            new Face(0, vertices[0], vertices[1], vertices[5], vertices[4], false),
-                            new Face(0, vertices[1], vertices[2], vertices[6], vertices[5], false),
-                            new Face(0, vertices[2], vertices[3], vertices[7], vertices[6], false),
-                            new Face(0, vertices[3], vertices[0], vertices[4], vertices[7], false),
-                        };
-
-                        foreach (Face f in faces)
-                        {
-                            if (f.IsVisible(ViewDir))
-                            {
-                                Vector3D[] points = f.Points;
-                                graphics.AddSegment(new Segment(points[0], points[1], Color.Red));
-                                graphics.AddSegment(new Segment(points[1], points[2], Color.Red));
-                                graphics.AddSegment(new Segment(points[2], points[3], Color.Red));
-                                graphics.AddSegment(new Segment(points[3], points[0], Color.Red));
-                            }
-                        }
-                    }
+                    // draw bounding box around selected layer
+                    if (layerId == _solution.SelectedLayerIndex)
+                        DrawLayerBoundingBox(graphics, bbox);
                     ++layerId;
                 }
-
+                // ### intetrlayer
                 InterlayerPos interlayerPos = layer as InterlayerPos;
                 if (null != interlayerPos)
                 {
-                    InterlayerProperties interlayerProp = analysisCasePallet.Interlayer(interlayerPos.TypeId);
+                    InterlayerProperties interlayerProp = _solution.Interlayers[interlayerPos.TypeId];//analysisCasePallet.Interlayer(interlayerPos.TypeId);
                     if (null != interlayerProp)
                     {
                         Box box = new Box(pickId++, interlayerProp);
@@ -201,7 +169,82 @@ namespace treeDiM.StackBuilder.Graphics
                     }
                 }
             }
+            BBox3D loadBBox = _solution.BBoxLoad;
+            BBox3D loadBBoxWDeco = _solution.BBoxLoadWDeco;
+            #region Pallet corners
+            // ### pallet corners : Begin
+            Corner[] corners = new Corner[4];
+            if (analysisCasePallet.HasPalletCorners)
+            {
+                // positions
+                Vector3D[] cornerPositions =
+                {
+                    loadBBox.PtMin
+                    , new Vector3D(loadBBox.PtMax.X, loadBBox.PtMin.Y, loadBBox.PtMin.Z)
+                    , new Vector3D(loadBBox.PtMax.X, loadBBox.PtMax.Y, loadBBox.PtMin.Z)
+                    , new Vector3D(loadBBox.PtMin.X, loadBBox.PtMax.Y, loadBBox.PtMin.Z)
+                };
+                // length axes
+                HalfAxis.HAxis[] lAxes =
+                {
+                    HalfAxis.HAxis.AXIS_X_P,
+                    HalfAxis.HAxis.AXIS_Y_P,
+                    HalfAxis.HAxis.AXIS_X_N,
+                    HalfAxis.HAxis.AXIS_Y_N
+                };
+                // width axes
+                HalfAxis.HAxis[] wAxes =
+                {
+                    HalfAxis.HAxis.AXIS_Y_P,
+                    HalfAxis.HAxis.AXIS_X_N,
+                    HalfAxis.HAxis.AXIS_Y_N,
+                    HalfAxis.HAxis.AXIS_X_P
+                };
+                // corners
+                if (analysisCasePallet.HasPalletCorners)
+                {
+                    for (int i = 0; i < 4; ++i)
+                    {
+                        corners[i] = new Corner(0, analysisCasePallet.PalletCornerProperties);
+                        corners[i].Height = Math.Min(analysisCasePallet.PalletCornerProperties.Length, loadBBox.Height);
+                        corners[i].SetPosition(cornerPositions[i], lAxes[i], wAxes[i]);
+                        corners[i].DrawBegin(graphics);
+                    }
+                }
+            }
+            #endregion
 
+            #region Pallet cap
+            #endregion
+
+            #region Pallet film
+            // ### pallet film
+            Film film = null;
+            if (analysisCasePallet.HasPalletFilm)
+            {
+                PalletFilmProperties palletFilmProperties = analysisCasePallet.PalletFilmProperties;
+                film = new Film(
+                    palletFilmProperties.Color,
+                    palletFilmProperties.UseTransparency,
+                    palletFilmProperties.UseHatching,
+                    palletFilmProperties.HatchSpacing,
+                    palletFilmProperties.HatchAngle);
+                film.AddRectangle(new FilmRectangle(loadBBoxWDeco.PtMin,
+                    HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Z_P, new Vector2D(loadBBoxWDeco.Length, loadBBoxWDeco.Height), 0.0));
+                film.AddRectangle(new FilmRectangle(loadBBoxWDeco.PtMin + loadBBoxWDeco.Length * Vector3D.XAxis,
+                    HalfAxis.HAxis.AXIS_Y_P, HalfAxis.HAxis.AXIS_Z_P, new Vector2D(loadBBoxWDeco.Width, loadBBoxWDeco.Height), 0.0));
+                film.AddRectangle(new FilmRectangle(loadBBoxWDeco.PtMin + loadBBoxWDeco.Length * Vector3D.XAxis + loadBBoxWDeco.Width * Vector3D.YAxis,
+                    HalfAxis.HAxis.AXIS_X_N, HalfAxis.HAxis.AXIS_Z_P, new Vector2D(loadBBoxWDeco.Length, loadBBoxWDeco.Height), 0.0));
+                film.AddRectangle(new FilmRectangle(loadBBoxWDeco.PtMin + loadBBoxWDeco.Width * Vector3D.YAxis,
+                    HalfAxis.HAxis.AXIS_Y_N, HalfAxis.HAxis.AXIS_Z_P, new Vector2D(loadBBoxWDeco.Width, loadBBoxWDeco.Height), 0.0));
+                film.AddRectangle(new FilmRectangle(loadBBoxWDeco.PtMin + loadBBoxWDeco.Height * Vector3D.ZAxis,
+                    HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P, new Vector2D(loadBBoxWDeco.Length, loadBBoxWDeco.Width),
+                    UnitsManager.ConvertLengthFrom(200.0, UnitsManager.UnitSystem.UNIT_METRIC1)));
+                film.DrawBegin(graphics);
+            }
+            #endregion
+
+            // ### dimensions
             if (showDimensions)
             {
                 graphics.AddDimensions(
@@ -211,6 +254,35 @@ namespace treeDiM.StackBuilder.Graphics
                     new DimensionCube(BoundingBoxDim(Properties.Settings.Default.DimCasePalletSol2)
                     , Color.Red, true));
             }
+
+            #region Pallet corners
+            // pallet corners : End
+            if (analysisCasePallet.HasPalletCorners)
+            {
+                for (int i = 0; i < 4; ++i)
+                    corners[i].DrawEnd(graphics);
+            }
+            #endregion
+
+            #region Pallet Cap
+            // ### pallet cap
+            if (analysisCasePallet.HasPalletCap)
+            {
+                PalletCapProperties capProperties = analysisCasePallet.PalletCapProperties;
+                Vector3D pos = new Vector3D(
+                    0.5 * (analysisCasePallet.PalletProperties.Length - capProperties.Length),
+                    0.5 * (analysisCasePallet.PalletProperties.Width - capProperties.Width),
+                    loadBBox.PtMax.Z - capProperties.InsideHeight);
+                PalletCap cap = new PalletCap(0, capProperties, pos);
+                cap.DrawEnd(graphics);
+            }
+            #endregion
+
+            #region Pallet film
+            // pallet film : End
+            if (analysisCasePallet.HasPalletFilm)
+                film.DrawEnd(graphics);
+            #endregion
         }
 
         public override void Draw(Graphics2D graphics, bool showDimensions)
@@ -233,8 +305,41 @@ namespace treeDiM.StackBuilder.Graphics
                 default: return _solution.BBoxGlobal;
             }
         }
+
+        private void DrawLayerBoundingBox(Graphics3D graphics, BBox3D bbox)
+        {
+            Vector3D ptMin = bbox.PtMin;
+            Vector3D ptMax = bbox.PtMax;
+
+            Vector3D[] vertices = {
+                            new Vector3D(ptMin.X, ptMin.Y, ptMin.Z)       // 0
+                            , new Vector3D(ptMax.X, ptMin.Y, ptMin.Z)     // 1
+                            , new Vector3D(ptMax.X, ptMax.Y, ptMin.Z)     // 2
+                            , new Vector3D(ptMin.X, ptMax.Y, ptMin.Z)     // 3
+                            , new Vector3D(ptMin.X, ptMin.Y, ptMax.Z)     // 4
+                            , new Vector3D(ptMax.X, ptMin.Y, ptMax.Z)     // 5
+                            , new Vector3D(ptMax.X, ptMax.Y, ptMax.Z)     // 6
+                            , new Vector3D(ptMin.X, ptMax.Y, ptMax.Z)     // 7
+                        };
+            Face[] faces = {
+                            new Face(0, vertices[0], vertices[1], vertices[5], vertices[4], false),
+                            new Face(0, vertices[1], vertices[2], vertices[6], vertices[5], false),
+                            new Face(0, vertices[2], vertices[3], vertices[7], vertices[6], false),
+                            new Face(0, vertices[3], vertices[0], vertices[4], vertices[7], false),
+                        };
+
+            foreach (Face f in faces)
+            {
+                if (f.IsVisible(ViewDir))
+                {
+                    Vector3D[] points = f.Points;
+                    graphics.AddSegment(new Segment(points[0], points[1], Color.Red));
+                    graphics.AddSegment(new Segment(points[1], points[2], Color.Red));
+                    graphics.AddSegment(new Segment(points[2], points[3], Color.Red));
+                    graphics.AddSegment(new Segment(points[3], points[0], Color.Red));
+                }
+            }
+        }
         #endregion
-
-
     }
 }

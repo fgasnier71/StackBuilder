@@ -115,9 +115,8 @@ namespace treeDiM.StackBuilder.Basics
                 , HalfAxis.ToHalfAxis(localTransfInv.transform(HalfAxis.ToVector3D(LengthAxis)))
                 , HalfAxis.ToHalfAxis(localTransfInv.transform(HalfAxis.ToVector3D(WidthAxis)))
                 );
-
             // add position
-            Add(layerPos);
+            Add(layerPos.Adjusted(_dimBox));
         }
         public bool IsValidPosition(Vector2D vPosition, HalfAxis.HAxis lengthAxis, HalfAxis.HAxis widthAxis)
         {
@@ -147,15 +146,12 @@ namespace treeDiM.StackBuilder.Basics
             {
                 switch (_axisOrtho)
                 {
-                    case HalfAxis.HAxis.AXIS_X_N:
-                    case HalfAxis.HAxis.AXIS_X_P:
-                        return _dimBox.X;
-                    case HalfAxis.HAxis.AXIS_Y_N:
-                    case HalfAxis.HAxis.AXIS_Y_P:
-                        return _dimBox.Y;
-                    case HalfAxis.HAxis.AXIS_Z_N:
-                    case HalfAxis.HAxis.AXIS_Z_P:
-                        return _dimBox.Z;
+                    case HalfAxis.HAxis.AXIS_X_N: return _dimBox.X;
+                    case HalfAxis.HAxis.AXIS_X_P: return _dimBox.Y;
+                    case HalfAxis.HAxis.AXIS_Y_N: return _dimBox.Y;
+                    case HalfAxis.HAxis.AXIS_Y_P: return _dimBox.X;
+                    case HalfAxis.HAxis.AXIS_Z_N: return _dimBox.Z;
+                    case HalfAxis.HAxis.AXIS_Z_P: return _dimBox.Z;
                     default:
                         throw new Exception();
                 }
@@ -206,10 +202,10 @@ namespace treeDiM.StackBuilder.Basics
             {
                 switch (_axisOrtho)
                 {
-                    case HalfAxis.HAxis.AXIS_X_N: return HalfAxis.HAxis.AXIS_Z_N;
-                    case HalfAxis.HAxis.AXIS_X_P: return HalfAxis.HAxis.AXIS_Z_P;
+                    case HalfAxis.HAxis.AXIS_X_N: return HalfAxis.HAxis.AXIS_Z_P;
+                    case HalfAxis.HAxis.AXIS_X_P: return HalfAxis.HAxis.AXIS_Y_P;
                     case HalfAxis.HAxis.AXIS_Y_N: return HalfAxis.HAxis.AXIS_X_P;
-                    case HalfAxis.HAxis.AXIS_Y_P: return HalfAxis.HAxis.AXIS_Y_P;
+                    case HalfAxis.HAxis.AXIS_Y_P: return HalfAxis.HAxis.AXIS_Z_P;
                     case HalfAxis.HAxis.AXIS_Z_N: return HalfAxis.HAxis.AXIS_Y_P;
                     case HalfAxis.HAxis.AXIS_Z_P: return HalfAxis.HAxis.AXIS_X_P;
                     default: throw new Exception("Invalid ortho axis");
@@ -222,10 +218,10 @@ namespace treeDiM.StackBuilder.Basics
             {
                 switch (_axisOrtho)
                 {
-                    case HalfAxis.HAxis.AXIS_X_N: return HalfAxis.HAxis.AXIS_X_N;
-                    case HalfAxis.HAxis.AXIS_X_P: return HalfAxis.HAxis.AXIS_Y_P;
-                    case HalfAxis.HAxis.AXIS_Y_N: return HalfAxis.HAxis.AXIS_Z_N;
-                    case HalfAxis.HAxis.AXIS_Y_P: return HalfAxis.HAxis.AXIS_Z_P;
+                    case HalfAxis.HAxis.AXIS_X_N: return HalfAxis.HAxis.AXIS_Y_P;
+                    case HalfAxis.HAxis.AXIS_X_P: return HalfAxis.HAxis.AXIS_Z_P;
+                    case HalfAxis.HAxis.AXIS_Y_N: return HalfAxis.HAxis.AXIS_Z_P;
+                    case HalfAxis.HAxis.AXIS_Y_P: return HalfAxis.HAxis.AXIS_X_P;
                     case HalfAxis.HAxis.AXIS_Z_N: return HalfAxis.HAxis.AXIS_X_P;
                     case HalfAxis.HAxis.AXIS_Z_P: return HalfAxis.HAxis.AXIS_Y_P;
                     default: throw new Exception("Invalid ortho axis");
@@ -238,9 +234,9 @@ namespace treeDiM.StackBuilder.Basics
             {
                 switch (_axisOrtho)
                 {
-                    case HalfAxis.HAxis.AXIS_X_N: return new Vector3D(_dimBox.Y, 0.0, _dimBox.X);
-                    case HalfAxis.HAxis.AXIS_X_P: return new Vector3D(_dimBox.Z, 0.0, 0.0); ;
-                    case HalfAxis.HAxis.AXIS_Y_N: return new Vector3D(0.0, 0.0, _dimBox.Y);
+                    case HalfAxis.HAxis.AXIS_X_N: return new Vector3D(_dimBox.Z, 0.0, 0.0);
+                    case HalfAxis.HAxis.AXIS_X_P: return new Vector3D(0.0, 0.0, 0.0); ;
+                    case HalfAxis.HAxis.AXIS_Y_N: return new Vector3D(0.0, _dimBox.Z, 0.0);
                     case HalfAxis.HAxis.AXIS_Y_P: return Vector3D.Zero;
                     case HalfAxis.HAxis.AXIS_Z_N: return new Vector3D(0.0, 0.0, _dimBox.Z);
                     case HalfAxis.HAxis.AXIS_Z_P: return Vector3D.Zero;
@@ -254,10 +250,10 @@ namespace treeDiM.StackBuilder.Basics
             {
                 switch (_axisOrtho)
                 {
-                    case HalfAxis.HAxis.AXIS_X_N: return _dimBox.Y + _forcedSpace;
+                    case HalfAxis.HAxis.AXIS_X_N: return _dimBox.Z + _forcedSpace;
                     case HalfAxis.HAxis.AXIS_X_P: return _dimBox.Z + _forcedSpace;
                     case HalfAxis.HAxis.AXIS_Y_N: return _dimBox.X + _forcedSpace;
-                    case HalfAxis.HAxis.AXIS_Y_P: return _dimBox.Z + _forcedSpace;
+                    case HalfAxis.HAxis.AXIS_Y_P: return _dimBox.Y + _forcedSpace;
                     case HalfAxis.HAxis.AXIS_Z_N: return _dimBox.Y + _forcedSpace;
                     case HalfAxis.HAxis.AXIS_Z_P: return _dimBox.X + _forcedSpace;
                     default: throw new Exception("Invalid ortho axis");
@@ -270,14 +266,13 @@ namespace treeDiM.StackBuilder.Basics
             {
                 switch (_axisOrtho)
                 { 
-                    case HalfAxis.HAxis.AXIS_X_N: return _dimBox.Z + _forcedSpace;
-                    case HalfAxis.HAxis.AXIS_X_P: return _dimBox.Y + _forcedSpace;
+                    case HalfAxis.HAxis.AXIS_X_N: return _dimBox.Y + _forcedSpace;
+                    case HalfAxis.HAxis.AXIS_X_P: return _dimBox.X + _forcedSpace;
                     case HalfAxis.HAxis.AXIS_Y_N: return _dimBox.Z + _forcedSpace;
-                    case HalfAxis.HAxis.AXIS_Y_P: return _dimBox.X + _forcedSpace;
+                    case HalfAxis.HAxis.AXIS_Y_P: return _dimBox.Z + _forcedSpace;
                     case HalfAxis.HAxis.AXIS_Z_N: return _dimBox.X + _forcedSpace;
                     case HalfAxis.HAxis.AXIS_Z_P: return _dimBox.Y + _forcedSpace;
                     default: throw new Exception("Invalid ortho axis");
-                
                 }
             }
         }
@@ -288,9 +283,9 @@ namespace treeDiM.StackBuilder.Basics
                 switch (_axisOrtho)
                 {
                     case HalfAxis.HAxis.AXIS_X_N: return _dimBox.X;
-                    case HalfAxis.HAxis.AXIS_X_P: return _dimBox.X;
+                    case HalfAxis.HAxis.AXIS_X_P: return _dimBox.Y;
                     case HalfAxis.HAxis.AXIS_Y_N: return _dimBox.Y;
-                    case HalfAxis.HAxis.AXIS_Y_P: return _dimBox.Y;
+                    case HalfAxis.HAxis.AXIS_Y_P: return _dimBox.X;
                     case HalfAxis.HAxis.AXIS_Z_N: return _dimBox.Z;
                     case HalfAxis.HAxis.AXIS_Z_P: return _dimBox.Z;
                     default: throw new Exception("Invalid ortho axis");

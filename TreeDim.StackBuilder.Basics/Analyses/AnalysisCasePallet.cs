@@ -176,7 +176,6 @@ namespace treeDiM.StackBuilder.Basics
                 _palletFilmProperties.AddDependancy(this);
             }
         }
-
         public bool HasPalletCorners
         {
             get { return null != _palletCornerProperties; }
@@ -184,6 +183,10 @@ namespace treeDiM.StackBuilder.Basics
         public bool HasPalletCap
         {
             get { return null != _palletCapProperties; }
+        }
+        public bool HasPalletFilm
+        {
+            get { return null != _palletFilmProperties; }
         }
         #endregion
 

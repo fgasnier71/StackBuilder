@@ -88,8 +88,38 @@ namespace treeDiM.StackBuilder.Engine
             if (!pattern.GetLayerDimensionsChecked(layer, out actualLength, out actualWidth))
                 return null;
             pattern.GenerateLayer(layer, actualLength, actualWidth);
-
             return layer;
+        }
+
+        public Layer2D BuildLayer(Vector3D dimBox, Vector2D dimContainer, LayerDesc layerDesc, Vector2D actualDimensions)
+        { 
+            // instantiate layer
+            Layer2D layer = new Layer2D(dimBox, dimContainer, layerDesc.AxisOrtho, false);
+            // get layer pattern
+            LayerPattern pattern = LayerPattern.GetByName(layerDesc.PatternName);
+            // build layer
+            pattern.GenerateLayer(layer, actualDimensions.X, actualDimensions.Y);
+            return layer;
+        }
+
+        public bool GetDimensions(List<LayerDesc> layers, Vector3D dimBox, Vector2D dimContainer, out Vector2D actualDimensions)
+        {
+            actualDimensions = new Vector2D();
+            foreach (LayerDesc layerDesc in layers)
+            { 
+                // instantiate layer
+                Layer2D layer = new Layer2D(dimBox, dimContainer, layerDesc.AxisOrtho, false);
+                // get layer pattern
+                LayerPattern pattern = LayerPattern.GetByName(layerDesc.PatternName);
+                // dimensions
+                double actualLength = 0.0, actualWidth = 0.0;
+                if (!pattern.GetLayerDimensionsChecked(layer, out actualLength, out actualWidth))
+                    return false;
+
+                actualDimensions.X = Math.Max(actualDimensions.X, actualLength);
+                actualDimensions.Y = Math.Max(actualDimensions.Y, actualWidth);
+            }
+            return true;
         }
         #endregion
     }

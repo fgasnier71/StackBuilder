@@ -18,6 +18,12 @@ namespace treeDiM.StackBuilder.Basics
             _lengthAxis = lengthAxis;
             _widthAxis = widthAxis;
         }
+        public LayerPosition(LayerPosition pos)
+        {
+            _position = pos._position;
+            _lengthAxis = pos._lengthAxis;
+            _widthAxis = pos._widthAxis;
+        }
         #endregion
 
         #region Static methods
@@ -81,6 +87,38 @@ namespace treeDiM.StackBuilder.Basics
         public bool IsValid
         {
             get { return _lengthAxis != _widthAxis; }
+        }
+
+        public LayerPosition Adjusted(Vector3D dimensions)
+        {
+            LayerPosition layerPosTemp = new LayerPosition(this);
+
+            // reverse if oriented to Z- (AXIS_Z_N)
+            if (HeightAxis == HalfAxis.HAxis.AXIS_Z_N)
+            {
+                if (LengthAxis == HalfAxis.HAxis.AXIS_X_P)
+                {
+                    layerPosTemp.WidthAxis = HalfAxis.HAxis.AXIS_Y_P;
+                    layerPosTemp.Position += new Vector3D(0.0, -dimensions.Y, -dimensions.Z);
+                }
+                else if (LengthAxis == HalfAxis.HAxis.AXIS_Y_P)
+                {
+                    layerPosTemp.WidthAxis = HalfAxis.HAxis.AXIS_X_N;
+                    layerPosTemp.Position += new Vector3D(dimensions.Y, 0.0, -dimensions.Z);
+                }
+                else if (LengthAxis == HalfAxis.HAxis.AXIS_X_N)
+                {
+                    layerPosTemp.LengthAxis = HalfAxis.HAxis.AXIS_X_P;
+                    layerPosTemp.Position += new Vector3D(-dimensions.X, 0.0, -dimensions.Z);
+                }
+                else if (LengthAxis == HalfAxis.HAxis.AXIS_Y_N)
+                {
+                    layerPosTemp.WidthAxis = HalfAxis.HAxis.AXIS_X_P;
+                    layerPosTemp.Position += new Vector3D(-dimensions.Y, 0.0, -dimensions.Z);
+                }
+            }
+
+            return layerPosTemp;
         }
         #endregion
 
