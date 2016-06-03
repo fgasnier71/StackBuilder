@@ -29,14 +29,17 @@ namespace treeDiM.StackBuilder.Graphics
         private int _x, _y;
         private ToolTip tooltip = new ToolTip();
         private double _contHeight = 0.0;
+        private bool _firstLayerSelected = false;
         #endregion
 
         #region Delegate
         public delegate void LayerButtonClicked(object sender, EventArgs e);
+        public delegate void RefreshEnded(object sender, EventArgs e);
         #endregion
 
         #region Event handlers
-        public event LayerButtonClicked LayerSelected; 
+        public event LayerButtonClicked LayerSelected;
+        public event RefreshEnded RefreshFinished;
         #endregion
 
         #region Constructor
@@ -44,6 +47,14 @@ namespace treeDiM.StackBuilder.Graphics
         {
             InitializeComponent();
             AutoScroll = true;
+        }
+        #endregion
+
+        #region Public methods
+        public bool FirstLayerSelected
+        {
+            get { return _firstLayerSelected; }
+            set { _firstLayerSelected = value; }
         }
         #endregion
 
@@ -122,7 +133,12 @@ namespace treeDiM.StackBuilder.Graphics
         #region Event handler
         private void Start()
         {
+            // do not do anything when in design mode
+            if (DesignMode)
+                return;
+            // clear all controls
             Controls.Clear();
+            // start timer
             _index = 0; _x = 0; _y = 0;
             _timer.Interval = 50;
             _timer.Start();        
@@ -132,15 +148,18 @@ namespace treeDiM.StackBuilder.Graphics
             if (_index == _layerList.Count)
             {
                 _timer.Stop();
+                RefreshFinished(this, null);
                 return;
             }
+            bool selected = 0 == Controls.Count ? _firstLayerSelected : false;
+
             Layer2D layer = _layerList[_index];
             // create button and add to panel
             Button btn = new Button();
-            btn.Image = LayerToImage.Draw(_layerList[_index], _bProperties, _contHeight, szButtons, false);//bitmap;
+            btn.Image = LayerToImage.Draw(_layerList[_index], _bProperties, _contHeight, szButtons, selected);//bitmap;
             btn.Location = new Point(_x, _y) + (Size)AutoScrollPosition;
             btn.Size = szButtons;
-            btn.Tag = new LayerItem(layer, false);
+            btn.Tag = new LayerItem(layer, selected);
             btn.Click += onLayerSelected;
             Controls.Add(btn);
 

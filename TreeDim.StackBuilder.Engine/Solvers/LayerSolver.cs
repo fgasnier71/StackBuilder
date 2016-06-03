@@ -18,7 +18,9 @@ namespace treeDiM.StackBuilder.Engine
         #endregion
 
         #region Public methods
-        public List<Layer2D> BuildLayers(Vector3D dimBox, Vector2D dimContainer, ConstraintSetAbstract constraintSet, bool keepOnlyBest)
+        public List<Layer2D> BuildLayers(
+            Vector3D dimBox, Vector2D dimContainer,
+            ConstraintSetAbstract constraintSet, bool keepOnlyBest)
         {
             // instantiate list of layers
             List<Layer2D> listLayers0 = new List<Layer2D>();
@@ -27,13 +29,14 @@ namespace treeDiM.StackBuilder.Engine
             foreach (LayerPattern pattern in LayerPattern.All)
             {
                 // loop through all orientation
-                foreach (HalfAxis.HAxis axisOrtho in HalfAxis.All)
+                HalfAxis.HAxis[] patternAxes = pattern.IsSymetric ? HalfAxis.Positives : HalfAxis.All;
+                foreach (HalfAxis.HAxis axisOrtho in patternAxes)
                 {
                     // is orientation allowed
-                    if ( !constraintSet.AllowOrientation(axisOrtho) )
+                    if (!constraintSet.AllowOrientation(Layer2D.VerticalAxis(axisOrtho)))
                         continue;
                     // not swapped vs swapped pattern
-                    for (int iSwapped = 0; iSwapped < 1; ++iSwapped)
+                    for (int iSwapped = 0; iSwapped < 2; ++iSwapped)
                     {
                         // does swapping makes sense for this layer pattern ?
                         if (!pattern.CanBeSwapped && (iSwapped == 1))
@@ -80,25 +83,31 @@ namespace treeDiM.StackBuilder.Engine
         public Layer2D BuildLayer(Vector3D dimBox, Vector2D dimContainer, LayerDesc layerDesc)
         {
             // instantiate layer
-            Layer2D layer = new Layer2D(dimBox, dimContainer, layerDesc.AxisOrtho, false);
+            Layer2D layer = new Layer2D(dimBox, dimContainer, layerDesc.AxisOrtho, layerDesc.Swapped);
             // get layer pattern
             LayerPattern pattern = LayerPattern.GetByName(layerDesc.PatternName);
             // dimensions
             double actualLength = 0.0, actualWidth = 0.0;
             if (!pattern.GetLayerDimensionsChecked(layer, out actualLength, out actualWidth))
                 return null;
-            pattern.GenerateLayer(layer, actualLength, actualWidth);
+            pattern.GenerateLayer(
+                layer
+                , layer.Swapped ? actualWidth : actualLength
+                , layer.Swapped ? actualLength : actualWidth);
             return layer;
         }
 
         public Layer2D BuildLayer(Vector3D dimBox, Vector2D dimContainer, LayerDesc layerDesc, Vector2D actualDimensions)
         { 
             // instantiate layer
-            Layer2D layer = new Layer2D(dimBox, dimContainer, layerDesc.AxisOrtho, false);
+            Layer2D layer = new Layer2D(dimBox, dimContainer, layerDesc.AxisOrtho, layerDesc.Swapped);
             // get layer pattern
             LayerPattern pattern = LayerPattern.GetByName(layerDesc.PatternName);
             // build layer
-            pattern.GenerateLayer(layer, actualDimensions.X, actualDimensions.Y);
+            pattern.GenerateLayer(
+                layer
+                , layer.Swapped ? actualDimensions.Y : actualDimensions.X
+                , layer.Swapped ? actualDimensions.X : actualDimensions.Y);
             return layer;
         }
 
@@ -108,7 +117,7 @@ namespace treeDiM.StackBuilder.Engine
             foreach (LayerDesc layerDesc in layers)
             { 
                 // instantiate layer
-                Layer2D layer = new Layer2D(dimBox, dimContainer, layerDesc.AxisOrtho, false);
+                Layer2D layer = new Layer2D(dimBox, dimContainer, layerDesc.AxisOrtho, layerDesc.Swapped);
                 // get layer pattern
                 LayerPattern pattern = LayerPattern.GetByName(layerDesc.PatternName);
                 // dimensions
@@ -116,9 +125,81 @@ namespace treeDiM.StackBuilder.Engine
                 if (!pattern.GetLayerDimensionsChecked(layer, out actualLength, out actualWidth))
                     return false;
 
-                actualDimensions.X = Math.Max(actualDimensions.X, actualLength);
-                actualDimensions.Y = Math.Max(actualDimensions.Y, actualWidth);
+                actualDimensions.X = Math.Max(actualDimensions.X, layerDesc.Swapped ? actualWidth : actualLength);
+                actualDimensions.Y = Math.Max(actualDimensions.Y, layerDesc.Swapped ? actualLength : actualWidth);
             }
+            return true;
+        }
+
+        public bool GetBestCombination(Vector3D dimBox, Vector2D dimContainer,
+            ConstraintSetAbstract constraintSet, ref List<KeyValuePair<LayerDesc, int>> listLayer)
+        {
+            LayerDesc[] layDescs = new LayerDesc[3];
+            int[] counts = new int[3] { 0, 0, 0 };
+            double[] heights = new double[3] { 0.0, 0.0, 0.0 };
+
+            // loop through all patterns
+            foreach (LayerPattern pattern in LayerPattern.All)
+            {
+                // loop through all orientation
+                HalfAxis.HAxis[] patternAxes = pattern.IsSymetric ? HalfAxis.Positives : HalfAxis.All;
+                foreach (HalfAxis.HAxis axisOrtho in patternAxes)
+                {
+                    // is orientation allowed
+                    if (!constraintSet.AllowOrientation(Layer2D.VerticalAxis(axisOrtho)))
+                        continue;
+                    // not swapped vs swapped pattern
+                    for (int iSwapped = 0; iSwapped < 2; ++iSwapped)
+                    {
+                        // does swapping makes sense for this layer pattern ?
+                        if (!pattern.CanBeSwapped && (iSwapped == 1))
+                            continue;
+                        // instantiate layer
+                        Layer2D layer = new Layer2D(dimBox, dimContainer, axisOrtho, iSwapped == 1);
+                        layer.PatternName = pattern.Name;
+                        double actualLength = 0.0, actualWidth = 0.0;
+                        if (!pattern.GetLayerDimensionsChecked(layer, out actualLength, out actualWidth))
+                            continue;
+                        pattern.GenerateLayer(layer, actualLength, actualWidth);
+                        if (0 == layer.Count)
+                            continue;
+
+                        int iAxisIndex = HalfAxis.Direction(axisOrtho);
+                        if (layer.Count > counts[iAxisIndex])
+                        {
+                            counts[iAxisIndex] = layer.Count;
+                            layDescs[iAxisIndex] = layer.LayerDescriptor;
+                            heights[iAxisIndex] = layer.BoxHeight;
+                        }
+                    }
+                }
+            }
+
+            // get list of values
+            int indexIMax = 0, indexJMax = 0, noIMax = 0, noJMax = 0, iCountMax = 0;
+            for (int i = 0; i < 2; ++i)
+            {
+                int j = i + 1;
+                // search best count
+                double palletHeight = constraintSet.OptMaxHeight.Value;
+                int noI = (int)Math.Floor(palletHeight / heights[i]);
+                // search all index
+                while (noI > 0)
+                {
+                    double remainingHeight = palletHeight - noI * heights[i];
+                    int noJ = (int)Math.Floor(remainingHeight / heights[j]);
+                    if (noI * counts[i] + noJ * counts[j] > iCountMax)
+                    {
+                        indexIMax = i;  indexJMax = j;
+                        noIMax = noI;   noJMax = noJ;
+                        iCountMax = noI * counts[i] + noJ * counts[j];
+                    }
+                    --noI;
+                } // while
+            }
+
+            listLayer.Add(new KeyValuePair<LayerDesc, int>(layDescs[indexIMax], noIMax));
+            listLayer.Add(new KeyValuePair<LayerDesc, int>(layDescs[indexJMax], noJMax));
             return true;
         }
         #endregion

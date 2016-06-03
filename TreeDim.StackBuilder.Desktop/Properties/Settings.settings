@@ -210,7 +210,7 @@
       <Value Profile="(Default)">http://www.plmpack.com/stackbuilder/stackbuilder_donate_page.htm</Value>
     </Setting>
     <Setting Name="ExcelLibraryPath" Type="System.String" Scope="User">
-      <Value Profile="(Default)">K:\GitHub\StackBuilder\Samples\SampleBook.xls</Value>
+      <Value Profile="(Default)">K:\GitHub\StackBuilder\Samples\SampleBook.xlsx</Value>
     </Setting>
   </Settings>
 </SettingsFile>

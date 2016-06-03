@@ -174,7 +174,8 @@ namespace treeDiM.StackBuilder.Desktop
             _documentExplorer.DocumentTreeView.SolutionReportHtmlClicked += new AnalysisTreeView.AnalysisNodeClickHandler(DocumentTreeView_SolutionReportHtmlClicked);
             _documentExplorer.DocumentTreeView.SolutionColladaExportClicked += new AnalysisTreeView.AnalysisNodeClickHandler(DocumentTreeView_SolutionColladaExportClicked);
             ShowLogConsole();
-            ShowStartPage(this, null);
+            if (AssemblyConf != "debug")
+                ShowStartPage(this, null);
         }
 
         public void ShowLogConsole()
@@ -533,13 +534,54 @@ namespace treeDiM.StackBuilder.Desktop
             return true;
         }
 
-        private string CleanString(string name)
+        private static string CleanString(string name)
         {
             string nameCopy = name;
             char[] specialChars = { ' ', '*', '.', ';', ':' };
             foreach (char c in specialChars)
                 nameCopy = nameCopy.Replace(c, '_');
             return nameCopy;
+        }
+
+        public static void GenerateReport(Solution solution)
+        {
+            try
+            {
+                // save file dialog
+                SaveFileDialog dlg = new SaveFileDialog();
+                dlg.InitialDirectory = Properties.Settings.Default.ReportInitialDirectory;
+                dlg.FileName = Path.ChangeExtension(CleanString(solution.Analysis.Name), "doc");
+                dlg.Filter = Resources.ID_FILTER_MSWORD;
+                dlg.DefaultExt = "doc";
+                dlg.ValidateNames = true;
+                if (DialogResult.OK == dlg.ShowDialog())
+                {
+                    // build output file path
+                    string outputFilePath = dlg.FileName;
+                    string htmlFilePath = Path.ChangeExtension(outputFilePath, "html");
+                    // save directory
+                    Properties.Settings.Default.ReportInitialDirectory = Path.GetDirectoryName(dlg.FileName);
+                    // getting current culture
+                    string cultAbbrev = System.Globalization.CultureInfo.CurrentCulture.ThreeLetterWindowsLanguageName;
+                    // build report
+                    ReportData reportObject = new ReportData(solution);
+                    Reporter.CompanyLogo = Properties.Settings.Default.CompanyLogoPath;
+                    Reporter.ImageSizeSetting = (Reporter.eImageSize)Properties.Settings.Default.ReporterImageSize;
+                    ReporterMSWord reporter = new ReporterMSWord(
+                        reportObject
+                        , Settings.Default.ReportTemplatePath
+                        , dlg.FileName
+                        , new Margins());
+                }
+            }
+            catch (System.Runtime.InteropServices.COMException ex)
+            {
+                _log.Error("MS Word not installed? : " + ex.Message);
+            }
+            catch (Exception ex)
+            {
+                _log.Error(ex.ToString());
+            }
         }
 
         private void DocumentTreeView_SolutionReportNodeClicked(object sender, AnalysisTreeViewEventArgs eventArg)

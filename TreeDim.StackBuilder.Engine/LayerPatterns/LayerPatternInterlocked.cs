@@ -112,6 +112,7 @@ namespace treeDiM.StackBuilder.Engine
             }
         }
         public override int GetNumberOfVariants(Layer2D layer) { return 1; }
+        public override bool IsSymetric { get { return true; } }
         public override bool CanBeSwapped { get { return true; } }
         public override bool CanBeInverted { get { return true; } }
         #endregion

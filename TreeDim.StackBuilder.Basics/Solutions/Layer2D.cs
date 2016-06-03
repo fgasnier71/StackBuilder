@@ -12,18 +12,18 @@ using log4net;
 
 namespace treeDiM.StackBuilder.Basics
 {
-
     public class LayerDesc
     {
         #region Data members
-        string _patternName;
-        HalfAxis.HAxis _axis;
+        private string _patternName;
+        private HalfAxis.HAxis _axis;
+        private bool _swapped;
         #endregion
 
         #region Constructor
-        public LayerDesc(string patternName, HalfAxis.HAxis axis)
+        public LayerDesc(string patternName, HalfAxis.HAxis axis, bool swapped)
         {
-            _patternName = patternName; _axis = axis;
+            _patternName = patternName; _axis = axis; _swapped = swapped;
         }
         #endregion
 
@@ -31,23 +31,26 @@ namespace treeDiM.StackBuilder.Basics
         public HalfAxis.HAxis AxisOrtho
         { get { return _axis; } }
         public string PatternName
-        {   get { return _patternName; } }
+        { get { return _patternName; } }
+        public bool Swapped
+        { get { return _swapped; } }
         #endregion
 
         #region Object override
         public override string ToString()
         {
-            return string.Format("{0} | {1}", _patternName, _axis);
+            return string.Format("{0} | {1} | {2}", _patternName, _axis, _swapped ? "t" : "f");
         }
         public static LayerDesc Parse(string value)
         {
-            Regex r = new Regex(@"(?<name>|(?<axis>))", RegexOptions.Singleline);
+            Regex r = new Regex(@"(?<name>|(?<axis>|?<swap>))", RegexOptions.Singleline);
             Match m = r.Match(value);
             if (m.Success)
             {
                 string patternName = m.Result("${name}");
                 HalfAxis.HAxis axis = HalfAxis.Parse( m.Result("${axis}"));
-                return new LayerDesc(patternName, axis);
+                bool swapped = string.Equals("t", m.Result("${swap}"), StringComparison.CurrentCultureIgnoreCase);
+                return new LayerDesc(patternName, axis, swapped);
             }
             else
                 throw new Exception("Failed to parse LayerDesc");
@@ -59,9 +62,16 @@ namespace treeDiM.StackBuilder.Basics
     {
         #region Data members
         private string _patternName = string.Empty;
+        /// <summary>
+        /// Refers to box default orientation
+        /// with ZP Length/Width refered in LayerPattern will be the same as in original
+        /// </summary>
         private HalfAxis.HAxis _axisOrtho = HalfAxis.HAxis.AXIS_Z_P;
+        /// <summary>
+        /// When swapped: pallet length/width are swapped in LayerPattern 
+        /// for some LayerPattern, this allows computing 2 different layouts
+        /// </summary>
         private bool _swapped = false;
-        private bool _inversed = false;
 
         private double _forcedSpace = 0.0;
         private double _maximumSpace = 0.0;
@@ -72,6 +82,22 @@ namespace treeDiM.StackBuilder.Basics
         private static readonly double _epsilon = 1.0e-03;
 
         protected static ILog _log = LogManager.GetLogger(typeof(Layer2D));
+        #endregion
+
+        #region Static methods
+        public static HalfAxis.HAxis VerticalAxis(HalfAxis.HAxis axisOrtho)
+        {
+            switch (axisOrtho)
+            {
+                case HalfAxis.HAxis.AXIS_X_N: return HalfAxis.HAxis.AXIS_X_N;
+                case HalfAxis.HAxis.AXIS_X_P: return HalfAxis.HAxis.AXIS_Y_P;
+                case HalfAxis.HAxis.AXIS_Y_N: return HalfAxis.HAxis.AXIS_Y_N;
+                case HalfAxis.HAxis.AXIS_Y_P: return HalfAxis.HAxis.AXIS_X_P;
+                case HalfAxis.HAxis.AXIS_Z_N: return HalfAxis.HAxis.AXIS_Z_N;
+                case HalfAxis.HAxis.AXIS_Z_P: return HalfAxis.HAxis.AXIS_Z_P;
+                default: throw new Exception("Invalid ortho axis");
+            }        
+        }
         #endregion
 
         #region Constructor
@@ -147,9 +173,9 @@ namespace treeDiM.StackBuilder.Basics
                 switch (_axisOrtho)
                 {
                     case HalfAxis.HAxis.AXIS_X_N: return _dimBox.X;
-                    case HalfAxis.HAxis.AXIS_X_P: return _dimBox.Y;
+                    case HalfAxis.HAxis.AXIS_X_P: return _dimBox.X;
                     case HalfAxis.HAxis.AXIS_Y_N: return _dimBox.Y;
-                    case HalfAxis.HAxis.AXIS_Y_P: return _dimBox.X;
+                    case HalfAxis.HAxis.AXIS_Y_P: return _dimBox.Y;
                     case HalfAxis.HAxis.AXIS_Z_N: return _dimBox.Z;
                     case HalfAxis.HAxis.AXIS_Z_P: return _dimBox.Z;
                     default:
@@ -228,22 +254,11 @@ namespace treeDiM.StackBuilder.Basics
                 }
             }
         }
-        public Vector3D VecTransf
+        public HalfAxis.HAxis VerticalAxisProp
         {
-            get
-            {
-                switch (_axisOrtho)
-                {
-                    case HalfAxis.HAxis.AXIS_X_N: return new Vector3D(_dimBox.Z, 0.0, 0.0);
-                    case HalfAxis.HAxis.AXIS_X_P: return new Vector3D(0.0, 0.0, 0.0); ;
-                    case HalfAxis.HAxis.AXIS_Y_N: return new Vector3D(0.0, _dimBox.Z, 0.0);
-                    case HalfAxis.HAxis.AXIS_Y_P: return Vector3D.Zero;
-                    case HalfAxis.HAxis.AXIS_Z_N: return new Vector3D(0.0, 0.0, _dimBox.Z);
-                    case HalfAxis.HAxis.AXIS_Z_P: return Vector3D.Zero;
-                    default: throw new Exception("Invalid ortho axis");
-                }
-            }
+            get { return VerticalAxis(_axisOrtho); }
         }
+
         public double BoxLength
         {
             get
@@ -292,6 +307,22 @@ namespace treeDiM.StackBuilder.Basics
                 }
             }
         }
+        public Vector3D VecTransf
+        {
+            get
+            {
+                switch (_axisOrtho)
+                {
+                    case HalfAxis.HAxis.AXIS_X_N: return new Vector3D(_dimBox.Z, 0.0, 0.0);
+                    case HalfAxis.HAxis.AXIS_X_P: return new Vector3D(0.0, 0.0, 0.0); ;
+                    case HalfAxis.HAxis.AXIS_Y_N: return new Vector3D(0.0, _dimBox.Z, 0.0);
+                    case HalfAxis.HAxis.AXIS_Y_P: return Vector3D.Zero;
+                    case HalfAxis.HAxis.AXIS_Z_N: return new Vector3D(0.0, 0.0, _dimBox.Z);
+                    case HalfAxis.HAxis.AXIS_Z_P: return Vector3D.Zero;
+                    default: throw new Exception("Invalid ortho axis");
+                }
+            }
+        }
         public double PalletLength
         {
             get { return _dimContainer.X; }
@@ -303,10 +334,6 @@ namespace treeDiM.StackBuilder.Basics
         public bool Swapped
         {
             get { return _swapped; }
-        }
-        public bool Inversed
-        {
-            get { return _inversed; }
         }
         public int BoxCount
         {
@@ -322,7 +349,7 @@ namespace treeDiM.StackBuilder.Basics
         }
         public LayerDesc LayerDescriptor
         {
-            get { return new LayerDesc(_patternName, _axisOrtho); }
+            get { return new LayerDesc(_patternName, _axisOrtho, _swapped); }
         }
         #endregion
     }

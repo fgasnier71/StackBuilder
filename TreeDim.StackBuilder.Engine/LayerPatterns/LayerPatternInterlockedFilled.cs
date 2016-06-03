@@ -62,8 +62,6 @@ namespace treeDiM.StackBuilder.Engine
             l1 = l1 + 0.5 * remainingSpaceX;
             l2 = l2 + 0.5 * remainingSpaceX;
 
-            //double spaceX = maxSizeXLength + maxSizeXWidth > 1 ? (actualLength - (l1 + l2)) / (maxSizeXLength + maxSizeXWidth - 1) : 0.0;
-
             double spaceXLength = (l1 - maxSizeXLength * boxLength) / ((double)maxSizeXLength - 0.5);
             double spaceXWidth = (l2 - maxSizeXWidth * boxWidth) / ((double) maxSizeXWidth - 0.5);
             double spaceYLength = maxSizeYLength > 1 ? (actualWidth - maxSizeYLength * boxWidth - fillSizeYLength * boxLength) / (maxSizeYLength + fillSizeYLength - 1) : 0.0;
@@ -248,6 +246,7 @@ namespace treeDiM.StackBuilder.Engine
             }
         }
         public override int GetNumberOfVariants(Layer2D layer) { return 1; }
+        public override bool IsSymetric { get { return true; } }
         public override bool CanBeSwapped { get { return true; } }
         public override bool CanBeInverted { get { return true; } }
         #endregion

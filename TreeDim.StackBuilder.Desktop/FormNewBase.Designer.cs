@@ -106,7 +106,6 @@
             this.Name = "FormNewBase";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
-            this.Load += new System.EventHandler(this.FormNewBase_Load);
             this.statusStripDef.ResumeLayout(false);
             this.statusStripDef.PerformLayout();
             this.ResumeLayout(false);
@@ -116,13 +115,13 @@
 
         #endregion
 
-        private System.Windows.Forms.Button bnOk;
-        private System.Windows.Forms.Button bnCancel;
-        private System.Windows.Forms.Label lbName;
-        private System.Windows.Forms.Label lbDescription;
-        private System.Windows.Forms.TextBox tbName;
-        private System.Windows.Forms.TextBox tbDescription;
-        private System.Windows.Forms.StatusStrip statusStripDef;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelDef;
+        protected System.Windows.Forms.Button bnOk;
+        protected System.Windows.Forms.Button bnCancel;
+        protected System.Windows.Forms.Label lbName;
+        protected System.Windows.Forms.Label lbDescription;
+        protected System.Windows.Forms.TextBox tbName;
+        protected System.Windows.Forms.TextBox tbDescription;
+        protected System.Windows.Forms.StatusStrip statusStripDef;
+        protected System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelDef;
     }
 }

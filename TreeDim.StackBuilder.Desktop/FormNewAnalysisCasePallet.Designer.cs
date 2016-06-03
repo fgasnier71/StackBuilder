@@ -45,6 +45,18 @@
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
+            // bnOk
+            // 
+            resources.ApplyResources(this.bnOk, "bnOk");
+            // 
+            // bnCancel
+            // 
+            resources.ApplyResources(this.bnCancel, "bnCancel");
+            // 
+            // tbDescription
+            // 
+            resources.ApplyResources(this.tbDescription, "tbDescription");
+            // 
             // cbPallets
             // 
             this.cbPallets.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -118,6 +130,7 @@
             // 
             resources.ApplyResources(this.uCtrlLayerList, "uCtrlLayerList");
             this.uCtrlLayerList.ButtonSizes = new System.Drawing.Size(150, 150);
+            this.uCtrlLayerList.FirstLayerSelected = false;
             this.uCtrlLayerList.Name = "uCtrlLayerList";
             // 
             // checkBoxBestLayersOnly
@@ -139,6 +152,7 @@
             resources.ApplyResources(this.bnBestCombination, "bnBestCombination");
             this.bnBestCombination.Name = "bnBestCombination";
             this.bnBestCombination.UseVisualStyleBackColor = true;
+            this.bnBestCombination.Click += new System.EventHandler(this.onBestCombinationClicked);
             // 
             // uCtrlCaseOrientation
             // 
@@ -167,6 +181,12 @@
             this.Controls.Add(this.lbBox);
             this.Name = "FormNewAnalysisCasePallet";
             this.TopMost = true;
+            this.Controls.SetChildIndex(this.bnOk, 0);
+            this.Controls.SetChildIndex(this.bnCancel, 0);
+            this.Controls.SetChildIndex(this.lbName, 0);
+            this.Controls.SetChildIndex(this.lbDescription, 0);
+            this.Controls.SetChildIndex(this.tbName, 0);
+            this.Controls.SetChildIndex(this.tbDescription, 0);
             this.Controls.SetChildIndex(this.lbBox, 0);
             this.Controls.SetChildIndex(this.lbPallet, 0);
             this.Controls.SetChildIndex(this.cbCases, 0);

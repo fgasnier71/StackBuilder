@@ -64,6 +64,7 @@ namespace treeDiM.StackBuilder.Engine
         {
             return 1;
         }
+        public override bool IsSymetric { get { return false; } }
         public override bool CanBeSwapped { get { return false; } }
         public override bool CanBeInverted { get { return false; } }
         #endregion

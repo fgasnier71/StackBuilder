@@ -1,30 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="treeDiM.StackBuilder.Engine.Layer">
-    <Position X="3" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAYAAgAAgIAWAACAgAAgAAAEAlgAAFAAAAACIAQAQ=</HashCode>
-      <FileName>Layer.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="treeDiM.StackBuilder.Engine.LayerPattern">
     <Position X="5" Y="0.5" Width="2" />
     <TypeIdentifier>
-      <HashCode>AABAAAAABAKAAEAAAAgAAAQAACAUAABAAAAAAEAGQAA=</HashCode>
+      <HashCode>AABAAAAEBAIAAEAAAAgAAAQAAAAQgABAEIAAAEAEQAg=</HashCode>
       <FileName>LayerPatterns\LayerPattern.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="treeDiM.StackBuilder.Engine.LayerPatternColumn">
     <Position X="5" Y="5.5" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAABAAAAAAAAAgAAAQAAAAQAAAAAAAAAEAEAAA=</HashCode>
+      <HashCode>AAAAAAAABAAAAAAAAAgAAAQAAAAQgAAAEAAAAEAAAAA=</HashCode>
       <FileName>LayerPatterns\LayerPatternColumn.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="treeDiM.StackBuilder.Engine.CasePalletSolver">
     <Position X="0.5" Y="0.5" Width="2" />
     <TypeIdentifier>
-      <HashCode>BAEAAAAAAgAACEEAAhAAAAAAACqCCAAAAAAAAAAAAAE=</HashCode>
+      <HashCode>BEEAIAAEAgAACEEAAhAQAAAAACoCAAEAgAAAAAAggAE=</HashCode>
       <FileName>Solvers\CasePalletSolver.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -32,21 +25,21 @@
   <Class Name="treeDiM.StackBuilder.Engine.LayerPatternInterlocked">
     <Position X="7.25" Y="5.5" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAABAAAAAAAAAgAAAQAAAAQAAAAAACAAEAEAAA=</HashCode>
+      <HashCode>AAAAAAAABAAAAAAAAAgAAAQAAAAQgAAAEACAAEAAAAA=</HashCode>
       <FileName>LayerPatterns\LayerPatternInterlocked.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="treeDiM.StackBuilder.Engine.LayerPatternSpirale">
     <Position X="9.5" Y="5.5" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAABAAAAAAAAAgAAAQAAAAQAAAAAAAAAEAEAAA=</HashCode>
+      <HashCode>AAAAAAAABAAAAAAAAAgAAAQAAAAQgAAAEAAAAEAAAAA=</HashCode>
       <FileName>LayerPatterns\LayerPatternSpirale.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="treeDiM.StackBuilder.Engine.LayerPatternEnlargedSpirale">
     <Position X="11.75" Y="5.5" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAABAAAAAAAAAgAAAQAAAAQAAAAAAAAAEAEAAA=</HashCode>
+      <HashCode>AAAAAAAABAAAAAAAAAgAAAQAAAAQgAAAEAAAAEAAAAA=</HashCode>
       <FileName>LayerPatterns\LayerPatternEnlargedSpirale.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -70,7 +63,7 @@
   <Class Name="treeDiM.StackBuilder.Engine.TruckSolver">
     <Position X="3.25" Y="13.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAACEAAAAAAAAAAAAiACAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAACEAAAAAAAAAAAAgAAAAAgAAAAAAAAAA=</HashCode>
       <FileName>Solvers\TruckSolver.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -92,16 +85,29 @@
   <Class Name="treeDiM.StackBuilder.Engine.LayerPatternDiagonale">
     <Position X="14.25" Y="5.5" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAABAAAAAAAAAgAAAQAAAAQAAAAAACAAEAEAAA=</HashCode>
+      <HashCode>AAAAAAAABAAAAAAAAAgAAAQAAAAQgAAAEACAAEAAAAA=</HashCode>
       <FileName>LayerPatterns\LayerPatternDiagonale.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="treeDiM.StackBuilder.Engine.LayerPatternTrilock">
     <Position X="16.5" Y="5.5" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAABAAAAAAAAAgAAAQCAAAQAAAAAACAAEAEAAA=</HashCode>
+      <HashCode>AAAAAAAABAAAAAAAAAgAAAQCAAAQgAAAEACAAEAAAAA=</HashCode>
       <FileName>LayerPatterns\LayerPatternTrilock.cs</FileName>
     </TypeIdentifier>
+  </Class>
+  <Class Name="treeDiM.StackBuilder.Basics.LayerDesc">
+    <Position X="10.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="treeDiM.StackBuilder.Basics.Layer2D">
+    <Position X="7.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="treeDiM.StackBuilder.Basics.LayerComparerCount" BaseTypeListCollapsed="true">
+    <Position X="9" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

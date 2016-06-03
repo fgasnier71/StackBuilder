@@ -555,7 +555,7 @@ namespace treeDiM.StackBuilder.Engine
         {
             double cornerThickness = null != cornerProperties ? cornerProperties.Thickness : 0.0;
             return new Layer2D(
-                new Vector3D()
+                boxProperties.OuterDimensions
                 , new Vector2D(palletProperties.Length + constraintSet.OverhangX - 2.0 * cornerThickness, palletProperties.Width + constraintSet.OverhangY - 2.0 * cornerThickness)
                 , axisOrtho
                 , swapped);

@@ -22,6 +22,7 @@ namespace treeDiM.StackBuilder.Engine
         abstract public int GetNumberOfVariants(Layer2D layer);
         abstract public bool CanBeSwapped { get; }
         abstract public bool CanBeInverted { get; }
+        abstract public bool IsSymetric { get; }
         #endregion
 
         #region Public properties
@@ -61,7 +62,7 @@ namespace treeDiM.StackBuilder.Engine
             Matrix4D matRot = Matrix4D.Identity;
             Vector3D vTranslation = Vector3D.Zero;
 
-            if (layer.Swapped && !layer.Inversed)
+            if (layer.Swapped)
             {
                 matRot = new Matrix4D(
                     0.0, -1.0, 0.0, 0.0
@@ -70,26 +71,6 @@ namespace treeDiM.StackBuilder.Engine
                     , 0.0, 0.0, 0.0, 1.0
                     );
                 vTranslation = new Vector3D(layer.PalletLength, 0.0, 0.0);
-            }
-            else if (!layer.Swapped && layer.Inversed)
-            {
-                matRot = new Matrix4D(
-                    -1.0, 0.0, 0.0, 0.0
-                    , 0.0, -1.0, 0.0, 0.0
-                    , 0.0, 0.0, 1.0, 0.0
-                    , 0.0, 0.0, 0.0, 1.0
-                    );
-                vTranslation = new Vector3D(layer.PalletLength, layer.PalletWidth, 0.0);
-            }
-            else if (layer.Swapped && layer.Inversed)
-            {
-                matRot = new Matrix4D(
-                    0.0, 1.0, 0.0, 0.0
-                    , -1.0, 0.0, 0.0, 0.0
-                    , 0.0, 0.0, 1.0, 0.0
-                    , 0.0, 0.0, 0.0, 1.0
-                    );
-                vTranslation = new Vector3D(0.0, layer.PalletWidth, 0.0);
             }
             Transform3D transfRot = new Transform3D(matRot);
             HalfAxis.HAxis lengthAxisSwapped = StackBuilder.Basics.HalfAxis.ToHalfAxis(transfRot.transform(StackBuilder.Basics.HalfAxis.ToVector3D(lengthAxis)));
@@ -146,7 +127,6 @@ namespace treeDiM.StackBuilder.Engine
             new LayerPatternColumn()
             , new LayerPatternInterlocked()
             , new LayerPatternInterlockedSymetric()
-            , new LayerPatternInterlockedSymetric2()
             , new LayerPatternInterlockedFilled()
             , new LayerPatternTrilock()
             , new LayerPatternDiagonale()

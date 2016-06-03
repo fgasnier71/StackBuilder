@@ -43,6 +43,9 @@ namespace treeDiM.StackBuilder.Reporting
     public class ReportData
     {
         #region Data members
+        private Analysis _analysis;
+        private Solution _solution;
+
         private CasePalletAnalysis _palletAnalysis;
         private CasePalletSolution _palletSolution;
         private SelCasePalletSolution _selSolution;
@@ -64,6 +67,13 @@ namespace treeDiM.StackBuilder.Reporting
         #endregion
 
         #region Constructors
+        public ReportData(Solution solution)
+        {
+            _solution = solution;
+            _analysis = solution.Analysis;
+
+
+        }
         public ReportData(CasePalletAnalysis palletAnalysis, SelCasePalletSolution selSolution)
         {
             _palletAnalysis = palletAnalysis;
@@ -119,6 +129,8 @@ namespace treeDiM.StackBuilder.Reporting
         {
             get
             {
+                if (null != _analysis)
+                    return _analysis.ParentDocument;
                 if (null != _palletAnalysis)
                     return _palletAnalysis.ParentDocument;
                 if (null != _packPalletAnalysis)
@@ -139,6 +151,9 @@ namespace treeDiM.StackBuilder.Reporting
         {
             get
             {
+                if (null != _analysis)
+                    return _analysis.Name;
+
                 if (null != _selSolution)
                     return _selSolution.Name;
                 else if (null != _selPackPalletSolution)
@@ -153,6 +168,11 @@ namespace treeDiM.StackBuilder.Reporting
             }
         }
 
+        public AnalysisCasePallet AnalysisCasePallet
+        { get { return _analysis as AnalysisCasePallet; } }
+
+        public Solution Solution { get { return _solution; } }
+
         public CasePalletAnalysis CasePalletAnalysis
         {
             get
@@ -165,7 +185,6 @@ namespace treeDiM.StackBuilder.Reporting
                     return null;
             }
         }
-
         public PackPalletAnalysis PackPalletAnalysis
         { get { return _packPalletAnalysis; } }
         public SelPackPalletSolution SelPackPalletSolution
@@ -592,6 +611,27 @@ namespace treeDiM.StackBuilder.Reporting
         #endregion
 
         #region Analyses
+        private void AppendAnalysisCasePalletElement(ReportData inputData, XmlElement elemDocument, XmlDocument xmlDoc)
+        {
+            string ns = xmlDoc.DocumentElement.NamespaceURI;
+
+            AnalysisCasePallet analysis = inputData.AnalysisCasePallet;
+            Solution solution = inputData.Solution;
+
+            // analysisCasePallet
+            XmlElement eltAnalysisCasePallet = xmlDoc.CreateElement("analysisCasePallet", ns);
+            elemDocument.AppendChild(eltAnalysisCasePallet);
+            // name
+            XmlElement elemName = xmlDoc.CreateElement("name", ns);
+            elemName.InnerText = analysis.Name;
+            eltAnalysisCasePallet.AppendChild(elemName);
+            // description
+
+
+
+
+        }
+
         private void AppendCasePalletAnalysisElement(ReportData inputData, XmlElement elemDocument, XmlDocument xmlDoc)
         {
             if (!inputData.IsCasePalletAnalysis && !inputData.IsBoxCasePalletAnalysis)

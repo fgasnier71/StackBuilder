@@ -31,6 +31,10 @@ namespace treeDiM.StackBuilder.Graphics
         #endregion
 
         #region Picking
+        protected void ClearPickingBoxes()
+        {
+            _listPickingBox.Clear();
+        }
         protected void AddPickingBox(BBox3D bbox, uint id)
         {
             _listPickingBox.Add( new Tuple<BBox3D, uint>(bbox, id) );
@@ -122,6 +126,9 @@ namespace treeDiM.StackBuilder.Graphics
         #region Viewer
         public override void Draw(Graphics3D graphics, bool showDimensions)
         {
+            // clear list of picking box
+            ClearPickingBoxes();
+
             if (null == _solution) return;
             AnalysisCasePallet analysisCasePallet = _solution.Analysis as AnalysisCasePallet;
 

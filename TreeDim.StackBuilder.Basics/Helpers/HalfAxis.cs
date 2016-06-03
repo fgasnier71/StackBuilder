@@ -103,6 +103,19 @@ namespace treeDiM.StackBuilder.Basics
             throw new Exception(string.Format("Invalid HalfAxis value {0}", sAxis));
         }
 
+        public static HAxis[] Positives
+        {
+            get
+            {
+                return new HAxis[]
+                {
+                    HAxis.AXIS_X_P,
+                    HAxis.AXIS_Y_P,
+                    HAxis.AXIS_Z_P 
+                }; 
+            }
+        }
+
         public static HAxis[] All
         {
             get
@@ -116,6 +129,24 @@ namespace treeDiM.StackBuilder.Basics
                     HAxis.AXIS_Z_N,
                     HAxis.AXIS_Z_P
                 };
+            }
+        }
+
+        public static int Direction(HAxis axis)
+        {
+            switch (axis)
+            { 
+                case HAxis.AXIS_X_N:
+                case HAxis.AXIS_X_P:
+                    return 0;
+                case HAxis.AXIS_Y_N:
+                case HAxis.AXIS_Y_P:
+                    return 1;
+                case HAxis.AXIS_Z_N:
+                case HAxis.AXIS_Z_P:
+                    return 2;
+                default:
+                    return -1;
             }
         }
         #endregion

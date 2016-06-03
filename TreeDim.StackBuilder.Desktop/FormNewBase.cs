@@ -36,8 +36,9 @@ namespace treeDiM.StackBuilder.Desktop
             _document = document;
             _item = item;
         }
-        private void FormNewBase_Load(object sender, EventArgs e)
+        protected override void OnLoad(EventArgs e)
         {
+            base.OnLoad(e);
             if (null != _item)
             {
                 tbName.Text = _item.Name;
@@ -48,6 +49,14 @@ namespace treeDiM.StackBuilder.Desktop
                 tbName.Text = _document.GetValidNewTypeName(ItemDefaultName);
                 tbDescription.Text = tbName.Text;
             }
+
+            bnOk.Location = new Point( Size.Width - bnOk.Size.Width - 20, bnOk.Location.Y);
+            bnCancel.Location = new Point(Size.Width - bnCancel.Size.Width - 20, bnCancel.Location.Y);
+            tbDescription.Size = new Size(Size.Width - tbDescription.Location.X - bnCancel.Size.Width - 30, tbDescription.Size.Height);
+        }
+        protected override void OnSizeChanged(EventArgs e)
+        {
+            base.OnSizeChanged(e);
         }
         #endregion
 
@@ -82,7 +91,6 @@ namespace treeDiM.StackBuilder.Desktop
             toolStripStatusLabelDef.ForeColor = string.IsNullOrEmpty(message) ? Color.Black : Color.Red;
             toolStripStatusLabelDef.Text = string.IsNullOrEmpty(message) ? Resources.ID_READY : message;
         }
-
         private void onTextChanged(object sender, EventArgs e)
         {
             UpdateStatus(string.Empty);

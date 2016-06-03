@@ -25,8 +25,7 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public global::treeDiM.StackBuilder.Desktop.WindowSettings FormMainPosition
-        {
+        public global::treeDiM.StackBuilder.Desktop.WindowSettings FormMainPosition {
             get {
                 return ((global::treeDiM.StackBuilder.Desktop.WindowSettings)(this["FormMainPosition"]));
             }
@@ -37,8 +36,7 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public global::treeDiM.StackBuilder.Desktop.WindowSettings FormNewDocumentPosition
-        {
+        public global::treeDiM.StackBuilder.Desktop.WindowSettings FormNewDocumentPosition {
             get {
                 return ((global::treeDiM.StackBuilder.Desktop.WindowSettings)(this["FormNewDocumentPosition"]));
             }
@@ -49,8 +47,7 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public global::treeDiM.StackBuilder.Desktop.WindowSettings FormNewBoxPosition
-        {
+        public global::treeDiM.StackBuilder.Desktop.WindowSettings FormNewBoxPosition {
             get {
                 return ((global::treeDiM.StackBuilder.Desktop.WindowSettings)(this["FormNewBoxPosition"]));
             }
@@ -61,8 +58,7 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public global::treeDiM.StackBuilder.Desktop.WindowSettings FormNewPalletPosition
-        {
+        public global::treeDiM.StackBuilder.Desktop.WindowSettings FormNewPalletPosition {
             get {
                 return ((global::treeDiM.StackBuilder.Desktop.WindowSettings)(this["FormNewPalletPosition"]));
             }
@@ -73,8 +69,7 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public global::treeDiM.StackBuilder.Desktop.WindowSettings FormNewInterlayerPosition
-        {
+        public global::treeDiM.StackBuilder.Desktop.WindowSettings FormNewInterlayerPosition {
             get {
                 return ((global::treeDiM.StackBuilder.Desktop.WindowSettings)(this["FormNewInterlayerPosition"]));
             }
@@ -85,8 +80,7 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public global::treeDiM.StackBuilder.Desktop.WindowSettings FormNewBundlePosition
-        {
+        public global::treeDiM.StackBuilder.Desktop.WindowSettings FormNewBundlePosition {
             get {
                 return ((global::treeDiM.StackBuilder.Desktop.WindowSettings)(this["FormNewBundlePosition"]));
             }
@@ -145,8 +139,7 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public global::treeDiM.StackBuilder.Desktop.WindowSettings FormNewAnalysis
-        {
+        public global::treeDiM.StackBuilder.Desktop.WindowSettings FormNewAnalysis {
             get {
                 return ((global::treeDiM.StackBuilder.Desktop.WindowSettings)(this["FormNewAnalysis"]));
             }
@@ -217,8 +210,7 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public global::treeDiM.StackBuilder.Desktop.WindowSettings FormNewTruckPosition
-        {
+        public global::treeDiM.StackBuilder.Desktop.WindowSettings FormNewTruckPosition {
             get {
                 return ((global::treeDiM.StackBuilder.Desktop.WindowSettings)(this["FormNewTruckPosition"]));
             }
@@ -229,8 +221,7 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public global::treeDiM.StackBuilder.Desktop.WindowSettings FormNewAnalysisPosition
-        {
+        public global::treeDiM.StackBuilder.Desktop.WindowSettings FormNewAnalysisPosition {
             get {
                 return ((global::treeDiM.StackBuilder.Desktop.WindowSettings)(this["FormNewAnalysisPosition"]));
             }
@@ -241,8 +232,7 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public global::treeDiM.StackBuilder.Desktop.WindowSettings FormNewBundleAnalysisPosition
-        {
+        public global::treeDiM.StackBuilder.Desktop.WindowSettings FormNewBundleAnalysisPosition {
             get {
                 return ((global::treeDiM.StackBuilder.Desktop.WindowSettings)(this["FormNewBundleAnalysisPosition"]));
             }
@@ -360,8 +350,7 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public global::treeDiM.StackBuilder.Desktop.WindowSettings FormNewCaseAnalysisPosition
-        {
+        public global::treeDiM.StackBuilder.Desktop.WindowSettings FormNewCaseAnalysisPosition {
             get {
                 return ((global::treeDiM.StackBuilder.Desktop.WindowSettings)(this["FormNewCaseAnalysisPosition"]));
             }
@@ -480,8 +469,7 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public global::treeDiM.StackBuilder.Desktop.WindowSettings FormEditBitmapsPosition
-        {
+        public global::treeDiM.StackBuilder.Desktop.WindowSettings FormEditBitmapsPosition {
             get {
                 return ((global::treeDiM.StackBuilder.Desktop.WindowSettings)(this["FormEditBitmapsPosition"]));
             }
@@ -612,8 +600,7 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public global::treeDiM.StackBuilder.Desktop.WindowSettings FormOptimizeCasePosition
-        {
+        public global::treeDiM.StackBuilder.Desktop.WindowSettings FormOptimizeCasePosition {
             get {
                 return ((global::treeDiM.StackBuilder.Desktop.WindowSettings)(this["FormOptimizeCasePosition"]));
             }
@@ -624,8 +611,7 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public global::treeDiM.StackBuilder.Desktop.WindowSettings FormNewCaseOfBoxesPosition
-        {
+        public global::treeDiM.StackBuilder.Desktop.WindowSettings FormNewCaseOfBoxesPosition {
             get {
                 return ((global::treeDiM.StackBuilder.Desktop.WindowSettings)(this["FormNewCaseOfBoxesPosition"]));
             }
@@ -840,7 +826,7 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("K:\\GitHub\\StackBuilder\\Samples\\SampleBook.xls")]
+        [global::System.Configuration.DefaultSettingValueAttribute("K:\\GitHub\\StackBuilder\\Samples\\SampleBook.xlsx")]
         public string ExcelLibraryPath {
             get {
                 return ((string)(this["ExcelLibraryPath"]));

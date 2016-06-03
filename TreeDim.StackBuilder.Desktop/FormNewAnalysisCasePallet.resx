@@ -118,6 +118,87 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="bnOk.Location" type="System.Drawing.Point, System.Drawing">
+    <value>505, 10</value>
+  </data>
+  <data name="&gt;&gt;bnOk.Name" xml:space="preserve">
+    <value>bnOk</value>
+  </data>
+  <data name="&gt;&gt;bnOk.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;bnOk.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;bnOk.ZOrder" xml:space="preserve">
+    <value>16</value>
+  </data>
+  <data name="bnCancel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>505, 38</value>
+  </data>
+  <data name="&gt;&gt;bnCancel.Name" xml:space="preserve">
+    <value>bnCancel</value>
+  </data>
+  <data name="&gt;&gt;bnCancel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;bnCancel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;bnCancel.ZOrder" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <data name="&gt;&gt;lbName.Name" xml:space="preserve">
+    <value>lbName</value>
+  </data>
+  <data name="&gt;&gt;lbName.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbName.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lbName.ZOrder" xml:space="preserve">
+    <value>14</value>
+  </data>
+  <data name="&gt;&gt;lbDescription.Name" xml:space="preserve">
+    <value>lbDescription</value>
+  </data>
+  <data name="&gt;&gt;lbDescription.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbDescription.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lbDescription.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="&gt;&gt;tbName.Name" xml:space="preserve">
+    <value>tbName</value>
+  </data>
+  <data name="&gt;&gt;tbName.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tbName.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;tbName.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="tbDescription.Size" type="System.Drawing.Size, System.Drawing">
+    <value>384, 20</value>
+  </data>
+  <data name="&gt;&gt;tbDescription.Name" xml:space="preserve">
+    <value>tbDescription</value>
+  </data>
+  <data name="&gt;&gt;tbDescription.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tbDescription.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;tbDescription.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
   <data name="cbPallets.Location" type="System.Drawing.Point, System.Drawing">
     <value>429, 65</value>
   </data>
@@ -347,10 +428,10 @@
     <value>True</value>
   </data>
   <data name="uCtrlLayerList.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 232</value>
+    <value>0, 208</value>
   </data>
   <data name="uCtrlLayerList.Size" type="System.Drawing.Size, System.Drawing">
-    <value>784, 274</value>
+    <value>784, 298</value>
   </data>
   <data name="uCtrlLayerList.TabIndex" type="System.Int32, mscorlib">
     <value>24</value>
@@ -371,7 +452,7 @@
     <value>True</value>
   </data>
   <data name="checkBoxBestLayersOnly.Location" type="System.Drawing.Point, System.Drawing">
-    <value>17, 209</value>
+    <value>0, 516</value>
   </data>
   <data name="checkBoxBestLayersOnly.Size" type="System.Drawing.Size, System.Drawing">
     <value>128, 17</value>
@@ -393,6 +474,9 @@
   </data>
   <data name="&gt;&gt;checkBoxBestLayersOnly.ZOrder" xml:space="preserve">
     <value>2</value>
+  </data>
+  <data name="bnNext.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
   </data>
   <data name="bnNext.Location" type="System.Drawing.Point, System.Drawing">
     <value>697, 512</value>
@@ -418,17 +502,20 @@
   <data name="&gt;&gt;bnNext.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="bnBestCombination.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
   <data name="bnBestCombination.Location" type="System.Drawing.Point, System.Drawing">
-    <value>560, 512</value>
+    <value>541, 512</value>
   </data>
   <data name="bnBestCombination.Size" type="System.Drawing.Size, System.Drawing">
-    <value>131, 23</value>
+    <value>150, 23</value>
   </data>
   <data name="bnBestCombination.TabIndex" type="System.Int32, mscorlib">
     <value>27</value>
   </data>
   <data name="bnBestCombination.Text" xml:space="preserve">
-    <value>Show best combinations</value>
+    <value>Show best combinations &gt;</value>
   </data>
   <data name="&gt;&gt;bnBestCombination.Name" xml:space="preserve">
     <value>bnBestCombination</value>

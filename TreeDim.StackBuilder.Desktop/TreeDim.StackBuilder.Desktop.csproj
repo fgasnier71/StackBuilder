@@ -1450,6 +1450,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="ResultsAnalysisCasePallet.cs" />
     <Compile Include="RichTextBoxAppender.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="FormSplashScreen.cs">

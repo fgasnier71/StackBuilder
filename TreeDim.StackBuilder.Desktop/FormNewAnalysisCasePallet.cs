@@ -26,7 +26,6 @@ namespace treeDiM.StackBuilder.Desktop
         private AnalysisCasePallet _analysis;
         #endregion
 
-
         #region Constructor
         public FormNewAnalysisCasePallet(Document doc, ItemBase analysis)
             : base(doc, analysis)
@@ -56,55 +55,47 @@ namespace treeDiM.StackBuilder.Desktop
             ComboBoxHelpers.FillCombo(cases, cbCases, (null != _analysis) ? _analysis.BProperties : cases[0]);
             ComboBoxHelpers.FillCombo(pallets, cbPallets, (null != _analysis) ? _analysis.PalletProperties : pallets[0]);
 
+            // event handling
             uCtrlLayerList.LayerSelected += onLayerSelected;
+            uCtrlLayerList.RefreshFinished += onLayerSelected;
+            uCtrlLayerList.ButtonSizes = new Size(100, 100);
 
             if (null == _analysis)
-            {
-                uCtrlCaseOrientation.AllowedOrientations = new bool[] { false, false, true };
+            {                
+                uCtrlCaseOrientation.AllowedOrientations = new bool[]
+                { Settings.Default.AllowVerticalX, Settings.Default.AllowVerticalY, Settings.Default.AllowVerticalZ };
+                uCtrlOptMaximumHeight.Value = new OptDouble(true, Settings.Default.MaximumPalletHeight);
+                uCtrlOptMaximumWeight.Value = new OptDouble(true, Settings.Default.MaximumPalletWeight);
 
-                uCtrlOptMaximumHeight.Value = new OptDouble(true, 1500.0);
-                uCtrlOptMaximumWeight.Value = new OptDouble(true, 1000.0);
+                uCtrlOverhang.ValueX = Settings.Default.OverhangX;
+                uCtrlOverhang.ValueY = Settings.Default.OverhangY;
 
-                uCtrlOverhang.ValueX = 0.0;
-                uCtrlOverhang.ValueY = 0.0;
-
-                checkBoxBestLayersOnly.Checked = true;
-
+                checkBoxBestLayersOnly.Checked = Settings.Default.KeepBestSolutions;
              }
              bnNext.Enabled = false;
         }
-        protected void onCaseChanged(object sender, EventArgs e)
+
+        protected override void OnClosed(EventArgs e)
         {
-            ItemBaseCB itemBaseCase = cbCases.SelectedItem as ItemBaseCB;
-            if (null == itemBaseCase) return;
-            uCtrlCaseOrientation.BProperties = itemBaseCase.Item as BProperties;
+            base.OnClosed(e);
 
-            onLayerSelected(sender, e);
+            Settings.Default.AllowVerticalX = uCtrlCaseOrientation.AllowedOrientations[0];
+            Settings.Default.AllowVerticalY = uCtrlCaseOrientation.AllowedOrientations[1];
+            Settings.Default.AllowVerticalZ = uCtrlCaseOrientation.AllowedOrientations[2];
+
+            if (uCtrlOptMaximumHeight.Value.Activated)
+                Settings.Default.MaximumPalletHeight = uCtrlOptMaximumHeight.Value.Value;
+            if (uCtrlOptMaximumWeight.Value.Activated)
+                Settings.Default.MaximumPalletWeight = uCtrlOptMaximumWeight.Value.Value;
+
+            Settings.Default.OverhangX = uCtrlOverhang.ValueX;
+            Settings.Default.OverhangY = uCtrlOverhang.ValueY;
+
+            Settings.Default.KeepBestSolutions = checkBoxBestLayersOnly.Checked;
         }
-        protected void onLayerSelected(object sender, EventArgs e)
-        {
-            Layer2D[] layers = uCtrlLayerList.Selected;
-            bnNext.Enabled = layers.Length > 0;
-        }
-        private void onBnNextClicked(object sender, EventArgs e)
-        {
-            List<LayerDesc> layerDescs = new List<LayerDesc>();
-            foreach (Layer2D layer2D in uCtrlLayerList.Selected)
-                layerDescs.Add(layer2D.LayerDescriptor);
+        #endregion
 
-            Solution.SetSolver(new LayerSolver());
-
-            _analysis = _document.CreateNewAnalysisCasePallet(
-                ItemName, ItemDescription
-                , SelectedBoxProperties, SelectedPallet
-                , new List<InterlayerProperties>()
-                , null, null, null
-                , BuildConstraintSet()
-                , layerDescs
-                );
-
-            Close();
-        }
+        #region Private properties
         private BProperties SelectedBoxProperties
         {
             get
@@ -126,6 +117,20 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Event handlers
+        protected void onCaseChanged(object sender, EventArgs e)
+        {
+            ItemBaseCB itemBaseCase = cbCases.SelectedItem as ItemBaseCB;
+            if (null == itemBaseCase) return;
+            uCtrlCaseOrientation.BProperties = itemBaseCase.Item as BProperties;
+
+            onLayerSelected(sender, e);
+        }
+        protected void onLayerSelected(object sender, EventArgs e)
+        {
+            Layer2D[] layers = uCtrlLayerList.Selected;
+            bnNext.Enabled = layers.Length > 0;
+            UpdateStatus(layers.Length > 0 ? string.Empty : Resources.ID_SELECTATLEASTONELAYOUT);
+        }
         private void onInputChanged(object sender, EventArgs e)
         {
             try
@@ -148,12 +153,38 @@ namespace treeDiM.StackBuilder.Desktop
                 // update control
                 uCtrlLayerList.BProperties = bProperties;
                 uCtrlLayerList.ContainerHeight = uCtrlOptMaximumHeight.Value.Value;
+                uCtrlLayerList.FirstLayerSelected = true;
                 uCtrlLayerList.LayerList = layers;
             }
             catch (Exception ex)
             {
                 _log.Error(ex.Message);
             }
+        }
+        private void onBnNextClicked(object sender, EventArgs e)
+        {
+            List<LayerDesc> layerDescs = new List<LayerDesc>();
+            foreach (Layer2D layer2D in uCtrlLayerList.Selected)
+                layerDescs.Add(layer2D.LayerDescriptor);
+
+            Solution.SetSolver(new LayerSolver());
+
+            _analysis = _document.CreateNewAnalysisCasePallet(
+                ItemName, ItemDescription
+                , SelectedBoxProperties, SelectedPallet
+                , new List<InterlayerProperties>()
+                , null, null, null
+                , BuildConstraintSet()
+                , layerDescs
+                );
+
+            Close();
+        }
+
+        private void onBestCombinationClicked(object sender, EventArgs e)
+        {
+
+            
         }
         #endregion
 
@@ -169,10 +200,10 @@ namespace treeDiM.StackBuilder.Desktop
             // conditions
             constraintSet.OptMaxHeight = uCtrlOptMaximumHeight.Value;
             constraintSet.OptMaxWeight = uCtrlOptMaximumWeight.Value;
+
             return constraintSet;
         }
         #endregion
-
 
     }
 }

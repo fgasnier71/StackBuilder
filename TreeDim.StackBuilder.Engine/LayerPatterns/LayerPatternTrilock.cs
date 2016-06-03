@@ -110,11 +110,8 @@ namespace treeDiM.StackBuilder.Engine
             layer.UpdateMaxSpace(spaceY_area3);
         }
 
-        public override int GetNumberOfVariants(Layer2D layer)
-        {
-            return 1;
-        }
-
+        public override int GetNumberOfVariants(Layer2D layer) { return 1; }
+        public override bool IsSymetric { get { return false; } }
         public override bool CanBeSwapped { get { return true; } }
         public override bool CanBeInverted { get { return true; } }
         #endregion

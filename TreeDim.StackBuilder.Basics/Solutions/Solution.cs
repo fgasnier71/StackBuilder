@@ -75,7 +75,6 @@ namespace treeDiM.StackBuilder.Basics
     {
         #region Data members
         private List<LayerDesc> _layerDescriptors;
-        private List<InterlayerProperties> _interlayers;
         private List<SolutionItem> _solutionItems;
         private Analysis _analysis;
 
@@ -99,7 +98,6 @@ namespace treeDiM.StackBuilder.Basics
             _analysis = analysis;
             _layerDescriptors = layerDescs;
 
-            _interlayers = new List<InterlayerProperties>();
             _solutionItems = new List<SolutionItem>();
 
             RebuildLayers();
@@ -134,13 +132,12 @@ namespace treeDiM.StackBuilder.Basics
             _solver.GetDimensions(usedLayers, _analysis.ContentDimensions, _analysis.ContainerDimensions, out actualDimensions);
 
             // actually build layers
-            foreach (LayerDesc layerDesc in _layerDescriptors)
+            foreach (LayerDesc layerDesc in usedLayers)
                 _layers.Add(_solver.BuildLayer(_analysis.ContentDimensions, _analysis.ContainerDimensions, layerDesc, actualDimensions));
         }
         private void InitializeSolutionItemList()
         { 
             _solutionItems = new List<SolutionItem>();
-            _interlayers = new List<InterlayerProperties>();
 
             bool criterionReached = false;
             double zTop = _analysis.Offset.Z;
@@ -165,8 +162,9 @@ namespace treeDiM.StackBuilder.Basics
             double weight = _analysis.ContainerWeight;
             foreach (SolutionItem solItem in _solutionItems)
             {
+
                 weight += _layers[solItem.LayerIndex].Count * _analysis.ContentWeight;
-                zTop += _layers[solItem.LayerIndex].BoxHeight + ((-1 != solItem.InterlayerIndex) ? _interlayers[solItem.InterlayerIndex].Thickness : 0.0);
+                zTop += _layers[solItem.LayerIndex].BoxHeight + ((-1 != solItem.InterlayerIndex) ? _analysis.Interlayer(solItem.InterlayerIndex).Thickness : 0.0);
 
                 ConstraintSetAbstract constraintSet = _analysis.ConstraintSet;
                 criterionReached = (ConstraintSet.OptMaxHeight.Activated && zTop >= constraintSet.OptMaxHeight.Value)
@@ -181,8 +179,11 @@ namespace treeDiM.StackBuilder.Basics
             {
                 SolutionItem solItem = _solutionItems.Last();
 
+                if (solItem.LayerIndex >= _layers.Count)
+                    throw new Exception(string.Format("Layer index out of range!"));
+
                 weight += _layers[solItem.LayerIndex].Count * _analysis.ContentWeight;
-                zTop += _layers[solItem.LayerIndex].BoxHeight + ((-1 != solItem.InterlayerIndex) ? _interlayers[solItem.InterlayerIndex].Thickness : 0.0);
+                zTop += _layers[solItem.LayerIndex].BoxHeight + ((-1 != solItem.InterlayerIndex) ? _analysis.Interlayer(solItem.InterlayerIndex).Thickness : 0.0);
 
                 _solutionItems.Add(new SolutionItem(solItem));
 
@@ -196,8 +197,11 @@ namespace treeDiM.StackBuilder.Basics
             {
                 SolutionItem solItem = _solutionItems.Last();
 
+                if (solItem.LayerIndex >= _layers.Count)
+                    throw new Exception(string.Format("Layer index out of range!"));
+
                 weight -= _layers[solItem.LayerIndex].Count * _analysis.ContentWeight;
-                zTop -= _layers[solItem.LayerIndex].BoxHeight + ((-1 != solItem.InterlayerIndex) ? _interlayers[solItem.InterlayerIndex].Thickness : 0.0);
+                zTop -= _layers[solItem.LayerIndex].BoxHeight + ((-1 != solItem.InterlayerIndex) ? _analysis.Interlayer(solItem.InterlayerIndex).Thickness : 0.0);
 
                 ConstraintSetAbstract constraintSet = _analysis.ConstraintSet;
                 criterionReached = (ConstraintSet.OptMaxHeight.Activated && zTop >= constraintSet.OptMaxHeight.Value)
@@ -210,10 +214,7 @@ namespace treeDiM.StackBuilder.Basics
         }
         private int GetInterlayerIndex(InterlayerProperties interlayer)
         {
-            if (null == interlayer) return -1;
-            if (!_interlayers.Contains(interlayer))
-                _interlayers.Add(interlayer);
-            return _interlayers.FindIndex(item => item == interlayer);
+            return _analysis.GetInterlayerIndex(interlayer);
         }
         #endregion
 
@@ -241,6 +242,10 @@ namespace treeDiM.StackBuilder.Basics
             // get selected solution item
             SolutionItem item = _solutionItems[SelectedLayerIndex];
             item.LayerIndex = iLayerType;
+            // rebuild layers
+            RebuildLayers();
+            // rebuild solution item list
+            RebuildSolutionItemList();
         }
         public void SetInterlayerOnSelected(InterlayerProperties interlayer)
         {
@@ -266,8 +271,8 @@ namespace treeDiM.StackBuilder.Basics
             {
                 if (!HasValidSelection) return null;
                 if (-1 == _solutionItems[_selectedIndex].InterlayerIndex) return null;
-                if (_solutionItems[_selectedIndex].InterlayerIndex >= _interlayers.Count) return null;
-                return _interlayers[ _solutionItems[_selectedIndex].InterlayerIndex ]; 
+                if (_solutionItems[_selectedIndex].InterlayerIndex >= _analysis.Interlayers.Count) return null;
+                return _analysis.Interlayer( _solutionItems[_selectedIndex].InterlayerIndex ); 
             }
         }
         #endregion
@@ -291,7 +296,7 @@ namespace treeDiM.StackBuilder.Basics
         }
         public List<InterlayerProperties> Interlayers
         {
-            get { return _interlayers; } 
+            get { return _analysis.Interlayers; } 
         }
         public List<ILayer> Layers
         {
@@ -309,7 +314,7 @@ namespace treeDiM.StackBuilder.Basics
                 {
                     if (solItem.HasInterlayer)
                     {
-                        InterlayerProperties interlayer = _interlayers[solItem.InterlayerIndex];//_analysis.Interlayer(solItem.InterlayerIndex);
+                        InterlayerProperties interlayer = _analysis.Interlayer(solItem.InterlayerIndex);
                         llayers.Add(new InterlayerPos(zLayer + Analysis.Offset.Z, solItem.InterlayerIndex));
                         zLayer += interlayer.Thickness;
                         ++iInterlayerCount;
@@ -357,6 +362,73 @@ namespace treeDiM.StackBuilder.Basics
         {   get { return Analysis.BBoxLoadWDeco(BBoxLoad); } }
         public BBox3D BBoxGlobal
         {   get { return Analysis.BBoxGlobal(BBoxLoad); } }
+        public int InterlayerCount
+        {
+            get
+            {
+                int layerCount = 0, interlayerCount = 0, boxCount = 0;
+                GetCounts(ref layerCount, ref interlayerCount, ref boxCount);
+                return interlayerCount;
+            }
+        }
+        public int ItemCount
+        {
+            get
+            {
+                int layerCount = 0, interlayerCount = 0, boxCount = 0;
+                GetCounts(ref layerCount, ref interlayerCount, ref boxCount);
+                return boxCount;
+            }
+        }
+        public int LayerCount
+        {
+            get
+            {
+                int layerCount = 0, interlayerCount = 0, boxCount = 0;
+                GetCounts(ref layerCount, ref interlayerCount, ref boxCount);
+                return layerCount; 
+            }
+        }
+        private void GetCounts(ref int layerCount, ref int interlayerCount, ref int boxCount)
+        {
+            layerCount = 0;
+            interlayerCount = 0;
+            boxCount = 0;
+            foreach (ILayer layer in Layers)
+            {
+                BoxLayer blayer = layer as BoxLayer;
+                if (null != blayer)
+                {
+                    ++layerCount;
+                    boxCount += blayer.BoxCount;
+                }
+                InterlayerPos iLayer = layer as InterlayerPos;
+                if (null != iLayer)
+                    ++interlayerCount;
+            }
+        }
+
+        public double LoadWeight
+        {
+            get
+            {
+                return ItemCount * _analysis.ContentWeight;
+            }
+        }
+        public double Weight
+        {
+            get
+            {
+                return LoadWeight + _analysis.ContainerWeight;
+            }
+        }
+        public double VolumeEfficiency
+        {
+            get
+            {
+                return 100.0 * (ItemCount * _analysis.ContentVolume) / _analysis.ContainerLoadingVolume;
+            }
+        }
         #endregion
 
         #region Helpers
@@ -399,7 +471,7 @@ namespace treeDiM.StackBuilder.Basics
             return layerPosTemp.Adjusted(dimensions);
         }
 
-        LayerPosition ApplyReflection(LayerPosition layerPos, Matrix4D matRot, Vector3D vTranslation)
+        private LayerPosition ApplyReflection(LayerPosition layerPos, Matrix4D matRot, Vector3D vTranslation)
         {
             Vector3D dimensions = Analysis.ContentDimensions;
             Transform3D transfRot = new Transform3D(matRot);

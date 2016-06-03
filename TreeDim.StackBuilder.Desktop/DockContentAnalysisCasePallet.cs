@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Globalization;
 // Docking
 using WeifenLuo.WinFormsUI.Docking;
 // log4net
@@ -34,7 +35,6 @@ namespace treeDiM.StackBuilder.Desktop
         /// solution
         /// </summary>
         private Solution _solution;
-
         /// <summary>
         /// logger
         /// </summary>
@@ -52,7 +52,6 @@ namespace treeDiM.StackBuilder.Desktop
             _solution = analysis.Solutions[0];
 
             InitializeComponent();
-
         }
         #endregion
 
@@ -60,6 +59,7 @@ namespace treeDiM.StackBuilder.Desktop
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
+
             // initialize drawing container
             graphCtrlSolution.Viewer = new ViewerSolution(_solution);
             graphCtrlSolution.Invalidate();
@@ -68,12 +68,76 @@ namespace treeDiM.StackBuilder.Desktop
 
             FillLayerControls();
             UpdateControls();
-        }
 
-        void onLayerSelected(int id)
+            ComboBoxHelpers.FillCombo(PalletCorners, cbPalletCorners, null);
+            chkbPalletCorners.Enabled = (cbPalletCorners.Items.Count > 0);
+            ComboBoxHelpers.FillCombo(PalletCaps, cbPalletCap, null);
+            chkbPalletCap.Enabled = (cbPalletCap.Items.Count > 0);
+            ComboBoxHelpers.FillCombo(PalletFilms, cbPalletFilm, null);
+            chkbPalletFilm.Enabled = (cbPalletFilm.Items.Count > 0);
+
+            chkbPalletCorners.CheckedChanged += onPalletProtectionChanged;
+            chkbPalletCap.CheckedChanged += onPalletProtectionChanged;
+            chkbPalletFilm.CheckedChanged += onPalletProtectionChanged;
+
+            cbPalletCorners.SelectedIndexChanged += onPalletProtectionChanged;
+            cbPalletCap.SelectedIndexChanged += onPalletProtectionChanged;
+            cbPalletFilm.SelectedIndexChanged += onPalletProtectionChanged;
+
+            FillGrid();
+            UpdateGrid();
+        }
+        private void onPalletProtectionChanged(object sender, EventArgs e)
         {
-            _solution.SelectLayer(id);
-            UpdateControls();
+            cbPalletCorners.Enabled = chkbPalletCorners.Checked;
+            cbPalletCap.Enabled = chkbPalletCap.Checked;
+            cbPalletFilm.Enabled = chkbPalletFilm.Checked;
+
+            AnalysisCasePallet casePalletAnalysis = _solution.Analysis as AnalysisCasePallet;
+            casePalletAnalysis.PalletCornerProperties = SelectedPalletCorners;
+            casePalletAnalysis.PalletCapProperties = SelectedPalletCap;
+            casePalletAnalysis.PalletFilmProperties = SelectedPalletFilm;
+
+            graphCtrlSolution.Invalidate();
+        }
+        #endregion
+
+        #region Private properties (Pallet corners, pallet caps, pallet film)
+        private PalletCornerProperties SelectedPalletCorners
+        {
+            get
+            {
+                if (cbPalletCorners.Items.Count > 0 && chkbPalletCorners.Checked)
+                {
+                    ItemBaseCB item = cbPalletCorners.SelectedItem as ItemBaseCB;
+                    return  item.Item as PalletCornerProperties;
+                }
+                return null;
+            }
+        }
+        private PalletCapProperties SelectedPalletCap
+        {
+            get
+            {
+                if (cbPalletCap.Items.Count > 0 && chkbPalletCap.Checked)
+                {
+                    ItemBaseCB item = cbPalletCap.SelectedItem as ItemBaseCB;
+                    return item.Item as PalletCapProperties;
+                }
+                return null;
+            }
+        }
+        private PalletFilmProperties SelectedPalletFilm
+        {
+            get
+            {
+                if (cbPalletFilm.Items.Count > 0 && chkbPalletFilm.Checked)
+                {
+                    ItemBaseCB item = cbPalletFilm.SelectedItem as ItemBaseCB;
+                    return item.Item as PalletFilmProperties;
+                }
+                return null;
+            }
         }
         #endregion
 
@@ -117,7 +181,140 @@ namespace treeDiM.StackBuilder.Desktop
         }
         #endregion
 
+        #region Private properties / Helpers
+        private ItemBase[] PalletCorners
+        {
+            get
+            {
+                Document doc = _document as Document;
+                return doc.ListByType(typeof(PalletCornerProperties)).ToArray(); 
+            }
+        }
+        private ItemBase[] PalletCaps
+        {
+            get
+            {
+                Document doc = _document as Document;
+                return doc.ListByType(typeof(PalletCapProperties)).ToArray(); 
+            }
+        }
+        private ItemBase[] PalletFilms
+        {
+            get
+            {
+                Document doc = _document as Document;
+                return doc.ListByType(typeof(PalletFilmProperties)).ToArray(); 
+            }
+        }
+        #endregion
+
         #region Event handlers
+        private void FillGrid()
+        { 
+            // clear grid
+            gridSolutions.Rows.Clear();
+            // border
+            gridSolutions.BorderStyle = BorderStyle.FixedSingle;
+            gridSolutions.ColumnsCount = 2;
+            gridSolutions.FixedColumns = 1;
+
+            // header
+            SourceGrid.Cells.RowHeader rowHeader;
+
+            SourceGrid.Cells.Views.RowHeader viewRowHeader = new SourceGrid.Cells.Views.RowHeader();
+            DevAge.Drawing.VisualElements.RowHeader backHeader = new DevAge.Drawing.VisualElements.RowHeader();
+            backHeader.BackColor = Color.LightGray;
+            backHeader.Border = DevAge.Drawing.RectangleBorder.NoBorder;
+            viewRowHeader.Background = backHeader;
+            viewRowHeader.ForeColor = Color.Black;
+            viewRowHeader.Font = new Font("Arial", 10, FontStyle.Regular);
+
+            int iRow = -1;
+            gridSolutions.Rows.Insert(++iRow);
+            rowHeader = new SourceGrid.Cells.RowHeader("Layer #");
+            rowHeader.View = viewRowHeader;
+            gridSolutions[iRow, 0] = rowHeader;
+
+            gridSolutions.Rows.Insert(++iRow);
+            rowHeader = new SourceGrid.Cells.RowHeader("Interlayer #");
+            rowHeader.View = viewRowHeader;
+            gridSolutions[iRow, 0] = rowHeader;
+
+            gridSolutions.Rows.Insert(++iRow);
+            rowHeader = new SourceGrid.Cells.RowHeader("Case #");
+            rowHeader.View = viewRowHeader;
+            gridSolutions[iRow, 0] = rowHeader;
+
+            gridSolutions.Rows.Insert(++iRow);
+            rowHeader = new SourceGrid.Cells.RowHeader(string.Format("Outer dimensions\n({0} x {0} x {0})", UnitsManager.LengthUnitString));
+            rowHeader.View = viewRowHeader;
+            gridSolutions[iRow, 0] = rowHeader;
+
+            gridSolutions.Rows.Insert(++iRow);
+            rowHeader = new SourceGrid.Cells.RowHeader(string.Format("Load dimensions\n({0} x {0} x {0})", UnitsManager.LengthUnitString));
+            rowHeader.View = viewRowHeader;
+            gridSolutions[iRow, 0] = rowHeader;
+
+            gridSolutions.Rows.Insert(++iRow);
+            rowHeader = new SourceGrid.Cells.RowHeader(string.Format("Load Weight ({0})", UnitsManager.MassUnitString));
+            rowHeader.View = viewRowHeader;
+            gridSolutions[iRow, 0] = rowHeader;
+
+            gridSolutions.Rows.Insert(++iRow);
+            rowHeader = new SourceGrid.Cells.RowHeader(string.Format("Total weight ({0})", UnitsManager.MassUnitString));
+            rowHeader.View = viewRowHeader;
+            gridSolutions[iRow, 0] = rowHeader;
+
+            gridSolutions.Rows.Insert(++iRow);
+            rowHeader = new SourceGrid.Cells.RowHeader("Vol. efficiency (%)");
+            rowHeader.View = viewRowHeader;
+            gridSolutions[iRow, 0] = rowHeader;
+
+            gridSolutions.AutoSizeCells();
+            gridSolutions.Columns.StretchToFit();
+
+            // select first solution
+            gridSolutions.AutoStretchColumnsToFitWidth = true;
+            gridSolutions.AutoSizeCells();
+            gridSolutions.Invalidate();
+        }
+
+        private void UpdateGrid()
+        {
+            if (gridSolutions.ColumnsCount < 2 && gridSolutions.Rows.Count < 4)
+                return;
+
+            CellBackColorAlternate viewNormal = new CellBackColorAlternate(Color.LightBlue, Color.White);
+
+            BBox3D bboxGlobal = _solution.BBoxGlobal;
+            BBox3D bboxLoad = _solution.BBoxLoad;
+            int iRow = 0;
+
+            gridSolutions[iRow++, 1] = new SourceGrid.Cells.Cell(_solution.LayerCount);
+            gridSolutions[iRow++, 1] = new SourceGrid.Cells.Cell(_solution.InterlayerCount);
+            gridSolutions[iRow++, 1] = new SourceGrid.Cells.Cell(_solution.ItemCount);
+            gridSolutions[iRow++, 1] = new SourceGrid.Cells.Cell(string.Format(CultureInfo.InvariantCulture, "{0:0.#} x {1:0.#} x {2:0.#}", bboxGlobal.Length, bboxGlobal.Width, bboxGlobal.Height));
+            gridSolutions[iRow++, 1] = new SourceGrid.Cells.Cell(string.Format(CultureInfo.InvariantCulture, "{0:0.#} x {1:0.#} x {2:0.#}", bboxLoad.Length, bboxLoad.Width, bboxLoad.Height));
+            gridSolutions[iRow++, 1] = new SourceGrid.Cells.Cell(string.Format(CultureInfo.InvariantCulture, "{0:0.#}", _solution.LoadWeight));
+            gridSolutions[iRow++, 1] = new SourceGrid.Cells.Cell(string.Format(CultureInfo.InvariantCulture, "{0:0.#}", _solution.Weight));
+            gridSolutions[iRow++, 1] = new SourceGrid.Cells.Cell(string.Format(CultureInfo.InvariantCulture, "{0:0.#}", _solution.VolumeEfficiency));
+
+            for (int i = 0; i < iRow; ++i)
+            {
+                gridSolutions[i, 1].View = viewNormal;
+                gridSolutions[i, 1].View.TextAlignment = DevAge.Drawing.ContentAlignment.MiddleCenter;
+            }
+                
+            gridSolutions.AutoStretchColumnsToFitWidth = true;
+            gridSolutions.AutoSizeCells();
+            gridSolutions.Invalidate();
+        }
+
+        private void onLayerSelected(int id)
+        {
+            _solution.SelectLayer(id);
+            UpdateControls();
+        }
         private void onLayerIndexChanged(object sender, EventArgs e)
         {
             // get index of layer type
@@ -137,6 +334,7 @@ namespace treeDiM.StackBuilder.Desktop
             _solution.SetLayerTypeOnSelected(iLayerType);
             // redraw
             graphCtrlSolution.Invalidate();
+            UpdateGrid();
         }
         private void onInterlayerChanged(object sender, EventArgs e)
         {
@@ -144,12 +342,13 @@ namespace treeDiM.StackBuilder.Desktop
             InterlayerProperties interlayer = null;
             if (chkbInterlayer.Checked)
             {
-                ItemBaseCB itemInterlayer = cbInterlater.SelectedItem as ItemBaseCB;
+                ItemBaseCB itemInterlayer = cbInterlayer.SelectedItem as ItemBaseCB;
                 if (null != itemInterlayer)
                     interlayer = itemInterlayer.Item as InterlayerProperties;
             }
             _solution.SetInterlayerOnSelected(interlayer);
             graphCtrlSolution.Invalidate();
+            UpdateGrid();
         }
         private void onReflectionX(object sender, EventArgs e)
         {
@@ -163,67 +362,100 @@ namespace treeDiM.StackBuilder.Desktop
         }
         private void onChkbInterlayerClicked(object sender, EventArgs e)
         {
-            cbInterlater.Enabled = chkbInterlayer.Checked;
+            cbInterlayer.Enabled = chkbInterlayer.Checked;
             onInterlayerChanged(null, null);
+            UpdateGrid();
         }
+        private void onSizeChanged(object sender, EventArgs e)
+        {
+            int splitDistance = splitContainerHoriz.Size.Height - 120;
+            if (splitDistance > 0)
+                splitContainerHoriz.SplitterDistance = splitDistance;
+        }
+        #region Toolbar
+        private void onBack(object sender, EventArgs e)
+        { 
+            
+        }
+        private void onGenerateReportMSWord(object sender, EventArgs e)
+        {
+            FormMain.GenerateReport(_solution);
+        }
+        #endregion
         #endregion
 
         #region Layer controls
         private void FillLayerControls()
         {
-            // layer combo box
-            foreach (LayerDesc layerDesc in _solution.LayerDescriptors)
-                cbLayerType.Items.Add(layerDesc);
-            if (cbLayerType.Items.Count > 0)
-                cbLayerType.SelectedIndex = 0;
+            try
+            {
+                // layer combo box
+                foreach (LayerDesc layerDesc in _solution.LayerDescriptors)
+                    cbLayerType.Items.Add(layerDesc);
+                if (cbLayerType.Items.Count > 0)
+                    cbLayerType.SelectedIndex = 0;
 
-            // interlayer combo box
-            Document doc = _document as Document;
-            if (null == doc) return;
-            ItemBase[] interlayers = doc.ListByType( typeof(InterlayerProperties) ).ToArray();
-            ComboBoxHelpers.FillCombo(interlayers, cbInterlater, null);
+                // interlayer combo box
+                Document doc = _document as Document;
+                if (null == doc) return;
+                ItemBase[] interlayers = doc.ListByType(typeof(InterlayerProperties)).ToArray();
+                ComboBoxHelpers.FillCombo(interlayers, cbInterlayer, null);
+            }
+            catch (Exception ex)
+            {
+                _log.Error( ex.Message );
+            }
         }
         private void UpdateControls()
         {
-            int index = _solution.SelectedLayerIndex;
-            bnSymmetryX.Enabled = (index != -1);
-            bnSymetryY.Enabled = (index != -1);
-            cbLayerType.Enabled = (index != -1);
-            chkbInterlayer.Enabled = (index != -1) && (cbInterlater.Items.Count > 0);
-
-            gbLayer.Text = index != -1 ? string.Format("Selected layer : {0}", index) : "Double-click a layer";
-
-            if (index != -1)
+            try
             {
-                tbClickLayer.Hide();
-                gbLayer.Show();
+                int index = _solution.SelectedLayerIndex;
+                bnSymmetryX.Enabled = (index != -1);
+                bnSymetryY.Enabled = (index != -1);
+                cbLayerType.Enabled = (index != -1);
+                chkbInterlayer.Enabled = (index != -1) && (cbInterlayer.Items.Count > 0);
 
-                // get selected solution item
-                SolutionItem selItem = _solution.SelectedSolutionItem;
-                // set current layer
-                cbLayerType.SelectedIndex = selItem.LayerIndex;
-                // set interlayer
-                chkbInterlayer.Checked = selItem.HasInterlayer;
-                onChkbInterlayerClicked(null, null);
-                // select combo box
-                int selIndex = 0;
-                foreach (object o in cbInterlater.Items)
+                gbLayer.Text = index != -1 ? string.Format("Selected layer : {0}", index) : "Double-click a layer";
+
+                if (index != -1)
                 {
-                    InterlayerProperties interlayerProp = o as InterlayerProperties;
-                    if (interlayerProp == _solution.SelectedInterlayer)
-                        break;
-                    ++selIndex;
+                    tbClickLayer.Hide();
+                    gbLayer.Show();
+
+                    // get selected solution item
+                    SolutionItem selItem = _solution.SelectedSolutionItem;
+                    if (null != selItem)
+                    {
+                        // set current layer
+                        cbLayerType.SelectedIndex = selItem.LayerIndex;
+                        // set interlayer
+                        chkbInterlayer.Checked = selItem.HasInterlayer;
+                        onChkbInterlayerClicked(null, null);
+                    }
+                    // select combo box
+                    int selIndex = 0;
+                    foreach (object o in cbInterlayer.Items)
+                    {
+                        InterlayerProperties interlayerProp = o as InterlayerProperties;
+                        if (interlayerProp == _solution.SelectedInterlayer)
+                            break;
+                        ++selIndex;
+                    }
+                    if (selIndex < cbInterlayer.Items.Count)
+                        cbInterlayer.SelectedIndex = selIndex;
                 }
-                if (selIndex < cbInterlater.Items.Count)
-                    cbInterlater.SelectedIndex = selIndex;
+                else
+                {
+                    gbLayer.Hide();
+                    tbClickLayer.Show();
+                }
             }
-            else
+            catch (Exception ex)
             {
-                gbLayer.Hide();
-                tbClickLayer.Show();
+                _log.Error(ex.Message);
             }
         }
-
         #endregion
     }
 }

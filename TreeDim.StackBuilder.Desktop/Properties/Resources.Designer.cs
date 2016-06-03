@@ -1468,6 +1468,15 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Select at least one layer layout.
+        /// </summary>
+        internal static string ID_SELECTATLEASTONELAYOUT {
+            get {
+                return ResourceManager.GetString("ID_SELECTATLEASTONELAYOUT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Selected.
         /// </summary>
         internal static string ID_SELECTED {

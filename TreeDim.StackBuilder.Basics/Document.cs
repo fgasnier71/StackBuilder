@@ -1047,7 +1047,7 @@ namespace treeDiM.StackBuilder.Basics
             else if (item.GetType() == typeof(SelHCylinderPalletSolution)) { }
             else if (item.GetType() == typeof(SelPackPalletSolution)) { }
             else
-                Debug.Assert(false);
+                _log.Error(string.Format("Removing document {0} of unknown type {1}...", item.Name, item.GetType()));
             Modify();
         }
         #endregion

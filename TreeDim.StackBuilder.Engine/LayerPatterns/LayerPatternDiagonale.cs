@@ -118,6 +118,7 @@ namespace treeDiM.StackBuilder.Engine
         {
             return 1;
         }
+        public override bool IsSymetric { get { return true; } }
         public override bool CanBeSwapped { get { return true; } }
         public override bool CanBeInverted { get { return true; } }
         #endregion

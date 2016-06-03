@@ -17,7 +17,6 @@ namespace treeDiM.StackBuilder.Basics
         public BProperties _bProperties;
         public PalletProperties _palletProperties;
 
-        public List<InterlayerProperties> _interlayers;
         public PalletCornerProperties _palletCornerProperties;
         public PalletCapProperties _palletCapProperties;
         public PalletFilmProperties _palletFilmProperties;
@@ -39,7 +38,7 @@ namespace treeDiM.StackBuilder.Basics
             _bProperties = bProperties;
             _palletProperties = palletProperties;
             _constraintSet = constraintSet;
-        }
+         }
         #endregion
 
         #region Analysis override
@@ -47,9 +46,25 @@ namespace treeDiM.StackBuilder.Basics
         {
             get { return _bProperties.Dimensions; }
         }
+        public override double ContentWeight
+        {
+            get { return BProperties.Weight; }
+        }
+        public override double ContentVolume
+        {
+            get { return _bProperties.Volume; }
+        }
         public override Vector2D ContainerDimensions
         {
             get { return new Vector2D(_palletProperties.Length, _palletProperties.Width); }
+        }
+        public override double ContainerLoadingVolume
+        {
+            get
+            {
+                ConstraintSetCasePallet constraintSet = _constraintSet as ConstraintSetCasePallet;
+                return (_palletProperties.Length + constraintSet.Overhang.X) * (_palletProperties.Width + constraintSet.Overhang.Y) * (constraintSet.OptMaxHeight.Value); 
+            }
         }
         public override Vector3D Offset
         {
@@ -66,10 +81,6 @@ namespace treeDiM.StackBuilder.Basics
         public override double ContainerWeight
         {
             get { return _palletProperties.Weight; }
-        }
-        public override double ContentWeight
-        {
-            get { return BProperties.Weight; }
         }
         public override InterlayerProperties Interlayer(int index)
         {
@@ -151,7 +162,7 @@ namespace treeDiM.StackBuilder.Basics
                 if (_palletCornerProperties == value) return;
                 if (null != _palletCornerProperties) _palletCornerProperties.RemoveDependancy(this);
                 _palletCornerProperties = value;
-                _palletCornerProperties.AddDependancy(this);
+                if (null != _palletCornerProperties) _palletCornerProperties.AddDependancy(this);
             }
         }
         public PalletCapProperties PalletCapProperties
@@ -162,7 +173,7 @@ namespace treeDiM.StackBuilder.Basics
                 if (_palletCapProperties == value) return;
                 if (null != _palletCapProperties) _palletCapProperties.RemoveDependancy(this);
                 _palletCapProperties = value;
-                _palletCapProperties.AddDependancy(this);
+                if (null != _palletCapProperties) _palletCapProperties.AddDependancy(this);
             }
         }
         public PalletFilmProperties PalletFilmProperties
@@ -173,7 +184,7 @@ namespace treeDiM.StackBuilder.Basics
                 if (_palletFilmProperties == value) return;
                 if (null != _palletFilmProperties) _palletFilmProperties.RemoveDependancy(this);
                 _palletFilmProperties = value;
-                _palletFilmProperties.AddDependancy(this);
+                if (null != _palletFilmProperties) _palletFilmProperties.AddDependancy(this);
             }
         }
         public bool HasPalletCorners
