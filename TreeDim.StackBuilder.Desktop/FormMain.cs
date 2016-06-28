@@ -857,8 +857,6 @@ namespace treeDiM.StackBuilder.Desktop
             // new case/pallet analysis
             newAnalysisToolStripMenuItem.Enabled = (null != doc) && doc.CanCreateCasePalletAnalysis;
             toolStripButtonCreateNewAnalysis.Enabled = (null != doc) && doc.CanCreateCasePalletAnalysis;
-            // new pack/pallet analysis
-            toolStripButtonCreateNewPackPalletAnalysis.Enabled = (null != doc) && doc.CanCreatePackPalletAnalysis;
             // new cylinder/pallet analysis
             newToolStripMenuItemCylinderPalletAnalysis.Enabled = (null != doc) && doc.CanCreateCylinderPalletAnalysis;
             toolStripSBCylinderPalletAnalysis.Enabled = (null != doc) && doc.CanCreateCylinderPalletAnalysis;
@@ -868,12 +866,6 @@ namespace treeDiM.StackBuilder.Desktop
             // new box/case/pallet analysis
             newBoxCasePalletOptimizationToolStripMenuItem.Enabled = (null != doc) && doc.CanCreateBoxCasePalletAnalysis;
             toolStripButtonCreateNewBoxCasePalletOptimization.Enabled = (null != doc) && doc.CanCreateBoxCasePalletAnalysis;
-            // new analysis bundle/pallet
-            newAnalysisBundleToolStripMenuItem.Enabled = (null != doc) && doc.CanCreateBundlePalletAnalysis;
-            toolStripButtonCreateNewBundleAnalysis.Enabled = (null != doc) && doc.CanCreateBundlePalletAnalysis;
-            // new analysis bundle/case
-            toolStripButtonBundleCaseAnalysis.Enabled = (null != doc) && doc.CanCreateBundleCaseAnalysis;
-            newBundleCaseAnalysisToolStripMenuItem.Enabled = (null != doc) && doc.CanCreateBundleCaseAnalysis;
             // case optimisation
             caseOptimisationToolStripMenu.Enabled = (null != doc) && doc.CanCreateCaseOptimization;
             toolStripButtonOptimiseCase.Enabled = (null != doc) && doc.CanCreateCaseOptimization;

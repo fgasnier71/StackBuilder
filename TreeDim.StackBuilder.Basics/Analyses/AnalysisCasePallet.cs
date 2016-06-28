@@ -56,14 +56,18 @@ namespace treeDiM.StackBuilder.Basics
         }
         public override Vector2D ContainerDimensions
         {
-            get { return new Vector2D(_palletProperties.Length, _palletProperties.Width); }
+            get
+            {
+                ConstraintSetCasePallet constraintSet = _constraintSet as ConstraintSetCasePallet;
+                return new Vector2D(_palletProperties.Length + 2.0 * constraintSet.Overhang.X, _palletProperties.Width + 2.0 * constraintSet.Overhang.Y); 
+            }
         }
         public override double ContainerLoadingVolume
         {
             get
             {
                 ConstraintSetCasePallet constraintSet = _constraintSet as ConstraintSetCasePallet;
-                return (_palletProperties.Length + constraintSet.Overhang.X) * (_palletProperties.Width + constraintSet.Overhang.Y) * (constraintSet.OptMaxHeight.Value); 
+                return (_palletProperties.Length + 2.0 * constraintSet.Overhang.X) * (_palletProperties.Width + 2.0 * constraintSet.Overhang.Y) * (constraintSet.OptMaxHeight.Value); 
             }
         }
         public override Vector3D Offset
@@ -72,8 +76,8 @@ namespace treeDiM.StackBuilder.Basics
             {
                 ConstraintSetCasePallet constraintSet = _constraintSet as ConstraintSetCasePallet;
                 return new Vector3D(
-                    -0.5 * constraintSet.Overhang.X
-                    , -0.5 * constraintSet.Overhang.Y
+                    -constraintSet.Overhang.X
+                    , -constraintSet.Overhang.Y
                     , _palletProperties.Height
                     );
             }

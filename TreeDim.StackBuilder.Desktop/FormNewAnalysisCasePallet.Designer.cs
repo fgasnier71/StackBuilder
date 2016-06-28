@@ -42,7 +42,15 @@
             this.bnNext = new System.Windows.Forms.Button();
             this.bnBestCombination = new System.Windows.Forms.Button();
             this.uCtrlCaseOrientation = new treeDiM.StackBuilder.Graphics.uCtrlCaseOrientation();
+            this.tabCtrlConstraints = new System.Windows.Forms.TabControl();
+            this.tabPageOverhang = new System.Windows.Forms.TabPage();
+            this.tabPageStopCriterions = new System.Windows.Forms.TabPage();
+            this.tabPageSpaces = new System.Windows.Forms.TabPage();
+            this.tabPageLayerFilters = new System.Windows.Forms.TabPage();
             this.groupBox1.SuspendLayout();
+            this.tabCtrlConstraints.SuspendLayout();
+            this.tabPageOverhang.SuspendLayout();
+            this.tabPageStopCriterions.SuspendLayout();
             this.SuspendLayout();
             // 
             // bnOk
@@ -164,17 +172,52 @@
             this.uCtrlCaseOrientation.Name = "uCtrlCaseOrientation";
             this.uCtrlCaseOrientation.CheckedChanged += new treeDiM.StackBuilder.Graphics.uCtrlCaseOrientation.CheckChanged(this.onInputChanged);
             // 
+            // tabCtrlConstraints
+            // 
+            this.tabCtrlConstraints.Controls.Add(this.tabPageOverhang);
+            this.tabCtrlConstraints.Controls.Add(this.tabPageStopCriterions);
+            this.tabCtrlConstraints.Controls.Add(this.tabPageSpaces);
+            this.tabCtrlConstraints.Controls.Add(this.tabPageLayerFilters);
+            resources.ApplyResources(this.tabCtrlConstraints, "tabCtrlConstraints");
+            this.tabCtrlConstraints.Name = "tabCtrlConstraints";
+            this.tabCtrlConstraints.SelectedIndex = 0;
+            // 
+            // tabPageOverhang
+            // 
+            this.tabPageOverhang.Controls.Add(this.uCtrlOverhang);
+            resources.ApplyResources(this.tabPageOverhang, "tabPageOverhang");
+            this.tabPageOverhang.Name = "tabPageOverhang";
+            this.tabPageOverhang.UseVisualStyleBackColor = true;
+            // 
+            // tabPageStopCriterions
+            // 
+            this.tabPageStopCriterions.Controls.Add(this.groupBox1);
+            resources.ApplyResources(this.tabPageStopCriterions, "tabPageStopCriterions");
+            this.tabPageStopCriterions.Name = "tabPageStopCriterions";
+            this.tabPageStopCriterions.UseVisualStyleBackColor = true;
+            // 
+            // tabPageSpaces
+            // 
+            resources.ApplyResources(this.tabPageSpaces, "tabPageSpaces");
+            this.tabPageSpaces.Name = "tabPageSpaces";
+            this.tabPageSpaces.UseVisualStyleBackColor = true;
+            // 
+            // tabPageLayerFilters
+            // 
+            resources.ApplyResources(this.tabPageLayerFilters, "tabPageLayerFilters");
+            this.tabPageLayerFilters.Name = "tabPageLayerFilters";
+            this.tabPageLayerFilters.UseVisualStyleBackColor = true;
+            // 
             // FormNewAnalysisCasePallet
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.tabCtrlConstraints);
             this.Controls.Add(this.bnBestCombination);
             this.Controls.Add(this.bnNext);
             this.Controls.Add(this.checkBoxBestLayersOnly);
             this.Controls.Add(this.uCtrlLayerList);
             this.Controls.Add(this.uCtrlCaseOrientation);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.uCtrlOverhang);
             this.Controls.Add(this.cbPallets);
             this.Controls.Add(this.cbCases);
             this.Controls.Add(this.lbPallet);
@@ -191,14 +234,16 @@
             this.Controls.SetChildIndex(this.lbPallet, 0);
             this.Controls.SetChildIndex(this.cbCases, 0);
             this.Controls.SetChildIndex(this.cbPallets, 0);
-            this.Controls.SetChildIndex(this.uCtrlOverhang, 0);
-            this.Controls.SetChildIndex(this.groupBox1, 0);
             this.Controls.SetChildIndex(this.uCtrlCaseOrientation, 0);
             this.Controls.SetChildIndex(this.uCtrlLayerList, 0);
             this.Controls.SetChildIndex(this.checkBoxBestLayersOnly, 0);
             this.Controls.SetChildIndex(this.bnNext, 0);
             this.Controls.SetChildIndex(this.bnBestCombination, 0);
+            this.Controls.SetChildIndex(this.tabCtrlConstraints, 0);
             this.groupBox1.ResumeLayout(false);
+            this.tabCtrlConstraints.ResumeLayout(false);
+            this.tabPageOverhang.ResumeLayout(false);
+            this.tabPageStopCriterions.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -219,5 +264,10 @@
         private System.Windows.Forms.Button bnNext;
         private System.Windows.Forms.Button bnBestCombination;
         private Graphics.uCtrlCaseOrientation uCtrlCaseOrientation;
+        private System.Windows.Forms.TabControl tabCtrlConstraints;
+        private System.Windows.Forms.TabPage tabPageOverhang;
+        private System.Windows.Forms.TabPage tabPageStopCriterions;
+        private System.Windows.Forms.TabPage tabPageSpaces;
+        private System.Windows.Forms.TabPage tabPageLayerFilters;
     }
 }
