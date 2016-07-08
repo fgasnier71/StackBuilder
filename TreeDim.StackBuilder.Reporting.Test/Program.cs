@@ -80,9 +80,15 @@ namespace treeDiM.StackBuilder.Reporting.Test
             {
                 _log.Info(string.Format("Loaded item {0}", itemBase.Name));
             }
+            public void OnNewAnalysisCreated(Document doc, Analysis analysis)
+            { 
+            }
             public void OnNewCasePalletAnalysisCreated(Document doc, CasePalletAnalysis analysis)
             {
                 _log.Info(string.Format("Loaded case/pallet analysis {0}", analysis.Name));
+            }
+            public void OnNewPackPalletAnalysisCreated(Document doc, PackPalletAnalysis analysis)
+            { 
             }
             public void OnNewCylinderPalletAnalysisCreated(Document doc, CylinderPalletAnalysis analysis)
             {

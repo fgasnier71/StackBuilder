@@ -40,7 +40,6 @@
         <File Source="..\treeDiM.StackBuilder.Desktop\Bin\Release\treeDiM.StackBuilder.Engine.dll" Checksum="yes" />
         <File Source="..\treeDiM.StackBuilder.Desktop\Bin\Release\treeDiM.StackBuilder.Basics.dll" Checksum="yes" />
         <File Source="..\treeDiM.StackBuilder.Desktop\Bin\Release\treeDiM.StackBuilder.Reporting.dll" Checksum="yes" />
-        <File Source="..\treeDiM.StackBuilder.Desktop\Bin\Release\treeDiM.StackBuilder.Desktop.chm" Checksum="yes" />
         <File Source="..\TreeDim.StackBuilder.XmlFileProcessor\bin\Release\treeDiM.StackBuilder.XmlFileProcessor.exe" Checksum="yes" />
         <File Source="..\TreeDim.StackBuilder.XmlFileProcessor\bin\Release\treeDiM.StackBuilder.XmlFileProcessor.exe.config" Checksum="yes" />
         <File Source="..\treeDiM.StackBuilder.Desktop\Bin\Release\treeDiM.StackBuilder.ColladaExporter.dll" Checksum="yes" />
@@ -143,8 +142,8 @@
         <util:XmlFile Id="SetReportTemplate" File="[BIN]treeDiM.StackBuilder.Desktop.exe.config" Action="setValue" ElementPath="/configuration/userSettings/treeDiM.StackBuilder.Desktop.Properties.Settings/setting[\[]@name='ReportTemplatePath'[\]]/value" Value="[REPORTTEMPLATES]ReportTemplateHtml.xsl"/>
       </Component>
       <Component Id="CompanyLogoTreeDiM" Guid="{CB45D209-A26E-4F7F-8EA2-67FFE2C810B0}">
-        <File Source="..\treeDiM.StackBuilder.Reporting\ReportTemplates\treeDiM.png" Checksum="yes" KeyPath="yes"/>
-        <util:XmlFile Id="SetCompanyLogoTreeDiM" File="[BIN]treeDiM.StackBuilder.Desktop.exe.config" Action="setValue" ElementPath="/configuration/userSettings/treeDiM.StackBuilder.Desktop.Properties.Settings/setting[\[]@name='CompanyLogoPath'[\]]/value" Value="[REPORTTEMPLATES]treedim.png" Sequence="1"/>        
+        <File Source="..\treeDiM.StackBuilder.Reporting\ReportTemplates\YourLogoHere.png" Checksum="yes" KeyPath="yes"/>
+        <util:XmlFile Id="SetCompanyLogoTreeDiM" File="[BIN]treeDiM.StackBuilder.Desktop.exe.config" Action="setValue" ElementPath="/configuration/userSettings/treeDiM.StackBuilder.Desktop.Properties.Settings/setting[\[]@name='CompanyLogoPath'[\]]/value" Value="[REPORTTEMPLATES]YourLogoHere.png" Sequence="1"/>        
       </Component>
     </DirectoryRef>
     <DirectoryRef Id="PALLETSOLUTIONSDB">

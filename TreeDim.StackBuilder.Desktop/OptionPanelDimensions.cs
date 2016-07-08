@@ -19,6 +19,10 @@ namespace treeDiM.StackBuilder.Desktop
         public OptionPanelDimensions()
         {
             InitializeComponent();
+
+            CategoryPath = Properties.Resources.ID_OPTIONSDIMENSIONS;
+            DisplayName = Properties.Resources.ID_DISPLAYDIMENSIONSCASEPALLET;
+
             // initialize combo box
             cbDim1.SelectedIndex = Graphics.Properties.Settings.Default.DimCasePalletSol1;
             cbDim2.SelectedIndex = Graphics.Properties.Settings.Default.DimCasePalletSol2;

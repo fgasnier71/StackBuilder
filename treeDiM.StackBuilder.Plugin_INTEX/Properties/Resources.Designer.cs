@@ -79,6 +79,15 @@ namespace treeDiM.StackBuilder.Plugin.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No {0} found. Verify that a valid {1} tab exists!.
+        /// </summary>
+        internal static string ID_ERROR_NOITEMFOUND {
+            get {
+                return ResourceManager.GetString("ID_ERROR_NOITEMFOUND", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Packing_{0}.
         /// </summary>
         internal static string ID_PACKING {

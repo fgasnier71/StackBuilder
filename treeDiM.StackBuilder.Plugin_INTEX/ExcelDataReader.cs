@@ -7,8 +7,9 @@ using System.Collections.ObjectModel;
 using System.Runtime.CompilerServices;
 using System.Data;
 using System.Globalization;
-using ExcelDataReader.Core;
 
+using log4net;
+using ExcelDataReader.Core;
 using treeDiM.StackBuilder.Plugin;
 #endregion
 
@@ -26,6 +27,7 @@ namespace ExcelDataReader
         private DataSet m_workbookData = null;
         private ushort m_version = 0x0600;
         private Encoding m_encoding = Encoding.Default;
+        private static ILog _log = LogManager.GetLogger(typeof(ExcelDataReader));
 
         /// <summary>
         /// Default constructor
@@ -103,8 +105,9 @@ namespace ExcelDataReader
                                 item._height = double.Parse((string)dt.Rows[iRow][8], System.Globalization.CultureInfo.InvariantCulture);
                                 listItems.Add(item);
                             }
-                            catch (Exception /*ex*/)
+                            catch (Exception ex)
                             {
+                                _log.Error(ex.ToString());
                             }
                         }
                     }
@@ -129,8 +132,9 @@ namespace ExcelDataReader
                                     pallet._weight = double.Parse((string)dt.Rows[iRow][4], System.Globalization.CultureInfo.InvariantCulture);
                                 listPallets.Add(pallet);
                             }
-                            catch (Exception /*ex*/)
+                            catch (Exception ex)
                             {
+                                _log.Error(ex.ToString());
                             }
                         }
                     }
@@ -161,8 +165,9 @@ namespace ExcelDataReader
                                     caseItem._weight = double.Parse((string)dt.Rows[iRow][7], System.Globalization.CultureInfo.InvariantCulture);
                                 listCases.Add(caseItem);
                             }
-                            catch (Exception /*ex*/)
+                            catch (Exception ex)
                             {
+                                _log.Error(ex.ToString());
                             }
                         }
                     }
@@ -182,7 +187,8 @@ namespace ExcelDataReader
             FileStream fs = new FileStream(filePath, FileMode.Open, FileAccess.Read, FileShare.Read);
             ExcelDataReader excelDataReader = new ExcelDataReader(fs, ref listItems, ref listPallet, ref listCases);
             fs.Close();
-            return listItems.Count > 0 && listPallet.Count > 0;
+            return (null != listItems && listItems.Count > 0)
+                && (null != listPallet && listPallet.Count > 0);
         }
 
         /// <summary>
@@ -210,62 +216,69 @@ namespace ExcelDataReader
             bool sst = false;
             while ((rec = m_stream.Read()) != null)
             {
-                switch (rec.ID)
+                try
                 {
-                    case BIFFRECORDTYPE.INTERFACEHDR:
-                        m_globals.InterfaceHdr = (XlsBiffInterfaceHdr)rec;
-                        break;
-                    case BIFFRECORDTYPE.BOUNDSHEET:
-                        XlsBiffBoundSheet sheet = (XlsBiffBoundSheet)rec;
-                        if (sheet.Type != XlsBiffBoundSheet.SheetType.Worksheet) break;
-                        sheet.IsV8 = isV8;
-                        sheet.UseEncoding = m_encoding;
-                        m_sheets.Add(new XlsWorksheet(m_globals.Sheets.Count, sheet));
-                        m_globals.Sheets.Add(sheet);
-                        break;
-                    case BIFFRECORDTYPE.MMS:
-                        m_globals.MMS = rec;
-                        break;
-                    case BIFFRECORDTYPE.COUNTRY:
-                        m_globals.Country = rec;
-                        break;
-                    case BIFFRECORDTYPE.CODEPAGE:
-                        m_globals.CodePage = (XlsBiffSimpleValueRecord)rec;
-                        m_encoding = Encoding.GetEncoding(m_globals.CodePage.Value);
-                        break;
-                    case BIFFRECORDTYPE.FONT:
-                    case BIFFRECORDTYPE.FONT_V34:
-                        m_globals.Fonts.Add(rec);
-                        break;
-                    case BIFFRECORDTYPE.FORMAT:
-                    case BIFFRECORDTYPE.FORMAT_V23:
-                        m_globals.Formats.Add(rec);
-                        break;
-                    case BIFFRECORDTYPE.XF:
-                    case BIFFRECORDTYPE.XF_V4:
-                    case BIFFRECORDTYPE.XF_V3:
-                    case BIFFRECORDTYPE.XF_V2:
-                        m_globals.ExtendedFormats.Add(rec);
-                        break;
-                    case BIFFRECORDTYPE.SST:
-                        m_globals.SST = (XlsBiffSST)rec;
-                        sst = true;
-                        break;
-                    case BIFFRECORDTYPE.CONTINUE:
-                        if (!sst) break;
-                        XlsBiffContinue contSST = (XlsBiffContinue)rec;
-                        m_globals.SST.Append(contSST);
-                        break;
-                    case BIFFRECORDTYPE.EXTSST:
-                        m_globals.ExtSST = rec;
-                        sst = false;
-                        break;
-                    case BIFFRECORDTYPE.EOF:
-                        if (m_globals.SST != null)
-                            m_globals.SST.ReadStrings();
-                        return;
-                    default:
-                        continue;
+                    switch (rec.ID)
+                    {
+                        case BIFFRECORDTYPE.INTERFACEHDR:
+                            m_globals.InterfaceHdr = (XlsBiffInterfaceHdr)rec;
+                            break;
+                        case BIFFRECORDTYPE.BOUNDSHEET:
+                            XlsBiffBoundSheet sheet = (XlsBiffBoundSheet)rec;
+                            if (sheet.Type != XlsBiffBoundSheet.SheetType.Worksheet) break;
+                            sheet.IsV8 = isV8;
+                            sheet.UseEncoding = m_encoding;
+                            m_sheets.Add(new XlsWorksheet(m_globals.Sheets.Count, sheet));
+                            m_globals.Sheets.Add(sheet);
+                            break;
+                        case BIFFRECORDTYPE.MMS:
+                            m_globals.MMS = rec;
+                            break;
+                        case BIFFRECORDTYPE.COUNTRY:
+                            m_globals.Country = rec;
+                            break;
+                        case BIFFRECORDTYPE.CODEPAGE:
+                            m_globals.CodePage = (XlsBiffSimpleValueRecord)rec;
+                            m_encoding = Encoding.GetEncoding(m_globals.CodePage.Value);
+                            break;
+                        case BIFFRECORDTYPE.FONT:
+                        case BIFFRECORDTYPE.FONT_V34:
+                            m_globals.Fonts.Add(rec);
+                            break;
+                        case BIFFRECORDTYPE.FORMAT:
+                        case BIFFRECORDTYPE.FORMAT_V23:
+                            m_globals.Formats.Add(rec);
+                            break;
+                        case BIFFRECORDTYPE.XF:
+                        case BIFFRECORDTYPE.XF_V4:
+                        case BIFFRECORDTYPE.XF_V3:
+                        case BIFFRECORDTYPE.XF_V2:
+                            m_globals.ExtendedFormats.Add(rec);
+                            break;
+                        case BIFFRECORDTYPE.SST:
+                            m_globals.SST = (XlsBiffSST)rec;
+                            sst = true;
+                            break;
+                        case BIFFRECORDTYPE.CONTINUE:
+                            if (!sst) break;
+                            XlsBiffContinue contSST = (XlsBiffContinue)rec;
+                            m_globals.SST.Append(contSST);
+                            break;
+                        case BIFFRECORDTYPE.EXTSST:
+                            m_globals.ExtSST = rec;
+                            sst = false;
+                            break;
+                        case BIFFRECORDTYPE.EOF:
+                            if (m_globals.SST != null)
+                                m_globals.SST.ReadStrings();
+                            return;
+                        default:
+                            continue;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    _log.Error( ex.ToString() );
                 }
             }
         }

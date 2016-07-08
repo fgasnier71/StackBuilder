@@ -89,6 +89,9 @@ namespace treeDiM.StackBuilder.ColladaExporter.Test
         {
             _log.Info(string.Format("Loaded item {0}", itemBase.Name));
         }
+        public void OnNewAnalysisCreated(Document doc, Analysis analysis)
+        { 
+        }
         public void OnNewCasePalletAnalysisCreated(Document doc, CasePalletAnalysis analysis)
         {
             _log.Info(string.Format("Loaded analysis {0}", analysis.Name));

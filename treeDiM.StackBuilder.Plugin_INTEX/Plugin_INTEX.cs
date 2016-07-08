@@ -53,9 +53,15 @@ namespace treeDiM.StackBuilder.Plugin
                 if (!ExcelDataReader.ExcelDataReader.LoadIntexFile(dbPath, ref listItems, ref listPallets, ref listCases))
                 {
                     Cursor.Current = Cursors.Default;
-                    MessageBox.Show(
-                        string.Format(Properties.Resources.ID_ERROR_INVALIDFILE, dbPath)
-                        , Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    string message = string.Empty;
+                    if (null == listItems || listItems.Count < 1)
+                        message = string.Format(Properties.Resources.ID_ERROR_NOITEMFOUND, "article", "Articles");
+                    else if (null == listPallets || listPallets.Count < 1)
+                        message = string.Format(Properties.Resources.ID_ERROR_NOITEMFOUND, "palette", "Palettes");
+                    else
+                        message = string.Format(Properties.Resources.ID_ERROR_INVALIDFILE, dbPath);
+                    if (!string.IsNullOrEmpty(message))
+                        MessageBox.Show(message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
             }

@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
+using log4net;
+
 using treeDiM.StackBuilder.Basics;
 #endregion
 
@@ -69,31 +71,38 @@ namespace treeDiM.StackBuilder.Plugin
         #region Form Loading & Closing
         private void FormNewINTEX_Load(object sender, EventArgs e)
         {
-            foreach (DataItemINTEX item in _listItems)
-                cbRefDescription.Items.Add(item);
-            if (cbRefDescription.Items.Count > 0)
-                cbRefDescription.SelectedIndex = 0;
+            try
+            {
+                foreach (DataItemINTEX item in _listItems)
+                    cbRefDescription.Items.Add(item);
+                if (cbRefDescription.Items.Count > 0)
+                    cbRefDescription.SelectedIndex = 0;
 
-            foreach (DataPalletINTEX pallet in _listPallets)
-                cbPallet.Items.Add(pallet);
-            if (cbPallet.Items.Count > 0)
-                cbPallet.SelectedIndex = 0;
+                foreach (DataPalletINTEX pallet in _listPallets)
+                    cbPallet.Items.Add(pallet);
+                if (cbPallet.Items.Count > 0)
+                    cbPallet.SelectedIndex = 0;
 
-            foreach (DataCaseINTEX interCase in _listCases)
-                cbCases.Items.Add(interCase);
-            if (cbCases.Items.Count > 0)
-                cbCases.SelectedIndex = 0;
+                foreach (DataCaseINTEX interCase in _listCases)
+                    cbCases.Items.Add(interCase);
+                if (cbCases.Items.Count > 0)
+                    cbCases.SelectedIndex = 0;
 
-            // initialize pallet height
-            PalletHeight = Properties.Settings.Default.PalletHeight;
-            // initialize intermediate packing
-            chkUseIntermediatePacking.Checked = _listCases.Count > 0 && Properties.Settings.Default.IntermediatePacking;
-            chkUseIntermediatePacking.Enabled = _listCases.Count > 0;
-            chkUseIntermediatePacking_CheckedChanged(null, null);
-            // initialize thickness
-            DefaultCaseThickness = Properties.Settings.Default.DefaultCaseThickness;
-            // update status and enable/disable OK button
-            UpdateButtonOkStatus();
+                // initialize pallet height
+                PalletHeight = Properties.Settings.Default.PalletHeight;
+                // initialize intermediate packing
+                chkUseIntermediatePacking.Checked = _listCases.Count > 0 && Properties.Settings.Default.IntermediatePacking;
+                chkUseIntermediatePacking.Enabled = _listCases.Count > 0;
+                chkUseIntermediatePacking_CheckedChanged(null, null);
+                // initialize thickness
+                DefaultCaseThickness = Properties.Settings.Default.DefaultCaseThickness;
+                // update status and enable/disable OK button
+                UpdateButtonOkStatus();
+            }
+            catch (Exception ex)
+            {
+                _log.Error(ex.ToString());
+            }
         }
         private void FormNewINTEX_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -184,6 +193,8 @@ namespace treeDiM.StackBuilder.Plugin
         public DataItemINTEX _currentItem;
         public DataPalletINTEX _currentPallet;
         public DataCaseINTEX _currentCase;
+
+        private static ILog _log = LogManager.GetLogger(typeof(FormNewINTEX));
         #endregion
     }
 }

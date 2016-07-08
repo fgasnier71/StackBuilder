@@ -136,7 +136,7 @@
     <value>dockPanel</value>
   </data>
   <data name="&gt;&gt;dockPanel.Type" xml:space="preserve">
-    <value>WeifenLuo.WinFormsUI.Docking.DockPanel, WeifenLuo.WinFormsUI.Docking, Version=2.7.0.0, Culture=neutral, PublicKeyToken=5cded1a1a0a7b481</value>
+    <value>WeifenLuo.WinFormsUI.Docking.DockPanel, WeifenLuo.WinFormsUI.Docking, Version=2.9.0.0, Culture=neutral, PublicKeyToken=5cded1a1a0a7b481</value>
   </data>
   <data name="&gt;&gt;dockPanel.Parent" xml:space="preserve">
     <value>$this</value>
@@ -793,9 +793,6 @@
   <data name="settingsToolStripMenuItem.Text" xml:space="preserve">
     <value>Settings...</value>
   </data>
-  <data name="toolStripSeparator20.Size" type="System.Drawing.Size, System.Drawing">
-    <value>258, 6</value>
-  </data>
   <data name="toolStripMenuItemTools.Size" type="System.Drawing.Size, System.Drawing">
     <value>47, 20</value>
   </data>
@@ -1401,7 +1398,7 @@
     <value>White</value>
   </data>
   <data name="toolStripMenuItemCylinderPalletVertical.Size" type="System.Drawing.Size, System.Drawing">
-    <value>168, 38</value>
+    <value>129, 22</value>
   </data>
   <data name="toolStripMenuItemCylinderPalletVertical.Text" xml:space="preserve">
     <value>Vertical</value>
@@ -1425,7 +1422,7 @@
     <value>White</value>
   </data>
   <data name="toolStripMenuItemCylinderPalletHorizontal.Size" type="System.Drawing.Size, System.Drawing">
-    <value>168, 38</value>
+    <value>129, 22</value>
   </data>
   <data name="toolStripMenuItemCylinderPalletHorizontal.Text" xml:space="preserve">
     <value>Horizontal</value>
@@ -1989,12 +1986,6 @@
   </data>
   <data name="&gt;&gt;settingsToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;toolStripSeparator20.Name" xml:space="preserve">
-    <value>toolStripSeparator20</value>
-  </data>
-  <data name="&gt;&gt;toolStripSeparator20.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;helpToolStripMenuItem.Name" xml:space="preserve">
     <value>helpToolStripMenuItem</value>

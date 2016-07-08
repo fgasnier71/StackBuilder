@@ -18,6 +18,9 @@ namespace treeDiM.StackBuilder.Desktop
         public OptionPanelDebugging()
         {
             InitializeComponent();
+
+            CategoryPath = Properties.Resources.ID_OPTIONSDEBUGGING;
+            DisplayName = Properties.Resources.ID_DISPLAYDEBUGGING;
         }
         #endregion
 

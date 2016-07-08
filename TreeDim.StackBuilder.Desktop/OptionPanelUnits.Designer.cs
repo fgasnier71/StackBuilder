@@ -31,11 +31,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OptionPanelUnits));
             this.cbUnitSystem = new System.Windows.Forms.ComboBox();
             this.lbUnitSystem = new System.Windows.Forms.Label();
+            this.lbLanguage = new System.Windows.Forms.Label();
+            this.cbLanguages = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // cbUnitSystem
             // 
-            resources.ApplyResources(this.cbUnitSystem, "cbUnitSystem");
             this.cbUnitSystem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbUnitSystem.FormattingEnabled = true;
             this.cbUnitSystem.Items.AddRange(new object[] {
@@ -43,22 +44,38 @@
             resources.GetString("cbUnitSystem.Items1"),
             resources.GetString("cbUnitSystem.Items2"),
             resources.GetString("cbUnitSystem.Items3")});
+            resources.ApplyResources(this.cbUnitSystem, "cbUnitSystem");
             this.cbUnitSystem.Name = "cbUnitSystem";
-            this.cbUnitSystem.SelectedIndexChanged += new System.EventHandler(this.cbUnitSystem_SelectedIndexChanged);
+            this.cbUnitSystem.SelectedIndexChanged += new System.EventHandler(this.onComboSelectionChanged);
             // 
             // lbUnitSystem
             // 
             resources.ApplyResources(this.lbUnitSystem, "lbUnitSystem");
             this.lbUnitSystem.Name = "lbUnitSystem";
             // 
+            // lbLanguage
+            // 
+            resources.ApplyResources(this.lbLanguage, "lbLanguage");
+            this.lbLanguage.Name = "lbLanguage";
+            // 
+            // cbLanguages
+            // 
+            this.cbLanguages.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbLanguages.FormattingEnabled = true;
+            resources.ApplyResources(this.cbLanguages, "cbLanguages");
+            this.cbLanguages.Name = "cbLanguages";
+            this.cbLanguages.SelectedIndexChanged += new System.EventHandler(this.onComboSelectionChanged);
+            // 
             // OptionPanelUnits
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CategoryPath = "Options\\\\Système de mesures";
+            this.CategoryPath = "Options\\\\Measurement system";
+            this.Controls.Add(this.cbLanguages);
+            this.Controls.Add(this.lbLanguage);
             this.Controls.Add(this.lbUnitSystem);
             this.Controls.Add(this.cbUnitSystem);
-            this.DisplayName = "Système de mesures";
+            this.DisplayName = "Measurement system";
             this.Name = "OptionPanelUnits";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -69,5 +86,7 @@
 
         private System.Windows.Forms.ComboBox cbUnitSystem;
         private System.Windows.Forms.Label lbUnitSystem;
+        private System.Windows.Forms.Label lbLanguage;
+        private System.Windows.Forms.ComboBox cbLanguages;
     }
 }

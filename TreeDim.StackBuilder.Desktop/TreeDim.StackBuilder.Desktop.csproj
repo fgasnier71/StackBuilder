@@ -141,7 +141,7 @@
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="WeifenLuo.WinFormsUI.Docking">
-      <HintPath>..\ThirdPartyAssemblies\WeifenLuo.WinFormsUI.Docking.dll</HintPath>
+      <HintPath>..\packages\DockPanelSuite.2.10.0\lib\net40\WeifenLuo.WinFormsUI.Docking.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -235,9 +235,7 @@
     <Compile Include="DockContentPackPalletAnalysis.Designer.cs">
       <DependentUpon>DockContentPackPalletAnalysis.cs</DependentUpon>
     </Compile>
-    <Compile Include="DockContentReport.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="DockContentReport.cs" />
     <Compile Include="DockContentReport.Designer.cs">
       <DependentUpon>DockContentReport.cs</DependentUpon>
     </Compile>
@@ -1714,7 +1712,7 @@
     </FileAssociation>
   </ItemGroup>
   <PropertyGroup>
-    <PostBuildEvent>if $(ConfigurationName) == Release "C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\signtool.exe" sign /f "$(SolutionDir)Signing\treeDiM.pfx" /p 2B3gmehk /t http://timestamp.comodoca.com/authenticode $(TargetPath)</PostBuildEvent>
+    <PostBuildEvent>if $(ConfigurationName) == Release "C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\signtool.exe" sign /f "$(SolutionDir)\..\Signing\treeDiM.pfx" /p 2B3gmehk /t http://timestamp.comodoca.com/authenticode $(TargetPath)</PostBuildEvent>
   </PropertyGroup>
   <Import Project="..\packages\MSBuildTasks.1.5.0.196\build\MSBuildTasks.targets" Condition="Exists('..\packages\MSBuildTasks.1.5.0.196\build\MSBuildTasks.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

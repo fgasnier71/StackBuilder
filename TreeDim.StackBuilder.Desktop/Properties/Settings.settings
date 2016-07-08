@@ -180,7 +180,7 @@
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="CompanyLogoPath" Type="System.String" Scope="User">
-      <Value Profile="(Default)">..\..\..\treeDiM.StackBuilder.Reporting\ReportTemplates\treeDiM.png</Value>
+      <Value Profile="(Default)">..\..\..\treeDiM.StackBuilder.Reporting\ReportTemplates\YourLogoHere.png</Value>
     </Setting>
     <Setting Name="ReporterImageSize" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
@@ -197,7 +197,7 @@
     <Setting Name="IncludeCaseAsBoxes" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="CultureToUse" Type="System.String" Scope="Application">
+    <Setting Name="CultureToUse" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="MaximumPalletHeight" Type="System.Double" Scope="User">
@@ -210,7 +210,7 @@
       <Value Profile="(Default)">http://www.plmpack.com/stackbuilder/stackbuilder_donate_page.htm</Value>
     </Setting>
     <Setting Name="ExcelLibraryPath" Type="System.String" Scope="User">
-      <Value Profile="(Default)">K:\GitHub\StackBuilder\Samples\SampleBook.xlsx</Value>
+      <Value Profile="(Default)">K:\GitHub\StackBuilder\Samples\SampleBook.xls</Value>
     </Setting>
   </Settings>
 </SettingsFile>

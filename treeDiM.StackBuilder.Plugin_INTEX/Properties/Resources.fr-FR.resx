@@ -123,7 +123,10 @@
 	<data name="ID_ERROR_INVALIDFILE" xml:space="preserve">
     <value>Le fichier {0} ne contient pas simultanément une liste d'articles valides et une liste de palettes valides.</value>
   </data>
-	<data name="ID_PACKING" xml:space="preserve">
+  <data name="ID_ERROR_NOITEMFOUND" xml:space="preserve">
+    <value>Aucun(e) {0} trouvé(e). Vérifier qu'un onglet "{1}" existe.</value>
+  </data>
+  <data name="ID_PACKING" xml:space="preserve">
     <value>Encaissage_{0}</value>
   </data>
 	<data name="ID_PALLETHEIGHTINSUFFICIENT" xml:space="preserve">

@@ -775,6 +775,51 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Debugging.
+        /// </summary>
+        internal static string ID_DISPLAYDEBUGGING {
+            get {
+                return ResourceManager.GetString("ID_DISPLAYDEBUGGING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dimensions Case/Pallet.
+        /// </summary>
+        internal static string ID_DISPLAYDIMENSIONSCASEPALLET {
+            get {
+                return ResourceManager.GetString("ID_DISPLAYDIMENSIONSCASEPALLET", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Language &amp; Measurement system.
+        /// </summary>
+        internal static string ID_DISPLAYMEASUREMENTSYSTEM {
+            get {
+                return ResourceManager.GetString("ID_DISPLAYMEASUREMENTSYSTEM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Plugins.
+        /// </summary>
+        internal static string ID_DISPLAYPLUGINS {
+            get {
+                return ResourceManager.GetString("ID_DISPLAYPLUGINS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reporting.
+        /// </summary>
+        internal static string ID_DISPLAYREPORTING {
+            get {
+                return ResourceManager.GetString("ID_DISPLAYREPORTING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ECT.
         /// </summary>
         internal static string ID_ECT {
@@ -1266,6 +1311,51 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         internal static string ID_NOPALLETSOLUTIONSELECTED {
             get {
                 return ResourceManager.GetString("ID_NOPALLETSOLUTIONSELECTED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Options\\Debugging.
+        /// </summary>
+        internal static string ID_OPTIONSDEBUGGING {
+            get {
+                return ResourceManager.GetString("ID_OPTIONSDEBUGGING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Options\\Dimensions\\Case/Pallet.
+        /// </summary>
+        internal static string ID_OPTIONSDIMENSIONS {
+            get {
+                return ResourceManager.GetString("ID_OPTIONSDIMENSIONS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Options\\Language &amp; Unit system.
+        /// </summary>
+        internal static string ID_OPTIONSMEASUREMENTSYSTEM {
+            get {
+                return ResourceManager.GetString("ID_OPTIONSMEASUREMENTSYSTEM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Options\\Plugins.
+        /// </summary>
+        internal static string ID_OPTIONSPLUGINS {
+            get {
+                return ResourceManager.GetString("ID_OPTIONSPLUGINS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Options\\Reporting.
+        /// </summary>
+        internal static string ID_OPTIONSREPORTING {
+            get {
+                return ResourceManager.GetString("ID_OPTIONSREPORTING", resourceCulture);
             }
         }
         

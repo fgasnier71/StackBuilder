@@ -54,6 +54,24 @@ namespace treeDiM.StackBuilder.Desktop
         }
         #endregion
 
+        #region Form override
+        protected override void OnLoad(EventArgs e)
+        {
+ 	        base.OnLoad(e);
+            try
+            {
+                // form caption
+                this.Text = string.Format("{0} report", _reportObject.Title);
+                // display html
+                _webBrowser.Navigate(_htmlFilePath, string.Empty, null, string.Empty);
+            }
+            catch (Exception ex)
+            {
+                _log.Error( ex.ToString() );
+            }
+        }
+        #endregion
+
         #region IItemListener implementation
         /// <summary>
         /// overrides IItemListener.Update
@@ -88,12 +106,18 @@ namespace treeDiM.StackBuilder.Desktop
         }
         #endregion
 
-        private void DockContentReport_Load(object sender, EventArgs e)
+        #region Event handlers
+        private void onPrint(object sender, EventArgs e)
         {
-            // form caption
-            this.Text = string.Format("{0} report", _reportObject.Title);
-            // display html
-            _webBrowser.Navigate(_htmlFilePath, string.Empty, null, string.Empty);
+            try
+            {
+                _webBrowser.ShowPrintDialog();
+            }
+            catch (Exception ex)
+            {
+                _log.Error( ex.ToString() );
+            }
         }
+        #endregion
     }
 }

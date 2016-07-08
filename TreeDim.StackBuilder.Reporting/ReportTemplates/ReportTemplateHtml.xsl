@@ -1996,7 +1996,7 @@
   </xsl:template>
   <!--COMPANYLOGO-->
   <xsl:template match="companyLogo">
-    <img src="images\companyLogo.png" width="150" height="50" align="middle"/>
+    <img src="images\companyLogo.png" width="150" height="75" align="middle"/>
   </xsl:template>
   <!--CASE-->
   <xsl:template match="view_case_iso">

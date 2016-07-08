@@ -56,10 +56,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudTop)).BeginInit();
             this.SuspendLayout();
             // 
-            // folderBrowserDlg
-            // 
-            resources.ApplyResources(this.folderBrowserDlg, "folderBrowserDlg");
-            // 
             // fileSelectCtrlReportTemplate
             // 
             resources.ApplyResources(this.fileSelectCtrlReportTemplate, "fileSelectCtrlReportTemplate");
@@ -84,12 +80,12 @@
             // 
             // cbImageSizes
             // 
-            resources.ApplyResources(this.cbImageSizes, "cbImageSizes");
             this.cbImageSizes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbImageSizes.FormattingEnabled = true;
             this.cbImageSizes.Items.AddRange(new object[] {
             resources.GetString("cbImageSizes.Items"),
             resources.GetString("cbImageSizes.Items1")});
+            resources.ApplyResources(this.cbImageSizes, "cbImageSizes");
             this.cbImageSizes.Name = "cbImageSizes";
             // 
             // lbReportTemplate
@@ -137,31 +133,31 @@
             // 
             // nudRight
             // 
-            resources.ApplyResources(this.nudRight, "nudRight");
             this.nudRight.DecimalPlaces = 1;
+            resources.ApplyResources(this.nudRight, "nudRight");
             this.nudRight.Name = "nudRight";
             // 
             // nudBottom
             // 
-            resources.ApplyResources(this.nudBottom, "nudBottom");
             this.nudBottom.DecimalPlaces = 1;
+            resources.ApplyResources(this.nudBottom, "nudBottom");
             this.nudBottom.Name = "nudBottom";
             // 
             // nudLeft
             // 
-            resources.ApplyResources(this.nudLeft, "nudLeft");
             this.nudLeft.DecimalPlaces = 1;
+            resources.ApplyResources(this.nudLeft, "nudLeft");
             this.nudLeft.Name = "nudLeft";
             // 
             // nudTop
             // 
-            resources.ApplyResources(this.nudTop, "nudTop");
             this.nudTop.DecimalPlaces = 1;
             this.nudTop.Increment = new decimal(new int[] {
             1,
             0,
             0,
             65536});
+            resources.ApplyResources(this.nudTop, "nudTop");
             this.nudTop.Maximum = new decimal(new int[] {
             10,
             0,
@@ -193,7 +189,7 @@
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CategoryPath = "Options\\\\Rapports";
+            this.CategoryPath = "Options\\\\Reports";
             this.Controls.Add(this.gbMSWordMargins);
             this.Controls.Add(this.lbReportTemplate);
             this.Controls.Add(this.cbImageSizes);
@@ -201,7 +197,7 @@
             this.Controls.Add(this.fileSelectCompanyLogo);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.fileSelectCtrlReportTemplate);
-            this.DisplayName = "Rapports";
+            this.DisplayName = "Reports";
             this.Name = "OptionPanelReporting";
             this.Load += new System.EventHandler(this.OptionPanelReporting_Load);
             this.gbMSWordMargins.ResumeLayout(false);

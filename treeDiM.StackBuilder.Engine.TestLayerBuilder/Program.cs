@@ -41,7 +41,7 @@ namespace treeDiM.StackBuilder.Engine.TestLayerBuilder
                     SolutionViewerLayer solViewer = new SolutionViewerLayer(layer);
                     BoxProperties bProperties = new BoxProperties(null, 400.0, 300.0, 150.0);
                     bProperties.SetColor(Color.Brown);
-                    solViewer.Draw(graphics, bProperties, 1500.0);
+                    solViewer.Draw(graphics, bProperties, 1500.0, false);
                     graphics.SaveAs(filePath);
                 }
             }

@@ -15,6 +15,10 @@ namespace treeDiM.StackBuilder.Desktop
         public OptionPanelPlugins()
         {
             InitializeComponent();
+
+            CategoryPath = Properties.Resources.ID_OPTIONSPLUGINS;
+            DisplayName = Properties.Resources.ID_DISPLAYPLUGINS;
+
             chkbPluginINTEX.Checked = Properties.Settings.Default.HasPluginINTEX;
 
         }

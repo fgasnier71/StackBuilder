@@ -20,6 +20,10 @@ namespace treeDiM.StackBuilder.Desktop
         public OptionPanelReporting()
         {
             InitializeComponent();
+
+            CategoryPath = Properties.Resources.ID_OPTIONSREPORTING;
+            DisplayName = Properties.Resources.ID_DISPLAYREPORTING;
+
             // initialize
             fileSelectCtrlReportTemplate.FileName = Properties.Settings.Default.ReportTemplatePath;
             fileSelectCompanyLogo.FileName = Properties.Settings.Default.CompanyLogoPath;

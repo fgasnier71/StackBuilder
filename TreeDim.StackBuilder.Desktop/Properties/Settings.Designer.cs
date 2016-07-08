@@ -712,7 +712,7 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("..\\..\\..\\treeDiM.StackBuilder.Reporting\\ReportTemplates\\treeDiM.png")]
+        [global::System.Configuration.DefaultSettingValueAttribute("..\\..\\..\\treeDiM.StackBuilder.Reporting\\ReportTemplates\\YourLogoHere.png")]
         public string CompanyLogoPath {
             get {
                 return ((string)(this["CompanyLogoPath"]));
@@ -782,12 +782,15 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
             }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string CultureToUse {
             get {
                 return ((string)(this["CultureToUse"]));
+            }
+            set {
+                this["CultureToUse"] = value;
             }
         }
         
@@ -826,7 +829,7 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("K:\\GitHub\\StackBuilder\\Samples\\SampleBook.xlsx")]
+        [global::System.Configuration.DefaultSettingValueAttribute("K:\\GitHub\\StackBuilder\\Samples\\SampleBook.xls")]
         public string ExcelLibraryPath {
             get {
                 return ((string)(this["ExcelLibraryPath"]));

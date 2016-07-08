@@ -658,7 +658,34 @@ Closing form...</value>
   <data name="ID_PALLETS" xml:space="preserve">
     <value>Pallets</value>
   </data>
-  <data name="ID_SELECTATLEASTONELAYOUT" xml:space="preserve">
-    <value>Select at least one layer layout</value>
+  <data name="ID_DISPLAYDEBUGGING" xml:space="preserve">
+    <value>Debugging</value>
+  </data>
+  <data name="ID_DISPLAYDIMENSIONSCASEPALLET" xml:space="preserve">
+    <value>Dimensions Case/Pallet</value>
+  </data>
+  <data name="ID_DISPLAYMEASUREMENTSYSTEM" xml:space="preserve">
+    <value>Language &amp; Measurement system</value>
+  </data>
+  <data name="ID_DISPLAYPLUGINS" xml:space="preserve">
+    <value>Plugins</value>
+  </data>
+  <data name="ID_DISPLAYREPORTING" xml:space="preserve">
+    <value>Reporting</value>
+  </data>
+  <data name="ID_OPTIONSDEBUGGING" xml:space="preserve">
+    <value>Options\\Debugging</value>
+  </data>
+  <data name="ID_OPTIONSDIMENSIONS" xml:space="preserve">
+    <value>Options\\Dimensions\\Case/Pallet</value>
+  </data>
+  <data name="ID_OPTIONSMEASUREMENTSYSTEM" xml:space="preserve">
+    <value>Options\\Language &amp; Unit system</value>
+  </data>
+  <data name="ID_OPTIONSPLUGINS" xml:space="preserve">
+    <value>Options\\Plugins</value>
+  </data>
+  <data name="ID_OPTIONSREPORTING" xml:space="preserve">
+    <value>Options\\Reporting</value>
   </data>
 </root>

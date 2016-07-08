@@ -47,7 +47,6 @@
             // 
             // cbDim1
             // 
-            resources.ApplyResources(this.cbDim1, "cbDim1");
             this.cbDim1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbDim1.FormattingEnabled = true;
             this.cbDim1.Items.AddRange(new object[] {
@@ -55,11 +54,11 @@
             resources.GetString("cbDim1.Items1"),
             resources.GetString("cbDim1.Items2"),
             resources.GetString("cbDim1.Items3")});
+            resources.ApplyResources(this.cbDim1, "cbDim1");
             this.cbDim1.Name = "cbDim1";
             // 
             // cbDim2
             // 
-            resources.ApplyResources(this.cbDim2, "cbDim2");
             this.cbDim2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbDim2.FormattingEnabled = true;
             this.cbDim2.Items.AddRange(new object[] {
@@ -67,13 +66,14 @@
             resources.GetString("cbDim2.Items1"),
             resources.GetString("cbDim2.Items2"),
             resources.GetString("cbDim2.Items3")});
+            resources.ApplyResources(this.cbDim2, "cbDim2");
             this.cbDim2.Name = "cbDim2";
             // 
             // OptionPanelDimensions
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CategoryPath = "Options\\\\Dimensions\\\\Solution caisse/palette";
+            this.CategoryPath = "Options\\\\Dimensions\\\\Case/Pallet";
             this.Controls.Add(this.cbDim2);
             this.Controls.Add(this.cbDim1);
             this.Controls.Add(this.lbDimensions2);

@@ -123,7 +123,10 @@
 	<data name="ID_ERROR_INVALIDFILE" xml:space="preserve">
     <value>File {0} does not contain both a valid list of items and a valid list of pallets.</value>
   </data>
-	<data name="ID_PACKING" xml:space="preserve">
+  <data name="ID_ERROR_NOITEMFOUND" xml:space="preserve">
+    <value>No {0} found. Verify that a valid {1} tab exists!</value>
+  </data>
+  <data name="ID_PACKING" xml:space="preserve">
     <value>Packing_{0}</value>
   </data>
 	<data name="ID_PALLETHEIGHTINSUFFICIENT" xml:space="preserve">
