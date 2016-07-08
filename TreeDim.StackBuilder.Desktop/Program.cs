@@ -15,8 +15,6 @@ using log4net.Config;
 // treeDiM
 using treeDiM.StackBuilder.Basics;
 using treeDiM.StackBuilder.Desktop.Properties;
-
-using treeDiM.AutoUpdater;
 #endregion
 
 #region File association
@@ -92,11 +90,8 @@ namespace treeDiM.StackBuilder.Desktop
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
  
-            // if this application does not need updating,
             // show main form
-            Updater updater = new Updater();
-            if (!updater.Update())
-                Application.Run(new FormMain());
+            Application.Run(new FormMain());
 
             _log.Info("Closing " + Application.ProductName);
         }
