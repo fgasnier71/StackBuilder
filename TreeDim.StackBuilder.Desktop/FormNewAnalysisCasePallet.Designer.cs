@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormNewAnalysisCasePallet));
-            this.cbPallets = new System.Windows.Forms.ComboBox();
-            this.cbCases = new System.Windows.Forms.ComboBox();
+            this.cbPallets = new treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered();
+            this.cbCases = new treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered();
             this.lbBox = new System.Windows.Forms.Label();
             this.uCtrlOptMaximumWeight = new treeDiM.StackBuilder.Basics.UCtrlOptDouble();
             this.uCtrlOptMaximumHeight = new treeDiM.StackBuilder.Basics.UCtrlOptDouble();
@@ -251,8 +251,10 @@
 
         #endregion
 
-        private System.Windows.Forms.ComboBox cbPallets;
-        private System.Windows.Forms.ComboBox cbCases;
+        //private System.Windows.Forms.ComboBox cbPallets;
+        private treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered cbPallets;
+        //private System.Windows.Forms.ComboBox cbCases;
+        private treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered cbCases;
         private System.Windows.Forms.Label lbBox;
         private Basics.UCtrlOptDouble uCtrlOptMaximumWeight;
         private Basics.UCtrlOptDouble uCtrlOptMaximumHeight;

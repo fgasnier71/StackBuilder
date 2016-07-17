@@ -14,12 +14,13 @@ using Sharp3D.Math.Core;
 
 using treeDiM.StackBuilder.Engine;
 using treeDiM.StackBuilder.Basics;
+using treeDiM.StackBuilder.Graphics.Controls;
 using treeDiM.StackBuilder.Desktop.Properties;
 #endregion
 
 namespace treeDiM.StackBuilder.Desktop
 {
-    public partial class FormNewAnalysisCasePallet : FormNewBase
+    public partial class FormNewAnalysisCasePallet : FormNewBase, IItemBaseFilter
     {
         #region Data members
         static readonly ILog _log = LogManager.GetLogger(typeof(FormNewAnalysisCasePallet));
@@ -47,13 +48,15 @@ namespace treeDiM.StackBuilder.Desktop
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
-
+            cbCases.Initialize(_document, this, null != _analysis ? _analysis.BProperties : null);
+            cbPallets.Initialize(_document, this, null != _analysis ? _analysis.PalletProperties : null);
+            /*
             BoxProperties[] cases = _document.Cases.ToArray();
             PalletProperties[] pallets = _document.Pallets.ToArray();
-
             // fill combo boxes
             ComboBoxHelpers.FillCombo(cases, cbCases, (null != _analysis) ? _analysis.BProperties : cases[0]);
             ComboBoxHelpers.FillCombo(pallets, cbPallets, (null != _analysis) ? _analysis.PalletProperties : pallets[0]);
+            */
 
             // event handling
             uCtrlLayerList.LayerSelected += onLayerSelected;
@@ -95,34 +98,38 @@ namespace treeDiM.StackBuilder.Desktop
         }
         #endregion
 
+        #region IItemBaseFilter implementation
+        public bool Accept(Control ctrl, ItemBase itemBase)
+        {
+            if (ctrl == cbCases)
+            { 
+                BProperties bProperties = itemBase as BProperties;
+                return null != bProperties; 
+            }
+            else if (ctrl == cbPallets)
+            {
+                PalletProperties palletProperties = itemBase as PalletProperties;
+                return null != palletProperties;
+            }
+            return false;
+        }
+        #endregion
+
         #region Private properties
         private BProperties SelectedBoxProperties
         {
-            get
-            {
-                ItemBaseCB itemBaseCase = cbCases.SelectedItem as ItemBaseCB;
-                if (null == itemBaseCase) return null;
-                return itemBaseCase.Item as BProperties;
-            }
+            get { return cbCases.SelectededType as BProperties; }
         }
         private PalletProperties SelectedPallet
         {
-            get
-            {
-                ItemBaseCB itemBasePallet = cbPallets.SelectedItem as ItemBaseCB;
-                if (null == itemBasePallet) return null;
-                return itemBasePallet.Item as PalletProperties;
-            }
+            get { return cbPallets.SelectededType as PalletProperties; }
         }
         #endregion
 
         #region Event handlers
         protected void onCaseChanged(object sender, EventArgs e)
         {
-            ItemBaseCB itemBaseCase = cbCases.SelectedItem as ItemBaseCB;
-            if (null == itemBaseCase) return;
-            uCtrlCaseOrientation.BProperties = itemBaseCase.Item as BProperties;
-
+            uCtrlCaseOrientation.BProperties = cbCases.SelectededType as BProperties;
             onLayerSelected(sender, e);
         }
         protected void onLayerSelected(object sender, EventArgs e)
@@ -136,13 +143,8 @@ namespace treeDiM.StackBuilder.Desktop
             try
             {
                 // get case /pallet
-                ItemBaseCB itemBaseCase = cbCases.SelectedItem as ItemBaseCB;
-                if (null == itemBaseCase) return;
-                BProperties bProperties = itemBaseCase.Item as BProperties;
-
-                ItemBaseCB itemBasePallet = cbPallets.SelectedItem as ItemBaseCB;
-                if (null == itemBasePallet) return;
-                PalletProperties palletProperties = itemBasePallet.Item as PalletProperties;
+                BProperties bProperties = cbCases.SelectededType as BProperties;
+                PalletProperties palletProperties = cbPallets.SelectededType as PalletProperties;
                 // compute
                 LayerSolver solver = new LayerSolver();
                 List<Layer2D> layers = solver.BuildLayers(
@@ -163,28 +165,39 @@ namespace treeDiM.StackBuilder.Desktop
         }
         private void onBnNextClicked(object sender, EventArgs e)
         {
-            List<LayerDesc> layerDescs = new List<LayerDesc>();
-            foreach (Layer2D layer2D in uCtrlLayerList.Selected)
-                layerDescs.Add(layer2D.LayerDescriptor);
+            try
+            {
+                List<LayerDesc> layerDescs = new List<LayerDesc>();
+                foreach (Layer2D layer2D in uCtrlLayerList.Selected)
+                    layerDescs.Add(layer2D.LayerDescriptor);
 
-            Solution.SetSolver(new LayerSolver());
+                Solution.SetSolver(new LayerSolver());
 
-            _analysis = _document.CreateNewAnalysisCasePallet(
-                ItemName, ItemDescription
-                , SelectedBoxProperties, SelectedPallet
-                , new List<InterlayerProperties>()
-                , null, null, null
-                , BuildConstraintSet()
-                , layerDescs
-                );
+                _analysis = _document.CreateNewAnalysisCasePallet(
+                    ItemName, ItemDescription
+                    , SelectedBoxProperties, SelectedPallet
+                    , new List<InterlayerProperties>()
+                    , null, null, null
+                    , BuildConstraintSet()
+                    , layerDescs
+                    );
 
-            Close();
+                Close();
+            }
+            catch (Exception ex)
+            {
+                _log.Error(ex.Message);
+            }
         }
 
         private void onBestCombinationClicked(object sender, EventArgs e)
         {
-
-            
+            try
+            { }
+            catch (Exception ex)
+            {
+                _log.Error(ex.Message);
+            }            
         }
         #endregion
 

@@ -3,8 +3,8 @@
   <Class Name="treeDiM.StackBuilder.Basics.ItemBase" Collapsed="true">
     <Position X="0.5" Y="0.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAIAIAIAACggEFAEAICAFAQAAAABJAAEwAACACIAAAA=</HashCode>
-      <FileName>ItemBase.cs</FileName>
+      <HashCode>AAIAJAIAACgwEFAEAICAFAVAAAQBJAAEwAACACYAAAA=</HashCode>
+      <FileName>Helpers\ItemBase.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
@@ -127,6 +127,10 @@
       <HashCode>AAAAAAAgACAYAAAAAAAAAAAAAAAACBAAAAAAhAAAIBA=</HashCode>
       <FileName>PalletDecoration\PalletFilmProperties.cs</FileName>
     </TypeIdentifier>
+  </Class>
+  <Class Name="System.Object" Collapsed="true">
+    <Position X="7.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier />
   </Class>
   <Interface Name="treeDiM.StackBuilder.Basics.ISolution" Collapsed="true">
     <Position X="13.5" Y="1" Width="1.5" />

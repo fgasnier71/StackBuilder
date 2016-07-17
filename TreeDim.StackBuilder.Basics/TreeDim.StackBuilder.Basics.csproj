@@ -147,7 +147,7 @@
     <Compile Include="Document.cs" />
     <Compile Include="Helpers\HalfAxis.cs" />
     <Compile Include="Containers\InterlayerProperties.cs" />
-    <Compile Include="ItemBase.cs" />
+    <Compile Include="Helpers\ItemBase.cs" />
     <Compile Include="PalletSolutionDatabase.cs" />
     <Compile Include="Solutions\CylinderPalletSolution.cs" />
     <Compile Include="Solutions\Layer2D.cs" />

@@ -20,7 +20,7 @@
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
-    <NuGetPackageImportStamp>df55d3db</NuGetPackageImportStamp>
+    <NuGetPackageImportStamp>7f799923</NuGetPackageImportStamp>
     <PublishUrl>ftp://plmpack.com/public/www/stackbuilder/ClickOnce/</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Web</InstallFrom>

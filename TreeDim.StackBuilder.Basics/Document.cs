@@ -1,5 +1,6 @@
 ﻿#region Using directives
 using System;
+using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using System.Text;
 using System.Drawing;
@@ -1073,6 +1074,15 @@ namespace treeDiM.StackBuilder.Basics
             get { return _dateCreated; }
             set { _dateCreated = value; }
         }
+
+
+        /// <summary>
+        /// </summary>
+        public ReadOnlyCollection<ItemBase> TypeList
+        {
+            get { return new ReadOnlyCollection<ItemBase>(_typeList); }
+        }
+
         /// <summary>
         /// Builds and returns a list of boxes
         /// </summary>
