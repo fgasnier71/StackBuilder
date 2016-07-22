@@ -61,21 +61,24 @@ namespace treeDiM.StackBuilder.Graphics
             Size s = graphics.Size;
 
             // *** Annotate : begin ***
-            string annotation = string.Format(
-                "{0}*{1}={2}"
-                , _layer.Count
-                , _layer.NoLayers(height)
-                , _layer.CountInHeight(height) );
-            Font tfont = new Font("Arial", _fontSize);
-            Color brushColor = Color.White;
-            Color backgroundColor = Color.Black;
-            StringFormat sf = new StringFormat();
-            sf.Alignment = StringAlignment.Far;
-            sf.LineAlignment = StringAlignment.Far;
-            System.Drawing.Graphics g = graphics.Graphics; 
-            Size txtSize = g.MeasureString(annotation, tfont).ToSize();
-            g.FillRectangle(new SolidBrush(backgroundColor), new Rectangle(s.Width - txtSize.Width - 2, s.Height - txtSize.Height - 2, txtSize.Width + 2, txtSize.Height + 2));
-            g.DrawString(annotation, tfont, new SolidBrush(brushColor), new Point(s.Width - 3, s.Height - 3), sf);
+            if (height > 0)
+            {
+                string annotation = string.Format(
+                    "{0}*{1}={2}"
+                    , _layer.Count
+                    , _layer.NoLayers(height)
+                    , _layer.CountInHeight(height));
+                Font tfont = new Font("Arial", _fontSize);
+                Color brushColor = Color.White;
+                Color backgroundColor = Color.Black;
+                StringFormat sf = new StringFormat();
+                sf.Alignment = StringAlignment.Far;
+                sf.LineAlignment = StringAlignment.Far;
+                System.Drawing.Graphics g = graphics.Graphics;
+                Size txtSize = g.MeasureString(annotation, tfont).ToSize();
+                g.FillRectangle(new SolidBrush(backgroundColor), new Rectangle(s.Width - txtSize.Width - 2, s.Height - txtSize.Height - 2, txtSize.Width + 2, txtSize.Height + 2));
+                g.DrawString(annotation, tfont, new SolidBrush(brushColor), new Point(s.Width - 3, s.Height - 3), sf);
+            }
             // *** Annotate : end ***
         }
         public void Draw(Graphics3D graphics, BProperties bProperties, double height, bool selected)

@@ -197,6 +197,9 @@
     <EmbeddedResource Include="Controls\CCtrlComboFiltered.resx">
       <DependentUpon>CCtrlComboFiltered.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\CCtrlComboLayer.resx">
+      <DependentUpon>CCtrlComboLayer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\UCtrlCaseOrientation.resx">
       <DependentUpon>UCtrlCaseOrientation.cs</DependentUpon>
     </EmbeddedResource>

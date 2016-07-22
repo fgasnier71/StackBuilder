@@ -28,7 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // CCtrlComboLayer
+            // 
+            this.DropDownHeight = 100;
+            this.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.DropDownWidth = 100;
+            this.IntegralHeight = false;
+            this.ItemHeight = 100;
+            this.ResumeLayout(false);
+
         }
 
         #endregion

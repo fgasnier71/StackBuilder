@@ -9,6 +9,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Drawing;
 
+using treeDiM.StackBuilder.Basics;
 #endregion
 
 namespace treeDiM.StackBuilder.Graphics.Controls
@@ -23,66 +24,72 @@ namespace treeDiM.StackBuilder.Graphics.Controls
         }
         #endregion
 
+        #region Public properties
+        public BProperties BoxProperties
+        {
+            set { _bProperties = value; }
+        }
+        #endregion
+
         #region Override ComboBox
         protected override void OnDrawItem(DrawItemEventArgs e)
         {
             e.DrawBackground();
             e.DrawFocusRectangle();
 
-            DropDownItem item = new DropDownItem(Items[e.Index].ToString());
-            // Draw the colored 100 x 100 square
+            DropDownItem item = new DropDownItem(Items[e.Index] as Layer2D, _bProperties);
             e.Graphics.DrawImage(item.Image, e.Bounds.Left, e.Bounds.Top);
-            // Draw the value (in this case, the color name)
-            e.Graphics.DrawString(item.Value, e.Font,
-                    new SolidBrush(e.ForeColor), e.Bounds.Left + item.Image.Width, e.Bounds.Top + 2);
 
             base.OnDrawItem(e);
         }
         #endregion
+
+        private BProperties _bProperties;
     }
 
     public class DropDownItem
     {
         #region Constructor
-        public DropDownItem()
-            : this("")
+        public DropDownItem(Layer2D layer, BProperties bProperties)
         {
-        }
-        public DropDownItem(string val)
-        {
-            value = val;
-            this.img = new Bitmap(100, 100);
-            System.Drawing.Graphics g = System.Drawing.Graphics.FromImage(img);
-            Brush b = new SolidBrush(Color.FromName(val));
-            g.DrawRectangle(Pens.White, 0, 0, img.Width, img.Height);
-            g.FillRectangle(b, 1, 1, img.Width - 1, img.Height - 1);
+            // save layer
+            _layer = layer;
+
+            // build image
+            Graphics2DImage graphics = new Graphics2DImage(new Size(_imgSize, _imgSize));
+            SolutionViewerLayer solViewer = new SolutionViewerLayer(_layer);
+            solViewer.Draw(graphics, bProperties, 0.0, false);
+            _img = graphics.Bitmap;
         }
         #endregion
 
         #region Public properties
-        public string Value
-        {
-            get { return value; }
-            set { this.value = value; }
-        }
-        private string value;
+        private Layer2D _layer;
 
         public Image Image
         {
-            get { return img; }
-            set { img = value; }
+            get { return _img; }
+            set { _img = value; }
+        }
+        #endregion
+
+        #region Static properties
+        public static int ImageSize
+        {
+            get { return _imgSize; }
         }
         #endregion
 
         #region Override object
         public override string ToString()
         {
-            return value;
+            return _layer.ToString();
         }
         #endregion
 
         #region Data members
-        private Image img;
+        private Image _img;
+        private static int _imgSize = 100; 
         #endregion
     }
 }
