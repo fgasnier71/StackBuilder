@@ -60,13 +60,10 @@
             this.newTruckToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.newAnalysisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.newPackPalletAnalysisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.newAnalysisBundleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItemCylinderPalletAnalysis = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemCylinderPalletAnalysisV = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemCylinderPalletH = new System.Windows.Forms.ToolStripMenuItem();
             this.newBoxCaseAnalysisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.newBundleCaseAnalysisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newBoxCasePalletOptimizationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.caseOptimisationToolStripMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
@@ -234,11 +231,8 @@
             this.newTruckToolStripMenuItem,
             this.toolStripSeparator5,
             this.newAnalysisToolStripMenuItem,
-            this.newPackPalletAnalysisToolStripMenuItem,
-            this.newAnalysisBundleToolStripMenuItem,
             this.newToolStripMenuItemCylinderPalletAnalysis,
             this.newBoxCaseAnalysisToolStripMenuItem,
-            this.newBundleCaseAnalysisToolStripMenuItem,
             this.newBoxCasePalletOptimizationToolStripMenuItem,
             this.caseOptimisationToolStripMenu,
             this.toolStripSeparator7,
@@ -344,18 +338,6 @@
             this.newAnalysisToolStripMenuItem.Name = "newAnalysisToolStripMenuItem";
             this.newAnalysisToolStripMenuItem.Click += new System.EventHandler(this.toolAddNewCasePalletAnalysis);
             // 
-            // newPackPalletAnalysisToolStripMenuItem
-            // 
-            resources.ApplyResources(this.newPackPalletAnalysisToolStripMenuItem, "newPackPalletAnalysisToolStripMenuItem");
-            this.newPackPalletAnalysisToolStripMenuItem.Name = "newPackPalletAnalysisToolStripMenuItem";
-            this.newPackPalletAnalysisToolStripMenuItem.Click += new System.EventHandler(this.toolAddNewPackPalletAnalysis);
-            // 
-            // newAnalysisBundleToolStripMenuItem
-            // 
-            resources.ApplyResources(this.newAnalysisBundleToolStripMenuItem, "newAnalysisBundleToolStripMenuItem");
-            this.newAnalysisBundleToolStripMenuItem.Name = "newAnalysisBundleToolStripMenuItem";
-            this.newAnalysisBundleToolStripMenuItem.Click += new System.EventHandler(this.toolAddNewBundlePalletAnalysis);
-            // 
             // newToolStripMenuItemCylinderPalletAnalysis
             // 
             this.newToolStripMenuItemCylinderPalletAnalysis.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -380,12 +362,6 @@
             // 
             resources.ApplyResources(this.newBoxCaseAnalysisToolStripMenuItem, "newBoxCaseAnalysisToolStripMenuItem");
             this.newBoxCaseAnalysisToolStripMenuItem.Name = "newBoxCaseAnalysisToolStripMenuItem";
-            // 
-            // newBundleCaseAnalysisToolStripMenuItem
-            // 
-            resources.ApplyResources(this.newBundleCaseAnalysisToolStripMenuItem, "newBundleCaseAnalysisToolStripMenuItem");
-            this.newBundleCaseAnalysisToolStripMenuItem.Name = "newBundleCaseAnalysisToolStripMenuItem";
-            this.newBundleCaseAnalysisToolStripMenuItem.Click += new System.EventHandler(this.toolAddNewBundleCaseAnalysis);
             // 
             // newBoxCasePalletOptimizationToolStripMenuItem
             // 
@@ -822,7 +798,6 @@
         private System.Windows.Forms.ToolStripMenuItem newTruckToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem mnuFileMRU;
-        private System.Windows.Forms.ToolStripMenuItem newAnalysisBundleToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newBoxCasePalletOptimizationToolStripMenuItem;
         private System.Windows.Forms.ToolStripButton editPaletSolutionsDBToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
@@ -863,7 +838,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator16;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator17;
         private System.Windows.Forms.ToolStripMenuItem donateToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem newBundleCaseAnalysisToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator18;
         private System.Windows.Forms.ToolStripSplitButton toolStripSBCylinderPalletAnalysis;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemCylinderPalletVertical;
@@ -872,7 +846,6 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemCylinderPalletH;
         private System.Windows.Forms.ToolStripButton toolStripButtonAddNewPack;
         private System.Windows.Forms.ToolStripMenuItem newPackToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem newPackPalletAnalysisToolStripMenuItem;
         private System.Windows.Forms.ToolStripButton toolStripButtonExcelLibrary;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator19;
         private System.Windows.Forms.ToolStripMenuItem openLibraryToolStripMenuItem;

@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 
 using Sharp3D.Math.Core;
+
+using log4net;
 #endregion
 
 namespace treeDiM.StackBuilder.Basics
@@ -132,7 +134,7 @@ namespace treeDiM.StackBuilder.Basics
             _solver.GetDimensions(usedLayers, _analysis.ContentDimensions, _analysis.ContainerDimensions, out actualDimensions);
 
             // actually build layers
-            foreach (LayerDesc layerDesc in usedLayers)
+            foreach (LayerDesc layerDesc in _layerDescriptors)
                 _layers.Add(_solver.BuildLayer(_analysis.ContentDimensions, _analysis.ContainerDimensions, layerDesc, actualDimensions));
         }
         private void InitializeSolutionItemList()
@@ -239,6 +241,11 @@ namespace treeDiM.StackBuilder.Basics
         {
             // check selected layer
             if (!HasValidSelection) return;
+            if (SelectedLayerIndex < 0 || SelectedLayerIndex >= _solutionItems.Count)
+            {
+                _log.Error(string.Format("Calling SetLayerTypeOnSelected() with SelectedLayerIndex = {0}", SelectedLayerIndex));
+                return;
+            }
             // get selected solution item
             SolutionItem item = _solutionItems[SelectedLayerIndex];
             item.LayerIndex = iLayerType;
@@ -494,6 +501,10 @@ namespace treeDiM.StackBuilder.Basics
         {
             get { return _selectedIndex >= 0 && _selectedIndex < _solutionItems.Count; }
         }
+        #endregion
+
+        #region Static members
+        private static ILog _log = LogManager.GetLogger(typeof(Solution));
         #endregion
     }
 }

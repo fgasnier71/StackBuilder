@@ -15,6 +15,7 @@ using log4net;
 using Sharp3D.Math.Core;
 using treeDiM.StackBuilder.Basics;
 using treeDiM.StackBuilder.Graphics;
+using treeDiM.StackBuilder.Engine;
 using treeDiM.StackBuilder.Desktop.Properties;
 #endregion
 
@@ -312,15 +313,21 @@ namespace treeDiM.StackBuilder.Desktop
 
         private void onLayerSelected(int id)
         {
-            _solution.SelectLayer(id);
-            UpdateControls();
+            try
+            {
+                _solution.SelectLayer(id);
+                UpdateControls();
+            }
+            catch (Exception ex)
+            {
+                _log.Error(ex.ToString());
+            }
         }
         private void onLayerIndexChanged(object sender, EventArgs e)
         {
             // get index of layer type
             int layerIndex = cbLayerType.SelectedIndex;
-            if (-1 == layerIndex)
-                return;
+            if (-1 == layerIndex) return;
             // set on current layer
             _solution.SelectLayer(layerIndex);
             graphCtrlSolution.Invalidate();
@@ -329,26 +336,40 @@ namespace treeDiM.StackBuilder.Desktop
         }
         private void onLayerTypeChanged(object sender, EventArgs e)
         {
-            int iLayerType = cbLayerType.SelectedIndex;
-            // get selected layer
-            _solution.SetLayerTypeOnSelected(iLayerType);
-            // redraw
-            graphCtrlSolution.Invalidate();
-            UpdateGrid();
+            try
+            {
+                int iLayerType = cbLayerType.SelectedIndex;
+                // get selected layer
+                _solution.SetLayerTypeOnSelected(iLayerType);
+                // redraw
+                graphCtrlSolution.Invalidate();
+                UpdateGrid();
+            }
+            catch (Exception ex)
+            {
+                _log.Error(ex.ToString());
+            }
         }
         private void onInterlayerChanged(object sender, EventArgs e)
         {
-            // get index of interlayer
-            InterlayerProperties interlayer = null;
-            if (chkbInterlayer.Checked)
+            try
             {
-                ItemBaseCB itemInterlayer = cbInterlayer.SelectedItem as ItemBaseCB;
-                if (null != itemInterlayer)
-                    interlayer = itemInterlayer.Item as InterlayerProperties;
+                // get index of interlayer
+                InterlayerProperties interlayer = null;
+                if (chkbInterlayer.Checked)
+                {
+                    ItemBaseCB itemInterlayer = cbInterlayer.SelectedItem as ItemBaseCB;
+                    if (null != itemInterlayer)
+                        interlayer = itemInterlayer.Item as InterlayerProperties;
+                }
+                _solution.SetInterlayerOnSelected(interlayer);
+                graphCtrlSolution.Invalidate();
+                UpdateGrid();
             }
-            _solution.SetInterlayerOnSelected(interlayer);
-            graphCtrlSolution.Invalidate();
-            UpdateGrid();
+            catch (Exception ex)
+            {
+                _log.Error(ex.ToString());
+            }
         }
         private void onReflectionX(object sender, EventArgs e)
         {
@@ -389,9 +410,14 @@ namespace treeDiM.StackBuilder.Desktop
         {
             try
             {
-                // layer combo box
+                cbLayerType.BoxProperties = _analysis.BProperties;
+                // build layers and fill CCtrl
                 foreach (LayerDesc layerDesc in _solution.LayerDescriptors)
-                    cbLayerType.Items.Add(layerDesc);
+                {
+                    LayerSolver solver = new LayerSolver();
+                    Layer2D layer = solver.BuildLayer(_analysis.ContentDimensions, _analysis.ContainerDimensions, layerDesc);
+                    cbLayerType.Items.Add(layer);
+                }
                 if (cbLayerType.Items.Count > 0)
                     cbLayerType.SelectedIndex = 0;
 

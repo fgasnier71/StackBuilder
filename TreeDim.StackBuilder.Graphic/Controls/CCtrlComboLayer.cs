@@ -21,6 +21,7 @@ namespace treeDiM.StackBuilder.Graphics.Controls
         {
             DrawMode = DrawMode.OwnerDrawFixed;
             DropDownStyle = ComboBoxStyle.DropDownList;
+            ItemHeight = LayerDropDownItem.ImageSize;
         }
         #endregion
 
@@ -36,10 +37,11 @@ namespace treeDiM.StackBuilder.Graphics.Controls
         {
             e.DrawBackground();
             e.DrawFocusRectangle();
-
-            DropDownItem item = new DropDownItem(Items[e.Index] as Layer2D, _bProperties);
-            e.Graphics.DrawImage(item.Image, e.Bounds.Left, e.Bounds.Top);
-
+            if (!DesignMode)
+            {
+                LayerDropDownItem item = new LayerDropDownItem(Items[e.Index] as Layer2D, _bProperties, ((e.State & DrawItemState.Selected) == DrawItemState.Selected));
+                e.Graphics.DrawImage(item.Image, e.Bounds.Left, e.Bounds.Top);
+            }
             base.OnDrawItem(e);
         }
         #endregion
@@ -47,10 +49,10 @@ namespace treeDiM.StackBuilder.Graphics.Controls
         private BProperties _bProperties;
     }
 
-    public class DropDownItem
+    public class LayerDropDownItem
     {
         #region Constructor
-        public DropDownItem(Layer2D layer, BProperties bProperties)
+        public LayerDropDownItem(Layer2D layer, BProperties bProperties, bool selected)
         {
             // save layer
             _layer = layer;
@@ -58,7 +60,7 @@ namespace treeDiM.StackBuilder.Graphics.Controls
             // build image
             Graphics2DImage graphics = new Graphics2DImage(new Size(_imgSize, _imgSize));
             SolutionViewerLayer solViewer = new SolutionViewerLayer(_layer);
-            solViewer.Draw(graphics, bProperties, 0.0, false);
+            solViewer.Draw(graphics, bProperties, 0.0, selected);
             _img = graphics.Bitmap;
         }
         #endregion
@@ -89,7 +91,7 @@ namespace treeDiM.StackBuilder.Graphics.Controls
 
         #region Data members
         private Image _img;
-        private static int _imgSize = 100; 
+        private static int _imgSize = 40; 
         #endregion
     }
 }

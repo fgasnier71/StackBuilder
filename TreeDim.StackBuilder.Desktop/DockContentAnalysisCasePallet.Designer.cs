@@ -33,7 +33,7 @@
             this.toolStripButtonReport = new System.Windows.Forms.ToolStripButton();
             this.splitContainerHoriz = new System.Windows.Forms.SplitContainer();
             this.splitContainerVert = new System.Windows.Forms.SplitContainer();
-            this.graphCtrlSolution = new treeDiM.StackBuilder.Graphics.Graphics3DControl();
+            this.gridSolutions = new SourceGrid.Grid();
             this.tabCtrl = new System.Windows.Forms.TabControl();
             this.tabPagePalletCorners = new System.Windows.Forms.TabPage();
             this.cbPalletCorners = new System.Windows.Forms.ComboBox();
@@ -46,13 +46,12 @@
             this.chkbPalletFilm = new System.Windows.Forms.CheckBox();
             this.gbLayer = new System.Windows.Forms.GroupBox();
             this.chkbInterlayer = new System.Windows.Forms.CheckBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.cbInterlayer = new System.Windows.Forms.ComboBox();
-            this.cbLayerType = new System.Windows.Forms.ComboBox();
             this.bnSymmetryX = new System.Windows.Forms.Button();
             this.bnSymetryY = new System.Windows.Forms.Button();
             this.tbClickLayer = new System.Windows.Forms.TextBox();
-            this.gridSolutions = new SourceGrid.Grid();
+            this.graphCtrlSolution = new treeDiM.StackBuilder.Graphics.Graphics3DControl();
+            this.cbLayerType = new treeDiM.StackBuilder.Graphics.Controls.CCtrlComboLayer();
             this.toolStripAnalysis.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerHoriz)).BeginInit();
             this.splitContainerHoriz.Panel1.SuspendLayout();
@@ -62,12 +61,12 @@
             this.splitContainerVert.Panel1.SuspendLayout();
             this.splitContainerVert.Panel2.SuspendLayout();
             this.splitContainerVert.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.graphCtrlSolution)).BeginInit();
             this.tabCtrl.SuspendLayout();
             this.tabPagePalletCorners.SuspendLayout();
             this.tabPagePalletCap.SuspendLayout();
             this.tabPagePalletFilm.SuspendLayout();
             this.gbLayer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.graphCtrlSolution)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStripAnalysis
@@ -129,14 +128,18 @@
             this.splitContainerVert.SplitterDistance = 512;
             this.splitContainerVert.TabIndex = 1;
             // 
-            // graphCtrlSolution
+            // gridSolutions
             // 
-            this.graphCtrlSolution.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.graphCtrlSolution.Location = new System.Drawing.Point(0, 0);
-            this.graphCtrlSolution.Name = "graphCtrlSolution";
-            this.graphCtrlSolution.Size = new System.Drawing.Size(512, 410);
-            this.graphCtrlSolution.TabIndex = 1;
-            this.graphCtrlSolution.Viewer = null;
+            this.gridSolutions.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridSolutions.EnableSort = true;
+            this.gridSolutions.Location = new System.Drawing.Point(0, 0);
+            this.gridSolutions.Name = "gridSolutions";
+            this.gridSolutions.OptimizeMode = SourceGrid.CellOptimizeMode.ForRows;
+            this.gridSolutions.SelectionMode = SourceGrid.GridSelectionMode.Cell;
+            this.gridSolutions.Size = new System.Drawing.Size(168, 410);
+            this.gridSolutions.TabIndex = 0;
+            this.gridSolutions.TabStop = true;
+            this.gridSolutions.ToolTipText = "";
             // 
             // tabCtrl
             // 
@@ -255,7 +258,6 @@
             // 
             this.gbLayer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.gbLayer.Controls.Add(this.chkbInterlayer);
-            this.gbLayer.Controls.Add(this.label1);
             this.gbLayer.Controls.Add(this.cbInterlayer);
             this.gbLayer.Controls.Add(this.cbLayerType);
             this.gbLayer.Controls.Add(this.bnSymmetryX);
@@ -271,7 +273,7 @@
             // 
             this.chkbInterlayer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.chkbInterlayer.AutoSize = true;
-            this.chkbInterlayer.Location = new System.Drawing.Point(6, 19);
+            this.chkbInterlayer.Location = new System.Drawing.Point(8, 19);
             this.chkbInterlayer.Name = "chkbInterlayer";
             this.chkbInterlayer.Size = new System.Drawing.Size(69, 17);
             this.chkbInterlayer.TabIndex = 3;
@@ -279,46 +281,25 @@
             this.chkbInterlayer.UseVisualStyleBackColor = true;
             this.chkbInterlayer.Click += new System.EventHandler(this.onChkbInterlayerClicked);
             // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 48);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(69, 13);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Layer pattern";
-            // 
-            // cbInterlater
+            // cbInterlayer
             // 
             this.cbInterlayer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.cbInterlayer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbInterlayer.FormattingEnabled = true;
             this.cbInterlayer.Location = new System.Drawing.Point(116, 17);
-            this.cbInterlayer.Name = "cbInterlater";
+            this.cbInterlayer.Name = "cbInterlayer";
             this.cbInterlayer.Size = new System.Drawing.Size(121, 21);
             this.cbInterlayer.TabIndex = 4;
             this.cbInterlayer.SelectedIndexChanged += new System.EventHandler(this.onInterlayerChanged);
-            // 
-            // cbLayerType
-            // 
-            this.cbLayerType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.cbLayerType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbLayerType.FormattingEnabled = true;
-            this.cbLayerType.Location = new System.Drawing.Point(116, 44);
-            this.cbLayerType.Name = "cbLayerType";
-            this.cbLayerType.Size = new System.Drawing.Size(121, 21);
-            this.cbLayerType.TabIndex = 7;
-            this.cbLayerType.SelectedIndexChanged += new System.EventHandler(this.onLayerTypeChanged);
             // 
             // bnSymmetryX
             // 
             this.bnSymmetryX.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.bnSymmetryX.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bnSymmetryX.Image = ((System.Drawing.Image)(resources.GetObject("bnSymmetryX.Image")));
-            this.bnSymmetryX.Location = new System.Drawing.Point(6, 67);
+            this.bnSymmetryX.Location = new System.Drawing.Point(83, 45);
             this.bnSymmetryX.Name = "bnSymmetryX";
-            this.bnSymmetryX.Size = new System.Drawing.Size(42, 38);
+            this.bnSymmetryX.Size = new System.Drawing.Size(42, 46);
             this.bnSymmetryX.TabIndex = 5;
             this.bnSymmetryX.UseVisualStyleBackColor = true;
             this.bnSymmetryX.Click += new System.EventHandler(this.onReflectionX);
@@ -328,9 +309,9 @@
             this.bnSymetryY.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.bnSymetryY.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bnSymetryY.Image = ((System.Drawing.Image)(resources.GetObject("bnSymetryY.Image")));
-            this.bnSymetryY.Location = new System.Drawing.Point(54, 67);
+            this.bnSymetryY.Location = new System.Drawing.Point(131, 45);
             this.bnSymetryY.Name = "bnSymetryY";
-            this.bnSymetryY.Size = new System.Drawing.Size(42, 38);
+            this.bnSymetryY.Size = new System.Drawing.Size(42, 46);
             this.bnSymetryY.TabIndex = 6;
             this.bnSymetryY.UseVisualStyleBackColor = true;
             this.bnSymetryY.Click += new System.EventHandler(this.onReflectionY);
@@ -347,13 +328,27 @@
             this.tbClickLayer.TabIndex = 13;
             this.tbClickLayer.Text = "Double-click a layer to edit pattern / orientation / interlayer.";
             // 
-            // gridSolutions
+            // graphCtrlSolution
             // 
-            this.gridSolutions.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridSolutions.Location = new System.Drawing.Point(0, 0);
-            this.gridSolutions.Name = "gridSolutions";
-            this.gridSolutions.Size = new System.Drawing.Size(168, 410);
-            this.gridSolutions.TabIndex = 0;
+            this.graphCtrlSolution.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.graphCtrlSolution.Location = new System.Drawing.Point(0, 0);
+            this.graphCtrlSolution.Name = "graphCtrlSolution";
+            this.graphCtrlSolution.Size = new System.Drawing.Size(512, 410);
+            this.graphCtrlSolution.TabIndex = 1;
+            this.graphCtrlSolution.Viewer = null;
+            // 
+            // cbLayerType
+            // 
+            this.cbLayerType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.cbLayerType.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbLayerType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbLayerType.FormattingEnabled = true;
+            this.cbLayerType.ItemHeight = 40;
+            this.cbLayerType.Location = new System.Drawing.Point(8, 45);
+            this.cbLayerType.Name = "cbLayerType";
+            this.cbLayerType.Size = new System.Drawing.Size(69, 46);
+            this.cbLayerType.TabIndex = 7;
+            this.cbLayerType.SelectedIndexChanged += new System.EventHandler(this.onLayerTypeChanged);
             // 
             // DockContentAnalysisCasePallet
             // 
@@ -378,7 +373,6 @@
             this.splitContainerVert.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerVert)).EndInit();
             this.splitContainerVert.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.graphCtrlSolution)).EndInit();
             this.tabCtrl.ResumeLayout(false);
             this.tabPagePalletCorners.ResumeLayout(false);
             this.tabPagePalletCorners.PerformLayout();
@@ -388,6 +382,7 @@
             this.tabPagePalletFilm.PerformLayout();
             this.gbLayer.ResumeLayout(false);
             this.gbLayer.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.graphCtrlSolution)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -412,9 +407,8 @@
         private System.Windows.Forms.CheckBox chkbPalletFilm;
         private System.Windows.Forms.GroupBox gbLayer;
         private System.Windows.Forms.CheckBox chkbInterlayer;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cbInterlayer;
-        private System.Windows.Forms.ComboBox cbLayerType;
+        private treeDiM.StackBuilder.Graphics.Controls.CCtrlComboLayer cbLayerType;
         private System.Windows.Forms.Button bnSymmetryX;
         private System.Windows.Forms.Button bnSymetryY;
         private System.Windows.Forms.TextBox tbClickLayer;

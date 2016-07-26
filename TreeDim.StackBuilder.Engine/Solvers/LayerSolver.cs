@@ -92,8 +92,8 @@ namespace treeDiM.StackBuilder.Engine
                 return null;
             pattern.GenerateLayer(
                 layer
-                , layer.Swapped ? actualWidth : actualLength
-                , layer.Swapped ? actualLength : actualWidth);
+                , actualLength
+                , actualWidth);
             return layer;
         }
 

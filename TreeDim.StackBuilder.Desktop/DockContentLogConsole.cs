@@ -17,15 +17,14 @@ namespace treeDiM.StackBuilder.Desktop
         public DockContentLogConsole()
         {
             InitializeComponent();
-
-            this.Load += new EventHandler(DockContentLogConsole_Load);
         }
         #endregion
 
-        #region Load event to set rich text box to RichTextBoxAppender
-        void DockContentLogConsole_Load(object sender, EventArgs e)
+        #region Set rich text box to RichTextBoxAppender
+        protected override void OnLoad(EventArgs e)
         {
-            log4net.Appender.RichTextBoxAppender.SetRichTextBox(richTextBoxLog, "RichTextBoxAppender");
+            base.OnLoad(e);
+           log4net.Appender.RichTextBoxAppender.SetRichTextBox(richTextBoxLog, "RichTextBoxAppender");
         }
         #endregion
 

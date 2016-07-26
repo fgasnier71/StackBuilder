@@ -168,7 +168,7 @@
     <value>White</value>
   </data>
   <data name="newToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>145, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="newToolStripMenuItem.Text" xml:space="preserve">
     <value>New</value>
@@ -193,7 +193,7 @@
     <value>White</value>
   </data>
   <data name="openToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>145, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="openToolStripMenuItem.Text" xml:space="preserve">
     <value>Open</value>
@@ -217,7 +217,7 @@
     <value>White</value>
   </data>
   <data name="saveToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>145, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="saveToolStripMenuItem.Text" xml:space="preserve">
     <value>Save</value>
@@ -229,7 +229,7 @@
     <value>White</value>
   </data>
   <data name="saveAsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>145, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="saveAsToolStripMenuItem.Text" xml:space="preserve">
     <value>Save as...</value>
@@ -253,7 +253,7 @@
     <value>White</value>
   </data>
   <data name="saveAllToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>145, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="saveAllToolStripMenuItem.Text" xml:space="preserve">
     <value>Save All</value>
@@ -262,7 +262,7 @@
     <value>White</value>
   </data>
   <data name="closeToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>145, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="closeToolStripMenuItem.Text" xml:space="preserve">
     <value>Close</value>
@@ -271,22 +271,22 @@
     <value>Close active document</value>
   </data>
   <data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>142, 6</value>
+    <value>149, 6</value>
   </data>
   <data name="mnuFileMRU.Size" type="System.Drawing.Size, System.Drawing">
-    <value>145, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="mnuFileMRU.Text" xml:space="preserve">
     <value>Recent Files...</value>
   </data>
   <data name="toolStripSeparator2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>142, 6</value>
+    <value>149, 6</value>
   </data>
   <data name="exitToolStripMenuItem.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>White</value>
   </data>
   <data name="exitToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>145, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="exitToolStripMenuItem.Text" xml:space="preserve">
     <value>Exit</value>
@@ -575,45 +575,6 @@
   <data name="newAnalysisToolStripMenuItem.Text" xml:space="preserve">
     <value>New Case/Pallet Analysis</value>
   </data>
-  <data name="newPackPalletAnalysisToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAE9SURBVDhPY8AGDh46/j8zq/B/ZVUdGBcWVWKwKyqq/kOV
-        o4JNW/b9Xzg96////8f+b1pZ/3/1okoM9sHtXf9ZmBgwDdi1+8j/DUtLgYou/l+zuO7/5tUtaOwL/9cs
-        a/i/eVXz//QEZ1QDQJrDAoz/52cF/WdnZ/2fkeyLlZ2Z7AM06PT/iCALhAEHD5+E23xoZz8Yo7NBLgCx
-        E2PcgfxjCAPOX7gIYuC0EcQGaQJ5A6QxKtQJ1YCs7CKwAELyNHb2zwNI4kgGFBVX/f/zYdv/v592gyVB
-        NDY2SBNtDCgsLAWHfnyk7X9eLkYwjc5mYWSAGwCKBXCA16sjXIBuOjY2SC2IDaaAmjEMIMYLC2cAUyhM
-        IwyADfh3EKwAFsfo7ExgVKI4GxkQHQbYNIMAzD+EMFQ5JkCXxKYBtwEMDACfPxqd556HjAAAAABJRU5E
-        rkJggg==
-</value>
-  </data>
-  <data name="newPackPalletAnalysisToolStripMenuItem.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>White</value>
-  </data>
-  <data name="newPackPalletAnalysisToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>261, 22</value>
-  </data>
-  <data name="newPackPalletAnalysisToolStripMenuItem.Text" xml:space="preserve">
-    <value>New Pack/Pallet Analysis</value>
-  </data>
-  <data name="newAnalysisBundleToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACHSURBVDhP1Y9BDoAgDAT3dbyJh/Ec7sYreq+sLpEYIWi8
-        2GTThXZKwecRYzTKe7/nllc7sC6zFfWA2jMLzwPSZBQvR8UhwoElw9cXWr7Owsf/zFzEs3CgLvR0HSb8
-        rxtYwvsNBL/bgDB9xp5vQDiEcIIlWBjRLaww51xX7Dla76M7XbVGHdgAg1AMFEq3LwUAAAAASUVORK5C
-        YII=
-</value>
-  </data>
-  <data name="newAnalysisBundleToolStripMenuItem.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>White</value>
-  </data>
-  <data name="newAnalysisBundleToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>261, 22</value>
-  </data>
-  <data name="newAnalysisBundleToolStripMenuItem.Text" xml:space="preserve">
-    <value>New Bundle/Pallet Analysis</value>
-  </data>
   <data name="toolStripMenuItemCylinderPalletAnalysisV.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -631,7 +592,7 @@
     <value>White</value>
   </data>
   <data name="toolStripMenuItemCylinderPalletAnalysisV.Size" type="System.Drawing.Size, System.Drawing">
-    <value>129, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="toolStripMenuItemCylinderPalletAnalysisV.Text" xml:space="preserve">
     <value>Vertical</value>
@@ -648,7 +609,7 @@
     <value>White</value>
   </data>
   <data name="toolStripMenuItemCylinderPalletH.Size" type="System.Drawing.Size, System.Drawing">
-    <value>129, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="toolStripMenuItemCylinderPalletH.Text" xml:space="preserve">
     <value>Horizontal</value>
@@ -699,28 +660,6 @@
   </data>
   <data name="newBoxCaseAnalysisToolStripMenuItem.Text" xml:space="preserve">
     <value>New Box/Case Analysis</value>
-  </data>
-  <data name="newBundleCaseAnalysisToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGWSURBVFhH7ZQxS8NAGIY7WUEFa3WQIgjuoggO4i4IRTeh
-        v0AcbJdulkytgy1iBydH/2fMc+mFu/RL70symhce7pK7732/S0JajRo1qqm4BrUV/w7vKkFtaqGTVCAa
-        azjabZcLt4XM01tGnmkZqE0twioqXruvZVWvkmgArNUkKDEYWIuiKMO9Ds0Zt9rbjBslBgNr1tQ11swZ
-        XZ8EUV6gC2t1KPATJW62J3JPpZkz5v0srCWI8jZZU9dYM2d0A11YS9goz9Q11swZpWBgLSEos5Gv1mW/
-        dxrvdLrZtd2Tvwe1wqViDdTyq533L9aaoDnNb9grKgO1H4/XJuTz4dJg/Qh/vz8PN8CGvLGWpDye9q+8
-        BoBwnghz1sbjcWETorEGar+fbgz5BlxODjvxaDQ0pJG+jFEVOPnP4NZQ1EDvYC8Ln0zeqNuozDAEp3av
-        pQbOjrvx68uzYeUflGdahnwDnJz3vlx+qcORaK7BbYB5lXAkmmuwDTDyrmezaelwJJprIJh3TvhiMa8U
-        jiisDF961ZP/N7Vafwzg+p3oIYBrAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="newBundleCaseAnalysisToolStripMenuItem.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>White</value>
-  </data>
-  <data name="newBundleCaseAnalysisToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>261, 22</value>
-  </data>
-  <data name="newBundleCaseAnalysisToolStripMenuItem.Text" xml:space="preserve">
-    <value>New Bundle/Case Analysis</value>
   </data>
   <data name="newBoxCasePalletOptimizationToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1909,18 +1848,6 @@
   <data name="&gt;&gt;newAnalysisToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;newPackPalletAnalysisToolStripMenuItem.Name" xml:space="preserve">
-    <value>newPackPalletAnalysisToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;newPackPalletAnalysisToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;newAnalysisBundleToolStripMenuItem.Name" xml:space="preserve">
-    <value>newAnalysisBundleToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;newAnalysisBundleToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;newToolStripMenuItemCylinderPalletAnalysis.Name" xml:space="preserve">
     <value>newToolStripMenuItemCylinderPalletAnalysis</value>
   </data>
@@ -1943,12 +1870,6 @@
     <value>newBoxCaseAnalysisToolStripMenuItem</value>
   </data>
   <data name="&gt;&gt;newBoxCaseAnalysisToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;newBundleCaseAnalysisToolStripMenuItem.Name" xml:space="preserve">
-    <value>newBundleCaseAnalysisToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;newBundleCaseAnalysisToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;newBoxCasePalletOptimizationToolStripMenuItem.Name" xml:space="preserve">
