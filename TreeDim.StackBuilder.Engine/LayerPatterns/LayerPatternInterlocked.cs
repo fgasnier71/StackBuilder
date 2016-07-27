@@ -87,7 +87,8 @@ namespace treeDiM.StackBuilder.Engine
             // get maximum number of box in length
             int sizeXLength = (int)Math.Floor(palletLength / boxLength);
             // make sure that we can actually add one column of turned boxes
-            --sizeXLength;
+            if (palletLength < sizeXLength * boxLength + boxWidth)
+                --sizeXLength;
             while (sizeXLength >= 1)
             {
                 // get number of column of turned boxes

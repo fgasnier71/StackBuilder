@@ -199,7 +199,7 @@ namespace treeDiM.StackBuilder.Basics
         {
             if (space < 0.0 - _epsilon)
             {
-                _log.Error("Negative space value?");
+                _log.Error( string.Format("Negative space value? ({0})", space) );
                 return;
             }
             if (double.IsInfinity(space) || double.IsNaN(space))
