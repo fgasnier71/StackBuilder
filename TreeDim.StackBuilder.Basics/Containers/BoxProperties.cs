@@ -78,20 +78,19 @@ namespace treeDiM.StackBuilder.Basics
         }
         #endregion
 
-        #region Height
+        #region Dimensions
         public override double Height
-        {
-            get { return _height; }
-            set { _height = value; Modify(); }
-        }
+        { get { return _height; } }
+        public void SetHeight(double height)
+        { _height = height; Modify(); }
         #endregion
 
         #region NetWeight
-        public OptDouble NetWeight
+        public override OptDouble NetWeight
         {
             get { return _netWeight; }
-            set { _netWeight = value; Modify(); }
         }
+        public void SetNetWeight(OptDouble netWeight) { _netWeight = netWeight; Modify(); }
         #endregion
 
         #region InsideDimensions
@@ -118,8 +117,6 @@ namespace treeDiM.StackBuilder.Basics
         {
             get { return InsideLength * InsideWidth * InsideHeight; }
         }
-        public override Vector3D OuterDimensions
-        {   get { return new Vector3D(_length, _width, _height); } }
         public virtual Vector3D InsideDimensions
         {   get { return new Vector3D( InsideLength, InsideWidth, InsideHeight); } }
         public virtual double[] OuterDimensionsArray

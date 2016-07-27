@@ -106,7 +106,7 @@ namespace treeDiM.StackBuilder.Basics
     #endregion
 
     #region PackProperties
-    public class PackProperties : ItemBase
+    public class PackProperties : Packable
     {
         #region Data members
         private BoxProperties _boxProperties;
@@ -178,14 +178,13 @@ namespace treeDiM.StackBuilder.Basics
         #endregion
         #region Outer dimensions
         public bool HasForcedOuterDimensions { get { return _forceOuterDimensions; } }
-        public Vector3D OuterDimensions { get { return new Vector3D(Length, Width, Height); } }
 
         public void ForceOuterDimensions(Vector3D outerDimensions)
         {
             _forceOuterDimensions = true;
             _outerDimensions = outerDimensions;
         }
-        public double Length
+        public override double Length
         {
             get
             {
@@ -195,7 +194,7 @@ namespace treeDiM.StackBuilder.Basics
                     return InnerLength + _wrapper.Thickness(0); 
             }
         }
-        public double Width
+        public override double Width
         {
             get
             {
@@ -205,7 +204,7 @@ namespace treeDiM.StackBuilder.Basics
                     return InnerWidth + _wrapper.Thickness(1);
             }
         }
-        public double Height
+        public override double Height
         {
             get
             {
@@ -215,18 +214,21 @@ namespace treeDiM.StackBuilder.Basics
                     return InnerHeight + _wrapper.Thickness(2);
             }
         }
-
-        public double Volume { get { return Length * Width * Height; } }
+        public override bool OrientationAllowed(HalfAxis.HAxis axis)
+        {
+            return(axis == HalfAxis.HAxis.AXIS_Z_N) || (axis == HalfAxis.HAxis.AXIS_Z_P);
+        }
         #endregion
+
         #region Inner dimensions
         public double InnerLength { get { return _arrangement._iLength * _boxProperties.Dim(Dim0); } }
         public double InnerWidth { get { return _arrangement._iWidth * _boxProperties.Dim(Dim1); } }
         public double InnerHeight { get { return _arrangement._iHeight * _boxProperties.Dim(Dim2); } }
         #endregion
         #region Weight
-        public double Weight { get { return InnerWeight + _wrapper.Weight; } }
+        public override double Weight { get { return InnerWeight + _wrapper.Weight; } }
         public double InnerWeight { get { return _arrangement.Number * _boxProperties.Weight; } }
-        public OptDouble NetWeight
+        public override OptDouble NetWeight
         { get { return _arrangement.Number * _boxProperties.NetWeight; } }
         #endregion
         #region Helpers

@@ -50,13 +50,6 @@ namespace treeDiM.StackBuilder.Desktop
             base.OnLoad(e);
             cbCases.Initialize(_document, this, null != _analysis ? _analysis.BProperties : null);
             cbPallets.Initialize(_document, this, null != _analysis ? _analysis.PalletProperties : null);
-            /*
-            BoxProperties[] cases = _document.Cases.ToArray();
-            PalletProperties[] pallets = _document.Pallets.ToArray();
-            // fill combo boxes
-            ComboBoxHelpers.FillCombo(cases, cbCases, (null != _analysis) ? _analysis.BProperties : cases[0]);
-            ComboBoxHelpers.FillCombo(pallets, cbPallets, (null != _analysis) ? _analysis.PalletProperties : pallets[0]);
-            */
 
             // event handling
             uCtrlLayerList.LayerSelected += onLayerSelected;
@@ -103,8 +96,8 @@ namespace treeDiM.StackBuilder.Desktop
         {
             if (ctrl == cbCases)
             { 
-                BProperties bProperties = itemBase as BProperties;
-                return null != bProperties; 
+                Packable packable = itemBase as Packable;
+                return null != packable; 
             }
             else if (ctrl == cbPallets)
             {
@@ -116,9 +109,9 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Private properties
-        private BProperties SelectedBoxProperties
+        private Packable SelectedBoxProperties
         {
-            get { return cbCases.SelectededType as BProperties; }
+            get { return cbCases.SelectededType as Packable; }
         }
         private PalletProperties SelectedPallet
         {
@@ -129,38 +122,55 @@ namespace treeDiM.StackBuilder.Desktop
         #region Event handlers
         protected void onCaseChanged(object sender, EventArgs e)
         {
-            uCtrlCaseOrientation.BProperties = cbCases.SelectededType as BProperties;
-            onLayerSelected(sender, e);
+            try
+            {
+                uCtrlCaseOrientation.BProperties = cbCases.SelectededType as Packable;
+                onInputChanged(sender, e);
+                onLayerSelected(sender, e);
+            }
+            catch (Exception ex)
+            {
+                _log.Error(ex.ToString());
+            }
         }
         protected void onLayerSelected(object sender, EventArgs e)
         {
-            Layer2D[] layers = uCtrlLayerList.Selected;
-            bnNext.Enabled = layers.Length > 0;
-            UpdateStatus(layers.Length > 0 ? string.Empty : Resources.ID_SELECTATLEASTONELAYOUT);
+            try
+            {
+                Layer2D[] layers = uCtrlLayerList.Selected;
+                bnNext.Enabled = layers.Length > 0;
+                UpdateStatus(layers.Length > 0 ? string.Empty : Resources.ID_SELECTATLEASTONELAYOUT);
+            }
+            catch (Exception ex)
+            {
+                _log.Error(ex.ToString());
+            }
         }
         private void onInputChanged(object sender, EventArgs e)
         {
             try
             {
                 // get case /pallet
-                BProperties bProperties = cbCases.SelectededType as BProperties;
+                Packable packable = cbCases.SelectededType as Packable;
                 PalletProperties palletProperties = cbPallets.SelectededType as PalletProperties;
+                if (null == packable || null == palletProperties)
+                    return;
                 // compute
                 LayerSolver solver = new LayerSolver();
                 List<Layer2D> layers = solver.BuildLayers(
-                    bProperties.OuterDimensions
+                    packable.OuterDimensions
                     , new Vector2D(palletProperties.Length + 2.0*uCtrlOverhang.ValueX, palletProperties.Width + 2.0*uCtrlOverhang.ValueY)
                     , BuildConstraintSet()
                     , checkBoxBestLayersOnly.Checked);
                 // update control
-                uCtrlLayerList.BProperties = bProperties;
+                uCtrlLayerList.Packable = packable;
                 uCtrlLayerList.ContainerHeight = uCtrlOptMaximumHeight.Value.Value;
                 uCtrlLayerList.FirstLayerSelected = true;
                 uCtrlLayerList.LayerList = layers;
             }
             catch (Exception ex)
             {
-                _log.Error(ex.Message);
+                _log.Error(ex.ToString());
             }
         }
         private void onBnNextClicked(object sender, EventArgs e)
@@ -186,7 +196,7 @@ namespace treeDiM.StackBuilder.Desktop
             }
             catch (Exception ex)
             {
-                _log.Error(ex.Message);
+                _log.Error(ex.ToString());
             }
         }
 
@@ -196,7 +206,7 @@ namespace treeDiM.StackBuilder.Desktop
             { }
             catch (Exception ex)
             {
-                _log.Error(ex.Message);
+                _log.Error(ex.ToString());
             }            
         }
         #endregion
@@ -217,6 +227,5 @@ namespace treeDiM.StackBuilder.Desktop
             return constraintSet;
         }
         #endregion
-
     }
 }

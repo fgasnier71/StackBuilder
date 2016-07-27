@@ -148,7 +148,11 @@ namespace treeDiM.StackBuilder.Graphics
                     BBox3D bbox = new BBox3D();
                     foreach (BoxPosition bPosition in blayer)
                     {
-                        Box b = new Box(pickId++, analysisCasePallet.BProperties, bPosition);
+                        Box b = null;
+                        if (analysisCasePallet.BProperties is PackProperties)
+                            b = new Pack(pickId++, analysisCasePallet.BProperties as PackProperties, bPosition);
+                        else
+                            b = new Box(pickId++, analysisCasePallet.BProperties, bPosition);
                         graphics.AddBox(b);
                         bbox.Extend(b.BBox);
                     }

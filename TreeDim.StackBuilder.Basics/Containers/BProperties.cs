@@ -9,7 +9,7 @@ using Sharp3D.Math.Core;
 
 namespace treeDiM.StackBuilder.Basics
 {
-    public abstract class BProperties : ItemBase
+    public abstract class BProperties : Packable
     {
         #region Data members
         protected double _length, _width;
@@ -27,29 +27,22 @@ namespace treeDiM.StackBuilder.Basics
         }
         #endregion
 
-        #region Public properties
-        public double Length
-        {
-            get { return _length; }
-            set { _length = value; Modify(); }
-        }
-        public double Width
-        {
-            get { return _width; }
-            set { _width = value; Modify(); }
-        }
-        abstract public double Height {get; set;}
-        public double Volume
-        {
-            get { return _length * _width * Height; }
-        }
-        public virtual Vector3D OuterDimensions
-        { get { return new Vector3D(Length, Width, Height); } }
-        public virtual double Weight
-        {
-            get { return _weight; }
-            set { _weight = value; Modify(); }
-        }
+        #region Override Packable
+        public override double Length
+        { get { return _length; } }
+        public override double Width
+        { get { return _width; } }
+        public override double Weight
+        { get { return _weight; } }
+        #endregion
+
+        #region Public accessors
+        public virtual void SetLength(double length)
+        { _length = length; Modify(); }
+        public virtual void SetWidth(double width)
+        { _width = width; Modify(); }
+        public virtual void SetWeight(double weight)
+        { _weight = weight; Modify(); }
         #endregion
 
         #region Public methods
@@ -57,49 +50,7 @@ namespace treeDiM.StackBuilder.Basics
         abstract public void SetColor(Color color);
         abstract public Color GetColor(HalfAxis.HAxis axis);
 
-        public double Dim(int index)
-        {
-            switch (index)
-            {
-                case 0: return _length;
-                case 1: return _width;
-                case 2: return Height;
-                default: throw new Exception("Invalid index...");
-            }
-        }
-        public double Dimension(HalfAxis.HAxis axis)
-        {
-            switch (axis)
-            {
-                case HalfAxis.HAxis.AXIS_X_N:
-                case HalfAxis.HAxis.AXIS_X_P:
-                    return _length;
-                case HalfAxis.HAxis.AXIS_Y_N:
-                case HalfAxis.HAxis.AXIS_Y_P:
-                    return _width;
-                case HalfAxis.HAxis.AXIS_Z_N:
-                case HalfAxis.HAxis.AXIS_Z_P:
-                    return Height;
-                default:
-                    return 0.0;
-            }
-        }
-        public Vector3D Dimensions
-        {
-            get { return new Vector3D(_length, _width, Height); }
-        }
-
         abstract public bool IsBundle { get; }
-        #endregion
-
-        #region Object override
-        public override string ToString()
-        {
-            StringBuilder sBuilder = new StringBuilder();
-            sBuilder.Append(base.ToString());
-            sBuilder.Append(string.Format("BProperties => Length = {0}      Width = {1}     Height = {2}", _length, _width, Height) );
-            return sBuilder.ToString();
-        }
         #endregion
     }
 }

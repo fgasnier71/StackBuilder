@@ -300,11 +300,11 @@ namespace treeDiM.StackBuilder.Desktop
                         if (!UserAcknowledgeDependancies(box)) return;
                         box.Name = form.BoxName;
                         box.Description = form.Description;
-                        box.Length = form.BoxLength;
-                        box.Width = form.BoxWidth;
-                        box.Height = form.BoxHeight;
-                        box.Weight = form.Weight;
-                        box.NetWeight = form.NetWeight;
+                        box.SetLength( form.BoxLength );
+                        box.SetWidth( form.BoxWidth );
+                        box.SetHeight( form.BoxHeight );
+                        box.SetWeight( form.Weight );
+                        box.SetNetWeight( form.NetWeight );
                         box.InsideLength = form.InsideLength;
                         box.InsideWidth = form.InsideWidth;
                         box.InsideHeight = form.InsideHeight;
@@ -381,8 +381,8 @@ namespace treeDiM.StackBuilder.Desktop
                         if (!UserAcknowledgeDependancies(bundle)) return;
                         bundle.Name = form.BundleName;
                         bundle.Description = form.Description;
-                        bundle.Length = form.BundleLength;
-                        bundle.Width = form.BundleWidth;
+                        bundle.SetLength( form.BundleLength );
+                        bundle.SetWidth( form.BundleWidth );
                         bundle.UnitThickness = form.UnitThickness;
                         bundle.UnitWeight = form.UnitWeight;
                         bundle.NoFlats = form.NoFlats;

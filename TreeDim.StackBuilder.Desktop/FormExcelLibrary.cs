@@ -177,8 +177,8 @@ namespace treeDiM.StackBuilder.Desktop
             boxProperties.ShowTape = true;
             boxProperties.TapeColor = Color.Beige;
             boxProperties.TapeWidth = UnitsManager.ConvertLengthFrom(50, UnitsManager.UnitSystem.UNIT_METRIC1);
-            boxProperties.Weight = dtCase.Weight;
-            boxProperties.NetWeight = new OptDouble(dtCase.NetWeight > 0.0, dtCase.NetWeight);
+            boxProperties.SetWeight( dtCase.Weight );
+            boxProperties.SetNetWeight( new OptDouble(dtCase.NetWeight > 0.0, dtCase.NetWeight) );
             return boxProperties;
         }
         internal BoxProperties ToBox(DataBox dtBox)
@@ -191,8 +191,8 @@ namespace treeDiM.StackBuilder.Desktop
             for (int i = 0; i < 6; ++i) colors[i] = Color.Turquoise;
             boxProperties.SetAllColors(colors);
             boxProperties.ShowTape = false;
-            boxProperties.Weight = dtBox.Weight;
-            boxProperties.NetWeight = new OptDouble(dtBox.NetWeight > 0, dtBox.NetWeight);
+            boxProperties.SetWeight( dtBox.Weight );
+            boxProperties.SetNetWeight( new OptDouble(dtBox.NetWeight > 0, dtBox.NetWeight) );
             return boxProperties;
         }
         internal PalletProperties ToPallet(DataPallet dtPallet)

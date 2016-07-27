@@ -26,9 +26,9 @@ namespace treeDiM.StackBuilder.Graphics.Controls
         #endregion
 
         #region Public properties
-        public BProperties BoxProperties
+        public Packable BoxProperties
         {
-            set { _bProperties = value; }
+            set { _packable = value; }
         }
         #endregion
 
@@ -39,20 +39,20 @@ namespace treeDiM.StackBuilder.Graphics.Controls
             e.DrawFocusRectangle();
             if (!DesignMode)
             {
-                LayerDropDownItem item = new LayerDropDownItem(Items[e.Index] as Layer2D, _bProperties, ((e.State & DrawItemState.Selected) == DrawItemState.Selected));
+                LayerDropDownItem item = new LayerDropDownItem(Items[e.Index] as Layer2D, _packable, ((e.State & DrawItemState.Selected) == DrawItemState.Selected));
                 e.Graphics.DrawImage(item.Image, e.Bounds.Left, e.Bounds.Top);
             }
             base.OnDrawItem(e);
         }
         #endregion
 
-        private BProperties _bProperties;
+        private Packable _packable;
     }
 
     public class LayerDropDownItem
     {
         #region Constructor
-        public LayerDropDownItem(Layer2D layer, BProperties bProperties, bool selected)
+        public LayerDropDownItem(Layer2D layer, Packable packable, bool selected)
         {
             // save layer
             _layer = layer;
@@ -60,7 +60,7 @@ namespace treeDiM.StackBuilder.Graphics.Controls
             // build image
             Graphics2DImage graphics = new Graphics2DImage(new Size(_imgSize, _imgSize));
             SolutionViewerLayer solViewer = new SolutionViewerLayer(_layer);
-            solViewer.Draw(graphics, bProperties, 0.0, selected);
+            solViewer.Draw(graphics, packable, 0.0, selected);
             _img = graphics.Bitmap;
         }
         #endregion

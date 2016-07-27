@@ -163,6 +163,7 @@ namespace treeDiM.StackBuilder.Desktop
                                 );
                             wrapperTray.SetNoWalls(uCtrlWalls.NoX, uCtrlWalls.NoY, uCtrlWalls.NoZ);
                             wrapperTray.Height = uCtrlHeight.Value;
+                            wrapperTray.Weight = uCtrlWeight.Value;
                             wrapper = wrapperTray;
                         }
                         break;

@@ -24,7 +24,7 @@ namespace treeDiM.StackBuilder.Graphics
         #region Data members
         protected static readonly ILog _log = LogManager.GetLogger(typeof(UCtrlLayerList));
         private List<Layer2D> _layerList = new List<Layer2D>();
-        private BProperties _bProperties;
+        private Packable _packable;
         private int _index;
         private int _x, _y;
         private ToolTip tooltip = new ToolTip();
@@ -97,9 +97,9 @@ namespace treeDiM.StackBuilder.Graphics
                 Start();
             }
         }
-        public BProperties BProperties
+        public Packable Packable
         {
-            set { _bProperties = value; }
+            set { _packable = value; }
         }
         public Size ButtonSizes
         {
@@ -156,7 +156,7 @@ namespace treeDiM.StackBuilder.Graphics
             Layer2D layer = _layerList[_index];
             // create button and add to panel
             Button btn = new Button();
-            btn.Image = LayerToImage.Draw(_layerList[_index], _bProperties, _contHeight, szButtons, selected);//bitmap;
+            btn.Image = LayerToImage.Draw(_layerList[_index], _packable, _contHeight, szButtons, selected);//bitmap;
             btn.Location = new Point(_x, _y) + (Size)AutoScrollPosition;
             btn.Size = szButtons;
             btn.Tag = new LayerItem(layer, selected);
@@ -181,7 +181,7 @@ namespace treeDiM.StackBuilder.Graphics
             Button bn = sender as Button;
             LayerItem lItem = bn.Tag as LayerItem;
             bool selected = !lItem.Selected;
-            bn.Image = LayerToImage.Draw(lItem.Layer, _bProperties, _contHeight, szButtons, selected);
+            bn.Image = LayerToImage.Draw(lItem.Layer, _packable, _contHeight, szButtons, selected);
             bn.Tag = new LayerItem(lItem.Layer, selected);
             LayerSelected(this, e);
         }

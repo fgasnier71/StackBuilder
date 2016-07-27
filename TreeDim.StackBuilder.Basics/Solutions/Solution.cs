@@ -179,6 +179,9 @@ namespace treeDiM.StackBuilder.Basics
             // add layers until 
             while (!criterionReached)
             {
+                if (0 == _solutionItems.Count)
+                { criterionReached = true; break; }
+
                 SolutionItem solItem = _solutionItems.Last();
 
                 if (solItem.LayerIndex >= _layers.Count)

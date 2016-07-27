@@ -208,7 +208,7 @@ namespace treeDiM.StackBuilder.Basics
         {
             // instantiate and initialize
             BoxProperties boxProperties = new BoxProperties(this, length, width, height);
-            boxProperties.Weight = weight;
+            boxProperties.SetWeight( weight );
             boxProperties.Name = name;
             boxProperties.Description = description;
             boxProperties.SetAllColors(colors);
@@ -226,8 +226,8 @@ namespace treeDiM.StackBuilder.Basics
                 , boxProp.Length
                 , boxProp.Width
                 , boxProp.Height);
-            boxPropClone.Weight = boxProp.Weight;
-            boxPropClone.NetWeight = boxProp.NetWeight;
+            boxPropClone.SetWeight( boxProp.Weight );
+            boxPropClone.SetNetWeight( boxProp.NetWeight );
             boxPropClone.Name = boxProp.Name;
             boxPropClone.Description = boxProp.Description;
             boxPropClone.SetAllColors(boxProp.Colors);
@@ -262,7 +262,7 @@ namespace treeDiM.StackBuilder.Basics
         {
             // instantiate and initialize
             BoxProperties boxProperties = new BoxProperties(this, length, width, height, insideLength, insideWidth, insideHeight);
-            boxProperties.Weight = weight;
+            boxProperties.SetWeight( weight );
             boxProperties.Name = name;
             boxProperties.Description = description;
             boxProperties.SetAllColors(colors);
@@ -283,8 +283,8 @@ namespace treeDiM.StackBuilder.Basics
                 , boxProp.InsideLength
                 , boxProp.InsideWidth
                 , boxProp.InsideHeight);
-            boxPropClone.Weight = boxProp.Weight;
-            boxPropClone.NetWeight = boxProp.NetWeight;
+            boxPropClone.SetWeight( boxProp.Weight );
+            boxPropClone.SetNetWeight( boxProp.NetWeight );
             boxPropClone.Name = boxProp.Name;
             boxPropClone.Description = boxProp.Description;
             boxPropClone.SetAllColors(boxProp.Colors);
@@ -642,14 +642,14 @@ namespace treeDiM.StackBuilder.Basics
 
         public AnalysisCasePallet CreateNewAnalysisCasePallet(
             string name, string description
-            , BProperties box, PalletProperties pallet
+            , Packable packable, PalletProperties pallet
             , List<InterlayerProperties> interlayers
             , PalletCornerProperties palletCorners, PalletCapProperties palletCap, PalletFilmProperties palletFilm
             , ConstraintSetCasePallet constraintSet
             , List<LayerDesc> layerDescs
             )
         {
-            AnalysisCasePallet analysis = new AnalysisCasePallet(box, pallet, constraintSet);
+            AnalysisCasePallet analysis = new AnalysisCasePallet(packable, pallet, constraintSet);
             foreach (InterlayerProperties interlayer in interlayers)
                 analysis.AddInterlayer(interlayer);
             analysis.PalletCornerProperties     = palletCorners;
@@ -1447,7 +1447,7 @@ namespace treeDiM.StackBuilder.Basics
             boxProperties.ShowTape = hasTape;
             boxProperties.TapeColor = tapeColor;
             boxProperties.TapeWidth = UnitsManager.ConvertLengthFrom(tapeWidth, _unitSystem);
-            boxProperties.NetWeight = optNetWeight;
+            boxProperties.SetNetWeight( optNetWeight );
         }
 
         private void LoadPackProperties(XmlElement eltPackProperties)
@@ -1613,7 +1613,7 @@ namespace treeDiM.StackBuilder.Basics
                 , GetTypeByGuid(new Guid(sBoxId)) as BoxProperties
                 , caseDefinition
                 , constraintSet);
-            caseOfBoxProperties.Weight = UnitsManager.ConvertMassFrom(Convert.ToDouble(sweight, System.Globalization.CultureInfo.InvariantCulture), _unitSystem);
+            caseOfBoxProperties.SetWeight( UnitsManager.ConvertMassFrom(Convert.ToDouble(sweight, System.Globalization.CultureInfo.InvariantCulture), _unitSystem) );
             caseOfBoxProperties.Guid = new Guid(sid);
             caseOfBoxProperties.TextureList = listTexture;
             caseOfBoxProperties.SetAllColors( colors );

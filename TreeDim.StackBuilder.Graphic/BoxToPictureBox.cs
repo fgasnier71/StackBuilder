@@ -17,7 +17,7 @@ namespace treeDiM.StackBuilder.Graphics
     /// </summary>
     public class BoxToPictureBox
     {
-        public static void Draw(BProperties boxProperties, HalfAxis.HAxis axis, PictureBox pictureBox)
+        public static void Draw(Packable packable, HalfAxis.HAxis axis, PictureBox pictureBox)
         {
             // get horizontal angle
             double angle = 45;
@@ -30,7 +30,11 @@ namespace treeDiM.StackBuilder.Graphics
             graphics.Target = Vector3D.Zero;
             graphics.SetViewport(-500.0f, -500.0f, 500.0f, 500.0f);
             // draw
-            Box box = new Box(0, boxProperties);
+            Box box = null;
+            if (packable is PackProperties)
+                box = new Pack(0, packable as PackProperties);
+            else
+                box = new Box(0, packable);
             // set axes
             HalfAxis.HAxis lengthAxis = HalfAxis.HAxis.AXIS_X_P;
             HalfAxis.HAxis widthAxis = HalfAxis.HAxis.AXIS_Y_P;

@@ -9,5 +9,7 @@ namespace treeDiM.StackBuilder.Graphics
         public virtual void DrawBegin(Graphics3D graphics) { }
         public abstract void Draw(Graphics3D graphics);
         public virtual void DrawEnd(Graphics3D graphics) { }
+
+        public virtual void Draw(Graphics2D graphics) { }
     }
 }

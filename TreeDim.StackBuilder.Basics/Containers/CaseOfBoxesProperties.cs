@@ -34,7 +34,7 @@ namespace treeDiM.StackBuilder.Basics
             _caseDefinition = caseDefinition;
             _constraintSet = constraintSet;
 
-            base.Weight = _caseDefinition.CaseEmptyWeight(_boxProperties, _constraintSet);
+            SetWeight( _caseDefinition.CaseEmptyWeight(_boxProperties, _constraintSet));
 
             OnAttributeModified(boxProperties);
         }
@@ -69,9 +69,9 @@ namespace treeDiM.StackBuilder.Basics
         public override void OnAttributeModified(ItemBase modifiedAttribute)
         {
             Vector3D outerDim = _caseDefinition.OuterDimensions(_boxProperties, _constraintSet);
-            Length = outerDim.X;
-            Width = outerDim.Y;
-            Height = outerDim.Z;
+            SetLength(outerDim.X);
+            SetWidth(outerDim.Y);
+            SetHeight(outerDim.Z);
 
             Vector3D innerDim = _caseDefinition.InnerDimensions(_boxProperties);
             InsideLength = innerDim.X;

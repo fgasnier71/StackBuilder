@@ -29,6 +29,14 @@ namespace treeDiM.StackBuilder.Graphics
             _innerBox = new Box(0, packProperties.Box);
             _forceTransparency = false;
         }
+        public Pack(uint pickId, PackProperties packProperties, LayerPosition position)
+            : base(pickId, packProperties, position)
+        { 
+            _packProperties = packProperties;
+            _arrangement = _packProperties.Arrangement;
+            _innerBox = new Box(0, packProperties.Box);
+            _forceTransparency = false;
+        }
         #endregion
 
         #region Public properties
@@ -40,6 +48,12 @@ namespace treeDiM.StackBuilder.Graphics
         #endregion
 
         #region Drawable implementation
+        public override void Draw(Graphics2D graphics)
+        {
+            List<Box> boxes = InnerBoxes;
+            foreach (Box b in boxes)
+                graphics.DrawBox(b);              
+        }
         public override void Draw(Graphics3D graphics)
         {
             // draw tray back faces

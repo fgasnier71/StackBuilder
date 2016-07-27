@@ -1,4 +1,4 @@
-﻿#region Using directives
+﻿ #region Using directives
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +14,7 @@ namespace treeDiM.StackBuilder.Basics
     public class AnalysisCasePallet : Analysis
     {
         #region Data members
-        public BProperties _bProperties;
+        public Packable _packable;
         public PalletProperties _palletProperties;
 
         public PalletCornerProperties _palletCornerProperties;
@@ -26,16 +26,16 @@ namespace treeDiM.StackBuilder.Basics
 
         #region Constructor
         public AnalysisCasePallet(
-            BProperties bProperties, 
+            Packable packable, 
             PalletProperties palletProperties,
             ConstraintSetCasePallet constraintSet)
-            : base(bProperties.ParentDocument)
+            : base(packable.ParentDocument)
         {
             // sanity checks
             if (palletProperties.ParentDocument != ParentDocument)
                 throw new Exception("box & pallet do not belong to the same document");
 
-            _bProperties = bProperties;
+            _packable = packable;
             _palletProperties = palletProperties;
             _constraintSet = constraintSet;
          }
@@ -44,15 +44,18 @@ namespace treeDiM.StackBuilder.Basics
         #region Analysis override
         public override Vector3D ContentDimensions
         {
-            get { return _bProperties.Dimensions; }
+            get { return _packable.OuterDimensions; }
         }
         public override double ContentWeight
         {
-            get { return BProperties.Weight; }
+            get
+            {
+                return BProperties.Weight; 
+            }
         }
         public override double ContentVolume
         {
-            get { return _bProperties.Volume; }
+            get { return _packable.Volume; }
         }
         public override Vector2D ContainerDimensions
         {
@@ -84,7 +87,10 @@ namespace treeDiM.StackBuilder.Basics
         }
         public override double ContainerWeight
         {
-            get { return _palletProperties.Weight; }
+            get
+            {
+                return _palletProperties.Weight; 
+            }
         }
         public override InterlayerProperties Interlayer(int index)
         {
@@ -136,15 +142,15 @@ namespace treeDiM.StackBuilder.Basics
         #endregion
 
         #region Public properties
-        public BProperties BProperties
+        public Packable BProperties
         {
-            get { return _bProperties; }
+            get { return _packable; }
             set
             {
-                if (value == _bProperties) return;
-                if (null != _bProperties) _bProperties.RemoveDependancy(this);
-                _bProperties = value;
-                _bProperties.AddDependancy(this);
+                if (value == _packable) return;
+                if (null != _packable) _packable.RemoveDependancy(this);
+                _packable = value;
+                _packable.AddDependancy(this);
             }
         }
         public PalletProperties PalletProperties

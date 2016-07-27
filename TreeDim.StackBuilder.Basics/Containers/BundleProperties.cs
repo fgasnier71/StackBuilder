@@ -33,12 +33,18 @@ namespace treeDiM.StackBuilder.Basics
         }
         #endregion
 
-        #region Public properties
+        #region Override packable
         public override double Height
-        {
-            get { return _unitThickness * _noFlats; }
-            set { }
-        }
+        { get { return _unitThickness * _noFlats; } }
+        public override double Weight
+        { get { return _unitWeight * _noFlats; } }
+        public override OptDouble NetWeight
+        { get { return new OptDouble(false, 0.0); } }
+        public override bool OrientationAllowed(HalfAxis.HAxis axis)
+        {   return (axis == HalfAxis.HAxis.AXIS_Z_N) || (axis == HalfAxis.HAxis.AXIS_Z_P); }
+        #endregion
+
+        #region Public properties
         public Color Color
         {
             get { return _color; }
@@ -62,11 +68,7 @@ namespace treeDiM.StackBuilder.Basics
         {
             _color = color;
         }
-        public override double Weight
-        {
-            get { return _unitWeight * _noFlats; }
-            set { base.Weight = value; }
-        }
+
         public double UnitThickness
         {
             get { return _unitThickness; }

@@ -34,9 +34,11 @@
             this.checkBoxY = new System.Windows.Forms.CheckBox();
             this.checkBoxZ = new System.Windows.Forms.CheckBox();
             this.pictureBoxZ = new System.Windows.Forms.PictureBox();
+            this.pictureBoxGlobal = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxY)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxZ)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGlobal)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBoxX
@@ -99,6 +101,16 @@
             this.pictureBoxZ.TabIndex = 5;
             this.pictureBoxZ.TabStop = false;
             // 
+            // pictureBoxGlobal
+            // 
+            this.pictureBoxGlobal.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBoxGlobal.Location = new System.Drawing.Point(0, 0);
+            this.pictureBoxGlobal.Name = "pictureBoxGlobal";
+            this.pictureBoxGlobal.Size = new System.Drawing.Size(280, 110);
+            this.pictureBoxGlobal.TabIndex = 6;
+            this.pictureBoxGlobal.TabStop = false;
+            this.pictureBoxGlobal.Visible = false;
+            // 
             // uCtrlCaseOrientation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -109,12 +121,14 @@
             this.Controls.Add(this.pictureBoxY);
             this.Controls.Add(this.checkBoxX);
             this.Controls.Add(this.pictureBoxX);
+            this.Controls.Add(this.pictureBoxGlobal);
             this.Name = "uCtrlCaseOrientation";
             this.Size = new System.Drawing.Size(280, 110);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.onPaint);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxX)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxY)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxZ)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGlobal)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -123,10 +137,11 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBoxX;
-        private System.Windows.Forms.CheckBox checkBoxX;
         private System.Windows.Forms.PictureBox pictureBoxY;
+        private System.Windows.Forms.PictureBox pictureBoxZ;
+        private System.Windows.Forms.CheckBox checkBoxX;
         private System.Windows.Forms.CheckBox checkBoxY;
         private System.Windows.Forms.CheckBox checkBoxZ;
-        private System.Windows.Forms.PictureBox pictureBoxZ;
-    }
+        private System.Windows.Forms.PictureBox pictureBoxGlobal;
+     }
 }

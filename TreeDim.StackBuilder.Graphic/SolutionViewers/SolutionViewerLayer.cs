@@ -33,7 +33,7 @@ namespace treeDiM.StackBuilder.Graphics
         #endregion
 
         #region Public methods
-        public void Draw(Graphics2D graphics, BProperties bProperties, double height, bool selected)
+        public void Draw(Graphics2D graphics, Packable packable, double height, bool selected)
         {
             graphics.NumberOfViews = 1;
             graphics.Graphics.Clear(selected ? Color.LightBlue : Color.White);
@@ -45,7 +45,14 @@ namespace treeDiM.StackBuilder.Graphics
                 graphics.DrawRectangle(Vector2D.Zero, new Vector2D(_layer.PalletLength, _layer.PalletWidth), Color.Black);
                 uint pickId = 0;
                 foreach (LayerPosition bPosition in _layer)
-                    graphics.DrawBox(new Box(pickId++, bProperties, bPosition));
+                {
+                    Box b = null;
+                    if (packable is PackProperties)
+                        b = new Pack(pickId++, packable as PackProperties, bPosition);
+                    else
+                        b = new Box(pickId++, packable, bPosition);
+                    b.Draw(graphics);
+                }
 
                 // draw axes
                 bool showAxis = false;

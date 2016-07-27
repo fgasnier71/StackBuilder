@@ -25,11 +25,16 @@ namespace treeDiM.StackBuilder.Graphics
         #region Event handlers
         private void onPaint(object sender, PaintEventArgs e)
         {
-            if (null != _bProperties)
+            if (null != _packable)
             {
-                BoxToPictureBox.Draw(_bProperties, HalfAxis.HAxis.AXIS_X_P, pictureBoxX);
-                BoxToPictureBox.Draw(_bProperties, HalfAxis.HAxis.AXIS_Y_P, pictureBoxY);
-                BoxToPictureBox.Draw(_bProperties, HalfAxis.HAxis.AXIS_Z_P, pictureBoxZ);
+                if (PackableOrientationAllowed)
+                {
+                    BoxToPictureBox.Draw(_packable, HalfAxis.HAxis.AXIS_X_P, pictureBoxX);
+                    BoxToPictureBox.Draw(_packable, HalfAxis.HAxis.AXIS_Y_P, pictureBoxY);
+                    BoxToPictureBox.Draw(_packable, HalfAxis.HAxis.AXIS_Z_P, pictureBoxZ);
+                }
+                else
+                    BoxToPictureBox.Draw(_packable, HalfAxis.HAxis.AXIS_Z_P, pictureBoxGlobal);
             }
         }
         private void onCheckedChanged(object sender, EventArgs e)
@@ -44,30 +49,56 @@ namespace treeDiM.StackBuilder.Graphics
         #endregion
 
         #region Public properties
-        public BProperties BProperties
+        public Packable BProperties
         {
             set
             {
-                _bProperties = value;
+                _packable = value;
+                if (null == _packable)
+                    return;
+                bool allOrientationsAllowed = PackableOrientationAllowed;
+                pictureBoxX.Visible = allOrientationsAllowed;
+                checkBoxX.Visible = allOrientationsAllowed;
+                pictureBoxY.Visible = allOrientationsAllowed;
+                checkBoxY.Visible = allOrientationsAllowed;
+                pictureBoxZ.Visible = allOrientationsAllowed;
+                checkBoxZ.Visible = allOrientationsAllowed;
+
+                pictureBoxGlobal.Visible = !allOrientationsAllowed;
+
                 Invalidate();
             }
         }
+        private bool PackableOrientationAllowed
+        {
+            get
+            {
+                return (null == _packable) ? false : _packable.OrientationAllowed(HalfAxis.HAxis.AXIS_X_N);
+            }
+        }
+
         public bool[] AllowedOrientations
         {
-            get { return new bool[]{ checkBoxX.Checked, checkBoxY.Checked, checkBoxZ.Checked }; }
+            get
+            {
+                if (PackableOrientationAllowed)
+                    return new bool[] { checkBoxX.Checked, checkBoxY.Checked, checkBoxZ.Checked };
+                else
+                    return new bool[] { false, false, true };
+            }
             set { checkBoxX.Checked = value[0]; checkBoxY.Checked = value[1]; checkBoxZ.Checked = value[2]; }
         }
         public bool IsOrientationAllowed(HalfAxis.HAxis axis)
         {
-            if (HalfAxis.HAxis.AXIS_X_N == axis && HalfAxis.HAxis.AXIS_X_P == axis) return checkBoxX.Checked;
-            else if (HalfAxis.HAxis.AXIS_Y_N == axis && HalfAxis.HAxis.AXIS_Y_P == axis) return checkBoxY.Checked;
-            else if (HalfAxis.HAxis.AXIS_Z_N == axis && HalfAxis.HAxis.AXIS_Z_P == axis) return checkBoxZ.Checked;
+            if (HalfAxis.HAxis.AXIS_X_N == axis || HalfAxis.HAxis.AXIS_X_P == axis) return PackableOrientationAllowed ? checkBoxX.Checked : false;
+            else if (HalfAxis.HAxis.AXIS_Y_N == axis || HalfAxis.HAxis.AXIS_Y_P == axis) return PackableOrientationAllowed ? checkBoxY.Checked : false;
+            else if (HalfAxis.HAxis.AXIS_Z_N == axis || HalfAxis.HAxis.AXIS_Z_P == axis) return PackableOrientationAllowed? checkBoxZ.Checked : true;
             else return false;
         }
         #endregion
 
         #region Data members
-        private BProperties _bProperties;
+        private Packable _packable;
         #endregion
     }
 }

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Drawing;
 using System.Diagnostics;
+using System.Linq;
 
 using Sharp3D.Math.Core;
 using treeDiM.StackBuilder.Basics;
@@ -80,35 +81,42 @@ namespace treeDiM.StackBuilder.Graphics
             _position.Y = y;
             _position.Z = z;
         }
-        public Box(uint pickId, BProperties bProperties)
+        public Box(uint pickId, Packable packable)
         {
             _pickId = pickId;
-            _dim[0] = bProperties.Length;
-            _dim[1] = bProperties.Width;
-            _dim[2] = bProperties.Height;
+            _dim[0] = packable.Length;
+            _dim[1] = packable.Width;
+            _dim[2] = packable.Height;
 
-            _colors = bProperties.Colors;
+            _colors = Enumerable.Repeat<Color>(Color.Chocolate, 6).ToArray();
 
-            // IsBundle ?
-            _isBundle = bProperties.IsBundle;
-
-            // textures
-            BoxProperties boxProperties = bProperties as BoxProperties;
-            if (null != boxProperties)
+            BProperties bProperties = packable as BProperties;
+            if (null != bProperties)
             {
-                List<Pair<HalfAxis.HAxis, Texture>> textures = boxProperties.TextureList;
-                foreach (Pair<HalfAxis.HAxis, Texture> tex in textures)
-                {
-                    int iIndex = (int)tex.first;
-                    if (null == _textureLists[iIndex])
-                        _textureLists[iIndex] = new List<Texture>();
-                    _textureLists[iIndex].Add(tex.second);
+                _colors = bProperties.Colors;
 
+                // IsBundle ?
+                _isBundle = bProperties.IsBundle;
+                if (_isBundle)
+                    _noFlats = (bProperties as BundleProperties).NoFlats;
+                // textures
+                BoxProperties boxProperties = bProperties as BoxProperties;
+                if (null != boxProperties)
+                {
+                    List<Pair<HalfAxis.HAxis, Texture>> textures = boxProperties.TextureList;
+                    foreach (Pair<HalfAxis.HAxis, Texture> tex in textures)
+                    {
+                        int iIndex = (int)tex.first;
+                        if (null == _textureLists[iIndex])
+                            _textureLists[iIndex] = new List<Texture>();
+                        _textureLists[iIndex].Add(tex.second);
+
+                    }
+                    // tape
+                    _showTape = boxProperties.ShowTape;
+                    _tapeWidth = boxProperties.TapeWidth;
+                    _tapeColor = boxProperties.TapeColor;
                 }
-                // tape
-                _showTape = boxProperties.ShowTape;
-                _tapeWidth = boxProperties.TapeWidth;
-                _tapeColor = boxProperties.TapeColor;
             }
         }
         public Box(uint pickId, PalletCapProperties capProperties, Vector3D position)
@@ -126,32 +134,14 @@ namespace treeDiM.StackBuilder.Graphics
             WidthAxis = Vector3D.YAxis;
 
         }
-        public Box(uint pickId, BProperties bProperties, BoxPosition bPosition)
+        public Box(uint pickId, Packable packable, BoxPosition bPosition)
         {
             if (!bPosition.IsValid)
                 throw new GraphicsException("Invalid BoxPosition: can not create box");
             _pickId = pickId;
-            _dim[0] = bProperties.Length;
-            _dim[1] = bProperties.Width;
-            _dim[2] = bProperties.Height;
-
-            _colors = bProperties.Colors;
-
-            BoxProperties boxProperties = bProperties as BoxProperties;
-            if (null != boxProperties)
-            {
-                List<Pair<HalfAxis.HAxis, Texture>> textures = boxProperties.TextureList;
-                foreach (Pair<HalfAxis.HAxis, Texture> tex in textures)
-                {
-                    int iIndex = (int)tex.first;
-                    if (null == _textureLists[iIndex])
-                        _textureLists[iIndex] = new List<Texture>();
-                    _textureLists[iIndex].Add(tex.second);
-                }
-                _showTape = boxProperties.ShowTape;
-                _tapeWidth = boxProperties.TapeWidth;
-                _tapeColor = boxProperties.TapeColor;
-            }
+            _dim[0] = packable.Length;
+            _dim[1] = packable.Width;
+            _dim[2] = packable.Height;
 
             // set position
             Position = bPosition.Position;
@@ -159,26 +149,12 @@ namespace treeDiM.StackBuilder.Graphics
             LengthAxis = HalfAxis.ToVector3D(bPosition.DirectionLength);
             // set direction width
             WidthAxis = HalfAxis.ToVector3D(bPosition.DirectionWidth);
-            // IsBundle ?
-            _isBundle = bProperties.IsBundle;
-            if (bProperties.IsBundle)
-            {
-                BundleProperties bundleProp = bProperties as BundleProperties;
-                if (null != bundleProp)
-                    _noFlats = bundleProp.NoFlats;
-            }
-        }
 
-        public Box(uint pickId, BProperties bProperties, LayerPosition bPosition)
-        {
-            if (!bPosition.IsValid)
-                throw new GraphicsException("Invalid BoxPosition: can not create box");
-            _pickId = pickId;
-            _dim[0] = bProperties.Length;
-            _dim[1] = bProperties.Width;
-            _dim[2] = bProperties.Height;
+            _colors = Enumerable.Repeat<Color>(Color.Chocolate, 6).ToArray();
 
-            _colors = bProperties.Colors;
+            BProperties bProperties = packable as BProperties;
+            if (null != bProperties)
+                _colors = bProperties.Colors;
 
             BoxProperties boxProperties = bProperties as BoxProperties;
             if (null != boxProperties)
@@ -196,12 +172,6 @@ namespace treeDiM.StackBuilder.Graphics
                 _tapeColor = boxProperties.TapeColor;
             }
 
-            // set position
-            Position = bPosition.Position;
-            // set direction length
-            LengthAxis = HalfAxis.ToVector3D(bPosition.LengthAxis);
-            // set direction width
-            WidthAxis = HalfAxis.ToVector3D(bPosition.WidthAxis);
             // IsBundle ?
             _isBundle = bProperties.IsBundle;
             if (bProperties.IsBundle)
@@ -210,6 +180,65 @@ namespace treeDiM.StackBuilder.Graphics
                 if (null != bundleProp)
                     _noFlats = bundleProp.NoFlats;
             }
+            PackProperties packProperties = packable as PackProperties;
+            if (null != packProperties)
+            {
+            }
+        }
+
+        public Box(uint pickId, Packable packable, LayerPosition bPosition)
+        {
+            if (!bPosition.IsValid)
+                throw new GraphicsException("Invalid BoxPosition: can not create box");
+            _pickId = pickId;
+            _dim[0] = packable.Length;
+            _dim[1] = packable.Width;
+            _dim[2] = packable.Height;
+
+            // set position
+            Position = bPosition.Position;
+            // set direction length
+            LengthAxis = HalfAxis.ToVector3D(bPosition.LengthAxis);
+            // set direction width
+            WidthAxis = HalfAxis.ToVector3D(bPosition.WidthAxis);
+
+            _colors = Enumerable.Repeat<Color>(Color.Chocolate, 6).ToArray();
+
+            BProperties bProperties = packable as BProperties;
+            if (null != bProperties)
+            {
+                _colors = bProperties.Colors;
+
+                BoxProperties boxProperties = packable as BoxProperties;
+                if (null != boxProperties)
+                {
+                    List<Pair<HalfAxis.HAxis, Texture>> textures = boxProperties.TextureList;
+                    foreach (Pair<HalfAxis.HAxis, Texture> tex in textures)
+                    {
+                        int iIndex = (int)tex.first;
+                        if (null == _textureLists[iIndex])
+                            _textureLists[iIndex] = new List<Texture>();
+                        _textureLists[iIndex].Add(tex.second);
+                    }
+                    _showTape = boxProperties.ShowTape;
+                    _tapeWidth = boxProperties.TapeWidth;
+                    _tapeColor = boxProperties.TapeColor;
+                }
+                // IsBundle ?
+                _isBundle = bProperties.IsBundle;
+                if (bProperties.IsBundle)
+                {
+                    BundleProperties bundleProp = packable as BundleProperties;
+                    if (null != bundleProp)
+                        _noFlats = bundleProp.NoFlats;
+                }
+            }
+            PackProperties packProperties = packable as PackProperties;
+            if (null != packProperties)
+            { 
+            }
+
+            
         }
 
         public Box(uint pickId, PackProperties packProperties, BoxPosition bPosition)
@@ -221,10 +250,8 @@ namespace treeDiM.StackBuilder.Graphics
             _dim[1] = packProperties.Width;
             _dim[2] = packProperties.Height;
 
-            _colors = new Color[]
-            {
-                Color.Chocolate, Color.Chocolate, Color.Chocolate, Color.Chocolate, Color.Chocolate, Color.Chocolate
-            };
+            _colors = Enumerable.Repeat<Color>(Color.Chocolate, 6).ToArray();
+
             // set position
             Position = bPosition.Position;
             // set direction length
@@ -694,6 +721,10 @@ namespace treeDiM.StackBuilder.Graphics
         #endregion
 
         #region Public methods
+        public override void Draw(Graphics2D graphics)
+        {
+            graphics.DrawBox(this);
+        }
         public override void Draw(Graphics3D graphics)
         {
             foreach (Face face in Faces)
