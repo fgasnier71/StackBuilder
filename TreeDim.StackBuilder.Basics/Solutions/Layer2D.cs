@@ -195,16 +195,25 @@ namespace treeDiM.StackBuilder.Basics
             }
             set { _maximumSpace = value; }
         }
-        public void UpdateMaxSpace(double space)
+        public void UpdateMaxSpace(double space, string patternName)
         {
             if (space < 0.0 - _epsilon)
             {
-                _log.Error( string.Format("Negative space value? ({0})", space) );
+                _log.Info( string.Format("{0} : Negative space value? ({1})", patternName, space) );
                 return;
             }
-            if (double.IsInfinity(space) || double.IsNaN(space))
+            else if (double.IsNaN(space))
+            {
+                _log.Info( string.Format("{0} : Invalid space value! (NaN (NotANumber))", patternName) );
                 return;
-            _maximumSpace = Math.Max(space, _maximumSpace);
+            }
+            else if (double.IsInfinity(space))
+            { 
+                _log.Info( string.Format("{0} : Invalid space value! (Infinity)", patternName) );
+                return;
+            }
+            else
+                _maximumSpace = Math.Max(space, _maximumSpace);
         }
         #endregion
 

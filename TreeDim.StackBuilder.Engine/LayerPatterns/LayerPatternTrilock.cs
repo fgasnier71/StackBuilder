@@ -102,12 +102,12 @@ namespace treeDiM.StackBuilder.Engine
                             , offsetY + j * (boxWidth + spaceY_area3))
                         , HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P);
 
-            layer.UpdateMaxSpace(spaceX_area1);
-            layer.UpdateMaxSpace(spaceY_area1);
-            layer.UpdateMaxSpace(spaceX_area2);
-            layer.UpdateMaxSpace(spaceY_area2);
-            layer.UpdateMaxSpace(spaceX_area3);
-            layer.UpdateMaxSpace(spaceY_area3);
+            layer.UpdateMaxSpace(spaceX_area1, Name);
+            layer.UpdateMaxSpace(spaceY_area1, Name);
+            layer.UpdateMaxSpace(spaceX_area2, Name);
+            layer.UpdateMaxSpace(spaceY_area2, Name);
+            layer.UpdateMaxSpace(spaceX_area3, Name);
+            layer.UpdateMaxSpace(spaceY_area3, Name);
         }
 
         public override int GetNumberOfVariants(Layer2D layer) { return 1; }

@@ -56,8 +56,8 @@ namespace treeDiM.StackBuilder.Engine
                             )
                         , HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P);
             // set spacing to ZERO i.e. no spacing with column layout
-            layer.UpdateMaxSpace(spaceX);
-            layer.UpdateMaxSpace(spaceY);
+            layer.UpdateMaxSpace(spaceX, Name);
+            layer.UpdateMaxSpace(spaceY, Name);
         }
 
         public override int GetNumberOfVariants(Layer2D layer)

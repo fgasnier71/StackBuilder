@@ -134,8 +134,8 @@ namespace treeDiM.StackBuilder.Engine
                 spaceY_area3 = 0.5 * (actualWidth - sizeY_area3 * boxLength - 2.0 * (spaceY_area1 > 0 ? sizeY_area1 * boxWidth : sizeY_area2 * boxLength));
             }
             // set spacing
-            layer.UpdateMaxSpace(spaceX_area3);
-            layer.UpdateMaxSpace(spaceY_area3);
+            layer.UpdateMaxSpace( spaceX_area3, Name );
+            layer.UpdateMaxSpace( spaceY_area3, Name );
         }
         public override int GetNumberOfVariants(Layer2D layer) { return 1; }
         public override bool IsSymetric { get { return true; } }

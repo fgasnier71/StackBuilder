@@ -80,9 +80,9 @@ namespace treeDiM.StackBuilder.Engine
                             , offsetY + j * (boxLength + spaceYWidth))
                         , HalfAxis.HAxis.AXIS_Y_P, HalfAxis.HAxis.AXIS_X_N);
 
-            layer.UpdateMaxSpace(spaceX);
-            layer.UpdateMaxSpace(spaceYLength);
-            layer.UpdateMaxSpace(spaceYWidth);
+            layer.UpdateMaxSpace(spaceX, Name);
+            layer.UpdateMaxSpace(spaceYLength, Name);
+            layer.UpdateMaxSpace(spaceYWidth, Name);
         }
 
         protected void GetSizeXY(double boxLength, double boxWidth, double palletLength, double palletWidth,

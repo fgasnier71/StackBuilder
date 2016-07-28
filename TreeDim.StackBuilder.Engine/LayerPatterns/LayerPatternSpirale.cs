@@ -95,7 +95,7 @@ namespace treeDiM.StackBuilder.Engine
             double spaceX = spaceX_Area1 > 0 ? spaceX_Area1 : spaceX_Area2;
             double spaceY = spaceY_Area1 > 0 ? spaceY_Area1 : spaceY_Area2;
 
-            layer.UpdateMaxSpace( Math.Min(spaceX, spaceY) );
+            layer.UpdateMaxSpace( Math.Min(spaceX, spaceY), Name );
         }
 
         public override int GetNumberOfVariants(Layer2D layer) { return 1; }

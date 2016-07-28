@@ -74,9 +74,9 @@ namespace treeDiM.StackBuilder.Engine
                         , HalfAxis.HAxis.AXIS_Y_P, HalfAxis.HAxis.AXIS_X_N);
 
             // maximum space
-            layer.UpdateMaxSpace( spaceYLength);
-            layer.UpdateMaxSpace( spaceYWidth );
-            layer.UpdateMaxSpace( spaceX );
+            layer.UpdateMaxSpace( spaceYLength, Name );
+            layer.UpdateMaxSpace( spaceYWidth, Name );
+            layer.UpdateMaxSpace( spaceX, Name );
         }
 
         private void GetSizeXY(double boxLength, double boxWidth, double palletLength, double palletWidth,
