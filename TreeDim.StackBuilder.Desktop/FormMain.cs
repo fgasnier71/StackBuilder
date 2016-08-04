@@ -1245,16 +1245,6 @@ namespace treeDiM.StackBuilder.Desktop
             try { CasePalletAnalysis analysis = ((DocumentSB)ActiveDocument).CreateNewCasePalletAnalysisUI(); }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
-        private void toolAddNewPackPalletAnalysis(object sender, EventArgs e)
-        {
-            try { PackPalletAnalysis analysis = ((DocumentSB)ActiveDocument).CreateNewPackPalletAnalysisUI(); }
-            catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
-        }
-        private void toolAddNewBundlePalletAnalysis(object sender, EventArgs e)
-        {
-            try { CasePalletAnalysis analysis = ((DocumentSB)ActiveDocument).CreateNewBundlePalletAnalysisUI(); }
-            catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
-        }
         private void toolAddNewBoxCaseAnalysis(object sender, EventArgs e)
         {
             try { BoxCaseAnalysis analysis = ((DocumentSB)ActiveDocument).CreateNewBoxCaseAnalysisUI(); }

@@ -441,88 +441,15 @@ namespace treeDiM.StackBuilder.Desktop
             */ 
             return null;
         }
-        public PackPalletAnalysis CreateNewPackPalletAnalysisUI()
-        {
-            if (!CanCreatePackPalletAnalysis) return null;
-
-            FormNewAnalysisPackPallet form = new FormNewAnalysisPackPallet(this, null);
-            form.Packs = ListByType(typeof(PackProperties)).ToArray();
-            form.Pallets = ListByType(typeof(PalletProperties)).ToArray();
-            form.Interlayers = ListByType(typeof(InterlayerProperties)).ToArray();
-
-            if (DialogResult.OK == form.ShowDialog())
-            {
-                PackPalletConstraintSet constraintSet = new PackPalletConstraintSet();
-                constraintSet.MaximumPalletHeight = form.MaximumPalletHeight;
-                constraintSet.MaximumPalletWeight = form.MaximumPalletWeight;
-                constraintSet.MaximumLayerWeight = form.MaximumLayerWeight;
-                constraintSet.OverhangX = form.OverhangX;
-                constraintSet.OverhangY = form.OverhangY;
-                constraintSet.MinOverhangX = form.MinimumOverhangX;
-                constraintSet.MinOverhangY = form.MinimumOverhangY;
-                constraintSet.MinimumSpace = form.MinimumSpace;
-                constraintSet.MaximumSpaceAllowed = form.MaximumSpace;
-                constraintSet.HasFirstInterlayer = form.HasFirstInterlayer;
-                constraintSet.InterlayerPeriod = form.InterlayerPeriod;
-                constraintSet.LayerSwapPeriod = form.LayerSwapPeriod;
-
-                PackPalletAnalysis analysis = CreateNewPackPalletAnalysis(
-                    form.ItemName, form.ItemDescription,
-                    form.PackProperties, form.PalletProperties,
-                    form.InterlayerProperties,
-                    constraintSet,
-                    new PackPalletSolver());
-                if (null == analysis)
-                    MessageBox.Show(Properties.Resources.ID_ANALYSISHASNOSOLUTION, Application.ProductName, MessageBoxButtons.OK);
-                return analysis;
-            }
-            return null;
-        }
-        /// <summary>
-        /// Creates a new bundle analysis
-        /// </summary>
-        /// <returns>created bundle analysis</returns>
-        public CasePalletAnalysis CreateNewBundlePalletAnalysisUI()
-        {
-            FormNewAnalysisBundle form = new FormNewAnalysisBundle(this, null);
-            form.Boxes = Bundles.ToArray();
-            form.Pallets = Pallets.ToArray();
-            if (DialogResult.OK == form.ShowDialog())
-            {
-                // build constraintSet
-                BundlePalletConstraintSet constraintSet = new BundlePalletConstraintSet();
-                // overhang / underhang
-                constraintSet.OverhangX = form.OverhangX;
-                constraintSet.OverhangY = form.OverhangY;
-                // allowed patterns
-                foreach (string s in form.AllowedPatterns)
-                    constraintSet.SetAllowedPattern(s);
-                // allow aligned / alternate layer
-                constraintSet.AllowAlternateLayers = form.AllowAlternateLayers;
-                constraintSet.AllowAlignedLayers = form.AllowAlignedLayers;
-                // stop criterion
-                constraintSet.UseMaximumHeight = form.UseMaximumPalletHeight;
-                constraintSet.UseMaximumNumberOfCases = form.UseMaximumNumberOfBoxes;
-                constraintSet.UseMaximumPalletWeight = form.UseMaximumPalletWeight;
-                constraintSet.MaximumHeight = form.MaximumPalletHeight;
-                constraintSet.MaximumNumberOfItems = form.MaximumNumberOfBoxes;
-                constraintSet.MaximumPalletWeight = form.MaximumPalletWeight;
- 
-                return CreateNewCasePalletAnalysis(form.ItemName, form.ItemDescription,
-                    form.SelectedBundle, form.SelectedPallet, null, null,
-                    null, null, null,
-                    constraintSet, 
-                    new CasePalletSolver());
-            }                
-            return null;
-        }
 
         public BoxCaseAnalysis CreateNewBoxCaseAnalysisUI()
         {
-            FormNewBoxCaseAnalysis form = new FormNewBoxCaseAnalysis(this);
+            if (!CanCreateBoxCaseAnalysis) return null;
 
+            FormNewBoxCaseAnalysis form = new FormNewBoxCaseAnalysis(this);
             if (DialogResult.OK == form.ShowDialog())
-            { 
+            {
+                /*
                 // build constraint set
                 BoxCaseConstraintSet constraintSet = new BoxCaseConstraintSet();
                 // allowed axes
@@ -543,6 +470,7 @@ namespace treeDiM.StackBuilder.Desktop
                     , form.SelectedBox, form.SelectedCase
                     , constraintSet
                     , new BoxCaseSolver());
+                 */
             }
             return null;
         }
@@ -942,7 +870,6 @@ namespace treeDiM.StackBuilder.Desktop
                     BoxCaseConstraintSet boxCaseConstraintSet = constraintSet as BoxCaseConstraintSet;
                     if (null != boxCaseConstraintSet)
                     {
-                        // allowed axes
                         boxCaseConstraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_X_N, form.AllowVerticalX);
                         boxCaseConstraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_X_P, form.AllowVerticalX);
                         boxCaseConstraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Y_N, form.AllowVerticalY);

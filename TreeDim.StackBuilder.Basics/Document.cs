@@ -650,6 +650,8 @@ namespace treeDiM.StackBuilder.Basics
             )
         {
             AnalysisCasePallet analysis = new AnalysisCasePallet(packable, pallet, constraintSet);
+            analysis.Name = name;
+            analysis.Description = description;
             foreach (InterlayerProperties interlayer in interlayers)
                 analysis.AddInterlayer(interlayer);
             analysis.PalletCornerProperties     = palletCorners;

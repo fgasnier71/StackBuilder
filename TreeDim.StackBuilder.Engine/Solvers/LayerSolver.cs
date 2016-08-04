@@ -111,6 +111,14 @@ namespace treeDiM.StackBuilder.Engine
             return layer;
         }
 
+        /// <summary>
+        /// Used to compute load dimension
+        /// </summary>
+        /// <param name="layers"></param>
+        /// <param name="dimBox"></param>
+        /// <param name="dimContainer"></param>
+        /// <param name="actualDimensions"></param>
+        /// <returns></returns>
         public bool GetDimensions(List<LayerDesc> layers, Vector3D dimBox, Vector2D dimContainer, out Vector2D actualDimensions)
         {
             actualDimensions = new Vector2D();
