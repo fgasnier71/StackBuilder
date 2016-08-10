@@ -39,7 +39,8 @@ namespace treeDiM.StackBuilder.Graphics
         }
         private void onCheckedChanged(object sender, EventArgs e)
         {
-            CheckedChanged(this, e);
+            if (null != CheckedChanged)
+                CheckedChanged(this, e);
         }
         #endregion
 
@@ -86,7 +87,12 @@ namespace treeDiM.StackBuilder.Graphics
                 else
                     return new bool[] { false, false, true };
             }
-            set { checkBoxX.Checked = value[0]; checkBoxY.Checked = value[1]; checkBoxZ.Checked = value[2]; }
+            set
+            {
+                checkBoxX.Checked = value[0];
+                checkBoxY.Checked = value[1];
+                checkBoxZ.Checked = value[2]; 
+            }
         }
         public bool IsOrientationAllowed(HalfAxis.HAxis axis)
         {

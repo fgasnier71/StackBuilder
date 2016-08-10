@@ -59,7 +59,7 @@ namespace treeDiM.StackBuilder.Graphics.Controls
                 SelectedIndex = iSelected;
         }
 
-        public ItemBase SelectededType
+        public ItemBase SelectedType
         {
             get
             {

@@ -9,12 +9,15 @@ using Sharp3D.Math.Core;
 
 namespace treeDiM.StackBuilder.Basics
 {
+    #region IItemListener
     public interface IItemListener
     {
         void Update(ItemBase itemFrom);
         void Kill(ItemBase itemFrom);
     }
+    #endregion
 
+    #region ItemBase
     /// <summary>
     /// This class holds Name / description properties for Box / Pallet / Interlayer / Analysis
     /// it also handle dependancy problems
@@ -74,13 +77,11 @@ namespace treeDiM.StackBuilder.Basics
         #endregion
 
         #region Filtering properties
-        public bool CanBePalletized { get { return false; } }
-        public bool CanBePacked { get { return false; } }
+        public virtual bool CanBePalletized { get { return false; } }
+        public virtual bool CanBePacked { get { return false; } }
 
-        public bool IsInterlayer { get { return false; } }
-
-        public bool IsCase { get { return false; } }
-        public bool IsPallet { get { return false; } }
+        public virtual bool IsCase { get { return false; } }
+        public virtual bool IsPallet { get { return false; } }
         public bool IsTruck { get { return false; } }
         #endregion
 
@@ -206,7 +207,9 @@ namespace treeDiM.StackBuilder.Basics
         }
         #endregion
     }
+    #endregion
 
+    #region Packable
     public abstract class Packable : ItemBase
     {
         #region Constructor
@@ -286,4 +289,17 @@ namespace treeDiM.StackBuilder.Basics
         }
         #endregion
     }
+    #endregion
+
+    #region Container
+    public interface IPackContainer
+    {
+        bool HasInsideDimensions { get; }
+        double InsideLength     { get; }
+        double InsideWidth      { get; }
+        double InsideHeight     { get; }
+        Vector3D InsideDimensions { get; }
+        double[] InsideDimensionsArray { get; }
+    }
+    #endregion
 }

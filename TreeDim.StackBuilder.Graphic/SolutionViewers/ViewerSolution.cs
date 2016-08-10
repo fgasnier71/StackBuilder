@@ -149,10 +149,10 @@ namespace treeDiM.StackBuilder.Graphics
                     foreach (BoxPosition bPosition in blayer)
                     {
                         Box b = null;
-                        if (analysisCasePallet.BProperties is PackProperties)
-                            b = new Pack(pickId++, analysisCasePallet.BProperties as PackProperties, bPosition);
+                        if (analysisCasePallet.Content is PackProperties)
+                            b = new Pack(pickId++, analysisCasePallet.Content as PackProperties, bPosition);
                         else
-                            b = new Box(pickId++, analysisCasePallet.BProperties, bPosition);
+                            b = new Box(pickId++, analysisCasePallet.Content, bPosition);
                         graphics.AddBox(b);
                         bbox.Extend(b.BBox);
                     }

@@ -78,6 +78,11 @@ namespace treeDiM.StackBuilder.Basics
         }
         #endregion
 
+        #region Packable override
+        public override bool IsCase
+        {   get { return HasInsideDimensions; } }
+        #endregion
+
         #region Dimensions
         public override double Height
         { get { return _height; } }

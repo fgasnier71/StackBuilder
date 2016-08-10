@@ -33,6 +33,7 @@
             this.toolStripButtonReport = new System.Windows.Forms.ToolStripButton();
             this.splitContainerHoriz = new System.Windows.Forms.SplitContainer();
             this.splitContainerVert = new System.Windows.Forms.SplitContainer();
+            this.graphCtrlSolution = new treeDiM.StackBuilder.Graphics.Graphics3DControl();
             this.gridSolutions = new SourceGrid.Grid();
             this.tabCtrl = new System.Windows.Forms.TabControl();
             this.tabPagePalletCorners = new System.Windows.Forms.TabPage();
@@ -47,11 +48,10 @@
             this.gbLayer = new System.Windows.Forms.GroupBox();
             this.chkbInterlayer = new System.Windows.Forms.CheckBox();
             this.cbInterlayer = new System.Windows.Forms.ComboBox();
+            this.cbLayerType = new treeDiM.StackBuilder.Graphics.Controls.CCtrlComboLayer();
             this.bnSymmetryX = new System.Windows.Forms.Button();
             this.bnSymetryY = new System.Windows.Forms.Button();
             this.tbClickLayer = new System.Windows.Forms.TextBox();
-            this.graphCtrlSolution = new treeDiM.StackBuilder.Graphics.Graphics3DControl();
-            this.cbLayerType = new treeDiM.StackBuilder.Graphics.Controls.CCtrlComboLayer();
             this.toolStripAnalysis.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerHoriz)).BeginInit();
             this.splitContainerHoriz.Panel1.SuspendLayout();
@@ -61,12 +61,12 @@
             this.splitContainerVert.Panel1.SuspendLayout();
             this.splitContainerVert.Panel2.SuspendLayout();
             this.splitContainerVert.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.graphCtrlSolution)).BeginInit();
             this.tabCtrl.SuspendLayout();
             this.tabPagePalletCorners.SuspendLayout();
             this.tabPagePalletCap.SuspendLayout();
             this.tabPagePalletFilm.SuspendLayout();
             this.gbLayer.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.graphCtrlSolution)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStripAnalysis
@@ -77,7 +77,7 @@
             this.toolStripAnalysis.Name = "toolStripAnalysis";
             this.toolStripAnalysis.Size = new System.Drawing.Size(684, 25);
             this.toolStripAnalysis.TabIndex = 1;
-            this.toolStripAnalysis.Text = "toolStrip1";
+            this.toolStripAnalysis.Text = "Generate MS Word report";
             // 
             // toolStripButtonReport
             // 
@@ -127,6 +127,15 @@
             this.splitContainerVert.Size = new System.Drawing.Size(684, 410);
             this.splitContainerVert.SplitterDistance = 512;
             this.splitContainerVert.TabIndex = 1;
+            // 
+            // graphCtrlSolution
+            // 
+            this.graphCtrlSolution.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.graphCtrlSolution.Location = new System.Drawing.Point(0, 0);
+            this.graphCtrlSolution.Name = "graphCtrlSolution";
+            this.graphCtrlSolution.Size = new System.Drawing.Size(512, 410);
+            this.graphCtrlSolution.TabIndex = 1;
+            this.graphCtrlSolution.Viewer = null;
             // 
             // gridSolutions
             // 
@@ -292,6 +301,19 @@
             this.cbInterlayer.TabIndex = 4;
             this.cbInterlayer.SelectedIndexChanged += new System.EventHandler(this.onInterlayerChanged);
             // 
+            // cbLayerType
+            // 
+            this.cbLayerType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.cbLayerType.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbLayerType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbLayerType.FormattingEnabled = true;
+            this.cbLayerType.ItemHeight = 40;
+            this.cbLayerType.Location = new System.Drawing.Point(8, 45);
+            this.cbLayerType.Name = "cbLayerType";
+            this.cbLayerType.Size = new System.Drawing.Size(69, 46);
+            this.cbLayerType.TabIndex = 7;
+            this.cbLayerType.SelectedIndexChanged += new System.EventHandler(this.onLayerTypeChanged);
+            // 
             // bnSymmetryX
             // 
             this.bnSymmetryX.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -328,28 +350,6 @@
             this.tbClickLayer.TabIndex = 13;
             this.tbClickLayer.Text = "Double-click a layer to edit pattern / orientation / interlayer.";
             // 
-            // graphCtrlSolution
-            // 
-            this.graphCtrlSolution.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.graphCtrlSolution.Location = new System.Drawing.Point(0, 0);
-            this.graphCtrlSolution.Name = "graphCtrlSolution";
-            this.graphCtrlSolution.Size = new System.Drawing.Size(512, 410);
-            this.graphCtrlSolution.TabIndex = 1;
-            this.graphCtrlSolution.Viewer = null;
-            // 
-            // cbLayerType
-            // 
-            this.cbLayerType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.cbLayerType.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cbLayerType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbLayerType.FormattingEnabled = true;
-            this.cbLayerType.ItemHeight = 40;
-            this.cbLayerType.Location = new System.Drawing.Point(8, 45);
-            this.cbLayerType.Name = "cbLayerType";
-            this.cbLayerType.Size = new System.Drawing.Size(69, 46);
-            this.cbLayerType.TabIndex = 7;
-            this.cbLayerType.SelectedIndexChanged += new System.EventHandler(this.onLayerTypeChanged);
-            // 
             // DockContentAnalysisCasePallet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -373,6 +373,7 @@
             this.splitContainerVert.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerVert)).EndInit();
             this.splitContainerVert.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.graphCtrlSolution)).EndInit();
             this.tabCtrl.ResumeLayout(false);
             this.tabPagePalletCorners.ResumeLayout(false);
             this.tabPagePalletCorners.PerformLayout();
@@ -382,7 +383,6 @@
             this.tabPagePalletFilm.PerformLayout();
             this.gbLayer.ResumeLayout(false);
             this.gbLayer.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.graphCtrlSolution)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

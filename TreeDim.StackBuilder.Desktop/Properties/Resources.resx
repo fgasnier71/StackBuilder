@@ -688,4 +688,7 @@ Closing form...</value>
   <data name="ID_OPTIONSREPORTING" xml:space="preserve">
     <value>Options\\Reporting</value>
   </data>
+  <data name="ID_SELECTATLEASTONELAYOUT" xml:space="preserve">
+    <value>Select at leat one layer</value>
+  </data>
 </root>

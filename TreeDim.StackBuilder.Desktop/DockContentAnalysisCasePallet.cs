@@ -410,7 +410,7 @@ namespace treeDiM.StackBuilder.Desktop
         {
             try
             {
-                cbLayerType.BoxProperties = _analysis.BProperties;
+                cbLayerType.BoxProperties = _analysis.Content;
                 // build layers and fill CCtrl
                 foreach (LayerDesc layerDesc in _solution.LayerDescriptors)
                 {

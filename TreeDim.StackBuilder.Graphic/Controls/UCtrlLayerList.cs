@@ -148,7 +148,8 @@ namespace treeDiM.StackBuilder.Graphics
             if (_index == _layerList.Count)
             {
                 _timer.Stop();
-                RefreshFinished(this, null);
+                if (null != RefreshFinished)
+                    RefreshFinished(this, null);
                 return;
             }
             bool selected = 0 == Controls.Count ? _firstLayerSelected : false;
@@ -183,7 +184,8 @@ namespace treeDiM.StackBuilder.Graphics
             bool selected = !lItem.Selected;
             bn.Image = LayerToImage.Draw(lItem.Layer, _packable, _contHeight, szButtons, selected);
             bn.Tag = new LayerItem(lItem.Layer, selected);
-            LayerSelected(this, e);
+            if (null != LayerSelected)
+                LayerSelected(this, e);
         }
         #endregion
 

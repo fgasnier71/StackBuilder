@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="bnCancel.Text" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>44, 13</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>63, 13</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Descripción</value>
+  </data>
+  <data name="checkBoxAllowChangingLastLayerOrient.Size" type="System.Drawing.Size, System.Drawing">
+    <value>373, 17</value>
+  </data>
+  <data name="checkBoxAllowChangingLastLayerOrient.Text" xml:space="preserve">
+    <value>permitir el cambio de dirección última capa para utilizar el espacio restante</value>
+  </data>
+  <data name="checkBoxAllowTwoLayerOrient.Size" type="System.Drawing.Size, System.Drawing">
+    <value>312, 17</value>
+  </data>
+  <data name="checkBoxAllowTwoLayerOrient.Text" xml:space="preserve">
+    <value>permitir el uso de una combinación de 2 direcciones de capa</value>
+  </data>
+  <data name="gbAllowedBoxPositions.Size" type="System.Drawing.Size, System.Drawing">
+    <value>391, 186</value>
+  </data>
+  <data name="gbAllowedBoxPositions.Text" xml:space="preserve">
+    <value>Posiciones de cajas permitidas</value>
+  </data>
+  <data name="lbBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>50, 13</value>
+  </data>
+  <data name="lbBox.Text" xml:space="preserve">
+    <value>Embalaje</value>
+  </data>
+  <data name="lbPallet.Size" type="System.Drawing.Size, System.Drawing">
+    <value>31, 13</value>
+  </data>
+  <data name="lbPallet.Text" xml:space="preserve">
+    <value>Palet</value>
+  </data>
+  <data name="checkedListBoxPatterns.Items" xml:space="preserve">
+    <value>Columna</value>
+  </data>
+  <data name="checkedListBoxPatterns.Items4" xml:space="preserve">
+    <value>Espiral</value>
+  </data>
+  <data name="checkedListBoxPatterns.Items5" xml:space="preserve">
+    <value>Espiral ampliado</value>
+  </data>
+  <data name="checkedListBoxPatterns.Size" type="System.Drawing.Size, System.Drawing">
+    <value>156, 109</value>
+  </data>
+  <data name="gbAllowedLayerPatterns.Location" type="System.Drawing.Point, System.Drawing">
+    <value>402, 280</value>
+  </data>
+  <data name="gbAllowedLayerPatterns.Size" type="System.Drawing.Size, System.Drawing">
+    <value>174, 186</value>
+  </data>
+  <data name="gbAllowedLayerPatterns.Text" xml:space="preserve">
+    <value>Patrones de capas permitidos</value>
+  </data>
+  <data name="checkBoxMaximumNumberOfBoxes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>194, 17</value>
+  </data>
+  <data name="checkBoxMaximumNumberOfBoxes.Text" xml:space="preserve">
+    <value>cuando el número de cajas llegue a</value>
+  </data>
+  <data name="checkBoxMaximumPalletHeight.Size" type="System.Drawing.Size, System.Drawing">
+    <value>186, 17</value>
+  </data>
+  <data name="checkBoxMaximumPalletHeight.Text" xml:space="preserve">
+    <value>cuando la altura del palet alcance</value>
+  </data>
+  <data name="lbStopStacking.Size" type="System.Drawing.Size, System.Drawing">
+    <value>95, 13</value>
+  </data>
+  <data name="lbStopStacking.Text" xml:space="preserve">
+    <value>Fin de apilamiento:</value>
+  </data>
+  <data name="checkBoxMaximumPalletWeight.Size" type="System.Drawing.Size, System.Drawing">
+    <value>205, 17</value>
+  </data>
+  <data name="checkBoxMaximumPalletWeight.Text" xml:space="preserve">
+    <value>cuando el peso total del palet llegue a</value>
+  </data>
+  <data name="checkBoxMaximumLoadOnBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>261, 17</value>
+  </data>
+  <data name="checkBoxMaximumLoadOnBox.Text" xml:space="preserve">
+    <value>cuando la carga sobre las cajas inferiores llegue a</value>
+  </data>
+  <data name="nudMaximumNumberOfBoxes.Location" type="System.Drawing.Point, System.Drawing">
+    <value>291, 38</value>
+  </data>
+  <data name="nudMaximumPalletHeight.Location" type="System.Drawing.Point, System.Drawing">
+    <value>291, 62</value>
+  </data>
+  <data name="nudMaximumPalletWeight.Location" type="System.Drawing.Point, System.Drawing">
+    <value>291, 86</value>
+  </data>
+  <data name="nudMaximumLoadOnBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>291, 111</value>
+  </data>
+  <data name="uMassLoadLowerCases.Location" type="System.Drawing.Point, System.Drawing">
+    <value>356, 115</value>
+  </data>
+  <data name="uMassPalletWeight.Location" type="System.Drawing.Point, System.Drawing">
+    <value>356, 90</value>
+  </data>
+  <data name="uLengthPalletHeight.Location" type="System.Drawing.Point, System.Drawing">
+    <value>356, 66</value>
+  </data>
+  <data name="uLengthPalletHeight.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 13</value>
+  </data>
+  <data name="uLengthPalletHeight.Text" xml:space="preserve">
+    <value>mm</value>
+  </data>
+  <data name="checkBoxInterlayer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 17</value>
+  </data>
+  <data name="checkBoxInterlayer.Text" xml:space="preserve">
+    <value>Separador</value>
+  </data>
+  <data name="lbInterlayerFreq1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>31, 13</value>
+  </data>
+  <data name="lbInterlayerFreq1.Text" xml:space="preserve">
+    <value>cada</value>
+  </data>
+  <data name="lbInterlayerFreq2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>37, 13</value>
+  </data>
+  <data name="lbInterlayerFreq2.Text" xml:space="preserve">
+    <value>Capas</value>
+  </data>
+  <data name="lbPalletOverhangLength.Size" type="System.Drawing.Size, System.Drawing">
+    <value>48, 13</value>
+  </data>
+  <data name="lbPalletOverhangLength.Text" xml:space="preserve">
+    <value>Longitud</value>
+  </data>
+  <data name="lbPalletOverhangWidth.Size" type="System.Drawing.Size, System.Drawing">
+    <value>38, 13</value>
+  </data>
+  <data name="lbPalletOverhangWidth.Text" xml:space="preserve">
+    <value>Ancho</value>
+  </data>
+  <data name="uLengthOverhangY.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 13</value>
+  </data>
+  <data name="uLengthOverhangY.Text" xml:space="preserve">
+    <value>mm</value>
+  </data>
+  <data name="uLengthOverhangX.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 13</value>
+  </data>
+  <data name="uLengthOverhangX.Text" xml:space="preserve">
+    <value>mm</value>
+  </data>
+  <data name="gbOverhangUnderhang.Text" xml:space="preserve">
+    <value>Palet saliente / colgando en</value>
+  </data>
+  <data name="checkBoxAllowAlignedLayer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>129, 17</value>
+  </data>
+  <data name="checkBoxAllowAlignedLayer.Text" xml:space="preserve">
+    <value>permitir capa alineada</value>
+  </data>
+  <data name="checkBoxAllowAlternateLayer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>131, 17</value>
+  </data>
+  <data name="checkBoxAllowAlternateLayer.Text" xml:space="preserve">
+    <value>permitir capas alternas</value>
+  </data>
+  <data name="gbLayerAlignment.Text" xml:space="preserve">
+    <value>Alineación de capas</value>
+  </data>
+  <data name="gbStopStackingCondition.Location" type="System.Drawing.Point, System.Drawing">
+    <value>5, 479</value>
+  </data>
+  <data name="gbStopStackingCondition.Size" type="System.Drawing.Size, System.Drawing">
+    <value>571, 138</value>
+  </data>
+  <data name="gbStopStackingCondition.Text" xml:space="preserve">
+    <value>Condición adicional de fin de apilado</value>
+  </data>
+  <data name="checkBoxAntiSlipInterlayer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 17</value>
+  </data>
+  <data name="checkBoxAntiSlipInterlayer.Text" xml:space="preserve">
+    <value>Antideslizante separadores</value>
+  </data>
+  <data name="tabPageInterlayer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>560, 76</value>
+  </data>
+  <data name="tabPageInterlayer.Text" xml:space="preserve">
+    <value>Separadores</value>
+  </data>
+  <data name="tabPageInterlayerAntiSlip.Size" type="System.Drawing.Size, System.Drawing">
+    <value>560, 76</value>
+  </data>
+  <data name="tabPageInterlayerAntiSlip.Text" xml:space="preserve">
+    <value>Antideslizante separadores</value>
+  </data>
+  <data name="chkbPalletCorners.Size" type="System.Drawing.Size, System.Drawing">
+    <value>69, 17</value>
+  </data>
+  <data name="chkbPalletCorners.Text" xml:space="preserve">
+    <value>Esquinas</value>
+  </data>
+  <data name="tabPagePalletCorners.Size" type="System.Drawing.Size, System.Drawing">
+    <value>560, 76</value>
+  </data>
+  <data name="tabPagePalletCorners.Text" xml:space="preserve">
+    <value>Esquinas</value>
+  </data>
+  <data name="chkbPalletCap.Size" type="System.Drawing.Size, System.Drawing">
+    <value>89, 17</value>
+  </data>
+  <data name="chkbPalletCap.Text" xml:space="preserve">
+    <value>tapa de Palet</value>
+  </data>
+  <data name="tabPagePalletCap.Size" type="System.Drawing.Size, System.Drawing">
+    <value>560, 76</value>
+  </data>
+  <data name="tabPagePalletCap.Text" xml:space="preserve">
+    <value>tapa de Palet</value>
+  </data>
+  <data name="lbNumberOfTurns.Size" type="System.Drawing.Size, System.Drawing">
+    <value>96, 13</value>
+  </data>
+  <data name="lbNumberOfTurns.Text" xml:space="preserve">
+    <value>Número de vueltas</value>
+  </data>
+  <data name="chkbPalletFilm.Size" type="System.Drawing.Size, System.Drawing">
+    <value>91, 17</value>
+  </data>
+  <data name="chkbPalletFilm.Text" xml:space="preserve">
+    <value>película Palet</value>
+  </data>
+  <data name="tabPagePalletFilm.Size" type="System.Drawing.Size, System.Drawing">
+    <value>560, 76</value>
+  </data>
+  <data name="tabPagePalletFilm.Text" xml:space="preserve">
+    <value>Película</value>
+  </data>
+  <data name="tabControlAddFeat.Size" type="System.Drawing.Size, System.Drawing">
+    <value>568, 102</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Crear nuevo análisis de embalaje/palet</value>
+  </data>
+</root>

@@ -666,6 +666,25 @@ namespace treeDiM.StackBuilder.Basics
             return analysis;
         }
 
+        public AnalysisBoxCase CreateNewAnalysisBoxCase(
+            string name, string description
+            , Packable packable, BoxProperties caseProperties
+            , List<InterlayerProperties> interlayers
+            , ConstraintSetBoxCase constraintSet
+            , List<LayerDesc> layerDescs
+            )
+        {
+            AnalysisBoxCase analysis = new AnalysisBoxCase(packable, caseProperties, constraintSet);
+            analysis.Name = name;
+            analysis.Description = description;
+            analysis.AddSolution(layerDescs);
+
+            // notify listeners
+            NotifyOnNewAnalysisCreated(analysis);
+            Modify();
+
+            return analysis;
+        }
 
         public PackPalletAnalysis CreateNewPackPalletAnalysis(
             string name, string description

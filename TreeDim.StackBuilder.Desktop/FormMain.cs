@@ -1088,7 +1088,7 @@ namespace treeDiM.StackBuilder.Desktop
         public void OnNewTypeCreated(Document doc, ItemBase itemBase) { }
         public void OnNewAnalysisCreated(Document doc, Analysis analysis)
         {
-            CreateOrActivateViewAnalysis( analysis as AnalysisCasePallet );
+            CreateOrActivateViewAnalysis( analysis );
         }
         public void OnNewCasePalletAnalysisCreated(Document doc, CasePalletAnalysis analysis)
         {
@@ -1342,6 +1342,8 @@ namespace treeDiM.StackBuilder.Desktop
         public void CreateOrActivateViewAnalysis(Analysis analysis)
         { 
             AnalysisCasePallet analysisCasePallet = analysis as AnalysisCasePallet;
+            AnalysisBoxCase analysisBoxCase = analysis as AnalysisBoxCase;
+
             // ---> search among existing views
             // ---> activate if found
             foreach (IDocument doc in Documents)
@@ -1357,14 +1359,32 @@ namespace treeDiM.StackBuilder.Desktop
                             return;
                         }
                     }
+                    else if (null != analysisBoxCase)
+                    {
+                        DockContentAnalysisBoxCase form = view as DockContentAnalysisBoxCase;
+                        if (null == form) continue;
+                        if (analysisBoxCase == form.Analysis)
+                        {
+                            form.Activate();
+                            return;
+                        }
+                    }
                 }
 
             // ---> not found
             // ---> create new form
             // get document
             DocumentSB parentDocument = (DocumentSB)analysis.ParentDocument;
-            DockContentAnalysisCasePallet formAnalysis = parentDocument.CreateViewAnalysisCasePallet(analysisCasePallet);
-            formAnalysis.Show(dockPanel, WeifenLuo.WinFormsUI.Docking.DockState.Document);
+            if (null != analysisCasePallet)
+            {
+                DockContentAnalysisCasePallet formAnalysis = parentDocument.CreateViewAnalysisCasePallet(analysisCasePallet);
+                formAnalysis.Show(dockPanel, WeifenLuo.WinFormsUI.Docking.DockState.Document);
+            }
+            else if (null != analysisBoxCase)
+            {
+                DockContentAnalysisBoxCase formAnalysis = parentDocument.CreateViewAnalysisBoxCase(analysisBoxCase);
+                formAnalysis.Show(dockPanel, WeifenLuo.WinFormsUI.Docking.DockState.Document);
+            }
         }
 
         /// <summary>

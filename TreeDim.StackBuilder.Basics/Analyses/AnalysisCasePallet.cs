@@ -14,7 +14,6 @@ namespace treeDiM.StackBuilder.Basics
     public class AnalysisCasePallet : Analysis
     {
         #region Data members
-        public Packable _packable;
         public PalletProperties _palletProperties;
 
         public PalletCornerProperties _palletCornerProperties;
@@ -29,34 +28,18 @@ namespace treeDiM.StackBuilder.Basics
             Packable packable, 
             PalletProperties palletProperties,
             ConstraintSetCasePallet constraintSet)
-            : base(packable.ParentDocument)
+            : base(packable.ParentDocument, packable)
         {
             // sanity checks
             if (palletProperties.ParentDocument != ParentDocument)
                 throw new Exception("box & pallet do not belong to the same document");
 
-            _packable = packable;
             _palletProperties = palletProperties;
             _constraintSet = constraintSet;
          }
         #endregion
 
         #region Analysis override
-        public override Vector3D ContentDimensions
-        {
-            get { return _packable.OuterDimensions; }
-        }
-        public override double ContentWeight
-        {
-            get
-            {
-                return BProperties.Weight; 
-            }
-        }
-        public override double ContentVolume
-        {
-            get { return _packable.Volume; }
-        }
         public override Vector2D ContainerDimensions
         {
             get
@@ -87,10 +70,7 @@ namespace treeDiM.StackBuilder.Basics
         }
         public override double ContainerWeight
         {
-            get
-            {
-                return _palletProperties.Weight; 
-            }
+            get { return _palletProperties.Weight; }
         }
         public override InterlayerProperties Interlayer(int index)
         {
@@ -142,17 +122,6 @@ namespace treeDiM.StackBuilder.Basics
         #endregion
 
         #region Public properties
-        public Packable BProperties
-        {
-            get { return _packable; }
-            set
-            {
-                if (value == _packable) return;
-                if (null != _packable) _packable.RemoveDependancy(this);
-                _packable = value;
-                _packable.AddDependancy(this);
-            }
-        }
         public PalletProperties PalletProperties
         {
             get { return _palletProperties; }
@@ -208,18 +177,6 @@ namespace treeDiM.StackBuilder.Basics
         public bool HasPalletFilm
         {
             get { return null != _palletFilmProperties; }
-        }
-        #endregion
-
-        #region Public methods
-        public void AddInterlayer(InterlayerProperties interlayer)
-        {
-            _interlayers.Add(interlayer);
-            interlayer.AddDependancy(this);
-        }
-        public void AddSolution(List<LayerDesc> layers)
-        {
-            _solutions.Add(new Solution(this, layers));
         }
         #endregion
     }

@@ -107,10 +107,15 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region View creation methods
-
         public DockContentAnalysisCasePallet CreateViewAnalysisCasePallet(AnalysisCasePallet analysis)
         {
             DockContentAnalysisCasePallet form = new DockContentAnalysisCasePallet(this, analysis);
+            AddView(form);
+            return form;
+        }
+        public DockContentAnalysisBoxCase CreateViewAnalysisBoxCase(AnalysisBoxCase analysis)
+        {
+            DockContentAnalysisBoxCase form = new DockContentAnalysisBoxCase(this, analysis);
             AddView(form);
             return form;
         }
@@ -446,9 +451,11 @@ namespace treeDiM.StackBuilder.Desktop
         {
             if (!CanCreateBoxCaseAnalysis) return null;
 
-            FormNewBoxCaseAnalysis form = new FormNewBoxCaseAnalysis(this);
+            FormNewAnalysisBoxCase form = new FormNewAnalysisBoxCase(this, null);
             if (DialogResult.OK == form.ShowDialog())
             {
+            }
+            return null;
                 /*
                 // build constraint set
                 BoxCaseConstraintSet constraintSet = new BoxCaseConstraintSet();
@@ -471,8 +478,6 @@ namespace treeDiM.StackBuilder.Desktop
                     , constraintSet
                     , new BoxCaseSolver());
                  */
-            }
-            return null;
         }
 
         public BoxCaseAnalysis CreateNewBundleCaseAnalysisUI()
@@ -624,7 +629,7 @@ namespace treeDiM.StackBuilder.Desktop
 
             if (analysis.IsBoxAnalysis)
             {
-                FormNewAnalysis form = new FormNewAnalysis(this, analysis);
+                FormNewAnalysisLegacy form = new FormNewAnalysisLegacy(this, analysis);
                 form.Cases = Cases.ToArray();
                 form.Pallets = Pallets.ToArray();
                 form.Interlayers = Interlayers.ToArray();

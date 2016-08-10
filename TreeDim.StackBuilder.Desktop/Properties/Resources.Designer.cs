@@ -1558,7 +1558,7 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Select at least one layer layout.
+        ///   Looks up a localized string similar to Select at leat one layer.
         /// </summary>
         internal static string ID_SELECTATLEASTONELAYOUT {
             get {

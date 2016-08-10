@@ -20,7 +20,7 @@ using treeDiM.StackBuilder.Desktop.Properties;
 
 namespace treeDiM.StackBuilder.Desktop
 {
-    public partial class FormNewAnalysisCasePallet : FormNewBase, IItemBaseFilter
+    public partial class FormNewAnalysisCasePallet : FormNewAnalysis, IItemBaseFilter
     {
         #region Data members
         static readonly ILog _log = LogManager.GetLogger(typeof(FormNewAnalysisCasePallet));
@@ -28,7 +28,7 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Constructor
-        public FormNewAnalysisCasePallet(Document doc, ItemBase analysis)
+        public FormNewAnalysisCasePallet(Document doc, Analysis analysis)
             : base(doc, analysis)
         {
             InitializeComponent();
@@ -38,17 +38,13 @@ namespace treeDiM.StackBuilder.Desktop
         #region FormNewBase overrides
         public override string ItemDefaultName
         {   get { return Resources.ID_ANALYSIS; } }
-        public override void UpdateStatus(string message)
-        {
-            base.UpdateStatus(message);
-        }
         #endregion
 
         #region Form override
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
-            cbCases.Initialize(_document, this, null != _analysis ? _analysis.BProperties : null);
+            cbCases.Initialize(_document, this, null != _analysis ? _analysis.Content : null);
             cbPallets.Initialize(_document, this, null != _analysis ? _analysis.PalletProperties : null);
 
             // event handling
@@ -68,7 +64,6 @@ namespace treeDiM.StackBuilder.Desktop
 
                 checkBoxBestLayersOnly.Checked = Settings.Default.KeepBestSolutions;
              }
-             bnNext.Enabled = false;
         }
 
         protected override void OnClosed(EventArgs e)
@@ -111,11 +106,11 @@ namespace treeDiM.StackBuilder.Desktop
         #region Private properties
         private Packable SelectedBoxProperties
         {
-            get { return cbCases.SelectededType as Packable; }
+            get { return cbCases.SelectedType as Packable; }
         }
         private PalletProperties SelectedPallet
         {
-            get { return cbPallets.SelectededType as PalletProperties; }
+            get { return cbPallets.SelectedType as PalletProperties; }
         }
         #endregion
 
@@ -124,7 +119,7 @@ namespace treeDiM.StackBuilder.Desktop
         {
             try
             {
-                uCtrlCaseOrientation.BProperties = cbCases.SelectededType as Packable;
+                uCtrlCaseOrientation.BProperties = cbCases.SelectedType as Packable;
                 onInputChanged(sender, e);
                 onLayerSelected(sender, e);
             }
@@ -138,7 +133,6 @@ namespace treeDiM.StackBuilder.Desktop
             try
             {
                 Layer2D[] layers = uCtrlLayerList.Selected;
-                bnNext.Enabled = layers.Length > 0;
                 UpdateStatus(layers.Length > 0 ? string.Empty : Resources.ID_SELECTATLEASTONELAYOUT);
             }
             catch (Exception ex)
@@ -151,8 +145,8 @@ namespace treeDiM.StackBuilder.Desktop
             try
             {
                 // get case /pallet
-                Packable packable = cbCases.SelectededType as Packable;
-                PalletProperties palletProperties = cbPallets.SelectededType as PalletProperties;
+                Packable packable = cbCases.SelectedType as Packable;
+                PalletProperties palletProperties = cbPallets.SelectedType as PalletProperties;
                 if (null == packable || null == palletProperties)
                     return;
                 // compute
@@ -173,7 +167,7 @@ namespace treeDiM.StackBuilder.Desktop
                 _log.Error(ex.ToString());
             }
         }
-        private void onBnNextClicked(object sender, EventArgs e)
+        public override void OnNext()
         {
             try
             {
@@ -203,7 +197,8 @@ namespace treeDiM.StackBuilder.Desktop
         private void onBestCombinationClicked(object sender, EventArgs e)
         {
             try
-            { }
+            {
+            }
             catch (Exception ex)
             {
                 _log.Error(ex.ToString());
@@ -221,9 +216,8 @@ namespace treeDiM.StackBuilder.Desktop
             // orientations
             constraintSet.SetAllowedOrientations(uCtrlCaseOrientation.AllowedOrientations);
             // conditions
-            constraintSet.OptMaxHeight = uCtrlOptMaximumHeight.Value;
+            constraintSet.SetMaxHeight( uCtrlOptMaximumHeight.Value);
             constraintSet.OptMaxWeight = uCtrlOptMaximumWeight.Value;
-
             return constraintSet;
         }
         #endregion

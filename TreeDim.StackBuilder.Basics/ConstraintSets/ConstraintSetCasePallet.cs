@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
+using log4net;
 using Sharp3D.Math.Core;
 #endregion
 
@@ -14,9 +15,8 @@ namespace treeDiM.StackBuilder.Basics
         #region Data members
         private bool[] _axesAllowed = new bool[] { true, true, true };
         private OptDouble _maxHeight;
-        private OptDouble _maxWeight;
-        private OptInt _maxNumber;
         private Vector2D _overhang;
+        static readonly ILog _log = LogManager.GetLogger(typeof(ConstraintSetCasePallet));
         #endregion
 
         #region Constructor
@@ -46,36 +46,17 @@ namespace treeDiM.StackBuilder.Basics
         public override OptDouble OptMaxHeight
         {
             get { return _maxHeight; }
-            set { _maxHeight = value; }
-        }
-        public override OptDouble OptMaxWeight
-        {
-            get { return _maxWeight; }
-            set { _maxWeight = value; }
-        }
-        public override OptInt OptMaxNumber
-        {
-            get { return _maxNumber; }
-            set { _maxNumber = value; }
-        }
+        }        
         public override bool Valid
         {
-            get { return _maxHeight.Activated || _maxHeight.Activated || _maxNumber.Activated; }
+            get { return _maxHeight.Activated || _maxWeight.Activated || _maxNumber.Activated; }
         }
         #endregion
 
         #region ConstraintSetCasePallet specific
-        public void SetMaxHeight(double maxHeight)
+        public void SetMaxHeight(OptDouble maxHeight)
         {
-            _maxHeight = new OptDouble(true, maxHeight);
-        }
-        public void SetMaxWeight(double maxWeight)
-        {
-            _maxWeight = new OptDouble(true, maxWeight);
-        }
-        public void SetMaxNumber(int maxNumber)
-        {
-            _maxNumber = new OptInt(true, maxNumber);
+            _maxHeight = maxHeight;
         }
         public void SetAllowedOrientations(bool[] axesAllowed)
         {

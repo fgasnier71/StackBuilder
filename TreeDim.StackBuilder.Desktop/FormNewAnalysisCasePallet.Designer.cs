@@ -39,7 +39,6 @@
             this.lbPallet = new System.Windows.Forms.Label();
             this.uCtrlLayerList = new treeDiM.StackBuilder.Graphics.UCtrlLayerList();
             this.checkBoxBestLayersOnly = new System.Windows.Forms.CheckBox();
-            this.bnNext = new System.Windows.Forms.Button();
             this.bnBestCombination = new System.Windows.Forms.Button();
             this.uCtrlCaseOrientation = new treeDiM.StackBuilder.Graphics.uCtrlCaseOrientation();
             this.tabCtrlConstraints = new System.Windows.Forms.TabControl();
@@ -53,17 +52,13 @@
             this.tabPageStopCriterions.SuspendLayout();
             this.SuspendLayout();
             // 
-            // bnOk
+            // tbDescription
             // 
-            resources.ApplyResources(this.bnOk, "bnOk");
+            resources.ApplyResources(this.tbDescription, "tbDescription");
             // 
             // bnCancel
             // 
             resources.ApplyResources(this.bnCancel, "bnCancel");
-            // 
-            // tbDescription
-            // 
-            resources.ApplyResources(this.tbDescription, "tbDescription");
             // 
             // cbPallets
             // 
@@ -148,13 +143,6 @@
             this.checkBoxBestLayersOnly.UseVisualStyleBackColor = true;
             this.checkBoxBestLayersOnly.CheckedChanged += new System.EventHandler(this.onInputChanged);
             // 
-            // bnNext
-            // 
-            resources.ApplyResources(this.bnNext, "bnNext");
-            this.bnNext.Name = "bnNext";
-            this.bnNext.UseVisualStyleBackColor = true;
-            this.bnNext.Click += new System.EventHandler(this.onBnNextClicked);
-            // 
             // bnBestCombination
             // 
             resources.ApplyResources(this.bnBestCombination, "bnBestCombination");
@@ -167,7 +155,7 @@
             this.uCtrlCaseOrientation.AllowedOrientations = new bool[] {
         false,
         false,
-        false};
+        true};
             resources.ApplyResources(this.uCtrlCaseOrientation, "uCtrlCaseOrientation");
             this.uCtrlCaseOrientation.Name = "uCtrlCaseOrientation";
             this.uCtrlCaseOrientation.CheckedChanged += new treeDiM.StackBuilder.Graphics.uCtrlCaseOrientation.CheckChanged(this.onInputChanged);
@@ -214,7 +202,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tabCtrlConstraints);
             this.Controls.Add(this.bnBestCombination);
-            this.Controls.Add(this.bnNext);
             this.Controls.Add(this.checkBoxBestLayersOnly);
             this.Controls.Add(this.uCtrlLayerList);
             this.Controls.Add(this.uCtrlCaseOrientation);
@@ -224,7 +211,6 @@
             this.Controls.Add(this.lbBox);
             this.Name = "FormNewAnalysisCasePallet";
             this.TopMost = true;
-            this.Controls.SetChildIndex(this.bnOk, 0);
             this.Controls.SetChildIndex(this.bnCancel, 0);
             this.Controls.SetChildIndex(this.lbName, 0);
             this.Controls.SetChildIndex(this.lbDescription, 0);
@@ -237,7 +223,6 @@
             this.Controls.SetChildIndex(this.uCtrlCaseOrientation, 0);
             this.Controls.SetChildIndex(this.uCtrlLayerList, 0);
             this.Controls.SetChildIndex(this.checkBoxBestLayersOnly, 0);
-            this.Controls.SetChildIndex(this.bnNext, 0);
             this.Controls.SetChildIndex(this.bnBestCombination, 0);
             this.Controls.SetChildIndex(this.tabCtrlConstraints, 0);
             this.groupBox1.ResumeLayout(false);
@@ -263,7 +248,6 @@
         private System.Windows.Forms.Label lbPallet;
         private Graphics.UCtrlLayerList uCtrlLayerList;
         private System.Windows.Forms.CheckBox checkBoxBestLayersOnly;
-        private System.Windows.Forms.Button bnNext;
         private System.Windows.Forms.Button bnBestCombination;
         private Graphics.uCtrlCaseOrientation uCtrlCaseOrientation;
         private System.Windows.Forms.TabControl tabCtrlConstraints;

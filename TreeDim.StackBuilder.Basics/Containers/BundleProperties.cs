@@ -42,6 +42,7 @@ namespace treeDiM.StackBuilder.Basics
         { get { return new OptDouble(false, 0.0); } }
         public override bool OrientationAllowed(HalfAxis.HAxis axis)
         {   return (axis == HalfAxis.HAxis.AXIS_Z_N) || (axis == HalfAxis.HAxis.AXIS_Z_P); }
+        public override bool IsCase { get { return false; } }
         #endregion
 
         #region Public properties
