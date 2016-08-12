@@ -101,11 +101,6 @@
     <Compile Include="Controls\Graphics3DControl.Designer.cs">
       <DependentUpon>Graphics3DControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Graphics3DControl1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Graphics3DControl.resx</DependentUpon>
-    </Compile>
     <Compile Include="LayerToImage.cs" />
     <Compile Include="PickingList.cs" />
     <Compile Include="Ray.cs" />

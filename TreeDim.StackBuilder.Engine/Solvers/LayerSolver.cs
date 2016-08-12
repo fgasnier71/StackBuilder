@@ -35,6 +35,7 @@ namespace treeDiM.StackBuilder.Engine
                     // is orientation allowed
                     if (!constraintSet.AllowOrientation(Layer2D.VerticalAxis(axisOrtho)))
                         continue;
+
                     // not swapped vs swapped pattern
                     for (int iSwapped = 0; iSwapped < 2; ++iSwapped)
                     {
@@ -43,6 +44,8 @@ namespace treeDiM.StackBuilder.Engine
                             continue;
                         // instantiate layer
                         Layer2D layer = new Layer2D(dimBox, dimContainer, axisOrtho, iSwapped == 1);
+                        if (layer.NoLayers(constraintSet.OptMaxHeight.Value) < 1)
+                            continue;
                         layer.PatternName = pattern.Name;
                         double actualLength = 0.0, actualWidth = 0.0;
                         if (!pattern.GetLayerDimensionsChecked(layer, out actualLength, out actualWidth))

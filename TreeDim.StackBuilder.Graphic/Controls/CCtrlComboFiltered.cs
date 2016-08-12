@@ -44,6 +44,7 @@ namespace treeDiM.StackBuilder.Graphics.Controls
 
         public void Initialize(Document doc, IItemBaseFilter filter, ItemBase initialSelect)
         {
+            Items.Clear();
             int index = 0, iSelected = -1;
             foreach (ItemBase itemBase in doc.TypeList)
                 if (null == filter || filter.Accept(this, itemBase))

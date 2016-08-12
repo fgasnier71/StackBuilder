@@ -38,16 +38,17 @@ namespace treeDiM.StackBuilder.Basics
         #region Analysis override
         public override Vector2D ContainerDimensions
         {
-            get { return new Vector2D(_caseProperties.Length, _caseProperties.Width); }
+            get { return new Vector2D(_caseProperties.InsideLength, _caseProperties.InsideWidth); }
         }
         public override Vector3D Offset
         {
             get
             {
                 return new Vector3D(
-                    0.5 * (_caseProperties.Length - _caseProperties.InsideLength),
-                    0.5 * (_caseProperties.Width - _caseProperties.InsideWidth),
-                    _caseProperties.Height - _caseProperties.InsideHeight);
+                    0.0, //0.5 * (_caseProperties.Length - _caseProperties.InsideLength),
+                    0.0, //0.5 * (_caseProperties.Width - _caseProperties.InsideWidth),
+                    0.5 * (_caseProperties.Height - _caseProperties.InsideHeight)
+                    );
             }
         }
         public override double ContainerWeight
@@ -62,11 +63,16 @@ namespace treeDiM.StackBuilder.Basics
         {
             return new BBox3D(
                 0.0, 0.0, 0.0,
-                _caseProperties.Length, _caseProperties.Width, _caseProperties.Height);
+                _caseProperties.InsideLength, _caseProperties.InsideWidth, _caseProperties.InsideHeight);
         }
         public override BBox3D BBoxLoadWDeco(BBox3D loadBBox)
         {
             return loadBBox;
+        }
+        public override bool AllowInterlayer(InterlayerProperties interlayer)
+        {
+            return interlayer.Length < _caseProperties.InsideLength
+                && interlayer.Width < _caseProperties.InsideWidth;
         }
         #endregion
 

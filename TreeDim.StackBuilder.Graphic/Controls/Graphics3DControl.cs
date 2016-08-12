@@ -137,12 +137,12 @@ namespace treeDiM.StackBuilder.Graphics
                 }
                 catch (Exception ex)
                 {
-                    e.Graphics.DrawString(ex.Message
+                    e.Graphics.DrawString(ex.ToString()
                         , new Font("Arial", 12)
                         , new SolidBrush(Color.Red)
                         , new Point(0, 0)
                         , StringFormat.GenericDefault);
-                    _log.Error(ex.Message); 
+                    _log.Error(ex.ToString()); 
                 }
             }
             if (null != _viewer)

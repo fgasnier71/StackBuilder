@@ -64,6 +64,12 @@ namespace treeDiM.StackBuilder.Basics
         #endregion
 
         #region Public methods
+        public virtual bool AllowInterlayer(InterlayerProperties interlayer)
+        {
+            if (null == interlayer)
+                return false;
+            return true;    
+        }
         public void AddInterlayer(InterlayerProperties interlayer)
         {
             _interlayers.Add(interlayer);
@@ -86,7 +92,7 @@ namespace treeDiM.StackBuilder.Basics
         }
         public virtual InterlayerProperties Interlayer(int index)
         {
-            return null;
+            return _interlayers[index];
         }
         #endregion
     }

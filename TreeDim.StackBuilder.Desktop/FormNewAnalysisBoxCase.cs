@@ -83,7 +83,7 @@ namespace treeDiM.StackBuilder.Desktop
             else if (ctrl == cbCases)
             {
                 Packable packable = itemBase as Packable;
-                return null != packable && packable.IsCase;
+                return null != packable && packable.IsCase && (packable != SelectedBoxProperties);
             }
             return false;
         }
@@ -101,6 +101,12 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Event handlers
+        private void onBoxChanged(object sender, EventArgs e)
+        {
+            cbCases.Initialize(_document, this, null);
+            onInputChanged(sender, e);
+        }
+
         private void onInputChanged(object sender, EventArgs e)
         {
             try
@@ -110,6 +116,10 @@ namespace treeDiM.StackBuilder.Desktop
                 BoxProperties caseProperties = cbCases.SelectedType as BoxProperties;
                 if (null == packable || null == caseProperties)
                     return;
+
+                // update orientation control
+                uCtrlCaseOrientation.BProperties = packable;
+
                 // compute
                 LayerSolver solver = new LayerSolver();
                 List<Layer2D> layers = solver.BuildLayers(
@@ -123,18 +133,6 @@ namespace treeDiM.StackBuilder.Desktop
                 uCtrlLayerList.ContainerHeight = caseProperties.InsideHeight;
                 uCtrlLayerList.FirstLayerSelected = true;
                 uCtrlLayerList.LayerList = layers;
-            }
-            catch (Exception ex)
-            {
-                _log.Error(ex.ToString());
-            }
-        }
-
-        protected void onBoxChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                uCtrlCaseOrientation.BProperties = cbBoxes.SelectedType as Packable;
             }
             catch (Exception ex)
             {

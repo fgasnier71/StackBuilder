@@ -54,6 +54,7 @@
     </BoxProperties>
     <PalletProperties Id="8c2870c2-a33f-4636-af68-be91128a87a8" Name="GMA 48x40" Description="Grocery Manufacturer Association (North America)" Length="1219.2" Width="1016" Height="120.65" Weight="0" AdmissibleLoadWeight="0" AdmissibleLoadHeight="0" Type="GMA 48x40" Color="-256" />
     <BundleProperties Id="37928171-ef2c-4e42-9648-f7d9f06880fe" Name="Liasse0" Description="Liasse0" Length="400" Width="300" UnitThickness="5" UnitWeight="0" Color="-657956" NumberFlats="10" />
+    <InterlayerProperties Id="9f829e15-9bc8-40e1-98c1-08db53d9dddc" Name="Intercallaire0" Description="Intercallaire0" Length="425" Width="265" Thickness="1" Weight="0.1" Color="-657956" />
     <PackProperties Id="c96de612-0737-4f3b-b146-11125d01e0ed" Name="Fardeau0" Description="Fardeau0" BoxProperties="10b560d0-df19-442b-a485-0a9fc53abf73" Orientation="XP" Arrangement="3 2 1">
       <Wrapper Type="WT_TRAY" Color="-2968436" Weight="0.1" UnitThickness="0" NumberOfWalls="1 1 1" Height="60" />
     </PackProperties>

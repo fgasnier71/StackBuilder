@@ -86,6 +86,7 @@ namespace treeDiM.StackBuilder.Graphics
                 if (null == _points)
                 {
                     _points = new Vector3D[8];
+                    /*
                     _points[0] = _transf.transform(new Vector3D(0.0 + xThickness, 0.0 + yThickness, 0.0 + zThickness));
                     _points[1] = _transf.transform(new Vector3D(_length - xThickness, 0.0 + yThickness, 0.0 + zThickness));
                     _points[2] = _transf.transform(new Vector3D(_length - xThickness, _width - yThickness, 0.0 + zThickness));
@@ -95,6 +96,16 @@ namespace treeDiM.StackBuilder.Graphics
                     _points[5] = _transf.transform(new Vector3D(_length - xThickness, 0.0 + yThickness, _height - zThickness));
                     _points[6] = _transf.transform(new Vector3D(_length - xThickness, _width - yThickness, _height - zThickness));
                     _points[7] = _transf.transform(new Vector3D(0.0 + xThickness, _width - yThickness, _height - zThickness));
+                     */ 
+                    _points[0] = _transf.transform(new Vector3D(0.0, 0.0, 0.0));
+                    _points[1] = _transf.transform(new Vector3D(_insideLength, 0.0, 0.0));
+                    _points[2] = _transf.transform(new Vector3D(_insideLength, _insideWidth, 0.0 + zThickness));
+                    _points[3] = _transf.transform(new Vector3D(0.0, _insideWidth, 0.0 + zThickness));
+
+                    _points[4] = _transf.transform(new Vector3D(0.0, 0.0, _height - zThickness));
+                    _points[5] = _transf.transform(new Vector3D(_insideLength, 0.0, _height - zThickness));
+                    _points[6] = _transf.transform(new Vector3D(_insideLength, _insideWidth, _height - zThickness));
+                    _points[7] = _transf.transform(new Vector3D(0.0, _insideWidth, _height - zThickness));
                 }
                 return _points;
             }
@@ -155,7 +166,7 @@ namespace treeDiM.StackBuilder.Graphics
         #region Inside drawing
         public void DrawInside(Graphics3D graphics)
         {
-            Face[] faces = Faces;
+            Face[] faces = InsideFaces;
             for (int i = 0; i < 6; ++i)
                 faces[i].IsSolid = false;
             foreach (Face face in faces)

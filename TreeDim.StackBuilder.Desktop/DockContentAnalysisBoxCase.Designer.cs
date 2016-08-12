@@ -28,34 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.graphCtrlSolution = new treeDiM.StackBuilder.Graphics.Graphics3DControl();
-            ((System.ComponentModel.ISupportInitialize)(this.graphCtrlSolution)).BeginInit();
             this.SuspendLayout();
-            // 
-            // graphCtrlSolution
-            // 
-            this.graphCtrlSolution.Location = new System.Drawing.Point(12, 27);
-            this.graphCtrlSolution.Name = "graphCtrlSolution";
-            this.graphCtrlSolution.Size = new System.Drawing.Size(150, 150);
-            this.graphCtrlSolution.TabIndex = 0;
-            this.graphCtrlSolution.Viewer = null;
             // 
             // DockContentAnalysisBoxCase
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(676, 353);
-            this.Controls.Add(this.graphCtrlSolution);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "DockContentAnalysisBoxCase";
             this.Text = "DockContentAnalysisBoxCase";
-            ((System.ComponentModel.ISupportInitialize)(this.graphCtrlSolution)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private Graphics.Graphics3DControl graphCtrlSolution;
     }
 }
