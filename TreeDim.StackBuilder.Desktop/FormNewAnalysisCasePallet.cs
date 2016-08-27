@@ -198,6 +198,24 @@ namespace treeDiM.StackBuilder.Desktop
         {
             try
             {
+                Packable packable = cbCases.SelectedType as Packable;
+                PalletProperties palletProperties = cbPallets.SelectedType as PalletProperties;
+                if (null == packable || null == palletProperties)
+                    return;
+
+                // get best combination
+                List<KeyValuePair<LayerDesc, int>> listLayer = new List<KeyValuePair<LayerDesc,int>>();
+                LayerSolver.GetBestCombination(
+                    packable.OuterDimensions,
+                    new Vector2D(palletProperties.Length + 2.0 * uCtrlOverhang.ValueX, palletProperties.Width + 2.0 * uCtrlOverhang.ValueY),
+                    BuildConstraintSet(),
+                    ref listLayer);
+
+                // select best layers
+                List<LayerDesc> listLayerDesc = new List<LayerDesc>();
+                foreach (KeyValuePair<LayerDesc, int> kvp in listLayer)
+                    listLayerDesc.Add(kvp.Key);
+                uCtrlLayerList.SelectLayers(listLayerDesc);
             }
             catch (Exception ex)
             {

@@ -51,10 +51,12 @@ namespace treeDiM.StackBuilder.Graphics
         #endregion
 
         #region Public methods
-        public bool FirstLayerSelected
+        public bool SelectLayers(List<LayerDesc> layerDescs)
         {
-            get { return _firstLayerSelected; }
-            set { _firstLayerSelected = value; }
+            if (null != LayerSelected)
+                LayerSelected(this, new EventArgs());
+
+            return true;
         }
         #endregion
 
@@ -73,6 +75,14 @@ namespace treeDiM.StackBuilder.Graphics
         #endregion
 
         #region Public properties
+        [Browsable(false),
+        EditorBrowsable(EditorBrowsableState.Never),
+        DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public bool FirstLayerSelected
+        {
+            get { return _firstLayerSelected; }
+            set { _firstLayerSelected = value; }
+        }
         [Browsable(false),
         EditorBrowsable(EditorBrowsableState.Never),
         DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]

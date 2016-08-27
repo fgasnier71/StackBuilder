@@ -142,7 +142,7 @@ namespace treeDiM.StackBuilder.Engine
             return true;
         }
 
-        public bool GetBestCombination(Vector3D dimBox, Vector2D dimContainer,
+        public static bool GetBestCombination(Vector3D dimBox, Vector2D dimContainer,
             ConstraintSetAbstract constraintSet, ref List<KeyValuePair<LayerDesc, int>> listLayer)
         {
             LayerDesc[] layDescs = new LayerDesc[3];
