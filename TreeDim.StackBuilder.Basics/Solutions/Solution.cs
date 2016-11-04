@@ -11,14 +11,17 @@ using log4net;
 
 namespace treeDiM.StackBuilder.Basics
 {
+    #region ILayerSolver
     public interface ILayerSolver
     {
-        List<Layer2D> BuildLayers(Vector3D dimBox, Vector2D dimContainer, ConstraintSetAbstract constraintSet, bool keepOnlyBest);
+        List<Layer2D> BuildLayers(Vector3D dimBox, Vector2D dimContainer, double offsetZ, ConstraintSetAbstract constraintSet, bool keepOnlyBest);
         Layer2D BuildLayer(Vector3D dimBox, Vector2D actualDimensions, LayerDesc layerDesc);
         Layer2D BuildLayer(Vector3D dimBox, Vector2D dimContainer, LayerDesc layerDesc, Vector2D actualDimensions);
         bool GetDimensions(List<LayerDesc> layers, Vector3D dimBox, Vector2D dimContainer, out Vector2D actualDimensions);
     }
+    #endregion
 
+    #region SolutionItem
     public class SolutionItem
     {
         #region Data members
@@ -72,7 +75,9 @@ namespace treeDiM.StackBuilder.Basics
         }
         #endregion
     }
+    #endregion
 
+    #region Solution
     public class Solution
     {
         #region Data members
@@ -164,7 +169,6 @@ namespace treeDiM.StackBuilder.Basics
             double weight = _analysis.ContainerWeight;
             foreach (SolutionItem solItem in _solutionItems)
             {
-
                 weight += _layers[solItem.LayerIndex].Count * _analysis.ContentWeight;
                 zTop += _layers[solItem.LayerIndex].BoxHeight + ((-1 != solItem.InterlayerIndex) ? _analysis.Interlayer(solItem.InterlayerIndex).Thickness : 0.0);
 
@@ -441,6 +445,33 @@ namespace treeDiM.StackBuilder.Basics
         }
         #endregion
 
+        #region Layer type methods
+        public List<int> LayerTypeUsed(int layerTypeIndex)
+        {
+            List<int> solItemIndexes = new List<int>();
+            int index = 0;
+            foreach (SolutionItem solItem in _solutionItems)
+            {
+                if (solItem.LayerIndex == layerTypeIndex)
+                    solItemIndexes.Add(index+1);
+                ++index;
+            }
+            return solItemIndexes;            
+        }
+        public int LayerBoxCount(int layerTypeIndex)
+        {
+            return _layers[layerTypeIndex].BoxCount;
+        }
+        public double LayerWeight(int layerTypeIndex)
+        {
+            return LayerBoxCount(layerTypeIndex) * _analysis.ContentWeight;
+        }
+        public double LayerMaximumSpace(int LayerTypeIndex)
+        {
+            return _layers[LayerTypeIndex].MaximumSpace;
+        }
+        #endregion
+
         #region Helpers
         /// <summary>
         /// if box bottom oriented to Z+, reverse box
@@ -510,4 +541,5 @@ namespace treeDiM.StackBuilder.Basics
         private static ILog _log = LogManager.GetLogger(typeof(Solution));
         #endregion
     }
+    #endregion
 }

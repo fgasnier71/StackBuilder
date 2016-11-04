@@ -11,7 +11,7 @@ using treeDiM.StackBuilder.Basics;
 
 namespace treeDiM.StackBuilder.Engine
 {
-
+    #region LayerSolver
     public class LayerSolver : ILayerSolver
     {
         #region Static data members
@@ -20,6 +20,7 @@ namespace treeDiM.StackBuilder.Engine
         #region Public methods
         public List<Layer2D> BuildLayers(
             Vector3D dimBox, Vector2D dimContainer,
+            double offsetZ, /* e.g. pallet height */
             ConstraintSetAbstract constraintSet, bool keepOnlyBest)
         {
             // instantiate list of layers
@@ -64,13 +65,13 @@ namespace treeDiM.StackBuilder.Engine
                 // 1. get best count
                 int bestCount = 0;
                 foreach (Layer2D layer in listLayers0)
-                    bestCount = Math.Max(layer.CountInHeight(constraintSet.OptMaxHeight.Value), bestCount);
+                    bestCount = Math.Max(layer.CountInHeight(constraintSet.OptMaxHeight.Value - offsetZ), bestCount);
 
                 // 2. remove any layer that does not match the best count given its orientation
                 List<Layer2D> listLayers1 = new List<Layer2D>();
                 foreach (Layer2D layer in listLayers0)
                 {
-                    if (layer.CountInHeight(constraintSet.OptMaxHeight.Value) >= bestCount)
+                    if (layer.CountInHeight(constraintSet.OptMaxHeight.Value - offsetZ) >= bestCount)
                         listLayers1.Add(layer);
                 }
                 // 3. copy back in original list
@@ -78,7 +79,7 @@ namespace treeDiM.StackBuilder.Engine
                 listLayers0.AddRange(listLayers1);
             }
             if (constraintSet.OptMaxHeight.Activated)
-                listLayers0.Sort(new LayerComparerCount(constraintSet.OptMaxHeight.Value));
+                listLayers0.Sort(new LayerComparerCount(constraintSet.OptMaxHeight.Value - offsetZ));
 
             return listLayers0;
         }
@@ -215,4 +216,5 @@ namespace treeDiM.StackBuilder.Engine
         }
         #endregion
     }
+    #endregion
 }

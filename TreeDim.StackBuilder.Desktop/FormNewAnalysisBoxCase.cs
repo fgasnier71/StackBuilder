@@ -125,6 +125,7 @@ namespace treeDiM.StackBuilder.Desktop
                 List<Layer2D> layers = solver.BuildLayers(
                     packable.OuterDimensions
                     , new Vector2D(caseProperties.InsideLength, caseProperties.InsideWidth)
+                    , 0.0 /* offsetZ */
                     , BuildContraintSet()
                     , checkBoxBestLayersOnly.Checked
                     );

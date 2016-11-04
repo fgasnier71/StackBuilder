@@ -207,7 +207,7 @@
     <value>5</value>
   </data>
   <data name="cbCases.Location" type="System.Drawing.Point, System.Drawing">
-    <value>111, 65</value>
+    <value>105, 65</value>
   </data>
   <data name="cbCases.Size" type="System.Drawing.Size, System.Drawing">
     <value>145, 21</value>
@@ -508,17 +508,20 @@
   <data name="&gt;&gt;uCtrlCaseOrientation.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="&gt;&gt;tabPageOverhang.Name" xml:space="preserve">
-    <value>tabPageOverhang</value>
+  <data name="tabPageStopCriterions.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
   </data>
-  <data name="&gt;&gt;tabPageOverhang.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="tabPageStopCriterions.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
   </data>
-  <data name="&gt;&gt;tabPageOverhang.Parent" xml:space="preserve">
-    <value>tabCtrlConstraints</value>
+  <data name="tabPageStopCriterions.Size" type="System.Drawing.Size, System.Drawing">
+    <value>460, 84</value>
   </data>
-  <data name="&gt;&gt;tabPageOverhang.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="tabPageStopCriterions.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="tabPageStopCriterions.Text" xml:space="preserve">
+    <value>Stop criterions</value>
   </data>
   <data name="&gt;&gt;tabPageStopCriterions.Name" xml:space="preserve">
     <value>tabPageStopCriterions</value>
@@ -530,7 +533,84 @@
     <value>tabCtrlConstraints</value>
   </data>
   <data name="&gt;&gt;tabPageStopCriterions.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tabPageOverhang.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="tabPageOverhang.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="tabPageOverhang.Size" type="System.Drawing.Size, System.Drawing">
+    <value>460, 84</value>
+  </data>
+  <data name="tabPageOverhang.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="tabPageOverhang.Text" xml:space="preserve">
+    <value>Overhang</value>
+  </data>
+  <data name="&gt;&gt;tabPageOverhang.Name" xml:space="preserve">
+    <value>tabPageOverhang</value>
+  </data>
+  <data name="&gt;&gt;tabPageOverhang.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabPageOverhang.Parent" xml:space="preserve">
+    <value>tabCtrlConstraints</value>
+  </data>
+  <data name="&gt;&gt;tabPageOverhang.ZOrder" xml:space="preserve">
     <value>1</value>
+  </data>
+  <data name="uCtrlOptSpace.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 7</value>
+  </data>
+  <data name="uCtrlOptSpace.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>200, 20</value>
+  </data>
+  <data name="uCtrlOptSpace.Size" type="System.Drawing.Size, System.Drawing">
+    <value>220, 20</value>
+  </data>
+  <data name="uCtrlOptSpace.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="uCtrlOptSpace.Text" xml:space="preserve">
+    <value>Space</value>
+  </data>
+  <data name="uCtrlOptSpace.Value" mimetype="application/x-microsoft.net.object.binary.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAFJ0cmVlRGlNLlN0YWNrQnVpbGRlci5CYXNpY3MsIFZlcnNpb249
+        My4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1udWxsBQEAAAAldHJlZURpTS5T
+        dGFja0J1aWxkZXIuQmFzaWNzLk9wdERvdWJsZQIAAAAKX2FjdGl2YXRlZARfdmFsAAABBgIAAAAAAAAA
+        AAAAAAAL
+</value>
+  </data>
+  <data name="&gt;&gt;uCtrlOptSpace.Name" xml:space="preserve">
+    <value>uCtrlOptSpace</value>
+  </data>
+  <data name="&gt;&gt;uCtrlOptSpace.Type" xml:space="preserve">
+    <value>treeDiM.StackBuilder.Basics.UCtrlOptDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;uCtrlOptSpace.Parent" xml:space="preserve">
+    <value>tabPageSpaces</value>
+  </data>
+  <data name="&gt;&gt;uCtrlOptSpace.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tabPageSpaces.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="tabPageSpaces.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="tabPageSpaces.Size" type="System.Drawing.Size, System.Drawing">
+    <value>460, 84</value>
+  </data>
+  <data name="tabPageSpaces.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="tabPageSpaces.Text" xml:space="preserve">
+    <value>Spaces</value>
   </data>
   <data name="&gt;&gt;tabPageSpaces.Name" xml:space="preserve">
     <value>tabPageSpaces</value>
@@ -543,6 +623,53 @@
   </data>
   <data name="&gt;&gt;tabPageSpaces.ZOrder" xml:space="preserve">
     <value>2</value>
+  </data>
+  <data name="uCtrlOptMaximumSpace.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 7</value>
+  </data>
+  <data name="uCtrlOptMaximumSpace.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>200, 20</value>
+  </data>
+  <data name="uCtrlOptMaximumSpace.Size" type="System.Drawing.Size, System.Drawing">
+    <value>220, 20</value>
+  </data>
+  <data name="uCtrlOptMaximumSpace.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="uCtrlOptMaximumSpace.Text" xml:space="preserve">
+    <value>Maximum space</value>
+  </data>
+  <data name="uCtrlOptMaximumSpace.Value" mimetype="application/x-microsoft.net.object.binary.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAFJ0cmVlRGlNLlN0YWNrQnVpbGRlci5CYXNpY3MsIFZlcnNpb249
+        My4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1udWxsBQEAAAAldHJlZURpTS5T
+        dGFja0J1aWxkZXIuQmFzaWNzLk9wdERvdWJsZQIAAAAKX2FjdGl2YXRlZARfdmFsAAABBgIAAAAAAAAA
+        AAAAAAAL
+</value>
+  </data>
+  <data name="&gt;&gt;uCtrlOptMaximumSpace.Name" xml:space="preserve">
+    <value>uCtrlOptMaximumSpace</value>
+  </data>
+  <data name="&gt;&gt;uCtrlOptMaximumSpace.Type" xml:space="preserve">
+    <value>treeDiM.StackBuilder.Basics.UCtrlOptDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;uCtrlOptMaximumSpace.Parent" xml:space="preserve">
+    <value>tabPageLayerFilters</value>
+  </data>
+  <data name="&gt;&gt;uCtrlOptMaximumSpace.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tabPageLayerFilters.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="tabPageLayerFilters.Size" type="System.Drawing.Size, System.Drawing">
+    <value>460, 84</value>
+  </data>
+  <data name="tabPageLayerFilters.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="tabPageLayerFilters.Text" xml:space="preserve">
+    <value>Filters</value>
   </data>
   <data name="&gt;&gt;tabPageLayerFilters.Name" xml:space="preserve">
     <value>tabPageLayerFilters</value>
@@ -576,111 +703,6 @@
   </data>
   <data name="&gt;&gt;tabCtrlConstraints.ZOrder" xml:space="preserve">
     <value>0</value>
-  </data>
-  <data name="tabPageOverhang.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 22</value>
-  </data>
-  <data name="tabPageOverhang.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="tabPageOverhang.Size" type="System.Drawing.Size, System.Drawing">
-    <value>460, 84</value>
-  </data>
-  <data name="tabPageOverhang.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="tabPageOverhang.Text" xml:space="preserve">
-    <value>Overhang</value>
-  </data>
-  <data name="&gt;&gt;tabPageOverhang.Name" xml:space="preserve">
-    <value>tabPageOverhang</value>
-  </data>
-  <data name="&gt;&gt;tabPageOverhang.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tabPageOverhang.Parent" xml:space="preserve">
-    <value>tabCtrlConstraints</value>
-  </data>
-  <data name="&gt;&gt;tabPageOverhang.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="tabPageStopCriterions.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 22</value>
-  </data>
-  <data name="tabPageStopCriterions.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="tabPageStopCriterions.Size" type="System.Drawing.Size, System.Drawing">
-    <value>460, 84</value>
-  </data>
-  <data name="tabPageStopCriterions.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="tabPageStopCriterions.Text" xml:space="preserve">
-    <value>Stop criterions</value>
-  </data>
-  <data name="&gt;&gt;tabPageStopCriterions.Name" xml:space="preserve">
-    <value>tabPageStopCriterions</value>
-  </data>
-  <data name="&gt;&gt;tabPageStopCriterions.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tabPageStopCriterions.Parent" xml:space="preserve">
-    <value>tabCtrlConstraints</value>
-  </data>
-  <data name="&gt;&gt;tabPageStopCriterions.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="tabPageSpaces.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 22</value>
-  </data>
-  <data name="tabPageSpaces.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="tabPageSpaces.Size" type="System.Drawing.Size, System.Drawing">
-    <value>460, 84</value>
-  </data>
-  <data name="tabPageSpaces.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="tabPageSpaces.Text" xml:space="preserve">
-    <value>Spaces</value>
-  </data>
-  <data name="&gt;&gt;tabPageSpaces.Name" xml:space="preserve">
-    <value>tabPageSpaces</value>
-  </data>
-  <data name="&gt;&gt;tabPageSpaces.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tabPageSpaces.Parent" xml:space="preserve">
-    <value>tabCtrlConstraints</value>
-  </data>
-  <data name="&gt;&gt;tabPageSpaces.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="tabPageLayerFilters.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 22</value>
-  </data>
-  <data name="tabPageLayerFilters.Size" type="System.Drawing.Size, System.Drawing">
-    <value>460, 84</value>
-  </data>
-  <data name="tabPageLayerFilters.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="tabPageLayerFilters.Text" xml:space="preserve">
-    <value>Filters</value>
-  </data>
-  <data name="&gt;&gt;tabPageLayerFilters.Name" xml:space="preserve">
-    <value>tabPageLayerFilters</value>
-  </data>
-  <data name="&gt;&gt;tabPageLayerFilters.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tabPageLayerFilters.Parent" xml:space="preserve">
-    <value>tabCtrlConstraints</value>
-  </data>
-  <data name="&gt;&gt;tabPageLayerFilters.ZOrder" xml:space="preserve">
-    <value>3</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

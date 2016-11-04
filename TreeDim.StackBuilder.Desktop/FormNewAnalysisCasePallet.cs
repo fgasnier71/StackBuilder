@@ -154,11 +154,12 @@ namespace treeDiM.StackBuilder.Desktop
                 List<Layer2D> layers = solver.BuildLayers(
                     packable.OuterDimensions
                     , new Vector2D(palletProperties.Length + 2.0*uCtrlOverhang.ValueX, palletProperties.Width + 2.0*uCtrlOverhang.ValueY)
+                    , palletProperties.Height
                     , BuildConstraintSet()
                     , checkBoxBestLayersOnly.Checked);
                 // update control
                 uCtrlLayerList.Packable = packable;
-                uCtrlLayerList.ContainerHeight = uCtrlOptMaximumHeight.Value.Value;
+                uCtrlLayerList.ContainerHeight = uCtrlOptMaximumHeight.Value.Value - palletProperties.Height;
                 uCtrlLayerList.FirstLayerSelected = true;
                 uCtrlLayerList.LayerList = layers;
             }
