@@ -106,6 +106,69 @@ namespace treeDiM.StackBuilder.Basics.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Box.
+        /// </summary>
+        internal static string ID_NAMEBOX {
+            get {
+                return ResourceManager.GetString("ID_NAMEBOX", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bundle.
+        /// </summary>
+        internal static string ID_NAMEBUNDLE {
+            get {
+                return ResourceManager.GetString("ID_NAMEBUNDLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Case.
+        /// </summary>
+        internal static string ID_NAMECASE {
+            get {
+                return ResourceManager.GetString("ID_NAMECASE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cylinder.
+        /// </summary>
+        internal static string ID_NAMECYLINDER {
+            get {
+                return ResourceManager.GetString("ID_NAMECYLINDER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pack.
+        /// </summary>
+        internal static string ID_NAMEPACK {
+            get {
+                return ResourceManager.GetString("ID_NAMEPACK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pallet.
+        /// </summary>
+        internal static string ID_NAMEPALLET {
+            get {
+                return ResourceManager.GetString("ID_NAMEPALLET", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Truck.
+        /// </summary>
+        internal static string ID_NAMETRUCK {
+            get {
+                return ResourceManager.GetString("ID_NAMETRUCK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to # Packs.
         /// </summary>
         internal static string ID_PACKCOUNT {

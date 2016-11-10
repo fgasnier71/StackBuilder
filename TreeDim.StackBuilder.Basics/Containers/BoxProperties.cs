@@ -83,6 +83,11 @@ namespace treeDiM.StackBuilder.Basics
         {   get { return HasInsideDimensions; } }
         #endregion
 
+        #region Packable override
+        protected override string TypeName
+        { get { return IsCase ? Properties.Resource.ID_NAMECASE : Properties.Resource.ID_NAMEBOX; } }
+        #endregion
+
         #region Dimensions
         public override double Height
         { get { return _height; } }

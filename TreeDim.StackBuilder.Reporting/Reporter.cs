@@ -243,7 +243,7 @@ namespace treeDiM.StackBuilder.Reporting
         public bool IsBoxCasePalletAnalysis
         { get { return (null != _caseAnalysis) && (null != _selCaseSolution); } }
         public bool IsValid
-        { get { return IsBoxCasePalletAnalysis ^ IsBoxCaseAnalysis ^ IsCasePalletAnalysis ^ IsCylinderPalletAnalysis ^ IsHCylinderPalletAnalysis ^ IsPackPalletAnalysis; } }
+        { get { return true; } }
         public double ActualCaseWeight
         {
             get

@@ -291,48 +291,40 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;uCtrlOptMaximumWeight.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
-  <data name="uCtrlOptMaximumHeight.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 19</value>
+  <data name="uCtrlMaximumHeight.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 18</value>
   </data>
-  <data name="uCtrlOptMaximumHeight.MinimumSize" type="System.Drawing.Size, System.Drawing">
+  <data name="uCtrlMaximumHeight.MinimumSize" type="System.Drawing.Size, System.Drawing">
     <value>100, 20</value>
   </data>
-  <data name="uCtrlOptMaximumHeight.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="uCtrlMaximumHeight.Size" type="System.Drawing.Size, System.Drawing">
     <value>268, 20</value>
   </data>
-  <data name="uCtrlOptMaximumHeight.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="uCtrlMaximumHeight.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
   </data>
-  <data name="uCtrlOptMaximumHeight.Text" xml:space="preserve">
+  <data name="uCtrlMaximumHeight.Text" xml:space="preserve">
     <value>Pallet height reaches</value>
   </data>
-  <data name="uCtrlOptMaximumHeight.Value" mimetype="application/x-microsoft.net.object.binary.base64">
-    <value>
-        AAEAAAD/////AQAAAAAAAAAMAgAAAFJ0cmVlRGlNLlN0YWNrQnVpbGRlci5CYXNpY3MsIFZlcnNpb249
-        My4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1udWxsBQEAAAAldHJlZURpTS5T
-        dGFja0J1aWxkZXIuQmFzaWNzLk9wdERvdWJsZQIAAAAKX2FjdGl2YXRlZARfdmFsAAABBgIAAAAAAAAA
-        AAAAAAAL
-</value>
+  <data name="&gt;&gt;uCtrlMaximumHeight.Name" xml:space="preserve">
+    <value>uCtrlMaximumHeight</value>
   </data>
-  <data name="&gt;&gt;uCtrlOptMaximumHeight.Name" xml:space="preserve">
-    <value>uCtrlOptMaximumHeight</value>
+  <data name="&gt;&gt;uCtrlMaximumHeight.Type" xml:space="preserve">
+    <value>treeDiM.StackBuilder.Basics.UCtrlDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="&gt;&gt;uCtrlOptMaximumHeight.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlOptDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;uCtrlOptMaximumHeight.Parent" xml:space="preserve">
+  <data name="&gt;&gt;uCtrlMaximumHeight.Parent" xml:space="preserve">
     <value>groupBox1</value>
   </data>
-  <data name="&gt;&gt;uCtrlOptMaximumHeight.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="&gt;&gt;uCtrlMaximumHeight.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="groupBox1.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 6</value>
   </data>
   <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>283, 70</value>
+    <value>448, 70</value>
   </data>
   <data name="groupBox1.TabIndex" type="System.Int32, mscorlib">
     <value>22</value>
@@ -562,29 +554,6 @@
   <data name="&gt;&gt;tabPageOverhang.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="uCtrlOptSpace.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 7</value>
-  </data>
-  <data name="uCtrlOptSpace.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>200, 20</value>
-  </data>
-  <data name="uCtrlOptSpace.Size" type="System.Drawing.Size, System.Drawing">
-    <value>220, 20</value>
-  </data>
-  <data name="uCtrlOptSpace.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="uCtrlOptSpace.Text" xml:space="preserve">
-    <value>Space</value>
-  </data>
-  <data name="uCtrlOptSpace.Value" mimetype="application/x-microsoft.net.object.binary.base64">
-    <value>
-        AAEAAAD/////AQAAAAAAAAAMAgAAAFJ0cmVlRGlNLlN0YWNrQnVpbGRlci5CYXNpY3MsIFZlcnNpb249
-        My4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1udWxsBQEAAAAldHJlZURpTS5T
-        dGFja0J1aWxkZXIuQmFzaWNzLk9wdERvdWJsZQIAAAAKX2FjdGl2YXRlZARfdmFsAAABBgIAAAAAAAAA
-        AAAAAAAL
-</value>
-  </data>
   <data name="&gt;&gt;uCtrlOptSpace.Name" xml:space="preserve">
     <value>uCtrlOptSpace</value>
   </data>
@@ -623,29 +592,6 @@
   </data>
   <data name="&gt;&gt;tabPageSpaces.ZOrder" xml:space="preserve">
     <value>2</value>
-  </data>
-  <data name="uCtrlOptMaximumSpace.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 7</value>
-  </data>
-  <data name="uCtrlOptMaximumSpace.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>200, 20</value>
-  </data>
-  <data name="uCtrlOptMaximumSpace.Size" type="System.Drawing.Size, System.Drawing">
-    <value>220, 20</value>
-  </data>
-  <data name="uCtrlOptMaximumSpace.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="uCtrlOptMaximumSpace.Text" xml:space="preserve">
-    <value>Maximum space</value>
-  </data>
-  <data name="uCtrlOptMaximumSpace.Value" mimetype="application/x-microsoft.net.object.binary.base64">
-    <value>
-        AAEAAAD/////AQAAAAAAAAAMAgAAAFJ0cmVlRGlNLlN0YWNrQnVpbGRlci5CYXNpY3MsIFZlcnNpb249
-        My4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1udWxsBQEAAAAldHJlZURpTS5T
-        dGFja0J1aWxkZXIuQmFzaWNzLk9wdERvdWJsZQIAAAAKX2FjdGl2YXRlZARfdmFsAAABBgIAAAAAAAAA
-        AAAAAAAL
-</value>
   </data>
   <data name="&gt;&gt;uCtrlOptMaximumSpace.Name" xml:space="preserve">
     <value>uCtrlOptMaximumSpace</value>
@@ -702,6 +648,76 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;tabCtrlConstraints.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="uCtrlOptSpace.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 7</value>
+  </data>
+  <data name="uCtrlOptSpace.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>200, 20</value>
+  </data>
+  <data name="uCtrlOptSpace.Size" type="System.Drawing.Size, System.Drawing">
+    <value>220, 20</value>
+  </data>
+  <data name="uCtrlOptSpace.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="uCtrlOptSpace.Text" xml:space="preserve">
+    <value>Space</value>
+  </data>
+  <data name="uCtrlOptSpace.Value" mimetype="application/x-microsoft.net.object.binary.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAFJ0cmVlRGlNLlN0YWNrQnVpbGRlci5CYXNpY3MsIFZlcnNpb249
+        My4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1udWxsBQEAAAAldHJlZURpTS5T
+        dGFja0J1aWxkZXIuQmFzaWNzLk9wdERvdWJsZQIAAAAKX2FjdGl2YXRlZARfdmFsAAABBgIAAAAAAAAA
+        AAAAAAAL
+</value>
+  </data>
+  <data name="&gt;&gt;uCtrlOptSpace.Name" xml:space="preserve">
+    <value>uCtrlOptSpace</value>
+  </data>
+  <data name="&gt;&gt;uCtrlOptSpace.Type" xml:space="preserve">
+    <value>treeDiM.StackBuilder.Basics.UCtrlOptDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;uCtrlOptSpace.Parent" xml:space="preserve">
+    <value>tabPageSpaces</value>
+  </data>
+  <data name="&gt;&gt;uCtrlOptSpace.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="uCtrlOptMaximumSpace.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 7</value>
+  </data>
+  <data name="uCtrlOptMaximumSpace.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>200, 20</value>
+  </data>
+  <data name="uCtrlOptMaximumSpace.Size" type="System.Drawing.Size, System.Drawing">
+    <value>220, 20</value>
+  </data>
+  <data name="uCtrlOptMaximumSpace.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="uCtrlOptMaximumSpace.Text" xml:space="preserve">
+    <value>Maximum space</value>
+  </data>
+  <data name="uCtrlOptMaximumSpace.Value" mimetype="application/x-microsoft.net.object.binary.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAFJ0cmVlRGlNLlN0YWNrQnVpbGRlci5CYXNpY3MsIFZlcnNpb249
+        My4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1udWxsBQEAAAAldHJlZURpTS5T
+        dGFja0J1aWxkZXIuQmFzaWNzLk9wdERvdWJsZQIAAAAKX2FjdGl2YXRlZARfdmFsAAABBgIAAAAAAAAA
+        AAAAAAAL
+</value>
+  </data>
+  <data name="&gt;&gt;uCtrlOptMaximumSpace.Name" xml:space="preserve">
+    <value>uCtrlOptMaximumSpace</value>
+  </data>
+  <data name="&gt;&gt;uCtrlOptMaximumSpace.Type" xml:space="preserve">
+    <value>treeDiM.StackBuilder.Basics.UCtrlOptDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;uCtrlOptMaximumSpace.Parent" xml:space="preserve">
+    <value>tabPageLayerFilters</value>
+  </data>
+  <data name="&gt;&gt;uCtrlOptMaximumSpace.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">

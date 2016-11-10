@@ -265,5 +265,25 @@ namespace treeDiM.StackBuilder.Desktop
             }
         }
         #endregion
+
+        #region Helpers
+        protected string BuildLayerCaption(List<int> layerIndexes)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append(layerIndexes.Count > 1 ? "Layers " : "Layer ");
+            int iCountIndexes = layerIndexes.Count;
+            for (int j = 0; j < iCountIndexes; ++j)
+            {
+                sb.AppendFormat("{0}", layerIndexes[j]);
+                if (j != iCountIndexes - 1)
+                {
+                    sb.Append(",");
+                    if (j != 0 && 0 == j % 10)
+                        sb.Append("\n");
+                }
+            }
+            return sb.ToString();
+        }
+        #endregion
     }
 }

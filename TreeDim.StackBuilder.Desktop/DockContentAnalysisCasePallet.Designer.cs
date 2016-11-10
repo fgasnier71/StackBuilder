@@ -30,11 +30,15 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DockContentAnalysisCasePallet));
             this.toolStripAnalysis = new System.Windows.Forms.ToolStrip();
+            this.toolStripButtonBack = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonReport = new System.Windows.Forms.ToolStripButton();
             this.splitContainerHoriz = new System.Windows.Forms.SplitContainer();
             this.splitContainerVert = new System.Windows.Forms.SplitContainer();
             this.graphCtrlSolution = new treeDiM.StackBuilder.Graphics.Graphics3DControl();
             this.gridSolutions = new SourceGrid.Grid();
+            this.gbStopCriterions = new System.Windows.Forms.GroupBox();
+            this.uCtrlOptMaximumWeight = new treeDiM.StackBuilder.Basics.UCtrlOptDouble();
+            this.uCtrlMaxPalletHeight = new treeDiM.StackBuilder.Basics.UCtrlDouble();
             this.tabCtrl = new System.Windows.Forms.TabControl();
             this.tabPagePalletCorners = new System.Windows.Forms.TabPage();
             this.cbPalletCorners = new System.Windows.Forms.ComboBox();
@@ -62,6 +66,7 @@
             this.splitContainerVert.Panel2.SuspendLayout();
             this.splitContainerVert.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.graphCtrlSolution)).BeginInit();
+            this.gbStopCriterions.SuspendLayout();
             this.tabCtrl.SuspendLayout();
             this.tabPagePalletCorners.SuspendLayout();
             this.tabPagePalletCap.SuspendLayout();
@@ -72,12 +77,23 @@
             // toolStripAnalysis
             // 
             this.toolStripAnalysis.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButtonBack,
             this.toolStripButtonReport});
             this.toolStripAnalysis.Location = new System.Drawing.Point(0, 0);
             this.toolStripAnalysis.Name = "toolStripAnalysis";
-            this.toolStripAnalysis.Size = new System.Drawing.Size(684, 25);
+            this.toolStripAnalysis.Size = new System.Drawing.Size(784, 25);
             this.toolStripAnalysis.TabIndex = 1;
             this.toolStripAnalysis.Text = "Generate MS Word report";
+            // 
+            // toolStripButtonBack
+            // 
+            this.toolStripButtonBack.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonBack.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonBack.Image")));
+            this.toolStripButtonBack.ImageTransparentColor = System.Drawing.Color.White;
+            this.toolStripButtonBack.Name = "toolStripButtonBack";
+            this.toolStripButtonBack.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonBack.Text = "Back...";
+            this.toolStripButtonBack.Click += new System.EventHandler(this.onBack);
             // 
             // toolStripButtonReport
             // 
@@ -103,11 +119,12 @@
             // 
             // splitContainerHoriz.Panel2
             // 
+            this.splitContainerHoriz.Panel2.Controls.Add(this.gbStopCriterions);
             this.splitContainerHoriz.Panel2.Controls.Add(this.tabCtrl);
             this.splitContainerHoriz.Panel2.Controls.Add(this.gbLayer);
             this.splitContainerHoriz.Panel2.Controls.Add(this.tbClickLayer);
             this.splitContainerHoriz.Panel2MinSize = 100;
-            this.splitContainerHoriz.Size = new System.Drawing.Size(684, 536);
+            this.splitContainerHoriz.Size = new System.Drawing.Size(784, 536);
             this.splitContainerHoriz.SplitterDistance = 410;
             this.splitContainerHoriz.TabIndex = 13;
             // 
@@ -124,8 +141,8 @@
             // splitContainerVert.Panel2
             // 
             this.splitContainerVert.Panel2.Controls.Add(this.gridSolutions);
-            this.splitContainerVert.Size = new System.Drawing.Size(684, 410);
-            this.splitContainerVert.SplitterDistance = 512;
+            this.splitContainerVert.Size = new System.Drawing.Size(784, 410);
+            this.splitContainerVert.SplitterDistance = 586;
             this.splitContainerVert.TabIndex = 1;
             // 
             // graphCtrlSolution
@@ -133,7 +150,7 @@
             this.graphCtrlSolution.Dock = System.Windows.Forms.DockStyle.Fill;
             this.graphCtrlSolution.Location = new System.Drawing.Point(0, 0);
             this.graphCtrlSolution.Name = "graphCtrlSolution";
-            this.graphCtrlSolution.Size = new System.Drawing.Size(512, 410);
+            this.graphCtrlSolution.Size = new System.Drawing.Size(586, 410);
             this.graphCtrlSolution.TabIndex = 1;
             this.graphCtrlSolution.Viewer = null;
             // 
@@ -145,10 +162,54 @@
             this.gridSolutions.Name = "gridSolutions";
             this.gridSolutions.OptimizeMode = SourceGrid.CellOptimizeMode.ForRows;
             this.gridSolutions.SelectionMode = SourceGrid.GridSelectionMode.Cell;
-            this.gridSolutions.Size = new System.Drawing.Size(168, 410);
+            this.gridSolutions.Size = new System.Drawing.Size(194, 410);
             this.gridSolutions.TabIndex = 0;
             this.gridSolutions.TabStop = true;
             this.gridSolutions.ToolTipText = "";
+            // 
+            // gbStopCriterions
+            // 
+            this.gbStopCriterions.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.gbStopCriterions.Controls.Add(this.uCtrlOptMaximumWeight);
+            this.gbStopCriterions.Controls.Add(this.uCtrlMaxPalletHeight);
+            this.gbStopCriterions.Location = new System.Drawing.Point(253, 5);
+            this.gbStopCriterions.Name = "gbStopCriterions";
+            this.gbStopCriterions.Size = new System.Drawing.Size(213, 113);
+            this.gbStopCriterions.TabIndex = 15;
+            this.gbStopCriterions.TabStop = false;
+            this.gbStopCriterions.Text = "Stop criterions";
+            // 
+            // uCtrlOptMaximumWeight
+            // 
+            this.uCtrlOptMaximumWeight.Location = new System.Drawing.Point(4, 44);
+            this.uCtrlOptMaximumWeight.Minimum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            -2147483648});
+            this.uCtrlOptMaximumWeight.MinimumSize = new System.Drawing.Size(100, 20);
+            this.uCtrlOptMaximumWeight.Name = "uCtrlOptMaximumWeight";
+            this.uCtrlOptMaximumWeight.Size = new System.Drawing.Size(206, 20);
+            this.uCtrlOptMaximumWeight.TabIndex = 1;
+            this.uCtrlOptMaximumWeight.Text = "Maximum weight";
+            this.uCtrlOptMaximumWeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_MASS;
+            this.uCtrlOptMaximumWeight.Value = ((treeDiM.StackBuilder.Basics.OptDouble)(resources.GetObject("uCtrlOptMaximumWeight.Value")));
+            // 
+            // uCtrlMaxPalletHeight
+            // 
+            this.uCtrlMaxPalletHeight.Location = new System.Drawing.Point(4, 17);
+            this.uCtrlMaxPalletHeight.Minimum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            -2147483648});
+            this.uCtrlMaxPalletHeight.MinimumSize = new System.Drawing.Size(100, 20);
+            this.uCtrlMaxPalletHeight.Name = "uCtrlMaxPalletHeight";
+            this.uCtrlMaxPalletHeight.Size = new System.Drawing.Size(206, 20);
+            this.uCtrlMaxPalletHeight.TabIndex = 0;
+            this.uCtrlMaxPalletHeight.Text = "Maximum height";
+            this.uCtrlMaxPalletHeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlMaxPalletHeight.Value = 0D;
             // 
             // tabCtrl
             // 
@@ -157,11 +218,11 @@
             this.tabCtrl.Controls.Add(this.tabPagePalletCorners);
             this.tabCtrl.Controls.Add(this.tabPagePalletCap);
             this.tabCtrl.Controls.Add(this.tabPagePalletFilm);
-            this.tabCtrl.Location = new System.Drawing.Point(256, 8);
+            this.tabCtrl.Location = new System.Drawing.Point(469, 8);
             this.tabCtrl.Multiline = true;
             this.tabCtrl.Name = "tabCtrl";
             this.tabCtrl.SelectedIndex = 0;
-            this.tabCtrl.Size = new System.Drawing.Size(428, 113);
+            this.tabCtrl.Size = new System.Drawing.Size(315, 113);
             this.tabCtrl.TabIndex = 14;
             // 
             // tabPagePalletCorners
@@ -171,7 +232,7 @@
             this.tabPagePalletCorners.Location = new System.Drawing.Point(4, 22);
             this.tabPagePalletCorners.Name = "tabPagePalletCorners";
             this.tabPagePalletCorners.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPagePalletCorners.Size = new System.Drawing.Size(420, 87);
+            this.tabPagePalletCorners.Size = new System.Drawing.Size(307, 87);
             this.tabPagePalletCorners.TabIndex = 0;
             this.tabPagePalletCorners.Text = "Pallet Corners";
             this.tabPagePalletCorners.UseVisualStyleBackColor = true;
@@ -204,7 +265,7 @@
             this.tabPagePalletCap.Location = new System.Drawing.Point(4, 22);
             this.tabPagePalletCap.Name = "tabPagePalletCap";
             this.tabPagePalletCap.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPagePalletCap.Size = new System.Drawing.Size(420, 87);
+            this.tabPagePalletCap.Size = new System.Drawing.Size(307, 87);
             this.tabPagePalletCap.TabIndex = 1;
             this.tabPagePalletCap.Text = "Pallet Cap";
             this.tabPagePalletCap.UseVisualStyleBackColor = true;
@@ -237,7 +298,7 @@
             this.tabPagePalletFilm.Location = new System.Drawing.Point(4, 22);
             this.tabPagePalletFilm.Name = "tabPagePalletFilm";
             this.tabPagePalletFilm.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPagePalletFilm.Size = new System.Drawing.Size(420, 87);
+            this.tabPagePalletFilm.Size = new System.Drawing.Size(307, 87);
             this.tabPagePalletFilm.TabIndex = 2;
             this.tabPagePalletFilm.Text = "Pallet Film";
             this.tabPagePalletFilm.UseVisualStyleBackColor = true;
@@ -354,7 +415,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(684, 561);
+            this.ClientSize = new System.Drawing.Size(784, 561);
             this.Controls.Add(this.splitContainerHoriz);
             this.Controls.Add(this.toolStripAnalysis);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -374,6 +435,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerVert)).EndInit();
             this.splitContainerVert.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.graphCtrlSolution)).EndInit();
+            this.gbStopCriterions.ResumeLayout(false);
             this.tabCtrl.ResumeLayout(false);
             this.tabPagePalletCorners.ResumeLayout(false);
             this.tabPagePalletCorners.PerformLayout();
@@ -387,7 +449,6 @@
             this.PerformLayout();
 
         }
-
         #endregion
 
         private System.Windows.Forms.ToolStrip toolStripAnalysis;
@@ -413,5 +474,9 @@
         private System.Windows.Forms.Button bnSymetryY;
         private System.Windows.Forms.TextBox tbClickLayer;
         private SourceGrid.Grid gridSolutions;
+        private System.Windows.Forms.GroupBox gbStopCriterions;
+        private Basics.UCtrlDouble uCtrlMaxPalletHeight;
+        private Basics.UCtrlOptDouble uCtrlOptMaximumWeight;
+        private System.Windows.Forms.ToolStripButton toolStripButtonBack;
     }
 }

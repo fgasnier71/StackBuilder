@@ -34,6 +34,8 @@ namespace treeDiM.StackBuilder.Basics
         #endregion
 
         #region Override packable
+        protected override string TypeName
+        { get { return Properties.Resource.ID_NAMEBUNDLE; } }
         public override double Height
         { get { return _unitThickness * _noFlats; } }
         public override double Weight

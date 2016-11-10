@@ -137,6 +137,15 @@ namespace treeDiM.StackBuilder.Basics
             _wrapper = wrapper;
         }
         #endregion
+        #region Packable override
+        public override bool InnerContent(ref Packable innerPackable, ref int number)
+        {
+            innerPackable = _boxProperties;
+            number = _arrangement.Number;
+            return true;
+        }
+        protected override string TypeName { get { return Properties.Resource.ID_NAMEPACK; } }
+        #endregion
         #region Public properties
         /// <summary>
         /// set/get reference to wrapped box
@@ -219,7 +228,6 @@ namespace treeDiM.StackBuilder.Basics
             return(axis == HalfAxis.HAxis.AXIS_Z_N) || (axis == HalfAxis.HAxis.AXIS_Z_P);
         }
         #endregion
-
         #region Inner dimensions
         public double InnerLength { get { return _arrangement._iLength * _boxProperties.Dim(Dim0); } }
         public double InnerWidth { get { return _arrangement._iWidth * _boxProperties.Dim(Dim1); } }

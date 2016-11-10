@@ -132,6 +132,27 @@
   <data name="ID_MAXIMUMSPACE" xml:space="preserve">
     <value>Maximum space</value>
   </data>
+  <data name="ID_NAMEBOX" xml:space="preserve">
+    <value>Box</value>
+  </data>
+  <data name="ID_NAMEBUNDLE" xml:space="preserve">
+    <value>Bundle</value>
+  </data>
+  <data name="ID_NAMECASE" xml:space="preserve">
+    <value>Case</value>
+  </data>
+  <data name="ID_NAMECYLINDER" xml:space="preserve">
+    <value>Cylinder</value>
+  </data>
+  <data name="ID_NAMEPACK" xml:space="preserve">
+    <value>Pack</value>
+  </data>
+  <data name="ID_NAMEPALLET" xml:space="preserve">
+    <value>Pallet</value>
+  </data>
+  <data name="ID_NAMETRUCK" xml:space="preserve">
+    <value>Truck</value>
+  </data>
   <data name="ID_PACKCOUNT" xml:space="preserve">
     <value># Packs</value>
   </data>

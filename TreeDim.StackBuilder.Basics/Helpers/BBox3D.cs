@@ -44,8 +44,8 @@ namespace treeDiM.StackBuilder.Basics
         }
         public BBox3D(BBox3D box)
         {
-            Extend(box._ptMin);
-            Extend(box._ptMax);
+            _ptMin = new Vector3D(box._ptMin);
+            _ptMax = new Vector3D(box._ptMax);
         }
         #endregion
 

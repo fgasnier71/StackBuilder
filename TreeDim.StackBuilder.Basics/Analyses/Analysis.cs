@@ -30,6 +30,10 @@ namespace treeDiM.StackBuilder.Basics
         }
         #endregion
 
+        #region Packable override
+
+        #endregion
+
         #region Public properties
         public Packable Content
         {

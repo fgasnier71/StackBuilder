@@ -117,9 +117,8 @@ namespace treeDiM.StackBuilder.Basics
             // make sure it is not already used
             return null == _typeList.Find(
                 delegate(ItemBase item)
-                {
-                    return (item != itemToName) && string.Equals(item.Name.Trim(), name.Trim(), StringComparison.CurrentCultureIgnoreCase);
-                }
+                {   return (item != itemToName)
+                    && string.Equals(item.Name.Trim(), name.Trim(), StringComparison.CurrentCultureIgnoreCase); }
                 );
         }
         public string GetValidNewTypeName(string prefix)
@@ -135,7 +134,14 @@ namespace treeDiM.StackBuilder.Basics
         public bool IsValidNewAnalysisName(string name, ItemBase analysisToRename)
         {
             string trimmedName = name.Trim();
-            return (null == _casePalletAnalyses.Find(
+            return (null == _analyses.Find(
+                delegate(Analysis analysis)
+                {
+                    return analysis != analysisToRename
+                        && string.Equals(analysis.Name, trimmedName, StringComparison.InvariantCultureIgnoreCase);
+                }
+                ))
+                && (null == _casePalletAnalyses.Find(
                 delegate(CasePalletAnalysis analysis)
                 {
                     return analysis != analysisToRename
@@ -330,7 +336,6 @@ namespace treeDiM.StackBuilder.Basics
             Modify();
             return packProperties;
         }
-
         public CaseOfBoxesProperties CreateNewCaseOfBoxes(
             string name, string description
             , BoxProperties boxProperties
@@ -346,8 +351,7 @@ namespace treeDiM.StackBuilder.Basics
             NotifyOnNewTypeCreated(caseProperties);
             Modify();
             return caseProperties;
-        }
-        
+        }        
         public BundleProperties CreateNewBundle(
             string name, string description
             , double length, double width, double thickness
@@ -364,7 +368,6 @@ namespace treeDiM.StackBuilder.Basics
             Modify();
             return bundle;
         }
-
         public CylinderProperties CreateNewCylinder(CylinderProperties cyl)
         {
             // cylinder
@@ -380,7 +383,6 @@ namespace treeDiM.StackBuilder.Basics
             Modify();
             return cylinder;
         }
-
         public CylinderProperties CreateNewCylinder(
             string name, string description
             , double radiusOuter, double radiusInner, double height
@@ -599,6 +601,76 @@ namespace treeDiM.StackBuilder.Basics
             Modify();
             return truckProperties;
         }
+        #endregion
+
+        #region Analyses instantiation method
+        public AnalysisCasePallet CreateNewAnalysisCasePallet(
+            string name, string description
+            , Packable packable, PalletProperties pallet
+            , List<InterlayerProperties> interlayers
+            , PalletCornerProperties palletCorners, PalletCapProperties palletCap, PalletFilmProperties palletFilm
+            , ConstraintSetCasePallet constraintSet
+            , List<LayerDesc> layerDescs
+            )
+        {
+            AnalysisCasePallet analysis = new AnalysisCasePallet(packable, pallet, constraintSet);
+            analysis.Name = name;
+            analysis.Description = description;
+            foreach (InterlayerProperties interlayer in interlayers)
+                analysis.AddInterlayer(interlayer);
+            analysis.PalletCornerProperties     = palletCorners;
+            analysis.PalletCapProperties        = palletCap;
+            analysis.PalletFilmProperties       = palletFilm;
+            analysis.AddSolution(layerDescs);
+
+            _analyses.Add(analysis);
+
+            // notify listeners
+            NotifyOnNewAnalysisCreated(analysis);
+            Modify();
+
+            return analysis;
+        }
+
+        public AnalysisBoxCase CreateNewAnalysisBoxCase(
+            string name, string description
+            , Packable packable, BoxProperties caseProperties
+            , List<InterlayerProperties> interlayers
+            , ConstraintSetBoxCase constraintSet
+            , List<LayerDesc> layerDescs
+            )
+        {
+            AnalysisBoxCase analysis = new AnalysisBoxCase(packable, caseProperties, constraintSet);
+            analysis.Name = name;
+            analysis.Description = description;
+            analysis.AddSolution(layerDescs);
+
+            // notify listeners
+            NotifyOnNewAnalysisCreated(analysis);
+            Modify();
+
+            return analysis;
+        }
+        public AnalysisPalletTruck CreateNewAnalysisPalletTruck(
+            string name, string description
+            , Packable loadedPallet, TruckProperties truckProperties
+            , ConstraintSetPalletTruck constraintSet
+            , List<LayerDesc> layerDescs)
+        {
+            AnalysisPalletTruck analysis = new AnalysisPalletTruck(loadedPallet, truckProperties, constraintSet);
+            analysis.Name = name;
+            analysis.Description = description;
+            analysis.AddSolution(layerDescs);
+
+            // notify listeners
+            NotifyOnNewAnalysisCreated(analysis);
+            Modify();
+
+            return analysis;
+        }
+        #endregion
+
+        #region Legacy analyses instantiation method
         /// <summary>
         /// Creates a new analysis in this document + compute solutions
         /// </summary>
@@ -640,51 +712,6 @@ namespace treeDiM.StackBuilder.Basics
             return analysis;
         }
 
-        public AnalysisCasePallet CreateNewAnalysisCasePallet(
-            string name, string description
-            , Packable packable, PalletProperties pallet
-            , List<InterlayerProperties> interlayers
-            , PalletCornerProperties palletCorners, PalletCapProperties palletCap, PalletFilmProperties palletFilm
-            , ConstraintSetCasePallet constraintSet
-            , List<LayerDesc> layerDescs
-            )
-        {
-            AnalysisCasePallet analysis = new AnalysisCasePallet(packable, pallet, constraintSet);
-            analysis.Name = name;
-            analysis.Description = description;
-            foreach (InterlayerProperties interlayer in interlayers)
-                analysis.AddInterlayer(interlayer);
-            analysis.PalletCornerProperties     = palletCorners;
-            analysis.PalletCapProperties        = palletCap;
-            analysis.PalletFilmProperties       = palletFilm;
-            analysis.AddSolution(layerDescs);
-
-            // notify listeners
-            NotifyOnNewAnalysisCreated(analysis);
-            Modify();
-
-            return analysis;
-        }
-
-        public AnalysisBoxCase CreateNewAnalysisBoxCase(
-            string name, string description
-            , Packable packable, BoxProperties caseProperties
-            , List<InterlayerProperties> interlayers
-            , ConstraintSetBoxCase constraintSet
-            , List<LayerDesc> layerDescs
-            )
-        {
-            AnalysisBoxCase analysis = new AnalysisBoxCase(packable, caseProperties, constraintSet);
-            analysis.Name = name;
-            analysis.Description = description;
-            analysis.AddSolution(layerDescs);
-
-            // notify listeners
-            NotifyOnNewAnalysisCreated(analysis);
-            Modify();
-
-            return analysis;
-        }
 
         public PackPalletAnalysis CreateNewPackPalletAnalysis(
             string name, string description

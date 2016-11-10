@@ -33,7 +33,6 @@
             this.cbCases = new treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered();
             this.lbBox = new System.Windows.Forms.Label();
             this.uCtrlOptMaximumWeight = new treeDiM.StackBuilder.Basics.UCtrlOptDouble();
-            this.uCtrlOptMaximumHeight = new treeDiM.StackBuilder.Basics.UCtrlOptDouble();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.uCtrlOverhang = new treeDiM.StackBuilder.Basics.UCtrlDualDouble();
             this.lbPallet = new System.Windows.Forms.Label();
@@ -42,16 +41,17 @@
             this.bnBestCombination = new System.Windows.Forms.Button();
             this.uCtrlCaseOrientation = new treeDiM.StackBuilder.Graphics.uCtrlCaseOrientation();
             this.tabCtrlConstraints = new System.Windows.Forms.TabControl();
-            this.tabPageOverhang = new System.Windows.Forms.TabPage();
             this.tabPageStopCriterions = new System.Windows.Forms.TabPage();
+            this.tabPageOverhang = new System.Windows.Forms.TabPage();
             this.tabPageSpaces = new System.Windows.Forms.TabPage();
-            this.tabPageLayerFilters = new System.Windows.Forms.TabPage();
             this.uCtrlOptSpace = new treeDiM.StackBuilder.Basics.UCtrlOptDouble();
+            this.tabPageLayerFilters = new System.Windows.Forms.TabPage();
             this.uCtrlOptMaximumSpace = new treeDiM.StackBuilder.Basics.UCtrlOptDouble();
+            this.uCtrlMaximumHeight = new treeDiM.StackBuilder.Basics.UCtrlDouble();
             this.groupBox1.SuspendLayout();
             this.tabCtrlConstraints.SuspendLayout();
-            this.tabPageOverhang.SuspendLayout();
             this.tabPageStopCriterions.SuspendLayout();
+            this.tabPageOverhang.SuspendLayout();
             this.tabPageSpaces.SuspendLayout();
             this.tabPageLayerFilters.SuspendLayout();
             this.SuspendLayout();
@@ -98,23 +98,10 @@
             this.uCtrlOptMaximumWeight.Value = ((treeDiM.StackBuilder.Basics.OptDouble)(resources.GetObject("uCtrlOptMaximumWeight.Value")));
             this.uCtrlOptMaximumWeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlOptDouble.onValueChanged(this.onInputChanged);
             // 
-            // uCtrlOptMaximumHeight
-            // 
-            resources.ApplyResources(this.uCtrlOptMaximumHeight, "uCtrlOptMaximumHeight");
-            this.uCtrlOptMaximumHeight.Minimum = new decimal(new int[] {
-            0,
-            0,
-            0,
-            65536});
-            this.uCtrlOptMaximumHeight.Name = "uCtrlOptMaximumHeight";
-            this.uCtrlOptMaximumHeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
-            this.uCtrlOptMaximumHeight.Value = ((treeDiM.StackBuilder.Basics.OptDouble)(resources.GetObject("uCtrlOptMaximumHeight.Value")));
-            this.uCtrlOptMaximumHeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlOptDouble.onValueChanged(this.onInputChanged);
-            // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.uCtrlMaximumHeight);
             this.groupBox1.Controls.Add(this.uCtrlOptMaximumWeight);
-            this.groupBox1.Controls.Add(this.uCtrlOptMaximumHeight);
             resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
@@ -173,13 +160,6 @@
             this.tabCtrlConstraints.Name = "tabCtrlConstraints";
             this.tabCtrlConstraints.SelectedIndex = 0;
             // 
-            // tabPageOverhang
-            // 
-            this.tabPageOverhang.Controls.Add(this.uCtrlOverhang);
-            resources.ApplyResources(this.tabPageOverhang, "tabPageOverhang");
-            this.tabPageOverhang.Name = "tabPageOverhang";
-            this.tabPageOverhang.UseVisualStyleBackColor = true;
-            // 
             // tabPageStopCriterions
             // 
             this.tabPageStopCriterions.Controls.Add(this.groupBox1);
@@ -187,19 +167,19 @@
             this.tabPageStopCriterions.Name = "tabPageStopCriterions";
             this.tabPageStopCriterions.UseVisualStyleBackColor = true;
             // 
+            // tabPageOverhang
+            // 
+            this.tabPageOverhang.Controls.Add(this.uCtrlOverhang);
+            resources.ApplyResources(this.tabPageOverhang, "tabPageOverhang");
+            this.tabPageOverhang.Name = "tabPageOverhang";
+            this.tabPageOverhang.UseVisualStyleBackColor = true;
+            // 
             // tabPageSpaces
             // 
             this.tabPageSpaces.Controls.Add(this.uCtrlOptSpace);
             resources.ApplyResources(this.tabPageSpaces, "tabPageSpaces");
             this.tabPageSpaces.Name = "tabPageSpaces";
             this.tabPageSpaces.UseVisualStyleBackColor = true;
-            // 
-            // tabPageLayerFilters
-            // 
-            this.tabPageLayerFilters.Controls.Add(this.uCtrlOptMaximumSpace);
-            resources.ApplyResources(this.tabPageLayerFilters, "tabPageLayerFilters");
-            this.tabPageLayerFilters.Name = "tabPageLayerFilters";
-            this.tabPageLayerFilters.UseVisualStyleBackColor = true;
             // 
             // uCtrlOptSpace
             // 
@@ -213,6 +193,13 @@
             this.uCtrlOptSpace.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlOptSpace.Value = ((treeDiM.StackBuilder.Basics.OptDouble)(resources.GetObject("uCtrlOptSpace.Value")));
             // 
+            // tabPageLayerFilters
+            // 
+            this.tabPageLayerFilters.Controls.Add(this.uCtrlOptMaximumSpace);
+            resources.ApplyResources(this.tabPageLayerFilters, "tabPageLayerFilters");
+            this.tabPageLayerFilters.Name = "tabPageLayerFilters";
+            this.tabPageLayerFilters.UseVisualStyleBackColor = true;
+            // 
             // uCtrlOptMaximumSpace
             // 
             resources.ApplyResources(this.uCtrlOptMaximumSpace, "uCtrlOptMaximumSpace");
@@ -224,6 +211,19 @@
             this.uCtrlOptMaximumSpace.Name = "uCtrlOptMaximumSpace";
             this.uCtrlOptMaximumSpace.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlOptMaximumSpace.Value = ((treeDiM.StackBuilder.Basics.OptDouble)(resources.GetObject("uCtrlOptMaximumSpace.Value")));
+            // 
+            // uCtrlMaximumHeight
+            // 
+            resources.ApplyResources(this.uCtrlMaximumHeight, "uCtrlMaximumHeight");
+            this.uCtrlMaximumHeight.Minimum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            -2147483648});
+            this.uCtrlMaximumHeight.Name = "uCtrlMaximumHeight";
+            this.uCtrlMaximumHeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlMaximumHeight.Value = 0D;
+            this.uCtrlMaximumHeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.onValueChanged(this.onInputChanged);
             // 
             // FormNewAnalysisCasePallet
             // 
@@ -256,8 +256,8 @@
             this.Controls.SetChildIndex(this.tabCtrlConstraints, 0);
             this.groupBox1.ResumeLayout(false);
             this.tabCtrlConstraints.ResumeLayout(false);
-            this.tabPageOverhang.ResumeLayout(false);
             this.tabPageStopCriterions.ResumeLayout(false);
+            this.tabPageOverhang.ResumeLayout(false);
             this.tabPageSpaces.ResumeLayout(false);
             this.tabPageLayerFilters.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -273,7 +273,6 @@
         private treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered cbCases;
         private System.Windows.Forms.Label lbBox;
         private Basics.UCtrlOptDouble uCtrlOptMaximumWeight;
-        private Basics.UCtrlOptDouble uCtrlOptMaximumHeight;
         private System.Windows.Forms.GroupBox groupBox1;
         private Basics.UCtrlDualDouble uCtrlOverhang;
         private System.Windows.Forms.Label lbPallet;
@@ -288,5 +287,6 @@
         private System.Windows.Forms.TabPage tabPageLayerFilters;
         private Basics.UCtrlOptDouble uCtrlOptSpace;
         private Basics.UCtrlOptDouble uCtrlOptMaximumSpace;
+        private Basics.UCtrlDouble uCtrlMaximumHeight;
     }
 }

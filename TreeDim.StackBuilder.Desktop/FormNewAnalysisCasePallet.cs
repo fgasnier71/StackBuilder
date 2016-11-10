@@ -53,10 +53,12 @@ namespace treeDiM.StackBuilder.Desktop
             uCtrlLayerList.ButtonSizes = new Size(100, 100);
 
             if (null == _analysis)
-            {                
-                uCtrlCaseOrientation.AllowedOrientations = new bool[]
-                { Settings.Default.AllowVerticalX, Settings.Default.AllowVerticalY, Settings.Default.AllowVerticalZ };
-                uCtrlOptMaximumHeight.Value = new OptDouble(true, Settings.Default.MaximumPalletHeight);
+            {
+                tbName.Text = _document.GetValidNewAnalysisName(ItemDefaultName);
+                tbDescription.Text = tbName.Text;
+
+                uCtrlCaseOrientation.AllowedOrientations = new bool[] { Settings.Default.AllowVerticalX, Settings.Default.AllowVerticalY, Settings.Default.AllowVerticalZ };
+                uCtrlMaximumHeight.Value = Settings.Default.MaximumPalletHeight;
                 uCtrlOptMaximumWeight.Value = new OptDouble(true, Settings.Default.MaximumPalletWeight);
 
                 uCtrlOverhang.ValueX = Settings.Default.OverhangX;
@@ -73,9 +75,7 @@ namespace treeDiM.StackBuilder.Desktop
             Settings.Default.AllowVerticalX = uCtrlCaseOrientation.AllowedOrientations[0];
             Settings.Default.AllowVerticalY = uCtrlCaseOrientation.AllowedOrientations[1];
             Settings.Default.AllowVerticalZ = uCtrlCaseOrientation.AllowedOrientations[2];
-
-            if (uCtrlOptMaximumHeight.Value.Activated)
-                Settings.Default.MaximumPalletHeight = uCtrlOptMaximumHeight.Value.Value;
+            Settings.Default.MaximumPalletHeight = uCtrlMaximumHeight.Value;
             if (uCtrlOptMaximumWeight.Value.Activated)
                 Settings.Default.MaximumPalletWeight = uCtrlOptMaximumWeight.Value.Value;
 
@@ -159,7 +159,7 @@ namespace treeDiM.StackBuilder.Desktop
                     , checkBoxBestLayersOnly.Checked);
                 // update control
                 uCtrlLayerList.Packable = packable;
-                uCtrlLayerList.ContainerHeight = uCtrlOptMaximumHeight.Value.Value - palletProperties.Height;
+                uCtrlLayerList.ContainerHeight = uCtrlMaximumHeight.Value - palletProperties.Height;
                 uCtrlLayerList.FirstLayerSelected = true;
                 uCtrlLayerList.LayerList = layers;
             }
@@ -235,7 +235,7 @@ namespace treeDiM.StackBuilder.Desktop
             // orientations
             constraintSet.SetAllowedOrientations(uCtrlCaseOrientation.AllowedOrientations);
             // conditions
-            constraintSet.SetMaxHeight( uCtrlOptMaximumHeight.Value);
+            constraintSet.SetMaxHeight( new OptDouble(true, uCtrlMaximumHeight.Value));
             constraintSet.OptMaxWeight = uCtrlOptMaximumWeight.Value;
             return constraintSet;
         }

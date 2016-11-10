@@ -73,10 +73,12 @@
     <Compile Include="Analyses\Analysis.cs" />
     <Compile Include="Analyses\AnalysisBoxCase.cs" />
     <Compile Include="Analyses\AnalysisCasePallet.cs" />
+    <Compile Include="Analyses\AnalysisPalletTruck.cs" />
     <Compile Include="Analyses\PackPalletAnalysis.cs" />
     <Compile Include="ConstraintSets\ConstraintSetAbstract.cs" />
     <Compile Include="ConstraintSets\ConstraintSetBoxCase.cs" />
     <Compile Include="ConstraintSets\ConstraintSetCasePallet.cs" />
+    <Compile Include="ConstraintSets\ConstraintSetPalletTruck.cs" />
     <Compile Include="ConstraintSets\CylinderPalletConstraintSet.cs" />
     <Compile Include="ConstraintSets\PackPalletConstraintSet.cs" />
     <Compile Include="Containers\PackArrangement.cs" />
@@ -108,6 +110,7 @@
     <Compile Include="Helpers\BBox3D.cs" />
     <Compile Include="Analyses\BoxCaseAnalysis.cs" />
     <Compile Include="ConstraintSets\BoxCaseConstraintSet.cs" />
+    <Compile Include="Helpers\Packable.cs" />
     <Compile Include="Helpers\CylinderPosition.cs" />
     <Compile Include="Helpers\OptDouble.cs" />
     <Compile Include="Controls\UCtrlOptDouble.cs">

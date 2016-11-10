@@ -162,11 +162,13 @@ namespace treeDiM.StackBuilder.Basics
                     _solutionItems.Add( new SolutionItem(0, -1, false, false) );
             }
         }
-        private void RebuildSolutionItemList()
+        public void RebuildSolutionItemList()
         {
             bool criterionReached = false;
             double zTop = _analysis.Offset.Z;
             double weight = _analysis.ContainerWeight;
+
+            List<SolutionItem> solutionItems = new List<SolutionItem>();
             foreach (SolutionItem solItem in _solutionItems)
             {
                 weight += _layers[solItem.LayerIndex].Count * _analysis.ContentWeight;
@@ -176,6 +178,8 @@ namespace treeDiM.StackBuilder.Basics
                 criterionReached = (ConstraintSet.OptMaxHeight.Activated && zTop >= constraintSet.OptMaxHeight.Value)
                     || (ConstraintSet.OptMaxWeight.Activated && weight >= constraintSet.OptMaxWeight.Value);
 
+                solutionItems.Add(solItem);
+
                 if (criterionReached)
                     break;
             }
@@ -183,10 +187,11 @@ namespace treeDiM.StackBuilder.Basics
             // add layers until 
             while (!criterionReached)
             {
-                if (0 == _solutionItems.Count)
-                { criterionReached = true; break; }
-
-                SolutionItem solItem = _solutionItems.Last();
+                SolutionItem solItem = null;
+                if (solutionItems.Count > 0)
+                    solItem = solutionItems.Last();
+                else
+                    solItem = new SolutionItem(0, -1, false, false);
 
                 if (solItem.LayerIndex >= _layers.Count)
                     throw new Exception(string.Format("Layer index out of range!"));
@@ -194,7 +199,7 @@ namespace treeDiM.StackBuilder.Basics
                 weight += _layers[solItem.LayerIndex].Count * _analysis.ContentWeight;
                 zTop += _layers[solItem.LayerIndex].BoxHeight + ((-1 != solItem.InterlayerIndex) ? _analysis.Interlayer(solItem.InterlayerIndex).Thickness : 0.0);
 
-                _solutionItems.Add(new SolutionItem(solItem));
+                solutionItems.Add(new SolutionItem(solItem));
 
                 ConstraintSetAbstract constraintSet = _analysis.ConstraintSet;
                 criterionReached = (ConstraintSet.OptMaxHeight.Activated && zTop >= constraintSet.OptMaxHeight.Value)
@@ -204,7 +209,11 @@ namespace treeDiM.StackBuilder.Basics
             // remove unneeded layer 
             while (criterionReached)
             {
-                SolutionItem solItem = _solutionItems.Last();
+                SolutionItem solItem = null;
+                if (solutionItems.Count > 0)
+                    solItem = solutionItems.Last();
+                else
+                    solItem = new SolutionItem(0, -1, false, false);
 
                 if (solItem.LayerIndex >= _layers.Count)
                     throw new Exception(string.Format("Layer index out of range!"));
@@ -216,8 +225,11 @@ namespace treeDiM.StackBuilder.Basics
                 criterionReached = (ConstraintSet.OptMaxHeight.Activated && zTop >= constraintSet.OptMaxHeight.Value)
                     || (ConstraintSet.OptMaxWeight.Activated && weight >= constraintSet.OptMaxWeight.Value);
 
-                _solutionItems.Remove(solItem);
+                solutionItems.Remove(solItem);
             }
+            _solutionItems.Clear();
+            _solutionItems = solutionItems;
+
             // reset bounding box to force recompute
             _bbox.Reset();
         }
@@ -367,6 +379,8 @@ namespace treeDiM.StackBuilder.Basics
                         if (null != blayer)
                             _bbox.Extend(blayer.BoundingBox(Analysis.ContentDimensions));
                     }
+                    if (!_bbox.IsValid)
+                        _bbox.Extend(Vector3D.Zero);
                 }
                 return _bbox;
             }
@@ -421,7 +435,20 @@ namespace treeDiM.StackBuilder.Basics
                     ++interlayerCount;
             }
         }
-
+        public bool HasNetWeight
+        {
+            get
+            {
+                return false;
+            }
+        }
+        public double NetWeight
+        {
+            get
+            {
+                return 0.0;
+            }
+        }
         public double LoadWeight
         {
             get
