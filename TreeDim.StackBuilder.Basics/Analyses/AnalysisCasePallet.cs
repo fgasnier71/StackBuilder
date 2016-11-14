@@ -119,6 +119,10 @@ namespace treeDiM.StackBuilder.Basics
             // --- extend for pallet : end
             return bbox;
         }
+        public override bool HasEquivalentPackable
+        {   get { return true; } }
+        public override PackableLoaded EquivalentPackable
+        {   get { return new LoadedPallet(this); } }
         #endregion
 
         #region Public properties
@@ -178,6 +182,38 @@ namespace treeDiM.StackBuilder.Basics
         {
             get { return null != _palletFilmProperties; }
         }
+        #endregion
+    }
+
+    public class LoadedPallet : PackableLoaded
+    {
+        #region Constructor
+        internal LoadedPallet(AnalysisCasePallet analysis)
+            : base(analysis)
+        { 
+        }
+        #endregion
+
+        #region Override PackableLoaded
+        public override double Length
+        { get { return ParentSolution.BBoxGlobal.Length; } }
+        public override double Width
+        { get { return ParentSolution.BBoxGlobal.Width; } }
+        public override double Height
+        { get { return ParentSolution.BBoxGlobal.Height; } }
+        public override bool InnerContent(ref Packable innerPackable, ref int number)
+        {
+            innerPackable = ParentAnalysis.Content;
+            number = ParentSolution.ItemCount;
+            return true;
+        }
+        protected override string TypeName
+        { get { return Properties.Resource.ID_LOADEDPALLET; } }
+        #endregion
+
+        #region Helpers
+        private AnalysisCasePallet Analysis
+        { get { return ParentAnalysis as AnalysisCasePallet; } }
         #endregion
     }
 }
