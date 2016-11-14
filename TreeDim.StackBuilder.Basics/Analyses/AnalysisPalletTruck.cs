@@ -54,11 +54,12 @@ namespace treeDiM.StackBuilder.Basics
         }
         public override Vector3D Offset
         {
-            get
-            {
-                return Vector3D.Zero;
-            }
+            get { return Vector3D.Zero; }
         }
+        public override bool HasEquivalentPackable
+        { get { return false; } }
+        public override PackableLoaded EquivalentPackable
+        { get { return null; } }
         #endregion
     }
 }

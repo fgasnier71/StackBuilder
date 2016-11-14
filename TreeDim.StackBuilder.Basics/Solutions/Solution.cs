@@ -442,11 +442,11 @@ namespace treeDiM.StackBuilder.Basics
                 return false;
             }
         }
-        public double NetWeight
+        public OptDouble NetWeight
         {
             get
             {
-                return 0.0;
+                return ItemCount * _analysis.Content.NetWeight;
             }
         }
         public double LoadWeight

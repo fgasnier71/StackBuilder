@@ -97,6 +97,24 @@ namespace treeDiM.StackBuilder.Basics.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Loaded case.
+        /// </summary>
+        internal static string ID_LOADEDCASE {
+            get {
+                return ResourceManager.GetString("ID_LOADEDCASE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Loaded pallet.
+        /// </summary>
+        internal static string ID_LOADEDPALLET {
+            get {
+                return ResourceManager.GetString("ID_LOADEDPALLET", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Maximum space.
         /// </summary>
         internal static string ID_MAXIMUMSPACE {

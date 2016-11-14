@@ -129,6 +129,12 @@
   <data name="ID_LAYERWEIGHT" xml:space="preserve">
     <value>Layer weight</value>
   </data>
+  <data name="ID_LOADEDCASE" xml:space="preserve">
+    <value>Loaded case</value>
+  </data>
+  <data name="ID_LOADEDPALLET" xml:space="preserve">
+    <value>Loaded pallet</value>
+  </data>
   <data name="ID_MAXIMUMSPACE" xml:space="preserve">
     <value>Maximum space</value>
   </data>

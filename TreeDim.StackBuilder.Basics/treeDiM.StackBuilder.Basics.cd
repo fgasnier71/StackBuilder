@@ -1,47 +1,47 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="treeDiM.StackBuilder.Basics.BProperties" Collapsed="true">
-    <Position X="0.5" Y="4" Width="1.5" />
+    <Position X="3.5" Y="4" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAABAIAAAAAAQAAAAAAAAEBAADAAAACEBAgAgAAAAAQ=</HashCode>
       <FileName>Containers\BProperties.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="treeDiM.StackBuilder.Basics.BoxProperties" Collapsed="true">
-    <Position X="0.5" Y="5.25" Width="1.5" />
+    <Position X="3.5" Y="5.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>ABABAhIABSCBABkMAAAAABAQAQQQQAKUCAyCoAAQCAA=</HashCode>
+      <HashCode>ABABAhIABSCBABkMAAAAABAQAQQQQBKUCAyCoAAQCAA=</HashCode>
       <FileName>Containers\BoxProperties.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="treeDiM.StackBuilder.Basics.BundleProperties" Collapsed="true">
-    <Position X="2.25" Y="5.25" Width="1.5" />
+    <Position X="5.25" Y="5.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAABAAIADAAAAAAAAAAACAhAAiUAAgAgAAACAA=</HashCode>
+      <HashCode>AAAAAAAABAAIADAAAAAAAAAAACQhEBiUAAgAgAAACAA=</HashCode>
       <FileName>Containers\BundleProperties.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="treeDiM.StackBuilder.Basics.CylinderProperties" Collapsed="true">
-    <Position X="2.25" Y="2.75" Width="1.5" />
+    <Position X="5.25" Y="2.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAABAAIABCCAAAAEAAAAAAkgACAEQAAAAAIAIAAQgAA=</HashCode>
       <FileName>Containers\CylinderProperties.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="treeDiM.StackBuilder.Basics.PackProperties" Collapsed="true">
-    <Position X="2.25" Y="4" Width="1.5" />
+    <Position X="5.25" Y="4" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAkAAIABYEAIIAEAIAMMEBAACIAsAEQAAAAAAABAIA=</HashCode>
+      <HashCode>AAAkAAIABYEAIIAEAIAMMEBAACIAsBEQAQAAAAABAIA=</HashCode>
       <FileName>Containers\PackProperties.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="treeDiM.StackBuilder.Basics.PalletProperties" Collapsed="true">
-    <Position X="5.25" Y="2" Width="1.5" />
+    <Position X="8.25" Y="2" Width="1.5" />
     <InheritanceLine Type="treeDiM.StackBuilder.Basics.ItemBase" ManuallyRouted="true" FixedToPoint="true">
       <Path>
-        <Point X="1.25" Y="2.062" />
-        <Point X="1.25" Y="2.375" />
-        <Point X="5.25" Y="2.375" />
+        <Point X="4.25" Y="2.062" />
+        <Point X="4.25" Y="2.375" />
+        <Point X="8.25" Y="2.375" />
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
@@ -50,14 +50,14 @@
     </TypeIdentifier>
   </Class>
   <Class Name="treeDiM.StackBuilder.Basics.InterlayerProperties" Collapsed="true">
-    <Position X="5.25" Y="3" Width="1.5" />
+    <Position X="8.25" Y="3" Width="1.5" />
     <InheritanceLine Type="treeDiM.StackBuilder.Basics.ItemBase" ManuallyRouted="true" FixedToPoint="true">
       <Path>
-        <Point X="1.25" Y="2.062" />
-        <Point X="1.25" Y="2.404" />
-        <Point X="4.502" Y="2.404" />
-        <Point X="4.502" Y="3.375" />
-        <Point X="5.25" Y="3.375" />
+        <Point X="4.25" Y="2.062" />
+        <Point X="4.25" Y="2.404" />
+        <Point X="7.44" Y="2.404" />
+        <Point X="7.44" Y="3.375" />
+        <Point X="8.25" Y="3.375" />
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
@@ -66,14 +66,14 @@
     </TypeIdentifier>
   </Class>
   <Class Name="treeDiM.StackBuilder.Basics.PalletCapProperties" Collapsed="true">
-    <Position X="5.25" Y="4" Width="1.5" />
+    <Position X="8.25" Y="4" Width="1.5" />
     <InheritanceLine Type="treeDiM.StackBuilder.Basics.ItemBase" ManuallyRouted="true" FixedToPoint="true">
       <Path>
-        <Point X="1.25" Y="2.062" />
-        <Point X="1.25" Y="2.404" />
-        <Point X="4.512" Y="2.404" />
-        <Point X="4.512" Y="4.375" />
-        <Point X="5.25" Y="4.375" />
+        <Point X="4.25" Y="2.062" />
+        <Point X="4.25" Y="2.404" />
+        <Point X="7.387" Y="2.404" />
+        <Point X="7.387" Y="4.375" />
+        <Point X="8.25" Y="4.375" />
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
@@ -82,14 +82,14 @@
     </TypeIdentifier>
   </Class>
   <Class Name="treeDiM.StackBuilder.Basics.PalletCornerProperties" Collapsed="true">
-    <Position X="5.25" Y="5" Width="1.5" />
+    <Position X="8.25" Y="5" Width="1.5" />
     <InheritanceLine Type="treeDiM.StackBuilder.Basics.ItemBase" ManuallyRouted="true" FixedToPoint="true">
       <Path>
-        <Point X="1.25" Y="2.062" />
-        <Point X="1.25" Y="2.404" />
-        <Point X="4.51" Y="2.404" />
-        <Point X="4.51" Y="5.312" />
-        <Point X="5.25" Y="5.312" />
+        <Point X="4.25" Y="2.062" />
+        <Point X="4.25" Y="2.404" />
+        <Point X="7.333" Y="2.404" />
+        <Point X="7.333" Y="5.312" />
+        <Point X="8.25" Y="5.312" />
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
@@ -98,14 +98,14 @@
     </TypeIdentifier>
   </Class>
   <Class Name="treeDiM.StackBuilder.Basics.PalletFilmProperties" Collapsed="true">
-    <Position X="5.25" Y="6" Width="1.5" />
+    <Position X="8.25" Y="6" Width="1.5" />
     <InheritanceLine Type="treeDiM.StackBuilder.Basics.ItemBase" ManuallyRouted="true" FixedToPoint="true">
       <Path>
-        <Point X="1.25" Y="2.062" />
-        <Point X="1.25" Y="2.372" />
-        <Point X="4.488" Y="2.372" />
-        <Point X="4.488" Y="6.375" />
-        <Point X="5.25" Y="6.375" />
+        <Point X="4.25" Y="2.062" />
+        <Point X="4.25" Y="2.372" />
+        <Point X="7.29" Y="2.372" />
+        <Point X="7.29" Y="6.375" />
+        <Point X="8.25" Y="6.375" />
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
@@ -114,22 +114,50 @@
     </TypeIdentifier>
   </Class>
   <Class Name="System.Object" Collapsed="true">
-    <Position X="0.5" Y="0.5" Width="1.5" />
+    <Position X="3.5" Y="0.5" Width="1.5" />
     <TypeIdentifier />
   </Class>
   <Class Name="treeDiM.StackBuilder.Basics.ItemBase" Collapsed="true">
-    <Position X="0.5" Y="1.5" Width="1.5" />
+    <Position X="3.5" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAIAJAIAACgwEFAEAICAFAVAAAQBJAAEwAACACYAAAA=</HashCode>
+      <HashCode>AAIAJAIAACgwEFAEAICAFARAAAQBJAAEwAACACYAAAA=</HashCode>
       <FileName>Helpers\ItemBase.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="treeDiM.StackBuilder.Basics.Packable" Collapsed="true">
+    <Position X="3.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAkAAAAAEJAADAAUBAQAQIAAAAAAAA=</HashCode>
+      <FileName>Helpers\Packable.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="treeDiM.StackBuilder.Basics.Analysis" Collapsed="true">
     <Position X="0.5" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAABgAAAAAkAAAAAEJAACAAUAAQAAIAAAAAAAA=</HashCode>
-      <FileName>Helpers\ItemBase.cs</FileName>
+      <HashCode>YAAAIBAAAgQAAEAAoAAABAAFAAAACIICAAAAAADIgAE=</HashCode>
+      <FileName>Analyses\Analysis.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="treeDiM.StackBuilder.Basics.AnalysisBoxCase" Collapsed="true">
+    <Position X="0.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAIAAAAgQAAEAAIAAAAAAAAAAAAABCAAAAAAAAgAA=</HashCode>
+      <FileName>Analyses\AnalysisBoxCase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="treeDiM.StackBuilder.Basics.AnalysisCasePallet" Collapsed="true">
+    <Position X="0.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ICAAgAAAAhQAAEEIoAAAAgAAgAAAAAACAAAAAAAIgEA=</HashCode>
+      <FileName>Analyses\AnalysisCasePallet.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="treeDiM.StackBuilder.Basics.AnalysisPalletTruck" Collapsed="true">
+    <Position X="0.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAgQAAEAAMAAAAAAAAAAAAAACAAAAAAAAgAA=</HashCode>
+      <FileName>Analyses\AnalysisPalletTruck.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Interface Name="treeDiM.StackBuilder.Basics.ISolution" Collapsed="true">

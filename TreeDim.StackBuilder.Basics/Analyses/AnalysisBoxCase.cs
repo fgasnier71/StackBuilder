@@ -11,6 +11,7 @@ using log4net;
 
 namespace treeDiM.StackBuilder.Basics
 {
+    #region AnalysisBoxCase
     public class AnalysisBoxCase : Analysis
     {
         #region Data members
@@ -74,6 +75,10 @@ namespace treeDiM.StackBuilder.Basics
             return interlayer.Length < _caseProperties.InsideLength
                 && interlayer.Width < _caseProperties.InsideWidth;
         }
+        public override bool HasEquivalentPackable
+        { get { return true; } }
+        public override PackableLoaded EquivalentPackable
+        { get { return new LoadedCase(this); } }
         #endregion
 
         #region Public properties
@@ -82,4 +87,39 @@ namespace treeDiM.StackBuilder.Basics
         #region Public methods
         #endregion
     }
+    #endregion
+
+    #region LoadedCase
+    public class LoadedCase : PackableLoaded
+    {
+        #region Constructor
+        internal LoadedCase(AnalysisBoxCase analysis)
+            : base(analysis)
+        {
+        }
+        #endregion
+
+        #region Override PackableLoaded
+        public override double Length
+        { get { return Analysis._caseProperties.Length; } }
+        public override double Width
+        { get { return Analysis._caseProperties.Width; } }
+        public override double Height
+        { get { return Analysis._caseProperties.Height; } }
+        public override bool InnerContent(ref Packable innerPackable, ref int number)
+        {
+            innerPackable = ParentAnalysis.Content;
+            number = ParentSolution.ItemCount;
+            return true;
+        }
+        protected override string TypeName
+        { get { return Properties.Resource.ID_LOADEDCASE; } }
+        #endregion
+
+        #region Helpers
+        private AnalysisBoxCase Analysis
+        { get { return ParentAnalysis as AnalysisBoxCase; } }
+        #endregion
+    }
+    #endregion
 }

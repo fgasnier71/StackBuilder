@@ -53,6 +53,14 @@ namespace treeDiM.StackBuilder.Basics
         public List<Solution> Solutions                 { get { return _solutions; } }
         public ConstraintSetAbstract ConstraintSet      { get { return _constraintSet; } set { _constraintSet = value; } }
         public List<InterlayerProperties> Interlayers   { get { return _interlayers; } }
+        /// <summary>
+        /// can analysis solution be reused in other analysis
+        /// </summary>
+        public abstract bool HasEquivalentPackable { get; }
+        /// <summary>
+        /// get equivalent packable
+        /// </summary>
+        public abstract PackableLoaded EquivalentPackable { get; }
         #endregion
 
         #region Abstract properties
@@ -99,5 +107,27 @@ namespace treeDiM.StackBuilder.Basics
             return _interlayers[index];
         }
         #endregion
+    }
+
+    public abstract class PackableLoaded : Packable
+    {
+        #region Constructor
+        public PackableLoaded(Analysis analysis)
+            : base(analysis.ParentDocument)
+        {
+            _analysis = analysis;
+        }
+        #endregion
+
+        #region Packable override
+        public override double Weight
+        { get { return ParentSolution.Weight; } }
+        public override OptDouble NetWeight
+        { get { return ParentSolution.NetWeight; } }
+        #endregion
+
+        protected Analysis ParentAnalysis { get { return _analysis; } }
+        protected Solution ParentSolution { get { return _analysis.Solutions[0]; } }
+        protected Analysis _analysis;
     }
 }
