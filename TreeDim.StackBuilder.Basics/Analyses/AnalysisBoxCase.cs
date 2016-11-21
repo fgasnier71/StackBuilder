@@ -86,6 +86,9 @@ namespace treeDiM.StackBuilder.Basics
 
         #region Public methods
         #endregion
+
+        #region Static methods
+        #endregion
     }
     #endregion
 
@@ -97,6 +100,25 @@ namespace treeDiM.StackBuilder.Basics
             : base(analysis)
         {
         }
+        #endregion
+
+        #region ItemBase override
+        public override GlobID ID
+        {
+            get
+            {
+                return new GlobID(
+                    _analysis.ID.IGuid,
+                    string.Format("{0}({1})", Properties.Resource.ID_NAMECASE, _analysis.Name),
+                    _analysis.Description
+                    ); 
+            } 
+        }
+        #endregion
+
+        #region Specific properties
+        public Packable Container
+        { get { return Analysis._caseProperties; } }
         #endregion
 
         #region Override PackableLoaded
@@ -114,6 +136,8 @@ namespace treeDiM.StackBuilder.Basics
         }
         protected override string TypeName
         { get { return Properties.Resource.ID_LOADEDCASE; } }
+        public override bool IsCase
+        { get { return true; } }
         #endregion
 
         #region Helpers

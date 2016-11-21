@@ -17,20 +17,35 @@ namespace treeDiM.StackBuilder.Basics
     }
     #endregion
 
+    #region Descriptor
+    public class GlobID
+    {
+        public GlobID()
+        { IGuid = Guid.NewGuid(); Name = string.Empty; Description = string.Empty; }
+        public GlobID(Guid guid, string name, string description)
+        { IGuid = guid; Name = name; Description = description; }
+        public GlobID(string name, string description)
+        { IGuid = Guid.NewGuid(); Name = name; Description = description; }
+        public Guid IGuid { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public void SetNameDesc(string name, string description)
+        { Name = name; Description = description; }
+        public override string ToString()
+        { return string.Format("Guid = {0}\nName = {1}\nDescription = {2}", IGuid, Name, Description); }
+    }
+    #endregion
+
     #region ItemBase
     /// <summary>
     /// This class holds Name / description properties for Box / Pallet / Interlayer / Analysis
     /// it also handle dependancy problems
     /// </summary>
-    public class ItemBase : IDisposable
+    public abstract class ItemBase : IDisposable
     {
         #region Data members
         // parent document
         private Document _parentDocument;
-        // name / description
-        protected string _name, _description;
-        // guid
-        protected Guid _guid = Guid.NewGuid();
         // dependancies
         private List<ItemBase> _dependancies = new List<ItemBase>();
         // Track whether Dispose has been called.
@@ -46,12 +61,10 @@ namespace treeDiM.StackBuilder.Basics
         {
             _parentDocument = document;
         }
-        public ItemBase(Document document, string name, string description)
-        {
-            _parentDocument = document;
-            _name = name;
-            _description = description;
-        }
+        #endregion
+
+        #region Abstract properties
+        public abstract GlobID ID { get; }
         #endregion
 
         #region Public properties
@@ -59,30 +72,8 @@ namespace treeDiM.StackBuilder.Basics
         {
             get { return _parentDocument; }
         }
-        public Guid Guid
-        {
-            get { return _guid; }
-            set { _guid = value; }
-        }
-        public virtual string Name
-        {
-            get { return _name; }
-            set { _name = value; }
-        }
-        public virtual string Description
-        {
-            get { return _description; }
-            set { _description = value; }
-        }
-        #endregion
-
-        #region Filtering properties
-        public virtual bool CanBePalletized { get { return false; } }
-        public virtual bool CanBePacked { get { return false; } }
-
-        public virtual bool IsCase { get { return false; } }
-        public virtual bool IsPallet { get { return false; } }
-        public bool IsTruck { get { return false; } }
+        public string Name { get { return ID.Name; } }
+        public string Description { get { return ID.Description; } }
         #endregion
 
         #region Dependancies
@@ -90,7 +81,7 @@ namespace treeDiM.StackBuilder.Basics
         {
             if (_dependancies.Contains(dependancie))
             {
-                _log.Warn(string.Format("Tried to add {0} as a dependancy of {1} a second time!", dependancie.Name, this.Name));
+                _log.Warn(string.Format("Tried to add {0} as a dependancy of {1} a second time!", dependancie.ID.Name, this.ID.Name));
                 return;
             }
             _dependancies.Add(dependancie);    
@@ -161,7 +152,7 @@ namespace treeDiM.StackBuilder.Basics
                         _parentDocument.RemoveItem(_dependancies[0]);
                         if (_dependancies.Count == iCount)
                         {
-                            _log.Warn(string.Format("Failed to remove correctly dependancy {0} ", _dependancies[0].Name));
+                            _log.Warn(string.Format("Failed to remove correctly dependancy {0} ", _dependancies[0].ID.Name));
                             _dependancies.Remove(_dependancies[0]);
                             break;
                         }
@@ -182,7 +173,7 @@ namespace treeDiM.StackBuilder.Basics
         #region Object overrides
         public override string ToString()
         {
-            return string.Format("Name:{0} \nDescription: {1}\n", _name, _description);
+            return string.Format("Name:{0} \nDescription: {1}\n", ID.Name, ID.Description);
         }
         #endregion
 
@@ -205,6 +196,31 @@ namespace treeDiM.StackBuilder.Basics
             while (_listeners.Count > 0)
                 _listeners[0].Kill(this);
         }
+        #endregion
+    }
+    #endregion
+
+    #region ItemBaseNamed
+    public abstract class ItemBaseNamed : ItemBase
+    {
+        #region Data members
+        private GlobID _id = new GlobID();
+        #endregion
+
+        #region Constructors
+        public ItemBaseNamed(Document doc)
+            : base(doc)
+        { 
+        }
+        public ItemBaseNamed(Document doc, string name, string description)
+            : base(doc)
+        {
+            ID.Name = name; ID.Description = description;
+        }
+        #endregion
+
+        #region Override ItemBase
+        public override GlobID ID { get { return _id; } }
         #endregion
     }
     #endregion

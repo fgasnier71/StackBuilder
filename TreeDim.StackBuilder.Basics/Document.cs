@@ -62,13 +62,7 @@ namespace treeDiM.StackBuilder.Basics
         private UnitsManager.UnitSystem _unitSystem;
         private List<ItemBase> _typeList = new List<ItemBase>();
         private List<Analysis> _analyses = new List<Analysis>();
-
-        private List<CasePalletAnalysis> _casePalletAnalyses = new List<CasePalletAnalysis>();
-        private List<PackPalletAnalysis> _packPalletAnalyses = new List<PackPalletAnalysis>();
-        private List<CylinderPalletAnalysis> _cylinderPalletAnalyses = new List<CylinderPalletAnalysis>();
-        private List<HCylinderPalletAnalysis> _hCylinderPalletAnalyses = new List<HCylinderPalletAnalysis>();
-        private List<BoxCaseAnalysis> _boxCaseAnalyses = new List<BoxCaseAnalysis>();
-        private List<BoxCasePalletAnalysis> _boxCasePalletOptimizations = new List<BoxCasePalletAnalysis>();
+        private List<AnalysisLegacy> _analysesLegacy = new List<AnalysisLegacy>();
  
         private List<IDocumentListener> _listeners = new List<IDocumentListener>();
         protected static readonly ILog _log = LogManager.GetLogger(typeof(Document));
@@ -118,7 +112,7 @@ namespace treeDiM.StackBuilder.Basics
             return null == _typeList.Find(
                 delegate(ItemBase item)
                 {   return (item != itemToName)
-                    && string.Equals(item.Name.Trim(), name.Trim(), StringComparison.CurrentCultureIgnoreCase); }
+                    && string.Equals(item.ID.Name.Trim(), name.Trim(), StringComparison.CurrentCultureIgnoreCase); }
                 );
         }
         public string GetValidNewTypeName(string prefix)
@@ -138,49 +132,14 @@ namespace treeDiM.StackBuilder.Basics
                 delegate(Analysis analysis)
                 {
                     return analysis != analysisToRename
-                        && string.Equals(analysis.Name, trimmedName, StringComparison.InvariantCultureIgnoreCase);
+                        && string.Equals(analysis.ID.Name, trimmedName, StringComparison.InvariantCultureIgnoreCase);
                 }
                 ))
-                && (null == _casePalletAnalyses.Find(
-                delegate(CasePalletAnalysis analysis)
+                && (null == _analysesLegacy.Find(
+                delegate(AnalysisLegacy analysis)
                 {
                     return analysis != analysisToRename
-                        && string.Equals(analysis.Name, trimmedName, StringComparison.InvariantCultureIgnoreCase);
-                }
-                ))
-                && (null == _cylinderPalletAnalyses.Find(
-                delegate(CylinderPalletAnalysis analysis)
-                {
-                    return analysis != analysisToRename
-                        && string.Equals(analysis.Name, trimmedName, StringComparison.InvariantCultureIgnoreCase);
-                }
-                ))
-                && (null == _hCylinderPalletAnalyses.Find(
-                delegate(HCylinderPalletAnalysis analysis)
-                {
-                    return analysis != analysisToRename
-                        && string.Equals(analysis.Name, trimmedName, StringComparison.InvariantCultureIgnoreCase);
-                }
-                ))
-                && (null == _boxCaseAnalyses.Find(
-                delegate(BoxCaseAnalysis analysis)
-                {
-                    return analysis != analysisToRename
-                        && string.Equals(analysis.Name, trimmedName, StringComparison.InvariantCultureIgnoreCase);
-                }
-                ))
-                && (null == _boxCasePalletOptimizations.Find(
-                delegate(BoxCasePalletAnalysis analysis)
-                {
-                    return analysis != analysisToRename
-                        && string.Equals(analysis.Name, trimmedName, StringComparison.InvariantCultureIgnoreCase);
-                }
-                ))
-                && (null == _packPalletAnalyses.Find(
-                delegate(PackPalletAnalysis analysis)
-                {
-                    return analysis != analysisToRename
-                        && string.Equals(analysis.Name, trimmedName, StringComparison.InvariantCultureIgnoreCase);
+                        && string.Equals(analysis.ID.Name, trimmedName, StringComparison.InvariantCultureIgnoreCase);
                 }
                 ));
         }
@@ -215,8 +174,7 @@ namespace treeDiM.StackBuilder.Basics
             // instantiate and initialize
             BoxProperties boxProperties = new BoxProperties(this, length, width, height);
             boxProperties.SetWeight( weight );
-            boxProperties.Name = name;
-            boxProperties.Description = description;
+            boxProperties.ID.SetNameDesc( name, description);
             boxProperties.SetAllColors(colors);
             // insert in list
             _typeList.Add(boxProperties);
@@ -234,8 +192,7 @@ namespace treeDiM.StackBuilder.Basics
                 , boxProp.Height);
             boxPropClone.SetWeight( boxProp.Weight );
             boxPropClone.SetNetWeight( boxProp.NetWeight );
-            boxPropClone.Name = boxProp.Name;
-            boxPropClone.Description = boxProp.Description;
+            boxPropClone.ID.SetNameDesc( boxProp.ID.Name, boxProp.ID.Description );
             boxPropClone.SetAllColors(boxProp.Colors);
             // insert in list
             _typeList.Add(boxPropClone);
@@ -269,8 +226,7 @@ namespace treeDiM.StackBuilder.Basics
             // instantiate and initialize
             BoxProperties boxProperties = new BoxProperties(this, length, width, height, insideLength, insideWidth, insideHeight);
             boxProperties.SetWeight( weight );
-            boxProperties.Name = name;
-            boxProperties.Description = description;
+            boxProperties.ID.SetNameDesc( name, description);
             boxProperties.SetAllColors(colors);
             // insert in list
             _typeList.Add(boxProperties);
@@ -291,8 +247,7 @@ namespace treeDiM.StackBuilder.Basics
                 , boxProp.InsideHeight);
             boxPropClone.SetWeight( boxProp.Weight );
             boxPropClone.SetNetWeight( boxProp.NetWeight );
-            boxPropClone.Name = boxProp.Name;
-            boxPropClone.Description = boxProp.Description;
+            boxPropClone.ID.SetNameDesc( boxProp.ID.Name, boxProp.ID.Description );
             boxPropClone.SetAllColors(boxProp.Colors);
             boxPropClone.ShowTape = boxProp.ShowTape;
             boxPropClone.TapeWidth = boxProp.TapeWidth;
@@ -327,8 +282,7 @@ namespace treeDiM.StackBuilder.Basics
                 , arrangement
                 , axis
                 , wrapper);
-            packProperties.Name = name;
-            packProperties.Description = description;
+            packProperties.ID.SetNameDesc( name, description );
             // insert in list
             _typeList.Add(packProperties);
             // notify listeners
@@ -343,8 +297,7 @@ namespace treeDiM.StackBuilder.Basics
             , CaseOptimConstraintSet constraintSet)
         {
             CaseOfBoxesProperties caseProperties = new CaseOfBoxesProperties(this, boxProperties, caseDefinition, constraintSet);
-            caseProperties.Name = name;
-            caseProperties.Description = description;
+            caseProperties.ID.SetNameDesc( name, description);
             // insert in list
             _typeList.Add(caseProperties);
             // notify listeners
@@ -372,7 +325,7 @@ namespace treeDiM.StackBuilder.Basics
         {
             // cylinder
             CylinderProperties cylinder = new CylinderProperties(this
-                , cyl.Name, cyl.Description
+                , cyl.ID.Name, cyl.ID.Description
                 , cyl.RadiusOuter, cyl.RadiusInner, cyl.Height
                 , cyl.Weight
                 , cyl.ColorTop, cyl.ColorWallOuter, cyl.ColorWallInner);
@@ -450,7 +403,7 @@ namespace treeDiM.StackBuilder.Basics
             // instantiate and initialize
                 PalletCapProperties palletCapClone = new PalletCapProperties(
                     this,
-                    palletCap.Name, palletCap.Description,
+                    palletCap.ID.Name, palletCap.ID.Description,
                     palletCap.Length, palletCap.Width, palletCap.Height,
                     palletCap.InsideLength, palletCap.InsideWidth, palletCap.InsideHeight,
                     palletCap.Weight, palletCap.Color);
@@ -489,7 +442,7 @@ namespace treeDiM.StackBuilder.Basics
             // instantiate and initialize
             PalletFilmProperties palletFilmClone = new PalletFilmProperties(
                 this,
-                palletFilm.Name, palletFilm.Description,
+                palletFilm.ID.Name, palletFilm.ID.Description,
                 palletFilm.UseTransparency, palletFilm.UseHatching,
                 palletFilm.HatchSpacing, palletFilm.HatchAngle,
                 palletFilm.Color);
@@ -525,7 +478,7 @@ namespace treeDiM.StackBuilder.Basics
         {
             // instantiate and intialize
             InterlayerProperties interlayerClone = new InterlayerProperties(
-                this, interlayerProp.Name, interlayerProp.Description
+                this, interlayerProp.ID.Name, interlayerProp.ID.Description
                 , interlayerProp.Length, interlayerProp.Width, interlayerProp.Thickness
                 , interlayerProp.Weight
                 , interlayerProp.Color);
@@ -543,8 +496,7 @@ namespace treeDiM.StackBuilder.Basics
             , double weight)
         {
             PalletProperties palletProperties = new PalletProperties(this, typeName, length, width, height);
-            palletProperties.Name = name;
-            palletProperties.Description = description;
+            palletProperties.ID.SetNameDesc( name, description );
             palletProperties.Weight = weight;
             // insert in list
             _typeList.Add(palletProperties);
@@ -557,8 +509,7 @@ namespace treeDiM.StackBuilder.Basics
         public PalletProperties CreateNewPallet(PalletProperties palletProp)
         {
             PalletProperties palletPropClone = new PalletProperties(this, palletProp.TypeName, palletProp.Length, palletProp.Width, palletProp.Height);
-            palletPropClone.Name = palletProp.Name;
-            palletPropClone.Description = palletProp.Description;
+            palletPropClone.ID.SetNameDesc( palletProp.ID.Name, palletProp.ID.Description);
             palletPropClone.Weight = palletProp.Weight;
             palletPropClone.Color = palletProp.Color;
             palletPropClone.AdmissibleLoadWeight = palletProp.AdmissibleLoadWeight;
@@ -590,8 +541,7 @@ namespace treeDiM.StackBuilder.Basics
             , Color color)
         {
             TruckProperties truckProperties = new TruckProperties(this, length, width, height);
-            truckProperties.Name = name;
-            truckProperties.Description = description;
+            truckProperties.ID.SetNameDesc( name, description);
             truckProperties.AdmissibleLoadWeight = admissibleLoadWeight;
             truckProperties.Color = color;
             // insert in list
@@ -614,8 +564,7 @@ namespace treeDiM.StackBuilder.Basics
             )
         {
             AnalysisCasePallet analysis = new AnalysisCasePallet(packable, pallet, constraintSet);
-            analysis.Name = name;
-            analysis.Description = description;
+            analysis.ID.SetNameDesc(name, description);
             foreach (InterlayerProperties interlayer in interlayers)
                 analysis.AddInterlayer(interlayer);
             analysis.PalletCornerProperties     = palletCorners;
@@ -641,9 +590,10 @@ namespace treeDiM.StackBuilder.Basics
             )
         {
             AnalysisBoxCase analysis = new AnalysisBoxCase(packable, caseProperties, constraintSet);
-            analysis.Name = name;
-            analysis.Description = description;
+            analysis.ID.SetNameDesc( name, description );
             analysis.AddSolution(layerDescs);
+
+            _analyses.Add(analysis);
 
             // notify listeners
             NotifyOnNewAnalysisCreated(analysis);
@@ -658,9 +608,10 @@ namespace treeDiM.StackBuilder.Basics
             , List<LayerDesc> layerDescs)
         {
             AnalysisPalletTruck analysis = new AnalysisPalletTruck(loadedPallet, truckProperties, constraintSet);
-            analysis.Name = name;
-            analysis.Description = description;
+            analysis.ID.SetNameDesc( name, description );
             analysis.AddSolution(layerDescs);
+
+            _analyses.Add(analysis);
 
             // notify listeners
             NotifyOnNewAnalysisCreated(analysis);
@@ -695,15 +646,14 @@ namespace treeDiM.StackBuilder.Basics
                 interlayer, interlayerAntiSlip,
                 palletCorners, palletCap, palletFilm,
                 constraintSet);
-            analysis.Name = name;
-            analysis.Description = description;
+            analysis.ID.SetNameDesc( name, description);
             // insert in list
-            _casePalletAnalyses.Add(analysis);
+            _analysesLegacy.Add(analysis);
             // compute analysis
             solver.ProcessAnalysis(analysis);
             if (analysis.Solutions.Count < 1)
             {	// remove analysis from list if it has no valid solution
-                _casePalletAnalyses.Remove(analysis);
+                _analysesLegacy.Remove(analysis);
                 return null;
             }
             // notify listeners
@@ -725,15 +675,14 @@ namespace treeDiM.StackBuilder.Basics
                 , pallet
                 , interlayer
                 , constraintSet);
-            analysis.Name = name;
-            analysis.Description = description;
+            analysis.ID.SetNameDesc( name, description);
             // insert in list
-            _packPalletAnalyses.Add(analysis);
+            _analysesLegacy.Add(analysis);
             // compute analysis
             solver.ProcessAnalysis(analysis);
             if (analysis.Solutions.Count < 1)
             {   // remove analysis from list if it has no valid solution
-                _packPalletAnalyses.Remove(analysis);
+                _analysesLegacy.Remove(analysis);
                 Modify();
                 return null;
             }
@@ -755,10 +704,9 @@ namespace treeDiM.StackBuilder.Basics
                 , pallet
                 , interlayer
                 , constraintSet);
-            analysis.Name = name;
-            analysis.Description = description;
+            analysis.ID.SetNameDesc( name, description);
             // insert in list
-            _packPalletAnalyses.Add(analysis);
+            _analysesLegacy.Add(analysis);
             // set solutions
             analysis.Solutions = solutions;
             // notify listeners
@@ -793,10 +741,9 @@ namespace treeDiM.StackBuilder.Basics
                 interlayer, interlayerAntiSlip,
                 palletCorners, palletCap, palletFilm,
                 constraintSet);
-            analysis.Name = name;
-            analysis.Description = description;
+            analysis.ID.SetNameDesc( name, description);
             // insert in list
-            _casePalletAnalyses.Add(analysis);
+            _analysesLegacy.Add(analysis);
             // set solutions
             analysis.Solutions = solutions;
             // notify listeners
@@ -828,15 +775,14 @@ namespace treeDiM.StackBuilder.Basics
                 cylinder, pallet,
                 interlayer, interlayerPropertiesAntiSlip,
                 constraintSet);
-            analysis.Name = name;
-            analysis.Description = description;
+            analysis.ID.SetNameDesc( name, description);
             // insert in list
-            _cylinderPalletAnalyses.Add(analysis);
+            _analysesLegacy.Add(analysis);
             // compute analysis
             solver.ProcessAnalysis(analysis);
             if (analysis.Solutions.Count < 1)
             {	// remove analysis from list if it has no valid solution
-                _cylinderPalletAnalyses.Remove(analysis);
+                _analysesLegacy.Remove(analysis);
                 return null;
             }
             // notify listeners
@@ -851,15 +797,14 @@ namespace treeDiM.StackBuilder.Basics
             IHCylinderAnalysisSolver solver)
         {
             HCylinderPalletAnalysis analysis = new HCylinderPalletAnalysis(cylinder, pallet, constraintSet);
-            analysis.Name = name;
-            analysis.Description = description;
+            analysis.ID.SetNameDesc( name, description);
             // insert in list
-            _hCylinderPalletAnalyses.Add(analysis);
+            _analysesLegacy.Add(analysis);
             // compute analysis
             solver.ProcessAnalysis(analysis);
             if (analysis.Solutions.Count < 1)
             {   // remove analysis from list if it has no valid solution
-                _hCylinderPalletAnalyses.Remove(analysis);
+                _analysesLegacy.Remove(analysis);
                 return null;
             }
             // notify listeners
@@ -890,10 +835,9 @@ namespace treeDiM.StackBuilder.Basics
                 cylinder, pallet,
                 interlayer, interlayerAntiSlip,
                 constraintSet);
-            analysis.Name = name;
-            analysis.Description = description;
+            analysis.ID.SetNameDesc(name, description);
             // insert in list
-            _cylinderPalletAnalyses.Add(analysis);
+            _analysesLegacy.Add(analysis);
             // set solutions
             analysis.Solutions = solutions;
             // notify listeners
@@ -922,10 +866,9 @@ namespace treeDiM.StackBuilder.Basics
             , List<HCylinderPalletSolution> solutions)
         {
             HCylinderPalletAnalysis analysis = new HCylinderPalletAnalysis(cylinder, pallet, constraintSet);
-            analysis.Name = name;
-            analysis.Description = description;
+            analysis.ID.SetNameDesc( name, description);
             // insert in list
-            _hCylinderPalletAnalyses.Add(analysis);
+            _analysesLegacy.Add(analysis);
             // set solutions
             analysis.Solutions = solutions;
             // notify listeners
@@ -943,10 +886,10 @@ namespace treeDiM.StackBuilder.Basics
             , List<BoxCaseSolution> solutions)
         {
             BoxCaseAnalysis analysis = new BoxCaseAnalysis(boxProperties, caseProperties, constraintSet);
-            analysis.Name = name;
-            analysis.Description = description;
+            analysis.ID.Name = name;
+            analysis.ID.Description = description;
             // insert in list
-            _boxCaseAnalyses.Add(analysis);
+            _analysesLegacy.Add(analysis);
             // set solutions
             analysis.Solutions = solutions;
             // notify listeners
@@ -964,17 +907,17 @@ namespace treeDiM.StackBuilder.Basics
             , IBoxCaseAnalysisSolver solver)
         {
             BoxCaseAnalysis analysis = new BoxCaseAnalysis(boxProperties, caseProperties, constraintSet);
-            analysis.Name = name;
-            analysis.Description = description;
+            analysis.ID.Name = name;
+            analysis.ID.Description = description;
             // insert in list
-            _boxCaseAnalyses.Add(analysis);
+            _analysesLegacy.Add(analysis);
             // compute analysis
             if (null != solver)
             {
                 solver.ProcessAnalysis(analysis);
                 if (analysis.Solutions.Count < 1)
                 {	// remove analysis from list if it has no valid solution
-                    _boxCaseAnalyses.Remove(analysis);
+                    _analysesLegacy.Remove(analysis);
                     return null;
                 }
             }
@@ -992,18 +935,18 @@ namespace treeDiM.StackBuilder.Basics
             , IBoxCasePalletAnalysisSolver solver)
         {
             BoxCasePalletAnalysis analysis = new BoxCasePalletAnalysis(bProperties, palletSolutionList, constraintSet);
-            analysis.Name = name;
-            analysis.Description = description;
+            analysis.ID.Name = name;
+            analysis.ID.Description = description;
             // insert in list
-            _boxCasePalletOptimizations.Add(analysis);
+            _analysesLegacy.Add(analysis);
             // compute analysis
             if (null != solver)
             {
                 solver.ProcessAnalysis(analysis);
                 if (analysis.Solutions.Count < 1)
                 {	// remove analysis from list if it has no valid solution
-                    _boxCasePalletOptimizations.Remove(analysis);
-                    _log.InfoFormat("Failed to find any solution {0}", analysis.Name);
+                    _analysesLegacy.Remove(analysis);
+                    _log.InfoFormat("Failed to find any solution {0}", analysis.ID.Name);
                     return null;
                 }
             }
@@ -1022,7 +965,7 @@ namespace treeDiM.StackBuilder.Basics
                 return;
             }
             // dispose item first as it may remove dependancies itself
-            _log.Debug(string.Format("Disposing {0}...", item.Name));
+            _log.Debug(string.Format("Disposing {0}...", item.ID.Name));
             item.Dispose();
 
             // notify listeners / remove
@@ -1040,54 +983,19 @@ namespace treeDiM.StackBuilder.Basics
             {
                 NotifyOnTypeRemoved(item);
                 if (!_typeList.Remove(item))
-                    _log.Warn(string.Format("Failed to properly remove item {0}", item.Name));
+                    _log.Warn(string.Format("Failed to properly remove item {0}", item.ID.Name));
             }
-            else if (item.GetType() == typeof(CasePalletAnalysis))
+            else if (item is Analysis)
             {
-                NotifyOnAnalysisRemoved(item as CasePalletAnalysis);
-                if (!_casePalletAnalyses.Remove(item as CasePalletAnalysis))
-                    _log.Warn(string.Format("Failed to properly remove analysis {0}", item.Name));
+                NotifyOnAnalysisRemoved(item as Analysis);
+                if (!_analyses.Remove(item as Analysis))
+                    _log.Warn(string.Format("Failed to properly remove analysis {0}", item.ID.Name));
             }
-            else if (item.GetType() == typeof(PackPalletAnalysis))
+            else if (item is AnalysisLegacy)
             { 
-                NotifyOnAnalysisRemoved(item as PackPalletAnalysis);
-                if (!_packPalletAnalyses.Remove(item as PackPalletAnalysis))
-                    _log.Warn(string.Format("Failed to properly remove analysis {0}", item.Name));
-            }
-            else if (item.GetType() == typeof(BoxCaseAnalysis))
-            {
-                NotifyOnAnalysisRemoved(item as BoxCaseAnalysis);
-                if (!_boxCaseAnalyses.Remove(item as BoxCaseAnalysis))
-                    _log.Warn(string.Format("Failed to properly remove analysis {0}", item.Name));
-            }
-            else if (item.GetType() == typeof(CylinderPalletAnalysis))
-            {
-                NotifyOnAnalysisRemoved(item as CylinderPalletAnalysis);
-                if (!_cylinderPalletAnalyses.Remove(item as CylinderPalletAnalysis))
-                    _log.Warn(string.Format("Failed to properly remove analysis {0}", item.Name));
-            }
-            else if (item.GetType() == typeof(HCylinderPalletAnalysis))
-            {
-                NotifyOnAnalysisRemoved(item as HCylinderPalletAnalysis);
-                if (!_hCylinderPalletAnalyses.Remove(item as HCylinderPalletAnalysis))
-                    _log.Warn(string.Format("Failed to properly remove analysis {0}", item.Name));
-            }
-            else if (item.GetType() == typeof(TruckAnalysis))
-            {
-                TruckAnalysis truckAnalysis = item as TruckAnalysis;
-                NotifyOnTruckAnalysisRemoved(truckAnalysis.ParentSelSolution, truckAnalysis);
-            }
-            else if (item.GetType() == typeof(BoxCasePalletAnalysis))
-            {
-                BoxCasePalletAnalysis caseAnalysis = item as BoxCasePalletAnalysis;
-                NotifyOnAnalysisRemoved(caseAnalysis);
-                if (!_boxCasePalletOptimizations.Remove(caseAnalysis))
-                    _log.Warn(string.Format("Failed to properly remove analysis {0}", item.Name));
-            }
-            else if (item.GetType() == typeof(ECTAnalysis))
-            {
-                ECTAnalysis ectAnalysis = item as ECTAnalysis;
-                NotifyOnECTAnalysisRemoved(ectAnalysis.ParentSelSolution, ectAnalysis);
+                NotifyOnAnalysisRemoved(item);
+                if (!_analysesLegacy.Remove(item as AnalysisLegacy))
+                    _log.Warn(string.Format("Failed to properly remove analysis {0}", item.ID.Name));
             }
             else if (item.GetType() == typeof(SelCasePalletSolution)) { }
             else if (item.GetType() == typeof(SelBoxCasePalletSolution)) { }
@@ -1096,7 +1004,7 @@ namespace treeDiM.StackBuilder.Basics
             else if (item.GetType() == typeof(SelHCylinderPalletSolution)) { }
             else if (item.GetType() == typeof(SelPackPalletSolution)) { }
             else
-                _log.Error(string.Format("Removing document {0} of unknown type {1}...", item.Name, item.GetType()));
+                _log.Error(string.Format("Removing document {0} of unknown type {1}...", item.ID.Name, item.GetType()));
             Modify();
         }
         #endregion
@@ -1263,8 +1171,24 @@ namespace treeDiM.StackBuilder.Basics
         /// <summary>
         /// Get list of analyses
         /// </summary>
-        public List<CasePalletAnalysis> Analyses
-        { get { return _casePalletAnalyses; } }
+        public List<Analysis> Analyses
+        { get { return _analyses; } }
+        /// <summary>
+        /// Get list of case/pallet analyses
+        /// </summary>
+        public List<AnalysisLegacy> AnalysesCasePallet
+        {
+            get
+            {
+                List<AnalysisLegacy> analyses = new List<AnalysisLegacy>();
+                foreach (AnalysisLegacy analysis in _analysesLegacy)
+                {
+                    if (analysis is CasePalletAnalysis)
+                        analyses.Add(analysis);
+                }
+                return analyses; 
+            }
+        }
         /// <summary>
         /// Returns true if pack can be created i.e. if documents contains at at least a box
         /// </summary>
@@ -1489,7 +1413,7 @@ namespace treeDiM.StackBuilder.Basics
                 , UnitsManager.ConvertLengthFrom(System.Convert.ToDouble(sheight, System.Globalization.CultureInfo.InvariantCulture), _unitSystem)
                 , UnitsManager.ConvertMassFrom(System.Convert.ToDouble(sweight, System.Globalization.CultureInfo.InvariantCulture), _unitSystem)
                 , colors);
-            boxProperties.Guid = new Guid(sid);
+            boxProperties.ID.IGuid = new Guid(sid);
             boxProperties.TextureList = listTexture;
             // tape
             boxProperties.ShowTape = hasTape;
@@ -1516,7 +1440,7 @@ namespace treeDiM.StackBuilder.Basics
                 , PackArrangement.TryParse(sArrangement)
                 , HalfAxis.Parse(sOrientation)
                 , wrapper);
-            packProperties.Guid = new Guid(sid);
+            packProperties.ID.IGuid = new Guid(sid);
             if (eltPackProperties.HasAttribute("OuterDimensions"))
             {
                 Vector3D outerDimensions = Vector3D.Parse(eltPackProperties.Attributes["OuterDimensions"].Value);
@@ -1617,7 +1541,7 @@ namespace treeDiM.StackBuilder.Basics
                 Color.FromArgb(System.Convert.ToInt32(sColorWallOuter)),
                 Color.FromArgb(System.Convert.ToInt32(sColorWallInner))
                 );
-            cylinderProperties.Guid = new Guid(sid);
+            cylinderProperties.ID.IGuid = new Guid(sid);
         }
 
         private void LoadCaseOfBoxesProperties(XmlElement eltCaseOfBoxesProperties)
@@ -1662,7 +1586,7 @@ namespace treeDiM.StackBuilder.Basics
                 , caseDefinition
                 , constraintSet);
             caseOfBoxProperties.SetWeight( UnitsManager.ConvertMassFrom(Convert.ToDouble(sweight, System.Globalization.CultureInfo.InvariantCulture), _unitSystem) );
-            caseOfBoxProperties.Guid = new Guid(sid);
+            caseOfBoxProperties.ID.IGuid = new Guid(sid);
             caseOfBoxProperties.TextureList = listTexture;
             caseOfBoxProperties.SetAllColors( colors );
         }
@@ -1762,7 +1686,7 @@ namespace treeDiM.StackBuilder.Basics
                 , UnitsManager.ConvertLengthFrom(System.Convert.ToDouble(sheight, System.Globalization.CultureInfo.InvariantCulture), _unitSystem)
                 , UnitsManager.ConvertMassFrom(System.Convert.ToDouble(sweight, System.Globalization.CultureInfo.InvariantCulture), _unitSystem));
             palletProperties.Color = Color.FromArgb(System.Convert.ToInt32(sColor));
-            palletProperties.Guid = new Guid(sid);
+            palletProperties.ID.IGuid = new Guid(sid);
         }
         private void LoadInterlayerProperties(XmlElement eltInterlayerProperties)
         {
@@ -1784,7 +1708,7 @@ namespace treeDiM.StackBuilder.Basics
                 , UnitsManager.ConvertLengthFrom(Convert.ToDouble(sthickness, System.Globalization.CultureInfo.InvariantCulture), _unitSystem)
                 , UnitsManager.ConvertMassFrom(Convert.ToDouble(sweight, System.Globalization.CultureInfo.InvariantCulture), _unitSystem)
                 , Color.FromArgb(System.Convert.ToInt32(sColor)));
-            interlayerProperties.Guid = new Guid(sid);
+            interlayerProperties.ID.IGuid = new Guid(sid);
         }
         private void LoadPalletCornerProperties(XmlElement eltPalletCornerProperties)
         {
@@ -1807,7 +1731,7 @@ namespace treeDiM.StackBuilder.Basics
                 , UnitsManager.ConvertMassFrom(Convert.ToDouble(sweight, System.Globalization.CultureInfo.InvariantCulture), _unitSystem)
                 , Color.FromArgb(System.Convert.ToInt32(sColor))
                 );
-            palletCornerProperties.Guid = new Guid(sid);
+            palletCornerProperties.ID.IGuid = new Guid(sid);
         }
         private void LoadPalletCapProperties(XmlElement eltPalletCapProperties)
         {
@@ -1835,7 +1759,7 @@ namespace treeDiM.StackBuilder.Basics
                 , UnitsManager.ConvertMassFrom(Convert.ToDouble(sweight, System.Globalization.CultureInfo.InvariantCulture), _unitSystem)
                 , Color.FromArgb(System.Convert.ToInt32(sColor))
                 );
-            palletCapProperties.Guid = new Guid(sid);
+            palletCapProperties.ID.IGuid = new Guid(sid);
         }
         private void LoadPalletFilmProperties(XmlElement eltPalletFilmProperties)
         {
@@ -1857,7 +1781,7 @@ namespace treeDiM.StackBuilder.Basics
                 Convert.ToDouble(sHatchAngle, System.Globalization.CultureInfo.InvariantCulture),
                 Color.FromArgb(System.Convert.ToInt32(sColor))
                 );
-            palletFilmProperties.Guid = new Guid(sid);
+            palletFilmProperties.ID.IGuid = new Guid(sid);
         }
         private void LoadBundleProperties(XmlElement eltBundleProperties)
         {
@@ -1879,7 +1803,7 @@ namespace treeDiM.StackBuilder.Basics
                 , UnitsManager.ConvertMassFrom(unitWeight, _unitSystem)
                 , color
                 , noFlats);
-            bundleProperties.Guid = new Guid(sid);
+            bundleProperties.ID.IGuid = new Guid(sid);
         }
         private void LoadTruckProperties(XmlElement eltTruckProperties)
         {
@@ -1901,7 +1825,7 @@ namespace treeDiM.StackBuilder.Basics
                 , UnitsManager.ConvertLengthFrom(Convert.ToDouble(sheight), _unitSystem)
                 , UnitsManager.ConvertMassFrom(Convert.ToDouble(sadmissibleLoadWeight), _unitSystem)
                 , Color.FromArgb(System.Convert.ToInt32(sColor)));
-            truckProperties.Guid = new Guid(sid);
+            truckProperties.ID.IGuid = new Guid(sid);
         }
         #endregion
 
@@ -2938,19 +2862,11 @@ namespace treeDiM.StackBuilder.Basics
                 // create Analyses element
                 XmlElement xmlAnalysesElt = xmlDoc.CreateElement("Analyses");
                 xmlRootElement.AppendChild(xmlAnalysesElt);
-                foreach (CasePalletAnalysis analysis in _casePalletAnalyses)
-                    SavePalletAnalysis(analysis, xmlAnalysesElt, xmlDoc);
-                foreach (PackPalletAnalysis analysis in _packPalletAnalyses)
-                    SavePackPalletAnalysis(analysis, xmlAnalysesElt, xmlDoc);
-                foreach (CylinderPalletAnalysis analysis in _cylinderPalletAnalyses)
-                    SaveCylinderPalletAnalysis(analysis, xmlAnalysesElt, xmlDoc);
-                foreach (HCylinderPalletAnalysis analysis in _hCylinderPalletAnalyses)
-                    SaveHCylinderPalletAnalysis(analysis, xmlAnalysesElt, xmlDoc);
-                foreach (BoxCaseAnalysis analysis in _boxCaseAnalyses)
-                    SaveBoxCaseAnalysis(analysis, xmlAnalysesElt, xmlDoc);
-                foreach (BoxCasePalletAnalysis analysis in _boxCasePalletOptimizations)
-                    SaveCaseAnalysis(analysis, xmlAnalysesElt, xmlDoc);
-
+                foreach (AnalysisLegacy analysis in _analysesLegacy)
+                { 
+                    // save analyses
+                    // ...
+                }
 
                 // finally save XmlDocument
                 xmlDoc.Save(filePath);
@@ -3035,15 +2951,15 @@ namespace treeDiM.StackBuilder.Basics
             parentElement.AppendChild(xmlBoxProperties);
             // Id
             XmlAttribute guidAttribute = xmlDoc.CreateAttribute("Id");
-            guidAttribute.Value = boxProperties.Guid.ToString();
+            guidAttribute.Value = boxProperties.ID.IGuid.ToString();
             xmlBoxProperties.Attributes.Append(guidAttribute);
             // name
             XmlAttribute nameAttribute = xmlDoc.CreateAttribute("Name");
-            nameAttribute.Value = boxProperties.Name;
+            nameAttribute.Value = boxProperties.ID.Name;
             xmlBoxProperties.Attributes.Append(nameAttribute);
             // description
             XmlAttribute descAttribute = xmlDoc.CreateAttribute("Description");
-            descAttribute.Value = boxProperties.Description;
+            descAttribute.Value = boxProperties.ID.Description;
             xmlBoxProperties.Attributes.Append(descAttribute);
             // length
             XmlAttribute lengthAttribute = xmlDoc.CreateAttribute("Length");
@@ -3110,19 +3026,19 @@ namespace treeDiM.StackBuilder.Basics
             parentElement.AppendChild(xmlPackProperties);
             // Id
             XmlAttribute guidAttribute = xmlDoc.CreateAttribute("Id");
-            guidAttribute.Value = packProperties.Guid.ToString();
+            guidAttribute.Value = packProperties.ID.IGuid.ToString();
             xmlPackProperties.Attributes.Append(guidAttribute);
             // name
             XmlAttribute nameAttribute = xmlDoc.CreateAttribute("Name");
-            nameAttribute.Value = packProperties.Name;
+            nameAttribute.Value = packProperties.ID.Name;
             xmlPackProperties.Attributes.Append(nameAttribute);
             // description
             XmlAttribute descAttribute = xmlDoc.CreateAttribute("Description");
-            descAttribute.Value = packProperties.Description;
+            descAttribute.Value = packProperties.ID.Description;
             xmlPackProperties.Attributes.Append(descAttribute);
             // boxProperties
             XmlAttribute boxPropAttribute = xmlDoc.CreateAttribute("BoxProperties");
-            boxPropAttribute.Value = packProperties.Box.Guid.ToString();
+            boxPropAttribute.Value = packProperties.Box.ID.IGuid.ToString();
             xmlPackProperties.Attributes.Append(boxPropAttribute);
             // box orientation
             XmlAttribute orientationAttribute = xmlDoc.CreateAttribute("Orientation");
@@ -3211,15 +3127,15 @@ namespace treeDiM.StackBuilder.Basics
             parentElement.AppendChild(xmlBoxProperties);
             // Id
             XmlAttribute guidAttribute = xmlDoc.CreateAttribute("Id");
-            guidAttribute.Value = cylinderProperties.Guid.ToString();
+            guidAttribute.Value = cylinderProperties.ID.IGuid.ToString();
             xmlBoxProperties.Attributes.Append(guidAttribute);
             // name
             XmlAttribute nameAttribute = xmlDoc.CreateAttribute("Name");
-            nameAttribute.Value = cylinderProperties.Name;
+            nameAttribute.Value = cylinderProperties.ID.Name;
             xmlBoxProperties.Attributes.Append(nameAttribute);
             // description
             XmlAttribute descAttribute = xmlDoc.CreateAttribute("Description");
-            descAttribute.Value = cylinderProperties.Description;
+            descAttribute.Value = cylinderProperties.ID.Description;
             xmlBoxProperties.Attributes.Append(descAttribute);
             // radius outer
             XmlAttribute radiusOuterAttribute = xmlDoc.CreateAttribute("RadiusOuter");
@@ -3258,15 +3174,15 @@ namespace treeDiM.StackBuilder.Basics
             parentElement.AppendChild(xmlBoxProperties);
             // Id
             XmlAttribute guidAttribute = xmlDoc.CreateAttribute("Id");
-            guidAttribute.Value = caseOfBoxesProperties.Guid.ToString();
+            guidAttribute.Value = caseOfBoxesProperties.ID.IGuid.ToString();
             xmlBoxProperties.Attributes.Append(guidAttribute);
             // name
             XmlAttribute nameAttribute = xmlDoc.CreateAttribute("Name");
-            nameAttribute.Value = caseOfBoxesProperties.Name;
+            nameAttribute.Value = caseOfBoxesProperties.ID.Name;
             xmlBoxProperties.Attributes.Append(nameAttribute);
             // description
             XmlAttribute descAttribute = xmlDoc.CreateAttribute("Description");
-            descAttribute.Value = caseOfBoxesProperties.Description;
+            descAttribute.Value = caseOfBoxesProperties.ID.Description;
             xmlBoxProperties.Attributes.Append(descAttribute);
             // weight
             XmlAttribute weightAttribute = xmlDoc.CreateAttribute("Weight");
@@ -3274,7 +3190,7 @@ namespace treeDiM.StackBuilder.Basics
             xmlBoxProperties.Attributes.Append(weightAttribute);
             // save inside ref to box properties
             XmlAttribute insideBoxId = xmlDoc.CreateAttribute("InsideBoxId");
-            insideBoxId.Value = caseOfBoxesProperties.InsideBoxProperties.Guid.ToString();
+            insideBoxId.Value = caseOfBoxesProperties.InsideBoxProperties.ID.IGuid.ToString();
             xmlBoxProperties.Attributes.Append(insideBoxId);
             // save case definition
             SaveCaseDefinition(caseOfBoxesProperties.CaseDefinition, xmlBoxProperties, xmlDoc);
@@ -3378,15 +3294,15 @@ namespace treeDiM.StackBuilder.Basics
             parentElement.AppendChild(xmlPalletProperties);
             // Id
             XmlAttribute guidAttribute = xmlDoc.CreateAttribute("Id");
-            guidAttribute.Value = palletProperties.Guid.ToString();
+            guidAttribute.Value = palletProperties.ID.IGuid.ToString();
             xmlPalletProperties.Attributes.Append(guidAttribute);
             // name
             XmlAttribute nameAttribute = xmlDoc.CreateAttribute("Name");
-            nameAttribute.Value = palletProperties.Name;
+            nameAttribute.Value = palletProperties.ID.Name;
             xmlPalletProperties.Attributes.Append(nameAttribute);
             // description
             XmlAttribute descAttribute = xmlDoc.CreateAttribute("Description");
-            descAttribute.Value = palletProperties.Description;
+            descAttribute.Value = palletProperties.ID.Description;
             xmlPalletProperties.Attributes.Append(descAttribute);
             // length
             XmlAttribute lengthAttribute = xmlDoc.CreateAttribute("Length");
@@ -3428,15 +3344,15 @@ namespace treeDiM.StackBuilder.Basics
             parentElement.AppendChild(xmlInterlayerProperties);
             // Id
             XmlAttribute guidAttribute = xmlDoc.CreateAttribute("Id");
-            guidAttribute.Value = interlayerProperties.Guid.ToString();
+            guidAttribute.Value = interlayerProperties.ID.IGuid.ToString();
             xmlInterlayerProperties.Attributes.Append(guidAttribute);
             // name
             XmlAttribute nameAttribute = xmlDoc.CreateAttribute("Name");
-            nameAttribute.Value = interlayerProperties.Name;
+            nameAttribute.Value = interlayerProperties.ID.Name;
             xmlInterlayerProperties.Attributes.Append(nameAttribute);
             // description
             XmlAttribute descAttribute = xmlDoc.CreateAttribute("Description");
-            descAttribute.Value = interlayerProperties.Description;
+            descAttribute.Value = interlayerProperties.ID.Description;
             xmlInterlayerProperties.Attributes.Append(descAttribute);
             // length
             XmlAttribute lengthAttribute = xmlDoc.CreateAttribute("Length");
@@ -3467,15 +3383,15 @@ namespace treeDiM.StackBuilder.Basics
             parentElement.AppendChild(xmlCornerProperties);
             // Id
             XmlAttribute guidAttribute = xmlDoc.CreateAttribute("Id");
-            guidAttribute.Value = cornerProperties.Guid.ToString();
+            guidAttribute.Value = cornerProperties.ID.IGuid.ToString();
             xmlCornerProperties.Attributes.Append(guidAttribute);
             // name
             XmlAttribute nameAttribute = xmlDoc.CreateAttribute("Name");
-            nameAttribute.Value = cornerProperties.Name;
+            nameAttribute.Value = cornerProperties.ID.Name;
             xmlCornerProperties.Attributes.Append(nameAttribute);
             // description
             XmlAttribute descAttribute = xmlDoc.CreateAttribute("Description");
-            descAttribute.Value = cornerProperties.Description;
+            descAttribute.Value = cornerProperties.ID.Description;
             xmlCornerProperties.Attributes.Append(descAttribute);
             // length
             XmlAttribute lengthAttribute = xmlDoc.CreateAttribute("Length");
@@ -3506,15 +3422,15 @@ namespace treeDiM.StackBuilder.Basics
             parentElement.AppendChild(xmlCapProperties);
             // Id
             XmlAttribute guidAttribute = xmlDoc.CreateAttribute("Id");
-            guidAttribute.Value = capProperties.Guid.ToString();
+            guidAttribute.Value = capProperties.ID.IGuid.ToString();
             xmlCapProperties.Attributes.Append(guidAttribute);
             // name
             XmlAttribute nameAttribute = xmlDoc.CreateAttribute("Name");
-            nameAttribute.Value = capProperties.Name;
+            nameAttribute.Value = capProperties.ID.Name;
             xmlCapProperties.Attributes.Append(nameAttribute);
             // description
             XmlAttribute descAttribute = xmlDoc.CreateAttribute("Description");
-            descAttribute.Value = capProperties.Description;
+            descAttribute.Value = capProperties.ID.Description;
             xmlCapProperties.Attributes.Append(descAttribute);
             // length
             XmlAttribute lengthAttribute = xmlDoc.CreateAttribute("Length");
@@ -3557,15 +3473,15 @@ namespace treeDiM.StackBuilder.Basics
             parentElement.AppendChild(xmlFilmProperties);
             // Id
             XmlAttribute guidAttribute = xmlDoc.CreateAttribute("Id");
-            guidAttribute.Value = filmProperties.Guid.ToString();
+            guidAttribute.Value = filmProperties.ID.IGuid.ToString();
             xmlFilmProperties.Attributes.Append(guidAttribute);
             // Name
             XmlAttribute nameAttribute = xmlDoc.CreateAttribute("Name");
-            nameAttribute.Value = filmProperties.Name;
+            nameAttribute.Value = filmProperties.ID.Name;
             xmlFilmProperties.Attributes.Append(nameAttribute);
             // Description
             XmlAttribute descAttribute = xmlDoc.CreateAttribute("Description");
-            descAttribute.Value = filmProperties.Description;
+            descAttribute.Value = filmProperties.ID.Description;
             xmlFilmProperties.Attributes.Append(descAttribute);
             // Transparency
             XmlAttribute transparencyAttribute = xmlDoc.CreateAttribute("Transparency");
@@ -3596,15 +3512,15 @@ namespace treeDiM.StackBuilder.Basics
             parentElement.AppendChild(xmlBundleProperties);
             // Id
             XmlAttribute guidAttribute = xmlDoc.CreateAttribute("Id");
-            guidAttribute.Value = bundleProperties.Guid.ToString();
+            guidAttribute.Value = bundleProperties.ID.IGuid.ToString();
             xmlBundleProperties.Attributes.Append(guidAttribute);
             // name
             XmlAttribute nameAttribute = xmlDoc.CreateAttribute("Name");
-            nameAttribute.Value = bundleProperties.Name;
+            nameAttribute.Value = bundleProperties.ID.Name;
             xmlBundleProperties.Attributes.Append(nameAttribute);
             // description
             XmlAttribute descAttribute = xmlDoc.CreateAttribute("Description");
-            descAttribute.Value = bundleProperties.Description;
+            descAttribute.Value = bundleProperties.ID.Description;
             xmlBundleProperties.Attributes.Append(descAttribute);
             // length
             XmlAttribute lengthAttribute = xmlDoc.CreateAttribute("Length");
@@ -3639,15 +3555,15 @@ namespace treeDiM.StackBuilder.Basics
             parentElement.AppendChild(xmlTruckProperties);
             // Id
             XmlAttribute guidAttribute = xmlDoc.CreateAttribute("Id");
-            guidAttribute.Value = truckProperties.Guid.ToString();
+            guidAttribute.Value = truckProperties.ID.IGuid.ToString();
             xmlTruckProperties.Attributes.Append(guidAttribute);
             // name
             XmlAttribute nameAttribute = xmlDoc.CreateAttribute("Name");
-            nameAttribute.Value = truckProperties.Name;
+            nameAttribute.Value = truckProperties.ID.Name;
             xmlTruckProperties.Attributes.Append(nameAttribute);
             // description
             XmlAttribute descAttribute = xmlDoc.CreateAttribute("Description");
-            descAttribute.Value = truckProperties.Description;
+            descAttribute.Value = truckProperties.ID.Description;
             xmlTruckProperties.Attributes.Append(descAttribute);
             // length
             XmlAttribute lengthAttribute = xmlDoc.CreateAttribute("Length");
@@ -3677,15 +3593,15 @@ namespace treeDiM.StackBuilder.Basics
             parentElement.AppendChild(xmlAnalysisElt);
             // Name
             XmlAttribute analysisNameAttribute = xmlDoc.CreateAttribute("Name");
-            analysisNameAttribute.Value = analysis.Name;
+            analysisNameAttribute.Value = analysis.ID.Name;
             xmlAnalysisElt.Attributes.Append(analysisNameAttribute);
             // Description
             XmlAttribute analysisDescriptionAttribute = xmlDoc.CreateAttribute("Description");
-            analysisDescriptionAttribute.Value = analysis.Description;
+            analysisDescriptionAttribute.Value = analysis.ID.Description;
             xmlAnalysisElt.Attributes.Append(analysisDescriptionAttribute);
             // BoxId
             XmlAttribute boxIdAttribute = xmlDoc.CreateAttribute("BoxId");
-            boxIdAttribute.Value = string.Format("{0}", analysis.BoxProperties.Guid);
+            boxIdAttribute.Value = string.Format("{0}", analysis.BoxProperties.ID.IGuid);
             xmlAnalysisElt.Attributes.Append(boxIdAttribute);
             // ConstraintSet : beg
             XmlElement constraintSetElement = xmlDoc.CreateElement("ConstraintSetCase");
@@ -3850,53 +3766,53 @@ namespace treeDiM.StackBuilder.Basics
             parentElement.AppendChild(xmlAnalysisElt);
             // Name
             XmlAttribute analysisNameAttribute = xmlDoc.CreateAttribute("Name");
-            analysisNameAttribute.Value = analysis.Name;
+            analysisNameAttribute.Value = analysis.ID.Name;
             xmlAnalysisElt.Attributes.Append(analysisNameAttribute);
             // Description
             XmlAttribute analysisDescriptionAttribute = xmlDoc.CreateAttribute("Description");
-            analysisDescriptionAttribute.Value = analysis.Description;
+            analysisDescriptionAttribute.Value = analysis.ID.Description;
             xmlAnalysisElt.Attributes.Append(analysisDescriptionAttribute);
             // BoxId
             XmlAttribute boxIdAttribute = xmlDoc.CreateAttribute("BoxId");
-            boxIdAttribute.Value = string.Format("{0}", analysis.BProperties.Guid);
+            boxIdAttribute.Value = string.Format("{0}", analysis.BProperties.ID.IGuid);
             xmlAnalysisElt.Attributes.Append(boxIdAttribute);
             // PalletId
             XmlAttribute palletIdAttribute = xmlDoc.CreateAttribute("PalletId");
-            palletIdAttribute.Value = string.Format("{0}", analysis.PalletProperties.Guid);
+            palletIdAttribute.Value = string.Format("{0}", analysis.PalletProperties.ID.IGuid);
             xmlAnalysisElt.Attributes.Append(palletIdAttribute);
             // InterlayerId
             if (null != analysis.InterlayerProperties)
             {
                 XmlAttribute interlayerIdAttribute = xmlDoc.CreateAttribute("InterlayerId");
-                interlayerIdAttribute.Value = string.Format("{0}", analysis.InterlayerProperties.Guid);
+                interlayerIdAttribute.Value = string.Format("{0}", analysis.InterlayerProperties.ID.IGuid);
                 xmlAnalysisElt.Attributes.Append(interlayerIdAttribute);
             }
             // InterlayerAntiSlipId
             if (null != analysis.InterlayerPropertiesAntiSlip)
             {
                 XmlAttribute interlayerIdAttribute = xmlDoc.CreateAttribute("InterlayerAntiSlipId");
-                interlayerIdAttribute.Value = string.Format("{0}", analysis.InterlayerPropertiesAntiSlip.Guid);
+                interlayerIdAttribute.Value = string.Format("{0}", analysis.InterlayerPropertiesAntiSlip.ID.IGuid);
                 xmlAnalysisElt.Attributes.Append(interlayerIdAttribute);
             }
             // PalletCornerId
             if (null != analysis.PalletCornerProperties)
             {
                 XmlAttribute palletCornerAttribute = xmlDoc.CreateAttribute("PalletCornerId");
-                palletCornerAttribute.Value = string.Format("{0}", analysis.PalletCornerProperties.Guid);
+                palletCornerAttribute.Value = string.Format("{0}", analysis.PalletCornerProperties.ID.IGuid);
                 xmlAnalysisElt.Attributes.Append(palletCornerAttribute);
             }
             // PalletCapId
             if (null != analysis.PalletCapProperties)
             {
                 XmlAttribute palletCapIdAttribute = xmlDoc.CreateAttribute("PalletCapId");
-                palletCapIdAttribute.Value = string.Format("{0}", analysis.PalletCapProperties.Guid);
+                palletCapIdAttribute.Value = string.Format("{0}", analysis.PalletCapProperties.ID.IGuid);
                 xmlAnalysisElt.Attributes.Append(palletCapIdAttribute);
             }
             // PalletFilmId
             if (null != analysis.PalletFilmProperties)
             {
                 XmlAttribute palletFilmIdAttribute = xmlDoc.CreateAttribute("PalletFilmId");
-                palletFilmIdAttribute.Value = string.Format("{0}", analysis.PalletFilmProperties.Guid);
+                palletFilmIdAttribute.Value = string.Format("{0}", analysis.PalletFilmProperties.ID.IGuid);
                 xmlAnalysisElt.Attributes.Append(palletFilmIdAttribute);
             }
             // ###
@@ -4001,25 +3917,25 @@ namespace treeDiM.StackBuilder.Basics
             parentElement.AppendChild(xmlAnalysisElt);
             // Name
             XmlAttribute analysisNameAttribute = xmlDoc.CreateAttribute("Name");
-            analysisNameAttribute.Value = analysis.Name;
+            analysisNameAttribute.Value = analysis.ID.Name;
             xmlAnalysisElt.Attributes.Append(analysisNameAttribute);
             // Description
             XmlAttribute analysisDescriptionAttribute = xmlDoc.CreateAttribute("Description");
-            analysisDescriptionAttribute.Value = analysis.Description;
+            analysisDescriptionAttribute.Value = analysis.ID.Description;
             xmlAnalysisElt.Attributes.Append(analysisDescriptionAttribute);
             // BoxId
             XmlAttribute packIdAttribute = xmlDoc.CreateAttribute("PackId");
-            packIdAttribute.Value = string.Format("{0}", analysis.PackProperties.Guid);
+            packIdAttribute.Value = string.Format("{0}", analysis.PackProperties.ID.IGuid);
             xmlAnalysisElt.Attributes.Append(packIdAttribute);
             // PalletId
             XmlAttribute palletIdAttribute = xmlDoc.CreateAttribute("PalletId");
-            palletIdAttribute.Value = string.Format("{0}", analysis.PalletProperties.Guid);
+            palletIdAttribute.Value = string.Format("{0}", analysis.PalletProperties.ID.IGuid);
             xmlAnalysisElt.Attributes.Append(palletIdAttribute);
             // InterlayerId
             if (null != analysis.InterlayerProperties)
             {
                 XmlAttribute interlayerIdAttribute = xmlDoc.CreateAttribute("InterlayerId");
-                interlayerIdAttribute.Value = string.Format("{0}", analysis.InterlayerProperties.Guid);
+                interlayerIdAttribute.Value = string.Format("{0}", analysis.InterlayerProperties.ID.IGuid);
                 xmlAnalysisElt.Attributes.Append(interlayerIdAttribute);
             }
             // Constraint set
@@ -4078,31 +3994,31 @@ namespace treeDiM.StackBuilder.Basics
             parentElement.AppendChild(xmlAnalysisElt);
             // Name
             XmlAttribute analysisNameAttribute = xmlDoc.CreateAttribute("Name");
-            analysisNameAttribute.Value = analysis.Name;
+            analysisNameAttribute.Value = analysis.ID.Name;
             xmlAnalysisElt.Attributes.Append(analysisNameAttribute);
             // Description
             XmlAttribute analysisDescriptionAttribute = xmlDoc.CreateAttribute("Description");
-            analysisDescriptionAttribute.Value = analysis.Description;
+            analysisDescriptionAttribute.Value = analysis.ID.Description;
             xmlAnalysisElt.Attributes.Append(analysisDescriptionAttribute);
             // BoxId
             XmlAttribute cylinderIdAttribute = xmlDoc.CreateAttribute("CylinderId");
-            cylinderIdAttribute.Value = string.Format("{0}", analysis.CylinderProperties.Guid);
+            cylinderIdAttribute.Value = string.Format("{0}", analysis.CylinderProperties.ID.IGuid);
             xmlAnalysisElt.Attributes.Append(cylinderIdAttribute);
             // PalletId
             XmlAttribute palletIdAttribute = xmlDoc.CreateAttribute("PalletId");
-            palletIdAttribute.Value = string.Format("{0}", analysis.PalletProperties.Guid);
+            palletIdAttribute.Value = string.Format("{0}", analysis.PalletProperties.ID.IGuid);
             xmlAnalysisElt.Attributes.Append(palletIdAttribute);
             // InterlayerId
             if (null != analysis.InterlayerProperties)
             {
                 XmlAttribute interlayerIdAttribute = xmlDoc.CreateAttribute("InterlayerId");
-                interlayerIdAttribute.Value = string.Format("{0}", analysis.InterlayerProperties.Guid);
+                interlayerIdAttribute.Value = string.Format("{0}", analysis.InterlayerProperties.ID.IGuid);
                 xmlAnalysisElt.Attributes.Append(interlayerIdAttribute);
             }
             if (null != analysis.InterlayerPropertiesAntiSlip)
             {
                 XmlAttribute interlayerIdAttribute = xmlDoc.CreateAttribute("InterlayerAntiSlipId");
-                interlayerIdAttribute.Value = string.Format("{0}", analysis.InterlayerPropertiesAntiSlip.Guid);
+                interlayerIdAttribute.Value = string.Format("{0}", analysis.InterlayerPropertiesAntiSlip.ID.IGuid);
                 xmlAnalysisElt.Attributes.Append(interlayerIdAttribute);
             }
             XmlElement constraintSetElement = xmlDoc.CreateElement("ConstraintSet");
@@ -4162,19 +4078,19 @@ namespace treeDiM.StackBuilder.Basics
             parentElement.AppendChild(xmlAnalysisElt);
             // Name
             XmlAttribute analysisNameAttribute = xmlDoc.CreateAttribute("Name");
-            analysisNameAttribute.Value = analysis.Name;
+            analysisNameAttribute.Value = analysis.ID.Name;
             xmlAnalysisElt.Attributes.Append(analysisNameAttribute);
             // Description
             XmlAttribute analysisDescriptionAttribute = xmlDoc.CreateAttribute("Description");
-            analysisDescriptionAttribute.Value = analysis.Description;
+            analysisDescriptionAttribute.Value = analysis.ID.Description;
             xmlAnalysisElt.Attributes.Append(analysisDescriptionAttribute);
             // BoxId
             XmlAttribute cylinderIdAttribute = xmlDoc.CreateAttribute("CylinderId");
-            cylinderIdAttribute.Value = string.Format("{0}", analysis.CylinderProperties.Guid);
+            cylinderIdAttribute.Value = string.Format("{0}", analysis.CylinderProperties.ID.IGuid);
             xmlAnalysisElt.Attributes.Append(cylinderIdAttribute);
             // PalletId
             XmlAttribute palletIdAttribute = xmlDoc.CreateAttribute("PalletId");
-            palletIdAttribute.Value = string.Format("{0}", analysis.PalletProperties.Guid);
+            palletIdAttribute.Value = string.Format("{0}", analysis.PalletProperties.ID.IGuid);
             xmlAnalysisElt.Attributes.Append(palletIdAttribute);
             XmlElement constraintSetElement = xmlDoc.CreateElement("ConstraintSet");
             xmlAnalysisElt.AppendChild(constraintSetElement);
@@ -4227,19 +4143,19 @@ namespace treeDiM.StackBuilder.Basics
             parentElement.AppendChild(xmlAnalysisElt);
             // Name
             XmlAttribute analysisNameAttribute = xmlDoc.CreateAttribute("Name");
-            analysisNameAttribute.Value = analysis.Name;
+            analysisNameAttribute.Value = analysis.ID.Name;
             xmlAnalysisElt.Attributes.Append(analysisNameAttribute);
             // Description
             XmlAttribute analysisDescriptionAttribute = xmlDoc.CreateAttribute("Description");
-            analysisDescriptionAttribute.Value = analysis.Description;
+            analysisDescriptionAttribute.Value = analysis.ID.Description;
             xmlAnalysisElt.Attributes.Append(analysisDescriptionAttribute);
             // BoxId
             XmlAttribute boxIdAttribute = xmlDoc.CreateAttribute("BoxId");
-            boxIdAttribute.Value = string.Format("{0}", analysis.BProperties.Guid);
+            boxIdAttribute.Value = string.Format("{0}", analysis.BProperties.ID.IGuid);
             xmlAnalysisElt.Attributes.Append(boxIdAttribute);
             // PalletId
             XmlAttribute palletIdAttribute = xmlDoc.CreateAttribute("CaseId");
-            palletIdAttribute.Value = string.Format("{0}", analysis.CaseProperties.Guid);
+            palletIdAttribute.Value = string.Format("{0}", analysis.CaseProperties.ID.IGuid);
             xmlAnalysisElt.Attributes.Append(palletIdAttribute);
             // Constraint set
             SaveBoxCaseConstraintSet(analysis.ConstraintSet, xmlAnalysisElt, xmlDoc);
@@ -4335,31 +4251,31 @@ namespace treeDiM.StackBuilder.Basics
             parentElement.AppendChild(xmlAnalysisElt);
             // Name
             XmlAttribute analysisNameAttribute = xmlDoc.CreateAttribute("Name");
-            analysisNameAttribute.Value = analysis.Name;
+            analysisNameAttribute.Value = analysis.ID.Name;
             xmlAnalysisElt.Attributes.Append(analysisNameAttribute);
             // Description
             XmlAttribute analysisDescriptionAttribute = xmlDoc.CreateAttribute("Description");
-            analysisDescriptionAttribute.Value = analysis.Description;
+            analysisDescriptionAttribute.Value = analysis.ID.Description;
             xmlAnalysisElt.Attributes.Append(analysisDescriptionAttribute);
             // BoxId
             XmlAttribute boxIdAttribute = xmlDoc.CreateAttribute("BoxId");
-            boxIdAttribute.Value = string.Format("{0}", analysis.BProperties.Guid);
+            boxIdAttribute.Value = string.Format("{0}", analysis.BProperties.ID.IGuid);
             xmlAnalysisElt.Attributes.Append(boxIdAttribute);
             // PalletId
             XmlAttribute palletIdAttribute = xmlDoc.CreateAttribute("PalletId");
-            palletIdAttribute.Value = string.Format("{0}", analysis.PalletProperties.Guid);
+            palletIdAttribute.Value = string.Format("{0}", analysis.PalletProperties.ID.IGuid);
             xmlAnalysisElt.Attributes.Append(palletIdAttribute);
             // InterlayerId
             if (null != analysis.InterlayerProperties)
             {
                 XmlAttribute interlayerIdAttribute = xmlDoc.CreateAttribute("InterlayerId");
-                interlayerIdAttribute.Value = string.Format("{0}", analysis.InterlayerProperties.Guid);
+                interlayerIdAttribute.Value = string.Format("{0}", analysis.InterlayerProperties.ID.IGuid);
                 xmlAnalysisElt.Attributes.Append(interlayerIdAttribute);
             }
             if (null != analysis.InterlayerPropertiesAntiSlip)
             {
                 XmlAttribute interlayerIdAttribute = xmlDoc.CreateAttribute("InterlayerAntiSlipId");
-                interlayerIdAttribute.Value = string.Format("{1}", analysis.InterlayerPropertiesAntiSlip.Guid);
+                interlayerIdAttribute.Value = string.Format("{1}", analysis.InterlayerPropertiesAntiSlip.ID.IGuid);
                 xmlAnalysisElt.Attributes.Append(interlayerIdAttribute);
             }
             // ###
@@ -4644,15 +4560,15 @@ namespace treeDiM.StackBuilder.Basics
             truckAnalysesElt.AppendChild(truckAnalysisElt);
             // name
             XmlAttribute nameAttribute = xmlDoc.CreateAttribute("Name");
-            nameAttribute.Value = truckAnalysis.Name;
+            nameAttribute.Value = truckAnalysis.ID.Name;
             truckAnalysisElt.Attributes.Append(nameAttribute);
             // description
             XmlAttribute descriptionAttribute = xmlDoc.CreateAttribute("Description");
-            descriptionAttribute.Value = truckAnalysis.Description;
+            descriptionAttribute.Value = truckAnalysis.ID.Description;
             truckAnalysisElt.Attributes.Append(descriptionAttribute);
             // truckId
             XmlAttribute truckIdAttribute = xmlDoc.CreateAttribute("TruckId");
-            truckIdAttribute.Value = string.Format("{0}", truckAnalysis.TruckProperties.Guid);
+            truckIdAttribute.Value = string.Format("{0}", truckAnalysis.TruckProperties.ID.IGuid);
             truckAnalysisElt.Attributes.Append(truckIdAttribute);
             // constraint set
             XmlElement contraintSetElt = xmlDoc.CreateElement("ConstraintSet");
@@ -4716,11 +4632,11 @@ namespace treeDiM.StackBuilder.Basics
             ectAnalysesElt.AppendChild(ectAnalysisElt);
             // name
             XmlAttribute nameAttribute = xmlDoc.CreateAttribute("Name");
-            nameAttribute.Value = ectAnalysis.Name;
+            nameAttribute.Value = ectAnalysis.ID.Name;
             ectAnalysisElt.Attributes.Append(nameAttribute);
             // description
             XmlAttribute descriptionAttribute = xmlDoc.CreateAttribute("Description");
-            descriptionAttribute.Value = ectAnalysis.Description;
+            descriptionAttribute.Value = ectAnalysis.ID.Description;
             ectAnalysisElt.Attributes.Append(descriptionAttribute);
             // cardboard
             XmlElement cardboardElt = xmlDoc.CreateElement("Cardboard");
@@ -4820,10 +4736,10 @@ namespace treeDiM.StackBuilder.Basics
         {
             // remove all analysis and items
             // -> this should close any listening forms
-            while (_boxCasePalletOptimizations.Count > 0)
-                RemoveItem(_boxCasePalletOptimizations[0]);
-            while (_casePalletAnalyses.Count > 0)
-                RemoveItem(_casePalletAnalyses[0]);
+            while (_analyses.Count > 0)
+                RemoveItem(_analyses[0]);
+            while (_analysesLegacy.Count > 0)
+                RemoveItem(_analysesLegacy[0]);
             while (_typeList.Count > 0)
                 RemoveItem(_typeList[0]);
             NotifyOnDocumentClosed();
@@ -4834,7 +4750,7 @@ namespace treeDiM.StackBuilder.Basics
         private ItemBase GetTypeByGuid(Guid guid)
         {
             foreach (ItemBase type in _typeList)
-                if (type.Guid == guid)
+                if (type.ID.IGuid == guid)
                     return type;
             throw new Exception(string.Format("No type with Guid = {0}", guid.ToString()));
         }

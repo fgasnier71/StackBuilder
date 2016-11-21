@@ -62,6 +62,7 @@ namespace treeDiM.StackBuilder.Graphics
         public Box(uint pickId, double length, double width, double height, double x, double y, double z)
         {
             _pickId = pickId;
+            // dimensions
             _dim[0] = length;
             _dim[1] = width;
             _dim[2] = height;
@@ -81,13 +82,14 @@ namespace treeDiM.StackBuilder.Graphics
             _position.Y = y;
             _position.Z = z;
         }
-        public Box(uint pickId, Packable packable)
+        public Box(uint pickId, PackableBrick packable)
         {
             _pickId = pickId;
+            // dimensions
             _dim[0] = packable.Length;
             _dim[1] = packable.Width;
             _dim[2] = packable.Height;
-
+            // colors
             _colors = Enumerable.Repeat<Color>(Color.Chocolate, 6).ToArray();
 
             BProperties bProperties = packable as BProperties;
@@ -134,28 +136,38 @@ namespace treeDiM.StackBuilder.Graphics
             WidthAxis = Vector3D.YAxis;
 
         }
-        public Box(uint pickId, Packable packable, BoxPosition bPosition)
+        public Box(uint pickId, PackableBrick packable, BoxPosition bPosition)
         {
-            if (!bPosition.IsValid)
-                throw new GraphicsException("Invalid BoxPosition: can not create box");
+            // sanity checks
+            CheckPosition(bPosition);
+            // dimensions
             _pickId = pickId;
             _dim[0] = packable.Length;
             _dim[1] = packable.Width;
             _dim[2] = packable.Height;
-
             // set position
             Position = bPosition.Position;
-            // set direction length
             LengthAxis = HalfAxis.ToVector3D(bPosition.DirectionLength);
-            // set direction width
             WidthAxis = HalfAxis.ToVector3D(bPosition.DirectionWidth);
-
+            // colors
             _colors = Enumerable.Repeat<Color>(Color.Chocolate, 6).ToArray();
 
-            BProperties bProperties = packable as BProperties;
-            if (null != bProperties)
-                _colors = bProperties.Colors;
+            BProperties bProperties = null;
+            if (packable is BProperties)
+            {
+                bProperties = packable as BProperties;
+            }
+            else if (packable is LoadedCase)
+            {
+                LoadedCase loadedCase = packable as LoadedCase;
+                bProperties = loadedCase.Container as BProperties;
+            }
+            if (null == bProperties)
+                throw new Exception(string.Format("Type {0} cannot be handled by Box constructor", packable.GetType().ToString() ));
 
+            _colors = bProperties.Colors;
+            _isBundle = bProperties.IsBundle;
+             // is box ?
             BoxProperties boxProperties = bProperties as BoxProperties;
             if (null != boxProperties)
             {
@@ -171,37 +183,29 @@ namespace treeDiM.StackBuilder.Graphics
                 _tapeWidth = boxProperties.TapeWidth;
                 _tapeColor = boxProperties.TapeColor;
             }
-
-            // IsBundle ?
-            _isBundle = bProperties.IsBundle;
-            if (bProperties.IsBundle)
+            // is bundle ?
+            else if (bProperties.IsBundle)
             {
                 BundleProperties bundleProp = bProperties as BundleProperties;
                 if (null != bundleProp)
                     _noFlats = bundleProp.NoFlats;
             }
-            PackProperties packProperties = packable as PackProperties;
-            if (null != packProperties)
-            {
-            }
         }
 
-        public Box(uint pickId, Packable packable, LayerPosition bPosition)
+        public Box(uint pickId, PackableBrick packable, LayerPosition bPosition)
         {
-            if (!bPosition.IsValid)
-                throw new GraphicsException("Invalid BoxPosition: can not create box");
+            // sanity checks
+            CheckPosition(bPosition);
+            // dimensions
             _pickId = pickId;
             _dim[0] = packable.Length;
             _dim[1] = packable.Width;
             _dim[2] = packable.Height;
-
             // set position
             Position = bPosition.Position;
-            // set direction length
             LengthAxis = HalfAxis.ToVector3D(bPosition.LengthAxis);
-            // set direction width
             WidthAxis = HalfAxis.ToVector3D(bPosition.WidthAxis);
-
+            // colors
             _colors = Enumerable.Repeat<Color>(Color.Chocolate, 6).ToArray();
 
             BProperties bProperties = packable as BProperties;
@@ -236,71 +240,63 @@ namespace treeDiM.StackBuilder.Graphics
             PackProperties packProperties = packable as PackProperties;
             if (null != packProperties)
             { 
-            }
-
-            
+            }            
         }
 
         public Box(uint pickId, PackProperties packProperties, BoxPosition bPosition)
-        { 
-            if (!bPosition.IsValid)
-                throw new GraphicsException("Invalid BoxPosition: can not create box");
+        {
+            // sanity checks
+            CheckPosition(bPosition);
+            // dimensions
             _pickId = pickId;
             _dim[0] = packProperties.Length;
             _dim[1] = packProperties.Width;
             _dim[2] = packProperties.Height;
-
+            // colors
             _colors = Enumerable.Repeat<Color>(Color.Chocolate, 6).ToArray();
-
             // set position
             Position = bPosition.Position;
-            // set direction length
             LengthAxis = HalfAxis.ToVector3D(bPosition.DirectionLength);
-            // set direction width
             WidthAxis = HalfAxis.ToVector3D(bPosition.DirectionWidth);
         }
 
         public Box(uint pickId, InterlayerProperties interlayerProperties)
         {
+            // dimensions
             _pickId = pickId;
             _dim[0] = interlayerProperties.Length;
             _dim[1] = interlayerProperties.Width;
             _dim[2] = interlayerProperties.Thickness;
-            _colors = new Color[6];
-            for (int i = 0; i < 6; ++i)
-                _colors[i] = interlayerProperties.Color;
+            // colors
+            _colors = Enumerable.Repeat<Color>(interlayerProperties.Color, 6).ToArray();
         }
 
         public Box(uint pickId, InterlayerProperties interlayerProperties, BoxPosition bPosition)
         {
+            // dimensions
             _pickId = pickId;
             _dim[0] = interlayerProperties.Length;
             _dim[1] = interlayerProperties.Width;
             _dim[2] = interlayerProperties.Thickness;
-            _colors = new Color[6];
-            for (int i = 0; i < 6; ++i)
-                _colors[i] = interlayerProperties.Color;
-
+            // colors
+            _colors = Enumerable.Repeat<Color>(interlayerProperties.Color, 6).ToArray();
             // set position
             Position = bPosition.Position;
-            // set direction length
             LengthAxis = HalfAxis.ToVector3D(bPosition.DirectionLength);
-            // set direction width
             WidthAxis = HalfAxis.ToVector3D(bPosition.DirectionWidth);
         }
 
         public Box(uint pickId, BundleProperties bundleProperties)
         {
+            // dimensions
             _pickId = pickId;
-            _isBundle = true;
             _dim[0] = bundleProperties.Length;
             _dim[1] = bundleProperties.Width;
             _dim[2] = bundleProperties.Height;
-            _colors = new Color[6];
-            for (int i = 0; i < 6; ++i)
-                _colors[i] = bundleProperties.Color;
+            // colors
+            _colors = Enumerable.Repeat<Color>(bundleProperties.Color, 6).ToArray();
+            // specific
             _noFlats = bundleProperties.NoFlats;
-            // IsBundle ?
             _isBundle = bundleProperties.IsBundle;
         }
         #endregion
@@ -788,6 +784,23 @@ namespace treeDiM.StackBuilder.Graphics
                 ptInter = Vector3D.Zero;
             // return true if an intersection was found
             return listIntersections.Count > 0;
+        }
+        #endregion
+
+        #region Private helpers
+        private void SetDimensions(PackableBrick packable)
+        { 
+            
+        }
+        private void CheckPosition(BoxPosition bPosition)
+        {
+            if (!bPosition.IsValid)
+                throw new GraphicsException("Invalid BoxPosition: can not create box");
+        }
+        private void CheckPosition(LayerPosition bPosition)
+        { 
+            if (!bPosition.IsValid)
+                throw new GraphicsException("Invalid BoxPosition: can not create box");
         }
         #endregion
     }

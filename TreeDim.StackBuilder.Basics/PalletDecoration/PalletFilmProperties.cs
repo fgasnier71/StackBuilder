@@ -8,7 +8,7 @@ using System.Drawing;
 
 namespace treeDiM.StackBuilder.Basics
 {
-    public class PalletFilmProperties : ItemBase
+    public class PalletFilmProperties : ItemBaseNamed
     {
         #region Data members
         public bool _useHatching, _useTransparency;

@@ -3,16 +3,17 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Drawing;
+
+using Sharp3D.Math.Core;
 #endregion
 
 namespace treeDiM.StackBuilder.Basics
 {
-    public class CylinderProperties : ItemBase
+    public class CylinderProperties : PackableNamed
     {
         #region Data members
         protected double _radiusOuter = 0.0, _radiusInner = 0.0;
         private double _height = 0.0;
-        private double _weight;
         private Color _colorTop;
         private Color _colorWallOuter, _colorWallInner;
         #endregion
@@ -30,7 +31,7 @@ namespace treeDiM.StackBuilder.Basics
             _radiusOuter = radiusOuter;
             _radiusInner = radiusInner;
             _height = height;
-            _weight = weight;
+            SetWeight(weight);
             _colorTop = colorTop;
             _colorWallOuter = colorWallOuter;
             _colorWallInner = colorWallInner;
@@ -53,15 +54,6 @@ namespace treeDiM.StackBuilder.Basics
             get { return _height; }
             set { _height = value; Modify(); }
         }
-        public double Volume
-        {
-            get { return _height * Math.PI * _radiusOuter * _radiusOuter; }
-        }
-        public virtual double Weight
-        {
-            get { return _weight; }
-            set { _weight = value; Modify(); }
-        }
         public Color ColorTop
         {
             get { return _colorTop; }
@@ -81,6 +73,21 @@ namespace treeDiM.StackBuilder.Basics
 
         #region Public methods
 
+        #endregion
+
+        #region Override packable
+        protected override string TypeName
+        {
+            get { return Properties.Resource.ID_NAMECYLINDER; }
+        }
+        public override double Volume
+        {
+            get { return _height * Math.PI * _radiusOuter * _radiusOuter; }
+        }
+        public override Vector3D OuterDimensions
+        {
+            get { return new Vector3D(2.0*_radiusOuter, 2.0*_radiusOuter, _height); }
+        }
         #endregion
 
         #region Object override

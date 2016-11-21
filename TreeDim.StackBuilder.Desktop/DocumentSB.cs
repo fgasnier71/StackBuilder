@@ -640,8 +640,7 @@ namespace treeDiM.StackBuilder.Desktop
                 if (recomputeRequired = (DialogResult.OK == form.ShowDialog()))
                 {
                     // analysis name / description
-                    analysis.Name = form.AnalysisName;
-                    analysis.Description = form.AnalysisDescription;
+                    analysis.ID.SetNameDesc( form.AnalysisName, form.AnalysisDescription);
                     // box / palet / interlayer
                     analysis.BProperties = form.SelectedBox;
                     analysis.PalletProperties = form.SelectedPallet;
@@ -705,8 +704,7 @@ namespace treeDiM.StackBuilder.Desktop
                 if (recomputeRequired = (DialogResult.OK == form.ShowDialog()))
                 {
                     // analysis name / description
-                    analysis.Name = form.ItemName;
-                    analysis.Description = form.ItemDescription;
+                    analysis.ID.SetNameDesc( form.ItemName, form.ItemDescription);
                     // analysis bundle / pallet
                     analysis.BProperties = form.SelectedBundle;
                     analysis.PalletProperties = form.SelectedPallet;
@@ -749,8 +747,7 @@ namespace treeDiM.StackBuilder.Desktop
             if (recomputeRequired = (DialogResult.OK == form.ShowDialog()))
             {
                 // analysis name / description
-                analysis.Name = form.ItemName;
-                analysis.Description = form.ItemDescription;
+                analysis.ID.SetNameDesc( form.ItemName, form.ItemDescription);
                 // analysis pack / pallet /interlayer
                 analysis.PackProperties = form.PackProperties;
                 analysis.PalletProperties = form.PalletProperties;
@@ -793,8 +790,7 @@ namespace treeDiM.StackBuilder.Desktop
                 analysis.InterlayerProperties = form.SelectedInterlayer;
                 analysis.InterlayerPropertiesAntiSlip = form.SelectedInterlayerAntiSlip;
                 // analysis name / description
-                analysis.Name = form.AnalysisName;
-                analysis.Description = form.AnalysisDescription;
+                analysis.ID.SetNameDesc( form.AnalysisName, form.AnalysisDescription);
                 // constraint set
                 CylinderPalletConstraintSet constraintSet = analysis.ConstraintSet;
                 // interlayers
@@ -829,8 +825,7 @@ namespace treeDiM.StackBuilder.Desktop
                 analysis.CylinderProperties = form.SelectedCylinder;
                 analysis.PalletProperties = form.SelectedPallet;
                 // analysis name / description
-                analysis.Name = form.AnalysisName;
-                analysis.Description = form.AnalysisDescription;
+                analysis.ID.SetNameDesc( form.AnalysisName, form.AnalysisDescription);
                 // constraint set
                 HCylinderPalletConstraintSet constraintSet = analysis.ConstraintSet;
                 // overhang / underhang
@@ -865,8 +860,7 @@ namespace treeDiM.StackBuilder.Desktop
                 if (recomputeRequired = (DialogResult.OK == form.ShowDialog()))
                 {
                     // analysis name / description
-                    boxCaseAnalysis.Name = form.AnalysisName;
-                    boxCaseAnalysis.Description = form.AnalysisDescription;
+                    boxCaseAnalysis.ID.SetNameDesc( form.AnalysisName, form.AnalysisDescription);
                     // selected box
                     boxCaseAnalysis.BProperties = form.SelectedBox;
                     boxCaseAnalysis.CaseProperties = form.SelectedCase;
@@ -896,8 +890,7 @@ namespace treeDiM.StackBuilder.Desktop
                 if (recomputeRequired = (DialogResult.OK == form.ShowDialog()))
                 { 
                     // analysis name / description
-                    boxCaseAnalysis.Name = form.ItemName;
-                    boxCaseAnalysis.Description = form.ItemDescription;
+                    boxCaseAnalysis.ID.SetNameDesc( form.ItemName, form.ItemDescription);
                     // selected bundle
                     boxCaseAnalysis.BProperties = form.SelectedBundle;
                     boxCaseAnalysis.CaseProperties = form.SelectedCase;
@@ -927,8 +920,7 @@ namespace treeDiM.StackBuilder.Desktop
             if (recomputeRequired = (DialogResult.OK == form.ShowDialog()))
             {
                 // analysis name / description
-                caseAnalysis.Name = form.CaseAnalysisName;
-                caseAnalysis.Description = form.CaseAnalysisDescription;
+                caseAnalysis.ID.SetNameDesc(form.CaseAnalysisName, form.CaseAnalysisDescription);
                 // selected box
                 caseAnalysis.BoxProperties = form.SelectedBox;
                 // pallet solutions

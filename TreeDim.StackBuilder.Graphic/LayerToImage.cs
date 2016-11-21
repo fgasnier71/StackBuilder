@@ -15,8 +15,12 @@ namespace treeDiM.StackBuilder.Graphics
         public static Bitmap Draw(Layer2D layer, Packable packable, double height, Size size, bool selected)
         {
             Graphics2DImage graphics = new Graphics2DImage(size);
-            using (SolutionViewerLayer solViewer = new SolutionViewerLayer(layer))
-            {   solViewer.Draw(graphics, packable, height, selected); }
+            PackableBrick packableBrick = packable as PackableBrick;
+            if (null != packableBrick)
+            {
+                using (SolutionViewerLayer solViewer = new SolutionViewerLayer(layer))
+                { solViewer.Draw(graphics, packableBrick, height, selected); }
+            }
             return graphics.Bitmap;
         }
     }

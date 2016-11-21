@@ -596,10 +596,10 @@ namespace treeDiM.StackBuilder.Desktop
 
             // load document
             Document document = new Document(desc.FullFilePath, null);
-            if (document.Analyses.Count != 1)
+            if (document.AnalysesCasePallet.Count != 1)
                 throw new Exception("Failed to load analysis.");
             // get analysis and solution
-            CasePalletAnalysis analysis = document.Analyses[0];
+            CasePalletAnalysis analysis = document.AnalysesCasePallet[0] as CasePalletAnalysis;
             Graphics3DImage graphics = new Graphics3DImage(new Size(50,50));
             graphics.CameraPosition = Graphics3D.Corner_0;
             graphics.Target = Vector3D.Zero;

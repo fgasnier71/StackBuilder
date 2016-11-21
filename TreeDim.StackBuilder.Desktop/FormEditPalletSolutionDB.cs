@@ -247,9 +247,9 @@ namespace treeDiM.StackBuilder.Desktop
 
                 // load document
                 Document document = new Document(desc.FullFilePath, null);
-                if (document.Analyses.Count == 0) return;
+                if (document.AnalysesCasePallet.Count == 0) return;
                 // get analysis and solution
-                CasePalletAnalysis analysis = document.Analyses[0];
+                CasePalletAnalysis analysis = document.AnalysesCasePallet[0] as CasePalletAnalysis;
                 {
                     Graphics3DImage graphics = new Graphics3DImage(pictureBoxCase.Size);
                     graphics.CameraPosition = Graphics3D.Corner_0;

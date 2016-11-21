@@ -17,7 +17,7 @@ namespace treeDiM.StackBuilder.Graphics
     /// </summary>
     public class BoxToPictureBox
     {
-        public static void Draw(Packable packable, HalfAxis.HAxis axis, PictureBox pictureBox)
+        public static void Draw(PackableBrick packable, HalfAxis.HAxis axis, PictureBox pictureBox)
         {
             // get horizontal angle
             double angle = 45;

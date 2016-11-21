@@ -112,7 +112,7 @@ namespace treeDiM.StackBuilder.Desktop
             try
             {
                 // get box / case
-                Packable packable = cbBoxes.SelectedType as Packable;
+                PackableBrick packable = cbBoxes.SelectedType as PackableBrick;
                 BoxProperties caseProperties = cbCases.SelectedType as BoxProperties;
                 if (null == packable || null == caseProperties)
                     return;

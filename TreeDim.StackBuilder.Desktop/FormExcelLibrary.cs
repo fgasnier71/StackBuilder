@@ -171,8 +171,7 @@ namespace treeDiM.StackBuilder.Desktop
                  , dtCase.InnerDimensions[0], dtCase.InnerDimensions[1], dtCase.InnerDimensions[2]);
             Color[] colors = new Color[6];
             for (int i = 0; i < 6; ++i) colors[i] = Color.Chocolate;
-            boxProperties.Name = dtCase.Name;
-            boxProperties.Description = dtCase.Description;
+            boxProperties.ID.SetNameDesc(dtCase.Name, dtCase.Description);
             boxProperties.SetAllColors(colors);
             boxProperties.ShowTape = true;
             boxProperties.TapeColor = Color.Beige;
@@ -185,8 +184,7 @@ namespace treeDiM.StackBuilder.Desktop
         {
             BoxProperties boxProperties = new BoxProperties(null
                 , dtBox.Dimensions[0], dtBox.Dimensions[1], dtBox.Dimensions[2]);
-            boxProperties.Name = dtBox.Name;
-            boxProperties.Description = dtBox.Description;
+            boxProperties.ID.SetNameDesc( dtBox.Name, dtBox.Description);
             Color[] colors = new Color[6];
             for (int i = 0; i < 6; ++i) colors[i] = Color.Turquoise;
             boxProperties.SetAllColors(colors);
@@ -200,8 +198,7 @@ namespace treeDiM.StackBuilder.Desktop
             PalletProperties palletProperties = new PalletProperties(null, dtPallet.TypeName
                 , dtPallet.Dimensions[0], dtPallet.Dimensions[1], dtPallet.Dimensions[2]
                 );
-            palletProperties.Name = dtPallet.Name;
-            palletProperties.Description = dtPallet.Description;
+            palletProperties.ID.SetNameDesc( dtPallet.Name, dtPallet.Description);
             return palletProperties;
         }
         internal CylinderProperties ToCylinder(DataCylinder dtCylinder)

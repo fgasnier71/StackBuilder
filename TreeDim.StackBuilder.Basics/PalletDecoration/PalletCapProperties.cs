@@ -9,7 +9,7 @@ using System.Drawing;
 
 namespace treeDiM.StackBuilder.Basics
 {
-    public class PalletCapProperties : ItemBase
+    public class PalletCapProperties : ItemBaseNamed
     {
         #region Data members
         public double _length, _width, _height, _insideLength, _insideWidth, _insideHeight;

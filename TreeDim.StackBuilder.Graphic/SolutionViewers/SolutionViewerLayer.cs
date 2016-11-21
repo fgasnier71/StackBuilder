@@ -49,9 +49,10 @@ namespace treeDiM.StackBuilder.Graphics
                     Box b = null;
                     if (packable is PackProperties)
                         b = new Pack(pickId++, packable as PackProperties, bPosition);
-                    else
-                        b = new Box(pickId++, packable, bPosition);
-                    b.Draw(graphics);
+                    else if (packable is PackableBrick)
+                        b = new Box(pickId++, packable as PackableBrick, bPosition);
+                    if (null != b)
+                        b.Draw(graphics);
                 }
 
                 // draw axes

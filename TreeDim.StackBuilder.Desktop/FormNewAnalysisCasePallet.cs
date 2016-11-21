@@ -92,7 +92,7 @@ namespace treeDiM.StackBuilder.Desktop
             if (ctrl == cbCases)
             { 
                 Packable packable = itemBase as Packable;
-                return null != packable; 
+                return null != packable && packable.IsCase; 
             }
             else if (ctrl == cbPallets)
             {
@@ -119,7 +119,7 @@ namespace treeDiM.StackBuilder.Desktop
         {
             try
             {
-                uCtrlCaseOrientation.BProperties = cbCases.SelectedType as Packable;
+                uCtrlCaseOrientation.BProperties = cbCases.SelectedType as PackableBrick;
                 onInputChanged(sender, e);
                 onLayerSelected(sender, e);
             }

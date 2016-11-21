@@ -11,14 +11,29 @@ using log4net;
 
 namespace treeDiM.StackBuilder.Basics
 {
-    public abstract class Analysis : ItemBase
+    #region Analysis
+    public abstract class Analysis : ItemBaseNamed
     {
         #region Data members
+        /// <summary>
+        /// Solution
+        /// </summary>
         protected List<Solution> _solutions = new List<Solution>();
+        /// <summary>
+        /// Constraint set
+        /// </summary>
         protected ConstraintSetAbstract _constraintSet;
+        /// <summary>
+        /// Interlayers
+        /// </summary>
         protected List<InterlayerProperties> _interlayers;
+        /// <summary>
+        /// Content
+        /// </summary>
         protected Packable _packable;
-
+        /// <summary>
+        /// Logging
+        /// </summary>
         static readonly ILog _log = LogManager.GetLogger(typeof(Analysis));
         #endregion
 
@@ -28,10 +43,6 @@ namespace treeDiM.StackBuilder.Basics
             _packable = packable;
             _interlayers = new List<InterlayerProperties>();
         }
-        #endregion
-
-        #region Packable override
-
         #endregion
 
         #region Public properties
@@ -108,8 +119,10 @@ namespace treeDiM.StackBuilder.Basics
         }
         #endregion
     }
+    #endregion
 
-    public abstract class PackableLoaded : Packable
+    #region Packable loaded
+    public abstract class PackableLoaded : PackableBrick
     {
         #region Constructor
         public PackableLoaded(Analysis analysis)
@@ -119,6 +132,10 @@ namespace treeDiM.StackBuilder.Basics
         }
         #endregion
 
+        #region ItemBase override
+        public override GlobID ID { get { return _analysis.ID; } }
+        #endregion
+
         #region Packable override
         public override double Weight
         { get { return ParentSolution.Weight; } }
@@ -126,8 +143,11 @@ namespace treeDiM.StackBuilder.Basics
         { get { return ParentSolution.NetWeight; } }
         #endregion
 
-        protected Analysis ParentAnalysis { get { return _analysis; } }
-        protected Solution ParentSolution { get { return _analysis.Solutions[0]; } }
+        #region Data members
+        public Analysis ParentAnalysis      { get { return _analysis; } }
+        protected Solution ParentSolution   { get { return _analysis.Solutions[0]; } }
         protected Analysis _analysis;
+        #endregion
     }
+    #endregion
 }

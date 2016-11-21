@@ -163,7 +163,7 @@ namespace treeDiM.StackBuilder.Graphics
                         if (analysis.Content is PackProperties)
                             b = new Pack(pickId++, analysis.Content as PackProperties, bPosition);
                         else
-                            b = new Box(pickId++, analysis.Content, bPosition);
+                            b = new Box(pickId++, analysis.Content as PackableBrick, bPosition);
                         graphics.AddBox(b);
                         bbox.Extend(b.BBox);
                     }

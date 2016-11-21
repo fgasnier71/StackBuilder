@@ -298,8 +298,7 @@ namespace treeDiM.StackBuilder.Desktop
                     if (DialogResult.OK == form.ShowDialog())
                     {
                         if (!UserAcknowledgeDependancies(box)) return;
-                        box.Name = form.BoxName;
-                        box.Description = form.Description;
+                        box.ID.SetNameDesc( form.BoxName, form.Description);
                         box.SetLength( form.BoxLength );
                         box.SetWidth( form.BoxWidth );
                         box.SetHeight( form.BoxHeight );
@@ -325,8 +324,7 @@ namespace treeDiM.StackBuilder.Desktop
                     if (DialogResult.OK == form.ShowDialog())
                     {
                         if (!UserAcknowledgeDependancies(pack)) return;
-                        pack.Name = form.ItemName;
-                        pack.Description = form.ItemDescription;
+                        pack.ID.SetNameDesc( form.ItemName, form.ItemDescription);
                         pack.Box = form.SelectedBox;
                         pack.BoxOrientation = form.BoxOrientation;
                         pack.Arrangement = form.Arrangement;
@@ -343,12 +341,11 @@ namespace treeDiM.StackBuilder.Desktop
                     if (form.ShowDialog() == DialogResult.OK)
                     {
                         if (!UserAcknowledgeDependancies(cylinderProperties)) return;
-                        cylinderProperties.Name = form.CylinderName;
-                        cylinderProperties.Description = form.Description;
+                        cylinderProperties.ID.SetNameDesc( form.CylinderName, form.Description);
                         cylinderProperties.RadiusOuter = form.RadiusOuter;
                         cylinderProperties.RadiusInner = form.RadiusInner;
                         cylinderProperties.Height = form.CylinderHeight;
-                        cylinderProperties.Weight = form.Weight;
+                        cylinderProperties.SetWeight(form.Weight);
                         cylinderProperties.ColorTop = form.ColorTop;
                         cylinderProperties.ColorWallOuter = form.ColorWallOuter;
                         cylinderProperties.ColorWallInner = form.ColorWallInner;
@@ -365,8 +362,7 @@ namespace treeDiM.StackBuilder.Desktop
                     if (form.ShowDialog() == DialogResult.OK)
                     {
                         if (!UserAcknowledgeDependancies(caseOfBoxes)) return;
-                        caseOfBoxes.Name = form.CaseName;
-                        caseOfBoxes.Description = form.CaseDescription;
+                        caseOfBoxes.ID.SetNameDesc(form.CaseName, form.CaseDescription);
                         caseOfBoxes.SetAllColors(form.Colors);
                         caseOfBoxes.TextureList = form.TextureList;
                         caseOfBoxes.EndUpdate();
@@ -379,8 +375,7 @@ namespace treeDiM.StackBuilder.Desktop
                     if (DialogResult.OK == form.ShowDialog())
                     {
                         if (!UserAcknowledgeDependancies(bundle)) return;
-                        bundle.Name = form.BundleName;
-                        bundle.Description = form.Description;
+                        bundle.ID.SetNameDesc( form.BundleName, form.Description);
                         bundle.SetLength( form.BundleLength );
                         bundle.SetWidth( form.BundleWidth );
                         bundle.UnitThickness = form.UnitThickness;
@@ -396,8 +391,7 @@ namespace treeDiM.StackBuilder.Desktop
                     if (DialogResult.OK == form.ShowDialog())
                     {
                         if (!UserAcknowledgeDependancies(interlayer)) return;
-                        interlayer.Name = form.InterlayerName;
-                        interlayer.Description = form.Description;
+                        interlayer.ID.SetNameDesc(form.InterlayerName, form.Description);
                         interlayer.Length = form.InterlayerLength;
                         interlayer.Width = form.InterlayerWidth;
                         interlayer.Thickness = form.Thickness;
@@ -413,8 +407,7 @@ namespace treeDiM.StackBuilder.Desktop
                     if (DialogResult.OK == form.ShowDialog())
                     {
                         if (!UserAcknowledgeDependancies(pallet)) return;
-                        pallet.Name = form.PalletName;
-                        pallet.Description = form.Description;
+                        pallet.ID.SetNameDesc(form.PalletName, form.Description);
                         pallet.Length = form.PalletLength;
                         pallet.Width = form.PalletWidth;
                         pallet.Height = form.PalletHeight;
@@ -431,8 +424,7 @@ namespace treeDiM.StackBuilder.Desktop
                     if (DialogResult.OK == form.ShowDialog())
                     {
                         if (!UserAcknowledgeDependancies(truck)) return;
-                        truck.Name = form.TruckName;
-                        truck.Description = form.Description;
+                        truck.ID.SetNameDesc(form.TruckName, form.Description);
                         truck.Length = form.TruckLength;
                         truck.Width = form.TruckWidth;
                         truck.Height = form.TruckHeight;
@@ -448,8 +440,7 @@ namespace treeDiM.StackBuilder.Desktop
                     if (DialogResult.OK == form.ShowDialog())
                     {
                         if (!UserAcknowledgeDependancies(corner)) return;
-                        corner.Name = form.ItemName;
-                        corner.Description = form.ItemDescription;
+                        corner.ID.SetNameDesc( form.ItemName, form.ItemDescription);
                         corner.Length = form.CornerLength;
                         corner.Width = form.CornerWidth;
                         corner.Thickness = form.CornerThickness;
@@ -464,8 +455,7 @@ namespace treeDiM.StackBuilder.Desktop
                     if (DialogResult.OK == form.ShowDialog())
                     {
                         if (!UserAcknowledgeDependancies(cap)) return;
-                        cap.Name = form.ItemName;
-                        cap.Description = form.ItemDescription;
+                        cap.ID.SetNameDesc(form.ItemName, form.ItemDescription);
                         cap.Color = form.CapColor;
                         cap.Length = form.CapLength;
                         cap.Width = form.CapWidth;
@@ -482,8 +472,7 @@ namespace treeDiM.StackBuilder.Desktop
                     FormNewPalletFilm form = new FormNewPalletFilm(eventArg.Document, film);
                     if (DialogResult.OK == form.ShowDialog())
                     {
-                        film.Name = form.ItemName;
-                        film.Description = form.ItemDescription;
+                        film.ID.SetNameDesc( form.ItemName, form.ItemDescription);
                         film.UseTransparency = form.UseTransparency;
                         film.UseHatching = form.UseHatching;
                         film.HatchSpacing = form.HatchSpacing;

@@ -436,11 +436,12 @@ namespace treeDiM.StackBuilder.Basics
                 else
                 {
                     Document doc = new Document(FullFilePath, null);
-                    if (doc.Analyses.Count < 1)
+                    if (doc.AnalysesCasePallet.Count < 1)
                         return null;    // no analysis -> exiting
-                    if (doc.Analyses[0].Solutions.Count < 1)
+                    CasePalletAnalysis analysis = doc.AnalysesCasePallet[0] as CasePalletAnalysis;
+                    if (analysis.Solutions.Count < 1)
                         return null;    // no solution -> exiting
-                    _palletSolution = doc.Analyses[0].Solutions[0];
+                    //_palletSolution = doc.CasePalletAnalyses[0].Solutions[0];
                 }
             }
             return _palletSolution;

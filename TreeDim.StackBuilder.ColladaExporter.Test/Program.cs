@@ -42,7 +42,7 @@ namespace treeDiM.StackBuilder.ColladaExporter.Test
                 // load document
                 Document doc = new Document(filePath, new DocumentListenerLog());
                 // get first analysis
-                List<CasePalletAnalysis> analyses = doc.Analyses;
+                List<CasePalletAnalysis> analyses = doc.CasePalletAnalyses;
                 if (analyses.Count == 0)
                 {
                     log.Info("Document has no analysis -> Exiting...");

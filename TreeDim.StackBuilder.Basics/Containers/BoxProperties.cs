@@ -20,8 +20,6 @@ namespace treeDiM.StackBuilder.Basics
         private double _insideLength, _insideWidth, _insideHeight;
         private Color[] _colors = new Color[6];
         private List<Pair<HalfAxis.HAxis, Texture>> _textures = new List<Pair<HalfAxis.HAxis, Texture>>();
-        // net weight
-        private OptDouble _netWeight = OptDouble.Zero;
         // tape
         private bool _showTape;
         private double _tapeWidth;
@@ -93,14 +91,6 @@ namespace treeDiM.StackBuilder.Basics
         { get { return _height; } }
         public void SetHeight(double height)
         { _height = height; Modify(); }
-        #endregion
-
-        #region NetWeight
-        public override OptDouble NetWeight
-        {
-            get { return _netWeight; }
-        }
-        public void SetNetWeight(OptDouble netWeight) { _netWeight = netWeight; Modify(); }
         #endregion
 
         #region InsideDimensions

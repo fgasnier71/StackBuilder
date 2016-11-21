@@ -9,11 +9,10 @@ using Sharp3D.Math.Core;
 
 namespace treeDiM.StackBuilder.Basics
 {
-    public abstract class BProperties : Packable
+    public abstract class BProperties : PackableBrickNamed
     {
         #region Data members
         protected double _length, _width;
-        private double _weight;
         #endregion
 
         #region Constructor
@@ -41,8 +40,6 @@ namespace treeDiM.StackBuilder.Basics
         { _length = length; Modify(); }
         public virtual void SetWidth(double width)
         { _width = width; Modify(); }
-        public virtual void SetWeight(double weight)
-        { _weight = weight; Modify(); }
         #endregion
 
         #region Public methods

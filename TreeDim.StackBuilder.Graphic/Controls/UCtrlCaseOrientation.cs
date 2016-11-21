@@ -50,7 +50,7 @@ namespace treeDiM.StackBuilder.Graphics
         #endregion
 
         #region Public properties
-        public Packable BProperties
+        public PackableBrick BProperties
         {
             set
             {
@@ -104,7 +104,7 @@ namespace treeDiM.StackBuilder.Graphics
         #endregion
 
         #region Data members
-        private Packable _packable;
+        private PackableBrick _packable;
         #endregion
     }
 }

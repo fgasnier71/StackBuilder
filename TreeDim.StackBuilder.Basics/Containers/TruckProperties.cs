@@ -7,7 +7,7 @@ using System.Drawing;
 
 namespace treeDiM.StackBuilder.Basics
 {
-    public class TruckProperties : ItemBase
+    public class TruckProperties : ItemBaseNamed
     {
         #region Data members
         private double _admissibleLoadWeight;

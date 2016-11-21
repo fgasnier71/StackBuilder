@@ -29,7 +29,7 @@ namespace treeDiM.StackBuilder.Graphics.Controls
         }
         public override string ToString()
         {
-            return _itemBase.Name;
+            return _itemBase.ID.Name;
         }
 
         private ItemBase _itemBase;
@@ -54,6 +54,18 @@ namespace treeDiM.StackBuilder.Graphics.Controls
                         iSelected = index;
                     ++index;
                 }
+            foreach (Analysis analysis in doc.Analyses)
+            {
+                PackableLoaded eqvtPackable = analysis.EquivalentPackable;
+                if (null == eqvtPackable) continue;
+                if (null == filter || filter.Accept(this, eqvtPackable))
+                {
+                    Items.Add(new ItemBaseWrapper(eqvtPackable));
+                    if (initialSelect == analysis)
+                        iSelected = index;
+                    ++index;
+                }
+            }
             if (-1 == iSelected && Items.Count > 0)
                 SelectedIndex = 0;
             else

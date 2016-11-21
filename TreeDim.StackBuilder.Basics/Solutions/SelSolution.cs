@@ -7,7 +7,7 @@ using System.Text;
 namespace treeDiM.StackBuilder.Basics
 {
     #region Case / pallet selected solution
-    public class SelCasePalletSolution : ItemBase
+    public class SelCasePalletSolution : ItemBaseNamed
     {
         #region Data members
         private CasePalletAnalysis _analysis;
@@ -24,7 +24,7 @@ namespace treeDiM.StackBuilder.Basics
             _analysis.AddDependancy(this);
 
             _solution = sol;
-            Name = sol.Title; 
+            ID.Name = sol.Title; 
         }
         #endregion
 
@@ -41,8 +41,7 @@ namespace treeDiM.StackBuilder.Basics
         public TruckAnalysis CreateNewTruckAnalysis(string name, string description, TruckProperties truckProperties, TruckConstraintSet constraintSet, ITruckSolver solver)
         {
             TruckAnalysis truckAnalysis = new TruckAnalysis(this.ParentDocument, _analysis, this, truckProperties, constraintSet);
-            truckAnalysis.Name = name;
-            truckAnalysis.Description = description;
+            truckAnalysis.ID.SetNameDesc(name, description);
             _truckAnalyses.Add(truckAnalysis);
             AddDependancy(truckAnalysis);
             solver.ProcessAnalysis(truckAnalysis);
@@ -64,8 +63,7 @@ namespace treeDiM.StackBuilder.Basics
         public TruckAnalysis CreateNewTruckAnalysis(string name, string description, TruckProperties truckProperties, TruckConstraintSet constraintSet, List<TruckSolution> solutions)
         {
             TruckAnalysis truckAnalysis = new TruckAnalysis(this.ParentDocument, _analysis, this, truckProperties, constraintSet);
-            truckAnalysis.Name = name;
-            truckAnalysis.Description = description;
+            truckAnalysis.ID.SetNameDesc( name, description);
             truckAnalysis.Solutions = solutions;
             _truckAnalyses.Add(truckAnalysis);
             AddDependancy(truckAnalysis);
@@ -163,7 +161,7 @@ namespace treeDiM.StackBuilder.Basics
     #endregion
 
     #region Cylinder / pallet selected solution
-    public class SelCylinderPalletSolution : ItemBase
+    public class SelCylinderPalletSolution : ItemBaseNamed
     {
         #region Data members
         private CylinderPalletAnalysis _analysis;
@@ -179,7 +177,7 @@ namespace treeDiM.StackBuilder.Basics
             _analysis.AddDependancy(this);
 
             _solution = sol;
-            Name = sol.Title;
+            ID.Name = sol.Title;
         }
         #endregion
 
@@ -218,7 +216,7 @@ namespace treeDiM.StackBuilder.Basics
         }
         #endregion
     }
-    public class SelHCylinderPalletSolution : ItemBase
+    public class SelHCylinderPalletSolution : ItemBaseNamed
     {
         #region Data members
         private HCylinderPalletAnalysis _analysis;
@@ -234,7 +232,7 @@ namespace treeDiM.StackBuilder.Basics
             _analysis.AddDependancy(this);
 
             _solution = sol;
-            Name = sol.Title;
+            ID.Name = sol.Title;
         }
         #endregion
 
@@ -273,7 +271,7 @@ namespace treeDiM.StackBuilder.Basics
     #endregion
 
     #region Box / case selected solution
-    public class SelBoxCaseSolution : ItemBase
+    public class SelBoxCaseSolution : ItemBaseNamed
     {
         #region Data members
         private BoxCaseAnalysis _analysis;
@@ -288,7 +286,7 @@ namespace treeDiM.StackBuilder.Basics
             _analysis.AddDependancy(this);
 
             _solution = sol;
-            Name = sol.Title;
+            ID.Name = sol.Title;
         }
         #endregion
 
@@ -305,7 +303,7 @@ namespace treeDiM.StackBuilder.Basics
     #endregion
 
     #region Box / Case / Pallet solution
-    public class SelBoxCasePalletSolution : ItemBase
+    public class SelBoxCasePalletSolution : ItemBaseNamed
     {
         #region Data members
         private BoxCasePalletAnalysis _analysis;
@@ -318,7 +316,7 @@ namespace treeDiM.StackBuilder.Basics
         {
             _analysis = analysis;
             _solution = sol;
-            Name = sol.Title;
+            ID.Name = sol.Title;
         }
         #endregion
 
@@ -344,7 +342,7 @@ namespace treeDiM.StackBuilder.Basics
     #endregion
 
     #region Pack pallet solution
-    public class SelPackPalletSolution : ItemBase
+    public class SelPackPalletSolution : ItemBaseNamed
     {
         #region Data members
         private PackPalletAnalysis _analysis;
@@ -357,7 +355,7 @@ namespace treeDiM.StackBuilder.Basics
         {
             _analysis = analysis;
             _solution = sol;
-            Name = sol.Title;
+            ID.Name = sol.Title;
         }
         #endregion
 

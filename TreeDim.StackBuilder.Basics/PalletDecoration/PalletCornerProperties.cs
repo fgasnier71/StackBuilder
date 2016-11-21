@@ -9,7 +9,7 @@ using Sharp3D.Math.Core;
 
 namespace treeDiM.StackBuilder.Basics
 {
-    public class PalletCornerProperties : ItemBase
+    public class PalletCornerProperties : ItemBaseNamed
     {
         #region Data members
         public double _length, _width, _thickness, _weight;

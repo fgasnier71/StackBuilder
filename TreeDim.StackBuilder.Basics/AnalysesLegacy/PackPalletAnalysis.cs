@@ -10,7 +10,7 @@ using log4net;
 namespace treeDiM.StackBuilder.Basics
 {
     #region PackPalletAnalysis
-    public class PackPalletAnalysis : ItemBase
+    public class PackPalletAnalysis : AnalysisLegacy
     {
         #region Data members
         private PackProperties _packProperties;

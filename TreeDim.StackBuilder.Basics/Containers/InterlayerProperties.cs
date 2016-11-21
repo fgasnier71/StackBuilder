@@ -7,7 +7,7 @@ using System.Drawing;
 
 namespace treeDiM.StackBuilder.Basics
 {
-    public class InterlayerProperties : ItemBase
+    public class InterlayerProperties : ItemBaseNamed
     {
         #region Data members
         private double _length = 0.0, _width = 0.0, _thickness = 0.0;

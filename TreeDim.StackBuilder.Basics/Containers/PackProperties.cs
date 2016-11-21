@@ -106,7 +106,7 @@ namespace treeDiM.StackBuilder.Basics
     #endregion
 
     #region PackProperties
-    public class PackProperties : Packable
+    public class PackProperties : PackableBrickNamed
     {
         #region Data members
         private BoxProperties _boxProperties;
