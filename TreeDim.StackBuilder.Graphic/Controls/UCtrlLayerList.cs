@@ -23,13 +23,14 @@ namespace treeDiM.StackBuilder.Graphics
 
         #region Data members
         protected static readonly ILog _log = LogManager.GetLogger(typeof(UCtrlLayerList));
-        private List<Layer2D> _layerList = new List<Layer2D>();
+        private List<ILayer2D> _layerList = new List<ILayer2D>();
         private Packable _packable;
         private int _index;
         private int _x, _y;
         private ToolTip tooltip = new ToolTip();
         private double _contHeight = 0.0;
         private bool _firstLayerSelected = false;
+        private bool _show3D;
         #endregion
 
         #region Delegate
@@ -47,6 +48,18 @@ namespace treeDiM.StackBuilder.Graphics
         {
             InitializeComponent();
             AutoScroll = true;
+            // set default value for Show3D from settings
+            Show3D = Graphics.Properties.Settings.Default.LayerView3D;
+            // set default thumbnail size from settings
+            switch (Graphics.Properties.Settings.Default.LayerViewThumbSizeIndex)
+            {
+                case 0: ButtonSizes = new Size(75, 75); break;
+                case 1: ButtonSizes = new Size(100, 100); break;
+                case 2: ButtonSizes = new Size(150, 150); break;
+                case 3: ButtonSizes = new Size(200, 200); break;
+                default: break;
+            }
+            onButtonSizeChange(null, null);
         }
         #endregion
 
@@ -68,6 +81,7 @@ namespace treeDiM.StackBuilder.Graphics
             int x = 0, y = 0;
             foreach (Control cntl in Controls)
             {
+                if (cntl is CheckBox) continue;
                 cntl.Location = new Point(x, y) + (Size)AutoScrollPosition;
                 AdjustXY(ref x, ref y);
             }
@@ -86,7 +100,7 @@ namespace treeDiM.StackBuilder.Graphics
         [Browsable(false),
         EditorBrowsable(EditorBrowsableState.Never),
         DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public List<Layer2D> LayerList
+        public List<ILayer2D> LayerList
         {
             get { return _layerList; }
             set
@@ -117,14 +131,15 @@ namespace treeDiM.StackBuilder.Graphics
             set
             {
                 szButtons = value;
+                onButtonSizeChange(null, null);
                 Start();
             }
         }
-        public Layer2D[] Selected
+        public ILayer2D[] Selected
         {
             get
             {
-                List<Layer2D> layers = new List<Layer2D>();
+                List<ILayer2D> layers = new List<ILayer2D>();
                 foreach (Control ctrl in this.Controls)
                 {
                     Button button = ctrl as Button;
@@ -136,6 +151,17 @@ namespace treeDiM.StackBuilder.Graphics
                     }
                 }
                 return layers.ToArray();
+            }
+        }
+        public bool Show3D
+        {
+            get { return _show3D; }
+            set
+            {
+                if (_show3D == value) return;
+                _show3D = value;
+                toolStripMenuItem3D.Checked = _show3D;
+                 Start(); 
             }
         }
         #endregion
@@ -162,26 +188,21 @@ namespace treeDiM.StackBuilder.Graphics
                     RefreshFinished(this, null);
                 return;
             }
-            bool selected = 0 == Controls.Count ? _firstLayerSelected : false;
+            bool selected = (0 == Controls.Count) ? _firstLayerSelected : false;
 
-            Layer2D layer = _layerList[_index];
+            ILayer2D layer = _layerList[_index];
             // create button and add to panel
             Button btn = new Button();
-            btn.Image = LayerToImage.Draw(_layerList[_index], _packable, _contHeight, szButtons, selected);//bitmap;
+            btn.Image = LayerToImage.Draw(
+                _layerList[_index], _packable, _contHeight, szButtons, selected
+                , Show3D ? LayerToImage.eGraphMode.GRAPH_3D : LayerToImage.eGraphMode.GRAPH_2D );
             btn.Location = new Point(_x, _y) + (Size)AutoScrollPosition;
-            btn.Size = szButtons;
+            btn.Size = new Size(szButtons.Width, szButtons.Height);
             btn.Tag = new LayerItem(layer, selected);
             btn.Click += onLayerSelected;
             Controls.Add(btn);
-
             // give button a tooltip
-            tooltip.SetToolTip(btn
-                , String.Format("{0} * {1} = {2}\n {3} | {4}"
-                , layer.BoxCount
-                , layer.NoLayers(_contHeight)
-                , layer.CountInHeight(_contHeight)
-                , HalfAxis.ToString(layer.AxisOrtho)
-                , layer.PatternName));
+            tooltip.SetToolTip(btn, layer.Tooltip(_contHeight));
 
             // adjust i, x and y for next image
             AdjustXY(ref _x, ref _y);
@@ -192,7 +213,9 @@ namespace treeDiM.StackBuilder.Graphics
             Button bn = sender as Button;
             LayerItem lItem = bn.Tag as LayerItem;
             bool selected = !lItem.Selected;
-            bn.Image = LayerToImage.Draw(lItem.Layer, _packable, _contHeight, szButtons, selected);
+            bn.Image = LayerToImage.Draw(
+                lItem.Layer, _packable, _contHeight, szButtons, selected
+                , Show3D ? LayerToImage.eGraphMode.GRAPH_3D : LayerToImage.eGraphMode.GRAPH_2D );
             bn.Tag = new LayerItem(lItem.Layer, selected);
             if (null != LayerSelected)
                 LayerSelected(this, e);
@@ -215,12 +238,41 @@ namespace treeDiM.StackBuilder.Graphics
             }
         }
         #endregion
+
+        #region Context menu
+        private void onMouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+                contextMenuStripMBR.Show(this, e.Location);
+        }
+        private void onButtonSizeChange(object sender, EventArgs e)
+        {
+            if (sender == toolStripMenuItemX75)
+                ButtonSizes = new Size(75, 75);
+            else if (sender == toolStripMenuItemX100)
+                ButtonSizes = new Size(100, 100);
+            else if (sender == toolStripMenuItemX150)
+                ButtonSizes = new Size(150, 150);
+            else if (sender == toolStripMenuItemX200)
+                ButtonSizes = new Size(200, 200);
+
+            toolStripMenuItemX75.Checked = ButtonSizes.Height == 75;
+            toolStripMenuItemX100.Checked = ButtonSizes.Height == 100;
+            toolStripMenuItemX150.Checked = ButtonSizes.Height == 150;
+            toolStripMenuItemX200.Checked = ButtonSizes.Height == 200;
+        }
+        private void on3DClicked(object sender, EventArgs e)
+        {
+            Show3D = !Show3D;
+            toolStripMenuItem3D.Checked = Show3D;
+        }
+        #endregion
     }
     #region LayerItem
     internal class LayerItem
     {
-        public LayerItem(Layer2D layer, bool selected) { Layer = layer; Selected = selected; }
-        public Layer2D Layer { get; set; }
+        public LayerItem(ILayer2D layer, bool selected) { Layer = layer; Selected = selected; }
+        public ILayer2D Layer { get; set; }
         public bool Selected { get; set; }
     }
     #endregion

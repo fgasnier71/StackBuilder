@@ -20,10 +20,10 @@ namespace treeDiM.StackBuilder.Engine
         {
             get { return true; }
         }
-        public override void GetLayerDimensions(LayerCyl layer, out double actualLength, out double actualWidth)
+        public override bool GetLayerDimensions(Layer2DCyl layer, out double actualLength, out double actualWidth)
         {
-            double palletLength = layer.PalletLength;
-            double palletWidth = layer.PalletWidth;
+            double palletLength = layer.Length;
+            double palletWidth = layer.Width;
             double radius = layer.CylinderRadius;
 
             int alignedRowLength = 0, stagRowLength = 0;
@@ -33,9 +33,11 @@ namespace treeDiM.StackBuilder.Engine
                 , out alignedRowLength, out rowNumber1
                 , out stagRowLength, out rowNumber2
                 , out actualLength, out actualWidth);
+
+            return rowNumber1 > 0 && rowNumber2 > 0;
         }
 
-        public override void GenerateLayer(LayerCyl layer, double actualLength, double actualWidth)
+        public override void GenerateLayer(Layer2DCyl layer, double actualLength, double actualWidth)
         {
             layer.Clear();
 
@@ -72,7 +74,7 @@ namespace treeDiM.StackBuilder.Engine
         #endregion
 
         #region Helpers
-        private bool ComputeRowNumberAndLength(LayerCyl layer
+        private bool ComputeRowNumberAndLength(Layer2DCyl layer
             , out int alignedRowLength, out int rowNumber1
             , out int stagRowLength, out int rowNumber2
             , out double actualLength, out double actualWidth)

@@ -30,6 +30,10 @@ namespace treeDiM.StackBuilder.Basics
         #endregion
 
         #region Analysis implementation
+        public override ItemBase Container
+        {
+            get { return _truckProperties; }
+        }
         public override double ContainerWeight
         {
             get { return 0.0; }

@@ -31,6 +31,11 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Constructor
+        public DockContentAnalysisBoxCase()
+            : base()
+        {
+            InitializeComponent();
+        }
         public DockContentAnalysisBoxCase(IDocument document, Analysis analysis)
             : base(document, analysis)
         {
@@ -44,7 +49,7 @@ namespace treeDiM.StackBuilder.Desktop
             base.OnLoad(e);
 
             if (!DesignMode)
-             this.Text = _analysis.Name + " - " + _analysis.ParentDocument.Name;
+                this.Text = _analysis.Name + " - " + _analysis.ParentDocument.Name;
         }
         #endregion
 

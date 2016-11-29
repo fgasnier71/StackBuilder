@@ -441,7 +441,7 @@ namespace treeDiM.StackBuilder.Basics
                     CasePalletAnalysis analysis = doc.AnalysesCasePallet[0] as CasePalletAnalysis;
                     if (analysis.Solutions.Count < 1)
                         return null;    // no solution -> exiting
-                    //_palletSolution = doc.CasePalletAnalyses[0].Solutions[0];
+                    _palletSolution = null; // doc.CasePalletAnalyses[0].Solutions[0];
                 }
             }
             return _palletSolution;

@@ -30,15 +30,6 @@ namespace treeDiM.StackBuilder.Basics
         void OnNewDocument(Document doc);
         void OnNewTypeCreated(Document doc, ItemBase itemBase);
         void OnNewAnalysisCreated(Document doc, Analysis analysis);
-
-        void OnNewCasePalletAnalysisCreated(Document doc, CasePalletAnalysis analysis);
-        void OnNewPackPalletAnalysisCreated(Document doc, PackPalletAnalysis analysis);
-        void OnNewCylinderPalletAnalysisCreated(Document doc, CylinderPalletAnalysis analysis);
-        void OnNewHCylinderPalletAnalysisCreated(Document doc, HCylinderPalletAnalysis analysis);
-        void OnNewBoxCaseAnalysisCreated(Document doc, BoxCaseAnalysis analysis);
-        void OnNewBoxCasePalletAnalysisCreated(Document doc, BoxCasePalletAnalysis caseAnalysis);
-        void OnNewTruckAnalysisCreated(Document doc, CasePalletAnalysis analysis, SelCasePalletSolution selSolution, TruckAnalysis truckAnalysis);
-        void OnNewECTAnalysisCreated(Document doc, CasePalletAnalysis analysis, SelCasePalletSolution selSolution, ECTAnalysis ectAnalysis);
         // remove
         void OnTypeRemoved(Document doc, ItemBase itemBase);
         void OnAnalysisRemoved(Document doc, ItemBase itemBase); 
@@ -554,7 +545,7 @@ namespace treeDiM.StackBuilder.Basics
         #endregion
 
         #region Analyses instantiation method
-        public AnalysisCasePallet CreateNewAnalysisCasePallet(
+        public Analysis CreateNewAnalysisCasePallet(
             string name, string description
             , Packable packable, PalletProperties pallet
             , List<InterlayerProperties> interlayers
@@ -572,16 +563,10 @@ namespace treeDiM.StackBuilder.Basics
             analysis.PalletFilmProperties       = palletFilm;
             analysis.AddSolution(layerDescs);
 
-            _analyses.Add(analysis);
-
-            // notify listeners
-            NotifyOnNewAnalysisCreated(analysis);
-            Modify();
-
-            return analysis;
+            return InsertAnalysis(analysis);
         }
 
-        public AnalysisBoxCase CreateNewAnalysisBoxCase(
+        public Analysis CreateNewAnalysisBoxCase(
             string name, string description
             , Packable packable, BoxProperties caseProperties
             , List<InterlayerProperties> interlayers
@@ -589,34 +574,51 @@ namespace treeDiM.StackBuilder.Basics
             , List<LayerDesc> layerDescs
             )
         {
-            AnalysisBoxCase analysis = new AnalysisBoxCase(packable, caseProperties, constraintSet);
+            AnalysisBoxCase analysis = new AnalysisBoxCase(
+                packable, caseProperties, constraintSet);
             analysis.ID.SetNameDesc( name, description );
             analysis.AddSolution(layerDescs);
 
-            _analyses.Add(analysis);
-
-            // notify listeners
-            NotifyOnNewAnalysisCreated(analysis);
-            Modify();
-
-            return analysis;
+            return InsertAnalysis(analysis);
         }
-        public AnalysisPalletTruck CreateNewAnalysisPalletTruck(
+        public Analysis CreateNewAnalysisPalletTruck(
             string name, string description
             , Packable loadedPallet, TruckProperties truckProperties
             , ConstraintSetPalletTruck constraintSet
             , List<LayerDesc> layerDescs)
         {
-            AnalysisPalletTruck analysis = new AnalysisPalletTruck(loadedPallet, truckProperties, constraintSet);
+            AnalysisPalletTruck analysis = new AnalysisPalletTruck(
+                loadedPallet, truckProperties, constraintSet);
             analysis.ID.SetNameDesc( name, description );
             analysis.AddSolution(layerDescs);
 
-            _analyses.Add(analysis);
+            return InsertAnalysis(analysis);
+        }
+        public Analysis CreateNewAnalysisCylinderCase(
+            string name, string description
+            , CylinderProperties cylinder, BoxProperties caseProperties
+            , List<InterlayerProperties> interlayers
+            , ConstraintSetCylinderCase constraintSet
+            , LayerDesc layerDesc)
+        {
+            List<LayerDesc> layerDescs = new List<LayerDesc>();
+            layerDescs.Add(layerDesc);
+            // analysis
+            AnalysisCylinderCase analysis = new AnalysisCylinderCase(
+                cylinder, caseProperties, constraintSet);
+            analysis.ID.SetNameDesc(name, description);
+            analysis.AddSolution(layerDescs);
 
+            return InsertAnalysis(analysis);
+        }
+
+        private Analysis InsertAnalysis(Analysis analysis)
+        { 
+            _analyses.Add(analysis);
             // notify listeners
             NotifyOnNewAnalysisCreated(analysis);
+            // set document dirty
             Modify();
-
             return analysis;
         }
         #endregion
@@ -656,8 +658,6 @@ namespace treeDiM.StackBuilder.Basics
                 _analysesLegacy.Remove(analysis);
                 return null;
             }
-            // notify listeners
-            NotifyOnNewCasePalletAnalysisCreated(analysis);
             Modify();
             return analysis;
         }
@@ -687,7 +687,6 @@ namespace treeDiM.StackBuilder.Basics
                 return null;
             }
             // notify listeners
-            NotifyOnNewPackPalletAnalysisCreated(analysis);
             Modify();
             return analysis;
         }
@@ -709,8 +708,6 @@ namespace treeDiM.StackBuilder.Basics
             _analysesLegacy.Add(analysis);
             // set solutions
             analysis.Solutions = solutions;
-            // notify listeners
-            NotifyOnNewPackPalletAnalysisCreated(analysis);
             // set solution selected if it is unique
             if (solutions.Count == 1)
                 analysis.SelectSolutionByIndex(0);
@@ -746,8 +743,6 @@ namespace treeDiM.StackBuilder.Basics
             _analysesLegacy.Add(analysis);
             // set solutions
             analysis.Solutions = solutions;
-            // notify listeners
-            NotifyOnNewCasePalletAnalysisCreated(analysis);
             // set solution selected if it is unique
             if (solutions.Count == 1)
                 analysis.SelectSolutionByIndex(0);
@@ -785,8 +780,6 @@ namespace treeDiM.StackBuilder.Basics
                 _analysesLegacy.Remove(analysis);
                 return null;
             }
-            // notify listeners
-            NotifyOnNewCylinderPalletAnalysisCreated(analysis);
             Modify();
             return analysis;
         }
@@ -807,8 +800,6 @@ namespace treeDiM.StackBuilder.Basics
                 _analysesLegacy.Remove(analysis);
                 return null;
             }
-            // notify listeners
-            NotifyOnNewHCylinderPalletAnalysisCreated(analysis);
             Modify();
             return analysis;
         }
@@ -840,8 +831,6 @@ namespace treeDiM.StackBuilder.Basics
             _analysesLegacy.Add(analysis);
             // set solutions
             analysis.Solutions = solutions;
-            // notify listeners
-            NotifyOnNewCylinderPalletAnalysisCreated(analysis);
             // set solution selected if its unique
             if (solutions.Count == 1)
                 analysis.SelectSolutionByIndex(0);
@@ -871,8 +860,6 @@ namespace treeDiM.StackBuilder.Basics
             _analysesLegacy.Add(analysis);
             // set solutions
             analysis.Solutions = solutions;
-            // notify listeners
-            NotifyOnNewHCylinderPalletAnalysisCreated(analysis);
             // set solution selected if its unique
             if (solutions.Count == 1)
                 analysis.SelectSolutionByIndex(0);
@@ -892,8 +879,6 @@ namespace treeDiM.StackBuilder.Basics
             _analysesLegacy.Add(analysis);
             // set solutions
             analysis.Solutions = solutions;
-            // notify listeners
-            NotifyOnNewBoxCaseAnalysis(analysis);
             // set solution selected if it is unique
             if (solutions.Count == 1)
                 analysis.SelectSolutionByIndex(0);
@@ -922,7 +907,6 @@ namespace treeDiM.StackBuilder.Basics
                 }
             }
             // notify listeners
-            NotifyOnNewBoxCaseAnalysis(analysis);
             Modify();
             return analysis;
         }
@@ -951,7 +935,6 @@ namespace treeDiM.StackBuilder.Basics
                 }
             }
             // notify listeners
-            NotifyOnNewCaseAnalysisCreated(analysis);
             Modify();
             return analysis;
         }
@@ -1214,6 +1197,8 @@ namespace treeDiM.StackBuilder.Basics
         /// </summary>
         public bool CanCreateBoxCaseAnalysis
         { get { return (this.Boxes.Count > 0 && this.Cases.Count > 0) || (this.Cases.Count > 1); } }
+        public bool CanCreateCylinderCaseAnalysis
+        { get { return (this.Cylinders.Count > 0) || (this.Cases.Count > 1); } }
         /// <summary>
         /// Returns true if a bundle/case analysis can be created i.e. if document contains at least one bundle and one case
         /// </summary>
@@ -4823,46 +4808,6 @@ namespace treeDiM.StackBuilder.Basics
         {
             foreach (IDocumentListener listener in _listeners)
                 listener.OnNewAnalysisCreated(this, analysis);
-        }
-        private void NotifyOnNewCasePalletAnalysisCreated(CasePalletAnalysis analysis)
-        {
-            foreach (IDocumentListener listener in _listeners)
-                listener.OnNewCasePalletAnalysisCreated(this, analysis);
-        }
-        private void NotifyOnNewPackPalletAnalysisCreated(PackPalletAnalysis analysis)
-        {
-            foreach (IDocumentListener listener in _listeners)
-                listener.OnNewPackPalletAnalysisCreated(this, analysis);
-        }
-        private void NotifyOnNewCylinderPalletAnalysisCreated(CylinderPalletAnalysis analysis)
-        {
-            foreach (IDocumentListener listener in _listeners)
-                listener.OnNewCylinderPalletAnalysisCreated(this, analysis);
-        }
-        private void NotifyOnNewHCylinderPalletAnalysisCreated(HCylinderPalletAnalysis analysis)
-        {
-            foreach (IDocumentListener listener in _listeners)
-                listener.OnNewHCylinderPalletAnalysisCreated(this, analysis);
-        }
-        private void NotifyOnNewBoxCaseAnalysis(BoxCaseAnalysis analysis)
-        {
-            foreach (IDocumentListener listener in _listeners)
-                listener.OnNewBoxCaseAnalysisCreated(this, analysis);
-        }
-        private void NotifyOnNewCaseAnalysisCreated(BoxCasePalletAnalysis caseAnalysis)
-        { 
-            foreach (IDocumentListener listener in _listeners)
-                listener.OnNewBoxCasePalletAnalysisCreated(this, caseAnalysis);
-        }
-        internal void NotifyOnNewTruckAnalysisCreated(CasePalletAnalysis analysis, SelCasePalletSolution selSolution, TruckAnalysis truckAnalysis)
-        {
-            foreach (IDocumentListener listener in _listeners)
-                listener.OnNewTruckAnalysisCreated(this, analysis, selSolution, truckAnalysis);
-        }
-        internal void NotifyOnNewECTAnalysisCreated(CasePalletAnalysis analysis, SelCasePalletSolution selSolution, ECTAnalysis ectAnalysis)
-        { 
-            foreach (IDocumentListener listener in _listeners)
-                listener.OnNewECTAnalysisCreated(this, analysis, selSolution, ectAnalysis);
         }
         private void NotifyOnDocumentClosed()
         {

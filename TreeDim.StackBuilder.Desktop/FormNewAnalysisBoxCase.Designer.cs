@@ -102,8 +102,7 @@
             // 
             this.uCtrlLayerList.AutoScroll = true;
             this.uCtrlLayerList.ButtonSizes = new System.Drawing.Size(150, 150);
-            this.uCtrlLayerList.FirstLayerSelected = false;
-            this.uCtrlLayerList.Location = new System.Drawing.Point(0, 216);
+            this.uCtrlLayerList.Location = new System.Drawing.Point(0, 218);
             this.uCtrlLayerList.Name = "uCtrlLayerList";
             this.uCtrlLayerList.Size = new System.Drawing.Size(784, 289);
             this.uCtrlLayerList.TabIndex = 25;
@@ -134,11 +133,6 @@
             this.Controls.Add(this.uCtrlCaseOrientation);
             this.Name = "FormNewAnalysisBoxCase";
             this.Text = "FormNewAnalysisBoxCase";
-            this.Controls.SetChildIndex(this.bnCancel, 0);
-            this.Controls.SetChildIndex(this.lbName, 0);
-            this.Controls.SetChildIndex(this.lbDescription, 0);
-            this.Controls.SetChildIndex(this.tbName, 0);
-            this.Controls.SetChildIndex(this.tbDescription, 0);
             this.Controls.SetChildIndex(this.uCtrlCaseOrientation, 0);
             this.Controls.SetChildIndex(this.uCtrlLayerList, 0);
             this.Controls.SetChildIndex(this.cbBoxes, 0);
@@ -146,6 +140,11 @@
             this.Controls.SetChildIndex(this.checkBoxBestLayersOnly, 0);
             this.Controls.SetChildIndex(this.lbBox, 0);
             this.Controls.SetChildIndex(this.lbCase, 0);
+            this.Controls.SetChildIndex(this.bnCancel, 0);
+            this.Controls.SetChildIndex(this.lbName, 0);
+            this.Controls.SetChildIndex(this.lbDescription, 0);
+            this.Controls.SetChildIndex(this.tbName, 0);
+            this.Controls.SetChildIndex(this.tbDescription, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 

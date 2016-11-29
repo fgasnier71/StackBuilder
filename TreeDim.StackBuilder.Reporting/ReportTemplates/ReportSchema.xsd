@@ -17,6 +17,27 @@
         <xs:element name="author" type="xs:string" />
         <xs:element name="dateOfCreation" type="xs:string" />
         <xs:element name="companyLogo" type="xs:string" minOccurs="0" maxOccurs="1"/>
+        
+        <!-- ANALYSIS : BEG -->
+        <xs:element name="analysis" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="name" type="xs:string"/>
+              <xs:element name="description" type="xs:string"/>
+              <xs:element name="box" minOccurs="0" maxOccurs="1" type="rpt:box"/>
+              <xs:element name="case" minOccurs="0" maxOccurs="unbounded" type="rpt:case"/>
+              <xs:element name="bundle" minOccurs="0" maxOccurs="1" type="rpt:bundle"/>
+              <xs:element name="pack" minOccurs="0" maxOccurs="1" type="rpt:pack"/>
+              <xs:element name="cylinder" minOccurs="0" maxOccurs="1" type="rpt:cylinder"/>
+              <xs:element name="pallet" minOccurs="0" maxOccurs="1" type="rpt:pallet"/>
+              <xs:element name="interlayer" minOccurs="0" maxOccurs="unbounded" type="rpt:interlayer"/>
+              <xs:element name="constraintSet" minOccurs="0" maxOccurs="1" type="rpt:contraintSet"/>
+              <xs:element name="solution" minOccurs="0" maxOccurs="1" type="rpt:solution"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <!-- ANALYSIS : END-->
+        
         <!-- BOXCASEANALYSIS : BEG -->
         <xs:element name="boxCaseAnalysis" minOccurs="0" maxOccurs="1">
           <xs:complexType>

@@ -11,32 +11,30 @@ using log4net;
 
 namespace treeDiM.StackBuilder.Basics
 {
-    #region AnalysisBoxCase
-    public class AnalysisBoxCase : Analysis
+    #region Analysis packable/case
+    public abstract class AnalysisPackableCase : Analysis
     {
         #region Data members
-        public BoxProperties _caseProperties;
-
-        static readonly ILog _log = LogManager.GetLogger(typeof(AnalysisBoxCase));
+        protected BoxProperties _caseProperties;
         #endregion
 
         #region Constructor
-        public AnalysisBoxCase(
-            Packable packable,
-            BoxProperties caseProperties,
-            ConstraintSetBoxCase constraintSet)
+        public AnalysisPackableCase(Document document, Packable packable, BoxProperties caseProperties, ConstraintSetPackableCase constraintSet)
             : base(packable.ParentDocument, packable)
         {
             // sanity checks
             if (caseProperties.ParentDocument != ParentDocument)
                 throw new Exception("box & case do not belong to the same document");
-
             _caseProperties = caseProperties;
             _constraintSet = constraintSet;
         }
         #endregion
 
         #region Analysis override
+        public override ItemBase Container
+        {
+            get { return _caseProperties; }
+        }
         public override Vector2D ContainerDimensions
         {
             get { return new Vector2D(_caseProperties.InsideLength, _caseProperties.InsideWidth); }
@@ -81,13 +79,55 @@ namespace treeDiM.StackBuilder.Basics
         { get { return new LoadedCase(this); } }
         #endregion
 
-        #region Public properties
+        #region AnalysisPackableCase specific
+        public BoxProperties CaseProperties
+        {
+            get { return _caseProperties; }
+            set
+            {
+                if (_caseProperties == value) return;
+                if (null != _caseProperties) _caseProperties.RemoveDependancy(this);
+                _caseProperties = value;
+                _caseProperties.AddDependancy(this);
+            }
+        }
+        #endregion
+    }
+    #endregion
+
+    #region AnalysisBoxCase
+    public class AnalysisBoxCase : AnalysisPackableCase
+    {
+        #region Data members
+        static readonly ILog _log = LogManager.GetLogger(typeof(AnalysisBoxCase));
         #endregion
 
-        #region Public methods
+        #region Constructor
+        public AnalysisBoxCase(
+            Packable packable,
+            BoxProperties caseProperties,
+            ConstraintSetBoxCase constraintSet)
+            : base(packable.ParentDocument, packable, caseProperties, constraintSet)
+        {
+        }
+        #endregion
+    }
+    #endregion
+
+    #region Analysis cylinder/case
+    public class AnalysisCylinderCase : AnalysisPackableCase
+    {
+        #region Data members
         #endregion
 
-        #region Static methods
+        #region Constructor
+        public AnalysisCylinderCase(
+            Packable packable,
+            BoxProperties caseProperties,
+            ConstraintSetCylinderCase constraintSet)
+            : base(packable.ParentDocument, packable, caseProperties, constraintSet)
+        { 
+        }
         #endregion
     }
     #endregion
@@ -96,7 +136,7 @@ namespace treeDiM.StackBuilder.Basics
     public class LoadedCase : PackableLoaded
     {
         #region Constructor
-        internal LoadedCase(AnalysisBoxCase analysis)
+        internal LoadedCase(AnalysisPackableCase analysis)
             : base(analysis)
         {
         }
@@ -118,16 +158,16 @@ namespace treeDiM.StackBuilder.Basics
 
         #region Specific properties
         public Packable Container
-        { get { return Analysis._caseProperties; } }
+        { get { return Analysis.CaseProperties; } }
         #endregion
 
         #region Override PackableLoaded
         public override double Length
-        { get { return Analysis._caseProperties.Length; } }
+        { get { return Analysis.CaseProperties.Length; } }
         public override double Width
-        { get { return Analysis._caseProperties.Width; } }
+        { get { return Analysis.CaseProperties.Width; } }
         public override double Height
-        { get { return Analysis._caseProperties.Height; } }
+        { get { return Analysis.CaseProperties.Height; } }
         public override bool InnerContent(ref Packable innerPackable, ref int number)
         {
             innerPackable = ParentAnalysis.Content;

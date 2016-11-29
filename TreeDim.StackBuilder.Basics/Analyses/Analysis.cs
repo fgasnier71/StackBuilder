@@ -18,7 +18,7 @@ namespace treeDiM.StackBuilder.Basics
         /// <summary>
         /// Solution
         /// </summary>
-        protected List<Solution> _solutions = new List<Solution>();
+        protected Solution _solution;
         /// <summary>
         /// Constraint set
         /// </summary>
@@ -40,7 +40,7 @@ namespace treeDiM.StackBuilder.Basics
         #region Constructor
         public Analysis(Document doc, Packable packable) : base(doc)
         {
-            _packable = packable;
+            Content = packable;
             _interlayers = new List<InterlayerProperties>();
         }
         #endregion
@@ -61,7 +61,7 @@ namespace treeDiM.StackBuilder.Basics
         public virtual double ContentVolume            { get { return _packable.Volume; } }
         public virtual double ContentWeight            { get { return _packable.Weight; } }
 
-        public List<Solution> Solutions                 { get { return _solutions; } }
+        public Solution Solution                        { get { return _solution; } }
         public ConstraintSetAbstract ConstraintSet      { get { return _constraintSet; } set { _constraintSet = value; } }
         public List<InterlayerProperties> Interlayers   { get { return _interlayers; } }
         /// <summary>
@@ -75,6 +75,7 @@ namespace treeDiM.StackBuilder.Basics
         #endregion
 
         #region Abstract properties
+        public abstract ItemBase Container              { get; }
         public abstract Vector2D ContainerDimensions    { get; }
         public abstract Vector3D Offset                 { get; }
         public abstract double   ContainerWeight        { get; }
@@ -100,7 +101,7 @@ namespace treeDiM.StackBuilder.Basics
         }
         public void AddSolution(List<LayerDesc> layers)
         {
-            _solutions.Add(new Solution(this, layers));
+            _solution = new Solution(this, layers);
         }
         public int GetInterlayerIndex(InterlayerProperties interlayer)
         {
@@ -111,7 +112,6 @@ namespace treeDiM.StackBuilder.Basics
         }
         public void Clear()
         {
-            _solutions.Clear();
         }
         public virtual InterlayerProperties Interlayer(int index)
         {
@@ -145,7 +145,7 @@ namespace treeDiM.StackBuilder.Basics
 
         #region Data members
         public Analysis ParentAnalysis      { get { return _analysis; } }
-        protected Solution ParentSolution   { get { return _analysis.Solutions[0]; } }
+        protected Solution ParentSolution   { get { return _analysis.Solution; } }
         protected Analysis _analysis;
         #endregion
     }

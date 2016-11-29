@@ -24,7 +24,6 @@ namespace treeDiM.StackBuilder.Desktop
     {
         #region Data members
         static readonly ILog _log = LogManager.GetLogger(typeof(FormNewAnalysisBoxCase));
-        private AnalysisBoxCase _analysis;
         #endregion
 
         #region Constructor
@@ -52,13 +51,12 @@ namespace treeDiM.StackBuilder.Desktop
             uCtrlLayerList.RefreshFinished += onLayerSelected;
             uCtrlLayerList.ButtonSizes = new Size(100, 100);
 
-            if (null == _analysis)
+            if (null == AnalysisBase)
             {
                 uCtrlCaseOrientation.AllowedOrientations = new bool[]
                 { Settings.Default.AllowVerticalX, Settings.Default.AllowVerticalY, Settings.Default.AllowVerticalZ };
-
-                checkBoxBestLayersOnly.Checked = Settings.Default.KeepBestSolutions;
             }
+            checkBoxBestLayersOnly.Checked = Settings.Default.KeepBestSolutions;
         }
         protected override void OnClosed(EventArgs e)
         {
@@ -77,7 +75,7 @@ namespace treeDiM.StackBuilder.Desktop
         {
             if (ctrl == cbBoxes)
             {
-                Packable packable = itemBase as Packable;
+                PackableBrick packable = itemBase as PackableBrick;
                 return null != packable;
             }
             else if (ctrl == cbCases)
@@ -133,7 +131,7 @@ namespace treeDiM.StackBuilder.Desktop
                 uCtrlLayerList.Packable = packable;
                 uCtrlLayerList.ContainerHeight = caseProperties.InsideHeight;
                 uCtrlLayerList.FirstLayerSelected = true;
-                uCtrlLayerList.LayerList = layers;
+                uCtrlLayerList.LayerList = LayerSolver.ConvertList(layers);
             }
             catch (Exception ex)
             {
@@ -145,7 +143,7 @@ namespace treeDiM.StackBuilder.Desktop
         {
             try
             {
-                Layer2D[] layers = uCtrlLayerList.Selected;
+                ILayer2D[] layers = uCtrlLayerList.Selected;
                 UpdateStatus(layers.Length > 0 ? string.Empty : Resources.ID_SELECTATLEASTONELAYOUT);
             }
             catch (Exception ex)
@@ -165,7 +163,7 @@ namespace treeDiM.StackBuilder.Desktop
 
                 Solution.SetSolver(new LayerSolver());
 
-                _analysis = _document.CreateNewAnalysisBoxCase(
+                AnalysisBase = _document.CreateNewAnalysisBoxCase(
                     ItemName, ItemDescription
                     , SelectedBoxProperties, SelectedCaseProperties
                     , new List<InterlayerProperties>()

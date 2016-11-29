@@ -12,6 +12,7 @@ using log4net;
 
 namespace treeDiM.StackBuilder.Basics
 {
+    #region LayerDesc
     public class LayerDesc
     {
         #region Data members
@@ -57,8 +58,31 @@ namespace treeDiM.StackBuilder.Basics
         }
         #endregion
     }
+    #endregion
 
-    public class Layer2D : List<LayerPosition>
+    #region ILayer2D
+    public interface ILayer2D
+    {
+        #region Properties
+        string PatternName { get; set; }
+        string Name { get; }
+        bool Swapped { get; }
+        double LayerHeight { get; }
+        int Count { get; }
+        double Length { get; }
+        double Width { get; }
+        #endregion
+
+        #region Methods
+        int CountInHeight(double height);
+        int NoLayers(double height);
+        string Tooltip(double height);
+        #endregion
+    }
+    #endregion
+
+    #region Layer2D
+    public class Layer2D : List<LayerPosition>, ILayer2D
     {
         #region Data members
         private string _patternName = string.Empty;
@@ -161,15 +185,36 @@ namespace treeDiM.StackBuilder.Basics
             }
             return true;
         }
-        public int PerPalletCount(double zHeight)
+        #endregion
+
+        #region ILayer2D implementation
+        public string PatternName
         {
-            int noLayers = (int)(zHeight / LayerHeight);
-            return noLayers * Count;
+            get { return _patternName; }
+            set { _patternName = value; }
+        }
+        public bool Swapped
+        {
+            get { return _swapped; }
+        }
+        public string Name
+        {
+            get { return string.Format("{0}_{1}_{2}", PatternName, HalfAxis.ToString(_axisOrtho), _swapped ? "t" : "f"); }
+        }
+        public int NoLayers(double height)
+        {
+            return (int)Math.Floor(height / LayerHeight); 
+        }
+        public int CountInHeight(double height)
+        {
+            return NoLayers(height) * Count;
         }
         public double LayerHeight
         {
             get
             {
+                return BoxHeight;
+                /*
                 switch (_axisOrtho)
                 {
                     case HalfAxis.HAxis.AXIS_X_N: return _dimBox.X;
@@ -181,7 +226,19 @@ namespace treeDiM.StackBuilder.Basics
                     default:
                         throw new Exception();
                 }
+                */ 
             }
+        }
+        public double Length { get { return _dimContainer.X; } }
+        public double Width  { get { return _dimContainer.Y; } }
+        public string Tooltip(double height)
+        {
+            return string.Format("{0} * {1} = {2}\n {3} | {4}"
+                    , Count
+                    , NoLayers(height)
+                    , CountInHeight(height)
+                    , HalfAxis.ToString(AxisOrtho)
+                    , PatternName);
         }
         #endregion
 
@@ -218,15 +275,6 @@ namespace treeDiM.StackBuilder.Basics
         #endregion
 
         #region Public properties
-        public string PatternName
-        {
-            get { return _patternName; }
-            set { _patternName = value; }
-        }
-        public string Name
-        {
-            get { return string.Format("{0}_{1}_{2}", PatternName, HalfAxis.ToString(_axisOrtho), _swapped ? "t" : "f"); }
-        }
         public HalfAxis.HAxis AxisOrtho
         {
             get { return _axisOrtho; }
@@ -332,29 +380,9 @@ namespace treeDiM.StackBuilder.Basics
                 }
             }
         }
-        public double PalletLength
-        {
-            get { return _dimContainer.X; }
-        }
-        public double PalletWidth
-        {
-            get { return _dimContainer.Y; }
-        }
-        public bool Swapped
-        {
-            get { return _swapped; }
-        }
         public int BoxCount
         {
             get { return Count; }
-        }
-        public int NoLayers(double height)
-        {
-            return (int)Math.Floor(height / BoxHeight); 
-        }
-        public int CountInHeight(double height)
-        {
-            return NoLayers(height) * Count;
         }
         public LayerDesc LayerDescriptor
         {
@@ -362,8 +390,9 @@ namespace treeDiM.StackBuilder.Basics
         }
         #endregion
     }
+    #endregion
 
-    #region Comparers
+    #region Comparer for Layer2D (LayerComparerCount)
     public class LayerComparerCount : IComparer<Layer2D>
     {
         #region Data members

@@ -143,7 +143,7 @@ namespace treeDiM.StackBuilder.Graphics
             else if (null != analysisBoxCase)
             {
                 // draw case (inside)
-                Case case_ = new Case(analysisBoxCase._caseProperties);
+                Case case_ = new Case(analysisBoxCase.CaseProperties);
                 case_.DrawInside(graphics);
             }
 

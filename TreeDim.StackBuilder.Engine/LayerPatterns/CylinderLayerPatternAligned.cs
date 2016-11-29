@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
+using treeDiM.StackBuilder.Basics;
+
 using Sharp3D.Math.Core;
 #endregion
 
@@ -19,7 +21,7 @@ namespace treeDiM.StackBuilder.Engine
         {
             get { return false; }
         }
-        public override void GetLayerDimensions(LayerCyl layer, out double actualLength, out double actualWidth)
+        public override bool GetLayerDimensions(Layer2DCyl layer, out double actualLength, out double actualWidth)
         {
             double palletLength = GetPalletLength(layer);
             double palletWidth = GetPalletWidth(layer);
@@ -27,8 +29,10 @@ namespace treeDiM.StackBuilder.Engine
 
             actualLength = Math.Floor(palletLength / diameter) * diameter; ;
             actualWidth = Math.Floor(palletWidth / diameter) * diameter;
+
+            return (palletLength > diameter) && (palletWidth > diameter);
         }
-        public override void GenerateLayer(LayerCyl layer, double actualLength, double actualWidth)
+        public override void GenerateLayer(Layer2DCyl layer, double actualLength, double actualWidth)
         {
             layer.Clear();
 

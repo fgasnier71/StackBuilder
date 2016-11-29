@@ -181,11 +181,29 @@
     <Compile Include="DockContentAnalysisCasePallet.Designer.cs">
       <DependentUpon>DockContentAnalysisCasePallet.cs</DependentUpon>
     </Compile>
+    <Compile Include="DockContentAnalysisCylinderCase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DockContentAnalysisCylinderCase.Designer.cs">
+      <DependentUpon>DockContentAnalysisCylinderCase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DockContentAnalysisCylinderPallet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DockContentAnalysisCylinderPallet.Designer.cs">
+      <DependentUpon>DockContentAnalysisCylinderPallet.cs</DependentUpon>
+    </Compile>
     <Compile Include="DockContentAnalysisEdit.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="DockContentAnalysisEdit.Designer.cs">
       <DependentUpon>DockContentAnalysisEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DockContentAnalysisPalletTruck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DockContentAnalysisPalletTruck.Designer.cs">
+      <DependentUpon>DockContentAnalysisPalletTruck.cs</DependentUpon>
     </Compile>
     <Compile Include="DockContentCasePalletAnalysis.cs">
       <SubType>Form</SubType>
@@ -265,6 +283,12 @@
     <Compile Include="DockContentTruckAnalysis.Designer.cs">
       <DependentUpon>DockContentTruckAnalysis.cs</DependentUpon>
     </Compile>
+    <Compile Include="DockContentView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DockContentView.Designer.cs">
+      <DependentUpon>DockContentView.cs</DependentUpon>
+    </Compile>
     <Compile Include="DocumentSB.cs" />
     <Compile Include="FileAssociation.cs" />
     <Compile Include="FormAppendSolutionToDB.cs">
@@ -296,6 +320,18 @@
     </Compile>
     <Compile Include="FormNewAnalysis.Designer.cs">
       <DependentUpon>FormNewAnalysis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNewAnalysisCylinderCase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNewAnalysisCylinderCase.Designer.cs">
+      <DependentUpon>FormNewAnalysisCylinderCase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNewAnalysisCylinderPallet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNewAnalysisCylinderPallet.Designer.cs">
+      <DependentUpon>FormNewAnalysisCylinderPallet.cs</DependentUpon>
     </Compile>
     <Compile Include="FormNewAnalysisLegacy.cs">
       <SubType>Form</SubType>
@@ -480,6 +516,12 @@
     <Compile Include="OptionPanelDimensions.Designer.cs">
       <DependentUpon>OptionPanelDimensions.cs</DependentUpon>
     </Compile>
+    <Compile Include="OptionPanelLayerListCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="OptionPanelLayerListCtrl.Designer.cs">
+      <DependentUpon>OptionPanelLayerListCtrl.cs</DependentUpon>
+    </Compile>
     <Compile Include="OptionPanelPlugins.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -573,8 +615,17 @@
     <EmbeddedResource Include="DockContentAnalysisCasePallet.resx">
       <DependentUpon>DockContentAnalysisCasePallet.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DockContentAnalysisCylinderCase.resx">
+      <DependentUpon>DockContentAnalysisCylinderCase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentAnalysisCylinderPallet.resx">
+      <DependentUpon>DockContentAnalysisCylinderPallet.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DockContentAnalysisEdit.resx">
       <DependentUpon>DockContentAnalysisEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentAnalysisPalletTruck.resx">
+      <DependentUpon>DockContentAnalysisPalletTruck.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DockContentBoxCaseAnalysis.fr-FR.resx">
       <DependentUpon>DockContentBoxCaseAnalysis.cs</DependentUpon>
@@ -767,6 +818,9 @@
     <EmbeddedResource Include="DockContentTruckAnalysis.resx">
       <DependentUpon>DockContentTruckAnalysis.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DockContentView.resx">
+      <DependentUpon>DockContentView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormAppendSolutionToDB.ca-ES.resx">
       <DependentUpon>FormAppendSolutionToDB.cs</DependentUpon>
     </EmbeddedResource>
@@ -870,6 +924,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewAnalysis.resx">
       <DependentUpon>FormNewAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisCylinderCase.resx">
+      <DependentUpon>FormNewAnalysisCylinderCase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewAnalysisLegacy.ca-ES.resx">
       <DependentUpon>FormNewAnalysisLegacy.cs</DependentUpon>
@@ -1389,6 +1446,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="OptionPanelDimensions.resx">
       <DependentUpon>OptionPanelDimensions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OptionPanelLayerListCtrl.resx">
+      <DependentUpon>OptionPanelLayerListCtrl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OptionPanelPlugins.de-DE.resx">
       <DependentUpon>OptionPanelPlugins.cs</DependentUpon>

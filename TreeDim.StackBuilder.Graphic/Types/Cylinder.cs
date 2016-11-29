@@ -195,6 +195,21 @@ namespace treeDiM.StackBuilder.Graphics
                 return pts;
             }
         }
+        public Vector3D[] TopPointsInner
+        { 
+           get
+            {
+                Transform3D t = _cylPosition.Transf;
+                Vector3D[] pts = new Vector3D[_noFaces];
+                for (int i = 0; i < _noFaces; ++i)
+                {
+                    double angle = i * 2.0 * Math.PI / _noFaces;
+                    Vector3D vRadius = new Vector3D(0.0, Math.Cos(angle), Math.Sin(angle));
+                    pts[i] = t.transform(_radiusInner * vRadius + _height * Vector3D.XAxis);
+                }
+                return pts;
+            }        
+        }
         #endregion
 
         #region overrides

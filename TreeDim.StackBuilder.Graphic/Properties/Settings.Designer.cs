@@ -46,5 +46,29 @@ namespace treeDiM.StackBuilder.Graphics.Properties {
                 this["DimCasePalletSol2"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool LayerView3D {
+            get {
+                return ((bool)(this["LayerView3D"]));
+            }
+            set {
+                this["LayerView3D"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("2")]
+        public int LayerViewThumbSizeIndex {
+            get {
+                return ((int)(this["LayerViewThumbSizeIndex"]));
+            }
+            set {
+                this["LayerViewThumbSizeIndex"] = value;
+            }
+        }
     }
 }

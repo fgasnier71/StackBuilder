@@ -22,13 +22,9 @@ using treeDiM.StackBuilder.Engine;
 
 namespace treeDiM.StackBuilder.Desktop
 {
-    public partial class DockContentAnalysisEdit : DockContent, IView, IItemListener, IDrawingContainer, IItemBaseFilter
+    public partial class DockContentAnalysisEdit : DockContentView, IDrawingContainer, IItemBaseFilter
     {
         #region Data members
-        /// <summary>
-        /// document
-        /// </summary>
-        protected IDocument _document;
         /// <summary>
         /// analysis
         /// </summary>
@@ -40,13 +36,19 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Constructor
-        public DockContentAnalysisEdit(IDocument document, Analysis analysis)
+        public DockContentAnalysisEdit()
+            : base(null)
         {
-            _document = document;
+            _analysis = null;
+
+            InitializeComponent();
+        }
+        public DockContentAnalysisEdit(IDocument document, Analysis analysis)
+            : base(document)
+        {
             _analysis = analysis;
             _analysis.AddListener(this);
-
-            _solution = analysis.Solutions[0];
+            _solution = analysis.Solution;
 
             InitializeComponent();
         }
@@ -72,15 +74,12 @@ namespace treeDiM.StackBuilder.Desktop
         }
         #endregion
 
-        #region Private properties
-        #endregion
-
         #region IItemListener implementation
-        public void Update(ItemBase item)
+        public override void Update(ItemBase item)
         {
             graphCtrlSolution.Invalidate();
         }
-        public void Kill(ItemBase item)
+        public override void Kill(ItemBase item)
         {
             Close();
             _analysis.RemoveListener(this);
@@ -106,13 +105,6 @@ namespace treeDiM.StackBuilder.Desktop
         {
             get { return _solution; }
             set { _solution = value; }
-        }
-        #endregion
-
-        #region IView implementation
-        public IDocument Document
-        {
-            get { return _document; }
         }
         #endregion
 

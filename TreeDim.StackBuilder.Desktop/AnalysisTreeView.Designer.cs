@@ -56,14 +56,14 @@ namespace treeDiM.StackBuilder.Desktop {
             }
         }
         
-        internal static System.Drawing.Bitmap Analysis {
+        internal static System.Drawing.Bitmap AnalysisCasePallet {
             get {
                 object obj = ResourceManager.GetObject("Analysis", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
 
-        internal static System.Drawing.Bitmap AnalysisBundle {
+        internal static System.Drawing.Bitmap AnalysisBundlePallet {
             get {
                 object obj = ResourceManager.GetObject("AnalysisBundle", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -95,7 +95,7 @@ namespace treeDiM.StackBuilder.Desktop {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }        
-        internal static System.Drawing.Bitmap PackAnalysis {
+        internal static System.Drawing.Bitmap AnalysisPackPallet {
             get {
                 object obj = ResourceManager.GetObject("PackAnalysis", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -210,7 +210,7 @@ namespace treeDiM.StackBuilder.Desktop {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
-        internal static System.Drawing.Bitmap TruckAnalysis
+        internal static System.Drawing.Bitmap AnalysisTruck
         {
             get
             {
@@ -226,7 +226,7 @@ namespace treeDiM.StackBuilder.Desktop {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
-        internal static System.Drawing.Bitmap CaseAnalysis
+        internal static System.Drawing.Bitmap AnalysisCase
         {
             get
             {
@@ -274,7 +274,7 @@ namespace treeDiM.StackBuilder.Desktop {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
-        internal static System.Drawing.Bitmap CylinderPalletAnalysis
+        internal static System.Drawing.Bitmap AnalysisCylinderPallet
         {
             get
             {
@@ -282,7 +282,7 @@ namespace treeDiM.StackBuilder.Desktop {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
-        internal static System.Drawing.Bitmap HCylinderPalletAnalysis
+        internal static System.Drawing.Bitmap AnalysisHCylinderPallet
         {
             get
             {

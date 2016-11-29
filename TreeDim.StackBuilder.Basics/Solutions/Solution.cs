@@ -487,7 +487,7 @@ namespace treeDiM.StackBuilder.Basics
         }
         public int LayerBoxCount(int layerTypeIndex)
         {
-            return _layers[layerTypeIndex].BoxCount;
+            return _layers[layerTypeIndex].Count;
         }
         public double LayerWeight(int layerTypeIndex)
         {

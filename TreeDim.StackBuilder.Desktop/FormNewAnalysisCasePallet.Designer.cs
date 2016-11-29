@@ -34,6 +34,7 @@
             this.lbBox = new System.Windows.Forms.Label();
             this.uCtrlOptMaximumWeight = new treeDiM.StackBuilder.Basics.UCtrlOptDouble();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.uCtrlMaximumHeight = new treeDiM.StackBuilder.Basics.UCtrlDouble();
             this.uCtrlOverhang = new treeDiM.StackBuilder.Basics.UCtrlDualDouble();
             this.lbPallet = new System.Windows.Forms.Label();
             this.uCtrlLayerList = new treeDiM.StackBuilder.Graphics.UCtrlLayerList();
@@ -46,8 +47,8 @@
             this.tabPageSpaces = new System.Windows.Forms.TabPage();
             this.uCtrlOptSpace = new treeDiM.StackBuilder.Basics.UCtrlOptDouble();
             this.tabPageLayerFilters = new System.Windows.Forms.TabPage();
+            this.uCtrlOptMaximumLayerWeight = new treeDiM.StackBuilder.Basics.UCtrlOptDouble();
             this.uCtrlOptMaximumSpace = new treeDiM.StackBuilder.Basics.UCtrlOptDouble();
-            this.uCtrlMaximumHeight = new treeDiM.StackBuilder.Basics.UCtrlDouble();
             this.groupBox1.SuspendLayout();
             this.tabCtrlConstraints.SuspendLayout();
             this.tabPageStopCriterions.SuspendLayout();
@@ -105,6 +106,19 @@
             resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
+            // 
+            // uCtrlMaximumHeight
+            // 
+            resources.ApplyResources(this.uCtrlMaximumHeight, "uCtrlMaximumHeight");
+            this.uCtrlMaximumHeight.Minimum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            -2147483648});
+            this.uCtrlMaximumHeight.Name = "uCtrlMaximumHeight";
+            this.uCtrlMaximumHeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlMaximumHeight.Value = 0D;
+            this.uCtrlMaximumHeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.onValueChanged(this.onInputChanged);
             // 
             // uCtrlOverhang
             // 
@@ -195,10 +209,23 @@
             // 
             // tabPageLayerFilters
             // 
+            this.tabPageLayerFilters.Controls.Add(this.uCtrlOptMaximumLayerWeight);
             this.tabPageLayerFilters.Controls.Add(this.uCtrlOptMaximumSpace);
             resources.ApplyResources(this.tabPageLayerFilters, "tabPageLayerFilters");
             this.tabPageLayerFilters.Name = "tabPageLayerFilters";
             this.tabPageLayerFilters.UseVisualStyleBackColor = true;
+            // 
+            // uCtrlOptMaximumLayerWeight
+            // 
+            resources.ApplyResources(this.uCtrlOptMaximumLayerWeight, "uCtrlOptMaximumLayerWeight");
+            this.uCtrlOptMaximumLayerWeight.Minimum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            -2147483648});
+            this.uCtrlOptMaximumLayerWeight.Name = "uCtrlOptMaximumLayerWeight";
+            this.uCtrlOptMaximumLayerWeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_MASS;
+            this.uCtrlOptMaximumLayerWeight.Value = ((treeDiM.StackBuilder.Basics.OptDouble)(resources.GetObject("uCtrlOptMaximumLayerWeight.Value")));
             // 
             // uCtrlOptMaximumSpace
             // 
@@ -211,19 +238,6 @@
             this.uCtrlOptMaximumSpace.Name = "uCtrlOptMaximumSpace";
             this.uCtrlOptMaximumSpace.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlOptMaximumSpace.Value = ((treeDiM.StackBuilder.Basics.OptDouble)(resources.GetObject("uCtrlOptMaximumSpace.Value")));
-            // 
-            // uCtrlMaximumHeight
-            // 
-            resources.ApplyResources(this.uCtrlMaximumHeight, "uCtrlMaximumHeight");
-            this.uCtrlMaximumHeight.Minimum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            -2147483648});
-            this.uCtrlMaximumHeight.Name = "uCtrlMaximumHeight";
-            this.uCtrlMaximumHeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
-            this.uCtrlMaximumHeight.Value = 0D;
-            this.uCtrlMaximumHeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.onValueChanged(this.onInputChanged);
             // 
             // FormNewAnalysisCasePallet
             // 
@@ -288,5 +302,6 @@
         private Basics.UCtrlOptDouble uCtrlOptSpace;
         private Basics.UCtrlOptDouble uCtrlOptMaximumSpace;
         private Basics.UCtrlDouble uCtrlMaximumHeight;
+        private Basics.UCtrlOptDouble uCtrlOptMaximumLayerWeight;
     }
 }

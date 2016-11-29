@@ -56,16 +56,18 @@ namespace treeDiM.StackBuilder.Engine
                 for (int iDir = 0; iDir < (pattern.CanBeSwapped ? 2 : 1); ++iDir)
                 {
                     // alternate pallet direction
-                    LayerCyl layer = new LayerCyl(_cylProperties, _palletProperties, _constraintSet);
+                    Layer2DCyl layer = new Layer2DCyl(
+                        _cylProperties.RadiusOuter, _cylProperties.Height
+                        , new Vector2D(_palletProperties.Length, _palletProperties.Width)
+                        , /*_constraintSet*/iDir % 2 != 0);
 
                     string title = string.Format("{0}-{1}", pattern.Name, iDir);
                     CylinderPalletSolution sol = new CylinderPalletSolution(null, title, true);
- 
-                    double actualLength = 0.0, actualWidth = 0.0;
-                    pattern.Swapped = (iDir % 2 != 0);
-                    pattern.GetLayerDimensions(layer, out actualLength, out actualWidth);
+
                     try
                     {
+                        double actualLength = 0.0, actualWidth = 0.0;
+                        pattern.GetLayerDimensions(layer, out actualLength, out actualWidth);
                         pattern.GenerateLayer(layer, actualLength, actualWidth);
                     }
                     catch (NotImplementedException ex)
@@ -180,7 +182,7 @@ namespace treeDiM.StackBuilder.Engine
             if (!_constraintSet.IsValid)
                 throw new EngineException("Constraint set is invalid!");
 
-            analysis.Solutions = GenerateSolutions(); 
+            analysis.Solutions = GenerateSolutions();
         }
         private List<HCylinderPalletSolution> GenerateSolutions()
         {

@@ -24,7 +24,6 @@ namespace treeDiM.StackBuilder.Desktop
     {
         #region Data members
         static readonly ILog _log = LogManager.GetLogger(typeof(FormNewAnalysisCasePallet));
-        private AnalysisCasePallet _analysis;
         #endregion
 
         #region Constructor
@@ -40,19 +39,27 @@ namespace treeDiM.StackBuilder.Desktop
         {   get { return Resources.ID_ANALYSIS; } }
         #endregion
 
+        #region Public properties
+        public AnalysisCasePallet AnalysisCast
+        {
+            get { return _item as AnalysisCasePallet; }
+            set { _item = value; }
+        }
+        #endregion
+
         #region Form override
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
-            cbCases.Initialize(_document, this, null != _analysis ? _analysis.Content : null);
-            cbPallets.Initialize(_document, this, null != _analysis ? _analysis.PalletProperties : null);
+            cbCases.Initialize(_document, this, null != AnalysisCast ? AnalysisCast.Content : null);
+            cbPallets.Initialize(_document, this, null != AnalysisCast ? AnalysisCast.PalletProperties : null);
 
             // event handling
             uCtrlLayerList.LayerSelected += onLayerSelected;
             uCtrlLayerList.RefreshFinished += onLayerSelected;
             uCtrlLayerList.ButtonSizes = new Size(100, 100);
 
-            if (null == _analysis)
+            if (null == AnalysisCast)
             {
                 tbName.Text = _document.GetValidNewAnalysisName(ItemDefaultName);
                 tbDescription.Text = tbName.Text;
@@ -132,7 +139,7 @@ namespace treeDiM.StackBuilder.Desktop
         {
             try
             {
-                Layer2D[] layers = uCtrlLayerList.Selected;
+                ILayer2D[] layers = uCtrlLayerList.Selected;
                 UpdateStatus(layers.Length > 0 ? string.Empty : Resources.ID_SELECTATLEASTONELAYOUT);
             }
             catch (Exception ex)
@@ -161,7 +168,7 @@ namespace treeDiM.StackBuilder.Desktop
                 uCtrlLayerList.Packable = packable;
                 uCtrlLayerList.ContainerHeight = uCtrlMaximumHeight.Value - palletProperties.Height;
                 uCtrlLayerList.FirstLayerSelected = true;
-                uCtrlLayerList.LayerList = layers;
+                uCtrlLayerList.LayerList = LayerSolver.ConvertList(layers);
             }
             catch (Exception ex)
             {
@@ -178,7 +185,7 @@ namespace treeDiM.StackBuilder.Desktop
 
                 Solution.SetSolver(new LayerSolver());
 
-                _analysis = _document.CreateNewAnalysisCasePallet(
+                _item = _document.CreateNewAnalysisCasePallet(
                     ItemName, ItemDescription
                     , SelectedBoxProperties, SelectedPallet
                     , new List<InterlayerProperties>()

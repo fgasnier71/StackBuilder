@@ -45,7 +45,6 @@ namespace treeDiM.StackBuilder.Basics
             _truckAnalyses.Add(truckAnalysis);
             AddDependancy(truckAnalysis);
             solver.ProcessAnalysis(truckAnalysis);
-            ParentDocument.NotifyOnNewTruckAnalysisCreated(_analysis, this, truckAnalysis);
             ParentDocument.Modify();
 
             return truckAnalysis;
@@ -67,7 +66,6 @@ namespace treeDiM.StackBuilder.Basics
             truckAnalysis.Solutions = solutions;
             _truckAnalyses.Add(truckAnalysis);
             AddDependancy(truckAnalysis);
-            ParentDocument.NotifyOnNewTruckAnalysisCreated(_analysis, this, truckAnalysis);
             ParentDocument.Modify();
 
             return truckAnalysis;
@@ -97,7 +95,6 @@ namespace treeDiM.StackBuilder.Basics
             ECTAnalysis ectAnalysis = new ECTAnalysis(this.ParentDocument, _analysis, this);
             _ectAnalyses.Add(ectAnalysis);
             AddDependancy(ectAnalysis);
-            ParentDocument.NotifyOnNewECTAnalysisCreated(_analysis, this, ectAnalysis);
             ParentDocument.Modify();
 
             return ectAnalysis;

@@ -10,20 +10,16 @@ using Sharp3D.Math.Core;
 
 namespace treeDiM.StackBuilder.Basics
 {
-    public class ConstraintSetBoxCase : ConstraintSetAbstract
+    #region ConstraintSetPackableCase
+    public abstract class ConstraintSetPackableCase : ConstraintSetAbstract
     {
         #region Data members
-        private Packable _container;
-        private bool[] _axesAllowed = new bool[] { true, true, true };
-        /// <summary>
-        /// logger
-        /// </summary>
-        static readonly ILog _log = LogManager.GetLogger(typeof(ConstraintSetBoxCase));
+        protected Packable _container;
         #endregion
 
         #region Constructor
-        public ConstraintSetBoxCase(Packable container)
-        {
+        public ConstraintSetPackableCase(Packable container)
+        { 
             _container = container;
             if (!container.IsCase)
                 throw new Exception("Invalid container!");
@@ -41,6 +37,43 @@ namespace treeDiM.StackBuilder.Basics
                 return new OptDouble(true, caseProperties.InsideHeight); 
             }
         }
+        public override bool Valid
+        {
+            get { return (!_maxNumber.Activated || (_maxNumber.Value > 0)); }
+        }
+        #endregion
+
+        #region ConstraintSetPackableCase specific
+        public void SetMaxWeight(OptDouble maxWeight)
+        {
+            _maxWeight = maxWeight;
+        }
+        public void SetMaxNumber(int maxNumber)
+        {
+            _maxNumber = new OptInt(true, maxNumber);
+        }
+        #endregion
+    }
+    #endregion
+    #region 
+    public class ConstraintSetBoxCase : ConstraintSetPackableCase
+    {
+        #region Data members
+        private bool[] _axesAllowed = new bool[] { true, true, true };
+        /// <summary>
+        /// logger
+        /// </summary>
+        static readonly ILog _log = LogManager.GetLogger(typeof(ConstraintSetBoxCase));
+        #endregion
+
+        #region Constructor
+        public ConstraintSetBoxCase(Packable container)
+            : base(container)
+        {
+        }
+        #endregion
+
+        #region ConstraintSetAbstract override
         public override bool AllowOrientation(HalfAxis.HAxis axisOrtho)
         {
             switch (axisOrtho)
@@ -58,22 +91,39 @@ namespace treeDiM.StackBuilder.Basics
                     throw new Exception("Invalid axis");
             }
         }
-        public override bool Valid { get { return true; } }
+        public override bool Valid
+        {
+            get
+            {
+                return base.Valid
+                    && ( _axesAllowed[0] || _axesAllowed[1] || _axesAllowed[2]); 
+            } 
+        }
         #endregion
 
         #region ConstraintSetBoxCase specific
-        public void SetMaxWeight(OptDouble maxWeight)
-        {
-            _maxWeight = maxWeight;
-        }
-        public void SetMaxNumber(int maxNumber)
-        {
-            _maxNumber = new OptInt(true, maxNumber);
-        }
         public void SetAllowedOrientations(bool[] axesAllowed)
+        {   _axesAllowed = axesAllowed; }
+        #endregion
+    }
+    #endregion
+
+    #region ConstraintSetCylinderCase
+    public class ConstraintSetCylinderCase : ConstraintSetPackableCase
+    {
+        #region Constructor
+        public ConstraintSetCylinderCase(Packable container)
+            : base(container)
+        { 
+        }
+        #endregion
+
+        #region ConstraintSetAbstract override
+        public override bool AllowOrientation(HalfAxis.HAxis axisOrtho)
         {
-            _axesAllowed = axesAllowed;
+            return (HalfAxis.HAxis.AXIS_Z_N == axisOrtho) || (HalfAxis.HAxis.AXIS_Z_P == axisOrtho);
         }
         #endregion
     }
+    #endregion
 }

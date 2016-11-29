@@ -271,7 +271,7 @@
     <value>1</value>
   </data>
   <data name="uCtrlOptMaximumWeight.Text" xml:space="preserve">
-    <value>Pallet weight reaches</value>
+    <value>Maximum pallet weight</value>
   </data>
   <data name="uCtrlOptMaximumWeight.Value" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
@@ -306,7 +306,7 @@
     <value>2</value>
   </data>
   <data name="uCtrlMaximumHeight.Text" xml:space="preserve">
-    <value>Pallet height reaches</value>
+    <value>Maximum pallet height</value>
   </data>
   <data name="&gt;&gt;uCtrlMaximumHeight.Name" xml:space="preserve">
     <value>uCtrlMaximumHeight</value>
@@ -425,11 +425,14 @@
   <data name="&gt;&gt;uCtrlLayerList.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
+  <data name="checkBoxBestLayersOnly.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
   <data name="checkBoxBestLayersOnly.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="checkBoxBestLayersOnly.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 516</value>
+    <value>5, 516</value>
   </data>
   <data name="checkBoxBestLayersOnly.Size" type="System.Drawing.Size, System.Drawing">
     <value>128, 17</value>
@@ -483,7 +486,7 @@
     <value>17, 92</value>
   </data>
   <data name="uCtrlCaseOrientation.Size" type="System.Drawing.Size, System.Drawing">
-    <value>288, 110</value>
+    <value>292, 110</value>
   </data>
   <data name="uCtrlCaseOrientation.TabIndex" type="System.Int32, mscorlib">
     <value>23</value>
@@ -554,6 +557,29 @@
   <data name="&gt;&gt;tabPageOverhang.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="uCtrlOptSpace.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 7</value>
+  </data>
+  <data name="uCtrlOptSpace.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>200, 20</value>
+  </data>
+  <data name="uCtrlOptSpace.Size" type="System.Drawing.Size, System.Drawing">
+    <value>220, 20</value>
+  </data>
+  <data name="uCtrlOptSpace.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="uCtrlOptSpace.Text" xml:space="preserve">
+    <value>Space</value>
+  </data>
+  <data name="uCtrlOptSpace.Value" mimetype="application/x-microsoft.net.object.binary.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAFJ0cmVlRGlNLlN0YWNrQnVpbGRlci5CYXNpY3MsIFZlcnNpb249
+        My4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1udWxsBQEAAAAldHJlZURpTS5T
+        dGFja0J1aWxkZXIuQmFzaWNzLk9wdERvdWJsZQIAAAAKX2FjdGl2YXRlZARfdmFsAAABBgIAAAAAAAAA
+        AAAAAAAL
+</value>
+  </data>
   <data name="&gt;&gt;uCtrlOptSpace.Name" xml:space="preserve">
     <value>uCtrlOptSpace</value>
   </data>
@@ -593,6 +619,64 @@
   <data name="&gt;&gt;tabPageSpaces.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
+  <data name="uCtrlOptMaximumLayerWeight.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 31</value>
+  </data>
+  <data name="uCtrlOptMaximumLayerWeight.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>100, 20</value>
+  </data>
+  <data name="uCtrlOptMaximumLayerWeight.Size" type="System.Drawing.Size, System.Drawing">
+    <value>268, 20</value>
+  </data>
+  <data name="uCtrlOptMaximumLayerWeight.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="uCtrlOptMaximumLayerWeight.Text" xml:space="preserve">
+    <value>Maximum layer weight</value>
+  </data>
+  <data name="uCtrlOptMaximumLayerWeight.Value" mimetype="application/x-microsoft.net.object.binary.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAFJ0cmVlRGlNLlN0YWNrQnVpbGRlci5CYXNpY3MsIFZlcnNpb249
+        My4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1udWxsBQEAAAAldHJlZURpTS5T
+        dGFja0J1aWxkZXIuQmFzaWNzLk9wdERvdWJsZQIAAAAKX2FjdGl2YXRlZARfdmFsAAABBgIAAAAAAAAA
+        AAAAAAAL
+</value>
+  </data>
+  <data name="&gt;&gt;uCtrlOptMaximumLayerWeight.Name" xml:space="preserve">
+    <value>uCtrlOptMaximumLayerWeight</value>
+  </data>
+  <data name="&gt;&gt;uCtrlOptMaximumLayerWeight.Type" xml:space="preserve">
+    <value>treeDiM.StackBuilder.Basics.UCtrlOptDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;uCtrlOptMaximumLayerWeight.Parent" xml:space="preserve">
+    <value>tabPageLayerFilters</value>
+  </data>
+  <data name="&gt;&gt;uCtrlOptMaximumLayerWeight.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="uCtrlOptMaximumSpace.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 7</value>
+  </data>
+  <data name="uCtrlOptMaximumSpace.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>200, 20</value>
+  </data>
+  <data name="uCtrlOptMaximumSpace.Size" type="System.Drawing.Size, System.Drawing">
+    <value>268, 20</value>
+  </data>
+  <data name="uCtrlOptMaximumSpace.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="uCtrlOptMaximumSpace.Text" xml:space="preserve">
+    <value>Maximum space</value>
+  </data>
+  <data name="uCtrlOptMaximumSpace.Value" mimetype="application/x-microsoft.net.object.binary.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAFJ0cmVlRGlNLlN0YWNrQnVpbGRlci5CYXNpY3MsIFZlcnNpb249
+        My4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1udWxsBQEAAAAldHJlZURpTS5T
+        dGFja0J1aWxkZXIuQmFzaWNzLk9wdERvdWJsZQIAAAAKX2FjdGl2YXRlZARfdmFsAAABBgIAAAAAAAAA
+        AAAAAAAL
+</value>
+  </data>
   <data name="&gt;&gt;uCtrlOptMaximumSpace.Name" xml:space="preserve">
     <value>uCtrlOptMaximumSpace</value>
   </data>
@@ -603,7 +687,7 @@
     <value>tabPageLayerFilters</value>
   </data>
   <data name="&gt;&gt;uCtrlOptMaximumSpace.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="tabPageLayerFilters.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 22</value>
@@ -615,7 +699,7 @@
     <value>3</value>
   </data>
   <data name="tabPageLayerFilters.Text" xml:space="preserve">
-    <value>Filters</value>
+    <value>Layer filters</value>
   </data>
   <data name="&gt;&gt;tabPageLayerFilters.Name" xml:space="preserve">
     <value>tabPageLayerFilters</value>
@@ -648,76 +732,6 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;tabCtrlConstraints.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="uCtrlOptSpace.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 7</value>
-  </data>
-  <data name="uCtrlOptSpace.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>200, 20</value>
-  </data>
-  <data name="uCtrlOptSpace.Size" type="System.Drawing.Size, System.Drawing">
-    <value>220, 20</value>
-  </data>
-  <data name="uCtrlOptSpace.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="uCtrlOptSpace.Text" xml:space="preserve">
-    <value>Space</value>
-  </data>
-  <data name="uCtrlOptSpace.Value" mimetype="application/x-microsoft.net.object.binary.base64">
-    <value>
-        AAEAAAD/////AQAAAAAAAAAMAgAAAFJ0cmVlRGlNLlN0YWNrQnVpbGRlci5CYXNpY3MsIFZlcnNpb249
-        My4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1udWxsBQEAAAAldHJlZURpTS5T
-        dGFja0J1aWxkZXIuQmFzaWNzLk9wdERvdWJsZQIAAAAKX2FjdGl2YXRlZARfdmFsAAABBgIAAAAAAAAA
-        AAAAAAAL
-</value>
-  </data>
-  <data name="&gt;&gt;uCtrlOptSpace.Name" xml:space="preserve">
-    <value>uCtrlOptSpace</value>
-  </data>
-  <data name="&gt;&gt;uCtrlOptSpace.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlOptDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;uCtrlOptSpace.Parent" xml:space="preserve">
-    <value>tabPageSpaces</value>
-  </data>
-  <data name="&gt;&gt;uCtrlOptSpace.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="uCtrlOptMaximumSpace.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 7</value>
-  </data>
-  <data name="uCtrlOptMaximumSpace.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>200, 20</value>
-  </data>
-  <data name="uCtrlOptMaximumSpace.Size" type="System.Drawing.Size, System.Drawing">
-    <value>220, 20</value>
-  </data>
-  <data name="uCtrlOptMaximumSpace.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="uCtrlOptMaximumSpace.Text" xml:space="preserve">
-    <value>Maximum space</value>
-  </data>
-  <data name="uCtrlOptMaximumSpace.Value" mimetype="application/x-microsoft.net.object.binary.base64">
-    <value>
-        AAEAAAD/////AQAAAAAAAAAMAgAAAFJ0cmVlRGlNLlN0YWNrQnVpbGRlci5CYXNpY3MsIFZlcnNpb249
-        My4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1udWxsBQEAAAAldHJlZURpTS5T
-        dGFja0J1aWxkZXIuQmFzaWNzLk9wdERvdWJsZQIAAAAKX2FjdGl2YXRlZARfdmFsAAABBgIAAAAAAAAA
-        AAAAAAAL
-</value>
-  </data>
-  <data name="&gt;&gt;uCtrlOptMaximumSpace.Name" xml:space="preserve">
-    <value>uCtrlOptMaximumSpace</value>
-  </data>
-  <data name="&gt;&gt;uCtrlOptMaximumSpace.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlOptDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;uCtrlOptMaximumSpace.Parent" xml:space="preserve">
-    <value>tabPageLayerFilters</value>
-  </data>
-  <data name="&gt;&gt;uCtrlOptMaximumSpace.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">

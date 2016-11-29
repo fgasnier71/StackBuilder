@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+
 using treeDiM.StackBuilder.Basics;
 
 using Sharp3D.Math.Core;
@@ -32,17 +33,17 @@ namespace treeDiM.StackBuilder.Engine
         protected double GetPalletLength(Layer2D layer)
         {
             if (!layer.Swapped)
-                return layer.PalletLength;
+                return layer.Length;
             else
-                return layer.PalletWidth;
+                return layer.Width;
         }
 
         protected double GetPalletWidth(Layer2D layer)
         { 
             if (!layer.Swapped)
-                return layer.PalletWidth;
+                return layer.Width;
             else
-                return layer.PalletLength;        
+                return layer.Length;        
         }
 
         public bool GetLayerDimensionsChecked(Layer2D layer, out double actualLength, out double actualWidth)
@@ -70,7 +71,7 @@ namespace treeDiM.StackBuilder.Engine
                     , 0.0, 0.0, 1.0, 0.0
                     , 0.0, 0.0, 0.0, 1.0
                     );
-                vTranslation = new Vector3D(layer.PalletLength, 0.0, 0.0);
+                vTranslation = new Vector3D(layer.Length, 0.0, 0.0);
             }
             Transform3D transfRot = new Transform3D(matRot);
             HalfAxis.HAxis lengthAxisSwapped = StackBuilder.Basics.HalfAxis.ToHalfAxis(transfRot.transform(StackBuilder.Basics.HalfAxis.ToVector3D(lengthAxis)));
@@ -122,7 +123,6 @@ namespace treeDiM.StackBuilder.Engine
         #endregion
 
         #region Data members
-        protected static readonly ILog _log = LogManager.GetLogger(typeof(LayerPattern));
         private static LayerPattern[] _allPatterns = {
             new LayerPatternColumn()
             , new LayerPatternInterlocked()
@@ -133,6 +133,7 @@ namespace treeDiM.StackBuilder.Engine
             , new LayerPatternSpirale()
             , new LayerPatternEnlargedSpirale()
         };
+        protected static readonly ILog _log = LogManager.GetLogger(typeof(LayerPattern));
         #endregion
     }
 }

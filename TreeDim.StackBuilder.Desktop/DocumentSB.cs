@@ -8,6 +8,9 @@ using System.Windows.Forms;
 using treeDiM.StackBuilder.Basics;
 using treeDiM.StackBuilder.Engine;
 using treeDiM.StackBuilder.Reporting;
+
+// Docking
+using WeifenLuo.WinFormsUI.Docking;
 #endregion
 
 namespace treeDiM.StackBuilder.Desktop
@@ -107,35 +110,23 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region View creation methods
-        public DockContentAnalysisCasePallet CreateViewAnalysisCasePallet(AnalysisCasePallet analysis)
+        public DockContentView CreateViewAnalysis(Analysis analysis)
         {
-            DockContentAnalysisCasePallet form = new DockContentAnalysisCasePallet(this, analysis);
+            DockContentView form = null;
+            if (analysis is AnalysisCasePallet) form = new DockContentAnalysisCasePallet(this, analysis as AnalysisCasePallet);
+            else if (analysis is AnalysisBoxCase) form = new DockContentAnalysisBoxCase(this, analysis as AnalysisBoxCase);
+            else if (analysis is AnalysisPalletTruck) form = new DockContentAnalysisPalletTruck(this, analysis as AnalysisPalletTruck);
+            else if (analysis is AnalysisCylinderPallet) form = new DockContentAnalysisCylinderPallet(this, analysis as AnalysisCylinderPallet);
+            else if (analysis is AnalysisCylinderCase) form = new DockContentAnalysisCylinderCase(this, analysis as AnalysisCylinderCase);
+            else
+            {
+                _log.Error(string.Format("Analysis ({0}) type not handled", analysis.Name));
+                return null;
+            }
             AddView(form);
             return form;
         }
-        public DockContentAnalysisBoxCase CreateViewAnalysisBoxCase(AnalysisBoxCase analysis)
-        {
-            DockContentAnalysisBoxCase form = new DockContentAnalysisBoxCase(this, analysis);
-            AddView(form);
-            return form;
-        }
-        /// <summary>
-        /// Creates new DockContentAnalysis view
-        /// </summary>
-        /// <param name="analysis">Case pallet analysis to view</param>
-        /// <returns></returns>
-        public DockContentCasePalletAnalysis CreateAnalysisViewCasePallet(CasePalletAnalysis analysis)
-        {
-            DockContentCasePalletAnalysis form = new DockContentCasePalletAnalysis(this, analysis);
-            AddView(form);
-            return form;
-        }
-        public DockContentPackPalletAnalysis CreateAnalysisViewPackPallet(PackPalletAnalysis analysis)
-        {
-            DockContentPackPalletAnalysis form = new DockContentPackPalletAnalysis(this, analysis);
-            AddView(form);
-            return form;
-        }
+
         /// <summary>
         /// Creates new DockContentAnalysis view
         /// </summary>
@@ -382,68 +373,7 @@ namespace treeDiM.StackBuilder.Desktop
             if (!CanCreateCasePalletAnalysis) return null;
 
             FormNewAnalysisCasePallet form = new FormNewAnalysisCasePallet(this, null);
-            if (DialogResult.OK == form.ShowDialog())
-            {
-            }
-            /*
-            FormNewAnalysis form = new FormNewAnalysis(this);
-            form.Cases = Cases.ToArray();
-            form.Pallets = Pallets.ToArray();
-            form.Interlayers = Interlayers.ToArray();
-            form.PalletCorners = ListByType(typeof(PalletCornerProperties)).ToArray();
-            form.PalletCaps = ListByType(typeof(PalletCapProperties)).ToArray();
-            form.PalletFilms = ListByType(typeof(PalletFilmProperties)).ToArray();
-
-            if (DialogResult.OK == form.ShowDialog())
-            {
-                // build constraint set
-                CasePalletConstraintSet constraintSet = new CasePalletConstraintSet();
-                // overhang / underhang
-                constraintSet.OverhangX = form.OverhangX;
-                constraintSet.OverhangY = form.OverhangY;
-                // allowed axes
-                constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_X_N, form.AllowVerticalX);
-                constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_X_P, form.AllowVerticalX);
-                constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Y_N, form.AllowVerticalY);
-                constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Y_P, form.AllowVerticalY);
-                constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Z_N, form.AllowVerticalZ);
-                constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Z_P, form.AllowVerticalZ);
-                // allowed patterns
-                constraintSet.ClearAllowedPatterns();
-                foreach (string s in form.AllowedPatterns)
-                    constraintSet.SetAllowedPattern(s);
-                // allow alternate layer
-                constraintSet.AllowAlternateLayers = form.AllowAlternateLayers;
-                constraintSet.AllowAlignedLayers = form.AllowAlignedLayers;
-                // interlayers
-                constraintSet.HasInterlayer = form.HasInterlayers;
-                constraintSet.InterlayerPeriod = form.InterlayerPeriod;
-                constraintSet.HasInterlayerAntiSlip = form.HasInterlayerAntiSlip;
-                // stop criterion
-                constraintSet.UseMaximumHeight = form.UseMaximumPalletHeight;
-                constraintSet.UseMaximumNumberOfCases = form.UseMaximumNumberOfBoxes;
-                constraintSet.UseMaximumPalletWeight = form.UseMaximumPalletWeight;
-                constraintSet.UseMaximumWeightOnBox = form.UseMaximumLoadOnBox;
-                constraintSet.MaximumHeight = form.MaximumPalletHeight;
-                constraintSet.MaximumNumberOfItems = form.MaximumNumberOfBoxes;
-                constraintSet.MaximumPalletWeight = form.MaximumPalletWeight;
-                constraintSet.MaximumWeightOnBox = form.MaximumLoadOnBox;
-                // number of solution kept
-                constraintSet.UseNumberOfSolutionsKept = Properties.Settings.Default.KeepBestSolutions;
-                if (constraintSet.UseNumberOfSolutionsKept)
-                    constraintSet.NumberOfSolutionsKept = Properties.Settings.Default.NoSolutionsToKeep;
-                // number of pallet film turns
-                constraintSet.PalletFilmTurns = form.PalletFilmTurns;
-
-                return CreateNewCasePalletAnalysis(
-                    form.AnalysisName, form.AnalysisDescription,
-                    form.SelectedBox, form.SelectedPallet,
-                    form.SelectedInterlayer, form.SelectedInterlayerAntiSlip,
-                    form.SelectedPalletCorners, form.SelectedPalletCap, form.SelectedPalletFilm,
-                    constraintSet,
-                    new CasePalletSolver());
-            }
-            */ 
+            if (DialogResult.OK == form.ShowDialog()) {}
             return null;
         }
 
@@ -452,86 +382,14 @@ namespace treeDiM.StackBuilder.Desktop
             if (!CanCreateBoxCaseAnalysis) return null;
 
             FormNewAnalysisBoxCase form = new FormNewAnalysisBoxCase(this, null);
-            if (DialogResult.OK == form.ShowDialog())
-            {
-            }
-            return null;
-                /*
-                // build constraint set
-                BoxCaseConstraintSet constraintSet = new BoxCaseConstraintSet();
-                // allowed axes
-                constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_X_N, form.AllowVerticalX);
-                constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_X_P, form.AllowVerticalX);
-                constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Y_N, form.AllowVerticalY);
-                constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Y_P, form.AllowVerticalY);
-                constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Z_N, form.AllowVerticalZ);
-                constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Z_P, form.AllowVerticalZ);
-                // maximum case weight
-                constraintSet.UseMaximumCaseWeight = form.UseMaximumCaseWeight;
-                constraintSet.MaximumCaseWeight = form.MaximumCaseWeight;
-                // maximum number of items
-                constraintSet.UseMaximumNumberOfBoxes = form.UseMaximumNumberOfBoxes;
-                constraintSet.MaximumNumberOfBoxes = form.MaximumNumberOfBoxes;
-
-                return CreateNewBoxCaseAnalysis(form.AnalysisName, form.AnalysisDescription
-                    , form.SelectedBox, form.SelectedCase
-                    , constraintSet
-                    , new BoxCaseSolver());
-                 */
-        }
-
-        public BoxCaseAnalysis CreateNewBundleCaseAnalysisUI()
-        {
-            FormNewAnalysisBundleCase form = new FormNewAnalysisBundleCase(this, null);
-            if (DialogResult.OK == form.ShowDialog())
-            { 
-                // build constraint set
-                BundleCaseConstraintSet constraintSet = new BundleCaseConstraintSet();
-                // maximum case weight
-                constraintSet.UseMaximumCaseWeight = form.UseMaximumCaseWeight;
-                constraintSet.MaximumCaseWeight = form.MaximumCaseWeight;
-                // maximum number of items
-                constraintSet.UseMaximumNumberOfBoxes = form.UseMaximumNumberOfBoxes;
-                constraintSet.MaximumNumberOfBoxes = form.MaximumNumberOfBoxes;
-
-                return CreateNewBoxCaseAnalysis(
-                    form.ItemName, form.ItemDescription
-                    , form.SelectedBundle, form.SelectedCase
-                    , constraintSet
-                    , new BoxCaseSolver());
-            }
+            if (DialogResult.OK == form.ShowDialog()) {}
             return null;
         }
-
         public CylinderPalletAnalysis CreateNewCylinderPalletAnalysisUI()
         {
-            FormNewAnalysisCylinder form = new FormNewAnalysisCylinder(this);
-            form.Cylinders = Cylinders.ToArray();
-            form.Pallets = Pallets.ToArray();
-            form.Interlayers = Interlayers.ToArray();
-
-            if (DialogResult.OK == form.ShowDialog())
-            {
-                // build constraint set
-                CylinderPalletConstraintSet constraintSet = new CylinderPalletConstraintSet();
-                // interlayer period
-                constraintSet.HasInterlayer = form.HasInterlayer;
-                constraintSet.InterlayerPeriod = form.InterlayerPeriod;
-                constraintSet.HasInterlayerAntiSlip = form.HasInterlayerAntiSlip;
-                // stop criterion
-                constraintSet.UseMaximumPalletHeight = form.UseMaximumPalletHeight;
-                constraintSet.MaximumPalletHeight = form.MaximumPalletHeight;
-                constraintSet.UseMaximumPalletWeight = form.UseMaximumPalletWeight;
-                constraintSet.MaximumPalletWeight = form.MaximumPalletWeight;
-                constraintSet.UseMaximumNumberOfItems = form.UseMaximumNumberOfItems;
-                constraintSet.MaximumNumberOfItems = form.MaximumNumberOfItems;
-
-                return CreateNewCylinderPalletAnalysis(form.AnalysisName, form.AnalysisDescription
-                    , form.SelectedCylinder, form.SelectedPallet
-                    , form.SelectedInterlayer, form.SelectedInterlayerAntiSlip
-                    , constraintSet
-                    , new CylinderSolver());
-            }
+            if (!CanCreateCylinderCaseAnalysis) return null;
+            FormNewAnalysisCylinderCase form = new FormNewAnalysisCylinderCase(this, null);
+            if (DialogResult.OK == form.ShowDialog()) {}
             return null;
         }
         public HCylinderPalletAnalysis CreateNewHCylinderPalletAnalysisUI()
@@ -618,6 +476,9 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region UI item edition
+        public void EditAnalysis(Analysis analysis)
+        { 
+        }
         /// <summary>
         /// Edit specified pallet analysis
         /// </summary>

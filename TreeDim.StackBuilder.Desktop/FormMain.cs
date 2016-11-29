@@ -261,6 +261,7 @@ namespace treeDiM.StackBuilder.Desktop
         // ### AnalysisNodeClicked
         void DocumentTreeView_NodeClicked(object sender, AnalysisTreeViewEventArgs eventArg)
         {
+/*
             if ((null == eventArg.ItemBase) && (null != eventArg.Analysis)
                 && (null == eventArg.TruckAnalysis) && (null == eventArg.ECTAnalysis))
             {
@@ -288,6 +289,12 @@ namespace treeDiM.StackBuilder.Desktop
             {
                 CreateOrActivateViewHCylinderPalletAnalysis(eventArg.HCylinderAnalysis);
             }
+*/
+            if (null == eventArg.Analysis)
+            {
+                AnalysisCasePallet analysisCasePallet = eventArg.Analysis as AnalysisCasePallet;
+                if (null != analysisCasePallet) CreateOrActivateViewAnalysis(analysisCasePallet);
+            }
             else if (null != eventArg.ItemBase)
             {
                 ItemBase itemProp = eventArg.ItemBase;
@@ -298,12 +305,12 @@ namespace treeDiM.StackBuilder.Desktop
                     if (DialogResult.OK == form.ShowDialog())
                     {
                         if (!UserAcknowledgeDependancies(box)) return;
-                        box.ID.SetNameDesc( form.BoxName, form.Description);
-                        box.SetLength( form.BoxLength );
-                        box.SetWidth( form.BoxWidth );
-                        box.SetHeight( form.BoxHeight );
-                        box.SetWeight( form.Weight );
-                        box.SetNetWeight( form.NetWeight );
+                        box.ID.SetNameDesc(form.BoxName, form.Description);
+                        box.SetLength(form.BoxLength);
+                        box.SetWidth(form.BoxWidth);
+                        box.SetHeight(form.BoxHeight);
+                        box.SetWeight(form.Weight);
+                        box.SetNetWeight(form.NetWeight);
                         box.InsideLength = form.InsideLength;
                         box.InsideWidth = form.InsideWidth;
                         box.InsideHeight = form.InsideHeight;
@@ -324,7 +331,7 @@ namespace treeDiM.StackBuilder.Desktop
                     if (DialogResult.OK == form.ShowDialog())
                     {
                         if (!UserAcknowledgeDependancies(pack)) return;
-                        pack.ID.SetNameDesc( form.ItemName, form.ItemDescription);
+                        pack.ID.SetNameDesc(form.ItemName, form.ItemDescription);
                         pack.Box = form.SelectedBox;
                         pack.BoxOrientation = form.BoxOrientation;
                         pack.Arrangement = form.Arrangement;
@@ -341,7 +348,7 @@ namespace treeDiM.StackBuilder.Desktop
                     if (form.ShowDialog() == DialogResult.OK)
                     {
                         if (!UserAcknowledgeDependancies(cylinderProperties)) return;
-                        cylinderProperties.ID.SetNameDesc( form.CylinderName, form.Description);
+                        cylinderProperties.ID.SetNameDesc(form.CylinderName, form.Description);
                         cylinderProperties.RadiusOuter = form.RadiusOuter;
                         cylinderProperties.RadiusInner = form.RadiusInner;
                         cylinderProperties.Height = form.CylinderHeight;
@@ -375,9 +382,9 @@ namespace treeDiM.StackBuilder.Desktop
                     if (DialogResult.OK == form.ShowDialog())
                     {
                         if (!UserAcknowledgeDependancies(bundle)) return;
-                        bundle.ID.SetNameDesc( form.BundleName, form.Description);
-                        bundle.SetLength( form.BundleLength );
-                        bundle.SetWidth( form.BundleWidth );
+                        bundle.ID.SetNameDesc(form.BundleName, form.Description);
+                        bundle.SetLength(form.BundleLength);
+                        bundle.SetWidth(form.BundleWidth);
                         bundle.UnitThickness = form.UnitThickness;
                         bundle.UnitWeight = form.UnitWeight;
                         bundle.NoFlats = form.NoFlats;
@@ -440,12 +447,12 @@ namespace treeDiM.StackBuilder.Desktop
                     if (DialogResult.OK == form.ShowDialog())
                     {
                         if (!UserAcknowledgeDependancies(corner)) return;
-                        corner.ID.SetNameDesc( form.ItemName, form.ItemDescription);
+                        corner.ID.SetNameDesc(form.ItemName, form.ItemDescription);
                         corner.Length = form.CornerLength;
                         corner.Width = form.CornerWidth;
                         corner.Thickness = form.CornerThickness;
                         corner.Color = form.CornerColor;
-                        corner.EndUpdate();                    
+                        corner.EndUpdate();
                     }
                 }
                 else if (itemProp.GetType() == typeof(PalletCapProperties))
@@ -472,7 +479,7 @@ namespace treeDiM.StackBuilder.Desktop
                     FormNewPalletFilm form = new FormNewPalletFilm(eventArg.Document, film);
                     if (DialogResult.OK == form.ShowDialog())
                     {
-                        film.ID.SetNameDesc( form.ItemName, form.ItemDescription);
+                        film.ID.SetNameDesc(form.ItemName, form.ItemDescription);
                         film.UseTransparency = form.UseTransparency;
                         film.UseHatching = form.UseHatching;
                         film.HatchSpacing = form.HatchSpacing;
@@ -532,14 +539,14 @@ namespace treeDiM.StackBuilder.Desktop
             return nameCopy;
         }
 
-        public static void GenerateReport(Solution solution)
+        public static void GenerateReport(Analysis analysis)
         {
             try
             {
                 // save file dialog
                 SaveFileDialog dlg = new SaveFileDialog();
                 dlg.InitialDirectory = Properties.Settings.Default.ReportInitialDirectory;
-                dlg.FileName = Path.ChangeExtension(CleanString(solution.Analysis.Name), "doc");
+                dlg.FileName = Path.ChangeExtension(CleanString(analysis.Name), "doc");
                 dlg.Filter = Resources.ID_FILTER_MSWORD;
                 dlg.DefaultExt = "doc";
                 dlg.ValidateNames = true;
@@ -553,7 +560,7 @@ namespace treeDiM.StackBuilder.Desktop
                     // getting current culture
                     string cultAbbrev = System.Globalization.CultureInfo.CurrentCulture.ThreeLetterWindowsLanguageName;
                     // build report
-                    ReportData reportObject = new ReportData(solution);
+                    ReportData reportObject = new ReportData(analysis);
                     Reporter.CompanyLogo = Properties.Settings.Default.CompanyLogoPath;
                     Reporter.ImageSizeSetting = (Reporter.eImageSize)Properties.Settings.Default.ReporterImageSize;
                     ReporterMSWord reporter = new ReporterMSWord(
@@ -607,14 +614,7 @@ namespace treeDiM.StackBuilder.Desktop
                     // getting current culture
                     string cultAbbrev = System.Globalization.CultureInfo.CurrentCulture.ThreeLetterWindowsLanguageName;
                     // build report
-                    ReportData reportObject = new ReportData(
-                            eventArg.Analysis, eventArg.SelSolution
-                            , eventArg.CylinderAnalysis, eventArg.SelCylinderPalletSolution
-                            , eventArg.HCylinderAnalysis, eventArg.SelHCylinderPalletSolution
-                            , eventArg.BoxCaseAnalysis, eventArg.SelBoxCaseSolution
-                            , eventArg.BoxCasePalletAnalysis, eventArg.SelBoxCasePalletSolution
-                            , eventArg.PackPalletAnalysis, eventArg.SelPackPalletSolution
-                            );
+                    ReportData reportObject = new ReportData(eventArg.Analysis);
                     Reporter.CompanyLogo = Properties.Settings.Default.CompanyLogoPath;
                     Reporter.ImageSizeSetting = (Reporter.eImageSize)Properties.Settings.Default.ReporterImageSize;
                     ReporterMSWord reporter = new ReporterMSWord(
@@ -665,14 +665,7 @@ namespace treeDiM.StackBuilder.Desktop
                 // getting current culture
                 string cultAbbrev = System.Globalization.CultureInfo.CurrentCulture.ThreeLetterWindowsLanguageName;
                 // build report
-                ReportData reportObject = new ReportData(
-                        eventArg.Analysis, eventArg.SelSolution
-                        , eventArg.CylinderAnalysis, eventArg.SelCylinderPalletSolution
-                        , eventArg.HCylinderAnalysis, eventArg.SelHCylinderPalletSolution
-                        , eventArg.BoxCaseAnalysis, eventArg.SelBoxCaseSolution
-                        , eventArg.BoxCasePalletAnalysis, eventArg.SelBoxCasePalletSolution
-                        , eventArg.PackPalletAnalysis, eventArg.SelPackPalletSolution
-                        );
+                ReportData reportObject = new ReportData(eventArg.Analysis);
                 Reporter.CompanyLogo = Properties.Settings.Default.CompanyLogoPath;
                 Reporter.ImageSizeSetting = (Reporter.eImageSize)Properties.Settings.Default.ReporterImageSize;
                 ReporterHtml reporter = new ReporterHtml(
@@ -751,23 +744,9 @@ namespace treeDiM.StackBuilder.Desktop
             {
                 DocumentSB doc = eventArg.Document as DocumentSB;
                 if ((null != doc) && (null != eventArg.Analysis))
-                    doc.EditCasePalletAnalysis(eventArg.Analysis);
-                CreateOrActivateViewCasePalletAnalysis(eventArg.Analysis);
-            }
-            catch (Exception ex)
-            {
-                _log.Error(ex.ToString()); Program.SendCrashReport(ex);
-            }
-        }
-
-        void DocumentTreeView_MenuEditCylinderAnalysis(object sender, AnalysisTreeViewEventArgs eventArg)
-        {
-            try
-            {
-                DocumentSB doc = eventArg.Document as DocumentSB;
-                if ((null != doc) && (null != eventArg.CylinderAnalysis))
-                    doc.EditCylinderPalletAnalysis(eventArg.CylinderAnalysis);
-                CreateOrActivateViewCylinderPalletAnalysis(eventArg.CylinderAnalysis);
+                    doc.EditAnalysis(eventArg.Analysis);
+                CreateOrActivateViewAnalysis(eventArg.Analysis);
+                      
             }
             catch (Exception ex)
             {
@@ -1079,26 +1058,6 @@ namespace treeDiM.StackBuilder.Desktop
         {
             CreateOrActivateViewAnalysis( analysis );
         }
-        public void OnNewCasePalletAnalysisCreated(Document doc, CasePalletAnalysis analysis)
-        {
-            CaseOfBoxesProperties caseOfBoxes = analysis.BProperties as CaseOfBoxesProperties;
-            if (null != caseOfBoxes)
-                CreateOrActivateViewPalletAnalysisWithBox(analysis);
-            else
-                CreateOrActivateViewCasePalletAnalysis(analysis); 
-        }
-        public void OnNewPackPalletAnalysisCreated(Document doc, PackPalletAnalysis analysis)
-        {
-            CreateOrActivateViewPackPalletAnalysis(analysis);
-        }
-        public void OnNewCylinderPalletAnalysisCreated(Document doc, CylinderPalletAnalysis analysis)
-        {
-            CreateOrActivateViewCylinderPalletAnalysis(analysis);
-        }
-        public void OnNewHCylinderPalletAnalysisCreated(Document doc, HCylinderPalletAnalysis analysis)
-        {
-            CreateOrActivateViewHCylinderPalletAnalysis(analysis);
-        }
         public void OnNewBoxCasePalletAnalysisCreated(Document doc, BoxCasePalletAnalysis caseAnalysis)
         {
             CreateOrActivateViewCaseAnalysis(caseAnalysis); 
@@ -1109,19 +1068,9 @@ namespace treeDiM.StackBuilder.Desktop
         }
         public void OnNewTruckAnalysisCreated(Document doc, CasePalletAnalysis analysis, SelCasePalletSolution selSolution, TruckAnalysis truckAnalysis) { CreateOrActivateViewTruckAnalysis(truckAnalysis); }
         public void OnNewECTAnalysisCreated(Document doc, CasePalletAnalysis analysis, SelCasePalletSolution selSolution, ECTAnalysis ectAnalysis) {  }
-        //public void OnNewSolutionAdded(Document doc, PalletAnalysis analysis, SelSolution selectedSolution) { }
-        //public void OnNewCaseSolutionAdded(Document doc, CaseAnalysis analysis, SelCaseSolution selectedSolution) { }
         // remove
         public void OnTypeRemoved(Document doc, ItemBase itemBase) { }
         public void OnAnalysisRemoved(Document doc, ItemBase itemBase) { }
-/*
-        public void OnCasePalletAnalysisRemoved(Document doc, CasePalletAnalysis analysis) { }
-        public void OnBoxCaseAnalysisRemoved(Document doc, BoxCaseAnalysis boxCaseAnalysis) { }
-        public void OnCaseAnalysisRemoved(Document doc, BoxCasePalletAnalysis caseAnalysis) { }
-        public void OnCaseAnalysisRemoved(Document doc, CasePalletAnalysis caseAnalysis) { }
-*/ 
-        //public void OnSolutionRemoved(Document doc, PalletAnalysis analysis, SelSolution selectedSolution) { }
-        //public void OnCaseAnalysisSolutionRemoved(Document doc, CaseAnalysis caseAnalysis, SelCaseSolution selectedSolution) { }
         public void OnTruckAnalysisRemoved(Document doc, CasePalletAnalysis analysis, SelCasePalletSolution selSolution, TruckAnalysis truckAnalysis) { }
         public void OnECTAnalysisRemoved(Document doc, CasePalletAnalysis analysis, SelCasePalletSolution selSolution, ECTAnalysis ectAnalysis) { }
 
@@ -1239,11 +1188,6 @@ namespace treeDiM.StackBuilder.Desktop
             try { BoxCaseAnalysis analysis = ((DocumentSB)ActiveDocument).CreateNewBoxCaseAnalysisUI(); }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
-        private void toolAddNewBundleCaseAnalysis(object sender, EventArgs e)
-        {
-            try { BoxCaseAnalysis analysis = ((DocumentSB)ActiveDocument).CreateNewBundleCaseAnalysisUI(); }
-            catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
-        }      
         private void toolAddNewCylinderPalletAnalysis(object sender, EventArgs e)
         {
             try { CylinderPalletAnalysis analysis = ((DocumentSB)ActiveDocument).CreateNewCylinderPalletAnalysisUI(); }
@@ -1332,6 +1276,7 @@ namespace treeDiM.StackBuilder.Desktop
         { 
             AnalysisCasePallet analysisCasePallet = analysis as AnalysisCasePallet;
             AnalysisBoxCase analysisBoxCase = analysis as AnalysisBoxCase;
+            AnalysisPalletTruck analysisPalletTruck = analysis as AnalysisPalletTruck;
 
             // ---> search among existing views
             // ---> activate if found
@@ -1358,140 +1303,27 @@ namespace treeDiM.StackBuilder.Desktop
                             return;
                         }
                     }
+                    else if (null != analysisPalletTruck)
+                    {
+                        DockContentAnalysisPalletTruck form = view as DockContentAnalysisPalletTruck;
+                        if (null == form) continue;
+                        if (analysisPalletTruck == form.Analysis)
+                        {
+                            form.Activate();
+                            return;
+                        }
+                    }
                 }
 
-            // ---> not found
-            // ---> create new form
+            // ---> not found : create new form
             // get document
             DocumentSB parentDocument = (DocumentSB)analysis.ParentDocument;
-            if (null != analysisCasePallet)
-            {
-                DockContentAnalysisCasePallet formAnalysis = parentDocument.CreateViewAnalysisCasePallet(analysisCasePallet);
+            // create form and show
+            DockContentView formAnalysis = parentDocument.CreateViewAnalysis(analysis);
+            if (null != formAnalysis)
                 formAnalysis.Show(dockPanel, WeifenLuo.WinFormsUI.Docking.DockState.Document);
-            }
-            else if (null != analysisBoxCase)
-            {
-                DockContentAnalysisBoxCase formAnalysis = parentDocument.CreateViewAnalysisBoxCase(analysisBoxCase);
-                formAnalysis.Show(dockPanel, WeifenLuo.WinFormsUI.Docking.DockState.Document);
-            }
         }
 
-        /// <summary>
-        /// Creates or activate a pallet analysis view
-        /// </summary>
-        public void CreateOrActivateViewCasePalletAnalysis(CasePalletAnalysis analysis)
-        {
-            // ---> search among existing views
-            // ---> activate if found
-            foreach (IDocument doc in Documents)
-                foreach (IView view in doc.Views)
-                {
-                    DockContentCasePalletAnalysis form = view as DockContentCasePalletAnalysis;
-                    if (null == form) continue;
-                    if (analysis == form.Analysis)
-                    {
-                        form.Activate();
-                        return;
-                    }
-                }
-            // ---> not found
-            // ---> create new form
-            // get document
-            DocumentSB parentDocument = (DocumentSB)analysis.ParentDocument;
-            DockContentCasePalletAnalysis formAnalysis = parentDocument.CreateAnalysisViewCasePallet(analysis);
-            formAnalysis.Show(dockPanel, WeifenLuo.WinFormsUI.Docking.DockState.Document);
-        }
-        public void CreateOrActivateViewPackPalletAnalysis(PackPalletAnalysis analysis)
-        {
-            // ---> search among existing views
-            // ---> activate if found
-            foreach (IDocument doc in Documents)
-                foreach (IView view in doc.Views)
-                {
-                    DockContentPackPalletAnalysis form = view as DockContentPackPalletAnalysis;
-                    if (null == form) continue;
-                    if (analysis == form.Analysis)
-                    {
-                        form.Activate();
-                        return;
-                    }
-                }
-            // ---> not found
-            // ---> create new form
-            // get document
-            DocumentSB parentDocument = (DocumentSB)analysis.ParentDocument;
-            DockContentPackPalletAnalysis formAnalysis = parentDocument.CreateAnalysisViewPackPallet(analysis);
-            formAnalysis.Show(dockPanel, WeifenLuo.WinFormsUI.Docking.DockState.Document);
-        }
-        public void CreateOrActivateViewCylinderPalletAnalysis(CylinderPalletAnalysis analysis)
-        {
-            // ---> search among existing views
-            // ---> activate if found
-            foreach (IDocument doc in Documents)
-                foreach (IView view in doc.Views)
-                {
-                    DockContentCylinderPalletAnalysis form = view as DockContentCylinderPalletAnalysis;
-                    if (null == form) continue;
-                    if (analysis == form.Analysis)
-                    {
-                        form.Activate();
-                        return;
-                    }
-                }
-            // ---> not found
-            // ---> create new form
-            // get document
-            DocumentSB parentDocument = (DocumentSB)analysis.ParentDocument;
-            DockContentCylinderPalletAnalysis formAnalysis = parentDocument.CreateAnalysisViewCylinderPallet(analysis);
-            formAnalysis.Show(dockPanel, WeifenLuo.WinFormsUI.Docking.DockState.Document);
-        }
-        public void CreateOrActivateViewHCylinderPalletAnalysis(HCylinderPalletAnalysis analysis)
-        { 
-            // ---> search among existing views
-            // ---> activate if found
-            foreach (IDocument doc in Documents)
-                foreach (IView view in doc.Views)
-                {
-                    DockContentHCylinderPalletAnalysis form = view as DockContentHCylinderPalletAnalysis;
-                    if (null == form) continue;
-                    if (analysis == form.Analysis)
-                    {
-                        form.Activate();
-                        return;
-                    }
-                }
-            // ---> not found
-            // ---> create new form
-            // get document
-            DocumentSB parentDocument = (DocumentSB)analysis.ParentDocument;
-            DockContentHCylinderPalletAnalysis formAnalysis = parentDocument.CreateAnalysisViewHCylinderPallet(analysis);
-            formAnalysis.Show(dockPanel, WeifenLuo.WinFormsUI.Docking.DockState.Document);
-
-
-        }
-
-        public void CreateOrActivateViewPalletAnalysisWithBox(CasePalletAnalysis analysis)
-        {
-            // ---> search among existing views
-            // ---> activate if found
-            foreach (IDocument doc in Documents)
-                foreach (IView view in doc.Views)
-                {
-                    DockContentAnalysisCaseOfBoxes form = view as DockContentAnalysisCaseOfBoxes;
-                    if (null == form) continue;
-                    if (analysis == form.Analysis)
-                    {
-                        form.Activate();
-                        return;
-                    }
-                }
-            // ---> not found
-            // ---> create new form
-            // get document
-            DocumentSB parentDocument = (DocumentSB)analysis.ParentDocument;
-            DockContentAnalysisCaseOfBoxes formAnalysis = parentDocument.CreateAnalysisViewCaseOfBoxes(analysis);
-            formAnalysis.Show(dockPanel, WeifenLuo.WinFormsUI.Docking.DockState.Document);
-        }
         /// <summary>
         /// Creates or activate a truck analysis view
         /// </summary>

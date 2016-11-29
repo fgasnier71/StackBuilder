@@ -27,7 +27,7 @@ namespace treeDiM.StackBuilder.Desktop
             cbDim1.SelectedIndex = Graphics.Properties.Settings.Default.DimCasePalletSol1;
             cbDim2.SelectedIndex = Graphics.Properties.Settings.Default.DimCasePalletSol2;
         }
-        void OptionsForm_OptionsSaving(object sender, EventArgs e)
+        private void OptionsForm_OptionsSaving(object sender, EventArgs e)
         {
             // save combo box
             Graphics.Properties.Settings.Default.DimCasePalletSol1 = cbDim1.SelectedIndex;

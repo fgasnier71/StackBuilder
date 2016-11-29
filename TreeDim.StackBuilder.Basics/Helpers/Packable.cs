@@ -42,6 +42,11 @@ namespace treeDiM.StackBuilder.Basics
         #endregion
 
         #region Virtual methods
+        public virtual bool InnerAnalysis(ref Analysis analysis)
+        {
+            analysis = null;
+            return false;
+        }
         public virtual bool InnerContent(ref Packable innerPackable, ref int number)
         {
             innerPackable = null;

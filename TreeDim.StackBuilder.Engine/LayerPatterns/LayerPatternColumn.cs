@@ -19,8 +19,8 @@ namespace treeDiM.StackBuilder.Engine
 
         public override bool GetLayerDimensions(Layer2D layer, out double actualLength, out double actualWidth)
         {
-            double palletLength = layer.PalletLength;
-            double palletWidth = layer.PalletWidth;
+            double palletLength = layer.Length;
+            double palletWidth = layer.Width;
             double boxLength = layer.BoxLength;
             double boxWidth = layer.BoxWidth;
             actualLength = Math.Floor(palletLength / boxLength) * boxLength;

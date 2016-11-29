@@ -144,13 +144,17 @@ namespace treeDiM.StackBuilder.Graphics
             get { return _vCameraPos; }
             set { _vCameraPos = value; }
         }
-
+        /// <summary>
+        /// Target point
+        /// </summary>
         public Vector3D Target
         {
             get { return _vTarget; }
             set { _vTarget = value; }
         }
-
+        /// <summary>
+        /// Light direction
+        /// </summary>
         public Vector3D VLight
         {
             get
@@ -160,7 +164,9 @@ namespace treeDiM.StackBuilder.Graphics
                 return vLight;
             }
         }
-
+        /// <summary>
+        /// View direction
+        /// </summary>
         public Vector3D ViewDirection
         {
             get
@@ -170,7 +176,11 @@ namespace treeDiM.StackBuilder.Graphics
                 return viewDir;
             }
         }
-
+        public double MarginPercentage
+        {
+            get { return _margin; }
+            set { _margin = value; }
+        }
         /// <summary>
         /// gets or sets boolean to show box ids
         /// To be used when debugging

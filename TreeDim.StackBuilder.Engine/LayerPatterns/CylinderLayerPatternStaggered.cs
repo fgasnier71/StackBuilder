@@ -20,15 +20,15 @@ namespace treeDiM.StackBuilder.Engine
         {
             get { return true; }
         }
-        public override void GetLayerDimensions(LayerCyl layer, out double actualLength, out double actualWidth)
+        public override bool GetLayerDimensions(Layer2DCyl layer, out double actualLength, out double actualWidth)
         {
             int firstRowLength = 0; int secondRowLength = 0; int rowNumber = 0;
             ComputeRowNumberAndLength(layer
                 , out firstRowLength, out secondRowLength, out rowNumber
-                , out actualLength, out actualWidth); 
+                , out actualLength, out actualWidth);
+            return (firstRowLength > 0) && (secondRowLength > 0) && (rowNumber > 0);
         }
-
-        public override void GenerateLayer(LayerCyl layer, double actualLength, double actualWidth)
+        public override void GenerateLayer(Layer2DCyl layer, double actualLength, double actualWidth)
         {
             layer.Clear();
             int firstRowLength = 0; int secondRowLength = 0; int rowNumber = 0;
@@ -53,7 +53,7 @@ namespace treeDiM.StackBuilder.Engine
         #endregion
 
         #region Helpers
-        private bool ComputeRowNumberAndLength(LayerCyl layer
+        private bool ComputeRowNumberAndLength(Layer2DCyl layer
             , out int firstRowLength, out int secondRowLength, out int rowNumber
             , out double actualLength, out double actualWidth)
         {

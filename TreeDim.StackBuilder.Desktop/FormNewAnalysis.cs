@@ -104,9 +104,19 @@ namespace treeDiM.StackBuilder.Desktop
         }
         #endregion
 
+        #region Public properties
+        public Analysis AnalysisBase
+        {
+            get { return _item; }
+            set { _item = value; }
+        }
+        #endregion
+
+        #region Handlers
         private void onButtonNext(object sender, EventArgs e)
         {
             OnNext();
         }
+        #endregion
     }
 }

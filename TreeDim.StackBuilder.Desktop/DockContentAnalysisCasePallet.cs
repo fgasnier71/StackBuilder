@@ -21,13 +21,9 @@ using treeDiM.StackBuilder.Desktop.Properties;
 
 namespace treeDiM.StackBuilder.Desktop
 {
-    public partial class DockContentAnalysisCasePallet : DockContent, IView, IItemListener
+    public partial class DockContentAnalysisCasePallet : DockContentView
     {
         #region Data members
-        /// <summary>
-        /// document
-        /// </summary>
-        private IDocument _document;
         /// <summary>
         /// analysis
         /// </summary>
@@ -44,13 +40,12 @@ namespace treeDiM.StackBuilder.Desktop
 
         #region Constructor
         public DockContentAnalysisCasePallet(IDocument document, AnalysisCasePallet analysis)
+            : base(document)
         {
-            _document = document;
-
             _analysis = analysis;
             _analysis.AddListener(this);
 
-            _solution = analysis.Solutions[0];
+            _solution = analysis.Solution;
 
             InitializeComponent();
         }
@@ -156,21 +151,15 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region IItemListener implementation
-        public void Update(ItemBase item)
+        public override void Update(ItemBase item)
         {
+            base.Update(item);
             graphCtrlSolution.Invalidate();
         }
-        public void Kill(ItemBase item)
+        public override void Kill(ItemBase item)
         {
-            Close();
+            base.Kill(item);
             _analysis.RemoveListener(this);
-        }
-        #endregion
-
-        #region IView implementation
-        public IDocument Document
-        {
-            get { return _document; }
         }
         #endregion
 
@@ -523,7 +512,7 @@ namespace treeDiM.StackBuilder.Desktop
         }
         private void onGenerateReportMSWord(object sender, EventArgs e)
         {
-            FormMain.GenerateReport(_solution);
+            FormMain.GenerateReport(_analysis);
         }
         #endregion
         #endregion

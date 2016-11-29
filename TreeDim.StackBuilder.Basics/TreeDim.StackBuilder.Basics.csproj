@@ -157,6 +157,7 @@
     <Compile Include="PalletSolutionDatabase.cs" />
     <Compile Include="Solutions\CylinderPalletSolution.cs" />
     <Compile Include="Solutions\Layer2D.cs" />
+    <Compile Include="Solutions\Layer2DCyl.cs" />
     <Compile Include="Solutions\LayerPosition.cs" />
     <Compile Include="Solutions\PackPalletSolution.cs" />
     <Compile Include="Solutions\SelSolution.cs" />

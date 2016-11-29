@@ -11,40 +11,39 @@ using log4net;
 
 namespace treeDiM.StackBuilder.Basics
 {
-    public class AnalysisCasePallet : Analysis
+    #region Analysis Pallet
+    public abstract class AnalysisPackablePallet : Analysis
     {
         #region Data members
-        public PalletProperties _palletProperties;
-
-        public PalletCornerProperties _palletCornerProperties;
-        public PalletCapProperties _palletCapProperties;
-        public PalletFilmProperties _palletFilmProperties;
-
-        static readonly ILog _log = LogManager.GetLogger(typeof(AnalysisCasePallet));
+        // container
+        protected PalletProperties _palletProperties;
         #endregion
 
         #region Constructor
-        public AnalysisCasePallet(
-            Packable packable, 
+        public AnalysisPackablePallet(
+            Packable packable,
             PalletProperties palletProperties,
-            ConstraintSetCasePallet constraintSet)
+            ConstraintSetAbstract constraintSet)
             : base(packable.ParentDocument, packable)
         {
             // sanity checks
             if (palletProperties.ParentDocument != ParentDocument)
                 throw new Exception("box & pallet do not belong to the same document");
-
-            _palletProperties = palletProperties;
+            PalletProperties = palletProperties;
             _constraintSet = constraintSet;
-         }
+        }
         #endregion
 
         #region Analysis override
+        public override ItemBase Container
+        {
+            get { return _palletProperties; }
+        }
         public override Vector2D ContainerDimensions
         {
             get
             {
-                ConstraintSetCasePallet constraintSet = _constraintSet as ConstraintSetCasePallet;
+                ConstraintSetPackablePallet constraintSet = _constraintSet as ConstraintSetPackablePallet;
                 return new Vector2D(_palletProperties.Length + 2.0 * constraintSet.Overhang.X, _palletProperties.Width + 2.0 * constraintSet.Overhang.Y); 
             }
         }
@@ -60,22 +59,74 @@ namespace treeDiM.StackBuilder.Basics
         {
             get
             {
-                ConstraintSetCasePallet constraintSet = _constraintSet as ConstraintSetCasePallet;
+                ConstraintSetPackablePallet constraintSet = _constraintSet as ConstraintSetPackablePallet;
                 return new Vector3D(
                     -constraintSet.Overhang.X
                     , -constraintSet.Overhang.Y
-                    , _palletProperties.Height
+                    , PalletProperties.Height
                     );
             }
         }
         public override double ContainerWeight
         {
-            get { return _palletProperties.Weight; }
+            get { return PalletProperties.Weight; }
         }
         public override InterlayerProperties Interlayer(int index)
         {
             return _interlayers[index];
         }
+        public override BBox3D BBoxGlobal(BBox3D loadBBox)
+        {
+            BBox3D bbox = BBoxLoadWDeco(loadBBox);
+            // --- extend for pallet : begin
+            bbox.Extend(PalletProperties.BoundingBox);
+            // --- extend for pallet : end
+            return bbox;
+        }
+        public override bool HasEquivalentPackable
+        {   get { return true; } }
+        public override PackableLoaded EquivalentPackable
+        {   get { return new LoadedPallet(this); } }
+        #endregion
+
+        #region Public properties
+        public PalletProperties PalletProperties
+        {
+            get { return _palletProperties; }
+            set
+            {
+                if (_palletProperties == value) return;
+                if (null != _palletProperties) _palletProperties.RemoveDependancy(this);
+                _palletProperties = value;
+                _palletProperties.AddDependancy(this);
+            }
+        }
+        #endregion
+    }
+    #endregion
+    #region Analysis Case/Pallet
+    public class AnalysisCasePallet : AnalysisPackablePallet
+    {
+        #region Data members
+        // decoration
+        public PalletCornerProperties _palletCornerProperties;
+        public PalletCapProperties _palletCapProperties;
+        public PalletFilmProperties _palletFilmProperties;
+        // logging
+        static readonly ILog _log = LogManager.GetLogger(typeof(AnalysisCasePallet));
+        #endregion
+
+        #region Constructor
+        public AnalysisCasePallet(
+            Packable packable, 
+            PalletProperties palletProperties,
+            ConstraintSetCasePallet constraintSet)
+            : base(packable, palletProperties, constraintSet)
+        {
+        }
+        #endregion
+
+        #region Analysis override
         public override BBox3D BBoxLoadWDeco(BBox3D loadBBox)
         {
             BBox3D bbox = new BBox3D(loadBBox);
@@ -111,32 +162,10 @@ namespace treeDiM.StackBuilder.Basics
             // --- extend for pallet cap : end 
             return bbox;
         }
-        public override BBox3D BBoxGlobal(BBox3D loadBBox)
-        {
-            BBox3D bbox = BBoxLoadWDeco(loadBBox);
-            // --- extend for pallet : begin
-            bbox.Extend(PalletProperties.BoundingBox);
-            // --- extend for pallet : end
-            return bbox;
-        }
-        public override bool HasEquivalentPackable
-        {   get { return true; } }
-        public override PackableLoaded EquivalentPackable
-        {   get { return new LoadedPallet(this); } }
+
         #endregion
 
         #region Public properties
-        public PalletProperties PalletProperties
-        {
-            get { return _palletProperties; }
-            set
-            {
-                if (_palletProperties == value) return;
-                if (null != _palletProperties) _palletProperties.RemoveDependancy(this);
-                _palletProperties = value;
-                _palletProperties.AddDependancy(this);
-            }
-        }
         public PalletCornerProperties PalletCornerProperties
         {
             get { return _palletCornerProperties; }
@@ -184,11 +213,40 @@ namespace treeDiM.StackBuilder.Basics
         }
         #endregion
     }
+    #endregion
 
+    #region Analysis Cylinder/Pallet
+    public class AnalysisCylinderPallet : AnalysisPackablePallet
+    {
+        #region Data members
+        // logging
+        static readonly ILog _log = LogManager.GetLogger(typeof(AnalysisCasePallet));
+        #endregion
+
+        #region Constructor
+        public AnalysisCylinderPallet(
+            Packable packable,
+            PalletProperties palletProperties,
+            ConstraintSetPackablePallet constraintSet)
+            : base(packable, palletProperties, constraintSet)
+        {
+        }
+        #endregion
+
+        #region Analysis override
+        public override BBox3D BBoxLoadWDeco(BBox3D loadBBox)
+        {
+            return loadBBox;
+        }
+        #endregion
+    }
+    #endregion
+
+    #region Loaded pallet
     public class LoadedPallet : PackableLoaded
     {
         #region Constructor
-        internal LoadedPallet(AnalysisCasePallet analysis)
+        internal LoadedPallet(AnalysisPackablePallet analysis)
             : base(analysis)
         { 
         }
@@ -216,4 +274,5 @@ namespace treeDiM.StackBuilder.Basics
         { get { return ParentAnalysis as AnalysisCasePallet; } }
         #endregion
     }
+    #endregion
 }

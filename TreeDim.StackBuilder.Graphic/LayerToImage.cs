@@ -12,16 +12,28 @@ namespace treeDiM.StackBuilder.Graphics
 {
     public class LayerToImage
     {
-        public static Bitmap Draw(Layer2D layer, Packable packable, double height, Size size, bool selected)
+        #region Enums
+        public enum eGraphMode { GRAPH_2D, GRAPH_3D };
+        #endregion
+        #region Drawing
+        public static Bitmap Draw(ILayer2D layer, Packable packable, double height, Size size, bool selected, eGraphMode eMode)
         {
-            Graphics2DImage graphics = new Graphics2DImage(size);
-            PackableBrick packableBrick = packable as PackableBrick;
-            if (null != packableBrick)
+            if (eGraphMode.GRAPH_2D == eMode)
             {
+                Graphics2DImage graphics = new Graphics2DImage(size);
                 using (SolutionViewerLayer solViewer = new SolutionViewerLayer(layer))
-                { solViewer.Draw(graphics, packableBrick, height, selected); }
+                { solViewer.Draw(graphics, packable, height, selected); }
+                return graphics.Bitmap;
             }
-            return graphics.Bitmap;
+            else
+            {
+                Graphics3DImage graphics = new Graphics3DImage(size);
+                graphics.MarginPercentage = 0.05;
+                using (SolutionViewerLayer solViewer = new SolutionViewerLayer(layer))
+                { solViewer.Draw(graphics, packable, height, selected); }
+                return graphics.Bitmap;
+            }
         }
+        #endregion
     }
 }

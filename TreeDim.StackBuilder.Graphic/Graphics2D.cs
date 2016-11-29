@@ -17,6 +17,7 @@ namespace treeDiM.StackBuilder.Graphics
         private float[] _viewport = new float[4];
         private uint _numberOfViews = 1;
         private uint _iIndexView = 0;
+        private Color _colorBackground = Color.White;
         #endregion
 
         #region Abstract methods and properties
@@ -25,6 +26,14 @@ namespace treeDiM.StackBuilder.Graphics
         #endregion
 
         #region Public methods
+        /// <summary>
+        /// Background color
+        /// </summary>
+        public void Clear(Color color)
+        {
+            _colorBackground = color;
+            Graphics.Clear(_colorBackground);
+        }
         /// <summary>
         /// SetViewport
         /// </summary>
@@ -84,21 +93,24 @@ namespace treeDiM.StackBuilder.Graphics
             Pen penPath = new Pen(brushPath);
             g.DrawPolygon(penPath, pt);
         }
-
         public void DrawCylinder(Cylinder cyl)
         {
             System.Drawing.Graphics g = Graphics;
 
             // get points
-            Point[] pt = TransformPoint(cyl.TopPoints);
-            // bottom (draw only path)
+            Point[] ptOuter = TransformPoint(cyl.TopPoints);
+            Point[] ptInner = TransformPoint(cyl.TopPointsInner);
+            // top color
             Brush brushSolid = new SolidBrush(cyl.ColorTop);
-            g.FillPolygon(brushSolid, pt);
+            g.FillPolygon(brushSolid, ptOuter);
+            // hole -> drawing polygon with background color
+            Brush brushBackground = new SolidBrush(ColorBackground);
+            g.FillPolygon(brushBackground, ptInner);
+            // bottom (draw only path)
             Brush brushPath = new SolidBrush(cyl.ColorPath);
             Pen penPath = new Pen(brushPath);
-            g.DrawPolygon(penPath, pt);
+            g.DrawPolygon(penPath, ptOuter);
         }
-
         public void DrawRectangle(Vector2D vMin, Vector2D vMax, Color penColor)
         {
             Point[] pt = TransformPoint(new Vector2D[] { vMin, vMax });
@@ -113,16 +125,21 @@ namespace treeDiM.StackBuilder.Graphics
             Pen pen = new Pen(penColor);
             g.DrawLines(pen, pt);
         }
-
         public uint NumberOfViews
         {
             get { return _numberOfViews; }
             set { _numberOfViews = value; }
         }
-
         public void SetCurrentView(uint iIndexView)
         {
             _iIndexView = iIndexView;
+        }
+        #endregion
+
+        #region Public properties
+        public Color ColorBackground
+        {
+            get { return _colorBackground; }
         }
         #endregion
 

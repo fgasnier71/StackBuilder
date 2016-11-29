@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
+using treeDiM.StackBuilder.Basics;
+
 using Sharp3D.Math.Core;
 using log4net;
 #endregion
@@ -14,42 +16,37 @@ namespace treeDiM.StackBuilder.Engine
     {
         #region Abstract methods
         abstract public string Name { get; }
-        abstract public void GetLayerDimensions(LayerCyl layer, out double length, out double width); 
-        abstract public void GenerateLayer(LayerCyl layer, double actualLength, double actualWidth);
+        abstract public bool GetLayerDimensions(Layer2DCyl layer, out double length, out double width);
+        abstract public void GenerateLayer(Layer2DCyl layer, double actualLength, double actualWidth);
         abstract public bool CanBeSwapped { get; }
         #endregion
 
         #region Public properties
-        public bool Swapped
-        {
-            get { return _swapped; }
-            set { _swapped = value; }
-        }
         #endregion
 
         #region Private methods
-        protected double GetPalletLength(LayerCyl layer)
+        protected double GetPalletLength(Layer2DCyl layer)
         {
-            if (!_swapped)
-                return layer.PalletLength;
+            if (!layer.Swapped)
+                return layer.Length;
             else
-                return layer.PalletWidth;
+                return layer.Width;
         }
 
-        protected double GetPalletWidth(LayerCyl layer)
+        protected double GetPalletWidth(Layer2DCyl layer)
         {
-            if (!_swapped)
-                return layer.PalletWidth;
+            if (!layer.Swapped)
+                return layer.Width;
             else
-                return layer.PalletLength;
+                return layer.Length;
         }
 
-        public void AddPosition(LayerCyl layer, Vector2D vPosition)
+        public void AddPosition(Layer2DCyl layer, Vector2D vPosition)
         {
             Matrix4D matRot = Matrix4D.Identity;
             Vector3D vTranslation = Vector3D.Zero;
 
-            if (_swapped)
+            if (layer.Swapped)
             {
                 matRot = new Matrix4D(
                     0.0, -1.0, 0.0, 0.0
@@ -57,7 +54,7 @@ namespace treeDiM.StackBuilder.Engine
                     , 0.0, 0.0, 1.0, 0.0
                     , 0.0, 0.0, 0.0, 1.0
                     );
-                vTranslation = new Vector3D(layer.PalletLength, 0.0, 0.0);
+                vTranslation = new Vector3D(layer.Length, 0.0, 0.0);
             }
             Transform3D transfRot = new Transform3D(matRot);
 
@@ -77,8 +74,41 @@ namespace treeDiM.StackBuilder.Engine
         }
         #endregion
 
+        #region Static methods
+        public static CylinderLayerPattern[] All
+        { get { return _allPatterns; } }
+        public static CylinderLayerPattern GetByName(string patternName)
+        {
+            foreach (CylinderLayerPattern pattern in CylinderLayerPattern.All)
+            {
+                if (string.Equals(pattern.Name, patternName, StringComparison.CurrentCultureIgnoreCase))
+                    return pattern;
+            }
+            // no pattern found!
+            throw new Exception(string.Format("Invalid pattern name = {0}", patternName));
+        }
+        public static int GetPatternNameIndex(string patternName)
+        {
+            int index = 0;
+            foreach (CylinderLayerPattern pattern in CylinderLayerPattern.All)
+            {
+                if (string.Equals(pattern.Name, patternName, StringComparison.CurrentCultureIgnoreCase))
+                    return index;
+            }
+            // no pattern found!
+            throw new Exception(string.Format("Invalid pattern name = {0}", patternName));
+        }
+        #endregion
+
         #region Data members
-        private bool _swapped = false;
+        private static CylinderLayerPattern[] _allPatterns = {
+            new CylinderLayerPatternAligned()
+            , new CylinderLayerPatternExpanded()
+            , new CylinderLayerPatternStaggered()
+            , new CylinderLayerPatternMixed12()
+            , new CylinderLayerPatternMixed121()
+            , new CylinderLayerPatternMixed212()
+        };
         protected static readonly ILog _log = LogManager.GetLogger(typeof(CylinderLayerPattern));
         #endregion
     }

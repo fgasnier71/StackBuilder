@@ -215,6 +215,56 @@ namespace treeDiM.StackBuilder.Engine
             return true;
         }
         #endregion
+
+        #region Cylinders
+        public List<Layer2DCyl> BuildLayers(
+            double radius, double height
+            , Vector2D dimContainer
+            , double offsetZ /* e.g. pallet height */
+            , ConstraintSetAbstract constraintSet
+            , bool keepOnlyBest)
+        {
+            List<Layer2DCyl> list = new List<Layer2DCyl>();
+            foreach (CylinderLayerPattern pattern in CylinderLayerPattern.All)
+            {            
+                // not swapped vs swapped pattern
+                for (int iSwapped = 0; iSwapped < 2; ++iSwapped)
+                {
+                    // does swapping makes sense for this layer pattern ?
+                    if (!pattern.CanBeSwapped && (iSwapped == 1))
+                        continue;
+                    // instantiate layer
+                    Layer2DCyl layer = new Layer2DCyl(radius, height, dimContainer, iSwapped == 1);
+                    layer.PatternName = pattern.Name;
+
+                    double actualLength = 0.0, actualWidth = 0.0;
+                    if (!pattern.GetLayerDimensions(layer, out actualLength, out actualWidth))
+                        continue;
+                    pattern.GenerateLayer(layer, actualLength, actualWidth);
+                    list.Add(layer);
+                }
+                list.Sort(new LayerCylComparerCount(constraintSet.OptMaxHeight.Value - offsetZ));
+            }
+            return list;
+        }
+        #endregion
+
+        #region Static methods
+        public static List<ILayer2D> ConvertList(List<Layer2D> list)
+        {
+            List<ILayer2D> lres = new List<ILayer2D>();
+            foreach (Layer2D l in list)
+                lres.Add(l);
+            return lres;
+        }
+        public static List<ILayer2D> ConvertList(List<Layer2DCyl> list)
+        {
+            List<ILayer2D> lres = new List<ILayer2D>();
+            foreach (Layer2DCyl l in list)
+                lres.Add(l);
+            return lres;
+        }
+        #endregion
     }
     #endregion
 }
