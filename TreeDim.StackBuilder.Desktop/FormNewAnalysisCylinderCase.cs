@@ -22,7 +22,7 @@ using treeDiM.StackBuilder.Desktop.Properties;
 namespace treeDiM.StackBuilder.Desktop
 {
     public partial class FormNewAnalysisCylinderCase
-        : FormNewAnalysis, IItemBaseFilter, IDrawingContainer
+        : FormNewAnalysis, IItemBaseFilter
     {
         #region Data members
         static readonly ILog _log = LogManager.GetLogger(typeof(FormNewAnalysisCylinderCase));
@@ -48,9 +48,6 @@ namespace treeDiM.StackBuilder.Desktop
             cbCylinders.Initialize(_document, this, null);
             cbCases.Initialize(_document, this, null);
 
-            // initialize graphCtrlCylinder
-            graphCtrlCylinder.DrawingContainer = this;
-
             // event handling
             uCtrlLayerList.LayerSelected += onLayerSelected;
             uCtrlLayerList.RefreshFinished += onLayerSelected;
@@ -75,13 +72,20 @@ namespace treeDiM.StackBuilder.Desktop
             base.OnNext();
             try
             {
-                LayerDesc layerDesc = null;
+                List<LayerDesc> layerDescs = new List<LayerDesc>();
+                foreach (ILayer2D layer in uCtrlLayerList.Selected)
+                    layerDescs.Add(layer.LayerDescriptor);
+
+                Solution.SetSolver(new LayerSolver());
+
                 _document.CreateNewAnalysisCylinderCase(
                     ItemName, ItemDescription
                     , SelectedCylinder, SelectedCase
                     , new List<InterlayerProperties>()
                     , BuildConstraintSet()
-                    , layerDesc);
+                    , layerDescs);
+
+                Close();
             }
             catch (Exception ex)
             {
@@ -106,19 +110,6 @@ namespace treeDiM.StackBuilder.Desktop
         }
         #endregion
 
-        #region IDrawingContainer
-        public void Draw(Graphics3DControl ctrl, Graphics3D graphics)
-        {
-            if (graphCtrlCylinder == ctrl)
-            {
-                CylinderProperties cylProperties = cbCylinders.SelectedType as CylinderProperties;
-                if (null == cylProperties) return;
-                Cylinder cyl = new Cylinder(0, cylProperties);
-                graphics.AddCylinder(cyl);
-            }
-        }
-        #endregion
-
         #region Event handlers
         private void onLayerSelected(object sender, EventArgs e)
         {
@@ -132,7 +123,7 @@ namespace treeDiM.StackBuilder.Desktop
                 _log.Error(ex.ToString());
             }
         }
-        private void onIputChanged(object sender, EventArgs e)
+        private void onInputChanged(object sender, EventArgs e)
         {
             try
             {
@@ -159,7 +150,12 @@ namespace treeDiM.StackBuilder.Desktop
             {
                 _log.Error(ex.ToString());
             }
-
+        }
+        private void onCylinderChanged(object sender, EventArgs e)
+        {
+            uCtrlPackable.PackableProperties = cbCylinders.SelectedType as Packable;
+            onInputChanged(sender, e);
+            onLayerSelected(sender, e);
         }
         #endregion
 

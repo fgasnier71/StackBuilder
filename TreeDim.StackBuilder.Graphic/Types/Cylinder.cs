@@ -210,9 +210,19 @@ namespace treeDiM.StackBuilder.Graphics
                 return pts;
             }        
         }
+        public BBox3D BBox
+        {
+            get
+            {
+                return new BBox3D(
+                    new Vector3D(-_radiusOuter, -_radiusOuter, 0.0) + _cylPosition.XYZ
+                    , new Vector3D(_radiusOuter, _radiusOuter, _height) + _cylPosition.XYZ
+                    );
+            }
+        }
         #endregion
 
-        #region overrides
+        #region Drawable overrides
         public override void DrawBegin(Graphics3D graphics)
         {            
         }

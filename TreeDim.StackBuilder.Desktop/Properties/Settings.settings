@@ -179,14 +179,8 @@
     <Setting Name="AllowLayerOrientChangeLastOnly" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="CompanyLogoPath" Type="System.String" Scope="User">
-      <Value Profile="(Default)">..\..\..\treeDiM.StackBuilder.Reporting\ReportTemplates\YourLogoHere.png</Value>
-    </Setting>
     <Setting Name="ReporterImageSize" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
-    </Setting>
-    <Setting Name="ReportTemplatePath" Type="System.String" Scope="User">
-      <Value Profile="(Default)">..\..\..\treeDiM.StackBuilder.Reporting\ReportTemplates\ReportTemplateHtml.xsl</Value>
     </Setting>
     <Setting Name="HasPluginINTEX" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>

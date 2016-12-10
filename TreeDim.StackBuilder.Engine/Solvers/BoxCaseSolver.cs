@@ -48,7 +48,7 @@ namespace treeDiM.StackBuilder.Engine
 
             int[] patternColumnCount = new int[6];
             // loop throw all patterns
-            foreach (LayerPattern pattern in LayerPattern.All)
+            foreach (LayerPatternBox pattern in LayerPatternBox.All)
             {
                 // loop through all vertical axes
                 for (int i = 0; i < 6; ++i)
@@ -77,7 +77,7 @@ namespace treeDiM.StackBuilder.Engine
 
                         while (!maxWeightReached && !maxHeightReached && !maxNumberReached)
                         {
-                            BoxLayer bLayer = sol.CreateNewLayer(zLayer, 0);
+                            Layer3DBox bLayer = sol.CreateNewLayer(zLayer, 0);
 
                             foreach (LayerPosition layerPos in layer)
                             {

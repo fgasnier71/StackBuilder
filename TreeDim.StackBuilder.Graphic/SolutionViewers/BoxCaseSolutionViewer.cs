@@ -49,7 +49,7 @@ namespace treeDiM.StackBuilder.Graphics
             uint pickId = 0;
             foreach (ILayer layer in _boxCaseSolution)
             {
-                BoxLayer blayer = layer as BoxLayer;
+                Layer3DBox blayer = layer as Layer3DBox;
                 if (null != blayer)
                 {
                     foreach (BoxPosition bPosition in blayer)
@@ -85,7 +85,7 @@ namespace treeDiM.StackBuilder.Graphics
             graphics.NumberOfViews = 1;
             graphics.SetViewport(0.0f, 0.0f, (float)caseProperties.Length, (float)caseProperties.Width);
             // access first layer
-            BoxLayer blayer = _boxCaseSolution.BoxLayerFirst;
+            Layer3DBox blayer = _boxCaseSolution.BoxLayerFirst;
             if (null != blayer)
             {
                 graphics.SetCurrentView(0);

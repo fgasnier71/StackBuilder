@@ -9,7 +9,7 @@ using treeDiM.StackBuilder.Basics;
 
 namespace treeDiM.StackBuilder.Engine
 {
-    class CylinderLayerPatternExpanded : CylinderLayerPattern
+    class CylinderLayerPatternExpanded : LayerPatternCyl
     {
         #region Implementation of CylinderLayerPattern abstract properties and methods
         public override string Name
@@ -20,20 +20,25 @@ namespace treeDiM.StackBuilder.Engine
         {
             get { return true; }
         }
-        public override bool GetLayerDimensions(Layer2DCyl layer, out double actualLength, out double actualWidth)
+        public override bool GetLayerDimensions(ILayer2D layer, out double actualLength, out double actualWidth)
         {
-            double palletLength = layer.Length;
-            double palletWidth = layer.Width;
-            double radius = layer.CylinderRadius;
+            double palletLength = GetPalletLength(layer);
+            double palletWidth = GetPalletWidth(layer);
+            double radius = GetRadius(layer);
+
             actualLength = 0.0;
             actualWidth = 0.0;
 
             return false;
         }
 
-        public override void GenerateLayer(Layer2DCyl layer, double actualLength, double actualWidth)
+        public override void GenerateLayer(ILayer2D layer, double actualLength, double actualWidth)
         {
             layer.Clear();
+            double palletLength = GetPalletLength(layer);
+            double palletWidth = GetPalletWidth(layer);
+            double radius = GetRadius(layer);
+
             throw new NotImplementedException();
         }
         #endregion

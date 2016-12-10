@@ -15,7 +15,7 @@ namespace treeDiM.StackBuilder.Engine
     public class CylinderSolver : ICylinderAnalysisSolver
     {
         #region Data members
-        private static List<CylinderLayerPattern> _patterns = new List<CylinderLayerPattern>();
+        private static List<LayerPatternCyl> _patterns = new List<LayerPatternCyl>();
         private CylinderProperties _cylProperties;
         private PalletProperties _palletProperties;
         private InterlayerProperties _interlayerProperties, _interlayerPropertiesAntiSlip;
@@ -51,7 +51,7 @@ namespace treeDiM.StackBuilder.Engine
             List<CylinderPalletSolution> solutions = new List<CylinderPalletSolution>();
 
             // loop through all patterns
-            foreach (CylinderLayerPattern pattern in _patterns)
+            foreach (LayerPatternCyl pattern in _patterns)
             {
                 for (int iDir = 0; iDir < (pattern.CanBeSwapped ? 2 : 1); ++iDir)
                 {
@@ -105,7 +105,7 @@ namespace treeDiM.StackBuilder.Engine
                             zLayer += _interlayerProperties.Thickness;
                         }
                         // select current layer type
-                        CylinderLayer cylLayer = sol.CreateNewLayer(zLayer);
+                        Layer3DCyl cylLayer = sol.CreateNewLayer(zLayer);
                         foreach (Vector2D layerPos in layer)
                         {
                             ++iCount;

@@ -70,5 +70,29 @@ namespace treeDiM.StackBuilder.Reporting.Properties {
                 this["MarginRight"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string TemplatePath {
+            get {
+                return ((string)(this["TemplatePath"]));
+            }
+            set {
+                this["TemplatePath"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string CompanyLogoPath {
+            get {
+                return ((string)(this["CompanyLogoPath"]));
+            }
+            set {
+                this["CompanyLogoPath"] = value;
+            }
+        }
     }
 }

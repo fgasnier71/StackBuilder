@@ -34,6 +34,14 @@ namespace treeDiM.StackBuilder.Basics
         }
         #endregion
 
+        #region Override ItemBase
+        protected override void RemoveItselfFromDependancies()
+        {
+            base.RemoveItselfFromDependancies();
+            _palletProperties.RemoveDependancy(this);
+        }
+        #endregion
+
         #region Analysis override
         public override ItemBase Container
         {

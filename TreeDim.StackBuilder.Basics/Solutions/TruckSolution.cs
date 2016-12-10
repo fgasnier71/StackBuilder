@@ -12,7 +12,7 @@ namespace treeDiM.StackBuilder.Basics
     {
         #region Data members
         private string _title;
-        private BoxLayer _layer;
+        private Layer3DBox _layer;
         private TruckAnalysis _parentTruckAnalysis;
         private BBox3D _bbox = new BBox3D();
          #endregion
@@ -26,7 +26,7 @@ namespace treeDiM.StackBuilder.Basics
         #endregion
 
         #region Layers
-        public BoxLayer Layer
+        public Layer3DBox Layer
         {
             get { return _layer; }
             set { _layer = value; }
@@ -155,7 +155,7 @@ namespace treeDiM.StackBuilder.Basics
         #endregion
 
         #region Public methods
-        public void SetLayer(BoxLayer layer)
+        public void SetLayer(Layer3DBox layer)
         {
             _layer = layer;
         }

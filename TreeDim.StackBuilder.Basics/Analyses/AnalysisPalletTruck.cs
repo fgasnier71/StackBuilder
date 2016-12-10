@@ -14,8 +14,7 @@ namespace treeDiM.StackBuilder.Basics
     public class AnalysisPalletTruck : Analysis
     {
         #region Data members
-        public TruckProperties _truckProperties;
-
+        private TruckProperties _truckProperties;
         static readonly ILog _log = LogManager.GetLogger(typeof(AnalysisPalletTruck));
         #endregion
 
@@ -25,7 +24,17 @@ namespace treeDiM.StackBuilder.Basics
             TruckProperties truckProperties,
             ConstraintSetPalletTruck constraintSet)
             : base(packable.ParentDocument, packable)
-        { 
+        {
+            TruckProperties = truckProperties;
+            _constraintSet = constraintSet;
+        }
+        #endregion
+
+        #region Override ItemBase
+        protected override void RemoveItselfFromDependancies()
+        {
+            base.RemoveItselfFromDependancies();
+            _truckProperties.RemoveDependancy(this);
         }
         #endregion
 
@@ -64,6 +73,20 @@ namespace treeDiM.StackBuilder.Basics
         { get { return false; } }
         public override PackableLoaded EquivalentPackable
         { get { return null; } }
+        #endregion
+
+        #region AnalysisPalletTruck specific
+        public TruckProperties TruckProperties
+        {
+            get { return _truckProperties; }
+            set
+            {
+                if (_truckProperties == value) return;
+                if (null != _truckProperties) _truckProperties.RemoveDependancy(this);
+                _truckProperties = value;
+                _truckProperties.AddDependancy(this);
+            }
+        }
         #endregion
     }
 }

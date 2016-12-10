@@ -107,7 +107,7 @@ namespace treeDiM.StackBuilder.Basics
             {
                 int cylinderLayerCount = 0;
                 foreach (ILayer layer in this)
-                    if (layer is CylinderLayer)
+                    if (layer is Layer3DCyl)
                         ++cylinderLayerCount;
                 return cylinderLayerCount;
             }
@@ -128,14 +128,14 @@ namespace treeDiM.StackBuilder.Basics
         /// <summary>
         /// first layer
         /// </summary>
-        public CylinderLayer CylinderLayerFirst
+        public Layer3DCyl CylinderLayerFirst
         {
             get
             {
                 foreach (ILayer layer in this)
                 {
-                    if (layer is CylinderLayer)
-                        return layer as CylinderLayer;
+                    if (layer is Layer3DCyl)
+                        return layer as Layer3DCyl;
                 }
                 return null;
             }
@@ -144,7 +144,7 @@ namespace treeDiM.StackBuilder.Basics
         /// <summary>
         /// second layer
         /// </summary>
-        public CylinderLayer CylinderLayerSecond
+        public Layer3DCyl CylinderLayerSecond
         {
             get
             {
@@ -154,7 +154,7 @@ namespace treeDiM.StackBuilder.Basics
                     if (first)
                         first = false;
                     else
-                        return layer as CylinderLayer;
+                        return layer as Layer3DCyl;
                 }
                 return null;
             }
@@ -170,7 +170,7 @@ namespace treeDiM.StackBuilder.Basics
                 int count1 = 0;
                 foreach (ILayer layer in this)
                 {
-                    if (layer is CylinderLayer)
+                    if (layer is Layer3DCyl)
                     {
                         if (first)
                         {
@@ -248,7 +248,7 @@ namespace treeDiM.StackBuilder.Basics
             while (iLayer < Count)
             {
                 ILayer layer = this[iLayer];
-                CylinderLayer blayer = layer as CylinderLayer;
+                Layer3DCyl blayer = layer as Layer3DCyl;
                 if (null != blayer)
                     bbox.Extend(blayer.BoundingBox(Analysis.CylinderProperties));
                 ++iLayer;
@@ -264,7 +264,7 @@ namespace treeDiM.StackBuilder.Basics
         {
             get
             {
-                CylinderLayer cLayer = this[Count - 1] as CylinderLayer;
+                Layer3DCyl cLayer = this[Count - 1] as Layer3DCyl;
                 return this[Count - 1].ZLow + (null != cLayer ? cLayer.Thickness(Analysis.CylinderProperties) : 0.0);
             }
         }
@@ -279,9 +279,9 @@ namespace treeDiM.StackBuilder.Basics
         #endregion
 
         #region Adding layer / interlayer
-        public CylinderLayer CreateNewLayer(double zLow)
+        public Layer3DCyl CreateNewLayer(double zLow)
         {
-            CylinderLayer layer = new CylinderLayer(zLow);
+            Layer3DCyl layer = new Layer3DCyl(zLow);
             Add(layer);
             return layer;
         }
@@ -312,7 +312,7 @@ namespace treeDiM.StackBuilder.Basics
             StringBuilder sb = new StringBuilder();
             sb.AppendLine(string.Format("=== Solution ===> {0} layers -> {1} cylinders", this.Count, this.CylinderCount));
             int index = 0;
-            foreach (CylinderLayer layer in this)
+            foreach (Layer3DCyl layer in this)
                 foreach (Vector3D position in layer)
                     sb.AppendLine(string.Format("{0} : {1}", index++, position.ToString()));
             return sb.ToString(); 

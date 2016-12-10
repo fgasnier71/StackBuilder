@@ -53,5 +53,45 @@ namespace treeDiM.StackBuilder.Graphics
             // set to picture box
             pictureBox.Image = graphics.Bitmap;
         }
+
+        public static void Draw(Packable packable, PictureBox pictureBox)
+        {
+            // get horizontal angle
+            double angle = 45;
+            // instantiate graphics
+            Graphics3DImage graphics = new Graphics3DImage(pictureBox.Size);
+            graphics.CameraPosition = new Vector3D(
+                Math.Cos(angle * Math.PI / 180.0) * Math.Sqrt(2.0) * 10000.0
+                , Math.Sin(angle * Math.PI / 180.0) * Math.Sqrt(2.0) * 10000.0
+                , 10000.0);
+            graphics.Target = Vector3D.Zero;
+            graphics.SetViewport(-500.0f, -500.0f, 500.0f, 500.0f);
+
+            // ### draw : begin ##############################
+            if (packable is PackProperties)
+            {
+                Box box = new Pack(0, packable as PackProperties);
+                box.LengthAxis = Vector3D.XAxis;
+                box.WidthAxis = Vector3D.YAxis;
+                graphics.AddBox(box);
+            }
+            else if (packable is BProperties)
+            { 
+                Box box = new Box(0, packable as PackableBrick);
+                box.LengthAxis = Vector3D.XAxis;
+                box.WidthAxis = Vector3D.YAxis;
+                graphics.AddBox(box);
+            }
+            else if (packable is CylinderProperties)
+            {
+                CylinderProperties cylProp = packable as CylinderProperties;
+                graphics.AddCylinder(new Cylinder(0, cylProp));
+            }
+            // ### draw : end #################################
+
+            graphics.Flush();
+            // set to picture box
+            pictureBox.Image = graphics.Bitmap;
+        }
     }
 }

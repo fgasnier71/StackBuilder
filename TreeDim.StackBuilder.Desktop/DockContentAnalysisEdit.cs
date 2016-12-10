@@ -33,6 +33,8 @@ namespace treeDiM.StackBuilder.Desktop
         /// solution
         /// </summary>
         protected Solution _solution;
+
+        protected static readonly ILog _log = LogManager.GetLogger(typeof(DockContentAnalysisEdit));
         #endregion
 
         #region Constructor
@@ -71,6 +73,11 @@ namespace treeDiM.StackBuilder.Desktop
 
             FillLayerControls();
             UpdateControls();
+        }
+        protected override void OnClosed(EventArgs e)
+        {
+            base.OnClosed(e);
+            Document.RemoveView(this);
         }
         #endregion
 
@@ -118,8 +125,49 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Virtual functions
-        public virtual void FillGrid()      {}
-        public virtual void UpdateGrid()    {}
+        public virtual void FillGrid()
+        {
+            // clear grid
+            gridSolutions.Rows.Clear();
+            // border
+            gridSolutions.BorderStyle = BorderStyle.FixedSingle;
+            gridSolutions.ColumnsCount = 2;
+            gridSolutions.FixedColumns = 1;
+        }
+        public virtual void UpdateGrid()
+        {
+            // remove all existing rows
+            gridSolutions.Rows.Clear();
+            // *** IViews
+            // caption header
+            SourceGrid.Cells.Views.RowHeader captionHeader = new SourceGrid.Cells.Views.RowHeader();
+            DevAge.Drawing.VisualElements.RowHeader veHeaderCaption = new DevAge.Drawing.VisualElements.RowHeader();
+            veHeaderCaption.BackColor = Color.SteelBlue;
+            veHeaderCaption.Border = DevAge.Drawing.RectangleBorder.NoBorder;
+            captionHeader.Background = veHeaderCaption;
+            captionHeader.ForeColor = Color.Black;
+            captionHeader.Font = new Font("Arial", 10, FontStyle.Bold);
+            captionHeader.TextAlignment = DevAge.Drawing.ContentAlignment.MiddleCenter;
+            // viewRowHeader
+            SourceGrid.Cells.Views.RowHeader viewRowHeader = new SourceGrid.Cells.Views.RowHeader();
+            DevAge.Drawing.VisualElements.RowHeader backHeader = new DevAge.Drawing.VisualElements.RowHeader();
+            backHeader.BackColor = Color.LightGray;
+            backHeader.Border = DevAge.Drawing.RectangleBorder.NoBorder;
+            viewRowHeader.Background = backHeader;
+            viewRowHeader.ForeColor = Color.Black;
+            viewRowHeader.Font = new Font("Arial", 10, FontStyle.Regular);
+            // viewNormal
+            CellBackColorAlternate viewNormal = new CellBackColorAlternate(Color.LightBlue, Color.White);
+            // ***
+
+            SourceGrid.Cells.RowHeader rowHeader;
+            int iRow = -1;
+
+            gridSolutions.AutoSizeCells();
+            gridSolutions.Columns.StretchToFit();
+            gridSolutions.AutoStretchColumnsToFitWidth = true;
+            gridSolutions.Invalidate();
+        }
         #endregion
 
         #region Event handlers
@@ -130,9 +178,8 @@ namespace treeDiM.StackBuilder.Desktop
                 _solution.SelectLayer(id);
                 UpdateControls();
             }
-            catch (Exception /*ex*/)
-            {
-            }
+            catch (Exception ex)
+            {   _log.Error(ex.ToString()); }
         }
         private void onLayerTypeChanged(object sender, EventArgs e)
         {
@@ -145,9 +192,8 @@ namespace treeDiM.StackBuilder.Desktop
                 graphCtrlSolution.Invalidate();
                 UpdateGrid();
             }
-            catch (Exception /*ex*/)
-            {
-            }
+            catch (Exception ex)
+            {   _log.Error(ex.ToString()); }
         }
         private void onInterlayerChanged(object sender, EventArgs e)
         {
@@ -161,9 +207,8 @@ namespace treeDiM.StackBuilder.Desktop
                 graphCtrlSolution.Invalidate();
                 UpdateGrid();
             }
-            catch (Exception /*ex*/)
-            {
-            }
+            catch (Exception ex)
+            {   _log.Error(ex.ToString()); }
         }
         private void onReflectionX(object sender, EventArgs e)
         {
@@ -183,17 +228,32 @@ namespace treeDiM.StackBuilder.Desktop
         }
         #endregion
 
+        #region Toolbar event handlers
+        private void onBack(object sender, EventArgs e)
+        {
+            Document.EditAnalysis(_analysis);
+        }
+        private void onGenerateReportMSWord(object sender, EventArgs e)
+        {
+            FormMain.GetInstance().GenerateReportMSWord(_analysis);
+        }
+        private void onGenerateReportHTML(object sender, EventArgs e)
+        {
+            FormMain.GetInstance().GenerateReportHTML(_analysis);
+        }
+        #endregion
+
         #region Layer controls
         private void FillLayerControls()
         {
             try
             {
-                cbLayerType.BoxProperties = _analysis.Content;
+                cbLayerType.Packable = _analysis.Content;
                 // build layers and fill CCtrl
                 foreach (LayerDesc layerDesc in _solution.LayerDescriptors)
                 {
                     LayerSolver solver = new LayerSolver();
-                    Layer2D layer = solver.BuildLayer(_analysis.ContentDimensions, _analysis.ContainerDimensions, layerDesc);
+                    ILayer2D layer = solver.BuildLayer(_analysis.Content, _analysis.ContainerDimensions, layerDesc);
                     cbLayerType.Items.Add(layer);
                 }
                 if (cbLayerType.Items.Count > 0)

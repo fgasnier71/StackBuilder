@@ -91,6 +91,12 @@
     <Compile Include="Controls\UCtrlLayerList.Designer.cs">
       <DependentUpon>UCtrlLayerList.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\UCtrlPackable.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UCtrlPackable.Designer.cs">
+      <DependentUpon>UCtrlPackable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Corner.cs" />
     <Compile Include="CylinderComparer.cs" />
     <Compile Include="DrawableComparerSimplifiedPainterAlgo.cs" />
@@ -128,7 +134,7 @@
     <Compile Include="SolutionViewers\CaseDefinitionViewer.cs" />
     <Compile Include="SolutionViewers\BoxCasePalletSolutionViewer.cs" />
     <Compile Include="Types\Cylinder.cs" />
-    <Compile Include="Drawable.cs" />
+    <Compile Include="Types\Drawable.cs" />
     <Compile Include="Face.cs" />
     <Compile Include="Graphics3D.cs" />
     <Compile Include="Graphics2D.cs" />
@@ -206,6 +212,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\UCtrlLayerList.resx">
       <DependentUpon>UCtrlLayerList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UCtrlPackable.resx">
+      <DependentUpon>UCtrlPackable.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resource.resx">
       <Generator>ResXFileCodeGenerator</Generator>

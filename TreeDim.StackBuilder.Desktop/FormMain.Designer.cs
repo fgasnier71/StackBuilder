@@ -105,7 +105,7 @@
             this.toolStripButtonCreateNewAnalysis = new System.Windows.Forms.ToolStripButton();
             this.toolStripSBCylinderPalletAnalysis = new System.Windows.Forms.ToolStripSplitButton();
             this.toolStripMenuItemCylinderPalletVertical = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItemCylinderPalletHorizontal = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemAnalysisCylinderCase = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripButtonBoxCaseAnalysis = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButtonCreateNewBoxCasePalletOptimization = new System.Windows.Forms.ToolStripButton();
@@ -350,13 +350,11 @@
             // 
             resources.ApplyResources(this.toolStripMenuItemCylinderPalletAnalysisV, "toolStripMenuItemCylinderPalletAnalysisV");
             this.toolStripMenuItemCylinderPalletAnalysisV.Name = "toolStripMenuItemCylinderPalletAnalysisV";
-            this.toolStripMenuItemCylinderPalletAnalysisV.Click += new System.EventHandler(this.toolAddNewCylinderPalletAnalysis);
             // 
             // toolStripMenuItemCylinderPalletH
             // 
             resources.ApplyResources(this.toolStripMenuItemCylinderPalletH, "toolStripMenuItemCylinderPalletH");
             this.toolStripMenuItemCylinderPalletH.Name = "toolStripMenuItemCylinderPalletH";
-            this.toolStripMenuItemCylinderPalletH.Click += new System.EventHandler(this.toolAddNewHCylinderPalletAnalysis);
             // 
             // newBoxCaseAnalysisToolStripMenuItem
             // 
@@ -653,22 +651,22 @@
             this.toolStripSBCylinderPalletAnalysis.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripSBCylinderPalletAnalysis.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItemCylinderPalletVertical,
-            this.toolStripMenuItemCylinderPalletHorizontal});
+            this.toolStripMenuItemAnalysisCylinderCase});
             resources.ApplyResources(this.toolStripSBCylinderPalletAnalysis, "toolStripSBCylinderPalletAnalysis");
             this.toolStripSBCylinderPalletAnalysis.Name = "toolStripSBCylinderPalletAnalysis";
-            this.toolStripSBCylinderPalletAnalysis.ButtonClick += new System.EventHandler(this.toolAddNewCylinderPalletAnalysis);
+            this.toolStripSBCylinderPalletAnalysis.Click += new System.EventHandler(this.onAddNewAnalysisCylinderPallet);
             // 
             // toolStripMenuItemCylinderPalletVertical
             // 
             resources.ApplyResources(this.toolStripMenuItemCylinderPalletVertical, "toolStripMenuItemCylinderPalletVertical");
             this.toolStripMenuItemCylinderPalletVertical.Name = "toolStripMenuItemCylinderPalletVertical";
-            this.toolStripMenuItemCylinderPalletVertical.Click += new System.EventHandler(this.toolAddNewCylinderPalletAnalysis);
+            this.toolStripMenuItemCylinderPalletVertical.Click += new System.EventHandler(this.onAddNewAnalysisCylinderPallet);
             // 
-            // toolStripMenuItemCylinderPalletHorizontal
+            // toolStripMenuItemAnalysisCylinderCase
             // 
-            resources.ApplyResources(this.toolStripMenuItemCylinderPalletHorizontal, "toolStripMenuItemCylinderPalletHorizontal");
-            this.toolStripMenuItemCylinderPalletHorizontal.Name = "toolStripMenuItemCylinderPalletHorizontal";
-            this.toolStripMenuItemCylinderPalletHorizontal.Click += new System.EventHandler(this.toolAddNewHCylinderPalletAnalysis);
+            resources.ApplyResources(this.toolStripMenuItemAnalysisCylinderCase, "toolStripMenuItemAnalysisCylinderCase");
+            this.toolStripMenuItemAnalysisCylinderCase.Name = "toolStripMenuItemAnalysisCylinderCase";
+            this.toolStripMenuItemAnalysisCylinderCase.Click += new System.EventHandler(this.onAddNewAnalysisCylinderCase);
             // 
             // toolStripButtonBoxCaseAnalysis
             // 
@@ -841,7 +839,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator18;
         private System.Windows.Forms.ToolStripSplitButton toolStripSBCylinderPalletAnalysis;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemCylinderPalletVertical;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemCylinderPalletHorizontal;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemAnalysisCylinderCase;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemCylinderPalletAnalysisV;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemCylinderPalletH;
         private System.Windows.Forms.ToolStripButton toolStripButtonAddNewPack;

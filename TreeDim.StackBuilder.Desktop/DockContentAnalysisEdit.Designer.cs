@@ -30,14 +30,16 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DockContentAnalysisEdit));
             this.toolStripAnalysis = new System.Windows.Forms.ToolStrip();
-            this.toolStripButtonReport = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonBack = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonReportWord = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonReportHTML = new System.Windows.Forms.ToolStripButton();
             this.splitContainerHoriz = new System.Windows.Forms.SplitContainer();
             this.splitContainerVert = new System.Windows.Forms.SplitContainer();
             this.graphCtrlSolution = new treeDiM.StackBuilder.Graphics.Graphics3DControl();
             this.gridSolutions = new SourceGrid.Grid();
             this.gbLayer = new System.Windows.Forms.GroupBox();
             this.chkbInterlayer = new System.Windows.Forms.CheckBox();
-            this.cbInterlayer = new Graphics.Controls.CCtrlComboFiltered();
+            this.cbInterlayer = new treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered();
             this.cbLayerType = new treeDiM.StackBuilder.Graphics.Controls.CCtrlComboLayer();
             this.bnSymmetryX = new System.Windows.Forms.Button();
             this.bnSymetryY = new System.Windows.Forms.Button();
@@ -58,21 +60,45 @@
             // toolStripAnalysis
             // 
             this.toolStripAnalysis.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButtonReport});
+            this.toolStripButtonBack,
+            this.toolStripButtonReportWord,
+            this.toolStripButtonReportHTML});
             this.toolStripAnalysis.Location = new System.Drawing.Point(0, 0);
             this.toolStripAnalysis.Name = "toolStripAnalysis";
             this.toolStripAnalysis.Size = new System.Drawing.Size(684, 25);
             this.toolStripAnalysis.TabIndex = 2;
             this.toolStripAnalysis.Text = "Generate MS Word report";
             // 
-            // toolStripButtonReport
+            // toolStripButtonBack
             // 
-            this.toolStripButtonReport.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonReport.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonReport.Image")));
-            this.toolStripButtonReport.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonReport.Name = "toolStripButtonReport";
-            this.toolStripButtonReport.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonReport.Text = "toolStripButtonReport";
+            this.toolStripButtonBack.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonBack.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonBack.Image")));
+            this.toolStripButtonBack.ImageTransparentColor = System.Drawing.Color.White;
+            this.toolStripButtonBack.Name = "toolStripButtonBack";
+            this.toolStripButtonBack.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonBack.Text = "toolStripButtonBack";
+            this.toolStripButtonBack.ToolTipText = "Back...";
+            this.toolStripButtonBack.Click += new System.EventHandler(this.onBack);
+            // 
+            // toolStripButtonReportWord
+            // 
+            this.toolStripButtonReportWord.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonReportWord.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonReportWord.Image")));
+            this.toolStripButtonReportWord.ImageTransparentColor = System.Drawing.Color.White;
+            this.toolStripButtonReportWord.Name = "toolStripButtonReportWord";
+            this.toolStripButtonReportWord.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonReportWord.Text = "Word report";
+            this.toolStripButtonReportWord.Click += new System.EventHandler(this.onGenerateReportMSWord);
+            // 
+            // toolStripButtonReportHTML
+            // 
+            this.toolStripButtonReportHTML.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonReportHTML.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonReportHTML.Image")));
+            this.toolStripButtonReportHTML.ImageTransparentColor = System.Drawing.Color.White;
+            this.toolStripButtonReportHTML.Name = "toolStripButtonReportHTML";
+            this.toolStripButtonReportHTML.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonReportHTML.Text = "HTML report";
+            this.toolStripButtonReportHTML.Click += new System.EventHandler(this.onGenerateReportHTML);
             // 
             // splitContainerHoriz
             // 
@@ -164,7 +190,7 @@
             this.cbInterlayer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.cbInterlayer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbInterlayer.FormattingEnabled = true;
-            this.cbInterlayer.Location = new System.Drawing.Point(116, 17);
+            this.cbInterlayer.Location = new System.Drawing.Point(119, 17);
             this.cbInterlayer.Name = "cbInterlayer";
             this.cbInterlayer.Size = new System.Drawing.Size(121, 21);
             this.cbInterlayer.TabIndex = 4;
@@ -176,10 +202,10 @@
             this.cbLayerType.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cbLayerType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbLayerType.FormattingEnabled = true;
-            this.cbLayerType.ItemHeight = 40;
+            this.cbLayerType.ItemHeight = 58;
             this.cbLayerType.Location = new System.Drawing.Point(8, 45);
             this.cbLayerType.Name = "cbLayerType";
-            this.cbLayerType.Size = new System.Drawing.Size(69, 46);
+            this.cbLayerType.Size = new System.Drawing.Size(96, 64);
             this.cbLayerType.TabIndex = 7;
             this.cbLayerType.SelectedIndexChanged += new System.EventHandler(this.onLayerTypeChanged);
             // 
@@ -188,9 +214,9 @@
             this.bnSymmetryX.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.bnSymmetryX.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bnSymmetryX.Image = ((System.Drawing.Image)(resources.GetObject("bnSymmetryX.Image")));
-            this.bnSymmetryX.Location = new System.Drawing.Point(83, 45);
+            this.bnSymmetryX.Location = new System.Drawing.Point(107, 45);
             this.bnSymmetryX.Name = "bnSymmetryX";
-            this.bnSymmetryX.Size = new System.Drawing.Size(42, 46);
+            this.bnSymmetryX.Size = new System.Drawing.Size(64, 64);
             this.bnSymmetryX.TabIndex = 5;
             this.bnSymmetryX.UseVisualStyleBackColor = true;
             this.bnSymmetryX.Click += new System.EventHandler(this.onReflectionX);
@@ -200,9 +226,9 @@
             this.bnSymetryY.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.bnSymetryY.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bnSymetryY.Image = ((System.Drawing.Image)(resources.GetObject("bnSymetryY.Image")));
-            this.bnSymetryY.Location = new System.Drawing.Point(131, 45);
+            this.bnSymetryY.Location = new System.Drawing.Point(175, 45);
             this.bnSymetryY.Name = "bnSymetryY";
-            this.bnSymetryY.Size = new System.Drawing.Size(42, 46);
+            this.bnSymetryY.Size = new System.Drawing.Size(64, 64);
             this.bnSymetryY.TabIndex = 6;
             this.bnSymetryY.UseVisualStyleBackColor = true;
             this.bnSymetryY.Click += new System.EventHandler(this.onReflectionY);
@@ -227,7 +253,6 @@
             this.ClientSize = new System.Drawing.Size(684, 561);
             this.Controls.Add(this.splitContainerHoriz);
             this.Controls.Add(this.toolStripAnalysis);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "DockContentAnalysisEdit";
             this.Text = "Analysis...";
@@ -256,7 +281,7 @@
         private System.Windows.Forms.SplitContainer splitContainerHoriz;
         private System.Windows.Forms.SplitContainer splitContainerVert;
         private System.Windows.Forms.ToolStrip toolStripAnalysis;
-        private System.Windows.Forms.ToolStripButton toolStripButtonReport;
+        private System.Windows.Forms.ToolStripButton toolStripButtonReportWord;
         private System.Windows.Forms.GroupBox gbLayer;
         private System.Windows.Forms.CheckBox chkbInterlayer;
         protected Graphics.Controls.CCtrlComboFiltered cbInterlayer;
@@ -265,5 +290,7 @@
         private System.Windows.Forms.Button bnSymetryY;
         private System.Windows.Forms.TextBox tbClickLayer;
         protected SourceGrid.Grid gridSolutions;
+        private System.Windows.Forms.ToolStripButton toolStripButtonBack;
+        private System.Windows.Forms.ToolStripButton toolStripButtonReportHTML;
     }
 }

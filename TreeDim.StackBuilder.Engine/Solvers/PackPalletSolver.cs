@@ -49,7 +49,7 @@ namespace treeDiM.StackBuilder.Engine
 
             HalfAxis.HAxis[] axes = { HalfAxis.HAxis.AXIS_Z_N, HalfAxis.HAxis.AXIS_Z_P };
             // loop throught all patterns
-            foreach (LayerPattern pattern in LayerPattern.All)
+            foreach (LayerPatternBox pattern in LayerPatternBox.All)
             {
                 // loop throught all axes
                 foreach (HalfAxis.HAxis axis in axes) // axis
@@ -73,7 +73,7 @@ namespace treeDiM.StackBuilder.Engine
 
                     string title = string.Format("{0}-{1}", pattern.Name, axis.ToString());
                     double zLayer = 0.0;
-                    BoxLayer boxLayer = new BoxLayer(zLayer, 0);
+                    Layer3DBox boxLayer = new Layer3DBox(zLayer, 0);
                     foreach (LayerPosition layerPos in layer)
                     {
                         LayerPosition layerPosTemp = AdjustLayerPosition(layerPos);

@@ -13,31 +13,19 @@ using log4net;
 namespace treeDiM.StackBuilder.Basics
 {
     #region LayerDescCyl
-    public class LayerDescCyl
+    public class LayerDescCyl : LayerDesc
     {
-        #region Data members
-        private string _patternName;
-        private bool _swapped;
-        #endregion
-
         #region Constructor
         public LayerDescCyl(string patternName, bool swapped)
+            : base(patternName, swapped)
         {
-            _patternName = patternName; _swapped = swapped;
         }
-        #endregion
-
-        #region Public properties
-        public string PatternName
-        { get { return _patternName; } }
-        public bool Swapped
-        { get { return _swapped; } }
         #endregion
 
         #region Object override
         public override string ToString()
         {
-            return string.Format("{0} | {1}", _patternName, _swapped ? "t" : "f");
+            return string.Format("{0} | {1}", PatternName, Swapped ? "t" : "f");
         }
         public static LayerDescCyl Parse(string value)
         {
@@ -64,8 +52,6 @@ namespace treeDiM.StackBuilder.Basics
         private bool _swapped = false;
         private Vector2D _dimContainer;
         private double _radius, _height;
-
-        private double _forcedSpace = 0.0;
 
         protected static ILog _log = LogManager.GetLogger(typeof(Layer2D));
         #endregion
@@ -121,6 +107,7 @@ namespace treeDiM.StackBuilder.Basics
         {
             get { return _height; }
         }
+        public double MaximumSpace { get { return 0.0; } }
         public double Length { get { return _dimContainer.X; } }
         public double Width  { get { return _dimContainer.Y; } }
         public string Tooltip(double height)
@@ -131,10 +118,13 @@ namespace treeDiM.StackBuilder.Basics
                     , CountInHeight(height)
                     , Name);
         }
+        public void UpdateMaxSpace(double space, string patternName)
+        { 
+        }
         #endregion
 
         #region Public properties
-        public LayerDescCyl LayerDescriptor
+        public LayerDesc LayerDescriptor
         {
             get { return new LayerDescCyl(_patternName, _swapped); }
         }

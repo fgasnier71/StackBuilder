@@ -77,7 +77,7 @@ namespace treeDiM.StackBuilder.Graphics
                         uint pickId = 0;
                         foreach (ILayer layer in sol)
                         {
-                            BoxLayer bLayer = layer as BoxLayer;
+                            Layer3DBox bLayer = layer as Layer3DBox;
                             if (null != bLayer)
                             {
                                 foreach (BoxPosition bPosition in bLayer)

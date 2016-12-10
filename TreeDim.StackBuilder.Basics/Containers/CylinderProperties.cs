@@ -88,6 +88,7 @@ namespace treeDiM.StackBuilder.Basics
         {
             get { return new Vector3D(2.0*_radiusOuter, 2.0*_radiusOuter, _height); }
         }
+        public override bool IsBrick { get { return false; } }
         #endregion
 
         #region Object override

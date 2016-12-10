@@ -368,9 +368,9 @@ namespace treeDiM.StackBuilder.Desktop
         /// Creates a new palet analysis
         /// </summary>
         /// <returns>created palet analysis</returns>
-        public CasePalletAnalysis CreateNewCasePalletAnalysisUI()
+        public CasePalletAnalysis CreateNewAnalysisCasePalletUI()
         {
-            if (!CanCreateCasePalletAnalysis) return null;
+            if (!CanCreateAnalysisCasePallet) return null;
 
             FormNewAnalysisCasePallet form = new FormNewAnalysisCasePallet(this, null);
             if (DialogResult.OK == form.ShowDialog()) {}
@@ -385,13 +385,27 @@ namespace treeDiM.StackBuilder.Desktop
             if (DialogResult.OK == form.ShowDialog()) {}
             return null;
         }
-        public CylinderPalletAnalysis CreateNewCylinderPalletAnalysisUI()
+        public void CreateNewAnalysisCylinderPalletUI()
         {
-            if (!CanCreateCylinderCaseAnalysis) return null;
+            if (!CanCreateAnalysisCylinderPallet) return;
+            FormNewAnalysisCylinderPallet form = new FormNewAnalysisCylinderPallet(this, null);
+            if (DialogResult.OK == form.ShowDialog()) {}
+
+        }
+        public void CreateNewAnalysisCylinderCaseUI()
+        {
+            if (!CanCreateAnalysisCylinderCase) return;
             FormNewAnalysisCylinderCase form = new FormNewAnalysisCylinderCase(this, null);
+            if (DialogResult.OK == form.ShowDialog()) {}
+        }
+        public AnalysisPalletTruck CreateNewAnalysisPalletTruckUI()
+        {
+            if (!CanCreateAnalysisPalletTruck) return null;
+            FormNewAnalysisPalletTruck form = new FormNewAnalysisPalletTruck(this, null);
             if (DialogResult.OK == form.ShowDialog()) {}
             return null;
         }
+
         public HCylinderPalletAnalysis CreateNewHCylinderPalletAnalysisUI()
         {
             FormNewAnalysisHCylinder form = new FormNewAnalysisHCylinder(this);
@@ -477,7 +491,20 @@ namespace treeDiM.StackBuilder.Desktop
 
         #region UI item edition
         public void EditAnalysis(Analysis analysis)
-        { 
+        {
+            RemoveItem(analysis);
+
+            Form form = null;
+            if (analysis is AnalysisCasePallet) form = new FormNewAnalysisCasePallet(this, analysis);
+            else if (analysis is AnalysisBoxCase) form = new FormNewAnalysisBoxCase(this, analysis);
+            else if (analysis is AnalysisCylinderPallet) form = new FormNewAnalysisCylinderPallet(this, analysis);
+            else if (analysis is AnalysisCylinderCase) form = new FormNewAnalysisCylinderCase(this, analysis);
+            else
+            {
+                MessageBox.Show("Unexepected analysis type!");
+                return;
+            }
+            if (DialogResult.OK == form.ShowDialog()) { }
         }
         /// <summary>
         /// Edit specified pallet analysis

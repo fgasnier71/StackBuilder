@@ -15,22 +15,14 @@ namespace treeDiM.StackBuilder.Engine
     /// Layer pattern abstract class
     /// </summary>
     internal abstract class LayerPattern
-    {
-        #region Abstract methods
+    { 
         abstract public string Name { get; }
-        abstract public bool GetLayerDimensions(Layer2D layer, out double actualLength, out double actualWidth);
-        abstract public void GenerateLayer(Layer2D layer, double actualLength, double actualWidth);
-        abstract public int GetNumberOfVariants(Layer2D layer);
-        abstract public bool CanBeSwapped { get; }
-        abstract public bool CanBeInverted { get; }
-        abstract public bool IsSymetric { get; }
-        #endregion
+        abstract public bool GetLayerDimensions(ILayer2D layer, out double actualLength, out double actualWidth);
+        abstract public void GenerateLayer(ILayer2D layer, double actualLength, double actualWidth);
 
-        #region Public properties
-        #endregion
+        public virtual bool CanBeSwapped { get { return false; } }
 
-        #region Private methods
-        protected double GetPalletLength(Layer2D layer)
+        protected double GetPalletLength(ILayer2D layer)
         {
             if (!layer.Swapped)
                 return layer.Length;
@@ -38,7 +30,7 @@ namespace treeDiM.StackBuilder.Engine
                 return layer.Width;
         }
 
-        protected double GetPalletWidth(Layer2D layer)
+        protected double GetPalletWidth(ILayer2D layer)
         { 
             if (!layer.Swapped)
                 return layer.Width;
@@ -46,7 +38,7 @@ namespace treeDiM.StackBuilder.Engine
                 return layer.Length;        
         }
 
-        public bool GetLayerDimensionsChecked(Layer2D layer, out double actualLength, out double actualWidth)
+        public bool GetLayerDimensionsChecked(ILayer2D layer, out double actualLength, out double actualWidth)
         {
             bool result = GetLayerDimensions(layer, out actualLength, out actualWidth);
             if (actualLength > GetPalletLength(layer))
@@ -57,8 +49,29 @@ namespace treeDiM.StackBuilder.Engine
                     , this.Name, actualWidth, GetPalletWidth(layer)));
             return result;
         }
+    }
+    /*
+    internal abstract class LayerPatternBox : LayerPattern
+    {
+        #region Abstract methods
+        abstract public int GetNumberOfVariants(Layer2D layer);
+        abstract public bool CanBeInverted { get; }
+        abstract public bool IsSymetric { get; }
+        #endregion
+ 
+        #region Private methods
+        #endregion
 
-        public void AddPosition(Layer2D layer, Vector2D vPosition, HalfAxis.HAxis lengthAxis, HalfAxis.HAxis widthAxis)
+        #region Public properties
+        public double GetBoxLength(ILayer2D layer)
+        {
+            return (layer as Layer2D).BoxLength;
+        }
+        public double GetBoxWidth(ILayer2D layer)
+        {
+            return (layer as Layer2D).BoxWidth;
+        }
+        public void AddPosition(ILayer2D layer, Vector2D vPosition, HalfAxis.HAxis lengthAxis, HalfAxis.HAxis widthAxis)
         {
             Matrix4D matRot = Matrix4D.Identity;
             Vector3D vTranslation = Vector3D.Zero;
@@ -84,22 +97,23 @@ namespace treeDiM.StackBuilder.Engine
             Transform3D transfRotTranslation = new Transform3D(matRot);
             Vector3D vPositionSwapped = transfRotTranslation.transform(new Vector3D(vPosition.X, vPosition.Y, 0.0));
 
-            if (!layer.IsValidPosition(new Vector2D(vPositionSwapped.X, vPositionSwapped.Y), lengthAxisSwapped, widthAxisSwapped))
+            Layer2D layerBox = layer as Layer2D;
+            if (!layerBox.IsValidPosition(new Vector2D(vPositionSwapped.X, vPositionSwapped.Y), lengthAxisSwapped, widthAxisSwapped))
             {
                 _log.Warn(string.Format("Attempt to add an invalid position in pattern = {0}, Swapped = {1}", this.Name, layer.Swapped));
                 return;
             }
-            layer.AddPosition(new Vector2D(vPositionSwapped.X, vPositionSwapped.Y), lengthAxisSwapped, widthAxisSwapped);
+            layerBox.AddPosition(new Vector2D(vPositionSwapped.X, vPositionSwapped.Y), lengthAxisSwapped, widthAxisSwapped);
         }
         #endregion
 
         #region Static methods
-        public static LayerPattern[] All
+        public static LayerPatternBox[] All
         { get { return _allPatterns; } }
 
-        public static LayerPattern GetByName(string patternName)
+        public static LayerPatternBox GetByName(string patternName)
         {
-            foreach (LayerPattern pattern in LayerPattern.All)
+            foreach (LayerPatternBox pattern in LayerPatternBox.All)
             {
                 if (string.Equals(pattern.Name, patternName, StringComparison.CurrentCultureIgnoreCase))
                     return pattern;
@@ -111,7 +125,7 @@ namespace treeDiM.StackBuilder.Engine
         public static int GetPatternNameIndex(string patternName)
         {
             int index = 0;
-            foreach (LayerPattern pattern in LayerPattern.All)
+            foreach (LayerPatternBox pattern in LayerPatternBox.All)
             { 
                 if (string.Equals(pattern.Name, patternName, StringComparison.CurrentCultureIgnoreCase))
                     return index;
@@ -123,7 +137,7 @@ namespace treeDiM.StackBuilder.Engine
         #endregion
 
         #region Data members
-        private static LayerPattern[] _allPatterns = {
+        private static LayerPatternBox[] _allPatterns = {
             new LayerPatternColumn()
             , new LayerPatternInterlocked()
             , new LayerPatternInterlockedSymetric()
@@ -133,7 +147,8 @@ namespace treeDiM.StackBuilder.Engine
             , new LayerPatternSpirale()
             , new LayerPatternEnlargedSpirale()
         };
-        protected static readonly ILog _log = LogManager.GetLogger(typeof(LayerPattern));
+        protected static readonly ILog _log = LogManager.GetLogger(typeof(LayerPatternBox));
         #endregion
     }
+    */
 }

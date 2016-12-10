@@ -34,8 +34,8 @@
             this.cbCases = new treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered();
             this.checkBoxBestLayersOnly = new System.Windows.Forms.CheckBox();
             this.uCtrlLayerList = new treeDiM.StackBuilder.Graphics.UCtrlLayerList();
-            this.graphCtrlCylinder = new treeDiM.StackBuilder.Graphics.Graphics3DControl();
-            ((System.ComponentModel.ISupportInitialize)(this.graphCtrlCylinder)).BeginInit();
+            this.lbSelect = new System.Windows.Forms.Label();
+            this.uCtrlPackable = new treeDiM.StackBuilder.Graphics.Controls.UCtrlPackable();
             this.SuspendLayout();
             // 
             // tbDescription
@@ -68,11 +68,11 @@
             // 
             this.cbCylinders.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCylinders.FormattingEnabled = true;
-            this.cbCylinders.Location = new System.Drawing.Point(104, 63);
+            this.cbCylinders.Location = new System.Drawing.Point(104, 64);
             this.cbCylinders.Name = "cbCylinders";
             this.cbCylinders.Size = new System.Drawing.Size(145, 21);
             this.cbCylinders.TabIndex = 15;
-            this.cbCylinders.SelectedIndexChanged += new System.EventHandler(this.onIputChanged);
+            this.cbCylinders.SelectedIndexChanged += new System.EventHandler(this.onCylinderChanged);
             // 
             // cbCases
             // 
@@ -82,10 +82,11 @@
             this.cbCases.Name = "cbCases";
             this.cbCases.Size = new System.Drawing.Size(145, 21);
             this.cbCases.TabIndex = 16;
-            this.cbCases.SelectedIndexChanged += new System.EventHandler(this.onIputChanged);
+            this.cbCases.SelectedIndexChanged += new System.EventHandler(this.onInputChanged);
             // 
             // checkBoxBestLayersOnly
             // 
+            this.checkBoxBestLayersOnly.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.checkBoxBestLayersOnly.AutoSize = true;
             this.checkBoxBestLayersOnly.Location = new System.Drawing.Point(7, 517);
             this.checkBoxBestLayersOnly.Name = "checkBoxBestLayersOnly";
@@ -93,9 +94,12 @@
             this.checkBoxBestLayersOnly.TabIndex = 29;
             this.checkBoxBestLayersOnly.Text = "Show best layers only";
             this.checkBoxBestLayersOnly.UseVisualStyleBackColor = true;
+            this.checkBoxBestLayersOnly.CheckedChanged += new System.EventHandler(this.onInputChanged);
             // 
             // uCtrlLayerList
             // 
+            this.uCtrlLayerList.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.uCtrlLayerList.AutoScroll = true;
             this.uCtrlLayerList.ButtonSizes = new System.Drawing.Size(150, 150);
             this.uCtrlLayerList.Location = new System.Drawing.Point(0, 218);
@@ -103,20 +107,33 @@
             this.uCtrlLayerList.Size = new System.Drawing.Size(784, 289);
             this.uCtrlLayerList.TabIndex = 30;
             // 
-            // graphCtrlCylinder
+            // lbSelect
             // 
-            this.graphCtrlCylinder.Location = new System.Drawing.Point(104, 92);
-            this.graphCtrlCylinder.Name = "graphCtrlCylinder";
-            this.graphCtrlCylinder.Size = new System.Drawing.Size(110, 110);
-            this.graphCtrlCylinder.TabIndex = 31;
-            this.graphCtrlCylinder.Viewer = null;
+            this.lbSelect.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbSelect.AutoSize = true;
+            this.lbSelect.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lbSelect.Location = new System.Drawing.Point(8, 200);
+            this.lbSelect.Name = "lbSelect";
+            this.lbSelect.Size = new System.Drawing.Size(216, 13);
+            this.lbSelect.TabIndex = 32;
+            this.lbSelect.Text = "Select one or more layers and click \'Next>\'...";
+            // 
+            // uCtrlPackable
+            // 
+            this.uCtrlPackable.Location = new System.Drawing.Point(104, 91);
+            this.uCtrlPackable.Name = "uCtrlPackable";
+            this.uCtrlPackable.Size = new System.Drawing.Size(145, 107);
+            this.uCtrlPackable.TabIndex = 33;
             // 
             // FormNewAnalysisCylinderCase
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 561);
-            this.Controls.Add(this.graphCtrlCylinder);
+            this.Controls.Add(this.uCtrlPackable);
+            this.Controls.Add(this.lbSelect);
             this.Controls.Add(this.uCtrlLayerList);
             this.Controls.Add(this.checkBoxBestLayersOnly);
             this.Controls.Add(this.cbCases);
@@ -124,7 +141,7 @@
             this.Controls.Add(this.lbCase);
             this.Controls.Add(this.lbCylinder);
             this.Name = "FormNewAnalysisCylinderCase";
-            this.Text = "Create new cylinder analysis...";
+            this.Text = "Create new cylinder/case analysis...";
             this.Controls.SetChildIndex(this.bnCancel, 0);
             this.Controls.SetChildIndex(this.lbName, 0);
             this.Controls.SetChildIndex(this.lbDescription, 0);
@@ -136,8 +153,8 @@
             this.Controls.SetChildIndex(this.cbCases, 0);
             this.Controls.SetChildIndex(this.checkBoxBestLayersOnly, 0);
             this.Controls.SetChildIndex(this.uCtrlLayerList, 0);
-            this.Controls.SetChildIndex(this.graphCtrlCylinder, 0);
-            ((System.ComponentModel.ISupportInitialize)(this.graphCtrlCylinder)).EndInit();
+            this.Controls.SetChildIndex(this.lbSelect, 0);
+            this.Controls.SetChildIndex(this.uCtrlPackable, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -151,6 +168,7 @@
         private Graphics.Controls.CCtrlComboFiltered cbCases;
         private System.Windows.Forms.CheckBox checkBoxBestLayersOnly;
         private Graphics.UCtrlLayerList uCtrlLayerList;
-        private Graphics.Graphics3DControl graphCtrlCylinder;
+        private System.Windows.Forms.Label lbSelect;
+        private Graphics.Controls.UCtrlPackable uCtrlPackable;
     }
 }

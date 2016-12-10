@@ -96,6 +96,12 @@ namespace treeDiM.StackBuilder.Desktop
             UpdateGrid();
             // ---
         }
+        protected override void OnClosed(EventArgs e)
+        {
+            base.OnClosed(e);
+            Document.RemoveView(this);
+        }
+
         private void onPalletProtectionChanged(object sender, EventArgs e)
         {
             cbPalletCorners.Enabled = chkbPalletCorners.Checked;
@@ -159,8 +165,12 @@ namespace treeDiM.StackBuilder.Desktop
         public override void Kill(ItemBase item)
         {
             base.Kill(item);
-            _analysis.RemoveListener(this);
+            if (null != _analysis)
+                _analysis.RemoveListener(this);
         }
+        #endregion
+
+        #region IView
         #endregion
 
         #region IDrawingContainer
@@ -502,32 +512,37 @@ namespace treeDiM.StackBuilder.Desktop
             graphCtrlSolution.Invalidate();
             UpdateGrid();
         }
-        #region Toolbar
+       #endregion
+
+        #region Toolbar event handlers
         private void onBack(object sender, EventArgs e)
         {
             // close this form
             Close();
             // call edit analysis
-            
+            Document.EditAnalysis(_analysis);
         }
         private void onGenerateReportMSWord(object sender, EventArgs e)
         {
-            FormMain.GenerateReport(_analysis);
+            FormMain.GetInstance().GenerateReportMSWord(_analysis);
+        }
+        private void onGenerateReportHTML(object sender, EventArgs e)
+        {
+            FormMain.GetInstance().GenerateReportHTML(_analysis);
         }
         #endregion
-        #endregion
-
+ 
         #region Layer controls
         private void FillLayerControls()
         {
             try
             {
-                cbLayerType.BoxProperties = _analysis.Content;
+                cbLayerType.Packable = _analysis.Content;
                 // build layers and fill CCtrl
                 foreach (LayerDesc layerDesc in _solution.LayerDescriptors)
                 {
                     LayerSolver solver = new LayerSolver();
-                    Layer2D layer = solver.BuildLayer(_analysis.ContentDimensions, _analysis.ContainerDimensions, layerDesc);
+                    Layer2D layer = solver.BuildLayer(_analysis.ContentDimensions, _analysis.ContainerDimensions, layerDesc as LayerDescBox);
                     cbLayerType.Items.Add(layer);
                 }
                 if (cbLayerType.Items.Count > 0)

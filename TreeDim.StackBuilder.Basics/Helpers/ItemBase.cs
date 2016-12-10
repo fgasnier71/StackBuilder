@@ -89,7 +89,9 @@ namespace treeDiM.StackBuilder.Basics
         public bool HasDependingAnalyses
         { get { return _dependancies.Count > 0; } }
         public void RemoveDependancy(ItemBase dependancie)
-        {   _dependancies.Remove(dependancie);  }
+        {
+            _dependancies.Remove(dependancie);  
+        }
         protected void Modify()
         {
             // update dependancies
@@ -225,7 +227,7 @@ namespace treeDiM.StackBuilder.Basics
     }
     #endregion
 
-    #region Container
+    #region IPackContainer
     public interface IPackContainer
     {
         bool HasInsideDimensions { get; }

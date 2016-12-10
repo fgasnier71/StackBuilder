@@ -18,14 +18,13 @@ namespace treeDiM.StackBuilder.Engine
         {
             get { return "Symetric Interlocked 2"; }
         }
-        public override void GenerateLayer(Layer2D layer, double actualLength, double actualWidth)
+        public override void GenerateLayer(ILayer2D layer, double actualLength, double actualWidth)
         {
             layer.Clear();
-
-            double boxLength = layer.BoxLength;
-            double boxWidth = layer.BoxWidth;
             double palletLength = GetPalletLength(layer);
             double palletWidth = GetPalletWidth(layer);
+            double boxLength = GetBoxLength(layer);
+            double boxWidth = GetBoxWidth(layer);
 
             int maxSizeXLength = 0, maxSizeXWidth = 0, maxSizeYLength = 0, maxSizeYWidth = 0;
             GetSizeXY(boxLength, boxWidth, palletLength, palletWidth

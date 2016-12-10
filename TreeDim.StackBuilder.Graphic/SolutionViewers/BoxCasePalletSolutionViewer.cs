@@ -55,7 +55,7 @@ namespace treeDiM.StackBuilder.Graphics
             uint pickId = 0;
             foreach (ILayer layer in _caseSolution)
             {
-                BoxLayer blayer = layer as BoxLayer;
+                Layer3DBox blayer = layer as Layer3DBox;
                 if (null != blayer)
                 {
                     foreach (BoxPosition bPosition in blayer)
@@ -91,7 +91,7 @@ namespace treeDiM.StackBuilder.Graphics
                 graphics.NumberOfViews = 1;
                 graphics.SetViewport(0.0f, 0.0f, (float)_caseSolution.CaseLength, (float)_caseSolution.CaseWidth);
 
-                BoxLayer blayer = _caseSolution[0] as BoxLayer;
+                Layer3DBox blayer = _caseSolution[0] as Layer3DBox;
                 if (blayer != null)
                 {
                     graphics.SetCurrentView(0);
@@ -108,7 +108,7 @@ namespace treeDiM.StackBuilder.Graphics
 
                 // get first box layer
                 if (_caseSolution.Count < 1) return;
-                BoxLayer blayer0 = _caseSolution[0] as BoxLayer;
+                Layer3DBox blayer0 = _caseSolution[0] as Layer3DBox;
                 if (blayer0 != null)
                 {
                     graphics.SetCurrentView(0);
@@ -120,9 +120,9 @@ namespace treeDiM.StackBuilder.Graphics
 
                 // get second box layer
                 if (_caseSolution.Count < 2) return;
-                BoxLayer blayer1 = _caseSolution[1] as BoxLayer;
+                Layer3DBox blayer1 = _caseSolution[1] as Layer3DBox;
                 if (null == blayer1 && _caseSolution.Count > 2)
-                    blayer1 = _caseSolution[2] as BoxLayer;
+                    blayer1 = _caseSolution[2] as Layer3DBox;
                 if (blayer1 != null)
                 {
                     graphics.SetCurrentView(1);
@@ -149,7 +149,7 @@ namespace treeDiM.StackBuilder.Graphics
             while (iLayerCount <= layerIndex && iLayer < _caseSolution.Count)
             {
                 ILayer layer = _caseSolution[iLayer];
-                BoxLayer blayer = layer as BoxLayer;
+                Layer3DBox blayer = layer as Layer3DBox;
                 if (null != blayer)
                 {
                     foreach (BoxPosition bPosition in blayer)

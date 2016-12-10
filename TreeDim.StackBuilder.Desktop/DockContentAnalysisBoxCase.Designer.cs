@@ -28,17 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
+            ((System.ComponentModel.ISupportInitialize)(this.graphCtrlSolution)).BeginInit();
             this.SuspendLayout();
+            // 
+            // graphCtrlSolution
+            // 
+            this.graphCtrlSolution.Size = new System.Drawing.Size(537, 411);
+            // 
+            // gridSolutions
+            // 
+            this.gridSolutions.Size = new System.Drawing.Size(243, 411);
             // 
             // DockContentAnalysisBoxCase
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(676, 353);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ClientSize = new System.Drawing.Size(784, 561);
             this.Name = "DockContentAnalysisBoxCase";
             this.Text = "DockContentAnalysisBoxCase";
+            ((System.ComponentModel.ISupportInitialize)(this.graphCtrlSolution)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

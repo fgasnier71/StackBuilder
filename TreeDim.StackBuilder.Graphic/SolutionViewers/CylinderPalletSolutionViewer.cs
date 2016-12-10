@@ -50,7 +50,7 @@ namespace treeDiM.StackBuilder.Graphics
             uint pickId = 0;
             foreach (ILayer layer in _solution)
             {
-                CylinderLayer cylLayer = layer as CylinderLayer;
+                Layer3DCyl cylLayer = layer as Layer3DCyl;
                 if (null != cylLayer)
                 {
                     foreach (Vector3D pos in cylLayer)
@@ -96,7 +96,7 @@ namespace treeDiM.StackBuilder.Graphics
             graphics.NumberOfViews = 1;
             graphics.SetViewport(0.0f, 0.0f, (float)_solution.PalletLength, (float)_solution.PalletWidth);
 
-            CylinderLayer cylLayer = _solution.CylinderLayerFirst;
+            Layer3DCyl cylLayer = _solution.CylinderLayerFirst;
             if (cylLayer != null)
             {
                 graphics.SetCurrentView(0);
@@ -135,7 +135,7 @@ namespace treeDiM.StackBuilder.Graphics
             }
             // draw solution
             uint pickId = 0;
-            CylinderLayer cylLayer = _solution.CylinderLayerFirst;
+            Layer3DCyl cylLayer = _solution.CylinderLayerFirst;
             if (cylLayer != null)
             {
                 foreach (Vector3D pos in cylLayer)

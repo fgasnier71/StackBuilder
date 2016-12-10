@@ -712,18 +712,6 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("..\\..\\..\\treeDiM.StackBuilder.Reporting\\ReportTemplates\\YourLogoHere.png")]
-        public string CompanyLogoPath {
-            get {
-                return ((string)(this["CompanyLogoPath"]));
-            }
-            set {
-                this["CompanyLogoPath"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public int ReporterImageSize {
             get {
@@ -731,18 +719,6 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
             }
             set {
                 this["ReporterImageSize"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("..\\..\\..\\treeDiM.StackBuilder.Reporting\\ReportTemplates\\ReportTemplateHtml.xsl")]
-        public string ReportTemplatePath {
-            get {
-                return ((string)(this["ReportTemplatePath"]));
-            }
-            set {
-                this["ReportTemplatePath"] = value;
             }
         }
         

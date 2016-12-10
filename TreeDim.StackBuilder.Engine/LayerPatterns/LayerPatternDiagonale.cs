@@ -9,7 +9,7 @@ using treeDiM.StackBuilder.Basics;
 
 namespace treeDiM.StackBuilder.Engine
 {
-    class LayerPatternDiagonale : LayerPattern
+    class LayerPatternDiagonale : LayerPatternBox
     {
         #region Implementation of LayerPattern abstract properties and methods
         public override string Name
@@ -17,12 +17,12 @@ namespace treeDiM.StackBuilder.Engine
             get { return "Diagonale"; }
         }
 
-        public override bool GetLayerDimensions(Layer2D layer, out double actualLength, out double actualWidth)
+        public override bool GetLayerDimensions(ILayer2D layer, out double actualLength, out double actualWidth)
         {
-            double boxLength = layer.BoxLength;
-            double boxWidth = layer.BoxWidth;
             double palletLength = GetPalletLength(layer);
             double palletWidth = GetPalletWidth(layer);
+            double boxLength = GetBoxLength(layer);
+            double boxWidth = GetBoxWidth(layer);
 
             int iStep = 0, maxSizeXLength = 0, maxSizeXWidth = 0, maxSizeYLength = 0, maxSizeYWidth = 0;
             GetSizeXY(boxLength, boxWidth, palletLength, palletWidth
@@ -37,14 +37,13 @@ namespace treeDiM.StackBuilder.Engine
 
             return maxSizeXLength > 0 && maxSizeXWidth > 0 && maxSizeYLength > 0 && maxSizeYWidth > 0;
         }
-        public override void GenerateLayer(Layer2D layer, double actualLength, double actualWidth)
+        public override void GenerateLayer(ILayer2D layer, double actualLength, double actualWidth)
         {
             layer.Clear();
-
-            double boxLength = layer.BoxLength;
-            double boxWidth = layer.BoxWidth;
             double palletLength = GetPalletLength(layer);
             double palletWidth = GetPalletWidth(layer);
+            double boxLength = GetBoxLength(layer);
+            double boxWidth = GetBoxWidth(layer);
 
             int maxSizeXLength = 0, maxSizeXWidth = 0, maxSizeYLength = 0, maxSizeYWidth = 0, iStep = 0;
             GetSizeXY(boxLength, boxWidth, palletLength, palletWidth

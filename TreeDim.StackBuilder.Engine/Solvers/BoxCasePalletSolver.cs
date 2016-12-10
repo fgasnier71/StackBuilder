@@ -47,7 +47,7 @@ namespace treeDiM.StackBuilder.Engine
                 BoxProperties caseProperties = palletSolution.Analysis.BProperties as BoxProperties;
 
                 // loop through all patterns
-                foreach (LayerPattern pattern in LayerPattern.All)
+                foreach (LayerPatternBox pattern in LayerPatternBox.All)
                 {
                     if (!_constraintSet.AllowPattern(pattern.Name))
                         continue;
@@ -145,7 +145,7 @@ namespace treeDiM.StackBuilder.Engine
 
                                         // select current layer type
                                         Layer2D currentLayer = iLayerIndex % 2 == 0 ? layer1T : layer2T;
-                                        BoxLayer layer = sol.CreateNewLayer(zLayer, 0);
+                                        Layer3DBox layer = sol.CreateNewLayer(zLayer, 0);
 
                                         foreach (LayerPosition layerPos in currentLayer)
                                         {
@@ -206,7 +206,7 @@ namespace treeDiM.StackBuilder.Engine
             {
                 List<string> patternNames = new List<string>();
                 int i = 0;
-                foreach (LayerPattern p in LayerPattern.All)
+                foreach (LayerPatternBox p in LayerPatternBox.All)
                     patternNames[i++] = p.Name;
                 return patternNames.ToArray();
             }

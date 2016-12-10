@@ -15,7 +15,7 @@
       <xs:element name="weight" minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>
       <xs:element name="netWeight" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
       <xs:element name="admissibleLoadOnTop" minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>
-      <xs:element name="view_box_iso" type="xs:string"/>
+      <xs:element name="imageThumb" minOccurs="1" maxOccurs="1" type="rpt:imageThumb"/>
     </xs:sequence>
   </xs:complexType>
   <!--BOX : END-->
@@ -29,7 +29,7 @@
       <xs:element name="weight" minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>
       <xs:element name="netWeight" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
       <xs:element name="admissibleLoadOnTop" minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>
-      <xs:element name="view_case_iso" type="xs:string"/>
+      <xs:element name="imageThumb" minOccurs="1" maxOccurs="1" type="rpt:imageThumb"/>
     </xs:sequence>
   </xs:complexType>
   <!--BUNDLE : BEG-->
@@ -44,7 +44,7 @@
       <xs:element name="unitWeight" minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>
       <xs:element name="totalThickness" minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>
       <xs:element name="totalWeight" minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>
-      <xs:element name="view_bundle_iso" type="xs:string"/>
+      <xs:element name="imageThumb" minOccurs="1" maxOccurs="1" type="rpt:imageThumb"/>
     </xs:sequence>
   </xs:complexType>
   <!--BENDLE : END-->
@@ -61,7 +61,7 @@
       <xs:element name="innerHeight" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
       <xs:element name="weight" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
       <xs:element name="admissibleLoadOnTop" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
-      <xs:element name="view_case_iso" type="xs:string"/>
+      <xs:element name="imageThumb" minOccurs="1" maxOccurs="1" type="rpt:imageThumb"/>
     </xs:sequence>
   </xs:complexType>
   <!--CASEWITHINNERDIMS : END-->
@@ -77,7 +77,7 @@
       <xs:element name="netWeight" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
       <xs:element name="wrapperWeight" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
       <xs:element name="weight" minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>
-      <xs:element name="view_pack_iso" type="xs:string"/>
+      <xs:element name="imageThumb" minOccurs="1" maxOccurs="1" type="rpt:imageThumb"/>
     </xs:sequence>
   </xs:complexType>
   <!--PACKPROPERTIES : END-->
@@ -92,7 +92,7 @@
       <xs:element name="weight" minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>
       <xs:element name="admissibleLoad" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
       <xs:element name="type" type="xs:string"/>
-      <xs:element name="view_pallet_iso" type="xs:string"/>
+      <xs:element name="imageThumb" minOccurs="1" maxOccurs="1" type="rpt:imageThumb"/>
     </xs:sequence>
   </xs:complexType>
   <!--PALLET : END-->
@@ -105,7 +105,7 @@
       <xs:element name="width" minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>
       <xs:element name="thickness" minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>
       <xs:element name="weight" minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>
-      <xs:element name="view_interlayer_iso" type="xs:string"/>
+      <xs:element name="imageThumb" minOccurs="1" maxOccurs="1" type="rpt:imageThumb"/>
     </xs:sequence>
   </xs:complexType>
   <!--INTERLAYER : END-->
@@ -118,7 +118,7 @@
       <xs:element name="width" minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>
       <xs:element name="thickness" minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>
       <xs:element name="weight" minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>
-      <xs:element name="view_palletCorner_iso" type="xs:string"/>
+      <xs:element name="imageThumb" minOccurs="1" maxOccurs="1" type="rpt:imageThumb"/>
     </xs:sequence>
   </xs:complexType>
   <!--PALLETCORNER : END-->
@@ -134,7 +134,7 @@
       <xs:element name="innerWidth" minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>
       <xs:element name="innerHeight" minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>
       <xs:element name="weight" minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>
-      <xs:element name="view_palletCap_iso" type="xs:string"/>
+      <xs:element name="imageThumb" minOccurs="1" maxOccurs="1" type="rpt:imageThumb"/>
     </xs:sequence>
   </xs:complexType>
   <!--PALLETCAP : END-->
@@ -155,7 +155,7 @@
       <xs:element name="radius" minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>
       <xs:element name="height" minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>
       <xs:element name="weight" minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>
-      <xs:element name="view_cylinder_iso" type="xs:string"/>
+      <xs:element name="imageThumb" minOccurs="1" maxOccurs="1" type="rpt:imageThumb"/>
     </xs:sequence>
   </xs:complexType>
   <!--CYLINDER : END-->
@@ -168,36 +168,22 @@
       <xs:element name="width" minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>
       <xs:element name="height" minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>
       <xs:element name="admissibleLoad" minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>
-      <xs:element name="view_truck_iso" type="xs:string"/>
+      <xs:element name="imageThumb" minOccurs="1" maxOccurs="1" type="rpt:imageThumb"/>
     </xs:sequence>
   </xs:complexType>
   <!--TRUCK : END-->
-  <!--CASEOFBOXES : BEG-->
-  <xs:complexType name="caseOfBoxes">
+  <!--CONSTRAINTSET : BEG-->
+  <xs:complexType name="contraintSet">
     <xs:sequence>
-      <xs:element name="name" type="xs:string"/>
-      <xs:element name="description" type="xs:string"/>
-      <xs:element name="noX" type="xs:string"/>
-      <xs:element name="noY" type="xs:string"/>
-      <xs:element name="noZ" type="xs:string"/>
-      <xs:element name="numberOfBoxes" type="xs:string"/>
-      <xs:element name="dim0" type="xs:string"/>
-      <xs:element name="dim1" type="xs:string"/>
-      <xs:element name="innerLength" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
-      <xs:element name="innerWidth" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
-      <xs:element name="innerHeight" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
-      <xs:element name="innerVolume" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
-      <xs:element name="outerLength" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
-      <xs:element name="outerWidth" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
-      <xs:element name="outerHeight" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
-      <xs:element name="outerVolume" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
-      <xs:element name="emptyWeight" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
-      <xs:element name="weight" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
-      <xs:element name="view_caseOfBoxes_iso1" type="xs:string"/>
-      <xs:element name="view_caseOfBoxes_iso2" type="xs:string"/>
+      <xs:element name="overhangX" minOccurs="0" maxOccurs ="1" type="rpt:valueWUnit"/>
+      <xs:element name="overhangY" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
+      <xs:element name="maximumHeight" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
+      <xs:element name="maximumWeight" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
+      <xs:element name="maximumNumber" minOccurs="0" maxOccurs="1" type="xs:int"/>
+      <xs:element name="orientations" minOccurs="0" maxOccurs="1" type="xs:string"/>
     </xs:sequence>
-  </xs:complexType>
-  <!--CASEOFBOXES : END-->
+  </xs:complexType> 
+  <!--CONSTRAINTSET : END-->
   <!--VALUE WITH UNIT : BEG-->
   <xs:complexType name="valueWUnit">
     <xs:sequence>
@@ -206,16 +192,94 @@
     </xs:sequence>
   </xs:complexType>
   <!--VALUE WITH UNIT : END-->
-  <!--CONSTRAINT SET : BEG-->
-  <xs:complexType name="constraintSet">
+  <!--IMAGETHUMB : BEGIN-->
+  <xs:complexType name="imageThumb">
     <xs:sequence>
+      <xs:element name="imagePath" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>  
+  <!--IMAGETHUMB : END-->
+  <!--VIEW_SOLUTION_ : BEG-->
+  <xs:complexType name="view_solution_front">
+    <xs:sequence>
+      <xs:element name="imagePath" type="xs:string"/>
+      <xs:element name="width" type="xs:string"/>
+      <xs:element name="height" type="xs:string"/>
+    </xs:sequence>    
+  </xs:complexType>
+  <xs:complexType name="view_solution_left">
+    <xs:sequence>
+      <xs:element name="imagePath" type="xs:string"/>
+      <xs:element name="width" type="xs:string"/>
+      <xs:element name="height" type="xs:string"/>
     </xs:sequence>
   </xs:complexType>
-  <!--CONSTRAINT SET : END-->
+  <xs:complexType name="view_solution_right">
+    <xs:sequence>
+      <xs:element name="imagePath" type="xs:string"/>
+      <xs:element name="width" type="xs:string"/>
+      <xs:element name="height" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="view_solution_back">
+    <xs:sequence>
+      <xs:element name="imagePath" type="xs:string"/>
+      <xs:element name="width" type="xs:string"/>
+      <xs:element name="height" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="view_solution_iso">
+    <xs:sequence>
+      <xs:element name="imagePath" type="xs:string"/>
+      <xs:element name="width" type="xs:string"/>
+      <xs:element name="height" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+    <!--VIEW_SOLUTION_ : END-->
   <!--SOLUTION : BEG-->
   <xs:complexType name="solution">
     <xs:sequence>
+      <xs:element name="item" minOccurs="1" maxOccurs="unbounded" type="rpt:contentItem"/>
+      <xs:element name="netWeight" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
+      <xs:element name="loadWeight" minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>
+      <xs:element name="totalWeight" minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>
+      <xs:element name="efficiencyVolume" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="view_solution_front" type="rpt:view_solution_front"/>
+      <xs:element name="view_solution_left" type="rpt:view_solution_left"/>
+      <xs:element name="view_solution_right" type="rpt:view_solution_right"/>
+      <xs:element name="view_solution_back" type="rpt:view_solution_back"/>
+      <xs:element name="view_solution_iso" type="rpt:view_solution_iso"/>
+      <xs:element name="layers">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="layer" minOccurs="1" maxOccurs="unbounded" type="rpt:layerItem"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
     </xs:sequence>
   </xs:complexType>
-  <!--SOLUTION : END-->  
+  <!--SOLUTION : END-->
+  <!--CONTENTITEM : BEG-->
+  <xs:complexType name="contentItem"  >
+    <xs:sequence>
+      <xs:element name="name" minOccurs="1" maxOccurs="1" type="xs:string"/>
+      <xs:element name="value" minOccurs="1" maxOccurs="1" type="xs:string"/>
+    </xs:sequence> 
+  </xs:complexType>
+  <!--CONTENTITEM : END-->
+  <!--LAYER : BEG-->
+  <xs:complexType name="layerItem">
+    <xs:sequence>
+      <xs:element name="layerIndexes" type="xs:string"/>
+      <xs:element name="layerItem" minOccurs="1" maxOccurs="unbounded" type="rpt:contentItem"/>
+      <xs:element name="layerLength" type="rpt:valueWUnit"/>
+      <xs:element name="layerWidth" type="rpt:valueWUnit"/>
+      <xs:element name="layerHeight" type="rpt:valueWUnit"/>
+      <xs:element name="layerWeight" type="rpt:valueWUnit"/>
+      <xs:element name="layerNetWeight" type="rpt:valueWUnit"/>
+      <xs:element name="layerSpaces" type="rpt:valueWUnit"/>
+      <xs:element name="layerImage" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--LAYER : END-->
 </xs:schema>

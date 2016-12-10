@@ -24,10 +24,6 @@ namespace treeDiM.StackBuilder.Desktop
     public partial class DockContentAnalysisBoxCase : DockContentAnalysisEdit
     {
         #region Data members
-        /// <summary>
-        /// logger
-        /// </summary>
-        static readonly ILog _log = LogManager.GetLogger(typeof(DockContentAnalysisBoxCase));
         #endregion
 
         #region Constructor

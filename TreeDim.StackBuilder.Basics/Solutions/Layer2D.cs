@@ -13,49 +13,23 @@ using log4net;
 namespace treeDiM.StackBuilder.Basics
 {
     #region LayerDesc
-    public class LayerDesc
+    public abstract class LayerDesc
     {
         #region Data members
         private string _patternName;
-        private HalfAxis.HAxis _axis;
         private bool _swapped;
         #endregion
-
         #region Constructor
-        public LayerDesc(string patternName, HalfAxis.HAxis axis, bool swapped)
+        public LayerDesc(string patternName, bool swapped)
         {
-            _patternName = patternName; _axis = axis; _swapped = swapped;
+            _patternName = patternName; _swapped = swapped;
         }
         #endregion
-
         #region Public properties
-        public HalfAxis.HAxis AxisOrtho
-        { get { return _axis; } }
         public string PatternName
         { get { return _patternName; } }
         public bool Swapped
         { get { return _swapped; } }
-        #endregion
-
-        #region Object override
-        public override string ToString()
-        {
-            return string.Format("{0} | {1} | {2}", _patternName, _axis, _swapped ? "t" : "f");
-        }
-        public static LayerDesc Parse(string value)
-        {
-            Regex r = new Regex(@"(?<name>|(?<axis>|?<swap>))", RegexOptions.Singleline);
-            Match m = r.Match(value);
-            if (m.Success)
-            {
-                string patternName = m.Result("${name}");
-                HalfAxis.HAxis axis = HalfAxis.Parse( m.Result("${axis}"));
-                bool swapped = string.Equals("t", m.Result("${swap}"), StringComparison.CurrentCultureIgnoreCase);
-                return new LayerDesc(patternName, axis, swapped);
-            }
-            else
-                throw new Exception("Failed to parse LayerDesc");
-        }
         #endregion
     }
     #endregion
@@ -71,12 +45,58 @@ namespace treeDiM.StackBuilder.Basics
         int Count { get; }
         double Length { get; }
         double Width { get; }
-        #endregion
+        LayerDesc LayerDescriptor { get; }
+        double MaximumSpace { get; }
+         #endregion
 
         #region Methods
+        void Clear();
         int CountInHeight(double height);
         int NoLayers(double height);
         string Tooltip(double height);
+        void UpdateMaxSpace(double space, string patternName);
+        #endregion
+    }
+    #endregion
+
+    #region LayerDescBox
+    public class LayerDescBox : LayerDesc
+    {
+        #region Data members
+        private HalfAxis.HAxis _axis;
+        #endregion
+        #region Constructor
+        public LayerDescBox(string patternName, HalfAxis.HAxis axis, bool swapped)
+            : base(patternName, swapped)
+        {
+            _axis = axis;
+        }
+        #endregion
+        #region Public properties
+        public HalfAxis.HAxis AxisOrtho
+        { get { return _axis; } }
+        #endregion
+        #region Object override
+        public override string ToString()
+        {
+            return string.Format("{0} | {1} | {2}", PatternName, _axis, Swapped ? "t" : "f");
+        }
+        #endregion
+        #region Static methods
+        public static LayerDesc Parse(string value)
+        {
+            Regex r = new Regex(@"(?<name>|(?<axis>|?<swap>))", RegexOptions.Singleline);
+            Match m = r.Match(value);
+            if (m.Success)
+            {
+                string patternName = m.Result("${name}");
+                HalfAxis.HAxis axis = HalfAxis.Parse( m.Result("${axis}"));
+                bool swapped = string.Equals("t", m.Result("${swap}"), StringComparison.CurrentCultureIgnoreCase);
+                return new LayerDescBox(patternName, axis, swapped);
+            }
+            else
+                throw new Exception("Failed to parse LayerDesc");
+        }
         #endregion
     }
     #endregion
@@ -386,7 +406,7 @@ namespace treeDiM.StackBuilder.Basics
         }
         public LayerDesc LayerDescriptor
         {
-            get { return new LayerDesc(_patternName, _axisOrtho, _swapped); }
+            get { return new LayerDescBox(_patternName, _axisOrtho, _swapped); }
         }
         #endregion
     }

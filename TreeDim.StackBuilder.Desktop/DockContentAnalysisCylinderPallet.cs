@@ -13,16 +13,16 @@ using treeDiM.StackBuilder.Basics;
 
 namespace treeDiM.StackBuilder.Desktop
 {
-    public partial class DockContentAnalysisCylinderPallet : DockContentView
+    public partial class DockContentAnalysisCylinderPallet : DockContentAnalysisEdit
     {
         #region Constructor
         public DockContentAnalysisCylinderPallet()
-            : base(null)
+            : base(null, null)
         {
             InitializeComponent();
         }
         public DockContentAnalysisCylinderPallet(IDocument document, AnalysisCylinderPallet analysis)
-            : base(document)
+            : base(document, analysis)
         {
             InitializeComponent();
         }

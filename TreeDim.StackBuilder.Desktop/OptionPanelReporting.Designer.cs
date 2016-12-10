@@ -199,7 +199,6 @@
             this.Controls.Add(this.fileSelectCtrlReportTemplate);
             this.DisplayName = "Reports";
             this.Name = "OptionPanelReporting";
-            this.Load += new System.EventHandler(this.OptionPanelReporting_Load);
             this.gbMSWordMargins.ResumeLayout(false);
             this.gbMSWordMargins.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudRight)).EndInit();

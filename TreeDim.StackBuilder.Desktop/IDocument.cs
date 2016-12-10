@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.ComponentModel;
+
+using treeDiM.StackBuilder.Basics;
 #endregion
 
 namespace treeDiM.StackBuilder.Desktop
@@ -20,6 +22,8 @@ namespace treeDiM.StackBuilder.Desktop
         IView ActiveView { get; }
         void AddView(IView view);
         void RemoveView(IView view);
+
+        void EditAnalysis(Analysis analysis);
 
         event EventHandler Modified;
     }

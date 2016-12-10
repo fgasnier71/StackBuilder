@@ -25,8 +25,18 @@ namespace treeDiM.StackBuilder.Basics
             // sanity checks
             if (caseProperties.ParentDocument != ParentDocument)
                 throw new Exception("box & case do not belong to the same document");
-            _caseProperties = caseProperties;
+            // also add dependancy
+            CaseProperties = caseProperties;
+
             _constraintSet = constraintSet;
+        }
+        #endregion
+
+        #region Override ItemBase
+        protected override void RemoveItselfFromDependancies()
+        {
+            base.RemoveItselfFromDependancies();
+            _caseProperties.RemoveDependancy(this);
         }
         #endregion
 
@@ -172,6 +182,11 @@ namespace treeDiM.StackBuilder.Basics
         {
             innerPackable = ParentAnalysis.Content;
             number = ParentSolution.ItemCount;
+            return true;
+        }
+        public override bool InnerAnalysis(ref Analysis analysis)
+        {
+            analysis = Analysis;
             return true;
         }
         protected override string TypeName

@@ -39,6 +39,8 @@ namespace treeDiM.StackBuilder.Basics
         public virtual bool IsCase { get { return false; } }
         public virtual bool IsPallet { get { return false; } }
         public virtual bool IsTruck { get { return false; } }
+        abstract public bool IsBrick {get;}
+        public bool IsCylinder { get { return !IsBrick; } }
         #endregion
 
         #region Virtual methods
@@ -116,6 +118,10 @@ namespace treeDiM.StackBuilder.Basics
                 default:
                     return 0.0;
             }
+        }
+        public override bool IsBrick
+        {
+            get { return true; }
         }
         #endregion
 

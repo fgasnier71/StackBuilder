@@ -15,7 +15,7 @@ namespace treeDiM.StackBuilder.Graphics
 {
     public partial class uCtrlCaseOrientation : UserControl
     {
-        #region constructor
+        #region Constructor
         public uCtrlCaseOrientation()
         {
             InitializeComponent();

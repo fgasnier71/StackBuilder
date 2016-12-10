@@ -60,7 +60,7 @@ namespace treeDiM.StackBuilder.Desktop
                 this.ContextMenuStrip = new ContextMenuStrip();
                 // attach event handlers
                 this.NodeMouseClick += new TreeNodeMouseClickEventHandler(AnalysisTreeView_NodeMouseClick);
-                this.NodeMouseDoubleClick += new TreeNodeMouseClickEventHandler(AnalysisTreeView_NodeMouseDoubleClick);
+                this.NodeMouseDoubleClick += new TreeNodeMouseClickEventHandler(onNodeLeftDoubleClick);
                 this.ContextMenuStrip.Opening += new CancelEventHandler(ContextMenuStrip_Opening);
                 this.DrawMode = TreeViewDrawMode.OwnerDrawText;
                 this.DrawNode += new DrawTreeNodeEventHandler(AnalysisTreeView_DrawNode);
@@ -150,12 +150,12 @@ namespace treeDiM.StackBuilder.Desktop
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWPALLETFILM, AnalysisTreeView.PalletFilm, new EventHandler(onCreateNewPalletFilm)));
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWTRUCK, AnalysisTreeView.Truck       , new EventHandler(onCreateNewTruck)));
 
-                if (((DocumentSB)nodeTag.Document).CanCreateCasePalletAnalysis || ((DocumentSB)nodeTag.Document).CanCreateBundlePalletAnalysis || ((DocumentSB)nodeTag.Document).CanCreateBoxCasePalletAnalysis)
+                if (((DocumentSB)nodeTag.Document).CanCreateAnalysisCasePallet || ((DocumentSB)nodeTag.Document).CanCreateBundlePalletAnalysis || ((DocumentSB)nodeTag.Document).CanCreateAnalysisBoxCasePallet)
                     contextMenuStrip.Items.Add(new ToolStripSeparator());
-                if (((DocumentSB)nodeTag.Document).CanCreateCasePalletAnalysis)
-                    contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWANALYSIS, AnalysisTreeView.AnalysisCasePallet, new EventHandler(onCreateNewCasePalletAnalysis)));
-                if (((DocumentSB)nodeTag.Document).CanCreateBoxCasePalletAnalysis)
-                    contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWCASEANALYSIS, AnalysisTreeView.AnalysisCase, new EventHandler(onCreateNewCaseAnalysis)));
+                if (((DocumentSB)nodeTag.Document).CanCreateAnalysisCasePallet)
+                    contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWANALYSIS, AnalysisTreeView.AnalysisCasePallet, new EventHandler(onCreateNewAnalysisCasePallet)));
+                if (((DocumentSB)nodeTag.Document).CanCreateAnalysisBoxCasePallet)
+                    contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWCASEANALYSIS, AnalysisTreeView.AnalysisCase, new EventHandler(onCreateNewAnalysisCase)));
                 contextMenuStrip.Items.Add(new ToolStripSeparator());
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_CLOSE, null, new EventHandler(onDocumentClose)));
             }
@@ -176,6 +176,55 @@ namespace treeDiM.StackBuilder.Desktop
                 string message = string.Format(Resources.ID_DELETE, nodeTag.ItemProperties.Name);
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(message, AnalysisTreeView.DELETE, new EventHandler(onDeleteBaseItem)));
             }
+            else if (nodeTag.Type == NodeTag.NodeType.NT_LISTBOX)
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWBOX, AnalysisTreeView.Box, new EventHandler(onCreateNewBox)));
+            else if (nodeTag.Type == NodeTag.NodeType.NT_LISTCASE)
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWCASE, AnalysisTreeView.Case, new EventHandler(onCreateNewCase)));
+            else if (nodeTag.Type == NodeTag.NodeType.NT_LISTCYLINDER)
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWCYLINDER, AnalysisTreeView.Cylinder, new EventHandler(onCreateNewCylinder)));
+            else if (nodeTag.Type == NodeTag.NodeType.NT_LISTPALLET)
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWPALLET, AnalysisTreeView.Pallet, new EventHandler(onCreateNewPallet)));
+            else if (nodeTag.Type == NodeTag.NodeType.NT_LISTINTERLAYER)
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWINTERLAYER, AnalysisTreeView.Interlayer, new EventHandler(onCreateNewInterlayer)));
+            else if (nodeTag.Type == NodeTag.NodeType.NT_LISTBUNDLE)
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWBUNDLE, AnalysisTreeView.Bundle, new EventHandler(onCreateNewBundle)));
+            else if (nodeTag.Type == NodeTag.NodeType.NT_LISTTRUCK)
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWTRUCK, AnalysisTreeView.Truck, new EventHandler(onCreateNewTruck)));
+            else if (nodeTag.Type == NodeTag.NodeType.NT_LISTPALLETCORNERS)
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWPALLETCORNERS, AnalysisTreeView.PalletCorners, new EventHandler(onCreateNewPalletCorners)));
+            else if (nodeTag.Type == NodeTag.NodeType.NT_LISTPALLETCAP)
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWPALLETCAP, AnalysisTreeView.PalletCap, new EventHandler(onCreateNewPalletCap)));
+            else if (nodeTag.Type == NodeTag.NodeType.NT_LISTPALLETFILM)
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWPALLETFILM, AnalysisTreeView.PalletFilm, new EventHandler(onCreateNewPalletFilm)));
+            else if (nodeTag.Type == NodeTag.NodeType.NT_LISTANALYSIS)
+            {
+                if (nodeTag.Document.CanCreateAnalysisCasePallet)
+                    contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWANALYSIS, AnalysisTreeView.AnalysisCasePallet, new EventHandler(onCreateNewAnalysisCasePallet)));
+                if (nodeTag.Document.CanCreateAnalysisBoxCasePallet)
+                    contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWCASEANALYSIS, AnalysisTreeView.AnalysisCase, new EventHandler(onCreateNewAnalysisCase)));
+                if (nodeTag.Document.CanCreateAnalysisCylinderPallet)
+                    contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWCYLINDERANALYSIS, AnalysisTreeView.AnalysisCylinderPallet, new EventHandler(onCreateNewAnalysisCylinderPallet)));
+                if (nodeTag.Document.CanCreateAnalysisPalletTruck)
+                    contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWTRUCKANALYSIS, AnalysisTreeView.AnalysisTruck, new EventHandler(onCreateNewAnalysisPalletTruck)));
+            }
+            else if (nodeTag.Type == NodeTag.NodeType.NT_ANALYSIS)
+            {
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(
+                    string.Format(Resources.ID_EDIT, nodeTag.Analysis.Name), null
+                    , new EventHandler(onEditAnalysis)));
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(
+                    string.Format(Resources.ID_DELETE, nodeTag.Analysis.Name), AnalysisTreeView.DELETE
+                    , new EventHandler(onDeleteBaseItem)));
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(
+                    string.Format(Resources.ID_GENERATEREPORTMSWORD, nodeTag.Analysis.Name), AnalysisTreeView.WORD
+                    , new EventHandler(onAnalysisReportMSWord)));
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(
+                    string.Format(Resources.ID_GENERATEREPORTHTML, nodeTag.Analysis.Name), AnalysisTreeView.HTML
+                    , new EventHandler(onAnalysisReportHTML)));
+            }
+        }
+
+/*
             else if (nodeTag.Type == NodeTag.NodeType.NT_CASEPALLETANALYSIS)
             {
                 string message = string.Format(Resources.ID_EDIT, nodeTag.CasePalletAnalysis.Name);
@@ -225,35 +274,7 @@ namespace treeDiM.StackBuilder.Desktop
                 message = string.Format(Resources.ID_DELETE, nodeTag.ECTAnalysis.Name);
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(message, AnalysisTreeView.DELETE, new EventHandler(onDeleteECTAnalysis)));
             }
-            else if (nodeTag.Type == NodeTag.NodeType.NT_LISTBOX)
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWBOX, AnalysisTreeView.Box, new EventHandler(onCreateNewBox)));
-            else if (nodeTag.Type == NodeTag.NodeType.NT_LISTCASE)
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWCASE, AnalysisTreeView.Case, new EventHandler(onCreateNewCase)));
-            else if (nodeTag.Type == NodeTag.NodeType.NT_LISTCYLINDER)
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWCYLINDER, AnalysisTreeView.Cylinder, new EventHandler(onCreateNewCylinder)));
-            else if (nodeTag.Type == NodeTag.NodeType.NT_LISTPALLET)
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWPALLET, AnalysisTreeView.Pallet, new EventHandler(onCreateNewPallet)));
-            else if (nodeTag.Type == NodeTag.NodeType.NT_LISTINTERLAYER)
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWINTERLAYER, AnalysisTreeView.Interlayer, new EventHandler(onCreateNewInterlayer)));
-            else if (nodeTag.Type == NodeTag.NodeType.NT_LISTBUNDLE)
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWBUNDLE, AnalysisTreeView.Bundle, new EventHandler(onCreateNewBundle)));
-            else if (nodeTag.Type == NodeTag.NodeType.NT_LISTTRUCK)
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWTRUCK, AnalysisTreeView.Truck, new EventHandler(onCreateNewTruck)));
-            else if (nodeTag.Type == NodeTag.NodeType.NT_LISTPALLETCORNERS)
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWPALLETCORNERS, AnalysisTreeView.PalletCorners, new EventHandler(onCreateNewPalletCorners)));
-            else if (nodeTag.Type == NodeTag.NodeType.NT_LISTPALLETCAP)
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWPALLETCAP, AnalysisTreeView.PalletCap, new EventHandler(onCreateNewPalletCap)));
-            else if (nodeTag.Type == NodeTag.NodeType.NT_LISTPALLETFILM)
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWPALLETFILM, AnalysisTreeView.PalletFilm, new EventHandler(onCreateNewPalletFilm)));
-            else if (nodeTag.Type == NodeTag.NodeType.NT_LISTANALYSIS)
-            {
-                if (nodeTag.Document.CanCreateCasePalletAnalysis)
-                    contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWANALYSIS, AnalysisTreeView.AnalysisCasePallet, new EventHandler(onCreateNewCasePalletAnalysis)));
-                if (nodeTag.Document.CanCreateBoxCasePalletAnalysis)
-                    contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWCASEANALYSIS, AnalysisTreeView.AnalysisCase, new EventHandler(onCreateNewCaseAnalysis)));
-                if (nodeTag.Document.CanCreateCylinderPalletAnalysis)
-                    contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWCYLINDERANALYSIS, AnalysisTreeView.AnalysisCylinderPallet, new EventHandler(onCreateNewCylinderPalletAnalysis)));
-            }
+*//*
             else if (nodeTag.Type == NodeTag.NodeType.NT_CASEPALLETANALYSISSOLUTION)
             {
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(string.Format(Resources.ID_UNSELECTSOLUTION, nodeTag.SelSolution.Solution.Title), AnalysisTreeView.DELETE, new EventHandler(onUnselectCasePalletAnalysisSolution)));
@@ -325,7 +346,7 @@ namespace treeDiM.StackBuilder.Desktop
                 message = string.Format(Resources.ID_GENERATEREPORTMSWORD, nodeTag.SelBoxCasePalletSolution.Name);
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(message, AnalysisTreeView.WORD, new EventHandler(onAnalysisReportMSWord)));
             }
-        }
+ */ 
         #endregion
 
         #region Handling context menus
@@ -338,6 +359,43 @@ namespace treeDiM.StackBuilder.Desktop
             }
             catch (Exception ex) { _log.Error(ex.ToString()); }
         }
+        private void onAnalysisReportMSWord(object sender, EventArgs e)
+        {
+            try
+            {
+                NodeTag tag = SelectedNode.Tag as NodeTag;
+                SolutionReportMSWordClicked(this, new AnalysisTreeViewEventArgs(tag));
+            }
+            catch (Exception ex) { _log.Error(ex.ToString()); }
+        }
+        private void onAnalysisReportPdf(object sender, EventArgs e)
+        {
+            try
+            {
+                NodeTag tag = SelectedNode.Tag as NodeTag;
+                SolutionReportPdfClicked(this, new AnalysisTreeViewEventArgs(tag));
+            }
+            catch (Exception ex) { _log.Error(ex.ToString()); }
+        }
+        private void onAnalysisReportHTML(object sender, EventArgs e)
+        {
+            try
+            {
+                NodeTag tag = SelectedNode.Tag as NodeTag;
+                SolutionReportHtmlClicked(this, new AnalysisTreeViewEventArgs(tag));
+            }
+            catch (Exception ex) { _log.Error(ex.ToString()); }
+        }
+        private void onAnalysisExportCollada(object sender, EventArgs e)
+        {
+            try
+            {
+                NodeTag tag = SelectedNode.Tag as NodeTag;
+                SolutionColladaExportClicked(this, new AnalysisTreeViewEventArgs(tag));
+            }
+            catch (Exception ex) { _log.Error(ex.ToString()); }
+        }
+        /*
         private void onEditCasePalletAnalysis(object sender, EventArgs e)
         {
             try
@@ -438,42 +496,9 @@ namespace treeDiM.StackBuilder.Desktop
             }
             catch (Exception ex) { _log.Error(ex.ToString()); }
         }
-        private void onAnalysisReportMSWord(object sender, EventArgs e)
-        {
-            try
-            {
-                NodeTag tag = SelectedNode.Tag as NodeTag;
-                SolutionReportMSWordClicked(this, new AnalysisTreeViewEventArgs(tag));
-            }
-            catch (Exception ex) { _log.Error(ex.ToString()); }
-        }
-        private void onAnalysisReportPdf(object sender, EventArgs e)
-        {
-            try
-            {
-                NodeTag tag = SelectedNode.Tag as NodeTag;
-                SolutionReportPdfClicked(this, new AnalysisTreeViewEventArgs(tag));
-            }
-            catch (Exception ex) { _log.Error(ex.ToString()); }
-        }
-        private void onAnalysisReportHTML(object sender, EventArgs e)
-        {
-            try
-            {
-                NodeTag tag = SelectedNode.Tag as NodeTag;
-                SolutionReportHtmlClicked(this, new AnalysisTreeViewEventArgs(tag));
-            }
-            catch (Exception ex) { _log.Error(ex.ToString()); }
-        }
-        private void onAnalysisExportCollada(object sender, EventArgs e)
-        {
-            try
-            {
-                NodeTag tag = SelectedNode.Tag as NodeTag;
-                SolutionColladaExportClicked(this, new AnalysisTreeViewEventArgs(tag));
-            }
-            catch (Exception ex) { _log.Error(ex.ToString()); }
-        }
+ */ 
+
+        /*
         private void onEditTruckAnalysis(object sender, EventArgs e)
         {
             try
@@ -519,6 +544,7 @@ namespace treeDiM.StackBuilder.Desktop
             }
             catch (Exception ex) { _log.Error(ex.ToString()); } 
         }
+        */ 
         private void onCreateNewBox(object sender, EventArgs e)
         {
             try
@@ -618,150 +644,41 @@ namespace treeDiM.StackBuilder.Desktop
             }
             catch (Exception ex) { _log.Error(ex.ToString()); }
         }
-        private void onCreateNewCasePalletAnalysis(object sender, EventArgs e)
+
+        private void onCreateNewAnalysisCasePallet(object sender, EventArgs e)
         {
             try
             {
                 NodeTag tag = SelectedNode.Tag as NodeTag;
-                ((DocumentSB)tag.Document).CreateNewCasePalletAnalysisUI();
+                ((DocumentSB)tag.Document).CreateNewAnalysisCasePalletUI();
             }
             catch (Exception ex) { _log.Error(ex.ToString()); }
         }
-        private void onCreateNewCylinderPalletAnalysis(object sender, EventArgs e)
+        private void onCreateNewAnalysisCylinderPallet(object sender, EventArgs e)
         {
             try
             {
                 NodeTag tag = SelectedNode.Tag as NodeTag;
-                ((DocumentSB)tag.Document).CreateNewCylinderPalletAnalysisUI();
+                ((DocumentSB)tag.Document).CreateNewAnalysisCylinderPalletUI();
             }
             catch (Exception ex) { _log.Error(ex.ToString()); }
         }
-        private void onCreateNewHCylinderPalletAnalysis(object sender, EventArgs e)
+        private void onCreateNewAnalysisCase(object sender, EventArgs e)
         {
             try
             {
                 NodeTag tag = SelectedNode.Tag as NodeTag;
-                //((DocumentSB)tag.Document).CreateNewHCylinderPalletAnalysisUI();
-            }
-            catch (Exception ex) { _log.Error(ex.ToString()); }
-        }
-        private void onCreateNewTruckAnalysis(object sender, EventArgs e)
-        {
-            try
-            {
-                NodeTag tag = SelectedNode.Tag as NodeTag;
-
-                if (tag.SelSolution.HasDependingAnalyses)
-                    return;
-
-                FormNewTruckAnalysis form = new FormNewTruckAnalysis(tag.Document);
-                form.Trucks = tag.Document.Trucks.ToArray();
-                if (DialogResult.OK == form.ShowDialog())
-                {
-                    TruckConstraintSet constraintSet = new TruckConstraintSet();
-                    constraintSet.MultilayerAllowed = form.AllowSeveralPalletLayers;
-                    constraintSet.AllowPalletOrientationX = form.AllowPalletOrientationX;
-                    constraintSet.AllowPalletOrientationY = form.AllowPalletOrientationY;
-                    constraintSet.MinDistancePalletTruckWall = form.MinDistancePalletTruckWall;
-                    constraintSet.MinDistancePalletTruckRoof = form.MinDistancePalletTruckRoof;
-
-                    TruckAnalysis truckAnalysis = tag.SelSolution.CreateNewTruckAnalysis(form.SelectedTruck.Name, string.Empty, form.SelectedTruck, constraintSet, new TruckSolver());
-                    if (null != truckAnalysis)
-                        FormMain.GetInstance().CreateOrActivateViewTruckAnalysis(truckAnalysis);
-                }
-            }
-            catch (Exception ex) { _log.Error(ex.ToString()); }       
-        }
-        private void onSendSolutionToDatabase(object sender, EventArgs e)
-        {
-            try
-            {
-                NodeTag tag = SelectedNode.Tag as NodeTag;
-                // get PalletSolutionDatabase instance
-                PalletSolutionDatabase db = PalletSolutionDatabase.Instance;
-                // check that a comparable solution is not already in database
-                BoxProperties boxProperties = tag.CasePalletAnalysis.BProperties as BoxProperties;
-                PalletProperties palletProperties = tag.CasePalletAnalysis.PalletProperties;
-                PalletConstraintSet constraintSet = tag.CasePalletAnalysis.ConstraintSet;
-                // show form and get friendly name
-                FormAppendSolutionToDB form = new FormAppendSolutionToDB();
-                // warn user : keep or replace similar solutions
-                form.ShowSimilarSolutionQuestion =db.AlreadyHasSimilarSolution(tag.SelSolution);
-                // show dialog
-                if (DialogResult.Cancel == form.ShowDialog())
-                    return;
-                // save in database index
-                db.Append(tag.SelSolution, form.FriendlyName, form.KeepSimilarSolutions); 
+                ((DocumentSB)tag.Document).CreateNewBoxCasePalletOptimizationUI();
             }
             catch (Exception ex) { _log.Error(ex.ToString()); }
         }
 
-        private void onCreateNewECTAnalysis(object sender, EventArgs e)
+        private void onCreateNewAnalysisPalletTruck(object sender, EventArgs e)
         {
             try
             {
                 NodeTag tag = SelectedNode.Tag as NodeTag;
-
-                if (tag.SelSolution.HasECTAnalyses)
-                    return;
-
-                SelCasePalletSolution selSolution = tag.SelSolution;
-                CasePalletAnalysis analysis = selSolution.Analysis;
-
-                ECTAnalysis ectAnalysis = selSolution.CreateNewECTAnalysis(analysis.Name, analysis.Description);
-                if (null != ectAnalysis)
-                    FormMain.GetInstance().CreateOrActivateViewECTAnalysis(ectAnalysis);
-            }
-            catch (Exception ex) { _log.Error(ex.ToString()); }
-        }
-
-        private void onCreateNewCaseAnalysis(object sender, EventArgs e)
-        {
-            NodeTag tag = SelectedNode.Tag as NodeTag;
-            ((DocumentSB)tag.Document).CreateNewBoxCasePalletOptimizationUI(); 
-        }
-        private void onUnselectCasePalletAnalysisSolution(object sender, EventArgs e)
-        {
-            try
-            {
-                NodeTag tag = SelectedNode.Tag as NodeTag;
-                tag.CasePalletAnalysis.UnSelectSolution(tag.SelSolution);
-            }
-            catch (Exception ex) { _log.Error(ex.ToString()); }
-        }
-        private void onUnselectCylinderPalletAnalysisSolution(object sender, EventArgs e)
-        {
-            try
-            {
-                NodeTag tag = SelectedNode.Tag as NodeTag;
-                tag.CylinderPalletAnalysis.UnSelectSolution(tag.SelCylinderPalletSolution);
-            }
-            catch (Exception ex) { _log.Error(ex.ToString()); }
-        }
-        private void onUnselectHCylinderPalletAnalysisSolution(object sender, EventArgs e)
-        {
-            try
-            {
-                NodeTag tag = SelectedNode.Tag as NodeTag;
-                tag.HCylinderPalletAnalysis.UnSelectSolution(tag.SelHCylinderPalletSolution);
-            }
-            catch (Exception ex) { _log.Error(ex.ToString()); }
-        }
-        private void onUnselectBoxCaseAnalysisSolution(object sender, EventArgs e)
-        {
-            try
-            {
-                NodeTag tag = SelectedNode.Tag as NodeTag;
-                tag.BoxCaseAnalysis.UnSelectSolution(tag.SelBoxCaseSolution);
-            }
-            catch (Exception ex) { _log.Error(ex.ToString()); }
-        }
-        private void onUnselectBoxCasePalletAnalysisSolution(object sender, EventArgs e)
-        {
-            try
-            {
-                NodeTag tag = SelectedNode.Tag as NodeTag;
-                tag.CaseAnalysis.UnSelectSolution(tag.SelBoxCasePalletSolution);
+                ((DocumentSB)tag.Document).CreateNewAnalysisPalletTruckUI();
             }
             catch (Exception ex) { _log.Error(ex.ToString()); }
         }
@@ -775,10 +692,19 @@ namespace treeDiM.StackBuilder.Desktop
             }
             catch (Exception ex) { _log.Error(ex.ToString()); }
         }
+        private void onEditAnalysis(object sender, EventArgs e)
+        {
+            try
+            {
+                NodeTag tag = SelectedNode.Tag as NodeTag;
+                FormMain.GetInstance().CreateOrActivateViewAnalysis(tag.Analysis);
+            }
+            catch (Exception ex) { _log.Error(ex.ToString()); }
+        }
         #endregion
 
         #region Event handlers
-        void AnalysisTreeView_NodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
+        void onNodeLeftDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
         {
             try
             {
@@ -788,17 +714,8 @@ namespace treeDiM.StackBuilder.Desktop
                 NodeTag tag = CurrentTag;
                 NodeTag.NodeType tagType = tag.Type;
                 if (null != AnalysisNodeClicked &&
-                    (tag.Type == NodeTag.NodeType.NT_CASEPALLETANALYSIS)
-                    || (tag.Type == NodeTag.NodeType.NT_PACKPALLETANALYSIS)
-                    || (tag.Type == NodeTag.NodeType.NT_TRUCKANALYSIS)
-                    || (tag.Type == NodeTag.NodeType.NT_BOXCASEANALYSIS)
-                    || (tag.Type == NodeTag.NodeType.NT_BOXCASEPALLETANALYSIS)
+                    (tag.Type == NodeTag.NodeType.NT_ANALYSIS)
                     || (tag.Type == NodeTag.NodeType.NT_ECTANALYSIS)
-                    || (tag.Type == NodeTag.NodeType.NT_ANALYSISBOX)
-                    || (tag.Type == NodeTag.NodeType.NT_ANALYSISPALLET)
-                    || (tag.Type == NodeTag.NodeType.NT_CYLINDERPALLETANALYSIS)
-                    || (tag.Type == NodeTag.NodeType.NT_HCYLINDERPALLETANALYSIS)
-                    || (tag.Type == NodeTag.NodeType.NT_ANALYSISINTERLAYER)
                     || (tag.Type == NodeTag.NodeType.NT_BOX)
                     || (tag.Type == NodeTag.NodeType.NT_CASE)
                     || (tag.Type == NodeTag.NodeType.NT_PACK)
@@ -1087,264 +1004,13 @@ namespace treeDiM.StackBuilder.Desktop
         {
             // get parent node
             TreeNode parentNode = FindNode(null, new NodeTag(NodeTag.NodeType.NT_LISTANALYSIS, doc));
-
+            // instantiate analysis node
             TreeNode nodeAnalysis = new TreeNode(analysis.Name, ToIconIndex(analysis), ToIconIndex(analysis));
             nodeAnalysis.Tag = new NodeTag(NodeTag.NodeType.NT_ANALYSIS, doc, analysis);
-
-            // sub nodes
-
+            // insert context menu
             parentNode.Nodes.Add( nodeAnalysis );
             parentNode.Expand();
         }
-
-
-
-        #region Case/Pallet analyses
-        /// <summary>
-        /// handles new analysis created
-        /// </summary>
-        /// <param name="doc"></param>
-        /// <param name="analysis"></param>
-        public void OnNewCasePalletAnalysisCreated(Document doc, CasePalletAnalysis analysis)
-        {
-            // get parent node
-            TreeNode parentNode = FindNode(null, new NodeTag(NodeTag.NodeType.NT_LISTANALYSIS, doc));
-            // insert analysis node
-            int indexIconAnalysis = analysis.IsBoxAnalysis ? 13 : 14;
-            TreeNode nodeAnalysis = new TreeNode(analysis.Name, indexIconAnalysis, indexIconAnalysis);
-            nodeAnalysis.Tag = new NodeTag(NodeTag.NodeType.NT_CASEPALLETANALYSIS, doc, analysis);
-            parentNode.Nodes.Add(nodeAnalysis);
-            parentNode.Expand();
-            //CasePalletAnalysis_InsertSubNodes(doc, analysis, nodeAnalysis);
-            // add event handlers for solution selection
-            analysis.Modified += new CasePalletAnalysis.ModifyAnalysis(onCasePalletAnalysisModified);
-            analysis.SolutionSelected += new CasePalletAnalysis.SelectSolution(onPalletAnalysisSolutionSelected);
-            analysis.SolutionSelectionRemoved += new CasePalletAnalysis.SelectSolution(onPalletAnalysisSolutionSelectionRemoved);
-        }
-
-        /*
-        void CasePalletAnalysis_InsertSubNodes(Document doc, CasePalletAnalysis analysis, TreeNode nodeAnalysis)
-        {
-            // sanity check
-            if (null == nodeAnalysis) return;
-            // remove any existing subnodes
-            nodeAnalysis.Nodes.Clear();
-            // insert sub box node
-            int indexIconBoxAnalysis = 4;
-            if (analysis.BProperties is CaseOfBoxesProperties)
-                indexIconBoxAnalysis = 18;
-            else if (analysis.BProperties is BoxProperties)
-                indexIconBoxAnalysis = 4;
-            else if (analysis.BProperties is BundleProperties)
-                indexIconBoxAnalysis = 5;
-            TreeNode subBoxNode = new TreeNode(analysis.BProperties.Name, indexIconBoxAnalysis, indexIconBoxAnalysis);
-            subBoxNode.Tag = new NodeTag(NodeTag.NodeType.NT_ANALYSISBOX, doc, analysis, analysis.BProperties);
-            nodeAnalysis.Nodes.Add(subBoxNode);
-            // insert sub pallet node
-            TreeNode subPalletNode = new TreeNode(analysis.PalletProperties.Name, 7, 7);
-            subPalletNode.Tag = new NodeTag(NodeTag.NodeType.NT_ANALYSISPALLET, doc, analysis, analysis.PalletProperties);
-            nodeAnalysis.Nodes.Add(subPalletNode);
-            // insert sub interlayer node if any
-            if (analysis.HasInterlayer)
-            {
-                TreeNode subInterlayer = new TreeNode(analysis.InterlayerProperties.Name, 8, 8);
-                subInterlayer.Tag = new NodeTag(NodeTag.NodeType.NT_ANALYSISINTERLAYER, doc, analysis, analysis.InterlayerProperties);
-                nodeAnalysis.Nodes.Add(subInterlayer);
-            }
-            if (analysis.HasInterlayerAntiSlip && (analysis.InterlayerProperties != analysis.InterlayerPropertiesAntiSlip))
-            {
-                TreeNode subInterlayer = new TreeNode(analysis.InterlayerPropertiesAntiSlip.Name, 8, 8);
-                subInterlayer.Tag = new NodeTag(NodeTag.NodeType.NT_ANALYSISINTERLAYER, doc, analysis, analysis.InterlayerPropertiesAntiSlip);
-                nodeAnalysis.Nodes.Add(subInterlayer);            
-            }
-            if (analysis.HasPalletCorners)
-            {
-                TreeNode subPalletCorners = new TreeNode(analysis.PalletCornerProperties.Name, 10, 10);
-                subPalletCorners.Tag = new NodeTag(NodeTag.NodeType.NT_ANALYSISPALLETCORNERS, doc, analysis, analysis.PalletCornerProperties);
-                nodeAnalysis.Nodes.Add(subPalletCorners);
-            }
-            if (analysis.HasPalletCap)
-            {
-                TreeNode subPalletCap = new TreeNode(analysis.PalletCapProperties.Name, 11, 11);
-                subPalletCap.Tag = new NodeTag(NodeTag.NodeType.NT_ANALYSISPALLETCAP, doc, analysis, analysis.PalletCapProperties);
-                nodeAnalysis.Nodes.Add(subPalletCap);
-            }
-            if (analysis.HasPalletFilm)
-            {
-                TreeNode subPalletFilm = new TreeNode(analysis.PalletFilmProperties.Name, 12, 12);
-                subPalletFilm.Tag = new NodeTag(NodeTag.NodeType.NT_ANALYSISPALLETFILM, doc, analysis, analysis.PalletFilmProperties);
-                nodeAnalysis.Nodes.Add(subPalletFilm);
-            }
-            nodeAnalysis.Expand();        
-        }
-        */ 
-        #endregion
-        #region PackPalletAnalysis
-        public void OnNewPackPalletAnalysisCreated(Document doc, PackPalletAnalysis analysis)
-        {
-            // get parent node
-            TreeNode parentNode = FindNode(null, new NodeTag(NodeTag.NodeType.NT_LISTANALYSIS, doc));
-            // insert analysis node
-            int indexIconAnalysis = 23;
-            TreeNode nodeAnalysis = new TreeNode(analysis.Name, indexIconAnalysis, indexIconAnalysis);
-            nodeAnalysis.Tag = new NodeTag(NodeTag.NodeType.NT_PACKPALLETANALYSIS, doc, analysis);
-            parentNode.Nodes.Add(nodeAnalysis);
-            parentNode.Expand();
-            //PackPalletAnalysis_InsertSubNodes(doc, analysis, nodeAnalysis);
-            // add event handlers for solution selection
-            analysis.Modified += new PackPalletAnalysis.ModifyAnalysis(onPackPalletAnalysisModified);
-            analysis.SolutionSelected += new PackPalletAnalysis.SelectSolution(onPackPalletAnalysisSolutionSelected);
-            analysis.SolutionSelectionRemoved += new PackPalletAnalysis.SelectSolution(onPackPalletAnalysisSolutionSelectionRemoved);
-        }
-        /*
-        void PackPalletAnalysis_InsertSubNodes(Document doc, PackPalletAnalysis analysis, TreeNode nodeAnalysis)
-        {
-            // sanity check
-            if (null == nodeAnalysis) return;
-            // remove any existing subnodes
-            nodeAnalysis.Nodes.Clear();
-            // insert sub pack node
-            TreeNode subPackNode = new TreeNode(analysis.PackProperties.Name, 22, 22);
-            subPackNode.Tag = new NodeTag(NodeTag.NodeType.NT_ANALYSISPACK, doc, analysis, analysis.PackProperties);
-            nodeAnalysis.Nodes.Add(subPackNode);
-            TreeNode subPalletNode = new TreeNode(analysis.PalletProperties.Name, 7, 7);
-            subPalletNode.Tag = new NodeTag(NodeTag.NodeType.NT_ANALYSISPALLET, doc, analysis, analysis.PalletProperties);
-            nodeAnalysis.Nodes.Add(subPalletNode);
-            if (analysis.HasInterlayer)
-            {
-                TreeNode subInterlayerNode = new TreeNode(analysis.InterlayerProperties.Name, 8, 8);
-                subInterlayerNode.Tag = new NodeTag(NodeTag.NodeType.NT_ANALYSISINTERLAYER, doc, analysis, analysis.InterlayerProperties);
-                nodeAnalysis.Nodes.Add(subInterlayerNode);
-            }
-            nodeAnalysis.Expand();
-        }
-        */
-        #endregion
-        #region Cylinder/Pallet analyses
-        /// <summary>
-        /// handles new cylinder/pallet analysis creation
-        /// </summary>
-        public void OnNewCylinderPalletAnalysisCreated(Document doc, CylinderPalletAnalysis analysis)
-        {
-            // get parent node
-            TreeNode parentNode = FindNode(null, new NodeTag(NodeTag.NodeType.NT_LISTANALYSIS, doc));
-            // insert analysis node
-            int indexIconAnalysis = 20;
-            TreeNode nodeAnalysis = new TreeNode(analysis.Name, indexIconAnalysis, indexIconAnalysis);
-            nodeAnalysis.Tag = new NodeTag(NodeTag.NodeType.NT_CYLINDERPALLETANALYSIS, doc, analysis);
-            parentNode.Nodes.Add(nodeAnalysis);
-            parentNode.Expand();
-            //CylinderPalletAnalysis_InsertSubNodes(doc, analysis, nodeAnalysis);
-            // add event handlers for solution selection
-            analysis.Modified += new CylinderPalletAnalysis.ModifyAnalysis(onCylinderAnalysisModified);
-            analysis.SolutionSelected += new CylinderPalletAnalysis.SelectSolution(onCylinderAnalysisSolutionSelected);
-            analysis.SolutionSelectionRemoved += new CylinderPalletAnalysis.SelectSolution(onCylinderPalletSolutionSelectionRemoved);
-        }
-        /*
-        void CylinderPalletAnalysis_InsertSubNodes(Document doc, CylinderPalletAnalysis analysis, TreeNode nodeAnalysis)
-        { 
-            // sanity check
-            if (null == nodeAnalysis) return;
-            // remove any existing subnodes
-            nodeAnalysis.Nodes.Clear();
-            // insert sub cylinder node
-            int indexIconBoxAnalysis = 6;
-            TreeNode subCylNode = new TreeNode(analysis.CylinderProperties.Name, indexIconBoxAnalysis, indexIconBoxAnalysis);
-            subCylNode.Tag = new NodeTag(NodeTag.NodeType.NT_ANALYSISBOX, doc, analysis, analysis.CylinderProperties);
-            nodeAnalysis.Nodes.Add(subCylNode);
-            int indexIconPalletAnalysis = 7;
-            TreeNode subPalletNode = new TreeNode(analysis.PalletProperties.Name, indexIconPalletAnalysis, indexIconPalletAnalysis);
-            subPalletNode.Tag = new NodeTag(NodeTag.NodeType.NT_ANALYSISPALLET, doc, analysis, analysis.PalletProperties);
-            nodeAnalysis.Nodes.Add(subPalletNode);
-            // insert sub interlayer node if any
-            if (analysis.HasInterlayer)
-            {
-                TreeNode subInterlayer = new TreeNode(analysis.InterlayerProperties.Name, 8, 8);
-                subInterlayer.Tag = new NodeTag(NodeTag.NodeType.NT_ANALYSISINTERLAYER, doc, analysis, analysis.InterlayerProperties);
-                nodeAnalysis.Nodes.Add(subInterlayer);
-            }
-            nodeAnalysis.Expand();        
-        }
-        */ 
-        public void OnNewHCylinderPalletAnalysisCreated(Document doc, HCylinderPalletAnalysis analysis)
-        {
-            // get parent node
-            TreeNode parentNode = FindNode(null, new NodeTag(NodeTag.NodeType.NT_LISTANALYSIS, doc));
-            // insert analysis node
-            int indexIconAnalysis = 21;
-            TreeNode nodeAnalysis = new TreeNode(analysis.Name, indexIconAnalysis, indexIconAnalysis);
-            nodeAnalysis.Tag = new NodeTag(NodeTag.NodeType.NT_HCYLINDERPALLETANALYSIS, doc, analysis);
-            parentNode.Nodes.Add(nodeAnalysis);
-            parentNode.Expand();
-            //HCylinderPalletAnalysis_InsertSubNodes(doc, analysis, nodeAnalysis);
-            // add event handlers for solution selection
-            analysis.Modified += new HCylinderPalletAnalysis.ModifyAnalysis(onHCylinderAnalysisModified);
-            analysis.SolutionSelected += new HCylinderPalletAnalysis.SelectSolution(onHCylinderAnalysisSolutionSelected);
-            analysis.SolutionSelectionRemoved += new HCylinderPalletAnalysis.SelectSolution(onHCylinderPalletSolutionSelectionRemoved);
-        }
-        /*
-        void HCylinderPalletAnalysis_InsertSubNodes(Document doc, HCylinderPalletAnalysis analysis, TreeNode nodeAnalysis)
-        {
-            // sanity check
-            if (null == nodeAnalysis) return;
-            // remove any existing subnodes
-            nodeAnalysis.Nodes.Clear();
-            // insert sub cylinder node
-            int indexIconBoxAnalysis = 6;
-            TreeNode subCylNode = new TreeNode(analysis.CylinderProperties.Name, indexIconBoxAnalysis, indexIconBoxAnalysis);
-            subCylNode.Tag = new NodeTag(NodeTag.NodeType.NT_ANALYSISBOX, doc, analysis, analysis.CylinderProperties);
-            nodeAnalysis.Nodes.Add(subCylNode);
-            int indexIconPalletAnalysis = 7;
-            TreeNode subPalletNode = new TreeNode(analysis.PalletProperties.Name, indexIconPalletAnalysis, indexIconPalletAnalysis);
-            subPalletNode.Tag = new NodeTag(NodeTag.NodeType.NT_ANALYSISPALLET, doc, analysis, analysis.PalletProperties);
-            nodeAnalysis.Nodes.Add(subPalletNode);
-            nodeAnalysis.Expand();
-        }
-        */ 
-        #endregion
-        #region Box/Case analyses
-        /// <summary>
-        /// handles new box case analysis creation
-        /// </summary>
-        /// <param name="doc">Document</param>
-        /// <param name="analysis">Analysis</param>
-        public void OnNewBoxCaseAnalysisCreated(Document doc, BoxCaseAnalysis analysis)
-        {
-            // get parent node
-            TreeNode parentNode = FindNode(null, new NodeTag(NodeTag.NodeType.NT_LISTANALYSIS, doc));
-            // get parent node
-            int indexIconAnalysis = 17;
-            TreeNode nodeAnalysis = new TreeNode(analysis.Name, indexIconAnalysis, indexIconAnalysis);
-            nodeAnalysis.Tag = new NodeTag(NodeTag.NodeType.NT_BOXCASEANALYSIS, doc, analysis);
-            parentNode.Nodes.Add(nodeAnalysis);
-            parentNode.Expand();
-            //BoxCaseAnalysis_InsertSubNodes(doc, analysis, nodeAnalysis);
-            // add event handlers for solution selection
-            analysis.Modified += new Basics.BoxCaseAnalysis.ModifyAnalysis(onBoxCaseAnalysisModified);
-            analysis.SolutionSelected += new BoxCaseAnalysis.SelectSolution(onBoxCaseAnalysisSolutionSelected);
-            analysis.SolutionSelectionRemoved += new Basics.BoxCaseAnalysis.SelectSolution(onBoxCaseAnalysisSolutionSelectionRemoved);
-        }
-        /*
-        public void BoxCaseAnalysis_InsertSubNodes(Document doc, BoxCaseAnalysis analysis, TreeNode nodeAnalysis)
-        {
-            // sanity check
-            if (null == nodeAnalysis) return;
-            // remove existing sub nodes
-            nodeAnalysis.Nodes.Clear();
-            // insert sub box node
-            int indexIcon = 3;
-            TreeNode subBoxNode = new TreeNode(analysis.BProperties.Name, indexIcon, indexIcon);
-            subBoxNode.Tag = new NodeTag(NodeTag.NodeType.NT_BOXCASEANALYSISBOX, doc, analysis.BProperties);
-            nodeAnalysis.Nodes.Add(subBoxNode);
-            // insert sub case node
-            indexIcon = 4;
-            TreeNode subCaseNode = new TreeNode(analysis.CaseProperties.Name, indexIcon, indexIcon);
-            subCaseNode.Tag = new NodeTag(NodeTag.NodeType.NT_BOXCASEANALYSISCASE, doc, analysis.CaseProperties);
-            nodeAnalysis.Nodes.Add(subCaseNode);
-            nodeAnalysis.Expand();
-        }
-        */ 
-        #endregion
         #endregion
 
         #region Remove functions
@@ -1396,77 +1062,16 @@ namespace treeDiM.StackBuilder.Desktop
 
         public void OnAnalysisRemoved(Document doc, ItemBase analysis)
         {
-            NodeTag.NodeType nodeType = NodeTag.NodeType.NT_UNKNOWN;
-            if (analysis.GetType() == typeof(CasePalletAnalysis)) nodeType = NodeTag.NodeType.NT_CASEPALLETANALYSIS;
-            else if (analysis.GetType() == typeof(PackPalletAnalysis)) nodeType = NodeTag.NodeType.NT_PACKPALLETANALYSIS;
-            else if (analysis.GetType() == typeof(CylinderPalletAnalysis)) nodeType = NodeTag.NodeType.NT_CYLINDERPALLETANALYSIS;
-            else if (analysis.GetType() == typeof(HCylinderPalletAnalysis)) nodeType = NodeTag.NodeType.NT_HCYLINDERPALLETANALYSIS;
-            else if (analysis.GetType() == typeof(BoxCaseAnalysis)) nodeType = NodeTag.NodeType.NT_BOXCASEANALYSIS;
-            else if (analysis.GetType() == typeof(BoxCasePalletAnalysis)) nodeType = NodeTag.NodeType.NT_BOXCASEPALLETANALYSIS;
-
             // get node
-            TreeNode analysisNode = FindNode(null, new NodeTag(nodeType, doc, analysis));
+            TreeNode analysisNode = FindNode(null, new NodeTag(NodeTag.NodeType.NT_ANALYSIS, doc, analysis));
             // test
             if (null == analysisNode)
             {
-                _log.Warn(string.Format("Failed to find a valid tree node for analysis {0}", analysis.Name));
+                _log.Error(string.Format("Failed to find a valid tree node for analysis {0}", analysis.Name));
                 return;
             }
             // remove node
             Nodes.Remove(analysisNode);
-        }
-        /// <summary>
-        /// handles case solution unselected : actually removed selected solution node from case analysis node
-        /// </summary>
-        public void OnCaseAnalysisSolutionRemoved(Document doc, BoxCasePalletAnalysis caseAnalysis, SelBoxCasePalletSolution selSolution)
-        {
-            /*
-            // get node
-            TreeNode selSolutionNode = FindNode(null, new NodeTag(NodeTag.NodeType.NT_CASESOLUTION, doc, caseAnalysis, selSolution));
-            // test
-            if (null == selSolutionNode)
-            {
-                _log.Error(string.Format("Failed to find a valid tree node for selSolution {0}", selSolution.Name));
-                return;
-            }
-            // remove node
-            Nodes.Remove(selSolutionNode);
-             */ 
-        }
-
-        public void onBoxCaseAnalysisSolutionRemoved(Document doc, BoxCaseAnalysis boxCaseAnalysis, SelBoxCaseSolution selSolution)
-        {
-            /*
-            // get node
-            TreeNode selSolutionNode = FindNode(null, new NodeTag(NodeTag.NodeType.NT_CASESOLUTION, doc, boxCaseAnalysis, selSolution));
-            // test
-            if (null == selSolutionNode)
-            {
-                _log.Error(string.Format("Failed to find a valid tree node for selSolution {0}", selSolution.Name));
-                return;
-            }
-            // remove node
-            Nodes.Remove(selSolutionNode);
-            */ 
-        }
-
-        /// <summary>
-        /// handles truck analysis removal : removed truck analysis node from 
-        /// </summary>
-        public void OnTruckAnalysisRemoved(Document doc, CasePalletAnalysis analysis, SelCasePalletSolution selSolution, TruckAnalysis truckAnalysis)
-        {
-            /*
-            // get node
-            TreeNode truckAnalysisNode = FindNode(null, new NodeTag(NodeTag.NodeType.NT_TRUCKANALYSIS, doc, analysis, selSolution, truckAnalysis));
-            // test
-            if (null == truckAnalysisNode)
-            {
-                _log.Warn(string.Format("Failed to find a valid tree node for truck analysis {0}", truckAnalysis.Name));
-                return;
-            }
-            // remove node
-            Nodes.Remove(truckAnalysisNode);
-            */ 
         }
         /// <summary>
         /// handles ECT analysis removal
@@ -1495,259 +1100,6 @@ namespace treeDiM.StackBuilder.Desktop
             TreeNode docNode = FindNode(null, new NodeTag(nodeType, doc));
             // remove node
             Nodes.Remove(docNode);
-        }
-        #endregion
-
-        #region PalletAnalysis/CaseAnalysis solution added/removed Handlers
-        private void onCaseAnalysisSolutionSelectionRemoved(BoxCasePalletAnalysis caseAnalysis, SelBoxCasePalletSolution selSolution)
-        {
-            // retrieve parent document
-            Document doc = caseAnalysis.ParentDocument;
-            // get node
-            TreeNode caseAnalysisNode = FindNode(null, new NodeTag(NodeTag.NodeType.NT_BOXCASEPALLETANALYSIS, doc, caseAnalysis));
-            // test
-            if (null == caseAnalysisNode)
-            {
-                _log.Warn(string.Format("Failed to find a valid tree node for caseAnalysis {0}", caseAnalysis.Name));
-                return;
-            }
-            // remove node
-            Nodes.Remove(caseAnalysisNode);
-        }
-
-        private void onCaseAnalysisSolutionSelected(BoxCasePalletAnalysis caseAnalysis, SelBoxCasePalletSolution selSolution)
-        {
-            /*
-            // retrieve document
-            Document doc = caseAnalysis.ParentDocument;
-            // get parent node
-            TreeNode parentNode = FindNode(null, new NodeTag(NodeTag.NodeType.NT_BOXCASEPALLETANALYSIS, doc, caseAnalysis));
-            if (null == parentNode) throw new Exception("Failed to locate Analysis (NT_BOXCASEPALLETANALYSIS) node...");
-            // insert selected solution node
-            TreeNode nodeSelSolution = new TreeNode(selSolution.Name, 15, 15);
-            nodeSelSolution.Tag = new NodeTag(NodeTag.NodeType.NT_CASESOLUTION, doc, caseAnalysis, selSolution);
-            parentNode.Nodes.Add(nodeSelSolution);
-            // expand tree node
-            parentNode.Expand();
-            */ 
-        }
-
-        private void onCasePalletAnalysisModified(CasePalletAnalysis analysis)
-        { 
-            // retrieve parent document
-            Document doc = analysis.ParentDocument;
-            // get parent node
-            TreeNode parentNode = FindNode(null, new NodeTag(NodeTag.NodeType.NT_CASEPALLETANALYSIS, doc, analysis));
-            if (null == parentNode) throw new Exception("Failed to locate Analysis (NT_CASEPALLETANALYSIS) node...");
-            // insert case/pallet/interlayer node
-            //CasePalletAnalysis_InsertSubNodes(doc, analysis, parentNode);
-            // expand tree node
-            parentNode.Expand();
-        }
-        private void onPalletAnalysisSolutionSelected(CasePalletAnalysis analysis, SelCasePalletSolution selSolution)
-        {
-            /*
-            // retrieve parent document
-            Document doc = analysis.ParentDocument;
-            // get parent node
-            TreeNode parentNode = FindNode(null, new NodeTag(NodeTag.NodeType.NT_CASEPALLETANALYSIS, doc, analysis));
-            if (null == parentNode) throw new Exception("Failed to locate Analysis (NT_CASEPALLETANALYSIS) node...");
-            // insert selected solution node
-            TreeNode nodeSelSolution = new TreeNode(selSolution.Name, 15, 15);
-            nodeSelSolution.Tag = new NodeTag(NodeTag.NodeType.NT_CASEPALLETANALYSISSOLUTION, doc, analysis, selSolution);
-            parentNode.Nodes.Add(nodeSelSolution);
-            // expand tree nodes
-            parentNode.Expand();
-            */ 
-        }
-        private void onPackPalletAnalysisModified(PackPalletAnalysis analysis)
-        { 
-            // retrieve parent document
-            Document doc = analysis.ParentDocument;
-            // get parent node
-            TreeNode parentNode = FindNode(null, new NodeTag(NodeTag.NodeType.NT_PACKPALLETANALYSIS, doc, analysis));
-            if (null == parentNode) throw new Exception("Failed to locate Analysis (NT_PACKPALLETANALYSIS) node...");
-            // insert case/pallet/interlayer node
-            //PackPalletAnalysis_InsertSubNodes(doc, analysis, parentNode);
-            // expand tree node
-            parentNode.Expand();
-        }
-        private void onPackPalletAnalysisSolutionSelected(PackPalletAnalysis analysis, SelPackPalletSolution selSolution)
-        {
-            /*
-            // retrieve parent document
-            Document doc = analysis.ParentDocument;
-            // get parent node
-            TreeNode parentNode = FindNode(null, new NodeTag(NodeTag.NodeType.NT_PACKPALLETANALYSIS, doc, analysis));
-            if (null == parentNode) throw new Exception("Failed to locate Analysis (NT_PACKPALLETANALYSIS) node...");
-            // insert selected solution node
-            TreeNode nodeSelSolution = new TreeNode(selSolution.Name, 15, 15);
-            nodeSelSolution.Tag = new NodeTag(NodeTag.NodeType.NT_PACKPALLETANALYSISSOLUTION, doc, analysis, selSolution);
-            parentNode.Nodes.Add(nodeSelSolution);
-            // expand tree nodes
-            parentNode.Expand();
-            */ 
-        }
-        private void onCylinderAnalysisModified(CylinderPalletAnalysis analysis)
-        {
-            // retrieve parent document
-            Document doc = analysis.ParentDocument;
-            // get parent node
-            TreeNode parentNode = FindNode(null, new NodeTag(NodeTag.NodeType.NT_CYLINDERPALLETANALYSIS, doc, analysis));
-            // remove & insert sub nodes
-            //CylinderPalletAnalysis_InsertSubNodes(doc, analysis, parentNode);
-            // expand tree node
-            parentNode.Expand();
-        }
-        private void onCylinderAnalysisSolutionSelected(CylinderPalletAnalysis analysis, SelCylinderPalletSolution selSolution)
-        {
-            /*
-            // retrieve parent document
-            Document doc = analysis.ParentDocument;
-            // get parent node
-            TreeNode parentNode = FindNode(null, new NodeTag(NodeTag.NodeType.NT_CYLINDERPALLETANALYSIS, doc, analysis));
-            // inserted selected solution node
-            TreeNode nodeSelSolution = new TreeNode(selSolution.Name, 15, 15);
-            nodeSelSolution.Tag = new NodeTag(NodeTag.NodeType.NT_CYLINDERPALLETANALYSISSOLUTION, doc, analysis, selSolution);
-            parentNode.Nodes.Add(nodeSelSolution);
-            // expand tree nodes
-            parentNode.Expand();
-            */ 
-        }
-        private void onHCylinderAnalysisModified(HCylinderPalletAnalysis analysis)
-        {
-            // retrieve parent document
-            Document doc = analysis.ParentDocument;
-            // get parent node
-            TreeNode parentNode = FindNode(null, new NodeTag(NodeTag.NodeType.NT_HCYLINDERPALLETANALYSIS, doc, analysis));
-            // remove & insert sub nodes
-            //HCylinderPalletAnalysis_InsertSubNodes(doc, analysis, parentNode);
-            // expand tree node
-            parentNode.Expand();
-        }
-        private void onHCylinderAnalysisSolutionSelected(HCylinderPalletAnalysis analysis, SelHCylinderPalletSolution selSolution)
-        {
-            /*
-            // retrieve parent document
-            Document doc = analysis.ParentDocument;
-            // get parent node
-            TreeNode parentNode = FindNode(null, new NodeTag(NodeTag.NodeType.NT_HCYLINDERPALLETANALYSIS, doc, analysis));
-            // inserted selected solution node
-            TreeNode nodeSelSolution = new TreeNode(selSolution.Name, 15, 15);
-            nodeSelSolution.Tag = new NodeTag(NodeTag.NodeType.NT_HCYLINDERPALLETANALYSISSOLUTION, doc, analysis, selSolution);
-            parentNode.Nodes.Add(nodeSelSolution);
-            // expand tree nodes
-            parentNode.Expand();
-            */ 
-        }
-        private void onBoxCaseAnalysisModified(BoxCaseAnalysis analysis)
-        {
-            // retrieve parent document
-            Document doc = analysis.ParentDocument;
-            // get parent node
-            TreeNode parentNode = FindNode(null, new NodeTag(NodeTag.NodeType.NT_BOXCASEANALYSIS, doc, analysis));
-            // remove & insert sub nodes
-            //BoxCaseAnalysis_InsertSubNodes(doc, analysis, parentNode);
-        }
-        private void onBoxCaseAnalysisSolutionSelected(BoxCaseAnalysis analysis, SelBoxCaseSolution selSolution)
-        {
-            /*
-            // retrieve parent document
-            Document doc = analysis.ParentDocument;
-            // get parent node
-            TreeNode parentNode = FindNode(null, new NodeTag(NodeTag.NodeType.NT_BOXCASEANALYSIS, doc, analysis));
-            // insert selected solution node
-            TreeNode nodeSelSolution = new TreeNode(selSolution.Name, 15, 15);
-            nodeSelSolution.Tag = new NodeTag(NodeTag.NodeType.NT_BOXCASEANALYSISSOLUTION, doc, analysis, selSolution);
-            parentNode.Nodes.Add(nodeSelSolution);
-            // expand tree nodes
-            parentNode.Expand();
-            */
-        }
-        private void onPalletAnalysisSolutionSelectionRemoved(CasePalletAnalysis analysis, SelCasePalletSolution selSolution)
-        {
-            /*
-            // retrieve parent document
-            Document doc = analysis.ParentDocument;
-            // get node
-            TreeNode selSolutionNode = FindNode(null, new NodeTag(NodeTag.NodeType.NT_CASEPALLETANALYSISSOLUTION, doc, analysis, selSolution));
-            // test
-            if (null == selSolutionNode)
-            {
-                _log.Error(string.Format("Failed to find a valid tree node for selSolution {0}", selSolution.Name));
-                return;
-            }
-            // remove node
-            Nodes.Remove(selSolutionNode);
-            */ 
-        }
-        private void onPackPalletAnalysisSolutionSelectionRemoved(PackPalletAnalysis analysis, SelPackPalletSolution selSolution)
-        {
-            /*
-            // retrieve parent document
-            Document doc = analysis.ParentDocument;
-            // get node
-            TreeNode selSolutionNode = FindNode(null, new NodeTag(NodeTag.NodeType.NT_PACKPALLETANALYSISSOLUTION, doc, analysis, selSolution));
-            // test
-            if (null == selSolutionNode)
-            {
-                _log.Error(string.Format("Failed to find a valid tree node for selSolution {0}", selSolution.Name));
-                return;
-            }
-            // remove node
-            Nodes.Remove(selSolutionNode);
-             */ 
-        }
-        private void onCylinderPalletSolutionSelectionRemoved(CylinderPalletAnalysis analysis, SelCylinderPalletSolution selSolution)
-        {
-            /*
-            // retrieve parent document
-            Document doc = analysis.ParentDocument;
-            // get node
-            TreeNode selSolutionNode = FindNode(null, new NodeTag(NodeTag.NodeType.NT_CYLINDERPALLETANALYSISSOLUTION, doc, analysis, selSolution));
-            // test
-            if (null == selSolutionNode)
-            {
-                _log.Error(string.Format("Failed to find a valid tree node for selSolution {0}", selSolution.Name));
-                return;
-            }
-            // remove node
-            Nodes.Remove(selSolutionNode);
-            */ 
-        }
-        private void onHCylinderPalletSolutionSelectionRemoved(HCylinderPalletAnalysis analysis, SelHCylinderPalletSolution selSolution)
-        {
-            /*
-            // retrieve parent document
-            Document doc = analysis.ParentDocument;
-            // get node
-            TreeNode selSolutionNode = FindNode(null, new NodeTag(NodeTag.NodeType.NT_HCYLINDERPALLETANALYSISSOLUTION, doc, analysis, selSolution));
-            // test
-            if (null == selSolutionNode)
-            {
-                _log.Error(string.Format("Failed to find a valid tree node for selSolution {0}", selSolution.Name));
-                return;
-            }
-            // remove node
-            Nodes.Remove(selSolutionNode);
-            */ 
-        }
-        private void onBoxCaseAnalysisSolutionSelectionRemoved(BoxCaseAnalysis analysis, SelBoxCaseSolution selSolution)
-        {
-            /*
-            // retrieve parent document
-            Document doc = analysis.ParentDocument;
-            // get node
-            TreeNode selSolutionNode = FindNode(null, new NodeTag(NodeTag.NodeType.NT_BOXCASEANALYSISSOLUTION, doc, analysis, selSolution));
-            // test
-            if (null == selSolutionNode)
-            {
-                _log.Error(string.Format("Failed to find a valid tree node for selSolution {0}", selSolution.Name));
-                return;
-            }
-            // remove node
-            Nodes.Remove(selSolutionNode);
-            */ 
         }
         #endregion
 
@@ -1874,22 +1226,6 @@ namespace treeDiM.StackBuilder.Desktop
             /// </summary>
             NT_ANALYSIS,
             /// <summary>
-            /// analysis
-            /// </summary>
-            NT_CASEPALLETANALYSIS,
-            /// <summary>
-            /// pack/pallet analysis
-            /// </summary>
-            NT_PACKPALLETANALYSIS,
-            /// <summary>
-            /// cylinder/pallet analysis
-            /// </summary>
-            NT_CYLINDERPALLETANALYSIS,
-            /// <summary>
-            /// hcylinder/pallet analysis
-            /// </summary>
-            NT_HCYLINDERPALLETANALYSIS,
-            /// <summary>
             /// analysis box
             /// </summary>
             NT_ANALYSISBOX,
@@ -1960,7 +1296,7 @@ namespace treeDiM.StackBuilder.Desktop
             /// <summary>
             /// box/case analysis
             /// </summary>
-            NT_BOXCASEANALYSIS,
+            NT_ANALYSISBOXCASE,
             /// <summary>
             /// box/case analysis case
             /// </summary>
@@ -2034,62 +1370,6 @@ namespace treeDiM.StackBuilder.Desktop
         /// returns analysis if any
         /// </summary>
         public Analysis Analysis { get { return _itemBase as Analysis; } }
-        /// <summary>
-        /// returns analysis if any
-        /// </summary>
-        public CasePalletAnalysis CasePalletAnalysis { get { return _itemBase as CasePalletAnalysis; } }
-        /// <summary>
-        /// returns pack pallet analysis
-        /// </summary>
-        public PackPalletAnalysis PackPalletAnalysis { get { return _itemBase as PackPalletAnalysis; } }
-        /// <summary>
-        /// returns pack pallet solution
-        /// </summary>
-        public SelPackPalletSolution SelPackPalletSolution { get { return null; } }
-        /// <summary>
-        /// return cylinder/pallet analysis if any
-        /// </summary>
-        public CylinderPalletAnalysis CylinderPalletAnalysis { get { return _itemBase as CylinderPalletAnalysis; } }
-        /// <summary>
-        /// return hcylinder/pallet analysis if any
-        /// </summary>
-        public HCylinderPalletAnalysis HCylinderPalletAnalysis { get { return _itemBase as HCylinderPalletAnalysis; } }
-        /// <summary>
-        ///  returns selected solution if any
-        /// </summary>
-        public SelCasePalletSolution SelSolution { get { return null; } }
-        /// <summary>
-        /// returns selected hcylinder/pallet solution if any
-        /// </summary>
-        public SelHCylinderPalletSolution SelHCylinderPalletSolution { get { return null; } }
-        /// <summary>
-        /// returns selected cylinder/pallet solution if any
-        /// </summary>
-        public SelCylinderPalletSolution SelCylinderPalletSolution { get { return null; } }
-        /// <summary>
-        /// returns truck analysis of selected solution
-        /// </summary>
-        public TruckAnalysis TruckAnalysis { get { return _itemBase as TruckAnalysis; } }
-        /// <summary>
-        /// returns box case analysis
-        /// </summary>
-        public BoxCaseAnalysis BoxCaseAnalysis { get { return _itemBase as BoxCaseAnalysis; } }
-        /// <summary>
-        /// return selected box/case solution
-        /// </summary>
-        public SelBoxCaseSolution SelBoxCaseSolution { get { return null; } }
-        /// <summary>
-        /// returns case analysis
-        /// </summary>
-        public BoxCasePalletAnalysis CaseAnalysis { get { return _itemBase as BoxCasePalletAnalysis; } }
-        /// <summary>
-        /// returns selected case solution if any
-        /// </summary>
-        public SelBoxCasePalletSolution SelBoxCasePalletSolution { get { return null; } }
-        /// <summary>
-        /// returns ECT analysis
-        /// </summary>
-        public ECTAnalysis ECTAnalysis { get { return _itemBase as ECTAnalysis; } }
         #endregion
     }
     #endregion
@@ -2126,62 +1406,9 @@ namespace treeDiM.StackBuilder.Desktop
         /// </summary>
         public Analysis Analysis { get { return _nodeTag.Analysis; } }
         /// <summary>
-        /// CasePalletAnalysis
-        /// </summary>
-        public CasePalletAnalysis CasePalletAnalysis { get { return _nodeTag.CasePalletAnalysis; } }
-        /// <summary>
-        /// PackPalletAnalysis
-        /// </summary>
-        public PackPalletAnalysis PackPalletAnalysis { get { return _nodeTag.PackPalletAnalysis; } }
-        /// <summary>
-        /// Cylinder/pallet analysis
-        /// </summary>
-        public CylinderPalletAnalysis CylinderAnalysis { get { return _nodeTag.CylinderPalletAnalysis; } }
-        /// <summary>
-        /// HCylinder/pallet analysis
-        /// </summary>
-        public HCylinderPalletAnalysis HCylinderAnalysis { get { return _nodeTag.HCylinderPalletAnalysis; } }
-        /// <summary>
         /// ItemBase (BoxProperties \ PaletProperties \ Interlayer properties)
         /// </summary>
         public ItemBase ItemBase { get { return _nodeTag.ItemProperties; } }
-        /// <summary>
-        /// Selected solution
-        /// </summary>
-        public SelCasePalletSolution SelSolution { get { return _nodeTag.SelSolution; } }
-        /// <summary>
-        /// Selected pack/pallet solution
-        /// </summary>
-        public SelPackPalletSolution SelPackPalletSolution { get { return _nodeTag.SelPackPalletSolution; } }
-        /// <summary>
-        /// Selected cylinder/pallet solution
-        /// </summary>
-        public SelCylinderPalletSolution SelCylinderPalletSolution { get { return _nodeTag.SelCylinderPalletSolution; } }
-        /// <summary>
-        /// Selected hcylinder/pallet solution
-        /// </summary>
-        public SelHCylinderPalletSolution SelHCylinderPalletSolution { get { return _nodeTag.SelHCylinderPalletSolution; } }
-        /// <summary>
-        /// Truck analysis
-        /// </summary>
-        public TruckAnalysis TruckAnalysis { get { return _nodeTag.TruckAnalysis; } }
-        /// <summary>
-        /// Box/Case/Pallet analysis
-        /// </summary>
-        public BoxCasePalletAnalysis BoxCasePalletAnalysis { get { return _nodeTag.CaseAnalysis; } }
-        /// <summary>
-        /// Selected box/case/pallet solution
-        /// </summary>
-        public SelBoxCasePalletSolution SelBoxCasePalletSolution { get { return _nodeTag.SelBoxCasePalletSolution; } }
-        /// <summary>
-        /// Box/Case analysis
-        /// </summary>
-        public BoxCaseAnalysis BoxCaseAnalysis { get { return _nodeTag.BoxCaseAnalysis; } }
-        public SelBoxCaseSolution SelBoxCaseSolution { get { return _nodeTag.SelBoxCaseSolution;  } }
-        /// <summary>
-        /// ECTAnalysis
-        /// </summary>
-        public ECTAnalysis ECTAnalysis { get { return _nodeTag.ECTAnalysis; } }
         #endregion
     }
     #endregion

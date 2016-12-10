@@ -121,7 +121,7 @@ namespace treeDiM.StackBuilder.Graphics
             uint pickId = 0;
             foreach (ILayer layer in _solution)
             {
-                BoxLayer blayer = layer as BoxLayer;
+                Layer3DBox blayer = layer as Layer3DBox;
                 if (null != blayer)
                 {
                     foreach (BoxPosition bPosition in blayer)
@@ -203,7 +203,7 @@ namespace treeDiM.StackBuilder.Graphics
             uint pickId = 0;
             foreach (ILayer layer in solution)
             {
-                BoxLayer blayer = layer as BoxLayer;
+                Layer3DBox blayer = layer as Layer3DBox;
                 if (null != blayer)
                 {
                     foreach (BoxPosition bPosition in blayer)
@@ -225,7 +225,7 @@ namespace treeDiM.StackBuilder.Graphics
             }
  
             // always show dimensions
-            BoxLayer bLayer = solution[solution.Count - 1] as BoxLayer;
+            Layer3DBox bLayer = solution[solution.Count - 1] as Layer3DBox;
             double palletHeight = solution[solution.Count - 1].ZLow + (null != bLayer ? bLayer.Thickness(boxProperties) : 0.0);
 
             // show dimensions
@@ -249,7 +249,7 @@ namespace treeDiM.StackBuilder.Graphics
                 graphics.NumberOfViews = 1;
                 graphics.SetViewport(0.0f, 0.0f, (float)_solution.PalletLength, (float)_solution.PalletWidth);
 
-                BoxLayer blayer = _solution.CaseLayerFirst;
+                Layer3DBox blayer = _solution.CaseLayerFirst;
                 if (blayer != null)
                 {
                     graphics.SetCurrentView(0);
@@ -275,7 +275,7 @@ namespace treeDiM.StackBuilder.Graphics
 
                 // get first box layer
                 if (_solution.CaseLayersCount < 1) return;
-                BoxLayer blayer0 = _solution.CaseLayerFirst;
+                Layer3DBox blayer0 = _solution.CaseLayerFirst;
                 if (blayer0 != null)
                 {
                     graphics.SetCurrentView(0);
@@ -296,9 +296,9 @@ namespace treeDiM.StackBuilder.Graphics
 
                 // get second box layer
                 if (_solution.CaseLayersCount < 2) return;
-                BoxLayer blayer1 = _solution.CaseLayerSecond;
+                Layer3DBox blayer1 = _solution.CaseLayerSecond;
                 if (null == blayer1 && _solution.Count > 2)
-                    blayer1 = _solution[2] as BoxLayer;
+                    blayer1 = _solution[2] as Layer3DBox;
                 if (blayer1 != null)
                 {
                     graphics.SetCurrentView(1);
@@ -338,7 +338,7 @@ namespace treeDiM.StackBuilder.Graphics
             while (iLayerCount <= layerIndex && iLayer < _solution.Count)
             {
                 ILayer layer = _solution[iLayer];
-                BoxLayer blayer = layer as BoxLayer;
+                Layer3DBox blayer = layer as Layer3DBox;
                 if (null != blayer)
                 {
                     foreach (BoxPosition bPosition in blayer)

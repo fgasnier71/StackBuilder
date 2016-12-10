@@ -9,7 +9,7 @@ using treeDiM.StackBuilder.Basics;
 
 namespace treeDiM.StackBuilder.Engine
 {
-    class LayerPatternEnlargedSpirale : LayerPattern
+    class LayerPatternEnlargedSpirale : LayerPatternBox
     {
         #region Implementation of LayerPattern abstract properties and methods
         public override string Name
@@ -17,12 +17,12 @@ namespace treeDiM.StackBuilder.Engine
             get { return "Enlarged spiral"; }
         }
 
-        public override bool GetLayerDimensions(Layer2D layer, out double actualLength, out double actualWidth)
+        public override bool GetLayerDimensions(ILayer2D layer, out double actualLength, out double actualWidth)
         {
-            double boxLength = layer.BoxLength;
-            double boxWidth = layer.BoxWidth;
             double palletLength = GetPalletLength(layer);
             double palletWidth = GetPalletWidth(layer);
+            double boxLength = GetBoxLength(layer);
+            double boxWidth = GetBoxWidth(layer);
 
             // compute optimal layout
             int sizeX_area1 = 0, sizeY_area1 = 0
@@ -49,15 +49,14 @@ namespace treeDiM.StackBuilder.Engine
                 && sizeX_area2 > 0 && sizeY_area2 > 0;
         }
 
-        public override void GenerateLayer(Layer2D layer, double actualLength, double actualWidth)
+        public override void GenerateLayer(ILayer2D layer, double actualLength, double actualWidth)
         {
             // initialization
             layer.Clear();
-
-            double boxLength = layer.BoxLength;
-            double boxWidth = layer.BoxWidth;
             double palletLength = GetPalletLength(layer);
             double palletWidth = GetPalletWidth(layer);
+            double boxLength = GetBoxLength(layer);
+            double boxWidth = GetBoxWidth(layer);
 
             // compute optimal layout
             int sizeX_area1 = 0, sizeY_area1 = 0

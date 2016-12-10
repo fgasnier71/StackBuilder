@@ -53,6 +53,7 @@ namespace treeDiM.StackBuilder.Basics
     {
         #region Data members
         private bool[] _axesAllowed = new bool[] { true, true, true };
+        private int _palletFilmTurns = 0;
         static readonly ILog _log = LogManager.GetLogger(typeof(ConstraintSetCasePallet));
         #endregion
 
@@ -87,6 +88,11 @@ namespace treeDiM.StackBuilder.Basics
         public void SetAllowedOrientations(bool[] axesAllowed)
         {
             _axesAllowed = axesAllowed;
+        }
+        public int PalletFilmTurns
+        {
+            get { return _palletFilmTurns; }
+            set { _palletFilmTurns = value; }
         }
         #endregion
     }

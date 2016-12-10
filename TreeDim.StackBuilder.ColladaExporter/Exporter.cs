@@ -197,7 +197,7 @@ namespace treeDiM.StackBuilder.ColladaExporter
             uint caseIndex = 0;
             foreach (ILayer layer in _palletSolution)
             {
-                BoxLayer bLayer = layer as BoxLayer;
+                Layer3DBox bLayer = layer as Layer3DBox;
                 if (null == bLayer) continue;
 
                 foreach (BoxPosition bp in bLayer)
@@ -531,7 +531,7 @@ namespace treeDiM.StackBuilder.ColladaExporter
             uint iLayer = 0, iCounted = 0;
             foreach (ILayer layer in _palletSolution)
             {
-                BoxLayer bLayer = layer as BoxLayer;
+                Layer3DBox bLayer = layer as Layer3DBox;
                 if (null != bLayer)
                 {
                     if (iCounted + bLayer.BoxCount > caseIndex)
@@ -555,7 +555,7 @@ namespace treeDiM.StackBuilder.ColladaExporter
             int iLayer = 0;
             foreach (ILayer layer in _palletSolution)
             {
-                BoxLayer bLayer = layer as BoxLayer;
+                Layer3DBox bLayer = layer as Layer3DBox;
                 if (null != bLayer)
                 {
                     if (iCounted + bLayer.BoxCount > caseIndex)
@@ -567,7 +567,7 @@ namespace treeDiM.StackBuilder.ColladaExporter
                 }
                 ++iLayer;
            }
-            BoxLayer layerW = _palletSolution[iLayer] as BoxLayer;
+            Layer3DBox layerW = _palletSolution[iLayer] as Layer3DBox;
 
             return layerW[(int)caseIndex - iCounted];
         }

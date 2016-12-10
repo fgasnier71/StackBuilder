@@ -79,7 +79,7 @@ namespace treeDiM.StackBuilder.Engine
         {
             Layer2D bestLayer = null;
             // loop through all patterns
-            foreach (LayerPattern pattern in LayerPattern.All)
+            foreach (LayerPatternBox pattern in LayerPatternBox.All)
             {
                 // is pattern allowed
                 if (!_constraintSet.AllowPattern(pattern.Name)) continue;
@@ -119,7 +119,7 @@ namespace treeDiM.StackBuilder.Engine
 
             List<CasePalletSolution> solutions = new List<CasePalletSolution>();
             // loop through all patterns
-            foreach (LayerPattern pattern in LayerPattern.All)
+            foreach (LayerPatternBox pattern in LayerPatternBox.All)
             {
                 if (!_constraintSet.AllowPattern(pattern.Name))
                     continue;
@@ -238,7 +238,7 @@ namespace treeDiM.StackBuilder.Engine
                                     // select current layer type
                                     double cornerThickness = null != _cornerProperties ? _cornerProperties.Thickness : 0.0;
                                     Layer2D currentLayer = iLayerIndex % 2 == 0 ? layer1T : layer2T;
-                                    BoxLayer layer = sol.CreateNewLayer(zLayer, 0);
+                                    Layer3DBox layer = sol.CreateNewLayer(zLayer, 0);
                                     layer.MaximumSpace = currentLayer.MaximumSpace;
 
                                     foreach (LayerPosition layerPos in currentLayer)
@@ -305,7 +305,7 @@ namespace treeDiM.StackBuilder.Engine
 
                                         for (int iAddLayer = 0; iAddLayer < ibestLayerCount; ++iAddLayer)
                                         {
-                                            BoxLayer layer = sol.CreateNewLayer(zLayer, 0);
+                                            Layer3DBox layer = sol.CreateNewLayer(zLayer, 0);
 
                                             foreach (LayerPosition layerPos in bestLayer)
                                             {
@@ -412,7 +412,7 @@ namespace treeDiM.StackBuilder.Engine
 
                     for (int j = 0; j < noLayer0; ++j)
                     {
-                        BoxLayer layer = sol0.CreateNewLayer(zLayer, 0);
+                        Layer3DBox layer = sol0.CreateNewLayer(zLayer, 0);
                         foreach (LayerPosition layerPos in layer0)
                         {
                             LayerPosition layerPosTemp = AdjustLayerPosition(layerPos);
@@ -430,7 +430,7 @@ namespace treeDiM.StackBuilder.Engine
                     }
                     for (int j = 0; j < noLayer1; ++j)
                     {
-                        BoxLayer layer = sol0.CreateNewLayer(zLayer, 0);
+                        Layer3DBox layer = sol0.CreateNewLayer(zLayer, 0);
                         foreach (LayerPosition layerPos in layer1)
                         {
                             LayerPosition layerPosTemp = AdjustLayerPosition(layerPos);
@@ -454,7 +454,7 @@ namespace treeDiM.StackBuilder.Engine
 
                     for (int j = 0; j < noLayer0; ++j)
                     {
-                        BoxLayer layer = sol1.CreateNewLayer(zLayer, 0);
+                        Layer3DBox layer = sol1.CreateNewLayer(zLayer, 0);
                         foreach (LayerPosition layerPos in layer1)
                         {
                             LayerPosition layerPosTemp = AdjustLayerPosition(layerPos);
@@ -472,7 +472,7 @@ namespace treeDiM.StackBuilder.Engine
                     }
                     for (int j = 0; j < noLayer1; ++j)
                     {
-                        BoxLayer layer = sol1.CreateNewLayer(zLayer, 0);
+                        Layer3DBox layer = sol1.CreateNewLayer(zLayer, 0);
                         foreach (LayerPosition layerPos in layer0)
                         {
                             LayerPosition layerPosTemp = AdjustLayerPosition(layerPos);
@@ -569,7 +569,7 @@ namespace treeDiM.StackBuilder.Engine
             {
                 List<string> patternNames = new List<string>();
                 int i = 0;
-                foreach (LayerPattern p in LayerPattern.All)
+                foreach (LayerPatternBox p in LayerPatternBox.All)
                     patternNames[i++] = p.Name;
                 return patternNames.ToArray();
             }
@@ -579,7 +579,7 @@ namespace treeDiM.StackBuilder.Engine
             get
             {
                 List<string> patternNames = new List<string>();
-                foreach (LayerPattern p in LayerPattern.All)
+                foreach (LayerPatternBox p in LayerPatternBox.All)
                     patternNames.Add(p.Name);
                 return patternNames;
             }

@@ -10,7 +10,7 @@ using Sharp3D.Math.Core;
 
 namespace treeDiM.StackBuilder.Engine
 {
-    class CylinderLayerPatternAligned : CylinderLayerPattern
+    class CylinderLayerPatternAligned : LayerPatternCyl
     {
         #region Implementation of CylinderLayerPattern abstract properties and methods
         public override string Name
@@ -21,25 +21,24 @@ namespace treeDiM.StackBuilder.Engine
         {
             get { return false; }
         }
-        public override bool GetLayerDimensions(Layer2DCyl layer, out double actualLength, out double actualWidth)
+        public override bool GetLayerDimensions(ILayer2D layer, out double actualLength, out double actualWidth)
         {
             double palletLength = GetPalletLength(layer);
             double palletWidth = GetPalletWidth(layer);
-            double diameter = 2.0 * layer.CylinderRadius;
+            double diameter = 2.0 * GetRadius(layer);
 
             actualLength = Math.Floor(palletLength / diameter) * diameter; ;
             actualWidth = Math.Floor(palletWidth / diameter) * diameter;
 
             return (palletLength > diameter) && (palletWidth > diameter);
         }
-        public override void GenerateLayer(Layer2DCyl layer, double actualLength, double actualWidth)
+        public override void GenerateLayer(ILayer2D layer, double actualLength, double actualWidth)
         {
             layer.Clear();
-
             double palletLength = GetPalletLength(layer);
             double palletWidth = GetPalletWidth(layer);
-            double radius = layer.CylinderRadius;
-            double diameter = 2.0 * layer.CylinderRadius;
+            double radius = GetRadius(layer);
+            double diameter = 2.0 * radius;
 
             int sizeX = (int)Math.Floor(palletLength / diameter);
             int sizeY = (int)Math.Floor(palletWidth / diameter);
@@ -52,9 +51,10 @@ namespace treeDiM.StackBuilder.Engine
 
             for (int j=0; j<sizeY; ++j)
                 for (int i=0; i<sizeX; ++i)
-                    AddPosition( layer, new Vector2D(
-                        radius + offsetX + i * (diameter + spaceX)
-                        , radius + offsetY + j * (diameter + spaceY)
+                    AddPosition(layer
+                        , new Vector2D(
+                            radius + offsetX + i * (diameter + spaceX)
+                            , radius + offsetY + j * (diameter + spaceY)
                         ));
                      
         }

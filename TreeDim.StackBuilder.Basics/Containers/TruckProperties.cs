@@ -3,11 +3,13 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Drawing;
+
+using Sharp3D.Math.Core;
 #endregion
 
 namespace treeDiM.StackBuilder.Basics
 {
-    public class TruckProperties : ItemBaseNamed
+    public class TruckProperties : ItemBaseNamed, IPackContainer
     {
         #region Data members
         private double _admissibleLoadWeight;
@@ -59,6 +61,15 @@ namespace treeDiM.StackBuilder.Basics
             get { return _color;  }
             set { _color = value; Modify();}
         }
+        #endregion
+
+        #region IPackContainer
+        public bool HasInsideDimensions { get { return true; } }
+        public double InsideLength { get { return _length; } }
+        public double InsideWidth { get { return _width; } }
+        public double InsideHeight { get { return _height; } }
+        public Vector3D InsideDimensions { get { return new Vector3D(_length, _width, _height); } }
+        public double[] InsideDimensionsArray { get { return new double[3] {_length, _width, _height}; } }
         #endregion
 
         #region Object override

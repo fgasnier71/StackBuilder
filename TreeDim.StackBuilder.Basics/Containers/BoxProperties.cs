@@ -79,9 +79,6 @@ namespace treeDiM.StackBuilder.Basics
         #region Packable override
         public override bool IsCase
         {   get { return HasInsideDimensions; } }
-        #endregion
-
-        #region Packable override
         protected override string TypeName
         { get { return IsCase ? Properties.Resource.ID_NAMECASE : Properties.Resource.ID_NAMEBOX; } }
         #endregion

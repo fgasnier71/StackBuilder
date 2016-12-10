@@ -261,40 +261,8 @@ namespace treeDiM.StackBuilder.Desktop
         // ### AnalysisNodeClicked
         void DocumentTreeView_NodeClicked(object sender, AnalysisTreeViewEventArgs eventArg)
         {
-/*
-            if ((null == eventArg.ItemBase) && (null != eventArg.Analysis)
-                && (null == eventArg.TruckAnalysis) && (null == eventArg.ECTAnalysis))
-            {
-                CaseOfBoxesProperties caseOfBoxes = eventArg.Analysis.BProperties as CaseOfBoxesProperties;
-                if (null != caseOfBoxes)
-                    CreateOrActivateViewPalletAnalysisWithBox(eventArg.Analysis);
-                else
-                    CreateOrActivateViewCasePalletAnalysis(eventArg.Analysis);
-            }
-            else if ((null == eventArg.ItemBase) && (null == eventArg.Analysis) && (null != eventArg.PackPalletAnalysis)
-                && (null == eventArg.CylinderAnalysis) && (null == eventArg.HCylinderAnalysis)
-                && (null == eventArg.TruckAnalysis) && (null == eventArg.ECTAnalysis))
-            {
-                CreateOrActivateViewPackPalletAnalysis(eventArg.PackPalletAnalysis);
-            }
-            else if ((null == eventArg.ItemBase) && (null == eventArg.Analysis)
-                && (null != eventArg.CylinderAnalysis) && (null == eventArg.HCylinderAnalysis)
-                && (null == eventArg.TruckAnalysis) && (null == eventArg.ECTAnalysis))
-            {
-                CreateOrActivateViewCylinderPalletAnalysis(eventArg.CylinderAnalysis);
-            }
-            else if ((null == eventArg.ItemBase) && (null == eventArg.Analysis)
-                && (null == eventArg.CylinderAnalysis) && (null != eventArg.HCylinderAnalysis)
-                && (null == eventArg.TruckAnalysis) && (null == eventArg.ECTAnalysis))
-            {
-                CreateOrActivateViewHCylinderPalletAnalysis(eventArg.HCylinderAnalysis);
-            }
-*/
-            if (null == eventArg.Analysis)
-            {
-                AnalysisCasePallet analysisCasePallet = eventArg.Analysis as AnalysisCasePallet;
-                if (null != analysisCasePallet) CreateOrActivateViewAnalysis(analysisCasePallet);
-            }
+            if (null != eventArg.Analysis)
+                CreateOrActivateViewAnalysis(eventArg.Analysis);
             else if (null != eventArg.ItemBase)
             {
                 ItemBase itemProp = eventArg.ItemBase;
@@ -491,32 +459,7 @@ namespace treeDiM.StackBuilder.Desktop
                 else
                     Debug.Assert(false);
             }
-            else if ((null == eventArg.ItemBase) && (null != eventArg.BoxCasePalletAnalysis))
-            {
-                BoxCasePalletAnalysis caseAnalysis = eventArg.BoxCasePalletAnalysis;
-                if (null != caseAnalysis)
-                    CreateOrActivateViewCaseAnalysis(caseAnalysis);
-            }
-            else if (null != eventArg.BoxCaseAnalysis)
-            {
-                BoxCaseAnalysis boxCaseAnalysis = eventArg.BoxCaseAnalysis;
-                if (null != boxCaseAnalysis)
-                    CreateOrActivateViewBoxCaseAnalysis(boxCaseAnalysis);
-            }
-            else if (null != eventArg.TruckAnalysis)
-            {
-                TruckAnalysis truckAnalysis = eventArg.TruckAnalysis;
-                if (null != truckAnalysis)
-                    CreateOrActivateViewTruckAnalysis(truckAnalysis);
-            }
-            else if (null != eventArg.ECTAnalysis)
-            {
-                ECTAnalysis ectAnalysis = eventArg.ECTAnalysis;
-                if (null != ectAnalysis)
-                    CreateOrActivateViewECTAnalysis(ectAnalysis);
-            }
         }
-
         private bool UserAcknowledgeDependancies(ItemBase item)
         {
             if (item.HasDependingAnalyses)
@@ -539,7 +482,7 @@ namespace treeDiM.StackBuilder.Desktop
             return nameCopy;
         }
 
-        public static void GenerateReport(Analysis analysis)
+        public void GenerateReportMSWord(Analysis analysis)
         {
             try
             {
@@ -561,11 +504,10 @@ namespace treeDiM.StackBuilder.Desktop
                     string cultAbbrev = System.Globalization.CultureInfo.CurrentCulture.ThreeLetterWindowsLanguageName;
                     // build report
                     ReportData reportObject = new ReportData(analysis);
-                    Reporter.CompanyLogo = Properties.Settings.Default.CompanyLogoPath;
                     Reporter.ImageSizeSetting = (Reporter.eImageSize)Properties.Settings.Default.ReporterImageSize;
                     ReporterMSWord reporter = new ReporterMSWord(
                         reportObject
-                        , Settings.Default.ReportTemplatePath
+                        , Reporter.TemplatePath
                         , dlg.FileName
                         , new Margins());
                 }
@@ -580,6 +522,31 @@ namespace treeDiM.StackBuilder.Desktop
             }
         }
 
+        public void GenerateReportHTML(Analysis analysis)
+        {
+            try
+            {
+                // build output file path
+                string outputFilePath = Path.ChangeExtension(Path.GetTempFileName(), "html");
+                // build report
+                ReportData reportObject = new ReportData(analysis);
+                Reporter.ImageSizeSetting = (Reporter.eImageSize)Properties.Settings.Default.ReporterImageSize;
+                ReporterHtml reporter = new ReporterHtml(
+                    reportObject
+                    , Reporter.TemplatePath
+                    , outputFilePath
+                    );
+                // logging
+                _log.Debug(string.Format("Saved report to {0}", outputFilePath));
+                // open resulting report
+                DockContentReport dockContent = CreateOrActivateHtmlReport(reportObject, outputFilePath);
+            }
+            catch (Exception ex)
+            {
+                _log.Error(ex.ToString());
+            }
+        }
+
         private void DocumentTreeView_SolutionReportNodeClicked(object sender, AnalysisTreeViewEventArgs eventArg)
         {
             try
@@ -587,11 +554,6 @@ namespace treeDiM.StackBuilder.Desktop
                 // build analysis name
                 string analysisName = string.Empty;
                 if (null != eventArg.Analysis) analysisName = eventArg.Analysis.Name;
-                else if (null != eventArg.PackPalletAnalysis) analysisName = eventArg.PackPalletAnalysis.Name;
-                else if (null != eventArg.BoxCaseAnalysis) analysisName = eventArg.BoxCaseAnalysis.Name;
-                else if (null != eventArg.BoxCasePalletAnalysis) analysisName = eventArg.BoxCasePalletAnalysis.Name;
-                else if (null != eventArg.CylinderAnalysis) analysisName = eventArg.CylinderAnalysis.Name;
-                else if (null != eventArg.HCylinderAnalysis) analysisName = eventArg.HCylinderAnalysis.Name;
                 else
                 {
                     _log.Error("Unsupported analysis type ?");
@@ -615,11 +577,10 @@ namespace treeDiM.StackBuilder.Desktop
                     string cultAbbrev = System.Globalization.CultureInfo.CurrentCulture.ThreeLetterWindowsLanguageName;
                     // build report
                     ReportData reportObject = new ReportData(eventArg.Analysis);
-                    Reporter.CompanyLogo = Properties.Settings.Default.CompanyLogoPath;
                     Reporter.ImageSizeSetting = (Reporter.eImageSize)Properties.Settings.Default.ReporterImageSize;
                     ReporterMSWord reporter = new ReporterMSWord(
                         reportObject
-                        , Settings.Default.ReportTemplatePath
+                        , Reporter.TemplatePath
                         , dlg.FileName
                         , new Margins());
                 }
@@ -666,11 +627,10 @@ namespace treeDiM.StackBuilder.Desktop
                 string cultAbbrev = System.Globalization.CultureInfo.CurrentCulture.ThreeLetterWindowsLanguageName;
                 // build report
                 ReportData reportObject = new ReportData(eventArg.Analysis);
-                Reporter.CompanyLogo = Properties.Settings.Default.CompanyLogoPath;
                 Reporter.ImageSizeSetting = (Reporter.eImageSize)Properties.Settings.Default.ReporterImageSize;
                 ReporterHtml reporter = new ReporterHtml(
                     reportObject
-                    , Settings.Default.ReportTemplatePath
+                    , Reporter.TemplatePath
                     , outputFilePath);
                 // logging
                 _log.Debug(string.Format("Saved report to {0}", outputFilePath));
@@ -688,9 +648,8 @@ namespace treeDiM.StackBuilder.Desktop
         {
             try
             {
-                if ((null == eventArg.ItemBase) && (null != eventArg.Analysis) && (null != eventArg.SelSolution) && (null != eventArg.TruckAnalysis))
-                { 
-
+                if ((null == eventArg.ItemBase) && (null != eventArg.Analysis))
+                {
                 }
             }
             catch (Exception ex)
@@ -717,7 +676,7 @@ namespace treeDiM.StackBuilder.Desktop
                 string colladaFilePath = Path.ChangeExtension(htmlFilePath, "dae");
                 try
                 {
-                    Exporter exporter = new ColladaExporter.Exporter(eventArg.SelSolution.Solution);
+                    Exporter exporter = new ColladaExporter.Exporter(null);
                     exporter.Export(colladaFilePath);
                 }
                 catch (Exception ex)
@@ -823,17 +782,17 @@ namespace treeDiM.StackBuilder.Desktop
             newTruckToolStripMenuItem.Enabled = (null != doc);
             toolStripButtonAddNewTruck.Enabled = (null != doc);
             // new case/pallet analysis
-            newAnalysisToolStripMenuItem.Enabled = (null != doc) && doc.CanCreateCasePalletAnalysis;
-            toolStripButtonCreateNewAnalysis.Enabled = (null != doc) && doc.CanCreateCasePalletAnalysis;
+            newAnalysisToolStripMenuItem.Enabled = (null != doc) && doc.CanCreateAnalysisCasePallet;
+            toolStripButtonCreateNewAnalysis.Enabled = (null != doc) && doc.CanCreateAnalysisCasePallet;
             // new cylinder/pallet analysis
-            newToolStripMenuItemCylinderPalletAnalysis.Enabled = (null != doc) && doc.CanCreateCylinderPalletAnalysis;
-            toolStripSBCylinderPalletAnalysis.Enabled = (null != doc) && doc.CanCreateCylinderPalletAnalysis;
+            newToolStripMenuItemCylinderPalletAnalysis.Enabled = (null != doc) && doc.CanCreateAnalysisCylinderPallet;
+            toolStripSBCylinderPalletAnalysis.Enabled = (null != doc) && doc.CanCreateAnalysisCylinderPallet;
             // new box/case analysis
             newBoxCaseAnalysisToolStripMenuItem.Enabled = (null != doc) && doc.CanCreateBoxCaseAnalysis;
             toolStripButtonBoxCaseAnalysis.Enabled = (null != doc) && doc.CanCreateBoxCaseAnalysis;
             // new box/case/pallet analysis
-            newBoxCasePalletOptimizationToolStripMenuItem.Enabled = (null != doc) && doc.CanCreateBoxCasePalletAnalysis;
-            toolStripButtonCreateNewBoxCasePalletOptimization.Enabled = (null != doc) && doc.CanCreateBoxCasePalletAnalysis;
+            newBoxCasePalletOptimizationToolStripMenuItem.Enabled = (null != doc) && doc.CanCreateAnalysisBoxCasePallet;
+            toolStripButtonCreateNewBoxCasePalletOptimization.Enabled = (null != doc) && doc.CanCreateAnalysisBoxCasePallet;
             // case optimisation
             caseOptimisationToolStripMenu.Enabled = (null != doc) && doc.CanCreateCaseOptimization;
             toolStripButtonOptimiseCase.Enabled = (null != doc) && doc.CanCreateCaseOptimization;
@@ -1180,7 +1139,7 @@ namespace treeDiM.StackBuilder.Desktop
         }
         private void toolAddNewCasePalletAnalysis(object sender, EventArgs e)
         {
-            try { CasePalletAnalysis analysis = ((DocumentSB)ActiveDocument).CreateNewCasePalletAnalysisUI(); }
+            try { CasePalletAnalysis analysis = ((DocumentSB)ActiveDocument).CreateNewAnalysisCasePalletUI(); }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
         private void toolAddNewBoxCaseAnalysis(object sender, EventArgs e)
@@ -1188,9 +1147,14 @@ namespace treeDiM.StackBuilder.Desktop
             try { BoxCaseAnalysis analysis = ((DocumentSB)ActiveDocument).CreateNewBoxCaseAnalysisUI(); }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
-        private void toolAddNewCylinderPalletAnalysis(object sender, EventArgs e)
+        private void onAddNewAnalysisCylinderPallet(object sender, EventArgs e)
         {
-            try { CylinderPalletAnalysis analysis = ((DocumentSB)ActiveDocument).CreateNewCylinderPalletAnalysisUI(); }
+            try { ((DocumentSB)ActiveDocument).CreateNewAnalysisCylinderPalletUI(); }
+            catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
+        }
+        private void onAddNewAnalysisCylinderCase(object sender, EventArgs e)
+        { 
+            try { ((DocumentSB)ActiveDocument).CreateNewAnalysisCylinderPalletUI(); }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
         private void toolAddNewHCylinderPalletAnalysis(object sender, EventArgs e)
@@ -1262,6 +1226,7 @@ namespace treeDiM.StackBuilder.Desktop
             }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
+
         #endregion
 
         #region Document / View status change handlers
@@ -1277,6 +1242,8 @@ namespace treeDiM.StackBuilder.Desktop
             AnalysisCasePallet analysisCasePallet = analysis as AnalysisCasePallet;
             AnalysisBoxCase analysisBoxCase = analysis as AnalysisBoxCase;
             AnalysisPalletTruck analysisPalletTruck = analysis as AnalysisPalletTruck;
+            AnalysisCylinderCase analysisCylinderCase = analysis as AnalysisCylinderCase;
+            AnalysisCylinderPallet analysisCylinderPallet = analysis as AnalysisCylinderPallet;
 
             // ---> search among existing views
             // ---> activate if found
@@ -1308,6 +1275,26 @@ namespace treeDiM.StackBuilder.Desktop
                         DockContentAnalysisPalletTruck form = view as DockContentAnalysisPalletTruck;
                         if (null == form) continue;
                         if (analysisPalletTruck == form.Analysis)
+                        {
+                            form.Activate();
+                            return;
+                        }
+                    }
+                    else if (null != analysisCylinderCase)
+                    {
+                        DockContentAnalysisCylinderCase form = view as DockContentAnalysisCylinderCase;
+                        if (null == form) continue;
+                        if (analysisCylinderCase == form.Analysis)
+                        {
+                            form.Activate();
+                            return;
+                        }
+                    }
+                    else if (null != analysisCylinderPallet)
+                    {
+                        DockContentAnalysisCylinderPallet form = view as DockContentAnalysisCylinderPallet;
+                        if (null == form) continue;
+                        if (analysisCylinderPallet == form.Analysis)
                         {
                             form.Activate();
                             return;
@@ -1515,5 +1502,6 @@ namespace treeDiM.StackBuilder.Desktop
             return _instance;
         }
         #endregion
+
     }
 }

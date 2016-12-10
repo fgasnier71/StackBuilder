@@ -133,6 +133,8 @@ namespace treeDiM.StackBuilder.Graphics
             Analysis analysis = _solution.Analysis;
             AnalysisCasePallet analysisCasePallet = analysis as AnalysisCasePallet;
             AnalysisBoxCase analysisBoxCase = analysis as AnalysisBoxCase;
+            AnalysisCylinderCase analysisCylinderCase = analysis as AnalysisCylinderCase;
+            AnalysisCylinderPallet analysisCylinderPallet = analysis as AnalysisCylinderPallet;
 
             if (null != analysisCasePallet)
             {
@@ -146,18 +148,30 @@ namespace treeDiM.StackBuilder.Graphics
                 Case case_ = new Case(analysisBoxCase.CaseProperties);
                 case_.DrawInside(graphics);
             }
+            else if (null != analysisCylinderCase)
+            {
+                // ### draw case (inside)
+                Case case_ = new Case(analysisCylinderCase.CaseProperties);
+                case_.DrawInside(graphics);
+            }
+            else if (null != analysisCylinderPallet)
+            {
+                // ### draw pallet
+                Pallet pallet = new Pallet(analysisCylinderPallet.PalletProperties);
+                pallet.Draw(graphics, Transform3D.Identity);
+            }
 
             // ### draw solution
             uint layerId = 0, pickId = 0;
             List<ILayer> layers = _solution.Layers;
             foreach (ILayer layer in layers)
             {
+                BBox3D bbox = new BBox3D();
                 // ### layer of boxes
-                BoxLayer blayer = layer as BoxLayer;
-                if (null != blayer)
+                Layer3DBox layerBox = layer as Layer3DBox;
+                if (null != layerBox)
                 {
-                    BBox3D bbox = new BBox3D();
-                    foreach (BoxPosition bPosition in blayer)
+                    foreach (BoxPosition bPosition in layerBox)
                     {
                         Box b = null;
                         if (analysis.Content is PackProperties)
@@ -167,6 +181,19 @@ namespace treeDiM.StackBuilder.Graphics
                         graphics.AddBox(b);
                         bbox.Extend(b.BBox);
                     }
+                }
+                Layer3DCyl layerCyl = layer as Layer3DCyl;
+                if (null != layerCyl)
+                {
+                    foreach (Vector3D vPos in layerCyl)
+                    {
+                        Cylinder c = new Cylinder(pickId++, analysis.Content as CylinderProperties, new CylPosition(vPos, HalfAxis.HAxis.AXIS_Z_P));
+                        graphics.AddCylinder(c);
+                        bbox.Extend(c.BBox);
+                    }
+                }
+                if (null != layerBox || null != layerCyl)
+                {
                     // add layer BBox
                     AddPickingBox(bbox, layerId);
                     // draw bounding box around selected layer
@@ -174,6 +201,7 @@ namespace treeDiM.StackBuilder.Graphics
                         DrawLayerBoundingBox(graphics, bbox);
                     ++layerId;
                 }
+ 
                 // ### interlayer
                 InterlayerPos interlayerPos = layer as InterlayerPos;
                 if (null != interlayerPos)
@@ -306,7 +334,6 @@ namespace treeDiM.StackBuilder.Graphics
                     , Color.Red, true));
             }
         }
-
         public override void Draw(Graphics2D graphics, bool showDimensions)
         {
             if (null == _solution) return;
@@ -316,14 +343,20 @@ namespace treeDiM.StackBuilder.Graphics
         #region Helpers
         private BBox3D BoundingBoxDim(int index)
         {
+           PalletProperties palletProperties = null;
             AnalysisCasePallet analysisCasePallet = _solution.Analysis as AnalysisCasePallet;
+            if (null != analysisCasePallet)
+                palletProperties = analysisCasePallet.PalletProperties;
+            AnalysisCylinderPallet analysisCylinderPallet = _solution.Analysis as AnalysisCylinderPallet;
+            if (null != analysisCylinderPallet)
+                palletProperties = analysisCylinderPallet.PalletProperties; 
 
             switch (index)
             {
                 case 0: return _solution.BBoxGlobal;
                 case 1: return _solution.BBoxLoadWDeco;
-                case 2: return analysisCasePallet.PalletProperties.BoundingBox;
-                case 3: return new BBox3D(0.0, 0.0, 0.0, analysisCasePallet.PalletProperties.Length, analysisCasePallet.PalletProperties.Width, 0.0);
+                case 2: return palletProperties.BoundingBox;
+                case 3: return new BBox3D(0.0, 0.0, 0.0, palletProperties.Length, palletProperties.Width, 0.0);
                 default: return _solution.BBoxGlobal;
             }
         }

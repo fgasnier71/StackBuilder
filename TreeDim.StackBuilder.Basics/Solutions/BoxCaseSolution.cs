@@ -9,7 +9,7 @@ namespace treeDiM.StackBuilder.Basics
     /// <summary>
     /// A set of box position and orientation that represent a valid box/case analysis solution
     /// </summary>
-    public class BoxCaseSolution : List<BoxLayer>, IComparable
+    public class BoxCaseSolution : List<Layer3DBox>, IComparable
     {
         #region Limit enum : the different reasons the stacking process might be stopped
         public enum Limit
@@ -55,20 +55,20 @@ namespace treeDiM.StackBuilder.Basics
             get
             {
                 int boxCount = 0;
-                foreach (BoxLayer layer in this)
+                foreach (Layer3DBox layer in this)
                     boxCount += layer.BoxCount;
                 return boxCount;
             }
         }
 
-        public BoxLayer BoxLayerFirst
+        public Layer3DBox BoxLayerFirst
         {
             get
             {
                 foreach (ILayer layer in this)
                 {
-                    if (layer is BoxLayer)
-                        return layer as BoxLayer;
+                    if (layer is Layer3DBox)
+                        return layer as Layer3DBox;
                 }
                 return null;
             }
@@ -93,7 +93,7 @@ namespace treeDiM.StackBuilder.Basics
             {
                 int boxLayerCount = 0;
                 foreach (ILayer layer in this)
-                    if (layer is BoxLayer)
+                    if (layer is Layer3DBox)
                         ++boxLayerCount;
                 return boxLayerCount;
             }
@@ -118,7 +118,7 @@ namespace treeDiM.StackBuilder.Basics
             while (iLayer < Count)
             {
                 ILayer layer = this[iLayer];
-                BoxLayer blayer = layer as BoxLayer;
+                Layer3DBox blayer = layer as Layer3DBox;
                 if (null != blayer)
                     bbox.Extend(blayer.BoundingBox(_boxCaseAnalysis.BProperties));
                 ++iLayer;
@@ -167,9 +167,9 @@ namespace treeDiM.StackBuilder.Basics
         #endregion
 
         #region Adding layer / interlayer
-        public BoxLayer CreateNewLayer(double zLow, int layerIndex)
+        public Layer3DBox CreateNewLayer(double zLow, int layerIndex)
         {
-            BoxLayer layer = new BoxLayer(zLow, layerIndex);
+            Layer3DBox layer = new Layer3DBox(zLow, layerIndex);
             Add(layer);
             return layer;
         }

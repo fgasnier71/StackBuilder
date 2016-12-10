@@ -19,6 +19,7 @@ namespace treeDiM.StackBuilder.Basics
         int BoxCount { get; }
         int CylinderCount { get; }
         int InterlayerCount { get; }
+        BBox3D BoundingBox(Packable packable);
     }
 
     public class InterlayerPos : ILayer
@@ -45,13 +46,30 @@ namespace treeDiM.StackBuilder.Basics
         public int BoxCount { get { return 0; } }
         public int InterlayerCount {  get { return 1; } }
         public int CylinderCount {  get { return 0; } }
+        public BBox3D BoundingBox(Packable packable)
+        {
+            BBox3D bbox = new BBox3D();
+            Vector3D dimensions = packable.OuterDimensions;
+            Vector3D[] pts = new Vector3D[8];
+            pts[0] = new Vector3D(0.0, 0.0, _zLower);
+            pts[1] = pts[0] + dimensions.X * Vector3D.XAxis;
+            pts[2] = pts[0] + dimensions.Y * Vector3D.YAxis;
+            pts[3] = pts[0] + dimensions.X * Vector3D.XAxis + dimensions.Y * Vector3D.YAxis;
+            pts[4] = pts[0] + dimensions.Z * Vector3D.ZAxis;
+            pts[5] = pts[1] + dimensions.Z * Vector3D.ZAxis;
+            pts[6] = pts[2] + dimensions.Z * Vector3D.ZAxis;
+            pts[7] = pts[3] + dimensions.Z * Vector3D.ZAxis;
+            foreach (Vector3D pt in pts)
+                bbox.Extend(pt);
+            return bbox;
+        }
         #endregion
     }
 
     /// <summary>
     /// A layer of box
     /// </summary>
-    public class BoxLayer : List<BoxPosition>, ILayer
+    public class Layer3DBox : List<BoxPosition>, ILayer
     {
         #region Data members
         private double _zLower = 0.0;
@@ -60,7 +78,7 @@ namespace treeDiM.StackBuilder.Basics
         #endregion
 
         #region Constructor
-        public BoxLayer(double zLow, int layerIndex)
+        public Layer3DBox(double zLow, int layerIndex)
         {
             _zLower = zLow;
             _layerIndex = layerIndex;
@@ -90,30 +108,35 @@ namespace treeDiM.StackBuilder.Basics
         {
             Add(new BoxPosition(vPosition, dirLength, dirWidth));
         }
-        public BBox3D BoundingBox(Vector3D dimensions)
+        public BBox3D BoundingBox(Packable packable)
         {
             BBox3D bbox = new BBox3D();
-            foreach (BoxPosition bpos in this)
+            PackableBrick packableBrick = packable as PackableBrick;
+            if (null != packableBrick)
             {
-                Vector3D[] pts = new Vector3D[8];
-                Vector3D vI = HalfAxis.ToVector3D(bpos.DirectionLength);
-                Vector3D vJ = HalfAxis.ToVector3D(bpos.DirectionWidth);
-                Vector3D vK = Vector3D.CrossProduct(vI, vJ);
-                pts[0] = bpos.Position;
-                pts[1] = bpos.Position + dimensions.X * vI;
-                pts[2] = bpos.Position + dimensions.Y * vJ;
-                pts[3] = bpos.Position + dimensions.X * vI + dimensions.Y * vJ;
-                pts[4] = bpos.Position + dimensions.Z * vK;
-                pts[5] = bpos.Position + dimensions.Y * vJ + dimensions.Z * vK;
-                pts[6] = bpos.Position + HalfAxis.ToVector3D(bpos.DirectionWidth) * dimensions.Y;
-                pts[7] = bpos.Position + HalfAxis.ToVector3D(bpos.DirectionLength) * dimensions.X + HalfAxis.ToVector3D(bpos.DirectionWidth) * dimensions.Y;
+                Vector3D dimensions = packableBrick.OuterDimensions;
+                foreach (BoxPosition bpos in this)
+                {
+                    Vector3D[] pts = new Vector3D[8];
+                    Vector3D vI = HalfAxis.ToVector3D(bpos.DirectionLength);
+                    Vector3D vJ = HalfAxis.ToVector3D(bpos.DirectionWidth);
+                    Vector3D vK = Vector3D.CrossProduct(vI, vJ);
+                    pts[0] = bpos.Position;
+                    pts[1] = bpos.Position + dimensions.X * vI;
+                    pts[2] = bpos.Position + dimensions.Y * vJ;
+                    pts[3] = bpos.Position + dimensions.X * vI + dimensions.Y * vJ;
+                    pts[4] = bpos.Position + dimensions.Z * vK;
+                    pts[5] = bpos.Position + dimensions.Y * vJ + dimensions.Z * vK;
+                    pts[6] = bpos.Position + HalfAxis.ToVector3D(bpos.DirectionWidth) * dimensions.Y;
+                    pts[7] = bpos.Position + HalfAxis.ToVector3D(bpos.DirectionLength) * dimensions.X + HalfAxis.ToVector3D(bpos.DirectionWidth) * dimensions.Y;
 
-                foreach (Vector3D pt in pts)
-                    bbox.Extend(pt);
+                    foreach (Vector3D pt in pts)
+                        bbox.Extend(pt);
+                }
             }
             return bbox;
         }
-
+/*
         /// <summary>
         /// Compute layer bouding box
         /// </summary>
@@ -169,7 +192,7 @@ namespace treeDiM.StackBuilder.Basics
 
             return bbox;       
         }
-
+*/
         public double Thickness(BProperties bProperties)
         {
             if (Count == 0) return 0.0;
@@ -185,14 +208,14 @@ namespace treeDiM.StackBuilder.Basics
     /// <summary>
     /// A layer of cylinders
     /// </summary>
-    public class CylinderLayer : List<Vector3D>, ILayer
+    public class Layer3DCyl : List<Vector3D>, ILayer
     {
         #region Data members
         double _zLower;
         #endregion
 
         #region Constructor
-        public CylinderLayer(double zLow)
+        public Layer3DCyl(double zLow)
         {
             _zLower = zLow;
         }
@@ -214,31 +237,32 @@ namespace treeDiM.StackBuilder.Basics
         /// </summary>
         /// <param name="bProperties">Case properties</param>
         /// <returns>bounding box</returns>
-        public BBox3D BoundingBox(CylinderProperties cylProperties)
+        public BBox3D BoundingBox(Packable packable)
         {
             BBox3D bbox = new BBox3D();
-
-            double radius = cylProperties.RadiusOuter;
-            double height = cylProperties.Height;
-
-            foreach (Vector3D pos in this)
+            CylinderProperties cylProperties = packable as CylinderProperties;
+            if (null != cylProperties)
             {
-                Vector3D[] pts = new Vector3D[8];
-                pts[0] = pos - radius * Vector3D.XAxis - radius * Vector3D.YAxis;
-                pts[1] = pos + radius * Vector3D.XAxis - radius * Vector3D.YAxis;
-                pts[2] = pos + radius * Vector3D.XAxis + radius * Vector3D.YAxis;
-                pts[3] = pos - radius * Vector3D.XAxis + radius * Vector3D.YAxis;
-                pts[4] = pos - radius * Vector3D.XAxis - radius * Vector3D.YAxis + height * Vector3D.ZAxis;
-                pts[5] = pos + radius * Vector3D.XAxis - radius * Vector3D.YAxis + height * Vector3D.ZAxis;
-                pts[6] = pos + radius * Vector3D.XAxis + radius * Vector3D.YAxis + height * Vector3D.ZAxis;
-                pts[7] = pos - radius * Vector3D.XAxis + radius * Vector3D.YAxis + height * Vector3D.ZAxis;
+                double radius = cylProperties.RadiusOuter;
+                double height = cylProperties.Height;
+                foreach (Vector3D pos in this)
+                {
+                    Vector3D[] pts = new Vector3D[8];
+                    pts[0] = pos - radius * Vector3D.XAxis - radius * Vector3D.YAxis;
+                    pts[1] = pos + radius * Vector3D.XAxis - radius * Vector3D.YAxis;
+                    pts[2] = pos + radius * Vector3D.XAxis + radius * Vector3D.YAxis;
+                    pts[3] = pos - radius * Vector3D.XAxis + radius * Vector3D.YAxis;
+                    pts[4] = pos - radius * Vector3D.XAxis - radius * Vector3D.YAxis + height * Vector3D.ZAxis;
+                    pts[5] = pos + radius * Vector3D.XAxis - radius * Vector3D.YAxis + height * Vector3D.ZAxis;
+                    pts[6] = pos + radius * Vector3D.XAxis + radius * Vector3D.YAxis + height * Vector3D.ZAxis;
+                    pts[7] = pos - radius * Vector3D.XAxis + radius * Vector3D.YAxis + height * Vector3D.ZAxis;
 
-                foreach (Vector3D pt in pts)
-                    bbox.Extend(pt);
+                    foreach (Vector3D pt in pts)
+                        bbox.Extend(pt);
+                }
             }
             return bbox;
         }
-
         public double Thickness(CylinderProperties cylProperties)
         {
             if (Count == 0) return 0.0;
@@ -369,38 +393,38 @@ namespace treeDiM.StackBuilder.Basics
             {
                 int caseLayerCount = 0;
                 foreach (ILayer layer in this)
-                    if (layer is BoxLayer)
+                    if (layer is Layer3DBox)
                         ++caseLayerCount;
                 return caseLayerCount;
             }
         }
 
-        public BoxLayer CaseLayerFirst
+        public Layer3DBox CaseLayerFirst
         {
             get
             {
                 foreach (ILayer layer in this)
                 {
-                    if (layer is BoxLayer)
-                        return layer as BoxLayer;
+                    if (layer is Layer3DBox)
+                        return layer as Layer3DBox;
                 }
                 return null;
             }
         }
 
-        public BoxLayer CaseLayerSecond
+        public Layer3DBox CaseLayerSecond
         {
             get
             {
                 bool first = true;
                 foreach (ILayer layer in this)
                 {
-                    if (layer is BoxLayer)
+                    if (layer is Layer3DBox)
                     {
                         if (first)
                             first = false;
                         else
-                            return layer as BoxLayer;
+                            return layer as Layer3DBox;
                     }
                 }
                 return null;
@@ -415,7 +439,7 @@ namespace treeDiM.StackBuilder.Basics
                 int count1 = 0;
                 foreach (ILayer layer in this)
                 {
-                    if (layer is BoxLayer)
+                    if (layer is Layer3DBox)
                     {
                         if (first)
                         {
@@ -439,9 +463,9 @@ namespace treeDiM.StackBuilder.Basics
                 double maximumSpace = 0.0;
                 foreach (ILayer layer in this)
                 {
-                    if (layer is BoxLayer)
+                    if (layer is Layer3DBox)
                     {
-                        BoxLayer bLayer = layer as BoxLayer;
+                        Layer3DBox bLayer = layer as Layer3DBox;
                         maximumSpace = Math.Max(maximumSpace, bLayer.MaximumSpace);
                     }
                 }
@@ -611,7 +635,7 @@ namespace treeDiM.StackBuilder.Basics
         {
             get
             {
-                BoxLayer bLayer = this[Count - 1] as BoxLayer;
+                Layer3DBox bLayer = this[Count - 1] as Layer3DBox;
                 return this[Count - 1].ZLow + (null != bLayer ? bLayer.Thickness(Analysis.BProperties) : 0.0)
                     + (HasPalletCap ? (Analysis.PalletCapProperties.Height - Analysis.PalletCapProperties.InsideHeight) : 0.0 );
             }
@@ -624,7 +648,7 @@ namespace treeDiM.StackBuilder.Basics
             while (iLayer < Count)
             {
                 ILayer layer = this[iLayer];
-                BoxLayer blayer = layer as BoxLayer;
+                Layer3DBox blayer = layer as Layer3DBox;
                 if (null != blayer)
                     bbox.Extend(blayer.BoundingBox(Analysis.BProperties));
                 ++iLayer;
@@ -649,7 +673,7 @@ namespace treeDiM.StackBuilder.Basics
             {
                 if (Count > 0)
                 {
-                    BoxLayer boxLayer = this[0] as BoxLayer;
+                    Layer3DBox boxLayer = this[0] as Layer3DBox;
                     if (null != boxLayer && boxLayer.Count > 0)
                         return new Orientation(boxLayer[0].DirectionLength, boxLayer[0].DirectionWidth);
                 }
@@ -668,11 +692,11 @@ namespace treeDiM.StackBuilder.Basics
                 double totalWeight = 0.0;
                 for (int i = 1; i < this.Count; ++i)
                 {
-                    BoxLayer thisLayer = this[i] as BoxLayer;
+                    Layer3DBox thisLayer = this[i] as Layer3DBox;
                     if (null != thisLayer) // do not count interlayers
                         totalWeight += thisLayer.Count * Analysis.BProperties.Weight;
                 }
-                BoxLayer boxlayer = this[0] as BoxLayer;
+                Layer3DBox boxlayer = this[0] as Layer3DBox;
                 if (null != boxlayer) // we never know
                     return totalWeight / boxlayer.Count;
                 else
@@ -690,9 +714,9 @@ namespace treeDiM.StackBuilder.Basics
         #endregion
 
         #region Adding layer / interlayer
-        public BoxLayer CreateNewLayer(double zLow, int layerIndex)
+        public Layer3DBox CreateNewLayer(double zLow, int layerIndex)
         {
-            BoxLayer layer = new BoxLayer(zLow, layerIndex);
+            Layer3DBox layer = new Layer3DBox(zLow, layerIndex);
             Add(layer);
             return layer;
         }
@@ -735,7 +759,7 @@ namespace treeDiM.StackBuilder.Basics
             StringBuilder sb = new StringBuilder();
             sb.AppendLine(string.Format("=== Solution ===> {0} layers -> {1} boxes", this.Count, this.CaseCount));
             int index = 0;
-            foreach (BoxLayer layer in this)
+            foreach (Layer3DBox layer in this)
                 foreach (BoxPosition boxPosition in layer)
                     sb.AppendLine(string.Format("{0} : {1}", index++, boxPosition.ToString()));
             return sb.ToString();

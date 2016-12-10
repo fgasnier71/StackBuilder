@@ -33,7 +33,6 @@ namespace treeDiM.StackBuilder.Basics
         // remove
         void OnTypeRemoved(Document doc, ItemBase itemBase);
         void OnAnalysisRemoved(Document doc, ItemBase itemBase); 
-        void OnTruckAnalysisRemoved(Document doc, CasePalletAnalysis analysis, SelCasePalletSolution selSolution, TruckAnalysis truckAnalysis);
         void OnECTAnalysisRemoved(Document doc, CasePalletAnalysis analysis, SelCasePalletSolution selSolution, ECTAnalysis ectAnalysis);
         // close
         void OnDocumentClosed(Document doc);
@@ -594,15 +593,29 @@ namespace treeDiM.StackBuilder.Basics
 
             return InsertAnalysis(analysis);
         }
+        public Analysis CreateNewAnalysisCylinderPallet(
+            string name, string description
+            , CylinderProperties cylinder, PalletProperties palletProperties
+            , List<InterlayerProperties> interlayers
+            , ConstraintSetPackablePallet constraintSet
+            , List<LayerDesc> layerDescs
+            )
+        { 
+            // analysis
+            AnalysisCylinderPallet analysis = new AnalysisCylinderPallet(
+                cylinder, palletProperties, constraintSet);
+            analysis.ID.SetNameDesc(name, description);
+            analysis.AddSolution(layerDescs);
+
+            return InsertAnalysis(analysis);
+        }
         public Analysis CreateNewAnalysisCylinderCase(
             string name, string description
             , CylinderProperties cylinder, BoxProperties caseProperties
             , List<InterlayerProperties> interlayers
             , ConstraintSetCylinderCase constraintSet
-            , LayerDesc layerDesc)
+            , List<LayerDesc> layerDescs)
         {
-            List<LayerDesc> layerDescs = new List<LayerDesc>();
-            layerDescs.Add(layerDesc);
             // analysis
             AnalysisCylinderCase analysis = new AnalysisCylinderCase(
                 cylinder, caseProperties, constraintSet);
@@ -643,6 +656,7 @@ namespace treeDiM.StackBuilder.Basics
             , PalletConstraintSet constraintSet
             , ICasePalletAnalysisSolver solver)
         {
+            /*
             CasePalletAnalysis analysis = new CasePalletAnalysis(
                 box, pallet,
                 interlayer, interlayerAntiSlip,
@@ -660,6 +674,8 @@ namespace treeDiM.StackBuilder.Basics
             }
             Modify();
             return analysis;
+            */
+            return null;
         }
 
 
@@ -670,6 +686,7 @@ namespace treeDiM.StackBuilder.Basics
             , PackPalletConstraintSet constraintSet
             , IPackPalletAnalysisSolver solver)
         {
+            /*
             PackPalletAnalysis analysis = new PackPalletAnalysis(
                 pack
                 , pallet
@@ -689,6 +706,8 @@ namespace treeDiM.StackBuilder.Basics
             // notify listeners
             Modify();
             return analysis;
+            */
+            return null;
         }
 
         public PackPalletAnalysis CreateNewPackPalletAnalysis(
@@ -698,6 +717,7 @@ namespace treeDiM.StackBuilder.Basics
             , PackPalletConstraintSet constraintSet
             , List<PackPalletSolution> solutions)
         {
+            /*
             PackPalletAnalysis analysis = new PackPalletAnalysis(
                 pack
                 , pallet
@@ -712,6 +732,8 @@ namespace treeDiM.StackBuilder.Basics
             if (solutions.Count == 1)
                 analysis.SelectSolutionByIndex(0);
             return analysis;
+            */
+            return null;
         }
 
         /// <summary>
@@ -733,6 +755,7 @@ namespace treeDiM.StackBuilder.Basics
             , PalletConstraintSet constraintSet
             , List<CasePalletSolution> solutions)
         {
+            /*
             CasePalletAnalysis analysis = new CasePalletAnalysis(
                 box, pallet,
                 interlayer, interlayerAntiSlip,
@@ -747,6 +770,8 @@ namespace treeDiM.StackBuilder.Basics
             if (solutions.Count == 1)
                 analysis.SelectSolutionByIndex(0);
             return analysis;
+            */
+            return null;
         }
         /// <summary>
         /// Creates a new cylinder analysis in this document + compute solutions
@@ -766,6 +791,7 @@ namespace treeDiM.StackBuilder.Basics
             , CylinderPalletConstraintSet constraintSet
             , ICylinderAnalysisSolver solver)
         {
+            /*
             CylinderPalletAnalysis analysis = new CylinderPalletAnalysis(
                 cylinder, pallet,
                 interlayer, interlayerPropertiesAntiSlip,
@@ -782,6 +808,8 @@ namespace treeDiM.StackBuilder.Basics
             }
             Modify();
             return analysis;
+             */
+            return null;
         }
         public HCylinderPalletAnalysis CreateNewHCylinderPalletAnalysis(
             string name, string description,
@@ -789,6 +817,7 @@ namespace treeDiM.StackBuilder.Basics
             HCylinderPalletConstraintSet constraintSet,
             IHCylinderAnalysisSolver solver)
         {
+            /*
             HCylinderPalletAnalysis analysis = new HCylinderPalletAnalysis(cylinder, pallet, constraintSet);
             analysis.ID.SetNameDesc( name, description);
             // insert in list
@@ -802,6 +831,8 @@ namespace treeDiM.StackBuilder.Basics
             }
             Modify();
             return analysis;
+            */
+            return null;
         }
 
         /// <summary>
@@ -822,6 +853,7 @@ namespace treeDiM.StackBuilder.Basics
             , CylinderPalletConstraintSet constraintSet
             , List<CylinderPalletSolution> solutions)
         {
+            /*
             CylinderPalletAnalysis analysis = new CylinderPalletAnalysis(
                 cylinder, pallet,
                 interlayer, interlayerAntiSlip,
@@ -835,6 +867,8 @@ namespace treeDiM.StackBuilder.Basics
             if (solutions.Count == 1)
                 analysis.SelectSolutionByIndex(0);
             return analysis;
+             */
+            return null;
         }
 
         /// <summary>
@@ -854,6 +888,7 @@ namespace treeDiM.StackBuilder.Basics
             , HCylinderPalletConstraintSet constraintSet
             , List<HCylinderPalletSolution> solutions)
         {
+            /*
             HCylinderPalletAnalysis analysis = new HCylinderPalletAnalysis(cylinder, pallet, constraintSet);
             analysis.ID.SetNameDesc( name, description);
             // insert in list
@@ -864,6 +899,8 @@ namespace treeDiM.StackBuilder.Basics
             if (solutions.Count == 1)
                 analysis.SelectSolutionByIndex(0);
             return analysis;
+             */
+            return null;
         }
 
         public BoxCaseAnalysis CreateNewBoxCaseAnalysis(
@@ -872,6 +909,7 @@ namespace treeDiM.StackBuilder.Basics
             , BCaseConstraintSet constraintSet
             , List<BoxCaseSolution> solutions)
         {
+            /*
             BoxCaseAnalysis analysis = new BoxCaseAnalysis(boxProperties, caseProperties, constraintSet);
             analysis.ID.Name = name;
             analysis.ID.Description = description;
@@ -883,6 +921,8 @@ namespace treeDiM.StackBuilder.Basics
             if (solutions.Count == 1)
                 analysis.SelectSolutionByIndex(0);
             return analysis;
+             */
+            return null;
         }
 
         public BoxCaseAnalysis CreateNewBoxCaseAnalysis(
@@ -891,6 +931,7 @@ namespace treeDiM.StackBuilder.Basics
             , BCaseConstraintSet constraintSet
             , IBoxCaseAnalysisSolver solver)
         {
+            /*
             BoxCaseAnalysis analysis = new BoxCaseAnalysis(boxProperties, caseProperties, constraintSet);
             analysis.ID.Name = name;
             analysis.ID.Description = description;
@@ -909,6 +950,8 @@ namespace treeDiM.StackBuilder.Basics
             // notify listeners
             Modify();
             return analysis;
+             */
+            return null;
         }
 
         public BoxCasePalletAnalysis CreateNewBoxCasePalletOptimization(
@@ -918,6 +961,7 @@ namespace treeDiM.StackBuilder.Basics
             , List<PalletSolutionDesc> palletSolutionList
             , IBoxCasePalletAnalysisSolver solver)
         {
+            /*
             BoxCasePalletAnalysis analysis = new BoxCasePalletAnalysis(bProperties, palletSolutionList, constraintSet);
             analysis.ID.Name = name;
             analysis.ID.Description = description;
@@ -937,6 +981,8 @@ namespace treeDiM.StackBuilder.Basics
             // notify listeners
             Modify();
             return analysis;
+             */
+            return null;
         }
         
         public void RemoveItem(ItemBase item)
@@ -954,7 +1000,6 @@ namespace treeDiM.StackBuilder.Basics
             // notify listeners / remove
             if (item.GetType() == typeof(BoxProperties)
                 || item.GetType() == typeof(BundleProperties)
-                || item.GetType() == typeof(CaseOfBoxesProperties)
                 || item.GetType() == typeof(PackProperties)
                 || item.GetType() == typeof(PalletProperties)
                 || item.GetType() == typeof(InterlayerProperties)
@@ -980,12 +1025,6 @@ namespace treeDiM.StackBuilder.Basics
                 if (!_analysesLegacy.Remove(item as AnalysisLegacy))
                     _log.Warn(string.Format("Failed to properly remove analysis {0}", item.ID.Name));
             }
-            else if (item.GetType() == typeof(SelCasePalletSolution)) { }
-            else if (item.GetType() == typeof(SelBoxCasePalletSolution)) { }
-            else if (item.GetType() == typeof(SelBoxCaseSolution)) { }
-            else if (item.GetType() == typeof(SelCylinderPalletSolution)) { }
-            else if (item.GetType() == typeof(SelHCylinderPalletSolution)) { }
-            else if (item.GetType() == typeof(SelPackPalletSolution)) { }
             else
                 _log.Error(string.Format("Removing document {0} of unknown type {1}...", item.ID.Name, item.GetType()));
             Modify();
@@ -1180,7 +1219,7 @@ namespace treeDiM.StackBuilder.Basics
         /// <summary>
         /// Returns true if pallet analysis can be created i.e. if documents contains at least a case and a pallet
         /// </summary>
-        public bool CanCreateCasePalletAnalysis
+        public bool CanCreateAnalysisCasePallet
         { get { return this.Cases.Count > 0 && this.Pallets.Count > 0; } }
         /// <summary>
         /// Returns true if a pack analysis can be created i.e. if documents contains at least a pack and a pallet
@@ -1207,7 +1246,7 @@ namespace treeDiM.StackBuilder.Basics
         /// <summary>
         /// Returns true if a case analysis can be created i.e. if documents contains at least a box and pallet solutions database is not empty
         /// </summary>
-        public bool CanCreateBoxCasePalletAnalysis
+        public bool CanCreateAnalysisBoxCasePallet
         { get { return this.Boxes.Count > 0 && !PalletSolutionDatabase.Instance.IsEmpty; } }
         /// <summary>
         /// Returns true if user can proceed to case optimization i.e. if documents contains at least one box and one pallet 
@@ -1217,8 +1256,18 @@ namespace treeDiM.StackBuilder.Basics
         /// <summary>
         /// Returns true if a cylinder/pallet analysis can be created i.e. if document contains at least one cylinder and one pallet
         /// </summary>
-        public bool CanCreateCylinderPalletAnalysis
+        public bool CanCreateAnalysisCylinderPallet
         { get { return this.Cylinders.Count > 0 && this.Pallets.Count > 0; } }
+        /// <summary>
+        /// Returns true if a cylinder/case analysis can be created i.e. if document contains at least one cylinder and one case
+        /// </summary>
+        public bool CanCreateAnalysisCylinderCase
+        { get { return this.Cylinders.Count > 0 && this.Cases.Count > 0; } }
+        /// <summary>
+        /// Returns true if a pallet/truck analysis can be created i.e. if document contains at least one truck and one AnalysisCasePallet
+        /// </summary>
+        public bool CanCreateAnalysisPalletTruck
+        { get { return this.Trucks.Count > 0; } }
         #endregion
 
         #region Load methods
@@ -2498,7 +2547,7 @@ namespace treeDiM.StackBuilder.Basics
                 }
             }
             // create solution
-            PackPalletSolution sol = new PackPalletSolution(null, stitle, layer as BoxLayer);
+            PackPalletSolution sol = new PackPalletSolution(null, stitle, layer as Layer3DBox);
             foreach (LayerDescriptor desc in layerDescriptors)
                 sol.AddLayer(desc.Swapped, desc.HasInterlayer);
             return sol;
@@ -2566,7 +2615,7 @@ namespace treeDiM.StackBuilder.Basics
             XmlElement eltLayers = eltSolution.ChildNodes[0] as XmlElement;
             foreach (XmlNode nodeLayer in eltLayers.ChildNodes)
             {
-                BoxLayer boxLayer = LoadLayer(nodeLayer as XmlElement) as BoxLayer;
+                Layer3DBox boxLayer = LoadLayer(nodeLayer as XmlElement) as Layer3DBox;
                 sol.Add(boxLayer);
             }
             return sol;
@@ -2603,7 +2652,7 @@ namespace treeDiM.StackBuilder.Basics
                 patternName = eltLayer.Attributes["PatternName"].Value;
             if (string.Equals(eltLayer.Name, "BoxLayer", StringComparison.CurrentCultureIgnoreCase))
             {
-                BoxLayer boxLayer = new BoxLayer(UnitsManager.ConvertLengthFrom(zLow, _unitSystem), 0);
+                Layer3DBox boxLayer = new Layer3DBox(UnitsManager.ConvertLengthFrom(zLow, _unitSystem), 0);
                 boxLayer.MaximumSpace = maxSpace;
                 foreach (XmlNode nodeBoxPosition in eltLayer.ChildNodes)
                 {
@@ -2625,7 +2674,7 @@ namespace treeDiM.StackBuilder.Basics
             }
             else if (string.Equals(eltLayer.Name, "CylLayer", StringComparison.CurrentCultureIgnoreCase))
             {
-                CylinderLayer cylLayer = new CylinderLayer(UnitsManager.ConvertLengthFrom(zLow, _unitSystem));
+                Layer3DCyl cylLayer = new Layer3DCyl(UnitsManager.ConvertLengthFrom(zLow, _unitSystem));
                 foreach (XmlNode nodePosition in eltLayer.ChildNodes)
                 {
                     XmlElement eltBoxPosition = nodePosition as XmlElement;
@@ -2719,7 +2768,7 @@ namespace treeDiM.StackBuilder.Basics
             // load only one BoxLayer (actually Pallet layer)
             XmlElement eltLayers = eltTruckSolution.ChildNodes[0] as XmlElement;
             XmlElement eltLayer = eltLayers.ChildNodes[0] as XmlElement;
-            sol.Layer = LoadLayer(eltLayer) as BoxLayer;
+            sol.Layer = LoadLayer(eltLayer) as Layer3DBox;
             return sol;
         }
         #endregion // Load truck analysis
@@ -3717,7 +3766,7 @@ namespace treeDiM.StackBuilder.Basics
 
             foreach (ILayer layer in sol)
             {
-                BoxLayer boxLayer = layer as BoxLayer;
+                Layer3DBox boxLayer = layer as Layer3DBox;
                 if (null != boxLayer)
                     Save(boxLayer, layersElt, xmlDoc);
 
@@ -4216,7 +4265,7 @@ namespace treeDiM.StackBuilder.Basics
             XmlElement layersElt = xmlDoc.CreateElement("Layers");
             solutionElt.AppendChild(layersElt);
 
-            foreach (BoxLayer boxLayer in sol)
+            foreach (Layer3DBox boxLayer in sol)
                 Save(boxLayer, layersElt, xmlDoc);
 
             // Is selected ?
@@ -4364,7 +4413,7 @@ namespace treeDiM.StackBuilder.Basics
 
             foreach (ILayer layer in sol)
             {
-                BoxLayer boxLayer = layer as BoxLayer;
+                Layer3DBox boxLayer = layer as Layer3DBox;
                 if (null != boxLayer)
                     Save(boxLayer, layersElt, xmlDoc);
 
@@ -4471,7 +4520,7 @@ namespace treeDiM.StackBuilder.Basics
 
             foreach (ILayer layer in sol)
             {
-                CylinderLayer cylLayer = layer as CylinderLayer;
+                Layer3DCyl cylLayer = layer as Layer3DCyl;
                 if (null != cylLayer)
                     Save(cylLayer, layersElt, xmlDoc);
 
@@ -4660,7 +4709,7 @@ namespace treeDiM.StackBuilder.Basics
             ectAnalysisElt.Attributes.Append(mcKeeFormulaAttribute);
         }
 
-        public void Save(BoxLayer boxLayer, XmlElement layersElt, XmlDocument xmlDoc)
+        public void Save(Layer3DBox boxLayer, XmlElement layersElt, XmlDocument xmlDoc)
         {
             // BoxLayer
             XmlElement boxlayerElt = xmlDoc.CreateElement("BoxLayer");
@@ -4694,7 +4743,7 @@ namespace treeDiM.StackBuilder.Basics
             }
         }
 
-        public void Save(CylinderLayer cylLayer, XmlElement layersElt, XmlDocument xmlDoc)
+        public void Save(Layer3DCyl cylLayer, XmlElement layersElt, XmlDocument xmlDoc)
         {
             // BoxLayer
             XmlElement cylLayerElt = xmlDoc.CreateElement("CylLayer");
@@ -4723,8 +4772,6 @@ namespace treeDiM.StackBuilder.Basics
             // -> this should close any listening forms
             while (_analyses.Count > 0)
                 RemoveItem(_analyses[0]);
-            while (_analysesLegacy.Count > 0)
-                RemoveItem(_analysesLegacy[0]);
             while (_typeList.Count > 0)
                 RemoveItem(_typeList[0]);
             NotifyOnDocumentClosed();
@@ -4823,11 +4870,6 @@ namespace treeDiM.StackBuilder.Basics
         {
             foreach (IDocumentListener listener in _listeners)
                 listener.OnAnalysisRemoved(this, analysis);
-        }
-        internal void NotifyOnTruckAnalysisRemoved(SelCasePalletSolution selSolution, TruckAnalysis truckAnalysis)
-        {
-            foreach (IDocumentListener listener in _listeners)
-                listener.OnTruckAnalysisRemoved(this, selSolution.Analysis, selSolution, truckAnalysis);
         }
         internal void NotifyOnECTAnalysisRemoved(SelCasePalletSolution selSolution, ECTAnalysis ectAnalysis)
         {

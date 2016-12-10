@@ -12,6 +12,7 @@ using System.Drawing;
 
 using System.Diagnostics;
 using System.ComponentModel;
+using System.Reflection;
 
 using log4net;
 
@@ -46,9 +47,12 @@ namespace treeDiM.StackBuilder.Reporting
 
     public class ReportExceptionUnexpectedItem : Exception
     {
+        #region Constructor
         public ReportExceptionUnexpectedItem(ItemBase item)
-        { 
+            : base(string.Format("Unexpected item : {0}", item.Name))
+        {
         }
+        #endregion
     }
     #endregion
 
@@ -155,6 +159,7 @@ namespace treeDiM.StackBuilder.Reporting
         protected string _imageDirectory;
         protected static string _companyLogo;
         protected static eImageSize _imageSize = eImageSize.IMAGESIZE_DEFAULT;
+        protected static int _imageIndex = 0;
         #endregion
 
         #region Abstract members
@@ -165,7 +170,21 @@ namespace treeDiM.StackBuilder.Reporting
         #region Public properties
         static public string CompanyLogo
         {
-            get { return _companyLogo; }
+            get
+            {
+                if (!File.Exists(_companyLogo))
+                {
+                    _companyLogo = Path.Combine(
+                        Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)
+                        , "ReportTemplates\\YourLogoHere.png");
+                    Properties.Settings.Default.CompanyLogoPath = _companyLogo;
+                    Properties.Settings.Default.Save();
+
+                    if (!File.Exists(_companyLogo))
+                        return string.Empty;
+                }
+                return _companyLogo; 
+            }
             set { _companyLogo = File.Exists(value) ? value : string.Empty; }
         }
         static public eImageSize ImageSizeSetting
@@ -173,6 +192,24 @@ namespace treeDiM.StackBuilder.Reporting
             get { return _imageSize; }
             set { _imageSize = value; }
         }
+        static public string TemplatePath
+        {
+            get
+            {
+                string templatePath = Properties.Settings.Default.TemplatePath;
+                if (string.IsNullOrEmpty(templatePath) || !File.Exists(templatePath))
+                {
+                    templatePath = Path.Combine(
+                        Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)
+                        , "ReportTemplates\\ReportTemplateHtml.xsl");
+                    Properties.Settings.Default.TemplatePath = templatePath;
+                    Properties.Settings.Default.Save();
+                    return templatePath;
+                }
+                return templatePath;
+            }
+        }
+
         #endregion
 
         #region Private properties
@@ -210,6 +247,8 @@ namespace treeDiM.StackBuilder.Reporting
         #region Report generation
         public void BuildAnalysisReport(ReportData inputData, string reportTemplatePath, string outputFilePath)
         {
+            // initialize image index
+            _imageIndex = 0;
             // verify if inputData is a valid entry
             if (!inputData.IsValid)
                 throw new Exception("Reporter.BuildAnalysisReport(): ReportData argument is invalid!");
@@ -319,14 +358,11 @@ namespace treeDiM.StackBuilder.Reporting
                 System.Drawing.Bitmap logoBitmap = new Bitmap(System.Drawing.Bitmap.FromFile(CompanyLogo));
 
                 XmlElement elemCompanyLogo = xmlDoc.CreateElement("companyLogo", ns);
-                TypeConverter converter = TypeDescriptor.GetConverter(typeof(Bitmap));
-                elemCompanyLogo.InnerText = Convert.ToBase64String((byte[])converter.ConvertTo(logoBitmap, typeof(byte[])));
-                XmlAttribute styleAttribute = xmlDoc.CreateAttribute("style");
-                styleAttribute.Value = string.Format("width:{0}pt;height:{1}pt", 100, 100);
-                elemCompanyLogo.Attributes.Append(styleAttribute);
                 elemDocument.AppendChild(elemCompanyLogo);
 
-                SaveImageAs(logoBitmap, "CompanyLogo.png");
+
+
+                string imagePath = SaveImageAs(logoBitmap);
             }
             // main analysis
             AppendAnalysisElement(inputData.MainAnalysis, elemDocument, xmlDoc);
@@ -341,7 +377,7 @@ namespace treeDiM.StackBuilder.Reporting
         { 
             Packable content = analysis.Content;
 
-            // ### 1. CONTENT
+            bool hasContent = false;
             // check for inner analysis
             Analysis innerAnalysis = null;
             if (content.InnerAnalysis(ref innerAnalysis))
@@ -350,51 +386,156 @@ namespace treeDiM.StackBuilder.Reporting
                 AppendAnalysisElement(innerAnalysis, elemDocument, xmlDoc);
             }
             else
-            { 
-                // -> proceed with content
-                AppendContentElement(content, elemDocument, xmlDoc);
-            }
+                hasContent = true;
+            
+            // ### 0. ANALYSIS ELT
+            string ns = xmlDoc.DocumentElement.NamespaceURI;
+            XmlElement eltAnalysis = xmlDoc.CreateElement("analysis", ns);
+            elemDocument.AppendChild(eltAnalysis);
+            // name
+            XmlElement elemName = xmlDoc.CreateElement("name", ns);
+            elemName.InnerText = analysis.Name;
+            eltAnalysis.AppendChild(elemName);
+            // description
+            XmlElement elemDescription = xmlDoc.CreateElement("description", ns);
+            elemDescription.InnerText = analysis.Description;
+            eltAnalysis.AppendChild(elemDescription);
+
+            // ### 1. CONTENT
+            if (hasContent)
+                AppendContentElement(content, eltAnalysis, xmlDoc);
+  
             // ### 2. CONTAINER
-            AppendContainerElement(analysis.Container, elemDocument, xmlDoc);
+            AppendContainerElement(analysis.Container, eltAnalysis, xmlDoc);
 
             // ### 3. CONSTRAINTSET
-            AppendConstraintSet(analysis.ConstraintSet, elemDocument, xmlDoc);
+            AppendConstraintSet(analysis.ConstraintSet, eltAnalysis, xmlDoc);
 
             // ### 4. SOLUTION
-            AppendSolutionElement(analysis.Solution, elemDocument, xmlDoc);
+            AppendSolutionElement(analysis.Solution, eltAnalysis, xmlDoc);
         }
 
-        private void AppendContentElement(Packable packable, XmlElement elemDocument, XmlDocument xmlDoc)
+        private void AppendContentElement(Packable packable, XmlElement elemAnalysis, XmlDocument xmlDoc)
         {
             if (packable is BoxProperties)
             {
                 BoxProperties boxProperties = packable as BoxProperties;
                 if (boxProperties.HasInsideDimensions)
-                    AppendCaseElement(boxProperties, elemDocument, xmlDoc);
+                    AppendCaseElement(boxProperties, elemAnalysis, xmlDoc);
                 else
-                    AppendBoxElement(boxProperties, elemDocument, xmlDoc);
+                    AppendBoxElement(boxProperties, elemAnalysis, xmlDoc);
             }
             else if (packable is BundleProperties)
-                AppendBundleElement(packable as BundleProperties, elemDocument, xmlDoc);
+                AppendBundleElement(packable as BundleProperties, elemAnalysis, xmlDoc);
             else if (packable is PackProperties)
-                AppendPackElement(packable as PackProperties, elemDocument, xmlDoc);
+                AppendPackElement(packable as PackProperties, elemAnalysis, xmlDoc);
+            else if (packable is CylinderProperties)
+                AppendCylinderElement(packable as CylinderProperties, elemAnalysis, xmlDoc);
+            else if (packable is LoadedCase)
+            { 
+            }
             else
                 throw new ReportExceptionUnexpectedItem(packable);
         }
-        private void AppendContainerElement(ItemBase container, XmlElement elemDocument, XmlDocument xmlDoc)
+        private void AppendContainerElement(ItemBase container, XmlElement elemAnalysis, XmlDocument xmlDoc)
         {
             if (container is PalletProperties)
-                AppendPalletElement(container as PalletProperties, elemDocument, xmlDoc);
+                AppendPalletElement(container as PalletProperties, elemAnalysis, xmlDoc);
             else if (container is BoxProperties)
-                AppendCaseElement(container as BoxProperties, elemDocument, xmlDoc);
+                AppendCaseElement(container as BoxProperties, elemAnalysis, xmlDoc);
             else if (container is TruckProperties)
-                AppendTruckElement(container as TruckProperties, elemDocument, xmlDoc);
+                AppendTruckElement(container as TruckProperties, elemAnalysis, xmlDoc);
         }
-        private void AppendConstraintSet(ConstraintSetAbstract constraintSet, XmlElement elemDocument, XmlDocument xmlDoc)
-        { 
+        private void AppendConstraintSet(ConstraintSetAbstract constraintSet, XmlElement elemAnalysis, XmlDocument xmlDoc)
+        {
+            string ns = xmlDoc.DocumentElement.NamespaceURI;
+            XmlElement elemConstraintSet = xmlDoc.CreateElement("constraintSet", ns);
+            elemAnalysis.AppendChild(elemConstraintSet);
+
+            if (constraintSet is ConstraintSetCasePallet)
+            {
+                ConstraintSetCasePallet constraintSetCasePallet = constraintSet as ConstraintSetCasePallet;
+                AppendElementValue(xmlDoc, elemConstraintSet, "overhangX", UnitsManager.UnitType.UT_LENGTH, constraintSetCasePallet.Overhang.X);
+                AppendElementValue(xmlDoc, elemConstraintSet, "overhangY", UnitsManager.UnitType.UT_LENGTH, constraintSetCasePallet.Overhang.Y);
+            }
+
+            if (constraintSet is ConstraintSetCasePallet && constraintSet.OptMaxHeight.Activated)
+                AppendElementValue(xmlDoc, elemConstraintSet, "maximumHeight", UnitsManager.UnitType.UT_LENGTH, constraintSet.OptMaxHeight.Value);
+            if (constraintSet.OptMaxWeight.Activated)
+                AppendElementValue(xmlDoc, elemConstraintSet, "maximumWeight", UnitsManager.UnitType.UT_MASS, constraintSet.OptMaxWeight.Value);
+            if (constraintSet.OptMaxNumber.Activated)
+                AppendElementValue(xmlDoc, elemConstraintSet, "maximumNumber", constraintSet.OptMaxNumber.Value);
         }
-        private void AppendSolutionElement(Solution sol, XmlElement elemDocument, XmlDocument xmlDoc)
-        { 
+        private void AppendSolutionElement(Solution sol, XmlElement elemAnalysis, XmlDocument xmlDoc)
+        {
+            string ns = xmlDoc.DocumentElement.NamespaceURI;
+            XmlElement elemSolution = xmlDoc.CreateElement("solution", ns);
+            elemAnalysis.AppendChild(elemSolution);
+
+            // *** Item # (Recursive count)
+            Analysis analysis = sol.Analysis;
+            Packable content = analysis.Content;
+            int itemCount = sol.ItemCount;
+            int number = 1;
+            do
+            {
+                itemCount *= number;
+                AppendSolutionItem(xmlDoc, elemSolution, content.DetailedName, itemCount);
+            }
+            while (null != content && content.InnerContent(ref content, ref number));
+            // ***
+
+            if (sol.HasNetWeight)
+                Reporter.AppendElementValue(xmlDoc, elemSolution, "netWeight", UnitsManager.UnitType.UT_MASS, sol.NetWeight.Value);
+            Reporter.AppendElementValue(xmlDoc, elemSolution, "loadWeight", UnitsManager.UnitType.UT_MASS, sol.LoadWeight);
+            Reporter.AppendElementValue(xmlDoc, elemSolution, "totalWeight", UnitsManager.UnitType.UT_MASS, sol.Weight);
+            Reporter.AppendElementValue(xmlDoc, elemSolution, "efficiencyVolume", sol.VolumeEfficiency);
+
+            // --- case images
+            for (int i = 0; i < 5; ++i)
+            {
+                // initialize drawing values
+                string viewName = string.Empty;
+                Vector3D cameraPos = Vector3D.Zero;
+                int imageWidth = ImageSizeDetail;
+                bool showDimensions = false;
+                switch (i)
+                {
+                    case 0: viewName = "view_solution_front"; cameraPos = Graphics3D.Front; imageWidth = ImageSizeDetail; break;
+                    case 1: viewName = "view_solution_left"; cameraPos = Graphics3D.Left; imageWidth = ImageSizeDetail; break;
+                    case 2: viewName = "view_solution_right"; cameraPos = Graphics3D.Right; imageWidth = ImageSizeDetail; break;
+                    case 3: viewName = "view_solution_back"; cameraPos = Graphics3D.Back; imageWidth = ImageSizeDetail; break;
+                    case 4: viewName = "view_solution_iso"; cameraPos = Graphics3D.Corner_0; imageWidth = ImageSizeWide; showDimensions = true; break;
+                    default: break;
+                }
+                // instantiate graphics
+                Graphics3DImage graphics = new Graphics3DImage(new Size(imageWidth, imageWidth));
+                // set camera position 
+                graphics.CameraPosition = cameraPos;
+
+                // instantiate solution viewer
+                ViewerSolution sv = new ViewerSolution(sol);
+                sv.Draw(graphics, showDimensions);
+                graphics.Flush();
+                // image path
+                string imagePath = SaveImageAs(graphics.Bitmap);
+                
+                // ---
+                XmlElement elemImage = xmlDoc.CreateElement(viewName, ns);
+                elemSolution.AppendChild(elemImage);
+                XmlElement elemImagePath = xmlDoc.CreateElement("imagePath");
+                elemImage.AppendChild(elemImagePath);
+                elemImagePath.InnerText = imagePath;
+                XmlElement elemWidth = xmlDoc.CreateElement("width");
+                elemImage.AppendChild(elemWidth);
+                elemWidth.InnerText = imageWidth.ToString();
+                XmlElement elemHeight = xmlDoc.CreateElement("height");
+                elemImage.AppendChild(elemHeight);
+                elemHeight.InnerText = imageWidth.ToString();
+            }
+
+            XmlElement elemLayers = xmlDoc.CreateElement("layers", ns);
+            elemSolution.AppendChild(elemLayers);
         }
         /*
         private void AppendAnalysisCasePalletElement(ReportData inputData, XmlElement elemDocument, XmlDocument xmlDoc)
@@ -591,23 +732,15 @@ namespace treeDiM.StackBuilder.Reporting
             graphics.AddDimensions(new DimensionCube(palletProp.Length, palletProp.Width, palletProp.Height));
             graphics.Flush();
             // ---
-            // view_pallet_iso
-            XmlElement elemImage = xmlDoc.CreateElement("view_pallet_iso", ns);
-            TypeConverter converter = TypeDescriptor.GetConverter(typeof(Bitmap));
-            elemImage.InnerText = Convert.ToBase64String((byte[])converter.ConvertTo(graphics.Bitmap, typeof(byte[])));
-            XmlAttribute styleAttribute = xmlDoc.CreateAttribute("style");
-            styleAttribute.Value = string.Format("width:{0}pt;height:{1}pt", graphics.Bitmap.Width / 4, graphics.Bitmap.Height / 4);
-            elemImage.Attributes.Append(styleAttribute);
-            elemPallet.AppendChild(elemImage);
-            // save image
-            SaveImageAs(graphics.Bitmap, "view_pallet_iso.png");
+            // imageThumb
+            AppendThumbnailElement(xmlDoc, elemPallet, graphics.Bitmap);
         }
 
-        private void AppendCaseElement(CasePalletAnalysis analysis, CasePalletSolution sol, XmlElement elemPalletAnalysis, XmlDocument xmlDoc)
+        private void AppendCaseElement(Analysis analysis, CasePalletSolution sol, XmlElement elemPalletAnalysis, XmlDocument xmlDoc)
         {
             string ns = xmlDoc.DocumentElement.NamespaceURI;
             // get BoxProperties
-            BoxProperties boxProp = analysis.BProperties as BoxProperties;
+            BoxProperties boxProp = analysis.Content as BoxProperties;
             if (null == boxProp) return;
             // case
             XmlElement elemCase = xmlDoc.CreateElement("case", ns);
@@ -636,16 +769,8 @@ namespace treeDiM.StackBuilder.Reporting
             graphics.AddDimensions(dc);
             graphics.Flush();
             // ---
-            // view_case_iso
-            XmlElement elemImage = xmlDoc.CreateElement("view_case_iso", ns);
-            TypeConverter converter = TypeDescriptor.GetConverter(typeof(Bitmap));
-            elemImage.InnerText = Convert.ToBase64String((byte[])converter.ConvertTo(graphics.Bitmap, typeof(byte[])));
-            XmlAttribute styleAttribute = xmlDoc.CreateAttribute("style");
-            styleAttribute.Value = string.Format("width:{0}pt;height:{1}pt", graphics.Bitmap.Width / 4, graphics.Bitmap.Height / 4);
-            elemImage.Attributes.Append(styleAttribute);
-            elemCase.AppendChild(elemImage);
-            // save image
-            SaveImageAs(graphics.Bitmap, "view_case_iso.png");
+            // imageThumb
+            AppendThumbnailElement(xmlDoc, elemCase, graphics.Bitmap);
         }
 
         private void AppendCylinderElement(CylinderProperties cylProperties, XmlElement elemAnalysis, XmlDocument xmlDoc)
@@ -676,16 +801,8 @@ namespace treeDiM.StackBuilder.Reporting
             graphics.AddDimensions(dc);
             graphics.Flush();
             // ---
-            // view_case_iso
-            XmlElement elemImage = xmlDoc.CreateElement("view_cylinder_iso", ns);
-            TypeConverter converter = TypeDescriptor.GetConverter(typeof(Bitmap));
-            elemImage.InnerText = Convert.ToBase64String((byte[])converter.ConvertTo(graphics.Bitmap, typeof(byte[])));
-            XmlAttribute styleAttribute = xmlDoc.CreateAttribute("style");
-            styleAttribute.Value = string.Format("width:{0}pt;height:{1}pt", graphics.Bitmap.Width / 4, graphics.Bitmap.Height / 4);
-            elemImage.Attributes.Append(styleAttribute);
-            elemCylinder.AppendChild(elemImage);
-            // save image
-            SaveImageAs(graphics.Bitmap, "view_cylinder_iso.png");             
+            // imageThumb
+            AppendThumbnailElement(xmlDoc, elemCylinder, graphics.Bitmap);
         }
 
         private void AppendBundleElement(BundleProperties bundleProp, XmlElement elemAnalysis, XmlDocument xmlDoc)
@@ -720,16 +837,8 @@ namespace treeDiM.StackBuilder.Reporting
             graphics.AddDimensions(dc);
             graphics.Flush();
             // ---
-            // view_bundle_iso
-            XmlElement elemImage = xmlDoc.CreateElement("view_bundle_iso", ns);
-            TypeConverter converter = TypeDescriptor.GetConverter(typeof(Bitmap));
-            elemImage.InnerText = Convert.ToBase64String((byte[])converter.ConvertTo(graphics.Bitmap, typeof(byte[])));
-            XmlAttribute styleAttribute = xmlDoc.CreateAttribute("style");
-            styleAttribute.Value = string.Format("width:{0}pt;height:{1}pt", graphics.Bitmap.Width / 4, graphics.Bitmap.Height / 4);
-            elemImage.Attributes.Append(styleAttribute);
-            elemBundle.AppendChild(elemImage);
-            // save images ?
-            SaveImageAs(graphics.Bitmap, "view_bundle_iso.png");
+            // imageThumb
+            AppendThumbnailElement(xmlDoc, elemBundle, graphics.Bitmap);
         }
 
         private void AppendConstraintSet(CasePalletAnalysis analysis, CasePalletSolution sol, XmlElement elemPalletAnalysis, XmlDocument xmlDoc)
@@ -873,11 +982,11 @@ namespace treeDiM.StackBuilder.Reporting
         #endregion
 
         #region Dimensions
-        private void AppendInsideBoxElement(CasePalletAnalysis analysis, CasePalletSolution sol, XmlElement elemPalletAnalysis, XmlDocument xmlDoc)
+        private void AppendInsideBoxElement(Analysis analysis, CasePalletSolution sol, XmlElement elemPalletAnalysis, XmlDocument xmlDoc)
         {
             string ns = xmlDoc.DocumentElement.NamespaceURI;
             // get caseOfBoxProperties
-            CaseOfBoxesProperties caseOfBoxes = analysis.BProperties as CaseOfBoxesProperties;
+            CaseOfBoxesProperties caseOfBoxes = analysis.Content as CaseOfBoxesProperties;
             // get box properties
             BoxProperties boxProperties = caseOfBoxes.InsideBoxProperties;
             // elemBoxes
@@ -907,108 +1016,11 @@ namespace treeDiM.StackBuilder.Reporting
             graphics.AddDimensions(dc);
             graphics.Flush();
             // ---
-            // view_box_iso
-            XmlElement elemImage = xmlDoc.CreateElement("view_box_iso", ns);
-            TypeConverter converter = TypeDescriptor.GetConverter(typeof(Bitmap));
-            elemImage.InnerText = Convert.ToBase64String((byte[])converter.ConvertTo(graphics.Bitmap, typeof(byte[])));
-            XmlAttribute styleAttribute = xmlDoc.CreateAttribute("style");
-            styleAttribute.Value = string.Format("width:{0}pt;height:{1}pt", graphics.Bitmap.Width / 4, graphics.Bitmap.Height / 4);
-            elemImage.Attributes.Append(styleAttribute);
-            elemBox.AppendChild(elemImage);
-            // save image ?
-            SaveImageAs(graphics.Bitmap, "view_box_iso.png");
-        }
-        private void AppendCaseOfBoxesElement(CasePalletAnalysis analysis, CasePalletSolution sol, XmlElement elemPalletAnalysis, XmlDocument xmlDoc)
-        {
-            string ns = xmlDoc.DocumentElement.NamespaceURI;
-            // get CaseOfBoxProperties
-            CaseOfBoxesProperties caseOfBoxes = analysis.BProperties as CaseOfBoxesProperties;
-            if (null == caseOfBoxes) return;
-            // elemCaseOfBoxes
-            XmlElement elemCaseOfBoxes = xmlDoc.CreateElement("caseOfBoxes", ns);
-            elemPalletAnalysis.AppendChild(elemCaseOfBoxes);
-            // name
-            XmlElement elemName = xmlDoc.CreateElement("name", ns);
-            elemName.InnerText = caseOfBoxes.Name;
-            elemCaseOfBoxes.AppendChild(elemName);
-            // description
-            XmlElement elemDescription = xmlDoc.CreateElement("description", ns);
-            elemDescription.InnerText = caseOfBoxes.Description;
-            elemCaseOfBoxes.AppendChild(elemDescription);
-            // length
-            XmlElement elemNoX = xmlDoc.CreateElement("noX", ns);
-            elemNoX.InnerText = string.Format("{0}", caseOfBoxes.CaseDefinition.Arrangement._iLength);
-            elemCaseOfBoxes.AppendChild(elemNoX);
-            // width
-            XmlElement elemNoY = xmlDoc.CreateElement("noY", ns);
-            elemNoY.InnerText = string.Format("{0}", caseOfBoxes.CaseDefinition.Arrangement._iWidth);
-            elemCaseOfBoxes.AppendChild(elemNoY);
-            // height
-            XmlElement elemNoZ = xmlDoc.CreateElement("noZ", ns);
-            elemNoZ.InnerText = string.Format("{0}", caseOfBoxes.CaseDefinition.Arrangement._iHeight);
-            elemCaseOfBoxes.AppendChild(elemNoZ);
-            // number of boxes
-            XmlElement elemNoBoxes = xmlDoc.CreateElement("numberOfBoxes", ns);
-            elemNoBoxes.InnerText = string.Format("{0}", caseOfBoxes.NumberOfBoxes);
-            elemCaseOfBoxes.AppendChild(elemNoBoxes);
-            // dim0
-            XmlElement eltDim0 = xmlDoc.CreateElement("dim0", ns);
-            eltDim0.InnerText = string.Format("{0}", caseOfBoxes.CaseDefinition.Dim0);
-            elemCaseOfBoxes.AppendChild(eltDim0);
-            // dim1
-            XmlElement eltDim1 = xmlDoc.CreateElement("dim1", ns);
-            eltDim1.InnerText = string.Format("{0}", caseOfBoxes.CaseDefinition.Dim1);
-            elemCaseOfBoxes.AppendChild(eltDim1);
-
-            AppendElementValue(xmlDoc, elemCaseOfBoxes, "innerLength", UnitsManager.UnitType.UT_LENGTH, caseOfBoxes.InsideLength);
-            AppendElementValue(xmlDoc, elemCaseOfBoxes, "innerWidth", UnitsManager.UnitType.UT_LENGTH, caseOfBoxes.InsideWidth);
-            AppendElementValue(xmlDoc, elemCaseOfBoxes, "innerHeight", UnitsManager.UnitType.UT_LENGTH, caseOfBoxes.InsideHeight);
-            AppendElementValue(xmlDoc, elemCaseOfBoxes, "innerVolume", UnitsManager.UnitType.UT_VOLUME, caseOfBoxes.InsideVolume * UnitsManager.FactorCubeLengthToVolume);
-            AppendElementValue(xmlDoc, elemCaseOfBoxes, "outerLength", UnitsManager.UnitType.UT_LENGTH, caseOfBoxes.Length);
-            AppendElementValue(xmlDoc, elemCaseOfBoxes, "outerWidth", UnitsManager.UnitType.UT_LENGTH, caseOfBoxes.Width);
-            AppendElementValue(xmlDoc, elemCaseOfBoxes, "outerHeight", UnitsManager.UnitType.UT_LENGTH, caseOfBoxes.Height);
-            AppendElementValue(xmlDoc, elemCaseOfBoxes, "outerVolume", UnitsManager.UnitType.UT_VOLUME, caseOfBoxes.Volume * UnitsManager.FactorCubeLengthToVolume);
-            AppendElementValue(xmlDoc, elemCaseOfBoxes, "emptyWeight", UnitsManager.UnitType.UT_MASS, caseOfBoxes.WeightEmpty);
-            AppendElementValue(xmlDoc, elemCaseOfBoxes, "weight", UnitsManager.UnitType.UT_MASS, caseOfBoxes.Weight);
-
-            // type converter
-            TypeConverter converter = TypeDescriptor.GetConverter(typeof(Bitmap));
-            // view case of boxes iso1
-            Graphics3DImage graphics1 = new Graphics3DImage(new Size(ImageSizeDetail, ImageSizeDetail));
-            graphics1.CameraPosition = Graphics3D.Corner_0;
-            CaseDefinitionViewer viewer = new CaseDefinitionViewer(caseOfBoxes.CaseDefinition, caseOfBoxes.InsideBoxProperties, caseOfBoxes.CaseOptimConstraintSet);
-            viewer.CaseProperties = caseOfBoxes;
-            viewer.Orientation = sol.FirstCaseOrientation;
-            viewer.Draw(graphics1);
-            graphics1.Flush();
-            // view case of boxes iso2
-            Graphics3DImage graphics2 = new Graphics3DImage(new Size(ImageSizeDetail, ImageSizeDetail));
-            graphics2.CameraPosition = Graphics3D.Corner_0;
-            Box box = new Box(0, caseOfBoxes);
-            graphics2.AddBox(box);
-            graphics2.AddDimensions(new DimensionCube(caseOfBoxes.Length, caseOfBoxes.Width, caseOfBoxes.Height));
-            graphics2.Flush();
-            // view_caseOfBoxes_iso1
-            XmlElement elemImage1 = xmlDoc.CreateElement("view_caseOfBoxes_iso1", ns);
-            elemImage1.InnerText = Convert.ToBase64String((byte[])converter.ConvertTo(graphics1.Bitmap, typeof(byte[])));
-            XmlAttribute styleAttribute1 = xmlDoc.CreateAttribute("style");
-            styleAttribute1.Value = string.Format("width:{0}pt;height:{1}pt", graphics1.Bitmap.Width / 3, graphics1.Bitmap.Height / 3);
-            elemImage1.Attributes.Append(styleAttribute1);
-            elemCaseOfBoxes.AppendChild(elemImage1);
-            // save image
-            SaveImageAs(graphics1.Bitmap, "view_caseOfBoxes_iso1.png");
-            // view_caseOfBoxes_iso2
-            XmlElement elemImage2 = xmlDoc.CreateElement("view_caseOfBoxes_iso2", ns);
-            elemImage2.InnerText = Convert.ToBase64String((byte[])converter.ConvertTo(graphics2.Bitmap, typeof(byte[])));
-            XmlAttribute styleAttribute2 = xmlDoc.CreateAttribute("style");
-            styleAttribute2.Value = string.Format("width:{0}pt;height:{1}pt", graphics2.Bitmap.Width / 3, graphics2.Bitmap.Height / 3);
-            elemImage2.Attributes.Append(styleAttribute2);
-            elemCaseOfBoxes.AppendChild(elemImage2);
-            // save image
-            SaveImageAs(graphics2.Bitmap, "view_caseOfBoxes_iso2.png");
+            // imageThumb
+            AppendThumbnailElement(xmlDoc, elemBox, graphics.Bitmap);
         }
 
-        private void AppendInterlayerElement(InterlayerProperties interlayerProp, XmlElement elemPalletAnalysis, XmlDocument xmlDoc)
+        private void AppendInterlayerElement(InterlayerProperties interlayerProp, XmlElement elemAnalysis, XmlDocument xmlDoc)
         {
             // sanity check
             if (null == interlayerProp) return;
@@ -1016,7 +1028,7 @@ namespace treeDiM.StackBuilder.Reporting
             string ns = xmlDoc.DocumentElement.NamespaceURI;
             // interlayer
             XmlElement elemInterlayer = xmlDoc.CreateElement("interlayer", ns);
-            elemPalletAnalysis.AppendChild(elemInterlayer);
+            elemAnalysis.AppendChild(elemInterlayer);
             // name
             XmlElement elemName = xmlDoc.CreateElement("name", ns);
             elemName.InnerText = interlayerProp.Name;
@@ -1038,16 +1050,8 @@ namespace treeDiM.StackBuilder.Reporting
             graphics.AddBox(box);
             graphics.Flush();
             // ---
-            // view_interlayer_iso
-            XmlElement elemImage = xmlDoc.CreateElement("view_interlayer_iso", ns);
-            TypeConverter converter = TypeDescriptor.GetConverter(typeof(Bitmap));
-            elemImage.InnerText = Convert.ToBase64String((byte[])converter.ConvertTo(graphics.Bitmap, typeof(byte[])));
-            XmlAttribute styleAttribute = xmlDoc.CreateAttribute("style");
-            styleAttribute.Value = string.Format("width:{0}pt;height:{1}pt", graphics.Bitmap.Width / 4, graphics.Bitmap.Height / 4);
-            elemImage.Attributes.Append(styleAttribute);
-            elemInterlayer.AppendChild(elemImage);
-            // save image ?
-            SaveImageAs(graphics.Bitmap, "view_interlayer_iso.png");
+            // imageThumb
+            AppendThumbnailElement(xmlDoc, elemInterlayer, graphics.Bitmap);
         }
 
         private void AppendPalletCornerElement(PalletCornerProperties palletCornerProp, XmlElement elemPalletAnalysis, XmlDocument xmlDoc)
@@ -1080,17 +1084,8 @@ namespace treeDiM.StackBuilder.Reporting
             Corner corner = new Corner(0, palletCornerProp);
             corner.Draw(graphics);
             graphics.Flush();
-            // save image ?
-            SaveImageAs(graphics.Bitmap, "view_palletCorner_iso.png");
-            // ---
-            // view_palletCorner_iso
-            XmlElement elemImage = xmlDoc.CreateElement("view_palletCorner_iso", ns);
-            TypeConverter converter = TypeDescriptor.GetConverter(typeof(Bitmap));
-            elemImage.InnerText = Convert.ToBase64String((byte[])converter.ConvertTo(graphics.Bitmap, typeof(byte[])));
-            XmlAttribute styleAttribute = xmlDoc.CreateAttribute("style");
-            styleAttribute.Value = string.Format("width:{0}pt;height:{1}pt", graphics.Bitmap.Width / 4, graphics.Bitmap.Height / 4);
-            elemImage.Attributes.Append(styleAttribute);
-            elemPalletCorner.AppendChild(elemImage);
+            // imageThumb
+            AppendThumbnailElement(xmlDoc, elemPalletCorner, graphics.Bitmap);
         }
 
         private void AppendPalletCapElement(PalletCapProperties palletCapProp, XmlElement elemPalletAnalysis, XmlDocument xmlDoc)
@@ -1127,20 +1122,11 @@ namespace treeDiM.StackBuilder.Reporting
             palletCap.Draw(graphics);
             graphics.AddDimensions(new DimensionCube(palletCapProp.Length, palletCapProp.Width, palletCapProp.Height));
             graphics.Flush();
-            // save image ?
-            SaveImageAs(graphics.Bitmap, "view_palletCap_iso.png");
-            // ---
-            // view_palletCap_iso
-            XmlElement elemImage = xmlDoc.CreateElement("view_palletCap_iso", ns);
-            TypeConverter converter = TypeDescriptor.GetConverter(typeof(Bitmap));
-            elemImage.InnerText = Convert.ToBase64String((byte[])converter.ConvertTo(graphics.Bitmap, typeof(byte[])));
-            XmlAttribute styleAttribute = xmlDoc.CreateAttribute("style");
-            styleAttribute.Value = string.Format("width:{0}pt;height:{1}pt", graphics.Bitmap.Width / 4, graphics.Bitmap.Height / 4);
-            elemImage.Attributes.Append(styleAttribute);
-            elemPalletCap.AppendChild(elemImage);
+            // imageThumb
+            AppendThumbnailElement(xmlDoc, elemPalletCap, graphics.Bitmap);
         }
 
-        private void AppendPalletFilmElement(PalletFilmProperties palletFilmProp, CasePalletAnalysis analyis, XmlElement elemPalletAnalysis, XmlDocument xmlDoc)
+        private void AppendPalletFilmElement(PalletFilmProperties palletFilmProp, Analysis analyis, XmlElement elemPalletAnalysis, XmlDocument xmlDoc)
         {
             // sanity check
             if (null == palletFilmProp) return;
@@ -1158,11 +1144,29 @@ namespace treeDiM.StackBuilder.Reporting
             elemDescription.InnerText = palletFilmProp.Description;
             elemPalletFilm.AppendChild(elemDescription);
             // number of turns
+            ConstraintSetCasePallet constaintSet = analyis.ConstraintSet as ConstraintSetCasePallet;
             XmlElement elemNumberOfTurns = xmlDoc.CreateElement("numberOfTurns", ns);
-            elemNumberOfTurns.InnerText = analyis.ConstraintSet.PalletFilmTurns.ToString();
+            elemNumberOfTurns.InnerText = constaintSet.PalletFilmTurns.ToString();
             elemPalletFilm.AppendChild(elemNumberOfTurns);
         }
-/*
+
+        #region Helpers
+        private void AppendThumbnailElement(XmlDocument xmlDoc, XmlElement parentElement, Bitmap bmp)
+        {
+            // get image path
+            string imagePath = SaveImageAs(bmp);
+            // namespace
+            string ns = xmlDoc.DocumentElement.NamespaceURI;
+            // imageThumb element
+            XmlElement elemImage = xmlDoc.CreateElement("imageThumb", ns);
+            parentElement.AppendChild(elemImage);
+            // imagePath element
+            XmlElement elemImagePath = xmlDoc.CreateElement("imagePath", ns);
+            elemImage.AppendChild(elemImagePath);
+            elemImagePath.InnerText = imagePath;
+        }
+        #endregion
+        /*
         private void AppendSolutionElement(ReportData inputData, XmlElement elemPalletAnalysis, XmlDocument xmlDoc)
         {
             string ns = xmlDoc.DocumentElement.NamespaceURI;
@@ -1738,14 +1742,14 @@ namespace treeDiM.StackBuilder.Reporting
             }
         }
 */
-        private void AppendTruckElement(TruckProperties truckProp, XmlElement elemTruckAnalysis, XmlDocument xmlDoc)
+        private void AppendTruckElement(TruckProperties truckProp, XmlElement elemAnalysis, XmlDocument xmlDoc)
         {
             string ns = xmlDoc.DocumentElement.NamespaceURI;
             // get truckProperties
             if (null == truckProp) return;
             // create "truck" element
             XmlElement elemTruck = xmlDoc.CreateElement("truck", ns);
-            elemTruckAnalysis.AppendChild(elemTruck);
+            elemAnalysis.AppendChild(elemTruck);
             // name
             XmlElement elemName = xmlDoc.CreateElement("name", ns);
             elemName.InnerText = truckProp.Name;
@@ -1769,17 +1773,7 @@ namespace treeDiM.StackBuilder.Reporting
             DimensionCube dc = new DimensionCube(truckProp.Length, truckProp.Width, truckProp.Height);      dc.FontSize = 6.0f;
             graphics.AddDimensions(dc);
             graphics.Flush();
-            // ---
-            // view_truck_iso
-            XmlElement elemImage = xmlDoc.CreateElement("view_truck_iso", ns);
-            TypeConverter converter = TypeDescriptor.GetConverter(typeof(Bitmap));
-            elemImage.InnerText = Convert.ToBase64String((byte[])converter.ConvertTo(graphics.Bitmap, typeof(byte[])));
-            XmlAttribute styleAttribute = xmlDoc.CreateAttribute("style");
-            styleAttribute.Value = string.Format("width:{0}pt;height:{1}pt", graphics.Bitmap.Width / 4, graphics.Bitmap.Height / 4);
-            elemImage.Attributes.Append(styleAttribute);
-            elemTruck.AppendChild(elemImage);
-            // Save image ?
-            SaveImageAs(graphics.Bitmap, "view_truck_iso.png");
+            AppendThumbnailElement(xmlDoc, elemTruck, graphics.Bitmap);
         }
         /*
         private void AppendTruckSolutionElement(ReportData inputData, XmlElement elemTruckAnalysis, XmlDocument xmlDoc)
@@ -1942,11 +1936,11 @@ namespace treeDiM.StackBuilder.Reporting
         #endregion
 
         #region BoxProperties / PackProperties
-        private void AppendCaseElement(BoxProperties caseProperties, XmlElement elemCaseAnalysis, XmlDocument xmlDoc)
+        private void AppendCaseElement(BoxProperties caseProperties, XmlElement elemAnalysis, XmlDocument xmlDoc)
         {
             string ns = xmlDoc.DocumentElement.NamespaceURI;
             // case element
-            XmlElement elemCase = CreateElement("caseWithInnerDims", null, elemCaseAnalysis, xmlDoc, ns);
+            XmlElement elemCase = CreateElement("caseWithInnerDims", null, elemAnalysis, xmlDoc, ns);
             // name
             CreateElement("name", caseProperties.Name, elemCase, xmlDoc, ns);
             // description
@@ -1972,16 +1966,8 @@ namespace treeDiM.StackBuilder.Reporting
             graphics.AddDimensions(dc);
             graphics.Flush();
             // ---
-            // view_case_iso
-            XmlElement elemImage = xmlDoc.CreateElement("view_case_iso", ns);
-            TypeConverter converter = TypeDescriptor.GetConverter(typeof(Bitmap));
-            elemImage.InnerText = Convert.ToBase64String((byte[])converter.ConvertTo(graphics.Bitmap, typeof(byte[])));
-            XmlAttribute styleAttribute = xmlDoc.CreateAttribute("style");
-            styleAttribute.Value = string.Format("width:{0}pt;height:{1}pt", graphics.Bitmap.Width / 4, graphics.Bitmap.Height / 4);
-            elemImage.Attributes.Append(styleAttribute);
-            elemCase.AppendChild(elemImage);
-            // save image
-            SaveImageAs(graphics.Bitmap, "view_case_iso.png");
+            // imageThumb
+            AppendThumbnailElement(xmlDoc, elemCase, graphics.Bitmap);
         }
         private void AppendPackElement(PackProperties packProperties, XmlElement elemPackAnalysis, XmlDocument xmlDoc)
         {
@@ -2016,23 +2002,15 @@ namespace treeDiM.StackBuilder.Reporting
             DimensionCube dc = new DimensionCube(pack.Length, pack.Width, pack.Height); dc.FontSize = 6.0f;
             graphics.AddDimensions(dc);
             graphics.Flush();
-            // view_pack_iso
-            XmlElement elemImage = xmlDoc.CreateElement("view_pack_iso", ns);
-            TypeConverter converter = TypeDescriptor.GetConverter(typeof(Bitmap));
-            elemImage.InnerText = Convert.ToBase64String((byte[])converter.ConvertTo(graphics.Bitmap, typeof(byte[])));
-            XmlAttribute styleAttribute = xmlDoc.CreateAttribute("style");
-            styleAttribute.Value = string.Format("width:{0}pt;height:{1}pt", graphics.Bitmap.Width / 4, graphics.Bitmap.Height / 4);
-            elemImage.Attributes.Append(styleAttribute);
-            elemPack.AppendChild(elemImage);
-            // save image
-            SaveImageAs(graphics.Bitmap, "view_pack_iso.png");
+            // imageThumb
+            AppendThumbnailElement(xmlDoc, elemPack, graphics.Bitmap);
         }
 
-        private void AppendBoxElement(BoxProperties boxProperties, XmlElement elemCaseAnalysis, XmlDocument xmlDoc)
+        private void AppendBoxElement(BoxProperties boxProperties, XmlElement elemAnalysis, XmlDocument xmlDoc)
         {
             string ns = xmlDoc.DocumentElement.NamespaceURI;
             // box element
-            XmlElement elemBox = CreateElement("box", null, elemCaseAnalysis, xmlDoc, ns);
+            XmlElement elemBox = CreateElement("box", null, elemAnalysis, xmlDoc, ns);
             // name
             CreateElement("name", boxProperties.Name, elemBox, xmlDoc, ns);
             // description
@@ -2052,56 +2030,8 @@ namespace treeDiM.StackBuilder.Reporting
             graphics.AddDimensions(new DimensionCube(box.Length, box.Width, box.Height));
             graphics.Flush();
             // ---
-            // view_box_iso
-            XmlElement elemImage = xmlDoc.CreateElement("view_box_iso", ns);
-            TypeConverter converter = TypeDescriptor.GetConverter(typeof(Bitmap));
-            elemImage.InnerText = Convert.ToBase64String((byte[])converter.ConvertTo(graphics.Bitmap, typeof(byte[])));
-            XmlAttribute styleAttribute = xmlDoc.CreateAttribute("style");
-            styleAttribute.Value = string.Format("width:{0}pt;height:{1}pt", graphics.Bitmap.Width / 4, graphics.Bitmap.Height / 4);
-            elemImage.Attributes.Append(styleAttribute);
-            elemBox.AppendChild(elemImage);
-            // save image ?
-            SaveImageAs(graphics.Bitmap, "view_box_iso.png");
-        }
-        
-        private void AppendCaseElement(SelBoxCasePalletSolution caseSolution, XmlElement elemCaseAnalysis, XmlDocument xmlDoc)
-        {
-            string ns = xmlDoc.DocumentElement.NamespaceURI;
-            BoxProperties boxProp = caseSolution.Solution.AttachedPalletSolution.Analysis.BProperties as BoxProperties;
-            // case element
-            XmlElement elemCase = CreateElement("caseWithInnerDims", null, elemCaseAnalysis, xmlDoc, ns);
-            // name
-            CreateElement("name", boxProp.Name, elemCase, xmlDoc, ns);
-            // description
-            CreateElement("description", boxProp.Description, elemCase, xmlDoc, ns);
-
-            AppendElementValue(xmlDoc, elemCase, "length", UnitsManager.UnitType.UT_LENGTH, boxProp.Length);
-            AppendElementValue(xmlDoc, elemCase, "width", UnitsManager.UnitType.UT_LENGTH, boxProp.Width);
-            AppendElementValue(xmlDoc, elemCase, "height", UnitsManager.UnitType.UT_LENGTH, boxProp.Height);
-            AppendElementValue(xmlDoc, elemCase, "innerLength", UnitsManager.UnitType.UT_LENGTH, boxProp.InsideLength);
-            AppendElementValue(xmlDoc, elemCase, "innerWidth", UnitsManager.UnitType.UT_LENGTH, boxProp.InsideWidth);
-            AppendElementValue(xmlDoc, elemCase, "innerHeight", UnitsManager.UnitType.UT_LENGTH, boxProp.InsideHeight);
-            AppendElementValue(xmlDoc, elemCase, "weight", UnitsManager.UnitType.UT_MASS, boxProp.Height);
- 
-            // --- build image
-            Graphics3DImage graphics = new Graphics3DImage(new Size(ImageSizeDetail, ImageSizeDetail));
-            graphics.CameraPosition = Graphics3D.Corner_0;
-            graphics.Target = Vector3D.Zero;
-            Box box = new Box(0, boxProp);
-            graphics.AddBox(box);
-            graphics.AddDimensions(new DimensionCube(box.Length, box.Width, box.Height));
-            graphics.Flush();
-            // ---
-            // view_case_iso
-            XmlElement elemImage = xmlDoc.CreateElement("view_case_iso", ns);
-            TypeConverter converter = TypeDescriptor.GetConverter(typeof(Bitmap));
-            elemImage.InnerText = Convert.ToBase64String((byte[])converter.ConvertTo(graphics.Bitmap, typeof(byte[])));
-            XmlAttribute styleAttribute = xmlDoc.CreateAttribute("style");
-            styleAttribute.Value = string.Format("width:{0}pt;height:{1}pt", graphics.Bitmap.Width / 4, graphics.Bitmap.Height / 4);
-            elemImage.Attributes.Append(styleAttribute);
-            elemCase.AppendChild(elemImage);
-            // save image
-            SaveImageAs(graphics.Bitmap, "view_case_iso.png");
+            // imageThumb
+            AppendThumbnailElement(xmlDoc, elemBox, graphics.Bitmap);
         }
         #endregion
 
@@ -2134,96 +2064,6 @@ namespace treeDiM.StackBuilder.Reporting
             {
                 XmlElement maximumBoxPerCaseGroup = CreateElement("MaximumNumberOfBoxesGroup", null, elemCaseConstraintSet, xmlDoc, ns);
                 CreateElement("maximumBoxPerCase", bCaseConstraintSet.MaximumNumberOfBoxes, maximumBoxPerCaseGroup, xmlDoc, ns);
-            }
-        }
-
-        private void AppendBoxCaseSolutionElement(BoxCaseSolution solution, XmlElement elemBoxCaseAnalysis, XmlDocument xmlDoc)
-        {
-            BoxCaseAnalysis analysis = solution.Analysis;
-            string ns = xmlDoc.DocumentElement.NamespaceURI;
-            // solution
-            XmlElement elemSolution = xmlDoc.CreateElement("boxCaseSolution", ns);
-            elemBoxCaseAnalysis.AppendChild(elemSolution);
-            // title
-            XmlElement elemTitle = xmlDoc.CreateElement("title", ns);
-            elemTitle.InnerText = solution.Title;
-            elemSolution.AppendChild(elemTitle);
-            // boxPerLayerCount
-            XmlElement elemBoxPerLayerCount = xmlDoc.CreateElement("boxPerLayerCount", ns);
-            elemBoxPerLayerCount.InnerText = solution.BoxPerLayerCount.ToString();
-            elemSolution.AppendChild(elemBoxPerLayerCount);
-            // boxPerCaseCount
-            XmlElement elemBoxPerCaseCount = xmlDoc.CreateElement("boxPerCaseCount", ns);
-            elemBoxPerCaseCount.InnerText = solution.BoxPerCaseCount.ToString();
-            elemSolution.AppendChild(elemBoxPerCaseCount);
-            // BoxLayersCount
-            XmlElement elemBoxLayersCount = xmlDoc.CreateElement("boxLayersCount", ns);
-            elemBoxLayersCount.InnerText = solution.BoxLayersCount.ToString();
-            elemSolution.AppendChild(elemBoxLayersCount);
-            // criterions
-            // load weight
-            AppendElementValue(xmlDoc, elemSolution, "LoadWeight", UnitsManager.UnitType.UT_MASS, solution.BoxPerCaseCount * analysis.BProperties.Weight);
-            // case weight
-            AppendElementValue(xmlDoc, elemSolution, "CaseWeight", UnitsManager.UnitType.UT_MASS, solution.CaseWeight);
-            // EfficiencyWeight
-            XmlElement elemEfficiencyWeight = xmlDoc.CreateElement("EfficiencyWeight", ns);
-            if (solution.CaseWeight > 0)
-                elemEfficiencyWeight.InnerText = string.Format("{0:F}", solution.EfficiencyWeight);
-            else
-                elemEfficiencyWeight.InnerText = string.Empty;
-            elemSolution.AppendChild(elemEfficiencyWeight);
-            // EfficiencyVolume
-            XmlElement elemEfficiencyVolume = xmlDoc.CreateElement("EfficiencyVolume", ns);
-            elemEfficiencyVolume.InnerText = string.Format("{0:F}", solution.EfficiencyVolume);
-            elemSolution.AppendChild(elemEfficiencyVolume);
-            // LimitReached
-            string limitReached = string.Empty;
-            switch (solution.LimitReached)
-            {
-                case BoxCaseSolution.Limit.LIMIT_MAXHEIGHTREACHED: limitReached="Maximum height"; break;
-                case BoxCaseSolution.Limit.LIMIT_MAXNUMBERREACHED: limitReached="Maximum number"; break;
-                case BoxCaseSolution.Limit.LIMIT_MAXWEIGHTREACHED: limitReached="Maximum weight"; break;
-                default: break;
-            }
-            XmlElement elemLimitReached = xmlDoc.CreateElement("LimitReached", ns);
-            elemLimitReached.InnerText = limitReached; 
-            elemSolution.AppendChild(elemLimitReached);
-            // --- case images
-            for (int i = 0; i < 5; ++i)
-            {
-                // initialize drawing values
-                string viewName = string.Empty;
-                Vector3D cameraPos = Vector3D.Zero;
-                int imageWidth = ImageSizeDetail;
-                bool showDimensions = false;
-                switch (i)
-                {
-                    case 0: viewName = "view_caseSolution_front"; cameraPos = Graphics3D.Front; imageWidth = ImageSizeDetail; break;
-                    case 1: viewName = "view_caseSolution_left"; cameraPos = Graphics3D.Left; imageWidth = ImageSizeDetail; break;
-                    case 2: viewName = "view_caseSolution_right"; cameraPos = Graphics3D.Right; imageWidth = ImageSizeDetail; break;
-                    case 3: viewName = "view_caseSolution_back"; cameraPos = Graphics3D.Back; imageWidth = ImageSizeDetail; break;
-                    case 4:  viewName = "view_caseSolution_iso"; cameraPos = Graphics3D.Corner_0; imageWidth = ImageSizeWide; showDimensions = true; break;
-                    default: break;
-                }
-                // instantiate graphics
-                Graphics3DImage graphics = new Graphics3DImage(new Size(imageWidth, imageWidth));
-                // set camera position 
-                graphics.CameraPosition = cameraPos;
-                // instantiate solution viewer
-                BoxCaseSolutionViewer sv = new BoxCaseSolutionViewer(solution);
-                sv.ShowDimensions = showDimensions;
-                sv.Draw(graphics);
-                graphics.Flush();
-                // ---
-                XmlElement elemImage = xmlDoc.CreateElement(viewName, ns);
-                TypeConverter converter = TypeDescriptor.GetConverter(typeof(Bitmap));
-                elemImage.InnerText = Convert.ToBase64String((byte[])converter.ConvertTo(graphics.Bitmap, typeof(byte[])));
-                XmlAttribute styleAttribute = xmlDoc.CreateAttribute("style");
-                styleAttribute.Value = string.Format("width:{0}pt;height:{1}pt", graphics.Bitmap.Width / 3, graphics.Bitmap.Height / 3);
-                elemImage.Attributes.Append(styleAttribute);
-                elemSolution.AppendChild(elemImage);
-                // Save image ?
-                SaveImageAs(graphics.Bitmap, viewName + ".png");
             }
         }
         #endregion // BoxCaseAnalysis
@@ -2264,51 +2104,6 @@ namespace treeDiM.StackBuilder.Reporting
         }
         #endregion
 
-        #region Case solution element
-        private void AppendCaseSolutionElement(SelBoxCasePalletSolution selSolution, XmlElement elemCaseAnalysis, XmlDocument xmlDoc)
-        {
-            string ns = xmlDoc.DocumentElement.NamespaceURI;
-            BoxCasePalletSolution caseSolution = selSolution.Solution;
-            // caseSolution element
-            XmlElement elemCaseSolution = CreateElement("boxCasePalletSolution", null, elemCaseAnalysis, xmlDoc, ns);
-            // title
-            CreateElement("title", caseSolution.Title, elemCaseSolution, xmlDoc, ns);
-            // homogeneousLayer
-            CreateElement("homogeneousLayer", caseSolution.HasHomogeneousLayers ? "Y" : "N", elemCaseSolution, xmlDoc, ns);
-            // casePerPalletCount
-            CreateElement("casePerPalletCount", caseSolution.CasePerPalletCount, elemCaseSolution, xmlDoc, ns);
-            // boxPerCaseCount
-            CreateElement("boxPerCaseCount", caseSolution.BoxPerCaseCount, elemCaseSolution, xmlDoc, ns);
-            // boxPerPalletCount
-            CreateElement("boxPerPalletCount", caseSolution.BoxPerPalletCount, elemCaseSolution, xmlDoc, ns);
-            // caseEfficiency
-            CreateElement("caseEfficiency", caseSolution.CaseEfficiency, elemCaseSolution, xmlDoc, ns);
-            // palletEfficiency
-            CreateElement("palletEfficiency", caseSolution.PalletEfficiency, elemCaseSolution, xmlDoc, ns);
-
-            AppendElementValue(xmlDoc, elemCaseSolution, "caseWeight", UnitsManager.UnitType.UT_MASS, caseSolution.CaseWeight);
-            AppendElementValue(xmlDoc, elemCaseSolution, "palletWeight", UnitsManager.UnitType.UT_MASS, caseSolution.PalletWeight);
-
-            // --- build image
-            Graphics3DImage graphics = new Graphics3DImage(new Size(512, 512));
-            graphics.CameraPosition = Graphics3D.Corner_0;
-            graphics.Target = Vector3D.Zero;
-            // instantiate solution viewer
-            BoxCasePalletSolutionViewer sv = new BoxCasePalletSolutionViewer(caseSolution);
-            sv.Draw(graphics);
-            graphics.Flush();
-            SaveImageAs(graphics.Bitmap, "view_caseSolution_iso.png");
-            // ---
-            // view_caseSolution_iso
-            XmlElement elemImage = xmlDoc.CreateElement("view_caseSolution_iso", ns);
-            TypeConverter converter = TypeDescriptor.GetConverter(typeof(Bitmap));
-            elemImage.InnerText = Convert.ToBase64String((byte[])converter.ConvertTo(graphics.Bitmap, typeof(byte[])));
-            XmlAttribute styleAttribute = xmlDoc.CreateAttribute("style");
-            styleAttribute.Value = string.Format("width:{0}pt;height:{1}pt", graphics.Bitmap.Width / 4, graphics.Bitmap.Height / 4);
-            elemImage.Attributes.Append(styleAttribute);
-            elemCaseSolution.AppendChild(elemImage);
-        }
-        #endregion
 
         #region Helpers
         private static XmlElement CreateElement(string eltName, string innerValue, XmlElement parentElt, XmlDocument xmlDoc, string ns)
@@ -2382,12 +2177,27 @@ namespace treeDiM.StackBuilder.Reporting
             createdElement.InnerText = string.Format("{0}", eltValue);
             parent.AppendChild(createdElement);
         }
-        private void SaveImageAs(Bitmap bmp, string fileName)
+        private static void AppendSolutionItem(XmlDocument xmlDoc, XmlElement parent, string itemName, int itemNumber)
         {
-            if (!WriteImageFiles)
-                return;
+            string ns = xmlDoc.DocumentElement.NamespaceURI;
+            XmlElement elemItem = xmlDoc.CreateElement("item", ns);
+            parent.AppendChild(elemItem);
+            // itemName
+            XmlElement elemName = xmlDoc.CreateElement("name", ns);
+            elemName.InnerText = itemName;
+            elemItem.AppendChild(elemName);
+            // itemNumber
+            XmlElement elemValue = xmlDoc.CreateElement("value", ns);
+            elemValue.InnerText = itemNumber.ToString();
+            elemItem.AppendChild(elemValue);
+        }
+        private string SaveImageAs(Bitmap bmp)
+        {
+            if (!WriteImageFiles) return string.Empty;
+            string fileName = string.Format("image_{0}.png", ++_imageIndex);
             try { bmp.Save(Path.Combine(ImageDirectory, fileName), System.Drawing.Imaging.ImageFormat.Png); }
             catch (Exception ex) { _log.Error(ex.ToString()); }
+            return @"images\" + fileName;
         }
         public string ToAbsolute(string pathString)
         {

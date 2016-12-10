@@ -92,7 +92,7 @@ namespace treeDiM.StackBuilder.Graphics
             // colors
             _colors = Enumerable.Repeat<Color>(Color.Chocolate, 6).ToArray();
 
-            BProperties bProperties = packable as BProperties;
+            BProperties bProperties = PackableToBProperties(packable);
             if (null != bProperties)
             {
                 _colors = bProperties.Colors;
@@ -112,7 +112,6 @@ namespace treeDiM.StackBuilder.Graphics
                         if (null == _textureLists[iIndex])
                             _textureLists[iIndex] = new List<Texture>();
                         _textureLists[iIndex].Add(tex.second);
-
                     }
                     // tape
                     _showTape = boxProperties.ShowTape;
@@ -152,16 +151,7 @@ namespace treeDiM.StackBuilder.Graphics
             // colors
             _colors = Enumerable.Repeat<Color>(Color.Chocolate, 6).ToArray();
 
-            BProperties bProperties = null;
-            if (packable is BProperties)
-            {
-                bProperties = packable as BProperties;
-            }
-            else if (packable is LoadedCase)
-            {
-                LoadedCase loadedCase = packable as LoadedCase;
-                bProperties = loadedCase.Container as BProperties;
-            }
+            BProperties bProperties = PackableToBProperties(packable);
             if (null == bProperties)
                 throw new Exception(string.Format("Type {0} cannot be handled by Box constructor", packable.GetType().ToString() ));
 
@@ -208,12 +198,12 @@ namespace treeDiM.StackBuilder.Graphics
             // colors
             _colors = Enumerable.Repeat<Color>(Color.Chocolate, 6).ToArray();
 
-            BProperties bProperties = packable as BProperties;
+            BProperties bProperties = PackableToBProperties(packable);
             if (null != bProperties)
             {
                 _colors = bProperties.Colors;
 
-                BoxProperties boxProperties = packable as BoxProperties;
+                BoxProperties boxProperties = bProperties as BoxProperties;
                 if (null != boxProperties)
                 {
                     List<Pair<HalfAxis.HAxis, Texture>> textures = boxProperties.TextureList;
@@ -298,6 +288,21 @@ namespace treeDiM.StackBuilder.Graphics
             // specific
             _noFlats = bundleProperties.NoFlats;
             _isBundle = bundleProperties.IsBundle;
+        }
+        #endregion
+
+        #region Helpers
+        private BProperties PackableToBProperties(Packable packable)
+        {
+            if (packable is BProperties)
+                return packable as BProperties;
+            else if (packable is LoadedCase)
+            {
+                LoadedCase loadedCase = packable as LoadedCase;
+                return PackableToBProperties(loadedCase.Container);
+            }
+            else
+                return null;
         }
         #endregion
 

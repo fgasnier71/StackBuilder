@@ -33,7 +33,7 @@ namespace treeDiM.StackBuilder.Graphics
             if (null == _solution || _solution.LayerCount == 0)
                 return;
 
-            BoxLayer blayer = _solution.Layer;
+            Layer3DBox blayer = _solution.Layer;
             if (blayer != null)
             {
                 // initialize Graphics2D object
@@ -61,7 +61,7 @@ namespace treeDiM.StackBuilder.Graphics
             {
                 bool hasInterlayer = false;
                 double zInterlayer = 0.0;
-                BoxLayer blayer = _solution.GetBoxLayer(iLayerIndex, ref hasInterlayer, ref zInterlayer);
+                Layer3DBox blayer = _solution.GetBoxLayer(iLayerIndex, ref hasInterlayer, ref zInterlayer);
 
                 if (hasInterlayer && (null != interlayerProperties))
                 {
@@ -97,7 +97,7 @@ namespace treeDiM.StackBuilder.Graphics
 
             if (_showDimensions)
             {
-                BoxLayer layer = layerIndex %2 == 0 ? _solution.Layer : _solution.LayerSwapped;
+                Layer3DBox layer = layerIndex %2 == 0 ? _solution.Layer : _solution.LayerSwapped;
                 uint pickId = 0;
                 foreach (BoxPosition bPosition in layer)
                     graphics.AddBox(new Pack(pickId++, _solution.Analysis.PackProperties, bPosition));

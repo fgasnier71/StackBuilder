@@ -9,7 +9,7 @@ using treeDiM.StackBuilder.Basics;
 
 namespace treeDiM.StackBuilder.Engine
 {
-    class CylinderLayerPatternMixed12 : CylinderLayerPattern
+    class CylinderLayerPatternMixed12 : LayerPatternCyl
     {
         #region Implementation of CylinderLayerPattern abstract properties and methods
         public override string Name
@@ -20,16 +20,18 @@ namespace treeDiM.StackBuilder.Engine
         {
             get { return true; }
         }
-        public override bool GetLayerDimensions(Layer2DCyl layer, out double actualLength, out double actualWidth)
+        public override bool GetLayerDimensions(ILayer2D layer, out double actualLength, out double actualWidth)
         {
             double palletLength = layer.Length;
             double palletWidth = layer.Width;
-            double radius = layer.CylinderRadius;
+
+            Layer2DCyl layerCyl = layer as Layer2DCyl;
+            double radius = layerCyl.CylinderRadius;
 
             int alignedRowLength = 0, stagRowLength = 0;
             int rowNumber1 = 0, rowNumber2 = 0;
 
-            ComputeRowNumberAndLength(layer
+            ComputeRowNumberAndLength(layerCyl
                 , out alignedRowLength, out rowNumber1
                 , out stagRowLength, out rowNumber2
                 , out actualLength, out actualWidth);
@@ -37,19 +39,18 @@ namespace treeDiM.StackBuilder.Engine
             return rowNumber1 > 0 && rowNumber2 > 0;
         }
 
-        public override void GenerateLayer(Layer2DCyl layer, double actualLength, double actualWidth)
+        public override void GenerateLayer(ILayer2D layer, double actualLength, double actualWidth)
         {
             layer.Clear();
-
             double palletLength = GetPalletLength(layer);
             double palletWidth = GetPalletWidth(layer);
-            double radius = layer.CylinderRadius;
-            double diameter = 2.0 * layer.CylinderRadius;
+            double radius = GetRadius(layer);
+            double diameter = 2.0 * radius;
 
             int alignedRowLength = 0, stagRowLength = 0;
             int rowNumber1 = 0, rowNumber2 = 0;
-
-            ComputeRowNumberAndLength(layer
+            Layer2DCyl layerCyl = layer as Layer2DCyl;
+            ComputeRowNumberAndLength(layerCyl
                 , out alignedRowLength, out rowNumber1
                 , out stagRowLength, out rowNumber2
                 , out actualLength, out actualWidth);
@@ -59,7 +60,7 @@ namespace treeDiM.StackBuilder.Engine
 
             for (int j = 0; j < rowNumber1; ++j)
                 for (int i = 0; i < alignedRowLength; ++i)
-                    AddPosition(layer, new Vector2D(
+                    AddPosition(layerCyl, new Vector2D(
                         radius + offsetX + i * diameter
                         , radius + offsetY + j * diameter
                         ));

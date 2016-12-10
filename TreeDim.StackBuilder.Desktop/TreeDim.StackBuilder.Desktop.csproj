@@ -38,7 +38,7 @@
     <MinimumRequiredVersion>3.0.0.0</MinimumRequiredVersion>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>2</ApplicationRevision>
+    <ApplicationRevision>8</ApplicationRevision>
     <ApplicationVersion>3.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -368,6 +368,12 @@
     </Compile>
     <Compile Include="FormNewAnalysisHCylinder.Designer.cs">
       <DependentUpon>FormNewAnalysisHCylinder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNewAnalysisPalletTruck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNewAnalysisPalletTruck.Designer.cs">
+      <DependentUpon>FormNewAnalysisPalletTruck.cs</DependentUpon>
     </Compile>
     <Compile Include="FormNewBase.cs">
       <SubType>Form</SubType>
@@ -928,6 +934,9 @@
     <EmbeddedResource Include="FormNewAnalysisCylinderCase.resx">
       <DependentUpon>FormNewAnalysisCylinderCase.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisCylinderPallet.resx">
+      <DependentUpon>FormNewAnalysisCylinderPallet.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewAnalysisLegacy.ca-ES.resx">
       <DependentUpon>FormNewAnalysisLegacy.cs</DependentUpon>
     </EmbeddedResource>
@@ -1058,6 +1067,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewAnalysisPackPallet.ja-JP.resx">
       <DependentUpon>FormNewAnalysisPackPallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisPalletTruck.resx">
+      <DependentUpon>FormNewAnalysisPalletTruck.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewBase.de-DE.resx">
       <DependentUpon>FormNewBase.cs</DependentUpon>
@@ -1551,6 +1563,16 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.es-ES.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <Content Include="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportSchema.xsd">
+      <Link>ReportTemplates\ReportSchema.xsd</Link>
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportTypes.xsd">
+      <Link>ReportTemplates\ReportTypes.xsd</Link>
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
@@ -1767,6 +1789,42 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Solution.bmp" />
+    <Content Include="..\TreeDim.StackBuilder.Reporting\ReportTemplates\DEU.xml">
+      <Link>ReportTemplates\DEU.xml</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ENU.xml">
+      <Link>ReportTemplates\ENU.xml</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ESP.xml">
+      <Link>ReportTemplates\ESP.xml</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\TreeDim.StackBuilder.Reporting\ReportTemplates\FRA.xml">
+      <Link>ReportTemplates\FRA.xml</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ITA.xml">
+      <Link>ReportTemplates\ITA.xml</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\TreeDim.StackBuilder.Reporting\ReportTemplates\JPN.xml">
+      <Link>ReportTemplates\JPN.xml</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportTemplateHtml.xsl">
+      <Link>ReportTemplates\ReportTemplateHtml.xsl</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportTypes.xsl">
+      <Link>ReportTemplates\ReportTypes.xsl</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\TreeDim.StackBuilder.Reporting\ReportTemplates\YourLogoHere.png">
+      <Link>ReportTemplates\YourLogoHere.png</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resources\AnalysisBundle.bmp" />
     <None Include="Resources\Case.bmp" />
     <None Include="Resources\AnalysisCylinder.bmp" />
@@ -1805,7 +1863,9 @@
     </FileAssociation>
   </ItemGroup>
   <PropertyGroup>
-    <PostBuildEvent>if $(ConfigurationName) == Release "C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\signtool.exe" sign /f "$(SolutionDir)\..\Signing\treeDiM.pfx" /p 2B3gmehk /t http://timestamp.comodoca.com/authenticode $(TargetPath)</PostBuildEvent>
+    <PostBuildEvent>copy /Y "$(SolutionDir)TreeDim.StackBuilder.Reporting\ReportTemplates" "$(TargetDir)ReportTemplates"
+if $(ConfigurationName) == Release "C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\signtool.exe" sign /f "$(SolutionDir)..\Signing\treeDiM.pfx" /p 2B3gmehk /t http://timestamp.comodoca.com/authenticode $(TargetPath)
+</PostBuildEvent>
   </PropertyGroup>
   <Import Project="..\packages\MSBuildTasks.1.5.0.196\build\MSBuildTasks.targets" Condition="Exists('..\packages\MSBuildTasks.1.5.0.196\build\MSBuildTasks.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
@@ -1821,4 +1881,72 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <ItemGroup>
+    <Content Include="$(SolutionDir)ReportTemplates\**\*">
+      <Link>%(RecursiveDir)%(Filename)%(Extension)</Link>
+      <Visible>false</Visible>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <PublishFile Include="ReportTemplates\DEU.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="ReportTemplates\ENU.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="ReportTemplates\ESP.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="ReportTemplates\FRA.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="ReportTemplates\ITA.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="ReportTemplates\JPN.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+  </ItemGroup>
 </Project>

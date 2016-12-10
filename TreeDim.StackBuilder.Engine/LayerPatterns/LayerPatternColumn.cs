@@ -9,7 +9,7 @@ using treeDiM.StackBuilder.Basics;
 
 namespace treeDiM.StackBuilder.Engine
 {
-    class LayerPatternColumn : LayerPattern
+    class LayerPatternColumn : LayerPatternBox
     {
         #region Implementation of LayerPattern abstract properties and methods
         public override string Name
@@ -17,26 +17,25 @@ namespace treeDiM.StackBuilder.Engine
             get { return "Column"; }
         }
 
-        public override bool GetLayerDimensions(Layer2D layer, out double actualLength, out double actualWidth)
+        public override bool GetLayerDimensions(ILayer2D layer, out double actualLength, out double actualWidth)
         {
-            double palletLength = layer.Length;
-            double palletWidth = layer.Width;
-            double boxLength = layer.BoxLength;
-            double boxWidth = layer.BoxWidth;
+            double palletLength = GetPalletLength(layer);
+            double palletWidth = GetPalletWidth(layer);
+            double boxLength = GetBoxLength(layer);
+            double boxWidth = GetBoxWidth(layer);
+
             actualLength = Math.Floor(palletLength / boxLength) * boxLength;
             actualWidth = Math.Floor(palletWidth / boxWidth) * boxWidth;
-
             return (palletLength >= boxLength) && (palletWidth >= boxWidth);
         }
 
-        public override void GenerateLayer(Layer2D layer, double actualLength, double actualWidth)
+        public override void GenerateLayer(ILayer2D layer, double actualLength, double actualWidth)
         {
             layer.Clear();
-
-            double boxLength = layer.BoxLength;
-            double boxWidth = layer.BoxWidth;
             double palletLength = GetPalletLength(layer);
             double palletWidth = GetPalletWidth(layer);
+            double boxLength = GetBoxLength(layer);
+            double boxWidth = GetBoxWidth(layer);
 
             int sizeX = (int)Math.Floor(palletLength / boxLength);
             int sizeY = (int)Math.Floor(palletWidth / boxWidth);

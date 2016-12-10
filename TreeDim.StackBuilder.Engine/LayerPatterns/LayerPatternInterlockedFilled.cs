@@ -9,17 +9,17 @@ using treeDiM.StackBuilder.Basics;
 
 namespace treeDiM.StackBuilder.Engine
 {
-    class LayerPatternInterlockedFilled : LayerPattern
+    class LayerPatternInterlockedFilled : LayerPatternBox
     {
         #region Implementation of LayerPattern abstract properties and methods
         public override string Name { get { return "Interlocked Filled"; } }
 
-        public override bool GetLayerDimensions(Layer2D layer, out double actualLength, out double actualWidth)
+        public override bool GetLayerDimensions(ILayer2D layer, out double actualLength, out double actualWidth)
         {
-            double boxLength = layer.BoxLength;
-            double boxWidth = layer.BoxWidth;
             double palletLength = GetPalletLength(layer);
             double palletWidth = GetPalletWidth(layer);
+            double boxLength = GetBoxLength(layer);
+            double boxWidth = GetBoxWidth(layer);
 
             int maxSizeXLength = 0, maxSizeXWidth = 0, maxSizeYLength = 0, maxSizeYWidth = 0;
             int fillSizeXLength = 0, fillSizeYLength = 0, fillSizeXWidth = 0, fillSizeYWidth = 0;
@@ -38,14 +38,13 @@ namespace treeDiM.StackBuilder.Engine
                     || ((maxSizeYWidth % 2 == 0) && (fillSizeXWidth * fillSizeYWidth > 0))
                     );
         }
-        public override void GenerateLayer(Layer2D layer, double actualLength, double actualWidth)
+        public override void GenerateLayer(ILayer2D layer, double actualLength, double actualWidth)
         {
             layer.Clear();
-
-            double boxLength = layer.BoxLength;
-            double boxWidth = layer.BoxWidth;
             double palletLength = GetPalletLength(layer);
             double palletWidth = GetPalletWidth(layer);
+            double boxLength = GetBoxLength(layer);
+            double boxWidth = GetBoxWidth(layer);
 
             int maxSizeXLength = 0, maxSizeXWidth = 0, maxSizeYLength = 0, maxSizeYWidth = 0;
             int fillSizeXLength = 0, fillSizeYLength = 0, fillSizeXWidth = 0, fillSizeYWidth = 0;

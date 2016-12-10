@@ -45,6 +45,16 @@ namespace treeDiM.StackBuilder.Basics
         }
         #endregion
 
+        #region ItemBase overrides
+        protected override void RemoveItselfFromDependancies()
+        {
+            base.RemoveItselfFromDependancies();
+            _packable.RemoveDependancy(this);
+            foreach (InterlayerProperties interlayer in _interlayers)
+                interlayer.RemoveDependancy(this);
+        }
+        #endregion
+
         #region Public properties
         public Packable Content
         {
@@ -64,14 +74,7 @@ namespace treeDiM.StackBuilder.Basics
         public Solution Solution                        { get { return _solution; } }
         public ConstraintSetAbstract ConstraintSet      { get { return _constraintSet; } set { _constraintSet = value; } }
         public List<InterlayerProperties> Interlayers   { get { return _interlayers; } }
-        /// <summary>
-        /// can analysis solution be reused in other analysis
-        /// </summary>
-        public abstract bool HasEquivalentPackable { get; }
-        /// <summary>
-        /// get equivalent packable
-        /// </summary>
-        public abstract PackableLoaded EquivalentPackable { get; }
+        public virtual bool AlternateLayersPref         { get { return true; } }
         #endregion
 
         #region Abstract properties
@@ -80,6 +83,14 @@ namespace treeDiM.StackBuilder.Basics
         public abstract Vector3D Offset                 { get; }
         public abstract double   ContainerWeight        { get; }
         public abstract double   ContainerLoadingVolume { get; }
+        /// <summary>
+        /// can analysis solution be reused in other analysis
+        /// </summary>
+        public abstract bool HasEquivalentPackable { get; }
+        /// <summary>
+        /// get equivalent packable
+        /// </summary>
+        public abstract PackableLoaded EquivalentPackable { get; }
         #endregion
 
         #region Abstract methods

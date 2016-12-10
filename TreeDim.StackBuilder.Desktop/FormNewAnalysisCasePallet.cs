@@ -66,15 +66,32 @@ namespace treeDiM.StackBuilder.Desktop
 
                 uCtrlCaseOrientation.AllowedOrientations = new bool[] { Settings.Default.AllowVerticalX, Settings.Default.AllowVerticalY, Settings.Default.AllowVerticalZ };
                 uCtrlMaximumHeight.Value = Settings.Default.MaximumPalletHeight;
-                uCtrlOptMaximumWeight.Value = new OptDouble(true, Settings.Default.MaximumPalletWeight);
+                uCtrlOptMaximumWeight.Value = new OptDouble(false, Settings.Default.MaximumPalletWeight);
 
                 uCtrlOverhang.ValueX = Settings.Default.OverhangX;
                 uCtrlOverhang.ValueY = Settings.Default.OverhangY;
+            }
+            else
+            {
+                tbName.Text = AnalysisBase.Name;
+                tbDescription.Text = AnalysisBase.Description;
 
-                checkBoxBestLayersOnly.Checked = Settings.Default.KeepBestSolutions;
-             }
+                ConstraintSetAbstract constraintSet = AnalysisBase.ConstraintSet;
+                uCtrlCaseOrientation.AllowedOrientations = new bool[] {
+                    constraintSet.AllowOrientation(HalfAxis.HAxis.AXIS_X_P)
+                    , constraintSet.AllowOrientation(HalfAxis.HAxis.AXIS_Y_P)
+                    , constraintSet.AllowOrientation(HalfAxis.HAxis.AXIS_Z_P)
+                };
+                uCtrlMaximumHeight.Value = constraintSet.OptMaxHeight.Value;
+                uCtrlOptMaximumWeight.Value = constraintSet.OptMaxWeight;
+
+                ConstraintSetCasePallet constraintSetCasePallet = constraintSet as ConstraintSetCasePallet;
+
+                uCtrlOverhang.ValueX = constraintSetCasePallet.Overhang.X;
+                uCtrlOverhang.ValueY = constraintSetCasePallet.Overhang.Y;
+            }
+            checkBoxBestLayersOnly.Checked = Settings.Default.KeepBestSolutions;
         }
-
         protected override void OnClosed(EventArgs e)
         {
             base.OnClosed(e);
@@ -90,6 +107,35 @@ namespace treeDiM.StackBuilder.Desktop
             Settings.Default.OverhangY = uCtrlOverhang.ValueY;
 
             Settings.Default.KeepBestSolutions = checkBoxBestLayersOnly.Checked;
+        }
+        #endregion
+
+        #region FormNewAnalysis override
+        public override void OnNext()
+        {
+            try
+            {
+                List<LayerDesc> layerDescs = new List<LayerDesc>();
+                foreach (Layer2D layer2D in uCtrlLayerList.Selected)
+                    layerDescs.Add(layer2D.LayerDescriptor);
+
+                Solution.SetSolver(new LayerSolver());
+
+                _item = _document.CreateNewAnalysisCasePallet(
+                    ItemName, ItemDescription
+                    , SelectedBoxProperties, SelectedPallet
+                    , new List<InterlayerProperties>()
+                    , null, null, null
+                    , BuildConstraintSet()
+                    , layerDescs
+                    );
+
+                Close();
+            }
+            catch (Exception ex)
+            {
+                _log.Error(ex.ToString());
+            }
         }
         #endregion
 
@@ -175,33 +221,6 @@ namespace treeDiM.StackBuilder.Desktop
                 _log.Error(ex.ToString());
             }
         }
-        public override void OnNext()
-        {
-            try
-            {
-                List<LayerDesc> layerDescs = new List<LayerDesc>();
-                foreach (Layer2D layer2D in uCtrlLayerList.Selected)
-                    layerDescs.Add(layer2D.LayerDescriptor);
-
-                Solution.SetSolver(new LayerSolver());
-
-                _item = _document.CreateNewAnalysisCasePallet(
-                    ItemName, ItemDescription
-                    , SelectedBoxProperties, SelectedPallet
-                    , new List<InterlayerProperties>()
-                    , null, null, null
-                    , BuildConstraintSet()
-                    , layerDescs
-                    );
-
-                Close();
-            }
-            catch (Exception ex)
-            {
-                _log.Error(ex.ToString());
-            }
-        }
-
         private void onBestCombinationClicked(object sender, EventArgs e)
         {
             try

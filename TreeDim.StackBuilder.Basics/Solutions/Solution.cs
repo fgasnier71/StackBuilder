@@ -15,9 +15,11 @@ namespace treeDiM.StackBuilder.Basics
     public interface ILayerSolver
     {
         List<Layer2D> BuildLayers(Vector3D dimBox, Vector2D dimContainer, double offsetZ, ConstraintSetAbstract constraintSet, bool keepOnlyBest);
-        Layer2D BuildLayer(Vector3D dimBox, Vector2D actualDimensions, LayerDesc layerDesc);
-        Layer2D BuildLayer(Vector3D dimBox, Vector2D dimContainer, LayerDesc layerDesc, Vector2D actualDimensions);
-        bool GetDimensions(List<LayerDesc> layers, Vector3D dimBox, Vector2D dimContainer, out Vector2D actualDimensions);
+        Layer2D BuildLayer(Vector3D dimBox, Vector2D actualDimensions, LayerDescBox layerDesc);
+        Layer2D BuildLayer(Vector3D dimBox, Vector2D dimContainer, LayerDescBox layerDesc, Vector2D actualDimensions);
+        ILayer2D BuildLayer(Packable packable, Vector2D dimContainer, LayerDesc layerDesc);
+        ILayer2D BuildLayer(Packable packable, Vector2D dimContainer, LayerDesc layerDesc, Vector2D actualDimensions);
+        bool GetDimensions(List<LayerDesc> layers, Packable packable, Vector2D dimContainer, out Vector2D actualDimensions);
     }
     #endregion
 
@@ -26,7 +28,7 @@ namespace treeDiM.StackBuilder.Basics
     {
         #region Data members
         private int _indexLayer = 0, _indexInterlayer = -1;
-        private bool _symmetryX = false, _symmetryY = false;
+        private bool _symetryX = false, _symetryY = false;
         #endregion
 
         #region Constructors
@@ -34,28 +36,28 @@ namespace treeDiM.StackBuilder.Basics
         {
             _indexLayer = indexLayer;
             _indexInterlayer = indexInterlayer;
-            _symmetryX = symetryX;
-            _symmetryY = SymmetryY;
+            _symetryX = symetryX;
+            _symetryY = symetryY;
         }
         public SolutionItem(SolutionItem solItem)
         {
             _indexLayer = solItem._indexLayer;
             _indexInterlayer = solItem._indexInterlayer;
-            _symmetryX = solItem._symmetryX;
-            _symmetryY = solItem._symmetryY;
+            _symetryX = solItem._symetryX;
+            _symetryY = solItem._symetryY;
         }
         #endregion
 
         #region Public properties
-        public bool SymmetryX
+        public bool SymetryX
         {
-            get { return _symmetryX; }
-            set { _symmetryX = value; }
+            get { return _symetryX; }
+            set { _symetryX = value; }
         }
-        public bool SymmetryY
+        public bool SymetryY
         {
-            get { return _symmetryY; }
-            set { _symmetryY = value; }
+            get { return _symetryY; }
+            set { _symetryY = value; }
         }
         public bool HasInterlayer   { get { return _indexInterlayer != -1; } }
         public int InterlayerIndex { get { return _indexInterlayer; } set { _indexInterlayer = value; } }
@@ -69,8 +71,8 @@ namespace treeDiM.StackBuilder.Basics
         }
         public void InverseSymetry(int axis)
         {
-            if (axis == 0) _symmetryX = !_symmetryX;
-            else if (axis == 1) _symmetryY = !_symmetryY;
+            if (axis == 0) _symetryX = !_symetryX;
+            else if (axis == 1) _symetryY = !_symetryY;
             else throw new Exception("Invalid axis of symetry");
         }
         #endregion
@@ -87,7 +89,7 @@ namespace treeDiM.StackBuilder.Basics
 
         private int _selectedIndex;
 
-        private List<Layer2D> _layers;
+        private List<ILayer2D> _layers;
         private static ILayerSolver _solver;
 
         // cached data
@@ -121,7 +123,7 @@ namespace treeDiM.StackBuilder.Basics
             if (0 == _layerDescriptors.Count)
                 throw new Exception("No layer descriptors available");
 
-            _layers = new List<Layer2D>();
+            _layers = new List<ILayer2D>();
             // build list of used layers
             List<LayerDesc> usedLayers = new List<LayerDesc>();
             if (null != _solutionItems && _solutionItems.Count > 0)
@@ -136,11 +138,11 @@ namespace treeDiM.StackBuilder.Basics
                 usedLayers.Add(_layerDescriptors[0]);
             // get dimensions
             Vector2D actualDimensions = Vector2D.Zero;
-            _solver.GetDimensions(usedLayers, _analysis.ContentDimensions, _analysis.ContainerDimensions, out actualDimensions);
+            _solver.GetDimensions(usedLayers, _analysis.Content, _analysis.ContainerDimensions, out actualDimensions);
 
             // actually build layers
             foreach (LayerDesc layerDesc in _layerDescriptors)
-                _layers.Add(_solver.BuildLayer(_analysis.ContentDimensions, _analysis.ContainerDimensions, layerDesc, actualDimensions));
+                _layers.Add(_solver.BuildLayer(_analysis.Content, _analysis.ContainerDimensions, layerDesc, actualDimensions));
         }
         private void InitializeSolutionItemList()
         { 
@@ -149,17 +151,21 @@ namespace treeDiM.StackBuilder.Basics
             bool criterionReached = false;
             double zTop = _analysis.Offset.Z;
             double weight = _analysis.ContainerWeight;
+            bool symetryX = false, symetryY = false;
             while (!criterionReached)
             {
                 weight += _layers[0].Count * _analysis.ContentWeight;
-                zTop += _layers[0].BoxHeight;
+                zTop += _layers[0].LayerHeight;
                 ConstraintSetAbstract constraintSet = _analysis.ConstraintSet;
                 criterionReached = (ConstraintSet.OptMaxHeight.Activated && zTop >= constraintSet.OptMaxHeight.Value)
                     || (ConstraintSet.OptMaxWeight.Activated && weight >= constraintSet.OptMaxWeight.Value);
                 if (criterionReached)
                     break;
                 else
-                    _solutionItems.Add( new SolutionItem(0, -1, false, false) );
+                    _solutionItems.Add(new SolutionItem(0, -1, symetryX, symetryY));
+
+                symetryX = _analysis.AlternateLayersPref ? !symetryX : symetryX;
+                symetryY = _analysis.AlternateLayersPref ? !symetryY : symetryY;
             }
         }
         public void RebuildSolutionItemList()
@@ -172,7 +178,7 @@ namespace treeDiM.StackBuilder.Basics
             foreach (SolutionItem solItem in _solutionItems)
             {
                 weight += _layers[solItem.LayerIndex].Count * _analysis.ContentWeight;
-                zTop += _layers[solItem.LayerIndex].BoxHeight + ((-1 != solItem.InterlayerIndex) ? _analysis.Interlayer(solItem.InterlayerIndex).Thickness : 0.0);
+                zTop += _layers[solItem.LayerIndex].LayerHeight + ((-1 != solItem.InterlayerIndex) ? _analysis.Interlayer(solItem.InterlayerIndex).Thickness : 0.0);
 
                 ConstraintSetAbstract constraintSet = _analysis.ConstraintSet;
                 criterionReached = (ConstraintSet.OptMaxHeight.Activated && zTop >= constraintSet.OptMaxHeight.Value)
@@ -197,7 +203,7 @@ namespace treeDiM.StackBuilder.Basics
                     throw new Exception(string.Format("Layer index out of range!"));
 
                 weight += _layers[solItem.LayerIndex].Count * _analysis.ContentWeight;
-                zTop += _layers[solItem.LayerIndex].BoxHeight + ((-1 != solItem.InterlayerIndex) ? _analysis.Interlayer(solItem.InterlayerIndex).Thickness : 0.0);
+                zTop += _layers[solItem.LayerIndex].LayerHeight + ((-1 != solItem.InterlayerIndex) ? _analysis.Interlayer(solItem.InterlayerIndex).Thickness : 0.0);
 
                 solutionItems.Add(new SolutionItem(solItem));
 
@@ -219,7 +225,7 @@ namespace treeDiM.StackBuilder.Basics
                     throw new Exception(string.Format("Layer index out of range!"));
 
                 weight -= _layers[solItem.LayerIndex].Count * _analysis.ContentWeight;
-                zTop -= _layers[solItem.LayerIndex].BoxHeight + ((-1 != solItem.InterlayerIndex) ? _analysis.Interlayer(solItem.InterlayerIndex).Thickness : 0.0);
+                zTop -= _layers[solItem.LayerIndex].LayerHeight + ((-1 != solItem.InterlayerIndex) ? _analysis.Interlayer(solItem.InterlayerIndex).Thickness : 0.0);
 
                 ConstraintSetAbstract constraintSet = _analysis.ConstraintSet;
                 criterionReached = (ConstraintSet.OptMaxHeight.Activated && zTop >= constraintSet.OptMaxHeight.Value)
@@ -346,23 +352,40 @@ namespace treeDiM.StackBuilder.Basics
                         ++iInterlayerCount;
                     }
 
-                    Layer2D currentLayer = _layers[solItem.LayerIndex];
+                    ILayer2D currentLayer = _layers[solItem.LayerIndex];
 
-                    BoxLayer boxLayer = new BoxLayer(zLayer, solItem.LayerIndex);
-                    foreach (LayerPosition layerPos in currentLayer)
+                    if (currentLayer is Layer2D)
                     {
-                        LayerPosition layerPosTemp = AdjustLayerPosition(layerPos, solItem.SymmetryX, solItem.SymmetryY);
-                        boxLayer.Add(new BoxPosition(
-                            layerPosTemp.Position + Analysis.Offset + zLayer * Vector3D.ZAxis
-                            , layerPosTemp.LengthAxis
-                            , layerPosTemp.WidthAxis
-                            ));
-                       
-                        ++iBoxCount;
-                    }
-                    llayers.Add(boxLayer);
+                        Layer2D layer2DBox = currentLayer as Layer2D;
+                        Layer3DBox boxLayer = new Layer3DBox(zLayer, solItem.LayerIndex);
+                        foreach (LayerPosition layerPos in layer2DBox)
+                        {
+                            LayerPosition layerPosTemp = AdjustLayerPosition(layerPos, solItem.SymetryX, solItem.SymetryY);
+                            boxLayer.Add(new BoxPosition(
+                                layerPosTemp.Position + Analysis.Offset + zLayer * Vector3D.ZAxis
+                                , layerPosTemp.LengthAxis
+                                , layerPosTemp.WidthAxis
+                                ));
 
-                    zLayer += currentLayer.BoxHeight;
+                            ++iBoxCount;
+                        }
+                        llayers.Add(boxLayer);
+                    }
+                    if (currentLayer is Layer2DCyl)
+                    {
+                        Layer2DCyl layer2DCyl = currentLayer as Layer2DCyl;
+                        Layer3DCyl cylLayer = new Layer3DCyl(zLayer);
+                        foreach (Vector2D vPos in layer2DCyl)
+                        {
+                            cylLayer.Add(
+                                AdjustPosition(new Vector3D(vPos.X, vPos.Y, zLayer), solItem.SymetryX, solItem.SymetryY)
+                                + Analysis.Offset);
+                            ++iBoxCount;
+                        }
+                        llayers.Add(cylLayer);
+                    }
+
+                    zLayer += currentLayer.LayerHeight;
                 }
                 return llayers;
             }
@@ -374,20 +397,22 @@ namespace treeDiM.StackBuilder.Basics
                 if (!_bbox.IsValid)
                 {
                     foreach (ILayer layer in Layers)
-                    { 
-                        BoxLayer blayer = layer as BoxLayer;
-                        if (null != blayer)
-                            _bbox.Extend(blayer.BoundingBox(Analysis.ContentDimensions));
-                    }
+                        _bbox.Extend(layer.BoundingBox(Analysis.Content));
+                    // sanity check
                     if (!_bbox.IsValid)
                         _bbox.Extend(Vector3D.Zero);
                 }
-                return _bbox;
+                return _bbox.Clone();
             }
         }
 
         public BBox3D BBoxLoadWDeco
-        {   get { return Analysis.BBoxLoadWDeco(BBoxLoad); } }
+        {
+            get
+            {
+                return Analysis.BBoxLoadWDeco(BBoxLoad); 
+            }
+        }
         public BBox3D BBoxGlobal
         {   get { return Analysis.BBoxGlobal(BBoxLoad); } }
         public int InterlayerCount
@@ -424,7 +449,7 @@ namespace treeDiM.StackBuilder.Basics
             boxCount = 0;
             foreach (ILayer layer in Layers)
             {
-                BoxLayer blayer = layer as BoxLayer;
+                Layer3DBox blayer = layer as Layer3DBox;
                 if (null != blayer)
                 {
                     ++layerCount;
@@ -539,6 +564,37 @@ namespace treeDiM.StackBuilder.Basics
             return layerPosTemp.Adjusted(dimensions);
         }
 
+        private Vector3D AdjustPosition(Vector3D v, bool reflectionX, bool reflectionY)
+        {
+            Vector2D containerDims = Analysis.ContainerDimensions;
+            Vector3D posTemp = new Vector3D(v);
+            // apply symetry in X
+            if (reflectionX)
+            {
+                Matrix4D matRot = new Matrix4D(
+                  1.0, 0.0, 0.0, 0.0
+                  , 0.0, -1.0, 0.0, 0.0
+                  , 0.0, 0.0, 1.0, 0.0
+                  , 0.0, 0.0, 0.0, 1.0
+                  );
+                Vector3D vTranslation = new Vector3D(0.0, containerDims.Y, 0.0);
+                posTemp = ApplyReflection(posTemp, matRot, vTranslation);
+            }
+            // apply symetry in Y
+            if (reflectionY)
+            {
+                Matrix4D matRot = new Matrix4D(
+                    -1.0, 0.0, 0.0, 0.0
+                    , 0.0, 1.0, 0.0, 0.0
+                    , 0.0, 0.0, 1.0, 0.0
+                    , 0.0, 0.0, 0.0, 1.0
+                    );
+                Vector3D vTranslation = new Vector3D(containerDims.X, 0.0, 0.0);
+                posTemp = ApplyReflection(posTemp, matRot, vTranslation);
+            }
+            return posTemp;
+        }
+
         private LayerPosition ApplyReflection(LayerPosition layerPos, Matrix4D matRot, Vector3D vTranslation)
         {
             Vector3D dimensions = Analysis.ContentDimensions;
@@ -556,6 +612,16 @@ namespace treeDiM.StackBuilder.Basics
                     - dimensions.Z * Vector3D.CrossProduct(HalfAxis.ToVector3D(axisLength), HalfAxis.ToVector3D(axisWidth))
                 , axisLength
                 , axisWidth);
+        }
+
+        private Vector3D ApplyReflection(Vector3D vPos, Matrix4D matRot, Vector3D vTranslation)
+        {
+            Transform3D transfRot = new Transform3D(matRot);
+            matRot.M14 = vTranslation[0];
+            matRot.M24 = vTranslation[1];
+            matRot.M34 = vTranslation[2];
+            Transform3D transfRotTranslation = new Transform3D(matRot);
+            return transfRotTranslation.transform(vPos);  
         }
 
         private bool HasValidSelection

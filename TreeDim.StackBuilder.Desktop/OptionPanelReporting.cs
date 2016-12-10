@@ -24,34 +24,39 @@ namespace treeDiM.StackBuilder.Desktop
             CategoryPath = Properties.Resources.ID_OPTIONSREPORTING;
             DisplayName = Properties.Resources.ID_DISPLAYREPORTING;
 
+        }
+        #endregion
+
+        #region OptionsPanel override
+        protected override void OnLoad(EventArgs e)
+        {
+ 	        base.OnLoad(e);
+
             // initialize
-            fileSelectCtrlReportTemplate.FileName = Properties.Settings.Default.ReportTemplatePath;
-            fileSelectCompanyLogo.FileName = Properties.Settings.Default.CompanyLogoPath;
             cbImageSizes.SelectedIndex = Properties.Settings.Default.ReporterImageSize;
+            fileSelectCtrlReportTemplate.FileName = Reporting.Properties.Settings.Default.TemplatePath;
+            fileSelectCompanyLogo.FileName = Reporting.Properties.Settings.Default.CompanyLogoPath;
             nudTop.Value = (decimal)Reporting.Properties.Settings.Default.MarginTop;
             nudBottom.Value = (decimal)Reporting.Properties.Settings.Default.MarginBottom;
             nudLeft.Value = (decimal)Reporting.Properties.Settings.Default.MarginLeft;
             nudRight.Value = (decimal)Reporting.Properties.Settings.Default.MarginRight;
-        }
 
+            // events
+            OptionsForm.OptionsSaving += new EventHandler(OptionsForm_OptionsSaving);
+        }
+        #endregion
+
+        #region Handlers
         void OptionsForm_OptionsSaving(object sender, EventArgs e)
         {
-            Properties.Settings.Default.ReportTemplatePath = fileSelectCtrlReportTemplate.FileName;
-            Properties.Settings.Default.CompanyLogoPath = fileSelectCompanyLogo.FileName;
             Properties.Settings.Default.ReporterImageSize = cbImageSizes.SelectedIndex;
+            Reporting.Properties.Settings.Default.TemplatePath = fileSelectCtrlReportTemplate.FileName;
+            Reporting.Properties.Settings.Default.CompanyLogoPath = fileSelectCompanyLogo.FileName;
             Reporting.Properties.Settings.Default.MarginTop = (float)nudTop.Value;
             Reporting.Properties.Settings.Default.MarginBottom = (float)nudBottom.Value;
             Reporting.Properties.Settings.Default.MarginLeft = (float)nudLeft.Value;
             Reporting.Properties.Settings.Default.MarginRight = (float)nudRight.Value;
             Reporting.Properties.Settings.Default.Save();
-        }
-        #endregion
-
-        #region Handlers
-        private void OptionPanelReporting_Load(object sender, EventArgs e)
-        {
-            // events
-            OptionsForm.OptionsSaving += new EventHandler(OptionsForm_OptionsSaving);
         }
         #endregion
     }

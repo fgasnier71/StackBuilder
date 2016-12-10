@@ -21,10 +21,9 @@
   <str name="Case limit (min)">Case limit (min)</str>
   <str name="Case limit (max)">Case limit (max)</str>
   <str name="Allowed orthogonal axis">Allowed vertical axis</str>
-  <str name="Maximum case weight">Maximum case weight</str>
+  <str name="Maximum weight">Maximum weight</str>
   <str name="Minimum number of items">Minimum number of items</str>
   <str name="Maximum number of items">Maximum number of items</str>
-  <str name="Maximum pallet weight">Maximum pallet weight</str>
   <str name="Maximum pallet height">Maximum pallet height</str>
   <str name="Maximum load on top">Maximum load on top</str>
   <str name="Selected solution">Selected solution</str>
@@ -61,6 +60,7 @@
   <str name="StiffnessY">StiffnessY</str>
   <str name="Static BCP">Static BCP</str>
   <str name="Dynamic BCP">Dynamic BCP</str>
+  <str name="Analysis">Analysis</str>
   <str name="Box/Case analysis">Box/Case analysis</str>
   <str name="Box/Case/Pallet analysis">Box/Case/Pallet analysis</str>
   <str name="Pallet analysis">Pallet analysis</str>
@@ -125,5 +125,6 @@
   <str name="Max space">Max. space</str>
   <str name="Layer indexes">Indexes</str>
   <str name="Image">Image</str>
-  <str name="Admissible Load Weight">Admissible Load Weight</str>
+  <str name="Admissible load weight">Admissible Load Weight</str>
+  <str name="Solution">Solution</str>
 </strings>

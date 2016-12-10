@@ -70,6 +70,35 @@ namespace treeDiM.StackBuilder.Desktop
         }
         #endregion
 
+        #region FormNewAnalysis override
+        public override void OnNext()
+        {
+            base.OnNext();
+            try
+            {
+                List<LayerDesc> layerDescs = new List<LayerDesc>();
+                foreach (ILayer2D layer2D in uCtrlLayerList.Selected)
+                    layerDescs.Add(layer2D.LayerDescriptor);
+
+                Solution.SetSolver(new LayerSolver());
+
+                AnalysisBase = _document.CreateNewAnalysisBoxCase(
+                    ItemName, ItemDescription
+                    , SelectedBoxProperties, SelectedCaseProperties
+                    , new List<InterlayerProperties>()
+                    , BuildContraintSet()
+                    , layerDescs
+                    );
+
+                Close();
+            }
+            catch (Exception ex)
+            {
+                _log.Error(ex.ToString());
+            }
+        }
+        #endregion
+
         #region IItemBaseFilter implementation
         public bool Accept(Control ctrl, ItemBase itemBase)
         {
@@ -145,33 +174,6 @@ namespace treeDiM.StackBuilder.Desktop
             {
                 ILayer2D[] layers = uCtrlLayerList.Selected;
                 UpdateStatus(layers.Length > 0 ? string.Empty : Resources.ID_SELECTATLEASTONELAYOUT);
-            }
-            catch (Exception ex)
-            {
-                _log.Error(ex.ToString());
-            }
-        }
-
-        public override void OnNext()
-        {
-            base.OnNext();
-            try
-            {
-                List<LayerDesc> layerDescs = new List<LayerDesc>();
-                foreach (Layer2D layer2D in uCtrlLayerList.Selected)
-                    layerDescs.Add(layer2D.LayerDescriptor);
-
-                Solution.SetSolver(new LayerSolver());
-
-                AnalysisBase = _document.CreateNewAnalysisBoxCase(
-                    ItemName, ItemDescription
-                    , SelectedBoxProperties, SelectedCaseProperties
-                    , new List<InterlayerProperties>()
-                    , BuildContraintSet()
-                    , layerDescs
-                    );
-
-                Close();
             }
             catch (Exception ex)
             {

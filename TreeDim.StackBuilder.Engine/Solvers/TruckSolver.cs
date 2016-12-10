@@ -38,7 +38,7 @@ namespace treeDiM.StackBuilder.Engine
             HalfAxis.HAxis[] axis = { HalfAxis.HAxis.AXIS_Z_N, HalfAxis.HAxis.AXIS_Z_P};
 
             // build layer using truck length / width
-            foreach (LayerPattern pattern in LayerPattern.All)
+            foreach (LayerPatternBox pattern in LayerPatternBox.All)
             {
                 for (int swapPos = 0; swapPos < (pattern.CanBeSwapped ? 2 : 1); ++swapPos)
                 {
@@ -55,7 +55,7 @@ namespace treeDiM.StackBuilder.Engine
 
                             TruckSolution sol = new TruckSolution("sol", truckAnalysis);
 
-                            BoxLayer boxLayer = new BoxLayer(0.0, 0);
+                            Layer3DBox boxLayer = new Layer3DBox(0.0, 0);
                             foreach (LayerPosition layerPos in layer)
                                 boxLayer.AddPosition(layerPos.Position, layerPos.LengthAxis, layerPos.WidthAxis);
 

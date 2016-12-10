@@ -9,7 +9,7 @@ using treeDiM.StackBuilder.Basics;
 
 namespace treeDiM.StackBuilder.Engine
 {
-    class CylinderLayerPatternStaggered : CylinderLayerPattern
+    class CylinderLayerPatternStaggered : LayerPatternCyl
     {
         #region Implementation of CylinderLayerPattern abstract properties and methods
         public override string Name
@@ -20,26 +20,30 @@ namespace treeDiM.StackBuilder.Engine
         {
             get { return true; }
         }
-        public override bool GetLayerDimensions(Layer2DCyl layer, out double actualLength, out double actualWidth)
+        public override bool GetLayerDimensions(ILayer2D layer, out double actualLength, out double actualWidth)
         {
+            Layer2DCyl layerCyl = layer as Layer2DCyl;
             int firstRowLength = 0; int secondRowLength = 0; int rowNumber = 0;
-            ComputeRowNumberAndLength(layer
+            ComputeRowNumberAndLength(layerCyl
                 , out firstRowLength, out secondRowLength, out rowNumber
                 , out actualLength, out actualWidth);
             return (firstRowLength > 0) && (secondRowLength > 0) && (rowNumber > 0);
         }
-        public override void GenerateLayer(Layer2DCyl layer, double actualLength, double actualWidth)
+        public override void GenerateLayer(ILayer2D layer, double actualLength, double actualWidth)
         {
             layer.Clear();
+            double palletLength = GetPalletLength(layer);
+            double palletWidth = GetPalletWidth(layer);
+            double radius = GetRadius(layer);
+
+
+            Layer2DCyl layerCyl = layer as Layer2DCyl;
             int firstRowLength = 0; int secondRowLength = 0; int rowNumber = 0;
-            if (!ComputeRowNumberAndLength(layer
+            if (!ComputeRowNumberAndLength(layerCyl
                 , out firstRowLength, out secondRowLength, out rowNumber
                 , out actualLength, out actualWidth))
                 return;
 
-            double palletLength = GetPalletLength(layer);
-            double palletWidth = GetPalletWidth(layer);
-            double radius = layer.CylinderRadius;
             double offsetX = 0.5 * (palletLength - actualLength);
             double offsetY = 0.5 * (palletWidth - actualWidth);
 
