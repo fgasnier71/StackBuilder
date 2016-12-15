@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 
 using log4net;
 using Sharp3D.Math.Core;
@@ -15,6 +16,7 @@ namespace treeDiM.StackBuilder.Basics
         #region Data members
         protected OptDouble _maxHeight;
         protected Vector2D _overhang;
+        protected OptDouble _minSpace;
         #endregion
 
         #region ConstraintSetAbstract override
@@ -38,6 +40,11 @@ namespace treeDiM.StackBuilder.Basics
             get { return _overhang; }
             set { _overhang = value; }
         }
+        public OptDouble OptMinSpace
+        {
+            get { return _minSpace; }
+            set { _minSpace = value; }
+        }
         #endregion
 
         #region ConstraintSetAbstract override
@@ -45,6 +52,11 @@ namespace treeDiM.StackBuilder.Basics
         {
             return (axisOrtho == HalfAxis.HAxis.AXIS_Z_N)
                 || (axisOrtho == HalfAxis.HAxis.AXIS_Z_P);
+        }
+        public override string AllowedOrientations
+        {
+            get { return "0,0,1"; }
+            set {}
         }
         #endregion
     }
@@ -80,6 +92,27 @@ namespace treeDiM.StackBuilder.Basics
                     return _axesAllowed[2];
                 default:
                     throw new Exception("Invalid axis");
+            }
+        }
+        public override string AllowedOrientations
+        {
+            get
+            {
+                return string.Format("{0},{1},{2}"
+                    , AllowOrientation(HalfAxis.HAxis.AXIS_X_P) ? 1 : 0
+                    , AllowOrientation(HalfAxis.HAxis.AXIS_Y_P) ? 1 : 0
+                    , AllowOrientation(HalfAxis.HAxis.AXIS_Z_P) ? 1 : 0);
+            }
+            set
+            {
+                Regex r = new Regex(@"(?<x>.*),(?<y>.*),(?<z>.*)", RegexOptions.Singleline);
+                Match m = r.Match(value);
+                if (m.Success)
+                {
+                    _axesAllowed[0] = int.Parse(m.Result("${x}")) == 1;
+                    _axesAllowed[1] = int.Parse(m.Result("${y}")) == 1;
+                    _axesAllowed[1] = int.Parse(m.Result("${z}")) == 1;
+                }
             }
         }
         #endregion

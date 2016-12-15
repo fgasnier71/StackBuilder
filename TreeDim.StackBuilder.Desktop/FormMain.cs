@@ -817,6 +817,9 @@ namespace treeDiM.StackBuilder.Desktop
         {
             try
             {
+                // set solver
+                Solution.SetSolver(new LayerSolver());
+
                 if (!File.Exists(filePath))
                 {
                     // update mruFileManager as we failed to load file
@@ -1017,15 +1020,6 @@ namespace treeDiM.StackBuilder.Desktop
         {
             CreateOrActivateViewAnalysis( analysis );
         }
-        public void OnNewBoxCasePalletAnalysisCreated(Document doc, BoxCasePalletAnalysis caseAnalysis)
-        {
-            CreateOrActivateViewCaseAnalysis(caseAnalysis); 
-        }
-        public void OnNewBoxCaseAnalysisCreated(Document doc, BoxCaseAnalysis boxCaseAnalysis)
-        {
-            CreateOrActivateViewBoxCaseAnalysis(boxCaseAnalysis);
-        }
-        public void OnNewTruckAnalysisCreated(Document doc, CasePalletAnalysis analysis, SelCasePalletSolution selSolution, TruckAnalysis truckAnalysis) { CreateOrActivateViewTruckAnalysis(truckAnalysis); }
         public void OnNewECTAnalysisCreated(Document doc, CasePalletAnalysis analysis, SelCasePalletSolution selSolution, ECTAnalysis ectAnalysis) {  }
         // remove
         public void OnTypeRemoved(Document doc, ItemBase itemBase) { }
@@ -1052,7 +1046,6 @@ namespace treeDiM.StackBuilder.Desktop
             CancelEventArgs cea = new CancelEventArgs();
             CloseDocument(doc, cea);
         }
-
         private void fileNew(object sender, EventArgs e)
         {
             CloseStartPage();
@@ -1061,6 +1054,8 @@ namespace treeDiM.StackBuilder.Desktop
         private void fileNewINTEX(object sender, EventArgs e)
         {
             CloseStartPage();
+
+            /*
             // use INTEX plugin to generate document
             Plugin_INTEX plugin = new Plugin_INTEX();
             string fileName = null;
@@ -1069,6 +1064,7 @@ namespace treeDiM.StackBuilder.Desktop
             // if document can be created, then open
             if (plugin.onFileNew(ref fileName))
                 OpenDocument(fileName);
+            */ 
         }
         private void fileOpen(object sender, EventArgs e)
         {
@@ -1077,7 +1073,6 @@ namespace treeDiM.StackBuilder.Desktop
                 foreach(string fileName in openFileDialogSB.FileNames)
                     OpenDocument(fileName);            
         }
-
         private void fileSave(object sender, EventArgs e)        {   SaveDocument();                }
         private void fileSaveAs(object sender, EventArgs e)      {   SaveDocumentAs();              }
         private void fileSaveAll(object sender, EventArgs e)     {   SaveAllDocuments();            }
@@ -1155,11 +1150,6 @@ namespace treeDiM.StackBuilder.Desktop
         private void onAddNewAnalysisCylinderCase(object sender, EventArgs e)
         { 
             try { ((DocumentSB)ActiveDocument).CreateNewAnalysisCylinderPalletUI(); }
-            catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
-        }
-        private void toolAddNewHCylinderPalletAnalysis(object sender, EventArgs e)
-        {
-            try { HCylinderPalletAnalysis analysis = ((DocumentSB)ActiveDocument).CreateNewHCylinderPalletAnalysisUI(); }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
         private void toolAddNewBoxCasePalletOptimization(object sender, EventArgs e)
@@ -1310,33 +1300,6 @@ namespace treeDiM.StackBuilder.Desktop
             if (null != formAnalysis)
                 formAnalysis.Show(dockPanel, WeifenLuo.WinFormsUI.Docking.DockState.Document);
         }
-
-        /// <summary>
-        /// Creates or activate a truck analysis view
-        /// </summary>
-        public void CreateOrActivateViewTruckAnalysis(TruckAnalysis analysis)
-        {
-            // search among existing views
-            foreach (IDocument doc in Documents)
-                foreach (IView view in doc.Views)
-                {
-                    DockContentTruckAnalysis form = view as DockContentTruckAnalysis;
-                    if (null == form) continue;
-                    if (analysis == form.TruckAnalysis)
-                    {
-                        form.Activate();
-                        return;
-                    }
-                }
-            // ---> not found
-            // ---> create new form
-            // get document
-            DocumentSB parentDocument = analysis.ParentDocument as DocumentSB;
-            // instantiate form
-            DockContentTruckAnalysis formTruckAnalysis = parentDocument.CreateTruckAnalysisView(analysis);
-            // show docked
-            formTruckAnalysis.Show(dockPanel, WeifenLuo.WinFormsUI.Docking.DockState.Document);
-        }
         /// <summary>
         /// ECT analysis view
         /// </summary>
@@ -1362,6 +1325,33 @@ namespace treeDiM.StackBuilder.Desktop
             DockContentECTAnalysis formECTAnalysis = parentDocument.CreateECTAnalysisView(analysis);
             // show docked
             formECTAnalysis.Show(dockPanel, WeifenLuo.WinFormsUI.Docking.DockState.Document);
+        }
+        /*
+        /// <summary>
+        /// Creates or activate a truck analysis view
+        /// </summary>
+        public void CreateOrActivateViewTruckAnalysis(TruckAnalysis analysis)
+        {
+            // search among existing views
+            foreach (IDocument doc in Documents)
+                foreach (IView view in doc.Views)
+                {
+                    DockContentTruckAnalysis form = view as DockContentTruckAnalysis;
+                    if (null == form) continue;
+                    if (analysis == form.TruckAnalysis)
+                    {
+                        form.Activate();
+                        return;
+                    }
+                }
+            // ---> not found
+            // ---> create new form
+            // get document
+            DocumentSB parentDocument = analysis.ParentDocument as DocumentSB;
+            // instantiate form
+            DockContentTruckAnalysis formTruckAnalysis = parentDocument.CreateTruckAnalysisView(analysis);
+            // show docked
+            formTruckAnalysis.Show(dockPanel, WeifenLuo.WinFormsUI.Docking.DockState.Document);
         }
         /// <summary>
         /// Creates or activate a case analysis view
@@ -1406,7 +1396,7 @@ namespace treeDiM.StackBuilder.Desktop
             DockContentBoxCaseAnalysis formBoxCaseAnalysis = parentDocument.CreateNewBoxCaseAnalysisView(boxCaseAnalysis);
             formBoxCaseAnalysis.Show(dockPanel, WeifenLuo.WinFormsUI.Docking.DockState.Document);
         }
-
+        */
         /// <summary>
         /// Create or activate report view
         /// </summary>

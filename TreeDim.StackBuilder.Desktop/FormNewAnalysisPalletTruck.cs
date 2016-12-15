@@ -10,6 +10,8 @@ using System.Windows.Forms;
 
 using log4net;
 
+using Sharp3D.Math.Core;
+
 using treeDiM.StackBuilder.Basics;
 using treeDiM.StackBuilder.Engine;
 using treeDiM.StackBuilder.Graphics.Controls;
@@ -118,6 +120,26 @@ namespace treeDiM.StackBuilder.Desktop
         {
             try
             {
+                // get loaded pallet / truck
+                PackableBrick packable = cbPallets.SelectedType as PackableBrick;
+                TruckProperties truckProperties = cbTrucks.SelectedType as TruckProperties;
+                if (null == packable || null == truckProperties)
+                    return;
+                // compute
+                LayerSolver solver = new LayerSolver();
+                List<Layer2D> layers = solver.BuildLayers(
+                    packable.OuterDimensions
+                    , new Vector2D(truckProperties.InsideLength - 2.0 * uCtrlMinDistanceLoadWall.ValueX, truckProperties.InsideWidth - 2.0 * uCtrlMinDistanceLoadWall.ValueY)
+                    , 0.0 /* offsetZ */
+                    , BuildConstraintSet()
+                    , checkBoxBestLayersOnly.Checked
+                    );
+                // update control
+                uCtrlLayerList.SingleSelection = true;
+                uCtrlLayerList.Packable = packable;
+                uCtrlLayerList.ContainerHeight = truckProperties.InsideHeight - uCtrlMinDistLoadRoof.Value;
+                uCtrlLayerList.FirstLayerSelected = true;
+                uCtrlLayerList.LayerList = LayerSolver.ConvertList(layers);
             }
             catch (Exception ex)
             {
@@ -128,6 +150,8 @@ namespace treeDiM.StackBuilder.Desktop
         {
             try
             {
+                ILayer2D[] layers = uCtrlLayerList.Selected;
+                UpdateStatus(layers.Length > 0 ? string.Empty : Resources.ID_SELECTATLEASTONELAYOUT);
             }
             catch (Exception ex)
             {
@@ -140,6 +164,9 @@ namespace treeDiM.StackBuilder.Desktop
         private ConstraintSetPalletTruck BuildConstraintSet()
         {
             ConstraintSetPalletTruck constraintSet = new ConstraintSetPalletTruck(SelectedTruckProperties);
+            constraintSet.MinDistanceLoadWall = new Vector2D(uCtrlMinDistanceLoadWall.ValueX, uCtrlMinDistanceLoadWall.ValueY);
+            constraintSet.MinDistanceLoadRoof = uCtrlMinDistLoadRoof.Value;
+            constraintSet.AllowMultipleLayers = chkbAllowMultipleLayers.Checked;
             return constraintSet;
         }
         #endregion

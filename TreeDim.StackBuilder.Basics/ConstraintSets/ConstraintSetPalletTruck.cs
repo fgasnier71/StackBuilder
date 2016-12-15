@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
+using Sharp3D.Math.Core;
+
 using log4net;
 #endregion
 
@@ -13,7 +15,6 @@ namespace treeDiM.StackBuilder.Basics
     {
         #region Data members
         private IPackContainer _container;
-
         static readonly ILog _log = LogManager.GetLogger(typeof(ConstraintSetBoxCase));
         #endregion
 
@@ -27,15 +28,26 @@ namespace treeDiM.StackBuilder.Basics
         #region Override ConstraintSetAbstract
         public override bool AllowOrientation(HalfAxis.HAxis axisOrtho)
         { return axisOrtho == HalfAxis.HAxis.AXIS_Z_P; }
+        public override string AllowedOrientations
+        {
+            get { return "0,0,1"; }
+            set {}
+        }
         public override OptDouble OptMaxHeight
         {
             get
             {
                 TruckProperties truck = _container as TruckProperties;
-                return new OptDouble(true, truck.Height);
+                return new OptDouble(true, truck.Height - MinDistanceLoadRoof);
             } 
         }
         public override bool Valid { get { return true; } }
+        #endregion
+
+        #region Specific
+        public Vector2D MinDistanceLoadWall { get; set; }
+        public double MinDistanceLoadRoof { get; set; }
+        public bool AllowMultipleLayers { get; set; }
         #endregion
     }
 }

@@ -587,7 +587,7 @@ namespace treeDiM.StackBuilder.XmlFileProcessor
                     , null
                     , null
                     , constraintSet
-                    , new treeDiM.StackBuilder.Engine.CasePalletSolver());
+                    , new treeDiM.StackBuilder.Engine.LayerSolver());
             }
             else
             {
@@ -602,9 +602,9 @@ namespace treeDiM.StackBuilder.XmlFileProcessor
                     , null
                     , constraintSet);
                 // name
-                analysis.Name = xmlAnalysis.name;
+                analysis.ID.Name = xmlAnalysis.name;
                 // description
-                analysis.Description = xmlAnalysis.description;
+                analysis.ID.Description = xmlAnalysis.description;
             }
             return analysis;
         }

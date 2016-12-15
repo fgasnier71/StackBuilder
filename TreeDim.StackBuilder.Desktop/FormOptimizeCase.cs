@@ -284,6 +284,7 @@ namespace treeDiM.StackBuilder.Desktop
                             , NoWalls
                             , WallThickness
                             , WallSurfaceMass);
+/*
                 // add new case
                 CaseOfBoxesProperties caseProperties = _document.CreateNewCaseOfBoxes(
                     name, description
@@ -293,10 +294,9 @@ namespace treeDiM.StackBuilder.Desktop
                 // set color
                 caseProperties.SetColor(Color.Chocolate);
                 // add new pallet analysis
-
                 List<CasePalletSolution> palletSolutionList = new List<CasePalletSolution>();
                 palletSolutionList.Add(sol.PalletSolution);
-                CasePalletAnalysis analysis = _document.CreateNewCasePalletAnalysis(
+                Analysis analysis = _document.CreateNewCasePalletAnalysis(
                     analysisName
                     , analysisDescription
                     , caseProperties
@@ -305,6 +305,7 @@ namespace treeDiM.StackBuilder.Desktop
                     , null, null, null
                     , BuildCasePalletConstraintSet()
                     , palletSolutionList);
+*/ 
             }
             catch (Exception ex)
             {
@@ -364,6 +365,24 @@ namespace treeDiM.StackBuilder.Desktop
                     , boxProperties, arrangement, axis
                     , wrapper);
                 // constraint set
+                ConstraintSetCasePallet constraintSet = new ConstraintSetCasePallet();
+                constraintSet.Overhang = new Vector2D(OverhangX, OverhangY);
+                constraintSet.SetMaxHeight( new OptDouble(true, MaximumPalletHeight) );
+                constraintSet.OptMaxWeight = new OptDouble(false, 0);
+                // interlayer
+                List<InterlayerProperties> listInterlayers = new List<InterlayerProperties>();
+                // layer desc
+                List<LayerDesc> layerDescs = new List<LayerDesc>();
+                // create analysis
+                Analysis analysis = _document.CreateNewAnalysisCasePallet(
+                    analysisName, analysisDescription
+                    , pack, palletProperties
+                    , listInterlayers
+                    , null, null, null
+                    , constraintSet, layerDescs
+                    );
+                /*
+                // constraint set
                 PackPalletConstraintSet constraintSet = new PackPalletConstraintSet();
                 constraintSet.OverhangX = OverhangX;
                 constraintSet.OverhangY = OverhangY;
@@ -377,6 +396,7 @@ namespace treeDiM.StackBuilder.Desktop
                     , null
                     , constraintSet
                     , new PackPalletSolver());
+                 */ 
             }
             catch (Exception ex)
             {

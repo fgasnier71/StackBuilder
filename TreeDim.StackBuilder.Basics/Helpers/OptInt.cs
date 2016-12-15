@@ -70,13 +70,15 @@ namespace treeDiM.StackBuilder.Basics
         /// <returns>A <see cref="OptInt"/> that represents the OptValue specified by the <paramref name="value"/> parameters.</returns>
         public static OptInt Parse(string value)
         {
-            Regex r = new Regex(@"\((?<o>),(?<v>)\)", RegexOptions.Singleline);
+            Regex r = new Regex(@"(?<o>.*),(?<v>.*)", RegexOptions.Singleline);
             Match m = r.Match(value);
             if (m.Success)
             {
+                string so = m.Result("${o}");
+                string sv = m.Result("${v}");
                 return new OptInt(
-                    bool.Parse(m.Result("${o}")),
-                    int.Parse(m.Result("${v}"))
+                    int.Parse(so) == 1,
+                    int.Parse(sv)
                     );
             }
             else
@@ -92,12 +94,12 @@ namespace treeDiM.StackBuilder.Basics
         /// <returns><see langword="true"/> if value was converted successfully; otherwise, <see langword="false"/>.</returns>
         public static bool TryParse(string value, out OptInt result)
         {
-            Regex r = new Regex(@"\((?<o>),(?<v>)\)", RegexOptions.Singleline);
+            Regex r = new Regex(@"(?<o>),(?<v>)", RegexOptions.Singleline);
             Match m = r.Match(value);
             if (m.Success)
             {
                 result = new OptInt(
-                    bool.Parse(m.Result("${o}")),
+                    int.Parse(m.Result("${o}")) == 1,
                     int.Parse(m.Result("${v}"))
                     );
                 return true;
@@ -131,7 +133,7 @@ namespace treeDiM.StackBuilder.Basics
         }
         public override string ToString()
         {
-            return string.Format("({0}, {1})", _activated.ToString(), _val.ToString());
+            return string.Format("{0}, {1}", _activated ? 1 : 0, _val.ToString());
         }
         #endregion
     }

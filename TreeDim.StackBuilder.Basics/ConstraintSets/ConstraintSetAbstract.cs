@@ -31,6 +31,7 @@ namespace treeDiM.StackBuilder.Basics
 
         #region Abstract properties
         public abstract bool AllowOrientation(HalfAxis.HAxis axisOrtho);
+        public abstract string AllowedOrientations { get; set; }
         public abstract OptDouble OptMaxHeight { get; }
         public abstract bool Valid { get; }
         #endregion

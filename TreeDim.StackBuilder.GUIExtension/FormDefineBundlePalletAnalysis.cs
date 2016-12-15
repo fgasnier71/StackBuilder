@@ -123,7 +123,7 @@ namespace treeDiM.StackBuilder.GUIExtension
                     , null /*interlayer */, null /* interlayerAntiSlip */
                     , null /* palletCorners */, null  /*palletCap */, null /* palletFilm */
                     , constraintSet
-                    , new CasePalletSolver()
+                    , new treeDiM.StackBuilder.Engine.LayerSolver()
                     );
                 // fill grid
                 FillGrid();
@@ -424,7 +424,5 @@ namespace treeDiM.StackBuilder.GUIExtension
             { _log.Error(ex.ToString()); }
         }
         #endregion
-
-
     }
 }

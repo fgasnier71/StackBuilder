@@ -48,6 +48,8 @@ namespace treeDiM.StackBuilder.Graphics
         {
             InitializeComponent();
             AutoScroll = true;
+            // single selection
+            SingleSelection = false;
             // set default value for Show3D from settings
             Show3D = Graphics.Properties.Settings.Default.LayerView3D;
             // set default thumbnail size from settings
@@ -164,6 +166,8 @@ namespace treeDiM.StackBuilder.Graphics
                  Start(); 
             }
         }
+        public bool SingleSelection
+        { get; set; }
         #endregion
 
         #region Event handler
@@ -210,13 +214,35 @@ namespace treeDiM.StackBuilder.Graphics
         }
         private void onLayerSelected(object sender, EventArgs e)
         {
-            Button bn = sender as Button;
-            LayerItem lItem = bn.Tag as LayerItem;
+            Button bnSender = sender as Button;
+
+            // *** single selection
+            if (SingleSelection)
+            {
+                // -> unselect other buttons
+                foreach (Control ctrl in Controls)
+                {
+                    Button bt = ctrl as Button;
+                    if (bt != bnSender)
+                    {
+                        LayerItem btItem = bt.Tag as LayerItem;
+                        if (btItem.Selected)
+                        {
+                            btItem.Selected = false;
+                            bt.Image = LayerToImage.Draw(
+                                btItem.Layer, _packable, _contHeight, szButtons, btItem.Selected
+                                , Show3D ? LayerToImage.eGraphMode.GRAPH_3D : LayerToImage.eGraphMode.GRAPH_2D);
+                        }
+                    }
+                }
+            }
+            // ***
+            LayerItem lItem = bnSender.Tag as LayerItem;
             bool selected = !lItem.Selected;
-            bn.Image = LayerToImage.Draw(
+            bnSender.Image = LayerToImage.Draw(
                 lItem.Layer, _packable, _contHeight, szButtons, selected
                 , Show3D ? LayerToImage.eGraphMode.GRAPH_3D : LayerToImage.eGraphMode.GRAPH_2D );
-            bn.Tag = new LayerItem(lItem.Layer, selected);
+            bnSender.Tag = new LayerItem(lItem.Layer, selected);
             if (null != LayerSelected)
                 LayerSelected(this, e);
         }

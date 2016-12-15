@@ -191,25 +191,16 @@ namespace treeDiM.StackBuilder.Plugin
                 constraintSet.UseMaximumHeight = true;
                 constraintSet.MaximumHeight = UnitsManager.ConvertLengthFrom(form.PalletHeight, UnitsManager.UnitSystem.UNIT_METRIC2);
                 constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Z_P, true);
-                constraintSet.AllowAlignedLayers = true;
-                constraintSet.AllowAlternateLayers = true;
-                constraintSet.SetAllowedPattern("Column");
-                constraintSet.SetAllowedPattern("Diagonale");
-                constraintSet.SetAllowedPattern("Interlocked");
-                constraintSet.SetAllowedPattern("Trilock");
-                constraintSet.SetAllowedPattern("Spirale");
-                constraintSet.SetAllowedPattern("Enlarged spirale");
                 if (constraintSet.IsValid)
                 {
                     // create analysis
-                    CasePalletSolver solver = new CasePalletSolver();
                     CasePalletAnalysis palletAnalysis = document.CreateNewCasePalletAnalysis(
                         item._ref, item.ToString()
                         , form.UseIntermediatePacking ? currentCase : itemProperties
                         , currentPallet,
                         null, null,
                         null, null, null,
-                        constraintSet, solver);
+                        constraintSet, _solver);
                 }
                 // save document
                 fileName = form.FilePath;

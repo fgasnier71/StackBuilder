@@ -405,7 +405,7 @@ namespace treeDiM.StackBuilder.Desktop
             if (DialogResult.OK == form.ShowDialog()) {}
             return null;
         }
-
+        /*
         public HCylinderPalletAnalysis CreateNewHCylinderPalletAnalysisUI()
         {
             FormNewAnalysisHCylinder form = new FormNewAnalysisHCylinder(this);
@@ -434,7 +434,7 @@ namespace treeDiM.StackBuilder.Desktop
             }
             return null;
         }
-
+        */
         /// <summary>
         /// Creates a new case analysis
         /// </summary>

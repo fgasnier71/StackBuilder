@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 
 using log4net;
 using Sharp3D.Math.Core;
@@ -55,7 +56,8 @@ namespace treeDiM.StackBuilder.Basics
         #endregion
     }
     #endregion
-    #region 
+
+    #region ConstraintSetBoxCase
     public class ConstraintSetBoxCase : ConstraintSetPackableCase
     {
         #region Data members
@@ -91,6 +93,27 @@ namespace treeDiM.StackBuilder.Basics
                     throw new Exception("Invalid axis");
             }
         }
+        public override string AllowedOrientations
+        {
+            get
+            {
+                return string.Format("{0},{1},{2}"
+                    , AllowOrientation(HalfAxis.HAxis.AXIS_X_P) ? 1 : 0
+                    , AllowOrientation(HalfAxis.HAxis.AXIS_Y_P) ? 1 : 0
+                    , AllowOrientation(HalfAxis.HAxis.AXIS_Z_P) ? 1 : 0);
+            }
+            set
+            {
+                Regex r = new Regex(@"(?<x>.*),(?<y>.*),(?<z>.*)", RegexOptions.Singleline);
+                Match m = r.Match(value);
+                if (m.Success)
+                {
+                    _axesAllowed[0] = int.Parse(m.Result("${x}")) == 1;
+                    _axesAllowed[1] = int.Parse(m.Result("${y}")) == 1;
+                    _axesAllowed[1] = int.Parse(m.Result("${z}")) == 1;
+                }
+            }
+        }
         public override bool Valid
         {
             get
@@ -122,6 +145,11 @@ namespace treeDiM.StackBuilder.Basics
         public override bool AllowOrientation(HalfAxis.HAxis axisOrtho)
         {
             return (HalfAxis.HAxis.AXIS_Z_N == axisOrtho) || (HalfAxis.HAxis.AXIS_Z_P == axisOrtho);
+        }
+        public override string AllowedOrientations
+        {
+            get { return "0,0,1"; }
+            set { }
         }
         #endregion
     }

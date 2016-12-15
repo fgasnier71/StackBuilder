@@ -79,13 +79,13 @@ namespace treeDiM.StackBuilder.Basics
         #region Object override
         public override string ToString()
         {
-            return string.Format("{0} | {1} | {2}", PatternName, _axis, Swapped ? "t" : "f");
+            return string.Format("{0}|{1}|{2}", PatternName, HalfAxis.ToString(_axis), Swapped ? "t" : "f");
         }
         #endregion
         #region Static methods
         public static LayerDesc Parse(string value)
         {
-            Regex r = new Regex(@"(?<name>|(?<axis>|?<swap>))", RegexOptions.Singleline);
+            Regex r = new Regex(@"(?<name>.*)\|(?<axis>.*)\|(?<swap>.*)", RegexOptions.Singleline);
             Match m = r.Match(value);
             if (m.Success)
             {

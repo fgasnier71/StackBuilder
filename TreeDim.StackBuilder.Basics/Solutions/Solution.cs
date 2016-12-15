@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 
 using Sharp3D.Math.Core;
 
@@ -74,6 +75,51 @@ namespace treeDiM.StackBuilder.Basics
             if (axis == 0) _symetryX = !_symetryX;
             else if (axis == 1) _symetryY = !_symetryY;
             else throw new Exception("Invalid axis of symetry");
+        }
+        #endregion
+
+        #region Object overrides
+        public override string ToString()
+        {
+            return string.Format("{0},{1},{2},{3}"
+                , _indexLayer
+                , _indexInterlayer
+                , _symetryX ? 1 : 0
+                , _symetryY ? 1 : 0);
+        }
+        #endregion
+
+        #region Public static parse methods
+        public static SolutionItem Parse(string value)
+        {
+            Regex r = new Regex(@"(?<l>.*),(?<i>.*),(?<x>.*),(?<y>.*)", RegexOptions.Singleline);
+            Match m = r.Match(value);
+            if (m.Success)
+            {
+                return new SolutionItem(
+                    int.Parse(m.Result("${l}"))
+                    , int.Parse(m.Result("${i}"))
+                    , int.Parse(m.Result("${x}")) == 1
+                    , int.Parse(m.Result("${y}")) == 1);
+            }
+            else
+                throw new Exception("Failed to parse SolutionItem!");
+        }
+        public static bool TryParse(string value, out SolutionItem solItem)
+        {
+            Regex r = new Regex(@"(?<l>),(?<i>),(?<x>),(?<y>)", RegexOptions.Singleline);
+            Match m = r.Match(value);
+            if (m.Success)
+            {
+                solItem = new SolutionItem(
+                    int.Parse(m.Result("${l}"))
+                    , int.Parse(m.Result("${i}"))
+                    , int.Parse(m.Result("${x}")) == 1
+                    , int.Parse(m.Result("${y}")) == 1);
+                return true;
+            }
+            solItem = null;
+            return false;
         }
         #endregion
     }
@@ -329,6 +375,15 @@ namespace treeDiM.StackBuilder.Basics
         public List<InterlayerProperties> Interlayers
         {
             get { return _analysis.Interlayers; } 
+        }
+        public List<SolutionItem> SolutionItems
+        {
+            get { return _solutionItems; }
+            set
+            {
+                _solutionItems = value;
+                _bbox.Reset();
+            }
         }
         public List<ILayer> Layers
         {
