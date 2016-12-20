@@ -12,7 +12,7 @@ using treeDiM.StackBuilder.Basics;
 
 namespace treeDiM.StackBuilder.Graphics
 {
-    public class SolutionViewerLayer : IDisposable
+    public class ViewerILayer2D : IDisposable
     {
         #region Data members
         private ILayer2D _layer;
@@ -20,7 +20,7 @@ namespace treeDiM.StackBuilder.Graphics
         #endregion
 
         #region Constructor
-        public SolutionViewerLayer(ILayer2D layer)
+        public ViewerILayer2D(ILayer2D layer)
         {
             _layer = layer;
         }

@@ -110,8 +110,7 @@
     <Compile Include="LayerToImage.cs" />
     <Compile Include="PickingList.cs" />
     <Compile Include="Ray.cs" />
-    <Compile Include="SolutionViewers\SolutionViewerLayer.cs" />
-    <Compile Include="SolutionViewers\PackPalletSolutionViewer.cs" />
+    <Compile Include="SolutionViewers\ViewerLayer.cs" />
     <Compile Include="SolutionViewers\ViewerSolution.cs" />
     <Compile Include="Types\Pack.cs" />
     <Compile Include="Properties\Resource.Designer.cs">
@@ -124,7 +123,6 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="SolutionViewers\CylinderPalletSolutionViewer.cs" />
     <Compile Include="Types\Box.cs" />
     <Compile Include="SolutionViewers\BoxCaseSolutionViewer.cs" />
     <Compile Include="BoxComparer.cs" />

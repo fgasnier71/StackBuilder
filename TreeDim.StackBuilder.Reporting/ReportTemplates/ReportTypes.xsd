@@ -199,6 +199,15 @@
     </xs:sequence>
   </xs:complexType>  
   <!--IMAGETHUMB : END-->
+  <!--IMAGETHUMBSIZE : BEG-->
+  <xs:complexType name="imageThumbSize">
+    <xs:sequence>
+      <xs:element name="imagePath" type="xs:string"/>
+      <xs:element name="width" type="xs:string"/>
+      <xs:element name="height" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--IMAGETHUMBSIZE : END-->
   <!--VIEW_SOLUTION_ : BEG-->
   <xs:complexType name="view_solution_front">
     <xs:sequence>
@@ -271,14 +280,14 @@
   <xs:complexType name="layerItem">
     <xs:sequence>
       <xs:element name="layerIndexes" type="xs:string"/>
-      <xs:element name="layerItem" minOccurs="1" maxOccurs="unbounded" type="rpt:contentItem"/>
+      <xs:element name="layerContentItem" minOccurs="1" maxOccurs="unbounded" type="rpt:contentItem"/>
       <xs:element name="layerLength" type="rpt:valueWUnit"/>
       <xs:element name="layerWidth" type="rpt:valueWUnit"/>
       <xs:element name="layerHeight" type="rpt:valueWUnit"/>
-      <xs:element name="layerWeight" type="rpt:valueWUnit"/>
-      <xs:element name="layerNetWeight" type="rpt:valueWUnit"/>
-      <xs:element name="layerSpaces" type="rpt:valueWUnit"/>
-      <xs:element name="layerImage" type="xs:string"/>
+      <xs:element name="layerWeight" minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>
+      <xs:element name="layerNetWeight" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
+      <xs:element name="layerSpaces" minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>
+      <xs:element name="imageThumb" minOccurs="1" maxOccurs="1" type="rpt:imageThumb"/>
     </xs:sequence>
   </xs:complexType>
   <!--LAYER : END-->

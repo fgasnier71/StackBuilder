@@ -38,7 +38,7 @@ namespace treeDiM.StackBuilder.Engine.TestLayerBuilder
                     Console.WriteLine(string.Format("Generating {0}...", filePath));
 
                     Graphics2DImage graphics = new Graphics2DImage( new Size(150, 150) );
-                    SolutionViewerLayer solViewer = new SolutionViewerLayer(layer);
+                    ViewerILayer2D solViewer = new ViewerILayer2D(layer);
                     BoxProperties bProperties = new BoxProperties(null, 400.0, 300.0, 150.0);
                     bProperties.SetColor(Color.Brown);
                     solViewer.Draw(graphics, bProperties, 1500.0, false);

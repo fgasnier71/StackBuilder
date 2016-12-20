@@ -125,6 +125,65 @@ namespace treeDiM.StackBuilder.Basics
     }
     #endregion
 
+    #region LayerSummary
+    public class LayerSummary
+    {
+        #region Data members
+        private Solution _sol;
+        private bool _symetryX, _symetryY;
+        private int _indexLayer;
+        private List<int> _layerIndexes = new List<int>();
+        #endregion
+
+        #region Constructor
+        public LayerSummary(Solution sol, int indexLayer, bool symetryX, bool symetryY)
+        {
+            _sol = sol;
+            _indexLayer = indexLayer;
+            _symetryX = symetryX;
+            _symetryY = symetryY;
+        }
+        #endregion
+
+        #region Public properties
+        public int ItemCount
+        { get { return _sol.LayerBoxCount(_indexLayer); } }
+        public Vector3D LayerDimensions
+        { get { return new Vector3D(_sol._layers[_indexLayer].Length, _sol._layers[_indexLayer].Width, _sol._layers[_indexLayer].LayerHeight); } }
+        public double LayerWeight
+        { get { return _sol.LayerWeight(_indexLayer); } }
+        public double LayerNetWeight
+        { get { return _sol.LayerNetWeight(_indexLayer); } }
+        public double Space
+        { get { return _sol.LayerMaximumSpace(_indexLayer); } }
+        public List<int> LayerIndexes
+        { get { return _layerIndexes; } }
+        public string LayerIndexesString
+        { get { return string.Join(",", _layerIndexes.ToArray()); } }
+        public ILayer Layer3D
+        {
+            get
+            {
+                return _sol.GetILayer(_indexLayer, _symetryX, _symetryY);
+            }
+        }
+        #endregion
+
+        #region Public methods
+        public bool IsLayerTypeOf(SolutionItem solItem)
+        {
+            return _indexLayer == solItem.LayerIndex
+                && _symetryX == solItem.SymetryX
+                && _symetryY == solItem.SymetryY;
+        }
+        public void AddIndex(int index)
+        {
+            _layerIndexes.Add(index);
+        }
+        #endregion
+    }
+    #endregion
+
     #region Solution
     public class Solution
     {
@@ -135,7 +194,7 @@ namespace treeDiM.StackBuilder.Basics
 
         private int _selectedIndex;
 
-        private List<ILayer2D> _layers;
+        internal List<ILayer2D> _layers;
         private static ILayerSolver _solver;
 
         // cached data
@@ -385,6 +444,43 @@ namespace treeDiM.StackBuilder.Basics
                 _bbox.Reset();
             }
         }
+        /// <summary>
+        /// returns 3D layer. This is only used in LayerSummary
+        /// </summary>
+        internal ILayer GetILayer(int layerIndex, bool symX, bool symY)
+        {
+            ILayer2D currentLayer = _layers[layerIndex];
+
+            if (currentLayer is Layer2D)
+            {
+                Layer2D layer2DBox = currentLayer as Layer2D;
+                Layer3DBox boxLayer = new Layer3DBox(0.0, layerIndex);
+                foreach (LayerPosition layerPos in layer2DBox)
+                {
+                    LayerPosition layerPosTemp = AdjustLayerPosition(layerPos, symX, symY);
+                    boxLayer.Add(new BoxPosition(
+                        layerPosTemp.Position + Analysis.Offset
+                        , layerPosTemp.LengthAxis
+                        , layerPosTemp.WidthAxis
+                        ));
+                }
+                return boxLayer;
+            }
+
+            if (currentLayer is Layer2DCyl)
+            {
+                Layer2DCyl layer2DCyl = currentLayer as Layer2DCyl;
+                Layer3DCyl cylLayer = new Layer3DCyl(0.0);
+                foreach (Vector2D vPos in layer2DCyl)
+                {
+                    cylLayer.Add(
+                        AdjustPosition(new Vector3D(vPos.X, vPos.Y, 0.0), symX, symY)
+                        + Analysis.Offset);
+                }
+                return cylLayer;
+            }
+            return null;
+        }
         public List<ILayer> Layers
         {
             get
@@ -573,10 +669,15 @@ namespace treeDiM.StackBuilder.Basics
         {
             return LayerBoxCount(layerTypeIndex) * _analysis.ContentWeight;
         }
+        public double LayerNetWeight(int layerTypeIndex)
+        {
+            return LayerBoxCount(layerTypeIndex) * _analysis.Content.NetWeight.Value;
+        }
         public double LayerMaximumSpace(int LayerTypeIndex)
         {
             return _layers[LayerTypeIndex].MaximumSpace;
         }
+
         #endregion
 
         #region Helpers
@@ -682,6 +783,26 @@ namespace treeDiM.StackBuilder.Basics
         private bool HasValidSelection
         {
             get { return _selectedIndex >= 0 && _selectedIndex < _solutionItems.Count; }
+        }
+
+        public List<LayerSummary> ListLayerSummary
+        {
+            get
+            {
+                List<LayerSummary> _layerSummaries = new List<LayerSummary>();
+                int layerCount = 0;
+                foreach (SolutionItem solItem in _solutionItems)
+                {
+                    LayerSummary layerSum = _layerSummaries.Find(delegate(LayerSummary lSum) { return lSum.IsLayerTypeOf(solItem); });
+                    if (null == layerSum)
+                    {
+                        layerSum = new LayerSummary(this, solItem.LayerIndex, solItem.SymetryX, solItem.SymetryY);
+                        _layerSummaries.Add(layerSum);
+                    }
+                    layerSum.AddIndex(++layerCount);
+                }
+                return _layerSummaries;
+            }
         }
         #endregion
 

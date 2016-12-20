@@ -70,7 +70,7 @@ namespace treeDiM.StackBuilder.Graphics.Controls
             if (show3D)
             {
                 Graphics3DImage graphics = new Graphics3DImage(imgSize);
-                using (SolutionViewerLayer solViewer = new SolutionViewerLayer(_layer))
+                using (ViewerILayer2D solViewer = new ViewerILayer2D(_layer))
                 {
                     solViewer.Draw(graphics, packable, 0.0, selected);
                     _img = graphics.Bitmap;
@@ -80,7 +80,7 @@ namespace treeDiM.StackBuilder.Graphics.Controls
             {
                 // build image
                 Graphics2DImage graphics = new Graphics2DImage(imgSize);
-                using (SolutionViewerLayer solViewer = new SolutionViewerLayer(_layer))
+                using (ViewerILayer2D solViewer = new ViewerILayer2D(_layer))
                 {
                     solViewer.Draw(graphics, packable, 0.0, selected);
                     _img = graphics.Bitmap;

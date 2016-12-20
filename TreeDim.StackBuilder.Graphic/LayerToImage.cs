@@ -21,7 +21,7 @@ namespace treeDiM.StackBuilder.Graphics
             if (eGraphMode.GRAPH_2D == eMode)
             {
                 Graphics2DImage graphics = new Graphics2DImage(size);
-                using (SolutionViewerLayer solViewer = new SolutionViewerLayer(layer))
+                using (ViewerILayer2D solViewer = new ViewerILayer2D(layer))
                 { solViewer.Draw(graphics, packable, height, selected); }
                 return graphics.Bitmap;
             }
@@ -29,7 +29,7 @@ namespace treeDiM.StackBuilder.Graphics
             {
                 Graphics3DImage graphics = new Graphics3DImage(size);
                 graphics.MarginPercentage = 0.05;
-                using (SolutionViewerLayer solViewer = new SolutionViewerLayer(layer))
+                using (ViewerILayer2D solViewer = new ViewerILayer2D(layer))
                 { solViewer.Draw(graphics, packable, height, selected); }
                 return graphics.Bitmap;
             }

@@ -480,7 +480,7 @@ namespace treeDiM.StackBuilder.Reporting
             do
             {
                 itemCount *= number;
-                AppendSolutionItem(xmlDoc, elemSolution, content.DetailedName, itemCount);
+                AppendContentItem(xmlDoc, elemSolution, content.DetailedName, itemCount);
             }
             while (null != content && content.InnerContent(ref content, ref number));
             // ***
@@ -519,7 +519,7 @@ namespace treeDiM.StackBuilder.Reporting
                 graphics.Flush();
                 // image path
                 string imagePath = SaveImageAs(graphics.Bitmap);
-                
+
                 // ---
                 XmlElement elemImage = xmlDoc.CreateElement(viewName, ns);
                 elemSolution.AppendChild(elemImage);
@@ -533,171 +533,53 @@ namespace treeDiM.StackBuilder.Reporting
                 elemImage.AppendChild(elemHeight);
                 elemHeight.InnerText = imageWidth.ToString();
             }
-
+            // layers
             XmlElement elemLayers = xmlDoc.CreateElement("layers", ns);
             elemSolution.AppendChild(elemLayers);
-        }
-        /*
-        private void AppendAnalysisCasePalletElement(ReportData inputData, XmlElement elemDocument, XmlDocument xmlDoc)
-        {
-            string ns = xmlDoc.DocumentElement.NamespaceURI;
 
-            AnalysisCasePallet analysis = inputData.AnalysisCasePallet as;
-            Solution solution = inputData.Solution;
-
-            // analysisCasePallet
-            XmlElement eltAnalysisCasePallet = xmlDoc.CreateElement("analysisCasePallet", ns);
-            elemDocument.AppendChild(eltAnalysisCasePallet);
-            // name
-            XmlElement elemName = xmlDoc.CreateElement("name", ns);
-            elemName.InnerText = analysis.Name;
-            eltAnalysisCasePallet.AppendChild(elemName);
-            // description
-
-
-
-
-        }
-
-        private void AppendCasePalletAnalysisElement(ReportData inputData, XmlElement elemDocument, XmlDocument xmlDoc)
-        {
-            if (!inputData.IsCasePalletAnalysis && !inputData.IsBoxCasePalletAnalysis)
-                return;
-            string ns = xmlDoc.DocumentElement.NamespaceURI;
-
-            CasePalletAnalysis analysis = inputData.CasePalletAnalysis;
-            SelCasePalletSolution selSolution = inputData.SelSolution;
-
-            // palletAnalysis
-            XmlElement eltPalletAnalysis = xmlDoc.CreateElement("casePalletAnalysis", ns);
-            elemDocument.AppendChild(eltPalletAnalysis);
-            // name
-            XmlElement elemName = xmlDoc.CreateElement("name", ns);
-            elemName.InnerText = analysis.Name;
-            eltPalletAnalysis.AppendChild(elemName);
-            // description
-            XmlElement elemDescription = xmlDoc.CreateElement("description", ns);
-            elemDescription.InnerText = analysis.Description;
-            eltPalletAnalysis.AppendChild(elemDescription);
-            // pallet
-            AppendPalletElement(analysis.PalletProperties, eltPalletAnalysis, xmlDoc);
-            // case
-            if (analysis.BProperties is CaseOfBoxesProperties)
+            List<LayerSummary> layerSummaries = sol.ListLayerSummary;
+            foreach (LayerSummary layerSum in layerSummaries)
             {
-                AppendInsideBoxElement(analysis, selSolution.Solution, eltPalletAnalysis, xmlDoc);
-                AppendCaseOfBoxesElement(analysis, selSolution.Solution, eltPalletAnalysis, xmlDoc);
+                // layer
+                XmlElement elemLayer = xmlDoc.CreateElement("layer", ns);
+                elemLayers.AppendChild(elemLayer);
+                // layerIndexes
+                XmlElement elemLayerIndexes = xmlDoc.CreateElement("layerIndexes", ns);
+                elemLayer.AppendChild(elemLayerIndexes);
+                elemLayerIndexes.InnerText = layerSum.LayerIndexesString;
+                // item count
+                content = sol.Analysis.Content;
+                itemCount = layerSum.ItemCount;
+                number = 1;
+                do
+                {
+                    itemCount *= number;
+                    AppendContentItem(xmlDoc, elemLayer, content.DetailedName, itemCount);
+                }
+                while (null != content && content.InnerContent(ref content, ref number));
+                // ***
+                // layerLength
+                Reporter.AppendElementValue(xmlDoc, elemLayer, "layerLength", UnitsManager.UnitType.UT_LENGTH, layerSum.LayerDimensions.X);
+                // layerWidth
+                Reporter.AppendElementValue(xmlDoc, elemLayer, "layerWidth", UnitsManager.UnitType.UT_LENGTH, layerSum.LayerDimensions.Y);
+                // layerHeight
+                Reporter.AppendElementValue(xmlDoc, elemLayer, "layerHeight", UnitsManager.UnitType.UT_LENGTH, layerSum.LayerDimensions.Z);
+                // layerWeight
+                Reporter.AppendElementValue(xmlDoc, elemLayer, "layerWeight", UnitsManager.UnitType.UT_MASS, layerSum.LayerWeight);
+                // layerNetWeight
+                if (sol.HasNetWeight)
+                    Reporter.AppendElementValue(xmlDoc, elemLayer, "layerNetWeight", UnitsManager.UnitType.UT_MASS, layerSum.LayerNetWeight);
+                // layer spaces
+                Reporter.AppendElementValue(xmlDoc, elemLayer, "layerSpaces", UnitsManager.UnitType.UT_LENGTH, layerSum.Space);
+                // layer image
+                Graphics3DImage graphics = new Graphics3DImage(new Size(ImageSizeDetail, ImageSizeDetail));
+                ViewerSolution.DrawILayer(graphics, layerSum.Layer3D, sol.Analysis.Content, false);
+                graphics.Flush();
+                // imageThumb
+                AppendThumbnailElement(xmlDoc, elemLayer, graphics.Bitmap);
             }
-            else if (analysis.BProperties is BoxProperties && inputData.IsCasePalletAnalysis)
-                AppendCaseElement(analysis, selSolution.Solution, eltPalletAnalysis, xmlDoc);
-            else if (analysis.BProperties is BundleProperties)
-                AppendBundleElement(analysis.BProperties as BundleProperties, eltPalletAnalysis, xmlDoc);
-            // interlayer
-            AppendInterlayerElement(analysis.InterlayerProperties, eltPalletAnalysis, xmlDoc);
-            // pallet corners
-            AppendPalletCornerElement(analysis.PalletCornerProperties, eltPalletAnalysis, xmlDoc);
-            // pallet cap
-            AppendPalletCapElement(analysis.PalletCapProperties, eltPalletAnalysis, xmlDoc);
-            // pallet film
-            AppendPalletFilmElement(analysis.PalletFilmProperties, analysis, eltPalletAnalysis, xmlDoc);
-            // constraintSet
-            AppendConstraintSet(analysis, selSolution.Solution, eltPalletAnalysis, xmlDoc);
-            // solution
-            AppendSolutionElement(inputData, eltPalletAnalysis, xmlDoc);
         }
 
-        private void AppendPackPalletAnalysisElement(ReportData inputData, XmlElement elemDocument, XmlDocument xmlDoc)
-        {
-            if (!inputData.IsPackPalletAnalysis)
-                return;
-            string ns = xmlDoc.DocumentElement.NamespaceURI;
-
-            PackPalletAnalysis analysis = inputData.PackPalletAnalysis;
-            SelPackPalletSolution selSolution = inputData.SelPackPalletSolution;
-
-            // packPalletAnalysis element
-            XmlElement eltPackPalletAnalysis = xmlDoc.CreateElement("packPalletAnalysis", ns);
-            elemDocument.AppendChild(eltPackPalletAnalysis);
-            // name
-            XmlElement elemName = xmlDoc.CreateElement("name", ns);
-            elemName.InnerText = analysis.Name;
-            eltPackPalletAnalysis.AppendChild(elemName);
-            // description
-            XmlElement elemDescription = xmlDoc.CreateElement("description", ns);
-            elemDescription.InnerText = analysis.Description;
-            eltPackPalletAnalysis.AppendChild(elemDescription);
-            // pack
-            AppendPackElement(analysis.PackProperties, eltPackPalletAnalysis, xmlDoc);
-            // pallet
-            AppendPalletElement(analysis.PalletProperties, eltPackPalletAnalysis, xmlDoc);
-            // interlayer
-            AppendInterlayerElement(analysis.InterlayerProperties, eltPackPalletAnalysis, xmlDoc);
-            // solution
-            AppendPackPalletSolutionElement(inputData, eltPackPalletAnalysis, xmlDoc);
-        }
-
-        private void AppendCylinderPalletAnalysisElement(ReportData inputData, XmlElement elemDocument, XmlDocument xmlDoc)
-        {
-            if (!inputData.IsCylinderPalletAnalysis)
-                return;
-            string ns = xmlDoc.DocumentElement.NamespaceURI;
-            // cylinder/pallet analysis
-            CylinderPalletAnalysis analysis = inputData.CylinderPalletAnalysis;
-            SelCylinderPalletSolution selSolution = inputData.SelCylinderPalletSolution;
-
-            // cylinder/pallet analysis
-            XmlElement elemCylinderPalletAnalysis = xmlDoc.CreateElement("cylinderPalletAnalysis", ns);
-            elemDocument.AppendChild(elemCylinderPalletAnalysis);
-            // name
-            XmlElement elemName = xmlDoc.CreateElement("name", ns);
-            elemName.InnerText = analysis.Name;
-            elemCylinderPalletAnalysis.AppendChild(elemName);
-            // description
-            XmlElement elemDescription = xmlDoc.CreateElement("description", ns);
-            elemDescription.InnerText = analysis.Description;
-            elemCylinderPalletAnalysis.AppendChild(elemDescription);
-            // pallet
-            AppendPalletElement(analysis.PalletProperties, elemCylinderPalletAnalysis, xmlDoc);
-            // cylinder
-            AppendCylinderElement(analysis.CylinderProperties, elemCylinderPalletAnalysis, xmlDoc);
-            // interlayer
-            AppendInterlayerElement(analysis.InterlayerProperties, elemCylinderPalletAnalysis, xmlDoc);
-            // constraintSet
-            AppendCylinderPalletConstraintSet(analysis.ConstraintSet, elemCylinderPalletAnalysis, xmlDoc);
-            // solution
-            AppendCylinderPalletSolutionElement(inputData, elemCylinderPalletAnalysis, xmlDoc);
-        }
-
-        private void AppendHCylinderPalletAnalysisElement(ReportData inputData, XmlElement elemDocument, XmlDocument xmlDoc)
-        {
-            if (!inputData.IsHCylinderPalletAnalysis)
-                return;
-            string ns = xmlDoc.DocumentElement.NamespaceURI;
-            // cylinder/pallet analysis
-            HCylinderPalletAnalysis analysis = inputData.HCylinderPalletAnalysis;
-            SelHCylinderPalletSolution selSolution = inputData.SelHCylinderPalletSolution;
-
-            // cylinder/pallet analysis
-            XmlElement elemCylinderPalletAnalysis = xmlDoc.CreateElement("hCylinderPalletAnalysis", ns);
-            elemDocument.AppendChild(elemCylinderPalletAnalysis);
-            // name
-            XmlElement elemName = xmlDoc.CreateElement("name", ns);
-            elemName.InnerText = analysis.Name;
-            elemCylinderPalletAnalysis.AppendChild(elemName);
-            // description
-            XmlElement elemDescription = xmlDoc.CreateElement("description", ns);
-            elemDescription.InnerText = analysis.Description;
-            elemCylinderPalletAnalysis.AppendChild(elemDescription);
-            // pallet
-            AppendPalletElement(analysis.PalletProperties, elemCylinderPalletAnalysis, xmlDoc);
-            // cylinder
-            AppendCylinderElement(analysis.CylinderProperties, elemCylinderPalletAnalysis, xmlDoc);
-            // constraintSet
-            AppendHCylinderPalletConstraintSet(analysis.ConstraintSet, elemCylinderPalletAnalysis, xmlDoc);
-            // solution
-            AppendHCylinderPalletSolutionElement(inputData, elemCylinderPalletAnalysis, xmlDoc);      
-        
-        }
-        */ 
         private void AppendPalletElement(PalletProperties palletProp, XmlElement elemAnalysis, XmlDocument xmlDoc)
         {
             string ns = xmlDoc.DocumentElement.NamespaceURI;
@@ -2177,7 +2059,7 @@ namespace treeDiM.StackBuilder.Reporting
             createdElement.InnerText = string.Format("{0}", eltValue);
             parent.AppendChild(createdElement);
         }
-        private static void AppendSolutionItem(XmlDocument xmlDoc, XmlElement parent, string itemName, int itemNumber)
+        private static void AppendContentItem(XmlDocument xmlDoc, XmlElement parent, string itemName, int itemNumber)
         {
             string ns = xmlDoc.DocumentElement.NamespaceURI;
             XmlElement elemItem = xmlDoc.CreateElement("item", ns);

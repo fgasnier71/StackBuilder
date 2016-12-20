@@ -126,29 +126,6 @@ namespace treeDiM.StackBuilder.Desktop
             AddView(form);
             return form;
         }
-
-        /// <summary>
-        /// Creates new DockContentAnalysis view
-        /// </summary>
-        /// <param name="analysis"></param>
-        /// <returns></returns>
-        public DockContentCylinderPalletAnalysis CreateAnalysisViewCylinderPallet(CylinderPalletAnalysis analysis)
-        {
-            DockContentCylinderPalletAnalysis form = new DockContentCylinderPalletAnalysis(this, analysis);
-            AddView(form);
-            return form;
-        }
-        /// <summary>
-        /// Creates new DockContentAnalysis view
-        /// </summary>
-        /// <param name="analysis"></param>
-        /// <returns></returns>
-        public DockContentHCylinderPalletAnalysis CreateAnalysisViewHCylinderPallet(HCylinderPalletAnalysis analysis)
-        {
-            DockContentHCylinderPalletAnalysis form = new DockContentHCylinderPalletAnalysis(this, analysis);
-            AddView(form);
-            return form;
-        }
         /// <summary>
         /// Creates new DockContentAnalysis view
         /// </summary>

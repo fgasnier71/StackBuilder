@@ -127,4 +127,6 @@
   <str name="Image">Image</str>
   <str name="Admissible load weight">Admissible Load Weight</str>
   <str name="Solution">Solution</str>
+  <str name="Layer(s)">Layer(s)</str>
+  <str name="Spaces">Spaces</str>
 </strings>

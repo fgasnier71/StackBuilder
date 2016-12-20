@@ -38,7 +38,7 @@
     <MinimumRequiredVersion>3.0.0.0</MinimumRequiredVersion>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>8</ApplicationRevision>
+    <ApplicationRevision>10</ApplicationRevision>
     <ApplicationVersion>3.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -229,12 +229,6 @@
     <Compile Include="DockContentBoxCasePalletAnalysis.Designer.cs">
       <DependentUpon>DockContentBoxCasePalletAnalysis.cs</DependentUpon>
     </Compile>
-    <Compile Include="DockContentCylinderPalletAnalysis.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DockContentCylinderPalletAnalysis.Designer.cs">
-      <DependentUpon>DockContentCylinderPalletAnalysis.cs</DependentUpon>
-    </Compile>
     <Compile Include="DockContentDocumentExplorer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -247,23 +241,11 @@
     <Compile Include="DockContentECTAnalysis.Designer.cs">
       <DependentUpon>DockContentECTAnalysis.cs</DependentUpon>
     </Compile>
-    <Compile Include="DockContentHCylinderPalletAnalysis.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DockContentHCylinderPalletAnalysis.Designer.cs">
-      <DependentUpon>DockContentHCylinderPalletAnalysis.cs</DependentUpon>
-    </Compile>
     <Compile Include="DockContentLogConsole.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="DockContentLogConsole.Designer.cs">
       <DependentUpon>DockContentLogConsole.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DockContentPackPalletAnalysis.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DockContentPackPalletAnalysis.Designer.cs">
-      <DependentUpon>DockContentPackPalletAnalysis.cs</DependentUpon>
     </Compile>
     <Compile Include="DockContentReport.cs">
       <SubType>Form</SubType>
@@ -707,24 +689,6 @@
     <EmbeddedResource Include="DockContentBoxCasePalletAnalysis.resx">
       <DependentUpon>DockContentBoxCasePalletAnalysis.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DockContentCylinderPalletAnalysis.de-DE.resx">
-      <DependentUpon>DockContentCylinderPalletAnalysis.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DockContentCylinderPalletAnalysis.es-ES.resx">
-      <DependentUpon>DockContentCylinderPalletAnalysis.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DockContentCylinderPalletAnalysis.fr-FR.resx">
-      <DependentUpon>DockContentCylinderPalletAnalysis.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DockContentCylinderPalletAnalysis.it-IT.resx">
-      <DependentUpon>DockContentCylinderPalletAnalysis.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DockContentCylinderPalletAnalysis.ja-JP.resx">
-      <DependentUpon>DockContentCylinderPalletAnalysis.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DockContentCylinderPalletAnalysis.resx">
-      <DependentUpon>DockContentCylinderPalletAnalysis.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="DockContentDocumentExplorer.ca-ES.resx">
       <DependentUpon>DockContentDocumentExplorer.cs</DependentUpon>
     </EmbeddedResource>
@@ -767,9 +731,6 @@
     <EmbeddedResource Include="DockContentECTAnalysis.resx">
       <DependentUpon>DockContentECTAnalysis.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DockContentHCylinderPalletAnalysis.resx">
-      <DependentUpon>DockContentHCylinderPalletAnalysis.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="DockContentLogConsole.ca-ES.resx">
       <DependentUpon>DockContentLogConsole.cs</DependentUpon>
     </EmbeddedResource>
@@ -784,9 +745,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DockContentLogConsole.resx">
       <DependentUpon>DockContentLogConsole.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DockContentPackPalletAnalysis.resx">
-      <DependentUpon>DockContentPackPalletAnalysis.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DockContentReport.de-DE.resx">
       <DependentUpon>DockContentReport.cs</DependentUpon>

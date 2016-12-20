@@ -6,7 +6,8 @@
     <html>
       <head>
         <title>
-          <xsl:value-of select="name"></xsl:value-of> <xsl:value-of select="$loc/str[@name='report']"/>
+          <xsl:value-of select="name"></xsl:value-of>
+          <xsl:value-of select="$loc/str[@name='report']"/>
         </title>
         <style type="text/css">
           .style1
@@ -82,7 +83,7 @@
               <td colspan="1" align="middle">
                 <xsl:apply-templates select="companyLogo"/>
               </td>
-            </xsl:if>            
+            </xsl:if>
           </tr>
           <tr>
             <td class="style2" colspan="1">
@@ -121,7 +122,7 @@
   <!--#### ANALYSIS ####-->
   <xsl:template match="analysis">
     <h2>
-      <xsl:value-of select="$loc/str[@name='Analysis']"/>: <xsl:value-of select="name"/>    
+      <xsl:value-of select="$loc/str[@name='Analysis']"/>: <xsl:value-of select="name"/>
     </h2>
     <table class="style1" cellpadding="3">
       <tr>
@@ -195,16 +196,16 @@
     </h3>
     <table class="style1">
       <xsl:if test="overhangX">
-          <tr>
-            <td class="style2">
-              <b>
-                <xsl:value-of select="$loc/str[@name='Overhang Length / Width']"/> (<xsl:value-of select="overhangX/unit"></xsl:value-of>)
-              </b>
-            </td>
-            <td class="style3">
-              <xsl:value-of select="overhangX/value"/> / <xsl:value-of select="overhangY/value"/>
-            </td>
-          </tr>
+        <tr>
+          <td class="style2">
+            <b>
+              <xsl:value-of select="$loc/str[@name='Overhang Length / Width']"/> (<xsl:value-of select="overhangX/unit"></xsl:value-of>)
+            </b>
+          </td>
+          <td class="style3">
+            <xsl:value-of select="overhangX/value"/> / <xsl:value-of select="overhangY/value"/>
+          </td>
+        </tr>
       </xsl:if>
       <xsl:if test="maximumHeight">
         <tr>
@@ -262,16 +263,16 @@
     <table class="style1">
       <xsl:apply-templates select="item"/>
       <xsl:if test="netWeight">
-      <tr>
-        <td class="style2" colspan="1">
-          <b>
-            <xsl:value-of select="$loc/str[@name='Net weight']"/> (<xsl:value-of select="netWeight/unit"/>)
-          </b>
-        </td>
-        <td class="style3" colspan="3">
-          <xsl:value-of select="netWeight/value"/>
-        </td>
-      </tr>        
+        <tr>
+          <td class="style2" colspan="1">
+            <b>
+              <xsl:value-of select="$loc/str[@name='Net weight']"/> (<xsl:value-of select="netWeight/unit"/>)
+            </b>
+          </td>
+          <td class="style3" colspan="3">
+            <xsl:value-of select="netWeight/value"/>
+          </td>
+        </tr>
       </xsl:if>
       <tr>
         <td class="style2" colspan="1">
@@ -323,12 +324,8 @@
         </td>
       </tr>
     </table>
-    <h4>
-      <xsl:value-of select="$loc/str[@name='Layers']"/>
-    </h4>
-    <table class="style1" cellpadding="2">
-      <xsl:apply-templates select="layer"/>
-    </table>    
+    <xsl:apply-templates select="layers"/>
+
   </xsl:template>
   <!--### ITEM ####-->
   <xsl:template match="item">
@@ -341,53 +338,155 @@
       <td class="style3" colspan="3">
         <xsl:value-of select="value"/>
       </td>
-    </tr>    
+    </tr>
   </xsl:template>
   <!--#### COMPANYLOGO ####-->
   <xsl:template match="companyLogo" >
     <img align="middle">
-      <xsl:attribute name="src"><xsl:value-of select="imagePath"/></xsl:attribute>
+      <xsl:attribute name="src">
+        <xsl:value-of select="imagePath"/>
+      </xsl:attribute>
       <xsl:attribute name="width"/>
       <xsl:attribute name="height"/>
     </img>
   </xsl:template>
-  <!--#### IMAGEGENERIC ####-->
-  <xsl:template match="imageGeneric">
+  <!--#### view_layer ####-->
+  <xsl:template match ="view_layer">
     <img align="middle">
-      <xsl:attribute name="src"><xsl:value-of select="imagePath"/></xsl:attribute>
-      <xsl:attribute name="width"><xsl:value-of select="width"/></xsl:attribute>
-      <xsl:attribute name="height"><xsl:value-of select="height"/></xsl:attribute>      
+      <xsl:attribute name="src">
+        <xsl:value-of select="imagePath"/>
+      </xsl:attribute>
+      <xsl:attribute name="width">
+        <xsl:value-of select="width"/>
+      </xsl:attribute>
+      <xsl:attribute name="height">
+        <xsl:value-of select="height"/>
+      </xsl:attribute>
+    </img>
+  </xsl:template>
+  <!--#### IMAGEGENERIC ####-->
+  <xsl:template match="imageThumbSize">
+    <img align="middle">
+      <xsl:attribute name="src">
+        <xsl:value-of select="imagePath"/>
+      </xsl:attribute>
+      <xsl:attribute name="width">
+        <xsl:value-of select="width"/>
+      </xsl:attribute>
+      <xsl:attribute name="height">
+        <xsl:value-of select="height"/>
+      </xsl:attribute>
     </img>
   </xsl:template>
   <!--#### VIEW_SOLUTION_FRONT-->
   <xsl:template match="view_solution_front">
     <img width="150" height="150" align="middle">
-      <xsl:attribute name="src"><xsl:value-of select="imagePath"/></xsl:attribute>
+      <xsl:attribute name="src">
+        <xsl:value-of select="imagePath"/>
+      </xsl:attribute>
     </img>
   </xsl:template>
   <!--#### VIEW_SOLUTION_LEFT-->
   <xsl:template match="view_solution_left">
     <img width="150" height="150" align="middle">
-      <xsl:attribute name="src"><xsl:value-of select="imagePath"/></xsl:attribute>
+      <xsl:attribute name="src">
+        <xsl:value-of select="imagePath"/>
+      </xsl:attribute>
     </img>
   </xsl:template>
   <!--#### VIEW_SOLUTION_RIGHT-->
   <xsl:template match="view_solution_right">
     <img width="150" height="150" align="middle">
-      <xsl:attribute name="src"><xsl:value-of select="imagePath"/></xsl:attribute>
+      <xsl:attribute name="src">
+        <xsl:value-of select="imagePath"/>
+      </xsl:attribute>
     </img>
   </xsl:template>
   <!--#### VIEW_SOLUTION_BACK-->
   <xsl:template match="view_solution_back">
     <img width="150" height="150" align="middle">
-      <xsl:attribute name="src"><xsl:value-of select="imagePath"/></xsl:attribute>
+      <xsl:attribute name="src">
+        <xsl:value-of select="imagePath"/>
+      </xsl:attribute>
     </img>
   </xsl:template>
   <!--#### VIEW_SOLUTION_ISO-->
   <xsl:template match="view_solution_iso">
     <img width="450" height="450" align="middle">
-      <xsl:attribute name="src"><xsl:value-of select="imagePath"/></xsl:attribute>
+      <xsl:attribute name="src">
+        <xsl:value-of select="imagePath"/>
+      </xsl:attribute>
     </img>
+  </xsl:template>
+  <!--#### LAYERS ####-->
+  <xsl:template match="layers">
+    <h3>
+      <xsl:value-of select="$loc/str[@name='Layer(s)']"/>
+    </h3>
+    <xsl:apply-templates select="layer"/>
+
+  </xsl:template>
+  <!--#### LAYER ####-->
+  <xsl:template match="layer">
+    <table class="style1" cellpadding="3">
+      <tr>
+        <td class="style2" colspan="1">
+          <b>
+            <xsl:value-of select="$loc/str[@name='Layer(s)']"/>
+          </b>
+        </td>
+        <td class="style3" colspan="1">
+          <xsl:value-of select="layerIndexes"/>
+        </td>
+        <td rowspan="5" align="middle">
+          <xsl:apply-templates select="imageThumb"/>
+        </td>
+      </tr>
+      <xsl:apply-templates select="item"/>
+      <tr>
+        <td class="style2" colspan="1">
+          <b>
+            <xsl:value-of select="$loc/str[@name='Dimensions']"/> (<xsl:value-of select="layerLength/unit"/> x <xsl:value-of select="layerWidth/unit"/> x <xsl:value-of select="layerHeight/unit"/>)
+          </b>
+        </td>
+        <td class="style3" colspan="1">
+          <xsl:value-of select="layerLength/value"/> x <xsl:value-of select="layerWidth/value"/> x <xsl:value-of select="layerHeight/value"/>
+        </td>
+
+      </tr>
+      <tr>
+        <td class="style2" colspan="1">
+          <b>
+            <xsl:value-of select="$loc/str[@name='Weight']"/> (<xsl:value-of select="layerWeight/unit"/>)
+          </b>
+        </td>
+        <td class="style3" colspan="1">
+          <xsl:value-of select="layerWeight/value"/>
+        </td>
+      </tr>
+      <xsl:if test="netWeight">
+        <tr>
+          <td class="style2" colspan="1">
+            <b>
+              <xsl:value-of select="$loc/str[@name='Net weight']"/> (<xsl:value-of select="layerNetWeight/unit"/>)
+            </b>
+          </td>
+          <td class="style3" colspan="1">
+            <xsl:value-of select="layerNetWeight/value"/>
+          </td>
+        </tr>
+      </xsl:if>
+      <tr>
+        <td class="style2" colspan="1">
+          <b>
+            <xsl:value-of select="$loc/str[@name='Spaces']"/> (<xsl:value-of select="layerSpaces/unit"/>)
+          </b>
+        </td>
+        <td class="style3" colspace="1">
+          <xsl:value-of select="layerSpaces/value"/>
+        </td>
+      </tr>
+    </table>
   </xsl:template>
   <!--LAYER PACK SOLUTION-->
   <xsl:template match="layerPack">
@@ -396,7 +495,7 @@
         <xsl:value-of select="layerPackCount"/>/<xsl:value-of select="layerCSUCount"/>
       </td>
       <td class="style3" colspan="1">
-         <xsl:value-of select="layerWeight/value"/> / <xsl:value-of select="layerNetWeight/value"/>
+        <xsl:value-of select="layerWeight/value"/> / <xsl:value-of select="layerNetWeight/value"/>
       </td>
       <td class="style3" colspan="1">
         <xsl:value-of select="layerLength/value"/>*<xsl:value-of select="layerWidth/value"/>*<xsl:value-of select="layerHeight/value"/>
@@ -409,7 +508,9 @@
       </td>
       <td class="style3" colspan="4">
         <xsl:element name="img">
-          <xsl:attribute name="src"><xsl:value-of select="imagePackLayer"/></xsl:attribute>
+          <xsl:attribute name="src">
+            <xsl:value-of select="imagePackLayer"/>
+          </xsl:attribute>
         </xsl:element>
       </td>
     </tr>

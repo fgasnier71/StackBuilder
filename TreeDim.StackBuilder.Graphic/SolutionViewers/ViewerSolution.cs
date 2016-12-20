@@ -340,6 +340,49 @@ namespace treeDiM.StackBuilder.Graphics
         }
         #endregion
 
+        #region Public static methods
+        public static void DrawILayer(Graphics3D graphics, ILayer layer, Packable packable, bool showDimensions)
+        {
+            bool show3D = Graphics.Properties.Settings.Default.LayerView3D;
+            graphics.CameraPosition = show3D ? Graphics3D.Corner_0 : Graphics3D.Top;
+
+            uint pickId = 0;
+            BBox3D bbox = new BBox3D();
+            // ### layer of boxes ###
+            Layer3DBox layerBox = layer as Layer3DBox;
+            if (null != layerBox)
+            {
+                foreach (BoxPosition bPosition in layerBox)
+                {
+                    Box b = null;
+                    if (packable is PackProperties)
+                        b = new Pack(pickId++, packable as PackProperties, bPosition);
+                    else
+                        b = new Box(pickId++, packable as PackableBrick, bPosition);
+                    graphics.AddBox(b);
+                    bbox.Extend(b.BBox);
+                }
+            }
+            // ###
+            // ### layer of cylinders ###
+            Layer3DCyl layerCyl = layer as Layer3DCyl;
+            if (null != layerCyl)
+            {
+                foreach (Vector3D vPos in layerCyl)
+                {
+                    Cylinder c = new Cylinder(pickId++, packable as CylinderProperties, new CylPosition(vPos, HalfAxis.HAxis.AXIS_Z_P));
+                    graphics.AddCylinder(c);
+                    bbox.Extend(c.BBox);
+                }
+            }
+            // ###
+            if (showDimensions)
+            {
+                graphics.AddDimensions(new DimensionCube(bbox, Color.Black, false));
+            }
+        }
+        #endregion
+
         #region Helpers
         private BBox3D BoundingBoxDim(int index)
         {
