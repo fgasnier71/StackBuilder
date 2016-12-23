@@ -11,7 +11,7 @@ using log4net;
 
 namespace treeDiM.StackBuilder.Basics
 {
-    #region Analysis Pallet
+    #region Analysis Packable / Pallet
     public abstract class AnalysisPackablePallet : Analysis
     {
         #region Data members
@@ -59,7 +59,7 @@ namespace treeDiM.StackBuilder.Basics
         {
             get
             {
-                ConstraintSetCasePallet constraintSet = _constraintSet as ConstraintSetCasePallet;
+                ConstraintSetPackablePallet constraintSet = _constraintSet as ConstraintSetPackablePallet;
                 return (_palletProperties.Length + 2.0 * constraintSet.Overhang.X) * (_palletProperties.Width + 2.0 * constraintSet.Overhang.Y) * (constraintSet.OptMaxHeight.Value); 
             }
         }
@@ -112,6 +112,7 @@ namespace treeDiM.StackBuilder.Basics
         #endregion
     }
     #endregion
+
     #region Analysis Case/Pallet
     public class AnalysisCasePallet : AnalysisPackablePallet
     {
