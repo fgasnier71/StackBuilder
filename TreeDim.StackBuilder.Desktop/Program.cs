@@ -90,6 +90,8 @@ namespace treeDiM.StackBuilder.Desktop
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
  
+
+
             // show main form
             Application.Run(new FormMain());
 

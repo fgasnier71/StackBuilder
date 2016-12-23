@@ -219,6 +219,9 @@ namespace treeDiM.StackBuilder.Desktop
             _defaultRenderer.RoundedEdges = true;
 
             // Set DockPanel properties
+            var theme = new VS2015BlueTheme();
+            dockPanel.Theme = theme; 
+
             dockPanel.ActiveAutoHideContent = null;
             dockPanel.Parent = this;
 
@@ -1403,6 +1406,8 @@ namespace treeDiM.StackBuilder.Desktop
         public DockContentReport CreateOrActivateHtmlReport(ReportData reportObject, string htmlFilePath)
         { 
             // search among existing views
+            IDocument searchedDoc = null;
+            IView searchedView = null;
             foreach (IDocument doc in Documents)
                 foreach (IView view in doc.Views)
                 {
@@ -1410,12 +1415,18 @@ namespace treeDiM.StackBuilder.Desktop
                     if (null == form) continue;
                     if (reportObject.Equals(form.ReportObject))
                     {
-                        form.Activate();
-                        return form;
+                        // close form
+                        form.Close();
+                        // get doc/view to later remove IView from IDocument
+                        searchedDoc = doc;
+                        searchedView = view;
+                        break;
                     }
                 }
-            // ---> not found
-            // ---> create new form
+            // ---> found view : remove it from document
+            if (null != searchedView && null != searchedDoc)
+                searchedDoc.RemoveView(searchedView);
+            // ---> create DockContentReport form
             DocumentSB parentDocument = reportObject.Document as DocumentSB;
             DockContentReport formReport = parentDocument.CreateReportHtml(reportObject, htmlFilePath);
             formReport.Show(dockPanel, WeifenLuo.WinFormsUI.Docking.DockState.Document);
@@ -1492,6 +1503,5 @@ namespace treeDiM.StackBuilder.Desktop
             return _instance;
         }
         #endregion
-
     }
 }

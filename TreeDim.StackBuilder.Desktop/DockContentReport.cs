@@ -70,6 +70,11 @@ namespace treeDiM.StackBuilder.Desktop
                 _log.Error( ex.ToString() );
             }
         }
+        protected override void OnClosed(EventArgs e)
+        {
+            base.OnClosed(e);
+            Document.RemoveView(this);
+        }
         #endregion
 
         #region IItemListener implementation
