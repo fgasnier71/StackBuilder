@@ -408,10 +408,14 @@ namespace treeDiM.StackBuilder.Reporting
             // ### 2. CONTAINER
             AppendContainerElement(analysis.Container, eltAnalysis, xmlDoc);
 
-            // ### 3. CONSTRAINTSET
+            // ### 3. INTERLAYERS
+            foreach (InterlayerProperties interlayer in analysis.Interlayers)
+                AppendInterlayerElement(interlayer, eltAnalysis, xmlDoc);
+
+            // ### 4. CONSTRAINTSET
             AppendConstraintSet(analysis.ConstraintSet, eltAnalysis, xmlDoc);
 
-            // ### 4. SOLUTION
+            // ### 5. SOLUTION
             AppendSolutionElement(analysis.Solution, eltAnalysis, xmlDoc);
         }
 
@@ -930,6 +934,8 @@ namespace treeDiM.StackBuilder.Reporting
             graphics.CameraPosition = Graphics3D.Corner_0;
             Box box = new Box(0, interlayerProp);
             graphics.AddBox(box);
+            DimensionCube dc = new DimensionCube(interlayerProp.Length, interlayerProp.Width, interlayerProp.Thickness); dc.FontSize = 6.0f;
+            graphics.AddDimensions(dc);
             graphics.Flush();
             // ---
             // imageThumb
