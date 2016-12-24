@@ -367,7 +367,6 @@ namespace treeDiM.StackBuilder.Desktop
             if (!CanCreateAnalysisCylinderPallet) return;
             FormNewAnalysisCylinderPallet form = new FormNewAnalysisCylinderPallet(this, null);
             if (DialogResult.OK == form.ShowDialog()) {}
-
         }
         public void CreateNewAnalysisCylinderCaseUI()
         {
@@ -382,36 +381,6 @@ namespace treeDiM.StackBuilder.Desktop
             if (DialogResult.OK == form.ShowDialog()) {}
             return null;
         }
-        /*
-        public HCylinderPalletAnalysis CreateNewHCylinderPalletAnalysisUI()
-        {
-            FormNewAnalysisHCylinder form = new FormNewAnalysisHCylinder(this);
-            form.Cylinders = Cylinders.ToArray();
-            form.Pallets = Pallets.ToArray();
-
-            if (DialogResult.OK == form.ShowDialog())
-            { 
-                // build constraint set
-                HCylinderPalletConstraintSet constraintSet = new HCylinderPalletConstraintSet();
-                // stop criterion
-                constraintSet.MaximumPalletHeight = form.MaximumPalletHeight;
-                constraintSet.UseMaximumPalletHeight = form.UseMaximumPalletHeight;
-                constraintSet.MaximumPalletWeight = form.MaximumPalletWeight;
-                constraintSet.UseMaximumPalletWeight = form.UseMaximumPalletWeight;
-                constraintSet.MaximumNumberOfItems = form.MaximumNumberOfItems;
-                constraintSet.UseMaximumNumberOfItems = form.UseMaximumNumberOfItems;
-                constraintSet.SetAllowedPatterns(form.AllowPatternDefault, form.AllowPatternStaggered, form.AllowPatternColumn);
-                constraintSet.RowSpacing = form.RowSpacing;
-
-                return CreateNewHCylinderPalletAnalysis(
-                    form.AnalysisName, form.AnalysisDescription,
-                    form.SelectedCylinder, form.SelectedPallet,
-                    constraintSet,
-                    new HCylinderSolver());
-            }
-            return null;
-        }
-        */
         /// <summary>
         /// Creates a new case analysis
         /// </summary>
@@ -847,6 +816,40 @@ namespace treeDiM.StackBuilder.Desktop
         {
             // uses FormMain.CreateOrActivateViewECTAnalysis
         }
+        #endregion
+
+        #region Legacy
+        /*
+        public HCylinderPalletAnalysis CreateNewHCylinderPalletAnalysisUI()
+        {
+            FormNewAnalysisHCylinder form = new FormNewAnalysisHCylinder(this);
+            form.Cylinders = Cylinders.ToArray();
+            form.Pallets = Pallets.ToArray();
+
+            if (DialogResult.OK == form.ShowDialog())
+            { 
+                // build constraint set
+                HCylinderPalletConstraintSet constraintSet = new HCylinderPalletConstraintSet();
+                // stop criterion
+                constraintSet.MaximumPalletHeight = form.MaximumPalletHeight;
+                constraintSet.UseMaximumPalletHeight = form.UseMaximumPalletHeight;
+                constraintSet.MaximumPalletWeight = form.MaximumPalletWeight;
+                constraintSet.UseMaximumPalletWeight = form.UseMaximumPalletWeight;
+                constraintSet.MaximumNumberOfItems = form.MaximumNumberOfItems;
+                constraintSet.UseMaximumNumberOfItems = form.UseMaximumNumberOfItems;
+                constraintSet.SetAllowedPatterns(form.AllowPatternDefault, form.AllowPatternStaggered, form.AllowPatternColumn);
+                constraintSet.RowSpacing = form.RowSpacing;
+
+                return CreateNewHCylinderPalletAnalysis(
+                    form.AnalysisName, form.AnalysisDescription,
+                    form.SelectedCylinder, form.SelectedPallet,
+                    constraintSet,
+                    new HCylinderSolver());
+            }
+            return null;
+        }
+        */
+
         #endregion
     }
 }

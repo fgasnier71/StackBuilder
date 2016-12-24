@@ -654,7 +654,6 @@
             this.toolStripMenuItemAnalysisCylinderCase});
             resources.ApplyResources(this.toolStripSBCylinderPalletAnalysis, "toolStripSBCylinderPalletAnalysis");
             this.toolStripSBCylinderPalletAnalysis.Name = "toolStripSBCylinderPalletAnalysis";
-            this.toolStripSBCylinderPalletAnalysis.Click += new System.EventHandler(this.onAddNewAnalysisCylinderPallet);
             // 
             // toolStripMenuItemCylinderPalletVertical
             // 

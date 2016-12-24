@@ -1152,7 +1152,7 @@ namespace treeDiM.StackBuilder.Desktop
         }
         private void onAddNewAnalysisCylinderCase(object sender, EventArgs e)
         { 
-            try { ((DocumentSB)ActiveDocument).CreateNewAnalysisCylinderPalletUI(); }
+            try { ((DocumentSB)ActiveDocument).CreateNewAnalysisCylinderCaseUI(); }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
         private void toolAddNewBoxCasePalletOptimization(object sender, EventArgs e)
