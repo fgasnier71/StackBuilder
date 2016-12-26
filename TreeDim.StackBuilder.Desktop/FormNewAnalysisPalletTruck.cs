@@ -72,6 +72,8 @@ namespace treeDiM.StackBuilder.Desktop
             try
             {
                 List<LayerDesc> layerDescs = new List<LayerDesc>();
+                foreach (Layer2D layer2D in uCtrlLayerList.Selected)
+                    layerDescs.Add(layer2D.LayerDescriptor);
 
                 Solution.SetSolver(new LayerSolver());
 
@@ -129,7 +131,9 @@ namespace treeDiM.StackBuilder.Desktop
                 LayerSolver solver = new LayerSolver();
                 List<Layer2D> layers = solver.BuildLayers(
                     packable.OuterDimensions
-                    , new Vector2D(truckProperties.InsideLength - 2.0 * uCtrlMinDistanceLoadWall.ValueX, truckProperties.InsideWidth - 2.0 * uCtrlMinDistanceLoadWall.ValueY)
+                    , new Vector2D(
+                        truckProperties.InsideLength - 2.0 * uCtrlMinDistanceLoadWall.ValueX
+                        , truckProperties.InsideWidth - 2.0 * uCtrlMinDistanceLoadWall.ValueY)
                     , 0.0 /* offsetZ */
                     , BuildConstraintSet()
                     , checkBoxBestLayersOnly.Checked

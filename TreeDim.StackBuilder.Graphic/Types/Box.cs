@@ -38,6 +38,10 @@ namespace treeDiM.StackBuilder.Graphics
         private bool _showTape = false;
         private double _tapeWidth;
         private Color _tapeColor;
+        /// <summary>
+        /// Packable object replacable with in memory built image
+        /// </summary>
+        private Packable _packable; 
         #endregion
 
         #region Constructor
@@ -92,31 +96,40 @@ namespace treeDiM.StackBuilder.Graphics
             // colors
             _colors = Enumerable.Repeat<Color>(Color.Chocolate, 6).ToArray();
 
-            BProperties bProperties = PackableToBProperties(packable);
-            if (null != bProperties)
+            if (packable is LoadedPallet)
             {
-                _colors = bProperties.Colors;
+                _packable = packable;
 
-                // IsBundle ?
-                _isBundle = bProperties.IsBundle;
-                if (_isBundle)
-                    _noFlats = (bProperties as BundleProperties).NoFlats;
-                // textures
-                BoxProperties boxProperties = bProperties as BoxProperties;
-                if (null != boxProperties)
+
+            }
+            else
+            {
+                BProperties bProperties = PackableToBProperties(packable);
+                if (null != bProperties)
                 {
-                    List<Pair<HalfAxis.HAxis, Texture>> textures = boxProperties.TextureList;
-                    foreach (Pair<HalfAxis.HAxis, Texture> tex in textures)
+                    _colors = bProperties.Colors;
+
+                    // IsBundle ?
+                    _isBundle = bProperties.IsBundle;
+                    if (_isBundle)
+                        _noFlats = (bProperties as BundleProperties).NoFlats;
+                    // textures
+                    BoxProperties boxProperties = bProperties as BoxProperties;
+                    if (null != boxProperties)
                     {
-                        int iIndex = (int)tex.first;
-                        if (null == _textureLists[iIndex])
-                            _textureLists[iIndex] = new List<Texture>();
-                        _textureLists[iIndex].Add(tex.second);
+                        List<Pair<HalfAxis.HAxis, Texture>> textures = boxProperties.TextureList;
+                        foreach (Pair<HalfAxis.HAxis, Texture> tex in textures)
+                        {
+                            int iIndex = (int)tex.first;
+                            if (null == _textureLists[iIndex])
+                                _textureLists[iIndex] = new List<Texture>();
+                            _textureLists[iIndex].Add(tex.second);
+                        }
+                        // tape
+                        _showTape = boxProperties.ShowTape;
+                        _tapeWidth = boxProperties.TapeWidth;
+                        _tapeColor = boxProperties.TapeColor;
                     }
-                    // tape
-                    _showTape = boxProperties.ShowTape;
-                    _tapeWidth = boxProperties.TapeWidth;
-                    _tapeColor = boxProperties.TapeColor;
                 }
             }
         }
@@ -300,6 +313,14 @@ namespace treeDiM.StackBuilder.Graphics
             {
                 LoadedCase loadedCase = packable as LoadedCase;
                 return PackableToBProperties(loadedCase.Container);
+            }
+            else if (packable is LoadedPallet)
+            {
+                LoadedPallet loadedPallet = packable as LoadedPallet;
+                Vector3D dim = loadedPallet.OuterDimensions;
+                BoxProperties boxProperties = new BoxProperties(loadedPallet.ParentDocument, dim.X, dim.Y, dim.Z);
+                boxProperties.SetColor(Color.Chocolate);
+                return boxProperties;
             }
             else
                 return null;
@@ -728,8 +749,21 @@ namespace treeDiM.StackBuilder.Graphics
         }
         public override void Draw(Graphics3D graphics)
         {
-            foreach (Face face in Faces)
-                graphics.AddFace(face);
+            if (null == _packable)
+            {
+                foreach (Face face in Faces)
+                    graphics.AddFace(face);
+            }
+            else
+            {
+                if (_packable is LoadedPallet)
+                {
+                    LoadedPallet loadedPallet = _packable as LoadedPallet;
+                    Analysis analysis = loadedPallet.ParentAnalysis;
+                    Pallet pallet = new Pallet(analysis.Container as PalletProperties);
+                    pallet.Draw(graphics, _position.)
+                }
+            }
         }
 
         public void SetAllFacesColor(Color color)

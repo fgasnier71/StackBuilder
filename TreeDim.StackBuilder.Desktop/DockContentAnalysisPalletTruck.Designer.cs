@@ -109,12 +109,10 @@
             // 
             // graphCtrlSolution
             // 
-            this.graphCtrlSolution.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.graphCtrlSolution.Location = new System.Drawing.Point(3, 3);
+            this.graphCtrlSolution.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.graphCtrlSolution.Location = new System.Drawing.Point(0, 0);
             this.graphCtrlSolution.Name = "graphCtrlSolution";
-            this.graphCtrlSolution.Size = new System.Drawing.Size(150, 190);
+            this.graphCtrlSolution.Size = new System.Drawing.Size(529, 406);
             this.graphCtrlSolution.TabIndex = 0;
             this.graphCtrlSolution.Viewer = null;
             // 
@@ -138,7 +136,6 @@
             this.ClientSize = new System.Drawing.Size(784, 561);
             this.Controls.Add(this.splitContainerHoriz);
             this.Controls.Add(this.toolStripAnalysis);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "DockContentAnalysisPalletTruck";
             this.Text = "Pallet/Truck analysis...";

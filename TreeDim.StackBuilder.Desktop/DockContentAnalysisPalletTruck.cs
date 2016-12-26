@@ -7,12 +7,15 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Globalization;
 // Docking
 using WeifenLuo.WinFormsUI.Docking;
 // log4net
 using log4net;
 using Sharp3D.Math.Core;
 using treeDiM.StackBuilder.Basics;
+using treeDiM.StackBuilder.Graphics;
+using treeDiM.StackBuilder.Engine;
 #endregion
 
 namespace treeDiM.StackBuilder.Desktop
@@ -70,6 +73,46 @@ namespace treeDiM.StackBuilder.Desktop
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
+
+            // --- window caption
+            this.Text = _analysis.Name + " _ " + _analysis.ParentDocument.Name;
+            // --- initialize drawing container
+            graphCtrlSolution.Viewer = new ViewerSolution(_solution);
+            graphCtrlSolution.Invalidate();
+            // --- initialize grid control
+            FillGrid();
+            UpdateGrid();
+            // ---
+        }
+        #endregion
+
+        #region Grid filling
+        private void FillGrid()
+        {
+            // clear grid
+            gridSolution.Rows.Clear();
+            // border
+            gridSolution.BorderStyle = BorderStyle.FixedSingle;
+            gridSolution.ColumnsCount = 2;
+            gridSolution.FixedColumns = 1;
+        }
+        private void UpdateGrid()
+        {
+            try
+            {
+                // sanity check
+                if (gridSolution.ColumnsCount < 2)
+                    return;
+                // remove all existing rows
+                gridSolution.Rows.Clear();
+                // *** IViews
+                // captionHeader
+
+            }
+            catch (Exception ex)
+            {
+                _log.Error(ex.ToString());
+            }
         }
         #endregion
 

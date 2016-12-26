@@ -60,7 +60,6 @@ namespace treeDiM.StackBuilder.Engine
                     }
                 }
             }
-
             // keep only best layers
             if (keepOnlyBest)
             {

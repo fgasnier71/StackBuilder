@@ -786,16 +786,18 @@ namespace treeDiM.StackBuilder.Desktop
             toolStripButtonAddNewTruck.Enabled = (null != doc);
             // new case/pallet analysis
             newAnalysisToolStripMenuItem.Enabled = (null != doc) && doc.CanCreateAnalysisCasePallet;
-            toolStripButtonCreateNewAnalysis.Enabled = (null != doc) && doc.CanCreateAnalysisCasePallet;
+            toolSBCreateNewAnalysisCasePallet.Enabled = (null != doc) && doc.CanCreateAnalysisCasePallet;
             // new cylinder/pallet analysis
             newToolStripMenuItemCylinderPalletAnalysis.Enabled = (null != doc) && doc.CanCreateAnalysisCylinderPallet;
-            toolStripSBCylinderPalletAnalysis.Enabled = (null != doc) && doc.CanCreateAnalysisCylinderPallet;
+            toolSBCylinderPalletAnalysis.Enabled = (null != doc) && doc.CanCreateAnalysisCylinderPallet;
             // new box/case analysis
             newBoxCaseAnalysisToolStripMenuItem.Enabled = (null != doc) && doc.CanCreateBoxCaseAnalysis;
             toolStripButtonBoxCaseAnalysis.Enabled = (null != doc) && doc.CanCreateBoxCaseAnalysis;
             // new box/case/pallet analysis
             newBoxCasePalletOptimizationToolStripMenuItem.Enabled = (null != doc) && doc.CanCreateAnalysisBoxCasePallet;
             toolStripButtonCreateNewBoxCasePalletOptimization.Enabled = (null != doc) && doc.CanCreateAnalysisBoxCasePallet;
+            // new pallet/truck analysis
+            toolSBCreateAnalysisPalletTruck.Enabled = (null != doc) && doc.CanCreateAnalysisPalletTruck;
             // case optimisation
             caseOptimisationToolStripMenu.Enabled = (null != doc) && doc.CanCreateCaseOptimization;
             toolStripButtonOptimiseCase.Enabled = (null != doc) && doc.CanCreateCaseOptimization;
@@ -1173,6 +1175,11 @@ namespace treeDiM.StackBuilder.Desktop
         private void toolAddNewPalletFilm(object sender, EventArgs e)
         {
             try { ((DocumentSB)ActiveDocument).CreateNewPalletFilmUI(); }
+            catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
+        }
+        private void onToolAddNewAnalysisPalletTruck(object sender, EventArgs e)
+        {
+            try { ((DocumentSB)ActiveDocument).CreateNewAnalysisPalletTruckUI(); }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
         private void toolEditPalletSolutionsDB(object sender, EventArgs e)
