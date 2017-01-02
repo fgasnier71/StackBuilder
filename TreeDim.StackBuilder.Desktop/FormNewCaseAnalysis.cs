@@ -647,8 +647,8 @@ namespace treeDiM.StackBuilder.Desktop
                 case HalfAxis.HAxis.AXIS_Z_P: lengthAxis = HalfAxis.HAxis.AXIS_X_P; widthAxis = HalfAxis.HAxis.AXIS_Y_P; break;
                 default: break;
             }
-            box.LengthAxis = treeDiM.StackBuilder.Basics.HalfAxis.ToVector3D(lengthAxis);
-            box.WidthAxis = treeDiM.StackBuilder.Basics.HalfAxis.ToVector3D(widthAxis);
+            box.HLengthAxis = lengthAxis;
+            box.HWidthAxis = widthAxis;
 
             // draw box
             graphics.AddBox(box);

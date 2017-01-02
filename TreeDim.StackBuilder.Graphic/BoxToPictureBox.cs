@@ -45,8 +45,8 @@ namespace treeDiM.StackBuilder.Graphics
                 case HalfAxis.HAxis.AXIS_Z_P: lengthAxis = HalfAxis.HAxis.AXIS_X_P; widthAxis = HalfAxis.HAxis.AXIS_Y_P; break;
                 default: break;
             }
-            box.LengthAxis = treeDiM.StackBuilder.Basics.HalfAxis.ToVector3D(lengthAxis);
-            box.WidthAxis = treeDiM.StackBuilder.Basics.HalfAxis.ToVector3D(widthAxis);
+            box.HLengthAxis = lengthAxis;
+            box.HWidthAxis = widthAxis;
             // draw box
             graphics.AddBox(box);
             graphics.Flush();
@@ -71,21 +71,16 @@ namespace treeDiM.StackBuilder.Graphics
             if (packable is PackProperties)
             {
                 Box box = new Pack(0, packable as PackProperties);
-                box.LengthAxis = Vector3D.XAxis;
-                box.WidthAxis = Vector3D.YAxis;
                 graphics.AddBox(box);
             }
             else if (packable is BProperties)
             { 
                 Box box = new Box(0, packable as PackableBrick);
-                box.LengthAxis = Vector3D.XAxis;
-                box.WidthAxis = Vector3D.YAxis;
                 graphics.AddBox(box);
             }
             else if (packable is CylinderProperties)
             {
-                CylinderProperties cylProp = packable as CylinderProperties;
-                graphics.AddCylinder(new Cylinder(0, cylProp));
+                graphics.AddCylinder(new Cylinder(0, packable as CylinderProperties));
             }
             // ### draw : end #################################
 

@@ -44,7 +44,7 @@ namespace treeDiM.StackBuilder.Graphics
             BoxProperties caseProperties = boxCaseAnalysis.CaseProperties;
             // draw case (inside)
             Case case_ = new Case(caseProperties);
-            case_.DrawInside(graphics);
+            case_.DrawInside(graphics, Transform3D.Identity);
             // draw solution
             uint pickId = 0;
             foreach (ILayer layer in _boxCaseSolution)

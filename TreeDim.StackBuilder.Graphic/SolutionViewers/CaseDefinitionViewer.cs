@@ -67,7 +67,7 @@ namespace treeDiM.StackBuilder.Graphics
             if (null != case_)
             {
                 // draw case (inside)
-                case_.DrawInside(graphics);
+                case_.DrawInside(graphics, Transform3D.Identity);
             }
             // add boxes
             uint pickId = 0;

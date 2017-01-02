@@ -65,6 +65,10 @@ namespace treeDiM.StackBuilder.Basics
             else
                 return HAxis.AXIS_Z_P;
         }
+        public static HAxis CrossProduct(HAxis axis0, HAxis axis1)
+        {
+            return ToHalfAxis(Vector3D.CrossProduct(ToVector3D(axis0), ToVector3D(axis1)));
+        }
         public static HAxis Transform(HAxis axis, Transform3D transform)
         {
             return HalfAxis.ToHalfAxis(transform.transformRot(HalfAxis.ToVector3D(axis)));

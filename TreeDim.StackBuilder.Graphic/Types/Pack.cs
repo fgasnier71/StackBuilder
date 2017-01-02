@@ -20,6 +20,8 @@ namespace treeDiM.StackBuilder.Graphics
             _packProperties = packProperties;
             _arrangement = _packProperties.Arrangement;
             _innerBox = new Box(0, packProperties.Box);
+            _forceTransparency = false;
+            _boxPosition = BoxPosition.Zero;
         }
         public Pack(uint pickId, PackProperties packProperties, BoxPosition position)
             : base(pickId, packProperties, position)
@@ -104,18 +106,20 @@ namespace treeDiM.StackBuilder.Graphics
                 if (null != tray) height = tray.Height;
                 if (height <= 1.0)
                     height = 40.0;
-
-                Vector3D heightAxis = Vector3D.CrossProduct(_lengthAxis, _widthAxis);
+                Vector3D position = _boxPosition.Position;
+                Vector3D lengthAxis = HalfAxis.ToVector3D(_boxPosition.DirectionLength);
+                Vector3D widthAxis = HalfAxis.ToVector3D(_boxPosition.DirectionWidth);
+                Vector3D heightAxis = Vector3D.CrossProduct(lengthAxis, widthAxis);
                 Vector3D[] points = new Vector3D[8];
-                points[0] = _position;
-                points[1] = _position + _dim[0] * _lengthAxis;
-                points[2] = _position + _dim[0] * _lengthAxis + _dim[1] * _widthAxis;
-                points[3] = _position + _dim[1] * _widthAxis;
+                points[0] = position;
+                points[1] = position + _dim[0] * lengthAxis;
+                points[2] = position + _dim[0] * lengthAxis + _dim[1] * widthAxis;
+                points[3] = position + _dim[1] * widthAxis;
 
-                points[4] = _position + height * heightAxis;
-                points[5] = _position + height * heightAxis + _dim[0] * _lengthAxis;
-                points[6] = _position + height * heightAxis + _dim[0] * _lengthAxis + _dim[1] * _widthAxis;
-                points[7] = _position + height * heightAxis + _dim[1] * _widthAxis;
+                points[4] = position + height * heightAxis;
+                points[5] = position + height * heightAxis + _dim[0] * lengthAxis;
+                points[6] = position + height * heightAxis + _dim[0] * lengthAxis + _dim[1] * widthAxis;
+                points[7] = position + height * heightAxis + _dim[1] * widthAxis;
 
                 Face[] faces = new Face[5];
                 faces[0] = new Face(_pickId, new Vector3D[] { points[3], points[0], points[4], points[7] }, false); // AXIS_X_N

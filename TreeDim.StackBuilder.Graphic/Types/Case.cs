@@ -164,13 +164,13 @@ namespace treeDiM.StackBuilder.Graphics
         #endregion
 
         #region Inside drawing
-        public void DrawInside(Graphics3D graphics)
+        public void DrawInside(Graphics3D graphics, Transform3D transform)
         {
             Face[] faces = InsideFaces;
             for (int i = 0; i < 6; ++i)
                 faces[i].IsSolid = false;
             foreach (Face face in faces)
-                graphics.AddFace(face);
+                graphics.AddFace(face.Transform(transform));
         }
         #endregion
     }

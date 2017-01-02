@@ -698,11 +698,13 @@ namespace treeDiM.StackBuilder.Graphics
                 else if (pos.Axis1 == HalfAxis.HAxis.AXIS_Y_P && pos.Axis2 == HalfAxis.HAxis.AXIS_X_N)
                 { coef0 = coefY; coef1 = coefX; }
                 Vector3D dim = _lumbers[pos.Index];
-                Box box = new Box(pickId++, dim.X * coef0, dim.Y * coef1, dim.Z * coef2);
+                Box box = new Box(pickId++, dim.X * coef0, dim.Y * coef1, dim.Z * coef2
+                    , new BoxPosition(
+                        t.transform(
+                            new Vector3D(pos.XYZ.X * coefX, pos.XYZ.Y * coefY, pos.XYZ.Z * coefZ))
+                            , HalfAxis.Transform(pos.Axis1, t)
+                            , HalfAxis.Transform(pos.Axis2, t)));
                 box.SetAllFacesColor(color);
-                box.Position = t.transform(new Vector3D(pos.XYZ.X * coefX, pos.XYZ.Y * coefY, pos.XYZ.Z * coefZ));
-                box.LengthAxis = Basics.HalfAxis.ToVector3D(HalfAxis.Transform(pos.Axis1, t)); ;
-                box.WidthAxis = Basics.HalfAxis.ToVector3D(HalfAxis.Transform(pos.Axis2, t)); ;
                 graphics.AddBox(box);
             }
         }
@@ -724,11 +726,12 @@ namespace treeDiM.StackBuilder.Graphics
                 else if (pos.Axis1 == HalfAxis.HAxis.AXIS_Y_P && pos.Axis2 == HalfAxis.HAxis.AXIS_X_N)
                 { coef0 = coefY; coef1 = coefX; }
                 Vector3D dim = _lumbers[pos.Index];
-                Box box = new Box(pickId++, dim.X * coef0, dim.Y * coef1, dim.Z * coef2);
+                Box box = new Box(pickId++, dim.X * coef0, dim.Y * coef1, dim.Z * coef2
+                    , new BoxPosition(
+                        t.transform(new Vector3D(pos.XYZ.X * coefX, pos.XYZ.Y * coefY, pos.XYZ.Z * coefZ))
+                        , HalfAxis.Transform(pos.Axis1, t), HalfAxis.Transform(pos.Axis2, t))
+                        );
                 box.SetAllFacesColor(color);
-                box.Position = t.transform(new Vector3D(pos.XYZ.X * coefX, pos.XYZ.Y * coefY, pos.XYZ.Z * coefZ));
-                box.LengthAxis = Basics.HalfAxis.ToVector3D(HalfAxis.Transform(pos.Axis1, t)); ;
-                box.WidthAxis = Basics.HalfAxis.ToVector3D(HalfAxis.Transform(pos.Axis2, t)); ;
                 listPalletLumbers.Add(box);
             }
             return listPalletLumbers;

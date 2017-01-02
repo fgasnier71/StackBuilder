@@ -149,7 +149,7 @@ namespace treeDiM.StackBuilder.Graphics
             {
                 try
                 {
-                    _viewer.Draw(graphics, ShowDimensions);
+                    _viewer.Draw(graphics, Transform3D.Identity, ShowDimensions);
                 }
                 catch (Exception ex)
                 {

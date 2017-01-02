@@ -48,7 +48,7 @@ namespace treeDiM.StackBuilder.Graphics
             if (null == caseProperties) return;
             // draw case (inside)
             Case case_ = new Case(caseProperties);
-            case_.DrawInside(graphics);
+            case_.DrawInside(graphics, Transform3D.Identity);
             // get case analysis
             BoxCasePalletAnalysis caseAnalysis = _caseSolution.ParentCaseAnalysis;
             // draw solution

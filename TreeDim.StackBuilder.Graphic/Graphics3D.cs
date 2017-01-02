@@ -73,6 +73,11 @@ namespace treeDiM.StackBuilder.Graphics
         private List<Segment> _segments = new List<Segment>();
         private List<Segment> _segmentsBackground = new List<Segment>();
         /// <summary>
+        /// image inst
+        /// </summary>
+        private List<ImageInst> _listImageInst = new List<ImageInst>();
+        private List<ImageCached> _listImageCached = new List<ImageCached>();
+        /// <summary>
         /// dimensions cube
         /// </summary>
         private List<DimensionCube> _dimensions = new List<DimensionCube>();
@@ -208,8 +213,6 @@ namespace treeDiM.StackBuilder.Graphics
         #endregion
 
         #region Helpers
-
-
         private Point[] TransformPoint(Transform3D transform, Vector3D[] points3d)
         {
             Point[] points = new Point[points3d.Length];
@@ -222,13 +225,11 @@ namespace treeDiM.StackBuilder.Graphics
             }
             return points;
         }
-
         private Point TransformPoint(Transform3D transform, Vector3D point3d)
         {
             Vector3D vt = transform.transform(point3d);
             return new Point((int)vt.X, (int)vt.Y);
         }
-
         public Transform3D GetWorldToEyeTransformation()
         {
             /*
@@ -260,7 +261,6 @@ namespace treeDiM.StackBuilder.Graphics
                 );
             return new Transform3D(Mcam);
         }
-
         private Transform3D GetOrthographicProjection(Vector3D vecMin, Vector3D vecMax)
         {
             double[] sizeMin = new double[3];
@@ -272,7 +272,6 @@ namespace treeDiM.StackBuilder.Graphics
             sizeMax[0] = Size.Width;
             sizeMax[1] = 1.0;
             sizeMax[2] = 1.0;
-
             return Transform3D.OrthographicProjection(vecMin, vecMax, sizeMin, sizeMax);
         }
         /// <summary>
@@ -291,7 +290,6 @@ namespace treeDiM.StackBuilder.Graphics
         {
             _faces.Add(face);
         }
-
         public void AddBox(Box box)
         {
             if (!box.IsValid)
@@ -449,7 +447,15 @@ namespace treeDiM.StackBuilder.Graphics
                 foreach (Box box in _boxes)
                     Draw(box);
             }
+            // images inst
+            if (_listImageInst.Count > 0)
+            { 
+                // sort image inst
 
+                // draw image inst
+                foreach (ImageInst im in _listImageInst)
+                    Draw(im);
+            }
             // draw faces : end
             foreach (Face face in _faces)
                 Draw(face, FaceDir.FRONT);
@@ -590,6 +596,10 @@ namespace treeDiM.StackBuilder.Graphics
         {
             _segments.Add(seg);
         }
+        public void AddImage(Analysis analysis, BoxPosition boxPosition)
+        {
+            _listImageInst.Add( new ImageInst( analysis, boxPosition) );
+        }
         #endregion
 
         #region Draw box
@@ -707,7 +717,6 @@ namespace treeDiM.StackBuilder.Graphics
             }
             else
             {
-
                 Vector3D[] points = box.Points;
 
                 Face[] faces = box.Faces;
@@ -810,6 +819,44 @@ namespace treeDiM.StackBuilder.Graphics
         {
             System.Drawing.Graphics g = Graphics;
             Vector3D[] points = pack.Points;
+        }
+
+        internal void Draw(ImageInst img)
+        {
+            Point ptImg = TransformPoint(GetCurrentTransformation(), img.PointBase);
+
+            Bitmap bmp = null;
+            int width = 0, height = 0;
+            Point ptOffset = Point.Empty;
+            GetCachedBitmap(img, ref bmp, ref width, ref height, ref ptOffset);
+            
+            System.Drawing.Graphics g = Graphics;
+            g.DrawImage(bmp, new Point(ptImg.X, ptImg.Y - height));
+        }
+        internal void GetCachedBitmap(ImageInst img, ref Bitmap bmp, ref int width, ref int height, ref Point offset)
+        {
+            ImageCached imgCached = _listImageCached.Find(delegate(ImageCached imgc) { return imgc.Matches(img); });
+            if (null == imgCached)
+            {
+                imgCached = new ImageCached(img.Analysis, img.AxisLength, img.AxisWidth);
+                _listImageCached.Add(imgCached);
+            }
+            Analysis analysis = imgCached.Analysis;
+
+            int xmin = int.MaxValue, ymin = int.MaxValue, xmax = int.MinValue, ymax=int.MinValue;
+            BBox3D bbox = analysis.Solution.BBoxGlobal;
+            foreach (Vector3D vPt in bbox.Corners)
+            {
+                Point pt = TransformPoint(GetCurrentTransformation(), vPt);
+                xmin = Math.Min(xmin, pt.X);
+                xmax = Math.Max(xmax, pt.X);
+                ymin = Math.Min(ymin, pt.Y);
+                ymax = Math.Max(ymax, pt.Y);
+            }
+            Size s = new Size(xmax-xmin, ymax-ymin);
+            bmp = imgCached.Image(s, _vCameraPos, _vTarget);
+            width = 50; height = 50;
+            offset = Point.Empty;
         }
         #endregion
 

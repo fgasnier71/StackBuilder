@@ -17,14 +17,12 @@ namespace treeDiM.StackBuilder.Graphics
         #region Data members
         private uint _pickId = 0;
         private double[] _dim = new double[3];
-        private Vector3D _position = Vector3D.Zero;
-        private Vector3D _lengthAxis = Vector3D.XAxis;
-        private Vector3D _widthAxis = Vector3D.YAxis;
+        private BoxPosition _bPosition = new BoxPosition();
         private Color _color;
         #endregion
 
         #region Constructor
-        public PalletCap(uint pickId, PalletCapProperties capProperties, Vector3D position)
+        public PalletCap(uint pickId, PalletCapProperties capProperties, BoxPosition bPosition)
         {
             _dim[0] = capProperties.Length;
             _dim[1] = capProperties.Width;
@@ -32,47 +30,49 @@ namespace treeDiM.StackBuilder.Graphics
 
             _color = capProperties.Color;
 
-            Position = position;
+            _bPosition = bPosition;
         }
         #endregion
 
         #region Public properties
         public uint PickId
-        {
-            get { return _pickId; }
-        }
+        { get { return _pickId; } }
         public Vector3D Position
         {
-            get { return _position; }
-            set { _position = value; }
+            get { return _bPosition.Position; }
+            set { _bPosition.Position = value; }
         }
+        public Vector3D LengthAxis
+        { get { return HalfAxis.ToVector3D(_bPosition.DirectionLength); } }
+        public Vector3D WidthAxis
+        { get { return HalfAxis.ToVector3D(_bPosition.DirectionWidth); } }
+        public Vector3D HeightAxis
+        { get { return Vector3D.CrossProduct(LengthAxis, WidthAxis); } }
         public double Length
-        {
-            get { return _dim[0]; }
-        }
+        { get { return _dim[0]; } }
         public double Width
-        {
-            get { return _dim[1]; }
-        }
+        { get { return _dim[1]; } }
         public double Height
-        {
-            get { return _dim[2]; }
-        }
+        { get { return _dim[2]; } }
         public Face[] Faces
         {
             get
             {
-                Vector3D heightAxis = Vector3D.CrossProduct(_lengthAxis, _widthAxis);
-                Vector3D[] points = new Vector3D[8];
-                points[0] = _position;
-                points[1] = _position + _dim[0] * _lengthAxis;
-                points[2] = _position + _dim[0] * _lengthAxis + _dim[1] * _widthAxis;
-                points[3] = _position + _dim[1] * _widthAxis;
+                Vector3D position = Position;
+                Vector3D axisLength = LengthAxis;
+                Vector3D axisWidth = WidthAxis;
+                Vector3D heightAxis = HeightAxis;
 
-                points[4] = _position + _dim[2] * heightAxis;
-                points[5] = _position + _dim[2] * heightAxis + _dim[0] * _lengthAxis;
-                points[6] = _position + _dim[2] * heightAxis + _dim[0] * _lengthAxis + _dim[1] * _widthAxis;
-                points[7] = _position + _dim[2] * heightAxis + _dim[1] * _widthAxis;
+                Vector3D[] points = new Vector3D[8];
+                points[0] = position;
+                points[1] = position + _dim[0] * axisLength;
+                points[2] = position + _dim[0] * axisLength + _dim[1] * axisWidth;
+                points[3] = position + _dim[1] * axisWidth;
+
+                points[4] = position + _dim[2] * heightAxis;
+                points[5] = position + _dim[2] * heightAxis + _dim[0] * axisLength;
+                points[6] = position + _dim[2] * heightAxis + _dim[0] * axisLength + _dim[1] * axisWidth;
+                points[7] = position + _dim[2] * heightAxis + _dim[1] * axisWidth;
 
                 Face[] faces = new Face[6];
                 faces[0] = new Face(_pickId, new Vector3D[] { points[3], points[0], points[4], points[7] }, true); // AXIS_X_N
@@ -102,7 +102,7 @@ namespace treeDiM.StackBuilder.Graphics
         public override void DrawEnd(Graphics3D graphics)
         {
             foreach (Face face in Faces)
-                    graphics.AddFace(face);
+                graphics.AddFace(face);
         }
         #endregion
     }

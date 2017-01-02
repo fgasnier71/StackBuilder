@@ -18,7 +18,7 @@ namespace treeDiM.StackBuilder.Basics
         #endregion
 
         #region Constructor
-        public BoxPosition(Vector3D vPosition, HalfAxis.HAxis dirLength, HalfAxis.HAxis dirWidth)
+        public BoxPosition(Vector3D vPosition, HalfAxis.HAxis dirLength = HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis dirWidth = HalfAxis.HAxis.AXIS_Y_P)
         {
             _vPosition = vPosition;
             _axisLength = dirLength;
@@ -35,10 +35,12 @@ namespace treeDiM.StackBuilder.Basics
         public HalfAxis.HAxis DirectionLength
         {
             get { return _axisLength; }
+            set { _axisLength = value; }
         }
         public HalfAxis.HAxis DirectionWidth
         {
             get { return _axisWidth; }
+            set { _axisWidth = value; }
         }
         public HalfAxis.HAxis DirectionHeight
         {
@@ -54,6 +56,11 @@ namespace treeDiM.StackBuilder.Basics
         {
             get { return _axisLength != _axisWidth; }
         }
+        #endregion
+
+        #region Static properties
+        public static BoxPosition Zero
+        { get { return new BoxPosition(Vector3D.Zero, HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P); } }
         #endregion
 
         #region Transformation
@@ -81,6 +88,10 @@ namespace treeDiM.StackBuilder.Basics
                 , HalfAxis.Transform(boxPosition.DirectionLength, transform)
                 , HalfAxis.Transform(boxPosition.DirectionWidth, transform)
                 );
+        }
+        public BoxPosition Transform(Transform3D transform)
+        {
+            return BoxPosition.Transform(this, transform);
         }
         #endregion
 

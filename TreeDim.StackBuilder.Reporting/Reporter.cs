@@ -519,7 +519,7 @@ namespace treeDiM.StackBuilder.Reporting
 
                 // instantiate solution viewer
                 ViewerSolution sv = new ViewerSolution(sol);
-                sv.Draw(graphics, showDimensions);
+                sv.Draw(graphics, Transform3D.Identity, showDimensions);
                 graphics.Flush();
                 // image path
                 string imagePath = SaveImageAs(graphics.Bitmap);
@@ -1006,7 +1006,7 @@ namespace treeDiM.StackBuilder.Reporting
             // build image
             Graphics3DImage graphics = new Graphics3DImage(new Size(ImageSizeDetail, ImageSizeDetail));
             graphics.CameraPosition = Graphics3D.Corner_0;
-            PalletCap palletCap = new PalletCap(0, palletCapProp, Vector3D.Zero);
+            PalletCap palletCap = new PalletCap(0, palletCapProp, BoxPosition.Zero);
             palletCap.Draw(graphics);
             graphics.AddDimensions(new DimensionCube(palletCapProp.Length, palletCapProp.Width, palletCapProp.Height));
             graphics.Flush();

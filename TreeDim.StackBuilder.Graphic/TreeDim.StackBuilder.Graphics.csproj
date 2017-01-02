@@ -107,6 +107,7 @@
     <Compile Include="Controls\Graphics3DControl.Designer.cs">
       <DependentUpon>Graphics3DControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="ImageInst.cs" />
     <Compile Include="LayerToImage.cs" />
     <Compile Include="PickingList.cs" />
     <Compile Include="Ray.cs" />

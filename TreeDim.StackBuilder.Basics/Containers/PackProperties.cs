@@ -145,6 +145,7 @@ namespace treeDiM.StackBuilder.Basics
             return true;
         }
         protected override string TypeName { get { return Properties.Resource.ID_NAMEPACK; } }
+        public override bool IsCase { get { return true; } }
         #endregion
         #region Public properties
         /// <summary>

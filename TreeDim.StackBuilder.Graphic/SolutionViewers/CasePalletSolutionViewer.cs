@@ -164,11 +164,12 @@ namespace treeDiM.StackBuilder.Graphics
             if (_solution.HasPalletCap)
             {
                 PalletCapProperties capProperties = _solution.Analysis.PalletCapProperties;
-                Vector3D pos = new Vector3D(
+                BoxPosition bPosition = new BoxPosition(
+                    new Vector3D(
                     0.5 * (_analysis.PalletProperties.Length - capProperties.Length),
                     0.5 * (_analysis.PalletProperties.Width - capProperties.Width),
-                    loadBBox.PtMax.Z - capProperties.InsideHeight);
-                PalletCap cap = new PalletCap(0, capProperties, pos);
+                    loadBBox.PtMax.Z - capProperties.InsideHeight), HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P);
+                PalletCap cap = new PalletCap(0, capProperties, bPosition);
                 cap.DrawEnd(graphics);
             }
             // pallet film

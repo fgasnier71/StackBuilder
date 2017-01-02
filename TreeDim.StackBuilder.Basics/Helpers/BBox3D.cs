@@ -102,6 +102,22 @@ namespace treeDiM.StackBuilder.Basics
         public double Height { get { return _ptMax.Z - _ptMin.Z; } }
         public Vector3D PtMin { get { return _ptMin; } }
         public Vector3D PtMax { get { return _ptMax; } }
+        public Vector3D[] Corners
+        {
+            get
+            {
+                Vector3D[] corners = new Vector3D[8];
+                corners[0] = new Vector3D(_ptMin.X, _ptMin.Y, _ptMin.Z);
+                corners[1] = new Vector3D(_ptMax.X, _ptMin.Y, _ptMin.Z);
+                corners[2] = new Vector3D(_ptMax.X, _ptMax.Y, _ptMin.Z);
+                corners[3] = new Vector3D(_ptMin.X, _ptMax.Y, _ptMin.Z);
+                corners[4] = new Vector3D(_ptMin.X, _ptMin.Y, _ptMax.Z);
+                corners[5] = new Vector3D(_ptMax.X, _ptMin.Y, _ptMax.Z);
+                corners[6] = new Vector3D(_ptMax.X, _ptMax.Y, _ptMax.Z);
+                corners[7] = new Vector3D(_ptMin.X, _ptMax.Y, _ptMax.Z);
+                return corners;
+            }
+        }
         #endregion
 
         #region ICloneable Members

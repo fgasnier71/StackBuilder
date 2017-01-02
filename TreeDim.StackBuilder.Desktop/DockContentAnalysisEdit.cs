@@ -121,7 +121,7 @@ namespace treeDiM.StackBuilder.Desktop
         {
             bool showDimensions = true;
             ViewerSolution sv = new ViewerSolution(Solution);
-            sv.Draw(graphics, showDimensions);
+            sv.Draw(graphics, Transform3D.Identity, showDimensions);
         }
         #endregion
 

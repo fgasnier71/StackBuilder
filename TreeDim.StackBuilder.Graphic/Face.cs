@@ -325,6 +325,17 @@ namespace treeDiM.StackBuilder.Graphics
         double t = Vector3D.DotProduct(edge2, qvec) * invdet;
             return true;
         }
+
+        public Face Transform(Transform3D transf)
+        {
+            Vector3D[] points = new Vector3D[4];
+            for (int i = 0; i < 4; ++i)
+                points[i] = transf.transform(_points[i]);
+            Face faceNew = new Face(_pickingId, points, _colorFill, _colorPath, _isSolid);
+            foreach (Texture t in _textureList)
+                faceNew._textureList.Add(t);
+            return faceNew;
+        }
         #endregion
 
         #region Object override

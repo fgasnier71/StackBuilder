@@ -158,7 +158,7 @@ namespace treeDiM.StackBuilder.Desktop
                     null, ItemName, ItemDescription, CapLength, CapWidth, CapHeight,
                     CapInnerLength, CapInnerWidth, CapInnerHeight,
                     CapWeight, CapColor);
-                PalletCap palletCap = new PalletCap(0, palletCapProperties, Vector3D.Zero);
+                PalletCap palletCap = new PalletCap(0, palletCapProperties, BoxPosition.Zero);
                 palletCap.Draw(graphics);
                 graphics.AddDimensions(new DimensionCube(CapLength, CapWidth, CapHeight));
             }

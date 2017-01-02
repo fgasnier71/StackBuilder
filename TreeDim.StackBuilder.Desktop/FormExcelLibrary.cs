@@ -278,7 +278,7 @@ namespace treeDiM.StackBuilder.Desktop
             DataPalletCap dtPalletCap = _dt as DataPalletCap;
             if (null != dtPalletCap)
             {
-                PalletCap palletCap = new PalletCap(0, ToPalletCap(dtPalletCap), Sharp3D.Math.Core.Vector3D.Zero);
+                PalletCap palletCap = new PalletCap(0, ToPalletCap(dtPalletCap), BoxPosition.Zero);
                 palletCap.Draw(graphics);
                 graphics.AddDimensions(new DimensionCube(dtPalletCap.Dimensions));
             }

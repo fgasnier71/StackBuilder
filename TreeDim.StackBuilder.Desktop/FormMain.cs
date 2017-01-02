@@ -823,6 +823,7 @@ namespace treeDiM.StackBuilder.Desktop
             try
             {
                 // set solver
+                Document.SetSolver(new LayerSolver());
                 Solution.SetSolver(new LayerSolver());
 
                 if (!File.Exists(filePath))
@@ -1091,6 +1092,9 @@ namespace treeDiM.StackBuilder.Desktop
         public void OpenMRUFile(string filePath)
         {
             CloseStartPage();
+
+            // instantiate solver
+            DocumentSB.SetSolver(new LayerSolver());
             // open file
             OpenDocument(filePath); // -> exception handled in OpenDocument
         }

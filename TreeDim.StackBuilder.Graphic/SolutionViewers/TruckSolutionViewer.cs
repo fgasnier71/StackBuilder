@@ -128,10 +128,7 @@ namespace treeDiM.StackBuilder.Graphics
             uint pickId = 0;
             foreach (BoxPosition bPositionLayer in _truckSolution.Layer)
             {
-                Box b = new Box(pickId++, length, width, height);
-                b.Position = bPositionLayer.Position;
-                b.LengthAxis = HalfAxis.ToVector3D(bPositionLayer.DirectionLength);
-                b.WidthAxis = HalfAxis.ToVector3D(bPositionLayer.DirectionWidth);
+                Box b = new Box(pickId++, length, width, height, bPositionLayer);
                 graphics.DrawBox(b);
             }
         }

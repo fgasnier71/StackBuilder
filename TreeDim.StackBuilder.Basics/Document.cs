@@ -706,6 +706,7 @@ namespace treeDiM.StackBuilder.Basics
             constraintSetNew.SetMaxHeight(constraintSet.MaximumPalletHeight);
             constraintSetNew.OptMaxWeight = constraintSet.MaximumPalletWeight;
             constraintSetNew.Overhang = new Vector2D(constraintSet.OverhangX, constraintSet.OverhangY);
+            constraintSetNew.SetAllowedOrientations(new bool[3] { false, false, true });
 
             List<InterlayerProperties> listInterlayers = new List<InterlayerProperties>();
             if (null != interlayer)
@@ -2671,7 +2672,9 @@ namespace treeDiM.StackBuilder.Basics
             constraints.MinOverhangY = LoadOptDouble(eltContraintSet, "MinOverhangY", UnitsManager.UnitType.UT_LENGTH);
             constraints.MinimumSpace = LoadOptDouble(eltContraintSet, "MinimumSpace", UnitsManager.UnitType.UT_LENGTH);
             constraints.MaximumSpaceAllowed = LoadOptDouble(eltContraintSet, "MaximumSpaceAllowed", UnitsManager.UnitType.UT_LENGTH);
-            constraints.MaximumPalletHeight = LoadOptDouble(eltContraintSet, "MaximumPalletHeight", UnitsManager.UnitType.UT_LENGTH);
+            constraints.MaximumPalletHeight = LoadOptDouble(eltContraintSet, "MaximumHeight", UnitsManager.UnitType.UT_LENGTH);
+            if (!constraints.MaximumPalletHeight.Activated || constraints.MaximumPalletHeight.Value < 1)
+                constraints.MaximumPalletHeight = new OptDouble(true, 1700);
             constraints.MaximumPalletWeight = LoadOptDouble(eltContraintSet, "MaximumPalletWeight", UnitsManager.UnitType.UT_MASS);
             constraints.LayerSwapPeriod = int.Parse( eltContraintSet.Attributes["LayerSwapPeriod"].Value );
             constraints.InterlayerPeriod = int.Parse( eltContraintSet.Attributes["InterlayerPeriod"].Value );
