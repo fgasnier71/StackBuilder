@@ -22,9 +22,7 @@ namespace treeDiM.StackBuilder.Graphics
         #region Data members
         protected uint _pickId = 0;
         protected double[] _dim = new double[3];
-        protected Vector3D _position = Vector3D.Zero;
-        protected Vector3D _lengthAxis = Vector3D.XAxis;
-        protected Vector3D _widthAxis = Vector3D.YAxis;
+        protected BoxPosition _boxPosition;
         private Color[] _colors;
         private List<Texture>[] _textureLists = new List<Texture>[6];
         /// <summary>
@@ -63,7 +61,7 @@ namespace treeDiM.StackBuilder.Graphics
             for (int i = 0; i < 6; ++i)
                 _textureLists[i] = null;
         }
-        public Box(uint pickId, double length, double width, double height, double x, double y, double z)
+        public Box(uint pickId, double length, double width, double height, BoxPosition boxPosition)
         {
             _pickId = pickId;
             // dimensions
@@ -82,9 +80,7 @@ namespace treeDiM.StackBuilder.Graphics
             for (int i = 0; i < 6; ++i)
                 _textureLists[i] = null;
 
-            _position.X = x;
-            _position.Y = y;
-            _position.Z = z;
+            _boxPosition = boxPosition;
         }
         public Box(uint pickId, PackableBrick packable)
         {
@@ -142,11 +138,7 @@ namespace treeDiM.StackBuilder.Graphics
             _colors = new Color[6];
             this.SetAllFacesColor(capProperties.Color);
 
-            Position = position;
-
-            LengthAxis = Vector3D.XAxis;
-            WidthAxis = Vector3D.YAxis;
-
+            _boxPosition = new BoxPosition(position, HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P);
         }
         public Box(uint pickId, PackableBrick packable, BoxPosition bPosition)
         {
@@ -158,9 +150,7 @@ namespace treeDiM.StackBuilder.Graphics
             _dim[1] = packable.Width;
             _dim[2] = packable.Height;
             // set position
-            Position = bPosition.Position;
-            LengthAxis = HalfAxis.ToVector3D(bPosition.DirectionLength);
-            WidthAxis = HalfAxis.ToVector3D(bPosition.DirectionWidth);
+            _boxPosition = bPosition;
             // colors
             _colors = Enumerable.Repeat<Color>(Color.Chocolate, 6).ToArray();
 
@@ -205,9 +195,7 @@ namespace treeDiM.StackBuilder.Graphics
             _dim[1] = packable.Width;
             _dim[2] = packable.Height;
             // set position
-            Position = bPosition.Position;
-            LengthAxis = HalfAxis.ToVector3D(bPosition.LengthAxis);
-            WidthAxis = HalfAxis.ToVector3D(bPosition.WidthAxis);
+            _boxPosition = new BoxPosition( bPosition.Position, bPosition.LengthAxis, bPosition.WidthAxis);
             // colors
             _colors = Enumerable.Repeat<Color>(Color.Chocolate, 6).ToArray();
 
@@ -258,9 +246,7 @@ namespace treeDiM.StackBuilder.Graphics
             // colors
             _colors = Enumerable.Repeat<Color>(Color.Chocolate, 6).ToArray();
             // set position
-            Position = bPosition.Position;
-            LengthAxis = HalfAxis.ToVector3D(bPosition.DirectionLength);
-            WidthAxis = HalfAxis.ToVector3D(bPosition.DirectionWidth);
+            _boxPosition = bPosition;
         }
 
         public Box(uint pickId, InterlayerProperties interlayerProperties)
@@ -284,9 +270,7 @@ namespace treeDiM.StackBuilder.Graphics
             // colors
             _colors = Enumerable.Repeat<Color>(interlayerProperties.Color, 6).ToArray();
             // set position
-            Position = bPosition.Position;
-            LengthAxis = HalfAxis.ToVector3D(bPosition.DirectionLength);
-            WidthAxis = HalfAxis.ToVector3D(bPosition.DirectionWidth);
+            _boxPosition = bPosition;
         }
 
         public Box(uint pickId, BundleProperties bundleProperties)
@@ -334,8 +318,8 @@ namespace treeDiM.StackBuilder.Graphics
         }
         public Vector3D Position
         {
-            get { return _position; }
-            set { _position = value; }
+            get { return _boxPosition.Position; }
+            set { _boxPosition.Position = value; }
         }
         public double Length
         {
@@ -349,17 +333,22 @@ namespace treeDiM.StackBuilder.Graphics
         {
             get { return _dim[2]; }
         }
-
+        public HalfAxis.HAxis HLengthAxis
+        {
+            get { return _boxPosition.DirectionLength;  }
+            set { _boxPosition.DirectionLength = value; }
+        }
+        public HalfAxis.HAxis HWidthAxis
+        {
+            get { return _boxPosition.DirectionWidth;  }
+            set { _boxPosition.DirectionWidth = value; }
+        }
         public Vector3D LengthAxis
-        {
-            get { return _lengthAxis; }
-            set { _lengthAxis = value; }
-        }
+        {   get { return HalfAxis.ToVector3D(_boxPosition.DirectionLength); } }
         public Vector3D WidthAxis
-        {
-            get { return _widthAxis; }
-            set { _widthAxis = value; }
-        }
+        {   get { return HalfAxis.ToVector3D(_boxPosition.DirectionWidth); } }
+        public Vector3D HeightAxis
+        { get { return Vector3D.CrossProduct(LengthAxis, WidthAxis); } }
 
         public Color[] Colors
         {
@@ -405,10 +394,10 @@ namespace treeDiM.StackBuilder.Graphics
         {
             get
             {
-                return _position
-                    + 0.5 * _dim[0] * _lengthAxis
-                    + 0.5 * _dim[1] * _widthAxis
-                    + 0.5 * _dim[2] * Vector3D.CrossProduct(_lengthAxis, _widthAxis);
+                return _boxPosition.Position
+                    + 0.5 * _dim[0] * LengthAxis
+                    + 0.5 * _dim[1] * WidthAxis
+                    + 0.5 * _dim[2] * HeightAxis;
             }
         }
 
@@ -432,12 +421,14 @@ namespace treeDiM.StackBuilder.Graphics
         {
             get
             {
-                Vector3D heightAxis = Vector3D.CrossProduct(_lengthAxis, _widthAxis);
+                Vector3D lengthAxis = LengthAxis;
+                Vector3D widthAxis  = WidthAxis;
+                Vector3D heightAxis = HeightAxis;
                 Vector3D[] points = new Vector3D[4];
-                points[0] = _position + 0.0 * _lengthAxis + 0.5 * (_dim[1] - _tapeWidth) * _widthAxis + _dim[2] * heightAxis;
-                points[1] = _position + _dim[0] * _lengthAxis + 0.5 * (_dim[1] - _tapeWidth) * _widthAxis + _dim[2] * heightAxis;
-                points[2] = _position + _dim[0] * _lengthAxis + 0.5 * (_dim[1] + _tapeWidth) * _widthAxis + _dim[2] * heightAxis;
-                points[3] = _position + 0.0 * _lengthAxis + 0.5 * (_dim[1] + _tapeWidth) * _widthAxis + _dim[2] * heightAxis;
+                points[0] = Position + 0.0 * lengthAxis     + 0.5 * (_dim[1] - _tapeWidth) * widthAxis + _dim[2] * heightAxis;
+                points[1] = Position + _dim[0] * lengthAxis + 0.5 * (_dim[1] - _tapeWidth) * widthAxis + _dim[2] * heightAxis;
+                points[2] = Position + _dim[0] * lengthAxis + 0.5 * (_dim[1] + _tapeWidth) * widthAxis + _dim[2] * heightAxis;
+                points[3] = Position + 0.0 * lengthAxis     + 0.5 * (_dim[1] + _tapeWidth) * widthAxis + _dim[2] * heightAxis;
                 return points;
             }
         }
@@ -524,17 +515,20 @@ namespace treeDiM.StackBuilder.Graphics
         {
             get
             {
-                Vector3D heightAxis = Vector3D.CrossProduct(_lengthAxis, _widthAxis);
+                Vector3D position = _boxPosition.Position;
+                Vector3D lengthAxis = LengthAxis;
+                Vector3D widthAxis = WidthAxis;
+                Vector3D heightAxis = HeightAxis;
                 Vector3D[] points = new Vector3D[8];
-                points[0] = _position;
-                points[1] = _position + _dim[0] * _lengthAxis;
-                points[2] = _position + _dim[0] * _lengthAxis + _dim[1] * _widthAxis;
-                points[3] = _position + _dim[1] * _widthAxis;
+                points[0] = position;
+                points[1] = position + _dim[0] * lengthAxis;
+                points[2] = position + _dim[0] * lengthAxis + _dim[1] * widthAxis;
+                points[3] = position + _dim[1] * widthAxis;
 
-                points[4] = _position + _dim[2] * heightAxis;
-                points[5] = _position + _dim[2] * heightAxis + _dim[0] * _lengthAxis;
-                points[6] = _position + _dim[2] * heightAxis + _dim[0] * _lengthAxis + _dim[1] * _widthAxis;
-                points[7] = _position + _dim[2] * heightAxis + _dim[1] * _widthAxis;
+                points[4] = position + _dim[2] * heightAxis;
+                points[5] = position + _dim[2] * heightAxis + _dim[0] * lengthAxis;
+                points[6] = position + _dim[2] * heightAxis + _dim[0] * lengthAxis + _dim[1] * widthAxis;
+                points[7] = position + _dim[2] * heightAxis + _dim[1] * widthAxis;
 
                 return points;
             }
@@ -544,19 +538,21 @@ namespace treeDiM.StackBuilder.Graphics
         {
             get
             {
+                Vector3D lengthAxis = LengthAxis;
+                Vector3D widthAxis = WidthAxis;
+                Vector3D heightAxis = HeightAxis;
                 const double offset = 3.0;
-                Vector3D heightAxis = Vector3D.CrossProduct(_lengthAxis, _widthAxis);
                 Vector3D[] points = new Vector3D[8];
                 Vector3D origin = new Vector3D(offset, offset, offset);
                 points[0] = origin;
-                points[1] = origin + (_dim[0] - 2.0 * offset) * _lengthAxis;
-                points[2] = origin + (_dim[0] - 2.0 * offset) * _lengthAxis + (_dim[1] - 2.0 * offset) * _widthAxis;
-                points[3] = origin + (_dim[1] - 2.0 * offset) * _widthAxis;
+                points[1] = origin + (_dim[0] - 2.0 * offset) * lengthAxis;
+                points[2] = origin + (_dim[0] - 2.0 * offset) * lengthAxis + (_dim[1] - 2.0 * offset) * widthAxis;
+                points[3] = origin + (_dim[1] - 2.0 * offset) * widthAxis;
 
                 points[4] = origin + (_dim[2]- 2.0 * offset) * heightAxis;
-                points[5] = origin + (_dim[2]- 2.0 * offset) * heightAxis + (_dim[0]- 2.0 * offset) * _lengthAxis;
-                points[6] = origin + (_dim[2]- 2.0 * offset) * heightAxis + (_dim[0]- 2.0 * offset) * _lengthAxis + (_dim[1]- 2.0 * offset) * _widthAxis;
-                points[7] = origin + (_dim[2]- 2.0 * offset) * heightAxis + (_dim[1]- 2.0 * offset) * _widthAxis;
+                points[5] = origin + (_dim[2]- 2.0 * offset) * heightAxis + (_dim[0]- 2.0 * offset) * lengthAxis;
+                points[6] = origin + (_dim[2]- 2.0 * offset) * heightAxis + (_dim[0]- 2.0 * offset) * lengthAxis + (_dim[1]- 2.0 * offset) * widthAxis;
+                points[7] = origin + (_dim[2]- 2.0 * offset) * heightAxis + (_dim[1]- 2.0 * offset) * widthAxis;
 
                 return points;
             }
@@ -593,7 +589,6 @@ namespace treeDiM.StackBuilder.Graphics
         {
             get
             {
-                Vector3D heightAxis = Vector3D.CrossProduct(_lengthAxis, _widthAxis);
                 TriangleIndices[] tri = new TriangleIndices[12];
                 ulong n0 = (ulong)HalfAxis.ToHalfAxis(-LengthAxis);
                 tri[0] = new TriangleIndices(0, 4, 3, n0, n0, n0, 1, 3, 0);
@@ -607,10 +602,10 @@ namespace treeDiM.StackBuilder.Graphics
                 ulong n3 = (ulong)HalfAxis.ToHalfAxis(WidthAxis);
                 tri[6] = new TriangleIndices(7, 6, 2, n3, n3, n3, 3, 2, 0);
                 tri[7] = new TriangleIndices(7, 2, 3, n3, n3, n3, 3, 0, 1);
-                ulong n4 = (ulong)HalfAxis.ToHalfAxis(-heightAxis);
+                ulong n4 = (ulong)HalfAxis.ToHalfAxis(-HeightAxis);
                 tri[8] = new TriangleIndices(0, 3, 1, n4, n4, n4, 2, 0, 3);
                 tri[9] = new TriangleIndices(1, 3, 2, n4, n4, n4, 3, 0, 1);
-                ulong n5 = (ulong)HalfAxis.ToHalfAxis(heightAxis);
+                ulong n5 = (ulong)HalfAxis.ToHalfAxis(HeightAxis);
                 tri[10] = new TriangleIndices(4, 5, 7, n5, n5, n5, 0, 1, 2);
                 tri[11] = new TriangleIndices(7, 5, 6, n5, n5, n5, 2, 1, 3);
                 return tri;
@@ -657,17 +652,21 @@ namespace treeDiM.StackBuilder.Graphics
         {
             get
             {
-                Vector3D heightAxis = Vector3D.CrossProduct(_lengthAxis, _widthAxis);
-                Vector3D[] points = new Vector3D[8];
-                points[0] = _position;
-                points[1] = _position + _dim[0] * _lengthAxis;
-                points[2] = _position + _dim[0] * _lengthAxis + _dim[1] * _widthAxis;
-                points[3] = _position + _dim[1] * _widthAxis;
+                Vector3D position = Position;
+                Vector3D lengthAxis = LengthAxis;
+                Vector3D widthAxis = WidthAxis;
+                Vector3D heightAxis = HeightAxis;
 
-                points[4] = _position + _dim[2] * heightAxis;
-                points[5] = _position + _dim[2] * heightAxis + _dim[0] * _lengthAxis;
-                points[6] = _position + _dim[2] * heightAxis + _dim[0] * _lengthAxis + _dim[1] * _widthAxis;
-                points[7] = _position + _dim[2] * heightAxis + _dim[1] * _widthAxis;
+                Vector3D[] points = new Vector3D[8];
+                points[0] = position;
+                points[1] = position + _dim[0] * lengthAxis;
+                points[2] = position + _dim[0] * lengthAxis + _dim[1] * widthAxis;
+                points[3] = position + _dim[1] * widthAxis;
+
+                points[4] = position + _dim[2] * heightAxis;
+                points[5] = position + _dim[2] * heightAxis + _dim[0] * lengthAxis;
+                points[6] = position + _dim[2] * heightAxis + _dim[0] * lengthAxis + _dim[1] * widthAxis;
+                points[7] = position + _dim[2] * heightAxis + _dim[1] * widthAxis;
 
                 Face[] faces = new Face[6];
                 faces[0] = new Face(_pickId, new Vector3D[] { points[3], points[0], points[4], points[7] }, false); // AXIS_X_N
@@ -694,17 +693,20 @@ namespace treeDiM.StackBuilder.Graphics
         /// <returns>array of Vector3D points</returns>
         public Vector3D[] PointsImage(int faceId, Texture texture)
         {
-            Vector3D heightAxis = Vector3D.CrossProduct(_lengthAxis, _widthAxis);
+            Vector3D position = Position;
+            Vector3D lengthAxis = LengthAxis;
+            Vector3D widthAxis = WidthAxis;
+            Vector3D heightAxis = HeightAxis;
             Vector3D[] points = new Vector3D[8];
-            points[0] = _position;
-            points[1] = _position + _dim[0] * _lengthAxis;
-            points[2] = _position + _dim[0] * _lengthAxis + _dim[1] * _widthAxis;
-            points[3] = _position + _dim[1] * _widthAxis;
+            points[0] = position;
+            points[1] = position + _dim[0] * lengthAxis;
+            points[2] = position + _dim[0] * lengthAxis + _dim[1] * widthAxis;
+            points[3] = position + _dim[1] * widthAxis;
 
-            points[4] = _position + _dim[2] * heightAxis;
-            points[5] = _position + _dim[2] * heightAxis + _dim[0] * _lengthAxis;
-            points[6] = _position + _dim[2] * heightAxis + _dim[0] * _lengthAxis + _dim[1] * _widthAxis;
-            points[7] = _position + _dim[2] * heightAxis + _dim[1] * _widthAxis;
+            points[4] = position + _dim[2] * heightAxis;
+            points[5] = position + _dim[2] * heightAxis + _dim[0] * lengthAxis;
+            points[6] = position + _dim[2] * heightAxis + _dim[0] * lengthAxis + _dim[1] * widthAxis;
+            points[7] = position + _dim[2] * heightAxis + _dim[1] * widthAxis;
 
             Vector3D vecI = Vector3D.XAxis, vecJ = Vector3D.YAxis, vecO = Vector3D.Zero;
             switch (faceId)
@@ -737,7 +739,7 @@ namespace treeDiM.StackBuilder.Graphics
         {
             get
             {
-                return _dim[0] > 0.0 && _dim[1] > 0.0 && _dim[2] > 0.0 && (_lengthAxis != _widthAxis);
+                return _dim[0] > 0.0 && _dim[1] > 0.0 && _dim[2] > 0.0 && (LengthAxis != WidthAxis);
             }
         }
         #endregion
@@ -749,21 +751,8 @@ namespace treeDiM.StackBuilder.Graphics
         }
         public override void Draw(Graphics3D graphics)
         {
-            if (null == _packable)
-            {
-                foreach (Face face in Faces)
-                    graphics.AddFace(face);
-            }
-            else
-            {
-                if (_packable is LoadedPallet)
-                {
-                    LoadedPallet loadedPallet = _packable as LoadedPallet;
-                    Analysis analysis = loadedPallet.ParentAnalysis;
-                    Pallet pallet = new Pallet(analysis.Container as PalletProperties);
-                    pallet.Draw(graphics, _position.)
-                }
-            }
+            foreach (Face face in Faces)
+                graphics.AddFace(face);
         }
 
         public void SetAllFacesColor(Color color)
@@ -797,10 +786,7 @@ namespace treeDiM.StackBuilder.Graphics
             _dim[0] += d;
             _dim[1] += d;
             _dim[2] += d;
-
-            _position.X -= 0.5 * d;
-            _position.Y -= 0.5 * d;
-            _position.Z -= 0.5 * d;
+            _boxPosition.Position = _boxPosition.Position - new Vector3D(-0.5 * d, -0.5 * d, -0.5 * d);
         }
 
         public bool RayIntersect(Ray ray, out Vector3D ptInter)
