@@ -210,6 +210,11 @@ namespace treeDiM.StackBuilder.Graphics
             get { return _showTextures; }
             set { _showTextures = value; }
         }
+
+        public Point Offset
+        {
+            get { return TransformPoint(GetCurrentTransformation(), Vector3D.Zero); }
+        }
         #endregion
 
         #region Helpers
@@ -451,7 +456,7 @@ namespace treeDiM.StackBuilder.Graphics
             if (_listImageInst.Count > 0)
             { 
                 // sort image inst
-
+                _listImageInst.Sort(new ImageInstComparerSimplifierPainterAlgo(GetWorldToEyeTransformation()));
                 // draw image inst
                 foreach (ImageInst im in _listImageInst)
                     Draw(im);
@@ -826,14 +831,13 @@ namespace treeDiM.StackBuilder.Graphics
             Point ptImg = TransformPoint(GetCurrentTransformation(), img.PointBase);
 
             Bitmap bmp = null;
-            int width = 0, height = 0;
             Point ptOffset = Point.Empty;
-            GetCachedBitmap(img, ref bmp, ref width, ref height, ref ptOffset);
+            GetCachedBitmap(img, ref bmp, ref ptOffset);
             
             System.Drawing.Graphics g = Graphics;
-            g.DrawImage(bmp, new Point(ptImg.X, ptImg.Y - height));
+            g.DrawImage(bmp, new Point(ptImg.X - ptOffset.X, ptImg.Y - ptOffset.Y));
         }
-        internal void GetCachedBitmap(ImageInst img, ref Bitmap bmp, ref int width, ref int height, ref Point offset)
+        internal void GetCachedBitmap(ImageInst img, ref Bitmap bmp, ref Point offset)
         {
             ImageCached imgCached = _listImageCached.Find(delegate(ImageCached imgc) { return imgc.Matches(img); });
             if (null == imgCached)
@@ -843,20 +847,22 @@ namespace treeDiM.StackBuilder.Graphics
             }
             Analysis analysis = imgCached.Analysis;
 
+            // *** get size in pixels
             int xmin = int.MaxValue, ymin = int.MaxValue, xmax = int.MinValue, ymax=int.MinValue;
             BBox3D bbox = analysis.Solution.BBoxGlobal;
             foreach (Vector3D vPt in bbox.Corners)
             {
-                Point pt = TransformPoint(GetCurrentTransformation(), vPt);
+                Point pt = TransformPoint(GetCurrentTransformation() * imgCached.RelativeTransf, vPt);
                 xmin = Math.Min(xmin, pt.X);
                 xmax = Math.Max(xmax, pt.X);
                 ymin = Math.Min(ymin, pt.Y);
                 ymax = Math.Max(ymax, pt.Y);
             }
-            Size s = new Size(xmax-xmin, ymax-ymin);
-            bmp = imgCached.Image(s, _vCameraPos, _vTarget);
-            width = 50; height = 50;
-            offset = Point.Empty;
+            Size s = new Size(xmax-xmin + 1, ymax-ymin + 1);
+            // ***
+
+            Point ptZero = TransformPoint(GetCurrentTransformation(), Vector3D.Zero);
+            bmp = imgCached.Image(s, _vCameraPos, _vTarget, ref offset);
         }
         #endregion
 

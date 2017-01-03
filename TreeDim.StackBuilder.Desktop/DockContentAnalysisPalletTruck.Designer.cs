@@ -30,8 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DockContentAnalysisPalletTruck));
             this.toolStripAnalysis = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonBack = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonReportMSWord = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonReportHTML = new System.Windows.Forms.ToolStripButton();
             this.splitContainerHoriz = new System.Windows.Forms.SplitContainer();
             this.splitContainerVert = new System.Windows.Forms.SplitContainer();
             this.graphCtrlSolution = new treeDiM.StackBuilder.Graphics.Graphics3DControl();
@@ -50,31 +51,44 @@
             // toolStripAnalysis
             // 
             this.toolStripAnalysis.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton1,
-            this.toolStripButton2});
+            this.toolStripButtonBack,
+            this.toolStripButtonReportMSWord,
+            this.toolStripButtonReportHTML});
             this.toolStripAnalysis.Location = new System.Drawing.Point(0, 0);
             this.toolStripAnalysis.Name = "toolStripAnalysis";
             this.toolStripAnalysis.Size = new System.Drawing.Size(784, 25);
             this.toolStripAnalysis.TabIndex = 0;
             this.toolStripAnalysis.Text = "toolStrip1";
             // 
-            // toolStripButton1
+            // toolStripButtonBack
             // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton1.Text = "toolStripButton1";
+            this.toolStripButtonBack.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonBack.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonBack.Image")));
+            this.toolStripButtonBack.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonBack.Name = "toolStripButtonBack";
+            this.toolStripButtonBack.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonBack.Text = "toolStripButton1";
+            this.toolStripButtonBack.Click += new System.EventHandler(this.onBack);
             // 
-            // toolStripButton2
+            // toolStripButtonReportMSWord
             // 
-            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton2.Text = "toolStripButton2";
+            this.toolStripButtonReportMSWord.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonReportMSWord.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonReportMSWord.Image")));
+            this.toolStripButtonReportMSWord.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonReportMSWord.Name = "toolStripButtonReportMSWord";
+            this.toolStripButtonReportMSWord.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonReportMSWord.Text = "toolStripButton2";
+            this.toolStripButtonReportMSWord.Click += new System.EventHandler(this.onGenerateReportMSWord);
+            // 
+            // toolStripButtonReportHTML
+            // 
+            this.toolStripButtonReportHTML.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonReportHTML.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonReportHTML.Image")));
+            this.toolStripButtonReportHTML.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonReportHTML.Name = "toolStripButtonReportHTML";
+            this.toolStripButtonReportHTML.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonReportHTML.Text = "toolStripButton3";
+            this.toolStripButtonReportHTML.Click += new System.EventHandler(this.onGenerateReportHTML);
             // 
             // splitContainerHoriz
             // 
@@ -87,7 +101,7 @@
             // 
             this.splitContainerHoriz.Panel1.Controls.Add(this.splitContainerVert);
             this.splitContainerHoriz.Size = new System.Drawing.Size(784, 536);
-            this.splitContainerHoriz.SplitterDistance = 406;
+            this.splitContainerHoriz.SplitterDistance = 464;
             this.splitContainerHoriz.TabIndex = 1;
             // 
             // splitContainerVert
@@ -103,7 +117,7 @@
             // splitContainerVert.Panel2
             // 
             this.splitContainerVert.Panel2.Controls.Add(this.gridSolution);
-            this.splitContainerVert.Size = new System.Drawing.Size(784, 406);
+            this.splitContainerVert.Size = new System.Drawing.Size(784, 464);
             this.splitContainerVert.SplitterDistance = 529;
             this.splitContainerVert.TabIndex = 0;
             // 
@@ -112,7 +126,7 @@
             this.graphCtrlSolution.Dock = System.Windows.Forms.DockStyle.Fill;
             this.graphCtrlSolution.Location = new System.Drawing.Point(0, 0);
             this.graphCtrlSolution.Name = "graphCtrlSolution";
-            this.graphCtrlSolution.Size = new System.Drawing.Size(529, 406);
+            this.graphCtrlSolution.Size = new System.Drawing.Size(529, 464);
             this.graphCtrlSolution.TabIndex = 0;
             this.graphCtrlSolution.Viewer = null;
             // 
@@ -124,7 +138,7 @@
             this.gridSolution.Name = "gridSolution";
             this.gridSolution.OptimizeMode = SourceGrid.CellOptimizeMode.ForRows;
             this.gridSolution.SelectionMode = SourceGrid.GridSelectionMode.Cell;
-            this.gridSolution.Size = new System.Drawing.Size(251, 406);
+            this.gridSolution.Size = new System.Drawing.Size(251, 464);
             this.gridSolution.TabIndex = 0;
             this.gridSolution.TabStop = true;
             this.gridSolution.ToolTipText = "";
@@ -157,11 +171,12 @@
         #endregion
 
         private System.Windows.Forms.ToolStrip toolStripAnalysis;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
-        private System.Windows.Forms.ToolStripButton toolStripButton2;
+        private System.Windows.Forms.ToolStripButton toolStripButtonBack;
+        private System.Windows.Forms.ToolStripButton toolStripButtonReportMSWord;
         private System.Windows.Forms.SplitContainer splitContainerHoriz;
         private System.Windows.Forms.SplitContainer splitContainerVert;
         private Graphics.Graphics3DControl graphCtrlSolution;
         private SourceGrid.Grid gridSolution;
+        private System.Windows.Forms.ToolStripButton toolStripButtonReportHTML;
     }
 }

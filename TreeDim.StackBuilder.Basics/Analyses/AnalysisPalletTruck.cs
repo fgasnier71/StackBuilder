@@ -73,6 +73,8 @@ namespace treeDiM.StackBuilder.Basics
         { get { return false; } }
         public override PackableLoaded EquivalentPackable
         { get { return null; } }
+        public override bool AlternateLayersPref
+        {   get { return false; } }
         #endregion
 
         #region AnalysisPalletTruck specific

@@ -36,7 +36,7 @@
             this.splitContainerHoriz = new System.Windows.Forms.SplitContainer();
             this.splitContainerVert = new System.Windows.Forms.SplitContainer();
             this.graphCtrlSolution = new treeDiM.StackBuilder.Graphics.Graphics3DControl();
-            this.gridSolutions = new SourceGrid.Grid();
+            this.gridSolution = new SourceGrid.Grid();
             this.gbStopCriterions = new System.Windows.Forms.GroupBox();
             this.uCtrlOptMaximumWeight = new treeDiM.StackBuilder.Basics.UCtrlOptDouble();
             this.uCtrlMaxPalletHeight = new treeDiM.StackBuilder.Basics.UCtrlDouble();
@@ -152,7 +152,7 @@
             // 
             // splitContainerVert.Panel2
             // 
-            this.splitContainerVert.Panel2.Controls.Add(this.gridSolutions);
+            this.splitContainerVert.Panel2.Controls.Add(this.gridSolution);
             this.splitContainerVert.Size = new System.Drawing.Size(784, 410);
             this.splitContainerVert.SplitterDistance = 586;
             this.splitContainerVert.TabIndex = 1;
@@ -168,16 +168,16 @@
             // 
             // gridSolutions
             // 
-            this.gridSolutions.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridSolutions.EnableSort = true;
-            this.gridSolutions.Location = new System.Drawing.Point(0, 0);
-            this.gridSolutions.Name = "gridSolutions";
-            this.gridSolutions.OptimizeMode = SourceGrid.CellOptimizeMode.ForRows;
-            this.gridSolutions.SelectionMode = SourceGrid.GridSelectionMode.Cell;
-            this.gridSolutions.Size = new System.Drawing.Size(194, 410);
-            this.gridSolutions.TabIndex = 0;
-            this.gridSolutions.TabStop = true;
-            this.gridSolutions.ToolTipText = "";
+            this.gridSolution.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridSolution.EnableSort = true;
+            this.gridSolution.Location = new System.Drawing.Point(0, 0);
+            this.gridSolution.Name = "gridSolutions";
+            this.gridSolution.OptimizeMode = SourceGrid.CellOptimizeMode.ForRows;
+            this.gridSolution.SelectionMode = SourceGrid.GridSelectionMode.Cell;
+            this.gridSolution.Size = new System.Drawing.Size(194, 410);
+            this.gridSolution.TabIndex = 0;
+            this.gridSolution.TabStop = true;
+            this.gridSolution.ToolTipText = "";
             // 
             // gbStopCriterions
             // 
@@ -484,7 +484,7 @@
         private System.Windows.Forms.Button bnSymmetryX;
         private System.Windows.Forms.Button bnSymetryY;
         private System.Windows.Forms.TextBox tbClickLayer;
-        private SourceGrid.Grid gridSolutions;
+        private SourceGrid.Grid gridSolution;
         private System.Windows.Forms.GroupBox gbStopCriterions;
         private Basics.UCtrlDouble uCtrlMaxPalletHeight;
         private Basics.UCtrlOptDouble uCtrlOptMaximumWeight;

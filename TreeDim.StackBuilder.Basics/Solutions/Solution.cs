@@ -579,32 +579,38 @@ namespace treeDiM.StackBuilder.Basics
         {
             get
             {
-                int layerCount = 0, interlayerCount = 0, boxCount = 0;
-                GetCounts(ref layerCount, ref interlayerCount, ref boxCount);
-                return boxCount;
+                int layerCount = 0, interlayerCount = 0, itemCount = 0;
+                GetCounts(ref layerCount, ref interlayerCount, ref itemCount);
+                return itemCount;
             }
         }
         public int LayerCount
         {
             get
             {
-                int layerCount = 0, interlayerCount = 0, boxCount = 0;
-                GetCounts(ref layerCount, ref interlayerCount, ref boxCount);
+                int layerCount = 0, interlayerCount = 0, itemCount = 0;
+                GetCounts(ref layerCount, ref interlayerCount, ref itemCount);
                 return layerCount; 
             }
         }
-        private void GetCounts(ref int layerCount, ref int interlayerCount, ref int boxCount)
+        private void GetCounts(ref int layerCount, ref int interlayerCount, ref int itemCount)
         {
             layerCount = 0;
             interlayerCount = 0;
-            boxCount = 0;
+            itemCount = 0;
             foreach (ILayer layer in Layers)
             {
                 Layer3DBox blayer = layer as Layer3DBox;
                 if (null != blayer)
                 {
                     ++layerCount;
-                    boxCount += blayer.BoxCount;
+                    itemCount += blayer.BoxCount;
+                }
+                Layer3DCyl clayer = layer as Layer3DCyl;
+                if (null != clayer)
+                {
+                    ++layerCount;
+                    itemCount += clayer.CylinderCount;
                 }
                 InterlayerPos iLayer = layer as InterlayerPos;
                 if (null != iLayer)

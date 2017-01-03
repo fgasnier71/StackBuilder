@@ -135,6 +135,7 @@ namespace treeDiM.StackBuilder.Graphics
             AnalysisBoxCase analysisBoxCase = analysis as AnalysisBoxCase;
             AnalysisCylinderCase analysisCylinderCase = analysis as AnalysisCylinderCase;
             AnalysisCylinderPallet analysisCylinderPallet = analysis as AnalysisCylinderPallet;
+            AnalysisPalletTruck analysisPalletTruck = analysis as AnalysisPalletTruck;
 
             if (null != analysisCasePallet)
             {
@@ -159,6 +160,12 @@ namespace treeDiM.StackBuilder.Graphics
                 // ### draw pallet
                 Pallet pallet = new Pallet(analysisCylinderPallet.PalletProperties);
                 pallet.Draw(graphics, transform);
+            }
+            else if (null != analysisPalletTruck)
+            { 
+                // ### draw truck
+                Truck truck = new Truck(analysisPalletTruck.TruckProperties);
+                truck.DrawBegin(graphics);
             }
 
             // ### draw solution
@@ -344,6 +351,12 @@ namespace treeDiM.StackBuilder.Graphics
                 if (analysisCasePallet.HasPalletFilm && null != film)
                     film.DrawEnd(graphics);
                 #endregion
+            }
+
+            if (null != analysisPalletTruck)
+            {
+                Truck truck = new Truck(analysisPalletTruck.TruckProperties);
+                truck.DrawEnd(graphics);
             }
 
             // ### dimensions
