@@ -64,30 +64,30 @@
             // 
             this.toolStripButtonBack.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripButtonBack.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonBack.Image")));
-            this.toolStripButtonBack.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonBack.ImageTransparentColor = System.Drawing.Color.White;
             this.toolStripButtonBack.Name = "toolStripButtonBack";
             this.toolStripButtonBack.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonBack.Text = "toolStripButton1";
+            this.toolStripButtonBack.Text = "Back...";
             this.toolStripButtonBack.Click += new System.EventHandler(this.onBack);
             // 
             // toolStripButtonReportMSWord
             // 
             this.toolStripButtonReportMSWord.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripButtonReportMSWord.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonReportMSWord.Image")));
-            this.toolStripButtonReportMSWord.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonReportMSWord.ImageTransparentColor = System.Drawing.Color.White;
             this.toolStripButtonReportMSWord.Name = "toolStripButtonReportMSWord";
             this.toolStripButtonReportMSWord.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonReportMSWord.Text = "toolStripButton2";
+            this.toolStripButtonReportMSWord.Text = "Generate MSWord report...";
             this.toolStripButtonReportMSWord.Click += new System.EventHandler(this.onGenerateReportMSWord);
             // 
             // toolStripButtonReportHTML
             // 
             this.toolStripButtonReportHTML.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripButtonReportHTML.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonReportHTML.Image")));
-            this.toolStripButtonReportHTML.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonReportHTML.ImageTransparentColor = System.Drawing.Color.White;
             this.toolStripButtonReportHTML.Name = "toolStripButtonReportHTML";
             this.toolStripButtonReportHTML.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonReportHTML.Text = "toolStripButton3";
+            this.toolStripButtonReportHTML.Text = "Generate HTML report...";
             this.toolStripButtonReportHTML.Click += new System.EventHandler(this.onGenerateReportHTML);
             // 
             // splitContainerHoriz

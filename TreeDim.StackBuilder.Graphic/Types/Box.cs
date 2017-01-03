@@ -46,10 +46,13 @@ namespace treeDiM.StackBuilder.Graphics
         public Box(uint pickId, double length, double width, double height)
         {
             _pickId = pickId;
+            // dimensions
             _dim[0] = length;
             _dim[1] = width;
             _dim[2] = height;
-
+            // box position
+            _boxPosition = new BoxPosition(Vector3D.Zero);
+            // colors & texturezs
             _colors = new Color[6];
             _colors[0] = Color.Red;
             _colors[1] = Color.Red;
@@ -68,7 +71,9 @@ namespace treeDiM.StackBuilder.Graphics
             _dim[0] = length;
             _dim[1] = width;
             _dim[2] = height;
-
+            // box position
+            _boxPosition = boxPosition;
+            // colors & textures
             _colors = new Color[6];
             _colors[0] = Color.Red;
             _colors[1] = Color.Red;
@@ -80,7 +85,6 @@ namespace treeDiM.StackBuilder.Graphics
             for (int i = 0; i < 6; ++i)
                 _textureLists[i] = null;
 
-            _boxPosition = boxPosition;
         }
         public Box(uint pickId, PackableBrick packable)
         {
@@ -89,14 +93,14 @@ namespace treeDiM.StackBuilder.Graphics
             _dim[0] = packable.Length;
             _dim[1] = packable.Width;
             _dim[2] = packable.Height;
-            // colors
+            // box position
+            _boxPosition = new BoxPosition(Vector3D.Zero, HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P);
+            // colors & textures
             _colors = Enumerable.Repeat<Color>(Color.Chocolate, 6).ToArray();
 
             if (packable is LoadedPallet)
             {
                 _packable = packable;
-
-
             }
             else
             {
@@ -104,7 +108,6 @@ namespace treeDiM.StackBuilder.Graphics
                 if (null != bProperties)
                 {
                     _colors = bProperties.Colors;
-
                     // IsBundle ?
                     _isBundle = bProperties.IsBundle;
                     if (_isBundle)
@@ -131,14 +134,16 @@ namespace treeDiM.StackBuilder.Graphics
         }
         public Box(uint pickId, PalletCapProperties capProperties, Vector3D position)
         {
+            _pickId = pickId;
+            // dimensions
             _dim[0] = capProperties.Length;
             _dim[1] = capProperties.Width;
             _dim[2] = capProperties.Height;
-
+            // box position
+            _boxPosition = new BoxPosition(position, HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P);
+            // colors & textures
             _colors = new Color[6];
             this.SetAllFacesColor(capProperties.Color);
-
-            _boxPosition = new BoxPosition(position, HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P);
         }
         public Box(uint pickId, PackableBrick packable, BoxPosition bPosition)
         {

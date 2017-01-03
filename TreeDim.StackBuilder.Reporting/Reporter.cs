@@ -438,6 +438,9 @@ namespace treeDiM.StackBuilder.Reporting
             else if (packable is LoadedCase)
             { 
             }
+            else if (packable is LoadedPallet)
+            { 
+            }
             else
                 throw new ReportExceptionUnexpectedItem(packable);
         }

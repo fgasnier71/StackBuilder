@@ -274,6 +274,11 @@ namespace treeDiM.StackBuilder.Basics
             number = ParentSolution.ItemCount;
             return true;
         }
+        public override bool InnerAnalysis(ref Analysis analysis)
+        {
+            analysis = ParentAnalysis;
+            return true;
+        }
         protected override string TypeName
         { get { return Properties.Resource.ID_LOADEDPALLET; } }
         #endregion
