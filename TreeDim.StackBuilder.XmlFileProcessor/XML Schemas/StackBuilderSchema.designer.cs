@@ -5049,6 +5049,8 @@ namespace treeDiM.StackBuilder.XmlFileProcessor
         private bool interlayerPeriodFieldSpecified;
 
         private List<double> overhangField;
+        
+        private List<positionName> allowedBoxPositionsField;
 
         private List<patternName> allowedLayerPatternsField;
 
@@ -5059,6 +5061,7 @@ namespace treeDiM.StackBuilder.XmlFileProcessor
         public palletAnalysis()
         {
             this.allowedLayerArrangementsField = new List<layerArrangement>();
+            this.allowedBoxPositionsField = new List<positionName>();
             this.allowedLayerPatternsField = new List<patternName>();
             this.overhangField = new List<double>();
             this.stackingStopCriterionsField = new palletAnalysisStackingStopCriterions();
@@ -5219,6 +5222,19 @@ namespace treeDiM.StackBuilder.XmlFileProcessor
             }
         }
 
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public List<positionName> allowedBoxPositions
+        {
+            get
+            {
+                return this.allowedBoxPositionsField;
+            }
+            set
+            {
+                this.allowedBoxPositionsField = value;
+            }
+        }
+        
         [System.Xml.Serialization.XmlAttributeAttribute()]
         public List<patternName> allowedLayerPatterns
         {
