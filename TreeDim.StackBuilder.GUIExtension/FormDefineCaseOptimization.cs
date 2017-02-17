@@ -192,7 +192,7 @@ namespace treeDiM.StackBuilder.GUIExtension
             try
             {
                 // build case optimizer and compute solutions
-                CaseOptimizer caseOptimizer = new CaseOptimizer(
+                PackOptimizer caseOptimizer = new PackOptimizer(
                     SelectedBox                     // BoxProperties
                     , SelectedPallet                // PalletProperties
                     , BuildPalletConstraintSet()    // ConstraintSet

@@ -82,7 +82,7 @@
     <Compile Include="LayerPatterns\LayerPatternInterlockedSymetric2.cs" />
     <Compile Include="Solvers\CylinderSolver.cs" />
     <Compile Include="Solvers\BoxCaseSolver.cs" />
-    <Compile Include="Solvers\CaseOptimizer.cs" />
+    <Compile Include="Solvers\PackOptimizer.cs" />
     <Compile Include="Solvers\BoxCasePalletSolver.cs" />
     <Compile Include="LayerCyl.cs" />
     <Compile Include="LayerPatterns\LayerPatternCyl.cs" />

@@ -114,11 +114,11 @@ namespace treeDiM.StackBuilder.Desktop
             // set default pallet height
             MaximumPalletHeight = Settings.Default.PalletHeight;
             // set default wall numbers and thickness
-            nudWallsLengthDir.Value = Settings.Default.NumberWallsLength;
-            nudWallsWidthDir.Value = Settings.Default.NumberWallsWidth;
-            nudWallsHeightDir.Value = Settings.Default.NumberWallsHeight;
-            nudWallThickness.Value = (decimal)Settings.Default.WallThickness;
-            nudWallSurfaceMass.Value = (decimal)Settings.Default.WallSurfaceMass;
+            uCtrlNoWalls.NoX = Settings.Default.NumberWallsLength;
+            uCtrlNoWalls.NoY = Settings.Default.NumberWallsWidth;
+            uCtrlNoWalls.NoZ = Settings.Default.NumberWallsHeight;
+            uCtrlWallThickness.Value = Settings.Default.WallThickness;
+            uCtrlSurfacicMass.Value = Settings.Default.WallSurfaceMass;
             nudNumber.Value = Settings.Default.NumberBoxesPerCase;
             // set vertical orientation only
             ForceVerticalBoxOrientation = Settings.Default.ForceVerticalBoxOrientation;
@@ -142,12 +142,12 @@ namespace treeDiM.StackBuilder.Desktop
             try
             {
                 // save settings
-                Settings.Default.NumberWallsLength = (int)nudWallsLengthDir.Value;
-                Settings.Default.NumberWallsWidth = (int)nudWallsWidthDir.Value;
-                Settings.Default.NumberWallsHeight = (int)nudWallsHeightDir.Value;
+                Settings.Default.NumberWallsLength = uCtrlNoWalls.NoX;
+                Settings.Default.NumberWallsWidth  = uCtrlNoWalls.NoY;
+                Settings.Default.NumberWallsHeight = uCtrlNoWalls.NoZ;
                 Settings.Default.PalletHeight = MaximumPalletHeight;
-                Settings.Default.WallThickness = (double)nudWallThickness.Value;
-                Settings.Default.WallSurfaceMass = (double)nudWallSurfaceMass.Value;
+                Settings.Default.WallThickness = uCtrlWallThickness.Value;
+                Settings.Default.WallSurfaceMass = uCtrlSurfacicMass.Value;
                 Settings.Default.NumberBoxesPerCase = (int)nudNumber.Value;
                 // window position
                 if (null == Settings.Default.FormOptimizeCasePosition)
@@ -193,7 +193,7 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Event handlers
-        private void cbBoxes_SelectedIndexChanged(object sender, EventArgs e)
+        private void onSelectedBoxChanged(object sender, EventArgs e)
         {
             BoxItem boxItem = cbBoxes.SelectedItem as BoxItem;
             BProperties bProperties = null != boxItem ? boxItem.Item : null;
@@ -203,7 +203,7 @@ namespace treeDiM.StackBuilder.Desktop
             OptimizationParameterChanged(sender, e);
             SetMinCaseDimensions();
         }
-        private void cbPallet_SelectedIndexChanged(object sender, EventArgs e)
+        private void onSelectedPalletChanged(object sender, EventArgs e)
         {
             PalletItem palletItem = cbPallet.SelectedItem as PalletItem;
             PalletProperties palletProperties = null != palletItem ? palletItem.Item : null;
@@ -213,20 +213,15 @@ namespace treeDiM.StackBuilder.Desktop
             OptimizationParameterChanged(sender, e);
             SetMaxCaseDimensions();
         }
-        private void btOptimize_Click(object sender, EventArgs e)
+        private void onbuttonOptimize(object sender, EventArgs e)
         {
             this.Cursor = Cursors.WaitCursor;
             try
             {
-                // build case optimizer and compute solutions
-                CaseOptimizer caseOptimizer = new CaseOptimizer(
-                    SelectedBox                             // BoxProperties
-                    , SelectedPallet                        // PalletProperties
-                    , BuildCasePalletConstraintSet()        // ConstraintSet
-                    , BuildCaseOptimConstraintSet()         // CaseOptimConstraintSet
+                /*
+                PackOptimizer packOptimizer = new PackOptimizer(
                     );
-                _solutions = caseOptimizer.CaseOptimSolutions(BoxPerCase);
-
+                */
                 // fill grid using solutions
                 FillGrid();
                 UpdateButtonAddSolutionStatus();
@@ -432,25 +427,25 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Private properties
-        private double OverhangX { get { return uCtrlOverhangLength.Value; } }
-        private double OverhangY { get { return uCtrlOverhangWidth.Value; } }
-        private double MaxLength { get { return (double)nudMaxCaseLength.Value; } }
-        private double MaxWidth { get { return (double)nudMaxCaseWidth.Value; } }
-        private double MaxHeight { get { return (double)nudMaxCaseHeight.Value; } }
+        private double OverhangX { get { return uCtrlOverhang.ValueX; } }
+        private double OverhangY { get { return uCtrlOverhang.ValueY; } }
+        private double MaxLength { get { return uCtrlPackDimensionsMax.ValueX; } }
+        private double MaxWidth { get { return uCtrlPackDimensionsMax.ValueY; } }
+        private double MaxHeight { get { return uCtrlPackDimensionsMax.ValueZ; } }
         private double MinLength
         {
-            get { return (double)nudMinCaseLength.Value; }
-            set { nudMinCaseLength.Value = (decimal)value; }
+            get { return uCtrlPackDimensionsMin.ValueX; }
+            set { uCtrlPackDimensionsMin.ValueX = value; }
         }
         private double MinWidth
         {
-            get { return (double)nudMinCaseWidth.Value; }
-            set { nudMinCaseWidth.Value = (decimal)value; }
+            get { return uCtrlPackDimensionsMin.ValueY; }
+            set { uCtrlPackDimensionsMin.ValueY = value; }
         }
         private double MinHeight
         {
-            get { return (double)nudMinCaseHeight.Value; }
-            set { nudMinCaseHeight.Value = (decimal)value; }
+            get { return uCtrlPackDimensionsMin.ValueZ; }
+            set { uCtrlPackDimensionsMin.ValueZ = value; }
         }
         private int BoxPerCase { get { return (int)nudNumber.Value; } }
         private int[] NoWalls
@@ -458,14 +453,14 @@ namespace treeDiM.StackBuilder.Desktop
             get
             {
                 int[] noWalls = new int[3];
-                noWalls[0] = (int)nudWallsLengthDir.Value;
-                noWalls[1] = (int)nudWallsWidthDir.Value;
-                noWalls[2] = (int)nudWallsHeightDir.Value;
+                noWalls[0] = uCtrlNoWalls.NoX;
+                noWalls[1] = uCtrlNoWalls.NoY;
+                noWalls[2] = uCtrlNoWalls.NoZ;
                 return noWalls;
             }
         }
-        private double WallThickness { get { return (double)nudWallThickness.Value; } }
-        private double WallSurfaceMass { get { return (double)nudWallSurfaceMass.Value; } }
+        private double WallThickness { get { return uCtrlWallThickness.Value; } }
+        private double WallSurfaceMass { get { return uCtrlSurfacicMass.Value; } }
 
         private bool ForceVerticalBoxOrientation
         {
@@ -771,9 +766,9 @@ namespace treeDiM.StackBuilder.Desktop
             PalletProperties palletProperties = SelectedPallet;
             if (null == palletProperties) return;
             // use pallet dimensions to set max case dimensions
-            nudMaxCaseLength.Value = (decimal)(palletProperties.Length * 0.5);
-            nudMaxCaseWidth.Value = (decimal)(palletProperties.Width * 0.5);
-            nudMaxCaseHeight.Value = (decimal)(MaximumPalletHeight * 0.5);
+            uCtrlPackDimensionsMax.ValueX = palletProperties.Length * 0.5;
+            uCtrlPackDimensionsMax.ValueY = palletProperties.Width * 0.5;
+            uCtrlPackDimensionsMax.ValueZ = MaximumPalletHeight * 0.5;
             // update message + enable/disable optimise button
             UpdateButtonOptimizeStatus();
         }
@@ -820,7 +815,6 @@ namespace treeDiM.StackBuilder.Desktop
 
             return palletConstraintSet;
         }
-
         #endregion
     }
 }

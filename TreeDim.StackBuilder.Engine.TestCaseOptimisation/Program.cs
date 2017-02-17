@@ -52,7 +52,7 @@ namespace treeDiM.StackBuilder.Engine.TestCaseOptimisation
                 , false
                 );
 
-            CaseOptimizer caseOptimizer = new CaseOptimizer(boxProperties, palletProperties, constraintSet, caseOptimConstraintSet);
+            PackOptimizer caseOptimizer = new PackOptimizer(boxProperties, palletProperties, constraintSet, caseOptimConstraintSet);
 
             // get all valid case definitions
             foreach (CaseDefinition caseDefinition in caseOptimizer.CaseDefinitions(48))
