@@ -524,7 +524,7 @@ namespace treeDiM.StackBuilder.Basics
     {
         #region Data members
         /// <summary>
-        /// 
+        /// pallet solution list
         /// </summary>
         List<PalletSolutionDesc> _palletSolutionList = new List<PalletSolutionDesc>();
         /// <summary>

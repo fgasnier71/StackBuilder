@@ -657,6 +657,5 @@ namespace treeDiM.StackBuilder.Desktop
             pictureBox.Image = graphics.Bitmap;
         }
         #endregion
-
     }
 }
