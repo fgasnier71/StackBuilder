@@ -64,8 +64,10 @@ namespace treeDiM.StackBuilder.GUIExtension
             get
             {
                 BoxProperties bProperties = new BoxProperties(null, (double)nudCaseLength.Value, (double)nudCaseWidth.Value, (double)nudCaseHeight.Value);
+                /*
                 bProperties.Name = _caseName;
                 bProperties.Description = _caseName;
+                 */ 
                 bProperties.SetColor(Color.Chocolate);
                 return bProperties;
             }

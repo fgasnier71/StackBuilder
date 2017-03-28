@@ -23,6 +23,10 @@ using treeDiM.StackBuilder.Desktop.Properties;
 using treeDiM.StackBuilder.ColladaExporter;
 
 using treeDiM.StackBuilder.Plugin;
+
+using treeDiM.PLMPack.DBClient;
+using treeDiM.PLMPack.DBClient.PLMPackSR;
+
 #endregion
 
 namespace treeDiM.StackBuilder.Desktop
@@ -97,10 +101,72 @@ namespace treeDiM.StackBuilder.Desktop
                     DoSplash();
             }
         }
-
         void PalletSolutionDBModified(object sender, PalletSolutionEventArgs eventArg)
         {
             UpdateToolbarState();
+        }
+        #endregion
+
+        #region Form override
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+
+            string configFile = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "DockPanel.config");
+
+            // Apply a gray professional renderer as a default renderer
+            ToolStripManager.Renderer = _defaultRenderer;
+            _defaultRenderer.RoundedEdges = true;
+
+            // Set DockPanel properties
+            var theme = new VS2015BlueTheme();
+            dockPanel.Theme = theme;
+
+            dockPanel.ActiveAutoHideContent = null;
+            dockPanel.Parent = this;
+
+            dockPanel.SuspendLayout(true);
+            if (File.Exists(configFile))
+                dockPanel.LoadFromXml(configFile, _deserializeDockContent);
+            else
+            {
+                timerLogin.Start();
+                // Load a basic layout
+                CreateBasicLayout();
+            }
+            dockPanel.ResumeLayout(true, true);
+
+            // initialize database events
+            PalletSolutionDatabase.Instance.SolutionAppended += new PalletSolutionDatabase.SolutionMoveHandler(PalletSolutionDBModified);
+            PalletSolutionDatabase.Instance.SolutionDeleted += new PalletSolutionDatabase.SolutionMoveHandler(PalletSolutionDBModified);
+
+            // MRUManager
+            _mruManager = new MruManager();
+            _mruManager.Initialize(
+             this,                              // owner form
+             mnuFileMRU,                        // Recent Files menu item
+             "Software\\TreeDim\\StackBuilder"); // Registry path to keep MRU list
+
+            UpdateToolbarState();
+
+            // windows settings
+            if (null != Settings.Default.FormMainPosition)
+                Settings.Default.FormMainPosition.Restore(this);
+
+            // connection/disconnection event handling
+            WCFClientSingleton.Connected += OnConnected;
+            WCFClientSingleton.Disconnected += OnDisconnected;
+
+        }
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            if (null == Settings.Default.FormMainPosition)
+                Settings.Default.FormMainPosition = new WindowSettings();
+            Settings.Default.FormMainPosition.Record(this);
+            Settings.Default.Save();
+
+            CloseAllDocuments(e);
+            base.OnClosing(e);
         }
         #endregion
 
@@ -144,23 +210,31 @@ namespace treeDiM.StackBuilder.Desktop
         }
         private string StartPageURL
         {
-            get
-            { 
-                string cultAbbrev = string.Equals(System.Globalization.CultureInfo.CurrentCulture.ThreeLetterWindowsLanguageName, "FRA") ? "FRA" : "ENU";
-                string cultURL = Path.ChangeExtension(Settings.Default.StartPageUrl, null) + "_" + cultAbbrev;
-                return Path.ChangeExtension(cultURL, Path.GetExtension(Settings.Default.StartPageUrl));
-            }
+            get { return Settings.Default.StartPageUrl; }
         }
         public void ShowStartPage(object sender, EventArgs e)
         {
             if (!IsWebSiteReachable) return;
             _dockStartPage.Show(dockPanel, WeifenLuo.WinFormsUI.Docking.DockState.Document);
             _dockStartPage.Url = new System.Uri(StartPageURL);
+
+            _log.InfoFormat("Showing start page (URL : {0})", StartPageURL);
         }
         private void CloseStartPage()
         {
             if (null != _dockStartPage)
                 _dockStartPage.Hide();
+        }
+        private void timerLogin_Tick(object sender, EventArgs e)
+        {
+            timerLogin.Stop();
+            // show login form
+            if (!WCFClientSingleton.IsConnected)
+            {
+                WCFClientSingleton clientSingleton = WCFClientSingleton.Instance;
+            }
+            // note : CreateBasicLayout now called by OnConnected()
+            // (a handler for WCFClientSingleton.Connected event handler)
         }
         #endregion
 
@@ -208,55 +282,6 @@ namespace treeDiM.StackBuilder.Desktop
                 default:
                     return null;
             }
-        }
-
-        void FormMain_Load(object sender, System.EventArgs e)
-        {
-             string configFile = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "DockPanel.config");
-
-            // Apply a gray professional renderer as a default renderer
-            ToolStripManager.Renderer = _defaultRenderer;
-            _defaultRenderer.RoundedEdges = true;
-
-            // Set DockPanel properties
-            var theme = new VS2015BlueTheme();
-            dockPanel.Theme = theme; 
-
-            dockPanel.ActiveAutoHideContent = null;
-            dockPanel.Parent = this;
-
-            dockPanel.SuspendLayout(true);
-            if (File.Exists(configFile))
-                dockPanel.LoadFromXml(configFile, _deserializeDockContent);
-            else
-                // Load a basic layout
-                CreateBasicLayout();
-            dockPanel.ResumeLayout(true, true);
-
-            // initialize database events
-            PalletSolutionDatabase.Instance.SolutionAppended += new PalletSolutionDatabase.SolutionMoveHandler(PalletSolutionDBModified);
-            PalletSolutionDatabase.Instance.SolutionDeleted += new PalletSolutionDatabase.SolutionMoveHandler(PalletSolutionDBModified);
-
-            // MRUManager
-            _mruManager = new MruManager();
-            _mruManager.Initialize(
-             this,                              // owner form
-             mnuFileMRU,                        // Recent Files menu item
-             "Software\\TreeDim\\StackBuilder"); // Registry path to keep MRU list
-
-            UpdateToolbarState();
-
-            // windows settings
-            if (null != Settings.Default.FormMainPosition)
-                Settings.Default.FormMainPosition.Restore(this);
-        }
-
-        private void FormMain_FormClosing(object sender, System.Windows.Forms.FormClosingEventArgs e)
-        {
-            if (null == Settings.Default.FormMainPosition)
-                Settings.Default.FormMainPosition = new WindowSettings();
-            Settings.Default.FormMainPosition.Record(this);
-            Settings.Default.Save();                
         }
         #endregion
 
@@ -1037,11 +1062,28 @@ namespace treeDiM.StackBuilder.Desktop
         public void OnDocumentClosed(Document doc) { }
         #endregion
 
-        #region Form override
-        protected override void OnClosing(CancelEventArgs e)
+        #region Connection / disconnection
+        private void OnConnected()
         {
-            CloseAllDocuments(e);
-            base.OnClosing(e);
+            if (WCFClientSingleton.IsConnected)
+            {
+                PLMPackServiceClient client = WCFClientSingleton.Instance.Client;
+                DCGroup currentGroup = client.GetCurrentGroup();
+                // update main frame title
+                if (null != currentGroup)
+                    Text = Application.ProductName + " - (" + currentGroup.Name + "\\" + WCFClientSingleton.Instance.User.Name + ")";
+                // create basic layout
+                CreateBasicLayout();
+                UpdateDisconnectButton();
+            }
+        }
+        private void OnDisconnected()
+        {
+            Text = Application.ProductName;
+            UpdateDisconnectButton();
+        }
+        private void UpdateDisconnectButton()
+        { 
         }
         #endregion
 

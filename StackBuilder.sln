@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GUI controls", "GUI controls", "{C6DE47A1-1707-4139-9638-37CA983F3086}"
 EndProject
@@ -67,6 +67,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "treeDiM.StackBuilder.Graphics.TestRayIntersect", "treeDiM.StackBuilder.Graphics.TestRayIntersect\treeDiM.StackBuilder.Graphics.TestRayIntersect.csproj", "{0684F710-6746-468B-9B93-AA033B142502}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "treeDiM.StackBuilder.Engine.TestLayerBuilder", "treeDiM.StackBuilder.Engine.TestLayerBuilder\treeDiM.StackBuilder.Engine.TestLayerBuilder.csproj", "{179C6BB2-E91E-455C-B561-553D17E28AF4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "treeDiM.PLMPack.DBClient", "treeDiM.PLMPack.DBClient\treeDiM.PLMPack.DBClient.csproj", "{02C4930A-E1D6-4FCF-BB97-69AEC2715563}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -376,6 +378,16 @@ Global
 		{179C6BB2-E91E-455C-B561-553D17E28AF4}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{179C6BB2-E91E-455C-B561-553D17E28AF4}.Release|x86.ActiveCfg = Release|x86
 		{179C6BB2-E91E-455C-B561-553D17E28AF4}.Release|x86.Build.0 = Release|x86
+		{02C4930A-E1D6-4FCF-BB97-69AEC2715563}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02C4930A-E1D6-4FCF-BB97-69AEC2715563}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02C4930A-E1D6-4FCF-BB97-69AEC2715563}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{02C4930A-E1D6-4FCF-BB97-69AEC2715563}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{02C4930A-E1D6-4FCF-BB97-69AEC2715563}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{02C4930A-E1D6-4FCF-BB97-69AEC2715563}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02C4930A-E1D6-4FCF-BB97-69AEC2715563}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02C4930A-E1D6-4FCF-BB97-69AEC2715563}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{02C4930A-E1D6-4FCF-BB97-69AEC2715563}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{02C4930A-E1D6-4FCF-BB97-69AEC2715563}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

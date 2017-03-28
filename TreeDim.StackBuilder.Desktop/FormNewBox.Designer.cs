@@ -109,6 +109,7 @@
             // 
             // gbDimensions
             // 
+            resources.ApplyResources(this.gbDimensions, "gbDimensions");
             this.gbDimensions.Controls.Add(this.lbInsideHeight);
             this.gbDimensions.Controls.Add(this.lbInsideWidth);
             this.gbDimensions.Controls.Add(this.lbInsideLength);
@@ -127,7 +128,6 @@
             this.gbDimensions.Controls.Add(this.lbHeight);
             this.gbDimensions.Controls.Add(this.lbWidth);
             this.gbDimensions.Controls.Add(this.lbLength);
-            resources.ApplyResources(this.gbDimensions, "gbDimensions");
             this.gbDimensions.Name = "gbDimensions";
             this.gbDimensions.TabStop = false;
             // 
@@ -163,8 +163,8 @@
             // 
             // nudInsideLength
             // 
-            this.nudInsideLength.DecimalPlaces = 2;
             resources.ApplyResources(this.nudInsideLength, "nudInsideLength");
+            this.nudInsideLength.DecimalPlaces = 2;
             this.nudInsideLength.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -180,8 +180,8 @@
             // 
             // nudInsideHeight
             // 
-            this.nudInsideHeight.DecimalPlaces = 2;
             resources.ApplyResources(this.nudInsideHeight, "nudInsideHeight");
+            this.nudInsideHeight.DecimalPlaces = 2;
             this.nudInsideHeight.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -197,8 +197,8 @@
             // 
             // nudInsideWidth
             // 
-            this.nudInsideWidth.DecimalPlaces = 2;
             resources.ApplyResources(this.nudInsideWidth, "nudInsideWidth");
+            this.nudInsideWidth.DecimalPlaces = 2;
             this.nudInsideWidth.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -229,8 +229,8 @@
             // 
             // nudLength
             // 
-            this.nudLength.DecimalPlaces = 2;
             resources.ApplyResources(this.nudLength, "nudLength");
+            this.nudLength.DecimalPlaces = 2;
             this.nudLength.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -251,8 +251,8 @@
             // 
             // nudHeight
             // 
-            this.nudHeight.DecimalPlaces = 2;
             resources.ApplyResources(this.nudHeight, "nudHeight");
+            this.nudHeight.DecimalPlaces = 2;
             this.nudHeight.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -273,8 +273,8 @@
             // 
             // nudWidth
             // 
-            this.nudWidth.DecimalPlaces = 2;
             resources.ApplyResources(this.nudWidth, "nudWidth");
+            this.nudWidth.DecimalPlaces = 2;
             this.nudWidth.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -310,6 +310,7 @@
             // 
             // cbFace
             // 
+            resources.ApplyResources(this.cbFace, "cbFace");
             this.cbFace.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbFace.FormattingEnabled = true;
             this.cbFace.Items.AddRange(new object[] {
@@ -319,18 +320,17 @@
             resources.GetString("cbFace.Items3"),
             resources.GetString("cbFace.Items4"),
             resources.GetString("cbFace.Items5")});
-            resources.ApplyResources(this.cbFace, "cbFace");
             this.cbFace.Name = "cbFace";
             this.cbFace.SelectedIndexChanged += new System.EventHandler(this.onSelectedFaceChanged);
             // 
             // cbColor
             // 
+            resources.ApplyResources(this.cbColor, "cbColor");
             this.cbColor.Color = System.Drawing.Color.Chocolate;
             this.cbColor.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cbColor.DropDownHeight = 1;
             this.cbColor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbColor.DropDownWidth = 1;
-            resources.ApplyResources(this.cbColor, "cbColor");
             this.cbColor.Items.AddRange(new object[] {
             resources.GetString("cbColor.Items"),
             resources.GetString("cbColor.Items1"),
@@ -423,18 +423,19 @@
             resources.GetString("cbColor.Items88"),
             resources.GetString("cbColor.Items89"),
             resources.GetString("cbColor.Items90"),
-            resources.GetString("cbColor.Items91")});
+            resources.GetString("cbColor.Items91"),
+            resources.GetString("cbColor.Items92")});
             this.cbColor.Name = "cbColor";
             this.cbColor.SelectedColorChanged += new System.EventHandler(this.onFaceColorChanged);
             // 
             // gbFaceColor
             // 
+            resources.ApplyResources(this.gbFaceColor, "gbFaceColor");
             this.gbFaceColor.Controls.Add(this.btBitmaps);
             this.gbFaceColor.Controls.Add(this.chkAllFaces);
             this.gbFaceColor.Controls.Add(this.cbColor);
             this.gbFaceColor.Controls.Add(this.cbFace);
             this.gbFaceColor.Controls.Add(this.lbFace);
-            resources.ApplyResources(this.gbFaceColor, "gbFaceColor");
             this.gbFaceColor.Name = "gbFaceColor";
             this.gbFaceColor.TabStop = false;
             // 
@@ -454,9 +455,9 @@
             // 
             // gbWeight
             // 
+            resources.ApplyResources(this.gbWeight, "gbWeight");
             this.gbWeight.Controls.Add(this.vcWeight);
             this.gbWeight.Controls.Add(this.ovcNetWeight);
-            resources.ApplyResources(this.gbWeight, "gbWeight");
             this.gbWeight.Name = "gbWeight";
             this.gbWeight.TabStop = false;
             // 
@@ -513,30 +514,31 @@
             resources.ApplyResources(this.graphCtrl, "graphCtrl");
             this.graphCtrl.Name = "graphCtrl";
             this.graphCtrl.TabStop = false;
+            this.graphCtrl.Viewer = null;
             // 
             // statusStripDef
             // 
+            resources.ApplyResources(this.statusStripDef, "statusStripDef");
             this.statusStripDef.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabelDef});
-            resources.ApplyResources(this.statusStripDef, "statusStripDef");
             this.statusStripDef.Name = "statusStripDef";
             this.statusStripDef.SizingGrip = false;
             // 
             // toolStripStatusLabelDef
             // 
+            resources.ApplyResources(this.toolStripStatusLabelDef, "toolStripStatusLabelDef");
             this.toolStripStatusLabelDef.ForeColor = System.Drawing.Color.Red;
             this.toolStripStatusLabelDef.Name = "toolStripStatusLabelDef";
-            resources.ApplyResources(this.toolStripStatusLabelDef, "toolStripStatusLabelDef");
             // 
             // gbTape
             // 
+            resources.ApplyResources(this.gbTape, "gbTape");
             this.gbTape.Controls.Add(this.uLengthTapeWidth);
             this.gbTape.Controls.Add(this.cbTapeColor);
             this.gbTape.Controls.Add(this.nudTapeWidth);
             this.gbTape.Controls.Add(this.lbTapeColor);
             this.gbTape.Controls.Add(this.lbTapeWidth);
             this.gbTape.Controls.Add(this.checkBoxTape);
-            resources.ApplyResources(this.gbTape, "gbTape");
             this.gbTape.Name = "gbTape";
             this.gbTape.TabStop = false;
             // 
@@ -547,12 +549,12 @@
             // 
             // cbTapeColor
             // 
+            resources.ApplyResources(this.cbTapeColor, "cbTapeColor");
             this.cbTapeColor.Color = System.Drawing.Color.Chocolate;
             this.cbTapeColor.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cbTapeColor.DropDownHeight = 1;
             this.cbTapeColor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTapeColor.DropDownWidth = 1;
-            resources.ApplyResources(this.cbTapeColor, "cbTapeColor");
             this.cbTapeColor.Items.AddRange(new object[] {
             resources.GetString("cbTapeColor.Items"),
             resources.GetString("cbTapeColor.Items1"),
@@ -646,14 +648,15 @@
             resources.GetString("cbTapeColor.Items89"),
             resources.GetString("cbTapeColor.Items90"),
             resources.GetString("cbTapeColor.Items91"),
-            resources.GetString("cbTapeColor.Items92")});
+            resources.GetString("cbTapeColor.Items92"),
+            resources.GetString("cbTapeColor.Items93")});
             this.cbTapeColor.Name = "cbTapeColor";
             this.cbTapeColor.SelectedColorChanged += new System.EventHandler(this.onFaceColorChanged);
             // 
             // nudTapeWidth
             // 
-            this.nudTapeWidth.DecimalPlaces = 2;
             resources.ApplyResources(this.nudTapeWidth, "nudTapeWidth");
+            this.nudTapeWidth.DecimalPlaces = 2;
             this.nudTapeWidth.Maximum = new decimal(new int[] {
             1000,
             0,

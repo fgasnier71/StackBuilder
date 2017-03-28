@@ -36,7 +36,7 @@ namespace treeDiM.StackBuilder.GUIExtension
             PalletProperties palletInDoc = doc.CreateNewPallet(formDefinition.Pallet);
             // create interlayer in document
             InterlayerProperties interlayerInDoc = formDefinition.Interlayer == null ? null : doc.CreateNewInterlayer(formDefinition.Interlayer);
-
+/*
             // solver
             CasePalletSolver solver = new CasePalletSolver();
             // build list of solutions
@@ -52,11 +52,12 @@ namespace treeDiM.StackBuilder.GUIExtension
                 , null
                 , formDefinition.Constraints
                 , solver);
-             
+            
             // select solution / generate report / generate StackBuilder file
             FormSelectSolution formSolutions = new FormSelectSolution(doc, analysis);
             if (DialogResult.OK == formSolutions.ShowDialog())
                 return;        
+*/
         }
 
         public static void StartCaseOptimization(string name, double length, double width, double height)
@@ -104,6 +105,7 @@ namespace treeDiM.StackBuilder.GUIExtension
             get
             {
                 List<PalletProperties> pallets = new List<PalletProperties>();
+                /*
                 pallets.Add(new PalletProperties(null, "BLOCK", 1200.0, 1000.0, 150.0)); pallets[0].Name = "Block"; pallets[0].Description = "Wood block";
                 pallets.Add(new PalletProperties(null, "UK Standard", 1200.0, 1000.0, 150.0)); pallets[1].Name = "Standard UK"; pallets[1].Description = "Standard UK pallet";
                 pallets.Add(new PalletProperties(null, "GMA 48x40", 1219.2, 1016.0, 120.7)); pallets[2].Name = "GMA 48x40"; pallets[2].Description = "Grocery Manufacturer Association (North America)";
@@ -111,6 +113,7 @@ namespace treeDiM.StackBuilder.GUIExtension
                 pallets.Add(new PalletProperties(null, "EUR2", 1200.0, 1000.0, 144.0)); pallets[4].Name = "EUR2"; pallets[4].Description = "EUR2-EPAL (European Pallet Association)";
                 pallets.Add(new PalletProperties(null, "EUR3", 1200.0, 1000.0, 144.0)); pallets[5].Name = "EUR3"; pallets[5].Description = "EUR3-EPAL (European Pallet Association)";
                 pallets.Add(new PalletProperties(null, "EUR6", 800.0, 600.0, 144.0)); pallets[6].Name = "EUR6"; pallets[6].Description = "EUR6-EPAL (European Pallet Association)";
+                 */ 
                 return pallets;
             }
 

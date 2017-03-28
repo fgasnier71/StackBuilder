@@ -331,7 +331,8 @@ namespace treeDiM.StackBuilder.GUIExtension
                     return;
                 // selected solution
                 SelBoxCaseSolution selSolution = new SelBoxCaseSolution(_doc, _analysis, CurrentSolution);
-                ReportData reportData = new ReportData(_analysis, selSolution);
+/*
+                ReportData reportData = new ReportData(_analysis);
 
                 Reporter.CompanyLogo = string.Empty;
                 Reporter.ImageSizeSetting = Reporter.eImageSize.IMAGESIZE_DEFAULT;
@@ -355,7 +356,7 @@ namespace treeDiM.StackBuilder.GUIExtension
                 }
                 else
                     return;
-
+                */
                 // open file
                 if (formReport.OpenGeneratedFile)
                     Process.Start(new ProcessStartInfo(formReport.FilePath));

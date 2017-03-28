@@ -116,15 +116,16 @@ namespace treeDiM.StackBuilder.GUIExtension
                 constraintSet.AllowAlignedLayers = true;
                 constraintSet.AllowAlternateLayers = true;
                 constraintSet.AllowedPatternString = "Column,Diagonale,Interlocked,Trilock,Spirale";
-
+/*
                 _analysis = _document.CreateNewCasePalletAnalysis(
                     _name, _name
                     ,bundleProperties , palletProp
-                    , null /*interlayer */, null /* interlayerAntiSlip */
-                    , null /* palletCorners */, null  /*palletCap */, null /* palletFilm */
+                    , null , null 
+                    , null , null  , null 
                     , constraintSet
                     , new treeDiM.StackBuilder.Engine.LayerSolver()
                     );
+ */ 
                 // fill grid
                 FillGrid();
             }
@@ -373,7 +374,8 @@ namespace treeDiM.StackBuilder.GUIExtension
                     return;
                 // selected solution
                 SelCasePalletSolution selSolution = new SelCasePalletSolution(null, _analysis, CurrentSolution);
-                ReportData reportData = new ReportData(_analysis, selSolution);
+                /*
+                ReportData reportData = new ReportData(_analysis);
 
                 Reporter.CompanyLogo = string.Empty;
                 Reporter.ImageSizeSetting = Reporter.eImageSize.IMAGESIZE_DEFAULT;
@@ -397,10 +399,11 @@ namespace treeDiM.StackBuilder.GUIExtension
                 }
                 else
                     return;
-
+                */ 
                 // open file
                 if (formReport.OpenGeneratedFile)
                     Process.Start(new ProcessStartInfo(formReport.FilePath));
+ 
             }
             catch (Exception ex)
             { _log.Error(ex.ToString()); }

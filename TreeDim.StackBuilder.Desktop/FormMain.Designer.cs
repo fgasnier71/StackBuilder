@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.dockPanel = new WeifenLuo.WinFormsUI.Docking.DockPanel();
             this.menuStripMain = new System.Windows.Forms.MenuStrip();
@@ -118,6 +119,7 @@
             this.openFileDialogSB = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialogSB = new System.Windows.Forms.SaveFileDialog();
             this.saveFileDialogWebGL = new System.Windows.Forms.SaveFileDialog();
+            this.timerLogin = new System.Windows.Forms.Timer(this.components);
             this.menuStripMain.SuspendLayout();
             this.toolStripStandard.SuspendLayout();
             this.SuspendLayout();
@@ -738,6 +740,11 @@
             this.saveFileDialogWebGL.DefaultExt = "html";
             resources.ApplyResources(this.saveFileDialogWebGL, "saveFileDialogWebGL");
             // 
+            // timerLogin
+            // 
+            this.timerLogin.Interval = 2000;
+            this.timerLogin.Tick += new System.EventHandler(this.timerLogin_Tick);
+            // 
             // FormMain
             // 
             resources.ApplyResources(this, "$this");
@@ -747,8 +754,6 @@
             this.Controls.Add(this.dockPanel);
             this.IsMdiContainer = true;
             this.Name = "FormMain";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormMain_FormClosing);
-            this.Load += new System.EventHandler(this.FormMain_Load);
             this.menuStripMain.ResumeLayout(false);
             this.menuStripMain.PerformLayout();
             this.toolStripStandard.ResumeLayout(false);
@@ -848,5 +853,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator19;
         private System.Windows.Forms.ToolStripMenuItem openLibraryToolStripMenuItem;
         private System.Windows.Forms.ToolStripButton toolSBCreateAnalysisPalletTruck;
+        private System.Windows.Forms.Timer timerLogin;
     }
 }

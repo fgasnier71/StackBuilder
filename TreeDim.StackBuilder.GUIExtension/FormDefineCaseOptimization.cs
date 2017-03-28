@@ -70,8 +70,10 @@ namespace treeDiM.StackBuilder.GUIExtension
             get
             {
                 BoxProperties bProperties = new BoxProperties(null, (double)nudBoxLength.Value, (double)nudBoxWidth.Value, (double)nudBoxHeight.Value);
+/*
                 bProperties.Name = _boxName;
                 bProperties.Description = _boxName;
+ */ 
                 Color[] colors = new Color[6];
                 for (int i = 0; i < 6; ++i) colors[i] = Color.Turquoise;
                 bProperties.SetAllColors(colors);
@@ -263,8 +265,8 @@ namespace treeDiM.StackBuilder.GUIExtension
                 Reporter.CompanyLogo = string.Empty;
                 Reporter.ImageSizeSetting = Reporter.eImageSize.IMAGESIZE_DEFAULT;
                 Reporter reporter;
-
-                ReportData reportData = new ReportData(analysis, selSolution);
+                /*
+                ReportData reportData = new ReportData(analysis);
 
                 if (formReport.FileExtension == "doc")
                 {
@@ -285,7 +287,7 @@ namespace treeDiM.StackBuilder.GUIExtension
                 }
                 else
                     return;
-
+                */
                 // open file
                 if (formReport.OpenGeneratedFile)
                     Process.Start(new ProcessStartInfo(formReport.FilePath));
@@ -375,6 +377,7 @@ namespace treeDiM.StackBuilder.GUIExtension
                     , palletProperties.Name);
                 List<CasePalletSolution> palletSolutionList = new List<CasePalletSolution>();
                 palletSolutionList.Add(sol.PalletSolution);
+/*
                 analysis = doc.CreateNewCasePalletAnalysis(
                     analysisName
                     , analysisDescription
@@ -387,6 +390,7 @@ namespace treeDiM.StackBuilder.GUIExtension
                     , null
                     , BuildPalletConstraintSet()
                     , palletSolutionList);
+ */ 
             }
             catch (Exception ex)
             {
@@ -404,7 +408,7 @@ namespace treeDiM.StackBuilder.GUIExtension
             int selectedIndex = -1;
 
             List<PalletProperties> pallets = new List<PalletProperties>();
-
+            /*
             pallets.Add(new PalletProperties(null, "BLOCK", 1200.0, 1000.0, 150.0)); pallets[0].Name = "Block"; pallets[0].Description = "Wood block";
             pallets.Add(new PalletProperties(null, "UK Standard", 1200.0, 1000.0, 150.0)); pallets[1].Name = "Standard UK"; pallets[1].Description = "Standard UK pallet";
             pallets.Add(new PalletProperties(null, "GMA 48*40", 1219.2, 1016.0, 120.7)); pallets[2].Name = "GMA 48*40"; pallets[2].Description = "Grocery Manufacturer Association (North America)";
@@ -412,7 +416,7 @@ namespace treeDiM.StackBuilder.GUIExtension
             pallets.Add(new PalletProperties(null, "EUR2", 1200.0, 1000.0, 144.0)); pallets[4].Name = "EUR2"; pallets[4].Description = "EUR2-EPAL (European Pallet Association)";
             pallets.Add(new PalletProperties(null, "EUR3", 1200.0, 1000.0, 144.0)); pallets[5].Name = "EUR3"; pallets[5].Description = "EUR3-EPAL (European Pallet Association)";
             pallets.Add(new PalletProperties(null, "EUR6", 800.0, 600.0, 144.0)); pallets[6].Name = "EUR6"; pallets[6].Description = "EUR6-EPAL (European Pallet Association)";
-
+            */
             int i = 0;
             foreach (PalletProperties pallet in pallets)
             {

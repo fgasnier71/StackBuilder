@@ -68,7 +68,7 @@ namespace treeDiM.StackBuilder.Graphics
                 {
                     try
                     {
-                        var buffer = Properties.Resource.ResourceManager.GetObject("rotate") as byte[];
+                        var buffer = Properties.Resources.ResourceManager.GetObject("rotate") as byte[];
                         using (var m = new MemoryStream(buffer))
                         { _cursorRotate = new Cursor(m); }
                     }
@@ -209,15 +209,15 @@ namespace treeDiM.StackBuilder.Graphics
         void DrawToolBar(System.Drawing.Graphics g)
         { 
             int offsetIcon = 0;
-            g.DrawImage(Properties.Resource.View_1, new Point(offsetIcon, 1));
-            g.DrawImage(Properties.Resource.View_2, new Point(offsetIcon += _toolbarButtonOffset, 1));
-            g.DrawImage(Properties.Resource.View_3, new Point(offsetIcon += _toolbarButtonOffset, 1));
-            g.DrawImage(Properties.Resource.View_4, new Point(offsetIcon += _toolbarButtonOffset, 1));
-            g.DrawImage(Properties.Resource.View_Top, new Point(offsetIcon += _toolbarButtonOffset, 1));
-            g.DrawImage(Properties.Resource.View0, new Point(offsetIcon += _toolbarButtonOffset, 1));
-            g.DrawImage(Properties.Resource.View90, new Point(offsetIcon += _toolbarButtonOffset, 1));
-            g.DrawImage(Properties.Resource.View180, new Point(offsetIcon += _toolbarButtonOffset, 1));
-            g.DrawImage(Properties.Resource.View270, new Point(offsetIcon += _toolbarButtonOffset, 1));        
+            g.DrawImage(Properties.Resources.View_1, new Point(offsetIcon, 1));
+            g.DrawImage(Properties.Resources.View_2, new Point(offsetIcon += _toolbarButtonOffset, 1));
+            g.DrawImage(Properties.Resources.View_3, new Point(offsetIcon += _toolbarButtonOffset, 1));
+            g.DrawImage(Properties.Resources.View_4, new Point(offsetIcon += _toolbarButtonOffset, 1));
+            g.DrawImage(Properties.Resources.View_Top, new Point(offsetIcon += _toolbarButtonOffset, 1));
+            g.DrawImage(Properties.Resources.View0, new Point(offsetIcon += _toolbarButtonOffset, 1));
+            g.DrawImage(Properties.Resources.View90, new Point(offsetIcon += _toolbarButtonOffset, 1));
+            g.DrawImage(Properties.Resources.View180, new Point(offsetIcon += _toolbarButtonOffset, 1));
+            g.DrawImage(Properties.Resources.View270, new Point(offsetIcon += _toolbarButtonOffset, 1));        
         }
         void onButtonPressed(int iIndex)
         {

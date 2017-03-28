@@ -147,36 +147,6 @@
   <metadata name="menuStripMain.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>0, 0</value>
   </metadata>
-  <data name="menuStripMain.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="menuStripMain.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1180, 24</value>
-  </data>
-  <data name="menuStripMain.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="menuStripMain.Text" xml:space="preserve">
-    <value>menuStripMain</value>
-  </data>
-  <data name="&gt;&gt;menuStripMain.Name" xml:space="preserve">
-    <value>menuStripMain</value>
-  </data>
-  <data name="&gt;&gt;menuStripMain.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;menuStripMain.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;menuStripMain.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="fileToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>37, 20</value>
-  </data>
-  <data name="fileToolStripMenuItem.Text" xml:space="preserve">
-    <value>File</value>
-  </data>
   <data name="newToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -324,11 +294,11 @@
   <data name="exitToolStripMenuItem.ToolTipText" xml:space="preserve">
     <value>Exit the application</value>
   </data>
-  <data name="toolStripMenuItemTools.Size" type="System.Drawing.Size, System.Drawing">
-    <value>47, 20</value>
+  <data name="fileToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>37, 20</value>
   </data>
-  <data name="toolStripMenuItemTools.Text" xml:space="preserve">
-    <value>Tools</value>
+  <data name="fileToolStripMenuItem.Text" xml:space="preserve">
+    <value>File</value>
   </data>
   <data name="openLibraryToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -605,28 +575,6 @@
   <data name="newAnalysisToolStripMenuItem.Text" xml:space="preserve">
     <value>New Case/Pallet Analysis</value>
   </data>
-  <data name="newToolStripMenuItemCylinderPalletAnalysis.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGuSURBVDhPndDfK0NhGAfwk3/BvRtXUn7k0p2LlYxEpLAL
-        kdpmQ9HKjWzJr2Ea0hi2EAqFZI24WCklvxeFZGW22XIcw5G+ztnZHHNekqeem+d9n8/3vIcK+K5x5LLC
-        Md+EZbsWi2MqLFiUWLFpsD2nwsVuG17up/Fya0b4rB53G9kYbskBFSvXciv8lxa8v7ok7buagM1UA/q0
-        DsG1JHhnKJyPJmBAmyECW7NKsMclYAOjYEPzxDTarYkD+jRZIuC0KfC8JwNz042wf5KYRp81ILie/Dkz
-        qjNFwGGtxOu+nAOMAkBIo93aOKBLmS4Ca5ZyDijAUwwgpH0HOmrTRGB1pAxvBxzg6Y1+gTTtkZuFvsza
-        q1NFYGmwFOxhPhhP7AnSNIb7obRTnBmqUkRgwVTMAXkIRwFSGjyNeNxMxuV4Aja7EzGmVwCgBGSurwhw
-        y8H6+iMAKc3YlIsedRaGmrPhmO3EQygAnU4nACv2FhwsFcJ7YogAxDSaimt+WSaTCcATQ2PHacWUWYUh
-        fYUkjbQcWfxa3y/91MRlvviDv3T0urT4w883EYo/+xX4f1HUB45eJGmBKU1dAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="newToolStripMenuItemCylinderPalletAnalysis.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>White</value>
-  </data>
-  <data name="newToolStripMenuItemCylinderPalletAnalysis.Size" type="System.Drawing.Size, System.Drawing">
-    <value>261, 22</value>
-  </data>
-  <data name="newToolStripMenuItemCylinderPalletAnalysis.Text" xml:space="preserve">
-    <value>New Cylinder/Pallet Analysis</value>
-  </data>
   <data name="toolStripMenuItemCylinderPalletAnalysisV.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -665,6 +613,28 @@
   </data>
   <data name="toolStripMenuItemCylinderPalletH.Text" xml:space="preserve">
     <value>Horizontal</value>
+  </data>
+  <data name="newToolStripMenuItemCylinderPalletAnalysis.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGuSURBVDhPndDfK0NhGAfwk3/BvRtXUn7k0p2LlYxEpLAL
+        kdpmQ9HKjWzJr2Ea0hi2EAqFZI24WCklvxeFZGW22XIcw5G+ztnZHHNekqeem+d9n8/3vIcK+K5x5LLC
+        Md+EZbsWi2MqLFiUWLFpsD2nwsVuG17up/Fya0b4rB53G9kYbskBFSvXciv8lxa8v7ok7buagM1UA/q0
+        DsG1JHhnKJyPJmBAmyECW7NKsMclYAOjYEPzxDTarYkD+jRZIuC0KfC8JwNz042wf5KYRp81ILie/Dkz
+        qjNFwGGtxOu+nAOMAkBIo93aOKBLmS4Ca5ZyDijAUwwgpH0HOmrTRGB1pAxvBxzg6Y1+gTTtkZuFvsza
+        q1NFYGmwFOxhPhhP7AnSNIb7obRTnBmqUkRgwVTMAXkIRwFSGjyNeNxMxuV4Aja7EzGmVwCgBGSurwhw
+        y8H6+iMAKc3YlIsedRaGmrPhmO3EQygAnU4nACv2FhwsFcJ7YogAxDSaimt+WSaTCcATQ2PHacWUWYUh
+        fYUkjbQcWfxa3y/91MRlvviDv3T0urT4w883EYo/+xX4f1HUB45eJGmBKU1dAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="newToolStripMenuItemCylinderPalletAnalysis.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>White</value>
+  </data>
+  <data name="newToolStripMenuItemCylinderPalletAnalysis.Size" type="System.Drawing.Size, System.Drawing">
+    <value>261, 22</value>
+  </data>
+  <data name="newToolStripMenuItemCylinderPalletAnalysis.Text" xml:space="preserve">
+    <value>New Cylinder/Pallet Analysis</value>
   </data>
   <data name="newBoxCaseAnalysisToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -762,11 +732,11 @@
   <data name="settingsToolStripMenuItem.Text" xml:space="preserve">
     <value>Settings...</value>
   </data>
-  <data name="helpToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>44, 20</value>
+  <data name="toolStripMenuItemTools.Size" type="System.Drawing.Size, System.Drawing">
+    <value>47, 20</value>
   </data>
-  <data name="helpToolStripMenuItem.Text" xml:space="preserve">
-    <value>Help</value>
+  <data name="toolStripMenuItemTools.Text" xml:space="preserve">
+    <value>Tools</value>
   </data>
   <data name="toolStripMenuItemHelpStartPage.Size" type="System.Drawing.Size, System.Drawing">
     <value>184, 22</value>
@@ -825,9 +795,45 @@
   <data name="donateToolStripMenuItem.Text" xml:space="preserve">
     <value>Donate!</value>
   </data>
+  <data name="helpToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>44, 20</value>
+  </data>
+  <data name="helpToolStripMenuItem.Text" xml:space="preserve">
+    <value>Help</value>
+  </data>
+  <data name="menuStripMain.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="menuStripMain.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1180, 24</value>
+  </data>
+  <data name="menuStripMain.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="menuStripMain.Text" xml:space="preserve">
+    <value>menuStripMain</value>
+  </data>
+  <data name="&gt;&gt;menuStripMain.Name" xml:space="preserve">
+    <value>menuStripMain</value>
+  </data>
+  <data name="&gt;&gt;menuStripMain.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;menuStripMain.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;menuStripMain.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
   <metadata name="toolStripStandard.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>0, 24</value>
   </metadata>
+  <data name="toolStripMenuNewFile.Size" type="System.Drawing.Size, System.Drawing">
+    <value>107, 22</value>
+  </data>
+  <data name="toolStripMenuNewFile.Text" xml:space="preserve">
+    <value>New...</value>
+  </data>
   <data name="toolStripSplitButtonNew.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -1328,7 +1334,7 @@
     <value>White</value>
   </data>
   <data name="toolStripMenuItemCylinderPalletVertical.Size" type="System.Drawing.Size, System.Drawing">
-    <value>168, 38</value>
+    <value>152, 22</value>
   </data>
   <data name="toolStripMenuItemCylinderPalletVertical.Text" xml:space="preserve">
     <value>Cylinder/Pallet</value>
@@ -1353,7 +1359,7 @@
     <value>White</value>
   </data>
   <data name="toolStripMenuItemAnalysisCylinderCase.Size" type="System.Drawing.Size, System.Drawing">
-    <value>168, 38</value>
+    <value>152, 22</value>
   </data>
   <data name="toolStripMenuItemAnalysisCylinderCase.Text" xml:space="preserve">
     <value>Cylinder/Case</value>
@@ -1572,12 +1578,6 @@
   <data name="&gt;&gt;toolStripStandard.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="toolStripMenuNewFile.Size" type="System.Drawing.Size, System.Drawing">
-    <value>107, 22</value>
-  </data>
-  <data name="toolStripMenuNewFile.Text" xml:space="preserve">
-    <value>New...</value>
-  </data>
   <data name="ToolStripMenuNewFileINTEX.Size" type="System.Drawing.Size, System.Drawing">
     <value>179, 22</value>
   </data>
@@ -1608,6 +1608,9 @@
   <data name="saveFileDialogWebGL.Filter" xml:space="preserve">
     <value>Htlm file (*.html)|*.html</value>
   </data>
+  <metadata name="timerLogin.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 56</value>
+  </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -2209,6 +2212,12 @@
   </data>
   <data name="&gt;&gt;saveFileDialogWebGL.Type" xml:space="preserve">
     <value>System.Windows.Forms.SaveFileDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;timerLogin.Name" xml:space="preserve">
+    <value>timerLogin</value>
+  </data>
+  <data name="&gt;&gt;timerLogin.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Timer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>FormMain</value>

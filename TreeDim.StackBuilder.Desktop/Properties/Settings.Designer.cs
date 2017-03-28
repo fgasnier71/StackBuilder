@@ -653,15 +653,6 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
             }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://www.plmpack.com/stackbuilder/stackbuilder_start_page.htm")]
-        public string StartPageUrl {
-            get {
-                return ((string)(this["StartPageUrl"]));
-            }
-        }
-        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("True")]
@@ -812,6 +803,15 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
             }
             set {
                 this["ExcelLibraryPath"] = value;
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://www.treedim.com/stackbuilder/")]
+        public string StartPageUrl {
+            get {
+                return ((string)(this["StartPageUrl"]));
             }
         }
     }
