@@ -29,16 +29,14 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormEditPalletSolutionDB));
-            this.btClose = new System.Windows.Forms.Button();
-            this.lbPalletDimensions = new System.Windows.Forms.Label();
-            this.cbPalletDimensions = new System.Windows.Forms.ComboBox();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.gridSolutions = new SourceGrid.Grid();
+            this.btClose = new System.Windows.Forms.Button();
+            this.cbPalletDimensions = new System.Windows.Forms.ComboBox();
+            this.lbPalletDimensions = new System.Windows.Forms.Label();
+            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.pictureBoxCase = new System.Windows.Forms.PictureBox();
             this.pictureBoxSolution = new System.Windows.Forms.PictureBox();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCase)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSolution)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -47,52 +45,9 @@
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCase)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSolution)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btClose
-            // 
-            resources.ApplyResources(this.btClose, "btClose");
-            this.btClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btClose.Name = "btClose";
-            this.btClose.UseVisualStyleBackColor = true;
-            // 
-            // lbPalletDimensions
-            // 
-            resources.ApplyResources(this.lbPalletDimensions, "lbPalletDimensions");
-            this.lbPalletDimensions.Name = "lbPalletDimensions";
-            // 
-            // cbPalletDimensions
-            // 
-            resources.ApplyResources(this.cbPalletDimensions, "cbPalletDimensions");
-            this.cbPalletDimensions.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbPalletDimensions.FormattingEnabled = true;
-            this.cbPalletDimensions.Name = "cbPalletDimensions";
-            this.cbPalletDimensions.SelectedIndexChanged += new System.EventHandler(this.cbPalletDimensions_SelectedIndexChanged);
-            // 
-            // gridSolutions
-            // 
-            this.gridSolutions.AcceptsInputChar = false;
-            resources.ApplyResources(this.gridSolutions, "gridSolutions");
-            this.gridSolutions.EnableSort = false;
-            this.gridSolutions.Name = "gridSolutions";
-            this.gridSolutions.OptimizeMode = SourceGrid.CellOptimizeMode.ForRows;
-            this.gridSolutions.SelectionMode = SourceGrid.GridSelectionMode.Row;
-            this.gridSolutions.SpecialKeys = SourceGrid.GridSpecialKeys.Arrows;
-            this.gridSolutions.TabStop = true;
-            this.gridSolutions.ToolTipText = "";
-            // 
-            // pictureBoxCase
-            // 
-            resources.ApplyResources(this.pictureBoxCase, "pictureBoxCase");
-            this.pictureBoxCase.Name = "pictureBoxCase";
-            this.pictureBoxCase.TabStop = false;
-            this.pictureBoxCase.SizeChanged += new System.EventHandler(this.pictureBoxSolution_SizeChanged);
-            // 
-            // pictureBoxSolution
-            // 
-            resources.ApplyResources(this.pictureBoxSolution, "pictureBoxSolution");
-            this.pictureBoxSolution.Name = "pictureBoxSolution";
-            this.pictureBoxSolution.TabStop = false;
             // 
             // splitContainer1
             // 
@@ -112,6 +67,38 @@
             resources.ApplyResources(this.splitContainer1.Panel2, "splitContainer1.Panel2");
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
             // 
+            // gridSolutions
+            // 
+            this.gridSolutions.AcceptsInputChar = false;
+            resources.ApplyResources(this.gridSolutions, "gridSolutions");
+            this.gridSolutions.EnableSort = false;
+            this.gridSolutions.Name = "gridSolutions";
+            this.gridSolutions.OptimizeMode = SourceGrid.CellOptimizeMode.ForRows;
+            this.gridSolutions.SelectionMode = SourceGrid.GridSelectionMode.Row;
+            this.gridSolutions.SpecialKeys = SourceGrid.GridSpecialKeys.Arrows;
+            this.gridSolutions.TabStop = true;
+            this.gridSolutions.ToolTipText = "";
+            // 
+            // btClose
+            // 
+            resources.ApplyResources(this.btClose, "btClose");
+            this.btClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btClose.Name = "btClose";
+            this.btClose.UseVisualStyleBackColor = true;
+            // 
+            // cbPalletDimensions
+            // 
+            resources.ApplyResources(this.cbPalletDimensions, "cbPalletDimensions");
+            this.cbPalletDimensions.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbPalletDimensions.FormattingEnabled = true;
+            this.cbPalletDimensions.Name = "cbPalletDimensions";
+            this.cbPalletDimensions.SelectedIndexChanged += new System.EventHandler(this.cbPalletDimensions_SelectedIndexChanged);
+            // 
+            // lbPalletDimensions
+            // 
+            resources.ApplyResources(this.lbPalletDimensions, "lbPalletDimensions");
+            this.lbPalletDimensions.Name = "lbPalletDimensions";
+            // 
             // splitContainer2
             // 
             resources.ApplyResources(this.splitContainer2, "splitContainer2");
@@ -127,6 +114,19 @@
             resources.ApplyResources(this.splitContainer2.Panel2, "splitContainer2.Panel2");
             this.splitContainer2.Panel2.Controls.Add(this.pictureBoxSolution);
             // 
+            // pictureBoxCase
+            // 
+            resources.ApplyResources(this.pictureBoxCase, "pictureBoxCase");
+            this.pictureBoxCase.Name = "pictureBoxCase";
+            this.pictureBoxCase.TabStop = false;
+            this.pictureBoxCase.SizeChanged += new System.EventHandler(this.pictureBoxSolution_SizeChanged);
+            // 
+            // pictureBoxSolution
+            // 
+            resources.ApplyResources(this.pictureBoxSolution, "pictureBoxSolution");
+            this.pictureBoxSolution.Name = "pictureBoxSolution";
+            this.pictureBoxSolution.TabStop = false;
+            // 
             // FormEditPalletSolutionDB
             // 
             resources.ApplyResources(this, "$this");
@@ -138,8 +138,6 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.Load += new System.EventHandler(this.FormEditPalletSolutionDB_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCase)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSolution)).EndInit();
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
@@ -149,6 +147,8 @@
             this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCase)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSolution)).EndInit();
             this.ResumeLayout(false);
 
         }

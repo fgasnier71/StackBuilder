@@ -23,6 +23,7 @@
   </MetadataSources>
   <Metadata>
     <MetadataFile FileName="PLMPackService.xsd" MetadataType="Schema" ID="75065e19-2987-47d9-94d7-c28e62360222" SourceId="1" SourceUrl="https://plmpackcloudservice.cloudapp.net/PLMPackService.svc?xsd=xsd0" />
+    <MetadataFile FileName="PLMPackService3.xsd" MetadataType="Schema" ID="9b09e534-13ad-4fa6-b628-0f05f5795e92" SourceId="1" SourceUrl="https://plmpackcloudservice.cloudapp.net/PLMPackService.svc?xsd=xsd3" />
     <MetadataFile FileName="PLMPackService1.xsd" MetadataType="Schema" ID="99f1f6b7-90ed-47e1-90cf-55df83291297" SourceId="1" SourceUrl="https://plmpackcloudservice.cloudapp.net/PLMPackService.svc?xsd=xsd1" />
     <MetadataFile FileName="PLMPackService.wsdl" MetadataType="Wsdl" ID="d6e2518c-1aed-4fb5-b183-753716af886a" SourceId="1" SourceUrl="https://plmpackcloudservice.cloudapp.net/PLMPackService.svc?wsdl" />
     <MetadataFile FileName="PLMPackService.disco" MetadataType="Disco" ID="97989a7c-fbcf-4437-adab-779a33f462c5" SourceId="1" SourceUrl="https://plmpackcloudservice.cloudapp.net/PLMPackService.svc?disco" />

@@ -484,6 +484,15 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Import auto.
+        /// </summary>
+        internal static string ID_AUTOIMPORT {
+            get {
+                return ResourceManager.GetString("ID_AUTOIMPORT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Box.
         /// </summary>
         internal static string ID_BOX {
@@ -766,11 +775,29 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Description.
+        /// </summary>
+        internal static string ID_DESCRIPTION {
+            get {
+                return ResourceManager.GetString("ID_DESCRIPTION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Deselect.
         /// </summary>
         internal static string ID_DESELECT {
             get {
                 return ResourceManager.GetString("ID_DESELECT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dimensions.
+        /// </summary>
+        internal static string ID_DIMENSIONS {
+            get {
+                return ResourceManager.GetString("ID_DIMENSIONS", resourceCulture);
             }
         }
         
@@ -1194,6 +1221,15 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         internal static string ID_NAME {
             get {
                 return ResourceManager.GetString("ID_NAME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} named {1} already exists in database..
+        /// </summary>
+        internal static string ID_NAMEALREADYEXISTSINDB {
+            get {
+                return ResourceManager.GetString("ID_NAMEALREADYEXISTSINDB", resourceCulture);
             }
         }
         

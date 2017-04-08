@@ -129,11 +129,7 @@ namespace treeDiM.StackBuilder.Desktop
             if (File.Exists(configFile))
                 dockPanel.LoadFromXml(configFile, _deserializeDockContent);
             else
-            {
                 timerLogin.Start();
-                // Load a basic layout
-                CreateBasicLayout();
-            }
             dockPanel.ResumeLayout(true, true);
 
             // initialize database events
@@ -253,7 +249,7 @@ namespace treeDiM.StackBuilder.Desktop
         }
 
         public void ShowLogConsole()
-        { 
+        {
             // show or hide log console ?
             if (AssemblyConf == "debug" || Settings.Default.ShowLogConsole)
             {
@@ -262,7 +258,8 @@ namespace treeDiM.StackBuilder.Desktop
             }
             else
             {
-                _logConsole.Close();
+                if (null != _logConsole)
+                    _logConsole.Close();
                 _logConsole = null;
             }
         }
@@ -1232,9 +1229,14 @@ namespace treeDiM.StackBuilder.Desktop
         {
             try
             {
+                // Form show database
+                FormShowDatabase form = new FormShowDatabase();
+                form.ShowDialog();
+                /*
                 // show database edit form
                 FormEditPalletSolutionDB form = new FormEditPalletSolutionDB();
                 form.ShowDialog();
+                 * */
                 // update toolbar state as database may now be empty
                 UpdateToolbarState();
             }
@@ -1547,6 +1549,11 @@ namespace treeDiM.StackBuilder.Desktop
             }
             catch (Exception ex)
             { _log.Error(ex.ToString()); }
+        }
+        private void onDisconnect(object sender, EventArgs e)
+        {
+            // force full disconnection
+            WCFClientSingleton.DisconnectFull();
         }
         #endregion
 

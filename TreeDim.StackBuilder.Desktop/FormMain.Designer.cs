@@ -115,11 +115,13 @@
             this.editPaletSolutionsDBToolStripMenuItem = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButtonHelp = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonDisconnect = new System.Windows.Forms.ToolStripButton();
             this.ToolStripMenuNewFileINTEX = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialogSB = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialogSB = new System.Windows.Forms.SaveFileDialog();
             this.saveFileDialogWebGL = new System.Windows.Forms.SaveFileDialog();
             this.timerLogin = new System.Windows.Forms.Timer(this.components);
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.menuStripMain.SuspendLayout();
             this.toolStripStandard.SuspendLayout();
             this.SuspendLayout();
@@ -467,6 +469,8 @@
             this.toolStripSeparator3,
             this.toolStripButtonExcelLibrary,
             this.toolStripSeparator19,
+            this.editPaletSolutionsDBToolStripMenuItem,
+            this.toolStripSeparator4,
             this.toolStripButtonAddNewBox,
             this.toolStripButtonAddNewCase,
             this.toolStripButtonAddNewPack,
@@ -488,9 +492,9 @@
             this.toolStripButtonCreateNewBoxCasePalletOptimization,
             this.toolStripButtonOptimiseCase,
             this.toolStripSeparator10,
-            this.editPaletSolutionsDBToolStripMenuItem,
             this.toolStripSeparator8,
-            this.toolStripButtonHelp});
+            this.toolStripButtonHelp,
+            this.toolStripButtonDisconnect});
             resources.ApplyResources(this.toolStripStandard, "toolStripStandard");
             this.toolStripStandard.Name = "toolStripStandard";
             // 
@@ -721,6 +725,13 @@
             this.toolStripButtonHelp.Name = "toolStripButtonHelp";
             this.toolStripButtonHelp.Click += new System.EventHandler(this.helpToolStripMenuItemHelp_Click);
             // 
+            // toolStripButtonDisconnect
+            // 
+            resources.ApplyResources(this.toolStripButtonDisconnect, "toolStripButtonDisconnect");
+            this.toolStripButtonDisconnect.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonDisconnect.Name = "toolStripButtonDisconnect";
+            this.toolStripButtonDisconnect.Click += new System.EventHandler(this.onDisconnect);
+            // 
             // ToolStripMenuNewFileINTEX
             // 
             this.ToolStripMenuNewFileINTEX.Name = "ToolStripMenuNewFileINTEX";
@@ -744,6 +755,11 @@
             // 
             this.timerLogin.Interval = 2000;
             this.timerLogin.Tick += new System.EventHandler(this.timerLogin_Tick);
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            resources.ApplyResources(this.toolStripSeparator4, "toolStripSeparator4");
             // 
             // FormMain
             // 
@@ -854,5 +870,7 @@
         private System.Windows.Forms.ToolStripMenuItem openLibraryToolStripMenuItem;
         private System.Windows.Forms.ToolStripButton toolSBCreateAnalysisPalletTruck;
         private System.Windows.Forms.Timer timerLogin;
+        private System.Windows.Forms.ToolStripButton toolStripButtonDisconnect;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
     }
 }

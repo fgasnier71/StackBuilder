@@ -705,8 +705,6 @@
             this.Name = "FormNewBox";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormNewBox_FormClosing);
-            this.Load += new System.EventHandler(this.FormNewBox_Load);
             this.gbDimensions.ResumeLayout(false);
             this.gbDimensions.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudInsideLength)).EndInit();

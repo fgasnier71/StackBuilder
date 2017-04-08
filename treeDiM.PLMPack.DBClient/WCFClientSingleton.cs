@@ -178,13 +178,32 @@ namespace treeDiM.PLMPack.DBClient
         }
         public static void Disconnect()
         {
-            if (null != Disconnected)
-                Disconnected();
-            if (null != _instance)
+            try
             {
-                _instance._client.DisConnect();
-                _instance = null;
+                _log.Info("Disconnecting...");
+                if (null != Disconnected)
+                    Disconnected();
+                if (null != _instance)
+                {
+                    _instance._client.DisConnect();
+                    _instance = null;
+                }
+                _log.Info("Disconnected!");
             }
+            catch (Exception ex)
+            {
+                _log.Error(ex.Message);
+            }
+        }
+        public static void DisconnectFull()
+        {
+            Disconnect();
+            // delete userName / password settings
+            Properties.Settings.Default.CredentialUserName = string.Empty;
+            Properties.Settings.Default.CredentialPassword = string.Empty;
+            Properties.Settings.Default.Save();
+            // try to instantiate
+            WCFClientSingleton singleton = WCFClientSingleton.Instance;
         }
         public static bool IsConnected
         {

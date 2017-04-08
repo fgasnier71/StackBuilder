@@ -1205,6 +1205,1048 @@ namespace treeDiM.PLMPack.DBClient.PLMPackSR {
         }
     }
     
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DCSBTypeEnum", Namespace="http://schemas.datacontract.org/2004/07/PLMPack")]
+    public enum DCSBTypeEnum : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        TPallet = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        TPalletCorner = 1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        TPalletCap = 2,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        TPalletFilm = 3,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        TInterlayer = 4,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        TCase = 5,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        TBundle = 6,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        TCylinder = 7,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        TTruck = 8,
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DCSBPallet", Namespace="http://schemas.datacontract.org/2004/07/PLMPack")]
+    [System.SerializableAttribute()]
+    public partial class DCSBPallet : treeDiM.PLMPack.DBClient.PLMPackSR.DCSBItem {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ColorField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private treeDiM.PLMPack.DBClient.PLMPackSR.DCSBDim3D DimensionsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<double> MaximumLoadField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int PalletTypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double WeightField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Color {
+            get {
+                return this.ColorField;
+            }
+            set {
+                if ((this.ColorField.Equals(value) != true)) {
+                    this.ColorField = value;
+                    this.RaisePropertyChanged("Color");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public treeDiM.PLMPack.DBClient.PLMPackSR.DCSBDim3D Dimensions {
+            get {
+                return this.DimensionsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DimensionsField, value) != true)) {
+                    this.DimensionsField = value;
+                    this.RaisePropertyChanged("Dimensions");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<double> MaximumLoad {
+            get {
+                return this.MaximumLoadField;
+            }
+            set {
+                if ((this.MaximumLoadField.Equals(value) != true)) {
+                    this.MaximumLoadField = value;
+                    this.RaisePropertyChanged("MaximumLoad");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int PalletType {
+            get {
+                return this.PalletTypeField;
+            }
+            set {
+                if ((this.PalletTypeField.Equals(value) != true)) {
+                    this.PalletTypeField = value;
+                    this.RaisePropertyChanged("PalletType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double Weight {
+            get {
+                return this.WeightField;
+            }
+            set {
+                if ((this.WeightField.Equals(value) != true)) {
+                    this.WeightField = value;
+                    this.RaisePropertyChanged("Weight");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DCSBItem", Namespace="http://schemas.datacontract.org/2004/07/PLMPack")]
+    [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(treeDiM.PLMPack.DBClient.PLMPackSR.DCSBPalletCap))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(treeDiM.PLMPack.DBClient.PLMPackSR.DCSBPalletFilm))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(treeDiM.PLMPack.DBClient.PLMPackSR.DCSBPalletCorner))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(treeDiM.PLMPack.DBClient.PLMPackSR.DCSBInterlayer))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(treeDiM.PLMPack.DBClient.PLMPackSR.DCSBCase))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(treeDiM.PLMPack.DBClient.PLMPackSR.DCSBBundle))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(treeDiM.PLMPack.DBClient.PLMPackSR.DCSBCylinder))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(treeDiM.PLMPack.DBClient.PLMPackSR.DCSBTruck))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(treeDiM.PLMPack.DBClient.PLMPackSR.DCSBPallet))]
+    public partial class DCSBItem : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool AutoInsertField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescriptionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int UnitSystemField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool AutoInsert {
+            get {
+                return this.AutoInsertField;
+            }
+            set {
+                if ((this.AutoInsertField.Equals(value) != true)) {
+                    this.AutoInsertField = value;
+                    this.RaisePropertyChanged("AutoInsert");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Description {
+            get {
+                return this.DescriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
+                    this.DescriptionField = value;
+                    this.RaisePropertyChanged("Description");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ID {
+            get {
+                return this.IDField;
+            }
+            set {
+                if ((this.IDField.Equals(value) != true)) {
+                    this.IDField = value;
+                    this.RaisePropertyChanged("ID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int UnitSystem {
+            get {
+                return this.UnitSystemField;
+            }
+            set {
+                if ((this.UnitSystemField.Equals(value) != true)) {
+                    this.UnitSystemField = value;
+                    this.RaisePropertyChanged("UnitSystem");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DCSBPalletCap", Namespace="http://schemas.datacontract.org/2004/07/PLMPack")]
+    [System.SerializableAttribute()]
+    public partial class DCSBPalletCap : treeDiM.PLMPack.DBClient.PLMPackSR.DCSBItem {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ColorField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private treeDiM.PLMPack.DBClient.PLMPackSR.DCSBDim3D DimensionsInnerField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private treeDiM.PLMPack.DBClient.PLMPackSR.DCSBDim3D DimensionsOuterField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double WeightField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Color {
+            get {
+                return this.ColorField;
+            }
+            set {
+                if ((this.ColorField.Equals(value) != true)) {
+                    this.ColorField = value;
+                    this.RaisePropertyChanged("Color");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public treeDiM.PLMPack.DBClient.PLMPackSR.DCSBDim3D DimensionsInner {
+            get {
+                return this.DimensionsInnerField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DimensionsInnerField, value) != true)) {
+                    this.DimensionsInnerField = value;
+                    this.RaisePropertyChanged("DimensionsInner");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public treeDiM.PLMPack.DBClient.PLMPackSR.DCSBDim3D DimensionsOuter {
+            get {
+                return this.DimensionsOuterField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DimensionsOuterField, value) != true)) {
+                    this.DimensionsOuterField = value;
+                    this.RaisePropertyChanged("DimensionsOuter");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double Weight {
+            get {
+                return this.WeightField;
+            }
+            set {
+                if ((this.WeightField.Equals(value) != true)) {
+                    this.WeightField = value;
+                    this.RaisePropertyChanged("Weight");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DCSBPalletFilm", Namespace="http://schemas.datacontract.org/2004/07/PLMPack")]
+    [System.SerializableAttribute()]
+    public partial class DCSBPalletFilm : treeDiM.PLMPack.DBClient.PLMPackSR.DCSBItem {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ColorField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double HatchingAngleField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double HatchingSpaceField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool UseHatchingField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool UseTransparencyField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Color {
+            get {
+                return this.ColorField;
+            }
+            set {
+                if ((this.ColorField.Equals(value) != true)) {
+                    this.ColorField = value;
+                    this.RaisePropertyChanged("Color");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double HatchingAngle {
+            get {
+                return this.HatchingAngleField;
+            }
+            set {
+                if ((this.HatchingAngleField.Equals(value) != true)) {
+                    this.HatchingAngleField = value;
+                    this.RaisePropertyChanged("HatchingAngle");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double HatchingSpace {
+            get {
+                return this.HatchingSpaceField;
+            }
+            set {
+                if ((this.HatchingSpaceField.Equals(value) != true)) {
+                    this.HatchingSpaceField = value;
+                    this.RaisePropertyChanged("HatchingSpace");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool UseHatching {
+            get {
+                return this.UseHatchingField;
+            }
+            set {
+                if ((this.UseHatchingField.Equals(value) != true)) {
+                    this.UseHatchingField = value;
+                    this.RaisePropertyChanged("UseHatching");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool UseTransparency {
+            get {
+                return this.UseTransparencyField;
+            }
+            set {
+                if ((this.UseTransparencyField.Equals(value) != true)) {
+                    this.UseTransparencyField = value;
+                    this.RaisePropertyChanged("UseTransparency");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DCSBPalletCorner", Namespace="http://schemas.datacontract.org/2004/07/PLMPack")]
+    [System.SerializableAttribute()]
+    public partial class DCSBPalletCorner : treeDiM.PLMPack.DBClient.PLMPackSR.DCSBItem {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ColorField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double LengthField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double ThicknessField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double WeightField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double WidthField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Color {
+            get {
+                return this.ColorField;
+            }
+            set {
+                if ((this.ColorField.Equals(value) != true)) {
+                    this.ColorField = value;
+                    this.RaisePropertyChanged("Color");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double Length {
+            get {
+                return this.LengthField;
+            }
+            set {
+                if ((this.LengthField.Equals(value) != true)) {
+                    this.LengthField = value;
+                    this.RaisePropertyChanged("Length");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double Thickness {
+            get {
+                return this.ThicknessField;
+            }
+            set {
+                if ((this.ThicknessField.Equals(value) != true)) {
+                    this.ThicknessField = value;
+                    this.RaisePropertyChanged("Thickness");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double Weight {
+            get {
+                return this.WeightField;
+            }
+            set {
+                if ((this.WeightField.Equals(value) != true)) {
+                    this.WeightField = value;
+                    this.RaisePropertyChanged("Weight");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double Width {
+            get {
+                return this.WidthField;
+            }
+            set {
+                if ((this.WidthField.Equals(value) != true)) {
+                    this.WidthField = value;
+                    this.RaisePropertyChanged("Width");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DCSBInterlayer", Namespace="http://schemas.datacontract.org/2004/07/PLMPack")]
+    [System.SerializableAttribute()]
+    public partial class DCSBInterlayer : treeDiM.PLMPack.DBClient.PLMPackSR.DCSBItem {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ColorField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private treeDiM.PLMPack.DBClient.PLMPackSR.DCSBDim3D DimensionsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double WeightField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Color {
+            get {
+                return this.ColorField;
+            }
+            set {
+                if ((this.ColorField.Equals(value) != true)) {
+                    this.ColorField = value;
+                    this.RaisePropertyChanged("Color");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public treeDiM.PLMPack.DBClient.PLMPackSR.DCSBDim3D Dimensions {
+            get {
+                return this.DimensionsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DimensionsField, value) != true)) {
+                    this.DimensionsField = value;
+                    this.RaisePropertyChanged("Dimensions");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double Weight {
+            get {
+                return this.WeightField;
+            }
+            set {
+                if ((this.WeightField.Equals(value) != true)) {
+                    this.WeightField = value;
+                    this.RaisePropertyChanged("Weight");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DCSBCase", Namespace="http://schemas.datacontract.org/2004/07/PLMPack")]
+    [System.SerializableAttribute()]
+    public partial class DCSBCase : treeDiM.PLMPack.DBClient.PLMPackSR.DCSBItem {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int[] ColorsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private treeDiM.PLMPack.DBClient.PLMPackSR.DCSBDim3D DimensionsInnerField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private treeDiM.PLMPack.DBClient.PLMPackSR.DCSBDim3D DimensionsOuterField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool HasInnerDimsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool IsCaseField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<double> NetWeightField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool ShowTapeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int TapeColorField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double TapeWidthField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double WeightField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int[] Colors {
+            get {
+                return this.ColorsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ColorsField, value) != true)) {
+                    this.ColorsField = value;
+                    this.RaisePropertyChanged("Colors");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public treeDiM.PLMPack.DBClient.PLMPackSR.DCSBDim3D DimensionsInner {
+            get {
+                return this.DimensionsInnerField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DimensionsInnerField, value) != true)) {
+                    this.DimensionsInnerField = value;
+                    this.RaisePropertyChanged("DimensionsInner");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public treeDiM.PLMPack.DBClient.PLMPackSR.DCSBDim3D DimensionsOuter {
+            get {
+                return this.DimensionsOuterField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DimensionsOuterField, value) != true)) {
+                    this.DimensionsOuterField = value;
+                    this.RaisePropertyChanged("DimensionsOuter");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool HasInnerDims {
+            get {
+                return this.HasInnerDimsField;
+            }
+            set {
+                if ((this.HasInnerDimsField.Equals(value) != true)) {
+                    this.HasInnerDimsField = value;
+                    this.RaisePropertyChanged("HasInnerDims");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool IsCase {
+            get {
+                return this.IsCaseField;
+            }
+            set {
+                if ((this.IsCaseField.Equals(value) != true)) {
+                    this.IsCaseField = value;
+                    this.RaisePropertyChanged("IsCase");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<double> NetWeight {
+            get {
+                return this.NetWeightField;
+            }
+            set {
+                if ((this.NetWeightField.Equals(value) != true)) {
+                    this.NetWeightField = value;
+                    this.RaisePropertyChanged("NetWeight");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool ShowTape {
+            get {
+                return this.ShowTapeField;
+            }
+            set {
+                if ((this.ShowTapeField.Equals(value) != true)) {
+                    this.ShowTapeField = value;
+                    this.RaisePropertyChanged("ShowTape");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TapeColor {
+            get {
+                return this.TapeColorField;
+            }
+            set {
+                if ((this.TapeColorField.Equals(value) != true)) {
+                    this.TapeColorField = value;
+                    this.RaisePropertyChanged("TapeColor");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double TapeWidth {
+            get {
+                return this.TapeWidthField;
+            }
+            set {
+                if ((this.TapeWidthField.Equals(value) != true)) {
+                    this.TapeWidthField = value;
+                    this.RaisePropertyChanged("TapeWidth");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double Weight {
+            get {
+                return this.WeightField;
+            }
+            set {
+                if ((this.WeightField.Equals(value) != true)) {
+                    this.WeightField = value;
+                    this.RaisePropertyChanged("Weight");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DCSBBundle", Namespace="http://schemas.datacontract.org/2004/07/PLMPack")]
+    [System.SerializableAttribute()]
+    public partial class DCSBBundle : treeDiM.PLMPack.DBClient.PLMPackSR.DCSBItem {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ColorField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private treeDiM.PLMPack.DBClient.PLMPackSR.DCSBDim3D DimensionsUnitField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int NumberField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double UnitWeightField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Color {
+            get {
+                return this.ColorField;
+            }
+            set {
+                if ((this.ColorField.Equals(value) != true)) {
+                    this.ColorField = value;
+                    this.RaisePropertyChanged("Color");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public treeDiM.PLMPack.DBClient.PLMPackSR.DCSBDim3D DimensionsUnit {
+            get {
+                return this.DimensionsUnitField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DimensionsUnitField, value) != true)) {
+                    this.DimensionsUnitField = value;
+                    this.RaisePropertyChanged("DimensionsUnit");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Number {
+            get {
+                return this.NumberField;
+            }
+            set {
+                if ((this.NumberField.Equals(value) != true)) {
+                    this.NumberField = value;
+                    this.RaisePropertyChanged("Number");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double UnitWeight {
+            get {
+                return this.UnitWeightField;
+            }
+            set {
+                if ((this.UnitWeightField.Equals(value) != true)) {
+                    this.UnitWeightField = value;
+                    this.RaisePropertyChanged("UnitWeight");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DCSBCylinder", Namespace="http://schemas.datacontract.org/2004/07/PLMPack")]
+    [System.SerializableAttribute()]
+    public partial class DCSBCylinder : treeDiM.PLMPack.DBClient.PLMPackSR.DCSBItem {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ColorInnerField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ColorOuterField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ColorTopField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double HeightField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<double> NetWeightField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double RadiusInnerField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double RadiusOuterField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double WeightField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ColorInner {
+            get {
+                return this.ColorInnerField;
+            }
+            set {
+                if ((this.ColorInnerField.Equals(value) != true)) {
+                    this.ColorInnerField = value;
+                    this.RaisePropertyChanged("ColorInner");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ColorOuter {
+            get {
+                return this.ColorOuterField;
+            }
+            set {
+                if ((this.ColorOuterField.Equals(value) != true)) {
+                    this.ColorOuterField = value;
+                    this.RaisePropertyChanged("ColorOuter");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ColorTop {
+            get {
+                return this.ColorTopField;
+            }
+            set {
+                if ((this.ColorTopField.Equals(value) != true)) {
+                    this.ColorTopField = value;
+                    this.RaisePropertyChanged("ColorTop");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double Height {
+            get {
+                return this.HeightField;
+            }
+            set {
+                if ((this.HeightField.Equals(value) != true)) {
+                    this.HeightField = value;
+                    this.RaisePropertyChanged("Height");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<double> NetWeight {
+            get {
+                return this.NetWeightField;
+            }
+            set {
+                if ((this.NetWeightField.Equals(value) != true)) {
+                    this.NetWeightField = value;
+                    this.RaisePropertyChanged("NetWeight");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double RadiusInner {
+            get {
+                return this.RadiusInnerField;
+            }
+            set {
+                if ((this.RadiusInnerField.Equals(value) != true)) {
+                    this.RadiusInnerField = value;
+                    this.RaisePropertyChanged("RadiusInner");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double RadiusOuter {
+            get {
+                return this.RadiusOuterField;
+            }
+            set {
+                if ((this.RadiusOuterField.Equals(value) != true)) {
+                    this.RadiusOuterField = value;
+                    this.RaisePropertyChanged("RadiusOuter");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double Weight {
+            get {
+                return this.WeightField;
+            }
+            set {
+                if ((this.WeightField.Equals(value) != true)) {
+                    this.WeightField = value;
+                    this.RaisePropertyChanged("Weight");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DCSBTruck", Namespace="http://schemas.datacontract.org/2004/07/PLMPack")]
+    [System.SerializableAttribute()]
+    public partial class DCSBTruck : treeDiM.PLMPack.DBClient.PLMPackSR.DCSBItem {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double AdmissibleLoadField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ColorField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private treeDiM.PLMPack.DBClient.PLMPackSR.DCSBDim3D DimensionsInnerField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double AdmissibleLoad {
+            get {
+                return this.AdmissibleLoadField;
+            }
+            set {
+                if ((this.AdmissibleLoadField.Equals(value) != true)) {
+                    this.AdmissibleLoadField = value;
+                    this.RaisePropertyChanged("AdmissibleLoad");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Color {
+            get {
+                return this.ColorField;
+            }
+            set {
+                if ((this.ColorField.Equals(value) != true)) {
+                    this.ColorField = value;
+                    this.RaisePropertyChanged("Color");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public treeDiM.PLMPack.DBClient.PLMPackSR.DCSBDim3D DimensionsInner {
+            get {
+                return this.DimensionsInnerField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DimensionsInnerField, value) != true)) {
+                    this.DimensionsInnerField = value;
+                    this.RaisePropertyChanged("DimensionsInner");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DCSBDim3D", Namespace="http://schemas.datacontract.org/2004/07/PLMPack")]
+    [System.SerializableAttribute()]
+    public partial class DCSBDim3D : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double M0Field;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double M1Field;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double M2Field;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double M0 {
+            get {
+                return this.M0Field;
+            }
+            set {
+                if ((this.M0Field.Equals(value) != true)) {
+                    this.M0Field = value;
+                    this.RaisePropertyChanged("M0");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double M1 {
+            get {
+                return this.M1Field;
+            }
+            set {
+                if ((this.M1Field.Equals(value) != true)) {
+                    this.M1Field = value;
+                    this.RaisePropertyChanged("M1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double M2 {
+            get {
+                return this.M2Field;
+            }
+            set {
+                if ((this.M2Field.Equals(value) != true)) {
+                    this.M2Field = value;
+                    this.RaisePropertyChanged("M2");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="PLMPackSR.IPLMPackService")]
     public interface IPLMPackService {
@@ -1612,6 +2654,138 @@ namespace treeDiM.PLMPack.DBClient.PLMPackSR {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPLMPackService/GetMajorationSet", ReplyAction="http://tempuri.org/IPLMPackService/GetMajorationSetResponse")]
         System.Threading.Tasks.Task<treeDiM.PLMPack.DBClient.PLMPackSR.DCMajorationSet> GetMajorationSetAsync(System.Guid g, treeDiM.PLMPack.DBClient.PLMPackSR.DCCardboardProfile profile);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPLMPackService/ItemExists", ReplyAction="http://tempuri.org/IPLMPackService/ItemExistsResponse")]
+        bool ItemExists(treeDiM.PLMPack.DBClient.PLMPackSR.DCSBTypeEnum eType, string name);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPLMPackService/ItemExists", ReplyAction="http://tempuri.org/IPLMPackService/ItemExistsResponse")]
+        System.Threading.Tasks.Task<bool> ItemExistsAsync(treeDiM.PLMPack.DBClient.PLMPackSR.DCSBTypeEnum eType, string name);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPLMPackService/SetAutoInsert", ReplyAction="http://tempuri.org/IPLMPackService/SetAutoInsertResponse")]
+        void SetAutoInsert(treeDiM.PLMPack.DBClient.PLMPackSR.DCSBTypeEnum eType, int itemID, bool autoInsert);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPLMPackService/SetAutoInsert", ReplyAction="http://tempuri.org/IPLMPackService/SetAutoInsertResponse")]
+        System.Threading.Tasks.Task SetAutoInsertAsync(treeDiM.PLMPack.DBClient.PLMPackSR.DCSBTypeEnum eType, int itemID, bool autoInsert);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPLMPackService/RemoveItemById", ReplyAction="http://tempuri.org/IPLMPackService/RemoveItemByIdResponse")]
+        void RemoveItemById(treeDiM.PLMPack.DBClient.PLMPackSR.DCSBTypeEnum eType, int itemID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPLMPackService/RemoveItemById", ReplyAction="http://tempuri.org/IPLMPackService/RemoveItemByIdResponse")]
+        System.Threading.Tasks.Task RemoveItemByIdAsync(treeDiM.PLMPack.DBClient.PLMPackSR.DCSBTypeEnum eType, int itemID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPLMPackService/GetAllPallets", ReplyAction="http://tempuri.org/IPLMPackService/GetAllPalletsResponse")]
+        treeDiM.PLMPack.DBClient.PLMPackSR.DCSBPallet[] GetAllPallets();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPLMPackService/GetAllPallets", ReplyAction="http://tempuri.org/IPLMPackService/GetAllPalletsResponse")]
+        System.Threading.Tasks.Task<treeDiM.PLMPack.DBClient.PLMPackSR.DCSBPallet[]> GetAllPalletsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPLMPackService/CreateNewPallet", ReplyAction="http://tempuri.org/IPLMPackService/CreateNewPalletResponse")]
+        void CreateNewPallet(treeDiM.PLMPack.DBClient.PLMPackSR.DCSBPallet pallet);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPLMPackService/CreateNewPallet", ReplyAction="http://tempuri.org/IPLMPackService/CreateNewPalletResponse")]
+        System.Threading.Tasks.Task CreateNewPalletAsync(treeDiM.PLMPack.DBClient.PLMPackSR.DCSBPallet pallet);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPLMPackService/GetAllPalletCaps", ReplyAction="http://tempuri.org/IPLMPackService/GetAllPalletCapsResponse")]
+        treeDiM.PLMPack.DBClient.PLMPackSR.DCSBPalletCap[] GetAllPalletCaps();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPLMPackService/GetAllPalletCaps", ReplyAction="http://tempuri.org/IPLMPackService/GetAllPalletCapsResponse")]
+        System.Threading.Tasks.Task<treeDiM.PLMPack.DBClient.PLMPackSR.DCSBPalletCap[]> GetAllPalletCapsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPLMPackService/CreateNewPalletCap", ReplyAction="http://tempuri.org/IPLMPackService/CreateNewPalletCapResponse")]
+        void CreateNewPalletCap(treeDiM.PLMPack.DBClient.PLMPackSR.DCSBPalletCap palletCap);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPLMPackService/CreateNewPalletCap", ReplyAction="http://tempuri.org/IPLMPackService/CreateNewPalletCapResponse")]
+        System.Threading.Tasks.Task CreateNewPalletCapAsync(treeDiM.PLMPack.DBClient.PLMPackSR.DCSBPalletCap palletCap);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPLMPackService/GetAllPalletFilms", ReplyAction="http://tempuri.org/IPLMPackService/GetAllPalletFilmsResponse")]
+        treeDiM.PLMPack.DBClient.PLMPackSR.DCSBPalletFilm[] GetAllPalletFilms();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPLMPackService/GetAllPalletFilms", ReplyAction="http://tempuri.org/IPLMPackService/GetAllPalletFilmsResponse")]
+        System.Threading.Tasks.Task<treeDiM.PLMPack.DBClient.PLMPackSR.DCSBPalletFilm[]> GetAllPalletFilmsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPLMPackService/CreateNewPalletFilm", ReplyAction="http://tempuri.org/IPLMPackService/CreateNewPalletFilmResponse")]
+        void CreateNewPalletFilm(treeDiM.PLMPack.DBClient.PLMPackSR.DCSBPalletFilm palletFilm);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPLMPackService/CreateNewPalletFilm", ReplyAction="http://tempuri.org/IPLMPackService/CreateNewPalletFilmResponse")]
+        System.Threading.Tasks.Task CreateNewPalletFilmAsync(treeDiM.PLMPack.DBClient.PLMPackSR.DCSBPalletFilm palletFilm);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPLMPackService/GetAllPalletCorners", ReplyAction="http://tempuri.org/IPLMPackService/GetAllPalletCornersResponse")]
+        treeDiM.PLMPack.DBClient.PLMPackSR.DCSBPalletCorner[] GetAllPalletCorners();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPLMPackService/GetAllPalletCorners", ReplyAction="http://tempuri.org/IPLMPackService/GetAllPalletCornersResponse")]
+        System.Threading.Tasks.Task<treeDiM.PLMPack.DBClient.PLMPackSR.DCSBPalletCorner[]> GetAllPalletCornersAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPLMPackService/CreateNewPalletCorner", ReplyAction="http://tempuri.org/IPLMPackService/CreateNewPalletCornerResponse")]
+        void CreateNewPalletCorner(treeDiM.PLMPack.DBClient.PLMPackSR.DCSBPalletCorner palletCorner);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPLMPackService/CreateNewPalletCorner", ReplyAction="http://tempuri.org/IPLMPackService/CreateNewPalletCornerResponse")]
+        System.Threading.Tasks.Task CreateNewPalletCornerAsync(treeDiM.PLMPack.DBClient.PLMPackSR.DCSBPalletCorner palletCorner);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPLMPackService/GetAllInterlayers", ReplyAction="http://tempuri.org/IPLMPackService/GetAllInterlayersResponse")]
+        treeDiM.PLMPack.DBClient.PLMPackSR.DCSBInterlayer[] GetAllInterlayers();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPLMPackService/GetAllInterlayers", ReplyAction="http://tempuri.org/IPLMPackService/GetAllInterlayersResponse")]
+        System.Threading.Tasks.Task<treeDiM.PLMPack.DBClient.PLMPackSR.DCSBInterlayer[]> GetAllInterlayersAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPLMPackService/CreateNewInterlayer", ReplyAction="http://tempuri.org/IPLMPackService/CreateNewInterlayerResponse")]
+        void CreateNewInterlayer(treeDiM.PLMPack.DBClient.PLMPackSR.DCSBInterlayer interlayer);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPLMPackService/CreateNewInterlayer", ReplyAction="http://tempuri.org/IPLMPackService/CreateNewInterlayerResponse")]
+        System.Threading.Tasks.Task CreateNewInterlayerAsync(treeDiM.PLMPack.DBClient.PLMPackSR.DCSBInterlayer interlayer);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPLMPackService/GetAllCases", ReplyAction="http://tempuri.org/IPLMPackService/GetAllCasesResponse")]
+        treeDiM.PLMPack.DBClient.PLMPackSR.DCSBCase[] GetAllCases();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPLMPackService/GetAllCases", ReplyAction="http://tempuri.org/IPLMPackService/GetAllCasesResponse")]
+        System.Threading.Tasks.Task<treeDiM.PLMPack.DBClient.PLMPackSR.DCSBCase[]> GetAllCasesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPLMPackService/GetAllBoxes", ReplyAction="http://tempuri.org/IPLMPackService/GetAllBoxesResponse")]
+        treeDiM.PLMPack.DBClient.PLMPackSR.DCSBCase[] GetAllBoxes();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPLMPackService/GetAllBoxes", ReplyAction="http://tempuri.org/IPLMPackService/GetAllBoxesResponse")]
+        System.Threading.Tasks.Task<treeDiM.PLMPack.DBClient.PLMPackSR.DCSBCase[]> GetAllBoxesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPLMPackService/CreateNewCase", ReplyAction="http://tempuri.org/IPLMPackService/CreateNewCaseResponse")]
+        void CreateNewCase(treeDiM.PLMPack.DBClient.PLMPackSR.DCSBCase sbCase);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPLMPackService/CreateNewCase", ReplyAction="http://tempuri.org/IPLMPackService/CreateNewCaseResponse")]
+        System.Threading.Tasks.Task CreateNewCaseAsync(treeDiM.PLMPack.DBClient.PLMPackSR.DCSBCase sbCase);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPLMPackService/GetAllBundles", ReplyAction="http://tempuri.org/IPLMPackService/GetAllBundlesResponse")]
+        treeDiM.PLMPack.DBClient.PLMPackSR.DCSBBundle[] GetAllBundles();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPLMPackService/GetAllBundles", ReplyAction="http://tempuri.org/IPLMPackService/GetAllBundlesResponse")]
+        System.Threading.Tasks.Task<treeDiM.PLMPack.DBClient.PLMPackSR.DCSBBundle[]> GetAllBundlesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPLMPackService/CreateNewBundle", ReplyAction="http://tempuri.org/IPLMPackService/CreateNewBundleResponse")]
+        void CreateNewBundle(treeDiM.PLMPack.DBClient.PLMPackSR.DCSBBundle bundle);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPLMPackService/CreateNewBundle", ReplyAction="http://tempuri.org/IPLMPackService/CreateNewBundleResponse")]
+        System.Threading.Tasks.Task CreateNewBundleAsync(treeDiM.PLMPack.DBClient.PLMPackSR.DCSBBundle bundle);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPLMPackService/GetAllCylinders", ReplyAction="http://tempuri.org/IPLMPackService/GetAllCylindersResponse")]
+        treeDiM.PLMPack.DBClient.PLMPackSR.DCSBCylinder[] GetAllCylinders();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPLMPackService/GetAllCylinders", ReplyAction="http://tempuri.org/IPLMPackService/GetAllCylindersResponse")]
+        System.Threading.Tasks.Task<treeDiM.PLMPack.DBClient.PLMPackSR.DCSBCylinder[]> GetAllCylindersAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPLMPackService/CreateNewCylinder", ReplyAction="http://tempuri.org/IPLMPackService/CreateNewCylinderResponse")]
+        void CreateNewCylinder(treeDiM.PLMPack.DBClient.PLMPackSR.DCSBCylinder cylinder);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPLMPackService/CreateNewCylinder", ReplyAction="http://tempuri.org/IPLMPackService/CreateNewCylinderResponse")]
+        System.Threading.Tasks.Task CreateNewCylinderAsync(treeDiM.PLMPack.DBClient.PLMPackSR.DCSBCylinder cylinder);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPLMPackService/GetAllTrucks", ReplyAction="http://tempuri.org/IPLMPackService/GetAllTrucksResponse")]
+        treeDiM.PLMPack.DBClient.PLMPackSR.DCSBTruck[] GetAllTrucks();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPLMPackService/GetAllTrucks", ReplyAction="http://tempuri.org/IPLMPackService/GetAllTrucksResponse")]
+        System.Threading.Tasks.Task<treeDiM.PLMPack.DBClient.PLMPackSR.DCSBTruck[]> GetAllTrucksAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPLMPackService/CreateNewTruck", ReplyAction="http://tempuri.org/IPLMPackService/CreateNewTruckResponse")]
+        void CreateNewTruck(treeDiM.PLMPack.DBClient.PLMPackSR.DCSBTruck truck);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPLMPackService/CreateNewTruck", ReplyAction="http://tempuri.org/IPLMPackService/CreateNewTruckResponse")]
+        System.Threading.Tasks.Task CreateNewTruckAsync(treeDiM.PLMPack.DBClient.PLMPackSR.DCSBTruck truck);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -2295,6 +3469,182 @@ namespace treeDiM.PLMPack.DBClient.PLMPackSR {
         
         public System.Threading.Tasks.Task<treeDiM.PLMPack.DBClient.PLMPackSR.DCMajorationSet> GetMajorationSetAsync(System.Guid g, treeDiM.PLMPack.DBClient.PLMPackSR.DCCardboardProfile profile) {
             return base.Channel.GetMajorationSetAsync(g, profile);
+        }
+        
+        public bool ItemExists(treeDiM.PLMPack.DBClient.PLMPackSR.DCSBTypeEnum eType, string name) {
+            return base.Channel.ItemExists(eType, name);
+        }
+        
+        public System.Threading.Tasks.Task<bool> ItemExistsAsync(treeDiM.PLMPack.DBClient.PLMPackSR.DCSBTypeEnum eType, string name) {
+            return base.Channel.ItemExistsAsync(eType, name);
+        }
+        
+        public void SetAutoInsert(treeDiM.PLMPack.DBClient.PLMPackSR.DCSBTypeEnum eType, int itemID, bool autoInsert) {
+            base.Channel.SetAutoInsert(eType, itemID, autoInsert);
+        }
+        
+        public System.Threading.Tasks.Task SetAutoInsertAsync(treeDiM.PLMPack.DBClient.PLMPackSR.DCSBTypeEnum eType, int itemID, bool autoInsert) {
+            return base.Channel.SetAutoInsertAsync(eType, itemID, autoInsert);
+        }
+        
+        public void RemoveItemById(treeDiM.PLMPack.DBClient.PLMPackSR.DCSBTypeEnum eType, int itemID) {
+            base.Channel.RemoveItemById(eType, itemID);
+        }
+        
+        public System.Threading.Tasks.Task RemoveItemByIdAsync(treeDiM.PLMPack.DBClient.PLMPackSR.DCSBTypeEnum eType, int itemID) {
+            return base.Channel.RemoveItemByIdAsync(eType, itemID);
+        }
+        
+        public treeDiM.PLMPack.DBClient.PLMPackSR.DCSBPallet[] GetAllPallets() {
+            return base.Channel.GetAllPallets();
+        }
+        
+        public System.Threading.Tasks.Task<treeDiM.PLMPack.DBClient.PLMPackSR.DCSBPallet[]> GetAllPalletsAsync() {
+            return base.Channel.GetAllPalletsAsync();
+        }
+        
+        public void CreateNewPallet(treeDiM.PLMPack.DBClient.PLMPackSR.DCSBPallet pallet) {
+            base.Channel.CreateNewPallet(pallet);
+        }
+        
+        public System.Threading.Tasks.Task CreateNewPalletAsync(treeDiM.PLMPack.DBClient.PLMPackSR.DCSBPallet pallet) {
+            return base.Channel.CreateNewPalletAsync(pallet);
+        }
+        
+        public treeDiM.PLMPack.DBClient.PLMPackSR.DCSBPalletCap[] GetAllPalletCaps() {
+            return base.Channel.GetAllPalletCaps();
+        }
+        
+        public System.Threading.Tasks.Task<treeDiM.PLMPack.DBClient.PLMPackSR.DCSBPalletCap[]> GetAllPalletCapsAsync() {
+            return base.Channel.GetAllPalletCapsAsync();
+        }
+        
+        public void CreateNewPalletCap(treeDiM.PLMPack.DBClient.PLMPackSR.DCSBPalletCap palletCap) {
+            base.Channel.CreateNewPalletCap(palletCap);
+        }
+        
+        public System.Threading.Tasks.Task CreateNewPalletCapAsync(treeDiM.PLMPack.DBClient.PLMPackSR.DCSBPalletCap palletCap) {
+            return base.Channel.CreateNewPalletCapAsync(palletCap);
+        }
+        
+        public treeDiM.PLMPack.DBClient.PLMPackSR.DCSBPalletFilm[] GetAllPalletFilms() {
+            return base.Channel.GetAllPalletFilms();
+        }
+        
+        public System.Threading.Tasks.Task<treeDiM.PLMPack.DBClient.PLMPackSR.DCSBPalletFilm[]> GetAllPalletFilmsAsync() {
+            return base.Channel.GetAllPalletFilmsAsync();
+        }
+        
+        public void CreateNewPalletFilm(treeDiM.PLMPack.DBClient.PLMPackSR.DCSBPalletFilm palletFilm) {
+            base.Channel.CreateNewPalletFilm(palletFilm);
+        }
+        
+        public System.Threading.Tasks.Task CreateNewPalletFilmAsync(treeDiM.PLMPack.DBClient.PLMPackSR.DCSBPalletFilm palletFilm) {
+            return base.Channel.CreateNewPalletFilmAsync(palletFilm);
+        }
+        
+        public treeDiM.PLMPack.DBClient.PLMPackSR.DCSBPalletCorner[] GetAllPalletCorners() {
+            return base.Channel.GetAllPalletCorners();
+        }
+        
+        public System.Threading.Tasks.Task<treeDiM.PLMPack.DBClient.PLMPackSR.DCSBPalletCorner[]> GetAllPalletCornersAsync() {
+            return base.Channel.GetAllPalletCornersAsync();
+        }
+        
+        public void CreateNewPalletCorner(treeDiM.PLMPack.DBClient.PLMPackSR.DCSBPalletCorner palletCorner) {
+            base.Channel.CreateNewPalletCorner(palletCorner);
+        }
+        
+        public System.Threading.Tasks.Task CreateNewPalletCornerAsync(treeDiM.PLMPack.DBClient.PLMPackSR.DCSBPalletCorner palletCorner) {
+            return base.Channel.CreateNewPalletCornerAsync(palletCorner);
+        }
+        
+        public treeDiM.PLMPack.DBClient.PLMPackSR.DCSBInterlayer[] GetAllInterlayers() {
+            return base.Channel.GetAllInterlayers();
+        }
+        
+        public System.Threading.Tasks.Task<treeDiM.PLMPack.DBClient.PLMPackSR.DCSBInterlayer[]> GetAllInterlayersAsync() {
+            return base.Channel.GetAllInterlayersAsync();
+        }
+        
+        public void CreateNewInterlayer(treeDiM.PLMPack.DBClient.PLMPackSR.DCSBInterlayer interlayer) {
+            base.Channel.CreateNewInterlayer(interlayer);
+        }
+        
+        public System.Threading.Tasks.Task CreateNewInterlayerAsync(treeDiM.PLMPack.DBClient.PLMPackSR.DCSBInterlayer interlayer) {
+            return base.Channel.CreateNewInterlayerAsync(interlayer);
+        }
+        
+        public treeDiM.PLMPack.DBClient.PLMPackSR.DCSBCase[] GetAllCases() {
+            return base.Channel.GetAllCases();
+        }
+        
+        public System.Threading.Tasks.Task<treeDiM.PLMPack.DBClient.PLMPackSR.DCSBCase[]> GetAllCasesAsync() {
+            return base.Channel.GetAllCasesAsync();
+        }
+        
+        public treeDiM.PLMPack.DBClient.PLMPackSR.DCSBCase[] GetAllBoxes() {
+            return base.Channel.GetAllBoxes();
+        }
+        
+        public System.Threading.Tasks.Task<treeDiM.PLMPack.DBClient.PLMPackSR.DCSBCase[]> GetAllBoxesAsync() {
+            return base.Channel.GetAllBoxesAsync();
+        }
+        
+        public void CreateNewCase(treeDiM.PLMPack.DBClient.PLMPackSR.DCSBCase sbCase) {
+            base.Channel.CreateNewCase(sbCase);
+        }
+        
+        public System.Threading.Tasks.Task CreateNewCaseAsync(treeDiM.PLMPack.DBClient.PLMPackSR.DCSBCase sbCase) {
+            return base.Channel.CreateNewCaseAsync(sbCase);
+        }
+        
+        public treeDiM.PLMPack.DBClient.PLMPackSR.DCSBBundle[] GetAllBundles() {
+            return base.Channel.GetAllBundles();
+        }
+        
+        public System.Threading.Tasks.Task<treeDiM.PLMPack.DBClient.PLMPackSR.DCSBBundle[]> GetAllBundlesAsync() {
+            return base.Channel.GetAllBundlesAsync();
+        }
+        
+        public void CreateNewBundle(treeDiM.PLMPack.DBClient.PLMPackSR.DCSBBundle bundle) {
+            base.Channel.CreateNewBundle(bundle);
+        }
+        
+        public System.Threading.Tasks.Task CreateNewBundleAsync(treeDiM.PLMPack.DBClient.PLMPackSR.DCSBBundle bundle) {
+            return base.Channel.CreateNewBundleAsync(bundle);
+        }
+        
+        public treeDiM.PLMPack.DBClient.PLMPackSR.DCSBCylinder[] GetAllCylinders() {
+            return base.Channel.GetAllCylinders();
+        }
+        
+        public System.Threading.Tasks.Task<treeDiM.PLMPack.DBClient.PLMPackSR.DCSBCylinder[]> GetAllCylindersAsync() {
+            return base.Channel.GetAllCylindersAsync();
+        }
+        
+        public void CreateNewCylinder(treeDiM.PLMPack.DBClient.PLMPackSR.DCSBCylinder cylinder) {
+            base.Channel.CreateNewCylinder(cylinder);
+        }
+        
+        public System.Threading.Tasks.Task CreateNewCylinderAsync(treeDiM.PLMPack.DBClient.PLMPackSR.DCSBCylinder cylinder) {
+            return base.Channel.CreateNewCylinderAsync(cylinder);
+        }
+        
+        public treeDiM.PLMPack.DBClient.PLMPackSR.DCSBTruck[] GetAllTrucks() {
+            return base.Channel.GetAllTrucks();
+        }
+        
+        public System.Threading.Tasks.Task<treeDiM.PLMPack.DBClient.PLMPackSR.DCSBTruck[]> GetAllTrucksAsync() {
+            return base.Channel.GetAllTrucksAsync();
+        }
+        
+        public void CreateNewTruck(treeDiM.PLMPack.DBClient.PLMPackSR.DCSBTruck truck) {
+            base.Channel.CreateNewTruck(truck);
+        }
+        
+        public System.Threading.Tasks.Task CreateNewTruckAsync(treeDiM.PLMPack.DBClient.PLMPackSR.DCSBTruck truck) {
+            return base.Channel.CreateNewTruckAsync(truck);
         }
     }
 }

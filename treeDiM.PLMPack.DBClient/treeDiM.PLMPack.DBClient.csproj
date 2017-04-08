@@ -122,6 +122,9 @@
     <None Include="Service References\PLMPackSR\PLMPackService2.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\PLMPackSR\PLMPackService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\PLMPackSR\treeDiM.PLMPack.DBClient.PLMPackSR.DCCardboadFormat.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -141,6 +144,33 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\PLMPackSR\treeDiM.PLMPack.DBClient.PLMPackSR.DCParamDefaultValue.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PLMPackSR\treeDiM.PLMPack.DBClient.PLMPackSR.DCSBBundle.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PLMPackSR\treeDiM.PLMPack.DBClient.PLMPackSR.DCSBCase.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PLMPackSR\treeDiM.PLMPack.DBClient.PLMPackSR.DCSBCylinder.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PLMPackSR\treeDiM.PLMPack.DBClient.PLMPackSR.DCSBInterlayer.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PLMPackSR\treeDiM.PLMPack.DBClient.PLMPackSR.DCSBPallet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PLMPackSR\treeDiM.PLMPack.DBClient.PLMPackSR.DCSBPalletCap.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PLMPackSR\treeDiM.PLMPack.DBClient.PLMPackSR.DCSBPalletCorner.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PLMPackSR\treeDiM.PLMPack.DBClient.PLMPackSR.DCSBPalletFilm.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PLMPackSR\treeDiM.PLMPack.DBClient.PLMPackSR.DCSBTruck.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\PLMPackSR\treeDiM.PLMPack.DBClient.PLMPackSR.DCThumbnail.datasource">

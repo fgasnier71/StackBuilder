@@ -6,13 +6,15 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-
-using treeDiM.StackBuilder.Basics;
-using treeDiM.StackBuilder.Graphics;
 using Sharp3D.Math.Core;
 using log4net;
 
+using treeDiM.StackBuilder.Basics;
+using treeDiM.StackBuilder.Graphics;
 using treeDiM.StackBuilder.Desktop.Properties;
+
+using treeDiM.PLMPack.DBClient;
+using treeDiM.PLMPack.DBClient.PLMPackSR;
 #endregion
 
 namespace treeDiM.StackBuilder.Desktop
@@ -203,6 +205,36 @@ namespace treeDiM.StackBuilder.Desktop
             if (null == Settings.Default.FormNewTruckPosition)
                 Settings.Default.FormNewTruckPosition = new WindowSettings();
             Settings.Default.FormNewTruckPosition.Record(this);
+        }
+        #endregion
+
+        #region Send to database
+        private void onSendToDB(object sender, EventArgs e)
+        {
+            try
+            {
+                FormSetItemName form = new FormSetItemName();
+                form.ItemName = TruckName;
+                if (DialogResult.OK == form.ShowDialog())
+                {
+                    PLMPackServiceClient client = WCFClientSingleton.Instance.Client;
+                    client.CreateNewTruck(new DCSBTruck()
+                            {
+                                Name = form.ItemName,
+                                Description = Description,
+                                UnitSystem = 0,
+                                DimensionsInner = new DCSBDim3D() { M0 = TruckLength, M1 = TruckWidth, M2 = TruckHeight },
+                                AdmissibleLoad = TruckAdmissibleLoadWeight,
+                                Color = TruckColor.ToArgb(),
+                                AutoInsert = false
+                            }
+                        );
+                }
+            }
+            catch (Exception ex)
+            {
+                _log.Error(ex.Message);
+            }
         }
         #endregion
     }

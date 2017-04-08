@@ -52,6 +52,7 @@
             this.uMassAdmissibleLoad = new System.Windows.Forms.Label();
             this.statusStripDef = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelDef = new System.Windows.Forms.ToolStripStatusLabel();
+            this.bnSendToDB = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.nudHeight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudWidth)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudLength)).BeginInit();
@@ -214,7 +215,8 @@
             resources.GetString("cbColor.Items39"),
             resources.GetString("cbColor.Items40"),
             resources.GetString("cbColor.Items41"),
-            resources.GetString("cbColor.Items42")});
+            resources.GetString("cbColor.Items42"),
+            resources.GetString("cbColor.Items43")});
             this.cbColor.Name = "cbColor";
             this.cbColor.SelectedColorChanged += new System.EventHandler(this.onTruckPropertyChanged);
             // 
@@ -228,6 +230,7 @@
             resources.ApplyResources(this.graphCtrl, "graphCtrl");
             this.graphCtrl.Name = "graphCtrl";
             this.graphCtrl.TabStop = false;
+            this.graphCtrl.Viewer = null;
             // 
             // label1
             // 
@@ -253,21 +256,29 @@
             // 
             // statusStripDef
             // 
-            resources.ApplyResources(this.statusStripDef, "statusStripDef");
             this.statusStripDef.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabelDef});
+            resources.ApplyResources(this.statusStripDef, "statusStripDef");
             this.statusStripDef.Name = "statusStripDef";
             // 
             // toolStripStatusLabelDef
             // 
-            resources.ApplyResources(this.toolStripStatusLabelDef, "toolStripStatusLabelDef");
             this.toolStripStatusLabelDef.ForeColor = System.Drawing.Color.Red;
             this.toolStripStatusLabelDef.Name = "toolStripStatusLabelDef";
+            resources.ApplyResources(this.toolStripStatusLabelDef, "toolStripStatusLabelDef");
+            // 
+            // bnSendToDB
+            // 
+            resources.ApplyResources(this.bnSendToDB, "bnSendToDB");
+            this.bnSendToDB.Name = "bnSendToDB";
+            this.bnSendToDB.UseVisualStyleBackColor = true;
+            this.bnSendToDB.Click += new System.EventHandler(this.onSendToDB);
             // 
             // FormNewTruck
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.bnSendToDB);
             this.Controls.Add(this.statusStripDef);
             this.Controls.Add(this.uMassAdmissibleLoad);
             this.Controls.Add(this.nudAdmissibleLoadWeight);
@@ -333,5 +344,6 @@
         private System.Windows.Forms.Label uMassAdmissibleLoad;
         private System.Windows.Forms.StatusStrip statusStripDef;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelDef;
+        private System.Windows.Forms.Button bnSendToDB;
     }
 }

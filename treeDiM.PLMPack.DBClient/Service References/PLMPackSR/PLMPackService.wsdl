@@ -103,9 +103,10 @@
   </wsp:Policy>
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
-      <xsd:import schemaLocation="https://plmpackcloudservice.cloudapp.net/PLMPackService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
-      <xsd:import schemaLocation="https://plmpackcloudservice.cloudapp.net/PLMPackService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="https://plmpackcloudservice.cloudapp.net/PLMPackService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/PLMPack" />
+      <xsd:import schemaLocation="https://plmpackcloudservice.cloudapp.net/PLMPackService.svc?xsd=xsd2" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="https://plmpackcloudservice.cloudapp.net/PLMPackService.svc?xsd=xsd0" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="https://plmpackcloudservice.cloudapp.net/PLMPackService.svc?xsd=xsd1" namespace="http://schemas.datacontract.org/2004/07/PLMPack" />
+      <xsd:import schemaLocation="https://plmpackcloudservice.cloudapp.net/PLMPackService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IPLMPackService_get_UserName_InputMessage">
@@ -510,6 +511,138 @@
   <wsdl:message name="IPLMPackService_GetMajorationSet_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetMajorationSetResponse" />
   </wsdl:message>
+  <wsdl:message name="IPLMPackService_ItemExists_InputMessage">
+    <wsdl:part name="parameters" element="tns:ItemExists" />
+  </wsdl:message>
+  <wsdl:message name="IPLMPackService_ItemExists_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ItemExistsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPLMPackService_SetAutoInsert_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetAutoInsert" />
+  </wsdl:message>
+  <wsdl:message name="IPLMPackService_SetAutoInsert_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetAutoInsertResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPLMPackService_RemoveItemById_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveItemById" />
+  </wsdl:message>
+  <wsdl:message name="IPLMPackService_RemoveItemById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveItemByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPLMPackService_GetAllPallets_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPallets" />
+  </wsdl:message>
+  <wsdl:message name="IPLMPackService_GetAllPallets_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPalletsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPLMPackService_CreateNewPallet_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateNewPallet" />
+  </wsdl:message>
+  <wsdl:message name="IPLMPackService_CreateNewPallet_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateNewPalletResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPLMPackService_GetAllPalletCaps_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPalletCaps" />
+  </wsdl:message>
+  <wsdl:message name="IPLMPackService_GetAllPalletCaps_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPalletCapsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPLMPackService_CreateNewPalletCap_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateNewPalletCap" />
+  </wsdl:message>
+  <wsdl:message name="IPLMPackService_CreateNewPalletCap_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateNewPalletCapResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPLMPackService_GetAllPalletFilms_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPalletFilms" />
+  </wsdl:message>
+  <wsdl:message name="IPLMPackService_GetAllPalletFilms_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPalletFilmsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPLMPackService_CreateNewPalletFilm_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateNewPalletFilm" />
+  </wsdl:message>
+  <wsdl:message name="IPLMPackService_CreateNewPalletFilm_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateNewPalletFilmResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPLMPackService_GetAllPalletCorners_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPalletCorners" />
+  </wsdl:message>
+  <wsdl:message name="IPLMPackService_GetAllPalletCorners_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPalletCornersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPLMPackService_CreateNewPalletCorner_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateNewPalletCorner" />
+  </wsdl:message>
+  <wsdl:message name="IPLMPackService_CreateNewPalletCorner_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateNewPalletCornerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPLMPackService_GetAllInterlayers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllInterlayers" />
+  </wsdl:message>
+  <wsdl:message name="IPLMPackService_GetAllInterlayers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllInterlayersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPLMPackService_CreateNewInterlayer_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateNewInterlayer" />
+  </wsdl:message>
+  <wsdl:message name="IPLMPackService_CreateNewInterlayer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateNewInterlayerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPLMPackService_GetAllCases_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCases" />
+  </wsdl:message>
+  <wsdl:message name="IPLMPackService_GetAllCases_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCasesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPLMPackService_GetAllBoxes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllBoxes" />
+  </wsdl:message>
+  <wsdl:message name="IPLMPackService_GetAllBoxes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllBoxesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPLMPackService_CreateNewCase_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateNewCase" />
+  </wsdl:message>
+  <wsdl:message name="IPLMPackService_CreateNewCase_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateNewCaseResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPLMPackService_GetAllBundles_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllBundles" />
+  </wsdl:message>
+  <wsdl:message name="IPLMPackService_GetAllBundles_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllBundlesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPLMPackService_CreateNewBundle_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateNewBundle" />
+  </wsdl:message>
+  <wsdl:message name="IPLMPackService_CreateNewBundle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateNewBundleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPLMPackService_GetAllCylinders_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCylinders" />
+  </wsdl:message>
+  <wsdl:message name="IPLMPackService_GetAllCylinders_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCylindersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPLMPackService_CreateNewCylinder_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateNewCylinder" />
+  </wsdl:message>
+  <wsdl:message name="IPLMPackService_CreateNewCylinder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateNewCylinderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPLMPackService_GetAllTrucks_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllTrucks" />
+  </wsdl:message>
+  <wsdl:message name="IPLMPackService_GetAllTrucks_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllTrucksResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPLMPackService_CreateNewTruck_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateNewTruck" />
+  </wsdl:message>
+  <wsdl:message name="IPLMPackService_CreateNewTruck_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateNewTruckResponse" />
+  </wsdl:message>
   <wsdl:portType name="IPLMPackService">
     <wsdl:operation name="get_UserName">
       <wsdl:input wsaw:Action="http://tempuri.org/IPLMPackService/get_UserName" message="tns:IPLMPackService_get_UserName_InputMessage" />
@@ -778,6 +911,94 @@
     <wsdl:operation name="GetMajorationSet">
       <wsdl:input wsaw:Action="http://tempuri.org/IPLMPackService/GetMajorationSet" message="tns:IPLMPackService_GetMajorationSet_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IPLMPackService/GetMajorationSetResponse" message="tns:IPLMPackService_GetMajorationSet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ItemExists">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPLMPackService/ItemExists" message="tns:IPLMPackService_ItemExists_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPLMPackService/ItemExistsResponse" message="tns:IPLMPackService_ItemExists_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetAutoInsert">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPLMPackService/SetAutoInsert" message="tns:IPLMPackService_SetAutoInsert_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPLMPackService/SetAutoInsertResponse" message="tns:IPLMPackService_SetAutoInsert_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveItemById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPLMPackService/RemoveItemById" message="tns:IPLMPackService_RemoveItemById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPLMPackService/RemoveItemByIdResponse" message="tns:IPLMPackService_RemoveItemById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPallets">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPLMPackService/GetAllPallets" message="tns:IPLMPackService_GetAllPallets_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPLMPackService/GetAllPalletsResponse" message="tns:IPLMPackService_GetAllPallets_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateNewPallet">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPLMPackService/CreateNewPallet" message="tns:IPLMPackService_CreateNewPallet_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPLMPackService/CreateNewPalletResponse" message="tns:IPLMPackService_CreateNewPallet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPalletCaps">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPLMPackService/GetAllPalletCaps" message="tns:IPLMPackService_GetAllPalletCaps_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPLMPackService/GetAllPalletCapsResponse" message="tns:IPLMPackService_GetAllPalletCaps_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateNewPalletCap">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPLMPackService/CreateNewPalletCap" message="tns:IPLMPackService_CreateNewPalletCap_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPLMPackService/CreateNewPalletCapResponse" message="tns:IPLMPackService_CreateNewPalletCap_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPalletFilms">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPLMPackService/GetAllPalletFilms" message="tns:IPLMPackService_GetAllPalletFilms_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPLMPackService/GetAllPalletFilmsResponse" message="tns:IPLMPackService_GetAllPalletFilms_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateNewPalletFilm">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPLMPackService/CreateNewPalletFilm" message="tns:IPLMPackService_CreateNewPalletFilm_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPLMPackService/CreateNewPalletFilmResponse" message="tns:IPLMPackService_CreateNewPalletFilm_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPalletCorners">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPLMPackService/GetAllPalletCorners" message="tns:IPLMPackService_GetAllPalletCorners_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPLMPackService/GetAllPalletCornersResponse" message="tns:IPLMPackService_GetAllPalletCorners_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateNewPalletCorner">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPLMPackService/CreateNewPalletCorner" message="tns:IPLMPackService_CreateNewPalletCorner_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPLMPackService/CreateNewPalletCornerResponse" message="tns:IPLMPackService_CreateNewPalletCorner_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllInterlayers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPLMPackService/GetAllInterlayers" message="tns:IPLMPackService_GetAllInterlayers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPLMPackService/GetAllInterlayersResponse" message="tns:IPLMPackService_GetAllInterlayers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateNewInterlayer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPLMPackService/CreateNewInterlayer" message="tns:IPLMPackService_CreateNewInterlayer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPLMPackService/CreateNewInterlayerResponse" message="tns:IPLMPackService_CreateNewInterlayer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCases">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPLMPackService/GetAllCases" message="tns:IPLMPackService_GetAllCases_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPLMPackService/GetAllCasesResponse" message="tns:IPLMPackService_GetAllCases_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllBoxes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPLMPackService/GetAllBoxes" message="tns:IPLMPackService_GetAllBoxes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPLMPackService/GetAllBoxesResponse" message="tns:IPLMPackService_GetAllBoxes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateNewCase">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPLMPackService/CreateNewCase" message="tns:IPLMPackService_CreateNewCase_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPLMPackService/CreateNewCaseResponse" message="tns:IPLMPackService_CreateNewCase_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllBundles">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPLMPackService/GetAllBundles" message="tns:IPLMPackService_GetAllBundles_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPLMPackService/GetAllBundlesResponse" message="tns:IPLMPackService_GetAllBundles_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateNewBundle">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPLMPackService/CreateNewBundle" message="tns:IPLMPackService_CreateNewBundle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPLMPackService/CreateNewBundleResponse" message="tns:IPLMPackService_CreateNewBundle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCylinders">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPLMPackService/GetAllCylinders" message="tns:IPLMPackService_GetAllCylinders_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPLMPackService/GetAllCylindersResponse" message="tns:IPLMPackService_GetAllCylinders_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateNewCylinder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPLMPackService/CreateNewCylinder" message="tns:IPLMPackService_CreateNewCylinder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPLMPackService/CreateNewCylinderResponse" message="tns:IPLMPackService_CreateNewCylinder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTrucks">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPLMPackService/GetAllTrucks" message="tns:IPLMPackService_GetAllTrucks_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPLMPackService/GetAllTrucksResponse" message="tns:IPLMPackService_GetAllTrucks_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateNewTruck">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPLMPackService/CreateNewTruck" message="tns:IPLMPackService_CreateNewTruck_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPLMPackService/CreateNewTruckResponse" message="tns:IPLMPackService_CreateNewTruck_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="wsSecureService" type="tns:IPLMPackService">
@@ -1379,6 +1600,204 @@
     </wsdl:operation>
     <wsdl:operation name="GetMajorationSet">
       <soap12:operation soapAction="http://tempuri.org/IPLMPackService/GetMajorationSet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ItemExists">
+      <soap12:operation soapAction="http://tempuri.org/IPLMPackService/ItemExists" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetAutoInsert">
+      <soap12:operation soapAction="http://tempuri.org/IPLMPackService/SetAutoInsert" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveItemById">
+      <soap12:operation soapAction="http://tempuri.org/IPLMPackService/RemoveItemById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPallets">
+      <soap12:operation soapAction="http://tempuri.org/IPLMPackService/GetAllPallets" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateNewPallet">
+      <soap12:operation soapAction="http://tempuri.org/IPLMPackService/CreateNewPallet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPalletCaps">
+      <soap12:operation soapAction="http://tempuri.org/IPLMPackService/GetAllPalletCaps" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateNewPalletCap">
+      <soap12:operation soapAction="http://tempuri.org/IPLMPackService/CreateNewPalletCap" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPalletFilms">
+      <soap12:operation soapAction="http://tempuri.org/IPLMPackService/GetAllPalletFilms" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateNewPalletFilm">
+      <soap12:operation soapAction="http://tempuri.org/IPLMPackService/CreateNewPalletFilm" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPalletCorners">
+      <soap12:operation soapAction="http://tempuri.org/IPLMPackService/GetAllPalletCorners" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateNewPalletCorner">
+      <soap12:operation soapAction="http://tempuri.org/IPLMPackService/CreateNewPalletCorner" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllInterlayers">
+      <soap12:operation soapAction="http://tempuri.org/IPLMPackService/GetAllInterlayers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateNewInterlayer">
+      <soap12:operation soapAction="http://tempuri.org/IPLMPackService/CreateNewInterlayer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCases">
+      <soap12:operation soapAction="http://tempuri.org/IPLMPackService/GetAllCases" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllBoxes">
+      <soap12:operation soapAction="http://tempuri.org/IPLMPackService/GetAllBoxes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateNewCase">
+      <soap12:operation soapAction="http://tempuri.org/IPLMPackService/CreateNewCase" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllBundles">
+      <soap12:operation soapAction="http://tempuri.org/IPLMPackService/GetAllBundles" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateNewBundle">
+      <soap12:operation soapAction="http://tempuri.org/IPLMPackService/CreateNewBundle" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCylinders">
+      <soap12:operation soapAction="http://tempuri.org/IPLMPackService/GetAllCylinders" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateNewCylinder">
+      <soap12:operation soapAction="http://tempuri.org/IPLMPackService/CreateNewCylinder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTrucks">
+      <soap12:operation soapAction="http://tempuri.org/IPLMPackService/GetAllTrucks" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateNewTruck">
+      <soap12:operation soapAction="http://tempuri.org/IPLMPackService/CreateNewTruck" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

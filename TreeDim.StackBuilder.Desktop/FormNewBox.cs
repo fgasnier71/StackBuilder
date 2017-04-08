@@ -264,8 +264,10 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Load / FormClosing event
-        private void FormNewBox_Load(object sender, EventArgs e)
+        protected override void OnLoad(EventArgs e)
         {
+            base.OnLoad(e);
+
             graphCtrl.DrawingContainer = this;
 
             // show hide inside dimensions controls
@@ -298,8 +300,10 @@ namespace treeDiM.StackBuilder.Desktop
                 Settings.Default.FormNewBoxPosition.Restore(this);
         }
 
-        private void FormNewBox_FormClosing(object sender, FormClosingEventArgs e)
+        protected override void OnClosed(EventArgs e)
         {
+            base.OnClosed(e);
+
             // window position
             if (null == Settings.Default.FormNewBoxPosition)
                 Settings.Default.FormNewBoxPosition = new WindowSettings();
