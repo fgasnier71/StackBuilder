@@ -222,6 +222,8 @@ namespace treeDiM.StackBuilder.Basics
 
         public static int SurfaceMassNoDecimals
         {   get { return 3; } }
+        public static int NoneNoDecimals
+        {   get { return 0; } }
         #endregion
 
         #region Data members
@@ -260,6 +262,7 @@ namespace treeDiM.StackBuilder.Basics
                 case UnitType.UT_MASS: return MassNoDecimals;
                 case UnitType.UT_VOLUME: return VolumeNoDecimals;
                 case UnitType.UT_SURFACEMASS: return SurfaceMassNoDecimals;
+                case UnitType.UT_NONE: return NoneNoDecimals;
                 default: return 3;
             }
         }

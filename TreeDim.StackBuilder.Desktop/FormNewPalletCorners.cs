@@ -7,13 +7,15 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
+using log4net;
+using Sharp3D.Math.Core;
+
 using treeDiM.StackBuilder.Basics;
 using treeDiM.StackBuilder.Graphics;
 using treeDiM.StackBuilder.Desktop.Properties;
 
-using log4net;
-
-using Sharp3D.Math.Core;
+using treeDiM.PLMPack.DBClient;
+using treeDiM.PLMPack.DBClient.PLMPackSR;
 #endregion
 
 namespace treeDiM.StackBuilder.Desktop
@@ -62,28 +64,35 @@ namespace treeDiM.StackBuilder.Desktop
             base.OnLoad(e);
             graphCtrl.DrawingContainer = this;
         }
+        public override void UpdateStatus(string message)
+        {
+            base.UpdateStatus(message);
+
+            if (CornerThickness >= CornerWidth)
+                message = Properties.Resources.ID_INVALIDTHICKNESSWIDTHPAIR;
+        }
         #endregion
 
         #region Public properties
         public double CornerLength
         {
-            get { return (double)nudLength.Value; }
-            set { nudLength.Value = (decimal)value; }
+            get { return uCtrlLength.Value; }
+            set { uCtrlLength.Value = value; }
         }
         public double CornerWidth
         {
-            get { return (double)nudWidth.Value; }
-            set { nudWidth.Value = (decimal)value;}
+            get { return uCtrlWidth.Value; }
+            set { uCtrlWidth.Value = value; }
         }
         public double CornerThickness
         {
-            get { return (double)nudThickness.Value; }
-            set { nudThickness.Value = (decimal)value; }
+            get { return uCtrlThickness.Value; }
+            set { uCtrlThickness.Value = value; }
         }
         public double CornerWeight
         {
-            get { return (double)nudWeight.Value; }
-            set { nudWeight.Value = (decimal)value; }
+            get { return uCtrlWeight.Value; }
+            set { uCtrlWeight.Value = value; }
         }
         public Color CornerColor
         {
@@ -99,14 +108,6 @@ namespace treeDiM.StackBuilder.Desktop
             graphCtrl.Invalidate();
         }
         #endregion
-
-        public override void UpdateStatus(string message)
-        {
-            base.UpdateStatus(message);
-
-            if (CornerThickness >= CornerWidth)
-                message = Properties.Resources.ID_INVALIDTHICKNESSWIDTHPAIR;
-        }
 
         #region Draw corner
         public void Draw(Graphics3DControl ctrl, Graphics3D graphics)
@@ -126,5 +127,37 @@ namespace treeDiM.StackBuilder.Desktop
         }
         #endregion
 
+        #region Send to database
+        private void onSendToDatabase(object sender, EventArgs e)
+        {
+            try
+            {
+                FormSetItemName form = new FormSetItemName();
+                form.ItemName = ItemName;
+                if (DialogResult.OK == form.ShowDialog())
+                {
+                    PLMPackServiceClient client = WCFClientSingleton.Instance.Client;
+                    client.CreateNewPalletCorner(new DCSBPalletCorner()
+                            {
+                                Name = form.ItemName,
+                                Description = ItemDescription,
+                                UnitSystem = (int)UnitsManager.CurrentUnitSystem,
+                                Length = CornerLength,
+                                Width = CornerWidth,
+                                Thickness = CornerThickness,
+                                Weight = CornerWeight,
+                                Color = CornerColor.ToArgb(),
+                                AutoInsert = false
+                            }
+                        );
+                    Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                _log.Error(ex.Message);
+            }
+        }
+        #endregion
     }
 }

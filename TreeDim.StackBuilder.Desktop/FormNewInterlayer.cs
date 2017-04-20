@@ -7,10 +7,15 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
+using Sharp3D.Math.Core;
+using log4net;
+
 using treeDiM.StackBuilder.Basics;
 using treeDiM.StackBuilder.Graphics;
-using Sharp3D.Math.Core;
 using treeDiM.StackBuilder.Desktop.Properties;
+
+using treeDiM.PLMPack.DBClient;
+using treeDiM.PLMPack.DBClient.PLMPackSR;
 #endregion
 
 namespace treeDiM.StackBuilder.Desktop
@@ -20,6 +25,7 @@ namespace treeDiM.StackBuilder.Desktop
         #region Data members
         private Document _document;
         private InterlayerProperties _interlayerProperties;
+        protected static ILog _log = LogManager.GetLogger(typeof(FormNewInterlayer));
         #endregion
 
         #region Constructor
@@ -67,7 +73,18 @@ namespace treeDiM.StackBuilder.Desktop
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
+            // windows settings
+            if (null != Settings.Default.FormNewInterlayerPosition)
+                Settings.Default.FormNewInterlayerPosition.Restore(this);
             graphCtrl.Invalidate();
+        }
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            base.OnClosing(e);
+            // window position
+            if (null == Settings.Default.FormNewInterlayerPosition)
+                Settings.Default.FormNewInterlayerPosition = new WindowSettings();
+            Settings.Default.FormNewInterlayerPosition.Record(this);
         }
         #endregion
 
@@ -84,23 +101,23 @@ namespace treeDiM.StackBuilder.Desktop
         }
         public double InterlayerLength
         {
-            get { return (double)nudLength.Value; }
-            set { nudLength.Value = (decimal)value; }
+            get { return uCtrlDimensions.ValueX; }
+            set { uCtrlDimensions.ValueX = value; }
         }
         public double InterlayerWidth
         {
-            get { return (double)nudWidth.Value; }
-            set { nudWidth.Value = (decimal)value; }
+            get { return uCtrlDimensions.ValueY; }
+            set { uCtrlDimensions.ValueY = value; }
         }
         public double Thickness
         {
-            get { return (double)nudThickness.Value; }
-            set { nudThickness.Value = (decimal)value; }
+            get { return uCtrlDimensions.ValueZ; }
+            set { uCtrlDimensions.ValueZ = value; }
         }
         public double Weight
         {
-            get { return (double)nudWeight.Value; }
-            set { nudWeight.Value = (decimal)value; }
+            get { return uCtrlWeight.Value; }
+            set { uCtrlWeight.Value = value; }
         }
         public Color Color
         {
@@ -150,20 +167,34 @@ namespace treeDiM.StackBuilder.Desktop
         }
         #endregion
 
-        #region Load / FormClosing
-        private void FormNewInterlayer_Load(object sender, EventArgs e)
+        #region Send to database
+        private void onSendToDatabase(object sender, EventArgs e)
         {
-            // windows settings
-            if (null != Settings.Default.FormNewInterlayerPosition)
-                Settings.Default.FormNewInterlayerPosition.Restore(this);
-            graphCtrl.Invalidate();
-        }
-        private void FormNewInterlayer_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            // window position
-            if (null == Settings.Default.FormNewInterlayerPosition)
-                Settings.Default.FormNewInterlayerPosition = new WindowSettings();
-            Settings.Default.FormNewInterlayerPosition.Record(this);
+            try
+            {
+                FormSetItemName form = new FormSetItemName();
+                form.ItemName = InterlayerName;
+                if (DialogResult.OK == form.ShowDialog())
+                {
+                    PLMPackServiceClient client = WCFClientSingleton.Instance.Client;
+                    client.CreateNewInterlayer(new DCSBInterlayer()
+                            {
+                                Name = form.ItemName,
+                                Description = Description,
+                                UnitSystem = (int)UnitsManager.CurrentUnitSystem,
+                                Dimensions = new DCSBDim3D() { M0 = InterlayerLength, M1 = InterlayerWidth, M2 = InterlayerWidth },
+                                Weight = Weight,
+                                Color = Color.ToArgb(),
+                                AutoInsert = false
+                            }
+                        );
+                    Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                _log.Error(ex.Message);
+            }
         }
         #endregion
     }

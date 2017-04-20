@@ -33,24 +33,8 @@
             this.bnCancel = new System.Windows.Forms.Button();
             this.lbFace = new System.Windows.Forms.Label();
             this.gbDimensions = new System.Windows.Forms.GroupBox();
-            this.lbInsideHeight = new System.Windows.Forms.Label();
-            this.lbInsideWidth = new System.Windows.Forms.Label();
-            this.lbInsideLength = new System.Windows.Forms.Label();
-            this.uLengthHeightInside = new System.Windows.Forms.Label();
-            this.uLengthWidthInside = new System.Windows.Forms.Label();
-            this.uLengthLengthInside = new System.Windows.Forms.Label();
-            this.nudInsideLength = new System.Windows.Forms.NumericUpDown();
-            this.nudInsideHeight = new System.Windows.Forms.NumericUpDown();
-            this.nudInsideWidth = new System.Windows.Forms.NumericUpDown();
-            this.uLengthHeight = new System.Windows.Forms.Label();
-            this.uLengthWidth = new System.Windows.Forms.Label();
-            this.uLengthLength = new System.Windows.Forms.Label();
-            this.nudLength = new System.Windows.Forms.NumericUpDown();
-            this.nudHeight = new System.Windows.Forms.NumericUpDown();
-            this.nudWidth = new System.Windows.Forms.NumericUpDown();
-            this.lbHeight = new System.Windows.Forms.Label();
-            this.lbWidth = new System.Windows.Forms.Label();
-            this.lbLength = new System.Windows.Forms.Label();
+            this.uCtrlDimensionsInner = new treeDiM.StackBuilder.Basics.UCtrlOptTriDouble();
+            this.uCtrlDimensionsOuter = new treeDiM.StackBuilder.Basics.UCtrlTriDouble();
             this.cbFace = new System.Windows.Forms.ComboBox();
             this.cbColor = new OfficePickers.ColorPicker.ComboBoxColorPicker();
             this.gbFaceColor = new System.Windows.Forms.GroupBox();
@@ -58,7 +42,7 @@
             this.chkAllFaces = new System.Windows.Forms.CheckBox();
             this.gbWeight = new System.Windows.Forms.GroupBox();
             this.vcWeight = new treeDiM.StackBuilder.Basics.UCtrlDouble();
-            this.ovcNetWeight = new treeDiM.StackBuilder.Basics.UCtrlOptDouble();
+            this.uCtrlNetWeight = new treeDiM.StackBuilder.Basics.UCtrlOptDouble();
             this.lblName = new System.Windows.Forms.Label();
             this.lblDescription = new System.Windows.Forms.Label();
             this.tbName = new System.Windows.Forms.TextBox();
@@ -67,25 +51,16 @@
             this.statusStripDef = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelDef = new System.Windows.Forms.ToolStripStatusLabel();
             this.gbTape = new System.Windows.Forms.GroupBox();
-            this.uLengthTapeWidth = new System.Windows.Forms.Label();
+            this.uCtrlTapeWidth = new treeDiM.StackBuilder.Basics.UCtrlOptDouble();
             this.cbTapeColor = new OfficePickers.ColorPicker.ComboBoxColorPicker();
-            this.nudTapeWidth = new System.Windows.Forms.NumericUpDown();
             this.lbTapeColor = new System.Windows.Forms.Label();
-            this.lbTapeWidth = new System.Windows.Forms.Label();
-            this.checkBoxTape = new System.Windows.Forms.CheckBox();
+            this.bnSaveToDB = new System.Windows.Forms.Button();
             this.gbDimensions.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudInsideLength)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudInsideHeight)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudInsideWidth)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudLength)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudHeight)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudWidth)).BeginInit();
             this.gbFaceColor.SuspendLayout();
             this.gbWeight.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.graphCtrl)).BeginInit();
             this.statusStripDef.SuspendLayout();
             this.gbTape.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudTapeWidth)).BeginInit();
             this.SuspendLayout();
             // 
             // bnOK
@@ -110,203 +85,42 @@
             // gbDimensions
             // 
             resources.ApplyResources(this.gbDimensions, "gbDimensions");
-            this.gbDimensions.Controls.Add(this.lbInsideHeight);
-            this.gbDimensions.Controls.Add(this.lbInsideWidth);
-            this.gbDimensions.Controls.Add(this.lbInsideLength);
-            this.gbDimensions.Controls.Add(this.uLengthHeightInside);
-            this.gbDimensions.Controls.Add(this.uLengthWidthInside);
-            this.gbDimensions.Controls.Add(this.uLengthLengthInside);
-            this.gbDimensions.Controls.Add(this.nudInsideLength);
-            this.gbDimensions.Controls.Add(this.nudInsideHeight);
-            this.gbDimensions.Controls.Add(this.nudInsideWidth);
-            this.gbDimensions.Controls.Add(this.uLengthHeight);
-            this.gbDimensions.Controls.Add(this.uLengthWidth);
-            this.gbDimensions.Controls.Add(this.uLengthLength);
-            this.gbDimensions.Controls.Add(this.nudLength);
-            this.gbDimensions.Controls.Add(this.nudHeight);
-            this.gbDimensions.Controls.Add(this.nudWidth);
-            this.gbDimensions.Controls.Add(this.lbHeight);
-            this.gbDimensions.Controls.Add(this.lbWidth);
-            this.gbDimensions.Controls.Add(this.lbLength);
+            this.gbDimensions.Controls.Add(this.uCtrlDimensionsInner);
+            this.gbDimensions.Controls.Add(this.uCtrlDimensionsOuter);
             this.gbDimensions.Name = "gbDimensions";
             this.gbDimensions.TabStop = false;
             // 
-            // lbInsideHeight
+            // uCtrlDimensionsInner
             // 
-            resources.ApplyResources(this.lbInsideHeight, "lbInsideHeight");
-            this.lbInsideHeight.Name = "lbInsideHeight";
-            // 
-            // lbInsideWidth
-            // 
-            resources.ApplyResources(this.lbInsideWidth, "lbInsideWidth");
-            this.lbInsideWidth.Name = "lbInsideWidth";
-            // 
-            // lbInsideLength
-            // 
-            resources.ApplyResources(this.lbInsideLength, "lbInsideLength");
-            this.lbInsideLength.Name = "lbInsideLength";
-            // 
-            // uLengthHeightInside
-            // 
-            resources.ApplyResources(this.uLengthHeightInside, "uLengthHeightInside");
-            this.uLengthHeightInside.Name = "uLengthHeightInside";
-            // 
-            // uLengthWidthInside
-            // 
-            resources.ApplyResources(this.uLengthWidthInside, "uLengthWidthInside");
-            this.uLengthWidthInside.Name = "uLengthWidthInside";
-            // 
-            // uLengthLengthInside
-            // 
-            resources.ApplyResources(this.uLengthLengthInside, "uLengthLengthInside");
-            this.uLengthLengthInside.Name = "uLengthLengthInside";
-            // 
-            // nudInsideLength
-            // 
-            resources.ApplyResources(this.nudInsideLength, "nudInsideLength");
-            this.nudInsideLength.DecimalPlaces = 2;
-            this.nudInsideLength.Maximum = new decimal(new int[] {
-            10000,
+            resources.ApplyResources(this.uCtrlDimensionsInner, "uCtrlDimensionsInner");
+            this.uCtrlDimensionsInner.Checked = false;
+            this.uCtrlDimensionsInner.Minimum = new decimal(new int[] {
+            0,
             0,
             0,
             0});
-            this.nudInsideLength.Name = "nudInsideLength";
-            this.nudInsideLength.Value = new decimal(new int[] {
-            1,
+            this.uCtrlDimensionsInner.Name = "uCtrlDimensionsInner";
+            this.uCtrlDimensionsInner.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlDimensionsInner.Value = ((Sharp3D.Math.Core.Vector3D)(resources.GetObject("uCtrlDimensionsInner.Value")));
+            this.uCtrlDimensionsInner.X = 0D;
+            this.uCtrlDimensionsInner.Y = 0D;
+            this.uCtrlDimensionsInner.Z = 0D;
+            this.uCtrlDimensionsInner.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlOptTriDouble.onValueChanged(this.onBoxPropertyChanged);
+            // 
+            // uCtrlDimensionsOuter
+            // 
+            resources.ApplyResources(this.uCtrlDimensionsOuter, "uCtrlDimensionsOuter");
+            this.uCtrlDimensionsOuter.Minimum = new decimal(new int[] {
+            0,
             0,
             0,
             0});
-            this.nudInsideLength.ValueChanged += new System.EventHandler(this.onBoxPropertyChanged);
-            // 
-            // nudInsideHeight
-            // 
-            resources.ApplyResources(this.nudInsideHeight, "nudInsideHeight");
-            this.nudInsideHeight.DecimalPlaces = 2;
-            this.nudInsideHeight.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.nudInsideHeight.Name = "nudInsideHeight";
-            this.nudInsideHeight.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.nudInsideHeight.ValueChanged += new System.EventHandler(this.onBoxPropertyChanged);
-            // 
-            // nudInsideWidth
-            // 
-            resources.ApplyResources(this.nudInsideWidth, "nudInsideWidth");
-            this.nudInsideWidth.DecimalPlaces = 2;
-            this.nudInsideWidth.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.nudInsideWidth.Name = "nudInsideWidth";
-            this.nudInsideWidth.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.nudInsideWidth.ValueChanged += new System.EventHandler(this.onBoxPropertyChanged);
-            // 
-            // uLengthHeight
-            // 
-            resources.ApplyResources(this.uLengthHeight, "uLengthHeight");
-            this.uLengthHeight.Name = "uLengthHeight";
-            // 
-            // uLengthWidth
-            // 
-            resources.ApplyResources(this.uLengthWidth, "uLengthWidth");
-            this.uLengthWidth.Name = "uLengthWidth";
-            // 
-            // uLengthLength
-            // 
-            resources.ApplyResources(this.uLengthLength, "uLengthLength");
-            this.uLengthLength.Name = "uLengthLength";
-            // 
-            // nudLength
-            // 
-            resources.ApplyResources(this.nudLength, "nudLength");
-            this.nudLength.DecimalPlaces = 2;
-            this.nudLength.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.nudLength.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.nudLength.Name = "nudLength";
-            this.nudLength.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.nudLength.ValueChanged += new System.EventHandler(this.onBoxPropertyChanged);
-            // 
-            // nudHeight
-            // 
-            resources.ApplyResources(this.nudHeight, "nudHeight");
-            this.nudHeight.DecimalPlaces = 2;
-            this.nudHeight.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.nudHeight.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.nudHeight.Name = "nudHeight";
-            this.nudHeight.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.nudHeight.ValueChanged += new System.EventHandler(this.onBoxPropertyChanged);
-            // 
-            // nudWidth
-            // 
-            resources.ApplyResources(this.nudWidth, "nudWidth");
-            this.nudWidth.DecimalPlaces = 2;
-            this.nudWidth.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.nudWidth.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.nudWidth.Name = "nudWidth";
-            this.nudWidth.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.nudWidth.ValueChanged += new System.EventHandler(this.onBoxPropertyChanged);
-            // 
-            // lbHeight
-            // 
-            resources.ApplyResources(this.lbHeight, "lbHeight");
-            this.lbHeight.Name = "lbHeight";
-            // 
-            // lbWidth
-            // 
-            resources.ApplyResources(this.lbWidth, "lbWidth");
-            this.lbWidth.Name = "lbWidth";
-            // 
-            // lbLength
-            // 
-            resources.ApplyResources(this.lbLength, "lbLength");
-            this.lbLength.Name = "lbLength";
+            this.uCtrlDimensionsOuter.Name = "uCtrlDimensionsOuter";
+            this.uCtrlDimensionsOuter.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlDimensionsOuter.ValueX = 0D;
+            this.uCtrlDimensionsOuter.ValueY = 0D;
+            this.uCtrlDimensionsOuter.ValueZ = 0D;
+            this.uCtrlDimensionsOuter.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlTriDouble.onValueChanged(this.onBoxPropertyChanged);
             // 
             // cbFace
             // 
@@ -424,7 +238,16 @@
             resources.GetString("cbColor.Items89"),
             resources.GetString("cbColor.Items90"),
             resources.GetString("cbColor.Items91"),
-            resources.GetString("cbColor.Items92")});
+            resources.GetString("cbColor.Items92"),
+            resources.GetString("cbColor.Items93"),
+            resources.GetString("cbColor.Items94"),
+            resources.GetString("cbColor.Items95"),
+            resources.GetString("cbColor.Items96"),
+            resources.GetString("cbColor.Items97"),
+            resources.GetString("cbColor.Items98"),
+            resources.GetString("cbColor.Items99"),
+            resources.GetString("cbColor.Items100"),
+            resources.GetString("cbColor.Items101")});
             this.cbColor.Name = "cbColor";
             this.cbColor.SelectedColorChanged += new System.EventHandler(this.onFaceColorChanged);
             // 
@@ -457,7 +280,7 @@
             // 
             resources.ApplyResources(this.gbWeight, "gbWeight");
             this.gbWeight.Controls.Add(this.vcWeight);
-            this.gbWeight.Controls.Add(this.ovcNetWeight);
+            this.gbWeight.Controls.Add(this.uCtrlNetWeight);
             this.gbWeight.Name = "gbWeight";
             this.gbWeight.TabStop = false;
             // 
@@ -474,18 +297,18 @@
             this.vcWeight.Value = 0D;
             this.vcWeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.onValueChanged(this.onBoxPropertyChanged);
             // 
-            // ovcNetWeight
+            // uCtrlNetWeight
             // 
-            resources.ApplyResources(this.ovcNetWeight, "ovcNetWeight");
-            this.ovcNetWeight.Minimum = new decimal(new int[] {
+            resources.ApplyResources(this.uCtrlNetWeight, "uCtrlNetWeight");
+            this.uCtrlNetWeight.Minimum = new decimal(new int[] {
             0,
             0,
             0,
             0});
-            this.ovcNetWeight.Name = "ovcNetWeight";
-            this.ovcNetWeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_MASS;
-            this.ovcNetWeight.Value = ((treeDiM.StackBuilder.Basics.OptDouble)(resources.GetObject("ovcNetWeight.Value")));
-            this.ovcNetWeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlOptDouble.onValueChanged(this.onBoxPropertyChanged);
+            this.uCtrlNetWeight.Name = "uCtrlNetWeight";
+            this.uCtrlNetWeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_MASS;
+            this.uCtrlNetWeight.Value = ((treeDiM.StackBuilder.Basics.OptDouble)(resources.GetObject("uCtrlNetWeight.Value")));
+            this.uCtrlNetWeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlOptDouble.onValueChanged(this.onBoxPropertyChanged);
             // 
             // lblName
             // 
@@ -533,19 +356,24 @@
             // gbTape
             // 
             resources.ApplyResources(this.gbTape, "gbTape");
-            this.gbTape.Controls.Add(this.uLengthTapeWidth);
+            this.gbTape.Controls.Add(this.uCtrlTapeWidth);
             this.gbTape.Controls.Add(this.cbTapeColor);
-            this.gbTape.Controls.Add(this.nudTapeWidth);
             this.gbTape.Controls.Add(this.lbTapeColor);
-            this.gbTape.Controls.Add(this.lbTapeWidth);
-            this.gbTape.Controls.Add(this.checkBoxTape);
             this.gbTape.Name = "gbTape";
             this.gbTape.TabStop = false;
             // 
-            // uLengthTapeWidth
+            // uCtrlTapeWidth
             // 
-            resources.ApplyResources(this.uLengthTapeWidth, "uLengthTapeWidth");
-            this.uLengthTapeWidth.Name = "uLengthTapeWidth";
+            resources.ApplyResources(this.uCtrlTapeWidth, "uCtrlTapeWidth");
+            this.uCtrlTapeWidth.Minimum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            -2147483648});
+            this.uCtrlTapeWidth.Name = "uCtrlTapeWidth";
+            this.uCtrlTapeWidth.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlTapeWidth.Value = ((treeDiM.StackBuilder.Basics.OptDouble)(resources.GetObject("uCtrlTapeWidth.Value")));
+            this.uCtrlTapeWidth.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlOptDouble.onValueChanged(this.onTapeWidthChecked);
             // 
             // cbTapeColor
             // 
@@ -649,38 +477,30 @@
             resources.GetString("cbTapeColor.Items90"),
             resources.GetString("cbTapeColor.Items91"),
             resources.GetString("cbTapeColor.Items92"),
-            resources.GetString("cbTapeColor.Items93")});
+            resources.GetString("cbTapeColor.Items93"),
+            resources.GetString("cbTapeColor.Items94"),
+            resources.GetString("cbTapeColor.Items95"),
+            resources.GetString("cbTapeColor.Items96"),
+            resources.GetString("cbTapeColor.Items97"),
+            resources.GetString("cbTapeColor.Items98"),
+            resources.GetString("cbTapeColor.Items99"),
+            resources.GetString("cbTapeColor.Items100"),
+            resources.GetString("cbTapeColor.Items101"),
+            resources.GetString("cbTapeColor.Items102")});
             this.cbTapeColor.Name = "cbTapeColor";
             this.cbTapeColor.SelectedColorChanged += new System.EventHandler(this.onFaceColorChanged);
-            // 
-            // nudTapeWidth
-            // 
-            resources.ApplyResources(this.nudTapeWidth, "nudTapeWidth");
-            this.nudTapeWidth.DecimalPlaces = 2;
-            this.nudTapeWidth.Maximum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.nudTapeWidth.Name = "nudTapeWidth";
-            this.nudTapeWidth.ValueChanged += new System.EventHandler(this.onBoxPropertyChanged);
             // 
             // lbTapeColor
             // 
             resources.ApplyResources(this.lbTapeColor, "lbTapeColor");
             this.lbTapeColor.Name = "lbTapeColor";
             // 
-            // lbTapeWidth
+            // bnSaveToDB
             // 
-            resources.ApplyResources(this.lbTapeWidth, "lbTapeWidth");
-            this.lbTapeWidth.Name = "lbTapeWidth";
-            // 
-            // checkBoxTape
-            // 
-            resources.ApplyResources(this.checkBoxTape, "checkBoxTape");
-            this.checkBoxTape.Name = "checkBoxTape";
-            this.checkBoxTape.UseVisualStyleBackColor = true;
-            this.checkBoxTape.CheckedChanged += new System.EventHandler(this.checkBoxTape_CheckedChanged);
+            resources.ApplyResources(this.bnSaveToDB, "bnSaveToDB");
+            this.bnSaveToDB.Name = "bnSaveToDB";
+            this.bnSaveToDB.UseVisualStyleBackColor = true;
+            this.bnSaveToDB.Click += new System.EventHandler(this.onSaveToDatabase);
             // 
             // FormNewBox
             // 
@@ -688,6 +508,7 @@
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.bnCancel;
+            this.Controls.Add(this.bnSaveToDB);
             this.Controls.Add(this.gbTape);
             this.Controls.Add(this.statusStripDef);
             this.Controls.Add(this.tbDescription);
@@ -705,14 +526,8 @@
             this.Name = "FormNewBox";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.gbDimensions.ResumeLayout(false);
-            this.gbDimensions.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudInsideLength)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudInsideHeight)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudInsideWidth)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudLength)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudHeight)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudWidth)).EndInit();
             this.gbFaceColor.ResumeLayout(false);
             this.gbFaceColor.PerformLayout();
             this.gbWeight.ResumeLayout(false);
@@ -721,7 +536,6 @@
             this.statusStripDef.PerformLayout();
             this.gbTape.ResumeLayout(false);
             this.gbTape.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudTapeWidth)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -742,36 +556,18 @@
         private System.Windows.Forms.Label lblDescription;
         private System.Windows.Forms.TextBox tbName;
         private System.Windows.Forms.TextBox tbDescription;
-        private System.Windows.Forms.Label uLengthHeightInside;
-        private System.Windows.Forms.Label uLengthWidthInside;
-        private System.Windows.Forms.Label uLengthLengthInside;
-        private System.Windows.Forms.NumericUpDown nudInsideLength;
-        private System.Windows.Forms.NumericUpDown nudInsideHeight;
-        private System.Windows.Forms.NumericUpDown nudInsideWidth;
-        private System.Windows.Forms.Label uLengthHeight;
-        private System.Windows.Forms.Label uLengthWidth;
-        private System.Windows.Forms.Label uLengthLength;
-        private System.Windows.Forms.NumericUpDown nudLength;
-        private System.Windows.Forms.NumericUpDown nudHeight;
-        private System.Windows.Forms.NumericUpDown nudWidth;
-        private System.Windows.Forms.Label lbHeight;
-        private System.Windows.Forms.Label lbWidth;
-        private System.Windows.Forms.Label lbLength;
         private System.Windows.Forms.StatusStrip statusStripDef;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelDef;
-        private System.Windows.Forms.Label lbInsideWidth;
-        private System.Windows.Forms.Label lbInsideLength;
-        private System.Windows.Forms.Label lbInsideHeight;
         private System.Windows.Forms.CheckBox chkAllFaces;
         private System.Windows.Forms.Button btBitmaps;
         private System.Windows.Forms.GroupBox gbTape;
         private OfficePickers.ColorPicker.ComboBoxColorPicker cbTapeColor;
-        private System.Windows.Forms.NumericUpDown nudTapeWidth;
         private System.Windows.Forms.Label lbTapeColor;
-        private System.Windows.Forms.Label lbTapeWidth;
-        private System.Windows.Forms.CheckBox checkBoxTape;
-        private System.Windows.Forms.Label uLengthTapeWidth;
-        private Basics.UCtrlOptDouble ovcNetWeight;
+        private Basics.UCtrlOptDouble uCtrlNetWeight;
         private Basics.UCtrlDouble vcWeight;
+        private Basics.UCtrlTriDouble uCtrlDimensionsOuter;
+        private Basics.UCtrlOptTriDouble uCtrlDimensionsInner;
+        private Basics.UCtrlOptDouble uCtrlTapeWidth;
+        private System.Windows.Forms.Button bnSaveToDB;
     }
 }

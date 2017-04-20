@@ -216,7 +216,8 @@
             resources.GetString("cbColor.Items40"),
             resources.GetString("cbColor.Items41"),
             resources.GetString("cbColor.Items42"),
-            resources.GetString("cbColor.Items43")});
+            resources.GetString("cbColor.Items43"),
+            resources.GetString("cbColor.Items44")});
             this.cbColor.Name = "cbColor";
             this.cbColor.SelectedColorChanged += new System.EventHandler(this.onTruckPropertyChanged);
             // 
@@ -306,8 +307,6 @@
             this.Name = "FormNewTruck";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormNewTruck_FormClosing);
-            this.Load += new System.EventHandler(this.FormNewTruck_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nudHeight)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudWidth)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudLength)).EndInit();

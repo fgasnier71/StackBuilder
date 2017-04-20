@@ -8,12 +8,14 @@ using System.Text;
 using System.Windows.Forms;
 
 using log4net;
+using Sharp3D.Math.Core;
 
 using treeDiM.StackBuilder.Basics;
 using treeDiM.StackBuilder.Graphics;
-using Sharp3D.Math.Core;
-
 using treeDiM.StackBuilder.Desktop.Properties;
+
+using treeDiM.PLMPack.DBClient;
+using treeDiM.PLMPack.DBClient.PLMPackSR;
 #endregion
 
 namespace treeDiM.StackBuilder.Desktop
@@ -39,10 +41,10 @@ namespace treeDiM.StackBuilder.Desktop
             tbName.Text = _document.GetValidNewTypeName(Resources.ID_CYLINDER);
             tbDescription.Text = tbName.Text;
             // properties
-            nudDiameterOuter.Value = (decimal)UnitsManager.ConvertLengthFrom(2.0*75.0, UnitsManager.UnitSystem.UNIT_METRIC1);
-            nudDiameterInner.Value = (decimal)UnitsManager.ConvertLengthFrom(0.0, UnitsManager.UnitSystem.UNIT_METRIC1);
-            nudHeight.Value = (decimal)UnitsManager.ConvertLengthFrom(150.0, UnitsManager.UnitSystem.UNIT_METRIC1);
-            nudWeight.Value = (decimal)UnitsManager.ConvertMassFrom(1.0, UnitsManager.UnitSystem.UNIT_METRIC1);
+            uCtrlDiameterOuter.Value = UnitsManager.ConvertLengthFrom(2.0*75.0, UnitsManager.UnitSystem.UNIT_METRIC1);
+            uCtrlDiameterInner.Value = UnitsManager.ConvertLengthFrom(0.0, UnitsManager.UnitSystem.UNIT_METRIC1);
+            uCtrlHeight.Value = UnitsManager.ConvertLengthFrom(150.0, UnitsManager.UnitSystem.UNIT_METRIC1);
+            uCtrlWeight.Value = UnitsManager.ConvertMassFrom(1.0, UnitsManager.UnitSystem.UNIT_METRIC1);
             cbColorWallOuter.Color = System.Drawing.Color.LightSkyBlue;
             cbColorWallInner.Color = System.Drawing.Color.Chocolate;
             cbColorTop.Color = System.Drawing.Color.Gray;
@@ -60,13 +62,13 @@ namespace treeDiM.StackBuilder.Desktop
             // properties
             tbName.Text = cylinder.Name;
             tbDescription.Text = cylinder.Description;
-            nudDiameterOuter.Value = 2.0M * (decimal)cylinder.RadiusOuter;
-            nudDiameterInner.Value = 2.0M * (decimal)cylinder.RadiusInner;
-            nudHeight.Value = (decimal)cylinder.Height;
+            uCtrlDiameterOuter.Value = 2.0 * cylinder.RadiusOuter;
+            uCtrlDiameterInner.Value = 2.0 * cylinder.RadiusInner;
+            uCtrlHeight.Value = cylinder.Height;
+            uCtrlWeight.Value = cylinder.Weight;
             cbColorWallOuter.Color = cylinder.ColorWallOuter;
             cbColorWallInner.Color = cylinder.ColorWallInner;
             cbColorTop.Color = cylinder.ColorTop;
-            nudWeight.Value = (decimal)cylinder.Weight;
             // disable Ok button
             UpdateButtonOkStatus();        
         }
@@ -93,23 +95,28 @@ namespace treeDiM.StackBuilder.Desktop
         }
         public double RadiusOuter
         {
-            get { return 0.5 * (double)nudDiameterOuter.Value; }
-            set { nudDiameterOuter.Value = 2.0M * (decimal)value; }
+            get { return 0.5 * uCtrlDiameterOuter.Value; }
+            set { uCtrlDiameterOuter.Value = 2.0 * value; }
         }
         public double RadiusInner
         {
-            get { return 0.5 * (double)nudDiameterInner.Value; }
-            set { nudDiameterInner.Value = 2.0M * (decimal)value; }
+            get { return 0.5 * uCtrlDiameterInner.Value; }
+            set { uCtrlDiameterInner.Value = 2.0 * value; }
         }
         public double CylinderHeight
         {
-            get { return (double) nudHeight.Value; }
-            set { nudHeight.Value = (decimal)value; }
+            get { return uCtrlHeight.Value; }
+            set { uCtrlHeight.Value = value; }
         }
         public double Weight
         {
-            get { return (double) nudWeight.Value; }
-            set { nudWeight.Value = (decimal)value; }
+            get { return uCtrlWeight.Value; }
+            set { uCtrlWeight.Value = value; }
+        }
+        public OptDouble NetWeight
+        {
+            get { return uCtrlNetWeight.Value; }
+            set { uCtrlNetWeight.Value = value; }
         }
         public Color ColorTop
         {
@@ -170,6 +177,42 @@ namespace treeDiM.StackBuilder.Desktop
                 , ColorTop, ColorWallOuter, ColorWallInner);
             Cylinder cyl = new Cylinder(0, cylProperties);
             graphics.AddCylinder(cyl);
+        }
+        #endregion
+
+        #region Send to database
+        private void onSendToDatabase(object sender, EventArgs e)
+        {
+            try
+            {
+                FormSetItemName form = new FormSetItemName();
+                form.ItemName = CylinderName;
+                if (DialogResult.OK == form.ShowDialog())
+                {
+                    PLMPackServiceClient client = WCFClientSingleton.Instance.Client;
+                    client.CreateNewCylinder(new DCSBCylinder()
+                            {
+                                Name = form.ItemName,
+                                Description = Description,
+                                UnitSystem = (int)UnitsManager.CurrentUnitSystem,
+                                RadiusOuter = RadiusOuter,
+                                RadiusInner = RadiusInner,
+                                Height = Height,
+                                Weight = Weight,
+                                NetWeight = this.NetWeight.Activated ? this.NetWeight.Value : new Nullable<double>(),
+                                ColorOuter = ColorWallOuter.ToArgb(),
+                                ColorInner = ColorWallInner.ToArgb(),
+                                ColorTop = ColorTop.ToArgb(),
+                                AutoInsert = false                                
+                            }
+                        );
+                    Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                _log.Error(ex.Message);
+            }
         }
         #endregion
     }

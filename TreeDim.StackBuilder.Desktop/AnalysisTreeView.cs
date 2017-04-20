@@ -173,7 +173,7 @@ namespace treeDiM.StackBuilder.Desktop
                 || nodeTag.Type == NodeTag.NodeType.NT_PALLETFILM
                 )
             {
-                string message = string.Format(Resources.ID_DELETE, nodeTag.ItemProperties.Name);
+                string message = string.Format(Resources.ID_DELETEITEM, nodeTag.ItemProperties.Name);
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(message, AnalysisTreeView.DELETE, new EventHandler(onDeleteBaseItem)));
             }
             else if (nodeTag.Type == NodeTag.NodeType.NT_LISTBOX)
@@ -213,7 +213,7 @@ namespace treeDiM.StackBuilder.Desktop
                     string.Format(Resources.ID_EDIT, nodeTag.Analysis.Name), null
                     , new EventHandler(onEditAnalysis)));
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(
-                    string.Format(Resources.ID_DELETE, nodeTag.Analysis.Name), AnalysisTreeView.DELETE
+                    string.Format(Resources.ID_DELETEITEM, nodeTag.Analysis.Name), AnalysisTreeView.DELETE
                     , new EventHandler(onDeleteBaseItem)));
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(
                     string.Format(Resources.ID_GENERATEREPORTMSWORD, nodeTag.Analysis.Name), AnalysisTreeView.WORD

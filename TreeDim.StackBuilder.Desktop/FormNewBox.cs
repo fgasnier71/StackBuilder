@@ -8,12 +8,14 @@ using System.Text;
 using System.Windows.Forms;
 
 using log4net;
+using Sharp3D.Math.Core;
 
 using treeDiM.StackBuilder.Basics;
 using treeDiM.StackBuilder.Graphics;
-using Sharp3D.Math.Core;
-
 using treeDiM.StackBuilder.Desktop.Properties;
+
+using treeDiM.PLMPack.DBClient;
+using treeDiM.PLMPack.DBClient.PLMPackSR;
 #endregion
 
 namespace treeDiM.StackBuilder.Desktop
@@ -58,23 +60,27 @@ namespace treeDiM.StackBuilder.Desktop
             {
                 case Mode.MODE_CASE:
                     tbName.Text = _document.GetValidNewTypeName(Resources.ID_CASE);
-                    nudLength.Value = (decimal)UnitsManager.ConvertLengthFrom(400.0, UnitsManager.UnitSystem.UNIT_METRIC1);
-                    nudWidth.Value = (decimal)UnitsManager.ConvertLengthFrom(300.0, UnitsManager.UnitSystem.UNIT_METRIC1);
-                    nudHeight.Value = (decimal)UnitsManager.ConvertLengthFrom(200.0, UnitsManager.UnitSystem.UNIT_METRIC1);
-                    nudInsideLength.Value = nudLength.Value - (decimal)UnitsManager.ConvertLengthFrom(6.0, UnitsManager.UnitSystem.UNIT_METRIC1);
-                    nudInsideWidth.Value = nudWidth.Value - (decimal)UnitsManager.ConvertLengthFrom(6.0, UnitsManager.UnitSystem.UNIT_METRIC1);
-                    nudInsideHeight.Value = nudHeight.Value - (decimal)UnitsManager.ConvertLengthFrom(6.0, UnitsManager.UnitSystem.UNIT_METRIC1);
-                    nudTapeWidth.Value = (decimal)UnitsManager.ConvertLengthFrom(50, UnitsManager.UnitSystem.UNIT_METRIC1);
+                    uCtrlDimensionsOuter.ValueX = UnitsManager.ConvertLengthFrom(400.0, UnitsManager.UnitSystem.UNIT_METRIC1);
+                    uCtrlDimensionsOuter.ValueY = UnitsManager.ConvertLengthFrom(300.0, UnitsManager.UnitSystem.UNIT_METRIC1);
+                    uCtrlDimensionsOuter.ValueZ = UnitsManager.ConvertLengthFrom(200.0, UnitsManager.UnitSystem.UNIT_METRIC1);
+                    uCtrlDimensionsInner.Value = new Vector3D(
+                        uCtrlDimensionsOuter.ValueX - UnitsManager.ConvertLengthFrom(6.0, UnitsManager.UnitSystem.UNIT_METRIC1),
+                        uCtrlDimensionsOuter.ValueY - UnitsManager.ConvertLengthFrom(6.0, UnitsManager.UnitSystem.UNIT_METRIC1),
+                        uCtrlDimensionsOuter.ValueZ - UnitsManager.ConvertLengthFrom(6.0, UnitsManager.UnitSystem.UNIT_METRIC1));
+                    uCtrlDimensionsInner.Checked = false;
+                    uCtrlTapeWidth.Value = new OptDouble(true, UnitsManager.ConvertLengthFrom(50, UnitsManager.UnitSystem.UNIT_METRIC1));
                     cbTapeColor.Color = Color.Beige;
                     break;
                 case Mode.MODE_BOX:
                     tbName.Text = _document.GetValidNewTypeName(Resources.ID_BOX);
-                    nudLength.Value = (decimal)UnitsManager.ConvertLengthFrom(120.0, UnitsManager.UnitSystem.UNIT_METRIC1);
-                    nudWidth.Value = (decimal)UnitsManager.ConvertLengthFrom(60.0, UnitsManager.UnitSystem.UNIT_METRIC1);
-                    nudHeight.Value = (decimal)UnitsManager.ConvertLengthFrom(30.0, UnitsManager.UnitSystem.UNIT_METRIC1);
-                    nudInsideLength.Value = nudLength.Value - (decimal)UnitsManager.ConvertLengthFrom(6.0, UnitsManager.UnitSystem.UNIT_METRIC1);
-                    nudInsideWidth.Value = nudWidth.Value - (decimal)UnitsManager.ConvertLengthFrom(6.0, UnitsManager.UnitSystem.UNIT_METRIC1);
-                    nudInsideHeight.Value = nudHeight.Value - (decimal)UnitsManager.ConvertLengthFrom(6.0, UnitsManager.UnitSystem.UNIT_METRIC1);
+                    uCtrlDimensionsOuter.ValueX = UnitsManager.ConvertLengthFrom(120.0, UnitsManager.UnitSystem.UNIT_METRIC1);
+                    uCtrlDimensionsOuter.ValueY = UnitsManager.ConvertLengthFrom(60.0, UnitsManager.UnitSystem.UNIT_METRIC1);
+                    uCtrlDimensionsOuter.ValueZ = UnitsManager.ConvertLengthFrom(30.0, UnitsManager.UnitSystem.UNIT_METRIC1);
+                    uCtrlDimensionsInner.Value = new Vector3D(
+                        uCtrlDimensionsOuter.ValueX - UnitsManager.ConvertLengthFrom(6.0, UnitsManager.UnitSystem.UNIT_METRIC1),
+                        uCtrlDimensionsOuter.ValueY - UnitsManager.ConvertLengthFrom(6.0, UnitsManager.UnitSystem.UNIT_METRIC1),
+                        uCtrlDimensionsOuter.ValueZ - UnitsManager.ConvertLengthFrom(6.0, UnitsManager.UnitSystem.UNIT_METRIC1));
+                    uCtrlDimensionsInner.Checked = false;
                     break;
                 default:
                     break;
@@ -120,22 +126,20 @@ namespace treeDiM.StackBuilder.Desktop
             // initialize value
             tbName.Text = _boxProperties.Name;
             tbDescription.Text = _boxProperties.Description;
-            nudLength.Value = (decimal)_boxProperties.Length;
-            nudInsideLength.Value = (decimal)_boxProperties.InsideLength;
-            nudWidth.Value = (decimal)_boxProperties.Width;
-            nudInsideWidth.Value = (decimal)_boxProperties.InsideWidth;
-            nudHeight.Value = (decimal)_boxProperties.Height;
-            nudInsideHeight.Value = (decimal)_boxProperties.InsideHeight;
+            uCtrlDimensionsOuter.ValueX = _boxProperties.Length;
+            uCtrlDimensionsOuter.ValueY = _boxProperties.Width;
+            uCtrlDimensionsOuter.ValueZ = _boxProperties.Height;
+            uCtrlDimensionsInner.Value = new Vector3D(_boxProperties.InsideLength, _boxProperties.InsideWidth, _boxProperties.InsideHeight);
+            uCtrlDimensionsInner.Checked = _boxProperties.HasInsideDimensions;
             // weight
             vcWeight.Value = _boxProperties.Weight;
             // net weight
-            ovcNetWeight.Value = _boxProperties.NetWeight;
+            uCtrlNetWeight.Value = _boxProperties.NetWeight;
             // color : all faces set together / face by face
             chkAllFaces.Checked = _boxProperties.UniqueColor;
             chkAllFaces_CheckedChanged(this, null);
             // tape
-            checkBoxTape.Checked = _boxProperties.ShowTape;
-            nudTapeWidth.Value = (decimal)_boxProperties.TapeWidth;
+            uCtrlTapeWidth.Value = _boxProperties.TapeWidth;
             cbTapeColor.Color = _boxProperties.TapeColor;
             // set default face
             cbFace.SelectedIndex = 0;
@@ -166,48 +170,53 @@ namespace treeDiM.StackBuilder.Desktop
         /// </summary>
         public double BoxLength
         {
-            get { return (double)nudLength.Value; }
-            set { nudLength.Value = (decimal)value; }
+            get { return uCtrlDimensionsOuter.ValueX; }
+            set { uCtrlDimensionsOuter.ValueX = value; }
         }
         /// <summary>
         /// Width
         /// </summary>
         public double BoxWidth
         {
-            get { return (double)nudWidth.Value; }
-            set { nudWidth.Value = (decimal)value; }
+            get { return uCtrlDimensionsOuter.ValueY; }
+            set { uCtrlDimensionsOuter.ValueY = value; }
         }
         /// <summary>
         /// Height
         /// </summary>
         public double BoxHeight
         {
-            get { return (double)nudHeight.Value; }
-            set { nudHeight.Value = (decimal)value; }
+            get { return uCtrlDimensionsOuter.ValueZ; }
+            set { uCtrlDimensionsOuter.ValueZ = value; }
         }
         /// <summary>
         /// Inside length
         /// </summary>
         public double InsideLength
         {
-            get { return (double)nudInsideLength.Value; }
-            set { nudInsideLength.Value = (decimal)value; }
+            get { return uCtrlDimensionsInner.X; }
+            set { uCtrlDimensionsInner.X = value; }
+        }
+        public bool HasInsideDimensions
+        {
+            get { return uCtrlDimensionsInner.Checked; }
+            set { uCtrlDimensionsInner.Checked = false; }
         }
         /// <summary>
         /// Inside width
         /// </summary>
         public double InsideWidth
         {
-            get { return (double)nudInsideWidth.Value; }
-            set { nudInsideWidth.Value = (decimal)value; }
+            get { return uCtrlDimensionsInner.Y; }
+            set { uCtrlDimensionsInner.Y = value; }
         }
         /// <summary>
         /// Inside height
         /// </summary>
         public double InsideHeight
         {
-            get { return (double)nudInsideHeight.Value; }
-            set { nudInsideHeight.Value = (decimal)value; }
+            get { return uCtrlDimensionsInner.Z; }
+            set { uCtrlDimensionsInner.Z = value; }
         }
         /// <summary>
         /// Weight
@@ -238,20 +247,12 @@ namespace treeDiM.StackBuilder.Desktop
             }
         }
         /// <summary>
-        /// Show / Hide tape
-        /// </summary>
-        public bool ShowTape
-        {
-            get { return checkBoxTape.Checked; }
-            set { checkBoxTape.Checked = value; }
-        }
-        /// <summary>
         /// Tape width
         /// </summary>
-        public double TapeWidth
+        public OptDouble TapeWidth
         {
-            get { return (double)nudTapeWidth.Value; }
-            set { nudTapeWidth.Value = (decimal)value; }
+            get { return uCtrlTapeWidth.Value; }
+            set { uCtrlTapeWidth.Value = value; }
         }
         /// <summary>
         /// Tape color
@@ -271,28 +272,18 @@ namespace treeDiM.StackBuilder.Desktop
             graphCtrl.DrawingContainer = this;
 
             // show hide inside dimensions controls
-            nudInsideLength.Visible = _mode == Mode.MODE_CASE;
-            nudInsideWidth.Visible = _mode == Mode.MODE_CASE;
-            nudInsideHeight.Visible = _mode == Mode.MODE_CASE;
-            lbInsideLength.Visible = _mode == Mode.MODE_CASE;
-            lbInsideWidth.Visible = _mode == Mode.MODE_CASE;
-            lbInsideHeight.Visible = _mode == Mode.MODE_CASE;
-            uLengthLengthInside.Visible = _mode == Mode.MODE_CASE;
-            uLengthWidthInside.Visible = _mode == Mode.MODE_CASE;
-            uLengthHeightInside.Visible = _mode == Mode.MODE_CASE;
+            uCtrlDimensionsInner.Visible = _mode == Mode.MODE_CASE;
 
             gbTape.Visible = _mode == Mode.MODE_CASE;
-            checkBoxTape.Visible = _mode == Mode.MODE_CASE;
             lbTapeColor.Visible = _mode == Mode.MODE_CASE;
             cbTapeColor.Visible = _mode == Mode.MODE_CASE;
-            lbTapeWidth.Visible = _mode == Mode.MODE_CASE;
-            nudTapeWidth.Visible = _mode == Mode.MODE_CASE;
+            uCtrlTapeWidth.Visible = _mode == Mode.MODE_CASE;
             // caption
             this.Text = Mode.MODE_CASE == _mode ? Resources.ID_ADDNEWCASE : Resources.ID_ADDNEWBOX;
             // update thicknesses
             UpdateThicknesses();
             // update tape definition controls
-            checkBoxTape_CheckedChanged(this, null);
+            onTapeWidthChecked(this, null);
             // update box drawing
             graphCtrl.Invalidate();
             // windows settings
@@ -322,25 +313,25 @@ namespace treeDiM.StackBuilder.Desktop
         private void onBoxPropertyChanged(object sender, EventArgs e)
         {
             // maintain inside dimensions
-            NumericUpDown nud = sender as NumericUpDown;
-            if (null != nud)
+            UCtrlTriDouble uCtrlDimOut = sender as UCtrlTriDouble;
+            if (null != uCtrlDimOut && uCtrlDimensionsOuter == uCtrlDimOut)
             {
-                // length
-                if (nudLength == nud)
-                    InsideLength = BoxLength - _thicknessLength;
-                else if (nudInsideLength == nud && BoxLength < InsideLength)
-                    BoxLength = InsideLength + _thicknessLength;
-                // width
-                if (nudWidth == nud)
-                    InsideWidth = BoxWidth - _thicknessWidth;
-                else if (nudInsideWidth == nud && BoxWidth < InsideWidth)
-                    BoxWidth = InsideWidth + _thicknessWidth;
-                // height
-                if (nudHeight == nud)
-                    InsideHeight = BoxHeight - _thicknessHeight;
-                else if (nudInsideHeight == nud && BoxHeight <= InsideHeight)
-                    BoxHeight = InsideHeight + _thicknessHeight;
+                InsideLength = BoxLength - _thicknessLength;
+                InsideWidth = BoxWidth - _thicknessWidth;
+                InsideHeight = BoxHeight - _thicknessHeight;
             }
+            UCtrlOptTriDouble uCtrlDimIn = sender as UCtrlOptTriDouble;
+            if (null != uCtrlDimIn && uCtrlDimensionsInner == uCtrlDimIn)
+            {
+                if ( BoxLength < InsideLength)
+                    BoxLength = InsideLength + _thicknessLength;
+                if ( BoxWidth < InsideWidth)
+                    BoxWidth = InsideWidth + _thicknessWidth;
+                if ( BoxHeight <= InsideHeight)
+                    BoxHeight = InsideHeight + _thicknessHeight;       
+            }
+            uCtrlNetWeight.Enabled = !uCtrlDimensionsInner.Checked;
+
             // update thicknesses
             UpdateThicknesses();
             // update ok button status
@@ -432,13 +423,11 @@ namespace treeDiM.StackBuilder.Desktop
                 _log.Error(ex.ToString());
             }
         }
-        private void checkBoxTape_CheckedChanged(object sender, EventArgs e)
+        private void onTapeWidthChecked(object sender, EventArgs e)
         {
-            lbTapeColor.Enabled = checkBoxTape.Checked;
-            cbTapeColor.Enabled = checkBoxTape.Checked;
-            lbTapeWidth.Enabled = checkBoxTape.Checked;
-            nudTapeWidth.Enabled = checkBoxTape.Checked;
-            uLengthTapeWidth.Enabled = checkBoxTape.Checked;
+            bool isActivated = uCtrlTapeWidth.Value.Activated;
+            lbTapeColor.Enabled = isActivated;
+            cbTapeColor.Enabled = isActivated;
             graphCtrl.Invalidate();
         }      
         #endregion
@@ -455,25 +444,72 @@ namespace treeDiM.StackBuilder.Desktop
         #region Net weight
         public OptDouble NetWeight
         {
-            get { return ovcNetWeight.Value; }
-            set { ovcNetWeight.Value = value; }
+            get
+            {
+                if (HasInsideDimensions)
+                    return new OptDouble(false, 0.0);
+                else
+                    return uCtrlNetWeight.Value; 
+            }
+            set { uCtrlNetWeight.Value = value; }
         }
         #endregion
 
         #region Draw box
         public void Draw(Graphics3DControl ctrl, Graphics3D graphics)
         {
-            BoxProperties boxProperties = new BoxProperties(null, (double)nudLength.Value, (double)nudWidth.Value, (double)nudHeight.Value);
+            BoxProperties boxProperties = new BoxProperties(null, uCtrlDimensionsOuter.ValueX, uCtrlDimensionsOuter.ValueY, uCtrlDimensionsOuter.ValueZ);
             boxProperties.SetAllColors(_faceColors);
             boxProperties.TextureList = _textures;
-            boxProperties.ShowTape = ShowTape;
-            boxProperties.TapeColor = TapeColor;
             boxProperties.TapeWidth = TapeWidth;
+            boxProperties.TapeColor = TapeColor;
             Box box = new Box(0, boxProperties);
             graphics.AddBox(box);
-            graphics.AddDimensions(new DimensionCube((double)nudLength.Value, (double)nudWidth.Value, (double)nudHeight.Value));
+            graphics.AddDimensions(new DimensionCube(uCtrlDimensionsOuter.ValueX, uCtrlDimensionsOuter.ValueY, uCtrlDimensionsOuter.ValueZ));
         }
         #endregion
 
+        #region Save to database
+        private void onSaveToDatabase(object sender, EventArgs e)
+        {
+            try
+            {
+                FormSetItemName form = new FormSetItemName();
+                form.ItemName = BoxName;
+                if (DialogResult.OK == form.ShowDialog())
+                {
+                    PLMPackServiceClient client = WCFClientSingleton.Instance.Client;
+
+                    // colors
+                    int[] colors = new int[6];
+                    for (int i = 0; i < 6; ++i)
+                        colors[i] = _faceColors[i].ToArgb();
+
+                    client.CreateNewCase(new DCSBCase()
+                            {
+                                Name = form.ItemName,
+                                Description = Description,
+                                UnitSystem = (int)UnitsManager.CurrentUnitSystem,
+                                IsCase = (_mode == Mode.MODE_CASE),
+                                DimensionsOuter = new DCSBDim3D() { M0 = uCtrlDimensionsOuter.ValueX, M1 = uCtrlDimensionsOuter.ValueY, M2 = uCtrlDimensionsOuter.ValueZ },
+                                HasInnerDims = HasInsideDimensions,
+                                DimensionsInner = new DCSBDim3D() { M0 = uCtrlDimensionsInner.X, M1 = uCtrlDimensionsInner.Y, M2 = uCtrlDimensionsInner.Z },
+                                ShowTape = TapeWidth.Activated,
+                                TapeWidth = TapeWidth.Value,
+                                TapeColor = TapeColor.ToArgb(),
+                                Weight = Weight,
+                                NetWeight = this.NetWeight.Activated ? this.NetWeight.Value : new Nullable<double>(),
+                                Colors = colors,
+                                AutoInsert = false
+                            }
+                        );
+                }
+            }
+            catch (Exception ex)
+            {
+                _log.Error(ex.Message);
+            }
+        }
+        #endregion
     }
 }

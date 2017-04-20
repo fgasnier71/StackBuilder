@@ -32,14 +32,22 @@
             this.lbColor = new System.Windows.Forms.Label();
             this.chkbTransparency = new System.Windows.Forms.CheckBox();
             this.chkbHatching = new System.Windows.Forms.CheckBox();
-            this.nudHatchSpacing = new System.Windows.Forms.NumericUpDown();
-            this.uLengthHatchSpacing = new System.Windows.Forms.Label();
-            this.lbHatchSpacing = new System.Windows.Forms.Label();
-            this.lbHatchAngle = new System.Windows.Forms.Label();
-            this.nudHatchAngle = new System.Windows.Forms.NumericUpDown();
-            ((System.ComponentModel.ISupportInitialize)(this.nudHatchSpacing)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudHatchAngle)).BeginInit();
+            this.bnSendToDB = new System.Windows.Forms.Button();
+            this.uCtrlSpacing = new treeDiM.StackBuilder.Basics.UCtrlDouble();
+            this.uCtrlAngle = new treeDiM.StackBuilder.Basics.UCtrlDouble();
             this.SuspendLayout();
+            // 
+            // bnOk
+            // 
+            this.bnOk.Location = new System.Drawing.Point(505, 10);
+            // 
+            // bnCancel
+            // 
+            this.bnCancel.Location = new System.Drawing.Point(505, 38);
+            // 
+            // tbDescription
+            // 
+            this.tbDescription.Size = new System.Drawing.Size(384, 20);
             // 
             // cbColor
             // 
@@ -51,6 +59,8 @@
             this.cbColor.IntegralHeight = false;
             this.cbColor.ItemHeight = 16;
             this.cbColor.Items.AddRange(new object[] {
+            "Color",
+            "Color",
             "Color",
             "Color",
             "Color",
@@ -96,84 +106,74 @@
             this.chkbHatching.UseVisualStyleBackColor = true;
             this.chkbHatching.CheckedChanged += new System.EventHandler(this.chkbHatching_CheckedChanged);
             // 
-            // nudHatchSpacing
+            // bnSendToDB
             // 
-            this.nudHatchSpacing.DecimalPlaces = 2;
-            this.nudHatchSpacing.Location = new System.Drawing.Point(111, 162);
-            this.nudHatchSpacing.Maximum = new decimal(new int[] {
-            1000,
+            this.bnSendToDB.Location = new System.Drawing.Point(436, 314);
+            this.bnSendToDB.Name = "bnSendToDB";
+            this.bnSendToDB.Size = new System.Drawing.Size(144, 23);
+            this.bnSendToDB.TabIndex = 33;
+            this.bnSendToDB.Text = "Send to database";
+            this.bnSendToDB.UseVisualStyleBackColor = true;
+            this.bnSendToDB.Click += new System.EventHandler(this.onSendToDatabase);
+            // 
+            // uCtrlSpacing
+            // 
+            this.uCtrlSpacing.Location = new System.Drawing.Point(25, 165);
+            this.uCtrlSpacing.Minimum = new decimal(new int[] {
+            10000,
             0,
             0,
-            0});
-            this.nudHatchSpacing.Name = "nudHatchSpacing";
-            this.nudHatchSpacing.Size = new System.Drawing.Size(75, 20);
-            this.nudHatchSpacing.TabIndex = 28;
+            -2147483648});
+            this.uCtrlSpacing.MinimumSize = new System.Drawing.Size(100, 20);
+            this.uCtrlSpacing.Name = "uCtrlSpacing";
+            this.uCtrlSpacing.Size = new System.Drawing.Size(185, 20);
+            this.uCtrlSpacing.TabIndex = 34;
+            this.uCtrlSpacing.Text = "Spacing";
+            this.uCtrlSpacing.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlSpacing.Value = 0D;
             // 
-            // uLengthHatchSpacing
+            // uCtrlAngle
             // 
-            this.uLengthHatchSpacing.AutoSize = true;
-            this.uLengthHatchSpacing.Location = new System.Drawing.Point(193, 166);
-            this.uLengthHatchSpacing.Name = "uLengthHatchSpacing";
-            this.uLengthHatchSpacing.Size = new System.Drawing.Size(46, 13);
-            this.uLengthHatchSpacing.TabIndex = 29;
-            this.uLengthHatchSpacing.Text = "uLength";
-            // 
-            // lbHatchSpacing
-            // 
-            this.lbHatchSpacing.AutoSize = true;
-            this.lbHatchSpacing.Location = new System.Drawing.Point(40, 166);
-            this.lbHatchSpacing.Name = "lbHatchSpacing";
-            this.lbHatchSpacing.Size = new System.Drawing.Size(46, 13);
-            this.lbHatchSpacing.TabIndex = 30;
-            this.lbHatchSpacing.Text = "Spacing";
-            // 
-            // lbHatchAngle
-            // 
-            this.lbHatchAngle.AutoSize = true;
-            this.lbHatchAngle.Location = new System.Drawing.Point(40, 193);
-            this.lbHatchAngle.Name = "lbHatchAngle";
-            this.lbHatchAngle.Size = new System.Drawing.Size(34, 13);
-            this.lbHatchAngle.TabIndex = 31;
-            this.lbHatchAngle.Text = "Angle";
-            // 
-            // nudHatchAngle
-            // 
-            this.nudHatchAngle.Location = new System.Drawing.Point(111, 189);
-            this.nudHatchAngle.Maximum = new decimal(new int[] {
-            90,
+            this.uCtrlAngle.Location = new System.Drawing.Point(25, 192);
+            this.uCtrlAngle.Minimum = new decimal(new int[] {
+            10000,
             0,
             0,
-            0});
-            this.nudHatchAngle.Name = "nudHatchAngle";
-            this.nudHatchAngle.Size = new System.Drawing.Size(75, 20);
-            this.nudHatchAngle.TabIndex = 32;
+            -2147483648});
+            this.uCtrlAngle.MinimumSize = new System.Drawing.Size(100, 20);
+            this.uCtrlAngle.Name = "uCtrlAngle";
+            this.uCtrlAngle.Size = new System.Drawing.Size(185, 20);
+            this.uCtrlAngle.TabIndex = 35;
+            this.uCtrlAngle.Text = "Angle";
+            this.uCtrlAngle.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_NONE;
+            this.uCtrlAngle.Value = 0D;
             // 
             // FormNewPalletFilm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(584, 362);
-            this.Controls.Add(this.nudHatchAngle);
-            this.Controls.Add(this.lbHatchAngle);
-            this.Controls.Add(this.lbHatchSpacing);
-            this.Controls.Add(this.uLengthHatchSpacing);
-            this.Controls.Add(this.nudHatchSpacing);
+            this.Controls.Add(this.uCtrlAngle);
+            this.Controls.Add(this.uCtrlSpacing);
+            this.Controls.Add(this.bnSendToDB);
             this.Controls.Add(this.chkbHatching);
             this.Controls.Add(this.chkbTransparency);
             this.Controls.Add(this.lbColor);
             this.Controls.Add(this.cbColor);
             this.Name = "FormNewPalletFilm";
             this.Text = "Create new pallet film...";
+            this.Controls.SetChildIndex(this.bnOk, 0);
+            this.Controls.SetChildIndex(this.bnCancel, 0);
+            this.Controls.SetChildIndex(this.lbName, 0);
+            this.Controls.SetChildIndex(this.lbDescription, 0);
+            this.Controls.SetChildIndex(this.tbName, 0);
+            this.Controls.SetChildIndex(this.tbDescription, 0);
             this.Controls.SetChildIndex(this.cbColor, 0);
             this.Controls.SetChildIndex(this.lbColor, 0);
             this.Controls.SetChildIndex(this.chkbTransparency, 0);
             this.Controls.SetChildIndex(this.chkbHatching, 0);
-            this.Controls.SetChildIndex(this.nudHatchSpacing, 0);
-            this.Controls.SetChildIndex(this.uLengthHatchSpacing, 0);
-            this.Controls.SetChildIndex(this.lbHatchSpacing, 0);
-            this.Controls.SetChildIndex(this.lbHatchAngle, 0);
-            this.Controls.SetChildIndex(this.nudHatchAngle, 0);
-            ((System.ComponentModel.ISupportInitialize)(this.nudHatchSpacing)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudHatchAngle)).EndInit();
+            this.Controls.SetChildIndex(this.bnSendToDB, 0);
+            this.Controls.SetChildIndex(this.uCtrlSpacing, 0);
+            this.Controls.SetChildIndex(this.uCtrlAngle, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -185,10 +185,8 @@
         private System.Windows.Forms.Label lbColor;
         private System.Windows.Forms.CheckBox chkbTransparency;
         private System.Windows.Forms.CheckBox chkbHatching;
-        private System.Windows.Forms.NumericUpDown nudHatchSpacing;
-        private System.Windows.Forms.Label uLengthHatchSpacing;
-        private System.Windows.Forms.Label lbHatchSpacing;
-        private System.Windows.Forms.Label lbHatchAngle;
-        private System.Windows.Forms.NumericUpDown nudHatchAngle;
+        private System.Windows.Forms.Button bnSendToDB;
+        private Basics.UCtrlDouble uCtrlSpacing;
+        private Basics.UCtrlDouble uCtrlAngle;
     }
 }

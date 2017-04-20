@@ -7,12 +7,15 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-using treeDiM.StackBuilder.Basics;
-using treeDiM.StackBuilder.Graphics;
 using Sharp3D.Math.Core;
 using log4net;
 
+using treeDiM.StackBuilder.Basics;
+using treeDiM.StackBuilder.Graphics;
 using treeDiM.StackBuilder.Desktop.Properties;
+
+using treeDiM.PLMPack.DBClient;
+using treeDiM.PLMPack.DBClient.PLMPackSR;
 #endregion
 
 namespace treeDiM.StackBuilder.Desktop
@@ -62,6 +65,7 @@ namespace treeDiM.StackBuilder.Desktop
             PalletHeight = _palletProperties.Height;
             Weight = _palletProperties.Weight;
             PalletColor = _palletProperties.Color;
+            AdmissibleLoad = _palletProperties.AdmissibleLoadWeight;
         }
         #endregion
 
@@ -84,37 +88,36 @@ namespace treeDiM.StackBuilder.Desktop
             get { return tbName.Text; }
             set { tbName.Text = value; }
         }
-
         public string Description
         {
             get { return tbDescription.Text; }
             set { tbDescription.Text = value; }
         }
-
         public double PalletLength
         {
-            get { return System.Convert.ToDouble(nudLength.Text); }
-            set { nudLength.Text = string.Format("{0:F}", value); }
+            get { return uCtrlDimensions.ValueX; }
+            set { uCtrlDimensions.ValueX = value; }
         }
-
         public double PalletWidth
         {
-            get { return System.Convert.ToDouble(nudWidth.Text); }
-            set { nudWidth.Text = string.Format("{0:F}", value); }
+            get { return uCtrlDimensions.ValueY; }
+            set { uCtrlDimensions.ValueY = value; }
         }
-
         public double PalletHeight
         {
-            get { return System.Convert.ToDouble(nudHeight.Text); }
-            set { nudHeight.Text = string.Format("{0:F}", value); }
+            get { return uCtrlDimensions.ValueZ; }
+            set { uCtrlDimensions.ValueZ = value; }
         }
-
         public double Weight
         {
-            get { return System.Convert.ToDouble(nudWeight.Text); }
-            set { nudWeight.Text = string.Format("{0:F}", value); }
+            get { return uCtrlWeight.Value; }
+            set { uCtrlWeight.Value = value; }
         }
-
+        public double AdmissibleLoad
+        {
+            get { return uCtrlAdmissibleLoad.Value; }
+            set { uCtrlAdmissibleLoad.Value = value; }
+        }
         public Color PalletColor
         {
             get { return cbColor.Color; }
@@ -209,6 +212,38 @@ namespace treeDiM.StackBuilder.Desktop
             Settings.Default.FormNewPalletPosition.Record(this);
             // pallet type name
             Settings.Default.PalletTypeName = PalletTypeName;
+        }
+        #endregion
+
+        #region Send to database
+        private void onSendToDB(object sender, EventArgs e)
+        {
+            try
+            {
+                FormSetItemName form = new FormSetItemName();
+                form.ItemName = PalletName;
+                if (DialogResult.OK == form.ShowDialog())
+                {
+                    PLMPackServiceClient client = WCFClientSingleton.Instance.Client;
+                    client.CreateNewPallet(new DCSBPallet()
+                            {
+                                Name = form.Name,
+                                Description = Description,
+                                UnitSystem = 0,
+                                PalletType = PalletTypeName,
+                                Dimensions = new DCSBDim3D() { M0 = PalletLength, M1 = PalletWidth, M2 = PalletHeight },
+                                Weight = Weight,
+                                AdmissibleLoad = AdmissibleLoad,
+                                Color = PalletColor.ToArgb(),
+                                AutoInsert = false
+                            }
+                        );
+                }
+            }
+            catch (Exception ex)
+            {
+                _log.Error(ex.Message);
+            }
         }
         #endregion
     }

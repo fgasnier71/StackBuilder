@@ -57,11 +57,11 @@
             this.tabCtrlDBItems.Controls.Add(this.tabPageBundle);
             this.tabCtrlDBItems.Controls.Add(this.tabPageCylinder);
             this.tabCtrlDBItems.Controls.Add(this.tabPageTruck);
-            this.tabCtrlDBItems.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabCtrlDBItems.Location = new System.Drawing.Point(0, 0);
+            this.tabCtrlDBItems.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.tabCtrlDBItems.Location = new System.Drawing.Point(0, 185);
             this.tabCtrlDBItems.Name = "tabCtrlDBItems";
             this.tabCtrlDBItems.SelectedIndex = 0;
-            this.tabCtrlDBItems.Size = new System.Drawing.Size(634, 461);
+            this.tabCtrlDBItems.Size = new System.Drawing.Size(634, 276);
             this.tabCtrlDBItems.TabIndex = 0;
             this.tabCtrlDBItems.SelectedIndexChanged += new System.EventHandler(this.onSelectedTabChanged);
             // 
@@ -70,7 +70,7 @@
             this.tabPagePallet.Location = new System.Drawing.Point(4, 22);
             this.tabPagePallet.Name = "tabPagePallet";
             this.tabPagePallet.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPagePallet.Size = new System.Drawing.Size(626, 435);
+            this.tabPagePallet.Size = new System.Drawing.Size(626, 250);
             this.tabPagePallet.TabIndex = 0;
             this.tabPagePallet.Text = "Pallets";
             this.tabPagePallet.ToolTipText = "Pallets";
@@ -81,7 +81,7 @@
             this.tabPageDeco.Location = new System.Drawing.Point(4, 22);
             this.tabPageDeco.Name = "tabPageDeco";
             this.tabPageDeco.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageDeco.Size = new System.Drawing.Size(626, 435);
+            this.tabPageDeco.Size = new System.Drawing.Size(626, 250);
             this.tabPageDeco.TabIndex = 1;
             this.tabPageDeco.Text = "Pallet decoration";
             this.tabPageDeco.UseVisualStyleBackColor = true;
@@ -91,7 +91,7 @@
             this.tabPageCase.Location = new System.Drawing.Point(4, 22);
             this.tabPageCase.Name = "tabPageCase";
             this.tabPageCase.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageCase.Size = new System.Drawing.Size(626, 435);
+            this.tabPageCase.Size = new System.Drawing.Size(626, 250);
             this.tabPageCase.TabIndex = 2;
             this.tabPageCase.Text = "Case";
             this.tabPageCase.UseVisualStyleBackColor = true;
@@ -100,7 +100,7 @@
             // 
             this.tabPageBundle.Location = new System.Drawing.Point(4, 22);
             this.tabPageBundle.Name = "tabPageBundle";
-            this.tabPageBundle.Size = new System.Drawing.Size(626, 435);
+            this.tabPageBundle.Size = new System.Drawing.Size(626, 250);
             this.tabPageBundle.TabIndex = 3;
             this.tabPageBundle.Text = "Bundle";
             this.tabPageBundle.UseVisualStyleBackColor = true;
@@ -109,7 +109,7 @@
             // 
             this.tabPageCylinder.Location = new System.Drawing.Point(4, 22);
             this.tabPageCylinder.Name = "tabPageCylinder";
-            this.tabPageCylinder.Size = new System.Drawing.Size(626, 435);
+            this.tabPageCylinder.Size = new System.Drawing.Size(626, 250);
             this.tabPageCylinder.TabIndex = 4;
             this.tabPageCylinder.Text = "Cylinders";
             this.tabPageCylinder.UseVisualStyleBackColor = true;
@@ -119,7 +119,7 @@
             this.tabPageTruck.Controls.Add(this.splitContainerTrucks);
             this.tabPageTruck.Location = new System.Drawing.Point(4, 22);
             this.tabPageTruck.Name = "tabPageTruck";
-            this.tabPageTruck.Size = new System.Drawing.Size(626, 435);
+            this.tabPageTruck.Size = new System.Drawing.Size(626, 250);
             this.tabPageTruck.TabIndex = 5;
             this.tabPageTruck.Text = "Trucks";
             this.tabPageTruck.UseVisualStyleBackColor = true;
@@ -139,8 +139,8 @@
             // splitContainerTrucks.Panel2
             // 
             this.splitContainerTrucks.Panel2.Controls.Add(this.gridTrucks);
-            this.splitContainerTrucks.Size = new System.Drawing.Size(626, 435);
-            this.splitContainerTrucks.SplitterDistance = 166;
+            this.splitContainerTrucks.Size = new System.Drawing.Size(626, 250);
+            this.splitContainerTrucks.SplitterDistance = 95;
             this.splitContainerTrucks.TabIndex = 0;
             // 
             // bnImportTruck
@@ -171,7 +171,7 @@
             this.gridTrucks.Name = "gridTrucks";
             this.gridTrucks.OptimizeMode = SourceGrid.CellOptimizeMode.ForRows;
             this.gridTrucks.SelectionMode = SourceGrid.GridSelectionMode.Row;
-            this.gridTrucks.Size = new System.Drawing.Size(626, 265);
+            this.gridTrucks.Size = new System.Drawing.Size(626, 151);
             this.gridTrucks.SpecialKeys = SourceGrid.GridSpecialKeys.Arrows;
             this.gridTrucks.TabIndex = 4;
             this.gridTrucks.TabStop = true;

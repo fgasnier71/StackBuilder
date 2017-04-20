@@ -21,8 +21,7 @@ namespace treeDiM.StackBuilder.Basics
         private Color[] _colors = new Color[6];
         private List<Pair<HalfAxis.HAxis, Texture>> _textures = new List<Pair<HalfAxis.HAxis, Texture>>();
         // tape
-        private bool _showTape;
-        private double _tapeWidth;
+        private OptDouble _tapeWidth;
         private Color _tapeColor;
         #endregion
 
@@ -51,7 +50,6 @@ namespace treeDiM.StackBuilder.Basics
             _width      = width;
             _height     = height;
             _hasInsideDimensions = false;
-            _showTape = false;
         }
         /// <summary>
         /// Constructor 3
@@ -248,12 +246,7 @@ namespace treeDiM.StackBuilder.Basics
         #endregion
 
         #region Tape properties
-        public bool ShowTape
-        {
-            get { return _showTape;     }
-            set { _showTape = value;    }
-        }
-        public double TapeWidth
+        public OptDouble TapeWidth
         {
             get { return _tapeWidth;    }
             set { _tapeWidth = value;   }

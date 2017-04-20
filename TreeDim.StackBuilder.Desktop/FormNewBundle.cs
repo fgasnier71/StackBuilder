@@ -7,12 +7,15 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-using treeDiM.StackBuilder.Basics;
-using treeDiM.StackBuilder.Graphics;
 using Sharp3D.Math.Core;
 using log4net;
 
+using treeDiM.StackBuilder.Basics;
+using treeDiM.StackBuilder.Graphics;
 using treeDiM.StackBuilder.Desktop.Properties;
+
+using treeDiM.PLMPack.DBClient;
+using treeDiM.PLMPack.DBClient.PLMPackSR;
 #endregion
 
 namespace treeDiM.StackBuilder.Desktop
@@ -68,15 +71,17 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Load / FormClosing event handlers
-        private void FormNewBundle_Load(object sender, EventArgs e)
+        protected override void OnLoad(EventArgs e)
         {
+ 	        base.OnLoad(e);
             graphCtrl.DrawingContainer = this;
             // windows settings
             if (null != Settings.Default.FormNewBundlePosition)
                 Settings.Default.FormNewBundlePosition.Restore(this);
         }
-        private void FormNewBundle_FormClosing(object sender, FormClosingEventArgs e)
+        protected override void OnClosing(CancelEventArgs e)
         {
+            base.OnClosing(e);
             // window position
             if (null == Settings.Default.FormNewBundlePosition)
                 Settings.Default.FormNewBundlePosition = new WindowSettings();
@@ -105,23 +110,23 @@ namespace treeDiM.StackBuilder.Desktop
         }
         public double BundleLength
         {
-            get { return (double)nudLength.Value; }
-            set { nudLength.Value = (decimal)value; }
+            get { return uCtrlLength.Value; }
+            set { uCtrlLength.Value = value; }
         }
         public double BundleWidth
         {
-            get { return (double)nudWidth.Value; }
-            set { nudWidth.Value = (decimal)value; }
+            get { return uCtrlWidth.Value; }
+            set { uCtrlWidth.Value = value; }
         }
         public double UnitThickness
         {
-            get { return (double)nudThickness.Value; }
-            set { nudThickness.Value = (decimal)value; }
+            get { return uCtrlThickness.Value; }
+            set { uCtrlThickness.Value = value; }
         }
         public double UnitWeight
         {
-            get { return (double)nudWeight.Value; }
-            set { nudWeight.Value = (decimal)value; }
+            get { return uCtrlWeight.Value; }
+            set { uCtrlWeight.Value = value; }
         }
         public int NoFlats
         {
@@ -174,6 +179,38 @@ namespace treeDiM.StackBuilder.Desktop
             Box box = new Box(0, bundleProperties);
             graphics.AddBox(box);
             graphics.AddDimensions(new DimensionCube(BundleLength, BundleWidth, UnitThickness * NoFlats));
+        }
+        #endregion
+
+        #region Send to database
+        private void onSendToDatabase(object sender, EventArgs e)
+        {
+            try
+            {
+                FormSetItemName form = new FormSetItemName();
+                form.ItemName = BundleName;
+                if (DialogResult.OK == form.ShowDialog())
+                {
+                    PLMPackServiceClient client = WCFClientSingleton.Instance.Client;
+                    client.CreateNewBundle( new DCSBBundle()
+                        {
+                            Name = form.ItemName,
+                            Description = Description,
+                            UnitSystem = (int)UnitsManager.CurrentUnitSystem,
+                            DimensionsUnit = new DCSBDim3D() { M0=BundleLength, M1=BundleWidth, M2=UnitThickness},
+                            Number = NoFlats,
+                            UnitWeight = UnitWeight,
+                            Color = Color.ToArgb(),
+                            AutoInsert = false
+                        }
+                    );
+                    Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                _log.Error(ex.Message);
+            }
         }
         #endregion
     }

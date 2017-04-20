@@ -80,7 +80,7 @@ namespace treeDiM.StackBuilder.Graphics
             Brush brushSolid = new SolidBrush(box.TopFace.ColorFill);
             g.FillPolygon(brushSolid, pt);
             // draw box tape
-            if (box.ShowTape)
+            if (box.TapeWidth.Activated)
             {
                 // instantiate brush
                 Brush brushTape = new SolidBrush(box.TapeColor);

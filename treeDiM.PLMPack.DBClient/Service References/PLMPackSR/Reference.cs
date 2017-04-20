@@ -1244,19 +1244,32 @@ namespace treeDiM.PLMPack.DBClient.PLMPackSR {
     public partial class DCSBPallet : treeDiM.PLMPack.DBClient.PLMPackSR.DCSBItem {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<double> AdmissibleLoadField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int ColorField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private treeDiM.PLMPack.DBClient.PLMPackSR.DCSBDim3D DimensionsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<double> MaximumLoadField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int PalletTypeField;
+        private string PalletTypeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double WeightField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<double> AdmissibleLoad {
+            get {
+                return this.AdmissibleLoadField;
+            }
+            set {
+                if ((this.AdmissibleLoadField.Equals(value) != true)) {
+                    this.AdmissibleLoadField = value;
+                    this.RaisePropertyChanged("AdmissibleLoad");
+                }
+            }
+        }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public int Color {
@@ -1285,25 +1298,12 @@ namespace treeDiM.PLMPack.DBClient.PLMPackSR {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<double> MaximumLoad {
-            get {
-                return this.MaximumLoadField;
-            }
-            set {
-                if ((this.MaximumLoadField.Equals(value) != true)) {
-                    this.MaximumLoadField = value;
-                    this.RaisePropertyChanged("MaximumLoad");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int PalletType {
+        public string PalletType {
             get {
                 return this.PalletTypeField;
             }
             set {
-                if ((this.PalletTypeField.Equals(value) != true)) {
+                if ((object.ReferenceEquals(this.PalletTypeField, value) != true)) {
                     this.PalletTypeField = value;
                     this.RaisePropertyChanged("PalletType");
                 }

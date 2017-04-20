@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+
 using Sharp3D.Math.Core;
 using log4net;
 
@@ -85,6 +86,17 @@ namespace treeDiM.StackBuilder.Desktop
         {
             base.OnLoad(e);
             graphCtrl.DrawingContainer = this;
+            // windows settings
+            if (null != Settings.Default.FormNewTruckPosition)
+                Settings.Default.FormNewTruckPosition.Restore(this);
+        }
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            base.OnClosing(e);
+            // window position
+            if (null == Settings.Default.FormNewTruckPosition)
+                Settings.Default.FormNewTruckPosition = new WindowSettings();
+            Settings.Default.FormNewTruckPosition.Record(this);
         }
         #endregion
 
@@ -188,23 +200,6 @@ namespace treeDiM.StackBuilder.Desktop
         private void onNameDescriptionChanged(object sender, EventArgs e)
         {
             UpdateButtonOkStatus();
-        }
-        #endregion
-
-        #region Load / FormClosing event
-        private void FormNewTruck_Load(object sender, EventArgs e)
-        {
-            // windows settings
-            if (null != Settings.Default.FormNewTruckPosition)
-                Settings.Default.FormNewTruckPosition.Restore(this);
-        }
-
-        private void FormNewTruck_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            // window position
-            if (null == Settings.Default.FormNewTruckPosition)
-                Settings.Default.FormNewTruckPosition = new WindowSettings();
-            Settings.Default.FormNewTruckPosition.Record(this);
         }
         #endregion
 

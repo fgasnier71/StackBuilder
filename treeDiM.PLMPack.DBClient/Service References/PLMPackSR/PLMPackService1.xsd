@@ -207,10 +207,10 @@
     <xs:complexContent mixed="false">
       <xs:extension base="tns:DCSBItem">
         <xs:sequence>
+          <xs:element minOccurs="0" name="AdmissibleLoad" nillable="true" type="xs:double" />
           <xs:element minOccurs="0" name="Color" type="xs:int" />
           <xs:element minOccurs="0" name="Dimensions" nillable="true" type="tns:DCSBDim3D" />
-          <xs:element minOccurs="0" name="MaximumLoad" nillable="true" type="xs:double" />
-          <xs:element minOccurs="0" name="PalletType" type="xs:int" />
+          <xs:element minOccurs="0" name="PalletType" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="Weight" type="xs:double" />
         </xs:sequence>
       </xs:extension>

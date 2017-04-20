@@ -58,7 +58,7 @@ namespace treeDiM.StackBuilder.Basics
         public bool Checked
         {
             get { return chkbOpt.Checked; }
-            set { chkbOpt.Checked = value; chkbOpt_CheckedChanged(this, null); }
+            set { chkbOpt.Checked = value; onCheckChanged(this, null); }
         }
         [Browsable(true)]
         public decimal Minimum
@@ -80,7 +80,7 @@ namespace treeDiM.StackBuilder.Basics
         #endregion
 
         #region Event handlers
-        private void chkbOpt_CheckedChanged(object sender, EventArgs e)
+        private void onCheckChanged(object sender, EventArgs e)
         {
             nudX.Enabled = chkbOpt.Checked;
             nudY.Enabled = chkbOpt.Checked;
@@ -92,11 +92,11 @@ namespace treeDiM.StackBuilder.Basics
         {
             if (null != ValueChanged) ValueChanged(this, e);
         }
-        public void OptValueControl_SizeChanged(object sender, EventArgs e)
+        public void onSizeChanged(object sender, EventArgs e)
         {
             // set nud location
-            nudX.Location = new Point(Width - 3 * UCtrlDouble.stNudLength - UCtrlDouble.stLbUnitLength, 0);
-            nudY.Location = new Point(Width - 2 * UCtrlDouble.stNudLength - UCtrlDouble.stLbUnitLength, 0);
+            nudX.Location = new Point(Width - 3 * UCtrlDouble.stNudLength - 4 - UCtrlDouble.stLbUnitLength, 0);
+            nudY.Location = new Point(Width - 2 * UCtrlDouble.stNudLength - 2 - UCtrlDouble.stLbUnitLength, 0);
             nudZ.Location = new Point(Width - 1 * UCtrlDouble.stNudLength - UCtrlDouble.stLbUnitLength, 0);
             // set unit location
             lbUnit.Location = new Point(Width - UCtrlDouble.stLbUnitLength + 1, 4);

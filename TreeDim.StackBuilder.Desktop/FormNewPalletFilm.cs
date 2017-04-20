@@ -7,14 +7,23 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
+using log4net;
+
 using treeDiM.StackBuilder.Basics;
 using treeDiM.StackBuilder.Desktop.Properties;
+
+using treeDiM.PLMPack.DBClient;
+using treeDiM.PLMPack.DBClient.PLMPackSR;
 #endregion
 
 namespace treeDiM.StackBuilder.Desktop
 {
     public partial class FormNewPalletFilm : FormNewBase
     {
+        #region Data members
+        protected static ILog _log = LogManager.GetLogger(typeof(FormNewPalletFilm));
+        #endregion
+
         #region Constructor
         public FormNewPalletFilm(Document doc, PalletFilmProperties item)
             : base(doc, item)
@@ -74,24 +83,55 @@ namespace treeDiM.StackBuilder.Desktop
         }
         public double HatchSpacing
         {
-            get { return (double)nudHatchSpacing.Value; }
-            set { nudHatchSpacing.Value = (decimal)value; }
+            get { return (double)uCtrlSpacing.Value; }
+            set { uCtrlSpacing.Value = value; }
         }
         public double HatchAngle
         {
-            get { return (double)nudHatchAngle.Value; }
-            set { nudHatchAngle.Value = (decimal)value; }
+            get { return (double)uCtrlAngle.Value; }
+            set { uCtrlAngle.Value = value; }
         }
         #endregion
 
         #region Event handlers
         private void chkbHatching_CheckedChanged(object sender, EventArgs e)
         {
-            lbHatchSpacing.Enabled = UseHatching;
-            nudHatchSpacing.Enabled = UseHatching;
-            lbHatchAngle.Enabled = UseHatching;
-            nudHatchAngle.Enabled = UseHatching;
+            uCtrlSpacing.Enabled = UseHatching;
+            uCtrlAngle.Enabled = UseHatching;
             UpdateStatus(string.Empty);
+        }
+        #endregion
+
+        #region Send to database
+        private void onSendToDatabase(object sender, EventArgs e)
+        {
+            try
+            {
+                FormSetItemName form = new FormSetItemName();
+                form.ItemName = ItemName;
+                if (DialogResult.OK == form.ShowDialog())
+                {
+                    PLMPackServiceClient client = WCFClientSingleton.Instance.Client;
+                    client.CreateNewPalletFilm(new DCSBPalletFilm()
+                            {
+                                Name = form.Name,
+                                Description = ItemDescription,
+                                UnitSystem = (int)UnitsManager.CurrentUnitSystem,
+                                UseTransparency = UseTransparency,
+                                UseHatching = UseHatching,
+                                HatchingSpace = HatchSpacing,
+                                HatchingAngle = HatchAngle,
+                                Color = FilmColor.ToArgb(),
+                                AutoInsert = false
+                            }
+                        );
+                    Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                _log.Error(ex.Message);
+            }
         }
         #endregion
     }

@@ -47,14 +47,14 @@
             this.chkbOpt.TabIndex = 0;
             this.chkbOpt.Text = "Optional dimension";
             this.chkbOpt.UseVisualStyleBackColor = true;
-            this.chkbOpt.CheckedChanged += new System.EventHandler(this.chkbOpt_CheckedChanged);
+            this.chkbOpt.CheckedChanged += new System.EventHandler(this.onCheckChanged);
             // 
             // nudX
             // 
             this.nudX.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.nudX.DecimalPlaces = 2;
-            this.nudX.Location = new System.Drawing.Point(171, 0);
+            this.nudX.Location = new System.Drawing.Point(121, 0);
             this.nudX.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -70,7 +70,7 @@
             this.nudY.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.nudY.DecimalPlaces = 2;
-            this.nudY.Location = new System.Drawing.Point(234, 0);
+            this.nudY.Location = new System.Drawing.Point(184, 0);
             this.nudY.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -86,7 +86,7 @@
             this.nudZ.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.nudZ.DecimalPlaces = 2;
-            this.nudZ.Location = new System.Drawing.Point(297, 0);
+            this.nudZ.Location = new System.Drawing.Point(247, 0);
             this.nudZ.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -102,7 +102,7 @@
             this.lbUnit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lbUnit.AutoSize = true;
-            this.lbUnit.Location = new System.Drawing.Point(364, 3);
+            this.lbUnit.Location = new System.Drawing.Point(314, 3);
             this.lbUnit.Name = "lbUnit";
             this.lbUnit.Size = new System.Drawing.Size(24, 13);
             this.lbUnit.TabIndex = 4;
@@ -118,7 +118,8 @@
             this.Controls.Add(this.nudX);
             this.Controls.Add(this.chkbOpt);
             this.Name = "UCtrlOptTriDouble";
-            this.Size = new System.Drawing.Size(400, 20);
+            this.Size = new System.Drawing.Size(350, 20);
+            this.SizeChanged += new System.EventHandler(this.onSizeChanged);
             ((System.ComponentModel.ISupportInitialize)(this.nudX)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudY)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudZ)).EndInit();

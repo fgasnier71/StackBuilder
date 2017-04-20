@@ -240,7 +240,6 @@ namespace treeDiM.StackBuilder.Basics
             boxPropClone.SetNetWeight( boxProp.NetWeight );
             boxPropClone.ID.SetNameDesc( boxProp.ID.Name, boxProp.ID.Description );
             boxPropClone.SetAllColors(boxProp.Colors);
-            boxPropClone.ShowTape = boxProp.ShowTape;
             boxPropClone.TapeWidth = boxProp.TapeWidth;
             boxPropClone.TapeColor = boxProp.TapeColor;
             // insert in list
@@ -1501,9 +1500,8 @@ namespace treeDiM.StackBuilder.Basics
             boxProperties.ID.IGuid = new Guid(sid);
             boxProperties.TextureList = listTexture;
             // tape
-            boxProperties.ShowTape = hasTape;
             boxProperties.TapeColor = tapeColor;
-            boxProperties.TapeWidth = UnitsManager.ConvertLengthFrom(tapeWidth, _unitSystem);
+            boxProperties.TapeWidth = new OptDouble(hasTape, UnitsManager.ConvertLengthFrom(tapeWidth, _unitSystem));
             boxProperties.SetNetWeight( optNetWeight );
         }
 
@@ -3314,9 +3312,9 @@ namespace treeDiM.StackBuilder.Basics
             SaveTextures(boxProperties.TextureList, xmlBoxProperties, xmlDoc);
             // tape
             XmlAttribute tapeAttribute = xmlDoc.CreateAttribute("ShowTape");
-            tapeAttribute.Value = string.Format("{0}", boxProperties.ShowTape);
+            tapeAttribute.Value = string.Format("{0}", boxProperties.TapeWidth.Activated);
             xmlBoxProperties.Attributes.Append(tapeAttribute);
-            if (boxProperties.ShowTape)
+            if (boxProperties.TapeWidth.Activated)
             {
                 XmlElement tapeElt = xmlDoc.CreateElement("Tape");
                 xmlBoxProperties.AppendChild(tapeElt);

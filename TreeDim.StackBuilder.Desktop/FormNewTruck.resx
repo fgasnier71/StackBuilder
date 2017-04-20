@@ -678,6 +678,9 @@
   <data name="cbColor.Items43" xml:space="preserve">
     <value>Color</value>
   </data>
+  <data name="cbColor.Items44" xml:space="preserve">
+    <value>Color</value>
+  </data>
   <data name="cbColor.Location" type="System.Drawing.Point, System.Drawing">
     <value>130, 78</value>
   </data>
@@ -691,7 +694,7 @@
     <value>cbColor</value>
   </data>
   <data name="&gt;&gt;cbColor.Type" xml:space="preserve">
-    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=1.1.6296.26038, Culture=neutral, PublicKeyToken=null</value>
+    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=1.1.6317.15992, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;cbColor.Parent" xml:space="preserve">
     <value>$this</value>
@@ -871,10 +874,10 @@
     <value>1</value>
   </data>
   <data name="bnSendToDB.Location" type="System.Drawing.Point, System.Drawing">
-    <value>408, 313</value>
+    <value>454, 313</value>
   </data>
   <data name="bnSendToDB.Size" type="System.Drawing.Size, System.Drawing">
-    <value>164, 22</value>
+    <value>118, 22</value>
   </data>
   <data name="bnSendToDB.TabIndex" type="System.Int32, mscorlib">
     <value>42</value>

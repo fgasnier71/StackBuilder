@@ -7,13 +7,16 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
+using log4net;
+using Sharp3D.Math.Core;
+
 using treeDiM.StackBuilder.Basics;
+using treeDiM.StackBuilder.Basics.Controls;
 using treeDiM.StackBuilder.Graphics;
 using treeDiM.StackBuilder.Desktop.Properties;
 
-using log4net;
-
-using Sharp3D.Math.Core;
+using treeDiM.PLMPack.DBClient;
+using treeDiM.PLMPack.DBClient.PLMPackSR;
 #endregion
 
 namespace treeDiM.StackBuilder.Desktop
@@ -83,38 +86,38 @@ namespace treeDiM.StackBuilder.Desktop
         #region Public properties
         public double CapLength
         {
-            get { return (double)nudCapLength.Value; }
-            set { nudCapLength.Value = (decimal)value; }
+            get { return uCtrlDimensionsOuter.ValueX; }
+            set { uCtrlDimensionsOuter.ValueX = value; }
         }
         public double CapWidth
         {
-            get { return (double)nudCapWidth.Value; }
-            set { nudCapWidth.Value = (decimal)value; }
+            get { return uCtrlDimensionsOuter.ValueY; }
+            set { uCtrlDimensionsOuter.ValueY = value; }
         }
         public double CapHeight
         {
-            get { return (double)nudCapHeight.Value; }
-            set { nudCapHeight.Value = (decimal)value; }
+            get { return uCtrlDimensionsOuter.ValueZ; }
+            set { uCtrlDimensionsOuter.ValueZ = value; }
         }
         public double CapInnerLength
         {
-            get { return (double)nudCapInnerLength.Value; }
-            set { nudCapInnerLength.Value = (decimal)value; }
+            get { return uCtrlDimensionsInner.ValueX; }
+            set { uCtrlDimensionsInner.ValueX = value; }
         }
         public double CapInnerWidth
         {
-            get { return (double)nudCapInnerWidth.Value; }
-            set { nudCapInnerWidth.Value = (decimal)value; }
+            get { return uCtrlDimensionsInner.ValueY; }
+            set { uCtrlDimensionsInner.ValueY = value; }
         }
         public double CapInnerHeight
         {
-            get { return (double)nudCapInnerHeight.Value; }
-            set { nudCapInnerHeight.Value = (decimal)value; }
+            get { return uCtrlDimensionsInner.ValueZ; }
+            set { uCtrlDimensionsInner.ValueZ = value; }
         }
         public double CapWeight
         {
-            get { return (double)nudCapWeight.Value; }
-            set { nudCapWeight.Value = (decimal)value; }
+            get { return uCtrlWeight.Value; }
+            set { uCtrlWeight.Value = value; }
         }
         public Color CapColor
         {
@@ -124,21 +127,21 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Handlers
-        private void cbColor_SelectedColorChanged(object sender, EventArgs e)
+        private void onColorChanged(object sender, EventArgs e)
         {
             graphCtrl.Invalidate();
         }
         private void UpdateThicknesses(object sender, EventArgs e)
         {
-            NumericUpDown nud = sender as NumericUpDown;
-            if (null != nud)
+            UCtrlTriDouble uCtrlDim = sender as UCtrlTriDouble;
+            if (null != uCtrlDim)
             {
                 double thickness = UnitsManager.ConvertLengthFrom(5.0, UnitsManager.UnitSystem.UNIT_METRIC1);
-                if (nudCapLength == nud && CapLength > thickness)
+                if (uCtrlDimensionsOuter == uCtrlDim && CapLength > thickness)
                     CapInnerLength = CapLength - thickness;
-                if (nudCapWidth == nud && CapWidth > thickness)
+                if (uCtrlDimensionsOuter == uCtrlDim && CapWidth > thickness)
                     CapInnerWidth = CapWidth - thickness;
-                if (nudCapHeight == nud && CapHeight > thickness)
+                if (uCtrlDimensionsOuter == uCtrlDim && CapHeight > thickness)
                     CapInnerHeight = CapHeight - thickness;
             }
             // update
@@ -161,6 +164,38 @@ namespace treeDiM.StackBuilder.Desktop
                 PalletCap palletCap = new PalletCap(0, palletCapProperties, BoxPosition.Zero);
                 palletCap.Draw(graphics);
                 graphics.AddDimensions(new DimensionCube(CapLength, CapWidth, CapHeight));
+            }
+        }
+        #endregion
+
+        #region Send to database
+        private void onSendToDatabase(object sender, EventArgs e)
+        {
+            try
+            {
+                FormSetItemName form = new FormSetItemName();
+                form.ItemName = ItemName;
+                if (DialogResult.OK == form.ShowDialog())
+                {
+                    PLMPackServiceClient client = WCFClientSingleton.Instance.Client;
+                    client.CreateNewPalletCap(new DCSBPalletCap()
+                            {
+                                Name = form.Name,
+                                Description = ItemDescription,
+                                UnitSystem = 0,
+                                DimensionsOuter = new DCSBDim3D() { M0 = CapLength, M1 = CapWidth, M2 = CapHeight },
+                                DimensionsInner = new DCSBDim3D() { M0 = CapInnerLength, M1 = CapInnerWidth, M2 = CapInnerHeight },
+                                Weight = CapWeight,
+                                Color = CapColor.ToArgb(),
+                                AutoInsert = false
+                            }
+                        );
+                    Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                _log.Error(ex.Message);
             }
         }
         #endregion

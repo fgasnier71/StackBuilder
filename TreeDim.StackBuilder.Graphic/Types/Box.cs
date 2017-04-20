@@ -33,8 +33,7 @@ namespace treeDiM.StackBuilder.Graphics
         /// <summary>
         /// Tape related properties
         /// </summary>
-        private bool _showTape = false;
-        private double _tapeWidth;
+        private OptDouble _tapeWidth;
         private Color _tapeColor;
         /// <summary>
         /// Packable object replacable with in memory built image
@@ -125,7 +124,6 @@ namespace treeDiM.StackBuilder.Graphics
                             _textureLists[iIndex].Add(tex.second);
                         }
                         // tape
-                        _showTape = boxProperties.ShowTape;
                         _tapeWidth = boxProperties.TapeWidth;
                         _tapeColor = boxProperties.TapeColor;
                     }
@@ -177,7 +175,6 @@ namespace treeDiM.StackBuilder.Graphics
                         _textureLists[iIndex] = new List<Texture>();
                     _textureLists[iIndex].Add(tex.second);
                 }
-                _showTape = boxProperties.ShowTape;
                 _tapeWidth = boxProperties.TapeWidth;
                 _tapeColor = boxProperties.TapeColor;
             }
@@ -220,7 +217,6 @@ namespace treeDiM.StackBuilder.Graphics
                             _textureLists[iIndex] = new List<Texture>();
                         _textureLists[iIndex].Add(tex.second);
                     }
-                    _showTape = boxProperties.ShowTape;
                     _tapeWidth = boxProperties.TapeWidth;
                     _tapeColor = boxProperties.TapeColor;
                 }
@@ -366,12 +362,7 @@ namespace treeDiM.StackBuilder.Graphics
             set { _isBundle = value; }
         }
         public int BundleFlats
-        {
-            get
-            {
-                return _noFlats; 
-            }
-        }
+        {   get { return _noFlats;  } }
 
         public Face TopFace
         {
@@ -405,22 +396,12 @@ namespace treeDiM.StackBuilder.Graphics
                     + 0.5 * _dim[2] * HeightAxis;
             }
         }
-
         public bool ShowTape
-        {
-            get { return _showTape; }
-            set { _showTape = value; }
-        }
-
-        public double TapeWidth
-        {
-            get { return _tapeWidth; }
-        }
-
+        { get { return _tapeWidth.Activated; } }
+        public OptDouble TapeWidth
+        {   get { return _tapeWidth; } }
         public Color TapeColor
-        {
-            get { return _tapeColor; }
-        }
+        {   get { return _tapeColor; } }
 
         public Vector3D[] TapePoints
         {

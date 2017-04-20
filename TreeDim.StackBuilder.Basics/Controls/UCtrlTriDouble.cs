@@ -9,7 +9,7 @@ using System.Text;
 using System.Windows.Forms;
 #endregion
 
-namespace treeDiM.StackBuilder.Basics.Controls
+namespace treeDiM.StackBuilder.Basics
 {
     public partial class UCtrlTriDouble : UserControl
     {
@@ -18,6 +18,7 @@ namespace treeDiM.StackBuilder.Basics.Controls
         #endregion
 
         #region Events
+        [Browsable(true)]
         public event onValueChanged ValueChanged;
         #endregion
 
@@ -58,10 +59,7 @@ namespace treeDiM.StackBuilder.Basics.Controls
             {
                 _unitType = value;
                 lbUnit.Text = UnitsManager.UnitString(_unitType);
-                int noDecimals = UnitsManager.NoDecimals(_unitType);
-                nudValueX.DecimalPlaces = noDecimals;
-                nudValueY.DecimalPlaces = noDecimals;
-                nudValueZ.DecimalPlaces = noDecimals;
+                nudValueX.DecimalPlaces = nudValueY.DecimalPlaces = nudValueZ.DecimalPlaces = UnitsManager.NoDecimals(_unitType);
             }
         }
         #endregion
@@ -71,21 +69,19 @@ namespace treeDiM.StackBuilder.Basics.Controls
         {
             if (null != ValueChanged) ValueChanged(this, e);
         }
-        private void ValueControl_SizeChanged(object sender, EventArgs e)
+        private void onSizeChanged(object sender, EventArgs e)
         {
             // set nud location
-            nudValueX.Location = new Point(Width - 3 * UCtrlDualDouble.stNudLength - 4 - UCtrlDualDouble.stLbUnitLength, 0);
-            nudValueY.Location = new Point(Width - 2 * UCtrlDualDouble.stNudLength - 2 - UCtrlDualDouble.stLbUnitLength, 0);
-            nudValueZ.Location = new Point(Width - UCtrlDualDouble.stNudLength - UCtrlDualDouble.stLbUnitLength, 0);
+            nudValueX.Location = new Point(Width - 3 * UCtrlDouble.stNudLength - 4 - UCtrlDouble.stLbUnitLength, 0);
+            nudValueY.Location = new Point(Width - 2 * UCtrlDouble.stNudLength - 2 - UCtrlDouble.stLbUnitLength, 0);
+            nudValueZ.Location = new Point(Width - 1 * UCtrlDouble.stNudLength - UCtrlDouble.stLbUnitLength, 0);
             // set unit location
-            lbUnit.Location = new Point(Width - UCtrlDualDouble.stLbUnitLength + 1, 4);
+            lbUnit.Location = new Point(Width - UCtrlDouble.stLbUnitLength + 1, 4);
         }
         #endregion
 
         #region Data members
         private UnitsManager.UnitType _unitType;
-        public static int stNudLength = 60;
-        public static int stLbUnitLength = 38;
         #endregion
     }
 }

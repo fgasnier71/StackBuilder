@@ -1,4 +1,4 @@
-﻿namespace treeDiM.StackBuilder.Basics.Controls
+﻿namespace treeDiM.StackBuilder.Basics
 {
     partial class UCtrlTriDouble
     {
@@ -40,8 +40,10 @@
             // 
             // nudValueX
             // 
+            this.nudValueX.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.nudValueX.DecimalPlaces = 2;
-            this.nudValueX.Location = new System.Drawing.Point(69, 0);
+            this.nudValueX.Location = new System.Drawing.Point(116, 0);
             this.nudValueX.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -54,8 +56,10 @@
             // 
             // nudValueY
             // 
+            this.nudValueY.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.nudValueY.DecimalPlaces = 2;
-            this.nudValueY.Location = new System.Drawing.Point(134, 0);
+            this.nudValueY.Location = new System.Drawing.Point(181, 0);
             this.nudValueY.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -68,8 +72,10 @@
             // 
             // nudValueZ
             // 
+            this.nudValueZ.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.nudValueZ.DecimalPlaces = 2;
-            this.nudValueZ.Location = new System.Drawing.Point(200, 0);
+            this.nudValueZ.Location = new System.Drawing.Point(247, 0);
             this.nudValueZ.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -94,7 +100,7 @@
             this.lbUnit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lbUnit.AutoSize = true;
-            this.lbUnit.Location = new System.Drawing.Point(265, 4);
+            this.lbUnit.Location = new System.Drawing.Point(315, 4);
             this.lbUnit.Name = "lbUnit";
             this.lbUnit.Size = new System.Drawing.Size(24, 13);
             this.lbUnit.TabIndex = 4;
@@ -110,8 +116,8 @@
             this.Controls.Add(this.nudValueY);
             this.Controls.Add(this.nudValueX);
             this.Name = "UCtrlTriDouble";
-            this.Size = new System.Drawing.Size(300, 20);
-            this.SizeChanged += new System.EventHandler(this.ValueControl_SizeChanged);
+            this.Size = new System.Drawing.Size(350, 20);
+            this.SizeChanged += new System.EventHandler(this.onSizeChanged);
             ((System.ComponentModel.ISupportInitialize)(this.nudValueX)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudValueY)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudValueZ)).EndInit();

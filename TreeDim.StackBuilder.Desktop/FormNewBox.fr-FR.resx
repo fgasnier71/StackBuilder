@@ -128,92 +128,8 @@
     <value>NoControl</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="lbInsideHeight.Location" type="System.Drawing.Point, System.Drawing">
-    <value>180, 76</value>
-  </data>
-  <data name="lbInsideHeight.Size" type="System.Drawing.Size, System.Drawing">
-    <value>62, 13</value>
-  </data>
-  <data name="lbInsideHeight.Text" xml:space="preserve">
-    <value>Hauteur int.</value>
-  </data>
-  <data name="lbInsideWidth.Location" type="System.Drawing.Point, System.Drawing">
-    <value>180, 49</value>
-  </data>
-  <data name="lbInsideWidth.Size" type="System.Drawing.Size, System.Drawing">
-    <value>60, 13</value>
-  </data>
-  <data name="lbInsideWidth.Text" xml:space="preserve">
-    <value>Largeur int.</value>
-  </data>
-  <data name="lbInsideLength.Location" type="System.Drawing.Point, System.Drawing">
-    <value>180, 21</value>
-  </data>
-  <data name="lbInsideLength.Size" type="System.Drawing.Size, System.Drawing">
-    <value>69, 13</value>
-  </data>
-  <data name="lbInsideLength.Text" xml:space="preserve">
-    <value>Longueur int.</value>
-  </data>
-  <data name="uLengthHeightInside.Location" type="System.Drawing.Point, System.Drawing">
-    <value>316, 76</value>
-  </data>
-  <data name="uLengthWidthInside.Location" type="System.Drawing.Point, System.Drawing">
-    <value>316, 49</value>
-  </data>
-  <data name="uLengthLengthInside.Location" type="System.Drawing.Point, System.Drawing">
-    <value>316, 21</value>
-  </data>
-  <data name="nudInsideLength.Location" type="System.Drawing.Point, System.Drawing">
-    <value>251, 17</value>
-  </data>
-  <data name="nudInsideHeight.Location" type="System.Drawing.Point, System.Drawing">
-    <value>251, 72</value>
-  </data>
-  <data name="nudInsideWidth.Location" type="System.Drawing.Point, System.Drawing">
-    <value>251, 45</value>
-  </data>
-  <data name="uLengthHeight.Location" type="System.Drawing.Point, System.Drawing">
-    <value>135, 76</value>
-  </data>
-  <data name="uLengthWidth.Location" type="System.Drawing.Point, System.Drawing">
-    <value>135, 49</value>
-  </data>
-  <data name="uLengthLength.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="uLengthLength.Location" type="System.Drawing.Point, System.Drawing">
-    <value>135, 21</value>
-  </data>
-  <data name="nudLength.Location" type="System.Drawing.Point, System.Drawing">
-    <value>70, 17</value>
-  </data>
-  <data name="nudHeight.Location" type="System.Drawing.Point, System.Drawing">
-    <value>70, 72</value>
-  </data>
-  <data name="nudWidth.Location" type="System.Drawing.Point, System.Drawing">
-    <value>70, 45</value>
-  </data>
-  <data name="lbHeight.Size" type="System.Drawing.Size, System.Drawing">
-    <value>45, 13</value>
-  </data>
-  <data name="lbHeight.Text" xml:space="preserve">
-    <value>Hauteur</value>
-  </data>
-  <data name="lbWidth.Size" type="System.Drawing.Size, System.Drawing">
-    <value>43, 13</value>
-  </data>
-  <data name="lbWidth.Text" xml:space="preserve">
-    <value>Largeur</value>
-  </data>
-  <data name="lbLength.Size" type="System.Drawing.Size, System.Drawing">
-    <value>52, 13</value>
-  </data>
-  <data name="lbLength.Text" xml:space="preserve">
-    <value>Longueur</value>
-  </data>
   <data name="gbDimensions.Size" type="System.Drawing.Size, System.Drawing">
-    <value>354, 104</value>
+    <value>354, 76</value>
   </data>
   <data name="cbFace.Items" xml:space="preserve">
     <value>Arrière</value>
@@ -232,9 +148,6 @@
   </data>
   <data name="cbFace.Items5" xml:space="preserve">
     <value>Haut</value>
-  </data>
-  <data name="cbColor.Items2" xml:space="preserve">
-    <value>Couleur</value>
   </data>
   <data name="cbColor.Items3" xml:space="preserve">
     <value>Couleur</value>
@@ -461,7 +374,10 @@
   <data name="cbColor.Items77" xml:space="preserve">
     <value>Couleur</value>
   </data>
-  <data name="cbColor.Items92" xml:space="preserve">
+  <data name="cbColor.Items78" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbColor.Items101" xml:space="preserve">
     <value>Color</value>
   </data>
   <data name="btBitmaps.Text" xml:space="preserve">
@@ -474,7 +390,7 @@
     <value>Toutes les faces sont de la même couleur</value>
   </data>
   <data name="gbFaceColor.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 172</value>
+    <value>6, 139</value>
   </data>
   <data name="gbFaceColor.Text" xml:space="preserve">
     <value>Couleur des faces</value>
@@ -482,11 +398,8 @@
   <data name="vcWeight.Text" xml:space="preserve">
     <value>Poids</value>
   </data>
-  <data name="ovcNetWeight.Text" xml:space="preserve">
-    <value>Poids net</value>
-  </data>
   <data name="gbWeight.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 312</value>
+    <value>6, 262</value>
   </data>
   <data name="gbWeight.Size" type="System.Drawing.Size, System.Drawing">
     <value>354, 74</value>
@@ -506,17 +419,11 @@
   <data name="lblDescription.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="statusStripDef.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 396</value>
+  <data name="graphCtrl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>206, 236</value>
   </data>
-  <data name="uLengthTapeWidth.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="uLengthTapeWidth.Location" type="System.Drawing.Point, System.Drawing">
-    <value>143, 46</value>
-  </data>
-  <data name="cbTapeColor.Items2" xml:space="preserve">
-    <value>Couleur</value>
+  <data name="uCtrlTapeWidth.Size" type="System.Drawing.Size, System.Drawing">
+    <value>184, 20</value>
   </data>
   <data name="cbTapeColor.Items3" xml:space="preserve">
     <value>Couleur</value>
@@ -746,17 +653,17 @@
   <data name="cbTapeColor.Items78" xml:space="preserve">
     <value>Couleur</value>
   </data>
-  <data name="cbTapeColor.Items93" xml:space="preserve">
+  <data name="cbTapeColor.Items79" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbTapeColor.Items102" xml:space="preserve">
     <value>Color</value>
   </data>
   <data name="cbTapeColor.Location" type="System.Drawing.Point, System.Drawing">
-    <value>269, 41</value>
-  </data>
-  <data name="nudTapeWidth.Location" type="System.Drawing.Point, System.Drawing">
-    <value>80, 42</value>
+    <value>270, 17</value>
   </data>
   <data name="lbTapeColor.Location" type="System.Drawing.Point, System.Drawing">
-    <value>193, 46</value>
+    <value>188, 22</value>
   </data>
   <data name="lbTapeColor.Size" type="System.Drawing.Size, System.Drawing">
     <value>73, 13</value>
@@ -764,32 +671,14 @@
   <data name="lbTapeColor.Text" xml:space="preserve">
     <value>Couleur ruban</value>
   </data>
-  <data name="lbTapeWidth.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 46</value>
-  </data>
-  <data name="lbTapeWidth.Size" type="System.Drawing.Size, System.Drawing">
-    <value>73, 13</value>
-  </data>
-  <data name="lbTapeWidth.Text" xml:space="preserve">
-    <value>Largeur ruban</value>
-  </data>
-  <data name="checkBoxTape.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 24</value>
-  </data>
-  <data name="checkBoxTape.Size" type="System.Drawing.Size, System.Drawing">
-    <value>226, 17</value>
-  </data>
-  <data name="checkBoxTape.Text" xml:space="preserve">
-    <value>Afficher l'adhésif sur le dessus de la caisse</value>
-  </data>
   <data name="gbTape.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 243</value>
+    <value>6, 212</value>
+  </data>
+  <data name="gbTape.Size" type="System.Drawing.Size, System.Drawing">
+    <value>354, 47</value>
   </data>
   <data name="gbTape.Text" xml:space="preserve">
     <value>Ruban adhésif</value>
-  </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>584, 418</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Definir un nouvel étui / une nouvelle caisse...</value>

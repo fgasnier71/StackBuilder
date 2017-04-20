@@ -217,7 +217,6 @@ namespace treeDiM.StackBuilder.Desktop
                     , form.BoxLength, form.BoxWidth, form.BoxHeight
                     , form.InsideLength, form.InsideWidth, form.InsideHeight
                     , form.Weight, form.Colors);
-                boxProperties.ShowTape = form.ShowTape;
                 boxProperties.TapeColor = form.TapeColor;
                 boxProperties.TapeWidth = form.TapeWidth;
             }
@@ -422,8 +421,7 @@ namespace treeDiM.StackBuilder.Desktop
                     MessageBox.Show(string.Format(Properties.Resources.ID_CASEANALYSIS_INVALIDCONSTRAINTSET));
                     return null; // invalid constraint set -> exit
                 }
-
-                 return CreateNewBoxCasePalletOptimization(
+                return CreateNewBoxCasePalletOptimization(
                     form.CaseAnalysisName
                     , form.CaseAnalysisDescription
                     , form.SelectedBox

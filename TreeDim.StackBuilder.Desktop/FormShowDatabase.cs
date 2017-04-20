@@ -9,6 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using log4net;
+
 using treeDiM.PLMPack.DBClient;
 using treeDiM.PLMPack.DBClient.PLMPackSR;
 #endregion
@@ -27,10 +29,7 @@ namespace treeDiM.StackBuilder.Desktop
         #region Form override
         protected override void OnLoad(EventArgs e)
         {
- 	        base.OnLoad(e);
-
-
-            
+ 	        base.OnLoad(e);         
             
         }
         #endregion
@@ -113,15 +112,15 @@ namespace treeDiM.StackBuilder.Desktop
             buttonDelete.Click += new EventHandler(onDelete);
 
             // get all trucks
-            DCSBTruck[] trucks = WCFClientSingleton.Instance.Client.GetAllTrucks();
+            _trucks = WCFClientSingleton.Instance.Client.GetAllTrucks();
             int iIndex = 0;
-            foreach (DCSBTruck t in trucks)
+            foreach (DCSBTruck t in _trucks)
             {
                 gridTrucks.Rows.Insert(++iIndex);
                 gridTrucks[iIndex, 0] = new SourceGrid.Cells.Cell(t.Name);
                 gridTrucks[iIndex, 1] = new SourceGrid.Cells.Cell(t.Description);
                 gridTrucks[iIndex, 2] = new SourceGrid.Cells.Cell(string.Format("{0} x {1} x {2}", t.DimensionsInner.M0, t.DimensionsInner.M1, t.DimensionsInner.M2));
-                gridTrucks[iIndex, 3] = new SourceGrid.Cells.CheckBox(null, true /*t.AutoImport*/);
+                gridTrucks[iIndex, 3] = new SourceGrid.Cells.CheckBox(null, t.AutoInsert);
                 gridTrucks[iIndex, 3].AddController(checkBoxEvent);
                 gridTrucks[iIndex, 4] = new SourceGrid.Cells.Button("");
                 gridTrucks[iIndex, 4].Image = Properties.Resources.Delete;
@@ -161,15 +160,31 @@ namespace treeDiM.StackBuilder.Desktop
         }
         private void onAutoImportTruck(object sender, EventArgs e)
         {
-            SourceGrid.CellContext context = (SourceGrid.CellContext)sender;
-            int iSel = context.Position.Row - 1;
-            MessageBox.Show(string.Format("Selected row {0}", iSel));
+            try
+            {
+                SourceGrid.CellContext context = (SourceGrid.CellContext)sender;
+                int iSel = context.Position.Row - 1;
+                WCFClientSingleton.Instance.Client.SetAutoInsert(DCSBTypeEnum.TTruck, _trucks[iSel].ID, !_trucks[iSel].AutoInsert);
+                FillGridTrucks();
+            }
+            catch (Exception ex)
+            {
+                _log.Error(ex.Message);
+            }
         }
         private void onDelete(object sender, EventArgs e)
-        {        
-            SourceGrid.CellContext context = (SourceGrid.CellContext) sender;
-            int iSel = context.Position.Row - 1;
-            MessageBox.Show(string.Format("Selected row {0}", iSel));
+        {
+            try
+            {
+                SourceGrid.CellContext context = (SourceGrid.CellContext)sender;
+                int iSel = context.Position.Row - 1;
+                WCFClientSingleton.Instance.Client.RemoveItemById(DCSBTypeEnum.TTruck, _trucks[iSel].ID);
+                FillGridTrucks();
+            }
+            catch (Exception ex)
+            {
+                _log.Error(ex.Message);
+            }
         }
 
         private void onImportCase(object sender, EventArgs e)
@@ -186,6 +201,8 @@ namespace treeDiM.StackBuilder.Desktop
 
 
         #region Data members
+        protected static ILog _log = LogManager.GetLogger(typeof(FormShowDatabase));
+        private DCSBTruck[] _trucks = null;
         #endregion
     }
 }

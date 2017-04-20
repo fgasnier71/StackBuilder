@@ -755,11 +755,20 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Delete {0}.
+        ///   Looks up a localized string similar to Delete.
         /// </summary>
         internal static string ID_DELETE {
             get {
                 return ResourceManager.GetString("ID_DELETE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete {0}.
+        /// </summary>
+        internal static string ID_DELETEITEM {
+            get {
+                return ResourceManager.GetString("ID_DELETEITEM", resourceCulture);
             }
         }
         
