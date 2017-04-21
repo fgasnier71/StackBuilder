@@ -802,11 +802,47 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Dimensions.
+        ///   Looks up a localized string similar to Inner diameter ({0}).
+        /// </summary>
+        internal static string ID_DIAMETERINNER_WU {
+            get {
+                return ResourceManager.GetString("ID_DIAMETERINNER_WU", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Outer diameter ({0}).
+        /// </summary>
+        internal static string ID_DIAMETEROUTER_WU {
+            get {
+                return ResourceManager.GetString("ID_DIAMETEROUTER_WU", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dimensions ({0} x {0} x {0}).
         /// </summary>
         internal static string ID_DIMENSIONS {
             get {
                 return ResourceManager.GetString("ID_DIMENSIONS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dim. ext. ({0}x{0}x{0}).
+        /// </summary>
+        internal static string ID_DIMEXT_WU {
+            get {
+                return ResourceManager.GetString("ID_DIMEXT_WU", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dim. int. ({0}x{0}x{0}).
+        /// </summary>
+        internal static string ID_DIMINT_WU {
+            get {
+                return ResourceManager.GetString("ID_DIMINT_WU", resourceCulture);
             }
         }
         
@@ -982,11 +1018,38 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Hatching angle.
+        /// </summary>
+        internal static string ID_HATCHINGANGLE {
+            get {
+                return ResourceManager.GetString("ID_HATCHINGANGLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hatching space.
+        /// </summary>
+        internal static string ID_HATCHINGSPACING {
+            get {
+                return ResourceManager.GetString("ID_HATCHINGSPACING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Height.
         /// </summary>
         internal static string ID_HEIGHT {
             get {
                 return ResourceManager.GetString("ID_HEIGHT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Height ({0}).
+        /// </summary>
+        internal static string ID_HEIGHT_WU {
+            get {
+                return ResourceManager.GetString("ID_HEIGHT_WU", resourceCulture);
             }
         }
         
@@ -1180,6 +1243,15 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Length ({0}).
+        /// </summary>
+        internal static string ID_LENGTH_WU {
+            get {
+                return ResourceManager.GetString("ID_LENGTH_WU", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Load height.
         /// </summary>
         internal static string ID_LOADHEIGHT {
@@ -1356,6 +1428,15 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         internal static string ID_NOPALLETSOLUTIONSELECTED {
             get {
                 return ResourceManager.GetString("ID_NOPALLETSOLUTIONSELECTED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Number.
+        /// </summary>
+        internal static string ID_NUMBER {
+            get {
+                return ResourceManager.GetString("ID_NUMBER", resourceCulture);
             }
         }
         
@@ -1630,6 +1711,24 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Thickness ({0}).
+        /// </summary>
+        internal static string ID_THICKNESS_WU {
+            get {
+                return ResourceManager.GetString("ID_THICKNESS_WU", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use transparency.
+        /// </summary>
+        internal static string ID_TRANSPARENCY {
+            get {
+                return ResourceManager.GetString("ID_TRANSPARENCY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Truck.
         /// </summary>
         internal static string ID_TRUCK {
@@ -1698,6 +1797,15 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         internal static string ID_WIDTH {
             get {
                 return ResourceManager.GetString("ID_WIDTH", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Width ({0}).
+        /// </summary>
+        internal static string ID_WIDTH_WU {
+            get {
+                return ResourceManager.GetString("ID_WIDTH_WU", resourceCulture);
             }
         }
         

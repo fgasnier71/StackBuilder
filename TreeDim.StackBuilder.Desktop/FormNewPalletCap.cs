@@ -151,7 +151,7 @@ namespace treeDiM.StackBuilder.Desktop
         }
         #endregion
 
-        #region Draw cap
+        #region IDrawingContainer
         public void Draw(Graphics3DControl ctrl, Graphics3D graphics)
         {
             if (CapLength > 0 && CapWidth > 0 && CapHeight > 0)
@@ -180,7 +180,7 @@ namespace treeDiM.StackBuilder.Desktop
                     PLMPackServiceClient client = WCFClientSingleton.Instance.Client;
                     client.CreateNewPalletCap(new DCSBPalletCap()
                             {
-                                Name = form.Name,
+                                Name = form.ItemName,
                                 Description = ItemDescription,
                                 UnitSystem = 0,
                                 DimensionsOuter = new DCSBDim3D() { M0 = CapLength, M1 = CapWidth, M2 = CapHeight },

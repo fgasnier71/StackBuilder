@@ -127,14 +127,14 @@
   <data name="lblName.Text" xml:space="preserve">
     <value>Nom</value>
   </data>
-  <data name="lbColor.Size" type="System.Drawing.Size, System.Drawing">
-    <value>43, 13</value>
+  <data name="graphCtrl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>200, 101</value>
   </data>
-  <data name="lbColor.Text" xml:space="preserve">
-    <value>Couleur</value>
+  <data name="graphCtrl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>271, 186</value>
   </data>
-  <data name="cbColor.Items2" xml:space="preserve">
-    <value>Couleur</value>
+  <data name="uCtrlWeight.Size" type="System.Drawing.Size, System.Drawing">
+    <value>184, 20</value>
   </data>
   <data name="cbColor.Items3" xml:space="preserve">
     <value>Couleur</value>
@@ -226,29 +226,20 @@
   <data name="cbColor.Items32" xml:space="preserve">
     <value>Couleur</value>
   </data>
-  <data name="cbColor.Location" type="System.Drawing.Point, System.Drawing">
-    <value>121, 16</value>
-  </data>
-  <data name="nudWeight.Location" type="System.Drawing.Point, System.Drawing">
-    <value>121, 17</value>
-  </data>
-  <data name="lbWeight.Size" type="System.Drawing.Size, System.Drawing">
-    <value>33, 13</value>
-  </data>
-  <data name="lbWeight.Text" xml:space="preserve">
-    <value>Poids</value>
-  </data>
-  <data name="gbWeight.Text" xml:space="preserve">
-    <value>Poids</value>
-  </data>
-  <data name="gbColor.Text" xml:space="preserve">
+  <data name="cbColor.Items33" xml:space="preserve">
     <value>Couleur</value>
   </data>
-  <data name="graphCtrl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>254, 101</value>
+  <data name="cbColor.Items40" xml:space="preserve">
+    <value>Color</value>
   </data>
-  <data name="graphCtrl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>217, 177</value>
+  <data name="cbColor.Location" type="System.Drawing.Point, System.Drawing">
+    <value>96, 116</value>
+  </data>
+  <data name="lbColor.Size" type="System.Drawing.Size, System.Drawing">
+    <value>43, 13</value>
+  </data>
+  <data name="lbColor.Text" xml:space="preserve">
+    <value>Couleur</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Créer un nouvel intercalaire...</value>

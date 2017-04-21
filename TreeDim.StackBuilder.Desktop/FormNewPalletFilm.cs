@@ -114,7 +114,7 @@ namespace treeDiM.StackBuilder.Desktop
                     PLMPackServiceClient client = WCFClientSingleton.Instance.Client;
                     client.CreateNewPalletFilm(new DCSBPalletFilm()
                             {
-                                Name = form.Name,
+                                Name = form.ItemName,
                                 Description = ItemDescription,
                                 UnitSystem = (int)UnitsManager.CurrentUnitSystem,
                                 UseTransparency = UseTransparency,

@@ -227,7 +227,7 @@ namespace treeDiM.StackBuilder.Desktop
                     PLMPackServiceClient client = WCFClientSingleton.Instance.Client;
                     client.CreateNewPallet(new DCSBPallet()
                             {
-                                Name = form.Name,
+                                Name = form.ItemName,
                                 Description = Description,
                                 UnitSystem = 0,
                                 PalletType = PalletTypeName,

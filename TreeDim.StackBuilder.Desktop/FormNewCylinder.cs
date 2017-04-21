@@ -177,6 +177,11 @@ namespace treeDiM.StackBuilder.Desktop
                 , ColorTop, ColorWallOuter, ColorWallInner);
             Cylinder cyl = new Cylinder(0, cylProperties);
             graphics.AddCylinder(cyl);
+            graphics.AddDimensions(new DimensionCube(
+                new Vector3D(-RadiusOuter, -RadiusOuter, 0.0),
+                2.0 * RadiusOuter, 2.0 * RadiusOuter, CylinderHeight,
+                Color.Black, false)
+                );
         }
         #endregion
 
@@ -197,7 +202,7 @@ namespace treeDiM.StackBuilder.Desktop
                                 UnitSystem = (int)UnitsManager.CurrentUnitSystem,
                                 RadiusOuter = RadiusOuter,
                                 RadiusInner = RadiusInner,
-                                Height = Height,
+                                Height = CylinderHeight,
                                 Weight = Weight,
                                 NetWeight = this.NetWeight.Activated ? this.NetWeight.Value : new Nullable<double>(),
                                 ColorOuter = ColorWallOuter.ToArgb(),

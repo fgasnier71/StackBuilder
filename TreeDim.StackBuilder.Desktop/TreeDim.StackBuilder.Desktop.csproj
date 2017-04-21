@@ -1398,6 +1398,9 @@
     <EmbeddedResource Include="FormSetItemName.resx">
       <DependentUpon>FormSetItemName.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormShowDatabase.fr-FR.resx">
+      <DependentUpon>FormShowDatabase.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormShowDatabase.resx">
       <DependentUpon>FormShowDatabase.cs</DependentUpon>
     </EmbeddedResource>

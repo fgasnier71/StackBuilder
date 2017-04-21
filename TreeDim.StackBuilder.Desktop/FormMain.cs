@@ -1230,12 +1230,8 @@ namespace treeDiM.StackBuilder.Desktop
             {
                 // Form show database
                 FormShowDatabase form = new FormShowDatabase();
+                form.Document = ActiveDocument as Document;
                 form.ShowDialog();
-                /*
-                // show database edit form
-                FormEditPalletSolutionDB form = new FormEditPalletSolutionDB();
-                form.ShowDialog();
-                 * */
                 // update toolbar state as database may now be empty
                 UpdateToolbarState();
             }

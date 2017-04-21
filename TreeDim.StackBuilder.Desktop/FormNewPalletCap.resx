@@ -248,6 +248,9 @@
   <data name="cbColor.Items13" xml:space="preserve">
     <value>Color</value>
   </data>
+  <data name="cbColor.Items14" xml:space="preserve">
+    <value>Color</value>
+  </data>
   <data name="cbColor.Location" type="System.Drawing.Point, System.Drawing">
     <value>111, 146</value>
   </data>
@@ -261,7 +264,7 @@
     <value>cbColor</value>
   </data>
   <data name="&gt;&gt;cbColor.Type" xml:space="preserve">
-    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=1.1.6317.15992, Culture=neutral, PublicKeyToken=null</value>
+    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=1.1.6320.14792, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;cbColor.Parent" xml:space="preserve">
     <value>$this</value>
@@ -300,7 +303,7 @@
     <value>214, 119</value>
   </data>
   <data name="graphCtrl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>366, 184</value>
+    <value>366, 189</value>
   </data>
   <data name="graphCtrl.TabIndex" type="System.Int32, mscorlib">
     <value>28</value>
@@ -333,7 +336,7 @@
     <value>uCtrlDimensionsOuter</value>
   </data>
   <data name="&gt;&gt;uCtrlDimensionsOuter.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.Controls.UCtrlTriDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.13, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Basics.UCtrlTriDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.13, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlDimensionsOuter.Parent" xml:space="preserve">
     <value>$this</value>
@@ -357,7 +360,7 @@
     <value>uCtrlDimensionsInner</value>
   </data>
   <data name="&gt;&gt;uCtrlDimensionsInner.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.Controls.UCtrlTriDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.13, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Basics.UCtrlTriDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.13, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlDimensionsInner.Parent" xml:space="preserve">
     <value>$this</value>

@@ -456,6 +456,9 @@
   <data name="cbColor.Items20" xml:space="preserve">
     <value>Color</value>
   </data>
+  <data name="cbColor.Items21" xml:space="preserve">
+    <value>Color</value>
+  </data>
   <data name="cbColor.Location" type="System.Drawing.Point, System.Drawing">
     <value>399, 277</value>
   </data>
@@ -534,11 +537,14 @@
   <data name="&gt;&gt;statusStripDef.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
+  <data name="bnSendToDB.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
   <data name="bnSendToDB.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="bnSendToDB.Location" type="System.Drawing.Point, System.Drawing">
-    <value>365, 246</value>
+    <value>365, 414</value>
   </data>
   <data name="bnSendToDB.Size" type="System.Drawing.Size, System.Drawing">
     <value>113, 23</value>
@@ -577,7 +583,7 @@
     <value>uCtrlDimensions</value>
   </data>
   <data name="&gt;&gt;uCtrlDimensions.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.Controls.UCtrlTriDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.13, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Basics.UCtrlTriDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.13, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlDimensions.Parent" xml:space="preserve">
     <value>$this</value>
@@ -647,9 +653,6 @@
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>484, 462</value>
-  </data>
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
   </data>
   <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
     <value>500, 500</value>

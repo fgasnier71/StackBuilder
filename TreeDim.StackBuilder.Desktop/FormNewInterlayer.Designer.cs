@@ -35,7 +35,7 @@
             this.tbName = new System.Windows.Forms.TextBox();
             this.lblDescription = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
-            this.graphCtrl = new System.Windows.Forms.PictureBox();
+            this.graphCtrl = new treeDiM.StackBuilder.Graphics.Graphics3DControl();
             this.statusStripDef = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelDef = new System.Windows.Forms.ToolStripStatusLabel();
             this.uCtrlDimensions = new treeDiM.StackBuilder.Basics.UCtrlTriDouble();
@@ -91,17 +91,17 @@
             // 
             // statusStripDef
             // 
+            resources.ApplyResources(this.statusStripDef, "statusStripDef");
             this.statusStripDef.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabelDef});
-            resources.ApplyResources(this.statusStripDef, "statusStripDef");
             this.statusStripDef.Name = "statusStripDef";
             this.statusStripDef.SizingGrip = false;
             // 
             // toolStripStatusLabelDef
             // 
+            resources.ApplyResources(this.toolStripStatusLabelDef, "toolStripStatusLabelDef");
             this.toolStripStatusLabelDef.ForeColor = System.Drawing.Color.Red;
             this.toolStripStatusLabelDef.Name = "toolStripStatusLabelDef";
-            resources.ApplyResources(this.toolStripStatusLabelDef, "toolStripStatusLabelDef");
             // 
             // uCtrlDimensions
             // 
@@ -133,12 +133,12 @@
             // 
             // cbColor
             // 
+            resources.ApplyResources(this.cbColor, "cbColor");
             this.cbColor.Color = System.Drawing.Color.Beige;
             this.cbColor.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cbColor.DropDownHeight = 1;
             this.cbColor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbColor.DropDownWidth = 1;
-            resources.ApplyResources(this.cbColor, "cbColor");
             this.cbColor.Items.AddRange(new object[] {
             resources.GetString("cbColor.Items"),
             resources.GetString("cbColor.Items1"),
@@ -178,7 +178,9 @@
             resources.GetString("cbColor.Items35"),
             resources.GetString("cbColor.Items36"),
             resources.GetString("cbColor.Items37"),
-            resources.GetString("cbColor.Items38")});
+            resources.GetString("cbColor.Items38"),
+            resources.GetString("cbColor.Items39"),
+            resources.GetString("cbColor.Items40")});
             this.cbColor.Name = "cbColor";
             this.cbColor.SelectedColorChanged += new System.EventHandler(this.onInterlayerPropertyChanged);
             // 
@@ -228,13 +230,13 @@
 
         #endregion
 
+        private treeDiM.StackBuilder.Graphics.Graphics3DControl graphCtrl;
         private System.Windows.Forms.Button bnOk;
         private System.Windows.Forms.Button bnCancel;
         private System.Windows.Forms.TextBox tbDescription;
         private System.Windows.Forms.TextBox tbName;
         private System.Windows.Forms.Label lblDescription;
         private System.Windows.Forms.Label lblName;
-        private System.Windows.Forms.PictureBox graphCtrl;
         private System.Windows.Forms.StatusStrip statusStripDef;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelDef;
         private Basics.UCtrlTriDouble uCtrlDimensions;

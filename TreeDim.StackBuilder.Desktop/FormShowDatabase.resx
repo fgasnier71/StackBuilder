@@ -117,7 +117,645 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="splitContainerForm.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="splitContainerForm.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="splitContainerForm.Orientation" type="System.Windows.Forms.Orientation, System.Windows.Forms">
+    <value>Horizontal</value>
+  </data>
+  <data name="bnClose.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="bnClose.Location" type="System.Drawing.Point, System.Drawing">
+    <value>697, 43</value>
+  </data>
+  <data name="bnClose.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="bnClose.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="bnClose.Text" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="&gt;&gt;bnClose.Name" xml:space="preserve">
+    <value>bnClose</value>
+  </data>
+  <data name="&gt;&gt;bnClose.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;bnClose.Parent" xml:space="preserve">
+    <value>splitContainerForm.Panel1</value>
+  </data>
+  <data name="&gt;&gt;bnClose.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="bnImport.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="bnImport.Location" type="System.Drawing.Point, System.Drawing">
+    <value>697, 13</value>
+  </data>
+  <data name="bnImport.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="bnImport.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="bnImport.Text" xml:space="preserve">
+    <value>Import</value>
+  </data>
+  <data name="&gt;&gt;bnImport.Name" xml:space="preserve">
+    <value>bnImport</value>
+  </data>
+  <data name="&gt;&gt;bnImport.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;bnImport.Parent" xml:space="preserve">
+    <value>splitContainerForm.Panel1</value>
+  </data>
+  <data name="&gt;&gt;bnImport.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="graphCtrl.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="graphCtrl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="graphCtrl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>688, 217</value>
+  </data>
+  <data name="graphCtrl.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;graphCtrl.Name" xml:space="preserve">
+    <value>graphCtrl</value>
+  </data>
+  <data name="&gt;&gt;graphCtrl.Type" xml:space="preserve">
+    <value>treeDiM.StackBuilder.Graphics.Graphics3DControl, treeDiM.StackBuilder.Graphics, Version=3.0.0.13, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;graphCtrl.Parent" xml:space="preserve">
+    <value>splitContainerForm.Panel1</value>
+  </data>
+  <data name="&gt;&gt;graphCtrl.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;splitContainerForm.Panel1.Name" xml:space="preserve">
+    <value>splitContainerForm.Panel1</value>
+  </data>
+  <data name="&gt;&gt;splitContainerForm.Panel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;splitContainerForm.Panel1.Parent" xml:space="preserve">
+    <value>splitContainerForm</value>
+  </data>
+  <data name="&gt;&gt;splitContainerForm.Panel1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="gridPallets.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
+    <value>GrowAndShrink</value>
+  </data>
+  <data name="gridPallets.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="gridPallets.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="gridPallets.Size" type="System.Drawing.Size, System.Drawing">
+    <value>770, 302</value>
+  </data>
+  <data name="gridPallets.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;gridPallets.Name" xml:space="preserve">
+    <value>gridPallets</value>
+  </data>
+  <data name="&gt;&gt;gridPallets.Type" xml:space="preserve">
+    <value>SourceGrid.Grid, SourceGrid, Version=4.30.5611.24765, Culture=neutral, PublicKeyToken=df6f5e538749e85d</value>
+  </data>
+  <data name="&gt;&gt;gridPallets.Parent" xml:space="preserve">
+    <value>tabPagePallet</value>
+  </data>
+  <data name="&gt;&gt;gridPallets.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tabPagePallet.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="tabPagePallet.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="tabPagePallet.Size" type="System.Drawing.Size, System.Drawing">
+    <value>776, 308</value>
+  </data>
+  <data name="tabPagePallet.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="tabPagePallet.Text" xml:space="preserve">
+    <value>Pallets</value>
+  </data>
+  <data name="tabPagePallet.ToolTipText" xml:space="preserve">
+    <value>Pallets</value>
+  </data>
+  <data name="&gt;&gt;tabPagePallet.Name" xml:space="preserve">
+    <value>tabPagePallet</value>
+  </data>
+  <data name="&gt;&gt;tabPagePallet.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabPagePallet.Parent" xml:space="preserve">
+    <value>tabCtrlDBItems</value>
+  </data>
+  <data name="&gt;&gt;tabPagePallet.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="gridInterlayers.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
+    <value>GrowAndShrink</value>
+  </data>
+  <data name="gridInterlayers.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="gridInterlayers.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="gridInterlayers.Size" type="System.Drawing.Size, System.Drawing">
+    <value>776, 308</value>
+  </data>
+  <data name="gridInterlayers.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;gridInterlayers.Name" xml:space="preserve">
+    <value>gridInterlayers</value>
+  </data>
+  <data name="&gt;&gt;gridInterlayers.Type" xml:space="preserve">
+    <value>SourceGrid.Grid, SourceGrid, Version=4.30.5611.24765, Culture=neutral, PublicKeyToken=df6f5e538749e85d</value>
+  </data>
+  <data name="&gt;&gt;gridInterlayers.Parent" xml:space="preserve">
+    <value>tabPageInterlayer</value>
+  </data>
+  <data name="&gt;&gt;gridInterlayers.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tabPageInterlayer.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="tabPageInterlayer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>776, 308</value>
+  </data>
+  <data name="tabPageInterlayer.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="tabPageInterlayer.Text" xml:space="preserve">
+    <value>Interlayers</value>
+  </data>
+  <data name="&gt;&gt;tabPageInterlayer.Name" xml:space="preserve">
+    <value>tabPageInterlayer</value>
+  </data>
+  <data name="&gt;&gt;tabPageInterlayer.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabPageInterlayer.Parent" xml:space="preserve">
+    <value>tabCtrlDBItems</value>
+  </data>
+  <data name="&gt;&gt;tabPageInterlayer.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="gridCases.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
+    <value>GrowAndShrink</value>
+  </data>
+  <data name="gridCases.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="gridCases.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="gridCases.Size" type="System.Drawing.Size, System.Drawing">
+    <value>770, 302</value>
+  </data>
+  <data name="gridCases.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;gridCases.Name" xml:space="preserve">
+    <value>gridCases</value>
+  </data>
+  <data name="&gt;&gt;gridCases.Type" xml:space="preserve">
+    <value>SourceGrid.Grid, SourceGrid, Version=4.30.5611.24765, Culture=neutral, PublicKeyToken=df6f5e538749e85d</value>
+  </data>
+  <data name="&gt;&gt;gridCases.Parent" xml:space="preserve">
+    <value>tabPageCase</value>
+  </data>
+  <data name="&gt;&gt;gridCases.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tabPageCase.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="tabPageCase.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="tabPageCase.Size" type="System.Drawing.Size, System.Drawing">
+    <value>776, 308</value>
+  </data>
+  <data name="tabPageCase.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="tabPageCase.Text" xml:space="preserve">
+    <value>Cases</value>
+  </data>
+  <data name="&gt;&gt;tabPageCase.Name" xml:space="preserve">
+    <value>tabPageCase</value>
+  </data>
+  <data name="&gt;&gt;tabPageCase.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabPageCase.Parent" xml:space="preserve">
+    <value>tabCtrlDBItems</value>
+  </data>
+  <data name="&gt;&gt;tabPageCase.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="gridBundles.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
+    <value>GrowAndShrink</value>
+  </data>
+  <data name="gridBundles.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="gridBundles.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="gridBundles.Size" type="System.Drawing.Size, System.Drawing">
+    <value>776, 308</value>
+  </data>
+  <data name="gridBundles.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;gridBundles.Name" xml:space="preserve">
+    <value>gridBundles</value>
+  </data>
+  <data name="&gt;&gt;gridBundles.Type" xml:space="preserve">
+    <value>SourceGrid.Grid, SourceGrid, Version=4.30.5611.24765, Culture=neutral, PublicKeyToken=df6f5e538749e85d</value>
+  </data>
+  <data name="&gt;&gt;gridBundles.Parent" xml:space="preserve">
+    <value>tabPageBundle</value>
+  </data>
+  <data name="&gt;&gt;gridBundles.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tabPageBundle.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="tabPageBundle.Size" type="System.Drawing.Size, System.Drawing">
+    <value>776, 308</value>
+  </data>
+  <data name="tabPageBundle.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="tabPageBundle.Text" xml:space="preserve">
+    <value>Bundles</value>
+  </data>
+  <data name="&gt;&gt;tabPageBundle.Name" xml:space="preserve">
+    <value>tabPageBundle</value>
+  </data>
+  <data name="&gt;&gt;tabPageBundle.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabPageBundle.Parent" xml:space="preserve">
+    <value>tabCtrlDBItems</value>
+  </data>
+  <data name="&gt;&gt;tabPageBundle.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="gridCylinders.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
+    <value>GrowAndShrink</value>
+  </data>
+  <data name="gridCylinders.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="gridCylinders.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="gridCylinders.Size" type="System.Drawing.Size, System.Drawing">
+    <value>776, 308</value>
+  </data>
+  <data name="gridCylinders.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;gridCylinders.Name" xml:space="preserve">
+    <value>gridCylinders</value>
+  </data>
+  <data name="&gt;&gt;gridCylinders.Type" xml:space="preserve">
+    <value>SourceGrid.Grid, SourceGrid, Version=4.30.5611.24765, Culture=neutral, PublicKeyToken=df6f5e538749e85d</value>
+  </data>
+  <data name="&gt;&gt;gridCylinders.Parent" xml:space="preserve">
+    <value>tabPageCylinder</value>
+  </data>
+  <data name="&gt;&gt;gridCylinders.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tabPageCylinder.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="tabPageCylinder.Size" type="System.Drawing.Size, System.Drawing">
+    <value>776, 308</value>
+  </data>
+  <data name="tabPageCylinder.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="tabPageCylinder.Text" xml:space="preserve">
+    <value>Cylinders</value>
+  </data>
+  <data name="&gt;&gt;tabPageCylinder.Name" xml:space="preserve">
+    <value>tabPageCylinder</value>
+  </data>
+  <data name="&gt;&gt;tabPageCylinder.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabPageCylinder.Parent" xml:space="preserve">
+    <value>tabCtrlDBItems</value>
+  </data>
+  <data name="&gt;&gt;tabPageCylinder.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="gridTrucks.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
+    <value>GrowAndShrink</value>
+  </data>
+  <data name="gridTrucks.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="gridTrucks.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="gridTrucks.Size" type="System.Drawing.Size, System.Drawing">
+    <value>776, 308</value>
+  </data>
+  <data name="gridTrucks.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;gridTrucks.Name" xml:space="preserve">
+    <value>gridTrucks</value>
+  </data>
+  <data name="&gt;&gt;gridTrucks.Type" xml:space="preserve">
+    <value>SourceGrid.Grid, SourceGrid, Version=4.30.5611.24765, Culture=neutral, PublicKeyToken=df6f5e538749e85d</value>
+  </data>
+  <data name="&gt;&gt;gridTrucks.Parent" xml:space="preserve">
+    <value>tabPageTruck</value>
+  </data>
+  <data name="&gt;&gt;gridTrucks.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tabPageTruck.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="tabPageTruck.Size" type="System.Drawing.Size, System.Drawing">
+    <value>776, 308</value>
+  </data>
+  <data name="tabPageTruck.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="tabPageTruck.Text" xml:space="preserve">
+    <value>Trucks</value>
+  </data>
+  <data name="&gt;&gt;tabPageTruck.Name" xml:space="preserve">
+    <value>tabPageTruck</value>
+  </data>
+  <data name="&gt;&gt;tabPageTruck.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabPageTruck.Parent" xml:space="preserve">
+    <value>tabCtrlDBItems</value>
+  </data>
+  <data name="&gt;&gt;tabPageTruck.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="gridPalletCorners.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
+    <value>GrowAndShrink</value>
+  </data>
+  <data name="gridPalletCorners.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="gridPalletCorners.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="gridPalletCorners.Size" type="System.Drawing.Size, System.Drawing">
+    <value>776, 308</value>
+  </data>
+  <data name="gridPalletCorners.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;gridPalletCorners.Name" xml:space="preserve">
+    <value>gridPalletCorners</value>
+  </data>
+  <data name="&gt;&gt;gridPalletCorners.Type" xml:space="preserve">
+    <value>SourceGrid.Grid, SourceGrid, Version=4.30.5611.24765, Culture=neutral, PublicKeyToken=df6f5e538749e85d</value>
+  </data>
+  <data name="&gt;&gt;gridPalletCorners.Parent" xml:space="preserve">
+    <value>tabPagePalletCorner</value>
+  </data>
+  <data name="&gt;&gt;gridPalletCorners.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tabPagePalletCorner.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="tabPagePalletCorner.Size" type="System.Drawing.Size, System.Drawing">
+    <value>776, 308</value>
+  </data>
+  <data name="tabPagePalletCorner.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="tabPagePalletCorner.Text" xml:space="preserve">
+    <value>Pallet corners</value>
+  </data>
+  <data name="&gt;&gt;tabPagePalletCorner.Name" xml:space="preserve">
+    <value>tabPagePalletCorner</value>
+  </data>
+  <data name="&gt;&gt;tabPagePalletCorner.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabPagePalletCorner.Parent" xml:space="preserve">
+    <value>tabCtrlDBItems</value>
+  </data>
+  <data name="&gt;&gt;tabPagePalletCorner.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="gridPalletCaps.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
+    <value>GrowAndShrink</value>
+  </data>
+  <data name="gridPalletCaps.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="gridPalletCaps.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="gridPalletCaps.Size" type="System.Drawing.Size, System.Drawing">
+    <value>770, 302</value>
+  </data>
+  <data name="gridPalletCaps.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;gridPalletCaps.Name" xml:space="preserve">
+    <value>gridPalletCaps</value>
+  </data>
+  <data name="&gt;&gt;gridPalletCaps.Type" xml:space="preserve">
+    <value>SourceGrid.Grid, SourceGrid, Version=4.30.5611.24765, Culture=neutral, PublicKeyToken=df6f5e538749e85d</value>
+  </data>
+  <data name="&gt;&gt;gridPalletCaps.Parent" xml:space="preserve">
+    <value>tabPagePalletCap</value>
+  </data>
+  <data name="&gt;&gt;gridPalletCaps.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tabPagePalletCap.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="tabPagePalletCap.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="tabPagePalletCap.Size" type="System.Drawing.Size, System.Drawing">
+    <value>776, 308</value>
+  </data>
+  <data name="tabPagePalletCap.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="tabPagePalletCap.Text" xml:space="preserve">
+    <value>Pallet caps</value>
+  </data>
+  <data name="&gt;&gt;tabPagePalletCap.Name" xml:space="preserve">
+    <value>tabPagePalletCap</value>
+  </data>
+  <data name="&gt;&gt;tabPagePalletCap.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabPagePalletCap.Parent" xml:space="preserve">
+    <value>tabCtrlDBItems</value>
+  </data>
+  <data name="&gt;&gt;tabPagePalletCap.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="gridPalletFilms.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
+    <value>GrowAndShrink</value>
+  </data>
+  <data name="gridPalletFilms.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="gridPalletFilms.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="gridPalletFilms.Size" type="System.Drawing.Size, System.Drawing">
+    <value>776, 308</value>
+  </data>
+  <data name="gridPalletFilms.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;gridPalletFilms.Name" xml:space="preserve">
+    <value>gridPalletFilms</value>
+  </data>
+  <data name="&gt;&gt;gridPalletFilms.Type" xml:space="preserve">
+    <value>SourceGrid.Grid, SourceGrid, Version=4.30.5611.24765, Culture=neutral, PublicKeyToken=df6f5e538749e85d</value>
+  </data>
+  <data name="&gt;&gt;gridPalletFilms.Parent" xml:space="preserve">
+    <value>tabPagePalletFilm</value>
+  </data>
+  <data name="&gt;&gt;gridPalletFilms.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tabPagePalletFilm.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="tabPagePalletFilm.Size" type="System.Drawing.Size, System.Drawing">
+    <value>776, 308</value>
+  </data>
+  <data name="tabPagePalletFilm.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="tabPagePalletFilm.Text" xml:space="preserve">
+    <value>Pallet films</value>
+  </data>
+  <data name="&gt;&gt;tabPagePalletFilm.Name" xml:space="preserve">
+    <value>tabPagePalletFilm</value>
+  </data>
+  <data name="&gt;&gt;tabPagePalletFilm.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabPagePalletFilm.Parent" xml:space="preserve">
+    <value>tabCtrlDBItems</value>
+  </data>
+  <data name="&gt;&gt;tabPagePalletFilm.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="tabCtrlDBItems.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="tabCtrlDBItems.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="tabCtrlDBItems.Size" type="System.Drawing.Size, System.Drawing">
+    <value>784, 334</value>
+  </data>
+  <data name="tabCtrlDBItems.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;tabCtrlDBItems.Name" xml:space="preserve">
+    <value>tabCtrlDBItems</value>
+  </data>
+  <data name="&gt;&gt;tabCtrlDBItems.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabCtrlDBItems.Parent" xml:space="preserve">
+    <value>splitContainerForm.Panel2</value>
+  </data>
+  <data name="&gt;&gt;tabCtrlDBItems.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;splitContainerForm.Panel2.Name" xml:space="preserve">
+    <value>splitContainerForm.Panel2</value>
+  </data>
+  <data name="&gt;&gt;splitContainerForm.Panel2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;splitContainerForm.Panel2.Parent" xml:space="preserve">
+    <value>splitContainerForm</value>
+  </data>
+  <data name="&gt;&gt;splitContainerForm.Panel2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="splitContainerForm.Size" type="System.Drawing.Size, System.Drawing">
+    <value>784, 561</value>
+  </data>
+  <data name="splitContainerForm.SplitterDistance" type="System.Int32, mscorlib">
+    <value>223</value>
+  </data>
+  <data name="splitContainerForm.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;splitContainerForm.Name" xml:space="preserve">
+    <value>splitContainerForm</value>
+  </data>
+  <data name="&gt;&gt;splitContainerForm.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitContainer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;splitContainerForm.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;splitContainerForm.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>784, 561</value>
+  </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAMAMDAAAAEACACoDgAANgAAACAgAAABAAgAqAgAAN4OAAAQEAAAAQAIAGgFAACGFwAAKAAAADAA
@@ -245,5 +883,14 @@
         JycnJycAAAAAAAAAAAAAAAAAAAAAAP//AAAAHwAAAA8AAIAHAACAAwAAgAEAAIAAAACAAAAAgAEAAIAB
         AACAAQAAgAEAAMABAADgAQAA8AEAAP//AAA=
 </value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Edit database &amp; import items in project...</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>FormShowDatabase</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>

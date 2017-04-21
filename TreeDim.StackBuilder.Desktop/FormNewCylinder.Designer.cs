@@ -36,7 +36,12 @@
             this.lblDescription = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.gbDimensions = new System.Windows.Forms.GroupBox();
+            this.uCtrlHeight = new treeDiM.StackBuilder.Basics.UCtrlDouble();
+            this.uCtrlDiameterInner = new treeDiM.StackBuilder.Basics.UCtrlDouble();
+            this.uCtrlDiameterOuter = new treeDiM.StackBuilder.Basics.UCtrlDouble();
             this.gbWeight = new System.Windows.Forms.GroupBox();
+            this.uCtrlNetWeight = new treeDiM.StackBuilder.Basics.UCtrlOptDouble();
+            this.uCtrlWeight = new treeDiM.StackBuilder.Basics.UCtrlDouble();
             this.graphCtrl = new treeDiM.StackBuilder.Graphics.Graphics3DControl();
             this.statusStripDef = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelDef = new System.Windows.Forms.ToolStripStatusLabel();
@@ -47,11 +52,6 @@
             this.lbWallColor = new System.Windows.Forms.Label();
             this.cbColorTop = new OfficePickers.ColorPicker.ComboBoxColorPicker();
             this.lbTop = new System.Windows.Forms.Label();
-            this.uCtrlDiameterOuter = new treeDiM.StackBuilder.Basics.UCtrlDouble();
-            this.uCtrlDiameterInner = new treeDiM.StackBuilder.Basics.UCtrlDouble();
-            this.uCtrlHeight = new treeDiM.StackBuilder.Basics.UCtrlDouble();
-            this.uCtrlWeight = new treeDiM.StackBuilder.Basics.UCtrlDouble();
-            this.uCtrlNetWeight = new treeDiM.StackBuilder.Basics.UCtrlOptDouble();
             this.bnSendToDB = new System.Windows.Forms.Button();
             this.gbDimensions.SuspendLayout();
             this.gbWeight.SuspendLayout();
@@ -105,6 +105,45 @@
             this.gbDimensions.Name = "gbDimensions";
             this.gbDimensions.TabStop = false;
             // 
+            // uCtrlHeight
+            // 
+            resources.ApplyResources(this.uCtrlHeight, "uCtrlHeight");
+            this.uCtrlHeight.Minimum = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.uCtrlHeight.Name = "uCtrlHeight";
+            this.uCtrlHeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlHeight.Value = 0D;
+            this.uCtrlHeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.onValueChanged(this.onCylinderPropertiesChanged);
+            // 
+            // uCtrlDiameterInner
+            // 
+            resources.ApplyResources(this.uCtrlDiameterInner, "uCtrlDiameterInner");
+            this.uCtrlDiameterInner.Minimum = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.uCtrlDiameterInner.Name = "uCtrlDiameterInner";
+            this.uCtrlDiameterInner.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlDiameterInner.Value = 0D;
+            this.uCtrlDiameterInner.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.onValueChanged(this.onCylinderPropertiesChanged);
+            // 
+            // uCtrlDiameterOuter
+            // 
+            resources.ApplyResources(this.uCtrlDiameterOuter, "uCtrlDiameterOuter");
+            this.uCtrlDiameterOuter.Minimum = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.uCtrlDiameterOuter.Name = "uCtrlDiameterOuter";
+            this.uCtrlDiameterOuter.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlDiameterOuter.Value = 0D;
+            this.uCtrlDiameterOuter.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.onValueChanged(this.onCylinderPropertiesChanged);
+            // 
             // gbWeight
             // 
             this.gbWeight.Controls.Add(this.uCtrlNetWeight);
@@ -112,6 +151,32 @@
             resources.ApplyResources(this.gbWeight, "gbWeight");
             this.gbWeight.Name = "gbWeight";
             this.gbWeight.TabStop = false;
+            // 
+            // uCtrlNetWeight
+            // 
+            resources.ApplyResources(this.uCtrlNetWeight, "uCtrlNetWeight");
+            this.uCtrlNetWeight.Minimum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            -2147483648});
+            this.uCtrlNetWeight.Name = "uCtrlNetWeight";
+            this.uCtrlNetWeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_MASS;
+            this.uCtrlNetWeight.Value = ((treeDiM.StackBuilder.Basics.OptDouble)(resources.GetObject("uCtrlNetWeight.Value")));
+            this.uCtrlNetWeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlOptDouble.onValueChanged(this.onCylinderPropertiesChanged);
+            // 
+            // uCtrlWeight
+            // 
+            resources.ApplyResources(this.uCtrlWeight, "uCtrlWeight");
+            this.uCtrlWeight.Minimum = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.uCtrlWeight.Name = "uCtrlWeight";
+            this.uCtrlWeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_MASS;
+            this.uCtrlWeight.Value = 0D;
+            this.uCtrlWeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.onValueChanged(this.onCylinderPropertiesChanged);
             // 
             // graphCtrl
             // 
@@ -241,7 +306,9 @@
             resources.GetString("cbColorWallInner.Items83"),
             resources.GetString("cbColorWallInner.Items84"),
             resources.GetString("cbColorWallInner.Items85"),
-            resources.GetString("cbColorWallInner.Items86")});
+            resources.GetString("cbColorWallInner.Items86"),
+            resources.GetString("cbColorWallInner.Items87"),
+            resources.GetString("cbColorWallInner.Items88")});
             this.cbColorWallInner.Name = "cbColorWallInner";
             this.cbColorWallInner.SelectedColorChanged += new System.EventHandler(this.onCylinderPropertiesChanged);
             // 
@@ -344,7 +411,9 @@
             resources.GetString("cbColorWallOuter.Items82"),
             resources.GetString("cbColorWallOuter.Items83"),
             resources.GetString("cbColorWallOuter.Items84"),
-            resources.GetString("cbColorWallOuter.Items85")});
+            resources.GetString("cbColorWallOuter.Items85"),
+            resources.GetString("cbColorWallOuter.Items86"),
+            resources.GetString("cbColorWallOuter.Items87")});
             this.cbColorWallOuter.Name = "cbColorWallOuter";
             this.cbColorWallOuter.SelectedColorChanged += new System.EventHandler(this.onCylinderPropertiesChanged);
             // 
@@ -446,7 +515,9 @@
             resources.GetString("cbColorTop.Items81"),
             resources.GetString("cbColorTop.Items82"),
             resources.GetString("cbColorTop.Items83"),
-            resources.GetString("cbColorTop.Items84")});
+            resources.GetString("cbColorTop.Items84"),
+            resources.GetString("cbColorTop.Items85"),
+            resources.GetString("cbColorTop.Items86")});
             this.cbColorTop.Name = "cbColorTop";
             this.cbColorTop.SelectedColorChanged += new System.EventHandler(this.onCylinderPropertiesChanged);
             // 
@@ -454,66 +525,6 @@
             // 
             resources.ApplyResources(this.lbTop, "lbTop");
             this.lbTop.Name = "lbTop";
-            // 
-            // uCtrlDiameterOuter
-            // 
-            resources.ApplyResources(this.uCtrlDiameterOuter, "uCtrlDiameterOuter");
-            this.uCtrlDiameterOuter.Minimum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            -2147483648});
-            this.uCtrlDiameterOuter.Name = "uCtrlDiameterOuter";
-            this.uCtrlDiameterOuter.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
-            this.uCtrlDiameterOuter.Value = 0D;
-            // 
-            // uCtrlDiameterInner
-            // 
-            resources.ApplyResources(this.uCtrlDiameterInner, "uCtrlDiameterInner");
-            this.uCtrlDiameterInner.Minimum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            -2147483648});
-            this.uCtrlDiameterInner.Name = "uCtrlDiameterInner";
-            this.uCtrlDiameterInner.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
-            this.uCtrlDiameterInner.Value = 0D;
-            // 
-            // uCtrlHeight
-            // 
-            resources.ApplyResources(this.uCtrlHeight, "uCtrlHeight");
-            this.uCtrlHeight.Minimum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            -2147483648});
-            this.uCtrlHeight.Name = "uCtrlHeight";
-            this.uCtrlHeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
-            this.uCtrlHeight.Value = 0D;
-            // 
-            // uCtrlWeight
-            // 
-            resources.ApplyResources(this.uCtrlWeight, "uCtrlWeight");
-            this.uCtrlWeight.Minimum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            -2147483648});
-            this.uCtrlWeight.Name = "uCtrlWeight";
-            this.uCtrlWeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_MASS;
-            this.uCtrlWeight.Value = 0D;
-            // 
-            // uCtrlNetWeight
-            // 
-            resources.ApplyResources(this.uCtrlNetWeight, "uCtrlNetWeight");
-            this.uCtrlNetWeight.Minimum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            -2147483648});
-            this.uCtrlNetWeight.Name = "uCtrlNetWeight";
-            this.uCtrlNetWeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_MASS;
-            this.uCtrlNetWeight.Value = ((treeDiM.StackBuilder.Basics.OptDouble)(resources.GetObject("uCtrlNetWeight.Value")));
             // 
             // bnSendToDB
             // 

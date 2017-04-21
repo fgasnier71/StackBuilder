@@ -76,6 +76,8 @@ namespace treeDiM.StackBuilder.Desktop
             // windows settings
             if (null != Settings.Default.FormNewInterlayerPosition)
                 Settings.Default.FormNewInterlayerPosition.Restore(this);
+
+            graphCtrl.DrawingContainer = this;
             graphCtrl.Invalidate();
         }
         protected override void OnClosing(CancelEventArgs e)
@@ -160,10 +162,10 @@ namespace treeDiM.StackBuilder.Desktop
         { 
             InterlayerProperties interlayerProperties = new InterlayerProperties(
                 null, tbName.Text, tbDescription.Text
-                , InterlayerLength, InterlayerWidth
-                , Thickness, Weight, Color);
+                , InterlayerLength, InterlayerWidth, Thickness, Weight, Color);
             Box box = new Box(0, interlayerProperties);
             graphics.AddBox(box);
+            graphics.AddDimensions(new DimensionCube(InterlayerLength, InterlayerWidth, Thickness));
         }
         #endregion
 
@@ -182,7 +184,7 @@ namespace treeDiM.StackBuilder.Desktop
                                 Name = form.ItemName,
                                 Description = Description,
                                 UnitSystem = (int)UnitsManager.CurrentUnitSystem,
-                                Dimensions = new DCSBDim3D() { M0 = InterlayerLength, M1 = InterlayerWidth, M2 = InterlayerWidth },
+                                Dimensions = new DCSBDim3D() { M0 = InterlayerLength, M1 = InterlayerWidth, M2 = Thickness },
                                 Weight = Weight,
                                 Color = Color.ToArgb(),
                                 AutoInsert = false

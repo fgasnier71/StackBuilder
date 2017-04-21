@@ -134,7 +134,8 @@
             resources.GetString("cbColor.Items17"),
             resources.GetString("cbColor.Items18"),
             resources.GetString("cbColor.Items19"),
-            resources.GetString("cbColor.Items20")});
+            resources.GetString("cbColor.Items20"),
+            resources.GetString("cbColor.Items21")});
             this.cbColor.Name = "cbColor";
             this.cbColor.SelectedColorChanged += new System.EventHandler(this.onPalletPropertyChanged);
             // 

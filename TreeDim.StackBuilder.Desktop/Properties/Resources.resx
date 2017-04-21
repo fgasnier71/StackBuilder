@@ -698,12 +698,48 @@ Closing form...</value>
     <value>Description</value>
   </data>
   <data name="ID_DIMENSIONS" xml:space="preserve">
-    <value>Dimensions</value>
+    <value>Dimensions ({0} x {0} x {0})</value>
   </data>
   <data name="ID_NAMEALREADYEXISTSINDB" xml:space="preserve">
     <value>{0} named {1} already exists in database.</value>
   </data>
   <data name="ID_DELETE" xml:space="preserve">
     <value>Delete</value>
+  </data>
+  <data name="ID_DIAMETERINNER_WU" xml:space="preserve">
+    <value>Inner diameter ({0})</value>
+  </data>
+  <data name="ID_DIAMETEROUTER_WU" xml:space="preserve">
+    <value>Outer diameter ({0})</value>
+  </data>
+  <data name="ID_HEIGHT_WU" xml:space="preserve">
+    <value>Height ({0})</value>
+  </data>
+  <data name="ID_DIMEXT_WU" xml:space="preserve">
+    <value>Dim. ext. ({0}x{0}x{0})</value>
+  </data>
+  <data name="ID_DIMINT_WU" xml:space="preserve">
+    <value>Dim. int. ({0}x{0}x{0})</value>
+  </data>
+  <data name="ID_LENGTH_WU" xml:space="preserve">
+    <value>Length ({0})</value>
+  </data>
+  <data name="ID_NUMBER" xml:space="preserve">
+    <value>Number</value>
+  </data>
+  <data name="ID_THICKNESS_WU" xml:space="preserve">
+    <value>Thickness ({0})</value>
+  </data>
+  <data name="ID_WIDTH_WU" xml:space="preserve">
+    <value>Width ({0})</value>
+  </data>
+  <data name="ID_HATCHINGANGLE" xml:space="preserve">
+    <value>Hatching angle</value>
+  </data>
+  <data name="ID_HATCHINGSPACING" xml:space="preserve">
+    <value>Hatching space</value>
+  </data>
+  <data name="ID_TRANSPARENCY" xml:space="preserve">
+    <value>Use transparency</value>
   </data>
 </root>

@@ -244,6 +244,8 @@ namespace treeDiM.StackBuilder.Graphics
             _dim[0] = packProperties.Length;
             _dim[1] = packProperties.Width;
             _dim[2] = packProperties.Height;
+            // box position
+            _boxPosition = new BoxPosition(Vector3D.Zero, HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P);
             // colors
             _colors = Enumerable.Repeat<Color>(Color.Chocolate, 6).ToArray();
             // set position
@@ -257,6 +259,8 @@ namespace treeDiM.StackBuilder.Graphics
             _dim[0] = interlayerProperties.Length;
             _dim[1] = interlayerProperties.Width;
             _dim[2] = interlayerProperties.Thickness;
+            // box position
+            _boxPosition = new BoxPosition(Vector3D.Zero, HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P);
             // colors
             _colors = Enumerable.Repeat<Color>(interlayerProperties.Color, 6).ToArray();
         }
@@ -281,6 +285,8 @@ namespace treeDiM.StackBuilder.Graphics
             _dim[0] = bundleProperties.Length;
             _dim[1] = bundleProperties.Width;
             _dim[2] = bundleProperties.Height;
+            // box position
+            _boxPosition = new BoxPosition(Vector3D.Zero, HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P);
             // colors
             _colors = Enumerable.Repeat<Color>(bundleProperties.Color, 6).ToArray();
             // specific

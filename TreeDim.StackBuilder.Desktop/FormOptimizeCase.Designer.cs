@@ -41,8 +41,8 @@
             this.cbBoxes = new System.Windows.Forms.ComboBox();
             this.lbBox = new System.Windows.Forms.Label();
             this.gbCase = new System.Windows.Forms.GroupBox();
-            this.uCtrlPackDimensionsMax = new treeDiM.StackBuilder.Basics.Controls.UCtrlTriDouble();
-            this.uCtrlPackDimensionsMin = new treeDiM.StackBuilder.Basics.Controls.UCtrlTriDouble();
+            this.uCtrlPackDimensionsMax = new treeDiM.StackBuilder.Basics.UCtrlTriDouble();
+            this.uCtrlPackDimensionsMin = new treeDiM.StackBuilder.Basics.UCtrlTriDouble();
             this.btSetMaximum = new System.Windows.Forms.Button();
             this.btSetMinimum = new System.Windows.Forms.Button();
             this.gbPallet = new System.Windows.Forms.GroupBox();
@@ -512,8 +512,8 @@
         private System.Windows.Forms.Button btAddCasePalletAnalysis;
         private System.Windows.Forms.Button btAddPackPalletAnalysis;
         private Basics.UCtrlDualDouble uCtrlOverhang;
-        private Basics.Controls.UCtrlTriDouble uCtrlPackDimensionsMin;
-        private Basics.Controls.UCtrlTriDouble uCtrlPackDimensionsMax;
+        private Basics.UCtrlTriDouble uCtrlPackDimensionsMin;
+        private Basics.UCtrlTriDouble uCtrlPackDimensionsMax;
         private System.Windows.Forms.GroupBox gbWrapper;
         private Basics.Controls.UCtrlTriInt uCtrlNoWalls;
         private System.Windows.Forms.ComboBox cbWrapperType;

@@ -109,7 +109,7 @@ namespace treeDiM.StackBuilder.Desktop
         }
         #endregion
 
-        #region Draw corner
+        #region IDrawingContainer
         public void Draw(Graphics3DControl ctrl, Graphics3D graphics)
         {
             if (CornerLength > 0 && CornerWidth > 0 && CornerThickness > 0
@@ -120,8 +120,8 @@ namespace treeDiM.StackBuilder.Desktop
                     null, ItemName, ItemDescription, CornerLength, CornerWidth, CornerThickness,
                     CornerWeight, CornerColor);
 
-                Corner palletCap = new Corner(0, palletCornerProperties);
-                palletCap.Draw(graphics);
+                Corner palletCorner = new Corner(0, palletCornerProperties);
+                palletCorner.Draw(graphics);
                 graphics.AddDimensions(new DimensionCube(CornerWidth, CornerWidth, CornerLength));
             }
         }

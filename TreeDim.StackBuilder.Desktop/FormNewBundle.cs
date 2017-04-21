@@ -170,7 +170,7 @@ namespace treeDiM.StackBuilder.Desktop
         }
         #endregion
 
-        #region Draw bundle
+        #region IDrawingContainer
         public void Draw(Graphics3DControl ctrl, Graphics3D graphics)
         {
             BundleProperties bundleProperties = new BundleProperties(
