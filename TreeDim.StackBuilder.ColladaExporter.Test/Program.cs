@@ -104,7 +104,7 @@ namespace treeDiM.StackBuilder.ColladaExporter.Test
         { 
             _log.Info(string.Format("Load cylinder/pallet analysis {0}", analysis.Name));
         }
-        public void OnNewBoxCaseAnalysisCreated(Document doc, BoxCaseAnalysis analysis)
+        public void OnNewBoxCaseAnalysisCreated(Document doc, AnalysisBoxCase analysis)
         {
             _log.Info(string.Format("Loaded box/case analysis {0}", analysis.Name));
         }

@@ -25,7 +25,7 @@ namespace treeDiM.StackBuilder.GUIExtension
         #region Data members
         private string _name;
         private static readonly ILog _log = LogManager.GetLogger(typeof(FormDefineBundleCaseAnalysis));
-        private BoxCaseAnalysis _analysis = null;
+        private AnalysisBoxCase _analysis = null;
         private Document _doc = null;
         #endregion
 

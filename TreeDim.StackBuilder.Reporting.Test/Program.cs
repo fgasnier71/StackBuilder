@@ -97,7 +97,7 @@ namespace treeDiM.StackBuilder.Reporting.Test
             public void OnNewHCylinderPalletAnalysisCreated(Document doc, HCylinderPalletAnalysis analysis)
             { 
             }
-            public void OnNewBoxCaseAnalysisCreated(Document doc, BoxCaseAnalysis analysis)
+            public void OnNewBoxCaseAnalysisCreated(Document doc, AnalysisBoxCase analysis)
             { 
                 _log.Info(string.Format("Loaded box/case analysis {0}", analysis.Name));
             }

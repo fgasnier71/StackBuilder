@@ -38,7 +38,7 @@
     <MinimumRequiredVersion>3.0.0.0</MinimumRequiredVersion>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>14</ApplicationRevision>
+    <ApplicationRevision>18</ApplicationRevision>
     <ApplicationVersion>3.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -157,11 +157,9 @@
     </Compile>
     <Compile Include="AboutBox.cs">
       <SubType>Form</SubType>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="AboutBox.Designer.cs">
       <DependentUpon>AboutBox.cs</DependentUpon>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="AnalysisTreeView.cs">
       <SubType>Component</SubType>
@@ -223,12 +221,6 @@
     </Compile>
     <Compile Include="DockContentAnalysisCaseOfBoxes.Designer.cs">
       <DependentUpon>DockContentAnalysisCaseOfBoxes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DockContentBoxCaseAnalysis.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DockContentBoxCaseAnalysis.Designer.cs">
-      <DependentUpon>DockContentBoxCaseAnalysis.cs</DependentUpon>
     </Compile>
     <Compile Include="DockContentBoxCasePalletAnalysis.cs">
       <SubType>Form</SubType>
@@ -376,23 +368,11 @@
     <Compile Include="FormNewBox.Designer.cs">
       <DependentUpon>FormNewBox.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormNewBoxCaseAnalysis.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormNewBoxCaseAnalysis.Designer.cs">
-      <DependentUpon>FormNewBoxCaseAnalysis.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormNewBundle.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormNewBundle.Designer.cs">
       <DependentUpon>FormNewBundle.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormNewAnalysisBundleCase.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormNewAnalysisBundleCase.Designer.cs">
-      <DependentUpon>FormNewAnalysisBundleCase.cs</DependentUpon>
     </Compile>
     <Compile Include="FormNewCaseAnalysis.cs">
       <SubType>Form</SubType>
@@ -478,6 +458,12 @@
     <Compile Include="FormNewTruckAnalysis.Designer.cs">
       <DependentUpon>FormNewTruckAnalysis.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormOptimiseMultiCase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormOptimiseMultiCase.Designer.cs">
+      <DependentUpon>FormOptimiseMultiCase.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormOptimizeCase.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -511,34 +497,34 @@
       <DependentUpon>ListBoxImages.cs</DependentUpon>
     </Compile>
     <Compile Include="MruManager.cs" />
-    <Compile Include="OptionPanelDebugging.cs">
+    <Compile Include="OptionPanels\OptionPanelDebugging.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="OptionPanelDebugging.Designer.cs">
+    <Compile Include="OptionPanels\OptionPanelDebugging.Designer.cs">
       <DependentUpon>OptionPanelDebugging.cs</DependentUpon>
     </Compile>
-    <Compile Include="OptionPanelDimensions.cs">
+    <Compile Include="OptionPanels\OptionPanelDimensions.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="OptionPanelDimensions.Designer.cs">
+    <Compile Include="OptionPanels\OptionPanelDimensions.Designer.cs">
       <DependentUpon>OptionPanelDimensions.cs</DependentUpon>
     </Compile>
-    <Compile Include="OptionPanelLayerListCtrl.cs">
+    <Compile Include="OptionPanels\OptionPanelLayerListCtrl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="OptionPanelLayerListCtrl.Designer.cs">
+    <Compile Include="OptionPanels\OptionPanelLayerListCtrl.Designer.cs">
       <DependentUpon>OptionPanelLayerListCtrl.cs</DependentUpon>
     </Compile>
-    <Compile Include="OptionPanelPlugins.cs">
+    <Compile Include="OptionPanels\OptionPanelPlugins.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="OptionPanelPlugins.Designer.cs">
+    <Compile Include="OptionPanels\OptionPanelPlugins.Designer.cs">
       <DependentUpon>OptionPanelPlugins.cs</DependentUpon>
     </Compile>
-    <Compile Include="OptionPanelReporting.cs">
+    <Compile Include="OptionPanels\OptionPanelReporting.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="OptionPanelReporting.Designer.cs">
+    <Compile Include="OptionPanels\OptionPanelReporting.Designer.cs">
       <DependentUpon>OptionPanelReporting.cs</DependentUpon>
     </Compile>
     <Compile Include="FormOptionsSettings.cs">
@@ -547,36 +533,31 @@
     <Compile Include="FormOptionsSettings.Designer.cs">
       <DependentUpon>FormOptionsSettings.cs</DependentUpon>
     </Compile>
-    <Compile Include="OptionPanelUnits.cs">
+    <Compile Include="OptionPanels\OptionPanelUnits.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="OptionPanelUnits.Designer.cs">
+    <Compile Include="OptionPanels\OptionPanelUnits.Designer.cs">
       <DependentUpon>OptionPanelUnits.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AboutBox.ca-ES.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="AboutBox.de-DE.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="AboutBox.es-ES.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="AboutBox.fr-FR.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="AboutBox.it-IT.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AboutBox.ja-JP.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="AboutBox.nl-NL.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
@@ -585,7 +566,6 @@
     <EmbeddedResource Include="AboutBox.resx">
       <SubType>Designer</SubType>
       <DependentUpon>AboutBox.cs</DependentUpon>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="AnalysisTreeView.resx">
       <DependentUpon>AnalysisTreeView.cs</DependentUpon>
@@ -633,9 +613,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DockContentAnalysisPalletTruck.resx">
       <DependentUpon>DockContentAnalysisPalletTruck.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DockContentBoxCaseAnalysis.fr-FR.resx">
-      <DependentUpon>DockContentBoxCaseAnalysis.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DockContentBoxCasePalletAnalysis.de-DE.resx">
       <DependentUpon>DockContentBoxCasePalletAnalysis.cs</DependentUpon>
@@ -689,9 +666,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DockContentAnalysisCaseOfBoxes.resx">
       <DependentUpon>DockContentAnalysisCaseOfBoxes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DockContentBoxCaseAnalysis.resx">
-      <DependentUpon>DockContentBoxCaseAnalysis.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DockContentBoxCasePalletAnalysis.ca-ES.resx">
       <DependentUpon>DockContentBoxCasePalletAnalysis.cs</DependentUpon>
@@ -969,24 +943,6 @@
       <DependentUpon>FormNewAnalysisBundle.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormNewAnalysisBundleCase.de-DE.resx">
-      <DependentUpon>FormNewAnalysisBundleCase.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormNewAnalysisBundleCase.es-ES.resx">
-      <DependentUpon>FormNewAnalysisBundleCase.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormNewAnalysisBundleCase.fr-FR.resx">
-      <DependentUpon>FormNewAnalysisBundleCase.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormNewAnalysisBundleCase.it-IT.resx">
-      <DependentUpon>FormNewAnalysisBundleCase.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormNewAnalysisBundleCase.ja-JP.resx">
-      <DependentUpon>FormNewAnalysisBundleCase.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormNewAnalysisBundleCase.resx">
-      <DependentUpon>FormNewAnalysisBundleCase.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormNewAnalysisCasePallet.resx">
       <DependentUpon>FormNewAnalysisCasePallet.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -1091,24 +1047,6 @@
     <EmbeddedResource Include="FormNewBox.resx">
       <SubType>Designer</SubType>
       <DependentUpon>FormNewBox.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormNewBoxCaseAnalysis.de-DE.resx">
-      <DependentUpon>FormNewBoxCaseAnalysis.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormNewBoxCaseAnalysis.es-ES.resx">
-      <DependentUpon>FormNewBoxCaseAnalysis.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormNewBoxCaseAnalysis.fr-FR.resx">
-      <DependentUpon>FormNewBoxCaseAnalysis.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormNewBoxCaseAnalysis.it-IT.resx">
-      <DependentUpon>FormNewBoxCaseAnalysis.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormNewBoxCaseAnalysis.ja-JP.resx">
-      <DependentUpon>FormNewBoxCaseAnalysis.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormNewBoxCaseAnalysis.resx">
-      <DependentUpon>FormNewBoxCaseAnalysis.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewBundle.ca-ES.resx">
       <DependentUpon>FormNewBundle.cs</DependentUpon>
@@ -1367,6 +1305,10 @@
     <EmbeddedResource Include="FormNewTruckAnalysis.resx">
       <DependentUpon>FormNewTruckAnalysis.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormOptimiseMultiCase.resx">
+      <DependentUpon>FormOptimiseMultiCase.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormOptimizeCase.ca-ES.resx">
       <DependentUpon>FormOptimizeCase.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -1413,98 +1355,98 @@
     <EmbeddedResource Include="FormSplashScreen.nl-NL.resx">
       <DependentUpon>FormSplashScreen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OptionPanelDebugging.de-DE.resx">
+    <EmbeddedResource Include="OptionPanels\OptionPanelDebugging.de-DE.resx">
       <DependentUpon>OptionPanelDebugging.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OptionPanelDebugging.fr-FR.resx">
+    <EmbeddedResource Include="OptionPanels\OptionPanelDebugging.fr-FR.resx">
       <DependentUpon>OptionPanelDebugging.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OptionPanelDebugging.it-IT.resx">
+    <EmbeddedResource Include="OptionPanels\OptionPanelDebugging.it-IT.resx">
       <DependentUpon>OptionPanelDebugging.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OptionPanelDebugging.ja-JP.resx">
+    <EmbeddedResource Include="OptionPanels\OptionPanelDebugging.ja-JP.resx">
       <DependentUpon>OptionPanelDebugging.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OptionPanelDebugging.resx">
+    <EmbeddedResource Include="OptionPanels\OptionPanelDebugging.resx">
       <DependentUpon>OptionPanelDebugging.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OptionPanelDimensions.de-DE.resx">
+    <EmbeddedResource Include="OptionPanels\OptionPanelDimensions.de-DE.resx">
       <DependentUpon>OptionPanelDimensions.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OptionPanelDimensions.es-ES.resx">
+    <EmbeddedResource Include="OptionPanels\OptionPanelDimensions.es-ES.resx">
       <DependentUpon>OptionPanelDimensions.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OptionPanelDimensions.fr-FR.resx">
+    <EmbeddedResource Include="OptionPanels\OptionPanelDimensions.fr-FR.resx">
       <DependentUpon>OptionPanelDimensions.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OptionPanelDimensions.it-IT.resx">
+    <EmbeddedResource Include="OptionPanels\OptionPanelDimensions.it-IT.resx">
       <DependentUpon>OptionPanelDimensions.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OptionPanelDimensions.ja-JP.resx">
+    <EmbeddedResource Include="OptionPanels\OptionPanelDimensions.ja-JP.resx">
       <DependentUpon>OptionPanelDimensions.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OptionPanelDimensions.resx">
+    <EmbeddedResource Include="OptionPanels\OptionPanelDimensions.resx">
       <DependentUpon>OptionPanelDimensions.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OptionPanelLayerListCtrl.resx">
+    <EmbeddedResource Include="OptionPanels\OptionPanelLayerListCtrl.resx">
       <DependentUpon>OptionPanelLayerListCtrl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OptionPanelPlugins.de-DE.resx">
+    <EmbeddedResource Include="OptionPanels\OptionPanelPlugins.de-DE.resx">
       <DependentUpon>OptionPanelPlugins.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OptionPanelPlugins.es-ES.resx">
+    <EmbeddedResource Include="OptionPanels\OptionPanelPlugins.es-ES.resx">
       <DependentUpon>OptionPanelPlugins.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OptionPanelPlugins.fr-FR.resx">
+    <EmbeddedResource Include="OptionPanels\OptionPanelPlugins.fr-FR.resx">
       <DependentUpon>OptionPanelPlugins.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OptionPanelPlugins.it-IT.resx">
+    <EmbeddedResource Include="OptionPanels\OptionPanelPlugins.it-IT.resx">
       <DependentUpon>OptionPanelPlugins.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OptionPanelPlugins.ja-JP.resx">
+    <EmbeddedResource Include="OptionPanels\OptionPanelPlugins.ja-JP.resx">
       <DependentUpon>OptionPanelPlugins.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OptionPanelPlugins.resx">
+    <EmbeddedResource Include="OptionPanels\OptionPanelPlugins.resx">
       <DependentUpon>OptionPanelPlugins.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OptionPanelReporting.de-DE.resx">
+    <EmbeddedResource Include="OptionPanels\OptionPanelReporting.de-DE.resx">
       <DependentUpon>OptionPanelReporting.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OptionPanelReporting.es-ES.resx">
+    <EmbeddedResource Include="OptionPanels\OptionPanelReporting.es-ES.resx">
       <DependentUpon>OptionPanelReporting.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OptionPanelReporting.fr-FR.resx">
+    <EmbeddedResource Include="OptionPanels\OptionPanelReporting.fr-FR.resx">
       <DependentUpon>OptionPanelReporting.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OptionPanelReporting.it-IT.resx">
+    <EmbeddedResource Include="OptionPanels\OptionPanelReporting.it-IT.resx">
       <DependentUpon>OptionPanelReporting.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OptionPanelReporting.ja-JP.resx">
+    <EmbeddedResource Include="OptionPanels\OptionPanelReporting.ja-JP.resx">
       <DependentUpon>OptionPanelReporting.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OptionPanelReporting.resx">
+    <EmbeddedResource Include="OptionPanels\OptionPanelReporting.resx">
       <DependentUpon>OptionPanelReporting.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FormOptionsSettings.resx">
       <DependentUpon>FormOptionsSettings.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OptionPanelUnits.de-DE.resx">
+    <EmbeddedResource Include="OptionPanels\OptionPanelUnits.de-DE.resx">
       <DependentUpon>OptionPanelUnits.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OptionPanelUnits.es-ES.resx">
+    <EmbeddedResource Include="OptionPanels\OptionPanelUnits.es-ES.resx">
       <DependentUpon>OptionPanelUnits.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OptionPanelUnits.fr-FR.resx">
+    <EmbeddedResource Include="OptionPanels\OptionPanelUnits.fr-FR.resx">
       <DependentUpon>OptionPanelUnits.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OptionPanelUnits.it-IT.resx">
+    <EmbeddedResource Include="OptionPanels\OptionPanelUnits.it-IT.resx">
       <DependentUpon>OptionPanelUnits.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OptionPanelUnits.ja-JP.resx">
+    <EmbeddedResource Include="OptionPanels\OptionPanelUnits.ja-JP.resx">
       <DependentUpon>OptionPanelUnits.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OptionPanelUnits.resx">
+    <EmbeddedResource Include="OptionPanels\OptionPanelUnits.resx">
       <DependentUpon>OptionPanelUnits.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -1743,9 +1685,9 @@
     <None Include="Resources\PatternInterlocked.bmp" />
   </ItemGroup>
   <ItemGroup>
-    <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client,KB2468871">
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
       <Visible>False</Visible>
-      <ProductName>Microsoft .NET Framework 4 Client Profile %28x86 and x64%29 and Update for .NET Framework 4 %28KB2468871%29</ProductName>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 and x64%29</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">

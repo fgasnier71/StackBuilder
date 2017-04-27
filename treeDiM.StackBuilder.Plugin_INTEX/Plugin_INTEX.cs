@@ -161,7 +161,7 @@ namespace treeDiM.StackBuilder.Plugin
                     if (boxCaseConstraintSet.IsValid)
                     {
                         // create case analysis
-                        BoxCaseAnalysis analysis = document.CreateNewBoxCaseAnalysis(
+                        AnalysisBoxCase analysis = document.CreateNewBoxCaseAnalysis(
                             string.Format(Properties.Resources.ID_PACKING, item._ref)
                             , item._description
                             , itemProperties

@@ -581,7 +581,7 @@ namespace treeDiM.StackBuilder.Basics
             )
         {
             AnalysisBoxCase analysis = new AnalysisBoxCase(
-                packable, caseProperties, constraintSet);
+                this, packable, caseProperties, constraintSet);
             analysis.ID.SetNameDesc( name, description );
             analysis.AddSolution(layerDescs);
 
@@ -625,7 +625,7 @@ namespace treeDiM.StackBuilder.Basics
         {
             // analysis
             AnalysisCylinderCase analysis = new AnalysisCylinderCase(
-                cylinder, caseProperties, constraintSet);
+                this, cylinder, caseProperties, constraintSet);
             analysis.ID.SetNameDesc(name, description);
             analysis.AddSolution(layerDescs);
 
@@ -975,7 +975,7 @@ namespace treeDiM.StackBuilder.Basics
             return null;
         }
 
-        public BoxCaseAnalysis CreateNewBoxCaseAnalysis(
+        public AnalysisBoxCase CreateNewBoxCaseAnalysis(
             string name, string description
             , BProperties boxProperties, BoxProperties caseProperties
             , BCaseConstraintSet constraintSet
@@ -1284,8 +1284,10 @@ namespace treeDiM.StackBuilder.Basics
         /// <summary>
         /// Returns true if a box case analysis can be created i.e. if document contains at least one box and one case
         /// </summary>
-        public bool CanCreateBoxCaseAnalysis
-        { get { return (this.Boxes.Count > 0 && this.Cases.Count > 0) || (this.Cases.Count > 1); } }
+        public bool CanCreateAnalysisBoxCase
+        { get { return (this.Bundles.Count > 0 || this.Boxes.Count > 0 && this.Cases.Count > 0) || (this.Cases.Count > 1); } }
+        public bool CanCreateAnalysisMulticase
+        { get { return (this.Bundles.Count > 0) || (this.Boxes.Count > 0) || (this.Cases.Count > 0); } }
         public bool CanCreateCylinderCaseAnalysis
         { get { return (this.Cylinders.Count > 0) || (this.Cases.Count > 1); } }
         /// <summary>

@@ -77,14 +77,20 @@ namespace treeDiM.StackBuilder.Basics
         #endregion
 
         #region Dependancies
-        public void AddDependancy(ItemBase dependancie)
+        public void AddDependancy(ItemBase dependancy)
         {
-            if (_dependancies.Contains(dependancie))
+            // if analysis is temporary, do not record dependancy
+            Analysis analysis = dependancy as Analysis;
+            if (null != analysis && analysis.Temporary)
+                return;
+            // check if dependancy already recorded
+            if (_dependancies.Contains(dependancy))
             {
-                _log.Warn(string.Format("Tried to add {0} as a dependancy of {1} a second time!", dependancie.ID.Name, this.ID.Name));
+                _log.Warn(string.Format("Tried to add {0} as a dependancy of {1} a second time!", dependancy.ID.Name, this.ID.Name));
                 return;
             }
-            _dependancies.Add(dependancie);    
+            // actually add dependancy
+            _dependancies.Add(dependancy);    
         }
         public bool HasDependingAnalyses
         { get { return _dependancies.Count > 0; } }

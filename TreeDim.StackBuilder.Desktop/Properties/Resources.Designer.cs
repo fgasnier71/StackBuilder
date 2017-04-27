@@ -610,6 +610,15 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Caisse.
+        /// </summary>
+        internal static string ID_CASENAME {
+            get {
+                return ResourceManager.GetString("ID_CASENAME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Case of boxes.
         /// </summary>
         internal static string ID_CASEOFBOXES {
@@ -1315,6 +1324,15 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No case selected!.
+        /// </summary>
+        internal static string ID_NOCASESELECTED {
+            get {
+                return ResourceManager.GetString("ID_NOCASESELECTED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Analyses.
         /// </summary>
         internal static string ID_NODE_ANALYSES {
@@ -1419,6 +1437,15 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         internal static string ID_NODE_TRUCKS {
             get {
                 return ResourceManager.GetString("ID_NODE_TRUCKS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No orientation selected!.
+        /// </summary>
+        internal static string ID_NOORIENTATIONSELECTED {
+            get {
+                return ResourceManager.GetString("ID_NOORIENTATIONSELECTED", resourceCulture);
             }
         }
         

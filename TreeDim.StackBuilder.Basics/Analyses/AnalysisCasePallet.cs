@@ -183,7 +183,7 @@ namespace treeDiM.StackBuilder.Basics
                 if (_palletCornerProperties == value) return;
                 if (null != _palletCornerProperties) _palletCornerProperties.RemoveDependancy(this);
                 _palletCornerProperties = value;
-                if (null != _palletCornerProperties) _palletCornerProperties.AddDependancy(this);
+                if (null != _palletCornerProperties && !Temporary) _palletCornerProperties.AddDependancy(this);
             }
         }
         public PalletCapProperties PalletCapProperties
@@ -194,7 +194,7 @@ namespace treeDiM.StackBuilder.Basics
                 if (_palletCapProperties == value) return;
                 if (null != _palletCapProperties) _palletCapProperties.RemoveDependancy(this);
                 _palletCapProperties = value;
-                if (null != _palletCapProperties) _palletCapProperties.AddDependancy(this);
+                if (null != _palletCapProperties && !Temporary) _palletCapProperties.AddDependancy(this);
             }
         }
         public PalletFilmProperties PalletFilmProperties
@@ -205,7 +205,7 @@ namespace treeDiM.StackBuilder.Basics
                 if (_palletFilmProperties == value) return;
                 if (null != _palletFilmProperties) _palletFilmProperties.RemoveDependancy(this);
                 _palletFilmProperties = value;
-                if (null != _palletFilmProperties) _palletFilmProperties.AddDependancy(this);
+                if (null != _palletFilmProperties && !Temporary) _palletFilmProperties.AddDependancy(this);
             }
         }
         public bool HasPalletCorners

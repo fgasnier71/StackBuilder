@@ -35,11 +35,16 @@ namespace treeDiM.StackBuilder.Basics
         /// Logging
         /// </summary>
         static readonly ILog _log = LogManager.GetLogger(typeof(Analysis));
+        /// <summary>
+        ///  Temporary
+        /// </summary>
+        private bool _temporary = false;
         #endregion
 
         #region Constructor
         public Analysis(Document doc, Packable packable) : base(doc)
         {
+            if (null == doc) SetTemporary();
             Content = packable;
             _interlayers = new List<InterlayerProperties>();
         }
@@ -128,6 +133,8 @@ namespace treeDiM.StackBuilder.Basics
         {
             return _interlayers[index];
         }
+        public void SetTemporary() { _temporary = true; }
+        public bool Temporary { get { return _temporary; } }
         #endregion
     }
     #endregion

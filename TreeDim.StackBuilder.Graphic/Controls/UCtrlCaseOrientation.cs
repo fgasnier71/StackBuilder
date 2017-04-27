@@ -101,6 +101,10 @@ namespace treeDiM.StackBuilder.Graphics
             else if (HalfAxis.HAxis.AXIS_Z_N == axis || HalfAxis.HAxis.AXIS_Z_P == axis) return PackableOrientationAllowed? checkBoxZ.Checked : true;
             else return false;
         }
+        public bool HasOrientationSelected
+        {
+            get { return !PackableOrientationAllowed || (checkBoxX.Checked || checkBoxY.Checked || checkBoxZ.Checked); }
+        }
         #endregion
 
         #region Data members

@@ -175,15 +175,6 @@ namespace treeDiM.StackBuilder.Desktop
             AddView(form);
             return form;
         }
-        /// <summary>
-        /// creates new box/case analysis view
-        /// </summary>
-        public DockContentBoxCaseAnalysis CreateNewBoxCaseAnalysisView(BoxCaseAnalysis analysis)
-        {
-            DockContentBoxCaseAnalysis form = new DockContentBoxCaseAnalysis(this, analysis);
-            AddView(form);
-            return form;
-        }
 
         public DockContentReport CreateReportHtml(ReportData reportObject, string htmlFilePath)
         {
@@ -347,16 +338,13 @@ namespace treeDiM.StackBuilder.Desktop
         public CasePalletAnalysis CreateNewAnalysisCasePalletUI()
         {
             if (!CanCreateAnalysisCasePallet) return null;
-
             FormNewAnalysisCasePallet form = new FormNewAnalysisCasePallet(this, null);
             if (DialogResult.OK == form.ShowDialog()) {}
             return null;
         }
-
-        public BoxCaseAnalysis CreateNewBoxCaseAnalysisUI()
+        public AnalysisBoxCase CreateNewAnalysisBoxCaseUI()
         {
-            if (!CanCreateBoxCaseAnalysis) return null;
-
+            if (!CanCreateAnalysisBoxCase) return null;
             FormNewAnalysisBoxCase form = new FormNewAnalysisBoxCase(this, null);
             if (DialogResult.OK == form.ShowDialog()) {}
             return null;
@@ -688,6 +676,7 @@ namespace treeDiM.StackBuilder.Desktop
 
             if (boxCaseAnalysis.IsBoxAnalysis)
             {
+/*
                 FormNewBoxCaseAnalysis form = new FormNewBoxCaseAnalysis(boxCaseAnalysis.ParentDocument, boxCaseAnalysis);
                 if (recomputeRequired = (DialogResult.OK == form.ShowDialog()))
                 {
@@ -715,9 +704,11 @@ namespace treeDiM.StackBuilder.Desktop
                     constraintSet.UseMaximumNumberOfBoxes = form.UseMaximumNumberOfBoxes;
                     constraintSet.MaximumNumberOfBoxes = form.MaximumNumberOfBoxes;
                 }
+ */ 
             }
             else if (boxCaseAnalysis.IsBundleAnalysis)
             {
+/*
                 FormNewAnalysisBundleCase form = new FormNewAnalysisBundleCase(boxCaseAnalysis.ParentDocument, boxCaseAnalysis);
                 if (recomputeRequired = (DialogResult.OK == form.ShowDialog()))
                 { 
@@ -735,6 +726,7 @@ namespace treeDiM.StackBuilder.Desktop
                     constraintSet.UseMaximumNumberOfBoxes = form.UseMaximumNumberOfBoxes;
                     constraintSet.MaximumNumberOfBoxes = form.MaximumNumberOfBoxes;
                 }
+ */ 
             }
             if (recomputeRequired)
                 boxCaseAnalysis.OnEndUpdate(null);

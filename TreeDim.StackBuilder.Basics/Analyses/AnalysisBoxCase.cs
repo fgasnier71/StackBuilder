@@ -20,10 +20,11 @@ namespace treeDiM.StackBuilder.Basics
 
         #region Constructor
         public AnalysisPackableCase(Document document, Packable packable, BoxProperties caseProperties, ConstraintSetPackableCase constraintSet)
-            : base(packable.ParentDocument, packable)
+            : base(document, packable)
         {
             // sanity checks
-            if (caseProperties.ParentDocument != ParentDocument)
+            if ( (null != caseProperties.ParentDocument)
+                && caseProperties.ParentDocument != ParentDocument )
                 throw new Exception("box & case do not belong to the same document");
             // also add dependancy
             CaseProperties = caseProperties;
@@ -114,11 +115,40 @@ namespace treeDiM.StackBuilder.Basics
 
         #region Constructor
         public AnalysisBoxCase(
+            Document doc,
             Packable packable,
             BoxProperties caseProperties,
             ConstraintSetBoxCase constraintSet)
-            : base(packable.ParentDocument, packable, caseProperties, constraintSet)
+            : base(doc, packable, caseProperties, constraintSet)
         {
+        }
+        #endregion
+    }
+    #endregion
+
+    #region ComparerAnalysisBoxCase
+    public class ComparerAnalysisBoxCase : IComparer<Analysis>
+    {
+         #region Implement IComparer
+        public int Compare(Analysis analysis0, Analysis analysis1)
+        {
+            AnalysisBoxCase a0 = analysis0 as AnalysisBoxCase;
+            AnalysisBoxCase a1 = analysis1 as AnalysisBoxCase;
+            if (null == a0 || null == a1) return -1;
+
+            if (analysis0.Solution.ItemCount < analysis1.Solution.ItemCount)
+                return 1;
+            else if (analysis0.Solution.ItemCount == analysis1.Solution.ItemCount)
+            {
+                if (analysis0.Solution.VolumeEfficiency < analysis1.Solution.VolumeEfficiency)
+                    return 1;
+                else if (analysis0.Solution.VolumeEfficiency == analysis1.Solution.VolumeEfficiency)
+                    return 0;
+                else
+                    return -1;
+            }
+            else
+                return -1;
         }
         #endregion
     }
@@ -132,10 +162,11 @@ namespace treeDiM.StackBuilder.Basics
 
         #region Constructor
         public AnalysisCylinderCase(
+            Document doc,
             Packable packable,
             BoxProperties caseProperties,
             ConstraintSetCylinderCase constraintSet)
-            : base(packable.ParentDocument, packable, caseProperties, constraintSet)
+            : base(doc, packable, caseProperties, constraintSet)
         { 
         }
         #endregion

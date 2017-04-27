@@ -64,7 +64,6 @@ namespace treeDiM.StackBuilder.Desktop
             CylinderPalletAnalysis.Solver = new treeDiM.StackBuilder.Engine.CylinderSolver();
             HCylinderPalletAnalysis.Solver = new treeDiM.StackBuilder.Engine.HCylinderSolver();
             BoxCasePalletAnalysis.Solver = new treeDiM.StackBuilder.Engine.BoxCasePalletSolver();
-            BoxCaseAnalysis.Solver = new treeDiM.StackBuilder.Engine.BoxCaseSolver();
             // load content
             _deserializeDockContent = new DeserializeDockContent(ReloadContent);
 
@@ -728,8 +727,7 @@ namespace treeDiM.StackBuilder.Desktop
                 DocumentSB doc = eventArg.Document as DocumentSB;
                 if ((null != doc) && (null != eventArg.Analysis))
                     doc.EditAnalysis(eventArg.Analysis);
-                CreateOrActivateViewAnalysis(eventArg.Analysis);
-                      
+                CreateOrActivateViewAnalysis(eventArg.Analysis);                      
             }
             catch (Exception ex)
             {
@@ -759,7 +757,6 @@ namespace treeDiM.StackBuilder.Desktop
         private void UpdateToolbarState()
         {
             DocumentSB doc = (DocumentSB)ActiveDocument;
-
             // save
             saveToolStripMenuItem.Enabled = (null != doc) && (doc.IsDirty);
             toolStripButtonFileSave.Enabled = (null != doc) && (doc.IsDirty);
@@ -770,8 +767,6 @@ namespace treeDiM.StackBuilder.Desktop
             saveAsToolStripMenuItem.Enabled = (null != doc);
             // close
             closeToolStripMenuItem.Enabled = (null != doc);
-            // excel library
-            toolStripButtonExcelLibrary.Enabled = (null != doc);
             // new box
             newBoxToolStripMenuItem.Enabled = (null != doc);
             toolStripButtonAddNewBox.Enabled = (null != doc);
@@ -790,40 +785,43 @@ namespace treeDiM.StackBuilder.Desktop
             // new pallet
             newPalletToolStripMenuItem.Enabled = (null != doc);
             toolStripButtonAddNewPallet.Enabled = (null != doc);
-            // new interlayer
-            newInterlayerToolStripMenuItem.Enabled = (null != doc);
-            toolStripButtonCreateNewInterlayer.Enabled = (null != doc);
-            // pallet cap
+            // deco
+            toolStripSBDeco.Enabled = (null != doc);
+            // menu
+            newToolStripMenuItemInterlayer.Enabled = (null != doc);
             newToolStripMenuItemPalletCap.Enabled = (null != doc);
-            toolStripButtonPalletCap.Enabled = (null != doc);
-            // pallet film
             newToolStripMenuItemPalletFilm.Enabled = (null != doc);
-            toolStripButtonPalletFilm.Enabled = (null != doc);
-             // pallet corners
             newToolStripMenuItemPalletCorners.Enabled = (null != doc);
-            toolStripButtonPalletCorners.Enabled = (null != doc);
+            // toolStrip buttons
+            toolStripMenuItemInterlayer.Enabled = (null != doc);
+            toolStripMenuItemPalletCap.Enabled = (null != doc);
+            toolStripMenuItemPalletCorner.Enabled = (null != doc);
+            toolStripMenuItemPalletFilm.Enabled = (null != doc);
             // new truck
             newTruckToolStripMenuItem.Enabled = (null != doc);
             toolStripButtonAddNewTruck.Enabled = (null != doc);
             // new case/pallet analysis
-            newAnalysisToolStripMenuItem.Enabled = (null != doc) && doc.CanCreateAnalysisCasePallet;
-            toolSBCreateNewAnalysisCasePallet.Enabled = (null != doc) && doc.CanCreateAnalysisCasePallet;
+            toolStripMenuItemNewAnalysisCasePallet.Enabled = (null != doc) && doc.CanCreateAnalysisCasePallet;
+            toolStripMIAnalysisCasePallet.Enabled = (null != doc) && doc.CanCreateAnalysisCasePallet;
             // new cylinder/pallet analysis
-            newToolStripMenuItemCylinderPalletAnalysis.Enabled = (null != doc) && doc.CanCreateAnalysisCylinderPallet;
-            toolSBCylinderPalletAnalysis.Enabled = (null != doc) && doc.CanCreateAnalysisCylinderPallet;
+            toolStripMenuItemNewAnalysisCylinderPallet.Enabled = (null != doc) && doc.CanCreateAnalysisCylinderPallet;
+            toolStripMIAnalysisCylinderPallet.Enabled = (null != doc) && doc.CanCreateAnalysisCylinderPallet;
             // new box/case analysis
-            newBoxCaseAnalysisToolStripMenuItem.Enabled = (null != doc) && doc.CanCreateBoxCaseAnalysis;
-            toolStripButtonBoxCaseAnalysis.Enabled = (null != doc) && doc.CanCreateBoxCaseAnalysis;
+            toolStripMenuItemNewAnalysisBoxCase.Enabled = (null != doc) && doc.CanCreateAnalysisBoxCase;
+            toolStripMIAnalysisBoxCase.Enabled = (null != doc) && doc.CanCreateAnalysisBoxCase;
+            // split buttons
+            toolStripSBAnalysisPallet.Enabled = (null != doc);
+            toolStripSBOptimisations.Enabled = (null != doc);
+            toolStripSBDeco.Enabled = (null != doc);
             // new box/case/pallet analysis
             newBoxCasePalletOptimizationToolStripMenuItem.Enabled = (null != doc) && doc.CanCreateAnalysisBoxCasePallet;
-            toolStripButtonCreateNewBoxCasePalletOptimization.Enabled = (null != doc) && doc.CanCreateAnalysisBoxCasePallet;
+            toolStripMIBestCasePallet.Enabled = (null != doc) && doc.CanCreateAnalysisBoxCasePallet;
+            toolStripMIBestCase.Enabled = (null != doc) && doc.CanCreateAnalysisMulticase;
             // new pallet/truck analysis
             toolSBCreateAnalysisPalletTruck.Enabled = (null != doc) && doc.CanCreateAnalysisPalletTruck;
             // case optimisation
             caseOptimisationToolStripMenu.Enabled = (null != doc) && doc.CanCreateCaseOptimization;
-            toolStripButtonOptimiseCase.Enabled = (null != doc) && doc.CanCreateCaseOptimization;
-           // edit pallet solutions database
-            editPaletSolutionsDBToolStripMenuItem.Enabled = !PalletSolutionDatabase.Instance.IsEmpty;
+            toolStripMIBestPack.Enabled = (null != doc) && doc.CanCreateCaseOptimization;
         }
         #endregion
 
@@ -1139,6 +1137,7 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Tools
+        #region Items
         private void toolAddNewBox(object sender, EventArgs e)
         {
             try { ((DocumentSB)ActiveDocument).CreateNewBoxUI();    }
@@ -1164,11 +1163,6 @@ namespace treeDiM.StackBuilder.Desktop
             try { ((DocumentSB)ActiveDocument).CreateNewCylinderUI(); }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
          }
-        private void toolAddNewInterlayer(object sender, EventArgs e)
-        {
-            try { ((DocumentSB)ActiveDocument).CreateNewInterlayerUI(); }
-            catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
-        }
         private void toolAddNewPallet(object sender, EventArgs e)
         {
             try { ((DocumentSB)ActiveDocument).CreateNewPalletUI(); }
@@ -1179,29 +1173,11 @@ namespace treeDiM.StackBuilder.Desktop
             try { ((DocumentSB)ActiveDocument).CreateNewTruckUI(); }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
-        private void toolAddNewCasePalletAnalysis(object sender, EventArgs e)
+        #endregion
+        #region Pallet decorations
+        private void toolAddNewInterlayer(object sender, EventArgs e)
         {
-            try { CasePalletAnalysis analysis = ((DocumentSB)ActiveDocument).CreateNewAnalysisCasePalletUI(); }
-            catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
-        }
-        private void toolAddNewBoxCaseAnalysis(object sender, EventArgs e)
-        {
-            try { BoxCaseAnalysis analysis = ((DocumentSB)ActiveDocument).CreateNewBoxCaseAnalysisUI(); }
-            catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
-        }
-        private void onAddNewAnalysisCylinderPallet(object sender, EventArgs e)
-        {
-            try { ((DocumentSB)ActiveDocument).CreateNewAnalysisCylinderPalletUI(); }
-            catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
-        }
-        private void onAddNewAnalysisCylinderCase(object sender, EventArgs e)
-        { 
-            try { ((DocumentSB)ActiveDocument).CreateNewAnalysisCylinderCaseUI(); }
-            catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
-        }
-        private void toolAddNewBoxCasePalletOptimization(object sender, EventArgs e)
-        {
-            try { BoxCasePalletAnalysis analysis = ((DocumentSB)ActiveDocument).CreateNewBoxCasePalletOptimizationUI(); }
+            try { ((DocumentSB)ActiveDocument).CreateNewInterlayerUI(); }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
         private void toolAddNewPalletCap(object sender, EventArgs e)
@@ -1219,12 +1195,68 @@ namespace treeDiM.StackBuilder.Desktop
             try { ((DocumentSB)ActiveDocument).CreateNewPalletFilmUI(); }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
-        private void onToolAddNewAnalysisPalletTruck(object sender, EventArgs e)
+        #endregion
+        #region Analyses
+        private void onNewAnalysisBoxCase(object sender, EventArgs e)
+        {
+            try { ((DocumentSB)ActiveDocument).CreateNewAnalysisBoxCaseUI(); }
+            catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
+        }
+        private void onNewAnalysisCylinderCase(object sender, EventArgs e)
+        { 
+            try { ((DocumentSB)ActiveDocument).CreateNewAnalysisCylinderCaseUI(); }
+            catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
+        }
+        private void onNewAnalysisPalletTruck(object sender, EventArgs e)
         {
             try { ((DocumentSB)ActiveDocument).CreateNewAnalysisPalletTruckUI(); }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
-        private void toolEditPalletSolutionsDB(object sender, EventArgs e)
+        private void onNewAnalysisCasePallet(object sender, EventArgs e)
+        {
+            try { CasePalletAnalysis analysis = ((DocumentSB)ActiveDocument).CreateNewAnalysisCasePalletUI(); }
+            catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
+        }
+        private void onNewAnalysisCylinderPallet(object sender, EventArgs e)
+        {
+            try { ((DocumentSB)ActiveDocument).CreateNewAnalysisCylinderPalletUI(); }
+            catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
+        }
+        private void onNewAnalysisBoxCasePallet(object sender, EventArgs e)
+        {
+            try { AnalysisBoxCase analysis = ((DocumentSB)ActiveDocument).CreateNewAnalysisBoxCaseUI(); }
+            catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
+        }
+        #endregion
+        #region Optimisation
+        private void onOptiBoxCasePallet(object sender, EventArgs e)
+        {
+            try
+            {
+                // show optimisation form
+                FormOptimizeCase form = new FormOptimizeCase((DocumentSB)ActiveDocument);
+                form.ShowDialog();
+            }
+            catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
+        }
+        private void onOptiBoxCasePalletOptimization(object sender, EventArgs e)
+        {
+            try { BoxCasePalletAnalysis analysis = ((DocumentSB)ActiveDocument).CreateNewBoxCasePalletOptimizationUI(); }
+            catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
+        }
+        private void onOptiSelectCase(object sender, EventArgs e)
+        {
+            try
+            {
+                FormOptimiseMultiCase form = new FormOptimiseMultiCase();
+                form.Document = (DocumentSB)ActiveDocument;
+                form.ShowDialog();
+            }
+            catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
+        }
+        #endregion
+        #region Database / settings / excel sheet
+        private void onShowDatabase(object sender, EventArgs e)
         {
             try
             {
@@ -1237,17 +1269,7 @@ namespace treeDiM.StackBuilder.Desktop
             }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
-        private void toolStripButtonOptimiseCase_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                // show optimisation form
-                FormOptimizeCase form = new FormOptimizeCase((DocumentSB)ActiveDocument);
-                form.ShowDialog();
-            }
-            catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
-        }
-        private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
+        private void onShowSettings(object sender, EventArgs e)
         {
             try
             {
@@ -1257,8 +1279,7 @@ namespace treeDiM.StackBuilder.Desktop
             }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
-
-        private void toolExcelLibrary(object sender, EventArgs e)
+        private void onLoadExcelSheet(object sender, EventArgs e)
         {
             try
             {
@@ -1269,7 +1290,7 @@ namespace treeDiM.StackBuilder.Desktop
             }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
-
+        #endregion
         #endregion
 
         #region Document / View status change handlers
@@ -1558,5 +1579,11 @@ namespace treeDiM.StackBuilder.Desktop
             return _instance;
         }
         #endregion
+
+
+
+
+
+
     }
 }

@@ -30,7 +30,7 @@ namespace treeDiM.StackBuilder.Basics
         /// <summary>
         /// logger
         /// </summary>
-        static readonly ILog _log = LogManager.GetLogger(typeof(BoxCaseAnalysis));
+        static readonly ILog _log = LogManager.GetLogger(typeof(AnalysisBoxCase));
         #endregion
 
         #region Delegates

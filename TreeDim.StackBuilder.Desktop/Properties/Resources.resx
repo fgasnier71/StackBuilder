@@ -742,4 +742,13 @@ Closing form...</value>
   <data name="ID_TRANSPARENCY" xml:space="preserve">
     <value>Use transparency</value>
   </data>
+  <data name="ID_CASENAME" xml:space="preserve">
+    <value>Caisse</value>
+  </data>
+  <data name="ID_NOCASESELECTED" xml:space="preserve">
+    <value>No case selected!</value>
+  </data>
+  <data name="ID_NOORIENTATIONSELECTED" xml:space="preserve">
+    <value>No orientation selected!</value>
+  </data>
 </root>
