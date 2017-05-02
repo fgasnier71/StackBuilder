@@ -814,5 +814,17 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
                 return ((string)(this["StartPageUrl"]));
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool CloseDbBrowserAfterImport {
+            get {
+                return ((bool)(this["CloseDbBrowserAfterImport"]));
+            }
+            set {
+                this["CloseDbBrowserAfterImport"] = value;
+            }
+        }
     }
 }

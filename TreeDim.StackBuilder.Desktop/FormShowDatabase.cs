@@ -858,7 +858,10 @@ namespace treeDiM.StackBuilder.Desktop
         private void onImport(object sender, EventArgs e)
         {
             // sanity check
-            if (null == _doc) return;
+            if (null == _doc || null == _selectedItem) return;
+            // checking name
+            string name = _selectedItem.Name;
+            if (!GetValidName(ref name)) return; // user exited without entering a valid name
             // unit system
             UnitsManager.UnitSystem us = (UnitsManager.UnitSystem)_selectedItem.UnitSystem;
             try
@@ -868,7 +871,7 @@ namespace treeDiM.StackBuilder.Desktop
                 if (null != dcsbPallet)
                 {
                     PalletProperties palletProperties = _doc.CreateNewPallet(
-                        dcsbPallet.Name, dcsbPallet.Description,
+                        name, dcsbPallet.Description,
                         dcsbPallet.PalletType,
                         UnitsManager.ConvertLengthFrom(dcsbPallet.Dimensions.M0, us),
                         UnitsManager.ConvertLengthFrom(dcsbPallet.Dimensions.M1, us),
@@ -884,7 +887,7 @@ namespace treeDiM.StackBuilder.Desktop
                 if (null != dcsbInterlayer)
                 {
                     InterlayerProperties interlayerProp = _doc.CreateNewInterlayer(
-                        dcsbInterlayer.Name, dcsbInterlayer.Description,
+                        name, dcsbInterlayer.Description,
                         UnitsManager.ConvertLengthFrom(dcsbInterlayer.Dimensions.M0, us),
                         UnitsManager.ConvertLengthFrom(dcsbInterlayer.Dimensions.M1, us),
                         UnitsManager.ConvertLengthFrom(dcsbInterlayer.Dimensions.M2, us),
@@ -902,7 +905,7 @@ namespace treeDiM.StackBuilder.Desktop
 
                     BoxProperties bProperties = null;
                     if (dcsbCase.HasInnerDims)
-                        bProperties = _doc.CreateNewCase(dcsbCase.Name, dcsbCase.Description,
+                        bProperties = _doc.CreateNewCase(name, dcsbCase.Description,
                             UnitsManager.ConvertLengthFrom(dcsbCase.DimensionsOuter.M0, us),
                             UnitsManager.ConvertLengthFrom(dcsbCase.DimensionsOuter.M1, us),
                             UnitsManager.ConvertLengthFrom(dcsbCase.DimensionsOuter.M2, us),
@@ -913,7 +916,7 @@ namespace treeDiM.StackBuilder.Desktop
                             colors);
                     else
                         bProperties = _doc.CreateNewBox(
-                            dcsbCase.Name, dcsbCase.Description,
+                            name, dcsbCase.Description,
                             UnitsManager.ConvertLengthFrom(dcsbCase.DimensionsOuter.M0, us),
                             UnitsManager.ConvertLengthFrom(dcsbCase.DimensionsOuter.M1, us),
                             UnitsManager.ConvertLengthFrom(dcsbCase.DimensionsOuter.M2, us),
@@ -931,7 +934,7 @@ namespace treeDiM.StackBuilder.Desktop
                 DCSBBundle dcsbBundle = _selectedItem as DCSBBundle;
                 if (null != dcsbBundle)
                 {
-                    BundleProperties bundle = _doc.CreateNewBundle(dcsbBundle.Name, dcsbBundle.Description,
+                    BundleProperties bundle = _doc.CreateNewBundle(name, dcsbBundle.Description,
                         UnitsManager.ConvertLengthFrom(dcsbBundle.DimensionsUnit.M0, us),
                         UnitsManager.ConvertLengthFrom(dcsbBundle.DimensionsUnit.M1, us),
                         UnitsManager.ConvertLengthFrom(dcsbBundle.DimensionsUnit.M2, us),
@@ -944,7 +947,7 @@ namespace treeDiM.StackBuilder.Desktop
                 if (null != dcsbCylinder)
                 { 
                     CylinderProperties cylProp = _doc.CreateNewCylinder(
-                        dcsbCylinder.Name, dcsbCylinder.Description,
+                        name, dcsbCylinder.Description,
                         UnitsManager.ConvertLengthFrom(dcsbCylinder.RadiusOuter, us),
                         UnitsManager.ConvertLengthFrom(dcsbCylinder.RadiusInner, us),
                         UnitsManager.ConvertLengthFrom(dcsbCylinder.Height, us),
@@ -957,7 +960,7 @@ namespace treeDiM.StackBuilder.Desktop
                 if (null != dcsbTruck)
                 {
                     TruckProperties truckProp = _doc.CreateNewTruck(
-                        dcsbTruck.Name, dcsbTruck.Description,
+                        name, dcsbTruck.Description,
                         UnitsManager.ConvertLengthFrom(dcsbTruck.DimensionsInner.M0, us),
                         UnitsManager.ConvertLengthFrom(dcsbTruck.DimensionsInner.M1, us),
                         UnitsManager.ConvertLengthFrom(dcsbTruck.DimensionsInner.M2, us),
@@ -986,7 +989,7 @@ namespace treeDiM.StackBuilder.Desktop
                 if (null != dcsbPalletCorner)
                 {
                     PalletCornerProperties palletCornerProperties = _doc.CreateNewPalletCorners(
-                        dcsbPalletCorner.Name, dcsbPalletCorner.Description,
+                        name, dcsbPalletCorner.Description,
                         UnitsManager.ConvertLengthFrom(dcsbPalletCorner.Length, us),
                         UnitsManager.ConvertLengthFrom(dcsbPalletCorner.Width, us),
                         UnitsManager.ConvertLengthFrom(dcsbPalletCorner.Thickness, us),
@@ -998,7 +1001,7 @@ namespace treeDiM.StackBuilder.Desktop
                 DCSBPalletFilm dcsbPalletFilm = _selectedItem as DCSBPalletFilm;
                 if (null != dcsbPalletFilm)
                 {
-                    PalletFilmProperties palletFilm = _doc.CreateNewPalletFilm(dcsbPalletFilm.Name, dcsbPalletFilm.Description,
+                    PalletFilmProperties palletFilm = _doc.CreateNewPalletFilm(name, dcsbPalletFilm.Description,
                         dcsbPalletFilm.UseTransparency, dcsbPalletFilm.UseHatching,
                         dcsbPalletFilm.HatchingSpace, dcsbPalletFilm.HatchingAngle,
                         Color.FromArgb(dcsbPalletFilm.Color));
@@ -1008,6 +1011,24 @@ namespace treeDiM.StackBuilder.Desktop
             {
                 _log.Error(ex.Message);
             }
+            if (Properties.Settings.Default.CloseDbBrowserAfterImport)
+                Close();
+        }
+
+        private bool GetValidName(ref string name)
+        {
+            if (_doc.IsValidNewTypeName(name, null))
+                return true;
+            // not a valid name, show dialog box
+            FormValidTypeName form = new FormValidTypeName(_doc);
+            form.ItemName = name;
+            if (DialogResult.OK == form.ShowDialog())
+            {
+                name = form.ItemName;
+                return true;
+            }
+            else
+                return false;
         }
         #endregion
 
