@@ -707,7 +707,7 @@ namespace treeDiM.StackBuilder.Desktop
             get
             {
                 BoxItem boxItem = cbBoxes.SelectedItem as BoxItem;
-                return boxItem != null ? boxItem.Item as BoxProperties : null;
+                return null != boxItem ? boxItem.Item as BoxProperties : null;
             }
         }
         private PalletProperties SelectedPallet

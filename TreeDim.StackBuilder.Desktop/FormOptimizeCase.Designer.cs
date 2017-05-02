@@ -58,14 +58,14 @@
             this.statusStripDef = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelDef = new System.Windows.Forms.ToolStripStatusLabel();
             this.gbWrapper = new System.Windows.Forms.GroupBox();
-            this.uCtrlNoWalls = new treeDiM.StackBuilder.Basics.Controls.UCtrlTriInt();
-            this.uCtrlWallThickness = new treeDiM.StackBuilder.Basics.UCtrlDouble();
-            this.uCtrlSurfacicMass = new treeDiM.StackBuilder.Basics.UCtrlDouble();
-            this.label1 = new System.Windows.Forms.Label();
-            this.cbWrapperType = new System.Windows.Forms.ComboBox();
+            this.uCtrlTrayHeight = new treeDiM.StackBuilder.Basics.UCtrlDouble();
             this.lbWrapperColor = new System.Windows.Forms.Label();
             this.cbColor = new OfficePickers.ColorPicker.ComboBoxColorPicker();
-            this.uCtrlTrayHeight = new treeDiM.StackBuilder.Basics.UCtrlDouble();
+            this.cbWrapperType = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.uCtrlSurfacicMass = new treeDiM.StackBuilder.Basics.UCtrlDouble();
+            this.uCtrlWallThickness = new treeDiM.StackBuilder.Basics.UCtrlDouble();
+            this.uCtrlNoWalls = new treeDiM.StackBuilder.Basics.Controls.UCtrlTriInt();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerCasePallet)).BeginInit();
             this.splitContainerCasePallet.Panel1.SuspendLayout();
             this.splitContainerCasePallet.Panel2.SuspendLayout();
@@ -336,54 +336,17 @@
             this.gbWrapper.Name = "gbWrapper";
             this.gbWrapper.TabStop = false;
             // 
-            // uCtrlNoWalls
+            // uCtrlTrayHeight
             // 
-            resources.ApplyResources(this.uCtrlNoWalls, "uCtrlNoWalls");
-            this.uCtrlNoWalls.Name = "uCtrlNoWalls";
-            this.uCtrlNoWalls.NoX = 1;
-            this.uCtrlNoWalls.NoY = 1;
-            this.uCtrlNoWalls.NoZ = 1;
-            // 
-            // uCtrlWallThickness
-            // 
-            resources.ApplyResources(this.uCtrlWallThickness, "uCtrlWallThickness");
-            this.uCtrlWallThickness.Minimum = new decimal(new int[] {
+            resources.ApplyResources(this.uCtrlTrayHeight, "uCtrlTrayHeight");
+            this.uCtrlTrayHeight.Minimum = new decimal(new int[] {
             10000,
             0,
             0,
             -2147483648});
-            this.uCtrlWallThickness.Name = "uCtrlWallThickness";
-            this.uCtrlWallThickness.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
-            this.uCtrlWallThickness.Value = 0D;
-            // 
-            // uCtrlSurfacicMass
-            // 
-            resources.ApplyResources(this.uCtrlSurfacicMass, "uCtrlSurfacicMass");
-            this.uCtrlSurfacicMass.Minimum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            -2147483648});
-            this.uCtrlSurfacicMass.Name = "uCtrlSurfacicMass";
-            this.uCtrlSurfacicMass.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_SURFACEMASS;
-            this.uCtrlSurfacicMass.Value = 0D;
-            // 
-            // label1
-            // 
-            resources.ApplyResources(this.label1, "label1");
-            this.label1.Name = "label1";
-            // 
-            // cbWrapperType
-            // 
-            this.cbWrapperType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbWrapperType.FormattingEnabled = true;
-            this.cbWrapperType.Items.AddRange(new object[] {
-            resources.GetString("cbWrapperType.Items"),
-            resources.GetString("cbWrapperType.Items1"),
-            resources.GetString("cbWrapperType.Items2"),
-            resources.GetString("cbWrapperType.Items3")});
-            resources.ApplyResources(this.cbWrapperType, "cbWrapperType");
-            this.cbWrapperType.Name = "cbWrapperType";
+            this.uCtrlTrayHeight.Name = "uCtrlTrayHeight";
+            this.uCtrlTrayHeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlTrayHeight.Value = 0D;
             // 
             // lbWrapperColor
             // 
@@ -427,20 +390,58 @@
             resources.GetString("cbColor.Items24"),
             resources.GetString("cbColor.Items25"),
             resources.GetString("cbColor.Items26"),
-            resources.GetString("cbColor.Items27")});
+            resources.GetString("cbColor.Items27"),
+            resources.GetString("cbColor.Items28")});
             this.cbColor.Name = "cbColor";
             // 
-            // uCtrlTrayHeight
+            // cbWrapperType
             // 
-            resources.ApplyResources(this.uCtrlTrayHeight, "uCtrlTrayHeight");
-            this.uCtrlTrayHeight.Minimum = new decimal(new int[] {
+            this.cbWrapperType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbWrapperType.FormattingEnabled = true;
+            this.cbWrapperType.Items.AddRange(new object[] {
+            resources.GetString("cbWrapperType.Items"),
+            resources.GetString("cbWrapperType.Items1"),
+            resources.GetString("cbWrapperType.Items2"),
+            resources.GetString("cbWrapperType.Items3")});
+            resources.ApplyResources(this.cbWrapperType, "cbWrapperType");
+            this.cbWrapperType.Name = "cbWrapperType";
+            // 
+            // label1
+            // 
+            resources.ApplyResources(this.label1, "label1");
+            this.label1.Name = "label1";
+            // 
+            // uCtrlSurfacicMass
+            // 
+            resources.ApplyResources(this.uCtrlSurfacicMass, "uCtrlSurfacicMass");
+            this.uCtrlSurfacicMass.Minimum = new decimal(new int[] {
             10000,
             0,
             0,
             -2147483648});
-            this.uCtrlTrayHeight.Name = "uCtrlTrayHeight";
-            this.uCtrlTrayHeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
-            this.uCtrlTrayHeight.Value = 0D;
+            this.uCtrlSurfacicMass.Name = "uCtrlSurfacicMass";
+            this.uCtrlSurfacicMass.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_SURFACEMASS;
+            this.uCtrlSurfacicMass.Value = 0D;
+            // 
+            // uCtrlWallThickness
+            // 
+            resources.ApplyResources(this.uCtrlWallThickness, "uCtrlWallThickness");
+            this.uCtrlWallThickness.Minimum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            -2147483648});
+            this.uCtrlWallThickness.Name = "uCtrlWallThickness";
+            this.uCtrlWallThickness.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlWallThickness.Value = 0D;
+            // 
+            // uCtrlNoWalls
+            // 
+            resources.ApplyResources(this.uCtrlNoWalls, "uCtrlNoWalls");
+            this.uCtrlNoWalls.Name = "uCtrlNoWalls";
+            this.uCtrlNoWalls.NoX = 1;
+            this.uCtrlNoWalls.NoY = 1;
+            this.uCtrlNoWalls.NoZ = 1;
             // 
             // FormOptimizeCase
             // 

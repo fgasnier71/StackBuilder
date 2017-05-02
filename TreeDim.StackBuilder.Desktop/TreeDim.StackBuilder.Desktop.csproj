@@ -475,6 +475,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>FormOptimizeCase.es-ES.resx</DependentUpon>
     </Compile>
+    <Compile Include="FormOptimizePack.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormOptimizePack.Designer.cs">
+      <DependentUpon>FormOptimizePack.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormSetItemName.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1336,6 +1342,9 @@
     <EmbeddedResource Include="FormOptimizeCase.resx">
       <DependentUpon>FormOptimizeCase.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormOptimizePack.resx">
+      <DependentUpon>FormOptimizePack.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSetItemName.resx">
       <DependentUpon>FormSetItemName.cs</DependentUpon>

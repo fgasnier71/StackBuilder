@@ -150,11 +150,11 @@ namespace treeDiM.StackBuilder.Desktop
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWPALLETFILM, AnalysisTreeView.PalletFilm, new EventHandler(onCreateNewPalletFilm)));
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWTRUCK, AnalysisTreeView.Truck       , new EventHandler(onCreateNewTruck)));
 
-                if (((DocumentSB)nodeTag.Document).CanCreateAnalysisCasePallet || ((DocumentSB)nodeTag.Document).CanCreateBundlePalletAnalysis || ((DocumentSB)nodeTag.Document).CanCreateAnalysisBoxCasePallet)
+                if (((DocumentSB)nodeTag.Document).CanCreateAnalysisCasePallet || ((DocumentSB)nodeTag.Document).CanCreateOptiCasePallet)
                     contextMenuStrip.Items.Add(new ToolStripSeparator());
                 if (((DocumentSB)nodeTag.Document).CanCreateAnalysisCasePallet)
                     contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWANALYSIS, AnalysisTreeView.AnalysisCasePallet, new EventHandler(onCreateNewAnalysisCasePallet)));
-                if (((DocumentSB)nodeTag.Document).CanCreateAnalysisBoxCasePallet)
+                if (((DocumentSB)nodeTag.Document).CanCreateOptiCasePallet)
                     contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWCASEANALYSIS, AnalysisTreeView.AnalysisCase, new EventHandler(onCreateNewAnalysisCase)));
                 contextMenuStrip.Items.Add(new ToolStripSeparator());
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_CLOSE, null, new EventHandler(onDocumentClose)));
@@ -200,7 +200,7 @@ namespace treeDiM.StackBuilder.Desktop
             {
                 if (nodeTag.Document.CanCreateAnalysisCasePallet)
                     contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWANALYSIS, AnalysisTreeView.AnalysisCasePallet, new EventHandler(onCreateNewAnalysisCasePallet)));
-                if (nodeTag.Document.CanCreateAnalysisBoxCasePallet)
+                if (nodeTag.Document.CanCreateOptiCasePallet)
                     contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWCASEANALYSIS, AnalysisTreeView.AnalysisCase, new EventHandler(onCreateNewAnalysisCase)));
                 if (nodeTag.Document.CanCreateAnalysisCylinderPallet)
                     contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWCYLINDERANALYSIS, AnalysisTreeView.AnalysisCylinderPallet, new EventHandler(onCreateNewAnalysisCylinderPallet)));
@@ -223,130 +223,6 @@ namespace treeDiM.StackBuilder.Desktop
                     , new EventHandler(onAnalysisReportHTML)));
             }
         }
-
-/*
-            else if (nodeTag.Type == NodeTag.NodeType.NT_CASEPALLETANALYSIS)
-            {
-                string message = string.Format(Resources.ID_EDIT, nodeTag.CasePalletAnalysis.Name);
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(message, null, new EventHandler(onEditCasePalletAnalysis)));
-                message = string.Format(Resources.ID_DELETE, nodeTag.CasePalletAnalysis.Name);
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(message, AnalysisTreeView.DELETE, new EventHandler(onDeleteCasePalletAnalysis)));
-            }
-            else if (nodeTag.Type == NodeTag.NodeType.NT_PACKPALLETANALYSIS)
-            { 
-                string message = string.Format(Resources.ID_EDIT, nodeTag.PackPalletAnalysis.Name);
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(message, null, new EventHandler(onEditPackPalletAnalysis)));
-                message = string.Format(Resources.ID_DELETE, nodeTag.PackPalletAnalysis.Name);
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(message, AnalysisTreeView.DELETE, new EventHandler(onDeletePackPalletAnalysis)));
-            }
-            else if (nodeTag.Type == NodeTag.NodeType.NT_CYLINDERPALLETANALYSIS)
-            {
-                string message = string.Format(Resources.ID_EDIT, nodeTag.CylinderPalletAnalysis.Name);
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(message, null, new EventHandler(onEditCylinderPalletAnalysis)));
-                message = string.Format(Resources.ID_DELETE, nodeTag.CylinderPalletAnalysis.Name);
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(message, null, new EventHandler(onDeleteCylinderPalletAnalysis)));
-            }
-            else if (nodeTag.Type == NodeTag.NodeType.NT_HCYLINDERPALLETANALYSIS)
-            {
-                string message = string.Format(Resources.ID_EDIT, nodeTag.HCylinderPalletAnalysis.Name);
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(message, null, new EventHandler(onEditHCylinderPalletAnalysis)));
-                message = string.Format(Resources.ID_DELETE, nodeTag.HCylinderPalletAnalysis.Name);
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(message, null, new EventHandler(onDeleteHCylinderPalletAnalysis)));
-            }
-            else if (nodeTag.Type == NodeTag.NodeType.NT_BOXCASEANALYSIS)
-            {
-                string message = string.Format(Resources.ID_EDIT, nodeTag.BoxCaseAnalysis.Name);
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(message, null, new EventHandler(onEditBoxCaseAnalysis)));
-                message = string.Format(Resources.ID_DELETE, nodeTag.BoxCaseAnalysis.Name);
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(message, AnalysisTreeView.DELETE, new EventHandler(onDeleteBoxCaseAnalysis)));
-            }
-            else if (nodeTag.Type == NodeTag.NodeType.NT_TRUCKANALYSIS)
-            {
-                string message = string.Format(Resources.ID_EDIT, nodeTag.TruckAnalysis.Name);
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(message, null, new EventHandler(onEditTruckAnalysis)));
-                message = string.Format(Resources.ID_DELETE, nodeTag.TruckAnalysis.Name);
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(message, AnalysisTreeView.DELETE, new EventHandler(onDeleteTruckAnalysis)));
-            }
-            else if (nodeTag.Type == NodeTag.NodeType.NT_ECTANALYSIS)
-            {
-                string message = string.Format(Resources.ID_EDIT, nodeTag.ECTAnalysis.Name);
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(message, null, new EventHandler(onEditECTAnalysis)));
-                message = string.Format(Resources.ID_DELETE, nodeTag.ECTAnalysis.Name);
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(message, AnalysisTreeView.DELETE, new EventHandler(onDeleteECTAnalysis)));
-            }
-*//*
-            else if (nodeTag.Type == NodeTag.NodeType.NT_CASEPALLETANALYSISSOLUTION)
-            {
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(string.Format(Resources.ID_UNSELECTSOLUTION, nodeTag.SelSolution.Solution.Title), AnalysisTreeView.DELETE, new EventHandler(onUnselectCasePalletAnalysisSolution)));
-                if (nodeTag.Document.Trucks.Count > 0 && !nodeTag.SelSolution.HasDependingAnalyses)
-                    contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWTRUCKANALYSIS, AnalysisTreeView.AnalysisTruck, new EventHandler(onCreateNewTruckAnalysis)));
-                if (!nodeTag.SelSolution.HasECTAnalyses)
-                    contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWECTANALYSIS, AnalysisTreeView.AnalysisStackingStrength, new EventHandler(onCreateNewECTAnalysis)));
-                if (nodeTag.CasePalletAnalysis.IsBoxAnalysis)
-                {
-                    BoxProperties bProperties = nodeTag.CasePalletAnalysis.BProperties as BoxProperties;
-                    if (bProperties.HasInsideDimensions) // BoxProperties must also have inside dimensions
-                        contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_SENDTODATABASE, AnalysisTreeView.Database, new EventHandler(onSendSolutionToDatabase)));
-                }
-                string message = string.Format(Resources.ID_GENERATEREPORTHTML, nodeTag.SelSolution.Name);
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(message, AnalysisTreeView.HTML, new EventHandler(onAnalysisReportHTML)));
-                message = string.Format(Resources.ID_GENERATEREPORTMSWORD, nodeTag.SelSolution.Name);
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(message, AnalysisTreeView.WORD, new EventHandler(onAnalysisReportMSWord)));
-                message = string.Format(Resources.ID_GENERATEREPORTPDF, nodeTag.SelSolution.Name);
-                if (nodeTag.CasePalletAnalysis.IsBoxAnalysis && Settings.Default.ShowLogConsole)
-                {
-                    message = string.Format(Resources.ID_GENERATECOLLADA, nodeTag.SelSolution.Name);
-                    contextMenuStrip.Items.Add(new ToolStripMenuItem(message, AnalysisTreeView.COLLADAWEBGL, new EventHandler(onAnalysisExportCollada)));
-                }
-            }
-            else if (nodeTag.Type == NodeTag.NodeType.NT_PACKPALLETANALYSISSOLUTION)
-            { 
-                string message = string.Format(Resources.ID_GENERATEREPORTHTML, nodeTag.SelPackPalletSolution.Name);
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(message, AnalysisTreeView.HTML, new EventHandler(onAnalysisReportHTML)));
-                message = string.Format(Resources.ID_GENERATEREPORTMSWORD, nodeTag.SelPackPalletSolution.Name);
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(message, AnalysisTreeView.WORD, new EventHandler(onAnalysisReportMSWord)));
-                message = string.Format(Resources.ID_GENERATEREPORTPDF, nodeTag.SelPackPalletSolution.Name);
-            }
-            else if (nodeTag.Type == NodeTag.NodeType.NT_CYLINDERPALLETANALYSISSOLUTION)
-            {
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(string.Format(Resources.ID_UNSELECTSOLUTION, nodeTag.SelCylinderPalletSolution.Solution.Title)
-                    , AnalysisTreeView.DELETE, new EventHandler(onUnselectCylinderPalletAnalysisSolution)));
-                string message = string.Format(Resources.ID_GENERATEREPORTHTML, nodeTag.SelCylinderPalletSolution.Name);
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(message, AnalysisTreeView.HTML, new EventHandler(onAnalysisReportHTML)));
-                message = string.Format(Resources.ID_GENERATEREPORTMSWORD, nodeTag.SelCylinderPalletSolution.Name);
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(message, AnalysisTreeView.WORD, new EventHandler(onAnalysisReportMSWord)));
-            }
-            else if (nodeTag.Type == NodeTag.NodeType.NT_HCYLINDERPALLETANALYSISSOLUTION)
-            {
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(string.Format(Resources.ID_UNSELECTSOLUTION, nodeTag.SelHCylinderPalletSolution.Solution.Title)
-                    , AnalysisTreeView.DELETE, new EventHandler(onUnselectHCylinderPalletAnalysisSolution)));
-                string message = string.Format(Resources.ID_GENERATEREPORTHTML, nodeTag.SelHCylinderPalletSolution.Name);
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(message, AnalysisTreeView.HTML, new EventHandler(onAnalysisReportHTML)));
-                message = string.Format(Resources.ID_GENERATEREPORTMSWORD, nodeTag.SelHCylinderPalletSolution.Name);
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(message, AnalysisTreeView.WORD, new EventHandler(onAnalysisReportMSWord)));
-            }
-            else if (nodeTag.Type == NodeTag.NodeType.NT_BOXCASEANALYSISSOLUTION)
-            {
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(string.Format(Resources.ID_UNSELECTSOLUTION, nodeTag.SelBoxCaseSolution.Solution.Title), AnalysisTreeView.DELETE, new EventHandler(onUnselectBoxCaseAnalysisSolution)));
-                string message = string.Format(Resources.ID_GENERATEREPORTHTML, nodeTag.SelBoxCaseSolution.Name);
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(message, AnalysisTreeView.HTML, new EventHandler(onAnalysisReportHTML)));
-                message = string.Format(Resources.ID_GENERATEREPORTMSWORD, nodeTag.SelBoxCaseSolution.Name);
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(message, AnalysisTreeView.WORD, new EventHandler(onAnalysisReportMSWord)));
-            }
-            else if (nodeTag.Type == NodeTag.NodeType.NT_BOXCASEPALLETANALYSIS)
-            {
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(string.Format(Resources.ID_EDIT, nodeTag.CaseAnalysis.Name), null, new EventHandler(onEditCaseAnalysis)));
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(string.Format(Resources.ID_DELETE, nodeTag.CaseAnalysis.Name), AnalysisTreeView.DELETE, new EventHandler(onDeleteCaseAnalysis)));
-            }
-            else if (nodeTag.Type == NodeTag.NodeType.NT_CASESOLUTION)
-            {
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(string.Format(Resources.ID_UNSELECTSOLUTION, nodeTag.SelBoxCasePalletSolution.Solution.Title), AnalysisTreeView.DELETE, new EventHandler(onUnselectBoxCasePalletAnalysisSolution)));
-                string message = string.Format(Resources.ID_GENERATEREPORTHTML, nodeTag.SelBoxCasePalletSolution.Name);
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(message, AnalysisTreeView.HTML, new EventHandler(onAnalysisReportHTML)));
-                message = string.Format(Resources.ID_GENERATEREPORTMSWORD, nodeTag.SelBoxCasePalletSolution.Name);
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(message, AnalysisTreeView.WORD, new EventHandler(onAnalysisReportMSWord)));
-            }
- */ 
         #endregion
 
         #region Handling context menus

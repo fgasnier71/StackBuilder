@@ -280,6 +280,16 @@ namespace treeDiM.StackBuilder.Basics
             Modify();
             return packProperties;
         }
+        public PackProperties CreateNewPack(PackProperties pack)
+        {
+            PackProperties packProperties = new PackProperties(this, pack.Box, pack.Arrangement, pack.BoxOrientation, pack.Wrap);
+            packProperties.ID.SetNameDesc(pack.ID.Name, pack.ID.Description);
+            // insert in list
+            _typeList.Add(packProperties);
+            // notify listeners
+            NotifyOnNewTypeCreated(packProperties);
+            return packProperties;
+        }
         public CaseOfBoxesProperties CreateNewCaseOfBoxes(
             string name, string description
             , BoxProperties boxProperties
@@ -1261,65 +1271,27 @@ namespace treeDiM.StackBuilder.Basics
                 return analyses; 
             }
         }
-        /// <summary>
-        /// Returns true if pack can be created i.e. if documents contains at at least a box
-        /// </summary>
+        #endregion
+
+        #region Allowing analysis/opti
         public bool CanCreatePack
         { get { return this.Boxes.Count > 0; } }
-        /// <summary>
-        /// Returns true if pallet analysis can be created i.e. if documents contains at least a case and a pallet
-        /// </summary>
         public bool CanCreateAnalysisCasePallet
-        { get { return this.Cases.Count > 0 && this.Pallets.Count > 0; } }
-        /// <summary>
-        /// Returns true if a pack analysis can be created i.e. if documents contains at least a pack and a pallet
-        /// </summary>
-        public bool CanCreatePackPalletAnalysis
-        { get { return this.ListByType(typeof(PackProperties)).Count > 0 && this.Pallets.Count > 0; } }
-        /// <summary>
-        /// Returns true if a bundle analysis can be created i.e. if documents contains at least a bundle and a case
-        /// </summary>
-        public bool CanCreateBundlePalletAnalysis
-        { get { return this.Bundles.Count > 0 && this.Pallets.Count > 0; } }
-        /// <summary>
-        /// Returns true if a box case analysis can be created i.e. if document contains at least one box and one case
-        /// </summary>
+        { get { return (this.Bundles.Count > 0 || this.Cases.Count > 0) && this.Pallets.Count > 0; } }
         public bool CanCreateAnalysisBoxCase
-        { get { return (this.Bundles.Count > 0 || this.Boxes.Count > 0 && this.Cases.Count > 0) || (this.Cases.Count > 1); } }
-        public bool CanCreateAnalysisMulticase
-        { get { return (this.Bundles.Count > 0) || (this.Boxes.Count > 0) || (this.Cases.Count > 0); } }
-        public bool CanCreateCylinderCaseAnalysis
-        { get { return (this.Cylinders.Count > 0) || (this.Cases.Count > 1); } }
-        /// <summary>
-        /// Returns true if a bundle/case analysis can be created i.e. if document contains at least one bundle and one case
-        /// </summary>
-        public bool CanCreateBundleCaseAnalysis
-        { get { return this.Cases.Count > 0 && this.Bundles.Count > 0; } }
-        /// <summary>
-        /// Returns true if a case analysis can be created i.e. if documents contains at least a box and pallet solutions database is not empty
-        /// </summary>
-        public bool CanCreateAnalysisBoxCasePallet
-        { get { return this.Boxes.Count > 0 && !PalletSolutionDatabase.Instance.IsEmpty; } }
-        /// <summary>
-        /// Returns true if user can proceed to case optimization i.e. if documents contains at least one box and one pallet 
-        /// </summary>
-        public bool CanCreateCaseOptimization
-        { get { return this.Boxes.Count > 0 && this.Pallets.Count > 0; } }
-        /// <summary>
-        /// Returns true if a cylinder/pallet analysis can be created i.e. if document contains at least one cylinder and one pallet
-        /// </summary>
+        { get { return ((this.Bundles.Count > 0 || this.Boxes.Count > 0) && this.Cases.Count > 0) || (this.Cases.Count > 1); } }
         public bool CanCreateAnalysisCylinderPallet
         { get { return this.Cylinders.Count > 0 && this.Pallets.Count > 0; } }
-        /// <summary>
-        /// Returns true if a cylinder/case analysis can be created i.e. if document contains at least one cylinder and one case
-        /// </summary>
         public bool CanCreateAnalysisCylinderCase
         { get { return this.Cylinders.Count > 0 && this.Cases.Count > 0; } }
-        /// <summary>
-        /// Returns true if a pallet/truck analysis can be created i.e. if document contains at least one truck and one AnalysisCasePallet
-        /// </summary>
         public bool CanCreateAnalysisPalletTruck
         { get { return this.Trucks.Count > 0; } }
+        public bool CanCreateOptiCasePallet
+        { get { return this.Boxes.Count > 0; } }
+        public bool CanCreateOptiPack
+        { get { return this.Boxes.Count > 0 && this.Pallets.Count > 0; } }
+        public bool CanCreateOptiMulticase
+        { get { return (this.Bundles.Count > 0) || (this.Boxes.Count > 0) || (this.Cases.Count > 0); } }
         #endregion
 
         #region Load methods

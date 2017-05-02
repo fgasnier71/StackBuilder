@@ -758,48 +758,46 @@ namespace treeDiM.StackBuilder.Desktop
         {
             DocumentSB doc = (DocumentSB)ActiveDocument;
             // save
-            saveToolStripMenuItem.Enabled = (null != doc) && (doc.IsDirty);
-            toolStripButtonFileSave.Enabled = (null != doc) && (doc.IsDirty);
+            toolStripMenuItemSave.Enabled = (null != doc) && (doc.IsDirty);
+            toolStripButtonSave.Enabled = (null != doc) && (doc.IsDirty);
             // save all
-            saveAllToolStripMenuItem.Enabled = OneDocDirty;
-            toolStripButtonFileSaveAll.Enabled = OneDocDirty;
+            toolStripMenuItemSaveAll.Enabled = OneDocDirty;
+            toolStripButtonSaveAll.Enabled = OneDocDirty;
             // save as
-            saveAsToolStripMenuItem.Enabled = (null != doc);
+            toolStripMenuItemSaveAs.Enabled = (null != doc);
             // close
-            closeToolStripMenuItem.Enabled = (null != doc);
+            toolStripMenuItemClose.Enabled = (null != doc);
             // new box
-            newBoxToolStripMenuItem.Enabled = (null != doc);
-            toolStripButtonAddNewBox.Enabled = (null != doc);
+            toolStripMenuItemBox.Enabled = (null != doc);
+            toolStripButtonBox.Enabled = (null != doc);
             // new case
-            newCaseToolStripMenuItem.Enabled = (null != doc);
-            toolStripButtonAddNewCase.Enabled = (null != doc);
+            toolStripMenuItemCase.Enabled = (null != doc);
+            toolStripButtonCase.Enabled = (null != doc);
             // new pack
-            newPackToolStripMenuItem.Enabled = (null != doc) && doc.CanCreatePack;
-            toolStripButtonAddNewPack.Enabled = (null != doc) && doc.CanCreatePack;
+            toolStripMenuItemPack.Enabled = (null != doc) && doc.CanCreatePack;
+            toolStripButtonPack.Enabled = (null != doc) && doc.CanCreatePack;
             // new bundle
-            newBundleToolStripMenuItem.Enabled = (null != doc);
-            toolStripButtonCreateNewBundle.Enabled = (null != doc);
+            toolStripMenuItemBundle.Enabled = (null != doc);
+            toolStripButtonBundle.Enabled = (null != doc);
             // new cylinder
-            newCylinderToolStripMenuItem.Enabled = (null != doc);
-            toolStripButtonAddNewCylinder.Enabled = (null != doc);
+            toolStripMenuItemCylinder.Enabled = (null != doc);
+            toolStripButtonCylinder.Enabled = (null != doc);
             // new pallet
-            newPalletToolStripMenuItem.Enabled = (null != doc);
-            toolStripButtonAddNewPallet.Enabled = (null != doc);
-            // deco
-            toolStripSBDeco.Enabled = (null != doc);
-            // menu
-            newToolStripMenuItemInterlayer.Enabled = (null != doc);
-            newToolStripMenuItemPalletCap.Enabled = (null != doc);
-            newToolStripMenuItemPalletFilm.Enabled = (null != doc);
-            newToolStripMenuItemPalletCorners.Enabled = (null != doc);
-            // toolStrip buttons
+            toolStripMenuItemPallet.Enabled = (null != doc);
+            toolStripButtonPallet.Enabled = (null != doc);
+            // pallet decoration
+            toolStripSBPalletDeco.Enabled = (null != doc);
             toolStripMenuItemInterlayer.Enabled = (null != doc);
             toolStripMenuItemPalletCap.Enabled = (null != doc);
-            toolStripMenuItemPalletCorner.Enabled = (null != doc);
             toolStripMenuItemPalletFilm.Enabled = (null != doc);
+            toolStripMenuItemPalletCorners.Enabled = (null != doc);
+            toolStripMIInterlayer.Enabled = (null != doc);
+            toolStripMIPalletCap.Enabled = (null != doc);
+            toolStripMIPalletCorner.Enabled = (null != doc);
+            toolStripMIPalletFilm.Enabled = (null != doc);
             // new truck
-            newTruckToolStripMenuItem.Enabled = (null != doc);
-            toolStripButtonAddNewTruck.Enabled = (null != doc);
+            toolStripMenuItemTruck.Enabled = (null != doc);
+            toolStripButtonTruck.Enabled = (null != doc);
             // new case/pallet analysis
             toolStripMenuItemNewAnalysisCasePallet.Enabled = (null != doc) && doc.CanCreateAnalysisCasePallet;
             toolStripMIAnalysisCasePallet.Enabled = (null != doc) && doc.CanCreateAnalysisCasePallet;
@@ -809,19 +807,19 @@ namespace treeDiM.StackBuilder.Desktop
             // new box/case analysis
             toolStripMenuItemNewAnalysisBoxCase.Enabled = (null != doc) && doc.CanCreateAnalysisBoxCase;
             toolStripMIAnalysisBoxCase.Enabled = (null != doc) && doc.CanCreateAnalysisBoxCase;
-            // split buttons
+             // new pallet/truck analysis
+            toolSBCreateAnalysisPalletTruck.Enabled = (null != doc) && doc.CanCreateAnalysisPalletTruck;
+           // split buttons
             toolStripSBAnalysisPallet.Enabled = (null != doc);
             toolStripSBOptimisations.Enabled = (null != doc);
-            toolStripSBDeco.Enabled = (null != doc);
-            // new box/case/pallet analysis
-            newBoxCasePalletOptimizationToolStripMenuItem.Enabled = (null != doc) && doc.CanCreateAnalysisBoxCasePallet;
-            toolStripMIBestCasePallet.Enabled = (null != doc) && doc.CanCreateAnalysisBoxCasePallet;
-            toolStripMIBestCase.Enabled = (null != doc) && doc.CanCreateAnalysisMulticase;
-            // new pallet/truck analysis
-            toolSBCreateAnalysisPalletTruck.Enabled = (null != doc) && doc.CanCreateAnalysisPalletTruck;
-            // case optimisation
-            caseOptimisationToolStripMenu.Enabled = (null != doc) && doc.CanCreateCaseOptimization;
-            toolStripMIBestPack.Enabled = (null != doc) && doc.CanCreateCaseOptimization;
+            toolStripSBPalletDeco.Enabled = (null != doc);
+            // optimisations
+            toolStripMIBestCase.Enabled         = (null != doc) && doc.CanCreateOptiMulticase;
+            toolStripMenuItemBestCase.Enabled   = (null != doc) && doc.CanCreateOptiMulticase;
+            toolStripMIBestCasePallet.Enabled   = (null != doc) && doc.CanCreateOptiCasePallet;
+            toolStripMenuItemBestCasePallet.Enabled = (null != doc) && doc.CanCreateOptiCasePallet;
+            toolStripMIBestPack.Enabled         = (null != doc) && doc.CanCreateOptiPack;
+            toolStripMenuItemBestPack.Enabled   = (null != doc) && doc.CanCreateOptiPack;
         }
         #endregion
 
@@ -1175,6 +1173,10 @@ namespace treeDiM.StackBuilder.Desktop
         }
         #endregion
         #region Pallet decorations
+        private void onPalletAccessories(object sender, EventArgs e)
+        {
+            toolStripSBPalletDeco.ShowDropDown();
+        }
         private void toolAddNewInterlayer(object sender, EventArgs e)
         {
             try { ((DocumentSB)ActiveDocument).CreateNewInterlayerUI(); }
@@ -1197,6 +1199,18 @@ namespace treeDiM.StackBuilder.Desktop
         }
         #endregion
         #region Analyses
+        private void onAnalysisPallet(object sender, EventArgs e)
+        {
+            toolStripSBAnalysisPallet.ShowDropDown();
+        }
+        private void onAnalysisCase(object sender, EventArgs e)
+        {
+            toolStripSBAnalysesCase.ShowDropDown();
+        }
+        private void onAnalysisOpti(object sender, EventArgs e)
+        {
+            toolStripSBOptimisations.ShowDropDown();
+        }
         private void onNewAnalysisBoxCase(object sender, EventArgs e)
         {
             try { ((DocumentSB)ActiveDocument).CreateNewAnalysisBoxCaseUI(); }
@@ -1234,7 +1248,7 @@ namespace treeDiM.StackBuilder.Desktop
             try
             {
                 // show optimisation form
-                FormOptimizeCase form = new FormOptimizeCase((DocumentSB)ActiveDocument);
+                FormOptimizePack form = new FormOptimizePack((DocumentSB)ActiveDocument);
                 form.ShowDialog();
             }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
@@ -1579,11 +1593,6 @@ namespace treeDiM.StackBuilder.Desktop
             return _instance;
         }
         #endregion
-
-
-
-
-
 
     }
 }

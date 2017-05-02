@@ -136,7 +136,7 @@
             resources.ApplyResources(this.bnCreateAnalysis, "bnCreateAnalysis");
             this.bnCreateAnalysis.Name = "bnCreateAnalysis";
             this.bnCreateAnalysis.UseVisualStyleBackColor = true;
-            this.bnCreateAnalysis.Click += new System.EventHandler(this.onCreateNewCaseAnalysis);
+            this.bnCreateAnalysis.Click += new System.EventHandler(this.onCreateAnalysis);
             // 
             // tbAnalysisDescription
             // 

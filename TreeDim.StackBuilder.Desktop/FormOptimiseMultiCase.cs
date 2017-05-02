@@ -76,6 +76,10 @@ namespace treeDiM.StackBuilder.Desktop
                 graphCtrl.DrawingContainer = this;
             }
         }
+        protected override void OnClosing(CancelEventArgs e)
+        {
+ 	        base.OnClosing(e);
+        }
         #endregion
 
         #region Status toolstrip updating
@@ -164,15 +168,16 @@ namespace treeDiM.StackBuilder.Desktop
             ComputeSolutions();
             UpdateStatus(string.Empty);
         }
-        private void onCreateNewCaseAnalysis(object sender, EventArgs e)
+        private void onCreateAnalysis(object sender, EventArgs e)
         {
             try
             {
-                // selected analysis
+                // selected analysis -> get case 
                 AnalysisBoxCase analysisSel = SelectedAnalysis;
                 BoxProperties caseSel = analysisSel.CaseProperties;
                 // create case
                 BoxProperties caseProperties = _doc.CreateNewBox(caseSel);
+                // create analysis
                 List<InterlayerProperties> interlayers = new List<InterlayerProperties>();
                 Analysis analysis = _doc.CreateNewAnalysisBoxCase(
                     AnalysisName, AnalysisDescription,
