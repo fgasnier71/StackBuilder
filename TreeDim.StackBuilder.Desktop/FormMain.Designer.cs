@@ -118,12 +118,14 @@
             this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButtonHelp = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButtonDisconnect = new System.Windows.Forms.ToolStripButton();
             this.ToolStripMenuNewFileINTEX = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialogSB = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialogSB = new System.Windows.Forms.SaveFileDialog();
             this.saveFileDialogWebGL = new System.Windows.Forms.SaveFileDialog();
             this.timerLogin = new System.Windows.Forms.Timer(this.components);
+            this.disconnectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator14 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButtonSettings = new System.Windows.Forms.ToolStripButton();
             this.menuStripMain.SuspendLayout();
             this.toolStripStandard.SuspendLayout();
             this.SuspendLayout();
@@ -153,6 +155,8 @@
             this.toolStripMenuItemSaveAs,
             this.toolStripMenuItemSaveAll,
             this.toolStripMenuItemClose,
+            this.toolStripSeparator14,
+            this.disconnectToolStripMenuItem,
             this.toolStripSeparator1,
             this.mnuFileMRU,
             this.toolStripSeparator2,
@@ -488,7 +492,7 @@
             this.toolStripSeparator10,
             this.toolStripButtonHelp,
             this.toolStripSeparator8,
-            this.toolStripButtonDisconnect});
+            this.toolStripButtonSettings});
             resources.ApplyResources(this.toolStripStandard, "toolStripStandard");
             this.toolStripStandard.Name = "toolStripStandard";
             // 
@@ -742,13 +746,6 @@
             this.toolStripSeparator8.Name = "toolStripSeparator8";
             resources.ApplyResources(this.toolStripSeparator8, "toolStripSeparator8");
             // 
-            // toolStripButtonDisconnect
-            // 
-            resources.ApplyResources(this.toolStripButtonDisconnect, "toolStripButtonDisconnect");
-            this.toolStripButtonDisconnect.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonDisconnect.Name = "toolStripButtonDisconnect";
-            this.toolStripButtonDisconnect.Click += new System.EventHandler(this.onDisconnect);
-            // 
             // ToolStripMenuNewFileINTEX
             // 
             this.ToolStripMenuNewFileINTEX.Name = "ToolStripMenuNewFileINTEX";
@@ -772,6 +769,24 @@
             // 
             this.timerLogin.Interval = 2000;
             this.timerLogin.Tick += new System.EventHandler(this.timerLogin_Tick);
+            // 
+            // disconnectToolStripMenuItem
+            // 
+            this.disconnectToolStripMenuItem.Name = "disconnectToolStripMenuItem";
+            resources.ApplyResources(this.disconnectToolStripMenuItem, "disconnectToolStripMenuItem");
+            this.disconnectToolStripMenuItem.Click += new System.EventHandler(this.onDisconnect);
+            // 
+            // toolStripSeparator14
+            // 
+            this.toolStripSeparator14.Name = "toolStripSeparator14";
+            resources.ApplyResources(this.toolStripSeparator14, "toolStripSeparator14");
+            // 
+            // toolStripButtonSettings
+            // 
+            this.toolStripButtonSettings.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.toolStripButtonSettings, "toolStripButtonSettings");
+            this.toolStripButtonSettings.Name = "toolStripButtonSettings";
+            this.toolStripButtonSettings.Click += new System.EventHandler(this.onShowSettings);
             // 
             // FormMain
             // 
@@ -867,7 +882,6 @@
         private System.Windows.Forms.ToolStripMenuItem openLibraryToolStripMenuItem;
         private System.Windows.Forms.ToolStripButton toolSBCreateAnalysisPalletTruck;
         private System.Windows.Forms.Timer timerLogin;
-        private System.Windows.Forms.ToolStripButton toolStripButtonDisconnect;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripSplitButton toolStripSBPalletDeco;
         private System.Windows.Forms.ToolStripMenuItem toolStripMIInterlayer;
@@ -887,5 +901,8 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMIBestCasePallet;
         private System.Windows.Forms.ToolStripMenuItem toolStripMIBestPack;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemBestCase;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator14;
+        private System.Windows.Forms.ToolStripMenuItem disconnectToolStripMenuItem;
+        private System.Windows.Forms.ToolStripButton toolStripButtonSettings;
     }
 }
