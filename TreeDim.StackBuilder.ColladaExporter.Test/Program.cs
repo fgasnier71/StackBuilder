@@ -77,7 +77,7 @@ namespace treeDiM.StackBuilder.ColladaExporter.Test
     internal class DocumentListenerLog : IDocumentListener
     {
         #region Data members
-        static protected ILog _log = LogManager.GetLogger(typeof(Program));
+        static protected ILog _log = LogManager.GetLogger(typeof(DocumentListenerLog));
         #endregion
 
         #region Override
@@ -90,68 +90,28 @@ namespace treeDiM.StackBuilder.ColladaExporter.Test
             _log.Info(string.Format("Loaded item {0}", itemBase.Name));
         }
         public void OnNewAnalysisCreated(Document doc, Analysis analysis)
-        { 
-        }
-        public void OnNewCasePalletAnalysisCreated(Document doc, CasePalletAnalysis analysis)
         {
-            _log.Info(string.Format("Loaded analysis {0}", analysis.Name));
+            _log.Info(string.Format("Analysis created : {0}", analysis.Name));
         }
-        public void OnNewPackPalletAnalysisCreated(Document doc, PackPalletAnalysis analysis)
+        public void OnAnalysisUpdated(Document doc, Analysis analysis)
         {
-            _log.Info(string.Format("Loaded analysis {0}", analysis.Name));
-        }
-        public void OnNewCylinderPalletAnalysisCreated(Document doc, CylinderPalletAnalysis analysis)
-        { 
-            _log.Info(string.Format("Load cylinder/pallet analysis {0}", analysis.Name));
-        }
-        public void OnNewBoxCaseAnalysisCreated(Document doc, AnalysisBoxCase analysis)
-        {
-            _log.Info(string.Format("Loaded box/case analysis {0}", analysis.Name));
-        }
-        public void OnNewBoxCasePalletAnalysisCreated(Document doc, BoxCasePalletAnalysis caseAnalysis)
-        {
-            _log.Info(string.Format("Loaded case analysis {0}", caseAnalysis.Name));
-        }
-        public void OnNewTruckAnalysisCreated(Document doc, CasePalletAnalysis analysis, SelCasePalletSolution selectedSolution, TruckAnalysis truckAnalysis)
-        {
-        }
-        public void OnNewECTAnalysisCreated(Document doc, CasePalletAnalysis analysis, SelCasePalletSolution selectedSolution, ECTAnalysis ectAnalysis)
-        {
+            _log.Info(string.Format("Analysis {0} updated", analysis.Name));
         }
         public void OnTypeRemoved(Document doc, ItemBase itemBase)
         {
+            _log.Info(string.Format("Type {0} removed.", itemBase.Name));
         }
-        /*
-        public void OnCasePalletAnalysisRemoved(Document doc, CasePalletAnalysis analysis)
-        {
-        }
-         */
         public void OnAnalysisRemoved(Document doc, ItemBase itemBase)
-        { 
-        }
-        /*
-        public void OnCaseAnalysisRemoved(Document doc, BoxCasePalletAnalysis caseAnalysis)
         {
-        }
-         */ 
-        public void OnTruckAnalysisRemoved(Document doc, CasePalletAnalysis analysis, SelCasePalletSolution selectedSolution, TruckAnalysis truckAnalysis)
-        {
+            _log.Info(string.Format("Analysis {0} removed.", itemBase.Name));
         }
         public void OnECTAnalysisRemoved(Document doc, CasePalletAnalysis analysis, SelCasePalletSolution selectedSolution, ECTAnalysis ectAnalysis)
         {
         }
         public void OnDocumentClosed(Document doc)
         {
+            _log.Info(string.Format("Document {0} closed", doc.Name));
         }
-        /*
-        public void OnNewCylinderPalletAnalysisCreated(Document doc, CylinderPalletAnalysis analysis)
-        { 
-        }
-        */ 
-        public void OnNewHCylinderPalletAnalysisCreated(Document doc, HCylinderPalletAnalysis analysis)
-        { 
-        }
-
         #endregion
     }
     #endregion

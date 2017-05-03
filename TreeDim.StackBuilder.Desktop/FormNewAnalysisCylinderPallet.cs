@@ -94,14 +94,24 @@ namespace treeDiM.StackBuilder.Desktop
 
                 Solution.SetSolver(new LayerSolver());
 
-                _document.CreateNewAnalysisCylinderPallet(
-                    ItemName, ItemDescription
-                    , SelectedCylinderProperties, SelectedPallet
-                    , new List<InterlayerProperties>()
-                    , BuildConstraintSet()
-                    , layerDescs
-                    );
-
+                AnalysisCylinderPallet analysis = AnalysisCast;
+                if (null == analysis)
+                    _document.CreateNewAnalysisCylinderPallet(
+                        ItemName, ItemDescription
+                        , SelectedCylinderProperties, SelectedPallet
+                        , new List<InterlayerProperties>()
+                        , BuildConstraintSet()
+                        , layerDescs
+                        );
+                else
+                {
+                    analysis.ID.SetNameDesc(ItemName, ItemDescription);
+                    analysis.Content = SelectedCylinderProperties;
+                    analysis.PalletProperties = SelectedPallet;
+                    analysis.ConstraintSet = BuildConstraintSet();
+                    analysis.AddSolution(layerDescs);
+                    _document.UpdateAnalysis(analysis);                    
+                }
                 Close();
             }
             catch (Exception ex)
@@ -186,6 +196,10 @@ namespace treeDiM.StackBuilder.Desktop
         private PalletProperties SelectedPallet
         {
             get { return cbPallets.SelectedType as PalletProperties; }
+        }
+        private AnalysisCylinderPallet AnalysisCast
+        {
+            get { return _item as AnalysisCylinderPallet; }
         }
         #endregion
 

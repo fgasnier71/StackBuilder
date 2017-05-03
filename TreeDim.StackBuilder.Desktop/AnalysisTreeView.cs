@@ -271,156 +271,6 @@ namespace treeDiM.StackBuilder.Desktop
             }
             catch (Exception ex) { _log.Error(ex.ToString()); }
         }
-        /*
-        private void onEditCasePalletAnalysis(object sender, EventArgs e)
-        {
-            try
-            {
-                NodeTag tag = SelectedNode.Tag as NodeTag;
-                ((DocumentSB)tag.Document).EditCasePalletAnalysis(tag.CasePalletAnalysis);
-            }
-            catch (Exception ex) { _log.Error(ex.ToString()); }
-        }
-        private void onEditPackPalletAnalysis(object sender, EventArgs e)
-        {
-            try
-            {
-                NodeTag tag = SelectedNode.Tag as NodeTag;
-                ((DocumentSB)tag.Document).EditPackPalletAnalsyis(tag.PackPalletAnalysis);
-            }
-            catch (Exception ex) { _log.Error(ex.ToString()); }
-        }
-
-        private void onEditCylinderPalletAnalysis(object sender, EventArgs e)
-        {
-            try
-            {
-                NodeTag tag = SelectedNode.Tag as NodeTag;
-                ((DocumentSB)tag.Document).EditCylinderPalletAnalysis(tag.CylinderPalletAnalysis);
-            }
-            catch (Exception ex) { _log.Error(ex.ToString()); } 
-        }
-        private void onEditHCylinderPalletAnalysis(object sender, EventArgs e)
-        {
-            try
-            {
-                NodeTag tag = SelectedNode.Tag as NodeTag;
-                ((DocumentSB)tag.Document).EditHCylinderPalletAnalysis(tag.HCylinderPalletAnalysis);
-            }
-            catch (Exception ex) { _log.Error(ex.ToString()); }
-        }
-        private void onEditBoxCaseAnalysis(object sender, EventArgs e)
-        {
-            try
-            {
-                NodeTag tag = SelectedNode.Tag as NodeTag;
-                ((DocumentSB)tag.Document).EditBoxCaseAnalysis(tag.BoxCaseAnalysis);
-            }
-            catch (Exception ex) { _log.Error(ex.ToString()); }
-        }
-        private void onEditCaseAnalysis(object sender, EventArgs e)
-        {
-            try
-            {
-                NodeTag tag = SelectedNode.Tag as NodeTag;
-                ((DocumentSB)tag.Document).EditCaseAnalysis(tag.CaseAnalysis);
-            }
-            catch (Exception ex) { _log.Error(ex.ToString()); }
-        }
-        private void onDeleteCasePalletAnalysis(object sender, EventArgs e)
-        {
-            try
-            {
-                NodeTag tag = SelectedNode.Tag as NodeTag;
-                tag.Document.RemoveItem(tag.CasePalletAnalysis);
-            }
-            catch (Exception ex) { _log.Error(ex.ToString()); }
-        }
-        private void onDeletePackPalletAnalysis(object sender, EventArgs e)
-        {
-            try
-            {
-                NodeTag tag = SelectedNode.Tag as NodeTag;
-                tag.Document.RemoveItem(tag.PackPalletAnalysis);
-            }
-            catch (Exception ex) { _log.Error(ex.ToString()); }
-        }
-        private void onDeleteCylinderPalletAnalysis(object sender, EventArgs e)
-        {
-            try
-            {
-                NodeTag tag = SelectedNode.Tag as NodeTag;
-                tag.Document.RemoveItem(tag.CylinderPalletAnalysis);
-            }
-            catch (Exception ex) { _log.Error(ex.ToString()); }
-        }
-        private void onDeleteHCylinderPalletAnalysis(object sender, EventArgs e)
-        {
-            try
-            {
-                NodeTag tag = SelectedNode.Tag as NodeTag;
-                tag.Document.RemoveItem(tag.HCylinderPalletAnalysis);
-            }
-            catch (Exception ex) { _log.Error(ex.ToString()); }
-        }
-        private void onDeleteBoxCaseAnalysis(object sender, EventArgs e)
-        {
-            try
-            {
-                NodeTag tag = SelectedNode.Tag as NodeTag;
-                tag.Document.RemoveItem(tag.BoxCaseAnalysis);
-            }
-            catch (Exception ex) { _log.Error(ex.ToString()); }
-        }
- */ 
-
-        /*
-        private void onEditTruckAnalysis(object sender, EventArgs e)
-        {
-            try
-            {
-                NodeTag tag = SelectedNode.Tag as NodeTag;
-                ((DocumentSB)tag.Document).EditTruckAnalysis(tag.TruckAnalysis);
-            }
-            catch (Exception ex) { _log.Error(ex.ToString()); }
-        }
-        private void onEditECTAnalysis(object sender, EventArgs e)
-        {
-            try
-            {
-                NodeTag tag = SelectedNode.Tag as NodeTag;
-                AnalysisNodeClicked(this, new AnalysisTreeViewEventArgs(tag));
-            }
-            catch (Exception ex) { _log.Error(ex.ToString()); }
-        }
-        private void onDeleteTruckAnalysis(object sender, EventArgs e)
-        {
-            try
-            {
-                NodeTag tag = SelectedNode.Tag as NodeTag;
-                tag.SelSolution.RemoveTruckAnalysis(tag.TruckAnalysis);
-            }
-            catch (Exception ex) { _log.Error(ex.ToString()); }
-        }
-        private void onDeleteECTAnalysis(object sender, EventArgs e)
-        {
-            try
-            {
-                NodeTag tag = SelectedNode.Tag as NodeTag;
-                tag.SelSolution.RemoveECTAnalysis(tag.ECTAnalysis);
-            }
-            catch (Exception ex) { _log.Error(ex.ToString()); }
-        }
-        private void onDeleteCaseAnalysis(object sender, EventArgs e)
-        {
-            try
-            {
-                NodeTag tag = SelectedNode.Tag as NodeTag;
-                tag.Document.RemoveItem(tag.CaseAnalysis);
-            }
-            catch (Exception ex) { _log.Error(ex.ToString()); } 
-        }
-        */ 
         private void onCreateNewBox(object sender, EventArgs e)
         {
             try
@@ -573,7 +423,8 @@ namespace treeDiM.StackBuilder.Desktop
             try
             {
                 NodeTag tag = SelectedNode.Tag as NodeTag;
-                FormMain.GetInstance().CreateOrActivateViewAnalysis(tag.Analysis);
+                DocumentSB doc = tag.Document as DocumentSB;
+                doc.EditAnalysis(tag.Analysis);
             }
             catch (Exception ex) { _log.Error(ex.ToString()); }
         }
@@ -886,6 +737,13 @@ namespace treeDiM.StackBuilder.Desktop
             // insert context menu
             parentNode.Nodes.Add( nodeAnalysis );
             parentNode.Expand();
+        }
+        public void OnAnalysisUpdated(Document doc, Analysis analysis)
+        {
+            // get parent node
+            TreeNode analysisNode = FindNode(null, new NodeTag(NodeTag.NodeType.NT_ANALYSIS, doc, analysis));
+            if (null != analysisNode)
+                analysisNode.Name = analysis.Name;
         }
         #endregion
 

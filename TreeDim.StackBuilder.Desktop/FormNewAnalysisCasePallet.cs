@@ -121,15 +121,26 @@ namespace treeDiM.StackBuilder.Desktop
 
                 Solution.SetSolver(new LayerSolver());
 
-                _item = _document.CreateNewAnalysisCasePallet(
-                    ItemName, ItemDescription
-                    , SelectedBoxProperties, SelectedPallet
-                    , new List<InterlayerProperties>()
-                    , null, null, null
-                    , BuildConstraintSet()
-                    , layerDescs
-                    );
+                AnalysisCasePallet analysis = AnalysisCast;
+                if (null == analysis)
+                    _item = _document.CreateNewAnalysisCasePallet(
+                        ItemName, ItemDescription
+                        , SelectedPackable, SelectedPallet
+                        , new List<InterlayerProperties>()
+                        , null, null, null
+                        , BuildConstraintSet()
+                        , layerDescs
+                        );
+                else
+                {
+                    analysis.ID.SetNameDesc(ItemName, ItemDescription);
+                    analysis.Content = SelectedPackable;
+                    analysis.PalletProperties = SelectedPallet;
+                    analysis.ConstraintSet = BuildConstraintSet();
+                    analysis.AddSolution(layerDescs);
 
+                    _document.UpdateAnalysis(analysis);
+                }
                 Close();
             }
             catch (Exception ex)
@@ -157,7 +168,7 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Private properties
-        private Packable SelectedBoxProperties
+        private Packable SelectedPackable
         {
             get { return cbCases.SelectedType as Packable; }
         }

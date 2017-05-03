@@ -362,6 +362,9 @@ namespace treeDiM.StackBuilder.Desktop
         #region Toolbar event handlers
         private void onBack(object sender, EventArgs e)
         {
+            // close this form
+            Close();
+            // call edit analysis
             Document.EditAnalysis(_analysis);
         }
         private void onGenerateReportMSWord(object sender, EventArgs e)

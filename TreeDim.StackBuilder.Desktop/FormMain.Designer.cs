@@ -433,13 +433,13 @@
             // 
             resources.ApplyResources(this.helpToolStripMenuItemHelp, "helpToolStripMenuItemHelp");
             this.helpToolStripMenuItemHelp.Name = "helpToolStripMenuItemHelp";
-            this.helpToolStripMenuItemHelp.Click += new System.EventHandler(this.helpToolStripMenuItemHelp_Click);
+            this.helpToolStripMenuItemHelp.Click += new System.EventHandler(this.onOnlineHelp);
             // 
             // tutorialToolStripMenuItem
             // 
             this.tutorialToolStripMenuItem.Name = "tutorialToolStripMenuItem";
             resources.ApplyResources(this.tutorialToolStripMenuItem, "tutorialToolStripMenuItem");
-            this.tutorialToolStripMenuItem.Click += new System.EventHandler(this.tutorialToolStripMenuItem_Click);
+            this.tutorialToolStripMenuItem.Click += new System.EventHandler(this.onTutorial);
             // 
             // toolStripSeparator9
             // 
@@ -450,7 +450,7 @@
             // 
             this.helpToolStripMenuItemAbout.Name = "helpToolStripMenuItemAbout";
             resources.ApplyResources(this.helpToolStripMenuItemAbout, "helpToolStripMenuItemAbout");
-            this.helpToolStripMenuItemAbout.Click += new System.EventHandler(this.helpToolStripMenuItemAbout_Click);
+            this.helpToolStripMenuItemAbout.Click += new System.EventHandler(this.onAbout);
             // 
             // toolStripSeparator17
             // 
@@ -461,7 +461,7 @@
             // 
             this.donateToolStripMenuItem.Name = "donateToolStripMenuItem";
             resources.ApplyResources(this.donateToolStripMenuItem, "donateToolStripMenuItem");
-            this.donateToolStripMenuItem.Click += new System.EventHandler(this.donateToolStripMenuItem_Click);
+            this.donateToolStripMenuItem.Click += new System.EventHandler(this.onDonate);
             // 
             // toolStripStandard
             // 
@@ -739,7 +739,7 @@
             this.toolStripButtonHelp.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             resources.ApplyResources(this.toolStripButtonHelp, "toolStripButtonHelp");
             this.toolStripButtonHelp.Name = "toolStripButtonHelp";
-            this.toolStripButtonHelp.Click += new System.EventHandler(this.helpToolStripMenuItemHelp_Click);
+            this.toolStripButtonHelp.Click += new System.EventHandler(this.onOnlineHelp);
             // 
             // toolStripSeparator8
             // 

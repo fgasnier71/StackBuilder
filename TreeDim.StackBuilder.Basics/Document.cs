@@ -30,6 +30,7 @@ namespace treeDiM.StackBuilder.Basics
         void OnNewDocument(Document doc);
         void OnNewTypeCreated(Document doc, ItemBase itemBase);
         void OnNewAnalysisCreated(Document doc, Analysis analysis);
+        void OnAnalysisUpdated(Document doc, Analysis analysis);
         // remove
         void OnTypeRemoved(Document doc, ItemBase itemBase);
         void OnAnalysisRemoved(Document doc, ItemBase itemBase); 
@@ -650,6 +651,14 @@ namespace treeDiM.StackBuilder.Basics
             // set document dirty
             Modify();
             return analysis;
+        }
+
+        public void UpdateAnalysis(Analysis analysis)
+        {
+            // notify listeners
+            NotifyAnalysisUpdated(analysis);
+            // set document dirty
+            Modify();
         }
         #endregion
 
@@ -5259,6 +5268,11 @@ namespace treeDiM.StackBuilder.Basics
         {
             foreach (IDocumentListener listener in _listeners)
                 listener.OnNewAnalysisCreated(this, analysis);
+        }
+        private void NotifyAnalysisUpdated(Analysis analysis)
+        {
+            foreach (IDocumentListener listener in _listeners)
+                listener.OnAnalysisUpdated(this, analysis);
         }
         private void NotifyOnDocumentClosed()
         {

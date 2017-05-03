@@ -41,7 +41,7 @@ namespace treeDiM.StackBuilder.Reporting.Test
                 // load document
                 Document doc = new Document(filePath,  new DocumentListenerLog());
                 // get first analysis
-                List<CasePalletAnalysis> analyses = doc.CasePalletAnalyses;
+                List<Analysis> analyses = doc.Analyses;
                 if (analyses.Count == 0)
                 {
                     log.Info("Document has no analysis -> Exiting...");
@@ -51,7 +51,7 @@ namespace treeDiM.StackBuilder.Reporting.Test
                 string outputFilePath = Path.ChangeExtension(Path.GetTempFileName(), "doc");
                 string templatePath = @"..\..\..\treeDiM.StackBuilder.Reporting\ReportTemplates\";
                 ReporterMSWord reporter = new ReporterMSWord(
-                    new ReportData(analyses[0], analyses[0].GetSelSolutionBySolutionIndex(0))
+                    new ReportData(analyses[0])
                     , templatePath, outputFilePath, new Margins());
                 Console.WriteLine("Saved report to: {0}", outputFilePath);
 
@@ -68,10 +68,10 @@ namespace treeDiM.StackBuilder.Reporting.Test
         internal class DocumentListenerLog : IDocumentListener
         {
             #region Data members
-            static protected ILog _log = LogManager.GetLogger(typeof(Program));
+            static protected ILog _log = LogManager.GetLogger(typeof(DocumentListenerLog));
             #endregion
 
-            #region Override
+            #region IDocumentListener implementation
             public void OnNewDocument(Document doc)
             {
                 _log.Info(string.Format("Opened document {0}", doc.Name));
@@ -83,32 +83,7 @@ namespace treeDiM.StackBuilder.Reporting.Test
             public void OnNewAnalysisCreated(Document doc, Analysis analysis)
             { 
             }
-            public void OnNewCasePalletAnalysisCreated(Document doc, CasePalletAnalysis analysis)
-            {
-                _log.Info(string.Format("Loaded case/pallet analysis {0}", analysis.Name));
-            }
-            public void OnNewPackPalletAnalysisCreated(Document doc, PackPalletAnalysis analysis)
-            { 
-            }
-            public void OnNewCylinderPalletAnalysisCreated(Document doc, CylinderPalletAnalysis analysis)
-            {
-                _log.Info(string.Format("Loaded cylinder/pallet analysis {0}", analysis.Name));
-            }
-            public void OnNewHCylinderPalletAnalysisCreated(Document doc, HCylinderPalletAnalysis analysis)
-            { 
-            }
-            public void OnNewBoxCaseAnalysisCreated(Document doc, AnalysisBoxCase analysis)
-            { 
-                _log.Info(string.Format("Loaded box/case analysis {0}", analysis.Name));
-            }
-            public void OnNewBoxCasePalletAnalysisCreated(Document doc, BoxCasePalletAnalysis caseAnalysis)
-            {
-                _log.Info(string.Format("Loaded box/case/pallet analysis {0}", caseAnalysis.Name));
-            }
-            public void OnNewTruckAnalysisCreated(Document doc, CasePalletAnalysis analysis, SelCasePalletSolution selectedSolution, TruckAnalysis truckAnalysis)
-            { 
-            }
-            public void OnNewECTAnalysisCreated(Document doc, CasePalletAnalysis analysis, SelCasePalletSolution selectedSolution, ECTAnalysis ectAnalysis)
+            public void OnAnalysisUpdated(Document doc, Analysis analysis)
             { 
             }
             public void OnTypeRemoved(Document doc, ItemBase itemBase)
@@ -117,16 +92,12 @@ namespace treeDiM.StackBuilder.Reporting.Test
             public void OnAnalysisRemoved(Document doc, ItemBase itemBase)
             {
             }
-            public void OnTruckAnalysisRemoved(Document doc, CasePalletAnalysis analysis, SelCasePalletSolution selectedSolution, TruckAnalysis truckAnalysis)
-            { 
-            }
             public void OnECTAnalysisRemoved(Document doc, CasePalletAnalysis analysis, SelCasePalletSolution selectedSolution, ECTAnalysis ectAnalysis)
             { 
             }
             public void OnDocumentClosed(Document doc)
             { 
             }
-
             #endregion
         }
         #endregion

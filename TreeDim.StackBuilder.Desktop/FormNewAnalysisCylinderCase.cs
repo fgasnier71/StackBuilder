@@ -45,8 +45,8 @@ namespace treeDiM.StackBuilder.Desktop
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
-            cbCylinders.Initialize(_document, this, null);
-            cbCases.Initialize(_document, this, null);
+            cbCylinders.Initialize(_document, this, null != AnalysisCast ? AnalysisCast.Content : null);
+            cbCases.Initialize(_document, this, null != AnalysisCast ? AnalysisCast.CaseProperties : null);
 
             // event handling
             uCtrlLayerList.LayerSelected += onLayerSelected;
@@ -78,13 +78,27 @@ namespace treeDiM.StackBuilder.Desktop
 
                 Solution.SetSolver(new LayerSolver());
 
-                _document.CreateNewAnalysisCylinderCase(
-                    ItemName, ItemDescription
-                    , SelectedCylinder, SelectedCase
-                    , new List<InterlayerProperties>()
-                    , BuildConstraintSet()
-                    , layerDescs);
+                AnalysisCylinderCase analysis = _item as AnalysisCylinderCase;
 
+                if (null == analysis)
+                {
+                    _item = _document.CreateNewAnalysisCylinderCase(
+                        ItemName, ItemDescription
+                        , SelectedCylinder, SelectedCase
+                        , new List<InterlayerProperties>()
+                        , BuildConstraintSet()
+                        , layerDescs);
+                }
+                else
+                {
+                    analysis.ID.SetNameDesc(ItemName, ItemDescription);
+                    analysis.Content = SelectedCylinder;
+                    analysis.CaseProperties = SelectedCase;
+                    analysis.ConstraintSet = BuildConstraintSet();
+                    analysis.AddSolution(layerDescs);
+
+                    _document.UpdateAnalysis(analysis);
+                }
                 Close();
             }
             catch (Exception ex)
@@ -167,6 +181,10 @@ namespace treeDiM.StackBuilder.Desktop
         private BoxProperties SelectedCase
         {
             get { return cbCases.SelectedType as BoxProperties; }
+        }
+        private AnalysisCylinderCase AnalysisCast
+        {
+            get { return _item as AnalysisCylinderCase;  }
         }
         #endregion
 

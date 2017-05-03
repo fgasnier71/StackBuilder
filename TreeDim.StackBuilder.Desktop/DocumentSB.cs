@@ -115,9 +115,9 @@ namespace treeDiM.StackBuilder.Desktop
             DockContentView form = null;
             if (analysis is AnalysisCasePallet) form = new DockContentAnalysisCasePallet(this, analysis as AnalysisCasePallet);
             else if (analysis is AnalysisBoxCase) form = new DockContentAnalysisBoxCase(this, analysis as AnalysisBoxCase);
-            else if (analysis is AnalysisPalletTruck) form = new DockContentAnalysisPalletTruck(this, analysis as AnalysisPalletTruck);
             else if (analysis is AnalysisCylinderPallet) form = new DockContentAnalysisCylinderPallet(this, analysis as AnalysisCylinderPallet);
             else if (analysis is AnalysisCylinderCase) form = new DockContentAnalysisCylinderCase(this, analysis as AnalysisCylinderCase);
+            else if (analysis is AnalysisPalletTruck) form = new DockContentAnalysisPalletTruck(this, analysis as AnalysisPalletTruck);
             else
             {
                 _log.Error(string.Format("Analysis ({0}) type not handled", analysis.Name));
@@ -424,13 +424,12 @@ namespace treeDiM.StackBuilder.Desktop
         #region UI item edition
         public void EditAnalysis(Analysis analysis)
         {
-            RemoveItem(analysis);
-
             Form form = null;
             if (analysis is AnalysisCasePallet) form = new FormNewAnalysisCasePallet(this, analysis);
             else if (analysis is AnalysisBoxCase) form = new FormNewAnalysisBoxCase(this, analysis);
             else if (analysis is AnalysisCylinderPallet) form = new FormNewAnalysisCylinderPallet(this, analysis);
             else if (analysis is AnalysisCylinderCase) form = new FormNewAnalysisCylinderCase(this, analysis);
+            else if (analysis is AnalysisPalletTruck) form = new FormNewAnalysisPalletTruck(this, analysis);
             else
             {
                 MessageBox.Show("Unexepected analysis type!");
@@ -438,6 +437,7 @@ namespace treeDiM.StackBuilder.Desktop
             }
             if (DialogResult.OK == form.ShowDialog()) { }
         }
+/*
         /// <summary>
         /// Edit specified pallet analysis
         /// </summary>
@@ -666,7 +666,8 @@ namespace treeDiM.StackBuilder.Desktop
             if (recomputeRequired)
                 analysis.OnEndUpdate(null);
         }
-
+*/
+/*
         /// <summary>
         /// edit box / case analysis
         /// </summary>
@@ -676,7 +677,6 @@ namespace treeDiM.StackBuilder.Desktop
 
             if (boxCaseAnalysis.IsBoxAnalysis)
             {
-/*
                 FormNewBoxCaseAnalysis form = new FormNewBoxCaseAnalysis(boxCaseAnalysis.ParentDocument, boxCaseAnalysis);
                 if (recomputeRequired = (DialogResult.OK == form.ShowDialog()))
                 {
@@ -704,11 +704,9 @@ namespace treeDiM.StackBuilder.Desktop
                     constraintSet.UseMaximumNumberOfBoxes = form.UseMaximumNumberOfBoxes;
                     constraintSet.MaximumNumberOfBoxes = form.MaximumNumberOfBoxes;
                 }
- */ 
             }
             else if (boxCaseAnalysis.IsBundleAnalysis)
             {
-/*
                 FormNewAnalysisBundleCase form = new FormNewAnalysisBundleCase(boxCaseAnalysis.ParentDocument, boxCaseAnalysis);
                 if (recomputeRequired = (DialogResult.OK == form.ShowDialog()))
                 { 
@@ -726,7 +724,6 @@ namespace treeDiM.StackBuilder.Desktop
                     constraintSet.UseMaximumNumberOfBoxes = form.UseMaximumNumberOfBoxes;
                     constraintSet.MaximumNumberOfBoxes = form.MaximumNumberOfBoxes;
                 }
- */ 
             }
             if (recomputeRequired)
                 boxCaseAnalysis.OnEndUpdate(null);
@@ -806,6 +803,7 @@ namespace treeDiM.StackBuilder.Desktop
         {
             // uses FormMain.CreateOrActivateViewECTAnalysis
         }
+*/
         #endregion
 
         #region Legacy

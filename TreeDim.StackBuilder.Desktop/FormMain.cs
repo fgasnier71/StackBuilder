@@ -811,6 +811,7 @@ namespace treeDiM.StackBuilder.Desktop
             toolSBCreateAnalysisPalletTruck.Enabled = (null != doc) && doc.CanCreateAnalysisPalletTruck;
            // split buttons
             toolStripSBAnalysisPallet.Enabled = (null != doc);
+            toolStripSBAnalysesCase.Enabled = (null != doc);
             toolStripSBOptimisations.Enabled = (null != doc);
             toolStripSBPalletDeco.Enabled = (null != doc);
             // optimisations
@@ -1041,13 +1042,16 @@ namespace treeDiM.StackBuilder.Desktop
         public void OnNewTypeCreated(Document doc, ItemBase itemBase) { }
         public void OnNewAnalysisCreated(Document doc, Analysis analysis)
         {
-            CreateOrActivateViewAnalysis( analysis );
+            CreateOrActivateViewAnalysis(analysis);
+        }
+        public void OnAnalysisUpdated(Document doc, Analysis analysis)
+        {
+            CreateOrActivateViewAnalysis(analysis);
         }
         public void OnNewECTAnalysisCreated(Document doc, CasePalletAnalysis analysis, SelCasePalletSolution selSolution, ECTAnalysis ectAnalysis) {  }
         // remove
         public void OnTypeRemoved(Document doc, ItemBase itemBase) { }
         public void OnAnalysisRemoved(Document doc, ItemBase itemBase) { }
-        public void OnTruckAnalysisRemoved(Document doc, CasePalletAnalysis analysis, SelCasePalletSolution selSolution, TruckAnalysis truckAnalysis) { }
         public void OnECTAnalysisRemoved(Document doc, CasePalletAnalysis analysis, SelCasePalletSolution selSolution, ECTAnalysis ectAnalysis) { }
 
         // close
@@ -1540,26 +1544,30 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Help menu event handlers
-        private void helpToolStripMenuItemAbout_Click(object sender, EventArgs e)
+        private void onAbout(object sender, EventArgs e)
         {
             AboutBox form = new AboutBox();
             form.CompanyUrl = "https://github.com/treeDiM/StackBuilder/releases";
             form.SupportEmail = "treedim@gmail.com";
             form.ShowDialog();
         }
-        private void helpToolStripMenuItemHelp_Click(object sender, EventArgs e)
+        private void onOnlineHelp(object sender, EventArgs e)
         {
             try
             {
-                Help.ShowHelp(this
-                    , Path.ChangeExtension(Application.ExecutablePath, "chm")
-                    , HelpNavigator.Topic
-                    , "FormMain.html");
+                string filePath = Path.ChangeExtension(Application.ExecutablePath, "chm");
+                if (File.Exists(filePath))
+                    Help.ShowHelp(this
+                        , Path.ChangeExtension(Application.ExecutablePath, "chm")
+                        , HelpNavigator.Topic
+                        , "FormMain.html");
+                else
+                    _log.Info(string.Format("Can not find help file ({0}).", filePath));
             }
             catch (Exception ex)
             { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
-        private void tutorialToolStripMenuItem_Click(object sender, EventArgs e)
+        private void onTutorial(object sender, EventArgs e)
         {
             try
             {
@@ -1571,7 +1579,7 @@ namespace treeDiM.StackBuilder.Desktop
             catch (Exception ex)
             { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
-        private void donateToolStripMenuItem_Click(object sender, EventArgs e)
+        private void onDonate(object sender, EventArgs e)
         {
             try
             {
@@ -1593,6 +1601,5 @@ namespace treeDiM.StackBuilder.Desktop
             return _instance;
         }
         #endregion
-
     }
 }

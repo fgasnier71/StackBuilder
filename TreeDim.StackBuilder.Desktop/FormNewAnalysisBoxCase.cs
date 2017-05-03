@@ -82,14 +82,25 @@ namespace treeDiM.StackBuilder.Desktop
 
                 Solution.SetSolver(new LayerSolver());
 
-                AnalysisBase = _document.CreateNewAnalysisBoxCase(
-                    ItemName, ItemDescription
-                    , SelectedBoxProperties, SelectedCaseProperties
-                    , new List<InterlayerProperties>()
-                    , BuildContraintSet()
-                    , layerDescs
-                    );
+                AnalysisBoxCase analysis = AnalysisCast;
+                if (null == analysis)
+                    AnalysisBase = _document.CreateNewAnalysisBoxCase(
+                        ItemName, ItemDescription
+                        , SelectedBoxProperties, SelectedCaseProperties
+                        , new List<InterlayerProperties>()
+                        , BuildConstraintSet()
+                        , layerDescs
+                        );
+                else
+                {
+                    analysis.ID.SetNameDesc(ItemName, ItemDescription);
+                    analysis.Content = SelectedBoxProperties;
+                    analysis.CaseProperties = SelectedCaseProperties;
+                    analysis.ConstraintSet = BuildConstraintSet();
+                    analysis.AddSolution(layerDescs);
 
+                    _document.UpdateAnalysis(analysis);
+                }
                 Close();
             }
             catch (Exception ex)
@@ -125,6 +136,10 @@ namespace treeDiM.StackBuilder.Desktop
         {
             get { return cbCases.SelectedType as BoxProperties; }
         }
+        private AnalysisBoxCase AnalysisCast
+        {
+            get { return _item as AnalysisBoxCase; }
+        }
         #endregion
 
         #region Event handlers
@@ -153,7 +168,7 @@ namespace treeDiM.StackBuilder.Desktop
                     packable.OuterDimensions
                     , new Vector2D(caseProperties.InsideLength, caseProperties.InsideWidth)
                     , 0.0 /* offsetZ */
-                    , BuildContraintSet()
+                    , BuildConstraintSet()
                     , checkBoxBestLayersOnly.Checked
                     );
                 // update control
@@ -183,7 +198,7 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Helpers
-        private ConstraintSetBoxCase BuildContraintSet()
+        private ConstraintSetBoxCase BuildConstraintSet()
         { 
             // constraint set
             ConstraintSetBoxCase constraintSet = new ConstraintSetBoxCase(SelectedCaseProperties);
