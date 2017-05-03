@@ -209,5 +209,8 @@
     <Setting Name="CloseDbBrowserAfterImport" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
+    <Setting Name="HelpPageUrl" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://www.treedim.com/stackbuilder/en/documentation/user-guide/</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

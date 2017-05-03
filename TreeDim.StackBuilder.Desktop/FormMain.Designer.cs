@@ -39,6 +39,8 @@
             this.toolStripMenuItemSaveAs = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemSaveAll = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemClose = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator14 = new System.Windows.Forms.ToolStripSeparator();
+            this.disconnectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.mnuFileMRU = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
@@ -75,7 +77,6 @@
             this.toolStripMenuItemHelpStartPage = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator16 = new System.Windows.Forms.ToolStripSeparator();
             this.helpToolStripMenuItemHelp = new System.Windows.Forms.ToolStripMenuItem();
-            this.tutorialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
             this.helpToolStripMenuItemAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator17 = new System.Windows.Forms.ToolStripSeparator();
@@ -118,14 +119,12 @@
             this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButtonHelp = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButtonSettings = new System.Windows.Forms.ToolStripButton();
             this.ToolStripMenuNewFileINTEX = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialogSB = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialogSB = new System.Windows.Forms.SaveFileDialog();
             this.saveFileDialogWebGL = new System.Windows.Forms.SaveFileDialog();
             this.timerLogin = new System.Windows.Forms.Timer(this.components);
-            this.disconnectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator14 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButtonSettings = new System.Windows.Forms.ToolStripButton();
             this.menuStripMain.SuspendLayout();
             this.toolStripStandard.SuspendLayout();
             this.SuspendLayout();
@@ -199,6 +198,17 @@
             resources.ApplyResources(this.toolStripMenuItemClose, "toolStripMenuItemClose");
             this.toolStripMenuItemClose.Name = "toolStripMenuItemClose";
             this.toolStripMenuItemClose.Click += new System.EventHandler(this.fileClose);
+            // 
+            // toolStripSeparator14
+            // 
+            this.toolStripSeparator14.Name = "toolStripSeparator14";
+            resources.ApplyResources(this.toolStripSeparator14, "toolStripSeparator14");
+            // 
+            // disconnectToolStripMenuItem
+            // 
+            this.disconnectToolStripMenuItem.Name = "disconnectToolStripMenuItem";
+            resources.ApplyResources(this.disconnectToolStripMenuItem, "disconnectToolStripMenuItem");
+            this.disconnectToolStripMenuItem.Click += new System.EventHandler(this.onDisconnect);
             // 
             // toolStripSeparator1
             // 
@@ -410,7 +420,6 @@
             this.toolStripMenuItemHelpStartPage,
             this.toolStripSeparator16,
             this.helpToolStripMenuItemHelp,
-            this.tutorialToolStripMenuItem,
             this.toolStripSeparator9,
             this.helpToolStripMenuItemAbout,
             this.toolStripSeparator17,
@@ -434,12 +443,6 @@
             resources.ApplyResources(this.helpToolStripMenuItemHelp, "helpToolStripMenuItemHelp");
             this.helpToolStripMenuItemHelp.Name = "helpToolStripMenuItemHelp";
             this.helpToolStripMenuItemHelp.Click += new System.EventHandler(this.onOnlineHelp);
-            // 
-            // tutorialToolStripMenuItem
-            // 
-            this.tutorialToolStripMenuItem.Name = "tutorialToolStripMenuItem";
-            resources.ApplyResources(this.tutorialToolStripMenuItem, "tutorialToolStripMenuItem");
-            this.tutorialToolStripMenuItem.Click += new System.EventHandler(this.onTutorial);
             // 
             // toolStripSeparator9
             // 
@@ -746,6 +749,13 @@
             this.toolStripSeparator8.Name = "toolStripSeparator8";
             resources.ApplyResources(this.toolStripSeparator8, "toolStripSeparator8");
             // 
+            // toolStripButtonSettings
+            // 
+            this.toolStripButtonSettings.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.toolStripButtonSettings, "toolStripButtonSettings");
+            this.toolStripButtonSettings.Name = "toolStripButtonSettings";
+            this.toolStripButtonSettings.Click += new System.EventHandler(this.onShowSettings);
+            // 
             // ToolStripMenuNewFileINTEX
             // 
             this.ToolStripMenuNewFileINTEX.Name = "ToolStripMenuNewFileINTEX";
@@ -769,24 +779,6 @@
             // 
             this.timerLogin.Interval = 2000;
             this.timerLogin.Tick += new System.EventHandler(this.timerLogin_Tick);
-            // 
-            // disconnectToolStripMenuItem
-            // 
-            this.disconnectToolStripMenuItem.Name = "disconnectToolStripMenuItem";
-            resources.ApplyResources(this.disconnectToolStripMenuItem, "disconnectToolStripMenuItem");
-            this.disconnectToolStripMenuItem.Click += new System.EventHandler(this.onDisconnect);
-            // 
-            // toolStripSeparator14
-            // 
-            this.toolStripSeparator14.Name = "toolStripSeparator14";
-            resources.ApplyResources(this.toolStripSeparator14, "toolStripSeparator14");
-            // 
-            // toolStripButtonSettings
-            // 
-            this.toolStripButtonSettings.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            resources.ApplyResources(this.toolStripButtonSettings, "toolStripButtonSettings");
-            this.toolStripButtonSettings.Name = "toolStripButtonSettings";
-            this.toolStripButtonSettings.Click += new System.EventHandler(this.onShowSettings);
             // 
             // FormMain
             // 
@@ -853,7 +845,6 @@
         private System.Windows.Forms.ToolStripButton toolStripButtonHelp;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator9;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemBestPack;
-        private System.Windows.Forms.ToolStripMenuItem tutorialToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator10;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;

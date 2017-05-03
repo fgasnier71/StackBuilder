@@ -231,7 +231,7 @@ namespace treeDiM.StackBuilder.Graphics
                             , 0.5 * (analysis.ContainerDimensions.Y - interlayerProp.Width)
                             , interlayerPos.ZLow
                             ), HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P);
-                        Box box = new Box(pickId++, interlayerProp);
+                        Box box = new Box(pickId++, interlayerProp, bPosition.Transform(transform));
                         graphics.AddBox(box);
                         bbox.Extend(box.BBox);
                     }

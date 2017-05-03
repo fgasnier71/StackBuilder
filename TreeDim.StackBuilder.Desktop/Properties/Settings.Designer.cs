@@ -826,5 +826,17 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
                 this["CloseDbBrowserAfterImport"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://www.treedim.com/stackbuilder/en/documentation/user-guide/")]
+        public string HelpPageUrl {
+            get {
+                return ((string)(this["HelpPageUrl"]));
+            }
+            set {
+                this["HelpPageUrl"] = value;
+            }
+        }
     }
 }

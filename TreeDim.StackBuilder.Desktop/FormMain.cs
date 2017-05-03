@@ -1553,45 +1553,18 @@ namespace treeDiM.StackBuilder.Desktop
         }
         private void onOnlineHelp(object sender, EventArgs e)
         {
-            try
-            {
-                string filePath = Path.ChangeExtension(Application.ExecutablePath, "chm");
-                if (File.Exists(filePath))
-                    Help.ShowHelp(this
-                        , Path.ChangeExtension(Application.ExecutablePath, "chm")
-                        , HelpNavigator.Topic
-                        , "FormMain.html");
-                else
-                    _log.Info(string.Format("Can not find help file ({0}).", filePath));
-            }
-            catch (Exception ex)
-            { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
-        }
-        private void onTutorial(object sender, EventArgs e)
-        {
-            try
-            {
-                Help.ShowHelp(this
-                    , Path.ChangeExtension(Application.ExecutablePath, "chm")
-                    , HelpNavigator.Topic
-                    , "Tutorial.html");
-            }
-            catch (Exception ex)
-            { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
+            try { System.Diagnostics.Process.Start(Properties.Settings.Default.HelpPageUrl); }
+            catch (Exception ex) { _log.Error(ex.ToString()); }
         }
         private void onDonate(object sender, EventArgs e)
         {
-            try
-            {
-                System.Diagnostics.Process.Start(Properties.Settings.Default.DonatePageUrl);
-            }
-            catch (Exception ex)
-            { _log.Error(ex.ToString()); }
+            try { System.Diagnostics.Process.Start(Properties.Settings.Default.DonatePageUrl); }
+            catch (Exception ex) { _log.Error(ex.ToString()); }
         }
         private void onDisconnect(object sender, EventArgs e)
         {
-            // force full disconnection
-            WCFClientSingleton.DisconnectFull();
+            try { WCFClientSingleton.DisconnectFull(); }
+            catch (Exception ex) { _log.Error(ex.ToString()); }
         }
         #endregion
 
