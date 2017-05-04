@@ -116,12 +116,21 @@ namespace treeDiM.StackBuilder.Desktop
             if (ctrl == cbBoxes)
             {
                 PackableBrick packable = itemBase as PackableBrick;
-                return null != packable;
+                return null != packable
+                    && (
+                    (packable is BoxProperties)
+                    || (packable is BundleProperties)
+                    || (packable is PackProperties)
+                    || (packable is LoadedCase)
+                    );
             }
             else if (ctrl == cbCases)
             {
                 Packable packable = itemBase as Packable;
-                return null != packable && packable.IsCase && (packable != SelectedBoxProperties);
+                return null != packable
+                    && packable.IsCase
+                    && (packable is BoxProperties)
+                    && (packable != SelectedBoxProperties);
             }
             return false;
         }

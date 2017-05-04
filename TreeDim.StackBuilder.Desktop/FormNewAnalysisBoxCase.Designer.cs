@@ -104,6 +104,8 @@
             this.uCtrlLayerList.ButtonSizes = new System.Drawing.Size(150, 150);
             this.uCtrlLayerList.Location = new System.Drawing.Point(0, 218);
             this.uCtrlLayerList.Name = "uCtrlLayerList";
+            this.uCtrlLayerList.Show3D = true;
+            this.uCtrlLayerList.SingleSelection = false;
             this.uCtrlLayerList.Size = new System.Drawing.Size(784, 289);
             this.uCtrlLayerList.TabIndex = 25;
             // 
@@ -132,7 +134,7 @@
             this.Controls.Add(this.uCtrlLayerList);
             this.Controls.Add(this.uCtrlCaseOrientation);
             this.Name = "FormNewAnalysisBoxCase";
-            this.Text = "FormNewAnalysisBoxCase";
+            this.Text = "Create new box/case analysis...";
             this.Controls.SetChildIndex(this.uCtrlCaseOrientation, 0);
             this.Controls.SetChildIndex(this.uCtrlLayerList, 0);
             this.Controls.SetChildIndex(this.cbBoxes, 0);

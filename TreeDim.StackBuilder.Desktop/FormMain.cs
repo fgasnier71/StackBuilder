@@ -809,10 +809,13 @@ namespace treeDiM.StackBuilder.Desktop
             toolStripMenuItemNewAnalysisBoxCase.Enabled = (null != doc) && doc.CanCreateAnalysisBoxCase;
             toolStripMIAnalysisBoxCase.Enabled = (null != doc) && doc.CanCreateAnalysisBoxCase;
             toolStripMIAnalysisBundleCase.Enabled = (null != doc) && doc.CanCreateAnalysisBoxCase;
-             // new pallet/truck analysis
+            // new cylinder/case analysis
+            toolStripMenuItemNewAnalysisCylinderCase.Enabled = (null != doc) && doc.CanCreateAnalysisCylinderCase;
+            toolStripMIAnalysisCylinderCase.Enabled = (null != doc) && doc.CanCreateAnalysisCylinderCase;
+            // new pallet/truck analysis
             toolStripMenuItemAnalysisPalletTruck.Enabled = (null != doc) && doc.CanCreateAnalysisPalletTruck;
             toolStripSBCreateAnalysisPalletTruck.Enabled = (null != doc) && doc.CanCreateAnalysisPalletTruck;
-           // split buttons
+            // split buttons
             toolStripSBAnalysisPallet.Enabled = (null != doc);
             toolStripSBAnalysesCase.Enabled = (null != doc);
             toolStripSBOptimisations.Enabled = (null != doc);
