@@ -801,14 +801,17 @@ namespace treeDiM.StackBuilder.Desktop
             // new case/pallet analysis
             toolStripMenuItemNewAnalysisCasePallet.Enabled = (null != doc) && doc.CanCreateAnalysisCasePallet;
             toolStripMIAnalysisCasePallet.Enabled = (null != doc) && doc.CanCreateAnalysisCasePallet;
+            toolStripMIAnalysisBundlePallet.Enabled = (null != doc) && doc.CanCreateAnalysisCasePallet;
             // new cylinder/pallet analysis
             toolStripMenuItemNewAnalysisCylinderPallet.Enabled = (null != doc) && doc.CanCreateAnalysisCylinderPallet;
             toolStripMIAnalysisCylinderPallet.Enabled = (null != doc) && doc.CanCreateAnalysisCylinderPallet;
             // new box/case analysis
             toolStripMenuItemNewAnalysisBoxCase.Enabled = (null != doc) && doc.CanCreateAnalysisBoxCase;
             toolStripMIAnalysisBoxCase.Enabled = (null != doc) && doc.CanCreateAnalysisBoxCase;
+            toolStripMIAnalysisBundleCase.Enabled = (null != doc) && doc.CanCreateAnalysisBoxCase;
              // new pallet/truck analysis
-            toolSBCreateAnalysisPalletTruck.Enabled = (null != doc) && doc.CanCreateAnalysisPalletTruck;
+            toolStripMenuItemAnalysisPalletTruck.Enabled = (null != doc) && doc.CanCreateAnalysisPalletTruck;
+            toolStripSBCreateAnalysisPalletTruck.Enabled = (null != doc) && doc.CanCreateAnalysisPalletTruck;
            // split buttons
             toolStripSBAnalysisPallet.Enabled = (null != doc);
             toolStripSBAnalysesCase.Enabled = (null != doc);
@@ -1139,6 +1142,12 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Tools
+        #region User
+        private void onUserClicked(object sender, EventArgs e)
+        {
+            toolStripSBUser.ShowDropDown();
+        }
+        #endregion
         #region Items
         private void toolAddNewBox(object sender, EventArgs e)
         {
