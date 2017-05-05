@@ -156,7 +156,12 @@ namespace treeDiM.StackBuilder.Desktop
             if (ctrl == cbCases)
             { 
                 Packable packable = itemBase as Packable;
-                return null != packable && packable.IsCase; 
+                return null != packable
+                    && (
+                    (packable is BProperties) ||
+                    (packable is PackProperties) ||
+                    (packable is LoadedCase)
+                    ); 
             }
             else if (ctrl == cbPallets)
             {
