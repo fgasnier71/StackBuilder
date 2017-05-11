@@ -20,13 +20,13 @@ namespace treeDiM.StackBuilder.Graphics
         private BoxProperties _boxProperties;
         private BoxProperties _caseProperties;
         private CaseDefinition _caseDefinition;
-        private CaseOptimConstraintSet _caseOptimConstraintSet;
+        private ParamSetPackOptim _caseOptimConstraintSet;
         private bool _showDimentions = true;
         private Orientation _globalOrientation;
         #endregion
 
         #region Constructor
-        public CaseDefinitionViewer(CaseDefinition caseDefinition, BoxProperties boxProperties, CaseOptimConstraintSet caseConstraintSet)
+        public CaseDefinitionViewer(CaseDefinition caseDefinition, BoxProperties boxProperties, ParamSetPackOptim caseConstraintSet)
         {
             _caseDefinition = caseDefinition;
             _boxProperties = boxProperties;

@@ -480,9 +480,9 @@ namespace treeDiM.StackBuilder.GUIExtension
             // update message + enable/disable optimise button
             UpdateButtonOptimizeStatus();
         }
-        private CaseOptimConstraintSet BuildCaseOptimConstraintSet()
+        private ParamSetPackOptim BuildCaseOptimConstraintSet()
         {
-            return new CaseOptimConstraintSet(
+            return new ParamSetPackOptim(
                     NoWalls
                     , WallThickness
                     , WallSurfaceMass
@@ -641,7 +641,7 @@ namespace treeDiM.StackBuilder.GUIExtension
                 // get BoxProperties
                 BoxProperties boxProperties = SelectedBox;
                 PalletProperties palletProperties = SelectedPallet;
-                CaseOptimConstraintSet caseOptimConstraintSet = BuildCaseOptimConstraintSet();
+                ParamSetPackOptim caseOptimConstraintSet = BuildCaseOptimConstraintSet();
                 PalletConstraintSet palletConstraintSet = new CasePalletConstraintSet();
                 palletConstraintSet.MaximumHeight = (double)nudPalletHeight.Value;
                 // data

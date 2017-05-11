@@ -19,7 +19,7 @@ namespace treeDiM.StackBuilder.Basics
             BProperties boxProperties
             , PalletProperties palletProperties
             , PalletConstraintSet palletConstraintSet
-            , CaseOptimConstraintSet caseOptimConstraintSet)
+            , ParamSetPackOptim caseOptimConstraintSet)
             : base(boxProperties.ParentDocument)
         {
         }

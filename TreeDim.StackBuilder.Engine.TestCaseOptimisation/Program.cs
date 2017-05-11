@@ -44,7 +44,7 @@ namespace treeDiM.StackBuilder.Engine.TestCaseOptimisation
             Console.WriteLine(constraintSet.ToString());
 
             // define case optim constraintSet
-            CaseOptimConstraintSet caseOptimConstraintSet = new CaseOptimConstraintSet(
+            ParamSetPackOptim caseOptimConstraintSet = new ParamSetPackOptim(
                 new int[3]{2, 2, 4}
                 , 4.0, 0.01
                 , new Vector3D(30.0, 30.0, 70.0)

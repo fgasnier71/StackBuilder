@@ -295,7 +295,7 @@ namespace treeDiM.StackBuilder.Basics
             string name, string description
             , BoxProperties boxProperties
             , CaseDefinition caseDefinition
-            , CaseOptimConstraintSet constraintSet)
+            , ParamSetPackOptim constraintSet)
         {
             CaseOfBoxesProperties caseProperties = new CaseOfBoxesProperties(this, boxProperties, caseDefinition, constraintSet);
             caseProperties.ID.SetNameDesc( name, description);
@@ -644,7 +644,7 @@ namespace treeDiM.StackBuilder.Basics
         }
 
         private Analysis InsertAnalysis(Analysis analysis)
-        { 
+        {
             _analyses.Add(analysis);
             // notify listeners
             NotifyOnNewAnalysisCreated(analysis);
@@ -1619,7 +1619,7 @@ namespace treeDiM.StackBuilder.Basics
             string sBoxId = eltCaseOfBoxesProperties.Attributes["InsideBoxId"].Value;
 
             CaseDefinition caseDefinition = null;
-            CaseOptimConstraintSet constraintSet = null;
+            ParamSetPackOptim constraintSet = null;
             Color[] colors = new Color[6];
             List<Pair<HalfAxis.HAxis, Texture>> listTexture = new List<Pair<HalfAxis.HAxis,Texture>>();
             foreach (XmlNode node in eltCaseOfBoxesProperties.ChildNodes)
@@ -1896,7 +1896,7 @@ namespace treeDiM.StackBuilder.Basics
         #endregion
 
         #region Load case optimisation
-        private void LoadOptimConstraintSet(XmlElement eltConstraintSet, out CaseOptimConstraintSet constraintSet)
+        private void LoadOptimConstraintSet(XmlElement eltConstraintSet, out ParamSetPackOptim constraintSet)
         {
             string sNoWalls = eltConstraintSet.Attributes["NumberOfWalls"].Value;
             int[] iNoWalls = ParseInt3(sNoWalls);
@@ -1906,7 +1906,7 @@ namespace treeDiM.StackBuilder.Basics
             double wallSurfaceMass = UnitsManager.ConvertSurfaceMassFrom(
                 Convert.ToDouble(eltConstraintSet.Attributes["WallSurfaceMass"].Value, System.Globalization.CultureInfo.InvariantCulture)
                 , _unitSystem);
-            constraintSet = new CaseOptimConstraintSet(iNoWalls, wallThickness, wallSurfaceMass, Vector3D.Zero, Vector3D.Zero, false); 
+            constraintSet = new ParamSetPackOptim(0, Vector3D.Zero, Vector3D.Zero, false, PackWrapper.WType.WT_CARDBOARD, iNoWalls, wallThickness, wallSurfaceMass, 0.0); 
         }
         #endregion
 
@@ -4024,7 +4024,7 @@ namespace treeDiM.StackBuilder.Basics
             xmlOrientation.Value = string.Format("{0} {1}", caseDefinition.Dim0, caseDefinition.Dim1);
             xmlCaseDefElement.Attributes.Append(xmlOrientation);
         }
-        private void SaveCaseOptimConstraintSet(CaseOptimConstraintSet caseOptimConstraintSet, XmlElement xmlBoxProperties, XmlDocument xmlDoc)
+        private void SaveCaseOptimConstraintSet(ParamSetPackOptim caseOptimConstraintSet, XmlElement xmlBoxProperties, XmlDocument xmlDoc)
         {
             XmlElement xmlCaseOptimConstraintSet = xmlDoc.CreateElement("OptimConstraintSet");
             xmlBoxProperties.AppendChild(xmlCaseOptimConstraintSet);

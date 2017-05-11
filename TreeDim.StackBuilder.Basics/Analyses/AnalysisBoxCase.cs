@@ -127,15 +127,11 @@ namespace treeDiM.StackBuilder.Basics
     #endregion
 
     #region ComparerAnalysisBoxCase
-    public class ComparerAnalysisBoxCase : IComparer<Analysis>
+    public class ComparerAnalysis : IComparer<Analysis>
     {
          #region Implement IComparer
         public int Compare(Analysis analysis0, Analysis analysis1)
         {
-            AnalysisBoxCase a0 = analysis0 as AnalysisBoxCase;
-            AnalysisBoxCase a1 = analysis1 as AnalysisBoxCase;
-            if (null == a0 || null == a1) return -1;
-
             if (analysis0.Solution.ItemCount < analysis1.Solution.ItemCount)
                 return 1;
             else if (analysis0.Solution.ItemCount == analysis1.Solution.ItemCount)

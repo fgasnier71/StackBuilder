@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Drawing;
 
 using log4net;
 
@@ -37,8 +38,8 @@ namespace treeDiM.StackBuilder.Engine
     }
     #endregion
 
-    #region CaseOptimizer
-    public class PackOptimizer
+    #region PackOptimizer
+    public class PackOptimizer : ISolver
     {
         #region Static data members
         protected static readonly ILog _log = LogManager.GetLogger(typeof(PackOptimizer));
@@ -46,15 +47,26 @@ namespace treeDiM.StackBuilder.Engine
 
         #region Constructor
         public PackOptimizer(
-            BoxProperties boxProperties
+            PackableBrick packable
             , PalletProperties palletProperties
-            , ConstraintSetCasePallet palletContraintSet
-            , CaseOptimConstraintSet caseOptimConstraintSet)
+            , ParamSetPackOptim paramSetPackOptim
+            , Color packColor
+            )
         {
-            _boxProperties              = boxProperties;
+            _packable                   = packable;
             _palletProperties           = palletProperties;
-            _constraintSetCasePallet    = palletContraintSet;
-            _caseOptimConstraintSet     = caseOptimConstraintSet;
+            _paramSetPackOptim          = paramSetPackOptim;
+            _packColor = packColor;
+        }
+        #endregion
+
+        #region ISolver implementation
+        public List<Analysis> BuildAnalyses(ConstraintSetAbstract constraintSet)
+        {
+            List<Analysis> analyses = PackOptimSolutions(
+                constraintSet as ConstraintSetCasePallet,
+                _paramSetPackOptim.NoBoxes);
+            return analyses;
         }
         #endregion
 
@@ -64,7 +76,7 @@ namespace treeDiM.StackBuilder.Engine
         /// </summary>
         /// <param name="iNumber">Number of items to fit in box</param>
         /// <returns></returns>
-        public List<CaseDefinition> CaseDefinitions(int iNumber)
+        private List<CaseDefinition> CaseDefinitions(int iNumber)
         {
             List<CaseDefinition> caseDefinitionList = new List<CaseDefinition>();
             foreach (PackArrangement arr in BoxArrangements(iNumber))
@@ -76,54 +88,79 @@ namespace treeDiM.StackBuilder.Engine
                             continue;
                         
                         CaseDefinition caseDefinition = new CaseDefinition(arr, i, j);
-                        if (caseDefinition.IsValid(_boxProperties, _caseOptimConstraintSet))
+                        if (caseDefinition.IsValid(_packable, _paramSetPackOptim))
                             caseDefinitionList.Add(caseDefinition);
                     }
             }
             return caseDefinitionList;
         }
 
-        public List<CaseOptimSolution> CaseOptimSolutions(int iNumber)
+        private List<Analysis> PackOptimSolutions(ConstraintSetCasePallet constraintSet, int iNumber)
         {
-            List<CaseOptimSolution> caseOptimSolutions = new List<CaseOptimSolution>();
-
+            List<Analysis> analyses = new List<Analysis>();
             foreach (CaseDefinition caseDefinition in CaseDefinitions(iNumber))
             {
-                Vector3D outerDimensions = caseDefinition.OuterDimensions(_boxProperties, _caseOptimConstraintSet);
-                BoxProperties bProperties = new BoxProperties(_palletProperties.ParentDocument, outerDimensions.X, outerDimensions.Y, outerDimensions.Z);
-
-                _log.Info(caseDefinition.ToString());
-
-
-                /*
-                // build analysis
-                CasePalletAnalysis casePalletAnalysis = new CasePalletAnalysis(
-                    bProperties, _palletProperties,
-                    null, null,
-                    null, null, null,
-                    _palletConstraintSet);
-                // instantiate solver
-                CasePalletSolver solver = new CasePalletSolver();
-                // solve
-                solver.ProcessAnalysis(casePalletAnalysis);
-                 
-                // get list of pallet solutions
-                List<CasePalletSolution> palletSolutions = casePalletAnalysis.Solutions;
-                if (palletSolutions.Count > 0)
+                try
                 {
-                    int maxCaseCount = palletSolutions[0].CaseCount;
-                    int i = 0;
-                    while (maxCaseCount == palletSolutions[i].CaseCount)
-                    {
-                        caseOptimSolutions.Add(new CaseOptimSolution(caseDefinition, palletSolutions[i]));
-                        ++i;
-                    }
+                    // build pack properties
+                    Vector3D outerDimensions = caseDefinition.OuterDimensions(_packable, _paramSetPackOptim);
+                    PackProperties packProperties = new PackProperties(
+                        null, _packable,
+                        caseDefinition.Arrangement, PackProperties.Orientation(caseDefinition.Dim0, caseDefinition.Dim1),
+                        BuildWrapper());
+                    packProperties.ForceOuterDimensions(outerDimensions);
+
+                    // solver
+                    SolverCasePallet solver = new SolverCasePallet(packProperties, _palletProperties);
+                    analyses.AddRange(solver.BuildAnalyses(constraintSet));
                 }
-                 */ 
+                catch (Exception ex)
+                {
+                    _log.Error(ex.Message);
+                }
             }
             // sort caseOptimSolution
-            caseOptimSolutions.Sort();
-            return caseOptimSolutions;
+            analyses.Sort(new ComparerAnalysis());
+            return analyses;
+        }
+
+        private PackWrapper BuildWrapper()
+        {
+            int[] noWalls = _paramSetPackOptim.NoWalls;
+            double length = 0.0, width = 0.0, height = 0.0;
+            double weight = _paramSetPackOptim.WallSurfaceMass * (noWalls[0] * width * height + noWalls[1] * length * height + noWalls[2] * length * width);
+
+            PackWrapper wrapper = null;
+            switch (_paramSetPackOptim.WrapperType)
+            { 
+                case PackWrapper.WType.WT_POLYETHILENE:
+                    wrapper = new WrapperPolyethilene(
+                        _paramSetPackOptim.WallThickness, weight, _packColor, true);
+                    break;
+                case PackWrapper.WType.WT_PAPER:
+                    wrapper = new WrapperPaper(
+                        _paramSetPackOptim.WallThickness, weight, _packColor);
+                    break;
+                case PackWrapper.WType.WT_CARDBOARD:
+                    {
+                        WrapperCardboard wrapperCardboard = new WrapperCardboard(
+                            _paramSetPackOptim.WallThickness, weight, _packColor);
+                        wrapperCardboard.SetNoWalls(noWalls);
+                        return wrapperCardboard;
+                    }
+                case PackWrapper.WType.WT_TRAY:
+                    {
+                        WrapperTray wrapperTray = new WrapperTray(
+                            _paramSetPackOptim.WallThickness, weight, _packColor);
+                        wrapperTray.Height = _paramSetPackOptim.TrayHeight;
+                        wrapperTray.SetNoWalls(noWalls);
+                        return wrapperTray;
+                    }
+                default:
+                    break;
+
+            }
+            return wrapper;
         }
 
         /// <summary>
@@ -137,18 +174,10 @@ namespace treeDiM.StackBuilder.Engine
         /// <summary>
         /// Product BoxProperties
         /// </summary>
-        public BoxProperties BoxProperties
+        public PackableBrick BoxProperties
         {
-            set { _boxProperties = value; }
-            get { return _boxProperties; }
-        }
-        /// <summary>
-        ///  Palletization constraint set
-        /// </summary>
-        public ConstraintSetCasePallet ConstraintSet
-        {
-            set { _constraintSetCasePallet = value; }
-            get { return _constraintSetCasePallet; }
+            set { _packable = value; }
+            get { return _packable; }
         }
         #endregion
 
@@ -158,7 +187,7 @@ namespace treeDiM.StackBuilder.Engine
         /// </summary>
         /// <param name="iNumber"></param>
         /// <returns></returns>
-        public IEnumerable<PackArrangement> BoxArrangements(int iNumber)
+        private IEnumerable<PackArrangement> BoxArrangements(int iNumber)
         {
             // get the prime factorisation of iNumber
             List<int> primeList = new List<int>(Eratosthenes.GetPrimeFactors(iNumber));
@@ -230,21 +259,21 @@ namespace treeDiM.StackBuilder.Engine
 
         #region Data members
         /// <summary>
-        /// case optim constraint set
-        /// </summary>
-        CaseOptimConstraintSet _caseOptimConstraintSet;
-        /// <summary>
         /// Input product used to search solution
         /// </summary>
-        private BoxProperties _boxProperties;
+        private PackableBrick _packable;
         /// <summary>
         /// Input pallet properties
         /// </summary>
         private PalletProperties _palletProperties;
         /// <summary>
-        /// Input palletization contraint set
+        /// Optimisation parameters
         /// </summary>
-        private ConstraintSetCasePallet _constraintSetCasePallet;
+        private ParamSetPackOptim _paramSetPackOptim;
+        /// <summary>
+        /// Wrapper color
+        /// </summary>
+        private Color _packColor;
         #endregion
     }
     #endregion

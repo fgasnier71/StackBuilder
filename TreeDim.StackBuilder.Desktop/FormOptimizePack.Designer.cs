@@ -28,9 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelDef = new System.Windows.Forms.ToolStripStatusLabel();
             this.splitContainer = new System.Windows.Forms.SplitContainer();
+            this.btClose = new System.Windows.Forms.Button();
             this.gbWrapper = new System.Windows.Forms.GroupBox();
             this.uCtrlTrayHeight = new treeDiM.StackBuilder.Basics.UCtrlDouble();
             this.lbWrapperColor = new System.Windows.Forms.Label();
@@ -41,32 +43,32 @@
             this.uCtrlWallThickness = new treeDiM.StackBuilder.Basics.UCtrlDouble();
             this.uCtrlNoWalls = new treeDiM.StackBuilder.Basics.Controls.UCtrlTriInt();
             this.gbPallet = new System.Windows.Forms.GroupBox();
+            this.cbPallets = new treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered();
             this.uCtrlOverhang = new treeDiM.StackBuilder.Basics.UCtrlDualDouble();
             this.uCtrlPalletHeight = new treeDiM.StackBuilder.Basics.UCtrlDouble();
             this.lbPalletDimensions = new System.Windows.Forms.Label();
             this.lbPallet = new System.Windows.Forms.Label();
+            this.gridSolutions = new SourceGrid.Grid();
             this.gbCase = new System.Windows.Forms.GroupBox();
             this.uCtrlPackDimensionsMax = new treeDiM.StackBuilder.Basics.UCtrlTriDouble();
             this.uCtrlPackDimensionsMin = new treeDiM.StackBuilder.Basics.UCtrlTriDouble();
             this.btSetMaximum = new System.Windows.Forms.Button();
             this.btSetMinimum = new System.Windows.Forms.Button();
             this.groupBox = new System.Windows.Forms.GroupBox();
+            this.cbBoxes = new treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered();
             this.chkVerticalOrientationOnly = new System.Windows.Forms.CheckBox();
             this.nudNumber = new System.Windows.Forms.NumericUpDown();
             this.lbNumber = new System.Windows.Forms.Label();
             this.lbBoxDimensions = new System.Windows.Forms.Label();
             this.lbBox = new System.Windows.Forms.Label();
-            this.gridSolutions = new SourceGrid.Grid();
-            this.btClose = new System.Windows.Forms.Button();
-            this.bnCreateAnalysis = new System.Windows.Forms.Button();
-            this.graphCtrlPack = new treeDiM.StackBuilder.Graphics.Graphics3DControl();
-            this.graphCtrlSolution = new treeDiM.StackBuilder.Graphics.Graphics3DControl();
-            this.cbBoxes = new treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered();
-            this.cbPallets = new treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered();
-            this.tbAnalysisName = new System.Windows.Forms.TextBox();
-            this.lbAnalysisName = new System.Windows.Forms.Label();
             this.tbAnalysisDescription = new System.Windows.Forms.TextBox();
             this.lbAnalysisDescription = new System.Windows.Forms.Label();
+            this.tbAnalysisName = new System.Windows.Forms.TextBox();
+            this.lbAnalysisName = new System.Windows.Forms.Label();
+            this.graphCtrlSolution = new treeDiM.StackBuilder.Graphics.Graphics3DControl();
+            this.graphCtrlPack = new treeDiM.StackBuilder.Graphics.Graphics3DControl();
+            this.bnCreateAnalysis = new System.Windows.Forms.Button();
+            this._timer = new System.Windows.Forms.Timer(this.components);
             this.statusStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
@@ -77,8 +79,8 @@
             this.gbCase.SuspendLayout();
             this.groupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudNumber)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.graphCtrlPack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.graphCtrlSolution)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.graphCtrlPack)).BeginInit();
             this.SuspendLayout();
             // 
             // statusStrip
@@ -127,6 +129,18 @@
             this.splitContainer.SplitterDistance = 509;
             this.splitContainer.TabIndex = 1;
             // 
+            // btClose
+            // 
+            this.btClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btClose.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btClose.Location = new System.Drawing.Point(556, 3);
+            this.btClose.Name = "btClose";
+            this.btClose.Size = new System.Drawing.Size(75, 23);
+            this.btClose.TabIndex = 17;
+            this.btClose.Text = "Close";
+            this.btClose.UseVisualStyleBackColor = true;
+            // 
             // gbWrapper
             // 
             this.gbWrapper.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -161,6 +175,7 @@
             this.uCtrlTrayHeight.Text = "Tray height";
             this.uCtrlTrayHeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlTrayHeight.Value = 0D;
+            this.uCtrlTrayHeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.onValueChanged(this.onDataChanged);
             // 
             // lbWrapperColor
             // 
@@ -212,11 +227,14 @@
             "Color",
             "Color",
             "Color",
+            "Color",
+            "Color",
             "Color"});
             this.cbColor.Location = new System.Drawing.Point(470, 11);
             this.cbColor.Name = "cbColor";
             this.cbColor.Size = new System.Drawing.Size(61, 22);
             this.cbColor.TabIndex = 28;
+            this.cbColor.SelectedColorChanged += new System.EventHandler(this.onDataChanged);
             // 
             // cbWrapperType
             // 
@@ -231,6 +249,7 @@
             this.cbWrapperType.Name = "cbWrapperType";
             this.cbWrapperType.Size = new System.Drawing.Size(195, 21);
             this.cbWrapperType.TabIndex = 27;
+            this.cbWrapperType.SelectedIndexChanged += new System.EventHandler(this.onWrapperTypeChanged);
             // 
             // label1
             // 
@@ -257,6 +276,7 @@
             this.uCtrlSurfacicMass.Text = "Surfacic mass";
             this.uCtrlSurfacicMass.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_SURFACEMASS;
             this.uCtrlSurfacicMass.Value = 0D;
+            this.uCtrlSurfacicMass.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.onValueChanged(this.onDataChanged);
             // 
             // uCtrlWallThickness
             // 
@@ -273,6 +293,7 @@
             this.uCtrlWallThickness.Text = "Wall thickness";
             this.uCtrlWallThickness.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlWallThickness.Value = 0D;
+            this.uCtrlWallThickness.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.onValueChanged(this.onDataChanged);
             // 
             // uCtrlNoWalls
             // 
@@ -284,6 +305,7 @@
             this.uCtrlNoWalls.Size = new System.Drawing.Size(300, 20);
             this.uCtrlNoWalls.TabIndex = 23;
             this.uCtrlNoWalls.Text = "Number of walls";
+            this.uCtrlNoWalls.ValueChanged += new treeDiM.StackBuilder.Basics.Controls.UCtrlTriInt.onValueChanged(this.onDataChanged);
             // 
             // gbPallet
             // 
@@ -301,6 +323,16 @@
             this.gbPallet.TabStop = false;
             this.gbPallet.Text = "Pallet";
             // 
+            // cbPallets
+            // 
+            this.cbPallets.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbPallets.FormattingEnabled = true;
+            this.cbPallets.Location = new System.Drawing.Point(73, 19);
+            this.cbPallets.Name = "cbPallets";
+            this.cbPallets.Size = new System.Drawing.Size(188, 21);
+            this.cbPallets.TabIndex = 5;
+            this.cbPallets.SelectedIndexChanged += new System.EventHandler(this.onPalletChanged);
+            // 
             // uCtrlOverhang
             // 
             this.uCtrlOverhang.Location = new System.Drawing.Point(6, 88);
@@ -311,6 +343,7 @@
             this.uCtrlOverhang.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlOverhang.ValueX = 0D;
             this.uCtrlOverhang.ValueY = 0D;
+            this.uCtrlOverhang.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDualDouble.onValueChanged(this.onDataChanged);
             // 
             // uCtrlPalletHeight
             // 
@@ -327,6 +360,7 @@
             this.uCtrlPalletHeight.Text = "Maximum pallet height";
             this.uCtrlPalletHeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlPalletHeight.Value = 0D;
+            this.uCtrlPalletHeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.onValueChanged(this.onDataChanged);
             // 
             // lbPalletDimensions
             // 
@@ -347,6 +381,23 @@
             this.lbPallet.Size = new System.Drawing.Size(33, 13);
             this.lbPallet.TabIndex = 0;
             this.lbPallet.Text = "Pallet";
+            // 
+            // gridSolutions
+            // 
+            this.gridSolutions.AcceptsInputChar = false;
+            this.gridSolutions.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gridSolutions.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.gridSolutions.EnableSort = true;
+            this.gridSolutions.Location = new System.Drawing.Point(0, 350);
+            this.gridSolutions.Name = "gridSolutions";
+            this.gridSolutions.OptimizeMode = SourceGrid.CellOptimizeMode.ForRows;
+            this.gridSolutions.SelectionMode = SourceGrid.GridSelectionMode.Row;
+            this.gridSolutions.Size = new System.Drawing.Size(634, 159);
+            this.gridSolutions.TabIndex = 6;
+            this.gridSolutions.TabStop = true;
+            this.gridSolutions.ToolTipText = "";
             // 
             // gbCase
             // 
@@ -379,6 +430,7 @@
             this.uCtrlPackDimensionsMax.ValueX = 0D;
             this.uCtrlPackDimensionsMax.ValueY = 0D;
             this.uCtrlPackDimensionsMax.ValueZ = 0D;
+            this.uCtrlPackDimensionsMax.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlTriDouble.onValueChanged(this.onDataChanged);
             // 
             // uCtrlPackDimensionsMin
             // 
@@ -396,6 +448,7 @@
             this.uCtrlPackDimensionsMin.ValueX = 0D;
             this.uCtrlPackDimensionsMin.ValueY = 0D;
             this.uCtrlPackDimensionsMin.ValueZ = 0D;
+            this.uCtrlPackDimensionsMin.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlTriDouble.onValueChanged(this.onDataChanged);
             // 
             // btSetMaximum
             // 
@@ -406,6 +459,7 @@
             this.btSetMaximum.TabIndex = 18;
             this.btSetMaximum.Text = "Set maximum";
             this.btSetMaximum.UseVisualStyleBackColor = true;
+            this.btSetMaximum.Click += new System.EventHandler(this.onPalletChanged);
             // 
             // btSetMinimum
             // 
@@ -416,6 +470,7 @@
             this.btSetMinimum.TabIndex = 17;
             this.btSetMinimum.Text = "Set minimum";
             this.btSetMinimum.UseVisualStyleBackColor = true;
+            this.btSetMinimum.Click += new System.EventHandler(this.onBoxChanged);
             // 
             // groupBox
             // 
@@ -432,6 +487,16 @@
             this.groupBox.TabStop = false;
             this.groupBox.Text = "Box (inner product)";
             // 
+            // cbBoxes
+            // 
+            this.cbBoxes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbBoxes.FormattingEnabled = true;
+            this.cbBoxes.Location = new System.Drawing.Point(74, 20);
+            this.cbBoxes.Name = "cbBoxes";
+            this.cbBoxes.Size = new System.Drawing.Size(183, 21);
+            this.cbBoxes.TabIndex = 6;
+            this.cbBoxes.SelectedIndexChanged += new System.EventHandler(this.onBoxChanged);
+            // 
             // chkVerticalOrientationOnly
             // 
             this.chkVerticalOrientationOnly.AutoSize = true;
@@ -442,6 +507,7 @@
             this.chkVerticalOrientationOnly.TabIndex = 5;
             this.chkVerticalOrientationOnly.Text = "Only allow vertical box orientation";
             this.chkVerticalOrientationOnly.UseVisualStyleBackColor = true;
+            this.chkVerticalOrientationOnly.CheckedChanged += new System.EventHandler(this.onDataChanged);
             // 
             // nudNumber
             // 
@@ -464,6 +530,7 @@
             0,
             0,
             0});
+            this.nudNumber.ValueChanged += new System.EventHandler(this.onDataChanged);
             // 
             // lbNumber
             // 
@@ -495,84 +562,25 @@
             this.lbBox.TabIndex = 0;
             this.lbBox.Text = "Box";
             // 
-            // gridSolutions
+            // tbAnalysisDescription
             // 
-            this.gridSolutions.AcceptsInputChar = false;
-            this.gridSolutions.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.tbAnalysisDescription.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gridSolutions.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.gridSolutions.EnableSort = true;
-            this.gridSolutions.Location = new System.Drawing.Point(0, 350);
-            this.gridSolutions.Name = "gridSolutions";
-            this.gridSolutions.OptimizeMode = SourceGrid.CellOptimizeMode.ForRows;
-            this.gridSolutions.SelectionMode = SourceGrid.GridSelectionMode.Row;
-            this.gridSolutions.Size = new System.Drawing.Size(634, 159);
-            this.gridSolutions.TabIndex = 6;
-            this.gridSolutions.TabStop = true;
-            this.gridSolutions.ToolTipText = "";
+            this.tbAnalysisDescription.Location = new System.Drawing.Point(119, 182);
+            this.tbAnalysisDescription.Name = "tbAnalysisDescription";
+            this.tbAnalysisDescription.Size = new System.Drawing.Size(374, 20);
+            this.tbAnalysisDescription.TabIndex = 14;
             // 
-            // btClose
+            // lbAnalysisDescription
             // 
-            this.btClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btClose.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btClose.Location = new System.Drawing.Point(556, 3);
-            this.btClose.Name = "btClose";
-            this.btClose.Size = new System.Drawing.Size(75, 23);
-            this.btClose.TabIndex = 17;
-            this.btClose.Text = "Close";
-            this.btClose.UseVisualStyleBackColor = true;
-            // 
-            // bnCreateAnalysis
-            // 
-            this.bnCreateAnalysis.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.bnCreateAnalysis.Location = new System.Drawing.Point(500, 179);
-            this.bnCreateAnalysis.Name = "bnCreateAnalysis";
-            this.bnCreateAnalysis.Size = new System.Drawing.Size(131, 23);
-            this.bnCreateAnalysis.TabIndex = 7;
-            this.bnCreateAnalysis.Text = "Create analysis";
-            this.bnCreateAnalysis.UseVisualStyleBackColor = true;
-            this.bnCreateAnalysis.Click += new System.EventHandler(this.onCreateAnalysis);
-            // 
-            // graphCtrlPack
-            // 
-            this.graphCtrlPack.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.graphCtrlPack.Location = new System.Drawing.Point(3, 3);
-            this.graphCtrlPack.Name = "graphCtrlPack";
-            this.graphCtrlPack.Size = new System.Drawing.Size(309, 147);
-            this.graphCtrlPack.TabIndex = 8;
-            this.graphCtrlPack.Viewer = null;
-            // 
-            // graphCtrlSolution
-            // 
-            this.graphCtrlSolution.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.graphCtrlSolution.Location = new System.Drawing.Point(318, 3);
-            this.graphCtrlSolution.Name = "graphCtrlSolution";
-            this.graphCtrlSolution.Size = new System.Drawing.Size(316, 147);
-            this.graphCtrlSolution.TabIndex = 9;
-            this.graphCtrlSolution.Viewer = null;
-            // 
-            // cbBoxes
-            // 
-            this.cbBoxes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbBoxes.FormattingEnabled = true;
-            this.cbBoxes.Location = new System.Drawing.Point(74, 20);
-            this.cbBoxes.Name = "cbBoxes";
-            this.cbBoxes.Size = new System.Drawing.Size(183, 21);
-            this.cbBoxes.TabIndex = 6;
-            // 
-            // cbPallet
-            // 
-            this.cbPallets.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbPallets.FormattingEnabled = true;
-            this.cbPallets.Location = new System.Drawing.Point(73, 19);
-            this.cbPallets.Name = "cbPallet";
-            this.cbPallets.Size = new System.Drawing.Size(188, 21);
-            this.cbPallets.TabIndex = 5;
+            this.lbAnalysisDescription.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lbAnalysisDescription.AutoSize = true;
+            this.lbAnalysisDescription.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lbAnalysisDescription.Location = new System.Drawing.Point(6, 186);
+            this.lbAnalysisDescription.Name = "lbAnalysisDescription";
+            this.lbAnalysisDescription.Size = new System.Drawing.Size(99, 13);
+            this.lbAnalysisDescription.TabIndex = 13;
+            this.lbAnalysisDescription.Text = "Analysis description";
             // 
             // tbAnalysisName
             // 
@@ -594,25 +602,42 @@
             this.lbAnalysisName.TabIndex = 11;
             this.lbAnalysisName.Text = "Analysis name";
             // 
-            // tbAnalysisDescription
+            // graphCtrlSolution
             // 
-            this.tbAnalysisDescription.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.graphCtrlSolution.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbAnalysisDescription.Location = new System.Drawing.Point(119, 182);
-            this.tbAnalysisDescription.Name = "tbAnalysisDescription";
-            this.tbAnalysisDescription.Size = new System.Drawing.Size(374, 20);
-            this.tbAnalysisDescription.TabIndex = 14;
+            this.graphCtrlSolution.Location = new System.Drawing.Point(318, 3);
+            this.graphCtrlSolution.Name = "graphCtrlSolution";
+            this.graphCtrlSolution.Size = new System.Drawing.Size(316, 147);
+            this.graphCtrlSolution.TabIndex = 9;
+            this.graphCtrlSolution.Viewer = null;
             // 
-            // lbAnalysisDescription
+            // graphCtrlPack
             // 
-            this.lbAnalysisDescription.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lbAnalysisDescription.AutoSize = true;
-            this.lbAnalysisDescription.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lbAnalysisDescription.Location = new System.Drawing.Point(6, 186);
-            this.lbAnalysisDescription.Name = "lbAnalysisDescription";
-            this.lbAnalysisDescription.Size = new System.Drawing.Size(99, 13);
-            this.lbAnalysisDescription.TabIndex = 13;
-            this.lbAnalysisDescription.Text = "Analysis description";
+            this.graphCtrlPack.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.graphCtrlPack.Location = new System.Drawing.Point(3, 3);
+            this.graphCtrlPack.Name = "graphCtrlPack";
+            this.graphCtrlPack.Size = new System.Drawing.Size(309, 147);
+            this.graphCtrlPack.TabIndex = 8;
+            this.graphCtrlPack.Viewer = null;
+            // 
+            // bnCreateAnalysis
+            // 
+            this.bnCreateAnalysis.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.bnCreateAnalysis.Location = new System.Drawing.Point(500, 179);
+            this.bnCreateAnalysis.Name = "bnCreateAnalysis";
+            this.bnCreateAnalysis.Size = new System.Drawing.Size(131, 23);
+            this.bnCreateAnalysis.TabIndex = 7;
+            this.bnCreateAnalysis.Text = "Create analysis";
+            this.bnCreateAnalysis.UseVisualStyleBackColor = true;
+            this.bnCreateAnalysis.Click += new System.EventHandler(this.onCreateAnalysis);
+            // 
+            // _timer
+            // 
+            this._timer.Interval = 50;
+            this._timer.Tick += new System.EventHandler(this.onTimerTick);
             // 
             // FormOptimizePack
             // 
@@ -643,8 +668,8 @@
             this.groupBox.ResumeLayout(false);
             this.groupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudNumber)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.graphCtrlPack)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.graphCtrlSolution)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.graphCtrlPack)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -691,5 +716,6 @@
         private System.Windows.Forms.Label lbAnalysisName;
         private System.Windows.Forms.TextBox tbAnalysisDescription;
         private System.Windows.Forms.Label lbAnalysisDescription;
+        private System.Windows.Forms.Timer _timer;
     }
 }

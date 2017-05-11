@@ -302,6 +302,7 @@ namespace treeDiM.StackBuilder.Desktop
             }
             else if (ctrl == graphCtrlCase)
             {
+                
                 // get case of boxes
                 CaseOfBoxesProperties caseOfBoxes = _analysis.BProperties as CaseOfBoxesProperties;
 

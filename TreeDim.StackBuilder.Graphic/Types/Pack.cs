@@ -146,12 +146,12 @@ namespace treeDiM.StackBuilder.Graphics
             }
         }
 
-        BoxPosition GetPosition(int i, int j, int k, int dim0, int dim1)
+        private BoxPosition GetPosition(int i, int j, int k, int dim0, int dim1)
         {
-            BoxProperties boxProperties = _packProperties.Box;
-            double boxLength = boxProperties.Dim(dim0);
-            double boxWidth =  boxProperties.Dim(dim1);
-            double boxHeight =  boxProperties.Dim(3 - dim0 - dim1);
+            PackableBrick packable = _packProperties.Box;
+            double boxLength = packable.Dim(dim0);
+            double boxWidth =  packable.Dim(dim1);
+            double boxHeight =  packable.Dim(3 - dim0 - dim1);
             HalfAxis.HAxis dirLength = HalfAxis.HAxis.AXIS_X_P;
             HalfAxis.HAxis dirWidth = HalfAxis.HAxis.AXIS_Y_P;
             Vector3D vPosition = Vector3D.Zero;
@@ -165,31 +165,31 @@ namespace treeDiM.StackBuilder.Graphics
             {
                 dirLength = HalfAxis.HAxis.AXIS_X_P;
                 dirWidth = HalfAxis.HAxis.AXIS_Z_N;
-                vPosition = new Vector3D(0.0, 0.0, boxProperties.Width);
+                vPosition = new Vector3D(0.0, 0.0, packable.Width);
             }
             else if (1 == dim0 && 0 == dim1)
             {
                 dirLength = HalfAxis.HAxis.AXIS_Y_P;
                 dirWidth = HalfAxis.HAxis.AXIS_X_N;
-                vPosition = new Vector3D(boxProperties.Width, 0.0, 0.0);
+                vPosition = new Vector3D(packable.Width, 0.0, 0.0);
             }
             else if (1 == dim0 && 2 == dim1)
             {
                 dirLength = HalfAxis.HAxis.AXIS_Z_N;
                 dirWidth = HalfAxis.HAxis.AXIS_X_P;
-                vPosition = new Vector3D(0.0, boxProperties.Height, boxProperties.Length);
+                vPosition = new Vector3D(0.0, packable.Height, packable.Length);
             }
             else if (2 == dim0 && 0 == dim1)
             {
                 dirLength = HalfAxis.HAxis.AXIS_Y_P;
                 dirWidth = HalfAxis.HAxis.AXIS_Z_N;
-                vPosition = new Vector3D(boxProperties.Height, 0.0, boxProperties.Width);
+                vPosition = new Vector3D(packable.Height, 0.0, packable.Width);
             }
             else if (2 == dim0 && 1 == dim1)
             {
                 dirLength = HalfAxis.HAxis.AXIS_Z_P;
                 dirWidth = HalfAxis.HAxis.AXIS_Y_P;
-                vPosition = new Vector3D(boxProperties.Height, 0.0, 0.0);
+                vPosition = new Vector3D(packable.Height, 0.0, 0.0);
             }
             // add offset
             vPosition += Vector3D.Zero;
@@ -210,7 +210,7 @@ namespace treeDiM.StackBuilder.Graphics
                 );
         }
 
-        Transform3D GlobalTransformation
+        private Transform3D GlobalTransformation
         {
             get
             {

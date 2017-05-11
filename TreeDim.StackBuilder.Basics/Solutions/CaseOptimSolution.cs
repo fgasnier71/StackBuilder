@@ -8,25 +8,37 @@ using Sharp3D.Math.Core;
 namespace treeDiM.StackBuilder.Basics
 {
     #region CaseOptimConstraintSet
-    public class CaseOptimConstraintSet
+    public class ParamSetPackOptim
     {
         #region Constructor
-        public CaseOptimConstraintSet(
-            int[] noWalls
-            , double wallThickness, double wallSurfaceMass
+        public ParamSetPackOptim(
+            int noBoxes
             , Vector3D caseLimitMin, Vector3D caseLimitMax
-            , bool forceVerticalCaseOrientation)
+            , bool forceVerticalCaseOrientation
+            , PackWrapper.WType wType
+            , int[] noWalls
+            , double wallThickness, double wallSurfaceMass
+            , double trayHeight
+            )
         {
+            NoBoxes = noBoxes;
             NoWalls = noWalls;
             _wallThickness = wallThickness;
             _wallSurfaceMass = wallSurfaceMass;
             _caseLimitMin = caseLimitMin;
             _caseLimitMax = caseLimitMax;
             _forceVerticalCaseOrientation = forceVerticalCaseOrientation;
+            _trayHeight = trayHeight;
+            _wType = wType;
         }
         #endregion
         
         #region Public properties
+        public int NoBoxes
+        {
+            get { return _noBoxes; }
+            set { _noBoxes = value; }
+        }
         public double WallThickness
         {
             get { return _wallThickness; }
@@ -57,6 +69,14 @@ namespace treeDiM.StackBuilder.Basics
             get { return _forceVerticalCaseOrientation; }
             set { _forceVerticalCaseOrientation = value; }
         }
+        public PackWrapper.WType WrapperType
+        {
+            get { return _wType; }
+        }
+        public double TrayHeight
+        {
+            get { return _trayHeight; } 
+        }
         #endregion
 
         #region Public properties
@@ -67,6 +87,7 @@ namespace treeDiM.StackBuilder.Basics
         #endregion
 
         #region Data members
+        private int _noBoxes;
         private bool _forceVerticalCaseOrientation;
         /// <summary>
         /// Case wall thickness
@@ -84,6 +105,9 @@ namespace treeDiM.StackBuilder.Basics
         /// Optimal case min / max size limits
         /// </summary>
         private Vector3D _caseLimitMin, _caseLimitMax;
+
+        private PackWrapper.WType _wType;
+        private double _trayHeight;
         #endregion
     }
     #endregion
@@ -118,40 +142,40 @@ namespace treeDiM.StackBuilder.Basics
         #region Public properties
         public PackArrangement Arrangement
         {   get { return _arrangement; }    }
-        public double BoxLength(BoxProperties boxProperties)
-        { return boxProperties.Dim(_dim0); }
-        public double BoxWidth(BoxProperties boxProperties)
-        { return boxProperties.Dim(_dim1); }
-        public double BoxHeight(BoxProperties boxProperties)
-        { return boxProperties.Dim(Dim2); }
-        public double Area(BoxProperties boxProperties, CaseOptimConstraintSet constraintSet)
+        public double BoxLength(PackableBrick packable)
+        { return packable.Dim(_dim0); }
+        public double BoxWidth(PackableBrick packable)
+        { return packable.Dim(_dim1); }
+        public double BoxHeight(PackableBrick packable)
+        { return packable.Dim(Dim2); }
+        public double Area(PackableBrick packable, ParamSetPackOptim constraintSet)
         {
-            Vector3D outerDim = OuterDimensions(boxProperties, constraintSet);
+            Vector3D outerDim = OuterDimensions(packable, constraintSet);
             return (constraintSet.NoWalls[0] * outerDim.Y * outerDim.Z
                 + constraintSet.NoWalls[1] * outerDim.X * outerDim.Z
                 + constraintSet.NoWalls[2] * outerDim.X * outerDim.Y) * UnitsManager.FactorSquareLengthToArea;
         }
-        public double InnerVolume(BoxProperties boxProperties)
+        public double InnerVolume(PackableBrick packable)
         {
-            Vector3D innerDim = InnerDimensions(boxProperties);
+            Vector3D innerDim = InnerDimensions(packable);
             return innerDim.X * innerDim.Y * innerDim.Z;
         }
-        public double OuterVolume(BoxProperties boxProperties, CaseOptimConstraintSet constraintSet)
+        public double OuterVolume(PackableBrick packable, ParamSetPackOptim constraintSet)
         {
-            Vector3D outerDim = OuterDimensions(boxProperties, constraintSet);
+            Vector3D outerDim = OuterDimensions(packable, constraintSet);
             return outerDim.X * outerDim.Y * outerDim.Z;
         }
-        public double EmptyWeight(BoxProperties boxProperties, CaseOptimConstraintSet constraintSet)
+        public double EmptyWeight(PackableBrick packable, ParamSetPackOptim constraintSet)
         { 
-            return Area(boxProperties, constraintSet) * constraintSet.WallSurfaceMass;
+            return Area(packable, constraintSet) * constraintSet.WallSurfaceMass;
         }
-        public double InnerWeight(BoxProperties boxProperties)
+        public double InnerWeight(PackableBrick packable)
         {
-            return _arrangement.Number * boxProperties.Weight;
+            return _arrangement.Number * packable.Weight;
         }
-        public double TotalWeight(BoxProperties boxProperties, CaseOptimConstraintSet constraintSet)
+        public double TotalWeight(PackableBrick packable, ParamSetPackOptim constraintSet)
         {
-            return InnerWeight(boxProperties) + EmptyWeight(boxProperties, constraintSet);                    
+            return InnerWeight(packable) + EmptyWeight(packable, constraintSet);                    
         }
         #endregion
 
@@ -161,12 +185,12 @@ namespace treeDiM.StackBuilder.Basics
         /// </summary>
         /// <param name="optimizer">Parent optimizer class</param>
         /// <returns>Inner dimensions stored in Vector3D</returns>
-        public Vector3D InnerDimensions(BoxProperties boxProperties)
+        public Vector3D InnerDimensions(PackableBrick packBrick)
         {
             return new Vector3D(
-                _arrangement._iLength * boxProperties.Dim(Dim0)
-                , _arrangement._iWidth * boxProperties.Dim(Dim1)
-                , _arrangement._iHeight * boxProperties.Dim(Dim2)
+                _arrangement._iLength * packBrick.Dim(Dim0)
+                , _arrangement._iWidth * packBrick.Dim(Dim1)
+                , _arrangement._iHeight * packBrick.Dim(Dim2)
                 );
         }
         /// <summary>
@@ -174,25 +198,25 @@ namespace treeDiM.StackBuilder.Basics
         /// </summary>
         /// <param name="optimizer">Parent optimizer class</param>
         /// <returns>Outer dimensions stored in Vector3D</returns>
-        public Vector3D OuterDimensions(BoxProperties boxProperties, CaseOptimConstraintSet constraintSet)
+        public Vector3D OuterDimensions(PackableBrick packBrick, ParamSetPackOptim paramSet)
         {
             return new Vector3D(
-                _arrangement._iLength * boxProperties.Dim(Dim0) + constraintSet.WallThickness * constraintSet.NoWalls[0]
-                , _arrangement._iWidth * boxProperties.Dim(Dim1) + constraintSet.WallThickness * constraintSet.NoWalls[1]
-                , _arrangement._iHeight * boxProperties.Dim(Dim2) + constraintSet.WallThickness * constraintSet.NoWalls[2]
+                _arrangement._iLength * packBrick.Dim(Dim0) + paramSet.WallThickness * paramSet.NoWalls[0]
+                , _arrangement._iWidth * packBrick.Dim(Dim1) + paramSet.WallThickness * paramSet.NoWalls[1]
+                , _arrangement._iHeight * packBrick.Dim(Dim2) + paramSet.WallThickness * paramSet.NoWalls[2]
                 );
         }
-        public Vector3D InnerOffset(CaseOptimConstraintSet constraintSet)
+        public Vector3D InnerOffset(ParamSetPackOptim paramSet)
         {
             return new Vector3D(
-                0.5 * constraintSet.WallThickness * constraintSet.NoWalls[0]
-                , 0.5 * constraintSet.WallThickness * constraintSet.NoWalls[1]
-                , 0.5 * constraintSet.WallThickness * constraintSet.NoWalls[2]);
+                0.5 * paramSet.WallThickness * paramSet.NoWalls[0]
+                , 0.5 * paramSet.WallThickness * paramSet.NoWalls[1]
+                , 0.5 * paramSet.WallThickness * paramSet.NoWalls[2]);
         }
 
-        public double CaseEmptyWeight(BoxProperties boxProperties, CaseOptimConstraintSet constraintSet)
+        public double CaseEmptyWeight(PackableBrick boxProperties, ParamSetPackOptim paramSet)
         {
-            return constraintSet.WallSurfaceMass * Area(boxProperties, constraintSet);
+            return paramSet.WallSurfaceMass * Area(boxProperties, paramSet);
         }
 
         /// <summary>
@@ -200,12 +224,12 @@ namespace treeDiM.StackBuilder.Basics
         /// </summary>
         /// <param name="optimizer"></param>
         /// <returns></returns>
-        public bool IsValid(BoxProperties boxProperties, CaseOptimConstraintSet constraintSet)
+        public bool IsValid(PackableBrick packable, ParamSetPackOptim paramSet)
         {
-            Vector3D outerDim = OuterDimensions(boxProperties, constraintSet);
-            return outerDim.X <= constraintSet.CaseLimitMax.X && outerDim.Y <= constraintSet.CaseLimitMax.Y && outerDim.Z <= constraintSet.CaseLimitMax.Z
-                && outerDim.X >= constraintSet.CaseLimitMin.X && outerDim.Y >= constraintSet.CaseLimitMin.Y && outerDim.Z >= constraintSet.CaseLimitMin.Z
-                && ((_dim0 == 0 && _dim1 == 1) || !constraintSet.ForceVerticalcaseOrientation);
+            Vector3D outerDim = OuterDimensions(packable, paramSet);
+            return outerDim.X <= paramSet.CaseLimitMax.X && outerDim.Y <= paramSet.CaseLimitMax.Y && outerDim.Z <= paramSet.CaseLimitMax.Z
+                && outerDim.X >= paramSet.CaseLimitMin.X && outerDim.Y >= paramSet.CaseLimitMin.Y && outerDim.Z >= paramSet.CaseLimitMin.Z
+                && ((_dim0 == 0 && _dim1 == 1) || !paramSet.ForceVerticalcaseOrientation);
         }
         #endregion
 

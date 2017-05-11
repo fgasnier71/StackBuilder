@@ -189,10 +189,12 @@ namespace treeDiM.StackBuilder.Desktop
             }
             else if (graphCtrlCaseDefinition == ctrl)
             {
+                /*
                 CaseDefinitionViewer viewer = new CaseDefinitionViewer(_caseOfBoxesProperties.CaseDefinition, _caseOfBoxesProperties.InsideBoxProperties, _caseOfBoxesProperties.CaseOptimConstraintSet);
                 viewer.CaseProperties = _caseOfBoxesProperties;
                 viewer.Orientation = new Basics.Orientation(HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P);
                 viewer.Draw(graphics);  
+                 */ 
             }
         }
         #endregion

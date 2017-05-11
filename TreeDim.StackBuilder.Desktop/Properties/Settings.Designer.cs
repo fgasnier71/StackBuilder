@@ -576,7 +576,7 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("48")]
+        [global::System.Configuration.DefaultSettingValueAttribute("8")]
         public int NumberBoxesPerCase {
             get {
                 return ((int)(this["NumberBoxesPerCase"]));
@@ -836,6 +836,18 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
             }
             set {
                 this["HelpPageUrl"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int WrapperType {
+            get {
+                return ((int)(this["WrapperType"]));
+            }
+            set {
+                this["WrapperType"] = value;
             }
         }
     }

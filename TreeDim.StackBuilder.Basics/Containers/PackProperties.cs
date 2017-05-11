@@ -62,6 +62,8 @@ namespace treeDiM.StackBuilder.Basics
         { for (int i=0; i<3; ++i)   walls[i] = 2;}
         public void SetNoWalls(int noWallX, int noWallY, int noWallZ)
         { walls[0] = noWallX; walls[1] = noWallY; walls[2] = noWallZ; }
+        public void SetNoWalls(int[] noWalls)
+        { for (int i = 0; i < 3; ++i) walls[i] = noWalls[i]; }
         public int Wall(int index) { return walls[index]; }
         // implement abstract methods
         public override PackWrapper.WType Type { get { return PackWrapper.WType.WT_CARDBOARD; } }
@@ -109,7 +111,7 @@ namespace treeDiM.StackBuilder.Basics
     public class PackProperties : PackableBrickNamed
     {
         #region Data members
-        private BoxProperties _boxProperties;
+        private PackableBrick _innerPackable;
         private HalfAxis.HAxis _orientation;
         private PackArrangement _arrangement;
         private PackWrapper _wrapper;
@@ -123,14 +125,15 @@ namespace treeDiM.StackBuilder.Basics
         /// <param name="doc">Reference of parent <see cref="Document"/></param>
         /// <param name="box">Reference </param>
         public PackProperties(Document doc
-            , BoxProperties box
+            , PackableBrick box
             , PackArrangement arrangement
             , HalfAxis.HAxis orientation
             , PackWrapper wrapper)
             : base(doc)
         {
-            _boxProperties = box;
-            _boxProperties.AddDependancy(this);
+            _innerPackable = box;
+            if (null != doc)
+                _innerPackable.AddDependancy(this);
 
             _arrangement = arrangement;
             _orientation = orientation;
@@ -140,7 +143,7 @@ namespace treeDiM.StackBuilder.Basics
         #region Packable override
         public override bool InnerContent(ref Packable innerPackable, ref int number)
         {
-            innerPackable = _boxProperties;
+            innerPackable = _innerPackable;
             number = _arrangement.Number;
             return true;
         }
@@ -151,10 +154,10 @@ namespace treeDiM.StackBuilder.Basics
         /// <summary>
         /// set/get reference to wrapped box
         /// </summary>
-        public BoxProperties Box
+        public PackableBrick Box
         {
-            get { return _boxProperties; }
-            set { _boxProperties = value; }
+            get { return _innerPackable; }
+            set { _innerPackable = value; }
         }
         public PackArrangement Arrangement
         {
@@ -230,15 +233,15 @@ namespace treeDiM.StackBuilder.Basics
         }
         #endregion
         #region Inner dimensions
-        public double InnerLength { get { return _arrangement._iLength * _boxProperties.Dim(Dim0); } }
-        public double InnerWidth { get { return _arrangement._iWidth * _boxProperties.Dim(Dim1); } }
-        public double InnerHeight { get { return _arrangement._iHeight * _boxProperties.Dim(Dim2); } }
+        public double InnerLength { get { return _arrangement._iLength * _innerPackable.Dim(Dim0); } }
+        public double InnerWidth { get { return _arrangement._iWidth * _innerPackable.Dim(Dim1); } }
+        public double InnerHeight { get { return _arrangement._iHeight * _innerPackable.Dim(Dim2); } }
         #endregion
         #region Weight
         public override double Weight { get { return InnerWeight + _wrapper.Weight; } }
-        public double InnerWeight { get { return _arrangement.Number * _boxProperties.Weight; } }
+        public double InnerWeight { get { return _arrangement.Number * _innerPackable.Weight; } }
         public override OptDouble NetWeight
-        { get { return _arrangement.Number * _boxProperties.NetWeight; } }
+        { get { return _arrangement.Number * _innerPackable.NetWeight; } }
         #endregion
         #region Helpers
         public int Dim0 { get { return PackProperties.DimIndex0(_orientation); } }
@@ -306,7 +309,7 @@ namespace treeDiM.StackBuilder.Basics
         #region Dependancies
         protected override void RemoveItselfFromDependancies()
         {
-            _boxProperties.RemoveDependancy(this);
+            _innerPackable.RemoveDependancy(this);
             base.RemoveItselfFromDependancies();
         }
         #endregion

@@ -205,12 +205,10 @@ namespace treeDiM.StackBuilder.Desktop
                 else
                 {
                     _selectedAnalysis = _analyses[indexes[0] - 1];
-                    // update drawing
-                    graphCtrl.Invalidate();
                     // analysis name/description
                     if (null != _selectedAnalysis)
                     {
-                        AnalysisName = string.Format("Analysis_{0}_in_{1}", _selectedAnalysis.Content.ID.Name, _selectedAnalysis.Container.ID.Name);
+                        AnalysisName = string.Format("Analysis_{0}_in_{1}", _selectedAnalysis.Content.Name, _selectedAnalysis.Container.Name);
                         AnalysisDescription = string.Format(" Packing {0} in {1}", _selectedAnalysis.Content.Name, _selectedAnalysis.Container.Name);
                     }
                     else
@@ -219,6 +217,7 @@ namespace treeDiM.StackBuilder.Desktop
                         AnalysisDescription = string.Empty;
                     }
                 }
+                // update drawing
                 graphCtrl.Invalidate();
             }
             catch (Exception ex)
@@ -256,7 +255,7 @@ namespace treeDiM.StackBuilder.Desktop
                     }
                 }
                 // sort analysis
-                _analyses.Sort(new ComparerAnalysisBoxCase());
+                _analyses.Sort(new ComparerAnalysis());
                 // fill grid
                 FillGrid();
             }

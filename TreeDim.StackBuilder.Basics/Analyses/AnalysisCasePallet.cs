@@ -27,8 +27,9 @@ namespace treeDiM.StackBuilder.Basics
             : base(packable.ParentDocument, packable)
         {
             // sanity checks
-            if (palletProperties.ParentDocument != ParentDocument)
-                throw new Exception("box & pallet do not belong to the same document");
+            if (null != packable.ParentDocument)
+                if (palletProperties.ParentDocument != ParentDocument)
+                    throw new Exception("box & pallet do not belong to the same document");
             PalletProperties = palletProperties;
             _constraintSet = constraintSet;
         }

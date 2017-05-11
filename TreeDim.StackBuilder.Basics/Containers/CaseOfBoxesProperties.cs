@@ -13,7 +13,7 @@ namespace treeDiM.StackBuilder.Basics
         #region Data members
         private BoxProperties _boxProperties;
         private CaseDefinition _caseDefinition;
-        private CaseOptimConstraintSet _constraintSet;
+        private ParamSetPackOptim _constraintSet;
         #endregion
 
         #region Constructor
@@ -26,7 +26,7 @@ namespace treeDiM.StackBuilder.Basics
         public CaseOfBoxesProperties(Document document
             , BoxProperties boxProperties
             , CaseDefinition caseDefinition
-            , CaseOptimConstraintSet constraintSet)
+            , ParamSetPackOptim constraintSet)
             : base(document)
         {
             _boxProperties = boxProperties;
@@ -45,7 +45,7 @@ namespace treeDiM.StackBuilder.Basics
         { get { return _boxProperties; } }
         public CaseDefinition CaseDefinition
         { get { return _caseDefinition; } }
-        public CaseOptimConstraintSet CaseOptimConstraintSet
+        public ParamSetPackOptim CaseOptimConstraintSet
         { get { return _constraintSet; } }
         public double WeightEmpty
         {
