@@ -70,6 +70,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "treeDiM.StackBuilder.Engine
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "treeDiM.PLMPack.DBClient", "treeDiM.PLMPack.DBClient\treeDiM.PLMPack.DBClient.csproj", "{02C4930A-E1D6-4FCF-BB97-69AEC2715563}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Custom projects", "Custom projects", "{6A9F4A88-DE9C-4EAB-9659-197FF7DFF6AD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "treeDiM.StackBuilder.ABYATExcelLoader", "CustomProjects\treeDiM.StackBuilder.ABYATExcelLoader\treeDiM.StackBuilder.ABYATExcelLoader.csproj", "{097F2A4C-A34D-43E1-A5BF-58D12D80E11F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -388,6 +392,16 @@ Global
 		{02C4930A-E1D6-4FCF-BB97-69AEC2715563}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{02C4930A-E1D6-4FCF-BB97-69AEC2715563}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{02C4930A-E1D6-4FCF-BB97-69AEC2715563}.Release|x86.ActiveCfg = Release|Any CPU
+		{097F2A4C-A34D-43E1-A5BF-58D12D80E11F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{097F2A4C-A34D-43E1-A5BF-58D12D80E11F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{097F2A4C-A34D-43E1-A5BF-58D12D80E11F}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{097F2A4C-A34D-43E1-A5BF-58D12D80E11F}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{097F2A4C-A34D-43E1-A5BF-58D12D80E11F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{097F2A4C-A34D-43E1-A5BF-58D12D80E11F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{097F2A4C-A34D-43E1-A5BF-58D12D80E11F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{097F2A4C-A34D-43E1-A5BF-58D12D80E11F}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{097F2A4C-A34D-43E1-A5BF-58D12D80E11F}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{097F2A4C-A34D-43E1-A5BF-58D12D80E11F}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -410,5 +424,6 @@ Global
 		{C5AAB10A-8D08-419F-9D5C-2FC78FEF8B53} = {78A832C5-F1BB-4A1F-95FD-6531DDA2E9EE}
 		{0684F710-6746-468B-9B93-AA033B142502} = {36E4D3C5-28FD-46B9-8763-C3316F67C6BE}
 		{179C6BB2-E91E-455C-B561-553D17E28AF4} = {36E4D3C5-28FD-46B9-8763-C3316F67C6BE}
+		{097F2A4C-A34D-43E1-A5BF-58D12D80E11F} = {6A9F4A88-DE9C-4EAB-9659-197FF7DFF6AD}
 	EndGlobalSection
 EndGlobal

@@ -38,7 +38,7 @@
     <MinimumRequiredVersion>3.0.0.0</MinimumRequiredVersion>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>22</ApplicationRevision>
+    <ApplicationRevision>23</ApplicationRevision>
     <ApplicationVersion>3.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -1820,7 +1820,7 @@
   </ItemGroup>
   <PropertyGroup>
     <PostBuildEvent>copy /Y "$(SolutionDir)TreeDim.StackBuilder.Reporting\ReportTemplates" "$(TargetDir)ReportTemplates"
-if $(ConfigurationName) == Release "C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\signtool.exe" sign /f "$(SolutionDir)..\Signing\treeDiM.pfx" /p 2B3gmehk /t http://timestamp.comodoca.com/authenticode $(TargetPath)
+if $(ConfigurationName) == Release "$(SolutionDir)Signfile.bat" $(TargetPath)
 </PostBuildEvent>
   </PropertyGroup>
   <Import Project="..\packages\MSBuildTasks.1.5.0.196\build\MSBuildTasks.targets" Condition="Exists('..\packages\MSBuildTasks.1.5.0.196\build\MSBuildTasks.targets')" />
@@ -1837,6 +1837,9 @@ if $(ConfigurationName) == Release "C:\Program Files (x86)\Microsoft SDKs\Window
   <Target Name="AfterBuild">
   </Target>
   -->
+  <Target Name="PostBuildEvent" Condition=" '$(PostBuildEvent)' != '' " DependsOnTargets="$(PostBuildEventDependsOn)">
+    <Exec WorkingDirectory="$(OutDir)" Command="$(PostBuildEvent)" IgnoreExitCode="true" />
+  </Target>
   <ItemGroup>
     <Content Include="$(SolutionDir)ReportTemplates\**\*">
       <Link>%(RecursiveDir)%(Filename)%(Extension)</Link>
