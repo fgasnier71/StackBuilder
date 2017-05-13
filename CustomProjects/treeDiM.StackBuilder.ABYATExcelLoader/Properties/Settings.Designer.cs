@@ -73,19 +73,19 @@ namespace treeDiM.StackBuilder.ABYATExcelLoader.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int PalletFactorForm {
+        [global::System.Configuration.DefaultSettingValueAttribute("EUR2")]
+        public string PalletTypeName {
             get {
-                return ((int)(this["PalletFactorForm"]));
+                return ((string)(this["PalletTypeName"]));
             }
             set {
-                this["PalletFactorForm"] = value;
+                this["PalletTypeName"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1370")]
         public double ContainerLength {
             get {
                 return ((double)(this["ContainerLength"]));
@@ -97,7 +97,7 @@ namespace treeDiM.StackBuilder.ABYATExcelLoader.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("248")]
         public double ContainerWidth {
             get {
                 return ((double)(this["ContainerWidth"]));
@@ -109,7 +109,7 @@ namespace treeDiM.StackBuilder.ABYATExcelLoader.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("265")]
         public double ContainerHeight {
             get {
                 return ((double)(this["ContainerHeight"]));
@@ -121,13 +121,49 @@ namespace treeDiM.StackBuilder.ABYATExcelLoader.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("180")]
         public double PalletMaximumHeight {
             get {
                 return ((double)(this["PalletMaximumHeight"]));
             }
             set {
                 this["PalletMaximumHeight"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string InputFilePath {
+            get {
+                return ((string)(this["InputFilePath"]));
+            }
+            set {
+                this["InputFilePath"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int Mode {
+            get {
+                return ((int)(this["Mode"]));
+            }
+            set {
+                this["Mode"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool OpenGeneratedFile {
+            get {
+                return ((bool)(this["OpenGeneratedFile"]));
+            }
+            set {
+                this["OpenGeneratedFile"] = value;
             }
         }
     }

@@ -204,8 +204,9 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Load / FormClosing event
-        private void FormNewPallet_FormClosing(object sender, FormClosingEventArgs e)
+        protected override void OnClosing(CancelEventArgs e)
         {
+         	 base.OnClosing(e);
             // window position
             if (null == Settings.Default.FormNewPalletPosition)
                 Settings.Default.FormNewPalletPosition = new WindowSettings();

@@ -14,20 +14,29 @@
     <Setting Name="PalletWeight" Type="System.Double" Scope="User">
       <Value Profile="(Default)">22</Value>
     </Setting>
-    <Setting Name="PalletFactorForm" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">0</Value>
+    <Setting Name="PalletTypeName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">EUR2</Value>
     </Setting>
     <Setting Name="ContainerLength" Type="System.Double" Scope="User">
-      <Value Profile="(Default)">0</Value>
+      <Value Profile="(Default)">1370</Value>
     </Setting>
     <Setting Name="ContainerWidth" Type="System.Double" Scope="User">
-      <Value Profile="(Default)">0</Value>
+      <Value Profile="(Default)">248</Value>
     </Setting>
     <Setting Name="ContainerHeight" Type="System.Double" Scope="User">
-      <Value Profile="(Default)">0</Value>
+      <Value Profile="(Default)">265</Value>
     </Setting>
     <Setting Name="PalletMaximumHeight" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">180</Value>
+    </Setting>
+    <Setting Name="InputFilePath" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="Mode" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="OpenGeneratedFile" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
     </Setting>
   </Settings>
 </SettingsFile>
