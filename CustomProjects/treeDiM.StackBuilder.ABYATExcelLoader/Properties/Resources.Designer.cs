@@ -79,6 +79,15 @@ namespace treeDiM.StackBuilder.ABYATExcelLoader.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Overwrite {0}?.
+        /// </summary>
+        internal static string IDS_OVERWRITE {
+            get {
+                return ResourceManager.GetString("IDS_OVERWRITE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ready.
         /// </summary>
         internal static string IDS_READY {

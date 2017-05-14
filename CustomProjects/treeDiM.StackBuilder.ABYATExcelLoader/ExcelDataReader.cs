@@ -61,7 +61,7 @@ namespace treeDiM.StackBuilder.ABYATExcelLoader
             outerDimensions[0] = (double)dtRow[5];
             outerDimensions[1] = (double)dtRow[6];
             outerDimensions[2] = (double)dtRow[7];
-            if (DBNull.Value != dtRow[11]) Weight = (double)dtRow[11];
+            if (DBNull.Value != dtRow[9]) Weight = (double)dtRow[9]; else Weight = 0.0;
         }
         #endregion
         #region Public properties
@@ -77,7 +77,7 @@ namespace treeDiM.StackBuilder.ABYATExcelLoader
         {
             StringBuilder sb = new StringBuilder(base.ToString());
             sb.AppendLine(string.Format("Outer dimensions = {0}*{1}*{2}", outerDimensions[0], outerDimensions[1], outerDimensions[2]));
-            sb.AppendLine(string.Format("Weight           = {0}", Weight));
+            sb.AppendLine(string.Format("Weight = {0}", Weight));
             return sb.ToString();
         }
         #endregion

@@ -38,7 +38,6 @@
             this.lbFilePath = new System.Windows.Forms.Label();
             this.fileSelectExcel = new treeDiM.UserControls.FileSelect();
             this.graphCtrlPallet = new treeDiM.StackBuilder.Graphics.Graphics3DControl();
-            this.graphCtrlContainer = new treeDiM.StackBuilder.Graphics.Graphics3DControl();
             this.uCtrlPalletDimensions = new treeDiM.StackBuilder.Basics.UCtrlTriDouble();
             this.gbInput = new System.Windows.Forms.GroupBox();
             this.cbPalletType = new System.Windows.Forms.ComboBox();
@@ -56,7 +55,6 @@
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.graphCtrlPallet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.graphCtrlContainer)).BeginInit();
             this.gbInput.SuspendLayout();
             this.gbOutput.SuspendLayout();
             this.SuspendLayout();
@@ -139,21 +137,11 @@
             // 
             this.graphCtrlPallet.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.graphCtrlPallet.Location = new System.Drawing.Point(486, 57);
+            this.graphCtrlPallet.Location = new System.Drawing.Point(213, 209);
             this.graphCtrlPallet.Name = "graphCtrlPallet";
-            this.graphCtrlPallet.Size = new System.Drawing.Size(174, 163);
+            this.graphCtrlPallet.Size = new System.Drawing.Size(267, 224);
             this.graphCtrlPallet.TabIndex = 4;
             this.graphCtrlPallet.Viewer = null;
-            // 
-            // graphCtrlContainer
-            // 
-            this.graphCtrlContainer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.graphCtrlContainer.Location = new System.Drawing.Point(486, 226);
-            this.graphCtrlContainer.Name = "graphCtrlContainer";
-            this.graphCtrlContainer.Size = new System.Drawing.Size(174, 150);
-            this.graphCtrlContainer.TabIndex = 5;
-            this.graphCtrlContainer.Viewer = null;
             // 
             // uCtrlPalletDimensions
             // 
@@ -171,7 +159,7 @@
             this.uCtrlPalletDimensions.ValueX = 0D;
             this.uCtrlPalletDimensions.ValueY = 0D;
             this.uCtrlPalletDimensions.ValueZ = 0D;
-            this.uCtrlPalletDimensions.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlTriDouble.onValueChanged(this.onPalletChanged);
+            this.uCtrlPalletDimensions.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlTriDouble.onValueChanged(this.onDataChanged);
             // 
             // gbInput
             // 
@@ -187,12 +175,11 @@
             this.gbInput.Controls.Add(this.rbPallet);
             this.gbInput.Controls.Add(this.fileSelectExcel);
             this.gbInput.Controls.Add(this.lbFilePath);
-            this.gbInput.Controls.Add(this.graphCtrlContainer);
             this.gbInput.Controls.Add(this.uCtrlPalletDimensions);
             this.gbInput.Controls.Add(this.graphCtrlPallet);
             this.gbInput.Location = new System.Drawing.Point(6, 27);
             this.gbInput.Name = "gbInput";
-            this.gbInput.Size = new System.Drawing.Size(671, 400);
+            this.gbInput.Size = new System.Drawing.Size(671, 433);
             this.gbInput.TabIndex = 7;
             this.gbInput.TabStop = false;
             this.gbInput.Text = "Input";
@@ -205,7 +192,7 @@
             this.cbPalletType.Name = "cbPalletType";
             this.cbPalletType.Size = new System.Drawing.Size(186, 21);
             this.cbPalletType.TabIndex = 13;
-            this.cbPalletType.SelectedIndexChanged += new System.EventHandler(this.onPalletChanged);
+            this.cbPalletType.SelectedIndexChanged += new System.EventHandler(this.onDataChanged);
             // 
             // lbPalletType
             // 
@@ -218,7 +205,7 @@
             // 
             // uCtrlTruckDimensions
             // 
-            this.uCtrlTruckDimensions.Location = new System.Drawing.Point(102, 226);
+            this.uCtrlTruckDimensions.Location = new System.Drawing.Point(102, 183);
             this.uCtrlTruckDimensions.Minimum = new decimal(new int[] {
             0,
             0,
@@ -232,7 +219,7 @@
             this.uCtrlTruckDimensions.ValueX = 0D;
             this.uCtrlTruckDimensions.ValueY = 0D;
             this.uCtrlTruckDimensions.ValueZ = 0D;
-            this.uCtrlTruckDimensions.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlTriDouble.onValueChanged(this.onContainerChanged);
+            this.uCtrlTruckDimensions.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlTriDouble.onValueChanged(this.onDataChanged);
             // 
             // uCtrlPalletWeight
             // 
@@ -269,7 +256,7 @@
             // rbContainer
             // 
             this.rbContainer.AutoSize = true;
-            this.rbContainer.Location = new System.Drawing.Point(7, 226);
+            this.rbContainer.Location = new System.Drawing.Point(7, 183);
             this.rbContainer.Name = "rbContainer";
             this.rbContainer.Size = new System.Drawing.Size(70, 17);
             this.rbContainer.TabIndex = 8;
@@ -298,9 +285,9 @@
             this.gbOutput.Controls.Add(this.bnGenerate);
             this.gbOutput.Controls.Add(this.fileSelectOutput);
             this.gbOutput.Controls.Add(this.lbOutputFilePath);
-            this.gbOutput.Location = new System.Drawing.Point(6, 433);
+            this.gbOutput.Location = new System.Drawing.Point(6, 466);
             this.gbOutput.Name = "gbOutput";
-            this.gbOutput.Size = new System.Drawing.Size(671, 100);
+            this.gbOutput.Size = new System.Drawing.Size(671, 67);
             this.gbOutput.TabIndex = 8;
             this.gbOutput.TabStop = false;
             this.gbOutput.Text = "Output";
@@ -308,7 +295,7 @@
             // chkbOpenFile
             // 
             this.chkbOpenFile.AutoSize = true;
-            this.chkbOpenFile.Location = new System.Drawing.Point(10, 76);
+            this.chkbOpenFile.Location = new System.Drawing.Point(10, 43);
             this.chkbOpenFile.Name = "chkbOpenFile";
             this.chkbOpenFile.Size = new System.Drawing.Size(119, 17);
             this.chkbOpenFile.TabIndex = 3;
@@ -317,7 +304,7 @@
             // 
             // bnGenerate
             // 
-            this.bnGenerate.Location = new System.Drawing.Point(566, 71);
+            this.bnGenerate.Location = new System.Drawing.Point(566, 38);
             this.bnGenerate.Name = "bnGenerate";
             this.bnGenerate.Size = new System.Drawing.Size(92, 23);
             this.bnGenerate.TabIndex = 2;
@@ -327,7 +314,7 @@
             // 
             // fileSelectOutput
             // 
-            this.fileSelectOutput.Location = new System.Drawing.Point(102, 20);
+            this.fileSelectOutput.Location = new System.Drawing.Point(102, 15);
             this.fileSelectOutput.Name = "fileSelectOutput";
             this.fileSelectOutput.Size = new System.Drawing.Size(557, 20);
             this.fileSelectOutput.TabIndex = 1;
@@ -335,7 +322,7 @@
             // lbOutputFilePath
             // 
             this.lbOutputFilePath.AutoSize = true;
-            this.lbOutputFilePath.Location = new System.Drawing.Point(7, 20);
+            this.lbOutputFilePath.Location = new System.Drawing.Point(7, 15);
             this.lbOutputFilePath.Name = "lbOutputFilePath";
             this.lbOutputFilePath.Size = new System.Drawing.Size(79, 13);
             this.lbOutputFilePath.TabIndex = 0;
@@ -362,7 +349,6 @@
             this.statusStrip.ResumeLayout(false);
             this.statusStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.graphCtrlPallet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.graphCtrlContainer)).EndInit();
             this.gbInput.ResumeLayout(false);
             this.gbInput.PerformLayout();
             this.gbOutput.ResumeLayout(false);
@@ -384,7 +370,6 @@
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private UserControls.FileSelect fileSelectExcel;
         private Graphics.Graphics3DControl graphCtrlPallet;
-        private Graphics.Graphics3DControl graphCtrlContainer;
         private Basics.UCtrlTriDouble uCtrlPalletDimensions;
         private System.Windows.Forms.GroupBox gbInput;
         private System.Windows.Forms.ComboBox cbPalletType;

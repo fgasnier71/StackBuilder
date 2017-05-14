@@ -42,6 +42,7 @@ namespace treeDiM.StackBuilder.Engine
                     , constraintSet
                     , true
                 );
+            Solution.SetSolver(solver);
             // loop on layers
             foreach (Layer2D layer in layers)
             { 

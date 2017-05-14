@@ -123,6 +123,9 @@
   <data name="IDS_NOVALIDFILELOADED" xml:space="preserve">
     <value>No valid file loaded</value>
   </data>
+  <data name="IDS_OVERWRITE" xml:space="preserve">
+    <value>Overwrite {0}?</value>
+  </data>
   <data name="IDS_READY" xml:space="preserve">
     <value>Ready</value>
   </data>
