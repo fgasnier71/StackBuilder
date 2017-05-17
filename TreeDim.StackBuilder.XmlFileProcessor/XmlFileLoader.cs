@@ -490,12 +490,26 @@ namespace treeDiM.StackBuilder.XmlFileProcessor
                 caseConstraintSet.HasInterlayerAntiSlip = false;
  
                 // allowed ortho axes
-                caseConstraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_X_N, true);
-                caseConstraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_X_P, true);
-                caseConstraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Y_N, true);
-                caseConstraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Y_P, true);
-                caseConstraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Z_N, true);
-                caseConstraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Z_P, true);
+                // Add control with the allowed ortho axes, we can choose XP, YP, ZP axis
+                // similar to allowed patterns(allowedLayerPatterns). 
+                
+                caseConstraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_X_N, false);
+                caseConstraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_X_P, false);
+                caseConstraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Y_N, false);
+                caseConstraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Y_P, false);
+                caseConstraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Z_N, false);
+                caseConstraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Z_P, false);
+                
+                foreach (positionName ppName in xmlAnalysis.allowedBoxPositions)
+                {
+                    switch (ppName)
+                    {
+                        case positionName.XP: caseConstraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_X_P, true); break;
+                        case positionName.YP: caseConstraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Y_P, true); break;
+                        case positionName.ZP: caseConstraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Z_P, true); break;
+                        default: break;
+                    }
+                }
 
                 // interlayer period
                 caseConstraintSet.InterlayerPeriod = xmlAnalysis.interlayerPeriodSpecified ? (int)xmlAnalysis.interlayerPeriod : 1;
