@@ -542,7 +542,7 @@ namespace treeDiM.StackBuilder.Desktop
                 columnHeader.View = viewColumnHeader;
                 gridSolutions[0, 5] = columnHeader;
                 // 6
-                columnHeader = new SourceGrid.Cells.ColumnHeader(Resources.ID_AREA + "/" + Resources.ID_WEIGHT);
+                columnHeader = new SourceGrid.Cells.ColumnHeader(Resources.ID_AREA + "/" + Resources.ID_WEIGHT_WU);
                 columnHeader.AutomaticSortEnabled = false;
                 columnHeader.View = viewColumnHeader;
                 gridSolutions[0, 6] = columnHeader;

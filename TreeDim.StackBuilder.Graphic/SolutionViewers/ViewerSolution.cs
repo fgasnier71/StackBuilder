@@ -26,8 +26,8 @@ namespace treeDiM.StackBuilder.Graphics
         #endregion
 
         #region Abstract methods
-        public abstract void Draw(Graphics3D graphics, Transform3D transform, bool showDimensions);
-        public abstract void Draw(Graphics2D graphics, bool showDimensions);
+        public abstract void Draw(Graphics3D graphics, Transform3D transform);
+        public abstract void Draw(Graphics2D graphics);
         #endregion
 
         #region Picking
@@ -124,7 +124,7 @@ namespace treeDiM.StackBuilder.Graphics
         #endregion
 
         #region Viewer
-        public override void Draw(Graphics3D graphics, Transform3D transform, bool showDimensions)
+        public override void Draw(Graphics3D graphics, Transform3D transform)
         {
             // clear list of picking box
             ClearPickingBoxes();
@@ -360,7 +360,7 @@ namespace treeDiM.StackBuilder.Graphics
             }
 
             // ### dimensions
-            if (showDimensions)
+            if (graphics.ShowDimensions)
             {
                 graphics.AddDimensions(
                     new DimensionCube(BoundingBoxDim(Properties.Settings.Default.DimCasePalletSol1)
@@ -370,7 +370,7 @@ namespace treeDiM.StackBuilder.Graphics
                     , Color.Red, true));
             }
         }
-        public override void Draw(Graphics2D graphics, bool showDimensions)
+        public override void Draw(Graphics2D graphics)
         {
             if (null == _solution) return;
         }

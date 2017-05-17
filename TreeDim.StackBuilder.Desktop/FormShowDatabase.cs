@@ -311,7 +311,7 @@ namespace treeDiM.StackBuilder.Desktop
             // initialize grid
             List<string> captions = new List<string>();
             captions.Add(string.Format(Properties.Resources.ID_DIMENSIONS, UnitsManager.UnitString(UnitsManager.UnitType.UT_LENGTH)));
-            captions.Add(string.Format(Properties.Resources.ID_WEIGHT, UnitsManager.UnitString(UnitsManager.UnitType.UT_MASS)));
+            captions.Add(string.Format(Properties.Resources.ID_WEIGHT_WU, UnitsManager.UnitString(UnitsManager.UnitType.UT_MASS)));
             GridInitialize(gridPallets, captions);
             // handling checkbox event
             SourceGrid.Cells.Controllers.CustomEvents checkBoxEvent = new SourceGrid.Cells.Controllers.CustomEvents();
@@ -354,7 +354,7 @@ namespace treeDiM.StackBuilder.Desktop
             // initialize grid
             List<string> captions = new List<string>();
             captions.Add(string.Format(Properties.Resources.ID_DIMENSIONS, UnitsManager.UnitString(UnitsManager.UnitType.UT_LENGTH)));
-            captions.Add(string.Format(Properties.Resources.ID_WEIGHT, UnitsManager.UnitString(UnitsManager.UnitType.UT_MASS)));
+            captions.Add(string.Format(Properties.Resources.ID_WEIGHT_WU, UnitsManager.UnitString(UnitsManager.UnitType.UT_MASS)));
             GridInitialize(gridInterlayers, captions);
             // handling checkbox event
             SourceGrid.Cells.Controllers.CustomEvents checkBoxEvent = new SourceGrid.Cells.Controllers.CustomEvents();
@@ -398,7 +398,7 @@ namespace treeDiM.StackBuilder.Desktop
             List<string> captions = new List<string>();
             captions.Add(string.Format(Properties.Resources.ID_DIMEXT_WU, UnitsManager.UnitString(UnitsManager.UnitType.UT_LENGTH)));
             captions.Add(string.Format(Properties.Resources.ID_DIMINT_WU, UnitsManager.UnitString(UnitsManager.UnitType.UT_LENGTH)));
-            captions.Add(string.Format(Properties.Resources.ID_WEIGHT, UnitsManager.UnitString(UnitsManager.UnitType.UT_MASS)));
+            captions.Add(string.Format(Properties.Resources.ID_WEIGHT_WU, UnitsManager.UnitString(UnitsManager.UnitType.UT_MASS)));
             GridInitialize(gridPalletCaps, captions);
             // handling checkbox event
             SourceGrid.Cells.Controllers.CustomEvents checkBoxEvent = new SourceGrid.Cells.Controllers.CustomEvents();
@@ -445,7 +445,7 @@ namespace treeDiM.StackBuilder.Desktop
             captions.Add(string.Format(Properties.Resources.ID_LENGTH_WU, UnitsManager.UnitString(UnitsManager.UnitType.UT_LENGTH)));
             captions.Add(string.Format(Properties.Resources.ID_WIDTH_WU, UnitsManager.UnitString(UnitsManager.UnitType.UT_LENGTH)));
             captions.Add(string.Format(Properties.Resources.ID_THICKNESS_WU, UnitsManager.UnitString(UnitsManager.UnitType.UT_LENGTH)));
-            captions.Add(string.Format(Properties.Resources.ID_WEIGHT, UnitsManager.UnitString(UnitsManager.UnitType.UT_MASS)));
+            captions.Add(string.Format(Properties.Resources.ID_WEIGHT_WU, UnitsManager.UnitString(UnitsManager.UnitType.UT_MASS)));
             GridInitialize(gridPalletCorners, captions);
             // handling checkbox event
             SourceGrid.Cells.Controllers.CustomEvents checkBoxEvent = new SourceGrid.Cells.Controllers.CustomEvents();
@@ -484,7 +484,7 @@ namespace treeDiM.StackBuilder.Desktop
             captions.Add(Properties.Resources.ID_TRANSPARENCY);
             captions.Add(string.Format(Properties.Resources.ID_HATCHINGSPACING, UnitsManager.UnitString(UnitsManager.UnitType.UT_LENGTH)));
             captions.Add(Properties.Resources.ID_HATCHINGANGLE);
-            captions.Add(string.Format(Properties.Resources.ID_WEIGHT, UnitsManager.UnitString(UnitsManager.UnitType.UT_MASS)));
+            captions.Add(string.Format(Properties.Resources.ID_WEIGHT_WU, UnitsManager.UnitString(UnitsManager.UnitType.UT_MASS)));
             GridInitialize(gridPalletFilms, captions);
             // handling checkbox event
             SourceGrid.Cells.Controllers.CustomEvents checkBoxEvent = new SourceGrid.Cells.Controllers.CustomEvents();
@@ -521,7 +521,7 @@ namespace treeDiM.StackBuilder.Desktop
             List<string> captions = new List<string>();
             captions.Add(string.Format(Properties.Resources.ID_DIMEXT_WU, UnitsManager.UnitString(UnitsManager.UnitType.UT_LENGTH)));
             captions.Add(string.Format(Properties.Resources.ID_DIMINT_WU, UnitsManager.UnitString(UnitsManager.UnitType.UT_LENGTH)));
-            captions.Add(string.Format(Properties.Resources.ID_WEIGHT, UnitsManager.UnitString(UnitsManager.UnitType.UT_MASS)));
+            captions.Add(string.Format(Properties.Resources.ID_WEIGHT_WU, UnitsManager.UnitString(UnitsManager.UnitType.UT_MASS)));
             GridInitialize(gridCases, captions);
             // handling checkbox event
             SourceGrid.Cells.Controllers.CustomEvents checkBoxEvent = new SourceGrid.Cells.Controllers.CustomEvents();
@@ -570,7 +570,7 @@ namespace treeDiM.StackBuilder.Desktop
             captions.Add(string.Format(Properties.Resources.ID_WIDTH_WU, UnitsManager.UnitString(UnitsManager.UnitType.UT_LENGTH)));
             captions.Add(string.Format(Properties.Resources.ID_THICKNESS_WU, UnitsManager.UnitString(UnitsManager.UnitType.UT_LENGTH)));
             captions.Add(string.Format(Properties.Resources.ID_NUMBER));
-            captions.Add(string.Format(Properties.Resources.ID_WEIGHT, UnitsManager.UnitString(UnitsManager.UnitType.UT_MASS)));
+            captions.Add(string.Format(Properties.Resources.ID_WEIGHT_WU, UnitsManager.UnitString(UnitsManager.UnitType.UT_MASS)));
             GridInitialize(gridBundles, captions);
             // handling checkbox event
             SourceGrid.Cells.Controllers.CustomEvents checkBoxEvent = new SourceGrid.Cells.Controllers.CustomEvents();
@@ -611,7 +611,7 @@ namespace treeDiM.StackBuilder.Desktop
             captions.Add(string.Format(Properties.Resources.ID_HEIGHT_WU, UnitsManager.UnitString(UnitsManager.UnitType.UT_LENGTH)));
             captions.Add(string.Format(Properties.Resources.ID_DIAMETEROUTER_WU, UnitsManager.UnitString(UnitsManager.UnitType.UT_LENGTH)));
             captions.Add(string.Format(Properties.Resources.ID_DIAMETERINNER_WU, UnitsManager.UnitString(UnitsManager.UnitType.UT_LENGTH)));
-            captions.Add(string.Format(Properties.Resources.ID_WEIGHT, UnitsManager.UnitString(UnitsManager.UnitType.UT_MASS)));
+            captions.Add(string.Format(Properties.Resources.ID_WEIGHT_WU, UnitsManager.UnitString(UnitsManager.UnitType.UT_MASS)));
             GridInitialize(gridCylinders, captions);
             // handling checkbox event
             SourceGrid.Cells.Controllers.CustomEvents checkBoxEvent = new SourceGrid.Cells.Controllers.CustomEvents();

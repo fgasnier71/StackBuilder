@@ -31,6 +31,8 @@ namespace treeDiM.StackBuilder.Basics
         #endregion
 
         #region Public properties
+        public double[] Dimensions
+        { get { return new double[] { _length, _width, _height }; } }
         public double Length
         {
             get { return _length; }

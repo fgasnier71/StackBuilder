@@ -119,7 +119,7 @@ namespace treeDiM.StackBuilder.GUIExtension
             nudOverhangX.Value = (decimal)Properties.Settings.Default.OverhangX;
             nudOverhangY.Value = (decimal)Properties.Settings.Default.OverhangY;
             // pallet height
-            nudMaxPalletHeight.Value = (decimal)Properties.Settings.Default.PalletHeight;
+            nudMaxPalletHeight.Value = (decimal)Properties.Settings.Default.MaximumPalletHeight;
             // pallet weight
             chkMaxPalletWeight.Checked = Properties.Settings.Default.UseMaximumPalletWeight;
             nudMaxPalletWeight.Value = (decimal)Properties.Settings.Default.MaximumPalletWeight;
@@ -139,7 +139,7 @@ namespace treeDiM.StackBuilder.GUIExtension
             Properties.Settings.Default.OverhangX = (double)nudOverhangX.Value;
             Properties.Settings.Default.OverhangY = (double)nudOverhangY.Value;
             // save max. pallet height
-            Properties.Settings.Default.PalletHeight = (double)nudMaxPalletHeight.Value;
+            Properties.Settings.Default.MaximumPalletHeight = (double)nudMaxPalletHeight.Value;
             // save max. weight
             Properties.Settings.Default.UseMaximumPalletWeight = chkMaxPalletWeight.Checked;
             Properties.Settings.Default.MaximumPalletWeight = (double)nudMaxPalletWeight.Value;

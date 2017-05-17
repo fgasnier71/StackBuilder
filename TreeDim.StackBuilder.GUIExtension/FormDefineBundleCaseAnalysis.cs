@@ -134,6 +134,7 @@ namespace treeDiM.StackBuilder.GUIExtension
         {
             try
             {
+            /*
                 const double thickness = 4.0;
                 _doc = new Document(_name, "", "", DateTime.Now, null);
                 // colors
@@ -162,6 +163,7 @@ namespace treeDiM.StackBuilder.GUIExtension
                     , new BoxCaseSolver());
                 // fill grid
                 FillGrid();
+             */ 
             }
             catch (Exception ex)
             {
@@ -170,6 +172,7 @@ namespace treeDiM.StackBuilder.GUIExtension
         }
         private void FillGrid()
         {
+            /*
             // fill grid solutions
             gridSolutions.Rows.Clear();
 
@@ -261,7 +264,8 @@ namespace treeDiM.StackBuilder.GUIExtension
             // select first solution
             gridSolutions.Selection.SelectRow(1, true);
             // redraw
-            graphCtrlSolution.Invalidate();        
+            graphCtrlSolution.Invalidate();
+             */ 
         }
         #endregion
 
@@ -282,9 +286,12 @@ namespace treeDiM.StackBuilder.GUIExtension
         {
             get
             {
+                return null;
+                /*
                 int iIndexSol = CurrentSolutionIndex;
                 if (-1 == iIndexSol) return null;
                 else return _analysis.Solutions[iIndexSol];
+                 */ 
             }
         }
         #endregion
@@ -325,13 +332,13 @@ namespace treeDiM.StackBuilder.GUIExtension
         {
             try
             {
-                FormDefineReport formReport = new FormDefineReport();
+/*                FormDefineReport formReport = new FormDefineReport();
                 formReport.ProjectName = _analysis.Name;
                 if (DialogResult.OK != formReport.ShowDialog())
                     return;
                 // selected solution
                 SelBoxCaseSolution selSolution = new SelBoxCaseSolution(_doc, _analysis, CurrentSolution);
-/*
+
                 ReportData reportData = new ReportData(_analysis);
 
                 Reporter.CompanyLogo = string.Empty;
@@ -356,10 +363,11 @@ namespace treeDiM.StackBuilder.GUIExtension
                 }
                 else
                     return;
-                */
+                
                 // open file
                 if (formReport.OpenGeneratedFile)
                     Process.Start(new ProcessStartInfo(formReport.FilePath));
+ */
             }
             catch (Exception ex)
             {
@@ -370,6 +378,7 @@ namespace treeDiM.StackBuilder.GUIExtension
         {
             try
             {
+                /*
                 // create new selected solution
                 _analysis.SelectSolutionByIndex(CurrentSolutionIndex);
                 // show "save as" dialog 
@@ -380,6 +389,7 @@ namespace treeDiM.StackBuilder.GUIExtension
                     // open file
                     Process.Start(new ProcessStartInfo(saveFileDialogAsStb.FileName));
                 }
+                 */
             }
             catch (Exception ex)
             {

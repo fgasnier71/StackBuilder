@@ -90,6 +90,7 @@ namespace treeDiM.StackBuilder.Graphics
         /// </summary>
         private bool _showBoxIds = false;
         private bool _showTextures = true;
+        private bool _showDimensions = true;
         private bool _useBoxelOrderer = true;
         private uint _boxDrawingCounter = 0;
         private bool _enableFaceSorting = true;
@@ -209,6 +210,11 @@ namespace treeDiM.StackBuilder.Graphics
         {
             get { return _showTextures; }
             set { _showTextures = value; }
+        }
+        public bool ShowDimensions
+        {
+            get { return _showDimensions; }
+            set { _showDimensions = value; }
         }
 
         public Point Offset
@@ -470,8 +476,11 @@ namespace treeDiM.StackBuilder.Graphics
                 Draw(seg);
 
             // draw cotation cubes
-            foreach (DimensionCube qc in _dimensions)
-                qc.Draw(this);
+            if (ShowDimensions)
+            {
+                foreach (DimensionCube qc in _dimensions)
+                    qc.Draw(this);
+            }
         }
 
         public Transform3D GetCurrentTransformation()

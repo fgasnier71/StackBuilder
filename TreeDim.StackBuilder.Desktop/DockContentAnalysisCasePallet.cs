@@ -170,15 +170,11 @@ namespace treeDiM.StackBuilder.Desktop
         }
         #endregion
 
-        #region IView
-        #endregion
-
         #region IDrawingContainer
         public void Draw(Graphics3DControl ctrl, Graphics3D graphics)
         {
-            bool showDimensions = true;
             ViewerSolution sv = new ViewerSolution( Solution );
-            sv.Draw(graphics, Transform3D.Identity, showDimensions);
+            sv.Draw(graphics, Transform3D.Identity);
         }
         #endregion
 
@@ -266,13 +262,13 @@ namespace treeDiM.StackBuilder.Desktop
                 int iRow = -1;
                 // pallet caption
                 gridSolution.Rows.Insert(++iRow);
-                rowHeader = new SourceGrid.Cells.RowHeader("Pallet");
+                rowHeader = new SourceGrid.Cells.RowHeader(Resources.ID_PALLET);
                 rowHeader.ColumnSpan = 2;
                 rowHeader.View = captionHeader;
                 gridSolution[iRow, 0] = rowHeader;
                 // layer #
                 gridSolution.Rows.Insert(++iRow);
-                rowHeader = new SourceGrid.Cells.RowHeader("Layer #");
+                rowHeader = new SourceGrid.Cells.RowHeader(Resources.ID_LAYERNUMBER);
                 rowHeader.View = viewRowHeader;
                 gridSolution[iRow, 0] = rowHeader;
                 gridSolution[iRow, 1] = new SourceGrid.Cells.Cell(_solution.LayerCount);
@@ -280,7 +276,7 @@ namespace treeDiM.StackBuilder.Desktop
                 if (_solution.InterlayerCount > 0)
                 {
                     gridSolution.Rows.Insert(++iRow);
-                    rowHeader = new SourceGrid.Cells.RowHeader("Interlayer #");
+                    rowHeader = new SourceGrid.Cells.RowHeader(Resources.ID_INTERLAYERNUMBER);
                     rowHeader.View = viewRowHeader;
                     gridSolution[iRow, 0] = rowHeader;
                     gridSolution[iRow, 1] = new SourceGrid.Cells.Cell(_solution.InterlayerCount);
@@ -305,7 +301,7 @@ namespace treeDiM.StackBuilder.Desktop
                 // ---
                 gridSolution.Rows.Insert(++iRow);
                 rowHeader = new SourceGrid.Cells.RowHeader(
-                    string.Format("Outer dimensions\n({0} x {0} x {0})", UnitsManager.LengthUnitString));
+                    string.Format(Resources.ID_OUTERDIMENSIONS, UnitsManager.LengthUnitString));
                 rowHeader.View = viewRowHeader;
                 gridSolution[iRow, 0] = rowHeader;
                 gridSolution[iRow, 1] = new SourceGrid.Cells.Cell(
@@ -315,7 +311,7 @@ namespace treeDiM.StackBuilder.Desktop
                 // ---
                 gridSolution.Rows.Insert(++iRow);
                 rowHeader = new SourceGrid.Cells.RowHeader(
-                    string.Format("Load dimensions\n({0} x {0} x {0})", UnitsManager.LengthUnitString));
+                    string.Format(Resources.ID_LOADDIMENSIONS, UnitsManager.LengthUnitString));
                 rowHeader.View = viewRowHeader;
                 gridSolution[iRow, 0] = rowHeader;
                 gridSolution[iRow, 1] = new SourceGrid.Cells.Cell(
@@ -325,7 +321,7 @@ namespace treeDiM.StackBuilder.Desktop
                 {
                     gridSolution.Rows.Insert(++iRow);
                     rowHeader = new SourceGrid.Cells.RowHeader(
-                        string.Format("Net weight ({0})", UnitsManager.MassUnitString));
+                        string.Format(Resources.ID_NETWEIGHT_WU, UnitsManager.MassUnitString));
                     rowHeader.View = viewRowHeader;
                     gridSolution[iRow, 0] = rowHeader;
                     gridSolution[iRow, 1] = new SourceGrid.Cells.Cell(
@@ -334,7 +330,7 @@ namespace treeDiM.StackBuilder.Desktop
                 // load weight
                 gridSolution.Rows.Insert(++iRow);
                 rowHeader = new SourceGrid.Cells.RowHeader(
-                    string.Format("Load Weight ({0})", UnitsManager.MassUnitString));
+                    string.Format(Resources.ID_LOADWEIGHT_WU, UnitsManager.MassUnitString));
                 rowHeader.View = viewRowHeader;
                 gridSolution[iRow, 0] = rowHeader;
                 gridSolution[iRow, 1] = new SourceGrid.Cells.Cell(
@@ -342,14 +338,14 @@ namespace treeDiM.StackBuilder.Desktop
                 // total weight
                 gridSolution.Rows.Insert(++iRow);
                 rowHeader = new SourceGrid.Cells.RowHeader(
-                    string.Format("Total weight ({0})", UnitsManager.MassUnitString));
+                    string.Format(Resources.ID_TOTALWEIGHT_WU, UnitsManager.MassUnitString));
                 rowHeader.View = viewRowHeader;
                 gridSolution[iRow, 0] = rowHeader;
                 gridSolution[iRow, 1] = new SourceGrid.Cells.Cell(
                     string.Format(CultureInfo.InvariantCulture, "{0:0.#}", _solution.Weight));
                 // volume efficiency
                 gridSolution.Rows.Insert(++iRow);
-                rowHeader = new SourceGrid.Cells.RowHeader("Vol. efficiency (%)");
+                rowHeader = new SourceGrid.Cells.RowHeader(Resources.ID_VOLUMEEFFICIENCY);
                 rowHeader.View = viewRowHeader;
                 gridSolution[iRow, 0] = rowHeader;
                 gridSolution[iRow, 1] = new SourceGrid.Cells.Cell(
@@ -392,7 +388,7 @@ namespace treeDiM.StackBuilder.Desktop
 
                     // layer weight
                     gridSolution.Rows.Insert(++iRow);
-                    rowHeader = new SourceGrid.Cells.RowHeader("Weight");
+                    rowHeader = new SourceGrid.Cells.RowHeader(string.Format(Resources.ID_WEIGHT_WU, UnitsManager.MassUnitString));
                     rowHeader.View = viewRowHeader;
                     gridSolution[iRow, 0] = rowHeader;
                     gridSolution[iRow, 1] = new SourceGrid.Cells.Cell(
@@ -569,7 +565,9 @@ namespace treeDiM.StackBuilder.Desktop
                 cbLayerType.Enabled = (index != -1);
                 chkbInterlayer.Enabled = (index != -1) && (cbInterlayer.Items.Count > 0);
 
-                gbLayer.Text = index != -1 ? string.Format("Selected layer : {0}", index) : "Double-click a layer";
+                gbLayer.Text = index != -1
+                    ? string.Format(Resources.ID_SELECTEDLAYER, index)
+                    : Resources.ID_DOUBLECLICKALAYER;
 
                 if (index != -1)
                 {
@@ -615,7 +613,7 @@ namespace treeDiM.StackBuilder.Desktop
         private string BuildLayerCaption(List<int> layerIndexes)
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append(layerIndexes.Count > 1 ? "Layers " : "Layer ");
+            sb.Append(layerIndexes.Count > 1 ? Resources.ID_LAYERS : Resources.ID_LAYER);
             int iCountIndexes = layerIndexes.Count;
             for (int j = 0; j < iCountIndexes; ++j)
             {

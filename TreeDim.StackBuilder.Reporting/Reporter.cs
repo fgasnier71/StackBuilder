@@ -519,10 +519,11 @@ namespace treeDiM.StackBuilder.Reporting
                 Graphics3DImage graphics = new Graphics3DImage(new Size(imageWidth, imageWidth));
                 // set camera position 
                 graphics.CameraPosition = cameraPos;
+                graphics.ShowDimensions = showDimensions;
 
                 // instantiate solution viewer
                 ViewerSolution sv = new ViewerSolution(sol);
-                sv.Draw(graphics, Transform3D.Identity, showDimensions);
+                sv.Draw(graphics, Transform3D.Identity);
                 graphics.Flush();
                 // image path
                 string imagePath = SaveImageAs(graphics.Bitmap);

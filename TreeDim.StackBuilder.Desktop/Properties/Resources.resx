@@ -225,7 +225,7 @@
 If you proceed with the modifications, analyses will be recomputed and any selected solutions removed.
 Continue?</value>
   </data>
-  <data name="ID_WEIGHT" xml:space="preserve">
+  <data name="ID_WEIGHT_WU" xml:space="preserve">
     <value>Weight ({0})</value>
   </data>
   <data name="ID_PALLETMAXHEIGHT" xml:space="preserve">
@@ -238,7 +238,7 @@ Continue?</value>
     <value>Truck</value>
   </data>
   <data name="ID_LOADWEIGHT" xml:space="preserve">
-    <value>Load</value>
+    <value>Load weight</value>
   </data>
   <data name="ID_USEATLEASTONESTOPSTACKINGCRITERION" xml:space="preserve">
     <value>Define at least one stop stacking criterion</value>
@@ -750,5 +750,38 @@ Closing form...</value>
   </data>
   <data name="ID_NOORIENTATIONSELECTED" xml:space="preserve">
     <value>No orientation selected!</value>
+  </data>
+  <data name="ID_DOUBLECLICKALAYER" xml:space="preserve">
+    <value>Double-click a layer!</value>
+  </data>
+  <data name="ID_INTERLAYERNUMBER" xml:space="preserve">
+    <value>Interlayer #</value>
+  </data>
+  <data name="ID_LAYER" xml:space="preserve">
+    <value>Layer</value>
+  </data>
+  <data name="ID_LAYERNUMBER" xml:space="preserve">
+    <value>Layer #</value>
+  </data>
+  <data name="ID_LOADDIMENSIONS" xml:space="preserve">
+    <value>Load dimensions\n({0} x {0} x {0})</value>
+  </data>
+  <data name="ID_LOADWEIGHT_WU" xml:space="preserve">
+    <value>Load weight ({0})</value>
+  </data>
+  <data name="ID_NETWEIGHT_WU" xml:space="preserve">
+    <value>Net weight ({0})</value>
+  </data>
+  <data name="ID_OUTERDIMENSIONS" xml:space="preserve">
+    <value>Outer dimensions\n({0} x {0} x {0})</value>
+  </data>
+  <data name="ID_PALLET" xml:space="preserve">
+    <value>Pallet</value>
+  </data>
+  <data name="ID_SELECTEDLAYER" xml:space="preserve">
+    <value>Selected layer: {0} </value>
+  </data>
+  <data name="ID_TOTALWEIGHT_WU" xml:space="preserve">
+    <value>Total weight ({0})</value>
   </data>
 </root>

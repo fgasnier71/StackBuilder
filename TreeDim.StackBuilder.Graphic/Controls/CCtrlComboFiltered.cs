@@ -7,34 +7,12 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+
 using treeDiM.StackBuilder.Basics;
 #endregion
 
 namespace treeDiM.StackBuilder.Graphics.Controls
 {
-    public interface IItemBaseFilter
-    {
-        bool Accept(Control ctrl, ItemBase itemBase);
-    }
-
-    public class ItemBaseWrapper
-    {
-        public ItemBaseWrapper(ItemBase itemBase)
-        {
-            _itemBase = itemBase;
-        }
-        public ItemBase ItemBase
-        {
-            get { return _itemBase; }
-        }
-        public override string ToString()
-        {
-            return _itemBase.ID.Name;
-        }
-
-        private ItemBase _itemBase;
-    }
-
     public partial class CCtrlComboFiltered : ComboBox
     {
         public CCtrlComboFiltered()

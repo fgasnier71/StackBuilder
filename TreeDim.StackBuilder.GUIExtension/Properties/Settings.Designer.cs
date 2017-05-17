@@ -98,12 +98,12 @@ namespace treeDiM.StackBuilder.GUIExtension.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("1200")]
-        public double PalletHeight {
+        public double MaximumPalletHeight {
             get {
-                return ((double)(this["PalletHeight"]));
+                return ((double)(this["MaximumPalletHeight"]));
             }
             set {
-                this["PalletHeight"] = value;
+                this["MaximumPalletHeight"] = value;
             }
         }
         
@@ -329,6 +329,42 @@ namespace treeDiM.StackBuilder.GUIExtension.Properties {
             }
             set {
                 this["NoFlatsInBundle"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool AllowVerticalX {
+            get {
+                return ((bool)(this["AllowVerticalX"]));
+            }
+            set {
+                this["AllowVerticalX"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool AllowVerticalY {
+            get {
+                return ((bool)(this["AllowVerticalY"]));
+            }
+            set {
+                this["AllowVerticalY"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool AllowVerticalZ {
+            get {
+                return ((bool)(this["AllowVerticalZ"]));
+            }
+            set {
+                this["AllowVerticalZ"] = value;
             }
         }
     }

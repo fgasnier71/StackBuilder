@@ -168,7 +168,7 @@ namespace treeDiM.StackBuilder.GUIExtension
                 Settings.Default.NumberWallsLength = (int)nudWallsLengthDir.Value;
                 Settings.Default.NumberWallsWidth = (int)nudWallsWidthDir.Value;
                 Settings.Default.NumberWallsHeight = (int)nudWallsHeightDir.Value;
-                Settings.Default.PalletHeight = (double)nudPalletHeight.Value;
+                Settings.Default.MaximumPalletHeight = (double)nudPalletHeight.Value;
                 Settings.Default.WallThickness = (double)nudWallThickness.Value;
             }
             catch (Exception ex)
@@ -191,6 +191,7 @@ namespace treeDiM.StackBuilder.GUIExtension
             this.Cursor = Cursors.WaitCursor;
             try
             {
+                /*
                 // build case optimizer and compute solutions
                 PackOptimizer caseOptimizer = new PackOptimizer(
                     SelectedBox                     // BoxProperties
@@ -203,6 +204,7 @@ namespace treeDiM.StackBuilder.GUIExtension
                 // fill grid using solutions
                 FillGrid();
                 UpdateToolbarButtons();
+                 * */
             }
             catch (Exception ex)
             {
@@ -249,7 +251,7 @@ namespace treeDiM.StackBuilder.GUIExtension
         {
             try
             {
-                Document doc;
+ /*                Document doc;
                 CasePalletAnalysis analysis;
                 CasePalletSolution casePalletSol;
                 if (!GenerateProject(out doc, out analysis, out casePalletSol))
@@ -265,7 +267,7 @@ namespace treeDiM.StackBuilder.GUIExtension
                 Reporter.CompanyLogo = string.Empty;
                 Reporter.ImageSizeSetting = Reporter.eImageSize.IMAGESIZE_DEFAULT;
                 Reporter reporter;
-                /*
+               
                 ReportData reportData = new ReportData(analysis);
 
                 if (formReport.FileExtension == "doc")
@@ -287,10 +289,11 @@ namespace treeDiM.StackBuilder.GUIExtension
                 }
                 else
                     return;
-                */
+                
                 // open file
                 if (formReport.OpenGeneratedFile)
                     Process.Start(new ProcessStartInfo(formReport.FilePath));
+  */
             }
             catch (Exception ex)
             {
@@ -482,6 +485,7 @@ namespace treeDiM.StackBuilder.GUIExtension
         }
         private ParamSetPackOptim BuildCaseOptimConstraintSet()
         {
+            /*
             return new ParamSetPackOptim(
                     NoWalls
                     , WallThickness
@@ -490,6 +494,8 @@ namespace treeDiM.StackBuilder.GUIExtension
                     , new Vector3D(MaxLength, MaxWidth, MaxHeight)
                     , ForceVerticalBoxOrientation
                     );
+             */
+            return null;
         }
         private PalletConstraintSet BuildPalletConstraintSet()
         {

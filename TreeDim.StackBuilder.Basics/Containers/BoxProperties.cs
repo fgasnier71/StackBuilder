@@ -51,6 +51,16 @@ namespace treeDiM.StackBuilder.Basics
             _height     = height;
             _hasInsideDimensions = false;
         }
+
+        public BoxProperties(Document document, double[] dimensions)
+            : base(document)
+        {
+            _length = dimensions[0];
+            _width = dimensions[1];
+            _height = dimensions[2];
+            _hasInsideDimensions = false;
+
+        }
         /// <summary>
         /// Constructor 3
         /// </summary>

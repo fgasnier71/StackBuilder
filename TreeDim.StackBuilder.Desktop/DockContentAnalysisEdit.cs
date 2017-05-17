@@ -119,9 +119,8 @@ namespace treeDiM.StackBuilder.Desktop
         #region IDrawingContainer
         public void Draw(Graphics3DControl ctrl, Graphics3D graphics)
         {
-            bool showDimensions = true;
             ViewerSolution sv = new ViewerSolution(Solution);
-            sv.Draw(graphics, Transform3D.Identity, showDimensions);
+            sv.Draw(graphics, Transform3D.Identity);
         }
         #endregion
 

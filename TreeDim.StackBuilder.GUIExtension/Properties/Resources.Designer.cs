@@ -331,6 +331,15 @@ namespace treeDiM.StackBuilder.GUIExtension.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Select at leat one layer.
+        /// </summary>
+        internal static string ID_SELECTATLEASTONELAYOUT {
+            get {
+                return ResourceManager.GetString("ID_SELECTATLEASTONELAYOUT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Volume efficiency (%).
         /// </summary>
         internal static string ID_VOLUMEEFFICIENCY {

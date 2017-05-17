@@ -20,7 +20,7 @@
     <Setting Name="OverhangY" Type="System.Double" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
-    <Setting Name="PalletHeight" Type="System.Double" Scope="User">
+    <Setting Name="MaximumPalletHeight" Type="System.Double" Scope="User">
       <Value Profile="(Default)">1200</Value>
     </Setting>
     <Setting Name="CaseWeight" Type="System.Double" Scope="User">
@@ -79,6 +79,15 @@
     </Setting>
     <Setting Name="NoFlatsInBundle" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">10</Value>
+    </Setting>
+    <Setting Name="AllowVerticalX" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="AllowVerticalY" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="AllowVerticalZ" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
     </Setting>
   </Settings>
 </SettingsFile>

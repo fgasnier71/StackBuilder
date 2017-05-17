@@ -70,6 +70,15 @@ namespace treeDiM.StackBuilder.ABYATExcelLoader.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Not all cases will fit in stacking volume!.
+        /// </summary>
+        internal static string IDS_NOTALLCASESWILLFIT {
+            get {
+                return ResourceManager.GetString("IDS_NOTALLCASESWILLFIT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No valid file loaded.
         /// </summary>
         internal static string IDS_NOVALIDFILELOADED {

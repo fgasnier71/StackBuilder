@@ -63,16 +63,15 @@ namespace treeDiM.StackBuilder.Graphics
                 )
                 && null != _analysis)
             {
-                
-
                 // generate bitmap
                 Graphics3DImage graphics = new Graphics3DImage(s);
                 graphics.BackgroundColor = Color.Transparent;
                 graphics.CameraPosition = vCamera;
                 graphics.Target = vTarget;
                 graphics.MarginPercentage = 0.0;
+                graphics.ShowDimensions = false;
                 using (ViewerSolution viewer = new ViewerSolution(_analysis.Solution))
-                { viewer.Draw(graphics, RelativeTransf, false); }
+                { viewer.Draw(graphics, RelativeTransf); }
                 graphics.Flush();
 
                 // save bitmap

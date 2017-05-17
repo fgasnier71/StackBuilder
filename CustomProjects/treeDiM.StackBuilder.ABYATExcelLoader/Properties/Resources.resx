@@ -120,6 +120,9 @@
   <data name="IDS_NODATALOADED" xml:space="preserve">
     <value>No data could be loaded from file</value>
   </data>
+  <data name="IDS_NOTALLCASESWILLFIT" xml:space="preserve">
+    <value>Not all cases will fit in stacking volume!</value>
+  </data>
   <data name="IDS_NOVALIDFILELOADED" xml:space="preserve">
     <value>No valid file loaded</value>
   </data>

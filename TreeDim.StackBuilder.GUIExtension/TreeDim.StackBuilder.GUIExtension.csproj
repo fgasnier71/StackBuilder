@@ -65,6 +65,8 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -77,11 +79,23 @@
       <Link>Properties\SharedAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="ComboBoxItems.cs" />
+    <Compile Include="ComboDBPallet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ComboDBPallet.Designer.cs">
+      <DependentUpon>ComboDBPallet.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormDefineAnalysis.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormDefineAnalysis.Designer.cs">
       <DependentUpon>FormDefineAnalysis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDefineAnalysisCasePallet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDefineAnalysisCasePallet.Designer.cs">
+      <DependentUpon>FormDefineAnalysisCasePallet.cs</DependentUpon>
     </Compile>
     <Compile Include="FormDefineBundleCaseAnalysis.cs">
       <SubType>Form</SubType>
@@ -131,6 +145,10 @@
       <Project>{8F9BA4D3-D6AF-42A6-B74F-0DF6568C148B}</Project>
       <Name>Sharp3D.Math</Name>
     </ProjectReference>
+    <ProjectReference Include="..\treeDiM.PLMPack.DBClient\treeDiM.PLMPack.DBClient.csproj">
+      <Project>{02c4930a-e1d6-4fcf-bb97-69aec2715563}</Project>
+      <Name>treeDiM.PLMPack.DBClient</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TreeDim.StackBuilder.Basics\treeDiM.StackBuilder.Basics.csproj">
       <Project>{444C01D0-53FD-49A1-9D55-267B49161357}</Project>
       <Name>treeDiM.StackBuilder.Basics</Name>
@@ -158,6 +176,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormDefineAnalysis.resx">
       <DependentUpon>FormDefineAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDefineAnalysisCasePallet.resx">
+      <DependentUpon>FormDefineAnalysisCasePallet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormDefineBundleCaseAnalysis.fr-FR.resx">
       <DependentUpon>FormDefineBundleCaseAnalysis.cs</DependentUpon>
@@ -220,9 +241,7 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-  <Target Name="PostBuildEvent"
-        Condition=" '$(PostBuildEvent)' != '' "
-        DependsOnTargets="$(PostBuildEventDependsOn)">
-    <Exec WorkingDirectory="$(OutDir)" Command="$(PostBuildEvent)" IgnoreExitCode="true"/>
+  <Target Name="PostBuildEvent" Condition=" '$(PostBuildEvent)' != '' " DependsOnTargets="$(PostBuildEventDependsOn)">
+    <Exec WorkingDirectory="$(OutDir)" Command="$(PostBuildEvent)" IgnoreExitCode="true" />
   </Target>
 </Project>

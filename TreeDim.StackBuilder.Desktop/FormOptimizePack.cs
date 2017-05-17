@@ -145,9 +145,8 @@ namespace treeDiM.StackBuilder.Desktop
                 }
                 else if (graphCtrlSolution == ctrl)
                 {
-                    bool showDimensions = true;
                     ViewerSolution sv = new ViewerSolution(SelectedAnalysis.Solution);
-                    sv.Draw(graphics, Transform3D.Identity, showDimensions);
+                    sv.Draw(graphics, Transform3D.Identity);
                 }
             }
             catch (Exception ex)
@@ -206,7 +205,7 @@ namespace treeDiM.StackBuilder.Desktop
                 columnHeader.View = viewColumnHeader;
                 gridSolutions[0, iCol++] = columnHeader;
                 // weight
-                columnHeader = new SourceGrid.Cells.ColumnHeader(string.Format(Properties.Resources.ID_WEIGHT, UnitsManager.UnitString(UnitsManager.UnitType.UT_LENGTH)));
+                columnHeader = new SourceGrid.Cells.ColumnHeader(string.Format(Properties.Resources.ID_WEIGHT_WU, UnitsManager.UnitString(UnitsManager.UnitType.UT_LENGTH)));
                 columnHeader.AutomaticSortEnabled = false;
                 columnHeader.View = viewColumnHeader;
                 gridSolutions[0, iCol++] = columnHeader;

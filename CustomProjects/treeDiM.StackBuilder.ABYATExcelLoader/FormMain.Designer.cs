@@ -52,6 +52,7 @@
             this.bnGenerate = new System.Windows.Forms.Button();
             this.fileSelectOutput = new treeDiM.UserControls.FileSelect();
             this.lbOutputFilePath = new System.Windows.Forms.Label();
+            this.lbCaseLoaded = new System.Windows.Forms.Label();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.graphCtrlPallet)).BeginInit();
@@ -166,6 +167,7 @@
             this.gbInput.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbInput.Controls.Add(this.lbCaseLoaded);
             this.gbInput.Controls.Add(this.cbPalletType);
             this.gbInput.Controls.Add(this.lbPalletType);
             this.gbInput.Controls.Add(this.uCtrlTruckDimensions);
@@ -328,6 +330,15 @@
             this.lbOutputFilePath.TabIndex = 0;
             this.lbOutputFilePath.Text = "Output file path";
             // 
+            // lbCaseLoaded
+            // 
+            this.lbCaseLoaded.AutoSize = true;
+            this.lbCaseLoaded.Location = new System.Drawing.Point(105, 41);
+            this.lbCaseLoaded.Name = "lbCaseLoaded";
+            this.lbCaseLoaded.Size = new System.Drawing.Size(91, 13);
+            this.lbCaseLoaded.TabIndex = 14;
+            this.lbCaseLoaded.Text = "(No case loaded!)";
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -384,6 +395,7 @@
         private System.Windows.Forms.Button bnGenerate;
         private UserControls.FileSelect fileSelectOutput;
         private System.Windows.Forms.Label lbOutputFilePath;
+        private System.Windows.Forms.Label lbCaseLoaded;
     }
 }
 

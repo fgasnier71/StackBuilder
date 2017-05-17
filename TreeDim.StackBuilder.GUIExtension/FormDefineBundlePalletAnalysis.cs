@@ -52,7 +52,7 @@ namespace treeDiM.StackBuilder.GUIExtension
             // initialisation
             FlatWeight = Settings.Default.CaseWeight;
             NoFlats = Settings.Default.NoFlatsInBundle;
-            MaximumPalletHeight = Settings.Default.PalletHeight;
+            MaximumPalletHeight = Settings.Default.MaximumPalletHeight;
             // graphic constainer initialization
             graphCtrlSolution.DrawingContainer = this;
             graphCtrlPallet.DrawingContainer = this;
@@ -69,7 +69,7 @@ namespace treeDiM.StackBuilder.GUIExtension
             Settings.Default.PalletName = CurrentPallet.Name;
             Settings.Default.CaseWeight = FlatWeight;
             Settings.Default.NoFlatsInBundle = NoFlats;
-            Settings.Default.PalletHeight = MaximumPalletHeight;
+            Settings.Default.MaximumPalletHeight = MaximumPalletHeight;
         }
         #endregion
 

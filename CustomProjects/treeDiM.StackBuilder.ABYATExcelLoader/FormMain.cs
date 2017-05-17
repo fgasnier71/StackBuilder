@@ -146,7 +146,7 @@ namespace treeDiM.StackBuilder.ABYATExcelLoader
             {
                 PalletProperties palletProperties = new PalletProperties(null, PalletTypeName, PalletLength, PalletWidth, PalletHeight);
                 palletProperties.Weight = PalletWeight;
-                palletProperties.Color = Color.Gold;
+                palletProperties.Color = Color.Yellow;
                 return palletProperties;
             }
         }
@@ -169,8 +169,11 @@ namespace treeDiM.StackBuilder.ABYATExcelLoader
                 message = Resources.IDS_NOVALIDFILELOADED;
             else if (_dataCases.Count < 1)
                 message = Resources.IDS_NODATALOADED;
+            else if (!FitsIn(_dimensionsMax, StackingDims))
+                message = Resources.IDS_NOTALLCASESWILLFIT;
 
             // status label
+            statusLabel.ForeColor = string.IsNullOrEmpty(message) ? Color.Black : Color.Red;
             statusLabel.Text = string.IsNullOrEmpty(message) ? Resources.IDS_READY : message;
             // generate button
             bnGenerate.Enabled = _dataCases.Count > 0;
@@ -192,7 +195,49 @@ namespace treeDiM.StackBuilder.ABYATExcelLoader
             string filePath = fileSelectExcel.FileName;
             _dataCases.Clear();
             if (File.Exists(InputFilePath))
-                ExcelDataReader.LoadFile(InputFilePath, ref _dataCases);
+            {
+                bool quitTrying = false;
+                while (!quitTrying)
+                {
+                    try
+                    {
+                        ExcelDataReader.LoadFile(InputFilePath, ref _dataCases);
+                        quitTrying = _dataCases.Count > 0;
+
+                        if (_dataCases.Count > 0)
+                        {
+                            lbCaseLoaded.Text = string.Format("{0} case(s) loaded!", _dataCases.Count);
+
+                            foreach (DataCase dc in _dataCases)
+                            {
+                                _dimensionsMax[0] = Math.Max(_dimensionsMax[0], dc.OuterDimensions[0]);
+                                _dimensionsMax[1] = Math.Max(_dimensionsMax[1], dc.OuterDimensions[1]);
+                                _dimensionsMax[2] = Math.Max(_dimensionsMax[2], dc.OuterDimensions[2]);
+                            }
+
+                            uCtrlPalletDimensions.ValueX = Math.Max(_dimensionsMax[0]+1.0, uCtrlPalletDimensions.ValueX);
+                            uCtrlPalletDimensions.ValueY = Math.Max(_dimensionsMax[1]+1.0, uCtrlPalletDimensions.ValueY);
+                            PalletMaximumHeight = Math.Max(_dimensionsMax[2]+PalletHeight+1.0, PalletMaximumHeight);
+
+                            uCtrlTruckDimensions.ValueX = Math.Max(uCtrlTruckDimensions.ValueX, _dimensionsMax[0]+1.0);
+                            uCtrlTruckDimensions.ValueY = Math.Max(uCtrlTruckDimensions.ValueY, _dimensionsMax[1]+1.0);
+                            uCtrlTruckDimensions.ValueZ = Math.Max(uCtrlTruckDimensions.ValueZ, _dimensionsMax[2]+1.0);
+                        }
+                    }
+                    catch (System.IO.IOException /*ex*/)
+                    {
+                        if (DialogResult.No == MessageBox.Show(string.Format("File {0} is locked. Make sure it is not opened in Excel.\nTry again?", Path.GetFileName(InputFilePath)),
+                            System.Windows.Forms.Application.ProductName,
+                            MessageBoxButtons.YesNo))
+                            quitTrying = true;
+                    }
+                    catch (Exception /*ex*/)
+                    {
+                        MessageBox.Show(string.Format("Failed to load file {0}.", InputFilePath));
+                        quitTrying = true;
+                    }
+                }
+            }
             if (_dataCases.Count > 0)
                 OutputFilePath = OutputFilePathSuggested;
             UpdateStatus();
@@ -205,6 +250,8 @@ namespace treeDiM.StackBuilder.ABYATExcelLoader
             uCtrlMaximumPalletHeight.Enabled = (0 == iMode);
             lbPalletType.Enabled = (0 == iMode);
             cbPalletType.Enabled = (0 == iMode);
+
+            uCtrlTruckDimensions.Enabled = (1 == iMode);
             onDataChanged(this, e);
         }
         private void onDataChanged(object sender, EventArgs args)
@@ -226,13 +273,24 @@ namespace treeDiM.StackBuilder.ABYATExcelLoader
                         MessageBoxButtons.YesNo))
                         return;
                     else
-                        File.Delete(outputFilePath);                    
+                    {
+                        try
+                        {
+                            File.Delete(outputFilePath);
+                        }
+                        catch (IOException /* ex */)
+                        {
+                            MessageBox.Show(
+                                string.Format("File {0} is locked.\nMake sure it is not opened in Excel.", outputFilePath)
+                                );
+                            return;
+                        }
+                    }
                 }
                 // copy input file path
                 File.Copy(InputFilePath, outputFilePath);
                 // Modify output file & open file
-                if (InsertPalletisationData(outputFilePath) && chkbOpenFile.Checked)
-                { /* Process.Start(outputFilePath); */ }
+                if (InsertPalletisationData(outputFilePath) && chkbOpenFile.Checked) {}
             }
             catch (Exception ex)
             {
@@ -240,7 +298,6 @@ namespace treeDiM.StackBuilder.ABYATExcelLoader
             }
         }
         #endregion
-
         #region Computing result
         private void generateResult(double length, double width, double height, double? weight, ref int stackCount, ref double stackWeight, ref string stackImagePath)
         {
@@ -276,7 +333,7 @@ namespace treeDiM.StackBuilder.ABYATExcelLoader
                     stackWeight = analysis.Solution.Weight;
 
                     ViewerSolution sv = new ViewerSolution(analysis.Solution);
-                    sv.Draw(graphics, Transform3D.Identity, true);
+                    sv.Draw(graphics, Transform3D.Identity);
                     graphics.Flush();
                 }
             }
@@ -298,7 +355,7 @@ namespace treeDiM.StackBuilder.ABYATExcelLoader
                     stackWeight = analysis.Solution.Weight;
 
                     ViewerSolution sv = new ViewerSolution(analysis.Solution);
-                    sv.Draw(graphics, Transform3D.Identity, true);
+                    sv.Draw(graphics, Transform3D.Identity);
                     graphics.Flush();
                 }
             }
@@ -314,8 +371,36 @@ namespace treeDiM.StackBuilder.ABYATExcelLoader
         {
             get { return 256; }
         }
+        private double[] StackingDims
+        {
+            get
+            {
+                double[] dims = new double[3];
+                if (0 == Mode)
+                {
+                    dims[0] = uCtrlPalletDimensions.ValueX;
+                    dims[1] = uCtrlPalletDimensions.ValueY;
+                    dims[2] = PalletMaximumHeight - uCtrlPalletDimensions.ValueZ;
+                }
+                else
+                { 
+                    dims[0] = uCtrlTruckDimensions.ValueX;
+                    dims[1] = uCtrlTruckDimensions.ValueY;
+                    dims[2] = uCtrlTruckDimensions.ValueZ;                
+                }
+                return dims; 
+            }
+        }
         #endregion
-
+        #region Helpers
+        bool FitsIn(double[] dim0, double[] dim1)
+        {
+            for (int i = 0; i < 3; ++i)
+                if (dim0[i] > dim1[i])
+                    return false;
+            return true;
+        }
+        #endregion
         #region Excel file loading / writing
         private bool InsertPalletisationData(string filePath)
         {
@@ -331,7 +416,13 @@ namespace treeDiM.StackBuilder.ABYATExcelLoader
                 Range range = xlWorkSheet.UsedRange;
                 int rowCount = range.Rows.Count;
                 // modify header
-                Range headerRange = xlWorkSheet.get_Range("a" + 1, "l" + 1);
+                Range countHeaderCell = xlWorkSheet.get_Range("m" + 1, "m" + 1);
+                countHeaderCell.Value = "Count";
+                Range weightHeaderCell = xlWorkSheet.get_Range("n" + 1, "n" + 1);
+                weightHeaderCell.Value = "Weight";
+                Range imageHeaderCell = xlWorkSheet.get_Range("o" + 1, "o" + 1);
+                imageHeaderCell.Value = "Image";
+                Range headerRange = xlWorkSheet.get_Range("a" + 1, "o" + 1);
                 headerRange.Font.Bold = true;
                 // modify range for images
                 Range dataRange = xlWorkSheet.get_Range("a"+ 2, "l" + rowCount);
@@ -392,6 +483,7 @@ namespace treeDiM.StackBuilder.ABYATExcelLoader
         #endregion
         #region Data members
         private List<DataCase> _dataCases = new List<DataCase>();
+        private double[] _dimensionsMax = new double[3];
         #endregion
     }
 }
