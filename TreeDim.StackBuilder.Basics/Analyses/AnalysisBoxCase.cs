@@ -186,7 +186,7 @@ namespace treeDiM.StackBuilder.Basics
             {
                 return new GlobID(
                     _analysis.ID.IGuid,
-                    string.Format("{0}({1})", Properties.Resource.ID_NAMECASE, _analysis.Name),
+                    string.Format("{0}({1})", Properties.Resources.ID_NAMECASE, _analysis.Name),
                     _analysis.Description
                     ); 
             } 
@@ -217,7 +217,7 @@ namespace treeDiM.StackBuilder.Basics
             return true;
         }
         protected override string TypeName
-        { get { return Properties.Resource.ID_LOADEDCASE; } }
+        { get { return Properties.Resources.ID_LOADEDCASE; } }
         public override bool IsCase
         { get { return true; } }
         #endregion

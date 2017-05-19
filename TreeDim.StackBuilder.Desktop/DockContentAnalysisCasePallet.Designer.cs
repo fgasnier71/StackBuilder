@@ -166,12 +166,12 @@
             this.graphCtrlSolution.TabIndex = 1;
             this.graphCtrlSolution.Viewer = null;
             // 
-            // gridSolutions
+            // gridSolution
             // 
             this.gridSolution.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridSolution.EnableSort = true;
             this.gridSolution.Location = new System.Drawing.Point(0, 0);
-            this.gridSolution.Name = "gridSolutions";
+            this.gridSolution.Name = "gridSolution";
             this.gridSolution.OptimizeMode = SourceGrid.CellOptimizeMode.ForRows;
             this.gridSolution.SelectionMode = SourceGrid.GridSelectionMode.Cell;
             this.gridSolution.Size = new System.Drawing.Size(194, 410);
@@ -344,7 +344,7 @@
             this.gbLayer.Controls.Add(this.cbLayerType);
             this.gbLayer.Controls.Add(this.bnSymmetryX);
             this.gbLayer.Controls.Add(this.bnSymetryY);
-            this.gbLayer.Location = new System.Drawing.Point(4, 5);
+            this.gbLayer.Location = new System.Drawing.Point(4, 6);
             this.gbLayer.Name = "gbLayer";
             this.gbLayer.Size = new System.Drawing.Size(246, 113);
             this.gbLayer.TabIndex = 10;

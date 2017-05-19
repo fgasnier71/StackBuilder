@@ -147,7 +147,7 @@ namespace treeDiM.StackBuilder.Basics
             number = _arrangement.Number;
             return true;
         }
-        protected override string TypeName { get { return Properties.Resource.ID_NAMEPACK; } }
+        protected override string TypeName { get { return Properties.Resources.ID_NAMEPACK; } }
         public override bool IsCase { get { return true; } }
         #endregion
         #region Public properties

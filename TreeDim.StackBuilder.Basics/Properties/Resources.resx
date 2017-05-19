@@ -117,24 +117,67 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="toolStripButtonReport.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABkSURBVDhPzYxBDoBACAP3/5/GFC0phAPuenCSapka11pm
-        Z7kfm/zsB3gzpHMgeY5JPnQOJK9jSOka9exxgDpOehygjpMeB6jjpMcBODJK571XoVE6770KjdJ57/XD
-        N3z3g92YXauEAwxp1v7WAAAAAElFTkSuQmCC
-</value>
+  <data name="ID_CONSUMERSALESUNITS" xml:space="preserve">
+    <value># CSU</value>
   </data>
-  <data name="toolStripButtonStackBuilder.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACFSURBVDhPrY/dDcAgCIRZxn06Q0fyoetaf6DiKZEmXnKB
-        IN/R0nGlEJLXjHTVh0TNux4D6oPXGPAN8YrVl5rN+I/rEMK4+gKpVq9rNuPOANzJlXHnLwD83JSui1rI
-        tLDq1Y7AY8DOFlykF4ar0C/horqwsQnL0GvGuuQhxjgt44yRkyJ6Ab2+sIJesrVdAAAAAElFTkSuQmCC
-</value>
+  <data name="ID_INDEX" xml:space="preserve">
+    <value>#</value>
   </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Selectionner une solution..</value>
+  <data name="ID_LAYER" xml:space="preserve">
+    <value>Layer</value>
+  </data>
+  <data name="ID_LAYERPATTERN" xml:space="preserve">
+    <value>Layer pattern</value>
+  </data>
+  <data name="ID_LAYERS" xml:space="preserve">
+    <value>Layers</value>
+  </data>
+  <data name="ID_LAYERSALL" xml:space="preserve">
+    <value>Layers = All</value>
+  </data>
+  <data name="ID_LAYERWEIGHT" xml:space="preserve">
+    <value>Layer weight</value>
+  </data>
+  <data name="ID_LOADEDCASE" xml:space="preserve">
+    <value>Loaded case</value>
+  </data>
+  <data name="ID_LOADEDPALLET" xml:space="preserve">
+    <value>Loaded pallet</value>
+  </data>
+  <data name="ID_MAXIMUMSPACE" xml:space="preserve">
+    <value>Maximum space</value>
+  </data>
+  <data name="ID_NAMEBOX" xml:space="preserve">
+    <value>Box</value>
+  </data>
+  <data name="ID_NAMEBUNDLE" xml:space="preserve">
+    <value>Bundle</value>
+  </data>
+  <data name="ID_NAMECASE" xml:space="preserve">
+    <value>Case</value>
+  </data>
+  <data name="ID_NAMECYLINDER" xml:space="preserve">
+    <value>Cylinder</value>
+  </data>
+  <data name="ID_NAMEPACK" xml:space="preserve">
+    <value>Pack</value>
+  </data>
+  <data name="ID_NAMEPALLET" xml:space="preserve">
+    <value>Pallet</value>
+  </data>
+  <data name="ID_NAMETRUCK" xml:space="preserve">
+    <value>Truck</value>
+  </data>
+  <data name="ID_PACKCOUNT" xml:space="preserve">
+    <value># Packs</value>
+  </data>
+  <data name="ID_PALLETHEIGHT" xml:space="preserve">
+    <value>Pallet height</value>
+  </data>
+  <data name="ID_PALLETWEIGHT" xml:space="preserve">
+    <value>Pallet weight</value>
+  </data>
+  <data name="ID_SELECTED" xml:space="preserve">
+    <value>Selected</value>
   </data>
 </root>

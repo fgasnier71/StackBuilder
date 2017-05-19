@@ -667,6 +667,37 @@ namespace treeDiM.StackBuilder.Basics
             }
             return solItemIndexes;            
         }
+        public int NoLayerTypesUsed
+        {
+            get
+            {
+                int noLayerTypesUsed = 0;
+                for (int i = 0; i < Layers.Count; ++i)
+                    noLayerTypesUsed += Layers[i].BoxCount > 0 ? 1 : 0; 
+                return noLayerTypesUsed;
+            }
+        }
+        public string LayerCaption(int layerTypeIndex)
+        {
+            if (1 == NoLayerTypesUsed)
+                return Properties.Resources.ID_LAYERSALL;
+
+            List<int> layerIndexes = LayerTypeUsed(layerTypeIndex);
+            StringBuilder sb = new StringBuilder();
+            sb.Append(layerIndexes.Count > 1 ? Properties.Resources.ID_LAYERS : Properties.Resources.ID_LAYER);
+            int iCountIndexes = layerIndexes.Count;
+            for (int j = 0; j < iCountIndexes; ++j)
+            {
+                sb.AppendFormat("{0}", layerIndexes[j]);
+                if (j != iCountIndexes - 1)
+                {
+                    sb.Append(",");
+                    if (j != 0 && 0 == j % 10)
+                        sb.Append("\n");
+                }
+            }
+            return sb.ToString();
+        }
         public int LayerBoxCount(int layerTypeIndex)
         {
             return _layers[layerTypeIndex].Count;

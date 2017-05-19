@@ -27,6 +27,7 @@ namespace treeDiM.StackBuilder.GUIExtension
     {
         #region Data members
         static readonly ILog _log = LogManager.GetLogger(typeof(FormDefineAnalysisCasePallet));
+        private string _caseName;
         #endregion
 
         #region Constructor
@@ -40,8 +41,12 @@ namespace treeDiM.StackBuilder.GUIExtension
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
-            cbPallet.InitializeContent();
+            // initialize pallet combo
+            cbPallet.Initialize();
+            // initialize graphCtrlPallet
+            graphCtrlPallet.DrawingContainer = this;
 
+            uCtrlCaseOrientation.BProperties = BoxProperties;
             uCtrlCaseOrientation.AllowedOrientations = new bool[] { Settings.Default.AllowVerticalX, Settings.Default.AllowVerticalY, Settings.Default.AllowVerticalZ };
             uCtrlMaximumHeight.Value = Settings.Default.MaximumPalletHeight;
             uCtrlOptMaximumWeight.Value = new OptDouble(false, Settings.Default.MaximumPalletWeight);
@@ -63,17 +68,23 @@ namespace treeDiM.StackBuilder.GUIExtension
 
             Settings.Default.OverhangX = uCtrlOverhang.ValueX;
             Settings.Default.OverhangY = uCtrlOverhang.ValueY;
-
         }
         #endregion
 
         #region Implement IDrawingContainer
         public void Draw(Graphics3DControl ctrl, Graphics3D graphics)
         {
-            if (graphCtrlPallet == ctrl)
+            try
             {
-                using (ViewerPallet v = new ViewerPallet(cbPallet.SelectedPallet))
-                    v.Draw(graphics, Transform3D.Identity);
+                if (graphCtrlPallet == ctrl)
+                {
+                    using (ViewerPallet v = new ViewerPallet(cbPallet.SelectedPallet))
+                        v.Draw(graphics, Transform3D.Identity);
+                }
+            }
+            catch (Exception ex)
+            {
+                _log.Error(ex.ToString());
             }
         }
         #endregion
@@ -89,6 +100,11 @@ namespace treeDiM.StackBuilder.GUIExtension
                 uCtrlDimensions.ValueZ = value[2];
             }
         }
+        public string CaseName
+        {
+            set { _caseName = value; }
+            get { return _caseName; }
+        }
         #endregion
 
         #region Private properties
@@ -97,6 +113,7 @@ namespace treeDiM.StackBuilder.GUIExtension
             get
             {
                 BoxProperties bProperties = new BoxProperties(null, CaseDimensions);
+                bProperties.ID.SetNameDesc(_caseName, _caseName);
                 bProperties.SetColor(Color.Chocolate);
                 bProperties.SetWeight( uCtrlMass.Value );
                 return bProperties;
@@ -166,7 +183,11 @@ namespace treeDiM.StackBuilder.GUIExtension
                 _log.Error(ex.ToString());
             }
         }
-
+        private void onPalletChanged(object sender, EventArgs e)
+        {
+            graphCtrlPallet.Invalidate();
+            onInputChanged(sender, e);
+        }
         private void onNext(object sender, EventArgs e)
         {
             try
@@ -174,15 +195,22 @@ namespace treeDiM.StackBuilder.GUIExtension
                 Close();
 
                 List<LayerDesc> layerDescs = new List<LayerDesc>();
+                foreach (ILayer2D layer2D in uCtrlLayerList.Selected)
+                    layerDescs.Add(layer2D.LayerDescriptor);
 
                 Packable packable = BoxProperties;
                 PalletProperties palletProperties = cbPallet.SelectedPallet;
                 if (null == packable || null == palletProperties) return;
 
                 Document doc = new Document(DocumentName, DocumentDescription, WCFClientSingleton.Instance.User.Name, DateTime.Now, null);
-                Analysis analysis = doc.CreateNewAnalysisCasePallet(DocumentName, DocumentDescription, packable, palletProperties, new List<InterlayerProperties>(), null, null, null, BuildConstraintSet(), layerDescs);
 
-                FormSelectSolution form = null;
+                Solution.SetSolver(new LayerSolver());
+                Analysis analysis = doc.CreateNewAnalysisCasePallet(
+                    DocumentName, DocumentDescription
+                    , packable, palletProperties, new List<InterlayerProperties>(), null, null, null
+                    , BuildConstraintSet()
+                    , layerDescs);
+                FormBrowseSolution form = new FormBrowseSolution(doc, analysis);
                 form.ShowDialog();
             }
             catch (Exception ex)

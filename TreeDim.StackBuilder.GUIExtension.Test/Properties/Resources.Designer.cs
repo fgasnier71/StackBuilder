@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TreeDim.StackBuilder.GUIExtension.Test.Properties {
+namespace treeDiM.StackBuilder.GUIExtension.Test.Properties {
     using System;
     
     

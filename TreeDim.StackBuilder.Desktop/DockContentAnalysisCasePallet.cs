@@ -351,19 +351,13 @@ namespace treeDiM.StackBuilder.Desktop
                 gridSolution[iRow, 1] = new SourceGrid.Cells.Cell(
                     string.Format(CultureInfo.InvariantCulture, "{0:0.#}", _solution.VolumeEfficiency));
 
-                int noLayerTypesUsed = 0;
-                for (int i = 0; i < _solution.Layers.Count; ++i)
-                    noLayerTypesUsed += _solution.Layers[i].BoxCount > 0 ? 1 : 0;
-
+                int noLayerTypesUsed = _solution.NoLayerTypesUsed;
                 // ### layers : begin
                 for (int i = 0; i < _solution.Layers.Count; ++i)
                 {
-                    List<int> layerIndexes = _solution.LayerTypeUsed(i);
-                    if (0 == layerIndexes.Count) continue;
-
                     // layer caption
                     gridSolution.Rows.Insert(++iRow);
-                    rowHeader = new SourceGrid.Cells.RowHeader((noLayerTypesUsed == 1) ? "Layers : All" : BuildLayerCaption(layerIndexes));
+                    rowHeader = new SourceGrid.Cells.RowHeader(_solution.LayerCaption(i));
                     rowHeader.ColumnSpan = 2;
                     rowHeader.View = captionHeader;
                     gridSolution[iRow, 0] = rowHeader;
@@ -508,7 +502,7 @@ namespace treeDiM.StackBuilder.Desktop
             graphCtrlSolution.Invalidate();
             UpdateGrid();
         }
-       #endregion
+        #endregion
 
         #region Toolbar event handlers
         private void onBack(object sender, EventArgs e)
@@ -606,26 +600,6 @@ namespace treeDiM.StackBuilder.Desktop
             {
                 _log.Error(ex.Message);
             }
-        }
-        #endregion
-
-        #region Helpers
-        private string BuildLayerCaption(List<int> layerIndexes)
-        {
-            StringBuilder sb = new StringBuilder();
-            sb.Append(layerIndexes.Count > 1 ? Resources.ID_LAYERS : Resources.ID_LAYER);
-            int iCountIndexes = layerIndexes.Count;
-            for (int j = 0; j < iCountIndexes; ++j)
-            {
-                sb.AppendFormat("{0}", layerIndexes[j]);
-                if (j != iCountIndexes - 1)
-                {
-                    sb.Append(",");
-                    if (j != 0 && 0 == j % 10)
-                        sb.Append("\n");
-                }
-            }
-            return sb.ToString();
         }
         #endregion
     }

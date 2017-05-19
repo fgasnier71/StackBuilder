@@ -78,7 +78,7 @@ namespace treeDiM.StackBuilder.Basics
         #region Override packable
         protected override string TypeName
         {
-            get { return Properties.Resource.ID_NAMECYLINDER; }
+            get { return Properties.Resources.ID_NAMECYLINDER; }
         }
         public override double Volume
         {

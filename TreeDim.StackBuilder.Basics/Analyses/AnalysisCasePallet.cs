@@ -281,7 +281,7 @@ namespace treeDiM.StackBuilder.Basics
             return true;
         }
         protected override string TypeName
-        { get { return Properties.Resource.ID_LOADEDPALLET; } }
+        { get { return Properties.Resources.ID_LOADEDPALLET; } }
         #endregion
 
         #region Helpers

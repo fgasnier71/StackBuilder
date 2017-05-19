@@ -190,12 +190,12 @@ namespace treeDiM.StackBuilder.Basics
             get
             {
                 List<DataDef> dataDefs = new List<DataDef>();
-                dataDefs.Add(new DataDef(Resource.ID_PACKCOUNT, typeof(string), UnitsManager.UnitType.UT_NONE, false));
-                dataDefs.Add(new DataDef(Resource.ID_CONSUMERSALESUNITS, typeof(int), UnitsManager.UnitType.UT_NONE, true));
-                dataDefs.Add(new DataDef(Resource.ID_LAYERWEIGHT, typeof(double), UnitsManager.UnitType.UT_MASS, true));
-                dataDefs.Add(new DataDef(Resource.ID_PALLETWEIGHT, typeof(double), UnitsManager.UnitType.UT_MASS, true));
-                dataDefs.Add(new DataDef(Resource.ID_PALLETHEIGHT, typeof(double), UnitsManager.UnitType.UT_LENGTH, true));
-                dataDefs.Add(new DataDef(Resource.ID_MAXIMUMSPACE, typeof(double), UnitsManager.UnitType.UT_LENGTH, true ));
+                dataDefs.Add(new DataDef(Resources.ID_PACKCOUNT, typeof(string), UnitsManager.UnitType.UT_NONE, false));
+                dataDefs.Add(new DataDef(Resources.ID_CONSUMERSALESUNITS, typeof(int), UnitsManager.UnitType.UT_NONE, true));
+                dataDefs.Add(new DataDef(Resources.ID_LAYERWEIGHT, typeof(double), UnitsManager.UnitType.UT_MASS, true));
+                dataDefs.Add(new DataDef(Resources.ID_PALLETWEIGHT, typeof(double), UnitsManager.UnitType.UT_MASS, true));
+                dataDefs.Add(new DataDef(Resources.ID_PALLETHEIGHT, typeof(double), UnitsManager.UnitType.UT_LENGTH, true));
+                dataDefs.Add(new DataDef(Resources.ID_MAXIMUMSPACE, typeof(double), UnitsManager.UnitType.UT_LENGTH, true ));
                 return dataDefs.ToArray();
             }
         }

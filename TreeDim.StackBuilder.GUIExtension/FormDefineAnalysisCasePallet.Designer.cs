@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDefineAnalysisCasePallet));
             this.bnCancel = new System.Windows.Forms.Button();
             this.bnNext = new System.Windows.Forms.Button();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelDef = new System.Windows.Forms.ToolStripStatusLabel();
             this.gbCase = new System.Windows.Forms.GroupBox();
             this.uCtrlCaseOrientation = new treeDiM.StackBuilder.Graphics.uCtrlCaseOrientation();
@@ -40,13 +40,13 @@
             this.gpPallet = new System.Windows.Forms.GroupBox();
             this.uCtrlOverhang = new treeDiM.StackBuilder.Basics.UCtrlDualDouble();
             this.graphCtrlPallet = new treeDiM.StackBuilder.Graphics.Graphics3DControl();
-            this.cbPallet = new treeDiM.StackBuilder.GUIExtension.ComboDBPallet();
+            this.cbPallet = new treeDiM.StackBuilder.GUIExtension.CtrlComboDBPallet();
             this.lbPallets = new System.Windows.Forms.Label();
             this.gpConstraintSet = new System.Windows.Forms.GroupBox();
             this.uCtrlOptMaximumWeight = new treeDiM.StackBuilder.Basics.UCtrlOptDouble();
             this.uCtrlMaximumHeight = new treeDiM.StackBuilder.Basics.UCtrlDouble();
             this.uCtrlLayerList = new treeDiM.StackBuilder.Graphics.UCtrlLayerList();
-            this.statusStrip1.SuspendLayout();
+            this.statusStrip.SuspendLayout();
             this.gbCase.SuspendLayout();
             this.gpPallet.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.graphCtrlPallet)).BeginInit();
@@ -74,15 +74,15 @@
             this.bnNext.UseVisualStyleBackColor = true;
             this.bnNext.Click += new System.EventHandler(this.onNext);
             // 
-            // statusStrip1
+            // statusStrip
             // 
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabelDef});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 639);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(634, 22);
-            this.statusStrip1.TabIndex = 2;
-            this.statusStrip1.Text = "statusStrip";
+            this.statusStrip.Location = new System.Drawing.Point(0, 639);
+            this.statusStrip.Name = "statusStrip";
+            this.statusStrip.Size = new System.Drawing.Size(634, 22);
+            this.statusStrip.TabIndex = 2;
+            this.statusStrip.Text = "statusStrip";
             // 
             // toolStripStatusLabelDef
             // 
@@ -191,7 +191,7 @@
             this.cbPallet.Name = "cbPallet";
             this.cbPallet.Size = new System.Drawing.Size(211, 21);
             this.cbPallet.TabIndex = 1;
-            this.cbPallet.SelectedIndexChanged += new System.EventHandler(this.onInputChanged);
+            this.cbPallet.SelectedIndexChanged += new System.EventHandler(this.onPalletChanged);
             // 
             // lbPallets
             // 
@@ -271,7 +271,7 @@
             this.Controls.Add(this.gpConstraintSet);
             this.Controls.Add(this.gpPallet);
             this.Controls.Add(this.gbCase);
-            this.Controls.Add(this.statusStrip1);
+            this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.bnNext);
             this.Controls.Add(this.bnCancel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -280,8 +280,8 @@
             this.Name = "FormDefineAnalysisCasePallet";
             this.ShowInTaskbar = false;
             this.Text = "Define case/pallet analysis...";
-            this.statusStrip1.ResumeLayout(false);
-            this.statusStrip1.PerformLayout();
+            this.statusStrip.ResumeLayout(false);
+            this.statusStrip.PerformLayout();
             this.gbCase.ResumeLayout(false);
             this.gpPallet.ResumeLayout(false);
             this.gpPallet.PerformLayout();
@@ -296,7 +296,7 @@
 
         private System.Windows.Forms.Button bnCancel;
         private System.Windows.Forms.Button bnNext;
-        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.StatusStrip statusStrip;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelDef;
         private System.Windows.Forms.GroupBox gbCase;
         private Basics.UCtrlTriDouble uCtrlDimensions;
@@ -305,7 +305,7 @@
         private System.Windows.Forms.GroupBox gpPallet;
         private System.Windows.Forms.Label lbPallets;
         private System.Windows.Forms.GroupBox gpConstraintSet;
-        private ComboDBPallet cbPallet;
+        private CtrlComboDBPallet cbPallet;
         private Graphics.Graphics3DControl graphCtrlPallet;
         private Graphics.UCtrlLayerList uCtrlLayerList;
         private Basics.UCtrlDualDouble uCtrlOverhang;

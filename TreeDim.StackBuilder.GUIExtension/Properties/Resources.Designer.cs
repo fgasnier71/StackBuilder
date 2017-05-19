@@ -160,6 +160,15 @@ namespace treeDiM.StackBuilder.GUIExtension.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Double-click a layer!.
+        /// </summary>
+        internal static string ID_DOUBLECLICKALAYER {
+            get {
+                return ResourceManager.GetString("ID_DOUBLECLICKALAYER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Height.
         /// </summary>
         internal static string ID_HEIGHT {
@@ -196,6 +205,24 @@ namespace treeDiM.StackBuilder.GUIExtension.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Interlayer #.
+        /// </summary>
+        internal static string ID_INTERLAYERNUMBER {
+            get {
+                return ResourceManager.GetString("ID_INTERLAYERNUMBER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Layer #.
+        /// </summary>
+        internal static string ID_LAYERNUMBER {
+            get {
+                return ResourceManager.GetString("ID_LAYERNUMBER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Layer pattern.
         /// </summary>
         internal static string ID_LAYERPATTERN {
@@ -214,6 +241,15 @@ namespace treeDiM.StackBuilder.GUIExtension.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Layer weight ({0}).
+        /// </summary>
+        internal static string ID_LAYERWEIGT {
+            get {
+                return ResourceManager.GetString("ID_LAYERWEIGT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Length.
         /// </summary>
         internal static string ID_LENGTH {
@@ -223,11 +259,38 @@ namespace treeDiM.StackBuilder.GUIExtension.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Load dimensions{0}({1}x{1}x{1}).
+        /// </summary>
+        internal static string ID_LOADDIMENSIONS {
+            get {
+                return ResourceManager.GetString("ID_LOADDIMENSIONS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Load weight ({0}).
+        /// </summary>
+        internal static string ID_LOADWEIGHT_WU {
+            get {
+                return ResourceManager.GetString("ID_LOADWEIGHT_WU", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Inconsistency: Maximum {0} is lower than minimum {1}..
         /// </summary>
         internal static string ID_MAXLOWERTHANMIN {
             get {
                 return ResourceManager.GetString("ID_MAXLOWERTHANMIN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Net weight ({0}).
+        /// </summary>
+        internal static string ID_NETWEIGHT_WU {
+            get {
+                return ResourceManager.GetString("ID_NETWEIGHT_WU", resourceCulture);
             }
         }
         
@@ -264,6 +327,24 @@ namespace treeDiM.StackBuilder.GUIExtension.Properties {
         internal static string ID_OPTDOCUMENTDESCRIPTION {
             get {
                 return ResourceManager.GetString("ID_OPTDOCUMENTDESCRIPTION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Outer dimensions{0}({1}x{1}x{1}).
+        /// </summary>
+        internal static string ID_OUTERDIMENSIONS {
+            get {
+                return ResourceManager.GetString("ID_OUTERDIMENSIONS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pallet.
+        /// </summary>
+        internal static string ID_PALLET {
+            get {
+                return ResourceManager.GetString("ID_PALLET", resourceCulture);
             }
         }
         
@@ -340,11 +421,38 @@ namespace treeDiM.StackBuilder.GUIExtension.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Selected layer: {0}.
+        /// </summary>
+        internal static string ID_SELECTEDLAYER {
+            get {
+                return ResourceManager.GetString("ID_SELECTEDLAYER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Total weight ({0}).
+        /// </summary>
+        internal static string ID_TOTALWEIGHT_WU {
+            get {
+                return ResourceManager.GetString("ID_TOTALWEIGHT_WU", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Volume efficiency (%).
         /// </summary>
         internal static string ID_VOLUMEEFFICIENCY {
             get {
                 return ResourceManager.GetString("ID_VOLUMEEFFICIENCY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Weight ({0}).
+        /// </summary>
+        internal static string ID_WEIGHT_WU {
+            get {
+                return ResourceManager.GetString("ID_WEIGHT_WU", resourceCulture);
             }
         }
         

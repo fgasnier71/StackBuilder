@@ -547,8 +547,6 @@ namespace treeDiM.StackBuilder.GUIExtension
                 // views
                 CellBackColorAlternate viewNormal = new CellBackColorAlternate(Color.LightBlue, Color.White);
                 viewNormal.Border = cellBorder;
-                CheckboxBackColorAlternate viewNormalCheck = new CheckboxBackColorAlternate(Color.LightBlue, Color.White);
-                viewNormalCheck.Border = cellBorder;
 
                 // column header view
                 SourceGrid.Cells.Views.ColumnHeader viewColumnHeader = new SourceGrid.Cells.Views.ColumnHeader();

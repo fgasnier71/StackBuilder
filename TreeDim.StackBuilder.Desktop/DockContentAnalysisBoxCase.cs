@@ -174,12 +174,9 @@ namespace treeDiM.StackBuilder.Desktop
             // ### layers : begin
             for (int i = 0; i < _solution.Layers.Count; ++i)
             {
-                List<int> layerIndexes = _solution.LayerTypeUsed(i);
-                if (0 == layerIndexes.Count) continue;
-
                 // layer caption
                 gridSolutions.Rows.Insert(++iRow);
-                rowHeader = new SourceGrid.Cells.RowHeader((noLayerTypesUsed == 1) ? "Layers : All" : BuildLayerCaption(layerIndexes));
+                rowHeader = new SourceGrid.Cells.RowHeader(_solution.LayerCaption(i));
                 rowHeader.ColumnSpan = 2;
                 rowHeader.View = captionHeader;
                 gridSolutions[iRow, 0] = rowHeader;

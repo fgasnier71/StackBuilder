@@ -2,8 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,14 +18,14 @@ using treeDiM.PLMPack.DBClient.PLMPackSR;
 
 namespace treeDiM.StackBuilder.GUIExtension
 {
-    public partial class ComboDBPallet : ComboBox
+    public partial class CtrlComboDBPallet : ComboBox
     {
-        public ComboDBPallet()
+        public CtrlComboDBPallet()
         {
             InitializeComponent();
         }
 
-        public void InitializeContent()
+        public void Initialize()
         {
             if (this.DesignMode)
                 return;
@@ -39,10 +39,14 @@ namespace treeDiM.StackBuilder.GUIExtension
             {
                 PalletProperties palletProperties = new PalletProperties(null, pallet.PalletType,
                     pallet.Dimensions.M0, pallet.Dimensions.M1, pallet.Dimensions.M2);
+                palletProperties.ID.SetNameDesc(pallet.Name, pallet.Description);
                 palletProperties.Weight = pallet.Weight;
                 palletProperties.Color = Color.Yellow;
                 Items.Add(new ItemBaseWrapper(palletProperties));
             }
+            // always select first item
+            if (Items.Count > 0)
+                SelectedIndex = 0;
         }
 
         public ItemBase SelectedType

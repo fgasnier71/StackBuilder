@@ -219,14 +219,6 @@ namespace treeDiM.StackBuilder.Desktop
         }
         #endregion
 
-        #region Helpers
-        private string BuildLayerCaption(List<int> layerIndexes)
-        {
-            StringBuilder sb = new StringBuilder();
-            return sb.ToString();
-        }
-        #endregion
-
         #region Toolbar event handlers
         private void onBack(object sender, EventArgs e)
         {

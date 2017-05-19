@@ -88,7 +88,7 @@ namespace treeDiM.StackBuilder.Basics
         public override bool IsCase
         {   get { return HasInsideDimensions; } }
         protected override string TypeName
-        { get { return IsCase ? Properties.Resource.ID_NAMECASE : Properties.Resource.ID_NAMEBOX; } }
+        { get { return IsCase ? Properties.Resources.ID_NAMECASE : Properties.Resources.ID_NAMEBOX; } }
         #endregion
 
         #region Dimensions

@@ -50,7 +50,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TreeDim.StackBuilder.Collad
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "treeDiM.StackBuilder.GUIExtension", "TreeDim.StackBuilder.GUIExtension\treeDiM.StackBuilder.GUIExtension.csproj", "{E335B93B-F816-44E9-B4BB-612FF1673637}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TreeDim.StackBuilder.GUIExtension.Test", "TreeDim.StackBuilder.GUIExtension.Test\TreeDim.StackBuilder.GUIExtension.Test.csproj", "{8E3FC372-5F2A-4885-9667-83B41A325E4B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "treeDim.StackBuilder.GUIExtension.Test", "TreeDim.StackBuilder.GUIExtension.Test\treeDim.StackBuilder.GUIExtension.Test.csproj", "{8E3FC372-5F2A-4885-9667-83B41A325E4B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "treeDiM.UserControls", "TreeDim.UserControls\treeDiM.UserControls.csproj", "{7FF9B713-8D36-4887-BF50-2B9E2B28808D}"
 EndProject
