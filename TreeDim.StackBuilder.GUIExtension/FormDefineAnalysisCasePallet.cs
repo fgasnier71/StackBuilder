@@ -25,15 +25,46 @@ namespace treeDiM.StackBuilder.GUIExtension
 {
     public partial class FormDefineAnalysisCasePallet : Form, IDrawingContainer
     {
+        #region Enums
+        public enum eMode { PACK_CASE, PACK_BUNDLE}
+        #endregion
+
         #region Data members
         static readonly ILog _log = LogManager.GetLogger(typeof(FormDefineAnalysisCasePallet));
         private string _caseName;
+        private UCtrlPackable _uctrlPackable;
         #endregion
 
         #region Constructor
-        public FormDefineAnalysisCasePallet()
+        public FormDefineAnalysisCasePallet(eMode mode, double length, double width, double height)
         {
             InitializeComponent();
+
+            uCtrlCase.Visible = (mode == eMode.PACK_CASE);
+            uCtrlBundle.Visible = (mode == eMode.PACK_BUNDLE);
+
+            switch (mode)
+            {
+                case eMode.PACK_CASE:
+                    {
+                        Text = Resources.ID_DEFINECASEPALLETANALYSIS;
+                        _uctrlPackable = uCtrlCase;
+                        uCtrlCase.Dimensions = new double[] { length, width, height };
+                        uCtrlCase.Weight = 1.0;
+                    }
+                    break;
+                case eMode.PACK_BUNDLE:
+                    {
+                        Text = Resources.ID_DEFINEBUNDLEPALLETANALYSIS;
+                        _uctrlPackable = uCtrlBundle;
+                        uCtrlBundle.Dimensions = new double[] { length, width, height };
+                        uCtrlBundle.UnitWeight = 0.1;
+                        uCtrlBundle.NoFlats = 10;
+                    }
+                    break;
+                default:
+                    break;
+            }
         }
         #endregion
 
@@ -46,7 +77,7 @@ namespace treeDiM.StackBuilder.GUIExtension
             // initialize graphCtrlPallet
             graphCtrlPallet.DrawingContainer = this;
 
-            uCtrlCaseOrientation.BProperties = BoxProperties;
+            uCtrlCaseOrientation.BProperties = _uctrlPackable.PackableProperties as BProperties;
             uCtrlCaseOrientation.AllowedOrientations = new bool[] { Settings.Default.AllowVerticalX, Settings.Default.AllowVerticalY, Settings.Default.AllowVerticalZ };
             uCtrlMaximumHeight.Value = Settings.Default.MaximumPalletHeight;
             uCtrlOptMaximumWeight.Value = new OptDouble(false, Settings.Default.MaximumPalletWeight);
@@ -90,16 +121,6 @@ namespace treeDiM.StackBuilder.GUIExtension
         #endregion
 
         #region Public properties
-        public double[] CaseDimensions
-        {
-            get { return new double[] { uCtrlDimensions.ValueX, uCtrlDimensions.ValueY, uCtrlDimensions.ValueZ }; }
-            set
-            {
-                uCtrlDimensions.ValueX = value[0];
-                uCtrlDimensions.ValueY = value[1];
-                uCtrlDimensions.ValueZ = value[2];
-            }
-        }
         public string CaseName
         {
             set { _caseName = value; }
@@ -108,17 +129,6 @@ namespace treeDiM.StackBuilder.GUIExtension
         #endregion
 
         #region Private properties
-        private BoxProperties BoxProperties
-        {
-            get
-            {
-                BoxProperties bProperties = new BoxProperties(null, CaseDimensions);
-                bProperties.ID.SetNameDesc(_caseName, _caseName);
-                bProperties.SetColor(Color.Chocolate);
-                bProperties.SetWeight( uCtrlMass.Value );
-                return bProperties;
-            }
-        }
         private string DocumentName { get { return string.Format(""); } }
         private string DocumentDescription { get { return string.Format(""); } }
 
@@ -159,7 +169,7 @@ namespace treeDiM.StackBuilder.GUIExtension
             try
             {
                 // get case / pallet
-                Packable packable = BoxProperties;
+                Packable packable = _uctrlPackable.PackableProperties;
                 PalletProperties palletProperties = cbPallet.SelectedPallet;
                 if (null == packable || null == palletProperties)
                     return;
@@ -198,7 +208,7 @@ namespace treeDiM.StackBuilder.GUIExtension
                 foreach (ILayer2D layer2D in uCtrlLayerList.Selected)
                     layerDescs.Add(layer2D.LayerDescriptor);
 
-                Packable packable = BoxProperties;
+                Packable packable = _uctrlPackable.PackableProperties;
                 PalletProperties palletProperties = cbPallet.SelectedPallet;
                 if (null == packable || null == palletProperties) return;
 

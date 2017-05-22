@@ -48,7 +48,7 @@ namespace treeDiM.StackBuilder.Basics
             set
             {
                 chkbOpt.Checked = value.Activated;
-                nudValue.Value = (decimal)value.Value;
+                nudValue.Value = (decimal)value.ValueDef;
                 chkbOpt_CheckedChanged(this, null);
             }
         }

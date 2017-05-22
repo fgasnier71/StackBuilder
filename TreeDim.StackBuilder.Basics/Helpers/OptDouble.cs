@@ -51,6 +51,11 @@ namespace treeDiM.StackBuilder.Basics
             get { return _activated ? _val : 0.0; }
             set { _val = value; }
         }
+        public double ValueDef
+        {
+            get { return _val; }
+            set { _val = value; }
+        }
         #endregion
 
         #region ICloneable members

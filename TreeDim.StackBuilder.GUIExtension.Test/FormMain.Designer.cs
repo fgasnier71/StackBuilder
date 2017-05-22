@@ -40,7 +40,7 @@
             // 
             // bnCasePalletAnalysis
             // 
-            this.bnCasePalletAnalysis.Location = new System.Drawing.Point(12, 106);
+            this.bnCasePalletAnalysis.Location = new System.Drawing.Point(12, 99);
             this.bnCasePalletAnalysis.Name = "bnCasePalletAnalysis";
             this.bnCasePalletAnalysis.Size = new System.Drawing.Size(178, 22);
             this.bnCasePalletAnalysis.TabIndex = 0;
@@ -50,7 +50,7 @@
             // 
             // bnBoxCasePalletOptimization
             // 
-            this.bnBoxCasePalletOptimization.Location = new System.Drawing.Point(12, 132);
+            this.bnBoxCasePalletOptimization.Location = new System.Drawing.Point(13, 185);
             this.bnBoxCasePalletOptimization.Name = "bnBoxCasePalletOptimization";
             this.bnBoxCasePalletOptimization.Size = new System.Drawing.Size(178, 22);
             this.bnBoxCasePalletOptimization.TabIndex = 1;
@@ -60,7 +60,7 @@
             // 
             // bnBundlePalletAnalysis
             // 
-            this.bnBundlePalletAnalysis.Location = new System.Drawing.Point(12, 159);
+            this.bnBundlePalletAnalysis.Location = new System.Drawing.Point(13, 127);
             this.bnBundlePalletAnalysis.Name = "bnBundlePalletAnalysis";
             this.bnBundlePalletAnalysis.Size = new System.Drawing.Size(178, 23);
             this.bnBundlePalletAnalysis.TabIndex = 2;
@@ -70,7 +70,7 @@
             // 
             // bnBundleCaseAnalysis
             // 
-            this.bnBundleCaseAnalysis.Location = new System.Drawing.Point(12, 188);
+            this.bnBundleCaseAnalysis.Location = new System.Drawing.Point(13, 156);
             this.bnBundleCaseAnalysis.Name = "bnBundleCaseAnalysis";
             this.bnBundleCaseAnalysis.Size = new System.Drawing.Size(178, 23);
             this.bnBundleCaseAnalysis.TabIndex = 3;

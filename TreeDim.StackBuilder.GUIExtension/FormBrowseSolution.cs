@@ -43,6 +43,9 @@ namespace treeDiM.StackBuilder.GUIExtension
         {
             base.OnLoad(e);
 
+            uCtrlMaxPalletHeight.Value = _analysis.ConstraintSet.OptMaxHeight.Value;
+            uCtrlOptMaximumWeight.Value = _analysis.ConstraintSet.OptMaxWeight;
+
             graphCtrl.Viewer = new ViewerSolution(_analysis.Solution);
             graphCtrl.Invalidate();
             graphCtrl.VolumeSelected += onLayerSelected;
@@ -51,8 +54,6 @@ namespace treeDiM.StackBuilder.GUIExtension
             FillLayerControls();
             UpdateControls();
 
-            uCtrlMaxPalletHeight.Value = _analysis.ConstraintSet.OptMaxHeight.Value;
-            uCtrlOptMaximumWeight.Value = _analysis.ConstraintSet.OptMaxWeight;
 
             uCtrlMaxPalletHeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.onValueChanged(this.onCriterionChanged);
             uCtrlOptMaximumWeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlOptDouble.onValueChanged(this.onCriterionChanged);
@@ -413,21 +414,14 @@ namespace treeDiM.StackBuilder.GUIExtension
         }
         private void onCriterionChanged(object sender, EventArgs args)
         {
-            try
-            {
-                Solution solution = _analysis.Solution;
-                ConstraintSetCasePallet constraintSet = solution.Analysis.ConstraintSet as ConstraintSetCasePallet;
-                constraintSet.SetMaxHeight(new OptDouble(true, uCtrlMaxPalletHeight.Value));
-                constraintSet.OptMaxWeight = uCtrlOptMaximumWeight.Value;
-                solution.RebuildSolutionItemList();
-                // update drawing & grid
-                graphCtrl.Invalidate();
-                UpdateGrid();
-            }
-            catch (Exception ex)
-            {
-                _log.Error(ex.ToString());
-            }
+            Solution solution = _analysis.Solution;
+            ConstraintSetCasePallet constraintSet = solution.Analysis.ConstraintSet as ConstraintSetCasePallet;
+            constraintSet.SetMaxHeight(new OptDouble(true, uCtrlMaxPalletHeight.Value));
+            constraintSet.OptMaxWeight = uCtrlOptMaximumWeight.Value;
+            solution.RebuildSolutionItemList();
+            // update drawing & grid
+            graphCtrl.Invalidate();
+            UpdateGrid();
         }
         #endregion
     }

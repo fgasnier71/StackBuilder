@@ -79,7 +79,7 @@ namespace treeDiM.StackBuilder.Basics.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Layer.
+        ///   Looks up a localized string similar to Layer : .
         /// </summary>
         internal static string ID_LAYER {
             get {
@@ -97,7 +97,7 @@ namespace treeDiM.StackBuilder.Basics.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Layers.
+        ///   Looks up a localized string similar to Layers :  .
         /// </summary>
         internal static string ID_LAYERS {
             get {

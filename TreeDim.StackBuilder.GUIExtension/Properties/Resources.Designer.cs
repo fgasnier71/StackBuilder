@@ -160,6 +160,24 @@ namespace treeDiM.StackBuilder.GUIExtension.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Define bundle/pallet analysis....
+        /// </summary>
+        internal static string ID_DEFINEBUNDLEPALLETANALYSIS {
+            get {
+                return ResourceManager.GetString("ID_DEFINEBUNDLEPALLETANALYSIS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Define case/pallet analysis....
+        /// </summary>
+        internal static string ID_DEFINECASEPALLETANALYSIS {
+            get {
+                return ResourceManager.GetString("ID_DEFINECASEPALLETANALYSIS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Double-click a layer!.
         /// </summary>
         internal static string ID_DOUBLECLICKALAYER {

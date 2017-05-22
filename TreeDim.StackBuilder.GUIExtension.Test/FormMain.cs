@@ -54,7 +54,7 @@ namespace treeDiM.StackBuilder.GUIExtension.Test
         {
             try
             {
-                Palletization.StartPalletization(
+                Palletization.StartCasePalletization(
                     tbName.Text
                     , uCtrlDimensions.ValueX
                     , uCtrlDimensions.ValueY

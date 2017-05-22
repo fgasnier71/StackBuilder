@@ -34,9 +34,9 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelDef = new System.Windows.Forms.ToolStripStatusLabel();
             this.gbCase = new System.Windows.Forms.GroupBox();
+            this.uCtrlCase = new treeDiM.StackBuilder.GUIExtension.UCtrlCase();
+            this.uCtrlBundle = new treeDiM.StackBuilder.GUIExtension.UCtrlBundle();
             this.uCtrlCaseOrientation = new treeDiM.StackBuilder.Graphics.uCtrlCaseOrientation();
-            this.uCtrlMass = new treeDiM.StackBuilder.Basics.UCtrlDouble();
-            this.uCtrlDimensions = new treeDiM.StackBuilder.Basics.UCtrlTriDouble();
             this.gpPallet = new System.Windows.Forms.GroupBox();
             this.uCtrlOverhang = new treeDiM.StackBuilder.Basics.UCtrlDualDouble();
             this.graphCtrlPallet = new treeDiM.StackBuilder.Graphics.Graphics3DControl();
@@ -92,15 +92,41 @@
             // 
             // gbCase
             // 
+            this.gbCase.Controls.Add(this.uCtrlCase);
+            this.gbCase.Controls.Add(this.uCtrlBundle);
             this.gbCase.Controls.Add(this.uCtrlCaseOrientation);
-            this.gbCase.Controls.Add(this.uCtrlMass);
-            this.gbCase.Controls.Add(this.uCtrlDimensions);
-            this.gbCase.Location = new System.Drawing.Point(3, 28);
+            this.gbCase.Location = new System.Drawing.Point(3, 4);
             this.gbCase.Name = "gbCase";
-            this.gbCase.Size = new System.Drawing.Size(313, 183);
+            this.gbCase.Size = new System.Drawing.Size(312, 269);
             this.gbCase.TabIndex = 3;
             this.gbCase.TabStop = false;
             this.gbCase.Text = "Case";
+            // 
+            // uCtrlCase
+            // 
+            this.uCtrlCase.Dimensions = new double[] {
+        0D,
+        0D,
+        0D};
+            this.uCtrlCase.Location = new System.Drawing.Point(6, 20);
+            this.uCtrlCase.Name = "uCtrlCase";
+            this.uCtrlCase.Size = new System.Drawing.Size(300, 128);
+            this.uCtrlCase.TabIndex = 4;
+            this.uCtrlCase.Weight = 0D;
+            // 
+            // uCtrlBundle
+            // 
+            this.uCtrlBundle.Dimensions = new double[] {
+        0D,
+        0D,
+        0D};
+            this.uCtrlBundle.Location = new System.Drawing.Point(7, 20);
+            this.uCtrlBundle.Name = "uCtrlBundle";
+            this.uCtrlBundle.NoFlats = 0;
+            this.uCtrlBundle.Size = new System.Drawing.Size(300, 110);
+            this.uCtrlBundle.TabIndex = 3;
+            this.uCtrlBundle.UnitThickness = 0D;
+            this.uCtrlBundle.UnitWeight = 0D;
             // 
             // uCtrlCaseOrientation
             // 
@@ -108,45 +134,11 @@
         false,
         false,
         true};
-            this.uCtrlCaseOrientation.Location = new System.Drawing.Point(10, 65);
+            this.uCtrlCaseOrientation.Location = new System.Drawing.Point(10, 154);
             this.uCtrlCaseOrientation.Name = "uCtrlCaseOrientation";
             this.uCtrlCaseOrientation.Size = new System.Drawing.Size(280, 110);
             this.uCtrlCaseOrientation.TabIndex = 2;
-            // 
-            // uCtrlMass
-            // 
-            this.uCtrlMass.Location = new System.Drawing.Point(10, 40);
-            this.uCtrlMass.Minimum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            -2147483648});
-            this.uCtrlMass.MinimumSize = new System.Drawing.Size(50, 20);
-            this.uCtrlMass.Name = "uCtrlMass";
-            this.uCtrlMass.Size = new System.Drawing.Size(176, 20);
-            this.uCtrlMass.TabIndex = 1;
-            this.uCtrlMass.Text = "Weight";
-            this.uCtrlMass.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_MASS;
-            this.uCtrlMass.Value = 0D;
-            this.uCtrlMass.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.onValueChanged(this.onInputChanged);
-            // 
-            // uCtrlDimensions
-            // 
-            this.uCtrlDimensions.Location = new System.Drawing.Point(10, 14);
-            this.uCtrlDimensions.Minimum = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.uCtrlDimensions.Name = "uCtrlDimensions";
-            this.uCtrlDimensions.Size = new System.Drawing.Size(300, 20);
-            this.uCtrlDimensions.TabIndex = 0;
-            this.uCtrlDimensions.Text = "Dimensions";
-            this.uCtrlDimensions.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
-            this.uCtrlDimensions.ValueX = 0D;
-            this.uCtrlDimensions.ValueY = 0D;
-            this.uCtrlDimensions.ValueZ = 0D;
-            this.uCtrlDimensions.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlTriDouble.onValueChanged(this.onInputChanged);
+            this.uCtrlCaseOrientation.CheckedChanged += new treeDiM.StackBuilder.Graphics.uCtrlCaseOrientation.CheckChanged(this.onInputChanged);
             // 
             // gpPallet
             // 
@@ -156,18 +148,18 @@
             this.gpPallet.Controls.Add(this.graphCtrlPallet);
             this.gpPallet.Controls.Add(this.cbPallet);
             this.gpPallet.Controls.Add(this.lbPallets);
-            this.gpPallet.Location = new System.Drawing.Point(319, 28);
+            this.gpPallet.Location = new System.Drawing.Point(321, 28);
             this.gpPallet.Name = "gpPallet";
-            this.gpPallet.Size = new System.Drawing.Size(309, 183);
+            this.gpPallet.Size = new System.Drawing.Size(307, 245);
             this.gpPallet.TabIndex = 4;
             this.gpPallet.TabStop = false;
             this.gpPallet.Text = "Pallet";
             // 
             // uCtrlOverhang
             // 
-            this.uCtrlOverhang.Location = new System.Drawing.Point(11, 157);
+            this.uCtrlOverhang.Location = new System.Drawing.Point(4, 217);
             this.uCtrlOverhang.Name = "uCtrlOverhang";
-            this.uCtrlOverhang.Size = new System.Drawing.Size(274, 20);
+            this.uCtrlOverhang.Size = new System.Drawing.Size(243, 20);
             this.uCtrlOverhang.TabIndex = 0;
             this.uCtrlOverhang.Text = "Overhang";
             this.uCtrlOverhang.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
@@ -177,9 +169,9 @@
             // 
             // graphCtrlPallet
             // 
-            this.graphCtrlPallet.Location = new System.Drawing.Point(74, 40);
+            this.graphCtrlPallet.Location = new System.Drawing.Point(89, 40);
             this.graphCtrlPallet.Name = "graphCtrlPallet";
-            this.graphCtrlPallet.Size = new System.Drawing.Size(211, 111);
+            this.graphCtrlPallet.Size = new System.Drawing.Size(211, 150);
             this.graphCtrlPallet.TabIndex = 2;
             this.graphCtrlPallet.Viewer = null;
             // 
@@ -187,16 +179,16 @@
             // 
             this.cbPallet.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbPallet.FormattingEnabled = true;
-            this.cbPallet.Location = new System.Drawing.Point(74, 16);
+            this.cbPallet.Location = new System.Drawing.Point(89, 16);
             this.cbPallet.Name = "cbPallet";
-            this.cbPallet.Size = new System.Drawing.Size(211, 21);
+            this.cbPallet.Size = new System.Drawing.Size(212, 21);
             this.cbPallet.TabIndex = 1;
             this.cbPallet.SelectedIndexChanged += new System.EventHandler(this.onPalletChanged);
             // 
             // lbPallets
             // 
             this.lbPallets.AutoSize = true;
-            this.lbPallets.Location = new System.Drawing.Point(8, 19);
+            this.lbPallets.Location = new System.Drawing.Point(4, 19);
             this.lbPallets.Name = "lbPallets";
             this.lbPallets.Size = new System.Drawing.Size(33, 13);
             this.lbPallets.TabIndex = 0;
@@ -208,16 +200,16 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gpConstraintSet.Controls.Add(this.uCtrlOptMaximumWeight);
             this.gpConstraintSet.Controls.Add(this.uCtrlMaximumHeight);
-            this.gpConstraintSet.Location = new System.Drawing.Point(3, 215);
+            this.gpConstraintSet.Location = new System.Drawing.Point(3, 274);
             this.gpConstraintSet.Name = "gpConstraintSet";
-            this.gpConstraintSet.Size = new System.Drawing.Size(625, 65);
+            this.gpConstraintSet.Size = new System.Drawing.Size(625, 35);
             this.gpConstraintSet.TabIndex = 5;
             this.gpConstraintSet.TabStop = false;
             this.gpConstraintSet.Text = "Constraint set";
             // 
             // uCtrlOptMaximumWeight
             // 
-            this.uCtrlOptMaximumWeight.Location = new System.Drawing.Point(10, 41);
+            this.uCtrlOptMaximumWeight.Location = new System.Drawing.Point(318, 12);
             this.uCtrlOptMaximumWeight.Minimum = new decimal(new int[] {
             0,
             0,
@@ -234,7 +226,7 @@
             // 
             // uCtrlMaximumHeight
             // 
-            this.uCtrlMaximumHeight.Location = new System.Drawing.Point(10, 16);
+            this.uCtrlMaximumHeight.Location = new System.Drawing.Point(6, 12);
             this.uCtrlMaximumHeight.Minimum = new decimal(new int[] {
             0,
             0,
@@ -242,7 +234,7 @@
             0});
             this.uCtrlMaximumHeight.MinimumSize = new System.Drawing.Size(100, 20);
             this.uCtrlMaximumHeight.Name = "uCtrlMaximumHeight";
-            this.uCtrlMaximumHeight.Size = new System.Drawing.Size(303, 20);
+            this.uCtrlMaximumHeight.Size = new System.Drawing.Size(243, 20);
             this.uCtrlMaximumHeight.TabIndex = 0;
             this.uCtrlMaximumHeight.Text = "Maximum pallet height";
             this.uCtrlMaximumHeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
@@ -253,11 +245,11 @@
             // 
             this.uCtrlLayerList.AutoScroll = true;
             this.uCtrlLayerList.ButtonSizes = new System.Drawing.Size(150, 150);
-            this.uCtrlLayerList.Location = new System.Drawing.Point(0, 286);
+            this.uCtrlLayerList.Location = new System.Drawing.Point(0, 312);
             this.uCtrlLayerList.Name = "uCtrlLayerList";
             this.uCtrlLayerList.Show3D = true;
             this.uCtrlLayerList.SingleSelection = false;
-            this.uCtrlLayerList.Size = new System.Drawing.Size(634, 321);
+            this.uCtrlLayerList.Size = new System.Drawing.Size(634, 295);
             this.uCtrlLayerList.TabIndex = 6;
             this.uCtrlLayerList.LayerSelected += new treeDiM.StackBuilder.Graphics.UCtrlLayerList.LayerButtonClicked(this.onLayerSelected);
             // 
@@ -299,8 +291,6 @@
         private System.Windows.Forms.StatusStrip statusStrip;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelDef;
         private System.Windows.Forms.GroupBox gbCase;
-        private Basics.UCtrlTriDouble uCtrlDimensions;
-        private Basics.UCtrlDouble uCtrlMass;
         private Graphics.uCtrlCaseOrientation uCtrlCaseOrientation;
         private System.Windows.Forms.GroupBox gpPallet;
         private System.Windows.Forms.Label lbPallets;
@@ -311,5 +301,7 @@
         private Basics.UCtrlDualDouble uCtrlOverhang;
         private Basics.UCtrlOptDouble uCtrlOptMaximumWeight;
         private Basics.UCtrlDouble uCtrlMaximumHeight;
+        private UCtrlBundle uCtrlBundle;
+        private UCtrlCase uCtrlCase;
     }
 }

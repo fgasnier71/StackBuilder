@@ -679,7 +679,7 @@ namespace treeDiM.StackBuilder.Basics
         }
         public string LayerCaption(int layerTypeIndex)
         {
-            if (1 == NoLayerTypesUsed)
+            if (LayerCount == NoLayerTypesUsed)
                 return Properties.Resources.ID_LAYERSALL;
 
             List<int> layerIndexes = LayerTypeUsed(layerTypeIndex);

@@ -54,6 +54,7 @@ namespace treeDiM.StackBuilder.GUIExtension
         public string ProjectName
         {
             set { _projName = value; }
+            get { return _projName; }
         }
         /// <summary>
         /// File extension to be used to infer report type
@@ -113,7 +114,7 @@ namespace treeDiM.StackBuilder.GUIExtension
                 if (string.IsNullOrEmpty(Settings.Default.DefaultDirectory) || !Directory.Exists(Settings.Default.DefaultDirectory))
                     Settings.Default.DefaultDirectory = Path.GetTempPath();
                 // get directory path
-                string path = Path.Combine(Settings.Default.DefaultDirectory, _projName);
+                string path = Path.Combine(Settings.Default.DefaultDirectory, ProjectName);
                 return Path.ChangeExtension(path, FileExtension);
             }
         }

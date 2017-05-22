@@ -42,8 +42,8 @@
             this.cbLayerType = new treeDiM.StackBuilder.Graphics.Controls.CCtrlComboLayer();
             this.bnSymmetryX = new System.Windows.Forms.Button();
             this.bnSymetryY = new System.Windows.Forms.Button();
-            this.gridSolution = new SourceGrid.Grid();
             this.tbClickLayer = new System.Windows.Forms.TextBox();
+            this.gridSolution = new SourceGrid.Grid();
             this.toolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -162,7 +162,6 @@
             this.uCtrlOptMaximumWeight.Text = "Maximum weight";
             this.uCtrlOptMaximumWeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_MASS;
             this.uCtrlOptMaximumWeight.Value = ((treeDiM.StackBuilder.Basics.OptDouble)(resources.GetObject("uCtrlOptMaximumWeight.Value")));
-            this.uCtrlOptMaximumWeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlOptDouble.onValueChanged(this.onCriterionChanged);
             // 
             // uCtrlMaxPalletHeight
             // 
@@ -179,7 +178,6 @@
             this.uCtrlMaxPalletHeight.Text = "Maximum height";
             this.uCtrlMaxPalletHeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlMaxPalletHeight.Value = 0D;
-            this.uCtrlMaxPalletHeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.onValueChanged(this.onCriterionChanged);
             // 
             // gbLayer
             // 
@@ -230,6 +228,18 @@
             this.bnSymetryY.UseVisualStyleBackColor = true;
             this.bnSymetryY.Click += new System.EventHandler(this.onReflectionY);
             // 
+            // tbClickLayer
+            // 
+            this.tbClickLayer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.tbClickLayer.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbClickLayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbClickLayer.Location = new System.Drawing.Point(4, 25);
+            this.tbClickLayer.Multiline = true;
+            this.tbClickLayer.Name = "tbClickLayer";
+            this.tbClickLayer.Size = new System.Drawing.Size(246, 57);
+            this.tbClickLayer.TabIndex = 18;
+            this.tbClickLayer.Text = "Double-click a layer to edit pattern / orientation / interlayer.";
+            // 
             // gridSolution
             // 
             this.gridSolution.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -242,18 +252,6 @@
             this.gridSolution.TabIndex = 0;
             this.gridSolution.TabStop = true;
             this.gridSolution.ToolTipText = "";
-            // 
-            // tbClickLayer
-            // 
-            this.tbClickLayer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.tbClickLayer.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbClickLayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbClickLayer.Location = new System.Drawing.Point(4, 25);
-            this.tbClickLayer.Multiline = true;
-            this.tbClickLayer.Name = "tbClickLayer";
-            this.tbClickLayer.Size = new System.Drawing.Size(246, 57);
-            this.tbClickLayer.TabIndex = 18;
-            this.tbClickLayer.Text = "Double-click a layer to edit pattern / orientation / interlayer.";
             // 
             // FormBrowseSolution
             // 

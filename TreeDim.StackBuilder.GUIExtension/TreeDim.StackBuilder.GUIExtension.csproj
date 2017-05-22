@@ -134,6 +134,24 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="UCtrlBundle.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCtrlBundle.Designer.cs">
+      <DependentUpon>UCtrlBundle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCtrlCase.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCtrlCase.Designer.cs">
+      <DependentUpon>UCtrlCase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCtrlPackable.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCtrlPackable.Designer.cs">
+      <DependentUpon>UCtrlPackable.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Sharp3D.Math\Sharp3D.Math.csproj">
@@ -206,6 +224,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.fr-FR.resx">
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCtrlBundle.resx">
+      <DependentUpon>UCtrlBundle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCtrlCase.resx">
+      <DependentUpon>UCtrlCase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCtrlPackable.resx">
+      <DependentUpon>UCtrlPackable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

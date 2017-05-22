@@ -150,6 +150,12 @@
   <data name="ID_CASEWEIGHT" xml:space="preserve">
     <value>Case weight</value>
   </data>
+  <data name="ID_DEFINEBUNDLEPALLETANALYSIS" xml:space="preserve">
+    <value>Define bundle/pallet analysis...</value>
+  </data>
+  <data name="ID_DEFINECASEPALLETANALYSIS" xml:space="preserve">
+    <value>Define case/pallet analysis...</value>
+  </data>
   <data name="ID_DOUBLECLICKALAYER" xml:space="preserve">
     <value>Double-click a layer!</value>
   </data>
