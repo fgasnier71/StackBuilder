@@ -25,19 +25,6 @@ namespace treeDiM.StackBuilder.ABYATExcelLoader
 
             // setting unit system to cm/kg
             UnitsManager.CurrentUnitSystem = UnitsManager.UnitSystem.UNIT_METRIC2;
-
-            WebClient webClient = new WebClient();
-            try
-            {
-                string localFilePath = Path.ChangeExtension(Path.GetTempFileName(), "config");
-                webClient.DownloadFile("http://www.plmpack.com/stackbuilder/ABYATExcelLoader.config", localFilePath);
-            }
-            catch (Exception /*ex*/)
-            {
-                MessageBox.Show("Please contact fgasnier@treedim.com");
-                return;
-            }
-
             Application.Run(new FormMain());
         }
     }

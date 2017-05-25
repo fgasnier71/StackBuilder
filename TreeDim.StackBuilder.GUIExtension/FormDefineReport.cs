@@ -123,7 +123,5 @@ namespace treeDiM.StackBuilder.GUIExtension
         #region Data members
         private string _projName;
         #endregion
-
-
     }
 }
