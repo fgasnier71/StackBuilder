@@ -357,12 +357,18 @@ namespace treeDiM.StackBuilder.Reporting
             {
                 System.Drawing.Bitmap logoBitmap = new Bitmap(System.Drawing.Bitmap.FromFile(CompanyLogo));
 
+
                 XmlElement elemCompanyLogo = xmlDoc.CreateElement("companyLogo", ns);
                 elemDocument.AppendChild(elemCompanyLogo);
-
-
-
-                string imagePath = SaveImageAs(logoBitmap);
+                XmlElement elemImagePath = xmlDoc.CreateElement("imagePath");
+                elemCompanyLogo.AppendChild(elemImagePath);
+                elemImagePath.InnerText = SaveImageAs(logoBitmap);
+                XmlElement elemWidth = xmlDoc.CreateElement("width");
+                elemCompanyLogo.AppendChild(elemWidth);
+                elemWidth.InnerText = logoBitmap.Width.ToString();
+                XmlElement elemHeight = xmlDoc.CreateElement("height");
+                elemCompanyLogo.AppendChild(elemHeight);
+                elemHeight.InnerText = logoBitmap.Height.ToString();
             }
             // main analysis
             AppendAnalysisElement(inputData.MainAnalysis, elemDocument, xmlDoc);
@@ -1995,7 +2001,6 @@ namespace treeDiM.StackBuilder.Reporting
             }
         }
         #endregion
-
 
         #region Helpers
         private static XmlElement CreateElement(string eltName, string innerValue, XmlElement parentElt, XmlDocument xmlDoc, string ns)

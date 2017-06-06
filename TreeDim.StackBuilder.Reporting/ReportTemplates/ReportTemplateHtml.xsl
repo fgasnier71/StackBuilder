@@ -346,8 +346,12 @@
       <xsl:attribute name="src">
         <xsl:value-of select="imagePath"/>
       </xsl:attribute>
-      <xsl:attribute name="width"/>
-      <xsl:attribute name="height"/>
+      <xsl:attribute name="width">
+        <xsl:value-of select="width"/>      
+      </xsl:attribute>
+      <xsl:attribute name="height">
+        <xsl:value-of select="height"/>      
+      </xsl:attribute>
     </img>
   </xsl:template>
   <!--#### view_layer ####-->

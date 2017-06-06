@@ -16,7 +16,7 @@
         <xs:element name="description" type="xs:string" />
         <xs:element name="author" type="xs:string" />
         <xs:element name="dateOfCreation" type="xs:string" />
-        <xs:element name="companyLogo" type="xs:string" minOccurs="0" maxOccurs="1"/>
+        <xs:element name="companyLogo" minOccurs="0" maxOccurs="1" type="rpt:imageThumbSize"/>
         
         <!-- ANALYSIS : BEG -->
         <xs:element name="analysis" minOccurs="0" maxOccurs="unbounded">
