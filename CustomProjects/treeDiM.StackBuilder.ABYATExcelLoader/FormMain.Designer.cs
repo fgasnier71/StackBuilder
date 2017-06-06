@@ -40,6 +40,7 @@
             this.graphCtrlPallet = new treeDiM.StackBuilder.Graphics.Graphics3DControl();
             this.uCtrlPalletDimensions = new treeDiM.StackBuilder.Basics.UCtrlTriDouble();
             this.gbInput = new System.Windows.Forms.GroupBox();
+            this.lbCaseLoaded = new System.Windows.Forms.Label();
             this.cbPalletType = new System.Windows.Forms.ComboBox();
             this.lbPalletType = new System.Windows.Forms.Label();
             this.uCtrlTruckDimensions = new treeDiM.StackBuilder.Basics.UCtrlTriDouble();
@@ -52,12 +53,17 @@
             this.bnGenerate = new System.Windows.Forms.Button();
             this.fileSelectOutput = new treeDiM.UserControls.FileSelect();
             this.lbOutputFilePath = new System.Windows.Forms.Label();
-            this.lbCaseLoaded = new System.Windows.Forms.Label();
+            this.gbLimits = new System.Windows.Forms.GroupBox();
+            this.lbDrawing = new System.Windows.Forms.Label();
+            this.nudStackCountMax = new System.Windows.Forms.NumericUpDown();
+            this.uCtrlLargestDimMin = new treeDiM.StackBuilder.Basics.UCtrlDouble();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.graphCtrlPallet)).BeginInit();
             this.gbInput.SuspendLayout();
             this.gbOutput.SuspendLayout();
+            this.gbLimits.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudStackCountMax)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip
@@ -105,7 +111,7 @@
             // 
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.statusLabel});
-            this.statusStrip.Location = new System.Drawing.Point(0, 539);
+            this.statusStrip.Location = new System.Drawing.Point(0, 639);
             this.statusStrip.Name = "statusStrip";
             this.statusStrip.Size = new System.Drawing.Size(684, 22);
             this.statusStrip.TabIndex = 1;
@@ -181,10 +187,19 @@
             this.gbInput.Controls.Add(this.graphCtrlPallet);
             this.gbInput.Location = new System.Drawing.Point(6, 27);
             this.gbInput.Name = "gbInput";
-            this.gbInput.Size = new System.Drawing.Size(671, 433);
+            this.gbInput.Size = new System.Drawing.Size(671, 449);
             this.gbInput.TabIndex = 7;
             this.gbInput.TabStop = false;
             this.gbInput.Text = "Input";
+            // 
+            // lbCaseLoaded
+            // 
+            this.lbCaseLoaded.AutoSize = true;
+            this.lbCaseLoaded.Location = new System.Drawing.Point(105, 41);
+            this.lbCaseLoaded.Name = "lbCaseLoaded";
+            this.lbCaseLoaded.Size = new System.Drawing.Size(91, 13);
+            this.lbCaseLoaded.TabIndex = 14;
+            this.lbCaseLoaded.Text = "(No case loaded!)";
             // 
             // cbPalletType
             // 
@@ -287,7 +302,7 @@
             this.gbOutput.Controls.Add(this.bnGenerate);
             this.gbOutput.Controls.Add(this.fileSelectOutput);
             this.gbOutput.Controls.Add(this.lbOutputFilePath);
-            this.gbOutput.Location = new System.Drawing.Point(6, 466);
+            this.gbOutput.Location = new System.Drawing.Point(6, 566);
             this.gbOutput.Name = "gbOutput";
             this.gbOutput.Size = new System.Drawing.Size(671, 67);
             this.gbOutput.TabIndex = 8;
@@ -330,29 +345,80 @@
             this.lbOutputFilePath.TabIndex = 0;
             this.lbOutputFilePath.Text = "Output file path";
             // 
-            // lbCaseLoaded
+            // gbLimits
             // 
-            this.lbCaseLoaded.AutoSize = true;
-            this.lbCaseLoaded.Location = new System.Drawing.Point(105, 41);
-            this.lbCaseLoaded.Name = "lbCaseLoaded";
-            this.lbCaseLoaded.Size = new System.Drawing.Size(91, 13);
-            this.lbCaseLoaded.TabIndex = 14;
-            this.lbCaseLoaded.Text = "(No case loaded!)";
+            this.gbLimits.Controls.Add(this.uCtrlLargestDimMin);
+            this.gbLimits.Controls.Add(this.nudStackCountMax);
+            this.gbLimits.Controls.Add(this.lbDrawing);
+            this.gbLimits.Location = new System.Drawing.Point(6, 482);
+            this.gbLimits.Name = "gbLimits";
+            this.gbLimits.Size = new System.Drawing.Size(671, 78);
+            this.gbLimits.TabIndex = 9;
+            this.gbLimits.TabStop = false;
+            this.gbLimits.Text = "Limitations";
+            // 
+            // lbDrawing
+            // 
+            this.lbDrawing.AutoSize = true;
+            this.lbDrawing.Location = new System.Drawing.Point(16, 20);
+            this.lbDrawing.Name = "lbDrawing";
+            this.lbDrawing.Size = new System.Drawing.Size(203, 13);
+            this.lbDrawing.TabIndex = 0;
+            this.lbDrawing.Text = "Skip drawing if number of cases exceeds:";
+            // 
+            // nudStackCountMax
+            // 
+            this.nudStackCountMax.Location = new System.Drawing.Point(258, 20);
+            this.nudStackCountMax.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.nudStackCountMax.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudStackCountMax.Name = "nudStackCountMax";
+            this.nudStackCountMax.Size = new System.Drawing.Size(98, 20);
+            this.nudStackCountMax.TabIndex = 1;
+            this.nudStackCountMax.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // uCtrlLargestDimMin
+            // 
+            this.uCtrlLargestDimMin.Location = new System.Drawing.Point(16, 47);
+            this.uCtrlLargestDimMin.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.uCtrlLargestDimMin.MinimumSize = new System.Drawing.Size(100, 20);
+            this.uCtrlLargestDimMin.Name = "uCtrlLargestDimMin";
+            this.uCtrlLargestDimMin.Size = new System.Drawing.Size(340, 20);
+            this.uCtrlLargestDimMin.TabIndex = 2;
+            this.uCtrlLargestDimMin.Text = "Skip computation if largest dimension below ";
+            this.uCtrlLargestDimMin.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlLargestDimMin.Value = 10D;
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(684, 561);
+            this.ClientSize = new System.Drawing.Size(684, 661);
+            this.Controls.Add(this.gbLimits);
             this.Controls.Add(this.gbOutput);
             this.Controls.Add(this.gbInput);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.menuStrip);
             this.MainMenuStrip = this.menuStrip;
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(700, 600);
+            this.MaximumSize = new System.Drawing.Size(700, 700);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(700, 600);
+            this.MinimumSize = new System.Drawing.Size(700, 700);
             this.Name = "FormMain";
             this.Text = "ABYAT fast stacking estimation";
             this.menuStrip.ResumeLayout(false);
@@ -364,6 +430,9 @@
             this.gbInput.PerformLayout();
             this.gbOutput.ResumeLayout(false);
             this.gbOutput.PerformLayout();
+            this.gbLimits.ResumeLayout(false);
+            this.gbLimits.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudStackCountMax)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -396,6 +465,10 @@
         private UserControls.FileSelect fileSelectOutput;
         private System.Windows.Forms.Label lbOutputFilePath;
         private System.Windows.Forms.Label lbCaseLoaded;
+        private System.Windows.Forms.GroupBox gbLimits;
+        private System.Windows.Forms.NumericUpDown nudStackCountMax;
+        private System.Windows.Forms.Label lbDrawing;
+        private Basics.UCtrlDouble uCtrlLargestDimMin;
     }
 }
 

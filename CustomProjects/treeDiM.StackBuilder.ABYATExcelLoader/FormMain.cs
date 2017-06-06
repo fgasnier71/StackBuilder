@@ -54,6 +54,8 @@ namespace treeDiM.StackBuilder.ABYATExcelLoader
             Mode = Settings.Default.Mode;
             chkbOpenFile.Checked = Settings.Default.OpenGeneratedFile;
             InputFilePath = Settings.Default.InputFilePath;
+            StackCountMax = 1000;
+            LargestDimMin = 10;
 
         }
         protected override void OnClosing(CancelEventArgs e)
@@ -332,9 +334,12 @@ namespace treeDiM.StackBuilder.ABYATExcelLoader
                     stackCount = analysis.Solution.ItemCount;
                     stackWeight = analysis.Solution.Weight;
 
-                    ViewerSolution sv = new ViewerSolution(analysis.Solution);
-                    sv.Draw(graphics, Transform3D.Identity);
-                    graphics.Flush();
+                    if (stackCount <= StackCountMax)
+                    {
+                        ViewerSolution sv = new ViewerSolution(analysis.Solution);
+                        sv.Draw(graphics, Transform3D.Identity);
+                        graphics.Flush();
+                    }
                 }
             }
             else
@@ -354,14 +359,27 @@ namespace treeDiM.StackBuilder.ABYATExcelLoader
                     stackCount = analysis.Solution.ItemCount;
                     stackWeight = analysis.Solution.Weight;
 
-                    ViewerSolution sv = new ViewerSolution(analysis.Solution);
-                    sv.Draw(graphics, Transform3D.Identity);
-                    graphics.Flush();
+                    if (stackCount <= StackCountMax)
+                    {
+                        ViewerSolution sv = new ViewerSolution(analysis.Solution);
+                        sv.Draw(graphics, Transform3D.Identity);
+                        graphics.Flush();
+                    }
                 }
             }
             Bitmap bmp = graphics.Bitmap;
             bmp.Save(stackImagePath, System.Drawing.Imaging.ImageFormat.Png);
 
+        }
+        private double LargestDimMin
+        {
+            get { return uCtrlLargestDimMin.Value; }
+            set { uCtrlLargestDimMin.Value = value; }
+        }
+        private int StackCountMax
+        {
+            set { nudStackCountMax.Value = (decimal)value; }
+            get { return (int)nudStackCountMax.Value; }
         }
         private int ImageSize
         {
@@ -429,6 +447,7 @@ namespace treeDiM.StackBuilder.ABYATExcelLoader
                 dataRange.RowHeight = 128;
                 Range imageRange = xlWorkSheet.get_Range("o" + 2, "o" + rowCount);
                 imageRange.ColumnWidth = 24;
+                double largestDimensionMinimum = LargestDimMin;
 
                 // loop throw
                 for (int iRow = 2; iRow <= rowCount; ++iRow)
@@ -438,11 +457,13 @@ namespace treeDiM.StackBuilder.ABYATExcelLoader
                         // get length
                         double length = (xlWorkSheet.get_Range("f" + iRow, "f" + iRow).Value);
                         // get width
-                        double width = (xlWorkSheet.get_Range("g" + iRow, "g" +iRow).Value);
+                        double width = (xlWorkSheet.get_Range("g" + iRow, "g" + iRow).Value);
                         // get height
                         double height = (xlWorkSheet.get_Range("h" + iRow, "h" + iRow).Value);
                         // get weight
                         double? weight = (xlWorkSheet.get_Range("j" + iRow, "j" + iRow).Value);
+                        double maxDimension = Math.Max(Math.Max(length, width), height);
+                        if (maxDimension < largestDimensionMinimum) continue;
                         // compute stacking
                         int stackCount = 0;
                         double stackWeight = 0.0;
@@ -457,11 +478,15 @@ namespace treeDiM.StackBuilder.ABYATExcelLoader
                         // insert image in "o"+iRow
                         Range imageCell = xlWorkSheet.get_Range("o" + iRow, "o" + iRow);
                         xlWorkSheet.Shapes.AddPicture(stackImagePath, MsoTriState.msoFalse, MsoTriState.msoCTrue,
-                            imageCell.Left+1, imageCell.Top+1, imageCell.Width-2, imageCell.Height-2);
+                            imageCell.Left + 1, imageCell.Top + 1, imageCell.Width - 2, imageCell.Height - 2);
                     }
-                    catch (Exception ex )
+                    catch (System.OutOfMemoryException)
+                    { }
+                    catch (treeDiM.StackBuilder.Engine.EngineException)
+                    { }
+                    catch (Exception ex)
                     {
-                        MessageBox.Show( ex.Message );
+                        throw ex; // rethrow
                     }
                 }
                 xlWorkBook.Save();
