@@ -19,9 +19,9 @@ namespace treeDiM.StackBuilder.Reporting
         /// <summary>
         /// ReportHtml : generate html report
         /// </summary>
-        public ReporterHtml(ReportData inputData, string templatePath, string outpuFilePath)
+        public ReporterHtml(ReportData inputData, ref ReportNode rnRoot, string templatePath, string outpuFilePath)
         {
-            BuildAnalysisReport(inputData, templatePath, outpuFilePath);
+            BuildAnalysisReport(inputData, ref rnRoot, templatePath, outpuFilePath);
         }
         #endregion
 

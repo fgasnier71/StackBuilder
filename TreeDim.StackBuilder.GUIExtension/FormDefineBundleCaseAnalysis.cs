@@ -371,7 +371,7 @@ namespace treeDiM.StackBuilder.GUIExtension
             }
             catch (Exception ex)
             {
-                _log.Error(ex.ToString());
+                _log.Error(ex.Message);
             }
         }
         private void ToolsGenerateStackBuilderProject(object sender, EventArgs e)

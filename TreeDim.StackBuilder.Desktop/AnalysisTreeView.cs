@@ -216,11 +216,8 @@ namespace treeDiM.StackBuilder.Desktop
                     string.Format(Resources.ID_DELETEITEM, nodeTag.Analysis.Name), AnalysisTreeView.DELETE
                     , new EventHandler(onDeleteBaseItem)));
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(
-                    string.Format(Resources.ID_GENERATEREPORTMSWORD, nodeTag.Analysis.Name), AnalysisTreeView.WORD
-                    , new EventHandler(onAnalysisReportMSWord)));
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(
-                    string.Format(Resources.ID_GENERATEREPORTHTML, nodeTag.Analysis.Name), AnalysisTreeView.HTML
-                    , new EventHandler(onAnalysisReportHTML)));
+                    string.Format(Resources.ID_GENERATEREPORT, nodeTag.Analysis.Name), AnalysisTreeView.WORD
+                    , new EventHandler(onAnalysisReport)));
             }
         }
         #endregion
@@ -235,30 +232,12 @@ namespace treeDiM.StackBuilder.Desktop
             }
             catch (Exception ex) { _log.Error(ex.ToString()); }
         }
-        private void onAnalysisReportMSWord(object sender, EventArgs e)
+        private void onAnalysisReport(object sender, EventArgs e)
         {
             try
             {
                 NodeTag tag = SelectedNode.Tag as NodeTag;
-                SolutionReportMSWordClicked(this, new AnalysisTreeViewEventArgs(tag));
-            }
-            catch (Exception ex) { _log.Error(ex.ToString()); }
-        }
-        private void onAnalysisReportPdf(object sender, EventArgs e)
-        {
-            try
-            {
-                NodeTag tag = SelectedNode.Tag as NodeTag;
-                SolutionReportPdfClicked(this, new AnalysisTreeViewEventArgs(tag));
-            }
-            catch (Exception ex) { _log.Error(ex.ToString()); }
-        }
-        private void onAnalysisReportHTML(object sender, EventArgs e)
-        {
-            try
-            {
-                NodeTag tag = SelectedNode.Tag as NodeTag;
-                SolutionReportHtmlClicked(this, new AnalysisTreeViewEventArgs(tag));
+                SolutionReportClicked(this, new AnalysisTreeViewEventArgs(tag));
             }
             catch (Exception ex) { _log.Error(ex.ToString()); }
         }
@@ -537,16 +516,8 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Events
-        /// <summary>
-        /// event raised when an analysis node is clicked
-        /// </summary>
         public event AnalysisNodeClickHandler AnalysisNodeClicked;
-        /// <summary>
-        /// event raised when a selected solution node is clicked
-        /// </summary>
-        public event AnalysisNodeClickHandler SolutionReportMSWordClicked;
-        public event AnalysisNodeClickHandler SolutionReportHtmlClicked;
-        public event AnalysisNodeClickHandler SolutionReportPdfClicked;
+        public event AnalysisNodeClickHandler SolutionReportClicked;
         public event AnalysisNodeClickHandler SolutionColladaExportClicked;
         #endregion
 

@@ -9,13 +9,13 @@
     <xs:sequence>
       <xs:element name="name" type="xs:string"/>
       <xs:element name="description" type="xs:string"/>
-      <xs:element name="length" minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>
-      <xs:element name="width" minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>
-      <xs:element name="height" minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>
-      <xs:element name="weight" minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>
+      <xs:element name="length" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
+      <xs:element name="width" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
+      <xs:element name="height" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
+      <xs:element name="weight" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
       <xs:element name="netWeight" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
-      <xs:element name="admissibleLoadOnTop" minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>
-      <xs:element name="imageThumb" minOccurs="1" maxOccurs="1" type="rpt:imageThumb"/>
+      <xs:element name="admissibleLoadOnTop" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
+      <xs:element name="imageThumb" minOccurs="0" maxOccurs="1" type="rpt:imageThumb"/>
     </xs:sequence>
   </xs:complexType>
   <!--BOX : END-->
@@ -23,13 +23,13 @@
     <xs:sequence>
       <xs:element name="name" type="xs:string"/>
       <xs:element name="description" type="xs:string"/>
-      <xs:element name="length" minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>
-      <xs:element name="width" minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>
-      <xs:element name="height" minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>
-      <xs:element name="weight" minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>
+      <xs:element name="length" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
+      <xs:element name="width" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
+      <xs:element name="height" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
+      <xs:element name="weight" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
       <xs:element name="netWeight" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
-      <xs:element name="admissibleLoadOnTop" minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>
-      <xs:element name="imageThumb" minOccurs="1" maxOccurs="1" type="rpt:imageThumb"/>
+      <xs:element name="admissibleLoadOnTop" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
+      <xs:element name="imageThumb" minOccurs="0" maxOccurs="1" type="rpt:imageThumb"/>
     </xs:sequence>
   </xs:complexType>
   <!--BUNDLE : BEG-->
@@ -37,14 +37,14 @@
     <xs:sequence>
       <xs:element name="name" type="xs:string"/>
       <xs:element name="description" type="xs:string"/>
-      <xs:element name="length" minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>
-      <xs:element name="width" minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>
+      <xs:element name="length" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
+      <xs:element name="width" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
       <xs:element name="numberOfFlats" type="xs:string"/>
-      <xs:element name="unitThickness" minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>
-      <xs:element name="unitWeight" minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>
-      <xs:element name="totalThickness" minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>
-      <xs:element name="totalWeight" minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>
-      <xs:element name="imageThumb" minOccurs="1" maxOccurs="1" type="rpt:imageThumb"/>
+      <xs:element name="unitThickness" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
+      <xs:element name="unitWeight" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
+      <xs:element name="totalThickness" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
+      <xs:element name="totalWeight" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
+      <xs:element name="imageThumb" minOccurs="0" maxOccurs="1" type="rpt:imageThumb"/>
     </xs:sequence>
   </xs:complexType>
   <!--BENDLE : END-->
@@ -61,7 +61,7 @@
       <xs:element name="innerHeight" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
       <xs:element name="weight" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
       <xs:element name="admissibleLoadOnTop" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
-      <xs:element name="imageThumb" minOccurs="1" maxOccurs="1" type="rpt:imageThumb"/>
+      <xs:element name="imageThumb" minOccurs="0" maxOccurs="1" type="rpt:imageThumb"/>
     </xs:sequence>
   </xs:complexType>
   <!--CASEWITHINNERDIMS : END-->
@@ -71,13 +71,13 @@
       <xs:element name="name" type="xs:string"/>
       <xs:element name="description" type="xs:string"/>
       <xs:element name="arrangement" type="xs:string"/>
-      <xs:element name="length" minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>
-      <xs:element name="width" minOccurs="1" maxOccurs="1" type ="rpt:valueWUnit"/>
-      <xs:element name="height" minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>
+      <xs:element name="length" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
+      <xs:element name="width" minOccurs="0" maxOccurs="1" type ="rpt:valueWUnit"/>
+      <xs:element name="height" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
       <xs:element name="netWeight" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
       <xs:element name="wrapperWeight" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
-      <xs:element name="weight" minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>
-      <xs:element name="imageThumb" minOccurs="1" maxOccurs="1" type="rpt:imageThumb"/>
+      <xs:element name="weight" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
+      <xs:element name="imageThumb" minOccurs="0" maxOccurs="1" type="rpt:imageThumb"/>
     </xs:sequence>
   </xs:complexType>
   <!--PACKPROPERTIES : END-->
@@ -85,14 +85,14 @@
   <xs:complexType name="pallet">
     <xs:sequence>
       <xs:element name="name" type="xs:string"/>
-      <xs:element name="description" type="xs:string"/>
-      <xs:element name="length" minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>
-      <xs:element name="width"  minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>
-      <xs:element name="height" minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>
-      <xs:element name="weight" minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>
+      <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
+      <xs:element name="length" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
+      <xs:element name="width"  minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
+      <xs:element name="height" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
+      <xs:element name="weight" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
       <xs:element name="admissibleLoad" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
       <xs:element name="type" type="xs:string"/>
-      <xs:element name="imageThumb" minOccurs="1" maxOccurs="1" type="rpt:imageThumb"/>
+      <xs:element name="imageThumb" minOccurs="0" maxOccurs="1" type="rpt:imageThumb"/>
     </xs:sequence>
   </xs:complexType>
   <!--PALLET : END-->

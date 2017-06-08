@@ -25,16 +25,18 @@
           <xsl:value-of select="name"/>
         </td>
       </tr>
-      <tr>
-        <td class="style2" colspan="1">
-          <b>
-            <xsl:value-of select="$loc/str[@name='Description']"/>
-          </b>
-        </td>
-        <td class="style3" colspan="2">
-          <xsl:value-of select="description"/>
-        </td>
-      </tr>
+      <xsl:if test="description">
+        <tr>
+          <td class="style2" colspan="1">
+            <b>
+              <xsl:value-of select="$loc/str[@name='Description']"/>
+            </b>
+          </td>
+          <td class="style3" colspan="2">
+            <xsl:value-of select="description"/>
+          </td>
+        </tr>
+      </xsl:if>
       <tr>
         <td class="style2" colspan="1">
           <b>
@@ -108,16 +110,18 @@
           <xsl:value-of select="name"/>
         </td>
       </tr>
-      <tr>
-        <td class="style2" colspan="1">
-          <b>
-            <xsl:value-of select="$loc/str[@name='Description']"/>
-          </b>
-        </td>
-        <td class="style3" colspan="3">
-          <xsl:value-of select="description"/>
-        </td>
-      </tr>
+      <xsl:if test="description">
+        <tr>
+          <td class="style2" colspan="1">
+            <b>
+              <xsl:value-of select="$loc/str[@name='Description']"/>
+            </b>
+          </td>
+          <td class="style3" colspan="3">
+            <xsl:value-of select="description"/>
+          </td>
+        </tr>
+      </xsl:if>
       <tr>
         <td class="style2" colspan="1">
           <b>
@@ -179,45 +183,53 @@
           <xsl:value-of select="name"></xsl:value-of>
         </td>
       </tr>
+      <xsl:if test="description">
+        <tr>
+          <td class="style2" colspan="1">
+            <b>
+              <xsl:value-of select="$loc/str[@name='Description']"/>
+            </b>
+          </td>
+          <td class="style3" colspan="3">
+            <xsl:value-of select="description"></xsl:value-of>
+          </td>
+        </tr>
+      </xsl:if>
+      <xsl:if test="radius">
+        <tr>
+          <td class="style2" colspan="1">
+            <b>
+              <xsl:value-of select="$loc/str[@name='Radius']"/> (<xsl:value-of select="radius/unit"></xsl:value-of>)
+            </b>
+          </td>
+          <td class="style3" colspan="1">
+            <xsl:value-of select="radius/value"></xsl:value-of>
+          </td>
+        </tr>
+      </xsl:if>
+      <xsl:if test="height">
+        <tr>
+          <td class="style2" colspan="1">
+            <b>
+              <xsl:value-of select="$loc/str[@name='Height']"/> (<xsl:value-of select="height/unit"></xsl:value-of>)
+            </b>
+          </td>
+          <td class="style3" colspan="1">
+            <xsl:value-of select="height/value"></xsl:value-of>
+          </td>
+        </tr>
+      </xsl:if>
       <tr>
-        <td class="style2" colspan="1">
-          <b>
-            <xsl:value-of select="$loc/str[@name='Description']"/>
-          </b>
-        </td>
-        <td class="style3" colspan="3">
-          <xsl:value-of select="description"></xsl:value-of>
-        </td>
-      </tr>
-      <tr>
-        <td class="style2" colspan="1">
-          <b>
-            <xsl:value-of select="$loc/str[@name='Radius']"/> (<xsl:value-of select="radius/unit"></xsl:value-of>)
-          </b>
-        </td>
-        <td class="style3" colspan="1">
-          <xsl:value-of select="radius/value"></xsl:value-of>
-        </td>
-      </tr>
-      <tr>
-        <td class="style2" colspan="1">
-          <b>
-            <xsl:value-of select="$loc/str[@name='Height']"/> (<xsl:value-of select="height/unit"></xsl:value-of>)
-          </b>
-        </td>
-        <td class="style3" colspan="1">
-          <xsl:value-of select="height/value"></xsl:value-of>
-        </td>
-      </tr>
-      <tr>
-        <td class="style2" colspan="1">
-          <b>
-            <xsl:value-of select="$loc/str[@name='Weight']"/> (<xsl:value-of select="weight/unit"></xsl:value-of>)
-          </b>
-        </td>
-        <td class="style3" colspan="1">
-          <xsl:value-of select="weight/value"></xsl:value-of>
-        </td>
+        <xsl:if test="weight">
+          <td class="style2" colspan="1">
+            <b>
+              <xsl:value-of select="$loc/str[@name='Weight']"/> (<xsl:value-of select="weight/unit"></xsl:value-of>)
+            </b>
+          </td>
+          <td class="style3" colspan="1">
+            <xsl:value-of select="weight/value"></xsl:value-of>
+          </td>
+        </xsl:if>
         <td colspan="2" align="middle">
           <xsl:apply-templates select="imageThumb"></xsl:apply-templates>
         </td>
@@ -335,59 +347,69 @@
           <xsl:value-of select="name"></xsl:value-of>
         </td>
       </tr>
+      <xsl:if test="description">
+        <tr>
+          <td class="style2" colspan="1">
+            <b>
+              <xsl:value-of select="$loc/str[@name='Description']"/>
+            </b>
+          </td>
+          <td class="style3" colspan="3">
+              <xsl:value-of select="description"></xsl:value-of>
+          </td>
+        </tr>
+      </xsl:if>
       <tr>
-        <td class="style2" colspan="1">
-          <b>
-            <xsl:value-of select="$loc/str[@name='Description']"/>
-          </b>
-        </td>
-        <td class="style3" colspan="3">
-          <xsl:value-of select="description"></xsl:value-of>
-        </td>
-      </tr>
-      <tr>
-        <td class="style2" colspan="1">
-          <b>
-            <xsl:value-of select="$loc/str[@name='Length']"/> (<xsl:value-of select="length/unit"></xsl:value-of>)
-          </b>
-        </td>
-        <td class="style3" colspan="1">
-          <xsl:value-of select="length/value"></xsl:value-of>
-        </td>
+        <xsl:if test="length">
+          <td class="style2" colspan="1">
+            <b>
+              <xsl:value-of select="$loc/str[@name='Length']"/> (<xsl:value-of select="length/unit"></xsl:value-of>)
+            </b>
+          </td>
+          <td class="style3" colspan="1">
+            <xsl:value-of select="length/value"></xsl:value-of>
+          </td>
+        </xsl:if>
         <td rowspan="5" colspan="2" align="middle">
           <xsl:apply-templates select="imageThumb"/>
         </td>
       </tr>
-      <tr>
-        <td class="style2" colspan="1">
-          <b>
-            <xsl:value-of select="$loc/str[@name='Width']"/> (<xsl:value-of select="width/unit"/>)
-          </b>
-        </td>
-        <td class="style3" colspan="1">
-          <xsl:value-of select="width/value"></xsl:value-of>
-        </td>
-      </tr>
-      <tr>
-        <td class="style2" colspan="1">
-          <b>
-            <xsl:value-of select="$loc/str[@name='Height']"/> (<xsl:value-of select="height/unit"/>)
-          </b>
-        </td>
-        <td class="style3" colspan="1">
-          <xsl:value-of select="height/value"/>
-        </td>
-      </tr>
-      <tr>
-        <td class="style2" colspan="1">
-          <b>
-            <xsl:value-of select="$loc/str[@name='Weight']"/> (<xsl:value-of select="weight/unit"/>)
-          </b>
-        </td>
-        <td class="style3" colspan="1">
-          <xsl:value-of select="weight/value"/>
-        </td>
-      </tr>
+      <xsl:if test="width">
+        <tr>
+          <td class="style2" colspan="1">
+            <b>
+              <xsl:value-of select="$loc/str[@name='Width']"/> (<xsl:value-of select="width/unit"/>)
+            </b>
+          </td>
+          <td class="style3" colspan="1">
+            <xsl:value-of select="width/value"></xsl:value-of>
+          </td>
+        </tr>
+      </xsl:if>
+      <xsl:if test="height">
+        <tr>
+          <td class="style2" colspan="1">
+            <b>
+              <xsl:value-of select="$loc/str[@name='Height']"/> (<xsl:value-of select="height/unit"/>)
+            </b>
+          </td>
+          <td class="style3" colspan="1">
+            <xsl:value-of select="height/value"/>
+          </td>
+        </tr>
+      </xsl:if>
+      <xsl:if test="weight">
+        <tr>
+          <td class="style2" colspan="1">
+            <b>
+              <xsl:value-of select="$loc/str[@name='Weight']"/> (<xsl:value-of select="weight/unit"/>)
+            </b>
+          </td>
+          <td class="style3" colspan="1">
+            <xsl:value-of select="weight/value"/>
+          </td>
+        </tr>
+      </xsl:if>
       <xsl:if test="admissibleLoad">
         <tr>
           <td class="style2" colspan="1">
@@ -416,59 +438,69 @@
           <xsl:value-of select="name"></xsl:value-of>
         </td>
       </tr>
+      <xsl:if test="description">
+        <tr>
+          <td class="style2" colspan="1">
+            <b>
+              <xsl:value-of select="$loc/str[@name='Description']"/>
+            </b>
+          </td>
+          <td class="style3" colspan="2">
+            <xsl:value-of select="description"></xsl:value-of>
+          </td>
+        </tr>
+      </xsl:if>
       <tr>
-        <td class="style2" colspan="1">
-          <b>
-            <xsl:value-of select="$loc/str[@name='Description']"/>
-          </b>
-        </td>
-        <td class="style3" colspan="2">
-          <xsl:value-of select="description"></xsl:value-of>
-        </td>
-      </tr>
-      <tr>
-        <td class="style2" colspan="1">
-          <b>
-            <xsl:value-of select="$loc/str[@name='Length']"/> (<xsl:value-of select="length/unit"></xsl:value-of>)
-          </b>
-        </td>
-        <td class="style3" colspan="1">
-          <xsl:value-of select="length/value"></xsl:value-of>
-        </td>
+        <xsl:if test="length">
+          <td class="style2" colspan="1">
+            <b>
+              <xsl:value-of select="$loc/str[@name='Length']"/> (<xsl:value-of select="length/unit"></xsl:value-of>)
+            </b>
+          </td>
+          <td class="style3" colspan="1">
+            <xsl:value-of select="length/value"></xsl:value-of>
+          </td>
+        </xsl:if>
         <td rowspan="4" align="middle">
           <xsl:apply-templates select="imageThumb"/>
         </td>
       </tr>
-      <tr>
-        <td class="style2">
-          <b>
-            <xsl:value-of select="$loc/str[@name='Width']"/> (<xsl:value-of select="width/unit"></xsl:value-of>)
-          </b>
-        </td>
-        <td class="style3" colspan="1">
-          <xsl:value-of select="width/value"></xsl:value-of>
-        </td>
-      </tr>
-      <tr>
-        <td class="style2">
-          <b>
-            <xsl:value-of select="$loc/str[@name='Height']"/> (<xsl:value-of select="height/unit"></xsl:value-of>)
-          </b>
-        </td>
-        <td class="style3" colspan="1">
-          <xsl:value-of select="height/value"></xsl:value-of>
-        </td>
-      </tr>
-      <tr>
-        <td class="style2">
-          <b>
-            <xsl:value-of select="$loc/str[@name='Weight']"/> (<xsl:value-of select="weight/unit"></xsl:value-of>)
-          </b>
-        </td>
-        <td class="style3" colspan="1">
-          <xsl:value-of select="weight/value"></xsl:value-of>
-        </td>
-      </tr>
+      <xsl:if test="width">
+        <tr>
+          <td class="style2">
+            <b>
+              <xsl:value-of select="$loc/str[@name='Width']"/> (<xsl:value-of select="width/unit"></xsl:value-of>)
+            </b>
+          </td>
+          <td class="style3" colspan="1">
+            <xsl:value-of select="width/value"></xsl:value-of>
+          </td>
+        </tr>
+      </xsl:if>
+      <xsl:if test="height">
+        <tr>
+          <td class="style2">
+            <b>
+              <xsl:value-of select="$loc/str[@name='Height']"/> (<xsl:value-of select="height/unit"></xsl:value-of>)
+            </b>
+          </td>
+          <td class="style3" colspan="1">
+            <xsl:value-of select="height/value"></xsl:value-of>
+          </td>
+        </tr>
+      </xsl:if>
+      <xsl:if test="weight">
+        <tr>
+          <td class="style2">
+            <b>
+              <xsl:value-of select="$loc/str[@name='Weight']"/> (<xsl:value-of select="weight/unit"></xsl:value-of>)
+            </b>
+          </td>
+          <td class="style3" colspan="1">
+            <xsl:value-of select="weight/value"></xsl:value-of>
+          </td>
+        </tr>
+      </xsl:if>
     </table>
   </xsl:template>
   <!--#### INTERLAYER ####-->
@@ -487,59 +519,69 @@
           <xsl:value-of select="name"></xsl:value-of>
         </td>
       </tr>
+      <xsl:if test="description">
+        <tr>
+          <td class="style2">
+            <b>
+              <xsl:value-of select="$loc/str[@name='Description']"/>
+            </b>
+          </td>
+          <td class="style3" colspan="2">
+            <xsl:value-of select="description"></xsl:value-of>
+          </td>
+        </tr>
+      </xsl:if>
       <tr>
-        <td class="style2">
-          <b>
-            <xsl:value-of select="$loc/str[@name='Description']"/>
-          </b>
-        </td>
-        <td class="style3" colspan="2">
-          <xsl:value-of select="description"></xsl:value-of>
-        </td>
-      </tr>
-      <tr>
-        <td class="style2">
-          <b>
-            <xsl:value-of select="$loc/str[@name='Length']"/> (<xsl:value-of select="length/unit"></xsl:value-of>)
-          </b>
-        </td>
-        <td class="style3">
-          <xsl:value-of select="length/value"></xsl:value-of>
-        </td>
+        <xsl:if test="length">
+          <td class="style2">
+            <b>
+              <xsl:value-of select="$loc/str[@name='Length']"/> (<xsl:value-of select="length/unit"></xsl:value-of>)
+            </b>
+          </td>
+          <td class="style3">
+            <xsl:value-of select="length/value"></xsl:value-of>
+          </td>
+        </xsl:if>
         <td rowspan="4" align="middle">
           <xsl:apply-templates select="imageThumb"/>
         </td>
       </tr>
-      <tr>
-        <td class="style2">
-          <b>
-            <xsl:value-of select="$loc/str[@name='Width']"/> (<xsl:value-of select="width/unit"></xsl:value-of>)
-          </b>
-        </td>
-        <td class="style3">
-          <xsl:value-of select="width/value"></xsl:value-of>
-        </td>
-      </tr>
-      <tr>
-        <td class="style2">
-          <b>
-            <xsl:value-of select="$loc/str[@name='Thickness']"/> (<xsl:value-of select="thickness/unit"></xsl:value-of>)
-          </b>
-        </td>
-        <td class="style3">
-          <xsl:value-of select="thickness/value"></xsl:value-of>
-        </td>
-      </tr>
-      <tr>
-        <td class="style2">
-          <b>
-            <xsl:value-of select="$loc/str[@name='Weight']"/> (<xsl:value-of select="weight/unit"></xsl:value-of>)
-          </b>
-        </td>
-        <td class="style3">
-          <xsl:value-of select="weight/value"></xsl:value-of>
-        </td>
-      </tr>
+      <xsl:if test="width">
+        <tr>
+          <td class="style2">
+            <b>
+              <xsl:value-of select="$loc/str[@name='Width']"/> (<xsl:value-of select="width/unit"></xsl:value-of>)
+            </b>
+          </td>
+          <td class="style3">
+            <xsl:value-of select="width/value"></xsl:value-of>
+          </td>
+        </tr>
+      </xsl:if>
+      <xsl:if test="thickness">
+        <tr>
+          <td class="style2">
+            <b>
+              <xsl:value-of select="$loc/str[@name='Thickness']"/> (<xsl:value-of select="thickness/unit"></xsl:value-of>)
+            </b>
+          </td>
+          <td class="style3">
+            <xsl:value-of select="thickness/value"></xsl:value-of>
+          </td>
+        </tr>
+      </xsl:if>
+      <xsl:if test="weight">
+        <tr>
+          <td class="style2">
+            <b>
+              <xsl:value-of select="$loc/str[@name='Weight']"/> (<xsl:value-of select="weight/unit"></xsl:value-of>)
+            </b>
+          </td>
+          <td class="style3">
+            <xsl:value-of select="weight/value"></xsl:value-of>
+          </td>
+        </tr>
+      </xsl:if>
     </table>
   </xsl:template>
   <!--#### PALLET CORNER ####-->
@@ -558,16 +600,18 @@
           <xsl:value-of select="name"></xsl:value-of>
         </td>
       </tr>
-      <tr>
-        <td class="style2">
-          <b>
-            <xsl:value-of select="$loc/str[@name='Description']"/>
-          </b>
-        </td>
-        <td class="style3" colspan="2">
-          <xsl:value-of select="description"></xsl:value-of>
-        </td>
-      </tr>
+      <xsl:if test="description">
+        <tr>
+          <td class="style2">
+            <b>
+              <xsl:value-of select="$loc/str[@name='Description']"/>
+            </b>
+          </td>
+          <td class="style3" colspan="2">
+            <xsl:value-of select="description"></xsl:value-of>
+          </td>
+        </tr>
+      </xsl:if>
       <tr>
         <td class="style2 " colspan="1">
           <b>

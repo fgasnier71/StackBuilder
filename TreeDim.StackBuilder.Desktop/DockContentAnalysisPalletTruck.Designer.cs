@@ -32,7 +32,6 @@
             this.toolStripAnalysis = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonBack = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonReportMSWord = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButtonReportHTML = new System.Windows.Forms.ToolStripButton();
             this.splitContainerHoriz = new System.Windows.Forms.SplitContainer();
             this.splitContainerVert = new System.Windows.Forms.SplitContainer();
             this.graphCtrlSolution = new treeDiM.StackBuilder.Graphics.Graphics3DControl();
@@ -52,8 +51,7 @@
             // 
             this.toolStripAnalysis.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButtonBack,
-            this.toolStripButtonReportMSWord,
-            this.toolStripButtonReportHTML});
+            this.toolStripButtonReportMSWord});
             this.toolStripAnalysis.Location = new System.Drawing.Point(0, 0);
             this.toolStripAnalysis.Name = "toolStripAnalysis";
             this.toolStripAnalysis.Size = new System.Drawing.Size(784, 25);
@@ -77,18 +75,8 @@
             this.toolStripButtonReportMSWord.ImageTransparentColor = System.Drawing.Color.White;
             this.toolStripButtonReportMSWord.Name = "toolStripButtonReportMSWord";
             this.toolStripButtonReportMSWord.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonReportMSWord.Text = "Generate MSWord report...";
-            this.toolStripButtonReportMSWord.Click += new System.EventHandler(this.onGenerateReportMSWord);
-            // 
-            // toolStripButtonReportHTML
-            // 
-            this.toolStripButtonReportHTML.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonReportHTML.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonReportHTML.Image")));
-            this.toolStripButtonReportHTML.ImageTransparentColor = System.Drawing.Color.White;
-            this.toolStripButtonReportHTML.Name = "toolStripButtonReportHTML";
-            this.toolStripButtonReportHTML.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonReportHTML.Text = "Generate HTML report...";
-            this.toolStripButtonReportHTML.Click += new System.EventHandler(this.onGenerateReportHTML);
+            this.toolStripButtonReportMSWord.Text = "Generate report...";
+            this.toolStripButtonReportMSWord.Click += new System.EventHandler(this.onGenerateReport);
             // 
             // splitContainerHoriz
             // 
@@ -177,6 +165,5 @@
         private System.Windows.Forms.SplitContainer splitContainerVert;
         private Graphics.Graphics3DControl graphCtrlSolution;
         private SourceGrid.Grid gridSolution;
-        private System.Windows.Forms.ToolStripButton toolStripButtonReportHTML;
     }
 }

@@ -166,5 +166,17 @@ namespace treeDiM.StackBuilder.ABYATExcelLoader.Properties {
                 this["OpenGeneratedFile"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool GenerateImage {
+            get {
+                return ((bool)(this["GenerateImage"]));
+            }
+            set {
+                this["GenerateImage"] = value;
+            }
+        }
     }
 }

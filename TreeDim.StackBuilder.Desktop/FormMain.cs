@@ -238,9 +238,7 @@ namespace treeDiM.StackBuilder.Desktop
         {
             _documentExplorer.Show(dockPanel, WeifenLuo.WinFormsUI.Docking.DockState.DockLeft);
             _documentExplorer.DocumentTreeView.AnalysisNodeClicked += new AnalysisTreeView.AnalysisNodeClickHandler(DocumentTreeView_NodeClicked);
-            _documentExplorer.DocumentTreeView.SolutionReportMSWordClicked += new AnalysisTreeView.AnalysisNodeClickHandler(DocumentTreeView_SolutionReportNodeClicked);
-            _documentExplorer.DocumentTreeView.SolutionReportPdfClicked += new AnalysisTreeView.AnalysisNodeClickHandler(DocumentTreeView_SolutionReportPDFNodeClicked);
-            _documentExplorer.DocumentTreeView.SolutionReportHtmlClicked += new AnalysisTreeView.AnalysisNodeClickHandler(DocumentTreeView_SolutionReportHtmlClicked);
+            _documentExplorer.DocumentTreeView.SolutionReportClicked += new AnalysisTreeView.AnalysisNodeClickHandler(onSolutionReportNodeClicked);
             _documentExplorer.DocumentTreeView.SolutionColladaExportClicked += new AnalysisTreeView.AnalysisNodeClickHandler(DocumentTreeView_SolutionColladaExportClicked);
             ShowLogConsole();
             if (AssemblyConf != "debug")
@@ -496,48 +494,13 @@ namespace treeDiM.StackBuilder.Desktop
             return true;
         }
 
-        private static string CleanString(string name)
-        {
-            string nameCopy = name;
-            char[] specialChars = { ' ', '*', '.', ';', ':' };
-            foreach (char c in specialChars)
-                nameCopy = nameCopy.Replace(c, '_');
-            return nameCopy;
-        }
-
-        public void GenerateReportMSWord(Analysis analysis)
+        public void GenerateReport(Analysis analysis)
         {
             try
             {
-                // save file dialog
-                SaveFileDialog dlg = new SaveFileDialog();
-                dlg.InitialDirectory = Properties.Settings.Default.ReportInitialDirectory;
-                dlg.FileName = Path.ChangeExtension(CleanString(analysis.Name), "doc");
-                dlg.Filter = Resources.ID_FILTER_MSWORD;
-                dlg.DefaultExt = "doc";
-                dlg.ValidateNames = true;
-                if (DialogResult.OK == dlg.ShowDialog())
-                {
-                    // build output file path
-                    string outputFilePath = dlg.FileName;
-                    string htmlFilePath = Path.ChangeExtension(outputFilePath, "html");
-                    // save directory
-                    Properties.Settings.Default.ReportInitialDirectory = Path.GetDirectoryName(dlg.FileName);
-                    // getting current culture
-                    string cultAbbrev = System.Globalization.CultureInfo.CurrentCulture.ThreeLetterWindowsLanguageName;
-                    // build report
-                    ReportData reportObject = new ReportData(analysis);
-                    Reporter.ImageSizeSetting = (Reporter.eImageSize)Properties.Settings.Default.ReporterImageSize;
-                    ReporterMSWord reporter = new ReporterMSWord(
-                        reportObject
-                        , Reporter.TemplatePath
-                        , dlg.FileName
-                        , new Margins());
-                }
-            }
-            catch (System.Runtime.InteropServices.COMException ex)
-            {
-                _log.Error("MS Word not installed? : " + ex.Message);
+                FormReportDesign form = new FormReportDesign();
+                form.Analysis = analysis;
+                form.ShowDialog();
             }
             catch (Exception ex)
             {
@@ -545,140 +508,10 @@ namespace treeDiM.StackBuilder.Desktop
             }
         }
 
-        public void GenerateReportHTML(Analysis analysis)
+        private void onSolutionReportNodeClicked(object sender, AnalysisTreeViewEventArgs eventArg)
         {
-            try
-            {
-                // build output file path
-                string outputFilePath = Path.ChangeExtension(Path.GetTempFileName(), "html");
-                // build report
-                ReportData reportObject = new ReportData(analysis);
-                Reporter.ImageSizeSetting = (Reporter.eImageSize)Properties.Settings.Default.ReporterImageSize;
-                ReporterHtml reporter = new ReporterHtml(
-                    reportObject
-                    , Reporter.TemplatePath
-                    , outputFilePath
-                    );
-                // logging
-                _log.Debug(string.Format("Saved report to {0}", outputFilePath));
-                // open resulting report
-                DockContentReport dockContent = CreateOrActivateHtmlReport(reportObject, outputFilePath);
-            }
-            catch (Exception ex)
-            {
-                _log.Error(ex.ToString());
-            }
-        }
-
-        private void DocumentTreeView_SolutionReportNodeClicked(object sender, AnalysisTreeViewEventArgs eventArg)
-        {
-            try
-            {
-                // build analysis name
-                string analysisName = string.Empty;
-                if (null != eventArg.Analysis) analysisName = eventArg.Analysis.Name;
-                else
-                {
-                    _log.Error("Unsupported analysis type ?");
-                    return;
-                }
-                // save file dialog
-                SaveFileDialog dlg = new SaveFileDialog();
-                dlg.InitialDirectory = Properties.Settings.Default.ReportInitialDirectory;
-                dlg.FileName = Path.ChangeExtension(CleanString(analysisName), "doc");
-                dlg.Filter = Resources.ID_FILTER_MSWORD;
-                dlg.DefaultExt = "doc";
-                dlg.ValidateNames = true;
-                if (DialogResult.OK == dlg.ShowDialog())
-                {
-                    // build output file path
-                    string outputFilePath = dlg.FileName;
-                    string htmlFilePath = Path.ChangeExtension(outputFilePath, "html");
-                    // save directory
-                    Properties.Settings.Default.ReportInitialDirectory = Path.GetDirectoryName(dlg.FileName);
-                    // getting current culture
-                    string cultAbbrev = System.Globalization.CultureInfo.CurrentCulture.ThreeLetterWindowsLanguageName;
-                    // build report
-                    ReportData reportObject = new ReportData(eventArg.Analysis);
-                    Reporter.ImageSizeSetting = (Reporter.eImageSize)Properties.Settings.Default.ReporterImageSize;
-                    ReporterMSWord reporter = new ReporterMSWord(
-                        reportObject
-                        , Reporter.TemplatePath
-                        , dlg.FileName
-                        , new Margins());
-                }
-            }
-            catch (System.Runtime.InteropServices.COMException ex)
-            {
-                _log.Error("MS Word not installed? : "+ ex.Message);
-            }
-            catch (Exception ex)
-            {
-                _log.Error(ex.ToString());
-            }
-        }
-
-        public static System.Text.StringBuilder ReadHtmlFile(string htmlFileNameWithPath)
-        {
-            System.Text.StringBuilder htmlContent = new System.Text.StringBuilder();
-            string line;
-            try
-            {
-                using (System.IO.StreamReader htmlReader = new System.IO.StreamReader(htmlFileNameWithPath))
-                {
-                    while ((line = htmlReader.ReadLine()) != null)
-                    {
-                        htmlContent.Append(line);
-                    }
-                }
-            }
-            catch (Exception objError)
-            {    throw objError;    }
-            return htmlContent;
-        }
-
-        public void DocumentTreeView_SolutionReportPDFNodeClicked(object sender, AnalysisTreeViewEventArgs eventArg)
-        {
-        }
-        private void DocumentTreeView_SolutionReportHtmlClicked(object sender, AnalysisTreeViewEventArgs eventArg)
-        {
-            try
-            {
-                // build output file path
-                string outputFilePath = Path.ChangeExtension(Path.GetTempFileName(), "html");
-                // getting current culture
-                string cultAbbrev = System.Globalization.CultureInfo.CurrentCulture.ThreeLetterWindowsLanguageName;
-                // build report
-                ReportData reportObject = new ReportData(eventArg.Analysis);
-                Reporter.ImageSizeSetting = (Reporter.eImageSize)Properties.Settings.Default.ReporterImageSize;
-                ReporterHtml reporter = new ReporterHtml(
-                    reportObject
-                    , Reporter.TemplatePath
-                    , outputFilePath);
-                // logging
-                _log.Debug(string.Format("Saved report to {0}", outputFilePath));
-                // open resulting report
-                DocumentSB parentDocument = eventArg.Document as DocumentSB;
-                DockContentReport dockContent = CreateOrActivateHtmlReport(reportObject, outputFilePath);
-            }
-            catch (Exception ex)
-            {
-                _log.Error(ex.ToString());
-            }
-        }
-
-        void DocumentTreeView_TruckAnalysisNodeClicked(object sender, AnalysisTreeViewEventArgs eventArg)
-        {
-            try
-            {
-                if ((null == eventArg.ItemBase) && (null != eventArg.Analysis))
-                {
-                }
-            }
-            catch (Exception ex)
-            {
-                _log.Error(ex.ToString());  Program.SendCrashReport(ex);
-            }
+            if (null != eventArg.Analysis)
+                GenerateReport(eventArg.Analysis);
         }
 
         void DocumentTreeView_SolutionColladaExportClicked(object sender, AnalysisTreeViewEventArgs eventArg)
@@ -720,7 +553,7 @@ namespace treeDiM.StackBuilder.Desktop
             }
         }
 
-        void DocumentTreeView_MenuEditAnalysis(object sender, AnalysisTreeViewEventArgs eventArg)
+        void onEditAnalysis(object sender, AnalysisTreeViewEventArgs eventArg)
         {
             try
             {

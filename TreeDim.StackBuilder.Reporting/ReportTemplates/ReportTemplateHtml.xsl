@@ -85,34 +85,40 @@
               </td>
             </xsl:if>
           </tr>
+          <xsl:if test="description">
+            <tr>
+              <td class="style2" colspan="1">
+                <b>
+                  <xsl:value-of select="$loc/str[@name='Description']"/>
+                </b>
+              </td>
+              <td class="style3" colspan="2">
+                <xsl:value-of select="description"/>
+              </td>
+              <td class="style2" colspan="1"/>
+            </tr>
+          </xsl:if>
           <tr>
-            <td class="style2" colspan="1">
-              <b>
-                <xsl:value-of select="$loc/str[@name='Description']"/>
-              </b>
-            </td>
-            <td class="style3" colspan="2">
-              <xsl:value-of select="description"/>
-            </td>
-            <td class="style2" colspan="1"/>
-          </tr>
-          <tr>
-            <td class="style2" colspan="1">
-              <b>
-                <xsl:value-of select="$loc/str[@name='Date']"/>
-              </b>
-            </td>
-            <td class="style3" colspan="1">
-              <xsl:value-of select="dateOfCreation"/>
-            </td>
-            <td class="style2" colspan="1">
-              <b>
-                <xsl:value-of select="$loc/str[@name='Author']"/>
-              </b>
-            </td>
-            <td class="style3" colspan="1">
-              <xsl:value-of select="author"></xsl:value-of>
-            </td>
+            <xsl:if test="dateOfCreation">
+              <td class="style2" colspan="1">
+                <b>
+                  <xsl:value-of select="$loc/str[@name='Date']"/>
+                </b>
+              </td>
+              <td class="style3" colspan="1">
+                <xsl:value-of select="dateOfCreation"/>
+              </td>
+            </xsl:if>
+            <xsl:if test="author">
+              <td class="style2" colspan="1">
+                <b>
+                  <xsl:value-of select="$loc/str[@name='Author']"/>
+                </b>
+              </td>
+              <td class="style3" colspan="1">
+                <xsl:value-of select="author"></xsl:value-of>
+              </td>
+            </xsl:if>
           </tr>
         </table>
         <xsl:apply-templates select="analysis"/>
@@ -125,16 +131,18 @@
       <xsl:value-of select="$loc/str[@name='Analysis']"/>: <xsl:value-of select="name"/>
     </h2>
     <table class="style1" cellpadding="3">
-      <tr>
-        <td class="style2" colspan="1">
-          <b>
-            <xsl:value-of select="$loc/str[@name='Description']"/>
-          </b>
-        </td>
-        <td class="style3" colspan="2">
-          <xsl:value-of select="description"/>
-        </td>
-      </tr>
+      <xsl:if test="description">
+        <tr>
+          <td class="style2" colspan="1">
+            <b>
+              <xsl:value-of select="$loc/str[@name='Description']"/>
+            </b>
+          </td>
+          <td class="style3" colspan="2">
+            <xsl:value-of select="description"/>
+          </td>
+        </tr>
+      </xsl:if>
     </table>
     <xsl:apply-templates select="cylinder"/>
     <xsl:apply-templates select="box"/>

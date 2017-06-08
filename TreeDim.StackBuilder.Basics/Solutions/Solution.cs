@@ -149,7 +149,7 @@ namespace treeDiM.StackBuilder.Basics
         public int ItemCount
         { get { return _sol.LayerBoxCount(_indexLayer); } }
         public Vector3D LayerDimensions
-        { get { return new Vector3D(_sol._layers[_indexLayer].Length, _sol._layers[_indexLayer].Width, _sol._layers[_indexLayer].LayerHeight); } }
+        { get { return new Vector3D(_sol._layerTypes[_indexLayer].Length, _sol._layerTypes[_indexLayer].Width, _sol._layerTypes[_indexLayer].LayerHeight); } }
         public double LayerWeight
         { get { return _sol.LayerWeight(_indexLayer); } }
         public double LayerNetWeight
@@ -194,7 +194,7 @@ namespace treeDiM.StackBuilder.Basics
 
         private int _selectedIndex;
 
-        internal List<ILayer2D> _layers;
+        internal List<ILayer2D> _layerTypes;
         private static ILayerSolver _solver;
 
         // cached data
@@ -228,7 +228,7 @@ namespace treeDiM.StackBuilder.Basics
             if (0 == _layerDescriptors.Count)
                 throw new Exception("No layer descriptors available");
 
-            _layers = new List<ILayer2D>();
+            _layerTypes = new List<ILayer2D>();
             // build list of used layers
             List<LayerDesc> usedLayers = new List<LayerDesc>();
             if (null != _solutionItems && _solutionItems.Count > 0)
@@ -247,7 +247,7 @@ namespace treeDiM.StackBuilder.Basics
 
             // actually build layers
             foreach (LayerDesc layerDesc in _layerDescriptors)
-                _layers.Add(_solver.BuildLayer(_analysis.Content, _analysis.ContainerDimensions, layerDesc, actualDimensions));
+                _layerTypes.Add(_solver.BuildLayer(_analysis.Content, _analysis.ContainerDimensions, layerDesc, actualDimensions));
         }
         private void InitializeSolutionItemList()
         { 
@@ -259,8 +259,8 @@ namespace treeDiM.StackBuilder.Basics
             bool symetryX = false, symetryY = false;
             while (!criterionReached)
             {
-                weight += _layers[0].Count * _analysis.ContentWeight;
-                zTop += _layers[0].LayerHeight;
+                weight += _layerTypes[0].Count * _analysis.ContentWeight;
+                zTop += _layerTypes[0].LayerHeight;
                 ConstraintSetAbstract constraintSet = _analysis.ConstraintSet;
                 criterionReached = (ConstraintSet.OptMaxHeight.Activated && zTop >= constraintSet.OptMaxHeight.Value)
                     || (ConstraintSet.OptMaxWeight.Activated && weight >= constraintSet.OptMaxWeight.Value);
@@ -282,8 +282,8 @@ namespace treeDiM.StackBuilder.Basics
             List<SolutionItem> solutionItems = new List<SolutionItem>();
             foreach (SolutionItem solItem in _solutionItems)
             {
-                weight += _layers[solItem.LayerIndex].Count * _analysis.ContentWeight;
-                zTop += _layers[solItem.LayerIndex].LayerHeight + ((-1 != solItem.InterlayerIndex) ? _analysis.Interlayer(solItem.InterlayerIndex).Thickness : 0.0);
+                weight += _layerTypes[solItem.LayerIndex].Count * _analysis.ContentWeight;
+                zTop += _layerTypes[solItem.LayerIndex].LayerHeight + ((-1 != solItem.InterlayerIndex) ? _analysis.Interlayer(solItem.InterlayerIndex).Thickness : 0.0);
 
                 ConstraintSetAbstract constraintSet = _analysis.ConstraintSet;
                 criterionReached = (ConstraintSet.OptMaxHeight.Activated && zTop >= constraintSet.OptMaxHeight.Value)
@@ -304,11 +304,11 @@ namespace treeDiM.StackBuilder.Basics
                 else
                     solItem = new SolutionItem(0, -1, false, false);
 
-                if (solItem.LayerIndex >= _layers.Count)
+                if (solItem.LayerIndex >= _layerTypes.Count)
                     throw new Exception(string.Format("Layer index out of range!"));
 
-                weight += _layers[solItem.LayerIndex].Count * _analysis.ContentWeight;
-                zTop += _layers[solItem.LayerIndex].LayerHeight + ((-1 != solItem.InterlayerIndex) ? _analysis.Interlayer(solItem.InterlayerIndex).Thickness : 0.0);
+                weight += _layerTypes[solItem.LayerIndex].Count * _analysis.ContentWeight;
+                zTop += _layerTypes[solItem.LayerIndex].LayerHeight + ((-1 != solItem.InterlayerIndex) ? _analysis.Interlayer(solItem.InterlayerIndex).Thickness : 0.0);
 
                 solutionItems.Add(new SolutionItem(solItem));
 
@@ -326,11 +326,11 @@ namespace treeDiM.StackBuilder.Basics
                 else
                     solItem = new SolutionItem(0, -1, false, false);
 
-                if (solItem.LayerIndex >= _layers.Count)
+                if (solItem.LayerIndex >= _layerTypes.Count)
                     throw new Exception(string.Format("Layer index out of range!"));
 
-                weight -= _layers[solItem.LayerIndex].Count * _analysis.ContentWeight;
-                zTop -= _layers[solItem.LayerIndex].LayerHeight + ((-1 != solItem.InterlayerIndex) ? _analysis.Interlayer(solItem.InterlayerIndex).Thickness : 0.0);
+                weight -= _layerTypes[solItem.LayerIndex].Count * _analysis.ContentWeight;
+                zTop -= _layerTypes[solItem.LayerIndex].LayerHeight + ((-1 != solItem.InterlayerIndex) ? _analysis.Interlayer(solItem.InterlayerIndex).Thickness : 0.0);
 
                 ConstraintSetAbstract constraintSet = _analysis.ConstraintSet;
                 criterionReached = (ConstraintSet.OptMaxHeight.Activated && zTop >= constraintSet.OptMaxHeight.Value)
@@ -449,7 +449,7 @@ namespace treeDiM.StackBuilder.Basics
         /// </summary>
         internal ILayer GetILayer(int layerIndex, bool symX, bool symY)
         {
-            ILayer2D currentLayer = _layers[layerIndex];
+            ILayer2D currentLayer = _layerTypes[layerIndex];
 
             if (currentLayer is Layer2D)
             {
@@ -503,7 +503,7 @@ namespace treeDiM.StackBuilder.Basics
                         ++iInterlayerCount;
                     }
 
-                    ILayer2D currentLayer = _layers[solItem.LayerIndex];
+                    ILayer2D currentLayer = _layerTypes[solItem.LayerIndex];
 
                     if (currentLayer is Layer2D)
                     {
@@ -672,17 +672,19 @@ namespace treeDiM.StackBuilder.Basics
             get
             {
                 int noLayerTypesUsed = 0;
-                for (int i = 0; i < Layers.Count; ++i)
+                for (int i = 0; i < _layerTypes.Count; ++i)
                     noLayerTypesUsed += Layers[i].BoxCount > 0 ? 1 : 0; 
                 return noLayerTypesUsed;
             }
         }
         public string LayerCaption(int layerTypeIndex)
         {
-            if (LayerCount == NoLayerTypesUsed)
-                return Properties.Resources.ID_LAYERSALL;
 
             List<int> layerIndexes = LayerTypeUsed(layerTypeIndex);
+            if (layerIndexes.Count == LayerCount)
+                return Properties.Resources.ID_LAYERSALL;
+
+
             StringBuilder sb = new StringBuilder();
             sb.Append(layerIndexes.Count > 1 ? Properties.Resources.ID_LAYERS : Properties.Resources.ID_LAYER);
             int iCountIndexes = layerIndexes.Count;
@@ -700,7 +702,7 @@ namespace treeDiM.StackBuilder.Basics
         }
         public int LayerBoxCount(int layerTypeIndex)
         {
-            return _layers[layerTypeIndex].Count;
+            return _layerTypes[layerTypeIndex].Count;
         }
         public double LayerWeight(int layerTypeIndex)
         {
@@ -712,9 +714,8 @@ namespace treeDiM.StackBuilder.Basics
         }
         public double LayerMaximumSpace(int LayerTypeIndex)
         {
-            return _layers[LayerTypeIndex].MaximumSpace;
+            return _layerTypes[LayerTypeIndex].MaximumSpace;
         }
-
         #endregion
 
         #region Helpers

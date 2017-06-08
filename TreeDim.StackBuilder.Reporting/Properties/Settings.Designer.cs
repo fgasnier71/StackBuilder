@@ -94,5 +94,29 @@ namespace treeDiM.StackBuilder.Reporting.Properties {
                 this["CompanyLogoPath"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string ReportInitialDirectory {
+            get {
+                return ((string)(this["ReportInitialDirectory"]));
+            }
+            set {
+                this["ReportInitialDirectory"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int ReporterImageSize {
+            get {
+                return ((int)(this["ReporterImageSize"]));
+            }
+            set {
+                this["ReporterImageSize"] = value;
+            }
+        }
     }
 }

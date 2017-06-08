@@ -53,6 +53,7 @@ namespace treeDiM.StackBuilder.ABYATExcelLoader
             TruckHeight = Settings.Default.ContainerHeight;
             Mode = Settings.Default.Mode;
             chkbOpenFile.Checked = Settings.Default.OpenGeneratedFile;
+            GenerateImage = Settings.Default.GenerateImage;
             InputFilePath = Settings.Default.InputFilePath;
             StackCountMax = 1000;
             LargestDimMin = 10;
@@ -73,6 +74,7 @@ namespace treeDiM.StackBuilder.ABYATExcelLoader
             Settings.Default.ContainerHeight = TruckHeight;
             Settings.Default.Mode = Mode;
             Settings.Default.OpenGeneratedFile = chkbOpenFile.Checked;
+            Settings.Default.GenerateImage = GenerateImage;
             Settings.Default.InputFilePath = InputFilePath;
         }
         #endregion
@@ -118,6 +120,7 @@ namespace treeDiM.StackBuilder.ABYATExcelLoader
             get { return rbPallet.Checked ? 0 : 1; }
             set { rbPallet.Checked = (0 == value); rbContainer.Checked = (1 == value); }
         }
+        private bool GenerateImage { get { return chkbGenerateImage.Checked; } set { chkbGenerateImage.Checked = value; } }
         private double PalletLength { get { return uCtrlPalletDimensions.ValueX; } set { uCtrlPalletDimensions.ValueX = value; } }
         private double PalletWidth { get { return uCtrlPalletDimensions.ValueY; } set { uCtrlPalletDimensions.ValueY = value; } }
         private double PalletHeight { get { return uCtrlPalletDimensions.ValueZ;} set { uCtrlPalletDimensions.ValueZ = value; } }
@@ -305,6 +308,7 @@ namespace treeDiM.StackBuilder.ABYATExcelLoader
         {
             stackCount = 0;
             stackWeight = 0.0;
+            stackImagePath = string.Empty;
 
             // generate case
             BoxProperties bProperties = new BoxProperties(null, length, width, height);
@@ -313,18 +317,21 @@ namespace treeDiM.StackBuilder.ABYATExcelLoader
             bProperties.TapeWidth = new OptDouble(true, 5);
             bProperties.TapeColor = Color.Beige;
 
-
-            // generate image path
-            stackImagePath = Path.Combine(Path.ChangeExtension(Path.GetTempFileName(), "png"));
-            Graphics3DImage graphics = new Graphics3DImage(new Size(ImageSize, ImageSize));
-            graphics.CameraPosition = Graphics3D.Corner_0;
+            Graphics3DImage graphics = null;
+            if (GenerateImage)
+            {
+                // generate image path
+                stackImagePath = Path.Combine(Path.ChangeExtension(Path.GetTempFileName(), "png"));
+                graphics = new Graphics3DImage(new Size(ImageSize, ImageSize));
+                graphics.CameraPosition = Graphics3D.Corner_0;
+            }
 
             // compute analysis
             if (0 == Mode)
             {
                 ConstraintSetCasePallet constraintSet = new ConstraintSetCasePallet();
                 constraintSet.SetAllowedOrientations(new bool[] { false, false, true });
-                constraintSet.SetMaxHeight( new OptDouble(true, PalletMaximumHeight) );
+                constraintSet.SetMaxHeight(new OptDouble(true, PalletMaximumHeight));
 
                 SolverCasePallet solver = new SolverCasePallet(bProperties, PalletProperties);
                 List<Analysis> analyses = solver.BuildAnalyses(constraintSet);
@@ -334,7 +341,7 @@ namespace treeDiM.StackBuilder.ABYATExcelLoader
                     stackCount = analysis.Solution.ItemCount;
                     stackWeight = analysis.Solution.Weight;
 
-                    if (stackCount <= StackCountMax)
+                    if (GenerateImage && stackCount <= StackCountMax)
                     {
                         ViewerSolution sv = new ViewerSolution(analysis.Solution);
                         sv.Draw(graphics, Transform3D.Identity);
@@ -359,7 +366,7 @@ namespace treeDiM.StackBuilder.ABYATExcelLoader
                     stackCount = analysis.Solution.ItemCount;
                     stackWeight = analysis.Solution.Weight;
 
-                    if (stackCount <= StackCountMax)
+                    if (GenerateImage && stackCount <= StackCountMax)
                     {
                         ViewerSolution sv = new ViewerSolution(analysis.Solution);
                         sv.Draw(graphics, Transform3D.Identity);
@@ -367,8 +374,11 @@ namespace treeDiM.StackBuilder.ABYATExcelLoader
                     }
                 }
             }
-            Bitmap bmp = graphics.Bitmap;
-            bmp.Save(stackImagePath, System.Drawing.Imaging.ImageFormat.Png);
+            if (GenerateImage)
+            {
+                Bitmap bmp = graphics.Bitmap;
+                bmp.Save(stackImagePath, System.Drawing.Imaging.ImageFormat.Png);
+            }
 
         }
         private double LargestDimMin
@@ -438,13 +448,19 @@ namespace treeDiM.StackBuilder.ABYATExcelLoader
                 countHeaderCell.Value = "Count";
                 Range weightHeaderCell = xlWorkSheet.get_Range("n" + 1, "n" + 1);
                 weightHeaderCell.Value = "Weight";
-                Range imageHeaderCell = xlWorkSheet.get_Range("o" + 1, "o" + 1);
-                imageHeaderCell.Value = "Image";
+                if (GenerateImage)
+                {
+                    Range imageHeaderCell = xlWorkSheet.get_Range("o" + 1, "o" + 1);
+                    imageHeaderCell.Value = "Image";
+                }
                 Range headerRange = xlWorkSheet.get_Range("a" + 1, "o" + 1);
                 headerRange.Font.Bold = true;
                 // modify range for images
-                Range dataRange = xlWorkSheet.get_Range("a"+ 2, "l" + rowCount);
-                dataRange.RowHeight = 128;
+                if (GenerateImage)
+                {
+                    Range dataRange = xlWorkSheet.get_Range("a" + 2, "l" + rowCount);
+                    dataRange.RowHeight = 128;
+                }
                 Range imageRange = xlWorkSheet.get_Range("o" + 2, "o" + rowCount);
                 imageRange.ColumnWidth = 24;
                 double largestDimensionMinimum = LargestDimMin;
@@ -476,9 +492,12 @@ namespace treeDiM.StackBuilder.ABYATExcelLoader
                         Range weightCell = xlWorkSheet.get_Range("n" + iRow, "n" + iRow);
                         weightCell.Value = stackWeight;
                         // insert image in "o"+iRow
-                        Range imageCell = xlWorkSheet.get_Range("o" + iRow, "o" + iRow);
-                        xlWorkSheet.Shapes.AddPicture(stackImagePath, MsoTriState.msoFalse, MsoTriState.msoCTrue,
-                            imageCell.Left + 1, imageCell.Top + 1, imageCell.Width - 2, imageCell.Height - 2);
+                        if (GenerateImage)
+                        {
+                            Range imageCell = xlWorkSheet.get_Range("o" + iRow, "o" + iRow);
+                            xlWorkSheet.Shapes.AddPicture(stackImagePath, MsoTriState.msoFalse, MsoTriState.msoCTrue,
+                                imageCell.Left + 1, imageCell.Top + 1, imageCell.Width - 2, imageCell.Height - 2);
+                        }
                     }
                     catch (System.OutOfMemoryException)
                     { }

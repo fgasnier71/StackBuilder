@@ -363,13 +363,9 @@ namespace treeDiM.StackBuilder.Desktop
             // call edit analysis
             Document.EditAnalysis(_analysis);
         }
-        private void onGenerateReportMSWord(object sender, EventArgs e)
+        private void onGenerateReport(object sender, EventArgs e)
         {
-            FormMain.GetInstance().GenerateReportMSWord(_analysis);
-        }
-        private void onGenerateReportHTML(object sender, EventArgs e)
-        {
-            FormMain.GetInstance().GenerateReportHTML(_analysis);
+            FormMain.GetInstance().GenerateReport(_analysis);
         }
         #endregion
 

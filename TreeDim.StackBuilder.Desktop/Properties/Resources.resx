@@ -270,9 +270,6 @@ Continue?</value>
   <data name="ID_ADDNEWBUNDLE" xml:space="preserve">
     <value>Add new bundle...</value>
   </data>
-  <data name="ID_GENERATEREPORTMSWORD" xml:space="preserve">
-    <value>Generate Word report for {0}</value>
-  </data>
   <data name="ID_PALLETLIMIT" xml:space="preserve">
     <value>Limit reached</value>
   </data>
@@ -300,9 +297,6 @@ Continue?</value>
   <data name="ID_ANALYSIS" xml:space="preserve">
     <value>Analysis</value>
   </data>
-  <data name="ID_GENERATEREPORTPDF" xml:space="preserve">
-    <value>Generate PDF report for {0}</value>
-  </data>
   <data name="ID_INTERLAYER" xml:space="preserve">
     <value>Interlayer</value>
   </data>
@@ -314,9 +308,6 @@ Continue?</value>
   </data>
   <data name="ID_FIELDNAMEEMPTY" xml:space="preserve">
     <value>Name field is empty</value>
-  </data>
-  <data name="ID_GENERATEREPORTHTML" xml:space="preserve">
-    <value>Generate HTML report for {0}</value>
   </data>
   <data name="ID_NODE_CASES" xml:space="preserve">
     <value>Cases</value>
@@ -764,7 +755,7 @@ Closing form...</value>
     <value>Layer #</value>
   </data>
   <data name="ID_LOADDIMENSIONS" xml:space="preserve">
-    <value>Load dimensions\n({0} x {0} x {0})</value>
+    <value>Load dimensions ({0} x {0} x {0})</value>
   </data>
   <data name="ID_LOADWEIGHT_WU" xml:space="preserve">
     <value>Load weight ({0})</value>
@@ -773,7 +764,7 @@ Closing form...</value>
     <value>Net weight ({0})</value>
   </data>
   <data name="ID_OUTERDIMENSIONS" xml:space="preserve">
-    <value>Outer dimensions\n({0} x {0} x {0})</value>
+    <value>Outer dimensions ({0} x {0} x {0})</value>
   </data>
   <data name="ID_PALLET" xml:space="preserve">
     <value>Pallet</value>

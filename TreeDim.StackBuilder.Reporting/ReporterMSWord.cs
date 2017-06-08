@@ -40,7 +40,7 @@ namespace treeDiM.StackBuilder.Reporting
     public class ReporterMSWord : Reporter
     {
         #region Constructor
-        public ReporterMSWord(ReportData inputData
+        public ReporterMSWord(ReportData inputData, ref ReportNode rnRoot
             , string templatePath, string outputFilePath, Margins margins)
         {
             // absolute output file path
@@ -68,7 +68,7 @@ namespace treeDiM.StackBuilder.Reporting
             }
             // html file path
             string htmlFilePath = Path.ChangeExtension(absOutputFilePath, "html");
-            BuildAnalysisReport(inputData, absTemplatePath, htmlFilePath);
+            BuildAnalysisReport(inputData, ref rnRoot, absTemplatePath, htmlFilePath);
             // opens word
             Microsoft.Office.Interop.Word.Application wordApp = new Microsoft.Office.Interop.Word.Application();
             wordApp.Visible = true;

@@ -1009,33 +1009,6 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Generate HTML report for {0}.
-        /// </summary>
-        internal static string ID_GENERATEREPORTHTML {
-            get {
-                return ResourceManager.GetString("ID_GENERATEREPORTHTML", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Generate Word report for {0}.
-        /// </summary>
-        internal static string ID_GENERATEREPORTMSWORD {
-            get {
-                return ResourceManager.GetString("ID_GENERATEREPORTMSWORD", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Generate PDF report for {0}.
-        /// </summary>
-        internal static string ID_GENERATEREPORTPDF {
-            get {
-                return ResourceManager.GetString("ID_GENERATEREPORTPDF", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Hatching angle.
         /// </summary>
         internal static string ID_HATCHINGANGLE {
@@ -1297,7 +1270,7 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Load dimensions\n({0} x {0} x {0}).
+        ///   Looks up a localized string similar to Load dimensions ({0} x {0} x {0}).
         /// </summary>
         internal static string ID_LOADDIMENSIONS {
             get {
@@ -1585,7 +1558,7 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Outer dimensions\n({0} x {0} x {0}).
+        ///   Looks up a localized string similar to Outer dimensions ({0} x {0} x {0}).
         /// </summary>
         internal static string ID_OUTERDIMENSIONS {
             get {
