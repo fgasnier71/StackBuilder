@@ -25,11 +25,12 @@
               <xs:element name="name" type="xs:string"/>
               <xs:element name="description" type="xs:string"/>
               <xs:element name="box" minOccurs="0" maxOccurs="1" type="rpt:box"/>
-              <xs:element name="case" minOccurs="0" maxOccurs="unbounded" type="rpt:case"/>
+              <xs:element name="caseWithInnerDims" minOccurs="0" maxOccurs="unbounded" type="rpt:case"/>
               <xs:element name="bundle" minOccurs="0" maxOccurs="1" type="rpt:bundle"/>
               <xs:element name="pack" minOccurs="0" maxOccurs="1" type="rpt:pack"/>
               <xs:element name="cylinder" minOccurs="0" maxOccurs="1" type="rpt:cylinder"/>
               <xs:element name="pallet" minOccurs="0" maxOccurs="1" type="rpt:pallet"/>
+              <xs:element name="truck" minOccurs="0" maxOccurs="1" type="rpt:truck"/>
               <xs:element name="interlayer" minOccurs="0" maxOccurs="unbounded" type="rpt:interlayer"/>
               <xs:element name="palletCorner" minOccurs="0" maxOccurs="1" type="rpt:palletCorner"/>
               <xs:element name="palletCap" minOccurs="0" maxOccurs="1" type="rpt:palletCap"/>

@@ -117,41 +117,85 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="lbReportType.Size" type="System.Drawing.Size, System.Drawing">
-    <value>68, 13</value>
+  <data name="ID_RN_ANALYSIS" xml:space="preserve">
+    <value>Analyse ({0})</value>
   </data>
-  <data name="lbReportType.Text" xml:space="preserve">
-    <value>Rapport type</value>
+  <data name="ID_RN_AUTHORS" xml:space="preserve">
+    <value>Auteur</value>
   </data>
-  <data name="bnCancel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>473, 37</value>
+  <data name="ID_RN_BOX" xml:space="preserve">
+    <value>Boîte</value>
   </data>
-  <data name="bnCancel.Text" xml:space="preserve">
-    <value>Annuler</value>
+  <data name="ID_RN_BUNDLE" xml:space="preserve">
+    <value>Liasse</value>
   </data>
-  <data name="lbPath.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 42</value>
+  <data name="ID_RN_CASE" xml:space="preserve">
+    <value>Caisse</value>
   </data>
-  <data name="lbPath.Size" type="System.Drawing.Size, System.Drawing">
-    <value>42, 13</value>
+  <data name="ID_RN_COMPANYLOGO" xml:space="preserve">
+    <value>Logo entreprise</value>
   </data>
-  <data name="lbPath.Text" xml:space="preserve">
-    <value>Chemin</value>
+  <data name="ID_RN_CONSTRAINTSET" xml:space="preserve">
+    <value>Jeu de contraintes</value>
   </data>
-  <data name="fileSelectCtrl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>101, 38</value>
+  <data name="ID_RN_CYLINDER" xml:space="preserve">
+    <value>Cylindre</value>
   </data>
-  <data name="chkOpenFile.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 68</value>
+  <data name="ID_RN_DATE" xml:space="preserve">
+    <value>Date</value>
   </data>
-  <data name="chkOpenFile.Size" type="System.Drawing.Size, System.Drawing">
-    <value>132, 17</value>
+  <data name="ID_RN_DIMENSIONSINNER" xml:space="preserve">
+    <value>Dimensions int.</value>
   </data>
-  <data name="chkOpenFile.Text" xml:space="preserve">
-    <value>Ouvrir le fichier généré</value>
+  <data name="ID_RN_DIMENSIONSOUTER" xml:space="preserve">
+    <value>Dimensions ext.</value>
   </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Définir le type de rapport et le chemin...</value>
+  <data name="ID_RN_IMAGE" xml:space="preserve">
+    <value>Image</value>
+  </data>
+  <data name="ID_RN_INTERLAYER" xml:space="preserve">
+    <value>Intercallaire</value>
+  </data>
+  <data name="ID_RN_LAYERS" xml:space="preserve">
+    <value>Couche(s)</value>
+  </data>
+  <data name="ID_RN_MAXIMUMHEIGHT" xml:space="preserve">
+    <value>Hauteur maximale</value>
+  </data>
+  <data name="ID_RN_MAXIMUMNUMBER" xml:space="preserve">
+    <value>Nombre maximal</value>
+  </data>
+  <data name="ID_RN_MAXIMUMWEIGHT" xml:space="preserve">
+    <value>Masse maximale</value>
+  </data>
+  <data name="ID_RN_OVERHANG" xml:space="preserve">
+    <value>Débord</value>
+  </data>
+  <data name="ID_RN_PACK" xml:space="preserve">
+    <value>Pack</value>
+  </data>
+  <data name="ID_RN_PALLET" xml:space="preserve">
+    <value>Palette</value>
+  </data>
+  <data name="ID_RN_SOLUTION" xml:space="preserve">
+    <value>Solution</value>
+  </data>
+  <data name="ID_RN_SPACES" xml:space="preserve">
+    <value>Espaces</value>
+  </data>
+  <data name="ID_RN_TRUCK" xml:space="preserve">
+    <value>Camion</value>
+  </data>
+  <data name="ID_RN_VIEWISO" xml:space="preserve">
+    <value>Vue iso</value>
+  </data>
+  <data name="ID_RN_VIEWS" xml:space="preserve">
+    <value>Avant/Gauche/Droite/Arrière</value>
+  </data>
+  <data name="ID_RN_VOLUMEEFFICIENCY" xml:space="preserve">
+    <value>Efficacité volumique</value>
+  </data>
+  <data name="ID_RN_WEIGHT" xml:space="preserve">
+    <value>Masse</value>
   </data>
 </root>

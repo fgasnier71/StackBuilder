@@ -22,7 +22,7 @@
   <xs:complexType name="case">
     <xs:sequence>
       <xs:element name="name" type="xs:string"/>
-      <xs:element name="description" type="xs:string"/>
+      <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
       <xs:element name="length" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
       <xs:element name="width" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
       <xs:element name="height" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>

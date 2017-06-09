@@ -13,12 +13,14 @@ using System.Globalization;
 using WeifenLuo.WinFormsUI.Docking;
 // log4net
 using log4net;
-
+// Sharp3D
 using Sharp3D.Math.Core;
+
 using treeDiM.StackBuilder.Basics;
 using treeDiM.StackBuilder.Graphics;
 using treeDiM.StackBuilder.Graphics.Controls;
 using treeDiM.StackBuilder.Engine;
+using treeDiM.StackBuilder.Desktop.Properties;
 #endregion
 
 namespace treeDiM.StackBuilder.Desktop
@@ -165,7 +167,7 @@ namespace treeDiM.StackBuilder.Desktop
 
             // layer #
             gridSolutions.Rows.Insert(++iRow);
-            rowHeader = new SourceGrid.Cells.RowHeader("Layer #");
+            rowHeader = new SourceGrid.Cells.RowHeader(Resources.ID_LAYERCOUNT);
             rowHeader.View = viewRowHeader;
             gridSolutions[iRow, 0] = rowHeader;
             gridSolutions[iRow, 1] = new SourceGrid.Cells.Cell(_solution.LayerCount);
@@ -173,7 +175,7 @@ namespace treeDiM.StackBuilder.Desktop
             if (_solution.InterlayerCount > 0)
             {
                 gridSolutions.Rows.Insert(++iRow);
-                rowHeader = new SourceGrid.Cells.RowHeader("Interlayer #");
+                rowHeader = new SourceGrid.Cells.RowHeader(Resources.ID_INTERLAYERCOUNT);
                 rowHeader.View = viewRowHeader;
                 gridSolutions[iRow, 0] = rowHeader;
                 gridSolutions[iRow, 1] = new SourceGrid.Cells.Cell(_solution.InterlayerCount);
@@ -199,7 +201,7 @@ namespace treeDiM.StackBuilder.Desktop
             // ---
             gridSolutions.Rows.Insert(++iRow);
             rowHeader = new SourceGrid.Cells.RowHeader(
-                string.Format("Load dimensions\n({0} x {0} x {0})", UnitsManager.LengthUnitString));
+                string.Format(Resources.ID_LOADDIMENSIONS, UnitsManager.LengthUnitString));
             rowHeader.View = viewRowHeader;
             gridSolutions[iRow, 0] = rowHeader;
             gridSolutions[iRow, 1] = new SourceGrid.Cells.Cell(
@@ -209,7 +211,7 @@ namespace treeDiM.StackBuilder.Desktop
             {
                 gridSolutions.Rows.Insert(++iRow);
                 rowHeader = new SourceGrid.Cells.RowHeader(
-                    string.Format("Net weight ({0})", UnitsManager.MassUnitString));
+                    string.Format(Resources.ID_NETWEIGHT_WU, UnitsManager.MassUnitString));
                 rowHeader.View = viewRowHeader;
                 gridSolutions[iRow, 0] = rowHeader;
                 gridSolutions[iRow, 1] = new SourceGrid.Cells.Cell(
@@ -218,7 +220,7 @@ namespace treeDiM.StackBuilder.Desktop
             // load weight
             gridSolutions.Rows.Insert(++iRow);
             rowHeader = new SourceGrid.Cells.RowHeader(
-                string.Format("Load Weight ({0})", UnitsManager.MassUnitString));
+                string.Format(Resources.ID_LOADWEIGHT_WU, UnitsManager.MassUnitString));
             rowHeader.View = viewRowHeader;
             gridSolutions[iRow, 0] = rowHeader;
             gridSolutions[iRow, 1] = new SourceGrid.Cells.Cell(
@@ -226,14 +228,14 @@ namespace treeDiM.StackBuilder.Desktop
             // total weight
             gridSolutions.Rows.Insert(++iRow);
             rowHeader = new SourceGrid.Cells.RowHeader(
-                string.Format("Total weight ({0})", UnitsManager.MassUnitString));
+                string.Format(Resources.ID_TOTALWEIGHT_WU, UnitsManager.MassUnitString));
             rowHeader.View = viewRowHeader;
             gridSolutions[iRow, 0] = rowHeader;
             gridSolutions[iRow, 1] = new SourceGrid.Cells.Cell(
                 string.Format(CultureInfo.InvariantCulture, "{0:0.#}", _solution.Weight));
             // volume efficiency
             gridSolutions.Rows.Insert(++iRow);
-            rowHeader = new SourceGrid.Cells.RowHeader("Vol. efficiency (%)");
+            rowHeader = new SourceGrid.Cells.RowHeader(Resources.ID_VOLUMEEFFICIENCY);
             rowHeader.View = viewRowHeader;
             gridSolutions[iRow, 0] = rowHeader;
             gridSolutions[iRow, 1] = new SourceGrid.Cells.Cell(
@@ -274,14 +276,14 @@ namespace treeDiM.StackBuilder.Desktop
 
                 // layer weight
                 gridSolutions.Rows.Insert(++iRow);
-                rowHeader = new SourceGrid.Cells.RowHeader("Weight");
+                rowHeader = new SourceGrid.Cells.RowHeader(string.Format(Resources.ID_WEIGHT_WU, UnitsManager.MassUnitString));
                 rowHeader.View = viewRowHeader;
                 gridSolutions[iRow, 0] = rowHeader;
                 gridSolutions[iRow, 1] = new SourceGrid.Cells.Cell(
                     string.Format(CultureInfo.InvariantCulture, "{0:0.#}", _solution.LayerWeight(i)));
                 // layer space
                 gridSolutions.Rows.Insert(++iRow);
-                rowHeader = new SourceGrid.Cells.RowHeader("Spaces");
+                rowHeader = new SourceGrid.Cells.RowHeader(string.Format(Resources.ID_SPACES_WU, UnitsManager.LengthUnitString));
                 rowHeader.View = viewRowHeader;
                 gridSolutions[iRow, 0] = rowHeader;
                 gridSolutions[iRow, 1] = new SourceGrid.Cells.Cell(

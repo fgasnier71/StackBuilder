@@ -368,42 +368,6 @@ namespace treeDiM.StackBuilder.GUIExtension
         {
             try
             {
-                FormDefineReport formReport = new FormDefineReport();
-                formReport.ProjectName = _analysis.Name;
-                if (DialogResult.OK != formReport.ShowDialog())
-                    return;
-                // selected solution
-                SelCasePalletSolution selSolution = new SelCasePalletSolution(null, _analysis, CurrentSolution);
-                /*
-                ReportData reportData = new ReportData(_analysis);
-
-                Reporter.CompanyLogo = string.Empty;
-                Reporter.ImageSizeSetting = Reporter.eImageSize.IMAGESIZE_DEFAULT;
-                Reporter reporter;
-                if (formReport.FileExtension == "doc")
-                {
-                    // create "MS Word" report file
-                    reporter = new ReporterMSWord(
-                        reportData
-                        , Settings.Default.ReportTemplatePath
-                        , formReport.FilePath
-                        , new Margins());
-                }
-                else if (formReport.FileExtension == "html")
-                {
-                    // create "html" report file
-                    reporter = new ReporterHtml(
-                        reportData
-                        , Settings.Default.ReportTemplatePath
-                        , formReport.FilePath);
-                }
-                else
-                    return;
-                */ 
-                // open file
-                if (formReport.OpenGeneratedFile)
-                    Process.Start(new ProcessStartInfo(formReport.FilePath));
- 
             }
             catch (Exception ex)
             { _log.Error(ex.ToString()); }

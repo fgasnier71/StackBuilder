@@ -277,7 +277,7 @@ namespace treeDiM.StackBuilder.GUIExtension.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Load dimensions{0}({1}x{1}x{1}).
+        ///   Looks up a localized string similar to Load dimensions{0}({1}).
         /// </summary>
         internal static string ID_LOADDIMENSIONS {
             get {

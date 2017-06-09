@@ -38,6 +38,7 @@ namespace treeDiM.StackBuilder.Reporting
             _rnRoot = new ReportNode("Report");
 
             UpdateReport();
+            toolSBDimensions.Checked = true;
         }
         #endregion
 
@@ -182,14 +183,18 @@ namespace treeDiM.StackBuilder.Reporting
                 nameCopy = nameCopy.Replace(c, '_');
             return nameCopy;
         }
+        private void onShowDimensions(object sender, EventArgs e)
+        {
+            Reporter.ShowDimensions = !Reporter.ShowDimensions;
+            UpdateReport();
+            toolSBDimensions.Checked = Reporter.ShowDimensions;
+        }
         #endregion
-
 
         #region Data members
         protected Analysis _analysis;
         protected ReportNode _rnRoot;
         protected static ILog _log = LogManager.GetLogger(typeof(FormReportDesign));
         #endregion
-
     }
 }

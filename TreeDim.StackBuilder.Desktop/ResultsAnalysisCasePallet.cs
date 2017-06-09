@@ -77,7 +77,7 @@ namespace treeDiM.StackBuilder.Desktop
         [ReadOnly(true)]
         [Description("Outer Dimensions")]
         [Category("Dimensions")]
-        [DisplayName("Outer Dimensions (mm x mm x mm)")]
+        [DisplayName("Outer Dimensions (mm)")]
         public string DimensionsOuter
         {
             get
@@ -100,7 +100,7 @@ namespace treeDiM.StackBuilder.Desktop
 
         [Browsable(true)]
         [ReadOnly(true)]
-        [Description("Load Dimensions (mm x mm x mm)")]
+        [Description("Load Dimensions (mm)")]
         [Category("Dimensions")]
         [DisplayName("Load Dimensions")]
         public string DimensionsLoad

@@ -829,7 +829,7 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Dimensions ({0} x {0} x {0}).
+        ///   Looks up a localized string similar to Dimensions ({0}).
         /// </summary>
         internal static string ID_DIMENSIONS {
             get {
@@ -838,7 +838,7 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Dim. ext. ({0}x{0}x{0}).
+        ///   Looks up a localized string similar to Dim. ext. ({0}).
         /// </summary>
         internal static string ID_DIMEXT_WU {
             get {
@@ -847,7 +847,7 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Dim. int. ({0}x{0}x{0}).
+        ///   Looks up a localized string similar to Dim. int. ({0}).
         /// </summary>
         internal static string ID_DIMINT_WU {
             get {
@@ -1083,6 +1083,15 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Interlayer #.
         /// </summary>
+        internal static string ID_INTERLAYERCOUNT {
+            get {
+                return ResourceManager.GetString("ID_INTERLAYERCOUNT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Interlayer #.
+        /// </summary>
         internal static string ID_INTERLAYERNUMBER {
             get {
                 return ResourceManager.GetString("ID_INTERLAYERNUMBER", resourceCulture);
@@ -1189,7 +1198,7 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to # Layers.
+        ///   Looks up a localized string similar to Layer #.
         /// </summary>
         internal static string ID_LAYERCOUNT {
             get {
@@ -1270,7 +1279,7 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Load dimensions ({0} x {0} x {0}).
+        ///   Looks up a localized string similar to Load dimensions ({0}).
         /// </summary>
         internal static string ID_LOADDIMENSIONS {
             get {
@@ -1558,7 +1567,7 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Outer dimensions ({0} x {0} x {0}).
+        ///   Looks up a localized string similar to Outer dimensions ({0}).
         /// </summary>
         internal static string ID_OUTERDIMENSIONS {
             get {
@@ -1797,6 +1806,15 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         internal static string ID_SENDTODATABASE {
             get {
                 return ResourceManager.GetString("ID_SENDTODATABASE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Spaces ({0}).
+        /// </summary>
+        internal static string ID_SPACES_WU {
+            get {
+                return ResourceManager.GetString("ID_SPACES_WU", resourceCulture);
             }
         }
         

@@ -37,6 +37,8 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this._treeView = new System.Windows.Forms.TreeView();
             this._webBrowser = new System.Windows.Forms.WebBrowser();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolSBDimensions = new System.Windows.Forms.ToolStripButton();
             this.statusStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -65,7 +67,9 @@
             // 
             this.toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolSBReportWord,
-            this.toolSBReportHTML});
+            this.toolSBReportHTML,
+            this.toolStripSeparator1,
+            this.toolSBDimensions});
             this.toolStrip.Location = new System.Drawing.Point(0, 0);
             this.toolStrip.Name = "toolStrip";
             this.toolStrip.Size = new System.Drawing.Size(884, 25);
@@ -127,6 +131,21 @@
             this._webBrowser.Size = new System.Drawing.Size(715, 614);
             this._webBrowser.TabIndex = 0;
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolSBDimensions
+            // 
+            this.toolSBDimensions.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolSBDimensions.Image = ((System.Drawing.Image)(resources.GetObject("toolSBDimensions.Image")));
+            this.toolSBDimensions.ImageTransparentColor = System.Drawing.Color.White;
+            this.toolSBDimensions.Name = "toolSBDimensions";
+            this.toolSBDimensions.Size = new System.Drawing.Size(23, 22);
+            this.toolSBDimensions.Text = "Show / Hide dimensions";
+            this.toolSBDimensions.Click += new System.EventHandler(this.onShowDimensions);
+            // 
             // FormReportDesign
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -164,5 +183,7 @@
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.TreeView _treeView;
         private System.Windows.Forms.WebBrowser _webBrowser;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripButton toolSBDimensions;
     }
 }

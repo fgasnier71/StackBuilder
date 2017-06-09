@@ -148,6 +148,13 @@
         CeNNeKaQKKHUTyBYAvpprH2bAAAAAElFTkSuQmCC
 </value>
   </data>
+  <data name="toolSBDimensions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABASURBVDhPYxgFcPAfSpMCUPQgc/AZhlMdjINPMwxgVQvi
+        kIPhAMZBEcQBsKpF5uAzBKc6fJpwgVEDyNODDhgYAPNoKddm5onHAAAAAElFTkSuQmCC
+</value>
+  </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAMAMDAAAAEACACoDgAANgAAACAgAAABAAgAqAgAAN4OAAAQEAAAAQAIAGgFAACGFwAAKAAAADAA

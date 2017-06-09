@@ -77,5 +77,284 @@ namespace treeDiM.StackBuilder.Reporting.Properties {
                 return ResourceManager.GetString("ID_FILTER_MSWORD", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Analysis ({0}).
+        /// </summary>
+        internal static string ID_RN_ANALYSIS {
+            get {
+                return ResourceManager.GetString("ID_RN_ANALYSIS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Arrangement.
+        /// </summary>
+        internal static string ID_RN_ARRANGEMENT {
+            get {
+                return ResourceManager.GetString("ID_RN_ARRANGEMENT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Authors.
+        /// </summary>
+        internal static string ID_RN_AUTHORS {
+            get {
+                return ResourceManager.GetString("ID_RN_AUTHORS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Box.
+        /// </summary>
+        internal static string ID_RN_BOX {
+            get {
+                return ResourceManager.GetString("ID_RN_BOX", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bundle.
+        /// </summary>
+        internal static string ID_RN_BUNDLE {
+            get {
+                return ResourceManager.GetString("ID_RN_BUNDLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Case.
+        /// </summary>
+        internal static string ID_RN_CASE {
+            get {
+                return ResourceManager.GetString("ID_RN_CASE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Company logo.
+        /// </summary>
+        internal static string ID_RN_COMPANYLOGO {
+            get {
+                return ResourceManager.GetString("ID_RN_COMPANYLOGO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Constraint set.
+        /// </summary>
+        internal static string ID_RN_CONSTRAINTSET {
+            get {
+                return ResourceManager.GetString("ID_RN_CONSTRAINTSET", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cylinder.
+        /// </summary>
+        internal static string ID_RN_CYLINDER {
+            get {
+                return ResourceManager.GetString("ID_RN_CYLINDER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Date.
+        /// </summary>
+        internal static string ID_RN_DATE {
+            get {
+                return ResourceManager.GetString("ID_RN_DATE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Default.
+        /// </summary>
+        internal static string ID_RN_DEFAULT {
+            get {
+                return ResourceManager.GetString("ID_RN_DEFAULT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Description.
+        /// </summary>
+        internal static string ID_RN_DESCRIPTION {
+            get {
+                return ResourceManager.GetString("ID_RN_DESCRIPTION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dimensions.
+        /// </summary>
+        internal static string ID_RN_DIMENSIONS {
+            get {
+                return ResourceManager.GetString("ID_RN_DIMENSIONS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Inner dimensions.
+        /// </summary>
+        internal static string ID_RN_DIMENSIONSINNER {
+            get {
+                return ResourceManager.GetString("ID_RN_DIMENSIONSINNER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Outer dimensions.
+        /// </summary>
+        internal static string ID_RN_DIMENSIONSOUTER {
+            get {
+                return ResourceManager.GetString("ID_RN_DIMENSIONSOUTER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Image.
+        /// </summary>
+        internal static string ID_RN_IMAGE {
+            get {
+                return ResourceManager.GetString("ID_RN_IMAGE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Interlayer.
+        /// </summary>
+        internal static string ID_RN_INTERLAYER {
+            get {
+                return ResourceManager.GetString("ID_RN_INTERLAYER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Layers.
+        /// </summary>
+        internal static string ID_RN_LAYERS {
+            get {
+                return ResourceManager.GetString("ID_RN_LAYERS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Maximum height.
+        /// </summary>
+        internal static string ID_RN_MAXIMUMHEIGHT {
+            get {
+                return ResourceManager.GetString("ID_RN_MAXIMUMHEIGHT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Maximum number.
+        /// </summary>
+        internal static string ID_RN_MAXIMUMNUMBER {
+            get {
+                return ResourceManager.GetString("ID_RN_MAXIMUMNUMBER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Maximum weight.
+        /// </summary>
+        internal static string ID_RN_MAXIMUMWEIGHT {
+            get {
+                return ResourceManager.GetString("ID_RN_MAXIMUMWEIGHT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Overhang.
+        /// </summary>
+        internal static string ID_RN_OVERHANG {
+            get {
+                return ResourceManager.GetString("ID_RN_OVERHANG", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pack.
+        /// </summary>
+        internal static string ID_RN_PACK {
+            get {
+                return ResourceManager.GetString("ID_RN_PACK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pallet.
+        /// </summary>
+        internal static string ID_RN_PALLET {
+            get {
+                return ResourceManager.GetString("ID_RN_PALLET", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Solution.
+        /// </summary>
+        internal static string ID_RN_SOLUTION {
+            get {
+                return ResourceManager.GetString("ID_RN_SOLUTION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Spaces.
+        /// </summary>
+        internal static string ID_RN_SPACES {
+            get {
+                return ResourceManager.GetString("ID_RN_SPACES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Truck.
+        /// </summary>
+        internal static string ID_RN_TRUCK {
+            get {
+                return ResourceManager.GetString("ID_RN_TRUCK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Iso.
+        /// </summary>
+        internal static string ID_RN_VIEWISO {
+            get {
+                return ResourceManager.GetString("ID_RN_VIEWISO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Front/Left/Right/Back.
+        /// </summary>
+        internal static string ID_RN_VIEWS {
+            get {
+                return ResourceManager.GetString("ID_RN_VIEWS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Volume efficiency.
+        /// </summary>
+        internal static string ID_RN_VOLUMEEFFICIENCY {
+            get {
+                return ResourceManager.GetString("ID_RN_VOLUMEEFFICIENCY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Weight.
+        /// </summary>
+        internal static string ID_RN_WEIGHT {
+            get {
+                return ResourceManager.GetString("ID_RN_WEIGHT", resourceCulture);
+            }
+        }
     }
 }

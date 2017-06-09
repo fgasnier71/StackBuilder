@@ -626,7 +626,7 @@ Closing form...</value>
     <value># Cases/Layer</value>
   </data>
   <data name="ID_LAYERCOUNT" xml:space="preserve">
-    <value># Layers</value>
+    <value>Layer #</value>
   </data>
   <data name="ID_BOXES" xml:space="preserve">
     <value>Boxes</value>
@@ -689,7 +689,7 @@ Closing form...</value>
     <value>Description</value>
   </data>
   <data name="ID_DIMENSIONS" xml:space="preserve">
-    <value>Dimensions ({0} x {0} x {0})</value>
+    <value>Dimensions ({0})</value>
   </data>
   <data name="ID_NAMEALREADYEXISTSINDB" xml:space="preserve">
     <value>{0} named {1} already exists in database.</value>
@@ -707,10 +707,10 @@ Closing form...</value>
     <value>Height ({0})</value>
   </data>
   <data name="ID_DIMEXT_WU" xml:space="preserve">
-    <value>Dim. ext. ({0}x{0}x{0})</value>
+    <value>Dim. ext. ({0})</value>
   </data>
   <data name="ID_DIMINT_WU" xml:space="preserve">
-    <value>Dim. int. ({0}x{0}x{0})</value>
+    <value>Dim. int. ({0})</value>
   </data>
   <data name="ID_LENGTH_WU" xml:space="preserve">
     <value>Length ({0})</value>
@@ -755,7 +755,7 @@ Closing form...</value>
     <value>Layer #</value>
   </data>
   <data name="ID_LOADDIMENSIONS" xml:space="preserve">
-    <value>Load dimensions ({0} x {0} x {0})</value>
+    <value>Load dimensions ({0})</value>
   </data>
   <data name="ID_LOADWEIGHT_WU" xml:space="preserve">
     <value>Load weight ({0})</value>
@@ -764,7 +764,7 @@ Closing form...</value>
     <value>Net weight ({0})</value>
   </data>
   <data name="ID_OUTERDIMENSIONS" xml:space="preserve">
-    <value>Outer dimensions ({0} x {0} x {0})</value>
+    <value>Outer dimensions ({0})</value>
   </data>
   <data name="ID_PALLET" xml:space="preserve">
     <value>Pallet</value>
@@ -774,5 +774,11 @@ Closing form...</value>
   </data>
   <data name="ID_TOTALWEIGHT_WU" xml:space="preserve">
     <value>Total weight ({0})</value>
+  </data>
+  <data name="ID_INTERLAYERCOUNT" xml:space="preserve">
+    <value>Interlayer #</value>
+  </data>
+  <data name="ID_SPACES_WU" xml:space="preserve">
+    <value>Spaces ({0})</value>
   </data>
 </root>

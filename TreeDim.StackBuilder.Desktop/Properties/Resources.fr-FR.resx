@@ -208,10 +208,10 @@ Souhaitez-vous continuer?</value>
     <value>Disposition</value>
   </data>
   <data name="ID_LOADHEIGHT" xml:space="preserve">
-    <value>Hauteur de chargement</value>
+    <value>Hauteur chargement</value>
   </data>
   <data name="ID_LOADWEIGHT" xml:space="preserve">
-    <value>Masse du chargement</value>
+    <value>Masse chargement</value>
   </data>
   <data name="ID_NODE_ANALYSES" xml:space="preserve">
     <value>Analyses</value>
@@ -238,7 +238,7 @@ Souhaitez-vous continuer?</value>
     <value>Nombre de pallettes</value>
   </data>
   <data name="ID_PALLETWEIGHT" xml:space="preserve">
-    <value>Poids de la palette</value>
+    <value>Poids de la palette ({0})</value>
   </data>
   <data name="ID_READY" xml:space="preserve">
     <value>Prêt</value>
@@ -342,9 +342,6 @@ Souhaitez-vous continuer?</value>
   </data>
   <data name="ID_ORIENTATION" xml:space="preserve">
     <value>Orientation</value>
-  </data>
-  <data name="ID_WEIGHT" xml:space="preserve">
-    <value>Masse ({0})</value>
   </data>
   <data name="ID_GENERATECOLLADA" xml:space="preserve">
     <value>Générer un fichier animation 3D pour {0}</value>
@@ -501,5 +498,23 @@ Souhaitez-vous continuer?</value>
   </data>
   <data name="ID_DELETEITEM" xml:space="preserve">
     <value>Supprimer {0}</value>
+  </data>
+  <data name="ID_LOADWEIGHT_WU" xml:space="preserve">
+    <value>Masse chargement ({0})</value>
+  </data>
+  <data name="ID_OUTERDIMENSIONS" xml:space="preserve">
+    <value>Dimensions ext. ({0})</value>
+  </data>
+  <data name="ID_SPACES_WU" xml:space="preserve">
+    <value>Espaces ({0})</value>
+  </data>
+  <data name="ID_THICKNESS_WU" xml:space="preserve">
+    <value>Epaisseur ({0})</value>
+  </data>
+  <data name="ID_WEIGHT_WU" xml:space="preserve">
+    <value>Masse ({0})</value>
+  </data>
+  <data name="ID_LOADDIMENSIONS" xml:space="preserve">
+    <value>Dimensions chargement ({0})</value>
   </data>
 </root>

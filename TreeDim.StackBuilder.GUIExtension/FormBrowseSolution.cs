@@ -357,10 +357,6 @@ namespace treeDiM.StackBuilder.GUIExtension
         {
             try
             {
-                FormDefineReport form = new FormDefineReport();
-                if (DialogResult.OK == form.ShowDialog())
-                {
-                }
             }
             catch (Exception ex)
             {

@@ -225,6 +225,7 @@ namespace treeDiM.StackBuilder.Desktop
             // border
             gridSolution.BorderStyle = BorderStyle.FixedSingle;
             gridSolution.ColumnsCount = 2;
+            gridSolution.Columns[0].Width = 100;
             gridSolution.FixedColumns = 1;
         }
         private void UpdateGrid()
@@ -244,7 +245,7 @@ namespace treeDiM.StackBuilder.Desktop
                 veHeaderCaption.Border = DevAge.Drawing.RectangleBorder.NoBorder;
                 captionHeader.Background = veHeaderCaption;
                 captionHeader.ForeColor = Color.Black;
-                captionHeader.Font = new Font("Arial", 10, FontStyle.Bold);
+                captionHeader.Font = new Font("Arial", 9, FontStyle.Bold);
                 captionHeader.TextAlignment = DevAge.Drawing.ContentAlignment.MiddleCenter;
                 // viewRowHeader
                 SourceGrid.Cells.Views.RowHeader viewRowHeader = new SourceGrid.Cells.Views.RowHeader();
@@ -253,7 +254,7 @@ namespace treeDiM.StackBuilder.Desktop
                 backHeader.Border = DevAge.Drawing.RectangleBorder.NoBorder;
                 viewRowHeader.Background = backHeader;
                 viewRowHeader.ForeColor = Color.Black;
-                viewRowHeader.Font = new Font("Arial", 10, FontStyle.Regular);
+                viewRowHeader.Font = new Font("Arial", 9, FontStyle.Regular);
                 // viewNormal
                 CellBackColorAlternate viewNormal = new CellBackColorAlternate(Color.LightBlue, Color.White);
                 // ***
@@ -396,9 +397,7 @@ namespace treeDiM.StackBuilder.Desktop
                         string.Format(CultureInfo.InvariantCulture, "{0:0.#}", _solution.LayerMaximumSpace(i)));
                 }
                 // ### layers : end
-
                 gridSolution.AutoSizeCells();
-                gridSolution.Columns.StretchToFit();
                 gridSolution.AutoStretchColumnsToFitWidth = true;
                 gridSolution.Invalidate();
             }
