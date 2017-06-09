@@ -51,7 +51,8 @@ namespace treeDiM.StackBuilder.Desktop
             uCtrlNoWalls.NoY = Settings.Default.NumberWallsWidth;
             uCtrlNoWalls.NoZ = Settings.Default.NumberWallsHeight;
             uCtrlWallThickness.Value = Settings.Default.WallThickness;
-            uCtrlSurfacicMass.Value = Settings.Default.WallSurfaceMass;          
+            uCtrlSurfacicMass.Value = Settings.Default.WallSurfaceMass;
+
             // set default number of boxes
             nudNumber.Value = Settings.Default.NumberBoxesPerCase;
             // set default wrapper type
@@ -74,6 +75,7 @@ namespace treeDiM.StackBuilder.Desktop
             Settings.Default.NumberWallsHeight = uCtrlNoWalls.NoZ;
             Settings.Default.WallThickness = uCtrlWallThickness.Value;
             Settings.Default.WallSurfaceMass = uCtrlSurfacicMass.Value;
+
             // default number of boxes
             Settings.Default.NumberBoxesPerCase = (int)nudNumber.Value;
             // default wrapper type
@@ -82,7 +84,6 @@ namespace treeDiM.StackBuilder.Desktop
             if (null == Settings.Default.FormOptimizeCasePosition)
                 Settings.Default.FormOptimizeCasePosition = new WindowSettings();
             Settings.Default.FormOptimizeCasePosition.Record(this);
-
         }
         #endregion
 
@@ -200,12 +201,12 @@ namespace treeDiM.StackBuilder.Desktop
                 gridSolutions[0, iCol++] = columnHeader;
                 // dimensions
                 columnHeader = new SourceGrid.Cells.ColumnHeader(
-                    string.Format(Properties.Resources.ID_DIMENSIONS, UnitsManager.UnitString(UnitsManager.UnitType.UT_LENGTH)));
+                    string.Format(Properties.Resources.ID_DIMENSIONS, UnitsManager.LengthUnitString));
                 columnHeader.AutomaticSortEnabled = false;
                 columnHeader.View = viewColumnHeader;
                 gridSolutions[0, iCol++] = columnHeader;
                 // weight
-                columnHeader = new SourceGrid.Cells.ColumnHeader(string.Format(Properties.Resources.ID_WEIGHT_WU, UnitsManager.UnitString(UnitsManager.UnitType.UT_LENGTH)));
+                columnHeader = new SourceGrid.Cells.ColumnHeader(string.Format(Properties.Resources.ID_WEIGHT_WU, UnitsManager.MassUnitString));
                 columnHeader.AutomaticSortEnabled = false;
                 columnHeader.View = viewColumnHeader;
                 gridSolutions[0, iCol++] = columnHeader;
@@ -215,7 +216,7 @@ namespace treeDiM.StackBuilder.Desktop
                 columnHeader.View = viewColumnHeader;
                 gridSolutions[0, iCol++] = columnHeader;
                 // weight
-                columnHeader = new SourceGrid.Cells.ColumnHeader(Properties.Resources.ID_PALLETWEIGHT);
+                columnHeader = new SourceGrid.Cells.ColumnHeader(string.Format(Properties.Resources.ID_PALLETWEIGHT, UnitsManager.MassUnitString));
                 columnHeader.AutomaticSortEnabled = false;
                 columnHeader.View = viewColumnHeader;
                 gridSolutions[0, iCol++] = columnHeader;
@@ -225,7 +226,7 @@ namespace treeDiM.StackBuilder.Desktop
                 columnHeader.View = viewColumnHeader;
                 gridSolutions[0, iCol++] = columnHeader;
                 // maximum space
-                columnHeader = new SourceGrid.Cells.ColumnHeader(Properties.Resources.ID_MAXIMUMSPACE);
+                columnHeader = new SourceGrid.Cells.ColumnHeader(string.Format(Properties.Resources.ID_MAXIMUMSPACE, UnitsManager.LengthUnitString));
                 columnHeader.AutomaticSortEnabled = false;
                 columnHeader.View = viewColumnHeader;
                 gridSolutions[0, iCol++] = columnHeader;
@@ -376,6 +377,8 @@ namespace treeDiM.StackBuilder.Desktop
                 // selected analysis -> get pack
                 AnalysisCasePallet analysisSel = SelectedAnalysis;
                 PackProperties packSel = analysisSel.Content as PackProperties;
+                packSel.ID.SetNameDesc(AnalysisName, AnalysisName);
+
                 // create pack
                 PackProperties packProperties = _doc.CreateNewPack(packSel);
                 // create analysis
@@ -464,9 +467,11 @@ namespace treeDiM.StackBuilder.Desktop
             if (null == palletProperties) return;
             if (MaximumPalletHeight <= palletProperties.Height)
                 MaximumPalletHeight = palletProperties.Height;
-            uCtrlPackDimensionsMax.ValueX = 0.5 * (palletProperties.Length + 2.0 * uCtrlOverhang.ValueX);
-            uCtrlPackDimensionsMax.ValueY = 0.5 * (palletProperties.Width + 2.0 * uCtrlOverhang.ValueY);
-            uCtrlPackDimensionsMax.ValueZ = MaximumPalletHeight - palletProperties.Height;
+
+            double length = 0.5 * palletProperties.Length;
+            uCtrlPackDimensionsMax.ValueX = length;
+            uCtrlPackDimensionsMax.ValueY = length;
+            uCtrlPackDimensionsMax.ValueZ = length;
         }
         private ConstraintSetCasePallet BuildConstraintSet()
         {

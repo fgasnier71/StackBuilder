@@ -1092,7 +1092,7 @@ namespace treeDiM.StackBuilder.Desktop
         }
         #endregion
         #region Optimisation
-        private void onOptiBoxCasePallet(object sender, EventArgs e)
+        private void onOptiPack(object sender, EventArgs e)
         {
             try
             {

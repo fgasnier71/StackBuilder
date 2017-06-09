@@ -408,7 +408,7 @@
             // 
             resources.ApplyResources(this.toolStripMenuItemBestPack, "toolStripMenuItemBestPack");
             this.toolStripMenuItemBestPack.Name = "toolStripMenuItemBestPack";
-            this.toolStripMenuItemBestPack.Click += new System.EventHandler(this.onOptiBoxCasePallet);
+            this.toolStripMenuItemBestPack.Click += new System.EventHandler(this.onOptiPack);
             // 
             // toolStripSeparator6
             // 
@@ -767,13 +767,13 @@
             // 
             resources.ApplyResources(this.toolStripMIBestCasePallet, "toolStripMIBestCasePallet");
             this.toolStripMIBestCasePallet.Name = "toolStripMIBestCasePallet";
-            this.toolStripMIBestCasePallet.Click += new System.EventHandler(this.onOptiBoxCasePallet);
+            this.toolStripMIBestCasePallet.Click += new System.EventHandler(this.onOptiPack);
             // 
             // toolStripMIBestPack
             // 
             resources.ApplyResources(this.toolStripMIBestPack, "toolStripMIBestPack");
             this.toolStripMIBestPack.Name = "toolStripMIBestPack";
-            this.toolStripMIBestPack.Click += new System.EventHandler(this.onOptiBoxCasePallet);
+            this.toolStripMIBestPack.Click += new System.EventHandler(this.onOptiPack);
             // 
             // toolStripSeparator10
             // 

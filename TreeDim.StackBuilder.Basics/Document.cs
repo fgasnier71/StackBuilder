@@ -1296,7 +1296,7 @@ namespace treeDiM.StackBuilder.Basics
         public bool CanCreateAnalysisPalletTruck
         { get { return this.Trucks.Count > 0; } }
         public bool CanCreateOptiCasePallet
-        { get { return this.Boxes.Count > 0; } }
+        { get { return this.Boxes.Count > 0 && this.Pallets.Count > 0; } }
         public bool CanCreateOptiPack
         { get { return this.Boxes.Count > 0 && this.Pallets.Count > 0; } }
         public bool CanCreateOptiMulticase
@@ -1913,6 +1913,9 @@ namespace treeDiM.StackBuilder.Basics
         #region Load analysis
         private void LoadAnalysis(XmlElement eltAnalysis)
         {
+            string sId = string.Empty;
+            if (eltAnalysis.HasAttribute("Id"))
+                sId = eltAnalysis.Attributes["Id"].Value;
             string sName = eltAnalysis.Attributes["Name"].Value;
             string sDescription = eltAnalysis.Attributes["Description"].Value;
             string sInterlayerId = string.Empty;
@@ -1969,6 +1972,8 @@ namespace treeDiM.StackBuilder.Basics
                     , interlayers
                     , palletCorners, palletCap, palletFilm
                     , constraintSet as ConstraintSetCasePallet, listLayerDesc);
+                if (!string.IsNullOrEmpty(sId))
+                    analysis.ID.IGuid = Guid.Parse(sId);
                 analysis.Solution.SolutionItems = listSolItems;
                 
             }
@@ -1994,6 +1999,8 @@ namespace treeDiM.StackBuilder.Basics
                     , packable, caseProperties
                     , interlayers
                     , constraintSet as ConstraintSetBoxCase, listLayerDesc);
+                if (!string.IsNullOrEmpty(sId))
+                    analysis.ID.IGuid = Guid.Parse(sId);
                 analysis.Solution.SolutionItems = listSolItems;
             }
             else if (string.Equals(eltAnalysis.Name, "AnalysisCylinderPallet", StringComparison.CurrentCultureIgnoreCase))
@@ -2017,6 +2024,8 @@ namespace treeDiM.StackBuilder.Basics
                     , cylinderProperties as CylinderProperties, palletProperties
                     , interlayers
                     , constraintSet as ConstraintSetPackablePallet, listLayerDesc);
+                if (!string.IsNullOrEmpty(sId))
+                    analysis.ID.IGuid = Guid.Parse(sId);
                 analysis.Solution.SolutionItems = listSolItems;
             }
             else if (string.Equals(eltAnalysis.Name, "AnalysisCylinderCase", StringComparison.CurrentCultureIgnoreCase))
@@ -2041,6 +2050,30 @@ namespace treeDiM.StackBuilder.Basics
                     , interlayers
                     , constraintSet as ConstraintSetCylinderCase
                     , listLayerDesc);
+                if (!string.IsNullOrEmpty(sId))
+                    analysis.ID.IGuid = Guid.Parse(sId);
+                analysis.Solution.SolutionItems = listSolItems;
+            }
+            else if (string.Equals(eltAnalysis.Name, "AnalysisPalletTruck", StringComparison.CurrentCultureIgnoreCase))
+            {
+                Packable loadedPallet = GetContentByGuid(Guid.Parse(sContentId)) as Packable;
+                TruckProperties truckProperties = GetTypeByGuid(sContainerId) as TruckProperties;
+
+                ConstraintSetAbstract constraintSet = null;
+                foreach (XmlNode node in eltAnalysis.ChildNodes)
+                {
+                    if (string.Equals(node.Name, "ConstraintSet", StringComparison.CurrentCultureIgnoreCase))
+                        constraintSet = LoadConstraintSetPalletTruck(node as XmlElement, truckProperties);
+                    else if (string.Equals(node.Name, "Solution", StringComparison.CurrentCultureIgnoreCase))
+                        LoadSolution(node as XmlElement, out listLayerDesc, out listSolItems);
+                }
+
+                Analysis analysis = CreateNewAnalysisPalletTruck(sName, sDescription
+                    , loadedPallet, truckProperties
+                    , constraintSet as ConstraintSetPalletTruck
+                    , listLayerDesc);
+                if (!string.IsNullOrEmpty(sId))
+                    analysis.ID.IGuid = Guid.Parse(sId);
                 analysis.Solution.SolutionItems = listSolItems;
             }
             else if (string.Equals(eltAnalysis.Name, "AnalysisPallet", StringComparison.CurrentCultureIgnoreCase))
@@ -2085,57 +2118,57 @@ namespace treeDiM.StackBuilder.Basics
                     , GetTypeByGuid(new Guid(sBoxId)) as BProperties
                     , GetTypeByGuid(new Guid(sPalletId)) as PalletProperties
                     , string.IsNullOrEmpty(sInterlayerId) ? null : GetTypeByGuid(new Guid(sInterlayerId)) as InterlayerProperties
-                    , string.IsNullOrEmpty(sInterlayerAntiSlipId) ? null : GetTypeByGuid( new Guid(sInterlayerAntiSlipId) ) as InterlayerProperties
-                    , string.IsNullOrEmpty(sPalletCornerId) ? null : GetTypeByGuid( new Guid(sPalletCornerId) ) as PalletCornerProperties
-                    , string.IsNullOrEmpty(sPalletCapId) ? null : GetTypeByGuid( new Guid(sPalletCapId) ) as PalletCapProperties
-                    , string.IsNullOrEmpty(sPalletFilmId) ? null : GetTypeByGuid( new Guid(sPalletFilmId) ) as PalletFilmProperties
+                    , string.IsNullOrEmpty(sInterlayerAntiSlipId) ? null : GetTypeByGuid(new Guid(sInterlayerAntiSlipId)) as InterlayerProperties
+                    , string.IsNullOrEmpty(sPalletCornerId) ? null : GetTypeByGuid(new Guid(sPalletCornerId)) as PalletCornerProperties
+                    , string.IsNullOrEmpty(sPalletCapId) ? null : GetTypeByGuid(new Guid(sPalletCapId)) as PalletCapProperties
+                    , string.IsNullOrEmpty(sPalletFilmId) ? null : GetTypeByGuid(new Guid(sPalletFilmId)) as PalletFilmProperties
                     , constraintSet
                     , _solver);
 
-/*
-                // reprocess for truck analyses
-                // Note : this is quite complicated, see later if it could be simplified 
-                foreach (XmlNode node in eltAnalysis.ChildNodes)
-                {
-                    if (string.Equals(node.Name, "Solutions", StringComparison.CurrentCultureIgnoreCase))
-                    {
-                        int indexSol = 0;
-                        foreach (XmlNode solutionNode in node.ChildNodes)
-                        {
-                            foreach (XmlNode solutionInnerNode in solutionNode.ChildNodes)
-                            {
-                                if (string.Equals("TruckAnalyses", solutionInnerNode.Name, StringComparison.CurrentCultureIgnoreCase))
+                /*
+                                // reprocess for truck analyses
+                                // Note : this is quite complicated, see later if it could be simplified 
+                                foreach (XmlNode node in eltAnalysis.ChildNodes)
                                 {
-                                    XmlElement truckAnalysesElt = solutionInnerNode as XmlElement;
-                                    foreach (XmlNode truckAnalysisNode in truckAnalysesElt.ChildNodes)
+                                    if (string.Equals(node.Name, "Solutions", StringComparison.CurrentCultureIgnoreCase))
                                     {
-                                        if (string.Equals("TruckAnalysis", truckAnalysisNode.Name, StringComparison.CurrentCultureIgnoreCase))
+                                        int indexSol = 0;
+                                        foreach (XmlNode solutionNode in node.ChildNodes)
                                         {
-                                            XmlElement truckAnalysisElt = truckAnalysisNode as XmlElement;
-                                            SelCasePalletSolution selSolution = analysis.GetSelSolutionBySolutionIndex(indexSol);
-                                            LoadTruckAnalysis(truckAnalysisElt, selSolution);
+                                            foreach (XmlNode solutionInnerNode in solutionNode.ChildNodes)
+                                            {
+                                                if (string.Equals("TruckAnalyses", solutionInnerNode.Name, StringComparison.CurrentCultureIgnoreCase))
+                                                {
+                                                    XmlElement truckAnalysesElt = solutionInnerNode as XmlElement;
+                                                    foreach (XmlNode truckAnalysisNode in truckAnalysesElt.ChildNodes)
+                                                    {
+                                                        if (string.Equals("TruckAnalysis", truckAnalysisNode.Name, StringComparison.CurrentCultureIgnoreCase))
+                                                        {
+                                                            XmlElement truckAnalysisElt = truckAnalysisNode as XmlElement;
+                                                            SelCasePalletSolution selSolution = analysis.GetSelSolutionBySolutionIndex(indexSol);
+                                                            LoadTruckAnalysis(truckAnalysisElt, selSolution);
+                                                        }
+                                                    }
+                                                }
+                                                else if (string.Equals("ECTAnalyses", solutionInnerNode.Name, StringComparison.CurrentCultureIgnoreCase))
+                                                {
+                                                    XmlElement ectAnalysesElt = solutionInnerNode as XmlElement;
+                                                    foreach (XmlNode ectAnalysisNode in ectAnalysesElt.ChildNodes)
+                                                    {
+                                                        if (string.Equals("EctAnalysis", ectAnalysisNode.Name, StringComparison.CurrentCultureIgnoreCase))
+                                                        {
+                                                            XmlElement ectAnalysisElt = ectAnalysisNode as XmlElement;
+                                                            SelCasePalletSolution selSolution = analysis.GetSelSolutionBySolutionIndex(indexSol);
+                                                            LoadECTAnalysis(ectAnalysisElt, selSolution);
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                            ++indexSol;
                                         }
                                     }
                                 }
-                                else if (string.Equals("ECTAnalyses", solutionInnerNode.Name, StringComparison.CurrentCultureIgnoreCase))
-                                {
-                                    XmlElement ectAnalysesElt = solutionInnerNode as XmlElement;
-                                    foreach (XmlNode ectAnalysisNode in ectAnalysesElt.ChildNodes)
-                                    {
-                                        if (string.Equals("EctAnalysis", ectAnalysisNode.Name, StringComparison.CurrentCultureIgnoreCase))
-                                        {
-                                            XmlElement ectAnalysisElt = ectAnalysisNode as XmlElement;
-                                            SelCasePalletSolution selSolution = analysis.GetSelSolutionBySolutionIndex(indexSol);
-                                            LoadECTAnalysis(ectAnalysisElt, selSolution);
-                                        }
-                                    }
-                                }
-                            }
-                            ++indexSol;
-                        }
-                    }
-                }
-*/ 
+                */
             }
             else if (string.Equals(eltAnalysis.Name, "PackPalletAnalysis", StringComparison.CurrentCultureIgnoreCase))
             {
@@ -2148,7 +2181,7 @@ namespace treeDiM.StackBuilder.Basics
                 List<int> selectedIndices = new List<int>();
 
                 foreach (XmlNode node in eltAnalysis.ChildNodes)
-                { 
+                {
                     // load constraint set
                     if (string.Equals(node.Name, "ConstraintSet", StringComparison.CurrentCultureIgnoreCase))
                         constraintSet = LoadPackPalletConstraintSet(node as XmlElement);
@@ -2159,7 +2192,7 @@ namespace treeDiM.StackBuilder.Basics
                         foreach (XmlNode solutionNode in node.ChildNodes)
                         {
                             XmlElement eltSolution = solutionNode as XmlElement;
-                            solutions.Add( LoadPackPalletSolution(eltSolution) );
+                            solutions.Add(LoadPackPalletSolution(eltSolution));
                             // is solution selected ?
                             if (null != eltSolution.Attributes["Selected"] && "true" == eltSolution.Attributes["Selected"].Value)
                                 selectedIndices.Add(indexSol);
@@ -2392,12 +2425,19 @@ namespace treeDiM.StackBuilder.Basics
         private ConstraintSetAbstract LoadConstraintSetBoxCase(XmlElement eltConstraintSet, Packable container)
         {
             ConstraintSetBoxCase constraintSet = new ConstraintSetBoxCase(container);
-
             return constraintSet;
         }
         private ConstraintSetAbstract LoadConstraintSetCylinderCase(XmlElement eltConstraintSet, Packable container)
         {
             ConstraintSetCylinderCase constraintSet = new ConstraintSetCylinderCase(container);
+            return constraintSet;
+        }
+        private ConstraintSetAbstract LoadConstraintSetPalletTruck(XmlElement eltConstraintSet, IPackContainer container)
+        {
+            ConstraintSetPalletTruck constraintSet = new ConstraintSetPalletTruck(container);
+            constraintSet.MinDistanceLoadWall = LoadVectorLength(eltConstraintSet, "MinDistanceLoadWall");
+            constraintSet.MinDistanceLoadRoof = LoadDouble(eltConstraintSet, "MinDistanceLoadRoof", UnitsManager.UnitType.UT_LENGTH);
+            constraintSet.AllowMultipleLayers = (1 == LoadInt(eltConstraintSet, "AllowMultipleLayers"));
             return constraintSet;
         }
         #endregion
@@ -3852,6 +3892,11 @@ namespace treeDiM.StackBuilder.Basics
             // create analysis element
             XmlElement xmlAnalysisElt = xmlDoc.CreateElement(analysisName);
             parentElement.AppendChild(xmlAnalysisElt);
+
+            // guid
+            XmlAttribute analysisGuidAttribute = xmlDoc.CreateAttribute("Id");
+            analysisGuidAttribute.Value = analysis.ID.IGuid.ToString();
+            xmlAnalysisElt.Attributes.Append(analysisGuidAttribute);
             // name
             XmlAttribute analysisNameAttribute = xmlDoc.CreateAttribute("Name");
             analysisNameAttribute.Value = analysis.ID.Name;
@@ -3942,6 +3987,22 @@ namespace treeDiM.StackBuilder.Basics
             else if (null != analysisBoxCase)
             {
                 ConstraintSetBoxCase constraintSetBoxCase = analysisBoxCase.ConstraintSet as ConstraintSetBoxCase;
+            }
+            else if (null != analysisPalletTruck)
+            {
+                ConstraintSetPalletTruck constraintSetPalletTruck = analysisPalletTruck.ConstraintSet as ConstraintSetPalletTruck;
+
+                XmlAttribute attMinDistanceLoadWall = xmlDoc.CreateAttribute("MinDistanceLoadWall");
+                attMinDistanceLoadWall.Value = constraintSetPalletTruck.MinDistanceLoadWall.ToString();
+                eltContraintSet.Attributes.Append(attMinDistanceLoadWall);
+
+                XmlAttribute attMinDiastanceLoadRoof = xmlDoc.CreateAttribute("MinDistanceLoadRoof");
+                attMinDiastanceLoadRoof.Value = constraintSetPalletTruck.MinDistanceLoadRoof.ToString();
+                eltContraintSet.Attributes.Append(attMinDiastanceLoadRoof);
+
+                XmlAttribute attAllowMultipleLayers = xmlDoc.CreateAttribute("AllowMultipleLayers");
+                attAllowMultipleLayers.Value = constraintSetPalletTruck.AllowMultipleLayers ? "1" : "0";
+                eltContraintSet.Attributes.Append(attAllowMultipleLayers);                
             }
             // solution
             SaveSolution(analysis.Solution, xmlAnalysisElt, xmlDoc);

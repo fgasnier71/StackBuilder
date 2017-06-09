@@ -15,6 +15,7 @@ using log4net;
 using treeDiM.StackBuilder.Basics;
 using treeDiM.StackBuilder.Graphics;
 using treeDiM.StackBuilder.Engine;
+using treeDiM.StackBuilder.Reporting;
 using treeDiM.StackBuilder.GUIExtension.Properties;
 #endregion
 
@@ -357,6 +358,9 @@ namespace treeDiM.StackBuilder.GUIExtension
         {
             try
             {
+                FormReportDesign form = new FormReportDesign();
+                form.Analysis = _analysis;
+                form.ShowDialog();
             }
             catch (Exception ex)
             {
