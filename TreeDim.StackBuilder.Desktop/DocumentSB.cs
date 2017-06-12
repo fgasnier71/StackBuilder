@@ -127,51 +127,11 @@ namespace treeDiM.StackBuilder.Desktop
             return form;
         }
         /// <summary>
-        /// Creates new DockContentAnalysis view
-        /// </summary>
-        /// <param name="analysis"></param>
-        /// <returns></returns>
-        public DockContentAnalysisCaseOfBoxes CreateAnalysisViewCaseOfBoxes(CasePalletAnalysis analysis)
-        {
-            DockContentAnalysisCaseOfBoxes form = new DockContentAnalysisCaseOfBoxes(this, analysis);
-            AddView(form);
-            return form;
-        }
-        /// <summary>
-        /// Creates a new DockContentTruckAnalysis view
-        /// </summary>
-        /// <param name="analysis"></param>
-        /// <returns></returns>
-        public DockContentTruckAnalysis CreateTruckAnalysisView(TruckAnalysis analysis)
-        {
-            DockContentTruckAnalysis form = new DockContentTruckAnalysis(this, analysis);
-            AddView(form);
-            return form;
-        }
-        /// <summary>
         /// creates a new DockContentECTAnalysis view
         /// </summary>
         public DockContentECTAnalysis CreateECTAnalysisView(ECTAnalysis analysis)
         {
             DockContentECTAnalysis form = new DockContentECTAnalysis(this, analysis);
-            AddView(form);
-            return form;
-        }
-        /// <summary>
-        /// creates new case analysis view
-        /// </summary>
-        /// <param name="analysis"></param>
-        /// <returns></returns>
-        public DockContentBoxCasePalletAnalysis CreateCaseAnalysisView(BoxCasePalletAnalysis analysis)
-        {
-            // check if analysis has valid solutions
-            if (!analysis.HasValidSolutions)
-            {
-                MessageBox.Show(string.Format(Properties.Resources.ID_ANALYSISHASNOVALIDSOLUTION, analysis.Name));
-                return null;
-            }
-            // show Box/Case/Pallet analysis view
-            DockContentBoxCasePalletAnalysis form = new DockContentBoxCasePalletAnalysis(this, analysis);
             AddView(form);
             return form;
         }

@@ -105,6 +105,7 @@
             // 
             // bnNext
             // 
+            this.bnNext.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.bnNext.Location = new System.Drawing.Point(698, 511);
             this.bnNext.Name = "bnNext";
             this.bnNext.Size = new System.Drawing.Size(74, 24);

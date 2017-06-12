@@ -28,126 +28,97 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormNewAnalysisPalletTruck));
             this.lbPallets = new System.Windows.Forms.Label();
             this.lbTrucks = new System.Windows.Forms.Label();
+            this.checkBoxBestLayersOnly = new System.Windows.Forms.CheckBox();
+            this.chkbAllowMultipleLayers = new System.Windows.Forms.CheckBox();
+            this.uCtrlMinDistanceLoadWall = new treeDiM.StackBuilder.Basics.UCtrlDualDouble();
+            this.uCtrlMinDistLoadRoof = new treeDiM.StackBuilder.Basics.UCtrlDouble();
+            this.uCtrlLayerList = new treeDiM.StackBuilder.Graphics.UCtrlLayerList();
             this.cbTrucks = new treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered();
             this.cbPallets = new treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered();
-            this.uCtrlLayerList = new treeDiM.StackBuilder.Graphics.UCtrlLayerList();
-            this.checkBoxBestLayersOnly = new System.Windows.Forms.CheckBox();
-            this.uCtrlMinDistLoadRoof = new treeDiM.StackBuilder.Basics.UCtrlDouble();
-            this.uCtrlMinDistanceLoadWall = new treeDiM.StackBuilder.Basics.UCtrlDualDouble();
-            this.chkbAllowMultipleLayers = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // tbDescription
             // 
-            this.tbDescription.Size = new System.Drawing.Size(592, 20);
+            resources.ApplyResources(this.tbDescription, "tbDescription");
             // 
             // bnCancel
             // 
-            this.bnCancel.Location = new System.Drawing.Point(706, 4);
+            resources.ApplyResources(this.bnCancel, "bnCancel");
             // 
             // lbPallets
             // 
-            this.lbPallets.AutoSize = true;
-            this.lbPallets.Location = new System.Drawing.Point(5, 68);
+            resources.ApplyResources(this.lbPallets, "lbPallets");
             this.lbPallets.Name = "lbPallets";
-            this.lbPallets.Size = new System.Drawing.Size(76, 13);
-            this.lbPallets.TabIndex = 15;
-            this.lbPallets.Text = "Loaded pallets";
             // 
-            // label1
+            // lbTrucks
             // 
-            this.lbTrucks.AutoSize = true;
-            this.lbTrucks.Location = new System.Drawing.Point(453, 68);
-            this.lbTrucks.Name = "label1";
-            this.lbTrucks.Size = new System.Drawing.Size(40, 13);
-            this.lbTrucks.TabIndex = 16;
-            this.lbTrucks.Text = "Trucks";
+            resources.ApplyResources(this.lbTrucks, "lbTrucks");
+            this.lbTrucks.Name = "lbTrucks";
+            // 
+            // checkBoxBestLayersOnly
+            // 
+            resources.ApplyResources(this.checkBoxBestLayersOnly, "checkBoxBestLayersOnly");
+            this.checkBoxBestLayersOnly.Name = "checkBoxBestLayersOnly";
+            this.checkBoxBestLayersOnly.UseVisualStyleBackColor = true;
+            this.checkBoxBestLayersOnly.CheckedChanged += new System.EventHandler(this.onInputChanged);
+            // 
+            // chkbAllowMultipleLayers
+            // 
+            resources.ApplyResources(this.chkbAllowMultipleLayers, "chkbAllowMultipleLayers");
+            this.chkbAllowMultipleLayers.Name = "chkbAllowMultipleLayers";
+            this.chkbAllowMultipleLayers.UseVisualStyleBackColor = true;
+            // 
+            // uCtrlMinDistanceLoadWall
+            // 
+            resources.ApplyResources(this.uCtrlMinDistanceLoadWall, "uCtrlMinDistanceLoadWall");
+            this.uCtrlMinDistanceLoadWall.Name = "uCtrlMinDistanceLoadWall";
+            this.uCtrlMinDistanceLoadWall.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlMinDistanceLoadWall.ValueX = 0D;
+            this.uCtrlMinDistanceLoadWall.ValueY = 0D;
+            // 
+            // uCtrlMinDistLoadRoof
+            // 
+            resources.ApplyResources(this.uCtrlMinDistLoadRoof, "uCtrlMinDistLoadRoof");
+            this.uCtrlMinDistLoadRoof.Minimum = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.uCtrlMinDistLoadRoof.Name = "uCtrlMinDistLoadRoof";
+            this.uCtrlMinDistLoadRoof.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlMinDistLoadRoof.Value = 0D;
+            // 
+            // uCtrlLayerList
+            // 
+            resources.ApplyResources(this.uCtrlLayerList, "uCtrlLayerList");
+            this.uCtrlLayerList.ButtonSizes = new System.Drawing.Size(150, 150);
+            this.uCtrlLayerList.Name = "uCtrlLayerList";
+            this.uCtrlLayerList.Show3D = true;
+            this.uCtrlLayerList.SingleSelection = false;
             // 
             // cbTrucks
             // 
             this.cbTrucks.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTrucks.FormattingEnabled = true;
-            this.cbTrucks.Location = new System.Drawing.Point(548, 65);
+            resources.ApplyResources(this.cbTrucks, "cbTrucks");
             this.cbTrucks.Name = "cbTrucks";
-            this.cbTrucks.Size = new System.Drawing.Size(148, 21);
-            this.cbTrucks.TabIndex = 14;
             this.cbTrucks.SelectedIndexChanged += new System.EventHandler(this.onInputChanged);
             // 
             // cbPallets
             // 
             this.cbPallets.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbPallets.FormattingEnabled = true;
-            this.cbPallets.Location = new System.Drawing.Point(104, 65);
+            resources.ApplyResources(this.cbPallets, "cbPallets");
             this.cbPallets.Name = "cbPallets";
-            this.cbPallets.Size = new System.Drawing.Size(145, 21);
-            this.cbPallets.TabIndex = 13;
             this.cbPallets.SelectedIndexChanged += new System.EventHandler(this.onInputChanged);
-            // 
-            // uCtrlLayerList
-            // 
-            this.uCtrlLayerList.AutoScroll = true;
-            this.uCtrlLayerList.ButtonSizes = new System.Drawing.Size(150, 150);
-            this.uCtrlLayerList.Location = new System.Drawing.Point(0, 149);
-            this.uCtrlLayerList.Name = "uCtrlLayerList";
-            this.uCtrlLayerList.Show3D = true;
-            this.uCtrlLayerList.Size = new System.Drawing.Size(784, 351);
-            this.uCtrlLayerList.TabIndex = 17;
-            // 
-            // checkBoxBestLayersOnly
-            // 
-            this.checkBoxBestLayersOnly.AutoSize = true;
-            this.checkBoxBestLayersOnly.Location = new System.Drawing.Point(4, 517);
-            this.checkBoxBestLayersOnly.Name = "checkBoxBestLayersOnly";
-            this.checkBoxBestLayersOnly.Size = new System.Drawing.Size(128, 17);
-            this.checkBoxBestLayersOnly.TabIndex = 18;
-            this.checkBoxBestLayersOnly.Text = "Show best layers only";
-            this.checkBoxBestLayersOnly.UseVisualStyleBackColor = true;
-            this.checkBoxBestLayersOnly.CheckedChanged += new System.EventHandler(this.onInputChanged);
-            // 
-            // uCtrlMinDistLoadRoof
-            // 
-            this.uCtrlMinDistLoadRoof.Location = new System.Drawing.Point(5, 123);
-            this.uCtrlMinDistLoadRoof.Minimum = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.uCtrlMinDistLoadRoof.MinimumSize = new System.Drawing.Size(100, 20);
-            this.uCtrlMinDistLoadRoof.Name = "uCtrlMinDistLoadRoof";
-            this.uCtrlMinDistLoadRoof.Size = new System.Drawing.Size(355, 20);
-            this.uCtrlMinDistLoadRoof.TabIndex = 19;
-            this.uCtrlMinDistLoadRoof.Text = "Minimum distance load/roof";
-            this.uCtrlMinDistLoadRoof.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
-            this.uCtrlMinDistLoadRoof.Value = 0D;
-            // 
-            // uCtrlMinDistanceLoadWall
-            // 
-            this.uCtrlMinDistanceLoadWall.Location = new System.Drawing.Point(5, 97);
-            this.uCtrlMinDistanceLoadWall.Name = "uCtrlMinDistanceLoadWall";
-            this.uCtrlMinDistanceLoadWall.Size = new System.Drawing.Size(355, 20);
-            this.uCtrlMinDistanceLoadWall.TabIndex = 20;
-            this.uCtrlMinDistanceLoadWall.Text = "Minimum distances load/wall";
-            this.uCtrlMinDistanceLoadWall.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
-            this.uCtrlMinDistanceLoadWall.ValueX = 0D;
-            this.uCtrlMinDistanceLoadWall.ValueY = 0D;
-            // 
-            // chkbAllowMultipleLayers
-            // 
-            this.chkbAllowMultipleLayers.AutoSize = true;
-            this.chkbAllowMultipleLayers.Location = new System.Drawing.Point(456, 125);
-            this.chkbAllowMultipleLayers.Name = "chkbAllowMultipleLayers";
-            this.chkbAllowMultipleLayers.Size = new System.Drawing.Size(119, 17);
-            this.chkbAllowMultipleLayers.TabIndex = 21;
-            this.chkbAllowMultipleLayers.Text = "Allow multiple layers";
-            this.chkbAllowMultipleLayers.UseVisualStyleBackColor = true;
             // 
             // FormNewAnalysisPalletTruck
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 561);
             this.Controls.Add(this.chkbAllowMultipleLayers);
             this.Controls.Add(this.uCtrlMinDistanceLoadWall);
             this.Controls.Add(this.uCtrlMinDistLoadRoof);
@@ -158,7 +129,6 @@
             this.Controls.Add(this.cbTrucks);
             this.Controls.Add(this.cbPallets);
             this.Name = "FormNewAnalysisPalletTruck";
-            this.Text = "Create new pallet/truck analysis...";
             this.Controls.SetChildIndex(this.bnCancel, 0);
             this.Controls.SetChildIndex(this.lbName, 0);
             this.Controls.SetChildIndex(this.lbDescription, 0);

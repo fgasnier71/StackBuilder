@@ -38,7 +38,7 @@
     <MinimumRequiredVersion>3.0.0.0</MinimumRequiredVersion>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>25</ApplicationRevision>
+    <ApplicationRevision>26</ApplicationRevision>
     <ApplicationVersion>3.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -167,6 +167,7 @@
     <Compile Include="AnalysisTreeView.Designer.cs">
       <DependentUpon>AnalysisTreeView.cs</DependentUpon>
     </Compile>
+    <Compile Include="CellBackColorAlternate.cs" />
     <Compile Include="CheckedListBoxWithImage.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -210,24 +211,6 @@
     <Compile Include="DockContentAnalysisPalletTruck.Designer.cs">
       <DependentUpon>DockContentAnalysisPalletTruck.cs</DependentUpon>
     </Compile>
-    <Compile Include="DockContentCasePalletAnalysis.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DockContentCasePalletAnalysis.Designer.cs">
-      <DependentUpon>DockContentCasePalletAnalysis.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DockContentAnalysisCaseOfBoxes.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DockContentAnalysisCaseOfBoxes.Designer.cs">
-      <DependentUpon>DockContentAnalysisCaseOfBoxes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DockContentBoxCasePalletAnalysis.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DockContentBoxCasePalletAnalysis.Designer.cs">
-      <DependentUpon>DockContentBoxCasePalletAnalysis.cs</DependentUpon>
-    </Compile>
     <Compile Include="DockContentDocumentExplorer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -257,12 +240,6 @@
     </Compile>
     <Compile Include="DockContentStartPage.Designer.cs">
       <DependentUpon>DockContentStartPage.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DockContentTruckAnalysis.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DockContentTruckAnalysis.Designer.cs">
-      <DependentUpon>DockContentTruckAnalysis.cs</DependentUpon>
     </Compile>
     <Compile Include="DockContentView.cs">
       <SubType>Form</SubType>
@@ -611,12 +588,6 @@
     <EmbeddedResource Include="DockContentAnalysisBoxCase.resx">
       <DependentUpon>DockContentAnalysisBoxCase.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DockContentAnalysisCaseOfBoxes.it-IT.resx">
-      <DependentUpon>DockContentAnalysisCaseOfBoxes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DockContentAnalysisCaseOfBoxes.nl-NL.resx">
-      <DependentUpon>DockContentAnalysisCaseOfBoxes.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="DockContentAnalysisCasePallet.resx">
       <DependentUpon>DockContentAnalysisCasePallet.cs</DependentUpon>
     </EmbeddedResource>
@@ -631,74 +602,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DockContentAnalysisPalletTruck.resx">
       <DependentUpon>DockContentAnalysisPalletTruck.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DockContentBoxCasePalletAnalysis.de-DE.resx">
-      <DependentUpon>DockContentBoxCasePalletAnalysis.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DockContentBoxCasePalletAnalysis.it-IT.resx">
-      <DependentUpon>DockContentBoxCasePalletAnalysis.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DockContentBoxCasePalletAnalysis.nl-NL.resx">
-      <DependentUpon>DockContentBoxCasePalletAnalysis.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DockContentCasePalletAnalysis.it-IT.resx">
-      <DependentUpon>DockContentCasePalletAnalysis.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DockContentCasePalletAnalysis.nl-NL.resx">
-      <DependentUpon>DockContentCasePalletAnalysis.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DockContentCasePalletAnalysis.ca-ES.resx">
-      <DependentUpon>DockContentCasePalletAnalysis.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DockContentCasePalletAnalysis.de-DE.resx">
-      <DependentUpon>DockContentCasePalletAnalysis.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DockContentCasePalletAnalysis.es-ES.resx">
-      <DependentUpon>DockContentCasePalletAnalysis.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DockContentCasePalletAnalysis.fr-FR.resx">
-      <DependentUpon>DockContentCasePalletAnalysis.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DockContentCasePalletAnalysis.ja-JP.resx">
-      <DependentUpon>DockContentCasePalletAnalysis.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DockContentCasePalletAnalysis.resx">
-      <DependentUpon>DockContentCasePalletAnalysis.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DockContentAnalysisCaseOfBoxes.ca-ES.resx">
-      <DependentUpon>DockContentAnalysisCaseOfBoxes.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DockContentAnalysisCaseOfBoxes.de-DE.resx">
-      <DependentUpon>DockContentAnalysisCaseOfBoxes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DockContentAnalysisCaseOfBoxes.es-ES.resx">
-      <DependentUpon>DockContentAnalysisCaseOfBoxes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DockContentAnalysisCaseOfBoxes.fr-FR.resx">
-      <DependentUpon>DockContentAnalysisCaseOfBoxes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DockContentAnalysisCaseOfBoxes.ja-JP.resx">
-      <DependentUpon>DockContentAnalysisCaseOfBoxes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DockContentAnalysisCaseOfBoxes.resx">
-      <DependentUpon>DockContentAnalysisCaseOfBoxes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DockContentBoxCasePalletAnalysis.ca-ES.resx">
-      <DependentUpon>DockContentBoxCasePalletAnalysis.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DockContentBoxCasePalletAnalysis.es-ES.resx">
-      <DependentUpon>DockContentBoxCasePalletAnalysis.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DockContentBoxCasePalletAnalysis.fr-FR.resx">
-      <DependentUpon>DockContentBoxCasePalletAnalysis.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DockContentBoxCasePalletAnalysis.ja-JP.resx">
-      <DependentUpon>DockContentBoxCasePalletAnalysis.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DockContentBoxCasePalletAnalysis.resx">
-      <DependentUpon>DockContentBoxCasePalletAnalysis.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DockContentDocumentExplorer.ca-ES.resx">
       <DependentUpon>DockContentDocumentExplorer.cs</DependentUpon>
@@ -768,30 +671,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DockContentStartPage.resx">
       <DependentUpon>DockContentStartPage.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DockContentTruckAnalysis.ca-ES.resx">
-      <DependentUpon>DockContentTruckAnalysis.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DockContentTruckAnalysis.de-DE.resx">
-      <DependentUpon>DockContentTruckAnalysis.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DockContentTruckAnalysis.es-ES.resx">
-      <DependentUpon>DockContentTruckAnalysis.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DockContentTruckAnalysis.fr-FR.resx">
-      <DependentUpon>DockContentTruckAnalysis.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DockContentTruckAnalysis.it-IT.resx">
-      <DependentUpon>DockContentTruckAnalysis.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DockContentTruckAnalysis.ja-JP.resx">
-      <DependentUpon>DockContentTruckAnalysis.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DockContentTruckAnalysis.nl-NL.resx">
-      <DependentUpon>DockContentTruckAnalysis.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DockContentTruckAnalysis.resx">
-      <DependentUpon>DockContentTruckAnalysis.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DockContentView.resx">
       <DependentUpon>DockContentView.cs</DependentUpon>

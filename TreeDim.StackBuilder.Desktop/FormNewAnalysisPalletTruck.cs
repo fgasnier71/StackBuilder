@@ -49,7 +49,7 @@ namespace treeDiM.StackBuilder.Desktop
             // event handling
             uCtrlLayerList.LayerSelected += onLayerSelected;
             uCtrlLayerList.RefreshFinished += onLayerSelected;
-            uCtrlLayerList.ButtonSizes = new Size(400, 100);
+            uCtrlLayerList.ButtonSizes = new Size(200, 100);
 
             if (null == AnalysisBase)
             {
@@ -58,6 +58,19 @@ namespace treeDiM.StackBuilder.Desktop
 
                 checkBoxBestLayersOnly.Checked = Settings.Default.KeepBestSolutions;
             }
+            else
+            {
+                tbName.Text = AnalysisBase.Name;
+                tbDescription.Text = AnalysisBase.Description;
+
+                ConstraintSetPalletTruck  constraintSet = AnalysisBase.ConstraintSet as ConstraintSetPalletTruck;
+                if (null == constraintSet) return;
+                uCtrlMinDistanceLoadWall.ValueX = constraintSet.MinDistanceLoadWall.X;
+                uCtrlMinDistanceLoadWall.ValueY = constraintSet.MinDistanceLoadWall.Y;
+                uCtrlMinDistLoadRoof.Value = constraintSet.MinDistanceLoadRoof;
+                chkbAllowMultipleLayers.Checked = constraintSet.AllowMultipleLayers;
+            }
+            checkBoxBestLayersOnly.Checked = Settings.Default.KeepBestSolutions;
         }
         protected override void OnClosed(EventArgs e)
         {

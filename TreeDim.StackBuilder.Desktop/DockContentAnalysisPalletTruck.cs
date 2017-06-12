@@ -56,11 +56,13 @@ namespace treeDiM.StackBuilder.Desktop
         public override void Update(ItemBase item)
         {
             base.Update(item);
+            graphCtrlSolution.Invalidate();
         }
         public override void Kill(ItemBase item)
         {
             base.Kill(item);
-            _analysis.RemoveListener(this);
+            if (null != _analysis)
+                _analysis.RemoveListener(this);
         }
         #endregion
 
@@ -85,6 +87,11 @@ namespace treeDiM.StackBuilder.Desktop
             FillGrid();
             UpdateGrid();
             // ---
+        }
+        protected override void OnClosed(EventArgs e)
+        {
+            base.OnClosed(e);
+            Document.RemoveView(this);
         }
         #endregion
 
