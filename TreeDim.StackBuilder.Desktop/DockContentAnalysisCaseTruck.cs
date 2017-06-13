@@ -25,13 +25,9 @@ namespace treeDiM.StackBuilder.Desktop
     {
         #region Data members
         /// <summary>
-        /// analysis
-        /// </summary>
-        private AnalysisPackableTruck _analysis;
-        /// <summary>
         /// logger
         /// </summary>
-        static readonly ILog _log = LogManager.GetLogger(typeof(DockContentAnalysisCaseTruck));
+        static readonly new ILog _log = LogManager.GetLogger(typeof(DockContentAnalysisCaseTruck));
         #endregion
 
         #region Constructor

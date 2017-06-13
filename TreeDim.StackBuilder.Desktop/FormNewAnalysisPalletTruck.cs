@@ -39,6 +39,14 @@ namespace treeDiM.StackBuilder.Desktop
         { get { return Resources.ID_ANALYSIS; } }
         #endregion
 
+        #region Public properties
+        public AnalysisPalletTruck AnalysisCast
+        {
+            get { return _item as AnalysisPalletTruck; }
+            set { _item = value; }
+        }
+        #endregion
+
         #region Form override
         protected override void OnLoad(EventArgs e)
         {
@@ -90,11 +98,23 @@ namespace treeDiM.StackBuilder.Desktop
 
                 Solution.SetSolver(new LayerSolver());
 
-                AnalysisBase = _document.CreateNewAnalysisPalletTruck(
-                    ItemName, ItemDescription
-                    , SelectedLoadedPallet, SelectedTruckProperties
-                    , BuildConstraintSet()
-                    , layerDescs);
+                AnalysisPalletTruck analysis = AnalysisCast;
+                if (null == analysis)
+                    AnalysisBase = _document.CreateNewAnalysisPalletTruck(
+                        ItemName, ItemDescription
+                        , SelectedLoadedPallet, SelectedTruckProperties
+                        , BuildConstraintSet()
+                        , layerDescs);
+                else
+                {
+                    analysis.ID.SetNameDesc(ItemName, ItemDescription);
+                    analysis.Content = SelectedLoadedPallet;
+                    analysis.TruckProperties = SelectedTruckProperties;
+                    analysis.ConstraintSet = BuildConstraintSet();
+                    analysis.AddSolution(layerDescs);
+
+                    _document.UpdateAnalysis(analysis);
+                }
                 Close();
             }
             catch (Exception ex)

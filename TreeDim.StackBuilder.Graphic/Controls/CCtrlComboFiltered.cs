@@ -32,6 +32,15 @@ namespace treeDiM.StackBuilder.Graphics.Controls
                         iSelected = index;
                     ++index;
                 }
+
+            Analysis analysisInitial = null;
+            if (null != initialSelect)
+            {
+                PackableLoaded packableLoadedInitial = initialSelect as PackableLoaded;
+                if (null != packableLoadedInitial)
+                    analysisInitial = packableLoadedInitial.ParentAnalysis;
+            }
+
             foreach (Analysis analysis in doc.Analyses)
             {
                 PackableLoaded eqvtPackable = analysis.EquivalentPackable;
@@ -39,7 +48,7 @@ namespace treeDiM.StackBuilder.Graphics.Controls
                 if (null == filter || filter.Accept(this, eqvtPackable))
                 {
                     Items.Add(new ItemBaseWrapper(eqvtPackable));
-                    if (initialSelect == analysis)
+                    if (analysisInitial == analysis)
                         iSelected = index;
                     ++index;
                 }
