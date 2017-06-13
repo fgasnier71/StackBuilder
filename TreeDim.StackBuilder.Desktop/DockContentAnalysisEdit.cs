@@ -63,6 +63,7 @@ namespace treeDiM.StackBuilder.Desktop
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
+            if (DesignMode) return;
 
             // initialize drawing container
             graphCtrlSolution.DrawingContainer = this;
