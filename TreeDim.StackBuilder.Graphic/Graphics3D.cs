@@ -51,6 +51,7 @@ namespace treeDiM.StackBuilder.Graphics
         /// Background color
         /// </summary>
         private Color _backgroundColor = Color.White;
+        private float _fontSizeRatio = 0.02f;
         /// <summary>
         /// face in the background
         /// </summary>
@@ -129,6 +130,16 @@ namespace treeDiM.StackBuilder.Graphics
         #endregion
 
         #region Public properties
+        public float FontSize
+        {
+            get
+            {
+                if (null == Size)
+                    return 0.0f;
+                else
+                    return _fontSizeRatio * Size.Height;
+            }
+        }
         /// <summary>
         /// Background color
         /// </summary>
@@ -216,7 +227,10 @@ namespace treeDiM.StackBuilder.Graphics
             get { return _showDimensions; }
             set { _showDimensions = value; }
         }
-
+        public float FontSizeRatio
+        {
+            set { _fontSizeRatio = value; }
+        }
         public Point Offset
         {
             get { return TransformPoint(GetCurrentTransformation(), Vector3D.Zero); }
@@ -640,7 +654,7 @@ namespace treeDiM.StackBuilder.Graphics
         {
             System.Drawing.Graphics g = Graphics;
             Point pt = TransformPoint(GetCurrentTransformation(), position);
-            Font font = new Font("Arial", fontSize);
+            Font font = new Font("Arial", fontSize > 1.0f ? fontSize : 1.0f);
             SizeF sizeF = g.MeasureString(text, font);
             g.DrawString(text
                 , font

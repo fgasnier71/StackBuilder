@@ -200,10 +200,11 @@ namespace treeDiM.StackBuilder.Reporting
         protected static readonly ILog _log = LogManager.GetLogger(typeof(Reporter));
         protected static bool _validateAgainstSchema = false;
         protected string _imageDirectory;
-        protected static string _companyLogo;
-        protected static eImageSize _imageSize = eImageSize.IMAGESIZE_DEFAULT;
         protected static int _imageIndex = 0;
         protected static bool _showDimensions = true;
+        protected static float _fontSizeRatioDetail = 6.0f, _fontSizeRatioLarge = 10.0f;
+        protected static int _imgSizeDetail= 200, _imgSizeLarge = 500;
+        protected static int _imgHTMLSizeDetail = 100, _imgHTMLSizeLarge = 500;
         #endregion
 
         #region Abstract members
@@ -216,26 +217,29 @@ namespace treeDiM.StackBuilder.Reporting
         {
             get
             {
-                if (!File.Exists(_companyLogo))
+                string companyLogo = Properties.Settings.Default.CompanyLogoPath;
+                if (!File.Exists(companyLogo))
                 {
-                    _companyLogo = Path.Combine(
+                    companyLogo = Path.Combine(
                         Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)
                         , "ReportTemplates\\YourLogoHere.png");
-                    Properties.Settings.Default.CompanyLogoPath = _companyLogo;
+                    Properties.Settings.Default.CompanyLogoPath = companyLogo;
                     Properties.Settings.Default.Save();
 
-                    if (!File.Exists(_companyLogo))
+                    if (!File.Exists(companyLogo))
                         return string.Empty;
                 }
-                return _companyLogo; 
+                return companyLogo; 
             }
-            set { _companyLogo = File.Exists(value) ? value : string.Empty; }
         }
-        static public eImageSize ImageSizeSetting
-        {
-            get { return _imageSize; }
-            set { _imageSize = value; }
-        }
+        static public void SetFontSizeRatios(float fontSizeRatioDetail, float fontSizeRatioLarge)
+        { _fontSizeRatioDetail = fontSizeRatioDetail; _fontSizeRatioLarge = fontSizeRatioLarge; }
+        static public float FontSizeRatioDetail { get { return _fontSizeRatioDetail; } }
+        static public float FontSizeRatioLarge { get { return _fontSizeRatioLarge; } }
+        static public void SetImageSize(int imgSizeDetail, int imgSizeLarge)
+        { _imgSizeDetail = imgSizeDetail; _imgSizeLarge = imgSizeLarge; }
+        static public void SetImageHTMLSize(int imgHTMLDetail, int imgHTMLLarge)
+        { _imgHTMLSizeDetail = imgHTMLDetail; _imgHTMLSizeLarge = imgHTMLLarge; }
         static public string TemplatePath
         {
             get
@@ -266,30 +270,10 @@ namespace treeDiM.StackBuilder.Reporting
             set {   _imageDirectory = value;}
             get {   return _imageDirectory;  }
         }
-        private int ImageSizeDetail
-        {
-            get
-            {
-                switch (_imageSize)
-                {
-                    case eImageSize.IMAGESIZE_DEFAULT: return 256;
-                    case eImageSize.IMAGESIZE_SMALL: return 128;
-                    default: return 256;
-                }
-            }
-        }
-        private int ImageSizeWide
-        {
-            get
-            {
-                switch (_imageSize)
-                {
-                    case eImageSize.IMAGESIZE_DEFAULT: return 768;
-                    case eImageSize.IMAGESIZE_SMALL: return 384;
-                    default: return 768;
-                }
-            }
-        }
+        private int ImageSizeDetail { get { return _imgSizeDetail; } }
+        private int ImageSizeWide { get { return _imgSizeLarge; } }
+        private int ImageHTMLSizeDetail { get { return _imgHTMLSizeDetail; } }
+        private int ImageHTMLSizeLarge { get { return _imgHTMLSizeLarge; } }
         #endregion
 
         #region Report generation
@@ -300,6 +284,8 @@ namespace treeDiM.StackBuilder.Reporting
             // verify if inputData is a valid entry
             if (!inputData.IsValid)
                 throw new Exception("Reporter.BuildAnalysisReport(): ReportData argument is invalid!");
+            if (null == rootNode)
+                throw new Exception("RootNode == null");
             // absolute path
             string absOutputFilePath = ToAbsolute(outputFilePath);
             string absReportTemplatePath = ToAbsolute(reportTemplatePath);
@@ -620,19 +606,24 @@ namespace treeDiM.StackBuilder.Reporting
                 // initialize drawing values
                 string viewName = string.Empty;
                 Vector3D cameraPos = Vector3D.Zero;
-                int imageWidth = ImageSizeDetail;
+                int imageWidth = ImageSizeDetail, imgHTMLWidth = ImageHTMLSizeDetail;
                 bool showDimLocal = false;
                 switch (i)
                 {
-                    case 0: viewName = "view_solution_front"; cameraPos = Graphics3D.Front; imageWidth = ImageSizeDetail; break;
-                    case 1: viewName = "view_solution_left"; cameraPos = Graphics3D.Left; imageWidth = ImageSizeDetail; break;
-                    case 2: viewName = "view_solution_right"; cameraPos = Graphics3D.Right; imageWidth = ImageSizeDetail; break;
-                    case 3: viewName = "view_solution_back"; cameraPos = Graphics3D.Back; imageWidth = ImageSizeDetail; break;
-                    case 4: viewName = "view_solution_iso"; cameraPos = Graphics3D.Corner_0; imageWidth = ImageSizeWide; showDimLocal = true; break;
+                    case 0: viewName = "view_solution_front"; cameraPos = Graphics3D.Front; break;
+                    case 1: viewName = "view_solution_left"; cameraPos = Graphics3D.Left; break;
+                    case 2: viewName = "view_solution_right"; cameraPos = Graphics3D.Right; break;
+                    case 3: viewName = "view_solution_back"; cameraPos = Graphics3D.Back; break;
+                    case 4: viewName = "view_solution_iso"; cameraPos = Graphics3D.Corner_0;
+                        imageWidth = ImageSizeWide;
+                        imgHTMLWidth = ImageHTMLSizeLarge;
+                        showDimLocal = true;
+                        break;
                     default: break;
                 }
                 // instantiate graphics
                 Graphics3DImage graphics = new Graphics3DImage(new Size(imageWidth, imageWidth));
+                graphics.FontSizeRatio = FontSizeRatioLarge;
                 // set camera position 
                 graphics.CameraPosition = cameraPos;
                 graphics.ShowDimensions = showDimLocal && Reporter.ShowDimensions;
@@ -652,10 +643,10 @@ namespace treeDiM.StackBuilder.Reporting
                 elemImagePath.InnerText = imagePath;
                 XmlElement elemWidth = xmlDoc.CreateElement("width");
                 elemImage.AppendChild(elemWidth);
-                elemWidth.InnerText = imageWidth.ToString();
+                elemWidth.InnerText = imgHTMLWidth.ToString();
                 XmlElement elemHeight = xmlDoc.CreateElement("height");
                 elemImage.AppendChild(elemHeight);
-                elemHeight.InnerText = imageWidth.ToString();
+                elemHeight.InnerText = imgHTMLWidth.ToString();
             }
 
             ReportNode rnLayers = rnSolution.GetChildByName(Resources.ID_RN_LAYERS);
@@ -756,6 +747,7 @@ namespace treeDiM.StackBuilder.Reporting
             {
                 // --- build image
                 Graphics3DImage graphics = new Graphics3DImage(new Size(512, 512));
+                graphics.FontSizeRatio = _fontSizeRatioDetail;
                 graphics.CameraPosition = Graphics3D.Corner_0;
                 Pallet pallet = new Pallet(palletProp);
                 pallet.Draw(graphics, Transform3D.Identity);
@@ -795,13 +787,14 @@ namespace treeDiM.StackBuilder.Reporting
             {
                 // --- build image
                 Graphics3DImage graphics = new Graphics3DImage(new Size(ImageSizeDetail, ImageSizeDetail));
+                graphics.FontSizeRatio = FontSizeRatioDetail;
                 graphics.CameraPosition = Graphics3D.Corner_0;
                 graphics.Target = Vector3D.Zero;
                 Cylinder cyl = new Cylinder(0, cylProperties);
                 graphics.AddCylinder(cyl);
                 if (Reporter.ShowDimensions)
                 {
-                    DimensionCube dc = new DimensionCube(cyl.DiameterOuter, cyl.DiameterOuter, cyl.Height); dc.FontSize = 6.0f;
+                    DimensionCube dc = new DimensionCube(cyl.DiameterOuter, cyl.DiameterOuter, cyl.Height);
                     graphics.AddDimensions(dc);
                 }
                 graphics.Flush();
@@ -847,12 +840,13 @@ namespace treeDiM.StackBuilder.Reporting
             {
                 // --- build image
                 Graphics3DImage graphics = new Graphics3DImage(new Size(ImageSizeDetail, ImageSizeDetail));
+                graphics.FontSizeRatio = FontSizeRatioDetail;
                 graphics.CameraPosition = Graphics3D.Corner_0;
                 Box box = new Box(0, bundleProp);
                 graphics.AddBox(box);
                 if (Reporter.ShowDimensions)
                 {
-                    DimensionCube dc = new DimensionCube(bundleProp.Length, bundleProp.Width, bundleProp.Height); dc.FontSize = 6.0f;
+                    DimensionCube dc = new DimensionCube(bundleProp.Length, bundleProp.Width, bundleProp.Height);
                     graphics.AddDimensions(dc);
                 }
                 graphics.Flush();
@@ -898,12 +892,13 @@ namespace treeDiM.StackBuilder.Reporting
             {
                 // --- build image
                 Graphics3DImage graphics = new Graphics3DImage(new Size(ImageSizeDetail, ImageSizeDetail));
+                graphics.FontSizeRatio = FontSizeRatioDetail;
                 graphics.CameraPosition = Graphics3D.Corner_0;
                 Box box = new Box(0, interlayerProp);
                 graphics.AddBox(box);
                 if (Reporter.ShowDimensions)
                 {
-                    DimensionCube dc = new DimensionCube(interlayerProp.Length, interlayerProp.Width, interlayerProp.Thickness); dc.FontSize = 6.0f;
+                    DimensionCube dc = new DimensionCube(interlayerProp.Length, interlayerProp.Width, interlayerProp.Thickness); 
                     graphics.AddDimensions(dc);
                 }
                 graphics.Flush();
@@ -976,6 +971,7 @@ namespace treeDiM.StackBuilder.Reporting
             // view_palletCap_iso
             // build image
             Graphics3DImage graphics = new Graphics3DImage(new Size(ImageSizeDetail, ImageSizeDetail));
+            graphics.FontSizeRatio = FontSizeRatioDetail;
             graphics.CameraPosition = Graphics3D.Corner_0;
             PalletCap palletCap = new PalletCap(0, palletCapProp, BoxPosition.Zero);
             palletCap.Draw(graphics);
@@ -1018,12 +1014,20 @@ namespace treeDiM.StackBuilder.Reporting
             // namespace
             string ns = xmlDoc.DocumentElement.NamespaceURI;
             // imageThumb element
-            XmlElement elemImage = xmlDoc.CreateElement("imageThumb", ns);
+            XmlElement elemImage = xmlDoc.CreateElement("imageThumbSize", ns);
             parentElement.AppendChild(elemImage);
             // imagePath element
             XmlElement elemImagePath = xmlDoc.CreateElement("imagePath", ns);
             elemImage.AppendChild(elemImagePath);
             elemImagePath.InnerText = imagePath;
+            // width
+            XmlElement elemWidth = xmlDoc.CreateElement("width");
+            elemImage.AppendChild(elemWidth);
+            elemWidth.InnerText = ImageHTMLSizeDetail.ToString();
+            // height
+            XmlElement elemHeight = xmlDoc.CreateElement("height");
+            elemImage.AppendChild(elemHeight);
+            elemHeight.InnerText = ImageHTMLSizeDetail.ToString();
         }
         #endregion
 
@@ -1059,15 +1063,13 @@ namespace treeDiM.StackBuilder.Reporting
             if (rnTruck.GetChildByName(Resources.ID_RN_IMAGE).Activated)
             {
                 Graphics3DImage graphics = new Graphics3DImage(new Size(ImageSizeDetail, ImageSizeDetail));
+                graphics.FontSizeRatio = FontSizeRatioDetail;
                 graphics.CameraPosition = Graphics3D.Corner_0;
                 Truck truck = new Truck(truckProp);
                 truck.DrawBegin(graphics);
                 truck.DrawEnd(graphics);
                 if (Reporter.ShowDimensions)
-                {
-                    DimensionCube dc = new DimensionCube(truckProp.Length, truckProp.Width, truckProp.Height); dc.FontSize = 6.0f;
-                    graphics.AddDimensions(dc);
-                }
+                    graphics.AddDimensions(new DimensionCube(truckProp.Length, truckProp.Width, truckProp.Height));
                 graphics.Flush();
                 AppendThumbnailElement(xmlDoc, elemTruck, graphics.Bitmap);
             }
@@ -1145,15 +1147,13 @@ namespace treeDiM.StackBuilder.Reporting
             if (rnCase.GetChildByName(Resources.ID_RN_IMAGE).Activated)
             {
                 Graphics3DImage graphics = new Graphics3DImage(new Size(ImageSizeDetail, ImageSizeDetail));
+                graphics.FontSizeRatio = FontSizeRatioDetail;
                 graphics.CameraPosition = Graphics3D.Corner_0;
                 graphics.Target = Vector3D.Zero;
                 Box box = new Box(0, caseProperties);
                 graphics.AddBox(box);
                 if (Reporter.ShowDimensions)
-                {
-                    DimensionCube dc = new DimensionCube(box.Length, box.Width, box.Height); dc.FontSize = 6.0f;
-                    graphics.AddDimensions(dc);
-                }
+                    graphics.AddDimensions(new DimensionCube(box.Length, box.Width, box.Height));
                 graphics.Flush();
                 // ---
                 // imageThumb
@@ -1203,10 +1203,7 @@ namespace treeDiM.StackBuilder.Reporting
                 pack.ForceTransparency = true;
                 graphics.AddBox(pack);
                 if (Reporter.ShowDimensions)
-                {
-                    DimensionCube dc = new DimensionCube(pack.Length, pack.Width, pack.Height); dc.FontSize = 6.0f;
-                    graphics.AddDimensions(dc);
-                }
+                    graphics.AddDimensions(new DimensionCube(pack.Length, pack.Width, pack.Height));
                 graphics.Flush();
                 // imageThumb
                 AppendThumbnailElement(xmlDoc, elemPack, graphics.Bitmap);
@@ -1238,6 +1235,7 @@ namespace treeDiM.StackBuilder.Reporting
             {
                 // --- build image
                 Graphics3DImage graphics = new Graphics3DImage(new Size(ImageSizeDetail, ImageSizeDetail));
+                graphics.FontSizeRatio = FontSizeRatioDetail;
                 graphics.CameraPosition = Graphics3D.Corner_0;
                 graphics.Target = Vector3D.Zero;
                 Box box = new Box(0, boxProperties);

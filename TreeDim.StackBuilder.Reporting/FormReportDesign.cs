@@ -14,6 +14,7 @@ using System.Diagnostics;
 using log4net;
 
 using treeDiM.StackBuilder.Basics;
+using treeDiM.StackBuilder.Reporting.Properties;
 #endregion
 
 namespace treeDiM.StackBuilder.Reporting
@@ -31,14 +32,59 @@ namespace treeDiM.StackBuilder.Reporting
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
-
             // caption
             Text = string.Format("Report {0}", _analysis.Name);
-            // initialize root
+            // toolbar show dimension
+            toolSBDimensions.Checked = Settings.Default.ShowDimensions;
+            // tree initialize root
             _rnRoot = new ReportNode("Report");
+            try
+            {
+                // font size controls
+                cbFontSizeDetail.InitializeContent();
+                cbFontSizeDetail.FontSizeRatio = Settings.Default.FontSizeRatioDetail;
+                cbFontSizeLarge.InitializeContent();
+                cbFontSizeLarge.FontSizeRatio = Settings.Default.FontSizeRatioLarge;
+                // image definition
+                cbDefinitionDetail.InitializeContent();
+                cbDefinitionDetail.SelectedIndex = Settings.Default.ImageDefinitionDetail;
+                cbDefinitionLarge.InitializeContent();
+                int iDefLarge = Settings.Default.ImageDefinitionLarge;
+                cbDefinitionLarge.SelectedIndex = iDefLarge >= 4 ? iDefLarge : 4;
+                // image layout
+                cbHTMLSizeDetail.InitializeContent();
+                cbHTMLSizeDetail.SelectedIndex = Settings.Default.ImageHTMLSizeDetail;
+                cbHTMLSizeLarge.InitializeContent();
+                int iHTMLSizeLarge = Settings.Default.ImageHTMLSizeLarge;
+                cbHTMLSizeLarge.SelectedIndex = iHTMLSizeLarge >= 5 ? iHTMLSizeLarge : 5;
+            }
+            catch (Exception /*ex*/)
+            {
+            }
+            // define event handling after initializing size/font combo boxes
+            cbDefinitionDetail.SelectedIndexChanged += new EventHandler(onUpdateReport);
+            cbDefinitionLarge.SelectedIndexChanged += new EventHandler(onUpdateReport);
+            cbFontSizeDetail.SelectedIndexChanged += new EventHandler(onUpdateReport);
+            cbFontSizeLarge.SelectedIndexChanged += new EventHandler(onUpdateReport);
+            cbHTMLSizeDetail.SelectedIndexChanged += new EventHandler(onUpdateReport);
+            cbHTMLSizeLarge.SelectedIndexChanged += new EventHandler(onUpdateReport);
 
             UpdateReport();
-            toolSBDimensions.Checked = true;
+        }
+        protected override void OnClosed(EventArgs e)
+        {
+            base.OnClosed(e);
+            // font size
+            Settings.Default.FontSizeRatioDetail = cbFontSizeDetail.FontSizeRatio;
+            Settings.Default.FontSizeRatioLarge = cbFontSizeLarge.FontSizeRatio;
+            // image definition
+            Settings.Default.ImageDefinitionDetail = cbDefinitionDetail.SelectedIndex;
+            Settings.Default.ImageDefinitionLarge = cbDefinitionLarge.SelectedIndex;
+            // image layout
+            Settings.Default.ImageHTMLSizeDetail = cbHTMLSizeDetail.SelectedIndex;
+            Settings.Default.ImageHTMLSizeLarge = cbHTMLSizeLarge.SelectedIndex;
+            // toolbar show dimension
+            Settings.Default.ShowDimensions = toolSBDimensions.Checked; 
         }
         #endregion
 
@@ -52,15 +98,33 @@ namespace treeDiM.StackBuilder.Reporting
 
         #region Helpers
         private string OutputFilePath
-        {   get { return Path.ChangeExtension(Path.GetTempFileName(), "html"); } }
+        {
+            get
+            {
+                try
+                {
+                    _webBrowser.Navigate(string.Empty);
+                    if (File.Exists(_outputFilePath))
+                        File.Delete(_outputFilePath);
+                }
+                catch (Exception /*ex*/)
+                {
+                }
+                return _outputFilePath = Path.ChangeExtension(Path.GetTempFileName(), "html");
+            } 
+        }
 
         private void UpdateReport()
         {
             try
             {
+                if (null == _rnRoot)
+                    throw new Exception("null == _rnRoot?");
                 // generate report
-                string htmlFilePath = Path.ChangeExtension(Path.GetTempFileName(), "html");
-                Reporter.ImageSizeSetting = Reporter.eImageSize.IMAGESIZE_DEFAULT;
+                string htmlFilePath = OutputFilePath;
+                Reporter.SetImageSize(cbDefinitionDetail.ImageSize, cbDefinitionLarge.ImageSize);
+                Reporter.SetImageHTMLSize(cbHTMLSizeDetail.ImageSize, cbHTMLSizeLarge.ImageSize);
+                Reporter.SetFontSizeRatios(cbFontSizeDetail.FontSizeRatio, cbFontSizeLarge.FontSizeRatio);
                 ReporterHtml reporter = new ReporterHtml(new ReportData(_analysis), ref _rnRoot, Reporter.TemplatePath, htmlFilePath);
                 // display html
                 _webBrowser.Navigate(htmlFilePath, string.Empty, null, string.Empty);
@@ -115,8 +179,6 @@ namespace treeDiM.StackBuilder.Reporting
                 {
                     // save directory
                     Properties.Settings.Default.ReportInitialDirectory = Path.GetDirectoryName(dlg.FileName);
-                    // initialize
-                    Reporter.ImageSizeSetting = (Reporter.eImageSize)Properties.Settings.Default.ReporterImageSize;
                     // generate report
                     ReporterMSWord reporter = new ReporterMSWord(
                         new ReportData(_analysis)
@@ -150,8 +212,6 @@ namespace treeDiM.StackBuilder.Reporting
                 {
                     // save directory
                     Properties.Settings.Default.ReportInitialDirectory = Path.GetDirectoryName(dlg.FileName);
-                    // initialize
-                    Reporter.ImageSizeSetting = (Reporter.eImageSize)Properties.Settings.Default.ReporterImageSize;
                     // generate report
                     ReporterHtml reporter = new ReporterHtml(
                         new ReportData(_analysis)
@@ -174,7 +234,6 @@ namespace treeDiM.StackBuilder.Reporting
                 rn.Activated = !rn.Activated;
             UpdateReport();
         }
-
         private static string CleanString(string name)
         {
             string nameCopy = name;
@@ -189,12 +248,19 @@ namespace treeDiM.StackBuilder.Reporting
             UpdateReport();
             toolSBDimensions.Checked = Reporter.ShowDimensions;
         }
+        private void onUpdateReport(object sender, EventArgs e)
+        {
+            UpdateReport();
+        }
         #endregion
 
         #region Data members
+        protected string _outputFilePath;
         protected Analysis _analysis;
         protected ReportNode _rnRoot;
         protected static ILog _log = LogManager.GetLogger(typeof(FormReportDesign));
         #endregion
+
+
     }
 }

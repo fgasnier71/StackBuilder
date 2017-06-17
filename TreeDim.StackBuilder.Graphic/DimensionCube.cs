@@ -18,13 +18,12 @@ namespace treeDiM.StackBuilder.Graphics
         private double offsetPerc = 0.2;
         private Vector3D[] _pts = new Vector3D[8];
         private Color _color = Color.Black;
-        private float _fontSize = 10.0F;
         private bool _above = false;
         #endregion
 
         #region Constructors
         public DimensionCube(double length, double width, double height)
-        {
+        { 
             _dim[0] = length; _dim[1] = width; _dim[2] = height;
             for (int i = 0; i < 3; ++i) _showArrow[i] = true;
             BuildPoints();
@@ -66,13 +65,6 @@ namespace treeDiM.StackBuilder.Graphics
             get { return _color; }
             set { _color = value; }
         }
-
-        public float FontSize
-        {
-            get { return _fontSize; }
-            set { _fontSize = value; }
-        }
-
         public Vector3D Position
         {
             get { return _position; }
@@ -215,7 +207,7 @@ namespace treeDiM.StackBuilder.Graphics
                 return;
 
             string text = string.Format("{0:0.0}", (pt1-pt0).GetLength());
-            graphics.Draw(text, 0.5 * (pt1_ + pt0_), _color, _fontSize);
+            graphics.Draw(text, 0.5 * (pt1_ + pt0_), _color, graphics.FontSize);
             graphics.Draw(new Segment(pt0_, pt0_ + (pt1 - pt0) * (2.0 / 5.0), _color));
             graphics.Draw(new Segment(pt0_ + (pt1 - pt0) * (3.0 / 5.0), pt1_, _color));
             graphics.Draw(new Segment(pt0, pt00_, _color));

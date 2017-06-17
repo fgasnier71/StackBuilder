@@ -131,6 +131,7 @@ namespace treeDiM.StackBuilder.Graphics
             // show images
             graphics.ShowTextures = true;
             graphics.ShowDimensions = ShowDimensions;
+            graphics.FontSizeRatio = 10.0f / (float)Size.Height;
 
             if (null != _drawingContainer)
             {

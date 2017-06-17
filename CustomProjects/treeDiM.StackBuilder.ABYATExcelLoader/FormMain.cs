@@ -323,6 +323,7 @@ namespace treeDiM.StackBuilder.ABYATExcelLoader
                 // generate image path
                 stackImagePath = Path.Combine(Path.ChangeExtension(Path.GetTempFileName(), "png"));
                 graphics = new Graphics3DImage(new Size(ImageSize, ImageSize));
+                graphics.FontSizeRatio = 0.01f;
                 graphics.CameraPosition = Graphics3D.Corner_0;
             }
 

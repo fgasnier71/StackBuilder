@@ -74,6 +74,24 @@
     <Compile Include="..\SharedAssemblyInfo.cs">
       <Link>Properties\SharedAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="ComboFontSize.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ComboFontSize.Designer.cs">
+      <DependentUpon>ComboFontSize.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ComboImageDefinition.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ComboImageDefinition.Designer.cs">
+      <DependentUpon>ComboImageDefinition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ComboImgSize.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ComboImgSize.Designer.cs">
+      <DependentUpon>ComboImgSize.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormReportDesign.cs">
       <SubType>Form</SubType>
     </Compile>

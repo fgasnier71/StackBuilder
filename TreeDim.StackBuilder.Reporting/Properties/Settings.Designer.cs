@@ -110,12 +110,84 @@ namespace treeDiM.StackBuilder.Reporting.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int ReporterImageSize {
+        public int ImageDefinitionDetail {
             get {
-                return ((int)(this["ReporterImageSize"]));
+                return ((int)(this["ImageDefinitionDetail"]));
             }
             set {
-                this["ReporterImageSize"] = value;
+                this["ImageDefinitionDetail"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0.05")]
+        public float FontSizeRatioDetail {
+            get {
+                return ((float)(this["FontSizeRatioDetail"]));
+            }
+            set {
+                this["FontSizeRatioDetail"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0.01")]
+        public float FontSizeRatioLarge {
+            get {
+                return ((float)(this["FontSizeRatioLarge"]));
+            }
+            set {
+                this["FontSizeRatioLarge"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("4")]
+        public int ImageDefinitionLarge {
+            get {
+                return ((int)(this["ImageDefinitionLarge"]));
+            }
+            set {
+                this["ImageDefinitionLarge"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int ImageHTMLSizeDetail {
+            get {
+                return ((int)(this["ImageHTMLSizeDetail"]));
+            }
+            set {
+                this["ImageHTMLSizeDetail"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("8")]
+        public int ImageHTMLSizeLarge {
+            get {
+                return ((int)(this["ImageHTMLSizeLarge"]));
+            }
+            set {
+                this["ImageHTMLSizeLarge"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool ShowDimensions {
+            get {
+                return ((bool)(this["ShowDimensions"]));
+            }
+            set {
+                this["ShowDimensions"] = value;
             }
         }
     }

@@ -15,7 +15,7 @@
       <xs:element name="weight" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
       <xs:element name="netWeight" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
       <xs:element name="admissibleLoadOnTop" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
-      <xs:element name="imageThumb" minOccurs="0" maxOccurs="1" type="rpt:imageThumb"/>
+      <xs:element name="imageThumbSize" minOccurs="0" maxOccurs="1" type="rpt:imageThumbSize"/>
     </xs:sequence>
   </xs:complexType>
   <!--BOX : END-->
@@ -29,7 +29,7 @@
       <xs:element name="weight" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
       <xs:element name="netWeight" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
       <xs:element name="admissibleLoadOnTop" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
-      <xs:element name="imageThumb" minOccurs="0" maxOccurs="1" type="rpt:imageThumb"/>
+      <xs:element name="imageThumbSize" minOccurs="0" maxOccurs="1" type="rpt:imageThumbSize"/>
     </xs:sequence>
   </xs:complexType>
   <!--BUNDLE : BEG-->
@@ -44,7 +44,7 @@
       <xs:element name="unitWeight" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
       <xs:element name="totalThickness" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
       <xs:element name="totalWeight" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
-      <xs:element name="imageThumb" minOccurs="0" maxOccurs="1" type="rpt:imageThumb"/>
+      <xs:element name="imageThumbSize" minOccurs="0" maxOccurs="1" type="rpt:imageThumbSize"/>
     </xs:sequence>
   </xs:complexType>
   <!--BENDLE : END-->
@@ -61,7 +61,7 @@
       <xs:element name="innerHeight" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
       <xs:element name="weight" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
       <xs:element name="admissibleLoadOnTop" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
-      <xs:element name="imageThumb" minOccurs="0" maxOccurs="1" type="rpt:imageThumb"/>
+      <xs:element name="imageThumbSize" minOccurs="0" maxOccurs="1" type="rpt:imageThumbSize"/>
     </xs:sequence>
   </xs:complexType>
   <!--CASEWITHINNERDIMS : END-->
@@ -77,7 +77,7 @@
       <xs:element name="netWeight" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
       <xs:element name="wrapperWeight" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
       <xs:element name="weight" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
-      <xs:element name="imageThumb" minOccurs="0" maxOccurs="1" type="rpt:imageThumb"/>
+      <xs:element name="imageThumbSize" minOccurs="0" maxOccurs="1" type="rpt:imageThumbSize"/>
     </xs:sequence>
   </xs:complexType>
   <!--PACKPROPERTIES : END-->
@@ -92,7 +92,7 @@
       <xs:element name="weight" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
       <xs:element name="admissibleLoad" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
       <xs:element name="type" type="xs:string"/>
-      <xs:element name="imageThumb" minOccurs="0" maxOccurs="1" type="rpt:imageThumb"/>
+      <xs:element name="imageThumbSize" minOccurs="0" maxOccurs="1" type="rpt:imageThumbSize"/>
     </xs:sequence>
   </xs:complexType>
   <!--PALLET : END-->
@@ -105,7 +105,7 @@
       <xs:element name="width" minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>
       <xs:element name="thickness" minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>
       <xs:element name="weight" minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>
-      <xs:element name="imageThumb" minOccurs="1" maxOccurs="1" type="rpt:imageThumb"/>
+      <xs:element name="imageThumbSize" minOccurs="1" maxOccurs="1" type="rpt:imageThumbSize"/>
     </xs:sequence>
   </xs:complexType>
   <!--INTERLAYER : END-->
@@ -118,7 +118,7 @@
       <xs:element name="width" minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>
       <xs:element name="thickness" minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>
       <xs:element name="weight" minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>
-      <xs:element name="imageThumb" minOccurs="1" maxOccurs="1" type="rpt:imageThumb"/>
+      <xs:element name="imageThumbSize" minOccurs="1" maxOccurs="1" type="rpt:imageThumbSize"/>
     </xs:sequence>
   </xs:complexType>
   <!--PALLETCORNER : END-->
@@ -134,7 +134,7 @@
       <xs:element name="innerWidth" minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>
       <xs:element name="innerHeight" minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>
       <xs:element name="weight" minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>
-      <xs:element name="imageThumb" minOccurs="1" maxOccurs="1" type="rpt:imageThumb"/>
+      <xs:element name="imageThumbSize" minOccurs="1" maxOccurs="1" type="rpt:imageThumbSize"/>
     </xs:sequence>
   </xs:complexType>
   <!--PALLETCAP : END-->
@@ -155,7 +155,7 @@
       <xs:element name="radius" minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>
       <xs:element name="height" minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>
       <xs:element name="weight" minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>
-      <xs:element name="imageThumb" minOccurs="1" maxOccurs="1" type="rpt:imageThumb"/>
+      <xs:element name="imageThumbSize" minOccurs="1" maxOccurs="1" type="rpt:imageThumbSize"/>
     </xs:sequence>
   </xs:complexType>
   <!--CYLINDER : END-->
@@ -168,7 +168,7 @@
       <xs:element name="width" minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>
       <xs:element name="height" minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>
       <xs:element name="admissibleLoad" minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>
-      <xs:element name="imageThumb" minOccurs="1" maxOccurs="1" type="rpt:imageThumb"/>
+      <xs:element name="imageThumbSize" minOccurs="1" maxOccurs="1" type="rpt:imageThumbSize"/>
     </xs:sequence>
   </xs:complexType>
   <!--TRUCK : END-->
@@ -192,13 +192,6 @@
     </xs:sequence>
   </xs:complexType>
   <!--VALUE WITH UNIT : END-->
-  <!--IMAGETHUMB : BEGIN-->
-  <xs:complexType name="imageThumb">
-    <xs:sequence>
-      <xs:element name="imagePath" type="xs:string"/>
-    </xs:sequence>
-  </xs:complexType>  
-  <!--IMAGETHUMB : END-->
   <!--IMAGETHUMBSIZE : BEG-->
   <xs:complexType name="imageThumbSize">
     <xs:sequence>
@@ -287,7 +280,7 @@
       <xs:element name="layerWeight" minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>
       <xs:element name="layerNetWeight" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
       <xs:element name="layerSpaces" minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>
-      <xs:element name="imageThumb" minOccurs="1" maxOccurs="1" type="rpt:imageThumb"/>
+      <xs:element name="imageThumbSize" minOccurs="1" maxOccurs="1" type="rpt:imageThumbSize"/>
     </xs:sequence>
   </xs:complexType>
   <!--LAYER : END-->

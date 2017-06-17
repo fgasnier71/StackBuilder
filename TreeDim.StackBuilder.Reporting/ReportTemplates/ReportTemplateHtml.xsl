@@ -342,7 +342,6 @@
       </tr>
     </table>
     <xsl:apply-templates select="layers"/>
-
   </xsl:template>
   <!--### ITEM ####-->
   <xsl:template match="item">
@@ -433,7 +432,13 @@
   </xsl:template>
   <!--#### VIEW_SOLUTION_ISO-->
   <xsl:template match="view_solution_iso">
-    <img width="450" height="450" align="middle">
+    <img align="middle">
+      <xsl:attribute name="width">
+        <xsl:value-of select="width"/>
+      </xsl:attribute>
+      <xsl:attribute name="height">
+        <xsl:value-of select="height"/>
+      </xsl:attribute>
       <xsl:attribute name="src">
         <xsl:value-of select="imagePath"/>
       </xsl:attribute>
@@ -459,7 +464,7 @@
           <xsl:value-of select="layerIndexes"/>
         </td>
         <td rowspan="5" align="middle">
-          <xsl:apply-templates select="imageThumb"/>
+          <xsl:apply-templates select="imageThumbSize"/>
         </td>
       </tr>
       <xsl:apply-templates select="item"/>
@@ -752,15 +757,6 @@
   </xsl:template>
 
   <!--#### #### #### #### #### #### #### #### ####-->
-
-  <!--#### IMAGETHUMB ####-->
-  <xsl:template match="imageThumb">
-    <img width="150" height="150" align="middle">
-      <xsl:attribute name="src">
-        <xsl:value-of select="imagePath"/>
-      </xsl:attribute>
-    </img>
-  </xsl:template>
   <!--#### CASE ####-->
   <xsl:template match="case">
     <h3>Case</h3>
@@ -797,7 +793,7 @@
           <xsl:value-of select="length/value"></xsl:value-of>
         </td>
         <td rowspan="5" align="middle">
-          <xsl:apply-templates select="imageThumb"/>
+          <xsl:apply-templates select="imageThumbSize"/>
         </td>
       </tr>
       <tr>
@@ -882,7 +878,7 @@
           <xsl:value-of select="length/value"/> * <xsl:value-of select="width/value"/> * <xsl:value-of select="height/value"/>
         </td>
         <td rowspan="5" colspan="2" align="middle">
-          <xsl:apply-templates select="imageThumb"/>
+          <xsl:apply-templates select="imageThumbSize"/>
         </td>
       </tr>
       <tr>
@@ -981,7 +977,7 @@
           </td>
         </xsl:if>
         <td colspan="2" align="middle">
-          <xsl:apply-templates select="imageThumb"></xsl:apply-templates>
+          <xsl:apply-templates select="imageThumbSize"></xsl:apply-templates>
         </td>
       </tr>
     </table>
@@ -1091,9 +1087,9 @@
             <xsl:value-of select="weight/value"></xsl:value-of>
           </td>
         </xsl:if>
-        <xsl:if test="imageThumb">
+        <xsl:if test="imageThumbSize">
           <td colspan="2" align="middle">
-            <xsl:apply-templates select="imageThumb"/>
+            <xsl:apply-templates select="imageThumbSize"/>
           </td>
         </xsl:if>
       </tr>
@@ -1139,7 +1135,7 @@
           </td>
         </xsl:if>
         <td rowspan="5" colspan="2" align="middle">
-          <xsl:apply-templates select="imageThumb"/>
+          <xsl:apply-templates select="imageThumbSize"/>
         </td>
       </tr>
       <xsl:if test="width">
@@ -1230,7 +1226,7 @@
           </td>
         </xsl:if>
         <td rowspan="4" align="middle">
-          <xsl:apply-templates select="imageThumb"/>
+          <xsl:apply-templates select="imageThumbSize"/>
         </td>
       </tr>
       <xsl:if test="width">
@@ -1311,7 +1307,7 @@
           </td>
         </xsl:if>
         <td rowspan="4" align="middle">
-          <xsl:apply-templates select="imageThumb"/>
+          <xsl:apply-templates select="imageThumbSize"/>
         </td>
       </tr>
       <xsl:if test="width">
@@ -1390,7 +1386,7 @@
           <xsl:value-of select="length/value"></xsl:value-of>
         </td>
         <td align="middle" colspan="2" rowspan="4">
-          <xsl:apply-templates select="imageThumb"/>
+          <xsl:apply-templates select="imageThumbSize"/>
         </td>
       </tr>
       <tr>
@@ -1515,7 +1511,7 @@
           <xsl:value-of select="weight/value"></xsl:value-of>
         </td>
         <td colspan="2" align="middle">
-          <xsl:apply-templates select="imageThumb"/>
+          <xsl:apply-templates select="imageThumbSize"/>
         </td>
       </tr>
     </table>
@@ -1594,7 +1590,7 @@
           <xsl:value-of select="length/value"></xsl:value-of>
         </td>
         <td rowspan="6" align="middle">
-          <xsl:apply-templates select="imageThumb"/>
+          <xsl:apply-templates select="imageThumbSize"/>
         </td>
       </tr>
       <tr>
@@ -1692,7 +1688,7 @@
           <xsl:value-of select="length/value"></xsl:value-of>
         </td>
         <td rowspan="4" align="middle">
-          <xsl:apply-templates select="imageThumb"/>
+          <xsl:apply-templates select="imageThumbSize"/>
         </td>
       </tr>
       <tr>
