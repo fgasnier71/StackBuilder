@@ -191,6 +191,9 @@
     <Folder Include="SampleReportData\" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="FormReportDesign.fr-FR.resx">
+      <DependentUpon>FormReportDesign.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormReportDesign.resx">
       <DependentUpon>FormReportDesign.cs</DependentUpon>
     </EmbeddedResource>

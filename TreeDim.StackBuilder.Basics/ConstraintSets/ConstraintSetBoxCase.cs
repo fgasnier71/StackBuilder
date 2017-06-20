@@ -93,7 +93,7 @@ namespace treeDiM.StackBuilder.Basics
                     throw new Exception("Invalid axis");
             }
         }
-        public override string AllowedOrientations
+        public override string AllowedOrientationsString
         {
             get
             {
@@ -146,7 +146,7 @@ namespace treeDiM.StackBuilder.Basics
         {
             return (HalfAxis.HAxis.AXIS_Z_N == axisOrtho) || (HalfAxis.HAxis.AXIS_Z_P == axisOrtho);
         }
-        public override string AllowedOrientations
+        public override string AllowedOrientationsString
         {
             get { return "0,0,1"; }
             set { }

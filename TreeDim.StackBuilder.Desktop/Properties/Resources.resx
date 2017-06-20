@@ -781,4 +781,7 @@ Closing form...</value>
   <data name="ID_SPACES_WU" xml:space="preserve">
     <value>Spaces ({0})</value>
   </data>
+  <data name="ID_LOAD" xml:space="preserve">
+    <value>Load</value>
+  </data>
 </root>

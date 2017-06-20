@@ -100,7 +100,7 @@ namespace treeDiM.StackBuilder.Engine
                             layer
                             , new Vector2D(
                                 offsetX + i * (boxLength + spaceXLength)
-                                , offsetY + j * (boxWidth + spaceYLength) + (fillSizeYLength > 0 ? (spaceYLength + boxLength) : 0.0))
+                                , offsetY + j * (boxWidth + spaceYLength) + (fillSizeYLength > 0 ? fillSizeYLength * (spaceYLength + boxLength) : 0.0))
                             , HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P);
                     }
 
@@ -140,7 +140,6 @@ namespace treeDiM.StackBuilder.Engine
                         AddPosition(
                             layer
                             , new Vector2D(
-                                /*offsetX + maxSizeXLength * (boxLength + spaceXLength) + i * (boxWidth + spaceXWidth) + boxWidth*/
                                 offsetX + actualLength - (i) * (boxWidth + spaceXWidth) /*- boxWidth*/
                                 , offsetY + j * (boxLength + spaceYWidth))
                             , HalfAxis.HAxis.AXIS_Y_P, HalfAxis.HAxis.AXIS_X_N);
@@ -152,9 +151,8 @@ namespace treeDiM.StackBuilder.Engine
                         AddPosition(
                             layer
                             , new Vector2D(
-                                /*offsetX + maxSizeXLength * (boxLength + spaceX) + i * (boxWidth + spaceX) + boxWidth*/
                                 offsetX + actualLength - (i) * (boxWidth + spaceXWidth) /*- boxWidth*/
-                                , offsetY + j * (boxLength + spaceYWidth) + (fillSizeYWidth > 0 ? (boxWidth + spaceYWidth) : 0.0))
+                                , offsetY + j * (boxLength + spaceYWidth) + (fillSizeYWidth > 0 ? fillSizeYWidth * (boxWidth + spaceYWidth) : 0.0))
                             , HalfAxis.HAxis.AXIS_Y_P, HalfAxis.HAxis.AXIS_X_N);
                     }
 
@@ -163,14 +161,16 @@ namespace treeDiM.StackBuilder.Engine
                 for (int i = 0; i < fillSizeXWidth; ++i)
                     for (int j = 0; j < fillSizeYWidth; ++j)
                     {
+                        
                         AddPosition(
                             layer
                             , new Vector2D(
                                 offsetX + actualLength - (i+1) * (boxLength + spaceXFill)
-                                /*offsetX + maxSizeXLength * (boxLength + spaceX) + spaceXFill + i * (boxLength + spaceXFill)*/
                                 , offsetY + (maxSizeYWidth / 2) * (boxLength + spaceYWidth) + j * boxWidth)
                             , HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P
                             );
+                         
+                        
                     }
             }
             // maximum space

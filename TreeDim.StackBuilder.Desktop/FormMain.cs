@@ -647,7 +647,7 @@ namespace treeDiM.StackBuilder.Desktop
             toolStripMIAnalysisCylinderCase.Enabled = (null != doc) && doc.CanCreateAnalysisCylinderCase;
             // new pallet/truck analysis
             toolStripMenuItemAnalysisPalletTruck.Enabled = (null != doc) && doc.CanCreateAnalysisPalletTruck;
-            toolStripSBCreateAnalysisPalletTruck.Enabled = (null != doc) && doc.CanCreateAnalysisPalletTruck;
+            toolStripSBAnalysesTruck.Enabled = (null != doc) && doc.CanCreateAnalysisCaseTruck;
             // split buttons
             toolStripSBAnalysisPallet.Enabled = (null != doc);
             toolStripSBAnalysesCase.Enabled = (null != doc);
@@ -1056,6 +1056,10 @@ namespace treeDiM.StackBuilder.Desktop
         {
             toolStripSBAnalysesCase.ShowDropDown();
         }
+        private void onAnalysisTrucks(object sender, EventArgs e)
+        {
+            toolStripSBAnalysesTruck.ShowDropDown();
+        }
         private void onAnalysisOpti(object sender, EventArgs e)
         {
             toolStripSBOptimisations.ShowDropDown();
@@ -1088,6 +1092,11 @@ namespace treeDiM.StackBuilder.Desktop
         private void onNewAnalysisBoxCasePallet(object sender, EventArgs e)
         {
             try { AnalysisBoxCase analysis = ((DocumentSB)ActiveDocument).CreateNewAnalysisBoxCaseUI(); }
+            catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
+        }
+        private void onNewAnalysisCaseTruck(object sender, EventArgs e)
+        {
+            try { AnalysisCaseTruck analysis = ((DocumentSB)ActiveDocument).CreateNewAnalysisCaseTruckUI(); }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
         #endregion
@@ -1171,59 +1180,25 @@ namespace treeDiM.StackBuilder.Desktop
             AnalysisPalletTruck analysisPalletTruck = analysis as AnalysisPalletTruck;
             AnalysisCylinderCase analysisCylinderCase = analysis as AnalysisCylinderCase;
             AnalysisCylinderPallet analysisCylinderPallet = analysis as AnalysisCylinderPallet;
+            AnalysisCaseTruck analysisCaseTruck = analysis as AnalysisCaseTruck;
 
             // ---> search among existing views
             // ---> activate if found
             foreach (IDocument doc in Documents)
                 foreach (IView view in doc.Views)
                 {
-                    if (null != analysisCasePallet)
+                    DockContentAnalysisEdit formAnalysisEdit = view as DockContentAnalysisEdit;
+                    if (null != formAnalysisEdit && formAnalysisEdit.Analysis == analysis)
                     {
-                        DockContentAnalysisCasePallet form = view as DockContentAnalysisCasePallet;
-                        if (null == form ) continue;
-                        if (analysisCasePallet == form.Analysis)
-                        {
-                            form.Activate();
-                            return;
-                        }
+                        formAnalysisEdit.Activate();
+                        return;
                     }
-                    else if (null != analysisBoxCase)
+                    DockContentAnalysisPalletTruck formAnalysisPalletTruck = view as DockContentAnalysisPalletTruck;
+                    if (null != formAnalysisPalletTruck && null != analysisPalletTruck)
                     {
-                        DockContentAnalysisBoxCase form = view as DockContentAnalysisBoxCase;
-                        if (null == form) continue;
-                        if (analysisBoxCase == form.Analysis)
+                        if (analysisPalletTruck == formAnalysisPalletTruck.Analysis)
                         {
-                            form.Activate();
-                            return;
-                        }
-                    }
-                    else if (null != analysisPalletTruck)
-                    {
-                        DockContentAnalysisPalletTruck form = view as DockContentAnalysisPalletTruck;
-                        if (null == form) continue;
-                        if (analysisPalletTruck == form.Analysis)
-                        {
-                            form.Activate();
-                            return;
-                        }
-                    }
-                    else if (null != analysisCylinderCase)
-                    {
-                        DockContentAnalysisCylinderCase form = view as DockContentAnalysisCylinderCase;
-                        if (null == form) continue;
-                        if (analysisCylinderCase == form.Analysis)
-                        {
-                            form.Activate();
-                            return;
-                        }
-                    }
-                    else if (null != analysisCylinderPallet)
-                    {
-                        DockContentAnalysisCylinderPallet form = view as DockContentAnalysisCylinderPallet;
-                        if (null == form) continue;
-                        if (analysisCylinderPallet == form.Analysis)
-                        {
-                            form.Activate();
+                            formAnalysisPalletTruck.Activate();
                             return;
                         }
                     }
@@ -1334,38 +1309,6 @@ namespace treeDiM.StackBuilder.Desktop
             formBoxCaseAnalysis.Show(dockPanel, WeifenLuo.WinFormsUI.Docking.DockState.Document);
         }
         */
-        /// <summary>
-        /// Create or activate report view
-        /// </summary>
-        public DockContentReport CreateOrActivateHtmlReport(ReportData reportObject, string htmlFilePath)
-        { 
-            // search among existing views
-            IDocument searchedDoc = null;
-            IView searchedView = null;
-            foreach (IDocument doc in Documents)
-                foreach (IView view in doc.Views)
-                {
-                    DockContentReport form = view as DockContentReport;
-                    if (null == form) continue;
-                    if (reportObject.Equals(form.ReportObject))
-                    {
-                        // close form
-                        form.Close();
-                        // get doc/view to later remove IView from IDocument
-                        searchedDoc = doc;
-                        searchedView = view;
-                        break;
-                    }
-                }
-            // ---> found view : remove it from document
-            if (null != searchedView && null != searchedDoc)
-                searchedDoc.RemoveView(searchedView);
-            // ---> create DockContentReport form
-            DocumentSB parentDocument = reportObject.Document as DocumentSB;
-            DockContentReport formReport = parentDocument.CreateReportHtml(reportObject, htmlFilePath);
-            formReport.Show(dockPanel, WeifenLuo.WinFormsUI.Docking.DockState.Document);
-            return formReport;
-        }
         #endregion
 
         #region Helpers
@@ -1419,5 +1362,9 @@ namespace treeDiM.StackBuilder.Desktop
             return _instance;
         }
         #endregion
+
+
+
+
     }
 }

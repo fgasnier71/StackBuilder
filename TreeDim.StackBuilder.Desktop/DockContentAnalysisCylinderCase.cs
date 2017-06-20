@@ -9,6 +9,7 @@ using System.Text;
 using System.Windows.Forms;
 
 using treeDiM.StackBuilder.Basics;
+using treeDiM.StackBuilder.Desktop.Properties;
 #endregion
 
 namespace treeDiM.StackBuilder.Desktop
@@ -21,6 +22,11 @@ namespace treeDiM.StackBuilder.Desktop
         {
             InitializeComponent();
         }
+        #endregion
+
+        #region Override DockContentAnalysisEdit
+        public override string GridCaption
+        { get { return Resources.ID_CASE; } }
         #endregion
     }
 }

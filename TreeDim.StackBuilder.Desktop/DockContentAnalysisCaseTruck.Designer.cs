@@ -28,9 +28,49 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DockContentAnalysisCaseTruck));
+            ((System.ComponentModel.ISupportInitialize)(this.graphCtrlSolution)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerHoriz)).BeginInit();
+            this.splitContainerHoriz.Panel1.SuspendLayout();
+            this.splitContainerHoriz.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerVert)).BeginInit();
+            this.splitContainerVert.Panel1.SuspendLayout();
+            this.splitContainerVert.Panel2.SuspendLayout();
+            this.splitContainerVert.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // graphCtrlSolution
+            // 
+            resources.ApplyResources(this.graphCtrlSolution, "graphCtrlSolution");
+            // 
+            // splitContainerHoriz
+            // 
+            resources.ApplyResources(this.splitContainerHoriz, "splitContainerHoriz");
+            // 
+            // splitContainerVert
+            // 
+            resources.ApplyResources(this.splitContainerVert, "splitContainerVert");
+            // 
+            // gridSolutions
+            // 
+            resources.ApplyResources(this.gridSolutions, "gridSolutions");
+            // 
+            // DockContentAnalysisCaseTruck
+            // 
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "DockContentAnalysisCaseTruck";
+            this.Name = "DockContentAnalysisCaseTruck";
+            ((System.ComponentModel.ISupportInitialize)(this.graphCtrlSolution)).EndInit();
+            this.splitContainerHoriz.Panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerHoriz)).EndInit();
+            this.splitContainerHoriz.ResumeLayout(false);
+            this.splitContainerVert.Panel1.ResumeLayout(false);
+            this.splitContainerVert.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerVert)).EndInit();
+            this.splitContainerVert.ResumeLayout(false);
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion

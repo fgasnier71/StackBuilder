@@ -582,7 +582,6 @@ namespace treeDiM.StackBuilder.Basics
 
             return InsertAnalysis(analysis);
         }
-
         public Analysis CreateNewAnalysisBoxCase(
             string name, string description
             , Packable packable, BoxProperties caseProperties
@@ -596,6 +595,19 @@ namespace treeDiM.StackBuilder.Basics
             analysis.ID.SetNameDesc( name, description );
             analysis.AddSolution(layerDescs);
 
+            return InsertAnalysis(analysis);
+        }
+        public Analysis CreateNewAnalysisCaseTruck(
+            string name, string description
+            , Packable packable, TruckProperties truckProperties
+            , List<InterlayerProperties> interlayers
+            , ConstraintSetCaseTruck constraintSet
+            , List<LayerDesc> layerDescs)
+        {
+            AnalysisCaseTruck analysis = new AnalysisCaseTruck(
+                this, packable, truckProperties, constraintSet);
+            analysis.ID.SetNameDesc(name, description);
+            analysis.AddSolution(layerDescs);
             return InsertAnalysis(analysis);
         }
         public Analysis CreateNewAnalysisPalletTruck(
@@ -1295,6 +1307,8 @@ namespace treeDiM.StackBuilder.Basics
         { get { return this.Cylinders.Count > 0 && this.Cases.Count > 0; } }
         public bool CanCreateAnalysisPalletTruck
         { get { return this.Trucks.Count > 0; } }
+        public bool CanCreateAnalysisCaseTruck
+        { get { return this.Trucks.Count > 0 && this.Cases.Count > 0; } }
         public bool CanCreateOptiCasePallet
         { get { return this.Boxes.Count > 0 && this.Pallets.Count > 0; } }
         public bool CanCreateOptiPack
@@ -3880,6 +3894,7 @@ namespace treeDiM.StackBuilder.Basics
             AnalysisCylinderPallet analysisCylinderPallet = analysis as AnalysisCylinderPallet;
             AnalysisCylinderCase analysisCylinderCase = analysis as AnalysisCylinderCase;
             AnalysisPalletTruck analysisPalletTruck = analysis as AnalysisPalletTruck;
+            AnalysisCaseTruck analysisCaseTruck = analysis as AnalysisCaseTruck;
 
             string analysisName = string.Empty;
             if (null != analysisCasePallet) analysisName = "AnalysisCasePallet";
@@ -3887,6 +3902,7 @@ namespace treeDiM.StackBuilder.Basics
             else if (null != analysisCylinderPallet) analysisName = "AnalysisCylinderPallet";
             else if (null != analysisCylinderCase) analysisName = "AnalysisCylinderCase";
             else if (null != analysisPalletTruck) analysisName = "AnalysisPalletTruck";
+            else if (null != analysisCaseTruck) analysisName = "AnalysisCaseTruck";
             else throw new Exception("Unexpected analysis type");
 
             // create analysis element
@@ -3952,7 +3968,7 @@ namespace treeDiM.StackBuilder.Basics
             xmlAnalysisElt.AppendChild(eltContraintSet);
             // allowed orientation
             XmlAttribute attOrientations = xmlDoc.CreateAttribute("Orientations");
-            attOrientations.Value = constraintSet.AllowedOrientations;
+            attOrientations.Value = constraintSet.AllowedOrientationsString;
             xmlAnalysisElt.Attributes.Append(attOrientations);
             // maximum weight
             XmlAttribute attMaximumWeight = xmlDoc.CreateAttribute("MaximumWeight");

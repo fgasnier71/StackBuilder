@@ -702,7 +702,8 @@ namespace treeDiM.StackBuilder.Reporting
                     if (rnLayers.GetChildByName(Resources.ID_RN_IMAGE).Activated)
                     {
                         Graphics3DImage graphics = new Graphics3DImage(new Size(ImageSizeDetail, ImageSizeDetail));
-                        ViewerSolution.DrawILayer(graphics, layerSum.Layer3D, sol.Analysis.Content, false);
+                        graphics.FontSizeRatio = FontSizeRatioDetail;
+                        ViewerSolution.DrawILayer(graphics, layerSum.Layer3D, sol.Analysis.Content, Reporter.ShowDimensions);
                         graphics.Flush();
                         AppendThumbnailElement(xmlDoc, elemLayer, graphics.Bitmap);
                     }
@@ -1197,6 +1198,7 @@ namespace treeDiM.StackBuilder.Reporting
             {
                 // --- build image
                 Graphics3DImage graphics = new Graphics3DImage(new Size(ImageSizeDetail, ImageSizeDetail));
+                graphics.FontSizeRatio = FontSizeRatioDetail;
                 graphics.CameraPosition = Graphics3D.Corner_0;
                 graphics.Target = Vector3D.Zero;
                 Pack pack = new Pack(0, packProperties);

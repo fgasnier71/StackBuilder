@@ -27,11 +27,22 @@ namespace treeDiM.StackBuilder.Basics
             get { return _maxNumber; }
             set { _maxNumber = value; }
         }
+        public bool[] AllowedOrientations
+        {
+            get
+            {
+                return new bool[] {
+                    AllowOrientation(HalfAxis.HAxis.AXIS_X_N) || AllowOrientation(HalfAxis.HAxis.AXIS_X_P)
+                    , AllowOrientation(HalfAxis.HAxis.AXIS_Y_N) || AllowOrientation(HalfAxis.HAxis.AXIS_Y_P)
+                    , AllowOrientation(HalfAxis.HAxis.AXIS_Z_N) || AllowOrientation(HalfAxis.HAxis.AXIS_Z_P)
+                };
+            }
+        }
         #endregion
 
         #region Abstract properties
         public abstract bool AllowOrientation(HalfAxis.HAxis axisOrtho);
-        public abstract string AllowedOrientations { get; set; }
+        public abstract string AllowedOrientationsString { get; set; }
         public abstract OptDouble OptMaxHeight { get; }
         public abstract bool Valid { get; }
         #endregion

@@ -31,23 +31,20 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Constructor
-        public DockContentAnalysisCaseTruck()
+        public DockContentAnalysisCaseTruck(IDocument doc, AnalysisCaseTruck analysis)
+            : base(doc, analysis)
         {
             InitializeComponent();
         }
         #endregion
 
         #region Form override
-        protected override void OnLoad(EventArgs e)
-        {
-            base.OnLoad(e);
-
-            if (!DesignMode)
-                this.Text = _analysis.Name + " - " + _analysis.ParentDocument.Name;
-        }
         #endregion
 
         #region Override DockContentAnalysisEdit
+        public override string GridCaption
+        {   get { return Resources.ID_TRUCK; } }
+        /*
         public override void FillGrid()
         {
             // clear grid
@@ -57,16 +54,21 @@ namespace treeDiM.StackBuilder.Desktop
             gridSolutions.ColumnsCount = 2;
             gridSolutions.FixedColumns = 1;
         }
+
         public override void UpdateGrid()
         {
             // remove all existing rows
             gridSolutions.Rows.Clear();
+
+
+
 
             gridSolutions.AutoSizeCells();
             gridSolutions.Columns.StretchToFit();
             gridSolutions.AutoStretchColumnsToFitWidth = true;
             gridSolutions.Invalidate();
         }
+        */ 
         #endregion
     }
 }

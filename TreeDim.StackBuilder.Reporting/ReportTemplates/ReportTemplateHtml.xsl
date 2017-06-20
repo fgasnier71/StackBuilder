@@ -1190,7 +1190,7 @@
   </xsl:template>
   <!--#### BOX ####-->
   <xsl:template match="box">
-    <h3>Box</h3>
+    <h3><xsl:value-of select="$loc/str[@name='Box']"/></h3>
     <table class="style1">
       <tr>
         <td class="style2" colspan="1">
@@ -1351,7 +1351,7 @@
   <!--#### PALLET CORNER ####-->
   <xsl:template match="palletCorner">
     <h3>
-      <xsl:value-of select="$loc/str[@name='PalletCorner']"/>
+      <xsl:value-of select="$loc/str[@name='Pallet corner']"/>
     </h3>
     <table class="style1">
       <tr>
@@ -1424,7 +1424,7 @@
   <!--#### PALLET CAP ####-->
   <xsl:template match="palletCap">
     <h3>
-      <xsl:value-of select="$loc/str[@name='PalletCap']"/>
+      <xsl:value-of select="$loc/str[@name='Pallet cap']"/>
     </h3>
     <table class="style1" cellpadding="4">
       <tr>
@@ -1519,7 +1519,7 @@
   <!--#### PALLET FILM ####-->
   <xsl:template match ="palletFilm">
     <h3>
-      <xsl:value-of select="$loc/str[@name='PalletFilm']"/>
+      <xsl:value-of select="$loc/str[@name='Pallet film']"/>
     </h3>
     <table class="style1"  cellpadding="4">
       <tr>
@@ -1657,6 +1657,9 @@
   </xsl:template>
   <!--#### TRUCK ####-->
   <xsl:template match="truck">
+    <h3>
+      <xsl:value-of select="$loc/str[@name='Truck']"/>
+    </h3>
     <table class="style1" cellpadding="3">
       <tr>
         <td class="style2">

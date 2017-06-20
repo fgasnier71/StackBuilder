@@ -84,6 +84,7 @@ namespace treeDiM.StackBuilder.Desktop
             }
             else if (item is AnalysisBoxCase) return 17;
             else if (item is AnalysisPalletTruck) return 16;
+            else if (item is AnalysisCaseTruck) return 16;
             else if (item is AnalysisCylinderPallet) return 20;
             else if (item is AnalysisCylinderCase) return 17;
             else

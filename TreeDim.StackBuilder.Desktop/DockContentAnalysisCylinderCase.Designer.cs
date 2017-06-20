@@ -29,18 +29,68 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DockContentAnalysisCylinderCase));
+            ((System.ComponentModel.ISupportInitialize)(this.graphCtrlSolution)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerHoriz)).BeginInit();
+            this.splitContainerHoriz.Panel1.SuspendLayout();
+            this.splitContainerHoriz.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerVert)).BeginInit();
+            this.splitContainerVert.Panel1.SuspendLayout();
+            this.splitContainerVert.Panel2.SuspendLayout();
+            this.splitContainerVert.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // graphCtrlSolution
+            // 
+            resources.ApplyResources(this.graphCtrlSolution, "graphCtrlSolution");
+            // 
+            // splitContainerHoriz
+            // 
+            resources.ApplyResources(this.splitContainerHoriz, "splitContainerHoriz");
+            // 
+            // splitContainerHoriz.Panel1
+            // 
+            resources.ApplyResources(this.splitContainerHoriz.Panel1, "splitContainerHoriz.Panel1");
+            // 
+            // splitContainerHoriz.Panel2
+            // 
+            resources.ApplyResources(this.splitContainerHoriz.Panel2, "splitContainerHoriz.Panel2");
+            // 
+            // splitContainerVert
+            // 
+            resources.ApplyResources(this.splitContainerVert, "splitContainerVert");
+            // 
+            // splitContainerVert.Panel1
+            // 
+            resources.ApplyResources(this.splitContainerVert.Panel1, "splitContainerVert.Panel1");
+            // 
+            // splitContainerVert.Panel2
+            // 
+            resources.ApplyResources(this.splitContainerVert.Panel2, "splitContainerVert.Panel2");
+            // 
+            // cbInterlayer
+            // 
+            resources.ApplyResources(this.cbInterlayer, "cbInterlayer");
+            // 
+            // gridSolutions
+            // 
+            resources.ApplyResources(this.gridSolutions, "gridSolutions");
             // 
             // DockContentAnalysisCylinderCase
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 561);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "DockContentAnalysisCylinderCase";
             this.ShowInTaskbar = false;
-            this.Text = "Analysis Cylinder/Case...";
+            ((System.ComponentModel.ISupportInitialize)(this.graphCtrlSolution)).EndInit();
+            this.splitContainerHoriz.Panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerHoriz)).EndInit();
+            this.splitContainerHoriz.ResumeLayout(false);
+            this.splitContainerVert.Panel1.ResumeLayout(false);
+            this.splitContainerVert.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerVert)).EndInit();
+            this.splitContainerVert.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

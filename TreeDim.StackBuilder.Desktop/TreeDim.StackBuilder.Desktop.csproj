@@ -38,7 +38,7 @@
     <MinimumRequiredVersion>3.0.0.0</MinimumRequiredVersion>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>28</ApplicationRevision>
+    <ApplicationRevision>29</ApplicationRevision>
     <ApplicationVersion>3.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -235,12 +235,6 @@
     <Compile Include="DockContentLogConsole.Designer.cs">
       <DependentUpon>DockContentLogConsole.cs</DependentUpon>
     </Compile>
-    <Compile Include="DockContentReport.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DockContentReport.Designer.cs">
-      <DependentUpon>DockContentReport.cs</DependentUpon>
-    </Compile>
     <Compile Include="DockContentStartPage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -285,6 +279,12 @@
     <Compile Include="FormNewAnalysis.Designer.cs">
       <DependentUpon>FormNewAnalysis.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormNewAnalysisCaseTruck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNewAnalysisCaseTruck.Designer.cs">
+      <DependentUpon>FormNewAnalysisCaseTruck.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormNewAnalysisCylinderCase.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -296,12 +296,6 @@
     </Compile>
     <Compile Include="FormNewAnalysisCylinderPallet.Designer.cs">
       <DependentUpon>FormNewAnalysisCylinderPallet.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormNewAnalysisLegacy.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormNewAnalysisLegacy.Designer.cs">
-      <DependentUpon>FormNewAnalysisLegacy.cs</DependentUpon>
     </Compile>
     <Compile Include="FormNewAnalysisBoxCase.cs">
       <SubType>Form</SubType>
@@ -434,12 +428,6 @@
     </Compile>
     <Compile Include="FormNewTruck.Designer.cs">
       <DependentUpon>FormNewTruck.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormNewTruckAnalysis.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormNewTruckAnalysis.Designer.cs">
-      <DependentUpon>FormNewTruckAnalysis.cs</DependentUpon>
     </Compile>
     <Compile Include="FormOptimiseMultiCase.cs">
       <SubType>Form</SubType>
@@ -591,11 +579,23 @@
       <SubType>Designer</SubType>
       <DependentUpon>CheckedListBoxWithImage.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DockContentAnalysisBoxCase.fr-FR.resx">
+      <DependentUpon>DockContentAnalysisBoxCase.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DockContentAnalysisBoxCase.resx">
       <DependentUpon>DockContentAnalysisBoxCase.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DockContentAnalysisCasePallet.fr-FR.resx">
+      <DependentUpon>DockContentAnalysisCasePallet.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DockContentAnalysisCasePallet.resx">
       <DependentUpon>DockContentAnalysisCasePallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentAnalysisCaseTruck.resx">
+      <DependentUpon>DockContentAnalysisCaseTruck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentAnalysisCylinderCase.fr-FR.resx">
+      <DependentUpon>DockContentAnalysisCylinderCase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DockContentAnalysisCylinderCase.resx">
       <DependentUpon>DockContentAnalysisCylinderCase.cs</DependentUpon>
@@ -603,8 +603,14 @@
     <EmbeddedResource Include="DockContentAnalysisCylinderPallet.resx">
       <DependentUpon>DockContentAnalysisCylinderPallet.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DockContentAnalysisEdit.fr-FR.resx">
+      <DependentUpon>DockContentAnalysisEdit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DockContentAnalysisEdit.resx">
       <DependentUpon>DockContentAnalysisEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentAnalysisPalletTruck.fr-FR.resx">
+      <DependentUpon>DockContentAnalysisPalletTruck.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DockContentAnalysisPalletTruck.resx">
       <DependentUpon>DockContentAnalysisPalletTruck.cs</DependentUpon>
@@ -665,15 +671,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DockContentLogConsole.resx">
       <DependentUpon>DockContentLogConsole.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DockContentReport.de-DE.resx">
-      <DependentUpon>DockContentReport.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DockContentReport.fr-FR.resx">
-      <DependentUpon>DockContentReport.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DockContentReport.resx">
-      <DependentUpon>DockContentReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DockContentStartPage.resx">
       <DependentUpon>DockContentStartPage.cs</DependentUpon>
@@ -782,41 +779,23 @@
     <EmbeddedResource Include="FormMain.nl-NL.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysis.fr-FR.resx">
+      <DependentUpon>FormNewAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewAnalysis.resx">
       <DependentUpon>FormNewAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisCaseTruck.resx">
+      <DependentUpon>FormNewAnalysisCaseTruck.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewAnalysisCylinderCase.resx">
       <DependentUpon>FormNewAnalysisCylinderCase.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormNewAnalysisCylinderPallet.resx">
+    <EmbeddedResource Include="FormNewAnalysisCylinderPallet.fr-FR.resx">
       <DependentUpon>FormNewAnalysisCylinderPallet.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormNewAnalysisLegacy.ca-ES.resx">
-      <DependentUpon>FormNewAnalysisLegacy.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormNewAnalysisLegacy.de-DE.resx">
-      <DependentUpon>FormNewAnalysisLegacy.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormNewAnalysisLegacy.es-ES.resx">
-      <DependentUpon>FormNewAnalysisLegacy.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormNewAnalysisLegacy.fr-FR.resx">
-      <DependentUpon>FormNewAnalysisLegacy.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormNewAnalysisLegacy.it-IT.resx">
-      <DependentUpon>FormNewAnalysisLegacy.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormNewAnalysisLegacy.ja-JP.resx">
-      <DependentUpon>FormNewAnalysisLegacy.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormNewAnalysisLegacy.nl-NL.resx">
-      <DependentUpon>FormNewAnalysisLegacy.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormNewAnalysisLegacy.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>FormNewAnalysisLegacy.cs</DependentUpon>
+    <EmbeddedResource Include="FormNewAnalysisCylinderPallet.resx">
+      <DependentUpon>FormNewAnalysisCylinderPallet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewAnalysisBoxCase.resx">
       <DependentUpon>FormNewAnalysisBoxCase.cs</DependentUpon>
@@ -903,6 +882,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewAnalysisPackPallet.ja-JP.resx">
       <DependentUpon>FormNewAnalysisPackPallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisPalletTruck.fr-FR.resx">
+      <DependentUpon>FormNewAnalysisPalletTruck.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewAnalysisPalletTruck.resx">
       <DependentUpon>FormNewAnalysisPalletTruck.cs</DependentUpon>
@@ -1184,29 +1166,8 @@
       <DependentUpon>FormNewTruck.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormNewTruckAnalysis.ca-ES.resx">
-      <DependentUpon>FormNewTruckAnalysis.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormNewTruckAnalysis.de-DE.resx">
-      <DependentUpon>FormNewTruckAnalysis.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormNewTruckAnalysis.es-ES.resx">
-      <DependentUpon>FormNewTruckAnalysis.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormNewTruckAnalysis.fr-FR.resx">
-      <DependentUpon>FormNewTruckAnalysis.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormNewTruckAnalysis.it-IT.resx">
-      <DependentUpon>FormNewTruckAnalysis.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormNewTruckAnalysis.ja-JP.resx">
-      <DependentUpon>FormNewTruckAnalysis.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormNewTruckAnalysis.nl-NL.resx">
-      <DependentUpon>FormNewTruckAnalysis.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormNewTruckAnalysis.resx">
-      <DependentUpon>FormNewTruckAnalysis.cs</DependentUpon>
+    <EmbeddedResource Include="FormOptimiseMultiCase.fr-FR.resx">
+      <DependentUpon>FormOptimiseMultiCase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormOptimiseMultiCase.resx">
       <DependentUpon>FormOptimiseMultiCase.cs</DependentUpon>

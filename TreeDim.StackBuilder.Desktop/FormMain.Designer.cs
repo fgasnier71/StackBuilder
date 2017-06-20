@@ -67,6 +67,7 @@
             this.toolStripMenuItemNewAnalysisCylinderPallet = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemNewAnalysisBoxCase = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemNewAnalysisCylinderCase = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemAnalysisPalletTruck = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator19 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItemBestCase = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemBestCasePallet = new System.Windows.Forms.ToolStripMenuItem();
@@ -115,7 +116,9 @@
             this.toolStripMIAnalysisBoxCase = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMIAnalysisCylinderCase = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMIAnalysisBundleCase = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSBCreateAnalysisPalletTruck = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSBAnalysesTruck = new System.Windows.Forms.ToolStripSplitButton();
+            this.toolStripMIAnalysisPalletTruck = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMIAnalysisCaseTruck = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSBOptimisations = new System.Windows.Forms.ToolStripSplitButton();
             this.toolStripMIBestCase = new System.Windows.Forms.ToolStripMenuItem();
@@ -130,7 +133,6 @@
             this.saveFileDialogSB = new System.Windows.Forms.SaveFileDialog();
             this.saveFileDialogWebGL = new System.Windows.Forms.SaveFileDialog();
             this.timerLogin = new System.Windows.Forms.Timer(this.components);
-            this.toolStripMenuItemAnalysisPalletTruck = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripMain.SuspendLayout();
             this.toolStripStandard.SuspendLayout();
             this.SuspendLayout();
@@ -388,6 +390,11 @@
             resources.ApplyResources(this.toolStripMenuItemNewAnalysisCylinderCase, "toolStripMenuItemNewAnalysisCylinderCase");
             this.toolStripMenuItemNewAnalysisCylinderCase.Name = "toolStripMenuItemNewAnalysisCylinderCase";
             // 
+            // toolStripMenuItemAnalysisPalletTruck
+            // 
+            resources.ApplyResources(this.toolStripMenuItemAnalysisPalletTruck, "toolStripMenuItemAnalysisPalletTruck");
+            this.toolStripMenuItemAnalysisPalletTruck.Name = "toolStripMenuItemAnalysisPalletTruck";
+            // 
             // toolStripSeparator19
             // 
             this.toolStripSeparator19.Name = "toolStripSeparator19";
@@ -498,7 +505,7 @@
             this.toolStripSeparator13,
             this.toolStripSBAnalysisPallet,
             this.toolStripSBAnalysesCase,
-            this.toolStripSBCreateAnalysisPalletTruck,
+            this.toolStripSBAnalysesTruck,
             this.toolStripSeparator11,
             this.toolStripSBOptimisations,
             this.toolStripSeparator10,
@@ -734,12 +741,27 @@
             this.toolStripMIAnalysisBundleCase.Name = "toolStripMIAnalysisBundleCase";
             this.toolStripMIAnalysisBundleCase.Click += new System.EventHandler(this.onNewAnalysisBoxCase);
             // 
-            // toolStripSBCreateAnalysisPalletTruck
+            // toolStripSBAnalysesTruck
             // 
-            this.toolStripSBCreateAnalysisPalletTruck.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            resources.ApplyResources(this.toolStripSBCreateAnalysisPalletTruck, "toolStripSBCreateAnalysisPalletTruck");
-            this.toolStripSBCreateAnalysisPalletTruck.Name = "toolStripSBCreateAnalysisPalletTruck";
-            this.toolStripSBCreateAnalysisPalletTruck.Click += new System.EventHandler(this.onNewAnalysisPalletTruck);
+            this.toolStripSBAnalysesTruck.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripSBAnalysesTruck.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMIAnalysisPalletTruck,
+            this.toolStripMIAnalysisCaseTruck});
+            resources.ApplyResources(this.toolStripSBAnalysesTruck, "toolStripSBAnalysesTruck");
+            this.toolStripSBAnalysesTruck.Name = "toolStripSBAnalysesTruck";
+            this.toolStripSBAnalysesTruck.Click += new System.EventHandler(this.onAnalysisTrucks);
+            // 
+            // toolStripMIAnalysisPalletTruck
+            // 
+            resources.ApplyResources(this.toolStripMIAnalysisPalletTruck, "toolStripMIAnalysisPalletTruck");
+            this.toolStripMIAnalysisPalletTruck.Name = "toolStripMIAnalysisPalletTruck";
+            this.toolStripMIAnalysisPalletTruck.Click += new System.EventHandler(this.onNewAnalysisPalletTruck);
+            // 
+            // toolStripMIAnalysisCaseTruck
+            // 
+            resources.ApplyResources(this.toolStripMIAnalysisCaseTruck, "toolStripMIAnalysisCaseTruck");
+            this.toolStripMIAnalysisCaseTruck.Name = "toolStripMIAnalysisCaseTruck";
+            this.toolStripMIAnalysisCaseTruck.Click += new System.EventHandler(this.onNewAnalysisCaseTruck);
             // 
             // toolStripSeparator11
             // 
@@ -822,11 +844,6 @@
             // 
             this.timerLogin.Interval = 2000;
             this.timerLogin.Tick += new System.EventHandler(this.timerLogin_Tick);
-            // 
-            // toolStripMenuItemAnalysisPalletTruck
-            // 
-            resources.ApplyResources(this.toolStripMenuItemAnalysisPalletTruck, "toolStripMenuItemAnalysisPalletTruck");
-            this.toolStripMenuItemAnalysisPalletTruck.Name = "toolStripMenuItemAnalysisPalletTruck";
             // 
             // FormMain
             // 
@@ -919,7 +936,6 @@
         private System.Windows.Forms.ToolStripButton toolStripButtonPack;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemPack;
         private System.Windows.Forms.ToolStripMenuItem openLibraryToolStripMenuItem;
-        private System.Windows.Forms.ToolStripButton toolStripSBCreateAnalysisPalletTruck;
         private System.Windows.Forms.Timer timerLogin;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripSplitButton toolStripSBPalletDeco;
@@ -949,5 +965,8 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMIAnalysisBundlePallet;
         private System.Windows.Forms.ToolStripMenuItem toolStripMIAnalysisBundleCase;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemAnalysisPalletTruck;
+        private System.Windows.Forms.ToolStripSplitButton toolStripSBAnalysesTruck;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMIAnalysisPalletTruck;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMIAnalysisCaseTruck;
     }
 }

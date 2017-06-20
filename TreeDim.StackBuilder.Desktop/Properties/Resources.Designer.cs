@@ -1279,6 +1279,15 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Load.
+        /// </summary>
+        internal static string ID_LOAD {
+            get {
+                return ResourceManager.GetString("ID_LOAD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Load dimensions ({0}).
         /// </summary>
         internal static string ID_LOADDIMENSIONS {

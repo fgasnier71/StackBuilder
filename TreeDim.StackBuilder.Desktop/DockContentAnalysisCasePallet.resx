@@ -117,114 +117,131 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="toolStripAnalysis.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="toolStripButtonBack.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABYSURBVDhP3Y+xDcAwCASZk0FgZMaw9fHTpImxRBGfROG3
-        7hHSRkQMd3+G0T4pq+ows1rBW8abX9/8VAaQIFcGC6mfFcChvk7IEjSXTwCXlzCukSUYRh2ITINE0o5U
-        APEDAAAAAElFTkSuQmCC
-</value>
+  <data name="&gt;&gt;cbPalletCorners.Name" xml:space="preserve">
+    <value>cbPalletCorners</value>
   </data>
-  <data name="toolStripButtonBack.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>White</value>
+  <data name="&gt;&gt;splitContainerVert.Panel1.Parent" xml:space="preserve">
+    <value>splitContainerVert</value>
   </data>
-  <data name="toolStripButtonBack.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 22</value>
+  <data name="&gt;&gt;cbInterlayer.Name" xml:space="preserve">
+    <value>cbInterlayer</value>
   </data>
-  <data name="toolStripButtonBack.Text" xml:space="preserve">
-    <value>Back...</value>
+  <data name="&gt;&gt;cbPalletFilm.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="toolStripButtonReportWord.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABkSURBVDhPzYxBDoBACAP3/5/GFC0phAPuenCSapka11pm
-        Z7kfm/zsB3gzpHMgeY5JPnQOJK9jSOka9exxgDpOehygjpMeB6jjpMcBODJK571XoVE6770KjdJ57/XD
-        N3z3g92YXauEAwxp1v7WAAAAAElFTkSuQmCC
-</value>
+  <data name="&gt;&gt;gbStopCriterions.Parent" xml:space="preserve">
+    <value>splitContainerHoriz.Panel2</value>
   </data>
-  <data name="toolStripButtonReportWord.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>White</value>
+  <data name="&gt;&gt;splitContainerHoriz.Panel1.Parent" xml:space="preserve">
+    <value>splitContainerHoriz</value>
   </data>
-  <data name="toolStripButtonReportWord.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 22</value>
+  <data name="&gt;&gt;splitContainerVert.Panel2.Name" xml:space="preserve">
+    <value>splitContainerVert.Panel2</value>
   </data>
-  <data name="toolStripButtonReportWord.Text" xml:space="preserve">
-    <value>Generate MS Word report</value>
+  <data name="&gt;&gt;chkbPalletCorners.Name" xml:space="preserve">
+    <value>chkbPalletCorners</value>
   </data>
-  <data name="toolStripButtonReportWord.ToolTipText" xml:space="preserve">
-    <value>Generate report...</value>
+  <data name="&gt;&gt;cbInterlayer.Type" xml:space="preserve">
+    <value>treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered, treeDiM.StackBuilder.Graphics, Version=3.0.0.29, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="toolStripAnalysis.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
+  <data name="&gt;&gt;splitContainerHoriz.Panel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="toolStripAnalysis.Size" type="System.Drawing.Size, System.Drawing">
-    <value>784, 25</value>
+  <data name="&gt;&gt;gbStopCriterions.Name" xml:space="preserve">
+    <value>gbStopCriterions</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="toolStripAnalysis.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+  <data name="&gt;&gt;graphCtrlSolution.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
-  <data name="toolStripAnalysis.Text" xml:space="preserve">
-    <value>Generate MS Word report</value>
-  </data>
-  <data name="&gt;&gt;toolStripAnalysis.Name" xml:space="preserve">
-    <value>toolStripAnalysis</value>
-  </data>
-  <data name="&gt;&gt;toolStripAnalysis.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;toolStripAnalysis.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;toolStripAnalysis.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="splitContainerHoriz.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="splitContainerHoriz.IsSplitterFixed" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="splitContainerHoriz.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 25</value>
-  </data>
-  <data name="splitContainerHoriz.Orientation" type="System.Windows.Forms.Orientation, System.Windows.Forms">
-    <value>Horizontal</value>
-  </data>
-  <data name="splitContainerVert.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="splitContainerVert.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="graphCtrlSolution.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="graphCtrlSolution.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="graphCtrlSolution.Size" type="System.Drawing.Size, System.Drawing">
-    <value>586, 410</value>
-  </data>
-  <data name="graphCtrlSolution.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;graphCtrlSolution.Name" xml:space="preserve">
-    <value>graphCtrlSolution</value>
-  </data>
-  <data name="&gt;&gt;graphCtrlSolution.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Graphics.Graphics3DControl, treeDiM.StackBuilder.Graphics, Version=3.0.0.26, Culture=neutral, PublicKeyToken=null</value>
+  <data name="&gt;&gt;splitContainerHoriz.Name" xml:space="preserve">
+    <value>splitContainerHoriz</value>
   </data>
   <data name="&gt;&gt;graphCtrlSolution.Parent" xml:space="preserve">
     <value>splitContainerVert.Panel1</value>
   </data>
-  <data name="&gt;&gt;graphCtrlSolution.ZOrder" xml:space="preserve">
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="gbStopCriterions.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
+  <data name="&gt;&gt;splitContainerVert.Panel2.Parent" xml:space="preserve">
+    <value>splitContainerVert</value>
+  </data>
+  <data name="&gt;&gt;splitContainerHoriz.Panel1.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="tabPagePalletFilm.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="&gt;&gt;uCtrlOptMaximumWeight.Parent" xml:space="preserve">
+    <value>gbStopCriterions</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="chkbPalletCorners.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;tabCtrl.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabCtrl.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;chkbPalletCorners.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="tabCtrl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>315, 113</value>
+  </data>
+  <data name="tabCtrl.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="cbPalletFilm.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="uCtrlMaxPalletHeight.Size" type="System.Drawing.Size, System.Drawing">
+    <value>206, 20</value>
+  </data>
+  <data name="gbStopCriterions.Text" xml:space="preserve">
+    <value>Stop criterions</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Case/Pallet analysis...</value>
+  </data>
+  <data name="cbPalletCorners.Size" type="System.Drawing.Size, System.Drawing">
+    <value>150, 21</value>
+  </data>
+  <data name="&gt;&gt;cbPalletCorners.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;uCtrlMaxPalletHeight.Type" xml:space="preserve">
+    <value>treeDiM.StackBuilder.Basics.UCtrlDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.29, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;cbPalletCap.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;tabPagePalletFilm.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="uCtrlMaxPalletHeight.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="gbStopCriterions.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="&gt;&gt;uCtrlOptMaximumWeight.Type" xml:space="preserve">
+    <value>treeDiM.StackBuilder.Basics.UCtrlOptDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.29, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="tabPagePalletFilm.Text" xml:space="preserve">
+    <value>Pallet Film</value>
+  </data>
+  <data name="&gt;&gt;cbPalletCorners.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="cbPalletFilm.Location" type="System.Drawing.Point, System.Drawing">
+    <value>130, 7</value>
   </data>
   <data name="&gt;&gt;splitContainerVert.Panel1.Name" xml:space="preserve">
     <value>splitContainerVert.Panel1</value>
@@ -232,680 +249,244 @@
   <data name="&gt;&gt;splitContainerVert.Panel1.Type" xml:space="preserve">
     <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;splitContainerVert.Panel1.Parent" xml:space="preserve">
-    <value>splitContainerVert</value>
-  </data>
-  <data name="&gt;&gt;splitContainerVert.Panel1.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;gridSolutions.ZOrder" xml:space="preserve">
     <value>0</value>
-  </data>
-  <data name="gridSolution.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="gridSolution.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="gridSolution.Size" type="System.Drawing.Size, System.Drawing">
-    <value>194, 410</value>
-  </data>
-  <data name="gridSolution.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;gridSolution.Name" xml:space="preserve">
-    <value>gridSolution</value>
-  </data>
-  <data name="&gt;&gt;gridSolution.Type" xml:space="preserve">
-    <value>SourceGrid.Grid, SourceGrid, Version=4.30.5611.24765, Culture=neutral, PublicKeyToken=df6f5e538749e85d</value>
-  </data>
-  <data name="&gt;&gt;gridSolution.Parent" xml:space="preserve">
-    <value>splitContainerVert.Panel2</value>
-  </data>
-  <data name="&gt;&gt;gridSolution.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;splitContainerVert.Panel2.Name" xml:space="preserve">
-    <value>splitContainerVert.Panel2</value>
-  </data>
-  <data name="&gt;&gt;splitContainerVert.Panel2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;splitContainerVert.Panel2.Parent" xml:space="preserve">
-    <value>splitContainerVert</value>
-  </data>
-  <data name="&gt;&gt;splitContainerVert.Panel2.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="splitContainerVert.Size" type="System.Drawing.Size, System.Drawing">
-    <value>784, 410</value>
-  </data>
-  <data name="splitContainerVert.SplitterDistance" type="System.Int32, mscorlib">
-    <value>586</value>
-  </data>
-  <data name="splitContainerVert.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;splitContainerVert.Name" xml:space="preserve">
-    <value>splitContainerVert</value>
-  </data>
-  <data name="&gt;&gt;splitContainerVert.Type" xml:space="preserve">
-    <value>System.Windows.Forms.SplitContainer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;splitContainerVert.Parent" xml:space="preserve">
-    <value>splitContainerHoriz.Panel1</value>
-  </data>
-  <data name="&gt;&gt;splitContainerVert.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;splitContainerHoriz.Panel1.Name" xml:space="preserve">
-    <value>splitContainerHoriz.Panel1</value>
-  </data>
-  <data name="&gt;&gt;splitContainerHoriz.Panel1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;splitContainerHoriz.Panel1.Parent" xml:space="preserve">
-    <value>splitContainerHoriz</value>
-  </data>
-  <data name="&gt;&gt;splitContainerHoriz.Panel1.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="gbStopCriterions.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left</value>
-  </data>
-  <data name="uCtrlOptMaximumWeight.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 44</value>
-  </data>
-  <data name="uCtrlOptMaximumWeight.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>100, 20</value>
-  </data>
-  <data name="uCtrlOptMaximumWeight.Size" type="System.Drawing.Size, System.Drawing">
-    <value>206, 20</value>
-  </data>
-  <data name="uCtrlOptMaximumWeight.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="uCtrlOptMaximumWeight.Text" xml:space="preserve">
-    <value>Maximum weight</value>
-  </data>
-  <data name="uCtrlOptMaximumWeight.Value" mimetype="application/x-microsoft.net.object.binary.base64">
-    <value>
-        AAEAAAD/////AQAAAAAAAAAMAgAAAFN0cmVlRGlNLlN0YWNrQnVpbGRlci5CYXNpY3MsIFZlcnNpb249
-        My4wLjAuMjYsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49bnVsbAUBAAAAJXRyZWVEaU0u
-        U3RhY2tCdWlsZGVyLkJhc2ljcy5PcHREb3VibGUCAAAACl9hY3RpdmF0ZWQEX3ZhbAAAAQYCAAAAAAAA
-        AAAAAAAACw==
-</value>
-  </data>
-  <data name="&gt;&gt;uCtrlOptMaximumWeight.Name" xml:space="preserve">
-    <value>uCtrlOptMaximumWeight</value>
-  </data>
-  <data name="&gt;&gt;uCtrlOptMaximumWeight.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlOptDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.26, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;uCtrlOptMaximumWeight.Parent" xml:space="preserve">
-    <value>gbStopCriterions</value>
-  </data>
-  <data name="&gt;&gt;uCtrlOptMaximumWeight.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="uCtrlMaxPalletHeight.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 17</value>
-  </data>
-  <data name="uCtrlMaxPalletHeight.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>100, 20</value>
-  </data>
-  <data name="uCtrlMaxPalletHeight.Size" type="System.Drawing.Size, System.Drawing">
-    <value>206, 20</value>
-  </data>
-  <data name="uCtrlMaxPalletHeight.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="uCtrlMaxPalletHeight.Text" xml:space="preserve">
-    <value>Maximum height</value>
-  </data>
-  <data name="&gt;&gt;uCtrlMaxPalletHeight.Name" xml:space="preserve">
-    <value>uCtrlMaxPalletHeight</value>
-  </data>
-  <data name="&gt;&gt;uCtrlMaxPalletHeight.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.26, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;uCtrlMaxPalletHeight.Parent" xml:space="preserve">
-    <value>gbStopCriterions</value>
-  </data>
-  <data name="&gt;&gt;uCtrlMaxPalletHeight.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="gbStopCriterions.Location" type="System.Drawing.Point, System.Drawing">
-    <value>253, 5</value>
-  </data>
-  <data name="gbStopCriterions.Size" type="System.Drawing.Size, System.Drawing">
-    <value>213, 113</value>
-  </data>
-  <data name="gbStopCriterions.TabIndex" type="System.Int32, mscorlib">
-    <value>15</value>
-  </data>
-  <data name="gbStopCriterions.Text" xml:space="preserve">
-    <value>Stop criterions</value>
-  </data>
-  <data name="&gt;&gt;gbStopCriterions.Name" xml:space="preserve">
-    <value>gbStopCriterions</value>
-  </data>
-  <data name="&gt;&gt;gbStopCriterions.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;gbStopCriterions.Parent" xml:space="preserve">
-    <value>splitContainerHoriz.Panel2</value>
-  </data>
-  <data name="&gt;&gt;gbStopCriterions.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="tabCtrl.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left, Right</value>
-  </data>
-  <data name="cbPalletCorners.Location" type="System.Drawing.Point, System.Drawing">
-    <value>130, 7</value>
-  </data>
-  <data name="cbPalletCorners.Size" type="System.Drawing.Size, System.Drawing">
-    <value>150, 21</value>
-  </data>
-  <data name="cbPalletCorners.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;cbPalletCorners.Name" xml:space="preserve">
-    <value>cbPalletCorners</value>
-  </data>
-  <data name="&gt;&gt;cbPalletCorners.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cbPalletCorners.Parent" xml:space="preserve">
-    <value>tabPagePalletCorners</value>
-  </data>
-  <data name="&gt;&gt;cbPalletCorners.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="chkbPalletCorners.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="chkbPalletCorners.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 7</value>
-  </data>
-  <data name="chkbPalletCorners.Size" type="System.Drawing.Size, System.Drawing">
-    <value>90, 17</value>
-  </data>
-  <data name="chkbPalletCorners.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="chkbPalletCorners.Text" xml:space="preserve">
-    <value>Pallet corners</value>
-  </data>
-  <data name="&gt;&gt;chkbPalletCorners.Name" xml:space="preserve">
-    <value>chkbPalletCorners</value>
-  </data>
-  <data name="&gt;&gt;chkbPalletCorners.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;chkbPalletCorners.Parent" xml:space="preserve">
-    <value>tabPagePalletCorners</value>
-  </data>
-  <data name="&gt;&gt;chkbPalletCorners.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="tabPagePalletCorners.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 22</value>
-  </data>
-  <data name="tabPagePalletCorners.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="tabPagePalletCorners.Size" type="System.Drawing.Size, System.Drawing">
-    <value>307, 87</value>
-  </data>
-  <data name="tabPagePalletCorners.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="tabPagePalletCorners.Text" xml:space="preserve">
-    <value>Pallet Corners</value>
-  </data>
-  <data name="&gt;&gt;tabPagePalletCorners.Name" xml:space="preserve">
-    <value>tabPagePalletCorners</value>
-  </data>
-  <data name="&gt;&gt;tabPagePalletCorners.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tabPagePalletCorners.Parent" xml:space="preserve">
     <value>tabCtrl</value>
   </data>
-  <data name="&gt;&gt;tabPagePalletCorners.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="cbPalletCap.Location" type="System.Drawing.Point, System.Drawing">
-    <value>130, 7</value>
-  </data>
-  <data name="cbPalletCap.Size" type="System.Drawing.Size, System.Drawing">
-    <value>150, 21</value>
-  </data>
-  <data name="cbPalletCap.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;cbPalletCap.Name" xml:space="preserve">
-    <value>cbPalletCap</value>
-  </data>
-  <data name="&gt;&gt;cbPalletCap.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cbPalletCap.Parent" xml:space="preserve">
-    <value>tabPagePalletCap</value>
-  </data>
-  <data name="&gt;&gt;cbPalletCap.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="chkbPalletCap.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="chkbPalletCap.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 7</value>
-  </data>
-  <data name="chkbPalletCap.Size" type="System.Drawing.Size, System.Drawing">
-    <value>73, 17</value>
-  </data>
-  <data name="chkbPalletCap.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="chkbPalletCap.Text" xml:space="preserve">
-    <value>Pallet cap</value>
-  </data>
-  <data name="&gt;&gt;chkbPalletCap.Name" xml:space="preserve">
-    <value>chkbPalletCap</value>
-  </data>
-  <data name="&gt;&gt;chkbPalletCap.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;chkbPalletCap.Parent" xml:space="preserve">
-    <value>tabPagePalletCap</value>
-  </data>
-  <data name="&gt;&gt;chkbPalletCap.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="tabPagePalletCap.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 22</value>
-  </data>
-  <data name="tabPagePalletCap.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="tabPagePalletCap.Size" type="System.Drawing.Size, System.Drawing">
-    <value>307, 87</value>
-  </data>
-  <data name="tabPagePalletCap.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="tabPagePalletCap.Text" xml:space="preserve">
-    <value>Pallet Cap</value>
-  </data>
-  <data name="&gt;&gt;tabPagePalletCap.Name" xml:space="preserve">
-    <value>tabPagePalletCap</value>
-  </data>
-  <data name="&gt;&gt;tabPagePalletCap.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tabPagePalletCap.Parent" xml:space="preserve">
-    <value>tabCtrl</value>
-  </data>
-  <data name="&gt;&gt;tabPagePalletCap.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="cbPalletFilm.Location" type="System.Drawing.Point, System.Drawing">
-    <value>130, 7</value>
-  </data>
-  <data name="cbPalletFilm.Size" type="System.Drawing.Size, System.Drawing">
-    <value>150, 21</value>
-  </data>
-  <data name="cbPalletFilm.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;cbPalletFilm.Name" xml:space="preserve">
-    <value>cbPalletFilm</value>
-  </data>
-  <data name="&gt;&gt;cbPalletFilm.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cbPalletFilm.Parent" xml:space="preserve">
-    <value>tabPagePalletFilm</value>
-  </data>
-  <data name="&gt;&gt;cbPalletFilm.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="chkbPalletFilm.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="chkbPalletFilm.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 7</value>
-  </data>
-  <data name="chkbPalletFilm.Size" type="System.Drawing.Size, System.Drawing">
-    <value>70, 17</value>
-  </data>
-  <data name="chkbPalletFilm.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="chkbPalletFilm.Text" xml:space="preserve">
-    <value>Pallet film</value>
-  </data>
-  <data name="&gt;&gt;chkbPalletFilm.Name" xml:space="preserve">
-    <value>chkbPalletFilm</value>
-  </data>
   <data name="&gt;&gt;chkbPalletFilm.Type" xml:space="preserve">
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;chkbPalletFilm.Parent" xml:space="preserve">
-    <value>tabPagePalletFilm</value>
-  </data>
-  <data name="&gt;&gt;chkbPalletFilm.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="tabPagePalletFilm.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 22</value>
-  </data>
-  <data name="tabPagePalletFilm.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="tabPagePalletFilm.Size" type="System.Drawing.Size, System.Drawing">
-    <value>307, 87</value>
-  </data>
-  <data name="tabPagePalletFilm.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="tabPagePalletFilm.Text" xml:space="preserve">
-    <value>Pallet Film</value>
-  </data>
-  <data name="&gt;&gt;tabPagePalletFilm.Name" xml:space="preserve">
-    <value>tabPagePalletFilm</value>
-  </data>
-  <data name="&gt;&gt;tabPagePalletFilm.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tabPagePalletFilm.Parent" xml:space="preserve">
     <value>tabCtrl</value>
   </data>
-  <data name="&gt;&gt;tabPagePalletFilm.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="tabCtrl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>469, 8</value>
-  </data>
-  <data name="tabCtrl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>315, 113</value>
-  </data>
-  <data name="tabCtrl.TabIndex" type="System.Int32, mscorlib">
-    <value>14</value>
-  </data>
-  <data name="&gt;&gt;tabCtrl.Name" xml:space="preserve">
-    <value>tabCtrl</value>
-  </data>
-  <data name="&gt;&gt;tabCtrl.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tabCtrl.Parent" xml:space="preserve">
-    <value>splitContainerHoriz.Panel2</value>
-  </data>
-  <data name="&gt;&gt;tabCtrl.ZOrder" xml:space="preserve">
+  <data name="cbPalletCorners.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
-  </data>
-  <data name="gbLayer.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left</value>
-  </data>
-  <data name="chkbInterlayer.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left</value>
-  </data>
-  <data name="chkbInterlayer.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="chkbInterlayer.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 19</value>
-  </data>
-  <data name="chkbInterlayer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>69, 17</value>
-  </data>
-  <data name="chkbInterlayer.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="chkbInterlayer.Text" xml:space="preserve">
-    <value>Interlayer</value>
-  </data>
-  <data name="&gt;&gt;chkbInterlayer.Name" xml:space="preserve">
-    <value>chkbInterlayer</value>
-  </data>
-  <data name="&gt;&gt;chkbInterlayer.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;chkbInterlayer.Parent" xml:space="preserve">
-    <value>gbLayer</value>
-  </data>
-  <data name="&gt;&gt;chkbInterlayer.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="cbInterlayer.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left</value>
-  </data>
-  <data name="cbInterlayer.Location" type="System.Drawing.Point, System.Drawing">
-    <value>119, 17</value>
-  </data>
-  <data name="cbInterlayer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>121, 21</value>
-  </data>
-  <data name="cbInterlayer.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;cbInterlayer.Name" xml:space="preserve">
-    <value>cbInterlayer</value>
-  </data>
-  <data name="&gt;&gt;cbInterlayer.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cbInterlayer.Parent" xml:space="preserve">
-    <value>gbLayer</value>
-  </data>
-  <data name="&gt;&gt;cbInterlayer.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="cbLayerType.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left</value>
-  </data>
-  <data name="cbLayerType.ItemHeight" type="System.Int32, mscorlib">
-    <value>58</value>
-  </data>
-  <data name="cbLayerType.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 45</value>
-  </data>
-  <data name="cbLayerType.Size" type="System.Drawing.Size, System.Drawing">
-    <value>96, 64</value>
-  </data>
-  <data name="cbLayerType.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;cbLayerType.Name" xml:space="preserve">
-    <value>cbLayerType</value>
-  </data>
-  <data name="&gt;&gt;cbLayerType.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Graphics.Controls.CCtrlComboLayer, treeDiM.StackBuilder.Graphics, Version=3.0.0.26, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;cbLayerType.Parent" xml:space="preserve">
-    <value>gbLayer</value>
-  </data>
-  <data name="&gt;&gt;cbLayerType.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="bnSymmetryX.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left</value>
-  </data>
-  <data name="bnSymmetryX.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="bnSymmetryX.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAMAAABg3Am1AAAABGdBTUEAALGPC/xhBQAAABJQTFRF7e3t
-        i0UTmZmZAAAAjEYU////vjOrZAAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAACS
-        SURBVEhL1ZTRDoAgCEUt8/9/OQQeaAoDs2lnDh+6Z17nVipBthayCYcewmXQFQ6DRQKVVeBQR8DZ7FOF
-        lFK7r61EzBBIipyAI1SpztgdYBOCCWek4CIPCecJyzdIgILY0jEGK0WQQj1ThzPvHo6+4OwJtCIC9fpW
-        qEbs0sAEYb/fjAKHWkHhL4IJh6TgZDuhlBuX5iXHVdaTfwAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="bnSymmetryX.Location" type="System.Drawing.Point, System.Drawing">
-    <value>108, 45</value>
-  </data>
-  <data name="bnSymmetryX.Size" type="System.Drawing.Size, System.Drawing">
-    <value>64, 64</value>
-  </data>
-  <data name="bnSymmetryX.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;bnSymmetryX.Name" xml:space="preserve">
-    <value>bnSymmetryX</value>
-  </data>
-  <data name="&gt;&gt;bnSymmetryX.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;bnSymmetryX.Parent" xml:space="preserve">
-    <value>gbLayer</value>
-  </data>
-  <data name="&gt;&gt;bnSymmetryX.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="bnSymetryY.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left</value>
-  </data>
-  <data name="bnSymetryY.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="bnSymetryY.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAMAAABg3Am1AAAABGdBTUEAALGPC/xhBQAAABJQTFRF7e3t
-        i0UTmZmZAAAAjEYU////vjOrZAAAAAlwSFlzAAAOwwAADsMBx2+oZAAAABl0RVh0U29mdHdhcmUAQWRv
-        YmUgSW1hZ2VSZWFkeXHJZTwAAADHSURBVEhL1dDbEoMgDEVRqfL/v9yQiwQ4CMzotO6XSmQN1C0uhsHO
-        6aIMAdsKCQBuGz3WqAWy4yM/7cUaoBvmgSYA/PVrAOqBbgzSyUVygi5yGRwhhP04M6BLih9vABu/bACN
-        x0DG0hSYO8GqAAWBS4ELgTSTDOiSGgMZn43B3AnLX+l5YPGbDCgIXHqCC4E0kwzokvoZcF9JxtKNn3UZ
-        WBWgIHApcAGQRhq/KU7gLkF1Je6/QV0adsYMQOkE2ItAtxddqVOMX64UJcfaxRFaAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="bnSymetryY.Location" type="System.Drawing.Point, System.Drawing">
-    <value>176, 45</value>
-  </data>
-  <data name="bnSymetryY.Size" type="System.Drawing.Size, System.Drawing">
-    <value>64, 64</value>
-  </data>
-  <data name="bnSymetryY.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;bnSymetryY.Name" xml:space="preserve">
-    <value>bnSymetryY</value>
-  </data>
-  <data name="&gt;&gt;bnSymetryY.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;bnSymetryY.Parent" xml:space="preserve">
-    <value>gbLayer</value>
-  </data>
-  <data name="&gt;&gt;bnSymetryY.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="gbLayer.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 6</value>
-  </data>
-  <data name="gbLayer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>246, 113</value>
-  </data>
-  <data name="gbLayer.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
-  </data>
-  <data name="gbLayer.Text" xml:space="preserve">
-    <value>Double-click a layer...</value>
-  </data>
-  <data name="&gt;&gt;gbLayer.Name" xml:space="preserve">
-    <value>gbLayer</value>
-  </data>
-  <data name="&gt;&gt;gbLayer.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;gbLayer.Parent" xml:space="preserve">
-    <value>splitContainerHoriz.Panel2</value>
-  </data>
-  <data name="&gt;&gt;gbLayer.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="tbClickLayer.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left</value>
-  </data>
-  <data name="tbClickLayer.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 8.25pt, style=Bold</value>
-  </data>
-  <data name="tbClickLayer.Location" type="System.Drawing.Point, System.Drawing">
-    <value>5, 41</value>
-  </data>
-  <data name="tbClickLayer.Multiline" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="tbClickLayer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>246, 57</value>
-  </data>
-  <data name="tbClickLayer.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
-  </data>
-  <data name="tbClickLayer.Text" xml:space="preserve">
-    <value>Double-click a layer to edit pattern / orientation / interlayer.</value>
-  </data>
-  <data name="&gt;&gt;tbClickLayer.Name" xml:space="preserve">
-    <value>tbClickLayer</value>
-  </data>
-  <data name="&gt;&gt;tbClickLayer.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tbClickLayer.Parent" xml:space="preserve">
-    <value>splitContainerHoriz.Panel2</value>
-  </data>
-  <data name="&gt;&gt;tbClickLayer.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;splitContainerHoriz.Panel2.Name" xml:space="preserve">
-    <value>splitContainerHoriz.Panel2</value>
-  </data>
-  <data name="&gt;&gt;splitContainerHoriz.Panel2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;splitContainerHoriz.Panel2.Parent" xml:space="preserve">
     <value>splitContainerHoriz</value>
   </data>
+  <data name="&gt;&gt;cbPalletCorners.Parent" xml:space="preserve">
+    <value>tabPagePalletCorners</value>
+  </data>
+  <data name="&gt;&gt;chkbPalletFilm.Name" xml:space="preserve">
+    <value>chkbPalletFilm</value>
+  </data>
+  <data name="&gt;&gt;chkbPalletCorners.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="tabPagePalletCorners.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="gbStopCriterions.Size" type="System.Drawing.Size, System.Drawing">
+    <value>213, 113</value>
+  </data>
+  <data name="&gt;&gt;gridSolutions.Parent" xml:space="preserve">
+    <value>splitContainerVert.Panel2</value>
+  </data>
+  <data name="&gt;&gt;cbPalletCap.Parent" xml:space="preserve">
+    <value>tabPagePalletCap</value>
+  </data>
+  <data name="cbPalletCap.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="tabPagePalletCap.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="tabPagePalletFilm.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
   <data name="&gt;&gt;splitContainerHoriz.Panel2.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="splitContainerHoriz.Panel2MinSize" type="System.Int32, mscorlib">
-    <value>100</value>
+  <data name="tabCtrl.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left, Right</value>
   </data>
-  <data name="splitContainerHoriz.Size" type="System.Drawing.Size, System.Drawing">
-    <value>784, 536</value>
+  <data name="uCtrlOptMaximumWeight.Value" mimetype="application/x-microsoft.net.object.binary.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAFN0cmVlRGlNLlN0YWNrQnVpbGRlci5CYXNpY3MsIFZlcnNpb249
+        My4wLjAuMjksIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49bnVsbAUBAAAAJXRyZWVEaU0u
+        U3RhY2tCdWlsZGVyLkJhc2ljcy5PcHREb3VibGUCAAAACl9hY3RpdmF0ZWQEX3ZhbAAAAQYCAAAAAAAA
+        AAAAAAAACw==
+</value>
   </data>
-  <data name="splitContainerHoriz.SplitterDistance" type="System.Int32, mscorlib">
-    <value>410</value>
+  <data name="uCtrlOptMaximumWeight.Size" type="System.Drawing.Size, System.Drawing">
+    <value>206, 20</value>
   </data>
-  <data name="splitContainerHoriz.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
+  <data name="&gt;&gt;tabCtrl.Parent" xml:space="preserve">
+    <value>splitContainerHoriz.Panel2</value>
   </data>
-  <data name="&gt;&gt;splitContainerHoriz.Name" xml:space="preserve">
-    <value>splitContainerHoriz</value>
+  <data name="&gt;&gt;splitContainerHoriz.Panel2.Name" xml:space="preserve">
+    <value>splitContainerHoriz.Panel2</value>
   </data>
-  <data name="&gt;&gt;splitContainerHoriz.Type" xml:space="preserve">
-    <value>System.Windows.Forms.SplitContainer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;splitContainerVert.Panel1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="chkbPalletCorners.Size" type="System.Drawing.Size, System.Drawing">
+    <value>90, 17</value>
+  </data>
+  <data name="&gt;&gt;tabPagePalletCorners.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="uCtrlOptMaximumWeight.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>100, 20</value>
+  </data>
+  <data name="&gt;&gt;splitContainerVert.Name" xml:space="preserve">
+    <value>splitContainerVert</value>
+  </data>
+  <data name="uCtrlOptMaximumWeight.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 44</value>
+  </data>
+  <data name="uCtrlOptMaximumWeight.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="chkbPalletFilm.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 7</value>
+  </data>
+  <data name="chkbPalletCorners.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 7</value>
+  </data>
+  <data name="&gt;&gt;graphCtrlSolution.Name" xml:space="preserve">
+    <value>graphCtrlSolution</value>
+  </data>
+  <data name="splitContainerVert.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;chkbPalletFilm.Parent" xml:space="preserve">
+    <value>tabPagePalletFilm</value>
+  </data>
+  <data name="&gt;&gt;cbInterlayer.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;cbPalletFilm.Parent" xml:space="preserve">
+    <value>tabPagePalletFilm</value>
+  </data>
+  <data name="uCtrlOptMaximumWeight.Text" xml:space="preserve">
+    <value>Maximum weight</value>
   </data>
   <data name="&gt;&gt;splitContainerHoriz.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
+  <data name="chkbPalletCorners.Text" xml:space="preserve">
+    <value>Pallet corners</value>
+  </data>
+  <data name="&gt;&gt;tabPagePalletCap.Parent" xml:space="preserve">
+    <value>tabCtrl</value>
+  </data>
+  <data name="&gt;&gt;splitContainerVert.Panel2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;graphCtrlSolution.Type" xml:space="preserve">
+    <value>treeDiM.StackBuilder.Graphics.Graphics3DControl, treeDiM.StackBuilder.Graphics, Version=3.0.0.29, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="chkbPalletCap.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 7</value>
+  </data>
+  <data name="&gt;&gt;chkbPalletCorners.Parent" xml:space="preserve">
+    <value>tabPagePalletCorners</value>
+  </data>
+  <data name="gridSolutions.Size" type="System.Drawing.Size, System.Drawing">
+    <value>194, 411</value>
+  </data>
+  <data name="tabPagePalletCap.Text" xml:space="preserve">
+    <value>Pallet Cap</value>
+  </data>
+  <data name="&gt;&gt;splitContainerVert.Panel2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="uCtrlMaxPalletHeight.Text" xml:space="preserve">
+    <value>Maximum height</value>
+  </data>
   <data name="&gt;&gt;splitContainerHoriz.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>38</value>
-  </metadata>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 13</value>
+  <data name="&gt;&gt;tabPagePalletFilm.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>784, 561</value>
+  <data name="chkbPalletCorners.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;tabPagePalletCap.Name" xml:space="preserve">
+    <value>tabPagePalletCap</value>
+  </data>
+  <data name="&gt;&gt;uCtrlOptMaximumWeight.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;tabPagePalletCap.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="chkbPalletFilm.Text" xml:space="preserve">
+    <value>Pallet film</value>
+  </data>
+  <data name="graphCtrlSolution.Size" type="System.Drawing.Size, System.Drawing">
+    <value>586, 411</value>
+  </data>
+  <data name="&gt;&gt;uCtrlMaxPalletHeight.Parent" xml:space="preserve">
+    <value>gbStopCriterions</value>
+  </data>
+  <data name="chkbPalletFilm.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;splitContainerVert.Parent" xml:space="preserve">
+    <value>splitContainerHoriz.Panel1</value>
+  </data>
+  <data name="&gt;&gt;tabPagePalletCorners.Name" xml:space="preserve">
+    <value>tabPagePalletCorners</value>
+  </data>
+  <data name="&gt;&gt;splitContainerVert.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitContainer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="tabPagePalletCap.Size" type="System.Drawing.Size, System.Drawing">
+    <value>307, 87</value>
+  </data>
+  <data name="&gt;&gt;tabCtrl.Name" xml:space="preserve">
+    <value>tabCtrl</value>
+  </data>
+  <data name="splitContainerVert.Size" type="System.Drawing.Size, System.Drawing">
+    <value>784, 411</value>
+  </data>
+  <data name="&gt;&gt;chkbPalletCap.Parent" xml:space="preserve">
+    <value>tabPagePalletCap</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>DockContentAnalysisCasePallet</value>
+  </data>
+  <data name="chkbPalletCap.Size" type="System.Drawing.Size, System.Drawing">
+    <value>73, 17</value>
+  </data>
+  <data name="&gt;&gt;uCtrlMaxPalletHeight.Name" xml:space="preserve">
+    <value>uCtrlMaxPalletHeight</value>
+  </data>
+  <data name="gbStopCriterions.Location" type="System.Drawing.Point, System.Drawing">
+    <value>253, 5</value>
+  </data>
+  <data name="&gt;&gt;cbPalletCap.Name" xml:space="preserve">
+    <value>cbPalletCap</value>
+  </data>
+  <data name="uCtrlMaxPalletHeight.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 17</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>treeDiM.StackBuilder.Desktop.DockContentAnalysisEdit, treeDiM.StackBuilder.Desktop, Version=3.0.0.29, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;chkbPalletCap.Name" xml:space="preserve">
+    <value>chkbPalletCap</value>
+  </data>
+  <data name="&gt;&gt;splitContainerHoriz.Panel1.Name" xml:space="preserve">
+    <value>splitContainerHoriz.Panel1</value>
+  </data>
+  <data name="splitContainerVert.SplitterDistance" type="System.Int32, mscorlib">
+    <value>586</value>
+  </data>
+  <data name="&gt;&gt;tabPagePalletFilm.Name" xml:space="preserve">
+    <value>tabPagePalletFilm</value>
+  </data>
+  <data name="&gt;&gt;uCtrlOptMaximumWeight.Name" xml:space="preserve">
+    <value>uCtrlOptMaximumWeight</value>
+  </data>
+  <data name="&gt;&gt;splitContainerVert.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1035,25 +616,121 @@
         AACAAQAAgAEAAMABAADgAQAA8AEAAP//AAA=
 </value>
   </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Case/Pallet analysis...</value>
+  <data name="&gt;&gt;cbPalletCap.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;toolStripButtonBack.Name" xml:space="preserve">
-    <value>toolStripButtonBack</value>
+  <data name="&gt;&gt;chkbPalletCap.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
-  <data name="&gt;&gt;toolStripButtonBack.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;uCtrlMaxPalletHeight.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
-  <data name="&gt;&gt;toolStripButtonReportWord.Name" xml:space="preserve">
-    <value>toolStripButtonReportWord</value>
+  <data name="splitContainerHoriz.Size" type="System.Drawing.Size, System.Drawing">
+    <value>784, 536</value>
   </data>
-  <data name="&gt;&gt;toolStripButtonReportWord.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;cbPalletFilm.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>DockContentAnalysisCasePallet</value>
+  <data name="cbPalletFilm.Size" type="System.Drawing.Size, System.Drawing">
+    <value>150, 21</value>
   </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Desktop.DockContentView, treeDiM.StackBuilder.Desktop, Version=3.0.0.26, Culture=neutral, PublicKeyToken=null</value>
+  <data name="chkbPalletCap.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
+  <data name="cbPalletCorners.Location" type="System.Drawing.Point, System.Drawing">
+    <value>130, 7</value>
+  </data>
+  <data name="&gt;&gt;chkbPalletFilm.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="tabPagePalletCorners.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="&gt;&gt;gridSolutions.Type" xml:space="preserve">
+    <value>SourceGrid.Grid, SourceGrid, Version=4.30.5611.24765, Culture=neutral, PublicKeyToken=df6f5e538749e85d</value>
+  </data>
+  <data name="tabPagePalletCorners.Size" type="System.Drawing.Size, System.Drawing">
+    <value>307, 87</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>784, 561</value>
+  </data>
+  <data name="cbPalletCap.Location" type="System.Drawing.Point, System.Drawing">
+    <value>130, 7</value>
+  </data>
+  <data name="tabPagePalletFilm.Size" type="System.Drawing.Size, System.Drawing">
+    <value>307, 87</value>
+  </data>
+  <data name="&gt;&gt;gridSolutions.Name" xml:space="preserve">
+    <value>gridSolutions</value>
+  </data>
+  <data name="tabPagePalletCap.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;splitContainerHoriz.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitContainer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabPagePalletCorners.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;chkbPalletCap.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="tabPagePalletCorners.Text" xml:space="preserve">
+    <value>Pallet Corners</value>
+  </data>
+  <data name="tabPagePalletCap.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="&gt;&gt;gbStopCriterions.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="tabPagePalletFilm.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="chkbPalletCap.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;cbInterlayer.Parent" xml:space="preserve">
+    <value>gbLayer</value>
+  </data>
+  <data name="&gt;&gt;cbPalletFilm.Name" xml:space="preserve">
+    <value>cbPalletFilm</value>
+  </data>
+  <data name="chkbPalletFilm.Size" type="System.Drawing.Size, System.Drawing">
+    <value>70, 17</value>
+  </data>
+  <data name="uCtrlMaxPalletHeight.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>100, 20</value>
+  </data>
+  <data name="&gt;&gt;tabPagePalletCap.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="tabCtrl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>469, 8</value>
+  </data>
+  <data name="chkbPalletCap.Text" xml:space="preserve">
+    <value>Pallet cap</value>
+  </data>
+  <data name="chkbPalletFilm.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="tabPagePalletCorners.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="&gt;&gt;gbStopCriterions.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;splitContainerHoriz.Panel2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="cbPalletCap.Size" type="System.Drawing.Size, System.Drawing">
+    <value>150, 21</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>38</value>
+  </metadata>
 </root>

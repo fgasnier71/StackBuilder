@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormOptimiseMultiCase));
-            this.bnClose = new System.Windows.Forms.Button();
-            this.lbBox = new System.Windows.Forms.Label();
-            this.lbCases = new System.Windows.Forms.Label();
-            this.chklbCases = new System.Windows.Forms.CheckedListBox();
             this.splitContainerHoriz = new System.Windows.Forms.SplitContainer();
             this.gridSolutions = new SourceGrid.Grid();
             this.cbBoxes = new treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered();
             this.uCtrlCaseOrient = new treeDiM.StackBuilder.Graphics.uCtrlCaseOrientation();
+            this.chklbCases = new System.Windows.Forms.CheckedListBox();
+            this.bnClose = new System.Windows.Forms.Button();
+            this.lbCases = new System.Windows.Forms.Label();
+            this.lbBox = new System.Windows.Forms.Label();
             this.bnCreateAnalysis = new System.Windows.Forms.Button();
             this.tbAnalysisDescription = new System.Windows.Forms.TextBox();
             this.tbAnalysisName = new System.Windows.Forms.TextBox();
@@ -53,31 +53,6 @@
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
             // 
-            // bnClose
-            // 
-            resources.ApplyResources(this.bnClose, "bnClose");
-            this.bnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.bnClose.Name = "bnClose";
-            this.bnClose.UseVisualStyleBackColor = true;
-            // 
-            // lbBox
-            // 
-            resources.ApplyResources(this.lbBox, "lbBox");
-            this.lbBox.Name = "lbBox";
-            // 
-            // lbCases
-            // 
-            resources.ApplyResources(this.lbCases, "lbCases");
-            this.lbCases.Name = "lbCases";
-            // 
-            // chklbCases
-            // 
-            this.chklbCases.CheckOnClick = true;
-            this.chklbCases.FormattingEnabled = true;
-            resources.ApplyResources(this.chklbCases, "chklbCases");
-            this.chklbCases.Name = "chklbCases";
-            this.chklbCases.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.onCaseChecked);
-            // 
             // splitContainerHoriz
             // 
             resources.ApplyResources(this.splitContainerHoriz, "splitContainerHoriz");
@@ -85,6 +60,7 @@
             // 
             // splitContainerHoriz.Panel1
             // 
+            resources.ApplyResources(this.splitContainerHoriz.Panel1, "splitContainerHoriz.Panel1");
             this.splitContainerHoriz.Panel1.Controls.Add(this.gridSolutions);
             this.splitContainerHoriz.Panel1.Controls.Add(this.cbBoxes);
             this.splitContainerHoriz.Panel1.Controls.Add(this.uCtrlCaseOrient);
@@ -95,6 +71,7 @@
             // 
             // splitContainerHoriz.Panel2
             // 
+            resources.ApplyResources(this.splitContainerHoriz.Panel2, "splitContainerHoriz.Panel2");
             this.splitContainerHoriz.Panel2.Controls.Add(this.bnCreateAnalysis);
             this.splitContainerHoriz.Panel2.Controls.Add(this.tbAnalysisDescription);
             this.splitContainerHoriz.Panel2.Controls.Add(this.tbAnalysisName);
@@ -115,21 +92,46 @@
             // 
             // cbBoxes
             // 
+            resources.ApplyResources(this.cbBoxes, "cbBoxes");
             this.cbBoxes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbBoxes.FormattingEnabled = true;
-            resources.ApplyResources(this.cbBoxes, "cbBoxes");
             this.cbBoxes.Name = "cbBoxes";
             this.cbBoxes.SelectedIndexChanged += new System.EventHandler(this.onBoxChanged);
             // 
             // uCtrlCaseOrient
             // 
+            resources.ApplyResources(this.uCtrlCaseOrient, "uCtrlCaseOrient");
             this.uCtrlCaseOrient.AllowedOrientations = new bool[] {
         false,
         false,
         true};
-            resources.ApplyResources(this.uCtrlCaseOrient, "uCtrlCaseOrient");
             this.uCtrlCaseOrient.Name = "uCtrlCaseOrient";
             this.uCtrlCaseOrient.CheckedChanged += new treeDiM.StackBuilder.Graphics.uCtrlCaseOrientation.CheckChanged(this.onOrientationChanged);
+            // 
+            // chklbCases
+            // 
+            resources.ApplyResources(this.chklbCases, "chklbCases");
+            this.chklbCases.CheckOnClick = true;
+            this.chklbCases.FormattingEnabled = true;
+            this.chklbCases.Name = "chklbCases";
+            this.chklbCases.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.onCaseChecked);
+            // 
+            // bnClose
+            // 
+            resources.ApplyResources(this.bnClose, "bnClose");
+            this.bnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.bnClose.Name = "bnClose";
+            this.bnClose.UseVisualStyleBackColor = true;
+            // 
+            // lbCases
+            // 
+            resources.ApplyResources(this.lbCases, "lbCases");
+            this.lbCases.Name = "lbCases";
+            // 
+            // lbBox
+            // 
+            resources.ApplyResources(this.lbBox, "lbBox");
+            this.lbBox.Name = "lbBox";
             // 
             // bnCreateAnalysis
             // 
@@ -166,15 +168,15 @@
             // 
             // statusStrip
             // 
+            resources.ApplyResources(this.statusStrip, "statusStrip");
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabelDef});
-            resources.ApplyResources(this.statusStrip, "statusStrip");
             this.statusStrip.Name = "statusStrip";
             // 
             // toolStripStatusLabelDef
             // 
-            this.toolStripStatusLabelDef.Name = "toolStripStatusLabelDef";
             resources.ApplyResources(this.toolStripStatusLabelDef, "toolStripStatusLabelDef");
+            this.toolStripStatusLabelDef.Name = "toolStripStatusLabelDef";
             // 
             // FormOptimiseMultiCase
             // 

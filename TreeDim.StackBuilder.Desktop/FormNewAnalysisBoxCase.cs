@@ -43,8 +43,8 @@ namespace treeDiM.StackBuilder.Desktop
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
-            cbBoxes.Initialize(_document, this, null);
-            cbCases.Initialize(_document, this, null);
+            cbBoxes.Initialize(_document, this, null != AnalysisCast ? AnalysisCast.Content : null);
+            cbCases.Initialize(_document, this, null != AnalysisCast ? AnalysisCast.Container : null);
 
             // event handling
             uCtrlLayerList.LayerSelected += onLayerSelected;

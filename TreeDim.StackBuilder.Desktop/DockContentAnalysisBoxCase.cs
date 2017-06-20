@@ -45,13 +45,12 @@ namespace treeDiM.StackBuilder.Desktop
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
-
-            if (!DesignMode)
-                this.Text = _analysis.Name + " - " + _analysis.ParentDocument.Name;
         }
         #endregion
 
         #region Override DockContentAnalysisEdit
+        public override string GridCaption
+        {   get { return Resources.ID_CASE; } }
         public override void FillGrid()
         {
             // clear grid
@@ -73,7 +72,7 @@ namespace treeDiM.StackBuilder.Desktop
             veHeaderCaption.Border = DevAge.Drawing.RectangleBorder.NoBorder;
             captionHeader.Background = veHeaderCaption;
             captionHeader.ForeColor = Color.Black;
-            captionHeader.Font = new Font("Arial", 10, FontStyle.Bold);
+            captionHeader.Font = new Font("Arial", 9, FontStyle.Bold);
             captionHeader.TextAlignment = DevAge.Drawing.ContentAlignment.MiddleCenter;
             // viewRowHeader
             SourceGrid.Cells.Views.RowHeader viewRowHeader = new SourceGrid.Cells.Views.RowHeader();
@@ -82,7 +81,7 @@ namespace treeDiM.StackBuilder.Desktop
             backHeader.Border = DevAge.Drawing.RectangleBorder.NoBorder;
             viewRowHeader.Background = backHeader;
             viewRowHeader.ForeColor = Color.Black;
-            viewRowHeader.Font = new Font("Arial", 10, FontStyle.Regular);
+            viewRowHeader.Font = new Font("Arial", 9, FontStyle.Regular);
             // viewNormal
             CellBackColorAlternate viewNormal = new CellBackColorAlternate(Color.LightBlue, Color.White);
             // ***
@@ -174,7 +173,7 @@ namespace treeDiM.StackBuilder.Desktop
                 noLayerTypesUsed += _solution.Layers[i].BoxCount > 0 ? 1 : 0;
 
             // ### layers : begin
-            for (int i = 0; i < _solution.Layers.Count; ++i)
+            for (int i = 0; i < _solution.NoLayerTypesUsed; ++i)
             {
                 // layer caption
                 gridSolutions.Rows.Insert(++iRow);

@@ -106,11 +106,12 @@
   <str name="Case filling constraint">Contraintes encaissage</str>
   <str name="Limit reached">Limite atteinte</str>
   <str name="Index">Index</str>
-  <str name="PalletCorner">Cornières</str>
-  <str name="PalletCap">Coiffe</str>
-  <str name="PalletFilm">Film</str>
+  <str name="Pallet corner">Cornières</str>
+  <str name="Pallet cap">Coiffe</str>
+  <str name="Pallet film">Film</str>
   <str name="NumberOfTurns">Nombre de tours</str>
   <str name="Pack">Fardeau</str>
+  <str name="Truck">Camion</str>
   <str name="Arrangement">Disposition</str>
   <str name="Dimensions">Dimensions</str>
   <str name="Net weight">Poid nets</str>

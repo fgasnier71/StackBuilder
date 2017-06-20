@@ -28,7 +28,7 @@ namespace treeDiM.StackBuilder.Basics
         #region Override ConstraintSetAbstract
         public override bool AllowOrientation(HalfAxis.HAxis axisOrtho)
         { return axisOrtho == HalfAxis.HAxis.AXIS_Z_P; }
-        public override string AllowedOrientations
+        public override string AllowedOrientationsString
         {
             get { return "0,0,1"; }
             set {}

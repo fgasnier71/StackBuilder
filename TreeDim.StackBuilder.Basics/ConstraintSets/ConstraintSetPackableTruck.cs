@@ -92,7 +92,7 @@ namespace treeDiM.StackBuilder.Basics
                     throw new Exception("Invalid axis");
             }
         }
-        public override string AllowedOrientations
+        public override string AllowedOrientationsString
         {
             get
             {
@@ -125,7 +125,9 @@ namespace treeDiM.StackBuilder.Basics
 
         #region ConstraintSetCaseTruck specific
         public void SetAllowedOrientations(bool[] axesAllowed)
-        { _axesAllowed = axesAllowed; }
+        {
+            _axesAllowed = axesAllowed; 
+        }
         #endregion
     }
     #endregion
