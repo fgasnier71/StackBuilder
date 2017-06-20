@@ -79,6 +79,24 @@ namespace treeDiM.StackBuilder.Reporting.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Report.
+        /// </summary>
+        internal static string ID_REPORT {
+            get {
+                return ResourceManager.GetString("ID_REPORT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Report {0}.
+        /// </summary>
+        internal static string ID_REPORTANALYSIS {
+            get {
+                return ResourceManager.GetString("ID_REPORTANALYSIS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Analysis ({0}).
         /// </summary>
         internal static string ID_RN_ANALYSIS {

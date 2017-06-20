@@ -33,11 +33,11 @@ namespace treeDiM.StackBuilder.Reporting
         {
             base.OnLoad(e);
             // caption
-            Text = string.Format("Report {0}", _analysis.Name);
+            Text = string.Format(Resources.ID_REPORTANALYSIS, _analysis.Name);
             // toolbar show dimension
             toolSBDimensions.Checked = Settings.Default.ShowDimensions;
             // tree initialize root
-            _rnRoot = new ReportNode("Report");
+            _rnRoot = new ReportNode(Resources.ID_REPORT);
             try
             {
                 // font size controls
@@ -227,20 +227,32 @@ namespace treeDiM.StackBuilder.Reporting
                 _log.Error(ex.Message);
             }
         }
+        private void onReportPrint(object sender, EventArgs e)
+        {
+            WebBrowser wb = new WebBrowser();
+            wb.DocumentCompleted += new WebBrowserDocumentCompletedEventHandler(onDocumentCompleted);
+            wb.Navigate(_outputFilePath);
+            wb.Print();
+        }
+        void onDocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
+        {
+            try
+            {
+                WebBrowser wb = (WebBrowser)sender;
+                if (wb.ReadyState.Equals(WebBrowserReadyState.Complete))
+                    wb.ShowPrintDialog();
+            }
+            catch (Exception ex)
+            {
+                _log.Error(ex.ToString());
+            }
+        }
         private void onNodeChecked(object sender, TreeViewEventArgs e)
         {
             ReportNode rn = e.Node.Tag as ReportNode;
             if (null != rn)
                 rn.Activated = !rn.Activated;
             UpdateReport();
-        }
-        private static string CleanString(string name)
-        {
-            string nameCopy = name;
-            char[] specialChars = { ' ', '*', '.', ';', ':' };
-            foreach (char c in specialChars)
-                nameCopy = nameCopy.Replace(c, '_');
-            return nameCopy;
         }
         private void onShowDimensions(object sender, EventArgs e)
         {
@@ -251,6 +263,17 @@ namespace treeDiM.StackBuilder.Reporting
         private void onUpdateReport(object sender, EventArgs e)
         {
             UpdateReport();
+        }
+        #endregion
+
+        #region Helpers
+        private static string CleanString(string name)
+        {
+            string nameCopy = name;
+            char[] specialChars = { ' ', '*', '.', ';', ':' };
+            foreach (char c in specialChars)
+                nameCopy = nameCopy.Replace(c, '_');
+            return nameCopy;
         }
         #endregion
 

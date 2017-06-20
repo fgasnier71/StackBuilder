@@ -117,6 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ID_REPORT" xml:space="preserve">
+    <value>Rapport</value>
+  </data>
+  <data name="ID_REPORTANALYSIS" xml:space="preserve">
+    <value>Rapport {0}</value>
+  </data>
   <data name="ID_RN_ANALYSIS" xml:space="preserve">
     <value>Analyse ({0})</value>
   </data>

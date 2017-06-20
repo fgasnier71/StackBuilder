@@ -123,6 +123,12 @@
   <data name="ID_FILTER_MSWORD" xml:space="preserve">
     <value>Microsoft Office Word (*.doc;*.docx)|*.doc;*.docx|All Files (*.*)|*.*</value>
   </data>
+  <data name="ID_REPORT" xml:space="preserve">
+    <value>Report</value>
+  </data>
+  <data name="ID_REPORTANALYSIS" xml:space="preserve">
+    <value>Report {0}</value>
+  </data>
   <data name="ID_RN_ANALYSIS" xml:space="preserve">
     <value>Analysis ({0})</value>
   </data>

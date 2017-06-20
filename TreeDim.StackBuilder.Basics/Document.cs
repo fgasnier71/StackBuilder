@@ -1890,20 +1890,20 @@ namespace treeDiM.StackBuilder.Basics
             string sid = eltTruckProperties.Attributes["Id"].Value;
             string sName = eltTruckProperties.Attributes["Name"].Value;
             string sDescription = eltTruckProperties.Attributes["Description"].Value;
-            string slength = eltTruckProperties.Attributes["Length"].Value;
-            string swidth = eltTruckProperties.Attributes["Width"].Value;
-            string sheight = eltTruckProperties.Attributes["Height"].Value;
-            string sadmissibleLoadWeight = eltTruckProperties.Attributes["AdmissibleLoadWeight"].Value;
+            double length = double.Parse(eltTruckProperties.Attributes["Length"].Value, CultureInfo.InvariantCulture);
+            double width = double.Parse(eltTruckProperties.Attributes["Width"].Value, CultureInfo.InvariantCulture);
+            double height = double.Parse(eltTruckProperties.Attributes["Height"].Value, CultureInfo.InvariantCulture);
+            double admissibleLoadWeight = double.Parse(eltTruckProperties.Attributes["AdmissibleLoadWeight"].Value, CultureInfo.InvariantCulture);
             string sColor = eltTruckProperties.Attributes["Color"].Value;
 
             // create new truck
             TruckProperties truckProperties = CreateNewTruck(
                 sName
                 , sDescription
-                , UnitsManager.ConvertLengthFrom(Convert.ToDouble(slength), _unitSystem)
-                , UnitsManager.ConvertLengthFrom(Convert.ToDouble(swidth), _unitSystem)
-                , UnitsManager.ConvertLengthFrom(Convert.ToDouble(sheight), _unitSystem)
-                , UnitsManager.ConvertMassFrom(Convert.ToDouble(sadmissibleLoadWeight), _unitSystem)
+                , UnitsManager.ConvertLengthFrom(length, _unitSystem)
+                , UnitsManager.ConvertLengthFrom(width, _unitSystem)
+                , UnitsManager.ConvertLengthFrom(height, _unitSystem)
+                , UnitsManager.ConvertMassFrom(admissibleLoadWeight, _unitSystem)
                 , Color.FromArgb(System.Convert.ToInt32(sColor)));
             truckProperties.ID.IGuid = new Guid(sid);
         }
