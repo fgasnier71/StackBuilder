@@ -337,7 +337,7 @@ namespace treeDiM.StackBuilder.Desktop
                     if (form.ShowDialog() == DialogResult.OK)
                     {
                         if (!UserAcknowledgeDependancies(cylinderProperties)) return;
-                        cylinderProperties.ID.SetNameDesc(form.CylinderName, form.Description);
+                        cylinderProperties.ID.SetNameDesc(form.ItemName, form.ItemDescription);
                         cylinderProperties.RadiusOuter = form.RadiusOuter;
                         cylinderProperties.RadiusInner = form.RadiusInner;
                         cylinderProperties.Height = form.CylinderHeight;
@@ -387,7 +387,7 @@ namespace treeDiM.StackBuilder.Desktop
                     if (DialogResult.OK == form.ShowDialog())
                     {
                         if (!UserAcknowledgeDependancies(interlayer)) return;
-                        interlayer.ID.SetNameDesc(form.InterlayerName, form.Description);
+                        interlayer.ID.SetNameDesc(form.ItemName, form.ItemDescription);
                         interlayer.Length = form.InterlayerLength;
                         interlayer.Width = form.InterlayerWidth;
                         interlayer.Thickness = form.Thickness;
@@ -420,7 +420,7 @@ namespace treeDiM.StackBuilder.Desktop
                     if (DialogResult.OK == form.ShowDialog())
                     {
                         if (!UserAcknowledgeDependancies(truck)) return;
-                        truck.ID.SetNameDesc(form.TruckName, form.Description);
+                        truck.ID.SetNameDesc(form.ItemName, form.ItemDescription);
                         truck.Length = form.TruckLength;
                         truck.Width = form.TruckWidth;
                         truck.Height = form.TruckHeight;

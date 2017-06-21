@@ -49,58 +49,61 @@ namespace treeDiM.StackBuilder.Desktop
         public FormNewBox(Document document, Mode mode)
         {
             InitializeComponent();
-            // set unit labels
-            UnitsManager.AdaptUnitLabels(this);
-            // save document reference
-            _document = document;
-            // mode
-            _mode = mode;
-
-            switch (_mode)
+            if (!DesignMode)
             {
-                case Mode.MODE_CASE:
-                    tbName.Text = _document.GetValidNewTypeName(Resources.ID_CASE);
-                    uCtrlDimensionsOuter.ValueX = UnitsManager.ConvertLengthFrom(400.0, UnitsManager.UnitSystem.UNIT_METRIC1);
-                    uCtrlDimensionsOuter.ValueY = UnitsManager.ConvertLengthFrom(300.0, UnitsManager.UnitSystem.UNIT_METRIC1);
-                    uCtrlDimensionsOuter.ValueZ = UnitsManager.ConvertLengthFrom(200.0, UnitsManager.UnitSystem.UNIT_METRIC1);
-                    uCtrlDimensionsInner.Value = new Vector3D(
-                        uCtrlDimensionsOuter.ValueX - UnitsManager.ConvertLengthFrom(6.0, UnitsManager.UnitSystem.UNIT_METRIC1),
-                        uCtrlDimensionsOuter.ValueY - UnitsManager.ConvertLengthFrom(6.0, UnitsManager.UnitSystem.UNIT_METRIC1),
-                        uCtrlDimensionsOuter.ValueZ - UnitsManager.ConvertLengthFrom(6.0, UnitsManager.UnitSystem.UNIT_METRIC1));
-                    uCtrlDimensionsInner.Checked = false;
-                    uCtrlTapeWidth.Value = new OptDouble(true, UnitsManager.ConvertLengthFrom(50, UnitsManager.UnitSystem.UNIT_METRIC1));
-                    cbTapeColor.Color = Color.Beige;
-                    break;
-                case Mode.MODE_BOX:
-                    tbName.Text = _document.GetValidNewTypeName(Resources.ID_BOX);
-                    uCtrlDimensionsOuter.ValueX = UnitsManager.ConvertLengthFrom(120.0, UnitsManager.UnitSystem.UNIT_METRIC1);
-                    uCtrlDimensionsOuter.ValueY = UnitsManager.ConvertLengthFrom(60.0, UnitsManager.UnitSystem.UNIT_METRIC1);
-                    uCtrlDimensionsOuter.ValueZ = UnitsManager.ConvertLengthFrom(30.0, UnitsManager.UnitSystem.UNIT_METRIC1);
-                    uCtrlDimensionsInner.Value = new Vector3D(
-                        uCtrlDimensionsOuter.ValueX - UnitsManager.ConvertLengthFrom(6.0, UnitsManager.UnitSystem.UNIT_METRIC1),
-                        uCtrlDimensionsOuter.ValueY - UnitsManager.ConvertLengthFrom(6.0, UnitsManager.UnitSystem.UNIT_METRIC1),
-                        uCtrlDimensionsOuter.ValueZ - UnitsManager.ConvertLengthFrom(6.0, UnitsManager.UnitSystem.UNIT_METRIC1));
-                    uCtrlDimensionsInner.Checked = false;
-                    break;
-                default:
-                    break;
+                // set unit labels
+                UnitsManager.AdaptUnitLabels(this);
+                // save document reference
+                _document = document;
+                // mode
+                _mode = mode;
+
+                switch (_mode)
+                {
+                    case Mode.MODE_CASE:
+                        tbName.Text = _document.GetValidNewTypeName(Resources.ID_CASE);
+                        uCtrlDimensionsOuter.ValueX = UnitsManager.ConvertLengthFrom(400.0, UnitsManager.UnitSystem.UNIT_METRIC1);
+                        uCtrlDimensionsOuter.ValueY = UnitsManager.ConvertLengthFrom(300.0, UnitsManager.UnitSystem.UNIT_METRIC1);
+                        uCtrlDimensionsOuter.ValueZ = UnitsManager.ConvertLengthFrom(200.0, UnitsManager.UnitSystem.UNIT_METRIC1);
+                        uCtrlDimensionsInner.Value = new Vector3D(
+                            uCtrlDimensionsOuter.ValueX - UnitsManager.ConvertLengthFrom(6.0, UnitsManager.UnitSystem.UNIT_METRIC1),
+                            uCtrlDimensionsOuter.ValueY - UnitsManager.ConvertLengthFrom(6.0, UnitsManager.UnitSystem.UNIT_METRIC1),
+                            uCtrlDimensionsOuter.ValueZ - UnitsManager.ConvertLengthFrom(6.0, UnitsManager.UnitSystem.UNIT_METRIC1));
+                        uCtrlDimensionsInner.Checked = false;
+                        uCtrlTapeWidth.Value = new OptDouble(true, UnitsManager.ConvertLengthFrom(50, UnitsManager.UnitSystem.UNIT_METRIC1));
+                        cbTapeColor.Color = Color.Beige;
+                        break;
+                    case Mode.MODE_BOX:
+                        tbName.Text = _document.GetValidNewTypeName(Resources.ID_BOX);
+                        uCtrlDimensionsOuter.ValueX = UnitsManager.ConvertLengthFrom(120.0, UnitsManager.UnitSystem.UNIT_METRIC1);
+                        uCtrlDimensionsOuter.ValueY = UnitsManager.ConvertLengthFrom(60.0, UnitsManager.UnitSystem.UNIT_METRIC1);
+                        uCtrlDimensionsOuter.ValueZ = UnitsManager.ConvertLengthFrom(30.0, UnitsManager.UnitSystem.UNIT_METRIC1);
+                        uCtrlDimensionsInner.Value = new Vector3D(
+                            uCtrlDimensionsOuter.ValueX - UnitsManager.ConvertLengthFrom(6.0, UnitsManager.UnitSystem.UNIT_METRIC1),
+                            uCtrlDimensionsOuter.ValueY - UnitsManager.ConvertLengthFrom(6.0, UnitsManager.UnitSystem.UNIT_METRIC1),
+                            uCtrlDimensionsOuter.ValueZ - UnitsManager.ConvertLengthFrom(6.0, UnitsManager.UnitSystem.UNIT_METRIC1));
+                        uCtrlDimensionsInner.Checked = false;
+                        break;
+                    default:
+                        break;
+                }
+                // description (same as name)
+                tbDescription.Text = tbName.Text;
+                // color : all faces set together / face by face
+                chkAllFaces.Checked = false;
+                chkAllFaces_CheckedChanged(this, null);
+                // set colors
+                for (int i = 0; i < 6; ++i)
+                    _faceColors[i] = _mode == Mode.MODE_BOX ? Color.Turquoise : Color.Chocolate;
+                // set textures
+                _textures = new List<Pair<HalfAxis.HAxis, Texture>>();
+                // set default face
+                cbFace.SelectedIndex = 0;
+                // net weight
+                NetWeight = new OptDouble(false, UnitsManager.ConvertMassFrom(0.0, UnitsManager.UnitSystem.UNIT_METRIC1));
+                // disable Ok button
+                UpdateButtonOkStatus();
             }
-            // description (same as name)
-            tbDescription.Text = tbName.Text;
-            // color : all faces set together / face by face
-            chkAllFaces.Checked = false;
-            chkAllFaces_CheckedChanged(this, null);
-            // set colors
-            for (int i=0; i<6; ++i)
-                _faceColors[i] = _mode == Mode.MODE_BOX ? Color.Turquoise : Color.Chocolate;
-            // set textures
-            _textures = new List<Pair<HalfAxis.HAxis, Texture>>();
-            // set default face
-            cbFace.SelectedIndex = 0;
-            // net weight
-            NetWeight = new OptDouble(false, UnitsManager.ConvertMassFrom(0.0, UnitsManager.UnitSystem.UNIT_METRIC1));
-            // disable Ok button
-            UpdateButtonOkStatus();
         }
         /// <summary>
         /// FormNewBox constructor used to edit existing boxes
@@ -110,41 +113,44 @@ namespace treeDiM.StackBuilder.Desktop
         public FormNewBox(Document document, BoxProperties boxProperties)
         { 
             InitializeComponent();
-            // set unit labels
-            UnitsManager.AdaptUnitLabels(this);
-            // save document reference
-            _document = document;
-            _boxProperties = boxProperties;
-            _mode = boxProperties.HasInsideDimensions ? Mode.MODE_CASE : Mode.MODE_BOX;
-            // set colors
-            for (int i=0; i<6; ++i)
-                _faceColors[i] = _boxProperties.Colors[i];
-            // set textures
-            _textures = _boxProperties.TextureListCopy;
-            // set caption text
-            Text = string.Format(Properties.Resources.ID_EDIT, _boxProperties.Name);
-            // initialize value
-            tbName.Text = _boxProperties.Name;
-            tbDescription.Text = _boxProperties.Description;
-            uCtrlDimensionsOuter.ValueX = _boxProperties.Length;
-            uCtrlDimensionsOuter.ValueY = _boxProperties.Width;
-            uCtrlDimensionsOuter.ValueZ = _boxProperties.Height;
-            uCtrlDimensionsInner.Value = new Vector3D(_boxProperties.InsideLength, _boxProperties.InsideWidth, _boxProperties.InsideHeight);
-            uCtrlDimensionsInner.Checked = _boxProperties.HasInsideDimensions;
-            // weight
-            vcWeight.Value = _boxProperties.Weight;
-            // net weight
-            uCtrlNetWeight.Value = _boxProperties.NetWeight;
-            // color : all faces set together / face by face
-            chkAllFaces.Checked = _boxProperties.UniqueColor;
-            chkAllFaces_CheckedChanged(this, null);
-            // tape
-            uCtrlTapeWidth.Value = _boxProperties.TapeWidth;
-            cbTapeColor.Color = _boxProperties.TapeColor;
-            // set default face
-            cbFace.SelectedIndex = 0;
-            // disable Ok button
-            UpdateButtonOkStatus();
+            if (!DesignMode)
+            {
+                // set unit labels
+                UnitsManager.AdaptUnitLabels(this);
+                // save document reference
+                _document = document;
+                _boxProperties = boxProperties;
+                _mode = boxProperties.HasInsideDimensions ? Mode.MODE_CASE : Mode.MODE_BOX;
+                // set colors
+                for (int i = 0; i < 6; ++i)
+                    _faceColors[i] = _boxProperties.Colors[i];
+                // set textures
+                _textures = _boxProperties.TextureListCopy;
+                // set caption text
+                Text = string.Format(Properties.Resources.ID_EDIT, _boxProperties.Name);
+                // initialize value
+                tbName.Text = _boxProperties.Name;
+                tbDescription.Text = _boxProperties.Description;
+                uCtrlDimensionsOuter.ValueX = _boxProperties.Length;
+                uCtrlDimensionsOuter.ValueY = _boxProperties.Width;
+                uCtrlDimensionsOuter.ValueZ = _boxProperties.Height;
+                uCtrlDimensionsInner.Value = new Vector3D(_boxProperties.InsideLength, _boxProperties.InsideWidth, _boxProperties.InsideHeight);
+                uCtrlDimensionsInner.Checked = _boxProperties.HasInsideDimensions;
+                // weight
+                vcWeight.Value = _boxProperties.Weight;
+                // net weight
+                uCtrlNetWeight.Value = _boxProperties.NetWeight;
+                // color : all faces set together / face by face
+                chkAllFaces.Checked = _boxProperties.UniqueColor;
+                chkAllFaces_CheckedChanged(this, null);
+                // tape
+                uCtrlTapeWidth.Value = _boxProperties.TapeWidth;
+                cbTapeColor.Color = _boxProperties.TapeColor;
+                // set default face
+                cbFace.SelectedIndex = 0;
+                // disable Ok button
+                UpdateButtonOkStatus();
+            }
         }
         #endregion
 

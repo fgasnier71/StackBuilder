@@ -20,65 +20,48 @@ using treeDiM.PLMPack.DBClient.PLMPackSR;
 
 namespace treeDiM.StackBuilder.Desktop
 {
-    public partial class FormNewTruck : Form, IDrawingContainer
+    public partial class FormNewTruck : FormNewBase, IDrawingContainer
     {
         #region Data members
-        [NonSerialized]private Document _document;
-        [NonSerialized]private TruckProperties _truckProperties;
         static readonly ILog _log = LogManager.GetLogger(typeof(FormNewTruck));
         #endregion
 
         #region Constructor
-        /// <summary>
-        /// Constructor (new truck properties)
-        /// </summary>
-        /// <param name="document">Document to which the new item will belong</param>
-        public FormNewTruck(Document document)
-        {
-            InitializeComponent();
-            // set unit labels
-            UnitsManager.AdaptUnitLabels(this);
-            // save document reference
-            _document = document;
-
-            // initialize data
-            tbName.Text = _document.GetValidNewTypeName(Resources.ID_TRUCK);
-            TruckLength = UnitsManager.ConvertLengthFrom(13600, UnitsManager.UnitSystem.UNIT_METRIC1);
-            TruckWidth = UnitsManager.ConvertLengthFrom(2450, UnitsManager.UnitSystem.UNIT_METRIC1);
-            TruckHeight = UnitsManager.ConvertLengthFrom(2700, UnitsManager.UnitSystem.UNIT_METRIC1);
-            TruckAdmissibleLoadWeight = UnitsManager.ConvertMassFrom(38000, UnitsManager.UnitSystem.UNIT_METRIC1);
-            TruckColor = Color.LightBlue;
-            // description
-            tbDescription.Text = tbName.Text;
-            // disable Ok button
-            UpdateButtonOkStatus();
-        }
         /// <summary>
         /// Constructor (edit existing properties)
         /// </summary>
         /// <param name="document">Document to which the edited item belongs</param>
         /// <param name="truckProperties">Edited item</param>
         public FormNewTruck(Document document, TruckProperties truckProperties)
+            : base(document, truckProperties)
         {
             InitializeComponent();
-            // set unit labels
-            UnitsManager.AdaptUnitLabels(this);
-            // save document reference
-            _document = document;
-            _truckProperties = truckProperties;
-            // set caption text
-            Text = string.Format(Properties.Resources.ID_EDIT, _truckProperties.Name);
             // initialize data
-            tbName.Text = _truckProperties.Name;
-            tbDescription.Text = _truckProperties.Description;
-            TruckLength = _truckProperties.Length;
-            TruckWidth = _truckProperties.Width;
-            TruckHeight = _truckProperties.Height;
-            TruckAdmissibleLoadWeight = _truckProperties.AdmissibleLoadWeight;
-            TruckColor = _truckProperties.Color;
-            // disable Ok button
-            UpdateButtonOkStatus();
+            if (null != truckProperties)
+            {
+                TruckLength = truckProperties.Length;
+                TruckWidth = truckProperties.Width;
+                TruckHeight = truckProperties.Height;
+                TruckAdmissibleLoadWeight = truckProperties.AdmissibleLoadWeight;
+                TruckColor = truckProperties.Color;
+            }
+            else
+            { 
+                TruckLength = UnitsManager.ConvertLengthFrom(13600, UnitsManager.UnitSystem.UNIT_METRIC1);
+                TruckWidth = UnitsManager.ConvertLengthFrom(2450, UnitsManager.UnitSystem.UNIT_METRIC1);
+                TruckHeight = UnitsManager.ConvertLengthFrom(2700, UnitsManager.UnitSystem.UNIT_METRIC1);
+                TruckAdmissibleLoadWeight = UnitsManager.ConvertMassFrom(38000, UnitsManager.UnitSystem.UNIT_METRIC1);
+                TruckColor = Color.LightBlue;            
+            }
+            UpdateStatus(string.Empty);
+            // units
+            UnitsManager.AdaptUnitLabels(this);
         }
+        #endregion
+
+        #region FormNewBase overrides
+        public override string ItemDefaultName
+        {   get { return Resources.ID_TRUCK; } }
         #endregion
 
         #region Form override
@@ -101,57 +84,26 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Public properties
-        /// <summary>
-        /// truck name
-        /// </summary>
-        public string TruckName
-        {
-            get { return tbName.Text; }
-            set { tbName.Text = value; }
-        }
-        /// <summary>
-        /// truck description
-        /// </summary>
-        public string Description
-        {
-            get { return tbDescription.Text; }
-            set { tbDescription.Text = value; }
-        }
-        /// <summary>
-        /// truck length
-        /// </summary>
         public double TruckLength
         {
-            get { return System.Convert.ToDouble(nudLength.Text); }
-            set { nudLength.Text = string.Format("{0}", value); }
+            get { return uCtrlInnerDimensions.ValueX; }
+            set { uCtrlInnerDimensions.ValueX = value; }
         }
-        /// <summary>
-        /// truck width
-        /// </summary>
         public double TruckWidth
         {
-            get { return System.Convert.ToDouble(nudWidth.Text); }
-            set { nudWidth.Text = string.Format("{0}", value); }
+            get { return uCtrlInnerDimensions.ValueY; }
+            set { uCtrlInnerDimensions.ValueY = value; }
         }
-        /// <summary>
-        /// truck height
-        /// </summary>
         public double TruckHeight
         {
-            get { return System.Convert.ToDouble(nudHeight.Text); }
-            set { nudHeight.Text = string.Format("{0}", value); }
+            get { return uCtrlInnerDimensions.ValueZ; }
+            set { uCtrlInnerDimensions.ValueZ = value; }
         }
-        /// <summary>
-        /// truck admissible load weight
-        /// </summary>
         public double TruckAdmissibleLoadWeight
         {
-            get { return System.Convert.ToDouble(nudAdmissibleLoadWeight.Text); }
-            set { nudAdmissibleLoadWeight.Text = string.Format("{0}", value); }
+            get { return uCtrlMaxLoadWeight.Value; }
+            set { uCtrlMaxLoadWeight.Value = value; }
         }
-        /// <summary>
-        /// truck color
-        /// </summary>
         public Color TruckColor
         {
             get { return cbColor.Color; }
@@ -174,56 +126,43 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Handlers
-        private void UpdateButtonOkStatus()
+        public override void UpdateStatus(string message)
         {
-            // message ?
-            string message = string.Empty;
-            if (string.IsNullOrEmpty(tbName.Text))
-                message = Resources.ID_FIELDNAMEEMPTY;
-            else if (!_document.IsValidNewTypeName(tbName.Text, _truckProperties))
-                message = string.Format(Resources.ID_INVALIDNAME, tbName.Text);
-            // description ?
-            else if (string.IsNullOrEmpty(tbDescription.Text))
-                message = Resources.ID_FIELDDESCRIPTIONEMPTY;
-            // button OK
-            bnOK.Enabled = string.IsNullOrEmpty(message);
-            // status bar
-            toolStripStatusLabelDef.ForeColor = string.IsNullOrEmpty(message) ? Color.Black : Color.Red;
-            toolStripStatusLabelDef.Text = string.IsNullOrEmpty(message) ? Resources.ID_READY : message;
+            if (!this.DesignMode)
+            { 
+            }
+            base.UpdateStatus(message);
         }
 
         private void onTruckPropertyChanged(object sender, EventArgs e)
         {
+            UpdateStatus(string.Empty);
             graphCtrl.Invalidate();
-        }
-
-        private void onNameDescriptionChanged(object sender, EventArgs e)
-        {
-            UpdateButtonOkStatus();
         }
         #endregion
 
         #region Send to database
-        private void onSendToDB(object sender, EventArgs e)
+        private void onSendToDatabase(object sender, EventArgs e)
         {
             try
             {
                 FormSetItemName form = new FormSetItemName();
-                form.ItemName = TruckName;
+                form.ItemName = ItemName;
                 if (DialogResult.OK == form.ShowDialog())
                 {
                     PLMPackServiceClient client = WCFClientSingleton.Instance.Client;
                     client.CreateNewTruck(new DCSBTruck()
                             {
                                 Name = form.ItemName,
-                                Description = Description,
-                                UnitSystem = 0,
+                                Description = ItemDescription,
+                                UnitSystem = (int)UnitsManager.CurrentUnitSystem,
                                 DimensionsInner = new DCSBDim3D() { M0 = TruckLength, M1 = TruckWidth, M2 = TruckHeight },
                                 AdmissibleLoad = TruckAdmissibleLoadWeight,
                                 Color = TruckColor.ToArgb(),
                                 AutoInsert = false
                             }
                         );
+                    Close();
                 }
             }
             catch (Exception ex)

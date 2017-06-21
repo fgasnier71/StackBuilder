@@ -66,10 +66,10 @@ namespace treeDiM.StackBuilder.Desktop
         }
         public override void UpdateStatus(string message)
         {
-            base.UpdateStatus(message);
-
             if (CornerThickness >= CornerWidth)
                 message = Properties.Resources.ID_INVALIDTHICKNESSWIDTHPAIR;
+
+            base.UpdateStatus(message);
         }
         #endregion
 

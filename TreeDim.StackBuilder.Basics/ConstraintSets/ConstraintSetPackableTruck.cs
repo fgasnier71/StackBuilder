@@ -128,6 +128,8 @@ namespace treeDiM.StackBuilder.Basics
         {
             _axesAllowed = axesAllowed; 
         }
+        public Vector2D MinDistanceLoadWall { get; set; }
+        public double MinDistanceLoadRoof { get; set; }
         #endregion
     }
     #endregion

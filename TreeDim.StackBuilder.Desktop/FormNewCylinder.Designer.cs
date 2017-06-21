@@ -29,12 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormNewCylinder));
-            this.bnCancel = new System.Windows.Forms.Button();
-            this.bnOK = new System.Windows.Forms.Button();
-            this.tbDescription = new System.Windows.Forms.TextBox();
-            this.tbName = new System.Windows.Forms.TextBox();
-            this.lblDescription = new System.Windows.Forms.Label();
-            this.lblName = new System.Windows.Forms.Label();
             this.gbDimensions = new System.Windows.Forms.GroupBox();
             this.uCtrlHeight = new treeDiM.StackBuilder.Basics.UCtrlDouble();
             this.uCtrlDiameterInner = new treeDiM.StackBuilder.Basics.UCtrlDouble();
@@ -43,8 +37,6 @@
             this.uCtrlNetWeight = new treeDiM.StackBuilder.Basics.UCtrlOptDouble();
             this.uCtrlWeight = new treeDiM.StackBuilder.Basics.UCtrlDouble();
             this.graphCtrl = new treeDiM.StackBuilder.Graphics.Graphics3DControl();
-            this.statusStripDef = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabelDef = new System.Windows.Forms.ToolStripStatusLabel();
             this.gbFaceColor = new System.Windows.Forms.GroupBox();
             this.cbColorWallInner = new OfficePickers.ColorPicker.ComboBoxColorPicker();
             this.label1 = new System.Windows.Forms.Label();
@@ -56,45 +48,8 @@
             this.gbDimensions.SuspendLayout();
             this.gbWeight.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.graphCtrl)).BeginInit();
-            this.statusStripDef.SuspendLayout();
             this.gbFaceColor.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // bnCancel
-            // 
-            resources.ApplyResources(this.bnCancel, "bnCancel");
-            this.bnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.bnCancel.Name = "bnCancel";
-            this.bnCancel.UseVisualStyleBackColor = true;
-            // 
-            // bnOK
-            // 
-            resources.ApplyResources(this.bnOK, "bnOK");
-            this.bnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.bnOK.Name = "bnOK";
-            this.bnOK.UseVisualStyleBackColor = true;
-            // 
-            // tbDescription
-            // 
-            resources.ApplyResources(this.tbDescription, "tbDescription");
-            this.tbDescription.Name = "tbDescription";
-            this.tbDescription.TextChanged += new System.EventHandler(this.onCylinderPropertiesChanged);
-            // 
-            // tbName
-            // 
-            resources.ApplyResources(this.tbName, "tbName");
-            this.tbName.Name = "tbName";
-            this.tbName.TextChanged += new System.EventHandler(this.onCylinderPropertiesChanged);
-            // 
-            // lblDescription
-            // 
-            resources.ApplyResources(this.lblDescription, "lblDescription");
-            this.lblDescription.Name = "lblDescription";
-            // 
-            // lblName
-            // 
-            resources.ApplyResources(this.lblName, "lblName");
-            this.lblName.Name = "lblName";
             // 
             // gbDimensions
             // 
@@ -116,7 +71,7 @@
             this.uCtrlHeight.Name = "uCtrlHeight";
             this.uCtrlHeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlHeight.Value = 0D;
-            this.uCtrlHeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.onValueChanged(this.onCylinderPropertiesChanged);
+            this.uCtrlHeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.onValueChanged(this.onValueChanged);
             // 
             // uCtrlDiameterInner
             // 
@@ -129,7 +84,7 @@
             this.uCtrlDiameterInner.Name = "uCtrlDiameterInner";
             this.uCtrlDiameterInner.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlDiameterInner.Value = 0D;
-            this.uCtrlDiameterInner.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.onValueChanged(this.onCylinderPropertiesChanged);
+            this.uCtrlDiameterInner.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.onValueChanged(this.onValueChanged);
             // 
             // uCtrlDiameterOuter
             // 
@@ -142,7 +97,7 @@
             this.uCtrlDiameterOuter.Name = "uCtrlDiameterOuter";
             this.uCtrlDiameterOuter.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlDiameterOuter.Value = 0D;
-            this.uCtrlDiameterOuter.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.onValueChanged(this.onCylinderPropertiesChanged);
+            this.uCtrlDiameterOuter.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.onValueChanged(this.onValueChanged);
             // 
             // gbWeight
             // 
@@ -163,7 +118,7 @@
             this.uCtrlNetWeight.Name = "uCtrlNetWeight";
             this.uCtrlNetWeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_MASS;
             this.uCtrlNetWeight.Value = ((treeDiM.StackBuilder.Basics.OptDouble)(resources.GetObject("uCtrlNetWeight.Value")));
-            this.uCtrlNetWeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlOptDouble.onValueChanged(this.onCylinderPropertiesChanged);
+            this.uCtrlNetWeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlOptDouble.onValueChanged(this.onValueChanged);
             // 
             // uCtrlWeight
             // 
@@ -176,7 +131,7 @@
             this.uCtrlWeight.Name = "uCtrlWeight";
             this.uCtrlWeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_MASS;
             this.uCtrlWeight.Value = 0D;
-            this.uCtrlWeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.onValueChanged(this.onCylinderPropertiesChanged);
+            this.uCtrlWeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.onValueChanged(this.onValueChanged);
             // 
             // graphCtrl
             // 
@@ -184,20 +139,6 @@
             this.graphCtrl.Name = "graphCtrl";
             this.graphCtrl.TabStop = false;
             this.graphCtrl.Viewer = null;
-            // 
-            // statusStripDef
-            // 
-            this.statusStripDef.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabelDef});
-            resources.ApplyResources(this.statusStripDef, "statusStripDef");
-            this.statusStripDef.Name = "statusStripDef";
-            this.statusStripDef.SizingGrip = false;
-            // 
-            // toolStripStatusLabelDef
-            // 
-            this.toolStripStatusLabelDef.ForeColor = System.Drawing.Color.Red;
-            this.toolStripStatusLabelDef.Name = "toolStripStatusLabelDef";
-            resources.ApplyResources(this.toolStripStatusLabelDef, "toolStripStatusLabelDef");
             // 
             // gbFaceColor
             // 
@@ -308,9 +249,10 @@
             resources.GetString("cbColorWallInner.Items85"),
             resources.GetString("cbColorWallInner.Items86"),
             resources.GetString("cbColorWallInner.Items87"),
-            resources.GetString("cbColorWallInner.Items88")});
+            resources.GetString("cbColorWallInner.Items88"),
+            resources.GetString("cbColorWallInner.Items89")});
             this.cbColorWallInner.Name = "cbColorWallInner";
-            this.cbColorWallInner.SelectedColorChanged += new System.EventHandler(this.onCylinderPropertiesChanged);
+            this.cbColorWallInner.SelectedColorChanged += new System.EventHandler(this.onValueChanged);
             // 
             // label1
             // 
@@ -413,9 +355,10 @@
             resources.GetString("cbColorWallOuter.Items84"),
             resources.GetString("cbColorWallOuter.Items85"),
             resources.GetString("cbColorWallOuter.Items86"),
-            resources.GetString("cbColorWallOuter.Items87")});
+            resources.GetString("cbColorWallOuter.Items87"),
+            resources.GetString("cbColorWallOuter.Items88")});
             this.cbColorWallOuter.Name = "cbColorWallOuter";
-            this.cbColorWallOuter.SelectedColorChanged += new System.EventHandler(this.onCylinderPropertiesChanged);
+            this.cbColorWallOuter.SelectedColorChanged += new System.EventHandler(this.onValueChanged);
             // 
             // lbWallColor
             // 
@@ -517,9 +460,10 @@
             resources.GetString("cbColorTop.Items83"),
             resources.GetString("cbColorTop.Items84"),
             resources.GetString("cbColorTop.Items85"),
-            resources.GetString("cbColorTop.Items86")});
+            resources.GetString("cbColorTop.Items86"),
+            resources.GetString("cbColorTop.Items87")});
             this.cbColorTop.Name = "cbColorTop";
-            this.cbColorTop.SelectedColorChanged += new System.EventHandler(this.onCylinderPropertiesChanged);
+            this.cbColorTop.SelectedColorChanged += new System.EventHandler(this.onValueChanged);
             // 
             // lbTop
             // 
@@ -539,16 +483,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.bnSendToDB);
             this.Controls.Add(this.gbFaceColor);
-            this.Controls.Add(this.statusStripDef);
             this.Controls.Add(this.graphCtrl);
             this.Controls.Add(this.gbWeight);
             this.Controls.Add(this.gbDimensions);
-            this.Controls.Add(this.tbDescription);
-            this.Controls.Add(this.tbName);
-            this.Controls.Add(this.lblDescription);
-            this.Controls.Add(this.lblName);
-            this.Controls.Add(this.bnCancel);
-            this.Controls.Add(this.bnOK);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormNewCylinder";
@@ -557,28 +494,17 @@
             this.gbDimensions.ResumeLayout(false);
             this.gbWeight.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.graphCtrl)).EndInit();
-            this.statusStripDef.ResumeLayout(false);
-            this.statusStripDef.PerformLayout();
             this.gbFaceColor.ResumeLayout(false);
             this.gbFaceColor.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button bnCancel;
-        private System.Windows.Forms.Button bnOK;
-        private System.Windows.Forms.TextBox tbDescription;
-        private System.Windows.Forms.TextBox tbName;
-        private System.Windows.Forms.Label lblDescription;
-        private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.GroupBox gbDimensions;
         private System.Windows.Forms.GroupBox gbWeight;
         private treeDiM.StackBuilder.Graphics.Graphics3DControl graphCtrl;
-        private System.Windows.Forms.StatusStrip statusStripDef;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelDef;
         private System.Windows.Forms.GroupBox gbFaceColor;
         private OfficePickers.ColorPicker.ComboBoxColorPicker cbColorWallOuter;
         private OfficePickers.ColorPicker.ComboBoxColorPicker cbColorWallInner;

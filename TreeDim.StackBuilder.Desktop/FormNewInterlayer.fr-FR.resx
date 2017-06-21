@@ -117,15 +117,37 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="bnCancel.Text" xml:space="preserve">
-    <value>Annuler</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="lblName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>29, 13</value>
+  <data name="bnOk.Location" type="System.Drawing.Point, System.Drawing">
+    <value>505, 10</value>
   </data>
-  <data name="lblName.Text" xml:space="preserve">
-    <value>Nom</value>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="bnOk.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="bnCancel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>505, 38</value>
+  </data>
+  <data name="bnCancel.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="tbName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>111, 10</value>
+  </data>
+  <data name="tbName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>145, 20</value>
+  </data>
+  <data name="tbName.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="tbDescription.Location" type="System.Drawing.Point, System.Drawing">
+    <value>111, 38</value>
+  </data>
+  <data name="tbDescription.Size" type="System.Drawing.Size, System.Drawing">
+    <value>384, 20</value>
+  </data>
+  <data name="tbDescription.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
   </data>
   <data name="graphCtrl.Location" type="System.Drawing.Point, System.Drawing">
     <value>200, 101</value>
@@ -135,12 +157,6 @@
   </data>
   <data name="uCtrlWeight.Size" type="System.Drawing.Size, System.Drawing">
     <value>184, 20</value>
-  </data>
-  <data name="cbColor.Items3" xml:space="preserve">
-    <value>Couleur</value>
-  </data>
-  <data name="cbColor.Items4" xml:space="preserve">
-    <value>Couleur</value>
   </data>
   <data name="cbColor.Items5" xml:space="preserve">
     <value>Couleur</value>
@@ -229,7 +245,13 @@
   <data name="cbColor.Items33" xml:space="preserve">
     <value>Couleur</value>
   </data>
-  <data name="cbColor.Items40" xml:space="preserve">
+  <data name="cbColor.Items34" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbColor.Items35" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbColor.Items42" xml:space="preserve">
     <value>Color</value>
   </data>
   <data name="cbColor.Location" type="System.Drawing.Point, System.Drawing">

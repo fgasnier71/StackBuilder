@@ -2090,6 +2090,25 @@ namespace treeDiM.StackBuilder.Basics
                     analysis.ID.IGuid = Guid.Parse(sId);
                 analysis.Solution.SolutionItems = listSolItems;
             }
+            else if (string.Equals(eltAnalysis.Name, "AnalysisCaseTruck", StringComparison.CurrentCultureIgnoreCase))
+            {
+                Packable packable = GetContentByGuid(Guid.Parse(sContentId)) as Packable;
+                TruckProperties truckProperties = GetTypeByGuid(sContainerId) as TruckProperties;
+
+                ConstraintSetAbstract constraintSet = null;
+                foreach (XmlNode node in eltAnalysis.ChildNodes)
+                {
+                    if (string.Equals(node.Name, "ConstraintSet", StringComparison.CurrentCultureIgnoreCase))
+                        constraintSet = LoadConstraintSetCaseTruck(node as XmlElement, truckProperties);
+                    else if (string.Equals(node.Name, "Solution", StringComparison.CurrentCultureIgnoreCase))
+                        LoadSolution(node as XmlElement, out listLayerDesc, out listSolItems);
+                    else if (string.Equals(node.Name, "Interlayers", StringComparison.CurrentCultureIgnoreCase))
+                        interlayers = LoadInterlayers(node as XmlElement);
+                }
+                Analysis analysis = CreateNewAnalysisCaseTruck(sName, sDescription
+                    , packable, truckProperties, interlayers
+                    , constraintSet as ConstraintSetCaseTruck, listLayerDesc);
+            }
             else if (string.Equals(eltAnalysis.Name, "AnalysisPallet", StringComparison.CurrentCultureIgnoreCase))
             {
                 string sBoxId = eltAnalysis.Attributes["BoxId"].Value;
@@ -2419,9 +2438,7 @@ namespace treeDiM.StackBuilder.Basics
                 foreach (int indexSol in selectedIndices)
                     analysis.SelectSolutionByIndex(indexSol);
             }
-        }
-
- 
+        } 
 
         #region ConstraintSet loading
         private ConstraintSetAbstract LoadConstraintSetCasePallet(XmlElement eltConstraintSet)
@@ -2452,6 +2469,13 @@ namespace treeDiM.StackBuilder.Basics
             constraintSet.MinDistanceLoadWall = LoadVectorLength(eltConstraintSet, "MinDistanceLoadWall");
             constraintSet.MinDistanceLoadRoof = LoadDouble(eltConstraintSet, "MinDistanceLoadRoof", UnitsManager.UnitType.UT_LENGTH);
             constraintSet.AllowMultipleLayers = (1 == LoadInt(eltConstraintSet, "AllowMultipleLayers"));
+            return constraintSet;
+        }
+        private ConstraintSetAbstract LoadConstraintSetCaseTruck(XmlElement eltConstraintSet, IPackContainer container)
+        {
+            ConstraintSetCaseTruck constraintSet = new ConstraintSetCaseTruck(container);
+            constraintSet.MinDistanceLoadWall = LoadVectorLength(eltConstraintSet, "MinDistanceLoadWall");
+            constraintSet.MinDistanceLoadRoof = LoadDouble(eltConstraintSet, "MinDistanceLoadRoof", UnitsManager.UnitType.UT_LENGTH);
             return constraintSet;
         }
         #endregion

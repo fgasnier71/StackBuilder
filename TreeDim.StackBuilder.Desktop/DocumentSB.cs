@@ -188,10 +188,10 @@ namespace treeDiM.StackBuilder.Desktop
 
         public void CreateNewCylinderUI()
         {
-            FormNewCylinder form = new FormNewCylinder(this);
+            FormNewCylinder form = new FormNewCylinder(this, null);
             if (DialogResult.OK == form.ShowDialog())
                 CreateNewCylinder(
-                    form.CylinderName, form.Description
+                    form.ItemName, form.ItemDescription
                     , form.RadiusOuter, form.RadiusInner, form.CylinderHeight, form.Weight
                     , form.ColorTop, form.ColorWallOuter, form.ColorWallInner);
 
@@ -215,10 +215,10 @@ namespace treeDiM.StackBuilder.Desktop
         /// </summary>
         public void CreateNewInterlayerUI()
         { 
-            FormNewInterlayer form = new FormNewInterlayer(this);
+            FormNewInterlayer form = new FormNewInterlayer(this, null);
             if (DialogResult.OK == form.ShowDialog())
                 CreateNewInterlayer(
-                    form.InterlayerName, form.Description
+                    form.ItemName, form.ItemDescription
                     , form.InterlayerLength, form.InterlayerWidth, form.Thickness
                     , form.Weight
                     , form.Color);
@@ -278,9 +278,9 @@ namespace treeDiM.StackBuilder.Desktop
         /// </summary>
         public void CreateNewTruckUI()
         {
-            FormNewTruck form = new FormNewTruck(this);
+            FormNewTruck form = new FormNewTruck(this, null);
             if (DialogResult.OK == form.ShowDialog())
-                CreateNewTruck(form.TruckName, form.Description
+                CreateNewTruck(form.ItemName, form.ItemDescription
                     , form.TruckLength, form.TruckWidth, form.TruckHeight
                     , form.TruckAdmissibleLoadWeight
                     , form.TruckColor);

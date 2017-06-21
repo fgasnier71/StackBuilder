@@ -331,7 +331,7 @@ namespace treeDiM.StackBuilder.Desktop
                 gridPallets[iIndex, iCol++] = new SourceGrid.Cells.Cell(p.Name);
                 gridPallets[iIndex, iCol++] = new SourceGrid.Cells.Cell(p.Description);
                 gridPallets[iIndex, iCol++] = new SourceGrid.Cells.Cell(
-                    string.Format("{0} x {1} x {2}",
+                    string.Format("{0:0.##} x {1:0.##} x {2:0.##}",
                         UnitsManager.ConvertLengthFrom(p.Dimensions.M0, us),
                         UnitsManager.ConvertLengthFrom(p.Dimensions.M1, us),
                         UnitsManager.ConvertLengthFrom(p.Dimensions.M2, us))
@@ -374,7 +374,7 @@ namespace treeDiM.StackBuilder.Desktop
                 gridInterlayers[iIndex, iCol++] = new SourceGrid.Cells.Cell(i.Name);
                 gridInterlayers[iIndex, iCol++] = new SourceGrid.Cells.Cell(i.Description);
                 gridInterlayers[iIndex, iCol++] = new SourceGrid.Cells.Cell(
-                    string.Format("{0} x {1} x {2}",
+                    string.Format("{0:0.##} x {1:0.##} x {2:0.##}",
                         UnitsManager.ConvertLengthFrom(i.Dimensions.M0, us),
                         UnitsManager.ConvertLengthFrom(i.Dimensions.M1, us),
                         UnitsManager.ConvertLengthFrom(i.Dimensions.M2, us))
@@ -418,16 +418,16 @@ namespace treeDiM.StackBuilder.Desktop
                 gridPalletCaps[iIndex, iCol++] = new SourceGrid.Cells.Cell(pc.Name);
                 gridPalletCaps[iIndex, iCol++] = new SourceGrid.Cells.Cell(pc.Description);
                 gridPalletCaps[iIndex, iCol++] = new SourceGrid.Cells.Cell(
-                    string.Format("{0} x {1} x {2}",
+                    string.Format("{0:0.##} x {1:0.##} x {2:0.##}",
                         UnitsManager.ConvertLengthFrom(pc.DimensionsOuter.M0, us),
                         UnitsManager.ConvertLengthFrom(pc.DimensionsOuter.M1, us),
                         UnitsManager.ConvertLengthFrom(pc.DimensionsOuter.M2, us)));
                 gridPalletCaps[iIndex, iCol++] = new SourceGrid.Cells.Cell(
-                    string.Format("{0} x {1} x {2}",
+                    string.Format("{0:0.##} x {1:0.##} x {2:0.##}",
                         UnitsManager.ConvertLengthFrom(pc.DimensionsInner.M0, us),
                         UnitsManager.ConvertLengthFrom(pc.DimensionsInner.M1, us),
                         UnitsManager.ConvertLengthFrom(pc.DimensionsInner.M2, us)));
-                gridPalletCaps[iIndex, iCol++] = new SourceGrid.Cells.Cell(UnitsManager.ConvertMassFrom(pc.Weight, us));
+                gridPalletCaps[iIndex, iCol++] = new SourceGrid.Cells.Cell(string.Format("{0:0.##}", UnitsManager.ConvertMassFrom(pc.Weight, us)));
                 gridPalletCaps[iIndex, iCol] = new SourceGrid.Cells.CheckBox(null, pc.AutoInsert);
                 gridPalletCaps[iIndex, iCol++].AddController(checkBoxEvent);
                 gridPalletCaps[iIndex, iCol] = new SourceGrid.Cells.Button("");
@@ -463,9 +463,9 @@ namespace treeDiM.StackBuilder.Desktop
                 int iCol = 0;
                 gridPalletCorners[iIndex, iCol++] = new SourceGrid.Cells.Cell(c.Name);
                 gridPalletCorners[iIndex, iCol++] = new SourceGrid.Cells.Cell(c.Description);
-                gridPalletCorners[iIndex, iCol++] = new SourceGrid.Cells.Cell(c.Length);
-                gridPalletCorners[iIndex, iCol++] = new SourceGrid.Cells.Cell(c.Width);
-                gridPalletCorners[iIndex, iCol++] = new SourceGrid.Cells.Cell(c.Thickness);
+                gridPalletCorners[iIndex, iCol++] = new SourceGrid.Cells.Cell(string.Format("0:0.##", UnitsManager.ConvertLengthFrom(c.Length, us)));
+                gridPalletCorners[iIndex, iCol++] = new SourceGrid.Cells.Cell(string.Format("0:0.##", UnitsManager.ConvertLengthFrom(c.Width, us)));
+                gridPalletCorners[iIndex, iCol++] = new SourceGrid.Cells.Cell(string.Format("0:0.##", UnitsManager.ConvertLengthFrom(c.Thickness, us)));
                 gridPalletCorners[iIndex, iCol++] = new SourceGrid.Cells.Cell(UnitsManager.ConvertMassFrom(c.Weight, us));
                 gridPalletCorners[iIndex, iCol] = new SourceGrid.Cells.CheckBox(null, c.AutoInsert);
                 gridPalletCorners[iIndex, iCol++].AddController(checkBoxEvent);
@@ -541,13 +541,13 @@ namespace treeDiM.StackBuilder.Desktop
                 gridCases[iIndex, iCol++] = new SourceGrid.Cells.Cell(c.Name);
                 gridCases[iIndex, iCol++] = new SourceGrid.Cells.Cell(c.Description);
                 gridCases[iIndex, iCol++] = new SourceGrid.Cells.Cell(
-                    string.Format("{0} x {1} x {2}",
+                    string.Format("{0:0.##} x {1:0.##} x {2:0.##}",
                         UnitsManager.ConvertLengthFrom(c.DimensionsOuter.M0, us),
                         UnitsManager.ConvertLengthFrom(c.DimensionsOuter.M1, us),
                         UnitsManager.ConvertLengthFrom(c.DimensionsOuter.M2, us)));
                 gridCases[iIndex, iCol++] = new SourceGrid.Cells.Cell(
                     c.HasInnerDims ? 
-                    string.Format("{0} x {1} x {2}",
+                    string.Format("{0:0.##} x {1:0.##} x {2:0.##}",
                         UnitsManager.ConvertLengthFrom(c.DimensionsInner.M0, us),
                         UnitsManager.ConvertLengthFrom(c.DimensionsInner.M1, us),
                         UnitsManager.ConvertLengthFrom(c.DimensionsInner.M2, us)): "-");
@@ -665,7 +665,7 @@ namespace treeDiM.StackBuilder.Desktop
                 gridTrucks[iIndex, 0] = new SourceGrid.Cells.Cell(t.Name);
                 gridTrucks[iIndex, 1] = new SourceGrid.Cells.Cell(t.Description);
                 gridTrucks[iIndex, 2] = new SourceGrid.Cells.Cell(
-                    string.Format("{0} x {1} x {2}",
+                    string.Format("{0:0.##} x {1:0.##} x {2:0.##}",
                     UnitsManager.ConvertLengthFrom(t.DimensionsInner.M0, (UnitsManager.UnitSystem)t.UnitSystem),
                     UnitsManager.ConvertLengthFrom(t.DimensionsInner.M1, (UnitsManager.UnitSystem)t.UnitSystem),
                     UnitsManager.ConvertLengthFrom(t.DimensionsInner.M2, (UnitsManager.UnitSystem)t.UnitSystem))

@@ -52,7 +52,7 @@
             this.nudValue.DecimalPlaces = 2;
             this.nudValue.Location = new System.Drawing.Point(200, 0);
             this.nudValue.Maximum = new decimal(new int[] {
-            10000,
+            100000,
             0,
             0,
             0});

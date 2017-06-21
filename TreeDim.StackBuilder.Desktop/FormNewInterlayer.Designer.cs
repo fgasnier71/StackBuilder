@@ -29,79 +29,37 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormNewInterlayer));
-            this.bnOk = new System.Windows.Forms.Button();
-            this.bnCancel = new System.Windows.Forms.Button();
-            this.tbDescription = new System.Windows.Forms.TextBox();
-            this.tbName = new System.Windows.Forms.TextBox();
-            this.lblDescription = new System.Windows.Forms.Label();
-            this.lblName = new System.Windows.Forms.Label();
             this.graphCtrl = new treeDiM.StackBuilder.Graphics.Graphics3DControl();
-            this.statusStripDef = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabelDef = new System.Windows.Forms.ToolStripStatusLabel();
             this.uCtrlDimensions = new treeDiM.StackBuilder.Basics.UCtrlTriDouble();
             this.uCtrlWeight = new treeDiM.StackBuilder.Basics.UCtrlDouble();
             this.cbColor = new OfficePickers.ColorPicker.ComboBoxColorPicker();
             this.lbColor = new System.Windows.Forms.Label();
             this.bnSendToDatabase = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.graphCtrl)).BeginInit();
-            this.statusStripDef.SuspendLayout();
             this.SuspendLayout();
             // 
             // bnOk
             // 
             resources.ApplyResources(this.bnOk, "bnOk");
-            this.bnOk.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.bnOk.Name = "bnOk";
-            this.bnOk.UseVisualStyleBackColor = true;
             // 
             // bnCancel
             // 
             resources.ApplyResources(this.bnCancel, "bnCancel");
-            this.bnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.bnCancel.Name = "bnCancel";
-            this.bnCancel.UseVisualStyleBackColor = true;
-            // 
-            // tbDescription
-            // 
-            resources.ApplyResources(this.tbDescription, "tbDescription");
-            this.tbDescription.Name = "tbDescription";
-            this.tbDescription.TextChanged += new System.EventHandler(this.onNameDescriptionChanged);
             // 
             // tbName
             // 
             resources.ApplyResources(this.tbName, "tbName");
-            this.tbName.Name = "tbName";
-            this.tbName.TextChanged += new System.EventHandler(this.onNameDescriptionChanged);
             // 
-            // lblDescription
+            // tbDescription
             // 
-            resources.ApplyResources(this.lblDescription, "lblDescription");
-            this.lblDescription.Name = "lblDescription";
-            // 
-            // lblName
-            // 
-            resources.ApplyResources(this.lblName, "lblName");
-            this.lblName.Name = "lblName";
+            resources.ApplyResources(this.tbDescription, "tbDescription");
             // 
             // graphCtrl
             // 
             resources.ApplyResources(this.graphCtrl, "graphCtrl");
             this.graphCtrl.Name = "graphCtrl";
             this.graphCtrl.TabStop = false;
-            // 
-            // statusStripDef
-            // 
-            resources.ApplyResources(this.statusStripDef, "statusStripDef");
-            this.statusStripDef.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabelDef});
-            this.statusStripDef.Name = "statusStripDef";
-            this.statusStripDef.SizingGrip = false;
-            // 
-            // toolStripStatusLabelDef
-            // 
-            resources.ApplyResources(this.toolStripStatusLabelDef, "toolStripStatusLabelDef");
-            this.toolStripStatusLabelDef.ForeColor = System.Drawing.Color.Red;
-            this.toolStripStatusLabelDef.Name = "toolStripStatusLabelDef";
+            this.graphCtrl.Viewer = null;
             // 
             // uCtrlDimensions
             // 
@@ -116,7 +74,7 @@
             this.uCtrlDimensions.ValueX = 0D;
             this.uCtrlDimensions.ValueY = 0D;
             this.uCtrlDimensions.ValueZ = 0D;
-            this.uCtrlDimensions.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlTriDouble.onValueChanged(this.onInterlayerPropertyChanged);
+            this.uCtrlDimensions.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlTriDouble.onValueChanged(this.onValueChanged);
             // 
             // uCtrlWeight
             // 
@@ -129,16 +87,16 @@
             this.uCtrlWeight.Name = "uCtrlWeight";
             this.uCtrlWeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_MASS;
             this.uCtrlWeight.Value = 0D;
-            this.uCtrlWeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.onValueChanged(this.onInterlayerPropertyChanged);
+            this.uCtrlWeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.onValueChanged(this.onValueChanged);
             // 
             // cbColor
             // 
-            resources.ApplyResources(this.cbColor, "cbColor");
             this.cbColor.Color = System.Drawing.Color.Beige;
             this.cbColor.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cbColor.DropDownHeight = 1;
             this.cbColor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbColor.DropDownWidth = 1;
+            resources.ApplyResources(this.cbColor, "cbColor");
             this.cbColor.Items.AddRange(new object[] {
             resources.GetString("cbColor.Items"),
             resources.GetString("cbColor.Items1"),
@@ -180,9 +138,12 @@
             resources.GetString("cbColor.Items37"),
             resources.GetString("cbColor.Items38"),
             resources.GetString("cbColor.Items39"),
-            resources.GetString("cbColor.Items40")});
+            resources.GetString("cbColor.Items40"),
+            resources.GetString("cbColor.Items41"),
+            resources.GetString("cbColor.Items42"),
+            resources.GetString("cbColor.Items43")});
             this.cbColor.Name = "cbColor";
-            this.cbColor.SelectedColorChanged += new System.EventHandler(this.onInterlayerPropertyChanged);
+            this.cbColor.SelectedColorChanged += new System.EventHandler(this.onValueChanged);
             // 
             // lbColor
             // 
@@ -198,31 +159,28 @@
             // 
             // FormNewInterlayer
             // 
-            this.AcceptButton = this.bnOk;
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CancelButton = this.bnCancel;
             this.Controls.Add(this.bnSendToDatabase);
             this.Controls.Add(this.cbColor);
             this.Controls.Add(this.lbColor);
             this.Controls.Add(this.uCtrlWeight);
             this.Controls.Add(this.uCtrlDimensions);
-            this.Controls.Add(this.statusStripDef);
             this.Controls.Add(this.graphCtrl);
-            this.Controls.Add(this.tbDescription);
-            this.Controls.Add(this.tbName);
-            this.Controls.Add(this.lblDescription);
-            this.Controls.Add(this.lblName);
-            this.Controls.Add(this.bnCancel);
-            this.Controls.Add(this.bnOk);
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "FormNewInterlayer";
-            this.ShowIcon = false;
-            this.ShowInTaskbar = false;
+            this.Controls.SetChildIndex(this.graphCtrl, 0);
+            this.Controls.SetChildIndex(this.uCtrlDimensions, 0);
+            this.Controls.SetChildIndex(this.uCtrlWeight, 0);
+            this.Controls.SetChildIndex(this.lbColor, 0);
+            this.Controls.SetChildIndex(this.cbColor, 0);
+            this.Controls.SetChildIndex(this.bnSendToDatabase, 0);
+            this.Controls.SetChildIndex(this.bnOk, 0);
+            this.Controls.SetChildIndex(this.bnCancel, 0);
+            this.Controls.SetChildIndex(this.lbName, 0);
+            this.Controls.SetChildIndex(this.lbDescription, 0);
+            this.Controls.SetChildIndex(this.tbName, 0);
+            this.Controls.SetChildIndex(this.tbDescription, 0);
             ((System.ComponentModel.ISupportInitialize)(this.graphCtrl)).EndInit();
-            this.statusStripDef.ResumeLayout(false);
-            this.statusStripDef.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -231,14 +189,6 @@
         #endregion
 
         private treeDiM.StackBuilder.Graphics.Graphics3DControl graphCtrl;
-        private System.Windows.Forms.Button bnOk;
-        private System.Windows.Forms.Button bnCancel;
-        private System.Windows.Forms.TextBox tbDescription;
-        private System.Windows.Forms.TextBox tbName;
-        private System.Windows.Forms.Label lblDescription;
-        private System.Windows.Forms.Label lblName;
-        private System.Windows.Forms.StatusStrip statusStripDef;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelDef;
         private Basics.UCtrlTriDouble uCtrlDimensions;
         private Basics.UCtrlDouble uCtrlWeight;
         private OfficePickers.ColorPicker.ComboBoxColorPicker cbColor;
