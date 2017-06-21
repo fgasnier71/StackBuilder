@@ -1723,8 +1723,9 @@ namespace treeDiM.StackBuilder.Basics
                 string sColorArgb = eltTape.Attributes["TapeColor"].Value;
                 tapeColor = Color.FromArgb(System.Convert.ToInt32(sColorArgb));
             }
-            catch (Exception /*ex*/)
+            catch (Exception ex)
             {
+                _log.Error(ex.ToString());
                 return false;
             }
             return true;
@@ -2243,6 +2244,7 @@ namespace treeDiM.StackBuilder.Basics
                     , _solver
                     );
             }
+/*
             else if (string.Equals(eltAnalysis.Name, "CylinderPalletAnalysis", StringComparison.CurrentCultureIgnoreCase))
             {
                 string sCylinderId = eltAnalysis.Attributes["CylinderId"].Value;
@@ -2285,6 +2287,7 @@ namespace treeDiM.StackBuilder.Basics
                     , constraintSet
                     , solutions);
             }
+ */ 
             /*
             else if (string.Equals(eltAnalysis.Name, "HCylinderPalletAnalysis", StringComparison.CurrentCultureIgnoreCase))
             {
@@ -2499,7 +2502,7 @@ namespace treeDiM.StackBuilder.Basics
         }
         private double LoadDouble(XmlElement xmlElement, string attribute, UnitsManager.UnitType unitType)
         {
-            if (!xmlElement.HasAttribute(attribute))
+            if (xmlElement.HasAttribute(attribute))
             {
                 switch (unitType)
                 {
@@ -2517,7 +2520,7 @@ namespace treeDiM.StackBuilder.Basics
         }
         private Vector2D LoadVectorLength(XmlElement xmlElement, string attribute)
         {
-            if (!xmlElement.HasAttribute(attribute))
+            if (xmlElement.HasAttribute(attribute))
             {
                 Vector2D v0 = Vector2D.Parse(xmlElement.Attributes[attribute].Value);
                 return new Vector2D(UnitsManager.ConvertLengthFrom(v0.X, _unitSystem), UnitsManager.ConvertLengthFrom(v0.Y, _unitSystem));
@@ -2526,7 +2529,7 @@ namespace treeDiM.StackBuilder.Basics
         }
         private int LoadInt(XmlElement xmlElement, string attribute)
         {
-            if (!xmlElement.HasAttribute(attribute))
+            if (xmlElement.HasAttribute(attribute))
                 return int.Parse( xmlElement.Attributes[attribute].Value );
             return 0;
         }
@@ -2742,11 +2745,7 @@ namespace treeDiM.StackBuilder.Basics
             return constraints;
         }
         #endregion
-
-
-
-
-
+/*
         private CylinderPalletConstraintSet LoadCylinderPalletConstraintSet(XmlElement eltConstraintSet)
         {
             CylinderPalletConstraintSet constraints = new CylinderPalletConstraintSet();
@@ -2766,7 +2765,7 @@ namespace treeDiM.StackBuilder.Basics
                 constraints.OverhangY = UnitsManager.ConvertLengthFrom(double.Parse(eltConstraintSet.Attributes["OverhangY"].Value), _unitSystem);
             return constraints;
         }
-
+*/
         private HCylinderPalletConstraintSet LoadHCylinderPalletConstraintSet(XmlElement eltConstraintSet)
         {
             HCylinderPalletConstraintSet constraints = new HCylinderPalletConstraintSet();
@@ -3381,7 +3380,7 @@ namespace treeDiM.StackBuilder.Basics
                 xmlBoxProperties.AppendChild(tapeElt);
 
                 XmlAttribute tapeWidthAttribute = xmlDoc.CreateAttribute("TapeWidth");
-                tapeWidthAttribute.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", boxProperties.TapeWidth);
+                tapeWidthAttribute.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", boxProperties.TapeWidth.Value);
                 tapeElt.Attributes.Append(tapeWidthAttribute);
 
                 XmlAttribute tapeColorAttribute = xmlDoc.CreateAttribute("TapeColor");

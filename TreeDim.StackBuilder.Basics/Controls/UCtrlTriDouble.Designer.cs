@@ -45,7 +45,7 @@
             this.nudValueX.DecimalPlaces = 2;
             this.nudValueX.Location = new System.Drawing.Point(116, 0);
             this.nudValueX.Maximum = new decimal(new int[] {
-            10000,
+            100000,
             0,
             0,
             0});
@@ -61,7 +61,7 @@
             this.nudValueY.DecimalPlaces = 2;
             this.nudValueY.Location = new System.Drawing.Point(181, 0);
             this.nudValueY.Maximum = new decimal(new int[] {
-            10000,
+            100000,
             0,
             0,
             0});
@@ -77,7 +77,7 @@
             this.nudValueZ.DecimalPlaces = 2;
             this.nudValueZ.Location = new System.Drawing.Point(247, 0);
             this.nudValueZ.Maximum = new decimal(new int[] {
-            10000,
+            100000,
             0,
             0,
             0});
