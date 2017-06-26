@@ -20,7 +20,7 @@ using log4net;
 
 namespace treeDiM.StackBuilder.GUIExtension
 {
-    public partial class FormDefineBundleCaseAnalysis : Form, IDrawingContainer
+    internal partial class FormDefineBundleCaseAnalysis : Form, IDrawingContainer
     {
         #region Data members
         private string _name;

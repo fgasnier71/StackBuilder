@@ -337,7 +337,7 @@ namespace treeDiM.StackBuilder.Desktop
                         UnitsManager.ConvertLengthFrom(p.Dimensions.M2, us))
                     );
                 gridPallets[iIndex, iCol++] = new SourceGrid.Cells.Cell(
-                        UnitsManager.ConvertMassFrom(p.Weight, us)
+                       string.Format("{0:0.###}", UnitsManager.ConvertMassFrom(p.Weight, us))
                     );
                 gridPallets[iIndex, iCol] = new SourceGrid.Cells.CheckBox(null, p.AutoInsert);
                 gridPallets[iIndex, iCol++].AddController(checkBoxEvent);
@@ -427,7 +427,7 @@ namespace treeDiM.StackBuilder.Desktop
                         UnitsManager.ConvertLengthFrom(pc.DimensionsInner.M0, us),
                         UnitsManager.ConvertLengthFrom(pc.DimensionsInner.M1, us),
                         UnitsManager.ConvertLengthFrom(pc.DimensionsInner.M2, us)));
-                gridPalletCaps[iIndex, iCol++] = new SourceGrid.Cells.Cell(string.Format("{0:0.##}", UnitsManager.ConvertMassFrom(pc.Weight, us)));
+                gridPalletCaps[iIndex, iCol++] = new SourceGrid.Cells.Cell(string.Format("{0:0.###}", UnitsManager.ConvertMassFrom(pc.Weight, us)));
                 gridPalletCaps[iIndex, iCol] = new SourceGrid.Cells.CheckBox(null, pc.AutoInsert);
                 gridPalletCaps[iIndex, iCol++].AddController(checkBoxEvent);
                 gridPalletCaps[iIndex, iCol] = new SourceGrid.Cells.Button("");
@@ -463,10 +463,10 @@ namespace treeDiM.StackBuilder.Desktop
                 int iCol = 0;
                 gridPalletCorners[iIndex, iCol++] = new SourceGrid.Cells.Cell(c.Name);
                 gridPalletCorners[iIndex, iCol++] = new SourceGrid.Cells.Cell(c.Description);
-                gridPalletCorners[iIndex, iCol++] = new SourceGrid.Cells.Cell(string.Format("0:0.##", UnitsManager.ConvertLengthFrom(c.Length, us)));
-                gridPalletCorners[iIndex, iCol++] = new SourceGrid.Cells.Cell(string.Format("0:0.##", UnitsManager.ConvertLengthFrom(c.Width, us)));
-                gridPalletCorners[iIndex, iCol++] = new SourceGrid.Cells.Cell(string.Format("0:0.##", UnitsManager.ConvertLengthFrom(c.Thickness, us)));
-                gridPalletCorners[iIndex, iCol++] = new SourceGrid.Cells.Cell(UnitsManager.ConvertMassFrom(c.Weight, us));
+                gridPalletCorners[iIndex, iCol++] = new SourceGrid.Cells.Cell(string.Format("{0:0.##}", UnitsManager.ConvertLengthFrom(c.Length, us)));
+                gridPalletCorners[iIndex, iCol++] = new SourceGrid.Cells.Cell(string.Format("{0:0.##}", UnitsManager.ConvertLengthFrom(c.Width, us)));
+                gridPalletCorners[iIndex, iCol++] = new SourceGrid.Cells.Cell(string.Format("{0:0.##}", UnitsManager.ConvertLengthFrom(c.Thickness, us)));
+                gridPalletCorners[iIndex, iCol++] = new SourceGrid.Cells.Cell(string.Format("{0:0.###}", UnitsManager.ConvertMassFrom(c.Weight, us)));
                 gridPalletCorners[iIndex, iCol] = new SourceGrid.Cells.CheckBox(null, c.AutoInsert);
                 gridPalletCorners[iIndex, iCol++].AddController(checkBoxEvent);
                 gridPalletCorners[iIndex, iCol] = new SourceGrid.Cells.Button("");
@@ -484,7 +484,6 @@ namespace treeDiM.StackBuilder.Desktop
             captions.Add(Properties.Resources.ID_TRANSPARENCY);
             captions.Add(string.Format(Properties.Resources.ID_HATCHINGSPACING, UnitsManager.UnitString(UnitsManager.UnitType.UT_LENGTH)));
             captions.Add(Properties.Resources.ID_HATCHINGANGLE);
-            captions.Add(string.Format(Properties.Resources.ID_WEIGHT_WU, UnitsManager.UnitString(UnitsManager.UnitType.UT_MASS)));
             GridInitialize(gridPalletFilms, captions);
             // handling checkbox event
             SourceGrid.Cells.Controllers.CustomEvents checkBoxEvent = new SourceGrid.Cells.Controllers.CustomEvents();

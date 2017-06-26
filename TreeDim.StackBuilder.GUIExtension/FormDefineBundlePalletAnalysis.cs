@@ -81,7 +81,7 @@ namespace treeDiM.StackBuilder.GUIExtension
                 PalletProperties pp = CurrentPallet;
                 Pallet pallet = new Pallet(pp);
                 pallet.Draw(graphics, Transform3D.Identity);
-                DimensionCube dc = new DimensionCube(pp.Length, pp.Width, pp.Height) { FontSize = 6.0f };
+                DimensionCube dc = new DimensionCube(pp.Length, pp.Width, pp.Height);
                 graphics.AddDimensions(dc); 
             }
             else if (ctrl == graphCtrlSolution)

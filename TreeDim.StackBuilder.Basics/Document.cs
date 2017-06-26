@@ -146,6 +146,18 @@ namespace treeDiM.StackBuilder.Basics
         #endregion
 
         #region Public instantiation methods
+        public Packable CreateNewPackable(Packable packable)
+        {
+            BoxProperties bProperties = packable as BoxProperties;
+            PackProperties pProperties = packable as PackProperties;
+            if (null != bProperties)
+            {
+                return new BoxProperties(this, bProperties.Length, bProperties.Width, bProperties.Height);
+            }
+            else if (null != pProperties)
+            { }
+            return null;
+        }
         /// <summary>
         /// Create a new box
         /// </summary>

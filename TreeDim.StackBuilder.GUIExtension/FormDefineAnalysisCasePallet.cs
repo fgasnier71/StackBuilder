@@ -23,7 +23,7 @@ using treeDiM.PLMPack.DBClient;
 
 namespace treeDiM.StackBuilder.GUIExtension
 {
-    public partial class FormDefineAnalysisCasePallet : Form, IDrawingContainer
+    internal partial class FormDefineAnalysisCasePallet : Form, IDrawingContainer
     {
         #region Enums
         public enum eMode { PACK_CASE, PACK_BUNDLE}
@@ -208,11 +208,12 @@ namespace treeDiM.StackBuilder.GUIExtension
                 foreach (ILayer2D layer2D in uCtrlLayerList.Selected)
                     layerDescs.Add(layer2D.LayerDescriptor);
 
-                Packable packable = _uctrlPackable.PackableProperties;
-                PalletProperties palletProperties = cbPallet.SelectedPallet;
-                if (null == packable || null == palletProperties) return;
 
                 Document doc = new Document(DocumentName, DocumentDescription, WCFClientSingleton.Instance.User.Name, DateTime.Now, null);
+
+                Packable packable = doc.CreateNewPackable(_uctrlPackable.PackableProperties);
+                PalletProperties palletProperties = doc.CreateNewPallet(cbPallet.SelectedPallet);
+                if (null == packable || null == palletProperties) return;
 
                 Solution.SetSolver(new LayerSolver());
                 Analysis analysis = doc.CreateNewAnalysisCasePallet(
@@ -221,7 +222,7 @@ namespace treeDiM.StackBuilder.GUIExtension
                     , BuildConstraintSet()
                     , layerDescs);
                 FormBrowseSolution form = new FormBrowseSolution(doc, analysis);
-                form.ShowDialog();
+                if (DialogResult.OK == form.ShowDialog()) {}
             }
             catch (Exception ex)
             {

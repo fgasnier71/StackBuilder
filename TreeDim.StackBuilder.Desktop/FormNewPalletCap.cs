@@ -182,7 +182,7 @@ namespace treeDiM.StackBuilder.Desktop
                             {
                                 Name = form.ItemName,
                                 Description = ItemDescription,
-                                UnitSystem = 0,
+                                UnitSystem = (int) UnitsManager.CurrentUnitSystem,
                                 DimensionsOuter = new DCSBDim3D() { M0 = CapLength, M1 = CapWidth, M2 = CapHeight },
                                 DimensionsInner = new DCSBDim3D() { M0 = CapInnerLength, M1 = CapInnerWidth, M2 = CapInnerHeight },
                                 Weight = CapWeight,

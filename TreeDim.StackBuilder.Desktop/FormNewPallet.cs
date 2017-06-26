@@ -230,7 +230,7 @@ namespace treeDiM.StackBuilder.Desktop
                             {
                                 Name = form.ItemName,
                                 Description = Description,
-                                UnitSystem = 0,
+                                UnitSystem = (int)UnitsManager.CurrentUnitSystem,
                                 PalletType = PalletTypeName,
                                 Dimensions = new DCSBDim3D() { M0 = PalletLength, M1 = PalletWidth, M2 = PalletHeight },
                                 Weight = Weight,

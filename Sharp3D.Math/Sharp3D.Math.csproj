@@ -64,6 +64,9 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core">
@@ -116,6 +119,7 @@
     <Compile Include="Geometry2D\Ray.cs" />
     <Compile Include="Geometry2D\Rectangle.cs" />
     <Compile Include="Geometry2D\Segment.cs" />
+    <Compile Include="Geometry2D\SegmentMethods.cs" />
     <Compile Include="Geometry2D\Triangle.cs" />
     <Compile Include="Geometry2D\VerticalDistance.cs" />
     <Compile Include="Geometry3D\Polygon.cs" />
@@ -142,7 +146,8 @@
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>if $(ConfigurationName) == Release "$(SolutionDir)Signfile.bat" $(TargetPath)</PostBuildEvent>
+    <PostBuildEvent>if $(ConfigurationName) == Release "$(SolutionDir)Signfile.bat" $(TargetPath)
+if $(ConfigurationName) == Release copy "$(TargetPath)" "$(SolutionDir)..\PLMPack\Sources\ThirdPartyLibraries\$(TargetFileName)"</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
@@ -151,9 +156,7 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-  <Target Name="PostBuildEvent"
-          Condition=" '$(PostBuildEvent)' != '' "
-          DependsOnTargets="$(PostBuildEventDependsOn)">
-    <Exec WorkingDirectory="$(OutDir)" Command="$(PostBuildEvent)" IgnoreExitCode="true"/>
+  <Target Name="PostBuildEvent" Condition=" '$(PostBuildEvent)' != '' " DependsOnTargets="$(PostBuildEventDependsOn)">
+    <Exec WorkingDirectory="$(OutDir)" Command="$(PostBuildEvent)" IgnoreExitCode="true" />
   </Target>
 </Project>

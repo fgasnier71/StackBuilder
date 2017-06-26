@@ -44,6 +44,7 @@
             this.bnSymetryY = new System.Windows.Forms.Button();
             this.tbClickLayer = new System.Windows.Forms.TextBox();
             this.gridSolution = new SourceGrid.Grid();
+            this.saveFileDialogExport = new System.Windows.Forms.SaveFileDialog();
             this.toolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -253,6 +254,11 @@
             this.gridSolution.TabStop = true;
             this.gridSolution.ToolTipText = "";
             // 
+            // saveFileDialogExport
+            // 
+            this.saveFileDialogExport.DefaultExt = "stb";
+            this.saveFileDialogExport.Filter = "StackBuilder|*.stb|All files|*.*";
+            // 
             // FormBrowseSolution
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -302,5 +308,6 @@
         private System.Windows.Forms.Button bnSymmetryX;
         private System.Windows.Forms.Button bnSymetryY;
         private System.Windows.Forms.TextBox tbClickLayer;
+        private System.Windows.Forms.SaveFileDialog saveFileDialogExport;
     }
 }

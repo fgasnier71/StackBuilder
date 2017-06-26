@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Globalization;
+using System.IO;
 
 using log4net;
 
@@ -348,6 +349,15 @@ namespace treeDiM.StackBuilder.GUIExtension
         {
             try
             {
+                saveFileDialogExport.FileName = Path.ChangeExtension(_analysis.Name, "stb");
+                if (DialogResult.OK == saveFileDialogExport.ShowDialog())
+                {
+                    Document doc = null;
+
+
+                    doc.Write(saveFileDialogExport.FileName);
+
+                }
             }
             catch (Exception ex)
             {
