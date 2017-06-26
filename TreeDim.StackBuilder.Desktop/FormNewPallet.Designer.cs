@@ -29,12 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormNewPallet));
-            this.bnAccept = new System.Windows.Forms.Button();
-            this.bnCancel = new System.Windows.Forms.Button();
-            this.lbName = new System.Windows.Forms.Label();
-            this.lbDescription = new System.Windows.Forms.Label();
-            this.tbDescription = new System.Windows.Forms.TextBox();
-            this.tbName = new System.Windows.Forms.TextBox();
             this.lbType = new System.Windows.Forms.Label();
             this.cbType = new System.Windows.Forms.ComboBox();
             this.lbColor = new System.Windows.Forms.Label();
@@ -47,44 +41,31 @@
             this.uCtrlWeight = new treeDiM.StackBuilder.Basics.UCtrlDouble();
             this.uCtrlAdmissibleLoad = new treeDiM.StackBuilder.Basics.UCtrlDouble();
             ((System.ComponentModel.ISupportInitialize)(this.graphCtrl)).BeginInit();
-            this.statusStripDef.SuspendLayout();
             this.SuspendLayout();
             // 
-            // bnAccept
+            // bnOk
             // 
-            resources.ApplyResources(this.bnAccept, "bnAccept");
-            this.bnAccept.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.bnAccept.Name = "bnAccept";
-            this.bnAccept.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.bnOk, "bnOk");
             // 
             // bnCancel
             // 
             resources.ApplyResources(this.bnCancel, "bnCancel");
-            this.bnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.bnCancel.Name = "bnCancel";
-            this.bnCancel.UseVisualStyleBackColor = true;
             // 
             // lbName
             // 
             resources.ApplyResources(this.lbName, "lbName");
-            this.lbName.Name = "lbName";
             // 
             // lbDescription
             // 
             resources.ApplyResources(this.lbDescription, "lbDescription");
-            this.lbDescription.Name = "lbDescription";
-            // 
-            // tbDescription
-            // 
-            resources.ApplyResources(this.tbDescription, "tbDescription");
-            this.tbDescription.Name = "tbDescription";
-            this.tbDescription.TextChanged += new System.EventHandler(this.onNameDescriptionChanged);
             // 
             // tbName
             // 
             resources.ApplyResources(this.tbName, "tbName");
-            this.tbName.Name = "tbName";
-            this.tbName.TextChanged += new System.EventHandler(this.onNameDescriptionChanged);
+            // 
+            // tbDescription
+            // 
+            resources.ApplyResources(this.tbDescription, "tbDescription");
             // 
             // lbType
             // 
@@ -135,7 +116,12 @@
             resources.GetString("cbColor.Items18"),
             resources.GetString("cbColor.Items19"),
             resources.GetString("cbColor.Items20"),
-            resources.GetString("cbColor.Items21")});
+            resources.GetString("cbColor.Items21"),
+            resources.GetString("cbColor.Items22"),
+            resources.GetString("cbColor.Items23"),
+            resources.GetString("cbColor.Items24"),
+            resources.GetString("cbColor.Items25"),
+            resources.GetString("cbColor.Items26")});
             this.cbColor.Name = "cbColor";
             this.cbColor.SelectedColorChanged += new System.EventHandler(this.onPalletPropertyChanged);
             // 
@@ -148,16 +134,14 @@
             // 
             // statusStripDef
             // 
-            this.statusStripDef.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabelDef});
             resources.ApplyResources(this.statusStripDef, "statusStripDef");
             this.statusStripDef.Name = "statusStripDef";
             // 
             // toolStripStatusLabelDef
             // 
+            resources.ApplyResources(this.toolStripStatusLabelDef, "toolStripStatusLabelDef");
             this.toolStripStatusLabelDef.ForeColor = System.Drawing.Color.Red;
             this.toolStripStatusLabelDef.Name = "toolStripStatusLabelDef";
-            resources.ApplyResources(this.toolStripStatusLabelDef, "toolStripStatusLabelDef");
             // 
             // bnSendToDB
             // 
@@ -206,34 +190,34 @@
             // 
             // FormNewPallet
             // 
-            this.AcceptButton = this.bnAccept;
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CancelButton = this.bnCancel;
             this.Controls.Add(this.uCtrlDimensions);
             this.Controls.Add(this.uCtrlWeight);
             this.Controls.Add(this.uCtrlAdmissibleLoad);
             this.Controls.Add(this.bnSendToDB);
-            this.Controls.Add(this.statusStripDef);
             this.Controls.Add(this.cbColor);
             this.Controls.Add(this.lbColor);
             this.Controls.Add(this.cbType);
             this.Controls.Add(this.lbType);
-            this.Controls.Add(this.tbName);
-            this.Controls.Add(this.tbDescription);
-            this.Controls.Add(this.lbDescription);
-            this.Controls.Add(this.lbName);
             this.Controls.Add(this.graphCtrl);
-            this.Controls.Add(this.bnCancel);
-            this.Controls.Add(this.bnAccept);
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "FormNewPallet";
-            this.ShowIcon = false;
-            this.ShowInTaskbar = false;
+            this.Controls.SetChildIndex(this.graphCtrl, 0);
+            this.Controls.SetChildIndex(this.lbType, 0);
+            this.Controls.SetChildIndex(this.cbType, 0);
+            this.Controls.SetChildIndex(this.lbColor, 0);
+            this.Controls.SetChildIndex(this.cbColor, 0);
+            this.Controls.SetChildIndex(this.bnSendToDB, 0);
+            this.Controls.SetChildIndex(this.uCtrlAdmissibleLoad, 0);
+            this.Controls.SetChildIndex(this.uCtrlWeight, 0);
+            this.Controls.SetChildIndex(this.uCtrlDimensions, 0);
+            this.Controls.SetChildIndex(this.bnOk, 0);
+            this.Controls.SetChildIndex(this.bnCancel, 0);
+            this.Controls.SetChildIndex(this.lbName, 0);
+            this.Controls.SetChildIndex(this.lbDescription, 0);
+            this.Controls.SetChildIndex(this.tbName, 0);
+            this.Controls.SetChildIndex(this.tbDescription, 0);
             ((System.ComponentModel.ISupportInitialize)(this.graphCtrl)).EndInit();
-            this.statusStripDef.ResumeLayout(false);
-            this.statusStripDef.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -241,22 +225,16 @@
 
         #endregion
 
-        private System.Windows.Forms.Button bnAccept;
-        private System.Windows.Forms.Button bnCancel;
         private treeDiM.StackBuilder.Graphics.Graphics3DControl graphCtrl;
-        private System.Windows.Forms.Label lbName;
-        private System.Windows.Forms.Label lbDescription;
-        private System.Windows.Forms.TextBox tbDescription;
-        private System.Windows.Forms.TextBox tbName;
         private System.Windows.Forms.Label lbType;
         private System.Windows.Forms.ComboBox cbType;
         private System.Windows.Forms.Label lbColor;
         private OfficePickers.ColorPicker.ComboBoxColorPicker cbColor;
-        private System.Windows.Forms.StatusStrip statusStripDef;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelDef;
         private System.Windows.Forms.Button bnSendToDB;
         private Basics.UCtrlDouble uCtrlAdmissibleLoad;
         private Basics.UCtrlDouble uCtrlWeight;
         private Basics.UCtrlTriDouble uCtrlDimensions;
+        private System.Windows.Forms.StatusStrip statusStripDef;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelDef;
     }
 }

@@ -403,7 +403,7 @@ namespace treeDiM.StackBuilder.Desktop
                     if (DialogResult.OK == form.ShowDialog())
                     {
                         if (!UserAcknowledgeDependancies(pallet)) return;
-                        pallet.ID.SetNameDesc(form.PalletName, form.Description);
+                        pallet.ID.SetNameDesc(form.ItemName, form.ItemDescription);
                         pallet.Length = form.PalletLength;
                         pallet.Width = form.PalletWidth;
                         pallet.Height = form.PalletHeight;

@@ -264,14 +264,13 @@ namespace treeDiM.StackBuilder.Desktop
         /// </summary>
         public void CreateNewPalletUI()
         {        
-            FormNewPallet form = new FormNewPallet(this);
+            FormNewPallet form = new FormNewPallet(this, null);
             if (DialogResult.OK == form.ShowDialog())
-            {
-                PalletProperties palletProp = CreateNewPallet(form.PalletName, form.Description, form.PalletTypeName
+                CreateNewPallet(form.ItemName, form.ItemDescription
+                    , form.PalletTypeName
                     , form.PalletLength, form.PalletWidth, form.PalletHeight
-                    , form.Weight);
-                palletProp.Color = form.PalletColor;
-            }
+                    , form.Weight
+                    , form.PalletColor);
         }
         /// <summary>
         /// Creates a new TruckProperties

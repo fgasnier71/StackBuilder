@@ -46,6 +46,18 @@
             // 
             resources.ApplyResources(this.bnCancel, "bnCancel");
             // 
+            // lbName
+            // 
+            resources.ApplyResources(this.lbName, "lbName");
+            // 
+            // lbDescription
+            // 
+            resources.ApplyResources(this.lbDescription, "lbDescription");
+            // 
+            // tbName
+            // 
+            resources.ApplyResources(this.tbName, "tbName");
+            // 
             // tbDescription
             // 
             resources.ApplyResources(this.tbDescription, "tbDescription");
@@ -107,7 +119,9 @@
             resources.GetString("cbColor.Items44"),
             resources.GetString("cbColor.Items45"),
             resources.GetString("cbColor.Items46"),
-            resources.GetString("cbColor.Items47")});
+            resources.GetString("cbColor.Items47"),
+            resources.GetString("cbColor.Items48"),
+            resources.GetString("cbColor.Items49")});
             this.cbColor.Name = "cbColor";
             this.cbColor.SelectedColorChanged += new System.EventHandler(this.onTruckPropertyChanged);
             // 

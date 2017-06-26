@@ -20,52 +20,46 @@ using treeDiM.PLMPack.DBClient.PLMPackSR;
 
 namespace treeDiM.StackBuilder.Desktop
 {
-    public partial class FormNewPallet : Form, IDrawingContainer
+    public partial class FormNewPallet : FormNewBase, IDrawingContainer
     {
         #region Data members
-        [NonSerialized]private Document _document;
-        [NonSerialized]private PalletProperties _palletProperties;
         static readonly ILog _log = LogManager.GetLogger(typeof(FormNewPallet));
         #endregion
 
         #region Constructor
-        public FormNewPallet(Document document)
-        {
-            InitializeComponent();
-            // set unit labels
-            UnitsManager.AdaptUnitLabels(this);
-            // save document reference
-            _document = document;
-            // initialize type combo
-            cbType.Items.AddRange(PalletData.TypeNames);
-            // set selected item
-            PalletTypeName = Properties.Settings.Default.PalletTypeName;
-            // initialize dimensions
-            onPalletTypeChanged(this, null);
-        }
         public FormNewPallet(Document document, PalletProperties palletProperties)
+            : base(document, palletProperties)
         {
             InitializeComponent();
+
+            // fill type combo
+            cbType.Items.AddRange(PalletData.TypeNames);
+            // initialize data
+            if (null != palletProperties)
+            {
+                PalletTypeName = palletProperties.TypeName;
+                PalletLength = palletProperties.Length;
+                PalletWidth = palletProperties.Width;
+                PalletHeight = palletProperties.Height;
+                Weight = palletProperties.Weight;
+                PalletColor = palletProperties.Color;
+                AdmissibleLoad = palletProperties.AdmissibleLoadWeight;
+            }
+            else
+            {
+                // set selected item
+                PalletTypeName = Properties.Settings.Default.PalletTypeName;
+                onPalletTypeChanged(this, null);
+            }
             // set unit labels
             UnitsManager.AdaptUnitLabels(this);
-            // save document reference
-            _document = document;
-            _palletProperties = palletProperties;
-            // initialize type combo
-            cbType.Items.AddRange(PalletData.TypeNames);
-            // set selected item
-            PalletTypeName = _palletProperties.TypeName;
-            // set caption text
-            Text = string.Format(Resources.ID_PALLETCAPTIONEDIT, _palletProperties.Name);
-            // initialize data
-            tbName.Text = _palletProperties.Name;
-            tbDescription.Text = _palletProperties.Description;
-            PalletLength = _palletProperties.Length;
-            PalletWidth = _palletProperties.Width;
-            PalletHeight = _palletProperties.Height;
-            Weight = _palletProperties.Weight;
-            PalletColor = _palletProperties.Color;
-            AdmissibleLoad = _palletProperties.AdmissibleLoadWeight;
+        }
+        #endregion
+
+        #region FormNewBase override
+        public override string ItemDefaultName
+        {
+	        get { return Resources.ID_PALLET; }
         }
         #endregion
 
@@ -74,25 +68,22 @@ namespace treeDiM.StackBuilder.Desktop
         {
             base.OnLoad(e);
             graphCtrl.DrawingContainer = this;
-            // update status
-            UpdateButtonOkStatus();
             // windows settings
             if (null != Settings.Default.FormNewPalletPosition)
                 Settings.Default.FormNewPalletPosition.Restore(this);
         }
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            base.OnClosing(e);
+            if (null == Settings.Default.FormNewPalletPosition)
+                Settings.Default.FormNewPalletPosition = new WindowSettings();
+            Settings.Default.FormNewPalletPosition.Record(this);
+            // pallet type name
+            Settings.Default.PalletTypeName = PalletTypeName;
+        }
         #endregion
 
         #region Public properties
-        public string PalletName
-        {
-            get { return tbName.Text; }
-            set { tbName.Text = value; }
-        }
-        public string Description
-        {
-            get { return tbDescription.Text; }
-            set { tbDescription.Text = value; }
-        }
         public double PalletLength
         {
             get { return uCtrlDimensions.ValueX; }
@@ -160,39 +151,14 @@ namespace treeDiM.StackBuilder.Desktop
         {
             graphCtrl.Invalidate();
         }
-
-        private void UpdateButtonOkStatus()
-        {
-            string message = string.Empty;
-            // name
-            if (string.IsNullOrEmpty(tbName.Text))
-                message = Resources.ID_FIELDNAMEEMPTY;
-            // description
-            else if (string.IsNullOrEmpty(tbDescription.Text))
-                message = Resources.ID_FIELDDESCRIPTIONEMPTY;
-            // name validity
-            else if (!_document.IsValidNewTypeName(tbName.Text, _palletProperties))
-                message = string.Format(Resources.ID_INVALIDNAME, tbName.Text);
-            //---
-            // button OK
-            bnAccept.Enabled = string.IsNullOrEmpty(message);
-            // status bar
-            toolStripStatusLabelDef.ForeColor = string.IsNullOrEmpty(message) ? Color.Black : Color.Red;
-            toolStripStatusLabelDef.Text = string.IsNullOrEmpty(message) ? Resources.ID_READY : message;
-
-        }
-        private void onNameDescriptionChanged(object sender, EventArgs e)
-        {
-            UpdateButtonOkStatus();
-        }
         private void onPalletTypeChanged(object sender, EventArgs e)
         {
             PalletData palletData = PalletData.GetByName(PalletTypeName);
             if (null == palletData) return;
 
             // set name / description / length / width / height / weight
-            PalletName = palletData.Name;
-            Description = palletData.Description;
+            ItemName = palletData.Name;
+            ItemDescription = palletData.Description;
             PalletLength = UnitsManager.ConvertLengthFrom(palletData.Length, UnitsManager.UnitSystem.UNIT_METRIC1);
             PalletWidth = UnitsManager.ConvertLengthFrom(palletData.Width,  UnitsManager.UnitSystem.UNIT_METRIC1);
             PalletHeight = UnitsManager.ConvertLengthFrom(palletData.Height,  UnitsManager.UnitSystem.UNIT_METRIC1);
@@ -203,33 +169,20 @@ namespace treeDiM.StackBuilder.Desktop
         }
         #endregion
 
-        #region Load / FormClosing event
-        protected override void OnClosing(CancelEventArgs e)
-        {
-         	 base.OnClosing(e);
-            // window position
-            if (null == Settings.Default.FormNewPalletPosition)
-                Settings.Default.FormNewPalletPosition = new WindowSettings();
-            Settings.Default.FormNewPalletPosition.Record(this);
-            // pallet type name
-            Settings.Default.PalletTypeName = PalletTypeName;
-        }
-        #endregion
-
         #region Send to database
         private void onSendToDB(object sender, EventArgs e)
         {
             try
             {
                 FormSetItemName form = new FormSetItemName();
-                form.ItemName = PalletName;
+                form.ItemName = ItemName;
                 if (DialogResult.OK == form.ShowDialog())
                 {
                     PLMPackServiceClient client = WCFClientSingleton.Instance.Client;
                     client.CreateNewPallet(new DCSBPallet()
                             {
                                 Name = form.ItemName,
-                                Description = Description,
+                                Description = ItemDescription,
                                 UnitSystem = (int)UnitsManager.CurrentUnitSystem,
                                 PalletType = PalletTypeName,
                                 Dimensions = new DCSBDim3D() { M0 = PalletLength, M1 = PalletWidth, M2 = PalletHeight },

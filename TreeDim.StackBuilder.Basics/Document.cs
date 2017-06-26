@@ -503,14 +503,16 @@ namespace treeDiM.StackBuilder.Basics
             return interlayerClone;       
         }
         public PalletProperties CreateNewPallet(
-            string name, string description
-            , string typeName
-            , double length, double width, double height
-            , double weight)
+            string name, string description,
+            string typeName,
+            double length, double width, double height,
+            double weight,
+            Color palletColor)
         {
             PalletProperties palletProperties = new PalletProperties(this, typeName, length, width, height);
             palletProperties.ID.SetNameDesc( name, description );
             palletProperties.Weight = weight;
+            palletProperties.Color = palletColor;
             // insert in list
             _typeList.Add(palletProperties);
             // notify listeners
@@ -1777,8 +1779,8 @@ namespace treeDiM.StackBuilder.Basics
                 , UnitsManager.ConvertLengthFrom(System.Convert.ToDouble(slength, System.Globalization.CultureInfo.InvariantCulture), _unitSystem)
                 , UnitsManager.ConvertLengthFrom(System.Convert.ToDouble(swidth, System.Globalization.CultureInfo.InvariantCulture), _unitSystem)
                 , UnitsManager.ConvertLengthFrom(System.Convert.ToDouble(sheight, System.Globalization.CultureInfo.InvariantCulture), _unitSystem)
-                , UnitsManager.ConvertMassFrom(System.Convert.ToDouble(sweight, System.Globalization.CultureInfo.InvariantCulture), _unitSystem));
-            palletProperties.Color = Color.FromArgb(System.Convert.ToInt32(sColor));
+                , UnitsManager.ConvertMassFrom(System.Convert.ToDouble(sweight, System.Globalization.CultureInfo.InvariantCulture), _unitSystem)
+                , Color.FromArgb(System.Convert.ToInt32(sColor)));
             palletProperties.ID.IGuid = new Guid(sid);
         }
         private void LoadInterlayerProperties(XmlElement eltInterlayerProperties)
@@ -2527,7 +2529,7 @@ namespace treeDiM.StackBuilder.Basics
                     break;
                 }
             }
-            Debug.Assert(false);
+            _log.Warn(string.Format("Double type attribute {0} was not found!", attribute));
             return 0.0;
         }
         private Vector2D LoadVectorLength(XmlElement xmlElement, string attribute)
