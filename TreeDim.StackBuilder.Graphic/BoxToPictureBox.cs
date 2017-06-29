@@ -57,12 +57,14 @@ namespace treeDiM.StackBuilder.Graphics
                 // set to picture box
                 pictureBox.Image = graphics.Bitmap;
             }
-            catch (Exception /*ex*/)
+            catch (Exception ex)
             {
                  Bitmap bmp = new Bitmap(pictureBox.Size.Width,pictureBox.Size.Height);
                  System.Drawing.Graphics g = System.Drawing.Graphics.FromImage(bmp);
                  g.DrawString("Invalid content", new Font("Arial", 8), new SolidBrush(Color.Red), new PointF(5, 10));
                  pictureBox.Image = bmp;
+
+                 _log.Error(ex.ToString());
             }
         }
 
@@ -100,5 +102,7 @@ namespace treeDiM.StackBuilder.Graphics
             // set to picture box
             pictureBox.Image = graphics.Bitmap;
         }
+
+        protected static ILog _log = LogManager.GetLogger(typeof(BoxToPictureBox));
     }
 }

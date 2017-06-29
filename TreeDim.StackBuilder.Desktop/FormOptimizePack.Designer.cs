@@ -127,7 +127,7 @@
             this.splitContainer.Panel2.Controls.Add(this.bnCreateAnalysis);
             this.splitContainer.Size = new System.Drawing.Size(634, 719);
             this.splitContainer.SplitterDistance = 509;
-            this.splitContainer.TabIndex = 1;
+            this.splitContainer.TabIndex = 0;
             // 
             // btClose
             // 
@@ -137,7 +137,7 @@
             this.btClose.Location = new System.Drawing.Point(556, 3);
             this.btClose.Name = "btClose";
             this.btClose.Size = new System.Drawing.Size(75, 23);
-            this.btClose.TabIndex = 17;
+            this.btClose.TabIndex = 5;
             this.btClose.Text = "Close";
             this.btClose.UseVisualStyleBackColor = true;
             // 
@@ -156,7 +156,7 @@
             this.gbWrapper.Location = new System.Drawing.Point(3, 226);
             this.gbWrapper.Name = "gbWrapper";
             this.gbWrapper.Size = new System.Drawing.Size(628, 118);
-            this.gbWrapper.TabIndex = 16;
+            this.gbWrapper.TabIndex = 3;
             this.gbWrapper.TabStop = false;
             this.gbWrapper.Text = "Wrapper";
             // 
@@ -171,7 +171,7 @@
             this.uCtrlTrayHeight.MinimumSize = new System.Drawing.Size(100, 20);
             this.uCtrlTrayHeight.Name = "uCtrlTrayHeight";
             this.uCtrlTrayHeight.Size = new System.Drawing.Size(237, 20);
-            this.uCtrlTrayHeight.TabIndex = 30;
+            this.uCtrlTrayHeight.TabIndex = 5;
             this.uCtrlTrayHeight.Text = "Tray height";
             this.uCtrlTrayHeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlTrayHeight.Value = 0D;
@@ -184,7 +184,7 @@
             this.lbWrapperColor.Location = new System.Drawing.Point(331, 16);
             this.lbWrapperColor.Name = "lbWrapperColor";
             this.lbWrapperColor.Size = new System.Drawing.Size(31, 13);
-            this.lbWrapperColor.TabIndex = 29;
+            this.lbWrapperColor.TabIndex = 2;
             this.lbWrapperColor.Text = "Color";
             // 
             // cbColor
@@ -229,11 +229,14 @@
             "Color",
             "Color",
             "Color",
+            "Color",
+            "Color",
+            "Color",
             "Color"});
             this.cbColor.Location = new System.Drawing.Point(470, 11);
             this.cbColor.Name = "cbColor";
             this.cbColor.Size = new System.Drawing.Size(61, 22);
-            this.cbColor.TabIndex = 28;
+            this.cbColor.TabIndex = 3;
             this.cbColor.SelectedColorChanged += new System.EventHandler(this.onDataChanged);
             // 
             // cbWrapperType
@@ -248,7 +251,7 @@
             this.cbWrapperType.Location = new System.Drawing.Point(114, 12);
             this.cbWrapperType.Name = "cbWrapperType";
             this.cbWrapperType.Size = new System.Drawing.Size(195, 21);
-            this.cbWrapperType.TabIndex = 27;
+            this.cbWrapperType.TabIndex = 1;
             this.cbWrapperType.SelectedIndexChanged += new System.EventHandler(this.onWrapperTypeChanged);
             // 
             // label1
@@ -258,7 +261,7 @@
             this.label1.Location = new System.Drawing.Point(9, 16);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(71, 13);
-            this.label1.TabIndex = 26;
+            this.label1.TabIndex = 0;
             this.label1.Text = "Wrapper type";
             // 
             // uCtrlSurfacicMass
@@ -272,7 +275,7 @@
             this.uCtrlSurfacicMass.MinimumSize = new System.Drawing.Size(100, 20);
             this.uCtrlSurfacicMass.Name = "uCtrlSurfacicMass";
             this.uCtrlSurfacicMass.Size = new System.Drawing.Size(203, 20);
-            this.uCtrlSurfacicMass.TabIndex = 25;
+            this.uCtrlSurfacicMass.TabIndex = 7;
             this.uCtrlSurfacicMass.Text = "Surfacic mass";
             this.uCtrlSurfacicMass.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_SURFACEMASS;
             this.uCtrlSurfacicMass.Value = 0D;
@@ -289,7 +292,7 @@
             this.uCtrlWallThickness.MinimumSize = new System.Drawing.Size(100, 20);
             this.uCtrlWallThickness.Name = "uCtrlWallThickness";
             this.uCtrlWallThickness.Size = new System.Drawing.Size(203, 20);
-            this.uCtrlWallThickness.TabIndex = 24;
+            this.uCtrlWallThickness.TabIndex = 6;
             this.uCtrlWallThickness.Text = "Wall thickness";
             this.uCtrlWallThickness.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlWallThickness.Value = 0D;
@@ -303,7 +306,7 @@
             this.uCtrlNoWalls.NoY = 1;
             this.uCtrlNoWalls.NoZ = 1;
             this.uCtrlNoWalls.Size = new System.Drawing.Size(300, 20);
-            this.uCtrlNoWalls.TabIndex = 23;
+            this.uCtrlNoWalls.TabIndex = 4;
             this.uCtrlNoWalls.Text = "Number of walls";
             this.uCtrlNoWalls.ValueChanged += new treeDiM.StackBuilder.Basics.Controls.UCtrlTriInt.onValueChanged(this.onDataChanged);
             // 
@@ -319,7 +322,7 @@
             this.gbPallet.Location = new System.Drawing.Point(327, 31);
             this.gbPallet.Name = "gbPallet";
             this.gbPallet.Size = new System.Drawing.Size(304, 116);
-            this.gbPallet.TabIndex = 15;
+            this.gbPallet.TabIndex = 1;
             this.gbPallet.TabStop = false;
             this.gbPallet.Text = "Pallet";
             // 
@@ -330,7 +333,7 @@
             this.cbPallets.Location = new System.Drawing.Point(73, 19);
             this.cbPallets.Name = "cbPallets";
             this.cbPallets.Size = new System.Drawing.Size(188, 21);
-            this.cbPallets.TabIndex = 5;
+            this.cbPallets.TabIndex = 1;
             this.cbPallets.SelectedIndexChanged += new System.EventHandler(this.onPalletChanged);
             // 
             // uCtrlOverhang
@@ -395,7 +398,7 @@
             this.gridSolutions.OptimizeMode = SourceGrid.CellOptimizeMode.ForRows;
             this.gridSolutions.SelectionMode = SourceGrid.GridSelectionMode.Row;
             this.gridSolutions.Size = new System.Drawing.Size(634, 159);
-            this.gridSolutions.TabIndex = 6;
+            this.gridSolutions.TabIndex = 4;
             this.gridSolutions.TabStop = true;
             this.gridSolutions.ToolTipText = "";
             // 
@@ -410,7 +413,7 @@
             this.gbCase.Location = new System.Drawing.Point(3, 152);
             this.gbCase.Name = "gbCase";
             this.gbCase.Size = new System.Drawing.Size(628, 69);
-            this.gbCase.TabIndex = 14;
+            this.gbCase.TabIndex = 2;
             this.gbCase.TabStop = false;
             this.gbCase.Text = "Pack constraints";
             // 
@@ -424,7 +427,7 @@
             0});
             this.uCtrlPackDimensionsMax.Name = "uCtrlPackDimensionsMax";
             this.uCtrlPackDimensionsMax.Size = new System.Drawing.Size(410, 20);
-            this.uCtrlPackDimensionsMax.TabIndex = 24;
+            this.uCtrlPackDimensionsMax.TabIndex = 2;
             this.uCtrlPackDimensionsMax.Text = "Max. pack dimensions";
             this.uCtrlPackDimensionsMax.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlPackDimensionsMax.ValueX = 0D;
@@ -442,7 +445,7 @@
             0});
             this.uCtrlPackDimensionsMin.Name = "uCtrlPackDimensionsMin";
             this.uCtrlPackDimensionsMin.Size = new System.Drawing.Size(410, 20);
-            this.uCtrlPackDimensionsMin.TabIndex = 23;
+            this.uCtrlPackDimensionsMin.TabIndex = 0;
             this.uCtrlPackDimensionsMin.Text = "Min. pack dimensions";
             this.uCtrlPackDimensionsMin.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlPackDimensionsMin.ValueX = 0D;
@@ -456,7 +459,7 @@
             this.btSetMaximum.Location = new System.Drawing.Point(426, 43);
             this.btSetMaximum.Name = "btSetMaximum";
             this.btSetMaximum.Size = new System.Drawing.Size(112, 21);
-            this.btSetMaximum.TabIndex = 18;
+            this.btSetMaximum.TabIndex = 3;
             this.btSetMaximum.Text = "Set maximum";
             this.btSetMaximum.UseVisualStyleBackColor = true;
             this.btSetMaximum.Click += new System.EventHandler(this.onPalletChanged);
@@ -467,7 +470,7 @@
             this.btSetMinimum.Location = new System.Drawing.Point(426, 16);
             this.btSetMinimum.Name = "btSetMinimum";
             this.btSetMinimum.Size = new System.Drawing.Size(112, 21);
-            this.btSetMinimum.TabIndex = 17;
+            this.btSetMinimum.TabIndex = 1;
             this.btSetMinimum.Text = "Set minimum";
             this.btSetMinimum.UseVisualStyleBackColor = true;
             this.btSetMinimum.Click += new System.EventHandler(this.onBoxChanged);
@@ -483,7 +486,7 @@
             this.groupBox.Location = new System.Drawing.Point(3, 30);
             this.groupBox.Name = "groupBox";
             this.groupBox.Size = new System.Drawing.Size(318, 117);
-            this.groupBox.TabIndex = 13;
+            this.groupBox.TabIndex = 0;
             this.groupBox.TabStop = false;
             this.groupBox.Text = "Box (inner product)";
             // 
@@ -494,14 +497,14 @@
             this.cbBoxes.Location = new System.Drawing.Point(74, 20);
             this.cbBoxes.Name = "cbBoxes";
             this.cbBoxes.Size = new System.Drawing.Size(183, 21);
-            this.cbBoxes.TabIndex = 6;
+            this.cbBoxes.TabIndex = 1;
             this.cbBoxes.SelectedIndexChanged += new System.EventHandler(this.onBoxChanged);
             // 
             // chkVerticalOrientationOnly
             // 
             this.chkVerticalOrientationOnly.AutoSize = true;
             this.chkVerticalOrientationOnly.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.chkVerticalOrientationOnly.Location = new System.Drawing.Point(16, 84);
+            this.chkVerticalOrientationOnly.Location = new System.Drawing.Point(9, 84);
             this.chkVerticalOrientationOnly.Name = "chkVerticalOrientationOnly";
             this.chkVerticalOrientationOnly.Size = new System.Drawing.Size(183, 17);
             this.chkVerticalOrientationOnly.TabIndex = 5;
@@ -536,7 +539,7 @@
             // 
             this.lbNumber.AutoSize = true;
             this.lbNumber.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lbNumber.Location = new System.Drawing.Point(13, 63);
+            this.lbNumber.Location = new System.Drawing.Point(9, 63);
             this.lbNumber.Name = "lbNumber";
             this.lbNumber.Size = new System.Drawing.Size(131, 13);
             this.lbNumber.TabIndex = 3;
@@ -556,7 +559,7 @@
             // 
             this.lbBox.AutoSize = true;
             this.lbBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lbBox.Location = new System.Drawing.Point(15, 20);
+            this.lbBox.Location = new System.Drawing.Point(9, 20);
             this.lbBox.Name = "lbBox";
             this.lbBox.Size = new System.Drawing.Size(25, 13);
             this.lbBox.TabIndex = 0;
@@ -569,7 +572,7 @@
             this.tbAnalysisDescription.Location = new System.Drawing.Point(119, 182);
             this.tbAnalysisDescription.Name = "tbAnalysisDescription";
             this.tbAnalysisDescription.Size = new System.Drawing.Size(374, 20);
-            this.tbAnalysisDescription.TabIndex = 14;
+            this.tbAnalysisDescription.TabIndex = 5;
             // 
             // lbAnalysisDescription
             // 
@@ -579,7 +582,7 @@
             this.lbAnalysisDescription.Location = new System.Drawing.Point(6, 186);
             this.lbAnalysisDescription.Name = "lbAnalysisDescription";
             this.lbAnalysisDescription.Size = new System.Drawing.Size(99, 13);
-            this.lbAnalysisDescription.TabIndex = 13;
+            this.lbAnalysisDescription.TabIndex = 4;
             this.lbAnalysisDescription.Text = "Analysis description";
             // 
             // tbAnalysisName
@@ -589,7 +592,7 @@
             this.tbAnalysisName.Location = new System.Drawing.Point(118, 156);
             this.tbAnalysisName.Name = "tbAnalysisName";
             this.tbAnalysisName.Size = new System.Drawing.Size(159, 20);
-            this.tbAnalysisName.TabIndex = 12;
+            this.tbAnalysisName.TabIndex = 3;
             // 
             // lbAnalysisName
             // 
@@ -599,7 +602,7 @@
             this.lbAnalysisName.Location = new System.Drawing.Point(5, 160);
             this.lbAnalysisName.Name = "lbAnalysisName";
             this.lbAnalysisName.Size = new System.Drawing.Size(74, 13);
-            this.lbAnalysisName.TabIndex = 11;
+            this.lbAnalysisName.TabIndex = 2;
             this.lbAnalysisName.Text = "Analysis name";
             // 
             // graphCtrlSolution
@@ -610,7 +613,7 @@
             this.graphCtrlSolution.Location = new System.Drawing.Point(318, 3);
             this.graphCtrlSolution.Name = "graphCtrlSolution";
             this.graphCtrlSolution.Size = new System.Drawing.Size(316, 147);
-            this.graphCtrlSolution.TabIndex = 9;
+            this.graphCtrlSolution.TabIndex = 1;
             this.graphCtrlSolution.Viewer = null;
             // 
             // graphCtrlPack
@@ -620,7 +623,7 @@
             this.graphCtrlPack.Location = new System.Drawing.Point(3, 3);
             this.graphCtrlPack.Name = "graphCtrlPack";
             this.graphCtrlPack.Size = new System.Drawing.Size(309, 147);
-            this.graphCtrlPack.TabIndex = 8;
+            this.graphCtrlPack.TabIndex = 0;
             this.graphCtrlPack.Viewer = null;
             // 
             // bnCreateAnalysis
@@ -629,7 +632,7 @@
             this.bnCreateAnalysis.Location = new System.Drawing.Point(500, 179);
             this.bnCreateAnalysis.Name = "bnCreateAnalysis";
             this.bnCreateAnalysis.Size = new System.Drawing.Size(131, 23);
-            this.bnCreateAnalysis.TabIndex = 7;
+            this.bnCreateAnalysis.TabIndex = 6;
             this.bnCreateAnalysis.Text = "Create analysis";
             this.bnCreateAnalysis.UseVisualStyleBackColor = true;
             this.bnCreateAnalysis.Click += new System.EventHandler(this.onCreateAnalysis);
@@ -683,7 +686,6 @@
         private System.Windows.Forms.GroupBox gbWrapper;
         private Basics.UCtrlDouble uCtrlTrayHeight;
         private System.Windows.Forms.Label lbWrapperColor;
-        private OfficePickers.ColorPicker.ComboBoxColorPicker cbColor;
         private System.Windows.Forms.ComboBox cbWrapperType;
         private System.Windows.Forms.Label label1;
         private Basics.UCtrlDouble uCtrlSurfacicMass;
@@ -717,5 +719,6 @@
         private System.Windows.Forms.TextBox tbAnalysisDescription;
         private System.Windows.Forms.Label lbAnalysisDescription;
         private System.Windows.Forms.Timer _timer;
+        private OfficePickers.ColorPicker.ComboBoxColorPicker cbColor;
     }
 }

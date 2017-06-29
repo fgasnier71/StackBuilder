@@ -97,6 +97,15 @@ namespace treeDiM.StackBuilder.GUIExtension.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Analysis has no valid solution.
+        /// </summary>
+        internal static string ID_ANALYSISHASNOVALIDSOLUTION {
+            get {
+                return ResourceManager.GetString("ID_ANALYSISHASNOVALIDSOLUTION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {0}_on_{1}.
         /// </summary>
         internal static string ID_ANALYSISNAME {
@@ -120,6 +129,15 @@ namespace treeDiM.StackBuilder.GUIExtension.Properties {
         internal static string ID_BUNDLECOUNT {
             get {
                 return ResourceManager.GetString("ID_BUNDLECOUNT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Case.
+        /// </summary>
+        internal static string ID_CASE {
+            get {
+                return ResourceManager.GetString("ID_CASE", resourceCulture);
             }
         }
         
@@ -178,11 +196,29 @@ namespace treeDiM.StackBuilder.GUIExtension.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Dimensions.
+        /// </summary>
+        internal static string ID_DIMENSIONS {
+            get {
+                return ResourceManager.GetString("ID_DIMENSIONS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Double-click a layer!.
         /// </summary>
         internal static string ID_DOUBLECLICKALAYER {
             get {
                 return ResourceManager.GetString("ID_DOUBLECLICKALAYER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Efficiency percentage.
+        /// </summary>
+        internal static string ID_EFFICIENCYPERCENTAGE {
+            get {
+                return ResourceManager.GetString("ID_EFFICIENCYPERCENTAGE", resourceCulture);
             }
         }
         
@@ -277,7 +313,7 @@ namespace treeDiM.StackBuilder.GUIExtension.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Load dimensions{0}({1}).
+        ///   Looks up a localized string similar to Load dimensions{0}({1}x{1}x{1}).
         /// </summary>
         internal static string ID_LOADDIMENSIONS {
             get {
@@ -291,6 +327,15 @@ namespace treeDiM.StackBuilder.GUIExtension.Properties {
         internal static string ID_LOADWEIGHT_WU {
             get {
                 return ResourceManager.GetString("ID_LOADWEIGHT_WU", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Maximum space.
+        /// </summary>
+        internal static string ID_MAXIMUMSPACE {
+            get {
+                return ResourceManager.GetString("ID_MAXIMUMSPACE", resourceCulture);
             }
         }
         

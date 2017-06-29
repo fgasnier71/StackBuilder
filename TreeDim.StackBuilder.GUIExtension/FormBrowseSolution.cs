@@ -13,6 +13,8 @@ using System.IO;
 
 using log4net;
 
+using Sharp3D.Math.Core;
+
 using treeDiM.StackBuilder.Basics;
 using treeDiM.StackBuilder.Graphics;
 using treeDiM.StackBuilder.Engine;
@@ -75,7 +77,7 @@ namespace treeDiM.StackBuilder.GUIExtension
             if (ctrl == graphCtrl)
             {
                 ViewerSolution vs = new ViewerSolution(_analysis.Solution);
-                vs.Draw(graphics, Sharp3D.Math.Core.Transform3D.Identity);
+                vs.Draw(graphics, Transform3D.Identity);
             }
         }
         #endregion

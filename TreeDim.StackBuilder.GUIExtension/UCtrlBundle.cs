@@ -18,6 +18,11 @@ namespace treeDiM.StackBuilder.GUIExtension
         public UCtrlBundle()
         {
             InitializeComponent();
+
+            uCtrlDimensions.ValueChanged += this.onPropertyChanged;
+            uCtrlUnitThickness.ValueChanged += this.onPropertyChanged;
+            uCtrlUnitWeight.ValueChanged += this.onPropertyChanged;
+            nudNoFlats.ValueChanged += this.onPropertyChanged;
         }
         #endregion
 
@@ -62,6 +67,19 @@ namespace treeDiM.StackBuilder.GUIExtension
                 return bundle;
             }
         }
+        #endregion
+
+        #region Event handlers
+        private void onPropertyChanged(object sender, EventArgs e)
+        {
+            if (null != ValueChanged)
+                ValueChanged(this, e);
+        }
+        #endregion
+
+        #region Events
+        public delegate void onValueChanged(object sender, EventArgs e);
+        public event onValueChanged ValueChanged;
         #endregion
     }
 }

@@ -73,6 +73,10 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="treeDiM.PLMPack.DBClient, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ThirdPartyAssemblies\treeDiM.PLMPack.DBClient.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\SharedAssemblyInfo.cs">
@@ -98,17 +102,11 @@
     <Compile Include="FormDefineAnalysisCasePallet.Designer.cs">
       <DependentUpon>FormDefineAnalysisCasePallet.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormDefineBundleCaseAnalysis.cs">
+    <Compile Include="FormDefineAnalysisBundleCase.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormDefineBundleCaseAnalysis.Designer.cs">
-      <DependentUpon>FormDefineBundleCaseAnalysis.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormDefineBundlePalletAnalysis.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormDefineBundlePalletAnalysis.Designer.cs">
-      <DependentUpon>FormDefineBundlePalletAnalysis.cs</DependentUpon>
+    <Compile Include="FormDefineAnalysisBundleCase.Designer.cs">
+      <DependentUpon>FormDefineAnalysisBundleCase.cs</DependentUpon>
     </Compile>
     <Compile Include="FormDefineCaseOptimization.cs">
       <SubType>Form</SubType>
@@ -148,13 +146,13 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\OfficePickers\OfficePickers.csproj">
+      <Project>{cad56b75-481b-4c76-b090-4bc2ff5e5681}</Project>
+      <Name>OfficePickers</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Sharp3D.Math\Sharp3D.Math.csproj">
       <Project>{8F9BA4D3-D6AF-42A6-B74F-0DF6568C148B}</Project>
       <Name>Sharp3D.Math</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\treeDiM.PLMPack.DBClient\treeDiM.PLMPack.DBClient.csproj">
-      <Project>{02c4930a-e1d6-4fcf-bb97-69aec2715563}</Project>
-      <Name>treeDiM.PLMPack.DBClient</Name>
     </ProjectReference>
     <ProjectReference Include="..\TreeDim.StackBuilder.Basics\treeDiM.StackBuilder.Basics.csproj">
       <Project>{444C01D0-53FD-49A1-9D55-267B49161357}</Project>
@@ -187,17 +185,11 @@
     <EmbeddedResource Include="FormDefineAnalysisCasePallet.resx">
       <DependentUpon>FormDefineAnalysisCasePallet.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormDefineBundleCaseAnalysis.fr-FR.resx">
-      <DependentUpon>FormDefineBundleCaseAnalysis.cs</DependentUpon>
+    <EmbeddedResource Include="FormDefineAnalysisBundleCase.fr-FR.resx">
+      <DependentUpon>FormDefineAnalysisBundleCase.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormDefineBundleCaseAnalysis.resx">
-      <DependentUpon>FormDefineBundleCaseAnalysis.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormDefineBundlePalletAnalysis.fr-FR.resx">
-      <DependentUpon>FormDefineBundlePalletAnalysis.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormDefineBundlePalletAnalysis.resx">
-      <DependentUpon>FormDefineBundlePalletAnalysis.cs</DependentUpon>
+    <EmbeddedResource Include="FormDefineAnalysisBundleCase.resx">
+      <DependentUpon>FormDefineAnalysisBundleCase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormDefineCaseOptimization.fr-FR.resx">
       <DependentUpon>FormDefineCaseOptimization.cs</DependentUpon>
@@ -235,7 +227,9 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>if $(ConfigurationName) == Release "$(SolutionDir)Signfile.bat" $(TargetPath)</PostBuildEvent>
+    <PostBuildEvent>copy "$(TargetPath)" "$(SolutionDir)..\PLMPack\Sources\ThirdPartyLibraries\$(TargetFileName)
+if $(ConfigurationName) == Release "$(SolutionDir)Signfile.bat" $(TargetPath)
+</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

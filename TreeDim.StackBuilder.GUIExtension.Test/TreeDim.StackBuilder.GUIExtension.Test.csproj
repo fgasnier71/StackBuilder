@@ -77,7 +77,10 @@
       <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Sharp3D.Math, Version=3.0.0.23, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="Sharp3D.Math, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\PLMPack\Sources\ThirdPartyLibraries\Sharp3D.Math.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
@@ -89,7 +92,10 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="treeDiM.EdgeCrushTest, Version=3.0.0.23, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="treeDiM.PLMPack.DBClient, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ThirdPartyAssemblies\treeDiM.PLMPack.DBClient.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FormMain.cs">
@@ -126,10 +132,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\treeDiM.PLMPack.DBClient\treeDiM.PLMPack.DBClient.csproj">
-      <Project>{02c4930a-e1d6-4fcf-bb97-69aec2715563}</Project>
-      <Name>treeDiM.PLMPack.DBClient</Name>
-    </ProjectReference>
     <ProjectReference Include="..\TreeDim.StackBuilder.Basics\treeDiM.StackBuilder.Basics.csproj">
       <Project>{444C01D0-53FD-49A1-9D55-267B49161357}</Project>
       <Name>treeDiM.StackBuilder.Basics</Name>

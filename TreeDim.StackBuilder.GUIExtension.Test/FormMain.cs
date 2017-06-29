@@ -99,7 +99,7 @@ namespace treeDiM.StackBuilder.GUIExtension.Test
         {
             try
             {
-                Palletization.StartBundleCaseAnalysis(
+                Palletization.StartAnalysisBundleCase(
                     tbName.Text
                     , uCtrlDimensions.ValueX
                     , uCtrlDimensions.ValueY

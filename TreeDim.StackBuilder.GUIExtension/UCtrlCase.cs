@@ -18,6 +18,9 @@ namespace treeDiM.StackBuilder.GUIExtension
         public UCtrlCase()
         {
             InitializeComponent();
+
+            uCtrlDimensions.ValueChanged += this.onPropertyChanged;
+            uCtrlWeight.ValueChanged += this.onPropertyChanged;
         }
         #endregion
 
@@ -48,6 +51,19 @@ namespace treeDiM.StackBuilder.GUIExtension
                 return bCase;
             }
         }
+        #endregion
+
+        #region Event handlers
+        private void onPropertyChanged(object sender, EventArgs e)
+        {
+            if (null != ValueChanged)
+                ValueChanged(this, e);
+        }
+        #endregion
+
+        #region Events
+        public delegate void onValueChanged(object sender, EventArgs e);
+        public event onValueChanged ValueChanged;
         #endregion
     }
 }

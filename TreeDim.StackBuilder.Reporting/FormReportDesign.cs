@@ -131,6 +131,10 @@ namespace treeDiM.StackBuilder.Reporting
                 // update tree view
                 FillTree();
             }
+            catch (FileNotFoundException ex)
+            {
+                _log.Error(ex.Message);
+            }
             catch (Exception ex)
             {
                 _log.Error(ex.ToString());

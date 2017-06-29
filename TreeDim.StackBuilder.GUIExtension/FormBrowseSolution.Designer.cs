@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormBrowseSolution));
             this.toolStrip = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonReport = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButtonExport = new System.Windows.Forms.ToolStripButton();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainerHoriz = new System.Windows.Forms.SplitContainer();
             this.graphCtrl = new treeDiM.StackBuilder.Graphics.Graphics3DControl();
@@ -62,8 +61,7 @@
             // toolStrip
             // 
             this.toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButtonReport,
-            this.toolStripButtonExport});
+            this.toolStripButtonReport});
             this.toolStrip.Location = new System.Drawing.Point(0, 0);
             this.toolStrip.Name = "toolStrip";
             this.toolStrip.Size = new System.Drawing.Size(984, 25);
@@ -79,16 +77,6 @@
             this.toolStripButtonReport.Size = new System.Drawing.Size(23, 22);
             this.toolStripButtonReport.Text = "Generate report...";
             this.toolStripButtonReport.Click += new System.EventHandler(this.onGenerateReport);
-            // 
-            // toolStripButtonExport
-            // 
-            this.toolStripButtonExport.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonExport.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonExport.Image")));
-            this.toolStripButtonExport.ImageTransparentColor = System.Drawing.Color.White;
-            this.toolStripButtonExport.Name = "toolStripButtonExport";
-            this.toolStripButtonExport.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonExport.Text = "Export to StackBuilder...";
-            this.toolStripButtonExport.Click += new System.EventHandler(this.onExport);
             // 
             // splitContainer1
             // 
@@ -295,7 +283,6 @@
 
         private System.Windows.Forms.ToolStrip toolStrip;
         private System.Windows.Forms.ToolStripButton toolStripButtonReport;
-        private System.Windows.Forms.ToolStripButton toolStripButtonExport;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private Graphics.Graphics3DControl graphCtrl;
         private SourceGrid.Grid gridSolution;

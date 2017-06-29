@@ -30,9 +30,8 @@ namespace treeDiM.StackBuilder.GUIExtension
         #endregion
 
         #region Data members
-        static readonly ILog _log = LogManager.GetLogger(typeof(FormDefineAnalysisCasePallet));
-        private string _caseName;
         private UCtrlPackable _uctrlPackable;
+        static readonly ILog _log = LogManager.GetLogger(typeof(FormDefineAnalysisCasePallet));
         #endregion
 
         #region Constructor
@@ -85,6 +84,9 @@ namespace treeDiM.StackBuilder.GUIExtension
             // event handling
             uCtrlLayerList.RefreshFinished += onLayerSelected;
             uCtrlLayerList.ButtonSizes = new Size(100, 100);
+
+            uCtrlBundle.ValueChanged += onInputChanged;
+            uCtrlCase.ValueChanged += onInputChanged;
         }
         protected override void OnClosing(CancelEventArgs e)
         {
@@ -121,17 +123,12 @@ namespace treeDiM.StackBuilder.GUIExtension
         #endregion
 
         #region Public properties
-        public string CaseName
-        {
-            set { _caseName = value; }
-            get { return _caseName; }
-        }
+        public string CaseName { set; get; }
         #endregion
 
         #region Private properties
-        private string DocumentName { get { return string.Format(""); } }
-        private string DocumentDescription { get { return string.Format(""); } }
-
+        private string DocumentName { get { return string.Format("{0}", CaseName); } }
+        private string DocumentDescription { get { return string.Format("{0} / {1}", CaseName, cbPallet.SelectedPallet.Name); } }
         #endregion
 
         #region Helpers

@@ -367,5 +367,29 @@ namespace treeDiM.StackBuilder.GUIExtension.Properties {
                 this["AllowVerticalZ"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1200")]
+        public double PalletHeight {
+            get {
+                return ((double)(this["PalletHeight"]));
+            }
+            set {
+                this["PalletHeight"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int WrapperType {
+            get {
+                return ((int)(this["WrapperType"]));
+            }
+            set {
+                this["WrapperType"] = value;
+            }
+        }
     }
 }

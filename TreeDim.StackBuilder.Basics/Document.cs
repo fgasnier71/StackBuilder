@@ -148,14 +148,15 @@ namespace treeDiM.StackBuilder.Basics
         #region Public instantiation methods
         public Packable CreateNewPackable(Packable packable)
         {
-            BoxProperties bProperties = packable as BoxProperties;
-            PackProperties pProperties = packable as PackProperties;
-            if (null != bProperties)
-            {
-                return new BoxProperties(this, bProperties.Length, bProperties.Width, bProperties.Height);
-            }
-            else if (null != pProperties)
-            { }
+            BoxProperties boxProperties = packable as BoxProperties;
+            BundleProperties bundleProperties = packable as BundleProperties;
+            PackProperties packProperties = packable as PackProperties;
+            if (null != boxProperties)
+                return CreateNewCase(boxProperties);
+            else if (null != bundleProperties)
+                return CreateNewBundle(bundleProperties);
+            else if (null != packProperties)
+                return CreateNewPack(packProperties);
             return null;
         }
         /// <summary>
@@ -303,21 +304,6 @@ namespace treeDiM.StackBuilder.Basics
             NotifyOnNewTypeCreated(packProperties);
             return packProperties;
         }
-        public CaseOfBoxesProperties CreateNewCaseOfBoxes(
-            string name, string description
-            , BoxProperties boxProperties
-            , CaseDefinition caseDefinition
-            , ParamSetPackOptim constraintSet)
-        {
-            CaseOfBoxesProperties caseProperties = new CaseOfBoxesProperties(this, boxProperties, caseDefinition, constraintSet);
-            caseProperties.ID.SetNameDesc( name, description);
-            // insert in list
-            _typeList.Add(caseProperties);
-            // notify listeners
-            NotifyOnNewTypeCreated(caseProperties);
-            Modify();
-            return caseProperties;
-        }        
         public BundleProperties CreateNewBundle(
             string name, string description
             , double length, double width, double thickness
@@ -333,6 +319,18 @@ namespace treeDiM.StackBuilder.Basics
             NotifyOnNewTypeCreated(bundle);
             Modify();
             return bundle;
+        }
+        public BundleProperties CreateNewBundle(BundleProperties bundleProp)
+        { 
+            // instantiate
+            BundleProperties bundlePropClone = new BundleProperties(this,
+                bundleProp.Name, bundleProp.Description,
+                bundleProp.Length, bundleProp.Width, bundleProp.UnitThickness, bundleProp.UnitWeight,
+                bundleProp.NoFlats, bundleProp.Color);
+            _typeList.Add(bundlePropClone);
+            NotifyOnNewTypeCreated(bundlePropClone);
+            Modify();
+            return bundlePropClone;
         }
         public CylinderProperties CreateNewCylinder(CylinderProperties cyl)
         {
@@ -1395,8 +1393,6 @@ namespace treeDiM.StackBuilder.Basics
                                 LoadBoxProperties(itemPropertiesNode as XmlElement);
                             else if (string.Equals(itemPropertiesNode.Name, "CylinderProperties", StringComparison.CurrentCultureIgnoreCase))
                                 LoadCylinderProperties(itemPropertiesNode as XmlElement);
-                            else if (string.Equals(itemPropertiesNode.Name, "CaseOfBoxesProperties", StringComparison.CurrentCultureIgnoreCase))
-                                LoadCaseOfBoxesProperties(itemPropertiesNode as XmlElement);
                             else if (string.Equals(itemPropertiesNode.Name, "PalletProperties", StringComparison.CurrentCultureIgnoreCase))
                                 LoadPalletProperties(itemPropertiesNode as XmlElement);
                             else if (string.Equals(itemPropertiesNode.Name, "InterlayerProperties", StringComparison.CurrentCultureIgnoreCase))
@@ -1637,7 +1633,7 @@ namespace treeDiM.StackBuilder.Basics
                 );
             cylinderProperties.ID.IGuid = new Guid(sid);
         }
-
+        /*
         private void LoadCaseOfBoxesProperties(XmlElement eltCaseOfBoxesProperties)
         {
             string sid = eltCaseOfBoxesProperties.Attributes["Id"].Value;
@@ -1673,6 +1669,7 @@ namespace treeDiM.StackBuilder.Basics
                     LoadOptimConstraintSet(constraintSetElt, out constraintSet);
                 }
             }
+
             CaseOfBoxesProperties caseOfBoxProperties = CreateNewCaseOfBoxes(
                 sname
                 , sdescription
@@ -1684,6 +1681,7 @@ namespace treeDiM.StackBuilder.Basics
             caseOfBoxProperties.TextureList = listTexture;
             caseOfBoxProperties.SetAllColors( colors );
         }
+        */ 
         private void LoadFaceColors(XmlElement eltColors, ref Color[] colors)
         {
             foreach (XmlNode faceColorNode in eltColors.ChildNodes)
