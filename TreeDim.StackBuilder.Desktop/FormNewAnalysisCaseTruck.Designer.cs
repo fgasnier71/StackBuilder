@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormNewAnalysisCaseTruck));
             this.cbCases = new treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered();
             this.lbBox = new System.Windows.Forms.Label();
             this.uCtrlCaseOrientation = new treeDiM.StackBuilder.Graphics.uCtrlCaseOrientation();
@@ -36,110 +37,115 @@
             this.checkBoxBestLayersOnly = new System.Windows.Forms.CheckBox();
             this.cbTrucks = new treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered();
             this.lbTrucks = new System.Windows.Forms.Label();
+            this.uCtrlMinDistanceLoadWall = new treeDiM.StackBuilder.Basics.UCtrlDualDouble();
+            this.uCtrlMinDistanceLoadRoof = new treeDiM.StackBuilder.Basics.UCtrlDouble();
             this.SuspendLayout();
             // 
             // tbDescription
             // 
-            this.tbDescription.Size = new System.Drawing.Size(592, 20);
+            resources.ApplyResources(this.tbDescription, "tbDescription");
+            // 
+            // tbName
+            // 
+            resources.ApplyResources(this.tbName, "tbName");
+            // 
+            // lbDescription
+            // 
+            resources.ApplyResources(this.lbDescription, "lbDescription");
+            // 
+            // lbName
+            // 
+            resources.ApplyResources(this.lbName, "lbName");
             // 
             // bnCancel
             // 
-            this.bnCancel.Location = new System.Drawing.Point(706, 4);
+            resources.ApplyResources(this.bnCancel, "bnCancel");
             // 
             // cbCases
             // 
+            resources.ApplyResources(this.cbCases, "cbCases");
             this.cbCases.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCases.FormattingEnabled = true;
-            this.cbCases.Location = new System.Drawing.Point(104, 60);
             this.cbCases.Name = "cbCases";
-            this.cbCases.Size = new System.Drawing.Size(145, 21);
-            this.cbCases.TabIndex = 21;
             this.cbCases.SelectedIndexChanged += new System.EventHandler(this.onCaseChanged);
             // 
             // lbBox
             // 
-            this.lbBox.AutoSize = true;
-            this.lbBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lbBox.Location = new System.Drawing.Point(4, 63);
+            resources.ApplyResources(this.lbBox, "lbBox");
             this.lbBox.Name = "lbBox";
-            this.lbBox.Size = new System.Drawing.Size(31, 13);
-            this.lbBox.TabIndex = 20;
-            this.lbBox.Text = "Case";
             // 
             // uCtrlCaseOrientation
             // 
+            resources.ApplyResources(this.uCtrlCaseOrientation, "uCtrlCaseOrientation");
             this.uCtrlCaseOrientation.AllowedOrientations = new bool[] {
         false,
         false,
         true};
-            this.uCtrlCaseOrientation.Location = new System.Drawing.Point(7, 87);
             this.uCtrlCaseOrientation.Name = "uCtrlCaseOrientation";
-            this.uCtrlCaseOrientation.Size = new System.Drawing.Size(292, 110);
-            this.uCtrlCaseOrientation.TabIndex = 24;
             this.uCtrlCaseOrientation.CheckedChanged += new treeDiM.StackBuilder.Graphics.uCtrlCaseOrientation.CheckChanged(this.onInputChanged);
             // 
             // lbSelect
             // 
-            this.lbSelect.AutoSize = true;
-            this.lbSelect.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lbSelect.Location = new System.Drawing.Point(4, 200);
+            resources.ApplyResources(this.lbSelect, "lbSelect");
             this.lbSelect.Name = "lbSelect";
-            this.lbSelect.Size = new System.Drawing.Size(216, 13);
-            this.lbSelect.TabIndex = 30;
-            this.lbSelect.Text = "Select one or more layers and click \'Next>\'...";
             // 
             // uCtrlLayerList
             // 
-            this.uCtrlLayerList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.uCtrlLayerList.AutoScroll = true;
+            resources.ApplyResources(this.uCtrlLayerList, "uCtrlLayerList");
             this.uCtrlLayerList.ButtonSizes = new System.Drawing.Size(150, 150);
-            this.uCtrlLayerList.Location = new System.Drawing.Point(0, 216);
             this.uCtrlLayerList.Name = "uCtrlLayerList";
             this.uCtrlLayerList.Show3D = true;
             this.uCtrlLayerList.SingleSelection = false;
-            this.uCtrlLayerList.Size = new System.Drawing.Size(784, 289);
-            this.uCtrlLayerList.TabIndex = 31;
             // 
             // checkBoxBestLayersOnly
             // 
-            this.checkBoxBestLayersOnly.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.checkBoxBestLayersOnly.AutoSize = true;
-            this.checkBoxBestLayersOnly.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.checkBoxBestLayersOnly.Location = new System.Drawing.Point(7, 517);
+            resources.ApplyResources(this.checkBoxBestLayersOnly, "checkBoxBestLayersOnly");
             this.checkBoxBestLayersOnly.Name = "checkBoxBestLayersOnly";
-            this.checkBoxBestLayersOnly.Size = new System.Drawing.Size(128, 17);
-            this.checkBoxBestLayersOnly.TabIndex = 32;
-            this.checkBoxBestLayersOnly.Text = "Show best layers only";
             this.checkBoxBestLayersOnly.UseVisualStyleBackColor = true;
             this.checkBoxBestLayersOnly.CheckedChanged += new System.EventHandler(this.onInputChanged);
             // 
             // cbTrucks
             // 
+            resources.ApplyResources(this.cbTrucks, "cbTrucks");
             this.cbTrucks.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTrucks.FormattingEnabled = true;
-            this.cbTrucks.Location = new System.Drawing.Point(535, 63);
             this.cbTrucks.Name = "cbTrucks";
-            this.cbTrucks.Size = new System.Drawing.Size(161, 21);
-            this.cbTrucks.TabIndex = 34;
             this.cbTrucks.SelectedIndexChanged += new System.EventHandler(this.onInputChanged);
             // 
             // lbTrucks
             // 
-            this.lbTrucks.AutoSize = true;
-            this.lbTrucks.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lbTrucks.Location = new System.Drawing.Point(413, 66);
+            resources.ApplyResources(this.lbTrucks, "lbTrucks");
             this.lbTrucks.Name = "lbTrucks";
-            this.lbTrucks.Size = new System.Drawing.Size(40, 13);
-            this.lbTrucks.TabIndex = 33;
-            this.lbTrucks.Text = "Trucks";
+            // 
+            // uCtrlMinDistanceLoadWall
+            // 
+            resources.ApplyResources(this.uCtrlMinDistanceLoadWall, "uCtrlMinDistanceLoadWall");
+            this.uCtrlMinDistanceLoadWall.MinValue = -10000D;
+            this.uCtrlMinDistanceLoadWall.Name = "uCtrlMinDistanceLoadWall";
+            this.uCtrlMinDistanceLoadWall.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlMinDistanceLoadWall.ValueX = 0D;
+            this.uCtrlMinDistanceLoadWall.ValueY = 0D;
+            this.uCtrlMinDistanceLoadWall.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDualDouble.onValueChanged(this.onInputChanged);
+            // 
+            // uCtrlMinDistanceLoadRoof
+            // 
+            resources.ApplyResources(this.uCtrlMinDistanceLoadRoof, "uCtrlMinDistanceLoadRoof");
+            this.uCtrlMinDistanceLoadRoof.Minimum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            -2147483648});
+            this.uCtrlMinDistanceLoadRoof.Name = "uCtrlMinDistanceLoadRoof";
+            this.uCtrlMinDistanceLoadRoof.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlMinDistanceLoadRoof.Value = 0D;
+            this.uCtrlMinDistanceLoadRoof.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.onValueChanged(this.onInputChanged);
             // 
             // FormNewAnalysisCaseTruck
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.uCtrlMinDistanceLoadRoof);
+            this.Controls.Add(this.uCtrlMinDistanceLoadWall);
             this.Controls.Add(this.cbTrucks);
             this.Controls.Add(this.lbTrucks);
             this.Controls.Add(this.checkBoxBestLayersOnly);
@@ -149,7 +155,6 @@
             this.Controls.Add(this.cbCases);
             this.Controls.Add(this.lbBox);
             this.Name = "FormNewAnalysisCaseTruck";
-            this.Text = "FormNewAnalysisCaseTruck";
             this.Controls.SetChildIndex(this.bnCancel, 0);
             this.Controls.SetChildIndex(this.lbName, 0);
             this.Controls.SetChildIndex(this.lbDescription, 0);
@@ -163,6 +168,8 @@
             this.Controls.SetChildIndex(this.checkBoxBestLayersOnly, 0);
             this.Controls.SetChildIndex(this.lbTrucks, 0);
             this.Controls.SetChildIndex(this.cbTrucks, 0);
+            this.Controls.SetChildIndex(this.uCtrlMinDistanceLoadWall, 0);
+            this.Controls.SetChildIndex(this.uCtrlMinDistanceLoadRoof, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -178,5 +185,7 @@
         private System.Windows.Forms.CheckBox checkBoxBestLayersOnly;
         private Graphics.Controls.CCtrlComboFiltered cbTrucks;
         private System.Windows.Forms.Label lbTrucks;
+        private Basics.UCtrlDualDouble uCtrlMinDistanceLoadWall;
+        private Basics.UCtrlDouble uCtrlMinDistanceLoadRoof;
     }
 }

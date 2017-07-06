@@ -57,6 +57,9 @@ namespace treeDiM.StackBuilder.Desktop
                 tbName.Text = _document.GetValidNewAnalysisName(ItemDefaultName);
                 tbDescription.Text = tbName.Text;
 
+                uCtrlMinDistanceLoadWall.ValueX = Settings.Default.MinDistancePalletTruckWallX;
+                uCtrlMinDistanceLoadWall.ValueY = Settings.Default.MinDistancePalletTruckWallY;
+                uCtrlMinDistanceLoadRoof.Value = Settings.Default.MinDistancePalletTruckRoof;
                 uCtrlCaseOrientation.AllowedOrientations = new bool[]
                 { Settings.Default.AllowVerticalX, Settings.Default.AllowVerticalY, Settings.Default.AllowVerticalZ };
             }
@@ -65,7 +68,10 @@ namespace treeDiM.StackBuilder.Desktop
                 tbName.Text = AnalysisBase.Name;
                 tbDescription.Text = AnalysisBase.Description;
 
-                ConstraintSetAbstract constraintSet = AnalysisBase.ConstraintSet;
+                ConstraintSetCaseTruck constraintSet = AnalysisBase.ConstraintSet as ConstraintSetCaseTruck;
+                uCtrlMinDistanceLoadWall.ValueX = constraintSet.MinDistanceLoadWall.X;
+                uCtrlMinDistanceLoadWall.ValueY = constraintSet.MinDistanceLoadWall.Y;
+                uCtrlMinDistanceLoadRoof.Value = constraintSet.MinDistanceLoadRoof;
                 uCtrlCaseOrientation.AllowedOrientations = constraintSet.AllowedOrientations;
             }
             checkBoxBestLayersOnly.Checked = Settings.Default.KeepBestSolutions;
@@ -74,11 +80,14 @@ namespace treeDiM.StackBuilder.Desktop
         {
             base.OnClosed(e);
 
+            Settings.Default.MinDistancePalletTruckWallX = uCtrlMinDistanceLoadWall.ValueX;
+            Settings.Default.MinDistancePalletTruckWallY = uCtrlMinDistanceLoadWall.ValueY;
+            Settings.Default.MinDistancePalletTruckRoof = uCtrlMinDistanceLoadRoof.Value;
             Settings.Default.AllowVerticalX = uCtrlCaseOrientation.AllowedOrientations[0];
             Settings.Default.AllowVerticalY = uCtrlCaseOrientation.AllowedOrientations[1];
             Settings.Default.AllowVerticalZ = uCtrlCaseOrientation.AllowedOrientations[2];
-
             Settings.Default.KeepBestSolutions = checkBoxBestLayersOnly.Checked;
+            Settings.Default.Save();
         }
         #endregion
 
@@ -194,14 +203,16 @@ namespace treeDiM.StackBuilder.Desktop
                 LayerSolver solver = new LayerSolver();
                 List<Layer2D> layers = solver.BuildLayers(
                     packable.OuterDimensions
-                    , new Vector2D(truckProperties.InsideLength, truckProperties.InsideWidth)
+                    , new Vector2D(
+                        truckProperties.InsideLength - 2.0 * uCtrlMinDistanceLoadWall.ValueX
+                        , truckProperties.InsideWidth - 2.0 * uCtrlMinDistanceLoadWall.ValueY)
                     , 0.0 /* offsetZ */
                     , BuildConstraintSet()
                     , checkBoxBestLayersOnly.Checked
                     );
                 // update control
                 uCtrlLayerList.Packable = packable;
-                uCtrlLayerList.ContainerHeight = truckProperties.InsideHeight;
+                uCtrlLayerList.ContainerHeight = truckProperties.InsideHeight - uCtrlMinDistanceLoadRoof.Value;
                 uCtrlLayerList.FirstLayerSelected = true;
                 uCtrlLayerList.LayerList = LayerSolver.ConvertList(layers);
             }
@@ -228,6 +239,8 @@ namespace treeDiM.StackBuilder.Desktop
         private ConstraintSetCaseTruck BuildConstraintSet()
         {
             ConstraintSetCaseTruck constraintSet = new ConstraintSetCaseTruck(SelectedTruck);
+            constraintSet.MinDistanceLoadWall = new Vector2D(uCtrlMinDistanceLoadWall.ValueX, uCtrlMinDistanceLoadWall.ValueY);
+            constraintSet.MinDistanceLoadRoof = uCtrlMinDistanceLoadRoof.Value;
             constraintSet.SetAllowedOrientations(uCtrlCaseOrientation.AllowedOrientations);
             return constraintSet;
         }

@@ -253,12 +253,13 @@ namespace treeDiM.StackBuilder.Basics
         public double Width  { get { return _dimContainer.Y; } }
         public string Tooltip(double height)
         {
-            return string.Format("{0} * {1} = {2}\n {3} | {4}"
+            return string.Format("{0} * {1} = {2}\n {3} | {4} | {5}"
                     , Count
                     , NoLayers(height)
                     , CountInHeight(height)
                     , HalfAxis.ToString(AxisOrtho)
-                    , PatternName);
+                    , PatternName
+                    , _swapped ? "t" : "f");
         }
         #endregion
 

@@ -340,6 +340,8 @@ namespace treeDiM.StackBuilder.Graphics
         {
             get { return _dim[2]; }
         }
+        public BoxPosition BPosition
+        {   get { return _boxPosition; } }
         public HalfAxis.HAxis HLengthAxis
         {
             get { return _boxPosition.DirectionLength;  }
@@ -818,6 +820,13 @@ namespace treeDiM.StackBuilder.Graphics
         { 
             if (!bPosition.IsValid)
                 throw new GraphicsException("Invalid BoxPosition: can not create box");
+        }
+        #endregion
+
+        #region Objet overrides
+        public override string ToString()
+        {
+            return string.Format("BoxPosition={0} Dimensions=({1},{2},{3})", _boxPosition, _dim[0], _dim[1], _dim[2]);
         }
         #endregion
     }

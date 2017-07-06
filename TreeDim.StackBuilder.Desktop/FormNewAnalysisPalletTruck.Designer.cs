@@ -34,7 +34,7 @@
             this.checkBoxBestLayersOnly = new System.Windows.Forms.CheckBox();
             this.chkbAllowMultipleLayers = new System.Windows.Forms.CheckBox();
             this.uCtrlMinDistanceLoadWall = new treeDiM.StackBuilder.Basics.UCtrlDualDouble();
-            this.uCtrlMinDistLoadRoof = new treeDiM.StackBuilder.Basics.UCtrlDouble();
+            this.uCtrlMinDistanceLoadRoof = new treeDiM.StackBuilder.Basics.UCtrlDouble();
             this.uCtrlLayerList = new treeDiM.StackBuilder.Graphics.UCtrlLayerList();
             this.cbTrucks = new treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered();
             this.cbPallets = new treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered();
@@ -43,6 +43,18 @@
             // tbDescription
             // 
             resources.ApplyResources(this.tbDescription, "tbDescription");
+            // 
+            // tbName
+            // 
+            resources.ApplyResources(this.tbName, "tbName");
+            // 
+            // lbDescription
+            // 
+            resources.ApplyResources(this.lbDescription, "lbDescription");
+            // 
+            // lbName
+            // 
+            resources.ApplyResources(this.lbName, "lbName");
             // 
             // bnCancel
             // 
@@ -74,22 +86,24 @@
             // uCtrlMinDistanceLoadWall
             // 
             resources.ApplyResources(this.uCtrlMinDistanceLoadWall, "uCtrlMinDistanceLoadWall");
+            this.uCtrlMinDistanceLoadWall.MinValue = 0D;
             this.uCtrlMinDistanceLoadWall.Name = "uCtrlMinDistanceLoadWall";
             this.uCtrlMinDistanceLoadWall.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlMinDistanceLoadWall.ValueX = 0D;
             this.uCtrlMinDistanceLoadWall.ValueY = 0D;
+            this.uCtrlMinDistanceLoadWall.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDualDouble.onValueChanged(this.onInputChanged);
             // 
-            // uCtrlMinDistLoadRoof
+            // uCtrlMinDistanceLoadRoof
             // 
-            resources.ApplyResources(this.uCtrlMinDistLoadRoof, "uCtrlMinDistLoadRoof");
-            this.uCtrlMinDistLoadRoof.Minimum = new decimal(new int[] {
+            resources.ApplyResources(this.uCtrlMinDistanceLoadRoof, "uCtrlMinDistanceLoadRoof");
+            this.uCtrlMinDistanceLoadRoof.Minimum = new decimal(new int[] {
             0,
             0,
             0,
             0});
-            this.uCtrlMinDistLoadRoof.Name = "uCtrlMinDistLoadRoof";
-            this.uCtrlMinDistLoadRoof.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
-            this.uCtrlMinDistLoadRoof.Value = 0D;
+            this.uCtrlMinDistanceLoadRoof.Name = "uCtrlMinDistanceLoadRoof";
+            this.uCtrlMinDistanceLoadRoof.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlMinDistanceLoadRoof.Value = 0D;
             // 
             // uCtrlLayerList
             // 
@@ -101,17 +115,17 @@
             // 
             // cbTrucks
             // 
+            resources.ApplyResources(this.cbTrucks, "cbTrucks");
             this.cbTrucks.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTrucks.FormattingEnabled = true;
-            resources.ApplyResources(this.cbTrucks, "cbTrucks");
             this.cbTrucks.Name = "cbTrucks";
             this.cbTrucks.SelectedIndexChanged += new System.EventHandler(this.onInputChanged);
             // 
             // cbPallets
             // 
+            resources.ApplyResources(this.cbPallets, "cbPallets");
             this.cbPallets.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbPallets.FormattingEnabled = true;
-            resources.ApplyResources(this.cbPallets, "cbPallets");
             this.cbPallets.Name = "cbPallets";
             this.cbPallets.SelectedIndexChanged += new System.EventHandler(this.onInputChanged);
             // 
@@ -121,7 +135,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.chkbAllowMultipleLayers);
             this.Controls.Add(this.uCtrlMinDistanceLoadWall);
-            this.Controls.Add(this.uCtrlMinDistLoadRoof);
+            this.Controls.Add(this.uCtrlMinDistanceLoadRoof);
             this.Controls.Add(this.checkBoxBestLayersOnly);
             this.Controls.Add(this.uCtrlLayerList);
             this.Controls.Add(this.lbTrucks);
@@ -140,7 +154,7 @@
             this.Controls.SetChildIndex(this.lbTrucks, 0);
             this.Controls.SetChildIndex(this.uCtrlLayerList, 0);
             this.Controls.SetChildIndex(this.checkBoxBestLayersOnly, 0);
-            this.Controls.SetChildIndex(this.uCtrlMinDistLoadRoof, 0);
+            this.Controls.SetChildIndex(this.uCtrlMinDistanceLoadRoof, 0);
             this.Controls.SetChildIndex(this.uCtrlMinDistanceLoadWall, 0);
             this.Controls.SetChildIndex(this.chkbAllowMultipleLayers, 0);
             this.ResumeLayout(false);
@@ -156,7 +170,7 @@
         private System.Windows.Forms.Label lbTrucks;
         private Graphics.UCtrlLayerList uCtrlLayerList;
         private System.Windows.Forms.CheckBox checkBoxBestLayersOnly;
-        private Basics.UCtrlDouble uCtrlMinDistLoadRoof;
+        private Basics.UCtrlDouble uCtrlMinDistanceLoadRoof;
         private Basics.UCtrlDualDouble uCtrlMinDistanceLoadWall;
         private System.Windows.Forms.CheckBox chkbAllowMultipleLayers;
     }

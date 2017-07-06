@@ -17,18 +17,25 @@ namespace treeDiM.StackBuilder.Graphics
         #region Data members
         private Analysis _analysis;
         private BoxPosition _boxPosition;
+        private Vector3D _dims = Vector3D.Zero;
         #endregion
         #region Constructor
-        public ImageInst(Analysis analysis, BoxPosition boxPosition)
+        public ImageInst(Analysis analysis, Vector3D dims, BoxPosition boxPosition)
         {
-            _analysis = analysis; _boxPosition = boxPosition;
+            _analysis = analysis; _dims = dims; _boxPosition = boxPosition;
         }
         #endregion
-        #region Public constructor
+        #region Public properties
         public Vector3D PointBase { get { return _boxPosition.Position; } }
         public Analysis Analysis { get { return _analysis; } }
         public HalfAxis.HAxis AxisLength { get { return _boxPosition.DirectionLength; } }
         public HalfAxis.HAxis AxisWidth { get { return _boxPosition.DirectionWidth; } }
+        #endregion
+        #region Box conversion (needed for BoxelOrderer)
+        public Box ToBox()
+        {
+            return new Box(0, _dims.X, _dims.Y, _dims.Z, _boxPosition);
+        }
         #endregion
     }
     #endregion

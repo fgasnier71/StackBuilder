@@ -109,12 +109,13 @@ namespace treeDiM.StackBuilder.Desktop
             {
                 // get horizontal angle
                 double angle = trackBarHorizAngle.Value;
+                double cameraDistance = 100000.0;
                 // instantiate graphics
                 Graphics3DImage graphics = new Graphics3DImage(pictureBox.Size);
                 graphics.CameraPosition = new Vector3D(
-                    Math.Cos(angle * Math.PI / 180.0) * Math.Sqrt(2.0) * 10000.0
-                    , Math.Sin(angle * Math.PI / 180.0) * Math.Sqrt(2.0) * 10000.0
-                    , 10000.0);
+                    Math.Cos(angle * Math.PI / 180.0) * Math.Sqrt(2.0) * cameraDistance
+                    , Math.Sin(angle * Math.PI / 180.0) * Math.Sqrt(2.0) * cameraDistance
+                    , cameraDistance);
                 graphics.Target = Vector3D.Zero;
                 graphics.SetViewport(-500.0f, -500.0f, 500.0f, 500.0f);
                 // draw

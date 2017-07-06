@@ -54,6 +54,16 @@ namespace treeDiM.StackBuilder.Basics
                 nudValueY.DecimalPlaces = UnitsManager.NoDecimals(_unitType);
             }
         }
+        [Browsable(true)]
+        public double MinValue
+        {
+            set
+            {
+                nudValueX.Minimum = (decimal)value;
+                nudValueY.Minimum = (decimal)value;
+            }
+            get { return (double)nudValueX.Minimum; }
+        }
         #endregion
 
         #region Event handlers

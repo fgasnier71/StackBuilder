@@ -1310,7 +1310,9 @@ namespace treeDiM.StackBuilder.Basics
         public bool CanCreatePack
         { get { return this.Boxes.Count > 0; } }
         public bool CanCreateAnalysisCasePallet
-        { get { return (this.Bundles.Count > 0 || this.Cases.Count > 0) && this.Pallets.Count > 0; } }
+        { get { return this.Cases.Count > 0 && this.Pallets.Count > 0; } }
+        public bool CanCreateAnalysisBundlePallet
+        { get { return this.Bundles.Count > 0 && this.Pallets.Count > 0; } }
         public bool CanCreateAnalysisBoxCase
         { get { return ((this.Bundles.Count > 0 || this.Boxes.Count > 0) && this.Cases.Count > 0) || (this.Cases.Count > 1); } }
         public bool CanCreateAnalysisCylinderPallet

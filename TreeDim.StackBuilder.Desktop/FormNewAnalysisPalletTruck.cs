@@ -63,6 +63,11 @@ namespace treeDiM.StackBuilder.Desktop
             {
                 tbName.Text = _document.GetValidNewAnalysisName(ItemDefaultName);
                 tbDescription.Text = tbName.Text;
+                
+                uCtrlMinDistanceLoadWall.ValueX = Settings.Default.MinDistancePalletTruckWallX;
+                uCtrlMinDistanceLoadWall.ValueY = Settings.Default.MinDistancePalletTruckWallY;
+                uCtrlMinDistanceLoadRoof.Value = Settings.Default.MinDistancePalletTruckRoof;
+                chkbAllowMultipleLayers.Checked = Settings.Default.AllowMultipleLayers;
 
                 checkBoxBestLayersOnly.Checked = Settings.Default.KeepBestSolutions;
             }
@@ -73,9 +78,10 @@ namespace treeDiM.StackBuilder.Desktop
 
                 ConstraintSetPalletTruck  constraintSet = AnalysisBase.ConstraintSet as ConstraintSetPalletTruck;
                 if (null == constraintSet) return;
+
                 uCtrlMinDistanceLoadWall.ValueX = constraintSet.MinDistanceLoadWall.X;
                 uCtrlMinDistanceLoadWall.ValueY = constraintSet.MinDistanceLoadWall.Y;
-                uCtrlMinDistLoadRoof.Value = constraintSet.MinDistanceLoadRoof;
+                uCtrlMinDistanceLoadRoof.Value = constraintSet.MinDistanceLoadRoof;
                 chkbAllowMultipleLayers.Checked = constraintSet.AllowMultipleLayers;
             }
             checkBoxBestLayersOnly.Checked = Settings.Default.KeepBestSolutions;
@@ -83,6 +89,12 @@ namespace treeDiM.StackBuilder.Desktop
         protected override void OnClosed(EventArgs e)
         {
             base.OnClosed(e);
+
+            Settings.Default.MinDistancePalletTruckWallX = uCtrlMinDistanceLoadWall.ValueX;
+            Settings.Default.MinDistancePalletTruckWallY = uCtrlMinDistanceLoadWall.ValueY;
+            Settings.Default.MinDistancePalletTruckRoof = uCtrlMinDistanceLoadRoof.Value;
+            Settings.Default.KeepBestSolutions = checkBoxBestLayersOnly.Checked;
+            Settings.Default.Save();
         }
         #endregion
 
@@ -174,7 +186,7 @@ namespace treeDiM.StackBuilder.Desktop
                 // update control
                 uCtrlLayerList.SingleSelection = true;
                 uCtrlLayerList.Packable = packable;
-                uCtrlLayerList.ContainerHeight = truckProperties.InsideHeight - uCtrlMinDistLoadRoof.Value;
+                uCtrlLayerList.ContainerHeight = truckProperties.InsideHeight - uCtrlMinDistanceLoadRoof.Value;
                 uCtrlLayerList.FirstLayerSelected = true;
                 uCtrlLayerList.LayerList = LayerSolver.ConvertList(layers);
             }
@@ -202,7 +214,7 @@ namespace treeDiM.StackBuilder.Desktop
         {
             ConstraintSetPalletTruck constraintSet = new ConstraintSetPalletTruck(SelectedTruckProperties);
             constraintSet.MinDistanceLoadWall = new Vector2D(uCtrlMinDistanceLoadWall.ValueX, uCtrlMinDistanceLoadWall.ValueY);
-            constraintSet.MinDistanceLoadRoof = uCtrlMinDistLoadRoof.Value;
+            constraintSet.MinDistanceLoadRoof = uCtrlMinDistanceLoadRoof.Value;
             constraintSet.AllowMultipleLayers = chkbAllowMultipleLayers.Checked;
             return constraintSet;
         }

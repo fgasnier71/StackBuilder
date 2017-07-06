@@ -63,11 +63,25 @@ namespace treeDiM.StackBuilder.Basics
         }
         public override Vector2D ContainerDimensions
         {
-            get { return new Vector2D(_truckProperties.Length, _truckProperties.Width); }
+            get
+            {
+                ConstraintSetPalletTruck constraintSet = _constraintSet as ConstraintSetPalletTruck;
+                return new Vector2D(
+                    _truckProperties.InsideLength - 2.0 * constraintSet.MinDistanceLoadWall.X
+                    , _truckProperties.InsideWidth - 2.0 * constraintSet.MinDistanceLoadWall.Y
+                    );
+            }
         }
         public override Vector3D Offset
         {
-            get { return Vector3D.Zero; }
+            get
+            {
+                ConstraintSetPalletTruck constraintSet = _constraintSet as ConstraintSetPalletTruck;
+                return new Vector3D(
+                    constraintSet.MinDistanceLoadWall.X
+                    , constraintSet.MinDistanceLoadWall.Y
+                    , 0.0); 
+            }
         }
         public override bool HasEquivalentPackable
         { get { return false; } }

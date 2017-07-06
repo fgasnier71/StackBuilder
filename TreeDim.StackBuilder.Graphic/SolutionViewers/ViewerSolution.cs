@@ -188,8 +188,21 @@ namespace treeDiM.StackBuilder.Graphics
                     if (analysis.Content is LoadedPallet)
                     {
                         LoadedPallet loadedPallet = analysis.Content as LoadedPallet;
+                        BBox3D solBBox = loadedPallet.ParentAnalysis.Solution.BBoxGlobal;
                         foreach (BoxPosition bPosition in layerBox)
-                            graphics.AddImage(loadedPallet.ParentAnalysis, bPosition);
+                        {
+                            bool simplified = false;
+                            if (simplified)
+                            { 
+                                BoxProperties bProperties = new BoxProperties(null, solBBox.Dimensions);
+                                bProperties.SetColor(Color.Chocolate);
+                                Box b = new Box(pickId++, bProperties, bPosition.Transform(transform));
+                                graphics.AddBox(b);
+                                bbox.Extend(b.BBox);
+                            }
+                            else
+                                graphics.AddImage(loadedPallet.ParentAnalysis, solBBox.DimensionsVec, bPosition.Transform(transform));
+                        }
                     }
                     else
                     {

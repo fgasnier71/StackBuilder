@@ -634,7 +634,7 @@ namespace treeDiM.StackBuilder.Desktop
             // new case/pallet analysis
             toolStripMenuItemNewAnalysisCasePallet.Enabled = (null != doc) && doc.CanCreateAnalysisCasePallet;
             toolStripMIAnalysisCasePallet.Enabled = (null != doc) && doc.CanCreateAnalysisCasePallet;
-            toolStripMIAnalysisBundlePallet.Enabled = (null != doc) && doc.CanCreateAnalysisCasePallet;
+            toolStripMIAnalysisBundlePallet.Enabled = (null != doc) && doc.CanCreateAnalysisBundlePallet;
             // new cylinder/pallet analysis
             toolStripMenuItemNewAnalysisCylinderPallet.Enabled = (null != doc) && doc.CanCreateAnalysisCylinderPallet;
             toolStripMIAnalysisCylinderPallet.Enabled = (null != doc) && doc.CanCreateAnalysisCylinderPallet;
@@ -1362,9 +1362,5 @@ namespace treeDiM.StackBuilder.Desktop
             return _instance;
         }
         #endregion
-
-
-
-
     }
 }

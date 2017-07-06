@@ -6,6 +6,8 @@ using System.Drawing;
 using System.IO;
 
 using Sharp3D.Math.Core;
+using log4net;
+
 using treeDiM.StackBuilder.Basics;
 #endregion
 
@@ -96,27 +98,31 @@ namespace treeDiM.StackBuilder.Graphics
         private uint _boxDrawingCounter = 0;
         private bool _enableFaceSorting = true;
 
-        public static readonly Vector3D Front = new Vector3D(10000.0, 0.0, 0.0);
-        public static readonly Vector3D Back = new Vector3D(-10000.0, 0.0, 0.0);
-        public static readonly Vector3D Left = new Vector3D(0.0, -10000.0, 0.0);
-        public static readonly Vector3D Right = new Vector3D(0.0, 10000.0, 0.0);
-        public static readonly Vector3D Top = new Vector3D(0.0, 0.0, 10000);
+        private static double _cameraDistance = 100000.0;
+
+        public static readonly Vector3D Front = new Vector3D(_cameraDistance, 0.0, 0.0);
+        public static readonly Vector3D Back = new Vector3D(-_cameraDistance, 0.0, 0.0);
+        public static readonly Vector3D Left = new Vector3D(0.0, -_cameraDistance, 0.0);
+        public static readonly Vector3D Right = new Vector3D(0.0, _cameraDistance, 0.0);
+        public static readonly Vector3D Top = new Vector3D(0.0, 0.0, _cameraDistance);
         public static readonly Vector3D Corner_0 = new Vector3D(
-                Math.Cos(45.0 * Math.PI / 180.0) * Math.Sqrt(2.0) * 10000.0
-                , Math.Sin(45.0 * Math.PI / 180.0) * Math.Sqrt(2.0) * 10000.0
-                , 10000.0);
+                Math.Cos(45.0 * Math.PI / 180.0) * Math.Sqrt(2.0) * _cameraDistance
+                , Math.Sin(45.0 * Math.PI / 180.0) * Math.Sqrt(2.0) * _cameraDistance
+                , _cameraDistance);
         public static readonly Vector3D Corner_90 = new Vector3D(
-             Math.Cos(135.0 * Math.PI / 180.0) * Math.Sqrt(2.0) * 10000.0
-             , Math.Sin(135.0 * Math.PI / 180.0) * Math.Sqrt(2.0) * 10000.0
-             , 10000.0);
+             Math.Cos(135.0 * Math.PI / 180.0) * Math.Sqrt(2.0) * _cameraDistance
+             , Math.Sin(135.0 * Math.PI / 180.0) * Math.Sqrt(2.0) * _cameraDistance
+             , _cameraDistance);
         public static readonly Vector3D Corner_180 = new Vector3D(
-             Math.Cos(225.0 * Math.PI / 180.0) * Math.Sqrt(2.0) * 10000.0
-             , Math.Sin(225.0 * Math.PI / 180.0) * Math.Sqrt(2.0) * 10000.0
-             , 10000.0);
+             Math.Cos(225.0 * Math.PI / 180.0) * Math.Sqrt(2.0) * _cameraDistance
+             , Math.Sin(225.0 * Math.PI / 180.0) * Math.Sqrt(2.0) * _cameraDistance
+             , _cameraDistance);
         public static readonly Vector3D Corner_270 = new Vector3D(
-             Math.Cos(315.0 * Math.PI / 180.0) * Math.Sqrt(2.0) * 10000.0
-             , Math.Sin(315.0 * Math.PI / 180.0) * Math.Sqrt(2.0) * 10000.0
-             , 10000.0);
+             Math.Cos(315.0 * Math.PI / 180.0) * Math.Sqrt(2.0) * _cameraDistance
+             , Math.Sin(315.0 * Math.PI / 180.0) * Math.Sqrt(2.0) * _cameraDistance
+             , _cameraDistance);
+
+        private static ILog _log = LogManager.GetLogger(typeof(Graphics3D));
         #endregion
 
         #region Constructors
@@ -474,11 +480,31 @@ namespace treeDiM.StackBuilder.Graphics
             }
             // images inst
             if (_listImageInst.Count > 0)
-            { 
-                // sort image inst
-                _listImageInst.Sort(new ImageInstComparerSimplifierPainterAlgo(GetWorldToEyeTransformation()));
+            {
+                // --- sort image inst
+                Analysis analysis = _listImageInst[0].Analysis;
+                BBox3D bbox = analysis.Solution.BBoxGlobal;
+                List<Box> boxesImage = new List<Box>();
+                foreach (ImageInst imageInst in _listImageInst)
+                    boxesImage.Add(imageInst.ToBox());
+
+                if (_useBoxelOrderer && false) // NOT WORKING ? 
+                {
+                    BoxelOrderer boxelOrderer = new BoxelOrderer(boxesImage);
+                    boxelOrderer.TuneParam = 10.0;
+                    boxelOrderer.Direction = _vTarget - _vCameraPos;
+                    boxesImage = boxelOrderer.GetSortedList();
+                }
+                else
+                    boxesImage.Sort(new BoxComparerSimplifiedPainterAlgo(GetWorldToEyeTransformation()));
+                // ---
+
+                List<ImageInst> listImageInstSorted = new List<ImageInst>();
+                foreach (Box b in boxesImage)
+                    listImageInstSorted.Add(new ImageInst(analysis, new Vector3D(b.Length, b.Width, b.Height), b.BPosition));
+                
                 // draw image inst
-                foreach (ImageInst im in _listImageInst)
+                foreach (ImageInst im in listImageInstSorted)
                     Draw(im);
             }
             // draw faces : end
@@ -504,8 +530,8 @@ namespace treeDiM.StackBuilder.Graphics
                 // get transformations
                 Transform3D world2eye = GetWorldToEyeTransformation();
                 Transform3D orthographicProj = GetOrthographicProjection(
-                    new Vector3D(_viewport[0], _viewport[1], -10000)
-                    , new Vector3D(_viewport[2], _viewport[3], 10000));
+                    new Vector3D(_viewport[0], _viewport[1], -10000.0)
+                    , new Vector3D(_viewport[2], _viewport[3], 10000.0));
 
                 // build automatic viewport
                 if (_autoViewport)
@@ -624,9 +650,9 @@ namespace treeDiM.StackBuilder.Graphics
         {
             _segments.Add(seg);
         }
-        public void AddImage(Analysis analysis, BoxPosition boxPosition)
+        public void AddImage(Analysis analysis, Vector3D vDimensions, BoxPosition boxPosition)
         {
-            _listImageInst.Add( new ImageInst( analysis, boxPosition) );
+            _listImageInst.Add(new ImageInst(analysis, vDimensions, boxPosition));
         }
         #endregion
 

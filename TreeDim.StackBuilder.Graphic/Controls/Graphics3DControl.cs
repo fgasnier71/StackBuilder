@@ -119,7 +119,7 @@ namespace treeDiM.StackBuilder.Graphics
             Graphics3DForm graphics = new Graphics3DForm(this, e.Graphics);
             double angleHorizRad = _angleHoriz * Math.PI / 180.0;
             double angleVertRad = _angleVert * Math.PI / 180.0;
-            double cameraDistance = 10000.0;
+            double cameraDistance = 100000.0;
             graphics.CameraPosition = new Vector3D(
                 cameraDistance * Math.Cos(angleHorizRad) * Math.Cos(angleVertRad)
                 , cameraDistance * Math.Sin(angleHorizRad) * Math.Cos(angleVertRad)

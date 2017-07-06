@@ -327,12 +327,12 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public double MinDistancePalletTruckWall {
+        public double MinDistancePalletTruckWallX {
             get {
-                return ((double)(this["MinDistancePalletTruckWall"]));
+                return ((double)(this["MinDistancePalletTruckWallX"]));
             }
             set {
-                this["MinDistancePalletTruckWall"] = value;
+                this["MinDistancePalletTruckWallX"] = value;
             }
         }
         
@@ -848,6 +848,30 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
             }
             set {
                 this["WrapperType"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double MinDistancePalletTruckWallY {
+            get {
+                return ((double)(this["MinDistancePalletTruckWallY"]));
+            }
+            set {
+                this["MinDistancePalletTruckWallY"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool AllowMultipleLayers {
+            get {
+                return ((bool)(this["AllowMultipleLayers"]));
+            }
+            set {
+                this["AllowMultipleLayers"] = value;
             }
         }
     }

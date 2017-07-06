@@ -789,6 +789,12 @@
     <EmbeddedResource Include="FormNewAnalysis.resx">
       <DependentUpon>FormNewAnalysis.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisCaseTruck.es-ES.resx">
+      <DependentUpon>FormNewAnalysisCaseTruck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisCaseTruck.fr-FR.resx">
+      <DependentUpon>FormNewAnalysisCaseTruck.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewAnalysisCaseTruck.resx">
       <DependentUpon>FormNewAnalysisCaseTruck.cs</DependentUpon>
     </EmbeddedResource>
@@ -886,6 +892,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewAnalysisPackPallet.ja-JP.resx">
       <DependentUpon>FormNewAnalysisPackPallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisPalletTruck.es-ES.resx">
+      <DependentUpon>FormNewAnalysisPalletTruck.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewAnalysisPalletTruck.fr-FR.resx">
       <DependentUpon>FormNewAnalysisPalletTruck.cs</DependentUpon>
