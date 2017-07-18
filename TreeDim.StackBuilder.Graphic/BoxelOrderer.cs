@@ -112,11 +112,30 @@ namespace treeDiM.StackBuilder.Graphics
     }
     #endregion
 
-    #region BoxelOrderer
-    public class BoxelOrderer
+    #region BoxOrderer
+    public abstract class BoxOrderer
     {
         #region Data members
-        private List<Box> _boxes = new List<Box>();
+        protected List<Box> _boxes = new List<Box>();
+        #endregion
+
+        #region Public methods
+        public void Add(Box b)
+        {
+            _boxes.Add(b);
+        }
+        #endregion
+
+        #region Public abstract methods
+        public abstract List<Box> GetSortedList();
+        #endregion
+    }
+    #endregion
+
+    #region BoxelOrderer
+    public class BoxelOrderer : BoxOrderer
+    {
+        #region Data members
         private static readonly double _epsilon = 0.0001;
         private Vector3D _direction;
         private double _tuneParam = 1.0;
@@ -145,12 +164,9 @@ namespace treeDiM.StackBuilder.Graphics
         #endregion
 
         #region Public methods
-        public void Add(Box b)
-        {
-            _boxes.Add(b);
-        }
+ 
 
-        public List<Box> GetSortedList()
+        public override List<Box> GetSortedList()
         {
             // first sort by Z
             BoxComparerZ boxComparerZ = new BoxComparerZ();

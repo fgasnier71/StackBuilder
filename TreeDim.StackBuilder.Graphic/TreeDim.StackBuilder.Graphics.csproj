@@ -111,6 +111,7 @@
       <DependentUpon>Graphics3DControl.cs</DependentUpon>
     </Compile>
     <Compile Include="ImageInst.cs" />
+    <Compile Include="IsometricBlocksOrderer.cs" />
     <Compile Include="ItemViewers\ViewerPallet.cs" />
     <Compile Include="LayerToImage.cs" />
     <Compile Include="PickingList.cs" />
