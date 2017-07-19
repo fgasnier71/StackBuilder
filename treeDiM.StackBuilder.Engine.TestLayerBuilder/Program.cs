@@ -23,12 +23,12 @@ namespace treeDiM.StackBuilder.Engine.TestLayerBuilder
             Vector3D dimBox = new Vector3D(400.0, 300.0, 150.0);
             Vector2D dimContainer = new Vector2D(1200.0, 1000.0);
             ConstraintSetCasePallet constraintSet = new ConstraintSetCasePallet();
-            constraintSet.SetMaxHeight(1200.0); 
+            constraintSet.SetMaxHeight(new OptDouble(true, 1200.0));
 
             try
             {
                 LayerSolver solver = new LayerSolver();
-                List<Layer2D> layers = solver.BuildLayers(dimBox, dimContainer, constraintSet, bestLayersOnly);
+                List<Layer2D> layers = solver.BuildLayers(dimBox, dimContainer, 0.0, constraintSet, bestLayersOnly);
 
                 int solIndex = 0;
                 foreach (Layer2D layer in layers)
