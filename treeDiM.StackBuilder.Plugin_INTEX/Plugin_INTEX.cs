@@ -118,9 +118,8 @@ namespace treeDiM.StackBuilder.Plugin
                         , UnitsManager.ConvertMassFrom(item._weight, UnitsManager.UnitSystem.UNIT_METRIC2)
                         , colorsCase);                
                 }
-                itemProperties.ShowTape = true;
                 itemProperties.TapeColor = Color.Beige;
-                itemProperties.TapeWidth = 5.0;
+                itemProperties.TapeWidth = new OptDouble(true, 5.0);
                 InsertPictogram(ref itemProperties);
 
                 BoxProperties currentCase = null;
@@ -144,9 +143,8 @@ namespace treeDiM.StackBuilder.Plugin
                             , UnitsManager.ConvertLengthFrom(heightInt, UnitsManager.UnitSystem.UNIT_METRIC2)
                             , UnitsManager.ConvertMassFrom(dataCase._weight, UnitsManager.UnitSystem.UNIT_METRIC2)
                             , colorsCase);
-                        intercaseProperties.ShowTape = true;
                         intercaseProperties.TapeColor = Color.Beige;
-                        intercaseProperties.TapeWidth = 5.0;
+                        intercaseProperties.TapeWidth = new OptDouble(true, 5.0);
 
                         if (string.Equals( form._currentCase._ref, intercaseProperties.Name))
                             currentCase = intercaseProperties;
@@ -156,18 +154,21 @@ namespace treeDiM.StackBuilder.Plugin
                 if (form.UseIntermediatePacking)
                 { 
                     // Case constraint set
-                    BoxCaseConstraintSet boxCaseConstraintSet = new BoxCaseConstraintSet();
-                    boxCaseConstraintSet.SetAllowedOrthoAxisAll();
-                    if (boxCaseConstraintSet.IsValid)
+                    ConstraintSetBoxCase constraintSetBoxCase = new ConstraintSetBoxCase(currentCase);
+                    constraintSetBoxCase.AllowedOrientationsString = "1,1,1";
+                    if (constraintSetBoxCase.Valid)
                     {
+                        List<LayerDesc> layerDescs = new List<LayerDesc>();
+
                         // create case analysis
-                        AnalysisBoxCase analysis = document.CreateNewBoxCaseAnalysis(
+                        Analysis analysis = document.CreateNewAnalysisBoxCase(
                             string.Format(Properties.Resources.ID_PACKING, item._ref)
                             , item._description
                             , itemProperties
                             , currentCase
-                            , boxCaseConstraintSet
-                            , new BoxCaseSolver());
+                            , null
+                            , constraintSetBoxCase
+                            , layerDescs);
                     }
                 }
 
@@ -180,27 +181,30 @@ namespace treeDiM.StackBuilder.Plugin
                         , UnitsManager.ConvertLengthFrom(pallet._length, UnitsManager.UnitSystem.UNIT_METRIC2)
                         , UnitsManager.ConvertLengthFrom(pallet._width, UnitsManager.UnitSystem.UNIT_METRIC2)
                         , UnitsManager.ConvertLengthFrom(pallet._height, UnitsManager.UnitSystem.UNIT_METRIC2)
-                        , UnitsManager.ConvertMassFrom(pallet._weight, UnitsManager.UnitSystem.UNIT_METRIC2));
+                        , UnitsManager.ConvertMassFrom(pallet._weight, UnitsManager.UnitSystem.UNIT_METRIC2)
+                        , Color.Gold);
                     if (string.Equals(form._currentPallet._type, pallet._type))
                         currentPallet = palletProperties;
                 }
 
                 // *** pallet analysis ***
                 // constraint set
-                CasePalletConstraintSet constraintSet = new CasePalletConstraintSet();
-                constraintSet.UseMaximumHeight = true;
-                constraintSet.MaximumHeight = UnitsManager.ConvertLengthFrom(form.PalletHeight, UnitsManager.UnitSystem.UNIT_METRIC2);
-                constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Z_P, true);
-                if (constraintSet.IsValid)
+                ConstraintSetCasePallet constraintSet = new ConstraintSetCasePallet();
+                constraintSet.SetMaxHeight( new OptDouble(true, UnitsManager.ConvertLengthFrom(form.PalletHeight, UnitsManager.UnitSystem.UNIT_METRIC2)));
+                constraintSet.SetAllowedOrientations(new bool[] { false, false, true } );
+                if (constraintSet.Valid)
                 {
+
+                    List<LayerDesc> layerDescs = null;
                     // create analysis
-                    CasePalletAnalysis palletAnalysis = document.CreateNewCasePalletAnalysis(
+                    Analysis palletAnalysis = document.CreateNewAnalysisCasePallet(
                         item._ref, item.ToString()
                         , form.UseIntermediatePacking ? currentCase : itemProperties
                         , currentPallet,
                         null, null,
-                        null, null, null,
-                        constraintSet, _solver);
+                        null, null,
+                        constraintSet,
+                        layerDescs);
                 }
                 // save document
                 fileName = form.FilePath;
