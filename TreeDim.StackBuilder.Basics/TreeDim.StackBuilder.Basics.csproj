@@ -115,6 +115,10 @@
     <Compile Include="Helpers\BBox3D.cs" />
     <Compile Include="AnalysesLegacy\BoxCaseAnalysis.cs" />
     <Compile Include="ConstraintSets\BoxCaseConstraintSet.cs" />
+    <Compile Include="Helpers\GlobID.cs" />
+    <Compile Include="Helpers\IItemListener.cs" />
+    <Compile Include="Helpers\IPackContainer.cs" />
+    <Compile Include="Helpers\ItemBaseNamed.cs" />
     <Compile Include="Helpers\Packable.cs" />
     <Compile Include="Helpers\CylinderPosition.cs" />
     <Compile Include="Helpers\OptDouble.cs" />
