@@ -214,7 +214,7 @@ namespace treeDiM.StackBuilder.Desktop
                 uCtrlLayerList.Packable = packable;
                 uCtrlLayerList.ContainerHeight = truckProperties.InsideHeight - uCtrlMinDistanceLoadRoof.Value;
                 uCtrlLayerList.FirstLayerSelected = true;
-                uCtrlLayerList.LayerList = LayerSolver.ConvertList(layers);
+                uCtrlLayerList.LayerList = layers.Cast<ILayer2D>().ToList();
             }
             catch (Exception ex)
             {

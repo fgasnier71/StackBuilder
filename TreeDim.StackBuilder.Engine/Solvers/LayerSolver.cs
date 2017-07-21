@@ -12,7 +12,6 @@ using treeDiM.StackBuilder.Basics;
 
 namespace treeDiM.StackBuilder.Engine
 {
-    #region LayerSolver
     public class LayerSolver : ILayerSolver
     {
         #region Static data members
@@ -359,23 +358,5 @@ namespace treeDiM.StackBuilder.Engine
             return listLayers0;
         }
         #endregion
-
-        #region Static methods
-        public static List<ILayer2D> ConvertList(List<Layer2D> list)
-        {
-            List<ILayer2D> lres = new List<ILayer2D>();
-            foreach (Layer2D l in list)
-                lres.Add(l);
-            return lres;
-        }
-        public static List<ILayer2D> ConvertList(List<Layer2DCyl> list)
-        {
-            List<ILayer2D> lres = new List<ILayer2D>();
-            foreach (Layer2DCyl l in list)
-                lres.Add(l);
-            return lres;
-        }
-        #endregion
     }
-    #endregion
 }
