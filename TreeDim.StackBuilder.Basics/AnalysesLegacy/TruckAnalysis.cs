@@ -1,23 +1,10 @@
-﻿#region Using directives
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Text;
-#endregion
 
 namespace treeDiM.StackBuilder.Basics
 {
     public class TruckAnalysis : AnalysisLegacy
     {
-        #region Data members
-        private CasePalletAnalysis _analysis;
-        private SelCasePalletSolution _selSolution;
-        private TruckProperties _truckProperties;
-        private TruckConstraintSet _constraintSet;
-        private List<TruckSolution> _truckSolutions = new List<TruckSolution>();
-        private int _selectedSolutionIndex;
-        #endregion
-
-        #region Constructor
         /// <summary>
         /// Truck analysis
         /// </summary>
@@ -38,18 +25,11 @@ namespace treeDiM.StackBuilder.Basics
             _analysis = analysis;
             _selSolution = selSolution;
             this.TruckProperties = truckProperties;
-            _constraintSet = constraintSet;
+            ConstraintSet = constraintSet;
         }
-        #endregion
 
-        #region Public properties
-        /// <summary>
-        /// Parent analysis
-        /// </summary>
-        public CasePalletAnalysis ParentAnalysis   { get { return _analysis; } }
-        /// <summary>
-        /// Truck properties item
-        /// </summary>
+        public CasePalletAnalysis ParentAnalysis => _analysis;
+
         public TruckProperties TruckProperties
         {
             get { return _truckProperties; }
@@ -61,14 +41,17 @@ namespace treeDiM.StackBuilder.Basics
                 _truckProperties.AddDependancy(this);
             }
         }
+
         /// <summary>
         /// Parent solution (from pallet analysis)
         /// </summary>
-        public CasePalletSolution ParentSolution { get { return _selSolution.Solution; } }
+        public CasePalletSolution ParentSolution => _selSolution.Solution;
+        
         /// <summary>
         /// Parent selected solution (from pallet analysis)
         /// </summary>
-        public SelCasePalletSolution ParentSelSolution { get { return _selSolution; } }
+        public SelCasePalletSolution ParentSelSolution => _selSolution;
+
         public List<TruckSolution> Solutions
         {
             get { return _truckSolutions; }
@@ -79,14 +62,9 @@ namespace treeDiM.StackBuilder.Basics
                     truckSolution.ParentTruckAnalysis = this;
             }
         }
-        /// <summary>
-        /// Constraint set
-        /// </summary>
-        public TruckConstraintSet ConstraintSet
-        {
-            get { return _constraintSet; }
-            set { _constraintSet = value; }
-        }
+
+        public TruckConstraintSet ConstraintSet { get; set; }
+        
         /// <summary>
         /// Selected solution index in list of truck analysis solutions
         /// </summary>
@@ -100,6 +78,7 @@ namespace treeDiM.StackBuilder.Basics
                 ParentDocument.Modify();
             }
         }
+
         /// <summary>
         /// Selected solution
         /// </summary>
@@ -113,6 +92,7 @@ namespace treeDiM.StackBuilder.Basics
                     return _truckSolutions[_selectedSolutionIndex]; 
             }
         }
+
         /// <summary>
         /// True if index corresponds to a selected solution
         /// Note: in truck analysis, only one solution can be selected
@@ -123,25 +103,23 @@ namespace treeDiM.StackBuilder.Basics
         {
             return index == _selectedSolutionIndex;
         }
-        #endregion
 
-        #region Override
+        #region Non-Public Members
+
+        private CasePalletAnalysis _analysis;
+        private SelCasePalletSolution _selSolution;
+        private TruckProperties _truckProperties;
+        private List<TruckSolution> _truckSolutions = new List<TruckSolution>();
+        private int _selectedSolutionIndex;
+
         protected override void RemoveItselfFromDependancies()
         {
             _truckProperties.RemoveDependancy(this);
             _selSolution.RemoveDependancy(this);
             base.RemoveItselfFromDependancies();
         }
-        #endregion
-    }
 
-    #region ITruckSolver
-    /// <summary>
-    /// ITruckSolver interface should be implemented by any solver used for truck analyses
-    /// </summary>
-    public interface ITruckSolver
-    {
-        void ProcessAnalysis(TruckAnalysis truckAnalysis);
+        #endregion
+
     }
-    #endregion
 }

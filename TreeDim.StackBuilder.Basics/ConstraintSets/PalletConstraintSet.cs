@@ -1,8 +1,7 @@
-﻿#region Using directives
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
-#endregion
 
 namespace treeDiM.StackBuilder.Basics
 {
@@ -11,27 +10,9 @@ namespace treeDiM.StackBuilder.Basics
     /// </summary>
     public abstract class PalletConstraintSet
     {
-        #region Data members
-        private int _maxNumberOfItems;
-        private double _maximumPalletWeight;
-        private double _maximumHeight;
-        private double _overhangX, _overhangY;
-        private bool _useMaximumPalletWeight;
-        private bool _useMaximumHeight;
-        private bool _useMaximumNumberOfItems;
-        private bool _allowAlternateLayers = true;
-        private bool _allowAlignedLayers = false;
-        private System.Collections.Specialized.StringCollection _allowedPatterns = new System.Collections.Specialized.StringCollection();
-        private bool _useNoSolutionsKept;
-        private int _noSolutionsKept;
-        private int _noPalletFilmTurns = 1;
-        #endregion
-
-        #region Constructor
         public PalletConstraintSet()
         {
         }
-        #endregion
 
         #region Validity
         public bool IsValid
@@ -39,10 +20,10 @@ namespace treeDiM.StackBuilder.Basics
             get
             {
                 bool hasValidStopCriterion =
-                   _useMaximumNumberOfItems
-                || _useMaximumHeight
+                   UseMaximumNumberOfCases
+                || UseMaximumHeight
                 || UseMaximumWeightOnBox
-                || _useMaximumPalletWeight;
+                || UseMaximumPalletWeight;
 
                 bool allowsAtLeastOneOrthoAxis = false;
                 for (int i=0; i<6; ++i)
@@ -56,65 +37,27 @@ namespace treeDiM.StackBuilder.Basics
 
                 return hasValidStopCriterion
                     && allowsAtLeastOneOrthoAxis
-                    && (_allowAlignedLayers || _allowAlternateLayers)
+                    && (AllowAlignedLayers || AllowAlternateLayers)
                     && _allowedPatterns.Count > 0
-                    && (!_useNoSolutionsKept || _noSolutionsKept > 0);
+                    && (!UseNumberOfSolutionsKept || _noSolutionsKept > 0);
             }
         }
         #endregion
 
-        #region Allow layers aligned / alternate
-        public bool AllowAlignedLayers
-        {
-            set { _allowAlignedLayers = value;  }
-            get { return _allowAlignedLayers;   }
-        }
-        public bool AllowAlternateLayers
-        {
-            set { _allowAlternateLayers = value;  }
-            get { return _allowAlternateLayers; }
-        }
-        #endregion
+        public bool AllowAlignedLayers { get; set; } = false;
+        public bool AllowAlternateLayers { get; set; } = true;
 
-        #region Stop conditions
-        public bool UseMaximumNumberOfCases
-        {
-            set { _useMaximumNumberOfItems = value; }
-            get { return _useMaximumNumberOfItems; }
-        }
-        public bool UseMaximumHeight
-        {
-            set { _useMaximumHeight = value; }
-            get { return _useMaximumHeight; }
-        }
-        public bool UseMaximumPalletWeight
-        {
-            set { _useMaximumPalletWeight = value; }
-            get { return _useMaximumPalletWeight; }
-        }
-        abstract public bool UseMaximumWeightOnBox { get; set; }
- 
-        public int MaximumNumberOfItems
-        {
-            set { _maxNumberOfItems = value; }
-            get { return _maxNumberOfItems; }
-        }
-        public double MaximumPalletWeight
-        {
-            set { _maximumPalletWeight = value;  }
-            get { return _maximumPalletWeight; }
-        }
-        public double MaximumHeight
-        {
-            set { _maximumHeight = value; }
-            get { return _maximumHeight; }
-        }
+        public bool UseMaximumNumberOfCases { get; set; }
+        public bool UseMaximumHeight { get; set; }
+        public bool UseMaximumPalletWeight { get; set; }
+        public abstract bool UseMaximumWeightOnBox { get; set; }
 
-        abstract public double MaximumWeightOnBox { get; set; }
+        public int MaximumNumberOfItems { get; set; }
+        public double MaximumPalletWeight { get; set; }
+        public double MaximumHeight { get; set; }
 
-        #endregion
+        public abstract double MaximumWeightOnBox { get; set; }
 
-        #region Allowed patterns
         public void ClearAllowedPatterns()
         {
             _allowedPatterns.Clear();
@@ -135,116 +78,77 @@ namespace treeDiM.StackBuilder.Basics
         }
         public string AllowedPatternString
         {
+            get
+            {
+                var valid = _allowedPatterns.Where(x => !string.IsNullOrEmpty(x));
+                return string.Join(",", valid);
+            }
             set
             {
                 string[] patternNames = value.Split(',');
                 foreach (string patternName in patternNames)
                     SetAllowedPattern(patternName);
             }
-            get
-            {
-                string sGlobal = string.Empty;
-                foreach (string patternName in _allowedPatterns)
-                {
-                    if (!string.IsNullOrEmpty(sGlobal) )
-                        sGlobal += ",";
-                    sGlobal += patternName;
-                }
-                return sGlobal;
-            }
         }
-        #endregion
 
-        #region Allowed box axis
-        abstract public bool AllowOrthoAxis(HalfAxis.HAxis orthoAxis);
+        public abstract bool AllowOrthoAxis(HalfAxis.HAxis orthoAxis);
         public string AllowOrthoAxisString
         {
             get
             {
-                string sGlobal = string.Empty;
-                for (int i=0; i<6; ++i)
-                {
-                    HalfAxis.HAxis axis = (HalfAxis.HAxis)i;
-                    if (AllowOrthoAxis(axis))
-                    {
-                        if (!string.IsNullOrEmpty(sGlobal))
-                            sGlobal += ",";
-                        sGlobal += HalfAxis.ToString(axis);
-                    }
-                }
-                return sGlobal;
+                var allowed = Enumerable.Range(0, 6).Select(i => (HalfAxis.HAxis)i).Where(AllowOrthoAxis);
+                return string.Join(",", allowed);
             }
         }
+        public abstract bool AllowTwoLayerOrientations { get; set; }
+        public abstract bool AllowLastLayerOrientationChange { get; set; }
 
-        abstract public bool AllowTwoLayerOrientations { get; set; }
-        abstract public bool AllowLastLayerOrientationChange { get; set; }
-        #endregion
+        public double OverhangX { get; set; }
+        public double OverhangY { get; set; }
 
-        #region Overhang / underhang
-        public double OverhangX
-        {
-            get { return _overhangX; }
-            set { _overhangX = value; }
-        }
-        public double OverhangY
-        {
-            get { return _overhangY; }
-            set { _overhangY = value; }
-        }
-        #endregion
+        public abstract bool HasInterlayer { get; set; }
+        public abstract int InterlayerPeriod { get; set; }
+        public abstract bool HasInterlayerAntiSlip { get; set; }
 
-        #region Interlayer
-        abstract public bool HasInterlayer { get; set; }
-        abstract public int InterlayerPeriod { get; set; }
-        abstract public bool HasInterlayerAntiSlip { get; set; }
-        #endregion
 
-        #region Number of solutions kept
-        public bool UseNumberOfSolutionsKept
-        {
-            set { _useNoSolutionsKept = value; }
-            get { return _useNoSolutionsKept; }
-        }
+        // TODO - replace with Nullable<int>?
+        public bool UseNumberOfSolutionsKept { get; set; }
         public int NumberOfSolutionsKept
         {
+            get { return _noSolutionsKept; }
             set
             {
-                _useNoSolutionsKept = true;
+                UseNumberOfSolutionsKept = true;
                 _noSolutionsKept = value;
             }
-            get { return _noSolutionsKept; }
         }
-        #endregion
 
-        #region Pallet films
-        public int PalletFilmTurns
-        {
-            get { return _noPalletFilmTurns; }
-            set { _noPalletFilmTurns = value; }
-        }
-        #endregion
+        public int PalletFilmTurns { get; set; } = 1;
 
-        #region Allow new layer / allow new box
         public bool AllowNewLayer(int iNoLayer)
         {
             return !UseMaximumWeightOnBox;
         }
         public bool AllowNewBox(int iNoBox)
         {
-            return !_useMaximumNumberOfItems || (iNoBox <= _maxNumberOfItems);
+            return !UseMaximumNumberOfCases || (iNoBox <= MaximumNumberOfItems);
         }
-        #endregion
-
-        #region Object method override
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            if (_useMaximumHeight) sb.AppendLine(string.Format("Maximum height = {0}", _maximumHeight));
-            if (_useMaximumPalletWeight) sb.AppendLine(string.Format("Maximum pallet weight = {0}", _maximumPalletWeight));
-            if (UseMaximumWeightOnBox) sb.AppendLine(string.Format("Maximum weight on box = {0}", 0.0));
-            if (_useMaximumNumberOfItems) sb.AppendLine(string.Format("Maximum number of items = {0}", _maxNumberOfItems));
+            if (UseMaximumHeight) sb.AppendLine($"Maximum height = {MaximumHeight}");
+            if (UseMaximumPalletWeight) sb.AppendLine($"Maximum pallet weight = {MaximumPalletWeight}");
+            if (UseMaximumWeightOnBox) sb.AppendLine($"Maximum weight on box = {0.0}");
+            if (UseMaximumNumberOfCases) sb.AppendLine($"Maximum number of items = {MaximumNumberOfItems}");
             return sb.ToString();
         }
+
+        #region Non-Public Members
+
+        private List<string> _allowedPatterns = new List<string>();
+        private int _noSolutionsKept;
+
         #endregion
+
     }
 }

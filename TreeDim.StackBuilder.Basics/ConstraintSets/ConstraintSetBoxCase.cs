@@ -40,18 +40,18 @@ namespace treeDiM.StackBuilder.Basics
         }
         public override bool Valid
         {
-            get { return (!_maxNumber.Activated || (_maxNumber.Value > 0)); }
+            get { return (!OptMaxNumber.Activated || (OptMaxNumber.Value > 0)); }
         }
         #endregion
 
         #region ConstraintSetPackableCase specific
         public void SetMaxWeight(OptDouble maxWeight)
         {
-            _maxWeight = maxWeight;
+            OptMaxWeight = maxWeight;
         }
         public void SetMaxNumber(int maxNumber)
         {
-            _maxNumber = new OptInt(true, maxNumber);
+            OptMaxNumber = new OptInt(true, maxNumber);
         }
         #endregion
     }

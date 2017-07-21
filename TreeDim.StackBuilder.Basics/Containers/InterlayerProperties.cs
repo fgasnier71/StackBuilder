@@ -1,21 +1,12 @@
-﻿#region Using directives
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Drawing;
-#endregion
 
 namespace treeDiM.StackBuilder.Basics
 {
     public class InterlayerProperties : ItemBaseNamed
     {
-        #region Data members
-        private double _length = 0.0, _width = 0.0, _thickness = 0.0;
-        private double _weight = 0.0;
-        private Color _color;
-        #endregion
-
-        #region Constructor
         public InterlayerProperties(
             Document document, string name, string description
             , double length, double width, double thickness
@@ -23,50 +14,25 @@ namespace treeDiM.StackBuilder.Basics
             , Color color)
             : base(document, name, description)
         {
-            _length = length;
-            _width = width;
-            _thickness = thickness;
-            _weight = weight;
-            _color = color;
+            Length = length;
+            Width = width;
+            Thickness = thickness;
+            Weight = weight;
+            Color = color;
         }
-        #endregion
 
-        #region Public properties
-        public double Length
-        {
-            get { return _length; }
-            set { _length = value; }
-        }
-        public double Width
-        {
-            get { return _width; }
-            set { _width = value; }
-        }
-        public double Thickness
-        {
-            get { return _thickness; }
-            set { _thickness = value; }
-        }
-        public double Weight
-        {
-            get { return _weight; }
-            set { _weight = value; }
-        }
-        public Color Color
-        {
-            get { return _color; }
-            set { _color = value; }
-        }
-        #endregion
+        public double Length { get; set; }
+        public double Width { get; set; }
+        public double Thickness { get; set; }
+        public double Weight { get; set; }
+        public Color Color { get; set; }
 
-        #region Object override
         public override string ToString()
         {
             StringBuilder sBuilder = new StringBuilder();
             sBuilder.Append(base.ToString());
-            sBuilder.Append(string.Format("Length= {0} Width = {1} Thickness = {2}\nWeight = {3}", _length, _width, _thickness, _weight));
+            sBuilder.Append($"Length= {Length} Width = {Width} Thickness = {Thickness}\nWeight = {Weight}");
             return sBuilder.ToString();
         }
-        #endregion
     }
 }

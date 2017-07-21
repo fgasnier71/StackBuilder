@@ -1,43 +1,37 @@
-﻿#region Using directives
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Text;
-using System.Diagnostics;
 
 using treeDiM.StackBuilder.Basics;
 using Sharp3D.Math.Core;
 
 using log4net;
-#endregion
 
 namespace treeDiM.StackBuilder.Engine
 {
-    /// <summary>
-    /// CasePalletSolver
-    /// </summary>
     public class CasePalletSolver : ICasePalletAnalysisSolver
     {
-        #region Data members
-        private BProperties _bProperties;
-        private PalletProperties _palletProperties;
-        private InterlayerProperties _interlayerProperties, _interlayerPropertiesAntiSlip;
-        private PalletCornerProperties _cornerProperties;
-        private PalletCapProperties _capProperties;
-        private PalletConstraintSet _constraintSet;
-        static readonly ILog _log = LogManager.GetLogger(typeof(CasePalletSolver));
-        #endregion
-
-        #region Constructor
         public CasePalletSolver()
         {
         }
-        #endregion
+
+        public BProperties Box
+        {
+            get { return _bProperties; }
+            set { _bProperties = value; }
+        }
+        public PalletProperties Pallet
+        {
+            get { return _palletProperties; }
+            set { _palletProperties = value; }
+        }
+        public PalletConstraintSet ConstraintSet
+        {
+            get { return _constraintSet; }
+            set { _constraintSet = value; }
+        }
 
         #region Public methods
-        /// <summary>
-        /// Process case/pallet analysis
-        /// </summary>
-        /// <param name="analysis">Pallet analysis to process</param>
+
         public void ProcessAnalysis(CasePalletAnalysis analysis)
         {
             _bProperties = analysis.BProperties;
@@ -72,7 +66,41 @@ namespace treeDiM.StackBuilder.Engine
         }
         #endregion
 
-        #region Private methods
+        #region Static methods
+        public static string[] PatternNames
+        {
+            get
+            {
+                List<string> patternNames = new List<string>();
+                int i = 0;
+                foreach (LayerPatternBox p in LayerPatternBox.All)
+                    patternNames[i++] = p.Name;
+                return patternNames.ToArray();
+            }
+        }
+        public static List<string> PatternNameList
+        {
+            get
+            {
+                List<string> patternNames = new List<string>();
+                foreach (LayerPatternBox p in LayerPatternBox.All)
+                    patternNames.Add(p.Name);
+                return patternNames;
+            }
+        }
+        #endregion
+
+
+        #region Non-Public Members
+
+        private BProperties _bProperties;
+        private PalletProperties _palletProperties;
+        private InterlayerProperties _interlayerProperties, _interlayerPropertiesAntiSlip;
+        private PalletCornerProperties _cornerProperties;
+        private PalletCapProperties _capProperties;
+        private PalletConstraintSet _constraintSet;
+        static readonly ILog _log = LogManager.GetLogger(typeof(CasePalletSolver));
+
         private Layer2D GenerateBestLayer(
             BProperties bProperties, PalletProperties palletProperties, PalletCornerProperties cornerProperties,
             PalletConstraintSet constraintSet, HalfAxis.HAxis hAxis)
@@ -251,8 +279,8 @@ namespace treeDiM.StackBuilder.Engine
                                             LayerPosition layerPosTemp = AdjustLayerPosition(layerPos);
                                             BoxPosition boxPos = new BoxPosition(
                                                 layerPosTemp.Position
-                                                    - (0.5 *_constraintSet.OverhangX - cornerThickness) * Vector3D.XAxis 
-                                                    - (0.5 * _constraintSet.OverhangY - cornerThickness)* Vector3D.YAxis
+                                                    - (0.5 * _constraintSet.OverhangX - cornerThickness) * Vector3D.XAxis
+                                                    - (0.5 * _constraintSet.OverhangY - cornerThickness) * Vector3D.YAxis
                                                     + zLayer * Vector3D.ZAxis
                                                 , layerPosTemp.LengthAxis
                                                 , layerPosTemp.WidthAxis
@@ -272,7 +300,7 @@ namespace treeDiM.StackBuilder.Engine
                                     // check number
                                     maxNumberReached = _constraintSet.UseMaximumNumberOfCases && (iCount + 1 > _constraintSet.MaximumNumberOfItems);
                                     // check weight
-                                    maxWeightReached = _constraintSet.UseMaximumPalletWeight && (((iCount+1) * _bProperties.Weight + _palletProperties.Weight) > _constraintSet.MaximumPalletWeight);
+                                    maxWeightReached = _constraintSet.UseMaximumPalletWeight && (((iCount + 1) * _bProperties.Weight + _palletProperties.Weight) > _constraintSet.MaximumPalletWeight);
                                 }
 
                                 if (maxHeightReached && _constraintSet.AllowLastLayerOrientationChange)
@@ -312,7 +340,7 @@ namespace treeDiM.StackBuilder.Engine
                                                 LayerPosition layerPosTemp = AdjustLayerPosition(layerPos);
                                                 BoxPosition boxPos = new BoxPosition(
                                                     layerPosTemp.Position
-                                                    - (0.5 * _constraintSet.OverhangX - cornerThickness)* Vector3D.XAxis
+                                                    - (0.5 * _constraintSet.OverhangX - cornerThickness) * Vector3D.XAxis
                                                     - (0.5 * _constraintSet.OverhangY - cornerThickness) * Vector3D.YAxis
                                                     + zLayer * Vector3D.ZAxis
                                                     , layerPosTemp.LengthAxis
@@ -560,48 +588,8 @@ namespace treeDiM.StackBuilder.Engine
                 , axisOrtho
                 , swapped);
         }
+
         #endregion
 
-        #region Static methods
-        public static string[] PatternNames
-        {
-            get
-            {
-                List<string> patternNames = new List<string>();
-                int i = 0;
-                foreach (LayerPatternBox p in LayerPatternBox.All)
-                    patternNames[i++] = p.Name;
-                return patternNames.ToArray();
-            }
-        }
-        public static List<string> PatternNameList
-        {
-            get
-            {
-                List<string> patternNames = new List<string>();
-                foreach (LayerPatternBox p in LayerPatternBox.All)
-                    patternNames.Add(p.Name);
-                return patternNames;
-            }
-        }
-        #endregion
-
-        #region Public properties
-        public BProperties Box
-        {
-            get { return _bProperties; }
-            set { _bProperties = value; }
-        }
-        public PalletProperties Pallet
-        {
-            get { return _palletProperties; }
-            set { _palletProperties = value; }
-        }
-        public PalletConstraintSet ConstraintSet
-        {
-            get { return _constraintSet; }
-            set { _constraintSet = value; }
-        }
-        #endregion
     }
 }

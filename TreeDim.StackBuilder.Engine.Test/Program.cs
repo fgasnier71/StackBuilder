@@ -73,7 +73,7 @@ namespace treeDiM.StackBuilder.Engine.Test
             InterlayerProperties interlayerProperties = null;
 
             // define constraints
-            CasePalletConstraintSet constraintSet = new CasePalletConstraintSet();
+            var constraintSet = new CasePalletConstraintSet();
             constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_X_N, true);
             constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_X_P, true);
             constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Y_N, true);
@@ -97,13 +97,13 @@ namespace treeDiM.StackBuilder.Engine.Test
             Console.WriteLine(constraintSet.ToString());
 
             // initialize analysis
-            CasePalletAnalysis analysis = new CasePalletAnalysis(
+            var analysis = new CasePalletAnalysis(
                 boxProperties, palletProperties, interlayerProperties,
                 null, null, null, null,
                 constraintSet);
 
             // initialize solver
-            CasePalletSolver solver = new CasePalletSolver();
+            var solver = new CasePalletSolver();
             solver.ProcessAnalysis(analysis);
 
             Console.WriteLine("=== Solutions ===");

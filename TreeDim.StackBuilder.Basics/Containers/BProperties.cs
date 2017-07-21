@@ -24,12 +24,17 @@ namespace treeDiM.StackBuilder.Basics
         public abstract Color GetColor(HalfAxis.HAxis axis);
         public abstract void SetColor(Color color);
 
-
         public virtual void SetLength(double length)
-        { _length = length; Modify(); }
-        public virtual void SetWidth(double width)
-        { _width = width; Modify(); }
+        {
+            _length = length;
+            Modify();
+        }
 
+        public virtual void SetWidth(double width)
+        {
+            _width = width;
+            Modify();
+        }
 
         #region Non-Public Members
 

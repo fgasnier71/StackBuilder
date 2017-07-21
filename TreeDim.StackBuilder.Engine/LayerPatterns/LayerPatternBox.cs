@@ -66,8 +66,7 @@ namespace treeDiM.StackBuilder.Engine
         #endregion
 
         #region Static methods
-        public static LayerPatternBox[] All
-        { get { return _allPatterns; } }
+        public static LayerPatternBox[] All => _allPatterns;
 
         public static LayerPatternBox GetByName(string patternName)
         {

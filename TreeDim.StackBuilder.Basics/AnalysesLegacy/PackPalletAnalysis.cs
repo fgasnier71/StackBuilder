@@ -1,40 +1,14 @@
-﻿#region Using directives
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
 using log4net;
-#endregion
 
 namespace treeDiM.StackBuilder.Basics
 {
-    #region PackPalletAnalysis
     public class PackPalletAnalysis : AnalysisLegacy
     {
-        #region Data members
-        private PackProperties _packProperties;
-        private PalletProperties _palletProperties;
-        private InterlayerProperties _interlayerProperties;
-        private PackPalletConstraintSet _constraintSet;
-        private List<PackPalletSolution> _solutions;
-        private List<SelPackPalletSolution> _selectedSolutions = new List<SelPackPalletSolution>();
-        private static IPackPalletAnalysisSolver _solver;
-        static readonly ILog _log = LogManager.GetLogger(typeof(PackPalletAnalysis));
-        #endregion
-
-        #region Delegates
-        public delegate void ModifyAnalysis(PackPalletAnalysis analysis);
-        public delegate void SelectSolution(PackPalletAnalysis analysis, SelPackPalletSolution selSolution);
-        #endregion
-
-        #region Events
-        public event ModifyAnalysis Modified;
-        public event SelectSolution SolutionSelected;
-        public event SelectSolution SolutionSelectionRemoved;
-        #endregion
-
-        #region Constructor
         public PackPalletAnalysis(
             PackProperties packProperties,
             PalletProperties palletProperties,
@@ -52,18 +26,24 @@ namespace treeDiM.StackBuilder.Basics
             this.InterlayerProperties = interlayerProperties;
             this.ConstraintSet = constraintSet;
         }
-        #endregion
+
+        public delegate void ModifyAnalysis(PackPalletAnalysis analysis);
+        public delegate void SelectSolution(PackPalletAnalysis analysis, SelPackPalletSolution selSolution);
+
+        public event ModifyAnalysis Modified;
+        public event SelectSolution SolutionSelected;
+        public event SelectSolution SolutionSelectionRemoved;
 
         #region Public properties
         public List<PackPalletSolution> Solutions
         {
+            get { return _solutions; }
             set
             {
                 _solutions = value;
                 foreach (PackPalletSolution sol in _solutions)
                     sol.Analysis = this;
             }
-            get {return _solutions;}
         }
 
         public PackProperties PackProperties
@@ -72,9 +52,9 @@ namespace treeDiM.StackBuilder.Basics
             set
             {
                 if (value == _packProperties) return;
-                if (null != _packProperties) _packProperties.RemoveDependancy(this);
+                _packProperties?.RemoveDependancy(this);
                 _packProperties = value;
-                _packProperties.AddDependancy(this);
+                _packProperties?.AddDependancy(this);
             }
         }
         public PalletProperties PalletProperties
@@ -83,9 +63,9 @@ namespace treeDiM.StackBuilder.Basics
             set
             {
                 if (_palletProperties == value) return;
-                if (null != _palletProperties) _palletProperties.RemoveDependancy(this);
+                _palletProperties?.RemoveDependancy(this);
                 _palletProperties = value;
-                _palletProperties.AddDependancy(this);
+                _palletProperties?.AddDependancy(this);
             }
         }
         public InterlayerProperties InterlayerProperties
@@ -94,23 +74,17 @@ namespace treeDiM.StackBuilder.Basics
             set
             {
                 if (_interlayerProperties == value) return;
-                if (null != _interlayerProperties) _interlayerProperties.RemoveDependancy(this);
+                _interlayerProperties?.RemoveDependancy(this);
                 _interlayerProperties = value;
-                if (null != _interlayerProperties)
-                    _interlayerProperties.AddDependancy(this);
+                _interlayerProperties?.AddDependancy(this);
             }
         }
-        public PackPalletConstraintSet ConstraintSet
-        {
-            get { return _constraintSet; }
-            set { _constraintSet = value; }
-        }
 
-        public bool HasInterlayer
-        {   get { return null != _interlayerProperties; } }
+        public PackPalletConstraintSet ConstraintSet { get; set; }
 
-        public static IPackPalletAnalysisSolver Solver
-        { set { _solver = value; } }
+        public bool HasInterlayer => _interlayerProperties != null;
+
+        public static IPackPalletAnalysisSolver Solver { set { _solver = value; } }
         #endregion
 
         #region Solution selection
@@ -121,12 +95,11 @@ namespace treeDiM.StackBuilder.Basics
                 return; // no solution with this index
             if (HasSolutionSelected(index)) return;
             // instantiate new SelSolution
-            SelPackPalletSolution selSolution = new SelPackPalletSolution(ParentDocument, this, _solutions[index]);
+            var selSolution = new SelPackPalletSolution(ParentDocument, this, _solutions[index]);
             // insert in list
             _selectedSolutions.Add(selSolution);
             // fire event
-            if (null != SolutionSelected)
-                SolutionSelected(this, selSolution);
+            SolutionSelected?.Invoke(this, selSolution);
             // set document modified (not analysis, otherwise selected solutions are erased)
             ParentDocument.Modify();
         }
@@ -136,19 +109,18 @@ namespace treeDiM.StackBuilder.Basics
         }
         public void UnSelectSolution(SelPackPalletSolution selSolution)
         {
-            if (null == selSolution) return; // this solution not selected
+            if (selSolution == null) return; // this solution not selected
             // remove from list
             _selectedSolutions.Remove(selSolution);
             ParentDocument.RemoveItem(selSolution);
             // fire event
-            if (null != SolutionSelectionRemoved)
-                SolutionSelectionRemoved(this, selSolution);
+            SolutionSelectionRemoved?.Invoke(this, selSolution);
             // set document modified (not analysis, otherwise selected solutions are erased)
             ParentDocument.Modify();
         }
         public bool HasSolutionSelected(int index)
         {
-            return (null != GetSelSolutionBySolutionIndex(index));
+            return GetSelSolutionBySolutionIndex(index) != null;
         }
         public SelPackPalletSolution GetSelSolutionBySolutionIndex(int index)
         {
@@ -157,22 +129,21 @@ namespace treeDiM.StackBuilder.Basics
         }
         public SelPackPalletSolution GetSelSolutionBySolution(PackPalletSolution sol)
         {
-            return _selectedSolutions.Find(delegate(SelPackPalletSolution selSol) { return selSol.Solution == sol; });
+            return _selectedSolutions.Find(selSol => selSol.Solution == sol);
         }
         public bool HasSolutionSelected(PackPalletSolution sol)
         {
-            return (null != GetSelSolutionBySolution(sol));
+            return GetSelSolutionBySolution(sol) != null;
         }
         public void SelectSolutionBySol(PackPalletSolution sol)
         {
             if (HasSolutionSelected(sol)) return;
             // instantiate new SelSolution
-            SelPackPalletSolution selSolution = new SelPackPalletSolution(ParentDocument, this, sol);
+            var selSolution = new SelPackPalletSolution(ParentDocument, this, sol);
             // insert in list
             _selectedSolutions.Add(selSolution);
             // fire event
-            if (null != SolutionSelected)
-                SolutionSelected(this, selSolution);
+            SolutionSelected?.Invoke(this, selSolution);
             // set document modified (not analysis, otherwise selected solutions are erased)
             ParentDocument.Modify();
         }
@@ -183,19 +154,6 @@ namespace treeDiM.StackBuilder.Basics
         #endregion
 
         #region Dependancies
-        protected override void OnDispose()
-        {
-            base.OnDispose();
-        }
-        protected override void RemoveItselfFromDependancies()
-        {
-            _packProperties.RemoveDependancy(this);
-            _palletProperties.RemoveDependancy(this);
-            if (null != _interlayerProperties)
-                _interlayerProperties.RemoveDependancy(this);
-            // base
-            base.RemoveItselfFromDependancies();
-        }
         public override void OnAttributeModified(ItemBase modifiedAttribute)
         {
             // clear selected solutions
@@ -209,12 +167,11 @@ namespace treeDiM.StackBuilder.Basics
         public override void OnEndUpdate(ItemBase updatedAttribute)
         {
             base.OnEndUpdate(updatedAttribute);
-            if (null != Modified)
-                Modified(this);
+            Modified?.Invoke(this);
             // clear solutions
             _solutions.Clear();
             // get default analysis solver
-            if (null != _solver)
+            if (_solver != null)
                 _solver.ProcessAnalysis(this);
             else
                 _log.Error("_solver == null : solver was not set");
@@ -224,13 +181,33 @@ namespace treeDiM.StackBuilder.Basics
             Modify();
         }
         #endregion
-    }
-    #endregion
 
-    #region IPackPalletAnalysisSolver
-    public interface IPackPalletAnalysisSolver
-    {
-        void ProcessAnalysis(PackPalletAnalysis analysis);
+        #region Non-Public Members
+
+        private PackProperties _packProperties;
+        private PalletProperties _palletProperties;
+        private InterlayerProperties _interlayerProperties;
+        private List<PackPalletSolution> _solutions;
+        private List<SelPackPalletSolution> _selectedSolutions = new List<SelPackPalletSolution>();
+        private static IPackPalletAnalysisSolver _solver;
+        static readonly ILog _log = LogManager.GetLogger(typeof(PackPalletAnalysis));
+
+        protected override void OnDispose()
+        {
+            base.OnDispose();
+        }
+
+        protected override void RemoveItselfFromDependancies()
+        {
+            _packProperties.RemoveDependancy(this);
+            _palletProperties.RemoveDependancy(this);
+            if (null != _interlayerProperties)
+                _interlayerProperties.RemoveDependancy(this);
+            // base
+            base.RemoveItselfFromDependancies();
+        }
+
+        #endregion
+
     }
-    #endregion
 }

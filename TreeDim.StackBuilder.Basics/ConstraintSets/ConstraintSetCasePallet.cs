@@ -26,7 +26,7 @@ namespace treeDiM.StackBuilder.Basics
         }        
         public override bool Valid
         {
-            get { return _maxHeight.Activated || _maxWeight.Activated || _maxNumber.Activated; }
+            get { return _maxHeight.Activated || OptMaxWeight.Activated || OptMaxNumber.Activated; }
         }
         #endregion
 

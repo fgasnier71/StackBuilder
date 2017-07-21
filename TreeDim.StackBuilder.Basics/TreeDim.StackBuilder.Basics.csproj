@@ -73,6 +73,10 @@
       <Link>Properties\SharedAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="AnalysesLegacy\AnalysisLegacy.cs" />
+    <Compile Include="AnalysesLegacy\IBoxCaseAnalysisSolver.cs" />
+    <Compile Include="AnalysesLegacy\ICasePalletAnalysisSolver.cs" />
+    <Compile Include="AnalysesLegacy\IPackPalletAnalysisSolver.cs" />
+    <Compile Include="AnalysesLegacy\ITruckSolver.cs" />
     <Compile Include="Analyses\Analysis.cs" />
     <Compile Include="Analyses\AnalysisBoxCase.cs" />
     <Compile Include="Analyses\AnalysisCasePallet.cs" />
@@ -129,6 +133,9 @@
       <DependentUpon>UCtrlOptDouble.cs</DependentUpon>
     </Compile>
     <Compile Include="Helpers\OptInt.cs" />
+    <Compile Include="Helpers\PackableBrick.cs" />
+    <Compile Include="Helpers\PackableBrickNamed.cs" />
+    <Compile Include="Helpers\PackableNamed.cs" />
     <Compile Include="IDocumentListener.cs" />
     <Compile Include="PalletDecoration\PalletCornerProperties.cs" />
     <Compile Include="PalletDecoration\PalletCapProperties.cs" />

@@ -7,8 +7,6 @@ namespace treeDiM.StackBuilder.Basics
 {
     public class AnalysisLegacy : ItemBaseNamed
     {
-        #region Constructor
         public AnalysisLegacy(Document doc) : base(doc) { }
-        #endregion
     }
 }
