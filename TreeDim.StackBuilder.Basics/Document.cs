@@ -1275,8 +1275,7 @@ namespace treeDiM.StackBuilder.Basics
         #endregion
 
         #region Allowing analysis/opti
-        public bool CanCreatePack
-        { get { return this.Boxes.Any(); } }
+        public bool CanCreatePack => this.Boxes.Any();
         public bool CanCreateAnalysisCasePallet
         { get { return this.Cases.Count > 0 && this.Pallets.Count > 0; } }
         public bool CanCreateAnalysisBundlePallet
