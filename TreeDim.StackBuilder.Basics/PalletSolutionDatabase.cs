@@ -1,15 +1,13 @@
-﻿#region Using directives
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Text;
-using System.IO;
-using System.Xml;
-using System.Text.RegularExpressions;
-using log4net;
-
-using System.Globalization;
 using System.Diagnostics;
-#endregion
+using System.IO;
+using System.Linq;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using System.Xml;
+
+using log4net;
 
 namespace treeDiM.StackBuilder.Basics
 {
@@ -436,9 +434,9 @@ namespace treeDiM.StackBuilder.Basics
                 else
                 {
                     Document doc = new Document(FullFilePath, null);
-                    if (doc.AnalysesCasePallet.Count < 1)
+                    if (!doc.AnalysesCasePallet.Any())
                         return null;    // no analysis -> exiting
-                    CasePalletAnalysis analysis = doc.AnalysesCasePallet[0] as CasePalletAnalysis;
+                    CasePalletAnalysis analysis = doc.AnalysesCasePallet.First() as CasePalletAnalysis;
                     if (analysis.Solutions.Count < 1)
                         return null;    // no solution -> exiting
                     _palletSolution = null; // doc.CasePalletAnalyses[0].Solutions[0];
