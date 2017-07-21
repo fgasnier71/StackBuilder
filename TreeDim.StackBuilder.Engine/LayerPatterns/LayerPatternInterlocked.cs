@@ -1,38 +1,18 @@
-﻿#region Using directives
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 
 using Sharp3D.Math.Core;
 using treeDiM.StackBuilder.Basics;
-#endregion
 
 namespace treeDiM.StackBuilder.Engine
 {
     class LayerPatternInterlocked : LayerPatternBox
     {
-        #region Implementation of LayerPattern abstract properties and methods
-        public override string Name
-        {
-            get { return "Interlocked"; }
-        }
-
-        public override bool GetLayerDimensions(ILayer2D layer, out double actualLength, out double actualWidth)
-        {
-            double palletLength = GetPalletLength(layer);
-            double palletWidth = GetPalletWidth(layer);
-            double boxLength = GetBoxLength(layer);
-            double boxWidth = GetBoxWidth(layer);
-
-            int maxSizeXLength = 0, maxSizeXWidth = 0, maxSizeYLength = 0, maxSizeYWidth = 0;
-            GetSizeXY(boxLength, boxWidth, palletLength, palletWidth
-                , out maxSizeXLength, out maxSizeXWidth, out maxSizeYLength, out maxSizeYWidth);
-
-            actualLength = maxSizeXLength * boxLength + maxSizeXWidth * boxWidth;
-            actualWidth = Math.Max(maxSizeYLength * boxWidth, maxSizeYWidth * boxLength);
-
-            return maxSizeXLength > 0 && maxSizeYLength > 0 && maxSizeXWidth > 0 && maxSizeYWidth > 0;
-        }
+        public override string Name => "Interlocked";
+        public override bool IsSymetric => true;
+        public override bool CanBeSwapped => true;
+        public override bool CanBeInverted => true;
 
         public override void GenerateLayer(ILayer2D layer, double actualLength, double actualWidth)
         {
@@ -78,6 +58,27 @@ namespace treeDiM.StackBuilder.Engine
             layer.UpdateMaxSpace( spaceX, Name );
         }
 
+        public override bool GetLayerDimensions(ILayer2D layer, out double actualLength, out double actualWidth)
+        {
+            double palletLength = GetPalletLength(layer);
+            double palletWidth = GetPalletWidth(layer);
+            double boxLength = GetBoxLength(layer);
+            double boxWidth = GetBoxWidth(layer);
+
+            int maxSizeXLength = 0, maxSizeXWidth = 0, maxSizeYLength = 0, maxSizeYWidth = 0;
+            GetSizeXY(boxLength, boxWidth, palletLength, palletWidth
+                , out maxSizeXLength, out maxSizeXWidth, out maxSizeYLength, out maxSizeYWidth);
+
+            actualLength = maxSizeXLength * boxLength + maxSizeXWidth * boxWidth;
+            actualWidth = Math.Max(maxSizeYLength * boxWidth, maxSizeYWidth * boxLength);
+
+            return maxSizeXLength > 0 && maxSizeYLength > 0 && maxSizeXWidth > 0 && maxSizeYWidth > 0;
+        }
+
+        public override int GetNumberOfVariants(Layer2D layer) => 1;
+
+        #region Non-Public Members
+
         private void GetSizeXY(double boxLength, double boxWidth, double palletLength, double palletWidth,
             out int optSizeXLength, out int optSizeXWidth, out int optSizeYLength, out int optSizeYWidth)
         {
@@ -111,10 +112,7 @@ namespace treeDiM.StackBuilder.Engine
                 --sizeXLength;
             }
         }
-        public override int GetNumberOfVariants(Layer2D layer) { return 1; }
-        public override bool IsSymetric { get { return true; } }
-        public override bool CanBeSwapped { get { return true; } }
-        public override bool CanBeInverted { get { return true; } }
+
         #endregion
     }
 }

@@ -1,33 +1,18 @@
-﻿#region Using directives
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 
 using Sharp3D.Math.Core;
 using treeDiM.StackBuilder.Basics;
-#endregion
 
 namespace treeDiM.StackBuilder.Engine
 {
     class LayerPatternColumn : LayerPatternBox
     {
-        #region Implementation of LayerPattern abstract properties and methods
-        public override string Name
-        {
-            get { return "Column"; }
-        }
-
-        public override bool GetLayerDimensions(ILayer2D layer, out double actualLength, out double actualWidth)
-        {
-            double palletLength = GetPalletLength(layer);
-            double palletWidth = GetPalletWidth(layer);
-            double boxLength = GetBoxLength(layer);
-            double boxWidth = GetBoxWidth(layer);
-
-            actualLength = Math.Floor(palletLength / boxLength) * boxLength;
-            actualWidth = Math.Floor(palletWidth / boxWidth) * boxWidth;
-            return (palletLength >= boxLength) && (palletWidth >= boxWidth);
-        }
+        public override string Name => "Column";
+        public override bool IsSymetric => false;
+        public override bool CanBeSwapped => false;
+        public override bool CanBeInverted => false;
 
         public override void GenerateLayer(ILayer2D layer, double actualLength, double actualWidth)
         {
@@ -59,13 +44,21 @@ namespace treeDiM.StackBuilder.Engine
             layer.UpdateMaxSpace(spaceY, Name);
         }
 
+        public override bool GetLayerDimensions(ILayer2D layer, out double actualLength, out double actualWidth)
+        {
+            double palletLength = GetPalletLength(layer);
+            double palletWidth = GetPalletWidth(layer);
+            double boxLength = GetBoxLength(layer);
+            double boxWidth = GetBoxWidth(layer);
+
+            actualLength = Math.Floor(palletLength / boxLength) * boxLength;
+            actualWidth = Math.Floor(palletWidth / boxWidth) * boxWidth;
+            return (palletLength >= boxLength) && (palletWidth >= boxWidth);
+        }
+
         public override int GetNumberOfVariants(Layer2D layer)
         {
             return 1;
         }
-        public override bool IsSymetric { get { return false; } }
-        public override bool CanBeSwapped { get { return false; } }
-        public override bool CanBeInverted { get { return false; } }
-        #endregion
     }
 }

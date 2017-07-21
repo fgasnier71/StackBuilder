@@ -1,43 +1,19 @@
-﻿#region Using directives
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 using Sharp3D.Math.Core;
 using treeDiM.StackBuilder.Basics;
-#endregion
 
 namespace treeDiM.StackBuilder.Engine
 {
     class LayerPatternInterlockedFilled : LayerPatternBox
     {
-        #region Implementation of LayerPattern abstract properties and methods
-        public override string Name { get { return "Interlocked Filled"; } }
+        public override string Name => "Interlocked Filled";
+        public override int GetNumberOfVariants(Layer2D layer) => 1;
+        public override bool IsSymetric => false;
+        public override bool CanBeSwapped => true;
+        public override bool CanBeInverted => true;
 
-        public override bool GetLayerDimensions(ILayer2D layer, out double actualLength, out double actualWidth)
-        {
-            double palletLength = GetPalletLength(layer);
-            double palletWidth = GetPalletWidth(layer);
-            double boxLength = GetBoxLength(layer);
-            double boxWidth = GetBoxWidth(layer);
-
-            int maxSizeXLength = 0, maxSizeXWidth = 0, maxSizeYLength = 0, maxSizeYWidth = 0;
-            int fillSizeXLength = 0, fillSizeYLength = 0, fillSizeXWidth = 0, fillSizeYWidth = 0;
-
-            GetSizeXY(boxLength, boxWidth, palletLength, palletWidth
-                , out maxSizeXLength, out maxSizeYLength, out maxSizeXWidth, out maxSizeYWidth
-                , out fillSizeXLength, out fillSizeYLength, out fillSizeXWidth, out fillSizeYWidth);
-
-            actualLength = Math.Max(maxSizeXLength * boxLength, fillSizeXLength * boxWidth) + Math.Max(maxSizeXWidth * boxWidth, fillSizeXWidth * boxLength);
-            actualWidth = Math.Max(maxSizeYLength * boxWidth + fillSizeYLength * boxLength, maxSizeYWidth * boxLength + fillSizeYWidth * boxWidth);
-
-            return maxSizeXLength > 0 && maxSizeYLength > 0
-                && maxSizeXWidth > 0 && maxSizeYWidth > 0
-                && (
-                    ((maxSizeYLength % 2 == 0) && (fillSizeXLength * fillSizeYLength > 0))
-                    || ((maxSizeYWidth % 2 == 0) && (fillSizeXWidth * fillSizeYWidth > 0))
-                    );
-        }
         public override void GenerateLayer(ILayer2D layer, double actualLength, double actualWidth)
         {
             layer.Clear();
@@ -177,7 +153,35 @@ namespace treeDiM.StackBuilder.Engine
             layer.UpdateMaxSpace( spaceYLength, Name );
             layer.UpdateMaxSpace( spaceYWidth, Name );
         }
-        private void GetSizeXY(double boxLength, double boxWidth, double palletLength, double palletWidth,
+
+        public override bool GetLayerDimensions(ILayer2D layer, out double actualLength, out double actualWidth)
+        {
+            double palletLength = GetPalletLength(layer);
+            double palletWidth = GetPalletWidth(layer);
+            double boxLength = GetBoxLength(layer);
+            double boxWidth = GetBoxWidth(layer);
+
+            int maxSizeXLength = 0, maxSizeXWidth = 0, maxSizeYLength = 0, maxSizeYWidth = 0;
+            int fillSizeXLength = 0, fillSizeYLength = 0, fillSizeXWidth = 0, fillSizeYWidth = 0;
+
+            GetSizeXY(boxLength, boxWidth, palletLength, palletWidth
+                , out maxSizeXLength, out maxSizeYLength, out maxSizeXWidth, out maxSizeYWidth
+                , out fillSizeXLength, out fillSizeYLength, out fillSizeXWidth, out fillSizeYWidth);
+
+            actualLength = Math.Max(maxSizeXLength * boxLength, fillSizeXLength * boxWidth) + Math.Max(maxSizeXWidth * boxWidth, fillSizeXWidth * boxLength);
+            actualWidth = Math.Max(maxSizeYLength * boxWidth + fillSizeYLength * boxLength, maxSizeYWidth * boxLength + fillSizeYWidth * boxWidth);
+
+            return maxSizeXLength > 0 && maxSizeYLength > 0
+                && maxSizeXWidth > 0 && maxSizeYWidth > 0
+                && (
+                    ((maxSizeYLength % 2 == 0) && (fillSizeXLength * fillSizeYLength > 0))
+                    || ((maxSizeYWidth % 2 == 0) && (fillSizeXWidth * fillSizeYWidth > 0))
+                    );
+        }
+
+        #region Non-Public Members
+
+        void GetSizeXY(double boxLength, double boxWidth, double palletLength, double palletWidth,
             out int optSizeXLength,  out int optSizeYLength, out int optSizeXWidth, out int optSizeYWidth,
             out int optFillSizeXLength, out int optFillSizeYLength, out int optFillSizeXWidth, out int optFillSizeYWidth)
         {
@@ -252,10 +256,7 @@ namespace treeDiM.StackBuilder.Engine
                 --sizeXLength;
             }
         }
-        public override int GetNumberOfVariants(Layer2D layer) { return 1; }
-        public override bool IsSymetric { get { return false; } }
-        public override bool CanBeSwapped { get { return true; } }
-        public override bool CanBeInverted { get { return true; } }
+
         #endregion
     }
 }

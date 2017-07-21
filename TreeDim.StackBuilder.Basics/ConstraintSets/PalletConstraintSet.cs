@@ -14,7 +14,6 @@ namespace treeDiM.StackBuilder.Basics
         {
         }
 
-        #region Validity
         public bool IsValid
         {
             get
@@ -42,7 +41,6 @@ namespace treeDiM.StackBuilder.Basics
                     && (!UseNumberOfSolutionsKept || _noSolutionsKept > 0);
             }
         }
-        #endregion
 
         public bool AllowAlignedLayers { get; set; } = false;
         public bool AllowAlternateLayers { get; set; } = true;

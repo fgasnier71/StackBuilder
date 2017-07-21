@@ -1,23 +1,17 @@
-﻿#region Using directives
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 using Sharp3D.Math.Core;
 using treeDiM.StackBuilder.Basics;
-#endregion
 
 namespace treeDiM.StackBuilder.Engine
 {
     class LayerPatternInterlockedSymetric2
         : LayerPatternInterlockedSymetric
     {
-        #region Override LayerPattern
-        public override string Name
-        {
-            get { return "Symetric Interlocked 2"; }
-        }
+        public override string Name => "Symetric Interlocked 2";
+
         public override void GenerateLayer(ILayer2D layer, double actualLength, double actualWidth)
         {
             layer.Clear();
@@ -67,6 +61,6 @@ namespace treeDiM.StackBuilder.Engine
             layer.UpdateMaxSpace(spaceYLength, Name);
             layer.UpdateMaxSpace(spaceYWidth, Name);
         }
-        #endregion
+
     }
 }

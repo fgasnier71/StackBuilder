@@ -1,33 +1,53 @@
-﻿#region Using directives
-using System;
+﻿using System;
+using System.Collections.Generic;
+using System.Collections.Immutable;
 
 using Sharp3D.Math.Core;
 using log4net;
 
 using treeDiM.StackBuilder.Basics;
-#endregion
+using treeDiM.StackBuilder.Basics.Extensions;
 
 namespace treeDiM.StackBuilder.Engine
 {
     internal abstract class LayerPatternBox : LayerPattern
     {
-        #region Abstract methods
-        abstract public int GetNumberOfVariants(Layer2D layer);
-        abstract public bool CanBeInverted { get; }
-        abstract public bool IsSymetric { get; }
-        #endregion
+        // This is okay as long as LayerPatternBox objects are immutable
+        public static IReadOnlyList<LayerPatternBox> All => ImmutableList.CreateRange(new LayerPatternBox[] {
+            new LayerPatternColumn()
+            , new LayerPatternInterlocked()
+            , new LayerPatternInterlockedSymetric()
+            , new LayerPatternInterlockedFilled()
+            , new LayerPatternTrilock()
+            , new LayerPatternDiagonale()
+            , new LayerPatternSpirale()
+            , new LayerPatternEnlargedSpirale()
+        });
 
-        #region Private methods
-        #endregion
+        public static LayerPatternBox GetByName(string patternName)
+        {
+            return All[GetPatternNameIndex(patternName)];
+        }
 
-        #region Public properties
+        public static int GetPatternNameIndex(string patternName)
+        {
+            int index = All.FindIndex(x => string.Equals(x.Name, patternName, StringComparison.OrdinalIgnoreCase));
+            return index != -1
+                ? index
+                : throw new ArgumentException($"Invalid pattern name = {patternName}", nameof(patternName));
+        }
+
+        public abstract int GetNumberOfVariants(Layer2D layer);
+        public abstract bool CanBeInverted { get; }
+        public abstract bool IsSymetric { get; }
+
         public double GetBoxLength(ILayer2D layer)
         {
-            return (layer as Layer2D).BoxLength;
+            return ((Layer2D)layer).BoxLength;
         }
         public double GetBoxWidth(ILayer2D layer)
         {
-            return (layer as Layer2D).BoxWidth;
+            return ((Layer2D)layer).BoxWidth;
         }
         public void AddPosition(ILayer2D layer, Vector2D vPosition, HalfAxis.HAxis lengthAxis, HalfAxis.HAxis widthAxis)
         {
@@ -63,48 +83,11 @@ namespace treeDiM.StackBuilder.Engine
             }
             layerBox.AddPosition(new Vector2D(vPositionSwapped.X, vPositionSwapped.Y), lengthAxisSwapped, widthAxisSwapped);
         }
-        #endregion
 
-        #region Static methods
-        public static LayerPatternBox[] All => _allPatterns;
+        #region Non-Public Members
 
-        public static LayerPatternBox GetByName(string patternName)
-        {
-            foreach (LayerPatternBox pattern in LayerPatternBox.All)
-            {
-                if (string.Equals(pattern.Name, patternName, StringComparison.CurrentCultureIgnoreCase))
-                    return pattern;
-            }
-            // no pattern found!
-            throw new Exception(string.Format("Invalid pattern name = {0}", patternName));
-        }
-
-        public static int GetPatternNameIndex(string patternName)
-        {
-            int index = 0;
-            foreach (LayerPatternBox pattern in LayerPatternBox.All)
-            {
-                if (string.Equals(pattern.Name, patternName, StringComparison.CurrentCultureIgnoreCase))
-                    return index;
-                ++index;
-            }
-            // no pattern found!
-            throw new Exception(string.Format("Invalid pattern name = {0}", patternName));
-        }
-        #endregion
-
-        #region Data members
-        private static LayerPatternBox[] _allPatterns = {
-            new LayerPatternColumn()
-            , new LayerPatternInterlocked()
-            , new LayerPatternInterlockedSymetric()
-            , new LayerPatternInterlockedFilled()
-            , new LayerPatternTrilock()
-            , new LayerPatternDiagonale()
-            , new LayerPatternSpirale()
-            , new LayerPatternEnlargedSpirale()
-        };
         protected static readonly ILog _log = LogManager.GetLogger(typeof(LayerPatternBox));
+        
         #endregion
     }
 }
