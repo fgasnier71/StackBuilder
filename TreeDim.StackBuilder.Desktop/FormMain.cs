@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Threading;
@@ -315,7 +316,7 @@ namespace treeDiM.StackBuilder.Desktop
                 {
                     PackProperties pack = itemProp as PackProperties;
                     FormNewPack form = new FormNewPack(eventArg.Document, eventArg.ItemBase as PackProperties);
-                    form.Boxes = eventArg.Document.Boxes;
+                    form.Boxes = eventArg.Document.Boxes.ToList();
 
                     if (DialogResult.OK == form.ShowDialog())
                     {

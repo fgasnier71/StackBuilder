@@ -1,82 +1,29 @@
-﻿#region Using directives
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 
 using log4net;
-using Sharp3D.Math.Core;
-#endregion
 
 namespace treeDiM.StackBuilder.Basics
 {
-    #region IItemListener
-    public interface IItemListener
-    {
-        void Update(ItemBase itemFrom);
-        void Kill(ItemBase itemFrom);
-    }
-    #endregion
-
-    #region Descriptor
-    public class GlobID
-    {
-        public GlobID()
-        { IGuid = Guid.NewGuid(); Name = string.Empty; Description = string.Empty; }
-        public GlobID(Guid guid, string name, string description)
-        { IGuid = guid; Name = name; Description = description; }
-        public GlobID(string name, string description)
-        { IGuid = Guid.NewGuid(); Name = name; Description = description; }
-        public Guid IGuid { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public void SetNameDesc(string name, string description)
-        { Name = name; Description = description; }
-        public override string ToString()
-        { return string.Format("Guid = {0}\nName = {1}\nDescription = {2}", IGuid, Name, Description); }
-    }
-    #endregion
-
-    #region ItemBase
     /// <summary>
     /// This class holds Name / description properties for Box / Pallet / Interlayer / Analysis
     /// it also handle dependancy problems
     /// </summary>
     public abstract class ItemBase : IDisposable
     {
-        #region Data members
-        // parent document
-        private Document _parentDocument;
-        // dependancies
-        private List<ItemBase> _dependancies = new List<ItemBase>();
-        // Track whether Dispose has been called.
-        private bool disposed = false;
-        // listeners
-        List<IItemListener> _listeners = new List<IItemListener>();
-        // logger
-        static readonly ILog _log = LogManager.GetLogger(typeof(ItemBase));
-        #endregion
-
-        #region Constructors
         public ItemBase(Document document)
         {
             _parentDocument = document;
         }
-        #endregion
 
-        #region Abstract properties
         public abstract GlobID ID { get; }
-        #endregion
 
-        #region Public properties
-        public Document ParentDocument
-        {
-            get { return _parentDocument; }
-        }
-        public string Name { get { return ID.Name; } }
-        public string Description { get { return ID.Description; } }
-        #endregion
+        public Document ParentDocument => _parentDocument;
+        public string Name => ID.Name;
+        public string Description => ID.Description;
+        public bool HasDependingAnalyses => _dependancies.Count > 0;
 
-        #region Dependancies
         public void AddDependancy(ItemBase dependancy)
         {
             // if analysis is temporary, do not record dependancy
@@ -92,48 +39,59 @@ namespace treeDiM.StackBuilder.Basics
             // actually add dependancy
             _dependancies.Add(dependancy);    
         }
-        public bool HasDependingAnalyses
-        { get { return _dependancies.Count > 0; } }
+
         public void RemoveDependancy(ItemBase dependancie)
         {
             _dependancies.Remove(dependancie);  
         }
-        protected void Modify()
-        {
-            // update dependancies
-            foreach (ItemBase item in _dependancies)
-                item.OnAttributeModified(this);
-            // update listeners
-            UpdateListeners();
-            // update parent document
-            if (null != _parentDocument)
-                _parentDocument.Modify();
-        }
+
         public void EndUpdate()
         {
             // update dependancies
             foreach (ItemBase item in _dependancies)
                 item.OnEndUpdate(this);
         }
-        public virtual void OnAttributeModified(ItemBase modifiedAttribute) {}
-        public virtual void OnEndUpdate(ItemBase updatedAttribute) {}
-        protected virtual void RemoveItselfFromDependancies() {}
-        protected virtual void OnDispose() {}
-        #endregion
 
-        #region IDisposable implementation
+        public virtual void OnAttributeModified(ItemBase modifiedAttribute) {}
+
+        public virtual void OnEndUpdate(ItemBase updatedAttribute) {}
+
+        public void AddListener(IItemListener listener)
+        {
+            _listeners.Add(listener);
+        }
+
+        public void RemoveListener(IItemListener listener)
+        {
+            _listeners.Remove(listener);
+        }
+
+        public override string ToString()
+        {
+            return string.Format("Name:{0} \nDescription: {1}\n", ID.Name, ID.Description);
+        }
+
+        #region Non-Public/Disposable Members
+
+        private Document _parentDocument;
+        private List<ItemBase> _dependancies = new List<ItemBase>();
+        private bool disposed = false;
+        List<IItemListener> _listeners = new List<IItemListener>();
+        static readonly ILog _log = LogManager.GetLogger(typeof(ItemBase));
+
         // Implement IDisposable.
         // Do not make this method virtual.
         // A derived class should not be able to override this method.
         public void Dispose()
         {
+            // TODO - adjust for correctness (we don't have a finalizer, Dispose(bool) accessing non-this outside of disposing=true
             Dispose(true);
             // This object will be cleaned up by the Dispose method.
             // Therefore, you should call GC.SupressFinalize to
             // take this object off the finalization queue
             // and prevent finalization code for this object
             // from executing a second time.
-            GC.SuppressFinalize(this); 
+            GC.SuppressFinalize(this);
         }
 
         // Dispose(bool disposing) executes in two distinct scenarios.
@@ -145,6 +103,7 @@ namespace treeDiM.StackBuilder.Basics
         // other objects.
         private void Dispose(bool disposing)
         {
+            // TODO - adjust for correctness (we don't have a finalizer, Dispose(bool) accessing non-this outside of disposing=true
             // Check to see if Dispose has already been called.
             if (!this.disposed)
             {
@@ -171,77 +130,35 @@ namespace treeDiM.StackBuilder.Basics
                 // Call the appropriate methods to clean up
                 // unmanaged resources here.
                 // If disposing is false, only the following code is executed.
- 
+
                 // Note disposing has been done.
                 disposed = true;
             }
-        }
-        #endregion
-
-        #region Object overrides
-        public override string ToString()
-        {
-            return string.Format("Name:{0} \nDescription: {1}\n", ID.Name, ID.Description);
-        }
-        #endregion
-
-        #region Listeners
-        public void AddListener(IItemListener listener)
-        {
-            _listeners.Add(listener);
-        }
-        public void RemoveListener(IItemListener listener)
-        {
-            _listeners.Remove(listener);
-        }
-        protected void UpdateListeners()
-        {
-            foreach (IItemListener listener in _listeners)
-                listener.Update(this);
         }
         protected void KillListeners()
         {
             while (_listeners.Count > 0)
                 _listeners[0].Kill(this);
         }
-        #endregion
-    }
-    #endregion
-
-    #region ItemBaseNamed
-    public abstract class ItemBaseNamed : ItemBase
-    {
-        #region Data members
-        private GlobID _id = new GlobID();
-        #endregion
-
-        #region Constructors
-        public ItemBaseNamed(Document doc)
-            : base(doc)
-        { 
-        }
-        public ItemBaseNamed(Document doc, string name, string description)
-            : base(doc)
+        protected void Modify()
         {
-            ID.Name = name; ID.Description = description;
+            // update dependancies
+            foreach (ItemBase item in _dependancies)
+                item.OnAttributeModified(this);
+            // update listeners
+            UpdateListeners();
+            // update parent document
+            if (null != _parentDocument)
+                _parentDocument.Modify();
         }
-        #endregion
+        protected virtual void OnDispose() { }
+        protected virtual void RemoveItselfFromDependancies() { }
+        protected void UpdateListeners()
+        {
+            foreach (IItemListener listener in _listeners)
+                listener.Update(this);
+        }
 
-        #region Override ItemBase
-        public override GlobID ID { get { return _id; } }
         #endregion
     }
-    #endregion
-
-    #region IPackContainer
-    public interface IPackContainer
-    {
-        bool HasInsideDimensions { get; }
-        double InsideLength     { get; }
-        double InsideWidth      { get; }
-        double InsideHeight     { get; }
-        Vector3D InsideDimensions { get; }
-        double[] InsideDimensionsArray { get; }
-    }
-    #endregion
 }

@@ -1,9 +1,9 @@
-﻿#region Using directives
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Diagnostics;
@@ -18,7 +18,6 @@ using treeDiM.StackBuilder.Reporting;
 using treeDiM.StackBuilder.GUIExtension.Properties;
 
 using treeDiM.PLMPack.DBClient;
-#endregion
 
 namespace treeDiM.StackBuilder.GUIExtension
 {
@@ -159,7 +158,7 @@ namespace treeDiM.StackBuilder.GUIExtension
                 uCtrlLayerList.Packable = packable;
                 uCtrlLayerList.ContainerHeight = CaseInsideHeight;
                 uCtrlLayerList.FirstLayerSelected = true;
-                uCtrlLayerList.LayerList = LayerSolver.ConvertList(layers);
+                uCtrlLayerList.LayerList = layers.Cast<ILayer2D>().ToList();
 
             }
             catch (Exception ex)
