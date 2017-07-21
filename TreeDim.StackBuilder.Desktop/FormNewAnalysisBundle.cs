@@ -1,19 +1,11 @@
-﻿#region Using directives
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
+using System.Linq;
 using System.Windows.Forms;
 
-using treeDiM.StackBuilder.Basics;
-using treeDiM.StackBuilder.Graphics;
-using Sharp3D.Math.Core;
 using log4net;
-
+using treeDiM.StackBuilder.Basics;
 using treeDiM.StackBuilder.Desktop.Properties;
-#endregion
 
 namespace treeDiM.StackBuilder.Desktop
 {
@@ -287,7 +279,7 @@ namespace treeDiM.StackBuilder.Desktop
         {
             get
             {
-                string[] patternNames = treeDiM.StackBuilder.Engine.CasePalletSolver.PatternNames;
+                string[] patternNames = treeDiM.StackBuilder.Engine.CasePalletSolver.PatternNames.ToArray();
                 List<string> listAllowedPatterns = new List<string>();
                 foreach (object itemChecked in checkedListBoxPatterns.CheckedItems)
                 {
@@ -306,12 +298,12 @@ namespace treeDiM.StackBuilder.Desktop
             set
             {
                 // get list of existing patterns
-                List<string> patternNameList = treeDiM.StackBuilder.Engine.CasePalletSolver.PatternNameList;
+                List<string> patternNameList = treeDiM.StackBuilder.Engine.CasePalletSolver.PatternNames.ToList();
                 int iCountAllowedPatterns = 0;
                 string[] vPatternNames = value.Split(',');
                 foreach (string patternName in vPatternNames)
                 {
-                    int index = patternNameList.FindIndex(delegate(string s) { return s == patternName; });
+                    int index = patternNameList.FindIndex(s => s == patternName);
                     if (-1 != index)
                     {
                         checkedListBoxPatterns.SetItemChecked(index, true);

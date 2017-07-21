@@ -1,10 +1,7 @@
-﻿#region Using directives
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+using System.Linq;
 using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 
 using treeDiM.StackBuilder.Basics;
@@ -13,7 +10,6 @@ using treeDiM.StackBuilder.Desktop.Properties;
 
 using Sharp3D.Math.Core;
 using log4net;
-#endregion
 
 namespace treeDiM.StackBuilder.Desktop
 {
@@ -157,7 +153,7 @@ namespace treeDiM.StackBuilder.Desktop
             set
             {
                 // get list of existing patterns
-                List<string> patternNameList = treeDiM.StackBuilder.Engine.CasePalletSolver.PatternNameList;
+                List<string> patternNameList = treeDiM.StackBuilder.Engine.CasePalletSolver.PatternNames.ToList();
                 string allowedPatterns = value;
                 int iCountAllowedPatterns = 0;
                 string[] vPatternNames = value.Split(',');
