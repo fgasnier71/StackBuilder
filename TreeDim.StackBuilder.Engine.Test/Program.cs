@@ -28,7 +28,7 @@ namespace treeDiM.StackBuilder.Engine.Test
                 Document doc = new Document("Test", "Test", "fga", DateTime.Now, null);
 
                 // define pallet properties
-                PalletProperties palletProperties = new PalletProperties(doc, "EUR2", 1200, 1000, 150);
+                var palletProperties = new PalletProperties(doc, "EUR2", 1200, 1000, 150);
                 Console.WriteLine("=== Pallet properties ===");
                 Console.WriteLine(palletProperties.ToString());
 
@@ -52,7 +52,7 @@ namespace treeDiM.StackBuilder.Engine.Test
         private static void RunBoxTest(bool useSingleColor, Document doc, PalletProperties palletProperties)
         {
             // define box properties
-            BoxProperties boxProperties = new BoxProperties(doc, 162, 210, 250);
+            var boxProperties = new BoxProperties(doc, 162, 210, 250);
             //boxProperties.Name = "Box1";
             boxProperties.SetWeight(3.0);
             if (!useSingleColor)

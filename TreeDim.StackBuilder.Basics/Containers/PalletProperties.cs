@@ -11,15 +11,6 @@ namespace treeDiM.StackBuilder.Basics
 {
     public class PalletProperties : ItemBaseNamed
     {
-        #region Data members
-        double _length, _width, _height;
-        double _weight;
-        double _admissibleLoadWeight, _admissibleLoadHeight;
-        private Color _color = Color.Yellow;
-        private string _typeName = "Block";
-        #endregion
-
-        #region Constructor
         public PalletProperties(Document document, string typeName, double length, double width, double height)
             : base(document)
         {
@@ -28,11 +19,8 @@ namespace treeDiM.StackBuilder.Basics
             _width = width;
             _height = height;
         }
-        #endregion
 
-        #region Public properties
-        public double[] Dimensions
-        { get { return new double[] { _length, _width, _height }; } }
+        public double[] Dimensions => new double[] { _length, _width, _height };
         public double Length
         {
             get { return _length; }
@@ -73,20 +61,25 @@ namespace treeDiM.StackBuilder.Basics
             set { _color = value; }
             get { return _color; }
         }
-        public BBox3D BoundingBox
-        {
-            get { return new BBox3D(Vector3D.Zero, new Vector3D(_length, _width, _height)); }
-        }
-        #endregion
+        public BBox3D BoundingBox => new BBox3D(Vector3D.Zero, new Vector3D(_length, _width, _height));
 
-        #region Object override
         public override string ToString()
         {
-            StringBuilder sBuilder = new StringBuilder();
+            var sBuilder = new StringBuilder();
             sBuilder.Append(base.ToString());
             sBuilder.Append(string.Format("PalletProperties => Type {0} Length {1} Width {2} Height {3}", _typeName, _length, _width, _height));
             return sBuilder.ToString();
         }
+
+        #region Non-Public Members
+
+        double _length, _width, _height;
+        double _weight;
+        double _admissibleLoadWeight, _admissibleLoadHeight;
+        private Color _color = Color.Yellow;
+        private string _typeName = "Block";
+        
         #endregion
+
     }
 }

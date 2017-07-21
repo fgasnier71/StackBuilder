@@ -85,15 +85,12 @@ namespace treeDiM.StackBuilder.Basics
         #endregion
 
         #region Packable override
-        public override bool IsCase
-        {   get { return HasInsideDimensions; } }
-        protected override string TypeName
-        { get { return IsCase ? Properties.Resources.ID_NAMECASE : Properties.Resources.ID_NAMEBOX; } }
+        public override bool IsCase => HasInsideDimensions;
+        protected override string TypeName => IsCase ? Properties.Resources.ID_NAMECASE : Properties.Resources.ID_NAMEBOX;
         #endregion
 
         #region Dimensions
-        public override double Height
-        { get { return _height; } }
+        public override double Height => _height;
         public void SetHeight(double height)
         { _height = height; Modify(); }
         #endregion
@@ -197,7 +194,7 @@ namespace treeDiM.StackBuilder.Basics
         }
         public void SetAllColors(Color[] color)
         {
-            for (int i = 0; i < 6; ++i)
+            for (int i = 0; i < _colors.Length; ++i)
                 _colors[i] = color[i];
             Modify();
         }
@@ -205,7 +202,7 @@ namespace treeDiM.StackBuilder.Basics
         {
             get
             {
-                for (int i = 1; i < 6; ++i)
+                for (int i = 1; i < _colors.Length; ++i)
                     if (_colors[0] != _colors[i])
                         return false;
                 return true;
@@ -247,7 +244,7 @@ namespace treeDiM.StackBuilder.Basics
         {
             get
             {
-                List<Pair<HalfAxis.HAxis, Texture>> list = new List<Pair<HalfAxis.HAxis, Texture>>();
+                var list = new List<Pair<HalfAxis.HAxis, Texture>>();
                 foreach (Pair<HalfAxis.HAxis, Texture> tex in _textures)
                     list.Add(new Pair< HalfAxis.HAxis, Texture >(tex.first, tex.second.Clone()));
                 return list;
