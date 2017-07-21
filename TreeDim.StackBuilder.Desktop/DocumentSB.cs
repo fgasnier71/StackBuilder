@@ -1,6 +1,7 @@
 ﻿#region Using directives
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.ComponentModel;
 using System.Windows.Forms;
@@ -172,7 +173,7 @@ namespace treeDiM.StackBuilder.Desktop
         public void CreateNewPackUI()
         {
             FormNewPack form = new FormNewPack(this, null);
-            form.Boxes = Boxes;
+            form.Boxes = Boxes.ToList();
             if (DialogResult.OK == form.ShowDialog())
             {
                 PackProperties packProperties = CreateNewPack(

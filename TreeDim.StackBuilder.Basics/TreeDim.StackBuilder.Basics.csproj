@@ -125,6 +125,7 @@
       <DependentUpon>UCtrlOptDouble.cs</DependentUpon>
     </Compile>
     <Compile Include="Helpers\OptInt.cs" />
+    <Compile Include="IDocumentListener.cs" />
     <Compile Include="PalletDecoration\PalletCornerProperties.cs" />
     <Compile Include="PalletDecoration\PalletCapProperties.cs" />
     <Compile Include="PalletDecoration\PalletFilmProperties.cs" />

@@ -20,27 +20,6 @@ using log4net;
 
 namespace treeDiM.StackBuilder.Basics
 {
-    #region IDocumentListener
-    /// <summary>
-    /// Listener class that is notified when the document is modified
-    /// </summary>
-    public interface IDocumentListener
-    {
-        // new
-        void OnNewDocument(Document doc);
-        void OnNewTypeCreated(Document doc, ItemBase itemBase);
-        void OnNewAnalysisCreated(Document doc, Analysis analysis);
-        void OnAnalysisUpdated(Document doc, Analysis analysis);
-        // remove
-        void OnTypeRemoved(Document doc, ItemBase itemBase);
-        void OnAnalysisRemoved(Document doc, ItemBase itemBase); 
-        void OnECTAnalysisRemoved(Document doc, CasePalletAnalysis analysis, SelCasePalletSolution selSolution, ECTAnalysis ectAnalysis);
-        // close
-        void OnDocumentClosed(Document doc);
-    }
-    #endregion
-
-    #region Document
     /// <summary>
     /// Classes that encapsulates data
     /// The application is MDI and might host several Document instance
@@ -1157,20 +1136,9 @@ namespace treeDiM.StackBuilder.Basics
         /// <summary>
         /// Builds and returns a list of boxes
         /// </summary>
-        public List<BoxProperties> Boxes
-        {
-            get
-            {
-                List<BoxProperties> boxList = new List<BoxProperties>();
-                foreach (ItemBase item in _typeList)
-                {
-                    BoxProperties boxProperties = item as BoxProperties;
-                    if (null != boxProperties && !boxProperties.HasInsideDimensions)
-                        boxList.Add(boxProperties);                        
-                }
-                return boxList;
-            }
-        }
+        public IEnumerable<BoxProperties> Boxes =>
+            _typeList.OfType<BoxProperties>().Where(x => !x.HasInsideDimensions);
+
         /// <summary>
         /// Builds and returns a list of cases
         /// </summary>
@@ -1308,13 +1276,13 @@ namespace treeDiM.StackBuilder.Basics
 
         #region Allowing analysis/opti
         public bool CanCreatePack
-        { get { return this.Boxes.Count > 0; } }
+        { get { return this.Boxes.Any(); } }
         public bool CanCreateAnalysisCasePallet
         { get { return this.Cases.Count > 0 && this.Pallets.Count > 0; } }
         public bool CanCreateAnalysisBundlePallet
         { get { return this.Bundles.Count > 0 && this.Pallets.Count > 0; } }
         public bool CanCreateAnalysisBoxCase
-        { get { return ((this.Bundles.Count > 0 || this.Boxes.Count > 0) && this.Cases.Count > 0) || (this.Cases.Count > 1); } }
+        { get { return ((this.Bundles.Count > 0 || this.Boxes.Any()) && this.Cases.Count > 0) || (this.Cases.Count > 1); } }
         public bool CanCreateAnalysisCylinderPallet
         { get { return this.Cylinders.Count > 0 && this.Pallets.Count > 0; } }
         public bool CanCreateAnalysisCylinderCase
@@ -1324,11 +1292,11 @@ namespace treeDiM.StackBuilder.Basics
         public bool CanCreateAnalysisCaseTruck
         { get { return this.Trucks.Count > 0 && this.Cases.Count > 0; } }
         public bool CanCreateOptiCasePallet
-        { get { return this.Boxes.Count > 0 && this.Pallets.Count > 0; } }
+        { get { return this.Boxes.Any() && this.Pallets.Count > 0; } }
         public bool CanCreateOptiPack
-        { get { return this.Boxes.Count > 0 && this.Pallets.Count > 0; } }
+        { get { return this.Boxes.Any() && this.Pallets.Count > 0; } }
         public bool CanCreateOptiMulticase
-        { get { return (this.Bundles.Count > 0) || (this.Boxes.Count > 0) || (this.Cases.Count > 0); } }
+        { get { return (this.Bundles.Count > 0) || this.Boxes.Any() || (this.Cases.Count > 0); } }
         #endregion
 
         #region Load methods
@@ -5410,5 +5378,4 @@ namespace treeDiM.StackBuilder.Basics
         }
         #endregion
     }
-    #endregion
 }
