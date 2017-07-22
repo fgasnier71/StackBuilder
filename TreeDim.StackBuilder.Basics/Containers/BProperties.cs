@@ -1,21 +1,11 @@
-﻿#region Using directives
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Drawing;
-
-using Sharp3D.Math.Core;
-#endregion
 
 namespace treeDiM.StackBuilder.Basics
 {
     public abstract class BProperties : PackableBrickNamed
     {
-        #region Data members
-        protected double _length, _width;
-        #endregion
-
-        #region Constructor
         public BProperties(Document document)
             : base(document)
         { 
@@ -24,30 +14,33 @@ namespace treeDiM.StackBuilder.Basics
             : base(document, name, description)
         { 
         }
-        #endregion
 
-        #region Override Packable
-        public override double Length
-        { get { return _length; } }
-        public override double Width
-        { get { return _width; } }
-        public override double Weight
-        { get { return _weight; } }
-        #endregion
+        public override double Length => _length;
+        public override double Width => _width;
+        public override double Weight => _weight;
+        public abstract Color[] Colors { get; }
+        public abstract bool IsBundle { get; }
 
-        #region Public accessors
+        public abstract Color GetColor(HalfAxis.HAxis axis);
+        public abstract void SetColor(Color color);
+
         public virtual void SetLength(double length)
-        { _length = length; Modify(); }
+        {
+            _length = length;
+            Modify();
+        }
+
         public virtual void SetWidth(double width)
-        { _width = width; Modify(); }
-        #endregion
+        {
+            _width = width;
+            Modify();
+        }
 
-        #region Public methods
-        abstract public Color[] Colors { get; }
-        abstract public void SetColor(Color color);
-        abstract public Color GetColor(HalfAxis.HAxis axis);
+        #region Non-Public Members
 
-        abstract public bool IsBundle { get; }
+        protected double _length;
+        protected double _width;
+
         #endregion
     }
 }

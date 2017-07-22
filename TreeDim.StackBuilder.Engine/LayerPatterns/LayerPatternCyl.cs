@@ -1,33 +1,40 @@
-﻿#region Using directives
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Text;
-
-using treeDiM.StackBuilder.Basics;
+using System.Collections.Immutable;
 
 using Sharp3D.Math.Core;
 using log4net;
-#endregion
+
+using treeDiM.StackBuilder.Basics;
+using treeDiM.StackBuilder.Basics.Extensions;
 
 namespace treeDiM.StackBuilder.Engine
 {
-    #region LayerPatternCyl
     internal abstract class LayerPatternCyl : LayerPattern
     {
-        #region Abstract methods
-        #endregion
+        // This is okay as long as LayerPatternBox objects are immutable
+        public static readonly IReadOnlyList<LayerPatternCyl> All = ImmutableList.CreateRange(new LayerPatternCyl[] {
+            new CylinderLayerPatternAligned()
+            , new CylinderLayerPatternExpanded()
+            , new CylinderLayerPatternStaggered()
+            , new CylinderLayerPatternMixed12()
+            , new CylinderLayerPatternMixed121()
+            , new CylinderLayerPatternMixed212()
+        });
 
-        #region Public properties
-        #endregion
-
-        #region Protected methods
-        protected double GetRadius(ILayer2D layer)
+        public static LayerPatternCyl GetByName(string patternName)
         {
-            return (layer as Layer2DCyl).CylinderRadius;
+            return All[GetPatternNameIndex(patternName)];
         }
-        #endregion
 
-        #region Public methods
+        public static int GetPatternNameIndex(string patternName)
+        {
+            int index = All.FindIndex(x => string.Equals(x.Name, patternName, StringComparison.OrdinalIgnoreCase));
+            return index != -1
+                ? index
+                : throw new ArgumentException($"Invalid pattern name = {patternName}", nameof(patternName));
+        }
+        
         public void AddPosition(ILayer2D layer, Vector2D vPosition)
         {
             Matrix4D matRot = Matrix4D.Identity;
@@ -43,63 +50,34 @@ namespace treeDiM.StackBuilder.Engine
                     );
                 vTranslation = new Vector3D(layer.Length, 0.0, 0.0);
             }
-            Transform3D transfRot = new Transform3D(matRot);
+            var transfRot = new Transform3D(matRot);
 
             matRot.M14 = vTranslation[0];
             matRot.M24 = vTranslation[1];
             matRot.M34 = vTranslation[2];
 
-            Transform3D transfRotTranslation = new Transform3D(matRot);
+            var transfRotTranslation = new Transform3D(matRot);
             Vector3D vPositionSwapped = transfRotTranslation.transform(new Vector3D(vPosition.X, vPosition.Y, 0.0));
 
-            Layer2DCyl layerCyl = layer as Layer2DCyl;
+            var layerCyl = layer as Layer2DCyl;
 
             if (!layerCyl.IsValidPosition(new Vector2D(vPositionSwapped.X, vPositionSwapped.Y)))
             {
-                _log.Warn(string.Format("Attempt to add an invalid position in pattern = {0}, Swapped = true", this.Name));
+                _log.Warn(string.Format("Attempt to add an invalid position in pattern = {0}, Swapped = true", Name));
                 return;
             }
             layerCyl.Add(new Vector2D(vPositionSwapped.X, vPositionSwapped.Y));
         }
-        #endregion
 
-        #region Static methods
-        public static LayerPatternCyl[] All
-        { get { return _allPatterns; } }
-        public static LayerPatternCyl GetByName(string patternName)
-        {
-            foreach (LayerPatternCyl pattern in LayerPatternCyl.All)
-            {
-                if (string.Equals(pattern.Name, patternName, StringComparison.CurrentCultureIgnoreCase))
-                    return pattern;
-            }
-            // no pattern found!
-            throw new Exception(string.Format("Invalid pattern name = {0}", patternName));
-        }
-        public static int GetPatternNameIndex(string patternName)
-        {
-            int index = 0;
-            foreach (LayerPatternCyl pattern in LayerPatternCyl.All)
-            {
-                if (string.Equals(pattern.Name, patternName, StringComparison.CurrentCultureIgnoreCase))
-                    return index;
-            }
-            // no pattern found!
-            throw new Exception(string.Format("Invalid pattern name = {0}", patternName));
-        }
-        #endregion
+        #region Non-Public Members
 
-        #region Data members
-        private static LayerPatternCyl[] _allPatterns = {
-            new CylinderLayerPatternAligned()
-            , new CylinderLayerPatternExpanded()
-            , new CylinderLayerPatternStaggered()
-            , new CylinderLayerPatternMixed12()
-            , new CylinderLayerPatternMixed121()
-            , new CylinderLayerPatternMixed212()
-        };
         protected static readonly ILog _log = LogManager.GetLogger(typeof(LayerPatternCyl));
+
+        protected double GetRadius(ILayer2D layer)
+        {
+            return ((Layer2DCyl)layer).CylinderRadius;
+        }
+
         #endregion
     }
-    #endregion
 }

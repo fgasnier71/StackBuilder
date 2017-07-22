@@ -1,39 +1,39 @@
-﻿#region Using directives
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 using treeDiM.StackBuilder.Basics;
 using Sharp3D.Math.Core;
 
 using log4net;
-#endregion
 
 namespace treeDiM.StackBuilder.Engine
 {
     public class TruckSolver : ITruckSolver
     {
-        #region Data members
         static readonly ILog _log = LogManager.GetLogger(typeof(TruckSolver));
-        #endregion
 
-        #region TruckSolver
         public TruckSolver()
         {
         }
-        #endregion
 
-        #region Public methods
         public void ProcessAnalysis(TruckAnalysis truckAnalysis)
         {
             truckAnalysis.Solutions = GenerateSolutions(truckAnalysis);
         }
-        #endregion
 
-        #region Private methods
-        private List<TruckSolution> GenerateSolutions(TruckAnalysis truckAnalysis)
+        #region Non-Public Members
+
+        Layer2D BuildLayer(CasePalletSolution palletSolution, TruckProperties truckProperties, TruckConstraintSet constraintSet
+                            , HalfAxis.HAxis axisOrtho, bool swapped)
         {
-            List<TruckSolution> solutions = new List<TruckSolution>();
+            return new Layer2D(new Vector3D(palletSolution.PalletLength, palletSolution.PalletWidth, palletSolution.PalletHeight)
+                                , new Vector2D(truckProperties.Length, truckProperties.Width)
+                                , axisOrtho, swapped);
+        }
+
+        List<TruckSolution> GenerateSolutions(TruckAnalysis truckAnalysis)
+        {
+            var solutions = new List<TruckSolution>();
 
             HalfAxis.HAxis[] axis = { HalfAxis.HAxis.AXIS_Z_N, HalfAxis.HAxis.AXIS_Z_P};
 
@@ -42,7 +42,7 @@ namespace treeDiM.StackBuilder.Engine
             {
                 for (int swapPos = 0; swapPos < (pattern.CanBeSwapped ? 2 : 1); ++swapPos)
                 {
-                    for (int orientation = 0; orientation < 2; ++orientation)
+                    for (int orientation = 0; orientation < axis.Length; ++orientation)
                     {
                         try
                         {
@@ -53,9 +53,9 @@ namespace treeDiM.StackBuilder.Engine
                                 continue;
                             pattern.GenerateLayer(layer, actualLength, actualWidth);
 
-                            TruckSolution sol = new TruckSolution("sol", truckAnalysis);
+                            var sol = new TruckSolution("sol", truckAnalysis);
 
-                            Layer3DBox boxLayer = new Layer3DBox(0.0, 0);
+                            var boxLayer = new Layer3DBox(0.0, 0);
                             foreach (LayerPosition layerPos in layer)
                                 boxLayer.AddPosition(layerPos.Position, layerPos.LengthAxis, layerPos.WidthAxis);
 
@@ -73,21 +73,11 @@ namespace treeDiM.StackBuilder.Engine
                 }
             }
 
-            // sort solutions
             solutions.Sort();
 
             return solutions;
         }
-        #endregion
 
-        #region Build layer
-        Layer2D BuildLayer(CasePalletSolution palletSolution, TruckProperties truckProperties, TruckConstraintSet constraintSet
-            ,HalfAxis.HAxis axisOrtho, bool swapped)
-        { 
-            return new Layer2D(new Vector3D(palletSolution.PalletLength, palletSolution.PalletWidth, palletSolution.PalletHeight)
-                                , new Vector2D(truckProperties.Length, truckProperties.Width)
-                                , axisOrtho, swapped);
-        }
         #endregion
     }
 }

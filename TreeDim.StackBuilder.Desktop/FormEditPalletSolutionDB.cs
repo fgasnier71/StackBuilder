@@ -1,12 +1,8 @@
-﻿#region Using directives
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Text;
+using System.Linq;
 using System.Windows.Forms;
-using System.IO;
 
 using treeDiM.StackBuilder.Basics;
 using treeDiM.StackBuilder.Graphics;
@@ -14,7 +10,6 @@ using treeDiM.StackBuilder.Desktop.Properties;
 
 using log4net;
 using Sharp3D.Math.Core;
-#endregion
 
 namespace treeDiM.StackBuilder.Desktop
 {
@@ -247,9 +242,9 @@ namespace treeDiM.StackBuilder.Desktop
 
                 // load document
                 Document document = new Document(desc.FullFilePath, null);
-                if (document.AnalysesCasePallet.Count == 0) return;
+                if (!document.AnalysesCasePallet.Any()) return;
                 // get analysis and solution
-                CasePalletAnalysis analysis = document.AnalysesCasePallet[0] as CasePalletAnalysis;
+                CasePalletAnalysis analysis = document.AnalysesCasePallet.First() as CasePalletAnalysis;
                 {
                     Graphics3DImage graphics = new Graphics3DImage(pictureBoxCase.Size);
                     graphics.CameraPosition = Graphics3D.Corner_0;

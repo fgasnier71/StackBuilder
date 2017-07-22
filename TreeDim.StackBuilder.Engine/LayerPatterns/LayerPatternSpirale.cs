@@ -1,49 +1,18 @@
-﻿#region Using directives
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 using Sharp3D.Math.Core;
 using treeDiM.StackBuilder.Basics;
-#endregion
 
 namespace treeDiM.StackBuilder.Engine
 {
     class LayerPatternSpirale: LayerPatternBox
     {
-        #region Implementation of LayerPattern abstract properties and methods
-        public override string Name   { get { return "Spirale"; } }
-
-        public override bool GetLayerDimensions(ILayer2D layer, out double actualLength, out double actualWidth)
-        {
-            double palletLength = GetPalletLength(layer);
-            double palletWidth = GetPalletWidth(layer);
-            double boxLength = GetBoxLength(layer);
-            double boxWidth = GetBoxWidth(layer);
-
-            // compute optimal layout by evaluating all spirale configurations
-            int sizeX_area1 = 0, sizeY_area1 = 0, sizeX_area2 = 0, sizeY_area2 = 0;
-            GetOptimalSizesXY(boxLength, boxWidth, palletLength, palletWidth
-                , out sizeX_area1, out sizeY_area1, out sizeX_area2, out sizeY_area2);
-
-            // actual length / actual width
-            actualLength = sizeX_area1 * boxLength + sizeX_area2 * boxWidth;
-            actualWidth = sizeY_area1 * boxWidth + sizeY_area2 * boxLength;
-            if (2.0 * sizeX_area1 * boxLength > palletLength
-                && 2.0 * sizeY_area1 * boxWidth > actualWidth)
-                actualWidth = 2.0 * sizeY_area1 * boxWidth;
-            else if (2.0 * sizeY_area1 * boxWidth > palletWidth
-                && 2.0 * sizeX_area1 * boxLength > actualLength)
-                actualLength = 2.0 * sizeX_area1 * boxLength;
-            else if (2.0 * sizeX_area2 * boxWidth > palletLength
-                && 2.0 * sizeY_area2 * boxLength > actualWidth)
-                actualWidth = 2.0 * sizeY_area2 * boxLength;
-            else if (2.0 * sizeY_area2 * boxLength > palletWidth
-                && 2.0 * sizeX_area2 * boxWidth > actualLength)
-                actualLength = 2.0 * sizeX_area2 * boxWidth;
-
-            return sizeX_area1 > 0 && sizeX_area2 > 0 && sizeY_area1 > 0 && sizeY_area2 > 0;
-        }
+        public override string Name => "Spirale";
+        public override int GetNumberOfVariants(Layer2D layer) => 1;
+        public override bool IsSymetric => true;
+        public override bool CanBeSwapped => true;
+        public override bool CanBeInverted => true;
 
         public override void GenerateLayer(ILayer2D layer, double actualLength, double actualWidth)
         {
@@ -97,14 +66,40 @@ namespace treeDiM.StackBuilder.Engine
             layer.UpdateMaxSpace( Math.Min(spaceX, spaceY), Name );
         }
 
-        public override int GetNumberOfVariants(Layer2D layer) { return 1; }
-        public override bool IsSymetric { get { return true; } }
-        public override bool CanBeSwapped { get { return true; } }
-        public override bool CanBeInverted { get { return true; } }
-        #endregion
+        public override bool GetLayerDimensions(ILayer2D layer, out double actualLength, out double actualWidth)
+        {
+            double palletLength = GetPalletLength(layer);
+            double palletWidth = GetPalletWidth(layer);
+            double boxLength = GetBoxLength(layer);
+            double boxWidth = GetBoxWidth(layer);
 
-        #region Helpers
-        private void GetOptimalSizesXY(
+            // compute optimal layout by evaluating all spirale configurations
+            int sizeX_area1 = 0, sizeY_area1 = 0, sizeX_area2 = 0, sizeY_area2 = 0;
+            GetOptimalSizesXY(boxLength, boxWidth, palletLength, palletWidth
+                , out sizeX_area1, out sizeY_area1, out sizeX_area2, out sizeY_area2);
+
+            // actual length / actual width
+            actualLength = sizeX_area1 * boxLength + sizeX_area2 * boxWidth;
+            actualWidth = sizeY_area1 * boxWidth + sizeY_area2 * boxLength;
+            if (2.0 * sizeX_area1 * boxLength > palletLength
+                && 2.0 * sizeY_area1 * boxWidth > actualWidth)
+                actualWidth = 2.0 * sizeY_area1 * boxWidth;
+            else if (2.0 * sizeY_area1 * boxWidth > palletWidth
+                && 2.0 * sizeX_area1 * boxLength > actualLength)
+                actualLength = 2.0 * sizeX_area1 * boxLength;
+            else if (2.0 * sizeX_area2 * boxWidth > palletLength
+                && 2.0 * sizeY_area2 * boxLength > actualWidth)
+                actualWidth = 2.0 * sizeY_area2 * boxLength;
+            else if (2.0 * sizeY_area2 * boxLength > palletWidth
+                && 2.0 * sizeX_area2 * boxWidth > actualLength)
+                actualLength = 2.0 * sizeX_area2 * boxWidth;
+
+            return sizeX_area1 > 0 && sizeX_area2 > 0 && sizeY_area1 > 0 && sizeY_area2 > 0;
+        }
+
+        #region Non-Public Members
+
+        void GetOptimalSizesXY(
             double boxLength, double boxWidth
             , double palletLength, double palletWidth
             , out int sizeX_area1, out int sizeY_area1
@@ -144,6 +139,7 @@ namespace treeDiM.StackBuilder.Engine
                     }
                 }
         }
+
         #endregion
     }
 }

@@ -171,7 +171,7 @@ namespace treeDiM.StackBuilder.Desktop
             get
             {
                 Document doc = _document as Document;
-                return doc.ListByType(typeof(PalletCornerProperties)).ToArray(); 
+                return doc.GetByType(typeof(PalletCornerProperties)).ToArray(); 
             }
         }
         private ItemBase[] PalletCaps
@@ -179,7 +179,7 @@ namespace treeDiM.StackBuilder.Desktop
             get
             {
                 Document doc = _document as Document;
-                return doc.ListByType(typeof(PalletCapProperties)).ToArray(); 
+                return doc.GetByType(typeof(PalletCapProperties)).ToArray(); 
             }
         }
         private ItemBase[] PalletFilms
@@ -187,7 +187,7 @@ namespace treeDiM.StackBuilder.Desktop
             get
             {
                 Document doc = _document as Document;
-                return doc.ListByType(typeof(PalletFilmProperties)).ToArray(); 
+                return doc.GetByType(typeof(PalletFilmProperties)).ToArray(); 
             }
         }
         #endregion

@@ -1,45 +1,20 @@
-﻿#region Using directives
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Diagnostics;
+
 using Sharp3D.Math.Core;
 
 using treeDiM.StackBuilder.Basics;
-#endregion
 
 namespace treeDiM.StackBuilder.Engine
 {
     class LayerPatternTrilock : LayerPatternBox
     {
-        #region Implementation of LayerPattern abstract properties and methods
-        public override string Name
-        {
-            get { return "Trilock"; }
-        }
-
-        public override bool GetLayerDimensions(ILayer2D layer, out double actualLength, out double actualWidth)
-        {
-            double palletLength = GetPalletLength(layer);
-            double palletWidth = GetPalletWidth(layer);
-            double boxLength = GetBoxLength(layer);
-            double boxWidth = GetBoxWidth(layer);
-
-            int sizeX_area1 = 0, sizeY_area1 = 0, sizeX_area2 = 0, sizeY_area2 = 0, sizeX_area3 = 0, sizeY_area3 = 0;
-            GetOptimalSizeArea1(boxLength, boxWidth, palletLength, palletWidth, out sizeX_area1, out sizeY_area1);
-            GetSizeXY(boxLength, boxWidth, palletLength, palletWidth, sizeX_area1, sizeY_area1
-                , out sizeX_area2, out sizeY_area2, out sizeX_area3, out sizeY_area3);
-
-            actualLength = Math.Max(sizeX_area2 * boxLength, sizeX_area1 * boxWidth + sizeX_area3 * boxLength);
-            actualWidth = Math.Max(sizeY_area1 * boxLength, sizeY_area3 * boxWidth) + sizeY_area2 * boxWidth;
-
-            Debug.Assert(actualLength <= palletLength);
-            Debug.Assert(actualWidth <= palletWidth);
-
-            return sizeX_area1 > 0 && sizeY_area1 > 0
-                && sizeX_area2 > 0 && sizeY_area2 > 0
-                && sizeX_area3 > 0 && sizeY_area3 > 0;
-        }
+        public override string Name => "Trilock";
+        public override int GetNumberOfVariants(Layer2D layer) => 1;
+        public override bool IsSymetric => false;
+        public override bool CanBeSwapped => true;
+        public override bool CanBeInverted => true;
 
         public override void GenerateLayer(ILayer2D layer, double actualLength, double actualWidth)
         {
@@ -109,14 +84,32 @@ namespace treeDiM.StackBuilder.Engine
             layer.UpdateMaxSpace(spaceY_area3, Name);
         }
 
-        public override int GetNumberOfVariants(Layer2D layer) { return 1; }
-        public override bool IsSymetric { get { return false; } }
-        public override bool CanBeSwapped { get { return true; } }
-        public override bool CanBeInverted { get { return true; } }
-        #endregion
+        public override bool GetLayerDimensions(ILayer2D layer, out double actualLength, out double actualWidth)
+        {
+            double palletLength = GetPalletLength(layer);
+            double palletWidth = GetPalletWidth(layer);
+            double boxLength = GetBoxLength(layer);
+            double boxWidth = GetBoxWidth(layer);
 
-        #region Helpers
-        private int GetOptimalSizeArea1(double boxLength, double boxWidth, double palletLength, double palletWidth
+            int sizeX_area1 = 0, sizeY_area1 = 0, sizeX_area2 = 0, sizeY_area2 = 0, sizeX_area3 = 0, sizeY_area3 = 0;
+            GetOptimalSizeArea1(boxLength, boxWidth, palletLength, palletWidth, out sizeX_area1, out sizeY_area1);
+            GetSizeXY(boxLength, boxWidth, palletLength, palletWidth, sizeX_area1, sizeY_area1
+                , out sizeX_area2, out sizeY_area2, out sizeX_area3, out sizeY_area3);
+
+            actualLength = Math.Max(sizeX_area2 * boxLength, sizeX_area1 * boxWidth + sizeX_area3 * boxLength);
+            actualWidth = Math.Max(sizeY_area1 * boxLength, sizeY_area3 * boxWidth) + sizeY_area2 * boxWidth;
+
+            Debug.Assert(actualLength <= palletLength);
+            Debug.Assert(actualWidth <= palletWidth);
+
+            return sizeX_area1 > 0 && sizeY_area1 > 0
+                && sizeX_area2 > 0 && sizeY_area2 > 0
+                && sizeX_area3 > 0 && sizeY_area3 > 0;
+        }
+
+        #region Non-Public Members
+
+        int GetOptimalSizeArea1(double boxLength, double boxWidth, double palletLength, double palletWidth
             , out int sizeX_area1Opt, out int sizeY_area1Opt)
         {
             int iMaxSizeX_area1 = (int)Math.Floor((palletLength - boxLength) / boxWidth);
@@ -145,7 +138,8 @@ namespace treeDiM.StackBuilder.Engine
             */
             return iMax;
         }
-        private int GetSizeXY(double boxLength, double boxWidth, double palletLength, double palletWidth
+
+        int GetSizeXY(double boxLength, double boxWidth, double palletLength, double palletWidth
             , int sizeX_area1, int sizeY_area1
             , out int sizeX_area2, out int sizeY_area2
             , out int sizeX_area3, out int sizeY_area3)
@@ -158,6 +152,7 @@ namespace treeDiM.StackBuilder.Engine
 
             return sizeX_area1 * sizeY_area1 + sizeX_area2 * sizeY_area2 + sizeX_area3 * sizeY_area3;
         }
+
         #endregion
     }
 }

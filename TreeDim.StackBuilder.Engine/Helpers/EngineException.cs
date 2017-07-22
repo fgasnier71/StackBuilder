@@ -1,14 +1,9 @@
-﻿#region Using directives
-using System;
-using System.Collections.Generic;
-using System.Text;
-#endregion
+﻿using System;
 
 namespace treeDiM.StackBuilder.Engine
 {
     public class EngineException : Exception
     {
-        #region Constructors
         public EngineException()
             : base()
         { 
@@ -21,6 +16,5 @@ namespace treeDiM.StackBuilder.Engine
             : base(message, innerException)
         { 
         }
-        #endregion
     }
 }

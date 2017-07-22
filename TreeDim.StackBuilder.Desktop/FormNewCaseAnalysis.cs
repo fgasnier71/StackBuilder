@@ -1,10 +1,7 @@
-﻿#region Using directives
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+using System.Linq;
 using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 
 using treeDiM.StackBuilder.Basics;
@@ -13,7 +10,6 @@ using treeDiM.StackBuilder.Desktop.Properties;
 
 using Sharp3D.Math.Core;
 using log4net;
-#endregion
 
 namespace treeDiM.StackBuilder.Desktop
 {
@@ -157,7 +153,7 @@ namespace treeDiM.StackBuilder.Desktop
             set
             {
                 // get list of existing patterns
-                List<string> patternNameList = treeDiM.StackBuilder.Engine.CasePalletSolver.PatternNameList;
+                List<string> patternNameList = treeDiM.StackBuilder.Engine.CasePalletSolver.PatternNames.ToList();
                 string allowedPatterns = value;
                 int iCountAllowedPatterns = 0;
                 string[] vPatternNames = value.Split(',');
@@ -596,10 +592,10 @@ namespace treeDiM.StackBuilder.Desktop
 
             // load document
             Document document = new Document(desc.FullFilePath, null);
-            if (document.AnalysesCasePallet.Count != 1)
+            if (document.AnalysesCasePallet.Count() != 1)
                 throw new Exception("Failed to load analysis.");
             // get analysis and solution
-            CasePalletAnalysis analysis = document.AnalysesCasePallet[0] as CasePalletAnalysis;
+            CasePalletAnalysis analysis = document.AnalysesCasePallet.First() as CasePalletAnalysis;
             Graphics3DImage graphics = new Graphics3DImage(new Size(50,50));
             graphics.CameraPosition = Graphics3D.Corner_0;
             graphics.Target = Vector3D.Zero;

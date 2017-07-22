@@ -127,14 +127,11 @@ namespace treeDiM.StackBuilder.Basics
         #region Public instantiation methods
         public Packable CreateNewPackable(Packable packable)
         {
-            BoxProperties boxProperties = packable as BoxProperties;
-            BundleProperties bundleProperties = packable as BundleProperties;
-            PackProperties packProperties = packable as PackProperties;
-            if (null != boxProperties)
+            if (packable is BoxProperties boxProperties)
                 return CreateNewCase(boxProperties);
-            else if (null != bundleProperties)
+            if (packable is BundleProperties bundleProperties)
                 return CreateNewBundle(bundleProperties);
-            else if (null != packProperties)
+            if (packable is PackProperties packProperties)
                 return CreateNewPack(packProperties);
             return null;
         }
@@ -1133,169 +1130,62 @@ namespace treeDiM.StackBuilder.Basics
             get { return new ReadOnlyCollection<ItemBase>(_typeList); }
         }
 
-        /// <summary>
-        /// Builds and returns a list of boxes
-        /// </summary>
         public IEnumerable<BoxProperties> Boxes =>
             _typeList.OfType<BoxProperties>().Where(x => !x.HasInsideDimensions);
 
-        /// <summary>
-        /// Builds and returns a list of cases
-        /// </summary>
-        public List<BoxProperties> Cases
-        {
-            get
-            {
-                List<BoxProperties> caseList = new List<BoxProperties>();
-                foreach (ItemBase item in _typeList)
-                {
-                    BoxProperties boxProperties = item as BoxProperties;
-                    if (null != boxProperties && boxProperties.HasInsideDimensions)
-                        caseList.Add(boxProperties);
-                }
-                return caseList;
-            }
-        }
-        /// <summary>
-        /// Builds and returns a list of bundles
-        /// </summary>
-        public List<BundleProperties> Bundles
-        {
-            get
-            {
-                List<BundleProperties> bundleList = new List<BundleProperties>();
-                foreach (ItemBase item in _typeList)
-                {
-                    BundleProperties bundleProperties = item as BundleProperties;
-                    if (null != bundleProperties)
-                        bundleList.Add(bundleProperties); 
-                }
-                return bundleList;
-            }
-        }
-        /// <summary>
-        /// Builds and return a list of cylinders
-        /// </summary>
-        public List<CylinderProperties> Cylinders
-        {
-            get
-            {
-                List<CylinderProperties> cylinderList = new List<CylinderProperties>();
-                foreach (ItemBase item in _typeList)
-                {
-                    CylinderProperties cylinderProperties = item as CylinderProperties;
-                    if (null != cylinderProperties)
-                        cylinderList.Add(cylinderProperties);
-                }
-                return cylinderList;
-            }
-        }
-        /// <summary>
-        /// Builds and returns a list of pallets
-        /// </summary>
-        public List<PalletProperties> Pallets
-        {
-            get
-            {
-                List<PalletProperties> palletList = new List<PalletProperties>();
-                foreach (ItemBase item in _typeList)
-                {
-                    PalletProperties palletProperties = item as PalletProperties;
-                    if (null != palletProperties)
-                        palletList.Add(palletProperties);
-                }
-                return palletList;
-            }
-        }
-        /// <summary>
-        /// Builds and returns a list of interlayers
-        /// </summary>
-        public List<InterlayerProperties> Interlayers
-        {
-            get
-            {
-                List<InterlayerProperties> interlayerList = new List<InterlayerProperties>();
-                foreach (ItemBase item in _typeList)
-                {
-                    InterlayerProperties interlayerProperties = item as InterlayerProperties;
-                    if (null != interlayerProperties)
-                        interlayerList.Add(interlayerProperties);
-                }
-                return interlayerList;
-            }
-        }
-        public List<ItemBase> ListByType(Type t)
-        {
-            List<ItemBase> itemList = new List<ItemBase>();
-            foreach (ItemBase item in _typeList)
-            {
-                if (item.GetType() == t)
-                    itemList.Add(item);
-            }
-            return itemList;
-        }
-        /// <summary>
-        /// Build and returns a list of trucks
-        /// </summary>
-        public List<TruckProperties> Trucks
-        {
-            get
-            {
-                List<TruckProperties> truckPropertiesList = new List<TruckProperties>();
-                foreach (ItemBase item in _typeList)
-                {
-                    TruckProperties truckProperties = item as TruckProperties;
-                    if (null != truckProperties)
-                        truckPropertiesList.Add(truckProperties);
-                }
-                return truckPropertiesList;
-            }
-        }
-        /// <summary>
-        /// Get list of analyses
-        /// </summary>
-        public List<Analysis> Analyses
-        { get { return _analyses; } }
+        public IEnumerable<BoxProperties> Cases =>
+            _typeList.OfType<BoxProperties>().Where(x => x.HasInsideDimensions);
+
+        public IEnumerable<BundleProperties> Bundles =>
+            _typeList.OfType<BundleProperties>();
+
+        public IEnumerable<CylinderProperties> Cylinders =>
+            _typeList.OfType<CylinderProperties>();
+
+        public IEnumerable<PalletProperties> Pallets =>
+            _typeList.OfType<PalletProperties>();
+
+        public IEnumerable<InterlayerProperties> Interlayers =>
+            _typeList.OfType<InterlayerProperties>();
+
+        public IEnumerable<TruckProperties> Trucks =>
+            _typeList.OfType<TruckProperties>();
+
+        public IEnumerable<ItemBase> GetByType(Type t) =>
+            _typeList.Where(item => item.GetType() == t);
+
+        public List<Analysis> Analyses => _analyses;
+
         /// <summary>
         /// Get list of case/pallet analyses
         /// </summary>
-        public List<AnalysisLegacy> AnalysesCasePallet
-        {
-            get
-            {
-                List<AnalysisLegacy> analyses = new List<AnalysisLegacy>();
-                foreach (AnalysisLegacy analysis in _analysesLegacy)
-                {
-                    if (analysis is CasePalletAnalysis)
-                        analyses.Add(analysis);
-                }
-                return analyses; 
-            }
-        }
+        public IEnumerable<AnalysisLegacy> AnalysesCasePallet =>
+            _analysesLegacy.OfType<CasePalletAnalysis>();
+        
         #endregion
 
         #region Allowing analysis/opti
-        public bool CanCreatePack => this.Boxes.Any();
+        public bool CanCreatePack => Boxes.Any();
         public bool CanCreateAnalysisCasePallet
-        { get { return this.Cases.Count > 0 && this.Pallets.Count > 0; } }
+        { get { return Cases.Any() && Pallets.Any(); } }
         public bool CanCreateAnalysisBundlePallet
-        { get { return this.Bundles.Count > 0 && this.Pallets.Count > 0; } }
+        { get { return Bundles.Any() && Pallets.Any(); } }
         public bool CanCreateAnalysisBoxCase
-        { get { return ((this.Bundles.Count > 0 || this.Boxes.Any()) && this.Cases.Count > 0) || (this.Cases.Count > 1); } }
+        { get { return ((Bundles.Any() || Boxes.Any()) && Cases.Any()) || Cases.Any(); } }
         public bool CanCreateAnalysisCylinderPallet
-        { get { return this.Cylinders.Count > 0 && this.Pallets.Count > 0; } }
+        { get { return Cylinders.Any() && Pallets.Any(); } }
         public bool CanCreateAnalysisCylinderCase
-        { get { return this.Cylinders.Count > 0 && this.Cases.Count > 0; } }
+        { get { return Cylinders.Any() && Cases.Any(); } }
         public bool CanCreateAnalysisPalletTruck
-        { get { return this.Trucks.Count > 0; } }
+        { get { return Trucks.Any(); } }
         public bool CanCreateAnalysisCaseTruck
-        { get { return this.Trucks.Count > 0 && this.Cases.Count > 0; } }
+        { get { return Trucks.Any() && Cases.Any(); } }
         public bool CanCreateOptiCasePallet
-        { get { return this.Boxes.Any() && this.Pallets.Count > 0; } }
+        { get { return Boxes.Any() && Pallets.Any(); } }
         public bool CanCreateOptiPack
-        { get { return this.Boxes.Any() && this.Pallets.Count > 0; } }
+        { get { return Boxes.Any() && Pallets.Any(); } }
         public bool CanCreateOptiMulticase
-        { get { return (this.Bundles.Count > 0) || this.Boxes.Any() || (this.Cases.Count > 0); } }
+        { get { return (Bundles.Any()) || this.Boxes.Any() || (Cases.Any()); } }
         #endregion
 
         #region Load methods
@@ -5250,10 +5140,8 @@ namespace treeDiM.StackBuilder.Basics
         #region Helpers
         private ItemBase GetTypeByGuid(Guid guid)
         {
-            foreach (ItemBase type in _typeList)
-                if (type.ID.IGuid == guid)
-                    return type;
-            throw new Exception(string.Format("No type with Guid = {0}", guid.ToString()));
+            return _typeList.FirstOrDefault(x => x.ID.IGuid == guid)
+                ?? throw new ArgumentException($"No type with Guid = {guid}", nameof(guid));
         }
         private ItemBase GetTypeByGuid(string guid)
         {
@@ -5267,10 +5155,10 @@ namespace treeDiM.StackBuilder.Basics
             {
                 if (type.ID.IGuid == guid)
                 {
-                    if (type is Packable)
-                        return type as Packable;
+                    if (type is Packable packable)
+                        return packable;
                     else
-                        throw new Exception(string.Format("Guid {0} found but not a PackableBrick", guid.ToString()));
+                        throw new ArgumentException($"Guid {guid} found but not a PackableBrick", nameof(guid));
                 }
             }
             foreach (Analysis analysis in Analyses)
@@ -5278,7 +5166,7 @@ namespace treeDiM.StackBuilder.Basics
                 if (analysis.ID.IGuid == guid)
                     return analysis.EquivalentPackable;                
             }
-            throw new Exception(string.Format("No type with Guid = {0}", guid.ToString()));
+            throw new ArgumentException($"No type with Guid = {guid.ToString()}", nameof(guid));
         }
         private static string BitmapToString(Bitmap bmp)
         {

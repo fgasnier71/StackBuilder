@@ -1,41 +1,12 @@
-﻿#region Using directives
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 using log4net;
-#endregion
 
 namespace treeDiM.StackBuilder.Basics
 {
-    #region CasePalletAnalysis
     public class CasePalletAnalysis : AnalysisLegacy
     {
-        #region Data members
-        private BProperties _bProperties;
-        private PalletProperties _palletProperties;
-        private InterlayerProperties _interlayerProperties, _interlayerPropertiesAntiSlip;
-        private PalletCornerProperties _palletCornerProperties;
-        private PalletCapProperties _palletCapProperties;
-        private PalletFilmProperties _palletFilmProperties;
-        private PalletConstraintSet _constraintSet;
-        private List<CasePalletSolution> _solutions;
-        private List<SelCasePalletSolution> _selectedSolutions = new List<SelCasePalletSolution>();
-        private static ICasePalletAnalysisSolver _solver;
-        static readonly ILog _log = LogManager.GetLogger(typeof(CasePalletAnalysis));
-        #endregion
-
-        #region Delegates
-        public delegate void ModifyAnalysis(CasePalletAnalysis analysis);
-        public delegate void SelectSolution(CasePalletAnalysis analysis, SelCasePalletSolution selSolution);
-        #endregion
-
-        #region Events
-        public event ModifyAnalysis Modified;
-        public event SelectSolution SolutionSelected;
-        public event SelectSolution SolutionSelectionRemoved;
-        #endregion
-
-        #region Constructor
         public CasePalletAnalysis(
             BProperties boxProperties,
             PalletProperties palletProperties,
@@ -64,19 +35,23 @@ namespace treeDiM.StackBuilder.Basics
             this.PalletFilmProperties = palletFilm;
             this.ConstraintSet = constraintSet;
         }
-        #endregion
 
-        #region Public properties
+        public delegate void ModifyAnalysis(CasePalletAnalysis analysis);
+        public delegate void SelectSolution(CasePalletAnalysis analysis, SelCasePalletSolution selSolution);
+
+        public event ModifyAnalysis Modified;
+        public event SelectSolution SolutionSelected;
+        public event SelectSolution SolutionSelectionRemoved;
+
         public List<CasePalletSolution> Solutions
         {
+            get { return _solutions; }
             set
             {
                 _solutions = value;
                 foreach (CasePalletSolution sol in _solutions)
                     sol.Analysis = this;
-
             }
-            get { return _solutions; }
         }
 
         public BProperties BProperties
@@ -85,9 +60,9 @@ namespace treeDiM.StackBuilder.Basics
             set
             {
                 if (value == _bProperties)  return;
-                if (null != _bProperties) _bProperties.RemoveDependancy(this);
+                _bProperties?.RemoveDependancy(this);
                 _bProperties = value;
-                _bProperties.AddDependancy(this);
+                _bProperties?.AddDependancy(this);
             }
         }
 
@@ -97,9 +72,9 @@ namespace treeDiM.StackBuilder.Basics
             set
             {
                 if (_palletProperties == value) return;
-                if (null != _palletProperties)  _palletProperties.RemoveDependancy(this);
+                _palletProperties?.RemoveDependancy(this);
                 _palletProperties = value;
-                _palletProperties.AddDependancy(this);
+                _palletProperties?.AddDependancy(this);
             }
         }
 
@@ -109,9 +84,9 @@ namespace treeDiM.StackBuilder.Basics
             set
             {
                 if (_palletCornerProperties == value) return;
-                if (null != _palletCornerProperties) _palletCornerProperties.RemoveDependancy(this);
+                _palletCornerProperties?.RemoveDependancy(this);
                 _palletCornerProperties = value;
-                _palletCornerProperties.AddDependancy(this);
+                _palletCornerProperties?.AddDependancy(this);
             }
         }
 
@@ -121,9 +96,9 @@ namespace treeDiM.StackBuilder.Basics
             set
             {
                 if (_palletCapProperties == value) return;
-                if (null != _palletCapProperties) _palletCapProperties.RemoveDependancy(this);
+                _palletCapProperties?.RemoveDependancy(this);
                 _palletCapProperties = value;
-                _palletCapProperties.AddDependancy(this);
+                _palletCapProperties?.AddDependancy(this);
             }
         }
 
@@ -133,42 +108,27 @@ namespace treeDiM.StackBuilder.Basics
             set
             {
                 if (_palletFilmProperties == value) return;
-                if (null != _palletFilmProperties) _palletFilmProperties.RemoveDependancy(this);
+                _palletFilmProperties?.RemoveDependancy(this);
                 _palletFilmProperties = value;
-                _palletFilmProperties.AddDependancy(this);            
+                _palletFilmProperties?.AddDependancy(this);            
             }
         }
 
-        public bool HasInterlayer
-        {
-            get { return (null != _interlayerProperties); }
-        }
-        public bool HasInterlayerAntiSlip
-        {
-            get { return (null != _interlayerPropertiesAntiSlip); }
-        }
-        public bool HasPalletCorners
-        {
-            get { return (null != _palletCornerProperties); }
-        }
-        public bool HasPalletCap
-        {
-            get { return (null != _palletCapProperties); }
-        }
-        public bool HasPalletFilm
-        {
-            get { return (null != _palletFilmProperties); }
-        }
+        public bool HasInterlayer => _interlayerProperties != null;
+        public bool HasInterlayerAntiSlip => _interlayerPropertiesAntiSlip != null;
+        public bool HasPalletCorners => _palletCornerProperties != null;
+        public bool HasPalletCap => _palletCapProperties != null;
+        public bool HasPalletFilm => _palletFilmProperties != null;
+
         public InterlayerProperties InterlayerProperties
         {
             get { return _interlayerProperties; }
             set
             {
                 if (_interlayerProperties == value) return;
-                if (null != _interlayerProperties) _interlayerProperties.RemoveDependancy(this);
+                _interlayerProperties?.RemoveDependancy(this);
                 _interlayerProperties = value;
-                if (null != _interlayerProperties)
-                    _interlayerProperties.AddDependancy(this);
+                _interlayerProperties?.AddDependancy(this);
             }
         }
 
@@ -178,34 +138,29 @@ namespace treeDiM.StackBuilder.Basics
             set
             {
                 if (_interlayerPropertiesAntiSlip == value) return;
-                if (null != _interlayerPropertiesAntiSlip) _interlayerPropertiesAntiSlip.RemoveDependancy(this);
+                _interlayerPropertiesAntiSlip?.RemoveDependancy(this);
                 _interlayerPropertiesAntiSlip = value;
-                if (null != _interlayerPropertiesAntiSlip)
-                    _interlayerPropertiesAntiSlip.AddDependancy(this);
+                _interlayerPropertiesAntiSlip?.AddDependancy(this);
             }
         }
 
-        public PalletConstraintSet ConstraintSet
-        {
-            get { return _constraintSet; }
-            set { _constraintSet = value; }
-        }
+        public PalletConstraintSet ConstraintSet { get; set; }
 
-        public static ICasePalletAnalysisSolver Solver
-        {   set { _solver = value; } }
-        #endregion
+        public static ICasePalletAnalysisSolver Solver { set { _solver = value; } }
 
-        #region Solution selection
+        public bool IsBundleAnalysis => _bProperties is BundleProperties;
+        public bool IsBoxAnalysis => _bProperties is BoxProperties;
+
+
         public void SelectSolutionBySol(CasePalletSolution sol)
         {
             if (HasSolutionSelected(sol)) return;
             // instantiate new SelSolution
-            SelCasePalletSolution selSolution = new SelCasePalletSolution(ParentDocument, this, sol);
+            var selSolution = new SelCasePalletSolution(ParentDocument, this, sol);
             // insert in list
             _selectedSolutions.Add(selSolution);
             // fire event
-            if (null != SolutionSelected)
-                SolutionSelected(this, selSolution);
+            SolutionSelected?.Invoke(this, selSolution);
             // set document modified (not analysis, otherwise selected solutions are erased)
             ParentDocument.Modify();        
         }
@@ -215,11 +170,11 @@ namespace treeDiM.StackBuilder.Basics
         }
         public SelCasePalletSolution GetSelSolutionBySolution(CasePalletSolution sol)
         {
-            return _selectedSolutions.Find(delegate(SelCasePalletSolution selSol) { return selSol.Solution == sol; });
+            return _selectedSolutions.Find(selSol => selSol.Solution == sol);
         }
         public bool HasSolutionSelected(CasePalletSolution sol)
         {
-            return (null != GetSelSolutionBySolution(sol));
+            return GetSelSolutionBySolution(sol) != null;
         }
         public void SelectSolutionByIndex(int index)
         {
@@ -227,12 +182,11 @@ namespace treeDiM.StackBuilder.Basics
                 return;  // no solution with this index
             if (HasSolutionSelected(index)) return;             // solution already selected
             // instantiate new SelSolution
-            SelCasePalletSolution selSolution = new SelCasePalletSolution(ParentDocument, this, _solutions[index]);
+            var selSolution = new SelCasePalletSolution(ParentDocument, this, _solutions[index]);
             // insert in list
             _selectedSolutions.Add(selSolution);
             // fire event
-            if (null != SolutionSelected)
-                SolutionSelected(this, selSolution);
+            SolutionSelected?.Invoke(this, selSolution);
             // set document modified (not analysis, otherwise selected solutions are erased)
             ParentDocument.Modify();
         }
@@ -242,44 +196,25 @@ namespace treeDiM.StackBuilder.Basics
         }
         public void UnSelectSolution(SelCasePalletSolution selSolution)
         {
-            if (null == selSolution) return; // this solution not selected
+            if (selSolution == null) return; // this solution not selected
             // remove from list
             _selectedSolutions.Remove(selSolution);
             ParentDocument.RemoveItem(selSolution);
             // fire event
-            if (null != SolutionSelectionRemoved)
-                SolutionSelectionRemoved(this, selSolution);
+            SolutionSelectionRemoved?.Invoke(this, selSolution);
             // set document modified (not analysis, otherwise selected solutions are erased)
             ParentDocument.Modify();
         }
         public bool HasSolutionSelected(int index)
         {
-            return (null != GetSelSolutionBySolutionIndex(index));
+            return GetSelSolutionBySolutionIndex(index) != null;
         }
         public SelCasePalletSolution GetSelSolutionBySolutionIndex(int index)
         {
             if (index < 0 || index > _solutions.Count) return null;  // no solution with this index
-            return _selectedSolutions.Find(delegate(SelCasePalletSolution selSol) { return selSol.Solution == _solutions[index]; });
+            return _selectedSolutions.Find(selSol => selSol.Solution == _solutions[index]);
         }
-        public bool IsBundleAnalysis { get { return _bProperties is BundleProperties; } }
-        public bool IsBoxAnalysis { get { return _bProperties is BoxProperties; } }
-        #endregion
 
-        #region Dependancies
-        protected override void OnDispose()
-        {
-            while (_selectedSolutions.Count > 0)
-                UnSelectSolution(_selectedSolutions[0]);
-            base.OnDispose();
-        }
-        protected override void RemoveItselfFromDependancies()
-        {
-            _bProperties.RemoveDependancy(this);
-            _palletProperties.RemoveDependancy(this);
-            if (null != _interlayerProperties)
-                _interlayerProperties.RemoveDependancy(this);
-            base.RemoveItselfFromDependancies();
-        }
         public override void OnAttributeModified(ItemBase modifiedAttribute)
         {
             // clear selected solutions
@@ -295,7 +230,7 @@ namespace treeDiM.StackBuilder.Basics
             // clear solutions
             _solutions.Clear();
             // get default analysis solver
-            if (null != _solver)
+            if (_solver != null)
                 _solver.ProcessAnalysis(this);
             else
                 _log.Error("_solver == null : solver was not set");
@@ -304,14 +239,36 @@ namespace treeDiM.StackBuilder.Basics
             // set modified / propagate modifications
             Modify();
         }
-        #endregion
-    }
-    #endregion
 
-    #region ICasePalletAnalysisSolver
-    public interface ICasePalletAnalysisSolver
-    { 
-        void ProcessAnalysis(CasePalletAnalysis analysis);
+        #region Non-Public Members
+
+        private BProperties _bProperties;
+        private PalletProperties _palletProperties;
+        private InterlayerProperties _interlayerProperties, _interlayerPropertiesAntiSlip;
+        private PalletCornerProperties _palletCornerProperties;
+        private PalletCapProperties _palletCapProperties;
+        private PalletFilmProperties _palletFilmProperties;
+        private List<CasePalletSolution> _solutions;
+        private List<SelCasePalletSolution> _selectedSolutions = new List<SelCasePalletSolution>();
+        private static ICasePalletAnalysisSolver _solver;
+        static readonly ILog _log = LogManager.GetLogger(typeof(CasePalletAnalysis));
+
+        protected override void OnDispose()
+        {
+            while (_selectedSolutions.Count > 0)
+                UnSelectSolution(_selectedSolutions[0]);
+            base.OnDispose();
+        }
+
+        protected override void RemoveItselfFromDependancies()
+        {
+            _bProperties.RemoveDependancy(this);
+            _palletProperties.RemoveDependancy(this);
+            _interlayerProperties?.RemoveDependancy(this);
+            base.RemoveItselfFromDependancies();
+        }
+
+        #endregion
+
     }
-    #endregion
 }
