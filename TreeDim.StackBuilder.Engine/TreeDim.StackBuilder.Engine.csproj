@@ -84,6 +84,7 @@
     <Compile Include="LayerPatterns\LayerPatternInterlockedFilled.cs" />
     <Compile Include="LayerPatterns\LayerPatternInterlockedSymetric.cs" />
     <Compile Include="LayerPatterns\LayerPatternInterlockedSymetric2.cs" />
+    <Compile Include="LayerPatterns\LayerPatternOpposed.cs" />
     <Compile Include="Solvers\CylinderSolver.cs" />
     <Compile Include="Solvers\ISolver.cs" />
     <Compile Include="Solvers\PackOptimizer.cs" />
@@ -117,11 +118,11 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Sharp3D.Math\Sharp3D.Math.csproj">
-      <Project>{8F9BA4D3-D6AF-42A6-B74F-0DF6568C148B}</Project>
+      <Project>{8f9ba4d3-d6af-42a6-b74f-0df6568c148b}</Project>
       <Name>Sharp3D.Math</Name>
     </ProjectReference>
     <ProjectReference Include="..\TreeDim.StackBuilder.Basics\treeDiM.StackBuilder.Basics.csproj">
-      <Project>{444C01D0-53FD-49A1-9D55-267B49161357}</Project>
+      <Project>{444c01d0-53fd-49a1-9d55-267b49161357}</Project>
       <Name>treeDiM.StackBuilder.Basics</Name>
     </ProjectReference>
   </ItemGroup>
