@@ -47,34 +47,41 @@ namespace treeDiM.StackBuilder.Desktop
             DCSBCase[] sbCases = WCFClientSingleton.Instance.Client.GetAllCases();
             foreach (DCSBCase sbCase in sbCases)
             {
-                // get values from database
-                if (!sbCase.HasInnerDims) return;
-                UnitsManager.UnitSystem us = (UnitsManager.UnitSystem)sbCase.UnitSystem;
-                double boxLength = UnitsManager.ConvertLengthFrom(sbCase.DimensionsOuter.M0, us);
-                double boxWidth = UnitsManager.ConvertLengthFrom(sbCase.DimensionsOuter.M1, us);
-                double boxHeight = UnitsManager.ConvertLengthFrom(sbCase.DimensionsOuter.M2, us);
-                double innerLength = UnitsManager.ConvertLengthFrom(sbCase.DimensionsInner.M0, us);
-                double innerWidth = UnitsManager.ConvertLengthFrom(sbCase.DimensionsInner.M1, us);
-                double innerHeight = UnitsManager.ConvertLengthFrom(sbCase.DimensionsInner.M2, us);
-                double weight = UnitsManager.ConvertMassFrom(sbCase.Weight, us);
-                Color[] colors = new Color[6];
-                for (int i = 0; i < 6; ++i)
-                    colors[i] = Color.FromArgb(sbCase.Colors[i]);
+                try
+                {
+                    // get values from database
+                    if (!sbCase.HasInnerDims) continue;
+                    UnitsManager.UnitSystem us = (UnitsManager.UnitSystem)sbCase.UnitSystem;
+                    double boxLength = UnitsManager.ConvertLengthFrom(sbCase.DimensionsOuter.M0, us);
+                    double boxWidth = UnitsManager.ConvertLengthFrom(sbCase.DimensionsOuter.M1, us);
+                    double boxHeight = UnitsManager.ConvertLengthFrom(sbCase.DimensionsOuter.M2, us);
+                    double innerLength = UnitsManager.ConvertLengthFrom(sbCase.DimensionsInner.M0, us);
+                    double innerWidth = UnitsManager.ConvertLengthFrom(sbCase.DimensionsInner.M1, us);
+                    double innerHeight = UnitsManager.ConvertLengthFrom(sbCase.DimensionsInner.M2, us);
+                    double weight = UnitsManager.ConvertMassFrom(sbCase.Weight, us);
+                    Color[] colors = new Color[6];
+                    for (int i = 0; i < 6; ++i)
+                        colors[i] = Color.FromArgb(sbCase.Colors[i]);
 
-                // instantiate box properties
-                BoxProperties bProperties = new BoxProperties(null
-                    , boxLength, boxWidth, boxHeight
-                    , innerLength, innerWidth, innerHeight);
-                bProperties.ID.SetNameDesc(sbCase.Name, sbCase.Description);
-                bProperties.SetWeight(weight);
-                bProperties.TapeWidth = new OptDouble(sbCase.ShowTape, sbCase.TapeWidth);
-                bProperties.TapeColor = Color.FromArgb(sbCase.TapeColor);
-                bProperties.SetAllColors(colors);
-                // insert in listbox control
-                chklbCases.Items.Add( new ItemBaseCB(bProperties), true );
-                // graph control
-                graphCtrl.DrawingContainer = this;
+                    // instantiate box properties
+                    BoxProperties bProperties = new BoxProperties(null
+                        , boxLength, boxWidth, boxHeight
+                        , innerLength, innerWidth, innerHeight);
+                    bProperties.ID.SetNameDesc(sbCase.Name, sbCase.Description);
+                    bProperties.SetWeight(weight);
+                    bProperties.TapeWidth = new OptDouble(sbCase.ShowTape, sbCase.TapeWidth);
+                    bProperties.TapeColor = Color.FromArgb(sbCase.TapeColor);
+                    bProperties.SetAllColors(colors);
+                    // insert in listbox control
+                    chklbCases.Items.Add(new ItemBaseCB(bProperties), true);
+                }
+                catch (Exception ex)
+                {
+                    _log.Error(ex.Message);
+                }
             }
+            // update graph control
+            graphCtrl.DrawingContainer = this;
         }
         protected override void OnClosing(CancelEventArgs e)
         {
