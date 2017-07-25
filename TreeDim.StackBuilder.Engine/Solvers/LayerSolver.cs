@@ -1,31 +1,23 @@
-﻿#region Using directives
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 using log4net;
 using Sharp3D.Math.Core;
 
 using treeDiM.StackBuilder.Basics;
-#endregion
 
 namespace treeDiM.StackBuilder.Engine
 {
     public class LayerSolver : ILayerSolver
     {
-        #region Static data members
-        protected static readonly ILog _log = LogManager.GetLogger(typeof(LayerSolver));
-        #endregion
-
-        #region Public methods
         public List<Layer2D> BuildLayers(
             Vector3D dimBox, Vector2D dimContainer,
             double offsetZ, /* e.g. pallet height */
             ConstraintSetAbstract constraintSet, bool keepOnlyBest)
         {
             // instantiate list of layers
-            List<Layer2D> listLayers0 = new List<Layer2D>();
+            var listLayers0 = new List<Layer2D>();
 
             // loop through all patterns
             foreach (LayerPatternBox pattern in LayerPatternBox.All)
@@ -45,7 +37,7 @@ namespace treeDiM.StackBuilder.Engine
                         if (!pattern.CanBeSwapped && (iSwapped == 1))
                             continue;
                         // instantiate layer
-                        Layer2D layer = new Layer2D(dimBox, dimContainer, axisOrtho, iSwapped == 1);
+                        var layer = new Layer2D(dimBox, dimContainer, axisOrtho, iSwapped == 1);
                         if (layer.NoLayers(constraintSet.OptMaxHeight.Value) < 1)
                             continue;
                         layer.PatternName = pattern.Name;
@@ -68,7 +60,7 @@ namespace treeDiM.StackBuilder.Engine
                     bestCount = Math.Max(layer.CountInHeight(constraintSet.OptMaxHeight.Value - offsetZ), bestCount);
 
                 // 2. remove any layer that does not match the best count given its orientation
-                List<Layer2D> listLayers1 = new List<Layer2D>();
+                var listLayers1 = new List<Layer2D>();
                 foreach (Layer2D layer in listLayers0)
                 {
                     if (layer.CountInHeight(constraintSet.OptMaxHeight.Value - offsetZ) >= bestCount)
@@ -88,7 +80,7 @@ namespace treeDiM.StackBuilder.Engine
         {
             LayerDescBox layerDescBox = layerDesc as LayerDescBox;
             // instantiate layer
-            Layer2D layer = new Layer2D(dimBox, dimContainer, layerDescBox.AxisOrtho, layerDesc.Swapped);
+            var layer = new Layer2D(dimBox, dimContainer, layerDescBox.AxisOrtho, layerDesc.Swapped);
             // get layer pattern
             LayerPatternBox pattern = LayerPatternBox.GetByName(layerDesc.PatternName);
             // dimensions
@@ -134,11 +126,12 @@ namespace treeDiM.StackBuilder.Engine
                 double actualLength = 0.0, actualWidth = 0.0;
                 if (!pattern.GetLayerDimensions(layer as Layer2DCyl, out actualLength, out actualWidth))
                     return null;
-                pattern.GenerateLayer(
-                    layer as Layer2DCyl, actualLength, actualWidth);
+                pattern.GenerateLayer(layer as Layer2DCyl, actualLength, actualWidth);
             }
             else
+            {
                 throw new EngineException(string.Format("Unexpected packable {0} (Type = {1})", packable.Name, packable.GetType().ToString()));
+            }
             return layer;
         }
 
@@ -162,7 +155,9 @@ namespace treeDiM.StackBuilder.Engine
                 pattern = LayerPatternCyl.GetByName(layerDesc.PatternName);
             }
             else
+            {
                 throw new EngineException(string.Format("Unexpected packable {0} (Type = {1})", packable.Name, packable.GetType().ToString()));
+            }
 
             pattern.GenerateLayer(
                 layer
@@ -175,7 +170,7 @@ namespace treeDiM.StackBuilder.Engine
         public Layer2D BuildLayer(Vector3D dimBox, Vector2D dimContainer, LayerDescBox layerDesc, Vector2D actualDimensions)
         {
             // instantiate layer
-            Layer2D layer = new Layer2D(dimBox, dimContainer, layerDesc.AxisOrtho, layerDesc.Swapped);
+            var layer = new Layer2D(dimBox, dimContainer, layerDesc.AxisOrtho, layerDesc.Swapped);
             // get layer pattern
             LayerPatternBox pattern = LayerPatternBox.GetByName(layerDesc.PatternName);
             // build layer
@@ -200,7 +195,7 @@ namespace treeDiM.StackBuilder.Engine
                 {
                     LayerDescBox layerDescBox = layerDesc as LayerDescBox;
                     // instantiate layer
-                    Layer2D layer = new Layer2D(packable.OuterDimensions, dimContainer, layerDescBox.AxisOrtho, layerDesc.Swapped);
+                    var layer = new Layer2D(packable.OuterDimensions, dimContainer, layerDescBox.AxisOrtho, layerDesc.Swapped);
                     // get layer pattern
                     LayerPatternBox pattern = LayerPatternBox.GetByName(layerDesc.PatternName);
                     // dimensions
@@ -214,7 +209,7 @@ namespace treeDiM.StackBuilder.Engine
                 {
                     CylinderProperties cylProp = packable as CylinderProperties;
                     // instantiate layer
-                    Layer2DCyl layer = new Layer2DCyl(cylProp.RadiusOuter, cylProp.Height, dimContainer, layerDesc.Swapped);
+                    var layer = new Layer2DCyl(cylProp.RadiusOuter, cylProp.Height, dimContainer, layerDesc.Swapped);
                     // get layer pattern
                     LayerPatternCyl pattern = LayerPatternCyl.GetByName(layerDesc.PatternName);
                     // dimensions
@@ -225,7 +220,9 @@ namespace treeDiM.StackBuilder.Engine
                     }
                 }
                 else
+                {
                     throw new EngineException(string.Format("Unexpected packable {0} (Type = {1})", packable.Name, packable.GetType().ToString()));
+                }
 
                 actualDimensions.X = Math.Max(actualDimensions.X, layerDesc.Swapped ? actualWidth : actualLength);
                 actualDimensions.Y = Math.Max(actualDimensions.Y, layerDesc.Swapped ? actualLength : actualWidth);
@@ -236,9 +233,9 @@ namespace treeDiM.StackBuilder.Engine
         public static bool GetBestCombination(Vector3D dimBox, Vector2D dimContainer,
             ConstraintSetAbstract constraintSet, ref List<KeyValuePair<LayerDesc, int>> listLayer)
         {
-            LayerDesc[] layDescs = new LayerDesc[3];
-            int[] counts = new int[3] { 0, 0, 0 };
-            double[] heights = new double[3] { 0.0, 0.0, 0.0 };
+            var layDescs = new LayerDesc[3];
+            var counts = new int[3] { 0, 0, 0 };
+            var heights = new double[3] { 0.0, 0.0, 0.0 };
 
             // loop through all patterns
             foreach (LayerPatternBox pattern in LayerPatternBox.All)
@@ -257,7 +254,7 @@ namespace treeDiM.StackBuilder.Engine
                         if (!pattern.CanBeSwapped && (iSwapped == 1))
                             continue;
                         // instantiate layer
-                        Layer2D layer = new Layer2D(dimBox, dimContainer, axisOrtho, iSwapped == 1);
+                        var layer = new Layer2D(dimBox, dimContainer, axisOrtho, iSwapped == 1);
                         layer.PatternName = pattern.Name;
                         double actualLength = 0.0, actualWidth = 0.0;
                         if (!pattern.GetLayerDimensionsChecked(layer, out actualLength, out actualWidth))
@@ -304,9 +301,7 @@ namespace treeDiM.StackBuilder.Engine
             listLayer.Add(new KeyValuePair<LayerDesc, int>(layDescs[indexJMax], noJMax));
             return true;
         }
-        #endregion
 
-        #region Cylinders
         public List<Layer2DCyl> BuildLayers(
             double radius, double height
             , Vector2D dimContainer
@@ -314,7 +309,7 @@ namespace treeDiM.StackBuilder.Engine
             , ConstraintSetAbstract constraintSet
             , bool keepOnlyBest)
         {
-            List<Layer2DCyl> listLayers0 = new List<Layer2DCyl>();
+            var listLayers0 = new List<Layer2DCyl>();
             foreach (LayerPatternCyl pattern in LayerPatternCyl.All)
             {            
                 // not swapped vs swapped pattern
@@ -324,7 +319,7 @@ namespace treeDiM.StackBuilder.Engine
                     if (!pattern.CanBeSwapped && (iSwapped == 1))
                         continue;
                     // instantiate layer
-                    Layer2DCyl layer = new Layer2DCyl(radius, height, dimContainer, iSwapped == 1);
+                    var layer = new Layer2DCyl(radius, height, dimContainer, iSwapped == 1);
                     layer.PatternName = pattern.Name;
 
                     double actualLength = 0.0, actualWidth = 0.0;
@@ -343,20 +338,16 @@ namespace treeDiM.StackBuilder.Engine
                         bestCount = Math.Max(layer.CountInHeight(constraintSet.OptMaxHeight.Value - offsetZ), bestCount);
 
                     // 2. remove any layer that does not match the best count given its orientation
-                    List<Layer2DCyl> listLayers1 = new List<Layer2DCyl>();
-                    foreach (Layer2DCyl layer in listLayers0)
-                    {
-                        if (layer.CountInHeight(constraintSet.OptMaxHeight.Value - offsetZ) >= bestCount)
-                            listLayers1.Add(layer);
-                    }
-                    // 3. copy back in original list
-                    listLayers0.Clear();
-                    listLayers0.AddRange(listLayers1);
+                    listLayers0.RemoveAll(layer => 
+                        !(layer.CountInHeight(constraintSet.OptMaxHeight.Value - offsetZ) >= bestCount));
                 }
                 listLayers0.Sort(new LayerCylComparerCount(constraintSet.OptMaxHeight.Value - offsetZ));
             }
             return listLayers0;
         }
+
+        #region Non-Public Members
+        protected static readonly ILog _log = LogManager.GetLogger(typeof(LayerSolver));
         #endregion
     }
 }

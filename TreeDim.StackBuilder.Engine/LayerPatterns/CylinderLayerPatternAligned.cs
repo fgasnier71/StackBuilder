@@ -1,26 +1,17 @@
-﻿#region Using directives
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 using treeDiM.StackBuilder.Basics;
 
 using Sharp3D.Math.Core;
-#endregion
 
 namespace treeDiM.StackBuilder.Engine
 {
     class CylinderLayerPatternAligned : LayerPatternCyl
     {
-        #region Implementation of CylinderLayerPattern abstract properties and methods
-        public override string Name
-        {
-            get { return "Aligned"; }
-        }
-        public override bool CanBeSwapped
-        {
-            get { return false; }
-        }
+        public override string Name => "Aligned";
+        public override bool CanBeSwapped => false;
+
         public override bool GetLayerDimensions(ILayer2D layer, out double actualLength, out double actualWidth)
         {
             double palletLength = GetPalletLength(layer);
@@ -58,6 +49,5 @@ namespace treeDiM.StackBuilder.Engine
                         ));
                      
         }
-        #endregion
     }
 }

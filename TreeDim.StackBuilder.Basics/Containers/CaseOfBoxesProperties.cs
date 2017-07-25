@@ -1,22 +1,12 @@
-﻿#region Using directives
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 using Sharp3D.Math.Core;
-#endregion
 
 namespace treeDiM.StackBuilder.Basics
 {
     public class CaseOfBoxesProperties : BoxProperties
     {
-        #region Data members
-        private BoxProperties _boxProperties;
-        private CaseDefinition _caseDefinition;
-        private ParamSetPackOptim _constraintSet;
-        #endregion
-
-        #region Constructor
         /// <summary>
         /// Instantiate a new case from a box, a case definition and a case optimization constraintset
         /// </summary>
@@ -38,34 +28,22 @@ namespace treeDiM.StackBuilder.Basics
 
             OnAttributeModified(boxProperties);
         }
-        #endregion
 
-        #region Public properties
-        public BoxProperties InsideBoxProperties
-        { get { return _boxProperties; } }
-        public CaseDefinition CaseDefinition
-        { get { return _caseDefinition; } }
-        public ParamSetPackOptim CaseOptimConstraintSet
-        { get { return _constraintSet; } }
+        public BoxProperties InsideBoxProperties => _boxProperties;
+        public CaseDefinition CaseDefinition => _caseDefinition;
+        public ParamSetPackOptim CaseOptimConstraintSet => _constraintSet;
         public double WeightEmpty
         {
             get { return _caseDefinition.CaseEmptyWeight(_boxProperties, _constraintSet); }
         }
-        /// <summary>
-        /// override weight method
-        /// </summary>
+
         public override double Weight
         {
             get { return WeightEmpty + _caseDefinition.Arrangement.Number * _boxProperties.Weight; }
         }
 
-        public int NumberOfBoxes
-        {
-            get { return _caseDefinition.Arrangement.Number; }
-        }
-        #endregion
+        public int NumberOfBoxes => _caseDefinition.Arrangement.Number;
 
-        #region Dependancies
         public override void OnAttributeModified(ItemBase modifiedAttribute)
         {
             Vector3D outerDim = _caseDefinition.OuterDimensions(_boxProperties, _constraintSet);
@@ -78,16 +56,24 @@ namespace treeDiM.StackBuilder.Basics
             InsideWidth = innerDim.Y;
             InsideHeight = innerDim.Z;
         }
-        protected override void RemoveItselfFromDependancies()
-        {
-            _boxProperties.RemoveDependancy(this);
-            base.RemoveItselfFromDependancies();
-        }
         public override void OnEndUpdate(ItemBase updatedAttribute)
         {
             Modify();
             base.OnEndUpdate(updatedAttribute);
         }
+
+        #region Non-Public Members
+
+        private BoxProperties _boxProperties;
+        private CaseDefinition _caseDefinition;
+        private ParamSetPackOptim _constraintSet;
+
+        protected override void RemoveItselfFromDependancies()
+        {
+            _boxProperties.RemoveDependancy(this);
+            base.RemoveItselfFromDependancies();
+        }
+
         #endregion
     }
 }

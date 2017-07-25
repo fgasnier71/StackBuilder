@@ -254,7 +254,7 @@ namespace treeDiM.StackBuilder.Desktop
                     }
                 }
                 // sort analysis
-                _analyses.Sort(new ComparerAnalysis());
+                _analyses.Sort(new AnalysisComparer());
                 // fill grid
                 FillGrid();
             }

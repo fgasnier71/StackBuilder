@@ -1,30 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace treeDiM.StackBuilder.Basics
 {
     public class BundlePalletConstraintSet : PalletConstraintSet
     {
-        #region Interlayer
+        // Interlayer
         public override bool HasInterlayer
         {
             get { return false; }
-            set { }
+            set { throw new InvalidOperationException("Setting this property is not supported."); }
         } 
         public override int InterlayerPeriod
         {
             get { return 0; }
-            set { }
+            set { throw new InvalidOperationException("Setting this property is not supported."); }
         }
         public override bool HasInterlayerAntiSlip
         {
-            get {  return false; }
-            set { }
+            get { return false; }
+            set { throw new InvalidOperationException("Setting this property is not supported."); }
         }
-        #endregion
 
-        #region Allowed box axis
+        // Allowed box axis
         public override bool AllowOrthoAxis(HalfAxis.HAxis orthoAxis)
         {
             return (orthoAxis == HalfAxis.HAxis.AXIS_Z_N) || (orthoAxis == HalfAxis.HAxis.AXIS_Z_P);
@@ -32,26 +30,24 @@ namespace treeDiM.StackBuilder.Basics
         public override bool AllowTwoLayerOrientations
         {
             get { return false; }
-            set { }
+            set { throw new InvalidOperationException("Setting this property is not supported."); }
         }
         public override bool AllowLastLayerOrientationChange
         {
             get { return false; }
-            set { }
-        } 
-        #endregion
+            set { throw new InvalidOperationException("Setting this property is not supported."); }
+        }
 
-        #region Stop conditions
+        // TODO consider using double? instead of 2 properties
         public override bool UseMaximumWeightOnBox
         {
             get { return false; }
-            set { }
+            set { throw new InvalidOperationException("Setting this property is not supported."); }
         }
         public override double MaximumWeightOnBox
         {
             get { return 0.0; }
-            set { }
+            set { throw new InvalidOperationException("Setting this property is not supported."); }
         }
-        #endregion
     }
 }

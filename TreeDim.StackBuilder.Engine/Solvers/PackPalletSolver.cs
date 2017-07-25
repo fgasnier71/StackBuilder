@@ -1,37 +1,17 @@
-﻿#region Using directives
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Text;
-using System.Diagnostics;
 
 using treeDiM.StackBuilder.Basics;
 using Sharp3D.Math.Core;
 
-using log4net;
-#endregion
-
 namespace treeDiM.StackBuilder.Engine
 {
-    #region PackPalletSolver
-    /// <summary>
-    /// PackPalletSolver
-    /// </summary>
     public class PackPalletSolver : IPackPalletAnalysisSolver
     {
-        #region Data members
-        private PackProperties _packProperties;
-        private PalletProperties _palletProperties;
-        private InterlayerProperties _interlayerProperties;
-        private PackPalletConstraintSet _constraintSet;
-        #endregion
-
-        #region Constructor
         public PackPalletSolver()
         {
         }
-        #endregion
 
-        #region IPackPalletAnalysisSolver
         public void ProcessAnalysis(PackPalletAnalysis analysis)
         {
             _packProperties = analysis.PackProperties;
@@ -40,12 +20,16 @@ namespace treeDiM.StackBuilder.Engine
             _constraintSet = analysis.ConstraintSet;
             analysis.Solutions = GenerateSolutions();
         }
-        #endregion
 
-        #region Private methods
+        #region Non-Public Members
+        private PackProperties _packProperties;
+        private PalletProperties _palletProperties;
+        private InterlayerProperties _interlayerProperties;
+        private PackPalletConstraintSet _constraintSet;
+
         private List<PackPalletSolution> GenerateSolutions()
         {
-            List<PackPalletSolution> solutions = new List<PackPalletSolution>();
+            var solutions = new List<PackPalletSolution>();
 
             HalfAxis.HAxis[] axes = { HalfAxis.HAxis.AXIS_Z_N, HalfAxis.HAxis.AXIS_Z_P };
             // loop throught all patterns
@@ -71,13 +55,13 @@ namespace treeDiM.StackBuilder.Engine
                         continue;
                     double layerHeight = layer.BoxHeight;
 
-                    string title = string.Format("{0}-{1}", pattern.Name, axis.ToString());
+                    string title = string.Format("{0}-{1}", pattern.Name, axis);
                     double zLayer = 0.0;
-                    Layer3DBox boxLayer = new Layer3DBox(zLayer, 0);
+                    var boxLayer = new Layer3DBox(zLayer, 0);
                     foreach (LayerPosition layerPos in layer)
                     {
                         LayerPosition layerPosTemp = AdjustLayerPosition(layerPos);
-                        BoxPosition boxPos = new BoxPosition(
+                        var boxPos = new BoxPosition(
                             layerPosTemp.Position
                                 - (0.5 * _constraintSet.OverhangX) * Vector3D.XAxis
                                 - (0.5 * _constraintSet.OverhangY) * Vector3D.YAxis
@@ -101,7 +85,7 @@ namespace treeDiM.StackBuilder.Engine
                     double interlayerThickness = null != _interlayerProperties ? _interlayerProperties.Thickness : 0;
                     double interlayerWeight = null != _interlayerProperties ? _interlayerProperties.Weight : 0;
 
-                    PackPalletSolution sol = new PackPalletSolution(null, title, boxLayer);
+                    var sol = new PackPalletSolution(null, title, boxLayer);
                     int noLayer = 1,
                         noInterlayer = (null != _interlayerProperties && _constraintSet.HasFirstInterlayer) ? 1 : 0;
 
@@ -193,8 +177,5 @@ namespace treeDiM.StackBuilder.Engine
         }
         #endregion
 
-        #region Static methods
-        #endregion
     }
-    #endregion
 }

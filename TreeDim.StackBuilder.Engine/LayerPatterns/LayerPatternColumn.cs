@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 using Sharp3D.Math.Core;
 using treeDiM.StackBuilder.Basics;
@@ -10,6 +9,7 @@ namespace treeDiM.StackBuilder.Engine
     class LayerPatternColumn : LayerPatternBox
     {
         public override string Name => "Column";
+        public override int GetNumberOfVariants(Layer2D layer) => 1;
         public override bool IsSymetric => false;
         public override bool CanBeSwapped => false;
         public override bool CanBeInverted => false;
@@ -54,11 +54,6 @@ namespace treeDiM.StackBuilder.Engine
             actualLength = Math.Floor(palletLength / boxLength) * boxLength;
             actualWidth = Math.Floor(palletWidth / boxWidth) * boxWidth;
             return (palletLength >= boxLength) && (palletWidth >= boxWidth);
-        }
-
-        public override int GetNumberOfVariants(Layer2D layer)
-        {
-            return 1;
         }
     }
 }

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Drawing;
 
 namespace treeDiM.StackBuilder.Basics
@@ -29,7 +28,7 @@ namespace treeDiM.StackBuilder.Basics
 
         public override string ToString()
         {
-            StringBuilder sBuilder = new StringBuilder();
+            var sBuilder = new System.Text.StringBuilder();
             sBuilder.Append(base.ToString());
             sBuilder.Append($"Length= {Length} Width = {Width} Thickness = {Thickness}\nWeight = {Weight}");
             return sBuilder.ToString();

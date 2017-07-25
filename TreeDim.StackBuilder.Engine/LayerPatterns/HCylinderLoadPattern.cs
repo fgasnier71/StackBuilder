@@ -1,44 +1,47 @@
-﻿#region Using directives
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 using treeDiM.StackBuilder.Basics;
 
 using Sharp3D.Math.Core;
 
 using log4net;
-#endregion
 
 namespace treeDiM.StackBuilder.Engine
 {
-    #region HCylinderLoadPattern
     internal abstract class HCylinderLoadPattern
     {
-        #region Data members
-        private bool _swapped = false;
-        protected static readonly ILog _log = LogManager.GetLogger(typeof(HCylinderLoadPattern));
-        #endregion
+        protected HCylinderLoadPattern() { }
 
-        #region Constructor
-        public HCylinderLoadPattern() { }
-        #endregion
+        public abstract string Name { get; }
+        public abstract bool CanBeSwapped { get; }
+        public bool Swapped { get; set; } = false;
 
-        #region Abstract methods
-        abstract public string Name { get; }
-        abstract public bool CanBeSwapped { get; }
-        abstract public void Generate(CylLoad layer, int maxCount, double actualLength, double actualWidth, double maxHeight);
-        #endregion
+        public abstract void Generate(CylLoad layer, int maxCount, double actualLength, double actualWidth, double maxHeight);
 
-        #region Public properties
-        public bool Swapped
+        public void AddPosition(CylLoad load, CylPosition pos)
         {
-            get { return _swapped; }
-            set { _swapped = value; }
-        }
-        #endregion
+            Matrix4D matRot = Matrix4D.Identity;
+            Vector3D vTranslation = Vector3D.Zero;
 
-        #region Public methods
+            if (Swapped)
+            {
+                matRot = new Matrix4D(
+                    0.0, -1.0, 0.0, 0.0
+                    , 1.0, 0.0, 0.0, 0.0
+                    , 0.0, 0.0, 1.0, 0.0
+                    , 0.0, 0.0, 0.0, 1.0
+                    );
+                vTranslation = new Vector3D(load.PalletLength, 0.0, 0.0);
+
+                matRot.M14 = vTranslation[0];
+                matRot.M24 = vTranslation[1];
+                matRot.M34 = vTranslation[2];
+            }
+
+            load.Add(pos.Transform(new Transform3D(matRot)));
+        }
+
         public virtual void GetDimensions(CylLoad load, int maxCount, out double length, out double width)
         {
             length = 0.0; width = 0.0;
@@ -59,46 +62,24 @@ namespace treeDiM.StackBuilder.Engine
             length = noX * load.CylinderLength;
             width = 2.0 * noY * load.CylinderRadius;
         }
-        #endregion
 
-        #region Private methods
+        #region Non-Public Members
+        protected static readonly ILog _log = LogManager.GetLogger(typeof(HCylinderLoadPattern));
+
         protected double GetPalletLength(CylLoad load)
         {
-            if (!_swapped)
+            if (!Swapped)
                 return load.PalletLength;
             else
                 return load.PalletWidth;
         }
         protected double GetPalletWidth(CylLoad load)
         {
-            if (!_swapped)
+            if (!Swapped)
                 return load.PalletWidth;
             else
                 return load.PalletLength;
         }
-        public void AddPosition(CylLoad load, CylPosition pos)
-        {
-            Matrix4D matRot = Matrix4D.Identity;
-            Vector3D vTranslation = Vector3D.Zero;
-
-            if (_swapped)
-            {
-                matRot = new Matrix4D(
-                    0.0, -1.0, 0.0, 0.0
-                    , 1.0, 0.0, 0.0, 0.0
-                    , 0.0, 0.0, 1.0, 0.0
-                    , 0.0, 0.0, 0.0, 1.0
-                    );
-                vTranslation = new Vector3D(load.PalletLength, 0.0, 0.0);
-
-                matRot.M14 = vTranslation[0];
-                matRot.M24 = vTranslation[1];
-                matRot.M34 = vTranslation[2];
-            }
-
-            load.Add(pos.Transform(new Transform3D(matRot)));
-        }
         #endregion
     }
-    #endregion
 }

@@ -1,11 +1,8 @@
-﻿#region Using directives
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Drawing;
 
 using Sharp3D.Math.Core;
-#endregion
 
 namespace treeDiM.StackBuilder.Basics
 {
@@ -58,16 +55,16 @@ namespace treeDiM.StackBuilder.Basics
         }
         public Color Color
         {
-            set { _color = value; }
             get { return _color; }
+            set { _color = value; Modify(); }
         }
         public BBox3D BoundingBox => new BBox3D(Vector3D.Zero, new Vector3D(_length, _width, _height));
 
         public override string ToString()
         {
-            var sBuilder = new StringBuilder();
+            var sBuilder = new System.Text.StringBuilder();
             sBuilder.Append(base.ToString());
-            sBuilder.Append(string.Format("PalletProperties => Type {0} Length {1} Width {2} Height {3}", _typeName, _length, _width, _height));
+            sBuilder.Append($"PalletProperties => Type {_typeName} Length {_length} Width {_width} Height {_height}");
             return sBuilder.ToString();
         }
 
@@ -76,8 +73,8 @@ namespace treeDiM.StackBuilder.Basics
         double _length, _width, _height;
         double _weight;
         double _admissibleLoadWeight, _admissibleLoadHeight;
-        private Color _color = Color.Yellow;
-        private string _typeName = "Block";
+        Color _color = Color.Yellow;
+        string _typeName = "Block";
         
         #endregion
 

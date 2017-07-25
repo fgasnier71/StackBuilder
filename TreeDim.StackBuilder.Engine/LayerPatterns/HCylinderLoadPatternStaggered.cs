@@ -1,26 +1,16 @@
-﻿#region Using directives
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 using treeDiM.StackBuilder.Basics;
 
 using Sharp3D.Math.Core;
-#endregion
 
 namespace treeDiM.StackBuilder.Engine
 {
     class HCylinderLoadPatternStaggered : HCylinderLoadPattern
     {
-        #region Implementation of HCylinderLoadPattern abstract properties
-        public override string Name
-        {
-            get { return "Staggered"; }
-        }
-        public override bool CanBeSwapped
-        {
-            get { return true; }
-        }
+        public override string Name => "Staggered";
+        public override bool CanBeSwapped => true;
         public override void Generate(CylLoad load, int maxCount, double actualLength, double actualWidth, double maxHeight)
         {
             load.Clear();
@@ -70,6 +60,5 @@ namespace treeDiM.StackBuilder.Engine
                 ++iLayer;
             };
         }
-        #endregion
     }
 }

@@ -1,25 +1,16 @@
-﻿#region Using directives
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 using Sharp3D.Math.Core;
 using treeDiM.StackBuilder.Basics;
-#endregion
 
 namespace treeDiM.StackBuilder.Engine
 {
     class CylinderLayerPatternMixed12 : LayerPatternCyl
     {
-        #region Implementation of CylinderLayerPattern abstract properties and methods
-        public override string Name
-        {
-            get { return "Mixed12"; }
-        }
-        public override bool CanBeSwapped
-        {
-            get { return true; }
-        }
+        public override string Name => "Mixed12";
+        public override bool CanBeSwapped => true;
+
         public override bool GetLayerDimensions(ILayer2D layer, out double actualLength, out double actualWidth)
         {
             double palletLength = layer.Length;
@@ -72,9 +63,8 @@ namespace treeDiM.StackBuilder.Engine
                     AddPosition(layer, new Vector2D(offsetX + ((i % 2 != 0) ? 0.0 : radius) + j * 2.0 * radius + radius, y));
             }
         }
-        #endregion
 
-        #region Helpers
+        #region Non-Public Members
         private bool ComputeRowNumberAndLength(Layer2DCyl layer
             , out int alignedRowLength, out int rowNumber1
             , out int stagRowLength, out int rowNumber2

@@ -6,15 +6,6 @@ namespace treeDiM.StackBuilder.Basics
 {
     public abstract class BProperties : PackableBrickNamed
     {
-        public BProperties(Document document)
-            : base(document)
-        { 
-        }
-        public BProperties(Document document, string name, string description)
-            : base(document, name, description)
-        { 
-        }
-
         public override double Length => _length;
         public override double Width => _width;
         public override double Weight => _weight;
@@ -40,6 +31,15 @@ namespace treeDiM.StackBuilder.Basics
 
         protected double _length;
         protected double _width;
+
+        protected BProperties(Document document)
+            : base(document)
+        {
+        }
+        protected BProperties(Document document, string name, string description)
+            : base(document, name, description)
+        {
+        }
 
         #endregion
     }

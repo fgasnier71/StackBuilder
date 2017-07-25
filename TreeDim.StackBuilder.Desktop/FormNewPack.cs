@@ -126,9 +126,9 @@ namespace treeDiM.StackBuilder.Desktop
             }
             set
             {
-                uCtrlLayout.NoX = value._iLength;
-                uCtrlLayout.NoY = value._iWidth;
-                uCtrlLayout.NoZ = value._iHeight;
+                uCtrlLayout.NoX = value.Length;
+                uCtrlLayout.NoY = value.Width;
+                uCtrlLayout.NoZ = value.Height;
             }
         }
         public PackWrapper Wrapper
