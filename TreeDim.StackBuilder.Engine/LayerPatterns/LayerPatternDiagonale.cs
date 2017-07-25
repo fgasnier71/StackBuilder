@@ -1,21 +1,18 @@
-﻿#region Using directives
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 using Sharp3D.Math.Core;
 using treeDiM.StackBuilder.Basics;
-#endregion
 
 namespace treeDiM.StackBuilder.Engine
 {
     class LayerPatternDiagonale : LayerPatternBox
     {
-        #region Implementation of LayerPattern abstract properties and methods
-        public override string Name
-        {
-            get { return "Diagonale"; }
-        }
+        public override string Name => "Diagonale";
+        public override int GetNumberOfVariants(Layer2D layer) => 1;
+        public override bool IsSymetric => true;
+        public override bool CanBeSwapped => true;
+        public override bool CanBeInverted => true;
 
         public override bool GetLayerDimensions(ILayer2D layer, out double actualLength, out double actualWidth)
         {
@@ -113,16 +110,7 @@ namespace treeDiM.StackBuilder.Engine
             }
         }
 
-        public override int GetNumberOfVariants(Layer2D layer)
-        {
-            return 1;
-        }
-        public override bool IsSymetric { get { return true; } }
-        public override bool CanBeSwapped { get { return true; } }
-        public override bool CanBeInverted { get { return true; } }
-        #endregion
-
-        #region Helpers
+        #region Non-Public Members
         private void GetSizeXY(double boxLength, double boxWidth, double palletLength, double palletWidth,
             out int iStep, out int maxSizeXLength, out int maxSizeXWidth, out int maxSizeYLength, out int maxSizeYWidth)
         {

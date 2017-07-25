@@ -1,25 +1,15 @@
-﻿#region Using directives
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 using Sharp3D.Math.Core;
 using treeDiM.StackBuilder.Basics;
-#endregion
 
 namespace treeDiM.StackBuilder.Engine
 {
     class CylinderLayerPatternStaggered : LayerPatternCyl
     {
-        #region Implementation of CylinderLayerPattern abstract properties and methods
-        public override string Name
-        {
-            get { return "Staggered"; }
-        }
-        public override bool CanBeSwapped
-        {
-            get { return true; }
-        }
+        public override string Name => "Staggered";
+        public override bool CanBeSwapped => true;
         public override bool GetLayerDimensions(ILayer2D layer, out double actualLength, out double actualWidth)
         {
             Layer2DCyl layerCyl = layer as Layer2DCyl;
@@ -54,9 +44,8 @@ namespace treeDiM.StackBuilder.Engine
                     AddPosition(layer, new Vector2D(offsetX + ((i % 2 == 0) ? 0.0 : radius) + j * 2.0 * radius + radius, y));
             }
         }
-        #endregion
 
-        #region Helpers
+        #region Non-Public Members
         private bool ComputeRowNumberAndLength(Layer2DCyl layer
             , out int firstRowLength, out int secondRowLength, out int rowNumber
             , out double actualLength, out double actualWidth)

@@ -1,25 +1,16 @@
-﻿#region Using directives
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 using treeDiM.StackBuilder.Basics;
-#endregion
 
 namespace treeDiM.StackBuilder.Engine
 {
     class CylinderLayerPatternExpanded : LayerPatternCyl
     {
-        #region Implementation of CylinderLayerPattern abstract properties and methods
-        public override string Name
-        {
-            get { return "Expanded"; }
-        }
-        public override bool CanBeSwapped
-        {
-            get { return true; }
-        }
+        public override string Name => "Expanded";
+        public override bool CanBeSwapped => true;
+
         public override bool GetLayerDimensions(ILayer2D layer, out double actualLength, out double actualWidth)
         {
             double palletLength = GetPalletLength(layer);
@@ -41,7 +32,5 @@ namespace treeDiM.StackBuilder.Engine
 
             throw new NotImplementedException();
         }
-        #endregion
-
     }
 }

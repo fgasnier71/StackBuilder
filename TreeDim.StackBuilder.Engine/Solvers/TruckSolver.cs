@@ -10,8 +10,6 @@ namespace treeDiM.StackBuilder.Engine
 {
     public class TruckSolver : ITruckSolver
     {
-        static readonly ILog _log = LogManager.GetLogger(typeof(TruckSolver));
-
         public TruckSolver()
         {
         }
@@ -22,6 +20,8 @@ namespace treeDiM.StackBuilder.Engine
         }
 
         #region Non-Public Members
+
+        static readonly ILog _log = LogManager.GetLogger(typeof(TruckSolver));
 
         Layer2D BuildLayer(CasePalletSolution palletSolution, TruckProperties truckProperties, TruckConstraintSet constraintSet
                             , HalfAxis.HAxis axisOrtho, bool swapped)

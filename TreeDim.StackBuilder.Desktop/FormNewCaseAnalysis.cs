@@ -134,8 +134,8 @@ namespace treeDiM.StackBuilder.Desktop
         {
             get
             {
-                string[] patternNames = treeDiM.StackBuilder.Engine.BoxCasePalletSolver.PatternNames;
-                List<string> listAllowedPatterns = new List<string>();
+                string[] patternNames = treeDiM.StackBuilder.Engine.BoxCasePalletSolver.PatternNames.ToArray();
+                var listAllowedPatterns = new List<string>();
                 foreach (object itemChecked in checkedListBoxPatterns.CheckedItems)
                 {
                     // use the IndexOf method to get the index of an item

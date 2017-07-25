@@ -1,21 +1,18 @@
-﻿#region Using directives
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 using Sharp3D.Math.Core;
 using treeDiM.StackBuilder.Basics;
-#endregion
 
 namespace treeDiM.StackBuilder.Engine
 {
     class LayerPatternEnlargedSpirale : LayerPatternBox
     {
-        #region Implementation of LayerPattern abstract properties and methods
-        public override string Name
-        {
-            get { return "Enlarged spiral"; }
-        }
+        public override string Name => "Enlarged spiral";
+        public override int GetNumberOfVariants(Layer2D layer) => 1;
+        public override bool IsSymetric => true;
+        public override bool CanBeSwapped => true;
+        public override bool CanBeInverted => true;
 
         public override bool GetLayerDimensions(ILayer2D layer, out double actualLength, out double actualWidth)
         {
@@ -136,13 +133,8 @@ namespace treeDiM.StackBuilder.Engine
             layer.UpdateMaxSpace( spaceX_area3, Name );
             layer.UpdateMaxSpace( spaceY_area3, Name );
         }
-        public override int GetNumberOfVariants(Layer2D layer) { return 1; }
-        public override bool IsSymetric { get { return true; } }
-        public override bool CanBeSwapped { get { return true; } }
-        public override bool CanBeInverted { get { return true; } }
-        #endregion
 
-        #region Helpers
+        #region Non-Public Members
         private void GetOptimalSizesXY(
             double boxLength, double boxWidth
             , double palletLength, double palletWidth

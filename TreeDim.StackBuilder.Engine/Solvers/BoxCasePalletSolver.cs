@@ -1,39 +1,39 @@
-﻿#region Using directives
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 using treeDiM.StackBuilder.Basics;
 using Sharp3D.Math.Core;
 
 using log4net;
-#endregion
+using System.Linq;
 
 namespace treeDiM.StackBuilder.Engine
 {
-    /// <summary>
-    /// Solves CaseAnalysis
-    /// </summary>
     public class BoxCasePalletSolver : IBoxCasePalletAnalysisSolver
     {
-        #region Data members
+        public BoxCasePalletSolver() { }
+
+        public static IEnumerable<string> PatternNames => LayerPatternBox.All.Select(x => x.Name);
+
+        public void ProcessAnalysis(BoxCasePalletAnalysis analysis)
+        {
+            _boxProperties = analysis.BoxProperties;
+            _interlayerProperties = analysis.InterlayerProperties;
+            _palletSolutionList = analysis.PalletSolutionsList;
+            _constraintSet = analysis.ConstraintSet;
+            analysis.Solutions = GenerateSolutions();
+        }
+
+        #region Non-Public Members
         private BoxProperties _boxProperties;
         private List<PalletSolutionDesc> _palletSolutionList;
         private InterlayerProperties _interlayerProperties;
         private BoxCasePalletConstraintSet _constraintSet;
         static readonly ILog _log = LogManager.GetLogger(typeof(CasePalletSolver));
-        #endregion
 
-        #region Constructor
-        public BoxCasePalletSolver()
-        {
-        }
-        #endregion
-
-        #region Public methods
         private List<BoxCasePalletSolution> GenerateSolutions()
         {
-            List<BoxCasePalletSolution> solutions = new List<BoxCasePalletSolution>();
+            var solutions = new List<BoxCasePalletSolution>();
 
             // loop through all pallet solutions
             foreach (PalletSolutionDesc desc in _palletSolutionList)
@@ -200,37 +200,12 @@ namespace treeDiM.StackBuilder.Engine
             return solutions;
         }
 
-        public static string[] PatternNames
-        {
-            get
-            {
-                List<string> patternNames = new List<string>();
-                int i = 0;
-                foreach (LayerPatternBox p in LayerPatternBox.All)
-                    patternNames[i++] = p.Name;
-                return patternNames.ToArray();
-            }
-        }
-        #endregion
-
-        #region Layers
         Layer2D BuildLayer(BoxProperties boxP, BoxProperties caseP, HalfAxis.HAxis orthoAxis, bool swapped)
         {
             return new Layer2D(new Vector3D(boxP.Length, boxP.Width, boxP.Height)
                                 , new Vector2D(caseP.InsideLength, caseP.InsideWidth)
                                 , orthoAxis
                                 , swapped);
-        }
-        #endregion
-
-        #region ICaseAnalysisSolver implementation
-        public void ProcessAnalysis(BoxCasePalletAnalysis analysis)
-        {
-            _boxProperties = analysis.BoxProperties;
-            _interlayerProperties = analysis.InterlayerProperties;
-            _palletSolutionList = analysis.PalletSolutionsList;
-            _constraintSet = analysis.ConstraintSet;
-            analysis.Solutions = GenerateSolutions();
         }
         #endregion
     }
