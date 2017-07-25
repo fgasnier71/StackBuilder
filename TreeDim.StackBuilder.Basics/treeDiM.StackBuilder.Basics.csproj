@@ -111,6 +111,11 @@
     <Compile Include="ConstraintSets\PackPalletConstraintSet.cs" />
     <Compile Include="Containers\PackArrangement.cs" />
     <Compile Include="Containers\PackProperties.cs" />
+    <Compile Include="Containers\PackWrapper.cs" />
+    <Compile Include="Containers\WrapperCardboard.cs" />
+    <Compile Include="Containers\WrapperPaper.cs" />
+    <Compile Include="Containers\WrapperPolyethilene.cs" />
+    <Compile Include="Containers\WrapperTray.cs" />
     <Compile Include="Controls\UCtrlDualDouble.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -180,6 +185,7 @@
     <Compile Include="AnalysesLegacy\BoxCasePalletAnalysis.cs" />
     <Compile Include="AnalysesLegacy\CasePalletAnalysis.cs" />
     <Compile Include="ConstraintSets\BoxCasePalletConstraintSet.cs" />
+    <Compile Include="Solutions\CaseDefinition.cs" />
     <Compile Include="Solutions\CaseOptimSolution.cs" />
     <Compile Include="Solutions\CaseSolution.cs" />
     <Compile Include="AnalysesLegacy\CylinderPalletAnalysis.cs" />
@@ -196,6 +202,7 @@
     <Compile Include="Solutions\Layer2DCyl.cs" />
     <Compile Include="Solutions\LayerPosition.cs" />
     <Compile Include="Solutions\PackPalletSolution.cs" />
+    <Compile Include="Solutions\ParamSetPackOptim.cs" />
     <Compile Include="Solutions\SelSolution.cs" />
     <Compile Include="Solutions\PalletSolution.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

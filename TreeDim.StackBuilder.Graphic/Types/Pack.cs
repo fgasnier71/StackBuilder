@@ -138,9 +138,9 @@ namespace treeDiM.StackBuilder.Graphics
             { 
                 List<Box> boxes = new List<Box>();
                 uint pickId = 0;
-                for (int i = 0; i < _arrangement._iLength; ++i)
-                    for (int j = 0; j < _arrangement._iWidth; ++j)
-                        for (int k = 0; k < _arrangement._iHeight; ++k)
+                for (int i = 0; i < _arrangement.Length; ++i)
+                    for (int j = 0; j < _arrangement.Width; ++j)
+                        for (int k = 0; k < _arrangement.Height; ++k)
                             boxes.Add(new Box(pickId++, _packProperties.Box, GetPosition(i, j, k, _packProperties.Dim0, _packProperties.Dim1)));
                 return boxes;
             }

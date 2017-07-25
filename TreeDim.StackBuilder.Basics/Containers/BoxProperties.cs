@@ -1,11 +1,8 @@
-﻿#region Using directives
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Drawing;
 
 using Sharp3D.Math.Core;
-#endregion
 
 namespace treeDiM.StackBuilder.Basics
 {
@@ -14,18 +11,6 @@ namespace treeDiM.StackBuilder.Basics
     /// </summary>
     public class BoxProperties : BProperties
     {
-        #region Data members
-        private double _height;
-        private bool _hasInsideDimensions;
-        private double _insideLength, _insideWidth, _insideHeight;
-        private Color[] _colors = new Color[6];
-        private List<Pair<HalfAxis.HAxis, Texture>> _textures = new List<Pair<HalfAxis.HAxis, Texture>>();
-        // tape
-        private OptDouble _tapeWidth;
-        private Color _tapeColor;
-        #endregion
-
-        #region Constructor
         /// <summary>
         /// Constructor 1
         /// </summary>
@@ -36,6 +21,7 @@ namespace treeDiM.StackBuilder.Basics
             _length = 0.0; _width = 0.0; _height = 0.0;
             _hasInsideDimensions = true;
         }
+        
         /// <summary>
         /// Constructor 2
         /// </summary>
@@ -61,6 +47,7 @@ namespace treeDiM.StackBuilder.Basics
             _hasInsideDimensions = false;
 
         }
+
         /// <summary>
         /// Constructor 3
         /// </summary>
@@ -82,49 +69,50 @@ namespace treeDiM.StackBuilder.Basics
             _insideHeight = insideHeight;
             _hasInsideDimensions = true;
         }
-        #endregion
 
-        #region Packable override
         public override bool IsCase => HasInsideDimensions;
-        protected override string TypeName => IsCase ? Properties.Resources.ID_NAMECASE : Properties.Resources.ID_NAMEBOX;
-        #endregion
 
-        #region Dimensions
+        // Dimensions
         public override double Height => _height;
         public void SetHeight(double height)
-        { _height = height; Modify(); }
-        #endregion
-
-        #region InsideDimensions
-        public bool HasInsideDimensions
         {
-            get { return _hasInsideDimensions; }
+            _height = height;
+            Modify();
         }
+
+        // InsideDimensions
+        public bool HasInsideDimensions => _hasInsideDimensions;
         public double InsideLength
         {
-            get { return _hasInsideDimensions ? _insideLength : _length; }
-            set { _insideLength = value; Modify(); }
+            get => _hasInsideDimensions ? _insideLength : _length;
+            set
+            {
+                _insideLength = value;
+                Modify();
+            }
         }
         public double InsideWidth
         {
-            get { return _hasInsideDimensions ? _insideWidth : _width; }
-            set { _insideWidth = value; Modify(); }
+            get => _hasInsideDimensions ? _insideWidth : _width;
+            set
+            {
+                _insideWidth = value;
+                Modify();
+            }
         }
         public double InsideHeight
         {
-            get { return _hasInsideDimensions ? _insideHeight : _height; }
-            set { _insideHeight = value; Modify(); }
+            get => _hasInsideDimensions ? _insideHeight : _height;
+            set
+            {
+                _insideHeight = value;
+                Modify();
+            }
         }
-        public double InsideVolume
-        {
-            get { return InsideLength * InsideWidth * InsideHeight; }
-        }
-        public virtual Vector3D InsideDimensions
-        {   get { return new Vector3D( InsideLength, InsideWidth, InsideHeight); } }
-        public virtual double[] OuterDimensionsArray
-        { get { return new double[] { _length, _width, _height }; } }
-        public virtual double[] InsideDimensionsArray
-        {   get { return new double[] { InsideLength, InsideWidth, InsideHeight }; } }
+        public double InsideVolume => InsideLength * InsideWidth * InsideHeight;
+        public virtual Vector3D InsideDimensions => new Vector3D(InsideLength, InsideWidth, InsideHeight);
+        public virtual double[] OuterDimensionsArray => new double[] { _length, _width, _height };
+        public virtual double[] InsideDimensionsArray => new double[] { InsideLength, InsideWidth, InsideHeight };
 
         public bool FitsIn(BoxProperties caseProperties)
         {
@@ -169,12 +157,11 @@ namespace treeDiM.StackBuilder.Basics
             }
             return false;
         }
-        #endregion
 
-        #region Colors
+        // Colors
         public override void SetColor(Color color)
         {
-            for (int i = 0; i < 6; ++i)
+            for (int i = 0; i < _colors.Length; ++i)
                 _colors[i] = color;
             Modify();
         }
@@ -183,10 +170,7 @@ namespace treeDiM.StackBuilder.Basics
             return _colors[(int)axis];
         }
 
-        public override Color[] Colors
-        {
-            get { return _colors; }
-        }
+        public override Color[] Colors => _colors;
         public void SetColor(HalfAxis.HAxis axis, Color color)
         {
             _colors[(int)axis] = color;
@@ -208,9 +192,7 @@ namespace treeDiM.StackBuilder.Basics
                 return true;
             }
         }
-        #endregion
 
-        #region Texture pairs
         /// <summary>
         /// Texture pair
         /// </summary>
@@ -229,10 +211,7 @@ namespace treeDiM.StackBuilder.Basics
         /// </summary>
         public List<Pair<HalfAxis.HAxis, Texture>> TextureList
         {
-            get
-            {
-                return _textures;
-            }
+            get => _textures;
             set
             {
                 _textures.Clear();
@@ -245,28 +224,29 @@ namespace treeDiM.StackBuilder.Basics
             get
             {
                 var list = new List<Pair<HalfAxis.HAxis, Texture>>();
-                foreach (Pair<HalfAxis.HAxis, Texture> tex in _textures)
+                foreach (var tex in _textures)
                     list.Add(new Pair< HalfAxis.HAxis, Texture >(tex.first, tex.second.Clone()));
                 return list;
             }
         }
+
+        // Tape properties
+        public OptDouble TapeWidth { get; set; }
+        public Color TapeColor { get; set; }
+
+        public override bool IsBundle => false;
+
+        #region Non-Public Members
+
+        private double _height;
+        private bool _hasInsideDimensions;
+        private double _insideLength, _insideWidth, _insideHeight;
+        private Color[] _colors = new Color[6];
+        private List<Pair<HalfAxis.HAxis, Texture>> _textures = new List<Pair<HalfAxis.HAxis, Texture>>();
+
+        protected override string TypeName => IsCase ? Properties.Resources.ID_NAMECASE : Properties.Resources.ID_NAMEBOX;
+
         #endregion
 
-        #region Tape properties
-        public OptDouble TapeWidth
-        {
-            get { return _tapeWidth;    }
-            set { _tapeWidth = value;   }
-        }
-        public Color TapeColor
-        {
-            get { return _tapeColor;    }
-            set { _tapeColor = value;   }
-        }
-        #endregion
-
-        #region IsBundle
-        public override bool IsBundle { get { return false; } }
-        #endregion
     }
 }

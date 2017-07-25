@@ -1,12 +1,9 @@
-﻿#region Using directives
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Drawing;
 
 using treeDiM.StackBuilder.Basics;
 using Sharp3D.Math.Core;
-#endregion
 
 namespace treeDiM.StackBuilder.Graphics
 {
@@ -16,66 +13,40 @@ namespace treeDiM.StackBuilder.Graphics
     /// </summary>
     public class CaseDefinitionViewer
     {
-        #region Data members
-        private BoxProperties _boxProperties;
-        private BoxProperties _caseProperties;
-        private CaseDefinition _caseDefinition;
-        private ParamSetPackOptim _caseOptimConstraintSet;
-        private bool _showDimentions = true;
-        private Orientation _globalOrientation;
-        #endregion
-
-        #region Constructor
         public CaseDefinitionViewer(CaseDefinition caseDefinition, BoxProperties boxProperties, ParamSetPackOptim caseConstraintSet)
         {
             _caseDefinition = caseDefinition;
             _boxProperties = boxProperties;
             _caseOptimConstraintSet = caseConstraintSet;
-            _globalOrientation = new Orientation(HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P);
+            Orientation = new Orientation(HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P);
         }
-        #endregion
 
-        #region Public properties
-        public BoxProperties CaseProperties
-        {
-            get { return _caseProperties; }
-            set { _caseProperties = value; }
-        }
-        public bool ShowDimensions
-        {
-            get { return _showDimentions; }
-            set { _showDimentions = value; }
-        }
-        public Orientation Orientation
-        {
-            get { return _globalOrientation; }
-            set { _globalOrientation = value; }
-        }
-        #endregion
+        public BoxProperties CaseProperties { get; set; }
+        public bool ShowDimensions { get; set; } = true;
+        public Orientation Orientation { get; set; }
 
-        #region Drawing
         public void Draw(Graphics3D graphics)
         {
             if (null == _caseDefinition || null == _boxProperties)
                 return;
 
             // get global transformation
-            Transform3D transf = _globalOrientation.Transformation;
+            Transform3D transf = Orientation.Transformation;
 
             // draw case (back faces)
-            Case case_ = _caseProperties != null ? new Case(_caseProperties, transf) : null;
-            if (null != case_)
+            Case @case = CaseProperties != null ? new Case(CaseProperties, transf) : null;
+            if (null != @case)
             {
                 // draw case (inside)
-                case_.DrawInside(graphics, Transform3D.Identity);
+                @case.DrawInside(graphics, Transform3D.Identity);
             }
             // add boxes
             uint pickId = 0;
-            for (int i=0; i<_caseDefinition.Arrangement._iLength; ++i)
-                for (int j=0; j<_caseDefinition.Arrangement._iWidth; ++j)
-                    for (int k = 0; k < _caseDefinition.Arrangement._iHeight; ++k)
+            for (int i=0; i<_caseDefinition.Arrangement.Length; ++i)
+                for (int j=0; j<_caseDefinition.Arrangement.Width; ++j)
+                    for (int k = 0; k < _caseDefinition.Arrangement.Height; ++k)
                         graphics.AddBox( new Box(pickId++, _boxProperties, GetPosition(i, j, k, _caseDefinition.Dim0, _caseDefinition.Dim1) ) );
-            if (_showDimentions)
+            if (ShowDimensions)
             {
                 // add external dimensions
                 Vector3D outerDimensions = _caseDefinition.OuterDimensions(_boxProperties, _caseOptimConstraintSet);
@@ -86,13 +57,15 @@ namespace treeDiM.StackBuilder.Graphics
                 graphics.AddDimensions(DimensionCube.Transform(new DimensionCube(innerOffset, innerDimensions.X, innerDimensions.Y, innerDimensions.Z, Color.Red, false), transf));
             }
         }
-        #endregion
 
-        #region Helpers
-        private Transform3D GlobalTransformation
-        {
-            get { return _globalOrientation.Transformation; }
-        }
+        #region Non-Public Members
+
+        private BoxProperties _boxProperties;
+        private CaseDefinition _caseDefinition;
+        private ParamSetPackOptim _caseOptimConstraintSet;
+
+        private Transform3D GlobalTransformation => Orientation.Transformation;
+
         private BoxPosition GetPosition(int i, int j, int k, int dim0, int dim1)
         {
             double boxLength = _caseDefinition.BoxLength(_boxProperties);
@@ -150,6 +123,8 @@ namespace treeDiM.StackBuilder.Graphics
                 , GlobalTransformation
                 );
         }
+
         #endregion
+
     }
 }

@@ -1,21 +1,11 @@
-﻿#region Using directives
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Drawing;
-#endregion
 
 namespace treeDiM.StackBuilder.Basics
 {
     public class BundleProperties : BProperties
     {
-        #region Data members
-        private double _unitThickness = 0.0, _unitWeight = 0.0;
-        private int _noFlats;
-        private Color _color;
-        #endregion
-
-        #region Constructor
         public BundleProperties(Document document, string name, string description,
             double length, double width
             , double unitThickness
@@ -31,28 +21,21 @@ namespace treeDiM.StackBuilder.Basics
             _noFlats = noFlats;
             _color = color;
         }
-        #endregion
 
-        #region Override packable
-        protected override string TypeName
-        { get { return Properties.Resources.ID_NAMEBUNDLE; } }
-        public override double Height
-        { get { return _unitThickness * _noFlats; } }
-        public override double Weight
-        { get { return _unitWeight * _noFlats; } }
-        public override OptDouble NetWeight
-        { get { return new OptDouble(false, 0.0); } }
-        public override bool OrientationAllowed(HalfAxis.HAxis axis)
-        {   return (axis == HalfAxis.HAxis.AXIS_Z_N) || (axis == HalfAxis.HAxis.AXIS_Z_P); }
-        public override bool IsCase { get { return false; } }
-        #endregion
+        public override double Height => _unitThickness * _noFlats;
+        public override double Weight => _unitWeight * _noFlats;
+        public override OptDouble NetWeight => new OptDouble(false, 0.0);
+        public override bool OrientationAllowed(HalfAxis.HAxis axis) =>
+            (axis == HalfAxis.HAxis.AXIS_Z_N) || (axis == HalfAxis.HAxis.AXIS_Z_P);
+        public override bool IsCase => false;
 
-        #region Public properties
+        // TODO - use either property or "accessor methods", not both
         public Color Color
         {
             get { return _color; }
-            set { _color = value; }
+            set { _color = value; Modify(); }
         }
+
         public override Color[] Colors
         {
             get
@@ -63,10 +46,12 @@ namespace treeDiM.StackBuilder.Basics
                 return colors;
             }
         }
+        // TODO - use either property or "accessor methods", not both
         public override Color GetColor(HalfAxis.HAxis axis)
         {
             return _color;
         }
+        // TODO - use either property or "accessor methods", not both
         public override void SetColor(Color color)
         {
             _color = color;
@@ -87,7 +72,18 @@ namespace treeDiM.StackBuilder.Basics
             get { return _noFlats; }
             set { _noFlats = value; Modify(); }
         }
-        public override bool IsBundle { get { return true; } }
+
+        public override bool IsBundle => true;
+
+        #region Non-Public Members
+
+        private double _unitThickness = 0.0, _unitWeight = 0.0;
+        private int _noFlats;
+        private Color _color;
+
+        protected override string TypeName => Properties.Resources.ID_NAMEBUNDLE;
+
         #endregion
+
     }
 }
