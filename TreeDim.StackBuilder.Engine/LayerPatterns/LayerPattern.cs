@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using treeDiM.StackBuilder.Basics;
+using Sharp3D.Math.Core;
 
 namespace treeDiM.StackBuilder.Engine
 {
@@ -24,17 +25,21 @@ namespace treeDiM.StackBuilder.Engine
         }
 
         #region Non-Public Members
-
         protected double GetPalletLength(ILayer2D layer)
         {
             return layer.Swapped ? layer.Width : layer.Length;
         }
-
         protected double GetPalletWidth(ILayer2D layer)
         {
             return layer.Swapped ? layer.Length : layer.Width;
         }
-
+        protected Vector2D GetOffset(ILayer2D layer, double actualLength, double actualWidth)
+        {
+            return new Vector2D(
+                0.5*(GetPalletLength(layer) - actualLength),
+                0.5*(GetPalletWidth(layer) - actualWidth)
+                );
+        }
         #endregion
     }
 }

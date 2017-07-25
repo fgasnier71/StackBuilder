@@ -137,16 +137,13 @@ namespace treeDiM.StackBuilder.Engine
                 for (int i = 0; i < fillSizeXWidth; ++i)
                     for (int j = 0; j < fillSizeYWidth; ++j)
                     {
-                        
                         AddPosition(
                             layer
                             , new Vector2D(
                                 offsetX + actualLength - (i+1) * (boxLength + spaceXFill)
                                 , offsetY + (maxSizeYWidth / 2) * (boxLength + spaceYWidth) + j * boxWidth)
                             , HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P
-                            );
-                         
-                        
+                            );   
                     }
             }
             // maximum space
