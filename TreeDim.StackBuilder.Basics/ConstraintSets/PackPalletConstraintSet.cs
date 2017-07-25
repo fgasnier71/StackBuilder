@@ -1,80 +1,36 @@
-﻿#region Using directives
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-#endregion
 
 namespace treeDiM.StackBuilder.Basics
 {
     public class PackPalletConstraintSet
     {
-        #region Data members
-        #region Stop conditions
-        // pallet height
-        private OptDouble _maxPalletHeight = OptDouble.Zero;
-        // pallet weight
-        private OptDouble _maxPalletWeight = OptDouble.Zero;
-        #endregion
-        #region Layout contraints
-        // min space
-        private OptDouble _minSpace;
-        // overhang x / y
-        private double _overhangX= 0.0, _overhangY = 0.0; 
-        // interlayer period 
-        private int _interlayerPeriod;
-        // layer swap period
-        private int _layerSwapPeriod;
-        // interlayer
-        private bool _hasFirstInterlayer;
-        #endregion
-        #region Solution filtering
-        // layer weight
-        private OptDouble _layerWeight;
-        // max space
-        private OptDouble _maxSpaceAllowed;
-        // min overhang x/y
-        private OptDouble _minOverhangX, _minOverhangY;
-        #endregion
-        #endregion
+        public PackPalletConstraintSet() { }
 
-        #region Constructor
-        public PackPalletConstraintSet()
-        {}
-        #endregion
+        public bool IsValid => MaximumPalletHeight.Activated || MaximumPalletWeight.Activated;
 
-        #region Validity
-        public bool IsValid
-        { get { return (_maxPalletHeight.Activated || _maxPalletWeight.Activated); } }
-        #endregion
+        // Stop conditions
+        public OptDouble MaximumPalletHeight { get; set; } = OptDouble.Zero;
+        public OptDouble MaximumPalletWeight { get; set; } = OptDouble.Zero;
 
-        #region Stop conditions
-        public OptDouble MaximumPalletHeight { get { return _maxPalletHeight; } set { _maxPalletHeight = value; } }
-        public OptDouble MaximumPalletWeight { get { return _maxPalletWeight; } set { _maxPalletWeight = value; } }
-        #endregion
+        // Layout constraints
+        public OptDouble MinimumSpace { get; set; }
+        public double OverhangX { get; set; } = 0.0;
+        public double OverhangY { get; set; } = 0.0;
+        public int InterlayerPeriod { get; set; }
+        public int LayerSwapPeriod { get; set; }
+        public bool HasFirstInterlayer { get; set; }
 
-        #region Layout constraints
-        public OptDouble MinimumSpace { get { return _minSpace; } set { _minSpace = value; } }
-        public double OverhangX { get { return _overhangX; } set { _overhangX = value; } }
-        public double OverhangY { get { return _overhangY; } set { _overhangY = value; } }
-        public int InterlayerPeriod { get { return _interlayerPeriod; } set { _interlayerPeriod = value; } }
-        public int LayerSwapPeriod { get { return _layerSwapPeriod; } set { _layerSwapPeriod = value; } }
-        public bool HasFirstInterlayer { get { return _hasFirstInterlayer; } set { _hasFirstInterlayer = value; } }
-        #endregion
+        // Solution filtering
+        public OptDouble MaximumLayerWeight { get; set; }
+        public OptDouble MaximumSpaceAllowed { get; set; }
+        public OptDouble MinOverhangX { get; set; }
+        public OptDouble MinOverhangY { get; set; }
 
-        #region Solution filtering
-        public OptDouble MaximumLayerWeight { get { return _layerWeight; } set { _layerWeight = value; } }
-        public OptDouble MaximumSpaceAllowed { get { return _maxSpaceAllowed; } set { _maxSpaceAllowed = value; } }
-        public OptDouble MinOverhangX { get { return _minOverhangX; } set { _minOverhangX = value; } }
-        public OptDouble MinOverhangY { get { return _minOverhangY; } set { _minOverhangY = value; } }
-        #endregion
-
-        #region Object method override
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
-            return sb.ToString();
+            return "";
         }
-        #endregion
     }
 }

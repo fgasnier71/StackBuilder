@@ -1,0 +1,297 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{444C01D0-53FD-49A1-9D55-267B49161357}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>treeDiM.StackBuilder.Basics</RootNamespace>
+    <AssemblyName>treeDiM.StackBuilder.Basics</AssemblyName>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Cureos.Measures">
+      <HintPath>..\ThirdPartyAssemblies\Cureos.Measures.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Collections.Immutable, Version=1.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Collections.Immutable.1.3.1\lib\portable-net45+win8+wp8+wpa81\System.Collections.Immutable.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\SharedAssemblyInfo.cs">
+      <Link>Properties\SharedAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="AnalysesLegacy\AnalysisLegacy.cs" />
+    <Compile Include="AnalysesLegacy\IBoxCaseAnalysisSolver.cs" />
+    <Compile Include="AnalysesLegacy\ICasePalletAnalysisSolver.cs" />
+    <Compile Include="AnalysesLegacy\IPackPalletAnalysisSolver.cs" />
+    <Compile Include="AnalysesLegacy\ITruckSolver.cs" />
+    <Compile Include="Analyses\Analysis.cs" />
+    <Compile Include="Analyses\AnalysisBoxCase.cs" />
+    <Compile Include="Analyses\AnalysisCasePallet.cs" />
+    <Compile Include="Analyses\AnalysisCaseTruck.cs" />
+    <Compile Include="Analyses\AnalysisCylinderCase.cs" />
+    <Compile Include="Analyses\AnalysisCylinderPallet.cs" />
+    <Compile Include="Analyses\AnalysisPackableCase.cs" />
+    <Compile Include="Analyses\AnalysisPackablePallet.cs" />
+    <Compile Include="Analyses\AnalysisPackableTruck.cs" />
+    <Compile Include="Analyses\AnalysisPalletTruck.cs" />
+    <Compile Include="AnalysesLegacy\PackPalletAnalysis.cs" />
+    <Compile Include="Analyses\AnalysisComparer.cs" />
+    <Compile Include="Analyses\LoadedCase.cs" />
+    <Compile Include="Analyses\LoadedPallet.cs" />
+    <Compile Include="Analyses\PackableLoaded.cs" />
+    <Compile Include="ConstraintSets\BCaseConstraintSet.cs" />
+    <Compile Include="ConstraintSets\BundleCaseConstraintSet.cs" />
+    <Compile Include="ConstraintSets\ConstraintSetAbstract.cs" />
+    <Compile Include="ConstraintSets\ConstraintSetBoxCase.cs" />
+    <Compile Include="ConstraintSets\ConstraintSetCasePallet.cs" />
+    <Compile Include="ConstraintSets\ConstraintSetCaseTruck.cs" />
+    <Compile Include="ConstraintSets\ConstraintSetCylinderCase.cs" />
+    <Compile Include="ConstraintSets\ConstraintSetPackableCase.cs" />
+    <Compile Include="ConstraintSets\ConstraintSetPackablePallet.cs" />
+    <Compile Include="ConstraintSets\ConstraintSetPackableTruck.cs" />
+    <Compile Include="ConstraintSets\ConstraintSetPalletTruck.cs" />
+    <Compile Include="ConstraintSets\CylinderPalletConstraintSet.cs" />
+    <Compile Include="ConstraintSets\HCylinderPalletConstraintSet.cs" />
+    <Compile Include="ConstraintSets\PackPalletConstraintSet.cs" />
+    <Compile Include="Containers\PackArrangement.cs" />
+    <Compile Include="Containers\PackProperties.cs" />
+    <Compile Include="Controls\UCtrlDualDouble.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UCtrlDualDouble.Designer.cs">
+      <DependentUpon>UCtrlDualDouble.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UCtrlTriInt.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UCtrlTriInt.Designer.cs">
+      <DependentUpon>UCtrlTriInt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UCtrlOptTriDouble.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UCtrlOptTriDouble.Designer.cs">
+      <DependentUpon>UCtrlOptTriDouble.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UCtrlTriDouble.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UCtrlTriDouble.Designer.cs">
+      <DependentUpon>UCtrlTriDouble.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Extensions\EnumerableExtensions.cs" />
+    <Compile Include="Helpers\BBox3D.cs" />
+    <Compile Include="AnalysesLegacy\BoxCaseAnalysis.cs" />
+    <Compile Include="ConstraintSets\BoxCaseConstraintSet.cs" />
+    <Compile Include="Helpers\GlobID.cs" />
+    <Compile Include="Helpers\IItemListener.cs" />
+    <Compile Include="Helpers\IPackContainer.cs" />
+    <Compile Include="Helpers\ItemBaseNamed.cs" />
+    <Compile Include="Helpers\Packable.cs" />
+    <Compile Include="Helpers\CylinderPosition.cs" />
+    <Compile Include="Helpers\OptDouble.cs" />
+    <Compile Include="Controls\UCtrlOptDouble.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UCtrlOptDouble.Designer.cs">
+      <DependentUpon>UCtrlOptDouble.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\OptInt.cs" />
+    <Compile Include="Helpers\PackableBrick.cs" />
+    <Compile Include="Helpers\PackableBrickNamed.cs" />
+    <Compile Include="Helpers\PackableNamed.cs" />
+    <Compile Include="IDocumentListener.cs" />
+    <Compile Include="PalletDecoration\PalletCornerProperties.cs" />
+    <Compile Include="PalletDecoration\PalletCapProperties.cs" />
+    <Compile Include="PalletDecoration\PalletFilmProperties.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Solutions\BaseSolution.cs" />
+    <Compile Include="Solutions\BoxCaseSolution.cs" />
+    <Compile Include="AnalysesLegacy\CaseOptimAnalysis.cs" />
+    <Compile Include="AnalysesLegacy\ECTAnalysis.cs" />
+    <Compile Include="Helpers\BoxPosition.cs" />
+    <Compile Include="Containers\CylinderProperties.cs" />
+    <Compile Include="Containers\BoxProperties.cs" />
+    <Compile Include="Containers\CaseOfBoxesProperties.cs" />
+    <Compile Include="Containers\BProperties.cs" />
+    <Compile Include="Containers\BundleProperties.cs" />
+    <Compile Include="Containers\PalletProperties.cs" />
+    <Compile Include="Containers\TruckProperties.cs" />
+    <Compile Include="AnalysesLegacy\BoxCasePalletAnalysis.cs" />
+    <Compile Include="AnalysesLegacy\CasePalletAnalysis.cs" />
+    <Compile Include="ConstraintSets\BoxCasePalletConstraintSet.cs" />
+    <Compile Include="Solutions\CaseOptimSolution.cs" />
+    <Compile Include="Solutions\CaseSolution.cs" />
+    <Compile Include="AnalysesLegacy\CylinderPalletAnalysis.cs" />
+    <Compile Include="ConstraintSets\PalletConstraintSet.cs" />
+    <Compile Include="ConstraintSets\CasePalletConstraintSet.cs" />
+    <Compile Include="ConstraintSets\BundlePalletConstraintSet.cs" />
+    <Compile Include="Document.cs" />
+    <Compile Include="Helpers\HalfAxis.cs" />
+    <Compile Include="Containers\InterlayerProperties.cs" />
+    <Compile Include="Helpers\ItemBase.cs" />
+    <Compile Include="PalletSolutionDatabase.cs" />
+    <Compile Include="Solutions\CylinderPalletSolution.cs" />
+    <Compile Include="Solutions\Layer2D.cs" />
+    <Compile Include="Solutions\Layer2DCyl.cs" />
+    <Compile Include="Solutions\LayerPosition.cs" />
+    <Compile Include="Solutions\PackPalletSolution.cs" />
+    <Compile Include="Solutions\SelSolution.cs" />
+    <Compile Include="Solutions\PalletSolution.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Helpers\Texture.cs" />
+    <Compile Include="AnalysesLegacy\TruckAnalysis.cs" />
+    <Compile Include="ConstraintSets\TruckConstraintSet.cs" />
+    <Compile Include="Solutions\Solution.cs" />
+    <Compile Include="Solutions\TruckSolution.cs" />
+    <Compile Include="UnitsManager.cs" />
+    <Compile Include="Controls\UCtrlDouble.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UCtrlDouble.Designer.cs">
+      <DependentUpon>UCtrlDouble.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Sharp3D.Math\Sharp3D.Math.csproj">
+      <Project>{8F9BA4D3-D6AF-42A6-B74F-0DF6568C148B}</Project>
+      <Name>Sharp3D.Math</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TreeDim.EdgeCrushTest\treeDiM.EdgeCrushTest.csproj">
+      <Project>{E4240EE0-60B3-4435-BD09-F81D56C0899A}</Project>
+      <Name>treeDiM.EdgeCrushTest</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Schemas\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Controls\UCtrlDualDouble.resx">
+      <DependentUpon>UCtrlDualDouble.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UCtrlTriInt.resx">
+      <DependentUpon>UCtrlTriInt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UCtrlOptDouble.resx">
+      <DependentUpon>UCtrlOptDouble.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UCtrlDouble.resx">
+      <DependentUpon>UCtrlDouble.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UCtrlOptTriDouble.resx">
+      <DependentUpon>UCtrlOptTriDouble.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UCtrlTriDouble.resx">
+      <DependentUpon>UCtrlTriDouble.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="treeDiM.StackBuilder.Basics.cd" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>if $(ConfigurationName) == Release "$(SolutionDir)Signfile.bat" $(TargetPath)</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <Target Name="PostBuildEvent" Condition=" '$(PostBuildEvent)' != '' " DependsOnTargets="$(PostBuildEventDependsOn)">
+    <Exec WorkingDirectory="$(OutDir)" Command="$(PostBuildEvent)" IgnoreExitCode="true" />
+  </Target>
+</Project>

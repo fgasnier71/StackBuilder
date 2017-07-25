@@ -1,18 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Text.RegularExpressions;
 
 using log4net;
 
+using Sharp3D.Math.Core;
+
 namespace treeDiM.StackBuilder.Basics
 {
-    public class ConstraintSetCasePallet : ConstraintSetPackablePallet
+    public class ConstraintSetCaseTruck : ConstraintSetPackableTruck
     {
-        public ConstraintSetCasePallet()
-            : base()
-        { 
+        public ConstraintSetCaseTruck(IPackContainer container)
+            : base(container)
+        {
         }
 
         public override string AllowedOrientationsString
@@ -36,10 +36,23 @@ namespace treeDiM.StackBuilder.Basics
             }
         }
 
+        public Vector2D MinDistanceLoadWall { get; set; }
+
+        public double MinDistanceLoadRoof { get; set; }
+
+        public override bool Valid
+        {
+            get
+            {
+                return base.Valid
+                    && (_axesAllowed[0] || _axesAllowed[1] || _axesAllowed[2]);
+            }
+        }
+
         public override bool AllowOrientation(HalfAxis.HAxis axisOrtho)
         {
             switch (axisOrtho)
-            { 
+            {
                 case HalfAxis.HAxis.AXIS_X_N:
                 case HalfAxis.HAxis.AXIS_X_P:
                     return _axesAllowed[0];
@@ -50,23 +63,22 @@ namespace treeDiM.StackBuilder.Basics
                 case HalfAxis.HAxis.AXIS_Z_P:
                     return _axesAllowed[2];
                 default:
-                    throw new InvalidEnumArgumentException(nameof(axisOrtho), (int)axisOrtho, typeof(HalfAxis.HAxis));
+                    throw new Exception("Invalid axis");
             }
         }
 
+        // TODO - large potential for unwanted side-effects.  Should copy the array values at minimum.
         public void SetAllowedOrientations(bool[] axesAllowed)
         {
             _axesAllowed = axesAllowed;
         }
 
-        public int PalletFilmTurns { get; set; } = 0;
-
         #region Non-Public Members
 
         private bool[] _axesAllowed = new bool[] { true, true, true };
         static readonly Regex AllowedOrientationRegex = new Regex(@"(?<x>.*),(?<y>.*),(?<z>.*)", RegexOptions.Singleline | RegexOptions.Compiled);
-        static readonly ILog _log = LogManager.GetLogger(typeof(ConstraintSetCasePallet));
-
+        static readonly ILog _log = LogManager.GetLogger(typeof(ConstraintSetBoxCase));
+        
         #endregion
 
     }

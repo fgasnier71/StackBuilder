@@ -1,30 +1,15 @@
-﻿#region Using directives
-using System;
+﻿using System;
+using System.Linq;
 using System.Collections.Generic;
-using System.Text;
-#endregion
 
 namespace treeDiM.StackBuilder.Basics
 {
     public class BoxCasePalletConstraintSet
     {
-        #region Data members
-        private bool _allowAlternateLayers = true;
-        private bool _allowAlignedLayers = false;
-        private System.Collections.Specialized.StringCollection _allowedPatterns = new System.Collections.Specialized.StringCollection();
-        private bool[] _allowedOrthoAxis = new bool[6];
-        private bool _useNoSolutionsKept, _useMinimumBoxPerCase, _useMaxNumberOfItems, _useCaseMaximumWeight;
-        private int _noSolutionsKept, _minimumBoxPerCase, _maxNumberOfItems;
-        private double _maximumCaseWeight;
-        #endregion
-
-        #region Constructor
         public BoxCasePalletConstraintSet()
         { 
         }
-        #endregion
 
-        #region Validity
         public bool IsValid
         {
             get
@@ -44,25 +29,15 @@ namespace treeDiM.StackBuilder.Basics
                 return hasValidStopCriterion
                     && allowsAtLeastOneOrthoAxis
                     && _allowedPatterns.Count > 0
-                    && (!_useNoSolutionsKept || _noSolutionsKept > 0);
+                    && (!UseNumberOfSolutionsKept || _noSolutionsKept > 0);
             }
         }
-        #endregion
 
-        #region Allowed layer alignments
-        public bool AllowAlignedLayers
-        {
-            set { _allowAlignedLayers = value; }
-            get { return _allowAlignedLayers; }
-        }
-        public bool AllowAlternateLayers
-        {
-            set { _allowAlternateLayers = value; }
-            get { return _allowAlternateLayers; }
-        }
-        #endregion
+        // Allowed layer alignments
+        public bool AllowAlignedLayers { get; set; } = false;
+        public bool AllowAlternateLayers { get; set; } = true;
 
-        #region Allowed patterns
+        // Allowed patterns
         public void ClearAllowedPatterns()
         {
             _allowedPatterns.Clear();
@@ -96,9 +71,8 @@ namespace treeDiM.StackBuilder.Basics
                 return sGlobal;
             }
         }
-        #endregion
 
-        #region Allowed box axis
+        // Allowed box axis
         public bool AllowOrthoAxis(HalfAxis.HAxis orthoAxis)
         {
             return _allowedOrthoAxis[(int)orthoAxis];
@@ -111,6 +85,7 @@ namespace treeDiM.StackBuilder.Basics
         {
             get
             {
+                // TODO rewrite using String.Join
                 string sGlobal = string.Empty;
                 for (int i = 0; i < 6; ++i)
                 {
@@ -129,92 +104,58 @@ namespace treeDiM.StackBuilder.Basics
                     SetAllowedOrthoAxis(HalfAxis.Parse(sAxis), true);            
             }
         }
-        #endregion
 
-        #region Interlayer
-        public bool HasInterlayer
-        { get { return false; } }
-        public int InterlayerPeriod
-        { get { throw new NotImplementedException(); } }
-        public bool HasInterlayerAntiSlip
-        { get { return false; } }
-        #endregion
+        // Interlayer
+        public bool HasInterlayer => false;
+        public int InterlayerPeriod => throw new NotImplementedException();
+        public bool HasInterlayerAntiSlip => false;
 
-        #region Minimum number of box
-        /// <summary>
-        /// Use minimum number of box per case
-        /// </summary>
-        public bool UseMinimumNumberOfItems
-        {
-            set { _useMinimumBoxPerCase = value; }
-            get { return _useMinimumBoxPerCase; }
-        }
-        /// <summary>
-        /// Minimum number of box per case
-        /// </summary>
+        // TODO consider using int? instead of 2 properties
+        public bool UseMinimumNumberOfItems { get; set; }
         public int MinimumNumberOfItems
         {
-            set { _minimumBoxPerCase = value; }
             get { return _minimumBoxPerCase; }
+            // TODO - this pattern normally sets the corresponding UseXXXX property to true...
+            set { _minimumBoxPerCase = value; }
         }
-        #endregion
 
-        #region Maximum number of items
-        /// <summary>
-        /// Use maximum number of items
-        /// </summary>
-        public bool UseMaximumNumberOfItems
-        {
-            set { _useMaxNumberOfItems = value; }
-            get { return _useMaxNumberOfItems; }
-        }
-        /// <summary>
-        /// Maximum number of items
-        /// </summary>
+        // TODO consider using int? instead of 2 properties
+        public bool UseMaximumNumberOfItems { get; set; }
         public int MaximumNumberOfItems
         {
-            set { _maxNumberOfItems = value; }
             get { return _maxNumberOfItems; }
+            // TODO - this pattern normally sets the corresponding UseXXXX property to true...
+            set { _maxNumberOfItems = value; }
         }
-        #endregion
 
-        #region Maximum case weight
-        /// <summary>
-        /// Use maximum case weight
-        /// </summary>
-        public bool UseMaximumCaseWeight
-        {
-            set { _useCaseMaximumWeight = value; }
-            get { return _useCaseMaximumWeight; }
-        }
-        /// <summary>
-        /// Maximum case weight
-        /// </summary>
+
+        // TODO consider using double? instead of 2 properties
+        public bool UseMaximumCaseWeight { get; set; }
         public double MaximumCaseWeight
         {
-            set { _maximumCaseWeight = value;  }
             get { return _maximumCaseWeight; }
+            // TODO - this pattern normally sets the corresponding UseXXXX property to true...
+            set { _maximumCaseWeight = value;  }
         }
-        #endregion
 
-        #region Number of solutions kept
-        /// <summary>
-        /// Use number of solutions kept
-        /// </summary>
-        public bool UseNumberOfSolutionsKept
-        {
-            set { _useNoSolutionsKept = value; }
-            get { return _useNoSolutionsKept; }
-        }
+        // TODO consider using int? instead of 2 properties
+        public bool UseNumberOfSolutionsKept { get; set; }
         public int NumberOfSolutionsKept
         {
+            get { return _noSolutionsKept; }
             set
             {
-                _useNoSolutionsKept = true;
+                UseNumberOfSolutionsKept = true;
                 _noSolutionsKept = value;
             }
-            get { return _noSolutionsKept; }
         }
+
+        #region Non-Public Members
+        private System.Collections.Specialized.StringCollection _allowedPatterns = new System.Collections.Specialized.StringCollection();
+        private bool[] _allowedOrthoAxis = new bool[6];
+        private int _noSolutionsKept, _minimumBoxPerCase, _maxNumberOfItems;
+        private double _maximumCaseWeight;
         #endregion
+
     }
 }
