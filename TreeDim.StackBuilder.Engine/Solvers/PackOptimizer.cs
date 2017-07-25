@@ -120,7 +120,7 @@ namespace treeDiM.StackBuilder.Engine
                 }
             }
             // sort caseOptimSolution
-            analyses.Sort(new ComparerAnalysis());
+            analyses.Sort(new AnalysisComparer());
             return analyses;
         }
 

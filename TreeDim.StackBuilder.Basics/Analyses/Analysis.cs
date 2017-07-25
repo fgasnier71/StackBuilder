@@ -1,88 +1,35 @@
-﻿#region Using directives
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 using Sharp3D.Math.Core;
 
 using log4net;
-#endregion
 
 namespace treeDiM.StackBuilder.Basics
 {
-    #region Analysis
     public abstract class Analysis : ItemBaseNamed
     {
-        #region Data members
-        /// <summary>
-        /// Solution
-        /// </summary>
-        protected Solution _solution;
-        /// <summary>
-        /// Constraint set
-        /// </summary>
-        protected ConstraintSetAbstract _constraintSet;
-        /// <summary>
-        /// Interlayers
-        /// </summary>
-        protected List<InterlayerProperties> _interlayers;
-        /// <summary>
-        /// Content
-        /// </summary>
-        protected Packable _packable;
-        /// <summary>
-        /// Logging
-        /// </summary>
-        static readonly ILog _log = LogManager.GetLogger(typeof(Analysis));
-        /// <summary>
-        ///  Temporary
-        /// </summary>
-        private bool _temporary = false;
-        #endregion
-
-        #region Constructor
-        public Analysis(Document doc, Packable packable) : base(doc)
-        {
-            if (null == doc) SetTemporary();
-            Content = packable;
-            _interlayers = new List<InterlayerProperties>();
-        }
-        #endregion
-
-        #region ItemBase overrides
-        protected override void RemoveItselfFromDependancies()
-        {
-            base.RemoveItselfFromDependancies();
-            _packable.RemoveDependancy(this);
-            foreach (InterlayerProperties interlayer in _interlayers)
-                interlayer.RemoveDependancy(this);
-        }
-        #endregion
-
-        #region Public properties
         public Packable Content
         {
             get { return _packable; }
             set
             {
                 if (value == _packable) return;
-                if (null != _packable) _packable.RemoveDependancy(this);
+                _packable?.RemoveDependancy(this);
                 _packable = value;
-                _packable.AddDependancy(this);
+                _packable?.AddDependancy(this);
             }
         }
-        public virtual Vector3D ContentDimensions      { get { return _packable.OuterDimensions; } }
-        public virtual double ContentVolume            { get { return _packable.Volume; } }
-        public virtual double ContentWeight            { get { return _packable.Weight; } }
+        public virtual Vector3D ContentDimensions       => _packable.OuterDimensions;
+        public virtual double ContentVolume             => _packable.Volume;
+        public virtual double ContentWeight             => _packable.Weight;
 
-        public Solution Solution                        { get { return _solution; } }
-        public ConstraintSetAbstract ConstraintSet      { get { return _constraintSet; } set { _constraintSet = value; } }
-        public List<InterlayerProperties> Interlayers   { get { return _interlayers; } }
-        public virtual bool AlternateLayersPref         { get { return true; } }
-        #endregion
+        public Solution Solution                        => _solution;
+        public ConstraintSetAbstract ConstraintSet      { get; set; }
+        public List<InterlayerProperties> Interlayers   => _interlayers;
+        public virtual bool AlternateLayersPref         => true;
 
-        #region Abstract properties
         public abstract ItemBase Container              { get; }
         public abstract Vector2D ContainerDimensions    { get; }
         public abstract Vector3D Offset                 { get; }
@@ -96,25 +43,23 @@ namespace treeDiM.StackBuilder.Basics
         /// get equivalent packable
         /// </summary>
         public abstract PackableLoaded EquivalentPackable { get; }
-        #endregion
 
-        #region Abstract methods
-        public abstract BBox3D BBoxLoadWDeco(BBox3D loadBBox);
-        public abstract BBox3D BBoxGlobal(BBox3D loadBBox);
-        #endregion
-
-        #region Public methods
         public virtual bool AllowInterlayer(InterlayerProperties interlayer)
         {
             if (null == interlayer)
                 return false;
             return true;    
         }
+
         public void AddInterlayer(InterlayerProperties interlayer)
         {
             _interlayers.Add(interlayer);
             interlayer.AddDependancy(this);
         }
+
+        public abstract BBox3D BBoxLoadWDeco(BBox3D loadBBox);
+        public abstract BBox3D BBoxGlobal(BBox3D loadBBox);
+
         public void AddSolution(List<LayerDesc> layers)
         {
             _solution = new Solution(this, layers);
@@ -128,44 +73,42 @@ namespace treeDiM.StackBuilder.Basics
         }
         public void Clear()
         {
+            // TODO - intentionally empty?
         }
         public virtual InterlayerProperties Interlayer(int index)
         {
             return _interlayers[index];
         }
         public void SetTemporary() { _temporary = true; }
-        public bool Temporary { get { return _temporary; } }
-        #endregion
-    }
-    #endregion
+        public bool Temporary => _temporary;
 
-    #region Packable loaded
-    public abstract class PackableLoaded : PackableBrick
-    {
-        #region Constructor
-        public PackableLoaded(Analysis analysis)
-            : base(analysis.ParentDocument)
+        #region Non-Public Members
+
+        protected Solution _solution;
+        protected List<InterlayerProperties> _interlayers;
+        /// <summary>
+        /// Content
+        /// </summary>
+        protected Packable _packable;
+        static readonly ILog _log = LogManager.GetLogger(typeof(Analysis));
+        private bool _temporary = false;
+
+        protected Analysis(Document doc, Packable packable) : base(doc)
         {
-            _analysis = analysis;
+            if (null == doc) SetTemporary();
+            Content = packable;
+            _interlayers = new List<InterlayerProperties>();
         }
+
+        protected override void RemoveItselfFromDependancies()
+        {
+            base.RemoveItselfFromDependancies();
+            _packable.RemoveDependancy(this);
+            foreach (InterlayerProperties interlayer in _interlayers)
+                interlayer.RemoveDependancy(this);
+        }
+
         #endregion
 
-        #region ItemBase override
-        public override GlobID ID { get { return _analysis.ID; } }
-        #endregion
-
-        #region Packable override
-        public override double Weight
-        { get { return ParentSolution.Weight; } }
-        public override OptDouble NetWeight
-        { get { return ParentSolution.NetWeight; } }
-        #endregion
-
-        #region Data members
-        public Analysis ParentAnalysis      { get { return _analysis; } }
-        protected Solution ParentSolution   { get { return _analysis.Solution; } }
-        protected Analysis _analysis;
-        #endregion
     }
-    #endregion
 }

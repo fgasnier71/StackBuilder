@@ -84,8 +84,17 @@
     <Compile Include="Analyses\AnalysisBoxCase.cs" />
     <Compile Include="Analyses\AnalysisCasePallet.cs" />
     <Compile Include="Analyses\AnalysisCaseTruck.cs" />
+    <Compile Include="Analyses\AnalysisCylinderCase.cs" />
+    <Compile Include="Analyses\AnalysisCylinderPallet.cs" />
+    <Compile Include="Analyses\AnalysisPackableCase.cs" />
+    <Compile Include="Analyses\AnalysisPackablePallet.cs" />
+    <Compile Include="Analyses\AnalysisPackableTruck.cs" />
     <Compile Include="Analyses\AnalysisPalletTruck.cs" />
     <Compile Include="AnalysesLegacy\PackPalletAnalysis.cs" />
+    <Compile Include="Analyses\AnalysisComparer.cs" />
+    <Compile Include="Analyses\LoadedCase.cs" />
+    <Compile Include="Analyses\LoadedPallet.cs" />
+    <Compile Include="Analyses\PackableLoaded.cs" />
     <Compile Include="ConstraintSets\ConstraintSetAbstract.cs" />
     <Compile Include="ConstraintSets\ConstraintSetBoxCase.cs" />
     <Compile Include="ConstraintSets\ConstraintSetCasePallet.cs" />

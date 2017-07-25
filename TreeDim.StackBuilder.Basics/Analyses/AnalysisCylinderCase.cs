@@ -1,16 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace treeDiM.StackBuilder.Basics
 {
-    public class AnalysisBoxCase : AnalysisPackableCase
+    public class AnalysisCylinderCase : AnalysisPackableCase
     {
-        public AnalysisBoxCase(
+        public AnalysisCylinderCase(
             Document doc,
             Packable packable,
             BoxProperties caseProperties,
-            ConstraintSetBoxCase constraintSet)
+            ConstraintSetCylinderCase constraintSet)
             : base(doc, packable, caseProperties, constraintSet)
         {
         }
