@@ -228,7 +228,6 @@ namespace treeDiM.StackBuilder.Engine
         #endregion
 
         #region Data members
-        protected static ILog _log = LogManager.GetLogger(typeof(LayerPatternOpposed));
         #endregion
     }
 }
