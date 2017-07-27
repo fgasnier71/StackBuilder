@@ -1,0 +1,283 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2AD4C04C-5B8A-4E69-9B1C-402CB86860A7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>treeDiM.StackBuilder.Graphics</RootNamespace>
+    <AssemblyName>treeDiM.StackBuilder.Graphics</AssemblyName>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\SharedAssemblyInfo.cs">
+      <Link>Properties\SharedAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="Controls\CCtrlComboFiltered.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\CCtrlComboFiltered.Designer.cs">
+      <DependentUpon>CCtrlComboFiltered.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CCtrlComboLayer.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\CCtrlComboLayer.Designer.cs">
+      <DependentUpon>CCtrlComboLayer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ItemBaseWrapper.cs" />
+    <Compile Include="Controls\UCtrlCaseOrientation.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UCtrlCaseOrientation.Designer.cs">
+      <DependentUpon>UCtrlCaseOrientation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UCtrlLayerList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UCtrlLayerList.Designer.cs">
+      <DependentUpon>UCtrlLayerList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UCtrlPackable.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UCtrlPackable.Designer.cs">
+      <DependentUpon>UCtrlPackable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Corner.cs" />
+    <Compile Include="CylinderComparer.cs" />
+    <Compile Include="DrawableComparerSimplifiedPainterAlgo.cs" />
+    <Compile Include="Film.cs" />
+    <Compile Include="Controls\Graphics3DControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Graphics3DControl.Designer.cs">
+      <DependentUpon>Graphics3DControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ImageInst.cs" />
+    <Compile Include="IsometricBlocksOrderer.cs" />
+    <Compile Include="ItemViewers\ViewerPallet.cs" />
+    <Compile Include="LayerToImage.cs" />
+    <Compile Include="PickingList.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Ray.cs" />
+    <Compile Include="SolutionViewers\ViewerLayer.cs" />
+    <Compile Include="SolutionViewers\ViewerSolution.cs" />
+    <Compile Include="Types\Pack.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Types\Box.cs" />
+    <Compile Include="SolutionViewers\BoxCaseSolutionViewer.cs" />
+    <Compile Include="BoxComparer.cs" />
+    <Compile Include="BoxelOrderer.cs" />
+    <Compile Include="BoxToPictureBox.cs" />
+    <Compile Include="Types\Case.cs" />
+    <Compile Include="SolutionViewers\CaseDefinitionViewer.cs" />
+    <Compile Include="SolutionViewers\BoxCasePalletSolutionViewer.cs" />
+    <Compile Include="Types\Cylinder.cs" />
+    <Compile Include="Types\Drawable.cs" />
+    <Compile Include="Face.cs" />
+    <Compile Include="Graphics3D.cs" />
+    <Compile Include="Graphics2D.cs" />
+    <Compile Include="Graphics2DImage.cs" />
+    <Compile Include="Graphics3DImage.cs" />
+    <Compile Include="GraphicsException.cs" />
+    <Compile Include="Types\Interlayer.cs" />
+    <Compile Include="Types\Pallet.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="DimensionCube.cs" />
+    <Compile Include="SolutionViewers\CasePalletSolutionViewer.cs" />
+    <Compile Include="Types\PalletCap.cs" />
+    <Compile Include="Types\Truck.cs" />
+    <Compile Include="SolutionViewers\TruckSolutionViewer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Sharp3D.Math\Sharp3D.Math.csproj">
+      <Project>{8F9BA4D3-D6AF-42A6-B74F-0DF6568C148B}</Project>
+      <Name>Sharp3D.Math</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TreeDim.StackBuilder.Basics\treeDiM.StackBuilder.Basics.csproj">
+      <Project>{444C01D0-53FD-49A1-9D55-267B49161357}</Project>
+      <Name>treeDiM.StackBuilder.Basics</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Controls\CCtrlComboFiltered.resx">
+      <DependentUpon>CCtrlComboFiltered.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\CCtrlComboLayer.resx">
+      <DependentUpon>CCtrlComboLayer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UCtrlCaseOrientation.resx">
+      <DependentUpon>UCtrlCaseOrientation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Graphics3DControl.resx">
+      <DependentUpon>Graphics3DControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Graphics3DControl1.Designer.cs</LastGenOutput>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UCtrlLayerList.resx">
+      <DependentUpon>UCtrlLayerList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UCtrlPackable.resx">
+      <DependentUpon>UCtrlPackable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Rotate.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\View_1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\View_2.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\View_3.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\View_4.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\View_Top.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\View0.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\View90.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\View180.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\View270.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rotate.cur" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CotationShow.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CotationHide.bmp" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>if $(ConfigurationName) == Release "$(SolutionDir)Signfile.bat" $(TargetPath)</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <Target Name="PostBuildEvent" Condition=" '$(PostBuildEvent)' != '' " DependsOnTargets="$(PostBuildEventDependsOn)">
+    <Exec WorkingDirectory="$(OutDir)" Command="$(PostBuildEvent)" IgnoreExitCode="true" />
+  </Target>
+</Project>

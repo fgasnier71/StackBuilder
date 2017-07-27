@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ReportSchema"
+ targetNamespace="http://treeDim/StackBuilder/ReportSchema"
+ xmlns:mstns="http://treeDim/StackBuilder/ReportSchema.xsd"
+ xmlns="http://treeDim/StackBuilder/ReportSchema.xsd"
+ xmlns:xs="http://www.w3.org/2001/XMLSchema"
+ xmlns:rpt="/treeDim/StackBuilder/ReportTypes"
+ elementFormDefault="qualified">
+  <xs:import schemaLocation="ReportTypes.xsd"
+             namespace="/treeDim/StackBuilder/ReportTypes" />
+  <!-- REPORT : BEG-->
+  <xs:element name="report">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="author" type="xs:string" />
+        <xs:element name="dateOfCreation" type="xs:string" />
+        <xs:element name="companyLogo" minOccurs="0" maxOccurs="1" type="rpt:imageThumbSize"/>
+        
+        <!-- ANALYSIS : BEG -->
+        <xs:element name="analysis" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="name" type="xs:string"/>
+              <xs:element name="description" type="xs:string"/>
+              <xs:element name="box" minOccurs="0" maxOccurs="1" type="rpt:box"/>
+              <xs:element name="caseWithInnerDims" minOccurs="0" maxOccurs="unbounded" type="rpt:case"/>
+              <xs:element name="bundle" minOccurs="0" maxOccurs="1" type="rpt:bundle"/>
+              <xs:element name="pack" minOccurs="0" maxOccurs="1" type="rpt:pack"/>
+              <xs:element name="cylinder" minOccurs="0" maxOccurs="1" type="rpt:cylinder"/>
+              <xs:element name="pallet" minOccurs="0" maxOccurs="1" type="rpt:pallet"/>
+              <xs:element name="truck" minOccurs="0" maxOccurs="1" type="rpt:truck"/>
+              <xs:element name="interlayer" minOccurs="0" maxOccurs="unbounded" type="rpt:interlayer"/>
+              <xs:element name="palletCorner" minOccurs="0" maxOccurs="1" type="rpt:palletCorner"/>
+              <xs:element name="palletCap" minOccurs="0" maxOccurs="1" type="rpt:palletCap"/>
+              <xs:element name="palletFilm" minOccurs="0" maxOccurs="1" type="rpt:palletFilm"/>
+              <xs:element name="constraintSet" minOccurs="0" maxOccurs="1" type="rpt:contraintSet"/>
+              <xs:element name="solution" minOccurs="0" maxOccurs="1" type="rpt:solution"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <!-- ANALYSIS : END-->        
+        <!-- TRUCKANALYSIS : BEG-->
+        <xs:element name="truckAnalysis" minOccurs="0" maxOccurs="1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="name" type="xs:string"/>
+              <xs:element name="description" type="xs:string"/>
+              <xs:element name="truck" minOccurs="1" maxOccurs="1" type="rpt:truck"/>
+              <xs:element name="truckSolution" minOccurs="1" maxOccurs="1">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="title" type="xs:string"/>
+                    <xs:element name="palletCount" type="xs:string"/>
+                    <xs:element name="caseCount" type="xs:string"/>
+                    <xs:element name="loadWeight" minOccurs="1" maxOccurs="1">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="unit" type="xs:string"/>
+                          <xs:element name="value" type="xs:string"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="loadEfficiency" type="xs:string"/>
+                    <xs:element name="volumeEfficiency" type="xs:string"/>
+                    <xs:element name="view_trucksolution_top" type="xs:string"/>
+                    <xs:element name="view_trucksolution_iso" type="xs:string"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <!-- TRUCKANALYSIS : END-->
+        <!-- ECT ANALYSIS : BEG-->
+        <xs:element name="ectAnalysis" minOccurs="0" maxOccurs="1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="name" type="xs:string"/>
+              <xs:element name="description" type="xs:string"/>
+              <xs:element name="cardboard" minOccurs="1" maxOccurs="1">
+                <xs:complexType >
+                  <xs:sequence>
+                    <xs:element name="name" type="xs:string"/>
+                    <xs:element name="thickness" minOccurs="1" maxOccurs="1">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="unit" type="xs:string"/>
+                          <xs:element name="value" type="xs:string"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="ect" type="xs:string"/>
+                    <xs:element name="stiffnessX" type="xs:string"/>
+                    <xs:element name="stiffnessY" type="xs:string"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="caseType" type="xs:string"/>
+              <xs:element name="printedSurface" type="xs:string"/>
+              <xs:element name="mcKeeFormulaMode" type="xs:string"/>
+              <xs:element name="bct_static">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="static_value" type="xs:string"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="bct_dynamic" minOccurs="1" maxOccurs="1">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="bct_dynamic_storage" minOccurs="0" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="duration" type="xs:string"/>
+                          <xs:element name="humidity_0_45" type="xs:string"/>
+                          <xs:element name="humidity_46_55" type="xs:string"/>
+                          <xs:element name="humidity_56_65" type="xs:string"/>
+                          <xs:element name="humidity_66_75" type="xs:string"/>
+                          <xs:element name="humidity_76_85" type="xs:string"/>
+                          <xs:element name="humidity_86_100" type="xs:string"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <!-- ECT ANALYSIS : END-->
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <!-- REPORT : END-->
+</xs:schema>

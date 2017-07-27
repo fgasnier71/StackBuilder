@@ -1,0 +1,1760 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A8A2C6D7-58CF-4DA2-A754-C9686173B5EE}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>treeDiM.StackBuilder.Desktop</RootNamespace>
+    <AssemblyName>treeDiM.StackBuilder.Desktop</AssemblyName>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <StartupObject>treeDiM.StackBuilder.Desktop.Program</StartupObject>
+    <ApplicationIcon>treeDim.ico</ApplicationIcon>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <PublishUrl>ftp://plmpack.com/public/www/stackbuilder/ClickOnce/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>true</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <InstallUrl>http://www.plmpack.com/stackbuilder/ClickOnce/</InstallUrl>
+    <ProductName>StackBuilder</ProductName>
+    <PublisherName>treeDiM</PublisherName>
+    <SuiteName>PLMPack</SuiteName>
+    <MinimumRequiredVersion>3.0.0.0</MinimumRequiredVersion>
+    <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
+    <WebPage>publish.htm</WebPage>
+    <ApplicationRevision>35</ApplicationRevision>
+    <ApplicationVersion>3.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\treeDiM.StackBuilder.Desktop.xml</DocumentationFile>
+    <NoWarn>1591</NoWarn>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>CDA7627C161DB03A5953043237AB1240E2C9CDC5</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>
+    </ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestTimestampUrl>http://timestamp.comodoca.com/authenticode</ManifestTimestampUrl>
+  </PropertyGroup>
+  <PropertyGroup>
+    <DelaySign>false</DelaySign>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup Condition="'$(BuildingInsideVisualStudio)' == 'true'">
+  </PropertyGroup>
+  <!-- Required Import to use MSBuild Community Tasks -->
+  <Target Name="BeforeCompile" Condition="'$(BuildingInsideVisualStudio)|$(Configuration)' == 'true|Release'">
+    <FormatVersion Version="$(ApplicationVersion)" Revision="$(ApplicationRevision)">
+      <Output TaskParameter="OutputVersion" PropertyName="AssemblyVersionToUse" />
+    </FormatVersion>
+    <AssemblyInfo CodeLanguage="CS" OutputFile="$(ProjectDir)..\SharedAssemblyInfo.cs" AssemblyVersion="$(AssemblyVersionToUse)" AssemblyFileVersion="$(AssemblyVersionToUse)" />
+  </Target>
+  <ItemGroup>
+    <Reference Include="CrashReporter.NET, Version=1.5.1.0, Culture=neutral, PublicKeyToken=986591a91592b7e6, processorArchitecture=MSIL">
+      <HintPath>..\packages\CrashReporter.NET.Official.1.5.1\lib\net40\CrashReporter.NET.dll</HintPath>
+    </Reference>
+    <Reference Include="Cureos.Measures">
+      <HintPath>..\ThirdPartyAssemblies\Cureos.Measures.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PropertyGridEx, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PropertyGridEx.1.0.0\lib\net20\PropertyGridEx.dll</HintPath>
+    </Reference>
+    <Reference Include="SourceGrid, Version=4.40.4580.29115, Culture=neutral, PublicKeyToken=df6f5e538749e85d, processorArchitecture=MSIL">
+      <HintPath>..\packages\SourceGrid.4.4.0\lib\net35\SourceGrid.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="treeDiM.PLMPack.DBClient, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ThirdPartyAssemblies\treeDiM.PLMPack.DBClient.dll</HintPath>
+    </Reference>
+    <Reference Include="WeifenLuo.WinFormsUI.Docking, Version=2.16.0.0, Culture=neutral, PublicKeyToken=5cded1a1a0a7b481, processorArchitecture=MSIL">
+      <HintPath>..\packages\DockPanelSuite.2.16.0\lib\net40\WeifenLuo.WinFormsUI.Docking.dll</HintPath>
+    </Reference>
+    <Reference Include="WeifenLuo.WinFormsUI.Docking.ThemeVS2015, Version=2.16.0.0, Culture=neutral, PublicKeyToken=5cded1a1a0a7b481, processorArchitecture=MSIL">
+      <HintPath>..\packages\DockPanelSuite.ThemeVS2015.2.16.0\lib\net40\WeifenLuo.WinFormsUI.Docking.ThemeVS2015.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\SharedAssemblyInfo.cs">
+      <Link>Properties\SharedAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="AboutBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AboutBox.Designer.cs">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AnalysisTreeView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="AnalysisTreeView.Designer.cs">
+      <DependentUpon>AnalysisTreeView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CellBackColorAlternate.cs" />
+    <Compile Include="CheckedListBoxWithImage.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CheckedListBoxWithImage.Designer.cs">
+      <DependentUpon>CheckedListBoxWithImage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ComboBoxItems.cs" />
+    <Compile Include="DockContentAnalysisBoxCase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DockContentAnalysisBoxCase.Designer.cs">
+      <DependentUpon>DockContentAnalysisBoxCase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DockContentAnalysisCasePallet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DockContentAnalysisCasePallet.Designer.cs">
+      <DependentUpon>DockContentAnalysisCasePallet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DockContentAnalysisCaseTruck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DockContentAnalysisCaseTruck.Designer.cs">
+      <DependentUpon>DockContentAnalysisCaseTruck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DockContentAnalysisCylinderCase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DockContentAnalysisCylinderCase.Designer.cs">
+      <DependentUpon>DockContentAnalysisCylinderCase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DockContentAnalysisCylinderPallet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DockContentAnalysisCylinderPallet.Designer.cs">
+      <DependentUpon>DockContentAnalysisCylinderPallet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DockContentAnalysisEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DockContentAnalysisEdit.Designer.cs">
+      <DependentUpon>DockContentAnalysisEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DockContentAnalysisPalletTruck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DockContentAnalysisPalletTruck.Designer.cs">
+      <DependentUpon>DockContentAnalysisPalletTruck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DockContentDocumentExplorer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DockContentDocumentExplorer.Designer.cs">
+      <DependentUpon>DockContentDocumentExplorer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DockContentECTAnalysis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DockContentECTAnalysis.Designer.cs">
+      <DependentUpon>DockContentECTAnalysis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DockContentLogConsole.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DockContentLogConsole.Designer.cs">
+      <DependentUpon>DockContentLogConsole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DockContentStartPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DockContentStartPage.Designer.cs">
+      <DependentUpon>DockContentStartPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DockContentView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DockContentView.Designer.cs">
+      <DependentUpon>DockContentView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DocumentSB.cs" />
+    <Compile Include="FileAssociation.cs" />
+    <Compile Include="FormAppendSolutionToDB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAppendSolutionToDB.Designer.cs">
+      <DependentUpon>FormAppendSolutionToDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormEditBitmaps.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEditBitmaps.Designer.cs">
+      <DependentUpon>FormEditBitmaps.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormEditPalletSolutionDB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEditPalletSolutionDB.Designer.cs">
+      <DependentUpon>FormEditPalletSolutionDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormExcelLibrary.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormExcelLibrary.Designer.cs">
+      <DependentUpon>FormExcelLibrary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNewAnalysis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNewAnalysis.Designer.cs">
+      <DependentUpon>FormNewAnalysis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNewAnalysisCaseTruck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNewAnalysisCaseTruck.Designer.cs">
+      <DependentUpon>FormNewAnalysisCaseTruck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNewAnalysisCylinderCase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNewAnalysisCylinderCase.Designer.cs">
+      <DependentUpon>FormNewAnalysisCylinderCase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNewAnalysisCylinderPallet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNewAnalysisCylinderPallet.Designer.cs">
+      <DependentUpon>FormNewAnalysisCylinderPallet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNewAnalysisBoxCase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNewAnalysisBoxCase.Designer.cs">
+      <DependentUpon>FormNewAnalysisBoxCase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNewAnalysisBundle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNewAnalysisBundle.Designer.cs">
+      <DependentUpon>FormNewAnalysisBundle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNewAnalysisCasePallet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNewAnalysisCasePallet.Designer.cs">
+      <DependentUpon>FormNewAnalysisCasePallet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNewAnalysisCylinder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNewAnalysisCylinder.Designer.cs">
+      <DependentUpon>FormNewAnalysisCylinder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNewAnalysisHCylinder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNewAnalysisHCylinder.Designer.cs">
+      <DependentUpon>FormNewAnalysisHCylinder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNewAnalysisPalletTruck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNewAnalysisPalletTruck.Designer.cs">
+      <DependentUpon>FormNewAnalysisPalletTruck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNewBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNewBase.Designer.cs">
+      <DependentUpon>FormNewBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNewBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNewBox.Designer.cs">
+      <DependentUpon>FormNewBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNewBundle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNewBundle.Designer.cs">
+      <DependentUpon>FormNewBundle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNewCaseAnalysis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNewCaseAnalysis.Designer.cs">
+      <DependentUpon>FormNewCaseAnalysis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNewCaseOfBoxes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNewCaseOfBoxes.Designer.cs">
+      <DependentUpon>FormNewCaseOfBoxes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNewCylinder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNewCylinder.Designer.cs">
+      <DependentUpon>FormNewCylinder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNewDocument.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNewDocument.Designer.cs">
+      <DependentUpon>FormNewDocument.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNewInterlayer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNewInterlayer.Designer.cs">
+      <DependentUpon>FormNewInterlayer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNewPack.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNewPack.Designer.cs">
+      <DependentUpon>FormNewPack.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNewAnalysisPackPallet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNewAnalysisPackPallet.Designer.cs">
+      <DependentUpon>FormNewAnalysisPackPallet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNewPallet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNewPallet.Designer.cs">
+      <DependentUpon>FormNewPallet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMain.Designer.cs">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNewPalletCap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNewPalletCap.Designer.cs">
+      <DependentUpon>FormNewPalletCap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNewPalletCorners.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNewPalletCorners.Designer.cs">
+      <DependentUpon>FormNewPalletCorners.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNewPalletFilm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNewPalletFilm.Designer.cs">
+      <DependentUpon>FormNewPalletFilm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNewTruck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNewTruck.Designer.cs">
+      <DependentUpon>FormNewTruck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormOptimiseMultiCase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormOptimiseMultiCase.Designer.cs">
+      <DependentUpon>FormOptimiseMultiCase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormOptimizeCase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormOptimizeCase.Designer.cs">
+      <DependentUpon>FormOptimizeCase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormOptimizeCase.es-ES.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FormOptimizeCase.es-ES.resx</DependentUpon>
+    </Compile>
+    <Compile Include="FormOptimizePack.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormOptimizePack.Designer.cs">
+      <DependentUpon>FormOptimizePack.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSetItemName.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSetItemName.Designer.cs">
+      <DependentUpon>FormSetItemName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormShowDatabase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormShowDatabase.Designer.cs">
+      <DependentUpon>FormShowDatabase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormValidTypeName.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormValidTypeName.Designer.cs">
+      <DependentUpon>FormValidTypeName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IDocument.cs" />
+    <Compile Include="IDocumentFactory.cs" />
+    <Compile Include="IView.cs" />
+    <Compile Include="ListBoxImages.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ListBoxImages.Designer.cs">
+      <DependentUpon>ListBoxImages.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MruManager.cs" />
+    <Compile Include="OptionPanels\OptionPanelDatabase.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="OptionPanels\OptionPanelDatabase.Designer.cs">
+      <DependentUpon>OptionPanelDatabase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OptionPanels\OptionPanelDebugging.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="OptionPanels\OptionPanelDebugging.Designer.cs">
+      <DependentUpon>OptionPanelDebugging.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OptionPanels\OptionPanelDimensions.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="OptionPanels\OptionPanelDimensions.Designer.cs">
+      <DependentUpon>OptionPanelDimensions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OptionPanels\OptionPanelLayerListCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="OptionPanels\OptionPanelLayerListCtrl.Designer.cs">
+      <DependentUpon>OptionPanelLayerListCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OptionPanels\OptionPanelPlugins.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="OptionPanels\OptionPanelPlugins.Designer.cs">
+      <DependentUpon>OptionPanelPlugins.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OptionPanels\OptionPanelReporting.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="OptionPanels\OptionPanelReporting.Designer.cs">
+      <DependentUpon>OptionPanelReporting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OptionPanels\FormOptionsSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OptionPanels\FormOptionsSettings.Designer.cs">
+      <DependentUpon>FormOptionsSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OptionPanels\OptionPanelUnits.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="OptionPanels\OptionPanelUnits.Designer.cs">
+      <DependentUpon>OptionPanelUnits.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AboutBox.ca-ES.resx">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AboutBox.de-DE.resx">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AboutBox.es-ES.resx">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AboutBox.fr-FR.resx">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AboutBox.it-IT.resx">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AboutBox.ja-JP.resx">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AboutBox.nl-NL.resx">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AboutBox.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>AboutBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AnalysisTreeView.resx">
+      <DependentUpon>AnalysisTreeView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CheckedListBoxWithImage.ca-ES.resx">
+      <DependentUpon>CheckedListBoxWithImage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CheckedListBoxWithImage.de-DE.resx">
+      <DependentUpon>CheckedListBoxWithImage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CheckedListBoxWithImage.es-ES.resx">
+      <DependentUpon>CheckedListBoxWithImage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CheckedListBoxWithImage.it-IT.resx">
+      <DependentUpon>CheckedListBoxWithImage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CheckedListBoxWithImage.nl-NL.resx">
+      <DependentUpon>CheckedListBoxWithImage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CheckedListBoxWithImage.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>CheckedListBoxWithImage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentAnalysisBoxCase.fr-FR.resx">
+      <DependentUpon>DockContentAnalysisBoxCase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentAnalysisBoxCase.resx">
+      <DependentUpon>DockContentAnalysisBoxCase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentAnalysisCasePallet.fr-FR.resx">
+      <DependentUpon>DockContentAnalysisCasePallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentAnalysisCasePallet.resx">
+      <DependentUpon>DockContentAnalysisCasePallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentAnalysisCaseTruck.resx">
+      <DependentUpon>DockContentAnalysisCaseTruck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentAnalysisCylinderCase.fr-FR.resx">
+      <DependentUpon>DockContentAnalysisCylinderCase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentAnalysisCylinderCase.resx">
+      <DependentUpon>DockContentAnalysisCylinderCase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentAnalysisCylinderPallet.resx">
+      <DependentUpon>DockContentAnalysisCylinderPallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentAnalysisEdit.fr-FR.resx">
+      <DependentUpon>DockContentAnalysisEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentAnalysisEdit.resx">
+      <DependentUpon>DockContentAnalysisEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentAnalysisPalletTruck.fr-FR.resx">
+      <DependentUpon>DockContentAnalysisPalletTruck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentAnalysisPalletTruck.resx">
+      <DependentUpon>DockContentAnalysisPalletTruck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentDocumentExplorer.ca-ES.resx">
+      <DependentUpon>DockContentDocumentExplorer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentDocumentExplorer.de-DE.resx">
+      <DependentUpon>DockContentDocumentExplorer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentDocumentExplorer.es-ES.resx">
+      <DependentUpon>DockContentDocumentExplorer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentDocumentExplorer.it-IT.resx">
+      <DependentUpon>DockContentDocumentExplorer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentDocumentExplorer.nl-NL.resx">
+      <DependentUpon>DockContentDocumentExplorer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentDocumentExplorer.resx">
+      <DependentUpon>DockContentDocumentExplorer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentECTAnalysis.ca-ES.resx">
+      <DependentUpon>DockContentECTAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentECTAnalysis.de-DE.resx">
+      <DependentUpon>DockContentECTAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentECTAnalysis.es-ES.resx">
+      <DependentUpon>DockContentECTAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentECTAnalysis.fr-FR.resx">
+      <DependentUpon>DockContentECTAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentECTAnalysis.it-IT.resx">
+      <DependentUpon>DockContentECTAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentECTAnalysis.ja-JP.resx">
+      <DependentUpon>DockContentECTAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentECTAnalysis.nl-NL.resx">
+      <DependentUpon>DockContentECTAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentECTAnalysis.resx">
+      <DependentUpon>DockContentECTAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentLogConsole.ca-ES.resx">
+      <DependentUpon>DockContentLogConsole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentLogConsole.es-ES.resx">
+      <DependentUpon>DockContentLogConsole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentLogConsole.it-IT.resx">
+      <DependentUpon>DockContentLogConsole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentLogConsole.nl-NL.resx">
+      <DependentUpon>DockContentLogConsole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentLogConsole.resx">
+      <DependentUpon>DockContentLogConsole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentStartPage.resx">
+      <DependentUpon>DockContentStartPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentView.resx">
+      <DependentUpon>DockContentView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAppendSolutionToDB.ca-ES.resx">
+      <DependentUpon>FormAppendSolutionToDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAppendSolutionToDB.de-DE.resx">
+      <DependentUpon>FormAppendSolutionToDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAppendSolutionToDB.es-ES.resx">
+      <DependentUpon>FormAppendSolutionToDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAppendSolutionToDB.fr-FR.resx">
+      <DependentUpon>FormAppendSolutionToDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAppendSolutionToDB.it-IT.resx">
+      <DependentUpon>FormAppendSolutionToDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAppendSolutionToDB.ja-JP.resx">
+      <DependentUpon>FormAppendSolutionToDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAppendSolutionToDB.nl-NL.resx">
+      <DependentUpon>FormAppendSolutionToDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAppendSolutionToDB.resx">
+      <DependentUpon>FormAppendSolutionToDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEditBitmaps.ca-ES.resx">
+      <DependentUpon>FormEditBitmaps.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEditBitmaps.de-DE.resx">
+      <DependentUpon>FormEditBitmaps.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEditBitmaps.es-ES.resx">
+      <DependentUpon>FormEditBitmaps.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEditBitmaps.fr-FR.resx">
+      <DependentUpon>FormEditBitmaps.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEditBitmaps.it-IT.resx">
+      <DependentUpon>FormEditBitmaps.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEditBitmaps.ja-JP.resx">
+      <DependentUpon>FormEditBitmaps.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEditBitmaps.nl-NL.resx">
+      <DependentUpon>FormEditBitmaps.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEditBitmaps.resx">
+      <DependentUpon>FormEditBitmaps.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEditPalletSolutionDB.ca-ES.resx">
+      <DependentUpon>FormEditPalletSolutionDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEditPalletSolutionDB.de-DE.resx">
+      <DependentUpon>FormEditPalletSolutionDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEditPalletSolutionDB.es-ES.resx">
+      <DependentUpon>FormEditPalletSolutionDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEditPalletSolutionDB.fr-FR.resx">
+      <DependentUpon>FormEditPalletSolutionDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEditPalletSolutionDB.it-IT.resx">
+      <DependentUpon>FormEditPalletSolutionDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEditPalletSolutionDB.ja-JP.resx">
+      <DependentUpon>FormEditPalletSolutionDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEditPalletSolutionDB.nl-NL.resx">
+      <DependentUpon>FormEditPalletSolutionDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEditPalletSolutionDB.resx">
+      <DependentUpon>FormEditPalletSolutionDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormExcelLibrary.resx">
+      <DependentUpon>FormExcelLibrary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMain.ca-ES.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMain.de-DE.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMain.es-ES.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMain.fr-FR.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMain.it-IT.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMain.ja-JP.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMain.nl-NL.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysis.fr-FR.resx">
+      <DependentUpon>FormNewAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysis.resx">
+      <DependentUpon>FormNewAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisCaseTruck.es-ES.resx">
+      <DependentUpon>FormNewAnalysisCaseTruck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisCaseTruck.fr-FR.resx">
+      <DependentUpon>FormNewAnalysisCaseTruck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisCaseTruck.resx">
+      <DependentUpon>FormNewAnalysisCaseTruck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisCylinderCase.resx">
+      <DependentUpon>FormNewAnalysisCylinderCase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisCylinderPallet.fr-FR.resx">
+      <DependentUpon>FormNewAnalysisCylinderPallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisCylinderPallet.resx">
+      <DependentUpon>FormNewAnalysisCylinderPallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisBoxCase.resx">
+      <DependentUpon>FormNewAnalysisBoxCase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisBundle.ca-ES.resx">
+      <DependentUpon>FormNewAnalysisBundle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisBundle.de-DE.resx">
+      <DependentUpon>FormNewAnalysisBundle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisBundle.es-ES.resx">
+      <DependentUpon>FormNewAnalysisBundle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisBundle.fr-FR.resx">
+      <DependentUpon>FormNewAnalysisBundle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisBundle.it-IT.resx">
+      <DependentUpon>FormNewAnalysisBundle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisBundle.ja-JP.resx">
+      <DependentUpon>FormNewAnalysisBundle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisBundle.nl-NL.resx">
+      <DependentUpon>FormNewAnalysisBundle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisBundle.resx">
+      <DependentUpon>FormNewAnalysisBundle.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisCasePallet.resx">
+      <DependentUpon>FormNewAnalysisCasePallet.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisCylinder.de-DE.resx">
+      <DependentUpon>FormNewAnalysisCylinder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisCylinder.es-ES.resx">
+      <DependentUpon>FormNewAnalysisCylinder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisCylinder.fr-FR.resx">
+      <DependentUpon>FormNewAnalysisCylinder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisCylinder.it-IT.resx">
+      <DependentUpon>FormNewAnalysisCylinder.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisCylinder.ja-JP.resx">
+      <DependentUpon>FormNewAnalysisCylinder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisCylinder.resx">
+      <DependentUpon>FormNewAnalysisCylinder.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisHCylinder.de-DE.resx">
+      <DependentUpon>FormNewAnalysisHCylinder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisHCylinder.es-ES.resx">
+      <DependentUpon>FormNewAnalysisHCylinder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisHCylinder.fr-FR.resx">
+      <DependentUpon>FormNewAnalysisHCylinder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisHCylinder.it-IT.resx">
+      <DependentUpon>FormNewAnalysisHCylinder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisHCylinder.ja-JP.resx">
+      <DependentUpon>FormNewAnalysisHCylinder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisHCylinder.resx">
+      <DependentUpon>FormNewAnalysisHCylinder.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisPackPallet.de-DE.resx">
+      <DependentUpon>FormNewAnalysisPackPallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisPackPallet.es-ES.resx">
+      <DependentUpon>FormNewAnalysisPackPallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisPackPallet.fr-FR.resx">
+      <DependentUpon>FormNewAnalysisPackPallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisPackPallet.it-IT.resx">
+      <DependentUpon>FormNewAnalysisPackPallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisPackPallet.ja-JP.resx">
+      <DependentUpon>FormNewAnalysisPackPallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisPalletTruck.es-ES.resx">
+      <DependentUpon>FormNewAnalysisPalletTruck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisPalletTruck.fr-FR.resx">
+      <DependentUpon>FormNewAnalysisPalletTruck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisPalletTruck.resx">
+      <DependentUpon>FormNewAnalysisPalletTruck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewBase.de-DE.resx">
+      <DependentUpon>FormNewBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewBase.es-ES.resx">
+      <DependentUpon>FormNewBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewBase.fr-FR.resx">
+      <DependentUpon>FormNewBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewBase.it-IT.resx">
+      <DependentUpon>FormNewBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewBase.ja-JP.resx">
+      <DependentUpon>FormNewBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewBase.resx">
+      <DependentUpon>FormNewBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewBox.ca-ES.resx">
+      <DependentUpon>FormNewBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewBox.de-DE.resx">
+      <DependentUpon>FormNewBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewBox.es-ES.resx">
+      <DependentUpon>FormNewBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewBox.fr-FR.resx">
+      <DependentUpon>FormNewBox.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewBox.it-IT.resx">
+      <DependentUpon>FormNewBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewBox.ja-JP.resx">
+      <DependentUpon>FormNewBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewBox.nl-NL.resx">
+      <DependentUpon>FormNewBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewBox.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormNewBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewBundle.ca-ES.resx">
+      <DependentUpon>FormNewBundle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewBundle.de-DE.resx">
+      <DependentUpon>FormNewBundle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewBundle.es-ES.resx">
+      <DependentUpon>FormNewBundle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewBundle.fr-FR.resx">
+      <DependentUpon>FormNewBundle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewBundle.it-IT.resx">
+      <DependentUpon>FormNewBundle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewBundle.ja-JP.resx">
+      <DependentUpon>FormNewBundle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewBundle.nl-NL.resx">
+      <DependentUpon>FormNewBundle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewBundle.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormNewBundle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewCaseAnalysis.ca-ES.resx">
+      <DependentUpon>FormNewCaseAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewCaseAnalysis.de-DE.resx">
+      <DependentUpon>FormNewCaseAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewCaseAnalysis.es-ES.resx">
+      <DependentUpon>FormNewCaseAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewCaseAnalysis.fr-FR.resx">
+      <DependentUpon>FormNewCaseAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewCaseAnalysis.it-IT.resx">
+      <DependentUpon>FormNewCaseAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewCaseAnalysis.ja-JP.resx">
+      <DependentUpon>FormNewCaseAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewCaseAnalysis.nl-NL.resx">
+      <DependentUpon>FormNewCaseAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewCaseAnalysis.resx">
+      <DependentUpon>FormNewCaseAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewCaseOfBoxes.ca-ES.resx">
+      <DependentUpon>FormNewCaseOfBoxes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewCaseOfBoxes.de-DE.resx">
+      <DependentUpon>FormNewCaseOfBoxes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewCaseOfBoxes.es-ES.resx">
+      <DependentUpon>FormNewCaseOfBoxes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewCaseOfBoxes.fr-FR.resx">
+      <DependentUpon>FormNewCaseOfBoxes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewCaseOfBoxes.it-IT.resx">
+      <DependentUpon>FormNewCaseOfBoxes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewCaseOfBoxes.ja-JP.resx">
+      <DependentUpon>FormNewCaseOfBoxes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewCaseOfBoxes.nl-NL.resx">
+      <DependentUpon>FormNewCaseOfBoxes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewCaseOfBoxes.resx">
+      <DependentUpon>FormNewCaseOfBoxes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewCylinder.de-DE.resx">
+      <DependentUpon>FormNewCylinder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewCylinder.es-ES.resx">
+      <DependentUpon>FormNewCylinder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewCylinder.fr-FR.resx">
+      <DependentUpon>FormNewCylinder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewCylinder.it-IT.resx">
+      <DependentUpon>FormNewCylinder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewCylinder.ja-JP.resx">
+      <DependentUpon>FormNewCylinder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewCylinder.resx">
+      <DependentUpon>FormNewCylinder.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewDocument.ca-ES.resx">
+      <DependentUpon>FormNewDocument.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewDocument.de-DE.resx">
+      <DependentUpon>FormNewDocument.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewDocument.es-ES.resx">
+      <DependentUpon>FormNewDocument.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewDocument.fr-FR.resx">
+      <DependentUpon>FormNewDocument.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewDocument.it-IT.resx">
+      <DependentUpon>FormNewDocument.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewDocument.ja-JP.resx">
+      <DependentUpon>FormNewDocument.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewDocument.nl-NL.resx">
+      <DependentUpon>FormNewDocument.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewDocument.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormNewDocument.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewInterlayer.ca-ES.resx">
+      <DependentUpon>FormNewInterlayer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewInterlayer.de-DE.resx">
+      <DependentUpon>FormNewInterlayer.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewInterlayer.es-ES.resx">
+      <DependentUpon>FormNewInterlayer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewInterlayer.fr-FR.resx">
+      <DependentUpon>FormNewInterlayer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewInterlayer.it-IT.resx">
+      <DependentUpon>FormNewInterlayer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewInterlayer.ja-JP.resx">
+      <DependentUpon>FormNewInterlayer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewInterlayer.nl-NL.resx">
+      <DependentUpon>FormNewInterlayer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewInterlayer.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormNewInterlayer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewPack.de-DE.resx">
+      <DependentUpon>FormNewPack.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewPack.es-ES.resx">
+      <DependentUpon>FormNewPack.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewPack.fr-FR.resx">
+      <DependentUpon>FormNewPack.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewPack.it-IT.resx">
+      <DependentUpon>FormNewPack.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewPack.ja-JP.resx">
+      <DependentUpon>FormNewPack.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewPack.resx">
+      <DependentUpon>FormNewPack.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisPackPallet.resx">
+      <DependentUpon>FormNewAnalysisPackPallet.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewPallet.ca-ES.resx">
+      <DependentUpon>FormNewPallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewPallet.de-DE.resx">
+      <DependentUpon>FormNewPallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewPallet.es-ES.resx">
+      <DependentUpon>FormNewPallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewPallet.fr-FR.resx">
+      <DependentUpon>FormNewPallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewPallet.it-IT.resx">
+      <DependentUpon>FormNewPallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewPallet.ja-JP.resx">
+      <DependentUpon>FormNewPallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewPallet.nl-NL.resx">
+      <DependentUpon>FormNewPallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewPallet.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormNewPallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMain.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewPalletCap.fr-FR.resx">
+      <DependentUpon>FormNewPalletCap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewPalletCap.resx">
+      <DependentUpon>FormNewPalletCap.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewPalletCorners.resx">
+      <DependentUpon>FormNewPalletCorners.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewPalletFilm.resx">
+      <DependentUpon>FormNewPalletFilm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewTruck.ca-ES.resx">
+      <DependentUpon>FormNewTruck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewTruck.de-DE.resx">
+      <DependentUpon>FormNewTruck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewTruck.es-ES.resx">
+      <DependentUpon>FormNewTruck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewTruck.fr-FR.resx">
+      <DependentUpon>FormNewTruck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewTruck.it-IT.resx">
+      <DependentUpon>FormNewTruck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewTruck.ja-JP.resx">
+      <DependentUpon>FormNewTruck.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewTruck.nl-NL.resx">
+      <DependentUpon>FormNewTruck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewTruck.resx">
+      <DependentUpon>FormNewTruck.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormOptimiseMultiCase.fr-FR.resx">
+      <DependentUpon>FormOptimiseMultiCase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormOptimiseMultiCase.resx">
+      <DependentUpon>FormOptimiseMultiCase.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormOptimizeCase.ca-ES.resx">
+      <DependentUpon>FormOptimizeCase.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormOptimizeCase.de-DE.resx">
+      <DependentUpon>FormOptimizeCase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormOptimizeCase.es-ES.resx">
+      <DependentUpon>FormOptimizeCase.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormOptimizeCase.fr-FR.resx">
+      <DependentUpon>FormOptimizeCase.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormOptimizeCase.it-IT.resx">
+      <DependentUpon>FormOptimizeCase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormOptimizeCase.ja-JP.resx">
+      <DependentUpon>FormOptimizeCase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormOptimizeCase.nl-NL.resx">
+      <DependentUpon>FormOptimizeCase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormOptimizeCase.resx">
+      <DependentUpon>FormOptimizeCase.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormOptimizePack.resx">
+      <DependentUpon>FormOptimizePack.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSetItemName.resx">
+      <DependentUpon>FormSetItemName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormShowDatabase.fr-FR.resx">
+      <DependentUpon>FormShowDatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormShowDatabase.resx">
+      <DependentUpon>FormShowDatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSplashScreen.de-DE.resx">
+      <DependentUpon>FormSplashScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSplashScreen.it-IT.resx">
+      <DependentUpon>FormSplashScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSplashScreen.nl-NL.resx">
+      <DependentUpon>FormSplashScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormValidTypeName.resx">
+      <DependentUpon>FormValidTypeName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OptionPanels\OptionPanelDatabase.resx">
+      <DependentUpon>OptionPanelDatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OptionPanels\OptionPanelDebugging.de-DE.resx">
+      <DependentUpon>OptionPanelDebugging.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OptionPanels\OptionPanelDebugging.fr-FR.resx">
+      <DependentUpon>OptionPanelDebugging.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OptionPanels\OptionPanelDebugging.it-IT.resx">
+      <DependentUpon>OptionPanelDebugging.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OptionPanels\OptionPanelDebugging.ja-JP.resx">
+      <DependentUpon>OptionPanelDebugging.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OptionPanels\OptionPanelDebugging.resx">
+      <DependentUpon>OptionPanelDebugging.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OptionPanels\OptionPanelDimensions.de-DE.resx">
+      <DependentUpon>OptionPanelDimensions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OptionPanels\OptionPanelDimensions.es-ES.resx">
+      <DependentUpon>OptionPanelDimensions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OptionPanels\OptionPanelDimensions.fr-FR.resx">
+      <DependentUpon>OptionPanelDimensions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OptionPanels\OptionPanelDimensions.it-IT.resx">
+      <DependentUpon>OptionPanelDimensions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OptionPanels\OptionPanelDimensions.ja-JP.resx">
+      <DependentUpon>OptionPanelDimensions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OptionPanels\OptionPanelDimensions.resx">
+      <DependentUpon>OptionPanelDimensions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OptionPanels\OptionPanelLayerListCtrl.resx">
+      <DependentUpon>OptionPanelLayerListCtrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OptionPanels\OptionPanelPlugins.de-DE.resx">
+      <DependentUpon>OptionPanelPlugins.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OptionPanels\OptionPanelPlugins.es-ES.resx">
+      <DependentUpon>OptionPanelPlugins.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OptionPanels\OptionPanelPlugins.fr-FR.resx">
+      <DependentUpon>OptionPanelPlugins.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OptionPanels\OptionPanelPlugins.it-IT.resx">
+      <DependentUpon>OptionPanelPlugins.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OptionPanels\OptionPanelPlugins.ja-JP.resx">
+      <DependentUpon>OptionPanelPlugins.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OptionPanels\OptionPanelPlugins.resx">
+      <DependentUpon>OptionPanelPlugins.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OptionPanels\OptionPanelReporting.de-DE.resx">
+      <DependentUpon>OptionPanelReporting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OptionPanels\OptionPanelReporting.es-ES.resx">
+      <DependentUpon>OptionPanelReporting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OptionPanels\OptionPanelReporting.fr-FR.resx">
+      <DependentUpon>OptionPanelReporting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OptionPanels\OptionPanelReporting.it-IT.resx">
+      <DependentUpon>OptionPanelReporting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OptionPanels\OptionPanelReporting.ja-JP.resx">
+      <DependentUpon>OptionPanelReporting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OptionPanels\OptionPanelReporting.resx">
+      <DependentUpon>OptionPanelReporting.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OptionPanels\FormOptionsSettings.resx">
+      <DependentUpon>FormOptionsSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OptionPanels\OptionPanelUnits.de-DE.resx">
+      <DependentUpon>OptionPanelUnits.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OptionPanels\OptionPanelUnits.es-ES.resx">
+      <DependentUpon>OptionPanelUnits.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OptionPanels\OptionPanelUnits.fr-FR.resx">
+      <DependentUpon>OptionPanelUnits.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OptionPanels\OptionPanelUnits.it-IT.resx">
+      <DependentUpon>OptionPanelUnits.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OptionPanels\OptionPanelUnits.ja-JP.resx">
+      <DependentUpon>OptionPanelUnits.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OptionPanels\OptionPanelUnits.resx">
+      <DependentUpon>OptionPanelUnits.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.fr-FR.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.fr-FR.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.ja-JP.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.ja-JP.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.de-DE.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.de-DE.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSplashScreen.ca-ES.resx">
+      <DependentUpon>FormSplashScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSplashScreen.es-ES.resx">
+      <DependentUpon>FormSplashScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSplashScreen.resx">
+      <DependentUpon>FormSplashScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.de-DE.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.de-DE.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.es-ES.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.es-ES.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <Content Include="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportSchema.xsd">
+      <Link>ReportTemplates\ReportSchema.xsd</Link>
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportTypes.xsd">
+      <Link>ReportTemplates\ReportTypes.xsd</Link>
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Compile Include="Properties\Resources.es-ES.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.es-ES.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.fr-FR.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.fr-FR.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.ja-JP.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.ja-JP.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="ResultsAnalysisCasePallet.cs" />
+    <Compile Include="RichTextBoxAppender.cs" />
+    <Compile Include="Settings.cs" />
+    <Compile Include="FormSplashScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSplashScreen.Designer.cs">
+      <DependentUpon>FormSplashScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ToolTipListBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ToolTipListBox.Designer.cs">
+      <DependentUpon>ToolTipListBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WindowSettings.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pallet.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Analysis.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Box.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\View_4.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\View0.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\View90.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\View180.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\View270.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\View_1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\View_2.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\View_3.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\View_Top.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MsgBoxCheck\MsgBoxCheck.csproj">
+      <Project>{43D66268-9336-4118-A30E-FC43CED0E62D}</Project>
+      <Name>MsgBoxCheck</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OfficePickers\OfficePickers.csproj">
+      <Project>{CAD56B75-481B-4C76-B090-4BC2FF5E5681}</Project>
+      <Name>OfficePickers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OptionsLib\OptionsLib.csproj">
+      <Project>{5035348F-344F-4822-823E-6CB4D79D80D7}</Project>
+      <Name>OptionsLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sharp3D.Math\Sharp3D.Math.csproj">
+      <Project>{8F9BA4D3-D6AF-42A6-B74F-0DF6568C148B}</Project>
+      <Name>Sharp3D.Math</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TreeDim.EdgeCrushTest\treeDiM.EdgeCrushTest.csproj">
+      <Project>{E4240EE0-60B3-4435-BD09-F81D56C0899A}</Project>
+      <Name>treeDiM.EdgeCrushTest</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TreeDim.StackBuilder.Basics\treeDiM.StackBuilder.Basics.csproj">
+      <Project>{444C01D0-53FD-49A1-9D55-267B49161357}</Project>
+      <Name>treeDiM.StackBuilder.Basics</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TreeDim.StackBuilder.ColladaExporter\treeDiM.StackBuilder.ColladaExporter.csproj">
+      <Project>{785A5666-FE91-4796-A720-13C9A727BA5C}</Project>
+      <Name>treeDiM.StackBuilder.ColladaExporter</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TreeDim.StackBuilder.Engine\treeDiM.StackBuilder.Engine.csproj">
+      <Project>{2E646606-052D-4063-9218-1379430B070E}</Project>
+      <Name>treeDiM.StackBuilder.Engine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\treeDiM.StackBuilder.ExcelReader\treeDiM.StackBuilder.ExcelReader.csproj">
+      <Project>{E9B15DC7-07A3-4398-AE3F-2ED6B1F5C0A6}</Project>
+      <Name>treeDiM.StackBuilder.ExcelReader</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TreeDim.StackBuilder.Graphic\treeDiM.StackBuilder.Graphics.csproj">
+      <Project>{2AD4C04C-5B8A-4E69-9B1C-402CB86860A7}</Project>
+      <Name>treeDiM.StackBuilder.Graphics</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\treeDiM.StackBuilder.Plugin\treeDiM.StackBuilder.Plugin.csproj">
+      <Project>{75769E19-2CCC-4DF0-88D9-CBAC14BB6329}</Project>
+      <Name>treeDiM.StackBuilder.Plugin</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TreeDim.StackBuilder.Reporting\treeDiM.StackBuilder.Reporting.csproj">
+      <Project>{1505A6E5-E6F9-4408-A5C8-968417081CBD}</Project>
+      <Name>treeDiM.StackBuilder.Reporting</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TreeDim.UserControls\treeDiM.UserControls.csproj">
+      <Project>{7FF9B713-8D36-4887-BF50-2B9E2B28808D}</Project>
+      <Name>treeDiM.UserControls</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OPENFOLD.BMP" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CLSDFOLD.BMP" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DOC.BMP" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FileSaveAll.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FileNew.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FileOpen.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FileSave.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Unchecked.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CheckboxUnchecked.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CheckboxChecked.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Interlayer.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bundle.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PatternCollumn.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PatternInterlocked.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 et x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Solution.bmp" />
+    <Content Include="..\TreeDim.StackBuilder.Reporting\ReportTemplates\DEU.xml">
+      <Link>ReportTemplates\DEU.xml</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ENU.xml">
+      <Link>ReportTemplates\ENU.xml</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ESP.xml">
+      <Link>ReportTemplates\ESP.xml</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\TreeDim.StackBuilder.Reporting\ReportTemplates\FRA.xml">
+      <Link>ReportTemplates\FRA.xml</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ITA.xml">
+      <Link>ReportTemplates\ITA.xml</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\TreeDim.StackBuilder.Reporting\ReportTemplates\JPN.xml">
+      <Link>ReportTemplates\JPN.xml</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportTemplateHtml.xsl">
+      <Link>ReportTemplates\ReportTemplateHtml.xsl</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportTypes.xsl">
+      <Link>ReportTemplates\ReportTypes.xsl</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\TreeDim.StackBuilder.Reporting\ReportTemplates\YourLogoHere.png">
+      <Link>ReportTemplates\YourLogoHere.png</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\AnalysisBundle.bmp" />
+    <None Include="Resources\Case.bmp" />
+    <None Include="Resources\AnalysisCylinder.bmp" />
+    <None Include="Resources\AnalysisHCylinder.bmp" />
+    <Content Include="Resources\AnalysisStackingStrength.ico" />
+    <None Include="Resources\AnalysisStackingStrength.png" />
+    <None Include="Resources\BoxCaseAnalysis.bmp" />
+    <Content Include="Resources\CaseAnalysis.bmp" />
+    <None Include="Resources\Delete.bmp" />
+    <None Include="Resources\Database.bmp" />
+    <None Include="Resources\Help.bmp" />
+    <None Include="Resources\CaseOfBoxes.bmp" />
+    <None Include="Resources\IE-icon.png" />
+    <None Include="Resources\Chrome.bmp" />
+    <None Include="Resources\Cylinder.bmp" />
+    <Content Include="Resources\Image.bmp" />
+    <None Include="Resources\OptimalCase.bmp" />
+    <None Include="Resources\PDF.bmp" />
+    <None Include="Resources\PalletCap.bmp" />
+    <None Include="Resources\PalletCorners.bmp" />
+    <None Include="Resources\PalletFilm.bmp" />
+    <None Include="Resources\Pack.bmp" />
+    <None Include="Resources\PackAnalysis.bmp" />
+    <Content Include="Resources\StackBuilderAbout.bmp" />
+    <None Include="Resources\TruckAnalysis.bmp" />
+    <Content Include="Resources\AnalysisStackingStrength.bmp" />
+    <Content Include="Resources\Word.bmp" />
+    <Content Include="treeDim.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <FileAssociation Include=".stb">
+      <Visible>False</Visible>
+      <Description>StackBuilder</Description>
+      <Progid>StackBuilder</Progid>
+      <DefaultIcon>treeDim.ico</DefaultIcon>
+    </FileAssociation>
+  </ItemGroup>
+  <PropertyGroup>
+    <PostBuildEvent>copy /Y "$(SolutionDir)TreeDim.StackBuilder.Reporting\ReportTemplates" "$(TargetDir)ReportTemplates"
+if $(ConfigurationName) == Release "$(SolutionDir)Signfile.bat" $(TargetPath)
+</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <Target Name="PostBuildEvent" Condition=" '$(PostBuildEvent)' != '' " DependsOnTargets="$(PostBuildEventDependsOn)">
+    <Exec WorkingDirectory="$(OutDir)" Command="$(PostBuildEvent)" IgnoreExitCode="true" />
+  </Target>
+  <ItemGroup>
+    <Content Include="$(SolutionDir)ReportTemplates\**\*">
+      <Link>%(RecursiveDir)%(Filename)%(Extension)</Link>
+      <Visible>false</Visible>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <PublishFile Include="ReportTemplates\DEU.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="ReportTemplates\ENU.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="ReportTemplates\ESP.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="ReportTemplates\FRA.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="ReportTemplates\ITA.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="ReportTemplates\JPN.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+  </ItemGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Ce projet fait référence à des packages NuGet qui sont manquants sur cet ordinateur. Utilisez l'option de restauration des packages NuGet pour les télécharger. Pour plus d'informations, consultez http://go.microsoft.com/fwlink/?LinkID=322105. Le fichier manquant est : {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\MSBuildTasks.1.5.0.235\build\MSBuildTasks.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MSBuildTasks.1.5.0.235\build\MSBuildTasks.targets'))" />
+    <Error Condition="!Exists('..\packages\MSBuildTasks.1.5.0.235\build\MSBuildTasks.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MSBuildTasks.1.5.0.235\build\MSBuildTasks.targets'))" />
+  </Target>
+  <Import Project="..\packages\MSBuildTasks.1.5.0.235\build\MSBuildTasks.targets" Condition="Exists('..\packages\MSBuildTasks.1.5.0.235\build\MSBuildTasks.targets')" />
+</Project>
