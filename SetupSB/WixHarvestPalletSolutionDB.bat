@@ -1,1 +1,0 @@
-"C:\Program Files (x86)\WiX Toolset v3.8\bin\heat.exe" dir "..\PalletSolutionsDB" -dr PalletSolutionsDB -cg PalletSolutionsDBGroup -gg -g1 -sf -srd -var "var.PalletSolutionsDBSourceDir" -out "..\SetupSB\PalletSolutionsDB.wxs"
