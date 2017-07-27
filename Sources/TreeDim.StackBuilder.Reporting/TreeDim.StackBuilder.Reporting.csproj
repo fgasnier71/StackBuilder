@@ -32,6 +32,8 @@
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
     <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -63,6 +65,9 @@
       <SpecificVersion>False</SpecificVersion>
       <EmbedInteropTypes>True</EmbedInteropTypes>
       <HintPath>C:\Program Files (x86)\Microsoft Visual Studio 10.0\Visual Studio Tools for Office\PIA\Office12\Microsoft.Office.Interop.Word.dll</HintPath>
+    </Reference>
+    <Reference Include="Sharp3D.Math, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Sharp3D.Math.1.0.0\lib\Sharp3D.Math.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -119,10 +124,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Sharp3D.Math\Sharp3D.Math.csproj">
-      <Project>{8F9BA4D3-D6AF-42A6-B74F-0DF6568C148B}</Project>
-      <Name>Sharp3D.Math</Name>
-    </ProjectReference>
     <ProjectReference Include="..\TreeDim.EdgeCrushTest\treeDiM.EdgeCrushTest.csproj">
       <Project>{E4240EE0-60B3-4435-BD09-F81D56C0899A}</Project>
       <Name>treeDiM.EdgeCrushTest</Name>
@@ -221,5 +222,12 @@
   -->
   <Target Name="PostBuildEvent" Condition=" '$(PostBuildEvent)' != '' " DependsOnTargets="$(PostBuildEventDependsOn)">
     <Exec WorkingDirectory="$(OutDir)" Command="$(PostBuildEvent)" IgnoreExitCode="true" />
+  </Target>
+  <Import Project="..\packages\NuGet.Build.Tasks.Pack.4.2.0\build\NuGet.Build.Tasks.Pack.targets" Condition="Exists('..\packages\NuGet.Build.Tasks.Pack.4.2.0\build\NuGet.Build.Tasks.Pack.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Ce projet fait référence à des packages NuGet qui sont manquants sur cet ordinateur. Utilisez l'option de restauration des packages NuGet pour les télécharger. Pour plus d'informations, consultez http://go.microsoft.com/fwlink/?LinkID=322105. Le fichier manquant est : {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\NuGet.Build.Tasks.Pack.4.2.0\build\NuGet.Build.Tasks.Pack.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NuGet.Build.Tasks.Pack.4.2.0\build\NuGet.Build.Tasks.Pack.targets'))" />
   </Target>
 </Project>

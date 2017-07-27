@@ -13,6 +13,8 @@
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -38,6 +40,9 @@
       <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Sharp3D.Math, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Sharp3D.Math.1.0.0\lib\Sharp3D.Math.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -57,10 +62,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Sharp3D.Math\Sharp3D.Math.csproj">
-      <Project>{8F9BA4D3-D6AF-42A6-B74F-0DF6568C148B}</Project>
-      <Name>Sharp3D.Math</Name>
-    </ProjectReference>
     <ProjectReference Include="..\TreeDim.StackBuilder.Basics\treeDiM.StackBuilder.Basics.csproj">
       <Project>{444C01D0-53FD-49A1-9D55-267B49161357}</Project>
       <Name>treeDiM.StackBuilder.Basics</Name>
@@ -90,9 +91,14 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-  <Target Name="PostBuildEvent"
-        Condition=" '$(PostBuildEvent)' != '' "
-        DependsOnTargets="$(PostBuildEventDependsOn)">
-    <Exec WorkingDirectory="$(OutDir)" Command="$(PostBuildEvent)" IgnoreExitCode="true"/>
+  <Target Name="PostBuildEvent" Condition=" '$(PostBuildEvent)' != '' " DependsOnTargets="$(PostBuildEventDependsOn)">
+    <Exec WorkingDirectory="$(OutDir)" Command="$(PostBuildEvent)" IgnoreExitCode="true" />
+  </Target>
+  <Import Project="..\packages\NuGet.Build.Tasks.Pack.4.2.0\build\NuGet.Build.Tasks.Pack.targets" Condition="Exists('..\packages\NuGet.Build.Tasks.Pack.4.2.0\build\NuGet.Build.Tasks.Pack.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Ce projet fait référence à des packages NuGet qui sont manquants sur cet ordinateur. Utilisez l'option de restauration des packages NuGet pour les télécharger. Pour plus d'informations, consultez http://go.microsoft.com/fwlink/?LinkID=322105. Le fichier manquant est : {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\NuGet.Build.Tasks.Pack.4.2.0\build\NuGet.Build.Tasks.Pack.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NuGet.Build.Tasks.Pack.4.2.0\build\NuGet.Build.Tasks.Pack.targets'))" />
   </Target>
 </Project>

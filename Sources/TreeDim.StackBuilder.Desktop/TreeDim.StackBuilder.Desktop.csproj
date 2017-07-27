@@ -126,6 +126,9 @@
     <Reference Include="PropertyGridEx, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\PropertyGridEx.1.0.0\lib\net20\PropertyGridEx.dll</HintPath>
     </Reference>
+    <Reference Include="Sharp3D.Math, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Sharp3D.Math.1.0.0\lib\Sharp3D.Math.dll</HintPath>
+    </Reference>
     <Reference Include="SourceGrid, Version=4.40.4580.29115, Culture=neutral, PublicKeyToken=df6f5e538749e85d, processorArchitecture=MSIL">
       <HintPath>..\packages\SourceGrid.4.4.0\lib\net35\SourceGrid.dll</HintPath>
     </Reference>
@@ -1476,10 +1479,6 @@
       <Project>{5035348F-344F-4822-823E-6CB4D79D80D7}</Project>
       <Name>OptionsLib</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Sharp3D.Math\Sharp3D.Math.csproj">
-      <Project>{8F9BA4D3-D6AF-42A6-B74F-0DF6568C148B}</Project>
-      <Name>Sharp3D.Math</Name>
-    </ProjectReference>
     <ProjectReference Include="..\TreeDim.EdgeCrushTest\treeDiM.EdgeCrushTest.csproj">
       <Project>{E4240EE0-60B3-4435-BD09-F81D56C0899A}</Project>
       <Name>treeDiM.EdgeCrushTest</Name>
@@ -1755,6 +1754,8 @@ if $(ConfigurationName) == Release "$(SolutionDir)Signfile.bat" $(TargetPath)
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\MSBuildTasks.1.5.0.235\build\MSBuildTasks.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MSBuildTasks.1.5.0.235\build\MSBuildTasks.targets'))" />
     <Error Condition="!Exists('..\packages\MSBuildTasks.1.5.0.235\build\MSBuildTasks.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MSBuildTasks.1.5.0.235\build\MSBuildTasks.targets'))" />
+    <Error Condition="!Exists('..\packages\NuGet.Build.Tasks.Pack.4.2.0\build\NuGet.Build.Tasks.Pack.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NuGet.Build.Tasks.Pack.4.2.0\build\NuGet.Build.Tasks.Pack.targets'))" />
   </Target>
   <Import Project="..\packages\MSBuildTasks.1.5.0.235\build\MSBuildTasks.targets" Condition="Exists('..\packages\MSBuildTasks.1.5.0.235\build\MSBuildTasks.targets')" />
+  <Import Project="..\packages\NuGet.Build.Tasks.Pack.4.2.0\build\NuGet.Build.Tasks.Pack.targets" Condition="Exists('..\packages\NuGet.Build.Tasks.Pack.4.2.0\build\NuGet.Build.Tasks.Pack.targets')" />
 </Project>
