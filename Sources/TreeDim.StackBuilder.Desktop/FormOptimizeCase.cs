@@ -360,8 +360,10 @@ namespace treeDiM.StackBuilder.Desktop
                     , boxProperties, arrangement, axis
                     , wrapper);
                 // constraint set
-                ConstraintSetCasePallet constraintSet = new ConstraintSetCasePallet();
-                constraintSet.Overhang = new Vector2D(OverhangX, OverhangY);
+                ConstraintSetCasePallet constraintSet = new ConstraintSetCasePallet()
+                {
+                    Overhang = new Vector2D(OverhangX, OverhangY)
+                };
                 constraintSet.SetMaxHeight( new OptDouble(true, MaximumPalletHeight) );
                 constraintSet.OptMaxWeight = new OptDouble(false, 0);
                 // interlayer
@@ -487,16 +489,22 @@ namespace treeDiM.StackBuilder.Desktop
                 DevAge.Drawing.RectangleBorder cellBorder = new DevAge.Drawing.RectangleBorder(border, border);
 
                 // views
-                CellBackColorAlternate viewNormal = new CellBackColorAlternate(Color.LightBlue, Color.White);
-                viewNormal.Border = cellBorder;
-                CheckboxBackColorAlternate viewNormalCheck = new CheckboxBackColorAlternate(Color.LightBlue, Color.White);
-                viewNormalCheck.Border = cellBorder;
+                CellBackColorAlternate viewNormal = new CellBackColorAlternate(Color.LightBlue, Color.White)
+                {
+                    Border = cellBorder
+                };
+                CheckboxBackColorAlternate viewNormalCheck = new CheckboxBackColorAlternate(Color.LightBlue, Color.White)
+                {
+                    Border = cellBorder
+                };
 
                 // column header view
                 SourceGrid.Cells.Views.ColumnHeader viewColumnHeader = new SourceGrid.Cells.Views.ColumnHeader();
-                DevAge.Drawing.VisualElements.ColumnHeader backHeader = new DevAge.Drawing.VisualElements.ColumnHeader();
-                backHeader.BackColor = Color.LightGray;
-                backHeader.Border = DevAge.Drawing.RectangleBorder.NoBorder;
+                DevAge.Drawing.VisualElements.ColumnHeader backHeader = new DevAge.Drawing.VisualElements.ColumnHeader()
+                {
+                    BackColor = Color.LightGray,
+                    Border = DevAge.Drawing.RectangleBorder.NoBorder
+                };
                 viewColumnHeader.Background = backHeader;
                 viewColumnHeader.ForeColor = Color.White;
                 viewColumnHeader.Font = new Font("Arial", 8, FontStyle.Regular);
@@ -512,64 +520,88 @@ namespace treeDiM.StackBuilder.Desktop
                 // header
                 SourceGrid.Cells.ColumnHeader columnHeader;
                 // 0
-                columnHeader = new SourceGrid.Cells.ColumnHeader(Resources.ID_A1);
-                columnHeader.AutomaticSortEnabled = true;
-                columnHeader.View = viewColumnHeader;
+                columnHeader = new SourceGrid.Cells.ColumnHeader(Resources.ID_A1)
+                {
+                    AutomaticSortEnabled = true,
+                    View = viewColumnHeader
+                };
                 gridSolutions[0, 0] = columnHeader;
                 // 1
-                columnHeader = new SourceGrid.Cells.ColumnHeader(Resources.ID_A2);
-                columnHeader.AutomaticSortEnabled = true;
-                columnHeader.View = viewColumnHeader;
+                columnHeader = new SourceGrid.Cells.ColumnHeader(Resources.ID_A2)
+                {
+                    AutomaticSortEnabled = true,
+                    View = viewColumnHeader
+                };
                 gridSolutions[0, 1] = columnHeader;
                 // 2
-                columnHeader = new SourceGrid.Cells.ColumnHeader(Resources.ID_A3);
-                columnHeader.AutomaticSortEnabled = true;
-                columnHeader.View = viewColumnHeader;
+                columnHeader = new SourceGrid.Cells.ColumnHeader(Resources.ID_A3)
+                {
+                    AutomaticSortEnabled = true,
+                    View = viewColumnHeader
+                };
                 gridSolutions[0, 2] = columnHeader;
                 // 3
-                columnHeader = new SourceGrid.Cells.ColumnHeader(Resources.ID_LENGTH);
-                columnHeader.AutomaticSortEnabled = true;
-                columnHeader.View = viewColumnHeader;
+                columnHeader = new SourceGrid.Cells.ColumnHeader(Resources.ID_LENGTH)
+                {
+                    AutomaticSortEnabled = true,
+                    View = viewColumnHeader
+                };
                 gridSolutions[0, 3] = columnHeader;
                 // 4
-                columnHeader = new SourceGrid.Cells.ColumnHeader(Resources.ID_WIDTH);
-                columnHeader.AutomaticSortEnabled = true;
-                columnHeader.View = viewColumnHeader;
+                columnHeader = new SourceGrid.Cells.ColumnHeader(Resources.ID_WIDTH)
+                {
+                    AutomaticSortEnabled = true,
+                    View = viewColumnHeader
+                };
                 gridSolutions[0, 4] = columnHeader;
                 // 5
-                columnHeader = new SourceGrid.Cells.ColumnHeader(Resources.ID_HEIGHT);
-                columnHeader.AutomaticSortEnabled = true;
-                columnHeader.View = viewColumnHeader;
+                columnHeader = new SourceGrid.Cells.ColumnHeader(Resources.ID_HEIGHT)
+                {
+                    AutomaticSortEnabled = true,
+                    View = viewColumnHeader
+                };
                 gridSolutions[0, 5] = columnHeader;
                 // 6
-                columnHeader = new SourceGrid.Cells.ColumnHeader(Resources.ID_AREA + "/" + Resources.ID_WEIGHT_WU);
-                columnHeader.AutomaticSortEnabled = false;
-                columnHeader.View = viewColumnHeader;
+                columnHeader = new SourceGrid.Cells.ColumnHeader(Resources.ID_AREA + "/" + Resources.ID_WEIGHT_WU)
+                {
+                    AutomaticSortEnabled = false,
+                    View = viewColumnHeader
+                };
                 gridSolutions[0, 6] = columnHeader;
                 // 7
-                columnHeader = new SourceGrid.Cells.ColumnHeader(Resources.ID_CASESLAYER);
-                columnHeader.AutomaticSortEnabled = true;
-                columnHeader.View = viewColumnHeader;
+                columnHeader = new SourceGrid.Cells.ColumnHeader(Resources.ID_CASESLAYER)
+                {
+                    AutomaticSortEnabled = true,
+                    View = viewColumnHeader
+                };
                 gridSolutions[0, 7] = columnHeader;
                 // 8
-                columnHeader = new SourceGrid.Cells.ColumnHeader(Resources.ID_LAYERS);
-                columnHeader.AutomaticSortEnabled = false;
-                columnHeader.View = viewColumnHeader;
+                columnHeader = new SourceGrid.Cells.ColumnHeader(Resources.ID_LAYERS)
+                {
+                    AutomaticSortEnabled = false,
+                    View = viewColumnHeader
+                };
                 gridSolutions[0, 8] = columnHeader;
                 // 9
-                columnHeader = new SourceGrid.Cells.ColumnHeader(Resources.ID_CASESPALLET);
-                columnHeader.AutomaticSortEnabled = true;
-                columnHeader.View = viewColumnHeader;
+                columnHeader = new SourceGrid.Cells.ColumnHeader(Resources.ID_CASESPALLET)
+                {
+                    AutomaticSortEnabled = true,
+                    View = viewColumnHeader
+                };
                 gridSolutions[0, 9] = columnHeader;
                 // 10
-                columnHeader = new SourceGrid.Cells.ColumnHeader(Resources.ID_VOLUMEEFFICIENCY);
-                columnHeader.AutomaticSortEnabled = true;
-                columnHeader.View = viewColumnHeader;
+                columnHeader = new SourceGrid.Cells.ColumnHeader(Resources.ID_VOLUMEEFFICIENCY)
+                {
+                    AutomaticSortEnabled = true,
+                    View = viewColumnHeader
+                };
                 gridSolutions[0, 10] = columnHeader;
                 // 11
-                columnHeader = new SourceGrid.Cells.ColumnHeader(Resources.ID_MAXIMUMSPACE);
-                columnHeader.AutomaticSortEnabled = true;
-                columnHeader.View = viewColumnHeader;
+                columnHeader = new SourceGrid.Cells.ColumnHeader(Resources.ID_MAXIMUMSPACE)
+                {
+                    AutomaticSortEnabled = true,
+                    View = viewColumnHeader
+                };
                 gridSolutions[0, 11] = columnHeader;
 
                 // column width
@@ -590,8 +622,10 @@ namespace treeDiM.StackBuilder.Desktop
                 BoxProperties boxProperties = SelectedBox;
                 PalletProperties palletProperties = SelectedPallet;
                 ParamSetPackOptim caseOptimConstraintSet = BuildCaseOptimConstraintSet();
-                PalletConstraintSet palletConstraintSet = new CasePalletConstraintSet();
-                palletConstraintSet.MaximumHeight = MaximumPalletHeight;
+                PalletConstraintSet palletConstraintSet = new CasePalletConstraintSet()
+                {
+                    MaximumHeight = MaximumPalletHeight
+                };
                 // data
                 int iIndex = 0;
                 foreach (CaseOptimSolution sol in _solutions)
@@ -665,8 +699,10 @@ namespace treeDiM.StackBuilder.Desktop
                     CaseOptimSolution solution = SelectedSolution;
                     if (null == solution) return;
                     // instantiate case definition viewer
-                    CaseDefinitionViewer cdv = new CaseDefinitionViewer(SelectedSolution.CaseDefinition, SelectedBox, BuildCaseOptimConstraintSet());
-                    cdv.Orientation = SelectedSolution.PalletSolution.FirstCaseOrientation;
+                    CaseDefinitionViewer cdv = new CaseDefinitionViewer(SelectedSolution.CaseDefinition, SelectedBox, BuildCaseOptimConstraintSet())
+                    {
+                        Orientation = SelectedSolution.PalletSolution.FirstCaseOrientation
+                    };
                     cdv.Draw(graphics);
                 }
                 catch (Exception ex)

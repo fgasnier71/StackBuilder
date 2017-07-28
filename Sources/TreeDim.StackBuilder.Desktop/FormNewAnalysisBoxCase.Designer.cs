@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormNewAnalysisBoxCase));
             this.checkBoxBestLayersOnly = new System.Windows.Forms.CheckBox();
             this.lbBox = new System.Windows.Forms.Label();
             this.lbCase = new System.Windows.Forms.Label();
@@ -39,93 +40,79 @@
             // 
             // tbDescription
             // 
-            this.tbDescription.Size = new System.Drawing.Size(573, 20);
+            resources.ApplyResources(this.tbDescription, "tbDescription");
+            // 
+            // tbName
+            // 
+            resources.ApplyResources(this.tbName, "tbName");
             // 
             // lbDescription
             // 
-            this.lbDescription.Location = new System.Drawing.Point(6, 34);
+            resources.ApplyResources(this.lbDescription, "lbDescription");
+            // 
+            // lbName
+            // 
+            resources.ApplyResources(this.lbName, "lbName");
             // 
             // bnCancel
             // 
-            this.bnCancel.Location = new System.Drawing.Point(873, 4);
+            resources.ApplyResources(this.bnCancel, "bnCancel");
             // 
             // checkBoxBestLayersOnly
             // 
-            this.checkBoxBestLayersOnly.AutoSize = true;
-            this.checkBoxBestLayersOnly.Location = new System.Drawing.Point(8, 517);
+            resources.ApplyResources(this.checkBoxBestLayersOnly, "checkBoxBestLayersOnly");
             this.checkBoxBestLayersOnly.Name = "checkBoxBestLayersOnly";
-            this.checkBoxBestLayersOnly.Size = new System.Drawing.Size(128, 17);
-            this.checkBoxBestLayersOnly.TabIndex = 28;
-            this.checkBoxBestLayersOnly.Text = "Show best layers only";
             this.checkBoxBestLayersOnly.UseVisualStyleBackColor = true;
             this.checkBoxBestLayersOnly.CheckedChanged += new System.EventHandler(this.onInputChanged);
             // 
             // lbBox
             // 
-            this.lbBox.AutoSize = true;
-            this.lbBox.Location = new System.Drawing.Point(6, 67);
+            resources.ApplyResources(this.lbBox, "lbBox");
             this.lbBox.Name = "lbBox";
-            this.lbBox.Size = new System.Drawing.Size(25, 13);
-            this.lbBox.TabIndex = 29;
-            this.lbBox.Text = "Box";
             // 
             // lbCase
             // 
-            this.lbCase.AutoSize = true;
-            this.lbCase.Location = new System.Drawing.Point(322, 67);
+            resources.ApplyResources(this.lbCase, "lbCase");
             this.lbCase.Name = "lbCase";
-            this.lbCase.Size = new System.Drawing.Size(31, 13);
-            this.lbCase.TabIndex = 30;
-            this.lbCase.Text = "Case";
             // 
             // cbCases
             // 
+            resources.ApplyResources(this.cbCases, "cbCases");
             this.cbCases.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCases.FormattingEnabled = true;
-            this.cbCases.Location = new System.Drawing.Point(426, 64);
             this.cbCases.Name = "cbCases";
-            this.cbCases.Size = new System.Drawing.Size(145, 21);
-            this.cbCases.TabIndex = 27;
             this.cbCases.SelectedIndexChanged += new System.EventHandler(this.onInputChanged);
             // 
             // cbBoxes
             // 
+            resources.ApplyResources(this.cbBoxes, "cbBoxes");
             this.cbBoxes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbBoxes.FormattingEnabled = true;
-            this.cbBoxes.Location = new System.Drawing.Point(104, 64);
             this.cbBoxes.Name = "cbBoxes";
-            this.cbBoxes.Size = new System.Drawing.Size(145, 21);
-            this.cbBoxes.TabIndex = 26;
             this.cbBoxes.SelectedIndexChanged += new System.EventHandler(this.onBoxChanged);
             // 
             // uCtrlLayerList
             // 
-            this.uCtrlLayerList.AutoScroll = true;
+            resources.ApplyResources(this.uCtrlLayerList, "uCtrlLayerList");
             this.uCtrlLayerList.ButtonSizes = new System.Drawing.Size(150, 150);
-            this.uCtrlLayerList.Location = new System.Drawing.Point(0, 218);
             this.uCtrlLayerList.Name = "uCtrlLayerList";
             this.uCtrlLayerList.Show3D = true;
             this.uCtrlLayerList.SingleSelection = false;
-            this.uCtrlLayerList.Size = new System.Drawing.Size(784, 289);
-            this.uCtrlLayerList.TabIndex = 25;
             // 
             // uCtrlCaseOrientation
             // 
+            resources.ApplyResources(this.uCtrlCaseOrientation, "uCtrlCaseOrientation");
             this.uCtrlCaseOrientation.AllowedOrientations = new bool[] {
         false,
         false,
         true};
-            this.uCtrlCaseOrientation.Location = new System.Drawing.Point(8, 100);
             this.uCtrlCaseOrientation.Name = "uCtrlCaseOrientation";
-            this.uCtrlCaseOrientation.Size = new System.Drawing.Size(288, 110);
-            this.uCtrlCaseOrientation.TabIndex = 24;
             this.uCtrlCaseOrientation.CheckedChanged += new treeDiM.StackBuilder.Graphics.uCtrlCaseOrientation.CheckChanged(this.onInputChanged);
             // 
             // FormNewAnalysisBoxCase
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 561);
             this.Controls.Add(this.lbCase);
             this.Controls.Add(this.lbBox);
             this.Controls.Add(this.checkBoxBestLayersOnly);
@@ -134,7 +121,6 @@
             this.Controls.Add(this.uCtrlLayerList);
             this.Controls.Add(this.uCtrlCaseOrientation);
             this.Name = "FormNewAnalysisBoxCase";
-            this.Text = "Create new box/case analysis...";
             this.Controls.SetChildIndex(this.uCtrlCaseOrientation, 0);
             this.Controls.SetChildIndex(this.uCtrlLayerList, 0);
             this.Controls.SetChildIndex(this.cbBoxes, 0);

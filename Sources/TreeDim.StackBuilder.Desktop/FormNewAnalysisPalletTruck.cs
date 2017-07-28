@@ -212,10 +212,12 @@ namespace treeDiM.StackBuilder.Desktop
         #region Helpers
         private ConstraintSetPalletTruck BuildConstraintSet()
         {
-            ConstraintSetPalletTruck constraintSet = new ConstraintSetPalletTruck(SelectedTruckProperties);
-            constraintSet.MinDistanceLoadWall = new Vector2D(uCtrlMinDistanceLoadWall.ValueX, uCtrlMinDistanceLoadWall.ValueY);
-            constraintSet.MinDistanceLoadRoof = uCtrlMinDistanceLoadRoof.Value;
-            constraintSet.AllowMultipleLayers = chkbAllowMultipleLayers.Checked;
+            ConstraintSetPalletTruck constraintSet = new ConstraintSetPalletTruck(SelectedTruckProperties)
+            {
+                MinDistanceLoadWall = new Vector2D(uCtrlMinDistanceLoadWall.ValueX, uCtrlMinDistanceLoadWall.ValueY),
+                MinDistanceLoadRoof = uCtrlMinDistanceLoadRoof.Value,
+                AllowMultipleLayers = chkbAllowMultipleLayers.Checked
+            };
             return constraintSet;
         }
         #endregion

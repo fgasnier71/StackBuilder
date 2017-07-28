@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormNewPalletFilm));
             this.cbColor = new OfficePickers.ColorPicker.ComboBoxColorPicker();
             this.lbColor = new System.Windows.Forms.Label();
             this.chkbTransparency = new System.Windows.Forms.CheckBox();
@@ -39,119 +40,106 @@
             // 
             // bnOk
             // 
-            this.bnOk.Location = new System.Drawing.Point(505, 10);
+            resources.ApplyResources(this.bnOk, "bnOk");
             // 
             // bnCancel
             // 
-            this.bnCancel.Location = new System.Drawing.Point(505, 38);
+            resources.ApplyResources(this.bnCancel, "bnCancel");
+            // 
+            // lbName
+            // 
+            resources.ApplyResources(this.lbName, "lbName");
+            // 
+            // lbDescription
+            // 
+            resources.ApplyResources(this.lbDescription, "lbDescription");
+            // 
+            // tbName
+            // 
+            resources.ApplyResources(this.tbName, "tbName");
             // 
             // tbDescription
             // 
-            this.tbDescription.Size = new System.Drawing.Size(384, 20);
+            resources.ApplyResources(this.tbDescription, "tbDescription");
             // 
             // cbColor
             // 
+            resources.ApplyResources(this.cbColor, "cbColor");
             this.cbColor.Color = System.Drawing.Color.LightBlue;
             this.cbColor.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cbColor.DropDownHeight = 1;
             this.cbColor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbColor.DropDownWidth = 1;
-            this.cbColor.IntegralHeight = false;
-            this.cbColor.ItemHeight = 16;
             this.cbColor.Items.AddRange(new object[] {
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color"});
-            this.cbColor.Location = new System.Drawing.Point(111, 80);
+            resources.GetString("cbColor.Items"),
+            resources.GetString("cbColor.Items1"),
+            resources.GetString("cbColor.Items2"),
+            resources.GetString("cbColor.Items3"),
+            resources.GetString("cbColor.Items4"),
+            resources.GetString("cbColor.Items5"),
+            resources.GetString("cbColor.Items6"),
+            resources.GetString("cbColor.Items7"),
+            resources.GetString("cbColor.Items8"),
+            resources.GetString("cbColor.Items9"),
+            resources.GetString("cbColor.Items10"),
+            resources.GetString("cbColor.Items11"),
+            resources.GetString("cbColor.Items12"),
+            resources.GetString("cbColor.Items13"),
+            resources.GetString("cbColor.Items14")});
             this.cbColor.Name = "cbColor";
-            this.cbColor.Size = new System.Drawing.Size(75, 22);
-            this.cbColor.TabIndex = 24;
             // 
             // lbColor
             // 
-            this.lbColor.AutoSize = true;
-            this.lbColor.Location = new System.Drawing.Point(13, 83);
+            resources.ApplyResources(this.lbColor, "lbColor");
             this.lbColor.Name = "lbColor";
-            this.lbColor.Size = new System.Drawing.Size(31, 13);
-            this.lbColor.TabIndex = 25;
-            this.lbColor.Text = "Color";
             // 
             // chkbTransparency
             // 
-            this.chkbTransparency.AutoSize = true;
-            this.chkbTransparency.Location = new System.Drawing.Point(16, 118);
+            resources.ApplyResources(this.chkbTransparency, "chkbTransparency");
             this.chkbTransparency.Name = "chkbTransparency";
-            this.chkbTransparency.Size = new System.Drawing.Size(91, 17);
-            this.chkbTransparency.TabIndex = 26;
-            this.chkbTransparency.Text = "Transparency";
             this.chkbTransparency.UseVisualStyleBackColor = true;
             // 
             // chkbHatching
             // 
-            this.chkbHatching.AutoSize = true;
-            this.chkbHatching.Location = new System.Drawing.Point(16, 141);
+            resources.ApplyResources(this.chkbHatching, "chkbHatching");
             this.chkbHatching.Name = "chkbHatching";
-            this.chkbHatching.Size = new System.Drawing.Size(69, 17);
-            this.chkbHatching.TabIndex = 27;
-            this.chkbHatching.Text = "Hatching";
             this.chkbHatching.UseVisualStyleBackColor = true;
             this.chkbHatching.CheckedChanged += new System.EventHandler(this.chkbHatching_CheckedChanged);
             // 
             // bnSendToDB
             // 
-            this.bnSendToDB.Location = new System.Drawing.Point(436, 314);
+            resources.ApplyResources(this.bnSendToDB, "bnSendToDB");
             this.bnSendToDB.Name = "bnSendToDB";
-            this.bnSendToDB.Size = new System.Drawing.Size(144, 23);
-            this.bnSendToDB.TabIndex = 33;
-            this.bnSendToDB.Text = "Send to database";
             this.bnSendToDB.UseVisualStyleBackColor = true;
             this.bnSendToDB.Click += new System.EventHandler(this.onSendToDatabase);
             // 
             // uCtrlSpacing
             // 
-            this.uCtrlSpacing.Location = new System.Drawing.Point(25, 165);
+            resources.ApplyResources(this.uCtrlSpacing, "uCtrlSpacing");
             this.uCtrlSpacing.Minimum = new decimal(new int[] {
             10000,
             0,
             0,
             -2147483648});
-            this.uCtrlSpacing.MinimumSize = new System.Drawing.Size(100, 20);
             this.uCtrlSpacing.Name = "uCtrlSpacing";
-            this.uCtrlSpacing.Size = new System.Drawing.Size(185, 20);
-            this.uCtrlSpacing.TabIndex = 34;
-            this.uCtrlSpacing.Text = "Spacing";
             this.uCtrlSpacing.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlSpacing.Value = 0D;
             // 
             // uCtrlAngle
             // 
-            this.uCtrlAngle.Location = new System.Drawing.Point(25, 192);
+            resources.ApplyResources(this.uCtrlAngle, "uCtrlAngle");
             this.uCtrlAngle.Minimum = new decimal(new int[] {
             10000,
             0,
             0,
             -2147483648});
-            this.uCtrlAngle.MinimumSize = new System.Drawing.Size(100, 20);
             this.uCtrlAngle.Name = "uCtrlAngle";
-            this.uCtrlAngle.Size = new System.Drawing.Size(185, 20);
-            this.uCtrlAngle.TabIndex = 35;
-            this.uCtrlAngle.Text = "Angle";
             this.uCtrlAngle.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_NONE;
             this.uCtrlAngle.Value = 0D;
             // 
             // FormNewPalletFilm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.ClientSize = new System.Drawing.Size(584, 362);
+            resources.ApplyResources(this, "$this");
             this.Controls.Add(this.uCtrlAngle);
             this.Controls.Add(this.uCtrlSpacing);
             this.Controls.Add(this.bnSendToDB);
@@ -160,7 +148,6 @@
             this.Controls.Add(this.lbColor);
             this.Controls.Add(this.cbColor);
             this.Name = "FormNewPalletFilm";
-            this.Text = "Create new pallet film...";
             this.Controls.SetChildIndex(this.bnOk, 0);
             this.Controls.SetChildIndex(this.bnCancel, 0);
             this.Controls.SetChildIndex(this.lbName, 0);

@@ -172,8 +172,10 @@ namespace treeDiM.StackBuilder.Desktop
         /// </summary>
         public void CreateNewPackUI()
         {
-            FormNewPack form = new FormNewPack(this, null);
-            form.Boxes = Boxes.ToList();
+            FormNewPack form = new FormNewPack(this, null)
+            {
+                Boxes = Boxes.ToList()
+            };
             if (DialogResult.OK == form.ShowDialog())
             {
                 PackProperties packProperties = CreateNewPack(
@@ -335,14 +337,18 @@ namespace treeDiM.StackBuilder.Desktop
         /// <returns>created case analysis</returns>
         public BoxCasePalletAnalysis CreateNewBoxCasePalletOptimizationUI()
         {
-            FormNewCaseAnalysis form = new FormNewCaseAnalysis(this);
-            form.Boxes = Boxes.ToArray();
+            FormNewCaseAnalysis form = new FormNewCaseAnalysis(this)
+            {
+                Boxes = Boxes.ToArray()
+            };
             if (DialogResult.OK == form.ShowDialog())
             {
-                BoxCasePalletConstraintSet constraintSet = new BoxCasePalletConstraintSet();
-                // aligned / alternate layers
-                constraintSet.AllowAlignedLayers = form.AllowAlignedLayers;
-                constraintSet.AllowAlternateLayers = form.AllowAlternateLayers;
+                BoxCasePalletConstraintSet constraintSet = new BoxCasePalletConstraintSet()
+                {
+                    // aligned / alternate layers
+                    AllowAlignedLayers = form.AllowAlignedLayers,
+                    AllowAlternateLayers = form.AllowAlternateLayers
+                };
                 // patterns
                 foreach (string patternName in form.AllowedPatterns)
                     constraintSet.SetAllowedPattern(patternName);

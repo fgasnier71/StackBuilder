@@ -480,8 +480,10 @@ namespace treeDiM.StackBuilder.Desktop
         {
             try
             {
-                FormSetItemName form = new FormSetItemName();
-                form.ItemName = BoxName;
+                FormSetItemName form = new FormSetItemName()
+                {
+                    ItemName = BoxName
+                };
                 if (DialogResult.OK == form.ShowDialog())
                 {
                     PLMPackServiceClient client = WCFClientSingleton.Instance.Client;

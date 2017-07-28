@@ -280,18 +280,22 @@ namespace treeDiM.StackBuilder.Desktop
             // *** IViews 
             // captionHeader
             SourceGrid.Cells.Views.RowHeader captionHeader = new SourceGrid.Cells.Views.RowHeader();
-            DevAge.Drawing.VisualElements.RowHeader veHeaderCaption = new DevAge.Drawing.VisualElements.RowHeader();
-            veHeaderCaption.BackColor = Color.SteelBlue;
-            veHeaderCaption.Border = DevAge.Drawing.RectangleBorder.NoBorder;
+            DevAge.Drawing.VisualElements.RowHeader veHeaderCaption = new DevAge.Drawing.VisualElements.RowHeader()
+            {
+                BackColor = Color.SteelBlue,
+                Border = DevAge.Drawing.RectangleBorder.NoBorder
+            };
             captionHeader.Background = veHeaderCaption;
             captionHeader.ForeColor = Color.Black;
             captionHeader.Font = new Font("Arial", 10, FontStyle.Bold);
             captionHeader.TextAlignment = DevAge.Drawing.ContentAlignment.MiddleCenter;
             // viewRowHeader
             SourceGrid.Cells.Views.ColumnHeader viewColumnHeader = new SourceGrid.Cells.Views.ColumnHeader();
-            DevAge.Drawing.VisualElements.ColumnHeader backHeader = new DevAge.Drawing.VisualElements.ColumnHeader();
-            backHeader.BackColor = Color.LightGray;
-            backHeader.Border = DevAge.Drawing.RectangleBorder.NoBorder;
+            DevAge.Drawing.VisualElements.ColumnHeader backHeader = new DevAge.Drawing.VisualElements.ColumnHeader()
+            {
+                BackColor = Color.LightGray,
+                Border = DevAge.Drawing.RectangleBorder.NoBorder
+            };
             viewColumnHeader.Background = backHeader;
             viewColumnHeader.ForeColor = Color.Black;
             viewColumnHeader.Font = new Font("Arial", 10, FontStyle.Regular);
@@ -308,29 +312,39 @@ namespace treeDiM.StackBuilder.Desktop
             int iCol = 0;
             SourceGrid.Cells.ColumnHeader columnHeader;
             // name
-            columnHeader = new SourceGrid.Cells.ColumnHeader(Properties.Resources.ID_CASENAME);
-            columnHeader.AutomaticSortEnabled = false;
-            columnHeader.View = viewColumnHeader;
+            columnHeader = new SourceGrid.Cells.ColumnHeader(Properties.Resources.ID_CASENAME)
+            {
+                AutomaticSortEnabled = false,
+                View = viewColumnHeader
+            };
             gridSolutions[0, iCol++] = columnHeader;
             // dimensions
-            columnHeader = new SourceGrid.Cells.ColumnHeader(string.Format(Properties.Resources.ID_DIMENSIONS, UnitsManager.LengthUnitString));
-            columnHeader.AutomaticSortEnabled = false;
-            columnHeader.View = viewColumnHeader;
+            columnHeader = new SourceGrid.Cells.ColumnHeader(string.Format(Properties.Resources.ID_DIMENSIONS, UnitsManager.LengthUnitString))
+            {
+                AutomaticSortEnabled = false,
+                View = viewColumnHeader
+            };
             gridSolutions[0, iCol++] = columnHeader;
             // #items
-            columnHeader = new SourceGrid.Cells.ColumnHeader("#");
-            columnHeader.AutomaticSortEnabled = false;
-            columnHeader.View = viewColumnHeader;
+            columnHeader = new SourceGrid.Cells.ColumnHeader("#")
+            {
+                AutomaticSortEnabled = false,
+                View = viewColumnHeader
+            };
             gridSolutions[0, iCol++] = columnHeader;
             // efficiency
-            columnHeader = new SourceGrid.Cells.ColumnHeader(Properties.Resources.ID_EFFICIENCYPERCENTAGE);
-            columnHeader.AutomaticSortEnabled = false;
-            columnHeader.View = viewColumnHeader;
+            columnHeader = new SourceGrid.Cells.ColumnHeader(Properties.Resources.ID_EFFICIENCYPERCENTAGE)
+            {
+                AutomaticSortEnabled = false,
+                View = viewColumnHeader
+            };
             gridSolutions[0, iCol++] = columnHeader;
             // weight
-            columnHeader = new SourceGrid.Cells.ColumnHeader(string.Format(Properties.Resources.ID_WEIGHT_WU, UnitsManager.MassUnitString));
-            columnHeader.AutomaticSortEnabled = false;
-            columnHeader.View = viewColumnHeader;
+            columnHeader = new SourceGrid.Cells.ColumnHeader(string.Format(Properties.Resources.ID_WEIGHT_WU, UnitsManager.MassUnitString))
+            {
+                AutomaticSortEnabled = false,
+                View = viewColumnHeader
+            };
             gridSolutions[0, iCol++] = columnHeader;
 
             int iRow = 0;

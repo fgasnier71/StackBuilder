@@ -269,8 +269,10 @@ namespace Utilities
             while (myEnumerator.MoveNext())
             {
                 string fileName = (string)myEnumerator.Current;
-                item = new ToolStripMenuItem(GetDisplayName((string)myEnumerator.Current));
-                item.ToolTipText = fileName;
+                item = new ToolStripMenuItem(GetDisplayName((string)myEnumerator.Current))
+                {
+                    ToolTipText = fileName
+                };
 
                 // subscribe to item's Click event
                 item.Click += new EventHandler(this.OnMRUClicked);

@@ -267,9 +267,11 @@ namespace treeDiM.StackBuilder.Desktop
         private ConstraintSetCasePallet BuildConstraintSet()
         {
             // constraint set
-            ConstraintSetCasePallet constraintSet = new ConstraintSetCasePallet();
-            // overhang
-            constraintSet.Overhang = new Vector2D(uCtrlOverhang.ValueX, uCtrlOverhang.ValueY);
+            ConstraintSetCasePallet constraintSet = new ConstraintSetCasePallet()
+            {
+                // overhang
+                Overhang = new Vector2D(uCtrlOverhang.ValueX, uCtrlOverhang.ValueY)
+            };
             // orientations
             constraintSet.SetAllowedOrientations(uCtrlCaseOrientation.AllowedOrientations);
             // conditions

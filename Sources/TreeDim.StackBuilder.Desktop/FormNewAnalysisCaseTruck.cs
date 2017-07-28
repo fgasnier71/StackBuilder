@@ -238,9 +238,11 @@ namespace treeDiM.StackBuilder.Desktop
         #region Helpers
         private ConstraintSetCaseTruck BuildConstraintSet()
         {
-            ConstraintSetCaseTruck constraintSet = new ConstraintSetCaseTruck(SelectedTruck);
-            constraintSet.MinDistanceLoadWall = new Vector2D(uCtrlMinDistanceLoadWall.ValueX, uCtrlMinDistanceLoadWall.ValueY);
-            constraintSet.MinDistanceLoadRoof = uCtrlMinDistanceLoadRoof.Value;
+            ConstraintSetCaseTruck constraintSet = new ConstraintSetCaseTruck(SelectedTruck)
+            {
+                MinDistanceLoadWall = new Vector2D(uCtrlMinDistanceLoadWall.ValueX, uCtrlMinDistanceLoadWall.ValueY),
+                MinDistanceLoadRoof = uCtrlMinDistanceLoadRoof.Value
+            };
             constraintSet.SetAllowedOrientations(uCtrlCaseOrientation.AllowedOrientations);
             return constraintSet;
         }

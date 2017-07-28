@@ -235,11 +235,13 @@ namespace treeDiM.StackBuilder.Desktop
         {
             try
             {
-                FileAssociation FA = new FileAssociation();
-                FA.Extension = "stb";
-                FA.ContentType = "application/xml";
-                FA.FullName = "TreeDim StackBuilder Data Files";
-                FA.ProperName = "StackBuilder File";
+                FileAssociation FA = new FileAssociation()
+                {
+                    Extension = "stb",
+                    ContentType = "application/xml",
+                    FullName = "TreeDim StackBuilder Data Files",
+                    ProperName = "StackBuilder File"
+                };
                 FA.AddCommand("open", Assembly.GetExecutingAssembly().Location + " \"%1\"");
                 FA.IconPath = Assembly.GetExecutingAssembly().Location;
                 FA.IconIndex = 0;

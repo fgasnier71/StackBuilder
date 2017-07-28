@@ -280,8 +280,10 @@ namespace treeDiM.StackBuilder.Desktop
             if (uCtrlOuterDimensions.Checked)
                 packProperties.ForceOuterDimensions(
                     new Vector3D(uCtrlOuterDimensions.X, uCtrlOuterDimensions.Y, uCtrlOuterDimensions.Z) );
-            Pack pack = new Pack(0, packProperties);
-            pack.ForceTransparency = true;
+            Pack pack = new Pack(0, packProperties)
+            {
+                ForceTransparency = true
+            };
             graphics.AddBox(pack);
             graphics.AddDimensions(new DimensionCube(Vector3D.Zero, pack.Length, pack.Width, pack.Height, Color.Black, true));
             if (packProperties.Wrap.Transparent)

@@ -490,16 +490,22 @@ namespace treeDiM.StackBuilder.Desktop
             DevAge.Drawing.RectangleBorder cellBorder = new DevAge.Drawing.RectangleBorder(border, border);
 
             // views
-            CellBackColorAlternate viewNormal = new CellBackColorAlternate(Color.LightBlue, Color.White);
-            viewNormal.Border = cellBorder;
-            CheckboxBackColorAlternate viewNormalCheck = new CheckboxBackColorAlternate(Color.LightBlue, Color.White);
-            viewNormalCheck.Border = cellBorder;
+            CellBackColorAlternate viewNormal = new CellBackColorAlternate(Color.LightBlue, Color.White)
+            {
+                Border = cellBorder
+            };
+            CheckboxBackColorAlternate viewNormalCheck = new CheckboxBackColorAlternate(Color.LightBlue, Color.White)
+            {
+                Border = cellBorder
+            };
 
             // column header view
             SourceGrid.Cells.Views.ColumnHeader viewColumnHeader = new SourceGrid.Cells.Views.ColumnHeader();
-            DevAge.Drawing.VisualElements.ColumnHeader backHeader = new DevAge.Drawing.VisualElements.ColumnHeader();
-            backHeader.BackColor = Color.LightGray;
-            backHeader.Border = DevAge.Drawing.RectangleBorder.NoBorder;
+            DevAge.Drawing.VisualElements.ColumnHeader backHeader = new DevAge.Drawing.VisualElements.ColumnHeader()
+            {
+                BackColor = Color.LightGray,
+                Border = DevAge.Drawing.RectangleBorder.NoBorder
+            };
             viewColumnHeader.Background = backHeader;
             viewColumnHeader.ForeColor = Color.White;
             viewColumnHeader.Font = new Font("Arial", 10, FontStyle.Bold);
@@ -515,39 +521,53 @@ namespace treeDiM.StackBuilder.Desktop
             // header
             SourceGrid.Cells.ColumnHeader columnHeader;
 
-            columnHeader = new SourceGrid.Cells.ColumnHeader(Properties.Resources.ID_CASE);
-            columnHeader.AutomaticSortEnabled = false;
-            columnHeader.View = viewColumnHeader;
+            columnHeader = new SourceGrid.Cells.ColumnHeader(Properties.Resources.ID_CASE)
+            {
+                AutomaticSortEnabled = false,
+                View = viewColumnHeader
+            };
             gridSolutions[0, 0] = columnHeader;
 
-            columnHeader = new SourceGrid.Cells.ColumnHeader(Properties.Resources.ID_NAME);
-            columnHeader.AutomaticSortEnabled = false;
-            columnHeader.View = viewColumnHeader;
+            columnHeader = new SourceGrid.Cells.ColumnHeader(Properties.Resources.ID_NAME)
+            {
+                AutomaticSortEnabled = false,
+                View = viewColumnHeader
+            };
             gridSolutions[0, 1] = columnHeader;
 
-            columnHeader = new SourceGrid.Cells.ColumnHeader(Properties.Resources.ID_CASEDIMENSIONS + @" (mm*mm*mm)");
-            columnHeader.AutomaticSortEnabled = false;
-            columnHeader.View = viewColumnHeader;
+            columnHeader = new SourceGrid.Cells.ColumnHeader(Properties.Resources.ID_CASEDIMENSIONS + @" (mm*mm*mm)")
+            {
+                AutomaticSortEnabled = false,
+                View = viewColumnHeader
+            };
             gridSolutions[0, 2] = columnHeader;
 
-            columnHeader = new SourceGrid.Cells.ColumnHeader(Properties.Resources.ID_CASEINSIDEDIMENSIONS + @" (mm*mm*mm)");
-            columnHeader.AutomaticSortEnabled = false;
-            columnHeader.View = viewColumnHeader;
+            columnHeader = new SourceGrid.Cells.ColumnHeader(Properties.Resources.ID_CASEINSIDEDIMENSIONS + @" (mm*mm*mm)")
+            {
+                AutomaticSortEnabled = false,
+                View = viewColumnHeader
+            };
             gridSolutions[0, 3] = columnHeader;
 
-            columnHeader = new SourceGrid.Cells.ColumnHeader(Properties.Resources.ID_ORIENTATION);
-            columnHeader.AutomaticSortEnabled = false;
-            columnHeader.View = viewColumnHeader;
+            columnHeader = new SourceGrid.Cells.ColumnHeader(Properties.Resources.ID_ORIENTATION)
+            {
+                AutomaticSortEnabled = false,
+                View = viewColumnHeader
+            };
             gridSolutions[0, 4] = columnHeader;
 
-            columnHeader = new SourceGrid.Cells.ColumnHeader(Properties.Resources.ID_CASECOUNT);
-            columnHeader.AutomaticSortEnabled = false;
-            columnHeader.View = viewColumnHeader;
+            columnHeader = new SourceGrid.Cells.ColumnHeader(Properties.Resources.ID_CASECOUNT)
+            {
+                AutomaticSortEnabled = false,
+                View = viewColumnHeader
+            };
             gridSolutions[0, 5] = columnHeader;
 
-            columnHeader = new SourceGrid.Cells.ColumnHeader(Properties.Resources.ID_SELECTED);
-            columnHeader.AutomaticSortEnabled = false;
-            columnHeader.View = viewColumnHeader;
+            columnHeader = new SourceGrid.Cells.ColumnHeader(Properties.Resources.ID_SELECTED)
+            {
+                AutomaticSortEnabled = false,
+                View = viewColumnHeader
+            };
             gridSolutions[0, 6] = columnHeader;
 
             // handling check box click
@@ -596,9 +616,11 @@ namespace treeDiM.StackBuilder.Desktop
                 throw new Exception("Failed to load analysis.");
             // get analysis and solution
             CasePalletAnalysis analysis = document.AnalysesCasePallet.First() as CasePalletAnalysis;
-            Graphics3DImage graphics = new Graphics3DImage(new Size(50,50));
-            graphics.CameraPosition = Graphics3D.Corner_0;
-            graphics.Target = Vector3D.Zero;
+            Graphics3DImage graphics = new Graphics3DImage(new Size(50, 50))
+            {
+                CameraPosition = Graphics3D.Corner_0,
+                Target = Vector3D.Zero
+            };
             Box box = new Box(0, analysis.BProperties);
             graphics.AddBox(box);
             if (showDimensions)
@@ -623,12 +645,14 @@ namespace treeDiM.StackBuilder.Desktop
             // get horizontal angle
             double angle = 45;
             // instantiate graphics
-            Graphics3DImage graphics = new Graphics3DImage(pictureBox.Size);
-            graphics.CameraPosition = new Vector3D(
+            Graphics3DImage graphics = new Graphics3DImage(pictureBox.Size)
+            {
+                CameraPosition = new Vector3D(
                 Math.Cos(angle * Math.PI / 180.0) * Math.Sqrt(2.0) * 100000.0
                 , Math.Sin(angle * Math.PI / 180.0) * Math.Sqrt(2.0) * 100000.0
-                , 10000.0);
-            graphics.Target = Vector3D.Zero;
+                , 10000.0),
+                Target = Vector3D.Zero
+            };
             graphics.SetViewport(-500.0f, -500.0f, 500.0f, 500.0f);
             // draw
             Box box = new Box(0, boxProperties);

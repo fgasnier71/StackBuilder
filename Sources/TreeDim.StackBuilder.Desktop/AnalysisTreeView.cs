@@ -530,56 +530,82 @@ namespace treeDiM.StackBuilder.Desktop
         public void OnNewDocument(Document doc)
         {
             // add document node
-            TreeNode nodeDoc = new TreeNode(doc.Name, 2, 2);
-            nodeDoc.Tag = new NodeTag(NodeTag.NodeType.NT_DOCUMENT, doc);
+            TreeNode nodeDoc = new TreeNode(doc.Name, 2, 2)
+            {
+                Tag = new NodeTag(NodeTag.NodeType.NT_DOCUMENT, doc)
+            };
             this.Nodes.Add(nodeDoc);
             // add box list node
-            TreeNode nodeBoxes = new TreeNode(Resources.ID_NODE_BOXES, 0, 1);
-            nodeBoxes.Tag = new NodeTag(NodeTag.NodeType.NT_LISTBOX, doc);
+            TreeNode nodeBoxes = new TreeNode(Resources.ID_NODE_BOXES, 0, 1)
+            {
+                Tag = new NodeTag(NodeTag.NodeType.NT_LISTBOX, doc)
+            };
             nodeDoc.Nodes.Add(nodeBoxes);
             // add case list node
-            TreeNode nodeCases = new TreeNode(Resources.ID_NODE_CASES, 0, 1);
-            nodeCases.Tag = new NodeTag(NodeTag.NodeType.NT_LISTCASE, doc);
+            TreeNode nodeCases = new TreeNode(Resources.ID_NODE_CASES, 0, 1)
+            {
+                Tag = new NodeTag(NodeTag.NodeType.NT_LISTCASE, doc)
+            };
             nodeDoc.Nodes.Add(nodeCases);
             // add pack list node
-            TreeNode nodePacks = new TreeNode(Resources.ID_NODE_PACKS, 0, 1);
-            nodePacks.Tag = new NodeTag(NodeTag.NodeType.NT_LISTPACK, doc);
+            TreeNode nodePacks = new TreeNode(Resources.ID_NODE_PACKS, 0, 1)
+            {
+                Tag = new NodeTag(NodeTag.NodeType.NT_LISTPACK, doc)
+            };
             nodeDoc.Nodes.Add(nodePacks);
             // add bundle list node
-            TreeNode nodeBundles = new TreeNode(Resources.ID_NODE_BUNDLES, 0, 1);
-            nodeBundles.Tag = new NodeTag(NodeTag.NodeType.NT_LISTBUNDLE, doc);
+            TreeNode nodeBundles = new TreeNode(Resources.ID_NODE_BUNDLES, 0, 1)
+            {
+                Tag = new NodeTag(NodeTag.NodeType.NT_LISTBUNDLE, doc)
+            };
             nodeDoc.Nodes.Add(nodeBundles);
             // add cylinder list node
-            TreeNode nodeCylinders = new TreeNode(Resources.ID_NODE_CYLINDERS, 0, 1);
-            nodeCylinders.Tag = new NodeTag(NodeTag.NodeType.NT_LISTCYLINDER, doc);
+            TreeNode nodeCylinders = new TreeNode(Resources.ID_NODE_CYLINDERS, 0, 1)
+            {
+                Tag = new NodeTag(NodeTag.NodeType.NT_LISTCYLINDER, doc)
+            };
             nodeDoc.Nodes.Add(nodeCylinders);
             // add pallet list node
-            TreeNode nodeInterlayers = new TreeNode(Resources.ID_NODE_INTERLAYERS, 0, 1);
-            nodeInterlayers.Tag = new NodeTag(NodeTag.NodeType.NT_LISTINTERLAYER, doc);
+            TreeNode nodeInterlayers = new TreeNode(Resources.ID_NODE_INTERLAYERS, 0, 1)
+            {
+                Tag = new NodeTag(NodeTag.NodeType.NT_LISTINTERLAYER, doc)
+            };
             nodeDoc.Nodes.Add(nodeInterlayers);
             // add pallet list node
-            TreeNode nodePallets = new TreeNode(Resources.ID_NODE_PALLETS, 0, 1);
-            nodePallets.Tag = new NodeTag(NodeTag.NodeType.NT_LISTPALLET, doc);
+            TreeNode nodePallets = new TreeNode(Resources.ID_NODE_PALLETS, 0, 1)
+            {
+                Tag = new NodeTag(NodeTag.NodeType.NT_LISTPALLET, doc)
+            };
             nodeDoc.Nodes.Add(nodePallets);
             // add pallet corners list node
-            TreeNode nodePalletCorners = new TreeNode(Resources.ID_NODE_PALLETCORNERS, 0, 1);
-            nodePalletCorners.Tag = new NodeTag(NodeTag.NodeType.NT_LISTPALLETCORNERS, doc);
+            TreeNode nodePalletCorners = new TreeNode(Resources.ID_NODE_PALLETCORNERS, 0, 1)
+            {
+                Tag = new NodeTag(NodeTag.NodeType.NT_LISTPALLETCORNERS, doc)
+            };
             nodeDoc.Nodes.Add(nodePalletCorners);
             // add pallet cap node
-            TreeNode nodePalletCaps = new TreeNode(Resources.ID_NODE_PALLETCAPS, 0, 1);
-            nodePalletCaps.Tag = new NodeTag(NodeTag.NodeType.NT_LISTPALLETCAP, doc);
+            TreeNode nodePalletCaps = new TreeNode(Resources.ID_NODE_PALLETCAPS, 0, 1)
+            {
+                Tag = new NodeTag(NodeTag.NodeType.NT_LISTPALLETCAP, doc)
+            };
             nodeDoc.Nodes.Add(nodePalletCaps);
             // add pallet film node
-            TreeNode nodePalletFilms = new TreeNode(Resources.ID_NODE_PALLETFILMS, 0, 1);
-            nodePalletFilms.Tag = new NodeTag(NodeTag.NodeType.NT_LISTPALLETFILM, doc);
+            TreeNode nodePalletFilms = new TreeNode(Resources.ID_NODE_PALLETFILMS, 0, 1)
+            {
+                Tag = new NodeTag(NodeTag.NodeType.NT_LISTPALLETFILM, doc)
+            };
             nodeDoc.Nodes.Add(nodePalletFilms);
             // add truck list node
-            TreeNode nodeTrucks = new TreeNode(Resources.ID_NODE_TRUCKS, 0, 1);
-            nodeTrucks.Tag = new NodeTag(NodeTag.NodeType.NT_LISTTRUCK, doc);
+            TreeNode nodeTrucks = new TreeNode(Resources.ID_NODE_TRUCKS, 0, 1)
+            {
+                Tag = new NodeTag(NodeTag.NodeType.NT_LISTTRUCK, doc)
+            };
             nodeDoc.Nodes.Add(nodeTrucks);
             // add analysis list node
-            TreeNode nodeAnalyses = new TreeNode(Resources.ID_NODE_ANALYSES, 0, 1);
-            nodeAnalyses.Tag = new NodeTag(NodeTag.NodeType.NT_LISTANALYSIS, doc);
+            TreeNode nodeAnalyses = new TreeNode(Resources.ID_NODE_ANALYSES, 0, 1)
+            {
+                Tag = new NodeTag(NodeTag.NodeType.NT_LISTANALYSIS, doc)
+            };
             nodeDoc.Nodes.Add(nodeAnalyses);
             nodeDoc.Expand();
         }
@@ -683,9 +709,11 @@ namespace treeDiM.StackBuilder.Desktop
                 return;
             }
             // instantiate node
-            TreeNode nodeItem = new TreeNode(itemProperties.Name, iconIndex, iconIndex);
-            // set node tag
-            nodeItem.Tag = new NodeTag(nodeType, doc, itemProperties);
+            TreeNode nodeItem = new TreeNode(itemProperties.Name, iconIndex, iconIndex)
+            {
+                // set node tag
+                Tag = new NodeTag(nodeType, doc, itemProperties)
+            };
             // insert
             parentNode.Nodes.Add(nodeItem);
             parentNode.Expand();
@@ -694,8 +722,10 @@ namespace treeDiM.StackBuilder.Desktop
             {
                 // insert sub node
                 CaseOfBoxesProperties caseOfBoxesProperties = itemProperties as CaseOfBoxesProperties;
-                TreeNode subNode = new TreeNode(caseOfBoxesProperties.InsideBoxProperties.Name, 3, 3);
-                subNode.Tag = new NodeTag(NodeTag.NodeType.NT_BOX, doc, caseOfBoxesProperties.InsideBoxProperties);
+                TreeNode subNode = new TreeNode(caseOfBoxesProperties.InsideBoxProperties.Name, 3, 3)
+                {
+                    Tag = new NodeTag(NodeTag.NodeType.NT_BOX, doc, caseOfBoxesProperties.InsideBoxProperties)
+                };
                 nodeItem.Nodes.Add(subNode);
             }
         }
@@ -704,8 +734,10 @@ namespace treeDiM.StackBuilder.Desktop
             // get parent node
             TreeNode parentNode = FindNode(null, new NodeTag(NodeTag.NodeType.NT_LISTANALYSIS, doc));
             // instantiate analysis node
-            TreeNode nodeAnalysis = new TreeNode(analysis.Name, ToIconIndex(analysis), ToIconIndex(analysis));
-            nodeAnalysis.Tag = new NodeTag(NodeTag.NodeType.NT_ANALYSIS, doc, analysis);
+            TreeNode nodeAnalysis = new TreeNode(analysis.Name, ToIconIndex(analysis), ToIconIndex(analysis))
+            {
+                Tag = new NodeTag(NodeTag.NodeType.NT_ANALYSIS, doc, analysis)
+            };
             // insert context menu
             parentNode.Nodes.Add( nodeAnalysis );
             parentNode.Expand();

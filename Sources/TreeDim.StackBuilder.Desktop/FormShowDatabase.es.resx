@@ -117,30 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="bnClose.Text" xml:space="preserve">
-    <value>Fermer</value>
-  </data>
-  <data name="bnImport.Text" xml:space="preserve">
-    <value>Importer</value>
-  </data>
-  <data name="tabPagePallet.Text" xml:space="preserve">
-    <value>Palettes</value>
-  </data>
-  <data name="tabPageDeco.Text" xml:space="preserve">
-    <value>Accessoires palettes</value>
-  </data>
-  <data name="tabPageCase.Text" xml:space="preserve">
-    <value>Caisses</value>
-  </data>
-  <data name="tabPageBundle.Text" xml:space="preserve">
-    <value>Liasses</value>
-  </data>
-  <data name="tabPageCylinder.Text" xml:space="preserve">
-    <value>Cylindres</value>
-  </data>
-  <data name="tabPageTruck.Text" xml:space="preserve">
-    <value>Camions</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

@@ -205,11 +205,13 @@ namespace treeDiM.StackBuilder.Desktop
 
         #region Helpers
         private ConstraintSetPackablePallet BuildConstraintSet()
-        { 
+        {
             // constraint set
-            ConstraintSetPackablePallet constraintSet = new ConstraintSetPackablePallet();
-            // overhang
-            constraintSet.Overhang = new Vector2D(uCtrlOverhang.ValueX, uCtrlOverhang.ValueY);
+            ConstraintSetPackablePallet constraintSet = new ConstraintSetPackablePallet()
+            {
+                // overhang
+                Overhang = new Vector2D(uCtrlOverhang.ValueX, uCtrlOverhang.ValueY)
+            };
             // conditions
             constraintSet.SetMaxHeight(new OptDouble(true, uCtrlMaximumHeight.Value));
             constraintSet.OptMaxWeight = uCtrlOptMaximumWeight.Value;

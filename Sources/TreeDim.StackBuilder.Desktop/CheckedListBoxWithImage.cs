@@ -30,9 +30,11 @@ namespace treeDiM.StackBuilder.Desktop
             InitializeComponent();
             _imageSize = new Size(80, 60);
             ItemHeight = _imageSize.Height + this.Margin.Vertical;
-            _fmt = new StringFormat();
-            _fmt.Alignment = StringAlignment.Near;
-            _fmt.LineAlignment = StringAlignment.Near;
+            _fmt = new StringFormat()
+            {
+                Alignment = StringAlignment.Near,
+                LineAlignment = StringAlignment.Near
+            };
             _titleFont = new Font(this.Font, FontStyle.Regular);
         }
         /// <summary>
@@ -46,9 +48,11 @@ namespace treeDiM.StackBuilder.Desktop
                          StringAlignment aligment, StringAlignment lineAligment)
         {
             _imageSize = imageSize;
-            _fmt = new StringFormat();
-            _fmt.Alignment = aligment;
-            _fmt.LineAlignment = lineAligment;
+            _fmt = new StringFormat()
+            {
+                Alignment = aligment,
+                LineAlignment = lineAligment
+            };
             this.ItemHeight = _imageSize.Height + this.Margin.Vertical;
             _fmt.Alignment = aligment;
             _fmt.LineAlignment = lineAligment;

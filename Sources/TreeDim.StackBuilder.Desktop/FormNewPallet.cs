@@ -138,8 +138,10 @@ namespace treeDiM.StackBuilder.Desktop
         {
             if (0 == cbType.Items.Count)
                 return;
-            PalletProperties palletProperties = new PalletProperties(null, PalletTypeName, PalletLength, PalletWidth, PalletHeight);
-            palletProperties.Color = PalletColor;
+            PalletProperties palletProperties = new PalletProperties(null, PalletTypeName, PalletLength, PalletWidth, PalletHeight)
+            {
+                Color = PalletColor
+            };
             Pallet pallet = new Pallet(palletProperties);
             pallet.Draw(graphics, Transform3D.Identity);
             graphics.AddDimensions(new DimensionCube(PalletLength, PalletWidth, PalletHeight));
@@ -174,8 +176,10 @@ namespace treeDiM.StackBuilder.Desktop
         {
             try
             {
-                FormSetItemName form = new FormSetItemName();
-                form.ItemName = ItemName;
+                FormSetItemName form = new FormSetItemName()
+                {
+                    ItemName = ItemName
+                };
                 if (DialogResult.OK == form.ShowDialog())
                 {
                     PLMPackServiceClient client = WCFClientSingleton.Instance.Client;

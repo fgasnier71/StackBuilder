@@ -161,8 +161,10 @@ namespace treeDiM.StackBuilder.Desktop
         {
             try
             {
-                FormEditBitmaps form = new FormEditBitmaps(_caseOfBoxesProperties);
-                form.Textures = _textures;
+                FormEditBitmaps form = new FormEditBitmaps(_caseOfBoxesProperties)
+                {
+                    Textures = _textures
+                };
                 if (DialogResult.OK == form.ShowDialog())
                     _textures = form.Textures;
                 graphCtrlBoxCase.Invalidate();

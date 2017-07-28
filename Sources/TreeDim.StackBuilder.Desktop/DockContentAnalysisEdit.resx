@@ -141,7 +141,7 @@
     <value>splitContainerVert.Panel2</value>
   </data>
   <data name="&gt;&gt;cbInterlayer.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered, treeDiM.StackBuilder.Graphics, Version=3.0.0.29, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered, treeDiM.StackBuilder.Graphics, Version=3.0.0.35, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;splitContainerHoriz.Panel1.Type" xml:space="preserve">
     <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -435,13 +435,10 @@
     <value>splitContainerVert.Panel2</value>
   </data>
   <data name="&gt;&gt;graphCtrlSolution.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Graphics.Graphics3DControl, treeDiM.StackBuilder.Graphics, Version=3.0.0.29, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Graphics.Graphics3DControl, treeDiM.StackBuilder.Graphics, Version=3.0.0.35, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;gbLayer.Parent" xml:space="preserve">
     <value>splitContainerHoriz.Panel2</value>
-  </data>
-  <data name="&gt;&gt;chkbInterlayer.ZOrder" xml:space="preserve">
-    <value>0</value>
   </data>
   <data name="&gt;&gt;splitContainerHoriz.Panel2.ZOrder" xml:space="preserve">
     <value>1</value>
@@ -463,6 +460,9 @@
   </data>
   <data name="toolStripButtonBack.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>White</value>
+  </data>
+  <data name="gridSolutions.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
   <data name="toolStripAnalysis.Text" xml:space="preserve">
     <value>Generate MS Word report</value>
@@ -585,7 +585,7 @@
     <value>1</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Desktop.DockContentView, treeDiM.StackBuilder.Desktop, Version=3.0.0.29, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Desktop.DockContentView, treeDiM.StackBuilder.Desktop, Version=3.0.0.35, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;splitContainerHoriz.Panel1.Name" xml:space="preserve">
     <value>splitContainerHoriz.Panel1</value>
@@ -594,7 +594,7 @@
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;cbLayerType.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Graphics.Controls.CCtrlComboLayer, treeDiM.StackBuilder.Graphics, Version=3.0.0.29, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Graphics.Controls.CCtrlComboLayer, treeDiM.StackBuilder.Graphics, Version=3.0.0.35, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;cbLayerType.ZOrder" xml:space="preserve">
     <value>2</value>
@@ -648,7 +648,7 @@
     <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;gridSolutions.Type" xml:space="preserve">
-    <value>SourceGrid.Grid, SourceGrid, Version=4.30.5611.24765, Culture=neutral, PublicKeyToken=df6f5e538749e85d</value>
+    <value>SourceGrid.Grid, SourceGrid, Version=4.40.4580.29115, Culture=neutral, PublicKeyToken=df6f5e538749e85d</value>
   </data>
   <data name="&gt;&gt;tbClickLayer.ZOrder" xml:space="preserve">
     <value>1</value>
@@ -694,7 +694,7 @@
   <data name="bnSymmetryX.Size" type="System.Drawing.Size, System.Drawing">
     <value>64, 64</value>
   </data>
-  <data name="gridSolutions.TabIndex" type="System.Int32, mscorlib">
+  <data name="&gt;&gt;chkbInterlayer.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="bnSymmetryX.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
@@ -708,6 +708,9 @@
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
+  </metadata>
+  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>es</value>
   </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>34</value>

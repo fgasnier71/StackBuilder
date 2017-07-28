@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSetItemName));
             this.lbItemName = new System.Windows.Forms.Label();
             this.tbItemName = new System.Windows.Forms.TextBox();
             this.bnOK = new System.Windows.Forms.Button();
@@ -39,68 +40,47 @@
             // 
             // lbItemName
             // 
-            this.lbItemName.AutoSize = true;
-            this.lbItemName.Location = new System.Drawing.Point(13, 13);
+            resources.ApplyResources(this.lbItemName, "lbItemName");
             this.lbItemName.Name = "lbItemName";
-            this.lbItemName.Size = new System.Drawing.Size(56, 13);
-            this.lbItemName.TabIndex = 0;
-            this.lbItemName.Text = "Item name";
             // 
             // tbItemName
             // 
-            this.tbItemName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbItemName.Location = new System.Drawing.Point(151, 9);
+            resources.ApplyResources(this.tbItemName, "tbItemName");
             this.tbItemName.Name = "tbItemName";
-            this.tbItemName.Size = new System.Drawing.Size(262, 20);
-            this.tbItemName.TabIndex = 1;
             this.tbItemName.TextChanged += new System.EventHandler(this.onItemNameChanged);
             // 
             // bnOK
             // 
-            this.bnOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            resources.ApplyResources(this.bnOK, "bnOK");
             this.bnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.bnOK.Location = new System.Drawing.Point(419, 8);
             this.bnOK.Name = "bnOK";
-            this.bnOK.Size = new System.Drawing.Size(75, 23);
-            this.bnOK.TabIndex = 2;
-            this.bnOK.Text = "OK";
             this.bnOK.UseVisualStyleBackColor = true;
             // 
             // bnCancel
             // 
-            this.bnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            resources.ApplyResources(this.bnCancel, "bnCancel");
             this.bnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.bnCancel.Location = new System.Drawing.Point(419, 38);
             this.bnCancel.Name = "bnCancel";
-            this.bnCancel.Size = new System.Drawing.Size(75, 23);
-            this.bnCancel.TabIndex = 3;
-            this.bnCancel.Text = "Cancel";
             this.bnCancel.UseVisualStyleBackColor = true;
             // 
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.statusLbl});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 84);
+            resources.ApplyResources(this.statusStrip1, "statusStrip1");
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(506, 22);
-            this.statusStrip1.TabIndex = 4;
-            this.statusStrip1.Text = "statusStrip1";
             // 
             // statusLbl
             // 
             this.statusLbl.Name = "statusLbl";
-            this.statusLbl.Size = new System.Drawing.Size(39, 17);
-            this.statusLbl.Text = "Ready";
+            resources.ApplyResources(this.statusLbl, "statusLbl");
             // 
             // FormSetItemName
             // 
             this.AcceptButton = this.bnOK;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.bnCancel;
-            this.ClientSize = new System.Drawing.Size(506, 106);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.bnCancel);
             this.Controls.Add(this.bnOK);
@@ -110,7 +90,6 @@
             this.MinimizeBox = false;
             this.Name = "FormSetItemName";
             this.ShowIcon = false;
-            this.Text = "Set item  name...";
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);

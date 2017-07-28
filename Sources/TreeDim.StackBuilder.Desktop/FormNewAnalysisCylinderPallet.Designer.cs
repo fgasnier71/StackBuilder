@@ -154,6 +154,7 @@
             // uCtrlOverhang
             // 
             resources.ApplyResources(this.uCtrlOverhang, "uCtrlOverhang");
+            this.uCtrlOverhang.MinValue = -10000D;
             this.uCtrlOverhang.Name = "uCtrlOverhang";
             this.uCtrlOverhang.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlOverhang.ValueX = 0D;

@@ -303,23 +303,11 @@
     <Compile Include="FormNewAnalysisBoxCase.Designer.cs">
       <DependentUpon>FormNewAnalysisBoxCase.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormNewAnalysisBundle.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormNewAnalysisBundle.Designer.cs">
-      <DependentUpon>FormNewAnalysisBundle.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormNewAnalysisCasePallet.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormNewAnalysisCasePallet.Designer.cs">
       <DependentUpon>FormNewAnalysisCasePallet.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormNewAnalysisCylinder.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormNewAnalysisCylinder.Designer.cs">
-      <DependentUpon>FormNewAnalysisCylinder.cs</DependentUpon>
     </Compile>
     <Compile Include="FormNewAnalysisHCylinder.cs">
       <SubType>Form</SubType>
@@ -603,6 +591,9 @@
     <EmbeddedResource Include="DockContentAnalysisCylinderPallet.resx">
       <DependentUpon>DockContentAnalysisCylinderPallet.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DockContentAnalysisEdit.es.resx">
+      <DependentUpon>DockContentAnalysisEdit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DockContentAnalysisEdit.fr-FR.resx">
       <DependentUpon>DockContentAnalysisEdit.cs</DependentUpon>
     </EmbeddedResource>
@@ -765,6 +756,9 @@
     <EmbeddedResource Include="FormMain.es-ES.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormMain.es.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormMain.fr-FR.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -779,13 +773,31 @@
     <EmbeddedResource Include="FormMain.nl-NL.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysis.es.resx">
+      <DependentUpon>FormNewAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewAnalysis.fr-FR.resx">
       <DependentUpon>FormNewAnalysis.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewAnalysis.resx">
       <DependentUpon>FormNewAnalysis.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisBoxCase.es.resx">
+      <DependentUpon>FormNewAnalysisBoxCase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisBoxCase.fr.resx">
+      <DependentUpon>FormNewAnalysisBoxCase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisCasePallet.es.resx">
+      <DependentUpon>FormNewAnalysisCasePallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisCasePallet.fr.resx">
+      <DependentUpon>FormNewAnalysisCasePallet.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewAnalysisCaseTruck.es-ES.resx">
+      <DependentUpon>FormNewAnalysisCaseTruck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisCaseTruck.es.resx">
       <DependentUpon>FormNewAnalysisCaseTruck.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewAnalysisCaseTruck.fr-FR.resx">
@@ -794,8 +806,17 @@
     <EmbeddedResource Include="FormNewAnalysisCaseTruck.resx">
       <DependentUpon>FormNewAnalysisCaseTruck.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisCylinderCase.es.resx">
+      <DependentUpon>FormNewAnalysisCylinderCase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisCylinderCase.fr.resx">
+      <DependentUpon>FormNewAnalysisCylinderCase.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewAnalysisCylinderCase.resx">
       <DependentUpon>FormNewAnalysisCylinderCase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisCylinderPallet.es.resx">
+      <DependentUpon>FormNewAnalysisCylinderPallet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewAnalysisCylinderPallet.fr-FR.resx">
       <DependentUpon>FormNewAnalysisCylinderPallet.cs</DependentUpon>
@@ -806,53 +827,8 @@
     <EmbeddedResource Include="FormNewAnalysisBoxCase.resx">
       <DependentUpon>FormNewAnalysisBoxCase.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormNewAnalysisBundle.ca-ES.resx">
-      <DependentUpon>FormNewAnalysisBundle.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormNewAnalysisBundle.de-DE.resx">
-      <DependentUpon>FormNewAnalysisBundle.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormNewAnalysisBundle.es-ES.resx">
-      <DependentUpon>FormNewAnalysisBundle.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormNewAnalysisBundle.fr-FR.resx">
-      <DependentUpon>FormNewAnalysisBundle.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormNewAnalysisBundle.it-IT.resx">
-      <DependentUpon>FormNewAnalysisBundle.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormNewAnalysisBundle.ja-JP.resx">
-      <DependentUpon>FormNewAnalysisBundle.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormNewAnalysisBundle.nl-NL.resx">
-      <DependentUpon>FormNewAnalysisBundle.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormNewAnalysisBundle.resx">
-      <DependentUpon>FormNewAnalysisBundle.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormNewAnalysisCasePallet.resx">
       <DependentUpon>FormNewAnalysisCasePallet.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormNewAnalysisCylinder.de-DE.resx">
-      <DependentUpon>FormNewAnalysisCylinder.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormNewAnalysisCylinder.es-ES.resx">
-      <DependentUpon>FormNewAnalysisCylinder.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormNewAnalysisCylinder.fr-FR.resx">
-      <DependentUpon>FormNewAnalysisCylinder.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormNewAnalysisCylinder.it-IT.resx">
-      <DependentUpon>FormNewAnalysisCylinder.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormNewAnalysisCylinder.ja-JP.resx">
-      <DependentUpon>FormNewAnalysisCylinder.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormNewAnalysisCylinder.resx">
-      <DependentUpon>FormNewAnalysisCylinder.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewAnalysisHCylinder.de-DE.resx">
@@ -1146,6 +1122,9 @@
     <EmbeddedResource Include="FormNewPalletCorners.resx">
       <DependentUpon>FormNewPalletCorners.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNewPalletFilm.fr.resx">
+      <DependentUpon>FormNewPalletFilm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewPalletFilm.resx">
       <DependentUpon>FormNewPalletFilm.cs</DependentUpon>
     </EmbeddedResource>
@@ -1176,6 +1155,9 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FormOptimiseMultiCase.fr-FR.resx">
+      <DependentUpon>FormOptimiseMultiCase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormOptimiseMultiCase.fr.resx">
       <DependentUpon>FormOptimiseMultiCase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormOptimiseMultiCase.resx">
@@ -1210,13 +1192,28 @@
       <DependentUpon>FormOptimizeCase.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormOptimizePack.es.resx">
+      <DependentUpon>FormOptimizePack.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormOptimizePack.fr.resx">
+      <DependentUpon>FormOptimizePack.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormOptimizePack.resx">
       <DependentUpon>FormOptimizePack.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSetItemName.es.resx">
+      <DependentUpon>FormSetItemName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSetItemName.fr.resx">
+      <DependentUpon>FormSetItemName.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSetItemName.resx">
       <DependentUpon>FormSetItemName.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormShowDatabase.fr-FR.resx">
+    <EmbeddedResource Include="FormShowDatabase.es.resx">
+      <DependentUpon>FormShowDatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormShowDatabase.fr.resx">
       <DependentUpon>FormShowDatabase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormShowDatabase.resx">
@@ -1230,6 +1227,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormSplashScreen.nl-NL.resx">
       <DependentUpon>FormSplashScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormValidTypeName.es.resx">
+      <DependentUpon>FormValidTypeName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormValidTypeName.fr.resx">
+      <DependentUpon>FormValidTypeName.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormValidTypeName.resx">
       <DependentUpon>FormValidTypeName.cs</DependentUpon>
@@ -1467,10 +1470,6 @@
     <None Include="Resources\View_Top.bmp" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MsgBoxCheck\MsgBoxCheck.csproj">
-      <Project>{43D66268-9336-4118-A30E-FC43CED0E62D}</Project>
-      <Name>MsgBoxCheck</Name>
-    </ProjectReference>
     <ProjectReference Include="..\OfficePickers\OfficePickers.csproj">
       <Project>{CAD56B75-481B-4C76-B090-4BC2FF5E5681}</Project>
       <Name>OfficePickers</Name>

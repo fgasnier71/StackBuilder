@@ -59,23 +59,35 @@
             // 
             resources.ApplyResources(this.tbDescription, "tbDescription");
             // 
+            // tbName
+            // 
+            resources.ApplyResources(this.tbName, "tbName");
+            // 
+            // lbDescription
+            // 
+            resources.ApplyResources(this.lbDescription, "lbDescription");
+            // 
+            // lbName
+            // 
+            resources.ApplyResources(this.lbName, "lbName");
+            // 
             // bnCancel
             // 
             resources.ApplyResources(this.bnCancel, "bnCancel");
             // 
             // cbPallets
             // 
+            resources.ApplyResources(this.cbPallets, "cbPallets");
             this.cbPallets.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbPallets.FormattingEnabled = true;
-            resources.ApplyResources(this.cbPallets, "cbPallets");
             this.cbPallets.Name = "cbPallets";
             this.cbPallets.SelectedIndexChanged += new System.EventHandler(this.onInputChanged);
             // 
             // cbCases
             // 
+            resources.ApplyResources(this.cbCases, "cbCases");
             this.cbCases.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCases.FormattingEnabled = true;
-            resources.ApplyResources(this.cbCases, "cbCases");
             this.cbCases.Name = "cbCases";
             this.cbCases.SelectedIndexChanged += new System.EventHandler(this.onCaseChanged);
             // 
@@ -87,6 +99,7 @@
             // uCtrlOverhang
             // 
             resources.ApplyResources(this.uCtrlOverhang, "uCtrlOverhang");
+            this.uCtrlOverhang.MinValue = -10000D;
             this.uCtrlOverhang.Name = "uCtrlOverhang";
             this.uCtrlOverhang.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlOverhang.ValueX = 0D;
@@ -103,6 +116,8 @@
             resources.ApplyResources(this.uCtrlLayerList, "uCtrlLayerList");
             this.uCtrlLayerList.ButtonSizes = new System.Drawing.Size(150, 150);
             this.uCtrlLayerList.Name = "uCtrlLayerList";
+            this.uCtrlLayerList.Show3D = true;
+            this.uCtrlLayerList.SingleSelection = false;
             // 
             // checkBoxBestLayersOnly
             // 
@@ -120,29 +135,29 @@
             // 
             // uCtrlCaseOrientation
             // 
+            resources.ApplyResources(this.uCtrlCaseOrientation, "uCtrlCaseOrientation");
             this.uCtrlCaseOrientation.AllowedOrientations = new bool[] {
         false,
         false,
         true};
-            resources.ApplyResources(this.uCtrlCaseOrientation, "uCtrlCaseOrientation");
             this.uCtrlCaseOrientation.Name = "uCtrlCaseOrientation";
             this.uCtrlCaseOrientation.CheckedChanged += new treeDiM.StackBuilder.Graphics.uCtrlCaseOrientation.CheckChanged(this.onInputChanged);
             // 
             // tabCtrlConstraints
             // 
+            resources.ApplyResources(this.tabCtrlConstraints, "tabCtrlConstraints");
             this.tabCtrlConstraints.Controls.Add(this.tabPageStopCriterions);
             this.tabCtrlConstraints.Controls.Add(this.tabPageOverhang);
             this.tabCtrlConstraints.Controls.Add(this.tabPageSpaces);
             this.tabCtrlConstraints.Controls.Add(this.tabPageLayerFilters);
-            resources.ApplyResources(this.tabCtrlConstraints, "tabCtrlConstraints");
             this.tabCtrlConstraints.Name = "tabCtrlConstraints";
             this.tabCtrlConstraints.SelectedIndex = 0;
             // 
             // tabPageStopCriterions
             // 
+            resources.ApplyResources(this.tabPageStopCriterions, "tabPageStopCriterions");
             this.tabPageStopCriterions.Controls.Add(this.uCtrlOptMaximumWeight);
             this.tabPageStopCriterions.Controls.Add(this.uCtrlMaximumHeight);
-            resources.ApplyResources(this.tabPageStopCriterions, "tabPageStopCriterions");
             this.tabPageStopCriterions.Name = "tabPageStopCriterions";
             this.tabPageStopCriterions.UseVisualStyleBackColor = true;
             // 
@@ -174,15 +189,15 @@
             // 
             // tabPageOverhang
             // 
-            this.tabPageOverhang.Controls.Add(this.uCtrlOverhang);
             resources.ApplyResources(this.tabPageOverhang, "tabPageOverhang");
+            this.tabPageOverhang.Controls.Add(this.uCtrlOverhang);
             this.tabPageOverhang.Name = "tabPageOverhang";
             this.tabPageOverhang.UseVisualStyleBackColor = true;
             // 
             // tabPageSpaces
             // 
-            this.tabPageSpaces.Controls.Add(this.uCtrlOptSpace);
             resources.ApplyResources(this.tabPageSpaces, "tabPageSpaces");
+            this.tabPageSpaces.Controls.Add(this.uCtrlOptSpace);
             this.tabPageSpaces.Name = "tabPageSpaces";
             this.tabPageSpaces.UseVisualStyleBackColor = true;
             // 
@@ -200,9 +215,9 @@
             // 
             // tabPageLayerFilters
             // 
+            resources.ApplyResources(this.tabPageLayerFilters, "tabPageLayerFilters");
             this.tabPageLayerFilters.Controls.Add(this.uCtrlOptMaximumLayerWeight);
             this.tabPageLayerFilters.Controls.Add(this.uCtrlOptMaximumSpace);
-            resources.ApplyResources(this.tabPageLayerFilters, "tabPageLayerFilters");
             this.tabPageLayerFilters.Name = "tabPageLayerFilters";
             this.tabPageLayerFilters.UseVisualStyleBackColor = true;
             // 

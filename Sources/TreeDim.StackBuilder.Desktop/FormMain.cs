@@ -315,9 +315,10 @@ namespace treeDiM.StackBuilder.Desktop
                 else if (itemProp.GetType() == typeof(PackProperties))
                 {
                     PackProperties pack = itemProp as PackProperties;
-                    FormNewPack form = new FormNewPack(eventArg.Document, eventArg.ItemBase as PackProperties);
-                    form.Boxes = eventArg.Document.Boxes.ToList();
-
+                    FormNewPack form = new FormNewPack(eventArg.Document, eventArg.ItemBase as PackProperties)
+                    {
+                        Boxes = eventArg.Document.Boxes.ToList()
+                    };
                     if (DialogResult.OK == form.ShowDialog())
                     {
                         if (!UserAcknowledgeDependancies(pack)) return;
@@ -352,10 +353,11 @@ namespace treeDiM.StackBuilder.Desktop
                 else if (itemProp.GetType() == typeof(CaseOfBoxesProperties))
                 {
                     CaseOfBoxesProperties caseOfBoxes = itemProp as CaseOfBoxesProperties;
-                    FormNewCaseOfBoxes form = new FormNewCaseOfBoxes(eventArg.Document, caseOfBoxes);
-                    form.CaseName = itemProp.Name;
-                    form.CaseDescription = itemProp.Description;
-
+                    FormNewCaseOfBoxes form = new FormNewCaseOfBoxes(eventArg.Document, caseOfBoxes)
+                    {
+                        CaseName = itemProp.Name,
+                        CaseDescription = itemProp.Description
+                    };
                     if (form.ShowDialog() == DialogResult.OK)
                     {
                         if (!UserAcknowledgeDependancies(caseOfBoxes)) return;
@@ -499,8 +501,10 @@ namespace treeDiM.StackBuilder.Desktop
         {
             try
             {
-                FormReportDesign form = new FormReportDesign();
-                form.Analysis = analysis;
+                FormReportDesign form = new FormReportDesign()
+                {
+                    Analysis = analysis
+                };
                 form.ShowDialog();
             }
             catch (Exception ex)
@@ -1121,8 +1125,10 @@ namespace treeDiM.StackBuilder.Desktop
         {
             try
             {
-                FormOptimiseMultiCase form = new FormOptimiseMultiCase();
-                form.Document = (DocumentSB)ActiveDocument;
+                FormOptimiseMultiCase form = new FormOptimiseMultiCase()
+                {
+                    Document = (DocumentSB)ActiveDocument
+                };
                 form.ShowDialog();
             }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
@@ -1134,8 +1140,10 @@ namespace treeDiM.StackBuilder.Desktop
             try
             {
                 // Form show database
-                FormShowDatabase form = new FormShowDatabase();
-                form.Document = ActiveDocument as Document;
+                FormShowDatabase form = new FormShowDatabase()
+                {
+                    Document = ActiveDocument as Document
+                };
                 form.ShowDialog();
                 // update toolbar state as database may now be empty
                 UpdateToolbarState();
@@ -1335,9 +1343,11 @@ namespace treeDiM.StackBuilder.Desktop
         #region Help menu event handlers
         private void onAbout(object sender, EventArgs e)
         {
-            AboutBox form = new AboutBox();
-            form.CompanyUrl = "https://github.com/treeDiM/StackBuilder/releases";
-            form.SupportEmail = "treedim@gmail.com";
+            AboutBox form = new AboutBox()
+            {
+                CompanyUrl = "https://github.com/treeDiM/StackBuilder/releases",
+                SupportEmail = "treedim@gmail.com"
+            };
             form.ShowDialog();
         }
         private void onOnlineHelp(object sender, EventArgs e)

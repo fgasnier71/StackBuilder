@@ -160,25 +160,33 @@ namespace treeDiM.StackBuilder.Desktop
             DevAge.Drawing.RectangleBorder cellBorder = new DevAge.Drawing.RectangleBorder(border, border);
 
             // views
-            CellBackColorAlternate viewNormal = new CellBackColorAlternate(Color.LightBlue, Color.White);
-            viewNormal.Border = cellBorder;
-            CheckboxBackColorAlternate viewNormalCheck = new CheckboxBackColorAlternate(Color.LightBlue, Color.White);
-            viewNormalCheck.Border = cellBorder;
+            CellBackColorAlternate viewNormal = new CellBackColorAlternate(Color.LightBlue, Color.White)
+            {
+                Border = cellBorder
+            };
+            CheckboxBackColorAlternate viewNormalCheck = new CheckboxBackColorAlternate(Color.LightBlue, Color.White)
+            {
+                Border = cellBorder
+            };
 
             // column header view
             SourceGrid.Cells.Views.ColumnHeader viewColumnHeader = new SourceGrid.Cells.Views.ColumnHeader();
-            DevAge.Drawing.VisualElements.ColumnHeader backHeader = new DevAge.Drawing.VisualElements.ColumnHeader();
-            backHeader.BackColor = Color.LightGray;
-            backHeader.Border = DevAge.Drawing.RectangleBorder.NoBorder;
+            DevAge.Drawing.VisualElements.ColumnHeader backHeader = new DevAge.Drawing.VisualElements.ColumnHeader()
+            {
+                BackColor = Color.LightGray,
+                Border = DevAge.Drawing.RectangleBorder.NoBorder
+            };
             viewColumnHeader.Background = backHeader;
             viewColumnHeader.ForeColor = Color.Black;
             viewColumnHeader.ElementSort.SortStyle = DevAge.Drawing.HeaderSortStyle.None;
 
             // row header view
             SourceGrid.Cells.Views.RowHeader viewRowHeader = new SourceGrid.Cells.Views.RowHeader();
-            DevAge.Drawing.VisualElements.RowHeader backRowHeader = new DevAge.Drawing.VisualElements.RowHeader();
-            backRowHeader.BackColor = Color.LightGray;
-            backRowHeader.Border = DevAge.Drawing.RectangleBorder.NoBorder;
+            DevAge.Drawing.VisualElements.RowHeader backRowHeader = new DevAge.Drawing.VisualElements.RowHeader()
+            {
+                BackColor = Color.LightGray,
+                Border = DevAge.Drawing.RectangleBorder.NoBorder
+            };
             viewRowHeader.Background = backRowHeader;
             viewRowHeader.ForeColor = Color.Black;
 
@@ -192,16 +200,20 @@ namespace treeDiM.StackBuilder.Desktop
             SourceGrid.Cells.ColumnHeader columnHeader;
             int indexCol = 0;
 
-            columnHeader = new SourceGrid.Cells.ColumnHeader("Humidity (%)/Storage");
-            columnHeader.AutomaticSortEnabled = false;
-            columnHeader.View = viewColumnHeader;
+            columnHeader = new SourceGrid.Cells.ColumnHeader("Humidity (%)/Storage")
+            {
+                AutomaticSortEnabled = false,
+                View = viewColumnHeader
+            };
             gridDynamicBCT[0, indexCol++] = columnHeader;
 
             foreach (string key in McKeeFormula.HumidityCoefDictionary.Keys)
             {
-                columnHeader = new SourceGrid.Cells.ColumnHeader(key);
-                columnHeader.AutomaticSortEnabled = false;
-                columnHeader.View = viewColumnHeader;
+                columnHeader = new SourceGrid.Cells.ColumnHeader(key)
+                {
+                    AutomaticSortEnabled = false,
+                    View = viewColumnHeader
+                };
                 gridDynamicBCT[0, indexCol++] = columnHeader;
             }
 
@@ -210,8 +222,10 @@ namespace treeDiM.StackBuilder.Desktop
 
             foreach (string key in McKeeFormula.StockCoefDictionary.Keys)
             {
-                rowHeader = new SourceGrid.Cells.RowHeader(key);
-                rowHeader.View = viewRowHeader;
+                rowHeader = new SourceGrid.Cells.RowHeader(key)
+                {
+                    View = viewRowHeader
+                };
                 gridDynamicBCT[indexRow++, 0] = rowHeader;
             }
 
@@ -227,8 +241,10 @@ namespace treeDiM.StackBuilder.Desktop
             // views
             DevAge.Drawing.BorderLine border = new DevAge.Drawing.BorderLine(Color.DarkBlue, 1);
             DevAge.Drawing.RectangleBorder cellBorder = new DevAge.Drawing.RectangleBorder(border, border);
-            CellColorFromValue viewNormal = new CellColorFromValue(_ectAnalysis.LoadOnFirstLayerCase * 9.81 / 10); // convert mass in kg to load in daN
-            viewNormal.Border = cellBorder;
+            CellColorFromValue viewNormal = new CellColorFromValue(_ectAnalysis.LoadOnFirstLayerCase * 9.81 / 10)
+            {
+                Border = cellBorder
+            }; // convert mass in kg to load in daN
 
             foreach (string keyHumidity in McKeeFormula.HumidityCoefDictionary.Keys)
             {
@@ -236,8 +252,10 @@ namespace treeDiM.StackBuilder.Desktop
                 foreach (string keyStorage in McKeeFormula.StockCoefDictionary.Keys)
                 {
                     gridDynamicBCT[indexRow, indexCol] = new SourceGrid.Cells.Cell(
-                        string.Format("{0:0.00}", dynamicBCTDictionary[new KeyValuePair<string,string>(keyStorage, keyHumidity)]));
-                    gridDynamicBCT[indexRow, indexCol].View = viewNormal;
+                        string.Format("{0:0.00}", dynamicBCTDictionary[new KeyValuePair<string, string>(keyStorage, keyHumidity)]))
+                    {
+                        View = viewNormal
+                    };
                     ++indexRow;
                 }
                 ++indexCol;

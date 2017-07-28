@@ -116,8 +116,10 @@ namespace treeDiM.StackBuilder.Desktop
         {
             if (TruckLength == 0 || TruckWidth == 0 || TruckHeight == 0)
                 return;
-            TruckProperties truckProperties = new TruckProperties(null, TruckLength, TruckWidth, TruckHeight);
-            truckProperties.Color = TruckColor;
+            TruckProperties truckProperties = new TruckProperties(null, TruckLength, TruckWidth, TruckHeight)
+            {
+                Color = TruckColor
+            };
             Truck truck = new Truck(truckProperties);
             truck.DrawBegin(graphics);
             truck.DrawEnd(graphics);
@@ -146,8 +148,10 @@ namespace treeDiM.StackBuilder.Desktop
         {
             try
             {
-                FormSetItemName form = new FormSetItemName();
-                form.ItemName = ItemName;
+                FormSetItemName form = new FormSetItemName()
+                {
+                    ItemName = ItemName
+                };
                 if (DialogResult.OK == form.ShowDialog())
                 {
                     PLMPackServiceClient client = WCFClientSingleton.Instance.Client;

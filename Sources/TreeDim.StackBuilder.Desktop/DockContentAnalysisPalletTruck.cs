@@ -117,18 +117,22 @@ namespace treeDiM.StackBuilder.Desktop
                 // *** IViews 
                 // captionHeader
                 SourceGrid.Cells.Views.RowHeader captionHeader = new SourceGrid.Cells.Views.RowHeader();
-                DevAge.Drawing.VisualElements.RowHeader veHeaderCaption = new DevAge.Drawing.VisualElements.RowHeader();
-                veHeaderCaption.BackColor = Color.SteelBlue;
-                veHeaderCaption.Border = DevAge.Drawing.RectangleBorder.NoBorder;
+                DevAge.Drawing.VisualElements.RowHeader veHeaderCaption = new DevAge.Drawing.VisualElements.RowHeader()
+                {
+                    BackColor = Color.SteelBlue,
+                    Border = DevAge.Drawing.RectangleBorder.NoBorder
+                };
                 captionHeader.Background = veHeaderCaption;
                 captionHeader.ForeColor = Color.Black;
                 captionHeader.Font = new Font("Arial", 10, FontStyle.Bold);
                 captionHeader.TextAlignment = DevAge.Drawing.ContentAlignment.MiddleCenter;
                 // viewRowHeader
                 SourceGrid.Cells.Views.RowHeader viewRowHeader = new SourceGrid.Cells.Views.RowHeader();
-                DevAge.Drawing.VisualElements.RowHeader backHeader = new DevAge.Drawing.VisualElements.RowHeader();
-                backHeader.BackColor = Color.LightGray;
-                backHeader.Border = DevAge.Drawing.RectangleBorder.NoBorder;
+                DevAge.Drawing.VisualElements.RowHeader backHeader = new DevAge.Drawing.VisualElements.RowHeader()
+                {
+                    BackColor = Color.LightGray,
+                    Border = DevAge.Drawing.RectangleBorder.NoBorder
+                };
                 viewRowHeader.Background = backHeader;
                 viewRowHeader.ForeColor = Color.Black;
                 viewRowHeader.Font = new Font("Arial", 10, FontStyle.Regular);
@@ -140,14 +144,18 @@ namespace treeDiM.StackBuilder.Desktop
                 int iRow = -1;
                 // pallet caption
                 gridSolution.Rows.Insert(++iRow);
-                rowHeader = new SourceGrid.Cells.RowHeader("Truck");
-                rowHeader.ColumnSpan = 2;
-                rowHeader.View = captionHeader;
+                rowHeader = new SourceGrid.Cells.RowHeader("Truck")
+                {
+                    ColumnSpan = 2,
+                    View = captionHeader
+                };
                 gridSolution[iRow, 0] = rowHeader;
                 // layer #
                 gridSolution.Rows.Insert(++iRow);
-                rowHeader = new SourceGrid.Cells.RowHeader("Layer #");
-                rowHeader.View = viewRowHeader;
+                rowHeader = new SourceGrid.Cells.RowHeader("Layer #")
+                {
+                    View = viewRowHeader
+                };
                 gridSolution[iRow, 0] = rowHeader;
                 gridSolution[iRow, 1] = new SourceGrid.Cells.Cell(_solution.LayerCount);
                 // *** Item # (Recursive count)
@@ -158,8 +166,10 @@ namespace treeDiM.StackBuilder.Desktop
                 {
                     itemCount *= number;
                     gridSolution.Rows.Insert(++iRow);
-                    rowHeader = new SourceGrid.Cells.RowHeader(string.Format("{0} #", content.DetailedName));
-                    rowHeader.View = viewRowHeader;
+                    rowHeader = new SourceGrid.Cells.RowHeader(string.Format("{0} #", content.DetailedName))
+                    {
+                        View = viewRowHeader
+                    };
                     gridSolution[iRow, 0] = rowHeader;
                     gridSolution[iRow, 1] = new SourceGrid.Cells.Cell(itemCount);
                 }
@@ -170,8 +180,10 @@ namespace treeDiM.StackBuilder.Desktop
                 // ---
                 gridSolution.Rows.Insert(++iRow);
                 rowHeader = new SourceGrid.Cells.RowHeader(
-                    string.Format(Resources.ID_LOADDIMENSIONS, UnitsManager.LengthUnitString));
-                rowHeader.View = viewRowHeader;
+                    string.Format(Resources.ID_LOADDIMENSIONS, UnitsManager.LengthUnitString))
+                {
+                    View = viewRowHeader
+                };
                 gridSolution[iRow, 0] = rowHeader;
                 gridSolution[iRow, 1] = new SourceGrid.Cells.Cell(
                     string.Format(CultureInfo.InvariantCulture, "{0:0.#} x {1:0.#} x {2:0.#}", bboxLoad.Length, bboxLoad.Width, bboxLoad.Height));
@@ -180,8 +192,10 @@ namespace treeDiM.StackBuilder.Desktop
                 {
                     gridSolution.Rows.Insert(++iRow);
                     rowHeader = new SourceGrid.Cells.RowHeader(
-                        string.Format(Resources.ID_NETWEIGHT_WU, UnitsManager.MassUnitString));
-                    rowHeader.View = viewRowHeader;
+                        string.Format(Resources.ID_NETWEIGHT_WU, UnitsManager.MassUnitString))
+                    {
+                        View = viewRowHeader
+                    };
                     gridSolution[iRow, 0] = rowHeader;
                     gridSolution[iRow, 1] = new SourceGrid.Cells.Cell(
                         string.Format(CultureInfo.InvariantCulture, "{0:0.#}", _solution.NetWeight));
@@ -189,23 +203,29 @@ namespace treeDiM.StackBuilder.Desktop
                 // load weight
                 gridSolution.Rows.Insert(++iRow);
                 rowHeader = new SourceGrid.Cells.RowHeader(
-                    string.Format(Resources.ID_LOADWEIGHT_WU, UnitsManager.MassUnitString));
-                rowHeader.View = viewRowHeader;
+                    string.Format(Resources.ID_LOADWEIGHT_WU, UnitsManager.MassUnitString))
+                {
+                    View = viewRowHeader
+                };
                 gridSolution[iRow, 0] = rowHeader;
                 gridSolution[iRow, 1] = new SourceGrid.Cells.Cell(
                     string.Format(CultureInfo.InvariantCulture, "{0:0.#}", _solution.LoadWeight));
                 // total weight
                 gridSolution.Rows.Insert(++iRow);
                 rowHeader = new SourceGrid.Cells.RowHeader(
-                    string.Format(Resources.ID_TOTALWEIGHT_WU, UnitsManager.MassUnitString));
-                rowHeader.View = viewRowHeader;
+                    string.Format(Resources.ID_TOTALWEIGHT_WU, UnitsManager.MassUnitString))
+                {
+                    View = viewRowHeader
+                };
                 gridSolution[iRow, 0] = rowHeader;
                 gridSolution[iRow, 1] = new SourceGrid.Cells.Cell(
                     string.Format(CultureInfo.InvariantCulture, "{0:0.#}", _solution.Weight));
                 // volume efficiency
                 gridSolution.Rows.Insert(++iRow);
-                rowHeader = new SourceGrid.Cells.RowHeader(Resources.ID_VOLUMEEFFICIENCY);
-                rowHeader.View = viewRowHeader;
+                rowHeader = new SourceGrid.Cells.RowHeader(Resources.ID_VOLUMEEFFICIENCY)
+                {
+                    View = viewRowHeader
+                };
                 gridSolution[iRow, 0] = rowHeader;
                 gridSolution[iRow, 1] = new SourceGrid.Cells.Cell(
                     string.Format(CultureInfo.InvariantCulture, "{0:0.#}", _solution.VolumeEfficiency));

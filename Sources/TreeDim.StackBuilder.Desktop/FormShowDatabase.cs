@@ -70,8 +70,10 @@ namespace treeDiM.StackBuilder.Desktop
                     double palletWidth = UnitsManager.ConvertLengthFrom(dcsbPallet.Dimensions.M1, us);
                     double palletHeight = UnitsManager.ConvertLengthFrom(dcsbPallet.Dimensions.M2, us);
 
-                    PalletProperties palletProperties = new PalletProperties(null, dcsbPallet.PalletType, palletLength, palletWidth, palletHeight);
-                    palletProperties.Color = Color.FromArgb(dcsbPallet.Color);
+                    PalletProperties palletProperties = new PalletProperties(null, dcsbPallet.PalletType, palletLength, palletWidth, palletHeight)
+                    {
+                        Color = Color.FromArgb(dcsbPallet.Color)
+                    };
                     Pallet pallet = new Pallet(palletProperties);
                     pallet.Draw(graphics, Transform3D.Identity);
                     graphics.AddDimensions(new DimensionCube(palletLength, palletWidth, palletHeight));
@@ -200,8 +202,10 @@ namespace treeDiM.StackBuilder.Desktop
                     double truckLength = dcsbtruck.DimensionsInner.M0;
                     double truckWidth = dcsbtruck.DimensionsInner.M1;
                     double truckHeight = dcsbtruck.DimensionsInner.M2;
-                    TruckProperties truckProperties = new TruckProperties(null, truckLength, truckWidth, truckHeight);
-                    truckProperties.Color = Color.FromArgb(dcsbtruck.Color);
+                    TruckProperties truckProperties = new TruckProperties(null, truckLength, truckWidth, truckHeight)
+                    {
+                        Color = Color.FromArgb(dcsbtruck.Color)
+                    };
                     Truck truck = new Truck(truckProperties);
                     truck.DrawBegin(graphics);
                     truck.DrawEnd(graphics);
@@ -231,18 +235,22 @@ namespace treeDiM.StackBuilder.Desktop
             // *** IViews 
             // captionHeader
             SourceGrid.Cells.Views.RowHeader captionHeader = new SourceGrid.Cells.Views.RowHeader();
-            DevAge.Drawing.VisualElements.RowHeader veHeaderCaption = new DevAge.Drawing.VisualElements.RowHeader();
-            veHeaderCaption.BackColor = Color.SteelBlue;
-            veHeaderCaption.Border = DevAge.Drawing.RectangleBorder.NoBorder;
+            DevAge.Drawing.VisualElements.RowHeader veHeaderCaption = new DevAge.Drawing.VisualElements.RowHeader()
+            {
+                BackColor = Color.SteelBlue,
+                Border = DevAge.Drawing.RectangleBorder.NoBorder
+            };
             captionHeader.Background = veHeaderCaption;
             captionHeader.ForeColor = Color.Black;
             captionHeader.Font = new Font("Arial", 10, FontStyle.Bold);
             captionHeader.TextAlignment = DevAge.Drawing.ContentAlignment.MiddleCenter;
             // viewRowHeader
             SourceGrid.Cells.Views.ColumnHeader viewColumnHeader = new SourceGrid.Cells.Views.ColumnHeader();
-            DevAge.Drawing.VisualElements.ColumnHeader backHeader = new DevAge.Drawing.VisualElements.ColumnHeader();
-            backHeader.BackColor = Color.LightGray;
-            backHeader.Border = DevAge.Drawing.RectangleBorder.NoBorder;
+            DevAge.Drawing.VisualElements.ColumnHeader backHeader = new DevAge.Drawing.VisualElements.ColumnHeader()
+            {
+                BackColor = Color.LightGray,
+                Border = DevAge.Drawing.RectangleBorder.NoBorder
+            };
             viewColumnHeader.Background = backHeader;
             viewColumnHeader.ForeColor = Color.Black;
             viewColumnHeader.Font = new Font("Arial", 10, FontStyle.Regular);
@@ -259,32 +267,42 @@ namespace treeDiM.StackBuilder.Desktop
             int iCol = 0;
             SourceGrid.Cells.ColumnHeader columnHeader;
             // name
-            columnHeader = new SourceGrid.Cells.ColumnHeader(Properties.Resources.ID_NAME);
-            columnHeader.AutomaticSortEnabled = false;
-            columnHeader.View = viewColumnHeader;
+            columnHeader = new SourceGrid.Cells.ColumnHeader(Properties.Resources.ID_NAME)
+            {
+                AutomaticSortEnabled = false,
+                View = viewColumnHeader
+            };
             grid[0, iCol++] = columnHeader;
             // description
-            columnHeader = new SourceGrid.Cells.ColumnHeader(Properties.Resources.ID_DESCRIPTION);
-            columnHeader.AutomaticSortEnabled = false;
-            columnHeader.View = viewColumnHeader;
+            columnHeader = new SourceGrid.Cells.ColumnHeader(Properties.Resources.ID_DESCRIPTION)
+            {
+                AutomaticSortEnabled = false,
+                View = viewColumnHeader
+            };
             grid[0, iCol++] = columnHeader;
             // listed captions
             foreach (string s in captions)
             {
-                columnHeader = new SourceGrid.Cells.ColumnHeader(s);
-                columnHeader.AutomaticSortEnabled = false;
-                columnHeader.View = viewColumnHeader;
+                columnHeader = new SourceGrid.Cells.ColumnHeader(s)
+                {
+                    AutomaticSortEnabled = false,
+                    View = viewColumnHeader
+                };
                 grid[0, iCol++] = columnHeader;
             }
             // auto import
-            columnHeader = new SourceGrid.Cells.ColumnHeader(Properties.Resources.ID_AUTOIMPORT);
-            columnHeader.AutomaticSortEnabled = false;
-            columnHeader.View = viewColumnHeader;
+            columnHeader = new SourceGrid.Cells.ColumnHeader(Properties.Resources.ID_AUTOIMPORT)
+            {
+                AutomaticSortEnabled = false,
+                View = viewColumnHeader
+            };
             grid[0, iCol++] = columnHeader;
             // delete
-            columnHeader = new SourceGrid.Cells.ColumnHeader(Properties.Resources.ID_DELETE);
-            columnHeader.AutomaticSortEnabled = false;
-            columnHeader.View = viewColumnHeader;
+            columnHeader = new SourceGrid.Cells.ColumnHeader(Properties.Resources.ID_DELETE)
+            {
+                AutomaticSortEnabled = false,
+                View = viewColumnHeader
+            };
             grid[0, iCol++] = columnHeader;
         }
         private void GridFinalize(SourceGrid.Grid grid)
@@ -341,8 +359,10 @@ namespace treeDiM.StackBuilder.Desktop
                     );
                 gridPallets[iIndex, iCol] = new SourceGrid.Cells.CheckBox(null, p.AutoInsert);
                 gridPallets[iIndex, iCol++].AddController(checkBoxEvent);
-                gridPallets[iIndex, iCol] = new SourceGrid.Cells.Button("");
-                gridPallets[iIndex, iCol].Image = Properties.Resources.Delete;
+                gridPallets[iIndex, iCol] = new SourceGrid.Cells.Button("")
+                {
+                    Image = Properties.Resources.Delete
+                };
                 gridPallets[iIndex, iCol++].AddController(buttonDelete);
             }
             GridFinalize(gridPallets);
@@ -384,8 +404,10 @@ namespace treeDiM.StackBuilder.Desktop
                     );
                 gridInterlayers[iIndex, iCol] = new SourceGrid.Cells.CheckBox(null, i.AutoInsert);
                 gridInterlayers[iIndex, iCol++].AddController(checkBoxEvent);
-                gridInterlayers[iIndex, iCol] = new SourceGrid.Cells.Button("");
-                gridInterlayers[iIndex, iCol].Image = Properties.Resources.Delete;
+                gridInterlayers[iIndex, iCol] = new SourceGrid.Cells.Button("")
+                {
+                    Image = Properties.Resources.Delete
+                };
                 gridInterlayers[iIndex, iCol++].AddController(buttonDelete);
             }
             GridFinalize(gridInterlayers);
@@ -430,8 +452,10 @@ namespace treeDiM.StackBuilder.Desktop
                 gridPalletCaps[iIndex, iCol++] = new SourceGrid.Cells.Cell(string.Format("{0:0.###}", UnitsManager.ConvertMassFrom(pc.Weight, us)));
                 gridPalletCaps[iIndex, iCol] = new SourceGrid.Cells.CheckBox(null, pc.AutoInsert);
                 gridPalletCaps[iIndex, iCol++].AddController(checkBoxEvent);
-                gridPalletCaps[iIndex, iCol] = new SourceGrid.Cells.Button("");
-                gridPalletCaps[iIndex, iCol].Image = Properties.Resources.Delete;
+                gridPalletCaps[iIndex, iCol] = new SourceGrid.Cells.Button("")
+                {
+                    Image = Properties.Resources.Delete
+                };
                 gridPalletCaps[iIndex, iCol++].AddController(buttonDelete);
             }
             GridFinalize(gridPalletCaps);
@@ -469,8 +493,10 @@ namespace treeDiM.StackBuilder.Desktop
                 gridPalletCorners[iIndex, iCol++] = new SourceGrid.Cells.Cell(string.Format("{0:0.###}", UnitsManager.ConvertMassFrom(c.Weight, us)));
                 gridPalletCorners[iIndex, iCol] = new SourceGrid.Cells.CheckBox(null, c.AutoInsert);
                 gridPalletCorners[iIndex, iCol++].AddController(checkBoxEvent);
-                gridPalletCorners[iIndex, iCol] = new SourceGrid.Cells.Button("");
-                gridPalletCorners[iIndex, iCol].Image = Properties.Resources.Delete;
+                gridPalletCorners[iIndex, iCol] = new SourceGrid.Cells.Button("")
+                {
+                    Image = Properties.Resources.Delete
+                };
                 gridPalletCorners[iIndex, iCol++].AddController(buttonDelete);
             }
             GridFinalize(gridPalletCorners);
@@ -506,8 +532,10 @@ namespace treeDiM.StackBuilder.Desktop
                 gridPalletFilms[iIndex, iCol++] = new SourceGrid.Cells.Cell(c.UseHatching ? string.Format("{0:0.#}", c.HatchingAngle) : "-");
                 gridPalletFilms[iIndex, iCol] = new SourceGrid.Cells.CheckBox(null, c.AutoInsert);
                 gridPalletFilms[iIndex, iCol++].AddController(checkBoxEvent);
-                gridPalletFilms[iIndex, iCol] = new SourceGrid.Cells.Button("");
-                gridPalletFilms[iIndex, iCol].Image = Properties.Resources.Delete;
+                gridPalletFilms[iIndex, iCol] = new SourceGrid.Cells.Button("")
+                {
+                    Image = Properties.Resources.Delete
+                };
                 gridPalletFilms[iIndex, iCol++].AddController(buttonDelete);
             }
             GridFinalize(gridPalletFilms);
@@ -553,8 +581,10 @@ namespace treeDiM.StackBuilder.Desktop
                 gridCases[iIndex, iCol++] = new SourceGrid.Cells.Cell(UnitsManager.ConvertMassFrom(c.Weight, us));
                 gridCases[iIndex, iCol] = new SourceGrid.Cells.CheckBox(null, c.AutoInsert);
                 gridCases[iIndex, iCol++].AddController(checkBoxEvent);
-                gridCases[iIndex, iCol] = new SourceGrid.Cells.Button("");
-                gridCases[iIndex, iCol].Image = Properties.Resources.Delete;
+                gridCases[iIndex, iCol] = new SourceGrid.Cells.Button("")
+                {
+                    Image = Properties.Resources.Delete
+                };
                 gridCases[iIndex, iCol++].AddController(buttonDelete);
             }
             GridFinalize(gridCases);
@@ -595,8 +625,10 @@ namespace treeDiM.StackBuilder.Desktop
                 gridBundles[iIndex, iCol++] = new SourceGrid.Cells.Cell(UnitsManager.ConvertMassFrom(b.Number * b.UnitWeight, us));
                 gridBundles[iIndex, iCol] = new SourceGrid.Cells.CheckBox(null, b.AutoInsert);
                 gridBundles[iIndex, iCol++].AddController(checkBoxEvent);
-                gridBundles[iIndex, iCol] = new SourceGrid.Cells.Button("");
-                gridBundles[iIndex, iCol].Image = Properties.Resources.Delete;
+                gridBundles[iIndex, iCol] = new SourceGrid.Cells.Button("")
+                {
+                    Image = Properties.Resources.Delete
+                };
                 gridBundles[iIndex, iCol++].AddController(buttonDelete);
             }
             GridFinalize(gridBundles);
@@ -635,8 +667,10 @@ namespace treeDiM.StackBuilder.Desktop
                 gridCylinders[iIndex, iCol++] = new SourceGrid.Cells.Cell(UnitsManager.ConvertMassFrom(cyl.Weight, us));
                 gridCylinders[iIndex, iCol] = new SourceGrid.Cells.CheckBox(null, cyl.AutoInsert);
                 gridCylinders[iIndex, iCol++].AddController(checkBoxEvent);
-                gridCylinders[iIndex, iCol] = new SourceGrid.Cells.Button("");
-                gridCylinders[iIndex, iCol].Image = Properties.Resources.Delete;
+                gridCylinders[iIndex, iCol] = new SourceGrid.Cells.Button("")
+                {
+                    Image = Properties.Resources.Delete
+                };
                 gridCylinders[iIndex, iCol++].AddController(buttonDelete);
             }
             GridFinalize(gridCylinders);
@@ -671,8 +705,10 @@ namespace treeDiM.StackBuilder.Desktop
                     );
                 gridTrucks[iIndex, 3] = new SourceGrid.Cells.CheckBox(null, t.AutoInsert);
                 gridTrucks[iIndex, 3].AddController(checkBoxEvent);
-                gridTrucks[iIndex, 4] = new SourceGrid.Cells.Button("");
-                gridTrucks[iIndex, 4].Image = Properties.Resources.Delete;
+                gridTrucks[iIndex, 4] = new SourceGrid.Cells.Button("")
+                {
+                    Image = Properties.Resources.Delete
+                };
                 gridTrucks[iIndex, 4].AddController(buttonDelete);
             }
             GridFinalize(gridTrucks);
@@ -1019,8 +1055,10 @@ namespace treeDiM.StackBuilder.Desktop
             if (_doc.IsValidNewTypeName(name, null))
                 return true;
             // not a valid name, show dialog box
-            FormValidTypeName form = new FormValidTypeName(_doc);
-            form.ItemName = name;
+            FormValidTypeName form = new FormValidTypeName(_doc)
+            {
+                ItemName = name
+            };
             if (DialogResult.OK == form.ShowDialog())
             {
                 name = form.ItemName;
