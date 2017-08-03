@@ -784,4 +784,7 @@ Closing form...</value>
   <data name="ID_LOAD" xml:space="preserve">
     <value>Load</value>
   </data>
+  <data name="ID_REGISTEREDUSERCOUNT" xml:space="preserve">
+    <value>User count = {0}</value>
+  </data>
 </root>

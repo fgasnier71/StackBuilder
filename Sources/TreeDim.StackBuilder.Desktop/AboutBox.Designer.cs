@@ -38,6 +38,7 @@
             this.okButton = new System.Windows.Forms.Button();
             this.linkLabelUrl = new System.Windows.Forms.LinkLabel();
             this.linkLabelEmail = new System.Windows.Forms.LinkLabel();
+            this.labelRegisteredUserCount = new System.Windows.Forms.Label();
             this.tableLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
             this.SuspendLayout();
@@ -50,17 +51,18 @@
             this.tableLayoutPanel.Controls.Add(this.labelVersion, 1, 1);
             this.tableLayoutPanel.Controls.Add(this.labelCopyright, 1, 2);
             this.tableLayoutPanel.Controls.Add(this.labelCompanyName, 1, 3);
-            this.tableLayoutPanel.Controls.Add(this.textBoxDescription, 1, 6);
-            this.tableLayoutPanel.Controls.Add(this.okButton, 1, 7);
             this.tableLayoutPanel.Controls.Add(this.linkLabelUrl, 1, 4);
             this.tableLayoutPanel.Controls.Add(this.linkLabelEmail, 1, 5);
+            this.tableLayoutPanel.Controls.Add(this.okButton, 1, 8);
+            this.tableLayoutPanel.Controls.Add(this.textBoxDescription, 1, 7);
+            this.tableLayoutPanel.Controls.Add(this.labelRegisteredUserCount, 1, 6);
             this.tableLayoutPanel.Name = "tableLayoutPanel";
             // 
             // logoPictureBox
             // 
             resources.ApplyResources(this.logoPictureBox, "logoPictureBox");
             this.logoPictureBox.Name = "logoPictureBox";
-            this.tableLayoutPanel.SetRowSpan(this.logoPictureBox, 8);
+            this.tableLayoutPanel.SetRowSpan(this.logoPictureBox, 9);
             this.logoPictureBox.TabStop = false;
             // 
             // labelProductName
@@ -110,6 +112,11 @@
             this.linkLabelEmail.TabStop = true;
             this.linkLabelEmail.Click += new System.EventHandler(this.linkLabelEmail_Click);
             // 
+            // labelRegisteredUserCount
+            // 
+            resources.ApplyResources(this.labelRegisteredUserCount, "labelRegisteredUserCount");
+            this.labelRegisteredUserCount.Name = "labelRegisteredUserCount";
+            // 
             // AboutBox
             // 
             this.AcceptButton = this.okButton;
@@ -141,5 +148,6 @@
         private System.Windows.Forms.TextBox textBoxDescription;
         private System.Windows.Forms.Button okButton;
         private System.Windows.Forms.LinkLabel linkLabelEmail;
+        private System.Windows.Forms.Label labelRegisteredUserCount;
     }
 }

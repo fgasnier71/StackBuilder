@@ -8,6 +8,8 @@ using System.Reflection;
 using System.Resources;
 using treeDiM.StackBuilder.Desktop.Properties;
 
+using treeDiM.PLMPack.DBClient;
+
 using log4net;
 #endregion
 
@@ -38,6 +40,7 @@ namespace treeDiM.StackBuilder.Desktop
             this.labelCopyright.Text = AssemblyCopyright;
             this.labelCompanyName.Text = AssemblyCompany;
             this.textBoxDescription.Text = AssemblyDescription;
+            this.labelRegisteredUserCount.Text = RegisteredUserCount;
         }
         #endregion
 
@@ -137,6 +140,15 @@ namespace treeDiM.StackBuilder.Desktop
         {
             set { this.linkLabelEmail.Text = value; }
             get { return this.linkLabelEmail.Text; }
+        }
+
+        public string RegisteredUserCount
+        {
+            get
+            {
+                WCFClientSingleton client = WCFClientSingleton.Instance;
+                return string.Format(Properties.Resources.ID_REGISTEREDUSERCOUNT, WCFClientSingleton.Instance.Client.get_PLMPackRegisteredUserCount());
+            }
         }
         #endregion
 
