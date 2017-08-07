@@ -42,6 +42,7 @@ namespace treeDiM.StackBuilder.Desktop
             gridPalletCorners.Selection.SelectionChanged += new SourceGrid.RangeRegionChangedEventHandler(onSelChangeGrid);
             gridPalletCaps.Selection.SelectionChanged += new SourceGrid.RangeRegionChangedEventHandler(onSelChangeGrid);
             gridPalletFilms.Selection.SelectionChanged += new SourceGrid.RangeRegionChangedEventHandler(onSelChangeGrid);
+            
             gridCases.Selection.SelectionChanged += new SourceGrid.RangeRegionChangedEventHandler(onSelChangeGrid);
             gridBundles.Selection.SelectionChanged += new SourceGrid.RangeRegionChangedEventHandler(onSelChangeGrid);
             gridCylinders.Selection.SelectionChanged += new SourceGrid.RangeRegionChangedEventHandler(onSelChangeGrid);
@@ -539,6 +540,17 @@ namespace treeDiM.StackBuilder.Desktop
                 gridPalletFilms[iIndex, iCol++].AddController(buttonDelete);
             }
             GridFinalize(gridPalletFilms);
+        }
+        #endregion
+        #region Boxes
+        private void FillGridBoxes()
+        {
+            // initialize grid
+            List<string> captions = new List<string>();
+            captions.Add(string.Format(Properties.Resources.ID_DIMEXT_WU, UnitsManager.UnitString(UnitsManager.UnitType.UT_LENGTH)));
+            captions.Add(string.Format(Properties.Resources.ID_DIMINT_WU, UnitsManager.UnitString(UnitsManager.UnitType.UT_LENGTH)));
+            captions.Add(string.Format(Properties.Resources.ID_WEIGHT_WU, UnitsManager.UnitString(UnitsManager.UnitType.UT_MASS)));
+            GridInitialize(gridCases, captions);
         }
         #endregion
         #region Cases

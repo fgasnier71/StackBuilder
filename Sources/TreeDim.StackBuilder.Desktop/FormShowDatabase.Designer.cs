@@ -34,16 +34,17 @@
             this.bnImport = new System.Windows.Forms.Button();
             this.graphCtrl = new treeDiM.StackBuilder.Graphics.Graphics3DControl();
             this.tabCtrlDBItems = new System.Windows.Forms.TabControl();
-            this.tabPagePallet = new System.Windows.Forms.TabPage();
-            this.gridPallets = new SourceGrid.Grid();
-            this.tabPageInterlayer = new System.Windows.Forms.TabPage();
-            this.gridInterlayers = new SourceGrid.Grid();
+            this.tabPageBox = new System.Windows.Forms.TabPage();
             this.tabPageCase = new System.Windows.Forms.TabPage();
             this.gridCases = new SourceGrid.Grid();
             this.tabPageBundle = new System.Windows.Forms.TabPage();
             this.gridBundles = new SourceGrid.Grid();
             this.tabPageCylinder = new System.Windows.Forms.TabPage();
             this.gridCylinders = new SourceGrid.Grid();
+            this.tabPageInterlayer = new System.Windows.Forms.TabPage();
+            this.gridInterlayers = new SourceGrid.Grid();
+            this.tabPagePallet = new System.Windows.Forms.TabPage();
+            this.gridPallets = new SourceGrid.Grid();
             this.tabPageTruck = new System.Windows.Forms.TabPage();
             this.gridTrucks = new SourceGrid.Grid();
             this.tabPagePalletCorner = new System.Windows.Forms.TabPage();
@@ -52,17 +53,19 @@
             this.gridPalletCaps = new SourceGrid.Grid();
             this.tabPagePalletFilm = new System.Windows.Forms.TabPage();
             this.gridPalletFilms = new SourceGrid.Grid();
+            this.gridBoxes = new SourceGrid.Grid();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerForm)).BeginInit();
             this.splitContainerForm.Panel1.SuspendLayout();
             this.splitContainerForm.Panel2.SuspendLayout();
             this.splitContainerForm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.graphCtrl)).BeginInit();
             this.tabCtrlDBItems.SuspendLayout();
-            this.tabPagePallet.SuspendLayout();
-            this.tabPageInterlayer.SuspendLayout();
+            this.tabPageBox.SuspendLayout();
             this.tabPageCase.SuspendLayout();
             this.tabPageBundle.SuspendLayout();
             this.tabPageCylinder.SuspendLayout();
+            this.tabPageInterlayer.SuspendLayout();
+            this.tabPagePallet.SuspendLayout();
             this.tabPageTruck.SuspendLayout();
             this.tabPagePalletCorner.SuspendLayout();
             this.tabPagePalletCap.SuspendLayout();
@@ -76,14 +79,12 @@
             // 
             // splitContainerForm.Panel1
             // 
-            resources.ApplyResources(this.splitContainerForm.Panel1, "splitContainerForm.Panel1");
             this.splitContainerForm.Panel1.Controls.Add(this.bnClose);
             this.splitContainerForm.Panel1.Controls.Add(this.bnImport);
             this.splitContainerForm.Panel1.Controls.Add(this.graphCtrl);
             // 
             // splitContainerForm.Panel2
             // 
-            resources.ApplyResources(this.splitContainerForm.Panel2, "splitContainerForm.Panel2");
             this.splitContainerForm.Panel2.Controls.Add(this.tabCtrlDBItems);
             // 
             // bnClose
@@ -108,62 +109,32 @@
             // 
             // tabCtrlDBItems
             // 
-            resources.ApplyResources(this.tabCtrlDBItems, "tabCtrlDBItems");
-            this.tabCtrlDBItems.Controls.Add(this.tabPagePallet);
-            this.tabCtrlDBItems.Controls.Add(this.tabPageInterlayer);
+            this.tabCtrlDBItems.Controls.Add(this.tabPageBox);
             this.tabCtrlDBItems.Controls.Add(this.tabPageCase);
             this.tabCtrlDBItems.Controls.Add(this.tabPageBundle);
             this.tabCtrlDBItems.Controls.Add(this.tabPageCylinder);
+            this.tabCtrlDBItems.Controls.Add(this.tabPageInterlayer);
+            this.tabCtrlDBItems.Controls.Add(this.tabPagePallet);
             this.tabCtrlDBItems.Controls.Add(this.tabPageTruck);
             this.tabCtrlDBItems.Controls.Add(this.tabPagePalletCorner);
             this.tabCtrlDBItems.Controls.Add(this.tabPagePalletCap);
             this.tabCtrlDBItems.Controls.Add(this.tabPagePalletFilm);
+            resources.ApplyResources(this.tabCtrlDBItems, "tabCtrlDBItems");
             this.tabCtrlDBItems.Name = "tabCtrlDBItems";
             this.tabCtrlDBItems.SelectedIndex = 0;
             this.tabCtrlDBItems.SelectedIndexChanged += new System.EventHandler(this.onSelectedTabChanged);
             // 
-            // tabPagePallet
+            // tabPageBox
             // 
-            resources.ApplyResources(this.tabPagePallet, "tabPagePallet");
-            this.tabPagePallet.Controls.Add(this.gridPallets);
-            this.tabPagePallet.Name = "tabPagePallet";
-            this.tabPagePallet.UseVisualStyleBackColor = true;
-            // 
-            // gridPallets
-            // 
-            this.gridPallets.AcceptsInputChar = false;
-            resources.ApplyResources(this.gridPallets, "gridPallets");
-            this.gridPallets.EnableSort = false;
-            this.gridPallets.Name = "gridPallets";
-            this.gridPallets.OptimizeMode = SourceGrid.CellOptimizeMode.ForRows;
-            this.gridPallets.SelectionMode = SourceGrid.GridSelectionMode.Row;
-            this.gridPallets.SpecialKeys = SourceGrid.GridSpecialKeys.Arrows;
-            this.gridPallets.TabStop = true;
-            this.gridPallets.ToolTipText = "";
-            // 
-            // tabPageInterlayer
-            // 
-            resources.ApplyResources(this.tabPageInterlayer, "tabPageInterlayer");
-            this.tabPageInterlayer.Controls.Add(this.gridInterlayers);
-            this.tabPageInterlayer.Name = "tabPageInterlayer";
-            this.tabPageInterlayer.UseVisualStyleBackColor = true;
-            // 
-            // gridInterlayers
-            // 
-            this.gridInterlayers.AcceptsInputChar = false;
-            resources.ApplyResources(this.gridInterlayers, "gridInterlayers");
-            this.gridInterlayers.EnableSort = false;
-            this.gridInterlayers.Name = "gridInterlayers";
-            this.gridInterlayers.OptimizeMode = SourceGrid.CellOptimizeMode.ForRows;
-            this.gridInterlayers.SelectionMode = SourceGrid.GridSelectionMode.Row;
-            this.gridInterlayers.SpecialKeys = SourceGrid.GridSpecialKeys.Arrows;
-            this.gridInterlayers.TabStop = true;
-            this.gridInterlayers.ToolTipText = "";
+            this.tabPageBox.Controls.Add(this.gridBoxes);
+            resources.ApplyResources(this.tabPageBox, "tabPageBox");
+            this.tabPageBox.Name = "tabPageBox";
+            this.tabPageBox.UseVisualStyleBackColor = true;
             // 
             // tabPageCase
             // 
-            resources.ApplyResources(this.tabPageCase, "tabPageCase");
             this.tabPageCase.Controls.Add(this.gridCases);
+            resources.ApplyResources(this.tabPageCase, "tabPageCase");
             this.tabPageCase.Name = "tabPageCase";
             this.tabPageCase.UseVisualStyleBackColor = true;
             // 
@@ -181,8 +152,8 @@
             // 
             // tabPageBundle
             // 
-            resources.ApplyResources(this.tabPageBundle, "tabPageBundle");
             this.tabPageBundle.Controls.Add(this.gridBundles);
+            resources.ApplyResources(this.tabPageBundle, "tabPageBundle");
             this.tabPageBundle.Name = "tabPageBundle";
             this.tabPageBundle.UseVisualStyleBackColor = true;
             // 
@@ -200,8 +171,8 @@
             // 
             // tabPageCylinder
             // 
-            resources.ApplyResources(this.tabPageCylinder, "tabPageCylinder");
             this.tabPageCylinder.Controls.Add(this.gridCylinders);
+            resources.ApplyResources(this.tabPageCylinder, "tabPageCylinder");
             this.tabPageCylinder.Name = "tabPageCylinder";
             this.tabPageCylinder.UseVisualStyleBackColor = true;
             // 
@@ -217,10 +188,48 @@
             this.gridCylinders.TabStop = true;
             this.gridCylinders.ToolTipText = "";
             // 
+            // tabPageInterlayer
+            // 
+            this.tabPageInterlayer.Controls.Add(this.gridInterlayers);
+            resources.ApplyResources(this.tabPageInterlayer, "tabPageInterlayer");
+            this.tabPageInterlayer.Name = "tabPageInterlayer";
+            this.tabPageInterlayer.UseVisualStyleBackColor = true;
+            // 
+            // gridInterlayers
+            // 
+            this.gridInterlayers.AcceptsInputChar = false;
+            resources.ApplyResources(this.gridInterlayers, "gridInterlayers");
+            this.gridInterlayers.EnableSort = false;
+            this.gridInterlayers.Name = "gridInterlayers";
+            this.gridInterlayers.OptimizeMode = SourceGrid.CellOptimizeMode.ForRows;
+            this.gridInterlayers.SelectionMode = SourceGrid.GridSelectionMode.Row;
+            this.gridInterlayers.SpecialKeys = SourceGrid.GridSpecialKeys.Arrows;
+            this.gridInterlayers.TabStop = true;
+            this.gridInterlayers.ToolTipText = "";
+            // 
+            // tabPagePallet
+            // 
+            this.tabPagePallet.Controls.Add(this.gridPallets);
+            resources.ApplyResources(this.tabPagePallet, "tabPagePallet");
+            this.tabPagePallet.Name = "tabPagePallet";
+            this.tabPagePallet.UseVisualStyleBackColor = true;
+            // 
+            // gridPallets
+            // 
+            this.gridPallets.AcceptsInputChar = false;
+            resources.ApplyResources(this.gridPallets, "gridPallets");
+            this.gridPallets.EnableSort = false;
+            this.gridPallets.Name = "gridPallets";
+            this.gridPallets.OptimizeMode = SourceGrid.CellOptimizeMode.ForRows;
+            this.gridPallets.SelectionMode = SourceGrid.GridSelectionMode.Row;
+            this.gridPallets.SpecialKeys = SourceGrid.GridSpecialKeys.Arrows;
+            this.gridPallets.TabStop = true;
+            this.gridPallets.ToolTipText = "";
+            // 
             // tabPageTruck
             // 
-            resources.ApplyResources(this.tabPageTruck, "tabPageTruck");
             this.tabPageTruck.Controls.Add(this.gridTrucks);
+            resources.ApplyResources(this.tabPageTruck, "tabPageTruck");
             this.tabPageTruck.Name = "tabPageTruck";
             this.tabPageTruck.UseVisualStyleBackColor = true;
             // 
@@ -238,8 +247,8 @@
             // 
             // tabPagePalletCorner
             // 
-            resources.ApplyResources(this.tabPagePalletCorner, "tabPagePalletCorner");
             this.tabPagePalletCorner.Controls.Add(this.gridPalletCorners);
+            resources.ApplyResources(this.tabPagePalletCorner, "tabPagePalletCorner");
             this.tabPagePalletCorner.Name = "tabPagePalletCorner";
             this.tabPagePalletCorner.UseVisualStyleBackColor = true;
             // 
@@ -257,8 +266,8 @@
             // 
             // tabPagePalletCap
             // 
-            resources.ApplyResources(this.tabPagePalletCap, "tabPagePalletCap");
             this.tabPagePalletCap.Controls.Add(this.gridPalletCaps);
+            resources.ApplyResources(this.tabPagePalletCap, "tabPagePalletCap");
             this.tabPagePalletCap.Name = "tabPagePalletCap";
             this.tabPagePalletCap.UseVisualStyleBackColor = true;
             // 
@@ -276,8 +285,8 @@
             // 
             // tabPagePalletFilm
             // 
-            resources.ApplyResources(this.tabPagePalletFilm, "tabPagePalletFilm");
             this.tabPagePalletFilm.Controls.Add(this.gridPalletFilms);
+            resources.ApplyResources(this.tabPagePalletFilm, "tabPagePalletFilm");
             this.tabPagePalletFilm.Name = "tabPagePalletFilm";
             this.tabPagePalletFilm.UseVisualStyleBackColor = true;
             // 
@@ -292,6 +301,16 @@
             this.gridPalletFilms.SpecialKeys = SourceGrid.GridSpecialKeys.Arrows;
             this.gridPalletFilms.TabStop = true;
             this.gridPalletFilms.ToolTipText = "";
+            // 
+            // gridBoxes
+            // 
+            resources.ApplyResources(this.gridBoxes, "gridBoxes");
+            this.gridBoxes.EnableSort = false;
+            this.gridBoxes.Name = "gridBoxes";
+            this.gridBoxes.OptimizeMode = SourceGrid.CellOptimizeMode.ForRows;
+            this.gridBoxes.SelectionMode = SourceGrid.GridSelectionMode.Row;
+            this.gridBoxes.TabStop = true;
+            this.gridBoxes.ToolTipText = "";
             // 
             // FormShowDatabase
             // 
@@ -309,11 +328,13 @@
             this.splitContainerForm.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.graphCtrl)).EndInit();
             this.tabCtrlDBItems.ResumeLayout(false);
-            this.tabPagePallet.ResumeLayout(false);
-            this.tabPageInterlayer.ResumeLayout(false);
+            this.tabPageBox.ResumeLayout(false);
+            this.tabPageBox.PerformLayout();
             this.tabPageCase.ResumeLayout(false);
             this.tabPageBundle.ResumeLayout(false);
             this.tabPageCylinder.ResumeLayout(false);
+            this.tabPageInterlayer.ResumeLayout(false);
+            this.tabPagePallet.ResumeLayout(false);
             this.tabPageTruck.ResumeLayout(false);
             this.tabPagePalletCorner.ResumeLayout(false);
             this.tabPagePalletCap.ResumeLayout(false);
@@ -331,15 +352,16 @@
         private System.Windows.Forms.TabPage tabPageBundle;
         private System.Windows.Forms.TabPage tabPageCylinder;
         private System.Windows.Forms.TabPage tabPageTruck;
-        private SourceGrid.Grid gridTrucks;
+        private System.Windows.Forms.TabPage tabPagePalletCorner;
+        private System.Windows.Forms.TabPage tabPagePalletFilm;
+        private System.Windows.Forms.TabPage tabPageBox;
         private Graphics.Graphics3DControl graphCtrl;
         private System.Windows.Forms.SplitContainer splitContainerForm;
         private System.Windows.Forms.Button bnClose;
         private System.Windows.Forms.Button bnImport;
-        private SourceGrid.Grid gridPallets;
         private System.Windows.Forms.TabPage tabPageInterlayer;
-        private System.Windows.Forms.TabPage tabPagePalletCorner;
-        private System.Windows.Forms.TabPage tabPagePalletFilm;
+        private SourceGrid.Grid gridTrucks;
+        private SourceGrid.Grid gridPallets;
         private SourceGrid.Grid gridInterlayers;
         private SourceGrid.Grid gridCases;
         private SourceGrid.Grid gridBundles;
@@ -347,5 +369,6 @@
         private SourceGrid.Grid gridPalletCorners;
         private SourceGrid.Grid gridPalletCaps;
         private SourceGrid.Grid gridPalletFilms;
+        private SourceGrid.Grid gridBoxes;
     }
 }
