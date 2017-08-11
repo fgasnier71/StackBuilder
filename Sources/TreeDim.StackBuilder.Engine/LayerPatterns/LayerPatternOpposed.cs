@@ -70,9 +70,7 @@ namespace treeDiM.StackBuilder.Engine
             double spaceY14 = (actualWidth - sizeY_area1 * boxWidth - sizeY_area4 * boxLength) / (sizeY_area1 + sizeY_area4 - 1);
             double spaceY23 = (actualWidth - sizeY_area2 * boxLength - sizeY_area3 * boxWidth) / (sizeY_area2 + sizeY_area3 - 1);
 
-
             // area 1
-            _log.Info("Area 1");
             for (int i = 0; i < sizeX_area1; ++i)
                 for (int j = 0; j < sizeY_area1; ++j)
                 {
@@ -88,7 +86,6 @@ namespace treeDiM.StackBuilder.Engine
                         , HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P);
                 }
             // area 2
-            _log.Info("Area 2");
             for (int i = 0; i < sizeX_area2; ++i)
                 for (int j = 0; j < sizeY_area2; ++j)
                 {
@@ -104,7 +101,6 @@ namespace treeDiM.StackBuilder.Engine
                         , HalfAxis.HAxis.AXIS_Y_P, HalfAxis.HAxis.AXIS_X_N);
                 }
             // area 3
-            _log.Info("Area 3");
             for (int i = 0; i < sizeX_area3; ++i)
                 for (int j = 0; j < sizeY_area3; ++j)
                 {
@@ -121,7 +117,6 @@ namespace treeDiM.StackBuilder.Engine
                 }
 
             // area 4
-            _log.Info("Area 4");
             for (int i = 0; i < sizeX_area4; ++i)
                 for (int j = 0; j < sizeY_area4; ++j)
                 {
@@ -145,8 +140,8 @@ namespace treeDiM.StackBuilder.Engine
         #region Helpers
         private void LogPosition(Vector2D vPos, HalfAxis.HAxis axisLength, HalfAxis.HAxis axisWidth)
         {
-            _log.Info(string.Format("({0}, {1}), {2}, {3}",
-                vPos.X, vPos.Y, axisLength.ToString(), axisWidth.ToString()));
+            if (_logPosition)
+                _log.Info($"({vPos.X}, {vPos.Y}), {axisLength.ToString()}, {axisWidth.ToString()}");
         }
         private void GetOptimalSizeXY(
             double boxLength, double boxWidth
@@ -221,13 +216,11 @@ namespace treeDiM.StackBuilder.Engine
                         }
                     }
                 }
-
-            _log.Info(string.Format("PalletLength={0} PalletWidth={1} BoxLength={2} BoxWidth={3} Area1={4},{5} Area2={6},{7} Area3={8},{9} Area4={10},{11}",
-                palletLength, palletWidth, boxLength, boxWidth, sizeX_area1, sizeY_area1, sizeX_area2, sizeY_area2, sizeX_area3, sizeY_area3, sizeX_area4, sizeY_area4));
         }
         #endregion
 
         #region Data members
+        private bool _logPosition = false;
         #endregion
     }
 }

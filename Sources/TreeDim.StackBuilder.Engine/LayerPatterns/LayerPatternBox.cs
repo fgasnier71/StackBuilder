@@ -79,16 +79,14 @@ namespace treeDiM.StackBuilder.Engine
             Layer2D layerBox = layer as Layer2D;
             if (!layerBox.IsValidPosition(new Vector2D(vPositionSwapped.X, vPositionSwapped.Y), lengthAxisSwapped, widthAxisSwapped))
             {
-                _log.Warn(string.Format("Attempt to add an invalid position in pattern = {0}, Swapped = {1}", this.Name, layer.Swapped));
+                _log.Warn(string.Format("Attempt to add an invalid position in pattern = {0}, Swapped = {1}", Name, layer.Swapped));
                 return;
             }
             layerBox.AddPosition(new Vector2D(vPositionSwapped.X, vPositionSwapped.Y), lengthAxisSwapped, widthAxisSwapped);
         }
 
         #region Non-Public Members
-
         protected static readonly ILog _log = LogManager.GetLogger(typeof(LayerPatternBox));
-        
         #endregion
     }
 }

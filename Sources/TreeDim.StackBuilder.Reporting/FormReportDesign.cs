@@ -62,12 +62,12 @@ namespace treeDiM.StackBuilder.Reporting
             {
             }
             // define event handling after initializing size/font combo boxes
-            cbDefinitionDetail.SelectedIndexChanged += new EventHandler(onUpdateReport);
-            cbDefinitionLarge.SelectedIndexChanged += new EventHandler(onUpdateReport);
-            cbFontSizeDetail.SelectedIndexChanged += new EventHandler(onUpdateReport);
-            cbFontSizeLarge.SelectedIndexChanged += new EventHandler(onUpdateReport);
-            cbHTMLSizeDetail.SelectedIndexChanged += new EventHandler(onUpdateReport);
-            cbHTMLSizeLarge.SelectedIndexChanged += new EventHandler(onUpdateReport);
+            cbDefinitionDetail.SelectedIndexChanged += new EventHandler(OnUpdateReport);
+            cbDefinitionLarge.SelectedIndexChanged += new EventHandler(OnUpdateReport);
+            cbFontSizeDetail.SelectedIndexChanged += new EventHandler(OnUpdateReport);
+            cbFontSizeLarge.SelectedIndexChanged += new EventHandler(OnUpdateReport);
+            cbHTMLSizeDetail.SelectedIndexChanged += new EventHandler(OnUpdateReport);
+            cbHTMLSizeLarge.SelectedIndexChanged += new EventHandler(OnUpdateReport);
 
             UpdateReport();
         }
@@ -168,7 +168,7 @@ namespace treeDiM.StackBuilder.Reporting
         #endregion
 
         #region Toolbar event handlers
-        private void onReportMSWord(object sender, EventArgs e)
+        private void OnReportMSWord(object sender, EventArgs e)
         {
             try
             {
@@ -201,7 +201,7 @@ namespace treeDiM.StackBuilder.Reporting
                 _log.Error(ex.Message);
             }
         }
-        private void onReportHTML(object sender, EventArgs e)
+        private void OnReportHTML(object sender, EventArgs e)
         {
             try
             {
@@ -231,14 +231,45 @@ namespace treeDiM.StackBuilder.Reporting
                 _log.Error(ex.Message);
             }
         }
-        private void onReportPrint(object sender, EventArgs e)
+        private void OnReportPDF(object sender, EventArgs e)
+        {
+            try
+            {
+                SaveFileDialog dlg = new SaveFileDialog()
+                {
+                    InitialDirectory = Properties.Settings.Default.ReportInitialDirectory,
+                    FileName = Path.ChangeExtension(CleanString(Analysis.Name), "pdf"),
+                    Filter = Properties.Resources.ID_FILTER_PDF,
+                    DefaultExt = "pdf",
+                    ValidateNames = true
+                };
+
+                if (DialogResult.OK == dlg.ShowDialog())
+                {
+                    // save directory
+                    Properties.Settings.Default.ReportInitialDirectory = Path.GetDirectoryName(dlg.FileName);
+                    // generate report
+                    ReporterPDF reporter = new ReporterPDF(
+                        new ReportData(_analysis)
+                        , ref _rnRoot
+                        , Reporter.TemplatePath
+                        , dlg.FileName);
+                    Process.Start(new ProcessStartInfo(dlg.FileName));
+                }
+            }
+            catch (Exception ex)
+            {
+                _log.Error(ex.Message);
+            }
+        }
+        private void OnReportPrint(object sender, EventArgs e)
         {
             WebBrowser wb = new WebBrowser();
-            wb.DocumentCompleted += new WebBrowserDocumentCompletedEventHandler(onDocumentCompleted);
+            wb.DocumentCompleted += new WebBrowserDocumentCompletedEventHandler(OnDocumentCompleted);
             wb.Navigate(_outputFilePath);
             wb.Print();
         }
-        void onDocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
+        private void OnDocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
         {
             try
             {
@@ -251,20 +282,20 @@ namespace treeDiM.StackBuilder.Reporting
                 _log.Error(ex.ToString());
             }
         }
-        private void onNodeChecked(object sender, TreeViewEventArgs e)
+        private void OnNodeChecked(object sender, TreeViewEventArgs e)
         {
             ReportNode rn = e.Node.Tag as ReportNode;
             if (null != rn)
                 rn.Activated = !rn.Activated;
             UpdateReport();
         }
-        private void onShowDimensions(object sender, EventArgs e)
+        private void OnShowDimensions(object sender, EventArgs e)
         {
             Reporter.ShowDimensions = !Reporter.ShowDimensions;
             UpdateReport();
             toolSBDimensions.Checked = Reporter.ShowDimensions;
         }
-        private void onUpdateReport(object sender, EventArgs e)
+        private void OnUpdateReport(object sender, EventArgs e)
         {
             UpdateReport();
         }

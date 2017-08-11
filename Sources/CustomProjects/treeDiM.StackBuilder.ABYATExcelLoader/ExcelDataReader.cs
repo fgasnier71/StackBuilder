@@ -1,15 +1,14 @@
 ﻿#region Using directives
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Data;
-using System.Globalization;
 
 using System.IO;
 
-using Excel;
+using log4net;
+
+using ExcelDataReader;
 #endregion
 
 namespace treeDiM.StackBuilder.ABYATExcelLoader
@@ -88,7 +87,7 @@ namespace treeDiM.StackBuilder.ABYATExcelLoader
     }
     #endregion
     #region ExcelDataReader
-    public class ExcelDataReader
+    public class ExcelDataReader_ABYAT
     {
         public static bool LoadFile(string filePath, ref List<DataCase> listCases)
         {
@@ -107,13 +106,12 @@ namespace treeDiM.StackBuilder.ABYATExcelLoader
                 // no valid reader created -> exit
                 if (reader == null)
                     return false;
-                reader.IsFirstRowAsColumnNames = true;
 
                 DataSet ds = reader.AsDataSet();
 
                 foreach (DataTable dtTable in ds.Tables)
                 {
-                    int iRowStart = 0;
+                    int iRowStart = 1;
                     for (int iRow = iRowStart; iRow < dtTable.Rows.Count; ++iRow)
                     {
                         DataCase dataType = null;
@@ -121,14 +119,16 @@ namespace treeDiM.StackBuilder.ABYATExcelLoader
                         {
                             dataType = BuildDataType(dtTable.TableName, iRow, dtTable.Rows[iRow]);
                         }
-                        catch (InvalidRowException /*ex*/)
+                        catch (InvalidRowException ex)
                         {
-                            break;
+                            _log.Warn(ex.Message);
+                            continue;
                         }
-                        catch (Exception /*ex*/)
+                        catch (Exception ex)
                         {
+                            _log.Warn(ex.Message);
                             dataType = null;
-                            break;
+                            continue;
                         }
                         if (null != dataType)
                             listCases.Add(dataType);
@@ -144,6 +144,8 @@ namespace treeDiM.StackBuilder.ABYATExcelLoader
             else
                 throw new FormatException(string.Format("{0} is not a valid sheet name", sheetName));
         }
+
+        protected static ILog _log = LogManager.GetLogger(typeof(ExcelDataReader_ABYAT));
     }
     #endregion
 }

@@ -7,15 +7,16 @@ using System.IO;
 using System.Data;
 using System.Globalization;
 
-using Excel;
+using ExcelDataReader;
+
 using log4net;
 #endregion
 
 namespace treeDiM.StackBuilder.ExcelReader
 {
-    public class ExcelDataReader
+    public class ExcelDataReader_StackBuilder
     {
-        protected static readonly ILog _log = LogManager.GetLogger(typeof(ExcelDataReader));
+        protected static readonly ILog _log = LogManager.GetLogger(typeof(ExcelDataReader_StackBuilder));
 
         public static bool LoadFile(string filePath, ref List<DataType> listItems)
         {
@@ -34,7 +35,6 @@ namespace treeDiM.StackBuilder.ExcelReader
                 // no valid reader created -> exit
                 if (reader == null)
                     return false;
-                reader.IsFirstRowAsColumnNames = true;
 
                 DataSet ds = reader.AsDataSet();
 

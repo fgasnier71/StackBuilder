@@ -87,10 +87,12 @@
             // 
             // splitContainerCasePallet.Panel1
             // 
+            resources.ApplyResources(this.splitContainerCasePallet.Panel1, "splitContainerCasePallet.Panel1");
             this.splitContainerCasePallet.Panel1.Controls.Add(this.graphCtrlBoxesLayout);
             // 
             // splitContainerCasePallet.Panel2
             // 
+            resources.ApplyResources(this.splitContainerCasePallet.Panel2, "splitContainerCasePallet.Panel2");
             this.splitContainerCasePallet.Panel2.Controls.Add(this.graphCtrlPallet);
             // 
             // graphCtrlBoxesLayout
@@ -165,9 +167,9 @@
             // 
             // cbBoxes
             // 
+            resources.ApplyResources(this.cbBoxes, "cbBoxes");
             this.cbBoxes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbBoxes.FormattingEnabled = true;
-            resources.ApplyResources(this.cbBoxes, "cbBoxes");
             this.cbBoxes.Name = "cbBoxes";
             this.cbBoxes.SelectedIndexChanged += new System.EventHandler(this.onSelectedBoxChanged);
             // 
@@ -242,6 +244,7 @@
             // uCtrlOverhang
             // 
             resources.ApplyResources(this.uCtrlOverhang, "uCtrlOverhang");
+            this.uCtrlOverhang.MinValue = -10000D;
             this.uCtrlOverhang.Name = "uCtrlOverhang";
             this.uCtrlOverhang.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlOverhang.ValueX = 0D;
@@ -266,9 +269,9 @@
             // 
             // cbPallet
             // 
+            resources.ApplyResources(this.cbPallet, "cbPallet");
             this.cbPallet.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbPallet.FormattingEnabled = true;
-            resources.ApplyResources(this.cbPallet, "cbPallet");
             this.cbPallet.Name = "cbPallet";
             this.cbPallet.SelectedIndexChanged += new System.EventHandler(this.onSelectedPalletChanged);
             // 
@@ -311,19 +314,20 @@
             // 
             // statusStripDef
             // 
+            resources.ApplyResources(this.statusStripDef, "statusStripDef");
             this.statusStripDef.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabelDef});
-            resources.ApplyResources(this.statusStripDef, "statusStripDef");
             this.statusStripDef.Name = "statusStripDef";
             // 
             // toolStripStatusLabelDef
             // 
+            resources.ApplyResources(this.toolStripStatusLabelDef, "toolStripStatusLabelDef");
             this.toolStripStatusLabelDef.ForeColor = System.Drawing.Color.Red;
             this.toolStripStatusLabelDef.Name = "toolStripStatusLabelDef";
-            resources.ApplyResources(this.toolStripStatusLabelDef, "toolStripStatusLabelDef");
             // 
             // gbWrapper
             // 
+            resources.ApplyResources(this.gbWrapper, "gbWrapper");
             this.gbWrapper.Controls.Add(this.uCtrlTrayHeight);
             this.gbWrapper.Controls.Add(this.lbWrapperColor);
             this.gbWrapper.Controls.Add(this.cbColor);
@@ -332,7 +336,6 @@
             this.gbWrapper.Controls.Add(this.uCtrlSurfacicMass);
             this.gbWrapper.Controls.Add(this.uCtrlWallThickness);
             this.gbWrapper.Controls.Add(this.uCtrlNoWalls);
-            resources.ApplyResources(this.gbWrapper, "gbWrapper");
             this.gbWrapper.Name = "gbWrapper";
             this.gbWrapper.TabStop = false;
             // 
@@ -355,13 +358,13 @@
             // 
             // cbColor
             // 
+            resources.ApplyResources(this.cbColor, "cbColor");
             this.cbColor.Color = System.Drawing.Color.LightGray;
             this.cbColor.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cbColor.DropDownHeight = 1;
             this.cbColor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbColor.DropDownWidth = 1;
             this.cbColor.FormattingEnabled = true;
-            resources.ApplyResources(this.cbColor, "cbColor");
             this.cbColor.Items.AddRange(new object[] {
             resources.GetString("cbColor.Items"),
             resources.GetString("cbColor.Items1"),
@@ -391,11 +394,28 @@
             resources.GetString("cbColor.Items25"),
             resources.GetString("cbColor.Items26"),
             resources.GetString("cbColor.Items27"),
-            resources.GetString("cbColor.Items28")});
+            resources.GetString("cbColor.Items28"),
+            resources.GetString("cbColor.Items29"),
+            resources.GetString("cbColor.Items30"),
+            resources.GetString("cbColor.Items31"),
+            resources.GetString("cbColor.Items32"),
+            resources.GetString("cbColor.Items33"),
+            resources.GetString("cbColor.Items34"),
+            resources.GetString("cbColor.Items35"),
+            resources.GetString("cbColor.Items36"),
+            resources.GetString("cbColor.Items37"),
+            resources.GetString("cbColor.Items38"),
+            resources.GetString("cbColor.Items39"),
+            resources.GetString("cbColor.Items40"),
+            resources.GetString("cbColor.Items41"),
+            resources.GetString("cbColor.Items42"),
+            resources.GetString("cbColor.Items43"),
+            resources.GetString("cbColor.Items44")});
             this.cbColor.Name = "cbColor";
             // 
             // cbWrapperType
             // 
+            resources.ApplyResources(this.cbWrapperType, "cbWrapperType");
             this.cbWrapperType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbWrapperType.FormattingEnabled = true;
             this.cbWrapperType.Items.AddRange(new object[] {
@@ -403,7 +423,6 @@
             resources.GetString("cbWrapperType.Items1"),
             resources.GetString("cbWrapperType.Items2"),
             resources.GetString("cbWrapperType.Items3")});
-            resources.ApplyResources(this.cbWrapperType, "cbWrapperType");
             this.cbWrapperType.Name = "cbWrapperType";
             // 
             // label1

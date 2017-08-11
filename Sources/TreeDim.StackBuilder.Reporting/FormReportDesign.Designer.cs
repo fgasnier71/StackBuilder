@@ -52,11 +52,12 @@
             this.statusLabelDef = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
             this.toolSBReportWord = new System.Windows.Forms.ToolStripButton();
+            this.toolSBReportPDF = new System.Windows.Forms.ToolStripButton();
             this.toolSBReportHTML = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolSBDimensions = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolSBReportPrint = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolSBDimensions = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -79,10 +80,12 @@
             // 
             // splitContainer1.Panel1
             // 
+            resources.ApplyResources(this.splitContainer1.Panel1, "splitContainer1.Panel1");
             this.splitContainer1.Panel1.Controls.Add(this.splitContainer2);
             // 
             // splitContainer1.Panel2
             // 
+            resources.ApplyResources(this.splitContainer1.Panel2, "splitContainer1.Panel2");
             this.splitContainer1.Panel2.Controls.Add(this._webBrowser);
             // 
             // splitContainer2
@@ -92,44 +95,46 @@
             // 
             // splitContainer2.Panel1
             // 
+            resources.ApplyResources(this.splitContainer2.Panel1, "splitContainer2.Panel1");
             this.splitContainer2.Panel1.Controls.Add(this._treeView);
             // 
             // splitContainer2.Panel2
             // 
+            resources.ApplyResources(this.splitContainer2.Panel2, "splitContainer2.Panel2");
             this.splitContainer2.Panel2.Controls.Add(this.tabCtrlImageParam);
             // 
             // _treeView
             // 
             resources.ApplyResources(this._treeView, "_treeView");
             this._treeView.Name = "_treeView";
-            this._treeView.AfterCheck += new System.Windows.Forms.TreeViewEventHandler(this.onNodeChecked);
+            this._treeView.AfterCheck += new System.Windows.Forms.TreeViewEventHandler(this.OnNodeChecked);
             // 
             // tabCtrlImageParam
             // 
+            resources.ApplyResources(this.tabCtrlImageParam, "tabCtrlImageParam");
             this.tabCtrlImageParam.Controls.Add(this.tabPageDetail);
             this.tabCtrlImageParam.Controls.Add(this.tabPageLargeImg);
-            resources.ApplyResources(this.tabCtrlImageParam, "tabCtrlImageParam");
             this.tabCtrlImageParam.Name = "tabCtrlImageParam";
             this.tabCtrlImageParam.SelectedIndex = 0;
             // 
             // tabPageDetail
             // 
+            resources.ApplyResources(this.tabPageDetail, "tabPageDetail");
             this.tabPageDetail.Controls.Add(this.cbFontSizeDetail);
             this.tabPageDetail.Controls.Add(this.lbFontSizeDetail);
             this.tabPageDetail.Controls.Add(this.cbHTMLSizeDetail);
             this.tabPageDetail.Controls.Add(this.lbHTMLSizeDetail);
             this.tabPageDetail.Controls.Add(this.cbDefinitionDetail);
             this.tabPageDetail.Controls.Add(this.lbDefinitionDetail);
-            resources.ApplyResources(this.tabPageDetail, "tabPageDetail");
             this.tabPageDetail.Name = "tabPageDetail";
             this.tabPageDetail.UseVisualStyleBackColor = true;
             // 
             // cbFontSizeDetail
             // 
+            resources.ApplyResources(this.cbFontSizeDetail, "cbFontSizeDetail");
             this.cbFontSizeDetail.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbFontSizeDetail.FontSizeRatio = 0.01F;
             this.cbFontSizeDetail.FormattingEnabled = true;
-            resources.ApplyResources(this.cbFontSizeDetail, "cbFontSizeDetail");
             this.cbFontSizeDetail.Name = "cbFontSizeDetail";
             // 
             // lbFontSizeDetail
@@ -139,9 +144,9 @@
             // 
             // cbHTMLSizeDetail
             // 
+            resources.ApplyResources(this.cbHTMLSizeDetail, "cbHTMLSizeDetail");
             this.cbHTMLSizeDetail.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbHTMLSizeDetail.FormattingEnabled = true;
-            resources.ApplyResources(this.cbHTMLSizeDetail, "cbHTMLSizeDetail");
             this.cbHTMLSizeDetail.Name = "cbHTMLSizeDetail";
             // 
             // lbHTMLSizeDetail
@@ -151,9 +156,9 @@
             // 
             // cbDefinitionDetail
             // 
+            resources.ApplyResources(this.cbDefinitionDetail, "cbDefinitionDetail");
             this.cbDefinitionDetail.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbDefinitionDetail.FormattingEnabled = true;
-            resources.ApplyResources(this.cbDefinitionDetail, "cbDefinitionDetail");
             this.cbDefinitionDetail.Name = "cbDefinitionDetail";
             // 
             // lbDefinitionDetail
@@ -163,36 +168,36 @@
             // 
             // tabPageLargeImg
             // 
+            resources.ApplyResources(this.tabPageLargeImg, "tabPageLargeImg");
             this.tabPageLargeImg.Controls.Add(this.cbFontSizeLarge);
             this.tabPageLargeImg.Controls.Add(this.cbHTMLSizeLarge);
             this.tabPageLargeImg.Controls.Add(this.cbDefinitionLarge);
             this.tabPageLargeImg.Controls.Add(this.lbFontSizeLarge);
             this.tabPageLargeImg.Controls.Add(this.lbHTMLSizeLarge);
             this.tabPageLargeImg.Controls.Add(this.lbDefinitionLarge);
-            resources.ApplyResources(this.tabPageLargeImg, "tabPageLargeImg");
             this.tabPageLargeImg.Name = "tabPageLargeImg";
             this.tabPageLargeImg.UseVisualStyleBackColor = true;
             // 
             // cbFontSizeLarge
             // 
+            resources.ApplyResources(this.cbFontSizeLarge, "cbFontSizeLarge");
             this.cbFontSizeLarge.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbFontSizeLarge.FontSizeRatio = 0.01F;
             this.cbFontSizeLarge.FormattingEnabled = true;
-            resources.ApplyResources(this.cbFontSizeLarge, "cbFontSizeLarge");
             this.cbFontSizeLarge.Name = "cbFontSizeLarge";
             // 
             // cbHTMLSizeLarge
             // 
+            resources.ApplyResources(this.cbHTMLSizeLarge, "cbHTMLSizeLarge");
             this.cbHTMLSizeLarge.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbHTMLSizeLarge.FormattingEnabled = true;
-            resources.ApplyResources(this.cbHTMLSizeLarge, "cbHTMLSizeLarge");
             this.cbHTMLSizeLarge.Name = "cbHTMLSizeLarge";
             // 
             // cbDefinitionLarge
             // 
+            resources.ApplyResources(this.cbDefinitionLarge, "cbDefinitionLarge");
             this.cbDefinitionLarge.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbDefinitionLarge.FormattingEnabled = true;
-            resources.ApplyResources(this.cbDefinitionLarge, "cbDefinitionLarge");
             this.cbDefinitionLarge.Name = "cbDefinitionLarge";
             // 
             // lbFontSizeLarge
@@ -217,65 +222,73 @@
             // 
             // statusStrip
             // 
+            resources.ApplyResources(this.statusStrip, "statusStrip");
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.statusLabelDef});
-            resources.ApplyResources(this.statusStrip, "statusStrip");
             this.statusStrip.Name = "statusStrip";
             // 
             // statusLabelDef
             // 
-            this.statusLabelDef.Name = "statusLabelDef";
             resources.ApplyResources(this.statusLabelDef, "statusLabelDef");
+            this.statusLabelDef.Name = "statusLabelDef";
             // 
             // toolStrip
             // 
+            resources.ApplyResources(this.toolStrip, "toolStrip");
             this.toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolSBReportWord,
+            this.toolSBReportPDF,
             this.toolSBReportHTML,
             this.toolStripSeparator2,
             this.toolSBReportPrint,
             this.toolStripSeparator1,
             this.toolSBDimensions});
-            resources.ApplyResources(this.toolStrip, "toolStrip");
             this.toolStrip.Name = "toolStrip";
             // 
             // toolSBReportWord
             // 
-            this.toolSBReportWord.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             resources.ApplyResources(this.toolSBReportWord, "toolSBReportWord");
+            this.toolSBReportWord.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolSBReportWord.Name = "toolSBReportWord";
-            this.toolSBReportWord.Click += new System.EventHandler(this.onReportMSWord);
+            this.toolSBReportWord.Click += new System.EventHandler(this.OnReportMSWord);
+            // 
+            // toolSBReportPDF
+            // 
+            resources.ApplyResources(this.toolSBReportPDF, "toolSBReportPDF");
+            this.toolSBReportPDF.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolSBReportPDF.Name = "toolSBReportPDF";
+            this.toolSBReportPDF.Click += new System.EventHandler(this.OnReportPDF);
             // 
             // toolSBReportHTML
             // 
-            this.toolSBReportHTML.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             resources.ApplyResources(this.toolSBReportHTML, "toolSBReportHTML");
+            this.toolSBReportHTML.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolSBReportHTML.Name = "toolSBReportHTML";
-            this.toolSBReportHTML.Click += new System.EventHandler(this.onReportHTML);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            resources.ApplyResources(this.toolStripSeparator1, "toolStripSeparator1");
-            // 
-            // toolSBDimensions
-            // 
-            this.toolSBDimensions.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            resources.ApplyResources(this.toolSBDimensions, "toolSBDimensions");
-            this.toolSBDimensions.Name = "toolSBDimensions";
-            this.toolSBDimensions.Click += new System.EventHandler(this.onShowDimensions);
+            this.toolSBReportHTML.Click += new System.EventHandler(this.OnReportHTML);
             // 
             // toolStripSeparator2
             // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
             resources.ApplyResources(this.toolStripSeparator2, "toolStripSeparator2");
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
             // 
             // toolSBReportPrint
             // 
-            this.toolSBReportPrint.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             resources.ApplyResources(this.toolSBReportPrint, "toolSBReportPrint");
+            this.toolSBReportPrint.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolSBReportPrint.Name = "toolSBReportPrint";
-            this.toolSBReportPrint.Click += new System.EventHandler(this.onReportPrint);
+            this.toolSBReportPrint.Click += new System.EventHandler(this.OnReportPrint);
+            // 
+            // toolStripSeparator1
+            // 
+            resources.ApplyResources(this.toolStripSeparator1, "toolStripSeparator1");
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            // 
+            // toolSBDimensions
+            // 
+            resources.ApplyResources(this.toolSBDimensions, "toolSBDimensions");
+            this.toolSBDimensions.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolSBDimensions.Name = "toolSBDimensions";
+            this.toolSBDimensions.Click += new System.EventHandler(this.OnShowDimensions);
             // 
             // FormReportDesign
             // 
@@ -340,5 +353,6 @@
         private ComboImgSize cbHTMLSizeLarge;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripButton toolSBReportPrint;
+        private System.Windows.Forms.ToolStripButton toolSBReportPDF;
     }
 }

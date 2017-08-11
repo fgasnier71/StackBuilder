@@ -113,11 +113,17 @@
     <AssemblyInfo CodeLanguage="CS" OutputFile="$(ProjectDir)..\SharedAssemblyInfo.cs" AssemblyVersion="$(AssemblyVersionToUse)" AssemblyFileVersion="$(AssemblyVersionToUse)" />
   </Target>
   <ItemGroup>
-    <Reference Include="CrashReporter.NET, Version=1.5.1.0, Culture=neutral, PublicKeyToken=986591a91592b7e6, processorArchitecture=MSIL">
-      <HintPath>..\packages\CrashReporter.NET.Official.1.5.1\lib\net40\CrashReporter.NET.dll</HintPath>
+    <Reference Include="CrashReporter.NET, Version=1.5.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CrashReporter.NET.Official.1.5.2\lib\net40\CrashReporter.NET.dll</HintPath>
     </Reference>
     <Reference Include="Cureos.Measures">
       <HintPath>..\ThirdPartyAssemblies\Cureos.Measures.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelDataReader, Version=3.1.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelDataReader.3.1.0\lib\net45\ExcelDataReader.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelDataReader.DataSet, Version=3.1.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelDataReader.DataSet.3.1.0\lib\net45\ExcelDataReader.DataSet.dll</HintPath>
     </Reference>
     <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
@@ -126,8 +132,8 @@
     <Reference Include="PropertyGridEx, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\PropertyGridEx.1.0.0\lib\net20\PropertyGridEx.dll</HintPath>
     </Reference>
-    <Reference Include="Sharp3D.Math, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Sharp3D.Math.1.0.0\lib\Sharp3D.Math.dll</HintPath>
+    <Reference Include="Sharp3D.Math, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Sharp3D.Math.1.0.1\lib\Sharp3D.Math.dll</HintPath>
     </Reference>
     <Reference Include="SourceGrid, Version=4.40.4580.29115, Culture=neutral, PublicKeyToken=df6f5e538749e85d, processorArchitecture=MSIL">
       <HintPath>..\packages\SourceGrid.4.4.0\lib\net35\SourceGrid.dll</HintPath>
@@ -145,10 +151,10 @@
       <HintPath>..\ThirdPartyAssemblies\treeDiM.PLMPack.DBClient.dll</HintPath>
     </Reference>
     <Reference Include="WeifenLuo.WinFormsUI.Docking, Version=2.16.0.0, Culture=neutral, PublicKeyToken=5cded1a1a0a7b481, processorArchitecture=MSIL">
-      <HintPath>..\packages\DockPanelSuite.2.16.0\lib\net40\WeifenLuo.WinFormsUI.Docking.dll</HintPath>
+      <HintPath>..\packages\DockPanelSuite.2.16.1\lib\net40\WeifenLuo.WinFormsUI.Docking.dll</HintPath>
     </Reference>
     <Reference Include="WeifenLuo.WinFormsUI.Docking.ThemeVS2015, Version=2.16.0.0, Culture=neutral, PublicKeyToken=5cded1a1a0a7b481, processorArchitecture=MSIL">
-      <HintPath>..\packages\DockPanelSuite.ThemeVS2015.2.16.0\lib\net40\WeifenLuo.WinFormsUI.Docking.ThemeVS2015.dll</HintPath>
+      <HintPath>..\packages\DockPanelSuite.ThemeVS2015.2.16.1\lib\net40\WeifenLuo.WinFormsUI.Docking.ThemeVS2015.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -428,11 +434,6 @@
     </Compile>
     <Compile Include="FormOptimizeCase.Designer.cs">
       <DependentUpon>FormOptimizeCase.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormOptimizeCase.es-ES.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>FormOptimizeCase.es-ES.resx</DependentUpon>
     </Compile>
     <Compile Include="FormOptimizePack.cs">
       <SubType>Form</SubType>
@@ -1154,9 +1155,6 @@
       <DependentUpon>FormNewTruck.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormOptimiseMultiCase.fr-FR.resx">
-      <DependentUpon>FormOptimiseMultiCase.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormOptimiseMultiCase.fr.resx">
       <DependentUpon>FormOptimiseMultiCase.cs</DependentUpon>
     </EmbeddedResource>
@@ -1164,28 +1162,27 @@
       <DependentUpon>FormOptimiseMultiCase.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormOptimizeCase.ca-ES.resx">
+    <EmbeddedResource Include="FormOptimizeCase.de.resx">
       <DependentUpon>FormOptimizeCase.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormOptimizeCase.de-DE.resx">
-      <DependentUpon>FormOptimizeCase.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormOptimizeCase.es-ES.resx">
+    <EmbeddedResource Include="FormOptimizeCase.es.resx">
       <DependentUpon>FormOptimizeCase.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormOptimizeCase.fr-FR.resx">
+    <EmbeddedResource Include="FormOptimizeCase.fr.resx">
       <DependentUpon>FormOptimizeCase.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormOptimizeCase.it-IT.resx">
+    <EmbeddedResource Include="FormOptimizeCase.it.resx">
       <DependentUpon>FormOptimizeCase.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormOptimizeCase.ja-JP.resx">
+    <EmbeddedResource Include="FormOptimizeCase.ja.resx">
       <DependentUpon>FormOptimizeCase.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormOptimizeCase.nl-NL.resx">
+    <EmbeddedResource Include="FormOptimizeCase.nl.resx">
       <DependentUpon>FormOptimizeCase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormOptimizeCase.resx">
@@ -1210,10 +1207,19 @@
     <EmbeddedResource Include="FormSetItemName.resx">
       <DependentUpon>FormSetItemName.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormShowDatabase.de.resx">
+      <DependentUpon>FormShowDatabase.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormShowDatabase.es.resx">
       <DependentUpon>FormShowDatabase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormShowDatabase.fr.resx">
+      <DependentUpon>FormShowDatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormShowDatabase.it.resx">
+      <DependentUpon>FormShowDatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormShowDatabase.ja.resx">
       <DependentUpon>FormShowDatabase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormShowDatabase.resx">
@@ -1656,14 +1662,7 @@
     <Content Include="Resources\Word.bmp" />
     <Content Include="treeDim.ico" />
   </ItemGroup>
-  <ItemGroup>
-    <FileAssociation Include=".stb">
-      <Visible>False</Visible>
-      <Description>StackBuilder</Description>
-      <Progid>StackBuilder</Progid>
-      <DefaultIcon>treeDim.ico</DefaultIcon>
-    </FileAssociation>
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <PostBuildEvent>copy /Y "$(SolutionDir)TreeDim.StackBuilder.Reporting\ReportTemplates" "$(TargetDir)ReportTemplates"
 if $(ConfigurationName) == Release "$(SolutionDir)Signfile.bat" $(TargetPath)

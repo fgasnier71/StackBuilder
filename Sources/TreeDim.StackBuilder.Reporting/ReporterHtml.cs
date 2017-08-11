@@ -26,15 +26,8 @@ namespace treeDiM.StackBuilder.Reporting
         #endregion
 
         #region Override Reporter
-        public override bool WriteNamespace
-        {
-            get { return false; }
-        }
-
-        public override bool WriteImageFiles
-        {
-            get { return true; }
-        }
+        public override bool WriteNamespace => false;
+        public override bool WriteImageFiles => true;
         #endregion
     }
 }

@@ -33,7 +33,6 @@ namespace treeDiM.StackBuilder.Desktop
  	        base.OnLoad(e);
 
             // initialize
-            cbImageSizes.SelectedIndex = Properties.Settings.Default.ReporterImageSize;
             fileSelectCtrlReportTemplate.FileName = Reporting.Properties.Settings.Default.TemplatePath;
             fileSelectCompanyLogo.FileName = Reporting.Properties.Settings.Default.CompanyLogoPath;
             nudTop.Value = (decimal)Reporting.Properties.Settings.Default.MarginTop;
@@ -49,7 +48,6 @@ namespace treeDiM.StackBuilder.Desktop
         #region Handlers
         void OptionsForm_OptionsSaving(object sender, EventArgs e)
         {
-            Properties.Settings.Default.ReporterImageSize = cbImageSizes.SelectedIndex;
             Reporting.Properties.Settings.Default.TemplatePath = fileSelectCtrlReportTemplate.FileName;
             Reporting.Properties.Settings.Default.CompanyLogoPath = fileSelectCompanyLogo.FileName;
             Reporting.Properties.Settings.Default.MarginTop = (float)nudTop.Value;

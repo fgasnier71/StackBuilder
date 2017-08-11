@@ -2,23 +2,20 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
-using System.Diagnostics;
 
 using Microsoft.Office.Interop.Excel;
 using Microsoft.Office.Core;
 
+using log4net;
 using Sharp3D.Math.Core;
 
 using treeDiM.StackBuilder.Basics;
 using treeDiM.StackBuilder.Graphics;
 using treeDiM.StackBuilder.Engine;
+using treeDiM.StackBuilder.Reporting;
 
 using treeDiM.StackBuilder.ABYATExcelLoader.Properties;
 
@@ -38,6 +35,8 @@ namespace treeDiM.StackBuilder.ABYATExcelLoader
         protected override void OnLoad(EventArgs e)
         {
  	        base.OnLoad(e);
+            // logging
+            log4net.Appender.RichTextBoxAppender.SetRichTextBox(richTextBoxLog, "RichTextBoxAppender");
             // initialize graph controls
             graphCtrlPallet.DrawingContainer = this;
             // initialize type combo
@@ -55,9 +54,6 @@ namespace treeDiM.StackBuilder.ABYATExcelLoader
             chkbOpenFile.Checked = Settings.Default.OpenGeneratedFile;
             GenerateImage = Settings.Default.GenerateImage;
             InputFilePath = Settings.Default.InputFilePath;
-            StackCountMax = 1000;
-            LargestDimMin = 10;
-
         }
         protected override void OnClosing(CancelEventArgs e)
         {
@@ -120,6 +116,7 @@ namespace treeDiM.StackBuilder.ABYATExcelLoader
             get { return rbPallet.Checked ? 0 : 1; }
             set { rbPallet.Checked = (0 == value); rbContainer.Checked = (1 == value); }
         }
+        private bool GenerateReport { get { return chkbGenerateReport.Checked; } set { chkbGenerateReport.Checked = value; } }
         private bool GenerateImage { get { return chkbGenerateImage.Checked; } set { chkbGenerateImage.Checked = value; } }
         private double PalletLength { get { return uCtrlPalletDimensions.ValueX; } set { uCtrlPalletDimensions.ValueX = value; } }
         private double PalletWidth { get { return uCtrlPalletDimensions.ValueY; } set { uCtrlPalletDimensions.ValueY = value; } }
@@ -187,7 +184,8 @@ namespace treeDiM.StackBuilder.ABYATExcelLoader
         #region Menu event handlers
         private void onSettings(object sender, EventArgs e)
         {
-
+            FormOptionsSettings form = new FormOptionsSettings();
+            form.ShowDialog();
         }
         private void onExit(object sender, EventArgs e)
         {
@@ -206,8 +204,10 @@ namespace treeDiM.StackBuilder.ABYATExcelLoader
                 {
                     try
                     {
-                        ExcelDataReader.LoadFile(InputFilePath, ref _dataCases);
+                        ExcelDataReader_ABYAT.LoadFile(InputFilePath, ref _dataCases);
                         quitTrying = _dataCases.Count > 0;
+
+                        _log.InfoFormat("{0} case(s) loaded!", _dataCases.Count);
 
                         if (_dataCases.Count > 0)
                         {
@@ -229,15 +229,17 @@ namespace treeDiM.StackBuilder.ABYATExcelLoader
                             uCtrlTruckDimensions.ValueZ = Math.Max(uCtrlTruckDimensions.ValueZ, _dimensionsMax[2]+1.0);
                         }
                     }
-                    catch (System.IO.IOException /*ex*/)
+                    catch (System.IO.IOException ex)
                     {
+                        _log.Info(ex.Message);
                         if (DialogResult.No == MessageBox.Show(string.Format("File {0} is locked. Make sure it is not opened in Excel.\nTry again?", Path.GetFileName(InputFilePath)),
                             System.Windows.Forms.Application.ProductName,
                             MessageBoxButtons.YesNo))
                             quitTrying = true;
                     }
-                    catch (Exception /*ex*/)
+                    catch (Exception ex)
                     {
+                        _log.Info(ex.Message);
                         MessageBox.Show(string.Format("Failed to load file {0}.", InputFilePath));
                         quitTrying = true;
                     }
@@ -342,11 +344,24 @@ namespace treeDiM.StackBuilder.ABYATExcelLoader
                     stackCount = analysis.Solution.ItemCount;
                     stackWeight = analysis.Solution.Weight;
 
-                    if (GenerateImage && stackCount <= StackCountMax)
+                    if (stackCount <= StackCountMax)
                     {
-                        ViewerSolution sv = new ViewerSolution(analysis.Solution);
-                        sv.Draw(graphics, Transform3D.Identity);
-                        graphics.Flush();
+                        if (GenerateImage)
+                        {
+                            ViewerSolution sv = new ViewerSolution(analysis.Solution);
+                            sv.Draw(graphics, Transform3D.Identity);
+                            graphics.Flush();
+                        }
+                        if (GenerateReport)
+                        {
+                            ReportData inputData = new ReportData(analysis);
+                            string outputFilePath = Path.ChangeExtension(Path.Combine(Path.GetDirectoryName(OutputFilePath), string.Format("Report_{0}_on_{1}", analysis.Content.Name, analysis.Container.Name)), "doc");
+
+                            ReportNode rnRoot = null;
+                            Margins margins = new Margins();
+                            Reporting.Reporter reporter = new ReporterMSWord(inputData, ref rnRoot, Reporter.TemplatePath, outputFilePath, margins);
+
+                        }
                     }
                 }
             }
@@ -380,17 +395,14 @@ namespace treeDiM.StackBuilder.ABYATExcelLoader
                 Bitmap bmp = graphics.Bitmap;
                 bmp.Save(stackImagePath, System.Drawing.Imaging.ImageFormat.Png);
             }
-
         }
         private double LargestDimMin
         {
-            get { return uCtrlLargestDimMin.Value; }
-            set { uCtrlLargestDimMin.Value = value; }
+            get { return Settings.Default.LargestDimMinimum; }
         }
         private int StackCountMax
         {
-            set { nudStackCountMax.Value = (decimal)value; }
-            get { return (int)nudStackCountMax.Value; }
+            get { return Settings.Default.StackCountMax; }
         }
         private int ImageSize
         {
@@ -500,10 +512,14 @@ namespace treeDiM.StackBuilder.ABYATExcelLoader
                                 imageCell.Left + 1, imageCell.Top + 1, imageCell.Width - 2, imageCell.Height - 2);
                         }
                     }
-                    catch (System.OutOfMemoryException)
-                    { }
-                    catch (treeDiM.StackBuilder.Engine.EngineException)
-                    { }
+                    catch (System.OutOfMemoryException ex)
+                    {
+                        _log.Error(ex.Message);
+                    }
+                    catch (treeDiM.StackBuilder.Engine.EngineException ex)
+                    {
+                        _log.Error(ex.Message);
+                    }
                     catch (Exception ex)
                     {
                         throw ex; // rethrow
@@ -520,6 +536,7 @@ namespace treeDiM.StackBuilder.ABYATExcelLoader
             }
             catch (Exception ex)
             {
+                _log.Error(ex.Message);
                 MessageBox.Show(ex.Message);
                 return false;
             }
@@ -529,6 +546,7 @@ namespace treeDiM.StackBuilder.ABYATExcelLoader
         #region Data members
         private List<DataCase> _dataCases = new List<DataCase>();
         private double[] _dimensionsMax = new double[3];
+        protected static ILog _log = LogManager.GetLogger(typeof(FormMain));
         #endregion
     }
 }

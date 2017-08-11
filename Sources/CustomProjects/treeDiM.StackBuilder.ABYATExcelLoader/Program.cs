@@ -1,11 +1,10 @@
 ﻿#region Using directives
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.IO;
-using System.Net;
+using System.Diagnostics;
+
+using log4net;
+using log4net.Config;
 
 using treeDiM.StackBuilder.Basics;
 #endregion
@@ -20,6 +19,11 @@ namespace treeDiM.StackBuilder.ABYATExcelLoader
         [STAThread]
         static void Main()
         {
+            // set up a simple logging configuration
+            XmlConfigurator.Configure();
+            if (!LogManager.GetRepository().Configured)
+                Debug.Fail("Logging not configured!\n Press ignore to continue");
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 

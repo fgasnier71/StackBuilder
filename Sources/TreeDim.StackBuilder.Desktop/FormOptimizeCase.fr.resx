@@ -117,35 +117,123 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="bnClose.Text" xml:space="preserve">
+  <data name="btClose.Text" xml:space="preserve">
     <value>Fermer</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="lbCases.Size" type="System.Drawing.Size, System.Drawing">
-    <value>43, 13</value>
+  <data name="chkVerticalOrientationOnly.Size" type="System.Drawing.Size, System.Drawing">
+    <value>256, 17</value>
   </data>
-  <data name="lbCases.Text" xml:space="preserve">
-    <value>Caisses</value>
+  <data name="chkVerticalOrientationOnly.Text" xml:space="preserve">
+    <value>Autoriser seulement l'orientation verticale de l'étui</value>
+  </data>
+  <data name="lbNumber.Size" type="System.Drawing.Size, System.Drawing">
+    <value>123, 13</value>
+  </data>
+  <data name="lbNumber.Text" xml:space="preserve">
+    <value>Nombre d'étui par caisse</value>
+  </data>
+  <data name="lbBoxDimensions.Size" type="System.Drawing.Size, System.Drawing">
+    <value>189, 13</value>
+  </data>
+  <data name="lbBoxDimensions.Text" xml:space="preserve">
+    <value>Ajouter la caisse et l'analyse de palette</value>
   </data>
   <data name="lbBox.Text" xml:space="preserve">
     <value>Etui</value>
   </data>
-  <data name="bnCreateAnalysis.Text" xml:space="preserve">
-    <value>Créer l'analyse</value>
+  <data name="groupBox.Text" xml:space="preserve">
+    <value>Etui (produit)</value>
   </data>
-  <data name="lbAnalysisDescription.Size" type="System.Drawing.Size, System.Drawing">
-    <value>60, 13</value>
+  <data name="btSetMaximum.Text" xml:space="preserve">
+    <value>Maximum par défaut</value>
   </data>
-  <data name="lbAnalysisDescription.Text" xml:space="preserve">
-    <value>Description</value>
+  <data name="btSetMinimum.Text" xml:space="preserve">
+    <value>Minimum par défaut</value>
   </data>
-  <data name="lbAnalysisName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>68, 13</value>
+  <data name="lbWallThickness.Size" type="System.Drawing.Size, System.Drawing">
+    <value>73, 13</value>
   </data>
-  <data name="lbAnalysisName.Text" xml:space="preserve">
-    <value>Nom analyse</value>
+  <data name="lbWallThickness.Text" xml:space="preserve">
+    <value>Epaisseur mur</value>
+  </data>
+  <data name="lbHeight.Size" type="System.Drawing.Size, System.Drawing">
+    <value>45, 13</value>
+  </data>
+  <data name="lbHeight.Text" xml:space="preserve">
+    <value>Hauteur</value>
+  </data>
+  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>43, 13</value>
+  </data>
+  <data name="label3.Text" xml:space="preserve">
+    <value>Largeur</value>
+  </data>
+  <data name="lbLength.Size" type="System.Drawing.Size, System.Drawing">
+    <value>52, 13</value>
+  </data>
+  <data name="lbLength.Text" xml:space="preserve">
+    <value>Longueur</value>
+  </data>
+  <data name="lbWalls.Size" type="System.Drawing.Size, System.Drawing">
+    <value>79, 13</value>
+  </data>
+  <data name="lbWalls.Text" xml:space="preserve">
+    <value>Nombre de mur</value>
+  </data>
+  <data name="lbMaxCaseDimensions.Size" type="System.Drawing.Size, System.Drawing">
+    <value>119, 13</value>
+  </data>
+  <data name="lbMaxCaseDimensions.Text" xml:space="preserve">
+    <value>Dimensions max. caisse</value>
+  </data>
+  <data name="lbMinCaseDimensions.Size" type="System.Drawing.Size, System.Drawing">
+    <value>116, 13</value>
+  </data>
+  <data name="lbMinCaseDimensions.Text" xml:space="preserve">
+    <value>Dimensions min. caisse</value>
+  </data>
+  <data name="gbCase.Text" xml:space="preserve">
+    <value>Contraintes % caisse </value>
+  </data>
+  <data name="uCtrlPalletHeight.Text" xml:space="preserve">
+    <value>Hauteur palette maximale</value>
+  </data>
+  <data name="lbPallet.Size" type="System.Drawing.Size, System.Drawing">
+    <value>40, 13</value>
+  </data>
+  <data name="lbPallet.Text" xml:space="preserve">
+    <value>Palette</value>
+  </data>
+  <data name="gbPallet.Text" xml:space="preserve">
+    <value>Palette</value>
+  </data>
+  <data name="btOptimize.Location" type="System.Drawing.Point, System.Drawing">
+    <value>488, 363</value>
+  </data>
+  <data name="btOptimize.Size" type="System.Drawing.Size, System.Drawing">
+    <value>90, 23</value>
+  </data>
+  <data name="btOptimize.Text" xml:space="preserve">
+    <value>Optimiser</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="btAddCasePalletAnalysis.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btAddCasePalletAnalysis.Text" xml:space="preserve">
+    <value>Ajouter analyse caisse/palette</value>
+  </data>
+  <data name="btAddPackPalletAnalysis.Text" xml:space="preserve">
+    <value>Ajouter analyse fardeau/palette</value>
+  </data>
+  <data name="statusStripDef.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 719</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>584, 741</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Encaissage avec une liste de caisse...</value>
+    <value>Recherche des dimensions de caisses optimales...</value>
   </data>
 </root>

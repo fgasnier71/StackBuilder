@@ -33,8 +33,6 @@
             this.fileSelectCtrlReportTemplate = new treeDiM.UserControls.FileSelect();
             this.label1 = new System.Windows.Forms.Label();
             this.fileSelectCompanyLogo = new treeDiM.UserControls.FileSelect();
-            this.lbImageSizes = new System.Windows.Forms.Label();
-            this.cbImageSizes = new System.Windows.Forms.ComboBox();
             this.lbReportTemplate = new System.Windows.Forms.Label();
             this.gbMSWordMargins = new System.Windows.Forms.GroupBox();
             this.lbCmRight = new System.Windows.Forms.Label();
@@ -72,21 +70,6 @@
             resources.ApplyResources(this.fileSelectCompanyLogo, "fileSelectCompanyLogo");
             this.fileSelectCompanyLogo.Filter = "Image file (.bmp;.gif;.jpg;.png)|*.bmp;*.gif;*.jpg;*.png";
             this.fileSelectCompanyLogo.Name = "fileSelectCompanyLogo";
-            // 
-            // lbImageSizes
-            // 
-            resources.ApplyResources(this.lbImageSizes, "lbImageSizes");
-            this.lbImageSizes.Name = "lbImageSizes";
-            // 
-            // cbImageSizes
-            // 
-            this.cbImageSizes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbImageSizes.FormattingEnabled = true;
-            this.cbImageSizes.Items.AddRange(new object[] {
-            resources.GetString("cbImageSizes.Items"),
-            resources.GetString("cbImageSizes.Items1")});
-            resources.ApplyResources(this.cbImageSizes, "cbImageSizes");
-            this.cbImageSizes.Name = "cbImageSizes";
             // 
             // lbReportTemplate
             // 
@@ -192,8 +175,6 @@
             this.CategoryPath = "Options\\\\Reports";
             this.Controls.Add(this.gbMSWordMargins);
             this.Controls.Add(this.lbReportTemplate);
-            this.Controls.Add(this.cbImageSizes);
-            this.Controls.Add(this.lbImageSizes);
             this.Controls.Add(this.fileSelectCompanyLogo);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.fileSelectCtrlReportTemplate);
@@ -216,8 +197,6 @@
         private treeDiM.UserControls.FileSelect fileSelectCtrlReportTemplate;
         private System.Windows.Forms.Label label1;
         private UserControls.FileSelect fileSelectCompanyLogo;
-        private System.Windows.Forms.Label lbImageSizes;
-        private System.Windows.Forms.ComboBox cbImageSizes;
         private System.Windows.Forms.Label lbReportTemplate;
         private System.Windows.Forms.GroupBox gbMSWordMargins;
         private System.Windows.Forms.NumericUpDown nudTop;

@@ -53,18 +53,14 @@
             this.bnGenerate = new System.Windows.Forms.Button();
             this.fileSelectOutput = new treeDiM.UserControls.FileSelect();
             this.lbOutputFilePath = new System.Windows.Forms.Label();
-            this.gbLimits = new System.Windows.Forms.GroupBox();
-            this.uCtrlLargestDimMin = new treeDiM.StackBuilder.Basics.UCtrlDouble();
-            this.nudStackCountMax = new System.Windows.Forms.NumericUpDown();
-            this.lbDrawing = new System.Windows.Forms.Label();
             this.chkbGenerateImage = new System.Windows.Forms.CheckBox();
+            this.richTextBoxLog = new System.Windows.Forms.RichTextBox();
+            this.chkbGenerateReport = new System.Windows.Forms.CheckBox();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.graphCtrlPallet)).BeginInit();
             this.gbInput.SuspendLayout();
             this.gbOutput.SuspendLayout();
-            this.gbLimits.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudStackCountMax)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip
@@ -147,7 +143,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.graphCtrlPallet.Location = new System.Drawing.Point(213, 209);
             this.graphCtrlPallet.Name = "graphCtrlPallet";
-            this.graphCtrlPallet.Size = new System.Drawing.Size(267, 224);
+            this.graphCtrlPallet.Size = new System.Drawing.Size(267, 241);
             this.graphCtrlPallet.TabIndex = 4;
             this.graphCtrlPallet.Viewer = null;
             // 
@@ -188,7 +184,7 @@
             this.gbInput.Controls.Add(this.graphCtrlPallet);
             this.gbInput.Location = new System.Drawing.Point(6, 27);
             this.gbInput.Name = "gbInput";
-            this.gbInput.Size = new System.Drawing.Size(671, 449);
+            this.gbInput.Size = new System.Drawing.Size(671, 456);
             this.gbInput.TabIndex = 7;
             this.gbInput.TabStop = false;
             this.gbInput.Text = "Input";
@@ -299,13 +295,15 @@
             // 
             this.gbOutput.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbOutput.Controls.Add(this.chkbGenerateReport);
+            this.gbOutput.Controls.Add(this.chkbGenerateImage);
             this.gbOutput.Controls.Add(this.chkbOpenFile);
             this.gbOutput.Controls.Add(this.bnGenerate);
             this.gbOutput.Controls.Add(this.fileSelectOutput);
             this.gbOutput.Controls.Add(this.lbOutputFilePath);
-            this.gbOutput.Location = new System.Drawing.Point(6, 566);
+            this.gbOutput.Location = new System.Drawing.Point(6, 489);
             this.gbOutput.Name = "gbOutput";
-            this.gbOutput.Size = new System.Drawing.Size(671, 67);
+            this.gbOutput.Size = new System.Drawing.Size(671, 87);
             this.gbOutput.TabIndex = 8;
             this.gbOutput.TabStop = false;
             this.gbOutput.Text = "Output";
@@ -313,7 +311,7 @@
             // chkbOpenFile
             // 
             this.chkbOpenFile.AutoSize = true;
-            this.chkbOpenFile.Location = new System.Drawing.Point(10, 43);
+            this.chkbOpenFile.Location = new System.Drawing.Point(10, 67);
             this.chkbOpenFile.Name = "chkbOpenFile";
             this.chkbOpenFile.Size = new System.Drawing.Size(119, 17);
             this.chkbOpenFile.TabIndex = 3;
@@ -346,82 +344,40 @@
             this.lbOutputFilePath.TabIndex = 0;
             this.lbOutputFilePath.Text = "Output file path";
             // 
-            // gbLimits
-            // 
-            this.gbLimits.Controls.Add(this.chkbGenerateImage);
-            this.gbLimits.Controls.Add(this.uCtrlLargestDimMin);
-            this.gbLimits.Controls.Add(this.nudStackCountMax);
-            this.gbLimits.Controls.Add(this.lbDrawing);
-            this.gbLimits.Location = new System.Drawing.Point(6, 482);
-            this.gbLimits.Name = "gbLimits";
-            this.gbLimits.Size = new System.Drawing.Size(671, 78);
-            this.gbLimits.TabIndex = 9;
-            this.gbLimits.TabStop = false;
-            this.gbLimits.Text = "Limitations";
-            // 
-            // uCtrlLargestDimMin
-            // 
-            this.uCtrlLargestDimMin.Location = new System.Drawing.Point(16, 47);
-            this.uCtrlLargestDimMin.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.uCtrlLargestDimMin.MinimumSize = new System.Drawing.Size(100, 20);
-            this.uCtrlLargestDimMin.Name = "uCtrlLargestDimMin";
-            this.uCtrlLargestDimMin.Size = new System.Drawing.Size(340, 20);
-            this.uCtrlLargestDimMin.TabIndex = 2;
-            this.uCtrlLargestDimMin.Text = "Skip computation if largest dimension below ";
-            this.uCtrlLargestDimMin.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
-            this.uCtrlLargestDimMin.Value = 10D;
-            // 
-            // nudStackCountMax
-            // 
-            this.nudStackCountMax.Location = new System.Drawing.Point(258, 20);
-            this.nudStackCountMax.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.nudStackCountMax.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.nudStackCountMax.Name = "nudStackCountMax";
-            this.nudStackCountMax.Size = new System.Drawing.Size(98, 20);
-            this.nudStackCountMax.TabIndex = 1;
-            this.nudStackCountMax.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // lbDrawing
-            // 
-            this.lbDrawing.AutoSize = true;
-            this.lbDrawing.Location = new System.Drawing.Point(16, 20);
-            this.lbDrawing.Name = "lbDrawing";
-            this.lbDrawing.Size = new System.Drawing.Size(203, 13);
-            this.lbDrawing.TabIndex = 0;
-            this.lbDrawing.Text = "Skip drawing if number of cases exceeds:";
-            // 
             // chkbGenerateImage
             // 
             this.chkbGenerateImage.AutoSize = true;
-            this.chkbGenerateImage.Location = new System.Drawing.Point(390, 21);
+            this.chkbGenerateImage.Location = new System.Drawing.Point(10, 44);
             this.chkbGenerateImage.Name = "chkbGenerateImage";
             this.chkbGenerateImage.Size = new System.Drawing.Size(101, 17);
             this.chkbGenerateImage.TabIndex = 3;
             this.chkbGenerateImage.Text = "Generate image";
             this.chkbGenerateImage.UseVisualStyleBackColor = true;
             // 
+            // richTextBoxLog
+            // 
+            this.richTextBoxLog.Location = new System.Drawing.Point(0, 581);
+            this.richTextBoxLog.Name = "richTextBoxLog";
+            this.richTextBoxLog.Size = new System.Drawing.Size(684, 55);
+            this.richTextBoxLog.TabIndex = 10;
+            this.richTextBoxLog.Text = "";
+            // 
+            // chkbGenerateReport
+            // 
+            this.chkbGenerateReport.AutoSize = true;
+            this.chkbGenerateReport.Location = new System.Drawing.Point(158, 44);
+            this.chkbGenerateReport.Name = "chkbGenerateReport";
+            this.chkbGenerateReport.Size = new System.Drawing.Size(100, 17);
+            this.chkbGenerateReport.TabIndex = 4;
+            this.chkbGenerateReport.Text = "Generate report";
+            this.chkbGenerateReport.UseVisualStyleBackColor = true;
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(684, 661);
-            this.Controls.Add(this.gbLimits);
+            this.Controls.Add(this.richTextBoxLog);
             this.Controls.Add(this.gbOutput);
             this.Controls.Add(this.gbInput);
             this.Controls.Add(this.statusStrip);
@@ -442,9 +398,6 @@
             this.gbInput.PerformLayout();
             this.gbOutput.ResumeLayout(false);
             this.gbOutput.PerformLayout();
-            this.gbLimits.ResumeLayout(false);
-            this.gbLimits.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudStackCountMax)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -477,11 +430,9 @@
         private UserControls.FileSelect fileSelectOutput;
         private System.Windows.Forms.Label lbOutputFilePath;
         private System.Windows.Forms.Label lbCaseLoaded;
-        private System.Windows.Forms.GroupBox gbLimits;
-        private System.Windows.Forms.NumericUpDown nudStackCountMax;
-        private System.Windows.Forms.Label lbDrawing;
-        private Basics.UCtrlDouble uCtrlLargestDimMin;
         private System.Windows.Forms.CheckBox chkbGenerateImage;
+        private System.Windows.Forms.RichTextBox richTextBoxLog;
+        private System.Windows.Forms.CheckBox chkbGenerateReport;
     }
 }
 

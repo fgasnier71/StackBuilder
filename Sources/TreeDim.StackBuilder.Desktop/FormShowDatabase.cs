@@ -548,9 +548,37 @@ namespace treeDiM.StackBuilder.Desktop
             // initialize grid
             List<string> captions = new List<string>();
             captions.Add(string.Format(Properties.Resources.ID_DIMEXT_WU, UnitsManager.UnitString(UnitsManager.UnitType.UT_LENGTH)));
-            captions.Add(string.Format(Properties.Resources.ID_DIMINT_WU, UnitsManager.UnitString(UnitsManager.UnitType.UT_LENGTH)));
             captions.Add(string.Format(Properties.Resources.ID_WEIGHT_WU, UnitsManager.UnitString(UnitsManager.UnitType.UT_MASS)));
-            GridInitialize(gridCases, captions);
+            GridInitialize(gridBoxes, captions);
+            // handling checkbox event
+            SourceGrid.Cells.Controllers.CustomEvents checkBoxEvent = new SourceGrid.Cells.Controllers.CustomEvents();
+            checkBoxEvent.Click += new EventHandler(onAutoImport);
+            // handling delete event
+            SourceGrid.Cells.Controllers.CustomEvents buttonDelete = new SourceGrid.Cells.Controllers.CustomEvents();
+            buttonDelete.Click += new EventHandler(onDeleteItem);
+
+            _boxes = WCFClientSingleton.Instance.Client.GetAllBoxes();
+            int iIndex = 0;
+            foreach (DCSBCase c in _boxes)
+            {
+                UnitsManager.UnitSystem us = (UnitsManager.UnitSystem)c.UnitSystem;
+
+                gridCases.Rows.Insert(++iIndex);
+                int iCol = 0;
+                gridBoxes[iIndex, iCol++] = new SourceGrid.Cells.Cell(c.Name);
+                gridBoxes[iIndex, iCol++] = new SourceGrid.Cells.Cell(c.Description);
+                gridBoxes[iIndex, iCol++] = new SourceGrid.Cells.Cell(
+                    string.Format("{0:0.##} x {1:0.##} x {2:0.##}",
+                        UnitsManager.ConvertLengthFrom(c.DimensionsOuter.M0, us),
+                        UnitsManager.ConvertLengthFrom(c.DimensionsOuter.M1, us),
+                        UnitsManager.ConvertLengthFrom(c.DimensionsOuter.M2, us)));
+                gridBoxes[iIndex, iCol++] = new SourceGrid.Cells.Cell(UnitsManager.ConvertMassFrom(c.Weight, us));
+                gridBoxes[iIndex, iCol] = new SourceGrid.Cells.CheckBox(null, c.AutoInsert);
+                gridBoxes[iIndex, iCol++].AddController(checkBoxEvent);
+                gridBoxes[iIndex, iCol] = new SourceGrid.Cells.Button("") { Image = Properties.Resources.Delete };
+                gridBoxes[iIndex, iCol++].AddController(buttonDelete);
+            }
+            GridFinalize(gridCases);
         }
         #endregion
         #region Cases
@@ -762,6 +790,11 @@ namespace treeDiM.StackBuilder.Desktop
                     WCFClientSingleton.Instance.Client.SetAutoInsert(DCSBTypeEnum.TInterlayer, _interlayers[iSel].ID, !_interlayers[iSel].AutoInsert);
                     FillGridInterlayers();
                 }
+                else if (g == gridBoxes)
+                {
+                    WCFClientSingleton.Instance.Client.SetAutoInsert(DCSBTypeEnum.TCase, _boxes[iSel].ID, !_boxes[iSel].AutoInsert);
+                    FillGridBoxes();
+                }
                 else if (g == gridCases)
                 {
                     WCFClientSingleton.Instance.Client.SetAutoInsert(DCSBTypeEnum.TCase, _cases[iSel].ID, !_cases[iSel].AutoInsert);
@@ -816,6 +849,11 @@ namespace treeDiM.StackBuilder.Desktop
                     WCFClientSingleton.Instance.Client.RemoveItemById(DCSBTypeEnum.TPalletFilm, _palletFilms[iSel].ID);
                     FillGridPalletFilms();
                 }
+                else if (g == gridBoxes)
+                {
+                    WCFClientSingleton.Instance.Client.RemoveItemById(DCSBTypeEnum.TCase, _boxes[iSel].ID);
+                    FillGridBoxes();
+                }
                 else if (g == gridCases)
                 {
                     WCFClientSingleton.Instance.Client.RemoveItemById(DCSBTypeEnum.TCase, _cases[iSel].ID);
@@ -859,6 +897,8 @@ namespace treeDiM.StackBuilder.Desktop
                     FillGridInterlayers();
                 else if (string.Equals(tabName, "tabPageBundle"))
                     FillGridBundles();
+                else if (string.Equals(tabName, "tabPageBox"))
+                    FillGridBoxes();
                 else if (string.Equals(tabName, "tabPageCase"))
                     FillGridCases();
                 else if (string.Equals(tabName, "tabPageCylinder"))
@@ -1091,6 +1131,7 @@ namespace treeDiM.StackBuilder.Desktop
         private DCSBPalletFilm[] _palletFilms = null;
         private DCSBBundle[] _bundles = null;
         private DCSBCase[] _cases = null;
+        private DCSBCase[] _boxes = null;
         private DCSBCylinder[] _cylinders = null;
         private DCSBInterlayer[] _interlayers = null;
         private DCSBTruck[] _trucks = null;
