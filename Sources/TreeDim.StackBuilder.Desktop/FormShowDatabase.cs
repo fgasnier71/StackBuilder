@@ -42,7 +42,7 @@ namespace treeDiM.StackBuilder.Desktop
             gridPalletCorners.Selection.SelectionChanged += new SourceGrid.RangeRegionChangedEventHandler(onSelChangeGrid);
             gridPalletCaps.Selection.SelectionChanged += new SourceGrid.RangeRegionChangedEventHandler(onSelChangeGrid);
             gridPalletFilms.Selection.SelectionChanged += new SourceGrid.RangeRegionChangedEventHandler(onSelChangeGrid);
-            
+            gridBoxes.Selection.SelectionChanged += new SourceGrid.RangeRegionChangedEventHandler(onSelChangeGrid);
             gridCases.Selection.SelectionChanged += new SourceGrid.RangeRegionChangedEventHandler(onSelChangeGrid);
             gridBundles.Selection.SelectionChanged += new SourceGrid.RangeRegionChangedEventHandler(onSelChangeGrid);
             gridCylinders.Selection.SelectionChanged += new SourceGrid.RangeRegionChangedEventHandler(onSelChangeGrid);
@@ -563,7 +563,7 @@ namespace treeDiM.StackBuilder.Desktop
             {
                 UnitsManager.UnitSystem us = (UnitsManager.UnitSystem)c.UnitSystem;
 
-                gridCases.Rows.Insert(++iIndex);
+                gridBoxes.Rows.Insert(++iIndex);
                 int iCol = 0;
                 gridBoxes[iIndex, iCol++] = new SourceGrid.Cells.Cell(c.Name);
                 gridBoxes[iIndex, iCol++] = new SourceGrid.Cells.Cell(c.Description);
@@ -578,7 +578,7 @@ namespace treeDiM.StackBuilder.Desktop
                 gridBoxes[iIndex, iCol] = new SourceGrid.Cells.Button("") { Image = Properties.Resources.Delete };
                 gridBoxes[iIndex, iCol++].AddController(buttonDelete);
             }
-            GridFinalize(gridCases);
+            GridFinalize(gridBoxes);
         }
         #endregion
         #region Cases
@@ -930,6 +930,7 @@ namespace treeDiM.StackBuilder.Desktop
                     if (g == gridPalletCaps)    _selectedItem = _palletCaps[iSel];
                     if (g == gridPalletFilms)   _selectedItem = _palletFilms[iSel];
                     if (g == gridInterlayers)   _selectedItem = _interlayers[iSel];
+                    if (g == gridBoxes)         _selectedItem = _boxes[iSel];
                     if (g == gridCases)         _selectedItem = _cases[iSel];
                     if (g == gridBundles)       _selectedItem = _bundles[iSel];
                     if (g == gridCylinders)     _selectedItem = _cylinders[iSel];
@@ -991,7 +992,7 @@ namespace treeDiM.StackBuilder.Desktop
                          colors[i] = Color.FromArgb(dcsbCase.Colors[i]);
 
                     BoxProperties bProperties = null;
-                    if (dcsbCase.HasInnerDims)
+                    if (dcsbCase.IsCase)
                         bProperties = _doc.CreateNewCase(name, dcsbCase.Description,
                             UnitsManager.ConvertLengthFrom(dcsbCase.DimensionsOuter.M0, us),
                             UnitsManager.ConvertLengthFrom(dcsbCase.DimensionsOuter.M1, us),
@@ -1009,7 +1010,7 @@ namespace treeDiM.StackBuilder.Desktop
                             UnitsManager.ConvertLengthFrom(dcsbCase.DimensionsOuter.M2, us),
                             UnitsManager.ConvertMassFrom(dcsbCase.Weight, us),
                             colors);
-                    bProperties.TapeWidth = new OptDouble(dcsbCase.ShowTape, UnitsManager.ConvertLengthFrom(dcsbCase.TapeWidth, us));
+                    bProperties.TapeWidth = new OptDouble(dcsbCase.IsCase && dcsbCase.ShowTape, UnitsManager.ConvertLengthFrom(dcsbCase.TapeWidth, us));
                     bProperties.TapeColor = Color.FromArgb(dcsbCase.TapeColor);
                     bProperties.SetNetWeight(
                         new OptDouble(!dcsbCase.HasInnerDims && dcsbCase.NetWeight.HasValue
