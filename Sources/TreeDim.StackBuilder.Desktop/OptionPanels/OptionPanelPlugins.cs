@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
+using System.IO;
+using treeDiM.StackBuilder.Desktop.Properties;
 
 namespace treeDiM.StackBuilder.Desktop
 {
@@ -18,23 +13,33 @@ namespace treeDiM.StackBuilder.Desktop
 
             CategoryPath = Properties.Resources.ID_OPTIONSPLUGINS;
             DisplayName = Properties.Resources.ID_DISPLAYPLUGINS;
-
-            chkbPluginINTEX.Checked = Properties.Settings.Default.HasPluginINTEX;
-
         }
         #endregion
 
         #region Handlers
-        private void OptionPanelPlugins_Load(object sender, EventArgs e)
+        protected override void OnLoad(EventArgs e)
         {
-            // events
+            base.OnLoad(e);
+            // initialize controls
+            string pluginPath = Settings.Default.PluginPath;
+            fileSelectPlugin.Filter = "Plugin (*.dll)|*.dll|All files (*.*)|*.*";
+            fileSelectPlugin.FileName = pluginPath;
+            chkbUsePlugin.Checked = File.Exists(pluginPath)
+                && string.Equals(Path.GetExtension(pluginPath), ".dll", StringComparison.CurrentCultureIgnoreCase);
+             // events
             OptionsForm.OptionsSaving += new EventHandler(OptionsForm_OptionsSaving);
         }
-
         void OptionsForm_OptionsSaving(object sender, EventArgs e)
         {
-            Properties.Settings.Default.HasPluginINTEX = chkbPluginINTEX.Checked;
+            Settings.Default.PluginPath = fileSelectPlugin.FileName;
+            Settings.Default.Save();
+        }
+        private void OnCheckUsePlugin(object sender, EventArgs e)
+        {
+            fileSelectPlugin.Enabled = chkbUsePlugin.Checked;
         }
         #endregion
+
+
     }
 }

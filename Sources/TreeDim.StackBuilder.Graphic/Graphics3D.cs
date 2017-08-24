@@ -132,6 +132,8 @@ namespace treeDiM.StackBuilder.Graphics
             _viewport[1] = -500.0f;
             _viewport[2] = 500.0f;
             _viewport[3] = 500.0f;
+
+            GridFontSize = 8;
         }
         #endregion
 
@@ -241,6 +243,10 @@ namespace treeDiM.StackBuilder.Graphics
         {
             get { return TransformPoint(GetCurrentTransformation(), Vector3D.Zero); }
         }
+        #endregion
+
+        #region Private properties
+        private int GridFontSize { get; set; }
         #endregion
 
         #region Helpers
@@ -855,13 +861,13 @@ namespace treeDiM.StackBuilder.Graphics
                 Point ptId = TransformPoint(GetCurrentTransformation(), box.TopFace.Center);
                 g.DrawString(
                     box.PickId.ToString()
-                    , new Font("Arial", 8.0f)
+                    , new Font("Arial", GridFontSize)
                     , Brushes.Black
                     , new Rectangle(ptId.X - 15, ptId.Y - 10, 30, 20)
                     , StringFormat.GenericDefault);
                 g.DrawString(
                     _boxDrawingCounter.ToString()
-                    , new Font("Arial", 8.0f)
+                    , new Font("Arial", GridFontSize)
                     , Brushes.Red
                     , new Rectangle(ptId.X + 5, ptId.Y - 10, 30, 20)
                     , StringFormat.GenericDefault);

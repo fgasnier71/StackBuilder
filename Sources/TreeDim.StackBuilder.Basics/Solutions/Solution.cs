@@ -224,8 +224,8 @@ namespace treeDiM.StackBuilder.Basics
         {
             // sanity checks
             if (null == _solver)
-                throw new Exception("Solver not initialized");
-            if (0 == _layerDescriptors.Count)
+                throw new Exception("Solver not initialized -> Call Solution.SetSolver() static function.");
+            if ((null == _layerDescriptors) || (0 == _layerDescriptors.Count))
                 throw new Exception("No layer descriptors available");
 
             _layerTypes = new List<ILayer2D>();

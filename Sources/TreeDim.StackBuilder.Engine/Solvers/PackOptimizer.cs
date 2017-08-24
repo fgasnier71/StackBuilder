@@ -39,7 +39,10 @@ namespace treeDiM.StackBuilder.Engine
             set { _packable = value; }
             get { return _packable; }
         }
-
+        public Layer2D BuildBestLayer(ConstraintSetAbstract constraintSet)
+        {
+            throw new NotImplementedException();
+        }
         public List<Analysis> BuildAnalyses(ConstraintSetAbstract constraintSet)
         {
             List<Analysis> analyses = PackOptimSolutions(

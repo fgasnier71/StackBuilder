@@ -17,6 +17,22 @@ namespace treeDiM.StackBuilder.Engine
             _caseProperties = bProperties;
         }
 
+        public Layer2D BuildBestLayer(ConstraintSetAbstract constraintSet)
+        {
+            // build layer list
+            var solver = new LayerSolver();
+            List<Layer2D> layers = solver.BuildLayers(
+                    _packable.OuterDimensions
+                    , new Vector2D(_caseProperties.InsideLength, _caseProperties.InsideWidth)
+                    , 0.0 /* offsetZ */
+                    , constraintSet
+                    , true
+                );
+            if (layers.Count > 0)
+                return layers[0];
+            return null;
+        }
+
         public List<Analysis> BuildAnalyses(ConstraintSetAbstract constraintSet)
         {
             var analyses = new List<Analysis>();

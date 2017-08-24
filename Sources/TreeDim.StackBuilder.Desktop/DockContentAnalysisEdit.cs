@@ -67,6 +67,8 @@ namespace treeDiM.StackBuilder.Desktop
             base.OnLoad(e);
             if (DesignMode) return;
 
+            GridFontSize = Properties.Settings.Default.GridFontSize;
+
             // --- window caption
             if (null != Analysis)
                 this.Text = Analysis.Name + " - " + Analysis.ParentDocument.Name;
@@ -127,6 +129,7 @@ namespace treeDiM.StackBuilder.Desktop
         {
             get { return Properties.Resources.ID_LOAD; }
         }
+        protected int GridFontSize { get; set; }
         #endregion
 
         #region IDrawingContainer
@@ -163,7 +166,7 @@ namespace treeDiM.StackBuilder.Desktop
                 };
                 captionHeader.Background = veHeaderCaption;
                 captionHeader.ForeColor = Color.Black;
-                captionHeader.Font = new Font("Arial", 9, FontStyle.Bold);
+                captionHeader.Font = new Font("Arial", GridFontSize, FontStyle.Bold);
                 captionHeader.TextAlignment = DevAge.Drawing.ContentAlignment.MiddleCenter;
                 // viewRowHeader
                 SourceGrid.Cells.Views.RowHeader viewRowHeader = new SourceGrid.Cells.Views.RowHeader();
@@ -174,7 +177,7 @@ namespace treeDiM.StackBuilder.Desktop
                 };
                 viewRowHeader.Background = backHeader;
                 viewRowHeader.ForeColor = Color.Black;
-                viewRowHeader.Font = new Font("Arial", 9, FontStyle.Regular);
+                viewRowHeader.Font = new Font("Arial", GridFontSize, FontStyle.Regular);
                 // viewNormal
                 CellBackColorAlternate viewNormal = new CellBackColorAlternate(Color.LightBlue, Color.White);
                 // ***

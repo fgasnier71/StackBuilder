@@ -29,24 +29,31 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OptionPanelPlugins));
-            this.chkbPluginINTEX = new System.Windows.Forms.CheckBox();
+            this.fileSelectPlugin = new treeDiM.UserControls.FileSelect();
+            this.chkbUsePlugin = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
-            // chkbPluginINTEX
+            // fileSelectPlugin
             // 
-            resources.ApplyResources(this.chkbPluginINTEX, "chkbPluginINTEX");
-            this.chkbPluginINTEX.Name = "chkbPluginINTEX";
-            this.chkbPluginINTEX.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.fileSelectPlugin, "fileSelectPlugin");
+            this.fileSelectPlugin.Name = "fileSelectPlugin";
+            // 
+            // chkbUsePlugin
+            // 
+            resources.ApplyResources(this.chkbUsePlugin, "chkbUsePlugin");
+            this.chkbUsePlugin.Name = "chkbUsePlugin";
+            this.chkbUsePlugin.UseVisualStyleBackColor = true;
+            this.chkbUsePlugin.CheckedChanged += new System.EventHandler(this.OnCheckUsePlugin);
             // 
             // OptionPanelPlugins
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CategoryPath = "Options\\\\Plugins";
-            this.Controls.Add(this.chkbPluginINTEX);
+            this.Controls.Add(this.chkbUsePlugin);
+            this.Controls.Add(this.fileSelectPlugin);
             this.DisplayName = "Plugins";
             this.Name = "OptionPanelPlugins";
-            this.Load += new System.EventHandler(this.OptionPanelPlugins_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -54,6 +61,7 @@
 
         #endregion
 
-        private System.Windows.Forms.CheckBox chkbPluginINTEX;
+        private UserControls.FileSelect fileSelectPlugin;
+        private System.Windows.Forms.CheckBox chkbUsePlugin;
     }
 }

@@ -17,6 +17,24 @@ namespace treeDiM.StackBuilder.Engine
             _palletProperties = palletProperties;
         }
 
+        public Layer2D BuildBestLayer(ConstraintSetAbstract constraintSet)
+        {
+            var constraintSetCasePallet = constraintSet as ConstraintSetCasePallet;
+            Vector2D overhang = constraintSetCasePallet.Overhang;
+            // build layer list
+            var solver = new LayerSolver();
+            List<Layer2D> layers = solver.BuildLayers(
+                _packable.OuterDimensions
+                , new Vector2D(_palletProperties.Length + 2.0 * overhang.X, _palletProperties.Width + 2.0 * overhang.Y)
+                , _palletProperties.Height
+                , constraintSetCasePallet
+                , true
+                );
+            if (layers.Count > 0)
+                return layers[0];
+            return null;
+        }
+
         public List<Analysis> BuildAnalyses(ConstraintSetAbstract constraintSet)
         {
             var analyses = new List<Analysis>();

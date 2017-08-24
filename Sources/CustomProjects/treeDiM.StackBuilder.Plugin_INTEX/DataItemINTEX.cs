@@ -108,4 +108,13 @@ namespace treeDiM.StackBuilder.Plugin
         #endregion
     }
     #endregion
+
+    #region DataException
+    public class ExcelDataException : Exception
+    {
+        public ExcelDataException(string paramName) : base(paramName)
+        {
+        }
+    }
+    #endregion
 }

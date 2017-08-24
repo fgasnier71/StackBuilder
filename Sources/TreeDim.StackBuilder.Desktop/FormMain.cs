@@ -59,20 +59,19 @@ namespace treeDiM.StackBuilder.Desktop
         {
             // set static instance
             _instance = this;
+            
             // set analysis solver
             CasePalletAnalysis.Solver = new treeDiM.StackBuilder.Engine.CasePalletSolver();
             PackPalletAnalysis.Solver = new treeDiM.StackBuilder.Engine.PackPalletSolver();
             CylinderPalletAnalysis.Solver = new treeDiM.StackBuilder.Engine.CylinderSolver();
             HCylinderPalletAnalysis.Solver = new treeDiM.StackBuilder.Engine.HCylinderSolver();
             BoxCasePalletAnalysis.Solver = new treeDiM.StackBuilder.Engine.BoxCasePalletSolver();
+            
             // load content
             _deserializeDockContent = new DeserializeDockContent(ReloadContent);
 
             InitializeComponent();
 
-            // plugins
-            if (Properties.Settings.Default.HasPluginINTEX)
-                this.toolStripSplitButtonNew.DropDownItems.Add(this.ToolStripMenuNewFileINTEX); // add new menu item in "New" ToolStripSplitButton
 
             // load file passed as argument
             string[] args = Environment.GetCommandLineArgs();
@@ -112,6 +111,14 @@ namespace treeDiM.StackBuilder.Desktop
         {
             base.OnLoad(e);
 
+            // loading plugin
+            IPlugin plugin = LoadPlugin();
+            if (null != plugin)
+            {
+                plugin.Initialize();
+                plugin.UpdateToolbar(toolStripSplitButtonNew);
+                plugin.OpenFile += OpenGeneratedFile;
+            }
             string configFile = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "DockPanel.config");
 
             // Apply a gray professional renderer as a default renderer
@@ -152,8 +159,13 @@ namespace treeDiM.StackBuilder.Desktop
             // connection/disconnection event handling
             WCFClientSingleton.Connected += OnConnected;
             WCFClientSingleton.Disconnected += OnDisconnected;
-
         }
+
+        private void OpenGeneratedFile(string s)
+        {
+            OpenDocument(s);
+        }
+
         protected override void OnClosing(CancelEventArgs e)
         {
             if (null == Settings.Default.FormMainPosition)
@@ -163,6 +175,65 @@ namespace treeDiM.StackBuilder.Desktop
 
             CloseAllDocuments(e);
             base.OnClosing(e);
+        }
+        #endregion
+
+        #region Plugin loading
+        private bool HasPlugin
+        {
+            get
+            {
+                string pluginPath = Settings.Default.PluginPath;
+                return string.IsNullOrEmpty(pluginPath) && File.Exists(pluginPath);
+            }
+        }
+        private IPlugin LoadPlugin()
+        {
+            string pluginPath = Properties.Settings.Default.PluginPath;
+            if (string.IsNullOrEmpty(pluginPath)
+                || string.Equals(Path.GetExtension(pluginPath), "dll")
+                || !File.Exists(pluginPath))
+                return null;
+
+            Solution.SetSolver(new LayerSolver());
+
+            IPlugin plugin = null;
+            try
+            {
+                // Create a new assembly from the plugin file we're adding..
+                Assembly pluginAssembly = Assembly.LoadFrom(pluginPath);
+                // Next we'll loop through all the Types found in the assembly
+                foreach (Type pluginType in pluginAssembly.GetTypes())
+                {
+                    if (pluginType.IsPublic) // Only look at public types
+                    {
+                        if (!pluginType.IsAbstract)  // Only look at non-abstract types
+                        {
+                            // Gets a type object of the interface we need the plugins to match
+                            Type typeInterface = pluginType.GetInterface("treeDiM.StackBuilder.Plugin.IPlugin", true);
+
+                            // Make sure the interface we want to use actually exists
+                            if (typeInterface != null)
+                            {
+                                // Create a new available plugin since the type implements the IPlugin interface
+                                plugin = (IPlugin)Activator.CreateInstance(pluginAssembly.GetType(pluginType.ToString()));
+                                if (null != plugin)
+                                {
+                                    // Call the initialization sub of the plugin
+                                    plugin.Initialize();
+                                }
+                            }
+                            typeInterface = null; // cleanup		
+                        }
+                    }
+                }
+                pluginAssembly = null; //more cleanup
+            }
+            catch (Exception ex)
+            {
+                _log.Error(ex.Message);
+            }
+            return plugin;
         }
         #endregion
 

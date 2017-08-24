@@ -45,6 +45,8 @@ namespace treeDiM.StackBuilder.GUIExtension
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
+            // grid font size
+            GridFontSize = Settings.Default.GridFontSize;
             // initialize combo boxes
             cbPallet.Initialize();
             // initialize graph containers
@@ -410,7 +412,7 @@ namespace treeDiM.StackBuilder.GUIExtension
                 veHeaderCaption.Border = DevAge.Drawing.RectangleBorder.NoBorder;
                 captionHeader.Background = veHeaderCaption;
                 captionHeader.ForeColor = Color.Black;
-                captionHeader.Font = new Font("Arial", 10, FontStyle.Bold);
+                captionHeader.Font = new Font("Arial", GridFontSize, FontStyle.Bold);
                 captionHeader.TextAlignment = DevAge.Drawing.ContentAlignment.MiddleCenter;
                 // viewRowHeader
                 SourceGrid.Cells.Views.ColumnHeader viewColumnHeader = new SourceGrid.Cells.Views.ColumnHeader();
@@ -419,7 +421,7 @@ namespace treeDiM.StackBuilder.GUIExtension
                 backHeader.Border = DevAge.Drawing.RectangleBorder.NoBorder;
                 viewColumnHeader.Background = backHeader;
                 viewColumnHeader.ForeColor = Color.Black;
-                viewColumnHeader.Font = new Font("Arial", 10, FontStyle.Regular);
+                viewColumnHeader.Font = new Font("Arial", GridFontSize, FontStyle.Regular);
                 viewColumnHeader.ElementSort.SortStyle = DevAge.Drawing.HeaderSortStyle.None;
                 // viewNormal
                 CellBackColorAlternate viewNormal = new CellBackColorAlternate(Color.LightBlue, Color.White);
@@ -518,5 +520,10 @@ namespace treeDiM.StackBuilder.GUIExtension
             }
         }
         #endregion
-     }
+
+        #region Private properties
+        private int GridFontSize
+        { get; set; }
+        #endregion
+    }
 }

@@ -91,24 +91,29 @@ namespace ExcelDataReader
                             try
                             {
                                 DataItemINTEX item = new DataItemINTEX();
-                                item._ref = (string)dt.Rows[iRow][0];
-                                item._description = (string)dt.Rows[iRow][1];
-                                if (DBNull.Value != dt.Rows[iRow][2])
-                                    item._UPC = (string)dt.Rows[iRow][2];
-                                if (DBNull.Value != dt.Rows[iRow][3])
-                                    item._PCB = Convert.ToInt32((string)dt.Rows[iRow][3]);
-                                if (DBNull.Value != dt.Rows[iRow][4])
-                                    item._gencode = (string)dt.Rows[iRow][4];
-                                item._weight = double.Parse((string)dt.Rows[iRow][5], System.Globalization.CultureInfo.InvariantCulture);
-                                item._length = double.Parse((string)dt.Rows[iRow][6], System.Globalization.CultureInfo.InvariantCulture);
-                                item._width = double.Parse((string)dt.Rows[iRow][7], System.Globalization.CultureInfo.InvariantCulture);
-                                item._height = double.Parse((string)dt.Rows[iRow][8], System.Globalization.CultureInfo.InvariantCulture);
+                                // ref
+                                item._ref = ParseObjectToString(dt.Rows[iRow][0], "Ref");
+                                // description
+                                if (DBNull.Value != dt.Rows[iRow][1])
+                                    item._description = (string)dt.Rows[iRow][1];
+                                // UPC
+                                item._UPC = ParseObjectToString(dt.Rows[iRow][2], "UPC");
+                                // PCB
+                                item._PCB = ParseObjectToInt(dt.Rows[iRow][3], "PCB");
+                                // GenCode
+                                item._gencode = ParseObjectToString(dt.Rows[iRow][4], "GenCode");
+                                // weight
+                                item._weight = ParseObjectToDouble(dt.Rows[iRow][5], "Weight");
+                                // length / width / eight
+                                item._length = ParseObjectToDouble(dt.Rows[iRow][6], "Length");
+                                item._width = ParseObjectToDouble(dt.Rows[iRow][7], "Width"); ;
+                                item._height = ParseObjectToDouble(dt.Rows[iRow][8], "Height"); ;
                                 listItems.Add(item);
                             }
+                            catch (ExcelDataException ex)
+                            {   _log.InfoFormat("Row {0} - {1} is null or empty -> skipping...", iRow, ex.Message); }
                             catch (Exception ex)
-                            {
-                                _log.Error(ex.ToString());
-                            }
+                            {   _log.ErrorFormat("Row = {0} -> {1}", iRow, ex.Message); }
                         }
                     }
                 }
@@ -124,18 +129,19 @@ namespace ExcelDataReader
                             try
                             {
                                 DataPalletINTEX pallet = new DataPalletINTEX();
-                                pallet._type = (string)dt.Rows[iRow][0];
-                                pallet._length = double.Parse((string)dt.Rows[iRow][1], System.Globalization.CultureInfo.InvariantCulture);
-                                pallet._width = double.Parse((string)dt.Rows[iRow][2], System.Globalization.CultureInfo.InvariantCulture);
-                                pallet._height = double.Parse((string)dt.Rows[iRow][3], System.Globalization.CultureInfo.InvariantCulture);
+                                if (DBNull.Value != dt.Rows[iRow][0])
+                                    pallet._type = (string)dt.Rows[iRow][0];
+                                pallet._length = ParseObjectToDouble(dt.Rows[iRow][1], "Pallet length");
+                                pallet._width = ParseObjectToDouble(dt.Rows[iRow][2], "Pallet width");
+                                pallet._height = ParseObjectToDouble(dt.Rows[iRow][3], "Pallet height");
                                 if (!DBNull.Value.Equals(dt.Rows[iRow][4]))
                                     pallet._weight = double.Parse((string)dt.Rows[iRow][4], System.Globalization.CultureInfo.InvariantCulture);
                                 listPallets.Add(pallet);
                             }
+                            catch (ExcelDataException ex)
+                            {   _log.InfoFormat("Row {0} - {1} is null or empty -> skipping...", iRow, ex.Message); }
                             catch (Exception ex)
-                            {
-                                _log.Error(ex.ToString());
-                            }
+                            {   _log.ErrorFormat("Row = {0} -> {1}", iRow, ex.Message); }
                         }
                     }
                 }
@@ -151,10 +157,10 @@ namespace ExcelDataReader
                             try
                             {
                                 DataCaseINTEX caseItem = new DataCaseINTEX();
-                                caseItem._ref = (string)dt.Rows[iRow][0];
-                                caseItem._lengthExt = double.Parse((string)dt.Rows[iRow][1], System.Globalization.CultureInfo.InvariantCulture);
-                                caseItem._widthExt = double.Parse((string)dt.Rows[iRow][2], System.Globalization.CultureInfo.InvariantCulture);
-                                caseItem._heightExt = double.Parse((string)dt.Rows[iRow][3], System.Globalization.CultureInfo.InvariantCulture);
+                                caseItem._ref = ParseObjectToString(dt.Rows[iRow][0], "Ref");
+                                caseItem._lengthExt = ParseObjectToDouble(dt.Rows[iRow][1], "Case length Ext.");
+                                caseItem._widthExt = ParseObjectToDouble(dt.Rows[iRow][2], "Case width Ext.");
+                                caseItem._heightExt = ParseObjectToDouble(dt.Rows[iRow][3], "Case height Ext.");
                                 if (!DBNull.Value.Equals(dt.Rows[iRow][4]))
                                     caseItem._lengthInt = double.Parse((string)dt.Rows[iRow][4], System.Globalization.CultureInfo.InvariantCulture);
                                 if (!DBNull.Value.Equals(dt.Rows[iRow][5]))
@@ -165,10 +171,10 @@ namespace ExcelDataReader
                                     caseItem._weight = double.Parse((string)dt.Rows[iRow][7], System.Globalization.CultureInfo.InvariantCulture);
                                 listCases.Add(caseItem);
                             }
+                            catch (ExcelDataException ex)
+                            { _log.InfoFormat("Row {0} - {1} is null or empty -> skipping...", iRow, ex.Message); }
                             catch (Exception ex)
-                            {
-                                _log.Error(ex.ToString());
-                            }
+                            {  _log.Error(ex.ToString()); }
                         }
                     }
                 }
@@ -421,6 +427,27 @@ namespace ExcelDataReader
                 return Math.Floor(x).ToString();
             else
                 return Math.Round(x, 2).ToString(CultureInfo.InvariantCulture);
+        }
+        private string ParseObjectToString(object o, string name)
+        {
+            if (null == o) throw new ExcelDataException(name);
+            string sCast = o as string;
+            if (null == sCast) throw new ExcelDataException(name);
+            return sCast;
+        }
+        private int ParseObjectToInt(object o, string name)
+        {
+            if (null == o) throw new ExcelDataException(name);
+            string sCast = o as string;
+            if (null == sCast) throw new ExcelDataException(name);
+            return int.Parse(sCast, System.Globalization.CultureInfo.InvariantCulture);
+        }
+        private double ParseObjectToDouble(object o, string name)
+        {
+            if (null == o) throw new ExcelDataException(name);
+            string sCast = o as string;
+            if (null == sCast) throw new ExcelDataException(name);
+            return double.Parse(sCast, System.Globalization.CultureInfo.InvariantCulture);
         }
     }
 }

@@ -18,8 +18,50 @@ namespace treeDiM.StackBuilder.Plugin
 {
     public class Plugin_INTEX : IPlugin
     {
+        #region Constructor
+        public Plugin_INTEX()
+        {
+        }
+        #endregion
+
         #region Implement IPlugin members
-        public bool onFileNew(ref string fileName)
+        public bool Initialize()
+        {
+            // change unit system
+            UnitsManager.CurrentUnitSystem = UnitsManager.UnitSystem.UNIT_METRIC2;
+
+            return true;
+        }
+        public bool UpdateToolbar(ToolStripSplitButton toolStripSplitButton)
+        {
+            try
+            {
+                // add new ToolStripSplitButton
+                ToolStripMenuItem toolStripMI = new ToolStripMenuItem()
+                {
+                    Name = "Intex New",
+                    Text = "Intex",
+                    Image = Properties.Resources.Intex,
+                    Size = new Size(32, 32)
+                };
+                toolStripMI.Click += new EventHandler(OnNewIntexProject);
+                toolStripSplitButton.DropDownItems.Add(toolStripMI);
+            }
+            catch (Exception ex)
+            {
+                _log.Error(ex.Message);
+                return false;
+            }
+            return true;
+        }
+
+        private void OnNewIntexProject(object sender, EventArgs e)
+        {
+            string filePath = string.Empty;
+            OnFileNew(ref filePath);
+        }
+
+        public bool OnFileNew(ref string fileName)
         {
             // INTEX data are in cms
             UnitsManager.CurrentUnitSystem = UnitsManager.UnitSystem.UNIT_METRIC2;
@@ -151,6 +193,9 @@ namespace treeDiM.StackBuilder.Plugin
                     }
                 }
 
+                // initialize Layer solver
+                Solution.SetSolver(new LayerSolver());
+
                 if (form.UseIntermediatePacking)
                 { 
                     // Case constraint set
@@ -158,7 +203,11 @@ namespace treeDiM.StackBuilder.Plugin
                     constraintSetBoxCase.AllowedOrientationsString = "1,1,1";
                     if (constraintSetBoxCase.Valid)
                     {
+                        SolverBoxCase solver = new SolverBoxCase(itemProperties, currentCase);
+                        Layer2D layer = solver.BuildBestLayer(constraintSetBoxCase);
                         List<LayerDesc> layerDescs = new List<LayerDesc>();
+                        if (null != layer)
+                            layerDescs.Add(layer.LayerDescriptor);
 
                         // create case analysis
                         Analysis analysis = document.CreateNewAnalysisBoxCase(
@@ -194,8 +243,12 @@ namespace treeDiM.StackBuilder.Plugin
                 constraintSet.SetAllowedOrientations(new bool[] { false, false, true } );
                 if (constraintSet.Valid)
                 {
+                    SolverCasePallet solver = new SolverCasePallet(form.UseIntermediatePacking ? currentCase : itemProperties, currentPallet);
+                    Layer2D layer = solver.BuildBestLayer(constraintSet);
+                    List<LayerDesc> layerDescs = new List<LayerDesc>();
+                    if (null != layer)
+                        layerDescs.Add(layer.LayerDescriptor);                          
 
-                    List<LayerDesc> layerDescs = null;
                     // create analysis
                     Analysis palletAnalysis = document.CreateNewAnalysisCasePallet(
                         item._ref, item.ToString()
@@ -209,12 +262,15 @@ namespace treeDiM.StackBuilder.Plugin
                 // save document
                 fileName = form.FilePath;
                 document.Write(form.FilePath);
+
+                if (null != OpenFile)
+                    OpenFile(fileName);
                 // return true to let application open
                 return File.Exists(fileName);
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                _log.Error(ex.Message);
                 return false;
             }
         }
@@ -258,6 +314,10 @@ namespace treeDiM.StackBuilder.Plugin
                     , 0, bmp);
             }
         }
+        #endregion
+
+        #region Event
+        public event DoCallbackAction OpenFile;
         #endregion
 
         #region Logging

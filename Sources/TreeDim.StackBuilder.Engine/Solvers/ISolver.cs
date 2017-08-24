@@ -9,5 +9,6 @@ namespace treeDiM.StackBuilder.Engine
     interface ISolver
     {
         List<Analysis> BuildAnalyses(ConstraintSetAbstract constraintSet);
+        Layer2D BuildBestLayer(ConstraintSetAbstract constraintSet);
     }
 }

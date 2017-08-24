@@ -73,6 +73,11 @@ namespace treeDiM.StackBuilder.Desktop
         }
         #endregion
 
+        #region Private properties
+        private int GridFontSize
+        { get; set; }
+        #endregion
+
         #region Form override
         protected override void OnLoad(EventArgs e)
         {
@@ -124,7 +129,7 @@ namespace treeDiM.StackBuilder.Desktop
                 };
                 captionHeader.Background = veHeaderCaption;
                 captionHeader.ForeColor = Color.Black;
-                captionHeader.Font = new Font("Arial", 10, FontStyle.Bold);
+                captionHeader.Font = new Font("Arial", GridFontSize, FontStyle.Bold);
                 captionHeader.TextAlignment = DevAge.Drawing.ContentAlignment.MiddleCenter;
                 // viewRowHeader
                 SourceGrid.Cells.Views.RowHeader viewRowHeader = new SourceGrid.Cells.Views.RowHeader();
@@ -135,7 +140,7 @@ namespace treeDiM.StackBuilder.Desktop
                 };
                 viewRowHeader.Background = backHeader;
                 viewRowHeader.ForeColor = Color.Black;
-                viewRowHeader.Font = new Font("Arial", 10, FontStyle.Regular);
+                viewRowHeader.Font = new Font("Arial", GridFontSize, FontStyle.Regular);
                 // viewNormal
                 CellBackColorAlternate viewNormal = new CellBackColorAlternate(Color.LightBlue, Color.White);
                 // ***

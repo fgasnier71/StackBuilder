@@ -38,6 +38,8 @@ namespace treeDiM.StackBuilder.Desktop
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
+            // font size
+            GridFontSize = Settings.Default.GridFontSize;
             // initialize combo boxes
             cbBoxes.Initialize(_doc, this, null);
             cbPallets.Initialize(_doc, this, null);
@@ -176,7 +178,7 @@ namespace treeDiM.StackBuilder.Desktop
                 };
                 captionHeader.Background = veHeaderCaption;
                 captionHeader.ForeColor = Color.Black;
-                captionHeader.Font = new Font("Arial", 10, FontStyle.Bold);
+                captionHeader.Font = new Font("Arial", GridFontSize, FontStyle.Bold);
                 captionHeader.TextAlignment = DevAge.Drawing.ContentAlignment.MiddleCenter;
                 // viewRowHeader
                 SourceGrid.Cells.Views.ColumnHeader viewColumnHeader = new SourceGrid.Cells.Views.ColumnHeader();
@@ -187,7 +189,7 @@ namespace treeDiM.StackBuilder.Desktop
                 };
                 viewColumnHeader.Background = backHeader;
                 viewColumnHeader.ForeColor = Color.Black;
-                viewColumnHeader.Font = new Font("Arial", 10, FontStyle.Regular);
+                viewColumnHeader.Font = new Font("Arial", GridFontSize, FontStyle.Regular);
                 viewColumnHeader.ElementSort.SortStyle = DevAge.Drawing.HeaderSortStyle.None;
                 // viewNormal
                 CellBackColorAlternate viewNormal = new CellBackColorAlternate(Color.LightBlue, Color.White);
@@ -466,6 +468,7 @@ namespace treeDiM.StackBuilder.Desktop
             get { return tbAnalysisDescription.Text; }
             set { tbAnalysisDescription.Text = value; }
         }
+        private int GridFontSize { get; set; }
         #endregion
 
         #region Helpers
