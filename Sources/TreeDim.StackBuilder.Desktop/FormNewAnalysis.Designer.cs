@@ -56,11 +56,13 @@
             // 
             resources.ApplyResources(this.tbDescription, "tbDescription");
             this.tbDescription.Name = "tbDescription";
+            this.tbDescription.TextChanged += new System.EventHandler(this.onTextChanged);
             // 
             // tbName
             // 
             resources.ApplyResources(this.tbName, "tbName");
             this.tbName.Name = "tbName";
+            this.tbName.TextChanged += new System.EventHandler(this.onTextChanged);
             // 
             // lbDescription
             // 

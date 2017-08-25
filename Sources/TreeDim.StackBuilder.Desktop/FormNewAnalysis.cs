@@ -81,7 +81,7 @@ namespace treeDiM.StackBuilder.Desktop
             // status + message
             if (string.IsNullOrEmpty(tbName.Text))
                 message = Resources.ID_FIELDNAMEEMPTY;
-            else if (!_document.IsValidNewTypeName(tbName.Text, Item))
+            else if (!_document.IsValidNewAnalysisName(tbName.Text, Item))
                 message = string.Format(Resources.ID_INVALIDNAME, tbName.Text);
             // description
             else if (string.IsNullOrEmpty(tbDescription.Text))

@@ -81,7 +81,7 @@
             this.cbPallets.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbPallets.FormattingEnabled = true;
             this.cbPallets.Name = "cbPallets";
-            this.cbPallets.SelectedIndexChanged += new System.EventHandler(this.onInputChanged);
+            this.cbPallets.SelectedIndexChanged += new System.EventHandler(this.OnInputChanged);
             // 
             // cbCases
             // 
@@ -89,7 +89,7 @@
             this.cbCases.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCases.FormattingEnabled = true;
             this.cbCases.Name = "cbCases";
-            this.cbCases.SelectedIndexChanged += new System.EventHandler(this.onCaseChanged);
+            this.cbCases.SelectedIndexChanged += new System.EventHandler(this.OnCaseChanged);
             // 
             // lbBox
             // 
@@ -104,7 +104,7 @@
             this.uCtrlOverhang.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlOverhang.ValueX = 0D;
             this.uCtrlOverhang.ValueY = 0D;
-            this.uCtrlOverhang.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDualDouble.onValueChanged(this.onInputChanged);
+            this.uCtrlOverhang.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDualDouble.onValueChanged(this.OnInputChanged);
             // 
             // lbPallet
             // 
@@ -124,14 +124,14 @@
             resources.ApplyResources(this.checkBoxBestLayersOnly, "checkBoxBestLayersOnly");
             this.checkBoxBestLayersOnly.Name = "checkBoxBestLayersOnly";
             this.checkBoxBestLayersOnly.UseVisualStyleBackColor = true;
-            this.checkBoxBestLayersOnly.CheckedChanged += new System.EventHandler(this.onInputChanged);
+            this.checkBoxBestLayersOnly.CheckedChanged += new System.EventHandler(this.OnInputChanged);
             // 
             // bnBestCombination
             // 
             resources.ApplyResources(this.bnBestCombination, "bnBestCombination");
             this.bnBestCombination.Name = "bnBestCombination";
             this.bnBestCombination.UseVisualStyleBackColor = true;
-            this.bnBestCombination.Click += new System.EventHandler(this.onBestCombinationClicked);
+            this.bnBestCombination.Click += new System.EventHandler(this.OnBestCombinationClicked);
             // 
             // uCtrlCaseOrientation
             // 
@@ -141,7 +141,7 @@
         false,
         true};
             this.uCtrlCaseOrientation.Name = "uCtrlCaseOrientation";
-            this.uCtrlCaseOrientation.CheckedChanged += new treeDiM.StackBuilder.Graphics.uCtrlCaseOrientation.CheckChanged(this.onInputChanged);
+            this.uCtrlCaseOrientation.CheckedChanged += new treeDiM.StackBuilder.Graphics.uCtrlCaseOrientation.CheckChanged(this.OnInputChanged);
             // 
             // tabCtrlConstraints
             // 
@@ -172,7 +172,7 @@
             this.uCtrlOptMaximumWeight.Name = "uCtrlOptMaximumWeight";
             this.uCtrlOptMaximumWeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_MASS;
             this.uCtrlOptMaximumWeight.Value = ((treeDiM.StackBuilder.Basics.OptDouble)(resources.GetObject("uCtrlOptMaximumWeight.Value")));
-            this.uCtrlOptMaximumWeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlOptDouble.onValueChanged(this.onInputChanged);
+            this.uCtrlOptMaximumWeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlOptDouble.onValueChanged(this.OnInputChanged);
             // 
             // uCtrlMaximumHeight
             // 
@@ -185,7 +185,7 @@
             this.uCtrlMaximumHeight.Name = "uCtrlMaximumHeight";
             this.uCtrlMaximumHeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlMaximumHeight.Value = 0D;
-            this.uCtrlMaximumHeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.onValueChanged(this.onInputChanged);
+            this.uCtrlMaximumHeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.onValueChanged(this.OnInputChanged);
             // 
             // tabPageOverhang
             // 

@@ -34,10 +34,14 @@ namespace treeDiM.StackBuilder.Plugin
                 return;
             tbUPC.Text = _currentItem._UPC;
             tbGenCode.Text = _currentItem._gencode;
-            tbLength.Text = string.Format("{0:0.0}", _currentItem._length);
-            tbWidth.Text = string.Format("{0:0.0}", _currentItem._width);
-            tbHeight.Text = string.Format("{0:0.0}", _currentItem._height);
-            tbWeight.Text = string.Format("{0:0.000}", _currentItem._weight);
+            uCtrlTriDimensions.ValueX = _currentItem._length;
+            uCtrlTriDimensions.ValueY = _currentItem._width;
+            uCtrlTriDimensions.ValueZ = _currentItem._height;
+            uCtrlWeight.Value = _currentItem._weight;
+
+            uCtrlTriDimensions.Enabled = false;
+            uCtrlWeight.Enabled = false;
+
             // set output file path
             fileSelectCtrl.FileName = BuildFilePath(_currentItem._ref);
             // update pallet height if necessary
@@ -60,17 +64,17 @@ namespace treeDiM.StackBuilder.Plugin
         {
             lbCase.Enabled = chkUseIntermediatePacking.Checked;
             cbCases.Enabled = chkUseIntermediatePacking.Checked;
-            lbThickness.Enabled = chkUseIntermediatePacking.Checked;
-            nudThickness.Enabled = chkUseIntermediatePacking.Checked;
-            uLengthThickness.Enabled = chkUseIntermediatePacking.Checked;
+            uCtrlThickness.Enabled = chkUseIntermediatePacking.Checked;
             // update status and enable/disable OK button
             UpdateButtonOkStatus();
         }
         #endregion
 
         #region Form Loading & Closing
-        private void FormNewINTEX_Load(object sender, EventArgs e)
+        //private void FormNewINTEX_Load(object sender, EventArgs e)
+        protected override void OnLoad(EventArgs e)
         {
+            base.OnLoad(e);
             try
             {
                 foreach (DataItemINTEX item in _listItems)
@@ -119,9 +123,10 @@ namespace treeDiM.StackBuilder.Plugin
             // set minimal pallet height
             if (null != _currentPallet && null != _currentItem)
             {
-                nudPalletHeight.Minimum = (decimal)(_currentPallet._height + _currentItem._height);
-                if (PalletHeight < (double)nudPalletHeight.Minimum)
-                    PalletHeight = (double)nudPalletHeight.Minimum;
+                uCtrlPalletHeight.Minimum = (decimal)(_currentPallet._height + _currentItem._height);
+
+                if (PalletHeight < (double)uCtrlPalletHeight.Minimum)
+                    PalletHeight = (double)uCtrlPalletHeight.Minimum;
             }
         }
         private void UpdateButtonOkStatus()
@@ -164,13 +169,13 @@ namespace treeDiM.StackBuilder.Plugin
         }
         public double PalletHeight
         {
-            get { return (double)nudPalletHeight.Value; }
-            set { nudPalletHeight.Value = (decimal)value; }
+            get { return uCtrlPalletHeight.Value; }
+            set { uCtrlPalletHeight.Value = value; }
         }
         public double DefaultCaseThickness
         {
-            get { return (double)nudThickness.Value; }
-            set { nudThickness.Value = (decimal)value; }
+            get { return uCtrlThickness.Value; }
+            set { uCtrlThickness.Value = value; }
         }
         #endregion
 

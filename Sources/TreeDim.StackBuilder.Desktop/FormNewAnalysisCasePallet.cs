@@ -47,8 +47,8 @@ namespace treeDiM.StackBuilder.Desktop
             cbPallets.Initialize(_document, this, null != AnalysisCast ? AnalysisCast.PalletProperties : null);
 
             // event handling
-            uCtrlLayerList.LayerSelected += onLayerSelected;
-            uCtrlLayerList.RefreshFinished += onLayerSelected;
+            uCtrlLayerList.LayerSelected += OnLayerSelected;
+            uCtrlLayerList.RefreshFinished += OnLayerSelected;
             uCtrlLayerList.ButtonSizes = new Size(100, 100);
 
             if (null == AnalysisCast)
@@ -180,20 +180,20 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Event handlers
-        protected void onCaseChanged(object sender, EventArgs e)
+        protected void OnCaseChanged(object sender, EventArgs e)
         {
             try
             {
                 uCtrlCaseOrientation.BProperties = cbCases.SelectedType as PackableBrick;
-                onInputChanged(sender, e);
-                onLayerSelected(sender, e);
+                OnInputChanged(sender, e);
+                OnLayerSelected(sender, e);
             }
             catch (Exception ex)
             {
                 _log.Error(ex.ToString());
             }
         }
-        protected void onLayerSelected(object sender, EventArgs e)
+        protected void OnLayerSelected(object sender, EventArgs e)
         {
             try
             {
@@ -205,7 +205,7 @@ namespace treeDiM.StackBuilder.Desktop
                 _log.Error(ex.ToString());
             }
         }
-        private void onInputChanged(object sender, EventArgs e)
+        private void OnInputChanged(object sender, EventArgs e)
         {
             try
             {
@@ -233,7 +233,7 @@ namespace treeDiM.StackBuilder.Desktop
                 _log.Error(ex.ToString());
             }
         }
-        private void onBestCombinationClicked(object sender, EventArgs e)
+        private void OnBestCombinationClicked(object sender, EventArgs e)
         {
             try
             {

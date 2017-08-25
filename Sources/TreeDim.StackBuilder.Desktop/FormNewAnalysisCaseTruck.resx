@@ -124,9 +124,6 @@
   <data name="uCtrlCaseOrientation.Size" type="System.Drawing.Size, System.Drawing">
     <value>292, 110</value>
   </data>
-  <data name="&gt;&gt;uCtrlMinDistanceLoadRoof.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>784, 561</value>
   </data>
@@ -147,11 +144,8 @@
   <data name="lbBox.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="&gt;&gt;lbSelect.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>FormNewAnalysisCaseTruck</value>
+  <data name="&gt;&gt;checkBoxBestLayersOnly.Name" xml:space="preserve">
+    <value>checkBoxBestLayersOnly</value>
   </data>
   <data name="&gt;&gt;lbTrucks.Name" xml:space="preserve">
     <value>lbTrucks</value>
@@ -187,7 +181,10 @@
     <value>216, 13</value>
   </data>
   <data name="&gt;&gt;uCtrlCaseOrientation.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Graphics.uCtrlCaseOrientation, treeDiM.StackBuilder.Graphics, Version=3.0.0.35, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Graphics.uCtrlCaseOrientation, treeDiM.StackBuilder.Graphics, Version=3.0.0.40, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="checkBoxBestLayersOnly.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="uCtrlLayerList.Size" type="System.Drawing.Size, System.Drawing">
     <value>784, 289</value>
@@ -225,17 +222,17 @@
   <data name="lbTrucks.Size" type="System.Drawing.Size, System.Drawing">
     <value>40, 13</value>
   </data>
-  <data name="&gt;&gt;lbName.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;lbSelect.ZOrder" xml:space="preserve">
+    <value>6</value>
   </data>
-  <data name="checkBoxBestLayersOnly.TabIndex" type="System.Int32, mscorlib">
-    <value>32</value>
+  <data name="&gt;&gt;bnCancel.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="&gt;&gt;cbTrucks.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;uCtrlMinDistanceLoadWall.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlDualDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.35, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Basics.UCtrlDualDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.40, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;checkBoxBestLayersOnly.Parent" xml:space="preserve">
     <value>$this</value>
@@ -261,9 +258,6 @@
   <data name="&gt;&gt;lbTrucks.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;tbName.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="cbTrucks.Size" type="System.Drawing.Size, System.Drawing">
     <value>161, 21</value>
   </data>
@@ -271,13 +265,19 @@
     <value>6, 13</value>
   </data>
   <data name="&gt;&gt;uCtrlMinDistanceLoadRoof.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.35, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Basics.UCtrlDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.40, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="cbTrucks.Location" type="System.Drawing.Point, System.Drawing">
     <value>535, 63</value>
   </data>
   <data name="uCtrlMinDistanceLoadRoof.TabIndex" type="System.Int32, mscorlib">
     <value>36</value>
+  </data>
+  <data name="&gt;&gt;uCtrlMinDistanceLoadWall.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lbName.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="lbTrucks.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -294,9 +294,6 @@
   <data name="&gt;&gt;uCtrlCaseOrientation.Name" xml:space="preserve">
     <value>uCtrlCaseOrientation</value>
   </data>
-  <data name="&gt;&gt;lbDescription.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;uCtrlMinDistanceLoadWall.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
@@ -309,8 +306,8 @@
   <data name="uCtrlLayerList.AutoScroll" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="checkBoxBestLayersOnly.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="&gt;&gt;tbName.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="uCtrlMinDistanceLoadWall.Size" type="System.Drawing.Size, System.Drawing">
     <value>322, 20</value>
@@ -334,10 +331,13 @@
     <value>4, 200</value>
   </data>
   <data name="&gt;&gt;uCtrlLayerList.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Graphics.UCtrlLayerList, treeDiM.StackBuilder.Graphics, Version=3.0.0.35, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Graphics.UCtrlLayerList, treeDiM.StackBuilder.Graphics, Version=3.0.0.40, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="&gt;&gt;uCtrlMinDistanceLoadWall.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="checkBoxBestLayersOnly.TabIndex" type="System.Int32, mscorlib">
+    <value>32</value>
+  </data>
+  <data name="uCtrlMinDistanceLoadRoof.Location" type="System.Drawing.Point, System.Drawing">
+    <value>413, 122</value>
   </data>
   <data name="&gt;&gt;uCtrlMinDistanceLoadRoof.Name" xml:space="preserve">
     <value>uCtrlMinDistanceLoadRoof</value>
@@ -345,29 +345,26 @@
   <data name="lbTrucks.Location" type="System.Drawing.Point, System.Drawing">
     <value>413, 66</value>
   </data>
-  <data name="checkBoxBestLayersOnly.Size" type="System.Drawing.Size, System.Drawing">
-    <value>128, 17</value>
-  </data>
   <data name="&gt;&gt;uCtrlCaseOrientation.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;bnCancel.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="uCtrlMinDistanceLoadWall.Text" xml:space="preserve">
+    <value>Minimum distance load/wall</value>
+  </data>
+  <data name="lbTrucks.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="cbCases.Location" type="System.Drawing.Point, System.Drawing">
     <value>104, 60</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Desktop.FormNewAnalysis, treeDiM.StackBuilder.Desktop, Version=3.0.0.35, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Desktop.FormNewAnalysis, treeDiM.StackBuilder.Desktop, Version=3.0.0.40, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;cbTrucks.Name" xml:space="preserve">
     <value>cbTrucks</value>
   </data>
   <data name="cbTrucks.TabIndex" type="System.Int32, mscorlib">
     <value>34</value>
-  </data>
-  <data name="&gt;&gt;lbName.ZOrder" xml:space="preserve">
-    <value>13</value>
   </data>
   <data name="uCtrlMinDistanceLoadRoof.Size" type="System.Drawing.Size, System.Drawing">
     <value>322, 20</value>
@@ -388,10 +385,13 @@
     <value>uCtrlMinDistanceLoadWall</value>
   </data>
   <data name="&gt;&gt;cbTrucks.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered, treeDiM.StackBuilder.Graphics, Version=3.0.0.35, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered, treeDiM.StackBuilder.Graphics, Version=3.0.0.40, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;checkBoxBestLayersOnly.Type" xml:space="preserve">
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="uCtrlMinDistanceLoadRoof.Text" xml:space="preserve">
+    <value>Minimum distance load/roof</value>
   </data>
   <data name="uCtrlLayerList.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 216</value>
@@ -405,11 +405,11 @@
   <data name="&gt;&gt;tbName.ZOrder" xml:space="preserve">
     <value>11</value>
   </data>
-  <data name="&gt;&gt;checkBoxBestLayersOnly.Name" xml:space="preserve">
-    <value>checkBoxBestLayersOnly</value>
+  <data name="lbBox.Text" xml:space="preserve">
+    <value>Case</value>
   </data>
-  <data name="&gt;&gt;cbCases.Name" xml:space="preserve">
-    <value>cbCases</value>
+  <data name="&gt;&gt;cbTrucks.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="uCtrlMinDistanceLoadWall.TabIndex" type="System.Int32, mscorlib">
     <value>35</value>
@@ -420,8 +420,8 @@
   <data name="&gt;&gt;uCtrlLayerList.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <data name="&gt;&gt;cbTrucks.ZOrder" xml:space="preserve">
-    <value>2</value>
+  <data name="checkBoxBestLayersOnly.Size" type="System.Drawing.Size, System.Drawing">
+    <value>128, 17</value>
   </data>
   <data name="&gt;&gt;tbDescription.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -429,8 +429,8 @@
   <data name="&gt;&gt;lbBox.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="uCtrlMinDistanceLoadRoof.Text" xml:space="preserve">
-    <value>Minimum distance load/roof</value>
+  <data name="&gt;&gt;lbDescription.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;bnCancel.Name" xml:space="preserve">
     <value>bnCancel</value>
@@ -441,17 +441,17 @@
   <data name="lbBox.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="uCtrlMinDistanceLoadWall.Text" xml:space="preserve">
-    <value>Minimum distance load/wall</value>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>FormNewAnalysisCaseTruck</value>
   </data>
   <data name="lbSelect.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="lbBox.Text" xml:space="preserve">
-    <value>Case</value>
+  <data name="&gt;&gt;cbCases.Name" xml:space="preserve">
+    <value>cbCases</value>
   </data>
-  <data name="lbTrucks.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="&gt;&gt;uCtrlMinDistanceLoadRoof.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="&gt;&gt;lbBox.ZOrder" xml:space="preserve">
     <value>9</value>
@@ -459,16 +459,16 @@
   <data name="&gt;&gt;lbName.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="uCtrlMinDistanceLoadRoof.Location" type="System.Drawing.Point, System.Drawing">
-    <value>413, 122</value>
+  <data name="&gt;&gt;lbName.ZOrder" xml:space="preserve">
+    <value>13</value>
   </data>
   <data name="&gt;&gt;cbCases.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered, treeDiM.StackBuilder.Graphics, Version=3.0.0.35, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered, treeDiM.StackBuilder.Graphics, Version=3.0.0.40, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>es</value>
+    <value>fr</value>
   </metadata>
 </root>

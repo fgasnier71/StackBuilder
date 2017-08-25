@@ -70,6 +70,9 @@ namespace treeDiM.StackBuilder.Reporting
             cbHTMLSizeLarge.SelectedIndexChanged += new EventHandler(OnUpdateReport);
 
             UpdateReport();
+
+            // log template path once
+            _log.InfoFormat("Using report template = {0}", Reporter.TemplatePath);
         }
         protected override void OnClosed(EventArgs e)
         {
@@ -125,6 +128,8 @@ namespace treeDiM.StackBuilder.Reporting
                 Reporter.SetImageSize(cbDefinitionDetail.ImageSize, cbDefinitionLarge.ImageSize);
                 Reporter.SetImageHTMLSize(cbHTMLSizeDetail.ImageSize, cbHTMLSizeLarge.ImageSize);
                 Reporter.SetFontSizeRatios(cbFontSizeDetail.FontSizeRatio, cbFontSizeLarge.FontSizeRatio);
+
+                // reporter
                 ReporterHtml reporter = new ReporterHtml(new ReportData(_analysis), ref _rnRoot, Reporter.TemplatePath, htmlFilePath);
                 // display html
                 _webBrowser.Navigate(htmlFilePath, string.Empty, null, string.Empty);

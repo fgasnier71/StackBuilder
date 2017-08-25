@@ -673,7 +673,10 @@ namespace treeDiM.StackBuilder.Basics
             {
                 int noLayerTypesUsed = 0;
                 for (int i = 0; i < _layerTypes.Count; ++i)
-                    noLayerTypesUsed += Layers[i].BoxCount > 0 ? 1 : 0; 
+                {
+                    List<int> listLayerUsingType = LayerTypeUsed(i);
+                    noLayerTypesUsed += listLayerUsingType.Count > 0 ? 1 : 0;
+                }
                 return noLayerTypesUsed;
             }
         }
