@@ -35,7 +35,6 @@
             this.tbName = new System.Windows.Forms.TextBox();
             this.lbDescription = new System.Windows.Forms.Label();
             this.lbName = new System.Windows.Forms.Label();
-            this.bnCancel = new System.Windows.Forms.Button();
             this.bnNext = new System.Windows.Forms.Button();
             this.statusStripDef.SuspendLayout();
             this.SuspendLayout();
@@ -74,13 +73,6 @@
             resources.ApplyResources(this.lbName, "lbName");
             this.lbName.Name = "lbName";
             // 
-            // bnCancel
-            // 
-            resources.ApplyResources(this.bnCancel, "bnCancel");
-            this.bnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.bnCancel.Name = "bnCancel";
-            this.bnCancel.UseVisualStyleBackColor = true;
-            // 
             // bnNext
             // 
             resources.ApplyResources(this.bnNext, "bnNext");
@@ -97,7 +89,6 @@
             this.Controls.Add(this.tbName);
             this.Controls.Add(this.lbDescription);
             this.Controls.Add(this.lbName);
-            this.Controls.Add(this.bnCancel);
             this.Controls.Add(this.statusStripDef);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -119,7 +110,6 @@
         protected System.Windows.Forms.TextBox tbName;
         protected System.Windows.Forms.Label lbDescription;
         protected System.Windows.Forms.Label lbName;
-        protected System.Windows.Forms.Button bnCancel;
         private System.Windows.Forms.Button bnNext;
     }
 }

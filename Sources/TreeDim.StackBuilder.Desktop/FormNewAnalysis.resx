@@ -125,7 +125,7 @@
     <value>0, 539</value>
   </data>
   <data name="&gt;&gt;statusStripDef.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>5</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="tbDescription.TabIndex" type="System.Int32, mscorlib">
@@ -137,8 +137,8 @@
   <data name="lbName.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
   </data>
-  <data name="lbDescription.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>FormNewAnalysis</value>
   </data>
   <data name="lbDescription.Location" type="System.Drawing.Point, System.Drawing">
     <value>5, 34</value>
@@ -170,6 +170,9 @@
   </data>
   <data name="bnCancel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
+  </data>
+  <data name="lbDescription.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="tbDescription.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
@@ -234,6 +237,9 @@
   <data name="lbDescription.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
   </data>
+  <data name="&gt;&gt;toolStripStatusLabelDef.Name" xml:space="preserve">
+    <value>toolStripStatusLabelDef</value>
+  </data>
   <data name="statusStripDef.Text" xml:space="preserve">
     <value>statusStripDef</value>
   </data>
@@ -270,14 +276,8 @@
   <data name="lbName.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;toolStripStatusLabelDef.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>FormNewAnalysis</value>
   </data>
   <data name="&gt;&gt;statusStripDef.Name" xml:space="preserve">
     <value>statusStripDef</value>
@@ -318,8 +318,8 @@
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>784, 561</value>
   </data>
-  <data name="&gt;&gt;toolStripStatusLabelDef.Name" xml:space="preserve">
-    <value>toolStripStatusLabelDef</value>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="lbDescription.Text" xml:space="preserve">
     <value>Description</value>
