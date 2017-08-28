@@ -54,10 +54,6 @@
             // 
             resources.ApplyResources(this.lbName, "lbName");
             // 
-            // bnCancel
-            // 
-            resources.ApplyResources(this.bnCancel, "bnCancel");
-            // 
             // checkBoxBestLayersOnly
             // 
             resources.ApplyResources(this.checkBoxBestLayersOnly, "checkBoxBestLayersOnly");
@@ -128,7 +124,6 @@
             this.Controls.SetChildIndex(this.checkBoxBestLayersOnly, 0);
             this.Controls.SetChildIndex(this.lbBox, 0);
             this.Controls.SetChildIndex(this.lbCase, 0);
-            this.Controls.SetChildIndex(this.bnCancel, 0);
             this.Controls.SetChildIndex(this.lbName, 0);
             this.Controls.SetChildIndex(this.lbDescription, 0);
             this.Controls.SetChildIndex(this.tbName, 0);

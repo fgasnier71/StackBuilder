@@ -56,10 +56,6 @@
             // 
             resources.ApplyResources(this.lbName, "lbName");
             // 
-            // bnCancel
-            // 
-            resources.ApplyResources(this.bnCancel, "bnCancel");
-            // 
             // lbPallets
             // 
             resources.ApplyResources(this.lbPallets, "lbPallets");
@@ -143,7 +139,6 @@
             this.Controls.Add(this.cbTrucks);
             this.Controls.Add(this.cbPallets);
             this.Name = "FormNewAnalysisPalletTruck";
-            this.Controls.SetChildIndex(this.bnCancel, 0);
             this.Controls.SetChildIndex(this.lbName, 0);
             this.Controls.SetChildIndex(this.lbDescription, 0);
             this.Controls.SetChildIndex(this.tbName, 0);

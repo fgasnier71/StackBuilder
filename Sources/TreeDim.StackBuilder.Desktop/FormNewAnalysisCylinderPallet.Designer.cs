@@ -64,10 +64,6 @@
             // 
             resources.ApplyResources(this.lbName, "lbName");
             // 
-            // bnCancel
-            // 
-            resources.ApplyResources(this.bnCancel, "bnCancel");
-            // 
             // uCtrlLayerList
             // 
             resources.ApplyResources(this.uCtrlLayerList, "uCtrlLayerList");
@@ -192,7 +188,6 @@
             this.Controls.Add(this.lbCylinder);
             this.Controls.Add(this.uCtrlLayerList);
             this.Name = "FormNewAnalysisCylinderPallet";
-            this.Controls.SetChildIndex(this.bnCancel, 0);
             this.Controls.SetChildIndex(this.lbName, 0);
             this.Controls.SetChildIndex(this.lbDescription, 0);
             this.Controls.SetChildIndex(this.tbName, 0);

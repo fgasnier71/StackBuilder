@@ -71,10 +71,6 @@
             // 
             resources.ApplyResources(this.lbName, "lbName");
             // 
-            // bnCancel
-            // 
-            resources.ApplyResources(this.bnCancel, "bnCancel");
-            // 
             // cbPallets
             // 
             resources.ApplyResources(this.cbPallets, "cbPallets");
@@ -266,7 +262,6 @@
             this.Controls.Add(this.lbBox);
             this.Name = "FormNewAnalysisCasePallet";
             this.TopMost = true;
-            this.Controls.SetChildIndex(this.bnCancel, 0);
             this.Controls.SetChildIndex(this.lbName, 0);
             this.Controls.SetChildIndex(this.lbDescription, 0);
             this.Controls.SetChildIndex(this.tbName, 0);

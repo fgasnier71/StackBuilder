@@ -57,10 +57,6 @@
             // 
             resources.ApplyResources(this.lbName, "lbName");
             // 
-            // bnCancel
-            // 
-            resources.ApplyResources(this.bnCancel, "bnCancel");
-            // 
             // cbCases
             // 
             resources.ApplyResources(this.cbCases, "cbCases");
@@ -155,7 +151,6 @@
             this.Controls.Add(this.cbCases);
             this.Controls.Add(this.lbBox);
             this.Name = "FormNewAnalysisCaseTruck";
-            this.Controls.SetChildIndex(this.bnCancel, 0);
             this.Controls.SetChildIndex(this.lbName, 0);
             this.Controls.SetChildIndex(this.lbDescription, 0);
             this.Controls.SetChildIndex(this.tbName, 0);

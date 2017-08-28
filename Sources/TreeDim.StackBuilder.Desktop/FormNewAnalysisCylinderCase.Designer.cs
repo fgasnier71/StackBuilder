@@ -55,10 +55,6 @@
             // 
             resources.ApplyResources(this.lbName, "lbName");
             // 
-            // bnCancel
-            // 
-            resources.ApplyResources(this.bnCancel, "bnCancel");
-            // 
             // lbCylinder
             // 
             resources.ApplyResources(this.lbCylinder, "lbCylinder");
@@ -123,7 +119,6 @@
             this.Controls.Add(this.lbCase);
             this.Controls.Add(this.lbCylinder);
             this.Name = "FormNewAnalysisCylinderCase";
-            this.Controls.SetChildIndex(this.bnCancel, 0);
             this.Controls.SetChildIndex(this.lbName, 0);
             this.Controls.SetChildIndex(this.lbDescription, 0);
             this.Controls.SetChildIndex(this.tbName, 0);

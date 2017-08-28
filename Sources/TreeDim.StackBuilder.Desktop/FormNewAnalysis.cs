@@ -50,8 +50,7 @@ namespace treeDiM.StackBuilder.Desktop
                 tbDescription.Text = tbName.Text;
             }
 
-            bnCancel.Location = new Point(Size.Width - bnCancel.Size.Width - 20, bnCancel.Location.Y);
-            tbDescription.Size = new Size(Size.Width - tbDescription.Location.X - bnCancel.Size.Width - 30, tbDescription.Size.Height);
+            tbDescription.Size = new Size(Size.Width - tbDescription.Location.X  - 30, tbDescription.Size.Height);
         }
         protected override void OnSizeChanged(EventArgs e)
         {
