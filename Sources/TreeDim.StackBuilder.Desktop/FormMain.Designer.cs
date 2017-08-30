@@ -405,12 +405,6 @@
             resources.ApplyResources(this.toolStripMenuItemBestCase, "toolStripMenuItemBestCase");
             this.toolStripMenuItemBestCase.Name = "toolStripMenuItemBestCase";
             // 
-            // toolStripMenuItemBestCasePallet
-            // 
-            resources.ApplyResources(this.toolStripMenuItemBestCasePallet, "toolStripMenuItemBestCasePallet");
-            this.toolStripMenuItemBestCasePallet.Name = "toolStripMenuItemBestCasePallet";
-            this.toolStripMenuItemBestCasePallet.Click += new System.EventHandler(this.onOptiBoxCasePalletOptimization);
-            // 
             // toolStripMenuItemBestPack
             // 
             resources.ApplyResources(this.toolStripMenuItemBestPack, "toolStripMenuItemBestPack");
@@ -820,12 +814,6 @@
             this.toolStripButtonSettings.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripButtonSettings.Name = "toolStripButtonSettings";
             this.toolStripButtonSettings.Click += new System.EventHandler(this.onShowSettings);
-            // 
-            // ToolStripMenuNewFileINTEX
-            // 
-            resources.ApplyResources(this.ToolStripMenuNewFileINTEX, "ToolStripMenuNewFileINTEX");
-            this.ToolStripMenuNewFileINTEX.Name = "ToolStripMenuNewFileINTEX";
-            this.ToolStripMenuNewFileINTEX.Click += new System.EventHandler(this.fileNewINTEX);
             // 
             // openFileDialogSB
             // 

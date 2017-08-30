@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -1014,7 +1014,7 @@
     <value>Fill</value>
   </data>
   <data name="labelVersion.Location" type="System.Drawing.Point, System.Drawing">
-    <value>143, 28</value>
+    <value>143, 29</value>
   </data>
   <data name="labelVersion.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>6, 0, 3, 0</value>
@@ -1050,7 +1050,7 @@
     <value>Fill</value>
   </data>
   <data name="labelCopyright.Location" type="System.Drawing.Point, System.Drawing">
-    <value>143, 56</value>
+    <value>143, 58</value>
   </data>
   <data name="labelCopyright.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>6, 0, 3, 0</value>
@@ -1086,7 +1086,7 @@
     <value>Fill</value>
   </data>
   <data name="labelCompanyName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>143, 84</value>
+    <value>143, 87</value>
   </data>
   <data name="labelCompanyName.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>6, 0, 3, 0</value>
@@ -1119,7 +1119,7 @@
     <value>4</value>
   </data>
   <data name="linkLabelUrl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>140, 112</value>
+    <value>140, 116</value>
   </data>
   <data name="linkLabelUrl.Size" type="System.Drawing.Size, System.Drawing">
     <value>274, 21</value>
@@ -1143,7 +1143,7 @@
     <value>5</value>
   </data>
   <data name="linkLabelEmail.Location" type="System.Drawing.Point, System.Drawing">
-    <value>140, 140</value>
+    <value>140, 146</value>
   </data>
   <data name="linkLabelEmail.Size" type="System.Drawing.Size, System.Drawing">
     <value>274, 21</value>
@@ -1170,10 +1170,10 @@
     <value>Bottom, Right</value>
   </data>
   <data name="okButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>339, 274</value>
+    <value>339, 269</value>
   </data>
   <data name="okButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 18</value>
+    <value>75, 23</value>
   </data>
   <data name="okButton.TabIndex" type="System.Int32, mscorlib">
     <value>24</value>
@@ -1197,7 +1197,7 @@
     <value>Fill</value>
   </data>
   <data name="textBoxDescription.Location" type="System.Drawing.Point, System.Drawing">
-    <value>143, 201</value>
+    <value>143, 211</value>
   </data>
   <data name="textBoxDescription.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>6, 3, 3, 3</value>
@@ -1209,7 +1209,7 @@
     <value>Both</value>
   </data>
   <data name="textBoxDescription.Size" type="System.Drawing.Size, System.Drawing">
-    <value>271, 67</value>
+    <value>271, 52</value>
   </data>
   <data name="textBoxDescription.TabIndex" type="System.Int32, mscorlib">
     <value>23</value>
@@ -1236,10 +1236,10 @@
     <value>Fill</value>
   </data>
   <data name="labelRegisteredUserCount.Location" type="System.Drawing.Point, System.Drawing">
-    <value>140, 168</value>
+    <value>140, 176</value>
   </data>
   <data name="labelRegisteredUserCount.Size" type="System.Drawing.Size, System.Drawing">
-    <value>274, 30</value>
+    <value>274, 32</value>
   </data>
   <data name="labelRegisteredUserCount.TabIndex" type="System.Int32, mscorlib">
     <value>26</value>
@@ -1287,7 +1287,7 @@
     <value>0</value>
   </data>
   <data name="tableLayoutPanel.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="logoPictureBox" Row="0" RowSpan="9" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="labelProductName" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="labelVersion" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="labelCopyright" Row="2" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="labelCompanyName" Row="3" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="linkLabelUrl" Row="4" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="linkLabelEmail" Row="5" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="okButton" Row="8" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="textBoxDescription" Row="7" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="labelRegisteredUserCount" Row="6" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,33,Percent,67" /&gt;&lt;Rows Styles="Percent,10.27146,Percent,10.27146,Percent,10.27146,Percent,10.27146,Percent,10.37051,Percent,10.3744,Percent,11.26901,Percent,26.90023,Absolute,20,Absolute,20" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="logoPictureBox" Row="0" RowSpan="9" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="labelProductName" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="labelVersion" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="labelCopyright" Row="2" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="labelCompanyName" Row="3" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="linkLabelUrl" Row="4" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="linkLabelEmail" Row="5" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="okButton" Row="8" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="textBoxDescription" Row="7" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="labelRegisteredUserCount" Row="6" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,33,Percent,67" /&gt;&lt;Rows Styles="Percent,11,03275,Percent,11,03275,Percent,11,03275,Percent,11,03275,Percent,11,13914,Percent,11,14332,Percent,12,10423,Percent,21,48233,Absolute,25" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

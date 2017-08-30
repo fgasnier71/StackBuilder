@@ -34,10 +34,10 @@
             this.labelVersion = new System.Windows.Forms.Label();
             this.labelCopyright = new System.Windows.Forms.Label();
             this.labelCompanyName = new System.Windows.Forms.Label();
-            this.textBoxDescription = new System.Windows.Forms.TextBox();
-            this.okButton = new System.Windows.Forms.Button();
             this.linkLabelUrl = new System.Windows.Forms.LinkLabel();
             this.linkLabelEmail = new System.Windows.Forms.LinkLabel();
+            this.okButton = new System.Windows.Forms.Button();
+            this.textBoxDescription = new System.Windows.Forms.TextBox();
             this.labelRegisteredUserCount = new System.Windows.Forms.Label();
             this.tableLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
@@ -85,19 +85,6 @@
             resources.ApplyResources(this.labelCompanyName, "labelCompanyName");
             this.labelCompanyName.Name = "labelCompanyName";
             // 
-            // textBoxDescription
-            // 
-            resources.ApplyResources(this.textBoxDescription, "textBoxDescription");
-            this.textBoxDescription.Name = "textBoxDescription";
-            this.textBoxDescription.ReadOnly = true;
-            this.textBoxDescription.TabStop = false;
-            // 
-            // okButton
-            // 
-            resources.ApplyResources(this.okButton, "okButton");
-            this.okButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.okButton.Name = "okButton";
-            // 
             // linkLabelUrl
             // 
             resources.ApplyResources(this.linkLabelUrl, "linkLabelUrl");
@@ -111,6 +98,19 @@
             this.linkLabelEmail.Name = "linkLabelEmail";
             this.linkLabelEmail.TabStop = true;
             this.linkLabelEmail.Click += new System.EventHandler(this.linkLabelEmail_Click);
+            // 
+            // okButton
+            // 
+            resources.ApplyResources(this.okButton, "okButton");
+            this.okButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.okButton.Name = "okButton";
+            // 
+            // textBoxDescription
+            // 
+            resources.ApplyResources(this.textBoxDescription, "textBoxDescription");
+            this.textBoxDescription.Name = "textBoxDescription";
+            this.textBoxDescription.ReadOnly = true;
+            this.textBoxDescription.TabStop = false;
             // 
             // labelRegisteredUserCount
             // 

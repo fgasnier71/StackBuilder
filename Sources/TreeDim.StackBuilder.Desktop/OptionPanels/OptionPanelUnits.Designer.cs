@@ -37,6 +37,7 @@
             // 
             // cbUnitSystem
             // 
+            resources.ApplyResources(this.cbUnitSystem, "cbUnitSystem");
             this.cbUnitSystem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbUnitSystem.FormattingEnabled = true;
             this.cbUnitSystem.Items.AddRange(new object[] {
@@ -44,7 +45,6 @@
             resources.GetString("cbUnitSystem.Items1"),
             resources.GetString("cbUnitSystem.Items2"),
             resources.GetString("cbUnitSystem.Items3")});
-            resources.ApplyResources(this.cbUnitSystem, "cbUnitSystem");
             this.cbUnitSystem.Name = "cbUnitSystem";
             this.cbUnitSystem.SelectedIndexChanged += new System.EventHandler(this.onComboSelectionChanged);
             // 
@@ -60,9 +60,9 @@
             // 
             // cbLanguages
             // 
+            resources.ApplyResources(this.cbLanguages, "cbLanguages");
             this.cbLanguages.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbLanguages.FormattingEnabled = true;
-            resources.ApplyResources(this.cbLanguages, "cbLanguages");
             this.cbLanguages.Name = "cbLanguages";
             this.cbLanguages.SelectedIndexChanged += new System.EventHandler(this.onComboSelectionChanged);
             // 

@@ -717,7 +717,7 @@ namespace treeDiM.StackBuilder.Desktop
             // new box/case analysis
             toolStripMenuItemNewAnalysisBoxCase.Enabled = (null != doc) && doc.CanCreateAnalysisBoxCase;
             toolStripMIAnalysisBoxCase.Enabled = (null != doc) && doc.CanCreateAnalysisBoxCase;
-            toolStripMIAnalysisBundleCase.Enabled = (null != doc) && doc.CanCreateAnalysisBoxCase;
+            toolStripMIAnalysisBundleCase.Enabled = (null != doc) && doc.CanCreateAnalysisBundleCase;
             // new cylinder/case analysis
             toolStripMenuItemNewAnalysisCylinderCase.Enabled = (null != doc) && doc.CanCreateAnalysisCylinderCase;
             toolStripMIAnalysisCylinderCase.Enabled = (null != doc) && doc.CanCreateAnalysisCylinderCase;
@@ -967,7 +967,6 @@ namespace treeDiM.StackBuilder.Desktop
         // remove
         public void OnTypeRemoved(Document doc, ItemBase itemBase) { }
         public void OnAnalysisRemoved(Document doc, ItemBase itemBase) { }
-        public void OnECTAnalysisRemoved(Document doc, CasePalletAnalysis analysis, SelCasePalletSolution selSolution, ECTAnalysis ectAnalysis) { }
 
         // close
         public void OnDocumentClosed(Document doc) { }
@@ -1009,21 +1008,6 @@ namespace treeDiM.StackBuilder.Desktop
         {
             CloseStartPage();
             NewDocument();
-        }
-        private void fileNewINTEX(object sender, EventArgs e)
-        {
-            CloseStartPage();
-
-            /*
-            // use INTEX plugin to generate document
-            Plugin_INTEX plugin = new Plugin_INTEX();
-            string fileName = null;
-            // change unit system
-
-            // if document can be created, then open
-            if (plugin.onFileNew(ref fileName))
-                OpenDocument(fileName);
-            */ 
         }
         private void fileOpen(object sender, EventArgs e)
         {
@@ -1157,7 +1141,7 @@ namespace treeDiM.StackBuilder.Desktop
         }
         private void onNewAnalysisCasePallet(object sender, EventArgs e)
         {
-            try { CasePalletAnalysis analysis = ((DocumentSB)ActiveDocument).CreateNewAnalysisCasePalletUI(); }
+            try { ((DocumentSB)ActiveDocument).CreateNewAnalysisCasePalletUI(); }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
         private void onNewAnalysisCylinderPallet(object sender, EventArgs e)
@@ -1167,7 +1151,7 @@ namespace treeDiM.StackBuilder.Desktop
         }
         private void onNewAnalysisBoxCasePallet(object sender, EventArgs e)
         {
-            try { AnalysisBoxCase analysis = ((DocumentSB)ActiveDocument).CreateNewAnalysisBoxCaseUI(); }
+            try { ((DocumentSB)ActiveDocument).CreateNewAnalysisBoxCaseUI(); }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
         private void onNewAnalysisCaseTruck(object sender, EventArgs e)
@@ -1185,11 +1169,6 @@ namespace treeDiM.StackBuilder.Desktop
                 FormOptimizePack form = new FormOptimizePack((DocumentSB)ActiveDocument);
                 form.ShowDialog();
             }
-            catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
-        }
-        private void onOptiBoxCasePalletOptimization(object sender, EventArgs e)
-        {
-            try { BoxCasePalletAnalysis analysis = ((DocumentSB)ActiveDocument).CreateNewBoxCasePalletOptimizationUI(); }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
         private void onOptiSelectCase(object sender, EventArgs e)

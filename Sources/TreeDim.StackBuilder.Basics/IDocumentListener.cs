@@ -19,7 +19,6 @@ namespace treeDiM.StackBuilder.Basics
         // remove
         void OnTypeRemoved(Document doc, ItemBase itemBase);
         void OnAnalysisRemoved(Document doc, ItemBase itemBase); 
-        void OnECTAnalysisRemoved(Document doc, CasePalletAnalysis analysis, SelCasePalletSolution selSolution, ECTAnalysis ectAnalysis);
         // close
         void OnDocumentClosed(Document doc);
     }

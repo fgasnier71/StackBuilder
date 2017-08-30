@@ -128,13 +128,13 @@
     <value>Palette</value>
   </data>
   <data name="tabPageStopCriterions.Text" xml:space="preserve">
-    <value>Critère arrêt</value>
+    <value>Critère de fin</value>
   </data>
   <data name="uCtrlOptMaximumWeight.Text" xml:space="preserve">
     <value>Poid maximum palette</value>
   </data>
   <data name="uCtrlMaximumHeight.Text" xml:space="preserve">
-    <value>Hauteur maximum palette</value>
+    <value>Hauteur maximale palette</value>
   </data>
   <data name="tabPageOverhang.Text" xml:space="preserve">
     <value>Débord</value>

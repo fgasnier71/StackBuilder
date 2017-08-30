@@ -844,219 +844,6 @@ namespace treeDiM.StackBuilder.Basics
 
             return analysis;
         }
-        /// <summary>
-        /// Creates a new cylinder analysis in this document + compute solutions
-        /// </summary>
-        /// <param name="name">Name</param>
-        /// <param name="description">Description</param>
-        /// <param name="cylinder">Cylinder</param>
-        /// <param name="pallet">Pallet</param>
-        /// <param name="interlayer">Interlayer or null</param>
-        /// <param name="constraintSet">Cylinder/pallet analysis constraint set</param>
-        /// <param name="solver">Solver</param>
-        /// <returns>Cylinder/pallet analysis</returns>
-        public Analysis CreateNewCylinderPalletAnalysis(
-            string name, string description
-            , CylinderProperties cylinder, PalletProperties pallet
-            , InterlayerProperties interlayer, InterlayerProperties interlayerPropertiesAntiSlip
-            , CylinderPalletConstraintSet constraintSet
-            , ICylinderAnalysisSolver solver)
-        {
-            /*
-            CylinderPalletAnalysis analysis = new CylinderPalletAnalysis(
-                cylinder, pallet,
-                interlayer, interlayerPropertiesAntiSlip,
-                constraintSet);
-            analysis.ID.SetNameDesc( name, description);
-            // insert in list
-            _analysesLegacy.Add(analysis);
-            // compute analysis
-            solver.ProcessAnalysis(analysis);
-            if (analysis.Solutions.Count < 1)
-            {	// remove analysis from list if it has no valid solution
-                _analysesLegacy.Remove(analysis);
-                return null;
-            }
-            Modify();
-            return analysis;
-             */
-            return null;
-        } /*
-        public HCylinderPalletAnalysis CreateNewHCylinderPalletAnalysis(
-            string name, string description,
-            CylinderProperties cylinder, PalletProperties pallet,
-            HCylinderPalletConstraintSet constraintSet,
-            IHCylinderAnalysisSolver solver)
-        {
-           
-            HCylinderPalletAnalysis analysis = new HCylinderPalletAnalysis(cylinder, pallet, constraintSet);
-            analysis.ID.SetNameDesc( name, description);
-            // insert in list
-            _analysesLegacy.Add(analysis);
-            // compute analysis
-            solver.ProcessAnalysis(analysis);
-            if (analysis.Solutions.Count < 1)
-            {   // remove analysis from list if it has no valid solution
-                _analysesLegacy.Remove(analysis);
-                return null;
-            }
-            Modify();
-            return analysis;
-            
-            return null;
-        }
-*/
-        /// <summary>
-        /// Creates a new cylinder/pallet analysis without generating solutions
-        /// </summary>
-        /// <param name="name">Name</param>
-        /// <param name="description">Description</param>
-        /// <param name="cylinder">Cylinder</param>
-        /// <param name="pallet">Pallet</param>
-        /// <param name="interlayer">Interlayer or null</param>
-        /// <param name="constraintSet">Cylinder/pallet analysis constraint set</param>
-        /// <param name="solutions">Solutions</param>
-        /// <returns>Cylinder/pallet analysis</returns>
-        public Analysis CreateNewCylinderPalletAnalysis(
-            string name, string description
-            , CylinderProperties cylinder, PalletProperties pallet
-            , InterlayerProperties interlayer, InterlayerProperties interlayerAntiSlip
-            , CylinderPalletConstraintSet constraintSet
-            , List<CylinderPalletSolution> solutions)
-        {
-            /*
-            CylinderPalletAnalysis analysis = new CylinderPalletAnalysis(
-                cylinder, pallet,
-                interlayer, interlayerAntiSlip,
-                constraintSet);
-            analysis.ID.SetNameDesc(name, description);
-            // insert in list
-            _analysesLegacy.Add(analysis);
-            // set solutions
-            analysis.Solutions = solutions;
-            // set solution selected if its unique
-            if (solutions.Count == 1)
-                analysis.SelectSolutionByIndex(0);
-            return analysis;
-             */
-            Analysis analysis = null;
-            return analysis;
-        }
-
-        /// <summary>
-        /// Creates a new cylinder/pallet analysis without generating solutions
-        /// </summary>
-        /// <param name="name">Name</param>
-        /// <param name="description">Description</param>
-        /// <param name="cylinder">Cylinder</param>
-        /// <param name="pallet">Pallet</param>
-        /// <param name="interlayer">Interlayer or null</param>
-        /// <param name="constraintSet">Cylinder/pallet analysis constraint set</param>
-        /// <param name="solutions">Solutions</param>
-        /// <returns>Cylinder/pallet analysis</returns>
-        public HCylinderPalletAnalysis CreateNewHCylinderPalletAnalysis(
-            string name, string description
-            , CylinderProperties cylinder, PalletProperties pallet
-            , HCylinderPalletConstraintSet constraintSet
-            , List<HCylinderPalletSolution> solutions)
-        {
-            /*
-            HCylinderPalletAnalysis analysis = new HCylinderPalletAnalysis(cylinder, pallet, constraintSet);
-            analysis.ID.SetNameDesc( name, description);
-            // insert in list
-            _analysesLegacy.Add(analysis);
-            // set solutions
-            analysis.Solutions = solutions;
-            // set solution selected if its unique
-            if (solutions.Count == 1)
-                analysis.SelectSolutionByIndex(0);
-            return analysis;
-             */
-            return null;
-        }
-
-        public BoxCaseAnalysis CreateNewBoxCaseAnalysis(
-            string name, string description
-            , BProperties boxProperties, BoxProperties caseProperties
-            , BCaseConstraintSet constraintSet
-            , List<BoxCaseSolution> solutions)
-        {
-            /*
-            BoxCaseAnalysis analysis = new BoxCaseAnalysis(boxProperties, caseProperties, constraintSet);
-            analysis.ID.Name = name;
-            analysis.ID.Description = description;
-            // insert in list
-            _analysesLegacy.Add(analysis);
-            // set solutions
-            analysis.Solutions = solutions;
-            // set solution selected if it is unique
-            if (solutions.Count == 1)
-                analysis.SelectSolutionByIndex(0);
-            return analysis;
-             */
-            return null;
-        }
-
-        public AnalysisBoxCase CreateNewBoxCaseAnalysis(
-            string name, string description
-            , BProperties boxProperties, BoxProperties caseProperties
-            , BCaseConstraintSet constraintSet
-            , IBoxCaseAnalysisSolver solver)
-        {
-            /*
-            BoxCaseAnalysis analysis = new BoxCaseAnalysis(boxProperties, caseProperties, constraintSet);
-            analysis.ID.Name = name;
-            analysis.ID.Description = description;
-            // insert in list
-            _analysesLegacy.Add(analysis);
-            // compute analysis
-            if (null != solver)
-            {
-                solver.ProcessAnalysis(analysis);
-                if (analysis.Solutions.Count < 1)
-                {	// remove analysis from list if it has no valid solution
-                    _analysesLegacy.Remove(analysis);
-                    return null;
-                }
-            }
-            // notify listeners
-            Modify();
-            return analysis;
-             */
-            return null;
-        }
-
-        public BoxCasePalletAnalysis CreateNewBoxCasePalletOptimization(
-            string name, string description
-            , BoxProperties bProperties
-            , BoxCasePalletConstraintSet constraintSet
-            , List<PalletSolutionDesc> palletSolutionList
-            , IBoxCasePalletAnalysisSolver solver)
-        {
-            /*
-            BoxCasePalletAnalysis analysis = new BoxCasePalletAnalysis(bProperties, palletSolutionList, constraintSet);
-            analysis.ID.Name = name;
-            analysis.ID.Description = description;
-            // insert in list
-            _analysesLegacy.Add(analysis);
-            // compute analysis
-            if (null != solver)
-            {
-                solver.ProcessAnalysis(analysis);
-                if (analysis.Solutions.Count < 1)
-                {	// remove analysis from list if it has no valid solution
-                    _analysesLegacy.Remove(analysis);
-                    _log.InfoFormat("Failed to find any solution {0}", analysis.ID.Name);
-                    return null;
-                }
-            }
-            // notify listeners
-            Modify();
-            return analysis;
-             */
-            return null;
-        }
-        
         public void RemoveItem(ItemBase item)
         {
             // sanity check
@@ -1124,10 +911,6 @@ namespace treeDiM.StackBuilder.Basics
             get { return _dateCreated; }
             set { _dateCreated = value; }
         }
-
-
-        /// <summary>
-        /// </summary>
         public ReadOnlyCollection<ItemBase> TypeList
         {
             get { return new ReadOnlyCollection<ItemBase>(_typeList); }
@@ -1164,7 +947,6 @@ namespace treeDiM.StackBuilder.Basics
         /// </summary>
         public IEnumerable<AnalysisLegacy> AnalysesCasePallet =>
             _analysesLegacy.OfType<CasePalletAnalysis>();
-        
         #endregion
 
         #region Allowing analysis/opti
@@ -1174,7 +956,9 @@ namespace treeDiM.StackBuilder.Basics
         public bool CanCreateAnalysisBundlePallet
         { get { return Bundles.Any() && Pallets.Any(); } }
         public bool CanCreateAnalysisBoxCase
-        { get { return ((Bundles.Any() || Boxes.Any()) && Cases.Any()) || Cases.Any(); } }
+        { get { return (Boxes.Any() || Cases.Any()) && Cases.Any(); } }
+        public bool CanCreateAnalysisBundleCase
+        { get { return Bundles.Any() && Cases.Any(); } }
         public bool CanCreateAnalysisCylinderPallet
         { get { return Cylinders.Any() && Pallets.Any(); } }
         public bool CanCreateAnalysisCylinderCase
@@ -2118,95 +1902,7 @@ namespace treeDiM.StackBuilder.Basics
                     , _solver
                     );
             }
-/*
-            else if (string.Equals(eltAnalysis.Name, "CylinderPalletAnalysis", StringComparison.CurrentCultureIgnoreCase))
-            {
-                string sCylinderId = eltAnalysis.Attributes["CylinderId"].Value;
-                string sPalletId = eltAnalysis.Attributes["PalletId"].Value;
-
-                // load constraint set / solution list
-                CylinderPalletConstraintSet constraintSet = null;
-                List<CylinderPalletSolution> solutions = new List<CylinderPalletSolution>();
-                List<int> selectedIndices = new List<int>();
-
-                foreach (XmlNode node in eltAnalysis.ChildNodes)
-                {
-                    // load constraint set
-                    if (string.Equals(node.Name, "ConstraintSet", StringComparison.CurrentCultureIgnoreCase))
-                        constraintSet = LoadCylinderPalletConstraintSet(node as XmlElement);
-                    // load solutions
-                    else if (string.Equals(node.Name, "Solutions", StringComparison.CurrentCultureIgnoreCase))
-                    {
-                        int indexSol = 0;
-                        foreach (XmlNode solutionNode in node.ChildNodes)
-                        {
-                            XmlElement eltSolution = solutionNode as XmlElement;
-                            solutions.Add(LoadCylinderPalletSolution(eltSolution));
-                            // is solution selected ?
-                            if (null != eltSolution.Attributes["Selected"] && "true" == eltSolution.Attributes["Selected"].Value)
-                                selectedIndices.Add(indexSol);
-                            ++indexSol;
-                        }
-                    }
-                }
-
-                // instantiate analysis
-                Analysis analysis = CreateNewCylinderPalletAnalysis(
-                    sName
-                    , sDescription
-                    , GetTypeByGuid(new Guid(sCylinderId)) as CylinderProperties
-                    , GetTypeByGuid(new Guid(sPalletId)) as PalletProperties
-                    , string.IsNullOrEmpty(sInterlayerId) ? null : GetTypeByGuid(new Guid(sInterlayerId)) as InterlayerProperties
-                    , string.IsNullOrEmpty(sInterlayerAntiSlipId) ? null : GetTypeByGuid(new Guid(sInterlayerAntiSlipId)) as InterlayerProperties
-                    , constraintSet
-                    , solutions);
-            }
- */ 
             /*
-            else if (string.Equals(eltAnalysis.Name, "HCylinderPalletAnalysis", StringComparison.CurrentCultureIgnoreCase))
-            {
-                string sCylinderId = eltAnalysis.Attributes["CylinderId"].Value;
-                string sPalletId = eltAnalysis.Attributes["PalletId"].Value;
-
-                // load constraint set / solution list
-                HCylinderPalletConstraintSet constraintSet = null;
-                List<HCylinderPalletSolution> solutions = new List<HCylinderPalletSolution>();
-                List<int> selectedIndices = new List<int>();
-
-                foreach (XmlNode node in eltAnalysis.ChildNodes)
-                {
-                    // load constraint set
-                    if (string.Equals(node.Name, "ConstraintSet", StringComparison.CurrentCultureIgnoreCase))
-                        constraintSet = LoadHCylinderPalletConstraintSet(node as XmlElement);
-                    // load solutions
-                    else if (string.Equals(node.Name, "Solutions", StringComparison.CurrentCultureIgnoreCase))
-                    {
-                        int indexSol = 0;
-                        foreach (XmlNode solutionNode in node.ChildNodes)
-                        {
-                            XmlElement eltSolution = solutionNode as XmlElement;
-                            solutions.Add(LoadHCylinderPalletSolution(eltSolution));
-                            // is solution selected ?
-                            if (null != eltSolution.Attributes["Selected"] && "true" == eltSolution.Attributes["Selected"].Value)
-                                selectedIndices.Add(indexSol);
-                            ++indexSol;
-                        }
-                    }
-                }
-
-                // instantiate analysis
-                HCylinderPalletAnalysis analysis = CreateNewHCylinderPalletAnalysis(
-                    sName
-                    , sDescription
-                    , GetTypeByGuid(new Guid(sCylinderId)) as CylinderProperties
-                    , GetTypeByGuid(new Guid(sPalletId)) as PalletProperties
-                    , constraintSet
-                    , solutions);
-                // save selected solutions
-                foreach (int indexSol in selectedIndices)
-                    analysis.SelectSolutionByIndex(indexSol);
-            }
-            */
             else if (string.Equals(eltAnalysis.Name, "AnalysisCase", StringComparison.CurrentCultureIgnoreCase))
             {
                 string sBoxId = eltAnalysis.Attributes["BoxId"].Value;
@@ -2233,17 +1929,6 @@ namespace treeDiM.StackBuilder.Basics
                         caseSolutionsElt = node as XmlElement;
                     }
                 }
-
-                // instantiate caseAnalysis
-                BoxCasePalletAnalysis caseAnalysis = CreateNewBoxCasePalletOptimization(
-                    sName
-                    , sDescription
-                    , GetTypeByGuid(new Guid(sBoxId)) as BoxProperties
-                    , constraintSet
-                    , palletSolutionDescriptors
-                    , null
-                    );
-
                 // second : solutions
                 List<BoxCasePalletSolution> caseSolutions = new List<BoxCasePalletSolution>();
                 int indexSol = 0;
@@ -2263,6 +1948,7 @@ namespace treeDiM.StackBuilder.Basics
                 foreach (int index in selectedIndices)
                     caseAnalysis.SelectSolutionByIndex(index);
             }
+            */
             else if (string.Equals(eltAnalysis.Name, "AnalysisBoxCase", StringComparison.CurrentCultureIgnoreCase))
             {
                 // load caseId
@@ -2299,8 +1985,8 @@ namespace treeDiM.StackBuilder.Basics
                     }
                 }
 
+                /*
                 BProperties bProperties = GetTypeByGuid(new Guid(sBoxId)) as BProperties;
-
                 // instantiate box/case analysis
                 BoxCaseAnalysis analysis = CreateNewBoxCaseAnalysis(
                          sName
@@ -2314,6 +2000,7 @@ namespace treeDiM.StackBuilder.Basics
                 // save selected solutions
                 foreach (int indexSol in selectedIndices)
                     analysis.SelectSolutionByIndex(indexSol);
+                */
             }
         } 
 
@@ -5260,11 +4947,6 @@ namespace treeDiM.StackBuilder.Basics
         {
             foreach (IDocumentListener listener in _listeners)
                 listener.OnAnalysisRemoved(this, analysis);
-        }
-        internal void NotifyOnECTAnalysisRemoved(SelCasePalletSolution selSolution, ECTAnalysis ectAnalysis)
-        {
-            foreach (IDocumentListener listener in _listeners)
-                listener.OnECTAnalysisRemoved(this, selSolution.Analysis, selSolution, ectAnalysis);
         }
         #endregion
     }

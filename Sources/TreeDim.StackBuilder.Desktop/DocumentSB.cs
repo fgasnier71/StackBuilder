@@ -291,19 +291,17 @@ namespace treeDiM.StackBuilder.Desktop
         /// Creates a new palet analysis
         /// </summary>
         /// <returns>created palet analysis</returns>
-        public CasePalletAnalysis CreateNewAnalysisCasePalletUI()
+        public void CreateNewAnalysisCasePalletUI()
         {
-            if (!CanCreateAnalysisCasePallet) return null;
+            if (!CanCreateAnalysisCasePallet && !CanCreateAnalysisBundlePallet) return;
             FormNewAnalysisCasePallet form = new FormNewAnalysisCasePallet(this, null);
             if (DialogResult.OK == form.ShowDialog()) {}
-            return null;
         }
-        public AnalysisBoxCase CreateNewAnalysisBoxCaseUI()
+        public void CreateNewAnalysisBoxCaseUI()
         {
-            if (!CanCreateAnalysisBoxCase) return null;
+            if (!CanCreateAnalysisBoxCase && !CanCreateAnalysisBundleCase) return;
             FormNewAnalysisBoxCase form = new FormNewAnalysisBoxCase(this, null);
             if (DialogResult.OK == form.ShowDialog()) {}
-            return null;
         }
         public void CreateNewAnalysisCylinderPalletUI()
         {
@@ -329,61 +327,6 @@ namespace treeDiM.StackBuilder.Desktop
             if (!CanCreateAnalysisCaseTruck) return null;
             FormNewAnalysisCaseTruck form = new FormNewAnalysisCaseTruck(this, null);
             if (DialogResult.OK == form.ShowDialog()) {}
-            return null;
-        }
-        /// <summary>
-        /// Creates a new case analysis
-        /// </summary>
-        /// <returns>created case analysis</returns>
-        public BoxCasePalletAnalysis CreateNewBoxCasePalletOptimizationUI()
-        {
-            FormNewCaseAnalysis form = new FormNewCaseAnalysis(this)
-            {
-                Boxes = Boxes.ToArray()
-            };
-            if (DialogResult.OK == form.ShowDialog())
-            {
-                BoxCasePalletConstraintSet constraintSet = new BoxCasePalletConstraintSet()
-                {
-                    // aligned / alternate layers
-                    AllowAlignedLayers = form.AllowAlignedLayers,
-                    AllowAlternateLayers = form.AllowAlternateLayers
-                };
-                // patterns
-                foreach (string patternName in form.AllowedPatterns)
-                    constraintSet.SetAllowedPattern(patternName);
-                // allowed axes
-                constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_X_N, form.AllowVerticalX);
-                constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_X_P, form.AllowVerticalX);
-                constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Y_N, form.AllowVerticalY);
-                constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Y_P, form.AllowVerticalY);
-                constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Z_N, form.AllowVerticalZ);
-                constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Z_P, form.AllowVerticalZ);
-                // use maximum case weight
-                constraintSet.UseMaximumCaseWeight = form.UseMaximumCaseWeight;
-                constraintSet.MaximumCaseWeight = form.MaximumCaseWeight;
-                // use maximum number of boxes
-                constraintSet.UseMaximumNumberOfItems = form.UseMaximumNumberOfItems;
-                constraintSet.MaximumNumberOfItems = form.MaximumNumberOfItems;
-                // minimum number of items
-                constraintSet.MinimumNumberOfItems = form.MinimumNumberOfItems;
-                constraintSet.UseMinimumNumberOfItems = form.UseMinimumNumberOfItems;
-                // number of solutions kept
-                constraintSet.NumberOfSolutionsKept = form.NumberOfSolutionsKept;
-
-                if (!constraintSet.IsValid)
-                {
-                    MessageBox.Show(string.Format(Properties.Resources.ID_CASEANALYSIS_INVALIDCONSTRAINTSET));
-                    return null; // invalid constraint set -> exit
-                }
-                return CreateNewBoxCasePalletOptimization(
-                    form.CaseAnalysisName
-                    , form.CaseAnalysisDescription
-                    , form.SelectedBox
-                    , constraintSet
-                    , form.PalletSolutionList
-                    , new BoxCasePalletSolver());
-            }
             return null;
         }
         #endregion

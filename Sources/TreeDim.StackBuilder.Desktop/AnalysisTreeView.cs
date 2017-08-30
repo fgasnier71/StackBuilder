@@ -85,7 +85,7 @@ namespace treeDiM.StackBuilder.Desktop
             else if (item is AnalysisBoxCase) return 17;
             else if (item is AnalysisPalletTruck) return 16;
             else if (item is AnalysisCaseTruck) return 16;
-            else if (item is AnalysisCylinderPallet) return 20;
+            else if (item is AnalysisCylinderPallet) return 19;
             else if (item is AnalysisCylinderCase) return 17;
             else
             {
@@ -155,8 +155,10 @@ namespace treeDiM.StackBuilder.Desktop
                     contextMenuStrip.Items.Add(new ToolStripSeparator());
                 if (((DocumentSB)nodeTag.Document).CanCreateAnalysisCasePallet)
                     contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWANALYSIS, AnalysisTreeView.AnalysisCasePallet, new EventHandler(onCreateNewAnalysisCasePallet)));
+                /*
                 if (((DocumentSB)nodeTag.Document).CanCreateOptiCasePallet)
                     contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWCASEANALYSIS, AnalysisTreeView.AnalysisCase, new EventHandler(onCreateNewAnalysisCase)));
+                */
                 contextMenuStrip.Items.Add(new ToolStripSeparator());
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_CLOSE, null, new EventHandler(onDocumentClose)));
             }
@@ -201,8 +203,10 @@ namespace treeDiM.StackBuilder.Desktop
             {
                 if (nodeTag.Document.CanCreateAnalysisCasePallet)
                     contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWANALYSIS, AnalysisTreeView.AnalysisCasePallet, new EventHandler(onCreateNewAnalysisCasePallet)));
+                /*
                 if (nodeTag.Document.CanCreateOptiCasePallet)
                     contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWCASEANALYSIS, AnalysisTreeView.AnalysisCase, new EventHandler(onCreateNewAnalysisCase)));
+                */
                 if (nodeTag.Document.CanCreateAnalysisCylinderPallet)
                     contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWCYLINDERANALYSIS, AnalysisTreeView.AnalysisCylinderPallet, new EventHandler(onCreateNewAnalysisCylinderPallet)));
                 if (nodeTag.Document.CanCreateAnalysisPalletTruck)
@@ -369,16 +373,6 @@ namespace treeDiM.StackBuilder.Desktop
             }
             catch (Exception ex) { _log.Error(ex.ToString()); }
         }
-        private void onCreateNewAnalysisCase(object sender, EventArgs e)
-        {
-            try
-            {
-                NodeTag tag = SelectedNode.Tag as NodeTag;
-                ((DocumentSB)tag.Document).CreateNewBoxCasePalletOptimizationUI();
-            }
-            catch (Exception ex) { _log.Error(ex.ToString()); }
-        }
-
         private void onCreateNewAnalysisPalletTruck(object sender, EventArgs e)
         {
             try
@@ -634,12 +628,12 @@ namespace treeDiM.StackBuilder.Desktop
                     nodeType = NodeTag.NodeType.NT_CASE;
                     parentNodeType = NodeTag.NodeType.NT_LISTCASE;
                 }
-                else 
+                else
                 {
                     iconIndex = 3;
                     nodeType = NodeTag.NodeType.NT_BOX;
                     parentNodeType = NodeTag.NodeType.NT_LISTBOX;
-                }                
+                }
             }
             else if (itemProperties.GetType() == typeof(BundleProperties))
             {
@@ -691,7 +685,7 @@ namespace treeDiM.StackBuilder.Desktop
             }
             else if (itemProperties.GetType() == typeof(PackProperties))
             {
-                iconIndex = 22;
+                iconIndex = 13;
                 nodeType = NodeTag.NodeType.NT_PACK;
                 parentNodeType = NodeTag.NodeType.NT_LISTPACK;
             }
@@ -810,23 +804,6 @@ namespace treeDiM.StackBuilder.Desktop
             }
             // remove node
             Nodes.Remove(analysisNode);
-        }
-        /// <summary>
-        /// handles ECT analysis removal
-        /// </summary>
-        public void OnECTAnalysisRemoved(Document doc, CasePalletAnalysis analysis, SelCasePalletSolution selSolution, ECTAnalysis ectAnalysis)
-        {
-            /*
-            // get node
-            TreeNode ectAnalysisNode = FindNode(null, new NodeTag(NodeTag.NodeType.NT_ECTANALYSIS, doc, analysis, selSolution, ectAnalysis));
-            // test
-            if (null == ectAnalysisNode)
-            {
-                _log.Warn(string.Format("Failed to find a valid tree node for truck analysis {0}", ectAnalysis.Name));
-            }
-            // remove node
-            Nodes.Remove(ectAnalysisNode);
-            */ 
         }
         /// <summary>
         /// handles document closing event by removing the corresponding document node in TreeView
