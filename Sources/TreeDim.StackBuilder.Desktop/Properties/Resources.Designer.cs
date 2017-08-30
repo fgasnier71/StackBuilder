@@ -782,7 +782,8 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à {0} has some depending analyses.
+        ///   Recherche une chaîne localisée semblable à {0} has the following dependancies:
+        ///{1}
         ///If you proceed with the modifications, analyses will be recomputed and any selected solutions removed.
         ///Continue?.
         /// </summary>

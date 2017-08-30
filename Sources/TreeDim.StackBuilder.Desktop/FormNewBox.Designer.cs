@@ -135,7 +135,7 @@
             resources.GetString("cbFace.Items4"),
             resources.GetString("cbFace.Items5")});
             this.cbFace.Name = "cbFace";
-            this.cbFace.SelectedIndexChanged += new System.EventHandler(this.onSelectedFaceChanged);
+            this.cbFace.SelectedIndexChanged += new System.EventHandler(this.OnSelectedFaceChanged);
             // 
             // cbColor
             // 
@@ -249,7 +249,7 @@
             resources.GetString("cbColor.Items100"),
             resources.GetString("cbColor.Items101")});
             this.cbColor.Name = "cbColor";
-            this.cbColor.SelectedColorChanged += new System.EventHandler(this.onFaceColorChanged);
+            this.cbColor.SelectedColorChanged += new System.EventHandler(this.OnFaceColorChanged);
             // 
             // gbFaceColor
             // 
@@ -267,7 +267,7 @@
             resources.ApplyResources(this.btBitmaps, "btBitmaps");
             this.btBitmaps.Name = "btBitmaps";
             this.btBitmaps.UseVisualStyleBackColor = true;
-            this.btBitmaps.Click += new System.EventHandler(this.btBitmaps_Click);
+            this.btBitmaps.Click += new System.EventHandler(this.OnEditTextures);
             // 
             // chkAllFaces
             // 
@@ -324,13 +324,13 @@
             // 
             resources.ApplyResources(this.tbName, "tbName");
             this.tbName.Name = "tbName";
-            this.tbName.TextChanged += new System.EventHandler(this.onNameDescriptionChanged);
+            this.tbName.TextChanged += new System.EventHandler(this.OnNameDescriptionChanged);
             // 
             // tbDescription
             // 
             resources.ApplyResources(this.tbDescription, "tbDescription");
             this.tbDescription.Name = "tbDescription";
-            this.tbDescription.TextChanged += new System.EventHandler(this.onNameDescriptionChanged);
+            this.tbDescription.TextChanged += new System.EventHandler(this.OnNameDescriptionChanged);
             // 
             // graphCtrl
             // 
@@ -373,7 +373,7 @@
             this.uCtrlTapeWidth.Name = "uCtrlTapeWidth";
             this.uCtrlTapeWidth.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlTapeWidth.Value = ((treeDiM.StackBuilder.Basics.OptDouble)(resources.GetObject("uCtrlTapeWidth.Value")));
-            this.uCtrlTapeWidth.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlOptDouble.onValueChanged(this.onTapeWidthChecked);
+            this.uCtrlTapeWidth.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlOptDouble.onValueChanged(this.OnTapeWidthChecked);
             // 
             // cbTapeColor
             // 
@@ -488,7 +488,7 @@
             resources.GetString("cbTapeColor.Items101"),
             resources.GetString("cbTapeColor.Items102")});
             this.cbTapeColor.Name = "cbTapeColor";
-            this.cbTapeColor.SelectedColorChanged += new System.EventHandler(this.onFaceColorChanged);
+            this.cbTapeColor.SelectedColorChanged += new System.EventHandler(this.OnFaceColorChanged);
             // 
             // lbTapeColor
             // 

@@ -289,7 +289,7 @@ namespace treeDiM.StackBuilder.Desktop
             // update thicknesses
             UpdateThicknesses();
             // update tape definition controls
-            onTapeWidthChecked(this, null);
+            OnTapeWidthChecked(this, null);
             // update box drawing
             graphCtrl.Invalidate();
             // windows settings
@@ -346,14 +346,14 @@ namespace treeDiM.StackBuilder.Desktop
             graphCtrl.Invalidate();
         }
 
-        private void onSelectedFaceChanged(object sender, EventArgs e)
+        private void OnSelectedFaceChanged(object sender, EventArgs e)
         {
             // get current index
             int iSel = cbFace.SelectedIndex;
             cbColor.Color = _faceColors[iSel];
             graphCtrl.Invalidate();
         }
-        private void onFaceColorChanged(object sender, EventArgs e)
+        private void OnFaceColorChanged(object sender, EventArgs e)
         {
             if (!chkAllFaces.Checked)
             {
@@ -398,7 +398,7 @@ namespace treeDiM.StackBuilder.Desktop
             toolStripStatusLabelDef.Text = string.IsNullOrEmpty(message) ? Resources.ID_READY : message;
         }
 
-        private void onNameDescriptionChanged(object sender, EventArgs e)
+        private void OnNameDescriptionChanged(object sender, EventArgs e)
         {
             UpdateButtonOkStatus();
         }
@@ -410,7 +410,7 @@ namespace treeDiM.StackBuilder.Desktop
             if (chkAllFaces.Checked)
                 cbColor.Color = _faceColors[0];
         }
-        private void btBitmaps_Click(object sender, EventArgs e)
+        private void OnEditTextures(object sender, EventArgs e)
         {
             try
             {
@@ -429,7 +429,7 @@ namespace treeDiM.StackBuilder.Desktop
                 _log.Error(ex.ToString());
             }
         }
-        private void onTapeWidthChecked(object sender, EventArgs e)
+        private void OnTapeWidthChecked(object sender, EventArgs e)
         {
             bool isActivated = uCtrlTapeWidth.Value.Activated;
             lbTapeColor.Enabled = isActivated;

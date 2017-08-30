@@ -557,10 +557,10 @@ namespace treeDiM.StackBuilder.Desktop
         }
         private bool UserAcknowledgeDependancies(ItemBase item)
         {
-            if (item.HasDependingAnalyses)
+            if (item.HasDependancies)
             {
                 if (DialogResult.Cancel == MessageBox.Show(
-                    string.Format(Resources.ID_DEPENDINGANALYSES, item.Name)
+                    string.Format(Resources.ID_DEPENDINGANALYSES, item.Name, item.DependancyString)
                     , Application.ProductName
                     , MessageBoxButtons.OKCancel))
                     return false;

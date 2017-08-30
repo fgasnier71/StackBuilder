@@ -204,6 +204,15 @@ namespace treeDiM.StackBuilder.Basics
         #region Static methods
         public static void SetSolver(ILayerSolver solver)
         { _solver = solver; }
+        public static ILayerSolver Solver
+        {
+            get
+            {
+                if (null == _solver)
+                    throw new Exception("Solver not initialized -> Call Solution.SetSolver() static function.");
+                return _solver;
+            }
+        }
         #endregion
 
         #region Constructor
@@ -220,11 +229,9 @@ namespace treeDiM.StackBuilder.Basics
         #endregion
 
         #region Reprocessing
-        private void RebuildLayers()
+        public void RebuildLayers()
         {
             // sanity checks
-            if (null == _solver)
-                throw new Exception("Solver not initialized -> Call Solution.SetSolver() static function.");
             if ((null == _layerDescriptors) || (0 == _layerDescriptors.Count))
                 throw new Exception("No layer descriptors available");
 
@@ -243,11 +250,11 @@ namespace treeDiM.StackBuilder.Basics
                 usedLayers.Add(_layerDescriptors[0]);
             // get dimensions
             Vector2D actualDimensions = Vector2D.Zero;
-            _solver.GetDimensions(usedLayers, _analysis.Content, _analysis.ContainerDimensions, out actualDimensions);
+            Solver.GetDimensions(usedLayers, _analysis.Content, _analysis.ContainerDimensions, out actualDimensions);
 
             // actually build layers
-            foreach (LayerDesc layerDesc in _layerDescriptors)
-                _layerTypes.Add(_solver.BuildLayer(_analysis.Content, _analysis.ContainerDimensions, layerDesc, actualDimensions));
+            foreach (LayerDesc layerDesc in usedLayers)
+                _layerTypes.Add(Solver.BuildLayer(_analysis.Content, _analysis.ContainerDimensions, layerDesc, actualDimensions));
         }
         private void InitializeSolutionItemList()
         { 

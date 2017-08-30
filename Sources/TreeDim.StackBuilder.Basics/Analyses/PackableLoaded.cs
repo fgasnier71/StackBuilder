@@ -11,8 +11,6 @@ namespace treeDiM.StackBuilder.Basics
         public Analysis ParentAnalysis => _analysis;
 
         #region Non-Public Members
-        protected Analysis _analysis;
-
         protected PackableLoaded(Analysis analysis)
             : base(analysis.ParentDocument)
         {
@@ -20,6 +18,14 @@ namespace treeDiM.StackBuilder.Basics
         }
 
         protected Solution ParentSolution => _analysis.Solution;
+        protected Analysis _analysis;
+        #endregion
+
+        #region Override ItemBase (dependancies)
+        public override void AddDependancy(ItemBase dependancy)
+        { _analysis?.AddDependancy(dependancy); }
+        public override void RemoveDependancy(ItemBase dependancy)
+        { _analysis?.RemoveDependancy(dependancy); }
         #endregion
     }
 }

@@ -36,8 +36,8 @@ namespace treeDiM.StackBuilder.Basics
             get
             {
                 return new Vector3D(
-                    0.0, //0.5 * (_caseProperties.Length - _caseProperties.InsideLength),
-                    0.0, //0.5 * (_caseProperties.Width - _caseProperties.InsideWidth),
+                    0.0,
+                    0.0,
                     0.5 * (_caseProperties.Height - _caseProperties.InsideHeight)
                     );
             }

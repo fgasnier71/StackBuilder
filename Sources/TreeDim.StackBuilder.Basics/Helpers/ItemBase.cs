@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 using log4net;
@@ -22,9 +23,24 @@ namespace treeDiM.StackBuilder.Basics
         public Document ParentDocument => _parentDocument;
         public string Name => ID.Name;
         public string Description => ID.Description;
-        public bool HasDependingAnalyses => _dependancies.Count > 0;
+        public List<ItemBase> DirectDependancies => _dependancies;
+        public List<ItemBase> Dependancies
+        {
+            get
+            {
+                List<ItemBase> listDependancies = new List<ItemBase>();
+                foreach (var dep in _dependancies)
+                {
+                    listDependancies.Add(dep);
+                    listDependancies.AddRange(dep.Dependancies);
+                }
+                return listDependancies;
+            }
+        }
+        public bool HasDependancies => _dependancies.Count > 0;
+        public string DependancyString => string.Join(Environment.NewLine, Dependancies.Select(d => d.Name).ToArray());
 
-        public void AddDependancy(ItemBase dependancy)
+        public virtual void AddDependancy(ItemBase dependancy)
         {
             // if analysis is temporary, do not record dependancy
             Analysis analysis = dependancy as Analysis;
@@ -40,7 +56,7 @@ namespace treeDiM.StackBuilder.Basics
             _dependancies.Add(dependancy);    
         }
 
-        public void RemoveDependancy(ItemBase dependancie)
+        public virtual void RemoveDependancy(ItemBase dependancie)
         {
             _dependancies.Remove(dependancie);  
         }

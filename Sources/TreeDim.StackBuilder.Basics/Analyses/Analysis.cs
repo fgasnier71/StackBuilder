@@ -82,6 +82,40 @@ namespace treeDiM.StackBuilder.Basics
         public void SetTemporary() { _temporary = true; }
         public bool Temporary => _temporary;
 
+        public override void OnEndUpdate(ItemBase updatedAttribute)
+        {
+            base.OnEndUpdate(updatedAttribute);
+
+            KillListeners();
+            // ---
+            // recompute using same layer(s) when possible
+            RecomputeSolution();
+            // ---
+            EndUpdate();
+        }
+        public virtual void RecomputeSolution()
+        {
+            // get best layers
+            List<Layer2D> bestLayers = Solution.Solver.BuildLayers(Content.OuterDimensions, ContainerDimensions, Offset.Z, ConstraintSet, true);
+            List<LayerDesc> bestLayerDescs = bestLayers.ConvertAll(l => l.LayerDescriptor);
+
+            bool allFound = true;
+            foreach (LayerDesc l in Solution.LayerDescriptors)
+            {
+                if (null == bestLayerDescs.Find(bld => bld.Equals(l)))
+                {
+                    allFound = false;
+                    break;
+                }
+            }
+            if (allFound)
+                Solution.RebuildLayers();
+            else
+            {
+                // recomputes whole new solution
+                _solution = new Solution(this, bestLayerDescs);
+            }
+        }
         #region Non-Public Members
 
         protected Solution _solution;
@@ -107,8 +141,6 @@ namespace treeDiM.StackBuilder.Basics
             foreach (InterlayerProperties interlayer in _interlayers)
                 interlayer.RemoveDependancy(this);
         }
-
         #endregion
-
     }
 }

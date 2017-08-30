@@ -31,6 +31,17 @@ namespace treeDiM.StackBuilder.Basics
         public bool Swapped
         { get { return _swapped; } }
         #endregion
+
+        public override bool Equals(object obj)
+        {
+            LayerDesc layerDesc = obj as LayerDesc;
+            if (null == layerDesc) return false;
+            return _patternName == layerDesc.PatternName && _swapped == layerDesc.Swapped;
+        }
+        public override int GetHashCode()
+        {
+            return _patternName.GetHashCode() ^ _swapped.GetHashCode();
+        }
     }
     #endregion
 
@@ -80,6 +91,15 @@ namespace treeDiM.StackBuilder.Basics
         public override string ToString()
         {
             return string.Format("{0}|{1}|{2}", PatternName, HalfAxis.ToString(_axis), Swapped ? "t" : "f");
+        }
+        public override bool Equals(object obj)
+        {
+            LayerDescBox layerDesc = obj as LayerDescBox;
+            return PatternName == layerDesc.PatternName && Swapped == layerDesc.Swapped && AxisOrtho == layerDesc.AxisOrtho;
+        }
+        public override int GetHashCode()
+        {
+            return base.GetHashCode() ^ _axis.GetHashCode();
         }
         #endregion
         #region Static methods

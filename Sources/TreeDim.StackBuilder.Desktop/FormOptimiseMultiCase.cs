@@ -37,8 +37,6 @@ namespace treeDiM.StackBuilder.Desktop
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
-            // font size
-            GridFontSize = 8;
             // fill combo boxes
             cbBoxes.Initialize(_doc, this, null);
             // initialize orientation
@@ -275,6 +273,11 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Grid
+        private int GridFontSize
+        {
+            get { return Properties.Settings.Default.GridFontSize; }
+        }
+
         private void FillGrid()
         {
             // remove all existing rows
@@ -405,7 +408,6 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Private properties
-        private int GridFontSize { get; set; }
         #endregion
 
         #region Data members

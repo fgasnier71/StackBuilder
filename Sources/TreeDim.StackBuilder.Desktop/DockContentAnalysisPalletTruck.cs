@@ -74,8 +74,7 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Private properties
-        private int GridFontSize
-        { get; set; }
+        private int GridFontSize { get { return Settings.Default.GridFontSize; } }
         #endregion
 
         #region Form override

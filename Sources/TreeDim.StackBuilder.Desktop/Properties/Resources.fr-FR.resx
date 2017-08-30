@@ -164,7 +164,8 @@ Cette boîte de dialogue va être fermée.</value>
     <value>Supprimer</value>
   </data>
   <data name="ID_DEPENDINGANALYSES" xml:space="preserve">
-    <value>Des analyses dépendent de {0}.
+    <value>{0} a les dependances suivantes:
+{1}
 Si vous confirmez les modifications, elles devront être recalculées et les solutions sélectionnées seront perdues.
 Souhaitez-vous continuer?</value>
   </data>

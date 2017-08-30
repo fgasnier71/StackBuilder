@@ -391,6 +391,13 @@ namespace treeDiM.StackBuilder.Desktop
         #region UI item edition
         public void EditAnalysis(Analysis analysis)
         {
+            // search for any DockContentAnalysis window
+            var seq = (from view in Views
+                       where view is DockContentAnalysisEdit && analysis == (view as DockContentAnalysisEdit).Analysis
+                       select view);
+            while (seq.Count() > 0) seq.First().Close();
+
+            // instantiate a form to edit analysis
             Form form = null;
             if (analysis is AnalysisCasePallet) form = new FormNewAnalysisCasePallet(this, analysis);
             else if (analysis is AnalysisBoxCase) form = new FormNewAnalysisBoxCase(this, analysis);
@@ -408,36 +415,6 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Legacy
-        /*
-        public HCylinderPalletAnalysis CreateNewHCylinderPalletAnalysisUI()
-        {
-            FormNewAnalysisHCylinder form = new FormNewAnalysisHCylinder(this);
-            form.Cylinders = Cylinders.ToArray();
-            form.Pallets = Pallets.ToArray();
-
-            if (DialogResult.OK == form.ShowDialog())
-            { 
-                // build constraint set
-                HCylinderPalletConstraintSet constraintSet = new HCylinderPalletConstraintSet();
-                // stop criterion
-                constraintSet.MaximumPalletHeight = form.MaximumPalletHeight;
-                constraintSet.UseMaximumPalletHeight = form.UseMaximumPalletHeight;
-                constraintSet.MaximumPalletWeight = form.MaximumPalletWeight;
-                constraintSet.UseMaximumPalletWeight = form.UseMaximumPalletWeight;
-                constraintSet.MaximumNumberOfItems = form.MaximumNumberOfItems;
-                constraintSet.UseMaximumNumberOfItems = form.UseMaximumNumberOfItems;
-                constraintSet.SetAllowedPatterns(form.AllowPatternDefault, form.AllowPatternStaggered, form.AllowPatternColumn);
-                constraintSet.RowSpacing = form.RowSpacing;
-
-                return CreateNewHCylinderPalletAnalysis(
-                    form.AnalysisName, form.AnalysisDescription,
-                    form.SelectedCylinder, form.SelectedPallet,
-                    constraintSet,
-                    new HCylinderSolver());
-            }
-            return null;
-        }
-        */
         #endregion
     }
 }
