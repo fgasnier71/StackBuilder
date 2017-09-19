@@ -92,28 +92,38 @@
     <Compile Include="QualityData.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="FormEditCardboardQualityData.ca-ES.resx">
+    <EmbeddedResource Include="FormEditCardboardQualityData.de.resx">
       <DependentUpon>FormEditCardboardQualityData.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormEditCardboardQualityData.de-DE.resx">
+    <EmbeddedResource Include="FormEditCardboardQualityData.es.resx">
       <DependentUpon>FormEditCardboardQualityData.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormEditCardboardQualityData.es-ES.resx">
+    <EmbeddedResource Include="FormEditCardboardQualityData.fr.resx">
       <DependentUpon>FormEditCardboardQualityData.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormEditCardboardQualityData.fr-FR.resx">
+    <EmbeddedResource Include="FormEditCardboardQualityData.it.resx">
       <DependentUpon>FormEditCardboardQualityData.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormEditCardboardQualityData.it-IT.resx">
+    <EmbeddedResource Include="FormEditCardboardQualityData.ja.resx">
       <DependentUpon>FormEditCardboardQualityData.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormEditCardboardQualityData.ja-JP.resx">
+    <EmbeddedResource Include="FormEditCardboardQualityData.nl.resx">
+      <DependentUpon>FormEditCardboardQualityData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEditCardboardQualityData.pl.resx">
       <DependentUpon>FormEditCardboardQualityData.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormEditCardboardQualityData.resx">
       <DependentUpon>FormEditCardboardQualityData.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resource.de.resx" />
+    <EmbeddedResource Include="Properties\Resource.es.resx" />
     <EmbeddedResource Include="Properties\Resource.fr-FR.resx" />
+    <EmbeddedResource Include="Properties\Resource.fr.resx" />
+    <EmbeddedResource Include="Properties\Resource.it.resx" />
+    <EmbeddedResource Include="Properties\Resource.ja.resx" />
+    <EmbeddedResource Include="Properties\Resource.nl.resx" />
+    <EmbeddedResource Include="Properties\Resource.pl.resx" />
     <EmbeddedResource Include="Properties\Resource.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resource.Designer.cs</LastGenOutput>
@@ -167,9 +177,7 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-  <Target Name="PostBuildEvent"
-        Condition=" '$(PostBuildEvent)' != '' "
-        DependsOnTargets="$(PostBuildEventDependsOn)">
-    <Exec WorkingDirectory="$(OutDir)" Command="$(PostBuildEvent)" IgnoreExitCode="true"/>
+  <Target Name="PostBuildEvent" Condition=" '$(PostBuildEvent)' != '' " DependsOnTargets="$(PostBuildEventDependsOn)">
+    <Exec WorkingDirectory="$(OutDir)" Command="$(PostBuildEvent)" IgnoreExitCode="true" />
   </Target>
 </Project>

@@ -145,4 +145,10 @@
   <data name="$this.Text" xml:space="preserve">
     <value>Evaluer l'encaissage avec une liste de caisses...</value>
   </data>
+  <data name="statusStrip.Text" xml:space="preserve">
+    <value>statusStrip1</value>
+  </data>
+  <data name="toolStripStatusLabelDef.Text" xml:space="preserve">
+    <value>statusLabel</value>
+  </data>
 </root>

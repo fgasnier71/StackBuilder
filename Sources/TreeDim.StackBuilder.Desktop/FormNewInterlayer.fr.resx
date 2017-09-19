@@ -252,7 +252,7 @@
     <value>Couleur</value>
   </data>
   <data name="cbColor.Items42" xml:space="preserve">
-    <value>Color</value>
+    <value>Couleur</value>
   </data>
   <data name="cbColor.Location" type="System.Drawing.Point, System.Drawing">
     <value>96, 116</value>

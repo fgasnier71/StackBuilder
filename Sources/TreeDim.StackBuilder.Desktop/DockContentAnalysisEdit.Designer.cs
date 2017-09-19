@@ -42,7 +42,7 @@
             this.tbClickLayer = new System.Windows.Forms.TextBox();
             this.toolStripAnalysis = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonBack = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButtonReportWord = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonReport = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerHoriz)).BeginInit();
             this.splitContainerHoriz.Panel1.SuspendLayout();
             this.splitContainerHoriz.Panel2.SuspendLayout();
@@ -64,12 +64,10 @@
             // 
             // splitContainerHoriz.Panel1
             // 
-            resources.ApplyResources(this.splitContainerHoriz.Panel1, "splitContainerHoriz.Panel1");
             this.splitContainerHoriz.Panel1.Controls.Add(this.splitContainerVert);
             // 
             // splitContainerHoriz.Panel2
             // 
-            resources.ApplyResources(this.splitContainerHoriz.Panel2, "splitContainerHoriz.Panel2");
             this.splitContainerHoriz.Panel2.Controls.Add(this.gbLayer);
             this.splitContainerHoriz.Panel2.Controls.Add(this.tbClickLayer);
             // 
@@ -80,12 +78,10 @@
             // 
             // splitContainerVert.Panel1
             // 
-            resources.ApplyResources(this.splitContainerVert.Panel1, "splitContainerVert.Panel1");
             this.splitContainerVert.Panel1.Controls.Add(this.graphCtrlSolution);
             // 
             // splitContainerVert.Panel2
             // 
-            resources.ApplyResources(this.splitContainerVert.Panel2, "splitContainerVert.Panel2");
             this.splitContainerVert.Panel2.Controls.Add(this.gridSolutions);
             // 
             // graphCtrlSolution
@@ -161,25 +157,25 @@
             // 
             // toolStripAnalysis
             // 
-            resources.ApplyResources(this.toolStripAnalysis, "toolStripAnalysis");
             this.toolStripAnalysis.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButtonBack,
-            this.toolStripButtonReportWord});
+            this.toolStripButtonReport});
+            resources.ApplyResources(this.toolStripAnalysis, "toolStripAnalysis");
             this.toolStripAnalysis.Name = "toolStripAnalysis";
             // 
             // toolStripButtonBack
             // 
-            resources.ApplyResources(this.toolStripButtonBack, "toolStripButtonBack");
             this.toolStripButtonBack.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.toolStripButtonBack, "toolStripButtonBack");
             this.toolStripButtonBack.Name = "toolStripButtonBack";
             this.toolStripButtonBack.Click += new System.EventHandler(this.onBack);
             // 
-            // toolStripButtonReportWord
+            // toolStripButtonReport
             // 
-            resources.ApplyResources(this.toolStripButtonReportWord, "toolStripButtonReportWord");
-            this.toolStripButtonReportWord.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonReportWord.Name = "toolStripButtonReportWord";
-            this.toolStripButtonReportWord.Click += new System.EventHandler(this.onGenerateReport);
+            this.toolStripButtonReport.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.toolStripButtonReport, "toolStripButtonReport");
+            this.toolStripButtonReport.Name = "toolStripButtonReport";
+            this.toolStripButtonReport.Click += new System.EventHandler(this.onGenerateReport);
             // 
             // DockContentAnalysisEdit
             // 
@@ -214,7 +210,7 @@
         protected System.Windows.Forms.SplitContainer splitContainerHoriz;
         protected System.Windows.Forms.SplitContainer splitContainerVert;
         private System.Windows.Forms.ToolStrip toolStripAnalysis;
-        private System.Windows.Forms.ToolStripButton toolStripButtonReportWord;
+        private System.Windows.Forms.ToolStripButton toolStripButtonReport;
         private System.Windows.Forms.GroupBox gbLayer;
         private System.Windows.Forms.CheckBox chkbInterlayer;
         protected Graphics.Controls.CCtrlComboFiltered cbInterlayer;

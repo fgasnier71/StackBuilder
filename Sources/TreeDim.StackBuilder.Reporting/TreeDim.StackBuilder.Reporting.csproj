@@ -204,21 +204,54 @@
     <Folder Include="SampleReportData\" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="FormReportDesign.de-DE.resx">
+      <DependentUpon>FormReportDesign.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormReportDesign.de.resx">
+      <DependentUpon>FormReportDesign.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormReportDesign.es-ES.resx">
+      <DependentUpon>FormReportDesign.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormReportDesign.es.resx">
       <DependentUpon>FormReportDesign.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormReportDesign.fr-FR.resx">
       <DependentUpon>FormReportDesign.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormReportDesign.fr.resx">
+      <DependentUpon>FormReportDesign.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormReportDesign.it-IT.resx">
+      <DependentUpon>FormReportDesign.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormReportDesign.it.resx">
+      <DependentUpon>FormReportDesign.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormReportDesign.ja-JP.resx">
       <DependentUpon>FormReportDesign.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormReportDesign.ja.resx">
       <DependentUpon>FormReportDesign.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormReportDesign.nl.resx">
+      <DependentUpon>FormReportDesign.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormReportDesign.pl.resx">
+      <DependentUpon>FormReportDesign.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormReportDesign.resx">
       <DependentUpon>FormReportDesign.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.de.resx" />
+    <EmbeddedResource Include="Properties\Resources.es.resx" />
+    <EmbeddedResource Include="Properties\Resources.fr.resx" />
+    <EmbeddedResource Include="Properties\Resources.it-IT.resx" />
+    <EmbeddedResource Include="Properties\Resources.it.resx" />
+    <EmbeddedResource Include="Properties\Resources.ja-JP.resx" />
+    <EmbeddedResource Include="Properties\Resources.ja.resx" />
+    <EmbeddedResource Include="Properties\Resources.nl.resx" />
+    <EmbeddedResource Include="Properties\Resources.pl.resx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

@@ -121,7 +121,13 @@
   <data name="chkShowLogConsole.Size" type="System.Drawing.Size, System.Drawing">
     <value>113, 17</value>
   </data>
+  <data name="bnShowAppFolder.Text" xml:space="preserve">
+    <value>開いているアプリケーション フォルダー</value>
+  </data>
+  <data name="chkbShowStartPage.Text" xml:space="preserve">
+    <value>起動時に、アプリケーション ページを表示.</value>
+  </data>
   <data name="chkShowLogConsole.Text" xml:space="preserve">
-    <value>Show  log console</value>
+    <value>ログのコンソールを表示します。</value>
   </data>
 </root>

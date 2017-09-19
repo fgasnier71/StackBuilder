@@ -112,12 +112,710 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="OptionsFormSplit.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="OptionsFormSplit.IsSplitterFixed" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="OptionsFormSplit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="OptionsFormSplit.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="OptionsFormSplit.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>480, 375</value>
+  </data>
+  <data name="CatDescrPanel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left, Right</value>
+  </data>
+  <data name="CatDescr.AccessibleDescription" xml:space="preserve">
+    <value>This box shows a description for each Category in the tree.</value>
+  </data>
+  <data name="CatDescr.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="CatDescr.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt</value>
+  </data>
+  <data name="CatDescr.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="CatDescr.Size" type="System.Drawing.Size, System.Drawing">
+    <value>116, 35</value>
+  </data>
+  <data name="CatDescr.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="CatDescr.Text" xml:space="preserve">
+    <value>Description.</value>
+  </data>
+  <data name="CatDescr.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="&gt;&gt;CatDescr.Name" xml:space="preserve">
+    <value>CatDescr</value>
+  </data>
+  <data name="&gt;&gt;CatDescr.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;CatDescr.Parent" xml:space="preserve">
+    <value>CatDescrPanel</value>
+  </data>
+  <data name="&gt;&gt;CatDescr.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="CatDescrPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 339</value>
+  </data>
+  <data name="CatDescrPanel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="CatDescrPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>118, 37</value>
+  </data>
+  <data name="CatDescrPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="CatDescrPanel.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;CatDescrPanel.Name" xml:space="preserve">
+    <value>CatDescrPanel</value>
+  </data>
+  <data name="&gt;&gt;CatDescrPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;CatDescrPanel.Parent" xml:space="preserve">
+    <value>OptionsFormSplit.Panel1</value>
+  </data>
+  <data name="&gt;&gt;CatDescrPanel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="CatTreePanel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="CatTree.AccessibleDescription" xml:space="preserve">
+    <value>Options Categories.</value>
+  </data>
+  <data name="CatTree.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="CatTree.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="CatTree.Size" type="System.Drawing.Size, System.Drawing">
+    <value>119, 300</value>
+  </data>
+  <data name="CatTree.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;CatTree.Name" xml:space="preserve">
+    <value>CatTree</value>
+  </data>
+  <data name="&gt;&gt;CatTree.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TreeView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;CatTree.Parent" xml:space="preserve">
+    <value>CatTreePanel</value>
+  </data>
+  <data name="&gt;&gt;CatTree.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="CatTreePanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 37</value>
+  </data>
+  <data name="CatTreePanel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="CatTreePanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>119, 300</value>
+  </data>
+  <data name="CatTreePanel.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;CatTreePanel.Name" xml:space="preserve">
+    <value>CatTreePanel</value>
+  </data>
+  <data name="&gt;&gt;CatTreePanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;CatTreePanel.Parent" xml:space="preserve">
+    <value>OptionsFormSplit.Panel1</value>
+  </data>
+  <data name="&gt;&gt;CatTreePanel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="CatHeaderPanel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="CatHeader.AccessibleDescription" xml:space="preserve">
+    <value>Categories tree Header.</value>
+  </data>
+  <data name="CatHeader.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="CatHeader.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9.75pt, style=Bold</value>
+  </data>
+  <data name="CatHeader.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="CatHeader.Size" type="System.Drawing.Size, System.Drawing">
+    <value>119, 32</value>
+  </data>
+  <data name="CatHeader.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="CatHeader.Text" xml:space="preserve">
+    <value>Categories:</value>
+  </data>
+  <data name="CatHeader.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="&gt;&gt;CatHeader.Name" xml:space="preserve">
+    <value>CatHeader</value>
+  </data>
+  <data name="&gt;&gt;CatHeader.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;CatHeader.Parent" xml:space="preserve">
+    <value>CatHeaderPanel</value>
+  </data>
+  <data name="&gt;&gt;CatHeader.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="CatHeaderPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="CatHeaderPanel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="CatHeaderPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>119, 32</value>
+  </data>
+  <data name="CatHeaderPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="CatHeaderPanel.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;CatHeaderPanel.Name" xml:space="preserve">
+    <value>CatHeaderPanel</value>
+  </data>
+  <data name="&gt;&gt;CatHeaderPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;CatHeaderPanel.Parent" xml:space="preserve">
+    <value>OptionsFormSplit.Panel1</value>
+  </data>
+  <data name="&gt;&gt;CatHeaderPanel.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;OptionsFormSplit.Panel1.Name" xml:space="preserve">
+    <value>OptionsFormSplit.Panel1</value>
+  </data>
+  <data name="&gt;&gt;OptionsFormSplit.Panel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;OptionsFormSplit.Panel1.Parent" xml:space="preserve">
+    <value>OptionsFormSplit</value>
+  </data>
+  <data name="&gt;&gt;OptionsFormSplit.Panel1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="OptionsFormSplit.Panel1MinSize" type="System.Int32, mscorlib">
+    <value>125</value>
+  </data>
+  <data name="OptionsPanelPath.AccessibleDescription" xml:space="preserve">
+    <value>This box shows the options path for the current options panel.</value>
+  </data>
+  <data name="OptionsPanelPath.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="OptionsPanelPath.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Verdana, 11.25pt, style=Bold</value>
+  </data>
+  <data name="OptionsPanelPath.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="OptionsPanelPath.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 6, 0, 6</value>
+  </data>
+  <data name="OptionsPanelPath.Size" type="System.Drawing.Size, System.Drawing">
+    <value>339, 32</value>
+  </data>
+  <data name="OptionsPanelPath.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="OptionsPanelPath.Text" xml:space="preserve">
+    <value>Options » Path</value>
+  </data>
+  <data name="OptionsPanelPath.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="OptionsPanelPath.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;OptionsPanelPath.Name" xml:space="preserve">
+    <value>OptionsPanelPath</value>
+  </data>
+  <data name="&gt;&gt;OptionsPanelPath.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;OptionsPanelPath.Parent" xml:space="preserve">
+    <value>OptionsFormSplit.Panel2</value>
+  </data>
+  <data name="&gt;&gt;OptionsPanelPath.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="OptionsSplitContainer.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="OptionsSplitContainer.IsSplitterFixed" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="OptionsSplitContainer.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 37</value>
+  </data>
+  <data name="OptionsSplitContainer.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="OptionsSplitContainer.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>340, 288</value>
+  </data>
+  <data name="OptionsSplitContainer.Orientation" type="System.Windows.Forms.Orientation, System.Windows.Forms">
+    <value>Horizontal</value>
+  </data>
+  <data name="OptionPanelContainer.AutoScroll" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="OptionPanelContainer.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="OptionPanelContainer.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="OptionPanelContainer.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="OptionPanelContainer.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>340, 215</value>
+  </data>
+  <data name="OptionPanelContainer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>340, 215</value>
+  </data>
+  <data name="OptionPanelContainer.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;OptionPanelContainer.Name" xml:space="preserve">
+    <value>OptionPanelContainer</value>
+  </data>
+  <data name="&gt;&gt;OptionPanelContainer.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;OptionPanelContainer.Parent" xml:space="preserve">
+    <value>OptionsSplitContainer.Panel1</value>
+  </data>
+  <data name="&gt;&gt;OptionPanelContainer.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;OptionsSplitContainer.Panel1.Name" xml:space="preserve">
+    <value>OptionsSplitContainer.Panel1</value>
+  </data>
+  <data name="&gt;&gt;OptionsSplitContainer.Panel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;OptionsSplitContainer.Panel1.Parent" xml:space="preserve">
+    <value>OptionsSplitContainer</value>
+  </data>
+  <data name="&gt;&gt;OptionsSplitContainer.Panel1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="OptionsSplitContainer.Panel1MinSize" type="System.Int32, mscorlib">
+    <value>215</value>
+  </data>
+  <data name="OptDescrSplit.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="OptDescrSplit.IsSplitterFixed" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="OptDescrSplit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="OptDescrSplit.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="OptDescrSplit.MaximumSize" type="System.Drawing.Size, System.Drawing">
+    <value>0, 64</value>
+  </data>
+  <data name="OptDescrSplit.Orientation" type="System.Windows.Forms.Orientation, System.Windows.Forms">
+    <value>Horizontal</value>
+  </data>
+  <data name="OptionDescrLabel.AccessibleDescription" xml:space="preserve">
+    <value>This box shows a short description for each control.</value>
+  </data>
+  <data name="OptionDescrLabel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="OptionDescrLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="OptionDescrLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>338, 62</value>
+  </data>
+  <data name="OptionDescrLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="OptionDescrLabel.Text" xml:space="preserve">
+    <value>Description.</value>
+  </data>
+  <data name="OptionDescrLabel.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="&gt;&gt;OptionDescrLabel.Name" xml:space="preserve">
+    <value>OptionDescrLabel</value>
+  </data>
+  <data name="&gt;&gt;OptionDescrLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;OptionDescrLabel.Parent" xml:space="preserve">
+    <value>OptDescrSplit.Panel1</value>
+  </data>
+  <data name="&gt;&gt;OptionDescrLabel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;OptDescrSplit.Panel1.Name" xml:space="preserve">
+    <value>OptDescrSplit.Panel1</value>
+  </data>
+  <data name="&gt;&gt;OptDescrSplit.Panel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;OptDescrSplit.Panel1.Parent" xml:space="preserve">
+    <value>OptDescrSplit</value>
+  </data>
+  <data name="&gt;&gt;OptDescrSplit.Panel1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="OptDescrSplit.Panel1MinSize" type="System.Int32, mscorlib">
+    <value>35</value>
+  </data>
+  <data name="AppRestartLabel.AccessibleDescription" xml:space="preserve">
+    <value>This box indicates that the application must restart in order for changes to take effect.</value>
+  </data>
+  <data name="AppRestartLabel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="AppRestartLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 8.25pt, style=Bold</value>
+  </data>
+  <data name="AppRestartLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="AppRestartLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>52, 23</value>
+  </data>
+  <data name="AppRestartLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="AppRestartLabel.Text" xml:space="preserve">
+    <value>Application must restart for changes to take effect.</value>
+  </data>
+  <data name="AppRestartLabel.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="&gt;&gt;AppRestartLabel.Name" xml:space="preserve">
+    <value>AppRestartLabel</value>
+  </data>
+  <data name="&gt;&gt;AppRestartLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;AppRestartLabel.Parent" xml:space="preserve">
+    <value>OptDescrSplit.Panel2</value>
+  </data>
+  <data name="&gt;&gt;AppRestartLabel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;OptDescrSplit.Panel2.Name" xml:space="preserve">
+    <value>OptDescrSplit.Panel2</value>
+  </data>
+  <data name="&gt;&gt;OptDescrSplit.Panel2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;OptDescrSplit.Panel2.Parent" xml:space="preserve">
+    <value>OptDescrSplit</value>
+  </data>
+  <data name="&gt;&gt;OptDescrSplit.Panel2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="OptDescrSplit.Panel2MinSize" type="System.Int32, mscorlib">
+    <value>17</value>
+  </data>
+  <data name="OptDescrSplit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>340, 64</value>
+  </data>
+  <data name="OptDescrSplit.SplitterDistance" type="System.Int32, mscorlib">
+    <value>46</value>
+  </data>
+  <data name="OptDescrSplit.SplitterWidth" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="OptDescrSplit.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;OptDescrSplit.Name" xml:space="preserve">
+    <value>OptDescrSplit</value>
+  </data>
+  <data name="&gt;&gt;OptDescrSplit.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitContainer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;OptDescrSplit.Parent" xml:space="preserve">
+    <value>DescriptionPanel</value>
+  </data>
+  <data name="&gt;&gt;OptDescrSplit.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="DescriptionPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="DescriptionPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="DescriptionPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>340, 69</value>
+  </data>
+  <data name="DescriptionPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;DescriptionPanel.Name" xml:space="preserve">
+    <value>DescriptionPanel</value>
+  </data>
+  <data name="&gt;&gt;DescriptionPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DescriptionPanel.Parent" xml:space="preserve">
+    <value>OptionsSplitContainer.Panel2</value>
+  </data>
+  <data name="&gt;&gt;DescriptionPanel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;OptionsSplitContainer.Panel2.Name" xml:space="preserve">
+    <value>OptionsSplitContainer.Panel2</value>
+  </data>
+  <data name="&gt;&gt;OptionsSplitContainer.Panel2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;OptionsSplitContainer.Panel2.Parent" xml:space="preserve">
+    <value>OptionsSplitContainer</value>
+  </data>
+  <data name="&gt;&gt;OptionsSplitContainer.Panel2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="OptionsSplitContainer.Panel2MinSize" type="System.Int32, mscorlib">
+    <value>64</value>
+  </data>
+  <data name="OptionsSplitContainer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>340, 292</value>
+  </data>
+  <data name="OptionsSplitContainer.SplitterDistance" type="System.Int32, mscorlib">
+    <value>215</value>
+  </data>
+  <data name="OptionsSplitContainer.SplitterWidth" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="OptionsSplitContainer.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;OptionsSplitContainer.Name" xml:space="preserve">
+    <value>OptionsSplitContainer</value>
+  </data>
+  <data name="&gt;&gt;OptionsSplitContainer.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitContainer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;OptionsSplitContainer.Parent" xml:space="preserve">
+    <value>OptionsFormSplit.Panel2</value>
+  </data>
+  <data name="&gt;&gt;OptionsSplitContainer.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="OKBtn.AccessibleDescription" xml:space="preserve">
+    <value>Apply changes and close the options form.</value>
+  </data>
+  <data name="OKBtn.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
+  <data name="OKBtn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>105, 347</value>
+  </data>
+  <data name="OKBtn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="OKBtn.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="OKBtn.Text" xml:space="preserve">
+    <value>&amp;OK</value>
+  </data>
+  <data name="&gt;&gt;OKBtn.Name" xml:space="preserve">
+    <value>OKBtn</value>
+  </data>
+  <data name="&gt;&gt;OKBtn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;OKBtn.Parent" xml:space="preserve">
+    <value>OptionsFormSplit.Panel2</value>
+  </data>
+  <data name="&gt;&gt;OKBtn.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="ApplyBtn.AccessibleDescription" xml:space="preserve">
+    <value>Apply changes.</value>
+  </data>
+  <data name="ApplyBtn.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
+  <data name="ApplyBtn.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="ApplyBtn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>186, 347</value>
+  </data>
+  <data name="ApplyBtn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="ApplyBtn.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="ApplyBtn.Text" xml:space="preserve">
+    <value>A&amp;pply</value>
+  </data>
+  <data name="&gt;&gt;ApplyBtn.Name" xml:space="preserve">
+    <value>ApplyBtn</value>
+  </data>
+  <data name="&gt;&gt;ApplyBtn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ApplyBtn.Parent" xml:space="preserve">
+    <value>OptionsFormSplit.Panel2</value>
+  </data>
+  <data name="&gt;&gt;ApplyBtn.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="CancelBtn.AccessibleDescription" xml:space="preserve">
+    <value>Cancel changes and close options form.</value>
+  </data>
+  <data name="CancelBtn.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
+  <data name="CancelBtn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>267, 347</value>
+  </data>
+  <data name="CancelBtn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="CancelBtn.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="CancelBtn.Text" xml:space="preserve">
+    <value>&amp;Cancel</value>
+  </data>
+  <data name="&gt;&gt;CancelBtn.Name" xml:space="preserve">
+    <value>CancelBtn</value>
+  </data>
+  <data name="&gt;&gt;CancelBtn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;CancelBtn.Parent" xml:space="preserve">
+    <value>OptionsFormSplit.Panel2</value>
+  </data>
+  <data name="&gt;&gt;CancelBtn.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="label2.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left, Right</value>
+  </data>
+  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 339</value>
+  </data>
+  <data name="label2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 0, 10, 0</value>
+  </data>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>339, 2</value>
+  </data>
+  <data name="label2.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;label2.Name" xml:space="preserve">
+    <value>label2</value>
+  </data>
+  <data name="&gt;&gt;label2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
+    <value>OptionsFormSplit.Panel2</value>
+  </data>
+  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;OptionsFormSplit.Panel2.Name" xml:space="preserve">
+    <value>OptionsFormSplit.Panel2</value>
+  </data>
+  <data name="&gt;&gt;OptionsFormSplit.Panel2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;OptionsFormSplit.Panel2.Parent" xml:space="preserve">
+    <value>OptionsFormSplit</value>
+  </data>
+  <data name="&gt;&gt;OptionsFormSplit.Panel2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="OptionsFormSplit.Panel2MinSize" type="System.Int32, mscorlib">
+    <value>350</value>
+  </data>
+  <data name="OptionsFormSplit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>480, 379</value>
+  </data>
+  <data name="OptionsFormSplit.SplitterDistance" type="System.Int32, mscorlib">
+    <value>125</value>
+  </data>
+  <data name="OptionsFormSplit.SplitterWidth" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="OptionsFormSplit.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;OptionsFormSplit.Name" xml:space="preserve">
+    <value>OptionsFormSplit</value>
+  </data>
+  <data name="&gt;&gt;OptionsFormSplit.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitContainer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;OptionsFormSplit.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;OptionsFormSplit.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>480, 379</value>
+  </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAYAEBAAAAEACABoBQAAZgAAABAQAAABACAAaAQAAM4FAAAgIAAAAQAIAKgIAAA2CgAAICAAAAEA
@@ -496,5 +1194,20 @@
         AAD8AAAAAAMAAPwwAAAABwAA/+AAAAAHAAD/4AAAAA8AAP/gAAAAHwAA/+AAAAD/AAD/4AAAAP8AAP/g
         AAAA/wAA//AAAAH/AAD/+AAAA/8AAP//8AAH/wAA///wAD//AAD///AH//8AAA==
 </value>
+  </data>
+  <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>486, 407</value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterParent</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Options</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>OptionsForm</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>

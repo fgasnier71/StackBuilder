@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-	<!-- 
+  <!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,199 +59,397 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-		<xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-		<xsd:element name="root" msdata:IsDataSet="true">
-			<xsd:complexType>
-				<xsd:choice maxOccurs="unbounded">
-					<xsd:element name="metadata">
-						<xsd:complexType>
-							<xsd:sequence>
-								<xsd:element name="value" type="xsd:string" minOccurs="0" />
-							</xsd:sequence>
-							<xsd:attribute name="name" use="required" type="xsd:string" />
-							<xsd:attribute name="type" type="xsd:string" />
-							<xsd:attribute name="mimetype" type="xsd:string" />
-							<xsd:attribute ref="xml:space" />
-						</xsd:complexType>
-					</xsd:element>
-					<xsd:element name="assembly">
-						<xsd:complexType>
-							<xsd:attribute name="alias" type="xsd:string" />
-							<xsd:attribute name="name" type="xsd:string" />
-						</xsd:complexType>
-					</xsd:element>
-					<xsd:element name="data">
-						<xsd:complexType>
-							<xsd:sequence>
-								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-								<xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-							</xsd:sequence>
-							<xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-							<xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-							<xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-							<xsd:attribute ref="xml:space" />
-						</xsd:complexType>
-					</xsd:element>
-					<xsd:element name="resheader">
-						<xsd:complexType>
-							<xsd:sequence>
-								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-							</xsd:sequence>
-							<xsd:attribute name="name" type="xsd:string" use="required" />
-						</xsd:complexType>
-					</xsd:element>
-				</xsd:choice>
-			</xsd:complexType>
-		</xsd:element>
-	</xsd:schema>
-	<resheader name="resmimetype">
-		<value>text/microsoft-resx</value>
-	</resheader>
-	<resheader name="version">
-		<value>2.0</value>
-	</resheader>
-	<resheader name="reader">
-		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-	</resheader>
-	<resheader name="writer">
-		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-	</resheader>
-	<assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-	<data name="splitContainerCasePallet.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-		<value>Bottom, Left, Right</value>
-	</data>
-	<data name="btClose.Text" xml:space="preserve">
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="splitContainerCasePallet.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left, Right</value>
+  </data>
+  <data name="btClose.Text" xml:space="preserve">
     <value>Chiudi</value>
   </data>
-	<assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-	<data name="chkVerticalOrientationOnly.Size" type="System.Drawing.Size, System.Drawing">
-		<value>262, 17</value>
-	</data>
-	<data name="chkVerticalOrientationOnly.Text" xml:space="preserve">
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="chkVerticalOrientationOnly.Size" type="System.Drawing.Size, System.Drawing">
+    <value>262, 17</value>
+  </data>
+  <data name="chkVerticalOrientationOnly.Text" xml:space="preserve">
     <value>Consenti solo l'orientamento verticale della scatola</value>
   </data>
-	<data name="lbNumber.Size" type="System.Drawing.Size, System.Drawing">
-		<value>153, 13</value>
-	</data>
-	<data name="lbNumber.Text" xml:space="preserve">
+  <data name="lbNumber.Size" type="System.Drawing.Size, System.Drawing">
+    <value>153, 13</value>
+  </data>
+  <data name="lbNumber.Text" xml:space="preserve">
     <value>Numero di scatole per astuccio</value>
   </data>
-	<data name="lbBoxDimensions.Size" type="System.Drawing.Size, System.Drawing">
-		<value>141, 13</value>
-	</data>
-	<data name="lbBoxDimensions.Text" xml:space="preserve">
+  <data name="lbBoxDimensions.Size" type="System.Drawing.Size, System.Drawing">
+    <value>141, 13</value>
+  </data>
+  <data name="lbBoxDimensions.Text" xml:space="preserve">
     <value>Crea analisi astuccio e pallet</value>
   </data>
-	<data name="lbBox.Size" type="System.Drawing.Size, System.Drawing">
-		<value>43, 13</value>
-	</data>
-	<data name="lbBox.Text" xml:space="preserve">
+  <data name="lbBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>43, 13</value>
+  </data>
+  <data name="lbBox.Text" xml:space="preserve">
     <value>Scatola</value>
   </data>
-	<data name="groupBox.Text" xml:space="preserve">
+  <data name="groupBox.Text" xml:space="preserve">
     <value>Scatola (interno prodotto)</value>
   </data>
-	<data name="uSurfaceMassCase.Size" type="System.Drawing.Size, System.Drawing">
-		<value>119, 13</value>
-	</data>
-	<data name="uSurfaceMassCase.Text" xml:space="preserve">
+  <data name="uSurfaceMassCase.Size" type="System.Drawing.Size, System.Drawing">
+    <value>119, 13</value>
+  </data>
+  <data name="uSurfaceMassCase.Text" xml:space="preserve">
     <value>uMassa della Superficie</value>
   </data>
-	<data name="lbSurfaceMass.Size" type="System.Drawing.Size, System.Drawing">
-		<value>113, 13</value>
-	</data>
-	<data name="lbSurfaceMass.Text" xml:space="preserve">
+  <data name="lbSurfaceMass.Size" type="System.Drawing.Size, System.Drawing">
+    <value>113, 13</value>
+  </data>
+  <data name="lbSurfaceMass.Text" xml:space="preserve">
     <value>Massa della Superficie</value>
   </data>
-	<data name="uLengthWallThickness.Size" type="System.Drawing.Size, System.Drawing">
-		<value>65, 13</value>
-	</data>
-	<data name="uLengthWallThickness.Text" xml:space="preserve">
+  <data name="uLengthWallThickness.Size" type="System.Drawing.Size, System.Drawing">
+    <value>65, 13</value>
+  </data>
+  <data name="uLengthWallThickness.Text" xml:space="preserve">
     <value>uLunghezza</value>
   </data>
-	<data name="btSetMaximum.Text" xml:space="preserve">
+  <data name="btSetMaximum.Text" xml:space="preserve">
     <value>Set massimo</value>
   </data>
-	<data name="btSetMinimum.Text" xml:space="preserve">
+  <data name="btSetMinimum.Text" xml:space="preserve">
     <value>Set minimo</value>
   </data>
-	<data name="lbWallThickness.Size" type="System.Drawing.Size, System.Drawing">
-		<value>84, 13</value>
-	</data>
-	<data name="lbWallThickness.Text" xml:space="preserve">
+  <data name="lbWallThickness.Size" type="System.Drawing.Size, System.Drawing">
+    <value>84, 13</value>
+  </data>
+  <data name="lbWallThickness.Text" xml:space="preserve">
     <value>Spessore parete</value>
   </data>
-	<data name="lbHeight.Size" type="System.Drawing.Size, System.Drawing">
-		<value>41, 13</value>
-	</data>
-	<data name="lbHeight.Text" xml:space="preserve">
+  <data name="lbHeight.Size" type="System.Drawing.Size, System.Drawing">
+    <value>41, 13</value>
+  </data>
+  <data name="lbHeight.Text" xml:space="preserve">
     <value>Altezza</value>
   </data>
-	<data name="label3.Size" type="System.Drawing.Size, System.Drawing">
-		<value>56, 13</value>
-	</data>
-	<data name="label3.Text" xml:space="preserve">
+  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>56, 13</value>
+  </data>
+  <data name="label3.Text" xml:space="preserve">
     <value>Larghezza</value>
   </data>
-	<data name="lbLength.Size" type="System.Drawing.Size, System.Drawing">
-		<value>62, 13</value>
-	</data>
-	<data name="lbLength.Text" xml:space="preserve">
+  <data name="lbLength.Size" type="System.Drawing.Size, System.Drawing">
+    <value>62, 13</value>
+  </data>
+  <data name="lbLength.Text" xml:space="preserve">
     <value>Lunghezza </value>
   </data>
-	<data name="lbWalls.Size" type="System.Drawing.Size, System.Drawing">
-		<value>98, 13</value>
-	</data>
-	<data name="lbWalls.Text" xml:space="preserve">
+  <data name="lbWalls.Size" type="System.Drawing.Size, System.Drawing">
+    <value>98, 13</value>
+  </data>
+  <data name="lbWalls.Text" xml:space="preserve">
     <value>Numero delle pareti</value>
   </data>
-	<data name="lbMaxCaseDimensions.Size" type="System.Drawing.Size, System.Drawing">
-		<value>148, 13</value>
-	</data>
-	<data name="lbMaxCaseDimensions.Text" xml:space="preserve">
+  <data name="lbMaxCaseDimensions.Size" type="System.Drawing.Size, System.Drawing">
+    <value>148, 13</value>
+  </data>
+  <data name="lbMaxCaseDimensions.Text" xml:space="preserve">
     <value>Dimensione massima astuccio</value>
   </data>
-	<data name="lbMinCaseDimensions.Size" type="System.Drawing.Size, System.Drawing">
-		<value>140, 13</value>
-	</data>
-	<data name="lbMinCaseDimensions.Text" xml:space="preserve">
+  <data name="lbMinCaseDimensions.Size" type="System.Drawing.Size, System.Drawing">
+    <value>140, 13</value>
+  </data>
+  <data name="lbMinCaseDimensions.Text" xml:space="preserve">
     <value>Dimensione minima astuccio</value>
   </data>
-	<data name="gbCase.Location" type="System.Drawing.Point, System.Drawing">
-		<value>4, 246</value>
-	</data>
-	<data name="gbCase.Text" xml:space="preserve">
+  <data name="gbCase.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 246</value>
+  </data>
+  <data name="gbCase.Text" xml:space="preserve">
     <value>Astuccio vincolato</value>
   </data>
-	<data name="lbPalletDimensions.Size" type="System.Drawing.Size, System.Drawing">
-		<value>62, 13</value>
-	</data>
-	<data name="lbPalletDimensions.Text" xml:space="preserve">
+  <data name="lbPalletDimensions.Size" type="System.Drawing.Size, System.Drawing">
+    <value>62, 13</value>
+  </data>
+  <data name="lbPalletDimensions.Text" xml:space="preserve">
     <value>(dimensioni)</value>
   </data>
-	<data name="btOptimize.Location" type="System.Drawing.Point, System.Drawing">
-		<value>504, 404</value>
-	</data>
-	<data name="btOptimize.Size" type="System.Drawing.Size, System.Drawing">
-		<value>74, 23</value>
-	</data>
-	<data name="btOptimize.Text" xml:space="preserve">
+  <data name="btOptimize.Location" type="System.Drawing.Point, System.Drawing">
+    <value>504, 404</value>
+  </data>
+  <data name="btOptimize.Size" type="System.Drawing.Size, System.Drawing">
+    <value>74, 23</value>
+  </data>
+  <data name="btOptimize.Text" xml:space="preserve">
     <value>Ottimizzazione</value>
   </data>
-	<data name="gridSolutions.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-		<value>Top, Bottom, Left, Right</value>
-	</data>
-	<data name="gridSolutions.Location" type="System.Drawing.Point, System.Drawing">
-		<value>0, 433</value>
-	</data>
-	<data name="gridSolutions.Size" type="System.Drawing.Size, System.Drawing">
-		<value>584, 140</value>
-	</data>
-	<data name="groupBox1.Location" type="System.Drawing.Point, System.Drawing">
-		<value>4, 174</value>
-	</data>
-	<data name="$this.Text" xml:space="preserve">
+  <data name="gridSolutions.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="gridSolutions.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 433</value>
+  </data>
+  <data name="gridSolutions.Size" type="System.Drawing.Size, System.Drawing">
+    <value>584, 140</value>
+  </data>
+  <data name="groupBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 174</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
     <value>Ottimizzazione dimensioni astuccio…</value>
+  </data>
+  <data name="cbColor.Items1" xml:space="preserve">
+    <value>Colore</value>
+  </data>
+  <data name="cbColor.Items26" xml:space="preserve">
+    <value>Colore</value>
+  </data>
+  <data name="btAddPackPalletAnalysis.Text" xml:space="preserve">
+    <value>Aggiungere analisi pacco/pallet</value>
+  </data>
+  <data name="cbColor.Items33" xml:space="preserve">
+    <value>Colore</value>
+  </data>
+  <data name="cbColor.Items15" xml:space="preserve">
+    <value>Colore</value>
+  </data>
+  <data name="cbColor.Items39" xml:space="preserve">
+    <value>Colore</value>
+  </data>
+  <data name="cbColor.Items6" xml:space="preserve">
+    <value>Colore</value>
+  </data>
+  <data name="uCtrlPackDimensionsMax.Text" xml:space="preserve">
+    <value>Max. Dimensioni confezione</value>
+  </data>
+  <data name="btAddCasePalletAnalysis.Text" xml:space="preserve">
+    <value>Aggiungere analisi caso/pallet</value>
+  </data>
+  <data name="uCtrlPackDimensionsMin.Text" xml:space="preserve">
+    <value>Dimensioni confezione min.</value>
+  </data>
+  <data name="uCtrlOverhang.Text" xml:space="preserve">
+    <value>Sbalzo</value>
+  </data>
+  <data name="toolStripStatusLabelDef.Text" xml:space="preserve">
+    <value>toolStripStatusLabelDef</value>
+  </data>
+  <data name="cbColor.Items37" xml:space="preserve">
+    <value>Colore</value>
+  </data>
+  <data name="cbWrapperType.Items1" xml:space="preserve">
+    <value>Vassoio di</value>
+  </data>
+  <data name="cbColor.Items30" xml:space="preserve">
+    <value>Colore</value>
+  </data>
+  <data name="cbColor.Items43" xml:space="preserve">
+    <value>Colore</value>
+  </data>
+  <data name="cbWrapperType.Items3" xml:space="preserve">
+    <value>In polietilene</value>
+  </data>
+  <data name="cbColor.Items28" xml:space="preserve">
+    <value>Colore</value>
+  </data>
+  <data name="statusStripDef.Text" xml:space="preserve">
+    <value>statusStripDef</value>
+  </data>
+  <data name="uCtrlTrayHeight.Text" xml:space="preserve">
+    <value>Altezza del vassoio</value>
+  </data>
+  <data name="cbWrapperType.Items2" xml:space="preserve">
+    <value>Carta</value>
+  </data>
+  <data name="cbColor.Items5" xml:space="preserve">
+    <value>Colore</value>
+  </data>
+  <data name="cbColor.Items34" xml:space="preserve">
+    <value>Colore</value>
+  </data>
+  <data name="cbColor.Items31" xml:space="preserve">
+    <value>Colore</value>
+  </data>
+  <data name="lbPallet.Text" xml:space="preserve">
+    <value>Pallet</value>
+  </data>
+  <data name="cbColor.Items" xml:space="preserve">
+    <value>Colore</value>
+  </data>
+  <data name="cbColor.Items23" xml:space="preserve">
+    <value>Colore</value>
+  </data>
+  <data name="cbColor.Items40" xml:space="preserve">
+    <value>Colore</value>
+  </data>
+  <data name="cbColor.Items29" xml:space="preserve">
+    <value>Colore</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Tipo di wrapper</value>
+  </data>
+  <data name="cbColor.Items3" xml:space="preserve">
+    <value>Colore</value>
+  </data>
+  <data name="cbColor.Items16" xml:space="preserve">
+    <value>Colore</value>
+  </data>
+  <data name="cbColor.Items35" xml:space="preserve">
+    <value>Colore</value>
+  </data>
+  <data name="cbColor.Items27" xml:space="preserve">
+    <value>Colore</value>
+  </data>
+  <data name="cbColor.Items44" xml:space="preserve">
+    <value>Colore</value>
+  </data>
+  <data name="cbColor.Items20" xml:space="preserve">
+    <value>Colore</value>
+  </data>
+  <data name="cbColor.Items41" xml:space="preserve">
+    <value>Colore</value>
+  </data>
+  <data name="cbColor.Items9" xml:space="preserve">
+    <value>Colore</value>
+  </data>
+  <data name="cbColor.Items18" xml:space="preserve">
+    <value>Colore</value>
+  </data>
+  <data name="gbPallet.Text" xml:space="preserve">
+    <value>Pallet</value>
+  </data>
+  <data name="cbColor.Items32" xml:space="preserve">
+    <value>Colore</value>
+  </data>
+  <data name="uCtrlWallThickness.Text" xml:space="preserve">
+    <value>Spessore della parete</value>
+  </data>
+  <data name="cbColor.Items4" xml:space="preserve">
+    <value>Colore</value>
+  </data>
+  <data name="cbColor.Items21" xml:space="preserve">
+    <value>Colore</value>
+  </data>
+  <data name="uCtrlNoWalls.Text" xml:space="preserve">
+    <value>Numero di pareti</value>
+  </data>
+  <data name="cbColor.Items13" xml:space="preserve">
+    <value>Colore</value>
+  </data>
+  <data name="cbColor.Items7" xml:space="preserve">
+    <value>Colore</value>
+  </data>
+  <data name="cbColor.Items19" xml:space="preserve">
+    <value>Colore</value>
+  </data>
+  <data name="cbColor.Items36" xml:space="preserve">
+    <value>Colore</value>
+  </data>
+  <data name="lbWrapperColor.Text" xml:space="preserve">
+    <value>Colore</value>
+  </data>
+  <data name="cbColor.Items2" xml:space="preserve">
+    <value>Colore</value>
+  </data>
+  <data name="uCtrlSurfacicMass.Text" xml:space="preserve">
+    <value>Surfacic massa</value>
+  </data>
+  <data name="cbColor.Items24" xml:space="preserve">
+    <value>Colore</value>
+  </data>
+  <data name="cbColor.Items25" xml:space="preserve">
+    <value>Colore</value>
+  </data>
+  <data name="cbColor.Items42" xml:space="preserve">
+    <value>Colore</value>
+  </data>
+  <data name="cbColor.Items17" xml:space="preserve">
+    <value>Colore</value>
+  </data>
+  <data name="cbColor.Items10" xml:space="preserve">
+    <value>Colore</value>
+  </data>
+  <data name="cbColor.Items12" xml:space="preserve">
+    <value>Colore</value>
+  </data>
+  <data name="cbColor.Items8" xml:space="preserve">
+    <value>Colore</value>
+  </data>
+  <data name="cbWrapperType.Items" xml:space="preserve">
+    <value>Cartone</value>
+  </data>
+  <data name="cbColor.Items22" xml:space="preserve">
+    <value>Colore</value>
+  </data>
+  <data name="uCtrlPalletHeight.Text" xml:space="preserve">
+    <value>Altezza massima bancale</value>
+  </data>
+  <data name="cbColor.Items14" xml:space="preserve">
+    <value>Colore</value>
+  </data>
+  <data name="cbColor.Items38" xml:space="preserve">
+    <value>Colore</value>
+  </data>
+  <data name="cbColor.Items11" xml:space="preserve">
+    <value>Colore</value>
+  </data>
+  <data name="gbWrapper.Text" xml:space="preserve">
+    <value>Wrapper</value>
   </data>
 </root>

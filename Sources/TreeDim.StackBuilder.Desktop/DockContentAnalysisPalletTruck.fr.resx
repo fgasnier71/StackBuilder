@@ -137,9 +137,6 @@
         N3z3g92YXauEAwxp1v7WAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="toolStripButtonReportMSWord.Text" xml:space="preserve">
-    <value>Générer un rapport...</value>
-  </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAMAMDAAAAEACACoDgAANgAAACAgAAABAAgAqAgAAN4OAAAQEAAAAQAIAGgFAACGFwAAKAAAADAA
@@ -270,5 +267,11 @@
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Analyse palette camion...</value>
+  </data>
+  <data name="toolStripAnalysis.Text" xml:space="preserve">
+    <value>Outils</value>
+  </data>
+  <data name="toolStripButtonReport.Text" xml:space="preserve">
+    <value>Générer un rapport...</value>
   </data>
 </root>

@@ -145,7 +145,16 @@
   <data name="rbKeepReplace2.Text" xml:space="preserve">
     <value>Ersetze alle existierenden Lösungen</value>
   </data>
+  <data name="toolStripStatusLabelDef.Text" xml:space="preserve">
+    <value>toolStripStatusLabelDef</value>
+  </data>
+  <data name="bnOk.Text" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="statusStripDef.Text" xml:space="preserve">
+    <value>statusStripDef</value>
+  </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Append solution to database....</value>
+    <value>Lösung zur Datenbank anhängen...</value>
   </data>
 </root>

@@ -281,7 +281,7 @@
   </data>
   <data name="toolStripStatusLabelDef.Text" xml:space="preserve">
     <value>toolStripStatusLabelDef</value>
-  </data>
+  <comment>@Invariant</comment></data>
   <data name="statusStripDef.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 339</value>
   </data>
@@ -293,7 +293,7 @@
   </data>
   <data name="statusStripDef.Text" xml:space="preserve">
     <value>statusStripDef</value>
-  </data>
+  <comment>@Invariant</comment></data>
   <data name="&gt;&gt;statusStripDef.Name" xml:space="preserve">
     <value>statusStripDef</value>
   </data>
@@ -323,7 +323,7 @@
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>FormNewBase</value>
-  </data>
+  <comment>@Invariant</comment></data>
   <data name="&gt;&gt;toolStripStatusLabelDef.Name" xml:space="preserve">
     <value>toolStripStatusLabelDef</value>
   </data>

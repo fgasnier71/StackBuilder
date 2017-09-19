@@ -600,7 +600,7 @@
     <value>Color</value>
   </data>
   <data name="cbColorWallInner.Items85" xml:space="preserve">
-    <value>Farbe</value>
+    <value>Color</value>
   </data>
   <data name="cbColorWallInner.Items86" xml:space="preserve">
     <value>Farbe</value>
@@ -924,19 +924,19 @@
     <value>Color</value>
   </data>
   <data name="cbColorWallOuter.Items84" xml:space="preserve">
-    <value>Farbe</value>
+    <value>Color</value>
   </data>
   <data name="cbColorWallOuter.Items85" xml:space="preserve">
-    <value>Farbe</value>
+    <value>Color</value>
   </data>
   <data name="cbColorWallOuter.Items86" xml:space="preserve">
-    <value>Farbe</value>
+    <value>Color</value>
   </data>
   <data name="cbColorWallOuter.Items87" xml:space="preserve">
-    <value>Farbe</value>
+    <value>Color</value>
   </data>
   <data name="cbColorWallOuter.Items88" xml:space="preserve">
-    <value>Farbe</value>
+    <value>Color</value>
   </data>
   <data name="cbColorWallOuter.Location" type="System.Drawing.Point, System.Drawing">
     <value>131, 38</value>
@@ -1224,37 +1224,37 @@
     <value>Color</value>
   </data>
   <data name="cbColorTop.Items77" xml:space="preserve">
-    <value>Farbe</value>
+    <value>Color</value>
   </data>
   <data name="cbColorTop.Items78" xml:space="preserve">
-    <value>Farbe</value>
+    <value>Color</value>
   </data>
   <data name="cbColorTop.Items79" xml:space="preserve">
-    <value>Farbe</value>
+    <value>Color</value>
   </data>
   <data name="cbColorTop.Items80" xml:space="preserve">
-    <value>Farbe</value>
+    <value>Color</value>
   </data>
   <data name="cbColorTop.Items81" xml:space="preserve">
-    <value>Farbe</value>
+    <value>Color</value>
   </data>
   <data name="cbColorTop.Items82" xml:space="preserve">
-    <value>Farbe</value>
+    <value>Color</value>
   </data>
   <data name="cbColorTop.Items83" xml:space="preserve">
-    <value>Farbe</value>
+    <value>Color</value>
   </data>
   <data name="cbColorTop.Items84" xml:space="preserve">
-    <value>Farbe</value>
+    <value>Color</value>
   </data>
   <data name="cbColorTop.Items85" xml:space="preserve">
-    <value>Farbe</value>
+    <value>Color</value>
   </data>
   <data name="cbColorTop.Items86" xml:space="preserve">
-    <value>Farbe</value>
+    <value>Color</value>
   </data>
   <data name="cbColorTop.Items87" xml:space="preserve">
-    <value>Farbe</value>
+    <value>Color</value>
   </data>
   <data name="cbColorTop.Location" type="System.Drawing.Point, System.Drawing">
     <value>131, 13</value>
@@ -1366,6 +1366,39 @@
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Define a new cylinder...</value>
+  </data>
+  <data name="cbColorWall.Items63" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="bnOK.Text" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="lblDescription.Text" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="lblName.Text" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="uLengthDiameterOuter.Text" xml:space="preserve">
+    <value>Outer diameter</value>
+  </data>
+  <data name="uLengthDiameterInner.Text" xml:space="preserve">
+    <value>Inner diameter</value>
+  </data>
+  <data name="uMassWeight.Text" xml:space="preserve">
+    <value>Weight</value>
+  </data>
+  <data name="lbWeight.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="lbHeight.Text" xml:space="preserve">
+    <value>Height</value>
+  </data>
+  <data name="bnCancel.Text" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="lbLength.Text" xml:space="preserve">
+    <value>Length</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>FormNewCylinder</value>

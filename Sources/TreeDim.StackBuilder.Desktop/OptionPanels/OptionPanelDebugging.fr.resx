@@ -124,4 +124,10 @@
   <data name="chkShowLogConsole.Text" xml:space="preserve">
     <value>Afficher la console de logging</value>
   </data>
+  <data name="bnShowAppFolder.Text" xml:space="preserve">
+    <value>Ouvrir le dossier de l'application</value>
+  </data>
+  <data name="chkbShowStartPage.Text" xml:space="preserve">
+    <value>Afficher la page de l'application au démarrage...</value>
+  </data>
 </root>

@@ -124,4 +124,19 @@
   <data name="lbUnitSystem.Text" xml:space="preserve">
     <value>Unit system </value>
   </data>
+  <data name="lbLanguage.Text" xml:space="preserve">
+    <value>言語</value>
+  </data>
+  <data name="cbUnitSystem.Items1" xml:space="preserve">
+    <value>メトリック 2 (cm/kg/l)</value>
+  </data>
+  <data name="cbUnitSystem.Items" xml:space="preserve">
+    <value>メトリック 1 (mm/kg/l)</value>
+  </data>
+  <data name="cbUnitSystem.Items2" xml:space="preserve">
+    <value>イギリス (で/lb/gal)</value>
+  </data>
+  <data name="cbUnitSystem.Items3" xml:space="preserve">
+    <value>私たち (の/lb/gal)</value>
+  </data>
 </root>

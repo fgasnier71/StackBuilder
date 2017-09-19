@@ -130,4 +130,13 @@
   <data name="$this.Text" xml:space="preserve">
     <value>Saisir un nom valide...</value>
   </data>
+  <data name="statusStrip1.Text" xml:space="preserve">
+    <value>statusStrip1</value>
+  </data>
+  <data name="bnOK.Text" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="statusLabelDef.Text" xml:space="preserve">
+    <value>statusLabelDef</value>
+  </data>
 </root>

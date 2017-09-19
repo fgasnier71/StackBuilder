@@ -253,4 +253,46 @@
   <data name="$this.Text" xml:space="preserve">
     <value>Créer un nouveau containeur/camion...</value>
   </data>
+  <data name="cbColor.Items46" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="uCtrlInnerDimensions.Text" xml:space="preserve">
+    <value>Dimensions</value>
+  </data>
+  <data name="cbColor.Items1" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbColor.Items42" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbColor.Items43" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbColor.Items45" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbColor.Items44" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbColor.Items40" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbColor.Items41" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbColor.Items48" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbColor.Items" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbColor.Items47" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbColor.Items50" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="lbDescription.Text" xml:space="preserve">
+    <value>Description</value>
+  </data>
 </root>

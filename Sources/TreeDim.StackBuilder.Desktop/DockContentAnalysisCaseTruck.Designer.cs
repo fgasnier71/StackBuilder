@@ -39,21 +39,11 @@
             this.splitContainerVert.SuspendLayout();
             this.SuspendLayout();
             // 
-            // graphCtrlSolution
-            // 
-            resources.ApplyResources(this.graphCtrlSolution, "graphCtrlSolution");
-            // 
             // splitContainerHoriz
             // 
-            resources.ApplyResources(this.splitContainerHoriz, "splitContainerHoriz");
             // 
             // splitContainerVert
             // 
-            resources.ApplyResources(this.splitContainerVert, "splitContainerVert");
-            // 
-            // gridSolutions
-            // 
-            resources.ApplyResources(this.gridSolutions, "gridSolutions");
             // 
             // DockContentAnalysisCaseTruck
             // 

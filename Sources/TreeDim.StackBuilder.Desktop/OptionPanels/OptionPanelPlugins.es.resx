@@ -124,4 +124,7 @@
   <data name="chkbPluginINTEX.Text" xml:space="preserve">
     <value>Use INTEX France plugin... </value>
   </data>
+  <data name="chkbUsePlugin.Text" xml:space="preserve">
+    <value>Usar el plugin</value>
+  </data>
 </root>

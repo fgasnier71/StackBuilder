@@ -124,4 +124,235 @@
   <data name="lbBoxDimensions.Size" type="System.Drawing.Size, System.Drawing">
     <value>65, 13</value>
   </data>
+  <data name="cbColor.Items1" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="lbPalletDimensions.Text" xml:space="preserve">
+    <value>(Dimensionen)</value>
+  </data>
+  <data name="cbColor.Items26" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="btAddPackPalletAnalysis.Text" xml:space="preserve">
+    <value>Pack/Palette Analyse hinzufügen</value>
+  </data>
+  <data name="cbColor.Items33" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="btOptimize.Text" xml:space="preserve">
+    <value>Optimieren</value>
+  </data>
+  <data name="cbColor.Items15" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="cbColor.Items39" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="cbColor.Items6" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="uCtrlPackDimensionsMax.Text" xml:space="preserve">
+    <value>Max. Pack-Dimensionen</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Optimieren Sie Fall Dimensionen...</value>
+  </data>
+  <data name="btAddCasePalletAnalysis.Text" xml:space="preserve">
+    <value>Fall/Palette Analyse hinzufügen</value>
+  </data>
+  <data name="uCtrlPackDimensionsMin.Text" xml:space="preserve">
+    <value>Min. Pack Abmessungen</value>
+  </data>
+  <data name="uCtrlOverhang.Text" xml:space="preserve">
+    <value>Überhang</value>
+  </data>
+  <data name="toolStripStatusLabelDef.Text" xml:space="preserve">
+    <value>toolStripStatusLabelDef</value>
+  </data>
+  <data name="cbColor.Items37" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="cbWrapperType.Items1" xml:space="preserve">
+    <value>Tablett</value>
+  </data>
+  <data name="cbColor.Items30" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="btSetMaximum.Text" xml:space="preserve">
+    <value>Legen Sie maximale</value>
+  </data>
+  <data name="lbBox.Text" xml:space="preserve">
+    <value>Box</value>
+  </data>
+  <data name="cbColor.Items43" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="cbWrapperType.Items3" xml:space="preserve">
+    <value>Aus Polyethylen</value>
+  </data>
+  <data name="cbColor.Items28" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="statusStripDef.Text" xml:space="preserve">
+    <value>statusStripDef</value>
+  </data>
+  <data name="uCtrlTrayHeight.Text" xml:space="preserve">
+    <value>Fach-Höhe</value>
+  </data>
+  <data name="cbWrapperType.Items2" xml:space="preserve">
+    <value>Papier</value>
+  </data>
+  <data name="btSetMinimum.Text" xml:space="preserve">
+    <value>Legen Sie mindestens</value>
+  </data>
+  <data name="cbColor.Items5" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="cbColor.Items34" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="cbColor.Items31" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="lbPallet.Text" xml:space="preserve">
+    <value>Palette</value>
+  </data>
+  <data name="lbNumber.Text" xml:space="preserve">
+    <value>Anzahl der Felder pro Karton</value>
+  </data>
+  <data name="cbColor.Items" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="cbColor.Items23" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="cbColor.Items40" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="cbColor.Items29" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Wrappertyp</value>
+  </data>
+  <data name="cbColor.Items3" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="cbColor.Items16" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="cbColor.Items35" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="cbColor.Items27" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="cbColor.Items44" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="cbColor.Items20" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="cbColor.Items41" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="cbColor.Items9" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="chkVerticalOrientationOnly.Text" xml:space="preserve">
+    <value>Erlauben Sie nur senkrechte Feld Ausrichtung</value>
+  </data>
+  <data name="cbColor.Items18" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="gbPallet.Text" xml:space="preserve">
+    <value>Palette</value>
+  </data>
+  <data name="gbCase.Text" xml:space="preserve">
+    <value>Pack-Einschränkungen</value>
+  </data>
+  <data name="cbColor.Items32" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="uCtrlWallThickness.Text" xml:space="preserve">
+    <value>Wandstärke</value>
+  </data>
+  <data name="cbColor.Items4" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="lbBoxDimensions.Text" xml:space="preserve">
+    <value>(Box Abmessungen)</value>
+  </data>
+  <data name="cbColor.Items21" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="uCtrlNoWalls.Text" xml:space="preserve">
+    <value>Anzahl der Wände</value>
+  </data>
+  <data name="cbColor.Items13" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="cbColor.Items7" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="cbColor.Items19" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="cbColor.Items36" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="lbWrapperColor.Text" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="cbColor.Items2" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="uCtrlSurfacicMass.Text" xml:space="preserve">
+    <value>Surfacic Masse</value>
+  </data>
+  <data name="cbColor.Items24" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="cbColor.Items25" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="groupBox.Text" xml:space="preserve">
+    <value>Box (Skalarprodukt)</value>
+  </data>
+  <data name="cbColor.Items42" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="cbColor.Items17" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="cbColor.Items10" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="cbColor.Items12" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="cbColor.Items8" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="cbWrapperType.Items" xml:space="preserve">
+    <value>Karton</value>
+  </data>
+  <data name="cbColor.Items22" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="uCtrlPalletHeight.Text" xml:space="preserve">
+    <value>Maximale Palettenhöhe</value>
+  </data>
+  <data name="cbColor.Items14" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="cbColor.Items38" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="cbColor.Items11" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="gbWrapper.Text" xml:space="preserve">
+    <value>Wrapper</value>
+  </data>
 </root>

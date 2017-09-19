@@ -124,4 +124,169 @@
   <data name="label1.Text" xml:space="preserve">
     <value>Name </value>
   </data>
+  <data name="checkBoxMaximumPalletWeight.Text" xml:space="preserve">
+    <value>gesamte Palette Gewicht erreicht</value>
+  </data>
+  <data name="lbMm2.Text" xml:space="preserve">
+    <value>mm</value>
+  </data>
+  <data name="checkBoxInterlayerAntiSlip.Text" xml:space="preserve">
+    <value>Anti-Rutsch-Zwischenschicht</value>
+  </data>
+  <data name="lbPalletOverhangWidth.Text" xml:space="preserve">
+    <value>Breite</value>
+  </data>
+  <data name="lbMm1.Text" xml:space="preserve">
+    <value>mm</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Beschreibung</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Erstellen Sie neue Zylinder-Analyse...</value>
+  </data>
+  <data name="uLengthOverhangX.Text" xml:space="preserve">
+    <value>uLength</value>
+  </data>
+  <data name="bnOK.Text" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="checkBoxMaximumLoadOnCylinder.Text" xml:space="preserve">
+    <value>Wenn Last am Unterlauf der Zylinder</value>
+  </data>
+  <data name="checkBoxMaximumNumberOfItems.Text" xml:space="preserve">
+    <value>Wenn die Anzahl der Zylinder erreicht</value>
+  </data>
+  <data name="chkPatternDefault.Text" xml:space="preserve">
+    <value>Standard</value>
+  </data>
+  <data name="checkedListBoxPatterns.Items" xml:space="preserve">
+    <value>Spalte</value>
+  </data>
+  <data name="statusStripDef.Text" xml:space="preserve">
+    <value>statusStrip1</value>
+  </data>
+  <data name="lbRowSpacing.Text" xml:space="preserve">
+    <value>Reihenabstand</value>
+  </data>
+  <data name="uLengthPalletHeight.Text" xml:space="preserve">
+    <value>uLength</value>
+  </data>
+  <data name="lbName.Text" xml:space="preserve">
+    <value>Name </value>
+  </data>
+  <data name="gbAllowedLayerPatterns.Text" xml:space="preserve">
+    <value>Layer-Muster erlaubt</value>
+  </data>
+  <data name="checkBoxAllowAlignedLayer.Text" xml:space="preserve">
+    <value>ausgerichteten Ebene zu ermöglichen</value>
+  </data>
+  <data name="uMassPalletWeight.Text" xml:space="preserve">
+    <value>uMass</value>
+  </data>
+  <data name="gbAdditionalData.Text" xml:space="preserve">
+    <value>Zusätzliche Daten</value>
+  </data>
+  <data name="checkBoxMaximumNumberOfBoxes.Text" xml:space="preserve">
+    <value>Wenn die Anzahl der Boxen erreicht</value>
+  </data>
+  <data name="lbPallet.Text" xml:space="preserve">
+    <value>Palette</value>
+  </data>
+  <data name="lbSolutions.Text" xml:space="preserve">
+    <value>beste Lösungen</value>
+  </data>
+  <data name="lbStopStacking.Text" xml:space="preserve">
+    <value>Beenden Sie stapeln:</value>
+  </data>
+  <data name="bnCancel.Text" xml:space="preserve">
+    <value>Abbrechen</value>
+  </data>
+  <data name="gbOverhangUnderhang.Text" xml:space="preserve">
+    <value>Palette Überhang / underhang</value>
+  </data>
+  <data name="toolStripStatusLabelDef.Text" xml:space="preserve">
+    <value>toolStripStatusLabelDef</value>
+  </data>
+  <data name="uMassLoadOnLower.Text" xml:space="preserve">
+    <value>uMass</value>
+  </data>
+  <data name="gbStopStackingCondition.Text" xml:space="preserve">
+    <value>Zusätzliche Stoppbedingung stapeln</value>
+  </data>
+  <data name="checkedListBoxPatterns.Items4" xml:space="preserve">
+    <value>Spirale</value>
+  </data>
+  <data name="checkBoxMaximumPalletHeight.Text" xml:space="preserve">
+    <value>Wann erreicht Palettenhöhe</value>
+  </data>
+  <data name="lbDescription.Text" xml:space="preserve">
+    <value>Beschreibung</value>
+  </data>
+  <data name="uLengthPalletOverhangX.Text" xml:space="preserve">
+    <value>uLength</value>
+  </data>
+  <data name="checkedListBoxPatterns.Items3" xml:space="preserve">
+    <value>TriLock</value>
+  </data>
+  <data name="checkBoxInterlayer.Text" xml:space="preserve">
+    <value>Zwischenschicht</value>
+  </data>
+  <data name="chkPatternColumnized.Text" xml:space="preserve">
+    <value>Mit speziellen Zwischenschichten für columnized Palette</value>
+  </data>
+  <data name="gbPatterns.Text" xml:space="preserve">
+    <value>Muster</value>
+  </data>
+  <data name="lbPalletOverhangLength.Text" xml:space="preserve">
+    <value>Länge</value>
+  </data>
+  <data name="uLengthRowSpacing.Text" xml:space="preserve">
+    <value>uLength</value>
+  </data>
+  <data name="lbInterlayerFreq1.Text" xml:space="preserve">
+    <value>Jedes</value>
+  </data>
+  <data name="label3.Text" xml:space="preserve">
+    <value>Zylinder</value>
+  </data>
+  <data name="uLengthOverhangY.Text" xml:space="preserve">
+    <value>uLength</value>
+  </data>
+  <data name="gbLayerAlignment.Text" xml:space="preserve">
+    <value>Layer ausrichten</value>
+  </data>
+  <data name="checkedListBoxPatterns.Items2" xml:space="preserve">
+    <value>Diagonal</value>
+  </data>
+  <data name="lbInterlayerFreq2.Text" xml:space="preserve">
+    <value>Schichten</value>
+  </data>
+  <data name="uLengthPalletOverhangY.Text" xml:space="preserve">
+    <value>uLength</value>
+  </data>
+  <data name="lbBundle.Text" xml:space="preserve">
+    <value>Bundle</value>
+  </data>
+  <data name="checkedListBoxPatterns.Items1" xml:space="preserve">
+    <value>Verriegelt</value>
+  </data>
+  <data name="checkBoxNumberOfPallets.Text" xml:space="preserve">
+    <value>Anzahl der Paletten stapeln müssen anzeigen </value>
+  </data>
+  <data name="lbBoxes.Text" xml:space="preserve">
+    <value>Boxen</value>
+  </data>
+  <data name="checkBoxAllowAlternateLayer.Text" xml:space="preserve">
+    <value>können alternative Schicht</value>
+  </data>
+  <data name="checkBoxKeepSolutions.Text" xml:space="preserve">
+    <value>die gehören zu den</value>
+  </data>
+  <data name="checkedListBoxPatterns.Items5" xml:space="preserve">
+    <value>Erweiterten Spirale</value>
+  </data>
+  <data name="chkPatternStaggered.Text" xml:space="preserve">
+    <value>Paletten mit Rahmen</value>
+  </data>
 </root>

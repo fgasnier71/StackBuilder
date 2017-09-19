@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-	<!-- 
+  <!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,62 +59,170 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-		<xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-		<xsd:element name="root" msdata:IsDataSet="true">
-			<xsd:complexType>
-				<xsd:choice maxOccurs="unbounded">
-					<xsd:element name="metadata">
-						<xsd:complexType>
-							<xsd:sequence>
-								<xsd:element name="value" type="xsd:string" minOccurs="0" />
-							</xsd:sequence>
-							<xsd:attribute name="name" use="required" type="xsd:string" />
-							<xsd:attribute name="type" type="xsd:string" />
-							<xsd:attribute name="mimetype" type="xsd:string" />
-							<xsd:attribute ref="xml:space" />
-						</xsd:complexType>
-					</xsd:element>
-					<xsd:element name="assembly">
-						<xsd:complexType>
-							<xsd:attribute name="alias" type="xsd:string" />
-							<xsd:attribute name="name" type="xsd:string" />
-						</xsd:complexType>
-					</xsd:element>
-					<xsd:element name="data">
-						<xsd:complexType>
-							<xsd:sequence>
-								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-								<xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-							</xsd:sequence>
-							<xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-							<xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-							<xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-							<xsd:attribute ref="xml:space" />
-						</xsd:complexType>
-					</xsd:element>
-					<xsd:element name="resheader">
-						<xsd:complexType>
-							<xsd:sequence>
-								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-							</xsd:sequence>
-							<xsd:attribute name="name" type="xsd:string" use="required" />
-						</xsd:complexType>
-					</xsd:element>
-				</xsd:choice>
-			</xsd:complexType>
-		</xsd:element>
-	</xsd:schema>
-	<resheader name="resmimetype">
-		<value>text/microsoft-resx</value>
-	</resheader>
-	<resheader name="version">
-		<value>2.0</value>
-	</resheader>
-	<resheader name="reader">
-		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-	</resheader>
-	<resheader name="writer">
-		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-	</resheader>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ID_FILTER_HTML" xml:space="preserve">
+    <value>HyperText Markup Language (* html) | * .html | Todos los archivos (*. *) | *. *</value>
+  </data>
+  <data name="ID_FILTER_MSWORD" xml:space="preserve">
+    <value>Microsoft Office Word (proyecto; *.docx) | * .doc; * .docx | Todos los archivos (*. *) | *. *</value>
+  </data>
+  <data name="ID_FILTER_PDF" xml:space="preserve">
+    <value>Adobe Acrobat (*.pdf) | * .pdf</value>
+  </data>
+  <data name="ID_REPORT" xml:space="preserve">
+    <value>Informe</value>
+  </data>
+  <data name="ID_REPORTANALYSIS" xml:space="preserve">
+    <value>Informe {0}</value>
+  </data>
+  <data name="ID_RN_ANALYSIS" xml:space="preserve">
+    <value>Análisis ({0})</value>
+  </data>
+  <data name="ID_RN_ARRANGEMENT" xml:space="preserve">
+    <value>Arreglo</value>
+  </data>
+  <data name="ID_RN_AUTHORS" xml:space="preserve">
+    <value>Autores</value>
+  </data>
+  <data name="ID_RN_BOX" xml:space="preserve">
+    <value>Caja</value>
+  </data>
+  <data name="ID_RN_BUNDLE" xml:space="preserve">
+    <value>Paquete</value>
+  </data>
+  <data name="ID_RN_CASE" xml:space="preserve">
+    <value>Caso</value>
+  </data>
+  <data name="ID_RN_COMPANYLOGO" xml:space="preserve">
+    <value>Logotipo de la empresa</value>
+  </data>
+  <data name="ID_RN_CONSTRAINTSET" xml:space="preserve">
+    <value>Conjunto de restricciones</value>
+  </data>
+  <data name="ID_RN_CYLINDER" xml:space="preserve">
+    <value>Cilindro</value>
+  </data>
+  <data name="ID_RN_DATE" xml:space="preserve">
+    <value>Fecha</value>
+  </data>
+  <data name="ID_RN_DEFAULT" xml:space="preserve">
+    <value>Por defecto</value>
+  </data>
+  <data name="ID_RN_DESCRIPTION" xml:space="preserve">
+    <value>Descripción</value>
+  </data>
+  <data name="ID_RN_DIMENSIONS" xml:space="preserve">
+    <value>Dimensiones</value>
+  </data>
+  <data name="ID_RN_DIMENSIONSINNER" xml:space="preserve">
+    <value>Dimensiones internas</value>
+  </data>
+  <data name="ID_RN_DIMENSIONSOUTER" xml:space="preserve">
+    <value>Dimensiones exteriores</value>
+  </data>
+  <data name="ID_RN_IMAGE" xml:space="preserve">
+    <value>Imagen</value>
+  </data>
+  <data name="ID_RN_INTERLAYER" xml:space="preserve">
+    <value>Capa intermediaria</value>
+  </data>
+  <data name="ID_RN_LAYERS" xml:space="preserve">
+    <value>Capas</value>
+  </data>
+  <data name="ID_RN_MAXIMUMHEIGHT" xml:space="preserve">
+    <value>Altura máxima</value>
+  </data>
+  <data name="ID_RN_MAXIMUMNUMBER" xml:space="preserve">
+    <value>Número máximo</value>
+  </data>
+  <data name="ID_RN_MAXIMUMWEIGHT" xml:space="preserve">
+    <value>Peso máximo</value>
+  </data>
+  <data name="ID_RN_OVERHANG" xml:space="preserve">
+    <value>Proyección de la</value>
+  </data>
+  <data name="ID_RN_PACK" xml:space="preserve">
+    <value>Pack</value>
+  </data>
+  <data name="ID_RN_PALLET" xml:space="preserve">
+    <value>Plataforma</value>
+  </data>
+  <data name="ID_RN_SOLUTION" xml:space="preserve">
+    <value>Solución</value>
+  </data>
+  <data name="ID_RN_SPACES" xml:space="preserve">
+    <value>Espacios</value>
+  </data>
+  <data name="ID_RN_TRUCK" xml:space="preserve">
+    <value>Camión</value>
+  </data>
+  <data name="ID_RN_VIEWISO" xml:space="preserve">
+    <value>ISO</value>
+  </data>
+  <data name="ID_RN_VIEWS" xml:space="preserve">
+    <value>Frente/izquierda/derecha/parte trasera</value>
+  </data>
+  <data name="ID_RN_VOLUMEEFFICIENCY" xml:space="preserve">
+    <value>Eficiencia de volumen</value>
+  </data>
+  <data name="ID_RN_WEIGHT" xml:space="preserve">
+    <value>Peso</value>
+  </data>
 </root>

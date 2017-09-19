@@ -12,7 +12,7 @@ namespace treeDiM.StackBuilder.Engine
 {
     internal abstract class LayerPatternBox : LayerPattern
     {
-        // This is okay as long as LayerPatternBox objects are immutable
+        // This is OK as long as LayerPatternBox objects are immutable
         public static IReadOnlyList<LayerPatternBox> All => ImmutableList.CreateRange(new LayerPatternBox[] {
             new LayerPatternColumn()
             , new LayerPatternInterlocked()

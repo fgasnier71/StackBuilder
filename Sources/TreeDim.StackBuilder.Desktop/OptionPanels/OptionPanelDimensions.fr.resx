@@ -155,4 +155,10 @@
   <data name="cbDim2.Items3" xml:space="preserve">
     <value>Dimensions palette (sans hauteur)</value>
   </data>
+  <data name="lbDimensions1.Text" xml:space="preserve">
+    <value>Dimensions 1</value>
+  </data>
+  <data name="lbDimensions2.Text" xml:space="preserve">
+    <value>Dimensions 2</value>
+  </data>
 </root>

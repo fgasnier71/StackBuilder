@@ -440,4 +440,25 @@
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>treeDiM.StackBuilder.Desktop.FormNewBase, treeDiM.StackBuilder.Desktop, Version=3.0.0.30, Culture=neutral, PublicKeyToken=null</value>
   </data>
+  <data name="lbLength.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="lbWidth.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="lbHeight.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="lbWeight.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="lbInsideLength.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="label3.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="label4.Text" xml:space="preserve">
+    <value></value>
+  </data>
 </root>

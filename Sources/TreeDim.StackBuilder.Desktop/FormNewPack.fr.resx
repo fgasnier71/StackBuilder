@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-	<!-- 
+  <!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,114 +59,234 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-		<xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-		<xsd:element name="root" msdata:IsDataSet="true">
-			<xsd:complexType>
-				<xsd:choice maxOccurs="unbounded">
-					<xsd:element name="metadata">
-						<xsd:complexType>
-							<xsd:sequence>
-								<xsd:element name="value" type="xsd:string" minOccurs="0" />
-							</xsd:sequence>
-							<xsd:attribute name="name" use="required" type="xsd:string" />
-							<xsd:attribute name="type" type="xsd:string" />
-							<xsd:attribute name="mimetype" type="xsd:string" />
-							<xsd:attribute ref="xml:space" />
-						</xsd:complexType>
-					</xsd:element>
-					<xsd:element name="assembly">
-						<xsd:complexType>
-							<xsd:attribute name="alias" type="xsd:string" />
-							<xsd:attribute name="name" type="xsd:string" />
-						</xsd:complexType>
-					</xsd:element>
-					<xsd:element name="data">
-						<xsd:complexType>
-							<xsd:sequence>
-								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-								<xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-							</xsd:sequence>
-							<xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-							<xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-							<xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-							<xsd:attribute ref="xml:space" />
-						</xsd:complexType>
-					</xsd:element>
-					<xsd:element name="resheader">
-						<xsd:complexType>
-							<xsd:sequence>
-								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-							</xsd:sequence>
-							<xsd:attribute name="name" type="xsd:string" use="required" />
-						</xsd:complexType>
-					</xsd:element>
-				</xsd:choice>
-			</xsd:complexType>
-		</xsd:element>
-	</xsd:schema>
-	<resheader name="resmimetype">
-		<value>text/microsoft-resx</value>
-	</resheader>
-	<resheader name="version">
-		<value>2.0</value>
-	</resheader>
-	<resheader name="reader">
-		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-	</resheader>
-	<resheader name="writer">
-		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-	</resheader>
-	<assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-	<data name="lbBox.Location" type="System.Drawing.Point, System.Drawing">
-		<value>12, 69</value>
-	</data>
-	<data name="lbBox.Size" type="System.Drawing.Size, System.Drawing">
-		<value>51, 13</value>
-	</data>
-	<data name="lbBox.Text" xml:space="preserve">
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="lbBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 69</value>
+  </data>
+  <data name="lbBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>51, 13</value>
+  </data>
+  <data name="lbBox.Text" xml:space="preserve">
     <value>Etui / UC</value>
   </data>
-	<data name="uCtrlOuterDimensions.Location" type="System.Drawing.Point, System.Drawing">
-		<value>12, 317</value>
-	</data>
-	<data name="uCtrlOuterDimensions.Size" type="System.Drawing.Size, System.Drawing">
-		<value>321, 22</value>
-	</data>
-	<data name="uCtrlOuterDimensions.Text" xml:space="preserve">
+  <data name="uCtrlOuterDimensions.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 317</value>
+  </data>
+  <data name="uCtrlOuterDimensions.Size" type="System.Drawing.Size, System.Drawing">
+    <value>321, 22</value>
+  </data>
+  <data name="uCtrlOuterDimensions.Text" xml:space="preserve">
     <value>Dimensions ext.</value>
   </data>
-	<data name="uCtrlLayout.Location" type="System.Drawing.Point, System.Drawing">
-		<value>12, 95</value>
-	</data>
-	<data name="uCtrlLayout.Size" type="System.Drawing.Size, System.Drawing">
-		<value>277, 20</value>
-	</data>
-	<data name="uCtrlLayout.Text" xml:space="preserve">
+  <data name="uCtrlLayout.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 95</value>
+  </data>
+  <data name="uCtrlLayout.Size" type="System.Drawing.Size, System.Drawing">
+    <value>277, 20</value>
+  </data>
+  <data name="uCtrlLayout.Text" xml:space="preserve">
     <value>Arrangement</value>
   </data>
-	<data name="groupBox1.Text" xml:space="preserve">
+  <data name="groupBox1.Text" xml:space="preserve">
     <value>Fardelage</value>
   </data>
-	<data name="uCtrlHeight.Text" xml:space="preserve">
+  <data name="uCtrlHeight.Text" xml:space="preserve">
     <value>Hauteur</value>
   </data>
-	<data name="uCtrlWalls.Text" xml:space="preserve">
+  <data name="uCtrlWalls.Text" xml:space="preserve">
     <value>Nombre de murs</value>
   </data>
-	<data name="uCtrlWeight.Text" xml:space="preserve">
+  <data name="uCtrlWeight.Text" xml:space="preserve">
     <value>Poids</value>
   </data>
-	<data name="uCtrlThickness.Text" xml:space="preserve">
+  <data name="uCtrlThickness.Text" xml:space="preserve">
     <value>Epaisseur</value>
   </data>
-	<data name="lbWrapperColor.Size" type="System.Drawing.Size, System.Drawing">
-		<value>43, 13</value>
-	</data>
-	<data name="lbWrapperColor.Text" xml:space="preserve">
+  <data name="lbWrapperColor.Size" type="System.Drawing.Size, System.Drawing">
+    <value>43, 13</value>
+  </data>
+  <data name="lbWrapperColor.Text" xml:space="preserve">
     <value>Couleur</value>
   </data>
-	<data name="$this.Text" xml:space="preserve">
+  <data name="$this.Text" xml:space="preserve">
     <value>Créer un nouveau fardeau...</value>
+  </data>
+  <data name="cbType.Items3" xml:space="preserve">
+    <value>Plateau</value>
+  </data>
+  <data name="cbType.Items2" xml:space="preserve">
+    <value>Carton</value>
+  </data>
+  <data name="cbType.Items1" xml:space="preserve">
+    <value>Papier</value>
+  </data>
+  <data name="cbType.Items" xml:space="preserve">
+    <value>Polyethylène</value>
+  </data>
+  <data name="lbType.Text" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="cbColor.Items5" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="chkbTransparent.Text" xml:space="preserve">
+    <value>Transparent</value>
+  </data>
+  <data name="lbDir.Text" xml:space="preserve">
+    <value>Direction</value>
+  </data>
+  <data name="cbDir.Items" xml:space="preserve">
+    <value>X-</value>
+  </data>
+  <data name="cbDir.Items1" xml:space="preserve">
+    <value>X +</value>
+  </data>
+  <data name="cbDir.Items2" xml:space="preserve">
+    <value>Y-</value>
+  </data>
+  <data name="cbDir.Items3" xml:space="preserve">
+    <value>Y +</value>
+  </data>
+  <data name="cbDir.Items4" xml:space="preserve">
+    <value>Z-</value>
+  </data>
+  <data name="cbDir.Items5" xml:space="preserve">
+    <value>Z +</value>
+  </data>
+  <data name="cbColor.Items" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbColor.Items1" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbColor.Items2" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbColor.Items3" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbColor.Items4" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbColor.Items6" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbColor.Items7" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbColor.Items8" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbColor.Items9" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbColor.Items10" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbColor.Items11" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbColor.Items12" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbColor.Items13" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbColor.Items14" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbColor.Items15" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbColor.Items16" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbColor.Items17" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbColor.Items18" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbColor.Items19" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbColor.Items20" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbColor.Items21" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbColor.Items22" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbColor.Items23" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbColor.Items24" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbColor.Items25" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbColor.Items26" xml:space="preserve">
+    <value>Couleur</value>
   </data>
 </root>

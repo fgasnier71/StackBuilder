@@ -121,7 +121,7 @@
   <data name="chkbPluginINTEX.Size" type="System.Drawing.Size, System.Drawing">
     <value>159, 17</value>
   </data>
-  <data name="chkbPluginINTEX.Text" xml:space="preserve">
-    <value>Use INTEX France plugin... </value>
+  <data name="chkbUsePlugin.Text" xml:space="preserve">
+    <value>-Plugin verwenden</value>
   </data>
 </root>

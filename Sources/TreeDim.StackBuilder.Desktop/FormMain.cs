@@ -27,7 +27,6 @@ using treeDiM.StackBuilder.Plugin;
 
 using treeDiM.PLMPack.DBClient;
 using treeDiM.PLMPack.DBClient.PLMPackSR;
-
 #endregion
 
 namespace treeDiM.StackBuilder.Desktop
@@ -282,11 +281,18 @@ namespace treeDiM.StackBuilder.Desktop
         public void ShowStartPage(object sender, EventArgs e)
         {
             if (!IsWebSiteReachable) return;
-            _dockStartPage.Show(dockPanel, WeifenLuo.WinFormsUI.Docking.DockState.Document);
-            _dockStartPage.Url = new System.Uri(StartPageURL);
 
-            _log.InfoFormat("Showing start page (URL : {0})", StartPageURL);
-        }
+           _log.InfoFormat("Showing start page (URL : {0})", StartPageURL);
+            try
+            {
+                _dockStartPage.Show(dockPanel, WeifenLuo.WinFormsUI.Docking.DockState.Document);
+                _dockStartPage.Url = new System.Uri(StartPageURL);
+            }
+            catch (Exception ex)
+            {
+                _log.Error(ex.Message);
+            }
+         }
         private void CloseStartPage()
         {
             if (null != _dockStartPage)
@@ -313,7 +319,7 @@ namespace treeDiM.StackBuilder.Desktop
             _documentExplorer.DocumentTreeView.SolutionReportClicked += new AnalysisTreeView.AnalysisNodeClickHandler(onSolutionReportNodeClicked);
             _documentExplorer.DocumentTreeView.SolutionColladaExportClicked += new AnalysisTreeView.AnalysisNodeClickHandler(DocumentTreeView_SolutionColladaExportClicked);
             ShowLogConsole();
-            if (AssemblyConf != "debug")
+            if (AssemblyConf != "debug" && Properties.Settings.Default.ShowStartPage)
                 ShowStartPage(this, null);
         }
 
@@ -419,23 +425,6 @@ namespace treeDiM.StackBuilder.Desktop
                         cylinderProperties.ColorWallOuter = form.ColorWallOuter;
                         cylinderProperties.ColorWallInner = form.ColorWallInner;
                         cylinderProperties.EndUpdate();
-                    }
-                }
-                else if (itemProp.GetType() == typeof(CaseOfBoxesProperties))
-                {
-                    CaseOfBoxesProperties caseOfBoxes = itemProp as CaseOfBoxesProperties;
-                    FormNewCaseOfBoxes form = new FormNewCaseOfBoxes(eventArg.Document, caseOfBoxes)
-                    {
-                        CaseName = itemProp.Name,
-                        CaseDescription = itemProp.Description
-                    };
-                    if (form.ShowDialog() == DialogResult.OK)
-                    {
-                        if (!UserAcknowledgeDependancies(caseOfBoxes)) return;
-                        caseOfBoxes.ID.SetNameDesc(form.CaseName, form.CaseDescription);
-                        caseOfBoxes.SetAllColors(form.Colors);
-                        caseOfBoxes.TextureList = form.TextureList;
-                        caseOfBoxes.EndUpdate();
                     }
                 }
                 else if (itemProp.GetType() == typeof(BundleProperties))
@@ -733,7 +722,6 @@ namespace treeDiM.StackBuilder.Desktop
             toolStripMIBestCase.Enabled         = (null != doc) && doc.CanCreateOptiMulticase;
             toolStripMenuItemBestCase.Enabled   = (null != doc) && doc.CanCreateOptiMulticase;
             toolStripMIBestCasePallet.Enabled   = (null != doc) && doc.CanCreateOptiCasePallet;
-            toolStripMenuItemBestCasePallet.Enabled = (null != doc) && doc.CanCreateOptiCasePallet;
             toolStripMIBestPack.Enabled         = (null != doc) && doc.CanCreateOptiPack;
             toolStripMenuItemBestPack.Enabled   = (null != doc) && doc.CanCreateOptiPack;
         }
@@ -1222,6 +1210,16 @@ namespace treeDiM.StackBuilder.Desktop
             catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
         #endregion
+        #region PLMPackLib
+        private void OnPLMPackLib(object sender, EventArgs e)
+        {
+            try
+            {
+                Process.Start("rundll32.exe", "dfshim.dll,ShOpenVerbApplication " + Properties.Settings.Default.UrlPLMPackLib);
+            }
+            catch (Exception ex) { _log.Error(ex.Message); }
+        }
+        #endregion
         #endregion
 
         #region Document / View status change handlers
@@ -1246,14 +1244,12 @@ namespace treeDiM.StackBuilder.Desktop
             foreach (IDocument doc in Documents)
                 foreach (IView view in doc.Views)
                 {
-                    DockContentAnalysisEdit formAnalysisEdit = view as DockContentAnalysisEdit;
-                    if (null != formAnalysisEdit && formAnalysisEdit.Analysis == analysis)
+                    if (view is DockContentAnalysisEdit formAnalysisEdit && formAnalysisEdit.Analysis == analysis)
                     {
                         formAnalysisEdit.Activate();
                         return;
                     }
-                    DockContentAnalysisPalletTruck formAnalysisPalletTruck = view as DockContentAnalysisPalletTruck;
-                    if (null != formAnalysisPalletTruck && null != analysisPalletTruck)
+                    if (view is DockContentAnalysisPalletTruck formAnalysisPalletTruck && null != analysisPalletTruck)
                     {
                         if (analysisPalletTruck == formAnalysisPalletTruck.Analysis)
                         {

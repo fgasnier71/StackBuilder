@@ -105,10 +105,14 @@
     <EmbeddedResource Include="FormNewINTEX.fr-FR.resx">
       <DependentUpon>FormNewINTEX.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNewINTEX.fr.resx">
+      <DependentUpon>FormNewINTEX.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewINTEX.resx">
       <DependentUpon>FormNewINTEX.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.fr-FR.resx" />
+    <EmbeddedResource Include="Properties\Resources.fr.resx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

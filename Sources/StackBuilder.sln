@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.16
+VisualStudioVersion = 15.0.26730.15
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GUI controls", "GUI controls", "{C6DE47A1-1707-4139-9638-37CA983F3086}"
 EndProject
@@ -290,6 +290,12 @@ Global
 		{75769E19-2CCC-4DF0-88D9-CBAC14BB6329} = {78A832C5-F1BB-4A1F-95FD-6531DDA2E9EE}
 		{097F2A4C-A34D-43E1-A5BF-58D12D80E11F} = {6A9F4A88-DE9C-4EAB-9659-197FF7DFF6AD}
 		{C5AAB10A-8D08-419F-9D5C-2FC78FEF8B53} = {6A9F4A88-DE9C-4EAB-9659-197FF7DFF6AD}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		RESX_ConfirmAddLanguageFile = False
+		SolutionGuid = {A8385DDB-1893-4CF8-83DF-F57C7AB7069B}
+		RESX_AutoCreateNewLanguageFiles = True
+		RESX_PrefixTranslations = False
 	EndGlobalSection
 	GlobalSection(Performance) = preSolution
 		HasPerformanceSessions = true

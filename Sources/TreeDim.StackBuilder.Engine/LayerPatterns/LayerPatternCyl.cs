@@ -12,7 +12,7 @@ namespace treeDiM.StackBuilder.Engine
 {
     internal abstract class LayerPatternCyl : LayerPattern
     {
-        // This is okay as long as LayerPatternBox objects are immutable
+        // This is OK as long as LayerPatternBox objects are immutable
         public static readonly IReadOnlyList<LayerPatternCyl> All = ImmutableList.CreateRange(new LayerPatternCyl[] {
             new CylinderLayerPatternAligned()
             , new CylinderLayerPatternExpanded()

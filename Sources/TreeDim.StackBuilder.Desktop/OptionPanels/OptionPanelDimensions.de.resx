@@ -120,4 +120,31 @@
   <data name="lbDimensions1.Text" xml:space="preserve">
     <value>Dimensions 1 </value>
   </data>
+  <data name="lbDimensions2.Text" xml:space="preserve">
+    <value>Abmessungen 2</value>
+  </data>
+  <data name="cbDim1.Items" xml:space="preserve">
+    <value>Abmessungen</value>
+  </data>
+  <data name="cbDim1.Items1" xml:space="preserve">
+    <value>Laden Sie Dimensionen</value>
+  </data>
+  <data name="cbDim1.Items2" xml:space="preserve">
+    <value>Abmessungen der Palette</value>
+  </data>
+  <data name="cbDim1.Items3" xml:space="preserve">
+    <value>Abmessungen der Palette (wo Höhe)</value>
+  </data>
+  <data name="cbDim2.Items" xml:space="preserve">
+    <value>Abmessungen</value>
+  </data>
+  <data name="cbDim2.Items1" xml:space="preserve">
+    <value>Laden Sie Dimensionen</value>
+  </data>
+  <data name="cbDim2.Items2" xml:space="preserve">
+    <value>Abmessungen der Palette</value>
+  </data>
+  <data name="cbDim2.Items3" xml:space="preserve">
+    <value>Abmessungen der Palette (wo Höhe)</value>
+  </data>
 </root>

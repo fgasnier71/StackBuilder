@@ -144,10 +144,10 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;chkShowLogConsole.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="bnShowAppFolder.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 36</value>
+    <value>8, 60</value>
   </data>
   <data name="bnShowAppFolder.Size" type="System.Drawing.Size, System.Drawing">
     <value>151, 23</value>
@@ -168,6 +168,33 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;bnShowAppFolder.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="chkbShowStartPage.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="chkbShowStartPage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 37</value>
+  </data>
+  <data name="chkbShowStartPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>193, 17</value>
+  </data>
+  <data name="chkbShowStartPage.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="chkbShowStartPage.Text" xml:space="preserve">
+    <value>Show application page at start-up...</value>
+  </data>
+  <data name="&gt;&gt;chkbShowStartPage.Name" xml:space="preserve">
+    <value>chkbShowStartPage</value>
+  </data>
+  <data name="&gt;&gt;chkbShowStartPage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;chkbShowStartPage.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;chkbShowStartPage.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">

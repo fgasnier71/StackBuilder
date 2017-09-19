@@ -296,4 +296,58 @@
         AACAAQAAgAEAAMABAADgAQAA8AEAAP//AAA=
 </value>
   </data>
+  <data name="toolSBReportPrint.Text" xml:space="preserve">
+    <value>Stampa...</value>
+  </data>
+  <data name="statusStrip.Text" xml:space="preserve">
+    <value>controllo statusStrip</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Rapporto...</value>
+  </data>
+  <data name="lbDefinitionLarge.Text" xml:space="preserve">
+    <value>Definizione</value>
+  </data>
+  <data name="statusLabelDef.Text" xml:space="preserve">
+    <value>Pronto</value>
+  </data>
+  <data name="toolSBReportWord.Text" xml:space="preserve">
+    <value>Parola</value>
+  </data>
+  <data name="lbHTMLSizeDetail.Text" xml:space="preserve">
+    <value>Formato HTML</value>
+  </data>
+  <data name="toolSBReportPrint.ToolTipText" xml:space="preserve">
+    <value>Stampa</value>
+  </data>
+  <data name="toolSBReportPDF.Text" xml:space="preserve">
+    <value>Report PDF</value>
+  </data>
+  <data name="lbHTMLSizeLarge.Text" xml:space="preserve">
+    <value>Formato HTML</value>
+  </data>
+  <data name="lbFontSizeLarge.Text" xml:space="preserve">
+    <value>Dimensione del carattere</value>
+  </data>
+  <data name="lbFontSizeDetail.Text" xml:space="preserve">
+    <value>Dimensione del carattere</value>
+  </data>
+  <data name="tabPageDetail.Text" xml:space="preserve">
+    <value>Immagine dettaglio</value>
+  </data>
+  <data name="toolSBDimensions.Text" xml:space="preserve">
+    <value>Mostra / Nascondi dimensioni</value>
+  </data>
+  <data name="tabPageLargeImg.Text" xml:space="preserve">
+    <value>Grande immagine</value>
+  </data>
+  <data name="lbDefinitionDetail.Text" xml:space="preserve">
+    <value>Definizione</value>
+  </data>
+  <data name="toolStrip.Text" xml:space="preserve">
+    <value>toolStrip1</value>
+  </data>
+  <data name="toolSBReportHTML.Text" xml:space="preserve">
+    <value>HTML</value>
+  </data>
 </root>

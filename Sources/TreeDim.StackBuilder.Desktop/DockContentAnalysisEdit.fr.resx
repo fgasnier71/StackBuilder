@@ -143,20 +143,29 @@
         WBWgIHApcAGQRhq/KU7gLkF1Je6/QV0adsYMQOkE2ItAtxddqVOMX64UJcfaxRFaAAAAAElFTkSuQmCC
 </value>
   </data>
+  <data name="gbLayer.Text" xml:space="preserve">
+    <value>Double-cliquer une couche...</value>
+  </data>
   <data name="toolStripButtonBack.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wwAADsMBx2+oZAAAAFhJREFUOE/dj7ENwDAIBJmTQWBkxrD18dOkibFEEZ9E4bfuEdJGRAx3f4bRPimr
-        6jCzWsFbxptf3/xUBpAgVwYLqZ8VwKG+TsgSNJdPAJeXMK6RJRhGHYhMg0TSjlQA8QMAAAAASUVORK5C
-        YII=
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABYSURBVDhP3Y+xDcAwCASZk0FgZMaw9fHTpImxRBGfROG3
+        7hHSRkQMd3+G0T4pq+ows1rBW8abX9/8VAaQIFcGC6mfFcChvk7IEjSXTwCXlzCukSUYRh2ITINE0o5U
+        APEDAAAAAElFTkSuQmCC
 </value>
+  </data>
+  <data name="toolStripButtonBack.Text" xml:space="preserve">
+    <value>Précédent...</value>
+  </data>
+  <data name="toolStripButtonBack.ToolTipText" xml:space="preserve">
+    <value>Précédent...</value>
   </data>
   <data name="toolStripButtonReportWord.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wwAADsMBx2+oZAAAAGRJREFUOE/NjEEOgEAIA/f/n8YULSmEA+56cJJqmRrXWmZnuR+b/OwHeDOkcyB5
-        jkk+dA4kr2NI6Rr17HGAOk56HKCOkx4HqOOkxwE4MkrnvVehUTrvvQqN0nnv9cM3fPeD3Zhdq4QDDGnW
-        /tYAAAAASUVORK5CYII=
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABkSURBVDhPzYxBDoBACAP3/5/GFC0phAPuenCSapka11pm
+        Z7kfm/zsB3gzpHMgeY5JPnQOJK9jSOka9exxgDpOehygjpMeB6jjpMcBODJK571XoVE6770KjdJ57/XD
+        N3z3g92YXauEAwxp1v7WAAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -290,13 +299,13 @@
   <data name="$this.Text" xml:space="preserve">
     <value>Analyse...</value>
   </data>
-  <data name="gbLayer.Text" xml:space="preserve">
-    <value>Double-cliquer une couche...</value>
+  <data name="tbClickLayer.Text" xml:space="preserve">
+    <value>Double-cliquer une couche pour éditer patron/orientation/intercalaire.</value>
   </data>
-  <data name="toolStripButtonBack.ToolTipText" xml:space="preserve">
-    <value>Précédent...</value>
+  <data name="toolStripAnalysis.Text" xml:space="preserve">
+    <value>Générer un rapport...</value>
   </data>
-  <data name="toolStripButtonReportWord.Text" xml:space="preserve">
+  <data name="toolStripButtonReport.Text" xml:space="preserve">
     <value>Générer un rapport...</value>
   </data>
 </root>

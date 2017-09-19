@@ -30,7 +30,7 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Handlers
-        private void chkShowLogConsole_CheckedChanged(object sender, EventArgs e)
+        private void ChkShowLogConsole_CheckedChanged(object sender, EventArgs e)
         {
             // force setting
             Settings.Default.ShowLogConsole = chkShowLogConsole.Checked;
@@ -38,7 +38,8 @@ namespace treeDiM.StackBuilder.Desktop
             FormMain form = FormMain.GetInstance();
             form.ShowLogConsole();
         }
-        private void onShowApplicationFolder(object sender, EventArgs e)
+
+        private void OnShowApplicationFolder(object sender, EventArgs e)
         {
             try
             {   Process.Start(Path.GetDirectoryName(Application.ExecutablePath)); }

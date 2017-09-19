@@ -121,7 +121,28 @@
   <data name="lbTrucks.Size" type="System.Drawing.Size, System.Drawing">
     <value>43, 13</value>
   </data>
+  <data name="checkBoxBestLayersOnly.Text" xml:space="preserve">
+    <value>Mostrar sólo las capas mejor</value>
+  </data>
   <data name="lbTrucks.Text" xml:space="preserve">
-    <value>Trucks </value>
+    <value>Camiones</value>
+  </data>
+  <data name="chkbAllowMultipleLayers.Text" xml:space="preserve">
+    <value>Permite múltiples capas</value>
+  </data>
+  <data name="uCtrlMinDistanceLoadWall.Text" xml:space="preserve">
+    <value>Carga/distancia mínima de pared</value>
+  </data>
+  <data name="lbPallets.Text" xml:space="preserve">
+    <value>Palets cargados</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Crear un nuevo análisis del carro de plataforma...</value>
+  </data>
+  <data name="uCtrlMinDistanceLoadRoof.Text" xml:space="preserve">
+    <value>Distancia mínima/carga de la azotea</value>
+  </data>
+  <data name="uCtrlMinDistLoadRoof.Text" xml:space="preserve">
+    <value>Distancia mínima/carga de la azotea</value>
   </data>
 </root>

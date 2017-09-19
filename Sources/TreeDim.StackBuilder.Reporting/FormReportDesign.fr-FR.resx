@@ -326,4 +326,28 @@
   <data name="$this.Text" xml:space="preserve">
     <value>Rapport...</value>
   </data>
+  <data name="toolSBReportPrint.Text" xml:space="preserve">
+    <value>Imprimer...</value>
+  </data>
+  <data name="statusStrip.Text" xml:space="preserve">
+    <value>statusStrip</value>
+  </data>
+  <data name="statusLabelDef.Text" xml:space="preserve">
+    <value>Prêt</value>
+  </data>
+  <data name="toolSBReportWord.Text" xml:space="preserve">
+    <value>Word</value>
+  </data>
+  <data name="toolSBReportPrint.ToolTipText" xml:space="preserve">
+    <value>Imprimer</value>
+  </data>
+  <data name="toolSBReportPDF.Text" xml:space="preserve">
+    <value>Rapport PDF</value>
+  </data>
+  <data name="toolStrip.Text" xml:space="preserve">
+    <value>toolStrip1</value>
+  </data>
+  <data name="toolSBReportHTML.Text" xml:space="preserve">
+    <value>HTML</value>
+  </data>
 </root>

@@ -28,16 +28,14 @@ namespace GLib.Options
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OptionsPanel));
             this.SuspendLayout();
             // 
             // OptionsPanel
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Location = new System.Drawing.Point(3, 4);
-            this.MinimumSize = new System.Drawing.Size(340, 215);
             this.Name = "OptionsPanel";
-            this.Size = new System.Drawing.Size(340, 215);
             this.ResumeLayout(false);
 
         }

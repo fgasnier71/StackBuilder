@@ -282,6 +282,27 @@
 </value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>.</value>
+    <value>Análisis...</value>
+  </data>
+  <data name="gbLayer.Text" xml:space="preserve">
+    <value>Haga doble clic en una capa...</value>
+  </data>
+  <data name="tbClickLayer.Text" xml:space="preserve">
+    <value>Haga doble clic en una capa para editar patrón / orientación / capa intermediaria.</value>
+  </data>
+  <data name="toolStripAnalysis.Text" xml:space="preserve">
+    <value>Herramientas</value>
+  </data>
+  <data name="chkbInterlayer.Text" xml:space="preserve">
+    <value>Capa intermediaria</value>
+  </data>
+  <data name="toolStripButtonBack.Text" xml:space="preserve">
+    <value>Atrás...</value>
+  </data>
+  <data name="toolStripButtonBack.ToolTipText" xml:space="preserve">
+    <value>Atrás...</value>
+  </data>
+  <data name="toolStripButtonReport.Text" xml:space="preserve">
+    <value>Generar informe de...</value>
   </data>
 </root>

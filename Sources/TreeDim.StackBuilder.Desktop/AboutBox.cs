@@ -146,8 +146,16 @@ namespace treeDiM.StackBuilder.Desktop
         {
             get
             {
-                WCFClientSingleton client = WCFClientSingleton.Instance;
-                return string.Format(Properties.Resources.ID_REGISTEREDUSERCOUNT, WCFClientSingleton.Instance.Client.get_PLMPackRegisteredUserCount());
+                try
+                {
+                    WCFClientSingleton client = WCFClientSingleton.Instance;
+                    return string.Format(Properties.Resources.ID_REGISTEREDUSERCOUNT, WCFClientSingleton.Instance.Client.get_PLMPackRegisteredUserCount());
+                }
+                catch (Exception ex)
+                {
+                    _log.Error(ex.Message);
+                    return string.Empty;
+                }
             }
         }
         #endregion

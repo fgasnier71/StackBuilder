@@ -35,7 +35,7 @@
             this.gridSolution = new SourceGrid.Grid();
             this.toolStripAnalysis = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonBack = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButtonReportMSWord = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonReport = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerHoriz)).BeginInit();
             this.splitContainerHoriz.Panel1.SuspendLayout();
             this.splitContainerHoriz.SuspendLayout();
@@ -54,12 +54,7 @@
             // 
             // splitContainerHoriz.Panel1
             // 
-            resources.ApplyResources(this.splitContainerHoriz.Panel1, "splitContainerHoriz.Panel1");
             this.splitContainerHoriz.Panel1.Controls.Add(this.splitContainerVert);
-            // 
-            // splitContainerHoriz.Panel2
-            // 
-            resources.ApplyResources(this.splitContainerHoriz.Panel2, "splitContainerHoriz.Panel2");
             // 
             // splitContainerVert
             // 
@@ -68,12 +63,10 @@
             // 
             // splitContainerVert.Panel1
             // 
-            resources.ApplyResources(this.splitContainerVert.Panel1, "splitContainerVert.Panel1");
             this.splitContainerVert.Panel1.Controls.Add(this.graphCtrlSolution);
             // 
             // splitContainerVert.Panel2
             // 
-            resources.ApplyResources(this.splitContainerVert.Panel2, "splitContainerVert.Panel2");
             this.splitContainerVert.Panel2.Controls.Add(this.gridSolution);
             // 
             // graphCtrlSolution
@@ -94,25 +87,25 @@
             // 
             // toolStripAnalysis
             // 
-            resources.ApplyResources(this.toolStripAnalysis, "toolStripAnalysis");
             this.toolStripAnalysis.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButtonBack,
-            this.toolStripButtonReportMSWord});
+            this.toolStripButtonReport});
+            resources.ApplyResources(this.toolStripAnalysis, "toolStripAnalysis");
             this.toolStripAnalysis.Name = "toolStripAnalysis";
             // 
             // toolStripButtonBack
             // 
-            resources.ApplyResources(this.toolStripButtonBack, "toolStripButtonBack");
             this.toolStripButtonBack.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.toolStripButtonBack, "toolStripButtonBack");
             this.toolStripButtonBack.Name = "toolStripButtonBack";
             this.toolStripButtonBack.Click += new System.EventHandler(this.onBack);
             // 
-            // toolStripButtonReportMSWord
+            // toolStripButtonReport
             // 
-            resources.ApplyResources(this.toolStripButtonReportMSWord, "toolStripButtonReportMSWord");
-            this.toolStripButtonReportMSWord.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonReportMSWord.Name = "toolStripButtonReportMSWord";
-            this.toolStripButtonReportMSWord.Click += new System.EventHandler(this.onGenerateReport);
+            this.toolStripButtonReport.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.toolStripButtonReport, "toolStripButtonReport");
+            this.toolStripButtonReport.Name = "toolStripButtonReport";
+            this.toolStripButtonReport.Click += new System.EventHandler(this.onGenerateReport);
             // 
             // DockContentAnalysisPalletTruck
             // 
@@ -141,7 +134,7 @@
 
         private System.Windows.Forms.ToolStrip toolStripAnalysis;
         private System.Windows.Forms.ToolStripButton toolStripButtonBack;
-        private System.Windows.Forms.ToolStripButton toolStripButtonReportMSWord;
+        private System.Windows.Forms.ToolStripButton toolStripButtonReport;
         private System.Windows.Forms.SplitContainer splitContainerHoriz;
         private System.Windows.Forms.SplitContainer splitContainerVert;
         private Graphics.Graphics3DControl graphCtrlSolution;
