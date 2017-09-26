@@ -266,4 +266,49 @@
   <data name="$this.Text" xml:space="preserve">
     <value>Créer un nouvel intercalaire...</value>
   </data>
+  <data name="uCtrlDimensions.Text" xml:space="preserve">
+    <value>Dimensions</value>
+  </data>
+  <data name="uCtrlWeight.Text" xml:space="preserve">
+    <value>Poids</value>
+  </data>
+  <data name="cbColor.Items" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbColor.Items1" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbColor.Items2" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbColor.Items3" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbColor.Items4" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbColor.Items36" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbColor.Items37" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbColor.Items38" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbColor.Items39" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbColor.Items40" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbColor.Items41" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbColor.Items43" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="bnSendToDatabase.Text" xml:space="preserve">
+    <value>Envoi à la base de données</value>
+  </data>
 </root>

@@ -126,4 +126,10 @@
   <data name="IDS_NOVALIDFILELOADED" xml:space="preserve">
     <value>Pas de fichier valide chargé.</value>
   </data>
+  <data name="IDS_NODATALOADED" xml:space="preserve">
+    <value>Aucune donnée pourrait être chargée de fichier</value>
+  </data>
+  <data name="IDS_NOTALLCASESWILLFIT" xml:space="preserve">
+    <value>Pas tous les cas seront adaptera dans l’empilement de volume !</value>
+  </data>
 </root>

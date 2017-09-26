@@ -120,4 +120,40 @@
   <data name="lbThicknessUnit.Text" xml:space="preserve">
     <value>mm</value>
   </data>
+  <data name="lbStiffnessYUnit.Text" xml:space="preserve">
+    <value>N.m</value>
+  </data>
+  <data name="lbThickness.Text" xml:space="preserve">
+    <value>Dikte</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Kartonnen kwaliteit gegevens bewerken...</value>
+  </data>
+  <data name="lbECTUnit.Text" xml:space="preserve">
+    <value>kN/m</value>
+  </data>
+  <data name="lbRigidityY.Text" xml:space="preserve">
+    <value>Stijfheid Y</value>
+  </data>
+  <data name="lbRigidityX.Text" xml:space="preserve">
+    <value>Stijfheid X</value>
+  </data>
+  <data name="lbProfile.Text" xml:space="preserve">
+    <value>Profiel</value>
+  </data>
+  <data name="lbStiffnessXUnit.Text" xml:space="preserve">
+    <value>N.m</value>
+  </data>
+  <data name="lbECT.Text" xml:space="preserve">
+    <value>ECT</value>
+  </data>
+  <data name="bnOk.Text" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="lbName.Text" xml:space="preserve">
+    <value>Naam</value>
+  </data>
+  <data name="bnCancel.Text" xml:space="preserve">
+    <value>Annuleren</value>
+  </data>
 </root>

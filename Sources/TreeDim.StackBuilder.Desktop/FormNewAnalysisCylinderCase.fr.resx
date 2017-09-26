@@ -120,4 +120,16 @@
   <data name="$this.Text" xml:space="preserve">
     <value>Créer une nouvelle analyse cylindre/caisse...</value>
   </data>
+  <data name="lbCase.Text" xml:space="preserve">
+    <value>Caisse</value>
+  </data>
+  <data name="lbCylinder.Text" xml:space="preserve">
+    <value>Cylindre</value>
+  </data>
+  <data name="lbSelect.Text" xml:space="preserve">
+    <value>Sélectionner une ou plusieurs couche(s) et cliquer 'Suivant&gt;'</value>
+  </data>
+  <data name="checkBoxBestLayersOnly.Text" xml:space="preserve">
+    <value>Afficher les meilleurs couches seulement</value>
+  </data>
 </root>

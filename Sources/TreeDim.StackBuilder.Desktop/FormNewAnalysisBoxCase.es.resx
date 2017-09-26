@@ -120,4 +120,13 @@
   <data name="$this.Text" xml:space="preserve">
     <value>Create new box/case analysis... </value>
   </data>
+  <data name="lbCase.Text" xml:space="preserve">
+    <value>Embalaje</value>
+  </data>
+  <data name="lbBox.Text" xml:space="preserve">
+    <value>Caja</value>
+  </data>
+  <data name="checkBoxBestLayersOnly.Text" xml:space="preserve">
+    <value>Mostrar sólo las capas mejor</value>
+  </data>
 </root>

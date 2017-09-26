@@ -147,4 +147,37 @@
 	<data name="ID_SELECTED" xml:space="preserve">
 		<value>wybrany</value>
 	</data>
+	<data name="ID_LAYER" xml:space="preserve">
+    <value>Warstwy: </value>
+  </data>
+	<data name="ID_LAYERS" xml:space="preserve">
+    <value>Warstwy:  </value>
+  </data>
+	<data name="ID_LAYERSALL" xml:space="preserve">
+    <value>Warstw = All</value>
+  </data>
+	<data name="ID_LOADEDCASE" xml:space="preserve">
+    <value>Jeśli załadowany</value>
+  </data>
+	<data name="ID_LOADEDPALLET" xml:space="preserve">
+    <value>Załadowane palety</value>
+  </data>
+	<data name="ID_NAMEBOX" xml:space="preserve">
+    <value>Pudełko</value>
+  </data>
+	<data name="ID_NAMEBUNDLE" xml:space="preserve">
+    <value>Pakiet</value>
+  </data>
+	<data name="ID_NAMECYLINDER" xml:space="preserve">
+    <value>Cylindra</value>
+  </data>
+	<data name="ID_NAMEPACK" xml:space="preserve">
+    <value>Pakiet</value>
+  </data>
+	<data name="ID_NAMEPALLET" xml:space="preserve">
+    <value>Palety</value>
+  </data>
+	<data name="ID_NAMETRUCK" xml:space="preserve">
+    <value>Samochód ciężarowy</value>
+  </data>
 </root>

@@ -261,8 +261,23 @@
     <Folder Include="Schemas\" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Controls\UCtrlDouble.sv.resx">
+      <DependentUpon>UCtrlDouble.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\UCtrlDualDouble.resx">
       <DependentUpon>UCtrlDualDouble.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UCtrlDualDouble.sv.resx">
+      <DependentUpon>UCtrlDualDouble.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UCtrlOptDouble.sv.resx">
+      <DependentUpon>UCtrlOptDouble.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UCtrlOptTriDouble.sv.resx">
+      <DependentUpon>UCtrlOptTriDouble.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UCtrlTriDouble.sv.resx">
+      <DependentUpon>UCtrlTriDouble.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\UCtrlTriInt.resx">
       <DependentUpon>UCtrlTriInt.cs</DependentUpon>
@@ -279,6 +294,9 @@
     <EmbeddedResource Include="Controls\UCtrlTriDouble.resx">
       <DependentUpon>UCtrlTriDouble.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UCtrlTriInt.sv.resx">
+      <DependentUpon>UCtrlTriInt.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.de.resx" />
     <EmbeddedResource Include="Properties\Resources.es.resx" />
     <EmbeddedResource Include="Properties\Resources.fr.resx" />
@@ -290,6 +308,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.sv.resx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

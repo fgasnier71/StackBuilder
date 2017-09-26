@@ -28,27 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OptionPanelDatabase));
             this.chkbCloseAfterImport = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // chkbCloseAfterImport
             // 
-            this.chkbCloseAfterImport.AutoSize = true;
-            this.chkbCloseAfterImport.Location = new System.Drawing.Point(4, 4);
+            resources.ApplyResources(this.chkbCloseAfterImport, "chkbCloseAfterImport");
             this.chkbCloseAfterImport.Name = "chkbCloseAfterImport";
-            this.chkbCloseAfterImport.Size = new System.Drawing.Size(216, 17);
-            this.chkbCloseAfterImport.TabIndex = 0;
-            this.chkbCloseAfterImport.Text = "Close database browser after item import";
             this.chkbCloseAfterImport.UseVisualStyleBackColor = true;
             // 
             // OptionPanelDatabase
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CategoryPath = "Options\\\\Database";
             this.Controls.Add(this.chkbCloseAfterImport);
             this.DisplayName = "Database browser";
-            this.Location = new System.Drawing.Point(0, 0);
             this.Name = "OptionPanelDatabase";
             this.ResumeLayout(false);
             this.PerformLayout();

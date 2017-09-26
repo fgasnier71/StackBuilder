@@ -121,4 +121,22 @@
 	<data name="Intex" type="System.Resources.ResXFileRef, System.Windows.Forms">
 		<value>..\Resources\Intex.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
 	</data>
+	<data name="ID_CASECANNOTCONTAINITEM" xml:space="preserve">
+    <value>Zaak {0} kan geen item {1}.</value>
+  </data>
+	<data name="ID_ERROR_INVALIDFILE" xml:space="preserve">
+    <value>Bestand {0} bevat geen zowel een geldige lijst met items als een geldige lijst van pallets.</value>
+  </data>
+	<data name="ID_ERROR_NOITEMFOUND" xml:space="preserve">
+    <value>Geen {0} gevonden. Controleer of een geldig {1} tabblad bestaat!</value>
+  </data>
+	<data name="ID_PACKING" xml:space="preserve">
+    <value>Packing_ {0}</value>
+  </data>
+	<data name="ID_PALLETHEIGHTINSUFFICIENT" xml:space="preserve">
+    <value>Pallet hoogte lijkt onvoldoende.</value>
+  </data>
+	<data name="ID_READY" xml:space="preserve">
+    <value>Klaar</value>
+  </data>
 </root>

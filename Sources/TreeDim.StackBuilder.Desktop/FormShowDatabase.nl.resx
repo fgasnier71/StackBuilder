@@ -117,4 +117,46 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="bnClose.Text" xml:space="preserve">
+    <value>Sluiten</value>
+  </data>
+  <data name="tabPagePallet.Text" xml:space="preserve">
+    <value>Pallets</value>
+  </data>
+  <data name="tabPageInterlayer.Text" xml:space="preserve">
+    <value>Tussenlaag</value>
+  </data>
+  <data name="tabPageTruck.Text" xml:space="preserve">
+    <value>Vrachtwagens</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Bewerken van de database &amp; items in project importeren...</value>
+  </data>
+  <data name="tabPagePallet.ToolTipText" xml:space="preserve">
+    <value>Pallets</value>
+  </data>
+  <data name="bnImport.Text" xml:space="preserve">
+    <value>Importeren</value>
+  </data>
+  <data name="tabPagePalletFilm.Text" xml:space="preserve">
+    <value>Pallet films</value>
+  </data>
+  <data name="tabPageBundle.Text" xml:space="preserve">
+    <value>Bundels</value>
+  </data>
+  <data name="tabPageCase.Text" xml:space="preserve">
+    <value>Gevallen</value>
+  </data>
+  <data name="tabPagePalletCorner.Text" xml:space="preserve">
+    <value>Pallet hoeken</value>
+  </data>
+  <data name="tabPagePalletCap.Text" xml:space="preserve">
+    <value>Pallet caps</value>
+  </data>
+  <data name="tabPageCylinder.Text" xml:space="preserve">
+    <value>Cilinders</value>
+  </data>
+  <data name="tabPageBox.Text" xml:space="preserve">
+    <value>Vakken</value>
+  </data>
 </root>

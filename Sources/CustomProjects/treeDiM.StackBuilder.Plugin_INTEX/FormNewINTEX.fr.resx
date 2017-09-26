@@ -159,4 +159,10 @@
   <data name="uCtrlTriDimensions.Text" xml:space="preserve">
     <value>Dimensions</value>
   </data>
+  <data name="statusStripDef.Text" xml:space="preserve">
+    <value>statusStripDef</value>
+  </data>
+  <data name="toolStripStatusLabelDef.Text" xml:space="preserve">
+    <value>toolStripStatusLabelDef</value>
+  </data>
 </root>

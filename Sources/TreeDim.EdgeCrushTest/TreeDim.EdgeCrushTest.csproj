@@ -116,9 +116,11 @@
     <EmbeddedResource Include="FormEditCardboardQualityData.resx">
       <DependentUpon>FormEditCardboardQualityData.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormEditCardboardQualityData.sv.resx">
+      <DependentUpon>FormEditCardboardQualityData.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resource.de.resx" />
     <EmbeddedResource Include="Properties\Resource.es.resx" />
-    <EmbeddedResource Include="Properties\Resource.fr-FR.resx" />
     <EmbeddedResource Include="Properties\Resource.fr.resx" />
     <EmbeddedResource Include="Properties\Resource.it.resx" />
     <EmbeddedResource Include="Properties\Resource.ja.resx" />
@@ -128,10 +130,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resource.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resource.ja-JP.resx" />
-    <EmbeddedResource Include="Properties\Resource.de-DE.resx" />
-    <EmbeddedResource Include="Properties\Resource.it-IT.resx" />
-    <EmbeddedResource Include="Properties\Resource.es-ES.resx" />
+    <EmbeddedResource Include="Properties\Resource.sv.resx" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">

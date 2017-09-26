@@ -121,4 +121,22 @@
 	<data name="Intex" type="System.Resources.ResXFileRef, System.Windows.Forms">
 		<value>..\Resources\Intex.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
 	</data>
+	<data name="ID_CASECANNOTCONTAINITEM" xml:space="preserve">
+    <value>Sprawa {0} nie może zawierać elementu {1}.</value>
+  </data>
+	<data name="ID_ERROR_INVALIDFILE" xml:space="preserve">
+    <value>Plik {0} nie zawiera prawidłową listę elementów i prawidłową listę palet.</value>
+  </data>
+	<data name="ID_ERROR_NOITEMFOUND" xml:space="preserve">
+    <value>{0} nie jest znaleziono. Sprawdź, czy istnieje prawidłowy {1} kartę!</value>
+  </data>
+	<data name="ID_PACKING" xml:space="preserve">
+    <value>Packing_ {0}</value>
+  </data>
+	<data name="ID_PALLETHEIGHTINSUFFICIENT" xml:space="preserve">
+    <value>Wysokość palety wydaje się być niewystarczająca.</value>
+  </data>
+	<data name="ID_READY" xml:space="preserve">
+    <value>Gotowe</value>
+  </data>
 </root>

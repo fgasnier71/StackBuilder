@@ -198,4 +198,7 @@
   <data name="uLengthSizeY.Text" xml:space="preserve">
 		<value>uLength</value>
 	</data>
+  <data name="cbFace.Items2" xml:space="preserve">
+    <value>Right</value>
+  </data>
 </root>

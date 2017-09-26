@@ -1,0 +1,276 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+		<xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+		<xsd:element name="root" msdata:IsDataSet="true">
+			<xsd:complexType>
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element name="metadata">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" />
+							</xsd:sequence>
+							<xsd:attribute name="name" use="required" type="xsd:string" />
+							<xsd:attribute name="type" type="xsd:string" />
+							<xsd:attribute name="mimetype" type="xsd:string" />
+							<xsd:attribute ref="xml:space" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="assembly">
+						<xsd:complexType>
+							<xsd:attribute name="alias" type="xsd:string" />
+							<xsd:attribute name="name" type="xsd:string" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="data">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+								<xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+							<xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+							<xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+							<xsd:attribute ref="xml:space" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="resheader">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" />
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:choice>
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:schema>
+	<resheader name="resmimetype">
+		<value>text/microsoft-resx</value>
+	</resheader>
+	<resheader name="version">
+		<value>2.0</value>
+	</resheader>
+	<resheader name="reader">
+		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<resheader name="writer">
+		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<data name="ID_A1" xml:space="preserve">
+    <value>A1</value>
+  </data>
+	<data name="ID_A2" xml:space="preserve">
+    <value>A2</value>
+  </data>
+	<data name="ID_A3" xml:space="preserve">
+    <value>A3</value>
+  </data>
+	<data name="ID_ANALYSISDESCRIPTION" xml:space="preserve">
+    <value>Staplar låda {0} på lastpall {1}</value>
+  </data>
+	<data name="ID_ANALYSISHASNOVALIDSOLUTION" xml:space="preserve">
+    <value>Analys har ingen giltig lösning</value>
+  </data>
+	<data name="ID_ANALYSISNAME" xml:space="preserve">
+    <value>{0}_on_{1}</value>
+  </data>
+	<data name="ID_AREA" xml:space="preserve">
+    <value>Area</value>
+  </data>
+	<data name="ID_BUNDLECOUNT" xml:space="preserve">
+    <value># buntar</value>
+  </data>
+	<data name="ID_CASE" xml:space="preserve">
+    <value>Låda</value>
+  </data>
+	<data name="ID_CASECOUNT" xml:space="preserve">
+    <value>Lådantal</value>
+  </data>
+	<data name="ID_CASESLAYER" xml:space="preserve">
+    <value>Lådor/Lager</value>
+  </data>
+	<data name="ID_CASESPALLET" xml:space="preserve">
+    <value>Lådor/Lastpall</value>
+  </data>
+	<data name="ID_CASEWEIGHT" xml:space="preserve">
+    <value>Lådvikt</value>
+  </data>
+	<data name="ID_DEFINEBUNDLEPALLETANALYSIS" xml:space="preserve">
+    <value>Definiera paket/pall analys...</value>
+  </data>
+	<data name="ID_DEFINECASEPALLETANALYSIS" xml:space="preserve">
+    <value>Definiera ärende/lastpall analys...</value>
+  </data>
+	<data name="ID_DIMENSIONS" xml:space="preserve">
+    <value>Dimensioner</value>
+  </data>
+	<data name="ID_DOUBLECLICKALAYER" xml:space="preserve">
+    <value>Dubbelklicka på ett lager!</value>
+  </data>
+	<data name="ID_EFFICIENCYPERCENTAGE" xml:space="preserve">
+    <value>Effektivitet i procent</value>
+  </data>
+	<data name="ID_HEIGHT" xml:space="preserve">
+    <value>Höjd</value>
+  </data>
+	<data name="ID_INDEX" xml:space="preserve">
+    <value>Index</value>
+  </data>
+	<data name="ID_INSUFFICIENTPALLETHEIGHT" xml:space="preserve">
+    <value>Maximal lastpallhöjd ({0} {1}) borde överstiga {1} {2}</value>
+  </data>
+	<data name="ID_INSUFFICIENTVOLUME" xml:space="preserve">
+    <value>Maximal volym är otillräcklig för att packa {0} {1}.</value>
+  </data>
+	<data name="ID_INTERLAYERNUMBER" xml:space="preserve">
+    <value>Interlayer #</value>
+  </data>
+	<data name="ID_LAYERNUMBER" xml:space="preserve">
+    <value>Lager #</value>
+  </data>
+	<data name="ID_LAYERPATTERN" xml:space="preserve">
+    <value>Lagermönster</value>
+  </data>
+	<data name="ID_LAYERS" xml:space="preserve">
+    <value>Lager</value>
+  </data>
+	<data name="ID_LAYERWEIGT" xml:space="preserve">
+    <value>Lagrets vikt ({0})</value>
+  </data>
+	<data name="ID_LENGTH" xml:space="preserve">
+    <value>Längd</value>
+  </data>
+	<data name="ID_LOADDIMENSIONS" xml:space="preserve">
+    <value>Ladda dimensions{0}({1}x{1}x{1})</value>
+  </data>
+	<data name="ID_LOADWEIGHT_WU" xml:space="preserve">
+    <value>Lastens vikt ({0})</value>
+  </data>
+	<data name="ID_MAXIMUMSPACE" xml:space="preserve">
+    <value>Maximalt utrymme</value>
+  </data>
+	<data name="ID_MAXLOWERTHANMIN" xml:space="preserve">
+    <value>Inkonsekvens: Maximum {0} är lägre än minimum {1}.</value>
+  </data>
+	<data name="ID_NETWEIGHT_WU" xml:space="preserve">
+    <value>Nettovikt ({0})</value>
+  </data>
+	<data name="ID_OPTANALYSISDESCRIPTION" xml:space="preserve">
+    <value>Lastpallsanalys genererad genom lådoptimering för kartong {0} och lastpall {1}</value>
+  </data>
+	<data name="ID_OPTANALYSISNAME" xml:space="preserve">
+    <value>OptimAnalysis{0}_{1}*{2}*{3}_{4}{5}</value>
+  </data>
+	<data name="ID_OPTCASEDESCRIPTION" xml:space="preserve">
+    <value>Låda genererad genom lådoptimering för kartong {0} och lastpall {1}</value>
+  </data>
+	<data name="ID_OPTDOCUMENTDESCRIPTION" xml:space="preserve">
+    <value>Optimal palletering för kartong {0}</value>
+  </data>
+	<data name="ID_OUTERDIMENSIONS" xml:space="preserve">
+    <value>Yttre dimensions{0}({1}x{1}x{1})</value>
+  </data>
+	<data name="ID_PALLET" xml:space="preserve">
+    <value>Lastpall</value>
+  </data>
+	<data name="ID_PALLETHEIGHT" xml:space="preserve">
+    <value>Lastpalls höjd</value>
+  </data>
+	<data name="ID_PALLETLIMIT" xml:space="preserve">
+    <value>Gränsen nådd</value>
+  </data>
+	<data name="ID_PALLETMAXHEIGHT" xml:space="preserve">
+    <value>Höjd</value>
+  </data>
+	<data name="ID_PALLETMAXNUMBER" xml:space="preserve">
+    <value>#</value>
+  </data>
+	<data name="ID_PALLETMAXWEIGHT" xml:space="preserve">
+    <value>Vikt</value>
+  </data>
+	<data name="ID_PALLETWEIGHT" xml:space="preserve">
+    <value>Lastpallsvikt ({0})</value>
+  </data>
+	<data name="ID_READY" xml:space="preserve">
+    <value>Redo</value>
+  </data>
+	<data name="ID_SELECTATLEASTONELAYOUT" xml:space="preserve">
+    <value>Välj på leat ett lager</value>
+  </data>
+	<data name="ID_SELECTEDLAYER" xml:space="preserve">
+    <value>Valda lagret: {0}</value>
+  </data>
+	<data name="ID_TOTALWEIGHT_WU" xml:space="preserve">
+    <value>Total vikt ({0})</value>
+  </data>
+	<data name="ID_VOLUMEEFFICIENCY" xml:space="preserve">
+    <value>Volymeffektivitet (%)</value>
+  </data>
+	<data name="ID_WEIGHT_WU" xml:space="preserve">
+    <value>Vikt ({0})</value>
+  </data>
+	<data name="ID_WIDTH" xml:space="preserve">
+    <value>Bredd</value>
+  </data>
+</root>

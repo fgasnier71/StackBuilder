@@ -246,4 +246,46 @@
         AACAAQAAgAEAAMABAADgAQAA8AEAAP//AAA=
 </value>
   </data>
+  <data name="bnClose.Text" xml:space="preserve">
+    <value>Chiudere</value>
+  </data>
+  <data name="tabPagePallet.Text" xml:space="preserve">
+    <value>Pallets</value>
+  </data>
+  <data name="tabPageInterlayer.Text" xml:space="preserve">
+    <value>Interstrati</value>
+  </data>
+  <data name="tabPageTruck.Text" xml:space="preserve">
+    <value>Camion</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Modificare database &amp; importare gli elementi di progetto...</value>
+  </data>
+  <data name="tabPagePallet.ToolTipText" xml:space="preserve">
+    <value>Pallets</value>
+  </data>
+  <data name="bnImport.Text" xml:space="preserve">
+    <value>Importazione</value>
+  </data>
+  <data name="tabPagePalletFilm.Text" xml:space="preserve">
+    <value>Film di pallet</value>
+  </data>
+  <data name="tabPageBundle.Text" xml:space="preserve">
+    <value>Fascicoli</value>
+  </data>
+  <data name="tabPageCase.Text" xml:space="preserve">
+    <value>Astucci</value>
+  </data>
+  <data name="tabPagePalletCorner.Text" xml:space="preserve">
+    <value>Angoli di pallet</value>
+  </data>
+  <data name="tabPagePalletCap.Text" xml:space="preserve">
+    <value>Tappi di pallet</value>
+  </data>
+  <data name="tabPageCylinder.Text" xml:space="preserve">
+    <value>Cilindri</value>
+  </data>
+  <data name="tabPageBox.Text" xml:space="preserve">
+    <value>Scatole</value>
+  </data>
 </root>

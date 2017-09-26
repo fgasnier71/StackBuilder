@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
+	<!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,170 +59,170 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xsd:element name="root" msdata:IsDataSet="true">
-      <xsd:complexType>
-        <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-              </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="data">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="resheader">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:choice>
-      </xsd:complexType>
-    </xsd:element>
-  </xsd:schema>
-  <resheader name="resmimetype">
-    <value>text/microsoft-resx</value>
-  </resheader>
-  <resheader name="version">
-    <value>2.0</value>
-  </resheader>
-  <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <data name="ID_FILTER_HTML" xml:space="preserve">
+	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+		<xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+		<xsd:element name="root" msdata:IsDataSet="true">
+			<xsd:complexType>
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element name="metadata">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" />
+							</xsd:sequence>
+							<xsd:attribute name="name" use="required" type="xsd:string" />
+							<xsd:attribute name="type" type="xsd:string" />
+							<xsd:attribute name="mimetype" type="xsd:string" />
+							<xsd:attribute ref="xml:space" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="assembly">
+						<xsd:complexType>
+							<xsd:attribute name="alias" type="xsd:string" />
+							<xsd:attribute name="name" type="xsd:string" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="data">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+								<xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+							<xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+							<xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+							<xsd:attribute ref="xml:space" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="resheader">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" />
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:choice>
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:schema>
+	<resheader name="resmimetype">
+		<value>text/microsoft-resx</value>
+	</resheader>
+	<resheader name="version">
+		<value>2.0</value>
+	</resheader>
+	<resheader name="reader">
+		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<resheader name="writer">
+		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<data name="ID_FILTER_HTML" xml:space="preserve">
     <value>ハイパー テキスト マークアップ言語 (* html) | * .html |すべてのファイル (*. *) | *. *</value>
   </data>
-  <data name="ID_FILTER_MSWORD" xml:space="preserve">
+	<data name="ID_FILTER_MSWORD" xml:space="preserve">
     <value>Microsoft Office Word (*.doc; *.docx) | * .doc; * .docx |すべてのファイル (*. *) | *. *</value>
   </data>
-  <data name="ID_FILTER_PDF" xml:space="preserve">
+	<data name="ID_FILTER_PDF" xml:space="preserve">
     <value>Abobe Acrobat (*.pdf) | * .pdf</value>
   </data>
-  <data name="ID_REPORT" xml:space="preserve">
+	<data name="ID_REPORT" xml:space="preserve">
     <value>レポート</value>
   </data>
-  <data name="ID_REPORTANALYSIS" xml:space="preserve">
+	<data name="ID_REPORTANALYSIS" xml:space="preserve">
     <value>レポート {0}</value>
   </data>
-  <data name="ID_RN_ANALYSIS" xml:space="preserve">
+	<data name="ID_RN_ANALYSIS" xml:space="preserve">
     <value>分析 ({0})</value>
   </data>
-  <data name="ID_RN_ARRANGEMENT" xml:space="preserve">
+	<data name="ID_RN_ARRANGEMENT" xml:space="preserve">
     <value>配置</value>
   </data>
-  <data name="ID_RN_AUTHORS" xml:space="preserve">
+	<data name="ID_RN_AUTHORS" xml:space="preserve">
     <value>著者</value>
   </data>
-  <data name="ID_RN_BOX" xml:space="preserve">
+	<data name="ID_RN_BOX" xml:space="preserve">
     <value>ボックス</value>
   </data>
-  <data name="ID_RN_BUNDLE" xml:space="preserve">
+	<data name="ID_RN_BUNDLE" xml:space="preserve">
     <value>バンドル</value>
   </data>
-  <data name="ID_RN_CASE" xml:space="preserve">
+	<data name="ID_RN_CASE" xml:space="preserve">
     <value>ケース</value>
   </data>
-  <data name="ID_RN_COMPANYLOGO" xml:space="preserve">
+	<data name="ID_RN_COMPANYLOGO" xml:space="preserve">
     <value>会社のロゴ</value>
   </data>
-  <data name="ID_RN_CONSTRAINTSET" xml:space="preserve">
+	<data name="ID_RN_CONSTRAINTSET" xml:space="preserve">
     <value>拘束条件セット</value>
   </data>
-  <data name="ID_RN_CYLINDER" xml:space="preserve">
+	<data name="ID_RN_CYLINDER" xml:space="preserve">
     <value>シリンダー</value>
   </data>
-  <data name="ID_RN_DATE" xml:space="preserve">
+	<data name="ID_RN_DATE" xml:space="preserve">
     <value>日付</value>
   </data>
-  <data name="ID_RN_DEFAULT" xml:space="preserve">
+	<data name="ID_RN_DEFAULT" xml:space="preserve">
     <value>デフォルト</value>
   </data>
-  <data name="ID_RN_DESCRIPTION" xml:space="preserve">
+	<data name="ID_RN_DESCRIPTION" xml:space="preserve">
     <value>説明</value>
   </data>
-  <data name="ID_RN_DIMENSIONS" xml:space="preserve">
+	<data name="ID_RN_DIMENSIONS" xml:space="preserve">
     <value>寸法</value>
   </data>
-  <data name="ID_RN_DIMENSIONSINNER" xml:space="preserve">
+	<data name="ID_RN_DIMENSIONSINNER" xml:space="preserve">
     <value>内側の寸法</value>
   </data>
-  <data name="ID_RN_DIMENSIONSOUTER" xml:space="preserve">
+	<data name="ID_RN_DIMENSIONSOUTER" xml:space="preserve">
     <value>外形寸法</value>
   </data>
-  <data name="ID_RN_IMAGE" xml:space="preserve">
+	<data name="ID_RN_IMAGE" xml:space="preserve">
     <value>イメージ</value>
   </data>
-  <data name="ID_RN_INTERLAYER" xml:space="preserve">
+	<data name="ID_RN_INTERLAYER" xml:space="preserve">
     <value>中間膜</value>
   </data>
-  <data name="ID_RN_LAYERS" xml:space="preserve">
+	<data name="ID_RN_LAYERS" xml:space="preserve">
     <value>レイヤー</value>
   </data>
-  <data name="ID_RN_MAXIMUMHEIGHT" xml:space="preserve">
+	<data name="ID_RN_MAXIMUMHEIGHT" xml:space="preserve">
     <value>最大高さ</value>
   </data>
-  <data name="ID_RN_MAXIMUMNUMBER" xml:space="preserve">
+	<data name="ID_RN_MAXIMUMNUMBER" xml:space="preserve">
     <value>最大数</value>
   </data>
-  <data name="ID_RN_MAXIMUMWEIGHT" xml:space="preserve">
+	<data name="ID_RN_MAXIMUMWEIGHT" xml:space="preserve">
     <value>最大重量</value>
   </data>
-  <data name="ID_RN_OVERHANG" xml:space="preserve">
+	<data name="ID_RN_OVERHANG" xml:space="preserve">
     <value>オーバー ハング</value>
   </data>
-  <data name="ID_RN_PACK" xml:space="preserve">
+	<data name="ID_RN_PACK" xml:space="preserve">
     <value>パック</value>
   </data>
-  <data name="ID_RN_PALLET" xml:space="preserve">
+	<data name="ID_RN_PALLET" xml:space="preserve">
     <value>パレット</value>
   </data>
-  <data name="ID_RN_SOLUTION" xml:space="preserve">
+	<data name="ID_RN_SOLUTION" xml:space="preserve">
     <value>ソリューション</value>
   </data>
-  <data name="ID_RN_SPACES" xml:space="preserve">
+	<data name="ID_RN_SPACES" xml:space="preserve">
     <value>スペース</value>
   </data>
-  <data name="ID_RN_TRUCK" xml:space="preserve">
+	<data name="ID_RN_TRUCK" xml:space="preserve">
     <value>トラック</value>
   </data>
-  <data name="ID_RN_VIEWISO" xml:space="preserve">
+	<data name="ID_RN_VIEWISO" xml:space="preserve">
     <value>Iso</value>
   </data>
-  <data name="ID_RN_VIEWS" xml:space="preserve">
+	<data name="ID_RN_VIEWS" xml:space="preserve">
     <value>フロント/左/右/バック</value>
   </data>
-  <data name="ID_RN_VOLUMEEFFICIENCY" xml:space="preserve">
+	<data name="ID_RN_VOLUMEEFFICIENCY" xml:space="preserve">
     <value>体積効率</value>
   </data>
-  <data name="ID_RN_WEIGHT" xml:space="preserve">
+	<data name="ID_RN_WEIGHT" xml:space="preserve">
     <value>重量</value>
   </data>
 </root>

@@ -1377,4 +1377,7 @@
   <data name="cbColor.Items62" xml:space="preserve">
     <value>Colore</value>
   </data>
+  <data name="lbKg1.Text" xml:space="preserve">
+    <value>kg</value>
+  </data>
 </root>

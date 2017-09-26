@@ -1089,4 +1089,7 @@
   <data name="lbLength.Text" xml:space="preserve">
     <value>長さ</value>
   </data>
+  <data name="lblName.Text" xml:space="preserve">
+    <value>名</value>
+  </data>
 </root>

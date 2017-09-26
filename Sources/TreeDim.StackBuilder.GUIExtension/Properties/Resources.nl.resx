@@ -117,4 +117,160 @@
 	<resheader name="writer">
 		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
 	</resheader>
+	<data name="ID_A1" xml:space="preserve">
+    <value>A1</value>
+  </data>
+	<data name="ID_A2" xml:space="preserve">
+    <value>A2</value>
+  </data>
+	<data name="ID_A3" xml:space="preserve">
+    <value>A3</value>
+  </data>
+	<data name="ID_ANALYSISDESCRIPTION" xml:space="preserve">
+    <value>Stapelbare case {0} op pallet {1} </value>
+  </data>
+	<data name="ID_ANALYSISHASNOVALIDSOLUTION" xml:space="preserve">
+    <value>Analyse heeft geen geldige oplossing</value>
+  </data>
+	<data name="ID_ANALYSISNAME" xml:space="preserve">
+    <value>{0} _on_ {1}</value>
+  </data>
+	<data name="ID_AREA" xml:space="preserve">
+    <value>Gebied</value>
+  </data>
+	<data name="ID_BUNDLECOUNT" xml:space="preserve">
+    <value># bundels</value>
+  </data>
+	<data name="ID_CASE" xml:space="preserve">
+    <value>Geval</value>
+  </data>
+	<data name="ID_CASECOUNT" xml:space="preserve">
+    <value>Geval tellen</value>
+  </data>
+	<data name="ID_CASESLAYER" xml:space="preserve">
+    <value>Gevallen/laag</value>
+  </data>
+	<data name="ID_CASESPALLET" xml:space="preserve">
+    <value>Gevallen/Pallet</value>
+  </data>
+	<data name="ID_CASEWEIGHT" xml:space="preserve">
+    <value>Zaak gewicht</value>
+  </data>
+	<data name="ID_DEFINEBUNDLEPALLETANALYSIS" xml:space="preserve">
+    <value>Define bundel/pallet analyse...</value>
+  </data>
+	<data name="ID_DEFINECASEPALLETANALYSIS" xml:space="preserve">
+    <value>Define geval/pallet analyse...</value>
+  </data>
+	<data name="ID_DIMENSIONS" xml:space="preserve">
+    <value>Afmetingen</value>
+  </data>
+	<data name="ID_DOUBLECLICKALAYER" xml:space="preserve">
+    <value>Dubbelklik op een laag!</value>
+  </data>
+	<data name="ID_EFFICIENCYPERCENTAGE" xml:space="preserve">
+    <value>Percentage van de efficiëntie</value>
+  </data>
+	<data name="ID_HEIGHT" xml:space="preserve">
+    <value>Hoogte</value>
+  </data>
+	<data name="ID_INDEX" xml:space="preserve">
+    <value>Index</value>
+  </data>
+	<data name="ID_INSUFFICIENTPALLETHEIGHT" xml:space="preserve">
+    <value>Maximale pallet hoogte ({0} {1}) moet groter zijn dan {1} {2}</value>
+  </data>
+	<data name="ID_INSUFFICIENTVOLUME" xml:space="preserve">
+    <value>Maximumvolume is onvoldoende voor de verpakking van {0} {1}.</value>
+  </data>
+	<data name="ID_INTERLAYERNUMBER" xml:space="preserve">
+    <value>Interlayer #</value>
+  </data>
+	<data name="ID_LAYERNUMBER" xml:space="preserve">
+    <value>Laag #</value>
+  </data>
+	<data name="ID_LAYERPATTERN" xml:space="preserve">
+    <value>Laag patroon</value>
+  </data>
+	<data name="ID_LAYERS" xml:space="preserve">
+    <value>Lagen</value>
+  </data>
+	<data name="ID_LAYERWEIGT" xml:space="preserve">
+    <value>Laag gewicht ({0})</value>
+  </data>
+	<data name="ID_LENGTH" xml:space="preserve">
+    <value>Lengte</value>
+  </data>
+	<data name="ID_LOADDIMENSIONS" xml:space="preserve">
+    <value>Dimensions{0}({1}x{1}x{1}) laden</value>
+  </data>
+	<data name="ID_LOADWEIGHT_WU" xml:space="preserve">
+    <value>Belasting ({0})</value>
+  </data>
+	<data name="ID_MAXIMUMSPACE" xml:space="preserve">
+    <value>Maximale ruimte</value>
+  </data>
+	<data name="ID_MAXLOWERTHANMIN" xml:space="preserve">
+    <value>Inconsistentie: Maximum {0} is lager dan minimum {1}.</value>
+  </data>
+	<data name="ID_NETWEIGHT_WU" xml:space="preserve">
+    <value>Nettogewicht ({0})</value>
+  </data>
+	<data name="ID_OPTANALYSISDESCRIPTION" xml:space="preserve">
+    <value>Pallet analyse gegenereerd door optimalisatie van de case voor vak {0} en pallet {1}</value>
+  </data>
+	<data name="ID_OPTANALYSISNAME" xml:space="preserve">
+    <value>_ OptimAnalysis {0} {1} * {2} * {3} _ {4} {5}</value>
+  </data>
+	<data name="ID_OPTCASEDESCRIPTION" xml:space="preserve">
+    <value>Geval gegenereerd door optimalisatie van de case voor vak {0} en pallet {1}</value>
+  </data>
+	<data name="ID_OPTDOCUMENTDESCRIPTION" xml:space="preserve">
+    <value>Optimale pallettisering voor vak {0}</value>
+  </data>
+	<data name="ID_OUTERDIMENSIONS" xml:space="preserve">
+    <value>Buitenste dimensions{0}({1}x{1}x{1})</value>
+  </data>
+	<data name="ID_PALLET" xml:space="preserve">
+    <value>Pallet</value>
+  </data>
+	<data name="ID_PALLETHEIGHT" xml:space="preserve">
+    <value>Pallet hoogte</value>
+  </data>
+	<data name="ID_PALLETLIMIT" xml:space="preserve">
+    <value>Limiet bereikt</value>
+  </data>
+	<data name="ID_PALLETMAXHEIGHT" xml:space="preserve">
+    <value>Hoogte</value>
+  </data>
+	<data name="ID_PALLETMAXNUMBER" xml:space="preserve">
+    <value>Nummer</value>
+  </data>
+	<data name="ID_PALLETMAXWEIGHT" xml:space="preserve">
+    <value>Gewicht</value>
+  </data>
+	<data name="ID_PALLETWEIGHT" xml:space="preserve">
+    <value>Gewicht pallet ({0})</value>
+  </data>
+	<data name="ID_READY" xml:space="preserve">
+    <value>Klaar</value>
+  </data>
+	<data name="ID_SELECTATLEASTONELAYOUT" xml:space="preserve">
+    <value>Selecteer op leat één laag</value>
+  </data>
+	<data name="ID_SELECTEDLAYER" xml:space="preserve">
+    <value>Geselecteerde laag: {0}</value>
+  </data>
+	<data name="ID_TOTALWEIGHT_WU" xml:space="preserve">
+    <value>Totaalgewicht ({0})</value>
+  </data>
+	<data name="ID_VOLUMEEFFICIENCY" xml:space="preserve">
+    <value>Volume rendement (%)</value>
+  </data>
+	<data name="ID_WEIGHT_WU" xml:space="preserve">
+    <value>Gewicht ({0})</value>
+  </data>
+	<data name="ID_WIDTH" xml:space="preserve">
+    <value>Breedte</value>
+  </data>
 </root>

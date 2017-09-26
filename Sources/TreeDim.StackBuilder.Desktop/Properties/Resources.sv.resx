@@ -1,0 +1,704 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+		<xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+		<xsd:element name="root" msdata:IsDataSet="true">
+			<xsd:complexType>
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element name="metadata">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" />
+							</xsd:sequence>
+							<xsd:attribute name="name" use="required" type="xsd:string" />
+							<xsd:attribute name="type" type="xsd:string" />
+							<xsd:attribute name="mimetype" type="xsd:string" />
+							<xsd:attribute ref="xml:space" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="assembly">
+						<xsd:complexType>
+							<xsd:attribute name="alias" type="xsd:string" />
+							<xsd:attribute name="name" type="xsd:string" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="data">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+								<xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+							<xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+							<xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+							<xsd:attribute ref="xml:space" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="resheader">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" />
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:choice>
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:schema>
+	<resheader name="resmimetype">
+		<value>text/microsoft-resx</value>
+	</resheader>
+	<resheader name="version">
+		<value>2.0</value>
+	</resheader>
+	<resheader name="reader">
+		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<resheader name="writer">
+		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<data name="ID_CASEWEIGHT" xml:space="preserve">
+    <value>Kartongvikt ({0})</value>
+  </data>
+	<data name="ID_A1" xml:space="preserve">
+    <value>A1</value>
+  </data>
+	<data name="ID_CYLINDERCOUNT" xml:space="preserve">
+    <value>Cylinerantal</value>
+  </data>
+	<data name="ID_NODE_CYLINDERS" xml:space="preserve">
+    <value>Cylindrar</value>
+  </data>
+	<data name="ID_NAME" xml:space="preserve">
+    <value>Namn</value>
+  </data>
+	<data name="ID_BOXCOUNT" xml:space="preserve">
+    <value>Kartong/Låda</value>
+  </data>
+	<data name="ID_HEIGHT" xml:space="preserve">
+    <value>Höjd</value>
+  </data>
+	<data name="ID_CASESLAYER" xml:space="preserve">
+    <value>Lådor/Lager</value>
+  </data>
+	<data name="ID_VERSION" xml:space="preserve">
+    <value>Version : {0}</value>
+  </data>
+	<data name="ID_ECT" xml:space="preserve">
+    <value>ECT</value>
+  </data>
+	<data name="ID_LENGTH" xml:space="preserve">
+    <value>Längd</value>
+  </data>
+	<data name="ID_PALLETMAXNUMBER" xml:space="preserve">
+    <value>#</value>
+  </data>
+	<data name="ID_LAYERPATTERN" xml:space="preserve">
+    <value>Lagermönster</value>
+  </data>
+	<data name="ID_FIELDNAMEINVALID" xml:space="preserve">
+    <value>Namnet finns redan</value>
+  </data>
+	<data name="ID_CYLINDER" xml:space="preserve">
+    <value>Cylinder</value>
+  </data>
+	<data name="ID_ADDNEWANALYSIS" xml:space="preserve">
+    <value>Lägg till ny analys…</value>
+  </data>
+	<data name="ID_ADDNEWTRUCK" xml:space="preserve">
+    <value>Lägg till ny Lastbil…</value>
+  </data>
+	<data name="ID_FILENOTFOUND" xml:space="preserve">
+    <value>Fil {0} kunde inte hittas</value>
+  </data>
+	<data name="ID_GENERATEREPORT" xml:space="preserve">
+    <value>Generera en rapport till {0}</value>
+  </data>
+	<data name="ID_SELECTED" xml:space="preserve">
+    <value>Markerade</value>
+  </data>
+	<data name="ID_CLOSE" xml:space="preserve">
+    <value>Stäng</value>
+  </data>
+	<data name="ID_INVALIDINSIDEHEIGHT" xml:space="preserve">
+    <value>Invändig höjd ({0}) borde vara lägre än höjden ({1})</value>
+  </data>
+	<data name="ID_PALLETWEIGHT" xml:space="preserve">
+    <value>Lastpallsvikt ({0})</value>
+  </data>
+	<data name="ID_ADDNEWECTANALYSIS" xml:space="preserve">
+    <value>Lägg till ny ECT analys…</value>
+  </data>
+	<data name="ID_CASECOUNT" xml:space="preserve">
+    <value># Lådor</value>
+  </data>
+	<data name="ID_DEPENDINGANALYSES" xml:space="preserve">
+    <value>{0} har följande beroenden: {1} om du fortsätter med ändringar, analyser kommer att vara om och någon valt lösningar tagits bort.
+Vill du fortsätta?</value>
+  </data>
+	<data name="ID_WEIGHT_WU" xml:space="preserve">
+    <value>Vikt ({0})</value>
+  </data>
+	<data name="ID_PALLETMAXHEIGHT" xml:space="preserve">
+    <value>Höjd</value>
+  </data>
+	<data name="ID_ADDNEWPALLET" xml:space="preserve">
+    <value>Lägg till ny Lastpall</value>
+  </data>
+	<data name="ID_TRUCK" xml:space="preserve">
+    <value>Lastbil</value>
+  </data>
+	<data name="ID_LOADWEIGHT" xml:space="preserve">
+    <value>Lastens vikt</value>
+  </data>
+	<data name="ID_USEATLEASTONESTOPSTACKINGCRITERION" xml:space="preserve">
+    <value>Definiera minst ett stoppkriterium för staplingen</value>
+  </data>
+	<data name="ID_CASEDIMENSIONS" xml:space="preserve">
+    <value>Låddimensioner</value>
+  </data>
+	<data name="ID_NOPALLETSOLUTIONSELECTED" xml:space="preserve">
+    <value>Ingen lastpallslösning markerad</value>
+  </data>
+	<data name="ID_AREA" xml:space="preserve">
+    <value>Area</value>
+  </data>
+	<data name="ID_EDGECRUSHTEST" xml:space="preserve">
+    <value>Edge Crush Test Analys</value>
+  </data>
+	<data name="ID_INVALIDINSIDEWIDTH" xml:space="preserve">
+    <value>Invändig bredd ({0}) borde vara lägre än bredden ({1})</value>
+  </data>
+	<data name="ID_A2" xml:space="preserve">
+    <value>A2</value>
+  </data>
+	<data name="ID_ADDNEWBOX" xml:space="preserve">
+    <value>Lägg till ny kartong…</value>
+  </data>
+	<data name="ID_ADDNEWBUNDLE" xml:space="preserve">
+    <value>Lägg till ny bunt…</value>
+  </data>
+	<data name="ID_PALLETLIMIT" xml:space="preserve">
+    <value>Gränsen nådd</value>
+  </data>
+	<data name="ID_NODE_ANALYSES" xml:space="preserve">
+    <value>Analyser</value>
+  </data>
+	<data name="ID_INVALIDINSIDELENGTH" xml:space="preserve">
+    <value>Invändig längd ({0}) borde vara lägre än längden ({1})</value>
+  </data>
+	<data name="ID_ADDNEWCASE" xml:space="preserve">
+    <value>Lägg till ny Låda…</value>
+  </data>
+	<data name="ID_SENDTODATABASE" xml:space="preserve">
+    <value>Skicka till databas</value>
+  </data>
+	<data name="ID_BOXCASECOUNT" xml:space="preserve">
+    <value>Kartong/Låda antal</value>
+  </data>
+	<data name="ID_PALLETCOUNT" xml:space="preserve">
+    <value>Pall antal</value>
+  </data>
+	<data name="ID_ANALYSIS" xml:space="preserve">
+    <value>Analyser</value>
+  </data>
+	<data name="ID_INTERLAYER" xml:space="preserve">
+    <value>Mellanlägg</value>
+  </data>
+	<data name="ID_INSUFFICIENTVOLUME" xml:space="preserve">
+    <value>Maximal volym är otillräcklig för att packa {0} {1}.</value>
+  </data>
+	<data name="ID_FIELDNAMEEMPTY" xml:space="preserve">
+    <value>Namnfältet är tomt</value>
+  </data>
+	<data name="ID_NODE_CASES" xml:space="preserve">
+    <value>Lådor/Lager</value>
+  </data>
+	<data name="ID_EFFICIENCYPERCENTAGE" xml:space="preserve">
+    <value>Effektivitet (%)</value>
+  </data>
+	<data name="ID_INDEX" xml:space="preserve">
+    <value>Index</value>
+  </data>
+	<data name="ID_READY" xml:space="preserve">
+    <value>Redo</value>
+  </data>
+	<data name="ID_GENERATECOLLADA" xml:space="preserve">
+    <value>Generera 3D animationsfil av {0}</value>
+  </data>
+	<data name="ID_MAXLOWERTHANMIN" xml:space="preserve">
+    <value>Inkonsekvens: Maximal {0} är lägre än minimum {1}.</value>
+  </data>
+	<data name="ID_INVALIDNAME" xml:space="preserve">
+    <value>Angivet namn ({0}) är ogiltigt</value>
+  </data>
+	<data name="ID_ADDNEWTRUCKANALYSIS" xml:space="preserve">
+    <value>Lägg till ny Lastbilsanalys</value>
+  </data>
+	<data name="ID_NODE_INTERLAYERS" xml:space="preserve">
+    <value>Mellanlägg</value>
+  </data>
+	<data name="ID_BOX" xml:space="preserve">
+    <value>Kartong</value>
+  </data>
+	<data name="ID_UNSELECTSOLUTION" xml:space="preserve">
+    <value>Avmarkerade lösningar {0}</value>
+  </data>
+	<data name="ID_NODE_TRUCKS" xml:space="preserve">
+    <value>Lastbilar</value>
+  </data>
+	<data name="ID_FILTER_MSWORD" xml:space="preserve">
+    <value>Microsoft Office Word (*.doc;*.docx)|*.doc;*.docx|Alla filer (*.*)|*.*</value>
+  </data>
+	<data name="ID_BUNDLE" xml:space="preserve">
+    <value>Bunt</value>
+  </data>
+	<data name="ID_PALLETHEIGHT" xml:space="preserve">
+    <value>Lastpallshöjd ({0})</value>
+  </data>
+	<data name="ID_ADDNEWBUNDLEANALYSIS" xml:space="preserve">
+    <value>Skapa ny bunt analys…</value>
+  </data>
+	<data name="ID_BOXDOESNOTFITINCASE" xml:space="preserve">
+    <value>Kartong {0} passar inte i Låda {1}.</value>
+  </data>
+	<data name="ID_LAYERPATTERNS" xml:space="preserve">
+    <value>Lagermönster</value>
+  </data>
+	<data name="ID_INVALIDDIAMETER" xml:space="preserve">
+    <value>Innerdiametern borde vara mindre än ytterdiametern.</value>
+  </data>
+	<data name="ID_CASESPALLET" xml:space="preserve">
+    <value>Lådor/Lastpall</value>
+  </data>
+	<data name="ID_ALLOWALIGNEDORALTERNATELAYERS" xml:space="preserve">
+    <value>Tillåt justerade och / eller alternerande lager</value>
+  </data>
+	<data name="ID_PALLETCAPTIONEDIT" xml:space="preserve">
+    <value>Redigera lastpall {0}…</value>
+  </data>
+	<data name="ID_VOLUMEEFFICIENCY" xml:space="preserve">
+    <value>Effektivitet (%)</value>
+  </data>
+	<data name="ID_DEFINEATLEASTONEPATTERN" xml:space="preserve">
+    <value>Definiera minst ett staplingsmönster</value>
+  </data>
+	<data name="ID_DESELECT" xml:space="preserve">
+    <value>Avmarkera</value>
+  </data>
+	<data name="ID_SAVEMODIFIEDFILE" xml:space="preserve">
+    <value>Spara fil {0}?</value>
+  </data>
+	<data name="ID_ADDNEWCASEANALYSIS" xml:space="preserve">
+    <value>Lägg till ny lådanalys…</value>
+  </data>
+	<data name="ID_CASEANALYSIS_INVALIDCONSTRAINTSET" xml:space="preserve">
+    <value>Det går inte att skapa lådanalys eftersom begränsningsuppsättningen verkar vara felaktiga</value>
+  </data>
+	<data name="ID_DELETEITEM" xml:space="preserve">
+    <value>Ta bort {0}</value>
+  </data>
+	<data name="ID_DATABASEEMPTY" xml:space="preserve">
+    <value>Lastpall lösning databasen är tom.
+Stänger formuläret...</value>
+  </data>
+	<data name="ID_NODE_BOXES" xml:space="preserve">
+    <value>Kartonger</value>
+  </data>
+	<data name="ID_ADDNEWBOXCASEANALYSIS" xml:space="preserve">
+    <value>Lägg till ny Kartong/Låda analys…</value>
+  </data>
+	<data name="ID_DEFINEATLEASTONEVERTICALAXIS" xml:space="preserve">
+    <value>Definiera minst en vertikal axel</value>
+  </data>
+	<data name="ID_NODE_BUNDLES" xml:space="preserve">
+    <value>Buntar</value>
+  </data>
+	<data name="ID_ABOUT" xml:space="preserve">
+    <value>Om {0}</value>
+  </data>
+	<data name="ID_ANALYSISHASNOVALIDSOLUTION" xml:space="preserve">
+    <value>Analys {0} har ingen giltig lösning.</value>
+  </data>
+	<data name="ID_A3" xml:space="preserve">
+    <value>A3</value>
+  </data>
+	<data name="ID_ADDNEWINTERLAYER" xml:space="preserve">
+    <value>Lägg till nytt mellanlägg</value>
+  </data>
+	<data name="ID_INSUFFICIENTPALLETHEIGHT" xml:space="preserve">
+    <value>Maximal pallhöjd ({0} {1}) borde överstiga {2} {3}</value>
+  </data>
+	<data name="ID_NODE_PALLETS" xml:space="preserve">
+    <value>Lastpallar</value>
+  </data>
+	<data name="ID_CASEOFBOXES" xml:space="preserve">
+    <value>Lådor med kartonger</value>
+  </data>
+	<data name="ID_CHROMEISNOTINSTALLED" xml:space="preserve">
+    <value>Google Chrome-webbläsaren måste installeras för att visualisera collada / webGL-animationer.</value>
+  </data>
+	<data name="ID_SELECT" xml:space="preserve">
+    <value>Välj…</value>
+  </data>
+	<data name="ID_CASE" xml:space="preserve">
+    <value>Låda</value>
+  </data>
+	<data name="ID_WIDTH" xml:space="preserve">
+    <value>Bredd</value>
+  </data>
+	<data name="ID_ADDNEWCYLINDER" xml:space="preserve">
+    <value>Lägg till ny Cylinder…</value>
+  </data>
+	<data name="ID_ADDNEWCYLINDERANALYSIS" xml:space="preserve">
+    <value>Lägg till ny Cylinderanalys…</value>
+  </data>
+	<data name="ID_CASELIMIT" xml:space="preserve">
+    <value>Gränsen nådd</value>
+  </data>
+	<data name="ID_PALLETMAXWEIGHT" xml:space="preserve">
+    <value>Vikt</value>
+  </data>
+	<data name="ID_LOADHEIGHT" xml:space="preserve">
+    <value>Lasthöjd</value>
+  </data>
+	<data name="ID_ORIENTATION" xml:space="preserve">
+    <value>Orientering</value>
+  </data>
+	<data name="ID_FIELDDESCRIPTIONEMPTY" xml:space="preserve">
+    <value>Beskrivningfältet är tomt</value>
+  </data>
+	<data name="ID_LAYOUT" xml:space="preserve">
+    <value>Layout</value>
+  </data>
+	<data name="ID_EDIT" xml:space="preserve">
+    <value>Redigera {0} ...</value>
+  </data>
+	<data name="ID_CASEINSIDEDIMENSIONS" xml:space="preserve">
+    <value>Kartong invändiga dimensioner</value>
+  </data>
+	<data name="ID_MAXIMUMCASEWEIGHTSHOULDEXCEED" xml:space="preserve">
+    <value>Maximal vikt bör överstiga {0} {1}.</value>
+  </data>
+	<data name="ID_CASEPERPALLET" xml:space="preserve">
+    <value>Låda/Lastpall</value>
+  </data>
+	<data name="ID_LAYERS" xml:space="preserve">
+    <value>Lager</value>
+  </data>
+	<data name="ID_CANNOTUSEWEIGHTLIMIT" xml:space="preserve">
+    <value>Viktbegränsning kan inte användas eftersom {0} har ingen vikt.</value>
+  </data>
+	<data name="ID_INVALIDMASS" xml:space="preserve">
+    <value>Viktvärdet borde vara positivt</value>
+  </data>
+	<data name="ID_ADDNEWPALLETCAP" xml:space="preserve">
+    <value>Lägg till ny Topptäckning…</value>
+  </data>
+	<data name="ID_ADDNEWPALLETCORNERS" xml:space="preserve">
+    <value>Lägg till nya Kantskydd…</value>
+  </data>
+	<data name="ID_ADDNEWPALLETFILM" xml:space="preserve">
+    <value>Lägg till ny Sträckfilm…</value>
+  </data>
+	<data name="ID_NODE_PALLETCAPS" xml:space="preserve">
+    <value>Topptäckningar</value>
+  </data>
+	<data name="ID_NODE_PALLETCORNERS" xml:space="preserve">
+    <value>Kantskydd</value>
+  </data>
+	<data name="ID_NODE_PALLETFILMS" xml:space="preserve">
+    <value>Sträckfilmer</value>
+  </data>
+	<data name="ID_PALLETCAP" xml:space="preserve">
+    <value>Topptäckning</value>
+  </data>
+	<data name="ID_PALLETCORNERS" xml:space="preserve">
+    <value>Kantskydd</value>
+  </data>
+	<data name="ID_PALLETFILM" xml:space="preserve">
+    <value>Sträckfilm</value>
+  </data>
+	<data name="ID_USETRANSPARENCYORHATCHING" xml:space="preserve">
+    <value>Använd transparens och / eller skuggning</value>
+  </data>
+	<data name="ID_PALLETCAPNOTLONGENOUGH" xml:space="preserve">
+    <value>Topptäckningens längd bör överstiga pallens längd + överhänget X ...</value>
+  </data>
+	<data name="ID_PALLETCAPNOTWIDEENOUGH" xml:space="preserve">
+    <value>Topptäckningens längd bör överstiga pallens längd + överhänget Y ...</value>
+  </data>
+	<data name="ID_INVALIDTHICKNESSWIDTHPAIR" xml:space="preserve">
+    <value>Tjockleken bör inte överstiga bredden</value>
+  </data>
+	<data name="ID_INVALIDNETWEIGHT" xml:space="preserve">
+    <value>Nettovikt ({0}) får inte överskrida vikten ({1})</value>
+  </data>
+	<data name="ID_PACK" xml:space="preserve">
+    <value>Packning</value>
+  </data>
+	<data name="ID_NODE_PACKS" xml:space="preserve">
+    <value>Packningar</value>
+  </data>
+	<data name="ID_INVALIDOUTERDIMENSION" xml:space="preserve">
+    <value>Yttre dimensionerna borde överstiga innehållets dimensioner ...</value>
+  </data>
+	<data name="ID_CONSUMERSALESUNITS" xml:space="preserve">
+    <value># CSU</value>
+  </data>
+	<data name="ID_LAYERWEIGHT" xml:space="preserve">
+    <value>Lagrets vikt ({0})</value>
+  </data>
+	<data name="ID_MAXIMUMSPACE" xml:space="preserve">
+    <value>Maximalt utrymme ({0})</value>
+  </data>
+	<data name="ID_PACKCOUNT" xml:space="preserve">
+    <value># Förpackningar</value>
+  </data>
+	<data name="ID_ADDNEWPACKANALYSIS" xml:space="preserve">
+    <value>Lägg till ny Packning/Lastpall analys ...</value>
+  </data>
+	<data name="ID_ANALYSISHASNOSOLUTION" xml:space="preserve">
+    <value>Analysen har inga lösningar? \n För många begränsningar?</value>
+  </data>
+	<data name="ID_CASEPERLAYERCOUNT" xml:space="preserve">
+    <value># Lådor/Lager</value>
+  </data>
+	<data name="ID_LAYERCOUNT" xml:space="preserve">
+    <value>Lager #</value>
+  </data>
+	<data name="ID_BOXES" xml:space="preserve">
+    <value>Kartonger</value>
+  </data>
+	<data name="ID_CASES" xml:space="preserve">
+    <value>Lådor/Lager</value>
+  </data>
+	<data name="ID_CYLINDERS" xml:space="preserve">
+    <value>Cylindrar</value>
+  </data>
+	<data name="ID_INTERLAYERS" xml:space="preserve">
+    <value>Mellanlägg</value>
+  </data>
+	<data name="ID_PALLETCAPS" xml:space="preserve">
+    <value>Topptäckningar</value>
+  </data>
+	<data name="ID_PALLETFILMS" xml:space="preserve">
+    <value>Sträckfilmer</value>
+  </data>
+	<data name="ID_PALLETS" xml:space="preserve">
+    <value>Lastpallar</value>
+  </data>
+	<data name="ID_DISPLAYDEBUGGING" xml:space="preserve">
+    <value>Felsökning</value>
+  </data>
+	<data name="ID_DISPLAYDIMENSIONSCASEPALLET" xml:space="preserve">
+    <value>Dimensioner ärende/lastpall</value>
+  </data>
+	<data name="ID_DISPLAYMEASUREMENTSYSTEM" xml:space="preserve">
+    <value>Språk &amp; mätsystem</value>
+  </data>
+	<data name="ID_DISPLAYPLUGINS" xml:space="preserve">
+    <value>Plugins</value>
+  </data>
+	<data name="ID_DISPLAYREPORTING" xml:space="preserve">
+    <value>Rapportering</value>
+  </data>
+	<data name="ID_OPTIONSDEBUGGING" xml:space="preserve">
+    <value>Options\\Debugging</value>
+  </data>
+	<data name="ID_OPTIONSDIMENSIONS" xml:space="preserve">
+    <value>Options\\Dimensions\\Case/pall</value>
+  </data>
+	<data name="ID_OPTIONSMEASUREMENTSYSTEM" xml:space="preserve">
+    <value>Options\\Language &amp; Unit system</value>
+  </data>
+	<data name="ID_OPTIONSPLUGINS" xml:space="preserve">
+    <value>Options\\Plugins</value>
+  </data>
+	<data name="ID_OPTIONSREPORTING" xml:space="preserve">
+    <value>Options\\Reporting</value>
+  </data>
+	<data name="ID_SELECTATLEASTONELAYOUT" xml:space="preserve">
+    <value>Välj på leat ett lager</value>
+  </data>
+	<data name="ID_AUTOIMPORT" xml:space="preserve">
+    <value>Importera bil</value>
+  </data>
+	<data name="ID_DESCRIPTION" xml:space="preserve">
+    <value>Beskrivning</value>
+  </data>
+	<data name="ID_DIMENSIONS" xml:space="preserve">
+    <value>Dimensioner ({0})</value>
+  </data>
+	<data name="ID_NAMEALREADYEXISTSINDB" xml:space="preserve">
+    <value>{0} med namnet {1} redan finns i databasen.</value>
+  </data>
+	<data name="ID_DELETE" xml:space="preserve">
+    <value>Ta bort</value>
+  </data>
+	<data name="ID_DIAMETERINNER_WU" xml:space="preserve">
+    <value>Innerdiameter ({0})</value>
+  </data>
+	<data name="ID_DIAMETEROUTER_WU" xml:space="preserve">
+    <value>Yttre diameter ({0})</value>
+  </data>
+	<data name="ID_HEIGHT_WU" xml:space="preserve">
+    <value>Höjd ({0})</value>
+  </data>
+	<data name="ID_DIMEXT_WU" xml:space="preserve">
+    <value>Mått ext. ({0})</value>
+  </data>
+	<data name="ID_DIMINT_WU" xml:space="preserve">
+    <value>Mått int. ({0})</value>
+  </data>
+	<data name="ID_LENGTH_WU" xml:space="preserve">
+    <value>Längd ({0})</value>
+  </data>
+	<data name="ID_NUMBER" xml:space="preserve">
+    <value>#</value>
+  </data>
+	<data name="ID_THICKNESS_WU" xml:space="preserve">
+    <value>Tjocklek ({0})</value>
+  </data>
+	<data name="ID_WIDTH_WU" xml:space="preserve">
+    <value>Bredd ({0})</value>
+  </data>
+	<data name="ID_HATCHINGANGLE" xml:space="preserve">
+    <value>Kläckning vinkel</value>
+  </data>
+	<data name="ID_HATCHINGSPACING" xml:space="preserve">
+    <value>Kläckning utrymme</value>
+  </data>
+	<data name="ID_TRANSPARENCY" xml:space="preserve">
+    <value>Använda transparens</value>
+  </data>
+	<data name="ID_CASENAME" xml:space="preserve">
+    <value>Caisse</value>
+  </data>
+	<data name="ID_NOCASESELECTED" xml:space="preserve">
+    <value>Inget fall valt!</value>
+  </data>
+	<data name="ID_NOORIENTATIONSELECTED" xml:space="preserve">
+    <value>Ingen väljer orienteringen!</value>
+  </data>
+	<data name="ID_DOUBLECLICKALAYER" xml:space="preserve">
+    <value>Dubbelklicka på ett lager!</value>
+  </data>
+	<data name="ID_INTERLAYERNUMBER" xml:space="preserve">
+    <value>Interlayer #</value>
+  </data>
+	<data name="ID_LAYER" xml:space="preserve">
+    <value>Lager</value>
+  </data>
+	<data name="ID_LAYERNUMBER" xml:space="preserve">
+    <value>Lager #</value>
+  </data>
+	<data name="ID_LOADDIMENSIONS" xml:space="preserve">
+    <value>Läsa in dimensioner ({0})</value>
+  </data>
+	<data name="ID_LOADWEIGHT_WU" xml:space="preserve">
+    <value>Lastens vikt ({0})</value>
+  </data>
+	<data name="ID_NETWEIGHT_WU" xml:space="preserve">
+    <value>Nettovikt ({0})</value>
+  </data>
+	<data name="ID_OUTERDIMENSIONS" xml:space="preserve">
+    <value>Yttermått ({0})</value>
+  </data>
+	<data name="ID_PALLET" xml:space="preserve">
+    <value>Lastpall</value>
+  </data>
+	<data name="ID_SELECTEDLAYER" xml:space="preserve">
+    <value>Valda lagret: {0} </value>
+  </data>
+	<data name="ID_TOTALWEIGHT_WU" xml:space="preserve">
+    <value>Total vikt ({0})</value>
+  </data>
+	<data name="ID_INTERLAYERCOUNT" xml:space="preserve">
+    <value>Interlayer #</value>
+  </data>
+	<data name="ID_SPACES_WU" xml:space="preserve">
+    <value>Blanksteg ({0})</value>
+  </data>
+	<data name="ID_LOAD" xml:space="preserve">
+    <value>Last</value>
+  </data>
+	<data name="ID_REGISTEREDUSERCOUNT" xml:space="preserve">
+    <value>Antal användare = {0}</value>
+  </data>
+	<data name="ID_WEIGHT" xml:space="preserve">
+    <value>Vikt</value>
+  </data>
+	<data name="ID_GENERATEREPORTPDF" xml:space="preserve">
+    <value>Generera PDF-rapport</value>
+  </data>
+	<data name="ID_GENERATEREPORTHTML" xml:space="preserve">
+    <value>Generera HTML-rapport</value>
+  </data>
+	<data name="ID_GENERATEREPORTMSWORD" xml:space="preserve">
+    <value>Generera rapport över MS word</value>
+  </data>
+	<data name="ID_EFFICIENCY" xml:space="preserve">
+    <value>Effektivitet</value>
+  </data>
+</root>

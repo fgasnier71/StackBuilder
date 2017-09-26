@@ -117,4 +117,160 @@
 	<resheader name="writer">
 		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
 	</resheader>
+	<data name="ID_A1" xml:space="preserve">
+    <value>A1</value>
+  </data>
+	<data name="ID_A2" xml:space="preserve">
+    <value>A2</value>
+  </data>
+	<data name="ID_A3" xml:space="preserve">
+    <value>A3</value>
+  </data>
+	<data name="ID_ANALYSISDESCRIPTION" xml:space="preserve">
+    <value>Accatastamento caso {0} in {1} pallet </value>
+  </data>
+	<data name="ID_ANALYSISHASNOVALIDSOLUTION" xml:space="preserve">
+    <value>Analisi non ha alcuna soluzione valida</value>
+  </data>
+	<data name="ID_ANALYSISNAME" xml:space="preserve">
+    <value>{0} _on_ {1}</value>
+  </data>
+	<data name="ID_AREA" xml:space="preserve">
+    <value>Area</value>
+  </data>
+	<data name="ID_BUNDLECOUNT" xml:space="preserve">
+    <value>fasci di n.</value>
+  </data>
+	<data name="ID_CASE" xml:space="preserve">
+    <value>Caso</value>
+  </data>
+	<data name="ID_CASECOUNT" xml:space="preserve">
+    <value>Cassa totali</value>
+  </data>
+	<data name="ID_CASESLAYER" xml:space="preserve">
+    <value>Astucci/Livello</value>
+  </data>
+	<data name="ID_CASESPALLET" xml:space="preserve">
+    <value>Scatole/Pallet</value>
+  </data>
+	<data name="ID_CASEWEIGHT" xml:space="preserve">
+    <value>Peso della cassa</value>
+  </data>
+	<data name="ID_DEFINEBUNDLEPALLETANALYSIS" xml:space="preserve">
+    <value>Definire analisi bundle/pallet...</value>
+  </data>
+	<data name="ID_DEFINECASEPALLETANALYSIS" xml:space="preserve">
+    <value>Definire analisi caso/pallet...</value>
+  </data>
+	<data name="ID_DIMENSIONS" xml:space="preserve">
+    <value>Dimensioni</value>
+  </data>
+	<data name="ID_DOUBLECLICKALAYER" xml:space="preserve">
+    <value>Fare doppio clic su un livello!</value>
+  </data>
+	<data name="ID_EFFICIENCYPERCENTAGE" xml:space="preserve">
+    <value>Percentuale di efficienza</value>
+  </data>
+	<data name="ID_HEIGHT" xml:space="preserve">
+    <value>Altezza</value>
+  </data>
+	<data name="ID_INDEX" xml:space="preserve">
+    <value>Indice</value>
+  </data>
+	<data name="ID_INSUFFICIENTPALLETHEIGHT" xml:space="preserve">
+    <value>Altezza massima pallet ({0} {1}) dovrebbe superare {1} {2}</value>
+  </data>
+	<data name="ID_INSUFFICIENTVOLUME" xml:space="preserve">
+    <value>Il volume massimo è sufficiente per il confezionamento di {0} {1}.</value>
+  </data>
+	<data name="ID_INTERLAYERNUMBER" xml:space="preserve">
+    <value>Interfalda n.</value>
+  </data>
+	<data name="ID_LAYERNUMBER" xml:space="preserve">
+    <value>Strato n.</value>
+  </data>
+	<data name="ID_LAYERPATTERN" xml:space="preserve">
+    <value>Modello di strato</value>
+  </data>
+	<data name="ID_LAYERS" xml:space="preserve">
+    <value>Livelli</value>
+  </data>
+	<data name="ID_LAYERWEIGT" xml:space="preserve">
+    <value>Peso di layer ({0})</value>
+  </data>
+	<data name="ID_LENGTH" xml:space="preserve">
+    <value>Lunghezza</value>
+  </data>
+	<data name="ID_LOADDIMENSIONS" xml:space="preserve">
+    <value>Dimensions{0}({1}x{1}x{1}) di carico</value>
+  </data>
+	<data name="ID_LOADWEIGHT_WU" xml:space="preserve">
+    <value>Peso del carico ({0})</value>
+  </data>
+	<data name="ID_MAXIMUMSPACE" xml:space="preserve">
+    <value>Spazio massimo</value>
+  </data>
+	<data name="ID_MAXLOWERTHANMIN" xml:space="preserve">
+    <value>Incongruenza: Massimo {0} è inferiore al minimo {1}.</value>
+  </data>
+	<data name="ID_NETWEIGHT_WU" xml:space="preserve">
+    <value>Peso netto ({0})</value>
+  </data>
+	<data name="ID_OPTANALYSISDESCRIPTION" xml:space="preserve">
+    <value>Analisi di pallet generato dal caso ottimizzazione per casella {1} {0} e pallet</value>
+  </data>
+	<data name="ID_OPTANALYSISNAME" xml:space="preserve">
+    <value>OptimAnalysis {0} _ {1} * {2} * {3} _ {4} {5}</value>
+  </data>
+	<data name="ID_OPTCASEDESCRIPTION" xml:space="preserve">
+    <value>Cassa generato dal caso ottimizzazione per casella {1} {0} e pallet</value>
+  </data>
+	<data name="ID_OPTDOCUMENTDESCRIPTION" xml:space="preserve">
+    <value>Palettizzazione ottimale per casella {0}</value>
+  </data>
+	<data name="ID_OUTERDIMENSIONS" xml:space="preserve">
+    <value>Dimensions{0}({1}x{1}x{1}) esterno</value>
+  </data>
+	<data name="ID_PALLET" xml:space="preserve">
+    <value>Pallet</value>
+  </data>
+	<data name="ID_PALLETHEIGHT" xml:space="preserve">
+    <value>Altezza pallet</value>
+  </data>
+	<data name="ID_PALLETLIMIT" xml:space="preserve">
+    <value>Limite raggiunto</value>
+  </data>
+	<data name="ID_PALLETMAXHEIGHT" xml:space="preserve">
+    <value>Altezza</value>
+  </data>
+	<data name="ID_PALLETMAXNUMBER" xml:space="preserve">
+    <value>Numero</value>
+  </data>
+	<data name="ID_PALLETMAXWEIGHT" xml:space="preserve">
+    <value>Peso</value>
+  </data>
+	<data name="ID_PALLETWEIGHT" xml:space="preserve">
+    <value>Peso Pallet ({0})</value>
+  </data>
+	<data name="ID_READY" xml:space="preserve">
+    <value>Pronto</value>
+  </data>
+	<data name="ID_SELECTATLEASTONELAYOUT" xml:space="preserve">
+    <value>Selezionare a leat uno strato</value>
+  </data>
+	<data name="ID_SELECTEDLAYER" xml:space="preserve">
+    <value>Livello selezionato: {0}</value>
+  </data>
+	<data name="ID_TOTALWEIGHT_WU" xml:space="preserve">
+    <value>Peso totale ({0})</value>
+  </data>
+	<data name="ID_VOLUMEEFFICIENCY" xml:space="preserve">
+    <value>Efficienza di volume (%)</value>
+  </data>
+	<data name="ID_WEIGHT_WU" xml:space="preserve">
+    <value>Peso ({0})</value>
+  </data>
+	<data name="ID_WIDTH" xml:space="preserve">
+    <value>Larghezza</value>
+  </data>
 </root>

@@ -129,4 +129,148 @@
 	<data name="ID_PALLETHEIGHT" xml:space="preserve">
 		<value>wysokość palety</value>
 	</data>
+	<data name="ID_A1" xml:space="preserve">
+    <value>A1</value>
+  </data>
+	<data name="ID_A2" xml:space="preserve">
+    <value>A2</value>
+  </data>
+	<data name="ID_A3" xml:space="preserve">
+    <value>A3</value>
+  </data>
+	<data name="ID_ANALYSISDESCRIPTION" xml:space="preserve">
+    <value>Układania sprawa {0} dnia {1} palet </value>
+  </data>
+	<data name="ID_ANALYSISHASNOVALIDSOLUTION" xml:space="preserve">
+    <value>Analiza ma ma prawidłowe rozwiązania</value>
+  </data>
+	<data name="ID_ANALYSISNAME" xml:space="preserve">
+    <value>{0} _on_ {1}</value>
+  </data>
+	<data name="ID_AREA" xml:space="preserve">
+    <value>Obszar</value>
+  </data>
+	<data name="ID_BUNDLECOUNT" xml:space="preserve">
+    <value># pakiety</value>
+  </data>
+	<data name="ID_CASECOUNT" xml:space="preserve">
+    <value>Liczba przypadków</value>
+  </data>
+	<data name="ID_CASESLAYER" xml:space="preserve">
+    <value>Przypadkach/warstwy</value>
+  </data>
+	<data name="ID_CASESPALLET" xml:space="preserve">
+    <value>Przypadkach/paleta</value>
+  </data>
+	<data name="ID_CASEWEIGHT" xml:space="preserve">
+    <value>Sprawa wagi</value>
+  </data>
+	<data name="ID_DEFINEBUNDLEPALLETANALYSIS" xml:space="preserve">
+    <value>Zdefiniuj pakiet/paleta analizy...</value>
+  </data>
+	<data name="ID_DEFINECASEPALLETANALYSIS" xml:space="preserve">
+    <value>Zdefiniować skrzynka/paleta analizy...</value>
+  </data>
+	<data name="ID_DIMENSIONS" xml:space="preserve">
+    <value>Wymiary</value>
+  </data>
+	<data name="ID_DOUBLECLICKALAYER" xml:space="preserve">
+    <value>Kliknij dwukrotnie warstwę!</value>
+  </data>
+	<data name="ID_EFFICIENCYPERCENTAGE" xml:space="preserve">
+    <value>Procent wydajności</value>
+  </data>
+	<data name="ID_HEIGHT" xml:space="preserve">
+    <value>Wysokość</value>
+  </data>
+	<data name="ID_INDEX" xml:space="preserve">
+    <value>Indeks</value>
+  </data>
+	<data name="ID_INSUFFICIENTPALLETHEIGHT" xml:space="preserve">
+    <value>Wysokość maksymalna palety ({0} {1}) powinna przekraczać {1} {2}</value>
+  </data>
+	<data name="ID_INSUFFICIENTVOLUME" xml:space="preserve">
+    <value>Maksymalna objętość jest niewystarczająca, aby spakować {0} {1}.</value>
+  </data>
+	<data name="ID_INTERLAYERNUMBER" xml:space="preserve">
+    <value>Warstwa nr</value>
+  </data>
+	<data name="ID_LAYERNUMBER" xml:space="preserve">
+    <value>Warstwy nr</value>
+  </data>
+	<data name="ID_LAYERS" xml:space="preserve">
+    <value>Warstwy</value>
+  </data>
+	<data name="ID_LAYERWEIGT" xml:space="preserve">
+    <value>Warstwa masy ({0})</value>
+  </data>
+	<data name="ID_LENGTH" xml:space="preserve">
+    <value>Długość</value>
+  </data>
+	<data name="ID_LOADDIMENSIONS" xml:space="preserve">
+    <value>Obciążenia dimensions{0}({1}x{1}x{1})</value>
+  </data>
+	<data name="ID_LOADWEIGHT_WU" xml:space="preserve">
+    <value>Obciążenie ({0})</value>
+  </data>
+	<data name="ID_MAXLOWERTHANMIN" xml:space="preserve">
+    <value>Niespójność: Maksymalnie {0} jest niższa niż minimalna {1}.</value>
+  </data>
+	<data name="ID_NETWEIGHT_WU" xml:space="preserve">
+    <value>Waga netto ({0})</value>
+  </data>
+	<data name="ID_OPTANALYSISDESCRIPTION" xml:space="preserve">
+    <value>Analizy palet generowane przez przypadek optymalizacji dla pole paletę {0} i {1}</value>
+  </data>
+	<data name="ID_OPTANALYSISNAME" xml:space="preserve">
+    <value>OptimAnalysis {0} _ {1} * {2} * {3} _ {4} {5}</value>
+  </data>
+	<data name="ID_OPTCASEDESCRIPTION" xml:space="preserve">
+    <value>Jeśli generowany przez przypadek optymalizacji dla pole paletę {0} i {1}</value>
+  </data>
+	<data name="ID_OPTDOCUMENTDESCRIPTION" xml:space="preserve">
+    <value>Paletyzacja optymalne pole {0}</value>
+  </data>
+	<data name="ID_OUTERDIMENSIONS" xml:space="preserve">
+    <value>Zewnętrzna dimensions{0}({1}x{1}x{1})</value>
+  </data>
+	<data name="ID_PALLET" xml:space="preserve">
+    <value>Palety</value>
+  </data>
+	<data name="ID_PALLETLIMIT" xml:space="preserve">
+    <value>Osiągnięto limit</value>
+  </data>
+	<data name="ID_PALLETMAXHEIGHT" xml:space="preserve">
+    <value>Wysokość</value>
+  </data>
+	<data name="ID_PALLETMAXNUMBER" xml:space="preserve">
+    <value>Numer</value>
+  </data>
+	<data name="ID_PALLETMAXWEIGHT" xml:space="preserve">
+    <value>Waga</value>
+  </data>
+	<data name="ID_PALLETWEIGHT" xml:space="preserve">
+    <value>Waga palety ({0})</value>
+  </data>
+	<data name="ID_READY" xml:space="preserve">
+    <value>Gotowe</value>
+  </data>
+	<data name="ID_SELECTATLEASTONELAYOUT" xml:space="preserve">
+    <value>Wybierz w leat jednej warstwy</value>
+  </data>
+	<data name="ID_SELECTEDLAYER" xml:space="preserve">
+    <value>Wybrana warstwa: {0}</value>
+  </data>
+	<data name="ID_TOTALWEIGHT_WU" xml:space="preserve">
+    <value>Masa całkowita ({0})</value>
+  </data>
+	<data name="ID_VOLUMEEFFICIENCY" xml:space="preserve">
+    <value>Objętość sprawność (%)</value>
+  </data>
+	<data name="ID_WEIGHT_WU" xml:space="preserve">
+    <value>Waga ({0})</value>
+  </data>
+	<data name="ID_WIDTH" xml:space="preserve">
+    <value>Szerokość</value>
+  </data>
 </root>

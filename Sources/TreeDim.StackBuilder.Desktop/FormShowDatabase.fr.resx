@@ -282,4 +282,10 @@
   <data name="$this.Text" xml:space="preserve">
     <value>Editer la base de données et importer des objets dans le projet...</value>
   </data>
+  <data name="tabPagePallet.ToolTipText" xml:space="preserve">
+    <value>Palettes</value>
+  </data>
+  <data name="tabPageBox.Text" xml:space="preserve">
+    <value>Etuis</value>
+  </data>
 </root>
