@@ -1,0 +1,60 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="treeDiM.StackBuilder.ExcelAddIn.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="CellCaseLength" Type="System.String" Scope="User">
+      <Value Profile="(Default)">B3</Value>
+    </Setting>
+    <Setting Name="CellCaseWidth" Type="System.String" Scope="User">
+      <Value Profile="(Default)">B4</Value>
+    </Setting>
+    <Setting Name="CellCaseHeight" Type="System.String" Scope="User">
+      <Value Profile="(Default)">B5</Value>
+    </Setting>
+    <Setting Name="CellCaseWeight" Type="System.String" Scope="User">
+      <Value Profile="(Default)">B6</Value>
+    </Setting>
+    <Setting Name="CellPalletLength" Type="System.String" Scope="User">
+      <Value Profile="(Default)">B17</Value>
+    </Setting>
+    <Setting Name="CellPalletWidth" Type="System.String" Scope="User">
+      <Value Profile="(Default)">B18</Value>
+    </Setting>
+    <Setting Name="CellPalletHeight" Type="System.String" Scope="User">
+      <Value Profile="(Default)">B19</Value>
+    </Setting>
+    <Setting Name="CellPalletWeight" Type="System.String" Scope="User">
+      <Value Profile="(Default)">B20</Value>
+    </Setting>
+    <Setting Name="CellMaxPalletHeight" Type="System.String" Scope="User">
+      <Value Profile="(Default)">B23</Value>
+    </Setting>
+    <Setting Name="CellMaxPalletWeight" Type="System.String" Scope="User">
+      <Value Profile="(Default)">B24</Value>
+    </Setting>
+    <Setting Name="CellNoCases" Type="System.String" Scope="User">
+      <Value Profile="(Default)">B27</Value>
+    </Setting>
+    <Setting Name="CellLoadWeight" Type="System.String" Scope="User">
+      <Value Profile="(Default)">B28</Value>
+    </Setting>
+    <Setting Name="CellTotalPalletWeight" Type="System.String" Scope="User">
+      <Value Profile="(Default)">B29</Value>
+    </Setting>
+    <Setting Name="ImageWidth" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">14</Value>
+    </Setting>
+    <Setting Name="ImageHeight" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">14</Value>
+    </Setting>
+    <Setting Name="ImageX" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">21</Value>
+    </Setting>
+    <Setting Name="ImageY" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="ImageSize" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">1000</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

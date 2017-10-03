@@ -1,10 +1,7 @@
 ﻿#region Using directives
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 
 using log4net;
@@ -14,11 +11,12 @@ using treeDiM.StackBuilder.Graphics;
 using Sharp3D.Math.Core;
 
 using treeDiM.StackBuilder.Desktop.Properties;
+using System.ComponentModel;
 #endregion
 
 namespace treeDiM.StackBuilder.Desktop
 {
-    public partial class FormEditBitmaps : Form
+    public partial class FormEditBitmaps : Form, IDrawingContainer
     {
         #region Data members
         private  BoxProperties _boxProperties;
@@ -42,8 +40,6 @@ namespace treeDiM.StackBuilder.Desktop
             _textures = _boxProperties.TextureListCopy;
             // set default face
             cbFace.SelectedIndex = 0;
-            // set horizontal angle
-            trackBarHorizAngle.Value = 225;
         }
         /// <summary>
         /// constructor (from length, width, height)
@@ -60,8 +56,6 @@ namespace treeDiM.StackBuilder.Desktop
             _textures = _boxProperties.TextureListCopy;
             // set default face
             cbFace.SelectedIndex = 0;
-            // set horizontal angle
-            trackBarHorizAngle.Value = 225;
         }
         #endregion
 
@@ -86,15 +80,19 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Load / Closing
-        private void FormEditBitmaps_Load(object sender, EventArgs e)
+        protected override void OnLoad(EventArgs e)
         {
+            base.OnLoad(e);
+            // initialize graphCtrl
+            graphCtrl.DrawingContainer = this;
             // windows settings
             if (null != Settings.Default.FormEditBitmapsPosition)
                 Settings.Default.FormEditBitmapsPosition.Restore(this);
-            DrawBox();
+            graphCtrl.Invalidate();
         }
-        private void FormEditBitmaps_FormClosing(object sender, FormClosingEventArgs e)
+        protected override void OnClosing(CancelEventArgs e)
         {
+            base.OnClosing(e);
             // window position
             if (null == Settings.Default.FormEditBitmapsPosition)
                 Settings.Default.FormEditBitmapsPosition = new WindowSettings();
@@ -102,50 +100,27 @@ namespace treeDiM.StackBuilder.Desktop
         }
         #endregion
 
-        #region Draw box
-        private void DrawBox()
+        #region IDrawingContainer implementation
+        public void Draw(Graphics3DControl ctrl, Graphics3D graphics)
         {
-            try
-            {
-                // get horizontal angle
-                double angle = trackBarHorizAngle.Value;
-                double cameraDistance = 100000.0;
-                // instantiate graphics
-                Graphics3DImage graphics = new Graphics3DImage(pictureBox.Size)
-                {
-                    CameraPosition = new Vector3D(
-                    Math.Cos(angle * Math.PI / 180.0) * Math.Sqrt(2.0) * cameraDistance
-                    , Math.Sin(angle * Math.PI / 180.0) * Math.Sqrt(2.0) * cameraDistance
-                    , cameraDistance),
-                    Target = Vector3D.Zero
-                };
-                graphics.SetViewport(-500.0f, -500.0f, 500.0f, 500.0f);
-                // draw
-                BoxProperties boxProperties = new BoxProperties(null, _boxProperties.Length, _boxProperties.Width, _boxProperties.Height);
-                boxProperties.SetAllColors(_boxProperties.Colors);
-                boxProperties.TextureList = _textures;
-                Box box = new Box(0, boxProperties);
-                graphics.AddBox(box);
-                graphics.Flush();
-                // set to picture box
-                pictureBox.Image = graphics.Bitmap;
-            }
-            catch (Exception ex)
-            {
-                _log.Error(ex.ToString());
-            }
+            BoxProperties boxProperties = new BoxProperties(null, _boxProperties.Length, _boxProperties.Width, _boxProperties.Height);
+            boxProperties.SetAllColors(_boxProperties.Colors);
+            boxProperties.TapeColor = _boxProperties.TapeColor;
+            boxProperties.TapeWidth = _boxProperties.TapeWidth;
+            boxProperties.TextureList = _textures;
+            graphics.AddBox(new Box(0, boxProperties));
         }
         #endregion
 
         #region Handlers
-        private void onSelectedFaceChanged(object sender, EventArgs e)
+        private void OnSelectedFaceChanged(object sender, EventArgs e)
         {
             try
             {
                 FillBitmapControl(SelectedFace);
                 if (listBoxTextures.Items.Count > 0)
                     listBoxTextures.SelectedIndex = 0;
-                onSelectedTextureChanged(listBoxTextures, null);
+                OnSelectedTextureChanged(listBoxTextures, null);
             }
             catch (Exception ex)
             {
@@ -161,39 +136,41 @@ namespace treeDiM.StackBuilder.Desktop
             listBoxTextures.SetTextureList(listTexture);
         }
 
-        private void onHorizAngleChanged(object sender, EventArgs e)
+        private void OnBnMoveUpDown(object sender, EventArgs e)
         {
-            DrawBox();
-        }
-
-        private void bnMoveUpDown_Click(object sender, EventArgs e)
-        {
-            // try and find selected texture
-            Pair<HalfAxis.HAxis, Texture> texturePair = _textures.Find(
-                delegate(Pair<HalfAxis.HAxis, Texture> tex) { return tex.second == SelectedTexture; });
-            // get index
-            int index = _textures.IndexOf(texturePair);
-            if (sender == bnMoveUp)
+            try
             {
-                // remove and insert at index - 1
-                if (index > 0 && _textures.Remove(texturePair))
-                    _textures.Insert(index - 1, texturePair);
+                // try and find selected texture
+                Pair<HalfAxis.HAxis, Texture> texturePair = _textures.Find(
+                    delegate (Pair<HalfAxis.HAxis, Texture> tex) { return tex.second == SelectedTexture; });
+                // get index
+                int index = _textures.IndexOf(texturePair);
+                if (sender == bnMoveUp)
+                {
+                    // remove and insert at index - 1
+                    if (index > 0 && _textures.Remove(texturePair))
+                        _textures.Insert(index - 1, texturePair);
+                }
+                else if (sender == bnMoveDown)
+                {
+                    // remove and insert at index + 1
+                    if (index < _textures.Count - 1 && _textures.Remove(texturePair))
+                        _textures.Insert(index + 1, texturePair);
+                }
+                // rebuild list
+                FillBitmapControl(SelectedFace);
+                // select current item
+                SelectedTexture = texturePair.second;
+                // refresh
+                graphCtrl.Invalidate();
             }
-            else if (sender == bnMoveDown)
-            { 
-                // remove and insert at index + 1
-                if (index < _textures.Count - 1 && _textures.Remove(texturePair))
-                    _textures.Insert(index + 1, texturePair);
+            catch (Exception ex)
+            {
+                _log.Error(ex.ToString());
             }
-            // rebuild list
-            FillBitmapControl(SelectedFace);
-            // select current item
-            SelectedTexture = texturePair.second;
-            // refresh
-            DrawBox();
         }
 
-        private void bnAdd_Click(object sender, EventArgs e)
+        private void OnBnAdd(object sender, EventArgs e)
         {
             try
             {
@@ -211,7 +188,7 @@ namespace treeDiM.StackBuilder.Desktop
                     FillBitmapControl(SelectedFace);
                     SelectedTexture = faceTexturePair.second;
                     // refresh drawing
-                    DrawBox();
+                    graphCtrl.Invalidate();
                 }
             }
             catch (Exception ex)
@@ -219,7 +196,7 @@ namespace treeDiM.StackBuilder.Desktop
                 _log.Error(ex.ToString());
             }
         }
-        private void bnRemove_Click(object sender, EventArgs e)
+        private void OnBnRemove(object sender, EventArgs e)
         {
             try
             {
@@ -235,9 +212,9 @@ namespace treeDiM.StackBuilder.Desktop
                     SelectedTexture = item.Texture;
                 }
                 else
-                    onSelectedTextureChanged(this, null);
+                    OnSelectedTextureChanged(this, null);
                 // draw box
-                DrawBox();
+                graphCtrl.Invalidate();
             }
             catch (Exception ex)
             {
@@ -249,7 +226,7 @@ namespace treeDiM.StackBuilder.Desktop
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void texturePosition_ValueChanged(object sender, EventArgs e)
+        private void OnTexturePositionChanged(object sender, EventArgs e)
         {
             if (_preventHandling)
                 return;
@@ -259,11 +236,11 @@ namespace treeDiM.StackBuilder.Desktop
                 Texture texture = SelectedTexture;
                 if (null == texture) return;
                 // set position / size / angle
-                texture.Position = new Vector2D((double)nudPositionX.Value, (double)nudPositionY.Value);
-                texture.Size = new Vector2D((double)nudSizeX.Value, (double)nudSizeY.Value);
+                texture.Position = new Vector2D(uCtrlOrigin.ValueX, uCtrlOrigin.ValueY);
+                texture.Size = new Vector2D(uCtrlSize.ValueX, uCtrlSize.ValueY);
                 texture.Angle = (double)nudAngle.Value;
                 // redraw box
-                DrawBox();
+                graphCtrl.Invalidate();
             }
             catch (Exception ex)
             {
@@ -271,44 +248,38 @@ namespace treeDiM.StackBuilder.Desktop
             }
         }
 
-        private void onSelectedTextureChanged(object sender, EventArgs e)
+        private void OnSelectedTextureChanged(object sender, EventArgs e)
         {
             int index = listBoxTextures.SelectedIndex;
 
             Texture texture = SelectedTexture;
 
-            nudPositionX.Enabled = null != texture;
-            nudPositionY.Enabled = null != texture;
-            nudSizeX.Enabled = null != texture;
-            nudSizeY.Enabled = null != texture;
+            uCtrlOrigin.Enabled = null != texture;
+            uCtrlSize.Enabled= null != texture;
             nudAngle.Enabled = null != texture;
 
-            lbOrigin.Enabled = null != texture;
-            lbSize.Enabled = null != texture;
             lbAngle.Enabled = null != texture;
-            uLengthOriginX.Enabled = null != texture;
-            uLengthOriginY.Enabled = null != texture;
-            uLengthSizeX.Enabled = null != texture;
-            uLengthSizeY.Enabled = null != texture;
             lbUnitAngle.Enabled = null != texture;
 
             if (null != texture)
             {
                 _preventHandling = true;
-                nudPositionX.Value = (decimal)texture.Position.X;
-                nudPositionY.Value = (decimal)texture.Position.Y;
-                nudSizeX.Value = (decimal)texture.Size.X;
-                nudSizeY.Value = (decimal)texture.Size.Y;
+                uCtrlOrigin.ValueX = texture.Position.X;
+                uCtrlOrigin.ValueY = texture.Position.Y;
+                uCtrlSize.ValueX = texture.Size.X;
+                uCtrlSize.ValueY = texture.Size.Y;
                 nudAngle.Value = (decimal)texture.Angle;
                 _preventHandling = false;
             }
 
             // enable/disable up and down button
         }
-        private void FormEditBitmaps_Resize(object sender, EventArgs e)
+
+        protected override void OnResize(EventArgs e)
         {
+            base.OnResize(e);
             // refresh drawing
-            DrawBox();
+            graphCtrl.Invalidate();
         }
         #endregion
 
@@ -379,8 +350,8 @@ namespace treeDiM.StackBuilder.Desktop
                     break;
             }
         }
+
+
         #endregion
-
-
     }
 }

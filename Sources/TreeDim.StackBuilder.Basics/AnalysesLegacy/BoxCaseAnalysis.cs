@@ -159,8 +159,10 @@ namespace treeDiM.StackBuilder.Basics
         }
         protected override void RemoveItselfFromDependancies()
         {
-            _bProperties.RemoveDependancy(this);
-            _caseProperties.RemoveDependancy(this);
+            if (null != _bProperties)
+                _bProperties.RemoveDependancy(this);
+            if (null != _caseProperties)
+                _caseProperties.RemoveDependancy(this);
             base.RemoveItselfFromDependancies();
         }
 

@@ -86,7 +86,8 @@ namespace treeDiM.StackBuilder.Basics
         protected override void RemoveItselfFromDependancies()
         {
             base.RemoveItselfFromDependancies();
-            _palletProperties.RemoveDependancy(this);
+            if (null != _palletProperties)
+                _palletProperties.RemoveDependancy(this);
         }
         #endregion
     }

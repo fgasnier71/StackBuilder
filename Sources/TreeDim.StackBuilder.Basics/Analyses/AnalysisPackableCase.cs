@@ -63,7 +63,6 @@ namespace treeDiM.StackBuilder.Basics
         }
 
         #region Non-Public Members
-
         protected BoxProperties _caseProperties;
 
         protected AnalysisPackableCase(Document document, Packable packable, BoxProperties caseProperties, ConstraintSetPackableCase constraintSet)
@@ -82,9 +81,9 @@ namespace treeDiM.StackBuilder.Basics
         protected override void RemoveItselfFromDependancies()
         {
             base.RemoveItselfFromDependancies();
-            _caseProperties.RemoveDependancy(this);
+            if (null != _caseProperties)
+                _caseProperties.RemoveDependancy(this);
         }
-
         #endregion
     }
 }

@@ -150,7 +150,8 @@ namespace treeDiM.StackBuilder.Basics
         #region ItemBase override
         protected override void RemoveItselfFromDependancies()
         {
-            _analysis.RemoveDependancy(this);
+            if (null != _analysis)
+                _analysis.RemoveDependancy(this);
             base.RemoveItselfFromDependancies();
         }
         #endregion
@@ -208,7 +209,8 @@ namespace treeDiM.StackBuilder.Basics
         #region ItemBase override
         protected override void RemoveItselfFromDependancies()
         {
-            _analysis.RemoveDependancy(this);
+            if (null != _analysis)
+                _analysis.RemoveDependancy(this);
             base.RemoveItselfFromDependancies();
         }
         #endregion
@@ -260,7 +262,8 @@ namespace treeDiM.StackBuilder.Basics
         #region ItemBase override
         protected override void RemoveItselfFromDependancies()
         {
-            _analysis.RemoveDependancy(this);
+            if (null != _analysis)
+                _analysis.RemoveDependancy(this);
             base.RemoveItselfFromDependancies();
         }
         #endregion
@@ -370,7 +373,8 @@ namespace treeDiM.StackBuilder.Basics
         #region ItemBase override
         protected override void RemoveItselfFromDependancies()
         {
-            _analysis.RemoveDependancy(this);
+            if (null != _analysis)
+                _analysis.RemoveDependancy(this);
             base.RemoveItselfFromDependancies();
         }
         #endregion

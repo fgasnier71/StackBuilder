@@ -942,20 +942,25 @@ namespace treeDiM.StackBuilder.Graphics
             Face[] facesWalls = cyl.FacesWalls;
             foreach (Face face in facesWalls)
             {
-                Vector3D normal = face.Normal;
-                // visible ?
-                if (!face.IsVisible(_vTarget - _vCameraPos))
-                    continue;
+                try
+                {
+                    Vector3D normal = face.Normal;
+                    // visible ?
+                    if (!face.IsVisible(_vTarget - _vCameraPos))
+                        continue;
 
-                // color
-                double cosA = System.Math.Abs(Vector3D.DotProduct(face.Normal, VLight));
-                if (cosA < 0 || cosA > 1) cosA = 1.0;
-                Color color = Color.FromArgb((int)(face.ColorFill.R * cosA), (int)(face.ColorFill.G * cosA), (int)(face.ColorFill.B * cosA));
-                // brush
-                Brush brush = new SolidBrush(color);
-                // draw polygon
-                Point[] ptsFace = TransformPoint(GetCurrentTransformation(), face.Points);
-                g.FillPolygon(brush, ptsFace);
+                    // color
+                    double cosA = System.Math.Abs(Vector3D.DotProduct(face.Normal, VLight));
+                    if (cosA < 0 || cosA > 1) cosA = 1.0;
+                    Color color = Color.FromArgb((int)(face.ColorFill.R * cosA), (int)(face.ColorFill.G * cosA), (int)(face.ColorFill.B * cosA));
+                    // brush
+                    Brush brush = new SolidBrush(color);
+                    // draw polygon
+                    Point[] ptsFace = TransformPoint(GetCurrentTransformation(), face.Points);
+                    g.FillPolygon(brush, ptsFace);
+                }
+                catch (Exception ex)
+                { _log.Error(ex.ToString()); }
             }
             // top
             double cosTop = System.Math.Abs(Vector3D.DotProduct(HalfAxis.ToVector3D(cyl.Position.Direction), VLight));
@@ -968,15 +973,20 @@ namespace treeDiM.StackBuilder.Graphics
                 Face[] facesTop = cyl.FacesTop;
                 foreach (Face face in facesTop)
                 {
-                    Vector3D normal = face.Normal;
+                    try
+                    {
+                        Vector3D normal = face.Normal;
 
-                    // visible ?
-                    if (!face.IsVisible(_vTarget - _vCameraPos))
-                        continue;
-                    // color
-                    // draw polygon
-                    Point[] ptsFace = TransformPoint(GetCurrentTransformation(), face.Points);
-                    g.FillPolygon(brushTop, ptsFace);
+                        // visible ?
+                        if (!face.IsVisible(_vTarget - _vCameraPos))
+                            continue;
+                        // color
+                        // draw polygon
+                        Point[] ptsFace = TransformPoint(GetCurrentTransformation(), face.Points);
+                        g.FillPolygon(brushTop, ptsFace);
+                    }
+                    catch (Exception ex)
+                    { _log.Error(ex.ToString()); }
                 }
             }
             else

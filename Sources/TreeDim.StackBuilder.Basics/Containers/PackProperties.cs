@@ -182,7 +182,8 @@ namespace treeDiM.StackBuilder.Basics
 
         protected override void RemoveItselfFromDependancies()
         {
-            _innerPackable.RemoveDependancy(this);
+            if (null != _innerPackable)
+                _innerPackable.RemoveDependancy(this);
             base.RemoveItselfFromDependancies();
         }
 

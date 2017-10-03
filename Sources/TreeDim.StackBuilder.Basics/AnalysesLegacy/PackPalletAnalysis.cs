@@ -199,8 +199,10 @@ namespace treeDiM.StackBuilder.Basics
 
         protected override void RemoveItselfFromDependancies()
         {
-            _packProperties.RemoveDependancy(this);
-            _palletProperties.RemoveDependancy(this);
+            if (null != _packProperties)
+                _packProperties.RemoveDependancy(this);
+            if (null != _palletProperties)
+                _palletProperties.RemoveDependancy(this);
             if (null != _interlayerProperties)
                 _interlayerProperties.RemoveDependancy(this);
             // base

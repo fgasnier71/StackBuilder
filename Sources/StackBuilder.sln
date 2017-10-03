@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.15
+VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GUI controls", "GUI controls", "{C6DE47A1-1707-4139-9638-37CA983F3086}"
 EndProject
@@ -45,6 +45,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "treeDiM.StackBuilder.ABYATExcelLoader", "CustomProjects\treeDiM.StackBuilder.ABYATExcelLoader\treeDiM.StackBuilder.ABYATExcelLoader.csproj", "{097F2A4C-A34D-43E1-A5BF-58D12D80E11F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "treeDiM.StackBuilder.Plugin_INTEX", "CustomProjects\treeDiM.StackBuilder.Plugin_INTEX\treeDiM.StackBuilder.Plugin_INTEX.csproj", "{C5AAB10A-8D08-419F-9D5C-2FC78FEF8B53}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "treeDiM.StackBuilder.ExcelAddIn", "CustomProjects\treeDiM.StackBuilder.ExcelAddIn\treeDiM.StackBuilder.ExcelAddIn.csproj", "{B172BE6D-5CAC-42D8-8895-D471D6EBDAC7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -277,6 +279,22 @@ Global
 		{C5AAB10A-8D08-419F-9D5C-2FC78FEF8B53}.Release|x64.Build.0 = Release|Any CPU
 		{C5AAB10A-8D08-419F-9D5C-2FC78FEF8B53}.Release|x86.ActiveCfg = Release|Any CPU
 		{C5AAB10A-8D08-419F-9D5C-2FC78FEF8B53}.Release|x86.Build.0 = Release|Any CPU
+		{B172BE6D-5CAC-42D8-8895-D471D6EBDAC7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B172BE6D-5CAC-42D8-8895-D471D6EBDAC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B172BE6D-5CAC-42D8-8895-D471D6EBDAC7}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{B172BE6D-5CAC-42D8-8895-D471D6EBDAC7}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{B172BE6D-5CAC-42D8-8895-D471D6EBDAC7}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{B172BE6D-5CAC-42D8-8895-D471D6EBDAC7}.Debug|x64.Build.0 = Debug|Any CPU
+		{B172BE6D-5CAC-42D8-8895-D471D6EBDAC7}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{B172BE6D-5CAC-42D8-8895-D471D6EBDAC7}.Debug|x86.Build.0 = Debug|Any CPU
+		{B172BE6D-5CAC-42D8-8895-D471D6EBDAC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B172BE6D-5CAC-42D8-8895-D471D6EBDAC7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B172BE6D-5CAC-42D8-8895-D471D6EBDAC7}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{B172BE6D-5CAC-42D8-8895-D471D6EBDAC7}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{B172BE6D-5CAC-42D8-8895-D471D6EBDAC7}.Release|x64.ActiveCfg = Release|Any CPU
+		{B172BE6D-5CAC-42D8-8895-D471D6EBDAC7}.Release|x64.Build.0 = Release|Any CPU
+		{B172BE6D-5CAC-42D8-8895-D471D6EBDAC7}.Release|x86.ActiveCfg = Release|Any CPU
+		{B172BE6D-5CAC-42D8-8895-D471D6EBDAC7}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -290,14 +308,12 @@ Global
 		{75769E19-2CCC-4DF0-88D9-CBAC14BB6329} = {78A832C5-F1BB-4A1F-95FD-6531DDA2E9EE}
 		{097F2A4C-A34D-43E1-A5BF-58D12D80E11F} = {6A9F4A88-DE9C-4EAB-9659-197FF7DFF6AD}
 		{C5AAB10A-8D08-419F-9D5C-2FC78FEF8B53} = {6A9F4A88-DE9C-4EAB-9659-197FF7DFF6AD}
+		{B172BE6D-5CAC-42D8-8895-D471D6EBDAC7} = {6A9F4A88-DE9C-4EAB-9659-197FF7DFF6AD}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		RESX_PrefixTranslations = False
 		RESX_AutoCreateNewLanguageFiles = True
 		SolutionGuid = {A8385DDB-1893-4CF8-83DF-F57C7AB7069B}
 		RESX_ConfirmAddLanguageFile = False
-	EndGlobalSection
-	GlobalSection(Performance) = preSolution
-		HasPerformanceSessions = true
 	EndGlobalSection
 EndGlobal

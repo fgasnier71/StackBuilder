@@ -147,9 +147,12 @@ namespace treeDiM.StackBuilder.Desktop
         {
             FormNewBox form = new FormNewBox(this, FormNewBox.Mode.MODE_BOX);
             if (DialogResult.OK == form.ShowDialog())
-                CreateNewBox(form.BoxName, form.Description
+            {
+                BoxProperties boxProperties = CreateNewBox(form.BoxName, form.Description
                     , form.BoxLength, form.BoxWidth, form.BoxHeight
                     , form.Weight, form.Colors);
+                boxProperties.TextureList = form.TextureList;
+            }
         }
         /// <summary>
         /// Creates a new BoxProperties object with MODE_CASE
@@ -165,6 +168,7 @@ namespace treeDiM.StackBuilder.Desktop
                     , form.Weight, form.Colors);
                 boxProperties.TapeColor = form.TapeColor;
                 boxProperties.TapeWidth = form.TapeWidth;
+                boxProperties.TextureList = form.TextureList;
             }
         }
         /// <summary>

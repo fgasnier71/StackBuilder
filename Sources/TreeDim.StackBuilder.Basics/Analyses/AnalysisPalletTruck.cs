@@ -84,7 +84,8 @@ namespace treeDiM.StackBuilder.Basics
         protected override void RemoveItselfFromDependancies()
         {
             base.RemoveItselfFromDependancies();
-            _truckProperties.RemoveDependancy(this);
+            if (null != _truckProperties)
+                _truckProperties.RemoveDependancy(this);
         }
 
         #endregion

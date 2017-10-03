@@ -469,8 +469,7 @@ namespace treeDiM.StackBuilder.Desktop
             boxProperties.TextureList = _textures;
             boxProperties.TapeWidth = TapeWidth;
             boxProperties.TapeColor = TapeColor;
-            Box box = new Box(0, boxProperties);
-            graphics.AddBox(box);
+            graphics.AddBox(new Box(0, boxProperties));
             graphics.AddDimensions(new DimensionCube(uCtrlDimensionsOuter.ValueX, uCtrlDimensionsOuter.ValueY, uCtrlDimensionsOuter.ValueZ));
         }
         #endregion

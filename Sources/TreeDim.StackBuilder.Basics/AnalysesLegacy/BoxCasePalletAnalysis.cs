@@ -162,7 +162,8 @@ namespace treeDiM.StackBuilder.Basics
 
         protected override void RemoveItselfFromDependancies()
         {
-            _boxProperties.RemoveDependancy(this);
+            if (null != _boxProperties)
+                _boxProperties.RemoveDependancy(this);
             base.RemoveItselfFromDependancies();
         }
         public override void OnAttributeModified(ItemBase modifiedAttribute)

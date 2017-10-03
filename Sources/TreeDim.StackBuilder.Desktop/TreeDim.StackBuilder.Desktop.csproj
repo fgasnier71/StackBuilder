@@ -1238,6 +1238,9 @@
     <EmbeddedResource Include="FormNewBase.sv.resx">
       <DependentUpon>FormNewBase.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNewBox.fr-FR.resx">
+      <DependentUpon>FormNewBox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewBox.resx">
       <SubType>Designer</SubType>
       <DependentUpon>FormNewBox.cs</DependentUpon>
