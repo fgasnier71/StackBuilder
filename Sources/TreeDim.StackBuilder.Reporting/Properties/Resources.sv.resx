@@ -139,7 +139,7 @@
     <value>Arrangemang</value>
   </data>
 	<data name="ID_RN_AUTHORS" xml:space="preserve">
-    <value>Författarna</value>
+    <value>Skapad av</value>
   </data>
 	<data name="ID_RN_BOX" xml:space="preserve">
     <value>Kartong</value>
@@ -154,7 +154,7 @@
     <value>Företagslogotyp</value>
   </data>
 	<data name="ID_RN_CONSTRAINTSET" xml:space="preserve">
-    <value>Constraint set</value>
+    <value>Begränsningar</value>
   </data>
 	<data name="ID_RN_CYLINDER" xml:space="preserve">
     <value>Cylinder</value>
@@ -169,13 +169,13 @@
     <value>Beskrivning</value>
   </data>
 	<data name="ID_RN_DIMENSIONS" xml:space="preserve">
-    <value>Dimensioner</value>
+    <value>Format</value>
   </data>
 	<data name="ID_RN_DIMENSIONSINNER" xml:space="preserve">
-    <value>Inre dimensioner</value>
+    <value>Inner format</value>
   </data>
 	<data name="ID_RN_DIMENSIONSOUTER" xml:space="preserve">
-    <value>Yttre dimensioner</value>
+    <value>Ytterformat</value>
   </data>
 	<data name="ID_RN_IMAGE" xml:space="preserve">
     <value>Bild</value>
@@ -187,16 +187,16 @@
     <value>Lager</value>
   </data>
 	<data name="ID_RN_MAXIMUMHEIGHT" xml:space="preserve">
-    <value>Maximal höjd</value>
+    <value>Max. höjd</value>
   </data>
 	<data name="ID_RN_MAXIMUMNUMBER" xml:space="preserve">
-    <value>Maximalt antal</value>
+    <value>Max. antal</value>
   </data>
 	<data name="ID_RN_MAXIMUMWEIGHT" xml:space="preserve">
-    <value>Maximal vikt</value>
+    <value>Max. vikt</value>
   </data>
 	<data name="ID_RN_OVERHANG" xml:space="preserve">
-    <value>Överhäng</value>
+    <value>Överhängande</value>
   </data>
 	<data name="ID_RN_PACK" xml:space="preserve">
     <value>Packning</value>
@@ -208,7 +208,7 @@
     <value>Lösning</value>
   </data>
 	<data name="ID_RN_SPACES" xml:space="preserve">
-    <value>Blanksteg</value>
+    <value>Mellanrum</value>
   </data>
 	<data name="ID_RN_TRUCK" xml:space="preserve">
     <value>Lastbil</value>

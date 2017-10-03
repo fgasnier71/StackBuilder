@@ -133,16 +133,16 @@
     <value>Lager:  </value>
   </data>
 	<data name="ID_LAYERSALL" xml:space="preserve">
-    <value>Lager = alla</value>
+    <value>Lager = Alla</value>
   </data>
 	<data name="ID_LAYERWEIGHT" xml:space="preserve">
     <value>Lagervikt</value>
   </data>
 	<data name="ID_LOADEDCASE" xml:space="preserve">
-    <value>Inlästa fall</value>
+    <value>Lastad låda</value>
   </data>
 	<data name="ID_LOADEDPALLET" xml:space="preserve">
-    <value>Lastad pall</value>
+    <value>Lastad lastpall</value>
   </data>
 	<data name="ID_MAXIMUMSPACE" xml:space="preserve">
     <value>Maximalt utrymme</value>
@@ -172,10 +172,10 @@
     <value># Förpackningar</value>
   </data>
 	<data name="ID_PALLETHEIGHT" xml:space="preserve">
-    <value>Lastpalls höjd</value>
+    <value>Pallhöjd</value>
   </data>
 	<data name="ID_PALLETWEIGHT" xml:space="preserve">
-    <value>Lastpalls vikt</value>
+    <value>Pallvikt</value>
   </data>
 	<data name="ID_SELECTED" xml:space="preserve">
     <value>Markerade</value>

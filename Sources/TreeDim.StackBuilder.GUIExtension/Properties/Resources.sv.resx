@@ -127,13 +127,13 @@
     <value>A3</value>
   </data>
 	<data name="ID_ANALYSISDESCRIPTION" xml:space="preserve">
-    <value>Staplar låda {0} på lastpall {1}</value>
+    <value>Stapla låda {0} på lastpall {1}</value>
   </data>
 	<data name="ID_ANALYSISHASNOVALIDSOLUTION" xml:space="preserve">
-    <value>Analys har ingen giltig lösning</value>
+    <value>Analysen har ingen giltig lösning</value>
   </data>
 	<data name="ID_ANALYSISNAME" xml:space="preserve">
-    <value>{0}_on_{1}</value>
+    <value>{0}_på_{1}</value>
   </data>
 	<data name="ID_AREA" xml:space="preserve">
     <value>Area</value>
@@ -148,22 +148,22 @@
     <value>Lådantal</value>
   </data>
 	<data name="ID_CASESLAYER" xml:space="preserve">
-    <value>Lådor/Lager</value>
+    <value>Lådor/lager</value>
   </data>
 	<data name="ID_CASESPALLET" xml:space="preserve">
-    <value>Lådor/Lastpall</value>
+    <value>Lådor/lastpall</value>
   </data>
 	<data name="ID_CASEWEIGHT" xml:space="preserve">
     <value>Lådvikt</value>
   </data>
 	<data name="ID_DEFINEBUNDLEPALLETANALYSIS" xml:space="preserve">
-    <value>Definiera paket/pall analys...</value>
+    <value>Definiera bunt/lastpalls-analys...</value>
   </data>
 	<data name="ID_DEFINECASEPALLETANALYSIS" xml:space="preserve">
-    <value>Definiera ärende/lastpall analys...</value>
+    <value>Definiera låda/lastpalls-analys...</value>
   </data>
 	<data name="ID_DIMENSIONS" xml:space="preserve">
-    <value>Dimensioner</value>
+    <value>Format</value>
   </data>
 	<data name="ID_DOUBLECLICKALAYER" xml:space="preserve">
     <value>Dubbelklicka på ett lager!</value>
@@ -178,13 +178,13 @@
     <value>Index</value>
   </data>
 	<data name="ID_INSUFFICIENTPALLETHEIGHT" xml:space="preserve">
-    <value>Maximal lastpallhöjd ({0} {1}) borde överstiga {1} {2}</value>
+    <value>Max. lastpallshöjd ({0} {1}) borde överstiga {1} {2}</value>
   </data>
 	<data name="ID_INSUFFICIENTVOLUME" xml:space="preserve">
-    <value>Maximal volym är otillräcklig för att packa {0} {1}.</value>
+    <value>Max. volym är otillräcklig för att packa {0} {1}</value>
   </data>
 	<data name="ID_INTERLAYERNUMBER" xml:space="preserve">
-    <value>Interlayer #</value>
+    <value>Mellanlägg #</value>
   </data>
 	<data name="ID_LAYERNUMBER" xml:space="preserve">
     <value>Lager #</value>
@@ -202,16 +202,16 @@
     <value>Längd</value>
   </data>
 	<data name="ID_LOADDIMENSIONS" xml:space="preserve">
-    <value>Ladda dimensions{0}({1}x{1}x{1})</value>
+    <value>Lastens format{0}({1}x{1}x{1})</value>
   </data>
 	<data name="ID_LOADWEIGHT_WU" xml:space="preserve">
-    <value>Lastens vikt ({0})</value>
+    <value>Lastvikt ({0})</value>
   </data>
 	<data name="ID_MAXIMUMSPACE" xml:space="preserve">
     <value>Maximalt utrymme</value>
   </data>
 	<data name="ID_MAXLOWERTHANMIN" xml:space="preserve">
-    <value>Inkonsekvens: Maximum {0} är lägre än minimum {1}.</value>
+    <value>Inkonsekvens: Max. {0} är lägre än min. {1}.</value>
   </data>
 	<data name="ID_NETWEIGHT_WU" xml:space="preserve">
     <value>Nettovikt ({0})</value>
@@ -229,13 +229,13 @@
     <value>Optimal palletering för kartong {0}</value>
   </data>
 	<data name="ID_OUTERDIMENSIONS" xml:space="preserve">
-    <value>Yttre dimensions{0}({1}x{1}x{1})</value>
+    <value>Yttre format{0}({1}x{1}x{1})</value>
   </data>
 	<data name="ID_PALLET" xml:space="preserve">
     <value>Lastpall</value>
   </data>
 	<data name="ID_PALLETHEIGHT" xml:space="preserve">
-    <value>Lastpalls höjd</value>
+    <value>Pallhöjd</value>
   </data>
 	<data name="ID_PALLETLIMIT" xml:space="preserve">
     <value>Gränsen nådd</value>
@@ -256,13 +256,13 @@
     <value>Redo</value>
   </data>
 	<data name="ID_SELECTATLEASTONELAYOUT" xml:space="preserve">
-    <value>Välj på leat ett lager</value>
+    <value>Välj minst ett lager</value>
   </data>
 	<data name="ID_SELECTEDLAYER" xml:space="preserve">
     <value>Valda lagret: {0}</value>
   </data>
 	<data name="ID_TOTALWEIGHT_WU" xml:space="preserve">
-    <value>Total vikt ({0})</value>
+    <value>Totalvikt ({0})</value>
   </data>
 	<data name="ID_VOLUMEEFFICIENCY" xml:space="preserve">
     <value>Volymeffektivitet (%)</value>
