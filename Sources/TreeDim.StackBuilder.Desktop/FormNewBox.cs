@@ -91,7 +91,7 @@ namespace treeDiM.StackBuilder.Desktop
                 tbDescription.Text = tbName.Text;
                 // color : all faces set together / face by face
                 chkAllFaces.Checked = false;
-                chkAllFaces_CheckedChanged(this, null);
+                OnAllFacesColorCheckedChanged(this, null);
                 // set colors
                 for (int i = 0; i < 6; ++i)
                     _faceColors[i] = _mode == Mode.MODE_BOX ? Color.Turquoise : Color.Chocolate;
@@ -142,7 +142,7 @@ namespace treeDiM.StackBuilder.Desktop
                 uCtrlNetWeight.Value = _boxProperties.NetWeight;
                 // color : all faces set together / face by face
                 chkAllFaces.Checked = _boxProperties.UniqueColor;
-                chkAllFaces_CheckedChanged(this, null);
+                OnAllFacesColorCheckedChanged(this, null);
                 // tape
                 uCtrlTapeWidth.Value = _boxProperties.TapeWidth;
                 cbTapeColor.Color = _boxProperties.TapeColor;
@@ -403,7 +403,7 @@ namespace treeDiM.StackBuilder.Desktop
             UpdateButtonOkStatus();
         }
 
-        private void chkAllFaces_CheckedChanged(object sender, EventArgs e)
+        private void OnAllFacesColorCheckedChanged(object sender, EventArgs e)
         {
             lbFace.Enabled = !chkAllFaces.Checked;
             cbFace.Enabled = !chkAllFaces.Checked;
@@ -419,6 +419,8 @@ namespace treeDiM.StackBuilder.Desktop
                     form = new FormEditBitmaps(BoxLength, BoxWidth, BoxHeight, _faceColors);
                 else
                     form = new FormEditBitmaps(_boxProperties);
+                form.TapeWidth = TapeWidth;
+                form.TapeColor = TapeColor;
                 form.Textures = _textures;
                 if (DialogResult.OK == form.ShowDialog())
                     _textures = form.Textures;

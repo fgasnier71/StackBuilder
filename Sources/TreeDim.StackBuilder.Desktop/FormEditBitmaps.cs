@@ -18,13 +18,6 @@ namespace treeDiM.StackBuilder.Desktop
 {
     public partial class FormEditBitmaps : Form, IDrawingContainer
     {
-        #region Data members
-        private  BoxProperties _boxProperties;
-        static readonly ILog _log = LogManager.GetLogger(typeof(FormEditBitmaps));
-        private List<Pair<HalfAxis.HAxis, Texture>> _textures;
-        private bool _preventHandling = false;
-        #endregion
-
         #region Constructors
         /// <summary>
         /// constructor (from existing BoxProperties)
@@ -60,6 +53,8 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Public properties
+        public OptDouble TapeWidth { set { _boxProperties.TapeWidth = value; } }
+        public Color TapeColor { set { _boxProperties.TapeColor = value; } }
         /// <summary>
         /// Box properties
         /// </summary>
@@ -350,8 +345,13 @@ namespace treeDiM.StackBuilder.Desktop
                     break;
             }
         }
+        #endregion
 
-
+        #region Data members
+        private  BoxProperties _boxProperties;
+        static readonly ILog _log = LogManager.GetLogger(typeof(FormEditBitmaps));
+        private List<Pair<HalfAxis.HAxis, Texture>> _textures;
+        private bool _preventHandling = false;
         #endregion
     }
 }

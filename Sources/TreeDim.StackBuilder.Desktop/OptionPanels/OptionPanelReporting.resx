@@ -139,13 +139,13 @@
     <value>fileSelectCtrlReportTemplate</value>
   </data>
   <data name="&gt;&gt;fileSelectCtrlReportTemplate.Type" xml:space="preserve">
-    <value>treeDiM.UserControls.FileSelect, treeDiM.UserControls, Version=1.0.6430.25227, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.UserControls.FileSelect, treeDiM.UserControls, Version=1.0.6484.37267, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;fileSelectCtrlReportTemplate.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;fileSelectCtrlReportTemplate.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>6</value>
   </data>
   <data name="label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -172,7 +172,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>5</value>
   </data>
   <data name="fileSelectCompanyLogo.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
@@ -190,13 +190,13 @@
     <value>fileSelectCompanyLogo</value>
   </data>
   <data name="&gt;&gt;fileSelectCompanyLogo.Type" xml:space="preserve">
-    <value>treeDiM.UserControls.FileSelect, treeDiM.UserControls, Version=1.0.6430.25227, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.UserControls.FileSelect, treeDiM.UserControls, Version=1.0.6484.37267, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;fileSelectCompanyLogo.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;fileSelectCompanyLogo.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>4</value>
   </data>
   <data name="lbReportTemplate.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -226,7 +226,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lbReportTemplate.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>3</value>
   </data>
   <data name="gbMSWordMargins.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
@@ -535,7 +535,7 @@
     <value>11</value>
   </data>
   <data name="gbMSWordMargins.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 114</value>
+    <value>9, 75</value>
   </data>
   <data name="gbMSWordMargins.Size" type="System.Drawing.Size, System.Drawing">
     <value>324, 87</value>
@@ -556,6 +556,54 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;gbMSWordMargins.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="lbSleepTime.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbSleepTime.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 193</value>
+  </data>
+  <data name="lbSleepTime.Size" type="System.Drawing.Size, System.Drawing">
+    <value>134, 13</value>
+  </data>
+  <data name="lbSleepTime.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="lbSleepTime.Text" xml:space="preserve">
+    <value>Time before image deletion</value>
+  </data>
+  <data name="&gt;&gt;lbSleepTime.Name" xml:space="preserve">
+    <value>lbSleepTime</value>
+  </data>
+  <data name="&gt;&gt;lbSleepTime.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbSleepTime.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lbSleepTime.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="nudSleepTime.Location" type="System.Drawing.Point, System.Drawing">
+    <value>149, 191</value>
+  </data>
+  <data name="nudSleepTime.Size" type="System.Drawing.Size, System.Drawing">
+    <value>50, 20</value>
+  </data>
+  <data name="nudSleepTime.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="&gt;&gt;nudSleepTime.Name" xml:space="preserve">
+    <value>nudSleepTime</value>
+  </data>
+  <data name="&gt;&gt;nudSleepTime.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;nudSleepTime.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;nudSleepTime.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">

@@ -279,7 +279,7 @@
             // 
             resources.ApplyResources(this.editPaletSolutionsDB, "editPaletSolutionsDB");
             this.editPaletSolutionsDB.Name = "editPaletSolutionsDB";
-            this.editPaletSolutionsDB.Click += new System.EventHandler(this.onShowDatabase);
+            this.editPaletSolutionsDB.Click += new System.EventHandler(this.OnShowDatabase);
             // 
             // toolStripSeparator7
             // 
@@ -422,7 +422,7 @@
             // 
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
             resources.ApplyResources(this.settingsToolStripMenuItem, "settingsToolStripMenuItem");
-            this.settingsToolStripMenuItem.Click += new System.EventHandler(this.onShowSettings);
+            this.settingsToolStripMenuItem.Click += new System.EventHandler(this.OnShowSettings);
             // 
             // toolStripMIPLMPackLib
             // 
@@ -583,7 +583,7 @@
             this.toolStripMenuItemEditDB.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             resources.ApplyResources(this.toolStripMenuItemEditDB, "toolStripMenuItemEditDB");
             this.toolStripMenuItemEditDB.Name = "toolStripMenuItemEditDB";
-            this.toolStripMenuItemEditDB.Click += new System.EventHandler(this.onShowDatabase);
+            this.toolStripMenuItemEditDB.Click += new System.EventHandler(this.OnShowDatabase);
             // 
             // toolStripSeparator4
             // 
@@ -821,7 +821,7 @@
             this.toolStripButtonSettings.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             resources.ApplyResources(this.toolStripButtonSettings, "toolStripButtonSettings");
             this.toolStripButtonSettings.Name = "toolStripButtonSettings";
-            this.toolStripButtonSettings.Click += new System.EventHandler(this.onShowSettings);
+            this.toolStripButtonSettings.Click += new System.EventHandler(this.OnShowSettings);
             // 
             // ToolStripMenuNewFileINTEX
             // 
@@ -844,7 +844,7 @@
             // timerLogin
             // 
             this.timerLogin.Interval = 2000;
-            this.timerLogin.Tick += new System.EventHandler(this.timerLogin_Tick);
+            this.timerLogin.Tick += new System.EventHandler(this.OnTimerLoginTick);
             // 
             // toolStripSeparator21
             // 

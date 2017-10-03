@@ -60,7 +60,7 @@ namespace treeDiM.StackBuilder.Desktop
                 this.ContextMenuStrip = new ContextMenuStrip();
                 // attach event handlers
                 this.NodeMouseClick += new TreeNodeMouseClickEventHandler(AnalysisTreeView_NodeMouseClick);
-                this.NodeMouseDoubleClick += new TreeNodeMouseClickEventHandler(onNodeLeftDoubleClick);
+                this.NodeMouseDoubleClick += new TreeNodeMouseClickEventHandler(OnNodeLeftDoubleClick);
                 this.ContextMenuStrip.Opening += new CancelEventHandler(ContextMenuStrip_Opening);
                 this.DrawMode = TreeViewDrawMode.OwnerDrawText;
                 this.DrawNode += new DrawTreeNodeEventHandler(AnalysisTreeView_DrawNode);
@@ -148,7 +148,7 @@ namespace treeDiM.StackBuilder.Desktop
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWBUNDLE, AnalysisTreeView.Bundle      , new EventHandler(onCreateNewBundle)));
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWPALLETCORNERS, AnalysisTreeView.PalletCorners, new EventHandler(onCreateNewPalletCorners)));
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWPALLETCAP, AnalysisTreeView.PalletCap, new EventHandler(onCreateNewPalletCap)));
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWPALLETFILM, AnalysisTreeView.PalletFilm, new EventHandler(onCreateNewPalletFilm)));
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWPALLETFILM, AnalysisTreeView.PalletFilm, new EventHandler(OnCreateNewPalletFilm)));
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWTRUCK, AnalysisTreeView.Truck       , new EventHandler(onCreateNewTruck)));
 
                 if (((DocumentSB)nodeTag.Document).CanCreateAnalysisCasePallet || ((DocumentSB)nodeTag.Document).CanCreateOptiCasePallet)
@@ -160,7 +160,7 @@ namespace treeDiM.StackBuilder.Desktop
                     contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWCASEANALYSIS, AnalysisTreeView.AnalysisCase, new EventHandler(onCreateNewAnalysisCase)));
                 */
                 contextMenuStrip.Items.Add(new ToolStripSeparator());
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_CLOSE, null, new EventHandler(onDocumentClose)));
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_CLOSE, null, new EventHandler(OnDocumentClose)));
             }
             if (nodeTag.Type == NodeTag.NodeType.NT_BOX
                 || nodeTag.Type == NodeTag.NodeType.NT_CASE
@@ -198,15 +198,11 @@ namespace treeDiM.StackBuilder.Desktop
             else if (nodeTag.Type == NodeTag.NodeType.NT_LISTPALLETCAP)
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWPALLETCAP, AnalysisTreeView.PalletCap, new EventHandler(onCreateNewPalletCap)));
             else if (nodeTag.Type == NodeTag.NodeType.NT_LISTPALLETFILM)
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWPALLETFILM, AnalysisTreeView.PalletFilm, new EventHandler(onCreateNewPalletFilm)));
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWPALLETFILM, AnalysisTreeView.PalletFilm, new EventHandler(OnCreateNewPalletFilm)));
             else if (nodeTag.Type == NodeTag.NodeType.NT_LISTANALYSIS)
             {
                 if (nodeTag.Document.CanCreateAnalysisCasePallet)
                     contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWANALYSIS, AnalysisTreeView.AnalysisCasePallet, new EventHandler(onCreateNewAnalysisCasePallet)));
-                /*
-                if (nodeTag.Document.CanCreateOptiCasePallet)
-                    contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWCASEANALYSIS, AnalysisTreeView.AnalysisCase, new EventHandler(onCreateNewAnalysisCase)));
-                */
                 if (nodeTag.Document.CanCreateAnalysisCylinderPallet)
                     contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWCYLINDERANALYSIS, AnalysisTreeView.AnalysisCylinderPallet, new EventHandler(onCreateNewAnalysisCylinderPallet)));
                 if (nodeTag.Document.CanCreateAnalysisPalletTruck)
@@ -216,7 +212,7 @@ namespace treeDiM.StackBuilder.Desktop
             {
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(
                     string.Format(Resources.ID_EDIT, nodeTag.Analysis.Name), null
-                    , new EventHandler(onEditAnalysis)));
+                    , new EventHandler(OnEditAnalysis)));
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(
                     string.Format(Resources.ID_DELETEITEM, nodeTag.Analysis.Name), AnalysisTreeView.DELETE
                     , new EventHandler(onDeleteBaseItem)));
@@ -345,7 +341,7 @@ namespace treeDiM.StackBuilder.Desktop
             }
             catch (Exception ex) { _log.Error(ex.ToString()); }
         }
-        private void onCreateNewPalletFilm(object sender, EventArgs e)
+        private void OnCreateNewPalletFilm(object sender, EventArgs e)
         {
             try
             {
@@ -382,17 +378,17 @@ namespace treeDiM.StackBuilder.Desktop
             }
             catch (Exception ex) { _log.Error(ex.ToString()); }
         }
-        private void onDocumentClose(object sender, EventArgs e)
+        private void OnDocumentClose(object sender, EventArgs e)
         {
             try
             {
                 NodeTag tag = SelectedNode.Tag as NodeTag;
                 CancelEventArgs cea = new CancelEventArgs();
-                FormMain.GetInstance().CloseDocument((DocumentSB)tag.Document, cea); ;
+                FormMain.GetInstance().CloseDocument((DocumentSB)tag.Document, cea);
             }
             catch (Exception ex) { _log.Error(ex.ToString()); }
         }
-        private void onEditAnalysis(object sender, EventArgs e)
+        private void OnEditAnalysis(object sender, EventArgs e)
         {
             try
             {
@@ -405,7 +401,7 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Event handlers
-        void onNodeLeftDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
+        void OnNodeLeftDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
         {
             try
             {

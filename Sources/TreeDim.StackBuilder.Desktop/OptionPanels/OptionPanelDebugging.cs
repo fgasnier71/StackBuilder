@@ -49,7 +49,7 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Data members
-        static log4net.ILog _log = LogManager.GetLogger(typeof(OptionPanelDebugging));
+        static ILog _log = LogManager.GetLogger(typeof(OptionPanelDebugging));
         #endregion
     }
 }

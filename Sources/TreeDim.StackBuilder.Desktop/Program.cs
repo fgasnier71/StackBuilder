@@ -28,10 +28,6 @@ namespace treeDiM.StackBuilder.Desktop
 {
     static class Program
     {
-        #region Private members
-        static readonly ILog _log = LogManager.GetLogger(typeof(Program));
-        #endregion
-
         #region Main
         /// <summary>
         /// The main entry point for the application.
@@ -46,8 +42,7 @@ namespace treeDiM.StackBuilder.Desktop
 
             // 
             MessageFilter oFilter = new MessageFilter();
-            System.Windows.Forms.Application.AddMessageFilter(
-                                (IMessageFilter)oFilter);
+            Application.AddMessageFilter((IMessageFilter)oFilter);
 
             // note: arguments are handled within FormMain constructor
             // using Environment.GetCommandLineArgs()
@@ -96,6 +91,47 @@ namespace treeDiM.StackBuilder.Desktop
             Application.Run(new FormMain());
 
             _log.Info("Closing " + Application.ProductName);
+        }
+        #endregion
+
+        #region Public static members
+        public static bool IsWebSiteReachable
+        {
+            get
+            {
+                try
+                {
+                    Uri uri = new System.Uri(Settings.Default.StartPageUrl);
+                    System.Net.IPHostEntry objIPHE = System.Net.Dns.GetHostEntry(uri.DnsSafeHost);
+                    return true;
+                }
+                catch (System.Net.Sockets.SocketException /*ex*/)
+                {
+                    _log.Info(
+                        string.Format(
+                        "Url '{0}' could not be accessed : is the computer connected to the web?"
+                        , Settings.Default.StartPageUrl
+                        ));
+                    return false;
+                }
+                catch (Exception ex)
+                {
+                    _log.Error(ex.ToString());
+                    return false;
+                }
+            }
+        }
+
+        public static bool UseDisconnected
+        {
+            get
+            {
+                // if not already working disconnected
+                // see if we can work disconnected
+                if (!_useDisconnected)
+                    _useDisconnected = Settings.Default.AllowDisconnectedMode && !IsWebSiteReachable;
+                return _useDisconnected;
+            }
         }
         #endregion
 
@@ -252,6 +288,11 @@ namespace treeDiM.StackBuilder.Desktop
                 _log.Error(string.Format("File association failed! Exception : {0}", ex.Message));
             }
         }
+        #endregion
+        
+        #region Private members
+        static readonly ILog _log = LogManager.GetLogger(typeof(Program));
+        static bool _useDisconnected = false;
         #endregion
     }
 }

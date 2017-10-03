@@ -117,41 +117,18 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="chkShowLogConsole.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="bnShowAppFolder.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="chkShowLogConsole.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 13</value>
-  </data>
-  <data name="chkShowLogConsole.Size" type="System.Drawing.Size, System.Drawing">
-    <value>110, 17</value>
-  </data>
-  <data name="chkShowLogConsole.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="chkShowLogConsole.Text" xml:space="preserve">
-    <value>Show log console</value>
-  </data>
-  <data name="&gt;&gt;chkShowLogConsole.Name" xml:space="preserve">
-    <value>chkShowLogConsole</value>
-  </data>
-  <data name="&gt;&gt;chkShowLogConsole.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;chkShowLogConsole.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;chkShowLogConsole.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
   <data name="bnShowAppFolder.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 60</value>
+    <value>8, 83</value>
   </data>
   <data name="bnShowAppFolder.Size" type="System.Drawing.Size, System.Drawing">
     <value>151, 23</value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="bnShowAppFolder.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
@@ -168,10 +145,43 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;bnShowAppFolder.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
+  </data>
+  <data name="chkbDisconnected.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="chkbDisconnected.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="chkbDisconnected.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 60</value>
+  </data>
+  <data name="chkbDisconnected.Size" type="System.Drawing.Size, System.Drawing">
+    <value>150, 17</value>
+  </data>
+  <data name="chkbDisconnected.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="chkbDisconnected.Text" xml:space="preserve">
+    <value>Allow disconnected usage</value>
+  </data>
+  <data name="&gt;&gt;chkbDisconnected.Name" xml:space="preserve">
+    <value>chkbDisconnected</value>
+  </data>
+  <data name="&gt;&gt;chkbDisconnected.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;chkbDisconnected.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;chkbDisconnected.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="chkbShowStartPage.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
+  </data>
+  <data name="chkbShowStartPage.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="chkbShowStartPage.Location" type="System.Drawing.Point, System.Drawing">
     <value>8, 37</value>
@@ -195,7 +205,37 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;chkbShowStartPage.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="chkShowLogConsole.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="chkShowLogConsole.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="chkShowLogConsole.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 13</value>
+  </data>
+  <data name="chkShowLogConsole.Size" type="System.Drawing.Size, System.Drawing">
+    <value>110, 17</value>
+  </data>
+  <data name="chkShowLogConsole.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
+  </data>
+  <data name="chkShowLogConsole.Text" xml:space="preserve">
+    <value>Show log console</value>
+  </data>
+  <data name="&gt;&gt;chkShowLogConsole.Name" xml:space="preserve">
+    <value>chkShowLogConsole</value>
+  </data>
+  <data name="&gt;&gt;chkShowLogConsole.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;chkShowLogConsole.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;chkShowLogConsole.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

@@ -276,7 +276,7 @@
             resources.ApplyResources(this.chkAllFaces, "chkAllFaces");
             this.chkAllFaces.Name = "chkAllFaces";
             this.chkAllFaces.UseVisualStyleBackColor = true;
-            this.chkAllFaces.CheckedChanged += new System.EventHandler(this.chkAllFaces_CheckedChanged);
+            this.chkAllFaces.CheckedChanged += new System.EventHandler(this.OnAllFacesColorCheckedChanged);
             // 
             // gbWeight
             // 

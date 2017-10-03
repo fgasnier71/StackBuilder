@@ -3,10 +3,7 @@ using System;
 using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using System.Threading;
 using System.Diagnostics;
@@ -58,13 +55,6 @@ namespace treeDiM.StackBuilder.Desktop
         {
             // set static instance
             _instance = this;
-            
-            // set analysis solver
-            CasePalletAnalysis.Solver = new treeDiM.StackBuilder.Engine.CasePalletSolver();
-            PackPalletAnalysis.Solver = new treeDiM.StackBuilder.Engine.PackPalletSolver();
-            CylinderPalletAnalysis.Solver = new treeDiM.StackBuilder.Engine.CylinderSolver();
-            HCylinderPalletAnalysis.Solver = new treeDiM.StackBuilder.Engine.HCylinderSolver();
-            BoxCasePalletAnalysis.Solver = new treeDiM.StackBuilder.Engine.BoxCasePalletSolver();
             
             // load content
             _deserializeDockContent = new DeserializeDockContent(ReloadContent);
@@ -156,8 +146,16 @@ namespace treeDiM.StackBuilder.Desktop
                 Settings.Default.FormMainPosition.Restore(this);
 
             // connection/disconnection event handling
-            WCFClientSingleton.Connected += OnConnected;
-            WCFClientSingleton.Disconnected += OnDisconnected;
+            if (!Program.UseDisconnected)
+            {
+                WCFClientSingleton.Connected += OnConnected;
+                WCFClientSingleton.Disconnected += OnDisconnected;
+            }
+            else
+            {
+                CreateBasicLayout();
+                UpdateDisconnectButton();
+            }
         }
 
         private void OpenGeneratedFile(string s)
@@ -241,46 +239,18 @@ namespace treeDiM.StackBuilder.Desktop
         {
             using (FormSplashScreen sp = new FormSplashScreen(this))
             {
-                sp.TimerInterval = 2000;
+                sp.TimerInterval = 1000;
                 sp.ShowDialog();
             }
         }
         #endregion
 
         #region Start page
-        public bool IsWebSiteReachable
-        {
-            get
-            {
-                try
-                {
-                    System.Uri uri = new System.Uri(Settings.Default.StartPageUrl);
-                    System.Net.IPHostEntry objIPHE = System.Net.Dns.GetHostEntry(uri.DnsSafeHost);
-                    return true;
-                }
-                catch (System.Net.Sockets.SocketException /*ex*/)
-                {
-                    _log.Info(
-                        string.Format(
-                        "Url '{0}' could not be accessed : is the computer connected to the web?"
-                        , Settings.Default.StartPageUrl
-                        ));
-                    return false;
-                }
-                catch (Exception ex)
-                {
-                    _log.Error(ex.ToString());
-                    return false;
-                }
-            }
-        }
-        private string StartPageURL
-        {
-            get { return Settings.Default.StartPageUrl; }
-        }
+        private string StartPageURL => Settings.Default.StartPageUrl;
+
         public void ShowStartPage(object sender, EventArgs e)
         {
-            if (!IsWebSiteReachable) return;
+            if (!Program.IsWebSiteReachable) return;
 
            _log.InfoFormat("Showing start page (URL : {0})", StartPageURL);
             try
@@ -298,11 +268,12 @@ namespace treeDiM.StackBuilder.Desktop
             if (null != _dockStartPage)
                 _dockStartPage.Hide();
         }
-        private void timerLogin_Tick(object sender, EventArgs e)
+        private void OnTimerLoginTick(object sender, EventArgs e)
         {
             timerLogin.Stop();
             // show login form
-            if (!WCFClientSingleton.IsConnected)
+            if (!Program.UseDisconnected
+                && !WCFClientSingleton.IsConnected)
             {
                 WCFClientSingleton clientSingleton = WCFClientSingleton.Instance;
             }
@@ -618,7 +589,7 @@ namespace treeDiM.StackBuilder.Desktop
             }
         }
 
-        void onEditAnalysis(object sender, AnalysisTreeViewEventArgs eventArg)
+        void OnEditAnalysis(object sender, AnalysisTreeViewEventArgs eventArg)
         {
             try
             {
@@ -724,6 +695,10 @@ namespace treeDiM.StackBuilder.Desktop
             toolStripMIBestCasePallet.Enabled   = (null != doc) && doc.CanCreateOptiCasePallet;
             toolStripMIBestPack.Enabled         = (null != doc) && doc.CanCreateOptiPack;
             toolStripMenuItemBestPack.Enabled   = (null != doc) && doc.CanCreateOptiPack;
+            // disconnected mode
+            toolStripMenuItemEditDB.Enabled = !Program.UseDisconnected;
+            editPaletSolutionsDB.Enabled = !Program.UseDisconnected;
+
         }
         #endregion
 
@@ -777,8 +752,7 @@ namespace treeDiM.StackBuilder.Desktop
         public void AddDocument(IDocument doc)
         {
             // add this form as document listener
-            DocumentSB docSB = doc as DocumentSB;
-            if (null != docSB)
+            if (doc is DocumentSB docSB)
                 docSB.AddListener(this);
             // add document 
             _documents.Add(doc);
@@ -963,7 +937,7 @@ namespace treeDiM.StackBuilder.Desktop
         #region Connection / disconnection
         private void OnConnected()
         {
-            if (WCFClientSingleton.IsConnected)
+            if (!Program.UseDisconnected && WCFClientSingleton.IsConnected)
             {
                 PLMPackServiceClient client = WCFClientSingleton.Instance.Client;
                 DCGroup currentGroup = client.GetCurrentGroup();
@@ -974,7 +948,7 @@ namespace treeDiM.StackBuilder.Desktop
                 CreateBasicLayout();
                 UpdateDisconnectButton();
             }
-        }
+         }
         private void OnDisconnected()
         {
             Text = Application.ProductName;
@@ -1173,10 +1147,12 @@ namespace treeDiM.StackBuilder.Desktop
         }
         #endregion
         #region Database / settings / excel sheet
-        private void onShowDatabase(object sender, EventArgs e)
+        private void OnShowDatabase(object sender, EventArgs e)
         {
             try
             {
+                if (Program.UseDisconnected)
+                    return;
                 // Form show database
                 FormShowDatabase form = new FormShowDatabase()
                 {
@@ -1188,7 +1164,7 @@ namespace treeDiM.StackBuilder.Desktop
             }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
-        private void onShowSettings(object sender, EventArgs e)
+        private void OnShowSettings(object sender, EventArgs e)
         {
             try
             {
@@ -1198,7 +1174,7 @@ namespace treeDiM.StackBuilder.Desktop
             }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
-        private void onLoadExcelSheet(object sender, EventArgs e)
+        private void OnLoadExcelSheet(object sender, EventArgs e)
         {
             try
             {
@@ -1414,10 +1390,7 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Static instance accessor
-        public static FormMain GetInstance()
-        {
-            return _instance;
-        }
+        public static FormMain GetInstance()  { return _instance; }
         #endregion
     }
 }

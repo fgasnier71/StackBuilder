@@ -895,5 +895,17 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
                 return ((string)(this["UrlPLMPackLib"]));
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool AllowDisconnectedMode {
+            get {
+                return ((bool)(this["AllowDisconnectedMode"]));
+            }
+            set {
+                this["AllowDisconnectedMode"] = value;
+            }
+        }
     }
 }

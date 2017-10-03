@@ -227,5 +227,8 @@
     <Setting Name="UrlPLMPackLib" Type="System.String" Scope="Application">
       <Value Profile="(Default)">http://www.plmpack.com/packlib/ClickOnce/PLMPackLibClient.application</Value>
     </Setting>
+    <Setting Name="AllowDisconnectedMode" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

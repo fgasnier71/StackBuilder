@@ -47,11 +47,14 @@
             this.lbLeft = new System.Windows.Forms.Label();
             this.lbBottom = new System.Windows.Forms.Label();
             this.lbTop = new System.Windows.Forms.Label();
+            this.lbSleepTime = new System.Windows.Forms.Label();
+            this.nudSleepTime = new System.Windows.Forms.NumericUpDown();
             this.gbMSWordMargins.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudRight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudBottom)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudLeft)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudTop)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudSleepTime)).BeginInit();
             this.SuspendLayout();
             // 
             // fileSelectCtrlReportTemplate
@@ -168,11 +171,28 @@
             resources.ApplyResources(this.lbTop, "lbTop");
             this.lbTop.Name = "lbTop";
             // 
+            // lbSleepTime
+            // 
+            resources.ApplyResources(this.lbSleepTime, "lbSleepTime");
+            this.lbSleepTime.Name = "lbSleepTime";
+            // 
+            // nudSleepTime
+            // 
+            resources.ApplyResources(this.nudSleepTime, "nudSleepTime");
+            this.nudSleepTime.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.nudSleepTime.Name = "nudSleepTime";
+            // 
             // OptionPanelReporting
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CategoryPath = "Options\\\\Reports";
+            this.Controls.Add(this.nudSleepTime);
+            this.Controls.Add(this.lbSleepTime);
             this.Controls.Add(this.gbMSWordMargins);
             this.Controls.Add(this.lbReportTemplate);
             this.Controls.Add(this.fileSelectCompanyLogo);
@@ -186,6 +206,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudBottom)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudLeft)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudTop)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudSleepTime)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -211,5 +232,7 @@
         private System.Windows.Forms.Label lbCmLeft;
         private System.Windows.Forms.Label lbcmBottom;
         private System.Windows.Forms.Label lbcm;
+        private System.Windows.Forms.Label lbSleepTime;
+        private System.Windows.Forms.NumericUpDown nudSleepTime;
     }
 }
