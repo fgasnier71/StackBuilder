@@ -48,6 +48,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "treeDiM.StackBuilder.Plugin
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "treeDiM.StackBuilder.ExcelAddIn", "CustomProjects\treeDiM.StackBuilder.ExcelAddIn\treeDiM.StackBuilder.ExcelAddIn.csproj", "{B172BE6D-5CAC-42D8-8895-D471D6EBDAC7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileCopyPDA", "CustomProjects\FileCopyPDA\FileCopyPDA.csproj", "{DE59A068-3B28-444B-9052-27BFB8390938}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -295,6 +297,22 @@ Global
 		{B172BE6D-5CAC-42D8-8895-D471D6EBDAC7}.Release|x64.Build.0 = Release|Any CPU
 		{B172BE6D-5CAC-42D8-8895-D471D6EBDAC7}.Release|x86.ActiveCfg = Release|Any CPU
 		{B172BE6D-5CAC-42D8-8895-D471D6EBDAC7}.Release|x86.Build.0 = Release|Any CPU
+		{DE59A068-3B28-444B-9052-27BFB8390938}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE59A068-3B28-444B-9052-27BFB8390938}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE59A068-3B28-444B-9052-27BFB8390938}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{DE59A068-3B28-444B-9052-27BFB8390938}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{DE59A068-3B28-444B-9052-27BFB8390938}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{DE59A068-3B28-444B-9052-27BFB8390938}.Debug|x64.Build.0 = Debug|Any CPU
+		{DE59A068-3B28-444B-9052-27BFB8390938}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{DE59A068-3B28-444B-9052-27BFB8390938}.Debug|x86.Build.0 = Debug|Any CPU
+		{DE59A068-3B28-444B-9052-27BFB8390938}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE59A068-3B28-444B-9052-27BFB8390938}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE59A068-3B28-444B-9052-27BFB8390938}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{DE59A068-3B28-444B-9052-27BFB8390938}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{DE59A068-3B28-444B-9052-27BFB8390938}.Release|x64.ActiveCfg = Release|Any CPU
+		{DE59A068-3B28-444B-9052-27BFB8390938}.Release|x64.Build.0 = Release|Any CPU
+		{DE59A068-3B28-444B-9052-27BFB8390938}.Release|x86.ActiveCfg = Release|Any CPU
+		{DE59A068-3B28-444B-9052-27BFB8390938}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -309,11 +327,12 @@ Global
 		{097F2A4C-A34D-43E1-A5BF-58D12D80E11F} = {6A9F4A88-DE9C-4EAB-9659-197FF7DFF6AD}
 		{C5AAB10A-8D08-419F-9D5C-2FC78FEF8B53} = {6A9F4A88-DE9C-4EAB-9659-197FF7DFF6AD}
 		{B172BE6D-5CAC-42D8-8895-D471D6EBDAC7} = {6A9F4A88-DE9C-4EAB-9659-197FF7DFF6AD}
+		{DE59A068-3B28-444B-9052-27BFB8390938} = {6A9F4A88-DE9C-4EAB-9659-197FF7DFF6AD}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		RESX_PrefixTranslations = False
-		RESX_AutoCreateNewLanguageFiles = True
-		SolutionGuid = {A8385DDB-1893-4CF8-83DF-F57C7AB7069B}
 		RESX_ConfirmAddLanguageFile = False
+		SolutionGuid = {A8385DDB-1893-4CF8-83DF-F57C7AB7069B}
+		RESX_AutoCreateNewLanguageFiles = True
+		RESX_PrefixTranslations = False
 	EndGlobalSection
 EndGlobal

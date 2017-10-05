@@ -54,23 +54,30 @@
             this.lbMaximumPalletWeight = new System.Windows.Forms.Label();
             this.lbMaximumPalletHeight = new System.Windows.Forms.Label();
             this.gbResults = new System.Windows.Forms.GroupBox();
-            this.tbNoCases = new System.Windows.Forms.TextBox();
+            this.nudImageDef = new System.Windows.Forms.NumericUpDown();
+            this.label7 = new System.Windows.Forms.Label();
+            this.uCtrlImageDim = new treeDiM.StackBuilder.Basics.UCtrlDualDouble();
+            this.uCtrlImageLeftTop = new treeDiM.StackBuilder.Basics.UCtrlDualDouble();
             this.label5 = new System.Windows.Forms.Label();
-            this.tbLoadWeight = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.tbTotalWeight = new System.Windows.Forms.TextBox();
             this.lbNoCases = new System.Windows.Forms.Label();
+            this.tbNoCases = new System.Windows.Forms.TextBox();
+            this.tbLoadWeight = new System.Windows.Forms.TextBox();
+            this.tbTotalWeight = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.cbUnitSystem = new System.Windows.Forms.ComboBox();
             this.gbCase.SuspendLayout();
             this.gbPallet.SuspendLayout();
             this.gbConstraintSet.SuspendLayout();
             this.gbResults.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudImageDef)).BeginInit();
             this.SuspendLayout();
             // 
             // bnOK
             // 
             this.bnOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.bnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.bnOK.Location = new System.Drawing.Point(610, 13);
+            this.bnOK.Location = new System.Drawing.Point(705, 13);
             this.bnOK.Name = "bnOK";
             this.bnOK.Size = new System.Drawing.Size(75, 23);
             this.bnOK.TabIndex = 0;
@@ -81,7 +88,7 @@
             // 
             this.bnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.bnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.bnCancel.Location = new System.Drawing.Point(610, 43);
+            this.bnCancel.Location = new System.Drawing.Point(705, 43);
             this.bnCancel.Name = "bnCancel";
             this.bnCancel.Size = new System.Drawing.Size(75, 23);
             this.bnCancel.TabIndex = 1;
@@ -98,7 +105,7 @@
             this.gbCase.Controls.Add(this.lbHeight);
             this.gbCase.Controls.Add(this.lbWidth);
             this.gbCase.Controls.Add(this.lbLength);
-            this.gbCase.Location = new System.Drawing.Point(13, 13);
+            this.gbCase.Location = new System.Drawing.Point(13, 44);
             this.gbCase.Name = "gbCase";
             this.gbCase.Size = new System.Drawing.Size(164, 143);
             this.gbCase.TabIndex = 2;
@@ -179,7 +186,7 @@
             this.gbPallet.Controls.Add(this.tbPalletWidth);
             this.gbPallet.Controls.Add(this.label3);
             this.gbPallet.Controls.Add(this.tbPalletLength);
-            this.gbPallet.Location = new System.Drawing.Point(193, 13);
+            this.gbPallet.Location = new System.Drawing.Point(193, 44);
             this.gbPallet.Name = "gbPallet";
             this.gbPallet.Size = new System.Drawing.Size(167, 143);
             this.gbPallet.TabIndex = 3;
@@ -256,7 +263,7 @@
             this.gbConstraintSet.Controls.Add(this.tbMaxPalletHeight);
             this.gbConstraintSet.Controls.Add(this.lbMaximumPalletWeight);
             this.gbConstraintSet.Controls.Add(this.lbMaximumPalletHeight);
-            this.gbConstraintSet.Location = new System.Drawing.Point(13, 163);
+            this.gbConstraintSet.Location = new System.Drawing.Point(13, 194);
             this.gbConstraintSet.Name = "gbConstraintSet";
             this.gbConstraintSet.Size = new System.Drawing.Size(347, 84);
             this.gbConstraintSet.TabIndex = 4;
@@ -297,25 +304,67 @@
             // 
             // gbResults
             // 
+            this.gbResults.Controls.Add(this.nudImageDef);
+            this.gbResults.Controls.Add(this.label7);
+            this.gbResults.Controls.Add(this.uCtrlImageDim);
+            this.gbResults.Controls.Add(this.uCtrlImageLeftTop);
             this.gbResults.Controls.Add(this.label5);
             this.gbResults.Controls.Add(this.lbNoCases);
             this.gbResults.Controls.Add(this.tbNoCases);
             this.gbResults.Controls.Add(this.tbLoadWeight);
             this.gbResults.Controls.Add(this.tbTotalWeight);
             this.gbResults.Controls.Add(this.label6);
-            this.gbResults.Location = new System.Drawing.Point(367, 13);
+            this.gbResults.Location = new System.Drawing.Point(367, 44);
             this.gbResults.Name = "gbResults";
-            this.gbResults.Size = new System.Drawing.Size(237, 234);
+            this.gbResults.Size = new System.Drawing.Size(328, 234);
             this.gbResults.TabIndex = 5;
             this.gbResults.TabStop = false;
             this.gbResults.Text = "Results";
             // 
-            // tbNoCases
+            // nudImageDef
             // 
-            this.tbNoCases.Location = new System.Drawing.Point(166, 15);
-            this.tbNoCases.Name = "tbNoCases";
-            this.tbNoCases.Size = new System.Drawing.Size(48, 20);
-            this.tbNoCases.TabIndex = 3;
+            this.nudImageDef.Location = new System.Drawing.Point(166, 200);
+            this.nudImageDef.Maximum = new decimal(new int[] {
+            2000,
+            0,
+            0,
+            0});
+            this.nudImageDef.Name = "nudImageDef";
+            this.nudImageDef.Size = new System.Drawing.Size(60, 20);
+            this.nudImageDef.TabIndex = 9;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(9, 204);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(85, 13);
+            this.label7.TabIndex = 8;
+            this.label7.Text = "Image width def.";
+            // 
+            // uCtrlImageDim
+            // 
+            this.uCtrlImageDim.Location = new System.Drawing.Point(9, 173);
+            this.uCtrlImageDim.MinValue = -10000D;
+            this.uCtrlImageDim.Name = "uCtrlImageDim";
+            this.uCtrlImageDim.Size = new System.Drawing.Size(317, 20);
+            this.uCtrlImageDim.TabIndex = 7;
+            this.uCtrlImageDim.Text = "Image dimensions";
+            this.uCtrlImageDim.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlImageDim.ValueX = 0D;
+            this.uCtrlImageDim.ValueY = 0D;
+            // 
+            // uCtrlImageLeftTop
+            // 
+            this.uCtrlImageLeftTop.Location = new System.Drawing.Point(9, 145);
+            this.uCtrlImageLeftTop.MinValue = -10000D;
+            this.uCtrlImageLeftTop.Name = "uCtrlImageLeftTop";
+            this.uCtrlImageLeftTop.Size = new System.Drawing.Size(317, 20);
+            this.uCtrlImageLeftTop.TabIndex = 6;
+            this.uCtrlImageLeftTop.Text = "Image left/top position";
+            this.uCtrlImageLeftTop.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlImageLeftTop.ValueX = 0D;
+            this.uCtrlImageLeftTop.ValueY = 0D;
             // 
             // label5
             // 
@@ -326,12 +375,35 @@
             this.label5.TabIndex = 2;
             this.label5.Text = "Total pallet weight";
             // 
+            // lbNoCases
+            // 
+            this.lbNoCases.AutoSize = true;
+            this.lbNoCases.Location = new System.Drawing.Point(6, 19);
+            this.lbNoCases.Name = "lbNoCases";
+            this.lbNoCases.Size = new System.Drawing.Size(87, 13);
+            this.lbNoCases.TabIndex = 0;
+            this.lbNoCases.Text = "Number of cases";
+            // 
+            // tbNoCases
+            // 
+            this.tbNoCases.Location = new System.Drawing.Point(166, 15);
+            this.tbNoCases.Name = "tbNoCases";
+            this.tbNoCases.Size = new System.Drawing.Size(48, 20);
+            this.tbNoCases.TabIndex = 3;
+            // 
             // tbLoadWeight
             // 
             this.tbLoadWeight.Location = new System.Drawing.Point(166, 43);
             this.tbLoadWeight.Name = "tbLoadWeight";
             this.tbLoadWeight.Size = new System.Drawing.Size(48, 20);
             this.tbLoadWeight.TabIndex = 4;
+            // 
+            // tbTotalWeight
+            // 
+            this.tbTotalWeight.Location = new System.Drawing.Point(166, 71);
+            this.tbTotalWeight.Name = "tbTotalWeight";
+            this.tbTotalWeight.Size = new System.Drawing.Size(48, 20);
+            this.tbTotalWeight.TabIndex = 5;
             // 
             // label6
             // 
@@ -342,27 +414,36 @@
             this.label6.TabIndex = 1;
             this.label6.Text = "Load weight";
             // 
-            // tbTotalWeight
+            // label8
             // 
-            this.tbTotalWeight.Location = new System.Drawing.Point(166, 71);
-            this.tbTotalWeight.Name = "tbTotalWeight";
-            this.tbTotalWeight.Size = new System.Drawing.Size(48, 20);
-            this.tbTotalWeight.TabIndex = 5;
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(13, 13);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(61, 13);
+            this.label8.TabIndex = 6;
+            this.label8.Text = "Unit system";
             // 
-            // lbNoCases
+            // cbUnitSystem
             // 
-            this.lbNoCases.AutoSize = true;
-            this.lbNoCases.Location = new System.Drawing.Point(6, 19);
-            this.lbNoCases.Name = "lbNoCases";
-            this.lbNoCases.Size = new System.Drawing.Size(87, 13);
-            this.lbNoCases.TabIndex = 0;
-            this.lbNoCases.Text = "Number of cases";
+            this.cbUnitSystem.FormattingEnabled = true;
+            this.cbUnitSystem.Items.AddRange(new object[] {
+            "Metric 1 (mm/kg/l)",
+            "Metric 2 (cm/kg/l)",
+            "UK (in/lb/gal)",
+            "US (in/lb/gal)"});
+            this.cbUnitSystem.Location = new System.Drawing.Point(91, 10);
+            this.cbUnitSystem.Name = "cbUnitSystem";
+            this.cbUnitSystem.Size = new System.Drawing.Size(121, 21);
+            this.cbUnitSystem.TabIndex = 7;
+            this.cbUnitSystem.SelectedIndexChanged += new System.EventHandler(this.OnUnitSystemChanged);
             // 
             // FormSheetSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(697, 469);
+            this.ClientSize = new System.Drawing.Size(792, 283);
+            this.Controls.Add(this.cbUnitSystem);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.gbResults);
             this.Controls.Add(this.gbConstraintSet);
             this.Controls.Add(this.gbPallet);
@@ -383,7 +464,9 @@
             this.gbConstraintSet.PerformLayout();
             this.gbResults.ResumeLayout(false);
             this.gbResults.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudImageDef)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -421,5 +504,11 @@
         private System.Windows.Forms.TextBox tbLoadWeight;
         private System.Windows.Forms.TextBox tbTotalWeight;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.NumericUpDown nudImageDef;
+        private System.Windows.Forms.Label label7;
+        private Basics.UCtrlDualDouble uCtrlImageDim;
+        private Basics.UCtrlDualDouble uCtrlImageLeftTop;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox cbUnitSystem;
     }
 }

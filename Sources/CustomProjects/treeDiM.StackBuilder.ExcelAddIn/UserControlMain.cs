@@ -94,7 +94,7 @@ namespace treeDiM.StackBuilder.ExcelAddIn
                         Graphics3DImage graphics = null;
                        // generate image path
                        string stackImagePath = Path.Combine(Path.ChangeExtension(Path.GetTempFileName(), "png"));
-                       graphics = new Graphics3DImage(new Size(Settings.Default.ImageSize, Settings.Default.ImageSize));
+                       graphics = new Graphics3DImage(new Size(Settings.Default.ImageDef, Settings.Default.ImageDef));
                             graphics.FontSizeRatio = 0.01f;
                             graphics.CameraPosition = Graphics3D.Corner_0;
                         ViewerSolution sv = new ViewerSolution(analysis.Solution);
@@ -114,7 +114,7 @@ namespace treeDiM.StackBuilder.ExcelAddIn
                         stackImagePath,
                         Microsoft.Office.Core.MsoTriState.msoFalse,
                         Microsoft.Office.Core.MsoTriState.msoCTrue,
-                        Settings.Default.ImageX / 0.035, Settings.Default.ImageY / 0.035,
+                        Settings.Default.ImageLeft / 0.035, Settings.Default.ImageTop / 0.035,
                         Settings.Default.ImageWidth / 0.035, Settings.Default.ImageHeight / 0.035);
                     }
                     // ###

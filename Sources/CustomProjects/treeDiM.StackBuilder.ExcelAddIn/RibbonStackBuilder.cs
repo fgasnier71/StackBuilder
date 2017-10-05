@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using Microsoft.Office.Tools.Ribbon;
+using System.IO;
+using System.Windows.Forms;
 
 namespace treeDiM.StackBuilder.ExcelAddIn
 {
@@ -10,21 +9,14 @@ namespace treeDiM.StackBuilder.ExcelAddIn
     {
         private void RibbonStackBuilder_Load(object sender, RibbonUIEventArgs e)
         {
-
         }
-
-        private void onCompute(object sender, RibbonControlEventArgs e)
+        private void OnCompute(object sender, RibbonControlEventArgs e)
         {
-            try
-            {
-                Globals.StackBuilderAddIn.Compute();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
+            try { Globals.StackBuilderAddIn.Compute(); }
+            catch (ExceptionCellReading ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex) { MessageBox.Show(ex.ToString()); }
         }
-        private void onParameters(object sender, RibbonControlEventArgs e)
+        private void OnParameters(object sender, RibbonControlEventArgs e)
         {
             try
             {
@@ -35,6 +27,16 @@ namespace treeDiM.StackBuilder.ExcelAddIn
             {
                 Console.WriteLine(ex.Message);
             }
+        }
+        private void OnShowWebSite(object sender, RibbonControlEventArgs e)
+        {
+            try { System.Diagnostics.Process.Start(Properties.Settings.Default.StartPageUrl); }
+            catch (Exception ex) { Console.WriteLine(ex.ToString()); }
+        }
+        private void OnOpenSample(object sender, RibbonControlEventArgs e)
+        {
+            try { Globals.StackBuilderAddIn.OpenSampleFile(); }
+            catch (Exception ex) { MessageBox.Show(ex.ToString()); }
         }
     }
 }

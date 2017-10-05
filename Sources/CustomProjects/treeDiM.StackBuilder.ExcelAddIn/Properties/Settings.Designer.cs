@@ -73,7 +73,7 @@ namespace treeDiM.StackBuilder.ExcelAddIn.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("B17")]
+        [global::System.Configuration.DefaultSettingValueAttribute("B9")]
         public string CellPalletLength {
             get {
                 return ((string)(this["CellPalletLength"]));
@@ -85,7 +85,7 @@ namespace treeDiM.StackBuilder.ExcelAddIn.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("B18")]
+        [global::System.Configuration.DefaultSettingValueAttribute("B10")]
         public string CellPalletWidth {
             get {
                 return ((string)(this["CellPalletWidth"]));
@@ -97,7 +97,7 @@ namespace treeDiM.StackBuilder.ExcelAddIn.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("B19")]
+        [global::System.Configuration.DefaultSettingValueAttribute("B11")]
         public string CellPalletHeight {
             get {
                 return ((string)(this["CellPalletHeight"]));
@@ -109,7 +109,7 @@ namespace treeDiM.StackBuilder.ExcelAddIn.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("B20")]
+        [global::System.Configuration.DefaultSettingValueAttribute("B12")]
         public string CellPalletWeight {
             get {
                 return ((string)(this["CellPalletWeight"]));
@@ -121,7 +121,7 @@ namespace treeDiM.StackBuilder.ExcelAddIn.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("B23")]
+        [global::System.Configuration.DefaultSettingValueAttribute("B15")]
         public string CellMaxPalletHeight {
             get {
                 return ((string)(this["CellMaxPalletHeight"]));
@@ -133,7 +133,7 @@ namespace treeDiM.StackBuilder.ExcelAddIn.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("B24")]
+        [global::System.Configuration.DefaultSettingValueAttribute("B16")]
         public string CellMaxPalletWeight {
             get {
                 return ((string)(this["CellMaxPalletWeight"]));
@@ -145,7 +145,7 @@ namespace treeDiM.StackBuilder.ExcelAddIn.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("B27")]
+        [global::System.Configuration.DefaultSettingValueAttribute("F3")]
         public string CellNoCases {
             get {
                 return ((string)(this["CellNoCases"]));
@@ -157,7 +157,7 @@ namespace treeDiM.StackBuilder.ExcelAddIn.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("B28")]
+        [global::System.Configuration.DefaultSettingValueAttribute("F4")]
         public string CellLoadWeight {
             get {
                 return ((string)(this["CellLoadWeight"]));
@@ -169,7 +169,7 @@ namespace treeDiM.StackBuilder.ExcelAddIn.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("B29")]
+        [global::System.Configuration.DefaultSettingValueAttribute("F5")]
         public string CellTotalPalletWeight {
             get {
                 return ((string)(this["CellTotalPalletWeight"]));
@@ -181,7 +181,7 @@ namespace treeDiM.StackBuilder.ExcelAddIn.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("14")]
+        [global::System.Configuration.DefaultSettingValueAttribute("10")]
         public double ImageWidth {
             get {
                 return ((double)(this["ImageWidth"]));
@@ -193,7 +193,7 @@ namespace treeDiM.StackBuilder.ExcelAddIn.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("14")]
+        [global::System.Configuration.DefaultSettingValueAttribute("10")]
         public double ImageHeight {
             get {
                 return ((double)(this["ImageHeight"]));
@@ -205,37 +205,67 @@ namespace treeDiM.StackBuilder.ExcelAddIn.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("21")]
-        public double ImageX {
+        [global::System.Configuration.DefaultSettingValueAttribute("6")]
+        public double ImageLeft {
             get {
-                return ((double)(this["ImageX"]));
+                return ((double)(this["ImageLeft"]));
             }
             set {
-                this["ImageX"] = value;
+                this["ImageLeft"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1")]
-        public double ImageY {
+        [global::System.Configuration.DefaultSettingValueAttribute("3.5")]
+        public double ImageTop {
             get {
-                return ((double)(this["ImageY"]));
+                return ((double)(this["ImageTop"]));
             }
             set {
-                this["ImageY"] = value;
+                this["ImageTop"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("1000")]
-        public int ImageSize {
+        public int ImageDef {
             get {
-                return ((int)(this["ImageSize"]));
+                return ((int)(this["ImageDef"]));
             }
             set {
-                this["ImageSize"] = value;
+                this["ImageDef"] = value;
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://www.treedim.com/stackbuilder/")]
+        public string StartPageUrl {
+            get {
+                return ((string)(this["StartPageUrl"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data\\StackBuilderCalculator.xlsx")]
+        public string SampleExcelFile {
+            get {
+                return ((string)(this["SampleExcelFile"]));
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int UnitSystem {
+            get {
+                return ((int)(this["UnitSystem"]));
+            }
+            set {
+                this["UnitSystem"] = value;
             }
         }
     }

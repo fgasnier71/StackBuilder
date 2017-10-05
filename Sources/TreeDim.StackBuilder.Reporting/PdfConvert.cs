@@ -6,7 +6,6 @@ using System.Web;
 using System.Threading;
 using System.Collections.Generic;
 using System.Configuration;
-using System.Windows.Forms;
 
 namespace Codaxy.WkHtmlToPdf
 {
@@ -42,6 +41,10 @@ namespace Codaxy.WkHtmlToPdf
         public object State { get; set; }
         public Dictionary<String, String> Cookies { get; set; }
         public Dictionary<String, String> ExtraParams { get; set; }
+        public String HeaderFontSize { get; set; }
+        public String FooterFontSize { get; set; }
+        public String HeaderFontName { get; set; }
+        public String FooterFontName { get; set; }
     }
 
     public class PdfConvertEnvironment
@@ -73,11 +76,11 @@ namespace Codaxy.WkHtmlToPdf
 
         private static string GetWkhtmlToPdfExeLocation()
         {
-            string filePath, customPath = Path.GetDirectoryName(Application.ExecutablePath);
+            string filePath, customPath = ConfigurationManager.AppSettings["wkhtmltopdf:path"];
 
             if (customPath != null)
             {
-                filePath = Path.Combine(customPath, @"wkhtmltopdf\wkhtmltopdf.exe");
+                filePath = Path.Combine(customPath, @"wkhtmltopdf.exe");
 
                 if (File.Exists(filePath))
                     return filePath;
@@ -146,7 +149,6 @@ namespace Codaxy.WkHtmlToPdf
                 paramsBuilder.Append("--margin-bottom 25 ");
                 paramsBuilder.Append("--footer-spacing 5 ");
             }
-
             if (!string.IsNullOrEmpty(document.HeaderLeft))
                 paramsBuilder.AppendFormat("--header-left \"{0}\" ", document.HeaderLeft);
 
@@ -164,6 +166,19 @@ namespace Codaxy.WkHtmlToPdf
 
             if (!string.IsNullOrEmpty(document.FooterRight))
                 paramsBuilder.AppendFormat("--footer-right \"{0}\" ", document.FooterRight);
+
+            if (!string.IsNullOrEmpty(document.HeaderFontSize))
+                paramsBuilder.AppendFormat("--header-font-size \"{0}\" ", document.HeaderFontSize);
+
+            if (!string.IsNullOrEmpty(document.FooterFontSize))
+                paramsBuilder.AppendFormat("--footer-font-size \"{0}\" ", document.FooterFontSize);
+
+            if (!string.IsNullOrEmpty(document.HeaderFontName))
+                paramsBuilder.AppendFormat("--header-font-name \"{0}\" ", document.HeaderFontName);
+
+            if (!string.IsNullOrEmpty(document.FooterFontName))
+                paramsBuilder.AppendFormat("--footer-font-name \"{0}\" ", document.FooterFontName);
+
 
             if (document.ExtraParams != null)
                 foreach (var extraParam in document.ExtraParams)

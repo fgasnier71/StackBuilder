@@ -66,12 +66,20 @@ namespace treeDiM.StackBuilder.Basics
         }
         #endregion
 
+        #region Override UserControl
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            base.OnPaint(e);
+            Unit = _unitType;
+        }
+        #endregion
+
         #region Event handlers
-        private void nudValue_ValueChanged(object sender, EventArgs e)
+        private void OnValueChanged(object sender, EventArgs e)
         {
             if (null != ValueChanged) ValueChanged(this, e);
         }
-        private void ValueControl_SizeChanged(object sender, EventArgs e)
+        private void OnSizeChanged(object sender, EventArgs e)
         {
             // set nud location
             nudValueX.Location = new Point(Width - 2 * UCtrlDualDouble.stNudLength - 2 - UCtrlDualDouble.stLbUnitLength, 0);

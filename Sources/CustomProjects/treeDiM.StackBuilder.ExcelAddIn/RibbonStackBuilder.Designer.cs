@@ -39,14 +39,18 @@
             this.gpStackBuilder = this.Factory.CreateRibbonGroup();
             this.bnCompute = this.Factory.CreateRibbonButton();
             this.bnParameters = this.Factory.CreateRibbonButton();
+            this.gpHelp = this.Factory.CreateRibbonGroup();
+            this.bnWebSite = this.Factory.CreateRibbonButton();
+            this.bnOpenSampleFile = this.Factory.CreateRibbonButton();
             this.tabAddInStackBuilder.SuspendLayout();
             this.gpStackBuilder.SuspendLayout();
+            this.gpHelp.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabAddInStackBuilder
             // 
-            this.tabAddInStackBuilder.ControlId.ControlIdType = Microsoft.Office.Tools.Ribbon.RibbonControlIdType.Office;
             this.tabAddInStackBuilder.Groups.Add(this.gpStackBuilder);
+            this.tabAddInStackBuilder.Groups.Add(this.gpHelp);
             this.tabAddInStackBuilder.Label = "StackBuilder";
             this.tabAddInStackBuilder.Name = "tabAddInStackBuilder";
             // 
@@ -54,7 +58,7 @@
             // 
             this.gpStackBuilder.Items.Add(this.bnCompute);
             this.gpStackBuilder.Items.Add(this.bnParameters);
-            this.gpStackBuilder.Label = "StackBuilder";
+            this.gpStackBuilder.Label = "StackBuilder Add-in";
             this.gpStackBuilder.Name = "gpStackBuilder";
             // 
             // bnCompute
@@ -63,7 +67,7 @@
             this.bnCompute.Label = "Compute";
             this.bnCompute.Name = "bnCompute";
             this.bnCompute.ShowImage = true;
-            this.bnCompute.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.onCompute);
+            this.bnCompute.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.OnCompute);
             // 
             // bnParameters
             // 
@@ -71,7 +75,30 @@
             this.bnParameters.Label = "Parameters";
             this.bnParameters.Name = "bnParameters";
             this.bnParameters.ShowImage = true;
-            this.bnParameters.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.onParameters);
+            this.bnParameters.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.OnParameters);
+            // 
+            // gpHelp
+            // 
+            this.gpHelp.Items.Add(this.bnWebSite);
+            this.gpHelp.Items.Add(this.bnOpenSampleFile);
+            this.gpHelp.Label = "Help";
+            this.gpHelp.Name = "gpHelp";
+            // 
+            // bnWebSite
+            // 
+            this.bnWebSite.Image = ((System.Drawing.Image)(resources.GetObject("bnWebSite.Image")));
+            this.bnWebSite.Label = "Web Site";
+            this.bnWebSite.Name = "bnWebSite";
+            this.bnWebSite.ShowImage = true;
+            this.bnWebSite.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.OnShowWebSite);
+            // 
+            // bnOpenSampleFile
+            // 
+            this.bnOpenSampleFile.Image = ((System.Drawing.Image)(resources.GetObject("bnOpenSampleFile.Image")));
+            this.bnOpenSampleFile.Label = "Open sample file";
+            this.bnOpenSampleFile.Name = "bnOpenSampleFile";
+            this.bnOpenSampleFile.ShowImage = true;
+            this.bnOpenSampleFile.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.OnOpenSample);
             // 
             // RibbonStackBuilder
             // 
@@ -83,6 +110,8 @@
             this.tabAddInStackBuilder.PerformLayout();
             this.gpStackBuilder.ResumeLayout(false);
             this.gpStackBuilder.PerformLayout();
+            this.gpHelp.ResumeLayout(false);
+            this.gpHelp.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -93,6 +122,9 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonGroup gpStackBuilder;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton bnCompute;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton bnParameters;
+        internal Microsoft.Office.Tools.Ribbon.RibbonGroup gpHelp;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton bnWebSite;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton bnOpenSampleFile;
     }
 
     partial class ThisRibbonCollection

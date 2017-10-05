@@ -28,8 +28,19 @@ namespace treeDiM.StackBuilder.ExcelAddIn
 
             tbMaxPalletHeight.Text = Settings.Default.CellMaxPalletHeight;
             tbMaxPalletWeight.Text = Settings.Default.CellMaxPalletWeight;
-        }
 
+            tbNoCases.Text = Settings.Default.CellNoCases;
+            tbLoadWeight.Text = Settings.Default.CellLoadWeight;
+            tbTotalWeight.Text = Settings.Default.CellTotalPalletWeight;
+
+            uCtrlImageLeftTop.ValueX = Settings.Default.ImageLeft;
+            uCtrlImageLeftTop.ValueY = Settings.Default.ImageTop;
+            uCtrlImageDim.ValueX = Settings.Default.ImageWidth;
+            uCtrlImageDim.ValueY = Settings.Default.ImageHeight;
+            nudImageDef.Value = (decimal)Settings.Default.ImageDef;
+
+            cbUnitSystem.SelectedIndex = Settings.Default.UnitSystem;
+        }
 
         protected override void OnClosing(CancelEventArgs e)
         {
@@ -49,9 +60,28 @@ namespace treeDiM.StackBuilder.ExcelAddIn
             Settings.Default.CellMaxPalletHeight = tbMaxPalletHeight.Text;
             Settings.Default.CellMaxPalletWeight = tbMaxPalletWeight.Text;
 
+            Settings.Default.CellNoCases = tbNoCases.Text;
+            Settings.Default.CellLoadWeight = tbLoadWeight.Text;
+            Settings.Default.CellTotalPalletWeight = tbTotalWeight.Text;
+
+            Settings.Default.ImageLeft = uCtrlImageLeftTop.ValueX;
+            Settings.Default.ImageTop = uCtrlImageLeftTop.ValueY;
+            Settings.Default.ImageWidth = uCtrlImageDim.ValueX;
+            Settings.Default.ImageHeight = uCtrlImageDim.ValueY;
+            Settings.Default.ImageDef = (int)nudImageDef.Value;
+
+            Settings.Default.UnitSystem = cbUnitSystem.SelectedIndex;
+
             Settings.Default.Save();
 
             base.OnClosing(e);
+        }
+
+        private void OnUnitSystemChanged(object sender, EventArgs e)
+        {
+            Basics.UnitsManager.CurrentUnitSystem = (Basics.UnitsManager.UnitSystem)cbUnitSystem.SelectedIndex;
+            uCtrlImageDim.Invalidate();
+            uCtrlImageLeftTop.Invalidate();
         }
     }
 }

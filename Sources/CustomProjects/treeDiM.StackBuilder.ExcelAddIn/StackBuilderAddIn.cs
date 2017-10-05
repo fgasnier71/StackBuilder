@@ -24,6 +24,7 @@ namespace treeDiM.StackBuilder.ExcelAddIn
         #region Handlers
         private void StackBuilderAddIn_Startup(object sender, System.EventArgs e)
         {
+            Basics.UnitsManager.CurrentUnitSystem = (Basics.UnitsManager.UnitSystem)Properties.Settings.Default.UnitSystem;
         }
         private void StackBuilderAddIn_Shutdown(object sender, System.EventArgs e)
         {
@@ -52,8 +53,6 @@ namespace treeDiM.StackBuilder.ExcelAddIn
         #region Compute
         public void Compute()
         {
-            try
-            {
                 Excel.Worksheet xlSheet = Globals.StackBuilderAddIn.Application.ActiveSheet as Excel.Worksheet;
                 if (null != xlSheet)
                 {
@@ -71,6 +70,9 @@ namespace treeDiM.StackBuilder.ExcelAddIn
 
                     double palletMaximumHeight = ReadDouble(xlSheet, Settings.Default.CellMaxPalletHeight, Resources.ID_CONSTRAINTS_PALLETMAXIHEIGHT);
                     double palletMaximumWeight = ReadDouble(xlSheet, Settings.Default.CellMaxPalletWeight, Resources.ID_CONSTRAINTS_PALLETMAXIWEIGHT);
+
+                    // initialize units
+                    UnitsManager.CurrentUnitSystem = (UnitsManager.UnitSystem)Properties.Settings.Default.UnitSystem;
 
                     // ###
                     // build a case
@@ -104,7 +106,7 @@ namespace treeDiM.StackBuilder.ExcelAddIn
                         Graphics3DImage graphics = null;
                         // generate image path
                         string stackImagePath = Path.Combine(Path.ChangeExtension(Path.GetTempFileName(), "png"));
-                        graphics = new Graphics3DImage(new Size(Settings.Default.ImageSize, Settings.Default.ImageSize));
+                        graphics = new Graphics3DImage(new Size(Settings.Default.ImageDef, Settings.Default.ImageDef));
                         graphics.FontSizeRatio = 0.01f;
                         graphics.CameraPosition = Graphics3D.Corner_0;
                         ViewerSolution sv = new ViewerSolution(analysis.Solution);
@@ -124,20 +126,14 @@ namespace treeDiM.StackBuilder.ExcelAddIn
                             stackImagePath,
                             Microsoft.Office.Core.MsoTriState.msoFalse,
                             Microsoft.Office.Core.MsoTriState.msoCTrue,
-                            Settings.Default.ImageX / 0.035, Settings.Default.ImageY / 0.035,
-                            Settings.Default.ImageWidth / 0.035, Settings.Default.ImageHeight / 0.035);
+                            UnitsManager.ConvertLengthTo(Settings.Default.ImageLeft, UnitsManager.UnitSystem.UNIT_METRIC2) / 0.035,
+                            UnitsManager.ConvertLengthTo(Settings.Default.ImageTop, UnitsManager.UnitSystem.UNIT_METRIC2) / 0.035,
+                            UnitsManager.ConvertLengthTo(Settings.Default.ImageWidth, UnitsManager.UnitSystem.UNIT_METRIC2) / 0.035,
+                            UnitsManager.ConvertLengthTo(Settings.Default.ImageHeight, UnitsManager.UnitSystem.UNIT_METRIC2) / 0.035);
                     }
                     // ###
                 }
-            }
-            catch (ExceptionCellReading ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
+
         }
         public Excel.Worksheet GetActiveWorksheet() { return (Excel.Worksheet)Application.ActiveSheet; }
         private string PalletTypeName { get { return "EUR2"; } }
@@ -183,6 +179,29 @@ namespace treeDiM.StackBuilder.ExcelAddIn
         }
         #endregion
 
+        #region Open sample file
+        public void OpenSampleFile()
+        {
+            // Get the assembly information
+            System.Reflection.Assembly assemblyInfo = System.Reflection.Assembly.GetExecutingAssembly();
+            // Location is where the assembly is run from 
+            string assemblyLocation = assemblyInfo.Location;
+            // CodeBase is the location of the ClickOnce deployment files
+            Uri uriCodeBase = new Uri(assemblyInfo.CodeBase);
+            string samplePath = Path.Combine(Path.GetDirectoryName(uriCodeBase.LocalPath.ToString()), Settings.Default.SampleExcelFile);
+            string samplePathCopy = Path.ChangeExtension(Path.GetTempFileName(), Path.GetExtension(samplePath));
+            // Copy sample file to temp directory
+            File.Copy(samplePath, samplePathCopy);
+            // Open file
+            FileInfo f = new FileInfo(samplePathCopy);
+            object misval = System.Reflection.Missing.Value;
+            Excel.Workbook wb = Globals.StackBuilderAddIn.Application.Workbooks.Open(
+                f.FullName, misval, misval, misval, misval,
+                misval, misval, misval, misval, misval, misval, misval,
+                misval, misval, misval);
+        }
+        #endregion
+
         #region VSTO generated code
         /// <summary>
         /// Required method for Designer support - do not modify
@@ -194,26 +213,6 @@ namespace treeDiM.StackBuilder.ExcelAddIn
             this.Shutdown += new System.EventHandler(StackBuilderAddIn_Shutdown);
         }
         #endregion
-
-        internal class ExceptionCellReading : Exception
-        {
-            public ExceptionCellReading(string vName, string cellName, string sMessage)
-                : base(sMessage)
-            {
-                VName = vName;
-                CellName = cellName;
-            }
-
-            public string VName { get; set; }
-            public string CellName { get; set; }
-            public override string ToString()
-            {
-                StringBuilder sb = new StringBuilder();
-                sb.AppendFormat("{0} expected in cell {1}", VName, CellName);
-                sb.Append(base.ToString());
-                return sb.ToString();
-            }
-        }
 
         private const string TASKPANETITLE = "StackBuilder";
     }

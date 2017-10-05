@@ -75,7 +75,7 @@
             this.nudValueY.Name = "nudValueY";
             this.nudValueY.Size = new System.Drawing.Size(60, 20);
             this.nudValueY.TabIndex = 5;
-            this.nudValueY.ValueChanged += new System.EventHandler(this.nudValue_ValueChanged);
+            this.nudValueY.ValueChanged += new System.EventHandler(this.OnValueChanged);
             // 
             // nudValueX
             // 
@@ -96,7 +96,7 @@
             this.nudValueX.Name = "nudValueX";
             this.nudValueX.Size = new System.Drawing.Size(60, 20);
             this.nudValueX.TabIndex = 7;
-            this.nudValueX.ValueChanged += new System.EventHandler(this.nudValue_ValueChanged);
+            this.nudValueX.ValueChanged += new System.EventHandler(this.OnValueChanged);
             // 
             // UCtrlDualDouble
             // 
@@ -108,7 +108,7 @@
             this.Controls.Add(this.lbName);
             this.Name = "UCtrlDualDouble";
             this.Size = new System.Drawing.Size(300, 20);
-            this.SizeChanged += new System.EventHandler(this.ValueControl_SizeChanged);
+            this.SizeChanged += new System.EventHandler(this.OnSizeChanged);
             ((System.ComponentModel.ISupportInitialize)(this.nudValueY)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudValueX)).EndInit();
             this.ResumeLayout(false);
