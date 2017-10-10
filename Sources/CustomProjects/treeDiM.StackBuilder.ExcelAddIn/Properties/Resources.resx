@@ -153,6 +153,9 @@
   <data name="ID_RESULT_NOCASES" xml:space="preserve">
     <value>Number of cases</value>
   </data>
+  <data name="ID_RESULT_NOSOLUTIONFOUND" xml:space="preserve">
+    <value>No valid solution found!</value>
+  </data>
   <data name="ID_RESULT_TOTALPALLETWEIGHT" xml:space="preserve">
     <value>Total palletWeight</value>
   </data>

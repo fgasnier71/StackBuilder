@@ -169,6 +169,15 @@ namespace treeDiM.StackBuilder.ExcelAddIn.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No valid solution found!.
+        /// </summary>
+        internal static string ID_RESULT_NOSOLUTIONFOUND {
+            get {
+                return ResourceManager.GetString("ID_RESULT_NOSOLUTIONFOUND", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Total palletWeight.
         /// </summary>
         internal static string ID_RESULT_TOTALPALLETWEIGHT {

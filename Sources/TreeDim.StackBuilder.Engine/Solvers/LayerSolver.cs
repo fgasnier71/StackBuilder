@@ -33,21 +33,32 @@ namespace treeDiM.StackBuilder.Engine
                     // not swapped vs swapped pattern
                     for (int iSwapped = 0; iSwapped < 2; ++iSwapped)
                     {
-                        // does swapping makes sense for this layer pattern ?
-                        if (!pattern.CanBeSwapped && (iSwapped == 1))
-                            continue;
-                        // instantiate layer
-                        var layer = new Layer2D(dimBox, dimContainer, axisOrtho, iSwapped == 1);
-                        if (layer.NoLayers(constraintSet.OptMaxHeight.Value) < 1)
-                            continue;
-                        layer.PatternName = pattern.Name;
-                        double actualLength = 0.0, actualWidth = 0.0;
-                        if (!pattern.GetLayerDimensionsChecked(layer, out actualLength, out actualWidth))
-                            continue;
-                        pattern.GenerateLayer(layer, actualLength, actualWidth);
-                        if (0 == layer.Count)
-                            continue;
-                        listLayers0.Add(layer);
+                        try
+                        {
+                            // does swapping makes sense for this layer pattern ?
+                            if (!pattern.CanBeSwapped && (iSwapped == 1))
+                                continue;
+                            // instantiate layer
+                            var layer = new Layer2D(dimBox, dimContainer, axisOrtho, iSwapped == 1);
+                            if (layer.NoLayers(constraintSet.OptMaxHeight.Value) < 1)
+                                continue;
+                            layer.PatternName = pattern.Name;
+                            double actualLength = 0.0, actualWidth = 0.0;
+                            if (!pattern.GetLayerDimensionsChecked(layer, out actualLength, out actualWidth))
+                                continue;
+                            pattern.GenerateLayer(layer, actualLength, actualWidth);
+                            if (0 == layer.Count)
+                                continue;
+                            listLayers0.Add(layer);
+                        }
+                        catch (Exception ex)
+                        {
+                            _log.ErrorFormat("Pattern: {0} Orient: {1} Swapped: {2} Message: {3}"
+                                , pattern.Name
+                                , axisOrtho.ToString()
+                                , iSwapped == 1 ? "True" : "False"
+                                , ex.Message);
+                        }
                     }
                 }
             }

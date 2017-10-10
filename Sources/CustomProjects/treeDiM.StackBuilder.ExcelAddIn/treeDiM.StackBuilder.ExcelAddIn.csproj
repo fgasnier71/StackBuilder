@@ -41,7 +41,7 @@
     <UpdateEnabled>true</UpdateEnabled>
     <UpdateInterval>0</UpdateInterval>
     <UpdateIntervalUnits>days</UpdateIntervalUnits>
-    <ProductName>treeDiM.StackBuilder.ExcelAddIn</ProductName>
+    <ProductName>StackBuilder Excel Add-in</ProductName>
     <PublisherName>treeDiM</PublisherName>
     <SupportUrl>//plmpack.com/public/www/stackbuilder_excelAddin/ClickOnce</SupportUrl>
     <FriendlyName>StackBuilder Excel Add-in</FriendlyName>
