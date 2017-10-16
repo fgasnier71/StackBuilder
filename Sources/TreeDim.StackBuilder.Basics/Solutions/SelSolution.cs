@@ -302,45 +302,6 @@ namespace treeDiM.StackBuilder.Basics
     }
     #endregion
 
-    #region Box / Case / Pallet solution
-    public class SelBoxCasePalletSolution : ItemBaseNamed
-    {
-        #region Data members
-        private BoxCasePalletAnalysis _analysis;
-        private BoxCasePalletSolution _solution;
-        #endregion
-
-        #region Constructor
-        public SelBoxCasePalletSolution(Document document, BoxCasePalletAnalysis analysis, BoxCasePalletSolution sol)
-            : base(document)
-        {
-            _analysis = analysis;
-            _solution = sol;
-            ID.Name = sol.Title;
-        }
-        #endregion
-
-        #region Public properties
-        public BoxCasePalletAnalysis Analysis
-        {
-            get { return _analysis; }
-        }
-        public BoxCasePalletSolution Solution
-        {
-            get { return _solution; }
-        }
-        #endregion
-
-        #region ItemBase override
-        protected override void RemoveItselfFromDependancies()
-        {
-            _analysis.RemoveDependancy(this);
-            base.RemoveItselfFromDependancies();
-        }
-        #endregion
-    }
-    #endregion
-
     #region Pack pallet solution
     public class SelPackPalletSolution : ItemBaseNamed
     {

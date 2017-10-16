@@ -141,7 +141,6 @@
     <Compile Include="BoxToPictureBox.cs" />
     <Compile Include="Types\Case.cs" />
     <Compile Include="SolutionViewers\CaseDefinitionViewer.cs" />
-    <Compile Include="SolutionViewers\BoxCasePalletSolutionViewer.cs" />
     <Compile Include="Types\Cylinder.cs" />
     <Compile Include="Types\Drawable.cs" />
     <Compile Include="Face.cs" />

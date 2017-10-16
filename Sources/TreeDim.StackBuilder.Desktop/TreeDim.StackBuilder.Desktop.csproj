@@ -39,7 +39,7 @@
     <MinimumRequiredVersion>3.0.0.0</MinimumRequiredVersion>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>47</ApplicationRevision>
+    <ApplicationRevision>48</ApplicationRevision>
     <ApplicationVersion>3.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -129,6 +129,7 @@
       <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="PropertyGridEx, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\PropertyGridEx.1.0.0\lib\net20\PropertyGridEx.dll</HintPath>
     </Reference>
@@ -256,23 +257,11 @@
     </Compile>
     <Compile Include="DocumentSB.cs" />
     <Compile Include="FileAssociation.cs" />
-    <Compile Include="FormAppendSolutionToDB.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormAppendSolutionToDB.Designer.cs">
-      <DependentUpon>FormAppendSolutionToDB.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormEditBitmaps.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormEditBitmaps.Designer.cs">
       <DependentUpon>FormEditBitmaps.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormEditPalletSolutionDB.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormEditPalletSolutionDB.Designer.cs">
-      <DependentUpon>FormEditPalletSolutionDB.cs</DependentUpon>
     </Compile>
     <Compile Include="FormExcelLibrary.cs">
       <SubType>Form</SubType>
@@ -345,12 +334,6 @@
     </Compile>
     <Compile Include="FormNewBundle.Designer.cs">
       <DependentUpon>FormNewBundle.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormNewCaseAnalysis.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormNewCaseAnalysis.Designer.cs">
-      <DependentUpon>FormNewCaseAnalysis.cs</DependentUpon>
     </Compile>
     <Compile Include="FormNewCylinder.cs">
       <SubType>Form</SubType>
@@ -862,33 +845,6 @@
     <EmbeddedResource Include="DockContentView.sv.resx">
       <DependentUpon>DockContentView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormAppendSolutionToDB.de.resx">
-      <DependentUpon>FormAppendSolutionToDB.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormAppendSolutionToDB.es.resx">
-      <DependentUpon>FormAppendSolutionToDB.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormAppendSolutionToDB.fr.resx">
-      <DependentUpon>FormAppendSolutionToDB.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormAppendSolutionToDB.it.resx">
-      <DependentUpon>FormAppendSolutionToDB.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormAppendSolutionToDB.ja.resx">
-      <DependentUpon>FormAppendSolutionToDB.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormAppendSolutionToDB.nl.resx">
-      <DependentUpon>FormAppendSolutionToDB.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormAppendSolutionToDB.pl.resx">
-      <DependentUpon>FormAppendSolutionToDB.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormAppendSolutionToDB.resx">
-      <DependentUpon>FormAppendSolutionToDB.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormAppendSolutionToDB.sv.resx">
-      <DependentUpon>FormAppendSolutionToDB.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormEditBitmaps.de.resx">
       <DependentUpon>FormEditBitmaps.cs</DependentUpon>
     </EmbeddedResource>
@@ -917,33 +873,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormEditBitmaps.sv.resx">
       <DependentUpon>FormEditBitmaps.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormEditPalletSolutionDB.de.resx">
-      <DependentUpon>FormEditPalletSolutionDB.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormEditPalletSolutionDB.es.resx">
-      <DependentUpon>FormEditPalletSolutionDB.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormEditPalletSolutionDB.fr.resx">
-      <DependentUpon>FormEditPalletSolutionDB.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormEditPalletSolutionDB.it.resx">
-      <DependentUpon>FormEditPalletSolutionDB.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormEditPalletSolutionDB.ja.resx">
-      <DependentUpon>FormEditPalletSolutionDB.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormEditPalletSolutionDB.nl.resx">
-      <DependentUpon>FormEditPalletSolutionDB.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormEditPalletSolutionDB.pl.resx">
-      <DependentUpon>FormEditPalletSolutionDB.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormEditPalletSolutionDB.resx">
-      <DependentUpon>FormEditPalletSolutionDB.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormEditPalletSolutionDB.sv.resx">
-      <DependentUpon>FormEditPalletSolutionDB.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormExcelLibrary.de.resx">
       <DependentUpon>FormExcelLibrary.cs</DependentUpon>
@@ -1300,34 +1229,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewBundle.sv.resx">
       <DependentUpon>FormNewBundle.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormNewCaseAnalysis.de.resx">
-      <DependentUpon>FormNewCaseAnalysis.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormNewCaseAnalysis.es.resx">
-      <DependentUpon>FormNewCaseAnalysis.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormNewCaseAnalysis.fr.resx">
-      <DependentUpon>FormNewCaseAnalysis.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormNewCaseAnalysis.it.resx">
-      <DependentUpon>FormNewCaseAnalysis.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormNewCaseAnalysis.ja.resx">
-      <DependentUpon>FormNewCaseAnalysis.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormNewCaseAnalysis.nl.resx">
-      <DependentUpon>FormNewCaseAnalysis.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormNewCaseAnalysis.pl.resx">
-      <DependentUpon>FormNewCaseAnalysis.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormNewCaseAnalysis.resx">
-      <DependentUpon>FormNewCaseAnalysis.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormNewCaseAnalysis.sv.resx">
-      <DependentUpon>FormNewCaseAnalysis.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewCylinder.de.resx">
       <DependentUpon>FormNewCylinder.cs</DependentUpon>
@@ -2409,8 +2310,12 @@ if $(ConfigurationName) == Release "$(SolutionDir)Signfile.bat" $(TargetPath)
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\MSBuildTasks.1.5.0.235\build\MSBuildTasks.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MSBuildTasks.1.5.0.235\build\MSBuildTasks.targets'))" />
     <Error Condition="!Exists('..\packages\MSBuildTasks.1.5.0.235\build\MSBuildTasks.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MSBuildTasks.1.5.0.235\build\MSBuildTasks.targets'))" />
-    <Error Condition="!Exists('..\packages\NuGet.Build.Tasks.Pack.4.3.0\build\NuGet.Build.Tasks.Pack.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NuGet.Build.Tasks.Pack.4.3.0\build\NuGet.Build.Tasks.Pack.targets'))" />
+    <Error Condition="!Exists('..\packages\NuGet.Build.Tasks.Pack.4.4.0\build\NuGet.Build.Tasks.Pack.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NuGet.Build.Tasks.Pack.4.4.0\build\NuGet.Build.Tasks.Pack.targets'))" />
+    <Error Condition="!Exists('..\packages\cef.redist.x64.3.2987.1601\build\cef.redist.x64.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\cef.redist.x64.3.2987.1601\build\cef.redist.x64.targets'))" />
+    <Error Condition="!Exists('..\packages\cef.redist.x86.3.2987.1601\build\cef.redist.x86.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\cef.redist.x86.3.2987.1601\build\cef.redist.x86.targets'))" />
   </Target>
   <Import Project="..\packages\MSBuildTasks.1.5.0.235\build\MSBuildTasks.targets" Condition="Exists('..\packages\MSBuildTasks.1.5.0.235\build\MSBuildTasks.targets')" />
-  <Import Project="..\packages\NuGet.Build.Tasks.Pack.4.3.0\build\NuGet.Build.Tasks.Pack.targets" Condition="Exists('..\packages\NuGet.Build.Tasks.Pack.4.3.0\build\NuGet.Build.Tasks.Pack.targets')" />
+  <Import Project="..\packages\NuGet.Build.Tasks.Pack.4.4.0\build\NuGet.Build.Tasks.Pack.targets" Condition="Exists('..\packages\NuGet.Build.Tasks.Pack.4.4.0\build\NuGet.Build.Tasks.Pack.targets')" />
+  <Import Project="..\packages\cef.redist.x64.3.2987.1601\build\cef.redist.x64.targets" Condition="Exists('..\packages\cef.redist.x64.3.2987.1601\build\cef.redist.x64.targets')" />
+  <Import Project="..\packages\cef.redist.x86.3.2987.1601\build\cef.redist.x86.targets" Condition="Exists('..\packages\cef.redist.x86.3.2987.1601\build\cef.redist.x86.targets')" />
 </Project>

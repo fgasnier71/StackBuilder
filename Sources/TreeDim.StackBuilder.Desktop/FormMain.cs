@@ -89,10 +89,6 @@ namespace treeDiM.StackBuilder.Desktop
                     DoSplash();
             }
         }
-        void PalletSolutionDBModified(object sender, PalletSolutionEventArgs eventArg)
-        {
-            UpdateToolbarState();
-        }
         #endregion
 
         #region Form override
@@ -127,10 +123,6 @@ namespace treeDiM.StackBuilder.Desktop
             else
                 timerLogin.Start();
             dockPanel.ResumeLayout(true, true);
-
-            // initialize database events
-            PalletSolutionDatabase.Instance.SolutionAppended += new PalletSolutionDatabase.SolutionMoveHandler(PalletSolutionDBModified);
-            PalletSolutionDatabase.Instance.SolutionDeleted += new PalletSolutionDatabase.SolutionMoveHandler(PalletSolutionDBModified);
 
             // MRUManager
             _mruManager = new MruManager();

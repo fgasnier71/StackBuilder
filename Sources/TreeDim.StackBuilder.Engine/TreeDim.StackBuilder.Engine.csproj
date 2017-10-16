@@ -94,7 +94,6 @@
     <Compile Include="Solvers\HCylinderSolver.cs" />
     <Compile Include="Solvers\ISolver.cs" />
     <Compile Include="Solvers\PackOptimizer.cs" />
-    <Compile Include="Solvers\BoxCasePalletSolver.cs" />
     <Compile Include="LayerCyl.cs" />
     <Compile Include="LayerPatterns\LayerPatternCyl.cs" />
     <Compile Include="LayerPatterns\CylinderLayerPatternAligned.cs" />

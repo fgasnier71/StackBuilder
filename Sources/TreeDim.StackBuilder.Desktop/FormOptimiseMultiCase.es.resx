@@ -120,28 +120,32 @@
   <data name="bnClose.Text" xml:space="preserve">
     <value>Cerrar</value>
   </data>
-  <data name="statusStrip.Text" xml:space="preserve">
-    <value>statusStrip1</value>
+  <data name="lbCases.Text" xml:space="preserve">
+    <value>Casos</value>
   </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Probar y llenar una lista de caso...</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="lbBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>28, 13</value>
   </data>
   <data name="lbBox.Text" xml:space="preserve">
     <value>Caja</value>
   </data>
-  <data name="toolStripStatusLabelDef.Text" xml:space="preserve">
-    <value>statusLabel</value>
+  <data name="bnCreateAnalysis.Text" xml:space="preserve">
+    <value>Crear análisis</value>
   </data>
-  <data name="lbCases.Text" xml:space="preserve">
-    <value>Casos</value>
+  <data name="lbAnalysisDescription.Size" type="System.Drawing.Size, System.Drawing">
+    <value>117, 13</value>
   </data>
   <data name="lbAnalysisDescription.Text" xml:space="preserve">
     <value>Descripción del análisis</value>
   </data>
-  <data name="bnCreateAnalysis.Text" xml:space="preserve">
-    <value>Crear análisis</value>
+  <data name="lbAnalysisName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>96, 13</value>
   </data>
   <data name="lbAnalysisName.Text" xml:space="preserve">
     <value>Nombre de análisis</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Probar y llenar una lista de caso...</value>
   </data>
 </root>

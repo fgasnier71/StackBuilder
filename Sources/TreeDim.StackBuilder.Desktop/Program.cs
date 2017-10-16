@@ -70,8 +70,8 @@ namespace treeDiM.StackBuilder.Desktop
             // file association
             RegisterFileType();
 
-            // initialize database with containing folder
-            PalletSolutionDatabase.Directory = Settings.Default.PalletSolutionsPath;
+            // enable browser emulation (use Edge instead of IE?)
+            EnsureBrowserEmulationEnabled();
 
             // *** crash reporting
             Application.ThreadException += (sender, threadargs) => SendCrashReport(threadargs.Exception);
@@ -289,7 +289,34 @@ namespace treeDiM.StackBuilder.Desktop
             }
         }
         #endregion
-        
+
+        #region Webbrowser
+        public static void EnsureBrowserEmulationEnabled(string exename = "treeDiM.StackBuilder.Desktop.exe", bool uninstall = false)
+        {
+
+            try
+            {
+                using (
+                    var rk = Registry.CurrentUser.OpenSubKey(
+                            @"SOFTWARE\Microsoft\Internet Explorer\Main\FeatureControl\FEATURE_BROWSER_EMULATION", true)
+                )
+                {
+                    if (!uninstall)
+                    {
+                        dynamic vv = rk.GetValue(exename);
+                        if (vv == null)
+                            rk.SetValue(exename, (uint)11001, RegistryValueKind.DWord);
+                    }
+                    else
+                        rk.DeleteValue(exename);
+                }
+            }
+            catch
+            {
+            }
+        }
+        #endregion
+
         #region Private members
         static readonly ILog _log = LogManager.GetLogger(typeof(Program));
         static bool _useDisconnected = false;

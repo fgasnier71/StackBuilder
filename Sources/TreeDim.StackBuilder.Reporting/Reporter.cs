@@ -1252,42 +1252,6 @@ namespace treeDiM.StackBuilder.Reporting
         }
         #endregion
 
-        #region Case constraint set
-        private void AppendCaseConstraintSet(BoxCasePalletAnalysis caseAnalysis, XmlElement elemCaseAnalysis, XmlDocument xmlDoc)
-        {
-            string ns = xmlDoc.DocumentElement.NamespaceURI;
-            BoxCasePalletConstraintSet cs = caseAnalysis.ConstraintSet;
-            // caseConstraintSet element
-            XmlElement elemCaseConstraintSet = CreateElement("caseConstraintSet", null, elemCaseAnalysis, xmlDoc, ns);
-            // allowedPatterns
-            CreateElement("allowedPatterns", cs.AllowedPatternString, elemCaseConstraintSet, xmlDoc, ns);
-            // allowedOrthoAxis
-            CreateElement("allowedOrthoAxis", cs.AllowOrthoAxisString, elemCaseConstraintSet, xmlDoc, ns);
-            // allowAlignedLayers
-            CreateElement("allowAlignedLayers", cs.AllowAlignedLayers ? "Y" : "N", elemCaseConstraintSet, xmlDoc, ns);
-            // allowAlternateLayers
-            CreateElement("allowAlternateLayers", cs.AllowAlternateLayers ? "Y" : "N", elemCaseConstraintSet, xmlDoc, ns);
-            // maximumCaseWeightGroup
-            if (cs.UseMaximumCaseWeight)
-            {
-                XmlElement maximumCaseWeightGroup = CreateElement("maximumCaseWeightGroup", null, elemCaseConstraintSet, xmlDoc, ns);
-                AppendElementValue(xmlDoc, maximumCaseWeightGroup, "maximumCaseWeight", UnitsManager.UnitType.UT_MASS, cs.MaximumCaseWeight);
-            }
-            // minimumBoxPerCaseGroup
-            if (cs.UseMinimumNumberOfItems)
-            {
-                XmlElement minimumBoxPerCaseGroup = CreateElement("minimumBoxPerCaseGroup", null, elemCaseConstraintSet, xmlDoc, ns);
-                CreateElement("minimumBoxPerCase", cs.MinimumNumberOfItems, minimumBoxPerCaseGroup, xmlDoc, ns);
-            }
-            // maximumBoxPerCaseGroup
-            if (cs.UseMaximumNumberOfItems)
-            {
-                XmlElement maximumBoxPerCaseGroup = CreateElement("minimumBoxPerCaseGroup", null, elemCaseConstraintSet, xmlDoc, ns);
-                CreateElement("maximumBoxPerCase", cs.MinimumNumberOfItems, maximumBoxPerCaseGroup, xmlDoc, ns);
-            }
-        }
-        #endregion
-
         #region Helpers
         private static XmlElement CreateElement(string eltName, string innerValue, XmlElement parentElt, XmlDocument xmlDoc, string ns)
         {

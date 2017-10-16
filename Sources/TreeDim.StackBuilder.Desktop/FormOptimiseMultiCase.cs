@@ -2,11 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Globalization;
 
@@ -42,50 +38,34 @@ namespace treeDiM.StackBuilder.Desktop
             // initialize orientation
             uCtrlCaseOrient.AllowedOrientations = new bool[] { Settings.Default.AllowVerticalX, Settings.Default.AllowVerticalY, Settings.Default.AllowVerticalZ };
             // initialize grid
-            gridSolutions.Selection.SelectionChanged += new SourceGrid.RangeRegionChangedEventHandler(onSelChangeGrid);
+            gridSolutions.Selection.SelectionChanged += new SourceGrid.RangeRegionChangedEventHandler(OnSelChangeGrid);
+            // load values
+            uCtrlCaseDimensionsMin.Checked = Settings.Default.MinCaseDimChecked;
+            uCtrlCaseDimensionsMin.X = Settings.Default.MinCaseDimX;
+            uCtrlCaseDimensionsMin.Y = Settings.Default.MinCaseDimY;
+            uCtrlCaseDimensionsMin.Z = Settings.Default.MinCaseDimZ;
+            uCtrlCaseDimensionsMax.Checked = Settings.Default.MaxCaseDimChecked;
+            uCtrlCaseDimensionsMax.X = Settings.Default.MaxCaseDimX;
+            uCtrlCaseDimensionsMax.Y = Settings.Default.MaxCaseDimY;
+            uCtrlCaseDimensionsMax.Z = Settings.Default.MaxCaseDimZ;
             // load cases
-            DCSBCase[] sbCases = WCFClientSingleton.Instance.Client.GetAllCases();
-            foreach (DCSBCase sbCase in sbCases)
-            {
-                try
-                {
-                    // get values from database
-                    if (!sbCase.HasInnerDims) continue;
-                    UnitsManager.UnitSystem us = (UnitsManager.UnitSystem)sbCase.UnitSystem;
-                    double boxLength = UnitsManager.ConvertLengthFrom(sbCase.DimensionsOuter.M0, us);
-                    double boxWidth = UnitsManager.ConvertLengthFrom(sbCase.DimensionsOuter.M1, us);
-                    double boxHeight = UnitsManager.ConvertLengthFrom(sbCase.DimensionsOuter.M2, us);
-                    double innerLength = UnitsManager.ConvertLengthFrom(sbCase.DimensionsInner.M0, us);
-                    double innerWidth = UnitsManager.ConvertLengthFrom(sbCase.DimensionsInner.M1, us);
-                    double innerHeight = UnitsManager.ConvertLengthFrom(sbCase.DimensionsInner.M2, us);
-                    double weight = UnitsManager.ConvertMassFrom(sbCase.Weight, us);
-                    Color[] colors = new Color[6];
-                    for (int i = 0; i < 6; ++i)
-                        colors[i] = Color.FromArgb(sbCase.Colors[i]);
-
-                    // instantiate box properties
-                    BoxProperties bProperties = new BoxProperties(null
-                        , boxLength, boxWidth, boxHeight
-                        , innerLength, innerWidth, innerHeight);
-                    bProperties.ID.SetNameDesc(sbCase.Name, sbCase.Description);
-                    bProperties.SetWeight(weight);
-                    bProperties.TapeWidth = new OptDouble(sbCase.ShowTape, sbCase.TapeWidth);
-                    bProperties.TapeColor = Color.FromArgb(sbCase.TapeColor);
-                    bProperties.SetAllColors(colors);
-                    // insert in listbox control
-                    chklbCases.Items.Add(new ItemBaseCB(bProperties), true);
-                }
-                catch (Exception ex)
-                {
-                    _log.Error(ex.Message);
-                }
-            }
+            _sbCases = WCFClientSingleton.Instance.Client.GetAllCases();
+            OnFillListCases(this, null);
             // update graph control
             graphCtrl.DrawingContainer = this;
         }
         protected override void OnClosing(CancelEventArgs e)
         {
  	        base.OnClosing(e);
+
+            Settings.Default.MinCaseDimChecked = uCtrlCaseDimensionsMin.Checked;
+            Settings.Default.MinCaseDimX = uCtrlCaseDimensionsMin.X;
+            Settings.Default.MinCaseDimY = uCtrlCaseDimensionsMin.Y;
+            Settings.Default.MinCaseDimZ = uCtrlCaseDimensionsMin.Z;
+            Settings.Default.MaxCaseDimChecked = uCtrlCaseDimensionsMax.Checked;
+            Settings.Default.MaxCaseDimX = uCtrlCaseDimensionsMax.X;
+            Settings.Default.MaxCaseDimY = uCtrlCaseDimensionsMax.Y;
+            Settings.Default.MaxCaseDimZ = uCtrlCaseDimensionsMax.Z;
         }
         #endregion
 
@@ -146,35 +126,36 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Event handlers
-        private void onBoxChanged(object sender, EventArgs e)
+        private void OnBoxChanged(object sender, EventArgs e)
         {
             if (0 == cbBoxes.Items.Count) return;
-            PackableBrick packable = cbBoxes.SelectedType as PackableBrick;
-            if (null != packable)
+            if (cbBoxes.SelectedType is PackableBrick packable)
                 uCtrlCaseOrient.BProperties = packable;
             ComputeSolutions();
             UpdateStatus(string.Empty);
         }
-        private void onOrientationChanged(object sender, EventArgs e)
+        private void OnOrientationChanged(object sender, EventArgs e)
         {
             ComputeSolutions();
             UpdateStatus(string.Empty);
         }
-        private void onCaseChecked(object sender, ItemCheckEventArgs e)
+        private void OnCaseChecked(object sender, ItemCheckEventArgs e)
         {
             // build list of checked items in chklbCases
             _checkedIndices.Clear();
             foreach (int index in chklbCases.CheckedIndices)
                 _checkedIndices.Add(index);
-            if (e.NewValue == CheckState.Checked)
-                _checkedIndices.Add(e.Index);
-            else if (e.NewValue == CheckState.Unchecked)
-                _checkedIndices.Remove(e.Index);
-
+            if (null != e)
+            {
+                if (e.NewValue == CheckState.Checked)
+                    _checkedIndices.Add(e.Index);
+                else if (e.NewValue == CheckState.Unchecked)
+                    _checkedIndices.Remove(e.Index);
+            }
             ComputeSolutions();
             UpdateStatus(string.Empty);
         }
-        private void onCreateAnalysis(object sender, EventArgs e)
+        private void OnCreateAnalysis(object sender, EventArgs e)
         {
             try
             {
@@ -197,7 +178,7 @@ namespace treeDiM.StackBuilder.Desktop
                 _log.Error(ex.Message);
             }
         }
-        private void onSelChangeGrid(object sender, SourceGrid.RangeRegionChangedEventArgs e)
+        private void OnSelChangeGrid(object sender, SourceGrid.RangeRegionChangedEventArgs e)
         {
             try
             {
@@ -407,7 +388,63 @@ namespace treeDiM.StackBuilder.Desktop
         }
         #endregion
 
-        #region Private properties
+        #region Private helpers
+        private void OnFillListCases(object sender, EventArgs e)
+        {
+            // sanity check
+            if (null == _sbCases) return;
+            // clear check list
+            chklbCases.Items.Clear();
+            // fill list of cases
+            foreach (DCSBCase sbCase in _sbCases)
+            {
+                try
+                {
+                    // get values from database
+                    if (!sbCase.HasInnerDims) continue;
+                    UnitsManager.UnitSystem us = (UnitsManager.UnitSystem)sbCase.UnitSystem;
+                    double boxLength = UnitsManager.ConvertLengthFrom(sbCase.DimensionsOuter.M0, us);
+                    double boxWidth = UnitsManager.ConvertLengthFrom(sbCase.DimensionsOuter.M1, us);
+                    double boxHeight = UnitsManager.ConvertLengthFrom(sbCase.DimensionsOuter.M2, us);
+                    double innerLength = UnitsManager.ConvertLengthFrom(sbCase.DimensionsInner.M0, us);
+                    double innerWidth = UnitsManager.ConvertLengthFrom(sbCase.DimensionsInner.M1, us);
+                    double innerHeight = UnitsManager.ConvertLengthFrom(sbCase.DimensionsInner.M2, us);
+
+                    if (uCtrlCaseDimensionsMin.Checked
+                        && (innerLength < uCtrlCaseDimensionsMin.X
+                        || innerWidth < uCtrlCaseDimensionsMin.Y
+                        || innerHeight < uCtrlCaseDimensionsMin.Z))
+                        continue;
+                    if (uCtrlCaseDimensionsMax.Checked
+                        && (innerLength > uCtrlCaseDimensionsMax.X
+                        || innerWidth > uCtrlCaseDimensionsMax.Y
+                        || innerHeight > uCtrlCaseDimensionsMax.Z))
+                        continue;
+
+                    double weight = UnitsManager.ConvertMassFrom(sbCase.Weight, us);
+                    Color[] colors = new Color[6];
+                    for (int i = 0; i < 6; ++i)
+                        colors[i] = Color.FromArgb(sbCase.Colors[i]);
+
+                    // instantiate box properties
+                    BoxProperties bProperties = new BoxProperties(null
+                        , boxLength, boxWidth, boxHeight
+                        , innerLength, innerWidth, innerHeight);
+                    bProperties.ID.SetNameDesc(sbCase.Name, sbCase.Description);
+                    bProperties.SetWeight(weight);
+                    bProperties.TapeWidth = new OptDouble(sbCase.ShowTape, sbCase.TapeWidth);
+                    bProperties.TapeColor = Color.FromArgb(sbCase.TapeColor);
+                    bProperties.SetAllColors(colors);
+                    // insert in listbox control
+                    chklbCases.Items.Add(new ItemBaseCB(bProperties), true);
+                }
+                catch (Exception ex)
+                {
+                    _log.Error(ex.Message);
+                }
+            }
+            OnCaseChecked(this, null);
+        }
         #endregion
 
         #region Data members
@@ -415,6 +452,7 @@ namespace treeDiM.StackBuilder.Desktop
         private List<Analysis> _analyses = new List<Analysis>();
         private List<int> _checkedIndices = new List<int>();
         private Analysis _selectedAnalysis;
+        private DCSBCase[] _sbCases;
         protected static ILog _log = LogManager.GetLogger(typeof(FormOptimiseMultiCase));
         #endregion
     }

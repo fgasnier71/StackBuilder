@@ -45,6 +45,8 @@
             this.graphCtrl = new treeDiM.StackBuilder.Graphics.Graphics3DControl();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelDef = new System.Windows.Forms.ToolStripStatusLabel();
+            this.uCtrlCaseDimensionsMin = new treeDiM.StackBuilder.Basics.UCtrlOptTriDouble();
+            this.uCtrlCaseDimensionsMax = new treeDiM.StackBuilder.Basics.UCtrlOptTriDouble();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerHoriz)).BeginInit();
             this.splitContainerHoriz.Panel1.SuspendLayout();
             this.splitContainerHoriz.Panel2.SuspendLayout();
@@ -60,7 +62,8 @@
             // 
             // splitContainerHoriz.Panel1
             // 
-            resources.ApplyResources(this.splitContainerHoriz.Panel1, "splitContainerHoriz.Panel1");
+            this.splitContainerHoriz.Panel1.Controls.Add(this.uCtrlCaseDimensionsMax);
+            this.splitContainerHoriz.Panel1.Controls.Add(this.uCtrlCaseDimensionsMin);
             this.splitContainerHoriz.Panel1.Controls.Add(this.gridSolutions);
             this.splitContainerHoriz.Panel1.Controls.Add(this.cbBoxes);
             this.splitContainerHoriz.Panel1.Controls.Add(this.uCtrlCaseOrient);
@@ -71,7 +74,6 @@
             // 
             // splitContainerHoriz.Panel2
             // 
-            resources.ApplyResources(this.splitContainerHoriz.Panel2, "splitContainerHoriz.Panel2");
             this.splitContainerHoriz.Panel2.Controls.Add(this.bnCreateAnalysis);
             this.splitContainerHoriz.Panel2.Controls.Add(this.tbAnalysisDescription);
             this.splitContainerHoriz.Panel2.Controls.Add(this.tbAnalysisName);
@@ -92,29 +94,29 @@
             // 
             // cbBoxes
             // 
-            resources.ApplyResources(this.cbBoxes, "cbBoxes");
             this.cbBoxes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbBoxes.FormattingEnabled = true;
+            resources.ApplyResources(this.cbBoxes, "cbBoxes");
             this.cbBoxes.Name = "cbBoxes";
-            this.cbBoxes.SelectedIndexChanged += new System.EventHandler(this.onBoxChanged);
+            this.cbBoxes.SelectedIndexChanged += new System.EventHandler(this.OnBoxChanged);
             // 
             // uCtrlCaseOrient
             // 
-            resources.ApplyResources(this.uCtrlCaseOrient, "uCtrlCaseOrient");
             this.uCtrlCaseOrient.AllowedOrientations = new bool[] {
         false,
         false,
         true};
+            resources.ApplyResources(this.uCtrlCaseOrient, "uCtrlCaseOrient");
             this.uCtrlCaseOrient.Name = "uCtrlCaseOrient";
-            this.uCtrlCaseOrient.CheckedChanged += new treeDiM.StackBuilder.Graphics.uCtrlCaseOrientation.CheckChanged(this.onOrientationChanged);
+            this.uCtrlCaseOrient.CheckedChanged += new treeDiM.StackBuilder.Graphics.uCtrlCaseOrientation.CheckChanged(this.OnOrientationChanged);
             // 
             // chklbCases
             // 
-            resources.ApplyResources(this.chklbCases, "chklbCases");
             this.chklbCases.CheckOnClick = true;
             this.chklbCases.FormattingEnabled = true;
+            resources.ApplyResources(this.chklbCases, "chklbCases");
             this.chklbCases.Name = "chklbCases";
-            this.chklbCases.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.onCaseChecked);
+            this.chklbCases.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.OnCaseChecked);
             // 
             // bnClose
             // 
@@ -138,7 +140,7 @@
             resources.ApplyResources(this.bnCreateAnalysis, "bnCreateAnalysis");
             this.bnCreateAnalysis.Name = "bnCreateAnalysis";
             this.bnCreateAnalysis.UseVisualStyleBackColor = true;
-            this.bnCreateAnalysis.Click += new System.EventHandler(this.onCreateAnalysis);
+            this.bnCreateAnalysis.Click += new System.EventHandler(this.OnCreateAnalysis);
             // 
             // tbAnalysisDescription
             // 
@@ -168,15 +170,49 @@
             // 
             // statusStrip
             // 
-            resources.ApplyResources(this.statusStrip, "statusStrip");
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabelDef});
+            resources.ApplyResources(this.statusStrip, "statusStrip");
             this.statusStrip.Name = "statusStrip";
             // 
             // toolStripStatusLabelDef
             // 
-            resources.ApplyResources(this.toolStripStatusLabelDef, "toolStripStatusLabelDef");
             this.toolStripStatusLabelDef.Name = "toolStripStatusLabelDef";
+            resources.ApplyResources(this.toolStripStatusLabelDef, "toolStripStatusLabelDef");
+            // 
+            // uCtrlCaseDimensionsMin
+            // 
+            this.uCtrlCaseDimensionsMin.Checked = false;
+            resources.ApplyResources(this.uCtrlCaseDimensionsMin, "uCtrlCaseDimensionsMin");
+            this.uCtrlCaseDimensionsMin.Minimum = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.uCtrlCaseDimensionsMin.Name = "uCtrlCaseDimensionsMin";
+            this.uCtrlCaseDimensionsMin.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlCaseDimensionsMin.Value = ((Sharp3D.Math.Core.Vector3D)(resources.GetObject("uCtrlCaseDimensionsMin.Value")));
+            this.uCtrlCaseDimensionsMin.X = 0D;
+            this.uCtrlCaseDimensionsMin.Y = 0D;
+            this.uCtrlCaseDimensionsMin.Z = 0D;
+            this.uCtrlCaseDimensionsMin.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlOptTriDouble.onValueChanged(this.OnFillListCases);
+            // 
+            // uCtrlCaseDimensionsMax
+            // 
+            this.uCtrlCaseDimensionsMax.Checked = false;
+            resources.ApplyResources(this.uCtrlCaseDimensionsMax, "uCtrlCaseDimensionsMax");
+            this.uCtrlCaseDimensionsMax.Minimum = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.uCtrlCaseDimensionsMax.Name = "uCtrlCaseDimensionsMax";
+            this.uCtrlCaseDimensionsMax.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlCaseDimensionsMax.Value = ((Sharp3D.Math.Core.Vector3D)(resources.GetObject("uCtrlCaseDimensionsMax.Value")));
+            this.uCtrlCaseDimensionsMax.X = 0D;
+            this.uCtrlCaseDimensionsMax.Y = 0D;
+            this.uCtrlCaseDimensionsMax.Z = 0D;
+            this.uCtrlCaseDimensionsMax.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlOptTriDouble.onValueChanged(this.OnFillListCases);
             // 
             // FormOptimiseMultiCase
             // 
@@ -220,5 +256,7 @@
         private System.Windows.Forms.TextBox tbAnalysisName;
         private System.Windows.Forms.Label lbAnalysisDescription;
         private System.Windows.Forms.Label lbAnalysisName;
+        private Basics.UCtrlOptTriDouble uCtrlCaseDimensionsMax;
+        private Basics.UCtrlOptTriDouble uCtrlCaseDimensionsMin;
     }
 }

@@ -907,5 +907,101 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
                 this["AllowDisconnectedMode"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool MinCaseDimChecked {
+            get {
+                return ((bool)(this["MinCaseDimChecked"]));
+            }
+            set {
+                this["MinCaseDimChecked"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool MaxCaseDimChecked {
+            get {
+                return ((bool)(this["MaxCaseDimChecked"]));
+            }
+            set {
+                this["MaxCaseDimChecked"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double MinCaseDimX {
+            get {
+                return ((double)(this["MinCaseDimX"]));
+            }
+            set {
+                this["MinCaseDimX"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double MinCaseDimY {
+            get {
+                return ((double)(this["MinCaseDimY"]));
+            }
+            set {
+                this["MinCaseDimY"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double MinCaseDimZ {
+            get {
+                return ((double)(this["MinCaseDimZ"]));
+            }
+            set {
+                this["MinCaseDimZ"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("500")]
+        public double MaxCaseDimX {
+            get {
+                return ((double)(this["MaxCaseDimX"]));
+            }
+            set {
+                this["MaxCaseDimX"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("500")]
+        public double MaxCaseDimY {
+            get {
+                return ((double)(this["MaxCaseDimY"]));
+            }
+            set {
+                this["MaxCaseDimY"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("500")]
+        public double MaxCaseDimZ {
+            get {
+                return ((double)(this["MaxCaseDimZ"]));
+            }
+            set {
+                this["MaxCaseDimZ"] = value;
+            }
+        }
     }
 }
