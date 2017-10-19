@@ -316,25 +316,23 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Handlers
-        private void onBoxPropertyChanged(object sender, EventArgs e)
+        private void OnBoxPropertyChanged(object sender, EventArgs e)
         {
             // maintain inside dimensions
-            UCtrlTriDouble uCtrlDimOut = sender as UCtrlTriDouble;
-            if (null != uCtrlDimOut && uCtrlDimensionsOuter == uCtrlDimOut)
+            if (sender is UCtrlTriDouble uCtrlDimOut && uCtrlDimensionsOuter == uCtrlDimOut)
             {
                 InsideLength = BoxLength - _thicknessLength;
                 InsideWidth = BoxWidth - _thicknessWidth;
                 InsideHeight = BoxHeight - _thicknessHeight;
             }
-            UCtrlOptTriDouble uCtrlDimIn = sender as UCtrlOptTriDouble;
-            if (null != uCtrlDimIn && uCtrlDimensionsInner == uCtrlDimIn)
+            if (sender is UCtrlOptTriDouble uCtrlDimIn && uCtrlDimensionsInner == uCtrlDimIn)
             {
-                if ( BoxLength < InsideLength)
+                if (BoxLength < InsideLength)
                     BoxLength = InsideLength + _thicknessLength;
-                if ( BoxWidth < InsideWidth)
+                if (BoxWidth < InsideWidth)
                     BoxWidth = InsideWidth + _thicknessWidth;
-                if ( BoxHeight <= InsideHeight)
-                    BoxHeight = InsideHeight + _thicknessHeight;       
+                if (BoxHeight <= InsideHeight)
+                    BoxHeight = InsideHeight + _thicknessHeight;
             }
             uCtrlNetWeight.Enabled = !uCtrlDimensionsInner.Checked;
 
@@ -477,7 +475,7 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Save to database
-        private void onSaveToDatabase(object sender, EventArgs e)
+        private void OnSaveToDatabase(object sender, EventArgs e)
         {
             try
             {
@@ -487,31 +485,32 @@ namespace treeDiM.StackBuilder.Desktop
                 };
                 if (DialogResult.OK == form.ShowDialog())
                 {
-                    PLMPackServiceClient client = WCFClientSingleton.Instance.Client;
+                    using (WCFClient wcfClient = new WCFClient())
+                    {
+                        // colors
+                        int[] colors = new int[6];
+                        for (int i = 0; i < 6; ++i)
+                            colors[i] = _faceColors[i].ToArgb();
 
-                    // colors
-                    int[] colors = new int[6];
-                    for (int i = 0; i < 6; ++i)
-                        colors[i] = _faceColors[i].ToArgb();
-
-                    client.CreateNewCase(new DCSBCase()
-                            {
-                                Name = form.ItemName,
-                                Description = Description,
-                                UnitSystem = (int)UnitsManager.CurrentUnitSystem,
-                                IsCase = (_mode == Mode.MODE_CASE),
-                                DimensionsOuter = new DCSBDim3D() { M0 = uCtrlDimensionsOuter.ValueX, M1 = uCtrlDimensionsOuter.ValueY, M2 = uCtrlDimensionsOuter.ValueZ },
-                                HasInnerDims = HasInsideDimensions,
-                                DimensionsInner = new DCSBDim3D() { M0 = uCtrlDimensionsInner.X, M1 = uCtrlDimensionsInner.Y, M2 = uCtrlDimensionsInner.Z },
-                                ShowTape = TapeWidth.Activated,
-                                TapeWidth = TapeWidth.Value,
-                                TapeColor = TapeColor.ToArgb(),
-                                Weight = Weight,
-                                NetWeight = this.NetWeight.Activated ? this.NetWeight.Value : new Nullable<double>(),
-                                Colors = colors,
-                                AutoInsert = false
-                            }
-                        );
+                        wcfClient.Client.CreateNewCase(new DCSBCase()
+                        {
+                            Name = form.ItemName,
+                            Description = Description,
+                            UnitSystem = (int)UnitsManager.CurrentUnitSystem,
+                            IsCase = (_mode == Mode.MODE_CASE),
+                            DimensionsOuter = new DCSBDim3D() { M0 = uCtrlDimensionsOuter.ValueX, M1 = uCtrlDimensionsOuter.ValueY, M2 = uCtrlDimensionsOuter.ValueZ },
+                            HasInnerDims = HasInsideDimensions,
+                            DimensionsInner = new DCSBDim3D() { M0 = uCtrlDimensionsInner.X, M1 = uCtrlDimensionsInner.Y, M2 = uCtrlDimensionsInner.Z },
+                            ShowTape = TapeWidth.Activated,
+                            TapeWidth = TapeWidth.Value,
+                            TapeColor = TapeColor.ToArgb(),
+                            Weight = Weight,
+                            NetWeight = this.NetWeight.Activated ? this.NetWeight.Value : new Nullable<double>(),
+                            Colors = colors,
+                            AutoInsert = false
+                        }
+                            );
+                    }
                 }
             }
             catch (Exception ex)

@@ -127,14 +127,13 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Handlers
-        private void onColorChanged(object sender, EventArgs e)
+        private void OnColorChanged(object sender, EventArgs e)
         {
             graphCtrl.Invalidate();
         }
         private void UpdateThicknesses(object sender, EventArgs e)
         {
-            UCtrlTriDouble uCtrlDim = sender as UCtrlTriDouble;
-            if (null != uCtrlDim)
+            if (sender is UCtrlTriDouble uCtrlDim)
             {
                 double thickness = UnitsManager.ConvertLengthFrom(5.0, UnitsManager.UnitSystem.UNIT_METRIC1);
                 if (uCtrlDimensionsOuter == uCtrlDim && CapLength > thickness)
@@ -169,7 +168,7 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Send to database
-        private void onSendToDatabase(object sender, EventArgs e)
+        private void OnSendToDatabase(object sender, EventArgs e)
         {
             try
             {
@@ -179,19 +178,21 @@ namespace treeDiM.StackBuilder.Desktop
                 };
                 if (DialogResult.OK == form.ShowDialog())
                 {
-                    PLMPackServiceClient client = WCFClientSingleton.Instance.Client;
-                    client.CreateNewPalletCap(new DCSBPalletCap()
-                            {
-                                Name = form.ItemName,
-                                Description = ItemDescription,
-                                UnitSystem = (int) UnitsManager.CurrentUnitSystem,
-                                DimensionsOuter = new DCSBDim3D() { M0 = CapLength, M1 = CapWidth, M2 = CapHeight },
-                                DimensionsInner = new DCSBDim3D() { M0 = CapInnerLength, M1 = CapInnerWidth, M2 = CapInnerHeight },
-                                Weight = CapWeight,
-                                Color = CapColor.ToArgb(),
-                                AutoInsert = false
-                            }
-                        );
+                    using (WCFClient wcfClient = new WCFClient())
+                    {
+                        wcfClient.Client.CreateNewPalletCap(new DCSBPalletCap()
+                        {
+                            Name = form.ItemName,
+                            Description = ItemDescription,
+                            UnitSystem = (int)UnitsManager.CurrentUnitSystem,
+                            DimensionsOuter = new DCSBDim3D() { M0 = CapLength, M1 = CapWidth, M2 = CapHeight },
+                            DimensionsInner = new DCSBDim3D() { M0 = CapInnerLength, M1 = CapInnerWidth, M2 = CapInnerHeight },
+                            Weight = CapWeight,
+                            Color = CapColor.ToArgb(),
+                            AutoInsert = false
+                        }
+                            );
+                    }
                     Close();
                 }
             }

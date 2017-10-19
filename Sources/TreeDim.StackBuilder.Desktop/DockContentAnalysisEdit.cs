@@ -78,7 +78,7 @@ namespace treeDiM.StackBuilder.Desktop
             graphCtrlSolution.Viewer = new ViewerSolution(_solution);
             graphCtrlSolution.Invalidate();
 
-            graphCtrlSolution.VolumeSelected += onLayerSelected;
+            graphCtrlSolution.VolumeSelected += OnLayerSelected;
 
             FillGrid();
             UpdateGrid();
@@ -356,7 +356,7 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Event handlers
-        private void onLayerSelected(int id)
+        private void OnLayerSelected(int id)
         {
             try
             {
@@ -366,7 +366,7 @@ namespace treeDiM.StackBuilder.Desktop
             catch (Exception ex)
             {   _log.Error(ex.ToString()); }
         }
-        private void onLayerTypeChanged(object sender, EventArgs e)
+        private void OnLayerTypeChanged(object sender, EventArgs e)
         {
             try
             {
@@ -380,7 +380,7 @@ namespace treeDiM.StackBuilder.Desktop
             catch (Exception ex)
             {   _log.Error(ex.ToString()); }
         }
-        private void onInterlayerChanged(object sender, EventArgs e)
+        private void OnInterlayerChanged(object sender, EventArgs e)
         {
             try
             {
@@ -395,22 +395,22 @@ namespace treeDiM.StackBuilder.Desktop
             catch (Exception ex)
             {   _log.Error(ex.ToString()); }
         }
-        private void onReflectionX(object sender, EventArgs e)
+        private void OnReflectionX(object sender, EventArgs e)
         {
             _solution.ApplySymetryOnSelected(0);
             graphCtrlSolution.Invalidate();
         }
-        private void onReflectionY(object sender, EventArgs e)
+        private void OnReflectionY(object sender, EventArgs e)
         {
             _solution.ApplySymetryOnSelected(1);
             graphCtrlSolution.Invalidate();
         }
-        private void onChkbInterlayerClicked(object sender, EventArgs e)
+        private void OnChkbInterlayerClicked(object sender, EventArgs e)
         {
             try
             {
                 cbInterlayer.Enabled = chkbInterlayer.Checked;
-                onInterlayerChanged(null, null);
+                OnInterlayerChanged(null, null);
                 UpdateGrid();
             }
             catch (Exception ex)
@@ -421,14 +421,14 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Toolbar event handlers
-        private void onBack(object sender, EventArgs e)
+        private void OnBack(object sender, EventArgs e)
         {
             // close this form
             Close();
             // call edit analysis
             Document.EditAnalysis(_analysis);
         }
-        private void onGenerateReport(object sender, EventArgs e)
+        private void OnGenerateReport(object sender, EventArgs e)
         {
             FormMain.GetInstance().GenerateReport(_analysis);
         }
@@ -483,7 +483,7 @@ namespace treeDiM.StackBuilder.Desktop
                         cbLayerType.SelectedIndex = selItem.LayerIndex;
                         // set interlayer
                         chkbInterlayer.Checked = selItem.HasInterlayer;
-                        onChkbInterlayerClicked(null, null);
+                        OnChkbInterlayerClicked(null, null);
                     }
                     // select combo box
                     int selIndex = 0;

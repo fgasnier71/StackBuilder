@@ -46,7 +46,7 @@ namespace treeDiM.StackBuilder.Desktop
                 HatchAngle = 45.0;
                 FilmColor = Color.LightSkyBlue;
             }
-            chkbHatching_CheckedChanged(this, null);
+            OnChkbHatchingCheckedChanged(this, null);
             UpdateStatus(string.Empty);
             // units
             UnitsManager.AdaptUnitLabels(this);
@@ -94,7 +94,7 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Event handlers
-        private void chkbHatching_CheckedChanged(object sender, EventArgs e)
+        private void OnChkbHatchingCheckedChanged(object sender, EventArgs e)
         {
             uCtrlSpacing.Enabled = UseHatching;
             uCtrlAngle.Enabled = UseHatching;
@@ -103,7 +103,7 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Send to database
-        private void onSendToDatabase(object sender, EventArgs e)
+        private void OnSendToDatabase(object sender, EventArgs e)
         {
             try
             {
@@ -113,20 +113,22 @@ namespace treeDiM.StackBuilder.Desktop
                 };
                 if (DialogResult.OK == form.ShowDialog())
                 {
-                    PLMPackServiceClient client = WCFClientSingleton.Instance.Client;
-                    client.CreateNewPalletFilm(new DCSBPalletFilm()
-                            {
-                                Name = form.ItemName,
-                                Description = ItemDescription,
-                                UnitSystem = (int)UnitsManager.CurrentUnitSystem,
-                                UseTransparency = this.UseTransparency,
-                                UseHatching = this.UseHatching,
-                                HatchingSpace = HatchSpacing,
-                                HatchingAngle = HatchAngle,
-                                Color = FilmColor.ToArgb(),
-                                AutoInsert = false
-                            }
-                        );
+                    using (WCFClient wcfClient = new WCFClient())
+                    {
+                        wcfClient.Client.CreateNewPalletFilm(new DCSBPalletFilm()
+                        {
+                            Name = form.ItemName,
+                            Description = ItemDescription,
+                            UnitSystem = (int)UnitsManager.CurrentUnitSystem,
+                            UseTransparency = this.UseTransparency,
+                            UseHatching = this.UseHatching,
+                            HatchingSpace = HatchSpacing,
+                            HatchingAngle = HatchAngle,
+                            Color = FilmColor.ToArgb(),
+                            AutoInsert = false
+                        }
+                            );
+                    }
                     Close();
                 }
             }

@@ -102,7 +102,7 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Handlers
-        private void onValueChanged(object sender, EventArgs e)
+        private void OnValueChanged(object sender, EventArgs e)
         {
             UpdateStatus(string.Empty);
             graphCtrl.Invalidate();
@@ -128,7 +128,7 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Send to database
-        private void onSendToDatabase(object sender, EventArgs e)
+        private void OnSendToDatabase(object sender, EventArgs e)
         {
             try
             {
@@ -138,20 +138,22 @@ namespace treeDiM.StackBuilder.Desktop
                 };
                 if (DialogResult.OK == form.ShowDialog())
                 {
-                    PLMPackServiceClient client = WCFClientSingleton.Instance.Client;
-                    client.CreateNewPalletCorner(new DCSBPalletCorner()
-                            {
-                                Name = form.ItemName,
-                                Description = ItemDescription,
-                                UnitSystem = (int)UnitsManager.CurrentUnitSystem,
-                                Length = CornerLength,
-                                Width = CornerWidth,
-                                Thickness = CornerThickness,
-                                Weight = CornerWeight,
-                                Color = CornerColor.ToArgb(),
-                                AutoInsert = false
-                            }
-                        );
+                    using (WCFClient wcfClient = new WCFClient())
+                    {
+                        wcfClient.Client.CreateNewPalletCorner(new DCSBPalletCorner()
+                        {
+                            Name = form.ItemName,
+                            Description = ItemDescription,
+                            UnitSystem = (int)UnitsManager.CurrentUnitSystem,
+                            Length = CornerLength,
+                            Width = CornerWidth,
+                            Thickness = CornerThickness,
+                            Weight = CornerWeight,
+                            Color = CornerColor.ToArgb(),
+                            AutoInsert = false
+                        }
+                            );
+                    }
                     Close();
                 }
             }

@@ -163,7 +163,7 @@
             this.uCtrlPalletDimensions.ValueX = 0D;
             this.uCtrlPalletDimensions.ValueY = 0D;
             this.uCtrlPalletDimensions.ValueZ = 0D;
-            this.uCtrlPalletDimensions.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlTriDouble.onValueChanged(this.onDataChanged);
+            this.uCtrlPalletDimensions.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlTriDouble.ValueChangedDelegate(this.onDataChanged);
             // 
             // gbInput
             // 
@@ -233,7 +233,7 @@
             this.uCtrlTruckDimensions.ValueX = 0D;
             this.uCtrlTruckDimensions.ValueY = 0D;
             this.uCtrlTruckDimensions.ValueZ = 0D;
-            this.uCtrlTruckDimensions.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlTriDouble.onValueChanged(this.onDataChanged);
+            this.uCtrlTruckDimensions.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlTriDouble.ValueChangedDelegate(this.onDataChanged);
             // 
             // uCtrlPalletWeight
             // 

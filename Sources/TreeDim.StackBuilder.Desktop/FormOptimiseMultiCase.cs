@@ -49,7 +49,10 @@ namespace treeDiM.StackBuilder.Desktop
             uCtrlCaseDimensionsMax.Y = Settings.Default.MaxCaseDimY;
             uCtrlCaseDimensionsMax.Z = Settings.Default.MaxCaseDimZ;
             // load cases
-            _sbCases = WCFClientSingleton.Instance.Client.GetAllCases();
+            using (WCFClient wcfClient = new WCFClient())
+            {
+                _sbCases = wcfClient.Client.GetAllCases();
+            }
             OnFillListCases(this, null);
             // update graph control
             graphCtrl.DrawingContainer = this;
@@ -99,8 +102,7 @@ namespace treeDiM.StackBuilder.Desktop
                 PackableBrick packable = itemBase as PackableBrick;
                 if (null == packable)
                     return false;
-                BoxProperties bProperties = packable as BoxProperties;
-                if (null != bProperties)
+                if (packable is BoxProperties bProperties)
                     return !bProperties.HasInsideDimensions;
                 return true;
             }
@@ -230,8 +232,7 @@ namespace treeDiM.StackBuilder.Desktop
                 // build list of analyses
                 for (int i = 0; i < _checkedIndices.Count; ++i)
                 {
-                    BoxProperties caseProperties = (chklbCases.Items[_checkedIndices[i]] as ItemBaseCB).Item as BoxProperties;
-                    if (null != caseProperties)
+                    if ((chklbCases.Items[_checkedIndices[i]] as ItemBaseCB).Item is BoxProperties caseProperties)
                     {
                         // build constraint set
                         ConstraintSetBoxCase constraintSet = new ConstraintSetBoxCase(caseProperties);

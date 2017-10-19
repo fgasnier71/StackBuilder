@@ -101,7 +101,7 @@
             resources.ApplyResources(this.bnImport, "bnImport");
             this.bnImport.Name = "bnImport";
             this.bnImport.UseVisualStyleBackColor = true;
-            this.bnImport.Click += new System.EventHandler(this.onImport);
+            this.bnImport.Click += new System.EventHandler(this.OnImport);
             // 
             // graphCtrl
             // 
@@ -124,7 +124,7 @@
             this.tabCtrlDBItems.Controls.Add(this.tabPagePalletFilm);
             this.tabCtrlDBItems.Name = "tabCtrlDBItems";
             this.tabCtrlDBItems.SelectedIndex = 0;
-            this.tabCtrlDBItems.SelectedIndexChanged += new System.EventHandler(this.onSelectedTabChanged);
+            this.tabCtrlDBItems.SelectedIndexChanged += new System.EventHandler(this.OnSelectedTabChanged);
             // 
             // tabPageBox
             // 

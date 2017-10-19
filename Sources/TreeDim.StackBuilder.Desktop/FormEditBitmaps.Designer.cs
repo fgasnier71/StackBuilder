@@ -159,7 +159,7 @@
             this.uCtrlOrigin.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlOrigin.ValueX = 0D;
             this.uCtrlOrigin.ValueY = 0D;
-            this.uCtrlOrigin.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDualDouble.onValueChanged(this.OnTexturePositionChanged);
+            this.uCtrlOrigin.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDualDouble.ValueChangedDelegate(this.OnTexturePositionChanged);
             // 
             // uCtrlSize
             // 
@@ -169,7 +169,7 @@
             this.uCtrlSize.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlSize.ValueX = 0D;
             this.uCtrlSize.ValueY = 0D;
-            this.uCtrlSize.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDualDouble.onValueChanged(this.OnTexturePositionChanged);
+            this.uCtrlSize.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDualDouble.ValueChangedDelegate(this.OnTexturePositionChanged);
             // 
             // graphCtrl
             // 

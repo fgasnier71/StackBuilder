@@ -97,7 +97,7 @@
             this.cbColorCorners.Name = "cbColorCorners";
             this.cbColorCorners.Size = new System.Drawing.Size(66, 22);
             this.cbColorCorners.TabIndex = 22;
-            this.cbColorCorners.SelectedColorChanged += new System.EventHandler(this.onValueChanged);
+            this.cbColorCorners.SelectedColorChanged += new System.EventHandler(this.OnValueChanged);
             // 
             // uCtrlLength
             // 
@@ -114,7 +114,7 @@
             this.uCtrlLength.Text = "Length";
             this.uCtrlLength.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlLength.Value = 0D;
-            this.uCtrlLength.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.onValueChanged(this.onValueChanged);
+            this.uCtrlLength.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.ValueChangedDelegate(this.OnValueChanged);
             // 
             // uCtrlWidth
             // 
@@ -131,7 +131,7 @@
             this.uCtrlWidth.Text = "Width";
             this.uCtrlWidth.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlWidth.Value = 0D;
-            this.uCtrlWidth.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.onValueChanged(this.onValueChanged);
+            this.uCtrlWidth.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.ValueChangedDelegate(this.OnValueChanged);
             // 
             // uCtrlThickness
             // 
@@ -148,7 +148,7 @@
             this.uCtrlThickness.Text = "Thickness";
             this.uCtrlThickness.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlThickness.Value = 0D;
-            this.uCtrlThickness.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.onValueChanged(this.onValueChanged);
+            this.uCtrlThickness.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.ValueChangedDelegate(this.OnValueChanged);
             // 
             // uCtrlWeight
             // 
@@ -165,7 +165,7 @@
             this.uCtrlWeight.Text = "Weight";
             this.uCtrlWeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_MASS;
             this.uCtrlWeight.Value = 0D;
-            this.uCtrlWeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.onValueChanged(this.onValueChanged);
+            this.uCtrlWeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.ValueChangedDelegate(this.OnValueChanged);
             // 
             // bnSendToDB
             // 
@@ -175,7 +175,7 @@
             this.bnSendToDB.TabIndex = 30;
             this.bnSendToDB.Text = "Send to database";
             this.bnSendToDB.UseVisualStyleBackColor = true;
-            this.bnSendToDB.Click += new System.EventHandler(this.onSendToDatabase);
+            this.bnSendToDB.Click += new System.EventHandler(this.OnSendToDatabase);
             // 
             // FormNewPalletCorners
             // 

@@ -46,7 +46,7 @@ namespace treeDiM.StackBuilder.Desktop
             // --- initialize drawing container
             graphCtrlSolution.Viewer = new ViewerSolution(_solution);
             graphCtrlSolution.Invalidate();
-            graphCtrlSolution.VolumeSelected += onLayerSelected;
+            graphCtrlSolution.VolumeSelected += OnLayerSelected;
             // ---
 
             // --- initialize layer controls
@@ -56,8 +56,8 @@ namespace treeDiM.StackBuilder.Desktop
             uCtrlMaxPalletHeight.Value = _analysis.ConstraintSet.OptMaxHeight.Value;
             uCtrlOptMaximumWeight.Value = _analysis.ConstraintSet.OptMaxWeight;
 
-            uCtrlMaxPalletHeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.onValueChanged(this.onCriterionChanged);
-            uCtrlOptMaximumWeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlOptDouble.onValueChanged(this.onCriterionChanged);
+            uCtrlMaxPalletHeight.ValueChanged += new UCtrlDouble.ValueChangedDelegate(this.OnCriterionChanged);
+            uCtrlOptMaximumWeight.ValueChanged += new UCtrlOptDouble.ValueChangedDelegate(this.OnCriterionChanged);
 
             ComboBoxHelpers.FillCombo(PalletCorners, cbPalletCorners, null);
             chkbPalletCorners.Enabled = (cbPalletCorners.Items.Count > 0);
@@ -66,13 +66,13 @@ namespace treeDiM.StackBuilder.Desktop
             ComboBoxHelpers.FillCombo(PalletFilms, cbPalletFilm, null);
             chkbPalletFilm.Enabled = (cbPalletFilm.Items.Count > 0);
 
-            chkbPalletCorners.CheckedChanged += onPalletProtectionChanged;
-            chkbPalletCap.CheckedChanged += onPalletProtectionChanged;
-            chkbPalletFilm.CheckedChanged += onPalletProtectionChanged;
+            chkbPalletCorners.CheckedChanged += OnPalletProtectionChanged;
+            chkbPalletCap.CheckedChanged += OnPalletProtectionChanged;
+            chkbPalletFilm.CheckedChanged += OnPalletProtectionChanged;
 
-            cbPalletCorners.SelectedIndexChanged += onPalletProtectionChanged;
-            cbPalletCap.SelectedIndexChanged += onPalletProtectionChanged;
-            cbPalletFilm.SelectedIndexChanged += onPalletProtectionChanged;
+            cbPalletCorners.SelectedIndexChanged += OnPalletProtectionChanged;
+            cbPalletCap.SelectedIndexChanged += OnPalletProtectionChanged;
+            cbPalletFilm.SelectedIndexChanged += OnPalletProtectionChanged;
             // ---
 
             // --- initialize grid control
@@ -86,7 +86,7 @@ namespace treeDiM.StackBuilder.Desktop
             Document.RemoveView(this);
         }
 
-        private void onPalletProtectionChanged(object sender, EventArgs e)
+        private void OnPalletProtectionChanged(object sender, EventArgs e)
         {
             cbPalletCorners.Enabled = chkbPalletCorners.Checked;
             cbPalletCap.Enabled = chkbPalletCap.Checked;
@@ -412,7 +412,7 @@ namespace treeDiM.StackBuilder.Desktop
                 _log.Error(ex.ToString());
             }
         }
-        private void onLayerSelected(int id)
+        private void OnLayerSelected(int id)
         {
             try
             {
@@ -493,13 +493,13 @@ namespace treeDiM.StackBuilder.Desktop
             UpdateGrid();
         }
          */ 
-        private void onSizeChanged(object sender, EventArgs e)
+        private void OnSizeChanged(object sender, EventArgs e)
         {
             int splitDistance = splitContainerHoriz.Size.Height - 120;
             if (splitDistance > 0)
                 splitContainerHoriz.SplitterDistance = splitDistance;
         }
-        private void onCriterionChanged(object sender, EventArgs args)
+        private void OnCriterionChanged(object sender, EventArgs args)
         {
             ConstraintSetCasePallet constraintSet = _solution.Analysis.ConstraintSet as ConstraintSetCasePallet;
             constraintSet.SetMaxHeight( new OptDouble(true, uCtrlMaxPalletHeight.Value) );
@@ -512,14 +512,14 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Toolbar event handlers
-        private void onBack(object sender, EventArgs e)
+        private void OnBack(object sender, EventArgs e)
         {
             // close this form
             Close();
             // call edit analysis
             Document.EditAnalysis(_analysis);
         }
-        private void onGenerateReport(object sender, EventArgs e)
+        private void OnGenerateReport(object sender, EventArgs e)
         {
             FormMain.GetInstance().GenerateReport(_analysis);
         }

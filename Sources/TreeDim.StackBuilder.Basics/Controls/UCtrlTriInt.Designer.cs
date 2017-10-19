@@ -62,7 +62,7 @@
             0,
             0,
             0});
-            this.nudX.ValueChanged += new System.EventHandler(this.nud_ValueChanged);
+            this.nudX.ValueChanged += new System.EventHandler(this.OnValueChangedLocal);
             // 
             // nudY
             // 
@@ -80,7 +80,7 @@
             0,
             0,
             0});
-            this.nudY.ValueChanged += new System.EventHandler(this.nud_ValueChanged);
+            this.nudY.ValueChanged += new System.EventHandler(this.OnValueChangedLocal);
             // 
             // nudZ
             // 
@@ -98,7 +98,7 @@
             0,
             0,
             0});
-            this.nudZ.ValueChanged += new System.EventHandler(this.nud_ValueChanged);
+            this.nudZ.ValueChanged += new System.EventHandler(this.OnValueChangedLocal);
             // 
             // UCtrlTriInt
             // 
@@ -110,7 +110,7 @@
             this.Controls.Add(this.lbName);
             this.Name = "UCtrlTriInt";
             this.Size = new System.Drawing.Size(300, 20);
-            this.SizeChanged += new System.EventHandler(this.UCtrlTriInt_SizeChanged);
+            this.SizeChanged += new System.EventHandler(this.OnSizeChanged);
             ((System.ComponentModel.ISupportInitialize)(this.nudX)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudY)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudZ)).EndInit();

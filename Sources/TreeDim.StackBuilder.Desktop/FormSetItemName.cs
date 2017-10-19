@@ -29,7 +29,7 @@ namespace treeDiM.StackBuilder.Desktop
         {
             base.OnLoad(e);
 
-            onItemNameChanged(this, null);
+            OnItemNameChanged(this, null);
         }
         #endregion
 
@@ -46,13 +46,15 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Event handlers
-        private void onItemNameChanged(object sender, EventArgs e)
+        private void OnItemNameChanged(object sender, EventArgs e)
         {
             string message = string.Empty;
 
-            PLMPackServiceClient client = WCFClientSingleton.Instance.Client;
-            if (client.ItemExists(DCSBTypeEnum.TTruck, ItemName))
-                message = string.Format(Properties.Resources.ID_NAMEALREADYEXISTSINDB, TypeName, ItemName);
+            using (WCFClient wcfClient = new WCFClient())
+            {
+                if (wcfClient.Client.ItemExists(DCSBTypeEnum.TTruck, ItemName))
+                    message = string.Format(Properties.Resources.ID_NAMEALREADYEXISTSINDB, TypeName, ItemName);
+            }
 
             statusLbl.ForeColor = string.IsNullOrEmpty(message) ? Color.Black : Color.Red;
             statusLbl.Text = string.IsNullOrEmpty(message) ? Properties.Resources.ID_READY : message;

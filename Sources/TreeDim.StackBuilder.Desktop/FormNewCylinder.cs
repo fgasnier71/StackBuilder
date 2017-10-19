@@ -116,7 +116,7 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Handlers
-        private void onValueChanged(object sender, EventArgs e)
+        private void OnValueChanged(object sender, EventArgs e)
         {
             // update ok button status
             UpdateStatus(string.Empty);
@@ -152,7 +152,7 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Send to database
-        private void onSendToDatabase(object sender, EventArgs e)
+        private void OnSendToDatabase(object sender, EventArgs e)
         {
             try
             {
@@ -162,23 +162,25 @@ namespace treeDiM.StackBuilder.Desktop
                 };
                 if (DialogResult.OK == form.ShowDialog())
                 {
-                    PLMPackServiceClient client = WCFClientSingleton.Instance.Client;
-                    client.CreateNewCylinder(new DCSBCylinder()
-                            {
-                                Name = form.ItemName,
-                                Description = ItemDescription,
-                                UnitSystem = (int)UnitsManager.CurrentUnitSystem,
-                                RadiusOuter = RadiusOuter,
-                                RadiusInner = RadiusInner,
-                                Height = CylinderHeight,
-                                Weight = Weight,
-                                NetWeight = this.NetWeight.Activated ? this.NetWeight.Value : new Nullable<double>(),
-                                ColorOuter = ColorWallOuter.ToArgb(),
-                                ColorInner = ColorWallInner.ToArgb(),
-                                ColorTop = ColorTop.ToArgb(),
-                                AutoInsert = false                                
-                            }
-                        );
+                    using (WCFClient wcfClient = new WCFClient())
+                    {
+                        wcfClient.Client.CreateNewCylinder(new DCSBCylinder()
+                        {
+                            Name = form.ItemName,
+                            Description = ItemDescription,
+                            UnitSystem = (int)UnitsManager.CurrentUnitSystem,
+                            RadiusOuter = RadiusOuter,
+                            RadiusInner = RadiusInner,
+                            Height = CylinderHeight,
+                            Weight = Weight,
+                            NetWeight = this.NetWeight.Activated ? this.NetWeight.Value : new Nullable<double>(),
+                            ColorOuter = ColorWallOuter.ToArgb(),
+                            ColorInner = ColorWallInner.ToArgb(),
+                            ColorTop = ColorTop.ToArgb(),
+                            AutoInsert = false
+                        }
+                            );
+                    }
                     Close();
                 }
             }

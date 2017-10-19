@@ -104,14 +104,14 @@
             resources.ApplyResources(this.chkbHatching, "chkbHatching");
             this.chkbHatching.Name = "chkbHatching";
             this.chkbHatching.UseVisualStyleBackColor = true;
-            this.chkbHatching.CheckedChanged += new System.EventHandler(this.chkbHatching_CheckedChanged);
+            this.chkbHatching.CheckedChanged += new System.EventHandler(this.OnChkbHatchingCheckedChanged);
             // 
             // bnSendToDB
             // 
             resources.ApplyResources(this.bnSendToDB, "bnSendToDB");
             this.bnSendToDB.Name = "bnSendToDB";
             this.bnSendToDB.UseVisualStyleBackColor = true;
-            this.bnSendToDB.Click += new System.EventHandler(this.onSendToDatabase);
+            this.bnSendToDB.Click += new System.EventHandler(this.OnSendToDatabase);
             // 
             // uCtrlSpacing
             // 

@@ -123,8 +123,7 @@ namespace treeDiM.StackBuilder.Desktop
                 // clear previous items
                 this.ContextMenuStrip.Items.Clear();
                 // let the provider do his work
-                NodeTag nodeTag = node.Tag as NodeTag;
-                if (null != nodeTag)
+                if (node.Tag is NodeTag nodeTag)
                     QueryContextMenuItems(nodeTag, this.ContextMenuStrip);
                 // set Cancel to false. 
                 // it is optimized to true based on empty entry.
@@ -140,21 +139,21 @@ namespace treeDiM.StackBuilder.Desktop
         {
             if (nodeTag.Type == NodeTag.NodeType.NT_DOCUMENT)
             {
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWBOX, AnalysisTreeView.Box         , new EventHandler(onCreateNewBox)));
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWCASE, AnalysisTreeView.Case, new EventHandler(onCreateNewCase)));
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWCYLINDER, AnalysisTreeView.Cylinder, new EventHandler(onCreateNewCylinder)));
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWPALLET, AnalysisTreeView.Pallet      , new EventHandler(onCreateNewPallet)));
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWINTERLAYER, AnalysisTreeView.Interlayer, new EventHandler(onCreateNewInterlayer)));
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWBUNDLE, AnalysisTreeView.Bundle      , new EventHandler(onCreateNewBundle)));
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWPALLETCORNERS, AnalysisTreeView.PalletCorners, new EventHandler(onCreateNewPalletCorners)));
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWPALLETCAP, AnalysisTreeView.PalletCap, new EventHandler(onCreateNewPalletCap)));
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWBOX, AnalysisTreeView.Box         , new EventHandler(OnCreateNewBox)));
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWCASE, AnalysisTreeView.Case, new EventHandler(OnCreateNewCase)));
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWCYLINDER, AnalysisTreeView.Cylinder, new EventHandler(OnCreateNewCylinder)));
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWPALLET, AnalysisTreeView.Pallet      , new EventHandler(OnCreateNewPallet)));
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWINTERLAYER, AnalysisTreeView.Interlayer, new EventHandler(OnCreateNewInterlayer)));
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWBUNDLE, AnalysisTreeView.Bundle      , new EventHandler(OnCreateNewBundle)));
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWPALLETCORNERS, AnalysisTreeView.PalletCorners, new EventHandler(OnCreateNewPalletCorners)));
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWPALLETCAP, AnalysisTreeView.PalletCap, new EventHandler(OnCreateNewPalletCap)));
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWPALLETFILM, AnalysisTreeView.PalletFilm, new EventHandler(OnCreateNewPalletFilm)));
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWTRUCK, AnalysisTreeView.Truck       , new EventHandler(onCreateNewTruck)));
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWTRUCK, AnalysisTreeView.Truck       , new EventHandler(OnCreateNewTruck)));
 
                 if (((DocumentSB)nodeTag.Document).CanCreateAnalysisCasePallet || ((DocumentSB)nodeTag.Document).CanCreateOptiCasePallet)
                     contextMenuStrip.Items.Add(new ToolStripSeparator());
                 if (((DocumentSB)nodeTag.Document).CanCreateAnalysisCasePallet)
-                    contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWANALYSIS, AnalysisTreeView.AnalysisCasePallet, new EventHandler(onCreateNewAnalysisCasePallet)));
+                    contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWANALYSIS, AnalysisTreeView.AnalysisCasePallet, new EventHandler(OnCreateNewAnalysisCasePallet)));
                 /*
                 if (((DocumentSB)nodeTag.Document).CanCreateOptiCasePallet)
                     contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWCASEANALYSIS, AnalysisTreeView.AnalysisCase, new EventHandler(onCreateNewAnalysisCase)));
@@ -177,36 +176,36 @@ namespace treeDiM.StackBuilder.Desktop
                 )
             {
                 string message = string.Format(Resources.ID_DELETEITEM, nodeTag.ItemProperties.Name);
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(message, AnalysisTreeView.DELETE, new EventHandler(onDeleteBaseItem)));
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(message, AnalysisTreeView.DELETE, new EventHandler(OnDeleteBaseItem)));
             }
             else if (nodeTag.Type == NodeTag.NodeType.NT_LISTBOX)
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWBOX, AnalysisTreeView.Box, new EventHandler(onCreateNewBox)));
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWBOX, AnalysisTreeView.Box, new EventHandler(OnCreateNewBox)));
             else if (nodeTag.Type == NodeTag.NodeType.NT_LISTCASE)
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWCASE, AnalysisTreeView.Case, new EventHandler(onCreateNewCase)));
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWCASE, AnalysisTreeView.Case, new EventHandler(OnCreateNewCase)));
             else if (nodeTag.Type == NodeTag.NodeType.NT_LISTCYLINDER)
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWCYLINDER, AnalysisTreeView.Cylinder, new EventHandler(onCreateNewCylinder)));
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWCYLINDER, AnalysisTreeView.Cylinder, new EventHandler(OnCreateNewCylinder)));
             else if (nodeTag.Type == NodeTag.NodeType.NT_LISTPALLET)
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWPALLET, AnalysisTreeView.Pallet, new EventHandler(onCreateNewPallet)));
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWPALLET, AnalysisTreeView.Pallet, new EventHandler(OnCreateNewPallet)));
             else if (nodeTag.Type == NodeTag.NodeType.NT_LISTINTERLAYER)
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWINTERLAYER, AnalysisTreeView.Interlayer, new EventHandler(onCreateNewInterlayer)));
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWINTERLAYER, AnalysisTreeView.Interlayer, new EventHandler(OnCreateNewInterlayer)));
             else if (nodeTag.Type == NodeTag.NodeType.NT_LISTBUNDLE)
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWBUNDLE, AnalysisTreeView.Bundle, new EventHandler(onCreateNewBundle)));
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWBUNDLE, AnalysisTreeView.Bundle, new EventHandler(OnCreateNewBundle)));
             else if (nodeTag.Type == NodeTag.NodeType.NT_LISTTRUCK)
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWTRUCK, AnalysisTreeView.Truck, new EventHandler(onCreateNewTruck)));
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWTRUCK, AnalysisTreeView.Truck, new EventHandler(OnCreateNewTruck)));
             else if (nodeTag.Type == NodeTag.NodeType.NT_LISTPALLETCORNERS)
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWPALLETCORNERS, AnalysisTreeView.PalletCorners, new EventHandler(onCreateNewPalletCorners)));
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWPALLETCORNERS, AnalysisTreeView.PalletCorners, new EventHandler(OnCreateNewPalletCorners)));
             else if (nodeTag.Type == NodeTag.NodeType.NT_LISTPALLETCAP)
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWPALLETCAP, AnalysisTreeView.PalletCap, new EventHandler(onCreateNewPalletCap)));
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWPALLETCAP, AnalysisTreeView.PalletCap, new EventHandler(OnCreateNewPalletCap)));
             else if (nodeTag.Type == NodeTag.NodeType.NT_LISTPALLETFILM)
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWPALLETFILM, AnalysisTreeView.PalletFilm, new EventHandler(OnCreateNewPalletFilm)));
             else if (nodeTag.Type == NodeTag.NodeType.NT_LISTANALYSIS)
             {
                 if (nodeTag.Document.CanCreateAnalysisCasePallet)
-                    contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWANALYSIS, AnalysisTreeView.AnalysisCasePallet, new EventHandler(onCreateNewAnalysisCasePallet)));
+                    contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWANALYSIS, AnalysisTreeView.AnalysisCasePallet, new EventHandler(OnCreateNewAnalysisCasePallet)));
                 if (nodeTag.Document.CanCreateAnalysisCylinderPallet)
-                    contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWCYLINDERANALYSIS, AnalysisTreeView.AnalysisCylinderPallet, new EventHandler(onCreateNewAnalysisCylinderPallet)));
+                    contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWCYLINDERANALYSIS, AnalysisTreeView.AnalysisCylinderPallet, new EventHandler(OnCreateNewAnalysisCylinderPallet)));
                 if (nodeTag.Document.CanCreateAnalysisPalletTruck)
-                    contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWTRUCKANALYSIS, AnalysisTreeView.AnalysisTruck, new EventHandler(onCreateNewAnalysisPalletTruck)));
+                    contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWTRUCKANALYSIS, AnalysisTreeView.AnalysisTruck, new EventHandler(OnCreateNewAnalysisPalletTruck)));
             }
             else if (nodeTag.Type == NodeTag.NodeType.NT_ANALYSIS)
             {
@@ -215,16 +214,16 @@ namespace treeDiM.StackBuilder.Desktop
                     , new EventHandler(OnEditAnalysis)));
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(
                     string.Format(Resources.ID_DELETEITEM, nodeTag.Analysis.Name), AnalysisTreeView.DELETE
-                    , new EventHandler(onDeleteBaseItem)));
+                    , new EventHandler(OnDeleteBaseItem)));
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(
                     string.Format(Resources.ID_GENERATEREPORT, nodeTag.Analysis.Name), AnalysisTreeView.WORD
-                    , new EventHandler(onAnalysisReport)));
+                    , new EventHandler(OnAnalysisReport)));
             }
         }
         #endregion
 
         #region Handling context menus
-        private void onDeleteBaseItem(object sender, EventArgs e)
+        private void OnDeleteBaseItem(object sender, EventArgs e)
         {
             try
             {
@@ -233,7 +232,7 @@ namespace treeDiM.StackBuilder.Desktop
             }
             catch (Exception ex) { _log.Error(ex.ToString()); }
         }
-        private void onAnalysisReport(object sender, EventArgs e)
+        private void OnAnalysisReport(object sender, EventArgs e)
         {
             try
             {
@@ -242,7 +241,7 @@ namespace treeDiM.StackBuilder.Desktop
             }
             catch (Exception ex) { _log.Error(ex.ToString()); }
         }
-        private void onAnalysisExportCollada(object sender, EventArgs e)
+        private void OnAnalysisExportCollada(object sender, EventArgs e)
         {
             try
             {
@@ -251,7 +250,7 @@ namespace treeDiM.StackBuilder.Desktop
             }
             catch (Exception ex) { _log.Error(ex.ToString()); }
         }
-        private void onCreateNewBox(object sender, EventArgs e)
+        private void OnCreateNewBox(object sender, EventArgs e)
         {
             try
             {
@@ -260,7 +259,7 @@ namespace treeDiM.StackBuilder.Desktop
             }
             catch (Exception ex) { _log.Error(ex.ToString()); }
         }
-        private void onCreateNewCase(object sender, EventArgs e)
+        private void OnCreateNewCase(object sender, EventArgs e)
         {
             try
             {
@@ -269,7 +268,7 @@ namespace treeDiM.StackBuilder.Desktop
             }
             catch (Exception ex) { _log.Error(ex.ToString()); }
         }
-        private void onCreateNewPack(object sender, EventArgs e)
+        private void OnCreateNewPack(object sender, EventArgs e)
         {
             try
             {
@@ -278,7 +277,7 @@ namespace treeDiM.StackBuilder.Desktop
             }
             catch (Exception ex) { _log.Error(ex.ToString()); }
         }
-        private void onCreateNewCylinder(object sender, EventArgs e)
+        private void OnCreateNewCylinder(object sender, EventArgs e)
         {
             try
             {
@@ -287,7 +286,7 @@ namespace treeDiM.StackBuilder.Desktop
             }
             catch (Exception ex) { _log.Error(ex.ToString()); }
         }
-        private void onCreateNewPallet(object sender, EventArgs e)
+        private void OnCreateNewPallet(object sender, EventArgs e)
         {
             try
             {
@@ -296,7 +295,7 @@ namespace treeDiM.StackBuilder.Desktop
             }
             catch (Exception ex) { _log.Error(ex.ToString()); }
         }
-        private void onCreateNewInterlayer(object sender, EventArgs e)
+        private void OnCreateNewInterlayer(object sender, EventArgs e)
         {
             try
             {
@@ -305,7 +304,7 @@ namespace treeDiM.StackBuilder.Desktop
             }
             catch (Exception ex) { _log.Error(ex.ToString()); }
         }
-        private void onCreateNewBundle(object sender, EventArgs e)
+        private void OnCreateNewBundle(object sender, EventArgs e)
         {
             try
             {
@@ -314,7 +313,7 @@ namespace treeDiM.StackBuilder.Desktop
             }
             catch (Exception ex) { _log.Error(ex.ToString()); }
         }
-        private void onCreateNewTruck(object sender, EventArgs e)
+        private void OnCreateNewTruck(object sender, EventArgs e)
         {
             try
             {
@@ -323,7 +322,7 @@ namespace treeDiM.StackBuilder.Desktop
             }
             catch (Exception ex) { _log.Error(ex.ToString()); }
         }
-        private void onCreateNewPalletCorners(object sender, EventArgs e)
+        private void OnCreateNewPalletCorners(object sender, EventArgs e)
         {
             try
             {
@@ -332,7 +331,7 @@ namespace treeDiM.StackBuilder.Desktop
             }
             catch (Exception ex) { _log.Error(ex.ToString()); }
         }
-        private void onCreateNewPalletCap(object sender, EventArgs e)
+        private void OnCreateNewPalletCap(object sender, EventArgs e)
         {
             try
             {
@@ -351,7 +350,7 @@ namespace treeDiM.StackBuilder.Desktop
             catch (Exception ex) { _log.Error(ex.ToString()); }
         }
 
-        private void onCreateNewAnalysisCasePallet(object sender, EventArgs e)
+        private void OnCreateNewAnalysisCasePallet(object sender, EventArgs e)
         {
             try
             {
@@ -360,7 +359,7 @@ namespace treeDiM.StackBuilder.Desktop
             }
             catch (Exception ex) { _log.Error(ex.ToString()); }
         }
-        private void onCreateNewAnalysisCylinderPallet(object sender, EventArgs e)
+        private void OnCreateNewAnalysisCylinderPallet(object sender, EventArgs e)
         {
             try
             {
@@ -369,7 +368,7 @@ namespace treeDiM.StackBuilder.Desktop
             }
             catch (Exception ex) { _log.Error(ex.ToString()); }
         }
-        private void onCreateNewAnalysisPalletTruck(object sender, EventArgs e)
+        private void OnCreateNewAnalysisPalletTruck(object sender, EventArgs e)
         {
             try
             {

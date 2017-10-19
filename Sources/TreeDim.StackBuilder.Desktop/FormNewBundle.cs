@@ -141,7 +141,7 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Handlers
-        private void onBundlePropertyChanged(object sender, EventArgs e)
+        private void OnBundlePropertyChanged(object sender, EventArgs e)
         {
             graphCtrl.Invalidate();
         }
@@ -164,7 +164,7 @@ namespace treeDiM.StackBuilder.Desktop
             toolStripStatusLabelDef.ForeColor = string.IsNullOrEmpty(message) ? Color.Black : Color.Red;
             toolStripStatusLabelDef.Text = string.IsNullOrEmpty(message) ? Resources.ID_READY : message;
         }
-        private void onNameDescriptionChanged(object sender, EventArgs e)
+        private void OnNameDescriptionChanged(object sender, EventArgs e)
         {
             UpdateButtonOkStatus();
         }
@@ -183,7 +183,7 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Send to database
-        private void onSendToDatabase(object sender, EventArgs e)
+        private void OnSendToDatabase(object sender, EventArgs e)
         {
             try
             {
@@ -193,19 +193,21 @@ namespace treeDiM.StackBuilder.Desktop
                 };
                 if (DialogResult.OK == form.ShowDialog())
                 {
-                    PLMPackServiceClient client = WCFClientSingleton.Instance.Client;
-                    client.CreateNewBundle( new DCSBBundle()
+                    using (WCFClient wcfClient = new WCFClient())
+                    {
+                        wcfClient.Client.CreateNewBundle(new DCSBBundle()
                         {
                             Name = form.ItemName,
                             Description = Description,
                             UnitSystem = (int)UnitsManager.CurrentUnitSystem,
-                            DimensionsUnit = new DCSBDim3D() { M0=BundleLength, M1=BundleWidth, M2=UnitThickness},
+                            DimensionsUnit = new DCSBDim3D() { M0 = BundleLength, M1 = BundleWidth, M2 = UnitThickness },
                             Number = NoFlats,
                             UnitWeight = UnitWeight,
                             Color = Color.ToArgb(),
                             AutoInsert = false
                         }
-                    );
+                        );
+                    }
                     Close();
                 }
             }

@@ -112,7 +112,7 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Handlers
-        private void onValueChanged(object sender, EventArgs e)
+        private void OnValueChanged(object sender, EventArgs e)
         {
             graphCtrl.Invalidate();
             UpdateStatus(string.Empty);
@@ -138,7 +138,7 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Send to database
-        private void onSendToDatabase(object sender, EventArgs e)
+        private void OnSendToDatabase(object sender, EventArgs e)
         {
             try
             {
@@ -148,18 +148,20 @@ namespace treeDiM.StackBuilder.Desktop
                 };
                 if (DialogResult.OK == form.ShowDialog())
                 {
-                    PLMPackServiceClient client = WCFClientSingleton.Instance.Client;
-                    client.CreateNewInterlayer(new DCSBInterlayer()
-                            {
-                                Name = form.ItemName,
-                                Description = ItemDescription,
-                                UnitSystem = (int)UnitsManager.CurrentUnitSystem,
-                                Dimensions = new DCSBDim3D() { M0 = InterlayerLength, M1 = InterlayerWidth, M2 = Thickness },
-                                Weight = Weight,
-                                Color = Color.ToArgb(),
-                                AutoInsert = false
-                            }
-                        );
+                    using (WCFClient wcfClient = new WCFClient())
+                    {
+                        wcfClient.Client.CreateNewInterlayer(new DCSBInterlayer()
+                        {
+                            Name = form.ItemName,
+                            Description = ItemDescription,
+                            UnitSystem = (int)UnitsManager.CurrentUnitSystem,
+                            Dimensions = new DCSBDim3D() { M0 = InterlayerLength, M1 = InterlayerWidth, M2 = Thickness },
+                            Weight = Weight,
+                            Color = Color.ToArgb(),
+                            AutoInsert = false
+                        }
+                            );
+                    }
                     Close();
                 }
             }

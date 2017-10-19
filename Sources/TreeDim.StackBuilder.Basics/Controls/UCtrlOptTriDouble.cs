@@ -16,12 +16,12 @@ namespace treeDiM.StackBuilder.Basics
     public partial class UCtrlOptTriDouble : UserControl
     {
         #region Delegates
-        public delegate void onValueChanged(object sender, EventArgs e);
+        public delegate void ValueChangedDelegate(object sender, EventArgs e);
         #endregion
 
         #region Events
         [Browsable(true)]
-        public event onValueChanged ValueChanged;
+        public event ValueChangedDelegate ValueChanged;
         #endregion
 
         #region Constructor
@@ -58,7 +58,7 @@ namespace treeDiM.StackBuilder.Basics
         public bool Checked
         {
             get { return chkbOpt.Checked; }
-            set { chkbOpt.Checked = value; onCheckChanged(this, null); }
+            set { chkbOpt.Checked = value; OnCheckChanged(this, null); }
         }
         [Browsable(true)]
         public decimal Minimum
@@ -80,19 +80,16 @@ namespace treeDiM.StackBuilder.Basics
         #endregion
 
         #region Event handlers
-        private void onCheckChanged(object sender, EventArgs e)
+        private void OnCheckChanged(object sender, EventArgs e)
         {
             nudX.Enabled = chkbOpt.Checked;
             nudY.Enabled = chkbOpt.Checked;
             nudZ.Enabled = chkbOpt.Checked;
             lbUnit.Enabled = chkbOpt.Checked;
-            if (null != ValueChanged) ValueChanged(this, e);
+            ValueChanged?.Invoke(this, e);
         }
-        private void nudValue_ValueChanged(object sender, EventArgs e)
-        {
-            if (null != ValueChanged) ValueChanged(this, e);
-        }
-        public void onSizeChanged(object sender, EventArgs e)
+        private void OnValueChangedLocal(object sender, EventArgs e) => ValueChanged?.Invoke(this, e);
+        public void OnSizeChanged(object sender, EventArgs e)
         {
             // set nud location
             nudX.Location = new Point(Width - 3 * UCtrlDouble.stNudLength - 4 - UCtrlDouble.stLbUnitLength, 0);

@@ -148,8 +148,12 @@ namespace treeDiM.StackBuilder.Desktop
             {
                 try
                 {
-                    WCFClientSingleton client = WCFClientSingleton.Instance;
-                    return string.Format(Properties.Resources.ID_REGISTEREDUSERCOUNT, WCFClientSingleton.Instance.Client.get_PLMPackRegisteredUserCount());
+                    int userCount = 0;
+                    using (WCFClient wcfClient = new WCFClient())
+                    {
+                        userCount = wcfClient.Client.get_PLMPackRegisteredUserCount();
+                    }
+                    return string.Format(Properties.Resources.ID_REGISTEREDUSERCOUNT, userCount);
                 }
                 catch (Exception ex)
                 {
@@ -164,7 +168,7 @@ namespace treeDiM.StackBuilder.Desktop
         /// <summary>
         /// Web site url click handler
         /// </summary>
-        private void linkLabelUrl_Click(object sender, EventArgs e)
+        private void OnLinkLabelUrlClick(object sender, EventArgs e)
         {
             try
             {
@@ -180,7 +184,7 @@ namespace treeDiM.StackBuilder.Desktop
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void linkLabelEmail_Click(object sender, EventArgs e)
+        private void OnLinkLabelEmailClick(object sender, EventArgs e)
         { 
             try
             {

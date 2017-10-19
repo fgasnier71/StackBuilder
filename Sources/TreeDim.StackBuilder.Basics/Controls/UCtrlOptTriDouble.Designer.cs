@@ -47,7 +47,7 @@
             this.chkbOpt.TabIndex = 0;
             this.chkbOpt.Text = "Optional dimension";
             this.chkbOpt.UseVisualStyleBackColor = true;
-            this.chkbOpt.CheckedChanged += new System.EventHandler(this.onCheckChanged);
+            this.chkbOpt.CheckedChanged += new System.EventHandler(this.OnCheckChanged);
             // 
             // nudX
             // 
@@ -63,7 +63,7 @@
             this.nudX.Name = "nudX";
             this.nudX.Size = new System.Drawing.Size(60, 20);
             this.nudX.TabIndex = 1;
-            this.nudX.ValueChanged += new System.EventHandler(this.nudValue_ValueChanged);
+            this.nudX.ValueChanged += new System.EventHandler(this.OnValueChangedLocal);
             // 
             // nudY
             // 
@@ -79,7 +79,7 @@
             this.nudY.Name = "nudY";
             this.nudY.Size = new System.Drawing.Size(60, 20);
             this.nudY.TabIndex = 2;
-            this.nudY.ValueChanged += new System.EventHandler(this.nudValue_ValueChanged);
+            this.nudY.ValueChanged += new System.EventHandler(this.OnValueChangedLocal);
             // 
             // nudZ
             // 
@@ -95,7 +95,7 @@
             this.nudZ.Name = "nudZ";
             this.nudZ.Size = new System.Drawing.Size(60, 20);
             this.nudZ.TabIndex = 3;
-            this.nudZ.ValueChanged += new System.EventHandler(this.nudValue_ValueChanged);
+            this.nudZ.ValueChanged += new System.EventHandler(this.OnValueChangedLocal);
             // 
             // lbUnit
             // 
@@ -119,7 +119,7 @@
             this.Controls.Add(this.chkbOpt);
             this.Name = "UCtrlOptTriDouble";
             this.Size = new System.Drawing.Size(350, 20);
-            this.SizeChanged += new System.EventHandler(this.onSizeChanged);
+            this.SizeChanged += new System.EventHandler(this.OnSizeChanged);
             ((System.ComponentModel.ISupportInitialize)(this.nudX)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudY)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudZ)).EndInit();

@@ -64,7 +64,7 @@
             this.nudValue.Name = "nudValue";
             this.nudValue.Size = new System.Drawing.Size(60, 20);
             this.nudValue.TabIndex = 3;
-            this.nudValue.ValueChanged += new System.EventHandler(this.nudValue_ValueChanged);
+            this.nudValue.ValueChanged += new System.EventHandler(this.OnValueChangedLocal);
             // 
             // lbName
             // 

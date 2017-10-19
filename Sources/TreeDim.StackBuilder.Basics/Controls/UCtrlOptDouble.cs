@@ -14,12 +14,12 @@ namespace treeDiM.StackBuilder.Basics
     public partial class UCtrlOptDouble : UserControl
     {
         #region Delegates
-        public delegate void onValueChanged(object sender, EventArgs e);
+        public delegate void ValueChangedDelegate(object sender, EventArgs e);
         #endregion
 
         #region Events
         [Browsable(true)]
-        public event onValueChanged ValueChanged;
+        public event ValueChangedDelegate ValueChanged;
         #endregion
 
         #region Constructor
@@ -49,7 +49,7 @@ namespace treeDiM.StackBuilder.Basics
             {
                 chkbOpt.Checked = value.Activated;
                 nudValue.Value = (decimal)value.ValueDef;
-                chkbOpt_CheckedChanged(this, null);
+                OnCheckChanged(this, null);
             }
         }
         [Browsable(true)]
@@ -72,17 +72,14 @@ namespace treeDiM.StackBuilder.Basics
         #endregion
 
         #region Event handlers
-        private void chkbOpt_CheckedChanged(object sender, EventArgs e)
+        private void OnCheckChanged(object sender, EventArgs e)
         {
             nudValue.Enabled = chkbOpt.Checked;
             lbUnit.Enabled = chkbOpt.Checked;
-            if (null != ValueChanged) ValueChanged(this, e);
+            ValueChanged?.Invoke(this, e);
         }
-        private void nudValue_ValueChanged(object sender, EventArgs e)
-        {
-            if (null != ValueChanged) ValueChanged(this, e);
-        }
-        private void OptValueControl_SizeChanged(object sender, EventArgs e)
+        private void OnValueChangedLocal(object sender, EventArgs e) => ValueChanged?.Invoke(this, e);
+        private void OnSizeChanged(object sender, EventArgs e)
         {
             // set nud location
             nudValue.Location = new Point(Width - UCtrlDouble.stNudLength - UCtrlDouble.stLbUnitLength, 0);

@@ -59,7 +59,7 @@
             resources.ApplyResources(this.checkBoxBestLayersOnly, "checkBoxBestLayersOnly");
             this.checkBoxBestLayersOnly.Name = "checkBoxBestLayersOnly";
             this.checkBoxBestLayersOnly.UseVisualStyleBackColor = true;
-            this.checkBoxBestLayersOnly.CheckedChanged += new System.EventHandler(this.onInputChanged);
+            this.checkBoxBestLayersOnly.CheckedChanged += new System.EventHandler(this.OnInputChanged);
             // 
             // lbBox
             // 
@@ -77,7 +77,7 @@
             this.cbCases.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCases.FormattingEnabled = true;
             this.cbCases.Name = "cbCases";
-            this.cbCases.SelectedIndexChanged += new System.EventHandler(this.onInputChanged);
+            this.cbCases.SelectedIndexChanged += new System.EventHandler(this.OnInputChanged);
             // 
             // cbBoxes
             // 
@@ -85,7 +85,7 @@
             this.cbBoxes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbBoxes.FormattingEnabled = true;
             this.cbBoxes.Name = "cbBoxes";
-            this.cbBoxes.SelectedIndexChanged += new System.EventHandler(this.onBoxChanged);
+            this.cbBoxes.SelectedIndexChanged += new System.EventHandler(this.OnBoxChanged);
             // 
             // uCtrlLayerList
             // 
@@ -103,7 +103,7 @@
         false,
         true};
             this.uCtrlCaseOrientation.Name = "uCtrlCaseOrientation";
-            this.uCtrlCaseOrientation.CheckedChanged += new treeDiM.StackBuilder.Graphics.uCtrlCaseOrientation.CheckChanged(this.onInputChanged);
+            this.uCtrlCaseOrientation.CheckedChanged += new treeDiM.StackBuilder.Graphics.uCtrlCaseOrientation.CheckChanged(this.OnInputChanged);
             // 
             // FormNewAnalysisBoxCase
             // 

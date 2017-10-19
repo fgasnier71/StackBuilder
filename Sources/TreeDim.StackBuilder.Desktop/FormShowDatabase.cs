@@ -38,19 +38,19 @@ namespace treeDiM.StackBuilder.Desktop
 
             bnImport.Enabled = (null != _doc);
 
-            gridPallets.Selection.SelectionChanged += new SourceGrid.RangeRegionChangedEventHandler(onSelChangeGrid);
-            gridPalletCorners.Selection.SelectionChanged += new SourceGrid.RangeRegionChangedEventHandler(onSelChangeGrid);
-            gridPalletCaps.Selection.SelectionChanged += new SourceGrid.RangeRegionChangedEventHandler(onSelChangeGrid);
-            gridPalletFilms.Selection.SelectionChanged += new SourceGrid.RangeRegionChangedEventHandler(onSelChangeGrid);
-            gridBoxes.Selection.SelectionChanged += new SourceGrid.RangeRegionChangedEventHandler(onSelChangeGrid);
-            gridCases.Selection.SelectionChanged += new SourceGrid.RangeRegionChangedEventHandler(onSelChangeGrid);
-            gridBundles.Selection.SelectionChanged += new SourceGrid.RangeRegionChangedEventHandler(onSelChangeGrid);
-            gridCylinders.Selection.SelectionChanged += new SourceGrid.RangeRegionChangedEventHandler(onSelChangeGrid);
-            gridInterlayers.Selection.SelectionChanged += new SourceGrid.RangeRegionChangedEventHandler(onSelChangeGrid);
-            gridTrucks.Selection.SelectionChanged += new SourceGrid.RangeRegionChangedEventHandler(onSelChangeGrid);
+            gridPallets.Selection.SelectionChanged += new SourceGrid.RangeRegionChangedEventHandler(OnSelChangeGrid);
+            gridPalletCorners.Selection.SelectionChanged += new SourceGrid.RangeRegionChangedEventHandler(OnSelChangeGrid);
+            gridPalletCaps.Selection.SelectionChanged += new SourceGrid.RangeRegionChangedEventHandler(OnSelChangeGrid);
+            gridPalletFilms.Selection.SelectionChanged += new SourceGrid.RangeRegionChangedEventHandler(OnSelChangeGrid);
+            gridBoxes.Selection.SelectionChanged += new SourceGrid.RangeRegionChangedEventHandler(OnSelChangeGrid);
+            gridCases.Selection.SelectionChanged += new SourceGrid.RangeRegionChangedEventHandler(OnSelChangeGrid);
+            gridBundles.Selection.SelectionChanged += new SourceGrid.RangeRegionChangedEventHandler(OnSelChangeGrid);
+            gridCylinders.Selection.SelectionChanged += new SourceGrid.RangeRegionChangedEventHandler(OnSelChangeGrid);
+            gridInterlayers.Selection.SelectionChanged += new SourceGrid.RangeRegionChangedEventHandler(OnSelChangeGrid);
+            gridTrucks.Selection.SelectionChanged += new SourceGrid.RangeRegionChangedEventHandler(OnSelChangeGrid);
 
             tabCtrlDBItems.SelectedIndex = 0;
-            onSelectedTabChanged(this, null);
+            OnSelectedTabChanged(this, null);
         }
         #endregion
 
@@ -64,8 +64,7 @@ namespace treeDiM.StackBuilder.Desktop
                 // get unit system
                 UnitsManager.UnitSystem us = (UnitsManager.UnitSystem)_selectedItem.UnitSystem;
                 // pallet
-                DCSBPallet dcsbPallet = _selectedItem as DCSBPallet;
-                if (null != dcsbPallet)
+                if (_selectedItem is DCSBPallet dcsbPallet)
                 {
                     double palletLength = UnitsManager.ConvertLengthFrom(dcsbPallet.Dimensions.M0, us);
                     double palletWidth = UnitsManager.ConvertLengthFrom(dcsbPallet.Dimensions.M1, us);
@@ -80,8 +79,7 @@ namespace treeDiM.StackBuilder.Desktop
                     graphics.AddDimensions(new DimensionCube(palletLength, palletWidth, palletHeight));
                 }
                 // pallet cap
-                DCSBPalletCap dcsbCap = _selectedItem as DCSBPalletCap;
-                if (null != dcsbCap)
+                if (_selectedItem is DCSBPalletCap dcsbCap)
                 {
                     double length = UnitsManager.ConvertLengthFrom(dcsbCap.DimensionsOuter.M0, us);
                     double width = UnitsManager.ConvertLengthFrom(dcsbCap.DimensionsOuter.M1, us);
@@ -100,9 +98,8 @@ namespace treeDiM.StackBuilder.Desktop
                     graphics.AddDimensions(new DimensionCube(length, width, height));
                 }
                 // pallet corner
-                DCSBPalletCorner dcsbCorner = _selectedItem as DCSBPalletCorner;
-                if (null != dcsbCorner)
-                { 
+                if (_selectedItem is DCSBPalletCorner dcsbCorner)
+                {
                     double length = UnitsManager.ConvertLengthFrom(dcsbCorner.Length, us);
                     double width = UnitsManager.ConvertLengthFrom(dcsbCorner.Width, us);
                     double thickness = UnitsManager.ConvertLengthFrom(dcsbCorner.Thickness, us);
@@ -117,13 +114,11 @@ namespace treeDiM.StackBuilder.Desktop
                     graphics.AddDimensions(new DimensionCube(width, width, length));
                 }
                 // pallet film
-                DCSBPalletFilm dcsbFilm = _selectedItem as DCSBPalletFilm;
-                if (null != dcsbFilm)
+                if (_selectedItem is DCSBPalletFilm dcsbFilm)
                 {
                 }
                 // interlayer
-                DCSBInterlayer dcsbInterlayer = _selectedItem as DCSBInterlayer;
-                if (null != dcsbInterlayer)
+                if (_selectedItem is DCSBInterlayer dcsbInterlayer)
                 {
                     double length = UnitsManager.ConvertLengthFrom(dcsbInterlayer.Dimensions.M0, us);
                     double width = UnitsManager.ConvertLengthFrom(dcsbInterlayer.Dimensions.M1, us);
@@ -139,8 +134,7 @@ namespace treeDiM.StackBuilder.Desktop
                     graphics.AddDimensions(new DimensionCube(length, width, thickness));
                 }
                 // case
-                DCSBCase dcsbCase = _selectedItem as DCSBCase;
-                if (null != dcsbCase)
+                if (_selectedItem is DCSBCase dcsbCase)
                 {
                     double length = UnitsManager.ConvertLengthFrom(dcsbCase.DimensionsOuter.M0, us);
                     double width = UnitsManager.ConvertLengthFrom(dcsbCase.DimensionsOuter.M1, us);
@@ -160,9 +154,8 @@ namespace treeDiM.StackBuilder.Desktop
                     graphics.AddDimensions(new DimensionCube(length, width, height));
                 }
                 // bundle
-                DCSBBundle dcsbBundle = _selectedItem as DCSBBundle;
-                if (null != dcsbBundle)
-                { 
+                if (_selectedItem is DCSBBundle dcsbBundle)
+                {
                     double length = UnitsManager.ConvertLengthFrom(dcsbBundle.DimensionsUnit.M0, us);
                     double width = UnitsManager.ConvertLengthFrom(dcsbBundle.DimensionsUnit.M1, us);
                     double unitThickness = UnitsManager.ConvertLengthFrom(dcsbBundle.DimensionsUnit.M2, us);
@@ -177,8 +170,7 @@ namespace treeDiM.StackBuilder.Desktop
                     graphics.AddDimensions(new DimensionCube(length, width, unitThickness * dcsbBundle.Number));
                 }
                 // cylinder
-                DCSBCylinder dcsbCylinder = _selectedItem as DCSBCylinder;
-                if (null != dcsbCylinder)
+                if (_selectedItem is DCSBCylinder dcsbCylinder)
                 {
                     double height = UnitsManager.ConvertLengthFrom(dcsbCylinder.Height, us);
                     double radiusOuter = UnitsManager.ConvertLengthFrom(dcsbCylinder.RadiusOuter, us);
@@ -197,8 +189,7 @@ namespace treeDiM.StackBuilder.Desktop
                     graphics.AddDimensions(new DimensionCube(new Vector3D(-radiusOuter, -radiusOuter, 0.0), 2.0 * radiusOuter, 2.0 * radiusOuter, height, Color.Black, false));
                 }
                 // truck
-                DCSBTruck dcsbtruck = _selectedItem as DCSBTruck;
-                if (null != dcsbtruck)
+                if (_selectedItem is DCSBTruck dcsbtruck)
                 {
                     double truckLength = dcsbtruck.DimensionsInner.M0;
                     double truckWidth = dcsbtruck.DimensionsInner.M1;
@@ -325,21 +316,23 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Pallets
-        void FillGridPallets()
+        void FillGridPallets(WCFClient wcfClient)
         {
             // initialize grid
-            List<string> captions = new List<string>();
-            captions.Add(string.Format(Properties.Resources.ID_DIMENSIONS, UnitsManager.UnitString(UnitsManager.UnitType.UT_LENGTH)));
-            captions.Add(string.Format(Properties.Resources.ID_WEIGHT_WU, UnitsManager.UnitString(UnitsManager.UnitType.UT_MASS)));
+            List<string> captions = new List<string>
+            {
+                string.Format(Properties.Resources.ID_DIMENSIONS, UnitsManager.UnitString(UnitsManager.UnitType.UT_LENGTH)),
+                string.Format(Properties.Resources.ID_WEIGHT_WU, UnitsManager.UnitString(UnitsManager.UnitType.UT_MASS))
+            };
             GridInitialize(gridPallets, captions);
             // handling checkbox event
             SourceGrid.Cells.Controllers.CustomEvents checkBoxEvent = new SourceGrid.Cells.Controllers.CustomEvents();
-            checkBoxEvent.Click += new EventHandler(onAutoImport);
+            checkBoxEvent.Click += new EventHandler(OnAutoImport);
             // handling delete event
             SourceGrid.Cells.Controllers.CustomEvents buttonDelete = new SourceGrid.Cells.Controllers.CustomEvents();
-            buttonDelete.Click += new EventHandler(onDeleteItem);
+            buttonDelete.Click += new EventHandler(OnDeleteItem);
 
-            _pallets = WCFClientSingleton.Instance.Client.GetAllPallets();
+            _pallets = wcfClient.Client.GetAllPallets();
             int iIndex = 0;
             foreach (DCSBPallet p in _pallets)
             {
@@ -370,21 +363,23 @@ namespace treeDiM.StackBuilder.Desktop
         }
         #endregion
         #region Interlayers
-        private void FillGridInterlayers()
+        private void FillGridInterlayers(WCFClient wcfClient)
         {
             // initialize grid
-            List<string> captions = new List<string>();
-            captions.Add(string.Format(Properties.Resources.ID_DIMENSIONS, UnitsManager.UnitString(UnitsManager.UnitType.UT_LENGTH)));
-            captions.Add(string.Format(Properties.Resources.ID_WEIGHT_WU, UnitsManager.UnitString(UnitsManager.UnitType.UT_MASS)));
+            List<string> captions = new List<string>
+            {
+                string.Format(Properties.Resources.ID_DIMENSIONS, UnitsManager.UnitString(UnitsManager.UnitType.UT_LENGTH)),
+                string.Format(Properties.Resources.ID_WEIGHT_WU, UnitsManager.UnitString(UnitsManager.UnitType.UT_MASS))
+            };
             GridInitialize(gridInterlayers, captions);
             // handling checkbox event
             SourceGrid.Cells.Controllers.CustomEvents checkBoxEvent = new SourceGrid.Cells.Controllers.CustomEvents();
-            checkBoxEvent.Click += new EventHandler(onAutoImport);
+            checkBoxEvent.Click += new EventHandler(OnAutoImport);
             // handling delete event
             SourceGrid.Cells.Controllers.CustomEvents buttonDelete = new SourceGrid.Cells.Controllers.CustomEvents();
-            buttonDelete.Click += new EventHandler(onDeleteItem);
+            buttonDelete.Click += new EventHandler(OnDeleteItem);
 
-            _interlayers = WCFClientSingleton.Instance.Client.GetAllInterlayers();
+            _interlayers = wcfClient.Client.GetAllInterlayers();
             int iIndex = 0;
             foreach (DCSBInterlayer i in _interlayers)
             {
@@ -415,22 +410,24 @@ namespace treeDiM.StackBuilder.Desktop
         }
         #endregion
         #region PalletCaps
-        private void FillGridPalletCaps()
+        private void FillGridPalletCaps(WCFClient wcfClient)
         {
             // initialize grid
-            List<string> captions = new List<string>();
-            captions.Add(string.Format(Properties.Resources.ID_DIMEXT_WU, UnitsManager.UnitString(UnitsManager.UnitType.UT_LENGTH)));
-            captions.Add(string.Format(Properties.Resources.ID_DIMINT_WU, UnitsManager.UnitString(UnitsManager.UnitType.UT_LENGTH)));
-            captions.Add(string.Format(Properties.Resources.ID_WEIGHT_WU, UnitsManager.UnitString(UnitsManager.UnitType.UT_MASS)));
+            List<string> captions = new List<string>
+            {
+                string.Format(Properties.Resources.ID_DIMEXT_WU, UnitsManager.UnitString(UnitsManager.UnitType.UT_LENGTH)),
+                string.Format(Properties.Resources.ID_DIMINT_WU, UnitsManager.UnitString(UnitsManager.UnitType.UT_LENGTH)),
+                string.Format(Properties.Resources.ID_WEIGHT_WU, UnitsManager.UnitString(UnitsManager.UnitType.UT_MASS))
+            };
             GridInitialize(gridPalletCaps, captions);
             // handling checkbox event
             SourceGrid.Cells.Controllers.CustomEvents checkBoxEvent = new SourceGrid.Cells.Controllers.CustomEvents();
-            checkBoxEvent.Click += new EventHandler(onAutoImport);
+            checkBoxEvent.Click += new EventHandler(OnAutoImport);
             // handling delete event
             SourceGrid.Cells.Controllers.CustomEvents buttonDelete = new SourceGrid.Cells.Controllers.CustomEvents();
-            buttonDelete.Click += new EventHandler(onDeleteItem);
+            buttonDelete.Click += new EventHandler(OnDeleteItem);
 
-            _palletCaps = WCFClientSingleton.Instance.Client.GetAllPalletCaps();
+            _palletCaps = wcfClient.Client.GetAllPalletCaps();
             int iIndex = 0;
             foreach (DCSBPalletCap pc in _palletCaps)
             {
@@ -463,23 +460,25 @@ namespace treeDiM.StackBuilder.Desktop
         }
         #endregion
         #region PalletCormers
-        private void FillGridPalletCorners()
-        { 
+        private void FillGridPalletCorners(WCFClient wcfClient)
+        {
             // initialize grid
-            List<string> captions = new List<string>();
-            captions.Add(string.Format(Properties.Resources.ID_LENGTH_WU, UnitsManager.UnitString(UnitsManager.UnitType.UT_LENGTH)));
-            captions.Add(string.Format(Properties.Resources.ID_WIDTH_WU, UnitsManager.UnitString(UnitsManager.UnitType.UT_LENGTH)));
-            captions.Add(string.Format(Properties.Resources.ID_THICKNESS_WU, UnitsManager.UnitString(UnitsManager.UnitType.UT_LENGTH)));
-            captions.Add(string.Format(Properties.Resources.ID_WEIGHT_WU, UnitsManager.UnitString(UnitsManager.UnitType.UT_MASS)));
+            List<string> captions = new List<string>
+            {
+                string.Format(Properties.Resources.ID_LENGTH_WU, UnitsManager.UnitString(UnitsManager.UnitType.UT_LENGTH)),
+                string.Format(Properties.Resources.ID_WIDTH_WU, UnitsManager.UnitString(UnitsManager.UnitType.UT_LENGTH)),
+                string.Format(Properties.Resources.ID_THICKNESS_WU, UnitsManager.UnitString(UnitsManager.UnitType.UT_LENGTH)),
+                string.Format(Properties.Resources.ID_WEIGHT_WU, UnitsManager.UnitString(UnitsManager.UnitType.UT_MASS))
+            };
             GridInitialize(gridPalletCorners, captions);
             // handling checkbox event
             SourceGrid.Cells.Controllers.CustomEvents checkBoxEvent = new SourceGrid.Cells.Controllers.CustomEvents();
-            checkBoxEvent.Click += new EventHandler(onAutoImport);
+            checkBoxEvent.Click += new EventHandler(OnAutoImport);
             // handling delete event
             SourceGrid.Cells.Controllers.CustomEvents buttonDelete = new SourceGrid.Cells.Controllers.CustomEvents();
-            buttonDelete.Click += new EventHandler(onDeleteItem);
+            buttonDelete.Click += new EventHandler(OnDeleteItem);
 
-            _palletCorners = WCFClientSingleton.Instance.Client.GetAllPalletCorners();
+            _palletCorners = wcfClient.Client.GetAllPalletCorners();
             int iIndex = 0;
             foreach (DCSBPalletCorner c in _palletCorners)
             {
@@ -504,22 +503,24 @@ namespace treeDiM.StackBuilder.Desktop
         }
         #endregion
         #region PalletFilms
-        private void FillGridPalletFilms()
+        private void FillGridPalletFilms(WCFClient wcfClient)
         {
             // initialize grid
-            List<string> captions = new List<string>();
-            captions.Add(Properties.Resources.ID_TRANSPARENCY);
-            captions.Add(string.Format(Properties.Resources.ID_HATCHINGSPACING, UnitsManager.UnitString(UnitsManager.UnitType.UT_LENGTH)));
-            captions.Add(Properties.Resources.ID_HATCHINGANGLE);
+            List<string> captions = new List<string>
+            {
+                Properties.Resources.ID_TRANSPARENCY,
+                string.Format(Properties.Resources.ID_HATCHINGSPACING, UnitsManager.UnitString(UnitsManager.UnitType.UT_LENGTH)),
+                Properties.Resources.ID_HATCHINGANGLE
+            };
             GridInitialize(gridPalletFilms, captions);
             // handling checkbox event
             SourceGrid.Cells.Controllers.CustomEvents checkBoxEvent = new SourceGrid.Cells.Controllers.CustomEvents();
-            checkBoxEvent.Click += new EventHandler(onAutoImport);
+            checkBoxEvent.Click += new EventHandler(OnAutoImport);
             // handling delete event
             SourceGrid.Cells.Controllers.CustomEvents buttonDelete = new SourceGrid.Cells.Controllers.CustomEvents();
-            buttonDelete.Click += new EventHandler(onDeleteItem);
+            buttonDelete.Click += new EventHandler(OnDeleteItem);
 
-            _palletFilms = WCFClientSingleton.Instance.Client.GetAllPalletFilms();
+            _palletFilms = wcfClient.Client.GetAllPalletFilms();
             int iIndex = 0;
             foreach (DCSBPalletFilm c in _palletFilms)
             {
@@ -543,21 +544,23 @@ namespace treeDiM.StackBuilder.Desktop
         }
         #endregion
         #region Boxes
-        private void FillGridBoxes()
+        private void FillGridBoxes(WCFClient wcfClient)
         {
             // initialize grid
-            List<string> captions = new List<string>();
-            captions.Add(string.Format(Properties.Resources.ID_DIMEXT_WU, UnitsManager.UnitString(UnitsManager.UnitType.UT_LENGTH)));
-            captions.Add(string.Format(Properties.Resources.ID_WEIGHT_WU, UnitsManager.UnitString(UnitsManager.UnitType.UT_MASS)));
+            List<string> captions = new List<string>
+            {
+                string.Format(Properties.Resources.ID_DIMEXT_WU, UnitsManager.UnitString(UnitsManager.UnitType.UT_LENGTH)),
+                string.Format(Properties.Resources.ID_WEIGHT_WU, UnitsManager.UnitString(UnitsManager.UnitType.UT_MASS))
+            };
             GridInitialize(gridBoxes, captions);
             // handling checkbox event
             SourceGrid.Cells.Controllers.CustomEvents checkBoxEvent = new SourceGrid.Cells.Controllers.CustomEvents();
-            checkBoxEvent.Click += new EventHandler(onAutoImport);
+            checkBoxEvent.Click += new EventHandler(OnAutoImport);
             // handling delete event
             SourceGrid.Cells.Controllers.CustomEvents buttonDelete = new SourceGrid.Cells.Controllers.CustomEvents();
-            buttonDelete.Click += new EventHandler(onDeleteItem);
+            buttonDelete.Click += new EventHandler(OnDeleteItem);
 
-            _boxes = WCFClientSingleton.Instance.Client.GetAllBoxes();
+            _boxes = wcfClient.Client.GetAllBoxes();
             int iIndex = 0;
             foreach (DCSBCase c in _boxes)
             {
@@ -582,22 +585,24 @@ namespace treeDiM.StackBuilder.Desktop
         }
         #endregion
         #region Cases
-        private void FillGridCases()
+        private void FillGridCases(WCFClient wcfClient)
         {
             // initialize grid
-            List<string> captions = new List<string>();
-            captions.Add(string.Format(Properties.Resources.ID_DIMEXT_WU, UnitsManager.UnitString(UnitsManager.UnitType.UT_LENGTH)));
-            captions.Add(string.Format(Properties.Resources.ID_DIMINT_WU, UnitsManager.UnitString(UnitsManager.UnitType.UT_LENGTH)));
-            captions.Add(string.Format(Properties.Resources.ID_WEIGHT_WU, UnitsManager.UnitString(UnitsManager.UnitType.UT_MASS)));
+            List<string> captions = new List<string>
+            {
+                string.Format(Properties.Resources.ID_DIMEXT_WU, UnitsManager.UnitString(UnitsManager.UnitType.UT_LENGTH)),
+                string.Format(Properties.Resources.ID_DIMINT_WU, UnitsManager.UnitString(UnitsManager.UnitType.UT_LENGTH)),
+                string.Format(Properties.Resources.ID_WEIGHT_WU, UnitsManager.UnitString(UnitsManager.UnitType.UT_MASS))
+            };
             GridInitialize(gridCases, captions);
             // handling checkbox event
             SourceGrid.Cells.Controllers.CustomEvents checkBoxEvent = new SourceGrid.Cells.Controllers.CustomEvents();
-            checkBoxEvent.Click += new EventHandler(onAutoImport);
+            checkBoxEvent.Click += new EventHandler(OnAutoImport);
             // handling delete event
             SourceGrid.Cells.Controllers.CustomEvents buttonDelete = new SourceGrid.Cells.Controllers.CustomEvents();
-            buttonDelete.Click += new EventHandler(onDeleteItem);
+            buttonDelete.Click += new EventHandler(OnDeleteItem);
 
-            _cases = WCFClientSingleton.Instance.Client.GetAllCases();
+            _cases = wcfClient.Client.GetAllCases();
             int iIndex = 0;
             foreach (DCSBCase c in _cases)
             {
@@ -631,24 +636,26 @@ namespace treeDiM.StackBuilder.Desktop
         }
         #endregion
         #region Bundles
-        private void FillGridBundles()
+        private void FillGridBundles(WCFClient wcfClient)
         {
             // initialize grid
-            List<string> captions = new List<string>();
-            captions.Add(string.Format(Properties.Resources.ID_LENGTH_WU, UnitsManager.UnitString(UnitsManager.UnitType.UT_LENGTH)));
-            captions.Add(string.Format(Properties.Resources.ID_WIDTH_WU, UnitsManager.UnitString(UnitsManager.UnitType.UT_LENGTH)));
-            captions.Add(string.Format(Properties.Resources.ID_THICKNESS_WU, UnitsManager.UnitString(UnitsManager.UnitType.UT_LENGTH)));
-            captions.Add(string.Format(Properties.Resources.ID_NUMBER));
-            captions.Add(string.Format(Properties.Resources.ID_WEIGHT_WU, UnitsManager.UnitString(UnitsManager.UnitType.UT_MASS)));
+            List<string> captions = new List<string>
+            {
+                string.Format(Properties.Resources.ID_LENGTH_WU, UnitsManager.UnitString(UnitsManager.UnitType.UT_LENGTH)),
+                string.Format(Properties.Resources.ID_WIDTH_WU, UnitsManager.UnitString(UnitsManager.UnitType.UT_LENGTH)),
+                string.Format(Properties.Resources.ID_THICKNESS_WU, UnitsManager.UnitString(UnitsManager.UnitType.UT_LENGTH)),
+                string.Format(Properties.Resources.ID_NUMBER),
+                string.Format(Properties.Resources.ID_WEIGHT_WU, UnitsManager.UnitString(UnitsManager.UnitType.UT_MASS))
+            };
             GridInitialize(gridBundles, captions);
             // handling checkbox event
             SourceGrid.Cells.Controllers.CustomEvents checkBoxEvent = new SourceGrid.Cells.Controllers.CustomEvents();
-            checkBoxEvent.Click += new EventHandler(onAutoImport);
+            checkBoxEvent.Click += new EventHandler(OnAutoImport);
             // handling delete event
             SourceGrid.Cells.Controllers.CustomEvents buttonDelete = new SourceGrid.Cells.Controllers.CustomEvents();
-            buttonDelete.Click += new EventHandler(onDeleteItem);
+            buttonDelete.Click += new EventHandler(OnDeleteItem);
 
-            _bundles = WCFClientSingleton.Instance.Client.GetAllBundles();
+            _bundles = wcfClient.Client.GetAllBundles();
             int iIndex = 0;
             foreach (DCSBBundle b in _bundles)
             {
@@ -675,23 +682,25 @@ namespace treeDiM.StackBuilder.Desktop
         }
         #endregion
         #region Cylinders
-        void FillGridCylinders()
+        void FillGridCylinders(WCFClient wcfClient)
         {
             // initialize grid
-            List<string> captions = new List<string>();
-            captions.Add(string.Format(Properties.Resources.ID_HEIGHT_WU, UnitsManager.UnitString(UnitsManager.UnitType.UT_LENGTH)));
-            captions.Add(string.Format(Properties.Resources.ID_DIAMETEROUTER_WU, UnitsManager.UnitString(UnitsManager.UnitType.UT_LENGTH)));
-            captions.Add(string.Format(Properties.Resources.ID_DIAMETERINNER_WU, UnitsManager.UnitString(UnitsManager.UnitType.UT_LENGTH)));
-            captions.Add(string.Format(Properties.Resources.ID_WEIGHT_WU, UnitsManager.UnitString(UnitsManager.UnitType.UT_MASS)));
+            List<string> captions = new List<string>
+            {
+                string.Format(Properties.Resources.ID_HEIGHT_WU, UnitsManager.UnitString(UnitsManager.UnitType.UT_LENGTH)),
+                string.Format(Properties.Resources.ID_DIAMETEROUTER_WU, UnitsManager.UnitString(UnitsManager.UnitType.UT_LENGTH)),
+                string.Format(Properties.Resources.ID_DIAMETERINNER_WU, UnitsManager.UnitString(UnitsManager.UnitType.UT_LENGTH)),
+                string.Format(Properties.Resources.ID_WEIGHT_WU, UnitsManager.UnitString(UnitsManager.UnitType.UT_MASS))
+            };
             GridInitialize(gridCylinders, captions);
             // handling checkbox event
             SourceGrid.Cells.Controllers.CustomEvents checkBoxEvent = new SourceGrid.Cells.Controllers.CustomEvents();
-            checkBoxEvent.Click += new EventHandler(onAutoImport);
+            checkBoxEvent.Click += new EventHandler(OnAutoImport);
             // handling delete event
             SourceGrid.Cells.Controllers.CustomEvents buttonDelete = new SourceGrid.Cells.Controllers.CustomEvents();
-            buttonDelete.Click += new EventHandler(onDeleteItem);
+            buttonDelete.Click += new EventHandler(OnDeleteItem);
 
-            _cylinders = WCFClientSingleton.Instance.Client.GetAllCylinders();
+            _cylinders = wcfClient.Client.GetAllCylinders();
             int iIndex = 0;
             foreach (DCSBCylinder cyl in _cylinders)
             {
@@ -717,20 +726,22 @@ namespace treeDiM.StackBuilder.Desktop
         }
         #endregion
         #region Trucks
-        private void FillGridTrucks()
+        private void FillGridTrucks(WCFClient wcfClient)
         {
             // initialize grid
-            List<string> captions = new List<string>();
-            captions.Add( string.Format(Properties.Resources.ID_DIMENSIONS, UnitsManager.UnitString(UnitsManager.UnitType.UT_LENGTH)) );
+            List<string> captions = new List<string>
+            {
+                string.Format(Properties.Resources.ID_DIMENSIONS, UnitsManager.UnitString(UnitsManager.UnitType.UT_LENGTH))
+            };
             GridInitialize(gridTrucks, captions);
             // handling checkbox event
             SourceGrid.Cells.Controllers.CustomEvents checkBoxEvent = new SourceGrid.Cells.Controllers.CustomEvents();
-            checkBoxEvent.Click += new EventHandler(onAutoImport);
+            checkBoxEvent.Click += new EventHandler(OnAutoImport);
             // handling delete event
             SourceGrid.Cells.Controllers.CustomEvents buttonDelete = new SourceGrid.Cells.Controllers.CustomEvents();
-            buttonDelete.Click += new EventHandler(onDeleteItem);
+            buttonDelete.Click += new EventHandler(OnDeleteItem);
             // get all trucks
-            _trucks = WCFClientSingleton.Instance.Client.GetAllTrucks();
+            _trucks = wcfClient.Client.GetAllTrucks();
             int iIndex = 0;
             foreach (DCSBTruck t in _trucks)
             {
@@ -757,7 +768,7 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Event handlers
-        private void onAutoImport(object sender, EventArgs e)
+        private void OnAutoImport(object sender, EventArgs e)
         {
             try
             {
@@ -765,55 +776,58 @@ namespace treeDiM.StackBuilder.Desktop
                 int iSel = context.Position.Row - 1;
                 SourceGrid.Grid g = context.Grid as SourceGrid.Grid;
 
-                if (g == gridPallets)
+                using (WCFClient wcfClient = new WCFClient())
                 {
-                    WCFClientSingleton.Instance.Client.SetAutoInsert(DCSBTypeEnum.TPallet, _pallets[iSel].ID, !_pallets[iSel].AutoInsert);
-                    FillGridPallets();
-                }
-                else if (g == gridPalletCorners)
-                {
-                    WCFClientSingleton.Instance.Client.SetAutoInsert(DCSBTypeEnum.TPalletCorner, _palletCorners[iSel].ID, !_palletCorners[iSel].AutoInsert);
-                    FillGridPalletCorners();
-                }
-                else if (g == gridPalletCaps)
-                {
-                    WCFClientSingleton.Instance.Client.SetAutoInsert(DCSBTypeEnum.TPalletCap, _palletCaps[iSel].ID, !_palletCaps[iSel].AutoInsert);
-                    FillGridPalletCaps();
-                }
-                else if (g == gridPalletFilms)
-                {
-                    WCFClientSingleton.Instance.Client.SetAutoInsert(DCSBTypeEnum.TPalletFilm, _palletFilms[iSel].ID, !_palletFilms[iSel].AutoInsert);
-                    FillGridPalletFilms();
-                }
-                else if (g == gridInterlayers)
-                {
-                    WCFClientSingleton.Instance.Client.SetAutoInsert(DCSBTypeEnum.TInterlayer, _interlayers[iSel].ID, !_interlayers[iSel].AutoInsert);
-                    FillGridInterlayers();
-                }
-                else if (g == gridBoxes)
-                {
-                    WCFClientSingleton.Instance.Client.SetAutoInsert(DCSBTypeEnum.TCase, _boxes[iSel].ID, !_boxes[iSel].AutoInsert);
-                    FillGridBoxes();
-                }
-                else if (g == gridCases)
-                {
-                    WCFClientSingleton.Instance.Client.SetAutoInsert(DCSBTypeEnum.TCase, _cases[iSel].ID, !_cases[iSel].AutoInsert);
-                    FillGridCases();
-                }
-                else if (g == gridBundles)
-                {
-                    WCFClientSingleton.Instance.Client.SetAutoInsert(DCSBTypeEnum.TBundle, _bundles[iSel].ID, !_bundles[iSel].AutoInsert);
-                    FillGridBundles();
-                }
-                else if (g == gridCylinders)
-                {
-                    WCFClientSingleton.Instance.Client.SetAutoInsert(DCSBTypeEnum.TCylinder, _cylinders[iSel].ID, !_cylinders[iSel].AutoInsert);
-                    FillGridCylinders();
-                }
-                else if (g == gridTrucks)
-                {
-                    WCFClientSingleton.Instance.Client.SetAutoInsert(DCSBTypeEnum.TTruck, _trucks[iSel].ID, !_trucks[iSel].AutoInsert);
-                    FillGridTrucks();
+                    if (g == gridPallets)
+                    {
+                        wcfClient.Client.SetAutoInsert(DCSBTypeEnum.TPallet, _pallets[iSel].ID, !_pallets[iSel].AutoInsert);
+                        FillGridPallets(wcfClient);
+                    }
+                    else if (g == gridPalletCorners)
+                    {
+                        wcfClient.Client.SetAutoInsert(DCSBTypeEnum.TPalletCorner, _palletCorners[iSel].ID, !_palletCorners[iSel].AutoInsert);
+                        FillGridPalletCorners(wcfClient);
+                    }
+                    else if (g == gridPalletCaps)
+                    {
+                        wcfClient.Client.SetAutoInsert(DCSBTypeEnum.TPalletCap, _palletCaps[iSel].ID, !_palletCaps[iSel].AutoInsert);
+                        FillGridPalletCaps(wcfClient);
+                    }
+                    else if (g == gridPalletFilms)
+                    {
+                        wcfClient.Client.SetAutoInsert(DCSBTypeEnum.TPalletFilm, _palletFilms[iSel].ID, !_palletFilms[iSel].AutoInsert);
+                        FillGridPalletFilms(wcfClient);
+                    }
+                    else if (g == gridInterlayers)
+                    {
+                        wcfClient.Client.SetAutoInsert(DCSBTypeEnum.TInterlayer, _interlayers[iSel].ID, !_interlayers[iSel].AutoInsert);
+                        FillGridInterlayers(wcfClient);
+                    }
+                    else if (g == gridBoxes)
+                    {
+                        wcfClient.Client.SetAutoInsert(DCSBTypeEnum.TCase, _boxes[iSel].ID, !_boxes[iSel].AutoInsert);
+                        FillGridBoxes(wcfClient);
+                    }
+                    else if (g == gridCases)
+                    {
+                        wcfClient.Client.SetAutoInsert(DCSBTypeEnum.TCase, _cases[iSel].ID, !_cases[iSel].AutoInsert);
+                        FillGridCases(wcfClient);
+                    }
+                    else if (g == gridBundles)
+                    {
+                        wcfClient.Client.SetAutoInsert(DCSBTypeEnum.TBundle, _bundles[iSel].ID, !_bundles[iSel].AutoInsert);
+                        FillGridBundles(wcfClient);
+                    }
+                    else if (g == gridCylinders)
+                    {
+                        wcfClient.Client.SetAutoInsert(DCSBTypeEnum.TCylinder, _cylinders[iSel].ID, !_cylinders[iSel].AutoInsert);
+                        FillGridCylinders(wcfClient);
+                    }
+                    else if (g == gridTrucks)
+                    {
+                        wcfClient.Client.SetAutoInsert(DCSBTypeEnum.TTruck, _trucks[iSel].ID, !_trucks[iSel].AutoInsert);
+                        FillGridTrucks(wcfClient);
+                    }
                 }
             }
             catch (Exception ex)
@@ -821,7 +835,7 @@ namespace treeDiM.StackBuilder.Desktop
                 _log.Error(ex.Message);
             }
         }
-        private void onDeleteItem(object sender, EventArgs e)
+        private void OnDeleteItem(object sender, EventArgs e)
         {
             try
             {
@@ -829,50 +843,53 @@ namespace treeDiM.StackBuilder.Desktop
                 int iSel = context.Position.Row - 1;
                 SourceGrid.Grid g = context.Grid as SourceGrid.Grid;
 
-                if (g == gridPallets)
+                using (WCFClient wcfClient = new WCFClient())
                 {
-                    WCFClientSingleton.Instance.Client.RemoveItemById(DCSBTypeEnum.TPallet, _pallets[iSel].ID);
-                    FillGridPallets();
-                }
-                else if (g == gridPalletCorners)
-                {
-                    WCFClientSingleton.Instance.Client.RemoveItemById(DCSBTypeEnum.TPalletCorner, _palletCorners[iSel].ID);
-                    FillGridPalletCorners();
-                }
-                else if (g == gridPalletCaps)
-                {
-                    WCFClientSingleton.Instance.Client.RemoveItemById(DCSBTypeEnum.TPalletCap, _palletCaps[iSel].ID);
-                    FillGridPalletCaps();
-                }
-                else if (g == gridPalletFilms)
-                {
-                    WCFClientSingleton.Instance.Client.RemoveItemById(DCSBTypeEnum.TPalletFilm, _palletFilms[iSel].ID);
-                    FillGridPalletFilms();
-                }
-                else if (g == gridBoxes)
-                {
-                    WCFClientSingleton.Instance.Client.RemoveItemById(DCSBTypeEnum.TCase, _boxes[iSel].ID);
-                    FillGridBoxes();
-                }
-                else if (g == gridCases)
-                {
-                    WCFClientSingleton.Instance.Client.RemoveItemById(DCSBTypeEnum.TCase, _cases[iSel].ID);
-                    FillGridCases();
-                }
-                else if (g == gridBundles)
-                {
-                    WCFClientSingleton.Instance.Client.RemoveItemById(DCSBTypeEnum.TBundle, _bundles[iSel].ID);
-                    FillGridBundles();
-                }
-                else if (g == gridCylinders)
-                {
-                    WCFClientSingleton.Instance.Client.RemoveItemById(DCSBTypeEnum.TCylinder, _cylinders[iSel].ID);
-                    FillGridCylinders();
-                }
-                else if (g == gridTrucks)
-                {
-                    WCFClientSingleton.Instance.Client.RemoveItemById(DCSBTypeEnum.TTruck, _trucks[iSel].ID);
-                    FillGridTrucks();
+                    if (g == gridPallets)
+                    {
+                        wcfClient.Client.RemoveItemById(DCSBTypeEnum.TPallet, _pallets[iSel].ID);
+                        FillGridPallets(wcfClient);
+                    }
+                    else if (g == gridPalletCorners)
+                    {
+                        wcfClient.Client.RemoveItemById(DCSBTypeEnum.TPalletCorner, _palletCorners[iSel].ID);
+                        FillGridPalletCorners(wcfClient);
+                    }
+                    else if (g == gridPalletCaps)
+                    {
+                        wcfClient.Client.RemoveItemById(DCSBTypeEnum.TPalletCap, _palletCaps[iSel].ID);
+                        FillGridPalletCaps(wcfClient);
+                    }
+                    else if (g == gridPalletFilms)
+                    {
+                        wcfClient.Client.RemoveItemById(DCSBTypeEnum.TPalletFilm, _palletFilms[iSel].ID);
+                        FillGridPalletFilms(wcfClient);
+                    }
+                    else if (g == gridBoxes)
+                    {
+                        wcfClient.Client.RemoveItemById(DCSBTypeEnum.TCase, _boxes[iSel].ID);
+                        FillGridBoxes(wcfClient);
+                    }
+                    else if (g == gridCases)
+                    {
+                        wcfClient.Client.RemoveItemById(DCSBTypeEnum.TCase, _cases[iSel].ID);
+                        FillGridCases(wcfClient);
+                    }
+                    else if (g == gridBundles)
+                    {
+                        wcfClient.Client.RemoveItemById(DCSBTypeEnum.TBundle, _bundles[iSel].ID);
+                        FillGridBundles(wcfClient);
+                    }
+                    else if (g == gridCylinders)
+                    {
+                        wcfClient.Client.RemoveItemById(DCSBTypeEnum.TCylinder, _cylinders[iSel].ID);
+                        FillGridCylinders(wcfClient);
+                    }
+                    else if (g == gridTrucks)
+                    {
+                        wcfClient.Client.RemoveItemById(DCSBTypeEnum.TTruck, _trucks[iSel].ID);
+                        FillGridTrucks(wcfClient);
+                    }
                 }
             }
             catch (Exception ex)
@@ -880,38 +897,41 @@ namespace treeDiM.StackBuilder.Desktop
                 _log.Error(ex.Message);
             }
         }
-        private void onSelectedTabChanged(object sender, EventArgs e)
+        private void OnSelectedTabChanged(object sender, EventArgs e)
         {
             try
             {
                 string tabName = tabCtrlDBItems.SelectedTab.Name;
-                if (string.Equals(tabName, "tabPagePallet"))
-                    FillGridPallets();
-                else if (string.Equals(tabName, "tabPagePalletCorner"))
-                    FillGridPalletCorners();
-                else if (string.Equals(tabName, "tabPagePalletCap"))
-                    FillGridPalletCaps();
-                else if (string.Equals(tabName, "tabPagePalletFilm"))
-                    FillGridPalletFilms();
-                else if (string.Equals(tabName, "tabPageInterlayer"))
-                    FillGridInterlayers();
-                else if (string.Equals(tabName, "tabPageBundle"))
-                    FillGridBundles();
-                else if (string.Equals(tabName, "tabPageBox"))
-                    FillGridBoxes();
-                else if (string.Equals(tabName, "tabPageCase"))
-                    FillGridCases();
-                else if (string.Equals(tabName, "tabPageCylinder"))
-                    FillGridCylinders();
-                else if (string.Equals(tabName, "tabPageTruck"))
-                    FillGridTrucks();
+                using (WCFClient wcfClient = new WCFClient())
+                {
+                    if (string.Equals(tabName, "tabPagePallet"))
+                        FillGridPallets(wcfClient);
+                    else if (string.Equals(tabName, "tabPagePalletCorner"))
+                        FillGridPalletCorners(wcfClient);
+                    else if (string.Equals(tabName, "tabPagePalletCap"))
+                        FillGridPalletCaps(wcfClient);
+                    else if (string.Equals(tabName, "tabPagePalletFilm"))
+                        FillGridPalletFilms(wcfClient);
+                    else if (string.Equals(tabName, "tabPageInterlayer"))
+                        FillGridInterlayers(wcfClient);
+                    else if (string.Equals(tabName, "tabPageBundle"))
+                        FillGridBundles(wcfClient);
+                    else if (string.Equals(tabName, "tabPageBox"))
+                        FillGridBoxes(wcfClient);
+                    else if (string.Equals(tabName, "tabPageCase"))
+                        FillGridCases(wcfClient);
+                    else if (string.Equals(tabName, "tabPageCylinder"))
+                        FillGridCylinders(wcfClient);
+                    else if (string.Equals(tabName, "tabPageTruck"))
+                        FillGridTrucks(wcfClient);
+                }
             }
             catch (Exception ex)
             {
                 _log.Error(ex.Message);
             }            
         }
-        private void onSelChangeGrid(object sender, SourceGrid.RangeRegionChangedEventArgs e)
+        private void OnSelChangeGrid(object sender, SourceGrid.RangeRegionChangedEventArgs e)
         {
             try
             {
@@ -943,7 +963,7 @@ namespace treeDiM.StackBuilder.Desktop
                 _log.Error(ex.Message);
             }
         }
-        private void onImport(object sender, EventArgs e)
+        private void OnImport(object sender, EventArgs e)
         {
             // sanity check
             if (null == _doc || null == _selectedItem) return;
@@ -955,8 +975,7 @@ namespace treeDiM.StackBuilder.Desktop
             try
             {
                 // pallet
-                DCSBPallet dcsbPallet = _selectedItem as DCSBPallet;
-                if (null != dcsbPallet)
+                if (_selectedItem is DCSBPallet dcsbPallet)
                 {
                     PalletProperties palletProperties = _doc.CreateNewPallet(
                         name, dcsbPallet.Description,
@@ -971,8 +990,7 @@ namespace treeDiM.StackBuilder.Desktop
                         palletProperties.AdmissibleLoadWeight = UnitsManager.ConvertMassFrom(dcsbPallet.AdmissibleLoad.Value, us);
                 }
                 // interlayer
-                DCSBInterlayer dcsbInterlayer = _selectedItem as DCSBInterlayer;
-                if (null != dcsbInterlayer)
+                if (_selectedItem is DCSBInterlayer dcsbInterlayer)
                 {
                     InterlayerProperties interlayerProp = _doc.CreateNewInterlayer(
                         name, dcsbInterlayer.Description,
@@ -984,12 +1002,11 @@ namespace treeDiM.StackBuilder.Desktop
                         );
                 }
                 // case
-                DCSBCase dcsbCase = _selectedItem as DCSBCase;
-                if (null != dcsbCase)
+                if (_selectedItem is DCSBCase dcsbCase)
                 {
                     Color[] colors = new Color[6];
-                    for (int i=0; i<6; ++i)
-                         colors[i] = Color.FromArgb(dcsbCase.Colors[i]);
+                    for (int i = 0; i < 6; ++i)
+                        colors[i] = Color.FromArgb(dcsbCase.Colors[i]);
 
                     BoxProperties bProperties = null;
                     if (dcsbCase.IsCase)
@@ -1014,13 +1031,12 @@ namespace treeDiM.StackBuilder.Desktop
                     bProperties.TapeColor = Color.FromArgb(dcsbCase.TapeColor);
                     bProperties.SetNetWeight(
                         new OptDouble(!dcsbCase.HasInnerDims && dcsbCase.NetWeight.HasValue
-                            , dcsbCase.NetWeight.HasValue ? dcsbCase.NetWeight.Value : 0.0) );
-                    List<Pair<HalfAxis.HAxis, Texture>> textures = new List<Pair<HalfAxis.HAxis,Texture>>();
+                            , dcsbCase.NetWeight ?? 0.0));
+                    List<Pair<HalfAxis.HAxis, Texture>> textures = new List<Pair<HalfAxis.HAxis, Texture>>();
                     bProperties.TextureList = textures;
                 }
                 // bundle
-                DCSBBundle dcsbBundle = _selectedItem as DCSBBundle;
-                if (null != dcsbBundle)
+                if (_selectedItem is DCSBBundle dcsbBundle)
                 {
                     BundleProperties bundle = _doc.CreateNewBundle(name, dcsbBundle.Description,
                         UnitsManager.ConvertLengthFrom(dcsbBundle.DimensionsUnit.M0, us),
@@ -1031,9 +1047,8 @@ namespace treeDiM.StackBuilder.Desktop
                         dcsbBundle.Number);
                 }
                 // cylinder
-                DCSBCylinder dcsbCylinder = _selectedItem as DCSBCylinder;
-                if (null != dcsbCylinder)
-                { 
+                if (_selectedItem is DCSBCylinder dcsbCylinder)
+                {
                     CylinderProperties cylProp = _doc.CreateNewCylinder(
                         name, dcsbCylinder.Description,
                         UnitsManager.ConvertLengthFrom(dcsbCylinder.RadiusOuter, us),
@@ -1041,11 +1056,10 @@ namespace treeDiM.StackBuilder.Desktop
                         UnitsManager.ConvertLengthFrom(dcsbCylinder.Height, us),
                         UnitsManager.ConvertMassFrom(dcsbCylinder.Weight, us),
                         Color.FromArgb(dcsbCylinder.ColorTop), Color.FromArgb(dcsbCylinder.ColorOuter), Color.FromArgb(dcsbCylinder.ColorInner)
-                        );                
+                        );
                 }
                 // trucks
-                DCSBTruck dcsbTruck = _selectedItem as DCSBTruck;
-                if (null != dcsbTruck)
+                if (_selectedItem is DCSBTruck dcsbTruck)
                 {
                     TruckProperties truckProp = _doc.CreateNewTruck(
                         name, dcsbTruck.Description,
@@ -1057,8 +1071,7 @@ namespace treeDiM.StackBuilder.Desktop
                         );
                 }
                 // pallet cap
-                DCSBPalletCap dcsbCap = _selectedItem as DCSBPalletCap;
-                if (null != dcsbCap)
+                if (_selectedItem is DCSBPalletCap dcsbCap)
                 {
                     PalletCapProperties palletCapProperties = _doc.CreateNewPalletCap(
                         dcsbCap.Name, dcsbCap.Description,
@@ -1073,8 +1086,7 @@ namespace treeDiM.StackBuilder.Desktop
                         );
                 }
                 // pallet corner
-                DCSBPalletCorner dcsbPalletCorner = _selectedItem as DCSBPalletCorner;
-                if (null != dcsbPalletCorner)
+                if (_selectedItem is DCSBPalletCorner dcsbPalletCorner)
                 {
                     PalletCornerProperties palletCornerProperties = _doc.CreateNewPalletCorners(
                         name, dcsbPalletCorner.Description,
@@ -1086,8 +1098,7 @@ namespace treeDiM.StackBuilder.Desktop
                         );
                 }
                 // pallet film
-                DCSBPalletFilm dcsbPalletFilm = _selectedItem as DCSBPalletFilm;
-                if (null != dcsbPalletFilm)
+                if (_selectedItem is DCSBPalletFilm dcsbPalletFilm)
                 {
                     PalletFilmProperties palletFilm = _doc.CreateNewPalletFilm(name, dcsbPalletFilm.Description,
                         dcsbPalletFilm.UseTransparency, dcsbPalletFilm.UseHatching,

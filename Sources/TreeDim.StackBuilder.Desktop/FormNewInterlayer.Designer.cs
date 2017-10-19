@@ -74,7 +74,7 @@
             this.uCtrlDimensions.ValueX = 0D;
             this.uCtrlDimensions.ValueY = 0D;
             this.uCtrlDimensions.ValueZ = 0D;
-            this.uCtrlDimensions.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlTriDouble.onValueChanged(this.onValueChanged);
+            this.uCtrlDimensions.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlTriDouble.ValueChangedDelegate(this.OnValueChanged);
             // 
             // uCtrlWeight
             // 
@@ -87,7 +87,7 @@
             this.uCtrlWeight.Name = "uCtrlWeight";
             this.uCtrlWeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_MASS;
             this.uCtrlWeight.Value = 0D;
-            this.uCtrlWeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.onValueChanged(this.onValueChanged);
+            this.uCtrlWeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.ValueChangedDelegate(this.OnValueChanged);
             // 
             // cbColor
             // 
@@ -143,7 +143,7 @@
             resources.GetString("cbColor.Items42"),
             resources.GetString("cbColor.Items43")});
             this.cbColor.Name = "cbColor";
-            this.cbColor.SelectedColorChanged += new System.EventHandler(this.onValueChanged);
+            this.cbColor.SelectedColorChanged += new System.EventHandler(this.OnValueChanged);
             // 
             // lbColor
             // 
@@ -155,7 +155,7 @@
             resources.ApplyResources(this.bnSendToDatabase, "bnSendToDatabase");
             this.bnSendToDatabase.Name = "bnSendToDatabase";
             this.bnSendToDatabase.UseVisualStyleBackColor = true;
-            this.bnSendToDatabase.Click += new System.EventHandler(this.onSendToDatabase);
+            this.bnSendToDatabase.Click += new System.EventHandler(this.OnSendToDatabase);
             // 
             // FormNewInterlayer
             // 

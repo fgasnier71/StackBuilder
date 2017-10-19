@@ -136,7 +136,7 @@ namespace treeDiM.StackBuilder.Desktop
             base.UpdateStatus(message);
         }
 
-        private void onTruckPropertyChanged(object sender, EventArgs e)
+        private void OnTruckPropertyChanged(object sender, EventArgs e)
         {
             UpdateStatus(string.Empty);
             graphCtrl.Invalidate();
@@ -144,7 +144,7 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Send to database
-        private void onSendToDatabase(object sender, EventArgs e)
+        private void OnSendToDatabase(object sender, EventArgs e)
         {
             try
             {
@@ -154,18 +154,20 @@ namespace treeDiM.StackBuilder.Desktop
                 };
                 if (DialogResult.OK == form.ShowDialog())
                 {
-                    PLMPackServiceClient client = WCFClientSingleton.Instance.Client;
-                    client.CreateNewTruck(new DCSBTruck()
-                            {
-                                Name = form.ItemName,
-                                Description = ItemDescription,
-                                UnitSystem = (int)UnitsManager.CurrentUnitSystem,
-                                DimensionsInner = new DCSBDim3D() { M0 = TruckLength, M1 = TruckWidth, M2 = TruckHeight },
-                                AdmissibleLoad = TruckAdmissibleLoadWeight,
-                                Color = TruckColor.ToArgb(),
-                                AutoInsert = false
-                            }
-                        );
+                    using (WCFClient wcfClient = new WCFClient())
+                    {
+                        wcfClient.Client.CreateNewTruck(new DCSBTruck()
+                        {
+                            Name = form.ItemName,
+                            Description = ItemDescription,
+                            UnitSystem = (int)UnitsManager.CurrentUnitSystem,
+                            DimensionsInner = new DCSBDim3D() { M0 = TruckLength, M1 = TruckWidth, M2 = TruckHeight },
+                            AdmissibleLoad = TruckAdmissibleLoadWeight,
+                            Color = TruckColor.ToArgb(),
+                            AutoInsert = false
+                        }
+                            );
+                    }
                     Close();
                 }
             }

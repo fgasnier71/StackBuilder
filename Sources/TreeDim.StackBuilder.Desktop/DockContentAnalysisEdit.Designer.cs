@@ -116,7 +116,7 @@
             resources.ApplyResources(this.chkbInterlayer, "chkbInterlayer");
             this.chkbInterlayer.Name = "chkbInterlayer";
             this.chkbInterlayer.UseVisualStyleBackColor = true;
-            this.chkbInterlayer.CheckedChanged += new System.EventHandler(this.onChkbInterlayerClicked);
+            this.chkbInterlayer.CheckedChanged += new System.EventHandler(this.OnChkbInterlayerClicked);
             // 
             // cbInterlayer
             // 
@@ -124,7 +124,7 @@
             this.cbInterlayer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbInterlayer.FormattingEnabled = true;
             this.cbInterlayer.Name = "cbInterlayer";
-            this.cbInterlayer.SelectedIndexChanged += new System.EventHandler(this.onInterlayerChanged);
+            this.cbInterlayer.SelectedIndexChanged += new System.EventHandler(this.OnInterlayerChanged);
             // 
             // cbLayerType
             // 
@@ -133,21 +133,21 @@
             this.cbLayerType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbLayerType.FormattingEnabled = true;
             this.cbLayerType.Name = "cbLayerType";
-            this.cbLayerType.SelectedIndexChanged += new System.EventHandler(this.onLayerTypeChanged);
+            this.cbLayerType.SelectedIndexChanged += new System.EventHandler(this.OnLayerTypeChanged);
             // 
             // bnSymmetryX
             // 
             resources.ApplyResources(this.bnSymmetryX, "bnSymmetryX");
             this.bnSymmetryX.Name = "bnSymmetryX";
             this.bnSymmetryX.UseVisualStyleBackColor = true;
-            this.bnSymmetryX.Click += new System.EventHandler(this.onReflectionX);
+            this.bnSymmetryX.Click += new System.EventHandler(this.OnReflectionX);
             // 
             // bnSymetryY
             // 
             resources.ApplyResources(this.bnSymetryY, "bnSymetryY");
             this.bnSymetryY.Name = "bnSymetryY";
             this.bnSymetryY.UseVisualStyleBackColor = true;
-            this.bnSymetryY.Click += new System.EventHandler(this.onReflectionY);
+            this.bnSymetryY.Click += new System.EventHandler(this.OnReflectionY);
             // 
             // tbClickLayer
             // 
@@ -168,14 +168,14 @@
             this.toolStripButtonBack.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             resources.ApplyResources(this.toolStripButtonBack, "toolStripButtonBack");
             this.toolStripButtonBack.Name = "toolStripButtonBack";
-            this.toolStripButtonBack.Click += new System.EventHandler(this.onBack);
+            this.toolStripButtonBack.Click += new System.EventHandler(this.OnBack);
             // 
             // toolStripButtonReport
             // 
             this.toolStripButtonReport.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             resources.ApplyResources(this.toolStripButtonReport, "toolStripButtonReport");
             this.toolStripButtonReport.Name = "toolStripButtonReport";
-            this.toolStripButtonReport.Click += new System.EventHandler(this.onGenerateReport);
+            this.toolStripButtonReport.Click += new System.EventHandler(this.OnGenerateReport);
             // 
             // DockContentAnalysisEdit
             // 

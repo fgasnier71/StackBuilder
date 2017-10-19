@@ -47,7 +47,7 @@
             // 
             resources.ApplyResources(this.tbItemName, "tbItemName");
             this.tbItemName.Name = "tbItemName";
-            this.tbItemName.TextChanged += new System.EventHandler(this.onItemNameChanged);
+            this.tbItemName.TextChanged += new System.EventHandler(this.OnItemNameChanged);
             // 
             // bnOK
             // 

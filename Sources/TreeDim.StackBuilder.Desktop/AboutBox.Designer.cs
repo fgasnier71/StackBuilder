@@ -90,14 +90,14 @@
             resources.ApplyResources(this.linkLabelUrl, "linkLabelUrl");
             this.linkLabelUrl.Name = "linkLabelUrl";
             this.linkLabelUrl.TabStop = true;
-            this.linkLabelUrl.Click += new System.EventHandler(this.linkLabelUrl_Click);
+            this.linkLabelUrl.Click += new System.EventHandler(this.OnLinkLabelUrlClick);
             // 
             // linkLabelEmail
             // 
             resources.ApplyResources(this.linkLabelEmail, "linkLabelEmail");
             this.linkLabelEmail.Name = "linkLabelEmail";
             this.linkLabelEmail.TabStop = true;
-            this.linkLabelEmail.Click += new System.EventHandler(this.linkLabelEmail_Click);
+            this.linkLabelEmail.Click += new System.EventHandler(this.OnLinkLabelEmailClick);
             // 
             // okButton
             // 

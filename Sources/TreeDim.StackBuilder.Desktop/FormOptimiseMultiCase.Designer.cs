@@ -195,7 +195,7 @@
             this.uCtrlCaseDimensionsMin.X = 0D;
             this.uCtrlCaseDimensionsMin.Y = 0D;
             this.uCtrlCaseDimensionsMin.Z = 0D;
-            this.uCtrlCaseDimensionsMin.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlOptTriDouble.onValueChanged(this.OnFillListCases);
+            this.uCtrlCaseDimensionsMin.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlOptTriDouble.ValueChangedDelegate(this.OnFillListCases);
             // 
             // uCtrlCaseDimensionsMax
             // 
@@ -212,7 +212,7 @@
             this.uCtrlCaseDimensionsMax.X = 0D;
             this.uCtrlCaseDimensionsMax.Y = 0D;
             this.uCtrlCaseDimensionsMax.Z = 0D;
-            this.uCtrlCaseDimensionsMax.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlOptTriDouble.onValueChanged(this.OnFillListCases);
+            this.uCtrlCaseDimensionsMax.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlOptTriDouble.ValueChangedDelegate(this.OnFillListCases);
             // 
             // FormOptimiseMultiCase
             // 

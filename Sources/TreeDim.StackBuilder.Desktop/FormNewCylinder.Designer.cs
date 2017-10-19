@@ -71,7 +71,7 @@
             this.uCtrlHeight.Name = "uCtrlHeight";
             this.uCtrlHeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlHeight.Value = 0D;
-            this.uCtrlHeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.onValueChanged(this.onValueChanged);
+            this.uCtrlHeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.ValueChangedDelegate(this.OnValueChanged);
             // 
             // uCtrlDiameterInner
             // 
@@ -84,7 +84,7 @@
             this.uCtrlDiameterInner.Name = "uCtrlDiameterInner";
             this.uCtrlDiameterInner.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlDiameterInner.Value = 0D;
-            this.uCtrlDiameterInner.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.onValueChanged(this.onValueChanged);
+            this.uCtrlDiameterInner.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.ValueChangedDelegate(this.OnValueChanged);
             // 
             // uCtrlDiameterOuter
             // 
@@ -97,7 +97,7 @@
             this.uCtrlDiameterOuter.Name = "uCtrlDiameterOuter";
             this.uCtrlDiameterOuter.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlDiameterOuter.Value = 0D;
-            this.uCtrlDiameterOuter.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.onValueChanged(this.onValueChanged);
+            this.uCtrlDiameterOuter.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.ValueChangedDelegate(this.OnValueChanged);
             // 
             // gbWeight
             // 
@@ -118,7 +118,7 @@
             this.uCtrlNetWeight.Name = "uCtrlNetWeight";
             this.uCtrlNetWeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_MASS;
             this.uCtrlNetWeight.Value = ((treeDiM.StackBuilder.Basics.OptDouble)(resources.GetObject("uCtrlNetWeight.Value")));
-            this.uCtrlNetWeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlOptDouble.onValueChanged(this.onValueChanged);
+            this.uCtrlNetWeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlOptDouble.ValueChangedDelegate(this.OnValueChanged);
             // 
             // uCtrlWeight
             // 
@@ -131,7 +131,7 @@
             this.uCtrlWeight.Name = "uCtrlWeight";
             this.uCtrlWeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_MASS;
             this.uCtrlWeight.Value = 0D;
-            this.uCtrlWeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.onValueChanged(this.onValueChanged);
+            this.uCtrlWeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.ValueChangedDelegate(this.OnValueChanged);
             // 
             // graphCtrl
             // 
@@ -252,7 +252,7 @@
             resources.GetString("cbColorWallInner.Items88"),
             resources.GetString("cbColorWallInner.Items89")});
             this.cbColorWallInner.Name = "cbColorWallInner";
-            this.cbColorWallInner.SelectedColorChanged += new System.EventHandler(this.onValueChanged);
+            this.cbColorWallInner.SelectedColorChanged += new System.EventHandler(this.OnValueChanged);
             // 
             // label1
             // 
@@ -358,7 +358,7 @@
             resources.GetString("cbColorWallOuter.Items87"),
             resources.GetString("cbColorWallOuter.Items88")});
             this.cbColorWallOuter.Name = "cbColorWallOuter";
-            this.cbColorWallOuter.SelectedColorChanged += new System.EventHandler(this.onValueChanged);
+            this.cbColorWallOuter.SelectedColorChanged += new System.EventHandler(this.OnValueChanged);
             // 
             // lbWallColor
             // 
@@ -463,7 +463,7 @@
             resources.GetString("cbColorTop.Items86"),
             resources.GetString("cbColorTop.Items87")});
             this.cbColorTop.Name = "cbColorTop";
-            this.cbColorTop.SelectedColorChanged += new System.EventHandler(this.onValueChanged);
+            this.cbColorTop.SelectedColorChanged += new System.EventHandler(this.OnValueChanged);
             // 
             // lbTop
             // 
@@ -475,7 +475,7 @@
             resources.ApplyResources(this.bnSendToDB, "bnSendToDB");
             this.bnSendToDB.Name = "bnSendToDB";
             this.bnSendToDB.UseVisualStyleBackColor = true;
-            this.bnSendToDB.Click += new System.EventHandler(this.onSendToDatabase);
+            this.bnSendToDB.Click += new System.EventHandler(this.OnSendToDatabase);
             // 
             // FormNewCylinder
             // 

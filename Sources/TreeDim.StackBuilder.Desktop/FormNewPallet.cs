@@ -49,7 +49,7 @@ namespace treeDiM.StackBuilder.Desktop
             {
                 // set selected item
                 PalletTypeName = Properties.Settings.Default.PalletTypeName;
-                onPalletTypeChanged(this, null);
+                OnPalletTypeChanged(this, null);
             }
             // set unit labels
             UnitsManager.AdaptUnitLabels(this);
@@ -149,11 +149,11 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Handlers
-        private void onPalletPropertyChanged(object sender, EventArgs e)
+        private void OnPalletPropertyChanged(object sender, EventArgs e)
         {
             graphCtrl.Invalidate();
         }
-        private void onPalletTypeChanged(object sender, EventArgs e)
+        private void OnPalletTypeChanged(object sender, EventArgs e)
         {
             PalletData palletData = PalletData.GetByName(PalletTypeName);
             if (null == palletData) return;
@@ -172,7 +172,7 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Send to database
-        private void onSendToDB(object sender, EventArgs e)
+        private void OnSendToDatabase(object sender, EventArgs e)
         {
             try
             {
@@ -182,20 +182,22 @@ namespace treeDiM.StackBuilder.Desktop
                 };
                 if (DialogResult.OK == form.ShowDialog())
                 {
-                    PLMPackServiceClient client = WCFClientSingleton.Instance.Client;
-                    client.CreateNewPallet(new DCSBPallet()
-                            {
-                                Name = form.ItemName,
-                                Description = ItemDescription,
-                                UnitSystem = (int)UnitsManager.CurrentUnitSystem,
-                                PalletType = PalletTypeName,
-                                Dimensions = new DCSBDim3D() { M0 = PalletLength, M1 = PalletWidth, M2 = PalletHeight },
-                                Weight = Weight,
-                                AdmissibleLoad = AdmissibleLoad,
-                                Color = PalletColor.ToArgb(),
-                                AutoInsert = false
-                            }
-                        );
+                    using (WCFClient wcfClient = new WCFClient())
+                    {
+                        wcfClient.Client.CreateNewPallet(new DCSBPallet()
+                        {
+                            Name = form.ItemName,
+                            Description = ItemDescription,
+                            UnitSystem = (int)UnitsManager.CurrentUnitSystem,
+                            PalletType = PalletTypeName,
+                            Dimensions = new DCSBDim3D() { M0 = PalletLength, M1 = PalletWidth, M2 = PalletHeight },
+                            Weight = Weight,
+                            AdmissibleLoad = AdmissibleLoad,
+                            Color = PalletColor.ToArgb(),
+                            AutoInsert = false
+                        }
+                            );
+                    }
                 }
             }
             catch (Exception ex)

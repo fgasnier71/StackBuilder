@@ -75,7 +75,7 @@
             this.nudValueY.Name = "nudValueY";
             this.nudValueY.Size = new System.Drawing.Size(60, 20);
             this.nudValueY.TabIndex = 5;
-            this.nudValueY.ValueChanged += new System.EventHandler(this.OnValueChanged);
+            this.nudValueY.ValueChanged += new System.EventHandler(this.OnValueChangedLocal);
             // 
             // nudValueX
             // 
@@ -96,7 +96,7 @@
             this.nudValueX.Name = "nudValueX";
             this.nudValueX.Size = new System.Drawing.Size(60, 20);
             this.nudValueX.TabIndex = 7;
-            this.nudValueX.ValueChanged += new System.EventHandler(this.OnValueChanged);
+            this.nudValueX.ValueChanged += new System.EventHandler(this.OnValueChangedLocal);
             // 
             // UCtrlDualDouble
             // 

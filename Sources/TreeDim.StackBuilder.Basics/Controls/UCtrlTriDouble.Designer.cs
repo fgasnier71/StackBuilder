@@ -52,7 +52,7 @@
             this.nudValueX.Name = "nudValueX";
             this.nudValueX.Size = new System.Drawing.Size(60, 20);
             this.nudValueX.TabIndex = 0;
-            this.nudValueX.ValueChanged += new System.EventHandler(this.nudValue_ValueChanged);
+            this.nudValueX.ValueChanged += new System.EventHandler(this.OnValueChangedLocal);
             // 
             // nudValueY
             // 
@@ -68,7 +68,7 @@
             this.nudValueY.Name = "nudValueY";
             this.nudValueY.Size = new System.Drawing.Size(60, 20);
             this.nudValueY.TabIndex = 1;
-            this.nudValueY.ValueChanged += new System.EventHandler(this.nudValue_ValueChanged);
+            this.nudValueY.ValueChanged += new System.EventHandler(this.OnValueChangedLocal);
             // 
             // nudValueZ
             // 
@@ -84,7 +84,7 @@
             this.nudValueZ.Name = "nudValueZ";
             this.nudValueZ.Size = new System.Drawing.Size(60, 20);
             this.nudValueZ.TabIndex = 2;
-            this.nudValueZ.ValueChanged += new System.EventHandler(this.nudValue_ValueChanged);
+            this.nudValueZ.ValueChanged += new System.EventHandler(this.OnValueChangedLocal);
             // 
             // lbName
             // 
@@ -117,7 +117,7 @@
             this.Controls.Add(this.nudValueX);
             this.Name = "UCtrlTriDouble";
             this.Size = new System.Drawing.Size(350, 20);
-            this.SizeChanged += new System.EventHandler(this.onSizeChanged);
+            this.SizeChanged += new System.EventHandler(this.OnSizeChanged);
             ((System.ComponentModel.ISupportInitialize)(this.nudValueX)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudValueY)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudValueZ)).EndInit();

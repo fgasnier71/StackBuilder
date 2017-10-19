@@ -79,8 +79,7 @@ namespace treeDiM.StackBuilder.Desktop
         public override void Modify()
         {
             _dirty = true;
-            if (null != Modified)
-                Modified(this, new EventArgs());
+            Modified?.Invoke(this, new EventArgs());
         }
 
         public List<IView> Views { get { return _views; } }

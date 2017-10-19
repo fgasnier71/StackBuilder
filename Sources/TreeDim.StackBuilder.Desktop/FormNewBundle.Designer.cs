@@ -104,7 +104,7 @@
             resources.GetString("cbColor.Items34"),
             resources.GetString("cbColor.Items35")});
             this.cbColor.Name = "cbColor";
-            this.cbColor.SelectedColorChanged += new System.EventHandler(this.onBundlePropertyChanged);
+            this.cbColor.SelectedColorChanged += new System.EventHandler(this.OnBundlePropertyChanged);
             // 
             // lbColor
             // 
@@ -142,19 +142,19 @@
             this.uCtrlWeight.Name = "uCtrlWeight";
             this.uCtrlWeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_MASS;
             this.uCtrlWeight.Value = 0D;
-            this.uCtrlWeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.onValueChanged(this.onBundlePropertyChanged);
+            this.uCtrlWeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.ValueChangedDelegate(this.OnBundlePropertyChanged);
             // 
             // tbDescription
             // 
             resources.ApplyResources(this.tbDescription, "tbDescription");
             this.tbDescription.Name = "tbDescription";
-            this.tbDescription.TextChanged += new System.EventHandler(this.onNameDescriptionChanged);
+            this.tbDescription.TextChanged += new System.EventHandler(this.OnNameDescriptionChanged);
             // 
             // tbName
             // 
             resources.ApplyResources(this.tbName, "tbName");
             this.tbName.Name = "tbName";
-            this.tbName.TextChanged += new System.EventHandler(this.onNameDescriptionChanged);
+            this.tbName.TextChanged += new System.EventHandler(this.OnNameDescriptionChanged);
             // 
             // lblDescription
             // 
@@ -183,7 +183,7 @@
             this.uCtrlThickness.Name = "uCtrlThickness";
             this.uCtrlThickness.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlThickness.Value = 0D;
-            this.uCtrlThickness.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.onValueChanged(this.onBundlePropertyChanged);
+            this.uCtrlThickness.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.ValueChangedDelegate(this.OnBundlePropertyChanged);
             // 
             // uCtrlWidth
             // 
@@ -196,7 +196,7 @@
             this.uCtrlWidth.Name = "uCtrlWidth";
             this.uCtrlWidth.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlWidth.Value = 0D;
-            this.uCtrlWidth.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.onValueChanged(this.onBundlePropertyChanged);
+            this.uCtrlWidth.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.ValueChangedDelegate(this.OnBundlePropertyChanged);
             // 
             // uCtrlLength
             // 
@@ -209,7 +209,7 @@
             this.uCtrlLength.Name = "uCtrlLength";
             this.uCtrlLength.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlLength.Value = 0D;
-            this.uCtrlLength.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.onValueChanged(this.onBundlePropertyChanged);
+            this.uCtrlLength.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.ValueChangedDelegate(this.OnBundlePropertyChanged);
             // 
             // lbNoFlats
             // 
@@ -235,7 +235,7 @@
             0,
             0,
             0});
-            this.nudNoFlats.ValueChanged += new System.EventHandler(this.onBundlePropertyChanged);
+            this.nudNoFlats.ValueChanged += new System.EventHandler(this.OnBundlePropertyChanged);
             // 
             // bnCancel
             // 
@@ -277,7 +277,7 @@
             resources.ApplyResources(this.bnSendToDB, "bnSendToDB");
             this.bnSendToDB.Name = "bnSendToDB";
             this.bnSendToDB.UseVisualStyleBackColor = true;
-            this.bnSendToDB.Click += new System.EventHandler(this.onSendToDatabase);
+            this.bnSendToDB.Click += new System.EventHandler(this.OnSendToDatabase);
             // 
             // FormNewBundle
             // 

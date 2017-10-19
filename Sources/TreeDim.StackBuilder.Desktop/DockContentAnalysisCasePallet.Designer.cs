@@ -152,14 +152,14 @@
             this.cbPalletCorners.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbPalletCorners.FormattingEnabled = true;
             this.cbPalletCorners.Name = "cbPalletCorners";
-            this.cbPalletCorners.SelectedIndexChanged += new System.EventHandler(this.onPalletProtectionChanged);
+            this.cbPalletCorners.SelectedIndexChanged += new System.EventHandler(this.OnPalletProtectionChanged);
             // 
             // chkbPalletCorners
             // 
             resources.ApplyResources(this.chkbPalletCorners, "chkbPalletCorners");
             this.chkbPalletCorners.Name = "chkbPalletCorners";
             this.chkbPalletCorners.UseVisualStyleBackColor = true;
-            this.chkbPalletCorners.CheckedChanged += new System.EventHandler(this.onPalletProtectionChanged);
+            this.chkbPalletCorners.CheckedChanged += new System.EventHandler(this.OnPalletProtectionChanged);
             // 
             // tabPagePalletCap
             // 
@@ -175,14 +175,14 @@
             this.cbPalletCap.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbPalletCap.FormattingEnabled = true;
             this.cbPalletCap.Name = "cbPalletCap";
-            this.cbPalletCap.SelectedIndexChanged += new System.EventHandler(this.onPalletProtectionChanged);
+            this.cbPalletCap.SelectedIndexChanged += new System.EventHandler(this.OnPalletProtectionChanged);
             // 
             // chkbPalletCap
             // 
             resources.ApplyResources(this.chkbPalletCap, "chkbPalletCap");
             this.chkbPalletCap.Name = "chkbPalletCap";
             this.chkbPalletCap.UseVisualStyleBackColor = true;
-            this.chkbPalletCap.CheckedChanged += new System.EventHandler(this.onPalletProtectionChanged);
+            this.chkbPalletCap.CheckedChanged += new System.EventHandler(this.OnPalletProtectionChanged);
             // 
             // tabPagePalletFilm
             // 
@@ -198,14 +198,14 @@
             this.cbPalletFilm.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbPalletFilm.FormattingEnabled = true;
             this.cbPalletFilm.Name = "cbPalletFilm";
-            this.cbPalletFilm.SelectedIndexChanged += new System.EventHandler(this.onPalletProtectionChanged);
+            this.cbPalletFilm.SelectedIndexChanged += new System.EventHandler(this.OnPalletProtectionChanged);
             // 
             // chkbPalletFilm
             // 
             resources.ApplyResources(this.chkbPalletFilm, "chkbPalletFilm");
             this.chkbPalletFilm.Name = "chkbPalletFilm";
             this.chkbPalletFilm.UseVisualStyleBackColor = true;
-            this.chkbPalletFilm.CheckedChanged += new System.EventHandler(this.onPalletProtectionChanged);
+            this.chkbPalletFilm.CheckedChanged += new System.EventHandler(this.OnPalletProtectionChanged);
             // 
             // DockContentAnalysisCasePallet
             // 
@@ -213,7 +213,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Name = "DockContentAnalysisCasePallet";
             this.ShowInTaskbar = false;
-            this.SizeChanged += new System.EventHandler(this.onSizeChanged);
+            this.SizeChanged += new System.EventHandler(this.OnSizeChanged);
             ((System.ComponentModel.ISupportInitialize)(this.graphCtrlSolution)).EndInit();
             this.splitContainerHoriz.Panel1.ResumeLayout(false);
             this.splitContainerHoriz.Panel2.ResumeLayout(false);

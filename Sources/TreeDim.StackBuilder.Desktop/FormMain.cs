@@ -140,8 +140,8 @@ namespace treeDiM.StackBuilder.Desktop
             // connection/disconnection event handling
             if (!Program.UseDisconnected)
             {
-                WCFClientSingleton.Connected += OnConnected;
-                WCFClientSingleton.Disconnected += OnDisconnected;
+                WCFClient.Connected += OnConnected;
+                WCFClient.Disconnected += OnDisconnected;
             }
             else
             {
@@ -264,13 +264,14 @@ namespace treeDiM.StackBuilder.Desktop
         {
             timerLogin.Stop();
             // show login form
-            if (!Program.UseDisconnected
-                && !WCFClientSingleton.IsConnected)
+            if (!WCFClient.IsConnected)
             {
-                WCFClientSingleton clientSingleton = WCFClientSingleton.Instance;
+                using (WCFClient wcfClient = new WCFClient())
+                {
+                    wcfClient.Client.Connect();
+                }
             }
             // note : CreateBasicLayout now called by OnConnected()
-            // (a handler for WCFClientSingleton.Connected event handler)
         }
         #endregion
 
@@ -279,7 +280,7 @@ namespace treeDiM.StackBuilder.Desktop
         {
             _documentExplorer.Show(dockPanel, WeifenLuo.WinFormsUI.Docking.DockState.DockLeft);
             _documentExplorer.DocumentTreeView.AnalysisNodeClicked += new AnalysisTreeView.AnalysisNodeClickHandler(DocumentTreeView_NodeClicked);
-            _documentExplorer.DocumentTreeView.SolutionReportClicked += new AnalysisTreeView.AnalysisNodeClickHandler(onSolutionReportNodeClicked);
+            _documentExplorer.DocumentTreeView.SolutionReportClicked += new AnalysisTreeView.AnalysisNodeClickHandler(OnSolutionReportNodeClicked);
             _documentExplorer.DocumentTreeView.SolutionColladaExportClicked += new AnalysisTreeView.AnalysisNodeClickHandler(DocumentTreeView_SolutionColladaExportClicked);
             ShowLogConsole();
             if (AssemblyConf != "debug" && Properties.Settings.Default.ShowStartPage)
@@ -536,7 +537,7 @@ namespace treeDiM.StackBuilder.Desktop
             }
         }
 
-        private void onSolutionReportNodeClicked(object sender, AnalysisTreeViewEventArgs eventArg)
+        private void OnSolutionReportNodeClicked(object sender, AnalysisTreeViewEventArgs eventArg)
         {
             if (null != eventArg.Analysis)
                 GenerateReport(eventArg.Analysis);
@@ -585,8 +586,7 @@ namespace treeDiM.StackBuilder.Desktop
         {
             try
             {
-                DocumentSB doc = eventArg.Document as DocumentSB;
-                if ((null != doc) && (null != eventArg.Analysis))
+                if ((eventArg.Document is DocumentSB doc) && (null != eventArg.Analysis))
                     doc.EditAnalysis(eventArg.Analysis);
                 CreateOrActivateViewAnalysis(eventArg.Analysis);                      
             }
@@ -748,7 +748,7 @@ namespace treeDiM.StackBuilder.Desktop
                 docSB.AddListener(this);
             // add document 
             _documents.Add(doc);
-            doc.Modified += new EventHandler(documentModified);
+            doc.Modified += new EventHandler(OnDocumentModified);
             UpdateToolbarState();
         }
 
@@ -909,19 +909,12 @@ namespace treeDiM.StackBuilder.Desktop
         // new
         public void OnNewDocument(Document doc) {}
         public void OnNewTypeCreated(Document doc, ItemBase itemBase) { }
-        public void OnNewAnalysisCreated(Document doc, Analysis analysis)
-        {
-            CreateOrActivateViewAnalysis(analysis);
-        }
-        public void OnAnalysisUpdated(Document doc, Analysis analysis)
-        {
-            CreateOrActivateViewAnalysis(analysis);
-        }
+        public void OnNewAnalysisCreated(Document doc, Analysis analysis) => CreateOrActivateViewAnalysis(analysis);
+        public void OnAnalysisUpdated(Document doc, Analysis analysis) => CreateOrActivateViewAnalysis(analysis);
         public void OnNewECTAnalysisCreated(Document doc, CasePalletAnalysis analysis, SelCasePalletSolution selSolution, ECTAnalysis ectAnalysis) {  }
         // remove
         public void OnTypeRemoved(Document doc, ItemBase itemBase) { }
         public void OnAnalysisRemoved(Document doc, ItemBase itemBase) { }
-
         // close
         public void OnDocumentClosed(Document doc) { }
         #endregion
@@ -929,13 +922,15 @@ namespace treeDiM.StackBuilder.Desktop
         #region Connection / disconnection
         private void OnConnected()
         {
-            if (!Program.UseDisconnected && WCFClientSingleton.IsConnected)
+            if (!Program.UseDisconnected && WCFClient.IsConnected)
             {
-                PLMPackServiceClient client = WCFClientSingleton.Instance.Client;
-                DCGroup currentGroup = client.GetCurrentGroup();
-                // update main frame title
-                if (null != currentGroup)
-                    Text = Application.ProductName + " - (" + currentGroup.Name + "\\" + WCFClientSingleton.Instance.User.Name + ")";
+                using (WCFClient wcfClient = new WCFClient())
+                {
+                    DCGroup currentGroup = wcfClient.Client.GetCurrentGroup();
+                    // update main frame title
+                    if (null != currentGroup)
+                        Text = Application.ProductName + " - (" + currentGroup.Name + "\\" + wcfClient.User.Name + ")";
+                }
                 // create basic layout
                 CreateBasicLayout();
                 UpdateDisconnectButton();
@@ -952,28 +947,28 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region File menu event handlers
-        private void fileClose(object sender, EventArgs e)
+        private void FileClose(object sender, EventArgs e)
         {
             IDocument doc = ActiveDocument;
             CancelEventArgs cea = new CancelEventArgs();
             CloseDocument(doc, cea);
         }
-        private void fileNew(object sender, EventArgs e)
+        private void FileNew(object sender, EventArgs e)
         {
             CloseStartPage();
             NewDocument();
         }
-        private void fileOpen(object sender, EventArgs e)
+        private void FileOpen(object sender, EventArgs e)
         {
             CloseStartPage();
             if (DialogResult.OK == openFileDialogSB.ShowDialog())
                 foreach(string fileName in openFileDialogSB.FileNames)
                     OpenDocument(fileName);            
         }
-        private void fileSave(object sender, EventArgs e)        {   SaveDocument();                }
-        private void fileSaveAs(object sender, EventArgs e)      {   SaveDocumentAs();              }
-        private void fileSaveAll(object sender, EventArgs e)     {   SaveAllDocuments();            }
-        private void fileExit(object sender, EventArgs e)
+        private void FileSave(object sender, EventArgs e)        {   SaveDocument();                }
+        private void FileSaveAs(object sender, EventArgs e)      {   SaveDocumentAs();              }
+        private void FileSaveAll(object sender, EventArgs e)     {   SaveAllDocuments();            }
+        private void FileExit(object sender, EventArgs e)
         {
             CancelEventArgs cea = new CancelEventArgs();
             CloseAllDocuments(cea);
@@ -993,129 +988,129 @@ namespace treeDiM.StackBuilder.Desktop
 
         #region Tools
         #region User
-        private void onUserClicked(object sender, EventArgs e)
+        private void OnUserClicked(object sender, EventArgs e)
         {
             toolStripSBUser.ShowDropDown();
         }
         #endregion
         #region Items
-        private void toolAddNewBox(object sender, EventArgs e)
+        private void ToolAddNewBox(object sender, EventArgs e)
         {
             try { ((DocumentSB)ActiveDocument).CreateNewBoxUI();    }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
-        private void toolAddNewCase(object sender, EventArgs e)
+        private void ToolAddNewCase(object sender, EventArgs e)
         {
             try { ((DocumentSB)ActiveDocument).CreateNewCaseUI(); }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
-        private void toolAddNewPack(object sender, EventArgs e)
+        private void ToolAddNewPack(object sender, EventArgs e)
         {
             try { ((DocumentSB)ActiveDocument).CreateNewPackUI(); }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
-        private void toolAddNewBundle(object sender, EventArgs e)
+        private void ToolAddNewBundle(object sender, EventArgs e)
         {
             try { ((DocumentSB)ActiveDocument).CreateNewBundleUI(); }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
-        private void toolAddNewCylinder(object sender, EventArgs e)
+        private void ToolAddNewCylinder(object sender, EventArgs e)
         {
             try { ((DocumentSB)ActiveDocument).CreateNewCylinderUI(); }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
          }
-        private void toolAddNewPallet(object sender, EventArgs e)
+        private void ToolAddNewPallet(object sender, EventArgs e)
         {
             try { ((DocumentSB)ActiveDocument).CreateNewPalletUI(); }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
-        private void toolAddNewTruck(object sender, EventArgs e)
+        private void ToolAddNewTruck(object sender, EventArgs e)
         {
             try { ((DocumentSB)ActiveDocument).CreateNewTruckUI(); }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
         #endregion
         #region Pallet decorations
-        private void onPalletAccessories(object sender, EventArgs e)
+        private void OnPalletAccessories(object sender, EventArgs e)
         {
             toolStripSBPalletDeco.ShowDropDown();
         }
-        private void toolAddNewInterlayer(object sender, EventArgs e)
+        private void ToolAddNewInterlayer(object sender, EventArgs e)
         {
             try { ((DocumentSB)ActiveDocument).CreateNewInterlayerUI(); }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
-        private void toolAddNewPalletCap(object sender, EventArgs e)
+        private void ToolAddNewPalletCap(object sender, EventArgs e)
         {
             try { ((DocumentSB)ActiveDocument).CreateNewPalletCapUI(); }
             catch (Exception ex) { _log.Error(ex.ToString());  Program.SendCrashReport(ex); }
         }
-        private void toolAddNewPalletCorners(object sender, EventArgs e)
+        private void ToolAddNewPalletCorners(object sender, EventArgs e)
         {
             try { ((DocumentSB)ActiveDocument).CreateNewPalletCornersUI(); }
             catch (Exception ex) { _log.Error(ex.ToString());  Program.SendCrashReport(ex); }
         }
-        private void toolAddNewPalletFilm(object sender, EventArgs e)
+        private void ToolAddNewPalletFilm(object sender, EventArgs e)
         {
             try { ((DocumentSB)ActiveDocument).CreateNewPalletFilmUI(); }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
         #endregion
         #region Analyses
-        private void onAnalysisPallet(object sender, EventArgs e)
+        private void OnAnalysisPallet(object sender, EventArgs e)
         {
             toolStripSBAnalysisPallet.ShowDropDown();
         }
-        private void onAnalysisCase(object sender, EventArgs e)
+        private void OnAnalysisCase(object sender, EventArgs e)
         {
             toolStripSBAnalysesCase.ShowDropDown();
         }
-        private void onAnalysisTrucks(object sender, EventArgs e)
+        private void OnAnalysisTrucks(object sender, EventArgs e)
         {
             toolStripSBAnalysesTruck.ShowDropDown();
         }
-        private void onAnalysisOpti(object sender, EventArgs e)
+        private void OnAnalysisOpti(object sender, EventArgs e)
         {
             toolStripSBOptimisations.ShowDropDown();
         }
-        private void onNewAnalysisBoxCase(object sender, EventArgs e)
+        private void OnNewAnalysisBoxCase(object sender, EventArgs e)
         {
             try { ((DocumentSB)ActiveDocument).CreateNewAnalysisBoxCaseUI(); }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
-        private void onNewAnalysisCylinderCase(object sender, EventArgs e)
+        private void OnNewAnalysisCylinderCase(object sender, EventArgs e)
         { 
             try { ((DocumentSB)ActiveDocument).CreateNewAnalysisCylinderCaseUI(); }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
-        private void onNewAnalysisPalletTruck(object sender, EventArgs e)
+        private void OnNewAnalysisPalletTruck(object sender, EventArgs e)
         {
             try { ((DocumentSB)ActiveDocument).CreateNewAnalysisPalletTruckUI(); }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
-        private void onNewAnalysisCasePallet(object sender, EventArgs e)
+        private void OnNewAnalysisCasePallet(object sender, EventArgs e)
         {
             try { ((DocumentSB)ActiveDocument).CreateNewAnalysisCasePalletUI(); }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
-        private void onNewAnalysisCylinderPallet(object sender, EventArgs e)
+        private void OnNewAnalysisCylinderPallet(object sender, EventArgs e)
         {
             try { ((DocumentSB)ActiveDocument).CreateNewAnalysisCylinderPalletUI(); }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
-        private void onNewAnalysisBoxCasePallet(object sender, EventArgs e)
+        private void OnNewAnalysisBoxCasePallet(object sender, EventArgs e)
         {
             try { ((DocumentSB)ActiveDocument).CreateNewAnalysisBoxCaseUI(); }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
-        private void onNewAnalysisCaseTruck(object sender, EventArgs e)
+        private void OnNewAnalysisCaseTruck(object sender, EventArgs e)
         {
             try { AnalysisCaseTruck analysis = ((DocumentSB)ActiveDocument).CreateNewAnalysisCaseTruckUI(); }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
         #endregion
         #region Optimisation
-        private void onOptiPack(object sender, EventArgs e)
+        private void OnOptiPack(object sender, EventArgs e)
         {
             try
             {
@@ -1125,7 +1120,7 @@ namespace treeDiM.StackBuilder.Desktop
             }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
-        private void onOptiSelectCase(object sender, EventArgs e)
+        private void OnOptiSelectCase(object sender, EventArgs e)
         {
             try
             {
@@ -1191,7 +1186,7 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Document / View status change handlers
-        void documentModified(object sender, EventArgs e)
+        void OnDocumentModified(object sender, EventArgs e)
         {
             UpdateToolbarState();
         }
@@ -1355,7 +1350,7 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Help menu event handlers
-        private void onAbout(object sender, EventArgs e)
+        private void OnAbout(object sender, EventArgs e)
         {
             AboutBox form = new AboutBox()
             {
@@ -1364,19 +1359,22 @@ namespace treeDiM.StackBuilder.Desktop
             };
             form.ShowDialog();
         }
-        private void onOnlineHelp(object sender, EventArgs e)
+        private void OnOnlineHelp(object sender, EventArgs e)
         {
             try { System.Diagnostics.Process.Start(Properties.Settings.Default.HelpPageUrl); }
             catch (Exception ex) { _log.Error(ex.ToString()); }
         }
-        private void onDonate(object sender, EventArgs e)
+        private void OnDonate(object sender, EventArgs e)
         {
             try { System.Diagnostics.Process.Start(Properties.Settings.Default.DonatePageUrl); }
             catch (Exception ex) { _log.Error(ex.ToString()); }
         }
-        private void onDisconnect(object sender, EventArgs e)
+        private void OnDisconnect(object sender, EventArgs e)
         {
-            try { WCFClientSingleton.DisconnectFull(); }
+            try
+            {
+                WCFClient.DisconnectFull();
+            }
             catch (Exception ex) { _log.Error(ex.ToString()); }
         }
         #endregion

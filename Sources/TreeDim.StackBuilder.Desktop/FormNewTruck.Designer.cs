@@ -124,7 +124,7 @@
             resources.GetString("cbColor.Items49"),
             resources.GetString("cbColor.Items50")});
             this.cbColor.Name = "cbColor";
-            this.cbColor.SelectedColorChanged += new System.EventHandler(this.onTruckPropertyChanged);
+            this.cbColor.SelectedColorChanged += new System.EventHandler(this.OnTruckPropertyChanged);
             // 
             // lbColor
             // 
@@ -143,7 +143,7 @@
             resources.ApplyResources(this.bnSendToDB, "bnSendToDB");
             this.bnSendToDB.Name = "bnSendToDB";
             this.bnSendToDB.UseVisualStyleBackColor = true;
-            this.bnSendToDB.Click += new System.EventHandler(this.onSendToDatabase);
+            this.bnSendToDB.Click += new System.EventHandler(this.OnSendToDatabase);
             // 
             // uCtrlInnerDimensions
             // 

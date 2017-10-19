@@ -78,7 +78,7 @@
             this.cbType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbType.FormattingEnabled = true;
             this.cbType.Name = "cbType";
-            this.cbType.SelectedIndexChanged += new System.EventHandler(this.onPalletTypeChanged);
+            this.cbType.SelectedIndexChanged += new System.EventHandler(this.OnPalletTypeChanged);
             // 
             // lbColor
             // 
@@ -123,7 +123,7 @@
             resources.GetString("cbColor.Items25"),
             resources.GetString("cbColor.Items26")});
             this.cbColor.Name = "cbColor";
-            this.cbColor.SelectedColorChanged += new System.EventHandler(this.onPalletPropertyChanged);
+            this.cbColor.SelectedColorChanged += new System.EventHandler(this.OnPalletPropertyChanged);
             // 
             // graphCtrl
             // 
@@ -148,7 +148,7 @@
             resources.ApplyResources(this.bnSendToDB, "bnSendToDB");
             this.bnSendToDB.Name = "bnSendToDB";
             this.bnSendToDB.UseVisualStyleBackColor = true;
-            this.bnSendToDB.Click += new System.EventHandler(this.onSendToDB);
+            this.bnSendToDB.Click += new System.EventHandler(this.OnSendToDatabase);
             // 
             // uCtrlDimensions
             // 

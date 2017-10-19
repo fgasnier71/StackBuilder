@@ -69,7 +69,7 @@
             this.uCtrlFlatWeight.Name = "uCtrlFlatWeight";
             this.uCtrlFlatWeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_MASS;
             this.uCtrlFlatWeight.Value = 0D;
-            this.uCtrlFlatWeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.onValueChanged(this.onInputValueChanged);
+            this.uCtrlFlatWeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.ValueChangedDelegate(this.onInputValueChanged);
             // 
             // uCtrlFlatDimensions
             // 
@@ -84,7 +84,7 @@
             this.uCtrlFlatDimensions.ValueX = 0D;
             this.uCtrlFlatDimensions.ValueY = 0D;
             this.uCtrlFlatDimensions.ValueZ = 0D;
-            this.uCtrlFlatDimensions.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlTriDouble.onValueChanged(this.onInputValueChanged);
+            this.uCtrlFlatDimensions.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlTriDouble.ValueChangedDelegate(this.onInputValueChanged);
             // 
             // nudNumberOfFlats
             // 
@@ -126,7 +126,7 @@
             this.uCtrlCaseWeight.Name = "uCtrlCaseWeight";
             this.uCtrlCaseWeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_MASS;
             this.uCtrlCaseWeight.Value = 0D;
-            this.uCtrlCaseWeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.onValueChanged(this.onInputValueChanged);
+            this.uCtrlCaseWeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.ValueChangedDelegate(this.onInputValueChanged);
             // 
             // uCtrlCaseDimensions
             // 
@@ -141,7 +141,7 @@
             this.uCtrlCaseDimensions.ValueX = 0D;
             this.uCtrlCaseDimensions.ValueY = 0D;
             this.uCtrlCaseDimensions.ValueZ = 0D;
-            this.uCtrlCaseDimensions.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlTriDouble.onValueChanged(this.onInputValueChanged);
+            this.uCtrlCaseDimensions.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlTriDouble.ValueChangedDelegate(this.onInputValueChanged);
             // 
             // bnCancel
             // 

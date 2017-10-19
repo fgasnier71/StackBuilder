@@ -14,11 +14,11 @@ namespace treeDiM.StackBuilder.Basics
     public partial class UCtrlDouble : UserControl
     {
         #region Delegates
-        public delegate void onValueChanged(object sender, EventArgs args);
+        public delegate void ValueChangedDelegate(object sender, EventArgs args);
         #endregion
 
         #region Events
-        public event onValueChanged ValueChanged;
+        public event ValueChangedDelegate ValueChanged;
         #endregion
 
         #region Constructor
@@ -64,10 +64,7 @@ namespace treeDiM.StackBuilder.Basics
         #endregion
 
         #region Event handlers
-        private void nudValue_ValueChanged(object sender, EventArgs e)
-        {
-            if (null != ValueChanged) ValueChanged(this, e);
-        }
+        private void OnValueChangedLocal(object sender, EventArgs e) => ValueChanged?.Invoke(this, e);
         private void ValueControl_SizeChanged(object sender, EventArgs e)
         {
             // set nud location

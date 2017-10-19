@@ -105,7 +105,7 @@
             this.uCtrlDimensionsInner.X = 0D;
             this.uCtrlDimensionsInner.Y = 0D;
             this.uCtrlDimensionsInner.Z = 0D;
-            this.uCtrlDimensionsInner.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlOptTriDouble.onValueChanged(this.onBoxPropertyChanged);
+            this.uCtrlDimensionsInner.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlOptTriDouble.ValueChangedDelegate(this.OnBoxPropertyChanged);
             // 
             // uCtrlDimensionsOuter
             // 
@@ -120,7 +120,7 @@
             this.uCtrlDimensionsOuter.ValueX = 0D;
             this.uCtrlDimensionsOuter.ValueY = 0D;
             this.uCtrlDimensionsOuter.ValueZ = 0D;
-            this.uCtrlDimensionsOuter.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlTriDouble.onValueChanged(this.onBoxPropertyChanged);
+            this.uCtrlDimensionsOuter.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlTriDouble.ValueChangedDelegate(this.OnBoxPropertyChanged);
             // 
             // cbFace
             // 
@@ -297,7 +297,7 @@
             this.vcWeight.Name = "vcWeight";
             this.vcWeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_MASS;
             this.vcWeight.Value = 0D;
-            this.vcWeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.onValueChanged(this.onBoxPropertyChanged);
+            this.vcWeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.ValueChangedDelegate(this.OnBoxPropertyChanged);
             // 
             // uCtrlNetWeight
             // 
@@ -310,7 +310,7 @@
             this.uCtrlNetWeight.Name = "uCtrlNetWeight";
             this.uCtrlNetWeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_MASS;
             this.uCtrlNetWeight.Value = ((treeDiM.StackBuilder.Basics.OptDouble)(resources.GetObject("uCtrlNetWeight.Value")));
-            this.uCtrlNetWeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlOptDouble.onValueChanged(this.onBoxPropertyChanged);
+            this.uCtrlNetWeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlOptDouble.ValueChangedDelegate(this.OnBoxPropertyChanged);
             // 
             // lblName
             // 
@@ -375,7 +375,7 @@
             this.uCtrlTapeWidth.Name = "uCtrlTapeWidth";
             this.uCtrlTapeWidth.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlTapeWidth.Value = ((treeDiM.StackBuilder.Basics.OptDouble)(resources.GetObject("uCtrlTapeWidth.Value")));
-            this.uCtrlTapeWidth.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlOptDouble.onValueChanged(this.OnTapeWidthChecked);
+            this.uCtrlTapeWidth.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlOptDouble.ValueChangedDelegate(this.OnTapeWidthChecked);
             // 
             // cbTapeColor
             // 
@@ -504,7 +504,7 @@
             resources.ApplyResources(this.bnSaveToDB, "bnSaveToDB");
             this.bnSaveToDB.Name = "bnSaveToDB";
             this.bnSaveToDB.UseVisualStyleBackColor = true;
-            this.bnSaveToDB.Click += new System.EventHandler(this.onSaveToDatabase);
+            this.bnSaveToDB.Click += new System.EventHandler(this.OnSaveToDatabase);
             // 
             // FormNewBox
             // 

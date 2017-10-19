@@ -62,8 +62,8 @@ namespace treeDiM.StackBuilder.GUIExtension
         #endregion
 
         #region Events
-        public delegate void onValueChanged(object sender, EventArgs e);
-        public event onValueChanged ValueChanged;
+        public delegate void OnValueChanged(object sender, EventArgs e);
+        public event OnValueChanged ValueChanged;
         #endregion
     }
 }

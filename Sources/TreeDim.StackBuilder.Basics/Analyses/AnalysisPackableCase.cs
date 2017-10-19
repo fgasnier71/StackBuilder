@@ -20,17 +20,12 @@ namespace treeDiM.StackBuilder.Basics
         }
 
         public override ItemBase Container => _caseProperties;
-
         public override Vector2D ContainerDimensions =>
             new Vector2D(_caseProperties.InsideLength, _caseProperties.InsideWidth);
-
         public override double ContainerWeight => _caseProperties.Weight;
-
         public override double ContainerLoadingVolume => _caseProperties.InsideVolume;
-
         public override bool HasEquivalentPackable => true;
         public override PackableLoaded EquivalentPackable => new LoadedCase(this);
-
         public override Vector3D Offset
         {
             get
@@ -42,7 +37,6 @@ namespace treeDiM.StackBuilder.Basics
                     );
             }
         }
-
 
         public override bool AllowInterlayer(InterlayerProperties interlayer)
         {

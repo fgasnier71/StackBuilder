@@ -53,7 +53,7 @@
             this.nudValue.Name = "nudValue";
             this.nudValue.Size = new System.Drawing.Size(60, 20);
             this.nudValue.TabIndex = 0;
-            this.nudValue.ValueChanged += new System.EventHandler(this.nudValue_ValueChanged);
+            this.nudValue.ValueChanged += new System.EventHandler(this.OnValueChangedLocal);
             // 
             // lbUnit
             // 
@@ -77,7 +77,7 @@
             this.chkbOpt.TabIndex = 3;
             this.chkbOpt.Text = "Optional value";
             this.chkbOpt.UseVisualStyleBackColor = true;
-            this.chkbOpt.CheckedChanged += new System.EventHandler(this.chkbOpt_CheckedChanged);
+            this.chkbOpt.CheckedChanged += new System.EventHandler(this.OnCheckChanged);
             // 
             // UCtrlOptDouble
             // 
@@ -89,7 +89,7 @@
             this.MinimumSize = new System.Drawing.Size(100, 20);
             this.Name = "UCtrlOptDouble";
             this.Size = new System.Drawing.Size(301, 20);
-            this.SizeChanged += new System.EventHandler(this.OptValueControl_SizeChanged);
+            this.SizeChanged += new System.EventHandler(this.OnSizeChanged);
             ((System.ComponentModel.ISupportInitialize)(this.nudValue)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

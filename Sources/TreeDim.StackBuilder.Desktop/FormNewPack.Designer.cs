@@ -115,7 +115,7 @@
             this.uCtrlOuterDimensions.X = 0D;
             this.uCtrlOuterDimensions.Y = 0D;
             this.uCtrlOuterDimensions.Z = 0D;
-            this.uCtrlOuterDimensions.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlOptTriDouble.onValueChanged(this.onPackChanged);
+            this.uCtrlOuterDimensions.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlOptTriDouble.ValueChangedDelegate(this.onPackChanged);
             // 
             // uCtrlLayout
             // 
@@ -124,7 +124,7 @@
             this.uCtrlLayout.NoX = 1;
             this.uCtrlLayout.NoY = 1;
             this.uCtrlLayout.NoZ = 1;
-            this.uCtrlLayout.ValueChanged += new treeDiM.StackBuilder.Basics.Controls.UCtrlTriInt.onValueChanged(this.onPackChanged);
+            this.uCtrlLayout.ValueChanged += new treeDiM.StackBuilder.Basics.Controls.UCtrlTriInt.ValueChangedDelegate(this.onPackChanged);
             // 
             // groupBox1
             // 
@@ -152,7 +152,7 @@
             this.uCtrlHeight.Name = "uCtrlHeight";
             this.uCtrlHeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlHeight.Value = 40D;
-            this.uCtrlHeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.onValueChanged(this.onPackChanged);
+            this.uCtrlHeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.ValueChangedDelegate(this.onPackChanged);
             // 
             // uCtrlWalls
             // 
@@ -161,7 +161,7 @@
             this.uCtrlWalls.NoX = 1;
             this.uCtrlWalls.NoY = 1;
             this.uCtrlWalls.NoZ = 1;
-            this.uCtrlWalls.ValueChanged += new treeDiM.StackBuilder.Basics.Controls.UCtrlTriInt.onValueChanged(this.onPackChanged);
+            this.uCtrlWalls.ValueChanged += new treeDiM.StackBuilder.Basics.Controls.UCtrlTriInt.ValueChangedDelegate(this.onPackChanged);
             // 
             // chkbTransparent
             // 
@@ -199,7 +199,7 @@
             this.uCtrlWeight.Name = "uCtrlWeight";
             this.uCtrlWeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_MASS;
             this.uCtrlWeight.Value = 0D;
-            this.uCtrlWeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.onValueChanged(this.onPackChanged);
+            this.uCtrlWeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.ValueChangedDelegate(this.onPackChanged);
             // 
             // uCtrlThickness
             // 
@@ -212,7 +212,7 @@
             this.uCtrlThickness.Name = "uCtrlThickness";
             this.uCtrlThickness.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlThickness.Value = 0D;
-            this.uCtrlThickness.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.onValueChanged(this.onPackChanged);
+            this.uCtrlThickness.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.ValueChangedDelegate(this.onPackChanged);
             // 
             // lbWrapperColor
             // 

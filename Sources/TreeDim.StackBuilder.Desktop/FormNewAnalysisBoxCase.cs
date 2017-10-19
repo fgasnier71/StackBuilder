@@ -43,12 +43,12 @@ namespace treeDiM.StackBuilder.Desktop
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
-            cbBoxes.Initialize(_document, this, null != AnalysisCast ? AnalysisCast.Content : null);
-            cbCases.Initialize(_document, this, null != AnalysisCast ? AnalysisCast.Container : null);
+            cbBoxes.Initialize(_document, this, AnalysisCast?.Content);
+            cbCases.Initialize(_document, this, AnalysisCast?.Container);
 
             // event handling
-            uCtrlLayerList.LayerSelected += onLayerSelected;
-            uCtrlLayerList.RefreshFinished += onLayerSelected;
+            uCtrlLayerList.LayerSelected += OnLayerSelected;
+            uCtrlLayerList.RefreshFinished += OnLayerSelected;
             uCtrlLayerList.ButtonSizes = new Size(100, 100);
 
             if (null == AnalysisBase)
@@ -152,13 +152,13 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Event handlers
-        private void onBoxChanged(object sender, EventArgs e)
+        private void OnBoxChanged(object sender, EventArgs e)
         {
             cbCases.Initialize(_document, this, null);
-            onInputChanged(sender, e);
+            OnInputChanged(sender, e);
         }
 
-        private void onInputChanged(object sender, EventArgs e)
+        private void OnInputChanged(object sender, EventArgs e)
         {
             try
             {
@@ -192,7 +192,7 @@ namespace treeDiM.StackBuilder.Desktop
             }
         }
 
-        protected void onLayerSelected(object sender, EventArgs e)
+        protected void OnLayerSelected(object sender, EventArgs e)
         {
             try
             {
