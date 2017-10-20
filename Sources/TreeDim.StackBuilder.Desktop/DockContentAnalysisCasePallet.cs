@@ -28,6 +28,8 @@ namespace treeDiM.StackBuilder.Desktop
         /// logger
         /// </summary>
         static readonly new ILog _log = LogManager.GetLogger(typeof(DockContentAnalysisCasePallet));
+
+        private bool _initialized = false;
         #endregion
 
         #region Constructor
@@ -59,26 +61,28 @@ namespace treeDiM.StackBuilder.Desktop
             uCtrlMaxPalletHeight.ValueChanged += new UCtrlDouble.ValueChangedDelegate(this.OnCriterionChanged);
             uCtrlOptMaximumWeight.ValueChanged += new UCtrlOptDouble.ValueChangedDelegate(this.OnCriterionChanged);
 
-            ComboBoxHelpers.FillCombo(PalletCorners, cbPalletCorners, null);
+            AnalysisCasePallet analysisCasePallet = _analysis as AnalysisCasePallet;
+
+            ComboBoxHelpers.FillCombo(PalletCorners, cbPalletCorners, analysisCasePallet?.PalletCornerProperties);
             chkbPalletCorners.Enabled = (cbPalletCorners.Items.Count > 0);
-            ComboBoxHelpers.FillCombo(PalletCaps, cbPalletCap, null);
+            ComboBoxHelpers.FillCombo(PalletCaps, cbPalletCap, analysisCasePallet?.PalletCapProperties);
             chkbPalletCap.Enabled = (cbPalletCap.Items.Count > 0);
-            ComboBoxHelpers.FillCombo(PalletFilms, cbPalletFilm, null);
+            ComboBoxHelpers.FillCombo(PalletFilms, cbPalletFilm, analysisCasePallet?.PalletFilmProperties);
             chkbPalletFilm.Enabled = (cbPalletFilm.Items.Count > 0);
 
-            chkbPalletCorners.CheckedChanged += OnPalletProtectionChanged;
-            chkbPalletCap.CheckedChanged += OnPalletProtectionChanged;
-            chkbPalletFilm.CheckedChanged += OnPalletProtectionChanged;
-
-            cbPalletCorners.SelectedIndexChanged += OnPalletProtectionChanged;
-            cbPalletCap.SelectedIndexChanged += OnPalletProtectionChanged;
-            cbPalletFilm.SelectedIndexChanged += OnPalletProtectionChanged;
+            if (null != analysisCasePallet)
+            {
+                chkbPalletCorners.Checked = null != analysisCasePallet.PalletCornerProperties;
+                chkbPalletCap.Checked = null != analysisCasePallet.PalletCapProperties;
+                chkbPalletFilm.Checked = null != analysisCasePallet.PalletFilmProperties;
+            }
             // ---
-
             // --- initialize grid control
             FillGrid();
             UpdateGrid();
             // ---
+
+            _initialized = true;
         }
         protected override void OnClosed(EventArgs e)
         {
@@ -88,14 +92,18 @@ namespace treeDiM.StackBuilder.Desktop
 
         private void OnPalletProtectionChanged(object sender, EventArgs e)
         {
+            if (!_initialized)  return;
+
             cbPalletCorners.Enabled = chkbPalletCorners.Checked;
             cbPalletCap.Enabled = chkbPalletCap.Checked;
             cbPalletFilm.Enabled = chkbPalletFilm.Checked;
 
-            AnalysisCasePallet casePalletAnalysis = _solution.Analysis as AnalysisCasePallet;
-            casePalletAnalysis.PalletCornerProperties = SelectedPalletCorners;
-            casePalletAnalysis.PalletCapProperties = SelectedPalletCap;
-            casePalletAnalysis.PalletFilmProperties = SelectedPalletFilm;
+            if (_solution.Analysis is AnalysisCasePallet casePalletAnalysis)
+            {
+                casePalletAnalysis.PalletCornerProperties = SelectedPalletCorners;
+                casePalletAnalysis.PalletCapProperties = SelectedPalletCap;
+                casePalletAnalysis.PalletFilmProperties = SelectedPalletFilm;
+            }
 
             graphCtrlSolution.Invalidate();
         }
