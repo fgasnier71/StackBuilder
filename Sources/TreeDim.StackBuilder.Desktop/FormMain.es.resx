@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
+	<!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,67 +59,67 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xsd:element name="root" msdata:IsDataSet="true">
-      <xsd:complexType>
-        <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-              </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="data">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="resheader">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:choice>
-      </xsd:complexType>
-    </xsd:element>
-  </xsd:schema>
-  <resheader name="resmimetype">
-    <value>text/microsoft-resx</value>
-  </resheader>
-  <resheader name="version">
-    <value>2.0</value>
-  </resheader>
-  <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="newToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+		<xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+		<xsd:element name="root" msdata:IsDataSet="true">
+			<xsd:complexType>
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element name="metadata">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" />
+							</xsd:sequence>
+							<xsd:attribute name="name" use="required" type="xsd:string" />
+							<xsd:attribute name="type" type="xsd:string" />
+							<xsd:attribute name="mimetype" type="xsd:string" />
+							<xsd:attribute ref="xml:space" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="assembly">
+						<xsd:complexType>
+							<xsd:attribute name="alias" type="xsd:string" />
+							<xsd:attribute name="name" type="xsd:string" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="data">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+								<xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+							<xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+							<xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+							<xsd:attribute ref="xml:space" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="resheader">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" />
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:choice>
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:schema>
+	<resheader name="resmimetype">
+		<value>text/microsoft-resx</value>
+	</resheader>
+	<resheader name="version">
+		<value>2.0</value>
+	</resheader>
+	<resheader name="reader">
+		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<resheader name="writer">
+		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+	<data name="newToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKBSURBVDhPjVPdS1NhGD/9Df0HXXQrXih4E10FedFNEBJU
         YHlTIWVgUIwIIqHP0fxITCWlLIZZ4kcmcZpGupFfbebmnHNnO/s4zrm5nXN2dnb89b7vmSwFqQcenvc5
@@ -134,9 +134,9 @@
         sqM7aA46nD42OMj7MTBZzn0E9EArVTnoYHLaw94flqVfimNEbrKbczGA7z9Xwc+s4AsBj/Klz/Wv2HNy
         WJbGDgTH/QGZU9MrJM/qZQAAAABJRU5ErkJggg==
 </value>
-  </data>
-  <data name="openToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	</data>
+	<data name="openToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGESURBVDhPzZExS8NAGIbzEzI63k/I6JixOGV0jJNdhAyC
         HW/MJAcuHU+njudSKlQI4lBQ6gmKxVqMujgeCF1fv7tca0Jb6OjBA+Fyz/t+uQTbrOnHF7iQ4DnRVRje
@@ -147,9 +147,9 @@
         GBEsKSzUpniF7DCIjLn2fv+yGSB4Ct4hsgRZmiDdj5G0YsS7EaKIIWIMbCdEGIZghFf/xQqCX7OaAjn7
         Msx3AAAAAElFTkSuQmCC
 </value>
-  </data>
-  <data name="toolStripMenuItemSave.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	</data>
+	<data name="toolStripMenuItemSave.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFtSURBVDhPrZKhcsMwEETzCf2EfIJhoGCgYKBgoWCgYKBh
         oGCgYKBYW2ZYKBgoWHbZPSuJnElJp5rZ8czZ+3S359W/nHSuokpNpyoxQsci49h0KBICtJ/EU36SZgcA
@@ -159,9 +159,9 @@
         BmN0/qlUcfswG9UcnwBoMR7xH7S2CaDZ70cpMDNIH0bUaIzzc9MDMJ/eDvOagQ0GgWZVzhPS59qsGlUI
         02y0y/l8fVwwIwNKut+7EBTDUqFl3joLHfaAv5/V6grmRtDpUU8fwgAAAABJRU5ErkJggg==
 </value>
-  </data>
-  <data name="toolStripMenuItemSaveAll.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	</data>
+	<data name="toolStripMenuItemSaveAll.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAE6SURBVDhPtZKtbsQwEITvUfoIhYWGgYaFLjtoGGhYGFho
         eNBSyUmVKj+CYVkNCwPLtjNbu7qfJKpUdaVVJMcz3+4ku3+peKgSI/qpyjQVmR6LhIAes3iP3mdxLkm7
@@ -171,9 +171,9 @@
         L/7bFFuH3QeLfyBogOlIsl0n93p5fZf9w7M4hMSgNHHdGb1F/nvtdl+wZ6LIEJc5kwAAAABJRU5ErkJg
         gg==
 </value>
-  </data>
-  <data name="editPaletSolutionsDB.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	</data>
+	<data name="editPaletSolutionsDB.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAN8SURBVDhPVVMLTFNXGD5MF7OYhYAzJBaYXpHFDXzeogjl
         gtpAOkQ2EGY1LK3gY2ZBdAUqG6elrJQhwyIGgs4EKdvidAMFGUSCBsjqJpBtmPooEh9bps4uRk3E3nu/
@@ -192,9 +192,9 @@
         PRVrjxmxoboRmZZOZDg6ELy67M9QXc37hCBoSkCBQGeS0EWq4DRrd2g69b0RT0XVWisi482YH1eCN9X5
         UjhfejdqTdmBTZtOzCBQkgn5FyXXAOIA5ktmAAAAAElFTkSuQmCC
 </value>
-  </data>
-  <data name="openLibraryToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	</data>
+	<data name="openLibraryToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKzSURBVDhPjZLbT5JxHMbfP6CtUldNMzvoVYcLV13Zauu+
         a1dbZmUHq5lpo7UOHjIaHjK1ULGDoJGjgNSBnIIQsABF2AAPoKhoKE1SUzDUp/d9PaTTub7fPRe/i+ez
@@ -210,25 +210,25 @@
         /kGYu50o52sgavP+A8hsE2g0+shYQxBo+8FXdaNWagNHbAJboCcjq1D4RgJm9WdUfNCCJ7dD5QziLw+5
         waFe5Q19AAAAAElFTkSuQmCC
 </value>
-  </data>
-  <data name="toolStripMenuItemBox.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	</data>
+	<data name="toolStripMenuItemBox.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABZSURBVDhPYxjcoKKi4j8+DFWGHYAUzLz5CismaACy5oJZ
         FzE0w2ioclRAjGYYG6oFAaimGR0TpRkfxqsZBJAVoWOYHE7NIEDIALyaQQCmCBeGKhsFWAEDAwBLARuL
         jvtaxwAAAABJRU5ErkJggg==
 </value>
-  </data>
-  <data name="toolStripMenuItemCase.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	</data>
+	<data name="toolStripMenuItemCase.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACBSURBVDhPzYzRDYAwCEQ7gRP53SGczWlcDHOEGqBX4ocf
         XvJikXe030ZeQiO9d5FrWwLHmKJCdQDOeez0wCOtDsBBmR0YP0pGmR7wS0Z2MGvTEpaM7GDWpiUsGdnB
         rE1LWDKyg1mblrBkeAdvbbkEmTEcfLWRMhUycAwaL1R8ndZug7Ul6SugnR4AAAAASUVORK5CYII=
 </value>
-  </data>
-  <data name="toolStripMenuItemPack.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	</data>
+	<data name="toolStripMenuItemPack.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAE5SURBVDhPY8AGDh46/j8zq/B/ZVUdGBcWVWKwKyqq/kOV
         o4JNW/b9Xzg96////8f+b1pZ/3/1okoM9sHtXf9ZmBgwDdi1+8j/DUtLgYou/l+zuO7/5tUtaOwL/9cs
@@ -237,17 +237,17 @@
         9mAw4PR/fw9t8gwARSMoxkDRTrIB//8fBWn6f/DQSYhmECDWAJC/F87IQtUMAiAD/v87CFYASyTo7Exg
         WgA5G5RPoNoQoLCwFJyE4yNt//NyMYJpdDYLI9DZwNQK1UJNwMAAAH0RMhXhHtJnAAAAAElFTkSuQmCC
 </value>
-  </data>
-  <data name="toolStripMenuItemBundle.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	</data>
+	<data name="toolStripMenuItemBundle.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABaSURBVDhP3Y1RCgAhCEQ9nfc/gHcprInUimR/dtkHD0Gb
         iX4AM5esiHhEpB113tyWjPDjkrG086YrieFvlWREvKMLW5IR0YktyYiYRw/xp5OIrMSfTuL5axBVYmiF
         ttMzim4AAAAASUVORK5CYII=
 </value>
-  </data>
-  <data name="toolStripMenuItemCylinder.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	</data>
+	<data name="toolStripMenuItemCylinder.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFxSURBVDhPzdE7S4JxFAZw8Su0tzhF0AVHt4YgsoiiCLoM
         UQRqWoEtLpESlZkZZoSXSqlQwQQNSUxqEIIgspsYZERCppbkLX0jnl7MLlL813rgbIcfz+Ew/lfi0Ruc
@@ -257,17 +257,17 @@
         gUZki0CKBhLfgMn+SjJgUbYCAS6o6HwBSNPvS3q+AFlfBRlwmiTw21sQOZcVAIRHkfKyEFphwisvg17a
         SwYy6SQOPAasq/nQSLuhEDdgVsCGZowDt3kaT4k4GfiDMBhvbX4+AEEnuEUAAAAASUVORK5CYII=
 </value>
-  </data>
-  <data name="toolStripMenuItemPallet.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	</data>
+	<data name="toolStripMenuItemPallet.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABnSURBVDhPYxgFwxb8P8T3/38dw38wjYcNVY4KYIru3LkD
         14CLDdWCAKRonhNlg2oATKKiogKuCBcbZBCKAcgShNg4bSZLMwiABInFUC2oACQB8h+UywCyESQGoqFC
         DCB5nAZQBhgYAMCw7fHkHCLoAAAAAElFTkSuQmCC
 </value>
-  </data>
-  <data name="toolStripMenuItemTruck.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	</data>
+	<data name="toolStripMenuItemTruck.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGLSURBVDhP7ZBbKINhGMdfTb5PqSVcsKa4FSuNC9Mas6sv
         rlAOI26QpV2gHDKUItFMJklczSFJqcUFK80USkkO5cYsa2Faa0Npf3tfTCG5Vf716+k5/Z+3l/zrZ03s
@@ -278,16 +278,16 @@
         OTLYFgdfPzBsoBngUGyOiaCslSI7V8YizekuM6DI5XI4nU4W32uf+W6GHmMyGo1QKBSg8a30Rb+Z+XMi
         5AUMwxwZU72/XwAAAABJRU5ErkJggg==
 </value>
-  </data>
-  <data name="toolStripMenuItemInterlayer.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	</data>
+	<data name="toolStripMenuItemInterlayer.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAySURBVDhPYxgFuIGbm9t/YjBUOSoASXx9MocgxmrAqGbc
         GKtmEABJEIOhykcBBmBgAADXnvSZWw8p6AAAAABJRU5ErkJggg==
 </value>
-  </data>
-  <data name="toolStripMenuItemPalletCorners.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	</data>
+	<data name="toolStripMenuItemPalletCorners.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHkSURBVDhPzZLPaxNBHMUHvHoTk+jBeqlxTbOxmqCt6KG1
         oBJSoRA3sWYlmiaG/jLdGDeJdWMDrVAQ7MGDFy8ePXjyohQUQqC2EFMRaunBq/gntB93N/WwTYrgyQcP
@@ -299,9 +299,9 @@
         0Xo55LvOR90UL/Ww/TbjNJhJmL8rfQD9pmAuJdDVFq3a6udSB1mrmOJf353CP8A0oL5oR+NTFV74W7Rq
         i0vd8H62s9jC9hvVsbmztYzF3WVrvfFuf4N/gxC/AYZjTyThDpXJAAAAAElFTkSuQmCC
 </value>
-  </data>
-  <data name="toolStripMenuItemPalletCap.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	</data>
+	<data name="toolStripMenuItemPalletCap.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAG+SURBVDhPYxh8ICHQ5X+0Ac//WBNhrDjTWvS/PA/D/4rq
         2v9QLQgQ7On4/22Pzf8nvW5Y8Ycpnv+3lTn+r7Rk/9/Y3oNqQHKg8/+fk+2xagThVxPd/68rsP9fYivw
@@ -313,9 +313,9 @@
         Rz+YPgHUdGdiwP+3e6eB8Y0Op//Ptk3ArhkE7i4rQpG8t7ry/+cH5+BiH+8cx3Q25YCBAQDwYmlSx7f+
         OAAAAABJRU5ErkJggg==
 </value>
-  </data>
-  <data name="toolStripMenuItemPalletFilm.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	</data>
+	<data name="toolStripMenuItemPalletFilm.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADpSURBVDhPYxgc4O3bt/956pbgxCu2n/wPVYodmLQt+7/x
         9Yf/N5//wMAgcdX6RfgNUO9Y/t9n1s7/9Wsv/N949gMY9527/T9p4+n/dtP3/ucDugIZg1wlCMRQ7QwM
@@ -323,17 +323,17 @@
         6QYI1iMbAIwmUg0QrluMbMBCiAFAzcQaII1sgHD9kv81sw/idsFKTANAiQ+qnYHhy5cv/yWBfkJOvuiY
         D2ijTP1coN8Xg9kgPVDtAwoYGACowcLsqe/IEAAAAABJRU5ErkJggg==
 </value>
-  </data>
-  <data name="toolStripMenuItemNewAnalysisCasePallet.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	</data>
+	<data name="toolStripMenuItemNewAnalysisCasePallet.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACESURBVDhPtY/RDYAgDEQ7mN8M4SQM45QuUDkqpFIKaOJL
         mp7t9Yj0C8e+MSrJ3D0Nr2F00NGGbJhVN0ANtcFo3VMJrWmmy3fqgmdc0IKzNBq9mVfqclQ6jDnPBJWo
         013NJ3GM8VtAOQ4hvA8wLxewWKnuMcBipW67BcvHPzVgNwz4DtEFJ1A31t0FhhcAAAAASUVORK5CYII=
 </value>
-  </data>
-  <data name="toolStripMenuItemNewAnalysisCylinderPallet.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	</data>
+	<data name="toolStripMenuItemNewAnalysisCylinderPallet.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGuSURBVDhPndDfK0NhGAfwk3/BvRtXUn7k0p2LlYxEpLAL
         kdpmQ9HKjWzJr2Ea0hi2EAqFZI24WCklvxeFZGW22XIcw5G+ztnZHHNekqeem+d9n8/3vIcK+K5x5LLC
@@ -344,9 +344,9 @@
         y8H6+iMAKc3YlIsedRaGmrPhmO3EQygAnU4nACv2FhwsFcJ7YogAxDSaimt+WSaTCcATQ2PHacWUWYUh
         fYUkjbQcWfxa3y/91MRlvviDv3T0urT4w883EYo/+xX4f1HUB45eJGmBKU1dAAAAAElFTkSuQmCC
 </value>
-  </data>
-  <data name="toolStripMenuItemNewAnalysisBoxCase.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	</data>
+	<data name="toolStripMenuItemNewAnalysisBoxCase.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJDSURBVFhH7ZbNSxVRGMbvKoMSMm0hIgTtRZFERFEpNALJ
         nVAryy9c5HVxEUNRiqvgB5VBQYgSqCt3/QVRSoj+MypSEBzn9x7PMB/nOmfmLrsPPMw75573eZ73zDDc
@@ -360,9 +360,9 @@
         pZ+IkGgaRgMwOc99Y+OjszmwirswGIA6izmwirvQBODKs15aKqY2B1ZxF2LMM8d8fV3+hGQCjZnJm551
         8v8NudwlxbVcmoEUKxUAAAAASUVORK5CYII=
 </value>
-  </data>
-  <data name="toolStripMenuItemNewAnalysisCylinderCase.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	</data>
+	<data name="toolStripMenuItemNewAnalysisCylinderCase.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHnSURBVDhP3ZDfS1NxGMYPhVTmFtam5U6ynNsOtu24mfsh
         tJnmrBmTkFF5oTdZWeJFqRPnbir6D8IgqCyc5UUFEVMhWP64KFIkFnkR0UXXXQQhXX065xCM0+mqyx54
@@ -374,9 +374,9 @@
         U83kzjQRcoqcSCT0V1zN3uTxuSAzfTEdH/VFmelv1QxyZ5vw1lZxe+qOXqxiaGScJ70hZVgR/sFnA+0k
         JQvyQQvTuVmjWMWFy0O4twn4TEYGzFpozM7N/V387xCEX4xALIRELIwqAAAAAElFTkSuQmCC
 </value>
-  </data>
-  <data name="toolStripMenuItemAnalysisPalletTruck.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	</data>
+	<data name="toolStripMenuItemAnalysisPalletTruck.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAF/SURBVDhP7Y9PaNJxGMbf0pRNCGtOCmylaQqCsEaMHYLA
         Q1SQsIMrgoWHQigEZacp/kmNmcxVUomC1TFZEO3sISg6Wgu6CUINOkQMDGmXffbbb0JK7ji67AMvD+/7
@@ -387,9 +387,9 @@
         d2Zb/3LzdkgdGIymfqNL+l6W+9kcnxtfBvrSbDXxz/hZ+/F94EIqkySVTQ0+/o+IbAFnPdCS3V9HmwAA
         AABJRU5ErkJggg==
 </value>
-  </data>
-  <data name="toolStripMenuItemBestCase.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	</data>
+	<data name="toolStripMenuItemBestCase.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIQSURBVDhPpdFfSJNRHMbxU11EEHYRFixWYzZBc2kpGWh7
         SVLzwtJY+SdH6swkDS/CUIqxRIN00i4qw1ArCUkU05nCZtNNmVsXdhNEEo1ACkZEFIVU8k33xorw1Yue
@@ -402,25 +402,25 @@
         FC4adBSq1zM8Psm9rk5FH3K65SHWkmMMlkv0mzNwVGVTe0BFVsIuvi58DxeUfOHHojxA0u4gL1pwfLug
         SCWIjtoUWX85a/l/RIhfKObHaTM+n8YAAAAASUVORK5CYII=
 </value>
-  </data>
-  <data name="toolStripMenuItemBestCasePallet.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	</data>
+	<data name="toolStripMenuItemBestCasePallet.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAB/SURBVDhP5Y/BDYAgEATp0jZ8+6EHu/Hjh45s4MwSNh4e
         nISvm0w8btklhn9IPnAl635m9Mxzoav3xQx3x7Zw15R5Tc8IewU0mjDsFuhLGu1hlmuyAF+EU0p1QWk0
         QQIPMBxjfAqwZIFH9+VRTBjCcpQSqQWj+p+G4HcL5hXCDbmOCmLY43ByAAAAAElFTkSuQmCC
 </value>
-  </data>
-  <data name="toolStripMenuItemBestPack.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	</data>
+	<data name="toolStripMenuItemBestPack.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABvSURBVDhPzY5LCoAwDER7EFficbysB3PjBaKBpp9JpkhB
         cOBRpuSFpN9GXkAj57IVop4J44axr8dOF7hh7CqzBfZJMZkukKsSdZDnFrTvQxcnYFfgii5liGHy9AUj
         WeME7CNZ4wTsGZp2iPFFUroBEVcDt78pi5AAAAAASUVORK5CYII=
 </value>
-  </data>
-  <data name="helpToolStripMenuItemHelp.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	</data>
+	<data name="helpToolStripMenuItemHelp.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAAfSC3RAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIkSURBVDhPVZJNaxNRFIbvT8hPyD+w4sZllkK1DC4kK8lC
         pboKLiQu1IGipGjKKEWKTc0Qv1KlMl3EfFTN4GcpxU6hsfmwyQRCSZNJe2tqta3m9dw7KTQHXubcO+9z
@@ -433,9 +433,9 @@
         x2ZzNm6Mz6OySd+STlVUS84lJHKxV663ceZSFHcncy50GK8yZQRH30HPrGIpX8MG3V6j1ZEzifZOExSJ
         mv3QYXz+to778QWcD83g5LmHOK5oGLocw00tg2SueARi7D+UX/M9ENo/ngAAAABJRU5ErkJggg==
 </value>
-  </data>
-  <data name="toolStripMIUserDisconnect.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	</data>
+	<data name="toolStripMIUserDisconnect.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEBSURBVFhHzZbBDYMwDEXZhCOjMAYjMAJjcmQMjmmDaiuA
         G79UAfqkpyLxv2OJtqL5EC4SY5VriNkV+74P67oWDTggszB6eGrXdWGe53hdiszA6KGWPywiXYwelrNg
@@ -444,9 +444,9 @@
         aE5Jh9cUY5VryIgvmvGF831JvYaCRa4FLHIPmUXuxVjkGZZlCW3bVlygaV72tRlzQiPgEwAAAABJRU5E
         rkJggg==
 </value>
-  </data>
-  <data name="toolStripSBUser.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	</data>
+	<data name="toolStripSBUser.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHpSURBVFhH7Va9SgNBEL5H8BH0FXwCIbVoYSHY2GitNjai
         pcHGQlArJWCjxIhgEVLE5iwkRRSu0BBMowQRDBgLsVnvO2aWSbw7NrcbUMgHQ2Bu8s3s/O16I/xLfLRb
@@ -458,9 +458,9 @@
         +o1DEGaOeYy3oqw9movUmSEfKkZZkJ1v2nhpwMQwH7hJnQx+eqF+pLICGpJ7Adykjoe8eDDnpLaGfKql
         vhXlzn8s5p0F8Oyfad7UGxLzjzpBnDwoBcCJfeCadwRLeN4PgQxa6hk6Gx4AAAAASUVORK5CYII=
 </value>
-  </data>
-  <data name="toolStripSplitButtonNew.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	</data>
+	<data name="toolStripSplitButtonNew.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJeSURBVFhH7VW/S1tRGM2Qf6KLwQ7i3MHBDoJLKSgiLbiI
         SykU0Q5ORRCzVKGIFlREB1FwEBGiiBWCEvAHohJs8AdGq0YktMZBzGAIhHzlXO5336Xmxft8D63ggcN9
@@ -474,9 +474,9 @@
         ETXu0YcOevnUwljEXYCO8CsVwo7oQ3evAPhvMGUwVC+MmKiljT2GFw7p8ndC/Km45eehWmqbK1dELW3s
         gQ1MRI4dEaGZ+h0MP029VDQK4CVg2DRaovjgAZ4QfL6/SU5H3h20nwYAAAAASUVORK5CYII=
 </value>
-  </data>
-  <data name="toolStripButtonFileOpen.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	</data>
+	<data name="toolStripButtonFileOpen.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKiSURBVFhH7ZbLaxNRFMbzF7pSFB9QLC3YomChVVy5cSFZ
         FFfZdFcICC7szhbqFKnWogyFWJs2Jn3E1Ac+aJOQmmk9znd6z3BmJncyU6gL7YEfM/fmzv2+e+eeM8md
@@ -492,9 +492,9 @@
         /QOnFNtVXxzkXRA2nevch6ug2xDBFf+ouO2nMDIKC8r0OT6L/zByuT/L7RGpySvDFQAAAABJRU5ErkJg
         gg==
 </value>
-  </data>
-  <data name="toolStripButtonSave.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	</data>
+	<data name="toolStripButtonSave.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAMTSURBVFhH7ZZdaxNBFIbz67z1ShSFCloQ0kqKKJRo/ILS
         i4BiMQhBIYigCFYRrKCWQsAkBGqTkjT1kwY/KBWpF5bQpnHMc8xZJpN1s2l74UU3vOzOZmfe55wzM7uR
@@ -511,9 +511,9 @@
         5gAZOHxgSnY/AOirELT7AvC6nX6Ul62UKDgzYCZzz1MqlRYlkzdEicREl3jeFcaI8QIBOIDge46lEkYM
         xpllaN+nraKNMaIdCEAa+ZjQj4/dSueHgqKO1f7RPiKRP9Q44Agk/0QlAAAAAElFTkSuQmCC
 </value>
-  </data>
-  <data name="toolStripButtonSaveAll.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	</data>
+	<data name="toolStripButtonSaveAll.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIESURBVFhH7ZZLS4JBFIb9d/2BaBFBdIGihRlIhEVREtii
         TRQkFF3MMhcZGZUIBRUW3YgkgnRhqRgFZVkatZh4x+/IUGN+F62NBx68MHPOM+fwOZqqoSbqasYZ4XQ6
@@ -526,9 +526,9 @@
         EzcsEolysbILtDe42aB1vXC1BtYu+LNOAvH4bVEBcQRKOn2BJIRjcIm5F+bYxMSUFDzn4nqgpKlGNVSE
         yfQFeTYUNSLOEJYAAAAASUVORK5CYII=
 </value>
-  </data>
-  <data name="toolStripMenuItemEditDB.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	</data>
+	<data name="toolStripMenuItemEditDB.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAueSURBVFhHlVcJWE15Hz5jMPi+yL40ItJ+06a0ualMuxLR
         bklJo6RMC+lWtGtftFAopT1JG0raS/siySSKGUvIUtK973fO7c7wfeab5fc8/+f87z3L+573tx7iz0zO
@@ -582,9 +582,9 @@
         nbZW24JYp7OboJkEz+C3DV6wyiHxe0Gn1pVi9ve/l7K9t0J6fzEXr8FPBDFfjHP/N7uTk2eR6P/zXIL4
         D7olkiaP6uU1AAAAAElFTkSuQmCC
 </value>
-  </data>
-  <data name="toolStripButtonBox.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	</data>
+	<data name="toolStripButtonBox.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKbSURBVFhH7ZZNaxNRFIazqeDHQl3kD+hO6ULc6c4f40aQ
         TqOhC39Bux2q1YJWcCcILTpNo2gVC20WLgRxlZoaW402tZD1dZ4z91zuTBKTTLY58HLu1znve27OzKQw
@@ -599,9 +599,9 @@
         t5kw+myWP+x14eH73ni0uSsCxrl2NUe09O6b4MHbuiNivLTZcHushRtfHXneplOTRKOAyhHBOM/jljV5
         n/cEz3Xs+RQH9o/IzWdfhPjJx4YKGts0UR5MbGI5rVD4B2kIeWz7hPCwAAAAAElFTkSuQmCC
 </value>
-  </data>
-  <data name="toolStripButtonCase.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	</data>
+	<data name="toolStripButtonCase.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHfSURBVFhH7ZXNSgJRGIatpD/K/qmIVu2jIiLIaRtEf4sW
         0U34mysnF5EtUiLdtGjZZURSd+EthFcQ0qn3HEfO6Dcz3xkhiHrhwdFvvvd9z4gY+ddvl+iBniWeEnuh
@@ -613,9 +613,9 @@
         1cBwiDTnQBVYWZyRp7btPCscIs05dBbAyfHTq1Tu2eEQac5BL4DrbDZrHA6R5hycAngtFC5FsXhtHA6R
         5hwQrL7zvCiXS6HCISyGJplMhD75X1Mk8gXesNzV8i+STwAAAABJRU5ErkJggg==
 </value>
-  </data>
-  <data name="toolStripButtonPack.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	</data>
+	<data name="toolStripButtonPack.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEWSURBVFhH7Y5BbsMwEANtJEWO+f8v8qje8wSXC5iAttTW
         kthLgQ5AWB5zV97+EscvZprj/fmSrPgzU5TLVnw8kWFkEZes+jgjQ6Ql7YIZf3vc03v0YvkVLNppLx/9
@@ -624,9 +624,9 @@
         B1xPF0+kRAY55PpwH8/Hj5cHMshh14dDLpFBDjt+38cuD9Ig4/g4I8OkRe2SFR9PZApZxkWz/sw07bCb
         fybZti+78Nw3f+qvzQAAAABJRU5ErkJggg==
 </value>
-  </data>
-  <data name="toolStripButtonBundle.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	</data>
+	<data name="toolStripButtonBundle.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAF/SURBVFhH7VTBaoNAFDTEgJCDKYin9EdKvzExamNKevcW
         NUZ7EHsIpJfSQ445ln7IqyNdMc1i1k1LW3BgyHPBmbdvzFM6dOjQ4d+i1+sRY/HYiv1+H7/yMAyD0iSR
@@ -637,9 +637,9 @@
         NZ3S4XDAeWsc3aqJvAiuRiO6c12xNcvBRRFgw2HscRxLmQPVOGWIDZefWa8d/iAU5QNmnjTk1sdh6wAA
         AABJRU5ErkJggg==
 </value>
-  </data>
-  <data name="toolStripButtonCylinder.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	</data>
+	<data name="toolStripButtonCylinder.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIwSURBVFhH7ZdLSwJRFMfd9AH6CK1qE0FQm15U2EooocdC
         aGNCLYsKAinctGlh9AFsFQXuWhRYUGRgUdB704OkFkahBD0IFU73f+fe8aZDmY5DgQcOjjPXOb/5n3Pu
@@ -653,9 +653,9 @@
         bvZntZmPAWTehG30GrFTPDL45X+BKcFVw5NJRZDfzo4O7jjGOQywYmnZ8jSb7RNXiLtP7zWkagAAAABJ
         RU5ErkJggg==
 </value>
-  </data>
-  <data name="toolStripButtonPallet.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	</data>
+	<data name="toolStripButtonPallet.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFJSURBVFhHYxgFo2AUjIJRMApGwSggBfw/xPcfjPsVITQy
         xiL2rVUcQ+z/dKP/UONIAzADQIZu3bTh/7ZtW+GGEisGcuSpTEbSHQAz4GcTz/+tWzajGEqs2L92QbDl
@@ -665,9 +665,9 @@
         c+YMGEOF4WB+gjM4aHHJz4tzBOuHckkHIMNhDoAKoYClmX7/QZbglM/w/b8wyY18B4yCEQYYGACIA0B0
         ujxo6wAAAABJRU5ErkJggg==
 </value>
-  </data>
-  <data name="toolStripButtonTruck.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	</data>
+	<data name="toolStripButtonTruck.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAF0SURBVFhHYxgFo2AUjIJRMGSAViDrfxA2ieQG0+hY3Y8Z
         qzgyBqmBYaixxAOQxXNfBf6f+dzrf98N1/+1hy3/l+8x+Z+9ThOMU5ep/k+Yr/g/aqbM/9BJEv8DeoT/
@@ -677,9 +677,9 @@
         RCCLpsdDHDA/hQuOYQ4AaQJh9CKVXAy1FgESI+3ADgBZGBYX8l9ASACMkdnEYHMbMzgbl16olbgBsiKi
         NUEBJXrhAN0QKJMoAFP/48cP8iwHAfQogAoTBSjROwpGwQAABgYA3FCZ536QY50AAAAASUVORK5CYII=
 </value>
-  </data>
-  <data name="toolStripMIInterlayer.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	</data>
+	<data name="toolStripMIInterlayer.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGFSURBVFhH7VSxSsRAEM0XCIJdmqQ560DA+4IE0qYT4eD+
         wsLCvxBOOawsJCTCxc7G2speG0+8xu5MsDDjTdhZMW4uk9weWOTBI2GZfe9ldidGjx49OHBdFxzH0cbh
@@ -690,12 +690,12 @@
         u9KcFaB6oegCtV1Hft79tJ0dQBfXnnkdcJMutjZHUJt0UEi2A2dzUw1HoxaczU01HI0e/wSG8Q282zsa
         AVtztAAAAABJRU5ErkJggg==
 </value>
-  </data>
-  <data name="toolStripMIInterlayer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>140, 22</value>
-  </data>
-  <data name="toolStripMIPalletCorner.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	</data>
+	<data name="toolStripMIInterlayer.Size" type="System.Drawing.Size, System.Drawing">
+		<value>140, 22</value>
+	</data>
+	<data name="toolStripMIPalletCorner.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGISURBVFhH7VRBSsNAFM0JBEFI00QsWdSLeAGP48K1FxAq
         uHJRoaaBxibu3HgEdx5FUEZeyI+vk7T9k4bSRR88Zvrz/v9vZj71jjhCizAMDbMKq0G5P1VIDyTeX4fm
@@ -706,12 +706,12 @@
         v9HIpsShtQ2A3+//1642IMSp+PcmtmlVb24DSX3RuTkg19QHq5Ju0CRv02hqrIUmeZtGU+OIA4Hn/QFl
         qmw8JloaNQAAAABJRU5ErkJggg==
 </value>
-  </data>
-  <data name="toolStripMIPalletCorner.Size" type="System.Drawing.Size, System.Drawing">
-    <value>140, 22</value>
-  </data>
-  <data name="toolStripMIPalletCap.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	</data>
+	<data name="toolStripMIPalletCorner.Size" type="System.Drawing.Size, System.Drawing">
+		<value>140, 22</value>
+	</data>
+	<data name="toolStripMIPalletCap.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAE5SURBVFhH7VMxbsJAEPQLIkWisxXZLuAj+QB5SjpewAdC
         RZUH2NjBpktDR0vHU1IdGusWbaxVvHc5xUjxSKM7lt2Zvbt1NGGCBlmWmTiOg9HK6pDnubmsn4PQuYHF
@@ -720,12 +720,12 @@
         7P/nDGDlM4B1u5qNMwN4AnN8MKfXp3FmgMy9Gui/IyfFd2VpPuraNPu9aZumi2PFE5zfH2/Gf3oD4Nen
         4to5qDAEVW/eB4pC0dkcQFEoWkk3DBVrDIb+/xFacU2O/TnhnhFFV6Xz5e2aEyL1AAAAAElFTkSuQmCC
 </value>
-  </data>
-  <data name="toolStripMIPalletCap.Size" type="System.Drawing.Size, System.Drawing">
-    <value>140, 22</value>
-  </data>
-  <data name="toolStripMIPalletFilm.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	</data>
+	<data name="toolStripMIPalletCap.Size" type="System.Drawing.Size, System.Drawing">
+		<value>140, 22</value>
+	</data>
+	<data name="toolStripMIPalletFilm.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAZTSURBVFhH7ZZbUBN3FMZ9qNN26kzb6bQ0u1FELhUVUcQL
         Wqe2YoGEqwgU1HC/yqVSUFEh4VqkHUBuCQkJAYJJuENIRBARBam2VVD0welDO21f2pl2Wsdp376e3UTL
@@ -756,12 +756,12 @@
         8KjgJfyRv5J4wcZKPCp6DT9VOOGHyq3PXpyLb6QsX8x2Om/8UrAKvxe8vOA1j2Wr8FvR6/9OwPfSN/Gd
         9K1Fv8wVf1zw4oLX/Gnrhu30efyXY8WKvwDR/VkVEXtHnwAAAABJRU5ErkJggg==
 </value>
-  </data>
-  <data name="toolStripMIPalletFilm.Size" type="System.Drawing.Size, System.Drawing">
-    <value>140, 22</value>
-  </data>
-  <data name="toolStripSBPalletDeco.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	</data>
+	<data name="toolStripMIPalletFilm.Size" type="System.Drawing.Size, System.Drawing">
+		<value>140, 22</value>
+	</data>
+	<data name="toolStripSBPalletDeco.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGFSURBVFhH7VSxSsRAEM0XCIJdmqQ560DA+4IE0qYT4eD+
         wsLCvxBOOawsJCTCxc7G2speG0+8xu5MsDDjTdhZMW4uk9weWOTBI2GZfe9ldidGjx49OHBdFxzH0cbh
@@ -772,9 +772,9 @@
         u9KcFaB6oegCtV1Hft79tJ0dQBfXnnkdcJMutjZHUJt0UEi2A2dzUw1HoxaczU01HI0e/wSG8Q282zsa
         AVtztAAAAABJRU5ErkJggg==
 </value>
-  </data>
-  <data name="toolStripMIAnalysisCasePallet.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	</data>
+	<data name="toolStripMIAnalysisCasePallet.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFVSURBVFhHYxgFQwIoKcj/l5aWphqGGkscUJKX/d8XYvV/
         TpQNBEfbgmmQQZNCLRHiUAwSnxyGpB5NjiQHqCrIYhgyK9LmPyniMDkVoEcmBRoT7wCYa6mFJ/gbgjGI
@@ -784,12 +784,12 @@
         09UBsER4aaEg3HK6OgCEf+5FBDvRDqAWJirO0QFIE7UwyZaDACyYqIGhRpIGiNFMSA0xZuAExGgmpIYY
         M0YBBDAwAADcRnq7Br4O9QAAAABJRU5ErkJggg==
 </value>
-  </data>
-  <data name="toolStripMIAnalysisCasePallet.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
-  </data>
-  <data name="toolStripMIAnalysisCylinderPallet.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	</data>
+	<data name="toolStripMIAnalysisCasePallet.Size" type="System.Drawing.Size, System.Drawing">
+		<value>152, 22</value>
+	</data>
+	<data name="toolStripMIAnalysisCylinderPallet.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFuSURBVFhHYxgFo2AUjIIhBXZWhf9Hx1ApMCAkTxEAGfb/
         EwMGhllCSJ5i8P8QH4rPYBgkTow8yQCrYWg+wycPx+Q4AJdhMHFC8iiYHAfgC06YoXjlqeEADIOghqHQ
@@ -799,12 +799,12 @@
         DkAaScEnM5kwMEh8bqwD6ZaDwJwom//UwFDjSAegrDI3xu7/mTNnwBgqDAfzE5zBQYtLfl6cI1g/lEs6
         ABkOcwBUCAUszfT7D7IEp3yG7/+FSW7kO2AU0BcwMAAAyRr3q8g0KnYAAAAASUVORK5CYII=
 </value>
-  </data>
-  <data name="toolStripMIAnalysisCylinderPallet.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
-  </data>
-  <data name="toolStripMIAnalysisBundlePallet.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	</data>
+	<data name="toolStripMIAnalysisCylinderPallet.Size" type="System.Drawing.Size, System.Drawing">
+		<value>152, 22</value>
+	</data>
+	<data name="toolStripMIAnalysisBundlePallet.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEqSURBVFhH7VRLDoIwEOUEJibuYAEs8IwuPIcmrlxootgA
         Cu7ceARv48LUDHawlBqnpPGT9CUvTaev8x5DwHNwcPgLRFHEfd+3RtGWhjiO+Xq14seqahEabTcbbX2X
@@ -813,12 +813,12 @@
         gWKVferwJbivQJ4ArIvJ6DsTgAD8POC3qfedCaA5KYBNQoDLctiYf3QCwOvpOXZyAFskvXMVcMkWjc0B
         OCYbFC3NQLn8TkPp8RKUy+80lB4OD3jeHaXoJ3wk446MAAAAAElFTkSuQmCC
 </value>
-  </data>
-  <data name="toolStripMIAnalysisBundlePallet.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
-  </data>
-  <data name="toolStripSBAnalysisPallet.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	</data>
+	<data name="toolStripMIAnalysisBundlePallet.Size" type="System.Drawing.Size, System.Drawing">
+		<value>152, 22</value>
+	</data>
+	<data name="toolStripSBAnalysisPallet.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFVSURBVFhHYxgFQwIoKcj/l5aWphqGGkscUJKX/d8XYvV/
         TpQNBEfbgmmQQZNCLRHiUAwSnxyGpB5NjiQHqCrIYhgyK9LmPyniMDkVoEcmBRoT7wCYa6mFJ/gbgjGI
@@ -828,9 +828,9 @@
         09UBsER4aaEg3HK6OgCEf+5FBDvRDqAWJirO0QFIE7UwyZaDACyYqIGhRpIGiNFMSA0xZuAExGgmpIYY
         M0YBBDAwAADcRnq7Br4O9QAAAABJRU5ErkJggg==
 </value>
-  </data>
-  <data name="toolStripMIAnalysisBoxCase.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	</data>
+	<data name="toolStripMIAnalysisBoxCase.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
         dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAJlSURBVFhHxZRPSxtRFMVdacEK/mkXIoLQvSiilKKo
         KFUEqbtCXWmtiguNi1AqiqIkQo1oLbRQpFJQV+78BGJbpOiXUREF4fWdG+5w5801mWTCGPhl7jt5c8+5
@@ -845,9 +845,9 @@
         VzzrdDplWwY9GF2MGADPHOabmxnbLthfootWjgLe9HyTM6oYJ6oYH6bsP4Jg7k5v1FmdAAAAAElFTkSu
         QmCC
 </value>
-  </data>
-  <data name="toolStripMIAnalysisCylinderCase.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	</data>
+	<data name="toolStripMIAnalysisCylinderCase.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
         xAAADsQBlSsOGwAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAGuSURBVFhH7ZQ/
         SwMxGMZvsoIK1uogRRAc3EQRHMRdEIpuBT+BONgut1mcWgdbxA5Ojn5Cv0D0SZP0zXtJ7k88i9AHnl4u
@@ -859,9 +859,9 @@
         misagJsDoHOc+3T6pqrbqhUA41A4VBsArjjr0WioqrpVCwDOHOGTyVhV9MsLEGO86XmdazkB/lILBhDi
         G61XqyXRij14AAAAAElFTkSuQmCC
 </value>
-  </data>
-  <data name="toolStripMIAnalysisBundleCase.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	</data>
+	<data name="toolStripMIAnalysisBundleCase.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGWSURBVFhH7ZQxS8NAGIY7WUEFa3WQIgjuoggO4i4IRTeh
         v0AcbJdulkytgy1iBydH/2fMc+mFu/RL70symhce7pK7732/S0JajRo1qqm4BrUV/w7vKkFtaqGTVCAa
@@ -872,9 +872,9 @@
         pQbOjrvx68uzYeUflGdahnwDnJz3vlx+qcORaK7BbYB5lXAkmmuwDTDyrmezaelwJJprIJh3TvhiMa8U
         jiisDF961ZP/N7Vafwzg+p3oIYBrAAAAAElFTkSuQmCC
 </value>
-  </data>
-  <data name="toolStripSBAnalysesCase.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	</data>
+	<data name="toolStripSBAnalysesCase.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJDSURBVFhH7ZbNSxVRGMbvKoMSMm0hIgTtRZFERFEpNALJ
         nVAryy9c5HVxEUNRiqvgB5VBQYgSqCt3/QVRSoj+MypSEBzn9x7PMB/nOmfmLrsPPMw75573eZ73zDDc
@@ -888,9 +888,9 @@
         pZ+IkGgaRgMwOc99Y+OjszmwirswGIA6izmwirvQBODKs15aKqY2B1ZxF2LMM8d8fV3+hGQCjZnJm551
         8v8NudwlxbVcmoEUKxUAAAAASUVORK5CYII=
 </value>
-  </data>
-  <data name="toolStripMIAnalysisPalletTruck.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	</data>
+	<data name="toolStripMIAnalysisPalletTruck.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGHSURBVFhHYxgFo2AUjIJRMGSAViDrfxA2ieQG0+hY3Y8Z
         qzgyBqmBYaixxAOQxXNfBf6f+dzrf98N1/+1hy3/l+8x+Z+9ThOMU5ep/k+Yr/g/aqbM/9BJEv8DeoT/
@@ -901,9 +901,9 @@
         Y2Q2MdjcxgzOxqUXaiVugKyIaE1QQIleOEA3BMokCsDU//jxgzzLQQA9CqDCRAFK9I6CUTAAgIEBAA1u
         nFqEG3pmAAAAAElFTkSuQmCC
 </value>
-  </data>
-  <data name="toolStripMIAnalysisCaseTruck.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	</data>
+	<data name="toolStripMIAnalysisCaseTruck.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFXSURBVFhHYxgFo2AUjIJRMGSAViDrfxA2ieQG0+hY3Y8Z
         qzgyBqmBYaixxAOQxXNfBf6f+dzrf98N1/+1hy3/l+8x+Z+9ThOMU5ep/k+Yr/g/aqbM/9BJEv8DeoT/
@@ -913,9 +913,9 @@
         wA4AWRgWF/JfQEgAjJHZxGBzGzM4G5deqJW4AbIiojVBASV64QDdECiTKABT/+PHD/IsBwH0KIAKEwUo
         0TsKRsEAAAYGAD9x01Mm4ludAAAAAElFTkSuQmCC
 </value>
-  </data>
-  <data name="toolStripSBAnalysesTruck.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	</data>
+	<data name="toolStripSBAnalysesTruck.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGHSURBVFhHYxgFo2AUjIJRMGSAViDrfxA2ieQG0+hY3Y8Z
         qzgyBqmBYaixxAOQxXNfBf6f+dzrf98N1/+1hy3/l+8x+Z+9ThOMU5ep/k+Yr/g/aqbM/9BJEv8DeoT/
@@ -926,9 +926,9 @@
         Y2Q2MdjcxgzOxqUXaiVugKyIaE1QQIleOEA3BMokCsDU//jxgzzLQQA9CqDCRAFK9I6CUTAAgIEBAA1u
         nFqEG3pmAAAAAElFTkSuQmCC
 </value>
-  </data>
-  <data name="toolStripMIBestCase.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	</data>
+	<data name="toolStripMIBestCase.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJQSURBVFhH7ZXLTxNRGMVvNK5qm6otGlOxJEBFKVL6wCqU
         IqQo0GLTglpiCqmFYKtSrExTUYnGjXGliZpKfITIK2k1+CgmmBCI8bFg6caVW/+J48y1jBlbN70xacyc
@@ -942,9 +942,9 @@
         05lZKcyLlacBhZ5A8ItwGzz7NPydawrDvFh5MnQuCsMmgjplvhtUv/5eswsLhWFerHxpSq5juY5Lvo5z
         uFzHch3LdUwl1/H/Wcf/XoT8BAjBlUThkVnhAAAAAElFTkSuQmCC
 </value>
-  </data>
-  <data name="toolStripMIBestCasePallet.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	</data>
+	<data name="toolStripMIBestCasePallet.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAINSURBVFhH7VQ9SwNBEI0giIWCIP4LwQ9I4WewSCGIYiOI
         EMEgShorCwsTEAtNESttNCK2QZQIphJJISTe3/APpFFBsuZNds7Nere5864QyYPH7M3u7Huze3eRDv4q
@@ -957,12 +957,12 @@
         OQq5EcLcOd6Z5u5toHcOA5xrTPumL3EARxUmfYkDTkcZhNVKxacB+YJYlkWU6RbwP8DrGpnyBtWATP0A
         /wXbrQHlYwcGRCJf4SkWZ+RPf3IAAAAASUVORK5CYII=
 </value>
-  </data>
-  <data name="toolStripMIBestCasePallet.Size" type="System.Drawing.Size, System.Drawing">
-    <value>217, 22</value>
-  </data>
-  <data name="toolStripMIBestPack.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	</data>
+	<data name="toolStripMIBestCasePallet.Size" type="System.Drawing.Size, System.Drawing">
+		<value>217, 22</value>
+	</data>
+	<data name="toolStripMIBestPack.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFqSURBVFhH1VW9TsMwGExVUNl4A2ao1FAQEjOwQNWnYUew
         IkCCV2BkZGDIAmJD8E4mn/FHP8c+ks9YKZx0cny27y4/VYv/BJOJSTAvu/sBU3RHFaCZVp/ezdUFPJPn
@@ -972,12 +972,12 @@
         KPzt1K5DQEOtboNv52bz7MAL77VAeXVi/wtkeK8FaJSPvdcC9Cvo8s6bsIdzMCW8oEO5qA4n8DvKQWep
         Ax+uqsrSyR7a9vC6m+ogzZ0UoG0Pr7vpX0dRfAI/DGEHVn41JgAAAABJRU5ErkJggg==
 </value>
-  </data>
-  <data name="toolStripMIBestPack.Size" type="System.Drawing.Size, System.Drawing">
-    <value>217, 22</value>
-  </data>
-  <data name="toolStripSBOptimisations.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	</data>
+	<data name="toolStripMIBestPack.Size" type="System.Drawing.Size, System.Drawing">
+		<value>217, 22</value>
+	</data>
+	<data name="toolStripSBOptimisations.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFqSURBVFhH1VW9TsMwGExVUNl4A2ao1FAQEjOwQNWnYUew
         IkCCV2BkZGDIAmJD8E4mn/FHP8c+ks9YKZx0cny27y4/VYv/BJOJSTAvu/sBU3RHFaCZVp/ezdUFPJPn
@@ -987,9 +987,9 @@
         KPzt1K5DQEOtboNv52bz7MAL77VAeXVi/wtkeK8FaJSPvdcC9Cvo8s6bsIdzMCW8oEO5qA4n8DvKQWep
         Ax+uqsrSyR7a9vC6m+ogzZ0UoG0Pr7vpX0dRfAI/DGEHVn41JgAAAABJRU5ErkJggg==
 </value>
-  </data>
-  <data name="toolStripButtonHelp.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	</data>
+	<data name="toolStripButtonHelp.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAOJSURBVFhH7ZbPS1VBFMdv/QP9+A9at2vZonXQrlVrN7Uy
         AlsYVNAmoiCqhUEQWUGEFEKUiFCUWEmFkVqWBGo/UcEozZ763nQ+Z+bc5j7vvfp0FXXgy513Z8453/Od
@@ -1008,9 +1008,9 @@
         nef63MHOYUXagoa65Cvue5FBgn8yejlx8EwNYAfQUJ9c1iJ7w5XXG/vG4UEN/f9nLRVVGSflLqBqfEpb
         rlFDRgJykUCGK9X+lDLmM8schNcs+Xps3VL/o5YkvwHmq8DvN7Wf0gAAAABJRU5ErkJggg==
 </value>
-  </data>
-  <data name="toolStripButtonSettings.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	</data>
+	<data name="toolStripButtonSettings.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAANZSURBVFhH7Va/SytBEI4/0BiMgokWQRC0ShVMKjWdRfyZ
         RhAVSQohgoqBCGIhkZDCwkqCWIh/gUhIGYJYpwxikUJEQhARkWCRwmL0W++O3b17yd3z+SoHvuJmZme/
@@ -1029,9 +1029,9 @@
         d5Y3byZoVjIBkFLMPy+JREJHAKNcMf+8oBY2NzfZKAbW19fNtddf0YnN9gGkjQF7HrAp8AAAAABJRU5E
         rkJggg==
 </value>
-  </data>
-  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	</data>
+	<data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         AAABAAIAICAAAAAAGACoDAAAJgAAABAQAAAAABgAaAMAAM4MAAAoAAAAIAAAAEAAAAABABgAAAAAAAAM
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAICA
@@ -1103,320 +1103,320 @@
         AAAAAAAA//8AAIAfAACADwAAgAcAAIADAACAAQAAgAEAAIABAACAAQAAgAEAAMABAADgAQAA8AEAAPgB
         AAD//wAA//8AAA==
 </value>
-  </data>
-  <data name="newToolStripMenuItem.Text" xml:space="preserve">
+	</data>
+	<data name="newToolStripMenuItem.Text" xml:space="preserve">
     <value>Nuevo</value>
   </data>
-  <data name="newToolStripMenuItem.ToolTipText" xml:space="preserve">
+	<data name="newToolStripMenuItem.ToolTipText" xml:space="preserve">
     <value>Crear nuevo archivo</value>
   </data>
-  <data name="openToolStripMenuItem.Text" xml:space="preserve">
+	<data name="openToolStripMenuItem.Text" xml:space="preserve">
     <value>Abierto</value>
   </data>
-  <data name="openToolStripMenuItem.ToolTipText" xml:space="preserve">
+	<data name="openToolStripMenuItem.ToolTipText" xml:space="preserve">
     <value>Abrir el archivo</value>
   </data>
-  <data name="toolStripMenuItemSave.Text" xml:space="preserve">
+	<data name="toolStripMenuItemSave.Text" xml:space="preserve">
     <value>Guardar</value>
   </data>
-  <data name="toolStripMenuItemSave.ToolTipText" xml:space="preserve">
+	<data name="toolStripMenuItemSave.ToolTipText" xml:space="preserve">
     <value>Guardar archivo</value>
   </data>
-  <data name="toolStripMenuItemSaveAs.Text" xml:space="preserve">
+	<data name="toolStripMenuItemSaveAs.Text" xml:space="preserve">
     <value>Guardar como...</value>
   </data>
-  <data name="toolStripMenuItemSaveAs.ToolTipText" xml:space="preserve">
+	<data name="toolStripMenuItemSaveAs.ToolTipText" xml:space="preserve">
     <value>Guardar como...</value>
   </data>
-  <data name="toolStripMenuItemSaveAll.Text" xml:space="preserve">
+	<data name="toolStripMenuItemSaveAll.Text" xml:space="preserve">
     <value>Guardar todos</value>
   </data>
-  <data name="toolStripMenuItemClose.Text" xml:space="preserve">
+	<data name="toolStripMenuItemClose.Text" xml:space="preserve">
     <value>Cerrar</value>
   </data>
-  <data name="toolStripMenuItemClose.ToolTipText" xml:space="preserve">
+	<data name="toolStripMenuItemClose.ToolTipText" xml:space="preserve">
     <value>Cerrar documento activo</value>
   </data>
-  <data name="disconnectToolStripMenuItem.Text" xml:space="preserve">
+	<data name="disconnectToolStripMenuItem.Text" xml:space="preserve">
     <value>Desconecte</value>
   </data>
-  <data name="mnuFileMRU.Text" xml:space="preserve">
+	<data name="mnuFileMRU.Text" xml:space="preserve">
     <value>Archivos recientes...</value>
   </data>
-  <data name="exitToolStripMenuItem.Text" xml:space="preserve">
+	<data name="exitToolStripMenuItem.Text" xml:space="preserve">
     <value>Salida</value>
   </data>
-  <data name="exitToolStripMenuItem.ToolTipText" xml:space="preserve">
+	<data name="exitToolStripMenuItem.ToolTipText" xml:space="preserve">
     <value>Salir de la aplicación</value>
   </data>
-  <data name="fileToolStripMenuItem.Text" xml:space="preserve">
+	<data name="fileToolStripMenuItem.Text" xml:space="preserve">
     <value>Archivo</value>
   </data>
-  <data name="editPaletSolutionsDB.Text" xml:space="preserve">
+	<data name="editPaletSolutionsDB.Text" xml:space="preserve">
     <value>Examinar o modificar la base de datos...</value>
   </data>
-  <data name="openLibraryToolStripMenuItem.Text" xml:space="preserve">
+	<data name="openLibraryToolStripMenuItem.Text" xml:space="preserve">
     <value>Biblioteca de la hoja de Excel abierta...</value>
   </data>
-  <data name="openLibraryToolStripMenuItem.ToolTipText" xml:space="preserve">
+	<data name="openLibraryToolStripMenuItem.ToolTipText" xml:space="preserve">
     <value>Biblioteca abierta (hoja Excel)</value>
   </data>
-  <data name="toolStripMenuItemBox.Text" xml:space="preserve">
+	<data name="toolStripMenuItemBox.Text" xml:space="preserve">
     <value>Nueva caja</value>
   </data>
-  <data name="toolStripMenuItemCase.Text" xml:space="preserve">
+	<data name="toolStripMenuItemCase.Text" xml:space="preserve">
     <value>Nuevo caso</value>
   </data>
-  <data name="toolStripMenuItemPack.Text" xml:space="preserve">
+	<data name="toolStripMenuItemPack.Text" xml:space="preserve">
     <value>Nuevo Pack</value>
   </data>
-  <data name="toolStripMenuItemBundle.Text" xml:space="preserve">
+	<data name="toolStripMenuItemBundle.Text" xml:space="preserve">
     <value>Nuevo paquete</value>
   </data>
-  <data name="toolStripMenuItemCylinder.Text" xml:space="preserve">
+	<data name="toolStripMenuItemCylinder.Text" xml:space="preserve">
     <value>Cilindro nuevo</value>
   </data>
-  <data name="toolStripMenuItemPallet.Text" xml:space="preserve">
+	<data name="toolStripMenuItemPallet.Text" xml:space="preserve">
     <value>Nueva plataforma</value>
   </data>
-  <data name="toolStripMenuItemTruck.Text" xml:space="preserve">
+	<data name="toolStripMenuItemTruck.Text" xml:space="preserve">
     <value>Nuevo camión</value>
   </data>
-  <data name="toolStripMenuItemInterlayer.Text" xml:space="preserve">
+	<data name="toolStripMenuItemInterlayer.Text" xml:space="preserve">
     <value>Intercalar nuevos</value>
   </data>
-  <data name="toolStripMenuItemPalletCorners.Text" xml:space="preserve">
+	<data name="toolStripMenuItemPalletCorners.Text" xml:space="preserve">
     <value>Nuevos rincones de la plataforma</value>
   </data>
-  <data name="toolStripMenuItemPalletCap.Text" xml:space="preserve">
+	<data name="toolStripMenuItemPalletCap.Text" xml:space="preserve">
     <value>Nueva tapa de la plataforma</value>
   </data>
-  <data name="toolStripMenuItemPalletFilm.Text" xml:space="preserve">
+	<data name="toolStripMenuItemPalletFilm.Text" xml:space="preserve">
     <value>Nueva película de la plataforma</value>
   </data>
-  <data name="toolStripMenuItemNewAnalysisCasePallet.Text" xml:space="preserve">
+	<data name="toolStripMenuItemNewAnalysisCasePallet.Text" xml:space="preserve">
     <value>Nuevo análisis del caso/plataforma</value>
   </data>
-  <data name="toolStripMenuItemNewAnalysisCylinderPallet.Text" xml:space="preserve">
+	<data name="toolStripMenuItemNewAnalysisCylinderPallet.Text" xml:space="preserve">
     <value>Nuevo análisis del cilindro/plataforma</value>
   </data>
-  <data name="toolStripMenuItemNewAnalysisBoxCase.Text" xml:space="preserve">
+	<data name="toolStripMenuItemNewAnalysisBoxCase.Text" xml:space="preserve">
     <value>Nuevo caja/análisis</value>
   </data>
-  <data name="toolStripMenuItemNewAnalysisCylinderCase.Text" xml:space="preserve">
+	<data name="toolStripMenuItemNewAnalysisCylinderCase.Text" xml:space="preserve">
     <value>Nuevo análisis del caso del cilindro</value>
   </data>
-  <data name="toolStripMenuItemAnalysisPalletTruck.Text" xml:space="preserve">
+	<data name="toolStripMenuItemAnalysisPalletTruck.Text" xml:space="preserve">
     <value>Nuevo análisis del carro de plataforma</value>
   </data>
-  <data name="toolStripMenuItemBestCase.Text" xml:space="preserve">
+	<data name="toolStripMenuItemBestCase.Text" xml:space="preserve">
     <value>Encontrar el mejor de los casos</value>
   </data>
-  <data name="toolStripMenuItemBestPack.Text" xml:space="preserve">
+	<data name="toolStripMenuItemBestPack.Text" xml:space="preserve">
     <value>Encuentra el mejor pack</value>
   </data>
-  <data name="toolStripMenuItemBestPack.ToolTipText" xml:space="preserve">
+	<data name="toolStripMenuItemBestPack.ToolTipText" xml:space="preserve">
     <value>Búsqueda para el caso óptimo</value>
   </data>
-  <data name="toolStripMIPLMPackLib.Text" xml:space="preserve">
+	<data name="toolStripMIPLMPackLib.Text" xml:space="preserve">
     <value>Lanzamiento de PLMPackLib</value>
   </data>
-  <data name="settingsToolStripMenuItem.Text" xml:space="preserve">
+	<data name="settingsToolStripMenuItem.Text" xml:space="preserve">
     <value>Configuración...</value>
   </data>
-  <data name="toolStripMenuItemTools.Text" xml:space="preserve">
+	<data name="toolStripMenuItemTools.Text" xml:space="preserve">
     <value>Herramientas</value>
   </data>
-  <data name="toolStripMenuItemHelpStartPage.Text" xml:space="preserve">
+	<data name="toolStripMenuItemHelpStartPage.Text" xml:space="preserve">
     <value>Mostrar página de inicio</value>
   </data>
-  <data name="helpToolStripMenuItemHelp.Text" xml:space="preserve">
+	<data name="helpToolStripMenuItemHelp.Text" xml:space="preserve">
     <value>Ayuda</value>
   </data>
-  <data name="helpToolStripMenuItemAbout.Text" xml:space="preserve">
+	<data name="helpToolStripMenuItemAbout.Text" xml:space="preserve">
     <value>Acerca de StackBuilder...</value>
   </data>
-  <data name="donateToolStripMenuItem.Text" xml:space="preserve">
+	<data name="donateToolStripMenuItem.Text" xml:space="preserve">
     <value>¡Dona!</value>
   </data>
-  <data name="helpToolStripMenuItem.Text" xml:space="preserve">
+	<data name="helpToolStripMenuItem.Text" xml:space="preserve">
     <value>Ayuda</value>
   </data>
-  <data name="menuStripMain.Text" xml:space="preserve">
+	<data name="menuStripMain.Text" xml:space="preserve">
     <value>menuStripMain</value>
   </data>
-  <data name="toolStripMIUserDisconnect.Text" xml:space="preserve">
+	<data name="toolStripMIUserDisconnect.Text" xml:space="preserve">
     <value>Desconecte</value>
   </data>
-  <data name="toolStripSBUser.Text" xml:space="preserve">
+	<data name="toolStripSBUser.Text" xml:space="preserve">
     <value>toolStripSplitButton1</value>
   </data>
-  <data name="toolStripSBUser.ToolTipText" xml:space="preserve">
+	<data name="toolStripSBUser.ToolTipText" xml:space="preserve">
     <value>Usuario</value>
   </data>
-  <data name="toolStripMenuNewFile.Text" xml:space="preserve">
+	<data name="toolStripMenuNewFile.Text" xml:space="preserve">
     <value>Nuevo...</value>
   </data>
-  <data name="toolStripSplitButtonNew.Text" xml:space="preserve">
+	<data name="toolStripSplitButtonNew.Text" xml:space="preserve">
     <value>Crear un nuevo archivo...</value>
   </data>
-  <data name="toolStripButtonFileOpen.Text" xml:space="preserve">
+	<data name="toolStripButtonFileOpen.Text" xml:space="preserve">
     <value>Abrir el archivo</value>
   </data>
-  <data name="toolStripButtonFileOpen.ToolTipText" xml:space="preserve">
+	<data name="toolStripButtonFileOpen.ToolTipText" xml:space="preserve">
     <value>Abrir el archivo</value>
   </data>
-  <data name="toolStripButtonSave.Text" xml:space="preserve">
+	<data name="toolStripButtonSave.Text" xml:space="preserve">
     <value>Guardar archivo</value>
   </data>
-  <data name="toolStripButtonSaveAll.Text" xml:space="preserve">
+	<data name="toolStripButtonSaveAll.Text" xml:space="preserve">
     <value>Guarde todos los archivos</value>
   </data>
-  <data name="toolStripMenuItemEditDB.ToolTipText" xml:space="preserve">
+	<data name="toolStripMenuItemEditDB.ToolTipText" xml:space="preserve">
     <value>Editar base de datos de plataforma solución</value>
   </data>
-  <data name="toolStripButtonBox.Text" xml:space="preserve">
+	<data name="toolStripButtonBox.Text" xml:space="preserve">
     <value>Añadir nueva caja</value>
   </data>
-  <data name="toolStripButtonCase.Text" xml:space="preserve">
+	<data name="toolStripButtonCase.Text" xml:space="preserve">
     <value>Añadir nuevo caso...</value>
   </data>
-  <data name="toolStripButtonPack.Text" xml:space="preserve">
+	<data name="toolStripButtonPack.Text" xml:space="preserve">
     <value>Añadir nuevo paquete de...</value>
   </data>
-  <data name="toolStripButtonBundle.Text" xml:space="preserve">
+	<data name="toolStripButtonBundle.Text" xml:space="preserve">
     <value>Añadir nuevo paquete</value>
   </data>
-  <data name="toolStripButtonCylinder.Text" xml:space="preserve">
+	<data name="toolStripButtonCylinder.Text" xml:space="preserve">
     <value>Añadir nuevo cilindro</value>
   </data>
-  <data name="toolStripButtonPallet.Text" xml:space="preserve">
+	<data name="toolStripButtonPallet.Text" xml:space="preserve">
     <value>Añadir nueva plataforma</value>
   </data>
-  <data name="toolStripButtonPallet.ToolTipText" xml:space="preserve">
+	<data name="toolStripButtonPallet.ToolTipText" xml:space="preserve">
     <value>Añadir una nueva plataforma</value>
   </data>
-  <data name="toolStripButtonTruck.Text" xml:space="preserve">
+	<data name="toolStripButtonTruck.Text" xml:space="preserve">
     <value>Añadir nuevo camión</value>
   </data>
-  <data name="toolStripMIInterlayer.Text" xml:space="preserve">
+	<data name="toolStripMIInterlayer.Text" xml:space="preserve">
     <value>Capa intermediaria</value>
   </data>
-  <data name="toolStripMIInterlayer.ToolTipText" xml:space="preserve">
+	<data name="toolStripMIInterlayer.ToolTipText" xml:space="preserve">
     <value>Añadir nueva capa intermediaria...</value>
   </data>
-  <data name="toolStripMIPalletCorner.Text" xml:space="preserve">
+	<data name="toolStripMIPalletCorner.Text" xml:space="preserve">
     <value>Esquina de la plataforma</value>
   </data>
-  <data name="toolStripMIPalletCorner.ToolTipText" xml:space="preserve">
+	<data name="toolStripMIPalletCorner.ToolTipText" xml:space="preserve">
     <value>Añadir nueva esquina de la plataforma...</value>
   </data>
-  <data name="toolStripMIPalletCap.Text" xml:space="preserve">
+	<data name="toolStripMIPalletCap.Text" xml:space="preserve">
     <value>Tapa de paleta</value>
   </data>
-  <data name="toolStripMIPalletCap.ToolTipText" xml:space="preserve">
+	<data name="toolStripMIPalletCap.ToolTipText" xml:space="preserve">
     <value>Añadir nueva tapa de la plataforma...</value>
   </data>
-  <data name="toolStripMIPalletFilm.Text" xml:space="preserve">
+	<data name="toolStripMIPalletFilm.Text" xml:space="preserve">
     <value>Película de la plataforma</value>
   </data>
-  <data name="toolStripMIPalletFilm.ToolTipText" xml:space="preserve">
+	<data name="toolStripMIPalletFilm.ToolTipText" xml:space="preserve">
     <value>Añadir nueva película de plataforma...</value>
   </data>
-  <data name="toolStripSBPalletDeco.Text" xml:space="preserve">
+	<data name="toolStripSBPalletDeco.Text" xml:space="preserve">
     <value>Crear nueva capa intermediaria...</value>
   </data>
-  <data name="toolStripMIAnalysisCasePallet.Text" xml:space="preserve">
+	<data name="toolStripMIAnalysisCasePallet.Text" xml:space="preserve">
     <value>Caso/plataforma de</value>
   </data>
-  <data name="toolStripMIAnalysisCylinderPallet.Text" xml:space="preserve">
+	<data name="toolStripMIAnalysisCylinderPallet.Text" xml:space="preserve">
     <value>Cilindro/plataforma</value>
   </data>
-  <data name="toolStripMIAnalysisBundlePallet.Text" xml:space="preserve">
+	<data name="toolStripMIAnalysisBundlePallet.Text" xml:space="preserve">
     <value>Paquete/plataforma</value>
   </data>
-  <data name="toolStripSBAnalysisPallet.Text" xml:space="preserve">
+	<data name="toolStripSBAnalysisPallet.Text" xml:space="preserve">
     <value>Análisis de la plataforma</value>
   </data>
-  <data name="toolStripMIAnalysisBoxCase.Text" xml:space="preserve">
+	<data name="toolStripMIAnalysisBoxCase.Text" xml:space="preserve">
     <value>Caja/caso</value>
   </data>
-  <data name="toolStripMIAnalysisCylinderCase.Text" xml:space="preserve">
+	<data name="toolStripMIAnalysisCylinderCase.Text" xml:space="preserve">
     <value>Caso del cilindro</value>
   </data>
-  <data name="toolStripMIAnalysisBundleCase.Text" xml:space="preserve">
+	<data name="toolStripMIAnalysisBundleCase.Text" xml:space="preserve">
     <value>Paquete/caso</value>
   </data>
-  <data name="toolStripSBAnalysesCase.Text" xml:space="preserve">
+	<data name="toolStripSBAnalysesCase.Text" xml:space="preserve">
     <value>Análisis de caso</value>
   </data>
-  <data name="toolStripSBAnalysesCase.ToolTipText" xml:space="preserve">
+	<data name="toolStripSBAnalysesCase.ToolTipText" xml:space="preserve">
     <value>Análisis de caso</value>
   </data>
-  <data name="toolStripMIAnalysisPalletTruck.Text" xml:space="preserve">
+	<data name="toolStripMIAnalysisPalletTruck.Text" xml:space="preserve">
     <value>Carro de plataforma</value>
   </data>
-  <data name="toolStripMIAnalysisCaseTruck.Text" xml:space="preserve">
+	<data name="toolStripMIAnalysisCaseTruck.Text" xml:space="preserve">
     <value>Caja/carro</value>
   </data>
-  <data name="toolStripSBAnalysesTruck.Text" xml:space="preserve">
+	<data name="toolStripSBAnalysesTruck.Text" xml:space="preserve">
     <value>Análisis de carro</value>
   </data>
-  <data name="toolStripSBAnalysesTruck.ToolTipText" xml:space="preserve">
+	<data name="toolStripSBAnalysesTruck.ToolTipText" xml:space="preserve">
     <value>Análisis de carro</value>
   </data>
-  <data name="toolStripMIBestCase.Text" xml:space="preserve">
+	<data name="toolStripMIBestCase.Text" xml:space="preserve">
     <value>Encontrar el mejor de los casos</value>
   </data>
-  <data name="toolStripMIBestCase.ToolTipText" xml:space="preserve">
+	<data name="toolStripMIBestCase.ToolTipText" xml:space="preserve">
     <value>¡Ayuda a elegir entre los disponibles en la base de datos!</value>
   </data>
-  <data name="toolStripMIBestCasePallet.Text" xml:space="preserve">
+	<data name="toolStripMIBestCasePallet.Text" xml:space="preserve">
     <value>Encontrar el mejor caso/paletización</value>
   </data>
-  <data name="toolStripMIBestCasePallet.ToolTipText" xml:space="preserve">
+	<data name="toolStripMIBestCasePallet.ToolTipText" xml:space="preserve">
     <value>Dado una caja, ayuda a seleccionar caja/paletización de los disponibles en la base de datos.</value>
   </data>
-  <data name="toolStripMIBestPack.Text" xml:space="preserve">
+	<data name="toolStripMIBestPack.Text" xml:space="preserve">
     <value>Encuentra el mejor pack</value>
   </data>
-  <data name="toolStripMIBestPack.ToolTipText" xml:space="preserve">
+	<data name="toolStripMIBestPack.ToolTipText" xml:space="preserve">
     <value>Sugerir el paquete para paletización óptima</value>
   </data>
-  <data name="toolStripSBOptimisations.Text" xml:space="preserve">
+	<data name="toolStripSBOptimisations.Text" xml:space="preserve">
     <value>Optimizaciones del embalaje</value>
   </data>
-  <data name="toolStripSBOptimisations.ToolTipText" xml:space="preserve">
+	<data name="toolStripSBOptimisations.ToolTipText" xml:space="preserve">
     <value>Optimizaciones del embalaje</value>
   </data>
-  <data name="toolStripButtonHelp.Text" xml:space="preserve">
+	<data name="toolStripButtonHelp.Text" xml:space="preserve">
     <value>Ayuda</value>
   </data>
-  <data name="toolStripButtonHelp.ToolTipText" xml:space="preserve">
+	<data name="toolStripButtonHelp.ToolTipText" xml:space="preserve">
     <value>Ayuda</value>
   </data>
-  <data name="toolStripButtonSettings.Text" xml:space="preserve">
+	<data name="toolStripButtonSettings.Text" xml:space="preserve">
     <value>Configuración</value>
   </data>
-  <data name="toolStripStandard.Text" xml:space="preserve">
+	<data name="toolStripStandard.Text" xml:space="preserve">
     <value>Estándar</value>
   </data>
-  <data name="openFileDialogSB.Filter" xml:space="preserve">
+	<data name="openFileDialogSB.Filter" xml:space="preserve">
     <value>Archivos StackBuilder (*.stb) | * .stb | Todos los archivos (*. *) | *. *</value>
   </data>
-  <data name="openFileDialogSB.Title" xml:space="preserve">
+	<data name="openFileDialogSB.Title" xml:space="preserve">
     <value>Abrir el archivo...</value>
   </data>
-  <data name="saveFileDialogSB.Filter" xml:space="preserve">
+	<data name="saveFileDialogSB.Filter" xml:space="preserve">
     <value>Archivos StackBuilder (*.stb) | * .stb</value>
   </data>
-  <data name="saveFileDialogSB.Title" xml:space="preserve">
+	<data name="saveFileDialogSB.Title" xml:space="preserve">
     <value>Guardar el archivo...</value>
   </data>
-  <data name="saveFileDialogWebGL.Filter" xml:space="preserve">
+	<data name="saveFileDialogWebGL.Filter" xml:space="preserve">
     <value>Archivo HTML (*.html) | * .html</value>
   </data>
-  <data name="$this.Text" xml:space="preserve">
+	<data name="$this.Text" xml:space="preserve">
     <value>StackBuilder</value>
   </data>
 </root>

@@ -177,7 +177,7 @@ namespace treeDiM.StackBuilder.Desktop
                 PackWrapper wrapper = value;
                 if (null == wrapper) return;
                 cbType.SelectedIndex = (int)wrapper.Type;
-                onWrapperTypeChanged(this, null);
+                OnWrapperTypeChanged(this, null);
 
                 uCtrlThickness.Value = wrapper.UnitThickness;
                 uCtrlWeight.Value = wrapper.Weight;
@@ -238,21 +238,29 @@ namespace treeDiM.StackBuilder.Desktop
             graphCtrl.DrawingContainer = this;
             UpdateStatus(string.Empty);
         }
-        private void onPackChanged(object sender, EventArgs e)
+        private void OnPackChanged(object sender, EventArgs e)
         {
-            if (sender != uCtrlOuterDimensions && !this.DesignMode)
+            try
             {
-                double length = 0.0, width = 0.0, height = 0.0;
-                PackProperties.GetDimensions(SelectedBox, BoxOrientation, Arrangement, ref length, ref width, ref height);
-                uCtrlOuterDimensions.X = length;
-                uCtrlOuterDimensions.Y = width;
-                uCtrlOuterDimensions.Z = height;
+                if (sender != uCtrlOuterDimensions && !this.DesignMode)
+                {
+                    double length = 0.0, width = 0.0, height = 0.0;
+                    PackProperties.GetDimensions(SelectedBox, BoxOrientation, Arrangement, ref length, ref width, ref height);
+                    uCtrlOuterDimensions.X = length;
+                    uCtrlOuterDimensions.Y = width;
+                    uCtrlOuterDimensions.Z = height;
+                }
+                graphCtrl.Invalidate();
+                UpdateStatus(string.Empty);
             }
-            graphCtrl.Invalidate();
-            UpdateStatus(string.Empty);
+            catch (Exception ex)
+            {
+                _log.Error(ex.ToString());
+            }
         }
-        private void onWrapperTypeChanged(object sender, EventArgs e)
+        private void OnWrapperTypeChanged(object sender, EventArgs e)
         {
+
             bool showTransparent = false, showWalls = false, showHeight = false; 
 
             switch (cbType.SelectedIndex)

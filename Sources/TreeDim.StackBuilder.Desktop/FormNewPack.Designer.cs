@@ -98,7 +98,7 @@
             resources.GetString("cbDir.Items5")});
             resources.ApplyResources(this.cbDir, "cbDir");
             this.cbDir.Name = "cbDir";
-            this.cbDir.SelectedIndexChanged += new System.EventHandler(this.onPackChanged);
+            this.cbDir.SelectedIndexChanged += new System.EventHandler(this.OnPackChanged);
             // 
             // uCtrlOuterDimensions
             // 
@@ -115,7 +115,7 @@
             this.uCtrlOuterDimensions.X = 0D;
             this.uCtrlOuterDimensions.Y = 0D;
             this.uCtrlOuterDimensions.Z = 0D;
-            this.uCtrlOuterDimensions.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlOptTriDouble.ValueChangedDelegate(this.onPackChanged);
+            this.uCtrlOuterDimensions.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlOptTriDouble.ValueChangedDelegate(this.OnPackChanged);
             // 
             // uCtrlLayout
             // 
@@ -124,7 +124,7 @@
             this.uCtrlLayout.NoX = 1;
             this.uCtrlLayout.NoY = 1;
             this.uCtrlLayout.NoZ = 1;
-            this.uCtrlLayout.ValueChanged += new treeDiM.StackBuilder.Basics.Controls.UCtrlTriInt.ValueChangedDelegate(this.onPackChanged);
+            this.uCtrlLayout.ValueChanged += new treeDiM.StackBuilder.Basics.Controls.UCtrlTriInt.ValueChangedDelegate(this.OnPackChanged);
             // 
             // groupBox1
             // 
@@ -152,7 +152,7 @@
             this.uCtrlHeight.Name = "uCtrlHeight";
             this.uCtrlHeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlHeight.Value = 40D;
-            this.uCtrlHeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.ValueChangedDelegate(this.onPackChanged);
+            this.uCtrlHeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.ValueChangedDelegate(this.OnPackChanged);
             // 
             // uCtrlWalls
             // 
@@ -161,14 +161,14 @@
             this.uCtrlWalls.NoX = 1;
             this.uCtrlWalls.NoY = 1;
             this.uCtrlWalls.NoZ = 1;
-            this.uCtrlWalls.ValueChanged += new treeDiM.StackBuilder.Basics.Controls.UCtrlTriInt.ValueChangedDelegate(this.onPackChanged);
+            this.uCtrlWalls.ValueChanged += new treeDiM.StackBuilder.Basics.Controls.UCtrlTriInt.ValueChangedDelegate(this.OnPackChanged);
             // 
             // chkbTransparent
             // 
             resources.ApplyResources(this.chkbTransparent, "chkbTransparent");
             this.chkbTransparent.Name = "chkbTransparent";
             this.chkbTransparent.UseVisualStyleBackColor = true;
-            this.chkbTransparent.CheckedChanged += new System.EventHandler(this.onPackChanged);
+            this.chkbTransparent.CheckedChanged += new System.EventHandler(this.OnPackChanged);
             // 
             // lbType
             // 
@@ -186,7 +186,7 @@
             resources.GetString("cbType.Items3")});
             resources.ApplyResources(this.cbType, "cbType");
             this.cbType.Name = "cbType";
-            this.cbType.SelectedIndexChanged += new System.EventHandler(this.onWrapperTypeChanged);
+            this.cbType.SelectedIndexChanged += new System.EventHandler(this.OnWrapperTypeChanged);
             // 
             // uCtrlWeight
             // 
@@ -199,7 +199,7 @@
             this.uCtrlWeight.Name = "uCtrlWeight";
             this.uCtrlWeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_MASS;
             this.uCtrlWeight.Value = 0D;
-            this.uCtrlWeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.ValueChangedDelegate(this.onPackChanged);
+            this.uCtrlWeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.ValueChangedDelegate(this.OnPackChanged);
             // 
             // uCtrlThickness
             // 
@@ -212,7 +212,7 @@
             this.uCtrlThickness.Name = "uCtrlThickness";
             this.uCtrlThickness.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlThickness.Value = 0D;
-            this.uCtrlThickness.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.ValueChangedDelegate(this.onPackChanged);
+            this.uCtrlThickness.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.ValueChangedDelegate(this.OnPackChanged);
             // 
             // lbWrapperColor
             // 
@@ -257,7 +257,7 @@
             resources.GetString("cbColor.Items25"),
             resources.GetString("cbColor.Items26")});
             this.cbColor.Name = "cbColor";
-            this.cbColor.SelectedColorChanged += new System.EventHandler(this.onPackChanged);
+            this.cbColor.SelectedColorChanged += new System.EventHandler(this.OnPackChanged);
             // 
             // FormNewPack
             // 

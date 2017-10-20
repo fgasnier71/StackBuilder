@@ -318,30 +318,37 @@ namespace treeDiM.StackBuilder.Desktop
         #region Handlers
         private void OnBoxPropertyChanged(object sender, EventArgs e)
         {
-            // maintain inside dimensions
-            if (sender is UCtrlTriDouble uCtrlDimOut && uCtrlDimensionsOuter == uCtrlDimOut)
+            try
             {
-                InsideLength = BoxLength - _thicknessLength;
-                InsideWidth = BoxWidth - _thicknessWidth;
-                InsideHeight = BoxHeight - _thicknessHeight;
-            }
-            if (sender is UCtrlOptTriDouble uCtrlDimIn && uCtrlDimensionsInner == uCtrlDimIn)
-            {
-                if (BoxLength < InsideLength)
-                    BoxLength = InsideLength + _thicknessLength;
-                if (BoxWidth < InsideWidth)
-                    BoxWidth = InsideWidth + _thicknessWidth;
-                if (BoxHeight <= InsideHeight)
-                    BoxHeight = InsideHeight + _thicknessHeight;
-            }
-            uCtrlNetWeight.Enabled = !uCtrlDimensionsInner.Checked;
+                // maintain inside dimensions
+                if (sender is UCtrlTriDouble uCtrlDimOut && uCtrlDimensionsOuter == uCtrlDimOut)
+                {
+                    InsideLength = BoxLength - _thicknessLength;
+                    InsideWidth = BoxWidth - _thicknessWidth;
+                    InsideHeight = BoxHeight - _thicknessHeight;
+                }
+                if (sender is UCtrlOptTriDouble uCtrlDimIn && uCtrlDimensionsInner == uCtrlDimIn)
+                {
+                    if (BoxLength < InsideLength)
+                        BoxLength = InsideLength + _thicknessLength;
+                    if (BoxWidth < InsideWidth)
+                        BoxWidth = InsideWidth + _thicknessWidth;
+                    if (BoxHeight <= InsideHeight)
+                        BoxHeight = InsideHeight + _thicknessHeight;
+                }
+                uCtrlNetWeight.Enabled = !uCtrlDimensionsInner.Checked;
 
-            // update thicknesses
-            UpdateThicknesses();
-            // update ok button status
-            UpdateButtonOkStatus();
-            // update box drawing
-            graphCtrl.Invalidate();
+                // update thicknesses
+                UpdateThicknesses();
+                // update ok button status
+                UpdateButtonOkStatus();
+                // update box drawing
+                graphCtrl.Invalidate();
+            }
+            catch (Exception ex)
+            {
+                _log.Error(ex.ToString());
+            }
         }
 
         private void OnSelectedFaceChanged(object sender, EventArgs e)

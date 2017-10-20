@@ -171,8 +171,7 @@ namespace treeDiM.StackBuilder.Desktop
             {
                 if (DialogResult.OK == openImageFileDialog.ShowDialog())
                 {
-                    double faceLength = 0.0, faceHeight = 0.0;
-                    SelectedFaceLengthHeight(out faceLength, out faceHeight);
+                    SelectedFaceLengthHeight(out double faceLength, out double faceHeight);
                     Pair<HalfAxis.HAxis, Texture> faceTexturePair = null;
                     foreach (string filePath in openImageFileDialog.FileNames)
                     {

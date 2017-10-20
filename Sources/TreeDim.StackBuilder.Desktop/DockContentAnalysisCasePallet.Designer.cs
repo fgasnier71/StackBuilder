@@ -64,33 +64,15 @@
             // 
             // splitContainerHoriz
             // 
-            resources.ApplyResources(this.splitContainerHoriz, "splitContainerHoriz");
-            // 
-            // splitContainerHoriz.Panel1
-            // 
-            resources.ApplyResources(this.splitContainerHoriz.Panel1, "splitContainerHoriz.Panel1");
             // 
             // splitContainerHoriz.Panel2
             // 
-            resources.ApplyResources(this.splitContainerHoriz.Panel2, "splitContainerHoriz.Panel2");
             this.splitContainerHoriz.Panel2.Controls.Add(this.gbStopCriterions);
             this.splitContainerHoriz.Panel2.Controls.Add(this.tabCtrl);
             // 
             // splitContainerVert
             // 
             resources.ApplyResources(this.splitContainerVert, "splitContainerVert");
-            // 
-            // splitContainerVert.Panel1
-            // 
-            resources.ApplyResources(this.splitContainerVert.Panel1, "splitContainerVert.Panel1");
-            // 
-            // splitContainerVert.Panel2
-            // 
-            resources.ApplyResources(this.splitContainerVert.Panel2, "splitContainerVert.Panel2");
-            // 
-            // cbInterlayer
-            // 
-            resources.ApplyResources(this.cbInterlayer, "cbInterlayer");
             // 
             // gridSolutions
             // 
@@ -140,17 +122,17 @@
             // 
             // tabPagePalletCorners
             // 
-            resources.ApplyResources(this.tabPagePalletCorners, "tabPagePalletCorners");
             this.tabPagePalletCorners.Controls.Add(this.cbPalletCorners);
             this.tabPagePalletCorners.Controls.Add(this.chkbPalletCorners);
+            resources.ApplyResources(this.tabPagePalletCorners, "tabPagePalletCorners");
             this.tabPagePalletCorners.Name = "tabPagePalletCorners";
             this.tabPagePalletCorners.UseVisualStyleBackColor = true;
             // 
             // cbPalletCorners
             // 
-            resources.ApplyResources(this.cbPalletCorners, "cbPalletCorners");
             this.cbPalletCorners.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbPalletCorners.FormattingEnabled = true;
+            resources.ApplyResources(this.cbPalletCorners, "cbPalletCorners");
             this.cbPalletCorners.Name = "cbPalletCorners";
             this.cbPalletCorners.SelectedIndexChanged += new System.EventHandler(this.OnPalletProtectionChanged);
             // 
@@ -163,17 +145,17 @@
             // 
             // tabPagePalletCap
             // 
-            resources.ApplyResources(this.tabPagePalletCap, "tabPagePalletCap");
             this.tabPagePalletCap.Controls.Add(this.cbPalletCap);
             this.tabPagePalletCap.Controls.Add(this.chkbPalletCap);
+            resources.ApplyResources(this.tabPagePalletCap, "tabPagePalletCap");
             this.tabPagePalletCap.Name = "tabPagePalletCap";
             this.tabPagePalletCap.UseVisualStyleBackColor = true;
             // 
             // cbPalletCap
             // 
-            resources.ApplyResources(this.cbPalletCap, "cbPalletCap");
             this.cbPalletCap.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbPalletCap.FormattingEnabled = true;
+            resources.ApplyResources(this.cbPalletCap, "cbPalletCap");
             this.cbPalletCap.Name = "cbPalletCap";
             this.cbPalletCap.SelectedIndexChanged += new System.EventHandler(this.OnPalletProtectionChanged);
             // 
@@ -186,17 +168,17 @@
             // 
             // tabPagePalletFilm
             // 
-            resources.ApplyResources(this.tabPagePalletFilm, "tabPagePalletFilm");
             this.tabPagePalletFilm.Controls.Add(this.cbPalletFilm);
             this.tabPagePalletFilm.Controls.Add(this.chkbPalletFilm);
+            resources.ApplyResources(this.tabPagePalletFilm, "tabPagePalletFilm");
             this.tabPagePalletFilm.Name = "tabPagePalletFilm";
             this.tabPagePalletFilm.UseVisualStyleBackColor = true;
             // 
             // cbPalletFilm
             // 
-            resources.ApplyResources(this.cbPalletFilm, "cbPalletFilm");
             this.cbPalletFilm.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbPalletFilm.FormattingEnabled = true;
+            resources.ApplyResources(this.cbPalletFilm, "cbPalletFilm");
             this.cbPalletFilm.Name = "cbPalletFilm";
             this.cbPalletFilm.SelectedIndexChanged += new System.EventHandler(this.OnPalletProtectionChanged);
             // 
@@ -212,7 +194,6 @@
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Name = "DockContentAnalysisCasePallet";
-            this.ShowInTaskbar = false;
             this.SizeChanged += new System.EventHandler(this.OnSizeChanged);
             ((System.ComponentModel.ISupportInitialize)(this.graphCtrlSolution)).EndInit();
             this.splitContainerHoriz.Panel1.ResumeLayout(false);

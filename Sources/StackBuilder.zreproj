@@ -70,7 +70,7 @@ Kind regards</globalSetting>
     <globalSetting name="receiveFileFromTranslator.sourceFilePathTextEdit.Text">C:\Users\François\Downloads\StackBuilder_sv.xlsx</globalSetting>
     <globalSetting name="receiveFileFromTranslator.fileGroupsListBox">
     </globalSetting>
-    <globalSetting name="receiveFileFromTranslator.languagesToImportCheckListBox">1</globalSetting>
+    <globalSetting name="receiveFileFromTranslator.languagesToImportCheckListBox">0;1</globalSetting>
     <globalSetting name="DeleteLanguageForm.destinationLanguagesListBox">0;3;5;7;8;10</globalSetting>
     <userSetting name="François@TREEDIM_PC2.filesInitialDir">K:\GitHub\StackBuilder\Sources</userSetting>
     <userSetting name="François@TREEDIM_PC2.FindText">
@@ -265,16 +265,6 @@ Kind regards</globalSetting>
       <remarks>
       </remarks>
     </fileGroup>
-    <fileGroup name="" projectFolderUniqueID="01a5823b-8e11-44e3-a5b1-3acb46084abd" orderPosition="13" ignoreDuringExportAndImport="False" uniqueID="09435102-9cf1-4e81-b41a-5ef131d698ac">
-      <file filePath="TreeDim.StackBuilder.Desktop\FormAppendSolutionToDB.resx" absoluteFilePath="K:\GitHub\StackBuilder\Sources\TreeDim.StackBuilder.Desktop\FormAppendSolutionToDB.resx" uniqueID="f2b14e6f-a450-4837-a3ca-f9bf382f8ed2" />
-      <file filePath="TreeDim.StackBuilder.Desktop\FormAppendSolutionToDB.es.resx" absoluteFilePath="K:\GitHub\StackBuilder\Sources\TreeDim.StackBuilder.Desktop\FormAppendSolutionToDB.es.resx" uniqueID="551ef77e-611f-456e-a0ca-797ca4721528" />
-      <file filePath="TreeDim.StackBuilder.Desktop\FormAppendSolutionToDB.fr.resx" absoluteFilePath="K:\GitHub\StackBuilder\Sources\TreeDim.StackBuilder.Desktop\FormAppendSolutionToDB.fr.resx" uniqueID="345eb544-82ea-4eec-927b-ba55342525e7" />
-      <file filePath="TreeDim.StackBuilder.Desktop\FormAppendSolutionToDB.it.resx" absoluteFilePath="K:\GitHub\StackBuilder\Sources\TreeDim.StackBuilder.Desktop\FormAppendSolutionToDB.it.resx" uniqueID="1ea88d3b-b3e2-4b5a-a254-19941198f5ad" />
-      <file filePath="TreeDim.StackBuilder.Desktop\FormAppendSolutionToDB.nl.resx" absoluteFilePath="K:\GitHub\StackBuilder\Sources\TreeDim.StackBuilder.Desktop\FormAppendSolutionToDB.nl.resx" uniqueID="f1ddd5e1-b3dc-40db-ab1e-4dee0cdb2b73" />
-      <file filePath="TreeDim.StackBuilder.Desktop\FormAppendSolutionToDB.pl.resx" absoluteFilePath="K:\GitHub\StackBuilder\Sources\TreeDim.StackBuilder.Desktop\FormAppendSolutionToDB.pl.resx" uniqueID="422d08cb-d12f-4b01-8318-f478e7437160" />
-      <remarks>
-      </remarks>
-    </fileGroup>
     <fileGroup name="" projectFolderUniqueID="01a5823b-8e11-44e3-a5b1-3acb46084abd" orderPosition="14" ignoreDuringExportAndImport="False" uniqueID="74207e61-65aa-44f4-bd1b-d2cd1ebd4ef7">
       <file filePath="TreeDim.StackBuilder.Desktop\FormEditBitmaps.resx" absoluteFilePath="K:\GitHub\StackBuilder\Sources\TreeDim.StackBuilder.Desktop\FormEditBitmaps.resx" uniqueID="9ce58c2c-9624-4e5f-b8ce-23ec4dd6d7ab" />
       <file filePath="TreeDim.StackBuilder.Desktop\FormEditBitmaps.es.resx" absoluteFilePath="K:\GitHub\StackBuilder\Sources\TreeDim.StackBuilder.Desktop\FormEditBitmaps.es.resx" uniqueID="c015faea-79ec-4086-8241-fb245e35090f" />
@@ -282,16 +272,6 @@ Kind regards</globalSetting>
       <file filePath="TreeDim.StackBuilder.Desktop\FormEditBitmaps.it.resx" absoluteFilePath="K:\GitHub\StackBuilder\Sources\TreeDim.StackBuilder.Desktop\FormEditBitmaps.it.resx" uniqueID="71feaacf-536b-460c-8d8f-7a2d1fc8cfef" />
       <file filePath="TreeDim.StackBuilder.Desktop\FormEditBitmaps.nl.resx" absoluteFilePath="K:\GitHub\StackBuilder\Sources\TreeDim.StackBuilder.Desktop\FormEditBitmaps.nl.resx" uniqueID="b8e52487-a6b8-4866-bd60-333c6b68f733" />
       <file filePath="TreeDim.StackBuilder.Desktop\FormEditBitmaps.pl.resx" absoluteFilePath="K:\GitHub\StackBuilder\Sources\TreeDim.StackBuilder.Desktop\FormEditBitmaps.pl.resx" uniqueID="edcc9aa9-4c9a-4e25-b2f9-42af63617b20" />
-      <remarks>
-      </remarks>
-    </fileGroup>
-    <fileGroup name="" projectFolderUniqueID="01a5823b-8e11-44e3-a5b1-3acb46084abd" orderPosition="15" ignoreDuringExportAndImport="False" uniqueID="da7094b6-0d40-4a9f-879f-03c82f47c7e0">
-      <file filePath="TreeDim.StackBuilder.Desktop\FormEditPalletSolutionDB.resx" absoluteFilePath="K:\GitHub\StackBuilder\Sources\TreeDim.StackBuilder.Desktop\FormEditPalletSolutionDB.resx" uniqueID="5222e45d-83b8-4984-9913-6aa70bca4985" />
-      <file filePath="TreeDim.StackBuilder.Desktop\FormEditPalletSolutionDB.es.resx" absoluteFilePath="K:\GitHub\StackBuilder\Sources\TreeDim.StackBuilder.Desktop\FormEditPalletSolutionDB.es.resx" uniqueID="93d93a6e-9f7d-4a71-b299-d3b3d4704067" />
-      <file filePath="TreeDim.StackBuilder.Desktop\FormEditPalletSolutionDB.fr.resx" absoluteFilePath="K:\GitHub\StackBuilder\Sources\TreeDim.StackBuilder.Desktop\FormEditPalletSolutionDB.fr.resx" uniqueID="9f4359c7-2ca4-4c7b-b066-db180da1e4e2" />
-      <file filePath="TreeDim.StackBuilder.Desktop\FormEditPalletSolutionDB.it.resx" absoluteFilePath="K:\GitHub\StackBuilder\Sources\TreeDim.StackBuilder.Desktop\FormEditPalletSolutionDB.it.resx" uniqueID="ecf35f81-0fed-4f98-9dd3-58a0d3baf061" />
-      <file filePath="TreeDim.StackBuilder.Desktop\FormEditPalletSolutionDB.nl.resx" absoluteFilePath="K:\GitHub\StackBuilder\Sources\TreeDim.StackBuilder.Desktop\FormEditPalletSolutionDB.nl.resx" uniqueID="c30f654f-35e5-476a-8dc7-e620fbadfa33" />
-      <file filePath="TreeDim.StackBuilder.Desktop\FormEditPalletSolutionDB.pl.resx" absoluteFilePath="K:\GitHub\StackBuilder\Sources\TreeDim.StackBuilder.Desktop\FormEditPalletSolutionDB.pl.resx" uniqueID="738fea21-c5cf-4f9a-baeb-2111d0008db9" />
       <remarks>
       </remarks>
     </fileGroup>
@@ -352,16 +332,6 @@ Kind regards</globalSetting>
       <file filePath="TreeDim.StackBuilder.Desktop\FormNewBundle.it.resx" absoluteFilePath="K:\GitHub\StackBuilder\Sources\TreeDim.StackBuilder.Desktop\FormNewBundle.it.resx" uniqueID="6c1da7b8-49dc-4325-aa22-6402486f87e2" />
       <file filePath="TreeDim.StackBuilder.Desktop\FormNewBundle.nl.resx" absoluteFilePath="K:\GitHub\StackBuilder\Sources\TreeDim.StackBuilder.Desktop\FormNewBundle.nl.resx" uniqueID="cf8420cc-0785-4625-ab46-a70681b5d44b" />
       <file filePath="TreeDim.StackBuilder.Desktop\FormNewBundle.pl.resx" absoluteFilePath="K:\GitHub\StackBuilder\Sources\TreeDim.StackBuilder.Desktop\FormNewBundle.pl.resx" uniqueID="5ba4780a-d222-4899-a4eb-8f114c04cb99" />
-      <remarks>
-      </remarks>
-    </fileGroup>
-    <fileGroup name="" projectFolderUniqueID="01a5823b-8e11-44e3-a5b1-3acb46084abd" orderPosition="24" ignoreDuringExportAndImport="False" uniqueID="3e5cf42d-3ac3-433e-8b85-d5858ec36423">
-      <file filePath="TreeDim.StackBuilder.Desktop\FormNewCaseAnalysis.resx" absoluteFilePath="K:\GitHub\StackBuilder\Sources\TreeDim.StackBuilder.Desktop\FormNewCaseAnalysis.resx" uniqueID="86b99fe4-4bdf-4305-8091-73e48384dba5" />
-      <file filePath="TreeDim.StackBuilder.Desktop\FormNewCaseAnalysis.es.resx" absoluteFilePath="K:\GitHub\StackBuilder\Sources\TreeDim.StackBuilder.Desktop\FormNewCaseAnalysis.es.resx" uniqueID="e0f8249f-5f43-4dee-9d8d-3ea3cb72a959" />
-      <file filePath="TreeDim.StackBuilder.Desktop\FormNewCaseAnalysis.fr.resx" absoluteFilePath="K:\GitHub\StackBuilder\Sources\TreeDim.StackBuilder.Desktop\FormNewCaseAnalysis.fr.resx" uniqueID="053dc9d0-ff36-4cad-be82-60c228030b1d" />
-      <file filePath="TreeDim.StackBuilder.Desktop\FormNewCaseAnalysis.it.resx" absoluteFilePath="K:\GitHub\StackBuilder\Sources\TreeDim.StackBuilder.Desktop\FormNewCaseAnalysis.it.resx" uniqueID="0da35808-2cff-4784-a49f-eecb49f48bf3" />
-      <file filePath="TreeDim.StackBuilder.Desktop\FormNewCaseAnalysis.nl.resx" absoluteFilePath="K:\GitHub\StackBuilder\Sources\TreeDim.StackBuilder.Desktop\FormNewCaseAnalysis.nl.resx" uniqueID="93c5e75c-678d-40cc-a10e-01b3979d929f" />
-      <file filePath="TreeDim.StackBuilder.Desktop\FormNewCaseAnalysis.pl.resx" absoluteFilePath="K:\GitHub\StackBuilder\Sources\TreeDim.StackBuilder.Desktop\FormNewCaseAnalysis.pl.resx" uniqueID="67966515-d244-44e0-8fba-8ac974177197" />
       <remarks>
       </remarks>
     </fileGroup>
