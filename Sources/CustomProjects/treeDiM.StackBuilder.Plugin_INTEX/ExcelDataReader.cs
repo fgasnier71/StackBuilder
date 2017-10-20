@@ -90,9 +90,11 @@ namespace ExcelDataReader
                         {
                             try
                             {
-                                DataItemINTEX item = new DataItemINTEX();
-                                // ref
-                                item._ref = ParseObjectToString(dt.Rows[iRow][0], "Ref");
+                                DataItemINTEX item = new DataItemINTEX
+                                {
+                                    // ref
+                                    _ref = ParseObjectToString(dt.Rows[iRow][0], "Ref")
+                                };
                                 // description
                                 if (DBNull.Value != dt.Rows[iRow][1])
                                     item._description = (string)dt.Rows[iRow][1];
@@ -156,17 +158,19 @@ namespace ExcelDataReader
                         {
                             try
                             {
-                                DataCaseINTEX caseItem = new DataCaseINTEX();
-                                caseItem._ref = ParseObjectToString(dt.Rows[iRow][0], "Ref");
-                                caseItem._lengthExt = ParseObjectToDouble(dt.Rows[iRow][1], "Case length Ext.");
-                                caseItem._widthExt = ParseObjectToDouble(dt.Rows[iRow][2], "Case width Ext.");
-                                caseItem._heightExt = ParseObjectToDouble(dt.Rows[iRow][3], "Case height Ext.");
+                                DataCaseINTEX caseItem = new DataCaseINTEX
+                                {
+                                    _ref = ParseObjectToString(dt.Rows[iRow][0], "Ref"),
+                                    _lengthExt = ParseObjectToDouble(dt.Rows[iRow][1], "Case length Ext."),
+                                    _widthExt = ParseObjectToDouble(dt.Rows[iRow][2], "Case width Ext."),
+                                    _heightExt = ParseObjectToDouble(dt.Rows[iRow][3], "Case height Ext.")
+                                };
                                 if (!DBNull.Value.Equals(dt.Rows[iRow][4]))
-                                    caseItem._lengthInt = double.Parse((string)dt.Rows[iRow][4], System.Globalization.CultureInfo.InvariantCulture);
+                                    caseItem._lengthInt = double.Parse((string)dt.Rows[iRow][4], CultureInfo.InvariantCulture);
                                 if (!DBNull.Value.Equals(dt.Rows[iRow][5]))
-                                    caseItem._widthInt = double.Parse((string)dt.Rows[iRow][5], System.Globalization.CultureInfo.InvariantCulture);
+                                    caseItem._widthInt = double.Parse((string)dt.Rows[iRow][5], CultureInfo.InvariantCulture);
                                 if (!DBNull.Value.Equals(dt.Rows[iRow][6]))
-                                    caseItem._heightInt = double.Parse((string)dt.Rows[iRow][6], System.Globalization.CultureInfo.InvariantCulture);
+                                    caseItem._heightInt = double.Parse((string)dt.Rows[iRow][6], CultureInfo.InvariantCulture);
                                 if (!DBNull.Value.Equals(dt.Rows[iRow][7]))
                                     caseItem._weight = double.Parse((string)dt.Rows[iRow][7], System.Globalization.CultureInfo.InvariantCulture);
                                 listCases.Add(caseItem);
