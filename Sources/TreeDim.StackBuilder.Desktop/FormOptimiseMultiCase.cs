@@ -165,7 +165,7 @@ namespace treeDiM.StackBuilder.Desktop
                 AnalysisBoxCase analysisSel = SelectedAnalysis;
                 BoxProperties caseSel = analysisSel.CaseProperties;
                 // create case
-                BoxProperties caseProperties = _doc.CreateNewBox(caseSel);
+                BoxProperties caseProperties = _doc.CreateNewCase(caseSel);
                 // create analysis
                 List<InterlayerProperties> interlayers = new List<InterlayerProperties>();
                 Analysis analysis = _doc.CreateNewAnalysisBoxCase(
