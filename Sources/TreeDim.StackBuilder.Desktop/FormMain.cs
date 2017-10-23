@@ -263,15 +263,22 @@ namespace treeDiM.StackBuilder.Desktop
         private void OnTimerLoginTick(object sender, EventArgs e)
         {
             timerLogin.Stop();
-            // show login form
-            if (!WCFClient.IsConnected)
+            try
             {
-                using (WCFClient wcfClient = new WCFClient())
+                // show login form
+                if (!WCFClient.IsConnected)
                 {
-                    wcfClient.Client.Connect();
+                    using (WCFClient wcfClient = new WCFClient())
+                    {
+                        wcfClient.Client.Connect();
+                    }
                 }
+                // note : CreateBasicLayout now called by OnConnected()
             }
-            // note : CreateBasicLayout now called by OnConnected()
+            catch (Exception ex)
+            {
+                _log.Error(string.Format("Login failed (Exception = {0})", ex.Message));
+            }
         }
         #endregion
 
@@ -285,6 +292,14 @@ namespace treeDiM.StackBuilder.Desktop
             ShowLogConsole();
             if (AssemblyConf != "debug" && Properties.Settings.Default.ShowStartPage)
                 ShowStartPage(this, null);
+        }
+
+        private void ClearBasicLayout()
+        {
+            _documentExplorer.Hide();
+            _documentExplorer.DocumentTreeView.AnalysisNodeClicked -= DocumentTreeView_NodeClicked;
+            _documentExplorer.DocumentTreeView.SolutionReportClicked -= OnSolutionReportNodeClicked;
+            _documentExplorer.DocumentTreeView.SolutionColladaExportClicked -= DocumentTreeView_SolutionColladaExportClicked;
         }
 
         public void ShowLogConsole()
@@ -939,6 +954,7 @@ namespace treeDiM.StackBuilder.Desktop
         private void OnDisconnected()
         {
             Text = Application.ProductName;
+            ClearBasicLayout();
             UpdateDisconnectButton();
         }
         private void UpdateDisconnectButton()
@@ -1256,77 +1272,6 @@ namespace treeDiM.StackBuilder.Desktop
             // show docked
             formECTAnalysis.Show(dockPanel, WeifenLuo.WinFormsUI.Docking.DockState.Document);
         }
-        /*
-        /// <summary>
-        /// Creates or activate a truck analysis view
-        /// </summary>
-        public void CreateOrActivateViewTruckAnalysis(TruckAnalysis analysis)
-        {
-            // search among existing views
-            foreach (IDocument doc in Documents)
-                foreach (IView view in doc.Views)
-                {
-                    DockContentTruckAnalysis form = view as DockContentTruckAnalysis;
-                    if (null == form) continue;
-                    if (analysis == form.TruckAnalysis)
-                    {
-                        form.Activate();
-                        return;
-                    }
-                }
-            // ---> not found
-            // ---> create new form
-            // get document
-            DocumentSB parentDocument = analysis.ParentDocument as DocumentSB;
-            // instantiate form
-            DockContentTruckAnalysis formTruckAnalysis = parentDocument.CreateTruckAnalysisView(analysis);
-            // show docked
-            formTruckAnalysis.Show(dockPanel, WeifenLuo.WinFormsUI.Docking.DockState.Document);
-        }
-        /// <summary>
-        /// Creates or activate a case analysis view
-        /// </summary>
-        public void CreateOrActivateViewCaseAnalysis(BoxCasePalletAnalysis caseAnalysis)
-        {
-            // search ammong existing views
-            foreach (IDocument doc in Documents)
-                foreach (IView view in doc.Views)
-                {
-                    DockContentBoxCasePalletAnalysis form = view as DockContentBoxCasePalletAnalysis;
-                    if (null == form) continue;
-                    if (caseAnalysis == form.CaseAnalysis)
-                    {
-                        form.Activate();
-                        return;
-                    }
-                }
-            // ---> not found
-            // ---> create new form
-            DocumentSB parentDocument = (DocumentSB)caseAnalysis.ParentDocument;
-            DockContentBoxCasePalletAnalysis formCaseAnalysis = parentDocument.CreateCaseAnalysisView(caseAnalysis);
-            formCaseAnalysis.Show(dockPanel, WeifenLuo.WinFormsUI.Docking.DockState.Document);
-        }
-        public void CreateOrActivateViewBoxCaseAnalysis(BoxCaseAnalysis boxCaseAnalysis)
-        { 
-            // search among existing views
-            foreach (IDocument doc in Documents)
-                foreach (IView view in doc.Views)
-                {
-                    DockContentBoxCaseAnalysis form = view as DockContentBoxCaseAnalysis;
-                    if (null == form) continue;
-                    if (boxCaseAnalysis == form.Analysis)
-                    {
-                        form.Activate();
-                        return;                        
-                    }
-                }
-            // ---> not found
-            // ---> create new form
-            DocumentSB parentDocument = (DocumentSB)boxCaseAnalysis.ParentDocument;
-            DockContentBoxCaseAnalysis formBoxCaseAnalysis = parentDocument.CreateNewBoxCaseAnalysisView(boxCaseAnalysis);
-            formBoxCaseAnalysis.Show(dockPanel, WeifenLuo.WinFormsUI.Docking.DockState.Document);
-        }
-        */
         #endregion
 
         #region Helpers
@@ -1373,7 +1318,9 @@ namespace treeDiM.StackBuilder.Desktop
         {
             try
             {
-                WCFClient.DisconnectFull();
+                WCFClient.Disconnect();
+                // start login again
+                timerLogin.Start();
             }
             catch (Exception ex) { _log.Error(ex.ToString()); }
         }
