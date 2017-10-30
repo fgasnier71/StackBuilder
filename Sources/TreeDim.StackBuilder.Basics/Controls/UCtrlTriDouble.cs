@@ -7,6 +7,8 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+
+using Sharp3D.Math.Core;
 #endregion
 
 namespace treeDiM.StackBuilder.Basics
@@ -40,11 +42,29 @@ namespace treeDiM.StackBuilder.Basics
             set { lbName.Text = value; }
         }
         [Browsable(true)]
-        public double ValueX { get { return (double)nudValueX.Value; } set { nudValueX.Value = (decimal)value; } }
+        public Vector3D Value
+        {
+            get { return new Vector3D(ValueX, ValueY, ValueZ); }
+            set { try { ValueX = value.X; ValueY = value.Y; ValueZ = value.Z; } catch (ArgumentOutOfRangeException) {} }
+        }
         [Browsable(true)]
-        public double ValueY { get { return (double)nudValueY.Value; } set { nudValueY.Value = (decimal)value; } }
+        public double ValueX
+        {
+            get { return (double)nudValueX.Value; }
+            set { try { nudValueX.Value = (decimal)value; } catch (ArgumentOutOfRangeException) {} }
+        }
         [Browsable(true)]
-        public double ValueZ { get { return (double)nudValueZ.Value; } set { nudValueZ.Value = (decimal)value; } }
+        public double ValueY
+        {
+            get { return (double)nudValueY.Value; }
+            set { try { nudValueY.Value = (decimal)value; } catch (ArgumentOutOfRangeException) {} }
+        }
+        [Browsable(true)]
+        public double ValueZ
+        {
+            get { return (double)nudValueZ.Value; }
+            set { try { nudValueZ.Value = (decimal)value; } catch (ArgumentOutOfRangeException) {} }
+        }
         [Browsable(true)]
         public decimal Minimum
         {

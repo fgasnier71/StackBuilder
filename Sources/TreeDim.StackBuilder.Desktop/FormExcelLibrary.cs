@@ -41,7 +41,7 @@ namespace treeDiM.StackBuilder.Desktop
             // load path
             excelFileSelect.FileName = Properties.Settings.Default.ExcelLibraryPath;
             // load file
-            Reload(this, null);
+            try { Reload(this, null); } catch (Exception ex) { _log.Error(ex.Message); }
         }
         protected override void OnClosing(CancelEventArgs e)
         {
@@ -59,7 +59,7 @@ namespace treeDiM.StackBuilder.Desktop
             catch (System.Security.SecurityException ex)    {   MessageBox.Show(ex.Message);    }
             catch (Exception ex)                            {   MessageBox.Show(ex.Message);    }
 
-            if (_listTypes.Count > 0)
+            if (null != _listTypes && _listTypes.Count > 0)
             {
                 tabControlLibrary.Show();
                 // is tabcontrol already initialized

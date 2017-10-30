@@ -42,7 +42,7 @@ namespace treeDiM.StackBuilder.Basics
         public double Value
         {
             get { return (double)nudValue.Value; }
-            set { nudValue.Value = (decimal)value; }
+            set { try { nudValue.Value = (decimal)value; } catch (ArgumentOutOfRangeException) {} }
         }
         [Browsable(true)]
         public decimal Minimum

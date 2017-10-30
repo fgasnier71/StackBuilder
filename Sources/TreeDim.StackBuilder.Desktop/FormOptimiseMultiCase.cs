@@ -48,12 +48,19 @@ namespace treeDiM.StackBuilder.Desktop
             uCtrlCaseDimensionsMax.X = Settings.Default.MaxCaseDimX;
             uCtrlCaseDimensionsMax.Y = Settings.Default.MaxCaseDimY;
             uCtrlCaseDimensionsMax.Z = Settings.Default.MaxCaseDimZ;
-            // load cases
-            using (WCFClient wcfClient = new WCFClient())
+            try
             {
-                _sbCases = wcfClient.Client.GetAllCases();
+                // load cases
+                using (WCFClient wcfClient = new WCFClient())
+                {
+                    _sbCases = wcfClient.Client.GetAllCases();
+                }
+                OnFillListCases(this, null);
             }
-            OnFillListCases(this, null);
+            catch (Exception ex)
+            {
+                _log.Error(ex.Message);
+            }
             // update graph control
             graphCtrl.DrawingContainer = this;
         }

@@ -1091,36 +1091,43 @@ namespace treeDiM.StackBuilder.Desktop
         }
         private void OnNewAnalysisBoxCase(object sender, EventArgs e)
         {
+            if (null == ActiveDocument) { _log.Error(message:"No active document!"); }
             try { ((DocumentSB)ActiveDocument).CreateNewAnalysisBoxCaseUI(); }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
         private void OnNewAnalysisCylinderCase(object sender, EventArgs e)
         { 
+            if (null == ActiveDocument) { _log.Error(message:"No active document!"); }
             try { ((DocumentSB)ActiveDocument).CreateNewAnalysisCylinderCaseUI(); }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
         private void OnNewAnalysisPalletTruck(object sender, EventArgs e)
         {
+            if (null == ActiveDocument) { _log.Error(message:"No active document!"); }
             try { ((DocumentSB)ActiveDocument).CreateNewAnalysisPalletTruckUI(); }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
         private void OnNewAnalysisCasePallet(object sender, EventArgs e)
         {
+            if (null == ActiveDocument) { _log.Error(message: "No active document!"); }
             try { ((DocumentSB)ActiveDocument).CreateNewAnalysisCasePalletUI(); }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
         private void OnNewAnalysisCylinderPallet(object sender, EventArgs e)
         {
+            if (null == ActiveDocument) { _log.Error(message: "No active document!"); }
             try { ((DocumentSB)ActiveDocument).CreateNewAnalysisCylinderPalletUI(); }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
         private void OnNewAnalysisBoxCasePallet(object sender, EventArgs e)
         {
+            if (null == ActiveDocument) { _log.Error(message: "No active document!"); }
             try { ((DocumentSB)ActiveDocument).CreateNewAnalysisBoxCaseUI(); }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
         private void OnNewAnalysisCaseTruck(object sender, EventArgs e)
         {
+            if (null == ActiveDocument) { _log.Error(message: "No active document!"); }
             try { AnalysisCaseTruck analysis = ((DocumentSB)ActiveDocument).CreateNewAnalysisCaseTruckUI(); }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }

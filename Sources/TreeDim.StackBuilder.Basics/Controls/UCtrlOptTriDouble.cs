@@ -41,20 +41,30 @@ namespace treeDiM.StackBuilder.Basics
             get { return chkbOpt.Text; }
             set { chkbOpt.Text = value; }
         }
+        [Browsable(true)]
         public Vector3D Value
         {
             get {return new Vector3D(X, Y, Z);}
-            set { X = value.X; Y = value.Y; Z = value.Z; }
+            set { try { X = value.X; Y = value.Y; Z = value.Z; } catch (ArgumentOutOfRangeException) { } }
         }
         [Browsable(true)]
         public double X
-        { get { return (double)nudX.Value; } set { nudX.Value = (decimal)value; } }
+        {
+            get { return (double)nudX.Value; }
+            set { try { nudX.Value = (decimal)value; } catch (ArgumentOutOfRangeException) {} }
+        }
         [Browsable(true)]
         public double Y
-        { get { return (double)nudY.Value; } set { nudY.Value = (decimal)value; } }
+        {
+            get { return (double)nudY.Value; }
+            set { try { nudY.Value = (decimal)value; } catch (ArgumentOutOfRangeException) {} }
+        }
         [Browsable(true)]
         public double Z
-        { get { return (double)nudZ.Value; } set { nudZ.Value = (decimal)value; } }
+        {
+            get { return (double)nudZ.Value; }
+            set { try { nudZ.Value = (decimal)value; } catch (ArgumentOutOfRangeException) {} }
+        }
         public bool Checked
         {
             get { return chkbOpt.Checked; }

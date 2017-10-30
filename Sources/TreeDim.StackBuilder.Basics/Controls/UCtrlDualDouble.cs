@@ -39,9 +39,17 @@ namespace treeDiM.StackBuilder.Basics
             set { lbName.Text = value; }
         }
         [Browsable(true)]
-        public double ValueX { get { return (double)nudValueX.Value; } set { nudValueX.Value = (decimal)value; } }
+        public double ValueX
+        {
+            get { return (double)nudValueX.Value; }
+            set { try { nudValueX.Value = (decimal)value; } catch (ArgumentOutOfRangeException) { } }
+        }
         [Browsable(true)]
-        public double ValueY { get { return (double)nudValueY.Value; } set { nudValueY.Value = (decimal)value; } }
+        public double ValueY
+        {
+            get { return (double)nudValueY.Value; }
+            set { try { nudValueY.Value = (decimal)value; } catch (ArgumentOutOfRangeException) { } }
+        }
         [Browsable(true)]
         public UnitsManager.UnitType Unit
         {
@@ -94,7 +102,5 @@ namespace treeDiM.StackBuilder.Basics
         public static int stNudLength = 60;
         public static int stLbUnitLength = 38;
         #endregion
-
-
     }
 }

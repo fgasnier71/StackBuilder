@@ -40,11 +40,23 @@ namespace treeDiM.StackBuilder.Basics.Controls
             set { lbName.Text = value; }
         }
         [Browsable(true)]
-        public int NoX { get { return (int)nudX.Value; } set { nudX.Value = (decimal)value; } }
+        public int NoX
+        {
+            get { return (int)nudX.Value; }
+            set { try { nudX.Value = (decimal)value; } catch (ArgumentOutOfRangeException) { } }
+        }
         [Browsable(true)]
-        public int NoY { get { return (int)nudY.Value; } set { nudY.Value = (decimal)value; } }
+        public int NoY
+        {
+            get { return (int)nudY.Value; }
+            set { try { nudY.Value = (decimal)value; } catch (ArgumentOutOfRangeException) { } }
+        }
         [Browsable(true)]
-        public int NoZ { get { return (int)nudZ.Value; } set { nudZ.Value = (decimal)value; } }
+        public int NoZ
+        {
+            get { return (int)nudZ.Value; }
+            set { try { nudZ.Value = (decimal)value; } catch (ArgumentOutOfRangeException) { } }
+        }
         #endregion
 
         #region Event handlers
