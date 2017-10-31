@@ -2,20 +2,16 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-using System.IO;
-using System.Security.Permissions;
 
 using treeDiM.StackBuilder.ExcelReader;
-
 using treeDiM.StackBuilder.Basics;
 using treeDiM.StackBuilder.Graphics;
 
 using ListBoxWithToolTip;
+
+using log4net;
 #endregion
 
 namespace treeDiM.StackBuilder.Desktop
@@ -55,9 +51,9 @@ namespace treeDiM.StackBuilder.Desktop
         private void Reload(object sender, EventArgs e)
         {
             string filePath = excelFileSelect.FileName;
-            try {  if (treeDiM.StackBuilder.ExcelReader.ExcelDataReader_StackBuilder.LoadFile(filePath, ref _listTypes)) { } }
-            catch (System.Security.SecurityException ex)    {   MessageBox.Show(ex.Message);    }
-            catch (Exception ex)                            {   MessageBox.Show(ex.Message);    }
+            try {  if (ExcelDataReader_StackBuilder.LoadFile(filePath, ref _listTypes)) { } }
+            catch (System.Security.SecurityException ex)    {   MessageBox.Show(ex.Message);    return; }
+            catch (Exception ex)                            {   MessageBox.Show(ex.Message);    return; }
 
             if (null != _listTypes && _listTypes.Count > 0)
             {
@@ -81,42 +77,48 @@ namespace treeDiM.StackBuilder.Desktop
                     { tabControlLibrary.TabPages.Add(Properties.Resources.ID_PALLETFILMS); _classes.Add(typeof(DataPalletFilm)); }
                 }
                 tabControlLibrary.SelectedIndex = 0;
-                onTabPageSelected(this, null);
+                OnTabPageSelected(this, null);
             }
             else
                 tabControlLibrary.Hide();
         }
 
-        private void onTabPageSelected(object sender, TabControlEventArgs e)
+        private void OnTabPageSelected(object sender, TabControlEventArgs e)
         {
-            listBoxItem.Items.Clear();
-            foreach (DataType dt in _listTypes)
+            try
             {
-                if (_classes[tabControlLibrary.SelectedIndex] != dt.GetType()) continue;
-                listBoxItem.Items.Add(new ListBoxItem(dt));
+                listBoxItem.Items.Clear();
+                foreach (DataType dt in _listTypes)
+                {
+                    if (_classes[tabControlLibrary.SelectedIndex] != dt.GetType()) continue;
+                    listBoxItem.Items.Add(new ListBoxItem(dt));
+                }
+                if (listBoxItem.Items.Count > 0)
+                {
+                    listBoxItem.SelectedIndex = 0;
+                    listBoxItem.Show(); graphCtrl.Show(); tbItem.Show();
+                }
+                else
+                {
+                    _dt = null;
+                    listBoxItem.Hide(); graphCtrl.Hide(); tbItem.Hide();
+                }
             }
-            if (listBoxItem.Items.Count > 0)
+            catch (Exception ex)
             {
-                listBoxItem.SelectedIndex = 0;
-                listBoxItem.Show(); graphCtrl.Show(); tbItem.Show();
-            }
-            else
-            {
-                _dt = null;
-                listBoxItem.Hide(); graphCtrl.Hide(); tbItem.Hide();
+                _log.Error(ex.ToString());
             }
         }
 
-        private void listBoxItem_DoubleClick(object sender, EventArgs e)
+        private void OnListBoxItemDoubleClick(object sender, EventArgs e)
         {
-            bnInsert_Click(this, null);
+            OnBnInsert(this, null);
             Close();
         }
 
-        private void listBoxItem_SelectedIndexChanged(object sender, EventArgs e)
+        private void OnListBoxItemSelectedIndexChanged(object sender, EventArgs e)
         {
-            ListBoxItem lbItem = listBoxItem.SelectedItem as ListBoxItem;
-            if (null != lbItem)
+            if (listBoxItem.SelectedItem is ListBoxItem lbItem)
                 _dt = lbItem.DataType;
             else
                 _dt = null;
@@ -129,37 +131,30 @@ namespace treeDiM.StackBuilder.Desktop
             tbItem.Text = _dt.ToString();
         }
 
-        private void bnInsert_Click(object sender, EventArgs e)
+        private void OnBnInsert(object sender, EventArgs e)
         {
             if (null == _dt || null == _document) return;
-            // Case
-            DataCase dtCase = _dt as DataCase;
-            if (null != dtCase)
-                _document.CreateNewCase(ToCase(dtCase));
-
-            DataBox dtBox = _dt as DataBox;
-            if (null != dtBox)
-                _document.CreateNewBox(ToBox(dtBox));
-
-            DataCylinder dtCylinder = _dt as DataCylinder;
-            if (null != dtCylinder)
-                _document.CreateNewCylinder(ToCylinder(dtCylinder));
-
-            DataPallet dtPallet = _dt as DataPallet;
-            if (null != dtPallet)
-                _document.CreateNewPallet(ToPallet(dtPallet));
-
-            DataInterlayer dtInterlayer = _dt as DataInterlayer;
-            if (null != dtInterlayer)
-                _document.CreateNewInterlayer(ToInterlayer(dtInterlayer));
-
-            DataPalletCap dtPalletCap = _dt as DataPalletCap;
-            if (null != dtPalletCap)
-                _document.CreateNewPalletCap(ToPalletCap(dtPalletCap));
-
-            DataPalletFilm dtPalletFilm = _dt as DataPalletFilm;
-            if (null != dtPalletFilm)
-                _document.CreateNewPalletFilm(ToPalletFilm(dtPalletFilm));
+            try
+            {
+                if (_dt is DataCase dtCase)
+                    _document.CreateNewCase(ToCase(dtCase));
+                if (_dt is DataBox dtBox)
+                    _document.CreateNewBox(ToBox(dtBox));
+                if (_dt is DataCylinder dtCylinder)
+                    _document.CreateNewCylinder(ToCylinder(dtCylinder));
+                if (_dt is DataPallet dtPallet)
+                    _document.CreateNewPallet(ToPallet(dtPallet));
+                if (_dt is DataInterlayer dtInterlayer)
+                    _document.CreateNewInterlayer(ToInterlayer(dtInterlayer));
+                if (_dt is DataPalletCap dtPalletCap)
+                    _document.CreateNewPalletCap(ToPalletCap(dtPalletCap));
+                if (_dt is DataPalletFilm dtPalletFilm)
+                    _document.CreateNewPalletFilm(ToPalletFilm(dtPalletFilm));
+            }
+            catch (Exception ex)
+            {
+                _log.Error(ex.ToString());
+            }
         }
         #endregion
 
@@ -296,6 +291,7 @@ namespace treeDiM.StackBuilder.Desktop
         private List<Type> _classes = new List<Type>();
         private DataType _dt;
         private DocumentSB _document;
+        private ILog _log = LogManager.GetLogger(typeof(FormExcelLibrary));
         #endregion
     }
     #endregion

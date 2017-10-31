@@ -54,15 +54,15 @@ namespace treeDiM.StackBuilder.GUIExtension
 
             graphCtrl.Viewer = new ViewerSolution(_analysis.Solution);
             graphCtrl.Invalidate();
-            graphCtrl.VolumeSelected += onLayerSelected;
+            graphCtrl.VolumeSelected += OnLayerSelected;
 
             // --- initialize layer controls
             FillLayerControls();
             UpdateControls();
 
 
-            uCtrlMaxPalletHeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.ValueChangedDelegate(this.onCriterionChanged);
-            uCtrlOptMaximumWeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlOptDouble.ValueChangedDelegate(this.onCriterionChanged);
+            uCtrlMaxPalletHeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.ValueChangedDelegate(this.OnCriterionChanged);
+            uCtrlOptMaximumWeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlOptDouble.ValueChangedDelegate(this.OnCriterionChanged);
 
             FillGrid();
             UpdateGrid();
@@ -349,7 +349,7 @@ namespace treeDiM.StackBuilder.GUIExtension
         #endregion
 
         #region Toolbar event handler
-        private void onExport(object sender, EventArgs e)
+        private void OnExport(object sender, EventArgs e)
         {
             try
             {
@@ -357,10 +357,7 @@ namespace treeDiM.StackBuilder.GUIExtension
                 if (DialogResult.OK == saveFileDialogExport.ShowDialog())
                 {
                     Document doc = null;
-
-
                     doc.Write(saveFileDialogExport.FileName);
-
                 }
             }
             catch (Exception ex)
@@ -368,7 +365,7 @@ namespace treeDiM.StackBuilder.GUIExtension
                 _log.Error(ex.Message); 
             }
         }
-        private void onGenerateReport(object sender, EventArgs e)
+        private void OnGenerateReport(object sender, EventArgs e)
         {
             try
             {
@@ -384,7 +381,7 @@ namespace treeDiM.StackBuilder.GUIExtension
         #endregion
 
         #region Event handlers
-        private void onLayerSelected(int id)
+        private void OnLayerSelected(int id)
         {
             try
             {
@@ -397,7 +394,7 @@ namespace treeDiM.StackBuilder.GUIExtension
                 _log.Error(ex.ToString());
             }
         }
-        private void onLayerTypeChanged(object sender, EventArgs e)
+        private void OnLayerTypeChanged(object sender, EventArgs e)
         {
             try
             {
@@ -414,25 +411,32 @@ namespace treeDiM.StackBuilder.GUIExtension
                 _log.Error(ex.ToString());
             }
         }
-        private void onReflectionX(object sender, EventArgs e)
+        private void OnReflectionX(object sender, EventArgs e)
         {
             Solution solution = _analysis.Solution;
             solution.ApplySymetryOnSelected(0);
             graphCtrl.Invalidate();
         }
-        private void onReflectionY(object sender, EventArgs e)
+        private void OnReflectionY(object sender, EventArgs e)
         {
             Solution solution = _analysis.Solution;
             solution.ApplySymetryOnSelected(1);
             graphCtrl.Invalidate();
         }
-        private void onCriterionChanged(object sender, EventArgs args)
+        private void OnCriterionChanged(object sender, EventArgs args)
         {
-            Solution solution = _analysis.Solution;
-            ConstraintSetCasePallet constraintSet = solution.Analysis.ConstraintSet as ConstraintSetCasePallet;
-            constraintSet.SetMaxHeight(new OptDouble(true, uCtrlMaxPalletHeight.Value));
-            constraintSet.OptMaxWeight = uCtrlOptMaximumWeight.Value;
-            solution.RebuildSolutionItemList();
+            try
+            {
+                Solution solution = _analysis.Solution;
+                ConstraintSetCasePallet constraintSet = solution.Analysis.ConstraintSet as ConstraintSetCasePallet;
+                constraintSet.SetMaxHeight(new OptDouble(true, uCtrlMaxPalletHeight.Value));
+                constraintSet.OptMaxWeight = uCtrlOptMaximumWeight.Value;
+                solution.RebuildSolutionItemList();
+            }
+            catch (Exception ex)
+            {
+                _log.Error(ex.ToString());
+            }
             // update drawing & grid
             graphCtrl.Invalidate();
             UpdateGrid();

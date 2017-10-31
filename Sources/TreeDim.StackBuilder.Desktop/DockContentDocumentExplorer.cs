@@ -1,12 +1,8 @@
 ﻿#region Using directives
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
 using WeifenLuo.WinFormsUI.Docking;
+
+using log4net;
 #endregion
 
 namespace treeDiM.StackBuilder.Desktop
@@ -23,37 +19,35 @@ namespace treeDiM.StackBuilder.Desktop
         #region Menu event handlers
         private void FloatingToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DockState = DockState.Float;
+            try { DockState = DockState.Float; }
+            catch (InvalidOperationException ex) { _log.Error(ex.Message); }
         }
-
         private void DockableToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DockState = ShowHint;
+            try { DockState = ShowHint; }
+            catch (InvalidOperationException ex) { _log.Error(ex.Message); }
         }
-
         private void TabbedDocumentToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DockState = DockState.Document;
+            try { DockState = DockState.Document; }
+            catch (InvalidOperationException ex) { _log.Error(ex.Message); }
         }
-
         private void AutoHideToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            switch (DockState)
+            try
             {
-                case DockState.DockBottom:
-                    DockState = DockState.DockBottomAutoHide;
-                    break;
-                case DockState.DockTop:
-                    DockState = DockState.DockTopAutoHide;
-                    break;
-                case DockState.DockLeft:
-                    DockState = DockState.DockLeftAutoHide;
-                    break;
-                case DockState.DockRight:
-                    DockState = DockState.DockRightAutoHide;
-                    break;
-                default:
-                    break;
+                switch (DockState)
+                {
+                    case DockState.DockBottom:  DockState = DockState.DockBottomAutoHide;  break;
+                    case DockState.DockTop:     DockState = DockState.DockTopAutoHide;     break;
+                    case DockState.DockLeft:    DockState = DockState.DockLeftAutoHide;    break;
+                    case DockState.DockRight:   DockState = DockState.DockRightAutoHide;   break;
+                    default: break;
+                }
+            }
+            catch (InvalidOperationException ex)
+            {
+                _log.Error(ex.Message);
             }
         }
         #endregion
@@ -63,6 +57,10 @@ namespace treeDiM.StackBuilder.Desktop
         {
             get { return _documentTreeView; }
         }
+        #endregion
+
+        #region Data members
+        protected static ILog _log = LogManager.GetLogger(typeof(DockContentDocumentExplorer));
         #endregion
     }
 }

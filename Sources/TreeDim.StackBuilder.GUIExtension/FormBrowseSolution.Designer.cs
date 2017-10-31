@@ -76,7 +76,7 @@
             this.toolStripButtonReport.Name = "toolStripButtonReport";
             this.toolStripButtonReport.Size = new System.Drawing.Size(23, 22);
             this.toolStripButtonReport.Text = "Generate report...";
-            this.toolStripButtonReport.Click += new System.EventHandler(this.onGenerateReport);
+            this.toolStripButtonReport.Click += new System.EventHandler(this.OnGenerateReport);
             // 
             // splitContainer1
             // 
@@ -203,7 +203,7 @@
             this.bnSymmetryX.Size = new System.Drawing.Size(64, 64);
             this.bnSymmetryX.TabIndex = 5;
             this.bnSymmetryX.UseVisualStyleBackColor = true;
-            this.bnSymmetryX.Click += new System.EventHandler(this.onReflectionX);
+            this.bnSymmetryX.Click += new System.EventHandler(this.OnReflectionX);
             // 
             // bnSymetryY
             // 
@@ -215,7 +215,7 @@
             this.bnSymetryY.Size = new System.Drawing.Size(64, 64);
             this.bnSymetryY.TabIndex = 6;
             this.bnSymetryY.UseVisualStyleBackColor = true;
-            this.bnSymetryY.Click += new System.EventHandler(this.onReflectionY);
+            this.bnSymetryY.Click += new System.EventHandler(this.OnReflectionY);
             // 
             // tbClickLayer
             // 

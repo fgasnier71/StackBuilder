@@ -443,10 +443,17 @@ namespace treeDiM.StackBuilder.Desktop
         }
         private void OnCriterionChanged(object sender, EventArgs args)
         {
-            ConstraintSetCasePallet constraintSet = _solution.Analysis.ConstraintSet as ConstraintSetCasePallet;
-            constraintSet.SetMaxHeight( new OptDouble(true, uCtrlMaxPalletHeight.Value) );
-            constraintSet.OptMaxWeight = uCtrlOptMaximumWeight.Value;
-            _solution.RebuildSolutionItemList();
+            try
+            {
+                ConstraintSetCasePallet constraintSet = _solution.Analysis.ConstraintSet as ConstraintSetCasePallet;
+                constraintSet.SetMaxHeight(new OptDouble(true, uCtrlMaxPalletHeight.Value));
+                constraintSet.OptMaxWeight = uCtrlOptMaximumWeight.Value;
+                _solution.RebuildSolutionItemList();
+            }
+            catch (Exception ex)
+            {
+                _log.Error(ex.ToString());
+            }
             // update drawing & grid
             graphCtrlSolution.Invalidate();
             UpdateGrid();

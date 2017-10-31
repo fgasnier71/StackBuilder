@@ -57,7 +57,7 @@
             this.bnInsert.TabIndex = 1;
             this.bnInsert.Text = "Insert";
             this.bnInsert.UseVisualStyleBackColor = true;
-            this.bnInsert.Click += new System.EventHandler(this.bnInsert_Click);
+            this.bnInsert.Click += new System.EventHandler(this.OnBnInsert);
             // 
             // bnClose
             // 
@@ -95,7 +95,7 @@
             this.tabControlLibrary.SelectedIndex = 0;
             this.tabControlLibrary.Size = new System.Drawing.Size(536, 303);
             this.tabControlLibrary.TabIndex = 5;
-            this.tabControlLibrary.Selected += new System.Windows.Forms.TabControlEventHandler(this.onTabPageSelected);
+            this.tabControlLibrary.Selected += new System.Windows.Forms.TabControlEventHandler(this.OnTabPageSelected);
             // 
             // listBoxItem
             // 
@@ -104,8 +104,8 @@
             this.listBoxItem.Name = "listBoxItem";
             this.listBoxItem.Size = new System.Drawing.Size(158, 251);
             this.listBoxItem.TabIndex = 0;
-            this.listBoxItem.SelectedIndexChanged += new System.EventHandler(this.listBoxItem_SelectedIndexChanged);
-            this.listBoxItem.DoubleClick += new System.EventHandler(this.listBoxItem_DoubleClick);
+            this.listBoxItem.SelectedIndexChanged += new System.EventHandler(this.OnListBoxItemSelectedIndexChanged);
+            this.listBoxItem.DoubleClick += new System.EventHandler(this.OnListBoxItemDoubleClick);
             // 
             // graphCtrl
             // 

@@ -64,8 +64,6 @@ namespace treeDiM.StackBuilder.Desktop
                     break;
             }
         }
-
-
         #endregion
 
         #region Public properties
