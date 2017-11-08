@@ -95,8 +95,7 @@ namespace treeDiM.StackBuilder.Engine
             // get layer pattern
             LayerPatternBox pattern = LayerPatternBox.GetByName(layerDesc.PatternName);
             // dimensions
-            double actualLength = 0.0, actualWidth = 0.0;
-            if (!pattern.GetLayerDimensionsChecked(layer, out actualLength, out actualWidth))
+            if (!pattern.GetLayerDimensionsChecked(layer, out double actualLength, out double actualWidth))
                 return null;
             pattern.GenerateLayer(
                 layer
