@@ -46,6 +46,7 @@ namespace treeDiM.StackBuilder.ABYATExcelLoader
             PalletWidth = Settings.Default.PalletWidth;
             PalletHeight = Settings.Default.PalletHeight;
             PalletWeight = Settings.Default.PalletWeight;
+            PalletMaximumHeight = Settings.Default.PalletMaximumHeight;
             PalletTypeName = Settings.Default.PalletTypeName;
             TruckLength = Settings.Default.ContainerLength;
             TruckWidth = Settings.Default.ContainerWidth;
