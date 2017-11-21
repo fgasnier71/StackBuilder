@@ -183,27 +183,27 @@ namespace treeDiM.StackBuilder.Graphics
             _timer.Interval = 50;
             _timer.Start();        
         }
-        private void onTimerTick(object sender, EventArgs e)
+        private void OnTimerTick(object sender, EventArgs e)
         {
             if (_index == _layerList.Count)
             {
                 _timer.Stop();
-                if (null != RefreshFinished)
-                    RefreshFinished(this, null);
+                RefreshFinished?.Invoke(this, null);
                 return;
             }
             bool selected = (0 == Controls.Count) ? _firstLayerSelected : false;
 
             ILayer2D layer = _layerList[_index];
+
             // create button and add to panel
-            Button btn = new Button();
-            btn.Image = LayerToImage.Draw(
-                _layerList[_index], _packable, _contHeight, szButtons, selected
-                , Show3D ? LayerToImage.eGraphMode.GRAPH_3D : LayerToImage.eGraphMode.GRAPH_2D );
-            btn.Location = new Point(_x, _y) + (Size)AutoScrollPosition;
-            btn.Size = new Size(szButtons.Width, szButtons.Height);
-            btn.Tag = new LayerItem(layer, selected);
-            btn.Click += onLayerSelected;
+            Button btn = new Button
+            {
+                Image = TryGenerateLayerImage(_layerList[_index], szButtons, selected),
+                Location = new Point(_x, _y) + (Size)AutoScrollPosition,
+                Size = new Size(szButtons.Width, szButtons.Height),
+                Tag = new LayerItem(layer, selected)
+            };
+            btn.Click += OnLayerSelected;
             Controls.Add(btn);
             // give button a tooltip
             tooltip.SetToolTip(btn, layer.Tooltip(_contHeight));
@@ -212,7 +212,7 @@ namespace treeDiM.StackBuilder.Graphics
             AdjustXY(ref _x, ref _y);
             ++_index;       
         }
-        private void onLayerSelected(object sender, EventArgs e)
+        private void OnLayerSelected(object sender, EventArgs e)
         {
             Button bnSender = sender as Button;
 
@@ -229,9 +229,7 @@ namespace treeDiM.StackBuilder.Graphics
                         if (btItem.Selected)
                         {
                             btItem.Selected = false;
-                            bt.Image = LayerToImage.Draw(
-                                btItem.Layer, _packable, _contHeight, szButtons, btItem.Selected
-                                , Show3D ? LayerToImage.eGraphMode.GRAPH_3D : LayerToImage.eGraphMode.GRAPH_2D);
+                            bt.Image = TryGenerateLayerImage(btItem.Layer, szButtons, btItem.Selected);
                         }
                     }
                 }
@@ -239,12 +237,26 @@ namespace treeDiM.StackBuilder.Graphics
             // ***
             LayerItem lItem = bnSender.Tag as LayerItem;
             bool selected = !lItem.Selected;
-            bnSender.Image = LayerToImage.Draw(
-                lItem.Layer, _packable, _contHeight, szButtons, selected
-                , Show3D ? LayerToImage.eGraphMode.GRAPH_3D : LayerToImage.eGraphMode.GRAPH_2D );
+            bnSender.Image = TryGenerateLayerImage(lItem.Layer, szButtons, selected);
             bnSender.Tag = new LayerItem(lItem.Layer, selected);
-            if (null != LayerSelected)
-                LayerSelected(this, e);
+            LayerSelected?.Invoke(this, e);
+        }
+
+        private Image TryGenerateLayerImage(ILayer2D layer, Size szButtons, bool selected)
+        {
+            Image img = null;
+            try
+            {
+                img = LayerToImage.Draw(
+                    layer, _packable, _contHeight, szButtons, selected
+                    , Show3D ? LayerToImage.eGraphMode.GRAPH_3D : LayerToImage.eGraphMode.GRAPH_2D);
+            }
+            catch (Exception ex)
+            {
+                _log.Error(ex.ToString());
+                img = Properties.Resources.QuestionMark;
+            }
+            return img;
         }
         #endregion
 

@@ -3306,7 +3306,7 @@ namespace treeDiM.StackBuilder.Basics
         private void SaveDouble(double d, XmlDocument xmlDoc, XmlElement xmlElement, string attributeName)
         {
             XmlAttribute att = xmlDoc.CreateAttribute(attributeName);
-            att.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", d);
+            att.Value = string.Format(CultureInfo.InvariantCulture, "{0}", d);
             xmlElement.Attributes.Append(att);
         }
         private void SaveOptDouble(OptDouble optD, XmlDocument xmlDoc, XmlElement xmlElement, string attributeName)

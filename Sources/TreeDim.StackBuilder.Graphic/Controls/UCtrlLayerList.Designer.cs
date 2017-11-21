@@ -42,7 +42,7 @@
             // 
             // _timer
             // 
-            this._timer.Tick += new System.EventHandler(this.onTimerTick);
+            this._timer.Tick += new System.EventHandler(this.OnTimerTick);
             // 
             // contextMenuStripMBR
             // 

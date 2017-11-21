@@ -196,10 +196,9 @@ namespace treeDiM.StackBuilder.Desktop
         /// </summary>
         public static void SendCrashReport(Exception exception)
         {
-            var reportCrash = new ReportCrash
+            var reportCrash = new ReportCrash("treedim@gmail.com")
             {
                 FromEmail = "treedim@gmail.com",
-                ToEmail = "treedim@gmail.com",
                 SmtpHost = "smtp.gmail.com",
                 Port = 587,
                 UserName = "treedim@gmail.com",
