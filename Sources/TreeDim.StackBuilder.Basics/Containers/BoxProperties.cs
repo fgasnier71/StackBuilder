@@ -114,6 +114,12 @@ namespace treeDiM.StackBuilder.Basics
         public virtual double[] OuterDimensionsArray => new double[] { _length, _width, _height };
         public virtual double[] InsideDimensionsArray => new double[] { InsideLength, InsideWidth, InsideHeight };
 
+        public OptDouble MaxWeight
+        {
+            get { return IsCase ? _maxWeight : new OptDouble(false, 0.0); }
+            set { _maxWeight = value; }
+        }
+
         public bool FitsIn(BoxProperties caseProperties)
         {
             double[] dimItem = OuterDimensionsArray;
@@ -243,6 +249,7 @@ namespace treeDiM.StackBuilder.Basics
         private double _insideLength, _insideWidth, _insideHeight;
         private Color[] _colors = new Color[6];
         private List<Pair<HalfAxis.HAxis, Texture>> _textures = new List<Pair<HalfAxis.HAxis, Texture>>();
+        private OptDouble _maxWeight;
 
         protected override string TypeName => IsCase ? Properties.Resources.ID_NAMECASE : Properties.Resources.ID_NAMEBOX;
 

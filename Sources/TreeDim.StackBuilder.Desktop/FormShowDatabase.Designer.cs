@@ -54,6 +54,8 @@
             this.gridPalletCaps = new SourceGrid.Grid();
             this.tabPagePalletFilm = new System.Windows.Forms.TabPage();
             this.gridPalletFilms = new SourceGrid.Grid();
+            this.toolStripMain = new System.Windows.Forms.ToolStrip();
+            this.toolStripBExcel = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerForm)).BeginInit();
             this.splitContainerForm.Panel1.SuspendLayout();
             this.splitContainerForm.Panel2.SuspendLayout();
@@ -70,23 +72,23 @@
             this.tabPagePalletCorner.SuspendLayout();
             this.tabPagePalletCap.SuspendLayout();
             this.tabPagePalletFilm.SuspendLayout();
+            this.toolStripMain.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainerForm
             // 
             resources.ApplyResources(this.splitContainerForm, "splitContainerForm");
+            this.splitContainerForm.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
             this.splitContainerForm.Name = "splitContainerForm";
             // 
             // splitContainerForm.Panel1
             // 
-            resources.ApplyResources(this.splitContainerForm.Panel1, "splitContainerForm.Panel1");
             this.splitContainerForm.Panel1.Controls.Add(this.bnClose);
             this.splitContainerForm.Panel1.Controls.Add(this.bnImport);
             this.splitContainerForm.Panel1.Controls.Add(this.graphCtrl);
             // 
             // splitContainerForm.Panel2
             // 
-            resources.ApplyResources(this.splitContainerForm.Panel2, "splitContainerForm.Panel2");
             this.splitContainerForm.Panel2.Controls.Add(this.tabCtrlDBItems);
             // 
             // bnClose
@@ -111,7 +113,6 @@
             // 
             // tabCtrlDBItems
             // 
-            resources.ApplyResources(this.tabCtrlDBItems, "tabCtrlDBItems");
             this.tabCtrlDBItems.Controls.Add(this.tabPageBox);
             this.tabCtrlDBItems.Controls.Add(this.tabPageCase);
             this.tabCtrlDBItems.Controls.Add(this.tabPageBundle);
@@ -122,14 +123,15 @@
             this.tabCtrlDBItems.Controls.Add(this.tabPagePalletCorner);
             this.tabCtrlDBItems.Controls.Add(this.tabPagePalletCap);
             this.tabCtrlDBItems.Controls.Add(this.tabPagePalletFilm);
+            resources.ApplyResources(this.tabCtrlDBItems, "tabCtrlDBItems");
             this.tabCtrlDBItems.Name = "tabCtrlDBItems";
             this.tabCtrlDBItems.SelectedIndex = 0;
             this.tabCtrlDBItems.SelectedIndexChanged += new System.EventHandler(this.OnSelectedTabChanged);
             // 
             // tabPageBox
             // 
-            resources.ApplyResources(this.tabPageBox, "tabPageBox");
             this.tabPageBox.Controls.Add(this.gridBoxes);
+            resources.ApplyResources(this.tabPageBox, "tabPageBox");
             this.tabPageBox.Name = "tabPageBox";
             this.tabPageBox.UseVisualStyleBackColor = true;
             // 
@@ -145,8 +147,8 @@
             // 
             // tabPageCase
             // 
-            resources.ApplyResources(this.tabPageCase, "tabPageCase");
             this.tabPageCase.Controls.Add(this.gridCases);
+            resources.ApplyResources(this.tabPageCase, "tabPageCase");
             this.tabPageCase.Name = "tabPageCase";
             this.tabPageCase.UseVisualStyleBackColor = true;
             // 
@@ -164,8 +166,8 @@
             // 
             // tabPageBundle
             // 
-            resources.ApplyResources(this.tabPageBundle, "tabPageBundle");
             this.tabPageBundle.Controls.Add(this.gridBundles);
+            resources.ApplyResources(this.tabPageBundle, "tabPageBundle");
             this.tabPageBundle.Name = "tabPageBundle";
             this.tabPageBundle.UseVisualStyleBackColor = true;
             // 
@@ -183,8 +185,8 @@
             // 
             // tabPageCylinder
             // 
-            resources.ApplyResources(this.tabPageCylinder, "tabPageCylinder");
             this.tabPageCylinder.Controls.Add(this.gridCylinders);
+            resources.ApplyResources(this.tabPageCylinder, "tabPageCylinder");
             this.tabPageCylinder.Name = "tabPageCylinder";
             this.tabPageCylinder.UseVisualStyleBackColor = true;
             // 
@@ -202,8 +204,8 @@
             // 
             // tabPageInterlayer
             // 
-            resources.ApplyResources(this.tabPageInterlayer, "tabPageInterlayer");
             this.tabPageInterlayer.Controls.Add(this.gridInterlayers);
+            resources.ApplyResources(this.tabPageInterlayer, "tabPageInterlayer");
             this.tabPageInterlayer.Name = "tabPageInterlayer";
             this.tabPageInterlayer.UseVisualStyleBackColor = true;
             // 
@@ -221,8 +223,8 @@
             // 
             // tabPagePallet
             // 
-            resources.ApplyResources(this.tabPagePallet, "tabPagePallet");
             this.tabPagePallet.Controls.Add(this.gridPallets);
+            resources.ApplyResources(this.tabPagePallet, "tabPagePallet");
             this.tabPagePallet.Name = "tabPagePallet";
             this.tabPagePallet.UseVisualStyleBackColor = true;
             // 
@@ -240,8 +242,8 @@
             // 
             // tabPageTruck
             // 
-            resources.ApplyResources(this.tabPageTruck, "tabPageTruck");
             this.tabPageTruck.Controls.Add(this.gridTrucks);
+            resources.ApplyResources(this.tabPageTruck, "tabPageTruck");
             this.tabPageTruck.Name = "tabPageTruck";
             this.tabPageTruck.UseVisualStyleBackColor = true;
             // 
@@ -259,8 +261,8 @@
             // 
             // tabPagePalletCorner
             // 
-            resources.ApplyResources(this.tabPagePalletCorner, "tabPagePalletCorner");
             this.tabPagePalletCorner.Controls.Add(this.gridPalletCorners);
+            resources.ApplyResources(this.tabPagePalletCorner, "tabPagePalletCorner");
             this.tabPagePalletCorner.Name = "tabPagePalletCorner";
             this.tabPagePalletCorner.UseVisualStyleBackColor = true;
             // 
@@ -278,8 +280,8 @@
             // 
             // tabPagePalletCap
             // 
-            resources.ApplyResources(this.tabPagePalletCap, "tabPagePalletCap");
             this.tabPagePalletCap.Controls.Add(this.gridPalletCaps);
+            resources.ApplyResources(this.tabPagePalletCap, "tabPagePalletCap");
             this.tabPagePalletCap.Name = "tabPagePalletCap";
             this.tabPagePalletCap.UseVisualStyleBackColor = true;
             // 
@@ -297,8 +299,8 @@
             // 
             // tabPagePalletFilm
             // 
-            resources.ApplyResources(this.tabPagePalletFilm, "tabPagePalletFilm");
             this.tabPagePalletFilm.Controls.Add(this.gridPalletFilms);
+            resources.ApplyResources(this.tabPagePalletFilm, "tabPagePalletFilm");
             this.tabPagePalletFilm.Name = "tabPagePalletFilm";
             this.tabPagePalletFilm.UseVisualStyleBackColor = true;
             // 
@@ -314,12 +316,27 @@
             this.gridPalletFilms.TabStop = true;
             this.gridPalletFilms.ToolTipText = "";
             // 
+            // toolStripMain
+            // 
+            this.toolStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripBExcel});
+            resources.ApplyResources(this.toolStripMain, "toolStripMain");
+            this.toolStripMain.Name = "toolStripMain";
+            // 
+            // toolStripBExcel
+            // 
+            this.toolStripBExcel.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.toolStripBExcel, "toolStripBExcel");
+            this.toolStripBExcel.Name = "toolStripBExcel";
+            this.toolStripBExcel.Click += new System.EventHandler(this.OnImportFromExcelFile);
+            // 
             // FormShowDatabase
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.bnClose;
             this.Controls.Add(this.splitContainerForm);
+            this.Controls.Add(this.toolStripMain);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormShowDatabase";
@@ -341,10 +358,12 @@
             this.tabPagePalletCorner.ResumeLayout(false);
             this.tabPagePalletCap.ResumeLayout(false);
             this.tabPagePalletFilm.ResumeLayout(false);
+            this.toolStripMain.ResumeLayout(false);
+            this.toolStripMain.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
-
         #endregion
 
         private System.Windows.Forms.TabControl tabCtrlDBItems;
@@ -358,7 +377,6 @@
         private System.Windows.Forms.TabPage tabPagePalletFilm;
         private System.Windows.Forms.TabPage tabPageBox;
         private Graphics.Graphics3DControl graphCtrl;
-        private System.Windows.Forms.SplitContainer splitContainerForm;
         private System.Windows.Forms.Button bnClose;
         private System.Windows.Forms.Button bnImport;
         private System.Windows.Forms.TabPage tabPageInterlayer;
@@ -372,5 +390,8 @@
         private SourceGrid.Grid gridPalletCaps;
         private SourceGrid.Grid gridPalletFilms;
         private SourceGrid.Grid gridBoxes;
+        private System.Windows.Forms.ToolStrip toolStripMain;
+        private System.Windows.Forms.ToolStripButton toolStripBExcel;
+        protected System.Windows.Forms.SplitContainer splitContainerForm;
     }
 }

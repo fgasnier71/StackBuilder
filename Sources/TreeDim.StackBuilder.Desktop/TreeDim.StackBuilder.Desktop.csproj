@@ -269,6 +269,12 @@
     <Compile Include="FormExcelLibrary.Designer.cs">
       <DependentUpon>FormExcelLibrary.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormImportExcelCatalog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormImportExcelCatalog.Designer.cs">
+      <DependentUpon>FormImportExcelCatalog.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormNewAnalysis.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -898,6 +904,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormExcelLibrary.sv.resx">
       <DependentUpon>FormExcelLibrary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormImportExcelCatalog.fr.resx">
+      <DependentUpon>FormImportExcelCatalog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormImportExcelCatalog.resx">
+      <DependentUpon>FormImportExcelCatalog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormMain.de.resx">
       <DependentUpon>FormMain.cs</DependentUpon>

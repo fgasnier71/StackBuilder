@@ -55,6 +55,7 @@
             this.cbTapeColor = new OfficePickers.ColorPicker.ComboBoxColorPicker();
             this.lbTapeColor = new System.Windows.Forms.Label();
             this.bnSaveToDB = new System.Windows.Forms.Button();
+            this.uCtrlMaxWeight = new treeDiM.StackBuilder.Basics.UCtrlOptDouble();
             this.gbDimensions.SuspendLayout();
             this.gbFaceColor.SuspendLayout();
             this.gbWeight.SuspendLayout();
@@ -84,16 +85,16 @@
             // 
             // gbDimensions
             // 
-            resources.ApplyResources(this.gbDimensions, "gbDimensions");
             this.gbDimensions.Controls.Add(this.uCtrlDimensionsInner);
             this.gbDimensions.Controls.Add(this.uCtrlDimensionsOuter);
+            resources.ApplyResources(this.gbDimensions, "gbDimensions");
             this.gbDimensions.Name = "gbDimensions";
             this.gbDimensions.TabStop = false;
             // 
             // uCtrlDimensionsInner
             // 
-            resources.ApplyResources(this.uCtrlDimensionsInner, "uCtrlDimensionsInner");
             this.uCtrlDimensionsInner.Checked = false;
+            resources.ApplyResources(this.uCtrlDimensionsInner, "uCtrlDimensionsInner");
             this.uCtrlDimensionsInner.Minimum = new decimal(new int[] {
             0,
             0,
@@ -117,6 +118,7 @@
             0});
             this.uCtrlDimensionsOuter.Name = "uCtrlDimensionsOuter";
             this.uCtrlDimensionsOuter.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlDimensionsOuter.Value = ((Sharp3D.Math.Core.Vector3D)(resources.GetObject("uCtrlDimensionsOuter.Value")));
             this.uCtrlDimensionsOuter.ValueX = 0D;
             this.uCtrlDimensionsOuter.ValueY = 0D;
             this.uCtrlDimensionsOuter.ValueZ = 0D;
@@ -124,7 +126,6 @@
             // 
             // cbFace
             // 
-            resources.ApplyResources(this.cbFace, "cbFace");
             this.cbFace.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbFace.FormattingEnabled = true;
             this.cbFace.Items.AddRange(new object[] {
@@ -134,17 +135,18 @@
             resources.GetString("cbFace.Items3"),
             resources.GetString("cbFace.Items4"),
             resources.GetString("cbFace.Items5")});
+            resources.ApplyResources(this.cbFace, "cbFace");
             this.cbFace.Name = "cbFace";
             this.cbFace.SelectedIndexChanged += new System.EventHandler(this.OnSelectedFaceChanged);
             // 
             // cbColor
             // 
-            resources.ApplyResources(this.cbColor, "cbColor");
             this.cbColor.Color = System.Drawing.Color.Chocolate;
             this.cbColor.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cbColor.DropDownHeight = 1;
             this.cbColor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbColor.DropDownWidth = 1;
+            resources.ApplyResources(this.cbColor, "cbColor");
             this.cbColor.Items.AddRange(new object[] {
             resources.GetString("cbColor.Items"),
             resources.GetString("cbColor.Items1"),
@@ -249,18 +251,19 @@
             resources.GetString("cbColor.Items100"),
             resources.GetString("cbColor.Items101"),
             resources.GetString("cbColor.Items102"),
-            resources.GetString("cbColor.Items103")});
+            resources.GetString("cbColor.Items103"),
+            resources.GetString("cbColor.Items104")});
             this.cbColor.Name = "cbColor";
             this.cbColor.SelectedColorChanged += new System.EventHandler(this.OnFaceColorChanged);
             // 
             // gbFaceColor
             // 
-            resources.ApplyResources(this.gbFaceColor, "gbFaceColor");
             this.gbFaceColor.Controls.Add(this.btBitmaps);
             this.gbFaceColor.Controls.Add(this.chkAllFaces);
             this.gbFaceColor.Controls.Add(this.cbColor);
             this.gbFaceColor.Controls.Add(this.cbFace);
             this.gbFaceColor.Controls.Add(this.lbFace);
+            resources.ApplyResources(this.gbFaceColor, "gbFaceColor");
             this.gbFaceColor.Name = "gbFaceColor";
             this.gbFaceColor.TabStop = false;
             // 
@@ -280,9 +283,10 @@
             // 
             // gbWeight
             // 
-            resources.ApplyResources(this.gbWeight, "gbWeight");
+            this.gbWeight.Controls.Add(this.uCtrlMaxWeight);
             this.gbWeight.Controls.Add(this.vcWeight);
             this.gbWeight.Controls.Add(this.uCtrlNetWeight);
+            resources.ApplyResources(this.gbWeight, "gbWeight");
             this.gbWeight.Name = "gbWeight";
             this.gbWeight.TabStop = false;
             // 
@@ -343,24 +347,24 @@
             // 
             // statusStripDef
             // 
-            resources.ApplyResources(this.statusStripDef, "statusStripDef");
             this.statusStripDef.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabelDef});
+            resources.ApplyResources(this.statusStripDef, "statusStripDef");
             this.statusStripDef.Name = "statusStripDef";
             this.statusStripDef.SizingGrip = false;
             // 
             // toolStripStatusLabelDef
             // 
-            resources.ApplyResources(this.toolStripStatusLabelDef, "toolStripStatusLabelDef");
             this.toolStripStatusLabelDef.ForeColor = System.Drawing.Color.Red;
             this.toolStripStatusLabelDef.Name = "toolStripStatusLabelDef";
+            resources.ApplyResources(this.toolStripStatusLabelDef, "toolStripStatusLabelDef");
             // 
             // gbTape
             // 
-            resources.ApplyResources(this.gbTape, "gbTape");
             this.gbTape.Controls.Add(this.uCtrlTapeWidth);
             this.gbTape.Controls.Add(this.cbTapeColor);
             this.gbTape.Controls.Add(this.lbTapeColor);
+            resources.ApplyResources(this.gbTape, "gbTape");
             this.gbTape.Name = "gbTape";
             this.gbTape.TabStop = false;
             // 
@@ -379,12 +383,12 @@
             // 
             // cbTapeColor
             // 
-            resources.ApplyResources(this.cbTapeColor, "cbTapeColor");
             this.cbTapeColor.Color = System.Drawing.Color.Chocolate;
             this.cbTapeColor.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cbTapeColor.DropDownHeight = 1;
             this.cbTapeColor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTapeColor.DropDownWidth = 1;
+            resources.ApplyResources(this.cbTapeColor, "cbTapeColor");
             this.cbTapeColor.Items.AddRange(new object[] {
             resources.GetString("cbTapeColor.Items"),
             resources.GetString("cbTapeColor.Items1"),
@@ -490,7 +494,8 @@
             resources.GetString("cbTapeColor.Items101"),
             resources.GetString("cbTapeColor.Items102"),
             resources.GetString("cbTapeColor.Items103"),
-            resources.GetString("cbTapeColor.Items104")});
+            resources.GetString("cbTapeColor.Items104"),
+            resources.GetString("cbTapeColor.Items105")});
             this.cbTapeColor.Name = "cbTapeColor";
             this.cbTapeColor.SelectedColorChanged += new System.EventHandler(this.OnFaceColorChanged);
             // 
@@ -505,6 +510,19 @@
             this.bnSaveToDB.Name = "bnSaveToDB";
             this.bnSaveToDB.UseVisualStyleBackColor = true;
             this.bnSaveToDB.Click += new System.EventHandler(this.OnSaveToDatabase);
+            // 
+            // uCtrlMaxWeight
+            // 
+            resources.ApplyResources(this.uCtrlMaxWeight, "uCtrlMaxWeight");
+            this.uCtrlMaxWeight.Minimum = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.uCtrlMaxWeight.Name = "uCtrlMaxWeight";
+            this.uCtrlMaxWeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_MASS;
+            this.uCtrlMaxWeight.Value = ((treeDiM.StackBuilder.Basics.OptDouble)(resources.GetObject("uCtrlMaxWeight.Value")));
+            this.uCtrlMaxWeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlOptDouble.ValueChangedDelegate(this.OnBoxPropertyChanged);
             // 
             // FormNewBox
             // 
@@ -573,5 +591,6 @@
         private Basics.UCtrlOptTriDouble uCtrlDimensionsInner;
         private Basics.UCtrlOptDouble uCtrlTapeWidth;
         private System.Windows.Forms.Button bnSaveToDB;
+        private Basics.UCtrlOptDouble uCtrlMaxWeight;
     }
 }

@@ -15,9 +15,7 @@ namespace treeDiM.StackBuilder.Basics
         }
 
         public override GlobID ID => _id;
-
         public override double Weight => _weight;
-
         public override OptDouble NetWeight => _netWeight;
 
         public virtual void SetWeight(double weight)

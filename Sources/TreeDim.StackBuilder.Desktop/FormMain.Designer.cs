@@ -47,8 +47,6 @@
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemTools = new System.Windows.Forms.ToolStripMenuItem();
             this.editPaletSolutionsDB = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
-            this.openLibraryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator15 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItemBox = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemCase = new System.Windows.Forms.ToolStripMenuItem();
@@ -244,8 +242,6 @@
             // 
             this.toolStripMenuItemTools.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.editPaletSolutionsDB,
-            this.toolStripSeparator7,
-            this.openLibraryToolStripMenuItem,
             this.toolStripSeparator15,
             this.toolStripMenuItemBox,
             this.toolStripMenuItemCase,
@@ -280,17 +276,6 @@
             resources.ApplyResources(this.editPaletSolutionsDB, "editPaletSolutionsDB");
             this.editPaletSolutionsDB.Name = "editPaletSolutionsDB";
             this.editPaletSolutionsDB.Click += new System.EventHandler(this.OnShowDatabase);
-            // 
-            // toolStripSeparator7
-            // 
-            this.toolStripSeparator7.Name = "toolStripSeparator7";
-            resources.ApplyResources(this.toolStripSeparator7, "toolStripSeparator7");
-            // 
-            // openLibraryToolStripMenuItem
-            // 
-            resources.ApplyResources(this.openLibraryToolStripMenuItem, "openLibraryToolStripMenuItem");
-            this.openLibraryToolStripMenuItem.Name = "openLibraryToolStripMenuItem";
-            this.openLibraryToolStripMenuItem.Click += new System.EventHandler(this.OnLoadExcelSheet);
             // 
             // toolStripSeparator15
             // 
@@ -914,7 +899,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem mnuFileMRU;
         private System.Windows.Forms.ToolStripButton toolStripMenuItemEditDB;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
         private System.Windows.Forms.ToolStripMenuItem editPaletSolutionsDB;
         private System.Windows.Forms.ToolStripButton toolStripButtonCase;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItemHelp;
@@ -947,7 +931,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator18;
         private System.Windows.Forms.ToolStripButton toolStripButtonPack;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemPack;
-        private System.Windows.Forms.ToolStripMenuItem openLibraryToolStripMenuItem;
         private System.Windows.Forms.Timer timerLogin;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripSplitButton toolStripSBPalletDeco;

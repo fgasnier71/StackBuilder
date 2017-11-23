@@ -1131,6 +1131,19 @@ namespace treeDiM.StackBuilder.Desktop
             else
                 return false;
         }
+        private void OnImportFromExcelFile(object sender, EventArgs e)
+        {
+            try
+            {
+                FormImportExcelCatalog form = new FormImportExcelCatalog();
+                form.ShowDialog();
+                OnSelectedTabChanged(this, null);
+            }
+            catch (Exception ex)
+            {
+                _log.Error(ex.Message);
+            }
+        }
         #endregion
 
         #region Data members
@@ -1150,5 +1163,7 @@ namespace treeDiM.StackBuilder.Desktop
 
         private Document _doc;
         #endregion
+
+
     }
 }

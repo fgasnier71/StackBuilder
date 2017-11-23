@@ -140,6 +140,8 @@ namespace treeDiM.StackBuilder.Desktop
                 vcWeight.Value = _boxProperties.Weight;
                 // net weight
                 uCtrlNetWeight.Value = _boxProperties.NetWeight;
+                // max weight
+                uCtrlMaxWeight.Value = _boxProperties.MaxWeight;
                 // color : all faces set together / face by face
                 chkAllFaces.Checked = _boxProperties.UniqueColor;
                 OnAllFacesColorCheckedChanged(this, null);
@@ -279,6 +281,7 @@ namespace treeDiM.StackBuilder.Desktop
 
             // show hide inside dimensions controls
             uCtrlDimensionsInner.Visible = _mode == Mode.MODE_CASE;
+            uCtrlMaxWeight.Visible = _mode == Mode.MODE_CASE;
 
             gbTape.Visible = _mode == Mode.MODE_CASE;
             lbTapeColor.Visible = _mode == Mode.MODE_CASE;
@@ -337,6 +340,7 @@ namespace treeDiM.StackBuilder.Desktop
                         BoxHeight = InsideHeight + _thicknessHeight;
                 }
                 uCtrlNetWeight.Enabled = !uCtrlDimensionsInner.Checked;
+                uCtrlMaxWeight.Enabled = uCtrlDimensionsInner.Checked;
 
                 // update thicknesses
                 UpdateThicknesses();
@@ -468,6 +472,20 @@ namespace treeDiM.StackBuilder.Desktop
         }
         #endregion
 
+        #region Max weight
+        public OptDouble MaxWeight
+        {
+            get
+            {
+                if (!HasInsideDimensions)
+                    return new OptDouble(false, 0.0);
+                else
+                    return uCtrlMaxWeight.Value;
+            }
+            set { uCtrlMaxWeight.Value = value; }
+        }
+        #endregion
+
         #region Draw box
         public void Draw(Graphics3DControl ctrl, Graphics3D graphics)
         {
@@ -512,7 +530,8 @@ namespace treeDiM.StackBuilder.Desktop
                             TapeWidth = TapeWidth.Value,
                             TapeColor = TapeColor.ToArgb(),
                             Weight = Weight,
-                            NetWeight = this.NetWeight.Activated ? this.NetWeight.Value : new Nullable<double>(),
+                            NetWeight = !HasInsideDimensions && NetWeight.Activated ? this.NetWeight.Value : new Nullable<double>(),
+                            MaxWeight = HasInsideDimensions && MaxWeight.Activated ? this.MaxWeight.Value : new Nullable<double>(),
                             Colors = colors,
                             AutoInsert = false
                         }

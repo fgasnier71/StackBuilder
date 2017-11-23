@@ -198,6 +198,7 @@
             0});
             this.uCtrlPackDimensionsMax.Name = "uCtrlPackDimensionsMax";
             this.uCtrlPackDimensionsMax.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlPackDimensionsMax.Value = ((Sharp3D.Math.Core.Vector3D)(resources.GetObject("uCtrlPackDimensionsMax.Value")));
             this.uCtrlPackDimensionsMax.ValueX = 0D;
             this.uCtrlPackDimensionsMax.ValueY = 0D;
             this.uCtrlPackDimensionsMax.ValueZ = 0D;
@@ -212,6 +213,7 @@
             0});
             this.uCtrlPackDimensionsMin.Name = "uCtrlPackDimensionsMin";
             this.uCtrlPackDimensionsMin.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlPackDimensionsMin.Value = ((Sharp3D.Math.Core.Vector3D)(resources.GetObject("uCtrlPackDimensionsMin.Value")));
             this.uCtrlPackDimensionsMin.ValueX = 0D;
             this.uCtrlPackDimensionsMin.ValueY = 0D;
             this.uCtrlPackDimensionsMin.ValueZ = 0D;
@@ -410,7 +412,8 @@
             resources.GetString("cbColor.Items41"),
             resources.GetString("cbColor.Items42"),
             resources.GetString("cbColor.Items43"),
-            resources.GetString("cbColor.Items44")});
+            resources.GetString("cbColor.Items44"),
+            resources.GetString("cbColor.Items45")});
             this.cbColor.Name = "cbColor";
             // 
             // cbWrapperType
