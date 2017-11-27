@@ -274,7 +274,7 @@ namespace treeDiM.StackBuilder.Desktop
                 {
                     Extension = "stb",
                     ContentType = "application/xml",
-                    FullName = "TreeDim StackBuilder Data Files",
+                    FullName = "TreeDiM StackBuilder Files",
                     ProperName = "StackBuilder File"
                 };
                 FA.AddCommand("open", Assembly.GetExecutingAssembly().Location + " \"%1\"");

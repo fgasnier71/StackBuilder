@@ -1,8 +1,9 @@
 ﻿using System;
+using GLib.Options;
 
 namespace treeDiM.StackBuilder.ExcelListEvaluator
 {
-    public partial class OptionsPanelFiltering  : GLib.Options.OptionsPanel
+    public partial class OptionsPanelFiltering  : OptionsPanel
     {
         #region Constructor
         public OptionsPanelFiltering()

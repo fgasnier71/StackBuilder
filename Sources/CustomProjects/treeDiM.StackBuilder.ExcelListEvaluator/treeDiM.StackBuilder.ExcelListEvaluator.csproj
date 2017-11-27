@@ -14,7 +14,7 @@
     <IsWebBootstrapper>true</IsWebBootstrapper>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
-    <PublishUrl>ftp://plmpack.com/public/www/stackbuilder/ExcelListEvaluator/ClickOnce/</PublishUrl>
+    <PublishUrl>ftp://plmpack.com/public/www/ExcelListEvaluator/ClickOnce/</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Web</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>
@@ -24,12 +24,19 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <InstallUrl>http://www.plmpack.com/stackbuilder/ExcelListEvaluator/ClickOnce/</InstallUrl>
+    <InstallUrl>http://www.plmpack.com/ExcelListEvaluator/ClickOnce/</InstallUrl>
+    <SupportUrl>http://www.treedim.com/stackbuilder/</SupportUrl>
+    <ErrorReportUrl>http://www.treedim.com/stackbuilder/</ErrorReportUrl>
+    <ProductName>ExcelListEvaluator</ProductName>
+    <PublisherName>treeDiM</PublisherName>
+    <SuiteName>PLMPack</SuiteName>
+    <MinimumRequiredVersion>1.0.0.0</MinimumRequiredVersion>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>10</ApplicationRevision>
+    <ApplicationRevision>1</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -69,6 +76,9 @@
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>treeDim.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="ExcelDataReader, Version=3.3.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
@@ -123,6 +133,12 @@
     <Compile Include="OptionsPanelFiltering.Designer.cs">
       <DependentUpon>OptionsPanelFiltering.cs</DependentUpon>
     </Compile>
+    <Compile Include="OptionsPanelImageSize.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="OptionsPanelImageSize.Designer.cs">
+      <DependentUpon>OptionsPanelImageSize.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RichTextBoxAppender.cs" />
@@ -135,6 +151,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="OptionsPanelFiltering.resx">
       <DependentUpon>OptionsPanelFiltering.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OptionsPanelImageSize.resx">
+      <DependentUpon>OptionsPanelImageSize.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -215,6 +234,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="treeDim.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

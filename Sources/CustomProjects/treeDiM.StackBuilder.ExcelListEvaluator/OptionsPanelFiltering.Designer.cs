@@ -64,7 +64,7 @@
             0,
             0});
             this.nudStackCountMax.Name = "nudStackCountMax";
-            this.nudStackCountMax.Size = new System.Drawing.Size(98, 20);
+            this.nudStackCountMax.Size = new System.Drawing.Size(61, 20);
             this.nudStackCountMax.TabIndex = 4;
             this.nudStackCountMax.Value = new decimal(new int[] {
             1,
@@ -89,10 +89,10 @@
             this.Controls.Add(this.uCtrlLargestDimMin);
             this.Controls.Add(this.nudStackCountMax);
             this.Controls.Add(this.lbDrawing);
-            this.DisplayName = "Options\\\\Case filtering";
+            this.DisplayName = "Case filtering";
             this.Location = new System.Drawing.Point(0, 0);
             this.Name = "OptionsPanelFiltering";
-            this.Size = new System.Drawing.Size(406, 215);
+            this.Size = new System.Drawing.Size(400, 215);
             ((System.ComponentModel.ISupportInitialize)(this.nudStackCountMax)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -121,30 +121,6 @@
     <value>17, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="exitToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>92, 22</value>
-  </data>
-  <data name="exitToolStripMenuItem.Text" xml:space="preserve">
-    <value>Exit</value>
-  </data>
-  <data name="toolStripMIFile.Size" type="System.Drawing.Size, System.Drawing">
-    <value>37, 20</value>
-  </data>
-  <data name="toolStripMIFile.Text" xml:space="preserve">
-    <value>File</value>
-  </data>
-  <data name="toolStripMISettings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>116, 22</value>
-  </data>
-  <data name="toolStripMISettings.Text" xml:space="preserve">
-    <value>Settings</value>
-  </data>
-  <data name="toolStripMITools.Size" type="System.Drawing.Size, System.Drawing">
-    <value>47, 20</value>
-  </data>
-  <data name="toolStripMITools.Text" xml:space="preserve">
-    <value>Tools</value>
-  </data>
   <data name="menuStrip.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
@@ -170,15 +146,33 @@
   <data name="&gt;&gt;menuStrip.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
+  <data name="toolStripMIFile.Size" type="System.Drawing.Size, System.Drawing">
+    <value>37, 20</value>
+  </data>
+  <data name="toolStripMIFile.Text" xml:space="preserve">
+    <value>File</value>
+  </data>
+  <data name="exitToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>92, 22</value>
+  </data>
+  <data name="exitToolStripMenuItem.Text" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="toolStripMITools.Size" type="System.Drawing.Size, System.Drawing">
+    <value>47, 20</value>
+  </data>
+  <data name="toolStripMITools.Text" xml:space="preserve">
+    <value>Tools</value>
+  </data>
+  <data name="toolStripMISettings.Size" type="System.Drawing.Size, System.Drawing">
+    <value>116, 22</value>
+  </data>
+  <data name="toolStripMISettings.Text" xml:space="preserve">
+    <value>Settings</value>
+  </data>
   <metadata name="statusStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>132, 17</value>
   </metadata>
-  <data name="statusLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>66, 17</value>
-  </data>
-  <data name="statusLabel.Text" xml:space="preserve">
-    <value>statusLabel</value>
-  </data>
   <data name="statusStrip.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 639</value>
   </data>
@@ -202,6 +196,12 @@
   </data>
   <data name="&gt;&gt;statusStrip.ZOrder" xml:space="preserve">
     <value>4</value>
+  </data>
+  <data name="statusLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>66, 17</value>
+  </data>
+  <data name="statusLabel.Text" xml:space="preserve">
+    <value>statusLabel</value>
   </data>
   <data name="lbFilePath.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -307,31 +307,199 @@
   <data name="gbInput.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
   </data>
-  <data name="chkbAllowOnlyVerticalOrientation.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="&gt;&gt;chkbOnlyVerticalOrientation.Name" xml:space="preserve">
+    <value>chkbOnlyVerticalOrientation</value>
   </data>
-  <data name="chkbAllowOnlyVerticalOrientation.Location" type="System.Drawing.Point, System.Drawing">
-    <value>339, 40</value>
-  </data>
-  <data name="chkbAllowOnlyVerticalOrientation.Size" type="System.Drawing.Size, System.Drawing">
-    <value>162, 17</value>
-  </data>
-  <data name="chkbAllowOnlyVerticalOrientation.TabIndex" type="System.Int32, mscorlib">
-    <value>16</value>
-  </data>
-  <data name="chkbAllowOnlyVerticalOrientation.Text" xml:space="preserve">
-    <value>Allow only vertical orientation</value>
-  </data>
-  <data name="&gt;&gt;chkbAllowOnlyVerticalOrientation.Name" xml:space="preserve">
-    <value>chkbAllowOnlyVerticalOrientation</value>
-  </data>
-  <data name="&gt;&gt;chkbAllowOnlyVerticalOrientation.Type" xml:space="preserve">
+  <data name="&gt;&gt;chkbOnlyVerticalOrientation.Type" xml:space="preserve">
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;chkbAllowOnlyVerticalOrientation.Parent" xml:space="preserve">
+  <data name="&gt;&gt;chkbOnlyVerticalOrientation.Parent" xml:space="preserve">
     <value>gbInput</value>
   </data>
-  <data name="&gt;&gt;chkbAllowOnlyVerticalOrientation.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;chkbOnlyVerticalOrientation.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;tabCtrl.Name" xml:space="preserve">
+    <value>tabCtrl</value>
+  </data>
+  <data name="&gt;&gt;tabCtrl.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabCtrl.Parent" xml:space="preserve">
+    <value>gbInput</value>
+  </data>
+  <data name="&gt;&gt;tabCtrl.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;lbCaseLoaded.Name" xml:space="preserve">
+    <value>lbCaseLoaded</value>
+  </data>
+  <data name="&gt;&gt;lbCaseLoaded.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbCaseLoaded.Parent" xml:space="preserve">
+    <value>gbInput</value>
+  </data>
+  <data name="&gt;&gt;lbCaseLoaded.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="gbInput.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 27</value>
+  </data>
+  <data name="gbInput.Size" type="System.Drawing.Size, System.Drawing">
+    <value>671, 385</value>
+  </data>
+  <data name="gbInput.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="gbInput.Text" xml:space="preserve">
+    <value>Input</value>
+  </data>
+  <data name="&gt;&gt;gbInput.Name" xml:space="preserve">
+    <value>gbInput</value>
+  </data>
+  <data name="&gt;&gt;gbInput.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;gbInput.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;gbInput.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="chkbOnlyVerticalOrientation.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="chkbOnlyVerticalOrientation.Location" type="System.Drawing.Point, System.Drawing">
+    <value>339, 40</value>
+  </data>
+  <data name="chkbOnlyVerticalOrientation.Size" type="System.Drawing.Size, System.Drawing">
+    <value>162, 17</value>
+  </data>
+  <data name="chkbOnlyVerticalOrientation.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="chkbOnlyVerticalOrientation.Text" xml:space="preserve">
+    <value>Allow only vertical orientation</value>
+  </data>
+  <data name="&gt;&gt;chkbOnlyVerticalOrientation.Name" xml:space="preserve">
+    <value>chkbOnlyVerticalOrientation</value>
+  </data>
+  <data name="&gt;&gt;chkbOnlyVerticalOrientation.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;chkbOnlyVerticalOrientation.Parent" xml:space="preserve">
+    <value>gbInput</value>
+  </data>
+  <data name="&gt;&gt;chkbOnlyVerticalOrientation.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;tabPallet.Name" xml:space="preserve">
+    <value>tabPallet</value>
+  </data>
+  <data name="&gt;&gt;tabPallet.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabPallet.Parent" xml:space="preserve">
+    <value>tabCtrl</value>
+  </data>
+  <data name="&gt;&gt;tabPallet.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;tabContainer.Name" xml:space="preserve">
+    <value>tabContainer</value>
+  </data>
+  <data name="&gt;&gt;tabContainer.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabContainer.Parent" xml:space="preserve">
+    <value>tabCtrl</value>
+  </data>
+  <data name="&gt;&gt;tabContainer.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="tabCtrl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 55</value>
+  </data>
+  <data name="tabCtrl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>658, 117</value>
+  </data>
+  <data name="tabCtrl.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="&gt;&gt;tabCtrl.Name" xml:space="preserve">
+    <value>tabCtrl</value>
+  </data>
+  <data name="&gt;&gt;tabCtrl.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabCtrl.Parent" xml:space="preserve">
+    <value>gbInput</value>
+  </data>
+  <data name="&gt;&gt;tabCtrl.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;uCtrlMaximumPalletHeight.Name" xml:space="preserve">
+    <value>uCtrlMaximumPalletHeight</value>
+  </data>
+  <data name="&gt;&gt;uCtrlMaximumPalletHeight.Type" xml:space="preserve">
+    <value>treeDiM.StackBuilder.Basics.UCtrlDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.57, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;uCtrlMaximumPalletHeight.Parent" xml:space="preserve">
+    <value>tabPallet</value>
+  </data>
+  <data name="&gt;&gt;uCtrlMaximumPalletHeight.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;cbPalletType.Name" xml:space="preserve">
+    <value>cbPalletType</value>
+  </data>
+  <data name="&gt;&gt;cbPalletType.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cbPalletType.Parent" xml:space="preserve">
+    <value>tabPallet</value>
+  </data>
+  <data name="&gt;&gt;cbPalletType.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;lbPalletType.Name" xml:space="preserve">
+    <value>lbPalletType</value>
+  </data>
+  <data name="&gt;&gt;lbPalletType.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbPalletType.Parent" xml:space="preserve">
+    <value>tabPallet</value>
+  </data>
+  <data name="&gt;&gt;lbPalletType.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="tabPallet.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="tabPallet.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="tabPallet.Size" type="System.Drawing.Size, System.Drawing">
+    <value>650, 91</value>
+  </data>
+  <data name="tabPallet.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="tabPallet.Text" xml:space="preserve">
+    <value>Pallet</value>
+  </data>
+  <data name="&gt;&gt;tabPallet.Name" xml:space="preserve">
+    <value>tabPallet</value>
+  </data>
+  <data name="&gt;&gt;tabPallet.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabPallet.Parent" xml:space="preserve">
+    <value>tabCtrl</value>
+  </data>
+  <data name="&gt;&gt;tabPallet.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="uCtrlMaximumPalletHeight.Location" type="System.Drawing.Point, System.Drawing">
@@ -409,48 +577,6 @@
   <data name="&gt;&gt;lbPalletType.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="tabPallet.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 22</value>
-  </data>
-  <data name="tabPallet.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="tabPallet.Size" type="System.Drawing.Size, System.Drawing">
-    <value>650, 91</value>
-  </data>
-  <data name="tabPallet.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="tabPallet.Text" xml:space="preserve">
-    <value>Pallet</value>
-  </data>
-  <data name="&gt;&gt;tabPallet.Name" xml:space="preserve">
-    <value>tabPallet</value>
-  </data>
-  <data name="&gt;&gt;tabPallet.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tabPallet.Parent" xml:space="preserve">
-    <value>tabCtrl</value>
-  </data>
-  <data name="&gt;&gt;tabPallet.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="uCtrlTruckDimensions.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 6</value>
-  </data>
-  <data name="uCtrlTruckDimensions.Size" type="System.Drawing.Size, System.Drawing">
-    <value>378, 20</value>
-  </data>
-  <data name="uCtrlTruckDimensions.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
-  </data>
-  <data name="uCtrlTruckDimensions.Text" xml:space="preserve">
-    <value>Dimensions</value>
-  </data>
-  <data name="uCtrlTruckDimensions.Value" type="Sharp3D.Math.Core.Vector3D, Sharp3D.Math">
-    <value>(0, 0, 0)</value>
-  </data>
   <data name="&gt;&gt;uCtrlTruckDimensions.Name" xml:space="preserve">
     <value>uCtrlTruckDimensions</value>
   </data>
@@ -490,26 +616,32 @@
   <data name="&gt;&gt;tabContainer.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="tabCtrl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 55</value>
+  <data name="uCtrlTruckDimensions.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 6</value>
   </data>
-  <data name="tabCtrl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>658, 117</value>
+  <data name="uCtrlTruckDimensions.Size" type="System.Drawing.Size, System.Drawing">
+    <value>378, 20</value>
   </data>
-  <data name="tabCtrl.TabIndex" type="System.Int32, mscorlib">
-    <value>15</value>
+  <data name="uCtrlTruckDimensions.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
   </data>
-  <data name="&gt;&gt;tabCtrl.Name" xml:space="preserve">
-    <value>tabCtrl</value>
+  <data name="uCtrlTruckDimensions.Text" xml:space="preserve">
+    <value>Dimensions</value>
   </data>
-  <data name="&gt;&gt;tabCtrl.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="uCtrlTruckDimensions.Value" type="Sharp3D.Math.Core.Vector3D, Sharp3D.Math">
+    <value>(0, 0, 0)</value>
   </data>
-  <data name="&gt;&gt;tabCtrl.Parent" xml:space="preserve">
-    <value>gbInput</value>
+  <data name="&gt;&gt;uCtrlTruckDimensions.Name" xml:space="preserve">
+    <value>uCtrlTruckDimensions</value>
   </data>
-  <data name="&gt;&gt;tabCtrl.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="&gt;&gt;uCtrlTruckDimensions.Type" xml:space="preserve">
+    <value>treeDiM.StackBuilder.Basics.UCtrlTriDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.57, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;uCtrlTruckDimensions.Parent" xml:space="preserve">
+    <value>tabContainer</value>
+  </data>
+  <data name="&gt;&gt;uCtrlTruckDimensions.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="lbCaseLoaded.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -538,56 +670,53 @@
   <data name="&gt;&gt;lbCaseLoaded.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="gbInput.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 27</value>
-  </data>
-  <data name="gbInput.Size" type="System.Drawing.Size, System.Drawing">
-    <value>671, 385</value>
-  </data>
-  <data name="gbInput.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="gbInput.Text" xml:space="preserve">
-    <value>Input</value>
-  </data>
-  <data name="&gt;&gt;gbInput.Name" xml:space="preserve">
-    <value>gbInput</value>
-  </data>
-  <data name="&gt;&gt;gbInput.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;gbInput.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;gbInput.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
   <data name="gbOutput.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left, Right</value>
   </data>
-  <data name="fsOutputImages.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
+  <data name="bnDirectoryPath.Location" type="System.Drawing.Point, System.Drawing">
+    <value>626, 88</value>
   </data>
-  <data name="fsOutputImages.Location" type="System.Drawing.Point, System.Drawing">
-    <value>213, 85</value>
+  <data name="bnDirectoryPath.Size" type="System.Drawing.Size, System.Drawing">
+    <value>32, 20</value>
   </data>
-  <data name="fsOutputImages.Size" type="System.Drawing.Size, System.Drawing">
-    <value>446, 20</value>
+  <data name="bnDirectoryPath.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
   </data>
-  <data name="fsOutputImages.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
+  <data name="bnDirectoryPath.Text" xml:space="preserve">
+    <value>...</value>
   </data>
-  <data name="&gt;&gt;fsOutputImages.Name" xml:space="preserve">
-    <value>fsOutputImages</value>
+  <data name="&gt;&gt;bnDirectoryPath.Name" xml:space="preserve">
+    <value>bnDirectoryPath</value>
   </data>
-  <data name="&gt;&gt;fsOutputImages.Type" xml:space="preserve">
-    <value>treeDiM.UserControls.FileSelect, treeDiM.UserControls, Version=1.0.6539.23860, Culture=neutral, PublicKeyToken=null</value>
+  <data name="&gt;&gt;bnDirectoryPath.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;fsOutputImages.Parent" xml:space="preserve">
+  <data name="&gt;&gt;bnDirectoryPath.Parent" xml:space="preserve">
     <value>gbOutput</value>
   </data>
-  <data name="&gt;&gt;fsOutputImages.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;bnDirectoryPath.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="tbDirectoryPath.Location" type="System.Drawing.Point, System.Drawing">
+    <value>213, 88</value>
+  </data>
+  <data name="tbDirectoryPath.Size" type="System.Drawing.Size, System.Drawing">
+    <value>407, 20</value>
+  </data>
+  <data name="tbDirectoryPath.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;tbDirectoryPath.Name" xml:space="preserve">
+    <value>tbDirectoryPath</value>
+  </data>
+  <data name="&gt;&gt;tbDirectoryPath.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tbDirectoryPath.Parent" xml:space="preserve">
+    <value>gbOutput</value>
+  </data>
+  <data name="&gt;&gt;tbDirectoryPath.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="chkbGenerateImageFolder.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -614,7 +743,7 @@
     <value>gbOutput</value>
   </data>
   <data name="&gt;&gt;chkbGenerateImageFolder.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="chkbGenerateImage.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -641,7 +770,7 @@
     <value>gbOutput</value>
   </data>
   <data name="&gt;&gt;chkbGenerateImage.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="chkbOpenFile.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -668,7 +797,7 @@
     <value>gbOutput</value>
   </data>
   <data name="&gt;&gt;chkbOpenFile.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="fsOutputExcelFile.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
@@ -692,7 +821,7 @@
     <value>gbOutput</value>
   </data>
   <data name="&gt;&gt;fsOutputExcelFile.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="lbOutputFilePath.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -719,7 +848,7 @@
     <value>gbOutput</value>
   </data>
   <data name="&gt;&gt;lbOutputFilePath.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="gbOutput.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 415</value>
@@ -793,6 +922,9 @@
   <data name="&gt;&gt;richTextBoxLog.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <metadata name="folderBrowserDlg.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>241, 17</value>
+  </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -840,6 +972,12 @@
   </data>
   <data name="&gt;&gt;statusLabel.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;folderBrowserDlg.Name" xml:space="preserve">
+    <value>folderBrowserDlg</value>
+  </data>
+  <data name="&gt;&gt;folderBrowserDlg.Type" xml:space="preserve">
+    <value>System.Windows.Forms.FolderBrowserDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>FormMain</value>

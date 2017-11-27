@@ -53,8 +53,11 @@ namespace treeDiM.StackBuilder.ExcelListEvaluator
             chkbOpenFile.Checked = Settings.Default.OpenGeneratedFile;
             GenerateImage = Settings.Default.GenerateImage;
             InputFilePath = Settings.Default.InputFilePath;
+            GenerateImageInFolder = Settings.Default.ImagesToFolder;
             DirectoryPathImages = Settings.Default.ImageFolder;
             AllowOnlyZOrientation = Settings.Default.AllowOnlyZOrientation;
+
+            OnImageFolderChecked(this, null);
         }
         protected override void OnClosing(CancelEventArgs e)
         {
@@ -73,6 +76,9 @@ namespace treeDiM.StackBuilder.ExcelListEvaluator
             Settings.Default.GenerateImage = GenerateImage;
             Settings.Default.InputFilePath = InputFilePath;
             Settings.Default.AllowOnlyZOrientation = AllowOnlyZOrientation;
+            Settings.Default.ImagesToFolder = GenerateImageInFolder;
+            Settings.Default.ImageFolder = DirectoryPathImages;
+            Settings.Default.Save();
         }
         #endregion
         #region IDrawingContainer implementation
@@ -120,7 +126,7 @@ namespace treeDiM.StackBuilder.ExcelListEvaluator
         private bool GenerateImage { get { return chkbGenerateImage.Checked; } set { chkbGenerateImage.Checked = value; } }
         private bool GenerateImageInFolder { get { return chkbGenerateImageFolder.Checked; } set { chkbGenerateImageFolder.Checked = value; } }
         private bool GenerateReport => false;
-        private string DirectoryPathImages { get { return fsOutputImages.FileName; } set { fsOutputImages.FileName = value; } }
+        private string DirectoryPathImages { get { return tbDirectoryPath.Text; } set { tbDirectoryPath.Text = value; } }
         private double PalletLength { get { return uCtrlPalletDimensions.ValueX; } set { uCtrlPalletDimensions.ValueX = value; } }
         private double PalletWidth { get { return uCtrlPalletDimensions.ValueY; } set { uCtrlPalletDimensions.ValueY = value; } }
         private double PalletHeight { get { return uCtrlPalletDimensions.ValueZ;} set { uCtrlPalletDimensions.ValueZ = value; } }
@@ -332,8 +338,15 @@ namespace treeDiM.StackBuilder.ExcelListEvaluator
         }
         private void OnImageFolderChecked(object sender, EventArgs e)
         {
-            fsOutputImages.Enabled = chkbGenerateImageFolder.Checked;
+            tbDirectoryPath.Enabled = chkbGenerateImageFolder.Checked;
+            bnDirectoryPath.Enabled = chkbGenerateImageFolder.Checked;
             UpdateStatus();
+        }
+        private void OnEditDirectory(object sender, EventArgs e)
+        {
+            // Show the FolderBrowserDialog.
+            if (DialogResult.OK == folderBrowserDlg.ShowDialog())
+                tbDirectoryPath.Text = folderBrowserDlg.SelectedPath;
         }
         #endregion
         #region Computing result
@@ -448,11 +461,7 @@ namespace treeDiM.StackBuilder.ExcelListEvaluator
         }
         private int ImageSize
         {
-            get { return 768; }
-        }
-        private int ImageSizeDetail
-        {
-            get { return 256; }
+            get { return Settings.Default.ImageSize; }
         }
         private double[] StackingDims
         {

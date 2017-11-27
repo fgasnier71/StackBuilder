@@ -226,5 +226,29 @@ namespace treeDiM.StackBuilder.ExcelListEvaluator.Properties {
                 this["AllowOnlyZOrientation"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ImagesToFolder {
+            get {
+                return ((bool)(this["ImagesToFolder"]));
+            }
+            set {
+                this["ImagesToFolder"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("768")]
+        public int ImageSize {
+            get {
+                return ((int)(this["ImageSize"]));
+            }
+            set {
+                this["ImageSize"] = value;
+            }
+        }
     }
 }

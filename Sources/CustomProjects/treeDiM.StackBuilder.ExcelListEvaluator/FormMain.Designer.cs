@@ -41,6 +41,7 @@
             this.graphCtrlPallet = new treeDiM.StackBuilder.Graphics.Graphics3DControl();
             this.uCtrlPalletDimensions = new treeDiM.StackBuilder.Basics.UCtrlTriDouble();
             this.gbInput = new System.Windows.Forms.GroupBox();
+            this.chkbOnlyVerticalOrientation = new System.Windows.Forms.CheckBox();
             this.tabCtrl = new System.Windows.Forms.TabControl();
             this.tabPallet = new System.Windows.Forms.TabPage();
             this.uCtrlMaximumPalletHeight = new treeDiM.StackBuilder.Basics.UCtrlDouble();
@@ -50,7 +51,6 @@
             this.uCtrlTruckDimensions = new treeDiM.StackBuilder.Basics.UCtrlTriDouble();
             this.lbCaseLoaded = new System.Windows.Forms.Label();
             this.gbOutput = new System.Windows.Forms.GroupBox();
-            this.fsOutputImages = new treeDiM.UserControls.FileSelect();
             this.chkbGenerateImageFolder = new System.Windows.Forms.CheckBox();
             this.chkbGenerateImage = new System.Windows.Forms.CheckBox();
             this.chkbOpenFile = new System.Windows.Forms.CheckBox();
@@ -58,7 +58,9 @@
             this.lbOutputFilePath = new System.Windows.Forms.Label();
             this.bnGenerate = new System.Windows.Forms.Button();
             this.richTextBoxLog = new System.Windows.Forms.RichTextBox();
-            this.chkbOnlyVerticalOrientation = new System.Windows.Forms.CheckBox();
+            this.tbDirectoryPath = new System.Windows.Forms.TextBox();
+            this.bnDirectoryPath = new System.Windows.Forms.Button();
+            this.folderBrowserDlg = new System.Windows.Forms.FolderBrowserDialog();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.graphCtrlPallet)).BeginInit();
@@ -160,6 +162,12 @@
             this.gbInput.Name = "gbInput";
             this.gbInput.TabStop = false;
             // 
+            // chkbOnlyVerticalOrientation
+            // 
+            resources.ApplyResources(this.chkbOnlyVerticalOrientation, "chkbOnlyVerticalOrientation");
+            this.chkbOnlyVerticalOrientation.Name = "chkbOnlyVerticalOrientation";
+            this.chkbOnlyVerticalOrientation.UseVisualStyleBackColor = true;
+            // 
             // tabCtrl
             // 
             this.tabCtrl.Controls.Add(this.tabPallet);
@@ -235,7 +243,8 @@
             // gbOutput
             // 
             resources.ApplyResources(this.gbOutput, "gbOutput");
-            this.gbOutput.Controls.Add(this.fsOutputImages);
+            this.gbOutput.Controls.Add(this.bnDirectoryPath);
+            this.gbOutput.Controls.Add(this.tbDirectoryPath);
             this.gbOutput.Controls.Add(this.chkbGenerateImageFolder);
             this.gbOutput.Controls.Add(this.chkbGenerateImage);
             this.gbOutput.Controls.Add(this.chkbOpenFile);
@@ -243,13 +252,6 @@
             this.gbOutput.Controls.Add(this.lbOutputFilePath);
             this.gbOutput.Name = "gbOutput";
             this.gbOutput.TabStop = false;
-            // 
-            // fsOutputImages
-            // 
-            resources.ApplyResources(this.fsOutputImages, "fsOutputImages");
-            this.fsOutputImages.Name = "fsOutputImages";
-            this.fsOutputImages.SaveMode = true;
-            this.fsOutputImages.FileNameChanged += new System.EventHandler(this.OnImageFolderChanged);
             // 
             // chkbGenerateImageFolder
             // 
@@ -293,11 +295,18 @@
             resources.ApplyResources(this.richTextBoxLog, "richTextBoxLog");
             this.richTextBoxLog.Name = "richTextBoxLog";
             // 
-            // chkbAllowOnlyVerticalOrientation
+            // tbDirectoryPath
             // 
-            resources.ApplyResources(this.chkbOnlyVerticalOrientation, "chkbAllowOnlyVerticalOrientation");
-            this.chkbOnlyVerticalOrientation.Name = "chkbAllowOnlyVerticalOrientation";
-            this.chkbOnlyVerticalOrientation.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.tbDirectoryPath, "tbDirectoryPath");
+            this.tbDirectoryPath.Name = "tbDirectoryPath";
+            this.tbDirectoryPath.TextChanged += new System.EventHandler(this.OnImageFolderChanged);
+            // 
+            // bnDirectoryPath
+            // 
+            resources.ApplyResources(this.bnDirectoryPath, "bnDirectoryPath");
+            this.bnDirectoryPath.Name = "bnDirectoryPath";
+            this.bnDirectoryPath.UseVisualStyleBackColor = true;
+            this.bnDirectoryPath.Click += new System.EventHandler(this.OnEditDirectory);
             // 
             // FormMain
             // 
@@ -361,8 +370,10 @@
         private System.Windows.Forms.TabPage tabPallet;
         private System.Windows.Forms.TabPage tabContainer;
         private System.Windows.Forms.CheckBox chkbGenerateImageFolder;
-        private UserControls.FileSelect fsOutputImages;
         private System.Windows.Forms.CheckBox chkbOnlyVerticalOrientation;
+        private System.Windows.Forms.Button bnDirectoryPath;
+        private System.Windows.Forms.TextBox tbDirectoryPath;
+        private System.Windows.Forms.FolderBrowserDialog folderBrowserDlg;
     }
 }
 
