@@ -2,12 +2,6 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="treeDiM.StackBuilder.Graphics.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="DimCasePalletSol1" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">0</Value>
-    </Setting>
-    <Setting Name="DimCasePalletSol2" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">1</Value>
-    </Setting>
     <Setting Name="LayerView3D" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>

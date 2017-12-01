@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace treeDiM.StackBuilder.Basics
+﻿namespace treeDiM.StackBuilder.Basics
 {
     public abstract class ConstraintSetAbstract
     {
@@ -19,7 +15,6 @@ namespace treeDiM.StackBuilder.Basics
                 };
             }
         }
-
         public abstract bool AllowOrientation(HalfAxis.HAxis axisOrtho);
         public abstract string AllowedOrientationsString { get; set; }
         public abstract OptDouble OptMaxHeight { get; }

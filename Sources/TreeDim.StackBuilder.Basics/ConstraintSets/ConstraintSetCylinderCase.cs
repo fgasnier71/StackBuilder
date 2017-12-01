@@ -9,7 +9,6 @@ namespace treeDiM.StackBuilder.Basics
             : base(container)
         {
         }
-
         public override bool AllowOrientation(HalfAxis.HAxis axisOrtho)
         {
             return (HalfAxis.HAxis.AXIS_Z_N == axisOrtho) || (HalfAxis.HAxis.AXIS_Z_P == axisOrtho);

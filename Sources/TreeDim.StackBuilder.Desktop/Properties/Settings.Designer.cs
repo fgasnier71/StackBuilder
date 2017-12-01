@@ -1003,5 +1003,29 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
                 this["MaxCaseDimZ"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int DimCasePalletSol1 {
+            get {
+                return ((int)(this["DimCasePalletSol1"]));
+            }
+            set {
+                this["DimCasePalletSol1"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int DimCasePalletSol2 {
+            get {
+                return ((int)(this["DimCasePalletSol2"]));
+            }
+            set {
+                this["DimCasePalletSol2"] = value;
+            }
+        }
     }
 }

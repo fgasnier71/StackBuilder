@@ -147,10 +147,10 @@ namespace treeDiM.StackBuilder.Graphics
             if (_showDimensions)
             {
                 graphics.AddDimensions(
-                    new DimensionCube(BoundingBoxDim(Properties.Settings.Default.DimCasePalletSol1)
+                    new DimensionCube(BoundingBoxDim(0)
                     , Color.Black, false));
                 graphics.AddDimensions(
-                    new DimensionCube(BoundingBoxDim(Properties.Settings.Default.DimCasePalletSol2)
+                    new DimensionCube(BoundingBoxDim(1)
                     , Color.Red, true));
             }
 

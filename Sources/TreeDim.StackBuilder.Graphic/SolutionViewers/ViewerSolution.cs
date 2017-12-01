@@ -237,10 +237,9 @@ namespace treeDiM.StackBuilder.Graphics
                         DrawLayerBoundingBox(graphics, bbox);
                     ++layerId;
                 }
- 
+
                 // ### interlayer
-                InterlayerPos interlayerPos = layer as InterlayerPos;
-                if (null != interlayerPos)
+                if (layer is InterlayerPos interlayerPos)
                 {
                     InterlayerProperties interlayerProp = _solution.Interlayers[interlayerPos.TypeId];
                     if (null != interlayerProp)
@@ -387,12 +386,8 @@ namespace treeDiM.StackBuilder.Graphics
             // ### dimensions
             if (graphics.ShowDimensions)
             {
-                graphics.AddDimensions(
-                    new DimensionCube(BoundingBoxDim(Properties.Settings.Default.DimCasePalletSol1)
-                    , Color.Black, false));
-                graphics.AddDimensions(
-                    new DimensionCube(BoundingBoxDim(Properties.Settings.Default.DimCasePalletSol2)
-                    , Color.Red, true));
+                graphics.AddDimensions(new DimensionCube(BoundingBoxDim(DimCasePalletSol1), Color.Black, false));
+                graphics.AddDimensions(new DimensionCube(BoundingBoxDim(DimCasePalletSol2), Color.Red, true));
             }
         }
         public override void Draw(Graphics2D graphics)
@@ -442,6 +437,11 @@ namespace treeDiM.StackBuilder.Graphics
                 graphics.AddDimensions(new DimensionCube(bbox, Color.Black, false));
             }
         }
+        #endregion
+
+        #region Static properties
+        public static int DimCasePalletSol1 { get { return _dimCasePalletSol1; } set { _dimCasePalletSol1 = value; } }
+        public static int DimCasePalletSol2 { get { return _dimCasePalletSol2; } set { _dimCasePalletSol2 = value; } }
         #endregion
 
         #region Helpers
@@ -499,6 +499,10 @@ namespace treeDiM.StackBuilder.Graphics
                 }
             }
         }
+        #endregion
+
+        #region Static members
+        private static int _dimCasePalletSol1 = 0, _dimCasePalletSol2 = 1;
         #endregion
     }
 }

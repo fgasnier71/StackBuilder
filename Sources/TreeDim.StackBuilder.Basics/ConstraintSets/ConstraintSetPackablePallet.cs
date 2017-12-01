@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using Sharp3D.Math.Core;
 
 namespace treeDiM.StackBuilder.Basics

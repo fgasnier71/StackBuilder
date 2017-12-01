@@ -24,16 +24,19 @@ namespace treeDiM.StackBuilder.Desktop
             DisplayName = Properties.Resources.ID_DISPLAYDIMENSIONSCASEPALLET;
 
             // initialize combo box
-            cbDim1.SelectedIndex = Graphics.Properties.Settings.Default.DimCasePalletSol1;
-            cbDim2.SelectedIndex = Graphics.Properties.Settings.Default.DimCasePalletSol2;
+            cbDim1.SelectedIndex = Properties.Settings.Default.DimCasePalletSol1;
+            cbDim2.SelectedIndex = Properties.Settings.Default.DimCasePalletSol2;
         }
         private void OptionsForm_OptionsSaving(object sender, EventArgs e)
         {
             // save combo box
-            Graphics.Properties.Settings.Default.DimCasePalletSol1 = cbDim1.SelectedIndex;
-            Graphics.Properties.Settings.Default.DimCasePalletSol2 = cbDim2.SelectedIndex;
+            Properties.Settings.Default.DimCasePalletSol1 = cbDim1.SelectedIndex;
+            Properties.Settings.Default.DimCasePalletSol2 = cbDim2.SelectedIndex;
+            Properties.Settings.Default.Save();
 
-            Graphics.Properties.Settings.Default.Save();
+            Graphics.ViewerSolution.DimCasePalletSol1 = Properties.Settings.Default.DimCasePalletSol1;
+            Graphics.ViewerSolution.DimCasePalletSol2 = Properties.Settings.Default.DimCasePalletSol2;
+
         }
         #endregion
 

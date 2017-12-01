@@ -84,8 +84,10 @@ namespace treeDiM.StackBuilder.Desktop
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
- 
 
+            // set some static properties
+            Graphics.ViewerSolution.DimCasePalletSol1 = Settings.Default.DimCasePalletSol1;
+            Graphics.ViewerSolution.DimCasePalletSol2 = Settings.Default.DimCasePalletSol2;
 
             // show main form
             Application.Run(new FormMain());
