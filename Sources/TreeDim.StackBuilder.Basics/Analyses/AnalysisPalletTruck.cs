@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-using Sharp3D.Math.Core;
-
+﻿using Sharp3D.Math.Core;
 using log4net;
 
 namespace treeDiM.StackBuilder.Basics
@@ -20,13 +15,9 @@ namespace treeDiM.StackBuilder.Basics
             ConstraintSet = constraintSet;
         }
         public override bool AlternateLayersPref => false;
-
         public override ItemBase Container => _truckProperties;
-
         public override double ContainerWeight => 0.0;
-
         public override double ContainerLoadingVolume => _truckProperties.Volume;
-
         public override Vector2D ContainerDimensions
         {
             get
@@ -70,11 +61,7 @@ namespace treeDiM.StackBuilder.Basics
                 0.0, 0.0, 0.0,
                 _truckProperties.Length, _truckProperties.Width, _truckProperties.Height);
         }
-
-        public override BBox3D BBoxLoadWDeco(BBox3D loadBBox)
-        {
-            return loadBBox;
-        }
+        public override BBox3D BBoxLoadWDeco(BBox3D loadBBox) => loadBBox;
 
         #region Non-Public Members
 
