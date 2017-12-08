@@ -764,6 +764,15 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Define a valid file path..
+        /// </summary>
+        internal static string ID_DEFINEVALIDFILEPATH {
+            get {
+                return ResourceManager.GetString("ID_DEFINEVALIDFILEPATH", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Delete.
         /// </summary>
         internal static string ID_DELETE {
@@ -902,6 +911,15 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Done!.
+        /// </summary>
+        internal static string ID_DONE {
+            get {
+                return ResourceManager.GetString("ID_DONE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Double-click a layer!.
         /// </summary>
         internal static string ID_DOUBLECLICKALAYER {
@@ -952,6 +970,15 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         internal static string ID_EFFICIENCYPERCENTAGE {
             get {
                 return ResourceManager.GetString("ID_EFFICIENCYPERCENTAGE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Can you confirm that values in Excel sheet ({0}) are expressed using the currently set StackBuilder unit system i.e. {1}?.
+        /// </summary>
+        internal static string ID_EXCELSHEETUNITSYSTEM {
+            get {
+                return ResourceManager.GetString("ID_EXCELSHEETUNITSYSTEM", resourceCulture);
             }
         }
         
@@ -1078,6 +1105,24 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         internal static string ID_HEIGHT_WU {
             get {
                 return ResourceManager.GetString("ID_HEIGHT_WU", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Loading {0}....
+        /// </summary>
+        internal static string ID_IMPORTLOADING {
+            get {
+                return ResourceManager.GetString("ID_IMPORTLOADING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Skipping {0}....
+        /// </summary>
+        internal static string ID_IMPORTSKIPPING {
+            get {
+                return ResourceManager.GetString("ID_IMPORTSKIPPING", resourceCulture);
             }
         }
         
@@ -1811,6 +1856,15 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Removing existing type {0}....
+        /// </summary>
+        internal static string ID_REMOVINGEXISTINGTYPE {
+            get {
+                return ResourceManager.GetString("ID_REMOVINGEXISTINGTYPE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Save file {0}?.
         /// </summary>
         internal static string ID_SAVEMODIFIEDFILE {
@@ -1874,6 +1928,15 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Canceled!.
+        /// </summary>
+        internal static string ID_TASKCANCELED {
+            get {
+                return ResourceManager.GetString("ID_TASKCANCELED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Thickness ({0}).
         /// </summary>
         internal static string ID_THICKNESS_WU {
@@ -1906,6 +1969,24 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         internal static string ID_TRUCK {
             get {
                 return ResourceManager.GetString("ID_TRUCK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unexpected type: {0}.
+        /// </summary>
+        internal static string ID_UNEXPECTEDTYPE {
+            get {
+                return ResourceManager.GetString("ID_UNEXPECTEDTYPE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unit system....
+        /// </summary>
+        internal static string ID_UNITSYSTEM {
+            get {
+                return ResourceManager.GetString("ID_UNITSYSTEM", resourceCulture);
             }
         }
         

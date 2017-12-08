@@ -1163,7 +1163,5 @@ namespace treeDiM.StackBuilder.Desktop
 
         private Document _doc;
         #endregion
-
-
     }
 }

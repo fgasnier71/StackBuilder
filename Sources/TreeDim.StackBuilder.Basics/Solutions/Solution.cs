@@ -235,7 +235,6 @@ namespace treeDiM.StackBuilder.Basics
             if ((null == _layerDescriptors) || (0 == _layerDescriptors.Count))
                 throw new Exception("No layer descriptors available");
 
-            _layerTypes = new List<ILayer2D>();
             // build list of used layers
             List<LayerDesc> usedLayers = new List<LayerDesc>();
             if (null != _solutionItems && _solutionItems.Count > 0)
@@ -253,7 +252,8 @@ namespace treeDiM.StackBuilder.Basics
             Solver.GetDimensions(usedLayers, _analysis.Content, _analysis.ContainerDimensions, out actualDimensions);
 
             // actually build layers
-            foreach (LayerDesc layerDesc in usedLayers)
+            _layerTypes = new List<ILayer2D>();
+            foreach (LayerDesc layerDesc in _layerDescriptors)
                 _layerTypes.Add(Solver.BuildLayer(_analysis.Content, _analysis.ContainerDimensions, layerDesc, actualDimensions));
         }
         private void InitializeSolutionItemList()
@@ -282,74 +282,82 @@ namespace treeDiM.StackBuilder.Basics
         }
         public void RebuildSolutionItemList()
         {
-            bool criterionReached = false;
-            double zTop = _analysis.Offset.Z;
-            double weight = _analysis.ContainerWeight;
-
-            List<SolutionItem> solutionItems = new List<SolutionItem>();
-            foreach (SolutionItem solItem in _solutionItems)
+            try
             {
-                weight += _layerTypes[solItem.LayerIndex].Count * _analysis.ContentWeight;
-                zTop += _layerTypes[solItem.LayerIndex].LayerHeight + ((-1 != solItem.InterlayerIndex) ? _analysis.Interlayer(solItem.InterlayerIndex).Thickness : 0.0);
+                bool criterionReached = false;
+                double zTop = _analysis.Offset.Z;
+                double weight = _analysis.ContainerWeight;
 
-                ConstraintSetAbstract constraintSet = _analysis.ConstraintSet;
-                criterionReached = (ConstraintSet.OptMaxHeight.Activated && zTop >= constraintSet.OptMaxHeight.Value)
-                    || (ConstraintSet.OptMaxWeight.Activated && weight >= constraintSet.OptMaxWeight.Value);
+                List<SolutionItem> solutionItems = new List<SolutionItem>();
+                foreach (SolutionItem solItem in _solutionItems)
+                {
+                    weight += _layerTypes[index: solItem.LayerIndex].Count * _analysis.ContentWeight;
+                    zTop += _layerTypes[solItem.LayerIndex].LayerHeight + ((-1 != solItem.InterlayerIndex) ? _analysis.Interlayer(solItem.InterlayerIndex).Thickness : 0.0);
 
-                solutionItems.Add(solItem);
+                    ConstraintSetAbstract constraintSet = _analysis.ConstraintSet;
+                    criterionReached = (ConstraintSet.OptMaxHeight.Activated && zTop >= constraintSet.OptMaxHeight.Value)
+                        || (ConstraintSet.OptMaxWeight.Activated && weight >= constraintSet.OptMaxWeight.Value);
 
-                if (criterionReached)
-                    break;
+                    solutionItems.Add(solItem);
+
+                    if (criterionReached)
+                        break;
+                }
+
+                // add layers until 
+                while (!criterionReached)
+                {
+                    SolutionItem solItem = null;
+                    if (solutionItems.Count > 0)
+                        solItem = solutionItems.Last();
+                    else
+                        solItem = new SolutionItem(0, -1, false, false);
+
+                    if (solItem.LayerIndex >= _layerTypes.Count)
+                        throw new Exception(string.Format("Layer index out of range!"));
+
+                    weight += _layerTypes[solItem.LayerIndex].Count * _analysis.ContentWeight;
+                    zTop += _layerTypes[solItem.LayerIndex].LayerHeight + ((-1 != solItem.InterlayerIndex) ? _analysis.Interlayer(solItem.InterlayerIndex).Thickness : 0.0);
+
+                    solutionItems.Add(new SolutionItem(solItem));
+
+                    ConstraintSetAbstract constraintSet = _analysis.ConstraintSet;
+                    criterionReached = (ConstraintSet.OptMaxHeight.Activated && zTop >= constraintSet.OptMaxHeight.Value)
+                        || (ConstraintSet.OptMaxWeight.Activated && weight >= constraintSet.OptMaxWeight.Value);
+                }
+
+                // remove unneeded layer 
+                while (criterionReached)
+                {
+                    SolutionItem solItem = null;
+                    if (solutionItems.Count > 0)
+                        solItem = solutionItems.Last();
+                    else
+                        solItem = new SolutionItem(0, -1, false, false);
+
+                    if (solItem.LayerIndex >= _layerTypes.Count)
+                        throw new Exception(string.Format("Layer index out of range!"));
+
+                    weight -= _layerTypes[solItem.LayerIndex].Count * _analysis.ContentWeight;
+                    zTop -= _layerTypes[solItem.LayerIndex].LayerHeight + ((-1 != solItem.InterlayerIndex) ? _analysis.Interlayer(solItem.InterlayerIndex).Thickness : 0.0);
+
+                    ConstraintSetAbstract constraintSet = _analysis.ConstraintSet;
+                    criterionReached = (ConstraintSet.OptMaxHeight.Activated && zTop >= constraintSet.OptMaxHeight.Value)
+                        || (ConstraintSet.OptMaxWeight.Activated && weight >= constraintSet.OptMaxWeight.Value);
+
+                    solutionItems.Remove(solItem);
+                }
+                _solutionItems.Clear();
+                _solutionItems = solutionItems;
+
+                // reset bounding box to force recompute
+                _bbox.Reset();
             }
-
-            // add layers until 
-            while (!criterionReached)
+            catch (Exception ex)
             {
-                SolutionItem solItem = null;
-                if (solutionItems.Count > 0)
-                    solItem = solutionItems.Last();
-                else
-                    solItem = new SolutionItem(0, -1, false, false);
-
-                if (solItem.LayerIndex >= _layerTypes.Count)
-                    throw new Exception(string.Format("Layer index out of range!"));
-
-                weight += _layerTypes[solItem.LayerIndex].Count * _analysis.ContentWeight;
-                zTop += _layerTypes[solItem.LayerIndex].LayerHeight + ((-1 != solItem.InterlayerIndex) ? _analysis.Interlayer(solItem.InterlayerIndex).Thickness : 0.0);
-
-                solutionItems.Add(new SolutionItem(solItem));
-
-                ConstraintSetAbstract constraintSet = _analysis.ConstraintSet;
-                criterionReached = (ConstraintSet.OptMaxHeight.Activated && zTop >= constraintSet.OptMaxHeight.Value)
-                    || (ConstraintSet.OptMaxWeight.Activated && weight >= constraintSet.OptMaxWeight.Value);
+                string message = ex.Message;
+                string s = ex.ToString();
             }
-
-            // remove unneeded layer 
-            while (criterionReached)
-            {
-                SolutionItem solItem = null;
-                if (solutionItems.Count > 0)
-                    solItem = solutionItems.Last();
-                else
-                    solItem = new SolutionItem(0, -1, false, false);
-
-                if (solItem.LayerIndex >= _layerTypes.Count)
-                    throw new Exception(string.Format("Layer index out of range!"));
-
-                weight -= _layerTypes[solItem.LayerIndex].Count * _analysis.ContentWeight;
-                zTop -= _layerTypes[solItem.LayerIndex].LayerHeight + ((-1 != solItem.InterlayerIndex) ? _analysis.Interlayer(solItem.InterlayerIndex).Thickness : 0.0);
-
-                ConstraintSetAbstract constraintSet = _analysis.ConstraintSet;
-                criterionReached = (ConstraintSet.OptMaxHeight.Activated && zTop >= constraintSet.OptMaxHeight.Value)
-                    || (ConstraintSet.OptMaxWeight.Activated && weight >= constraintSet.OptMaxWeight.Value);
-
-                solutionItems.Remove(solItem);
-            }
-            _solutionItems.Clear();
-            _solutionItems = solutionItems;
-
-            // reset bounding box to force recompute
-            _bbox.Reset();
         }
         private int GetInterlayerIndex(InterlayerProperties interlayer)
         {
@@ -510,6 +518,7 @@ namespace treeDiM.StackBuilder.Basics
                         ++iInterlayerCount;
                     }
 
+                    System.Diagnostics.Debug.Assert(solItem.LayerIndex < _layerTypes.Count);
                     ILayer2D currentLayer = _layerTypes[solItem.LayerIndex];
 
                     if (currentLayer is Layer2D)

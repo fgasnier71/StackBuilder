@@ -52,11 +52,11 @@ namespace treeDiM.EdgeCrushTest
             switch (error)
             {
                 case ErrorType.ERROR_INVALIDCARDBOARD:
-                    return string.Format(treeDiM.EdgeCrushTest.Properties.Resource.EXCEPTION_INVALIDCARDBOARDID, arg);
+                    return string.Format(Properties.Resource.EXCEPTION_INVALIDCARDBOARDID, arg);
                 case ErrorType.ERROR_INVALIDCASETYPE:
-                    return string.Format(treeDiM.EdgeCrushTest.Properties.Resource.EXCEPTION_INVALIDCASETYPE, arg);
+                    return string.Format(Properties.Resource.EXCEPTION_INVALIDCASETYPE, arg);
                 case ErrorType.ERROR_INVALIDFORMULATYPE:
-                    return treeDiM.EdgeCrushTest.Properties.Resource.EXCEPTION_INVALIDFORMULA;
+                    return Properties.Resource.EXCEPTION_INVALIDFORMULA;
                 default:
                     return string.Empty;
             }

@@ -1,8 +1,5 @@
 ﻿#region Using directives
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 using Cureos.Measures;
@@ -124,6 +121,13 @@ namespace treeDiM.StackBuilder.Basics
                     case UnitSystem.UNIT_US:        return "lb/in²";
                     default: throw new Exception("Invalid unit system!");
                 }
+            }
+        }
+        public static string SystemUnitString
+        {
+            get
+            {
+                return string.Format("{0}, {1}", LengthUnitString, MassUnitString);
             }
         }
         #endregion

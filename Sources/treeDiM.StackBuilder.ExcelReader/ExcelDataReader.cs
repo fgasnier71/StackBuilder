@@ -40,7 +40,7 @@ namespace treeDiM.StackBuilder.ExcelReader
 
                 foreach (DataTable dtTable in ds.Tables)
                 {
-                    int iRowStart = 0;
+                    int iRowStart = 1;
                     for (int iRow = iRowStart; iRow < dtTable.Rows.Count; ++iRow)
                     {
                         DataType dataType = null;
@@ -56,7 +56,6 @@ namespace treeDiM.StackBuilder.ExcelReader
                         {
                             _log.Error(string.Format("Failed to read {0}({1}) with message : {2}", dtTable.TableName, iRow, ex.Message));
                             dataType = null;
-                            break;
                         }
                         if (null != dataType)
                             listItems.Add(dataType);
@@ -77,12 +76,16 @@ namespace treeDiM.StackBuilder.ExcelReader
                 return new DataPallet(iRow, dtRow);
             else if (string.Equals(sheetName, "Interlayers", StringComparison.CurrentCultureIgnoreCase))
                 return new DataInterlayer(iRow, dtRow);
+            else if (string.Equals(sheetName, "Pallet corners", StringComparison.CurrentCultureIgnoreCase))
+                return new DataPalletCorner(iRow, dtRow);
             else if (string.Equals(sheetName, "Pallet caps", StringComparison.CurrentCultureIgnoreCase))
-                return new DataPalletCap(iRow, dtRow); 
+                return new DataPalletCap(iRow, dtRow);
             else if (string.Equals(sheetName, "Pallet films", StringComparison.CurrentCultureIgnoreCase))
-                return new DataPalletFilm(iRow, dtRow); 
+                return new DataPalletFilm(iRow, dtRow);
             else if (string.Equals(sheetName, "Cylinders", StringComparison.CurrentCultureIgnoreCase))
                 return new DataCylinder(iRow, dtRow);
+            else if (string.Equals(sheetName, "Trucks", StringComparison.CurrentCultureIgnoreCase))
+                return new DataTruck(iRow, dtRow);
             else
                 throw new FormatException(string.Format("{0} is not a valid sheet name", sheetName));
         }

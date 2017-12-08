@@ -260,5 +260,8 @@
     <Setting Name="DimCasePalletSol2" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">1</Value>
     </Setting>
+    <Setting Name="ExcelTemplateFileURL" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://www.plmpack.com/Stackbuilder/download/Catalog.xlsx</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

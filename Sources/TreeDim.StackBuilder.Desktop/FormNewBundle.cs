@@ -44,6 +44,7 @@ namespace treeDiM.StackBuilder.Desktop
             BundleWidth = UnitsManager.ConvertLengthFrom(300.0, UnitsManager.UnitSystem.UNIT_METRIC1);
             UnitThickness = UnitsManager.ConvertLengthFrom(5.0, UnitsManager.UnitSystem.UNIT_METRIC1);
             NoFlats = 10;
+            Color = Color.LightGray;
             // disable Ok buttons
             UpdateButtonOkStatus();
         }

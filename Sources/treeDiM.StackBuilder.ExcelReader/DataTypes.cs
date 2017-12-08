@@ -67,6 +67,8 @@ namespace treeDiM.StackBuilder.ExcelReader
             if (DBNull.Value != dtRow[7])   innerDimensions[2] = (double)dtRow[7];
             if (DBNull.Value != dtRow[8])   Weight = (double)dtRow[8];
             if (DBNull.Value != dtRow[9])   NetWeight = (double)dtRow[9];
+            if (DBNull.Value != dtRow[10])  MaxWeight = (double)dtRow[10];
+            if (DBNull.Value != dtRow[11])  TapeWidth = (double)dtRow[11];
         }
         public double[] OuterDimensions
         {
@@ -80,6 +82,8 @@ namespace treeDiM.StackBuilder.ExcelReader
         }
         public double Weight { get; set; }
         public double NetWeight { get; set; }
+        public double MaxWeight { get; set; }
+        public double TapeWidth { get; set; }
 
         public override string ToString()
         {
@@ -124,7 +128,32 @@ namespace treeDiM.StackBuilder.ExcelReader
         // DATA MEMBERS
         private double[] dimensions = new double[3];
     }
-#endregion
+    #endregion
+    #region DataBundle
+    public class DataBundle : DataType
+    {
+        public DataBundle(int iRow, DataRow dtRow)
+            : base(iRow, dtRow)
+        {
+            Length = (double)dtRow[2];
+            Width = (double)dtRow[3];
+            UnitThickness = (double)dtRow[4];
+            if (DBNull.Value != dtRow[5]) UnitWeight = (double)dtRow[5];
+            NoFlats = (int)dtRow[6];
+        }
+        public double Length { get; set; }
+        public double Width { get; set; }
+        public double UnitThickness { get; set; }
+        public double UnitWeight { get; set; }
+        public int NoFlats { get; set; }
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder(base.ToString());
+            sb.AppendLine(string.Format("Length * Width = {0}*{1}", Length, Width));
+            return sb.ToString();
+        }
+    }
+    #endregion
     #region DataPallet
     public class DataPallet : DataType
     {
@@ -186,6 +215,24 @@ namespace treeDiM.StackBuilder.ExcelReader
         }
         // DATA MEMBERS
         private double[] dimensions = new double[3];
+    }
+    #endregion
+    #region DataPalletCorner
+    public class DataPalletCorner : DataType
+    {
+        public DataPalletCorner(int iRow, DataRow dtRow)
+            : base(iRow, dtRow)
+        {
+            Length = (double)dtRow[2];
+            Width = (double)dtRow[3];
+            Thickness = (double)dtRow[4];
+
+            if (DBNull.Value != dtRow[5]) Weight = (double)dtRow[5];
+        }
+        public double Length { get; set; }
+        public double Width  { get; set; }
+        public double Thickness { get; set; }
+        public double Weight { get; set; }
     }
     #endregion
     #region DataPalletCap
@@ -279,6 +326,23 @@ namespace treeDiM.StackBuilder.ExcelReader
             sb.AppendLine(string.Format("Net weight       = {0}", NetWeight));
             return sb.ToString();
         }
+    }
+    #endregion
+    #region DataTruck
+    public class DataTruck : DataType
+    {
+        public DataTruck(int iRow, DataRow dtRow)
+            : base(iRow, dtRow)
+        {
+            innerDimensions[0] = (double)dtRow[2];
+            innerDimensions[1] = (double)dtRow[3];
+            innerDimensions[2] = (double)dtRow[4];
+            if (DBNull.Value != dtRow[5]) MaxLoad = (double)dtRow[5];
+        }
+        public double[] InnerDimensions { get { return innerDimensions; } }
+        public double MaxLoad { get; set; }
+        // DATA MEMBERS
+        private double[] innerDimensions = new double[3];
     }
     #endregion
 }

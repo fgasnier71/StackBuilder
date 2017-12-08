@@ -56,7 +56,7 @@ namespace treeDiM.StackBuilder.Graphics
             // double buffering
             SetDoubleBuffered();
             // toolbar event
-            ButtonPressed += onButtonPressed;
+            ButtonPressed += OnButtonPressed;
         }
         #endregion
 
@@ -228,7 +228,7 @@ namespace treeDiM.StackBuilder.Graphics
                 g.DrawImage(Properties.Resources.CotationShow, new Point(offsetIcon += _toolbarButtonOffset, 1));
 
         }
-        void onButtonPressed(int iIndex)
+        void OnButtonPressed(int iIndex)
         {
             switch (iIndex)
             {
@@ -249,7 +249,7 @@ namespace treeDiM.StackBuilder.Graphics
         #endregion
 
         #region Mouse event handlers
-        private void onMouseMove(object sender, MouseEventArgs e)
+        private void OnMouseMove(object sender, MouseEventArgs e)
         {
             // not dragging ?
             if (!_isDrag)
@@ -286,7 +286,7 @@ namespace treeDiM.StackBuilder.Graphics
             }
         }
 
-        private void onMouseDown(object sender, MouseEventArgs e)
+        private void OnMouseDown(object sender, MouseEventArgs e)
         {
             // clicking toolbar ?
             if (!_isDrag)
@@ -308,7 +308,7 @@ namespace treeDiM.StackBuilder.Graphics
             Cursor.Current = _isDrag ? CursorRotate : Cursors.Default;
         }
 
-        private void onMouseUp(object sender, MouseEventArgs e)
+        private void OnMouseUp(object sender, MouseEventArgs e)
         {
             if (MouseButtons.Left == e.Button)
             {
@@ -321,24 +321,17 @@ namespace treeDiM.StackBuilder.Graphics
         #endregion
 
         #region Event handlers
-        private void onResize(object sender, EventArgs e)
+        private void OnResize(object sender, EventArgs e)
         {
             Invalidate();
         }
-        private void onMouseDoubleClick(object sender, MouseEventArgs e)
+        private void OnMouseDoubleClick(object sender, MouseEventArgs e)
         {
             // sanity checks
-            uint index = 0;
-            if (null != _viewer && _viewer.TryPicking(e.Location.X, e.Location.Y, out index))
-            {
-                if (null != VolumeSelected)
-                    VolumeSelected((int)index);
-            }
+            if (null != _viewer && _viewer.TryPicking(e.Location.X, e.Location.Y, out uint index))
+                VolumeSelected?.Invoke((int)index);
             else
-            {
-                if (null != VolumeSelected)
-                    VolumeSelected(-1);
-            }
+                VolumeSelected?.Invoke(-1);
             Invalidate();
         }
         #endregion

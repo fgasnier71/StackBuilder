@@ -30,6 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormImportExcelCatalog));
             this.splitContainerHoriz = new System.Windows.Forms.SplitContainer();
+            this.chkbOverwrite = new System.Windows.Forms.CheckBox();
+            this.bnDownload = new System.Windows.Forms.Button();
+            this.lbExcelFileTemplate = new System.Windows.Forms.Label();
             this.bnStop = new System.Windows.Forms.Button();
             this.progressBar = new System.Windows.Forms.ProgressBar();
             this.bnCancel = new System.Windows.Forms.Button();
@@ -39,8 +42,6 @@
             this.richTextBoxLog = new System.Windows.Forms.RichTextBox();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.statusLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.lbExcelFileTemplate = new System.Windows.Forms.Label();
-            this.bnDownload = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerHoriz)).BeginInit();
             this.splitContainerHoriz.Panel1.SuspendLayout();
             this.splitContainerHoriz.Panel2.SuspendLayout();
@@ -55,6 +56,8 @@
             // 
             // splitContainerHoriz.Panel1
             // 
+            resources.ApplyResources(this.splitContainerHoriz.Panel1, "splitContainerHoriz.Panel1");
+            this.splitContainerHoriz.Panel1.Controls.Add(this.chkbOverwrite);
             this.splitContainerHoriz.Panel1.Controls.Add(this.bnDownload);
             this.splitContainerHoriz.Panel1.Controls.Add(this.lbExcelFileTemplate);
             this.splitContainerHoriz.Panel1.Controls.Add(this.bnStop);
@@ -66,7 +69,26 @@
             // 
             // splitContainerHoriz.Panel2
             // 
+            resources.ApplyResources(this.splitContainerHoriz.Panel2, "splitContainerHoriz.Panel2");
             this.splitContainerHoriz.Panel2.Controls.Add(this.richTextBoxLog);
+            // 
+            // chkbOverwrite
+            // 
+            resources.ApplyResources(this.chkbOverwrite, "chkbOverwrite");
+            this.chkbOverwrite.Name = "chkbOverwrite";
+            this.chkbOverwrite.UseVisualStyleBackColor = true;
+            // 
+            // bnDownload
+            // 
+            resources.ApplyResources(this.bnDownload, "bnDownload");
+            this.bnDownload.Name = "bnDownload";
+            this.bnDownload.UseVisualStyleBackColor = true;
+            this.bnDownload.Click += new System.EventHandler(this.OnDownloadExcelTemplate);
+            // 
+            // lbExcelFileTemplate
+            // 
+            resources.ApplyResources(this.lbExcelFileTemplate, "lbExcelFileTemplate");
+            this.lbExcelFileTemplate.Name = "lbExcelFileTemplate";
             // 
             // bnStop
             // 
@@ -113,26 +135,15 @@
             // 
             // statusStrip1
             // 
+            resources.ApplyResources(this.statusStrip1, "statusStrip1");
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.statusLabel});
-            resources.ApplyResources(this.statusStrip1, "statusStrip1");
             this.statusStrip1.Name = "statusStrip1";
             // 
             // statusLabel
             // 
-            this.statusLabel.Name = "statusLabel";
             resources.ApplyResources(this.statusLabel, "statusLabel");
-            // 
-            // lbExcelFileTemplate
-            // 
-            resources.ApplyResources(this.lbExcelFileTemplate, "lbExcelFileTemplate");
-            this.lbExcelFileTemplate.Name = "lbExcelFileTemplate";
-            // 
-            // bnDownload
-            // 
-            resources.ApplyResources(this.bnDownload, "bnDownload");
-            this.bnDownload.Name = "bnDownload";
-            this.bnDownload.UseVisualStyleBackColor = true;
+            this.statusLabel.Name = "statusLabel";
             // 
             // FormImportExcelCatalog
             // 
@@ -171,5 +182,6 @@
         private System.Windows.Forms.ProgressBar progressBar;
         private System.Windows.Forms.Button bnDownload;
         private System.Windows.Forms.Label lbExcelFileTemplate;
+        private System.Windows.Forms.CheckBox chkbOverwrite;
     }
 }

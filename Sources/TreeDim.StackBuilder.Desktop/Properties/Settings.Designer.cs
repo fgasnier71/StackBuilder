@@ -1027,5 +1027,17 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
                 this["DimCasePalletSol2"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://www.plmpack.com/Stackbuilder/download/Catalog.xlsx")]
+        public string ExcelTemplateFileURL {
+            get {
+                return ((string)(this["ExcelTemplateFileURL"]));
+            }
+            set {
+                this["ExcelTemplateFileURL"] = value;
+            }
+        }
     }
 }
