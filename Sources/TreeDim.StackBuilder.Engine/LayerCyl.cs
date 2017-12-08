@@ -11,6 +11,7 @@ using treeDiM.StackBuilder.Basics;
 
 namespace treeDiM.StackBuilder.Engine
 {
+    /*
     public class LayerCyl : List<Vector2D>
     {
         #region Data members
@@ -76,4 +77,5 @@ namespace treeDiM.StackBuilder.Engine
         }
         #endregion
     }
+    */
 }

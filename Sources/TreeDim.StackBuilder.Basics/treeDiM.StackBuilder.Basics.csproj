@@ -114,7 +114,6 @@
     <Compile Include="ConstraintSets\ConstraintSetPackablePallet.cs" />
     <Compile Include="ConstraintSets\ConstraintSetPackableTruck.cs" />
     <Compile Include="ConstraintSets\ConstraintSetPalletTruck.cs" />
-    <Compile Include="ConstraintSets\CylinderPalletConstraintSet.cs" />
     <Compile Include="ConstraintSets\HCylinderPalletConstraintSet.cs" />
     <Compile Include="ConstraintSets\PackPalletConstraintSet.cs" />
     <Compile Include="Containers\PackArrangement.cs" />
@@ -194,7 +193,6 @@
     <Compile Include="ConstraintSets\BoxCasePalletConstraintSet.cs" />
     <Compile Include="Solutions\CaseDefinition.cs" />
     <Compile Include="Solutions\CaseOptimSolution.cs" />
-    <Compile Include="AnalysesLegacy\CylinderPalletAnalysis.cs" />
     <Compile Include="ConstraintSets\PalletConstraintSet.cs" />
     <Compile Include="ConstraintSets\CasePalletConstraintSet.cs" />
     <Compile Include="ConstraintSets\BundlePalletConstraintSet.cs" />
@@ -202,7 +200,6 @@
     <Compile Include="Helpers\HalfAxis.cs" />
     <Compile Include="Containers\InterlayerProperties.cs" />
     <Compile Include="Helpers\ItemBase.cs" />
-    <Compile Include="Solutions\CylinderPalletSolution.cs" />
     <Compile Include="Solutions\Layer2D.cs" />
     <Compile Include="Solutions\Layer2DCyl.cs" />
     <Compile Include="Solutions\LayerPosition.cs" />

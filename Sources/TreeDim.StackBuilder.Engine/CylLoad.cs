@@ -13,6 +13,16 @@ using log4net;
 
 namespace treeDiM.StackBuilder.Engine
 {
+    #region Limit enum : the different reasons the stacking process might be stopped
+    public enum Limit
+    {
+        LIMIT_MAXHEIGHTREACHED
+        , LIMIT_MAXWEIGHTREACHED
+        , LIMIT_MAXNUMBERREACHED
+        , LIMIT_UNKNOWN
+    };
+    #endregion
+
     class CylLoad : List<CylPosition>
     {
         #region Data members
@@ -117,7 +127,7 @@ namespace treeDiM.StackBuilder.Engine
         {
             get { return _rowSpacing; }
         }
-
+        
         public Limit LimitReached
         {
             get { return _limitReached; }

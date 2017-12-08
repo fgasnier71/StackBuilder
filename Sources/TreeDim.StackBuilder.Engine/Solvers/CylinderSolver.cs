@@ -8,6 +8,7 @@ using treeDiM.StackBuilder.Basics;
 
 namespace treeDiM.StackBuilder.Engine
 {
+    /*
     public class CylinderSolver : ICylinderAnalysisSolver
     {
         public CylinderSolver() { }
@@ -45,7 +46,7 @@ namespace treeDiM.StackBuilder.Engine
                     Layer2DCyl layer = new Layer2DCyl(
                         _cylProperties.RadiusOuter, _cylProperties.Height
                         , new Vector2D(_palletProperties.Length, _palletProperties.Width)
-                        , /*_constraintSet*/iDir % 2 != 0);
+                        , iDir % 2 != 0);
 
                     string title = string.Format("{0}-{1}", pattern.Name, iDir);
                     var sol = new CylinderPalletSolution(null, title, true);
@@ -132,4 +133,5 @@ namespace treeDiM.StackBuilder.Engine
         }
         #endregion
     }
+    */
 }

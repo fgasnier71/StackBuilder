@@ -71,7 +71,7 @@
             resources.ApplyResources(this.checkBoxBestLayersOnly, "checkBoxBestLayersOnly");
             this.checkBoxBestLayersOnly.Name = "checkBoxBestLayersOnly";
             this.checkBoxBestLayersOnly.UseVisualStyleBackColor = true;
-            this.checkBoxBestLayersOnly.CheckedChanged += new System.EventHandler(this.onInputChanged);
+            this.checkBoxBestLayersOnly.CheckedChanged += new System.EventHandler(this.OnInputChanged);
             // 
             // chkbAllowMultipleLayers
             // 
@@ -87,7 +87,7 @@
             this.uCtrlMinDistanceLoadWall.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlMinDistanceLoadWall.ValueX = 0D;
             this.uCtrlMinDistanceLoadWall.ValueY = 0D;
-            this.uCtrlMinDistanceLoadWall.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDualDouble.ValueChangedDelegate(this.onInputChanged);
+            this.uCtrlMinDistanceLoadWall.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDualDouble.ValueChangedDelegate(this.OnInputChanged);
             // 
             // uCtrlMinDistanceLoadRoof
             // 
@@ -115,7 +115,7 @@
             this.cbTrucks.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTrucks.FormattingEnabled = true;
             this.cbTrucks.Name = "cbTrucks";
-            this.cbTrucks.SelectedIndexChanged += new System.EventHandler(this.onInputChanged);
+            this.cbTrucks.SelectedIndexChanged += new System.EventHandler(this.OnInputChanged);
             // 
             // cbPallets
             // 
@@ -123,7 +123,7 @@
             this.cbPallets.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbPallets.FormattingEnabled = true;
             this.cbPallets.Name = "cbPallets";
-            this.cbPallets.SelectedIndexChanged += new System.EventHandler(this.onInputChanged);
+            this.cbPallets.SelectedIndexChanged += new System.EventHandler(this.OnInputChanged);
             // 
             // FormNewAnalysisPalletTruck
             // 

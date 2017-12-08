@@ -55,8 +55,8 @@ namespace treeDiM.StackBuilder.Desktop
             cbTrucks.Initialize(_document, this, null != AnalysisBase ? AnalysisBase.Container : null);
 
             // event handling
-            uCtrlLayerList.LayerSelected += onLayerSelected;
-            uCtrlLayerList.RefreshFinished += onLayerSelected;
+            uCtrlLayerList.LayerSelected += OnLayerSelected;
+            uCtrlLayerList.RefreshFinished += OnLayerSelected;
             uCtrlLayerList.ButtonSizes = new Size(200, 100);
 
             if (null == AnalysisBase)
@@ -140,13 +140,9 @@ namespace treeDiM.StackBuilder.Desktop
         public bool Accept(Control ctrl, ItemBase itemBase)
         {
             if (ctrl == cbPallets)
-            {
                 return itemBase is LoadedPallet;
-            }
             else if (ctrl == cbTrucks)
-            {
                 return itemBase is TruckProperties; 
-            }
             return false;
         }
         #endregion
@@ -163,7 +159,7 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Event handlers
-        private void onInputChanged(object sender, EventArgs e)
+        private void OnInputChanged(object sender, EventArgs e)
         {
             try
             {
@@ -195,7 +191,7 @@ namespace treeDiM.StackBuilder.Desktop
                 _log.Error(ex.ToString());
             }
         }
-        protected void onLayerSelected(object sender, EventArgs e)
+        protected void OnLayerSelected(object sender, EventArgs e)
         {
             try
             {
