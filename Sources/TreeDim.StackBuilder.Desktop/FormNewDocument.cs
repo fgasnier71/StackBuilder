@@ -20,7 +20,7 @@ namespace treeDiM.StackBuilder.Desktop
             InitializeComponent();
 
             tbDateCreated.Text = string.Format("{0}", DateTime.Now);
-            onDocumentNameChanged(this, null);
+            OnDocumentNameChanged(this, null);
         }
         #endregion
 
@@ -45,10 +45,17 @@ namespace treeDiM.StackBuilder.Desktop
             get { return Convert.ToDateTime(tbDateCreated.Text); }
             set { tbDateCreated.Text = string.Format("{0}", value); }
         }
+        public string UserName
+        {
+            get
+            {
+                return PLMPack.DBClient.WCFClient.ClientGuest.get_UserName();
+            }
+        }
         #endregion
 
         #region Event handlers
-        private void onDocumentNameChanged(object sender, EventArgs e)
+        private void OnDocumentNameChanged(object sender, EventArgs e)
         {
             string message = string.Empty;
             // check name
@@ -64,16 +71,18 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Load / FormClosing event
-        private void FormNewDocument_Load(object sender, EventArgs e)
+        protected override void OnLoad(EventArgs e)
         {
+            base.OnLoad(e);
             // author
-            Author = Settings.Default.DocumentAuthor;
+            Author = string.IsNullOrEmpty(Settings.Default.DocumentAuthor) ? UserName : Settings.Default.DocumentAuthor;
             // windows settings
             if (null != Settings.Default.FormNewDocumentPosition)
                 Settings.Default.FormNewDocumentPosition.Restore(this);
         }
-        private void FormNewDocument_FormClosing(object sender, FormClosingEventArgs e)
+        protected override void OnClosing(CancelEventArgs e)
         {
+            base.OnClosing(e);
             // author
             Settings.Default.DocumentAuthor = Author;
             // window position

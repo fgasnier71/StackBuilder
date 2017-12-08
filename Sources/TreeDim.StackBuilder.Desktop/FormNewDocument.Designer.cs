@@ -58,7 +58,7 @@
             // 
             resources.ApplyResources(this.tbName, "tbName");
             this.tbName.Name = "tbName";
-            this.tbName.TextChanged += new System.EventHandler(this.onDocumentNameChanged);
+            this.tbName.TextChanged += new System.EventHandler(this.OnDocumentNameChanged);
             // 
             // tbDescription
             // 
@@ -136,8 +136,6 @@
             this.Name = "FormNewDocument";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormNewDocument_FormClosing);
-            this.Load += new System.EventHandler(this.FormNewDocument_Load);
             this.statusStripDef.ResumeLayout(false);
             this.statusStripDef.PerformLayout();
             this.ResumeLayout(false);
