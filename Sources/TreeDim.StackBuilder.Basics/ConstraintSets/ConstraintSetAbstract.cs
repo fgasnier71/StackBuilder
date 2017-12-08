@@ -2,8 +2,6 @@
 {
     public abstract class ConstraintSetAbstract
     {
-        public virtual OptDouble OptMaxWeight { get; set; }
-        public virtual OptInt OptMaxNumber { get; set; }
         public bool[] AllowedOrientations
         {
             get
@@ -15,9 +13,22 @@
                 };
             }
         }
+        public virtual bool HasSomeAllowedOrientations
+        {
+            get
+            {
+                foreach (HalfAxis.HAxis axis in HalfAxis.All)
+                    if (AllowOrientation(axis))
+                        return true;
+                return false;
+            }
+        }
         public abstract bool AllowOrientation(HalfAxis.HAxis axisOrtho);
         public abstract string AllowedOrientationsString { get; set; }
         public abstract OptDouble OptMaxHeight { get; }
-        public abstract bool Valid { get; }
+        public virtual OptDouble OptMaxWeight { get; set; }
+        public virtual OptInt OptMaxNumber { get; set; }
+        public virtual bool AllowUncompleteLayer => false;
+        public virtual bool Valid => HasSomeAllowedOrientations;
     }
 }

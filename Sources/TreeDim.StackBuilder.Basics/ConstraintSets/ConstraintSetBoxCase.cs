@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Text.RegularExpressions;
+using System.Diagnostics;
 
 using log4net;
 
@@ -33,15 +34,6 @@ namespace treeDiM.StackBuilder.Basics
             }
         }
 
-        public override bool Valid
-        {
-            get
-            {
-                return base.Valid
-                    && (_axesAllowed[0] || _axesAllowed[1] || _axesAllowed[2]);
-            }
-        }
-
         public override bool AllowOrientation(HalfAxis.HAxis axisOrtho)
         {
             switch (axisOrtho)
@@ -62,7 +54,9 @@ namespace treeDiM.StackBuilder.Basics
 
         public void SetAllowedOrientations(bool[] axesAllowed)
         {
-            _axesAllowed = axesAllowed;
+            Debug.Assert(axesAllowed.Length == 3);
+            for (int i = 0; i < 3; ++i)
+                _axesAllowed[i] = axesAllowed[i];
         }
 
         #region Non-Public Members

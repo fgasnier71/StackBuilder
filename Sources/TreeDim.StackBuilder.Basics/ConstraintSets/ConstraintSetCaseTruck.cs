@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Text.RegularExpressions;
+using System.Diagnostics;
 
 using log4net;
 
@@ -13,7 +14,6 @@ namespace treeDiM.StackBuilder.Basics
             : base(container)
         {
         }
-
         public override string AllowedOrientationsString
         {
             get
@@ -34,20 +34,6 @@ namespace treeDiM.StackBuilder.Basics
                 }
             }
         }
-
-        public Vector2D MinDistanceLoadWall { get; set; }
-
-        public double MinDistanceLoadRoof { get; set; }
-
-        public override bool Valid
-        {
-            get
-            {
-                return base.Valid
-                    && (_axesAllowed[0] || _axesAllowed[1] || _axesAllowed[2]);
-            }
-        }
-
         public override bool AllowOrientation(HalfAxis.HAxis axisOrtho)
         {
             switch (axisOrtho)
@@ -66,18 +52,19 @@ namespace treeDiM.StackBuilder.Basics
             }
         }
 
-        // TODO - large potential for unwanted side-effects.  Should copy the array values at minimum.
         public void SetAllowedOrientations(bool[] axesAllowed)
         {
-            _axesAllowed = axesAllowed;
+            Debug.Assert(axesAllowed.Length == 3);
+            for (int i=0; i<3; ++i)
+                _axesAllowed[i] = axesAllowed[i];
         }
+        public Vector2D MinDistanceLoadWall { get; set; }
+        public double MinDistanceLoadRoof { get; set; }
 
         #region Non-Public Members
-
         private bool[] _axesAllowed = new bool[] { true, true, true };
         static readonly Regex AllowedOrientationRegex = new Regex(@"(?<x>.*),(?<y>.*),(?<z>.*)", RegexOptions.Singleline | RegexOptions.Compiled);
-        static readonly ILog _log = LogManager.GetLogger(typeof(ConstraintSetBoxCase));
-        
+        static readonly ILog _log = LogManager.GetLogger(typeof(ConstraintSetCaseTruck));
         #endregion
 
     }

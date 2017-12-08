@@ -14,11 +14,8 @@ namespace treeDiM.StackBuilder.Basics
                 return new OptDouble(true, caseProperties.InsideHeight + 0.5 * (caseProperties.Height - caseProperties.InsideHeight));
             }
         }
-
-        public override bool Valid
-        {
-            get { return (!OptMaxNumber.Activated || (OptMaxNumber.Value > 0)); }
-        }
+        public override bool AllowUncompleteLayer => true;
+        public override bool Valid => HasSomeAllowedOrientations && (!OptMaxNumber.Activated || (OptMaxNumber.Value > 0));
 
         public void SetMaxWeight(OptDouble maxWeight)
         {

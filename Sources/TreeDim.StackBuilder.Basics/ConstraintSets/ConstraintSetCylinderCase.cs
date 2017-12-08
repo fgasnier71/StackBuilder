@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 
 namespace treeDiM.StackBuilder.Basics
 {
@@ -11,8 +10,10 @@ namespace treeDiM.StackBuilder.Basics
         }
         public override bool AllowOrientation(HalfAxis.HAxis axisOrtho)
         {
-            return (HalfAxis.HAxis.AXIS_Z_N == axisOrtho) || (HalfAxis.HAxis.AXIS_Z_P == axisOrtho);
+            return (HalfAxis.HAxis.AXIS_Z_N == axisOrtho)
+                || (HalfAxis.HAxis.AXIS_Z_P == axisOrtho);
         }
+
         public override string AllowedOrientationsString
         {
             get { return "0,0,1"; }

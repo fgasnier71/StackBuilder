@@ -14,11 +14,7 @@ namespace treeDiM.StackBuilder.Basics
         {
             _container = container;
         }
-
-        public override bool AllowOrientation(HalfAxis.HAxis axisOrtho)
-        {
-            return axisOrtho == HalfAxis.HAxis.AXIS_Z_P;
-        }
+        public override bool AllowOrientation(HalfAxis.HAxis axisOrtho) => axisOrtho == HalfAxis.HAxis.AXIS_Z_P;
         public override string AllowedOrientationsString
         {
             get => "0,0,1";
@@ -33,6 +29,15 @@ namespace treeDiM.StackBuilder.Basics
                 return new OptDouble(true, truck.Height - MinDistanceLoadRoof);
             } 
         }
+        public override OptDouble OptMaxWeight
+        {
+            get
+            {
+                TruckProperties truck = _container as TruckProperties;
+                return new OptDouble(true, truck.AdmissibleLoadWeight);
+            }
+        }
+        public override bool AllowUncompleteLayer => true;
         public override bool Valid => true;
 
         public Vector2D MinDistanceLoadWall { get; set; }
@@ -40,10 +45,8 @@ namespace treeDiM.StackBuilder.Basics
         public bool AllowMultipleLayers { get; set; }
 
         #region Non-Public Members
-
         private IPackContainer _container;
-        static readonly ILog _log = LogManager.GetLogger(typeof(ConstraintSetBoxCase));
-
+        protected static readonly ILog _log = LogManager.GetLogger(typeof(ConstraintSetPalletTruck));
         #endregion
     }
 }

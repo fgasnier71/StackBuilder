@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Text.RegularExpressions;
+using System.Diagnostics;
 
 using log4net;
 
@@ -53,17 +54,17 @@ namespace treeDiM.StackBuilder.Basics
 
         public void SetAllowedOrientations(bool[] axesAllowed)
         {
-            _axesAllowed = axesAllowed;
+            Debug.Assert(axesAllowed.Length == 3);
+            for (int i = 0; i < 3; ++i)
+                _axesAllowed[i] = axesAllowed[i];
         }
 
         public int PalletFilmTurns { get; set; } = 0;
 
         #region Non-Public Members
-
         private bool[] _axesAllowed = new bool[] { true, true, true };
         static readonly Regex AllowedOrientationRegex = new Regex(@"(?<x>.*),(?<y>.*),(?<z>.*)", RegexOptions.Singleline | RegexOptions.Compiled);
         static readonly ILog _log = LogManager.GetLogger(typeof(ConstraintSetCasePallet));
-
         #endregion
 
     }

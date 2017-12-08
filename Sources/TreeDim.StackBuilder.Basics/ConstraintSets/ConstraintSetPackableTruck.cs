@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace treeDiM.StackBuilder.Basics
 {
@@ -17,10 +15,6 @@ namespace treeDiM.StackBuilder.Basics
             }
         }
 
-        public override bool Valid
-        {
-            get { return (!OptMaxNumber.Activated || OptMaxNumber.Value > 0); }
-        }
 
         public void SetMaxWeight(OptDouble maxWeight)
         {
@@ -30,6 +24,8 @@ namespace treeDiM.StackBuilder.Basics
         {
             OptMaxNumber = maxNumber;
         }
+        public override bool AllowUncompleteLayer => true;
+        public override bool Valid => HasSomeAllowedOrientations && (!OptMaxNumber.Activated || OptMaxNumber.Value > 0);
 
         #region Non-Public Members
 

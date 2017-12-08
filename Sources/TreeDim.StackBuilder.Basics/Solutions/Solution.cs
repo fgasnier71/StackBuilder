@@ -355,8 +355,7 @@ namespace treeDiM.StackBuilder.Basics
             }
             catch (Exception ex)
             {
-                string message = ex.Message;
-                string s = ex.ToString();
+                _log.Error(ex.ToString());
             }
         }
         private int GetInterlayerIndex(InterlayerProperties interlayer)
