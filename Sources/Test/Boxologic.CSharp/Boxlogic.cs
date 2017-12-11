@@ -14,7 +14,12 @@ namespace Boxologic.CSharp
         double remainpy = 0.0, remainpz = 0.0;
         bool layerdone = false, evened = false;
 
-        public void Run(BoxItem[] listBoxItem, double palletLength, double palletWidth, double palletHeight)
+        private double _pallet_volume_used_percentage = 0.0;
+        private double _packedvolume = 0, _best_solution_volume = 0;
+        private int _number_packed_boxes = 0, _packednumbox = 0;
+        private Dictionary<int, double> _best_iterations = new Dictionary<int, double>();
+
+        public void Run(BoxItem[] listBoxItem, int palletLength, int palletWidth, int palletHeight)
         {
             packing = true;
 
@@ -35,6 +40,7 @@ namespace Boxologic.CSharp
         {
             int numberOfIterations = 0;
             int best_iteration = 0;
+            int best_variant = 0;
 
             for (int variant = 0; variant < 6; ++variant)
             {
@@ -47,9 +53,10 @@ namespace Boxologic.CSharp
                 foreach (Layer l in layers)
                 {
                     ++numberOfIterations;
-                    double pallet_volume_used_percentage = 0.0;
                     double elapsed_time = (DateTime.Now - _timeStart).TotalSeconds;
-                    Console.WriteLine(string.Format("VARIANT: {0}; ITERATION (TOTAL): {1}; BEST SO FAR: {2}; TIME: {3}", variant, numberOfIterations, pallet_volume_used_percentage, elapsed_time));
+                    Console.WriteLine(
+                        string.Format("VARIANT: {0}; ITERATION (TOTAL): {1}; BEST SO FAR: {2}; TIME: {3}"
+                            , variant, numberOfIterations, _pallet_volume_used_percentage, elapsed_time));
 
                     double layerThickness = l.LayerDim;
                     itelayer = iLayerIndex;
@@ -87,7 +94,18 @@ namespace Boxologic.CSharp
                         Find_layer(remainpy, p, ref layerThickness);
                     }
                     while (packing);
-                    // ###
+                    // END DO-WHILE
+
+                    if (_packedvolume >= _best_solution_volume)
+                    {
+                        _best_solution_volume = _packedvolume;
+                        best_variant = variant;
+                        best_iteration = itelayer;
+                        _number_packed_boxes = _packednumbox;
+
+                        _best_iterations[itelayer] = _packedvolume;
+                    }
+
 
                     best_iteration = itelayer;
 
@@ -204,7 +222,7 @@ namespace Boxologic.CSharp
                         && (((dimen2 <= p.LayoutLength) && (dimen3 <= p.LayoutHeight))
                         || ((dimen3 <= p.LayoutLength) && (dimen2 <= p.LayoutHeight))))
                     {
-                        for (int z = 1; z <= listBox.Count; z++)
+                        for (int z = 0; z < listBox.Count; z++)
                         {
                             if (!(x == z) && !(listBox[z].Is_packed))
                             {
@@ -539,5 +557,6 @@ namespace Boxologic.CSharp
         {
 
         }
+
     }
 }

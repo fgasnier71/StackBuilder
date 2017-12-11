@@ -1,28 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Boxologic.CSharp
 {
     public class BoxItem
     {
-        public double Boxx { get; set; }
-        public double Boxy { get; set; }
-        public double Boxz { get; set; }
+        public int Boxx { get; set; }
+        public int Boxy { get; set; }
+        public int Boxz { get; set; }
         public int N { get; set; }
     }
 
     public class St_instance
     {
-        public double Dim1 { get; set; }
-        public double Dim2 { get; set; }
-        public double Dim3 { get; set; }
+        public int Dim1 { get; set; }
+        public int Dim2 { get; set; }
+        public int Dim3 { get; set; }
         public int Packx { get; set; }
         public int Packy { get; set; }
         public int Packz { get; set; }
-        public double Vol => Dim1 * Dim2 * Dim3;
+        public int Vol => Dim1 * Dim2 * Dim3;
     }
 
     public class BoxInfo : St_instance
@@ -36,7 +32,7 @@ namespace Boxologic.CSharp
 
     public class Pallet : St_instance
     {
-        public Pallet(double dim1, double dim2, double dim3)
+        public Pallet(int dim1, int dim2, int dim3)
         { Dim1 = dim1; Dim2 = dim2; Dim3 = dim3; }
         public int Orientation { get; set; }
         public double LayoutLength
@@ -107,6 +103,7 @@ namespace Boxologic.CSharp
 
     public class Scrappad
     {
+        public Scrappad() { }
         public Scrappad prev, next;
         public double cumx { get; set; }
         public double cumz { get; set; }

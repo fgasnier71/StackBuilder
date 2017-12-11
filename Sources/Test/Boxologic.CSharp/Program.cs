@@ -27,11 +27,11 @@ namespace Boxologic.CSharp
                 };
 
                 Boxlogic bl = new Boxlogic();
-                bl.Run(boxItem, 104.0, 96.0, 84.0);
+                bl.Run(boxItem, 104, 96, 84);
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                Console.WriteLine(ex.ToString());
             }
         }
     }
