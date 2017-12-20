@@ -88,6 +88,7 @@ namespace treeDiM.StackBuilder.Desktop
             // set some static properties
             Graphics.ViewerSolution.DimCasePalletSol1 = Settings.Default.DimCasePalletSol1;
             Graphics.ViewerSolution.DimCasePalletSol2 = Settings.Default.DimCasePalletSol2;
+            Graphics.ViewerSolution.DistanceAboveSelectedLayer = UnitsManager.ConvertLengthFrom(Settings.Default.DistanceAboveSelectedLayer, UnitsManager.UnitSystem.UNIT_METRIC1);
 
             // show main form
             Application.Run(new FormMain());

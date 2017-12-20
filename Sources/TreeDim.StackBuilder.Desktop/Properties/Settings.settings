@@ -180,7 +180,7 @@
       <Value Profile="(Default)">0</Value>
     </Setting>
     <Setting Name="UnitSystem" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">1</Value>
+      <Value Profile="(Default)">0</Value>
     </Setting>
     <Setting Name="IncludeCaseAsBoxes" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
@@ -262,6 +262,9 @@
     </Setting>
     <Setting Name="ExcelTemplateFileURL" Type="System.String" Scope="User">
       <Value Profile="(Default)">http://www.plmpack.com/Stackbuilder/download/Catalog.xlsx</Value>
+    </Setting>
+    <Setting Name="DistanceAboveSelectedLayer" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">500</Value>
     </Setting>
   </Settings>
 </SettingsFile>

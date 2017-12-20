@@ -206,13 +206,17 @@ namespace treeDiM.StackBuilder.Graphics
                     }
                     else
                     {
+                        bool aboveSelectedLayer = (_solution.SelectedLayerIndex != -1) && (layerId > _solution.SelectedLayerIndex);
+                        Transform3D upTranslation = Transform3D.Translation(new Vector3D(0.0, 0.0, aboveSelectedLayer ? DistanceAboveSelectedLayer : 0.0));
+
                         foreach (BoxPosition bPosition in layerBox)
                         {
+                            BoxPosition boxPositionModified = bPosition.Transform(transform * upTranslation);
                             Box b = null;
                             if (analysis.Content is PackProperties)
-                                b = new Pack(pickId++, analysis.Content as PackProperties, bPosition.Transform(transform));
+                                b = new Pack(pickId++, analysis.Content as PackProperties, boxPositionModified);
                             else
-                                b = new Box(pickId++, analysis.Content as PackableBrick, bPosition.Transform(transform));
+                                b = new Box(pickId++, analysis.Content as PackableBrick, boxPositionModified);
                             graphics.AddBox(b);
                             bbox.Extend(b.BBox);
                         }
@@ -384,7 +388,8 @@ namespace treeDiM.StackBuilder.Graphics
             }
 
             // ### dimensions
-            if (graphics.ShowDimensions)
+            // dimensions should only be shown when no layer is selected
+            if (graphics.ShowDimensions && (-1 == _solution.SelectedLayerIndex))
             {
                 graphics.AddDimensions(new DimensionCube(BoundingBoxDim(DimCasePalletSol1), Color.Black, false));
                 graphics.AddDimensions(new DimensionCube(BoundingBoxDim(DimCasePalletSol2), Color.Red, true));
@@ -440,6 +445,7 @@ namespace treeDiM.StackBuilder.Graphics
         #endregion
 
         #region Static properties
+        public static double DistanceAboveSelectedLayer { get; set; }
         public static int DimCasePalletSol1 { get { return _dimCasePalletSol1; } set { _dimCasePalletSol1 = value; } }
         public static int DimCasePalletSol2 { get { return _dimCasePalletSol2; } set { _dimCasePalletSol2 = value; } }
         #endregion
