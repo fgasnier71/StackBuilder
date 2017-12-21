@@ -830,4 +830,10 @@ Closing form...</value>
   <data name="ID_DEFINEVALIDFILEPATH" xml:space="preserve">
     <value>Define a valid file path.</value>
   </data>
+  <data name="ID_DISPLAYPALLETEDITION" xml:space="preserve">
+    <value>Pallet edition parameters</value>
+  </data>
+  <data name="ID_OPTIONSPALLETEDITION" xml:space="preserve">
+    <value>Options\\Pallet edition</value>
+  </data>
 </root>

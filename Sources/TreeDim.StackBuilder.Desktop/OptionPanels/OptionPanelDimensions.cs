@@ -1,14 +1,5 @@
 ﻿#region Using directives
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Text;
-using System.Windows.Forms;
-using System.IO;
-
-using treeDiM.StackBuilder;
 #endregion
 
 namespace treeDiM.StackBuilder.Desktop
@@ -27,7 +18,16 @@ namespace treeDiM.StackBuilder.Desktop
             cbDim1.SelectedIndex = Properties.Settings.Default.DimCasePalletSol1;
             cbDim2.SelectedIndex = Properties.Settings.Default.DimCasePalletSol2;
         }
-        private void OptionsForm_OptionsSaving(object sender, EventArgs e)
+        #endregion
+
+        #region Handlers
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+            // set event handler
+            OptionsForm.OptionsSaving += new EventHandler(OnOptionsSaving);
+        }
+        private void OnOptionsSaving(object sender, EventArgs e)
         {
             // save combo box
             Properties.Settings.Default.DimCasePalletSol1 = cbDim1.SelectedIndex;
@@ -36,15 +36,6 @@ namespace treeDiM.StackBuilder.Desktop
 
             Graphics.ViewerSolution.DimCasePalletSol1 = Properties.Settings.Default.DimCasePalletSol1;
             Graphics.ViewerSolution.DimCasePalletSol2 = Properties.Settings.Default.DimCasePalletSol2;
-
-        }
-        #endregion
-
-        #region Handlers
-        private void OptionPanelDimensions_Load(object sender, EventArgs e)
-        {
-            // events
-            OptionsForm.OptionsSaving += new EventHandler(OptionsForm_OptionsSaving);
         }
         #endregion
     }

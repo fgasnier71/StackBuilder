@@ -469,6 +469,12 @@
     <Compile Include="OptionPanels\OptionPanelLayerListCtrl.Designer.cs">
       <DependentUpon>OptionPanelLayerListCtrl.cs</DependentUpon>
     </Compile>
+    <Compile Include="OptionPanels\OptionPanelPalletEdition.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="OptionPanels\OptionPanelPalletEdition.Designer.cs">
+      <DependentUpon>OptionPanelPalletEdition.cs</DependentUpon>
+    </Compile>
     <Compile Include="OptionPanels\OptionPanelPlugins.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -1772,6 +1778,9 @@
     <EmbeddedResource Include="OptionPanels\OptionPanelLayerListCtrl.sv.resx">
       <DependentUpon>OptionPanelLayerListCtrl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="OptionPanels\OptionPanelPalletEdition.resx">
+      <DependentUpon>OptionPanelPalletEdition.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="OptionPanels\OptionPanelPlugins.de.resx">
       <DependentUpon>OptionPanelPlugins.cs</DependentUpon>
     </EmbeddedResource>
@@ -1837,9 +1846,6 @@
       <DependentUpon>OptionPanelUnits.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OptionPanels\OptionPanelUnits.fr.resx">
-      <DependentUpon>OptionPanelUnits.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="OptionPanels\OptionPanelUnits.it-IT.resx">
       <DependentUpon>OptionPanelUnits.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OptionPanels\OptionPanelUnits.it.resx">
@@ -2014,10 +2020,6 @@
       <Project>{444C01D0-53FD-49A1-9D55-267B49161357}</Project>
       <Name>treeDiM.StackBuilder.Basics</Name>
     </ProjectReference>
-    <ProjectReference Include="..\TreeDim.StackBuilder.ColladaExporter\treeDiM.StackBuilder.ColladaExporter.csproj">
-      <Project>{785A5666-FE91-4796-A720-13C9A727BA5C}</Project>
-      <Name>treeDiM.StackBuilder.ColladaExporter</Name>
-    </ProjectReference>
     <ProjectReference Include="..\TreeDim.StackBuilder.Engine\treeDiM.StackBuilder.Engine.csproj">
       <Project>{2E646606-052D-4063-9218-1379430B070E}</Project>
       <Name>treeDiM.StackBuilder.Engine</Name>
@@ -2025,6 +2027,10 @@
     <ProjectReference Include="..\treeDiM.StackBuilder.ExcelReader\treeDiM.StackBuilder.ExcelReader.csproj">
       <Project>{E9B15DC7-07A3-4398-AE3F-2ED6B1F5C0A6}</Project>
       <Name>treeDiM.StackBuilder.ExcelReader</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\treeDiM.StackBuilder.Exporters\treeDiM.StackBuilder.Exporters.csproj">
+      <Project>{cad1dc6a-b121-4605-bef3-b38dae821401}</Project>
+      <Name>treeDiM.StackBuilder.Exporters</Name>
     </ProjectReference>
     <ProjectReference Include="..\TreeDim.StackBuilder.Graphic\treeDiM.StackBuilder.Graphics.csproj">
       <Project>{2AD4C04C-5B8A-4E69-9B1C-402CB86860A7}</Project>

@@ -192,7 +192,7 @@ namespace treeDiM.StackBuilder.Basics
         private List<SolutionItem> _solutionItems;
         private Analysis _analysis;
 
-        private int _selectedIndex;
+        private int _selectedIndex = -1;
 
         internal List<ILayer2D> _layerTypes;
         private static ILayerSolver _solver;
@@ -520,9 +520,8 @@ namespace treeDiM.StackBuilder.Basics
                     System.Diagnostics.Debug.Assert(solItem.LayerIndex < _layerTypes.Count);
                     ILayer2D currentLayer = _layerTypes[solItem.LayerIndex];
 
-                    if (currentLayer is Layer2D)
+                    if (currentLayer is Layer2D layer2DBox)
                     {
-                        Layer2D layer2DBox = currentLayer as Layer2D;
                         Layer3DBox boxLayer = new Layer3DBox(zLayer, solItem.LayerIndex);
                         foreach (LayerPosition layerPos in layer2DBox)
                         {
@@ -537,9 +536,8 @@ namespace treeDiM.StackBuilder.Basics
                         }
                         llayers.Add(boxLayer);
                     }
-                    if (currentLayer is Layer2DCyl)
+                    if (currentLayer is Layer2DCyl layer2DCyl)
                     {
-                        Layer2DCyl layer2DCyl = currentLayer as Layer2DCyl;
                         Layer3DCyl cylLayer = new Layer3DCyl(zLayer);
                         foreach (Vector2D vPos in layer2DCyl)
                         {
@@ -615,49 +613,29 @@ namespace treeDiM.StackBuilder.Basics
             itemCount = 0;
             foreach (ILayer layer in Layers)
             {
-                Layer3DBox blayer = layer as Layer3DBox;
-                if (null != blayer)
+                if (layer is Layer3DBox blayer)
                 {
                     ++layerCount;
                     itemCount += blayer.BoxCount;
                 }
-                Layer3DCyl clayer = layer as Layer3DCyl;
-                if (null != clayer)
+                if (layer is Layer3DCyl clayer)
                 {
                     ++layerCount;
                     itemCount += clayer.CylinderCount;
                 }
-                InterlayerPos iLayer = layer as InterlayerPos;
-                if (null != iLayer)
+                if (layer is InterlayerPos iLayer)
                     ++interlayerCount;
             }
         }
-        public bool HasNetWeight
-        {
-            get
-            {
-                return false;
-            }
-        }
+        public double LoadVolume => ItemCount * _analysis.Content.Volume;
+        public bool HasNetWeight =>  _analysis.Content.NetWeight.Activated;
+        public double LoadWeight => ItemCount * _analysis.ContentWeight;
+        public double Weight => LoadWeight + _analysis.ContainerWeight;
         public OptDouble NetWeight
         {
             get
             {
                 return ItemCount * _analysis.Content.NetWeight;
-            }
-        }
-        public double LoadWeight
-        {
-            get
-            {
-                return ItemCount * _analysis.ContentWeight;
-            }
-        }
-        public double Weight
-        {
-            get
-            {
-                return LoadWeight + _analysis.ContainerWeight;
             }
         }
         public double VolumeEfficiency
@@ -666,6 +644,24 @@ namespace treeDiM.StackBuilder.Basics
             {
                 return 100.0 * (ItemCount * _analysis.ContentVolume) / _analysis.ContainerLoadingVolume;
             }
+        }
+        public OptDouble WeightEfficiency
+        {
+            get
+            {
+                if (_analysis.ConstraintSet.OptMaxWeight.Activated)
+                    return new OptDouble(false, 0.0);
+                else
+                    return new OptDouble(true, 100.0 * (ItemCount * _analysis.ContentWeight) / _analysis.ConstraintSet.OptMaxWeight.Value);
+            }
+        }
+        public Vector3D LoadCOfG
+        {
+            get { return Vector3D.Zero; }
+        }
+        public Vector3D cOfG
+        {
+            get { return Vector3D.Zero; }
         }
         #endregion
 

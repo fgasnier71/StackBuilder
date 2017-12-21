@@ -893,6 +893,15 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Pallet edition parameters.
+        /// </summary>
+        internal static string ID_DISPLAYPALLETEDITION {
+            get {
+                return ResourceManager.GetString("ID_DISPLAYPALLETEDITION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Plugins.
         /// </summary>
         internal static string ID_DISPLAYPLUGINS {
@@ -1627,6 +1636,15 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         internal static string ID_OPTIONSMEASUREMENTSYSTEM {
             get {
                 return ResourceManager.GetString("ID_OPTIONSMEASUREMENTSYSTEM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Options\\Pallet edition.
+        /// </summary>
+        internal static string ID_OPTIONSPALLETEDITION {
+            get {
+                return ResourceManager.GetString("ID_OPTIONSPALLETEDITION", resourceCulture);
             }
         }
         

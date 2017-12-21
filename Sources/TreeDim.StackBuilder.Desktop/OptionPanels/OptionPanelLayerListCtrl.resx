@@ -128,7 +128,7 @@
     <value>6, 13</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="rbView1.AutoSize" type="System.Boolean, mscorlib">
+  <data name="rbView2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="lbThumbSize.Text" xml:space="preserve">
@@ -152,26 +152,20 @@
   <data name="&gt;&gt;lbThumbSize.Name" xml:space="preserve">
     <value>lbThumbSize</value>
   </data>
+  <data name="&gt;&gt;rbView2.Name" xml:space="preserve">
+    <value>rbView2</value>
+  </data>
   <data name="&gt;&gt;rbView2.Type" xml:space="preserve">
     <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="rbView2.Text" xml:space="preserve">
     <value>3D</value>
   </data>
-  <data name="cbThumbSize.Items2" xml:space="preserve">
-    <value>150 x 150</value>
-  </data>
   <data name="rbView1.Text" xml:space="preserve">
     <value>2D</value>
   </data>
   <data name="lbThumbSize.Location" type="System.Drawing.Point, System.Drawing">
     <value>18, 52</value>
-  </data>
-  <data name="lbThumbSize.Size" type="System.Drawing.Size, System.Drawing">
-    <value>77, 13</value>
-  </data>
-  <data name="&gt;&gt;rbView2.Parent" xml:space="preserve">
-    <value>$this</value>
   </data>
   <data name="&gt;&gt;rbView1.Type" xml:space="preserve">
     <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -191,6 +185,9 @@
   <data name="rbView1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
+  <data name="lbThumbSize.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
   <data name="lbThumbSize.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -200,11 +197,14 @@
   <data name="&gt;&gt;cbThumbSize.Type" xml:space="preserve">
     <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="rbView2.AutoSize" type="System.Boolean, mscorlib">
+  <data name="rbView1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="rbView1.Location" type="System.Drawing.Point, System.Drawing">
     <value>18, 14</value>
+  </data>
+  <data name="&gt;&gt;rbView2.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="cbThumbSize.Size" type="System.Drawing.Size, System.Drawing">
     <value>121, 21</value>
@@ -212,14 +212,14 @@
   <data name="$this.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
-  <data name="&gt;&gt;rbView2.ZOrder" xml:space="preserve">
-    <value>2</value>
+  <data name="cbThumbSize.Items2" xml:space="preserve">
+    <value>150 x 150</value>
   </data>
-  <data name="&gt;&gt;rbView2.Name" xml:space="preserve">
-    <value>rbView2</value>
+  <data name="&gt;&gt;rbView2.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
-  <data name="lbThumbSize.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+  <data name="lbThumbSize.Size" type="System.Drawing.Size, System.Drawing">
+    <value>77, 13</value>
   </data>
   <data name="&gt;&gt;cbThumbSize.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -247,8 +247,5 @@
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
-  </metadata>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>fr</value>
   </metadata>
 </root>

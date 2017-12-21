@@ -155,6 +155,9 @@
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>OptionPanelUnits</value>
   </data>
+  <data name="&gt;&gt;cbLanguages.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="&gt;&gt;cbLanguages.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
@@ -163,9 +166,6 @@
   </data>
   <data name="cbLanguages.Size" type="System.Drawing.Size, System.Drawing">
     <value>121, 21</value>
-  </data>
-  <data name="&gt;&gt;lbUnitSystem.Parent" xml:space="preserve">
-    <value>$this</value>
   </data>
   <data name="cbUnitSystem.Items" xml:space="preserve">
     <value>Metric 1 (mm/kg/l)</value>
@@ -176,8 +176,8 @@
   <data name="&gt;&gt;lbLanguage.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;lbLanguage.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;lbUnitSystem.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="&gt;&gt;lbLanguage.ZOrder" xml:space="preserve">
     <value>1</value>
@@ -230,19 +230,16 @@
   <data name="cbUnitSystem.Items3" xml:space="preserve">
     <value>US (in/lb/gal)</value>
   </data>
-  <data name="&gt;&gt;lbUnitSystem.ZOrder" xml:space="preserve">
-    <value>2</value>
+  <data name="&gt;&gt;lbUnitSystem.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
-  <data name="&gt;&gt;cbLanguages.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="&gt;&gt;lbLanguage.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="cbUnitSystem.Location" type="System.Drawing.Point, System.Drawing">
     <value>99, 50</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
-  </metadata>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>it-IT</value>
   </metadata>
 </root>

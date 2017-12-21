@@ -16,14 +16,12 @@ using Utilities;
 using treeDiM.StackBuilder.Basics;
 using treeDiM.StackBuilder.Engine;
 using treeDiM.StackBuilder.Reporting;
-
-using treeDiM.StackBuilder.Desktop.Properties;
-using treeDiM.StackBuilder.ColladaExporter;
-
+using treeDiM.StackBuilder.Exporters;
 using treeDiM.StackBuilder.Plugin;
-
 using treeDiM.PLMPack.DBClient;
 using treeDiM.PLMPack.DBClient.PLMPackSR;
+
+using treeDiM.StackBuilder.Desktop.Properties;
 #endregion
 
 namespace treeDiM.StackBuilder.Desktop
@@ -288,7 +286,6 @@ namespace treeDiM.StackBuilder.Desktop
             _documentExplorer.Show(dockPanel, WeifenLuo.WinFormsUI.Docking.DockState.DockLeft);
             _documentExplorer.DocumentTreeView.AnalysisNodeClicked += new AnalysisTreeView.AnalysisNodeClickHandler(DocumentTreeView_NodeClicked);
             _documentExplorer.DocumentTreeView.SolutionReportClicked += new AnalysisTreeView.AnalysisNodeClickHandler(OnSolutionReportNodeClicked);
-            _documentExplorer.DocumentTreeView.SolutionColladaExportClicked += new AnalysisTreeView.AnalysisNodeClickHandler(DocumentTreeView_SolutionColladaExportClicked);
             ShowLogConsole();
             if (AssemblyConf != "debug" && Properties.Settings.Default.ShowStartPage)
                 ShowStartPage(this, null);
@@ -299,7 +296,6 @@ namespace treeDiM.StackBuilder.Desktop
             _documentExplorer.Hide();
             _documentExplorer.DocumentTreeView.AnalysisNodeClicked -= DocumentTreeView_NodeClicked;
             _documentExplorer.DocumentTreeView.SolutionReportClicked -= OnSolutionReportNodeClicked;
-            _documentExplorer.DocumentTreeView.SolutionColladaExportClicked -= DocumentTreeView_SolutionColladaExportClicked;
         }
 
         public void ShowLogConsole()
@@ -551,50 +547,40 @@ namespace treeDiM.StackBuilder.Desktop
                 _log.Error(ex.ToString());
             }
         }
-
-        private void OnSolutionReportNodeClicked(object sender, AnalysisTreeViewEventArgs eventArg)
-        {
-            if (null != eventArg.Analysis)
-                GenerateReport(eventArg.Analysis);
-        }
-
-        void DocumentTreeView_SolutionColladaExportClicked(object sender, AnalysisTreeViewEventArgs eventArg)
+        public void GenerateExport(Analysis analysis, string extension)
         {
             try
             {
-                DocumentSB doc = eventArg.Document as DocumentSB;
-                string htmlFilePath = Path.ChangeExtension(doc.FilePath, "html");
+                Exporter exporter = ExporterFactory.GetExporterByExt(extension);
+                saveFileDialogExportXML.FileName = analysis.Name + "." + exporter.Extension;
+                saveFileDialogExportXML.Filter = exporter.Filter;
+                saveFileDialogExportXML.DefaultExt = exporter.Extension;
 
-                // get file path
-                saveFileDialogWebGL.InitialDirectory = Path.GetDirectoryName(htmlFilePath);
-                saveFileDialogWebGL.FileName = htmlFilePath;
-                if (DialogResult.OK != saveFileDialogWebGL.ShowDialog())
-                    return;
-                htmlFilePath = saveFileDialogWebGL.FileName;
-
-                // export collada file
-                string colladaFilePath = Path.ChangeExtension(htmlFilePath, "dae");
-                try
+                if (DialogResult.OK == saveFileDialogExportXML.ShowDialog())
                 {
-                    Exporter exporter = new ColladaExporter.Exporter(null);
-                    exporter.Export(colladaFilePath);
-                }
-                catch (Exception ex)
-                {
-                    _log.Error(ex.ToString()); Program.SendCrashReport(ex);
-                    return;
-                }
+                    string filePath = saveFileDialogExportXML.FileName;
+                    exporter.Export(analysis, filePath);
 
-                // browse with google chrome
-                if (ColladaExporter.Exporter.ChromeInstalled)
-                    ColladaExporter.Exporter.BrowseWithGoogleChrome(colladaFilePath);
-                else
-                    MessageBox.Show(Resources.ID_CHROMEISNOTINSTALLED, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (exporter.Extension == "dae")
+                    {
+                        // browse with google chrome
+                        if (ExporterCollada.ChromeInstalled)
+                            ExporterCollada.BrowseWithGoogleChrome(filePath);
+                        else
+                            MessageBox.Show(Resources.ID_CHROMEISNOTINSTALLED, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
             }
             catch (Exception ex)
             {
                 _log.Error(ex.ToString()); Program.SendCrashReport(ex);
             }
+        }
+
+        private void OnSolutionReportNodeClicked(object sender, AnalysisTreeViewEventArgs eventArg)
+        {
+            if (null != eventArg.Analysis)
+                GenerateReport(eventArg.Analysis);
         }
 
         void OnEditAnalysis(object sender, AnalysisTreeViewEventArgs eventArg)
@@ -615,14 +601,12 @@ namespace treeDiM.StackBuilder.Desktop
         #region Caption text / toolbar state
         private void UpdateFormUI()
         {
-            // get active document
-            DocumentSB doc = ActiveDocument as DocumentSB;
             // form text
             string caption = string.Empty;
-            if (null != doc)
+            if (ActiveDocument is DocumentSB doc)
             {
-                caption += System.IO.Path.GetFileNameWithoutExtension(doc.FilePath);
-                caption += " - "; 
+                caption += Path.GetFileNameWithoutExtension(doc.FilePath);
+                caption += " - ";
             }
             caption += Application.ProductName;
             Text = caption;

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace treeDiM.StackBuilder.ColladaExporter.Properties {
+namespace treeDiM.StackBuilder.Exporters.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

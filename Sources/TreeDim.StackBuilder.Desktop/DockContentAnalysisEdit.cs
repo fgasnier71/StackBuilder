@@ -432,6 +432,19 @@ namespace treeDiM.StackBuilder.Desktop
         {
             FormMain.GetInstance().GenerateReport(_analysis);
         }
+        private void OnGenerateExport(object sender, EventArgs e)
+        {
+            ToolStripButton tsb = sender as ToolStripButton;
+            string extension = string.Empty;
+            switch (tsb.Name)
+            {
+                case "toolStripButtonExportXML": extension = "xml"; break;
+                case "toolStripButtonExportCSV": extension = "csv"; break;
+                case "toolStripButtonExportDAE": extension = "dae"; break;
+                default: break;
+            }
+            FormMain.GetInstance().GenerateExport(_analysis, extension);
+        }
         #endregion
 
         #region Layer controls
@@ -508,5 +521,7 @@ namespace treeDiM.StackBuilder.Desktop
             }
         }
         #endregion
+
+
     }
 }

@@ -43,6 +43,9 @@
             this.toolStripAnalysis = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonBack = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonReport = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButtonExportXML = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonExportCSV = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerHoriz)).BeginInit();
             this.splitContainerHoriz.Panel1.SuspendLayout();
             this.splitContainerHoriz.Panel2.SuspendLayout();
@@ -159,7 +162,10 @@
             // 
             this.toolStripAnalysis.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButtonBack,
-            this.toolStripButtonReport});
+            this.toolStripButtonReport,
+            this.toolStripSeparator1,
+            this.toolStripButtonExportXML,
+            this.toolStripButtonExportCSV});
             resources.ApplyResources(this.toolStripAnalysis, "toolStripAnalysis");
             this.toolStripAnalysis.Name = "toolStripAnalysis";
             // 
@@ -176,6 +182,25 @@
             resources.ApplyResources(this.toolStripButtonReport, "toolStripButtonReport");
             this.toolStripButtonReport.Name = "toolStripButtonReport";
             this.toolStripButtonReport.Click += new System.EventHandler(this.OnGenerateReport);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            resources.ApplyResources(this.toolStripSeparator1, "toolStripSeparator1");
+            // 
+            // toolStripButtonExportXML
+            // 
+            this.toolStripButtonExportXML.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.toolStripButtonExportXML, "toolStripButtonExportXML");
+            this.toolStripButtonExportXML.Name = "toolStripButtonExportXML";
+            this.toolStripButtonExportXML.Click += new System.EventHandler(this.OnGenerateExport);
+            // 
+            // toolStripButtonExportCSV
+            // 
+            this.toolStripButtonExportCSV.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.toolStripButtonExportCSV, "toolStripButtonExportCSV");
+            this.toolStripButtonExportCSV.Name = "toolStripButtonExportCSV";
+            this.toolStripButtonExportCSV.Click += new System.EventHandler(this.OnGenerateExport);
             // 
             // DockContentAnalysisEdit
             // 
@@ -220,5 +245,8 @@
         private System.Windows.Forms.TextBox tbClickLayer;
         protected SourceGrid.Grid gridSolutions;
         private System.Windows.Forms.ToolStripButton toolStripButtonBack;
+        private System.Windows.Forms.ToolStripButton toolStripButtonExportXML;
+        private System.Windows.Forms.ToolStripButton toolStripButtonExportCSV;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
     }
 }

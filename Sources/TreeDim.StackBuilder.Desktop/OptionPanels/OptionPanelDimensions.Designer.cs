@@ -80,7 +80,6 @@
             this.Controls.Add(this.lbDimensions1);
             this.DisplayName = "Dimensions Case/Pallet solution";
             this.Name = "OptionPanelDimensions";
-            this.Load += new System.EventHandler(this.OptionPanelDimensions_Load);
             this.ResumeLayout(false);
 
         }

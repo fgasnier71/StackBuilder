@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="StackBuilderXMLExport" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://plmpack.com/stackbuilder/StackBuilderXMLExport.xsd"
+    xmlns="http://plmpack.com/stackbuilder//StackBuilderXMLExport.xsd"
+    xmlns:stb="http://plmpack.com/stackbuilder/StackBuilderXMLExport.xsd"
+    elementFormDefault="qualified"
+>
+  <!-- BEGIN -->
+  <xs:annotation>
+    <xs:documentation>
+      StackBuilder XML exporter
+    </xs:documentation>
+  </xs:annotation>
+  <xs:simpleType name="bool">
+    <xs:restriction base="xs:boolean"/>
+  </xs:simpleType>
+  <xs:simpleType name="dateTime">
+    <xs:restriction base="xs:dateTime"/>
+  </xs:simpleType>
+  <xs:simpleType name="float">
+    <xs:restriction base="xs:float"/>
+  </xs:simpleType>
+  <xs:simpleType name="double">
+    <xs:restriction base="xs:double"/>
+  </xs:simpleType>
+  <xs:simpleType name="int">
+    <xs:restriction base="xs:int"/>
+  </xs:simpleType>
+  <xs:simpleType name="string">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <!-- units-->
+  <xs:simpleType name="units">
+    <xs:annotation>
+      <xs:documentation>
+        An enumerated type specifying units.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="mm|kg">
+        <xs:annotation>
+          <xs:documentation>Millimeter/kilogram</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="cm|kg">
+        <xs:annotation>
+          <xs:documentation>Centimeter/kilogram</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="m|kg">
+        <xs:annotation>
+          <xs:documentation>Meter/kilogram</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="in|lb">
+        <xs:annotation>
+          <xs:documentation>Inch/Pound</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <!-- HAxis -->
+  <xs:simpleType name="HAxis">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="XN"/>
+      <xs:enumeration value="XP"/>
+      <xs:enumeration value="YN"/>
+      <xs:enumeration value="YP"/>
+      <xs:enumeration value="ZN"/>
+      <xs:enumeration value="ZP"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <!-- placement -->
+  <xs:element name="placement">
+    <xs:annotation>
+      <xs:documentation>
+        Box position
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="itemId" type="stb:int"/>
+        <!--Coordinates-->
+        <xs:element name="x" type="stb:double"/>
+        <xs:element name="y" type="stb:double"/>
+        <xs:element name="z" type="stb:double"/>
+        <!--Length axis-->
+        <xs:element name="L" type="stb:HAxis"/>
+        <!--Width axis -->
+        <xs:element name="W" type="stb:HAxis"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <!--loadSpace-->
+  <xs:element name="loadSpace">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="id" type="stb:int"/>
+        <xs:element name="name" type="stb:string"/>
+        <xs:element name="length" type="stb:double"/>
+        <xs:element name="width" type="stb:double"/>
+        <xs:element name="maxLoadHeight" type="stb:double"/>
+        <xs:element name="maxLoadWeight" type="stb:double"/>
+        <xs:element name="baseHeight" type="stb:double"/>
+        <xs:element name="maxLengthOverhang" type="stb:double"/>
+        <xs:element name="maxWidthOverhang" type="stb:double"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="item">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="id" type="stb:int"/>
+        <xs:element name="name" type="stb:string"/>
+        <xs:element name="length" type="stb:double"/>
+        <xs:element name="width" type="stb:double"/>
+        <xs:element name="height" type="stb:double"/>
+        <xs:element name="weight" type="stb:double"/>
+        <xs:element name="maxWeightOnTop" type="stb:double"/>
+        <xs:element name="permittedOrientations" type="stb:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="orderLine">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="itemId" type="stb:int"/>
+        <xs:element name="quantity" type="stb:int"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="cOfG">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="x" type="stb:double"/>
+        <xs:element name="y" type="stb:double"/>
+        <xs:element name="z" type="stb:double"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="statistics">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="loadVolume" type="stb:double"/>
+        <xs:element name="volumeUtilization" type="stb:double"/>
+        <xs:element name="loadWeight" type="stb:double"/>
+        <xs:element name="weightUtilization" type="stb:double"/>
+        <xs:element name="loadHeight" type="stb:double"/>
+        <xs:element ref="stb:cOfG" minOccurs="1" maxOccurs="1"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="load">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="loadSpaceId" type="stb:int" minOccurs="1" maxOccurs="1"/>
+        <xs:element ref="stb:statistics" minOccurs="1" maxOccurs="1"/>
+        <xs:element ref="stb:placement" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+ <xs:element name="orderDocument">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="author" type="stb:string" minOccurs="1" maxOccurs="1"/>
+        <xs:element name="date" type="stb:dateTime" minOccurs="1" maxOccurs="1"/>
+        <xs:element name="unit" type="stb:units" />
+        <xs:element name="orderType">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="orderNumber" type="stb:string" minOccurs="1" maxOccurs="1"/>
+              <xs:element ref="stb:loadSpace" minOccurs="1" maxOccurs="1"/>
+              <xs:element ref="stb:item" minOccurs="1"/>
+              <xs:element ref="stb:orderLine"/>
+              <xs:element ref="stb:load" minOccurs="1" maxOccurs="1"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

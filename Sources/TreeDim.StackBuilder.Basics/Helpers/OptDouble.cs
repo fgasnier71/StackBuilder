@@ -58,6 +58,13 @@ namespace treeDiM.StackBuilder.Basics
         }
         #endregion
 
+        #region Public methods
+        public double ToDouble()
+        {
+            return _activated ? _val : 0.0;
+        }
+        #endregion
+
         #region ICloneable members
         object ICloneable.Clone()
         {

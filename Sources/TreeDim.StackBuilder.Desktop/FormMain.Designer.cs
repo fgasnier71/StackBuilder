@@ -132,6 +132,8 @@
             this.saveFileDialogSB = new System.Windows.Forms.SaveFileDialog();
             this.saveFileDialogWebGL = new System.Windows.Forms.SaveFileDialog();
             this.timerLogin = new System.Windows.Forms.Timer(this.components);
+            this.saveFileDialogExportXML = new System.Windows.Forms.SaveFileDialog();
+            this.saveFileDialogExportCSV = new System.Windows.Forms.SaveFileDialog();
             this.menuStripMain.SuspendLayout();
             this.toolStripStandard.SuspendLayout();
             this.SuspendLayout();
@@ -843,6 +845,11 @@
             this.timerLogin.Interval = 2000;
             this.timerLogin.Tick += new System.EventHandler(this.OnTimerLoginTick);
             // 
+            // saveFileDialogExportXML
+            // 
+            this.saveFileDialogExportXML.DefaultExt = "xml";
+            resources.ApplyResources(this.saveFileDialogExportXML, "saveFileDialogExportXML");
+            // 
             // FormMain
             // 
             resources.ApplyResources(this, "$this");
@@ -965,5 +972,7 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMIAnalysisCaseTruck;
         private System.Windows.Forms.ToolStripMenuItem toolStripMIPLMPackLib;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator21;
+        private System.Windows.Forms.SaveFileDialog saveFileDialogExportXML;
+        private System.Windows.Forms.SaveFileDialog saveFileDialogExportCSV;
     }
 }

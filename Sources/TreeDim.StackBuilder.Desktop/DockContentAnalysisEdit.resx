@@ -151,7 +151,7 @@
     <value>graphCtrlSolution</value>
   </data>
   <data name="&gt;&gt;graphCtrlSolution.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Graphics.Graphics3DControl, treeDiM.StackBuilder.Graphics, Version=3.0.0.57, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Graphics.Graphics3DControl, treeDiM.StackBuilder.Graphics, Version=3.0.0.58, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;graphCtrlSolution.Parent" xml:space="preserve">
     <value>splitContainerVert.Panel1</value>
@@ -289,7 +289,7 @@
     <value>cbInterlayer</value>
   </data>
   <data name="&gt;&gt;cbInterlayer.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered, treeDiM.StackBuilder.Graphics, Version=3.0.0.57, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered, treeDiM.StackBuilder.Graphics, Version=3.0.0.58, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;cbInterlayer.Parent" xml:space="preserve">
     <value>gbLayer</value>
@@ -316,7 +316,7 @@
     <value>cbLayerType</value>
   </data>
   <data name="&gt;&gt;cbLayerType.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Graphics.Controls.CCtrlComboLayer, treeDiM.StackBuilder.Graphics, Version=3.0.0.57, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Graphics.Controls.CCtrlComboLayer, treeDiM.StackBuilder.Graphics, Version=3.0.0.58, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;cbLayerType.Parent" xml:space="preserve">
     <value>gbLayer</value>
@@ -490,7 +490,7 @@
   <data name="&gt;&gt;splitContainerHoriz.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <metadata name="toolStripMain.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <metadata name="toolStripAnalysis.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
   <data name="toolStripButtonBack.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -530,28 +530,71 @@
   <data name="toolStripButtonReport.Text" xml:space="preserve">
     <value>Generate report...</value>
   </data>
-  <data name="toolStripMain.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>6, 25</value>
+  </data>
+  <data name="toolStripButtonExportXML.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGBSURBVDhPjZNLqsJQDIY7ERWFIqgo0g6KOtNtCO5DwcdA
+        rU9wBS5J99DiyA2I9a2IE6nyS2Lbe2srNBAOOcn/9eScRni9XqhWqwiHw4jFYr4ejUaRSCQwm80gfNv1
+        ekU2m4WmaTifz76+Wq2QSqUQCoXQarXcEAIUCgUutLY8RjXlchnz+Ry5XA7tdvuvlpL5fB6GYfwE7HY7
+        SJKE9XqNxWLBJ5lOp5/6IAC7RlEUlEolJJNJZDIZPB4PBAKQXS4XbLdbrlsul5Bl+dO2H4B6rNVqTlyv
+        1119E8i5t2/AYDCgFY1GwxFYNw9VVXnvdDqxxgXYbDbo9/tcOBwOHbFt4/GYc71ej4UewOFwsL+A0Wjk
+        AUwmE851u10voFgs4ng8ssiGNJtNB2L1z2KKqQXS+ALIqPA/gO6g0+k4sa3xtGDlA5mrBXoSOpaVC2Su
+        Z6Rh0nUd9LPcbjfc73deKfbbo8FLp9PY7/cQns8njzONbDweZxdFkf1XHIlEUKlUYJom3u14s2QKzz/T
+        AAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="toolStripButtonExportXML.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>White</value>
+  </data>
+  <data name="toolStripButtonExportXML.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 22</value>
+  </data>
+  <data name="toolStripButtonExportXML.Text" xml:space="preserve">
+    <value>Export as XML...</value>
+  </data>
+  <data name="toolStripButtonExportCSV.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFjSURBVDhPlZNNjoJAEIVZjKMOThwSJRCCC4Pu9ABcgMSD
+        uJEjcAJXnMYF3AHjygVbo+J/jBsC5o2F4gSBGeYllU5Xv/rS1Z1irtcrBoMByuUyWJbNjGq1Co7jMB6P
+        wbzqdDpBFEU4joPD4ZAZ8/kczWYTpVIJo9EoCSFAp9OJjI9USuTp9/uwLAuSJEHX9R8vHSqKgtVqlQvw
+        PA+yLGOxWMC27egmhmHc/UUAsafdbqPX66HRaEAQBPi+j1wA3AmGt0U13USefLPZDK1W6972fwEkqnm+
+        W5EWXkVvQjUJwHK5LAxYr9dpwHa7TQBcUwWjmnCBFHi/3ycB3W4Xu93uaQSofxW39jNvRYVUkw+YDDMf
+        L1YKkNXCb0q1QF9Cycf5n4prngAapul0iuPxiPP5jMvlEq20z8rR4PE8j81mAyYMw2icaWRrtRo+P97o
+        Jnhnv6I9Rb1ejyLeVyoVaJqGIAjwDZkzmdEFn7ccAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="toolStripButtonExportCSV.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>White</value>
+  </data>
+  <data name="toolStripButtonExportCSV.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 22</value>
+  </data>
+  <data name="toolStripButtonExportCSV.Text" xml:space="preserve">
+    <value>Export as CSV...</value>
+  </data>
+  <data name="toolStripAnalysis.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
-  <data name="toolStripMain.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="toolStripAnalysis.Size" type="System.Drawing.Size, System.Drawing">
     <value>784, 25</value>
   </data>
-  <data name="toolStripMain.TabIndex" type="System.Int32, mscorlib">
+  <data name="toolStripAnalysis.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="toolStripMain.Text" xml:space="preserve">
-    <value>Tools</value>
+  <data name="&gt;&gt;toolStripAnalysis.Name" xml:space="preserve">
+    <value>toolStripAnalysis</value>
   </data>
-  <data name="&gt;&gt;toolStripMain.Name" xml:space="preserve">
-    <value>toolStripMain</value>
-  </data>
-  <data name="&gt;&gt;toolStripMain.Type" xml:space="preserve">
+  <data name="&gt;&gt;toolStripAnalysis.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;toolStripMain.Parent" xml:space="preserve">
+  <data name="&gt;&gt;toolStripAnalysis.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;toolStripMain.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;toolStripAnalysis.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -709,10 +752,28 @@
   <data name="&gt;&gt;toolStripButtonReport.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;toolStripSeparator1.Name" xml:space="preserve">
+    <value>toolStripSeparator1</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripButtonExportXML.Name" xml:space="preserve">
+    <value>toolStripButtonExportXML</value>
+  </data>
+  <data name="&gt;&gt;toolStripButtonExportXML.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripButtonExportCSV.Name" xml:space="preserve">
+    <value>toolStripButtonExportCSV</value>
+  </data>
+  <data name="&gt;&gt;toolStripButtonExportCSV.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>DockContentAnalysisEdit</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Desktop.DockContentView, treeDiM.StackBuilder.Desktop, Version=3.0.0.57, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Desktop.DockContentView, treeDiM.StackBuilder.Desktop, Version=3.0.0.58, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

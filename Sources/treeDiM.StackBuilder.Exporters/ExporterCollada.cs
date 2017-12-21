@@ -1,22 +1,18 @@
-﻿#region Using directives
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Drawing;
 using System.IO;
 
 using Sharp3D.Math.Core;
 
-using treeDiM.StackBuilder.Basics;
-using treeDiM.StackBuilder.Graphics;
-
 using Collada141;
 using log4net;
 
-using treeDiM.StackBuilder.ColladaExporter.Properties;
-#endregion
+using treeDiM.StackBuilder.Basics;
+using treeDiM.StackBuilder.Graphics;
+using treeDiM.StackBuilder.Exporters.Properties;
 
-namespace treeDiM.StackBuilder.ColladaExporter
+namespace treeDiM.StackBuilder.Exporters
 {
     #region Loop
     public class Loop
@@ -31,12 +27,11 @@ namespace treeDiM.StackBuilder.ColladaExporter
     #endregion
 
     #region Exporter
-    public class Exporter
+    public class ExporterCollada : Exporter
     {
         #region Constructor
-        public Exporter(CasePalletSolution palletSolution)
+        public ExporterCollada()
         {
-            _palletSolution = palletSolution;
         }
         #endregion
 
@@ -49,16 +44,20 @@ namespace treeDiM.StackBuilder.ColladaExporter
         #endregion
 
         #region Export
-        public void Export(string filePath)
+        public override string Filter => "Collada (*.dae) | *.dae";
+        public override string Extension => "dae";
+        public override void Export(Analysis analysis, string filePath)
         {
             PalletProperties palletProperties = _palletSolution.Analysis.PalletProperties;
 
-            COLLADA model = new COLLADA();
-            // asset
-            model.asset = new asset()
+            COLLADA model = new COLLADA
             {
-                created = DateTime.Now,
-                modified = DateTime.Now
+                // asset
+                asset = new asset()
+                {
+                    created = DateTime.Now,
+                    modified = DateTime.Now
+                }
             };
             model.asset.keywords = "StackBuilder Pallet Case";
             model.asset.title = _palletSolution.Title;
@@ -85,9 +84,8 @@ namespace treeDiM.StackBuilder.ColladaExporter
             List<image> listImages = new List<image>();
 
             // effects
-            effect effectPallet;
             material materialPallet;
-            CreateMaterial(palletProperties.Color, null, null, "Pallet", out effectPallet, out materialPallet);
+            CreateMaterial(palletProperties.Color, null, null, "Pallet", out effect effectPallet, out materialPallet);
             listEffects.Add(effectPallet);
             listMaterials.Add(materialPallet);
 
@@ -102,9 +100,7 @@ namespace treeDiM.StackBuilder.ColladaExporter
                 if (face.HasBitmap)
                 {
                     textureName = string.Format("textureFace_{0}", faceIndex);
-                    string texturePath = System.IO.Path.Combine(
-                        System.IO.Path.GetDirectoryName(filePath)
-                        , textureName + ".jpg");
+                    string texturePath = Path.Combine(Path.GetDirectoryName(filePath), textureName + ".jpg");
 
                     double dimX = 0.0, dimY = 0.0;
 
@@ -237,7 +233,7 @@ namespace treeDiM.StackBuilder.ColladaExporter
                             {
                                 Values = new double[] { 0.0, 0.0, 1.0, rotations.Z },
                                 sid = "rz"
-                            } 
+                            }
                         },
 
                         instance_geometry = new instance_geometry[]
@@ -371,7 +367,7 @@ namespace treeDiM.StackBuilder.ColladaExporter
                             source = "surf_"+ textureName
                         },
                         ItemElementName = ItemChoiceType.sampler2D
-                    } 
+                    }
                 };
             }
             // effect color
@@ -566,7 +562,7 @@ namespace treeDiM.StackBuilder.ColladaExporter
                     }
                 }
                 ++iLayer;
-           }
+            }
             Layer3DBox layerW = _palletSolution[iLayer] as Layer3DBox;
 
             return layerW[(int)caseIndex - iCounted];
@@ -939,7 +935,7 @@ namespace treeDiM.StackBuilder.ColladaExporter
         private double _xOffset = 2000.0;
         private double _zOffset = 1500.0;
         private int _bmpWidth = 150;
-        static readonly ILog _log = LogManager.GetLogger(typeof(Exporter));
+        static readonly ILog _log = LogManager.GetLogger(typeof(ExporterCollada));
         #endregion
     }
     #endregion

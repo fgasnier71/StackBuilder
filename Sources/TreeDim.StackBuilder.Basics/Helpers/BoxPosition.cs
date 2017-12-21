@@ -51,11 +51,7 @@ namespace treeDiM.StackBuilder.Basics
                 return HalfAxis.ToHalfAxis(Vector3D.CrossProduct(HalfAxis.ToVector3D(_axisLength), HalfAxis.ToVector3D(_axisWidth)));
             }
         }
-
-        public bool IsValid
-        {
-            get { return _axisLength != _axisWidth; }
-        }
+        public bool IsValid => _axisLength != _axisWidth; 
         #endregion
 
         #region Static properties
