@@ -121,7 +121,8 @@
             resources.GetString("cbColor.Items23"),
             resources.GetString("cbColor.Items24"),
             resources.GetString("cbColor.Items25"),
-            resources.GetString("cbColor.Items26")});
+            resources.GetString("cbColor.Items26"),
+            resources.GetString("cbColor.Items27")});
             this.cbColor.Name = "cbColor";
             this.cbColor.SelectedColorChanged += new System.EventHandler(this.OnPalletPropertyChanged);
             // 
@@ -160,6 +161,7 @@
             0});
             this.uCtrlDimensions.Name = "uCtrlDimensions";
             this.uCtrlDimensions.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlDimensions.Value = ((Sharp3D.Math.Core.Vector3D)(resources.GetObject("uCtrlDimensions.Value")));
             this.uCtrlDimensions.ValueX = 0D;
             this.uCtrlDimensions.ValueY = 0D;
             this.uCtrlDimensions.ValueZ = 0D;
