@@ -20,25 +20,19 @@ using treeDiM.PLMPack.DBClient.PLMPackSR;
 
 namespace treeDiM.StackBuilder.Desktop
 {
-    public partial class FormNewBundle : Form, IDrawingContainer
+    public partial class FormNewBundle : FormNewBase, IDrawingContainer
     {
         #region Data members
-        private Document _document;
-        private BundleProperties _bundleProperties;
-        static readonly ILog _log = LogManager.GetLogger(typeof(FormNewBundle));
+        private static readonly ILog _log = LogManager.GetLogger(typeof(FormNewBundle));
         #endregion
 
         #region Constructor
         public FormNewBundle(Document document)
+            : base(document, null)
         {
             InitializeComponent();
             // set unit labels
             UnitsManager.AdaptUnitLabels(this);
-            // save document reference
-            _document = document;
-            // name
-            tbName.Text = _document.GetValidNewTypeName(Resources.ID_BUNDLE);
-            tbDescription.Text = tbName.Text;
             // initialize value
             BundleLength = UnitsManager.ConvertLengthFrom(400.0, UnitsManager.UnitSystem.UNIT_METRIC1);
             BundleWidth = UnitsManager.ConvertLengthFrom(300.0, UnitsManager.UnitSystem.UNIT_METRIC1);
@@ -46,18 +40,16 @@ namespace treeDiM.StackBuilder.Desktop
             NoFlats = 10;
             Color = Color.LightGray;
             // disable Ok buttons
-            UpdateButtonOkStatus();
+            UpdateStatus(string.Empty);
         }
         public FormNewBundle(Document document, BundleProperties bundleProperties)
+            : base(document, bundleProperties)
         {
             InitializeComponent();
             // set unit labels
             UnitsManager.AdaptUnitLabels(this);
-            // save document reference
-            _document = document;
-            _bundleProperties = bundleProperties;
             // set caption text
-            Text = string.Format(Properties.Resources.ID_EDIT, _bundleProperties.Name);
+            Text = string.Format(Properties.Resources.ID_EDIT, bundleProperties.Name);
             // initialize value
             tbName.Text = bundleProperties.Name;
             tbDescription.Text = bundleProperties.Description;
@@ -66,12 +58,12 @@ namespace treeDiM.StackBuilder.Desktop
             UnitThickness = bundleProperties.UnitThickness;
             UnitWeight = bundleProperties.UnitWeight;
             NoFlats = bundleProperties.NoFlats;
-            // disable Ok buttons
-            UpdateButtonOkStatus();
+            // enable/disable Ok buttons
+            UpdateStatus(string.Empty);
         }
         #endregion
 
-        #region Load / FormClosing event handlers
+        #region Form override
         protected override void OnLoad(EventArgs e)
         {
  	        base.OnLoad(e);
@@ -90,12 +82,8 @@ namespace treeDiM.StackBuilder.Desktop
         }
         #endregion
 
-        #region Form override
-        protected override void OnResize(EventArgs e)
-        {
-            graphCtrl.Invalidate();
-            base.OnResize(e);
-        }
+        #region FormNewBase override
+        public override string ItemDefaultName => Resources.ID_BUNDLE;
         #endregion
 
         #region Public properties
@@ -146,28 +134,13 @@ namespace treeDiM.StackBuilder.Desktop
         {
             graphCtrl.Invalidate();
         }
-        private void UpdateButtonOkStatus()
+        public override void UpdateStatus(string message)
         {
-            string message = string.Empty;
-            // name
-            if (string.IsNullOrEmpty(tbName.Text))
-                message = Resources.ID_FIELDNAMEEMPTY;
-            // name validity
-            else if (!_document.IsValidNewTypeName(tbName.Text, _bundleProperties))
-                message = string.Format(Resources.ID_INVALIDNAME, tbName.Text);
-            // description
-            else if (string.IsNullOrEmpty(tbDescription.Text))
-                message = Resources.ID_FIELDDESCRIPTIONEMPTY;
-            // ---
-            // button OK
-            bnOk.Enabled = string.IsNullOrEmpty(message);
-            // status bar
-            toolStripStatusLabelDef.ForeColor = string.IsNullOrEmpty(message) ? Color.Black : Color.Red;
-            toolStripStatusLabelDef.Text = string.IsNullOrEmpty(message) ? Resources.ID_READY : message;
+            base.UpdateStatus(message);
         }
         private void OnNameDescriptionChanged(object sender, EventArgs e)
         {
-            UpdateButtonOkStatus();
+            UpdateStatus(string.Empty);
         }
         #endregion
 

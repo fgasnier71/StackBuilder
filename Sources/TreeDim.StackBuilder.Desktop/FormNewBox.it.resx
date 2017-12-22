@@ -157,9 +157,6 @@
   <data name="cbFace.Location" type="System.Drawing.Point, System.Drawing">
     <value>76, 38</value>
   </data>
-  <data name="cbColor.Items1" xml:space="preserve">
-    <value>Colore</value>
-  </data>
   <data name="cbColor.Items2" xml:space="preserve">
     <value>Colore</value>
   </data>
@@ -463,7 +460,10 @@
   <data name="cbColor.Items102" xml:space="preserve">
     <value>Colore</value>
   </data>
-  <data name="cbColor.Items112" xml:space="preserve">
+  <data name="cbColor.Items103" xml:space="preserve">
+    <value>Colore</value>
+  </data>
+  <data name="cbColor.Items113" xml:space="preserve">
     <value>Color</value>
   </data>
   <data name="cbColor.Location" type="System.Drawing.Point, System.Drawing">
@@ -516,9 +516,6 @@
   </data>
   <data name="uCtrlTapeWidth.Text" xml:space="preserve">
     <value>Larghezza del nastro</value>
-  </data>
-  <data name="cbTapeColor.Items1" xml:space="preserve">
-    <value>Colore</value>
   </data>
   <data name="cbTapeColor.Items2" xml:space="preserve">
     <value>Colore</value>
@@ -826,7 +823,10 @@
   <data name="cbTapeColor.Items103" xml:space="preserve">
     <value>Colore</value>
   </data>
-  <data name="cbTapeColor.Items113" xml:space="preserve">
+  <data name="cbTapeColor.Items104" xml:space="preserve">
+    <value>Colore</value>
+  </data>
+  <data name="cbTapeColor.Items114" xml:space="preserve">
     <value>Color</value>
   </data>
   <data name="cbTapeColor.Location" type="System.Drawing.Point, System.Drawing">

@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormNewBox));
-            this.bnOK = new System.Windows.Forms.Button();
-            this.bnCancel = new System.Windows.Forms.Button();
             this.lbFace = new System.Windows.Forms.Label();
             this.gbDimensions = new System.Windows.Forms.GroupBox();
             this.uCtrlDimensionsInner = new treeDiM.StackBuilder.Basics.UCtrlOptTriDouble();
@@ -44,13 +42,7 @@
             this.uCtrlMaxWeight = new treeDiM.StackBuilder.Basics.UCtrlOptDouble();
             this.vcWeight = new treeDiM.StackBuilder.Basics.UCtrlDouble();
             this.uCtrlNetWeight = new treeDiM.StackBuilder.Basics.UCtrlOptDouble();
-            this.lblName = new System.Windows.Forms.Label();
-            this.lblDescription = new System.Windows.Forms.Label();
-            this.tbName = new System.Windows.Forms.TextBox();
-            this.tbDescription = new System.Windows.Forms.TextBox();
             this.graphCtrl = new treeDiM.StackBuilder.Graphics.Graphics3DControl();
-            this.statusStripDef = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabelDef = new System.Windows.Forms.ToolStripStatusLabel();
             this.gbTape = new System.Windows.Forms.GroupBox();
             this.uCtrlTapeWidth = new treeDiM.StackBuilder.Basics.UCtrlOptDouble();
             this.cbTapeColor = new OfficePickers.ColorPicker.ComboBoxColorPicker();
@@ -60,23 +52,8 @@
             this.gbFaceColor.SuspendLayout();
             this.gbWeight.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.graphCtrl)).BeginInit();
-            this.statusStripDef.SuspendLayout();
             this.gbTape.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // bnOK
-            // 
-            resources.ApplyResources(this.bnOK, "bnOK");
-            this.bnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.bnOK.Name = "bnOK";
-            this.bnOK.UseVisualStyleBackColor = true;
-            // 
-            // bnCancel
-            // 
-            resources.ApplyResources(this.bnCancel, "bnCancel");
-            this.bnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.bnCancel.Name = "bnCancel";
-            this.bnCancel.UseVisualStyleBackColor = true;
             // 
             // lbFace
             // 
@@ -85,16 +62,16 @@
             // 
             // gbDimensions
             // 
-            resources.ApplyResources(this.gbDimensions, "gbDimensions");
             this.gbDimensions.Controls.Add(this.uCtrlDimensionsInner);
             this.gbDimensions.Controls.Add(this.uCtrlDimensionsOuter);
+            resources.ApplyResources(this.gbDimensions, "gbDimensions");
             this.gbDimensions.Name = "gbDimensions";
             this.gbDimensions.TabStop = false;
             // 
             // uCtrlDimensionsInner
             // 
-            resources.ApplyResources(this.uCtrlDimensionsInner, "uCtrlDimensionsInner");
             this.uCtrlDimensionsInner.Checked = false;
+            resources.ApplyResources(this.uCtrlDimensionsInner, "uCtrlDimensionsInner");
             this.uCtrlDimensionsInner.Minimum = new decimal(new int[] {
             0,
             0,
@@ -126,7 +103,6 @@
             // 
             // cbFace
             // 
-            resources.ApplyResources(this.cbFace, "cbFace");
             this.cbFace.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbFace.FormattingEnabled = true;
             this.cbFace.Items.AddRange(new object[] {
@@ -136,17 +112,18 @@
             resources.GetString("cbFace.Items3"),
             resources.GetString("cbFace.Items4"),
             resources.GetString("cbFace.Items5")});
+            resources.ApplyResources(this.cbFace, "cbFace");
             this.cbFace.Name = "cbFace";
             this.cbFace.SelectedIndexChanged += new System.EventHandler(this.OnSelectedFaceChanged);
             // 
             // cbColor
             // 
-            resources.ApplyResources(this.cbColor, "cbColor");
             this.cbColor.Color = System.Drawing.Color.Chocolate;
             this.cbColor.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cbColor.DropDownHeight = 1;
             this.cbColor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbColor.DropDownWidth = 1;
+            resources.ApplyResources(this.cbColor, "cbColor");
             this.cbColor.Items.AddRange(new object[] {
             resources.GetString("cbColor.Items"),
             resources.GetString("cbColor.Items1"),
@@ -260,18 +237,20 @@
             resources.GetString("cbColor.Items109"),
             resources.GetString("cbColor.Items110"),
             resources.GetString("cbColor.Items111"),
-            resources.GetString("cbColor.Items112")});
+            resources.GetString("cbColor.Items112"),
+            resources.GetString("cbColor.Items113"),
+            resources.GetString("cbColor.Items114")});
             this.cbColor.Name = "cbColor";
             this.cbColor.SelectedColorChanged += new System.EventHandler(this.OnFaceColorChanged);
             // 
             // gbFaceColor
             // 
-            resources.ApplyResources(this.gbFaceColor, "gbFaceColor");
             this.gbFaceColor.Controls.Add(this.btBitmaps);
             this.gbFaceColor.Controls.Add(this.chkAllFaces);
             this.gbFaceColor.Controls.Add(this.cbColor);
             this.gbFaceColor.Controls.Add(this.cbFace);
             this.gbFaceColor.Controls.Add(this.lbFace);
+            resources.ApplyResources(this.gbFaceColor, "gbFaceColor");
             this.gbFaceColor.Name = "gbFaceColor";
             this.gbFaceColor.TabStop = false;
             // 
@@ -291,10 +270,10 @@
             // 
             // gbWeight
             // 
-            resources.ApplyResources(this.gbWeight, "gbWeight");
             this.gbWeight.Controls.Add(this.uCtrlMaxWeight);
             this.gbWeight.Controls.Add(this.vcWeight);
             this.gbWeight.Controls.Add(this.uCtrlNetWeight);
+            resources.ApplyResources(this.gbWeight, "gbWeight");
             this.gbWeight.Name = "gbWeight";
             this.gbWeight.TabStop = false;
             // 
@@ -337,28 +316,6 @@
             this.uCtrlNetWeight.Value = ((treeDiM.StackBuilder.Basics.OptDouble)(resources.GetObject("uCtrlNetWeight.Value")));
             this.uCtrlNetWeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlOptDouble.ValueChangedDelegate(this.OnBoxPropertyChanged);
             // 
-            // lblName
-            // 
-            resources.ApplyResources(this.lblName, "lblName");
-            this.lblName.Name = "lblName";
-            // 
-            // lblDescription
-            // 
-            resources.ApplyResources(this.lblDescription, "lblDescription");
-            this.lblDescription.Name = "lblDescription";
-            // 
-            // tbName
-            // 
-            resources.ApplyResources(this.tbName, "tbName");
-            this.tbName.Name = "tbName";
-            this.tbName.TextChanged += new System.EventHandler(this.OnNameDescriptionChanged);
-            // 
-            // tbDescription
-            // 
-            resources.ApplyResources(this.tbDescription, "tbDescription");
-            this.tbDescription.Name = "tbDescription";
-            this.tbDescription.TextChanged += new System.EventHandler(this.OnNameDescriptionChanged);
-            // 
             // graphCtrl
             // 
             resources.ApplyResources(this.graphCtrl, "graphCtrl");
@@ -366,26 +323,12 @@
             this.graphCtrl.TabStop = false;
             this.graphCtrl.Viewer = null;
             // 
-            // statusStripDef
-            // 
-            resources.ApplyResources(this.statusStripDef, "statusStripDef");
-            this.statusStripDef.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabelDef});
-            this.statusStripDef.Name = "statusStripDef";
-            this.statusStripDef.SizingGrip = false;
-            // 
-            // toolStripStatusLabelDef
-            // 
-            resources.ApplyResources(this.toolStripStatusLabelDef, "toolStripStatusLabelDef");
-            this.toolStripStatusLabelDef.ForeColor = System.Drawing.Color.Red;
-            this.toolStripStatusLabelDef.Name = "toolStripStatusLabelDef";
-            // 
             // gbTape
             // 
-            resources.ApplyResources(this.gbTape, "gbTape");
             this.gbTape.Controls.Add(this.uCtrlTapeWidth);
             this.gbTape.Controls.Add(this.cbTapeColor);
             this.gbTape.Controls.Add(this.lbTapeColor);
+            resources.ApplyResources(this.gbTape, "gbTape");
             this.gbTape.Name = "gbTape";
             this.gbTape.TabStop = false;
             // 
@@ -404,12 +347,12 @@
             // 
             // cbTapeColor
             // 
-            resources.ApplyResources(this.cbTapeColor, "cbTapeColor");
             this.cbTapeColor.Color = System.Drawing.Color.Chocolate;
             this.cbTapeColor.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cbTapeColor.DropDownHeight = 1;
             this.cbTapeColor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTapeColor.DropDownWidth = 1;
+            resources.ApplyResources(this.cbTapeColor, "cbTapeColor");
             this.cbTapeColor.Items.AddRange(new object[] {
             resources.GetString("cbTapeColor.Items"),
             resources.GetString("cbTapeColor.Items1"),
@@ -524,7 +467,9 @@
             resources.GetString("cbTapeColor.Items110"),
             resources.GetString("cbTapeColor.Items111"),
             resources.GetString("cbTapeColor.Items112"),
-            resources.GetString("cbTapeColor.Items113")});
+            resources.GetString("cbTapeColor.Items113"),
+            resources.GetString("cbTapeColor.Items114"),
+            resources.GetString("cbTapeColor.Items115")});
             this.cbTapeColor.Name = "cbTapeColor";
             this.cbTapeColor.SelectedColorChanged += new System.EventHandler(this.OnFaceColorChanged);
             // 
@@ -542,23 +487,14 @@
             // 
             // FormNewBox
             // 
-            this.AcceptButton = this.bnOK;
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CancelButton = this.bnCancel;
             this.Controls.Add(this.bnSaveToDB);
             this.Controls.Add(this.gbTape);
-            this.Controls.Add(this.statusStripDef);
-            this.Controls.Add(this.tbDescription);
-            this.Controls.Add(this.tbName);
-            this.Controls.Add(this.lblDescription);
-            this.Controls.Add(this.lblName);
             this.Controls.Add(this.graphCtrl);
             this.Controls.Add(this.gbWeight);
             this.Controls.Add(this.gbFaceColor);
             this.Controls.Add(this.gbDimensions);
-            this.Controls.Add(this.bnCancel);
-            this.Controls.Add(this.bnOK);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormNewBox";
@@ -570,19 +506,13 @@
             this.gbFaceColor.PerformLayout();
             this.gbWeight.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.graphCtrl)).EndInit();
-            this.statusStripDef.ResumeLayout(false);
-            this.statusStripDef.PerformLayout();
             this.gbTape.ResumeLayout(false);
             this.gbTape.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button bnOK;
-        private System.Windows.Forms.Button bnCancel;
         private System.Windows.Forms.Label lbFace;
         private System.Windows.Forms.GroupBox gbDimensions;
         private System.Windows.Forms.ComboBox cbFace;
@@ -590,12 +520,6 @@
         private System.Windows.Forms.GroupBox gbFaceColor;
         private System.Windows.Forms.GroupBox gbWeight;
         private treeDiM.StackBuilder.Graphics.Graphics3DControl graphCtrl;
-        private System.Windows.Forms.Label lblName;
-        private System.Windows.Forms.Label lblDescription;
-        private System.Windows.Forms.TextBox tbName;
-        private System.Windows.Forms.TextBox tbDescription;
-        private System.Windows.Forms.StatusStrip statusStripDef;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelDef;
         private System.Windows.Forms.CheckBox chkAllFaces;
         private System.Windows.Forms.Button btBitmaps;
         private System.Windows.Forms.GroupBox gbTape;

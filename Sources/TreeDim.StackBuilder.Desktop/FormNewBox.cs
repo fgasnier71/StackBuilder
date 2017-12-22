@@ -20,7 +20,7 @@ using treeDiM.PLMPack.DBClient.PLMPackSR;
 
 namespace treeDiM.StackBuilder.Desktop
 {
-    public partial class FormNewBox : Form, IDrawingContainer
+    public partial class FormNewBox : FormNewBase, IDrawingContainer
     {
         #region Mode enum
         public enum Mode
@@ -31,9 +31,7 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Data members
-        [NonSerialized]private Document _document;
         public Color[] _faceColors = new Color[6];
-        public BoxProperties _boxProperties;
         public Mode _mode;
         public List<Pair<HalfAxis.HAxis, Texture>> _textures;
         private double _thicknessLength = 0.0, _thicknessWidth = 0.0, _thicknessHeight = 0.0;
@@ -47,6 +45,7 @@ namespace treeDiM.StackBuilder.Desktop
         /// <param name="document">Document in which the BoxProperties item is to be created</param>
         /// <param name="mode">Mode is either Mode.MODE_CASE or Mode.MODE_BOX</param>
         public FormNewBox(Document document, Mode mode)
+            : base(document, null)
         {
             InitializeComponent();
             if (!DesignMode)
@@ -102,7 +101,7 @@ namespace treeDiM.StackBuilder.Desktop
                 // net weight
                 NetWeight = new OptDouble(false, UnitsManager.ConvertMassFrom(0.0, UnitsManager.UnitSystem.UNIT_METRIC1));
                 // disable Ok button
-                UpdateButtonOkStatus();
+                UpdateStatus(string.Empty);
             }
         }
         /// <summary>
@@ -111,6 +110,7 @@ namespace treeDiM.StackBuilder.Desktop
         /// <param name="document">Document that contains the edited box</param>
         /// <param name="boxProperties">Edited box</param>
         public FormNewBox(Document document, BoxProperties boxProperties)
+            : base(document, boxProperties)
         { 
             InitializeComponent();
             if (!DesignMode)
@@ -118,40 +118,36 @@ namespace treeDiM.StackBuilder.Desktop
                 // set unit labels
                 UnitsManager.AdaptUnitLabels(this);
                 // save document reference
-                _document = document;
-                _boxProperties = boxProperties;
                 _mode = boxProperties.HasInsideDimensions ? Mode.MODE_CASE : Mode.MODE_BOX;
                 // set colors
                 for (int i = 0; i < 6; ++i)
-                    _faceColors[i] = _boxProperties.Colors[i];
+                    _faceColors[i] = boxProperties.Colors[i];
                 // set textures
-                _textures = _boxProperties.TextureListCopy;
+                _textures = boxProperties.TextureListCopy;
                 // set caption text
-                Text = string.Format(Properties.Resources.ID_EDIT, _boxProperties.Name);
+                Text = string.Format(Properties.Resources.ID_EDIT, boxProperties.Name);
                 // initialize value
-                tbName.Text = _boxProperties.Name;
-                tbDescription.Text = _boxProperties.Description;
-                uCtrlDimensionsOuter.ValueX = _boxProperties.Length;
-                uCtrlDimensionsOuter.ValueY = _boxProperties.Width;
-                uCtrlDimensionsOuter.ValueZ = _boxProperties.Height;
-                uCtrlDimensionsInner.Value = new Vector3D(_boxProperties.InsideLength, _boxProperties.InsideWidth, _boxProperties.InsideHeight);
-                uCtrlDimensionsInner.Checked = _boxProperties.HasInsideDimensions;
+                uCtrlDimensionsOuter.ValueX = boxProperties.Length;
+                uCtrlDimensionsOuter.ValueY = boxProperties.Width;
+                uCtrlDimensionsOuter.ValueZ = boxProperties.Height;
+                uCtrlDimensionsInner.Value = new Vector3D(boxProperties.InsideLength, boxProperties.InsideWidth, boxProperties.InsideHeight);
+                uCtrlDimensionsInner.Checked = boxProperties.HasInsideDimensions;
                 // weight
-                vcWeight.Value = _boxProperties.Weight;
+                vcWeight.Value = boxProperties.Weight;
                 // net weight
-                uCtrlNetWeight.Value = _boxProperties.NetWeight;
+                uCtrlNetWeight.Value = boxProperties.NetWeight;
                 // max weight
-                uCtrlMaxWeight.Value = _boxProperties.MaxWeight;
+                uCtrlMaxWeight.Value = boxProperties.MaxWeight;
                 // color : all faces set together / face by face
-                chkAllFaces.Checked = _boxProperties.UniqueColor;
+                chkAllFaces.Checked = boxProperties.UniqueColor;
                 OnAllFacesColorCheckedChanged(this, null);
                 // tape
-                uCtrlTapeWidth.Value = _boxProperties.TapeWidth;
-                cbTapeColor.Color = _boxProperties.TapeColor;
+                uCtrlTapeWidth.Value = boxProperties.TapeWidth;
+                cbTapeColor.Color = boxProperties.TapeColor;
                 // set default face
                 cbFace.SelectedIndex = 0;
                 // disable Ok button
-                UpdateButtonOkStatus();
+                UpdateStatus(string.Empty);
             }
         }
         #endregion
@@ -272,7 +268,11 @@ namespace treeDiM.StackBuilder.Desktop
         }
         #endregion
 
-        #region Load / FormClosing event
+        #region FormNewBase override
+        public override string ItemDefaultName => Resources.ID_CASE;
+        #endregion
+
+        #region Form override
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
@@ -345,7 +345,7 @@ namespace treeDiM.StackBuilder.Desktop
                 // update thicknesses
                 UpdateThicknesses();
                 // update ok button status
-                UpdateButtonOkStatus();
+                UpdateStatus(string.Empty);
                 // update box drawing
                 graphCtrl.Invalidate();
             }
@@ -378,19 +378,10 @@ namespace treeDiM.StackBuilder.Desktop
             graphCtrl.Invalidate();
         }
 
-        private void UpdateButtonOkStatus()
+        public override void UpdateStatus(string message)
         {
-            // status + message
-            string message = string.Empty;
-            if (string.IsNullOrEmpty(tbName.Text))
-                message = Resources.ID_FIELDNAMEEMPTY;
-            else if (!_document.IsValidNewTypeName(tbName.Text, _boxProperties))
-                message = string.Format(Resources.ID_INVALIDNAME, tbName.Text);
-            // description
-            else if (string.IsNullOrEmpty(tbDescription.Text))
-                message = Resources.ID_FIELDDESCRIPTIONEMPTY;
             // case length consistency
-            else if (_mode == Mode.MODE_CASE && InsideLength > BoxLength)
+            if (_mode == Mode.MODE_CASE && InsideLength > BoxLength)
                 message = string.Format(Resources.ID_INVALIDINSIDELENGTH, InsideLength, BoxLength);
             // case width consistency
             else if (_mode == Mode.MODE_CASE && InsideWidth > BoxWidth)
@@ -401,15 +392,7 @@ namespace treeDiM.StackBuilder.Desktop
             // box/case net weight consistency
             else if (NetWeight.Activated && NetWeight > Weight)
                 message = string.Format(Resources.ID_INVALIDNETWEIGHT, NetWeight.Value, Weight);
-            // accept
-            bnOK.Enabled = string.IsNullOrEmpty(message);
-            toolStripStatusLabelDef.ForeColor = string.IsNullOrEmpty(message) ? Color.Black : Color.Red;
-            toolStripStatusLabelDef.Text = string.IsNullOrEmpty(message) ? Resources.ID_READY : message;
-        }
-
-        private void OnNameDescriptionChanged(object sender, EventArgs e)
-        {
-            UpdateButtonOkStatus();
+            base.UpdateStatus(message);
         }
 
         private void OnAllFacesColorCheckedChanged(object sender, EventArgs e)
@@ -423,14 +406,11 @@ namespace treeDiM.StackBuilder.Desktop
         {
             try
             {
-                FormEditBitmaps form = null;
-                if (null == _boxProperties)
-                    form = new FormEditBitmaps(BoxLength, BoxWidth, BoxHeight, _faceColors);
-                else
-                    form = new FormEditBitmaps(_boxProperties);
-                form.TapeWidth = TapeWidth;
-                form.TapeColor = TapeColor;
-                form.Textures = _textures;
+                FormEditBitmaps form = new FormEditBitmaps(BoxLength, BoxWidth, BoxHeight, _faceColors, _textures)
+                {
+                    TapeWidth = TapeWidth,
+                    TapeColor = TapeColor,
+                };
                 if (DialogResult.OK == form.ShowDialog())
                     _textures = form.Textures;
                 graphCtrl.Invalidate();

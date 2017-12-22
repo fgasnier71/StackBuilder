@@ -57,10 +57,7 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region FormNewBase override
-        public override string ItemDefaultName
-        {
-	        get { return Resources.ID_PALLET; }
-        }
+        public override string ItemDefaultName => Resources.ID_PALLET;
         #endregion
 
         #region Form override

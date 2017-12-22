@@ -37,7 +37,7 @@ namespace treeDiM.StackBuilder.Desktop
         /// <summary>
         /// constructor (from length, width, height)
         /// </summary>
-        public FormEditBitmaps(double length, double width, double height, Color[] faceColors)
+        public FormEditBitmaps(double length, double width, double height, Color[] faceColors, List<Pair<HalfAxis.HAxis, Texture>> textures)
         {
             InitializeComponent();
             // set unit labels
@@ -46,7 +46,7 @@ namespace treeDiM.StackBuilder.Desktop
             _boxProperties = new BoxProperties(null, length, width, height);
             _boxProperties.SetAllColors(faceColors);
             // get textures
-            _textures = _boxProperties.TextureListCopy;
+            _textures = textures;
             // set default face
             cbFace.SelectedIndex = 0;
         }
@@ -74,7 +74,7 @@ namespace treeDiM.StackBuilder.Desktop
         }
         #endregion
 
-        #region Load / Closing
+        #region Form override
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
