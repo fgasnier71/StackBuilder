@@ -60,7 +60,7 @@ namespace treeDiM.StackBuilder.Desktop
             // set default wrapper type
             cbWrapperType.SelectedIndex = Settings.Default.WrapperType;
             // initialize grid
-            gridSolutions.Selection.SelectionChanged += new SourceGrid.RangeRegionChangedEventHandler(onSelChangeGrid);
+            gridSolutions.Selection.SelectionChanged += new SourceGrid.RangeRegionChangedEventHandler(OnSelChangeGrid);
 
             UpdateStatus(string.Empty);
         }
@@ -106,16 +106,10 @@ namespace treeDiM.StackBuilder.Desktop
         public bool Accept(Control ctrl, ItemBase itemBase)
         {
             if (ctrl == cbBoxes)
-            {
-                BoxProperties bProperties = itemBase as BoxProperties;
-                return null != bProperties;
-            }
+                return itemBase is BoxProperties;
             if (ctrl == cbPallets)
-            {
-                PalletProperties palletProperties = itemBase as PalletProperties;
-                return null != palletProperties;
-            }
-            return true; 
+                return itemBase is PalletProperties;
+            return false; 
         }
         #endregion
 
@@ -304,23 +298,23 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Event handlers
-        private void onWrapperTypeChanged(object sender, EventArgs e)
+        private void OnWrapperTypeChanged(object sender, EventArgs e)
         {
             // show tray height control
             uCtrlTrayHeight.Visible = (3 == cbWrapperType.SelectedIndex);
-            onDataChanged(sender, e);
+            OnDataChanged(sender, e);
         }
-        private void onBoxChanged(object sender, EventArgs e)
+        private void OnBoxChanged(object sender, EventArgs e)
         {
             SetMinCaseDimensions();
-            onDataChanged(sender, e);
+            OnDataChanged(sender, e);
         }
-        private void onPalletChanged(object sender, EventArgs e)
+        private void OnPalletChanged(object sender, EventArgs e)
         {
             SetMaxCaseDimensions();
-            onDataChanged(sender, e);
+            OnDataChanged(sender, e);
         }
-        private void onDataChanged(object sender, EventArgs e)
+        private void OnDataChanged(object sender, EventArgs e)
         {
             // stop timer
             _timer.Stop();
@@ -330,7 +324,7 @@ namespace treeDiM.StackBuilder.Desktop
             // restart timer
             _timer.Start();
         }
-        private void onTimerTick(object sender, EventArgs e)
+        private void OnTimerTick(object sender, EventArgs e)
         {
             try
             {
@@ -351,7 +345,7 @@ namespace treeDiM.StackBuilder.Desktop
                 _log.Error(ex.ToString());
             }
         }
-        private void onSelChangeGrid(object sender, SourceGrid.RangeRegionChangedEventArgs e)
+        private void OnSelChangeGrid(object sender, SourceGrid.RangeRegionChangedEventArgs e)
         {
             try
             {
@@ -392,7 +386,7 @@ namespace treeDiM.StackBuilder.Desktop
                 _log.Error(ex.Message);
             }
         }
-        private void onCreateAnalysis(object sender, EventArgs e)
+        private void OnCreateAnalysis(object sender, EventArgs e)
         {
             try
             {

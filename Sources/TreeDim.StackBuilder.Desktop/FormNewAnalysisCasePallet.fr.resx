@@ -142,11 +142,20 @@
   <data name="bnBestCombination.Text" xml:space="preserve">
     <value>Meilleure combinaison &gt;</value>
   </data>
+  <data name="uCtrlOptMaximumWeight.Text" xml:space="preserve">
+    <value>Poid maximum palette</value>
+  </data>
+  <data name="uCtrlMaximumHeight.Text" xml:space="preserve">
+    <value>Hauteur maximale palette</value>
+  </data>
   <data name="tabPageStopCriterions.Text" xml:space="preserve">
     <value>Critères arrêt</value>
   </data>
   <data name="tabPageOverhang.Text" xml:space="preserve">
     <value>Débord</value>
+  </data>
+  <data name="uCtrlOptSpace.Text" xml:space="preserve">
+    <value>Espace</value>
   </data>
   <data name="tabPageSpaces.Text" xml:space="preserve">
     <value>Espace</value>
@@ -159,15 +168,6 @@
   </data>
   <data name="tabPageLayerFilters.Text" xml:space="preserve">
     <value>Filtres couches</value>
-  </data>
-  <data name="uCtrlOptMaximumWeight.Text" xml:space="preserve">
-    <value>Poid maximum palette</value>
-  </data>
-  <data name="uCtrlMaximumHeight.Text" xml:space="preserve">
-    <value>Hauteur maximale palette</value>
-  </data>
-  <data name="uCtrlOptSpace.Text" xml:space="preserve">
-    <value>Espace</value>
   </data>
   <data name="lbSelect.Size" type="System.Drawing.Size, System.Drawing">
     <value>291, 13</value>

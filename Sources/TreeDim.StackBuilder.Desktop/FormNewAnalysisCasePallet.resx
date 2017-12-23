@@ -117,13 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="uCtrlLayerList.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 227</value>
-  </data>
   <data name="&gt;&gt;tabPageSpaces.Type" xml:space="preserve">
     <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="uCtrlOptMaximumSpace.Size" type="System.Drawing.Size, System.Drawing">
     <value>268, 20</value>
   </data>
@@ -155,12 +152,6 @@
   <data name="&gt;&gt;tbDescription.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;cbCases.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="uCtrlMaximumHeight.TabIndex" type="System.Int32, mscorlib">
-    <value>23</value>
-  </data>
   <data name="uCtrlOptMaximumWeight.MinimumSize" type="System.Drawing.Size, System.Drawing">
     <value>100, 20</value>
   </data>
@@ -169,13 +160,10 @@
     <value>NoControl</value>
   </data>
   <data name="&gt;&gt;uCtrlCaseOrientation.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Graphics.uCtrlCaseOrientation, treeDiM.StackBuilder.Graphics, Version=3.0.0.40, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Graphics.uCtrlCaseOrientation, treeDiM.StackBuilder.Graphics, Version=3.0.0.58, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="lbSelect.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lbPallet.TabIndex" type="System.Int32, mscorlib">
-    <value>18</value>
+  <data name="&gt;&gt;uCtrlOverhang.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="&gt;&gt;uCtrlMaximumHeight.ZOrder" xml:space="preserve">
     <value>1</value>
@@ -185,9 +173,6 @@
   </data>
   <data name="&gt;&gt;lbBox.Parent" xml:space="preserve">
     <value>$this</value>
-  </data>
-  <data name="lbSelect.Location" type="System.Drawing.Point, System.Drawing">
-    <value>5, 209</value>
   </data>
   <data name="&gt;&gt;uCtrlOptMaximumWeight.Parent" xml:space="preserve">
     <value>tabPageStopCriterions</value>
@@ -202,10 +187,13 @@
     <value>uCtrlCaseOrientation</value>
   </data>
   <data name="&gt;&gt;cbPallets.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered, treeDiM.StackBuilder.Graphics, Version=3.0.0.40, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered, treeDiM.StackBuilder.Graphics, Version=3.0.0.58, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="cbPallets.Location" type="System.Drawing.Point, System.Drawing">
     <value>429, 65</value>
+  </data>
+  <data name="uCtrlMaximumHeight.Text" xml:space="preserve">
+    <value>Maximum pallet height</value>
   </data>
   <data name="&gt;&gt;uCtrlOptMaximumLayerWeight.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -219,6 +207,9 @@
   <data name="bnBestCombination.TabIndex" type="System.Int32, mscorlib">
     <value>27</value>
   </data>
+  <data name="&gt;&gt;tbDescription.Name" xml:space="preserve">
+    <value>tbDescription</value>
+  </data>
   <data name="tabPageStopCriterions.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 22</value>
   </data>
@@ -231,8 +222,8 @@
   <data name="checkBoxBestLayersOnly.Text" xml:space="preserve">
     <value>Show best layers only</value>
   </data>
-  <data name="&gt;&gt;tbDescription.Name" xml:space="preserve">
-    <value>tbDescription</value>
+  <data name="&gt;&gt;tabPageLayerFilters.Parent" xml:space="preserve">
+    <value>tabCtrlConstraints</value>
   </data>
   <data name="&gt;&gt;lbName.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -244,7 +235,7 @@
     <value>Maximum space</value>
   </data>
   <data name="&gt;&gt;uCtrlOverhang.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlDualDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.40, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Basics.UCtrlDualDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.58, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;bnCancel.ZOrder" xml:space="preserve">
     <value>14</value>
@@ -252,19 +243,16 @@
   <data name="checkBoxBestLayersOnly.Size" type="System.Drawing.Size, System.Drawing">
     <value>128, 17</value>
   </data>
-  <data name="uCtrlMaximumHeight.Text" xml:space="preserve">
-    <value>Maximum pallet height</value>
+  <data name="lbPallet.Size" type="System.Drawing.Size, System.Drawing">
+    <value>33, 13</value>
   </data>
   <data name="tabCtrlConstraints.TabIndex" type="System.Int32, mscorlib">
     <value>28</value>
   </data>
-  <data name="&gt;&gt;bnCancel.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
   <data name="uCtrlOptMaximumSpace.Value" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAFN0cmVlRGlNLlN0YWNrQnVpbGRlci5CYXNpY3MsIFZlcnNpb249
-        My4wLjAuNDAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49bnVsbAUBAAAAJXRyZWVEaU0u
+        My4wLjAuNTgsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49bnVsbAUBAAAAJXRyZWVEaU0u
         U3RhY2tCdWlsZGVyLkJhc2ljcy5PcHREb3VibGUCAAAACl9hY3RpdmF0ZWQEX3ZhbAAAAQYCAAAAAAAA
         AAAAAAAACw==
 </value>
@@ -272,8 +260,11 @@
   <data name="&gt;&gt;tabCtrlConstraints.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="tabCtrlConstraints.Size" type="System.Drawing.Size, System.Drawing">
-    <value>468, 110</value>
+  <data name="&gt;&gt;uCtrlMaximumHeight.Type" xml:space="preserve">
+    <value>treeDiM.StackBuilder.Basics.UCtrlDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.58, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="tabPageStopCriterions.Size" type="System.Drawing.Size, System.Drawing">
+    <value>460, 84</value>
   </data>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>6, 13</value>
@@ -285,7 +276,10 @@
     <value>4</value>
   </data>
   <data name="&gt;&gt;uCtrlOptMaximumWeight.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlOptDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.40, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Basics.UCtrlOptDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.58, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;lbName.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="&gt;&gt;checkBoxBestLayersOnly.Type" xml:space="preserve">
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -293,8 +287,11 @@
   <data name="&gt;&gt;uCtrlOptMaximumSpace.Parent" xml:space="preserve">
     <value>tabPageLayerFilters</value>
   </data>
-  <data name="&gt;&gt;tabPageLayerFilters.Parent" xml:space="preserve">
-    <value>tabCtrlConstraints</value>
+  <data name="&gt;&gt;lbSelect.Name" xml:space="preserve">
+    <value>lbSelect</value>
+  </data>
+  <data name="&gt;&gt;uCtrlMaximumHeight.Parent" xml:space="preserve">
+    <value>tabPageStopCriterions</value>
   </data>
   <data name="&gt;&gt;tabPageStopCriterions.Parent" xml:space="preserve">
     <value>tabCtrlConstraints</value>
@@ -323,8 +320,14 @@
   <data name="&gt;&gt;uCtrlOptMaximumSpace.Name" xml:space="preserve">
     <value>uCtrlOptMaximumSpace</value>
   </data>
+  <data name="&gt;&gt;uCtrlMaximumHeight.Name" xml:space="preserve">
+    <value>uCtrlMaximumHeight</value>
+  </data>
   <data name="tbDescription.Size" type="System.Drawing.Size, System.Drawing">
     <value>587, 20</value>
+  </data>
+  <data name="&gt;&gt;bnBestCombination.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="&gt;&gt;tbName.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -344,14 +347,11 @@
   <data name="&gt;&gt;tabPageSpaces.Name" xml:space="preserve">
     <value>tabPageSpaces</value>
   </data>
+  <data name="&gt;&gt;tbName.Name" xml:space="preserve">
+    <value>tbName</value>
+  </data>
   <data name="&gt;&gt;cbPallets.Name" xml:space="preserve">
     <value>cbPallets</value>
-  </data>
-  <data name="&gt;&gt;checkBoxBestLayersOnly.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="tabPageOverhang.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>FormNewAnalysisCasePallet</value>
@@ -360,13 +360,13 @@
     <value>2</value>
   </data>
   <data name="&gt;&gt;uCtrlOptMaximumSpace.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlOptDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.40, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Basics.UCtrlOptDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.58, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;tbName.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="uCtrlMaximumHeight.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>100, 20</value>
+  <data name="uCtrlLayerList.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 227</value>
   </data>
   <data name="&gt;&gt;lbBox.ZOrder" xml:space="preserve">
     <value>9</value>
@@ -374,7 +374,7 @@
   <data name="uCtrlOptMaximumWeight.Value" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAFN0cmVlRGlNLlN0YWNrQnVpbGRlci5CYXNpY3MsIFZlcnNpb249
-        My4wLjAuNDAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49bnVsbAUBAAAAJXRyZWVEaU0u
+        My4wLjAuNTgsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49bnVsbAUBAAAAJXRyZWVEaU0u
         U3RhY2tCdWlsZGVyLkJhc2ljcy5PcHREb3VibGUCAAAACl9hY3RpdmF0ZWQEX3ZhbAAAAQYCAAAAAAAA
         AAAAAAAACw==
 </value>
@@ -385,14 +385,14 @@
   <data name="&gt;&gt;tabPageOverhang.Name" xml:space="preserve">
     <value>tabPageOverhang</value>
   </data>
+  <data name="&gt;&gt;tabPageOverhang.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;uCtrlLayerList.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;lbSelect.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="uCtrlOptMaximumWeight.Text" xml:space="preserve">
-    <value>Maximum pallet weight</value>
+  <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>800, 600</value>
   </data>
   <data name="lbBox.Text" xml:space="preserve">
     <value>Case</value>
@@ -400,17 +400,11 @@
   <data name="&gt;&gt;tabPageSpaces.Parent" xml:space="preserve">
     <value>tabCtrlConstraints</value>
   </data>
-  <data name="uCtrlOptMaximumLayerWeight.Text" xml:space="preserve">
-    <value>Maximum layer weight</value>
-  </data>
   <data name="uCtrlOverhang.Size" type="System.Drawing.Size, System.Drawing">
     <value>283, 22</value>
   </data>
   <data name="lbBox.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
-  </data>
-  <data name="lbPallet.Size" type="System.Drawing.Size, System.Drawing">
-    <value>33, 13</value>
   </data>
   <data name="&gt;&gt;lbDescription.ZOrder" xml:space="preserve">
     <value>12</value>
@@ -430,26 +424,23 @@
   <data name="tabPageStopCriterions.Text" xml:space="preserve">
     <value>Stop criterions</value>
   </data>
-  <data name="&gt;&gt;tabPageOverhang.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="checkBoxBestLayersOnly.Location" type="System.Drawing.Point, System.Drawing">
+    <value>5, 516</value>
   </data>
   <data name="uCtrlOptMaximumLayerWeight.Size" type="System.Drawing.Size, System.Drawing">
     <value>268, 20</value>
   </data>
   <data name="&gt;&gt;uCtrlOptSpace.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlOptDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.40, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Basics.UCtrlOptDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.58, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="lbSelect.Size" type="System.Drawing.Size, System.Drawing">
     <value>216, 13</value>
   </data>
-  <data name="&gt;&gt;lbPallet.Name" xml:space="preserve">
-    <value>lbPallet</value>
-  </data>
   <data name="tabPageLayerFilters.Size" type="System.Drawing.Size, System.Drawing">
     <value>460, 84</value>
   </data>
-  <data name="checkBoxBestLayersOnly.Location" type="System.Drawing.Point, System.Drawing">
-    <value>5, 516</value>
+  <data name="uCtrlOptMaximumWeight.Text" xml:space="preserve">
+    <value>Maximum pallet weight</value>
   </data>
   <data name="&gt;&gt;lbBox.Name" xml:space="preserve">
     <value>lbBox</value>
@@ -462,6 +453,9 @@
   </data>
   <data name="tabPageStopCriterions.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 3, 3, 3</value>
+  </data>
+  <data name="uCtrlOptSpace.Size" type="System.Drawing.Size, System.Drawing">
+    <value>220, 20</value>
   </data>
   <data name="uCtrlOptSpace.MinimumSize" type="System.Drawing.Size, System.Drawing">
     <value>200, 20</value>
@@ -490,8 +484,8 @@
   <data name="&gt;&gt;cbPallets.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
-  <data name="tabPageOverhang.Text" xml:space="preserve">
-    <value>Overhang</value>
+  <data name="tabPageLayerFilters.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
   </data>
   <data name="&gt;&gt;tabCtrlConstraints.Type" xml:space="preserve">
     <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -514,7 +508,7 @@
   <data name="uCtrlOptMaximumLayerWeight.Value" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAFN0cmVlRGlNLlN0YWNrQnVpbGRlci5CYXNpY3MsIFZlcnNpb249
-        My4wLjAuNDAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49bnVsbAUBAAAAJXRyZWVEaU0u
+        My4wLjAuNTgsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49bnVsbAUBAAAAJXRyZWVEaU0u
         U3RhY2tCdWlsZGVyLkJhc2ljcy5PcHREb3VibGUCAAAACl9hY3RpdmF0ZWQEX3ZhbAAAAQYCAAAAAAAA
         AAAAAAAACw==
 </value>
@@ -537,8 +531,14 @@
   <data name="checkBoxBestLayersOnly.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="&gt;&gt;lbDescription.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="lbBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>31, 13</value>
+  </data>
+  <data name="uCtrlMaximumHeight.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>100, 20</value>
   </data>
   <data name="bnBestCombination.Text" xml:space="preserve">
     <value>Show best combinations &gt;</value>
@@ -568,7 +568,7 @@
     <value>460, 84</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Desktop.FormNewAnalysis, treeDiM.StackBuilder.Desktop, Version=3.0.0.40, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Desktop.FormNewAnalysis, treeDiM.StackBuilder.Desktop, Version=3.0.0.58, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="cbCases.Size" type="System.Drawing.Size, System.Drawing">
     <value>145, 21</value>
@@ -600,11 +600,14 @@
   <data name="&gt;&gt;uCtrlOptMaximumWeight.Name" xml:space="preserve">
     <value>uCtrlOptMaximumWeight</value>
   </data>
-  <data name="&gt;&gt;lbSelect.Name" xml:space="preserve">
-    <value>lbSelect</value>
+  <data name="lbSelect.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
-  <data name="&gt;&gt;tbName.Name" xml:space="preserve">
-    <value>tbName</value>
+  <data name="uCtrlLayerList.TabIndex" type="System.Int32, mscorlib">
+    <value>24</value>
+  </data>
+  <data name="tabCtrlConstraints.Size" type="System.Drawing.Size, System.Drawing">
+    <value>468, 110</value>
   </data>
   <data name="uCtrlMaximumHeight.Size" type="System.Drawing.Size, System.Drawing">
     <value>349, 20</value>
@@ -612,23 +615,23 @@
   <data name="lbBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>5, 68</value>
   </data>
-  <data name="&gt;&gt;bnCancel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;uCtrlOverhang.Name" xml:space="preserve">
     <value>uCtrlOverhang</value>
   </data>
-  <data name="&gt;&gt;uCtrlMaximumHeight.Parent" xml:space="preserve">
-    <value>tabPageStopCriterions</value>
+  <data name="tabPageOverhang.Text" xml:space="preserve">
+    <value>Overhang</value>
   </data>
-  <data name="&gt;&gt;cbCases.Parent" xml:space="preserve">
+  <data name="&gt;&gt;tabPageOverhang.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;lbDescription.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;uCtrlOverhang.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="lbPallet.TabIndex" type="System.Int32, mscorlib">
+    <value>18</value>
   </data>
   <data name="&gt;&gt;uCtrlOptMaximumLayerWeight.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlOptDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.40, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Basics.UCtrlOptDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.58, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="uCtrlCaseOrientation.Size" type="System.Drawing.Size, System.Drawing">
     <value>292, 110</value>
@@ -637,13 +640,13 @@
     <value>4, 22</value>
   </data>
   <data name="&gt;&gt;uCtrlLayerList.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Graphics.UCtrlLayerList, treeDiM.StackBuilder.Graphics, Version=3.0.0.40, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Graphics.UCtrlLayerList, treeDiM.StackBuilder.Graphics, Version=3.0.0.58, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="&gt;&gt;uCtrlMaximumHeight.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.40, Culture=neutral, PublicKeyToken=null</value>
+  <data name="&gt;&gt;checkBoxBestLayersOnly.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
-  <data name="uCtrlOptSpace.Size" type="System.Drawing.Size, System.Drawing">
-    <value>220, 20</value>
+  <data name="tabPageOverhang.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>784, 561</value>
@@ -651,11 +654,11 @@
   <data name="uCtrlCaseOrientation.Location" type="System.Drawing.Point, System.Drawing">
     <value>5, 92</value>
   </data>
-  <data name="&gt;&gt;tabPageOverhang.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="uCtrlMaximumHeight.TabIndex" type="System.Int32, mscorlib">
+    <value>23</value>
   </data>
-  <data name="tabPageStopCriterions.Size" type="System.Drawing.Size, System.Drawing">
-    <value>460, 84</value>
+  <data name="&gt;&gt;bnCancel.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="lbPallet.Location" type="System.Drawing.Point, System.Drawing">
     <value>307, 68</value>
@@ -663,14 +666,14 @@
   <data name="&gt;&gt;tabPageStopCriterions.Type" xml:space="preserve">
     <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;lbName.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;bnCancel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="uCtrlLayerList.TabIndex" type="System.Int32, mscorlib">
-    <value>24</value>
+  <data name="uCtrlOptMaximumLayerWeight.Text" xml:space="preserve">
+    <value>Maximum layer weight</value>
   </data>
-  <data name="&gt;&gt;lbDescription.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="lbSelect.Location" type="System.Drawing.Point, System.Drawing">
+    <value>5, 209</value>
   </data>
   <data name="tabPageStopCriterions.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -693,19 +696,19 @@
   <data name="&gt;&gt;tabPageLayerFilters.Type" xml:space="preserve">
     <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;lbDescription.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;lbPallet.Name" xml:space="preserve">
+    <value>lbPallet</value>
   </data>
   <data name="uCtrlOptMaximumSpace.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
   <data name="&gt;&gt;cbCases.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered, treeDiM.StackBuilder.Graphics, Version=3.0.0.40, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered, treeDiM.StackBuilder.Graphics, Version=3.0.0.58, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="uCtrlOptSpace.Value" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAFN0cmVlRGlNLlN0YWNrQnVpbGRlci5CYXNpY3MsIFZlcnNpb249
-        My4wLjAuNDAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49bnVsbAUBAAAAJXRyZWVEaU0u
+        My4wLjAuNTgsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49bnVsbAUBAAAAJXRyZWVEaU0u
         U3RhY2tCdWlsZGVyLkJhc2ljcy5PcHREb3VibGUCAAAACl9hY3RpdmF0ZWQEX3ZhbAAAAQYCAAAAAAAA
         AAAAAAAACw==
 </value>
@@ -722,13 +725,13 @@
   <data name="&gt;&gt;lbPallet.ZOrder" xml:space="preserve">
     <value>8</value>
   </data>
-  <data name="&gt;&gt;uCtrlMaximumHeight.Name" xml:space="preserve">
-    <value>uCtrlMaximumHeight</value>
+  <data name="&gt;&gt;lbSelect.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
-  <data name="tabPageLayerFilters.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 22</value>
+  <data name="&gt;&gt;cbCases.ZOrder" xml:space="preserve">
+    <value>7</value>
   </data>
-  <data name="&gt;&gt;bnBestCombination.Parent" xml:space="preserve">
+  <data name="&gt;&gt;cbCases.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="lbPallet.Text" xml:space="preserve">
@@ -752,13 +755,7 @@
   <data name="&gt;&gt;bnBestCombination.Name" xml:space="preserve">
     <value>bnBestCombination</value>
   </data>
-  <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>800, 600</value>
-  </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
-  </metadata>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>fr</value>
   </metadata>
 </root>

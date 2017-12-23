@@ -285,6 +285,12 @@
     <Compile Include="FormNewAnalysis.Designer.cs">
       <DependentUpon>FormNewAnalysis.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormNewAnalysisCasePalletDM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNewAnalysisCasePalletDM.Designer.cs">
+      <DependentUpon>FormNewAnalysisCasePalletDM.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormNewAnalysisCaseTruck.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1014,6 +1020,9 @@
     <EmbeddedResource Include="FormNewAnalysisCasePallet.sv.resx">
       <DependentUpon>FormNewAnalysisCasePallet.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisCasePalletDM.resx">
+      <DependentUpon>FormNewAnalysisCasePalletDM.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewAnalysisCaseTruck.de.resx">
       <DependentUpon>FormNewAnalysisCaseTruck.cs</DependentUpon>
     </EmbeddedResource>
@@ -1155,9 +1164,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewBase.sv.resx">
       <DependentUpon>FormNewBase.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormNewBox.fr-FR.resx">
-      <DependentUpon>FormNewBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewBox.resx">
       <SubType>Designer</SubType>

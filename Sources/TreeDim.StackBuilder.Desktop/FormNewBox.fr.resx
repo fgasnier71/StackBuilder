@@ -479,12 +479,6 @@
   <data name="chkAllFaces.Text" xml:space="preserve">
     <value>Toutes les faces sont de la même couleur</value>
   </data>
-  <data name="gbWeight.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 262</value>
-  </data>
-  <data name="gbWeight.Size" type="System.Drawing.Size, System.Drawing">
-    <value>354, 93</value>
-  </data>
   <data name="gbWeight.Text" xml:space="preserve">
     <value>Poids</value>
   </data>

@@ -142,7 +142,7 @@
             this.uCtrlTrayHeight.Name = "uCtrlTrayHeight";
             this.uCtrlTrayHeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlTrayHeight.Value = 0D;
-            this.uCtrlTrayHeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.ValueChangedDelegate(this.onDataChanged);
+            this.uCtrlTrayHeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.ValueChangedDelegate(this.OnDataChanged);
             // 
             // lbWrapperColor
             // 
@@ -199,7 +199,7 @@
             resources.GetString("cbColor.Items37"),
             resources.GetString("cbColor.Items38")});
             this.cbColor.Name = "cbColor";
-            this.cbColor.SelectedColorChanged += new System.EventHandler(this.onDataChanged);
+            this.cbColor.SelectedColorChanged += new System.EventHandler(this.OnDataChanged);
             // 
             // cbWrapperType
             // 
@@ -212,7 +212,7 @@
             resources.GetString("cbWrapperType.Items2"),
             resources.GetString("cbWrapperType.Items3")});
             this.cbWrapperType.Name = "cbWrapperType";
-            this.cbWrapperType.SelectedIndexChanged += new System.EventHandler(this.onWrapperTypeChanged);
+            this.cbWrapperType.SelectedIndexChanged += new System.EventHandler(this.OnWrapperTypeChanged);
             // 
             // label1
             // 
@@ -230,7 +230,7 @@
             this.uCtrlSurfacicMass.Name = "uCtrlSurfacicMass";
             this.uCtrlSurfacicMass.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_SURFACEMASS;
             this.uCtrlSurfacicMass.Value = 0D;
-            this.uCtrlSurfacicMass.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.ValueChangedDelegate(this.onDataChanged);
+            this.uCtrlSurfacicMass.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.ValueChangedDelegate(this.OnDataChanged);
             // 
             // uCtrlWallThickness
             // 
@@ -243,7 +243,7 @@
             this.uCtrlWallThickness.Name = "uCtrlWallThickness";
             this.uCtrlWallThickness.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlWallThickness.Value = 0D;
-            this.uCtrlWallThickness.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.ValueChangedDelegate(this.onDataChanged);
+            this.uCtrlWallThickness.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.ValueChangedDelegate(this.OnDataChanged);
             // 
             // uCtrlNoWalls
             // 
@@ -252,7 +252,7 @@
             this.uCtrlNoWalls.NoX = 1;
             this.uCtrlNoWalls.NoY = 1;
             this.uCtrlNoWalls.NoZ = 1;
-            this.uCtrlNoWalls.ValueChanged += new treeDiM.StackBuilder.Basics.Controls.UCtrlTriInt.ValueChangedDelegate(this.onDataChanged);
+            this.uCtrlNoWalls.ValueChanged += new treeDiM.StackBuilder.Basics.Controls.UCtrlTriInt.ValueChangedDelegate(this.OnDataChanged);
             // 
             // gbPallet
             // 
@@ -271,7 +271,7 @@
             this.cbPallets.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbPallets.FormattingEnabled = true;
             this.cbPallets.Name = "cbPallets";
-            this.cbPallets.SelectedIndexChanged += new System.EventHandler(this.onPalletChanged);
+            this.cbPallets.SelectedIndexChanged += new System.EventHandler(this.OnPalletChanged);
             // 
             // uCtrlOverhang
             // 
@@ -281,7 +281,7 @@
             this.uCtrlOverhang.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlOverhang.ValueX = 0D;
             this.uCtrlOverhang.ValueY = 0D;
-            this.uCtrlOverhang.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDualDouble.ValueChangedDelegate(this.onDataChanged);
+            this.uCtrlOverhang.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDualDouble.ValueChangedDelegate(this.OnDataChanged);
             // 
             // uCtrlPalletHeight
             // 
@@ -294,7 +294,7 @@
             this.uCtrlPalletHeight.Name = "uCtrlPalletHeight";
             this.uCtrlPalletHeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlPalletHeight.Value = 0D;
-            this.uCtrlPalletHeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.ValueChangedDelegate(this.onDataChanged);
+            this.uCtrlPalletHeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.ValueChangedDelegate(this.OnDataChanged);
             // 
             // lbPalletDimensions
             // 
@@ -340,7 +340,7 @@
             this.uCtrlPackDimensionsMax.ValueX = 0D;
             this.uCtrlPackDimensionsMax.ValueY = 0D;
             this.uCtrlPackDimensionsMax.ValueZ = 0D;
-            this.uCtrlPackDimensionsMax.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlTriDouble.ValueChangedDelegate(this.onDataChanged);
+            this.uCtrlPackDimensionsMax.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlTriDouble.ValueChangedDelegate(this.OnDataChanged);
             // 
             // uCtrlPackDimensionsMin
             // 
@@ -355,21 +355,21 @@
             this.uCtrlPackDimensionsMin.ValueX = 0D;
             this.uCtrlPackDimensionsMin.ValueY = 0D;
             this.uCtrlPackDimensionsMin.ValueZ = 0D;
-            this.uCtrlPackDimensionsMin.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlTriDouble.ValueChangedDelegate(this.onDataChanged);
+            this.uCtrlPackDimensionsMin.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlTriDouble.ValueChangedDelegate(this.OnDataChanged);
             // 
             // btSetMaximum
             // 
             resources.ApplyResources(this.btSetMaximum, "btSetMaximum");
             this.btSetMaximum.Name = "btSetMaximum";
             this.btSetMaximum.UseVisualStyleBackColor = true;
-            this.btSetMaximum.Click += new System.EventHandler(this.onPalletChanged);
+            this.btSetMaximum.Click += new System.EventHandler(this.OnPalletChanged);
             // 
             // btSetMinimum
             // 
             resources.ApplyResources(this.btSetMinimum, "btSetMinimum");
             this.btSetMinimum.Name = "btSetMinimum";
             this.btSetMinimum.UseVisualStyleBackColor = true;
-            this.btSetMinimum.Click += new System.EventHandler(this.onBoxChanged);
+            this.btSetMinimum.Click += new System.EventHandler(this.OnBoxChanged);
             // 
             // groupBox
             // 
@@ -389,14 +389,14 @@
             this.cbBoxes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbBoxes.FormattingEnabled = true;
             this.cbBoxes.Name = "cbBoxes";
-            this.cbBoxes.SelectedIndexChanged += new System.EventHandler(this.onBoxChanged);
+            this.cbBoxes.SelectedIndexChanged += new System.EventHandler(this.OnBoxChanged);
             // 
             // chkVerticalOrientationOnly
             // 
             resources.ApplyResources(this.chkVerticalOrientationOnly, "chkVerticalOrientationOnly");
             this.chkVerticalOrientationOnly.Name = "chkVerticalOrientationOnly";
             this.chkVerticalOrientationOnly.UseVisualStyleBackColor = true;
-            this.chkVerticalOrientationOnly.CheckedChanged += new System.EventHandler(this.onDataChanged);
+            this.chkVerticalOrientationOnly.CheckedChanged += new System.EventHandler(this.OnDataChanged);
             // 
             // nudNumber
             // 
@@ -417,7 +417,7 @@
             0,
             0,
             0});
-            this.nudNumber.ValueChanged += new System.EventHandler(this.onDataChanged);
+            this.nudNumber.ValueChanged += new System.EventHandler(this.OnDataChanged);
             // 
             // lbNumber
             // 
@@ -471,7 +471,7 @@
             resources.ApplyResources(this.bnCreateAnalysis, "bnCreateAnalysis");
             this.bnCreateAnalysis.Name = "bnCreateAnalysis";
             this.bnCreateAnalysis.UseVisualStyleBackColor = true;
-            this.bnCreateAnalysis.Click += new System.EventHandler(this.onCreateAnalysis);
+            this.bnCreateAnalysis.Click += new System.EventHandler(this.OnCreateAnalysis);
             // 
             // statusStrip
             // 
@@ -489,7 +489,7 @@
             // _timer
             // 
             this._timer.Interval = 50;
-            this._timer.Tick += new System.EventHandler(this.onTimerTick);
+            this._timer.Tick += new System.EventHandler(this.OnTimerTick);
             // 
             // FormOptimizePack
             // 
