@@ -108,7 +108,7 @@ namespace log4net.Appender
                 {
                     if (_containerForm != null)
                     {
-                        _containerForm.FormClosed -= new FormClosedEventHandler(containerForm_FormClosed);
+                        _containerForm.FormClosed -= new FormClosedEventHandler(ContainerForm_FormClosed);
                         _containerForm = null;
                     }
 
@@ -118,7 +118,7 @@ namespace log4net.Appender
                         value.HideSelection = false;
 
                         _containerForm = value.FindForm();
-                        _containerForm.FormClosed += new FormClosedEventHandler(containerForm_FormClosed);
+                        _containerForm.FormClosed += new FormClosedEventHandler(ContainerForm_FormClosed);
                     }
 
                     _richtextBox = value;
@@ -269,7 +269,7 @@ namespace log4net.Appender
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void containerForm_FormClosed(object sender, FormClosedEventArgs e)
+        private void ContainerForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             RichTextBox = null;
         }
@@ -282,7 +282,7 @@ namespace log4net.Appender
             base.OnClose();
             if (_containerForm != null)
             {
-                _containerForm.FormClosed -= new FormClosedEventHandler(containerForm_FormClosed);
+                _containerForm.FormClosed -= new FormClosedEventHandler(ContainerForm_FormClosed);
                 _containerForm = null;
             }
         }

@@ -13,8 +13,9 @@ namespace treeDiM.StackBuilder.Basics
         public AnalysisCasePallet(
             Packable packable, 
             PalletProperties palletProperties,
-            ConstraintSetCasePallet constraintSet)
-            : base(packable, palletProperties, constraintSet)
+            ConstraintSetCasePallet constraintSet,
+            bool temporary = false)
+            : base(packable, palletProperties, constraintSet, temporary)
         {
         }
 
@@ -26,7 +27,8 @@ namespace treeDiM.StackBuilder.Basics
                 if (_palletCornerProperties == value) return;
                 _palletCornerProperties?.RemoveDependancy(this);
                 _palletCornerProperties = value;
-                if (null != _palletCornerProperties && !Temporary) _palletCornerProperties.AddDependancy(this);
+                if (!Temporary && null != ParentDocument)
+                    _palletCornerProperties?.AddDependancy(this);
             }
         }
         public PalletCapProperties PalletCapProperties
@@ -37,7 +39,8 @@ namespace treeDiM.StackBuilder.Basics
                 if (_palletCapProperties == value) return;
                 _palletCapProperties?.RemoveDependancy(this);
                 _palletCapProperties = value;
-                if (null != _palletCapProperties && !Temporary) _palletCapProperties.AddDependancy(this);
+                if (!Temporary && null != ParentDocument)
+                    _palletCapProperties?.AddDependancy(this);
             }
         }
         public PalletFilmProperties PalletFilmProperties
@@ -48,7 +51,8 @@ namespace treeDiM.StackBuilder.Basics
                 if (_palletFilmProperties == value) return;
                 _palletFilmProperties?.RemoveDependancy(this);
                 _palletFilmProperties = value;
-                if (null != _palletFilmProperties && !Temporary) _palletFilmProperties.AddDependancy(this);
+                if (!Temporary && null != ParentDocument)
+                    _palletFilmProperties?.AddDependancy(this);
             }
         }
         public bool HasPalletCorners => null != _palletCornerProperties;

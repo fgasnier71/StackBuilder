@@ -15,7 +15,8 @@ namespace treeDiM.StackBuilder.Basics
                 if (_palletProperties == value) return;
                 if (null != _palletProperties) _palletProperties.RemoveDependancy(this);
                 _palletProperties = value;
-                _palletProperties.AddDependancy(this);
+                if (null != ParentDocument)
+                    _palletProperties?.AddDependancy(this);
             }
         }
 
@@ -25,7 +26,9 @@ namespace treeDiM.StackBuilder.Basics
             get
             {
                 ConstraintSetPackablePallet constraintSet = ConstraintSet as ConstraintSetPackablePallet;
-                return new Vector2D(_palletProperties.Length + 2.0 * constraintSet.Overhang.X, _palletProperties.Width + 2.0 * constraintSet.Overhang.Y);
+                return new Vector2D(
+                    _palletProperties.Length + 2.0 * constraintSet.Overhang.X,
+                    _palletProperties.Width + 2.0 * constraintSet.Overhang.Y);
             }
         }
         public override double ContainerLoadingVolume
@@ -33,7 +36,9 @@ namespace treeDiM.StackBuilder.Basics
             get
             {
                 ConstraintSetPackablePallet constraintSet = ConstraintSet as ConstraintSetPackablePallet;
-                return (_palletProperties.Length + 2.0 * constraintSet.Overhang.X) * (_palletProperties.Width + 2.0 * constraintSet.Overhang.Y) * (constraintSet.OptMaxHeight.Value);
+                return (_palletProperties.Length + 2.0 * constraintSet.Overhang.X)
+                    * (_palletProperties.Width + 2.0 * constraintSet.Overhang.Y)
+                    * (constraintSet.OptMaxHeight.Value - _palletProperties.Height);
             }
         }
         public override Vector3D Offset
@@ -72,12 +77,14 @@ namespace treeDiM.StackBuilder.Basics
         protected AnalysisPackablePallet(
             Packable packable,
             PalletProperties palletProperties,
-            ConstraintSetAbstract constraintSet)
-            : base(packable.ParentDocument, packable)
+            ConstraintSetAbstract constraintSet,
+            bool temporary = false)
+            : base(temporary ? null : packable.ParentDocument, packable)
         {
             // sanity checks
-            if (null != packable.ParentDocument)
-                if (palletProperties.ParentDocument != ParentDocument)
+            if ( null != ParentDocument
+                && (null != packable.ParentDocument)
+                && (palletProperties.ParentDocument != ParentDocument))
                     throw new Exception("box & pallet do not belong to the same document");
             PalletProperties = palletProperties;
             ConstraintSet = constraintSet;

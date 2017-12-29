@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.uCtrlDistAbove = new treeDiM.StackBuilder.Basics.UCtrlDouble();
+            this.chkbDummyMode = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // uCtrlDistAbove
@@ -47,21 +48,36 @@
             this.uCtrlDistAbove.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlDistAbove.Value = 0D;
             // 
+            // chkbDummyMode
+            // 
+            this.chkbDummyMode.AutoSize = true;
+            this.chkbDummyMode.Checked = global::treeDiM.StackBuilder.Desktop.Properties.Settings.Default.DummyMode;
+            this.chkbDummyMode.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::treeDiM.StackBuilder.Desktop.Properties.Settings.Default, "DummyMode", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.chkbDummyMode.Location = new System.Drawing.Point(4, 30);
+            this.chkbDummyMode.Name = "chkbDummyMode";
+            this.chkbDummyMode.Size = new System.Drawing.Size(262, 17);
+            this.chkbDummyMode.TabIndex = 1;
+            this.chkbDummyMode.Text = "Use dummy mode for pallet/case analysis creation";
+            this.chkbDummyMode.UseVisualStyleBackColor = true;
+            // 
             // OptionPanelPalletEdition
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CategoryPath = "Options\\\\Pallet edition";
+            this.Controls.Add(this.chkbDummyMode);
             this.Controls.Add(this.uCtrlDistAbove);
             this.DisplayName = "Pallet edition parameters";
             this.Location = new System.Drawing.Point(0, 0);
             this.Name = "OptionPanelPalletEdition";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         private Basics.UCtrlDouble uCtrlDistAbove;
+        private System.Windows.Forms.CheckBox chkbDummyMode;
     }
 }

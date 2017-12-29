@@ -18,7 +18,8 @@ namespace treeDiM.StackBuilder.Basics
                 if (value == _packable) return;
                 _packable?.RemoveDependancy(this);
                 _packable = value;
-                _packable?.AddDependancy(this);
+                if (null != ParentDocument)
+                    _packable?.AddDependancy(this);
             }
         }
         public virtual Vector3D ContentDimensions       => _packable.OuterDimensions;
@@ -54,7 +55,8 @@ namespace treeDiM.StackBuilder.Basics
         public void AddInterlayer(InterlayerProperties interlayer)
         {
             _interlayers.Add(interlayer);
-            interlayer.AddDependancy(this);
+            if (null != ParentDocument)
+                interlayer?.AddDependancy(this);
         }
 
         public abstract BBox3D BBoxLoadWDeco(BBox3D loadBBox);

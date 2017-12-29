@@ -212,7 +212,8 @@
     <value>..\Resources\Interlayer.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ID_PALLETWEIGHT" xml:space="preserve">
-    <value>Pallet weight ({0})</value>
+    <value>Pallet weight
+({0})</value>
   </data>
   <data name="ID_ADDNEWECTANALYSIS" xml:space="preserve">
     <value>Add new ECT analysis...</value>
@@ -371,7 +372,8 @@ Continue?</value>
     <value>Bundle</value>
   </data>
   <data name="ID_PALLETHEIGHT" xml:space="preserve">
-    <value>Pallet height ({0})</value>
+    <value>Pallet height
+({0})</value>
   </data>
   <data name="ID_ADDNEWBUNDLEANALYSIS" xml:space="preserve">
     <value>Add new bundle analysis...</value>
@@ -835,5 +837,9 @@ Closing form...</value>
   </data>
   <data name="ID_OPTIONSPALLETEDITION" xml:space="preserve">
     <value>Options\\Pallet edition</value>
+  </data>
+  <data name="ID_CASECOUNTFORMATSTRING" xml:space="preserve">
+    <value>{0}
+{1}x{2}</value>
   </data>
 </root>

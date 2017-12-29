@@ -95,13 +95,11 @@
     <Compile Include="Solvers\HCylinderSolver.cs" />
     <Compile Include="Solvers\ISolver.cs" />
     <Compile Include="Solvers\PackOptimizer.cs" />
-    <Compile Include="LayerCyl.cs" />
     <Compile Include="LayerPatterns\LayerPatternCyl.cs" />
     <Compile Include="LayerPatterns\CylinderLayerPatternAligned.cs" />
     <Compile Include="LayerPatterns\CylinderLayerPatternStaggered.cs" />
     <Compile Include="Helpers\EngineException.cs" />
     <Compile Include="Helpers\Eratosthenes.cs" />
-    <Compile Include="Layer.cs" />
     <Compile Include="LayerPatterns\LayerPattern.cs" />
     <Compile Include="LayerPatterns\LayerPatternColumn.cs" />
     <Compile Include="LayerPatterns\LayerPatternDiagonale.cs" />

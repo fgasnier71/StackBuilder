@@ -208,9 +208,10 @@ namespace treeDiM.StackBuilder.Engine
             set
             {
                 if (value == _cylinderProperties) return;
-                if (null != _cylinderProperties) _cylinderProperties.RemoveDependancy(this);
+                _cylinderProperties?.RemoveDependancy(this);
                 _cylinderProperties = value;
-                _cylinderProperties.AddDependancy(this);
+                if (null != ParentDocument)
+                    _cylinderProperties?.AddDependancy(this);
             }
         }
         public PalletProperties PalletProperties
@@ -219,9 +220,10 @@ namespace treeDiM.StackBuilder.Engine
             set
             {
                 if (_palletProperties == value) return;
-                if (null != _palletProperties) _palletProperties.RemoveDependancy(this);
+                _palletProperties?.RemoveDependancy(this);
                 _palletProperties = value;
-                _palletProperties.AddDependancy(this);
+                if (null!= ParentDocument)
+                    _palletProperties?.AddDependancy(this);
             }
         }
         public HCylinderPalletConstraintSet ConstraintSet

@@ -1051,5 +1051,17 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
                 this["DistanceAboveSelectedLayer"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool DummyMode {
+            get {
+                return ((bool)(this["DummyMode"]));
+            }
+            set {
+                this["DummyMode"] = value;
+            }
+        }
     }
 }

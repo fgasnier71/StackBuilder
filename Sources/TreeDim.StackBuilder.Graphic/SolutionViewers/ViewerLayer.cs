@@ -33,7 +33,7 @@ namespace treeDiM.StackBuilder.Graphics
         #endregion
 
         #region Public methods
-        public void Draw(Graphics2D graphics, Packable packable, double height, bool selected)
+        public void Draw(Graphics2D graphics, Packable packable, double height, bool selected, bool annotate)
         {
             graphics.NumberOfViews = 1;
             graphics.Clear(selected ? Color.LightBlue : Color.White);
@@ -78,9 +78,10 @@ namespace treeDiM.StackBuilder.Graphics
                 graphics.DrawLine(Vector2D.Zero, new Vector2D(0.0, _layer.Width), Color.Green);
             }
             // annotate thumbnail
-            Annotate(graphics.Graphics, graphics.Size, height);
+            if (annotate)
+                Annotate(graphics.Graphics, graphics.Size, height);
         }
-        public void Draw(Graphics3D graphics, Packable packable, double height, bool selected)
+        public void Draw(Graphics3D graphics, Packable packable, double height, bool selected, bool annotate)
         {
             graphics.BackgroundColor = selected ? Color.LightBlue : Color.White;
             graphics.CameraPosition = Graphics3D.Corner_0;
@@ -111,7 +112,8 @@ namespace treeDiM.StackBuilder.Graphics
             }
             graphics.Flush();
             // annotate thumbnail
-            Annotate(graphics.Graphics, graphics.Size, height);
+            if (annotate)
+                Annotate(graphics.Graphics, graphics.Size, height);
         }
         #endregion
 
@@ -129,9 +131,11 @@ namespace treeDiM.StackBuilder.Graphics
                 Font tfont = new Font("Arial", _fontSize);
                 Color brushColor = Color.White;
                 Color backgroundColor = Color.Black;
-                StringFormat sf = new StringFormat();
-                sf.Alignment = StringAlignment.Far;
-                sf.LineAlignment = StringAlignment.Far;
+                StringFormat sf = new StringFormat
+                {
+                    Alignment = StringAlignment.Far,
+                    LineAlignment = StringAlignment.Far
+                };
                 Size txtSize = g.MeasureString(annotation, tfont).ToSize();
                 g.FillRectangle(new SolidBrush(backgroundColor), new Rectangle(s.Width - txtSize.Width - 2, s.Height - txtSize.Height - 2, txtSize.Width + 2, txtSize.Height + 2));
                 g.DrawString(annotation, tfont, new SolidBrush(brushColor), new Point(s.Width - 3, s.Height - 3), sf);

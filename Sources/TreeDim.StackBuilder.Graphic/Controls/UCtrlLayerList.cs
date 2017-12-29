@@ -61,16 +61,14 @@ namespace treeDiM.StackBuilder.Graphics
                 case 3: ButtonSizes = new Size(200, 200); break;
                 default: break;
             }
-            onButtonSizeChange(null, null);
+            OnButtonSizeChange(null, null);
         }
         #endregion
 
         #region Public methods
         public bool SelectLayers(List<LayerDesc> layerDescs)
         {
-            if (null != LayerSelected)
-                LayerSelected(this, new EventArgs());
-
+            LayerSelected?.Invoke(this, new EventArgs());
             return true;
         }
         #endregion
@@ -133,7 +131,7 @@ namespace treeDiM.StackBuilder.Graphics
             set
             {
                 szButtons = value;
-                onButtonSizeChange(null, null);
+                OnButtonSizeChange(null, null);
                 Start();
             }
         }
@@ -144,8 +142,7 @@ namespace treeDiM.StackBuilder.Graphics
                 List<ILayer2D> layers = new List<ILayer2D>();
                 foreach (Control ctrl in this.Controls)
                 {
-                    Button button = ctrl as Button;
-                    if (null != button)
+                    if (ctrl is Button button)
                     {
                         LayerItem item = button.Tag as LayerItem;
                         if (item.Selected)
@@ -244,19 +241,9 @@ namespace treeDiM.StackBuilder.Graphics
 
         private Image TryGenerateLayerImage(ILayer2D layer, Size szButtons, bool selected)
         {
-            Image img = null;
-            try
-            {
-                img = LayerToImage.Draw(
+            return LayerToImage.DrawEx(
                     layer, _packable, _contHeight, szButtons, selected
-                    , Show3D ? LayerToImage.eGraphMode.GRAPH_3D : LayerToImage.eGraphMode.GRAPH_2D);
-            }
-            catch (Exception ex)
-            {
-                _log.Error(ex.ToString());
-                img = Properties.Resources.QuestionMark;
-            }
-            return img;
+                    , Show3D ? LayerToImage.EGraphMode.GRAPH_3D : LayerToImage.EGraphMode.GRAPH_2D, true);
         }
         #endregion
 
@@ -278,12 +265,12 @@ namespace treeDiM.StackBuilder.Graphics
         #endregion
 
         #region Context menu
-        private void onMouseDown(object sender, MouseEventArgs e)
+        private void OnMouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Right)
                 contextMenuStripMBR.Show(this, e.Location);
         }
-        private void onButtonSizeChange(object sender, EventArgs e)
+        private void OnButtonSizeChange(object sender, EventArgs e)
         {
             if (sender == toolStripMenuItemX75)
                 ButtonSizes = new Size(75, 75);
@@ -299,7 +286,7 @@ namespace treeDiM.StackBuilder.Graphics
             toolStripMenuItemX150.Checked = ButtonSizes.Height == 150;
             toolStripMenuItemX200.Checked = ButtonSizes.Height == 200;
         }
-        private void on3DClicked(object sender, EventArgs e)
+        private void On3DClicked(object sender, EventArgs e)
         {
             Show3D = !Show3D;
             toolStripMenuItem3D.Checked = Show3D;

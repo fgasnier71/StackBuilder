@@ -1,11 +1,8 @@
 ﻿#region Using directives
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 using log4net;
@@ -22,21 +19,12 @@ namespace treeDiM.StackBuilder.Desktop
 {
     public partial class FormNewAnalysisCasePallet : FormNewAnalysis, IItemBaseFilter
     {
-        #region Data members
-        static readonly ILog _log = LogManager.GetLogger(typeof(FormNewAnalysisCasePallet));
-        #endregion
-
         #region Constructor
         public FormNewAnalysisCasePallet(Document doc, Analysis analysis)
             : base(doc, analysis)
         {
             InitializeComponent();
         }
-        #endregion
-
-        #region FormNewBase overrides
-        public override string ItemDefaultName
-        {   get { return Resources.ID_ANALYSIS; } }
         #endregion
 
         #region Form override
@@ -68,15 +56,12 @@ namespace treeDiM.StackBuilder.Desktop
                 tbName.Text = AnalysisBase.Name;
                 tbDescription.Text = AnalysisBase.Description;
 
-                ConstraintSetAbstract constraintSet = AnalysisBase.ConstraintSet;
+                ConstraintSetCasePallet constraintSet = AnalysisBase.ConstraintSet as ConstraintSetCasePallet;
                 uCtrlCaseOrientation.AllowedOrientations = constraintSet.AllowedOrientations;
                 uCtrlMaximumHeight.Value = constraintSet.OptMaxHeight.Value;
                 uCtrlOptMaximumWeight.Value = constraintSet.OptMaxWeight;
-
-                ConstraintSetCasePallet constraintSetCasePallet = constraintSet as ConstraintSetCasePallet;
-
-                uCtrlOverhang.ValueX = constraintSetCasePallet.Overhang.X;
-                uCtrlOverhang.ValueY = constraintSetCasePallet.Overhang.Y;
+                uCtrlOverhang.ValueX = constraintSet.Overhang.X;
+                uCtrlOverhang.ValueY = constraintSet.Overhang.Y;
             }
             checkBoxBestLayersOnly.Checked = Settings.Default.KeepBestSolutions;
         }
@@ -96,6 +81,10 @@ namespace treeDiM.StackBuilder.Desktop
 
             Settings.Default.KeepBestSolutions = checkBoxBestLayersOnly.Checked;
         }
+        #endregion
+
+        #region FormNewBase overrides
+        public override string ItemDefaultName => Resources.ID_ANALYSIS;
         #endregion
 
         #region FormNewAnalysis override
@@ -279,6 +268,10 @@ namespace treeDiM.StackBuilder.Desktop
             constraintSet.OptMaxWeight = uCtrlOptMaximumWeight.Value;
             return constraintSet;
         }
+        #endregion
+
+        #region Data members
+        static readonly ILog _log = LogManager.GetLogger(typeof(FormNewAnalysisCasePallet));
         #endregion
     }
 }

@@ -22,11 +22,9 @@ namespace treeDiM.StackBuilder.Engine
             double boxLength = GetBoxLength(layer);
             double boxWidth = GetBoxWidth(layer);
 
-            int maxSizeXLength = 0, maxSizeXWidth = 0, maxSizeYLength = 0, maxSizeYWidth = 0;
-            int fillSizeXLength = 0, fillSizeYLength = 0, fillSizeXWidth = 0, fillSizeYWidth = 0;
             GetSizeXY(boxLength, boxWidth, palletLength, palletWidth
-                , out maxSizeXLength, out maxSizeYLength, out maxSizeXWidth, out maxSizeYWidth
-                , out fillSizeXLength, out fillSizeYLength, out fillSizeXWidth, out fillSizeYWidth);
+                , out int maxSizeXLength, out int maxSizeYLength, out int maxSizeXWidth, out int maxSizeYWidth
+                , out int fillSizeXLength, out int fillSizeYLength, out int fillSizeXWidth, out int fillSizeYWidth);
 
             double offsetX = 0.5 * (palletLength - actualLength);
             double offsetY = 0.5 * (palletWidth - actualWidth);
@@ -158,12 +156,9 @@ namespace treeDiM.StackBuilder.Engine
             double boxLength = GetBoxLength(layer);
             double boxWidth = GetBoxWidth(layer);
 
-            int maxSizeXLength = 0, maxSizeXWidth = 0, maxSizeYLength = 0, maxSizeYWidth = 0;
-            int fillSizeXLength = 0, fillSizeYLength = 0, fillSizeXWidth = 0, fillSizeYWidth = 0;
-
             GetSizeXY(boxLength, boxWidth, palletLength, palletWidth
-                , out maxSizeXLength, out maxSizeYLength, out maxSizeXWidth, out maxSizeYWidth
-                , out fillSizeXLength, out fillSizeYLength, out fillSizeXWidth, out fillSizeYWidth);
+                , out int maxSizeXLength, out int maxSizeYLength, out int maxSizeXWidth, out int maxSizeYWidth
+                , out int fillSizeXLength, out int fillSizeYLength, out int fillSizeXWidth, out int fillSizeYWidth);
 
             actualLength = Math.Max(maxSizeXLength * boxLength, fillSizeXLength * boxWidth) + Math.Max(maxSizeXWidth * boxWidth, fillSizeXWidth * boxLength);
             actualWidth = Math.Max(maxSizeYLength * boxWidth + fillSizeYLength * boxLength, maxSizeYWidth * boxLength + fillSizeYWidth * boxWidth);

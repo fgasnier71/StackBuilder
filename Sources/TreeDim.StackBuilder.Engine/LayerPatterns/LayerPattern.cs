@@ -17,9 +17,9 @@ namespace treeDiM.StackBuilder.Engine
         public bool GetLayerDimensionsChecked(ILayer2D layer, out double actualLength, out double actualWidth)
         {
             bool result = GetLayerDimensions(layer, out actualLength, out actualWidth);
-            if (actualLength > GetPalletLength(layer))
+            if (result && actualLength > GetPalletLength(layer))
                 throw new EngineException($"Pattern name={Name} : actualLength={actualLength} > palletLength={GetPalletLength(layer)} ?");
-            if (actualWidth > GetPalletWidth(layer))
+            if (result && actualWidth > GetPalletWidth(layer))
                 throw new EngineException($"Pattern name={Name} : actualWidth={actualWidth} > palletWidth={GetPalletWidth(layer)} ?");
             return result;
         }

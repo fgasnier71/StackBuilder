@@ -157,14 +157,14 @@
     <Compile Include="Helpers\ItemBaseNamed.cs" />
     <Compile Include="Helpers\Packable.cs" />
     <Compile Include="Helpers\CylinderPosition.cs" />
-    <Compile Include="Helpers\OptDouble.cs" />
+    <Compile Include="OptValue\OptDouble.cs" />
     <Compile Include="Controls\UCtrlOptDouble.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Controls\UCtrlOptDouble.Designer.cs">
       <DependentUpon>UCtrlOptDouble.cs</DependentUpon>
     </Compile>
-    <Compile Include="Helpers\OptInt.cs" />
+    <Compile Include="OptValue\OptInt.cs" />
     <Compile Include="Helpers\PackableBrick.cs" />
     <Compile Include="Helpers\PackableBrickNamed.cs" />
     <Compile Include="Helpers\PackableNamed.cs" />
@@ -200,6 +200,7 @@
     <Compile Include="Helpers\HalfAxis.cs" />
     <Compile Include="Containers\InterlayerProperties.cs" />
     <Compile Include="Helpers\ItemBase.cs" />
+    <Compile Include="Solutions\FastEvaluatorLayer2Pallet.cs" />
     <Compile Include="Solutions\Layer2D.cs" />
     <Compile Include="Solutions\Layer2DCyl.cs" />
     <Compile Include="Solutions\LayerPosition.cs" />

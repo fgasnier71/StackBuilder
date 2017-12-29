@@ -72,7 +72,7 @@ namespace treeDiM.StackBuilder.Graphics.Controls
                 Graphics3DImage graphics = new Graphics3DImage(imgSize);
                 using (ViewerILayer2D solViewer = new ViewerILayer2D(_layer))
                 {
-                    solViewer.Draw(graphics, packable, 0.0, selected);
+                    solViewer.Draw(graphics, packable, 0.0, selected, true);
                     _img = graphics.Bitmap;
                 }
             }
@@ -82,7 +82,7 @@ namespace treeDiM.StackBuilder.Graphics.Controls
                 Graphics2DImage graphics = new Graphics2DImage(imgSize);
                 using (ViewerILayer2D solViewer = new ViewerILayer2D(_layer))
                 {
-                    solViewer.Draw(graphics, packable, 0.0, selected);
+                    solViewer.Draw(graphics, packable, 0.0, selected, true);
                     _img = graphics.Bitmap;
                 }
             }

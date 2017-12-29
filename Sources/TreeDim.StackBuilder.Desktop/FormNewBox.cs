@@ -98,6 +98,8 @@ namespace treeDiM.StackBuilder.Desktop
                 _textures = new List<Pair<HalfAxis.HAxis, Texture>>();
                 // set default face
                 cbFace.SelectedIndex = 0;
+                // weight
+                Weight = UnitsManager.ConvertMassFrom(1.0, UnitsManager.UnitSystem.UNIT_METRIC1);
                 // net weight
                 NetWeight = new OptDouble(false, UnitsManager.ConvertMassFrom(0.0, UnitsManager.UnitSystem.UNIT_METRIC1));
                 // disable Ok button

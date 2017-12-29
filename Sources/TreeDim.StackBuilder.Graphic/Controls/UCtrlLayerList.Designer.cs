@@ -61,7 +61,7 @@
             this.toolStripMenuItem3D.Name = "toolStripMenuItem3D";
             this.toolStripMenuItem3D.Size = new System.Drawing.Size(152, 22);
             this.toolStripMenuItem3D.Text = "3D";
-            this.toolStripMenuItem3D.Click += new System.EventHandler(this.on3DClicked);
+            this.toolStripMenuItem3D.Click += new System.EventHandler(this.On3DClicked);
             // 
             // toolStripSeparator1
             // 
@@ -73,28 +73,28 @@
             this.toolStripMenuItemX75.Name = "toolStripMenuItemX75";
             this.toolStripMenuItemX75.Size = new System.Drawing.Size(152, 22);
             this.toolStripMenuItemX75.Text = "75 x 75";
-            this.toolStripMenuItemX75.Click += new System.EventHandler(this.onButtonSizeChange);
+            this.toolStripMenuItemX75.Click += new System.EventHandler(this.OnButtonSizeChange);
             // 
             // toolStripMenuItemX100
             // 
             this.toolStripMenuItemX100.Name = "toolStripMenuItemX100";
             this.toolStripMenuItemX100.Size = new System.Drawing.Size(152, 22);
             this.toolStripMenuItemX100.Text = "100 x 100";
-            this.toolStripMenuItemX100.Click += new System.EventHandler(this.onButtonSizeChange);
+            this.toolStripMenuItemX100.Click += new System.EventHandler(this.OnButtonSizeChange);
             // 
             // toolStripMenuItemX150
             // 
             this.toolStripMenuItemX150.Name = "toolStripMenuItemX150";
             this.toolStripMenuItemX150.Size = new System.Drawing.Size(152, 22);
             this.toolStripMenuItemX150.Text = "150 x 150";
-            this.toolStripMenuItemX150.Click += new System.EventHandler(this.onButtonSizeChange);
+            this.toolStripMenuItemX150.Click += new System.EventHandler(this.OnButtonSizeChange);
             // 
             // toolStripMenuItemX200
             // 
             this.toolStripMenuItemX200.Name = "toolStripMenuItemX200";
             this.toolStripMenuItemX200.Size = new System.Drawing.Size(152, 22);
             this.toolStripMenuItemX200.Text = "200 x 200";
-            this.toolStripMenuItemX200.Click += new System.EventHandler(this.onButtonSizeChange);
+            this.toolStripMenuItemX200.Click += new System.EventHandler(this.OnButtonSizeChange);
             // 
             // UCtrlLayerList
             // 
@@ -102,7 +102,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Name = "UCtrlLayerList";
             this.Size = new System.Drawing.Size(300, 300);
-            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.onMouseDown);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.OnMouseDown);
             this.contextMenuStripMBR.ResumeLayout(false);
             this.ResumeLayout(false);
 

@@ -42,7 +42,8 @@ namespace treeDiM.StackBuilder.Basics
                 if (_truckProperties == value) return;
                 _truckProperties?.RemoveDependancy(this);
                 _truckProperties = value;
-                _truckProperties?.AddDependancy(this);
+                if (null != _truckProperties)
+                    _truckProperties?.AddDependancy(this);
             }
         }
 
@@ -66,7 +67,8 @@ namespace treeDiM.StackBuilder.Basics
             : base(document, packable)
         {
             // sanity checks
-            if ((null != truckProperties.ParentDocument)
+            if ( null != ParentDocument
+                && null != truckProperties.ParentDocument
                 && truckProperties.ParentDocument != ParentDocument)
                 throw new Exception("case & truck do not belong to the same document");
             // also add dependancy

@@ -24,22 +24,35 @@ namespace treeDiM.StackBuilder.Engine
             double palletWidth = GetPalletWidth(layer);
             double boxLength = GetBoxLength(layer);
             double boxWidth = GetBoxWidth(layer);
-
-            int sizeX_area1 = 0, sizeY_area1 = 0,
-                sizeX_area2 = 0, sizeY_area2 = 0,
-                sizeX_area3 = 0, sizeY_area3 = 0,
-                sizeX_area4 = 0, sizeY_area4 = 0;
-
+            
             GetOptimalSizeXY(boxLength, boxWidth, palletLength, palletWidth,
-                out sizeX_area1, out sizeY_area1,
-                out sizeX_area2, out sizeY_area2,
-                out sizeX_area3, out sizeY_area3,
-                out sizeX_area4, out sizeY_area4);
+                out int sizeX_area1, out int sizeY_area1,
+                out int sizeX_area2, out int sizeY_area2,
+                out int sizeX_area3, out int sizeY_area3,
+                out int sizeX_area4, out int sizeY_area4);
 
             actualLength = Math.Max(sizeX_area1 * boxLength + sizeX_area2 * boxWidth, sizeX_area4 * boxWidth + sizeX_area3 * boxLength);
             actualWidth = Math.Max(sizeY_area1 * boxWidth + sizeY_area4 * boxLength, sizeY_area2 * boxLength + sizeY_area3 * boxWidth);
 
-            return sizeX_area1 * sizeY_area1 > 0
+            // is area1 intersecting area3?
+            double lengthCum13 = (sizeX_area1 + sizeX_area3) * boxLength;
+            double widthCum13 = (sizeY_area1 + sizeY_area3) * boxWidth;
+            if ((actualLength - lengthCum13 < 0) && (actualWidth - widthCum13 < 0))
+            {
+                if (lengthCum13 <= palletLength) actualLength = lengthCum13;
+                else if (widthCum13 <= palletWidth) actualWidth = widthCum13;
+                else return false;
+            }
+            // is area2 intersecting area4?
+            double lengthCum24 = (sizeX_area2 + sizeX_area4) * boxWidth;
+            double widthCum24 = (sizeY_area2 + sizeY_area4) * boxLength;
+            if ((actualLength - lengthCum24 < 0) && (actualWidth - widthCum24 < 0))
+            {
+                if (lengthCum24 <= palletLength) actualLength = lengthCum24;
+                else if (widthCum24 <= palletWidth) actualWidth = widthCum24;
+                else return false;
+            }
+            return  sizeX_area1 * sizeY_area1 > 0
                 && sizeX_area2 * sizeY_area2 > 0
                 && sizeX_area3 * sizeY_area3 > 0
                 && sizeX_area4 * sizeY_area4 > 0;
@@ -53,16 +66,11 @@ namespace treeDiM.StackBuilder.Engine
             double boxLength = GetBoxLength(layer);
             double boxWidth = GetBoxWidth(layer);
 
-            int sizeX_area1 = 0, sizeY_area1 = 0,
-                sizeX_area2 = 0, sizeY_area2 = 0,
-                sizeX_area3 = 0, sizeY_area3 = 0,
-                sizeX_area4 = 0, sizeY_area4 = 0;
-
             GetOptimalSizeXY(boxLength, boxWidth, palletLength, palletWidth,
-                out sizeX_area1, out sizeY_area1,
-                out sizeX_area2, out sizeY_area2,
-                out sizeX_area3, out sizeY_area3,
-                out sizeX_area4, out sizeY_area4);
+                out int sizeX_area1, out int sizeY_area1,
+                out int sizeX_area2, out int sizeY_area2,
+                out int sizeX_area3, out int sizeY_area3,
+                out int sizeX_area4, out int sizeY_area4);
 
             Vector2D offset = GetOffset(layer, actualLength, actualWidth);
             double spaceX12 = (actualLength - sizeX_area1 * boxLength - sizeX_area2 * boxWidth) / (sizeX_area1 + sizeX_area2 - 1);

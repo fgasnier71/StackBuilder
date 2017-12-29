@@ -15,7 +15,8 @@ namespace treeDiM.StackBuilder.Basics
                 if (_caseProperties == value) return;
                 if (null != _caseProperties) _caseProperties.RemoveDependancy(this);
                 _caseProperties = value;
-                _caseProperties.AddDependancy(this);
+                if (null != ParentDocument)
+                    _caseProperties?.AddDependancy(this);
             }
         }
 
@@ -59,11 +60,16 @@ namespace treeDiM.StackBuilder.Basics
         #region Non-Public Members
         protected BoxProperties _caseProperties;
 
-        protected AnalysisPackableCase(Document document, Packable packable, BoxProperties caseProperties, ConstraintSetPackableCase constraintSet)
+        protected AnalysisPackableCase(
+            Document document,
+            Packable packable,
+            BoxProperties caseProperties,
+            ConstraintSetPackableCase constraintSet)
             : base(document, packable)
         {
             // sanity checks
-            if ((null != caseProperties.ParentDocument)
+            if (null != ParentDocument
+                && (null != caseProperties.ParentDocument)
                 && caseProperties.ParentDocument != ParentDocument)
                 throw new Exception("box & case do not belong to the same document");
             // also add dependancy

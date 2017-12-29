@@ -297,8 +297,16 @@ namespace treeDiM.StackBuilder.Desktop
         public void CreateNewAnalysisCasePalletUI()
         {
             if (!CanCreateAnalysisCasePallet && !CanCreateAnalysisBundlePallet) return;
-            FormNewAnalysisCasePallet form = new FormNewAnalysisCasePallet(this, null);
-            if (DialogResult.OK == form.ShowDialog()) {}
+            if (Properties.Settings.Default.DummyMode)
+            {
+                FormNewAnalysisCasePalletDM form = new FormNewAnalysisCasePalletDM(this, null);
+                if (DialogResult.OK == form.ShowDialog()) {}
+            }
+            else
+            {
+                FormNewAnalysisCasePallet form = new FormNewAnalysisCasePallet(this, null);
+                if (DialogResult.OK == form.ShowDialog()) { }
+            }
         }
         public void CreateNewAnalysisBoxCaseUI()
         {

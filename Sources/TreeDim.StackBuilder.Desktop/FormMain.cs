@@ -245,8 +245,8 @@ namespace treeDiM.StackBuilder.Desktop
            _log.InfoFormat("Showing start page (URL : {0})", StartPageURL);
             try
             {
-                _dockStartPage.Show(dockPanel, WeifenLuo.WinFormsUI.Docking.DockState.Document);
-                _dockStartPage.Url = new System.Uri(StartPageURL);
+                _dockStartPage.Show(dockPanel, DockState.Document);
+                _dockStartPage.Url = new Uri(StartPageURL);
             }
             catch (Exception ex)
             {
@@ -264,7 +264,7 @@ namespace treeDiM.StackBuilder.Desktop
             try
             {
                 // show login form
-                if (!WCFClient.IsConnected)
+                if (!WCFClient.IsConnected && !Program.UseDisconnected)
                 {
                     using (WCFClient wcfClient = new WCFClient())
                     {
@@ -696,6 +696,10 @@ namespace treeDiM.StackBuilder.Desktop
         #region IDocumentFactory implementation
         public void NewDocument()
         {
+            // set solver
+            Document.SetSolver(new LayerSolver());
+            Solution.SetSolver(new LayerSolver());
+
             FormNewDocument form = new FormNewDocument();
             if (DialogResult.OK == form.ShowDialog())
             {

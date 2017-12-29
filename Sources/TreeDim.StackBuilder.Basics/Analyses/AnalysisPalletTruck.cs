@@ -49,9 +49,10 @@ namespace treeDiM.StackBuilder.Basics
             set
             {
                 if (_truckProperties == value) return;
-                if (null != _truckProperties) _truckProperties.RemoveDependancy(this);
+                _truckProperties?.RemoveDependancy(this);
                 _truckProperties = value;
-                _truckProperties.AddDependancy(this);
+                if (null != ParentDocument)
+                    _truckProperties?.AddDependancy(this);
             }
         }
 

@@ -249,28 +249,9 @@ namespace treeDiM.StackBuilder.Basics
         {
             return NoLayers(height) * Count;
         }
-        public double LayerHeight
-        {
-            get
-            {
-                return BoxHeight;
-                /*
-                switch (_axisOrtho)
-                {
-                    case HalfAxis.HAxis.AXIS_X_N: return _dimBox.X;
-                    case HalfAxis.HAxis.AXIS_X_P: return _dimBox.X;
-                    case HalfAxis.HAxis.AXIS_Y_N: return _dimBox.Y;
-                    case HalfAxis.HAxis.AXIS_Y_P: return _dimBox.Y;
-                    case HalfAxis.HAxis.AXIS_Z_N: return _dimBox.Z;
-                    case HalfAxis.HAxis.AXIS_Z_P: return _dimBox.Z;
-                    default:
-                        throw new Exception();
-                }
-                */ 
-            }
-        }
-        public double Length { get { return _dimContainer.X; } }
-        public double Width  { get { return _dimContainer.Y; } }
+        public double LayerHeight => BoxHeight;
+        public double Length => _dimContainer.X;
+        public double Width  => _dimContainer.Y;
         public string Tooltip(double height)
         {
             return string.Format("{0} * {1} = {2}\n {3} | {4} | {5}"
