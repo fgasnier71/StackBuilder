@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace treeDiM.StackBuilder.Basics
 {
-    public partial class UCtrlOptDouble : UserControl
+    public partial class UCtrlOptInt : UserControl
     {
         #region Delegates
         public delegate void ValueChangedDelegate(object sender, EventArgs e);
@@ -19,11 +19,9 @@ namespace treeDiM.StackBuilder.Basics
         #endregion
 
         #region Constructor
-        public UCtrlOptDouble()
+        public UCtrlOptInt()
         {
             InitializeComponent();
-            // by default, no unit type
-            Unit = UnitsManager.UnitType.UT_NONE;
         }
         #endregion
 
@@ -38,54 +36,41 @@ namespace treeDiM.StackBuilder.Basics
             set { chkbOpt.Text = value; }
         }
         [Browsable(true)]
-        public OptDouble Value
+        public OptInt Value
         {
-            get { return new OptDouble(chkbOpt.Checked, (double)nudValue.Value); }
+            get { return new OptInt(chkbOpt.Checked, (int)nudInt.Value); }
             set
             {
                 chkbOpt.Checked = value.Activated;
-                try { nudValue.Value = (decimal)value.ValueDef; } catch (ArgumentOutOfRangeException) {}
+                try { nudInt.Value = value.Value; } catch (ArgumentOutOfRangeException) { }
                 OnCheckChanged(this, null);
             }
         }
         [Browsable(true)]
-        public decimal Minimum
+        public int Minimum
         {
-            get { return nudValue.Minimum; }
-            set { nudValue.Minimum = value; }
-        }
-        [Browsable(true)]
-        public UnitsManager.UnitType Unit
-        {
-            get { return _unitType; }
-            set
-            {
-                _unitType = value;
-                lbUnit.Text = UnitsManager.UnitString(_unitType);
-                nudValue.DecimalPlaces = UnitsManager.NoDecimals(_unitType);
-            }
+            get { return (int)nudInt.Minimum; }
+            set { nudInt.Minimum = value; }
         }
         #endregion
 
         #region Event handlers
         private void OnCheckChanged(object sender, EventArgs e)
         {
-            nudValue.Enabled = chkbOpt.Checked;
-            lbUnit.Enabled = chkbOpt.Checked;
+            nudInt.Enabled = chkbOpt.Checked;
             ValueChanged?.Invoke(this, e);
         }
         private void OnValueChangedLocal(object sender, EventArgs e) => ValueChanged?.Invoke(this, e);
         private void OnSizeChanged(object sender, EventArgs e)
         {
-            // set nud location
-            nudValue.Location = new Point(Width - UCtrlDouble.stNudLength - UCtrlDouble.stLbUnitLength, 0);
-            // set unit location
-            lbUnit.Location = new Point(Width - UCtrlDouble.stLbUnitLength + 1, 4);
+            nudInt.Location = new Point(Width - UCtrlOptInt.stNudLength - UCtrlOptInt.stSpace, 0);
         }
         #endregion
 
-        #region Data members
-        private UnitsManager.UnitType _unitType;
+        #region Data member
+        public static int stNudLength = 60;
+        public static int stSpace = 38;
         #endregion
+
     }
 }

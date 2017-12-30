@@ -50,9 +50,11 @@ namespace treeDiM.StackBuilder.Desktop
 
             uCtrlMaxPalletHeight.Value = _analysis.ConstraintSet.OptMaxHeight.Value;
             uCtrlOptMaximumWeight.Value = _analysis.ConstraintSet.OptMaxWeight;
+            uCtrlOptMaxNumber.Value = _analysis.ConstraintSet.OptMaxNumber;
 
             uCtrlMaxPalletHeight.ValueChanged += new UCtrlDouble.ValueChangedDelegate(this.OnCriterionChanged);
             uCtrlOptMaximumWeight.ValueChanged += new UCtrlOptDouble.ValueChangedDelegate(this.OnCriterionChanged);
+            uCtrlOptMaxNumber.ValueChanged += new UCtrlOptInt.ValueChangedDelegate(this.OnCriterionChanged);
 
             AnalysisCasePallet analysisCasePallet = _analysis as AnalysisCasePallet;
 
@@ -441,6 +443,7 @@ namespace treeDiM.StackBuilder.Desktop
                 ConstraintSetCasePallet constraintSet = _solution.Analysis.ConstraintSet as ConstraintSetCasePallet;
                 constraintSet.SetMaxHeight(new OptDouble(true, uCtrlMaxPalletHeight.Value));
                 constraintSet.OptMaxWeight = uCtrlOptMaximumWeight.Value;
+                constraintSet.OptMaxNumber = uCtrlOptMaxNumber.Value;
                 _solution.RebuildSolutionItemList();
             }
             catch (Exception ex)

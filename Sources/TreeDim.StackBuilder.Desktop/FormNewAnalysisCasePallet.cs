@@ -31,8 +31,8 @@ namespace treeDiM.StackBuilder.Desktop
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
-            cbCases.Initialize(_document, this, null != AnalysisCast ? AnalysisCast.Content : null);
-            cbPallets.Initialize(_document, this, null != AnalysisCast ? AnalysisCast.PalletProperties : null);
+            cbCases.Initialize(_document, this, AnalysisCast?.Content);
+            cbPallets.Initialize(_document, this, AnalysisCast?.PalletProperties);
 
             // event handling
             uCtrlLayerList.LayerSelected += OnLayerSelected;
@@ -47,6 +47,7 @@ namespace treeDiM.StackBuilder.Desktop
                 uCtrlCaseOrientation.AllowedOrientations = new bool[] { Settings.Default.AllowVerticalX, Settings.Default.AllowVerticalY, Settings.Default.AllowVerticalZ };
                 uCtrlMaximumHeight.Value = Settings.Default.MaximumPalletHeight;
                 uCtrlOptMaximumWeight.Value = new OptDouble(false, Settings.Default.MaximumPalletWeight);
+                uCtrlOptMaxNumber.Value = new OptInt(false, 1000);
 
                 uCtrlOverhang.ValueX = Settings.Default.OverhangX;
                 uCtrlOverhang.ValueY = Settings.Default.OverhangY;
@@ -60,6 +61,7 @@ namespace treeDiM.StackBuilder.Desktop
                 uCtrlCaseOrientation.AllowedOrientations = constraintSet.AllowedOrientations;
                 uCtrlMaximumHeight.Value = constraintSet.OptMaxHeight.Value;
                 uCtrlOptMaximumWeight.Value = constraintSet.OptMaxWeight;
+                uCtrlOptMaxNumber.Value = constraintSet.OptMaxNumber;
                 uCtrlOverhang.ValueX = constraintSet.Overhang.X;
                 uCtrlOverhang.ValueY = constraintSet.Overhang.Y;
             }
@@ -75,6 +77,8 @@ namespace treeDiM.StackBuilder.Desktop
             Settings.Default.MaximumPalletHeight = uCtrlMaximumHeight.Value;
             if (uCtrlOptMaximumWeight.Value.Activated)
                 Settings.Default.MaximumPalletWeight = uCtrlOptMaximumWeight.Value.Value;
+            if (uCtrlOptMaxNumber.Value.Activated)
+                Settings.Default.MaximumNumber = uCtrlOptMaxNumber.Value.Value;
 
             Settings.Default.OverhangX = uCtrlOverhang.ValueX;
             Settings.Default.OverhangY = uCtrlOverhang.ValueY;

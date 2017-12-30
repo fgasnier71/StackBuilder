@@ -1063,5 +1063,17 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
                 this["DummyMode"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1000")]
+        public int MaximumNumber {
+            get {
+                return ((int)(this["MaximumNumber"]));
+            }
+            set {
+                this["MaximumNumber"] = value;
+            }
+        }
     }
 }

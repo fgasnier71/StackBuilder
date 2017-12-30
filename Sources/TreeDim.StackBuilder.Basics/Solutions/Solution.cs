@@ -496,7 +496,7 @@ namespace treeDiM.StackBuilder.Basics
                 List<ILayer> llayers = new List<ILayer>();
 
                 int iBoxCount = 0, iInterlayerCount = 0;
-                double zLayer = 0.0, weight = 0.0;
+                double zLayer = 0.0, weight = _analysis.ContainerWeight;
                 bool stop = false;
 
                 // build layers
