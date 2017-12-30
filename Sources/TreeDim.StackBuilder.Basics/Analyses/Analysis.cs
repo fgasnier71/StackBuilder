@@ -139,8 +139,7 @@ namespace treeDiM.StackBuilder.Basics
         protected override void RemoveItselfFromDependancies()
         {
             base.RemoveItselfFromDependancies();
-            if (null != _packable)
-                _packable.RemoveDependancy(this);
+            _packable?.RemoveDependancy(this);
             foreach (InterlayerProperties interlayer in _interlayers)
                 interlayer.RemoveDependancy(this);
         }

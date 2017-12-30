@@ -260,21 +260,25 @@ namespace treeDiM.StackBuilder.Basics
         { 
             _solutionItems = new List<SolutionItem>();
 
-            bool criterionReached = false;
+            ConstraintSetAbstract constraintSet = _analysis.ConstraintSet;
             double zTop = _analysis.Offset.Z;
             double weight = _analysis.ContainerWeight;
+            int number = 0;
+
             bool symetryX = false, symetryY = false;
-            while (!criterionReached)
+
+            while (!constraintSet.CritHeightReached(zTop)
+                && !constraintSet.CritWeightReached(weight)
+                && !constraintSet.CritNumberReached(number))
             {
+                number += _layerTypes[0].Count;
                 weight += _layerTypes[0].Count * _analysis.ContentWeight;
                 zTop += _layerTypes[0].LayerHeight;
-                ConstraintSetAbstract constraintSet = _analysis.ConstraintSet;
-                criterionReached = (ConstraintSet.OptMaxHeight.Activated && zTop >= constraintSet.OptMaxHeight.Value)
-                    || (ConstraintSet.OptMaxWeight.Activated && weight >= constraintSet.OptMaxWeight.Value);
-                if (criterionReached)
-                    break;
-                else
+
+                if (!constraintSet.CritHeightReached(zTop))
                     _solutionItems.Add(new SolutionItem(0, -1, symetryX, symetryY));
+                else
+                    break;
 
                 symetryX = _analysis.AlternateLayersPref ? !symetryX : symetryX;
                 symetryY = _analysis.AlternateLayersPref ? !symetryY : symetryY;
@@ -284,28 +288,26 @@ namespace treeDiM.StackBuilder.Basics
         {
             try
             {
-                bool criterionReached = false;
+                ConstraintSetAbstract constraintSet = _analysis.ConstraintSet;
                 double zTop = _analysis.Offset.Z;
                 double weight = _analysis.ContainerWeight;
+                int number = 0;
 
                 List<SolutionItem> solutionItems = new List<SolutionItem>();
                 foreach (SolutionItem solItem in _solutionItems)
                 {
+                    number += _layerTypes[index: solItem.LayerIndex].Count;
                     weight += _layerTypes[index: solItem.LayerIndex].Count * _analysis.ContentWeight;
                     zTop += _layerTypes[solItem.LayerIndex].LayerHeight + ((-1 != solItem.InterlayerIndex) ? _analysis.Interlayer(solItem.InterlayerIndex).Thickness : 0.0);
 
-                    ConstraintSetAbstract constraintSet = _analysis.ConstraintSet;
-                    criterionReached = (ConstraintSet.OptMaxHeight.Activated && zTop >= constraintSet.OptMaxHeight.Value)
-                        || (ConstraintSet.OptMaxWeight.Activated && weight >= constraintSet.OptMaxWeight.Value);
-
                     solutionItems.Add(solItem);
 
-                    if (criterionReached)
+                    if (constraintSet.OneCriterionReached(zTop, weight, number))
                         break;
                 }
 
                 // add layers until 
-                while (!criterionReached)
+                while (!constraintSet.OneCriterionReached(zTop, weight, number))
                 {
                     SolutionItem solItem = null;
                     if (solutionItems.Count > 0)
@@ -316,34 +318,26 @@ namespace treeDiM.StackBuilder.Basics
                     if (solItem.LayerIndex >= _layerTypes.Count)
                         throw new Exception(string.Format("Layer index out of range!"));
 
+                    number += _layerTypes[solItem.LayerIndex].Count;
                     weight += _layerTypes[solItem.LayerIndex].Count * _analysis.ContentWeight;
                     zTop += _layerTypes[solItem.LayerIndex].LayerHeight + ((-1 != solItem.InterlayerIndex) ? _analysis.Interlayer(solItem.InterlayerIndex).Thickness : 0.0);
 
-                    solutionItems.Add(new SolutionItem(solItem));
-
-                    ConstraintSetAbstract constraintSet = _analysis.ConstraintSet;
-                    criterionReached = (ConstraintSet.OptMaxHeight.Activated && zTop >= constraintSet.OptMaxHeight.Value)
-                        || (ConstraintSet.OptMaxWeight.Activated && weight >= constraintSet.OptMaxWeight.Value);
+                    if (!constraintSet.CritHeightReached(zTop))
+                        solutionItems.Add(new SolutionItem(solItem));
+                    else
+                        break;
                 }
 
                 // remove unneeded layer 
-                while (criterionReached)
+                while (constraintSet.CritHeightReached(zTop) && solutionItems.Count > 0)
                 {
-                    SolutionItem solItem = null;
-                    if (solutionItems.Count > 0)
-                        solItem = solutionItems.Last();
-                    else
-                        solItem = new SolutionItem(0, -1, false, false);
+                    SolutionItem solItem = solutionItems.Last();
 
                     if (solItem.LayerIndex >= _layerTypes.Count)
                         throw new Exception(string.Format("Layer index out of range!"));
-
+                    number -= _layerTypes[solItem.LayerIndex].Count;
                     weight -= _layerTypes[solItem.LayerIndex].Count * _analysis.ContentWeight;
                     zTop -= _layerTypes[solItem.LayerIndex].LayerHeight + ((-1 != solItem.InterlayerIndex) ? _analysis.Interlayer(solItem.InterlayerIndex).Thickness : 0.0);
-
-                    ConstraintSetAbstract constraintSet = _analysis.ConstraintSet;
-                    criterionReached = (ConstraintSet.OptMaxHeight.Activated && zTop >= constraintSet.OptMaxHeight.Value)
-                        || (ConstraintSet.OptMaxWeight.Activated && weight >= constraintSet.OptMaxWeight.Value);
 
                     solutionItems.Remove(solItem);
                 }
@@ -501,11 +495,10 @@ namespace treeDiM.StackBuilder.Basics
             {
                 List<ILayer> llayers = new List<ILayer>();
 
-                int iBoxCount = 0;
-                int iInterlayerCount = 0;
+                int iBoxCount = 0, iInterlayerCount = 0;
+                double zLayer = 0.0, weight = 0.0;
+                bool stop = false;
 
-                // starting height
-                double zLayer = 0.0;
                 // build layers
                 foreach (SolutionItem solItem in _solutionItems)
                 {
@@ -525,31 +518,49 @@ namespace treeDiM.StackBuilder.Basics
                         Layer3DBox boxLayer = new Layer3DBox(zLayer, solItem.LayerIndex);
                         foreach (LayerPosition layerPos in layer2DBox)
                         {
-                            LayerPosition layerPosTemp = AdjustLayerPosition(layerPos, solItem.SymetryX, solItem.SymetryY);
-                            boxLayer.Add(new BoxPosition(
-                                layerPosTemp.Position + Analysis.Offset + zLayer * Vector3D.ZAxis
-                                , layerPosTemp.LengthAxis
-                                , layerPosTemp.WidthAxis
-                                ));
+                            if (!ConstraintSet.CritNumberReached(iBoxCount + 1)
+                                && !ConstraintSet.CritWeightReached(weight + _analysis.ContentWeight))
+                            {
+                                LayerPosition layerPosTemp = AdjustLayerPosition(layerPos, solItem.SymetryX, solItem.SymetryY);
+                                boxLayer.Add(new BoxPosition(
+                                    layerPosTemp.Position + Analysis.Offset + zLayer * Vector3D.ZAxis
+                                    , layerPosTemp.LengthAxis
+                                    , layerPosTemp.WidthAxis
+                                    ));
 
-                            ++iBoxCount;
+                                ++iBoxCount;
+                                weight += _analysis.ContentWeight;
+                            }
+                            else
+                                stop = true;
                         }
-                        llayers.Add(boxLayer);
+                        if (boxLayer.Count > 0)
+                            llayers.Add(boxLayer);
                     }
                     if (currentLayer is Layer2DCyl layer2DCyl)
                     {
                         Layer3DCyl cylLayer = new Layer3DCyl(zLayer);
                         foreach (Vector2D vPos in layer2DCyl)
                         {
-                            cylLayer.Add(
-                                AdjustPosition(new Vector3D(vPos.X, vPos.Y, zLayer), solItem.SymetryX, solItem.SymetryY)
-                                + Analysis.Offset);
-                            ++iBoxCount;
+                            if (!ConstraintSet.CritNumberReached(iBoxCount + 1)
+                                && !ConstraintSet.CritWeightReached(weight + _analysis.ContentWeight))
+                            {
+                                cylLayer.Add(
+                                    AdjustPosition(new Vector3D(vPos.X, vPos.Y, zLayer), solItem.SymetryX, solItem.SymetryY)
+                                    + Analysis.Offset);
+                                ++iBoxCount;
+                                weight += _analysis.ContentWeight;
+                            }
+                            else
+                                stop = true;
                         }
-                        llayers.Add(cylLayer);
+                        if (cylLayer.Count > 0)
+                            llayers.Add(cylLayer);
                     }
 
                     zLayer += currentLayer.LayerHeight;
+                    if (stop)
+                        break;
                 }
                 return llayers;
             }

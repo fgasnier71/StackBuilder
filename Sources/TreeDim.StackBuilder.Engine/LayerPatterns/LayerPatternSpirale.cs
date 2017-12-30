@@ -22,11 +22,8 @@ namespace treeDiM.StackBuilder.Engine
             double palletWidth = GetPalletWidth(layer);
             double boxLength = GetBoxLength(layer);
             double boxWidth = GetBoxWidth(layer);
-
-            // compute optimal layout by evaluating all spirale configurations
-            int sizeX_area1 = 0, sizeY_area1 = 0, sizeX_area2 = 0, sizeY_area2 = 0;
             GetOptimalSizesXY(boxLength, boxWidth, palletLength, palletWidth
-                , out sizeX_area1, out sizeY_area1, out sizeX_area2, out sizeY_area2);
+                , out int sizeX_area1, out int sizeY_area1, out int sizeX_area2, out int sizeY_area2);
 
             // compute offsets
             double offsetX = 0.5 * (palletLength - actualLength);
@@ -72,11 +69,8 @@ namespace treeDiM.StackBuilder.Engine
             double palletWidth = GetPalletWidth(layer);
             double boxLength = GetBoxLength(layer);
             double boxWidth = GetBoxWidth(layer);
-
-            // compute optimal layout by evaluating all spirale configurations
-            int sizeX_area1 = 0, sizeY_area1 = 0, sizeX_area2 = 0, sizeY_area2 = 0;
             GetOptimalSizesXY(boxLength, boxWidth, palletLength, palletWidth
-                , out sizeX_area1, out sizeY_area1, out sizeX_area2, out sizeY_area2);
+                , out int sizeX_area1, out int sizeY_area1, out int sizeX_area2, out int sizeY_area2);
 
             // actual length / actual width
             actualLength = sizeX_area1 * boxLength + sizeX_area2 * boxWidth;

@@ -23,11 +23,9 @@ namespace treeDiM.StackBuilder.Engine
             double palletWidth = GetPalletWidth(layer);
             double boxLength = GetBoxLength(layer);
             double boxWidth = GetBoxWidth(layer);
-
-            int sizeX_area1 = 0, sizeY_area1 = 0, sizeX_area2 = 0, sizeY_area2 = 0, sizeX_area3 = 0, sizeY_area3 = 0;
-            GetOptimalSizeArea1(boxLength, boxWidth, palletLength, palletWidth, out sizeX_area1, out sizeY_area1);
+            GetOptimalSizeArea1(boxLength, boxWidth, palletLength, palletWidth, out int sizeX_area1, out int sizeY_area1);
             GetSizeXY(boxLength, boxWidth, palletLength, palletWidth, sizeX_area1, sizeY_area1
-                , out sizeX_area2, out sizeY_area2, out sizeX_area3, out sizeY_area3);
+                , out int sizeX_area2, out int sizeY_area2, out int sizeX_area3, out int sizeY_area3);
 
             // compute offsets
             double offsetX = 0.5 * (palletLength - actualLength);
@@ -90,11 +88,9 @@ namespace treeDiM.StackBuilder.Engine
             double palletWidth = GetPalletWidth(layer);
             double boxLength = GetBoxLength(layer);
             double boxWidth = GetBoxWidth(layer);
-
-            int sizeX_area1 = 0, sizeY_area1 = 0, sizeX_area2 = 0, sizeY_area2 = 0, sizeX_area3 = 0, sizeY_area3 = 0;
-            GetOptimalSizeArea1(boxLength, boxWidth, palletLength, palletWidth, out sizeX_area1, out sizeY_area1);
+            GetOptimalSizeArea1(boxLength, boxWidth, palletLength, palletWidth, out int sizeX_area1, out int sizeY_area1);
             GetSizeXY(boxLength, boxWidth, palletLength, palletWidth, sizeX_area1, sizeY_area1
-                , out sizeX_area2, out sizeY_area2, out sizeX_area3, out sizeY_area3);
+                , out int sizeX_area2, out int sizeY_area2, out int sizeX_area3, out int sizeY_area3);
 
             actualLength = Math.Max(sizeX_area2 * boxLength, sizeX_area1 * boxWidth + sizeX_area3 * boxLength);
             actualWidth = Math.Max(sizeY_area1 * boxLength, sizeY_area3 * boxWidth) + sizeY_area2 * boxWidth;
@@ -120,9 +116,8 @@ namespace treeDiM.StackBuilder.Engine
             for (int i = 1; i <= iMaxSizeX_area1; ++i)
                 for (int j = 1; j <= iMaxSizeY_area1; ++j)
                 {
-                    int sizeX_area2, sizeY_area2, sizeX_area3, sizeY_area3;
                     int boxNumber = GetSizeXY(boxLength, boxWidth, palletLength, palletWidth
-                        , i, j, out sizeX_area2, out sizeY_area2, out sizeX_area3, out sizeY_area3);
+                        , i, j, out int sizeX_area2, out int sizeY_area2, out int sizeX_area3, out int sizeY_area3);
 
                     if (boxNumber >= iMax)
                     {

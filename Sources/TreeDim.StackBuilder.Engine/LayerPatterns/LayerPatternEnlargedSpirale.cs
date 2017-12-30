@@ -20,19 +20,12 @@ namespace treeDiM.StackBuilder.Engine
             double palletWidth = GetPalletWidth(layer);
             double boxLength = GetBoxLength(layer);
             double boxWidth = GetBoxWidth(layer);
-
-            // compute optimal layout
-            int sizeX_area1 = 0, sizeY_area1 = 0
-                , sizeX_area2 = 0, sizeY_area2 = 0
-                , sizeX_area3 = 0, sizeY_area3 = 0
-                , dir_area3 = 0;
-
             GetOptimalSizesXY(
-            boxLength, boxWidth, palletLength, palletWidth
-            , out sizeX_area1, out sizeY_area1
-            , out sizeX_area2, out sizeY_area2
-            , out sizeX_area3, out sizeY_area3
-            , out dir_area3);
+                boxLength, boxWidth, palletLength, palletWidth
+                , out int sizeX_area1, out int sizeY_area1
+                , out int sizeX_area2, out int sizeY_area2
+                , out int sizeX_area3, out int sizeY_area3
+                , out int dir_area3);
 
             actualLength = sizeX_area1 * boxLength + sizeX_area2 * boxWidth;
             actualWidth = sizeY_area1 * boxWidth + sizeY_area2 * boxLength;
@@ -54,19 +47,12 @@ namespace treeDiM.StackBuilder.Engine
             double palletWidth = GetPalletWidth(layer);
             double boxLength = GetBoxLength(layer);
             double boxWidth = GetBoxWidth(layer);
-
-            // compute optimal layout
-            int sizeX_area1 = 0, sizeY_area1 = 0
-                , sizeX_area2 = 0, sizeY_area2 = 0
-                , sizeX_area3 = 0, sizeY_area3 = 0
-                , dir_area3 = 0;
-
             GetOptimalSizesXY(
-            boxLength, boxWidth, palletLength, palletWidth
-            , out sizeX_area1, out sizeY_area1
-            , out sizeX_area2, out sizeY_area2
-            , out sizeX_area3, out sizeY_area3
-            , out dir_area3);
+                boxLength, boxWidth, palletLength, palletWidth
+                , out int sizeX_area1, out int sizeY_area1
+                , out int sizeX_area2, out int sizeY_area2
+                , out int sizeX_area3, out int sizeY_area3
+                , out int dir_area3);
 
             // compute offsets
             double offsetX = 0.5 * (palletLength - actualLength);

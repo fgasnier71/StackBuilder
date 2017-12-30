@@ -22,9 +22,8 @@ namespace treeDiM.StackBuilder.Engine
             double boxLength = GetBoxLength(layer);
             double boxWidth = GetBoxWidth(layer);
 
-            int maxSizeXLength = 0, maxSizeXWidth = 0, maxSizeYLength = 0, maxSizeYWidth = 0;
             GetSizeXY(boxLength, boxWidth, palletLength, palletWidth
-                , out maxSizeXLength, out maxSizeXWidth, out maxSizeYLength, out maxSizeYWidth);
+                , out int maxSizeXLength, out int maxSizeXWidth, out int maxSizeYLength, out int maxSizeYWidth);
 
             double offsetX = 0.5 * (palletLength - actualLength);
             double offsetY = 0.5 * (palletWidth - actualWidth);
@@ -65,14 +64,16 @@ namespace treeDiM.StackBuilder.Engine
             double boxLength = GetBoxLength(layer);
             double boxWidth = GetBoxWidth(layer);
 
-            int maxSizeXLength = 0, maxSizeXWidth = 0, maxSizeYLength = 0, maxSizeYWidth = 0;
             GetSizeXY(boxLength, boxWidth, palletLength, palletWidth
-                , out maxSizeXLength, out maxSizeXWidth, out maxSizeYLength, out maxSizeYWidth);
+                , out int maxSizeXLength, out int maxSizeXWidth, out int maxSizeYLength, out int maxSizeYWidth);
 
             actualLength = maxSizeXLength * boxLength + maxSizeXWidth * boxWidth;
             actualWidth = Math.Max(maxSizeYLength * boxWidth, maxSizeYWidth * boxLength);
 
-            return maxSizeXLength > 0 && maxSizeYLength > 0 && maxSizeXWidth > 0 && maxSizeYWidth > 0;
+            return maxSizeXLength > 0
+                && maxSizeYLength > 0
+                && maxSizeXWidth > 0
+                && maxSizeYWidth > 0;
         }
 
         public override int GetNumberOfVariants(Layer2D layer) => 1;

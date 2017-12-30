@@ -20,10 +20,8 @@ namespace treeDiM.StackBuilder.Engine
             double palletWidth = GetPalletWidth(layer);
             double boxLength = GetBoxLength(layer);
             double boxWidth = GetBoxWidth(layer);
-
-            int iStep = 0, maxSizeXLength = 0, maxSizeXWidth = 0, maxSizeYLength = 0, maxSizeYWidth = 0;
             GetSizeXY(boxLength, boxWidth, palletLength, palletWidth
-                , out iStep, out maxSizeXLength, out maxSizeXWidth, out maxSizeYLength, out maxSizeYWidth);
+                , out int iStep, out int maxSizeXLength, out int maxSizeXWidth, out int maxSizeYLength, out int maxSizeYWidth);
 
             actualLength = maxSizeXLength * boxLength + maxSizeXWidth * boxWidth;
             if (maxSizeYWidth >= iStep && (iStep * boxLength <= palletLength))
@@ -41,10 +39,8 @@ namespace treeDiM.StackBuilder.Engine
             double palletWidth = GetPalletWidth(layer);
             double boxLength = GetBoxLength(layer);
             double boxWidth = GetBoxWidth(layer);
-
-            int maxSizeXLength = 0, maxSizeXWidth = 0, maxSizeYLength = 0, maxSizeYWidth = 0, iStep = 0;
             GetSizeXY(boxLength, boxWidth, palletLength, palletWidth
-                , out iStep, out maxSizeXLength, out maxSizeXWidth, out maxSizeYLength, out maxSizeYWidth);
+                , out int iStep, out int maxSizeXLength, out int maxSizeXWidth, out int maxSizeYLength, out int maxSizeYWidth);
 
             double offsetX = 0.5 * (palletLength - actualLength);
             double offsetY = 0.5 * (palletWidth - actualWidth);
