@@ -5,19 +5,35 @@ namespace Boxologic.CSharp
 {
     public class Boxlogic
     {
-        Scrappad scrapfirst, trash;
-        List<BoxInfo> listBox = new List<BoxInfo>();
-        DateTime _timeStart, _timeStop;
-        bool packing = true;
+        private DateTime _timeStart, _timeStop;
 
-        double layerThickness = 0.0;
-        double remainpy = 0.0, remainpz = 0.0;
-        bool layerdone = false, evened = false;
+        private PalletInfo pallet;
+        private List<BoxInfo> boxList = new List<BoxInfo>();
+        private List<Layer> layers = new List<Layer>();
+        private Scrappad scrapfirst, smallestz;
+        private Scrappad trash;
 
-        private double _pallet_volume_used_percentage = 0.0;
-        private double _packedvolume = 0, _best_solution_volume = 0;
-        private int _number_packed_boxes = 0, _packednumbox = 0;
-        private Dictionary<int, double> _best_iterations = new Dictionary<int, double>();
+        private Dictionary<int, double> best_iterations = new Dictionary<int, double>();
+
+        private bool packing = true, layerdone = false, evened = false;
+        private int best_variant;
+
+        private int layerinlayer;
+        private int prelayer;
+        private int lilz;
+        private int number_of_iterations;
+        private int remainpy, preremainpy, remainpz;
+        private int packedy, prepackedy;
+        private int layerThickness;
+        private int best_iteration;
+        private int packednumbox;
+        private int number_packed_boxes;
+
+        private double packedvolume;
+        private double best_solution_volume;
+        private double total_box_volume;
+        private double pallet_volume_used_percentage;
+        private System.IO.StreamWriter fso;
 
         public void Run(BoxItem[] listBoxItem, int palletLength, int palletWidth, int palletHeight)
         {
@@ -27,174 +43,488 @@ namespace Boxologic.CSharp
             foreach (BoxItem bi in listBoxItem)
             {
                 for (int i=0; i<bi.N; ++i)
-                    listBox.Add(new BoxInfo() { Dim1 = bi.Boxx, Dim2 = bi.Boxy, Dim3 = bi.Boxz, N = bi.N });
+                    boxList.Add(new BoxInfo() { Dim1 = bi.Boxx, Dim2 = bi.Boxy, Dim3 = bi.Boxz, N = bi.N });
             }
             // pallet
+            pallet = new PalletInfo(palletLength, palletWidth, palletHeight);
+
+            // output file
+            fso = new System.IO.StreamWriter(@"K:\GitHub\StackBuilder\Sources\Test\Boxologic.CSharp\output.txt", true);
+
             _timeStart = DateTime.Now;
-            Execute_iterations( new Pallet(palletLength, palletWidth, palletHeight) );
+            Initialize();
+            Execute_iterations();
             _timeStop = DateTime.Now;
             Report_results();
         }
-
-        public void Execute_iterations(Pallet p)
+        private void Initialize()
         {
-            int numberOfIterations = 0;
-            int best_iteration = 0;
-            int best_variant = 0;
+            total_box_volume = 0;
+            foreach (BoxInfo bi in boxList)
+            { total_box_volume += bi.Vol; }
 
-            for (int variant = 0; variant < 6; ++variant)
+            scrapfirst = new Scrappad();
+            best_solution_volume = 0.0;
+            number_of_iterations = 0;
+        }
+        public void Execute_iterations()
+        {
+            bool hundredpercent = false;
+            for (int variant = 1; variant <= 6; ++variant)
             {
-                p.Orientation = variant;
+                // initialize pallet
+                pallet.Variant = variant;
+                // LISTS ALL POSSIBLE LAYER HEIGHTS BY GIVING A WEIGHT VALUE TO EACH OF THEM.
+                List_candidate_layers(false);
 
-                List<Layer> layers = new List<Layer>();
-                List_candidate_layers(p, listBox, ref layers);
 
                 int iLayerIndex = 0, itelayer = 0;
                 foreach (Layer l in layers)
                 {
-                    ++numberOfIterations;
+                    ++number_of_iterations;
                     double elapsed_time = (DateTime.Now - _timeStart).TotalSeconds;
                     Console.WriteLine(
-                        string.Format("VARIANT: {0}; ITERATION (TOTAL): {1}; BEST SO FAR: {2}; TIME: {3}"
-                            , variant, numberOfIterations, _pallet_volume_used_percentage, elapsed_time));
-
-                    double layerThickness = l.LayerDim;
-                    itelayer = iLayerIndex;
-
-                    remainpy = p.LayoutWidth;
-                    remainpz = p.LayoutHeight;
-
-                    // reset boxes
-                    foreach (BoxInfo bi in listBox)
+                        string.Format("VARIANT: {0,5:#####}; ITERATION (TOTAL): {1,5:#####}; BEST SO FAR: {2:0.000}; TIME: {3:0.00}"
+                            , variant, number_of_iterations, pallet_volume_used_percentage, elapsed_time));
+                    packedvolume = 0.0;
+                    packedy = 0;
+                    packing = true;
+                    layerThickness = l.LayerDim;
+                    itelayer = iLayerIndex++;
+                    remainpy = pallet.Pallet_y;
+                    remainpz = pallet.Pallet_z;
+                    packednumbox = 0;
+                    foreach (BoxInfo bi in boxList)
                         bi.Is_packed = false;
-
-                    double layerinlayer = 0.0;
-                    layerdone = false;
-
-                    double packedy = 0.0;
-
-                    // ###
+   
+                    // ### BEGIN DO-WHILE
                     do
                     {
                         layerinlayer = 0;
                         layerdone = false;
-
-                        Pack_layer(p);
-
+                        Pack_layer(false, ref hundredpercent);
                         packedy = packedy + layerThickness;
-                        remainpy = p.LayoutWidth - packedy;
-
+                        remainpy = pallet.Pallet_y - packedy;
                         if (layerinlayer > 0)
                         {
+                            prepackedy = packedy;
+                            preremainpy = remainpy;
+                            remainpy = layerThickness - prelayer;
+                            packedy = packedy - layerThickness + prelayer;
+                            remainpz = lilz;
                             layerThickness = layerinlayer;
                             layerdone = false;
-
-                            Pack_layer(p);
+                            Pack_layer(false, ref hundredpercent);
+                            packedy = prepackedy;
+                            remainpy = prepackedy;
+                            remainpz = pallet.Pallet_z;
                         }
-                        Find_layer(remainpy, p, ref layerThickness);
+                        Find_layer(remainpy, pallet, ref layerThickness);
                     }
                     while (packing);
                     // END DO-WHILE
 
-                    if (_packedvolume >= _best_solution_volume)
+                    if (packedvolume >= best_solution_volume)
                     {
-                        _best_solution_volume = _packedvolume;
+                        best_solution_volume = packedvolume;
                         best_variant = variant;
                         best_iteration = itelayer;
-                        _number_packed_boxes = _packednumbox;
+                        number_packed_boxes = packednumbox;
 
-                        _best_iterations[itelayer] = _packedvolume;
+                        best_iterations[itelayer] = packedvolume;
                     }
-
-
-                    best_iteration = itelayer;
-
-                    ++iLayerIndex;
+                    if (hundredpercent) break;
+                    pallet_volume_used_percentage = best_solution_volume * 100 / pallet.Vol;
                 }
+                if (hundredpercent) break;
+                if ((pallet.Dim1 == pallet.Dim2) && (pallet.Dim2 == pallet.Dim3)) variant = 6;
             }
         }
 
-        private bool Pack_layer(Pallet p)
+        #region List_candidate_layers (DONE)
+        public void List_candidate_layers(bool show)
         {
-            if (0.0 == layerThickness)
+            foreach (BoxInfo bi1 in boxList)
+            {
+                for (int y = 1; y <= 3; ++y)
+                {
+                    int exdim = 0, dimen2= 0, dimen3 = 0;
+                    switch (y)
+                    {
+                        case 1:
+                            exdim = bi1.Dim1;
+                            dimen2 = bi1.Dim2;
+                            dimen3 = bi1.Dim3;
+                            break;
+                        case 2:
+                            exdim = bi1.Dim2;
+                            dimen2 = bi1.Dim1;
+                            dimen3 = bi1.Dim3;
+                            break;
+                        case 3:
+                            exdim = bi1.Dim3;
+                            dimen2 = bi1.Dim1;
+                            dimen3 = bi1.Dim2;
+                            break;
+                        default:
+                            break;
+                    }
+
+                    if (
+                        (exdim > pallet.Pallet_y)
+                        ||
+                        (
+                            ((dimen2 > pallet.Pallet_x) || (dimen3 > pallet.Pallet_z))
+                            && ((dimen3 > pallet.Pallet_x) || (dimen2 > pallet.Pallet_z))
+                        )
+                    )
+                        continue;
+
+                    if (null != layers.Find(lay => lay.LayerDim == exdim))
+                        continue;
+
+                    int layereval = 0;
+                    foreach (BoxInfo bi2 in boxList)
+                    {
+                        if (bi1 != bi2)
+                        {
+                            int dimdif = Math.Abs(exdim - bi2.Dim1);
+                            if (Math.Abs(exdim - bi2.Dim2) < dimdif)
+                                dimdif = Math.Abs(exdim - bi2.Dim2);
+                            if (Math.Abs(exdim - bi2.Dim3) < dimdif)
+                                dimdif = Math.Abs(exdim - bi2.Dim3);
+                            layereval = layereval + dimdif;
+                        }
+                    }
+                    layers.Add(new Layer() { LayerEval = layereval, LayerDim = exdim });
+                }
+            }
+            layers.Sort(new LayerComparer());
+
+            if (show)
+            {
+                foreach (Layer l in layers)
+                    Console.WriteLine(l.ToString());
+            }
+        }
+        #endregion
+        #region Find_smallest_z (DONE)
+        //----------------------------------------------------------------------------
+        // FINDS THE FIRST TO BE PACKED GAP IN THE LAYER EDGE
+        //----------------------------------------------------------------------------
+        private Scrappad Find_smallest_z()
+        {
+            Scrappad scrapmemb = scrapfirst;
+            Scrappad sz = scrapfirst;
+            while (null != scrapmemb.next)
+            {
+                if (scrapmemb.next.Cumz < sz.Cumz)
+                    sz = scrapmemb.next;
+                scrapmemb = scrapmemb.next;
+            }
+            return sz;
+        }
+        #endregion
+        #region Pack_layer (DONE)
+        ///----------------------------------------------------------------------------
+        /// PACKS THE BOXES FOUND AND ARRANGES ALL VARIABLES AND RECORDS PROPERLY
+        ///----------------------------------------------------------------------------
+        private bool Pack_layer(bool packingbest, ref bool hundredpercent)
+        {
+            if (0 == layerThickness)
             {
                 packing = false;
-                return true;
+                return false;
             }
 
-            scrapfirst = new Scrappad() { cumx = p.LayoutLength, cumz = 0.0 };
-
+            scrapfirst = new Scrappad()
+            {
+                Cumx = pallet.Pallet_x,
+                Cumz = 0
+            };
+            int cboxi = 0, cboxx = 0, cboxy = 0, cboxz = 0;
             while (true)
             {
-                Scrappad smallestz = FindSmallestZ();
-
+                smallestz = Find_smallest_z();
 
                 if (null == smallestz.prev && null == smallestz.next)
                 {
                     //*** SITUATION-1: NO BOXES ON THE RIGHT AND LEFT SIDES ***
-                    int cboxi = 0;
-                    double lenx = smallestz.cumx;
-                    double lpz = remainpz - smallestz.cumz;
-                    double bfx = 0.0, bfy = 0.0, bfz = 0.0, bbfx = 0.0, bbfy = 0.0, bbfz = 0.0;
-                    int boxi = 0, bboxi = 0;
+                    int lenx = smallestz.Cumx;
+                    int lpz = remainpz - smallestz.Cumz;
                     Find_box(lenx, layerThickness, remainpy, lpz, lpz,
-                        ref bfx, ref bfy, ref bfz,
-                        ref bbfx, ref bbfy, ref bbfz,
-                        ref boxi, ref bboxi);
-
+                        ref cboxi, ref cboxx, ref cboxy, ref cboxz);
 
                     if (layerdone) break;
                     if (evened) continue;
 
-
-
-                    BoxInfo bi = listBox[cboxi];
-                    VolumeCheck(ref bi);
+                    BoxInfo bi = boxList[cboxi];
+                    boxList[cboxi].Cox = 0;
+                    boxList[cboxi].Coy = packedy;
+                    boxList[cboxi].Coz = smallestz.Cumz;
+                    if (cboxx == smallestz.Cumx)
+                    {
+                        smallestz.Cumz = smallestz.Cumz + cboxz;
+                    }
+                    else
+                    {
+                        smallestz.next = new Scrappad();
+                        smallestz.next.prev = smallestz;
+                        smallestz.next.Cumx = smallestz.Cumx;
+                        smallestz.next.Cumz = smallestz.Cumz;
+                        smallestz.Cumx = cboxx;
+                        smallestz.Cumz = smallestz.Cumz + cboxz;
+                    }
+                    VolumeCheck(cboxi, cboxx, cboxy, cboxz, packingbest, ref hundredpercent);
                 }
                 else if (null == smallestz.prev)
                 {
                     //*** SITUATION-2: NO BOXES ON THE LEFT SIDE ***
-                    int cboxi = 0;
-                    BoxInfo bi = listBox[cboxi];
-                    VolumeCheck(ref bi);
+                    int lenx = smallestz.Cumx;
+                    int lenz = smallestz.next.Cumz - smallestz.Cumz;
+                    int lpz = remainpz - smallestz.Cumz;
+                    Find_box(lenx, layerThickness, remainpy, lenz, lpz
+                        , ref cboxi, ref cboxx, ref cboxy, ref cboxz);
+
+                    if (layerdone) break;
+                    if (evened) continue;
+
+                    BoxInfo bi = boxList[cboxi];
+                    bi.Coy = packedy;
+                    bi.Coz = smallestz.Cumz;
+                    if (cboxx == smallestz.Cumx)
+                    {
+                        bi.Cox = 0;
+                        if (smallestz.Cumz + cboxz == smallestz.next.Cumz)
+                        {
+                            smallestz.Cumz = smallestz.next.Cumz;
+                            smallestz.Cumx = smallestz.next.Cumx;
+                            trash = smallestz.next;
+                            smallestz.next = smallestz.next.next;
+                            if (null != smallestz.next)
+                            {
+                                smallestz.next.prev = smallestz;
+                            }
+                        }
+                        else
+                        {
+                            smallestz.Cumz = smallestz.Cumz + cboxz;
+                        }
+                    }
+                    else
+                    {
+                        bi = boxList[cboxi];
+                        bi.Cox = smallestz.Cumx - cboxx;
+                        if (smallestz.Cumz + cboxz == smallestz.next.Cumz)
+                        {
+                            smallestz.Cumx = smallestz.Cumx - cboxx;
+                        }
+                        else
+                        {
+                            smallestz.next.prev = new Scrappad();
+                            smallestz.next.prev.next = smallestz.next;
+                            smallestz.next.prev.prev = smallestz;
+                            smallestz.next = smallestz.next.prev;
+                            smallestz.next.Cumx = smallestz.Cumx;
+                            smallestz.Cumx = smallestz.Cumx - cboxx;
+                            smallestz.next.Cumz = smallestz.Cumz + cboxz;
+                        }
+                    }
+                    VolumeCheck(cboxi, cboxx, cboxy, cboxz, packingbest, ref hundredpercent);
                 }
                 else if (null == smallestz.next)
                 {
                     //*** SITUATION-3: NO BOXES ON THE RIGHT SIDE ***
-                    int cboxi = 0;
-                    BoxInfo bi = listBox[cboxi];
-                    VolumeCheck(ref bi);
+                    int lenx = smallestz.Cumx - smallestz.prev.Cumx;
+                    int lenz = smallestz.prev.Cumz - smallestz.Cumz;
+                    int lpz = remainpz - smallestz.Cumz;
+                    Find_box(lenx, layerThickness, remainpy, lenz, lpz
+                        , ref cboxi, ref cboxx, ref cboxy, ref cboxz);
+
+                    if (layerdone) break;
+                    if (evened) continue;
+
+                    BoxInfo bi = boxList[cboxi];
+                    bi.Coy = packedy;
+                    bi.Coz = smallestz.Cumz;
+                    bi.Cox = smallestz.prev.Cumx;
+
+                    if (cboxx == smallestz.Cumx - smallestz.prev.Cumx)
+                    {
+                        if (smallestz.Cumz + cboxz == smallestz.prev.Cumz)
+                        {
+                            smallestz.prev.Cumx = smallestz.Cumx;
+                            smallestz.prev.next = null;
+                        }
+                        else
+                        {
+                            smallestz.Cumz = smallestz.Cumz + cboxz;
+                        }
+                    }
+                    else
+                    {
+                        if (smallestz.Cumz + cboxz == smallestz.prev.Cumz)
+                        {
+                            smallestz.prev.Cumx = smallestz.prev.Cumx + cboxx;
+                        }
+                        else
+                        {
+                            smallestz.prev.next = new Scrappad();
+                            smallestz.prev.next.prev = smallestz.prev;
+                            smallestz.prev.next.next = smallestz;
+                            smallestz.prev = smallestz.prev.next;
+                            smallestz.prev.Cumx = smallestz.prev.prev.Cumx + cboxx;
+                            smallestz.prev.Cumz = smallestz.Cumz + cboxz;
+                        }
+                    }
+                    VolumeCheck(cboxi, cboxx, cboxy, cboxz, packingbest, ref hundredpercent);
                 }
-                else if (smallestz.prev.cumz == smallestz.next.cumz)
+                else if (smallestz.prev.Cumz == smallestz.next.Cumz)
                 {
                     //*** SITUATION-4: THERE ARE BOXES ON BOTH OF THE SIDES ***
                     //*** SUBSITUATION-4A: SIDES ARE EQUAL TO EACH OTHER ***
-                    int cboxi = 0;
-                    BoxInfo bi = listBox[cboxi];
-                    VolumeCheck(ref bi);
+                    int lenx = smallestz.Cumx - smallestz.prev.Cumx;
+                    int lenz = smallestz.prev.Cumz - smallestz.Cumz;
+                    int lpz = remainpz - smallestz.Cumz;
+                    Find_box(lenx, layerThickness, remainpy, lenz, lpz
+                        , ref cboxi, ref cboxx, ref cboxy, ref cboxz);
+
+                    if (layerdone) break;
+                    if (evened) continue;
+
+                    boxList[cboxi].Coy = packedy;
+                    boxList[cboxi].Coz = smallestz.Cumz;
+                    if (cboxx == smallestz.Cumx - smallestz.prev.Cumx)
+                    {
+                        boxList[cboxi].Cox = smallestz.prev.Cumx;
+                        if (smallestz.Cumz + cboxz == smallestz.next.Cumz)
+                        {
+                            smallestz.prev.Cumx = smallestz.next.Cumx;
+                            if (null != smallestz.next.next)
+                            {
+                                smallestz.prev.next = smallestz.next.next;
+                                smallestz.next.next.prev = smallestz.prev;
+                            }
+                            else
+                            {
+                                smallestz.prev.next = null;
+                            }
+                        }
+                        else
+                        {
+                            smallestz.Cumz = smallestz.Cumz + cboxz;
+                        }
+                    }
+                    else if (smallestz.prev.Cumx < pallet.Pallet_x - smallestz.Cumx)
+                    {
+                        if (smallestz.Cumz + cboxz == smallestz.prev.Cumz)
+                        {
+                            smallestz.Cumx = smallestz.Cumx - cboxx;
+                            boxList[cboxi].Cox = smallestz.Cumx - cboxx;
+                        }
+                        else
+                        {
+                            boxList[cboxi].Cox = smallestz.prev.Cumx;
+                            smallestz.prev.next = new Scrappad();
+                            smallestz.prev.next.prev = smallestz.prev;
+                            smallestz.prev.next.next = smallestz;
+                            smallestz.prev = smallestz.prev.next;
+                            smallestz.prev.Cumx = smallestz.prev.prev.Cumx + cboxx;
+                            smallestz.prev.Cumz = smallestz.Cumz + cboxz;
+                        }
+                    }
+                    else
+                    {
+                        if (smallestz.Cumz + cboxz == smallestz.prev.Cumz)
+                        {
+                            smallestz.prev.Cumx = smallestz.prev.Cumx + cboxx;
+                            boxList[cboxi].Cox = smallestz.prev.Cumx;
+                        }
+                        else
+                        {
+                            boxList[cboxi].Cox = smallestz.Cumx - cboxx;
+                            smallestz.next.prev = new Scrappad();
+                            smallestz.next.prev.next = smallestz.next;
+                            smallestz.next.prev.prev = smallestz;
+                            smallestz.next = smallestz.next.prev;
+                            smallestz.next.Cumx = smallestz.Cumx;
+                            smallestz.next.Cumz = smallestz.Cumz + cboxz;
+                            smallestz.Cumx = smallestz.Cumx - cboxx;
+                        }
+                    }
+                    VolumeCheck(cboxi, cboxx, cboxy, cboxz, packingbest, ref hundredpercent);
                 }
                 else
                 {
                     //*** SUBSITUATION-4B: SIDES ARE NOT EQUAL TO EACH OTHER ***
-                    int cboxi = 0;
-                    BoxInfo bi = listBox[cboxi];
-                    VolumeCheck(ref bi);
-                }
+                    //*** SUBSITUATION-4B: SIDES ARE NOT EQUAL TO EACH OTHER ***
+                    int lenx = smallestz.Cumx - smallestz.prev.Cumx;
+                    int lenz = smallestz.prev.Cumz - smallestz.Cumz;
+                    int lpz = remainpz - smallestz.Cumz;
+                    Find_box(lenx, layerThickness, remainpy, lenz, lpz
+                        , ref cboxi, ref cboxx, ref cboxy, ref cboxz);
 
+                    if (layerdone) break;
+                    if (evened) continue;
+
+                    boxList[cboxi].Coy = packedy;
+                    boxList[cboxi].Coz = smallestz.Cumz;
+                    boxList[cboxi].Cox = smallestz.prev.Cumx;
+                    if (cboxx == smallestz.Cumx - smallestz.prev.Cumx)
+                    {
+                        if (smallestz.Cumz + cboxz == smallestz.prev.Cumz)
+                        {
+                            smallestz.prev.Cumx = smallestz.Cumx;
+                            smallestz.prev.next = smallestz.next;
+                            smallestz.next.prev = smallestz.prev;
+                        }
+                        else
+                        {
+                            smallestz.Cumz = smallestz.Cumz + cboxz;
+                        }
+                    }
+                    else
+                    {
+                        if (smallestz.Cumz + cboxz == smallestz.prev.Cumz)
+                        {
+                            smallestz.prev.Cumx = smallestz.prev.Cumx + cboxx;
+                        }
+                        else if (smallestz.Cumz + cboxz == smallestz.next.Cumz)
+                        {
+                            boxList[cboxi].Cox = smallestz.Cumx - cboxx;
+                            smallestz.Cumx = smallestz.Cumx - cboxx;
+                        }
+                        else
+                        {
+                            smallestz.prev.next = new Scrappad();
+                            smallestz.prev.next.prev = smallestz.prev;
+                            smallestz.prev.next.next = smallestz;
+                            smallestz.prev = smallestz.prev.next;
+                            smallestz.prev.Cumx = smallestz.prev.prev.Cumx + cboxx;
+                            smallestz.prev.Cumz = smallestz.Cumz + cboxz;
+                        }
+                    }
+                    VolumeCheck(cboxi, cboxx, cboxy, cboxz, packingbest, ref hundredpercent);
+                }
             }
             return true;
         }
-        private int Find_layer(double thickness, Pallet p, ref double layerthickness)
+        #endregion
+        #region Find_layer (DONE)
+        ///----------------------------------------------------------------------------
+        /// FINDS THE MOST PROPER LAYER HIGHT BY LOOKING AT THE UNPACKED BOXES AND THE
+        /// REMAINING EMPTY SPACE AVAILABLE
+        ///----------------------------------------------------------------------------
+        private int Find_layer(int thickness, PalletInfo p, ref int layerthickness)
         {
-            double eval = Double.MaxValue;
-            layerThickness = 0.0;
-            for (int x = 0; x < listBox.Count; ++x)
+            int exdim = 0, dimdif=0, dimen2=0, dimen3=0;
+            int layereval = 0, eval = int.MaxValue;
+            layerThickness = 0;
+            for (int x = 0; x < boxList.Count; x++)
             {
-                BoxInfo bi = listBox[x];
+                BoxInfo bi = boxList[x];
                 if (bi.Is_packed)
                     continue;
-
-                double exdim = 0.0, dimen2 = 0.0, dimen3 = 0.0;
                 for (int y = 1; y <= 3; y++)
                 {
                     switch (y)
@@ -217,20 +547,20 @@ namespace Boxologic.CSharp
                         default:
                             break;
                     }
-                    double layereval = 0;
+                    layereval = 0;
                     if ((exdim <= thickness)
-                        && (((dimen2 <= p.LayoutLength) && (dimen3 <= p.LayoutHeight))
-                        || ((dimen3 <= p.LayoutLength) && (dimen2 <= p.LayoutHeight))))
+                        && (((dimen2 <= p.Pallet_x) && (dimen3 <= p.Pallet_z))
+                        || ((dimen3 <= p.Pallet_x) && (dimen2 <= p.Pallet_z))))
                     {
-                        for (int z = 0; z < listBox.Count; z++)
+                        for (int z = 0; z < boxList.Count; z++)
                         {
-                            if (!(x == z) && !(listBox[z].Is_packed))
+                            if (!(x == z) && !(boxList[z].Is_packed))
                             {
-                                double dimdif = Math.Abs(exdim - listBox[z].Dim1);
-                                if (Math.Abs(exdim - listBox[z].Dim2) < dimdif)
-                                    dimdif = Math.Abs(exdim - listBox[z].Dim2);
-                                if (Math.Abs(exdim - listBox[z].Dim3) < dimdif)
-                                    dimdif = Math.Abs(exdim - listBox[z].Dim3);
+                                dimdif = Math.Abs(exdim - boxList[z].Dim1);
+                                if (Math.Abs(exdim - boxList[z].Dim2) < dimdif)
+                                    dimdif = Math.Abs(exdim - boxList[z].Dim2);
+                                if (Math.Abs(exdim - boxList[z].Dim3) < dimdif)
+                                    dimdif = Math.Abs(exdim - boxList[z].Dim3);
                                 layereval = layereval + dimdif;
                             }
                         }
@@ -246,33 +576,19 @@ namespace Boxologic.CSharp
                 packing = false;
             return 0;
         }
-
-        private Scrappad FindSmallestZ()
-        {
-            Scrappad scrapmemb = scrapfirst, smallestz = scrapfirst;
-            while (null != scrapmemb.next)
-            {
-                if (scrapmemb.next.cumz < smallestz.cumz)
-                    smallestz = scrapmemb.next;
-                scrapmemb = scrapmemb.next;
-            }
-            return smallestz;
-        }
-
+        #endregion
+        #region CheckFound (DONE)
         /// <summary>
         /// AFTER FINDING EACH BOX, THE CANDIDATE BOXES AND THE CONDITION OF THE LAYER
         /// ARE EXAMINED
         /// </summary>
-        private void CheckFound(int boxi, int bboxi,
-            double boxx, double boxy, double boxz,
-            double bboxx, double bboxy, double bboxz,
-            ref Scrappad smallestz, ref double prelayer, ref double lilz,
-            double layerthickness,
-            ref int cboxi, ref double cboxx, ref double cboxy, ref double cboxz,
-            ref double layerinlayer, ref bool layerDone)
+        private void CheckFound(
+            ref int cboxi, ref int cboxx, ref int cboxy, ref int cboxz
+            , int boxi, int boxx, int boxy, int boxz
+            , int bboxi, int bboxx, int bboxy, int bboxz)
         {
             evened = false;
-            if (boxi >= 0)
+            if (boxi > 0)
             {
                 cboxi = boxi;
                 cboxx = boxx;
@@ -281,19 +597,19 @@ namespace Boxologic.CSharp
             }
             else
             {
-                if ((bboxi >= 0) && (layerinlayer > 0 || (null == smallestz.prev && null == smallestz.next)))
+                if ((bboxi > 0) && (layerinlayer > 0 || (null == smallestz.prev && null == smallestz.next)))
                 {
                     if (layerinlayer == 0.0)
                     {
-                        prelayer = layerthickness;
-                        lilz = smallestz.cumz;
+                        prelayer = layerThickness;
+                        lilz = smallestz.Cumz;
                     }
                     cboxi = bboxi;
                     cboxx = bboxx;
                     cboxy = bboxy;
                     cboxz = bboxz;
-                    layerinlayer = layerinlayer + bboxy - layerthickness;
-                    layerthickness = bboxy;
+                    layerinlayer = layerinlayer + bboxy - layerThickness;
+                    layerThickness = bboxy;
                 }
                 else
                 {
@@ -307,8 +623,8 @@ namespace Boxologic.CSharp
                         if (null == smallestz.prev)
                         {
                             trash = smallestz.next;
-                            smallestz.cumx = smallestz.next.cumx;
-                            smallestz.cumz = smallestz.next.cumz;
+                            smallestz.Cumx = smallestz.next.Cumx;
+                            smallestz.Cumz = smallestz.next.Cumz;
                             smallestz.next = smallestz.next.next;
                             if (null != smallestz.next)
                             {
@@ -319,19 +635,19 @@ namespace Boxologic.CSharp
                         else if (null == smallestz.next)
                         {
                             smallestz.prev.next = null;
-                            smallestz.prev.cumx = smallestz.cumx;
+                            smallestz.prev.Cumx = smallestz.Cumx;
                             smallestz = null;
                         }
                         else
                         {
-                            if (smallestz.prev.cumz == smallestz.next.cumz)
+                            if (smallestz.prev.Cumz == smallestz.next.Cumz)
                             {
                                 smallestz.prev.next = smallestz.next.next;
                                 if (null != smallestz.next.next)
                                 {
                                     smallestz.next.next.prev = smallestz.prev;
                                 }
-                                smallestz.prev.cumx = smallestz.next.cumx;
+                                smallestz.prev.Cumx = smallestz.next.Cumx;
                                 smallestz.next = null;
                                 smallestz = null;
                             }
@@ -339,9 +655,9 @@ namespace Boxologic.CSharp
                             {
                                 smallestz.prev.next = smallestz.next;
                                 smallestz.next.prev = smallestz.prev;
-                                if (smallestz.prev.cumz < smallestz.next.cumz)
+                                if (smallestz.prev.Cumz < smallestz.next.Cumz)
                                 {
-                                    smallestz.prev.cumx = smallestz.cumx;
+                                    smallestz.prev.Cumx = smallestz.Cumx;
                                 }
                                 smallestz = null;
                             }
@@ -350,137 +666,115 @@ namespace Boxologic.CSharp
                 }
             }
         }
+        #endregion
+        #region VolumeCheck (DONE)
         /// <summary>
         /// AFTER PACKING OF EACH BOX, 100% PACKING CONDITION IS CHECKED
         /// </summary>
-        private void VolumeCheck(ref BoxInfo bi)
+        private void VolumeCheck(int cboxi, int cboxx, int cboxy, int cboxz, bool packingbest
+            , ref bool hundredpercent)
         {
-            bi.Is_packed = true;
-
-
-            packing = false;
-        }
-
-        public void List_candidate_layers(Pallet p, List<BoxInfo> listBoxes, ref List<Layer> listLayers)
-        {
-            foreach (BoxInfo bi in listBoxes)
+            BoxInfo bi = boxList[cboxi];
+            bi.SetPacked(cboxx, cboxy, cboxz);
+            packedvolume += bi.Vol;
+            packednumbox++;
+            if (packingbest)
             {
-                for (int y = 0; y < 3; ++y)
-                {
-                    double exdim = 0.0, dimen2= 0.0, dimen3 = 0.0;
-                    switch (y)
-                    {
-                        case 1:
-                            exdim = bi.Dim1;
-                            dimen2 = bi.Dim2;
-                            dimen3 = bi.Dim3;
-                            break;
-                        case 2:
-                            exdim = bi.Dim2;
-                            dimen2 = bi.Dim1;
-                            dimen3 = bi.Dim3;
-                            break;
-                        case 3:
-                            exdim = bi.Dim3;
-                            dimen2 = bi.Dim1;
-                            dimen3 = bi.Dim2;
-                            break;
-                    }
-
-                    if (
-                        (exdim > p.LayoutWidth)
-                        ||
-                        (
-                            ((dimen2 > p.LayoutLength) || (dimen3 > p.LayoutHeight))
-                            && ((dimen3 > p.LayoutLength) || (dimen2 > p.LayoutHeight))
-                        )
-                    )
-                        continue;
-
-                    if (null != listLayers.Find(lay => Math.Abs(lay.LayerDim - exdim) < 0.001))
-                        continue;
-
-                    double layereval = 0.0;
-                    foreach (BoxInfo bi2 in listBoxes)
-                    {
-                        double dimdif = Math.Abs(exdim - bi2.Dim1);
-                        if (Math.Abs(exdim - bi2.Dim2) < dimdif)
-                            dimdif = Math.Abs(exdim - bi2.Dim2);
-                        if (Math.Abs(exdim - bi2.Dim3) < dimdif)
-                            dimdif = Math.Abs(exdim - bi2.Dim3);
-                        layereval = layereval + dimdif;
-                    }
-                    listLayers.Add(new Layer() { LayerEval = layereval, LayerDim = exdim });
-                }
+                bi.Write();
+                bi.WriteToFile(fso, best_variant, 0);
             }
-            listLayers.Sort(new LayerComparer());
+            else if (packedvolume == pallet.Vol || packedvolume == total_box_volume)
+            {
+                packing = false;
+                hundredpercent = true;
+            }
         }
-
+        #endregion
+        #region Find_box (DONE)
         /// <summary>
         /// FINDS THE MOST PROPER BOXES BY LOOKING AT ALL SIX POSSIBLE ORIENTATIONS,
         /// EMPTY SPACE GIVEN, ADJACENT BOXES, AND PALLET LIMITS 
         /// </summary>
-        private void Find_box(double hmx, double hy, double hmy, double hz, double hmz, 
-            ref double bfx, ref double bfy, ref double bfz,
-            ref double bbfx, ref double bbfy, ref double bbfz,
-            ref int boxi, ref int bboxi)
+        private void Find_box(int hmx, int hy, int hmy, int hz, int hmz, 
+            ref int cboxi, ref int cboxx, ref int cboxy, ref int cboxz)
         {
-            bfx = Double.MaxValue; bfy = Double.MaxValue; bfz = Double.MaxValue;
-            bbfx = Double.MaxValue; bbfy = Double.MaxValue; bbfz = Double.MaxValue;
-            double boxx = 0.0, boxy = 0.0, boxz = 0.0,
-                bboxx = 0.0, bboxy = 0.0, bboxz = 0.0;
+            int boxi = 0, boxx = 0, boxy = 0, boxz = 0;
+            int bboxi = 0, bboxx = 0, bboxy = 0, bboxz = 0;
+            int bfx = int.MaxValue, bfy = int.MaxValue, bfz = int.MaxValue;
+            int bbfx = int.MaxValue, bbfy = int.MaxValue, bbfz = int.MaxValue;
+            boxi = 0; bboxi = 0;
 
-            for (int y = 1; y < listBox.Count; y += listBox[y].N)
+            for (int y = 0; y < boxList.Count; y += boxList[y].N)
             {
                 int x = y;
-                for (x = y; x < x + listBox[y].N - 1; x++)
+                for (x = y; x < y + boxList[y].N - 1; x++)
                 {
-                    if (!listBox[x].Is_packed) break;
+                    if (!boxList[x].Is_packed) break;
                 }
-
-                if (listBox[x].Is_packed) continue;
-                if (x > listBox.Count) return;
-                BoxInfo bi = listBox[x];
-                Analyse_box(x, hmx, hy, hmy, hz, hmz, bi.Dim1, bi.Dim2, bi.Dim3,
-                    ref boxx, ref boxy, ref boxz, ref bfx, ref bfy, ref bfz,
-                    ref bboxx, ref bboxy, ref bboxz, ref bbfx, ref bbfy, ref bbfz,
-                    ref boxi, ref bboxi);
+                if (boxList[x].Is_packed) continue;
+                if (x >= boxList.Count) return;
+                BoxInfo bi = boxList[x];
+                // 1 2 3
+                Analyse_box(x, hmx, hy, hmy, hz, hmz,
+                    bi.Dim1, bi.Dim2, bi.Dim3
+                    , ref bfx, ref bfy, ref bfz
+                    , ref bbfx, ref bbfy, ref bbfz
+                    , ref boxi, ref boxx, ref boxy, ref boxz
+                    , ref bboxi, ref bboxx, ref bboxy, ref bboxz);
                 if ((bi.Dim1 == bi.Dim3) && (bi.Dim3 == bi.Dim2))
                     continue;
-                Analyse_box(x, hmx, hy, hmy, hz, hmz, bi.Dim1, bi.Dim3, bi.Dim2,
-                    ref boxx, ref boxy, ref boxz, ref bfx, ref bfy, ref bfz,
-                    ref bboxx, ref bboxy, ref bboxz, ref bbfx, ref bbfy, ref bbfz,
-                    ref boxi, ref bboxi);
-                Analyse_box(x, hmx, hy, hmy, hz, hmz, bi.Dim2, bi.Dim1, bi.Dim3,
-                    ref boxx, ref boxy, ref boxz, ref bfx, ref bfy, ref bfz,
-                    ref bboxx, ref bboxy, ref bboxz, ref bbfx, ref bbfy, ref bbfz,
-                    ref boxi, ref bboxi);
-                Analyse_box(x, hmx, hy, hmy, hz, hmz, bi.Dim2, bi.Dim3, bi.Dim1,
-                    ref boxx, ref boxy, ref boxz, ref bfx, ref bfy, ref bfz,
-                    ref bboxx, ref bboxy, ref bboxz, ref bbfx, ref bbfy, ref bbfz,
-                    ref boxi, ref bboxi);
-                Analyse_box(x, hmx, hy, hmy, hz, hmz, bi.Dim3, bi.Dim1, bi.Dim2,
-                    ref boxx, ref boxy, ref boxz, ref bfx, ref bfy, ref bfz,
-                    ref bboxx, ref bboxy, ref bboxz, ref bbfx, ref bbfy, ref bbfz,
-                    ref boxi, ref bboxi);
-                Analyse_box(x, hmx, hy, hmy, hz, hmz, bi.Dim3, bi.Dim2, bi.Dim1,
-                    ref boxx, ref boxy, ref boxz, ref bfx, ref bfy, ref bfz,
-                    ref bboxx, ref bboxy, ref bboxz, ref bbfx, ref bbfy, ref bbfz,
-                    ref boxi, ref bboxi);
+                // 1 3 2
+                Analyse_box(x, hmx, hy, hmy, hz, hmz
+                    , bi.Dim1, bi.Dim3, bi.Dim2
+                    , ref bfx, ref bfy, ref bfz
+                    , ref bbfx, ref bbfy, ref bbfz
+                    , ref boxi, ref boxx, ref boxy, ref boxz
+                    , ref bboxi, ref bboxx, ref bboxy, ref bboxz);
+                // 2 1 3
+                Analyse_box(x, hmx, hy, hmy, hz, hmz
+                    , bi.Dim2, bi.Dim1, bi.Dim3
+                    , ref bfx, ref bfy, ref bfz
+                    , ref bbfx, ref bbfy, ref bbfz
+                    , ref boxi, ref boxx, ref boxy, ref boxz
+                    , ref bboxi, ref bboxx, ref bboxy, ref bboxz);
+                // 2 3 1
+                Analyse_box(x, hmx, hy, hmy, hz, hmz
+                    , bi.Dim2, bi.Dim3, bi.Dim1
+                    , ref bfx, ref bfy, ref bfz
+                    , ref bbfx, ref bbfy, ref bbfz
+                    , ref boxi, ref boxx, ref boxy, ref boxz
+                    , ref bboxi, ref bboxx, ref bboxy, ref bboxz); 
+                // 3 1 2
+                Analyse_box(x, hmx, hy, hmy, hz, hmz
+                    , bi.Dim3, bi.Dim1, bi.Dim2
+                    , ref bfx, ref bfy, ref bfz
+                    , ref bbfx, ref bbfy, ref bbfz
+                    , ref boxi, ref boxx, ref boxy, ref boxz
+                    , ref bboxi, ref bboxx, ref bboxy, ref bboxz);
+                // 3 2 1
+                Analyse_box(x, hmx, hy, hmy, hz, hmz
+                    , bi.Dim3, bi.Dim2, bi.Dim1
+                    , ref bfx, ref bfy, ref bfz
+                    , ref bbfx, ref bbfy, ref bbfz
+                    , ref boxi, ref boxx, ref boxy, ref boxz
+                    , ref bboxi, ref bboxx, ref bboxy, ref bboxz);
             }
+            CheckFound(ref cboxi, ref cboxx, ref cboxy, ref cboxz
+                , boxi, boxx, boxy, boxz
+                , bboxi, bboxx, bboxy, bboxz);
         }
-
+        #endregion
+        #region Analyse_box
         /// <summary>
         /// ANALYZES EACH UNPACKED BOX TO FIND THE BEST FITTING ONE TO THE EMPTY SPACE
         /// GIVEN
         /// </summary>
-        private void Analyse_box(int x, double hmx, double hy, double hmy, double hz, double hmz,
-            double dim1, double dim2, double dim3,
-            ref double boxx, ref double boxy, ref double boxz,
-            ref double bfx, ref double bfy, ref double bfz,
-            ref double bboxx, ref double bboxy, ref double bboxz,
-            ref double bbfx, ref double bbfy, ref double bbfz,
-            ref int boxi, ref int bboxi)
+        private void Analyse_box(int x, int hmx, int hy, int hmy, int hz, int hmz,
+            int dim1, int dim2, int dim3
+            , ref int bfx, ref int bfy, ref int bfz
+            , ref int bbfx, ref int bbfy, ref int bbfz
+            , ref int boxi, ref int boxx, ref int boxy, ref int boxz
+            , ref int bboxi, ref int bboxx, ref int bboxy, ref int bboxz)
         {
             if (dim1 <= hmx && dim2 <= hmy && dim3 <= hmz)
             {
@@ -552,11 +846,72 @@ namespace Boxologic.CSharp
                 }
             }
         }
-
+        #endregion
         public void Report_results()
         {
+            pallet.Variant = best_variant;
+            double packed_box_percentage = best_solution_volume * 100 / total_box_volume;
+            pallet_volume_used_percentage = best_solution_volume * 100 / pallet.Vol;
+            double elapsed_time = (_timeStop - _timeStart).TotalMilliseconds * 0.001;
 
+            List_candidate_layers(false);
+            packedvolume = 0.0;
+            packedy = 0;
+            packing = true;
+            layerThickness = layers[best_iteration].LayerDim;
+            remainpy = pallet.Pallet_y;
+            remainpz = pallet.Pallet_z;
+
+            scrapfirst = new Scrappad();
+            best_solution_volume = 0.0;
+            number_of_iterations = 0;
+
+
+            foreach (BoxInfo bi in boxList)
+                bi.Is_packed = false;
+
+            bool hundredpercent = false;
+            do
+            {
+                layerinlayer = 0;
+                layerdone = false;
+                Pack_layer(true, ref hundredpercent);
+                packedy += layerThickness;
+                remainpy = pallet.Pallet_y - packedy;
+                if (0 != layerinlayer)
+                {
+                    prepackedy = packedy;
+                    preremainpy = remainpy;
+                    remainpy = layerThickness - prelayer;
+                    packedy = packedy - layerThickness + prelayer;
+                    remainpz = lilz;
+                    layerThickness = layerinlayer;
+                    layerdone = false;
+                    Pack_layer(true, ref hundredpercent);
+                    packedy = prepackedy;
+                    remainpy = preremainpy;
+                    remainpz = pallet.Pallet_z;
+                }
+                Find_layer(remainpy, pallet, ref layerThickness);
+            }
+            while (packing);
+
+            foreach (BoxInfo bi in boxList)
+            {
+
+            }
+
+            Console.WriteLine("ELAPSED TIME                       : Almost {0:0.000} s", elapsed_time);
+            Console.WriteLine("TOTAL NUMBER OF ITERATIONS DONE    : {0}", number_of_iterations);
+            Console.WriteLine("BEST SOLUTION FOUND AT             : ITERATION: {0} OF VARIANT: {1}", best_iteration, best_variant);
+            Console.WriteLine("TOTAL NUMBER OF BOXES              : {0}", boxList.Count);
+            Console.WriteLine("PACKED NUMBER OF BOXES             : {0}", number_packed_boxes);
+            Console.WriteLine("TOTAL VOLUME OF ALL BOXES          : {0}", total_box_volume);
+            Console.WriteLine("PALLET VOLUME                      : {0}", pallet.Vol);
+            Console.WriteLine("BEST SOLUTION'S VOLUME UTILIZATION : {0} OUT OF {1}", best_solution_volume, pallet.Vol);
+            Console.WriteLine("PERCENTAGE OF PALLET VOLUME USED   : {0:0.000}", pallet_volume_used_percentage);
+            Console.WriteLine("PERCENTAGE OF PACKEDBOXES (VOLUME) : {0:0.000}", packed_box_percentage);
+            Console.WriteLine("WHILE PALLET ORIENTATION           : X={0}; Y={1}; Z= {2}", pallet.Pallet_x, pallet.Pallet_y, pallet.Pallet_z);
         }
-
     }
 }
