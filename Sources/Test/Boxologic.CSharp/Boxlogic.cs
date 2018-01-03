@@ -13,7 +13,7 @@ namespace Boxologic.CSharp
         private Scrappad scrapfirst, smallestz;
         private Scrappad trash;
 
-        private Dictionary<int, double> best_iterations = new Dictionary<int, double>();
+        private Dictionary<KeyValuePair<int,int>, double> best_iterations = new Dictionary<KeyValuePair<int,int>, double>();
 
         private bool packing = true, layerdone = false, evened = false;
         private int best_variant;
@@ -29,9 +29,9 @@ namespace Boxologic.CSharp
         private int packednumbox;
         private int number_packed_boxes;
 
-        private double packedvolume;
-        private double best_solution_volume;
-        private double total_box_volume;
+        private int packedvolume;
+        private int best_solution_volume;
+        private int total_box_volume;
         private double pallet_volume_used_percentage;
         private System.IO.StreamWriter fso;
 
@@ -64,7 +64,7 @@ namespace Boxologic.CSharp
             { total_box_volume += bi.Vol; }
 
             scrapfirst = new Scrappad();
-            best_solution_volume = 0.0;
+            best_solution_volume = 0;
             number_of_iterations = 0;
         }
         public void Execute_iterations()
@@ -86,7 +86,7 @@ namespace Boxologic.CSharp
                     Console.WriteLine(
                         string.Format("VARIANT: {0,5:#####}; ITERATION (TOTAL): {1,5:#####}; BEST SO FAR: {2:0.000}; TIME: {3:0.00}"
                             , variant, number_of_iterations, pallet_volume_used_percentage, elapsed_time));
-                    packedvolume = 0.0;
+                    packedvolume = 0;
                     packedy = 0;
                     packing = true;
                     layerThickness = l.LayerDim;
@@ -105,7 +105,7 @@ namespace Boxologic.CSharp
                         Pack_layer(false, ref hundredpercent);
                         packedy = packedy + layerThickness;
                         remainpy = pallet.Pallet_y - packedy;
-                        if (layerinlayer > 0)
+                        if (0 != layerinlayer)
                         {
                             prepackedy = packedy;
                             preremainpy = remainpy;
@@ -116,10 +116,11 @@ namespace Boxologic.CSharp
                             layerdone = false;
                             Pack_layer(false, ref hundredpercent);
                             packedy = prepackedy;
-                            remainpy = prepackedy;
+                            remainpy = preremainpy;
                             remainpz = pallet.Pallet_z;
                         }
-                        Find_layer(remainpy, pallet, ref layerThickness);
+                        System.Diagnostics.Debug.Assert(remainpy >= 0);
+                        Find_layer(remainpy, pallet);
                     }
                     while (packing);
                     // END DO-WHILE
@@ -131,10 +132,10 @@ namespace Boxologic.CSharp
                         best_iteration = itelayer;
                         number_packed_boxes = packednumbox;
 
-                        best_iterations[itelayer] = packedvolume;
+                        best_iterations[new KeyValuePair<int,int>(variant, itelayer)] = packedvolume;
                     }
                     if (hundredpercent) break;
-                    pallet_volume_used_percentage = best_solution_volume * 100 / pallet.Vol;
+                    pallet_volume_used_percentage = (double)best_solution_volume * 100 / (double)pallet.Vol;
                 }
                 if (hundredpercent) break;
                 if ((pallet.Dim1 == pallet.Dim2) && (pallet.Dim2 == pallet.Dim3)) variant = 6;
@@ -512,10 +513,10 @@ namespace Boxologic.CSharp
         #endregion
         #region Find_layer (DONE)
         ///----------------------------------------------------------------------------
-        /// FINDS THE MOST PROPER LAYER HIGHT BY LOOKING AT THE UNPACKED BOXES AND THE
+        /// FINDS THE MOST PROPER LAYER HEIGHT BY LOOKING AT THE UNPACKED BOXES AND THE
         /// REMAINING EMPTY SPACE AVAILABLE
         ///----------------------------------------------------------------------------
-        private int Find_layer(int thickness, PalletInfo p, ref int layerthickness)
+        private int Find_layer(int thickness, PalletInfo p)
         {
             int exdim = 0, dimdif=0, dimen2=0, dimen3=0;
             int layereval = 0, eval = int.MaxValue;
@@ -567,7 +568,7 @@ namespace Boxologic.CSharp
                         if (layereval < eval)
                         {
                             eval = layereval;
-                            layerthickness = exdim;
+                            layerThickness = exdim;
                         }
                     }
                 }
@@ -680,7 +681,7 @@ namespace Boxologic.CSharp
             packednumbox++;
             if (packingbest)
             {
-                bi.Write();
+                bi.Write(cboxi);
                 bi.WriteToFile(fso, best_variant, 0);
             }
             else if (packedvolume == pallet.Vol || packedvolume == total_box_volume)
@@ -850,22 +851,17 @@ namespace Boxologic.CSharp
         public void Report_results()
         {
             pallet.Variant = best_variant;
-            double packed_box_percentage = best_solution_volume * 100 / total_box_volume;
-            pallet_volume_used_percentage = best_solution_volume * 100 / pallet.Vol;
+            double packed_box_percentage = (double)best_solution_volume * 100 / (double)total_box_volume;
+            pallet_volume_used_percentage = (double)best_solution_volume * 100 / (double)pallet.Vol;
             double elapsed_time = (_timeStop - _timeStart).TotalMilliseconds * 0.001;
 
             List_candidate_layers(false);
-            packedvolume = 0.0;
+            packedvolume = 0;
             packedy = 0;
             packing = true;
             layerThickness = layers[best_iteration].LayerDim;
             remainpy = pallet.Pallet_y;
             remainpz = pallet.Pallet_z;
-
-            scrapfirst = new Scrappad();
-            best_solution_volume = 0.0;
-            number_of_iterations = 0;
-
 
             foreach (BoxInfo bi in boxList)
                 bi.Is_packed = false;
@@ -892,13 +888,15 @@ namespace Boxologic.CSharp
                     remainpy = preremainpy;
                     remainpz = pallet.Pallet_z;
                 }
-                Find_layer(remainpy, pallet, ref layerThickness);
+                System.Diagnostics.Debug.Assert(remainpy >= 0);
+                Find_layer(remainpy, pallet);
             }
             while (packing);
 
             foreach (BoxInfo bi in boxList)
             {
-
+                if (bi.Is_packed)
+                    bi.WriteToFile(fso, best_variant, best_iteration);
             }
 
             Console.WriteLine("ELAPSED TIME                       : Almost {0:0.000} s", elapsed_time);
@@ -912,6 +910,9 @@ namespace Boxologic.CSharp
             Console.WriteLine("PERCENTAGE OF PALLET VOLUME USED   : {0:0.000}", pallet_volume_used_percentage);
             Console.WriteLine("PERCENTAGE OF PACKEDBOXES (VOLUME) : {0:0.000}", packed_box_percentage);
             Console.WriteLine("WHILE PALLET ORIENTATION           : X={0}; Y={1}; Z= {2}", pallet.Pallet_x, pallet.Pallet_y, pallet.Pallet_z);
+            Console.WriteLine();
+            foreach (var vKey in best_iterations.Keys)
+                Console.WriteLine("{0} {1} -> {2}", vKey.Key, vKey.Value, best_iterations[vKey]);
         }
     }
 }

@@ -37,12 +37,12 @@ namespace Boxologic.CSharp
         public int Coy { get; set; }
         public int Coz { get; set; }
         public int N { get; set; }
-        public void Write()
+        public void Write(int index)
         {
             if (Is_packed)
-                Console.WriteLine(string.Format("{0,5:#####}{1,5:#####}{2,5:#####}{3,5:#####}{4,5:#####}{5,5:#####}", Cox, Coy, Coz, Packx, Packy, Packz));
+                Console.WriteLine(string.Format("{0,5:D}{1,5:D}{2,5:D}{3,5:D}{4,5:D}{5,5:D}{6,5:D}", index, Cox, Coy, Coz, Packx, Packy, Packz));
             else
-                Console.WriteLine(string.Format("{0,5:#####}{1,5:#####}{2,5:#####}", Cox, Coy, Coz));
+                Console.WriteLine(string.Format("{0,5:D}{1,5:D}{2,5:D}{3,5:D}", index, Cox, Coy, Coz));
         }
         public void WriteToFile(StreamWriter file, int variant, int index)
         {
@@ -182,7 +182,7 @@ namespace Boxologic.CSharp
         public int LayerDim { get; set; }
         public override string ToString()
         {
-            return string.Format("{0,5:#####}, {1,5:#####}", LayerDim, LayerEval);
+            return string.Format("{0,5:D}, {1,5:D}", LayerDim, LayerEval);
         }
     }
 
