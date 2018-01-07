@@ -15,9 +15,11 @@ namespace treeDiM.StackBuilder.Graphics
         #region IComparer<Box> implementation
         public int Compare(Box b1, Box b2)
         {
-            if (b1.ZMin > b2.ZMin)
+            double b1ZMin = b1.PtMin.Z;
+            double b2ZMin = b2.PtMin.Z;
+            if (b1ZMin > b2ZMin)
                 return 1;
-            else if (b1.ZMin == b2.ZMin)
+            else if (b1ZMin == b2ZMin)
                 return 0;
             else
                 return -1;
@@ -40,24 +42,26 @@ namespace treeDiM.StackBuilder.Graphics
         #region IComparer<Box> implementation
         public int Compare(Box b1, Box b2)
         {
-            if (b1.XMin > b2.XMin)
+            Vector3D b1PtMin = b1.PtMin, b2PtMin = b2.PtMin;
+            if (b1PtMin.X > b2PtMin.X)
                 return 1;
-            else if (b1.XMin == b2.XMin)
+            else if (b1PtMin.X == b2PtMin.X)
             {
                 if (_direction.Y >= 0)
                 {
-                    if (b1.YMin > b2.YMin)
+                    if (b1PtMin.Y > b2PtMin.Y)
                         return 1;
-                    else if (b1.YMin == b2.YMin)
+                    else if (b1PtMin.Y == b2PtMin.Y)
                         return 0;
                     else
                         return -1;
                 }
                 else
                 {
-                    if (b1.YMax > b2.YMax)
+                    Vector3D b1PtMax = b1.PtMax, b2PtMax = b2.PtMax; 
+                    if (b1PtMax.Y > b2PtMax.Y)
                         return -1;
-                    else if (b1.YMax == b2.YMax)
+                    else if (b1PtMax.Y == b2PtMax.Y)
                         return 0;
                     else
                         return 1;
@@ -82,24 +86,27 @@ namespace treeDiM.StackBuilder.Graphics
         #region IComparer<Box> implementation
         public int Compare(Box b1, Box b2)
         {
-            if (b1.XMax > b2.XMax)
+            Vector3D b1PtMax = b1.PtMax, b2PtMax = b2.PtMax;
+
+            if (b1PtMax.X > b2PtMax.X)
                 return -1;
-            else if (b1.XMax == b2.XMax)
+            else if (b1PtMax.X == b2PtMax.X)
             {
                 if (_direction.Y >= 0)
                 {
-                    if (b1.YMin > b2.YMin)
+                    Vector3D b1PtMin = b1.PtMin, b2PtMin = b2.PtMin;
+                    if (b1PtMin.Y > b2PtMin.Y)
                         return 1;
-                    else if (b1.YMin == b2.YMin)
+                    else if (b1PtMin.Y == b2PtMin.Y)
                         return 0;
                     else
                         return -1;
                 }
                 else
                 {
-                    if (b1.YMax > b2.YMax)
+                    if (b1PtMax.Y > b2PtMax.Y)
                         return -1;
-                    else if (b1.YMax == b2.YMax)
+                    else if (b1PtMax.Y == b2PtMax.Y)
                         return 0;
                     else
                         return 1;
@@ -164,8 +171,6 @@ namespace treeDiM.StackBuilder.Graphics
         #endregion
 
         #region Public methods
- 
-
         public override List<Box> GetSortedList()
         {
             // first sort by Z
@@ -178,11 +183,11 @@ namespace treeDiM.StackBuilder.Graphics
 
             // build same Z layers
             int index = 0;
-            double zCurrent = _boxes[index].ZMin;
+            double zCurrent = _boxes[index].PtMin.Z;
             List<Box> tempList = new List<Box>();
             while (index < _boxes.Count)
             {
-                if (Math.Abs(zCurrent - _boxes[index].ZMin) < _epsilon)
+                if (Math.Abs(zCurrent - _boxes[index].PtMin.Z) < _epsilon)
                     tempList.Add(_boxes[index]);
                 else
                 {
@@ -191,7 +196,7 @@ namespace treeDiM.StackBuilder.Graphics
                     // add to sorted list
                     _sortedList.AddRange(tempList);
                     // start new layer
-                    zCurrent = _boxes[index].ZMin;
+                    zCurrent = _boxes[index].PtMin.Z;
                     tempList.Clear();
                     tempList.Add(_boxes[index]);
                 }
@@ -223,8 +228,8 @@ namespace treeDiM.StackBuilder.Graphics
             List<double> yList = new List<double>();
             foreach (Box b in layerList)
             {
-                if (!yList.Contains(b.YMin)) yList.Add(b.YMin);
-                if (!yList.Contains(b.YMax)) yList.Add(b.YMax);
+                if (!yList.Contains(b.PtMin.Y)) yList.Add(b.PtMin.Y);
+                if (!yList.Contains(b.PtMax.Y)) yList.Add(b.PtMax.Y);
             }
             yList.Sort();
             if (_direction.Y < 0)
@@ -310,7 +315,7 @@ namespace treeDiM.StackBuilder.Graphics
         {
             List<Box> outList = new List<Box>();
             foreach (Box b in inList)
-                if (Math.Abs(b.YMin - y) < _epsilon)
+                if (Math.Abs(b.PtMin.Y - y) < _epsilon)
                     outList.Add(b);
             return outList;
         }
@@ -319,7 +324,7 @@ namespace treeDiM.StackBuilder.Graphics
         {
             List<Box> outList = new List<Box>();
             foreach (Box b in inList)
-                if (Math.Abs(y - b.YMax) < _epsilon)
+                if (Math.Abs(y - b.PtMax.Y) < _epsilon)
                     outList.Add(b);
             return outList;
         }
@@ -333,7 +338,7 @@ namespace treeDiM.StackBuilder.Graphics
                 for (int i = 0; i < lb.Count; ++i)
                 {
                     Box b = lb[i];
-                    if (b.YMax <= y)
+                    if (b.PtMax.Y <= y)
                     {
                         lb.Remove(b);
                         found = true;
@@ -351,7 +356,7 @@ namespace treeDiM.StackBuilder.Graphics
                 for (int i = 0; i < lb.Count; ++i)
                 {
                     Box b = lb[i];
-                    if (b.YMin >= y)
+                    if (b.PtMin.Y >= y)
                     {
                         lb.Remove(b);
                         found = true;

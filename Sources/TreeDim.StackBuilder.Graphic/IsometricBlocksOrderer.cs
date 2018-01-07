@@ -56,6 +56,7 @@ namespace treeDiM.StackBuilder.Graphics.IsometricBlocks
         #endregion
 
         #region Public methods
+
         public IsoPos SpaceToIso(Vector3D spacePos)
         {
             var z = spacePos.Z;
@@ -89,32 +90,63 @@ namespace treeDiM.StackBuilder.Graphics.IsometricBlocks
     internal class Block
     {
         #region Constructor
-        public Block(Box b, Camera camera)
+        public Block(Box b)
         {
             InternalBox = b;
-            InternalCamera = camera;
         }
         #endregion
 
         #region Accessors
         public Box InternalBox { get; set; }
-        public Camera InternalCamera { get; set; }
-        public BB Bounds
+        public Vector3D Pos => InternalBox.PtMin;
+        public Vector3D Size => InternalBox.BBox.DimensionsVec;
+        public BB Bounds => new BB(InternalBox.BBox.PtMin, InternalBox.BBox.PtMax);
+        public Dictionary<string, Vector3D> NamedSpaceVert
         {
             get
             {
-                return new BB(InternalBox.BBox.PtMin, InternalBox.BBox.PtMax);
+                var p = Pos;
+                var s = Size;
+                var namedSpaceVert = new Dictionary<string, Vector3D>
+                {
+                    ["rightDown"] = new Vector3D(p.X + s.X, p.Y, p.Z),
+                    ["leftDown"] = new Vector3D(p.X, p.Y + s.Y, p.Z),
+                    ["backDown"] = new Vector3D(p.X + s.X, p.Y + s.Y, p.Z),
+                    ["frontDown"] = new Vector3D(p.X, p.Y, p.Z),
+                    ["rightUp"] = new Vector3D(p.X + s.X, p.Y, p.Z + s.Z),
+                    ["leftUp"] = new Vector3D(p.X, p.Y + s.Y, p.Z + s.Z),
+                    ["backUp"] = new Vector3D(p.X + s.X, p.Y + s.Y, p.Z + s.Z),
+                    ["frontUp"] = new Vector3D(p.X, p.Y, p.Z + s.Z)
+                };
+                return namedSpaceVert;
             }
         }
-        public IsoBB IsoBounds
+        public Dictionary<string, IsoPos> GetIsoVert(Camera camera)
         {
-            get
+            var verts = NamedSpaceVert;
+            return new Dictionary<string, IsoPos>
             {
+                ["rightDown"] = camera.SpaceToIso(verts["rightDown"]),
+                ["leftDown"] = camera.SpaceToIso(verts["leftDown"]),
+                ["backDown"] = camera.SpaceToIso(verts["backDown"]),
+                ["frontDown"] = camera.SpaceToIso(verts["frontDown"]),
+                ["rightUp"] = camera.SpaceToIso(verts["rightUp"]),
+                ["leftUp"] = camera.SpaceToIso(verts["leftUp"]),
+                ["backUp"] = camera.SpaceToIso(verts["backUp"]),
+                ["frontUp"] = camera.SpaceToIso(verts["frontUp"])
+            };
+        }
 
-                IsoPos posMin = new IsoPos(0.0, 0.0, 0.0, 0.0);
-                IsoPos posMax = new IsoPos(0.0, 0.0, 0.0, 0.0);
-                return new IsoBB(posMin, posMax);
-            }
+        public IsoBB GetIsoBounds(Camera camera)
+        {
+            var isoVerts = GetIsoVert(camera);
+            double xmin = isoVerts["frontDown"].X;
+            double xmax = isoVerts["backUp"].X;
+            double ymin = isoVerts["frontDown"].Y;
+            double ymax = isoVerts["backUp"].Y;
+            double hmin = isoVerts["leftDown"].H;
+            double hmax = isoVerts["rightDown"].H;
+            return new IsoBB(new IsoPos(xmin, ymin, hmin, 0.0), new IsoPos(xmax, ymax, hmax, 0.0));
         }
         #endregion
 
@@ -132,10 +164,10 @@ namespace treeDiM.StackBuilder.Graphics.IsometricBlocks
         {
             return (amax <= bmin || bmax <= amin);
         }
-        public static SepAxis GetIsoSepAxis(Block block_a, Block block_b)
+        public static SepAxis GetIsoSepAxis(Block block_a, Block block_b, Camera camera)
         {
-            IsoBB a = block_a.IsoBounds;
-            IsoBB b = block_b.IsoBounds;
+            IsoBB a = block_a.GetIsoBounds(camera);
+            IsoBB b = block_b.GetIsoBounds(camera);
 
             SepAxis sepAxis = SepAxis.Unknown;
             if (AreRangesDisjoint(a.PosMin.X, a.PosMax.X, b.PosMin.X, b.PosMax.X))
@@ -170,15 +202,13 @@ namespace treeDiM.StackBuilder.Graphics.IsometricBlocks
             }
             return sepAxis;
         }
-        public static Block GetFrontBlock(Block block_a, Block block_b)
+        public static Block GetFrontBlock(Block block_a, Block block_b, Camera camera)
         {
             // If no isometric separation axis is found,
             // then the two blocks do not overlap on the screen.
             // This means there is no "front" block to identify.
-            if (SepAxis.Unknown == GetIsoSepAxis(block_a, block_b))
-            {
+            if (SepAxis.Unknown == GetIsoSepAxis(block_a, block_b, camera))
                 return null;
-            }
 
             // Find a 3D separation axis, and use it to determine
             // which block is in front of the other.
@@ -193,6 +223,11 @@ namespace treeDiM.StackBuilder.Graphics.IsometricBlocks
             }
         }
         #endregion
+
+        #region Data members
+        public List<Block> blocksBehind = new List<Block>();
+        public List<Block> blocksInFront = new List<Block>();
+        #endregion
     }
     #endregion
 
@@ -201,8 +236,79 @@ namespace treeDiM.StackBuilder.Graphics.IsometricBlocks
     {
         public override List<Box> GetSortedList()
         {
-            return new List<Box>();
+            List<Block> blocks = new List<Block>();
+            foreach (Box box in _boxes)
+                blocks.Add(new Block(box));
+
+            // Initialize the list of blocks that each block is behind.
+            foreach (Block block in blocks)
+            {
+                block.blocksBehind.Clear();
+                block.blocksInFront.Clear();
+            }
+
+            // foreach pair of blocks, determine which is in front and behind.
+            int numBlock = blocks.Count;
+            for (int i = 0; i < numBlock; i++)
+            {
+                Block a = blocks[i];
+                for (int j = i+1; j < numBlock; j++)
+                {
+                    Block b = blocks[j];
+                    Block frontBlock = Block.GetFrontBlock(a, b, camera);
+                    if (a == frontBlock)
+                    {
+                        if (a == frontBlock)
+                        {
+                            a.blocksBehind.Add(b);
+                            b.blocksInFront.Add(a);
+                        }
+                        else
+                        {
+                            b.blocksBehind.Add(a);
+                            a.blocksInFront.Add(b);
+                        }
+                    }
+                }
+            }
+            // Get list of blocks we can safely draw right now.
+            // These are the blocks with nothing behind them.
+            var blocksToDraw = new List<Block>();
+            for (int i = 0; i < numBlock; ++i)
+                if (blocks[i].blocksBehind.Count == 0)
+                    blocksToDraw.Add(blocks[i]);
+
+            // While there are still blocks we can draw...
+            var blocksDrawn = new List<Block>();
+            while (blocksToDraw.Count > 0)
+            {
+                // draw block by removing one from "to draw" and adding
+                // it to the end of our "drawn" list
+                var block = blocksToDraw.First();
+                blocksToDraw.Remove(block);
+                blocksDrawn.Add(block);
+
+                // Tell blocks in front of the one we just drew
+                // that they can stop waiting on it
+                for (int j = 0; j < block.blocksInFront.Count; j++)
+                {
+                    var frontBlock = block.blocksInFront[j];
+
+                    // add this front to our "to draw" list if there is
+                    // nothing else behind it waiting to be drawn.
+                    frontBlock.blocksBehind.Remove(block);
+                    if (frontBlock.blocksBehind.Count == 0)
+                        blocksToDraw.Add(frontBlock);
+                }
+            }
+            // convert to sorted box list
+            var boxesDrawn = new List<Box>();
+            foreach (Block bdrawn in blocksDrawn)
+                boxesDrawn.Add(bdrawn.InternalBox);
+            return boxesDrawn;
         }
+
+        Camera camera = new Camera(Vector3D.Zero, 1.0);
     }
     #endregion
 }

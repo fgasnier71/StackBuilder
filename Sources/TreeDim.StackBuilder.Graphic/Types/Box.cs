@@ -429,67 +429,36 @@ namespace treeDiM.StackBuilder.Graphics
         #endregion
 
         #region XMin / XMax / YMin / YMax / ZMin
-        public double XMin
+        public Vector3D PtMin
         {
             get
             {
-                double xmin = double.MaxValue;
+                double xmin = double.MaxValue,
+                    ymin = double.MaxValue,
+                    zmin = double.MaxValue;
                 foreach (Vector3D v in this.Points)
                 {
-                    if (v.X < xmin)
-                        xmin = v.X;
-                }
-                return xmin;
-            }
-        }
-        public double XMax
-        {
-            get
-            {
-                double xmax = double.MinValue;
-                foreach (Vector3D v in this.Points)
-                {
-                    if (v.X > xmax)
-                        xmax = v.X;
-                }
-                return xmax;
-            }
-        }
-        public double YMin
-        {
-            get
-            {
-                double ymin = double.MaxValue;
-                foreach (Vector3D v in this.Points)
-                {
-                    if (v.Y < ymin)
-                        ymin = v.Y;
-                }
-                return ymin;
-            }
-        }
-        public double YMax
-        {
-            get
-            {
-                double ymax = double.MinValue;
-                foreach (Vector3D v in this.Points)
-                {
-                    if (v.Y > ymax)
-                        ymax = v.Y;
-                }
-                return ymax;
-            }
-        }
-
-        public double ZMin
-        {
-            get
-            {
-                double zmin = double.MaxValue;
-                foreach (Vector3D v in this.Points)
+                    xmin = Math.Min(v.X, xmin);
+                    ymin = Math.Min(v.Y, ymin);
                     zmin = Math.Min(v.Z, zmin);
-                return zmin;
+                }
+                return new Vector3D(xmin, ymin, zmin);
+            }
+        }
+        public Vector3D PtMax
+        {
+            get
+            {
+                double xmax = double.MinValue,
+                    ymax = double.MinValue,
+                    zmax = double.MinValue;
+                foreach (Vector3D v in this.Points)
+                {
+                    xmax = Math.Max(v.X, xmax);
+                    ymax = Math.Max(v.Y, ymax);
+                    zmax = Math.Max(v.Z, zmax);
+                }
+                return new Vector3D(xmax, ymax, zmax);
             }
         }
         public BBox3D BBox
