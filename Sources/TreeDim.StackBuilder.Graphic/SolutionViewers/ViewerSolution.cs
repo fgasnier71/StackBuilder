@@ -313,7 +313,7 @@ namespace treeDiM.StackBuilder.Graphics
                 #region Pallet film
                 // ### pallet film
                 Film film = null;
-                if (analysisCasePallet.HasPalletFilm)
+                if (analysisCasePallet.HasPalletFilm && -1 == _solution.SelectedLayerIndex)
                 {
                     // instantiate film
                     PalletFilmProperties palletFilmProperties = analysisCasePallet.PalletFilmProperties;
@@ -356,6 +356,7 @@ namespace treeDiM.StackBuilder.Graphics
                 // ### pallet cap
                 if (analysisCasePallet.HasPalletCap)
                 {
+
                     PalletCapProperties capProperties = analysisCasePallet.PalletCapProperties;
                     BoxPosition bPosition = new BoxPosition(new Vector3D(
                         0.5 * (analysisCasePallet.PalletProperties.Length - capProperties.Length),
@@ -364,7 +365,9 @@ namespace treeDiM.StackBuilder.Graphics
                         , HalfAxis.Transform(HalfAxis.HAxis.AXIS_X_P, transform)
                         , HalfAxis.Transform(HalfAxis.HAxis.AXIS_Y_P, transform)
                         );
-                    PalletCap cap = new PalletCap(0, capProperties, bPosition);
+
+                    Transform3D upTranslation = Transform3D.Translation(new Vector3D(0.0, 0.0, -1 != _solution.SelectedLayerIndex ? DistanceAboveSelectedLayer : 0.0));
+                    PalletCap cap = new PalletCap(0, capProperties, bPosition.Transform(upTranslation));
                     cap.DrawEnd(graphics);
                 }
                 #endregion

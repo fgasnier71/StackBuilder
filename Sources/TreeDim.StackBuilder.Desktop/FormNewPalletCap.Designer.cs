@@ -47,6 +47,10 @@
             // 
             resources.ApplyResources(this.bnCancel, "bnCancel");
             // 
+            // tbName
+            // 
+            resources.ApplyResources(this.tbName, "tbName");
+            // 
             // tbDescription
             // 
             resources.ApplyResources(this.tbDescription, "tbDescription");
@@ -75,7 +79,8 @@
             resources.GetString("cbColor.Items12"),
             resources.GetString("cbColor.Items13"),
             resources.GetString("cbColor.Items14"),
-            resources.GetString("cbColor.Items15")});
+            resources.GetString("cbColor.Items15"),
+            resources.GetString("cbColor.Items16")});
             this.cbColor.Name = "cbColor";
             this.cbColor.SelectedColorChanged += new System.EventHandler(this.OnColorChanged);
             // 
@@ -101,6 +106,7 @@
             0});
             this.uCtrlDimensionsOuter.Name = "uCtrlDimensionsOuter";
             this.uCtrlDimensionsOuter.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlDimensionsOuter.Value = ((Sharp3D.Math.Core.Vector3D)(resources.GetObject("uCtrlDimensionsOuter.Value")));
             this.uCtrlDimensionsOuter.ValueX = 0D;
             this.uCtrlDimensionsOuter.ValueY = 0D;
             this.uCtrlDimensionsOuter.ValueZ = 0D;
@@ -116,6 +122,7 @@
             0});
             this.uCtrlDimensionsInner.Name = "uCtrlDimensionsInner";
             this.uCtrlDimensionsInner.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlDimensionsInner.Value = ((Sharp3D.Math.Core.Vector3D)(resources.GetObject("uCtrlDimensionsInner.Value")));
             this.uCtrlDimensionsInner.ValueX = 0D;
             this.uCtrlDimensionsInner.ValueY = 0D;
             this.uCtrlDimensionsInner.ValueZ = 0D;

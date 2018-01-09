@@ -5,6 +5,7 @@ using System.IO;
 using System.Web;
 using System.Threading;
 using System.Collections.Generic;
+using System.Reflection;
 using System.Configuration;
 
 namespace Codaxy.WkHtmlToPdf
@@ -76,15 +77,9 @@ namespace Codaxy.WkHtmlToPdf
 
         private static string GetWkhtmlToPdfExeLocation()
         {
-            string filePath, customPath = ConfigurationManager.AppSettings["wkhtmltopdf:path"];
-
-            if (customPath != null)
-            {
-                filePath = Path.Combine(customPath, @"wkhtmltopdf.exe");
-
-                if (File.Exists(filePath))
-                    return filePath;
-            }
+            string filePath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"wkhtmltopdf.exe");
+            if (File.Exists(filePath))
+                return filePath;
 
             string programFilesPath = System.Environment.GetEnvironmentVariable("ProgramFiles");
             filePath = Path.Combine(programFilesPath, @"wkhtmltopdf\wkhtmltopdf.exe");
@@ -94,7 +89,6 @@ namespace Codaxy.WkHtmlToPdf
 
             string programFilesx86Path = System.Environment.GetEnvironmentVariable("ProgramFiles(x86)");
             filePath = Path.Combine(programFilesx86Path, @"wkhtmltopdf\wkhtmltopdf.exe");
-
             if (File.Exists(filePath))
                 return filePath;
 
@@ -102,7 +96,7 @@ namespace Codaxy.WkHtmlToPdf
             if (File.Exists(filePath))
                 return filePath;
 
-            return Path.Combine(programFilesx86Path, @"wkhtmltopdf\bin\wkhtmltopdf.exe");
+            throw new FileNotFoundException("Failed to find wkhtmltopdf.exe", "wkhtmltopdf.exe");
         }
 
         public static void ConvertHtmlToPdf(PdfDocument document, PdfOutput output)

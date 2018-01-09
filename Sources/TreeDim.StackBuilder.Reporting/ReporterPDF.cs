@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.IO;
 
 using Codaxy.WkHtmlToPdf;
@@ -33,7 +29,7 @@ namespace treeDiM.StackBuilder.Reporting
             if (!Directory.Exists(outDir))
             {
                 try { Directory.CreateDirectory(outDir); }
-                catch (System.UnauthorizedAccessException /*ex*/)
+                catch (UnauthorizedAccessException /*ex*/)
                 { throw new UnauthorizedAccessException(string.Format("User not allowed to write under {0}", Directory.GetParent(outDir).FullName)); }
                 catch (Exception ex)
                 { throw new Exception(string.Format("Directory {0} does not exist, and could not be created.", outDir), ex); }
