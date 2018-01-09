@@ -2,17 +2,13 @@
 using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
-using System.Text;
 using System.Drawing;
 using System.IO;
 using System.Xml;
 using System.Diagnostics;
-using System.ComponentModel;
 using System.Text.RegularExpressions;
 using System.Globalization;
 using System.Linq;
-
-using treeDiM.StackBuilder.Basics;
 
 using Sharp3D.Math.Core;
 using log4net;
@@ -1013,7 +1009,7 @@ namespace treeDiM.StackBuilder.Basics
             {
                 try
                 {
-                    _dateCreated = System.Convert.ToDateTime(docElement.Attributes["DateCreated"].Value, new CultureInfo("en-US"));
+                    _dateCreated = Convert.ToDateTime(docElement.Attributes["DateCreated"].Value, new CultureInfo("en-US"));
                 }
                 catch (Exception /*ex*/)
                 {
@@ -1133,22 +1129,22 @@ namespace treeDiM.StackBuilder.Basics
                 boxProperties = CreateNewCase(
                 sname
                 , sdescription
-                , UnitsManager.ConvertLengthFrom(System.Convert.ToDouble(slength, System.Globalization.CultureInfo.InvariantCulture), _unitSystem)
-                , UnitsManager.ConvertLengthFrom(System.Convert.ToDouble(swidth, System.Globalization.CultureInfo.InvariantCulture), _unitSystem)
-                , UnitsManager.ConvertLengthFrom(System.Convert.ToDouble(sheight, System.Globalization.CultureInfo.InvariantCulture), _unitSystem)
-                , UnitsManager.ConvertLengthFrom(System.Convert.ToDouble(sInsideLength, System.Globalization.CultureInfo.InvariantCulture), _unitSystem)
-                , UnitsManager.ConvertLengthFrom(System.Convert.ToDouble(sInsideWidth, System.Globalization.CultureInfo.InvariantCulture), _unitSystem)
-                , UnitsManager.ConvertLengthFrom(System.Convert.ToDouble(sInsideHeight, System.Globalization.CultureInfo.InvariantCulture), _unitSystem)
-                , UnitsManager.ConvertMassFrom(System.Convert.ToDouble(sweight, System.Globalization.CultureInfo.InvariantCulture), _unitSystem)
+                , UnitsManager.ConvertLengthFrom(Convert.ToDouble(slength, CultureInfo.InvariantCulture), _unitSystem)
+                , UnitsManager.ConvertLengthFrom(Convert.ToDouble(swidth, CultureInfo.InvariantCulture), _unitSystem)
+                , UnitsManager.ConvertLengthFrom(Convert.ToDouble(sheight, CultureInfo.InvariantCulture), _unitSystem)
+                , UnitsManager.ConvertLengthFrom(Convert.ToDouble(sInsideLength, CultureInfo.InvariantCulture), _unitSystem)
+                , UnitsManager.ConvertLengthFrom(Convert.ToDouble(sInsideWidth, CultureInfo.InvariantCulture), _unitSystem)
+                , UnitsManager.ConvertLengthFrom(Convert.ToDouble(sInsideHeight, CultureInfo.InvariantCulture), _unitSystem)
+                , UnitsManager.ConvertMassFrom(Convert.ToDouble(sweight, CultureInfo.InvariantCulture), _unitSystem)
                 , colors);
             else
                 boxProperties = CreateNewBox(
                 sname
                 , sdescription
-                , UnitsManager.ConvertLengthFrom(System.Convert.ToDouble(slength, System.Globalization.CultureInfo.InvariantCulture), _unitSystem)
-                , UnitsManager.ConvertLengthFrom(System.Convert.ToDouble(swidth, System.Globalization.CultureInfo.InvariantCulture), _unitSystem)
-                , UnitsManager.ConvertLengthFrom(System.Convert.ToDouble(sheight, System.Globalization.CultureInfo.InvariantCulture), _unitSystem)
-                , UnitsManager.ConvertMassFrom(System.Convert.ToDouble(sweight, System.Globalization.CultureInfo.InvariantCulture), _unitSystem)
+                , UnitsManager.ConvertLengthFrom(Convert.ToDouble(slength, CultureInfo.InvariantCulture), _unitSystem)
+                , UnitsManager.ConvertLengthFrom(Convert.ToDouble(swidth, CultureInfo.InvariantCulture), _unitSystem)
+                , UnitsManager.ConvertLengthFrom(Convert.ToDouble(sheight, CultureInfo.InvariantCulture), _unitSystem)
+                , UnitsManager.ConvertMassFrom(Convert.ToDouble(sweight, CultureInfo.InvariantCulture), _unitSystem)
                 , colors);
             boxProperties.ID.IGuid = new Guid(sid);
             boxProperties.TextureList = listTexture;
@@ -1193,9 +1189,9 @@ namespace treeDiM.StackBuilder.Basics
             string sWeight = xmlWrapperElt.Attributes["Weight"].Value;
             string sUnitThickness = xmlWrapperElt.Attributes["UnitThickness"].Value;
 
-            double thickness = UnitsManager.ConvertLengthFrom(System.Convert.ToDouble(sUnitThickness, System.Globalization.CultureInfo.InvariantCulture), _unitSystem);
-            Color wrapperColor = Color.FromArgb(System.Convert.ToInt32(sColor));
-            double weight = UnitsManager.ConvertMassFrom(System.Convert.ToDouble(sWeight, System.Globalization.CultureInfo.InvariantCulture), _unitSystem);
+            double thickness = UnitsManager.ConvertLengthFrom(Convert.ToDouble(sUnitThickness, CultureInfo.InvariantCulture), _unitSystem);
+            Color wrapperColor = Color.FromArgb(Convert.ToInt32(sColor));
+            double weight = UnitsManager.ConvertMassFrom(Convert.ToDouble(sWeight, CultureInfo.InvariantCulture), _unitSystem);
 
             if (sType == "WT_POLYETHILENE")
             {
@@ -1224,7 +1220,7 @@ namespace treeDiM.StackBuilder.Basics
                 int[] walls = sWalls.Split(' ').Select(n => Convert.ToInt32(n)).ToArray();
 
                 string sHeight = xmlWrapperElt.Attributes["Height"].Value;
-                double height = UnitsManager.ConvertLengthFrom(System.Convert.ToDouble(sHeight, System.Globalization.CultureInfo.InvariantCulture), _unitSystem);
+                double height = UnitsManager.ConvertLengthFrom(Convert.ToDouble(sHeight, CultureInfo.InvariantCulture), _unitSystem);
                 WrapperTray wrapper = new WrapperTray(thickness, weight, wrapperColor);
                 wrapper.SetNoWalls(walls[0], walls[1], walls[2]);
                 wrapper.Height = height;
@@ -1269,13 +1265,13 @@ namespace treeDiM.StackBuilder.Basics
             CylinderProperties cylinderProperties = CreateNewCylinder(
                 sname,
                 sdescription,
-                UnitsManager.ConvertLengthFrom(Convert.ToDouble(sRadiusOuter, System.Globalization.CultureInfo.InvariantCulture), _unitSystem),
-                UnitsManager.ConvertLengthFrom(Convert.ToDouble(sRadiusInner, System.Globalization.CultureInfo.InvariantCulture), _unitSystem),
-                UnitsManager.ConvertLengthFrom(Convert.ToDouble(sheight, System.Globalization.CultureInfo.InvariantCulture), _unitSystem),
-                UnitsManager.ConvertMassFrom(Convert.ToDouble(sweight, System.Globalization.CultureInfo.InvariantCulture), _unitSystem),
-                Color.FromArgb(System.Convert.ToInt32(sColorTop)),
-                Color.FromArgb(System.Convert.ToInt32(sColorWallOuter)),
-                Color.FromArgb(System.Convert.ToInt32(sColorWallInner))
+                UnitsManager.ConvertLengthFrom(Convert.ToDouble(sRadiusOuter, CultureInfo.InvariantCulture), _unitSystem),
+                UnitsManager.ConvertLengthFrom(Convert.ToDouble(sRadiusInner, CultureInfo.InvariantCulture), _unitSystem),
+                UnitsManager.ConvertLengthFrom(Convert.ToDouble(sheight, CultureInfo.InvariantCulture), _unitSystem),
+                UnitsManager.ConvertMassFrom(Convert.ToDouble(sweight, CultureInfo.InvariantCulture), _unitSystem),
+                Color.FromArgb(Convert.ToInt32(sColorTop)),
+                Color.FromArgb(Convert.ToInt32(sColorWallOuter)),
+                Color.FromArgb(Convert.ToInt32(sColorWallInner))
                 );
             cylinderProperties.ID.IGuid = new Guid(sid);
         }
@@ -1335,8 +1331,8 @@ namespace treeDiM.StackBuilder.Basics
                 XmlElement faceColorElt = faceColorNode as XmlElement;
                 string sFaceIndex = faceColorElt.Attributes["FaceIndex"].Value;
                 string sColorArgb = faceColorElt.Attributes["Color"].Value;
-                int iFaceIndex = System.Convert.ToInt32(sFaceIndex);
-                Color faceColor = Color.FromArgb(System.Convert.ToInt32(sColorArgb));
+                int iFaceIndex = Convert.ToInt32(sFaceIndex);
+                Color faceColor = Color.FromArgb(Convert.ToInt32(sColorArgb));
                 colors[iFaceIndex] = faceColor;
             }
         }
@@ -1354,7 +1350,7 @@ namespace treeDiM.StackBuilder.Basics
                     // size
                     Vector2D size = Vector2D.Parse(xmlFaceTexture.Attributes["Size"].Value);
                     // angle
-                    double angle = Convert.ToDouble(xmlFaceTexture.Attributes["Angle"].Value);
+                    double angle = Convert.ToDouble(xmlFaceTexture.Attributes["Angle"].Value, CultureInfo.InvariantCulture);
                     // bitmap
                     Bitmap bmp = Document.StringToBitmap(xmlFaceTexture.Attributes["Bitmap"].Value);
                     // add texture pair
@@ -1377,9 +1373,9 @@ namespace treeDiM.StackBuilder.Basics
             tapeColor = Color.Black;
             try
             {
-                tapeWidth = Convert.ToDouble(eltTape.Attributes["TapeWidth"].Value);
+                tapeWidth = UnitsManager.ConvertLengthFrom(Convert.ToDouble(eltTape.Attributes["TapeWidth"].Value, CultureInfo.InvariantCulture), _unitSystem);
                 string sColorArgb = eltTape.Attributes["TapeColor"].Value;
-                tapeColor = Color.FromArgb(System.Convert.ToInt32(sColorArgb));
+                tapeColor = Color.FromArgb(Convert.ToInt32(sColorArgb));
             }
             catch (Exception ex)
             {
@@ -1420,11 +1416,11 @@ namespace treeDiM.StackBuilder.Basics
                 sname
                 , sdescription
                 , stype
-                , UnitsManager.ConvertLengthFrom(System.Convert.ToDouble(slength, System.Globalization.CultureInfo.InvariantCulture), _unitSystem)
-                , UnitsManager.ConvertLengthFrom(System.Convert.ToDouble(swidth, System.Globalization.CultureInfo.InvariantCulture), _unitSystem)
-                , UnitsManager.ConvertLengthFrom(System.Convert.ToDouble(sheight, System.Globalization.CultureInfo.InvariantCulture), _unitSystem)
-                , UnitsManager.ConvertMassFrom(System.Convert.ToDouble(sweight, System.Globalization.CultureInfo.InvariantCulture), _unitSystem)
-                , Color.FromArgb(System.Convert.ToInt32(sColor)));
+                , UnitsManager.ConvertLengthFrom(Convert.ToDouble(slength, CultureInfo.InvariantCulture), _unitSystem)
+                , UnitsManager.ConvertLengthFrom(Convert.ToDouble(swidth, CultureInfo.InvariantCulture), _unitSystem)
+                , UnitsManager.ConvertLengthFrom(Convert.ToDouble(sheight, CultureInfo.InvariantCulture), _unitSystem)
+                , UnitsManager.ConvertMassFrom(Convert.ToDouble(sweight, CultureInfo.InvariantCulture), _unitSystem)
+                , Color.FromArgb(Convert.ToInt32(sColor)));
             palletProperties.ID.IGuid = new Guid(sid);
         }
         private void LoadInterlayerProperties(XmlElement eltInterlayerProperties)
@@ -1442,11 +1438,11 @@ namespace treeDiM.StackBuilder.Basics
             InterlayerProperties interlayerProperties = CreateNewInterlayer(
                 sname
                 , sdescription
-                , UnitsManager.ConvertLengthFrom(Convert.ToDouble(slength, System.Globalization.CultureInfo.InvariantCulture), _unitSystem)
-                , UnitsManager.ConvertLengthFrom(Convert.ToDouble(swidth, System.Globalization.CultureInfo.InvariantCulture), _unitSystem)
-                , UnitsManager.ConvertLengthFrom(Convert.ToDouble(sthickness, System.Globalization.CultureInfo.InvariantCulture), _unitSystem)
-                , UnitsManager.ConvertMassFrom(Convert.ToDouble(sweight, System.Globalization.CultureInfo.InvariantCulture), _unitSystem)
-                , Color.FromArgb(System.Convert.ToInt32(sColor)));
+                , UnitsManager.ConvertLengthFrom(Convert.ToDouble(slength, CultureInfo.InvariantCulture), _unitSystem)
+                , UnitsManager.ConvertLengthFrom(Convert.ToDouble(swidth, CultureInfo.InvariantCulture), _unitSystem)
+                , UnitsManager.ConvertLengthFrom(Convert.ToDouble(sthickness, CultureInfo.InvariantCulture), _unitSystem)
+                , UnitsManager.ConvertMassFrom(Convert.ToDouble(sweight, CultureInfo.InvariantCulture), _unitSystem)
+                , Color.FromArgb(Convert.ToInt32(sColor)));
             interlayerProperties.ID.IGuid = new Guid(sid);
         }
         private void LoadPalletCornerProperties(XmlElement eltPalletCornerProperties)
@@ -1464,11 +1460,11 @@ namespace treeDiM.StackBuilder.Basics
             PalletCornerProperties palletCornerProperties = CreateNewPalletCorners(
                 sname
                 , sdescription
-                , UnitsManager.ConvertLengthFrom(Convert.ToDouble(slength, System.Globalization.CultureInfo.InvariantCulture), _unitSystem)
-                , UnitsManager.ConvertLengthFrom(Convert.ToDouble(swidth, System.Globalization.CultureInfo.InvariantCulture), _unitSystem)
-                , UnitsManager.ConvertLengthFrom(Convert.ToDouble(sthickness, System.Globalization.CultureInfo.InvariantCulture), _unitSystem)
-                , UnitsManager.ConvertMassFrom(Convert.ToDouble(sweight, System.Globalization.CultureInfo.InvariantCulture), _unitSystem)
-                , Color.FromArgb(System.Convert.ToInt32(sColor))
+                , UnitsManager.ConvertLengthFrom(Convert.ToDouble(slength, CultureInfo.InvariantCulture), _unitSystem)
+                , UnitsManager.ConvertLengthFrom(Convert.ToDouble(swidth, CultureInfo.InvariantCulture), _unitSystem)
+                , UnitsManager.ConvertLengthFrom(Convert.ToDouble(sthickness, CultureInfo.InvariantCulture), _unitSystem)
+                , UnitsManager.ConvertMassFrom(Convert.ToDouble(sweight, CultureInfo.InvariantCulture), _unitSystem)
+                , Color.FromArgb(Convert.ToInt32(sColor))
                 );
             palletCornerProperties.ID.IGuid = new Guid(sid);
         }
@@ -1489,14 +1485,14 @@ namespace treeDiM.StackBuilder.Basics
             PalletCapProperties palletCapProperties = CreateNewPalletCap(
                 sname
                 , sdescription
-                , UnitsManager.ConvertLengthFrom(Convert.ToDouble(slength, System.Globalization.CultureInfo.InvariantCulture), _unitSystem)
-                , UnitsManager.ConvertLengthFrom(Convert.ToDouble(swidth, System.Globalization.CultureInfo.InvariantCulture), _unitSystem)
-                , UnitsManager.ConvertLengthFrom(Convert.ToDouble(sheight, System.Globalization.CultureInfo.InvariantCulture), _unitSystem)
-                , UnitsManager.ConvertLengthFrom(Convert.ToDouble(sinnerlength, System.Globalization.CultureInfo.InvariantCulture), _unitSystem)
-                , UnitsManager.ConvertLengthFrom(Convert.ToDouble(sinnerwidth, System.Globalization.CultureInfo.InvariantCulture), _unitSystem)
-                , UnitsManager.ConvertLengthFrom(Convert.ToDouble(sinnerheight, System.Globalization.CultureInfo.InvariantCulture), _unitSystem)
-                , UnitsManager.ConvertMassFrom(Convert.ToDouble(sweight, System.Globalization.CultureInfo.InvariantCulture), _unitSystem)
-                , Color.FromArgb(System.Convert.ToInt32(sColor))
+                , UnitsManager.ConvertLengthFrom(Convert.ToDouble(slength, CultureInfo.InvariantCulture), _unitSystem)
+                , UnitsManager.ConvertLengthFrom(Convert.ToDouble(swidth, CultureInfo.InvariantCulture), _unitSystem)
+                , UnitsManager.ConvertLengthFrom(Convert.ToDouble(sheight, CultureInfo.InvariantCulture), _unitSystem)
+                , UnitsManager.ConvertLengthFrom(Convert.ToDouble(sinnerlength, CultureInfo.InvariantCulture), _unitSystem)
+                , UnitsManager.ConvertLengthFrom(Convert.ToDouble(sinnerwidth, CultureInfo.InvariantCulture), _unitSystem)
+                , UnitsManager.ConvertLengthFrom(Convert.ToDouble(sinnerheight, CultureInfo.InvariantCulture), _unitSystem)
+                , UnitsManager.ConvertMassFrom(Convert.ToDouble(sweight, CultureInfo.InvariantCulture), _unitSystem)
+                , Color.FromArgb(Convert.ToInt32(sColor))
                 );
             palletCapProperties.ID.IGuid = new Guid(sid);
         }
@@ -1516,9 +1512,9 @@ namespace treeDiM.StackBuilder.Basics
                 sdescription,
                 useTransparency,
                 useHatching,
-                UnitsManager.ConvertLengthFrom(Convert.ToDouble(sHatchSpacing, System.Globalization.CultureInfo.InvariantCulture), _unitSystem),
-                Convert.ToDouble(sHatchAngle, System.Globalization.CultureInfo.InvariantCulture),
-                Color.FromArgb(System.Convert.ToInt32(sColor))
+                UnitsManager.ConvertLengthFrom(Convert.ToDouble(sHatchSpacing, CultureInfo.InvariantCulture), _unitSystem),
+                Convert.ToDouble(sHatchAngle, CultureInfo.InvariantCulture),
+                Color.FromArgb(Convert.ToInt32(sColor))
                 );
             palletFilmProperties.ID.IGuid = new Guid(sid);
         }
@@ -1527,10 +1523,10 @@ namespace treeDiM.StackBuilder.Basics
             string sid = eltBundleProperties.Attributes["Id"].Value;
             string sname = eltBundleProperties.Attributes["Name"].Value;
             string sdescription = eltBundleProperties.Attributes["Description"].Value;
-            double length = double.Parse(eltBundleProperties.Attributes["Length"].Value, System.Globalization.CultureInfo.InvariantCulture);
-            double width = double.Parse(eltBundleProperties.Attributes["Width"].Value, System.Globalization.CultureInfo.InvariantCulture);
-            double unitThickness = double.Parse(eltBundleProperties.Attributes["UnitThickness"].Value, System.Globalization.CultureInfo.InvariantCulture);
-            double unitWeight = double.Parse(eltBundleProperties.Attributes["UnitWeight"].Value, System.Globalization.CultureInfo.InvariantCulture);
+            double length = double.Parse(eltBundleProperties.Attributes["Length"].Value, CultureInfo.InvariantCulture);
+            double width = double.Parse(eltBundleProperties.Attributes["Width"].Value, CultureInfo.InvariantCulture);
+            double unitThickness = double.Parse(eltBundleProperties.Attributes["UnitThickness"].Value, CultureInfo.InvariantCulture);
+            double unitWeight = double.Parse(eltBundleProperties.Attributes["UnitWeight"].Value, CultureInfo.InvariantCulture);
             Color color = Color.FromArgb(Int32.Parse(eltBundleProperties.Attributes["Color"].Value));
             int noFlats = int.Parse(eltBundleProperties.Attributes["NumberFlats"].Value);
             BundleProperties bundleProperties = CreateNewBundle(
@@ -1563,7 +1559,7 @@ namespace treeDiM.StackBuilder.Basics
                 , UnitsManager.ConvertLengthFrom(width, _unitSystem)
                 , UnitsManager.ConvertLengthFrom(height, _unitSystem)
                 , UnitsManager.ConvertMassFrom(admissibleLoadWeight, _unitSystem)
-                , Color.FromArgb(System.Convert.ToInt32(sColor)));
+                , Color.FromArgb(Convert.ToInt32(sColor)));
             truckProperties.ID.IGuid = new Guid(sid);
         }
         #endregion
@@ -1574,10 +1570,10 @@ namespace treeDiM.StackBuilder.Basics
             string sNoWalls = eltConstraintSet.Attributes["NumberOfWalls"].Value;
             int[] iNoWalls = ParseInt3(sNoWalls);
             double wallThickness = UnitsManager.ConvertLengthFrom(
-                Convert.ToDouble(eltConstraintSet.Attributes["WallThickness"].Value, System.Globalization.CultureInfo.InvariantCulture)
+                Convert.ToDouble(eltConstraintSet.Attributes["WallThickness"].Value, CultureInfo.InvariantCulture)
                 , _unitSystem);
             double wallSurfaceMass = UnitsManager.ConvertSurfaceMassFrom(
-                Convert.ToDouble(eltConstraintSet.Attributes["WallSurfaceMass"].Value, System.Globalization.CultureInfo.InvariantCulture)
+                Convert.ToDouble(eltConstraintSet.Attributes["WallSurfaceMass"].Value, CultureInfo.InvariantCulture)
                 , _unitSystem);
             constraintSet = new ParamSetPackOptim(0, Vector3D.Zero, Vector3D.Zero, false, PackWrapper.WType.WT_CARDBOARD, iNoWalls, wallThickness, wallSurfaceMass, 0.0); 
         }
@@ -2407,12 +2403,12 @@ namespace treeDiM.StackBuilder.Basics
         {
             ILayer layer = null;
             double zLow = UnitsManager.ConvertLengthFrom(
-                Convert.ToDouble(eltLayer.Attributes["ZLow"].Value, System.Globalization.CultureInfo.InvariantCulture)
+                Convert.ToDouble(eltLayer.Attributes["ZLow"].Value, CultureInfo.InvariantCulture)
                 , _unitSystem);
             double maxSpace = 0.0;
             if (eltLayer.HasAttribute("MaximumSpace"))
                 maxSpace = UnitsManager.ConvertLengthFrom(
-                    Convert.ToDouble(eltLayer.Attributes["MaximumSpace"].Value, System.Globalization.CultureInfo.InvariantCulture)
+                    Convert.ToDouble(eltLayer.Attributes["MaximumSpace"].Value, CultureInfo.InvariantCulture)
                     , _unitSystem);
             string patternName = string.Empty;
             if (eltLayer.HasAttribute("PatternName"))
@@ -2763,35 +2759,35 @@ namespace treeDiM.StackBuilder.Basics
             xmlBoxProperties.Attributes.Append(descAttribute);
             // length
             XmlAttribute lengthAttribute = xmlDoc.CreateAttribute("Length");
-            lengthAttribute.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", boxProperties.Length);
+            lengthAttribute.Value = string.Format(CultureInfo.InvariantCulture, "{0}", boxProperties.Length);
             xmlBoxProperties.Attributes.Append(lengthAttribute);
             // width
             XmlAttribute widthAttribute = xmlDoc.CreateAttribute("Width");
-            widthAttribute.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", boxProperties.Width);
+            widthAttribute.Value = string.Format(CultureInfo.InvariantCulture, "{0}", boxProperties.Width);
             xmlBoxProperties.Attributes.Append(widthAttribute);
             // height
             XmlAttribute heightAttribute = xmlDoc.CreateAttribute("Height");
-            heightAttribute.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", boxProperties.Height);
+            heightAttribute.Value = string.Format(CultureInfo.InvariantCulture, "{0}", boxProperties.Height);
             xmlBoxProperties.Attributes.Append(heightAttribute);
             // inside dimensions
             if (boxProperties.HasInsideDimensions)
             {
                 // length
                 XmlAttribute insideLengthAttribute = xmlDoc.CreateAttribute("InsideLength");
-                insideLengthAttribute.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", boxProperties.InsideLength);
+                insideLengthAttribute.Value = string.Format(CultureInfo.InvariantCulture, "{0}", boxProperties.InsideLength);
                 xmlBoxProperties.Attributes.Append(insideLengthAttribute);
                 // width
                 XmlAttribute insideWidthAttribute = xmlDoc.CreateAttribute("InsideWidth");
-                insideWidthAttribute.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", boxProperties.InsideWidth);
+                insideWidthAttribute.Value = string.Format(CultureInfo.InvariantCulture, "{0}", boxProperties.InsideWidth);
                 xmlBoxProperties.Attributes.Append(insideWidthAttribute);
                 // height
                 XmlAttribute insideHeightAttribute = xmlDoc.CreateAttribute("InsideHeight");
-                insideHeightAttribute.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", boxProperties.InsideHeight);
+                insideHeightAttribute.Value = string.Format(CultureInfo.InvariantCulture, "{0}", boxProperties.InsideHeight);
                 xmlBoxProperties.Attributes.Append(insideHeightAttribute);
             }
             // weight
             XmlAttribute weightAttribute = xmlDoc.CreateAttribute("Weight");
-            weightAttribute.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", boxProperties.Weight);
+            weightAttribute.Value = string.Format(CultureInfo.InvariantCulture, "{0}", boxProperties.Weight);
             xmlBoxProperties.Attributes.Append(weightAttribute);
             // net weight
             XmlAttribute netWeightAttribute = xmlDoc.CreateAttribute("NetWeight");
@@ -2811,7 +2807,7 @@ namespace treeDiM.StackBuilder.Basics
                 xmlBoxProperties.AppendChild(tapeElt);
 
                 XmlAttribute tapeWidthAttribute = xmlDoc.CreateAttribute("TapeWidth");
-                tapeWidthAttribute.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", boxProperties.TapeWidth.Value);
+                tapeWidthAttribute.Value = string.Format(CultureInfo.InvariantCulture, "{0}", boxProperties.TapeWidth.Value);
                 tapeElt.Attributes.Append(tapeWidthAttribute);
 
                 XmlAttribute tapeColorAttribute = xmlDoc.CreateAttribute("TapeColor");
@@ -2884,31 +2880,31 @@ namespace treeDiM.StackBuilder.Basics
             xmlBoxProperties.Attributes.Append(descAttribute);
             // radius outer
             XmlAttribute radiusOuterAttribute = xmlDoc.CreateAttribute("RadiusOuter");
-            radiusOuterAttribute.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", cylinderProperties.RadiusOuter);
+            radiusOuterAttribute.Value = string.Format(CultureInfo.InvariantCulture, "{0}", cylinderProperties.RadiusOuter);
             xmlBoxProperties.Attributes.Append(radiusOuterAttribute);
             // radius inner
             XmlAttribute radiusInnerAttribute = xmlDoc.CreateAttribute("RadiusInner");
-            radiusInnerAttribute.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", cylinderProperties.RadiusInner);
+            radiusInnerAttribute.Value = string.Format(CultureInfo.InvariantCulture, "{0}", cylinderProperties.RadiusInner);
             xmlBoxProperties.Attributes.Append(radiusInnerAttribute);
             // height
             XmlAttribute heightAttribute = xmlDoc.CreateAttribute("Height");
-            heightAttribute.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", cylinderProperties.Height);
+            heightAttribute.Value = string.Format(CultureInfo.InvariantCulture, "{0}", cylinderProperties.Height);
             xmlBoxProperties.Attributes.Append(heightAttribute);
             // weight
             XmlAttribute weightAttribute = xmlDoc.CreateAttribute("Weight");
-            weightAttribute.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", cylinderProperties.Weight);
+            weightAttribute.Value = string.Format(CultureInfo.InvariantCulture, "{0}", cylinderProperties.Weight);
             xmlBoxProperties.Attributes.Append(weightAttribute);
             // colorTop
             XmlAttribute topAttribute = xmlDoc.CreateAttribute("ColorTop");
-            topAttribute.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", cylinderProperties.ColorTop.ToArgb());
+            topAttribute.Value = string.Format(CultureInfo.InvariantCulture, "{0}", cylinderProperties.ColorTop.ToArgb());
             xmlBoxProperties.Attributes.Append(topAttribute);
             // colorWall
             XmlAttribute outerWallAttribute = xmlDoc.CreateAttribute("ColorWallOuter");
-            outerWallAttribute.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", cylinderProperties.ColorWallOuter.ToArgb());
+            outerWallAttribute.Value = string.Format(CultureInfo.InvariantCulture, "{0}", cylinderProperties.ColorWallOuter.ToArgb());
             xmlBoxProperties.Attributes.Append(outerWallAttribute);
             // color inner wall
             XmlAttribute innerWallAttribute = xmlDoc.CreateAttribute("ColorWallInner");
-            innerWallAttribute.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", cylinderProperties.ColorWallInner.ToArgb());
+            innerWallAttribute.Value = string.Format(CultureInfo.InvariantCulture, "{0}", cylinderProperties.ColorWallInner.ToArgb());
             xmlBoxProperties.Attributes.Append(innerWallAttribute);
         }
         public void Save(PalletProperties palletProperties, XmlElement parentElement, XmlDocument xmlDoc)
@@ -2930,27 +2926,27 @@ namespace treeDiM.StackBuilder.Basics
             xmlPalletProperties.Attributes.Append(descAttribute);
             // length
             XmlAttribute lengthAttribute = xmlDoc.CreateAttribute("Length");
-            lengthAttribute.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", palletProperties.Length);
+            lengthAttribute.Value = string.Format(CultureInfo.InvariantCulture, "{0}", palletProperties.Length);
             xmlPalletProperties.Attributes.Append(lengthAttribute);
             // width
             XmlAttribute widthAttribute = xmlDoc.CreateAttribute("Width");
-            widthAttribute.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", palletProperties.Width);
+            widthAttribute.Value = string.Format(CultureInfo.InvariantCulture, "{0}", palletProperties.Width);
             xmlPalletProperties.Attributes.Append(widthAttribute);
             // height
             XmlAttribute heightAttribute = xmlDoc.CreateAttribute("Height");
-            heightAttribute.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", palletProperties.Height);
+            heightAttribute.Value = string.Format(CultureInfo.InvariantCulture, "{0}", palletProperties.Height);
             xmlPalletProperties.Attributes.Append(heightAttribute);
             // weight
             XmlAttribute weightAttribute = xmlDoc.CreateAttribute("Weight");
-            weightAttribute.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", palletProperties.Weight);
+            weightAttribute.Value = string.Format(CultureInfo.InvariantCulture, "{0}", palletProperties.Weight);
             xmlPalletProperties.Attributes.Append(weightAttribute);
             // admissible load weight
             XmlAttribute admLoadWeightAttribute = xmlDoc.CreateAttribute("AdmissibleLoadWeight");
-            admLoadWeightAttribute.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", palletProperties.AdmissibleLoadWeight);
+            admLoadWeightAttribute.Value = string.Format(CultureInfo.InvariantCulture, "{0}", palletProperties.AdmissibleLoadWeight);
             xmlPalletProperties.Attributes.Append(admLoadWeightAttribute);
             // admissible load height
             XmlAttribute admLoadHeightAttribute = xmlDoc.CreateAttribute("AdmissibleLoadHeight");
-            admLoadHeightAttribute.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", palletProperties.AdmissibleLoadHeight);
+            admLoadHeightAttribute.Value = string.Format(CultureInfo.InvariantCulture, "{0}", palletProperties.AdmissibleLoadHeight);
             xmlPalletProperties.Attributes.Append(admLoadHeightAttribute);
             // type
             XmlAttribute typeAttribute = xmlDoc.CreateAttribute("Type");
@@ -2980,19 +2976,19 @@ namespace treeDiM.StackBuilder.Basics
             xmlInterlayerProperties.Attributes.Append(descAttribute);
             // length
             XmlAttribute lengthAttribute = xmlDoc.CreateAttribute("Length");
-            lengthAttribute.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", interlayerProperties.Length);
+            lengthAttribute.Value = string.Format(CultureInfo.InvariantCulture, "{0}", interlayerProperties.Length);
             xmlInterlayerProperties.Attributes.Append(lengthAttribute);
             // width
             XmlAttribute widthAttribute = xmlDoc.CreateAttribute("Width");
-            widthAttribute.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", interlayerProperties.Width);
+            widthAttribute.Value = string.Format(CultureInfo.InvariantCulture, "{0}", interlayerProperties.Width);
             xmlInterlayerProperties.Attributes.Append(widthAttribute);
             // height
             XmlAttribute heightAttribute = xmlDoc.CreateAttribute("Thickness");
-            heightAttribute.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", interlayerProperties.Thickness);
+            heightAttribute.Value = string.Format(CultureInfo.InvariantCulture, "{0}", interlayerProperties.Thickness);
             xmlInterlayerProperties.Attributes.Append(heightAttribute);
             // weight
             XmlAttribute weightAttribute = xmlDoc.CreateAttribute("Weight");
-            weightAttribute.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", interlayerProperties.Weight);
+            weightAttribute.Value = string.Format(CultureInfo.InvariantCulture, "{0}", interlayerProperties.Weight);
             xmlInterlayerProperties.Attributes.Append(weightAttribute);
             // color
             XmlAttribute colorAttribute = xmlDoc.CreateAttribute("Color");
@@ -3019,19 +3015,19 @@ namespace treeDiM.StackBuilder.Basics
             xmlCornerProperties.Attributes.Append(descAttribute);
             // length
             XmlAttribute lengthAttribute = xmlDoc.CreateAttribute("Length");
-            lengthAttribute.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", cornerProperties.Length);
+            lengthAttribute.Value = string.Format(CultureInfo.InvariantCulture, "{0}", cornerProperties.Length);
             xmlCornerProperties.Attributes.Append(lengthAttribute);
             // width
             XmlAttribute widthAttribute = xmlDoc.CreateAttribute("Width");
-            widthAttribute.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", cornerProperties.Width);
+            widthAttribute.Value = string.Format(CultureInfo.InvariantCulture, "{0}", cornerProperties.Width);
             xmlCornerProperties.Attributes.Append(widthAttribute);
             // height
             XmlAttribute heightAttribute = xmlDoc.CreateAttribute("Thickness");
-            heightAttribute.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", cornerProperties.Thickness);
+            heightAttribute.Value = string.Format(CultureInfo.InvariantCulture, "{0}", cornerProperties.Thickness);
             xmlCornerProperties.Attributes.Append(heightAttribute);
             // weight
             XmlAttribute weightAttribute = xmlDoc.CreateAttribute("Weight");
-            weightAttribute.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", cornerProperties.Weight);
+            weightAttribute.Value = string.Format(CultureInfo.InvariantCulture, "{0}", cornerProperties.Weight);
             xmlCornerProperties.Attributes.Append(weightAttribute);
             // color
             XmlAttribute colorAttribute = xmlDoc.CreateAttribute("Color");
@@ -3058,31 +3054,31 @@ namespace treeDiM.StackBuilder.Basics
             xmlCapProperties.Attributes.Append(descAttribute);
             // length
             XmlAttribute lengthAttribute = xmlDoc.CreateAttribute("Length");
-            lengthAttribute.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", capProperties.Length);
+            lengthAttribute.Value = string.Format(CultureInfo.InvariantCulture, "{0}", capProperties.Length);
             xmlCapProperties.Attributes.Append(lengthAttribute);
             // width
             XmlAttribute widthAttribute = xmlDoc.CreateAttribute("Width");
-            widthAttribute.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", capProperties.Width);
+            widthAttribute.Value = string.Format(CultureInfo.InvariantCulture, "{0}", capProperties.Width);
             xmlCapProperties.Attributes.Append(widthAttribute);
             // height
             XmlAttribute heightAttribute = xmlDoc.CreateAttribute("Height");
-            heightAttribute.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", capProperties.Height);
+            heightAttribute.Value = string.Format(CultureInfo.InvariantCulture, "{0}", capProperties.Height);
             xmlCapProperties.Attributes.Append(heightAttribute);
             // inside length
             XmlAttribute insideLengthAttribute = xmlDoc.CreateAttribute("InsideLength");
-            insideLengthAttribute.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", capProperties.Length);
+            insideLengthAttribute.Value = string.Format(CultureInfo.InvariantCulture, "{0}", capProperties.Length);
             xmlCapProperties.Attributes.Append(insideLengthAttribute);
             // inside width
             XmlAttribute insideWidthAttribute = xmlDoc.CreateAttribute("InsideWidth");
-            insideWidthAttribute.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", capProperties.Width);
+            insideWidthAttribute.Value = string.Format(CultureInfo.InvariantCulture, "{0}", capProperties.Width);
             xmlCapProperties.Attributes.Append(insideWidthAttribute);
             // inside height
             XmlAttribute insideHeightAttribute = xmlDoc.CreateAttribute("InsideHeight");
-            insideHeightAttribute.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", capProperties.Height);
+            insideHeightAttribute.Value = string.Format(CultureInfo.InvariantCulture, "{0}", capProperties.Height);
             xmlCapProperties.Attributes.Append(insideHeightAttribute);
             // weight
             XmlAttribute weightAttribute = xmlDoc.CreateAttribute("Weight");
-            weightAttribute.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", capProperties.Weight);
+            weightAttribute.Value = string.Format(CultureInfo.InvariantCulture, "{0}", capProperties.Weight);
             xmlCapProperties.Attributes.Append(weightAttribute);
             // color
             XmlAttribute colorAttribute = xmlDoc.CreateAttribute("Color");
@@ -3117,11 +3113,11 @@ namespace treeDiM.StackBuilder.Basics
             xmlFilmProperties.Attributes.Append(hatchingAttribute);
             // HatchSpacing
             XmlAttribute hatchSpacingAttribute = xmlDoc.CreateAttribute("HatchSpacing");
-            hatchSpacingAttribute.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", filmProperties.HatchSpacing);
+            hatchSpacingAttribute.Value = string.Format(CultureInfo.InvariantCulture, "{0}", filmProperties.HatchSpacing);
             xmlFilmProperties.Attributes.Append(hatchSpacingAttribute);
             // HatchAngle
             XmlAttribute hatchAngleAttribute = xmlDoc.CreateAttribute("HatchAngle");
-            hatchAngleAttribute.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", filmProperties.HatchAngle);
+            hatchAngleAttribute.Value = string.Format(CultureInfo.InvariantCulture, "{0}", filmProperties.HatchAngle);
             xmlFilmProperties.Attributes.Append(hatchAngleAttribute);
             // Color
             XmlAttribute colorAttribute = xmlDoc.CreateAttribute("Color");
@@ -3148,19 +3144,19 @@ namespace treeDiM.StackBuilder.Basics
             xmlBundleProperties.Attributes.Append(descAttribute);
             // length
             XmlAttribute lengthAttribute = xmlDoc.CreateAttribute("Length");
-            lengthAttribute.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", bundleProperties.Length);
+            lengthAttribute.Value = string.Format(CultureInfo.InvariantCulture, "{0}", bundleProperties.Length);
             xmlBundleProperties.Attributes.Append(lengthAttribute);
             // width
             XmlAttribute widthAttribute = xmlDoc.CreateAttribute("Width");
-            widthAttribute.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", bundleProperties.Width);
+            widthAttribute.Value = string.Format(CultureInfo.InvariantCulture, "{0}", bundleProperties.Width);
             xmlBundleProperties.Attributes.Append(widthAttribute);
             // height
             XmlAttribute heightAttribute = xmlDoc.CreateAttribute("UnitThickness");
-            heightAttribute.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", bundleProperties.UnitThickness);
+            heightAttribute.Value = string.Format(CultureInfo.InvariantCulture, "{0}", bundleProperties.UnitThickness);
             xmlBundleProperties.Attributes.Append(heightAttribute);
             // weight
             XmlAttribute weightAttribute = xmlDoc.CreateAttribute("UnitWeight");
-            weightAttribute.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", bundleProperties.UnitWeight);
+            weightAttribute.Value = string.Format(CultureInfo.InvariantCulture, "{0}", bundleProperties.UnitWeight);
             xmlBundleProperties.Attributes.Append(weightAttribute);
             // color
             XmlAttribute colorAttribute = xmlDoc.CreateAttribute("Color");
@@ -3191,19 +3187,19 @@ namespace treeDiM.StackBuilder.Basics
             xmlTruckProperties.Attributes.Append(descAttribute);
             // length
             XmlAttribute lengthAttribute = xmlDoc.CreateAttribute("Length");
-            lengthAttribute.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", truckProperties.Length);
+            lengthAttribute.Value = string.Format(CultureInfo.InvariantCulture, "{0}", truckProperties.Length);
             xmlTruckProperties.Attributes.Append(lengthAttribute);
             // width
             XmlAttribute widthAttribute = xmlDoc.CreateAttribute("Width");
-            widthAttribute.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", truckProperties.Width);
+            widthAttribute.Value = string.Format(CultureInfo.InvariantCulture, "{0}", truckProperties.Width);
             xmlTruckProperties.Attributes.Append(widthAttribute);
             // height
             XmlAttribute heightAttribute = xmlDoc.CreateAttribute("Height");
-            heightAttribute.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", truckProperties.Height);
+            heightAttribute.Value = string.Format(CultureInfo.InvariantCulture, "{0}", truckProperties.Height);
             xmlTruckProperties.Attributes.Append(heightAttribute);
             // weight
             XmlAttribute weightAttribute = xmlDoc.CreateAttribute("AdmissibleLoadWeight");
-            weightAttribute.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", truckProperties.AdmissibleLoadWeight);
+            weightAttribute.Value = string.Format(CultureInfo.InvariantCulture, "{0}", truckProperties.AdmissibleLoadWeight);
             xmlTruckProperties.Attributes.Append(weightAttribute);
             // color
             XmlAttribute colorAttribute = xmlDoc.CreateAttribute("Color");
@@ -3253,7 +3249,7 @@ namespace treeDiM.StackBuilder.Basics
                 xmlFaceTexture.Attributes.Append(xmlSize);
                 // angle
                 XmlAttribute xmlAngle = xmlDoc.CreateAttribute("Angle");
-                xmlAngle.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", texPair.second.Angle);
+                xmlAngle.Value = string.Format(CultureInfo.InvariantCulture, "{0}", texPair.second.Angle);
                 xmlFaceTexture.Attributes.Append(xmlAngle);
                 // bitmap
                 XmlAttribute xmlBitmap = xmlDoc.CreateAttribute("Bitmap");
@@ -3299,11 +3295,11 @@ namespace treeDiM.StackBuilder.Basics
             wrapperElt.Attributes.Append(colorAttrib);
             // weight
             XmlAttribute weightAttrib = xmlDoc.CreateAttribute("Weight");
-            weightAttrib.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", wrapper.Weight);
+            weightAttrib.Value = string.Format(CultureInfo.InvariantCulture, "{0}", wrapper.Weight);
             wrapperElt.Attributes.Append(weightAttrib);
             // thickness
             XmlAttribute thicknessAttrib = xmlDoc.CreateAttribute("UnitThickness");
-            thicknessAttrib.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", wrapper.UnitThickness);
+            thicknessAttrib.Value = string.Format(CultureInfo.InvariantCulture, "{0}", wrapper.UnitThickness);
             wrapperElt.Attributes.Append(thicknessAttrib);
         }
         private void SaveWrapper(WrapperPolyethilene wrapper, XmlElement wrapperElt, XmlDocument xmlDoc)
@@ -3333,7 +3329,7 @@ namespace treeDiM.StackBuilder.Basics
            if (null != wrapperTray)
            {
                XmlAttribute heightAttrib = xmlDoc.CreateAttribute("Height");
-               heightAttrib.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", wrapperTray.Height);
+               heightAttrib.Value = string.Format(CultureInfo.InvariantCulture, "{0}", wrapperTray.Height);
                wrapperElt.Attributes.Append(heightAttrib);
            }
         }
@@ -3390,7 +3386,7 @@ namespace treeDiM.StackBuilder.Basics
             {
                 XmlElement eltInterlayer = xmlDoc.CreateElement("Interlayer");
                 eltInterlayer.InnerText = interlayer.ID.IGuid.ToString();
-                xmlAnalysisElt.AppendChild(eltInterlayer);
+                eltInterlayers.AppendChild(eltInterlayer);
             }
             if (null != analysisCasePallet)
             {
@@ -3527,7 +3523,7 @@ namespace treeDiM.StackBuilder.Basics
             xmlBoxProperties.Attributes.Append(descAttribute);
             // weight
             XmlAttribute weightAttribute = xmlDoc.CreateAttribute("Weight");
-            weightAttribute.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", caseOfBoxesProperties.Weight);
+            weightAttribute.Value = string.Format(CultureInfo.InvariantCulture, "{0}", caseOfBoxesProperties.Weight);
             xmlBoxProperties.Attributes.Append(weightAttribute);
             // save inside ref to box properties
             XmlAttribute insideBoxId = xmlDoc.CreateAttribute("InsideBoxId");
@@ -3561,11 +3557,11 @@ namespace treeDiM.StackBuilder.Basics
             xmlBoxProperties.AppendChild(xmlCaseOptimConstraintSet);
             // wall thickness
             XmlAttribute xmlWallThickness = xmlDoc.CreateAttribute("WallThickness");
-            xmlWallThickness.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", caseOptimConstraintSet.WallThickness);
+            xmlWallThickness.Value = string.Format(CultureInfo.InvariantCulture, "{0}", caseOptimConstraintSet.WallThickness);
             xmlCaseOptimConstraintSet.Attributes.Append(xmlWallThickness);
             // wall surface mass
             XmlAttribute xmlWallSurfaceMass = xmlDoc.CreateAttribute("WallSurfaceMass");
-            xmlWallSurfaceMass.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", caseOptimConstraintSet.WallSurfaceMass);
+            xmlWallSurfaceMass.Value = string.Format(CultureInfo.InvariantCulture, "{0}", caseOptimConstraintSet.WallSurfaceMass);
             xmlCaseOptimConstraintSet.Attributes.Append(xmlWallSurfaceMass);
             // no walls
             XmlAttribute xmlNumberOfWalls = xmlDoc.CreateAttribute("NumberOfWalls");
@@ -3665,7 +3661,7 @@ namespace treeDiM.StackBuilder.Basics
             if (analysis.ConstraintSet.UseMaximumHeight)
             { 
                 XmlAttribute maximumHeightAttribute = xmlDoc.CreateAttribute("MaximumHeight");
-                maximumHeightAttribute.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", analysis.ConstraintSet.MaximumHeight);
+                maximumHeightAttribute.Value = string.Format(CultureInfo.InvariantCulture, "{0}", analysis.ConstraintSet.MaximumHeight);
                 constraintSetElement.Attributes.Append(maximumHeightAttribute);
             }
             if (analysis.ConstraintSet.UseMaximumNumberOfCases)
@@ -3677,21 +3673,21 @@ namespace treeDiM.StackBuilder.Basics
             if (analysis.ConstraintSet.UseMaximumPalletWeight)
             {
                 XmlAttribute maximumPalletWeight = xmlDoc.CreateAttribute("MaximumPalletWeight");
-                maximumPalletWeight.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", analysis.ConstraintSet.MaximumPalletWeight);
+                maximumPalletWeight.Value = string.Format(CultureInfo.InvariantCulture, "{0}", analysis.ConstraintSet.MaximumPalletWeight);
                 constraintSetElement.Attributes.Append(maximumPalletWeight);
             }
             if (analysis.ConstraintSet.UseMaximumWeightOnBox)
             {
                 XmlAttribute maximumWeightOnBox = xmlDoc.CreateAttribute("MaximumWeightOnBox");
-                maximumWeightOnBox.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", analysis.ConstraintSet.MaximumWeightOnBox);
+                maximumWeightOnBox.Value = string.Format(CultureInfo.InvariantCulture, "{0}", analysis.ConstraintSet.MaximumWeightOnBox);
                 constraintSetElement.Attributes.Append(maximumWeightOnBox);
             }
             // overhang / underhang
             XmlAttribute overhangX = xmlDoc.CreateAttribute("OverhangX");
-            overhangX.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", analysis.ConstraintSet.OverhangX);
+            overhangX.Value = string.Format(CultureInfo.InvariantCulture, "{0}", analysis.ConstraintSet.OverhangX);
             constraintSetElement.Attributes.Append(overhangX);
             XmlAttribute overhangY = xmlDoc.CreateAttribute("OverhangY");
-            overhangY.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", analysis.ConstraintSet.OverhangY);
+            overhangY.Value = string.Format(CultureInfo.InvariantCulture, "{0}", analysis.ConstraintSet.OverhangY);
             constraintSetElement.Attributes.Append(overhangY);
             // number of solutions to keep
             if (analysis.ConstraintSet.UseNumberOfSolutionsKept)
@@ -3846,7 +3842,7 @@ namespace treeDiM.StackBuilder.Basics
             {
                 XmlAttribute maximumPalletWeight = xmlDoc.CreateAttribute("MaximumCaseWeight");
                 maximumPalletWeight.Value = string.Format(
-                    System.Globalization.CultureInfo.InvariantCulture,
+                    CultureInfo.InvariantCulture,
                     "{0}",
                     constraintSet.MaximumCaseWeight);
                 constraintSetElement.Attributes.Append(maximumPalletWeight);
@@ -3954,7 +3950,7 @@ namespace treeDiM.StackBuilder.Basics
             if (analysis.ConstraintSet.UseMaximumHeight)
             {
                 XmlAttribute maximumHeightAttribute = xmlDoc.CreateAttribute("MaximumHeight");
-                maximumHeightAttribute.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", analysis.ConstraintSet.MaximumHeight);
+                maximumHeightAttribute.Value = string.Format(CultureInfo.InvariantCulture, "{0}", analysis.ConstraintSet.MaximumHeight);
                 constraintSetElement.Attributes.Append(maximumHeightAttribute);
             }
             if (analysis.ConstraintSet.UseMaximumNumberOfCases)
@@ -3966,13 +3962,13 @@ namespace treeDiM.StackBuilder.Basics
             if (analysis.ConstraintSet.UseMaximumPalletWeight)
             {
                 XmlAttribute maximumPalletWeight = xmlDoc.CreateAttribute("MaximumPalletWeight");
-                maximumPalletWeight.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", analysis.ConstraintSet.MaximumPalletWeight);
+                maximumPalletWeight.Value = string.Format(CultureInfo.InvariantCulture, "{0}", analysis.ConstraintSet.MaximumPalletWeight);
                 constraintSetElement.Attributes.Append(maximumPalletWeight);
             }
             if (analysis.ConstraintSet.UseMaximumWeightOnBox)
             {
                 XmlAttribute maximumWeightOnBox = xmlDoc.CreateAttribute("MaximumWeightOnBox");
-                maximumWeightOnBox.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", analysis.ConstraintSet.MaximumWeightOnBox);
+                maximumWeightOnBox.Value = string.Format(CultureInfo.InvariantCulture, "{0}", analysis.ConstraintSet.MaximumWeightOnBox);
                 constraintSetElement.Attributes.Append(maximumWeightOnBox);
             }
             // overhang / underhang
@@ -4033,7 +4029,7 @@ namespace treeDiM.StackBuilder.Basics
                     layersElt.AppendChild(interlayerElt);
                     // ZLow
                     XmlAttribute zlowAttribute = xmlDoc.CreateAttribute("ZLow");
-                    zlowAttribute.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", interlayerPos.ZLow);
+                    zlowAttribute.Value = string.Format(CultureInfo.InvariantCulture, "{0}", interlayerPos.ZLow);
                     interlayerElt.Attributes.Append(zlowAttribute);
                 }
             }
@@ -4139,11 +4135,11 @@ namespace treeDiM.StackBuilder.Basics
             contraintSetElt.Attributes.Append(palletOrientationsAttribute);
             // min distance pallet / truck wall
             XmlAttribute minDistancePalletWallAttribute = xmlDoc.CreateAttribute("MinDistancePalletWall");
-            minDistancePalletWallAttribute.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", truckAnalysis.ConstraintSet.MinDistancePalletTruckWall);
+            minDistancePalletWallAttribute.Value = string.Format(CultureInfo.InvariantCulture, "{0}", truckAnalysis.ConstraintSet.MinDistancePalletTruckWall);
             contraintSetElt.Attributes.Append(minDistancePalletWallAttribute);
             // min distance pallet / truck roof
             XmlAttribute minDistancePalletRoofAttribute = xmlDoc.CreateAttribute("MinDistancePalletRoof");
-            minDistancePalletRoofAttribute.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", truckAnalysis.ConstraintSet.MinDistancePalletTruckWall);
+            minDistancePalletRoofAttribute.Value = string.Format(CultureInfo.InvariantCulture, "{0}", truckAnalysis.ConstraintSet.MinDistancePalletTruckWall);
             contraintSetElt.Attributes.Append(minDistancePalletRoofAttribute);
             // solutions
             XmlElement truckSolutionsElt = xmlDoc.CreateElement("Solutions");
@@ -4194,19 +4190,19 @@ namespace treeDiM.StackBuilder.Basics
             cardboardElt.Attributes.Append(nameCardboardAttribute);
             // - thickness
             XmlAttribute thicknessAttribute = xmlDoc.CreateAttribute("Thickness");
-            thicknessAttribute.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", ectAnalysis.Cardboard.Thickness);
+            thicknessAttribute.Value = string.Format(CultureInfo.InvariantCulture, "{0}", ectAnalysis.Cardboard.Thickness);
             cardboardElt.Attributes.Append(thicknessAttribute);
              // - ect
             XmlAttribute ectAttribute = xmlDoc.CreateAttribute("ECT");
-            ectAttribute.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", ectAnalysis.Cardboard.ECT);
+            ectAttribute.Value = string.Format(CultureInfo.InvariantCulture, "{0}", ectAnalysis.Cardboard.ECT);
             cardboardElt.Attributes.Append(ectAttribute);
             // - stiffnessX
             XmlAttribute stiffnessAttributeX = xmlDoc.CreateAttribute("StiffnessX");
-            stiffnessAttributeX.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", ectAnalysis.Cardboard.RigidityDX);
+            stiffnessAttributeX.Value = string.Format(CultureInfo.InvariantCulture, "{0}", ectAnalysis.Cardboard.RigidityDX);
             cardboardElt.Attributes.Append(stiffnessAttributeX);
             // - stiffnessY
             XmlAttribute stiffnessAttributeY = xmlDoc.CreateAttribute("StiffnessY");
-            stiffnessAttributeY.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", ectAnalysis.Cardboard.RigidityDY);
+            stiffnessAttributeY.Value = string.Format(CultureInfo.InvariantCulture, "{0}", ectAnalysis.Cardboard.RigidityDY);
             cardboardElt.Attributes.Append(stiffnessAttributeY);
             // case type
             XmlAttribute caseTypeAttribute = xmlDoc.CreateAttribute("CaseType");
@@ -4228,11 +4224,11 @@ namespace treeDiM.StackBuilder.Basics
             layersElt.AppendChild(boxlayerElt);
             // ZLow
             XmlAttribute zlowAttribute = xmlDoc.CreateAttribute("ZLow");
-            zlowAttribute.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", boxLayer.ZLow);
+            zlowAttribute.Value = string.Format(CultureInfo.InvariantCulture, "{0}", boxLayer.ZLow);
             boxlayerElt.Attributes.Append(zlowAttribute);
             // maximum space
             XmlAttribute attributeMaxSpace = xmlDoc.CreateAttribute("MaximumSpace");
-            attributeMaxSpace.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", boxLayer.MaximumSpace);
+            attributeMaxSpace.Value = string.Format(CultureInfo.InvariantCulture, "{0}", boxLayer.MaximumSpace);
             boxlayerElt.Attributes.Append(attributeMaxSpace);
 
             foreach (BoxPosition boxPosition in boxLayer)
@@ -4261,7 +4257,7 @@ namespace treeDiM.StackBuilder.Basics
             layersElt.AppendChild(cylLayerElt);
             // ZLow
             XmlAttribute zlowAttribute = xmlDoc.CreateAttribute("ZLow");
-            zlowAttribute.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", cylLayer.ZLow);
+            zlowAttribute.Value = string.Format(CultureInfo.InvariantCulture, "{0}", cylLayer.ZLow);
             cylLayerElt.Attributes.Append(zlowAttribute);
             foreach (Vector3D boxPosition in cylLayer)
             {
@@ -4330,11 +4326,11 @@ namespace treeDiM.StackBuilder.Basics
                 bmpBytes = ms.GetBuffer();
                 ms.Close();
             }
-            return System.Convert.ToBase64String(bmpBytes);
+            return Convert.ToBase64String(bmpBytes);
         }
         private static Bitmap StringToBitmap(string bmpData)
         {
-            byte[] bytes = System.Convert.FromBase64String(bmpData);
+            byte[] bytes = Convert.FromBase64String(bmpData);
             return new Bitmap(new System.IO.MemoryStream(bytes));
         }
         private static int[] ParseInt2(string value)

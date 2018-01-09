@@ -1,12 +1,5 @@
 ﻿#region Using directives
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Diagnostics;
@@ -177,17 +170,19 @@ namespace treeDiM.StackBuilder.Reporting
         {
             try
             {
-                SaveFileDialog dlg = new SaveFileDialog();
-                dlg.InitialDirectory = Properties.Settings.Default.ReportInitialDirectory;
-                dlg.FileName = Path.ChangeExtension(CleanString(Analysis.Name), "doc");
-                dlg.Filter = Properties.Resources.ID_FILTER_MSWORD;
-                dlg.DefaultExt = "doc";
-                dlg.ValidateNames = true;
+                SaveFileDialog dlg = new SaveFileDialog
+                {
+                    InitialDirectory = Settings.Default.ReportInitialDirectory,
+                    FileName = Path.ChangeExtension(CleanString(Analysis.Name), "doc"),
+                    Filter = Resources.ID_FILTER_MSWORD,
+                    DefaultExt = "doc",
+                    ValidateNames = true
+                };
 
                 if (DialogResult.OK == dlg.ShowDialog())
                 {
                     // save directory
-                    Properties.Settings.Default.ReportInitialDirectory = Path.GetDirectoryName(dlg.FileName);
+                    Settings.Default.ReportInitialDirectory = Path.GetDirectoryName(dlg.FileName);
                     // generate report
                     ReporterMSWord reporter = new ReporterMSWord(
                         new ReportData(_analysis)
@@ -210,17 +205,19 @@ namespace treeDiM.StackBuilder.Reporting
         {
             try
             {
-                SaveFileDialog dlg = new SaveFileDialog();
-                dlg.InitialDirectory = Properties.Settings.Default.ReportInitialDirectory;
-                dlg.FileName = Path.ChangeExtension(CleanString(Analysis.Name), "html");
-                dlg.Filter = Properties.Resources.ID_FILTER_HTML;
-                dlg.DefaultExt = "html";
-                dlg.ValidateNames = true;
+                SaveFileDialog dlg = new SaveFileDialog
+                {
+                    InitialDirectory = Settings.Default.ReportInitialDirectory,
+                    FileName = Path.ChangeExtension(CleanString(Analysis.Name), "html"),
+                    Filter = Resources.ID_FILTER_HTML,
+                    DefaultExt = "html",
+                    ValidateNames = true
+                };
 
                 if (DialogResult.OK == dlg.ShowDialog())
                 {
                     // save directory
-                    Properties.Settings.Default.ReportInitialDirectory = Path.GetDirectoryName(dlg.FileName);
+                    Settings.Default.ReportInitialDirectory = Path.GetDirectoryName(dlg.FileName);
                     // generate report
                     ReporterHtml reporter = new ReporterHtml(
                         new ReportData(_analysis)
@@ -242,9 +239,9 @@ namespace treeDiM.StackBuilder.Reporting
             {
                 SaveFileDialog dlg = new SaveFileDialog()
                 {
-                    InitialDirectory = Properties.Settings.Default.ReportInitialDirectory,
+                    InitialDirectory = Settings.Default.ReportInitialDirectory,
                     FileName = Path.ChangeExtension(CleanString(Analysis.Name), "pdf"),
-                    Filter = Properties.Resources.ID_FILTER_PDF,
+                    Filter = Resources.ID_FILTER_PDF,
                     DefaultExt = "pdf",
                     ValidateNames = true
                 };
@@ -252,7 +249,7 @@ namespace treeDiM.StackBuilder.Reporting
                 if (DialogResult.OK == dlg.ShowDialog())
                 {
                     // save directory
-                    Properties.Settings.Default.ReportInitialDirectory = Path.GetDirectoryName(dlg.FileName);
+                    Settings.Default.ReportInitialDirectory = Path.GetDirectoryName(dlg.FileName);
                     // generate report
                     ReporterPDF reporter = new ReporterPDF(
                         new ReportData(_analysis)
@@ -260,6 +257,13 @@ namespace treeDiM.StackBuilder.Reporting
                         , Reporter.TemplatePath
                         , dlg.FileName);
                     Process.Start(new ProcessStartInfo(dlg.FileName));
+
+                    // try and delete html file
+                    string htmlFilePath = Path.ChangeExtension(dlg.FileName, "html");
+                    if (File.Exists(htmlFilePath))  File.Delete(htmlFilePath);
+                    // try and delete image directory
+                    string imagesDirPath = Path.Combine(Path.GetDirectoryName(dlg.FileName), "Images");
+                    if (Directory.Exists(imagesDirPath)) Directory.Delete(imagesDirPath, true);
                 }
             }
             catch (Exception ex)
@@ -289,8 +293,7 @@ namespace treeDiM.StackBuilder.Reporting
         }
         private void OnNodeChecked(object sender, TreeViewEventArgs e)
         {
-            ReportNode rn = e.Node.Tag as ReportNode;
-            if (null != rn)
+            if (e.Node.Tag is ReportNode rn)
                 rn.Activated = !rn.Activated;
             UpdateReport();
         }
