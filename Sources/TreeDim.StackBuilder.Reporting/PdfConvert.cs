@@ -77,7 +77,7 @@ namespace Codaxy.WkHtmlToPdf
 
         private static string GetWkhtmlToPdfExeLocation()
         {
-            string filePath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"wkhtmltopdf.exe");
+            string filePath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"wkhtmltopdf\wkhtmltopdf.exe");
             if (File.Exists(filePath))
                 return filePath;
 
