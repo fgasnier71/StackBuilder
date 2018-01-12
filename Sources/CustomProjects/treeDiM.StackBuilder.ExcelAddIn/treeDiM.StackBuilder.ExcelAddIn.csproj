@@ -200,6 +200,12 @@
     <EmbeddedResource Include="FormSheetSettings.resx">
       <DependentUpon>FormSheetSettings.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormSheetSettings.ru.resx">
+      <DependentUpon>FormSheetSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSheetSettings.zh.resx">
+      <DependentUpon>FormSheetSettings.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -210,10 +216,24 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Properties\Resources.ru.resx" />
+    <EmbeddedResource Include="Properties\Resources.zh.resx" />
     <EmbeddedResource Include="RibbonStackBuilder.resx">
       <DependentUpon>RibbonStackBuilder.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="RibbonStackBuilder.ru.resx">
+      <DependentUpon>RibbonStackBuilder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RibbonStackBuilder.zh.resx">
+      <DependentUpon>RibbonStackBuilder.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControlMain.resx">
+      <DependentUpon>UserControlMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlMain.ru.resx">
+      <DependentUpon>UserControlMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlMain.zh.resx">
       <DependentUpon>UserControlMain.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />

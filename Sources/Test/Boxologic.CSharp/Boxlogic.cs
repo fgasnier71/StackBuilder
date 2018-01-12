@@ -5,19 +5,17 @@ namespace Boxologic.CSharp
 {
     public class Boxlogic
     {
+        #region Private data members
         private DateTime _timeStart, _timeStop;
-
         private PalletInfo pallet;
         private List<BoxInfo> boxList = new List<BoxInfo>();
         private List<Layer> layers = new List<Layer>();
         private Scrappad scrapfirst, smallestz;
         private Scrappad trash;
-
         private Dictionary<KeyValuePair<int,int>, double> best_iterations = new Dictionary<KeyValuePair<int,int>, double>();
 
         private bool packing = true, layerdone = false, evened = false;
         private int best_variant;
-
         private int layerinlayer;
         private int prelayer;
         private int lilz;
@@ -28,13 +26,13 @@ namespace Boxologic.CSharp
         private int best_iteration;
         private int packednumbox;
         private int number_packed_boxes;
-
         private int packedvolume;
         private int best_solution_volume;
         private int total_box_volume;
         private double pallet_volume_used_percentage;
         private System.IO.StreamWriter fso;
-
+        #endregion
+        #region Run / Initialize / Execute_iterations
         public void Run(BoxItem[] listBoxItem, int palletLength, int palletWidth, int palletHeight)
         {
             packing = true;
@@ -141,7 +139,7 @@ namespace Boxologic.CSharp
                 if ((pallet.Dim1 == pallet.Dim2) && (pallet.Dim2 == pallet.Dim3)) variant = 6;
             }
         }
-
+        #endregion
         #region List_candidate_layers (DONE)
         public void List_candidate_layers(bool show)
         {
@@ -848,6 +846,7 @@ namespace Boxologic.CSharp
             }
         }
         #endregion
+        #region Report_results
         public void Report_results()
         {
             pallet.Variant = best_variant;
@@ -914,5 +913,6 @@ namespace Boxologic.CSharp
             foreach (var vKey in best_iterations.Keys)
                 Console.WriteLine("{0} {1} -> {2}", vKey.Key, vKey.Value, best_iterations[vKey]);
         }
+        #endregion
     }
 }

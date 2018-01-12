@@ -124,4 +124,19 @@
   <data name="lbThumbSize.Text" xml:space="preserve">
     <value>Taille vignettes</value>
   </data>
+  <data name="cbThumbSize.Items" xml:space="preserve">
+    <value>75 x 75</value>
+  </data>
+  <data name="rbView1.Text" xml:space="preserve">
+    <value>2D</value>
+  </data>
+  <data name="rbView2.Text" xml:space="preserve">
+    <value>3D</value>
+  </data>
+  <data name="cbThumbSize.Items3" xml:space="preserve">
+    <value>200 x 200</value>
+  </data>
+  <data name="cbThumbSize.Items1" xml:space="preserve">
+    <value>100 x 100</value>
+  </data>
 </root>

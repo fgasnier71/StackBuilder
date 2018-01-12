@@ -265,11 +265,47 @@
     <Folder Include="Schemas\" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Controls\UCtrlDouble.ru.resx">
+      <DependentUpon>UCtrlDouble.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UCtrlDouble.zh.resx">
+      <DependentUpon>UCtrlDouble.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\UCtrlDualDouble.resx">
       <DependentUpon>UCtrlDualDouble.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UCtrlDualDouble.ru.resx">
+      <DependentUpon>UCtrlDualDouble.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UCtrlDualDouble.zh.resx">
+      <DependentUpon>UCtrlDualDouble.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UCtrlOptDouble.ru.resx">
+      <DependentUpon>UCtrlOptDouble.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UCtrlOptDouble.zh.resx">
+      <DependentUpon>UCtrlOptDouble.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\UCtrlOptInt.resx">
       <DependentUpon>UCtrlOptInt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UCtrlOptInt.ru.resx">
+      <DependentUpon>UCtrlOptInt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UCtrlOptInt.zh.resx">
+      <DependentUpon>UCtrlOptInt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UCtrlOptTriDouble.ru.resx">
+      <DependentUpon>UCtrlOptTriDouble.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UCtrlOptTriDouble.zh.resx">
+      <DependentUpon>UCtrlOptTriDouble.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UCtrlTriDouble.ru.resx">
+      <DependentUpon>UCtrlTriDouble.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UCtrlTriDouble.zh.resx">
+      <DependentUpon>UCtrlTriDouble.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\UCtrlTriInt.resx">
       <DependentUpon>UCtrlTriInt.cs</DependentUpon>
@@ -286,6 +322,12 @@
     <EmbeddedResource Include="Controls\UCtrlTriDouble.resx">
       <DependentUpon>UCtrlTriDouble.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UCtrlTriInt.ru.resx">
+      <DependentUpon>UCtrlTriInt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UCtrlTriInt.zh.resx">
+      <DependentUpon>UCtrlTriInt.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.de.resx" />
     <EmbeddedResource Include="Properties\Resources.es.resx" />
     <EmbeddedResource Include="Properties\Resources.fr.resx" />
@@ -297,7 +339,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.ru.resx" />
     <EmbeddedResource Include="Properties\Resources.sv.resx" />
+    <EmbeddedResource Include="Properties\Resources.zh.resx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

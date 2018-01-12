@@ -7,7 +7,6 @@ using System.Windows.Forms;
 using System.IO;
 
 using Microsoft.Office.Interop.Excel;
-using Microsoft.Office.Core;
 
 using log4net;
 using Sharp3D.Math.Core;

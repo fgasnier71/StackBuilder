@@ -237,7 +237,13 @@
     <EmbeddedResource Include="FormReportDesign.resx">
       <DependentUpon>FormReportDesign.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormReportDesign.ru.resx">
+      <DependentUpon>FormReportDesign.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormReportDesign.sv.resx">
+      <DependentUpon>FormReportDesign.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormReportDesign.zh.resx">
       <DependentUpon>FormReportDesign.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.de.resx" />
@@ -253,7 +259,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.ru.resx" />
     <EmbeddedResource Include="Properties\Resources.sv.resx" />
+    <EmbeddedResource Include="Properties\Resources.zh.resx" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />

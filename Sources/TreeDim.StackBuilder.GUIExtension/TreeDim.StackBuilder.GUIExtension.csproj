@@ -180,13 +180,25 @@
     <EmbeddedResource Include="CtrlComboDBPallet.resx">
       <DependentUpon>CtrlComboDBPallet.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CtrlComboDBPallet.ru.resx">
+      <DependentUpon>CtrlComboDBPallet.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CtrlComboDBPallet.sv.resx">
+      <DependentUpon>CtrlComboDBPallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtrlComboDBPallet.zh.resx">
       <DependentUpon>CtrlComboDBPallet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormBrowseSolution.resx">
       <DependentUpon>FormBrowseSolution.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormBrowseSolution.ru.resx">
+      <DependentUpon>FormBrowseSolution.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormBrowseSolution.sv.resx">
+      <DependentUpon>FormBrowseSolution.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormBrowseSolution.zh.resx">
       <DependentUpon>FormBrowseSolution.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormDefineAnalysisBundleCase.de.resx">
@@ -210,7 +222,13 @@
     <EmbeddedResource Include="FormDefineAnalysisBundleCase.pl.resx">
       <DependentUpon>FormDefineAnalysisBundleCase.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormDefineAnalysisBundleCase.ru.resx">
+      <DependentUpon>FormDefineAnalysisBundleCase.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormDefineAnalysisBundleCase.sv.resx">
+      <DependentUpon>FormDefineAnalysisBundleCase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDefineAnalysisBundleCase.zh.resx">
       <DependentUpon>FormDefineAnalysisBundleCase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormDefineAnalysisCasePallet.resx">
@@ -222,7 +240,13 @@
     <EmbeddedResource Include="FormDefineAnalysisBundleCase.resx">
       <DependentUpon>FormDefineAnalysisBundleCase.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormDefineAnalysisCasePallet.ru.resx">
+      <DependentUpon>FormDefineAnalysisCasePallet.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormDefineAnalysisCasePallet.sv.resx">
+      <DependentUpon>FormDefineAnalysisCasePallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDefineAnalysisCasePallet.zh.resx">
       <DependentUpon>FormDefineAnalysisCasePallet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormDefineCaseOptimization.de.resx">
@@ -252,7 +276,13 @@
     <EmbeddedResource Include="FormDefineCaseOptimization.resx">
       <DependentUpon>FormDefineCaseOptimization.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormDefineCaseOptimization.ru.resx">
+      <DependentUpon>FormDefineCaseOptimization.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormDefineCaseOptimization.sv.resx">
+      <DependentUpon>FormDefineCaseOptimization.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDefineCaseOptimization.zh.resx">
       <DependentUpon>FormDefineCaseOptimization.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.de.resx" />
@@ -267,23 +297,43 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.ru.resx" />
     <EmbeddedResource Include="Properties\Resources.sv.resx" />
+    <EmbeddedResource Include="Properties\Resources.zh.resx" />
     <EmbeddedResource Include="UCtrlBundle.resx">
+      <DependentUpon>UCtrlBundle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCtrlBundle.ru.resx">
       <DependentUpon>UCtrlBundle.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UCtrlBundle.sv.resx">
       <DependentUpon>UCtrlBundle.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UCtrlBundle.zh.resx">
+      <DependentUpon>UCtrlBundle.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UCtrlCase.resx">
+      <DependentUpon>UCtrlCase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCtrlCase.ru.resx">
       <DependentUpon>UCtrlCase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UCtrlCase.sv.resx">
       <DependentUpon>UCtrlCase.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UCtrlCase.zh.resx">
+      <DependentUpon>UCtrlCase.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UCtrlPackable.resx">
       <DependentUpon>UCtrlPackable.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UCtrlPackable.ru.resx">
+      <DependentUpon>UCtrlPackable.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UCtrlPackable.sv.resx">
+      <DependentUpon>UCtrlPackable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCtrlPackable.zh.resx">
       <DependentUpon>UCtrlPackable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>

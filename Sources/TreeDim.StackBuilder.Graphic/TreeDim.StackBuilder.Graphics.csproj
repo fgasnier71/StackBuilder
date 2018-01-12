@@ -204,16 +204,34 @@
     <EmbeddedResource Include="Controls\CCtrlComboFiltered.resx">
       <DependentUpon>CCtrlComboFiltered.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\CCtrlComboFiltered.ru.resx">
+      <DependentUpon>CCtrlComboFiltered.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\CCtrlComboFiltered.sv.resx">
+      <DependentUpon>CCtrlComboFiltered.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\CCtrlComboFiltered.zh.resx">
       <DependentUpon>CCtrlComboFiltered.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\CCtrlComboLayer.resx">
       <DependentUpon>CCtrlComboLayer.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\CCtrlComboLayer.ru.resx">
+      <DependentUpon>CCtrlComboLayer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\CCtrlComboLayer.sv.resx">
       <DependentUpon>CCtrlComboLayer.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\CCtrlComboLayer.zh.resx">
+      <DependentUpon>CCtrlComboLayer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Graphics3DControl.ru.resx">
+      <DependentUpon>Graphics3DControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\Graphics3DControl.sv.resx">
+      <DependentUpon>Graphics3DControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Graphics3DControl.zh.resx">
       <DependentUpon>Graphics3DControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\UCtrlCaseOrientation.resx">
@@ -225,19 +243,37 @@
       <LastGenOutput>Graphics3DControl1.Designer.cs</LastGenOutput>
       <Generator>PublicResXFileCodeGenerator</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UCtrlCaseOrientation.ru.resx">
+      <DependentUpon>UCtrlCaseOrientation.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\UCtrlCaseOrientation.sv.resx">
+      <DependentUpon>UCtrlCaseOrientation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UCtrlCaseOrientation.zh.resx">
       <DependentUpon>UCtrlCaseOrientation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\UCtrlLayerList.resx">
       <DependentUpon>UCtrlLayerList.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UCtrlLayerList.ru.resx">
+      <DependentUpon>UCtrlLayerList.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\UCtrlLayerList.sv.resx">
+      <DependentUpon>UCtrlLayerList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UCtrlLayerList.zh.resx">
       <DependentUpon>UCtrlLayerList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\UCtrlPackable.resx">
       <DependentUpon>UCtrlPackable.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UCtrlPackable.ru.resx">
+      <DependentUpon>UCtrlPackable.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\UCtrlPackable.sv.resx">
+      <DependentUpon>UCtrlPackable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UCtrlPackable.zh.resx">
       <DependentUpon>UCtrlPackable.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -245,6 +281,8 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.ru.resx" />
+    <EmbeddedResource Include="Properties\Resources.zh.resx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Rotate.png" />

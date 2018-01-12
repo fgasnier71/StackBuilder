@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -906,7 +906,7 @@
     <value>Color</value>
   </data>
   <data name="cbColorWallOuter.Items78" xml:space="preserve">
-    <value>Farbe</value>
+    <value>Color</value>
   </data>
   <data name="cbColorWallOuter.Items79" xml:space="preserve">
     <value>Color</value>

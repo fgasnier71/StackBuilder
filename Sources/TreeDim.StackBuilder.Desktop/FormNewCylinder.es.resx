@@ -955,7 +955,7 @@
     <value>Color de la pared interior</value>
   </data>
   <data name="cbColorWallOuter.Items78" xml:space="preserve">
-    <value>Farbe</value>
+    <value>Color</value>
   </data>
   <data name="lbWallColor.Text" xml:space="preserve">
     <value>Color de la pared exterior</value>

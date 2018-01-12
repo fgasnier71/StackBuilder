@@ -97,17 +97,35 @@
       <DependentUpon>ComboBoxColorPicker.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="ColorPicker\ComboBoxColorPicker.ru.resx">
+      <DependentUpon>ComboBoxColorPicker.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ColorPicker\ComboBoxColorPicker.sv.resx">
+      <DependentUpon>ComboBoxColorPicker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ColorPicker\ComboBoxColorPicker.zh.resx">
       <DependentUpon>ComboBoxColorPicker.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ColorPicker\OfficeColorPicker.resx">
       <DependentUpon>OfficeColorPicker.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="ColorPicker\OfficeColorPicker.ru.resx">
+      <DependentUpon>OfficeColorPicker.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ColorPicker\OfficeColorPicker.sv.resx">
       <DependentUpon>OfficeColorPicker.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ColorPicker\OfficeColorPicker.zh.resx">
+      <DependentUpon>OfficeColorPicker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ColorPicker\ToolStripColorPicker.ru.resx">
+      <DependentUpon>ToolStripColorPicker.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ColorPicker\ToolStripColorPicker.sv.resx">
+      <DependentUpon>ToolStripColorPicker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ColorPicker\ToolStripColorPicker.zh.resx">
       <DependentUpon>ToolStripColorPicker.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Util\ContextMenuForm.resx">
@@ -127,7 +145,13 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Util\ContextMenuForm.ru.resx">
+      <DependentUpon>ContextMenuForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Util\ContextMenuForm.sv.resx">
+      <DependentUpon>ContextMenuForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Util\ContextMenuForm.zh.resx">
       <DependentUpon>ContextMenuForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Util\GradientPanel.bmp" />

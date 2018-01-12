@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -129,5 +129,8 @@
   </data>
   <data name="chkbShowStartPage.Text" xml:space="preserve">
     <value>Afficher la page de l'application au démarrage...</value>
+  </data>
+  <data name="chkbDisconnected.Text" xml:space="preserve">
+    <value>Permettre un usage hors connection</value>
   </data>
 </root>
