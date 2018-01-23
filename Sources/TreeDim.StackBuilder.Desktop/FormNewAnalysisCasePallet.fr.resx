@@ -178,4 +178,7 @@
   <data name="$this.Text" xml:space="preserve">
     <value>Créer une nouvelle analyse caisse/palette...</value>
   </data>
+  <data name="uCtrlOptMaxNumber.Text" xml:space="preserve">
+    <value>Nombre maximum</value>
+  </data>
 </root>

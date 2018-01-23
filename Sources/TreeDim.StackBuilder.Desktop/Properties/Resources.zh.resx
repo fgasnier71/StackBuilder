@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,4 +117,624 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ID_CASEWEIGHT" xml:space="preserve">
+		<value>箱子重量</value>
+	</data>
+  <data name="ID_A1" xml:space="preserve">
+		<value>A1</value>
+	</data>
+  <data name="ID_CYLINDERCOUNT" xml:space="preserve">
+		<value>圆柱体计数</value>
+	</data>
+  <data name="ID_NODE_CYLINDERS" xml:space="preserve">
+		<value>圆柱体</value>
+	</data>
+  <data name="ID_NAME" xml:space="preserve">
+		<value>名称</value>
+	</data>
+  <data name="ID_BOXCOUNT" xml:space="preserve">
+		<value>盒子/箱子</value>
+	</data>
+  <data name="ID_HEIGHT" xml:space="preserve">
+		<value>高度</value>
+	</data>
+  <data name="ID_CASESLAYER" xml:space="preserve">
+		<value>箱子/层</value>
+	</data>
+  <data name="ID_VERSION" xml:space="preserve">
+		<value>版本： {0}</value>
+	</data>
+  <data name="ID_ECT" xml:space="preserve">
+		<value>ECT</value>
+	</data>
+  <data name="ID_LENGTH" xml:space="preserve">
+		<value>长度</value>
+	</data>
+  <data name="ID_PALLETMAXNUMBER" xml:space="preserve">
+		<value>号码</value>
+	</data>
+  <data name="ID_LAYERPATTERN" xml:space="preserve">
+		<value>层类型</value>
+	</data>
+  <data name="ID_FIELDNAMEINVALID" xml:space="preserve">
+		<value>名称已经存在.</value>
+	</data>
+  <data name="ID_CYLINDER" xml:space="preserve">
+		<value>圆柱形</value>
+	</data>
+  <data name="ID_ADDNEWANALYSIS" xml:space="preserve">
+		<value>添加新的分析…</value>
+	</data>
+  <data name="ID_ADDNEWTRUCK" xml:space="preserve">
+		<value>添加新的卡车…</value>
+	</data>
+  <data name="ID_FILENOTFOUND" xml:space="preserve">
+		<value>找不到文件 {0}</value>
+	</data>
+  <data name="ID_GENERATEREPORT" xml:space="preserve">
+		<value>生成一个报告 {0}</value>
+	</data>
+  <data name="ID_SELECTED" xml:space="preserve">
+		<value>已选择的</value>
+	</data>
+  <data name="ID_CLOSE" xml:space="preserve">
+		<value>关闭</value>
+	</data>
+  <data name="ID_INVALIDINSIDEHEIGHT" xml:space="preserve">
+		<value>内部高度 ({0}) 应该低于高度 ({1})</value>
+	</data>
+  <data name="ID_ADDNEWECTANALYSIS" xml:space="preserve">
+		<value>添加新的ECT分析…</value>
+	</data>
+  <data name="ID_CASECOUNT" xml:space="preserve">
+		<value>#箱子</value>
+	</data>
+  <data name="ID_WEIGHT_WU" xml:space="preserve">
+		<value>重量({0})</value>
+	</data>
+  <data name="ID_PALLETMAXHEIGHT" xml:space="preserve">
+		<value>高度</value>
+	</data>
+  <data name="ID_ADDNEWPALLET" xml:space="preserve">
+		<value>添加新的托盘…</value>
+	</data>
+  <data name="ID_TRUCK" xml:space="preserve">
+		<value>卡车</value>
+	</data>
+  <data name="ID_LOADWEIGHT" xml:space="preserve">
+		<value>码垛物重量</value>
+	</data>
+  <data name="ID_USEATLEASTONESTOPSTACKINGCRITERION" xml:space="preserve">
+		<value>至少定义一个停止叠加标准</value>
+	</data>
+  <data name="ID_CASEDIMENSIONS" xml:space="preserve">
+		<value>箱子尺寸</value>
+	</data>
+  <data name="ID_NOPALLETSOLUTIONSELECTED" xml:space="preserve">
+		<value>没有托盘解决方案被选择</value>
+	</data>
+  <data name="ID_AREA" xml:space="preserve">
+		<value>区域</value>
+	</data>
+  <data name="ID_EDGECRUSHTEST" xml:space="preserve">
+		<value>边压测试分析</value>
+	</data>
+  <data name="ID_INVALIDINSIDEWIDTH" xml:space="preserve">
+		<value>内部宽度 ({0})应该小于宽度 ({1})</value>
+	</data>
+  <data name="ID_A2" xml:space="preserve">
+		<value>A2</value>
+	</data>
+  <data name="ID_ADDNEWBOX" xml:space="preserve">
+		<value>添加新的盒子</value>
+	</data>
+  <data name="ID_ADDNEWBUNDLE" xml:space="preserve">
+		<value>添加新的捆</value>
+	</data>
+  <data name="ID_PALLETLIMIT" xml:space="preserve">
+		<value>达到限制</value>
+	</data>
+  <data name="ID_NODE_ANALYSES" xml:space="preserve">
+		<value>分析</value>
+	</data>
+  <data name="ID_INVALIDINSIDELENGTH" xml:space="preserve">
+		<value>内部长度 ({0}) 应该小于长度 ({1})</value>
+	</data>
+  <data name="ID_ADDNEWCASE" xml:space="preserve">
+		<value>添加新的箱子</value>
+	</data>
+  <data name="ID_SENDTODATABASE" xml:space="preserve">
+		<value>发送到数据库</value>
+	</data>
+  <data name="ID_BOXCASECOUNT" xml:space="preserve">
+		<value>盒子/箱子计数</value>
+	</data>
+  <data name="ID_PALLETCOUNT" xml:space="preserve">
+		<value>托盘计数</value>
+	</data>
+  <data name="ID_ANALYSIS" xml:space="preserve">
+		<value>分析</value>
+	</data>
+  <data name="ID_INTERLAYER" xml:space="preserve">
+		<value>隔层</value>
+	</data>
+  <data name="ID_INSUFFICIENTVOLUME" xml:space="preserve">
+		<value>最大容量不足以包装组{0} {1}</value>
+	</data>
+  <data name="ID_FIELDNAMEEMPTY" xml:space="preserve">
+		<value>名称字段是空的</value>
+	</data>
+  <data name="ID_NODE_CASES" xml:space="preserve">
+		<value>箱子</value>
+	</data>
+  <data name="ID_EFFICIENCYPERCENTAGE" xml:space="preserve">
+		<value>效率 (%)</value>
+	</data>
+  <data name="ID_INDEX" xml:space="preserve">
+		<value>索引</value>
+	</data>
+  <data name="ID_READY" xml:space="preserve">
+		<value>准备就绪</value>
+	</data>
+  <data name="ID_GENERATECOLLADA" xml:space="preserve">
+		<value>为{0}生成3D动画文件</value>
+	</data>
+  <data name="ID_MAXLOWERTHANMIN" xml:space="preserve">
+		<value>冲突:最大值 {0} 小于最小值 {1}。</value>
+	</data>
+  <data name="ID_INVALIDNAME" xml:space="preserve">
+		<value>给定名称 ({0})是无效的</value>
+	</data>
+  <data name="ID_ADDNEWTRUCKANALYSIS" xml:space="preserve">
+		<value>添加新卡车分析…</value>
+	</data>
+  <data name="ID_NODE_INTERLAYERS" xml:space="preserve">
+		<value>隔层</value>
+	</data>
+  <data name="ID_BOX" xml:space="preserve">
+		<value>盒子</value>
+	</data>
+  <data name="ID_UNSELECTSOLUTION" xml:space="preserve">
+		<value>未选择方案{0}</value>
+	</data>
+  <data name="ID_NODE_TRUCKS" xml:space="preserve">
+		<value>卡车</value>
+	</data>
+  <data name="ID_FILTER_MSWORD" xml:space="preserve">
+		<value>微软办公处理软件(* . doc;* docx)| * . doc;*.docx|所有文件(* . *)| * . *</value>
+	</data>
+  <data name="ID_BUNDLE" xml:space="preserve">
+		<value>捆</value>
+	</data>
+  <data name="ID_ADDNEWBUNDLEANALYSIS" xml:space="preserve">
+		<value>添加新的捆/束分析</value>
+	</data>
+  <data name="ID_BOXDOESNOTFITINCASE" xml:space="preserve">
+		<value>盒子 {0}不适用于箱子 {1}。</value>
+	</data>
+  <data name="ID_LAYERPATTERNS" xml:space="preserve">
+		<value>层样式</value>
+	</data>
+  <data name="ID_INVALIDDIAMETER" xml:space="preserve">
+		<value>内径应该小于外径。</value>
+	</data>
+  <data name="ID_CASESPALLET" xml:space="preserve">
+		<value>箱子/托盘</value>
+	</data>
+  <data name="ID_ALLOWALIGNEDORALTERNATELAYERS" xml:space="preserve">
+		<value>允许对齐和/或交替层</value>
+	</data>
+  <data name="ID_PALLETCAPTIONEDIT" xml:space="preserve">
+		<value>编辑托盘 {0}…</value>
+	</data>
+  <data name="ID_VOLUMEEFFICIENCY" xml:space="preserve">
+		<value>效率 (%)</value>
+	</data>
+  <data name="ID_DEFINEATLEASTONEPATTERN" xml:space="preserve">
+		<value>至少定义一个叠加样式</value>
+	</data>
+  <data name="ID_DESELECT" xml:space="preserve">
+		<value>取消选定</value>
+	</data>
+  <data name="ID_SAVEMODIFIEDFILE" xml:space="preserve">
+		<value>存储文件{0}?</value>
+	</data>
+  <data name="ID_ADDNEWCASEANALYSIS" xml:space="preserve">
+		<value>添加新的箱子分析…</value>
+	</data>
+  <data name="ID_CASEANALYSIS_INVALIDCONSTRAINTSET" xml:space="preserve">
+		<value>不能创建案例分析，因为约束设置看起来是无效的。</value>
+	</data>
+  <data name="ID_DELETEITEM" xml:space="preserve">
+		<value>删除{0}</value>
+	</data>
+  <data name="ID_NODE_BOXES" xml:space="preserve">
+		<value>盒子</value>
+	</data>
+  <data name="ID_ADDNEWBOXCASEANALYSIS" xml:space="preserve">
+		<value>添加新箱/案例分析…</value>
+	</data>
+  <data name="ID_DEFINEATLEASTONEVERTICALAXIS" xml:space="preserve">
+		<value>至少定义一个垂直轴</value>
+	</data>
+  <data name="ID_NODE_BUNDLES" xml:space="preserve">
+		<value>一捆/一束</value>
+	</data>
+  <data name="ID_ABOUT" xml:space="preserve">
+		<value>关于 {0}</value>
+	</data>
+  <data name="ID_ANALYSISHASNOVALIDSOLUTION" xml:space="preserve">
+		<value>分析 {0} 无有效的解决方案。</value>
+	</data>
+  <data name="ID_A3" xml:space="preserve">
+		<value>A3</value>
+	</data>
+  <data name="ID_ADDNEWINTERLAYER" xml:space="preserve">
+		<value>添加新隔层…</value>
+	</data>
+  <data name="ID_INSUFFICIENTPALLETHEIGHT" xml:space="preserve">
+		<value>最大托盘高度({0} {1})应该超过 {2} {3}</value>
+	</data>
+  <data name="ID_NODE_PALLETS" xml:space="preserve">
+		<value>托盘</value>
+	</data>
+  <data name="ID_CASEOFBOXES" xml:space="preserve">
+		<value>盒子的箱子</value>
+	</data>
+  <data name="ID_CHROMEISNOTINSTALLED" xml:space="preserve">
+		<value>需要安装Google Chrome浏览器来可视化collada/webgl动画。</value>
+	</data>
+  <data name="ID_SELECT" xml:space="preserve">
+		<value>选择</value>
+	</data>
+  <data name="ID_CASE" xml:space="preserve">
+		<value>箱子</value>
+	</data>
+  <data name="ID_WIDTH" xml:space="preserve">
+		<value>宽度</value>
+	</data>
+  <data name="ID_ADDNEWCYLINDER" xml:space="preserve">
+		<value>添加新的圆柱体</value>
+	</data>
+  <data name="ID_ADDNEWCYLINDERANALYSIS" xml:space="preserve">
+		<value>添加新的圆柱体分析</value>
+	</data>
+  <data name="ID_CASELIMIT" xml:space="preserve">
+		<value>达到限制</value>
+	</data>
+  <data name="ID_PALLETMAXWEIGHT" xml:space="preserve">
+		<value>重量</value>
+	</data>
+  <data name="ID_LOADHEIGHT" xml:space="preserve">
+		<value>装载物高度</value>
+	</data>
+  <data name="ID_ORIENTATION" xml:space="preserve">
+		<value>方向</value>
+	</data>
+  <data name="ID_FIELDDESCRIPTIONEMPTY" xml:space="preserve">
+		<value>描述栏是空的</value>
+	</data>
+  <data name="ID_LAYOUT" xml:space="preserve">
+		<value>布局</value>
+	</data>
+  <data name="ID_EDIT" xml:space="preserve">
+		<value>编辑 {0}…</value>
+	</data>
+  <data name="ID_CASEINSIDEDIMENSIONS" xml:space="preserve">
+		<value>箱子内部尺寸</value>
+	</data>
+  <data name="ID_MAXIMUMCASEWEIGHTSHOULDEXCEED" xml:space="preserve">
+		<value>最大的箱子重量应该超过{0} {1}.</value>
+	</data>
+  <data name="ID_CASEPERPALLET" xml:space="preserve">
+		<value>箱子/托盘</value>
+	</data>
+  <data name="ID_LAYERS" xml:space="preserve">
+		<value>层</value>
+	</data>
+  <data name="ID_CANNOTUSEWEIGHTLIMIT" xml:space="preserve">
+		<value>因为 {0}没有质量，所以不能使用重量限制</value>
+	</data>
+  <data name="ID_INVALIDMASS" xml:space="preserve">
+		<value>质量值应该是正的</value>
+	</data>
+  <data name="ID_ADDNEWPALLETCAP" xml:space="preserve">
+		<value>添加新托盘盖……</value>
+	</data>
+  <data name="ID_ADDNEWPALLETCORNERS" xml:space="preserve">
+		<value>添加新托盘的护角……</value>
+	</data>
+  <data name="ID_ADDNEWPALLETFILM" xml:space="preserve">
+		<value>添加新托盘的膜……</value>
+	</data>
+  <data name="ID_NODE_PALLETCAPS" xml:space="preserve">
+		<value>托盘盖子</value>
+	</data>
+  <data name="ID_NODE_PALLETCORNERS" xml:space="preserve">
+		<value>托盘护角</value>
+	</data>
+  <data name="ID_NODE_PALLETFILMS" xml:space="preserve">
+		<value>托盘膜</value>
+	</data>
+  <data name="ID_PALLETCAP" xml:space="preserve">
+		<value>盖子</value>
+	</data>
+  <data name="ID_PALLETCORNERS" xml:space="preserve">
+		<value>护角</value>
+	</data>
+  <data name="ID_PALLETFILM" xml:space="preserve">
+		<value>膜</value>
+	</data>
+  <data name="ID_USETRANSPARENCYORHATCHING" xml:space="preserve">
+		<value>使用透明度和/或影线</value>
+	</data>
+  <data name="ID_PALLETCAPNOTLONGENOUGH" xml:space="preserve">
+		<value>托盘长度应超过托盘长度+伸出量X</value>
+	</data>
+  <data name="ID_PALLETCAPNOTWIDEENOUGH" xml:space="preserve">
+		<value>托盘宽度应超过托盘宽度+伸出量Y。</value>
+	</data>
+  <data name="ID_INVALIDTHICKNESSWIDTHPAIR" xml:space="preserve">
+		<value>厚度不应超过宽度</value>
+	</data>
+  <data name="ID_INVALIDNETWEIGHT" xml:space="preserve">
+		<value>净重({0})不应超过重量 ({1})</value>
+	</data>
+  <data name="ID_PACK" xml:space="preserve">
+		<value>包装组</value>
+	</data>
+  <data name="ID_NODE_PACKS" xml:space="preserve">
+		<value>包装组合</value>
+	</data>
+  <data name="ID_INVALIDOUTERDIMENSION" xml:space="preserve">
+		<value>外部尺寸应该超过内容尺寸。</value>
+	</data>
+  <data name="ID_CONSUMERSALESUNITS" xml:space="preserve">
+		<value># CSU</value>
+	</data>
+  <data name="ID_LAYERWEIGHT" xml:space="preserve">
+		<value>层重量 ({0})</value>
+	</data>
+  <data name="ID_MAXIMUMSPACE" xml:space="preserve">
+		<value>最大的空间({ 0 })</value>
+	</data>
+  <data name="ID_PACKCOUNT" xml:space="preserve">
+		<value>#包装组合</value>
+	</data>
+  <data name="ID_ADDNEWPACKANALYSIS" xml:space="preserve">
+		<value>添加新的包装组合/托盘分析……</value>
+	</data>
+  <data name="ID_ANALYSISHASNOSOLUTION" xml:space="preserve">
+		<value>分析后没有解决方案? 太多限制?</value>
+	</data>
+  <data name="ID_CASEPERLAYERCOUNT" xml:space="preserve">
+		<value>#箱子/层</value>
+	</data>
+  <data name="ID_LAYERCOUNT" xml:space="preserve">
+		<value>层#</value>
+	</data>
+  <data name="ID_BOXES" xml:space="preserve">
+		<value>盒子</value>
+	</data>
+  <data name="ID_CASES" xml:space="preserve">
+		<value>箱子</value>
+	</data>
+  <data name="ID_CYLINDERS" xml:space="preserve">
+		<value>圆柱体</value>
+	</data>
+  <data name="ID_INTERLAYERS" xml:space="preserve">
+		<value>隔层</value>
+	</data>
+  <data name="ID_PALLETCAPS" xml:space="preserve">
+		<value>托盘盖子</value>
+	</data>
+  <data name="ID_PALLETFILMS" xml:space="preserve">
+		<value>托盘膜</value>
+	</data>
+  <data name="ID_PALLETS" xml:space="preserve">
+		<value>托盘</value>
+	</data>
+  <data name="ID_DISPLAYDEBUGGING" xml:space="preserve">
+		<value>调试排除故障</value>
+	</data>
+  <data name="ID_DISPLAYDIMENSIONSCASEPALLET" xml:space="preserve">
+		<value>箱子/托盘 尺寸</value>
+	</data>
+  <data name="ID_DISPLAYMEASUREMENTSYSTEM" xml:space="preserve">
+		<value>语言和测量系统</value>
+	</data>
+  <data name="ID_DISPLAYPLUGINS" xml:space="preserve">
+		<value>插件</value>
+	</data>
+  <data name="ID_DISPLAYREPORTING" xml:space="preserve">
+		<value>报告</value>
+	</data>
+  <data name="ID_OPTIONSDEBUGGING" xml:space="preserve">
+		<value>选项\\排除故障</value>
+	</data>
+  <data name="ID_OPTIONSDIMENSIONS" xml:space="preserve">
+		<value>选项\\尺寸\\箱子/托盘</value>
+	</data>
+  <data name="ID_OPTIONSMEASUREMENTSYSTEM" xml:space="preserve">
+		<value>选项\ \ 语言和单位系统</value>
+	</data>
+  <data name="ID_OPTIONSPLUGINS" xml:space="preserve">
+		<value>选项\\插件</value>
+	</data>
+  <data name="ID_OPTIONSREPORTING" xml:space="preserve">
+		<value>选项\\报告</value>
+	</data>
+  <data name="ID_AUTOIMPORT" xml:space="preserve">
+		<value>自动导入</value>
+	</data>
+  <data name="ID_DESCRIPTION" xml:space="preserve">
+		<value>描述</value>
+	</data>
+  <data name="ID_DIMENSIONS" xml:space="preserve">
+		<value>尺寸 ({0})</value>
+	</data>
+  <data name="ID_NAMEALREADYEXISTSINDB" xml:space="preserve">
+		<value>{0}命名{1}已经存在于数据库中。</value>
+	</data>
+  <data name="ID_DELETE" xml:space="preserve">
+		<value>删除</value>
+	</data>
+  <data name="ID_DIAMETERINNER_WU" xml:space="preserve">
+		<value>内径({0})</value>
+	</data>
+  <data name="ID_DIAMETEROUTER_WU" xml:space="preserve">
+		<value>外径({0})</value>
+	</data>
+  <data name="ID_HEIGHT_WU" xml:space="preserve">
+		<value>高度({0})</value>
+	</data>
+  <data name="ID_DIMEXT_WU" xml:space="preserve">
+		<value>外部尺寸({0})</value>
+	</data>
+  <data name="ID_DIMINT_WU" xml:space="preserve">
+		<value>内部尺寸({0})</value>
+	</data>
+  <data name="ID_LENGTH_WU" xml:space="preserve">
+		<value>长度({0})</value>
+	</data>
+  <data name="ID_NUMBER" xml:space="preserve">
+		<value>号码</value>
+	</data>
+  <data name="ID_THICKNESS_WU" xml:space="preserve">
+		<value>厚度({0})</value>
+	</data>
+  <data name="ID_WIDTH_WU" xml:space="preserve">
+		<value>宽度({0})</value>
+	</data>
+  <data name="ID_HATCHINGANGLE" xml:space="preserve">
+		<value>影线角度</value>
+	</data>
+  <data name="ID_HATCHINGSPACING" xml:space="preserve">
+		<value>影线空间</value>
+	</data>
+  <data name="ID_TRANSPARENCY" xml:space="preserve">
+		<value>使用透明度</value>
+	</data>
+  <data name="ID_CASENAME" xml:space="preserve">
+		<value>箱子</value>
+	</data>
+  <data name="ID_NOCASESELECTED" xml:space="preserve">
+		<value>未选择箱子</value>
+	</data>
+  <data name="ID_NOORIENTATIONSELECTED" xml:space="preserve">
+		<value>未选择方向</value>
+	</data>
+  <data name="ID_DOUBLECLICKALAYER" xml:space="preserve">
+		<value>双击一个层！</value>
+	</data>
+  <data name="ID_INTERLAYERNUMBER" xml:space="preserve">
+		<value>隔层#</value>
+	</data>
+  <data name="ID_LAYER" xml:space="preserve">
+		<value>层</value>
+	</data>
+  <data name="ID_LAYERNUMBER" xml:space="preserve">
+		<value>层#</value>
+	</data>
+  <data name="ID_LOADDIMENSIONS" xml:space="preserve">
+		<value>装载物尺寸({0})</value>
+	</data>
+  <data name="ID_LOADWEIGHT_WU" xml:space="preserve">
+		<value>装载物重量({0})</value>
+	</data>
+  <data name="ID_NETWEIGHT_WU" xml:space="preserve">
+		<value>净重({0})</value>
+	</data>
+  <data name="ID_OUTERDIMENSIONS" xml:space="preserve">
+		<value>外部尺寸({0})</value>
+	</data>
+  <data name="ID_PALLET" xml:space="preserve">
+		<value>托盘</value>
+	</data>
+  <data name="ID_SELECTEDLAYER" xml:space="preserve">
+		<value>已选的层：({0})</value>
+	</data>
+  <data name="ID_TOTALWEIGHT_WU" xml:space="preserve">
+		<value>总重量({0})</value>
+	</data>
+  <data name="ID_INTERLAYERCOUNT" xml:space="preserve">
+		<value>隔层#</value>
+	</data>
+  <data name="ID_SPACES_WU" xml:space="preserve">
+		<value>空间({0})</value>
+	</data>
+  <data name="ID_LOAD" xml:space="preserve">
+		<value>装载物</value>
+	</data>
+  <data name="ID_REGISTEREDUSERCOUNT" xml:space="preserve">
+		<value>注册用户=({0})</value>
+	</data>
+  <data name="ID_WEIGHT" xml:space="preserve">
+		<value>重量</value>
+	</data>
+  <data name="ID_GENERATEREPORTPDF" xml:space="preserve">
+		<value>生成PDF报告</value>
+	</data>
+  <data name="ID_GENERATEREPORTHTML" xml:space="preserve">
+		<value>生成HTML报告</value>
+	</data>
+  <data name="ID_GENERATEREPORTMSWORD" xml:space="preserve">
+		<value>生成MS WORD报告</value>
+	</data>
+  <data name="ID_EFFICIENCY" xml:space="preserve">
+		<value>效率</value>
+	</data>
+  <data name="ID_DONE" xml:space="preserve">
+		<value>完成！</value>
+	</data>
+  <data name="ID_EXCELSHEETUNITSYSTEM" xml:space="preserve">
+		<value>您能否确认在Excel表格 ({0}) 中的值使用当前的StackBuilder单元系统，比如{1}?</value>
+	</data>
+  <data name="ID_IMPORTLOADING" xml:space="preserve">
+		<value>加载中({0})….</value>
+	</data>
+  <data name="ID_IMPORTSKIPPING" xml:space="preserve">
+		<value>跳过({0})……</value>
+	</data>
+  <data name="ID_REMOVINGEXISTINGTYPE" xml:space="preserve">
+		<value>正在删除现有类型({0})…..</value>
+	</data>
+  <data name="ID_TASKCANCELED" xml:space="preserve">
+		<value>已取消！</value>
+	</data>
+  <data name="ID_UNEXPECTEDTYPE" xml:space="preserve">
+		<value>未知的类型:({0})</value>
+	</data>
+  <data name="ID_UNITSYSTEM" xml:space="preserve">
+		<value>单位系统…..</value>
+	</data>
+  <data name="ID_DEFINEVALIDFILEPATH" xml:space="preserve">
+		<value>定义一个有效的文件路径。</value>
+	</data>
+  <data name="ID_DISPLAYPALLETEDITION" xml:space="preserve">
+		<value>托盘编辑参数</value>
+	</data>
+  <data name="ID_OPTIONSPALLETEDITION" xml:space="preserve">
+		<value>选项\\编辑托盘</value>
+	</data>
+  <data name="ID_PALLETWEIGHT" xml:space="preserve">
+    <value>托盘重量 ({0})</value>
+  </data>
+  <data name="ID_DEPENDINGANALYSES" xml:space="preserve">
+    <value>{0} 具有以下依赖项: {1} 如果继续进行修改, 则将重新分析并删除任何选定的解决方案。
+继续?</value>
+  </data>
+  <data name="ID_PALLETHEIGHT" xml:space="preserve">
+    <value>托盘高度 ({0})</value>
+  </data>
+  <data name="ID_DATABASEEMPTY" xml:space="preserve">
+    <value>托盘解决方案数据库为空。
+关闭窗体..。</value>
+  </data>
+  <data name="ID_SELECTATLEASTONELAYOUT" xml:space="preserve">
+    <value>选择真皮一层</value>
+  </data>
+  <data name="ID_CASECOUNTFORMATSTRING" xml:space="preserve">
+    <value>{0} {1} x {2}</value>
+  </data>
 </root>

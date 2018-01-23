@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -143,5 +143,11 @@
   </data>
   <data name="lbAnalysisName.Text" xml:space="preserve">
     <value>解析名</value>
+  </data>
+  <data name="uCtrlCaseDimensionsMax.Text" xml:space="preserve">
+    <value>Max。ケースの寸法</value>
+  </data>
+  <data name="uCtrlCaseDimensionsMin.Text" xml:space="preserve">
+    <value>分ケース寸法</value>
   </data>
 </root>

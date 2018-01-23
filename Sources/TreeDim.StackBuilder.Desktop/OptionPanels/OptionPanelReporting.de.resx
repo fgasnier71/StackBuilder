@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -153,5 +153,8 @@
   </data>
   <data name="gbMSWordMargins.Text" xml:space="preserve">
     <value>Ränder (nur Microsoft Word)</value>
+  </data>
+  <data name="lbSleepTime.Text" xml:space="preserve">
+    <value>Zeit vor dem Bild löschen</value>
   </data>
 </root>

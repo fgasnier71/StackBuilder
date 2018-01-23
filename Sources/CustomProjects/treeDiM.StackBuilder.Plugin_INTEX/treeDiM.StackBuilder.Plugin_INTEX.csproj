@@ -102,7 +102,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="FormNewINTEX.de-DE.resx">
+      <DependentUpon>FormNewINTEX.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewINTEX.de.resx">
+      <DependentUpon>FormNewINTEX.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewINTEX.es-ES.resx">
       <DependentUpon>FormNewINTEX.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewINTEX.es.resx">
@@ -114,7 +120,13 @@
     <EmbeddedResource Include="FormNewINTEX.fr.resx">
       <DependentUpon>FormNewINTEX.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNewINTEX.it-IT.resx">
+      <DependentUpon>FormNewINTEX.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewINTEX.it.resx">
+      <DependentUpon>FormNewINTEX.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewINTEX.ja-JP.resx">
       <DependentUpon>FormNewINTEX.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewINTEX.ja.resx">
@@ -138,10 +150,15 @@
     <EmbeddedResource Include="FormNewINTEX.zh.resx">
       <DependentUpon>FormNewINTEX.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.de-DE.resx" />
     <EmbeddedResource Include="Properties\Resources.de.resx" />
+    <EmbeddedResource Include="Properties\Resources.es-ES.resx" />
     <EmbeddedResource Include="Properties\Resources.es.resx" />
+    <EmbeddedResource Include="Properties\Resources.fr-FR.resx" />
     <EmbeddedResource Include="Properties\Resources.fr.resx" />
+    <EmbeddedResource Include="Properties\Resources.it-IT.resx" />
     <EmbeddedResource Include="Properties\Resources.it.resx" />
+    <EmbeddedResource Include="Properties\Resources.ja-JP.resx" />
     <EmbeddedResource Include="Properties\Resources.ja.resx" />
     <EmbeddedResource Include="Properties\Resources.nl.resx" />
     <EmbeddedResource Include="Properties\Resources.pl.resx" />

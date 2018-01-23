@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,4 +117,34 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="uCtrlMaximumHeight.Text" xml:space="preserve">
+    <value>Высота паллеты</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Создайте новый цилиндр/поддон анализ...</value>
+  </data>
+  <data name="checkBoxBestLayersOnly.Text" xml:space="preserve">
+    <value>Показать только лучшие слои</value>
+  </data>
+  <data name="uCtrlOverhang.Text" xml:space="preserve">
+    <value>Вылет</value>
+  </data>
+  <data name="tabPageOverhang.Text" xml:space="preserve">
+    <value>Вылет</value>
+  </data>
+  <data name="tabPageStopCriterions.Text" xml:space="preserve">
+    <value>Остановить критерии</value>
+  </data>
+  <data name="lbCylinder.Text" xml:space="preserve">
+    <value>Цилиндр</value>
+  </data>
+  <data name="uCtrlOptMaximumWeight.Text" xml:space="preserve">
+    <value>Вес паллеты</value>
+  </data>
+  <data name="lbSelect.Text" xml:space="preserve">
+    <value>Выберите один или несколько слоев и нажмите ' следующей &gt;'...</value>
+  </data>
+  <data name="lbPallet.Text" xml:space="preserve">
+    <value>Поддон</value>
+  </data>
 </root>

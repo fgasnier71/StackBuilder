@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,4 +117,112 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ID_FILTER_HTML" xml:space="preserve">
+    <value>Язык разметки гипертекста (* html) | * .html | Все файлы (*. *) | *. *</value>
+  </data>
+  <data name="ID_FILTER_MSWORD" xml:space="preserve">
+    <value>Microsoft Office Word (*.doc; *.docx) | * .doc; * .docx | Все файлы (*. *) | *. *</value>
+  </data>
+  <data name="ID_FILTER_PDF" xml:space="preserve">
+    <value>Abobe Acrobat (*.pdf) | * .pdf</value>
+  </data>
+  <data name="ID_REPORT" xml:space="preserve">
+    <value>Отчет</value>
+  </data>
+  <data name="ID_REPORTANALYSIS" xml:space="preserve">
+    <value>Доклад {0}</value>
+  </data>
+  <data name="ID_RN_ANALYSIS" xml:space="preserve">
+    <value>Анализ ({0})</value>
+  </data>
+  <data name="ID_RN_ARRANGEMENT" xml:space="preserve">
+    <value>Композиция</value>
+  </data>
+  <data name="ID_RN_AUTHORS" xml:space="preserve">
+    <value>Авторы</value>
+  </data>
+  <data name="ID_RN_BOX" xml:space="preserve">
+    <value>Коробка</value>
+  </data>
+  <data name="ID_RN_BUNDLE" xml:space="preserve">
+    <value>Расслоение</value>
+  </data>
+  <data name="ID_RN_CASE" xml:space="preserve">
+    <value>Дело</value>
+  </data>
+  <data name="ID_RN_COMPANYLOGO" xml:space="preserve">
+    <value>Логотип компании</value>
+  </data>
+  <data name="ID_RN_CONSTRAINTSET" xml:space="preserve">
+    <value>Ограничение набора</value>
+  </data>
+  <data name="ID_RN_CYLINDER" xml:space="preserve">
+    <value>Цилиндр</value>
+  </data>
+  <data name="ID_RN_DATE" xml:space="preserve">
+    <value>Дата</value>
+  </data>
+  <data name="ID_RN_DEFAULT" xml:space="preserve">
+    <value>По умолчанию</value>
+  </data>
+  <data name="ID_RN_DESCRIPTION" xml:space="preserve">
+    <value>Описание</value>
+  </data>
+  <data name="ID_RN_DIMENSIONS" xml:space="preserve">
+    <value>Габаритные размеры</value>
+  </data>
+  <data name="ID_RN_DIMENSIONSINNER" xml:space="preserve">
+    <value>Внутренние размеры</value>
+  </data>
+  <data name="ID_RN_DIMENSIONSOUTER" xml:space="preserve">
+    <value>Внешние размеры</value>
+  </data>
+  <data name="ID_RN_IMAGE" xml:space="preserve">
+    <value>Изображение</value>
+  </data>
+  <data name="ID_RN_INTERLAYER" xml:space="preserve">
+    <value>Прослойка</value>
+  </data>
+  <data name="ID_RN_LAYERS" xml:space="preserve">
+    <value>Слои</value>
+  </data>
+  <data name="ID_RN_MAXIMUMHEIGHT" xml:space="preserve">
+    <value>Максимальная высота</value>
+  </data>
+  <data name="ID_RN_MAXIMUMNUMBER" xml:space="preserve">
+    <value>Максимальное число</value>
+  </data>
+  <data name="ID_RN_MAXIMUMWEIGHT" xml:space="preserve">
+    <value>Максимальный вес</value>
+  </data>
+  <data name="ID_RN_OVERHANG" xml:space="preserve">
+    <value>Вылет</value>
+  </data>
+  <data name="ID_RN_PACK" xml:space="preserve">
+    <value>Пакет</value>
+  </data>
+  <data name="ID_RN_PALLET" xml:space="preserve">
+    <value>Поддон</value>
+  </data>
+  <data name="ID_RN_SOLUTION" xml:space="preserve">
+    <value>Решение</value>
+  </data>
+  <data name="ID_RN_SPACES" xml:space="preserve">
+    <value>Запрещено</value>
+  </data>
+  <data name="ID_RN_TRUCK" xml:space="preserve">
+    <value>Грузовик</value>
+  </data>
+  <data name="ID_RN_VIEWISO" xml:space="preserve">
+    <value>ISO</value>
+  </data>
+  <data name="ID_RN_VIEWS" xml:space="preserve">
+    <value>Задней/передней левый/право /</value>
+  </data>
+  <data name="ID_RN_VOLUMEEFFICIENCY" xml:space="preserve">
+    <value>Объем эффективность</value>
+  </data>
+  <data name="ID_RN_WEIGHT" xml:space="preserve">
+    <value>Вес</value>
+  </data>
 </root>

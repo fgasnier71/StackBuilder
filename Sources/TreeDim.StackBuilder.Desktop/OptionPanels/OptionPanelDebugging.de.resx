@@ -130,4 +130,7 @@
   <data name="chkShowLogConsole.Text" xml:space="preserve">
     <value>Zeige Log Konsole</value>
   </data>
+  <data name="chkbDisconnected.Text" xml:space="preserve">
+    <value>Getrennte Nutzung zu ermöglichen</value>
+  </data>
 </root>

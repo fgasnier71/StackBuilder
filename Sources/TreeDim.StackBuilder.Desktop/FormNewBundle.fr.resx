@@ -383,4 +383,13 @@
   <data name="bnSendToDB.Text" xml:space="preserve">
     <value>Enregistrer dans BDD</value>
   </data>
+  <data name="cbColor.Items36" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbColor.Items37" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbColor.Items38" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
 </root>

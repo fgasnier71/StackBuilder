@@ -355,4 +355,7 @@
   <data name="gbWrapper.Text" xml:space="preserve">
     <value>Wrapper</value>
   </data>
+  <data name="cbColor.Items45" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
 </root>

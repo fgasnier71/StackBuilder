@@ -154,4 +154,7 @@
   <data name="gbMSWordMargins.Text" xml:space="preserve">
     <value>Márgenes (sólo para Microsoft Word)</value>
   </data>
+  <data name="lbSleepTime.Text" xml:space="preserve">
+    <value>Tiempo antes de la eliminación de la imagen</value>
+  </data>
 </root>

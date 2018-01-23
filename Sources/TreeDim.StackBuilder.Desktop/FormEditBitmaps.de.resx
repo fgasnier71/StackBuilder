@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -228,5 +228,11 @@
   </data>
   <data name="uLengthSizeY.Text" xml:space="preserve">
     <value>uLength</value>
+  </data>
+  <data name="uCtrlOrigin.Text" xml:space="preserve">
+    <value>Herkunft</value>
+  </data>
+  <data name="uCtrlSize.Text" xml:space="preserve">
+    <value>Größe</value>
   </data>
 </root>

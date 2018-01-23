@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -140,5 +140,11 @@
   </data>
   <data name="toolStripButtonReport.Text" xml:space="preserve">
     <value>レポートを生成する.</value>
+  </data>
+  <data name="toolStripButtonExportXML.Text" xml:space="preserve">
+    <value>XML としてエクスポート.</value>
+  </data>
+  <data name="toolStripButtonExportCSV.Text" xml:space="preserve">
+    <value>CSV としてエクスポート.</value>
   </data>
 </root>

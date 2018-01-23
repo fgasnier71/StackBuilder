@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,4 +117,40 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="uCtrlFlatWeight.Text" xml:space="preserve">
+    <value>扁重</value>
+  </data>
+  <data name="uCtrlFlatDimensions.Text" xml:space="preserve">
+    <value>平面尺寸</value>
+  </data>
+  <data name="lbNumberOfFlats.Text" xml:space="preserve">
+    <value>单位数目</value>
+  </data>
+  <data name="gbFlatDim.Text" xml:space="preserve">
+    <value>捆</value>
+  </data>
+  <data name="uCtrlCaseWeight.Text" xml:space="preserve">
+    <value>箱子重量</value>
+  </data>
+  <data name="uCtrlCaseDimensions.Text" xml:space="preserve">
+    <value>箱子尺寸</value>
+  </data>
+  <data name="gbCaseDim.Text" xml:space="preserve">
+    <value>箱子</value>
+  </data>
+  <data name="bnCancel.Text" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="statusLabelDef.Text" xml:space="preserve">
+    <value>statusLabelDef</value>
+  </data>
+  <data name="statusStrip.Text" xml:space="preserve">
+    <value>statusStrip1</value>
+  </data>
+  <data name="bnNext.Text" xml:space="preserve">
+    <value>下一页</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>捆绑/案例分析..。</value>
+  </data>
 </root>

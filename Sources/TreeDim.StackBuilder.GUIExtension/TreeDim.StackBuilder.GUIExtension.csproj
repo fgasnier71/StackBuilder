@@ -201,7 +201,13 @@
     <EmbeddedResource Include="FormBrowseSolution.zh.resx">
       <DependentUpon>FormBrowseSolution.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormDefineAnalysisBundleCase.de-DE.resx">
+      <DependentUpon>FormDefineAnalysisBundleCase.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormDefineAnalysisBundleCase.de.resx">
+      <DependentUpon>FormDefineAnalysisBundleCase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDefineAnalysisBundleCase.es-ES.resx">
       <DependentUpon>FormDefineAnalysisBundleCase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormDefineAnalysisBundleCase.es.resx">
@@ -210,7 +216,13 @@
     <EmbeddedResource Include="FormDefineAnalysisBundleCase.fr.resx">
       <DependentUpon>FormDefineAnalysisBundleCase.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormDefineAnalysisBundleCase.it-IT.resx">
+      <DependentUpon>FormDefineAnalysisBundleCase.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormDefineAnalysisBundleCase.it.resx">
+      <DependentUpon>FormDefineAnalysisBundleCase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDefineAnalysisBundleCase.ja-JP.resx">
       <DependentUpon>FormDefineAnalysisBundleCase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormDefineAnalysisBundleCase.ja.resx">
@@ -249,7 +261,13 @@
     <EmbeddedResource Include="FormDefineAnalysisCasePallet.zh.resx">
       <DependentUpon>FormDefineAnalysisCasePallet.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormDefineCaseOptimization.de-DE.resx">
+      <DependentUpon>FormDefineCaseOptimization.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormDefineCaseOptimization.de.resx">
+      <DependentUpon>FormDefineCaseOptimization.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDefineCaseOptimization.es-ES.resx">
       <DependentUpon>FormDefineCaseOptimization.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormDefineCaseOptimization.es.resx">
@@ -261,7 +279,13 @@
     <EmbeddedResource Include="FormDefineCaseOptimization.fr.resx">
       <DependentUpon>FormDefineCaseOptimization.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormDefineCaseOptimization.it-IT.resx">
+      <DependentUpon>FormDefineCaseOptimization.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormDefineCaseOptimization.it.resx">
+      <DependentUpon>FormDefineCaseOptimization.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDefineCaseOptimization.ja-JP.resx">
       <DependentUpon>FormDefineCaseOptimization.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormDefineCaseOptimization.ja.resx">
@@ -285,10 +309,15 @@
     <EmbeddedResource Include="FormDefineCaseOptimization.zh.resx">
       <DependentUpon>FormDefineCaseOptimization.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.de-DE.resx" />
     <EmbeddedResource Include="Properties\Resources.de.resx" />
+    <EmbeddedResource Include="Properties\Resources.es-ES.resx" />
     <EmbeddedResource Include="Properties\Resources.es.resx" />
+    <EmbeddedResource Include="Properties\Resources.fr-FR.resx" />
     <EmbeddedResource Include="Properties\Resources.fr.resx" />
+    <EmbeddedResource Include="Properties\Resources.it-IT.resx" />
     <EmbeddedResource Include="Properties\Resources.it.resx" />
+    <EmbeddedResource Include="Properties\Resources.ja-JP.resx" />
     <EmbeddedResource Include="Properties\Resources.ja.resx" />
     <EmbeddedResource Include="Properties\Resources.nl.resx" />
     <EmbeddedResource Include="Properties\Resources.pl.resx" />

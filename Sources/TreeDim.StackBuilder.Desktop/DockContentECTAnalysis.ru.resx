@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,4 +117,82 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Логотип компании</value>
+  </data>
+  <data name="lbECTCoefUnit.Text" xml:space="preserve">
+    <value>кН/м</value>
+  </data>
+  <data name="lbStiffnessYUnit.Text" xml:space="preserve">
+    <value>N.m</value>
+  </data>
+  <data name="lbStiffnessXUnit.Text" xml:space="preserve">
+    <value>N.m</value>
+  </data>
+  <data name="lbThicknessUnit.Text" xml:space="preserve">
+    <value>uLength</value>
+  </data>
+  <data name="lbECTCoefficient.Text" xml:space="preserve">
+    <value>Коэффициент внешнего типа контента</value>
+  </data>
+  <data name="lbEctCoef.Text" xml:space="preserve">
+    <value>Коэффициент внешнего типа контента</value>
+  </data>
+  <data name="lbValueStiffnessY.Text" xml:space="preserve">
+    <value>stiffnessY</value>
+  </data>
+  <data name="lbValueStiffnessX.Text" xml:space="preserve">
+    <value>stiffnessX</value>
+  </data>
+  <data name="lbValueThickness.Text" xml:space="preserve">
+    <value>lbValueThickness</value>
+  </data>
+  <data name="lbStiffnessY.Text" xml:space="preserve">
+    <value>Жесткость Y</value>
+  </data>
+  <data name="label3.Text" xml:space="preserve">
+    <value>Жесткость X</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Правильно</value>
+  </data>
+  <data name="gbCardboardProperties.Text" xml:space="preserve">
+    <value>Картон</value>
+  </data>
+  <data name="lbPrintedSurface.Text" xml:space="preserve">
+    <value>Печатная поверхность</value>
+  </data>
+  <data name="lbCaseType.Text" xml:space="preserve">
+    <value>Тип корпуса</value>
+  </data>
+  <data name="gbCase.Text" xml:space="preserve">
+    <value>Дело</value>
+  </data>
+  <data name="rbFormula2.Text" xml:space="preserve">
+    <value>Улучшена (использует картонные жесткость)</value>
+  </data>
+  <data name="rbFormula1.Text" xml:space="preserve">
+    <value>Классика (использует на коэффициент внешнего типа контента)</value>
+  </data>
+  <data name="gbFormula.Text" xml:space="preserve">
+    <value>Макки формула</value>
+  </data>
+  <data name="label5.Text" xml:space="preserve">
+    <value>Дэн</value>
+  </data>
+  <data name="lbStaticBCTValue.Text" xml:space="preserve">
+    <value>lbStaticBCTValue</value>
+  </data>
+  <data name="lbDynamicBCT.Text" xml:space="preserve">
+    <value>Динамический BCT (Дэн) (показатель влажности / длительность хранения)</value>
+  </data>
+  <data name="lbStaticBCT.Text" xml:space="preserve">
+    <value>Статический BCT</value>
+  </data>
+  <data name="gbResults.Text" xml:space="preserve">
+    <value>Результаты</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Анализ теста раздавить Edge</value>
+  </data>
 </root>

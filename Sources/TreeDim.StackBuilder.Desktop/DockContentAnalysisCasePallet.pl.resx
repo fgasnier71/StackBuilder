@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -146,5 +146,8 @@
   </data>
   <data name="chkbPalletCap.Text" xml:space="preserve">
     <value>Cap palet</value>
+  </data>
+  <data name="uCtrlOptMaxNumber.Text" xml:space="preserve">
+    <value>Maksymalna liczba</value>
   </data>
 </root>

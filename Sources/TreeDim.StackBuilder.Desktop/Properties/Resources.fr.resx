@@ -707,4 +707,40 @@ Souhaitez-vous continuer?</value>
   <data name="ID_WEIGHT" xml:space="preserve">
     <value>Poids</value>
   </data>
+  <data name="ID_DONE" xml:space="preserve">
+    <value>Fait !</value>
+  </data>
+  <data name="ID_EXCELSHEETUNITSYSTEM" xml:space="preserve">
+    <value>Pouvez-vous me confirmer que les valeurs dans la feuille Excel ({0}) sont exprimées en utilisant le système d’unité pile actuellement définie c'est-à-dire {1} ?</value>
+  </data>
+  <data name="ID_IMPORTLOADING" xml:space="preserve">
+    <value>Chargement de {0}...</value>
+  </data>
+  <data name="ID_IMPORTSKIPPING" xml:space="preserve">
+    <value>Sauter {0}...</value>
+  </data>
+  <data name="ID_REMOVINGEXISTINGTYPE" xml:space="preserve">
+    <value>Suppression d’un type existant {0}...</value>
+  </data>
+  <data name="ID_TASKCANCELED" xml:space="preserve">
+    <value>Annulé !</value>
+  </data>
+  <data name="ID_UNEXPECTEDTYPE" xml:space="preserve">
+    <value>Type inattendu : {0}</value>
+  </data>
+  <data name="ID_UNITSYSTEM" xml:space="preserve">
+    <value>Système d’unités...</value>
+  </data>
+  <data name="ID_DEFINEVALIDFILEPATH" xml:space="preserve">
+    <value>Définir un chemin d’accès de fichier valide.</value>
+  </data>
+  <data name="ID_DISPLAYPALLETEDITION" xml:space="preserve">
+    <value>Paramètres d’édition de palette</value>
+  </data>
+  <data name="ID_OPTIONSPALLETEDITION" xml:space="preserve">
+    <value>Options\\Pallet édition</value>
+  </data>
+  <data name="ID_CASECOUNTFORMATSTRING" xml:space="preserve">
+    <value>{0} {1} x {2}</value>
+  </data>
 </root>

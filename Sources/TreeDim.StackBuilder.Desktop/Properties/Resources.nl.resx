@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-	<!-- 
+  <!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,738 +59,774 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-		<xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-		<xsd:element name="root" msdata:IsDataSet="true">
-			<xsd:complexType>
-				<xsd:choice maxOccurs="unbounded">
-					<xsd:element name="metadata">
-						<xsd:complexType>
-							<xsd:sequence>
-								<xsd:element name="value" type="xsd:string" minOccurs="0" />
-							</xsd:sequence>
-							<xsd:attribute name="name" use="required" type="xsd:string" />
-							<xsd:attribute name="type" type="xsd:string" />
-							<xsd:attribute name="mimetype" type="xsd:string" />
-							<xsd:attribute ref="xml:space" />
-						</xsd:complexType>
-					</xsd:element>
-					<xsd:element name="assembly">
-						<xsd:complexType>
-							<xsd:attribute name="alias" type="xsd:string" />
-							<xsd:attribute name="name" type="xsd:string" />
-						</xsd:complexType>
-					</xsd:element>
-					<xsd:element name="data">
-						<xsd:complexType>
-							<xsd:sequence>
-								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-								<xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-							</xsd:sequence>
-							<xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-							<xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-							<xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-							<xsd:attribute ref="xml:space" />
-						</xsd:complexType>
-					</xsd:element>
-					<xsd:element name="resheader">
-						<xsd:complexType>
-							<xsd:sequence>
-								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-							</xsd:sequence>
-							<xsd:attribute name="name" type="xsd:string" use="required" />
-						</xsd:complexType>
-					</xsd:element>
-				</xsd:choice>
-			</xsd:complexType>
-		</xsd:element>
-	</xsd:schema>
-	<resheader name="resmimetype">
-		<value>text/microsoft-resx</value>
-	</resheader>
-	<resheader name="version">
-		<value>2.0</value>
-	</resheader>
-	<resheader name="reader">
-		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-	</resheader>
-	<resheader name="writer">
-		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-	</resheader>
-	<assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-	<data name="CaseAnalysis" type="System.Resources.ResXFileRef, System.Windows.Forms">
-		<value>..\Resources\CaseAnalysis.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-	</data>
-	<data name="Delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
-		<value>..\Resources\Delete.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-	</data>
-	<data name="AnalysisBundle" type="System.Resources.ResXFileRef, System.Windows.Forms">
-		<value>..\Resources\AnalysisBundle.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-	</data>
-	<data name="FileNew" type="System.Resources.ResXFileRef, System.Windows.Forms">
-		<value>..\Resources\FileNew.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-	</data>
-	<data name="FileSaveAll" type="System.Resources.ResXFileRef, System.Windows.Forms">
-		<value>..\Resources\FileSaveAll.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-	</data>
-	<data name="View180" type="System.Resources.ResXFileRef, System.Windows.Forms">
-		<value>..\Resources\View180.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-	</data>
-	<data name="Bundle" type="System.Resources.ResXFileRef, System.Windows.Forms">
-		<value>..\Resources\Bundle.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-	</data>
-	<data name="Database" type="System.Resources.ResXFileRef, System.Windows.Forms">
-		<value>..\Resources\Database.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-	</data>
-	<data name="View270" type="System.Resources.ResXFileRef, System.Windows.Forms">
-		<value>..\Resources\View270.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-	</data>
-	<data name="Image" type="System.Resources.ResXFileRef, System.Windows.Forms">
-		<value>..\Resources\Image.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-	</data>
-	<data name="treeDim" type="System.Resources.ResXFileRef, System.Windows.Forms">
-		<value>..\treeDim.ico;System.Drawing.Icon, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-	</data>
-	<data name="Pallet" type="System.Resources.ResXFileRef, System.Windows.Forms">
-		<value>..\Resources\Pallet.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-	</data>
-	<data name="Help" type="System.Resources.ResXFileRef, System.Windows.Forms">
-		<value>..\Resources\Help.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-	</data>
-	<data name="OptimalCase" type="System.Resources.ResXFileRef, System.Windows.Forms">
-		<value>..\Resources\OptimalCase.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-	</data>
-	<data name="View0" type="System.Resources.ResXFileRef, System.Windows.Forms">
-		<value>..\Resources\View0.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-	</data>
-	<data name="Truck" type="System.Resources.ResXFileRef, System.Windows.Forms">
-		<value>..\Resources\Truck.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-	</data>
-	<data name="FileOpen" type="System.Resources.ResXFileRef, System.Windows.Forms">
-		<value>..\Resources\FileOpen.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-	</data>
-	<data name="View_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-		<value>..\Resources\View_1.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-	</data>
-	<data name="FileSave" type="System.Resources.ResXFileRef, System.Windows.Forms">
-		<value>..\Resources\FileSave.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-	</data>
-	<data name="Box" type="System.Resources.ResXFileRef, System.Windows.Forms">
-		<value>..\Resources\Box.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-	</data>
-	<data name="View90" type="System.Resources.ResXFileRef, System.Windows.Forms">
-		<value>..\Resources\View90.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-	</data>
-	<data name="View_4" type="System.Resources.ResXFileRef, System.Windows.Forms">
-		<value>..\Resources\View_4.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-	</data>
-	<data name="AnalysisStackingStrength" type="System.Resources.ResXFileRef, System.Windows.Forms">
-		<value>..\Resources\AnalysisStackingStrength.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-	</data>
-	<data name="Interlayer" type="System.Resources.ResXFileRef, System.Windows.Forms">
-		<value>..\Resources\Interlayer.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-	</data>
-	<data name="Analysis" type="System.Resources.ResXFileRef, System.Windows.Forms">
-		<value>..\Resources\Analysis.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-	</data>
-	<data name="Case" type="System.Resources.ResXFileRef, System.Windows.Forms">
-		<value>..\Resources\Case.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-	</data>
-	<data name="View_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-		<value>..\Resources\View_3.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-	</data>
-	<data name="View_Top" type="System.Resources.ResXFileRef, System.Windows.Forms">
-		<value>..\Resources\View_Top.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-	</data>
-	<data name="View_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-		<value>..\Resources\View_2.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-	</data>
-	<assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-	<data name="Cylinder" type="System.Resources.ResXFileRef, System.Windows.Forms">
-		<value>..\Resources\Cylinder.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-	</data>
-	<data name="ID_CASEWEIGHT" xml:space="preserve">
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="CaseAnalysis" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CaseAnalysis.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Delete.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AnalysisBundle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AnalysisBundle.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FileNew" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FileNew.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FileSaveAll" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FileSaveAll.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="View180" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\View180.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Bundle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Bundle.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Database" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Database.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="View270" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\View270.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Image" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Image.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="treeDim" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\treeDim.ico;System.Drawing.Icon, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Pallet" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Pallet.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Help" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Help.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OptimalCase" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\OptimalCase.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="View0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\View0.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Truck" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Truck.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FileOpen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FileOpen.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="View_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\View_1.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FileSave" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FileSave.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Box" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Box.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="View90" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\View90.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="View_4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\View_4.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AnalysisStackingStrength" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AnalysisStackingStrength.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Interlayer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Interlayer.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Analysis" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Analysis.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Case" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Case.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="View_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\View_3.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="View_Top" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\View_Top.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="View_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\View_2.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Cylinder" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Cylinder.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ID_CASEWEIGHT" xml:space="preserve">
     <value>Zaak gewicht ({0})</value>
   </data>
-	<data name="ID_A1" xml:space="preserve">
+  <data name="ID_A1" xml:space="preserve">
     <value>A1</value>
   </data>
-	<data name="ID_CYLINDERCOUNT" xml:space="preserve">
+  <data name="ID_CYLINDERCOUNT" xml:space="preserve">
     <value>Cilinder aantal</value>
   </data>
-	<data name="ID_NODE_CYLINDERS" xml:space="preserve">
+  <data name="ID_NODE_CYLINDERS" xml:space="preserve">
     <value>Cilinders</value>
   </data>
-	<data name="ID_NAME" xml:space="preserve">
+  <data name="ID_NAME" xml:space="preserve">
     <value>Naam</value>
   </data>
-	<data name="ID_BOXCOUNT" xml:space="preserve">
+  <data name="ID_BOXCOUNT" xml:space="preserve">
     <value>Vak/Case</value>
   </data>
-	<data name="ID_HEIGHT" xml:space="preserve">
+  <data name="ID_HEIGHT" xml:space="preserve">
     <value>Hoogte</value>
   </data>
-	<data name="ID_CASESLAYER" xml:space="preserve">
+  <data name="ID_CASESLAYER" xml:space="preserve">
     <value>Gevallen/laag</value>
   </data>
-	<data name="ID_VERSION" xml:space="preserve">
+  <data name="ID_VERSION" xml:space="preserve">
     <value>Versie: {0}</value>
   </data>
-	<data name="ID_ECT" xml:space="preserve">
+  <data name="ID_ECT" xml:space="preserve">
     <value>ECT</value>
   </data>
-	<data name="ID_LENGTH" xml:space="preserve">
+  <data name="ID_LENGTH" xml:space="preserve">
     <value>Lengte</value>
   </data>
-	<data name="ID_PALLETMAXNUMBER" xml:space="preserve">
+  <data name="ID_PALLETMAXNUMBER" xml:space="preserve">
     <value>Nummer</value>
   </data>
-	<data name="ID_LAYERPATTERN" xml:space="preserve">
+  <data name="ID_LAYERPATTERN" xml:space="preserve">
     <value>Laag patroon</value>
   </data>
-	<data name="ID_FIELDNAMEINVALID" xml:space="preserve">
+  <data name="ID_FIELDNAMEINVALID" xml:space="preserve">
     <value>Naam bestaat al.</value>
   </data>
-	<data name="ID_CYLINDER" xml:space="preserve">
+  <data name="ID_CYLINDER" xml:space="preserve">
     <value>Cilinder</value>
   </data>
-	<data name="ID_ADDNEWANALYSIS" xml:space="preserve">
+  <data name="ID_ADDNEWANALYSIS" xml:space="preserve">
     <value>Voeg nieuwe analyse...</value>
   </data>
-	<data name="ID_ADDNEWTRUCK" xml:space="preserve">
+  <data name="ID_ADDNEWTRUCK" xml:space="preserve">
     <value>Voeg nieuwe truck...</value>
   </data>
-	<data name="ID_FILENOTFOUND" xml:space="preserve">
+  <data name="ID_FILENOTFOUND" xml:space="preserve">
     <value>Bestand {0} kon niet worden gevonden</value>
   </data>
-	<data name="ID_GENERATEREPORT" xml:space="preserve">
+  <data name="ID_GENERATEREPORT" xml:space="preserve">
     <value>Genereer een rapport voor {0}</value>
   </data>
-	<data name="ID_SELECTED" xml:space="preserve">
+  <data name="ID_SELECTED" xml:space="preserve">
     <value>Geselecteerd</value>
   </data>
-	<data name="ID_CLOSE" xml:space="preserve">
+  <data name="ID_CLOSE" xml:space="preserve">
     <value>Sluiten</value>
   </data>
-	<data name="ID_INVALIDINSIDEHEIGHT" xml:space="preserve">
+  <data name="ID_INVALIDINSIDEHEIGHT" xml:space="preserve">
     <value>Binnen moet hoogte ({0}) lager zijn dan de hoogte ({1})</value>
   </data>
-	<data name="ID_PALLETWEIGHT" xml:space="preserve">
+  <data name="ID_PALLETWEIGHT" xml:space="preserve">
     <value>Gewicht pallet ({0})</value>
   </data>
-	<data name="ID_ADDNEWECTANALYSIS" xml:space="preserve">
+  <data name="ID_ADDNEWECTANALYSIS" xml:space="preserve">
     <value>Voeg nieuwe ECT analyse...</value>
   </data>
-	<data name="ID_CASECOUNT" xml:space="preserve">
+  <data name="ID_CASECOUNT" xml:space="preserve">
     <value># Gevallen</value>
   </data>
-	<data name="ID_DEPENDINGANALYSES" xml:space="preserve">
+  <data name="ID_DEPENDINGANALYSES" xml:space="preserve">
     <value>{0} heeft de volgende afhankelijkheden: {1} als u met de wijzigingen doorgaat, analyses zal opnieuw worden berekend en om het even welk geselecteerd oplossingen verwijderd.
 Blijven?</value>
   </data>
-	<data name="ID_WEIGHT_WU" xml:space="preserve">
+  <data name="ID_WEIGHT_WU" xml:space="preserve">
     <value>Gewicht ({0})</value>
   </data>
-	<data name="ID_PALLETMAXHEIGHT" xml:space="preserve">
+  <data name="ID_PALLETMAXHEIGHT" xml:space="preserve">
     <value>Hoogte</value>
   </data>
-	<data name="ID_ADDNEWPALLET" xml:space="preserve">
+  <data name="ID_ADDNEWPALLET" xml:space="preserve">
     <value>Voeg nieuwe pallet...</value>
   </data>
-	<data name="ID_TRUCK" xml:space="preserve">
+  <data name="ID_TRUCK" xml:space="preserve">
     <value>Vrachtwagen</value>
   </data>
-	<data name="ID_LOADWEIGHT" xml:space="preserve">
+  <data name="ID_LOADWEIGHT" xml:space="preserve">
     <value>Belasting</value>
   </data>
-	<data name="ID_USEATLEASTONESTOPSTACKINGCRITERION" xml:space="preserve">
+  <data name="ID_USEATLEASTONESTOPSTACKINGCRITERION" xml:space="preserve">
     <value>Definiëren van ten minste één stop stapelen criterium</value>
   </data>
-	<data name="ID_CASEDIMENSIONS" xml:space="preserve">
+  <data name="ID_CASEDIMENSIONS" xml:space="preserve">
     <value>Zaak afmetingen</value>
   </data>
-	<data name="ID_NOPALLETSOLUTIONSELECTED" xml:space="preserve">
+  <data name="ID_NOPALLETSOLUTIONSELECTED" xml:space="preserve">
     <value>Geen oplossing van de pallet geselecteerd</value>
   </data>
-	<data name="ID_AREA" xml:space="preserve">
+  <data name="ID_AREA" xml:space="preserve">
     <value>Gebied</value>
   </data>
-	<data name="ID_EDGECRUSHTEST" xml:space="preserve">
+  <data name="ID_EDGECRUSHTEST" xml:space="preserve">
     <value>Rand Crush Test analyse</value>
   </data>
-	<data name="ID_INVALIDINSIDEWIDTH" xml:space="preserve">
+  <data name="ID_INVALIDINSIDEWIDTH" xml:space="preserve">
     <value>Binnen de breedte ({0}) moet lager zijn dan de breedte ({1})</value>
   </data>
-	<data name="ID_A2" xml:space="preserve">
+  <data name="ID_A2" xml:space="preserve">
     <value>A2</value>
   </data>
-	<data name="ID_ADDNEWBOX" xml:space="preserve">
+  <data name="ID_ADDNEWBOX" xml:space="preserve">
     <value>Voeg nieuwe vak...</value>
   </data>
-	<data name="ID_ADDNEWBUNDLE" xml:space="preserve">
+  <data name="ID_ADDNEWBUNDLE" xml:space="preserve">
     <value>Voeg nieuwe bundel...</value>
   </data>
-	<data name="ID_PALLETLIMIT" xml:space="preserve">
+  <data name="ID_PALLETLIMIT" xml:space="preserve">
     <value>Limiet bereikt</value>
   </data>
-	<data name="ID_NODE_ANALYSES" xml:space="preserve">
+  <data name="ID_NODE_ANALYSES" xml:space="preserve">
     <value>Analyses</value>
   </data>
-	<data name="ID_INVALIDINSIDELENGTH" xml:space="preserve">
+  <data name="ID_INVALIDINSIDELENGTH" xml:space="preserve">
     <value>Binnen moet lengte ({0}) lager zijn dan de lengte ({1})</value>
   </data>
-	<data name="ID_ADDNEWCASE" xml:space="preserve">
+  <data name="ID_ADDNEWCASE" xml:space="preserve">
     <value>Voeg nieuwe case...</value>
   </data>
-	<data name="ID_SENDTODATABASE" xml:space="preserve">
+  <data name="ID_SENDTODATABASE" xml:space="preserve">
     <value>Verzenden naar database</value>
   </data>
-	<data name="ID_BOXCASECOUNT" xml:space="preserve">
+  <data name="ID_BOXCASECOUNT" xml:space="preserve">
     <value>Vak/Case graaf</value>
   </data>
-	<data name="ID_PALLETCOUNT" xml:space="preserve">
+  <data name="ID_PALLETCOUNT" xml:space="preserve">
     <value>Pallet graaf</value>
   </data>
-	<data name="ID_ANALYSIS" xml:space="preserve">
+  <data name="ID_ANALYSIS" xml:space="preserve">
     <value>Analyse</value>
   </data>
-	<data name="ID_INTERLAYER" xml:space="preserve">
+  <data name="ID_INTERLAYER" xml:space="preserve">
     <value>Tussenlaag</value>
   </data>
-	<data name="ID_INSUFFICIENTVOLUME" xml:space="preserve">
+  <data name="ID_INSUFFICIENTVOLUME" xml:space="preserve">
     <value>Maximumvolume is onvoldoende voor de verpakking van {0} {1}.</value>
   </data>
-	<data name="ID_FIELDNAMEEMPTY" xml:space="preserve">
+  <data name="ID_FIELDNAMEEMPTY" xml:space="preserve">
     <value>Naamveld is leeg</value>
   </data>
-	<data name="ID_NODE_CASES" xml:space="preserve">
+  <data name="ID_NODE_CASES" xml:space="preserve">
     <value>Gevallen</value>
   </data>
-	<data name="ID_EFFICIENCYPERCENTAGE" xml:space="preserve">
+  <data name="ID_EFFICIENCYPERCENTAGE" xml:space="preserve">
     <value>Rendement (%)</value>
   </data>
-	<data name="ID_INDEX" xml:space="preserve">
+  <data name="ID_INDEX" xml:space="preserve">
     <value>Index</value>
   </data>
-	<data name="ID_READY" xml:space="preserve">
+  <data name="ID_READY" xml:space="preserve">
     <value>Klaar</value>
   </data>
-	<data name="ID_GENERATECOLLADA" xml:space="preserve">
+  <data name="ID_GENERATECOLLADA" xml:space="preserve">
     <value>Genereren van 3D animatiebestand voor {0}</value>
   </data>
-	<data name="ID_MAXLOWERTHANMIN" xml:space="preserve">
+  <data name="ID_MAXLOWERTHANMIN" xml:space="preserve">
     <value>Inconsistentie: maximale {0} is lager dan minimum {1}.</value>
   </data>
-	<data name="ID_INVALIDNAME" xml:space="preserve">
+  <data name="ID_INVALIDNAME" xml:space="preserve">
     <value>Voornaam ({0}) is ongeldig</value>
   </data>
-	<data name="ID_ADDNEWTRUCKANALYSIS" xml:space="preserve">
+  <data name="ID_ADDNEWTRUCKANALYSIS" xml:space="preserve">
     <value>Voeg nieuwe vrachtwagen analyse...</value>
   </data>
-	<data name="ID_NODE_INTERLAYERS" xml:space="preserve">
+  <data name="ID_NODE_INTERLAYERS" xml:space="preserve">
     <value>Tussenlaag</value>
   </data>
-	<data name="ID_BOX" xml:space="preserve">
+  <data name="ID_BOX" xml:space="preserve">
     <value>Vak</value>
   </data>
-	<data name="ID_UNSELECTSOLUTION" xml:space="preserve">
+  <data name="ID_UNSELECTSOLUTION" xml:space="preserve">
     <value>Unselect oplossing {0}</value>
   </data>
-	<data name="ID_NODE_TRUCKS" xml:space="preserve">
+  <data name="ID_NODE_TRUCKS" xml:space="preserve">
     <value>Vrachtwagens</value>
   </data>
-	<data name="ID_FILTER_MSWORD" xml:space="preserve">
+  <data name="ID_FILTER_MSWORD" xml:space="preserve">
     <value>Microsoft Office Word (*.doc; *.docx) | * .doc; * .docx | Alle bestanden (*. *) | *. *</value>
   </data>
-	<data name="ID_BUNDLE" xml:space="preserve">
+  <data name="ID_BUNDLE" xml:space="preserve">
     <value>Bundel</value>
   </data>
-	<data name="ID_PALLETHEIGHT" xml:space="preserve">
+  <data name="ID_PALLETHEIGHT" xml:space="preserve">
     <value>Pallet hoogte ({0})</value>
   </data>
-	<data name="ID_ADDNEWBUNDLEANALYSIS" xml:space="preserve">
+  <data name="ID_ADDNEWBUNDLEANALYSIS" xml:space="preserve">
     <value>Voeg nieuwe bundel analyse...</value>
   </data>
-	<data name="ID_BOXDOESNOTFITINCASE" xml:space="preserve">
+  <data name="ID_BOXDOESNOTFITINCASE" xml:space="preserve">
     <value>Vak {0} past niet bij {1}.</value>
   </data>
-	<data name="ID_LAYERPATTERNS" xml:space="preserve">
+  <data name="ID_LAYERPATTERNS" xml:space="preserve">
     <value>Laag loopvlakpatronen</value>
   </data>
-	<data name="ID_INVALIDDIAMETER" xml:space="preserve">
+  <data name="ID_INVALIDDIAMETER" xml:space="preserve">
     <value>Binnendiameter moet kleiner zijn dan de buitendiameter.</value>
   </data>
-	<data name="ID_CASESPALLET" xml:space="preserve">
+  <data name="ID_CASESPALLET" xml:space="preserve">
     <value>Gevallen/Pallet</value>
   </data>
-	<data name="ID_ALLOWALIGNEDORALTERNATELAYERS" xml:space="preserve">
+  <data name="ID_ALLOWALIGNEDORALTERNATELAYERS" xml:space="preserve">
     <value>Uitgelijnde en/of alternatieve lagen toestaan</value>
   </data>
-	<data name="ID_PALLETCAPTIONEDIT" xml:space="preserve">
+  <data name="ID_PALLETCAPTIONEDIT" xml:space="preserve">
     <value>Bewerk pallet {0}...</value>
   </data>
-	<data name="ID_VOLUMEEFFICIENCY" xml:space="preserve">
+  <data name="ID_VOLUMEEFFICIENCY" xml:space="preserve">
     <value>Rendement (%)</value>
   </data>
-	<data name="ID_DEFINEATLEASTONEPATTERN" xml:space="preserve">
+  <data name="ID_DEFINEATLEASTONEPATTERN" xml:space="preserve">
     <value>Ten minste één stapelen patroon definiëren</value>
   </data>
-	<data name="ID_DESELECT" xml:space="preserve">
+  <data name="ID_DESELECT" xml:space="preserve">
     <value>Hef de selectie van</value>
   </data>
-	<data name="ID_SAVEMODIFIEDFILE" xml:space="preserve">
+  <data name="ID_SAVEMODIFIEDFILE" xml:space="preserve">
     <value>Opslaan bestand {0}?</value>
   </data>
-	<data name="ID_ADDNEWCASEANALYSIS" xml:space="preserve">
+  <data name="ID_ADDNEWCASEANALYSIS" xml:space="preserve">
     <value>Voeg nieuwe case-analyse...</value>
   </data>
-	<data name="ID_CASEANALYSIS_INVALIDCONSTRAINTSET" xml:space="preserve">
+  <data name="ID_CASEANALYSIS_INVALIDCONSTRAINTSET" xml:space="preserve">
     <value>Geen maken case-analyse, zoals de beperking set lijkt te zijn ongeldig.</value>
   </data>
-	<data name="ID_DELETEITEM" xml:space="preserve">
+  <data name="ID_DELETEITEM" xml:space="preserve">
     <value>Verwijderen {0}</value>
   </data>
-	<data name="ID_DATABASEEMPTY" xml:space="preserve">
+  <data name="ID_DATABASEEMPTY" xml:space="preserve">
     <value>Pallet oplossing database is leeg.
 Formulier sluiten...</value>
   </data>
-	<data name="ID_NODE_BOXES" xml:space="preserve">
+  <data name="ID_NODE_BOXES" xml:space="preserve">
     <value>Vakken</value>
   </data>
-	<data name="ID_ADDNEWBOXCASEANALYSIS" xml:space="preserve">
+  <data name="ID_ADDNEWBOXCASEANALYSIS" xml:space="preserve">
     <value>Voeg nieuwe vak/case analyse...</value>
   </data>
-	<data name="ID_DEFINEATLEASTONEVERTICALAXIS" xml:space="preserve">
+  <data name="ID_DEFINEATLEASTONEVERTICALAXIS" xml:space="preserve">
     <value>Definiëren van ten minste één verticale as</value>
   </data>
-	<data name="ID_NODE_BUNDLES" xml:space="preserve">
+  <data name="ID_NODE_BUNDLES" xml:space="preserve">
     <value>Bundels</value>
   </data>
-	<data name="ID_ABOUT" xml:space="preserve">
+  <data name="ID_ABOUT" xml:space="preserve">
     <value>Over {0}</value>
   </data>
-	<data name="ID_ANALYSISHASNOVALIDSOLUTION" xml:space="preserve">
+  <data name="ID_ANALYSISHASNOVALIDSOLUTION" xml:space="preserve">
     <value>Analyse {0} heeft geen geldige oplossing.</value>
   </data>
-	<data name="ID_A3" xml:space="preserve">
+  <data name="ID_A3" xml:space="preserve">
     <value>A3</value>
   </data>
-	<data name="ID_ADDNEWINTERLAYER" xml:space="preserve">
+  <data name="ID_ADDNEWINTERLAYER" xml:space="preserve">
     <value>Voeg nieuwe tussenlaag...</value>
   </data>
-	<data name="ID_INSUFFICIENTPALLETHEIGHT" xml:space="preserve">
+  <data name="ID_INSUFFICIENTPALLETHEIGHT" xml:space="preserve">
     <value>Maximale pallet hoogte ({0} {1}) zouden moeten overschrijden {2} {3}</value>
   </data>
-	<data name="ID_NODE_PALLETS" xml:space="preserve">
+  <data name="ID_NODE_PALLETS" xml:space="preserve">
     <value>Pallets</value>
   </data>
-	<data name="ID_CASEOFBOXES" xml:space="preserve">
+  <data name="ID_CASEOFBOXES" xml:space="preserve">
     <value>Geval van vakken</value>
   </data>
-	<data name="ID_CHROMEISNOTINSTALLED" xml:space="preserve">
+  <data name="ID_CHROMEISNOTINSTALLED" xml:space="preserve">
     <value>De Google Chrome-browser moet worden geïnstalleerd om te visualiseren collada/webGL animaties.</value>
   </data>
-	<data name="ID_SELECT" xml:space="preserve">
+  <data name="ID_SELECT" xml:space="preserve">
     <value>Selecteer</value>
   </data>
-	<data name="ID_CASE" xml:space="preserve">
+  <data name="ID_CASE" xml:space="preserve">
     <value>Geval</value>
   </data>
-	<data name="ID_WIDTH" xml:space="preserve">
+  <data name="ID_WIDTH" xml:space="preserve">
     <value>Breedte</value>
   </data>
-	<data name="ID_ADDNEWCYLINDER" xml:space="preserve">
+  <data name="ID_ADDNEWCYLINDER" xml:space="preserve">
     <value>Het toevoegen van nieuwe cilinder...</value>
   </data>
-	<data name="ID_ADDNEWCYLINDERANALYSIS" xml:space="preserve">
+  <data name="ID_ADDNEWCYLINDERANALYSIS" xml:space="preserve">
     <value>Het toevoegen van nieuwe cilinder analyse...</value>
   </data>
-	<data name="ID_CASELIMIT" xml:space="preserve">
+  <data name="ID_CASELIMIT" xml:space="preserve">
     <value>Limiet bereikt</value>
   </data>
-	<data name="ID_PALLETMAXWEIGHT" xml:space="preserve">
+  <data name="ID_PALLETMAXWEIGHT" xml:space="preserve">
     <value>Gewicht</value>
   </data>
-	<data name="ID_LOADHEIGHT" xml:space="preserve">
+  <data name="ID_LOADHEIGHT" xml:space="preserve">
     <value>Hoogte van de belasting</value>
   </data>
-	<data name="ID_ORIENTATION" xml:space="preserve">
+  <data name="ID_ORIENTATION" xml:space="preserve">
     <value>Afdrukstand</value>
   </data>
-	<data name="ID_FIELDDESCRIPTIONEMPTY" xml:space="preserve">
+  <data name="ID_FIELDDESCRIPTIONEMPTY" xml:space="preserve">
     <value>Het omschrijvingsveld is leeg</value>
   </data>
-	<data name="ID_LAYOUT" xml:space="preserve">
+  <data name="ID_LAYOUT" xml:space="preserve">
     <value>Lay-out</value>
   </data>
-	<data name="ID_EDIT" xml:space="preserve">
+  <data name="ID_EDIT" xml:space="preserve">
     <value>Bewerk {0}...</value>
   </data>
-	<data name="ID_CASEINSIDEDIMENSIONS" xml:space="preserve">
+  <data name="ID_CASEINSIDEDIMENSIONS" xml:space="preserve">
     <value>Geval binnen afmetingen</value>
   </data>
-	<data name="ID_MAXIMUMCASEWEIGHTSHOULDEXCEED" xml:space="preserve">
+  <data name="ID_MAXIMUMCASEWEIGHTSHOULDEXCEED" xml:space="preserve">
     <value>Maximumgewicht van de zaak mag meer dan {0} {1}.</value>
   </data>
-	<data name="ID_CASEPERPALLET" xml:space="preserve">
+  <data name="ID_CASEPERPALLET" xml:space="preserve">
     <value>Zaak/pallet</value>
   </data>
-	<data name="ID_LAYERS" xml:space="preserve">
+  <data name="ID_LAYERS" xml:space="preserve">
     <value>Lagen</value>
   </data>
-	<data name="ID_CANNOTUSEWEIGHTLIMIT" xml:space="preserve">
+  <data name="ID_CANNOTUSEWEIGHTLIMIT" xml:space="preserve">
     <value>Gewichtsbeperking kan niet worden gebruikt omdat {0} als geen massa.</value>
   </data>
-	<data name="ID_INVALIDMASS" xml:space="preserve">
+  <data name="ID_INVALIDMASS" xml:space="preserve">
     <value>Massa waarde moet positief zijn</value>
   </data>
-	<data name="ID_ADDNEWPALLETCAP" xml:space="preserve">
+  <data name="ID_ADDNEWPALLETCAP" xml:space="preserve">
     <value>Voeg nieuwe pallet GLB...</value>
   </data>
-	<data name="ID_ADDNEWPALLETCORNERS" xml:space="preserve">
+  <data name="ID_ADDNEWPALLETCORNERS" xml:space="preserve">
     <value>Voeg nieuwe pallet hoeken...</value>
   </data>
-	<data name="ID_ADDNEWPALLETFILM" xml:space="preserve">
+  <data name="ID_ADDNEWPALLETFILM" xml:space="preserve">
     <value>Voeg nieuwe pallet film...</value>
   </data>
-	<data name="ID_NODE_PALLETCAPS" xml:space="preserve">
+  <data name="ID_NODE_PALLETCAPS" xml:space="preserve">
     <value>Pallet caps</value>
   </data>
-	<data name="ID_NODE_PALLETCORNERS" xml:space="preserve">
+  <data name="ID_NODE_PALLETCORNERS" xml:space="preserve">
     <value>Pallet hoeken</value>
   </data>
-	<data name="ID_NODE_PALLETFILMS" xml:space="preserve">
+  <data name="ID_NODE_PALLETFILMS" xml:space="preserve">
     <value>Pallet films</value>
   </data>
-	<data name="ID_PALLETCAP" xml:space="preserve">
+  <data name="ID_PALLETCAP" xml:space="preserve">
     <value>GLB</value>
   </data>
-	<data name="ID_PALLETCORNERS" xml:space="preserve">
+  <data name="ID_PALLETCORNERS" xml:space="preserve">
     <value>Hoeken</value>
   </data>
-	<data name="ID_PALLETFILM" xml:space="preserve">
+  <data name="ID_PALLETFILM" xml:space="preserve">
     <value>Film</value>
   </data>
-	<data name="ID_USETRANSPARENCYORHATCHING" xml:space="preserve">
+  <data name="ID_USETRANSPARENCYORHATCHING" xml:space="preserve">
     <value>Transparantie van het gebruik en/of broedeieren</value>
   </data>
-	<data name="ID_PALLETCAPNOTLONGENOUGH" xml:space="preserve">
+  <data name="ID_PALLETCAPNOTLONGENOUGH" xml:space="preserve">
     <value>Pallet GLB lengte moet groter zijn dan de lengte van de pallet + overhang X...</value>
   </data>
-	<data name="ID_PALLETCAPNOTWIDEENOUGH" xml:space="preserve">
+  <data name="ID_PALLETCAPNOTWIDEENOUGH" xml:space="preserve">
     <value>Pallet GLB breedte moet hoger zijn dan de breedte van de pallet + Y overhang...</value>
   </data>
-	<data name="ID_INVALIDTHICKNESSWIDTHPAIR" xml:space="preserve">
+  <data name="ID_INVALIDTHICKNESSWIDTHPAIR" xml:space="preserve">
     <value>Dikte mag niet hoger zijn dan breedte</value>
   </data>
-	<data name="ID_INVALIDNETWEIGHT" xml:space="preserve">
+  <data name="ID_INVALIDNETWEIGHT" xml:space="preserve">
     <value>Nettogewicht ({0}) mag niet meer dan gewicht ({1})</value>
   </data>
-	<data name="ID_PACK" xml:space="preserve">
+  <data name="ID_PACK" xml:space="preserve">
     <value>Pack</value>
   </data>
-	<data name="ID_NODE_PACKS" xml:space="preserve">
+  <data name="ID_NODE_PACKS" xml:space="preserve">
     <value>Verpakkingen</value>
   </data>
-	<data name="ID_INVALIDOUTERDIMENSION" xml:space="preserve">
+  <data name="ID_INVALIDOUTERDIMENSION" xml:space="preserve">
     <value>Buitenmaten moeten inhoud afmetingen overschrijdt...</value>
   </data>
-	<data name="ID_CONSUMERSALESUNITS" xml:space="preserve">
+  <data name="ID_CONSUMERSALESUNITS" xml:space="preserve">
     <value># CSU</value>
   </data>
-	<data name="ID_LAYERWEIGHT" xml:space="preserve">
+  <data name="ID_LAYERWEIGHT" xml:space="preserve">
     <value>Laag gewicht ({0})</value>
   </data>
-	<data name="ID_MAXIMUMSPACE" xml:space="preserve">
+  <data name="ID_MAXIMUMSPACE" xml:space="preserve">
     <value>Maximale ruimte ({0})</value>
   </data>
-	<data name="ID_PACKCOUNT" xml:space="preserve">
+  <data name="ID_PACKCOUNT" xml:space="preserve">
     <value># Packs</value>
   </data>
-	<data name="ID_ADDNEWPACKANALYSIS" xml:space="preserve">
+  <data name="ID_ADDNEWPACKANALYSIS" xml:space="preserve">
     <value>Voeg nieuwe Pack/Pallet analyse...</value>
   </data>
-	<data name="ID_ANALYSISHASNOSOLUTION" xml:space="preserve">
+  <data name="ID_ANALYSISHASNOSOLUTION" xml:space="preserve">
     <value>Analyse heeft geen oplossingen? \nTo vele contraints?</value>
   </data>
-	<data name="ID_CASEPERLAYERCOUNT" xml:space="preserve">
+  <data name="ID_CASEPERLAYERCOUNT" xml:space="preserve">
     <value># Gevallen/laag</value>
   </data>
-	<data name="ID_LAYERCOUNT" xml:space="preserve">
+  <data name="ID_LAYERCOUNT" xml:space="preserve">
     <value>Laag #</value>
   </data>
-	<data name="ID_BOXES" xml:space="preserve">
+  <data name="ID_BOXES" xml:space="preserve">
     <value>Vakken</value>
   </data>
-	<data name="ID_CASES" xml:space="preserve">
+  <data name="ID_CASES" xml:space="preserve">
     <value>Gevallen</value>
   </data>
-	<data name="ID_CYLINDERS" xml:space="preserve">
+  <data name="ID_CYLINDERS" xml:space="preserve">
     <value>Cilinders</value>
   </data>
-	<data name="ID_INTERLAYERS" xml:space="preserve">
+  <data name="ID_INTERLAYERS" xml:space="preserve">
     <value>Tussenlaag</value>
   </data>
-	<data name="ID_PALLETCAPS" xml:space="preserve">
+  <data name="ID_PALLETCAPS" xml:space="preserve">
     <value>Pallet caps</value>
   </data>
-	<data name="ID_PALLETFILMS" xml:space="preserve">
+  <data name="ID_PALLETFILMS" xml:space="preserve">
     <value>Pallet films</value>
   </data>
-	<data name="ID_PALLETS" xml:space="preserve">
+  <data name="ID_PALLETS" xml:space="preserve">
     <value>Pallets</value>
   </data>
-	<data name="ID_DISPLAYDEBUGGING" xml:space="preserve">
+  <data name="ID_DISPLAYDEBUGGING" xml:space="preserve">
     <value>Foutopsporing</value>
   </data>
-	<data name="ID_DISPLAYDIMENSIONSCASEPALLET" xml:space="preserve">
+  <data name="ID_DISPLAYDIMENSIONSCASEPALLET" xml:space="preserve">
     <value>Afmetingen geval/Pallet</value>
   </data>
-	<data name="ID_DISPLAYMEASUREMENTSYSTEM" xml:space="preserve">
+  <data name="ID_DISPLAYMEASUREMENTSYSTEM" xml:space="preserve">
     <value>Taal &amp; meetsysteem</value>
   </data>
-	<data name="ID_DISPLAYPLUGINS" xml:space="preserve">
+  <data name="ID_DISPLAYPLUGINS" xml:space="preserve">
     <value>Plugins</value>
   </data>
-	<data name="ID_DISPLAYREPORTING" xml:space="preserve">
+  <data name="ID_DISPLAYREPORTING" xml:space="preserve">
     <value>Rapportage</value>
   </data>
-	<data name="ID_OPTIONSDEBUGGING" xml:space="preserve">
+  <data name="ID_OPTIONSDEBUGGING" xml:space="preserve">
     <value>Options\\Debugging</value>
   </data>
-	<data name="ID_OPTIONSDIMENSIONS" xml:space="preserve">
+  <data name="ID_OPTIONSDIMENSIONS" xml:space="preserve">
     <value>Options\\Dimensions\\Case/Pallet</value>
   </data>
-	<data name="ID_OPTIONSMEASUREMENTSYSTEM" xml:space="preserve">
+  <data name="ID_OPTIONSMEASUREMENTSYSTEM" xml:space="preserve">
     <value>Options\\Language &amp; Unit system</value>
   </data>
-	<data name="ID_OPTIONSPLUGINS" xml:space="preserve">
+  <data name="ID_OPTIONSPLUGINS" xml:space="preserve">
     <value>Options\\Plugins</value>
   </data>
-	<data name="ID_OPTIONSREPORTING" xml:space="preserve">
+  <data name="ID_OPTIONSREPORTING" xml:space="preserve">
     <value>Options\\Reporting</value>
   </data>
-	<data name="ID_SELECTATLEASTONELAYOUT" xml:space="preserve">
+  <data name="ID_SELECTATLEASTONELAYOUT" xml:space="preserve">
     <value>Selecteer op leat één laag</value>
   </data>
-	<data name="ID_AUTOIMPORT" xml:space="preserve">
+  <data name="ID_AUTOIMPORT" xml:space="preserve">
     <value>Import auto</value>
   </data>
-	<data name="ID_DESCRIPTION" xml:space="preserve">
+  <data name="ID_DESCRIPTION" xml:space="preserve">
     <value>Beschrijving</value>
   </data>
-	<data name="ID_DIMENSIONS" xml:space="preserve">
+  <data name="ID_DIMENSIONS" xml:space="preserve">
     <value>Afmetingen ({0})</value>
   </data>
-	<data name="ID_NAMEALREADYEXISTSINDB" xml:space="preserve">
+  <data name="ID_NAMEALREADYEXISTSINDB" xml:space="preserve">
     <value>{0} genaamd {1} al bestaat in de database.</value>
   </data>
-	<data name="ID_DELETE" xml:space="preserve">
+  <data name="ID_DELETE" xml:space="preserve">
     <value>Verwijderen</value>
   </data>
-	<data name="ID_DIAMETERINNER_WU" xml:space="preserve">
+  <data name="ID_DIAMETERINNER_WU" xml:space="preserve">
     <value>Inwendige diameter ({0})</value>
   </data>
-	<data name="ID_DIAMETEROUTER_WU" xml:space="preserve">
+  <data name="ID_DIAMETEROUTER_WU" xml:space="preserve">
     <value>Buitendiameter ({0})</value>
   </data>
-	<data name="ID_HEIGHT_WU" xml:space="preserve">
+  <data name="ID_HEIGHT_WU" xml:space="preserve">
     <value>Hoogte ({0})</value>
   </data>
-	<data name="ID_DIMEXT_WU" xml:space="preserve">
+  <data name="ID_DIMEXT_WU" xml:space="preserve">
     <value>Dim. ext. ({0})</value>
   </data>
-	<data name="ID_DIMINT_WU" xml:space="preserve">
+  <data name="ID_DIMINT_WU" xml:space="preserve">
     <value>Dim. int. ({0})</value>
   </data>
-	<data name="ID_LENGTH_WU" xml:space="preserve">
+  <data name="ID_LENGTH_WU" xml:space="preserve">
     <value>Lengte ({0})</value>
   </data>
-	<data name="ID_NUMBER" xml:space="preserve">
+  <data name="ID_NUMBER" xml:space="preserve">
     <value>Nummer</value>
   </data>
-	<data name="ID_THICKNESS_WU" xml:space="preserve">
+  <data name="ID_THICKNESS_WU" xml:space="preserve">
     <value>Dikte ({0})</value>
   </data>
-	<data name="ID_WIDTH_WU" xml:space="preserve">
+  <data name="ID_WIDTH_WU" xml:space="preserve">
     <value>Breedte ({0})</value>
   </data>
-	<data name="ID_HATCHINGANGLE" xml:space="preserve">
+  <data name="ID_HATCHINGANGLE" xml:space="preserve">
     <value>Broedeieren hoek</value>
   </data>
-	<data name="ID_HATCHINGSPACING" xml:space="preserve">
+  <data name="ID_HATCHINGSPACING" xml:space="preserve">
     <value>Broedeieren van ruimte</value>
   </data>
-	<data name="ID_TRANSPARENCY" xml:space="preserve">
+  <data name="ID_TRANSPARENCY" xml:space="preserve">
     <value>Transparantie gebruiken</value>
   </data>
-	<data name="ID_CASENAME" xml:space="preserve">
+  <data name="ID_CASENAME" xml:space="preserve">
     <value>Caisse</value>
   </data>
-	<data name="ID_NOCASESELECTED" xml:space="preserve">
+  <data name="ID_NOCASESELECTED" xml:space="preserve">
     <value>Geen geval geselecteerd!</value>
   </data>
-	<data name="ID_NOORIENTATIONSELECTED" xml:space="preserve">
+  <data name="ID_NOORIENTATIONSELECTED" xml:space="preserve">
     <value>Geen afdrukstand geselecteerd!</value>
   </data>
-	<data name="ID_DOUBLECLICKALAYER" xml:space="preserve">
+  <data name="ID_DOUBLECLICKALAYER" xml:space="preserve">
     <value>Dubbelklik op een laag!</value>
   </data>
-	<data name="ID_INTERLAYERNUMBER" xml:space="preserve">
+  <data name="ID_INTERLAYERNUMBER" xml:space="preserve">
     <value>Interlayer #</value>
   </data>
-	<data name="ID_LAYER" xml:space="preserve">
+  <data name="ID_LAYER" xml:space="preserve">
     <value>Laag</value>
   </data>
-	<data name="ID_LAYERNUMBER" xml:space="preserve">
+  <data name="ID_LAYERNUMBER" xml:space="preserve">
     <value>Laag #</value>
   </data>
-	<data name="ID_LOADDIMENSIONS" xml:space="preserve">
+  <data name="ID_LOADDIMENSIONS" xml:space="preserve">
     <value>Laden afmetingen ({0})</value>
   </data>
-	<data name="ID_LOADWEIGHT_WU" xml:space="preserve">
+  <data name="ID_LOADWEIGHT_WU" xml:space="preserve">
     <value>Belasting ({0})</value>
   </data>
-	<data name="ID_NETWEIGHT_WU" xml:space="preserve">
+  <data name="ID_NETWEIGHT_WU" xml:space="preserve">
     <value>Nettogewicht ({0})</value>
   </data>
-	<data name="ID_OUTERDIMENSIONS" xml:space="preserve">
+  <data name="ID_OUTERDIMENSIONS" xml:space="preserve">
     <value>Buitenmaten ({0})</value>
   </data>
-	<data name="ID_PALLET" xml:space="preserve">
+  <data name="ID_PALLET" xml:space="preserve">
     <value>Pallet</value>
   </data>
-	<data name="ID_SELECTEDLAYER" xml:space="preserve">
+  <data name="ID_SELECTEDLAYER" xml:space="preserve">
     <value>Geselecteerde laag: {0} </value>
   </data>
-	<data name="ID_TOTALWEIGHT_WU" xml:space="preserve">
+  <data name="ID_TOTALWEIGHT_WU" xml:space="preserve">
     <value>Totaalgewicht ({0})</value>
   </data>
-	<data name="ID_INTERLAYERCOUNT" xml:space="preserve">
+  <data name="ID_INTERLAYERCOUNT" xml:space="preserve">
     <value>Interlayer #</value>
   </data>
-	<data name="ID_SPACES_WU" xml:space="preserve">
+  <data name="ID_SPACES_WU" xml:space="preserve">
     <value>Spaties ({0})</value>
   </data>
-	<data name="ID_LOAD" xml:space="preserve">
+  <data name="ID_LOAD" xml:space="preserve">
     <value>Belasting</value>
   </data>
-	<data name="ID_REGISTEREDUSERCOUNT" xml:space="preserve">
+  <data name="ID_REGISTEREDUSERCOUNT" xml:space="preserve">
     <value>Gebruiker tellen = {0}</value>
   </data>
-	<data name="ID_EFFICIENCY" xml:space="preserve">
+  <data name="ID_EFFICIENCY" xml:space="preserve">
     <value>Efficiëntie</value>
   </data>
-	<data name="ID_GENERATEREPORTMSWORD" xml:space="preserve">
+  <data name="ID_GENERATEREPORTMSWORD" xml:space="preserve">
     <value>MS word-rapport genereren</value>
   </data>
-	<data name="ID_GENERATEREPORTHTML" xml:space="preserve">
+  <data name="ID_GENERATEREPORTHTML" xml:space="preserve">
     <value>HTML-rapport genereren</value>
   </data>
-	<data name="ID_WEIGHT" xml:space="preserve">
+  <data name="ID_WEIGHT" xml:space="preserve">
     <value>Gewicht</value>
   </data>
-	<data name="ID_GENERATEREPORTPDF" xml:space="preserve">
+  <data name="ID_GENERATEREPORTPDF" xml:space="preserve">
     <value>PDF-rapport genereren</value>
+  </data>
+  <data name="ID_DONE" xml:space="preserve">
+    <value>Gedaan!</value>
+  </data>
+  <data name="ID_EXCELSHEETUNITSYSTEM" xml:space="preserve">
+    <value>Kunt u bevestigen dat de waarden in het blad van het Excel ({0}) worden uitgedrukt met behulp van de momenteel ingestelde StackBuilder unit systeem d.w.z. {1}?</value>
+  </data>
+  <data name="ID_IMPORTLOADING" xml:space="preserve">
+    <value>Bezig met laden {0}...</value>
+  </data>
+  <data name="ID_IMPORTSKIPPING" xml:space="preserve">
+    <value>Overslaan {0}...</value>
+  </data>
+  <data name="ID_REMOVINGEXISTINGTYPE" xml:space="preserve">
+    <value>Bestaand type {0} worden verwijderd...</value>
+  </data>
+  <data name="ID_TASKCANCELED" xml:space="preserve">
+    <value>Geannuleerd!</value>
+  </data>
+  <data name="ID_UNEXPECTEDTYPE" xml:space="preserve">
+    <value>Onverwachte type: {0}</value>
+  </data>
+  <data name="ID_UNITSYSTEM" xml:space="preserve">
+    <value>Unit systeem...</value>
+  </data>
+  <data name="ID_DEFINEVALIDFILEPATH" xml:space="preserve">
+    <value>Definieer een geldig bestandspad.</value>
+  </data>
+  <data name="ID_DISPLAYPALLETEDITION" xml:space="preserve">
+    <value>Pallet editie parameters</value>
+  </data>
+  <data name="ID_OPTIONSPALLETEDITION" xml:space="preserve">
+    <value>Options\\Pallet editie</value>
+  </data>
+  <data name="ID_CASECOUNTFORMATSTRING" xml:space="preserve">
+    <value>{0} {1} x {2}</value>
   </data>
 </root>

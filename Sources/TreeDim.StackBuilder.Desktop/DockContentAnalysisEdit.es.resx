@@ -305,4 +305,10 @@
   <data name="toolStripButtonReport.Text" xml:space="preserve">
     <value>Generar informe de...</value>
   </data>
+  <data name="toolStripButtonExportXML.Text" xml:space="preserve">
+    <value>Exportar como XML...</value>
+  </data>
+  <data name="toolStripButtonExportCSV.Text" xml:space="preserve">
+    <value>Exportar como CSV...</value>
+  </data>
 </root>

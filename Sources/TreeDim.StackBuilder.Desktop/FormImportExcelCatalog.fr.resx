@@ -284,4 +284,16 @@
   <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <data name="bnStop.Text" xml:space="preserve">
+    <value>Arrêter</value>
+  </data>
+  <data name="statusLabel.Text" xml:space="preserve">
+    <value>statusLabel</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Catalogue du importation Excel vers base de données...</value>
+  </data>
+  <data name="statusStrip1.Text" xml:space="preserve">
+    <value>statusStrip</value>
+  </data>
 </root>

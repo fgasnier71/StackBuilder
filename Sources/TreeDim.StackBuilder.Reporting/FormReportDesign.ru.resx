@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,4 +117,58 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="toolSBReportPrint.Text" xml:space="preserve">
+    <value>Печать...</value>
+  </data>
+  <data name="statusStrip.Text" xml:space="preserve">
+    <value>statusStrip</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Доклад...</value>
+  </data>
+  <data name="lbDefinitionLarge.Text" xml:space="preserve">
+    <value>Определение</value>
+  </data>
+  <data name="statusLabelDef.Text" xml:space="preserve">
+    <value>Готов</value>
+  </data>
+  <data name="toolSBReportWord.Text" xml:space="preserve">
+    <value>Слово</value>
+  </data>
+  <data name="lbHTMLSizeDetail.Text" xml:space="preserve">
+    <value>Размер HTML</value>
+  </data>
+  <data name="toolSBReportPrint.ToolTipText" xml:space="preserve">
+    <value>Печать</value>
+  </data>
+  <data name="toolSBReportPDF.Text" xml:space="preserve">
+    <value>PDF-отчет</value>
+  </data>
+  <data name="lbHTMLSizeLarge.Text" xml:space="preserve">
+    <value>Размер HTML</value>
+  </data>
+  <data name="lbFontSizeLarge.Text" xml:space="preserve">
+    <value>Размер шрифта</value>
+  </data>
+  <data name="lbFontSizeDetail.Text" xml:space="preserve">
+    <value>Размер шрифта</value>
+  </data>
+  <data name="tabPageDetail.Text" xml:space="preserve">
+    <value>Детали изображения</value>
+  </data>
+  <data name="toolSBDimensions.Text" xml:space="preserve">
+    <value>Показать / скрыть размеры</value>
+  </data>
+  <data name="tabPageLargeImg.Text" xml:space="preserve">
+    <value>Большое изображение</value>
+  </data>
+  <data name="lbDefinitionDetail.Text" xml:space="preserve">
+    <value>Определение</value>
+  </data>
+  <data name="toolStrip.Text" xml:space="preserve">
+    <value>toolStrip1</value>
+  </data>
+  <data name="toolSBReportHTML.Text" xml:space="preserve">
+    <value>HTML</value>
+  </data>
 </root>

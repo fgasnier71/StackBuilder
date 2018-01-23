@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -147,5 +147,17 @@
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Probar y llenar una lista de caso...</value>
+  </data>
+  <data name="uCtrlCaseDimensionsMax.Text" xml:space="preserve">
+    <value>Max. dimensiones de la caja</value>
+  </data>
+  <data name="uCtrlCaseDimensionsMin.Text" xml:space="preserve">
+    <value>Dimensiones mín.</value>
+  </data>
+  <data name="toolStripStatusLabelDef.Text" xml:space="preserve">
+    <value>statusLabel</value>
+  </data>
+  <data name="statusStrip.Text" xml:space="preserve">
+    <value>statusStrip1</value>
   </data>
 </root>

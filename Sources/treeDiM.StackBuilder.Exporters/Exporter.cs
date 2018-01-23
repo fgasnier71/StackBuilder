@@ -11,7 +11,7 @@ namespace treeDiM.StackBuilder.Exporters
 
     public class ExporterFactory
     {
-        static Exporter[] All { get => new Exporter[] { new ExporterCollada(), new ExporterXML(), new ExporterCSV() }; }
+        static Exporter[] All { get => new Exporter[] { new ExporterCollada(), new ExporterXML(), new ExporterCSV(), new ExporterJSON() }; }
         public static Exporter GetExporterByExt(string extension)
         {
             foreach (Exporter exp in All)

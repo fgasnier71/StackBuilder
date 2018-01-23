@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -755,5 +755,8 @@
   </data>
   <data name="toolStripButtonSettings.Text" xml:space="preserve">
     <value>設定</value>
+  </data>
+  <data name="saveFileDialogExportXML.Filter" xml:space="preserve">
+    <value>交換マークアップ言語 (*.xml) | * .xml</value>
   </data>
 </root>

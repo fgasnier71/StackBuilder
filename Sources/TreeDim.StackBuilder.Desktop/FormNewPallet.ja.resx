@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -277,6 +277,9 @@
     <value>データベースへの保存します。</value>
   </data>
   <data name="cbColor.Items22" xml:space="preserve">
+    <value>カラー</value>
+  </data>
+  <data name="cbColor.Items27" xml:space="preserve">
     <value>カラー</value>
   </data>
 </root>

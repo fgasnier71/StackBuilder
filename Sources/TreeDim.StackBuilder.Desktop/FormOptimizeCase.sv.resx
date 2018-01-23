@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -350,5 +350,8 @@
   </data>
   <data name="gbWrapper.Text" xml:space="preserve">
     <value>Wrapper</value>
+  </data>
+  <data name="cbColor.Items45" xml:space="preserve">
+    <value>Kleur</value>
   </data>
 </root>

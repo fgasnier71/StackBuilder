@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,4 +117,154 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="lbBox.Text" xml:space="preserve">
+    <value>Коробка</value>
+  </data>
+  <data name="lbDir.Text" xml:space="preserve">
+    <value>Направление</value>
+  </data>
+  <data name="cbDir.Items" xml:space="preserve">
+    <value>X-</value>
+  </data>
+  <data name="cbDir.Items1" xml:space="preserve">
+    <value>X +</value>
+  </data>
+  <data name="cbDir.Items2" xml:space="preserve">
+    <value>Y-</value>
+  </data>
+  <data name="cbDir.Items3" xml:space="preserve">
+    <value>Y +</value>
+  </data>
+  <data name="cbDir.Items4" xml:space="preserve">
+    <value>Z-</value>
+  </data>
+  <data name="cbDir.Items5" xml:space="preserve">
+    <value>Z +</value>
+  </data>
+  <data name="uCtrlOuterDimensions.Text" xml:space="preserve">
+    <value>Внешние размеры</value>
+  </data>
+  <data name="uCtrlLayout.Text" xml:space="preserve">
+    <value>Макет</value>
+  </data>
+  <data name="uCtrlHeight.Text" xml:space="preserve">
+    <value>Высота</value>
+  </data>
+  <data name="uCtrlWalls.Text" xml:space="preserve">
+    <value>Нумер стен</value>
+  </data>
+  <data name="chkbTransparent.Text" xml:space="preserve">
+    <value>Прозрачный</value>
+  </data>
+  <data name="lbType.Text" xml:space="preserve">
+    <value>Тип</value>
+  </data>
+  <data name="cbType.Items" xml:space="preserve">
+    <value>Полиэтилен</value>
+  </data>
+  <data name="cbType.Items1" xml:space="preserve">
+    <value>Бумага</value>
+  </data>
+  <data name="cbType.Items2" xml:space="preserve">
+    <value>Картон</value>
+  </data>
+  <data name="cbType.Items3" xml:space="preserve">
+    <value>Лоток</value>
+  </data>
+  <data name="uCtrlWeight.Text" xml:space="preserve">
+    <value>Вес</value>
+  </data>
+  <data name="uCtrlThickness.Text" xml:space="preserve">
+    <value>Толщина</value>
+  </data>
+  <data name="lbWrapperColor.Text" xml:space="preserve">
+    <value>Цвет</value>
+  </data>
+  <data name="cbColor.Items" xml:space="preserve">
+    <value>Цвет</value>
+  </data>
+  <data name="cbColor.Items1" xml:space="preserve">
+    <value>Цвет</value>
+  </data>
+  <data name="cbColor.Items2" xml:space="preserve">
+    <value>Цвет</value>
+  </data>
+  <data name="cbColor.Items3" xml:space="preserve">
+    <value>Цвет</value>
+  </data>
+  <data name="cbColor.Items4" xml:space="preserve">
+    <value>Цвет</value>
+  </data>
+  <data name="cbColor.Items5" xml:space="preserve">
+    <value>Цвет</value>
+  </data>
+  <data name="cbColor.Items6" xml:space="preserve">
+    <value>Цвет</value>
+  </data>
+  <data name="cbColor.Items7" xml:space="preserve">
+    <value>Цвет</value>
+  </data>
+  <data name="cbColor.Items8" xml:space="preserve">
+    <value>Цвет</value>
+  </data>
+  <data name="cbColor.Items9" xml:space="preserve">
+    <value>Цвет</value>
+  </data>
+  <data name="cbColor.Items10" xml:space="preserve">
+    <value>Цвет</value>
+  </data>
+  <data name="cbColor.Items11" xml:space="preserve">
+    <value>Цвет</value>
+  </data>
+  <data name="cbColor.Items12" xml:space="preserve">
+    <value>Цвет</value>
+  </data>
+  <data name="cbColor.Items13" xml:space="preserve">
+    <value>Цвет</value>
+  </data>
+  <data name="cbColor.Items14" xml:space="preserve">
+    <value>Цвет</value>
+  </data>
+  <data name="cbColor.Items15" xml:space="preserve">
+    <value>Цвет</value>
+  </data>
+  <data name="cbColor.Items16" xml:space="preserve">
+    <value>Цвет</value>
+  </data>
+  <data name="cbColor.Items17" xml:space="preserve">
+    <value>Цвет</value>
+  </data>
+  <data name="cbColor.Items18" xml:space="preserve">
+    <value>Цвет</value>
+  </data>
+  <data name="cbColor.Items19" xml:space="preserve">
+    <value>Цвет</value>
+  </data>
+  <data name="cbColor.Items20" xml:space="preserve">
+    <value>Цвет</value>
+  </data>
+  <data name="cbColor.Items21" xml:space="preserve">
+    <value>Цвет</value>
+  </data>
+  <data name="cbColor.Items22" xml:space="preserve">
+    <value>Цвет</value>
+  </data>
+  <data name="cbColor.Items23" xml:space="preserve">
+    <value>Цвет</value>
+  </data>
+  <data name="cbColor.Items24" xml:space="preserve">
+    <value>Цвет</value>
+  </data>
+  <data name="cbColor.Items25" xml:space="preserve">
+    <value>Цвет</value>
+  </data>
+  <data name="cbColor.Items26" xml:space="preserve">
+    <value>Цвет</value>
+  </data>
+  <data name="groupBox1.Text" xml:space="preserve">
+    <value>Оболочка</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Создайте новый пакет...</value>
+  </data>
 </root>

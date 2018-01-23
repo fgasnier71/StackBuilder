@@ -288,4 +288,10 @@
   <data name="tabPageBox.Text" xml:space="preserve">
     <value>Scatole</value>
   </data>
+  <data name="toolStripBExcel.Text" xml:space="preserve">
+    <value>Importare da file Excel...</value>
+  </data>
+  <data name="toolStripMain.Text" xml:space="preserve">
+    <value>Strumenti</value>
+  </data>
 </root>

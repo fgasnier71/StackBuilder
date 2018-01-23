@@ -151,4 +151,10 @@
   <data name="toolStripStatusLabelDef.Text" xml:space="preserve">
     <value>statusLabel</value>
   </data>
+  <data name="uCtrlCaseDimensionsMax.Text" xml:space="preserve">
+    <value>Max. dimensions de cas</value>
+  </data>
+  <data name="uCtrlCaseDimensionsMin.Text" xml:space="preserve">
+    <value>Dimensions de cas min.</value>
+  </data>
 </root>

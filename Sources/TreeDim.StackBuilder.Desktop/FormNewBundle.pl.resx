@@ -771,4 +771,13 @@
   <data name="$this.Text" xml:space="preserve">
     <value>Utwórz nowy pakiet...</value>
   </data>
+  <data name="cbColor.Items36" xml:space="preserve">
+    <value>Kolor</value>
+  </data>
+  <data name="cbColor.Items37" xml:space="preserve">
+    <value>Kolor</value>
+  </data>
+  <data name="cbColor.Items38" xml:space="preserve">
+    <value>Kolor</value>
+  </data>
 </root>

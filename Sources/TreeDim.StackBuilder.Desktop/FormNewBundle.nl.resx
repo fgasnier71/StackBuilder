@@ -957,4 +957,13 @@
   <data name="$this.Text" xml:space="preserve">
     <value>Maak een nieuwe bundel...</value>
   </data>
+  <data name="cbColor.Items36" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items37" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items38" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
 </root>

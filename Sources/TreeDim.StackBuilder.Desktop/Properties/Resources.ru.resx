@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,4 +117,624 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ID_CASEWEIGHT" xml:space="preserve">
+    <value>Случае вес ({0})</value>
+  </data>
+  <data name="ID_A1" xml:space="preserve">
+    <value>А1</value>
+  </data>
+  <data name="ID_CYLINDERCOUNT" xml:space="preserve">
+    <value>Количество цилиндров</value>
+  </data>
+  <data name="ID_NODE_CYLINDERS" xml:space="preserve">
+    <value>Цилиндры</value>
+  </data>
+  <data name="ID_NAME" xml:space="preserve">
+    <value>Имя</value>
+  </data>
+  <data name="ID_BOXCOUNT" xml:space="preserve">
+    <value>Коробки/случай</value>
+  </data>
+  <data name="ID_HEIGHT" xml:space="preserve">
+    <value>Высота</value>
+  </data>
+  <data name="ID_CASESLAYER" xml:space="preserve">
+    <value>Случаи/слой</value>
+  </data>
+  <data name="ID_VERSION" xml:space="preserve">
+    <value>Версия: {0}</value>
+  </data>
+  <data name="ID_ECT" xml:space="preserve">
+    <value>ЭСТ</value>
+  </data>
+  <data name="ID_LENGTH" xml:space="preserve">
+    <value>Длина</value>
+  </data>
+  <data name="ID_PALLETMAXNUMBER" xml:space="preserve">
+    <value>Номер</value>
+  </data>
+  <data name="ID_LAYERPATTERN" xml:space="preserve">
+    <value>Слоя шаблон</value>
+  </data>
+  <data name="ID_FIELDNAMEINVALID" xml:space="preserve">
+    <value>Имя уже существует.</value>
+  </data>
+  <data name="ID_CYLINDER" xml:space="preserve">
+    <value>Цилиндр</value>
+  </data>
+  <data name="ID_ADDNEWANALYSIS" xml:space="preserve">
+    <value>Добавьте новый анализ...</value>
+  </data>
+  <data name="ID_ADDNEWTRUCK" xml:space="preserve">
+    <value>Добавьте новый грузовик...</value>
+  </data>
+  <data name="ID_FILENOTFOUND" xml:space="preserve">
+    <value>Файл {0} не может быть найден</value>
+  </data>
+  <data name="ID_GENERATEREPORT" xml:space="preserve">
+    <value>Создание отчета для {0}</value>
+  </data>
+  <data name="ID_SELECTED" xml:space="preserve">
+    <value>Выбранные</value>
+  </data>
+  <data name="ID_CLOSE" xml:space="preserve">
+    <value>Закрыть</value>
+  </data>
+  <data name="ID_INVALIDINSIDEHEIGHT" xml:space="preserve">
+    <value>Внутри высота ({0}) должна быть меньше высоты ({1})</value>
+  </data>
+  <data name="ID_PALLETWEIGHT" xml:space="preserve">
+    <value>Вес поддона ({0})</value>
+  </data>
+  <data name="ID_ADDNEWECTANALYSIS" xml:space="preserve">
+    <value>Добавьте новый анализ ECT...</value>
+  </data>
+  <data name="ID_CASECOUNT" xml:space="preserve">
+    <value># Случаи</value>
+  </data>
+  <data name="ID_DEPENDINGANALYSES" xml:space="preserve">
+    <value>{0} имеет следующие зависимости: {1}, если вы переходите с изменениями, анализ будет пересчитана и любого выбранного решения удалены.
+Продолжить?</value>
+  </data>
+  <data name="ID_WEIGHT_WU" xml:space="preserve">
+    <value>Вес ({0})</value>
+  </data>
+  <data name="ID_PALLETMAXHEIGHT" xml:space="preserve">
+    <value>Высота</value>
+  </data>
+  <data name="ID_ADDNEWPALLET" xml:space="preserve">
+    <value>Добавьте новый поддон...</value>
+  </data>
+  <data name="ID_TRUCK" xml:space="preserve">
+    <value>Грузовик</value>
+  </data>
+  <data name="ID_LOADWEIGHT" xml:space="preserve">
+    <value>Вес груза</value>
+  </data>
+  <data name="ID_USEATLEASTONESTOPSTACKINGCRITERION" xml:space="preserve">
+    <value>Определить по крайней мере одна остановка укладки критерий</value>
+  </data>
+  <data name="ID_CASEDIMENSIONS" xml:space="preserve">
+    <value>Размеры корпуса</value>
+  </data>
+  <data name="ID_NOPALLETSOLUTIONSELECTED" xml:space="preserve">
+    <value>Не решение поддон</value>
+  </data>
+  <data name="ID_AREA" xml:space="preserve">
+    <value>Площадь</value>
+  </data>
+  <data name="ID_EDGECRUSHTEST" xml:space="preserve">
+    <value>Анализ теста раздавить Edge</value>
+  </data>
+  <data name="ID_INVALIDINSIDEWIDTH" xml:space="preserve">
+    <value>Внутри ширина ({0}) должна быть меньше, чем ширина ({1})</value>
+  </data>
+  <data name="ID_A2" xml:space="preserve">
+    <value>A2</value>
+  </data>
+  <data name="ID_ADDNEWBOX" xml:space="preserve">
+    <value>Добавьте новое поле...</value>
+  </data>
+  <data name="ID_ADDNEWBUNDLE" xml:space="preserve">
+    <value>Добавьте новый пакет...</value>
+  </data>
+  <data name="ID_PALLETLIMIT" xml:space="preserve">
+    <value>Достигнут предел</value>
+  </data>
+  <data name="ID_NODE_ANALYSES" xml:space="preserve">
+    <value>Анализы</value>
+  </data>
+  <data name="ID_INVALIDINSIDELENGTH" xml:space="preserve">
+    <value>Внутри должно быть меньше, чем длина ({1}) Длина ({0})</value>
+  </data>
+  <data name="ID_ADDNEWCASE" xml:space="preserve">
+    <value>Добавьте новый случай...</value>
+  </data>
+  <data name="ID_SENDTODATABASE" xml:space="preserve">
+    <value>Отправка в базу данных</value>
+  </data>
+  <data name="ID_BOXCASECOUNT" xml:space="preserve">
+    <value>Коробки/дело фото</value>
+  </data>
+  <data name="ID_PALLETCOUNT" xml:space="preserve">
+    <value>Количество поддонов</value>
+  </data>
+  <data name="ID_ANALYSIS" xml:space="preserve">
+    <value>Анализ</value>
+  </data>
+  <data name="ID_INTERLAYER" xml:space="preserve">
+    <value>Прослойка</value>
+  </data>
+  <data name="ID_INSUFFICIENTVOLUME" xml:space="preserve">
+    <value>Максимальный объем недостаточен для упаковки {0} {1}.</value>
+  </data>
+  <data name="ID_FIELDNAMEEMPTY" xml:space="preserve">
+    <value>Поле имя является пустым</value>
+  </data>
+  <data name="ID_NODE_CASES" xml:space="preserve">
+    <value>Случаи</value>
+  </data>
+  <data name="ID_EFFICIENCYPERCENTAGE" xml:space="preserve">
+    <value>КПД (%)</value>
+  </data>
+  <data name="ID_INDEX" xml:space="preserve">
+    <value>Индекс</value>
+  </data>
+  <data name="ID_READY" xml:space="preserve">
+    <value>Готов</value>
+  </data>
+  <data name="ID_GENERATECOLLADA" xml:space="preserve">
+    <value>Создание файла 3D анимации для {0}</value>
+  </data>
+  <data name="ID_MAXLOWERTHANMIN" xml:space="preserve">
+    <value>Несоответствие: максимум {0} является ниже, чем минимальная {1}.</value>
+  </data>
+  <data name="ID_INVALIDNAME" xml:space="preserve">
+    <value>Недопустимое имя ({0})</value>
+  </data>
+  <data name="ID_ADDNEWTRUCKANALYSIS" xml:space="preserve">
+    <value>Добавьте новый грузовик анализ...</value>
+  </data>
+  <data name="ID_NODE_INTERLAYERS" xml:space="preserve">
+    <value>Плёнки</value>
+  </data>
+  <data name="ID_BOX" xml:space="preserve">
+    <value>Коробка</value>
+  </data>
+  <data name="ID_UNSELECTSOLUTION" xml:space="preserve">
+    <value>Отменить решение {0}</value>
+  </data>
+  <data name="ID_NODE_TRUCKS" xml:space="preserve">
+    <value>Грузовые автомобили</value>
+  </data>
+  <data name="ID_FILTER_MSWORD" xml:space="preserve">
+    <value>Microsoft Office Word (*.doc; *.docx) | * .doc; * .docx | Все файлы (*. *) | *. *</value>
+  </data>
+  <data name="ID_BUNDLE" xml:space="preserve">
+    <value>Расслоение</value>
+  </data>
+  <data name="ID_PALLETHEIGHT" xml:space="preserve">
+    <value>Высота паллеты ({0})</value>
+  </data>
+  <data name="ID_ADDNEWBUNDLEANALYSIS" xml:space="preserve">
+    <value>Добавьте новый пакет анализа...</value>
+  </data>
+  <data name="ID_BOXDOESNOTFITINCASE" xml:space="preserve">
+    <value>Поле {0} не подходит в случае {1}.</value>
+  </data>
+  <data name="ID_LAYERPATTERNS" xml:space="preserve">
+    <value>Слоя рисунка</value>
+  </data>
+  <data name="ID_INVALIDDIAMETER" xml:space="preserve">
+    <value>Внутренний диаметр должен быть меньше, чем наружный диаметр.</value>
+  </data>
+  <data name="ID_CASESPALLET" xml:space="preserve">
+    <value>Случаи/поддон</value>
+  </data>
+  <data name="ID_ALLOWALIGNEDORALTERNATELAYERS" xml:space="preserve">
+    <value>Обеспечить соответствие и/или альтернативного слои</value>
+  </data>
+  <data name="ID_PALLETCAPTIONEDIT" xml:space="preserve">
+    <value>Редактировать поддон {0}...</value>
+  </data>
+  <data name="ID_VOLUMEEFFICIENCY" xml:space="preserve">
+    <value>КПД (%)</value>
+  </data>
+  <data name="ID_DEFINEATLEASTONEPATTERN" xml:space="preserve">
+    <value>Определить по крайней мере один штабелирование шаблон</value>
+  </data>
+  <data name="ID_DESELECT" xml:space="preserve">
+    <value>Отменить выбор</value>
+  </data>
+  <data name="ID_SAVEMODIFIEDFILE" xml:space="preserve">
+    <value>Сохранить файл {0}?</value>
+  </data>
+  <data name="ID_ADDNEWCASEANALYSIS" xml:space="preserve">
+    <value>Добавьте новый анализ ситуации...</value>
+  </data>
+  <data name="ID_CASEANALYSIS_INVALIDCONSTRAINTSET" xml:space="preserve">
+    <value>Не удается создать анализ ситуации, как набор ограничений, как представляется, является недействительным.</value>
+  </data>
+  <data name="ID_DELETEITEM" xml:space="preserve">
+    <value>Удалить {0}</value>
+  </data>
+  <data name="ID_DATABASEEMPTY" xml:space="preserve">
+    <value>Поддон решение база данных пуста.
+Закрытие формы...</value>
+  </data>
+  <data name="ID_NODE_BOXES" xml:space="preserve">
+    <value>Коробки</value>
+  </data>
+  <data name="ID_ADDNEWBOXCASEANALYSIS" xml:space="preserve">
+    <value>Добавьте новое поле/дело анализа...</value>
+  </data>
+  <data name="ID_DEFINEATLEASTONEVERTICALAXIS" xml:space="preserve">
+    <value>Определить по крайней мере одной вертикальной оси</value>
+  </data>
+  <data name="ID_NODE_BUNDLES" xml:space="preserve">
+    <value>Связки</value>
+  </data>
+  <data name="ID_ABOUT" xml:space="preserve">
+    <value>О {0}</value>
+  </data>
+  <data name="ID_ANALYSISHASNOVALIDSOLUTION" xml:space="preserve">
+    <value>Анализ {0} не имеет действительный решения.</value>
+  </data>
+  <data name="ID_A3" xml:space="preserve">
+    <value>A3</value>
+  </data>
+  <data name="ID_ADDNEWINTERLAYER" xml:space="preserve">
+    <value>Добавление новой прослойки...</value>
+  </data>
+  <data name="ID_INSUFFICIENTPALLETHEIGHT" xml:space="preserve">
+    <value>Высота максимальная паллеты ({0} {1}) должен превышать {2} {3}</value>
+  </data>
+  <data name="ID_NODE_PALLETS" xml:space="preserve">
+    <value>Поддоны</value>
+  </data>
+  <data name="ID_CASEOFBOXES" xml:space="preserve">
+    <value>Корпус коробки</value>
+  </data>
+  <data name="ID_CHROMEISNOTINSTALLED" xml:space="preserve">
+    <value>Google хром-браузер должен быть установлен для визуализации анимации collada/webGL.</value>
+  </data>
+  <data name="ID_SELECT" xml:space="preserve">
+    <value>Выберите</value>
+  </data>
+  <data name="ID_CASE" xml:space="preserve">
+    <value>Дело</value>
+  </data>
+  <data name="ID_WIDTH" xml:space="preserve">
+    <value>Ширина</value>
+  </data>
+  <data name="ID_ADDNEWCYLINDER" xml:space="preserve">
+    <value>Добавьте новый цилиндр...</value>
+  </data>
+  <data name="ID_ADDNEWCYLINDERANALYSIS" xml:space="preserve">
+    <value>Добавьте новый цилиндр анализ...</value>
+  </data>
+  <data name="ID_CASELIMIT" xml:space="preserve">
+    <value>Достигнут предел</value>
+  </data>
+  <data name="ID_PALLETMAXWEIGHT" xml:space="preserve">
+    <value>Вес</value>
+  </data>
+  <data name="ID_LOADHEIGHT" xml:space="preserve">
+    <value>Высота загрузки</value>
+  </data>
+  <data name="ID_ORIENTATION" xml:space="preserve">
+    <value>Ориентация</value>
+  </data>
+  <data name="ID_FIELDDESCRIPTIONEMPTY" xml:space="preserve">
+    <value>Описание поле пусто</value>
+  </data>
+  <data name="ID_LAYOUT" xml:space="preserve">
+    <value>Макет</value>
+  </data>
+  <data name="ID_EDIT" xml:space="preserve">
+    <value>Редактировать {0}...</value>
+  </data>
+  <data name="ID_CASEINSIDEDIMENSIONS" xml:space="preserve">
+    <value>Случай внутренние размеры</value>
+  </data>
+  <data name="ID_MAXIMUMCASEWEIGHTSHOULDEXCEED" xml:space="preserve">
+    <value>Максимальный вес корпуса должен превышать {0} {1}.</value>
+  </data>
+  <data name="ID_CASEPERPALLET" xml:space="preserve">
+    <value>Дело/поддон</value>
+  </data>
+  <data name="ID_LAYERS" xml:space="preserve">
+    <value>Слои</value>
+  </data>
+  <data name="ID_CANNOTUSEWEIGHTLIMIT" xml:space="preserve">
+    <value>Предел веса не могут быть использованы, потому что {0} не масса.</value>
+  </data>
+  <data name="ID_INVALIDMASS" xml:space="preserve">
+    <value>Значения массы должны быть положительные</value>
+  </data>
+  <data name="ID_ADDNEWPALLETCAP" xml:space="preserve">
+    <value>Добавить новый поддон Кап...</value>
+  </data>
+  <data name="ID_ADDNEWPALLETCORNERS" xml:space="preserve">
+    <value>Добавление новых углов поддона...</value>
+  </data>
+  <data name="ID_ADDNEWPALLETFILM" xml:space="preserve">
+    <value>Добавьте новый поддон фильм...</value>
+  </data>
+  <data name="ID_NODE_PALLETCAPS" xml:space="preserve">
+    <value>Поддон шапки</value>
+  </data>
+  <data name="ID_NODE_PALLETCORNERS" xml:space="preserve">
+    <value>Углах паллета</value>
+  </data>
+  <data name="ID_NODE_PALLETFILMS" xml:space="preserve">
+    <value>Паллетные пленки</value>
+  </data>
+  <data name="ID_PALLETCAP" xml:space="preserve">
+    <value>Колпачок</value>
+  </data>
+  <data name="ID_PALLETCORNERS" xml:space="preserve">
+    <value>Уголки</value>
+  </data>
+  <data name="ID_PALLETFILM" xml:space="preserve">
+    <value>Фильм</value>
+  </data>
+  <data name="ID_USETRANSPARENCYORHATCHING" xml:space="preserve">
+    <value>Прозрачность использования и/или штриховка</value>
+  </data>
+  <data name="ID_PALLETCAPNOTLONGENOUGH" xml:space="preserve">
+    <value>Длина крышка поддона должны превышает длину поддон + навес X...</value>
+  </data>
+  <data name="ID_PALLETCAPNOTWIDEENOUGH" xml:space="preserve">
+    <value>Крышка ширина поддона должны превышать ширину поддона + навес Y...</value>
+  </data>
+  <data name="ID_INVALIDTHICKNESSWIDTHPAIR" xml:space="preserve">
+    <value>Толщина не должна превышать ширину</value>
+  </data>
+  <data name="ID_INVALIDNETWEIGHT" xml:space="preserve">
+    <value>Вес нетто ({0}) не должен превышать вес ({1})</value>
+  </data>
+  <data name="ID_PACK" xml:space="preserve">
+    <value>Пакет</value>
+  </data>
+  <data name="ID_NODE_PACKS" xml:space="preserve">
+    <value>Пакеты</value>
+  </data>
+  <data name="ID_INVALIDOUTERDIMENSION" xml:space="preserve">
+    <value>Внешние размеры должны превышать размеры контента...</value>
+  </data>
+  <data name="ID_CONSUMERSALESUNITS" xml:space="preserve">
+    <value># CSU</value>
+  </data>
+  <data name="ID_LAYERWEIGHT" xml:space="preserve">
+    <value>Вес слоя ({0})</value>
+  </data>
+  <data name="ID_MAXIMUMSPACE" xml:space="preserve">
+    <value>Максимальное пространство ({0})</value>
+  </data>
+  <data name="ID_PACKCOUNT" xml:space="preserve">
+    <value># Пакеты</value>
+  </data>
+  <data name="ID_ADDNEWPACKANALYSIS" xml:space="preserve">
+    <value>Добавьте новый пакет в паллете анализ...</value>
+  </data>
+  <data name="ID_ANALYSISHASNOSOLUTION" xml:space="preserve">
+    <value>Анализ не имеет решения? \nTo многие contraints?</value>
+  </data>
+  <data name="ID_CASEPERLAYERCOUNT" xml:space="preserve">
+    <value># Дел/слой</value>
+  </data>
+  <data name="ID_LAYERCOUNT" xml:space="preserve">
+    <value>Слой #</value>
+  </data>
+  <data name="ID_BOXES" xml:space="preserve">
+    <value>Коробки</value>
+  </data>
+  <data name="ID_CASES" xml:space="preserve">
+    <value>Случаи</value>
+  </data>
+  <data name="ID_CYLINDERS" xml:space="preserve">
+    <value>Цилиндры</value>
+  </data>
+  <data name="ID_INTERLAYERS" xml:space="preserve">
+    <value>Плёнки</value>
+  </data>
+  <data name="ID_PALLETCAPS" xml:space="preserve">
+    <value>Поддон шапки</value>
+  </data>
+  <data name="ID_PALLETFILMS" xml:space="preserve">
+    <value>Паллетные пленки</value>
+  </data>
+  <data name="ID_PALLETS" xml:space="preserve">
+    <value>Поддоны</value>
+  </data>
+  <data name="ID_DISPLAYDEBUGGING" xml:space="preserve">
+    <value>Отладка</value>
+  </data>
+  <data name="ID_DISPLAYDIMENSIONSCASEPALLET" xml:space="preserve">
+    <value>Габаритные размеры дело/поддон</value>
+  </data>
+  <data name="ID_DISPLAYMEASUREMENTSYSTEM" xml:space="preserve">
+    <value>Система языка &amp; измерения</value>
+  </data>
+  <data name="ID_DISPLAYPLUGINS" xml:space="preserve">
+    <value>Плагины</value>
+  </data>
+  <data name="ID_DISPLAYREPORTING" xml:space="preserve">
+    <value>Отчетность</value>
+  </data>
+  <data name="ID_OPTIONSDEBUGGING" xml:space="preserve">
+    <value>Options\\Debugging</value>
+  </data>
+  <data name="ID_OPTIONSDIMENSIONS" xml:space="preserve">
+    <value>Options\\Dimensions\\Case/поддон</value>
+  </data>
+  <data name="ID_OPTIONSMEASUREMENTSYSTEM" xml:space="preserve">
+    <value>Options\\Language &amp; Сплит системы</value>
+  </data>
+  <data name="ID_OPTIONSPLUGINS" xml:space="preserve">
+    <value>Options\\Plugins</value>
+  </data>
+  <data name="ID_OPTIONSREPORTING" xml:space="preserve">
+    <value>Options\\Reporting</value>
+  </data>
+  <data name="ID_SELECTATLEASTONELAYOUT" xml:space="preserve">
+    <value>Выберите по крайней мере один слой</value>
+  </data>
+  <data name="ID_AUTOIMPORT" xml:space="preserve">
+    <value>Авто Импорт</value>
+  </data>
+  <data name="ID_DESCRIPTION" xml:space="preserve">
+    <value>Описание</value>
+  </data>
+  <data name="ID_DIMENSIONS" xml:space="preserve">
+    <value>Габаритные размеры ({0})</value>
+  </data>
+  <data name="ID_NAMEALREADYEXISTSINDB" xml:space="preserve">
+    <value>{0} {1} с именем уже существует в базе данных.</value>
+  </data>
+  <data name="ID_DELETE" xml:space="preserve">
+    <value>Удалить</value>
+  </data>
+  <data name="ID_DIAMETERINNER_WU" xml:space="preserve">
+    <value>Внутренний диаметр ({0})</value>
+  </data>
+  <data name="ID_DIAMETEROUTER_WU" xml:space="preserve">
+    <value>Наружный диаметр ({0})</value>
+  </data>
+  <data name="ID_HEIGHT_WU" xml:space="preserve">
+    <value>Высота ({0})</value>
+  </data>
+  <data name="ID_DIMEXT_WU" xml:space="preserve">
+    <value>Высота ext. ({0})</value>
+  </data>
+  <data name="ID_DIMINT_WU" xml:space="preserve">
+    <value>Высота int. ({0})</value>
+  </data>
+  <data name="ID_LENGTH_WU" xml:space="preserve">
+    <value>Длина ({0})</value>
+  </data>
+  <data name="ID_NUMBER" xml:space="preserve">
+    <value>Номер</value>
+  </data>
+  <data name="ID_THICKNESS_WU" xml:space="preserve">
+    <value>Толщина ({0})</value>
+  </data>
+  <data name="ID_WIDTH_WU" xml:space="preserve">
+    <value>Ширина ({0})</value>
+  </data>
+  <data name="ID_HATCHINGANGLE" xml:space="preserve">
+    <value>Угол штриховки</value>
+  </data>
+  <data name="ID_HATCHINGSPACING" xml:space="preserve">
+    <value>Инкубационного пространства</value>
+  </data>
+  <data name="ID_TRANSPARENCY" xml:space="preserve">
+    <value>Использовать прозрачность</value>
+  </data>
+  <data name="ID_CASENAME" xml:space="preserve">
+    <value>Caisse</value>
+  </data>
+  <data name="ID_NOCASESELECTED" xml:space="preserve">
+    <value>Коем случае не выбран!</value>
+  </data>
+  <data name="ID_NOORIENTATIONSELECTED" xml:space="preserve">
+    <value>Не Ориентация выбран!</value>
+  </data>
+  <data name="ID_DOUBLECLICKALAYER" xml:space="preserve">
+    <value>Дважды щелкните слой!</value>
+  </data>
+  <data name="ID_INTERLAYERNUMBER" xml:space="preserve">
+    <value>Межслойной #</value>
+  </data>
+  <data name="ID_LAYER" xml:space="preserve">
+    <value>Слой</value>
+  </data>
+  <data name="ID_LAYERNUMBER" xml:space="preserve">
+    <value>Слой #</value>
+  </data>
+  <data name="ID_LOADDIMENSIONS" xml:space="preserve">
+    <value>Размеры груза ({0})</value>
+  </data>
+  <data name="ID_LOADWEIGHT_WU" xml:space="preserve">
+    <value>Масса груза ({0})</value>
+  </data>
+  <data name="ID_NETWEIGHT_WU" xml:space="preserve">
+    <value>Вес нетто ({0})</value>
+  </data>
+  <data name="ID_OUTERDIMENSIONS" xml:space="preserve">
+    <value>Внешние размеры ({0})</value>
+  </data>
+  <data name="ID_PALLET" xml:space="preserve">
+    <value>Поддон</value>
+  </data>
+  <data name="ID_SELECTEDLAYER" xml:space="preserve">
+    <value>Выбранный слой: {0} </value>
+  </data>
+  <data name="ID_TOTALWEIGHT_WU" xml:space="preserve">
+    <value>Общий вес ({0})</value>
+  </data>
+  <data name="ID_INTERLAYERCOUNT" xml:space="preserve">
+    <value>Межслойной #</value>
+  </data>
+  <data name="ID_SPACES_WU" xml:space="preserve">
+    <value>Запрещено ({0})</value>
+  </data>
+  <data name="ID_LOAD" xml:space="preserve">
+    <value>Нагрузка</value>
+  </data>
+  <data name="ID_REGISTEREDUSERCOUNT" xml:space="preserve">
+    <value>Количество пользователей = {0}</value>
+  </data>
+  <data name="ID_WEIGHT" xml:space="preserve">
+    <value>Вес</value>
+  </data>
+  <data name="ID_GENERATEREPORTPDF" xml:space="preserve">
+    <value>Создать PDF-отчет</value>
+  </data>
+  <data name="ID_GENERATEREPORTHTML" xml:space="preserve">
+    <value>Создать отчет в формате HTML</value>
+  </data>
+  <data name="ID_GENERATEREPORTMSWORD" xml:space="preserve">
+    <value>Создать отчет MS word</value>
+  </data>
+  <data name="ID_EFFICIENCY" xml:space="preserve">
+    <value>Эффективность</value>
+  </data>
+  <data name="ID_DONE" xml:space="preserve">
+    <value>Договорились!</value>
+  </data>
+  <data name="ID_EXCELSHEETUNITSYSTEM" xml:space="preserve">
+    <value>Можете ли вы подтвердить, что значения в листе Excel ({0}) выражаются с помощью системе единиц в настоящее время набор StackBuilder т.е. {1}?</value>
+  </data>
+  <data name="ID_IMPORTLOADING" xml:space="preserve">
+    <value>Загрузка {0}...</value>
+  </data>
+  <data name="ID_IMPORTSKIPPING" xml:space="preserve">
+    <value>Пропуск {0}...</value>
+  </data>
+  <data name="ID_REMOVINGEXISTINGTYPE" xml:space="preserve">
+    <value>Удаление существующего типа {0}...</value>
+  </data>
+  <data name="ID_TASKCANCELED" xml:space="preserve">
+    <value>Отменен!</value>
+  </data>
+  <data name="ID_UNEXPECTEDTYPE" xml:space="preserve">
+    <value>Непредвиденный тип: {0}</value>
+  </data>
+  <data name="ID_UNITSYSTEM" xml:space="preserve">
+    <value>Сплит-системы...</value>
+  </data>
+  <data name="ID_DEFINEVALIDFILEPATH" xml:space="preserve">
+    <value>Определите допустимый путь к файлу.</value>
+  </data>
+  <data name="ID_DISPLAYPALLETEDITION" xml:space="preserve">
+    <value>Поддон издание параметры</value>
+  </data>
+  <data name="ID_OPTIONSPALLETEDITION" xml:space="preserve">
+    <value>Options\\Pallet издание</value>
+  </data>
+  <data name="ID_CASECOUNTFORMATSTRING" xml:space="preserve">
+    <value>{0} {1} x {2}</value>
+  </data>
 </root>

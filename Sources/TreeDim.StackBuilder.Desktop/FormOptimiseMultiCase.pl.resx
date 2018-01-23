@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -143,5 +143,11 @@
   </data>
   <data name="lbAnalysisName.Text" xml:space="preserve">
     <value>Nazwa analizy</value>
+  </data>
+  <data name="uCtrlCaseDimensionsMax.Text" xml:space="preserve">
+    <value>Max. Wymiary futerału</value>
+  </data>
+  <data name="uCtrlCaseDimensionsMin.Text" xml:space="preserve">
+    <value>Min. Wymiary futerału</value>
   </data>
 </root>

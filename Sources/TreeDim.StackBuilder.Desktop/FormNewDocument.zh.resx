@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,4 +117,31 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="toolStripStatusLabelDef.Text" xml:space="preserve">
+    <value>toolStripStatusLabelDef</value>
+  </data>
+  <data name="lbAuthor.Text" xml:space="preserve">
+    <value>作者</value>
+  </data>
+  <data name="bnOk.Text" xml:space="preserve">
+    <value>还行</value>
+  </data>
+  <data name="lbDateCreated.Text" xml:space="preserve">
+    <value>创建日期</value>
+  </data>
+  <data name="bnCancel.Text" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="statusStripDef.Text" xml:space="preserve">
+    <value>statusStripDef</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>创建新文档..。</value>
+  </data>
+  <data name="lbName.Text" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="lbDescription.Text" xml:space="preserve">
+    <value>描述</value>
+  </data>
 </root>

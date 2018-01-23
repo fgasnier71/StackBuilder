@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,4 +117,22 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ID_READY" xml:space="preserve">
+		<value>准备就绪</value>
+	</data>
+  <data name="ID_CASECANNOTCONTAINITEM" xml:space="preserve">
+    <value>事例 {0} 不能包含项 {1}。</value>
+  </data>
+  <data name="ID_ERROR_INVALIDFILE" xml:space="preserve">
+    <value>文件 {0} 不包含有效的项目列表和有效的托盘列表。</value>
+  </data>
+  <data name="ID_ERROR_NOITEMFOUND" xml:space="preserve">
+    <value>找不到 {0}。验证是否存在有效的 {1} 选项卡!</value>
+  </data>
+  <data name="ID_PACKING" xml:space="preserve">
+    <value>Packing_{0}</value>
+  </data>
+  <data name="ID_PALLETHEIGHTINSUFFICIENT" xml:space="preserve">
+    <value>托盘高度似乎不足。</value>
+  </data>
 </root>

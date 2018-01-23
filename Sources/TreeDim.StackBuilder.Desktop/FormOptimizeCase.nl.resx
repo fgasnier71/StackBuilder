@@ -350,4 +350,28 @@
   <data name="$this.Text" xml:space="preserve">
     <value>Optimaliseren zaak afmetingen...</value>
   </data>
+  <data name="uCtrlOverhang.Text" xml:space="preserve">
+    <value>Overhang</value>
+  </data>
+  <data name="toolStripStatusLabelDef.Text" xml:space="preserve">
+    <value>toolStripStatusLabelDef</value>
+  </data>
+  <data name="statusStripDef.Text" xml:space="preserve">
+    <value>statusStripDef</value>
+  </data>
+  <data name="lbPallet.Text" xml:space="preserve">
+    <value>Pallet</value>
+  </data>
+  <data name="cbColor.Items" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Wrapper type</value>
+  </data>
+  <data name="gbPallet.Text" xml:space="preserve">
+    <value>Pallet</value>
+  </data>
+  <data name="gbWrapper.Text" xml:space="preserve">
+    <value>Wrapper</value>
+  </data>
 </root>

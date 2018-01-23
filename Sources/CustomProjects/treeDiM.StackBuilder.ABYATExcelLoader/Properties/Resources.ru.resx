@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,4 +117,19 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="IDS_NODATALOADED" xml:space="preserve">
+    <value>Данные не могут быть загружены из файла</value>
+  </data>
+  <data name="IDS_NOTALLCASESWILLFIT" xml:space="preserve">
+    <value>Не во всех случаях будет вписываться в укладки тома!</value>
+  </data>
+  <data name="IDS_NOVALIDFILELOADED" xml:space="preserve">
+    <value>Допустимый файл не загружен</value>
+  </data>
+  <data name="IDS_OVERWRITE" xml:space="preserve">
+    <value>Перезаписать {0}?</value>
+  </data>
+  <data name="IDS_READY" xml:space="preserve">
+    <value>Готов</value>
+  </data>
 </root>

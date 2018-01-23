@@ -834,4 +834,10 @@
   <data name="$this.Text" xml:space="preserve">
 		<value>Edytowanie obrazów twarzy</value>
 	</data>
+  <data name="uCtrlOrigin.Text" xml:space="preserve">
+    <value>Pochodzenie</value>
+  </data>
+  <data name="uCtrlSize.Text" xml:space="preserve">
+    <value>Rozmiar</value>
+  </data>
 </root>

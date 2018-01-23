@@ -1,0 +1,175 @@
+{
+  "metadata": {
+    "type": "Object",
+    "version": 4.4,
+    "generator": "io_three"
+  },
+  "geometries": [
+    {
+      "uuid": "15641190-4052-3871-BF5E-F046F6B1B496",
+      "type": "Geometry",
+      "data": {
+        "name": "BoxGeometry",
+        "morphTargets": [],
+        "skinIndices": [],
+        "uvs": [ [ 0, 1, 0, 0, 1, 0, 1, 1 ] ],
+        "faces": [
+          43,0,1,2,3,
+          0,
+          0,1,2,3,
+          0,0,0,0,
+
+          43,4,5,6,7,
+          0,
+          0,1,2,3,
+          1,1,1,1,
+
+          43,4,7,0,3,
+          1,
+          0,1,2,3,
+          2,2,2,2,
+
+          43,6,5,2,1,
+          1,
+          0,1,2,3,
+          3,3,3,3,
+
+          43,7,6,1,0,
+          2,
+          0,1,2,3,
+          4,4,4,4,
+
+          43,3,2,5,4,
+          2,
+          0,1,2,3,
+          5,5,5,5
+        ],
+        "vertices": [
+          0.5,-0.5,0.5,
+          0.5,-0.5,-0.5,
+          0.5,0.5,-0.5,
+          0.5,0.5,0.5,
+          -0.5,0.5,0.5,
+          -0.5,0.5,-0.5,
+          -0.5,-0.5,-0.5,
+          -0.5,-0.5,0.5
+        ],
+        "normals": [
+          1, 0, 0,
+          -1, 0, 0,
+          0, 0, 1,
+          0, 0, -1,
+          0, -1, 0,
+          0, 1, 0 ]
+      }
+    }
+  ],
+    "materials": [
+      {
+        "vertexColors": false,
+        "specular": 1907997,
+        "name": "bluephong",
+        "color": 8396,
+        "depthTest": true,
+        "depthWrite": true,
+        "emissive": 0,
+        "ambient": 8396,
+        "shininess": 50,
+        "type": "MeshPhongMaterial",
+        "uuid": "3701AB15-0042-3531-BDFA-EB0FA575D7D5",
+        "blending": "NormalBlending"
+      },
+      {
+        "vertexColors": false,
+        "specular": 1579032,
+        "name": "greenphong",
+        "color": 1887232,
+        "depthTest": true,
+        "depthWrite": true,
+        "emissive": 0,
+        "ambient": 1887232,
+        "shininess": 50,
+        "type": "MeshPhongMaterial",
+        "uuid": "541CFE3C-B1BD-37FD-8A82-3870870BB8A8",
+        "blending": "NormalBlending"
+      },
+      {
+        "vertexColors": false,
+        "specular": 1579032,
+        "name": "redphong",
+        "color": 13369344,
+        "depthTest": true,
+        "depthWrite": true,
+        "emissive": 0,
+        "ambient": 13369344,
+        "shininess": 50,
+        "type": "MeshPhongMaterial",
+        "uuid": "D95A0291-848F-32DE-B7CF-F93015785600",
+        "blending": "NormalBlending"
+      }
+    ],
+  "images": [],
+
+  "object": {
+    "type": "Scene",
+    "uuid": "D2931984-90E1-4ED3-A7A3-28D8C48C4800",
+    "children": [
+      {
+        "name": "Box",
+        "uuid": "DDA9AE26-14F9-3E6A-9BDD-AF02F6D2F286",
+        "matrix": [ -1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1 ],
+        "visible": true,
+        "type": "Mesh",
+        "castShadow": false,
+        "receiveShadow": false,
+        "geometry": "15641190-4052-3871-BF5E-F046F6B1B496",
+        "material": [
+          "3701AB15-0042-3531-BDFA-EB0FA575D7D5",
+          "541CFE3C-B1BD-37FD-8A82-3870870BB8A8",
+          "D95A0291-848F-32DE-B7CF-F93015785600"
+        ]
+      },
+      {
+        "name": "ambientlight",
+        "uuid": "217f2d71-80f0-44cd-9d97-43e5611050a3",
+        "type": "AmbientLight",
+        "color": 5592405
+      },
+      {
+        "name": "pointlight",
+        "uuid": "FCC1C4DA-037A-33FF-97AE-339CD1CB618C",
+        "matrix": [ -1, 0, 0, 0, 0, 1, -0, 0, 0, -0, -1, 0, -22.1326, 52.6576, -28.8763, 1 ],
+        "type": "PointLight",
+        "color": 16777215,
+        "intensity": 1
+      },
+      {
+        "name": "pointlight1",
+        "uuid": "D9440A28-5F71-3A2A-94B3-954420962156",
+        "matrix": [ -1, 0, 0, 0, 0, 1, -0, 0, 0, -0, -1, 0, 18.3723, 34.5427, 79.0829, 1 ],
+        "type": "PointLight",
+        "color": 16777215,
+        "intensity": 1
+      },
+      {
+        "name": "camera",
+        "uuid": "e2b22508-5e7c-4609-8505-d781754ba105",
+        "matrix": [ 0.70711, 0, 0.70711, 0, 0, 1, 0, 0, -0.70711, 0, 0.70711, 0, -200, 0, 200, 1 ],
+        "type": "PerspectiveCamera",
+        "fov": 30,
+        "aspect": 1.77778,
+        "near": 1,
+        "far": 10000
+      }
+    ],
+    "matrix": [ 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1 ]
+  },
+  "textures": [],
+  "animations": [
+    {
+      "name": "default",
+      "fps": 29,
+      "tracks": []
+    }
+  ]
+}

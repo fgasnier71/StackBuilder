@@ -285,4 +285,7 @@
   <data name="$this.Text" xml:space="preserve">
     <value>Analyse caisse/palette...</value>
   </data>
+  <data name="uCtrlOptMaxNumber.Text" xml:space="preserve">
+    <value>Nombre maximum</value>
+  </data>
 </root>

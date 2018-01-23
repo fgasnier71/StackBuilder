@@ -990,4 +990,13 @@
   <data name="bnSendToDB.Text" xml:space="preserve">
     <value>Guardar en base de datos</value>
   </data>
+  <data name="cbColor.Items36" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items37" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items38" xml:space="preserve">
+    <value>Color</value>
+  </data>
 </root>

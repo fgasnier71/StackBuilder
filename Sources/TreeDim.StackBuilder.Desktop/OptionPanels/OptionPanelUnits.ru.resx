@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,4 +117,22 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="lbUnitSystem.Text" xml:space="preserve">
+    <value>Система единиц</value>
+  </data>
+  <data name="lbLanguage.Text" xml:space="preserve">
+    <value>Язык</value>
+  </data>
+  <data name="cbUnitSystem.Items1" xml:space="preserve">
+    <value>Метрика 2 (cm/кг/л)</value>
+  </data>
+  <data name="cbUnitSystem.Items" xml:space="preserve">
+    <value>Метрика 1 (мм/кг/л)</value>
+  </data>
+  <data name="cbUnitSystem.Items2" xml:space="preserve">
+    <value>Великобритания (в/фунтов/галлон)</value>
+  </data>
+  <data name="cbUnitSystem.Items3" xml:space="preserve">
+    <value>США (в/фунтов/галлон)</value>
+  </data>
 </root>

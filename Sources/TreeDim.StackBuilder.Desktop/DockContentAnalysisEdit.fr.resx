@@ -308,4 +308,10 @@
   <data name="toolStripButtonReport.Text" xml:space="preserve">
     <value>Générer un rapport...</value>
   </data>
+  <data name="toolStripButtonExportXML.Text" xml:space="preserve">
+    <value>Exporter au format XML...</value>
+  </data>
+  <data name="toolStripButtonExportCSV.Text" xml:space="preserve">
+    <value>Exporter en CSV...</value>
+  </data>
 </root>

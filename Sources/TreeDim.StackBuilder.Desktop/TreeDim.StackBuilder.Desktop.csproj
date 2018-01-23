@@ -517,16 +517,31 @@
     <Content Include="wkHtmlToPdf\wkhtmltox.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <EmbeddedResource Include="AboutBox.de-DE.resx">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AboutBox.de.resx">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AboutBox.es-ES.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AboutBox.es.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AboutBox.fr-FR.resx">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AboutBox.fr.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AboutBox.it-IT.resx">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AboutBox.it.resx">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AboutBox.ja-JP.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AboutBox.ja.resx">
@@ -587,16 +602,31 @@
     <EmbeddedResource Include="CheckedListBoxWithImage.zh.resx">
       <DependentUpon>CheckedListBoxWithImage.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DockContentAnalysisBoxCase.de-DE.resx">
+      <DependentUpon>DockContentAnalysisBoxCase.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DockContentAnalysisBoxCase.de.resx">
+      <DependentUpon>DockContentAnalysisBoxCase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentAnalysisBoxCase.es-ES.resx">
       <DependentUpon>DockContentAnalysisBoxCase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DockContentAnalysisBoxCase.es.resx">
       <DependentUpon>DockContentAnalysisBoxCase.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DockContentAnalysisBoxCase.fr-FR.resx">
+      <DependentUpon>DockContentAnalysisBoxCase.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DockContentAnalysisBoxCase.fr.resx">
       <DependentUpon>DockContentAnalysisBoxCase.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DockContentAnalysisBoxCase.it-IT.resx">
+      <DependentUpon>DockContentAnalysisBoxCase.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DockContentAnalysisBoxCase.it.resx">
+      <DependentUpon>DockContentAnalysisBoxCase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentAnalysisBoxCase.ja-JP.resx">
       <DependentUpon>DockContentAnalysisBoxCase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DockContentAnalysisBoxCase.ja.resx">
@@ -620,16 +650,31 @@
     <EmbeddedResource Include="DockContentAnalysisBoxCase.zh.resx">
       <DependentUpon>DockContentAnalysisBoxCase.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DockContentAnalysisCasePallet.de-DE.resx">
+      <DependentUpon>DockContentAnalysisCasePallet.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DockContentAnalysisCasePallet.de.resx">
+      <DependentUpon>DockContentAnalysisCasePallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentAnalysisCasePallet.es-ES.resx">
       <DependentUpon>DockContentAnalysisCasePallet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DockContentAnalysisCasePallet.es.resx">
       <DependentUpon>DockContentAnalysisCasePallet.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DockContentAnalysisCasePallet.fr-FR.resx">
+      <DependentUpon>DockContentAnalysisCasePallet.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DockContentAnalysisCasePallet.fr.resx">
       <DependentUpon>DockContentAnalysisCasePallet.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DockContentAnalysisCasePallet.it-IT.resx">
+      <DependentUpon>DockContentAnalysisCasePallet.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DockContentAnalysisCasePallet.it.resx">
+      <DependentUpon>DockContentAnalysisCasePallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentAnalysisCasePallet.ja-JP.resx">
       <DependentUpon>DockContentAnalysisCasePallet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DockContentAnalysisCasePallet.ja.resx">
@@ -653,16 +698,31 @@
     <EmbeddedResource Include="DockContentAnalysisCasePallet.zh.resx">
       <DependentUpon>DockContentAnalysisCasePallet.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DockContentAnalysisCaseTruck.de-DE.resx">
+      <DependentUpon>DockContentAnalysisCaseTruck.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DockContentAnalysisCaseTruck.de.resx">
+      <DependentUpon>DockContentAnalysisCaseTruck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentAnalysisCaseTruck.es-ES.resx">
       <DependentUpon>DockContentAnalysisCaseTruck.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DockContentAnalysisCaseTruck.es.resx">
       <DependentUpon>DockContentAnalysisCaseTruck.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DockContentAnalysisCaseTruck.fr-FR.resx">
+      <DependentUpon>DockContentAnalysisCaseTruck.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DockContentAnalysisCaseTruck.fr.resx">
       <DependentUpon>DockContentAnalysisCaseTruck.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DockContentAnalysisCaseTruck.it-IT.resx">
+      <DependentUpon>DockContentAnalysisCaseTruck.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DockContentAnalysisCaseTruck.it.resx">
+      <DependentUpon>DockContentAnalysisCaseTruck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentAnalysisCaseTruck.ja-JP.resx">
       <DependentUpon>DockContentAnalysisCaseTruck.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DockContentAnalysisCaseTruck.ja.resx">
@@ -686,16 +746,31 @@
     <EmbeddedResource Include="DockContentAnalysisCaseTruck.zh.resx">
       <DependentUpon>DockContentAnalysisCaseTruck.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DockContentAnalysisCylinderCase.de-DE.resx">
+      <DependentUpon>DockContentAnalysisCylinderCase.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DockContentAnalysisCylinderCase.de.resx">
+      <DependentUpon>DockContentAnalysisCylinderCase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentAnalysisCylinderCase.es-ES.resx">
       <DependentUpon>DockContentAnalysisCylinderCase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DockContentAnalysisCylinderCase.es.resx">
       <DependentUpon>DockContentAnalysisCylinderCase.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DockContentAnalysisCylinderCase.fr-FR.resx">
+      <DependentUpon>DockContentAnalysisCylinderCase.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DockContentAnalysisCylinderCase.fr.resx">
       <DependentUpon>DockContentAnalysisCylinderCase.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DockContentAnalysisCylinderCase.it-IT.resx">
+      <DependentUpon>DockContentAnalysisCylinderCase.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DockContentAnalysisCylinderCase.it.resx">
+      <DependentUpon>DockContentAnalysisCylinderCase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentAnalysisCylinderCase.ja-JP.resx">
       <DependentUpon>DockContentAnalysisCylinderCase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DockContentAnalysisCylinderCase.ja.resx">
@@ -719,16 +794,31 @@
     <EmbeddedResource Include="DockContentAnalysisCylinderCase.zh.resx">
       <DependentUpon>DockContentAnalysisCylinderCase.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DockContentAnalysisCylinderPallet.de-DE.resx">
+      <DependentUpon>DockContentAnalysisCylinderPallet.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DockContentAnalysisCylinderPallet.de.resx">
+      <DependentUpon>DockContentAnalysisCylinderPallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentAnalysisCylinderPallet.es-ES.resx">
       <DependentUpon>DockContentAnalysisCylinderPallet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DockContentAnalysisCylinderPallet.es.resx">
       <DependentUpon>DockContentAnalysisCylinderPallet.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DockContentAnalysisCylinderPallet.fr-FR.resx">
+      <DependentUpon>DockContentAnalysisCylinderPallet.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DockContentAnalysisCylinderPallet.fr.resx">
       <DependentUpon>DockContentAnalysisCylinderPallet.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DockContentAnalysisCylinderPallet.it-IT.resx">
+      <DependentUpon>DockContentAnalysisCylinderPallet.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DockContentAnalysisCylinderPallet.it.resx">
+      <DependentUpon>DockContentAnalysisCylinderPallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentAnalysisCylinderPallet.ja-JP.resx">
       <DependentUpon>DockContentAnalysisCylinderPallet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DockContentAnalysisCylinderPallet.ja.resx">
@@ -752,16 +842,31 @@
     <EmbeddedResource Include="DockContentAnalysisCylinderPallet.zh.resx">
       <DependentUpon>DockContentAnalysisCylinderPallet.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DockContentAnalysisEdit.de-DE.resx">
+      <DependentUpon>DockContentAnalysisEdit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DockContentAnalysisEdit.de.resx">
+      <DependentUpon>DockContentAnalysisEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentAnalysisEdit.es-ES.resx">
       <DependentUpon>DockContentAnalysisEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DockContentAnalysisEdit.es.resx">
       <DependentUpon>DockContentAnalysisEdit.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DockContentAnalysisEdit.fr-FR.resx">
+      <DependentUpon>DockContentAnalysisEdit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DockContentAnalysisEdit.fr.resx">
       <DependentUpon>DockContentAnalysisEdit.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DockContentAnalysisEdit.it-IT.resx">
+      <DependentUpon>DockContentAnalysisEdit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DockContentAnalysisEdit.it.resx">
+      <DependentUpon>DockContentAnalysisEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentAnalysisEdit.ja-JP.resx">
       <DependentUpon>DockContentAnalysisEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DockContentAnalysisEdit.ja.resx">
@@ -785,16 +890,31 @@
     <EmbeddedResource Include="DockContentAnalysisEdit.zh.resx">
       <DependentUpon>DockContentAnalysisEdit.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DockContentAnalysisPalletTruck.de-DE.resx">
+      <DependentUpon>DockContentAnalysisPalletTruck.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DockContentAnalysisPalletTruck.de.resx">
+      <DependentUpon>DockContentAnalysisPalletTruck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentAnalysisPalletTruck.es-ES.resx">
       <DependentUpon>DockContentAnalysisPalletTruck.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DockContentAnalysisPalletTruck.es.resx">
       <DependentUpon>DockContentAnalysisPalletTruck.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DockContentAnalysisPalletTruck.fr-FR.resx">
+      <DependentUpon>DockContentAnalysisPalletTruck.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DockContentAnalysisPalletTruck.fr.resx">
       <DependentUpon>DockContentAnalysisPalletTruck.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DockContentAnalysisPalletTruck.it-IT.resx">
+      <DependentUpon>DockContentAnalysisPalletTruck.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DockContentAnalysisPalletTruck.it.resx">
+      <DependentUpon>DockContentAnalysisPalletTruck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentAnalysisPalletTruck.ja-JP.resx">
       <DependentUpon>DockContentAnalysisPalletTruck.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DockContentAnalysisPalletTruck.ja.resx">
@@ -818,16 +938,31 @@
     <EmbeddedResource Include="DockContentAnalysisPalletTruck.zh.resx">
       <DependentUpon>DockContentAnalysisPalletTruck.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DockContentDocumentExplorer.de-DE.resx">
+      <DependentUpon>DockContentDocumentExplorer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DockContentDocumentExplorer.de.resx">
+      <DependentUpon>DockContentDocumentExplorer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentDocumentExplorer.es-ES.resx">
       <DependentUpon>DockContentDocumentExplorer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DockContentDocumentExplorer.es.resx">
       <DependentUpon>DockContentDocumentExplorer.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DockContentDocumentExplorer.fr-FR.resx">
+      <DependentUpon>DockContentDocumentExplorer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DockContentDocumentExplorer.fr.resx">
       <DependentUpon>DockContentDocumentExplorer.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DockContentDocumentExplorer.it-IT.resx">
+      <DependentUpon>DockContentDocumentExplorer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DockContentDocumentExplorer.it.resx">
+      <DependentUpon>DockContentDocumentExplorer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentDocumentExplorer.ja-JP.resx">
       <DependentUpon>DockContentDocumentExplorer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DockContentDocumentExplorer.ja.resx">
@@ -851,16 +986,31 @@
     <EmbeddedResource Include="DockContentDocumentExplorer.zh.resx">
       <DependentUpon>DockContentDocumentExplorer.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DockContentECTAnalysis.de-DE.resx">
+      <DependentUpon>DockContentECTAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DockContentECTAnalysis.de.resx">
+      <DependentUpon>DockContentECTAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentECTAnalysis.es-ES.resx">
       <DependentUpon>DockContentECTAnalysis.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DockContentECTAnalysis.es.resx">
       <DependentUpon>DockContentECTAnalysis.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DockContentECTAnalysis.fr-FR.resx">
+      <DependentUpon>DockContentECTAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DockContentECTAnalysis.fr.resx">
       <DependentUpon>DockContentECTAnalysis.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DockContentECTAnalysis.it-IT.resx">
+      <DependentUpon>DockContentECTAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DockContentECTAnalysis.it.resx">
+      <DependentUpon>DockContentECTAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentECTAnalysis.ja-JP.resx">
       <DependentUpon>DockContentECTAnalysis.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DockContentECTAnalysis.ja.resx">
@@ -905,16 +1055,31 @@
     <EmbeddedResource Include="DockContentLogConsole.zh.resx">
       <DependentUpon>DockContentLogConsole.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DockContentStartPage.de-DE.resx">
+      <DependentUpon>DockContentStartPage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DockContentStartPage.de.resx">
+      <DependentUpon>DockContentStartPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentStartPage.es-ES.resx">
       <DependentUpon>DockContentStartPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DockContentStartPage.es.resx">
       <DependentUpon>DockContentStartPage.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DockContentStartPage.fr-FR.resx">
+      <DependentUpon>DockContentStartPage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DockContentStartPage.fr.resx">
       <DependentUpon>DockContentStartPage.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DockContentStartPage.it-IT.resx">
+      <DependentUpon>DockContentStartPage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DockContentStartPage.it.resx">
+      <DependentUpon>DockContentStartPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentStartPage.ja-JP.resx">
       <DependentUpon>DockContentStartPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DockContentStartPage.ja.resx">
@@ -950,17 +1115,32 @@
     <EmbeddedResource Include="DockContentView.zh.resx">
       <DependentUpon>DockContentView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormEditBitmaps.de-DE.resx">
+      <DependentUpon>FormEditBitmaps.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormEditBitmaps.de.resx">
+      <DependentUpon>FormEditBitmaps.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEditBitmaps.es-ES.resx">
       <DependentUpon>FormEditBitmaps.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormEditBitmaps.es.resx">
       <DependentUpon>FormEditBitmaps.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormEditBitmaps.fr-FR.resx">
+      <DependentUpon>FormEditBitmaps.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormEditBitmaps.fr.resx">
       <DependentUpon>FormEditBitmaps.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormEditBitmaps.it-IT.resx">
+      <DependentUpon>FormEditBitmaps.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormEditBitmaps.it.resx">
+      <DependentUpon>FormEditBitmaps.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEditBitmaps.ja-JP.resx">
       <DependentUpon>FormEditBitmaps.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormEditBitmaps.ja.resx">
@@ -1016,7 +1196,40 @@
     <EmbeddedResource Include="FormExcelLibrary.zh.resx">
       <DependentUpon>FormExcelLibrary.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormImportExcelCatalog.de-DE.resx">
+      <DependentUpon>FormImportExcelCatalog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormImportExcelCatalog.de.resx">
+      <DependentUpon>FormImportExcelCatalog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormImportExcelCatalog.es-ES.resx">
+      <DependentUpon>FormImportExcelCatalog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormImportExcelCatalog.es.resx">
+      <DependentUpon>FormImportExcelCatalog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormImportExcelCatalog.fr-FR.resx">
+      <DependentUpon>FormImportExcelCatalog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormImportExcelCatalog.fr.resx">
+      <DependentUpon>FormImportExcelCatalog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormImportExcelCatalog.it-IT.resx">
+      <DependentUpon>FormImportExcelCatalog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormImportExcelCatalog.it.resx">
+      <DependentUpon>FormImportExcelCatalog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormImportExcelCatalog.ja-JP.resx">
+      <DependentUpon>FormImportExcelCatalog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormImportExcelCatalog.ja.resx">
+      <DependentUpon>FormImportExcelCatalog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormImportExcelCatalog.nl.resx">
+      <DependentUpon>FormImportExcelCatalog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormImportExcelCatalog.pl.resx">
       <DependentUpon>FormImportExcelCatalog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormImportExcelCatalog.resx">
@@ -1025,19 +1238,37 @@
     <EmbeddedResource Include="FormImportExcelCatalog.ru.resx">
       <DependentUpon>FormImportExcelCatalog.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormImportExcelCatalog.sv.resx">
+      <DependentUpon>FormImportExcelCatalog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormImportExcelCatalog.zh.resx">
       <DependentUpon>FormImportExcelCatalog.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormMain.de-DE.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormMain.de.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMain.es-ES.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormMain.es.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormMain.fr-FR.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormMain.fr.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormMain.it-IT.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormMain.it.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMain.ja-JP.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormMain.ja.resx">
@@ -1058,7 +1289,22 @@
     <EmbeddedResource Include="FormMain.zh.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysis.de-DE.resx">
+      <DependentUpon>FormNewAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewAnalysis.de.resx">
+      <DependentUpon>FormNewAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysis.es-ES.resx">
+      <DependentUpon>FormNewAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysis.fr-FR.resx">
+      <DependentUpon>FormNewAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysis.it-IT.resx">
+      <DependentUpon>FormNewAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysis.ja-JP.resx">
       <DependentUpon>FormNewAnalysis.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewAnalysis.resx">
@@ -1091,16 +1337,31 @@
     <EmbeddedResource Include="FormNewAnalysis.zh.resx">
       <DependentUpon>FormNewAnalysis.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisBoxCase.de-DE.resx">
+      <DependentUpon>FormNewAnalysisBoxCase.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewAnalysisBoxCase.de.resx">
+      <DependentUpon>FormNewAnalysisBoxCase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisBoxCase.es-ES.resx">
       <DependentUpon>FormNewAnalysisBoxCase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewAnalysisBoxCase.es.resx">
       <DependentUpon>FormNewAnalysisBoxCase.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisBoxCase.fr-FR.resx">
+      <DependentUpon>FormNewAnalysisBoxCase.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewAnalysisBoxCase.fr.resx">
       <DependentUpon>FormNewAnalysisBoxCase.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisBoxCase.it-IT.resx">
+      <DependentUpon>FormNewAnalysisBoxCase.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewAnalysisBoxCase.it.resx">
+      <DependentUpon>FormNewAnalysisBoxCase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisBoxCase.ja-JP.resx">
       <DependentUpon>FormNewAnalysisBoxCase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewAnalysisBoxCase.ja.resx">
@@ -1121,16 +1382,31 @@
     <EmbeddedResource Include="FormNewAnalysisBoxCase.zh.resx">
       <DependentUpon>FormNewAnalysisBoxCase.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisCasePallet.de-DE.resx">
+      <DependentUpon>FormNewAnalysisCasePallet.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewAnalysisCasePallet.de.resx">
+      <DependentUpon>FormNewAnalysisCasePallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisCasePallet.es-ES.resx">
       <DependentUpon>FormNewAnalysisCasePallet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewAnalysisCasePallet.es.resx">
       <DependentUpon>FormNewAnalysisCasePallet.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisCasePallet.fr-FR.resx">
+      <DependentUpon>FormNewAnalysisCasePallet.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewAnalysisCasePallet.fr.resx">
       <DependentUpon>FormNewAnalysisCasePallet.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisCasePallet.it-IT.resx">
+      <DependentUpon>FormNewAnalysisCasePallet.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewAnalysisCasePallet.it.resx">
+      <DependentUpon>FormNewAnalysisCasePallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisCasePallet.ja-JP.resx">
       <DependentUpon>FormNewAnalysisCasePallet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewAnalysisCasePallet.ja.resx">
@@ -1161,16 +1437,31 @@
     <EmbeddedResource Include="FormNewAnalysisCasePalletDM.zh.resx">
       <DependentUpon>FormNewAnalysisCasePalletDM.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisCaseTruck.de-DE.resx">
+      <DependentUpon>FormNewAnalysisCaseTruck.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewAnalysisCaseTruck.de.resx">
+      <DependentUpon>FormNewAnalysisCaseTruck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisCaseTruck.es-ES.resx">
       <DependentUpon>FormNewAnalysisCaseTruck.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewAnalysisCaseTruck.es.resx">
       <DependentUpon>FormNewAnalysisCaseTruck.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisCaseTruck.fr-FR.resx">
+      <DependentUpon>FormNewAnalysisCaseTruck.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewAnalysisCaseTruck.fr.resx">
       <DependentUpon>FormNewAnalysisCaseTruck.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisCaseTruck.it-IT.resx">
+      <DependentUpon>FormNewAnalysisCaseTruck.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewAnalysisCaseTruck.it.resx">
+      <DependentUpon>FormNewAnalysisCaseTruck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisCaseTruck.ja-JP.resx">
       <DependentUpon>FormNewAnalysisCaseTruck.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewAnalysisCaseTruck.ja.resx">
@@ -1194,16 +1485,31 @@
     <EmbeddedResource Include="FormNewAnalysisCaseTruck.zh.resx">
       <DependentUpon>FormNewAnalysisCaseTruck.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisCylinderCase.de-DE.resx">
+      <DependentUpon>FormNewAnalysisCylinderCase.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewAnalysisCylinderCase.de.resx">
+      <DependentUpon>FormNewAnalysisCylinderCase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisCylinderCase.es-ES.resx">
       <DependentUpon>FormNewAnalysisCylinderCase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewAnalysisCylinderCase.es.resx">
       <DependentUpon>FormNewAnalysisCylinderCase.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisCylinderCase.fr-FR.resx">
+      <DependentUpon>FormNewAnalysisCylinderCase.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewAnalysisCylinderCase.fr.resx">
       <DependentUpon>FormNewAnalysisCylinderCase.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisCylinderCase.it-IT.resx">
+      <DependentUpon>FormNewAnalysisCylinderCase.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewAnalysisCylinderCase.it.resx">
+      <DependentUpon>FormNewAnalysisCylinderCase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisCylinderCase.ja-JP.resx">
       <DependentUpon>FormNewAnalysisCylinderCase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewAnalysisCylinderCase.ja.resx">
@@ -1227,16 +1533,31 @@
     <EmbeddedResource Include="FormNewAnalysisCylinderCase.zh.resx">
       <DependentUpon>FormNewAnalysisCylinderCase.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisCylinderPallet.de-DE.resx">
+      <DependentUpon>FormNewAnalysisCylinderPallet.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewAnalysisCylinderPallet.de.resx">
+      <DependentUpon>FormNewAnalysisCylinderPallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisCylinderPallet.es-ES.resx">
       <DependentUpon>FormNewAnalysisCylinderPallet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewAnalysisCylinderPallet.es.resx">
       <DependentUpon>FormNewAnalysisCylinderPallet.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisCylinderPallet.fr-FR.resx">
+      <DependentUpon>FormNewAnalysisCylinderPallet.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewAnalysisCylinderPallet.fr.resx">
       <DependentUpon>FormNewAnalysisCylinderPallet.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisCylinderPallet.it-IT.resx">
+      <DependentUpon>FormNewAnalysisCylinderPallet.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewAnalysisCylinderPallet.it.resx">
+      <DependentUpon>FormNewAnalysisCylinderPallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisCylinderPallet.ja-JP.resx">
       <DependentUpon>FormNewAnalysisCylinderPallet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewAnalysisCylinderPallet.ja.resx">
@@ -1267,16 +1588,31 @@
     <EmbeddedResource Include="FormNewAnalysisCylinderPallet.zh.resx">
       <DependentUpon>FormNewAnalysisCylinderPallet.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisPalletTruck.de-DE.resx">
+      <DependentUpon>FormNewAnalysisPalletTruck.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewAnalysisPalletTruck.de.resx">
+      <DependentUpon>FormNewAnalysisPalletTruck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisPalletTruck.es-ES.resx">
       <DependentUpon>FormNewAnalysisPalletTruck.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewAnalysisPalletTruck.es.resx">
       <DependentUpon>FormNewAnalysisPalletTruck.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisPalletTruck.fr-FR.resx">
+      <DependentUpon>FormNewAnalysisPalletTruck.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewAnalysisPalletTruck.fr.resx">
       <DependentUpon>FormNewAnalysisPalletTruck.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisPalletTruck.it-IT.resx">
+      <DependentUpon>FormNewAnalysisPalletTruck.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewAnalysisPalletTruck.it.resx">
+      <DependentUpon>FormNewAnalysisPalletTruck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisPalletTruck.ja-JP.resx">
       <DependentUpon>FormNewAnalysisPalletTruck.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewAnalysisPalletTruck.ja.resx">
@@ -1299,6 +1635,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewAnalysisPalletTruck.zh.resx">
       <DependentUpon>FormNewAnalysisPalletTruck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewBase.de-DE.resx">
+      <DependentUpon>FormNewBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewBase.es-ES.resx">
+      <DependentUpon>FormNewBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewBase.fr-FR.resx">
+      <DependentUpon>FormNewBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewBase.it-IT.resx">
+      <DependentUpon>FormNewBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewBase.ja-JP.resx">
+      <DependentUpon>FormNewBase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewBase.resx">
       <DependentUpon>FormNewBase.cs</DependentUpon>
@@ -1332,6 +1683,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewBase.zh.resx">
       <DependentUpon>FormNewBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewBox.de-DE.resx">
+      <DependentUpon>FormNewBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewBox.es-ES.resx">
+      <DependentUpon>FormNewBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewBox.fr-FR.resx">
+      <DependentUpon>FormNewBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewBox.it-IT.resx">
+      <DependentUpon>FormNewBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewBox.ja-JP.resx">
+      <DependentUpon>FormNewBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewBox.resx">
       <SubType>Designer</SubType>
@@ -1369,17 +1735,32 @@
     <EmbeddedResource Include="FormNewBox.zh.resx">
       <DependentUpon>FormNewBox.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNewBundle.de-DE.resx">
+      <DependentUpon>FormNewBundle.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewBundle.de.resx">
       <DependentUpon>FormNewBundle.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNewBundle.es-ES.resx">
+      <DependentUpon>FormNewBundle.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewBundle.es.resx">
+      <DependentUpon>FormNewBundle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewBundle.fr-FR.resx">
       <DependentUpon>FormNewBundle.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewBundle.fr.resx">
       <DependentUpon>FormNewBundle.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNewBundle.it-IT.resx">
+      <DependentUpon>FormNewBundle.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewBundle.it.resx">
+      <DependentUpon>FormNewBundle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewBundle.ja-JP.resx">
       <DependentUpon>FormNewBundle.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewBundle.ja.resx">
@@ -1404,17 +1785,32 @@
     <EmbeddedResource Include="FormNewBundle.zh.resx">
       <DependentUpon>FormNewBundle.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNewCylinder.de-DE.resx">
+      <DependentUpon>FormNewCylinder.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewCylinder.de.resx">
       <DependentUpon>FormNewCylinder.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNewCylinder.es-ES.resx">
+      <DependentUpon>FormNewCylinder.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewCylinder.es.resx">
+      <DependentUpon>FormNewCylinder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewCylinder.fr-FR.resx">
       <DependentUpon>FormNewCylinder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewCylinder.fr.resx">
       <DependentUpon>FormNewCylinder.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNewCylinder.it-IT.resx">
+      <DependentUpon>FormNewCylinder.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewCylinder.it.resx">
+      <DependentUpon>FormNewCylinder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewCylinder.ja-JP.resx">
       <DependentUpon>FormNewCylinder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewCylinder.ja.resx">
@@ -1439,16 +1835,31 @@
     <EmbeddedResource Include="FormNewCylinder.zh.resx">
       <DependentUpon>FormNewCylinder.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNewDocument.de-DE.resx">
+      <DependentUpon>FormNewDocument.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewDocument.de.resx">
+      <DependentUpon>FormNewDocument.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewDocument.es-ES.resx">
       <DependentUpon>FormNewDocument.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewDocument.es.resx">
       <DependentUpon>FormNewDocument.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNewDocument.fr-FR.resx">
+      <DependentUpon>FormNewDocument.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewDocument.fr.resx">
       <DependentUpon>FormNewDocument.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNewDocument.it-IT.resx">
+      <DependentUpon>FormNewDocument.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewDocument.it.resx">
+      <DependentUpon>FormNewDocument.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewDocument.ja-JP.resx">
       <DependentUpon>FormNewDocument.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewDocument.ja.resx">
@@ -1473,17 +1884,32 @@
     <EmbeddedResource Include="FormNewDocument.zh.resx">
       <DependentUpon>FormNewDocument.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNewInterlayer.de-DE.resx">
+      <DependentUpon>FormNewInterlayer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewInterlayer.de.resx">
       <DependentUpon>FormNewInterlayer.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNewInterlayer.es-ES.resx">
+      <DependentUpon>FormNewInterlayer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewInterlayer.es.resx">
+      <DependentUpon>FormNewInterlayer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewInterlayer.fr-FR.resx">
       <DependentUpon>FormNewInterlayer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewInterlayer.fr.resx">
       <DependentUpon>FormNewInterlayer.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNewInterlayer.it-IT.resx">
+      <DependentUpon>FormNewInterlayer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewInterlayer.it.resx">
+      <DependentUpon>FormNewInterlayer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewInterlayer.ja-JP.resx">
       <DependentUpon>FormNewInterlayer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewInterlayer.ja.resx">
@@ -1508,16 +1934,31 @@
     <EmbeddedResource Include="FormNewInterlayer.zh.resx">
       <DependentUpon>FormNewInterlayer.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNewPack.de-DE.resx">
+      <DependentUpon>FormNewPack.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewPack.de.resx">
+      <DependentUpon>FormNewPack.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewPack.es-ES.resx">
       <DependentUpon>FormNewPack.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewPack.es.resx">
       <DependentUpon>FormNewPack.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNewPack.fr-FR.resx">
+      <DependentUpon>FormNewPack.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewPack.fr.resx">
       <DependentUpon>FormNewPack.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNewPack.it-IT.resx">
+      <DependentUpon>FormNewPack.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewPack.it.resx">
+      <DependentUpon>FormNewPack.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewPack.ja-JP.resx">
       <DependentUpon>FormNewPack.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewPack.ja.resx">
@@ -1541,16 +1982,31 @@
     <EmbeddedResource Include="FormNewPack.zh.resx">
       <DependentUpon>FormNewPack.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNewPallet.de-DE.resx">
+      <DependentUpon>FormNewPallet.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewPallet.de.resx">
+      <DependentUpon>FormNewPallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewPallet.es-ES.resx">
       <DependentUpon>FormNewPallet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewPallet.es.resx">
       <DependentUpon>FormNewPallet.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNewPallet.fr-FR.resx">
+      <DependentUpon>FormNewPallet.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewPallet.fr.resx">
       <DependentUpon>FormNewPallet.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNewPallet.it-IT.resx">
+      <DependentUpon>FormNewPallet.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewPallet.it.resx">
+      <DependentUpon>FormNewPallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewPallet.ja-JP.resx">
       <DependentUpon>FormNewPallet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewPallet.ja.resx">
@@ -1579,16 +2035,31 @@
     <EmbeddedResource Include="FormNewPallet.zh.resx">
       <DependentUpon>FormNewPallet.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNewPalletCap.de-DE.resx">
+      <DependentUpon>FormNewPalletCap.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewPalletCap.de.resx">
+      <DependentUpon>FormNewPalletCap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewPalletCap.es-ES.resx">
       <DependentUpon>FormNewPalletCap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewPalletCap.es.resx">
       <DependentUpon>FormNewPalletCap.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNewPalletCap.fr-FR.resx">
+      <DependentUpon>FormNewPalletCap.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewPalletCap.fr.resx">
       <DependentUpon>FormNewPalletCap.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNewPalletCap.it-IT.resx">
+      <DependentUpon>FormNewPalletCap.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewPalletCap.it.resx">
+      <DependentUpon>FormNewPalletCap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewPalletCap.ja-JP.resx">
       <DependentUpon>FormNewPalletCap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewPalletCap.ja.resx">
@@ -1625,16 +2096,31 @@
     <EmbeddedResource Include="FormNewPalletCorners.zh.resx">
       <DependentUpon>FormNewPalletCorners.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNewPalletFilm.de-DE.resx">
+      <DependentUpon>FormNewPalletFilm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewPalletFilm.de.resx">
+      <DependentUpon>FormNewPalletFilm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewPalletFilm.es-ES.resx">
       <DependentUpon>FormNewPalletFilm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewPalletFilm.es.resx">
       <DependentUpon>FormNewPalletFilm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNewPalletFilm.fr-FR.resx">
+      <DependentUpon>FormNewPalletFilm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewPalletFilm.fr.resx">
       <DependentUpon>FormNewPalletFilm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNewPalletFilm.it-IT.resx">
+      <DependentUpon>FormNewPalletFilm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewPalletFilm.it.resx">
+      <DependentUpon>FormNewPalletFilm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewPalletFilm.ja-JP.resx">
       <DependentUpon>FormNewPalletFilm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewPalletFilm.ja.resx">
@@ -1658,16 +2144,31 @@
     <EmbeddedResource Include="FormNewPalletFilm.zh.resx">
       <DependentUpon>FormNewPalletFilm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNewTruck.de-DE.resx">
+      <DependentUpon>FormNewTruck.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewTruck.de.resx">
+      <DependentUpon>FormNewTruck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewTruck.es-ES.resx">
       <DependentUpon>FormNewTruck.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewTruck.es.resx">
       <DependentUpon>FormNewTruck.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNewTruck.fr-FR.resx">
+      <DependentUpon>FormNewTruck.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewTruck.fr.resx">
       <DependentUpon>FormNewTruck.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNewTruck.it-IT.resx">
+      <DependentUpon>FormNewTruck.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewTruck.it.resx">
+      <DependentUpon>FormNewTruck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewTruck.ja-JP.resx">
       <DependentUpon>FormNewTruck.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewTruck.ja.resx">
@@ -1693,16 +2194,31 @@
     <EmbeddedResource Include="FormNewTruck.zh.resx">
       <DependentUpon>FormNewTruck.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormOptimiseMultiCase.de-DE.resx">
+      <DependentUpon>FormOptimiseMultiCase.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormOptimiseMultiCase.de.resx">
+      <DependentUpon>FormOptimiseMultiCase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormOptimiseMultiCase.es-ES.resx">
       <DependentUpon>FormOptimiseMultiCase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormOptimiseMultiCase.es.resx">
       <DependentUpon>FormOptimiseMultiCase.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormOptimiseMultiCase.fr-FR.resx">
+      <DependentUpon>FormOptimiseMultiCase.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormOptimiseMultiCase.fr.resx">
       <DependentUpon>FormOptimiseMultiCase.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormOptimiseMultiCase.it-IT.resx">
+      <DependentUpon>FormOptimiseMultiCase.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormOptimiseMultiCase.it.resx">
+      <DependentUpon>FormOptimiseMultiCase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormOptimiseMultiCase.ja-JP.resx">
       <DependentUpon>FormOptimiseMultiCase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormOptimiseMultiCase.ja.resx">
@@ -1727,21 +2243,36 @@
     <EmbeddedResource Include="FormOptimiseMultiCase.zh.resx">
       <DependentUpon>FormOptimiseMultiCase.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormOptimizeCase.de-DE.resx">
+      <DependentUpon>FormOptimizeCase.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormOptimizeCase.de.resx">
       <DependentUpon>FormOptimizeCase.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormOptimizeCase.es-ES.resx">
+      <DependentUpon>FormOptimizeCase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormOptimizeCase.es.resx">
       <DependentUpon>FormOptimizeCase.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormOptimizeCase.fr-FR.resx">
+      <DependentUpon>FormOptimizeCase.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormOptimizeCase.fr.resx">
       <DependentUpon>FormOptimizeCase.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormOptimizeCase.it-IT.resx">
+      <DependentUpon>FormOptimizeCase.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormOptimizeCase.it.resx">
       <DependentUpon>FormOptimizeCase.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormOptimizeCase.ja-JP.resx">
+      <DependentUpon>FormOptimizeCase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormOptimizeCase.ja.resx">
       <DependentUpon>FormOptimizeCase.cs</DependentUpon>
@@ -1766,17 +2297,32 @@
     <EmbeddedResource Include="FormOptimizeCase.zh.resx">
       <DependentUpon>FormOptimizeCase.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormOptimizePack.de-DE.resx">
+      <DependentUpon>FormOptimizePack.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormOptimizePack.de.resx">
       <DependentUpon>FormOptimizePack.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormOptimizePack.es-ES.resx">
+      <DependentUpon>FormOptimizePack.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormOptimizePack.es.resx">
+      <DependentUpon>FormOptimizePack.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormOptimizePack.fr-FR.resx">
       <DependentUpon>FormOptimizePack.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormOptimizePack.fr.resx">
       <DependentUpon>FormOptimizePack.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormOptimizePack.it-IT.resx">
+      <DependentUpon>FormOptimizePack.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormOptimizePack.it.resx">
+      <DependentUpon>FormOptimizePack.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormOptimizePack.ja-JP.resx">
       <DependentUpon>FormOptimizePack.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormOptimizePack.ja.resx">
@@ -1800,17 +2346,32 @@
     <EmbeddedResource Include="FormOptimizePack.zh.resx">
       <DependentUpon>FormOptimizePack.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormSetItemName.de-DE.resx">
+      <DependentUpon>FormSetItemName.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormSetItemName.de.resx">
       <DependentUpon>FormSetItemName.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormSetItemName.es-ES.resx">
+      <DependentUpon>FormSetItemName.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormSetItemName.es.resx">
+      <DependentUpon>FormSetItemName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSetItemName.fr-FR.resx">
       <DependentUpon>FormSetItemName.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSetItemName.fr.resx">
       <DependentUpon>FormSetItemName.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormSetItemName.it-IT.resx">
+      <DependentUpon>FormSetItemName.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormSetItemName.it.resx">
+      <DependentUpon>FormSetItemName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSetItemName.ja-JP.resx">
       <DependentUpon>FormSetItemName.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSetItemName.ja.resx">
@@ -1834,16 +2395,31 @@
     <EmbeddedResource Include="FormSetItemName.zh.resx">
       <DependentUpon>FormSetItemName.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormShowDatabase.de-DE.resx">
+      <DependentUpon>FormShowDatabase.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormShowDatabase.de.resx">
+      <DependentUpon>FormShowDatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormShowDatabase.es-ES.resx">
       <DependentUpon>FormShowDatabase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormShowDatabase.es.resx">
       <DependentUpon>FormShowDatabase.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormShowDatabase.fr-FR.resx">
+      <DependentUpon>FormShowDatabase.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormShowDatabase.fr.resx">
       <DependentUpon>FormShowDatabase.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormShowDatabase.it-IT.resx">
+      <DependentUpon>FormShowDatabase.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormShowDatabase.it.resx">
+      <DependentUpon>FormShowDatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormShowDatabase.ja-JP.resx">
       <DependentUpon>FormShowDatabase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormShowDatabase.ja.resx">
@@ -1867,13 +2443,28 @@
     <EmbeddedResource Include="FormShowDatabase.zh.resx">
       <DependentUpon>FormShowDatabase.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormSplashScreen.de-DE.resx">
+      <DependentUpon>FormSplashScreen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormSplashScreen.de.resx">
+      <DependentUpon>FormSplashScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSplashScreen.es-ES.resx">
+      <DependentUpon>FormSplashScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSplashScreen.fr-FR.resx">
       <DependentUpon>FormSplashScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSplashScreen.fr.resx">
       <DependentUpon>FormSplashScreen.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormSplashScreen.it-IT.resx">
+      <DependentUpon>FormSplashScreen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormSplashScreen.it.resx">
+      <DependentUpon>FormSplashScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSplashScreen.ja-JP.resx">
       <DependentUpon>FormSplashScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSplashScreen.ja.resx">
@@ -1894,17 +2485,32 @@
     <EmbeddedResource Include="FormSplashScreen.zh.resx">
       <DependentUpon>FormSplashScreen.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormValidTypeName.de-DE.resx">
+      <DependentUpon>FormValidTypeName.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormValidTypeName.de.resx">
       <DependentUpon>FormValidTypeName.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormValidTypeName.es-ES.resx">
+      <DependentUpon>FormValidTypeName.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormValidTypeName.es.resx">
+      <DependentUpon>FormValidTypeName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormValidTypeName.fr-FR.resx">
       <DependentUpon>FormValidTypeName.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormValidTypeName.fr.resx">
       <DependentUpon>FormValidTypeName.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormValidTypeName.it-IT.resx">
+      <DependentUpon>FormValidTypeName.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormValidTypeName.it.resx">
+      <DependentUpon>FormValidTypeName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormValidTypeName.ja-JP.resx">
       <DependentUpon>FormValidTypeName.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormValidTypeName.ja.resx">
@@ -1928,16 +2534,31 @@
     <EmbeddedResource Include="FormValidTypeName.zh.resx">
       <DependentUpon>FormValidTypeName.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="OptionPanels\FormOptionsSettings.de-DE.resx">
+      <DependentUpon>FormOptionsSettings.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="OptionPanels\FormOptionsSettings.de.resx">
+      <DependentUpon>FormOptionsSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OptionPanels\FormOptionsSettings.es-ES.resx">
       <DependentUpon>FormOptionsSettings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OptionPanels\FormOptionsSettings.es.resx">
       <DependentUpon>FormOptionsSettings.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="OptionPanels\FormOptionsSettings.fr-FR.resx">
+      <DependentUpon>FormOptionsSettings.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="OptionPanels\FormOptionsSettings.fr.resx">
       <DependentUpon>FormOptionsSettings.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="OptionPanels\FormOptionsSettings.it-IT.resx">
+      <DependentUpon>FormOptionsSettings.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="OptionPanels\FormOptionsSettings.it.resx">
+      <DependentUpon>FormOptionsSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OptionPanels\FormOptionsSettings.ja-JP.resx">
       <DependentUpon>FormOptionsSettings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OptionPanels\FormOptionsSettings.ja.resx">
@@ -1958,16 +2579,31 @@
     <EmbeddedResource Include="OptionPanels\FormOptionsSettings.zh.resx">
       <DependentUpon>FormOptionsSettings.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="OptionPanels\OptionPanelDatabase.de-DE.resx">
+      <DependentUpon>OptionPanelDatabase.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="OptionPanels\OptionPanelDatabase.de.resx">
+      <DependentUpon>OptionPanelDatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OptionPanels\OptionPanelDatabase.es-ES.resx">
       <DependentUpon>OptionPanelDatabase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OptionPanels\OptionPanelDatabase.es.resx">
       <DependentUpon>OptionPanelDatabase.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="OptionPanels\OptionPanelDatabase.fr-FR.resx">
+      <DependentUpon>OptionPanelDatabase.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="OptionPanels\OptionPanelDatabase.fr.resx">
       <DependentUpon>OptionPanelDatabase.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="OptionPanels\OptionPanelDatabase.it-IT.resx">
+      <DependentUpon>OptionPanelDatabase.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="OptionPanels\OptionPanelDatabase.it.resx">
+      <DependentUpon>OptionPanelDatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OptionPanels\OptionPanelDatabase.ja-JP.resx">
       <DependentUpon>OptionPanelDatabase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OptionPanels\OptionPanelDatabase.ja.resx">
@@ -1991,16 +2627,31 @@
     <EmbeddedResource Include="OptionPanels\OptionPanelDatabase.zh.resx">
       <DependentUpon>OptionPanelDatabase.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="OptionPanels\OptionPanelDebugging.de-DE.resx">
+      <DependentUpon>OptionPanelDebugging.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="OptionPanels\OptionPanelDebugging.de.resx">
+      <DependentUpon>OptionPanelDebugging.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OptionPanels\OptionPanelDebugging.es-ES.resx">
       <DependentUpon>OptionPanelDebugging.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OptionPanels\OptionPanelDebugging.es.resx">
       <DependentUpon>OptionPanelDebugging.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="OptionPanels\OptionPanelDebugging.fr-FR.resx">
+      <DependentUpon>OptionPanelDebugging.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="OptionPanels\OptionPanelDebugging.fr.resx">
       <DependentUpon>OptionPanelDebugging.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="OptionPanels\OptionPanelDebugging.it-IT.resx">
+      <DependentUpon>OptionPanelDebugging.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="OptionPanels\OptionPanelDebugging.it.resx">
+      <DependentUpon>OptionPanelDebugging.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OptionPanels\OptionPanelDebugging.ja-JP.resx">
       <DependentUpon>OptionPanelDebugging.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OptionPanels\OptionPanelDebugging.ja.resx">
@@ -2024,16 +2675,31 @@
     <EmbeddedResource Include="OptionPanels\OptionPanelDebugging.zh.resx">
       <DependentUpon>OptionPanelDebugging.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="OptionPanels\OptionPanelDimensions.de-DE.resx">
+      <DependentUpon>OptionPanelDimensions.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="OptionPanels\OptionPanelDimensions.de.resx">
+      <DependentUpon>OptionPanelDimensions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OptionPanels\OptionPanelDimensions.es-ES.resx">
       <DependentUpon>OptionPanelDimensions.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OptionPanels\OptionPanelDimensions.es.resx">
       <DependentUpon>OptionPanelDimensions.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="OptionPanels\OptionPanelDimensions.fr-FR.resx">
+      <DependentUpon>OptionPanelDimensions.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="OptionPanels\OptionPanelDimensions.fr.resx">
       <DependentUpon>OptionPanelDimensions.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="OptionPanels\OptionPanelDimensions.it-IT.resx">
+      <DependentUpon>OptionPanelDimensions.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="OptionPanels\OptionPanelDimensions.it.resx">
+      <DependentUpon>OptionPanelDimensions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OptionPanels\OptionPanelDimensions.ja-JP.resx">
       <DependentUpon>OptionPanelDimensions.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OptionPanels\OptionPanelDimensions.ja.resx">
@@ -2057,16 +2723,31 @@
     <EmbeddedResource Include="OptionPanels\OptionPanelDimensions.zh.resx">
       <DependentUpon>OptionPanelDimensions.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="OptionPanels\OptionPanelLayerListCtrl.de-DE.resx">
+      <DependentUpon>OptionPanelLayerListCtrl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="OptionPanels\OptionPanelLayerListCtrl.de.resx">
+      <DependentUpon>OptionPanelLayerListCtrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OptionPanels\OptionPanelLayerListCtrl.es-ES.resx">
       <DependentUpon>OptionPanelLayerListCtrl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OptionPanels\OptionPanelLayerListCtrl.es.resx">
       <DependentUpon>OptionPanelLayerListCtrl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="OptionPanels\OptionPanelLayerListCtrl.fr-FR.resx">
+      <DependentUpon>OptionPanelLayerListCtrl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="OptionPanels\OptionPanelLayerListCtrl.fr.resx">
       <DependentUpon>OptionPanelLayerListCtrl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="OptionPanels\OptionPanelLayerListCtrl.it-IT.resx">
+      <DependentUpon>OptionPanelLayerListCtrl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="OptionPanels\OptionPanelLayerListCtrl.it.resx">
+      <DependentUpon>OptionPanelLayerListCtrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OptionPanels\OptionPanelLayerListCtrl.ja-JP.resx">
       <DependentUpon>OptionPanelLayerListCtrl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OptionPanels\OptionPanelLayerListCtrl.ja.resx">
@@ -2099,16 +2780,31 @@
     <EmbeddedResource Include="OptionPanels\OptionPanelPalletEdition.zh.resx">
       <DependentUpon>OptionPanelPalletEdition.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="OptionPanels\OptionPanelPlugins.de-DE.resx">
+      <DependentUpon>OptionPanelPlugins.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="OptionPanels\OptionPanelPlugins.de.resx">
+      <DependentUpon>OptionPanelPlugins.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OptionPanels\OptionPanelPlugins.es-ES.resx">
       <DependentUpon>OptionPanelPlugins.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OptionPanels\OptionPanelPlugins.es.resx">
       <DependentUpon>OptionPanelPlugins.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="OptionPanels\OptionPanelPlugins.fr-FR.resx">
+      <DependentUpon>OptionPanelPlugins.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="OptionPanels\OptionPanelPlugins.fr.resx">
       <DependentUpon>OptionPanelPlugins.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="OptionPanels\OptionPanelPlugins.it-IT.resx">
+      <DependentUpon>OptionPanelPlugins.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="OptionPanels\OptionPanelPlugins.it.resx">
+      <DependentUpon>OptionPanelPlugins.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OptionPanels\OptionPanelPlugins.ja-JP.resx">
       <DependentUpon>OptionPanelPlugins.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OptionPanels\OptionPanelPlugins.ja.resx">
@@ -2132,16 +2828,31 @@
     <EmbeddedResource Include="OptionPanels\OptionPanelPlugins.zh.resx">
       <DependentUpon>OptionPanelPlugins.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="OptionPanels\OptionPanelReporting.de-DE.resx">
+      <DependentUpon>OptionPanelReporting.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="OptionPanels\OptionPanelReporting.de.resx">
+      <DependentUpon>OptionPanelReporting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OptionPanels\OptionPanelReporting.es-ES.resx">
       <DependentUpon>OptionPanelReporting.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OptionPanels\OptionPanelReporting.es.resx">
       <DependentUpon>OptionPanelReporting.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="OptionPanels\OptionPanelReporting.fr-FR.resx">
+      <DependentUpon>OptionPanelReporting.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="OptionPanels\OptionPanelReporting.fr.resx">
       <DependentUpon>OptionPanelReporting.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="OptionPanels\OptionPanelReporting.it-IT.resx">
+      <DependentUpon>OptionPanelReporting.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="OptionPanels\OptionPanelReporting.it.resx">
+      <DependentUpon>OptionPanelReporting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OptionPanels\OptionPanelReporting.ja-JP.resx">
       <DependentUpon>OptionPanelReporting.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OptionPanels\OptionPanelReporting.ja.resx">
@@ -2169,16 +2880,31 @@
     <EmbeddedResource Include="OptionPanels\OptionPanelReporting.zh.resx">
       <DependentUpon>OptionPanelReporting.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="OptionPanels\OptionPanelUnits.de-DE.resx">
+      <DependentUpon>OptionPanelUnits.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="OptionPanels\OptionPanelUnits.de.resx">
+      <DependentUpon>OptionPanelUnits.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OptionPanels\OptionPanelUnits.es-ES.resx">
       <DependentUpon>OptionPanelUnits.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OptionPanels\OptionPanelUnits.es.resx">
       <DependentUpon>OptionPanelUnits.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="OptionPanels\OptionPanelUnits.fr-FR.resx">
+      <DependentUpon>OptionPanelUnits.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="OptionPanels\OptionPanelUnits.fr.resx">
       <DependentUpon>OptionPanelUnits.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="OptionPanels\OptionPanelUnits.it-IT.resx">
+      <DependentUpon>OptionPanelUnits.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="OptionPanels\OptionPanelUnits.it.resx">
+      <DependentUpon>OptionPanelUnits.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OptionPanels\OptionPanelUnits.ja-JP.resx">
       <DependentUpon>OptionPanelUnits.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OptionPanels\OptionPanelUnits.ja.resx">
@@ -2202,7 +2928,12 @@
     <EmbeddedResource Include="OptionPanels\OptionPanelUnits.zh.resx">
       <DependentUpon>OptionPanelUnits.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.de-DE.resx" />
+    <EmbeddedResource Include="Properties\Resources.es-ES.resx" />
+    <EmbeddedResource Include="Properties\Resources.fr-FR.resx" />
+    <EmbeddedResource Include="Properties\Resources.it-IT.resx" />
     <EmbeddedResource Include="Properties\Resources.it.resx" />
+    <EmbeddedResource Include="Properties\Resources.ja-JP.resx" />
     <EmbeddedResource Include="Properties\Resources.nl.resx" />
     <EmbeddedResource Include="Properties\Resources.pl.resx" />
     <EmbeddedResource Include="Properties\Resources.resx">

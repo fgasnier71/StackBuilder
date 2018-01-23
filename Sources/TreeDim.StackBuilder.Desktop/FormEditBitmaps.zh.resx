@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,4 +117,64 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="bnOK.Text" xml:space="preserve">
+    <value>还行</value>
+  </data>
+  <data name="bnCancel.Text" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="labelFace.Text" xml:space="preserve">
+    <value>脸</value>
+  </data>
+  <data name="cbFace.Items" xml:space="preserve">
+    <value>后</value>
+  </data>
+  <data name="cbFace.Items1" xml:space="preserve">
+    <value>前面</value>
+  </data>
+  <data name="cbFace.Items2" xml:space="preserve">
+    <value>权利</value>
+  </data>
+  <data name="cbFace.Items3" xml:space="preserve">
+    <value>左</value>
+  </data>
+  <data name="cbFace.Items4" xml:space="preserve">
+    <value>底部</value>
+  </data>
+  <data name="cbFace.Items5" xml:space="preserve">
+    <value>返回页首</value>
+  </data>
+  <data name="lbAngle.Text" xml:space="preserve">
+    <value>角度</value>
+  </data>
+  <data name="lbUnitAngle.Text" xml:space="preserve">
+    <value>°</value>
+  </data>
+  <data name="bnMoveUp.Text" xml:space="preserve">
+    <value>上移</value>
+  </data>
+  <data name="bnMoveDown.Text" xml:space="preserve">
+    <value>下移</value>
+  </data>
+  <data name="bnAdd.Text" xml:space="preserve">
+    <value>添加纹理..。</value>
+  </data>
+  <data name="bnRemove.Text" xml:space="preserve">
+    <value>删除</value>
+  </data>
+  <data name="openImageFileDialog.Filter" xml:space="preserve">
+    <value>图像文件 (*. bmp, *. gif, *. jpg) |</value>
+  </data>
+  <data name="lbImage.Text" xml:space="preserve">
+    <value>图像</value>
+  </data>
+  <data name="uCtrlOrigin.Text" xml:space="preserve">
+    <value>起源</value>
+  </data>
+  <data name="uCtrlSize.Text" xml:space="preserve">
+    <value>大小</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>编辑脸部图像</value>
+  </data>
 </root>

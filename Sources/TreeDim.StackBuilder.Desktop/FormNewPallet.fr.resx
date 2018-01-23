@@ -236,4 +236,7 @@
   <data name="cbColor.Items22" xml:space="preserve">
     <value>Couleur</value>
   </data>
+  <data name="cbColor.Items27" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
 </root>
