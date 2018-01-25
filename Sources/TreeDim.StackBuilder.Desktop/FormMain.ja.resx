@@ -398,7 +398,7 @@
     <value>ファイルを開く...</value>
   </data>
   <data name="saveFileDialogSB.Filter" xml:space="preserve">
-    <value>StackBuilderファイル（*. STB）| *. STB</value>
+    <value>StackBuilderファイル（*. stb）|*.stb</value>
   </data>
   <data name="saveFileDialogSB.Title" xml:space="preserve">
     <value>ファイルを保存...</value>

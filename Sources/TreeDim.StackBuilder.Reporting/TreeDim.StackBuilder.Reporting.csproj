@@ -57,11 +57,11 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ExcelDataReader, Version=3.2.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
-      <HintPath>..\packages\ExcelDataReader.3.2.0\lib\net45\ExcelDataReader.dll</HintPath>
+    <Reference Include="ExcelDataReader, Version=3.3.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelDataReader.3.3.0\lib\net45\ExcelDataReader.dll</HintPath>
     </Reference>
-    <Reference Include="ExcelDataReader.DataSet, Version=3.2.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
-      <HintPath>..\packages\ExcelDataReader.DataSet.3.2.0\lib\net45\ExcelDataReader.DataSet.dll</HintPath>
+    <Reference Include="ExcelDataReader.DataSet, Version=3.3.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelDataReader.DataSet.3.3.0\lib\net45\ExcelDataReader.DataSet.dll</HintPath>
     </Reference>
     <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
@@ -198,31 +198,16 @@
     <Folder Include="SampleReportData\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="FormReportDesign.de-DE.resx">
-      <DependentUpon>FormReportDesign.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormReportDesign.de.resx">
-      <DependentUpon>FormReportDesign.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormReportDesign.es-ES.resx">
       <DependentUpon>FormReportDesign.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormReportDesign.es.resx">
       <DependentUpon>FormReportDesign.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormReportDesign.fr-FR.resx">
-      <DependentUpon>FormReportDesign.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormReportDesign.fr.resx">
       <DependentUpon>FormReportDesign.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormReportDesign.it-IT.resx">
-      <DependentUpon>FormReportDesign.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormReportDesign.it.resx">
-      <DependentUpon>FormReportDesign.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormReportDesign.ja-JP.resx">
       <DependentUpon>FormReportDesign.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormReportDesign.ja.resx">
@@ -246,15 +231,10 @@
     <EmbeddedResource Include="FormReportDesign.zh.resx">
       <DependentUpon>FormReportDesign.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.de-DE.resx" />
     <EmbeddedResource Include="Properties\Resources.de.resx" />
-    <EmbeddedResource Include="Properties\Resources.es-ES.resx" />
     <EmbeddedResource Include="Properties\Resources.es.resx" />
-    <EmbeddedResource Include="Properties\Resources.fr-FR.resx" />
     <EmbeddedResource Include="Properties\Resources.fr.resx" />
-    <EmbeddedResource Include="Properties\Resources.it-IT.resx" />
     <EmbeddedResource Include="Properties\Resources.it.resx" />
-    <EmbeddedResource Include="Properties\Resources.ja-JP.resx" />
     <EmbeddedResource Include="Properties\Resources.ja.resx" />
     <EmbeddedResource Include="Properties\Resources.nl.resx" />
     <EmbeddedResource Include="Properties\Resources.pl.resx" />
@@ -283,11 +263,11 @@
   <Target Name="PostBuildEvent" Condition=" '$(PostBuildEvent)' != '' " DependsOnTargets="$(PostBuildEventDependsOn)">
     <Exec WorkingDirectory="$(OutDir)" Command="$(PostBuildEvent)" IgnoreExitCode="true" />
   </Target>
-  <Import Project="..\packages\NuGet.Build.Tasks.Pack.4.4.0\build\NuGet.Build.Tasks.Pack.targets" Condition="Exists('..\packages\NuGet.Build.Tasks.Pack.4.4.0\build\NuGet.Build.Tasks.Pack.targets')" />
+  <Import Project="..\packages\NuGet.Build.Tasks.Pack.4.5.0\build\NuGet.Build.Tasks.Pack.targets" Condition="Exists('..\packages\NuGet.Build.Tasks.Pack.4.5.0\build\NuGet.Build.Tasks.Pack.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
-      <ErrorText>Ce projet fait référence à des packages NuGet qui sont manquants sur cet ordinateur. Utilisez l'option de restauration des packages NuGet pour les télécharger. Pour plus d'informations, consultez http://go.microsoft.com/fwlink/?LinkID=322105. Le fichier manquant est : {0}.</ErrorText>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\NuGet.Build.Tasks.Pack.4.4.0\build\NuGet.Build.Tasks.Pack.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NuGet.Build.Tasks.Pack.4.4.0\build\NuGet.Build.Tasks.Pack.targets'))" />
+    <Error Condition="!Exists('..\packages\NuGet.Build.Tasks.Pack.4.5.0\build\NuGet.Build.Tasks.Pack.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NuGet.Build.Tasks.Pack.4.5.0\build\NuGet.Build.Tasks.Pack.targets'))" />
   </Target>
 </Project>

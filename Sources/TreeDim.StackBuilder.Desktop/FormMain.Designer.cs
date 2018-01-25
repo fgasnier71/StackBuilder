@@ -133,7 +133,6 @@
             this.saveFileDialogWebGL = new System.Windows.Forms.SaveFileDialog();
             this.timerLogin = new System.Windows.Forms.Timer(this.components);
             this.saveFileDialogExportXML = new System.Windows.Forms.SaveFileDialog();
-            this.saveFileDialogExportCSV = new System.Windows.Forms.SaveFileDialog();
             this.menuStripMain.SuspendLayout();
             this.toolStripStandard.SuspendLayout();
             this.SuspendLayout();
@@ -973,6 +972,5 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMIPLMPackLib;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator21;
         private System.Windows.Forms.SaveFileDialog saveFileDialogExportXML;
-        private System.Windows.Forms.SaveFileDialog saveFileDialogExportCSV;
     }
 }

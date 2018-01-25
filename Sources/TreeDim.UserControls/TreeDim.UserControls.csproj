@@ -116,31 +116,16 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="ProgressWindow.de-DE.resx">
-      <DependentUpon>ProgressWindow.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="ProgressWindow.de.resx">
-      <DependentUpon>ProgressWindow.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ProgressWindow.es-ES.resx">
       <DependentUpon>ProgressWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProgressWindow.es.resx">
       <DependentUpon>ProgressWindow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ProgressWindow.fr-FR.resx">
-      <DependentUpon>ProgressWindow.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="ProgressWindow.fr.resx">
       <DependentUpon>ProgressWindow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ProgressWindow.it-IT.resx">
-      <DependentUpon>ProgressWindow.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="ProgressWindow.it.resx">
-      <DependentUpon>ProgressWindow.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ProgressWindow.ja-JP.resx">
       <DependentUpon>ProgressWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProgressWindow.ja.resx">
@@ -154,6 +139,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ProgressWindow.resx">
       <DependentUpon>ProgressWindow.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="ProgressWindow.ru.resx">
       <DependentUpon>ProgressWindow.cs</DependentUpon>

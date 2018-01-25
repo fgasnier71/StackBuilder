@@ -819,7 +819,7 @@
     <value>Standaard</value>
   </data>
   <data name="openFileDialogSB.Filter" xml:space="preserve">
-    <value>StackBuilder bestanden (*.stb) | * .stb | Alle bestanden (*. *) | *. *</value>
+    <value>StackBuilder bestanden (*.stb)|*.stb|Alle bestanden (*.*)|*. *</value>
   </data>
   <data name="openFileDialogSB.Title" xml:space="preserve">
     <value>Open dossier...</value>
