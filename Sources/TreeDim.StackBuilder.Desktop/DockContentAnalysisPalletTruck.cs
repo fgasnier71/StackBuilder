@@ -52,6 +52,7 @@ namespace treeDiM.StackBuilder.Desktop
         }
         #endregion
 
+
         #region IItemListener implementation
         public override void Update(ItemBase item)
         {
@@ -83,10 +84,14 @@ namespace treeDiM.StackBuilder.Desktop
             base.OnLoad(e);
 
             // --- window caption
-            this.Text = _analysis.Name + " _ " + _analysis.ParentDocument.Name;
+            Text = _analysis.Name + " _ " + _analysis.ParentDocument.Name;
             // --- initialize drawing container
             graphCtrlSolution.Viewer = new ViewerSolution(_solution);
             graphCtrlSolution.Invalidate();
+
+            uCtrlMaxNoPallets.Value = _analysis.ConstraintSet.OptMaxNumber;
+            uCtrlMaxNoPallets.ValueChanged += new UCtrlOptInt.ValueChangedDelegate(this.OnCriterionChanged);
+
             // --- initialize grid control
             FillGrid();
             UpdateGrid();
@@ -234,7 +239,6 @@ namespace treeDiM.StackBuilder.Desktop
                 gridSolution[iRow, 1] = new SourceGrid.Cells.Cell(
                     string.Format(CultureInfo.InvariantCulture, "{0:0.#}", _solution.VolumeEfficiency));
 
-
                 // ### layers : begin
                 for (int i = 0; i < _solution.Layers.Count; ++i)
                 {
@@ -252,18 +256,26 @@ namespace treeDiM.StackBuilder.Desktop
         }
         #endregion
 
+        #region Event handlers
+        private void OnCriterionChanged(object sender, EventArgs e)
+        {
+
+        }
+        #endregion
+
         #region Toolbar event handlers
-        private void onBack(object sender, EventArgs e)
+        private void OnBack(object sender, EventArgs e)
         {
             // close this form
             Close();
             // call edit analysis
             Document.EditAnalysis(_analysis);
         }
-        private void onGenerateReport(object sender, EventArgs e)
+        private void OnGenerateReport(object sender, EventArgs e)
         {
             FormMain.GetInstance().GenerateReport(_analysis);
         }
         #endregion
+
     }
 }

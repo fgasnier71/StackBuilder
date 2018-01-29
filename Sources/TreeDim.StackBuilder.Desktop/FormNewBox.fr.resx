@@ -128,14 +128,8 @@
     <value>NoControl</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="lbFace.Size" type="System.Drawing.Size, System.Drawing">
-    <value>39, 13</value>
-  </data>
   <data name="lbFace.Text" xml:space="preserve">
-    <value>Visage</value>
-  </data>
-  <data name="gbDimensions.Size" type="System.Drawing.Size, System.Drawing">
-    <value>354, 76</value>
+    <value>Face</value>
   </data>
   <data name="uCtrlDimensionsInner.Text" xml:space="preserve">
     <value>Dimensions intérieures</value>
@@ -491,23 +485,11 @@
   <data name="lblName.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="lblName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>29, 13</value>
-  </data>
   <data name="lblName.Text" xml:space="preserve">
     <value>Nom</value>
   </data>
   <data name="lblDescription.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
-  </data>
-  <data name="graphCtrl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>206, 236</value>
-  </data>
-  <data name="gbTape.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 212</value>
-  </data>
-  <data name="gbTape.Size" type="System.Drawing.Size, System.Drawing">
-    <value>354, 47</value>
   </data>
   <data name="gbTape.Text" xml:space="preserve">
     <value>Ruban adhésif</value>

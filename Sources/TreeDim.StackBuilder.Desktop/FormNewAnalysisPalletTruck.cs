@@ -68,8 +68,7 @@ namespace treeDiM.StackBuilder.Desktop
                 uCtrlMinDistanceLoadWall.ValueY = Settings.Default.MinDistancePalletTruckWallY;
                 uCtrlMinDistanceLoadRoof.Value = Settings.Default.MinDistancePalletTruckRoof;
                 chkbAllowMultipleLayers.Checked = Settings.Default.AllowMultipleLayers;
-
-                checkBoxBestLayersOnly.Checked = Settings.Default.KeepBestSolutions;
+                uCtrlMaxNoPallets.Value = new OptInt(false, 1);
             }
             else
             {
@@ -83,6 +82,7 @@ namespace treeDiM.StackBuilder.Desktop
                 uCtrlMinDistanceLoadWall.ValueY = constraintSet.MinDistanceLoadWall.Y;
                 uCtrlMinDistanceLoadRoof.Value = constraintSet.MinDistanceLoadRoof;
                 chkbAllowMultipleLayers.Checked = constraintSet.AllowMultipleLayers;
+                uCtrlMaxNoPallets.Value = constraintSet.OptMaxNumber;
             }
             checkBoxBestLayersOnly.Checked = Settings.Default.KeepBestSolutions;
         }
@@ -212,6 +212,7 @@ namespace treeDiM.StackBuilder.Desktop
             {
                 MinDistanceLoadWall = new Vector2D(uCtrlMinDistanceLoadWall.ValueX, uCtrlMinDistanceLoadWall.ValueY),
                 MinDistanceLoadRoof = uCtrlMinDistanceLoadRoof.Value,
+                OptMaxNumber = uCtrlMaxNoPallets.Value,
                 AllowMultipleLayers = chkbAllowMultipleLayers.Checked
             };
             return constraintSet;

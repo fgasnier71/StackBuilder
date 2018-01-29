@@ -68,10 +68,13 @@
             // 
             // lbName
             // 
-            this.lbName.AutoSize = true;
-            this.lbName.Location = new System.Drawing.Point(0, 4);
+            this.lbName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbName.AutoEllipsis = true;
+            this.lbName.Location = new System.Drawing.Point(0, 2);
             this.lbName.Name = "lbName";
-            this.lbName.Size = new System.Drawing.Size(35, 13);
+            this.lbName.Size = new System.Drawing.Size(194, 20);
             this.lbName.TabIndex = 5;
             this.lbName.Text = "Name";
             // 

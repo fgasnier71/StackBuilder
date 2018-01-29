@@ -33,11 +33,13 @@
             this.splitContainerVert = new System.Windows.Forms.SplitContainer();
             this.graphCtrlSolution = new treeDiM.StackBuilder.Graphics.Graphics3DControl();
             this.gridSolution = new SourceGrid.Grid();
+            this.uCtrlMaxNoPallets = new treeDiM.StackBuilder.Basics.UCtrlOptInt();
             this.toolStripAnalysis = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonBack = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonReport = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerHoriz)).BeginInit();
             this.splitContainerHoriz.Panel1.SuspendLayout();
+            this.splitContainerHoriz.Panel2.SuspendLayout();
             this.splitContainerHoriz.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerVert)).BeginInit();
             this.splitContainerVert.Panel1.SuspendLayout();
@@ -55,6 +57,10 @@
             // splitContainerHoriz.Panel1
             // 
             this.splitContainerHoriz.Panel1.Controls.Add(this.splitContainerVert);
+            // 
+            // splitContainerHoriz.Panel2
+            // 
+            this.splitContainerHoriz.Panel2.Controls.Add(this.uCtrlMaxNoPallets);
             // 
             // splitContainerVert
             // 
@@ -85,6 +91,13 @@
             this.gridSolution.TabStop = true;
             this.gridSolution.ToolTipText = "";
             // 
+            // uCtrlMaxNoPallets
+            // 
+            resources.ApplyResources(this.uCtrlMaxNoPallets, "uCtrlMaxNoPallets");
+            this.uCtrlMaxNoPallets.Minimum = 0;
+            this.uCtrlMaxNoPallets.Name = "uCtrlMaxNoPallets";
+            this.uCtrlMaxNoPallets.Value = ((treeDiM.StackBuilder.Basics.OptInt)(resources.GetObject("uCtrlMaxNoPallets.Value")));
+            // 
             // toolStripAnalysis
             // 
             this.toolStripAnalysis.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -98,14 +111,14 @@
             this.toolStripButtonBack.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             resources.ApplyResources(this.toolStripButtonBack, "toolStripButtonBack");
             this.toolStripButtonBack.Name = "toolStripButtonBack";
-            this.toolStripButtonBack.Click += new System.EventHandler(this.onBack);
+            this.toolStripButtonBack.Click += new System.EventHandler(this.OnBack);
             // 
             // toolStripButtonReport
             // 
             this.toolStripButtonReport.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             resources.ApplyResources(this.toolStripButtonReport, "toolStripButtonReport");
             this.toolStripButtonReport.Name = "toolStripButtonReport";
-            this.toolStripButtonReport.Click += new System.EventHandler(this.onGenerateReport);
+            this.toolStripButtonReport.Click += new System.EventHandler(this.OnGenerateReport);
             // 
             // DockContentAnalysisPalletTruck
             // 
@@ -116,6 +129,7 @@
             this.Name = "DockContentAnalysisPalletTruck";
             this.ShowInTaskbar = false;
             this.splitContainerHoriz.Panel1.ResumeLayout(false);
+            this.splitContainerHoriz.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerHoriz)).EndInit();
             this.splitContainerHoriz.ResumeLayout(false);
             this.splitContainerVert.Panel1.ResumeLayout(false);
@@ -139,5 +153,6 @@
         private System.Windows.Forms.SplitContainer splitContainerVert;
         private Graphics.Graphics3DControl graphCtrlSolution;
         private SourceGrid.Grid gridSolution;
+        private Basics.UCtrlOptInt uCtrlMaxNoPallets;
     }
 }

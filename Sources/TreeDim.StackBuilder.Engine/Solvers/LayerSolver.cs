@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 
 using log4net;
 using Sharp3D.Math.Core;
@@ -43,8 +42,7 @@ namespace treeDiM.StackBuilder.Engine
                             if (layer.NoLayers(constraintSet.OptMaxHeight.Value) < 1)
                                 continue;
                             layer.PatternName = pattern.Name;
-                            double actualLength = 0.0, actualWidth = 0.0;
-                            if (!pattern.GetLayerDimensionsChecked(layer, out actualLength, out actualWidth))
+                            if (!pattern.GetLayerDimensionsChecked(layer, out double actualLength, out double actualWidth))
                                 continue;
                             pattern.GenerateLayer(layer, actualLength, actualWidth);
                             if (0 == layer.Count)
@@ -82,7 +80,7 @@ namespace treeDiM.StackBuilder.Engine
                 listLayers0.AddRange(listLayers1);
             }
             if (constraintSet.OptMaxHeight.Activated)
-                listLayers0.Sort(new LayerComparerCount(constraintSet.OptMaxHeight.Value - offsetZ));
+                listLayers0.Sort(new LayerComparerCount(constraintSet, offsetZ));
 
             return listLayers0;
         }

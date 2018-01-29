@@ -170,6 +170,11 @@ namespace treeDiM.StackBuilder.Graphics
             }
         }
         /// <summary>
+        /// Is face degenerate
+        /// </summary>
+        public bool IsDegenerate
+        {   get { return (Vector3D.CrossProduct(_points[1] - _points[0], _points[2] - _points[0]).GetLength() < MathFunctions.EpsilonD); } }
+        /// <summary>
         /// The picking id of the face
         /// </summary>
         public uint PickingId

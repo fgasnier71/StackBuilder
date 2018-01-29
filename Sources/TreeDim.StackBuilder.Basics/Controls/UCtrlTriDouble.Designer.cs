@@ -43,7 +43,7 @@
             this.nudValueX.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.nudValueX.DecimalPlaces = 2;
-            this.nudValueX.Location = new System.Drawing.Point(116, 0);
+            this.nudValueX.Location = new System.Drawing.Point(121, 0);
             this.nudValueX.Maximum = new decimal(new int[] {
             100000,
             0,
@@ -59,7 +59,7 @@
             this.nudValueY.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.nudValueY.DecimalPlaces = 2;
-            this.nudValueY.Location = new System.Drawing.Point(181, 0);
+            this.nudValueY.Location = new System.Drawing.Point(185, 0);
             this.nudValueY.Maximum = new decimal(new int[] {
             100000,
             0,
@@ -88,10 +88,13 @@
             // 
             // lbName
             // 
-            this.lbName.AutoSize = true;
-            this.lbName.Location = new System.Drawing.Point(0, 4);
+            this.lbName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbName.AutoEllipsis = true;
+            this.lbName.Location = new System.Drawing.Point(0, 2);
             this.lbName.Name = "lbName";
-            this.lbName.Size = new System.Drawing.Size(35, 13);
+            this.lbName.Size = new System.Drawing.Size(115, 20);
             this.lbName.TabIndex = 3;
             this.lbName.Text = "Name";
             // 

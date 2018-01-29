@@ -418,21 +418,37 @@ namespace treeDiM.StackBuilder.Basics
     public class LayerComparerCount : IComparer<Layer2D>
     {
         #region Data members
-        private double _height = 0; 
+        private double _offsetZ = 0;
+        private ConstraintSetAbstract _constraintSet;
         #endregion
 
         #region Constructor
-        public LayerComparerCount(double height)
+        public LayerComparerCount(ConstraintSetAbstract constraintSet, double offsetZ)
         {
-            _height = height;
+            _offsetZ = offsetZ;
+            _constraintSet = constraintSet;
         }
+        #endregion
+
+        #region Public properties
+        public bool AllowMultipleLayers
+        {
+            get
+            {
+                if (_constraintSet is ConstraintSetPalletTruck constraintSetPalletTruck)
+                    return constraintSetPalletTruck.AllowMultipleLayers;
+                else
+                    return true;
+            }
+        }
+        public double Height { get { return _constraintSet.OptMaxHeight.Value - _offsetZ; } }
         #endregion
 
         #region Implement IComparer
         public int Compare(Layer2D layer0, Layer2D layer1)
         {
-            int layer0Count = layer0.CountInHeight(_height);
-            int layer1Count = layer1.CountInHeight(_height);
+            int layer0Count = AllowMultipleLayers ? layer0.CountInHeight(Height) : layer0.Count;
+            int layer1Count = AllowMultipleLayers ? layer1.CountInHeight(Height) : layer1.Count;
 
             if (layer0Count < layer1Count) return 1;
             else if (layer0Count == layer1Count)

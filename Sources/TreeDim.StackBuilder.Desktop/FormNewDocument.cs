@@ -1,12 +1,12 @@
 ﻿#region Using directives
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 
+using log4net;
+
+using treeDiM.PLMPack.DBClient;
 using treeDiM.StackBuilder.Desktop.Properties;
 #endregion
 
@@ -49,7 +49,16 @@ namespace treeDiM.StackBuilder.Desktop
         {
             get
             {
-                return PLMPack.DBClient.WCFClient.ClientGuest.get_UserName();
+                try
+                {
+                    using (WCFClient wcfClient = new WCFClient())
+                    { return wcfClient.User.Name; }
+                }
+                catch (Exception ex)
+                {
+                    _log.Error(ex.ToString());
+                    return string.Empty;
+                }
             }
         }
         #endregion
@@ -90,6 +99,10 @@ namespace treeDiM.StackBuilder.Desktop
                 Settings.Default.FormNewDocumentPosition = new WindowSettings();
             Settings.Default.FormNewDocumentPosition.Record(this);
         }
+        #endregion
+
+        #region Data members
+        protected static ILog _log = LogManager.GetLogger(typeof(FormNewDocument));
         #endregion
     }
 }

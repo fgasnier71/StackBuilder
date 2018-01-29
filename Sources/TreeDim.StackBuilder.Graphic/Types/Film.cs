@@ -208,7 +208,10 @@ namespace treeDiM.StackBuilder.Graphics
                     if (HasTransparency)
                     {
                         foreach (Face face in rectangle.Faces)
-                            graph.AddFace(face);
+                        {
+                            if (!face.IsDegenerate)
+                                graph.AddFace(face);
+                        }
                     }
                     // hatching
                     if (HasHatching)

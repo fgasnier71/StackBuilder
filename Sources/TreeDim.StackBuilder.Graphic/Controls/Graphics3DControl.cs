@@ -85,7 +85,7 @@ namespace treeDiM.StackBuilder.Graphics
         private void SetDoubleBuffered()
         { 
             System.Reflection.PropertyInfo aProp =
-                typeof(System.Windows.Forms.Control).GetProperty(
+                typeof(Control).GetProperty(
                     "DoubleBuffered",
                     System.Reflection.BindingFlags.NonPublic |
                     System.Reflection.BindingFlags.Instance);
@@ -115,68 +115,74 @@ namespace treeDiM.StackBuilder.Graphics
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
-
-            Graphics3DForm graphics = new Graphics3DForm(this, e.Graphics);
-            double angleHorizRad = _angleHoriz * Math.PI / 180.0;
-            double angleVertRad = _angleVert * Math.PI / 180.0;
-            double cameraDistance = 100000.0;
-            graphics.CameraPosition = new Vector3D(
-                cameraDistance * Math.Cos(angleHorizRad) * Math.Cos(angleVertRad)
-                , cameraDistance * Math.Sin(angleHorizRad) * Math.Cos(angleVertRad)
-                , cameraDistance * Math.Sin(angleVertRad));
-            // set camera target
-            graphics.Target = Vector3D.Zero;
-            // set viewport (not actually needed)
-            graphics.SetViewport(-500.0f, -500.0f, 500.0f, 500.0f);
-            // show images
-            graphics.ShowTextures = true;
-            graphics.ShowDimensions = ShowDimensions;
-            graphics.FontSizeRatio = 10.0f / (float)Size.Height;
-
-            if (null != _drawingContainer)
+            try
             {
-                try
+                Graphics3DForm graphics = new Graphics3DForm(this, e.Graphics);
+                double angleHorizRad = _angleHoriz * Math.PI / 180.0;
+                double angleVertRad = _angleVert * Math.PI / 180.0;
+                double cameraDistance = 100000.0;
+                graphics.CameraPosition = new Vector3D(
+                    cameraDistance * Math.Cos(angleHorizRad) * Math.Cos(angleVertRad)
+                    , cameraDistance * Math.Sin(angleHorizRad) * Math.Cos(angleVertRad)
+                    , cameraDistance * Math.Sin(angleVertRad));
+                // set camera target
+                graphics.Target = Vector3D.Zero;
+                // set viewport (not actually needed)
+                graphics.SetViewport(-500.0f, -500.0f, 500.0f, 500.0f);
+                // show images
+                graphics.ShowTextures = true;
+                graphics.ShowDimensions = ShowDimensions;
+                graphics.FontSizeRatio = 10.0f / (float)Size.Height;
+
+                if (null != _drawingContainer)
                 {
-                    _drawingContainer.Draw(this, graphics);
+                    try
+                    {
+                        _drawingContainer.Draw(this, graphics);
+                    }
+                    catch (Exception ex)
+                    {
+                        e.Graphics.DrawString(ex.ToString()
+                            , new Font("Arial", 12)
+                            , new SolidBrush(Color.Red)
+                            , new Point(0, 0)
+                            , StringFormat.GenericDefault);
+                        _log.Error(ex.ToString());
+                    }
                 }
-                catch (Exception ex)
+                if (null != _viewer)
                 {
-                    e.Graphics.DrawString(ex.ToString()
-                        , new Font("Arial", 12)
-                        , new SolidBrush(Color.Red)
-                        , new Point(0, 0)
-                        , StringFormat.GenericDefault);
-                    _log.Error(ex.ToString()); 
+                    try
+                    {
+                        _viewer.Draw(graphics, Transform3D.Identity);
+                    }
+                    catch (Exception ex)
+                    {
+                        e.Graphics.DrawString(ex.Message
+                            , new Font("Arial", 12)
+                            , new SolidBrush(Color.Red)
+                            , new Point(0, 0)
+                            , StringFormat.GenericDefault);
+                        _log.Error(ex.Message);
+                    }
                 }
+
+                graphics.Flush();
+
+                if (null != _viewer)
+                {
+                    _viewer.CurrentTransformation = graphics.GetCurrentTransformation();
+                    _viewer.ViewDir = graphics.ViewDirection;
+                }
+
+                // draw toolbar
+                if (ShowToolBar)
+                    DrawToolBar(e.Graphics);
             }
-            if (null != _viewer)
+            catch (Exception ex)
             {
-                try
-                {
-                    _viewer.Draw(graphics, Transform3D.Identity);
-                }
-                catch (Exception ex)
-                {
-                    e.Graphics.DrawString(ex.Message
-                        , new Font("Arial", 12)
-                        , new SolidBrush(Color.Red)
-                        , new Point(0, 0)
-                        , StringFormat.GenericDefault);
-                    _log.Error(ex.Message); 
-                }
+                _log.Error(ex.ToString());
             }
-
-            graphics.Flush();
-
-            if (null != _viewer)
-            {
-                _viewer.CurrentTransformation = graphics.GetCurrentTransformation();
-                _viewer.ViewDir = graphics.ViewDirection;
-            }
-
-            // draw toolbar
-            if (ShowToolBar)
-                DrawToolBar(e.Graphics);
         }
         #endregion
 

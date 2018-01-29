@@ -115,6 +115,9 @@
     <Reference Include="CrashReporter.NET, Version=1.5.3.0, Culture=neutral, PublicKeyToken=986591a91592b7e6, processorArchitecture=MSIL">
       <HintPath>..\packages\CrashReporter.NET.Official.1.5.3\lib\net452\CrashReporter.NET.dll</HintPath>
     </Reference>
+    <Reference Include="Cureos.Measures">
+      <HintPath>..\ThirdPartyAssemblies\Cureos.Measures.dll</HintPath>
+    </Reference>
     <Reference Include="ExcelDataReader, Version=3.3.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
       <HintPath>..\packages\ExcelDataReader.3.3.0\lib\net45\ExcelDataReader.dll</HintPath>
     </Reference>
@@ -2423,7 +2426,7 @@
       <Name>treeDiM.EdgeCrushTest</Name>
     </ProjectReference>
     <ProjectReference Include="..\TreeDim.StackBuilder.Basics\treeDiM.StackBuilder.Basics.csproj">
-      <Project>{444C01D0-53FD-49A1-9D55-267B49161357}</Project>
+      <Project>{444c01d0-53fd-49a1-9d55-267b49161357}</Project>
       <Name>treeDiM.StackBuilder.Basics</Name>
     </ProjectReference>
     <ProjectReference Include="..\TreeDim.StackBuilder.Engine\treeDiM.StackBuilder.Engine.csproj">
@@ -2439,7 +2442,7 @@
       <Name>treeDiM.StackBuilder.Exporters</Name>
     </ProjectReference>
     <ProjectReference Include="..\TreeDim.StackBuilder.Graphic\treeDiM.StackBuilder.Graphics.csproj">
-      <Project>{2AD4C04C-5B8A-4E69-9B1C-402CB86860A7}</Project>
+      <Project>{2ad4c04c-5b8a-4e69-9b1c-402cb86860a7}</Project>
       <Name>treeDiM.StackBuilder.Graphics</Name>
     </ProjectReference>
     <ProjectReference Include="..\treeDiM.StackBuilder.Plugin\treeDiM.StackBuilder.Plugin.csproj">

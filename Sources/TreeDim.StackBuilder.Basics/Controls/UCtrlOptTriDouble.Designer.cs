@@ -40,10 +40,13 @@
             // 
             // chkbOpt
             // 
-            this.chkbOpt.AutoSize = true;
+            this.chkbOpt.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.chkbOpt.AutoEllipsis = true;
             this.chkbOpt.Location = new System.Drawing.Point(0, 2);
             this.chkbOpt.Name = "chkbOpt";
-            this.chkbOpt.Size = new System.Drawing.Size(115, 17);
+            this.chkbOpt.Size = new System.Drawing.Size(115, 20);
             this.chkbOpt.TabIndex = 0;
             this.chkbOpt.Text = "Optional dimension";
             this.chkbOpt.UseVisualStyleBackColor = true;

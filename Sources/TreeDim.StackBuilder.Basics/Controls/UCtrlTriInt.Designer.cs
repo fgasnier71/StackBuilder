@@ -39,16 +39,19 @@
             // 
             // lbName
             // 
-            this.lbName.AutoSize = true;
-            this.lbName.Location = new System.Drawing.Point(0, 6);
+            this.lbName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbName.AutoEllipsis = true;
+            this.lbName.Location = new System.Drawing.Point(0, 2);
             this.lbName.Name = "lbName";
-            this.lbName.Size = new System.Drawing.Size(35, 13);
+            this.lbName.Size = new System.Drawing.Size(103, 20);
             this.lbName.TabIndex = 0;
             this.lbName.Text = "Name";
             // 
             // nudX
             // 
-            this.nudX.Location = new System.Drawing.Point(105, 0);
+            this.nudX.Location = new System.Drawing.Point(109, 0);
             this.nudX.Minimum = new decimal(new int[] {
             1,
             0,
@@ -66,7 +69,7 @@
             // 
             // nudY
             // 
-            this.nudY.Location = new System.Drawing.Point(171, 0);
+            this.nudY.Location = new System.Drawing.Point(173, 0);
             this.nudY.Minimum = new decimal(new int[] {
             1,
             0,
@@ -115,7 +118,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudY)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudZ)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

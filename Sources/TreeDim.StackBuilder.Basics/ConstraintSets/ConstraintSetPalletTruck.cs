@@ -43,6 +43,10 @@ namespace treeDiM.StackBuilder.Basics
         public Vector2D MinDistanceLoadWall { get; set; }
         public double MinDistanceLoadRoof { get; set; }
         public bool AllowMultipleLayers { get; set; }
+        public override bool CritLayerNumberReached(int layerNumber)
+        {
+            return AllowMultipleLayers ? false : layerNumber > 1;
+        }
 
         #region Non-Public Members
         private IPackContainer _container;

@@ -55,6 +55,18 @@
             this.gbTape.SuspendLayout();
             this.SuspendLayout();
             // 
+            // bnOk
+            // 
+            resources.ApplyResources(this.bnOk, "bnOk");
+            // 
+            // bnCancel
+            // 
+            resources.ApplyResources(this.bnCancel, "bnCancel");
+            // 
+            // tbDescription
+            // 
+            resources.ApplyResources(this.tbDescription, "tbDescription");
+            // 
             // lbFace
             // 
             resources.ApplyResources(this.lbFace, "lbFace");
@@ -239,7 +251,8 @@
             resources.GetString("cbColor.Items111"),
             resources.GetString("cbColor.Items112"),
             resources.GetString("cbColor.Items113"),
-            resources.GetString("cbColor.Items114")});
+            resources.GetString("cbColor.Items114"),
+            resources.GetString("cbColor.Items115")});
             this.cbColor.Name = "cbColor";
             this.cbColor.SelectedColorChanged += new System.EventHandler(this.OnFaceColorChanged);
             // 
@@ -469,7 +482,8 @@
             resources.GetString("cbTapeColor.Items112"),
             resources.GetString("cbTapeColor.Items113"),
             resources.GetString("cbTapeColor.Items114"),
-            resources.GetString("cbTapeColor.Items115")});
+            resources.GetString("cbTapeColor.Items115"),
+            resources.GetString("cbTapeColor.Items116")});
             this.cbTapeColor.Name = "cbTapeColor";
             this.cbTapeColor.SelectedColorChanged += new System.EventHandler(this.OnFaceColorChanged);
             // 
@@ -495,12 +509,20 @@
             this.Controls.Add(this.gbWeight);
             this.Controls.Add(this.gbFaceColor);
             this.Controls.Add(this.gbDimensions);
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "FormNewBox";
-            this.ShowIcon = false;
-            this.ShowInTaskbar = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
+            this.Controls.SetChildIndex(this.gbDimensions, 0);
+            this.Controls.SetChildIndex(this.gbFaceColor, 0);
+            this.Controls.SetChildIndex(this.gbWeight, 0);
+            this.Controls.SetChildIndex(this.graphCtrl, 0);
+            this.Controls.SetChildIndex(this.gbTape, 0);
+            this.Controls.SetChildIndex(this.bnSaveToDB, 0);
+            this.Controls.SetChildIndex(this.bnOk, 0);
+            this.Controls.SetChildIndex(this.bnCancel, 0);
+            this.Controls.SetChildIndex(this.lbName, 0);
+            this.Controls.SetChildIndex(this.lbDescription, 0);
+            this.Controls.SetChildIndex(this.tbName, 0);
+            this.Controls.SetChildIndex(this.tbDescription, 0);
             this.gbDimensions.ResumeLayout(false);
             this.gbFaceColor.ResumeLayout(false);
             this.gbFaceColor.PerformLayout();
@@ -509,6 +531,7 @@
             this.gbTape.ResumeLayout(false);
             this.gbTape.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

@@ -45,7 +45,6 @@ namespace treeDiM.StackBuilder.Desktop
             // ---
 
             // --- initialize layer controls
-            //FillLayerControls();
             UpdateControls();
 
             uCtrlMaxPalletHeight.Value = _analysis.ConstraintSet.OptMaxHeight.Value;
