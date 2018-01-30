@@ -274,18 +274,18 @@ namespace treeDiM.StackBuilder.Graphics
                 #region CHEP NZ
                 {
                     Vector3D[] lumbers = {
-                         new Vector3D(1000.0, 98.0, 25.0)
-                         , new Vector3D(1000.0, 98.0, 25.0)
-                         , new Vector3D(160.0, 95.0, 77.0)
-                         , new Vector3D(95.0, 95.0, 77.0)
-                         , new Vector3D(1200.0, 98.0, 25.0)
-                         , new Vector3D(1000.0, 112.0, 17.0)
-                         , new Vector3D(1000.0, 135.0, 17.0)
-                         , new Vector3D(1000.0, 112.0, 17.0)
-                         , new Vector3D(1000.0, 112.0, 17.0)
+                         new Vector3D(1000.0, 98.0, 25.0)       // 0
+                         , new Vector3D(1000.0, 98.0, 25.0)     // 1
+                         , new Vector3D(160.0, 95.0, 77.0)      // 2
+                         , new Vector3D(95.0, 95.0, 77.0)       // 3
+                         , new Vector3D(1200.0, 98.0, 25.0)     // 4
+                         , new Vector3D(1000.0, 112.0, 17.0)    // 5
+                         , new Vector3D(1000.0, 135.0, 17.0)    // 6
+                         , new Vector3D(1000.0, 112.0, 17.0)    // 7
+                         , new Vector3D(1000.0, 112.0, 17.0)    // 8
                     };
 
-                    Vector3D dimensions = new Vector3D(1200.0, 1000.0, 162.0);
+                    Vector3D dimensions = new Vector3D(1200.0, 1000.0, 25.0 + 77.0 + 25.0 + 17.0);
                     double xInit0 = (dimensions.X - lumbers[0].X) / 2.0;
                     double yStep0 = (dimensions.Y - lumbers[0].Y) / 2.0;
                     double yStep1 = (dimensions.Y - lumbers[2].Y) / 2.0;

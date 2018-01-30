@@ -121,24 +121,24 @@ namespace treeDiM.StackBuilder.Graphics
             uint pickId = 0;
             foreach (ILayer layer in _solution)
             {
-                Layer3DBox blayer = layer as Layer3DBox;
-                if (null != blayer)
+                if (layer is Layer3DBox blayer)
                 {
                     foreach (BoxPosition bPosition in blayer)
                         graphics.AddBox(new Box(pickId++, _analysis.BProperties, bPosition));
                 }
 
-                InterlayerPos interlayerPos = layer as InterlayerPos;
-                if (null != interlayerPos)
+                if (layer is InterlayerPos interlayerPos)
                 {
                     InterlayerProperties currInterlayerProperties = (0 == interlayerPos.TypeId)
                         ? _analysis.InterlayerProperties : _analysis.InterlayerPropertiesAntiSlip;
-                    Box box = new Box(pickId++, currInterlayerProperties);
-                    // set position
-                    box.Position = new Vector3D(
+                    Box box = new Box(pickId++, currInterlayerProperties)
+                    {
+                        // set position
+                        Position = new Vector3D(
                         0.5 * (_analysis.PalletProperties.Length - currInterlayerProperties.Length)
                         , 0.5 * (_analysis.PalletProperties.Width - currInterlayerProperties.Width)
-                        , interlayerPos.ZLow);
+                        , interlayerPos.ZLow)
+                    };
                     // draw
                     graphics.AddBox(box);
                 }
@@ -204,15 +204,13 @@ namespace treeDiM.StackBuilder.Graphics
             uint pickId = 0;
             foreach (ILayer layer in solution)
             {
-                Layer3DBox blayer = layer as Layer3DBox;
-                if (null != blayer)
+                if (layer is Layer3DBox blayer)
                 {
                     foreach (BoxPosition bPosition in blayer)
                         graphics.AddBox(new Box(pickId++, boxProperties, bPosition));
                 }
 
-                InterlayerPos interlayerPos = layer as InterlayerPos;
-                if (null != interlayerPos && null != interlayerProperties)
+                if (layer is InterlayerPos interlayerPos && null != interlayerProperties)
                 {
                     Box box = new Box(pickId++, interlayerProperties);
                     // set position
@@ -339,8 +337,7 @@ namespace treeDiM.StackBuilder.Graphics
             while (iLayerCount <= layerIndex && iLayer < _solution.Count)
             {
                 ILayer layer = _solution[iLayer];
-                Layer3DBox blayer = layer as Layer3DBox;
-                if (null != blayer)
+                if (layer is Layer3DBox blayer)
                 {
                     foreach (BoxPosition bPosition in blayer)
                         graphics.AddBox(new Box(pickId++, _analysis.BProperties, bPosition));

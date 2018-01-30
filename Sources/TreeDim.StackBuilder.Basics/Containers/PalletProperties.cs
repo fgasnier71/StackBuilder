@@ -69,13 +69,11 @@ namespace treeDiM.StackBuilder.Basics
         }
 
         #region Non-Public Members
-
         double _length, _width, _height;
         double _weight;
         double _admissibleLoadWeight, _admissibleLoadHeight;
         Color _color = Color.Yellow;
         string _typeName = "Block";
-        
         #endregion
 
     }
