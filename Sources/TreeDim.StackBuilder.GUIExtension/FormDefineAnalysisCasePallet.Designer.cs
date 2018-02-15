@@ -72,7 +72,7 @@
             this.bnNext.TabIndex = 1;
             this.bnNext.Text = "Next >";
             this.bnNext.UseVisualStyleBackColor = true;
-            this.bnNext.Click += new System.EventHandler(this.onNext);
+            this.bnNext.Click += new System.EventHandler(this.OnNext);
             // 
             // statusStrip
             // 
@@ -138,7 +138,7 @@
             this.uCtrlCaseOrientation.Name = "uCtrlCaseOrientation";
             this.uCtrlCaseOrientation.Size = new System.Drawing.Size(280, 110);
             this.uCtrlCaseOrientation.TabIndex = 2;
-            this.uCtrlCaseOrientation.CheckedChanged += new treeDiM.StackBuilder.Graphics.uCtrlCaseOrientation.CheckChanged(this.onInputChanged);
+            this.uCtrlCaseOrientation.CheckedChanged += new treeDiM.StackBuilder.Graphics.uCtrlCaseOrientation.CheckChanged(this.OnInputChanged);
             // 
             // gpPallet
             // 
@@ -165,7 +165,7 @@
             this.uCtrlOverhang.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlOverhang.ValueX = 0D;
             this.uCtrlOverhang.ValueY = 0D;
-            this.uCtrlOverhang.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDualDouble.ValueChangedDelegate(this.onInputChanged);
+            this.uCtrlOverhang.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDualDouble.ValueChangedDelegate(this.OnInputChanged);
             // 
             // graphCtrlPallet
             // 
@@ -183,7 +183,7 @@
             this.cbPallet.Name = "cbPallet";
             this.cbPallet.Size = new System.Drawing.Size(212, 21);
             this.cbPallet.TabIndex = 1;
-            this.cbPallet.SelectedIndexChanged += new System.EventHandler(this.onPalletChanged);
+            this.cbPallet.SelectedIndexChanged += new System.EventHandler(this.OnPalletChanged);
             // 
             // lbPallets
             // 
@@ -222,7 +222,7 @@
             this.uCtrlOptMaximumWeight.Text = "Maximum pallet weight";
             this.uCtrlOptMaximumWeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_MASS;
             this.uCtrlOptMaximumWeight.Value = ((treeDiM.StackBuilder.Basics.OptDouble)(resources.GetObject("uCtrlOptMaximumWeight.Value")));
-            this.uCtrlOptMaximumWeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlOptDouble.ValueChangedDelegate(this.onInputChanged);
+            this.uCtrlOptMaximumWeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlOptDouble.ValueChangedDelegate(this.OnInputChanged);
             // 
             // uCtrlMaximumHeight
             // 
@@ -239,7 +239,7 @@
             this.uCtrlMaximumHeight.Text = "Maximum pallet height";
             this.uCtrlMaximumHeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlMaximumHeight.Value = 0D;
-            this.uCtrlMaximumHeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.ValueChangedDelegate(this.onInputChanged);
+            this.uCtrlMaximumHeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.ValueChangedDelegate(this.OnInputChanged);
             // 
             // uCtrlLayerList
             // 
@@ -251,7 +251,7 @@
             this.uCtrlLayerList.SingleSelection = false;
             this.uCtrlLayerList.Size = new System.Drawing.Size(634, 295);
             this.uCtrlLayerList.TabIndex = 6;
-            this.uCtrlLayerList.LayerSelected += new treeDiM.StackBuilder.Graphics.UCtrlLayerList.LayerButtonClicked(this.onLayerSelected);
+            this.uCtrlLayerList.LayerSelected += new treeDiM.StackBuilder.Graphics.UCtrlLayerList.LayerButtonClicked(this.OnLayerSelected);
             // 
             // FormDefineAnalysisCasePallet
             // 

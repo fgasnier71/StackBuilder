@@ -875,6 +875,10 @@ namespace treeDiM.StackBuilder.Graphics
             ++_boxDrawingCounter;
         }
 
+        internal void DrawWireFrame(Box box)
+        {
+        }
+
         internal void Draw(Pack pack)
         {
             System.Drawing.Graphics g = Graphics;

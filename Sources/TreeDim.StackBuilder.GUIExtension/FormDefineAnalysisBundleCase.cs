@@ -177,8 +177,13 @@ namespace treeDiM.StackBuilder.GUIExtension
                     layerDescs.Add(layer2D.LayerDescriptor);
 
 
-                Document doc = new Document(DocumentName, DocumentDescription, WCFClientSingleton.Instance.User.Name, DateTime.Now, null);
+                string userName = string.Empty;
+                using (WCFClient wcfClient = new WCFClient())
+                {
+                    userName = wcfClient.User.Name;
+                }
 
+                Document doc = new Document(DocumentName, DocumentDescription, userName, DateTime.Now, null);
                 Packable packable = doc.CreateNewPackable(BundleProp);
                 BoxProperties caseProperties = doc.CreateNewCase(
                     CaseName, CaseName

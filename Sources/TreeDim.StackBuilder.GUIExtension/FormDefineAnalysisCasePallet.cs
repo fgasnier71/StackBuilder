@@ -5,8 +5,6 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using log4net;
@@ -82,11 +80,11 @@ namespace treeDiM.StackBuilder.GUIExtension
             uCtrlOptMaximumWeight.Value = new OptDouble(false, Settings.Default.MaximumPalletWeight);
 
             // event handling
-            uCtrlLayerList.RefreshFinished += onLayerSelected;
+            uCtrlLayerList.RefreshFinished += OnLayerSelected;
             uCtrlLayerList.ButtonSizes = new Size(100, 100);
 
-            uCtrlBundle.ValueChanged += onInputChanged;
-            uCtrlCase.ValueChanged += onInputChanged;
+            uCtrlBundle.ValueChanged += OnInputChanged;
+            uCtrlCase.ValueChanged += OnInputChanged;
         }
         protected override void OnClosing(CancelEventArgs e)
         {
@@ -148,7 +146,7 @@ namespace treeDiM.StackBuilder.GUIExtension
         #endregion
 
         #region Event handlers
-        private void onLayerSelected(object sender, EventArgs e)
+        private void OnLayerSelected(object sender, EventArgs e)
         {
             try
             {
@@ -161,7 +159,7 @@ namespace treeDiM.StackBuilder.GUIExtension
             }
         }
 
-        private void onInputChanged(object sender, EventArgs e)
+        private void OnInputChanged(object sender, EventArgs e)
         {
             try
             {
@@ -190,12 +188,12 @@ namespace treeDiM.StackBuilder.GUIExtension
                 _log.Error(ex.ToString());
             }
         }
-        private void onPalletChanged(object sender, EventArgs e)
+        private void OnPalletChanged(object sender, EventArgs e)
         {
             graphCtrlPallet.Invalidate();
-            onInputChanged(sender, e);
+            OnInputChanged(sender, e);
         }
-        private void onNext(object sender, EventArgs e)
+        private void OnNext(object sender, EventArgs e)
         {
             try
             {
@@ -205,9 +203,11 @@ namespace treeDiM.StackBuilder.GUIExtension
                 foreach (ILayer2D layer2D in uCtrlLayerList.Selected)
                     layerDescs.Add(layer2D.LayerDescriptor);
 
+                string userName = string.Empty;
+                using (WCFClient wcfClient = new WCFClient())
+                { userName = wcfClient.User.Name; }
 
-                Document doc = new Document(DocumentName, DocumentDescription, WCFClientSingleton.Instance.User.Name, DateTime.Now, null);
-
+                Document doc = new Document(DocumentName, DocumentDescription, userName, DateTime.Now, null);
                 Packable packable = doc.CreateNewPackable(_uctrlPackable.PackableProperties);
                 PalletProperties palletProperties = doc.CreateNewPallet(cbPallet.SelectedPallet);
                 if (null == packable || null == palletProperties) return;

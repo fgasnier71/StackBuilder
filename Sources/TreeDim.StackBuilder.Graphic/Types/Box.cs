@@ -717,7 +717,9 @@ namespace treeDiM.StackBuilder.Graphics
             foreach (Face face in Faces)
                 graphics.AddFace(face);
         }
-
+        public override void DrawWireframe(Graphics3D graphics)
+        {
+        }
         public void SetAllFacesColor(Color color)
         {
             for (int i = 0; i < 6; ++i)

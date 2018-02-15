@@ -4,6 +4,8 @@ using System.Windows.Forms;
 
 using treeDiM.StackBuilder.Basics;
 using treeDiM.StackBuilder.Graphics.Controls;
+
+using treeDiM.PLMPack.DBClient;
 using treeDiM.PLMPack.DBClient.PLMPackSR;
 #endregion
 
@@ -22,18 +24,20 @@ namespace treeDiM.StackBuilder.GUIExtension
                 return;
             // sanity check
             Items.Clear();
-            if (null == WCFClientSingleton.Instance)
-                return;
             // load all pallets from database
-            DCSBPallet[] pallets = WCFClientSingleton.Instance.Client.GetAllPallets();
-            foreach (DCSBPallet pallet in pallets)
+            DCSBPallet[] pallets;
+            using (WCFClient wcfClient = new WCFClient())
             {
-                PalletProperties palletProperties = new PalletProperties(null, pallet.PalletType,
-                    pallet.Dimensions.M0, pallet.Dimensions.M1, pallet.Dimensions.M2);
-                palletProperties.ID.SetNameDesc(pallet.Name, pallet.Description);
-                palletProperties.Weight = pallet.Weight;
-                palletProperties.Color = Color.Yellow;
-                Items.Add(new ItemBaseWrapper(palletProperties));
+                pallets = wcfClient.Client.GetAllPallets();
+                foreach (DCSBPallet pallet in pallets)
+                {
+                    PalletProperties palletProperties = new PalletProperties(null, pallet.PalletType,
+                        pallet.Dimensions.M0, pallet.Dimensions.M1, pallet.Dimensions.M2);
+                    palletProperties.ID.SetNameDesc(pallet.Name, pallet.Description);
+                    palletProperties.Weight = pallet.Weight;
+                    palletProperties.Color = Color.Yellow;
+                    Items.Add(new ItemBaseWrapper(palletProperties));
+                }
             }
             // always select first item
             if (Items.Count > 0)
