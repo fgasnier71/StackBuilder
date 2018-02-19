@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="aa1d2351-7c5e-46f0-a243-14d1a11189fa" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:17399/StackBuilderServ.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="StackBuilderServ.xsd" MetadataType="Schema" ID="34927bd4-bab6-4be1-a0bf-b341c0252b76" SourceId="1" SourceUrl="http://localhost:17399/StackBuilderServ.svc?xsd=xsd2" />
+    <MetadataFile FileName="StackBuilderServ1.xsd" MetadataType="Schema" ID="c3dae0af-df6d-4c44-98fa-8d98f6fc428e" SourceId="1" SourceUrl="http://localhost:17399/StackBuilderServ.svc?xsd=xsd1" />
+    <MetadataFile FileName="StackBuilderServ.disco" MetadataType="Disco" ID="93a237af-1e8b-46c7-b60f-9ee4a1a2c184" SourceId="1" SourceUrl="http://localhost:17399/StackBuilderServ.svc?disco" />
+    <MetadataFile FileName="StackBuilderServ2.xsd" MetadataType="Schema" ID="d3d394f8-61aa-483f-93aa-c20f5fcca145" SourceId="1" SourceUrl="http://localhost:17399/StackBuilderServ.svc?xsd=xsd3" />
+    <MetadataFile FileName="StackBuilderServ.wsdl" MetadataType="Wsdl" ID="c1595d66-ca11-4634-a4a4-fab1aaabc817" SourceId="1" SourceUrl="http://localhost:17399/StackBuilderServ.svc?wsdl" />
+    <MetadataFile FileName="StackBuilderServ3.xsd" MetadataType="Schema" ID="8f3f3b03-d41b-4ff7-a248-99c0e52ad52c" SourceId="1" SourceUrl="http://localhost:17399/StackBuilderServ.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

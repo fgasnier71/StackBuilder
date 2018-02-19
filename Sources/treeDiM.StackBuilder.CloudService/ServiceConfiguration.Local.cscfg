@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ServiceConfiguration serviceName="treeDiM.StackBuilder.CloudService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="5" osVersion="*" schemaVersion="2015-04.2.6">
+  <Role name="treeDiM.StackBuilder.WCFService">
+    <Instances count="1" />
+    <ConfigurationSettings>
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.Enabled" value="true" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountUsername" value="fgasnier71" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountEncryptedPassword" value="MIIBnQYJKoZIhvcNAQcDoIIBjjCCAYoCAQAxggFOMIIBSgIBADAyMB4xHDAaBgNVBAMME1dpbmRvd3MgQXp1cmUgVG9vbHMCEGY7FFqsrxSwSz/WWLMJsTUwDQYJKoZIhvcNAQEBBQAEggEACuE9g7pDQtHUF2lLCJD0Kn/hsicDZiRbKXlVaYY41oq79w3W5mqVF0OQ9PuocGyCgzJPx3bQ8ew/PrUhYoULyFCq8ykX1auVVp4QiWpTlFq3GUJ4xd5lVk151biatTZhfmQMN1UAbKIFHl4Po4AJTiTCjDcqDXvpsM97Vf9eAJIBkPd3Zh6ZaiE20dQUph4Rz8bvqlnq8J6jIDCNX2tiGmMI8AEtJb0obQyELUORi1MvyWV14NYgf3Qj2McUPt8ZwtJkj9AmV8/qkSXvz0aWY4fu7xSReei458MSOR+pKW6O8F/vrWP0wqdnEuLPYt/4K50LQR0IDPhPiqyMZqcDjTAzBgkqhkiG9w0BBwEwFAYIKoZIhvcNAwcECMf25fX51tQjgBAv2eh5/Wj6ssrEEVfdtSgA" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountExpiration" value="2019-02-19T23:59:59.0000000+01:00" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteForwarder.Enabled" value="true" />
+    </ConfigurationSettings>
+    <Certificates>
+      <Certificate name="Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption" thumbprint="D120E6F4BDADFADB0874D0C9BE7F5047FBE5D9B1" thumbprintAlgorithm="sha1" />
+    </Certificates>
+  </Role>
+</ServiceConfiguration>
