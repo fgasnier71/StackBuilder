@@ -159,9 +159,9 @@ namespace treeDiM.StackBuilder.WCFService.Test
         private bool AllowOrientZ { get => chkbAllowZ.Checked; set => chkbAllowZ.Checked = value; }
         
         private int CaseCount               { set => lbLoadedPalletCaseCountValue.Text  = string.Format(": {0}", value); }
-        private double TotalPalletWeight    { set => lbLoadedPalletWeightValue.Text     = string.Format(": {0} kg", value); }
-        private double PalletEfficiency     { set => lbLoadedPalletEfficiencyValue.Text = string.Format(": {0} %", value); }
-        private DCSBDim3D BBoxTotal          { set => lbLoadedPalletDimValues.Text       = string.Format(": {0}x{1}x{2} mm", value.M0, value.M1, value.M2); }
+        private double TotalPalletWeight    { set => lbLoadedPalletWeightValue.Text     = string.Format(": {0:0.#} kg", value); }
+        private double PalletEfficiency     { set => lbLoadedPalletEfficiencyValue.Text = string.Format(": {0:0.#} %", value); }
+        private DCSBDim3D BBoxTotal          { set => lbLoadedPalletDimValues.Text       = string.Format(": {0:0.#}x{1:0.#}x{2:0.#} mm", value.M0, value.M1, value.M2); }
 
         private void ToRtb(string s)        { rtbLog.AppendText(s); }
         #endregion

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="aa1d2351-7c5e-46f0-a243-14d1a11189fa" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="1d52a62d-8f7a-44ff-b573-1e07c9fa4f26" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -19,15 +19,15 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:17399/StackBuilderServ.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://stackbuildercloudappservice.cloudapp.net/StackBuilder.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="StackBuilderServ.xsd" MetadataType="Schema" ID="34927bd4-bab6-4be1-a0bf-b341c0252b76" SourceId="1" SourceUrl="http://localhost:17399/StackBuilderServ.svc?xsd=xsd2" />
-    <MetadataFile FileName="StackBuilderServ1.xsd" MetadataType="Schema" ID="c3dae0af-df6d-4c44-98fa-8d98f6fc428e" SourceId="1" SourceUrl="http://localhost:17399/StackBuilderServ.svc?xsd=xsd1" />
-    <MetadataFile FileName="StackBuilderServ.disco" MetadataType="Disco" ID="93a237af-1e8b-46c7-b60f-9ee4a1a2c184" SourceId="1" SourceUrl="http://localhost:17399/StackBuilderServ.svc?disco" />
-    <MetadataFile FileName="StackBuilderServ2.xsd" MetadataType="Schema" ID="d3d394f8-61aa-483f-93aa-c20f5fcca145" SourceId="1" SourceUrl="http://localhost:17399/StackBuilderServ.svc?xsd=xsd3" />
-    <MetadataFile FileName="StackBuilderServ.wsdl" MetadataType="Wsdl" ID="c1595d66-ca11-4634-a4a4-fab1aaabc817" SourceId="1" SourceUrl="http://localhost:17399/StackBuilderServ.svc?wsdl" />
-    <MetadataFile FileName="StackBuilderServ3.xsd" MetadataType="Schema" ID="8f3f3b03-d41b-4ff7-a248-99c0e52ad52c" SourceId="1" SourceUrl="http://localhost:17399/StackBuilderServ.svc?xsd=xsd0" />
+    <MetadataFile FileName="StackBuilder.disco" MetadataType="Disco" ID="bcddfa07-ae0b-4698-98d9-e66d6504f78b" SourceId="1" SourceUrl="http://stackbuildercloudappservice.cloudapp.net/StackBuilder.svc?disco" />
+    <MetadataFile FileName="StackBuilder.xsd" MetadataType="Schema" ID="24cdff2d-08e5-4eb3-8af9-cd95bd2b3978" SourceId="1" SourceUrl="http://stackbuildercloudappservice.cloudapp.net/StackBuilder.svc?xsd=xsd1" />
+    <MetadataFile FileName="StackBuilder1.xsd" MetadataType="Schema" ID="744008ba-c8c7-4d4c-a7dd-78a8cf01d1e1" SourceId="1" SourceUrl="http://stackbuildercloudappservice.cloudapp.net/StackBuilder.svc?xsd=xsd2" />
+    <MetadataFile FileName="StackBuilder2.xsd" MetadataType="Schema" ID="509f89dd-a02e-4ebe-a5a7-a505c37dc089" SourceId="1" SourceUrl="http://stackbuildercloudappservice.cloudapp.net/StackBuilder.svc?xsd=xsd3" />
+    <MetadataFile FileName="StackBuilderServ.wsdl" MetadataType="Wsdl" ID="9dc50015-a3dc-42d9-a3d3-6d6c19473f6a" SourceId="1" SourceUrl="http://stackbuildercloudappservice.cloudapp.net/StackBuilder.svc?wsdl" />
+    <MetadataFile FileName="StackBuilder3.xsd" MetadataType="Schema" ID="710d961c-1266-4c19-b8a8-45c54e584c5a" SourceId="1" SourceUrl="http://stackbuildercloudappservice.cloudapp.net/StackBuilder.svc?xsd=xsd0" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

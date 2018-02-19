@@ -1,24 +1,24 @@
-﻿#region Using directives
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
 
 using log4net;
 
 using Sharp3D.Math.Core;
-using treeDiM.StackBuilder.Basics;
-using treeDiM.StackBuilder.Graphics;
-using treeDiM.StackBuilder.Engine;
-#endregion
 
-namespace treeDiM.StackBuilder.WCFService
+using treeDiM.StackBuilder.Basics;
+using treeDiM.StackBuilder.Engine;
+using treeDiM.StackBuilder.Graphics;
+
+namespace treeDiM.StackBuilder.WCFAppServ
 {
+    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service1" in code, svc and config file together.
+    // NOTE: In order to launch WCF Test Client for testing this service, please select Service1.svc or Service1.svc.cs at the Solution Explorer and start debugging.
     public class StackBuilderServ : IStackBuilder
     {
         #region Data members
         protected static readonly ILog _log = LogManager.GetLogger(typeof(StackBuilderServ));
         #endregion
-
         #region Best solution
         public DCSBSolution SB_GetBestSolution(
             DCSBCase sbCase, DCSBPallet sbPallet, DCSBInterlayer sbInterlayer,
@@ -79,7 +79,8 @@ namespace treeDiM.StackBuilder.WCFService
 
                 Vector3D cameraPosition = Graphics3D.Corner_0;
                 int layerCount = 0, caseCount = 0, interlayerCount = 0;
-                double weightTotal = 0.0, weightLoad = 0.0, volumeEfficiency = 0.0, weightEfficiency = 0.0;
+                double weightTotal = 0.0, weightLoad = 0.0, volumeEfficiency = 0.0;
+                double? weightEfficiency = 0.0;
                 double? weightNet = (double?)null;
                 Vector3D bbLoad = new Vector3D();
                 Vector3D bbGlob = new Vector3D();
@@ -145,7 +146,7 @@ namespace treeDiM.StackBuilder.WCFService
             , ref int layerCount, ref int caseCount, ref int interlayerCount
             , ref double weightTotal, ref double weightLoad, ref double? weightNet
             , ref Vector3D bbLoad, ref Vector3D bbGlob
-            , ref double volumeEfficiency, ref double weightEfficiency
+            , ref double volumeEfficency, ref double? weightEfficiency
             , ref byte[] imageBytes
             , ref string[] errors)
         {
@@ -169,7 +170,10 @@ namespace treeDiM.StackBuilder.WCFService
                     weightNet = optNetWeight.Activated ? optNetWeight.Value : (double?)null;
                     bbGlob = analysis.Solution.BBoxGlobal.DimensionsVec;
                     bbLoad = analysis.Solution.BBoxLoad.DimensionsVec;
-                    volumeEfficiency = analysis.Solution.VolumeEfficiency;
+                    volumeEfficency = analysis.Solution.VolumeEfficiency;
+                    weightEfficiency = null;
+                    if (analysis.Solution.WeightEfficiency.Activated)
+                        weightEfficiency = analysis.Solution.WeightEfficiency.Value;
 
                     Graphics3DImage graphics = null;
                     // generate image path
@@ -197,3 +201,4 @@ namespace treeDiM.StackBuilder.WCFService
     }
     #endregion
 }
+

@@ -15,7 +15,7 @@ namespace treeDiM.StackBuilder.WCFService.Test.SB_SR {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="DCSBItem", Namespace="http://schemas.datacontract.org/2004/07/treeDiM.StackBuilder.WCFService")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DCSBItem", Namespace="http://schemas.datacontract.org/2004/07/treeDiM.StackBuilder.WCFAppServ")]
     [System.SerializableAttribute()]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBPallet))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBInterlayer))]
@@ -127,7 +127,7 @@ namespace treeDiM.StackBuilder.WCFService.Test.SB_SR {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="DCSBPallet", Namespace="http://schemas.datacontract.org/2004/07/treeDiM.StackBuilder.WCFService")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DCSBPallet", Namespace="http://schemas.datacontract.org/2004/07/treeDiM.StackBuilder.WCFAppServ")]
     [System.SerializableAttribute()]
     public partial class DCSBPallet : treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBItem {
         
@@ -214,7 +214,7 @@ namespace treeDiM.StackBuilder.WCFService.Test.SB_SR {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="DCSBInterlayer", Namespace="http://schemas.datacontract.org/2004/07/treeDiM.StackBuilder.WCFService")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DCSBInterlayer", Namespace="http://schemas.datacontract.org/2004/07/treeDiM.StackBuilder.WCFAppServ")]
     [System.SerializableAttribute()]
     public partial class DCSBInterlayer : treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBItem {
         
@@ -269,7 +269,7 @@ namespace treeDiM.StackBuilder.WCFService.Test.SB_SR {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="DCSBCase", Namespace="http://schemas.datacontract.org/2004/07/treeDiM.StackBuilder.WCFService")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DCSBCase", Namespace="http://schemas.datacontract.org/2004/07/treeDiM.StackBuilder.WCFAppServ")]
     [System.SerializableAttribute()]
     public partial class DCSBCase : treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBItem {
         
@@ -452,7 +452,7 @@ namespace treeDiM.StackBuilder.WCFService.Test.SB_SR {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="DCSBDim3D", Namespace="http://schemas.datacontract.org/2004/07/treeDiM.StackBuilder.WCFService")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DCSBDim3D", Namespace="http://schemas.datacontract.org/2004/07/treeDiM.StackBuilder.WCFAppServ")]
     [System.SerializableAttribute()]
     public partial class DCSBDim3D : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -529,7 +529,7 @@ namespace treeDiM.StackBuilder.WCFService.Test.SB_SR {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="DCSBConstraintSet", Namespace="http://schemas.datacontract.org/2004/07/treeDiM.StackBuilder.WCFService")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DCSBConstraintSet", Namespace="http://schemas.datacontract.org/2004/07/treeDiM.StackBuilder.WCFAppServ")]
     [System.SerializableAttribute()]
     public partial class DCSBConstraintSet : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -638,7 +638,7 @@ namespace treeDiM.StackBuilder.WCFService.Test.SB_SR {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="DCSBConstraintDouble", Namespace="http://schemas.datacontract.org/2004/07/treeDiM.StackBuilder.WCFService")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DCSBConstraintDouble", Namespace="http://schemas.datacontract.org/2004/07/treeDiM.StackBuilder.WCFAppServ")]
     [System.SerializableAttribute()]
     public partial class DCSBConstraintDouble : treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBConstraint {
         
@@ -661,7 +661,7 @@ namespace treeDiM.StackBuilder.WCFService.Test.SB_SR {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="DCSBConstraintInt", Namespace="http://schemas.datacontract.org/2004/07/treeDiM.StackBuilder.WCFService")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DCSBConstraintInt", Namespace="http://schemas.datacontract.org/2004/07/treeDiM.StackBuilder.WCFAppServ")]
     [System.SerializableAttribute()]
     public partial class DCSBConstraintInt : treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBConstraint {
         
@@ -684,7 +684,7 @@ namespace treeDiM.StackBuilder.WCFService.Test.SB_SR {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="DCSBBool3", Namespace="http://schemas.datacontract.org/2004/07/treeDiM.StackBuilder.WCFService")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DCSBBool3", Namespace="http://schemas.datacontract.org/2004/07/treeDiM.StackBuilder.WCFAppServ")]
     [System.SerializableAttribute()]
     public partial class DCSBBool3 : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -761,7 +761,7 @@ namespace treeDiM.StackBuilder.WCFService.Test.SB_SR {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="DCSBDim2D", Namespace="http://schemas.datacontract.org/2004/07/treeDiM.StackBuilder.WCFService")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DCSBDim2D", Namespace="http://schemas.datacontract.org/2004/07/treeDiM.StackBuilder.WCFAppServ")]
     [System.SerializableAttribute()]
     public partial class DCSBDim2D : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -822,7 +822,7 @@ namespace treeDiM.StackBuilder.WCFService.Test.SB_SR {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="DCSBConstraint", Namespace="http://schemas.datacontract.org/2004/07/treeDiM.StackBuilder.WCFService")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DCSBConstraint", Namespace="http://schemas.datacontract.org/2004/07/treeDiM.StackBuilder.WCFAppServ")]
     [System.SerializableAttribute()]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBConstraintInt))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBConstraintDouble))]
@@ -869,7 +869,7 @@ namespace treeDiM.StackBuilder.WCFService.Test.SB_SR {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="DCCompFormat", Namespace="http://schemas.datacontract.org/2004/07/treeDiM.StackBuilder.WCFService")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DCCompFormat", Namespace="http://schemas.datacontract.org/2004/07/treeDiM.StackBuilder.WCFAppServ")]
     [System.SerializableAttribute()]
     public partial class DCCompFormat : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -930,7 +930,7 @@ namespace treeDiM.StackBuilder.WCFService.Test.SB_SR {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="DCCompSize", Namespace="http://schemas.datacontract.org/2004/07/treeDiM.StackBuilder.WCFService")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DCCompSize", Namespace="http://schemas.datacontract.org/2004/07/treeDiM.StackBuilder.WCFAppServ")]
     [System.SerializableAttribute()]
     public partial class DCCompSize : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -990,7 +990,7 @@ namespace treeDiM.StackBuilder.WCFService.Test.SB_SR {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="OutFormat", Namespace="http://schemas.datacontract.org/2004/07/treeDiM.StackBuilder.WCFService")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="OutFormat", Namespace="http://schemas.datacontract.org/2004/07/treeDiM.StackBuilder.WCFAppServ")]
     public enum OutFormat : int {
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
@@ -1017,7 +1017,7 @@ namespace treeDiM.StackBuilder.WCFService.Test.SB_SR {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="DCSBSolution", Namespace="http://schemas.datacontract.org/2004/07/treeDiM.StackBuilder.WCFService")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DCSBSolution", Namespace="http://schemas.datacontract.org/2004/07/treeDiM.StackBuilder.WCFAppServ")]
     [System.SerializableAttribute()]
     public partial class DCSBSolution : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -1222,7 +1222,7 @@ namespace treeDiM.StackBuilder.WCFService.Test.SB_SR {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="DCCompFileOutput", Namespace="http://schemas.datacontract.org/2004/07/treeDiM.StackBuilder.WCFService")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DCCompFileOutput", Namespace="http://schemas.datacontract.org/2004/07/treeDiM.StackBuilder.WCFAppServ")]
     [System.SerializableAttribute()]
     public partial class DCCompFileOutput : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
