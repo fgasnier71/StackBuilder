@@ -12,6 +12,7 @@
     <AssemblyName>treeDiM.StackBuilder.CloudAppService</AssemblyName>
     <StartDevelopmentStorage>True</StartDevelopmentStorage>
     <Name>treeDiM.StackBuilder.CloudAppService</Name>
+    <PackageEnableRemoteDebugger>False</PackageEnableRemoteDebugger>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>

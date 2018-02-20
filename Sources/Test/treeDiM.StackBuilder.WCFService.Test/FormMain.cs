@@ -47,87 +47,94 @@ namespace treeDiM.StackBuilder.WCFService.Test
 
         #region Handlers
         private void OnCompute(object sender, EventArgs e)
-        {            
-            using (StackBuilderClient client = new StackBuilderClient())
+        {
+            try
             {
-                DCSBSolution sol = client.SB_GetBestSolution(
-                            new DCSBCase()
-                            {
-                                Name = "Case",
-                                Description = "Default case",
-                                DimensionsOuter = OuterDimensions,
-                                HasInnerDims = false,
-                                DimensionsInner = null,
-                                Weight = CaseWeight,
-                                MaxWeight = 10000.0,
-                                NetWeight = 0.9 * CaseWeight,
-                                ShowTape = true,
-                                TapeWidth = 50.0,
-                                TapeColor = Color.Beige.ToArgb(),
-                                Colors = new int[6]
-                                    {
+                using (StackBuilderClient client = new StackBuilderClient())
+                {
+                    DCSBSolution sol = client.SB_GetBestSolution(
+                                new DCSBCase()
+                                {
+                                    Name = "Case",
+                                    Description = "Default case",
+                                    DimensionsOuter = OuterDimensions,
+                                    HasInnerDims = false,
+                                    DimensionsInner = null,
+                                    Weight = CaseWeight,
+                                    MaxWeight = 10000.0,
+                                    NetWeight = 0.9 * CaseWeight,
+                                    ShowTape = true,
+                                    TapeWidth = 50.0,
+                                    TapeColor = Color.Beige.ToArgb(),
+                                    Colors = new int[6]
+                                        {
                                         Color.Chocolate.ToArgb(), Color.Chocolate.ToArgb(),
                                         Color.Chocolate.ToArgb(), Color.Chocolate.ToArgb(),
                                         Color.Chocolate.ToArgb(), Color.Chocolate.ToArgb()
-                                    }
-                            }
-                            , new DCSBPallet()
-                            {
-                                Name = "EUR2",
-                                Description = "EUR2",
-                                PalletType = "EUR2",
-                                Color = Color.Yellow.ToArgb(),
-                                Dimensions = PalletDimensions,
-                                Weight = PalletWeight,
-                                AdmissibleLoad = 10000.0
-                            }
-                            , null
-                            , new DCSBConstraintSet()
-                            {
-                                Overhang = PalletOverhang,
-                                Orientation = new DCSBBool3() { X = AllowOrientX, Y = AllowOrientY, Z = AllowOrientZ },
-                                MaxHeight = new DCSBConstraintDouble() { Active = true, Value_d = MaxPalletHeight },
-                                MaxWeight = new DCSBConstraintDouble() { Active = false, Value_d = 1000.0 },
-                                MaxNumber = new DCSBConstraintInt() { Active = false, Value_i = 100 }
-                            }
-                            , new DCCompFormat()
-                            {
-                                Size = new DCCompSize()
+                                        }
+                                }
+                                , new DCSBPallet()
                                 {
-                                    CX = pbStackbuilder.Size.Width,
-                                    CY = pbStackbuilder.Size.Height
-                                },
-                                Format = OutFormat.IMAGE
-                            }
-                            , true
-                        );
-                if (null != sol)
-                {
-                    foreach (string err in sol.Errors)
-                        ToRtb(err);
-                    if (sol.Errors.Length > 0)
-                        return;
-                }
-                else
-                {
-                    ToRtb("Call to SB_GetBestSolution failed...");
-                    return;
-                }
-                // output
-                // image
-                pbStackbuilder.Image = null;
-                if (null != sol.OutFile)
-                    using (var ms = new System.IO.MemoryStream(sol.OutFile.Bytes))
+                                    Name = "EUR2",
+                                    Description = "EUR2",
+                                    PalletType = "EUR2",
+                                    Color = Color.Yellow.ToArgb(),
+                                    Dimensions = PalletDimensions,
+                                    Weight = PalletWeight,
+                                    AdmissibleLoad = 10000.0
+                                }
+                                , null
+                                , new DCSBConstraintSet()
+                                {
+                                    Overhang = PalletOverhang,
+                                    Orientation = new DCSBBool3() { X = AllowOrientX, Y = AllowOrientY, Z = AllowOrientZ },
+                                    MaxHeight = new DCSBConstraintDouble() { Active = true, Value_d = MaxPalletHeight },
+                                    MaxWeight = new DCSBConstraintDouble() { Active = false, Value_d = 1000.0 },
+                                    MaxNumber = new DCSBConstraintInt() { Active = false, Value_i = 100 }
+                                }
+                                , new DCCompFormat()
+                                {
+                                    Size = new DCCompSize()
+                                    {
+                                        CX = pbStackbuilder.Size.Width,
+                                        CY = pbStackbuilder.Size.Height
+                                    },
+                                    Format = OutFormat.IMAGE
+                                }
+                                , true
+                            );
+                    if (null != sol)
                     {
-                        Image img = Image.FromStream(ms);
-                        pbStackbuilder.Image = img;
+                        foreach (string err in sol.Errors)
+                            ToRtb(err);
+                        if (sol.Errors.Length > 0)
+                            return;
                     }
-                // case count
-                CaseCount = sol.CaseCount;
-                TotalPalletWeight = sol.WeightTotal;
-                PalletEfficiency = sol.Efficiency;
-                BBoxTotal = sol.BBoxTotal;
-            }            
+                    else
+                    {
+                        ToRtb("Call to SB_GetBestSolution failed...");
+                        return;
+                    }
+                    // output
+                    // image
+                    pbStackbuilder.Image = null;
+                    if (null != sol.OutFile)
+                        using (var ms = new System.IO.MemoryStream(sol.OutFile.Bytes))
+                        {
+                            Image img = Image.FromStream(ms);
+                            pbStackbuilder.Image = img;
+                        }
+                    // case count
+                    CaseCount = sol.CaseCount;
+                    TotalPalletWeight = sol.WeightTotal;
+                    PalletEfficiency = sol.Efficiency;
+                    BBoxTotal = sol.BBoxTotal;
+                }
+            }
+            catch (Exception ex)
+            {
+                ToRtb(ex.ToString());
+            }
         }
         private void OnExit(object sender, EventArgs e)
         {
