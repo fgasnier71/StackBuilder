@@ -80,32 +80,22 @@ namespace treeDiM.StackBuilder.Graphics
         {
             get
             {
-                double xThickness = 0.5 * (_length - _insideLength);
-                double yThickness = 0.5 * (_width - _insideWidth);
-                double zThickness = 0.5 * (_height - _insideHeight);
+                double xThickness = _length > _insideLength ? 0.5 * (_length - _insideLength) : 0.0;
+                double yThickness = _width > _insideWidth ? 0.5 * (_width - _insideWidth) : 0.0;
+                double zThickness = _height > _insideHeight ? 0.5 * (_height - _insideHeight) : 0.0;
                 if (null == _points)
                 {
                     _points = new Vector3D[8];
-                    /*
-                    _points[0] = _transf.transform(new Vector3D(0.0 + xThickness, 0.0 + yThickness, 0.0 + zThickness));
-                    _points[1] = _transf.transform(new Vector3D(_length - xThickness, 0.0 + yThickness, 0.0 + zThickness));
-                    _points[2] = _transf.transform(new Vector3D(_length - xThickness, _width - yThickness, 0.0 + zThickness));
-                    _points[3] = _transf.transform(new Vector3D(0.0 + xThickness, _width - yThickness, 0.0 + zThickness));
 
-                    _points[4] = _transf.transform(new Vector3D(0.0 + xThickness, 0.0 + yThickness, _height - zThickness));
-                    _points[5] = _transf.transform(new Vector3D(_length - xThickness, 0.0 + yThickness, _height - zThickness));
-                    _points[6] = _transf.transform(new Vector3D(_length - xThickness, _width - yThickness, _height - zThickness));
-                    _points[7] = _transf.transform(new Vector3D(0.0 + xThickness, _width - yThickness, _height - zThickness));
-                     */ 
                     _points[0] = _transf.transform(new Vector3D(0.0, 0.0, 0.0));
                     _points[1] = _transf.transform(new Vector3D(_insideLength, 0.0, 0.0));
                     _points[2] = _transf.transform(new Vector3D(_insideLength, _insideWidth, 0.0 + zThickness));
                     _points[3] = _transf.transform(new Vector3D(0.0, _insideWidth, 0.0 + zThickness));
 
-                    _points[4] = _transf.transform(new Vector3D(0.0, 0.0, _height - zThickness));
-                    _points[5] = _transf.transform(new Vector3D(_insideLength, 0.0, _height - zThickness));
-                    _points[6] = _transf.transform(new Vector3D(_insideLength, _insideWidth, _height - zThickness));
-                    _points[7] = _transf.transform(new Vector3D(0.0, _insideWidth, _height - zThickness));
+                    _points[4] = _transf.transform(new Vector3D(0.0, 0.0, _insideHeight + zThickness));
+                    _points[5] = _transf.transform(new Vector3D(_insideLength, 0.0, _insideHeight + zThickness));
+                    _points[6] = _transf.transform(new Vector3D(_insideLength, _insideWidth, _insideHeight + zThickness));
+                    _points[7] = _transf.transform(new Vector3D(0.0, _insideWidth, _insideHeight + zThickness));
                 }
                 return _points;
             }

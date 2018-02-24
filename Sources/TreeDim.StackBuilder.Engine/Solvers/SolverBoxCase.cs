@@ -48,9 +48,8 @@ namespace treeDiM.StackBuilder.Engine
             Solution.SetSolver(solver);
             // loop on layers
             foreach (Layer2D layer in layers)
-            { 
-                var layerDescs = new List<LayerDesc>();
-                layerDescs.Add(layer.LayerDescriptor);
+            {
+                var layerDescs = new List<LayerDesc> { layer.LayerDescriptor };
                 var analysis = new AnalysisBoxCase(null, _packable, _caseProperties, constraintSet as ConstraintSetBoxCase);
                 analysis.AddSolution(layerDescs);
                 // only add analysis if it has a valid solution

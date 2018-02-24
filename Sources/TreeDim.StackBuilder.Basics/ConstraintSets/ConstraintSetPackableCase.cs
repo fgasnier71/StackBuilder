@@ -11,7 +11,8 @@ namespace treeDiM.StackBuilder.Basics
                 BoxProperties caseProperties = _container as BoxProperties;
                 if (null == caseProperties)
                     throw new Exception("Invalid container");
-                return new OptDouble(true, caseProperties.InsideHeight + 0.5 * (caseProperties.Height - caseProperties.InsideHeight));
+                double wallThickness = caseProperties.Height - caseProperties.InsideHeight > 0 ? 0.5 * (caseProperties.Height - caseProperties.InsideHeight) : 0.0;
+                return new OptDouble(true, caseProperties.InsideHeight + wallThickness);
             }
         }
         public override bool AllowUncompleteLayer => true;

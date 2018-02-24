@@ -49,8 +49,7 @@ namespace treeDiM.StackBuilder.Graphics
             uint pickId = 0;
             foreach (ILayer layer in _boxCaseSolution)
             {
-                Layer3DBox blayer = layer as Layer3DBox;
-                if (null != blayer)
+                if (layer is Layer3DBox blayer)
                 {
                     foreach (BoxPosition bPosition in blayer)
                         graphics.AddBox(new Box(pickId++, boxProperties, bPosition));
@@ -62,11 +61,11 @@ namespace treeDiM.StackBuilder.Graphics
                 graphics.AddDimensions(new DimensionCube(
                     Vector3D.Zero
                     , caseProperties.Length, caseProperties.Width, caseProperties.Height
-                    , System.Drawing.Color.Black
+                    , Color.Black
                     , true));
                 graphics.AddDimensions(new DimensionCube(
                     _boxCaseSolution.LoadBoundingBox
-                    , System.Drawing.Color.Red
+                    , Color.Red
                     , false));
             }
         }

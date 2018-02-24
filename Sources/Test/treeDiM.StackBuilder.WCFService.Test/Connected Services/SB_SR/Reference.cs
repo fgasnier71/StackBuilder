@@ -19,6 +19,7 @@ namespace treeDiM.StackBuilder.WCFService.Test.SB_SR {
     [System.SerializableAttribute()]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBPallet))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBInterlayer))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBBundle))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBCase))]
     public partial class DCSBItem : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -262,6 +263,77 @@ namespace treeDiM.StackBuilder.WCFService.Test.SB_SR {
                 if ((this.WeightField.Equals(value) != true)) {
                     this.WeightField = value;
                     this.RaisePropertyChanged("Weight");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DCSBBundle", Namespace="http://schemas.datacontract.org/2004/07/treeDiM.StackBuilder.WCFAppServ")]
+    [System.SerializableAttribute()]
+    public partial class DCSBBundle : treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBItem {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ColorField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBDim3D DimensionsUnitField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int NumberField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double UnitWeightField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Color {
+            get {
+                return this.ColorField;
+            }
+            set {
+                if ((this.ColorField.Equals(value) != true)) {
+                    this.ColorField = value;
+                    this.RaisePropertyChanged("Color");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBDim3D DimensionsUnit {
+            get {
+                return this.DimensionsUnitField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DimensionsUnitField, value) != true)) {
+                    this.DimensionsUnitField = value;
+                    this.RaisePropertyChanged("DimensionsUnit");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Number {
+            get {
+                return this.NumberField;
+            }
+            set {
+                if ((this.NumberField.Equals(value) != true)) {
+                    this.NumberField = value;
+                    this.RaisePropertyChanged("Number");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double UnitWeight {
+            get {
+                return this.UnitWeightField;
+            }
+            set {
+                if ((this.UnitWeightField.Equals(value) != true)) {
+                    this.UnitWeightField = value;
+                    this.RaisePropertyChanged("UnitWeight");
                 }
             }
         }
@@ -1285,11 +1357,29 @@ namespace treeDiM.StackBuilder.WCFService.Test.SB_SR {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="SB_SR.IStackBuilder")]
     public interface IStackBuilder {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStackBuilder/SB_GetBestSolution", ReplyAction="http://tempuri.org/IStackBuilder/SB_GetBestSolutionResponse")]
-        treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBSolution SB_GetBestSolution(treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBCase sbCase, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBPallet sbPallet, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBInterlayer sbInterlayer, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBConstraintSet sbConstraintSet, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCCompFormat expectedFormat, bool showCotations);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStackBuilder/SB_GetCasePalletBestSolution", ReplyAction="http://tempuri.org/IStackBuilder/SB_GetCasePalletBestSolutionResponse")]
+        treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBSolution SB_GetCasePalletBestSolution(treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBCase sbCase, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBPallet sbPallet, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBInterlayer sbInterlayer, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBConstraintSet sbConstraintSet, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCCompFormat expectedFormat, bool showCotations);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStackBuilder/SB_GetBestSolution", ReplyAction="http://tempuri.org/IStackBuilder/SB_GetBestSolutionResponse")]
-        System.Threading.Tasks.Task<treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBSolution> SB_GetBestSolutionAsync(treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBCase sbCase, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBPallet sbPallet, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBInterlayer sbInterlayer, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBConstraintSet sbConstraintSet, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCCompFormat expectedFormat, bool showCotations);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStackBuilder/SB_GetCasePalletBestSolution", ReplyAction="http://tempuri.org/IStackBuilder/SB_GetCasePalletBestSolutionResponse")]
+        System.Threading.Tasks.Task<treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBSolution> SB_GetCasePalletBestSolutionAsync(treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBCase sbCase, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBPallet sbPallet, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBInterlayer sbInterlayer, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBConstraintSet sbConstraintSet, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCCompFormat expectedFormat, bool showCotations);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStackBuilder/SB_GetBundlePalletBestSolution", ReplyAction="http://tempuri.org/IStackBuilder/SB_GetBundlePalletBestSolutionResponse")]
+        treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBSolution SB_GetBundlePalletBestSolution(treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBBundle sbBundle, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBPallet sbPallet, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBInterlayer sbInterlayer, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBConstraintSet sbConstraintSet, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCCompFormat expectedFormat, bool showCotations);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStackBuilder/SB_GetBundlePalletBestSolution", ReplyAction="http://tempuri.org/IStackBuilder/SB_GetBundlePalletBestSolutionResponse")]
+        System.Threading.Tasks.Task<treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBSolution> SB_GetBundlePalletBestSolutionAsync(treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBBundle sbBundle, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBPallet sbPallet, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBInterlayer sbInterlayer, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBConstraintSet sbConstraintSet, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCCompFormat expectedFormat, bool showCotations);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStackBuilder/SB_GetBundleCaseBestSolution", ReplyAction="http://tempuri.org/IStackBuilder/SB_GetBundleCaseBestSolutionResponse")]
+        treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBSolution SB_GetBundleCaseBestSolution(treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBBundle sbBundle, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBCase sbCase, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBConstraintSet sbConstraintSet, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCCompFormat expectedFormat, bool showCotations);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStackBuilder/SB_GetBundleCaseBestSolution", ReplyAction="http://tempuri.org/IStackBuilder/SB_GetBundleCaseBestSolutionResponse")]
+        System.Threading.Tasks.Task<treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBSolution> SB_GetBundleCaseBestSolutionAsync(treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBBundle sbBundle, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBCase sbCase, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBConstraintSet sbConstraintSet, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCCompFormat expectedFormat, bool showCotations);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStackBuilder/SB_GetBoxCaseBestSolution", ReplyAction="http://tempuri.org/IStackBuilder/SB_GetBoxCaseBestSolutionResponse")]
+        treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBSolution SB_GetBoxCaseBestSolution(treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBCase sbBox, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBCase sbCase, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBInterlayer sbInterlayer, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBConstraintSet cSBConstraintSet, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCCompFormat expectedFormat, bool showCotations);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStackBuilder/SB_GetBoxCaseBestSolution", ReplyAction="http://tempuri.org/IStackBuilder/SB_GetBoxCaseBestSolutionResponse")]
+        System.Threading.Tasks.Task<treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBSolution> SB_GetBoxCaseBestSolutionAsync(treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBCase sbBox, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBCase sbCase, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBInterlayer sbInterlayer, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBConstraintSet cSBConstraintSet, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCCompFormat expectedFormat, bool showCotations);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1319,12 +1409,36 @@ namespace treeDiM.StackBuilder.WCFService.Test.SB_SR {
                 base(binding, remoteAddress) {
         }
         
-        public treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBSolution SB_GetBestSolution(treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBCase sbCase, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBPallet sbPallet, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBInterlayer sbInterlayer, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBConstraintSet sbConstraintSet, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCCompFormat expectedFormat, bool showCotations) {
-            return base.Channel.SB_GetBestSolution(sbCase, sbPallet, sbInterlayer, sbConstraintSet, expectedFormat, showCotations);
+        public treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBSolution SB_GetCasePalletBestSolution(treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBCase sbCase, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBPallet sbPallet, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBInterlayer sbInterlayer, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBConstraintSet sbConstraintSet, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCCompFormat expectedFormat, bool showCotations) {
+            return base.Channel.SB_GetCasePalletBestSolution(sbCase, sbPallet, sbInterlayer, sbConstraintSet, expectedFormat, showCotations);
         }
         
-        public System.Threading.Tasks.Task<treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBSolution> SB_GetBestSolutionAsync(treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBCase sbCase, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBPallet sbPallet, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBInterlayer sbInterlayer, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBConstraintSet sbConstraintSet, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCCompFormat expectedFormat, bool showCotations) {
-            return base.Channel.SB_GetBestSolutionAsync(sbCase, sbPallet, sbInterlayer, sbConstraintSet, expectedFormat, showCotations);
+        public System.Threading.Tasks.Task<treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBSolution> SB_GetCasePalletBestSolutionAsync(treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBCase sbCase, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBPallet sbPallet, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBInterlayer sbInterlayer, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBConstraintSet sbConstraintSet, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCCompFormat expectedFormat, bool showCotations) {
+            return base.Channel.SB_GetCasePalletBestSolutionAsync(sbCase, sbPallet, sbInterlayer, sbConstraintSet, expectedFormat, showCotations);
+        }
+        
+        public treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBSolution SB_GetBundlePalletBestSolution(treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBBundle sbBundle, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBPallet sbPallet, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBInterlayer sbInterlayer, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBConstraintSet sbConstraintSet, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCCompFormat expectedFormat, bool showCotations) {
+            return base.Channel.SB_GetBundlePalletBestSolution(sbBundle, sbPallet, sbInterlayer, sbConstraintSet, expectedFormat, showCotations);
+        }
+        
+        public System.Threading.Tasks.Task<treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBSolution> SB_GetBundlePalletBestSolutionAsync(treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBBundle sbBundle, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBPallet sbPallet, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBInterlayer sbInterlayer, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBConstraintSet sbConstraintSet, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCCompFormat expectedFormat, bool showCotations) {
+            return base.Channel.SB_GetBundlePalletBestSolutionAsync(sbBundle, sbPallet, sbInterlayer, sbConstraintSet, expectedFormat, showCotations);
+        }
+        
+        public treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBSolution SB_GetBundleCaseBestSolution(treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBBundle sbBundle, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBCase sbCase, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBConstraintSet sbConstraintSet, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCCompFormat expectedFormat, bool showCotations) {
+            return base.Channel.SB_GetBundleCaseBestSolution(sbBundle, sbCase, sbConstraintSet, expectedFormat, showCotations);
+        }
+        
+        public System.Threading.Tasks.Task<treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBSolution> SB_GetBundleCaseBestSolutionAsync(treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBBundle sbBundle, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBCase sbCase, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBConstraintSet sbConstraintSet, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCCompFormat expectedFormat, bool showCotations) {
+            return base.Channel.SB_GetBundleCaseBestSolutionAsync(sbBundle, sbCase, sbConstraintSet, expectedFormat, showCotations);
+        }
+        
+        public treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBSolution SB_GetBoxCaseBestSolution(treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBCase sbBox, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBCase sbCase, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBInterlayer sbInterlayer, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBConstraintSet cSBConstraintSet, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCCompFormat expectedFormat, bool showCotations) {
+            return base.Channel.SB_GetBoxCaseBestSolution(sbBox, sbCase, sbInterlayer, cSBConstraintSet, expectedFormat, showCotations);
+        }
+        
+        public System.Threading.Tasks.Task<treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBSolution> SB_GetBoxCaseBestSolutionAsync(treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBCase sbBox, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBCase sbCase, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBInterlayer sbInterlayer, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBConstraintSet cSBConstraintSet, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCCompFormat expectedFormat, bool showCotations) {
+            return base.Channel.SB_GetBoxCaseBestSolutionAsync(sbBox, sbCase, sbInterlayer, cSBConstraintSet, expectedFormat, showCotations);
         }
     }
 }

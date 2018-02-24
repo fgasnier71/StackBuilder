@@ -13,9 +13,24 @@ namespace treeDiM.StackBuilder.WCFAppServ
     public interface IStackBuilder
     {
         [OperationContract]
-        DCSBSolution SB_GetBestSolution(
+        DCSBSolution SB_GetCasePalletBestSolution(
             DCSBCase sbCase, DCSBPallet sbPallet, DCSBInterlayer sbInterlayer
             , DCSBConstraintSet sbConstraintSet
+            , DCCompFormat expectedFormat, bool showCotations);
+        [OperationContract]
+        DCSBSolution SB_GetBundlePalletBestSolution(
+            DCSBBundle sbBundle, DCSBPallet sbPallet, DCSBInterlayer sbInterlayer
+            , DCSBConstraintSet sbConstraintSet
+            , DCCompFormat expectedFormat, bool showCotations);
+        [OperationContract]
+        DCSBSolution SB_GetBundleCaseBestSolution(
+            DCSBBundle sbBundle, DCSBCase sbCase
+            , DCSBConstraintSet sbConstraintSet
+            , DCCompFormat expectedFormat, bool showCotations);
+        [OperationContract]
+        DCSBSolution SB_GetBoxCaseBestSolution(
+            DCSBCase sbBox, DCSBCase sbCase, DCSBInterlayer sbInterlayer
+            , DCSBConstraintSet cSBConstraintSet
             , DCCompFormat expectedFormat, bool showCotations);
     }
 }
