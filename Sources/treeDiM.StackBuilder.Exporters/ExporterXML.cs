@@ -97,7 +97,7 @@ namespace treeDiM.StackBuilder.Exporters
                 };
             }
             else
-                throw new Exception("Unexpected analysis type!");
+                throw new Exception(string.Format("Unexpected analysis type : {0}", analysis.GetType()));
         }
         private item BuildItem(Analysis analysis)
         {
@@ -122,7 +122,7 @@ namespace treeDiM.StackBuilder.Exporters
                 };
             }
             else
-                throw new Exception("Unexpected analysis type!");
+                throw new Exception(string.Format("Unexpected analysis type : {0}", analysis.GetType()));
         }
         private placement[] BuildPlacementArray(Solution sol)
         {

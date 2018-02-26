@@ -155,11 +155,22 @@ namespace treeDiM.StackBuilder.Desktop
 
         protected override void OnClosing(CancelEventArgs e)
         {
-            if (null == Settings.Default.FormMainPosition)
-                Settings.Default.FormMainPosition = new WindowSettings();
-            Settings.Default.FormMainPosition.Record(this);
-            Settings.Default.Save();
+            try
+            {
+                if (null == Settings.Default.FormMainPosition)
+                    Settings.Default.FormMainPosition = new WindowSettings();
+                Settings.Default.FormMainPosition.Record(this);
+                Settings.Default.Save();
 
+            }
+            catch (System.Configuration.ConfigurationErrorsException ex)
+            {
+                _log.Error(string.Format("Failed to save user configuration: {0}", ex.ToString()));
+            }
+            catch (Exception ex)
+            {
+                _log.Error(ex.ToString());
+            }
             CloseAllDocuments(e);
             base.OnClosing(e);
         }
@@ -544,7 +555,7 @@ namespace treeDiM.StackBuilder.Desktop
             }
             catch (Exception ex)
             {
-                _log.Error(ex.ToString());
+                _log.Error(ex.ToString()); Program.SendCrashReport(ex);
             }
         }
         public void GenerateExport(Analysis analysis, string extension)
