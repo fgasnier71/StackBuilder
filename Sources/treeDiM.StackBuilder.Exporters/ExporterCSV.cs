@@ -21,16 +21,18 @@ namespace treeDiM.StackBuilder.Exporters
             List<ILayer> layers = sol.Layers;
             foreach (ILayer layer in layers)
             {
-                Layer3DBox layerBox = layer as Layer3DBox;
-                foreach (BoxPosition bPosition in layerBox)
+                if (layer is Layer3DBox layerBox)
                 {
-                    csv.AppendLine(string.Format("{0};{1};{2};{3};{4};{5}",
-                        1,
-                        bPosition.Position.X,
-                        bPosition.Position.Y,
-                        bPosition.Position.Z,
-                        bPosition.DirectionLength,
-                        bPosition.DirectionWidth));
+                    foreach (BoxPosition bPosition in layerBox)
+                    {
+                        csv.AppendLine(string.Format("{0};{1};{2};{3};{4};{5}",
+                            1,
+                            bPosition.Position.X,
+                            bPosition.Position.Y,
+                            bPosition.Position.Z,
+                            bPosition.DirectionLength,
+                            bPosition.DirectionWidth));
+                    }
                 }
             }
             File.WriteAllText(filePath, csv.ToString());

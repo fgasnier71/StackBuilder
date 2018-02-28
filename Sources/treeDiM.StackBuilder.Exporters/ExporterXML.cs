@@ -130,20 +130,22 @@ namespace treeDiM.StackBuilder.Exporters
             List<ILayer> layers = sol.Layers;
             foreach (ILayer layer in layers)
             {
-                Layer3DBox layerBox = layer as Layer3DBox;
-                foreach (BoxPosition bPosition in layerBox)
+                if (layer is Layer3DBox layerBox)
                 {
-                    lPlacements.Add(
-                        new placement()
-                        {
-                            itemId = 1,
-                            x = bPosition.Position.X,
-                            y = bPosition.Position.Y,
-                            z = bPosition.Position.Z,
-                            L = ToAxis(bPosition.DirectionLength),
-                            W = ToAxis(bPosition.DirectionWidth)
-                        }
-                        );
+                    foreach (BoxPosition bPosition in layerBox)
+                    {
+                        lPlacements.Add(
+                            new placement()
+                            {
+                                itemId = 1,
+                                x = bPosition.Position.X,
+                                y = bPosition.Position.Y,
+                                z = bPosition.Position.Z,
+                                L = ToAxis(bPosition.DirectionLength),
+                                W = ToAxis(bPosition.DirectionWidth)
+                            }
+                            );
+                    }
                 }
             }
             return lPlacements.ToArray();
