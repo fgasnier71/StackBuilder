@@ -527,8 +527,7 @@ namespace treeDiM.StackBuilder.Exporters
             uint iLayer = 0, iCounted = 0;
             foreach (ILayer layer in _palletSolution)
             {
-                Layer3DBox bLayer = layer as Layer3DBox;
-                if (null != bLayer)
+                if (layer is Layer3DBox bLayer)
                 {
                     if (iCounted + bLayer.BoxCount > caseIndex)
                         break;
@@ -551,8 +550,7 @@ namespace treeDiM.StackBuilder.Exporters
             int iLayer = 0;
             foreach (ILayer layer in _palletSolution)
             {
-                Layer3DBox bLayer = layer as Layer3DBox;
-                if (null != bLayer)
+                if (layer is Layer3DBox bLayer)
                 {
                     if (iCounted + bLayer.BoxCount > caseIndex)
                         break;

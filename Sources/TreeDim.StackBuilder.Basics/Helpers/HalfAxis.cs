@@ -1,7 +1,5 @@
 ﻿#region Using directives
 using System;
-using System.Collections.Generic;
-using System.Text;
 using Sharp3D.Math.Core;
 #endregion
 
@@ -20,7 +18,6 @@ namespace treeDiM.StackBuilder.Basics
           , AXIS_Z_P // Z
         }
         #endregion
-
         #region Static conversion methods
         public static HAxis Opposite(HAxis axis)
         {
@@ -35,7 +32,6 @@ namespace treeDiM.StackBuilder.Basics
                 default: return HAxis.AXIS_Z_P;
             }
         }
-
         public static Vector3D ToVector3D(HAxis axis)
         {
             switch (axis)
@@ -71,17 +67,17 @@ namespace treeDiM.StackBuilder.Basics
         }
         public static HAxis Transform(HAxis axis, Transform3D transform)
         {
-            return HalfAxis.ToHalfAxis(transform.transformRot(HalfAxis.ToVector3D(axis)));
+            return ToHalfAxis(transform.transformRot(HalfAxis.ToVector3D(axis)));
         }
         public static HAxis ReflectionX(HAxis axis)
         {
-            Vector3D v = HalfAxis.ToVector3D(axis);
-            return HalfAxis.ToHalfAxis(new Vector3D(v.X, -v.Y, v.Z)); 
+            Vector3D v = ToVector3D(axis);
+            return ToHalfAxis(new Vector3D(v.X, -v.Y, v.Z)); 
         }
         public static HAxis ReflectionY(HAxis axis)
         {
-            Vector3D v = HalfAxis.ToVector3D(axis);
-            return HalfAxis.ToHalfAxis(new Vector3D(-v.X, v.Y, v.Z));
+            Vector3D v = ToVector3D(axis);
+            return ToHalfAxis(new Vector3D(-v.X, v.Y, v.Z));
         }
         public static string ToString(HAxis axis)
         {
@@ -106,7 +102,6 @@ namespace treeDiM.StackBuilder.Basics
             else if (string.Equals(sAxis, "ZP", StringComparison.CurrentCultureIgnoreCase)) return HAxis.AXIS_Z_P;
             throw new Exception(string.Format("Invalid HalfAxis value {0}", sAxis));
         }
-
         public static HAxis[] Positives
         {
             get
@@ -119,7 +114,6 @@ namespace treeDiM.StackBuilder.Basics
                 }; 
             }
         }
-
         public static HAxis[] All
         {
             get
@@ -135,7 +129,6 @@ namespace treeDiM.StackBuilder.Basics
                 };
             }
         }
-
         public static int Direction(HAxis axis)
         {
             switch (axis)
@@ -160,20 +153,18 @@ namespace treeDiM.StackBuilder.Basics
     {
         #region Constructor
         public Orientation(HalfAxis.HAxis dir0, HalfAxis.HAxis dir1)
-        {   _dir0 = dir0; _dir1 = dir1; }
+        { Dir0 = dir0; Dir1 = dir1; }
         #endregion
         #region Public properties
-        public HalfAxis.HAxis Dir0
-        {   get {   return _dir0;   }  }
-        public HalfAxis.HAxis Dir1
-        {   get {   return _dir1;   }  }
+        public HalfAxis.HAxis Dir0 { get; set; }
+        public HalfAxis.HAxis Dir1 { get; set; }
         public Transform3D Transformation
         {
             get
             {
                 Matrix4D mat = Matrix4D.Identity;
-                Vector3D x = HalfAxis.ToVector3D(_dir0);
-                Vector3D y = HalfAxis.ToVector3D(_dir1);
+                Vector3D x = HalfAxis.ToVector3D(Dir0);
+                Vector3D y = HalfAxis.ToVector3D(Dir1);
                 Vector3D z = Vector3D.CrossProduct(x, y);
                 mat.M11 = x.X;
                 mat.M21 = x.Y;
@@ -188,13 +179,8 @@ namespace treeDiM.StackBuilder.Basics
             }
         }
         #endregion
-
         #region Static members
         public static Orientation Default = new Orientation(HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P);
-        #endregion
-
-        #region Data members
-        private HalfAxis.HAxis _dir0, _dir1;
         #endregion
     }
 }
