@@ -13,6 +13,8 @@ namespace treeDiM.StackBuilder.Basics
         #region Constructor
         public BoxPosition(Vector3D vPosition, HalfAxis.HAxis dirLength = HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis dirWidth = HalfAxis.HAxis.AXIS_Y_P)
         {
+            if (dirLength == dirWidth)
+                throw new Exception("Can not create BoxPosition"); 
             Position = vPosition;
             DirectionLength = dirLength;
             DirectionWidth = dirWidth;
@@ -71,11 +73,52 @@ namespace treeDiM.StackBuilder.Basics
         }
         #endregion
 
-        #region Object method overrides
-        public override string ToString()
+        #region Static members
+        /// <summary>
+        /// This method will be used to build 
+        /// </summary>
+        /// <param name="pos">Position of left/front/down corner of box</param>
+        /// <param name="dimOriented">Projections of box on axes X/Y/Z</param>
+        /// <param name="dimOriginal">Box length, width, height</param>
+        /// <returns></returns>
+        public static BoxPosition FromPositionDimension(Vector3D pos, Vector3D dimOriented, Vector3D dimOriginal)
         {
-            return string.Format("{0} | ({1},{2})", Position, HalfAxis.ToString(DirectionLength), HalfAxis.ToString(DirectionWidth));
+            BoxPositionIndexed bpi = BoxPositionIndexed.Zero;
+            // search for length (dimOriginal[0])
+            if (MostlyEqual(dimOriented[0], dimOriginal[0])) 
+            {
+                // L W H
+                if (MostlyEqual(dimOriented[1], dimOriginal[1]))
+                    bpi = new BoxPositionIndexed(pos, 1);
+                // L H W
+                else if (MostlyEqual(dimOriented[1], dimOriginal[2]))
+                    bpi = new BoxPositionIndexed(pos, 5);
+            }
+            else if (MostlyEqual(dimOriented[0], dimOriginal[1]))
+            {
+                // W L H
+                if (MostlyEqual(dimOriented[1], dimOriginal[0]))
+                    bpi = new BoxPositionIndexed(pos, 2);
+                // W H L
+                else if (MostlyEqual(dimOriented[1], dimOriginal[2]))
+                    bpi = new BoxPositionIndexed(pos, 3);
+            }
+            else if (MostlyEqual(dimOriented[0], dimOriginal[2]))
+            {
+                // H L W
+                if (MostlyEqual(dimOriented[1], dimOriginal[0]))
+                    bpi = new BoxPositionIndexed(pos, 6);
+                // H W L
+                else if (MostlyEqual(dimOriented[1], dimOriginal[1]))
+                    bpi = new BoxPositionIndexed(pos, 4);
+            }
+            return bpi.ToBoxPosition(dimOriginal);
         }
+        private static bool MostlyEqual(double val0, double val1) => Math.Abs(val1 - val0) < 1.0e-03;
+        #endregion
+
+        #region Object method overrides
+        public override string ToString() => $"{Position} | ({HalfAxis.ToString(DirectionLength)},{HalfAxis.ToString(DirectionWidth)})";
         #endregion
     }
 
@@ -84,6 +127,9 @@ namespace treeDiM.StackBuilder.Basics
         #region Constructor
         public BoxPositionIndexed(Vector3D vPosition, int orientation)
         {
+            if (orientation < 1 || orientation > 6)
+                throw new Exception($"BoxPositionIndexed : cannot have orientation = {orientation}");
+
             Position = vPosition;
             Orientation = orientation;
         }
@@ -94,31 +140,31 @@ namespace treeDiM.StackBuilder.Basics
         public int Orientation { get; set; }
         public BoxPosition ToBoxPosition(Vector3D dimensions)
         {
-                // 1 -> L W H
-                // 2 -> W L H
-                // 3 -> W H L
-                // 4 -> H W L
-                // 5 -> L H W
-                // 6 -> H L W
-
-                switch (Orientation)
-                {
-                    case 1: return new BoxPosition(Position, HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P);
-                    case 2: return new BoxPosition(Position + dimensions.Y * Vector3D.XAxis, HalfAxis.HAxis.AXIS_Y_P, HalfAxis.HAxis.AXIS_X_N);
-                    case 3: return new BoxPosition(Position + dimensions.Z * Vector3D.YAxis, HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Z_P);
-                    case 4: return new BoxPosition(Position, HalfAxis.HAxis.AXIS_Z_P, HalfAxis.HAxis.AXIS_X_P);
-                    case 5: return new BoxPosition(Position, HalfAxis.HAxis.AXIS_Y_P, HalfAxis.HAxis.AXIS_Z_P);
-                    case 6: return new BoxPosition(Position + dimensions.Z * Vector3D.XAxis, HalfAxis.HAxis.AXIS_Z_P, HalfAxis.HAxis.AXIS_Y_P);
-                    default: throw new Exception("BoxPositionIndexed : Invalid orientation!");
-                }
+            // 1 -> L W H
+            // 2 -> W L H
+            // 3 -> W H L
+            // 4 -> H W L
+            // 5 -> L H W
+            // 6 -> H L W
+            switch (Orientation)
+            {
+                case 1: return new BoxPosition(Position, HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P);
+                case 2: return new BoxPosition(Position + dimensions.Y * Vector3D.XAxis, HalfAxis.HAxis.AXIS_Y_P, HalfAxis.HAxis.AXIS_X_N);
+                case 3: return new BoxPosition(Position, HalfAxis.HAxis.AXIS_Z_P, HalfAxis.HAxis.AXIS_X_P);
+                case 4: return new BoxPosition(Position + dimensions.Y * Vector3D.YAxis, HalfAxis.HAxis.AXIS_Z_P, HalfAxis.HAxis.AXIS_Y_N);
+                case 5: return new BoxPosition(Position + dimensions.Z * Vector3D.YAxis, HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Z_P);
+                case 6: return new BoxPosition(Position, HalfAxis.HAxis.AXIS_Y_P, HalfAxis.HAxis.AXIS_Z_P);
+                default: throw new Exception("BoxPositionIndexed : Invalid orientation!");
+            }
         }
         #endregion
 
+        #region Static members
+        public static BoxPositionIndexed Zero = new BoxPositionIndexed(Vector3D.Zero, 1);
+        #endregion
+
         #region Object method override
-        public override string ToString()
-        {
-            return $"{Position} | {Orientation}";
-        }
+        public override string ToString() => $"{Position} | {Orientation}";
         #endregion
     }
 }

@@ -174,6 +174,14 @@ namespace treeDiM.StackBuilder.Basics
         }
         #endregion
 
+        #region Public properties
+        public double ForcedSpace
+        {
+            get { return _forcedSpace; }
+            set { _forcedSpace = value; }
+        }
+        #endregion
+
         #region Public methods
         public void AddPosition(Vector2D vPosition, HalfAxis.HAxis lengthAxis, HalfAxis.HAxis widthAxis)
         {
@@ -197,14 +205,14 @@ namespace treeDiM.StackBuilder.Basics
             mat.M44 = 1.0;
             Transform3D localTransf = new Transform3D(mat);
             Transform3D localTransfInv = localTransf.Inverse();
-            Transform3D originTranslation = Transform3D.Translation(localTransfInv.transform(VecTransf) - new Vector3D(0.5 * _forcedSpace, 0.5 * _forcedSpace, 0.0));
+            Transform3D originTranslation = Transform3D.Translation(localTransfInv.transform(VecTransf) - new Vector3D(0.5*_forcedSpace, 0.5*_forcedSpace, 0.0));
 
-            Vector3D vPos = originTranslation.transform(new Vector3D(vPosition.X, vPosition.Y, 0.0) + 0.5 * _forcedSpace * vAxisLength + 0.5 * _forcedSpace * vAxisWidth);
             LayerPosition layerPos = new LayerPosition(
-                originTranslation.transform(new Vector3D(vPosition.X, vPosition.Y, 0.0) + 0.5 * _forcedSpace * vAxisLength + 0.5 * _forcedSpace * vAxisWidth)
+                originTranslation.transform(new Vector3D(vPosition.X, vPosition.Y, 0.0) + 0.5*_forcedSpace*vAxisLength + 0.5*_forcedSpace*vAxisWidth) 
                 , HalfAxis.ToHalfAxis(localTransfInv.transform(HalfAxis.ToVector3D(LengthAxis)))
                 , HalfAxis.ToHalfAxis(localTransfInv.transform(HalfAxis.ToVector3D(WidthAxis)))
                 );
+            layerPos.Position += new Vector3D(0.5 * _forcedSpace, 0.5 * _forcedSpace, 0.0);
             // add position
             Add(layerPos.Adjusted(_dimBox));
         }

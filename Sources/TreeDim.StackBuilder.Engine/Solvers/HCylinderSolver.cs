@@ -15,7 +15,7 @@ namespace treeDiM.StackBuilder.Engine
         #region Data members
         private HCylinderPalletAnalysis _analysis;
         private HCylinderPalletSolution _solution;
-        private List<TruckAnalysis> _truckAnalyses = new List<TruckAnalysis>();
+        private List<Analysis> _truckAnalyses = new List<Analysis>();
         #endregion
 
         #region Constructor
@@ -44,13 +44,6 @@ namespace treeDiM.StackBuilder.Engine
         public HCylinderPalletAnalysis Analysis
         {
             get { return _analysis; }
-        }
-        /// <summary>
-        /// List of depending truck analyses
-        /// </summary>
-        public List<TruckAnalysis> TruckAnalyses
-        {
-            get { return _truckAnalyses; }
         }
         #endregion
 
@@ -256,8 +249,7 @@ namespace treeDiM.StackBuilder.Engine
             // insert in list
             _selectedSolutions.Add(selSolution);
             // fire event
-            if (null != SolutionSelected)
-                SolutionSelected(this, selSolution);
+            SolutionSelected?.Invoke(this, selSolution);
             // set document modified (not analysis, otherwise selected solutions are erased)
             ParentDocument.Modify();
         }
@@ -272,8 +264,7 @@ namespace treeDiM.StackBuilder.Engine
             _selectedSolutions.Remove(selSolution);
             ParentDocument.RemoveItem(selSolution);
             // fire event
-            if (null != SolutionSelectionRemoved)
-                SolutionSelectionRemoved(this, selSolution);
+            SolutionSelectionRemoved?.Invoke(this, selSolution);
             // set document modified (not analysis, otherwise selected solutions are erased)
             ParentDocument.Modify();
         }
@@ -291,8 +282,7 @@ namespace treeDiM.StackBuilder.Engine
         #region Dependancies
         public override void OnEndUpdate(ItemBase updatedAttribute)
         {
-            if (null != Modified)
-                Modified(this);
+            Modified?.Invoke(this);
             // clear selected solutions
             while (_selectedSolutions.Count > 0)
                 UnSelectSolution(_selectedSolutions[0]);

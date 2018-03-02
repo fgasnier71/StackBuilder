@@ -91,7 +91,6 @@
             // 
             // splitContainer.Panel1
             // 
-            resources.ApplyResources(this.splitContainer.Panel1, "splitContainer.Panel1");
             this.splitContainer.Panel1.Controls.Add(this.btClose);
             this.splitContainer.Panel1.Controls.Add(this.gbWrapper);
             this.splitContainer.Panel1.Controls.Add(this.gbPallet);
@@ -101,7 +100,6 @@
             // 
             // splitContainer.Panel2
             // 
-            resources.ApplyResources(this.splitContainer.Panel2, "splitContainer.Panel2");
             this.splitContainer.Panel2.Controls.Add(this.tbAnalysisDescription);
             this.splitContainer.Panel2.Controls.Add(this.lbAnalysisDescription);
             this.splitContainer.Panel2.Controls.Add(this.tbAnalysisName);
@@ -151,13 +149,13 @@
             // 
             // cbColor
             // 
-            resources.ApplyResources(this.cbColor, "cbColor");
             this.cbColor.Color = System.Drawing.Color.LightGray;
             this.cbColor.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cbColor.DropDownHeight = 1;
             this.cbColor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbColor.DropDownWidth = 1;
             this.cbColor.FormattingEnabled = true;
+            resources.ApplyResources(this.cbColor, "cbColor");
             this.cbColor.Items.AddRange(new object[] {
             resources.GetString("cbColor.Items"),
             resources.GetString("cbColor.Items1"),
@@ -197,13 +195,14 @@
             resources.GetString("cbColor.Items35"),
             resources.GetString("cbColor.Items36"),
             resources.GetString("cbColor.Items37"),
-            resources.GetString("cbColor.Items38")});
+            resources.GetString("cbColor.Items38"),
+            resources.GetString("cbColor.Items39"),
+            resources.GetString("cbColor.Items40")});
             this.cbColor.Name = "cbColor";
             this.cbColor.SelectedColorChanged += new System.EventHandler(this.OnDataChanged);
             // 
             // cbWrapperType
             // 
-            resources.ApplyResources(this.cbWrapperType, "cbWrapperType");
             this.cbWrapperType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbWrapperType.FormattingEnabled = true;
             this.cbWrapperType.Items.AddRange(new object[] {
@@ -211,6 +210,7 @@
             resources.GetString("cbWrapperType.Items1"),
             resources.GetString("cbWrapperType.Items2"),
             resources.GetString("cbWrapperType.Items3")});
+            resources.ApplyResources(this.cbWrapperType, "cbWrapperType");
             this.cbWrapperType.Name = "cbWrapperType";
             this.cbWrapperType.SelectedIndexChanged += new System.EventHandler(this.OnWrapperTypeChanged);
             // 
@@ -267,9 +267,9 @@
             // 
             // cbPallets
             // 
-            resources.ApplyResources(this.cbPallets, "cbPallets");
             this.cbPallets.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbPallets.FormattingEnabled = true;
+            resources.ApplyResources(this.cbPallets, "cbPallets");
             this.cbPallets.Name = "cbPallets";
             this.cbPallets.SelectedIndexChanged += new System.EventHandler(this.OnPalletChanged);
             // 
@@ -337,6 +337,7 @@
             0});
             this.uCtrlPackDimensionsMax.Name = "uCtrlPackDimensionsMax";
             this.uCtrlPackDimensionsMax.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlPackDimensionsMax.Value = ((Sharp3D.Math.Core.Vector3D)(resources.GetObject("uCtrlPackDimensionsMax.Value")));
             this.uCtrlPackDimensionsMax.ValueX = 0D;
             this.uCtrlPackDimensionsMax.ValueY = 0D;
             this.uCtrlPackDimensionsMax.ValueZ = 0D;
@@ -352,6 +353,7 @@
             0});
             this.uCtrlPackDimensionsMin.Name = "uCtrlPackDimensionsMin";
             this.uCtrlPackDimensionsMin.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlPackDimensionsMin.Value = ((Sharp3D.Math.Core.Vector3D)(resources.GetObject("uCtrlPackDimensionsMin.Value")));
             this.uCtrlPackDimensionsMin.ValueX = 0D;
             this.uCtrlPackDimensionsMin.ValueY = 0D;
             this.uCtrlPackDimensionsMin.ValueZ = 0D;
@@ -373,21 +375,21 @@
             // 
             // groupBox
             // 
-            resources.ApplyResources(this.groupBox, "groupBox");
             this.groupBox.Controls.Add(this.cbBoxes);
             this.groupBox.Controls.Add(this.chkVerticalOrientationOnly);
             this.groupBox.Controls.Add(this.nudNumber);
             this.groupBox.Controls.Add(this.lbNumber);
             this.groupBox.Controls.Add(this.lbBoxDimensions);
             this.groupBox.Controls.Add(this.lbBox);
+            resources.ApplyResources(this.groupBox, "groupBox");
             this.groupBox.Name = "groupBox";
             this.groupBox.TabStop = false;
             // 
             // cbBoxes
             // 
-            resources.ApplyResources(this.cbBoxes, "cbBoxes");
             this.cbBoxes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbBoxes.FormattingEnabled = true;
+            resources.ApplyResources(this.cbBoxes, "cbBoxes");
             this.cbBoxes.Name = "cbBoxes";
             this.cbBoxes.SelectedIndexChanged += new System.EventHandler(this.OnBoxChanged);
             // 
@@ -475,16 +477,16 @@
             // 
             // statusStrip
             // 
-            resources.ApplyResources(this.statusStrip, "statusStrip");
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabelDef});
+            resources.ApplyResources(this.statusStrip, "statusStrip");
             this.statusStrip.Name = "statusStrip";
             // 
             // toolStripStatusLabelDef
             // 
-            resources.ApplyResources(this.toolStripStatusLabelDef, "toolStripStatusLabelDef");
             this.toolStripStatusLabelDef.ForeColor = System.Drawing.Color.Red;
             this.toolStripStatusLabelDef.Name = "toolStripStatusLabelDef";
+            resources.ApplyResources(this.toolStripStatusLabelDef, "toolStripStatusLabelDef");
             // 
             // _timer
             // 

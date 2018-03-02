@@ -45,15 +45,11 @@
             this.tabPageOverhang = new System.Windows.Forms.TabPage();
             this.tabPageSpaces = new System.Windows.Forms.TabPage();
             this.uCtrlOptSpace = new treeDiM.StackBuilder.Basics.UCtrlOptDouble();
-            this.tabPageLayerFilters = new System.Windows.Forms.TabPage();
-            this.uCtrlOptMaximumLayerWeight = new treeDiM.StackBuilder.Basics.UCtrlOptDouble();
-            this.uCtrlOptMaximumSpace = new treeDiM.StackBuilder.Basics.UCtrlOptDouble();
             this.lbSelect = new System.Windows.Forms.Label();
             this.tabCtrlConstraints.SuspendLayout();
             this.tabPageStopCriterions.SuspendLayout();
             this.tabPageOverhang.SuspendLayout();
             this.tabPageSpaces.SuspendLayout();
-            this.tabPageLayerFilters.SuspendLayout();
             this.SuspendLayout();
             // 
             // tbDescription
@@ -133,7 +129,6 @@
             this.tabCtrlConstraints.Controls.Add(this.tabPageStopCriterions);
             this.tabCtrlConstraints.Controls.Add(this.tabPageOverhang);
             this.tabCtrlConstraints.Controls.Add(this.tabPageSpaces);
-            this.tabCtrlConstraints.Controls.Add(this.tabPageLayerFilters);
             resources.ApplyResources(this.tabCtrlConstraints, "tabCtrlConstraints");
             this.tabCtrlConstraints.Name = "tabCtrlConstraints";
             this.tabCtrlConstraints.SelectedIndex = 0;
@@ -206,38 +201,7 @@
             this.uCtrlOptSpace.Name = "uCtrlOptSpace";
             this.uCtrlOptSpace.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlOptSpace.Value = ((treeDiM.StackBuilder.Basics.OptDouble)(resources.GetObject("uCtrlOptSpace.Value")));
-            // 
-            // tabPageLayerFilters
-            // 
-            this.tabPageLayerFilters.Controls.Add(this.uCtrlOptMaximumLayerWeight);
-            this.tabPageLayerFilters.Controls.Add(this.uCtrlOptMaximumSpace);
-            resources.ApplyResources(this.tabPageLayerFilters, "tabPageLayerFilters");
-            this.tabPageLayerFilters.Name = "tabPageLayerFilters";
-            this.tabPageLayerFilters.UseVisualStyleBackColor = true;
-            // 
-            // uCtrlOptMaximumLayerWeight
-            // 
-            resources.ApplyResources(this.uCtrlOptMaximumLayerWeight, "uCtrlOptMaximumLayerWeight");
-            this.uCtrlOptMaximumLayerWeight.Minimum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            -2147483648});
-            this.uCtrlOptMaximumLayerWeight.Name = "uCtrlOptMaximumLayerWeight";
-            this.uCtrlOptMaximumLayerWeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_MASS;
-            this.uCtrlOptMaximumLayerWeight.Value = ((treeDiM.StackBuilder.Basics.OptDouble)(resources.GetObject("uCtrlOptMaximumLayerWeight.Value")));
-            // 
-            // uCtrlOptMaximumSpace
-            // 
-            resources.ApplyResources(this.uCtrlOptMaximumSpace, "uCtrlOptMaximumSpace");
-            this.uCtrlOptMaximumSpace.Minimum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            -2147483648});
-            this.uCtrlOptMaximumSpace.Name = "uCtrlOptMaximumSpace";
-            this.uCtrlOptMaximumSpace.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
-            this.uCtrlOptMaximumSpace.Value = ((treeDiM.StackBuilder.Basics.OptDouble)(resources.GetObject("uCtrlOptMaximumSpace.Value")));
+            this.uCtrlOptSpace.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlOptDouble.ValueChangedDelegate(this.OnInputChanged);
             // 
             // lbSelect
             // 
@@ -278,7 +242,6 @@
             this.tabPageStopCriterions.ResumeLayout(false);
             this.tabPageOverhang.ResumeLayout(false);
             this.tabPageSpaces.ResumeLayout(false);
-            this.tabPageLayerFilters.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -301,10 +264,7 @@
         private System.Windows.Forms.TabPage tabPageOverhang;
         private System.Windows.Forms.TabPage tabPageStopCriterions;
         private System.Windows.Forms.TabPage tabPageSpaces;
-        private System.Windows.Forms.TabPage tabPageLayerFilters;
         private Basics.UCtrlOptDouble uCtrlOptSpace;
-        private Basics.UCtrlOptDouble uCtrlOptMaximumSpace;
-        private Basics.UCtrlOptDouble uCtrlOptMaximumLayerWeight;
         private System.Windows.Forms.Label lbSelect;
         private Basics.UCtrlOptDouble uCtrlOptMaximumWeight;
         private Basics.UCtrlDouble uCtrlMaximumHeight;

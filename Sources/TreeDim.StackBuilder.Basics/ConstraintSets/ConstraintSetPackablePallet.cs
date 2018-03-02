@@ -24,7 +24,6 @@ namespace treeDiM.StackBuilder.Basics
             _maxHeight = maxHeight;
         }
         public Vector2D Overhang { get; set; }
-        public OptDouble OptMinSpace { get; set; }
 
         #region Non-Public Members
 

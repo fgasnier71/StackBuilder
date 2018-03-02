@@ -47,7 +47,7 @@ namespace treeDiM.StackBuilder.Exporters
                             loadWeight = sol.LoadWeight,
                             volumeUtilization = sol.VolumeEfficiency,
                             weightUtilization = sol.WeightEfficiency.ToDouble(),
-                            cOfG = new cOfG() { x = sol.cOfG.X, y = sol.cOfG.Y, z = sol.cOfG.Z },
+                            cOfG = new cOfG() { x = sol.COfG.X, y = sol.COfG.Y, z = sol.COfG.Z },
                             loadHeight = sol.BBoxLoad.Height
                         },
                         placement = BuildPlacementArray(sol)

@@ -248,13 +248,16 @@ namespace treeDiM.StackBuilder.Graphics
                     InterlayerProperties interlayerProp = _solution.Interlayers[interlayerPos.TypeId];
                     if (null != interlayerProp)
                     {
+                        bool aboveSelectedLayer = (_solution.SelectedLayerIndex != -1) && (layerId > _solution.SelectedLayerIndex);
+                        Transform3D upTranslation = Transform3D.Translation(new Vector3D(0.0, 0.0, aboveSelectedLayer ? DistanceAboveSelectedLayer : 0.0));
+
                         BoxPosition bPosition = new BoxPosition(
                             new Vector3D(
                             0.5 * (analysis.ContainerDimensions.X - interlayerProp.Length)
                             , 0.5 * (analysis.ContainerDimensions.Y - interlayerProp.Width)
                             , interlayerPos.ZLow
                             ), HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P);
-                        Box box = new Box(pickId++, interlayerProp, bPosition.Transform(transform));
+                        Box box = new Box(pickId++, interlayerProp, bPosition.Transform(transform * upTranslation));
                         graphics.AddBox(box);
                         bbox.Extend(box.BBox);
                     }

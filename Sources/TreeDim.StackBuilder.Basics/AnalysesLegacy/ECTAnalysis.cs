@@ -1,7 +1,5 @@
 ﻿#region Using directives
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 using treeDiM.EdgeCrushTest;
 #endregion
@@ -14,38 +12,16 @@ namespace treeDiM.StackBuilder.Basics
     public class ECTAnalysis : AnalysisLegacy
     {
         #region Data members
-        private CasePalletAnalysis _analysis;
-        private SelCasePalletSolution _selSolution;
-        private treeDiM.EdgeCrushTest.McKeeFormula.QualityData _qualityData;
+        private McKeeFormula.QualityData _qualityData;
         private McKeeFormula.FormulaType _mcKeeFormula;
         private string _caseType;
         private string _printSurface;
         #endregion
 
         #region Constructor
-        /// <summary>
-        /// Constructor
-        /// </summary>
-        public ECTAnalysis(
-            Document document
-            , CasePalletAnalysis analysis
-            , SelCasePalletSolution selSolution)
-            : base(document)
+        public ECTAnalysis(Document doc)
+            : base(doc)
         {
-            _analysis = analysis;
-            _selSolution = selSolution;
-            // get a cardboard quality
-            foreach (string skey in McKeeFormula.CardboardQualityDictionary.Keys)
-            {
-                _qualityData = McKeeFormula.CardboardQualityDictionary[skey];
-                break;
-            }
-            // get a _printSurface value
-            foreach (string skey in McKeeFormula.PrintCoefDictionary.Keys)
-            {
-                _printSurface = skey;
-                break;
-            }                       
         }
         #endregion
 
@@ -54,11 +30,6 @@ namespace treeDiM.StackBuilder.Basics
         {
             get { return _qualityData; }
             set { _qualityData = value; }
-        }
-        public SelCasePalletSolution ParentSelSolution  
-        {
-            get { return _selSolution; }
-            set { _selSolution = value; }
         }
         /// <summary>
         /// Use improved mc kee formula ?
@@ -102,8 +73,7 @@ namespace treeDiM.StackBuilder.Basics
         {
             get
             {
-                CasePalletSolution palletSolution = _selSolution.Solution;
-                return palletSolution.AverageLoadOnFirstLayerCase;
+                return 0.0;
             }
         }
         #endregion
@@ -113,7 +83,7 @@ namespace treeDiM.StackBuilder.Basics
         {
             get
             {
-                BoxProperties boxProperties = _analysis.BProperties as BoxProperties;
+                BoxProperties boxProperties = null;
                 return McKeeFormula.ComputeStaticBCT(boxProperties.Length, boxProperties.Width, boxProperties.Height, _qualityData.Id, _caseType, _mcKeeFormula); 
             }
         }
@@ -121,7 +91,7 @@ namespace treeDiM.StackBuilder.Basics
         {
             get
             {
-                BoxProperties boxProperties = _analysis.BProperties as BoxProperties;
+                BoxProperties boxProperties = null;
                 return McKeeFormula.EvaluateEdgeCrushTestMatrix(boxProperties.Length, boxProperties.Width, boxProperties.Height, _qualityData.Id, _caseType, _printSurface, _mcKeeFormula);
             }
         }
@@ -130,7 +100,6 @@ namespace treeDiM.StackBuilder.Basics
         #region ItemBase overrides
         protected override void RemoveItselfFromDependancies()
         {
-            _selSolution.RemoveDependancy(this);
             base.RemoveItselfFromDependancies();
         }
         #endregion

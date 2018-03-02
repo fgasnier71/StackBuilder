@@ -97,6 +97,7 @@
             this.uCtrlMaxNoPallets.Minimum = 0;
             this.uCtrlMaxNoPallets.Name = "uCtrlMaxNoPallets";
             this.uCtrlMaxNoPallets.Value = ((treeDiM.StackBuilder.Basics.OptInt)(resources.GetObject("uCtrlMaxNoPallets.Value")));
+            this.uCtrlMaxNoPallets.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlOptInt.ValueChangedDelegate(this.OnCriterionChanged);
             // 
             // toolStripAnalysis
             // 

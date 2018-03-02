@@ -925,7 +925,7 @@ namespace treeDiM.StackBuilder.Desktop
         public void OnNewTypeCreated(Document doc, ItemBase itemBase) { }
         public void OnNewAnalysisCreated(Document doc, Analysis analysis) => CreateOrActivateViewAnalysis(analysis);
         public void OnAnalysisUpdated(Document doc, Analysis analysis) => CreateOrActivateViewAnalysis(analysis);
-        public void OnNewECTAnalysisCreated(Document doc, CasePalletAnalysis analysis, SelCasePalletSolution selSolution, ECTAnalysis ectAnalysis) {  }
+        public void OnNewECTAnalysisCreated(Document doc) {  }
         // remove
         public void OnTypeRemoved(Document doc, ItemBase itemBase) { }
         public void OnAnalysisRemoved(Document doc, ItemBase itemBase) { }

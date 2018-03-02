@@ -457,7 +457,7 @@ namespace treeDiM.StackBuilder.Desktop
                 foreach (LayerDesc layerDesc in _solution.LayerDescriptors)
                 {
                     LayerSolver solver = new LayerSolver();
-                    ILayer2D layer = solver.BuildLayer(_analysis.Content, _analysis.ContainerDimensions, layerDesc);
+                    ILayer2D layer = solver.BuildLayer(_analysis.Content, _analysis.ContainerDimensions, layerDesc, _analysis.ConstraintSet.MinimumSpace.Value);
                     cbLayerType.Items.Add(layer);
                 }
                 if (cbLayerType.Items.Count > 0)
@@ -521,7 +521,5 @@ namespace treeDiM.StackBuilder.Desktop
             }
         }
         #endregion
-
-
     }
 }

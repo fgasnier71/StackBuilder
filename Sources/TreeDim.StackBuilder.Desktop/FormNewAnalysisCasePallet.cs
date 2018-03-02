@@ -64,6 +64,7 @@ namespace treeDiM.StackBuilder.Desktop
                 uCtrlOptMaxNumber.Value = constraintSet.OptMaxNumber;
                 uCtrlOverhang.ValueX = constraintSet.Overhang.X;
                 uCtrlOverhang.ValueY = constraintSet.Overhang.Y;
+                uCtrlOptSpace.Value = constraintSet.MinimumSpace;
             }
             checkBoxBestLayersOnly.Checked = Settings.Default.KeepBestSolutions;
         }
@@ -270,6 +271,7 @@ namespace treeDiM.StackBuilder.Desktop
             // conditions
             constraintSet.SetMaxHeight( new OptDouble(true, uCtrlMaximumHeight.Value));
             constraintSet.OptMaxWeight = uCtrlOptMaximumWeight.Value;
+            constraintSet.MinimumSpace = new OptDouble(uCtrlOptSpace.Value);
             return constraintSet;
         }
         #endregion

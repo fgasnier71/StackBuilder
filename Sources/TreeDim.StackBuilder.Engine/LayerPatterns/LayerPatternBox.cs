@@ -66,8 +66,8 @@ namespace treeDiM.StackBuilder.Engine
                 vTranslation = new Vector3D(layer.Length, 0.0, 0.0);
             }
             Transform3D transfRot = new Transform3D(matRot);
-            HalfAxis.HAxis lengthAxisSwapped = StackBuilder.Basics.HalfAxis.ToHalfAxis(transfRot.transform(StackBuilder.Basics.HalfAxis.ToVector3D(lengthAxis)));
-            HalfAxis.HAxis widthAxisSwapped = StackBuilder.Basics.HalfAxis.ToHalfAxis(transfRot.transform(StackBuilder.Basics.HalfAxis.ToVector3D(widthAxis)));
+            HalfAxis.HAxis lengthAxisSwapped = HalfAxis.ToHalfAxis(transfRot.transform(HalfAxis.ToVector3D(lengthAxis)));
+            HalfAxis.HAxis widthAxisSwapped = HalfAxis.ToHalfAxis(transfRot.transform(HalfAxis.ToVector3D(widthAxis)));
 
             matRot.M14 = vTranslation[0];
             matRot.M24 = vTranslation[1];

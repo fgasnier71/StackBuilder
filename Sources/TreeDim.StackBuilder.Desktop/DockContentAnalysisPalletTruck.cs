@@ -52,7 +52,6 @@ namespace treeDiM.StackBuilder.Desktop
         }
         #endregion
 
-
         #region IItemListener implementation
         public override void Update(ItemBase item)
         {
@@ -90,7 +89,6 @@ namespace treeDiM.StackBuilder.Desktop
             graphCtrlSolution.Invalidate();
 
             uCtrlMaxNoPallets.Value = _analysis.ConstraintSet.OptMaxNumber;
-            uCtrlMaxNoPallets.ValueChanged += new UCtrlOptInt.ValueChangedDelegate(this.OnCriterionChanged);
 
             // --- initialize grid control
             FillGrid();
@@ -259,7 +257,19 @@ namespace treeDiM.StackBuilder.Desktop
         #region Event handlers
         private void OnCriterionChanged(object sender, EventArgs e)
         {
-
+            try
+            {
+                ConstraintSetPalletTruck constraintSet = _solution.Analysis.ConstraintSet as ConstraintSetPalletTruck;
+                constraintSet.OptMaxNumber = uCtrlMaxNoPallets.Value;
+                _solution.RebuildSolutionItemList();
+            }
+            catch (Exception ex)
+            {
+                _log.Error(ex.ToString());
+            }
+            // update drawing & grid
+            graphCtrlSolution.Invalidate();
+            UpdateGrid();
         }
         #endregion
 
@@ -276,6 +286,5 @@ namespace treeDiM.StackBuilder.Desktop
             FormMain.GetInstance().GenerateReport(_analysis);
         }
         #endregion
-
     }
 }

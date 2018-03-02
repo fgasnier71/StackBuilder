@@ -171,7 +171,7 @@
             this.cbBoxes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbBoxes.FormattingEnabled = true;
             this.cbBoxes.Name = "cbBoxes";
-            this.cbBoxes.SelectedIndexChanged += new System.EventHandler(this.onSelectedBoxChanged);
+            this.cbBoxes.SelectedIndexChanged += new System.EventHandler(this.OnSelectedBoxChanged);
             // 
             // lbBox
             // 
@@ -223,14 +223,14 @@
             resources.ApplyResources(this.btSetMaximum, "btSetMaximum");
             this.btSetMaximum.Name = "btSetMaximum";
             this.btSetMaximum.UseVisualStyleBackColor = true;
-            this.btSetMaximum.Click += new System.EventHandler(this.btSetMaximum_Click);
+            this.btSetMaximum.Click += new System.EventHandler(this.OnSetMaxCaseDimensions);
             // 
             // btSetMinimum
             // 
             resources.ApplyResources(this.btSetMinimum, "btSetMinimum");
             this.btSetMinimum.Name = "btSetMinimum";
             this.btSetMinimum.UseVisualStyleBackColor = true;
-            this.btSetMinimum.Click += new System.EventHandler(this.btSetMinimum_Click);
+            this.btSetMinimum.Click += new System.EventHandler(this.OnSetMinCaseDimensions);
             // 
             // gbPallet
             // 
@@ -275,7 +275,7 @@
             this.cbPallet.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbPallet.FormattingEnabled = true;
             this.cbPallet.Name = "cbPallet";
-            this.cbPallet.SelectedIndexChanged += new System.EventHandler(this.onSelectedPalletChanged);
+            this.cbPallet.SelectedIndexChanged += new System.EventHandler(this.OnSelectedPalletChanged);
             // 
             // lbPallet
             // 
@@ -287,7 +287,7 @@
             resources.ApplyResources(this.btOptimize, "btOptimize");
             this.btOptimize.Name = "btOptimize";
             this.btOptimize.UseVisualStyleBackColor = true;
-            this.btOptimize.Click += new System.EventHandler(this.onbuttonOptimize);
+            this.btOptimize.Click += new System.EventHandler(this.OnbuttonOptimize);
             // 
             // gridSolutions
             // 
@@ -305,14 +305,14 @@
             resources.ApplyResources(this.btAddCasePalletAnalysis, "btAddCasePalletAnalysis");
             this.btAddCasePalletAnalysis.Name = "btAddCasePalletAnalysis";
             this.btAddCasePalletAnalysis.UseVisualStyleBackColor = true;
-            this.btAddCasePalletAnalysis.Click += new System.EventHandler(this.btAddCasePalletAnalysis_Click);
+            this.btAddCasePalletAnalysis.Click += new System.EventHandler(this.OnAddCasePalletAnalysis);
             // 
             // btAddPackPalletAnalysis
             // 
             resources.ApplyResources(this.btAddPackPalletAnalysis, "btAddPackPalletAnalysis");
             this.btAddPackPalletAnalysis.Name = "btAddPackPalletAnalysis";
             this.btAddPackPalletAnalysis.UseVisualStyleBackColor = true;
-            this.btAddPackPalletAnalysis.Click += new System.EventHandler(this.btAddPackPalletAnalysis_Click);
+            this.btAddPackPalletAnalysis.Click += new System.EventHandler(this.OnAddPackPalletAnalysis);
             // 
             // statusStripDef
             // 

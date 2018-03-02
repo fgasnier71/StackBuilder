@@ -48,6 +48,7 @@ namespace treeDiM.StackBuilder.Exporters
         public override string Extension => "dae";
         public override void Export(Analysis analysis, string filePath)
         {
+            /*
             PalletProperties palletProperties = _palletSolution.Analysis.PalletProperties;
 
             COLLADA model = new COLLADA
@@ -287,6 +288,7 @@ namespace treeDiM.StackBuilder.Exporters
 
             model.Save(filePath);
             model.Save(System.IO.Path.ChangeExtension(filePath, "xml"));
+            */
         }
         #endregion
 
@@ -393,6 +395,7 @@ namespace treeDiM.StackBuilder.Exporters
         #region Animations
         public void CreateAnimation(uint caseIndex, uint caseCount, List<object> listAnimationObjects, BoxPosition bPos)
         {
+            /*
             const int iStep = 5;
             _zOffset = _palletSolution.PalletHeight + 100.0;
 
@@ -519,11 +522,12 @@ namespace treeDiM.StackBuilder.Exporters
             CreateChannel(listAnimationObjects, caseIndex, "RX", "ANGLE", string.Format("CaseNode_{0}_ID/rx.ANGLE", caseIndex), listRX);
             CreateChannel(listAnimationObjects, caseIndex, "RY", "ANGLE", string.Format("CaseNode_{0}_ID/ry.ANGLE", caseIndex), listRY);
             CreateChannel(listAnimationObjects, caseIndex, "RZ", "ANGLE", string.Format("CaseNode_{0}_ID/rz.ANGLE", caseIndex), listRZ);
-
+            */
         }
 
         protected BoxPosition GetInitialBoxPosition(uint caseIndex)
         {
+            /*
             uint iLayer = 0, iCounted = 0;
             foreach (ILayer layer in _palletSolution)
             {
@@ -542,10 +546,13 @@ namespace treeDiM.StackBuilder.Exporters
             double yOffset = 0.5 * (_palletSolution.Analysis.PalletProperties.Width - bProperties.Length);
             Vector3D vPosition = new Vector3D(_xOffset + (caseIndex - iCounted) * bProperties.Width, yOffset, (_palletSolution.Count - 1 - iLayer) * bProperties.Height);
             return new BoxPosition(vPosition, HalfAxis.HAxis.AXIS_Y_P, HalfAxis.HAxis.AXIS_X_N);
+            */
+            return new BoxPosition();
         }
 
         protected BoxPosition GetFinalBoxPosition(uint caseIndex)
         {
+            /*
             int iCounted = 0;
             int iLayer = 0;
             foreach (ILayer layer in _palletSolution)
@@ -564,6 +571,8 @@ namespace treeDiM.StackBuilder.Exporters
             Layer3DBox layerW = _palletSolution[iLayer] as Layer3DBox;
 
             return layerW[(int)caseIndex - iCounted];
+            */
+            return new BoxPosition();
         }
 
         protected void CreateChannel(List<object> listAnimationObjects, uint caseIndex, string sData, string sDataType, string sTarget, List<double> lValues)
@@ -929,7 +938,6 @@ namespace treeDiM.StackBuilder.Exporters
         #endregion
 
         #region Data members
-        private CasePalletSolution _palletSolution;
         private double _xOffset = 2000.0;
         private double _zOffset = 1500.0;
         private int _bmpWidth = 150;

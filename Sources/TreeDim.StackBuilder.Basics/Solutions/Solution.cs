@@ -16,11 +16,11 @@ namespace treeDiM.StackBuilder.Basics
     public interface ILayerSolver
     {
         List<Layer2D> BuildLayers(Vector3D dimBox, Vector2D dimContainer, double offsetZ, ConstraintSetAbstract constraintSet, bool keepOnlyBest);
-        Layer2D BuildLayer(Vector3D dimBox, Vector2D actualDimensions, LayerDescBox layerDesc);
-        Layer2D BuildLayer(Vector3D dimBox, Vector2D dimContainer, LayerDescBox layerDesc, Vector2D actualDimensions);
-        ILayer2D BuildLayer(Packable packable, Vector2D dimContainer, LayerDesc layerDesc);
-        ILayer2D BuildLayer(Packable packable, Vector2D dimContainer, LayerDesc layerDesc, Vector2D actualDimensions);
-        bool GetDimensions(List<LayerDesc> layers, Packable packable, Vector2D dimContainer, out Vector2D actualDimensions);
+        Layer2D BuildLayer(Vector3D dimBox, Vector2D actualDimensions, LayerDescBox layerDesc, double minSpace);
+        Layer2D BuildLayer(Vector3D dimBox, Vector2D dimContainer, LayerDescBox layerDesc, Vector2D actualDimensions, double minSpace);
+        ILayer2D BuildLayer(Packable packable, Vector2D dimContainer, LayerDesc layerDesc, double minSpace);
+        ILayer2D BuildLayer(Packable packable, Vector2D dimContainer, LayerDesc layerDesc, Vector2D actualDimensions, double minSpace);
+        bool GetDimensions(List<LayerDesc> layers, Packable packable, Vector2D dimContainer, double minSpace, out Vector2D actualDimensions);
     }
     #endregion
 
@@ -249,12 +249,12 @@ namespace treeDiM.StackBuilder.Basics
                 usedLayers.Add(_layerDescriptors[0]);
             // get dimensions
             Vector2D actualDimensions = Vector2D.Zero;
-            Solver.GetDimensions(usedLayers, _analysis.Content, _analysis.ContainerDimensions, out actualDimensions);
+            Solver.GetDimensions(usedLayers, _analysis.Content, _analysis.ContainerDimensions, ConstraintSet.MinimumSpace.Value, out actualDimensions);
 
             // actually build layers
             _layerTypes = new List<ILayer2D>();
             foreach (LayerDesc layerDesc in _layerDescriptors)
-                _layerTypes.Add(Solver.BuildLayer(_analysis.Content, _analysis.ContainerDimensions, layerDesc, actualDimensions));
+                _layerTypes.Add(Solver.BuildLayer(_analysis.Content, _analysis.ContainerDimensions, layerDesc, actualDimensions, ConstraintSet.MinimumSpace.Value));
         }
         private void InitializeSolutionItemList()
         { 
@@ -670,7 +670,7 @@ namespace treeDiM.StackBuilder.Basics
         {
             get { return Vector3D.Zero; }
         }
-        public Vector3D cOfG
+        public Vector3D COfG
         {
             get { return Vector3D.Zero; }
         }

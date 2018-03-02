@@ -38,7 +38,10 @@ namespace treeDiM.StackBuilder.Engine
                             if (!pattern.CanBeSwapped && (iSwapped == 1))
                                 continue;
                             // instantiate layer
-                            var layer = new Layer2D(dimBox, dimContainer, axisOrtho, iSwapped == 1);
+                            var layer = new Layer2D(dimBox, dimContainer, axisOrtho, iSwapped == 1)
+                            {
+                                ForcedSpace = constraintSet.MinimumSpace.Value
+                            };
                             if (layer.NoLayers(constraintSet.OptMaxHeight.Value) < 1)
                                 continue;
                             layer.PatternName = pattern.Name;
@@ -85,11 +88,14 @@ namespace treeDiM.StackBuilder.Engine
             return listLayers0;
         }
 
-        public Layer2D BuildLayer(Vector3D dimBox, Vector2D dimContainer, LayerDescBox layerDesc)
+        public Layer2D BuildLayer(Vector3D dimBox, Vector2D dimContainer, LayerDescBox layerDesc, double minSpace)
         {
             LayerDescBox layerDescBox = layerDesc as LayerDescBox;
             // instantiate layer
-            var layer = new Layer2D(dimBox, dimContainer, layerDescBox.AxisOrtho, layerDesc.Swapped);
+            var layer = new Layer2D(dimBox, dimContainer, layerDescBox.AxisOrtho, layerDesc.Swapped)
+            {
+                ForcedSpace = minSpace
+            };
             // get layer pattern
             LayerPatternBox pattern = LayerPatternBox.GetByName(layerDesc.PatternName);
             // dimensions
@@ -102,7 +108,7 @@ namespace treeDiM.StackBuilder.Engine
             return layer;
         }
 
-        public ILayer2D BuildLayer(Packable packable, Vector2D dimContainer, LayerDesc layerDesc)
+        public ILayer2D BuildLayer(Packable packable, Vector2D dimContainer, LayerDesc layerDesc, double minSpace)
         {
             ILayer2D layer = null;
             if (packable.IsBrick)
@@ -110,12 +116,11 @@ namespace treeDiM.StackBuilder.Engine
                 // casts
                 LayerDescBox layerDescBox = layerDesc as LayerDescBox;
                 // layer instantiation
-                layer = new Layer2D(packable.OuterDimensions, dimContainer, layerDescBox.AxisOrtho, layerDesc.Swapped);
+                layer = new Layer2D(packable.OuterDimensions, dimContainer, layerDescBox.AxisOrtho, layerDesc.Swapped) { ForcedSpace = minSpace };
                 // get layer pattern
                 LayerPatternBox pattern = LayerPatternBox.GetByName(layerDesc.PatternName);
                 // dimensions
-                double actualLength = 0.0, actualWidth = 0.0;
-                if (!pattern.GetLayerDimensionsChecked(layer as Layer2D, out actualLength, out actualWidth))
+                if (!pattern.GetLayerDimensionsChecked(layer as Layer2D, out double actualLength, out double actualWidth))
                     return null;
                 pattern.GenerateLayer(
                     layer as Layer2D
@@ -143,7 +148,7 @@ namespace treeDiM.StackBuilder.Engine
             return layer;
         }
 
-        public ILayer2D BuildLayer(Packable packable, Vector2D dimContainer, LayerDesc layerDesc, Vector2D actualDimensions)
+        public ILayer2D BuildLayer(Packable packable, Vector2D dimContainer, LayerDesc layerDesc, Vector2D actualDimensions, double minSpace)
         {
             ILayer2D layer = null;
             LayerPattern pattern = null;
@@ -151,7 +156,10 @@ namespace treeDiM.StackBuilder.Engine
             {
                 LayerDescBox layerDescBox = layerDesc as LayerDescBox;
                 // instantiate layer
-                layer = new Layer2D(packable.OuterDimensions, dimContainer, layerDescBox.AxisOrtho, layerDesc.Swapped);
+                layer = new Layer2D(packable.OuterDimensions, dimContainer, layerDescBox.AxisOrtho, layerDesc.Swapped)
+                {
+                    ForcedSpace = minSpace
+                };
                 // get layer pattern
                 pattern = LayerPatternBox.GetByName(layerDesc.PatternName);
             }
@@ -175,10 +183,13 @@ namespace treeDiM.StackBuilder.Engine
             return layer;
         }
 
-        public Layer2D BuildLayer(Vector3D dimBox, Vector2D dimContainer, LayerDescBox layerDesc, Vector2D actualDimensions)
+        public Layer2D BuildLayer(Vector3D dimBox, Vector2D dimContainer, LayerDescBox layerDesc, Vector2D actualDimensions, double minSpace)
         {
             // instantiate layer
-            var layer = new Layer2D(dimBox, dimContainer, layerDesc.AxisOrtho, layerDesc.Swapped);
+            var layer = new Layer2D(dimBox, dimContainer, layerDesc.AxisOrtho, layerDesc.Swapped)
+            {
+                ForcedSpace = minSpace
+            };
             // get layer pattern
             LayerPatternBox pattern = LayerPatternBox.GetByName(layerDesc.PatternName);
             // build layer
@@ -191,7 +202,7 @@ namespace treeDiM.StackBuilder.Engine
         /// <summary>
         /// Used to compute load dimension
         /// </summary>
-        public bool GetDimensions(List<LayerDesc> layers, Packable packable, Vector2D dimContainer, out Vector2D actualDimensions)
+        public bool GetDimensions(List<LayerDesc> layers, Packable packable, Vector2D dimContainer, double minSpace, out Vector2D actualDimensions)
         {
             actualDimensions = new Vector2D();
             foreach (LayerDesc layerDesc in layers)
@@ -203,7 +214,10 @@ namespace treeDiM.StackBuilder.Engine
                 {
                     LayerDescBox layerDescBox = layerDesc as LayerDescBox;
                     // instantiate layer
-                    var layer = new Layer2D(packable.OuterDimensions, dimContainer, layerDescBox.AxisOrtho, layerDesc.Swapped);
+                    var layer = new Layer2D(packable.OuterDimensions, dimContainer, layerDescBox.AxisOrtho, layerDesc.Swapped)
+                    {
+                        ForcedSpace = minSpace
+                    };
                     // get layer pattern
                     LayerPatternBox pattern = LayerPatternBox.GetByName(layerDesc.PatternName);
                     // dimensions

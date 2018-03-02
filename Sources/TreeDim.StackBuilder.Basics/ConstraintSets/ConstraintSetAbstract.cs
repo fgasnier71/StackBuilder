@@ -29,6 +29,7 @@
         public virtual OptDouble OptMaxWeight { get; set; }
         public virtual OptInt OptMaxNumber { get; set; }
         public virtual OptInt OptMaxLayerNumber { get { return new OptInt(false, 0); } }
+        public virtual OptDouble MinimumSpace { get; set; }
         public virtual bool AllowUncompleteLayer => false;
         public virtual bool Valid => HasSomeAllowedOrientations;
 

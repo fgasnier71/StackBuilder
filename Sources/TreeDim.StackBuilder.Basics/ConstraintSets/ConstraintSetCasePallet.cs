@@ -66,6 +66,5 @@ namespace treeDiM.StackBuilder.Basics
         static readonly Regex AllowedOrientationRegex = new Regex(@"(?<x>.*),(?<y>.*),(?<z>.*)", RegexOptions.Singleline | RegexOptions.Compiled);
         static readonly ILog _log = LogManager.GetLogger(typeof(ConstraintSetCasePallet));
         #endregion
-
     }
 }
