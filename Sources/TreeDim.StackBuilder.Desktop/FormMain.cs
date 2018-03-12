@@ -1312,14 +1312,16 @@ namespace treeDiM.StackBuilder.Desktop
         }
         private void OnOnlineHelp(object sender, EventArgs e)
         {
-            try { System.Diagnostics.Process.Start(Properties.Settings.Default.HelpPageUrl); }
+            try { Process.Start(Settings.Default.HelpPageUrl); }
             catch (Exception ex) { _log.Error(ex.ToString()); }
         }
+/*
         private void OnDonate(object sender, EventArgs e)
         {
-            try { System.Diagnostics.Process.Start(Properties.Settings.Default.DonatePageUrl); }
+            try { Process.Start(Settings.Default.DonatePageUrl); }
             catch (Exception ex) { _log.Error(ex.ToString()); }
         }
+*/
         private void OnDisconnect(object sender, EventArgs e)
         {
             try

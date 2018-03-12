@@ -79,8 +79,6 @@
             this.helpToolStripMenuItemHelp = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
             this.helpToolStripMenuItemAbout = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator17 = new System.Windows.Forms.ToolStripSeparator();
-            this.donateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripStandard = new System.Windows.Forms.ToolStrip();
             this.toolStripSBUser = new System.Windows.Forms.ToolStripSplitButton();
             this.toolStripMIUserDisconnect = new System.Windows.Forms.ToolStripMenuItem();
@@ -435,9 +433,7 @@
             this.toolStripSeparator16,
             this.helpToolStripMenuItemHelp,
             this.toolStripSeparator9,
-            this.helpToolStripMenuItemAbout,
-            this.toolStripSeparator17,
-            this.donateToolStripMenuItem});
+            this.helpToolStripMenuItemAbout});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             resources.ApplyResources(this.helpToolStripMenuItem, "helpToolStripMenuItem");
             // 
@@ -468,17 +464,6 @@
             this.helpToolStripMenuItemAbout.Name = "helpToolStripMenuItemAbout";
             resources.ApplyResources(this.helpToolStripMenuItemAbout, "helpToolStripMenuItemAbout");
             this.helpToolStripMenuItemAbout.Click += new System.EventHandler(this.OnAbout);
-            // 
-            // toolStripSeparator17
-            // 
-            this.toolStripSeparator17.Name = "toolStripSeparator17";
-            resources.ApplyResources(this.toolStripSeparator17, "toolStripSeparator17");
-            // 
-            // donateToolStripMenuItem
-            // 
-            this.donateToolStripMenuItem.Name = "donateToolStripMenuItem";
-            resources.ApplyResources(this.donateToolStripMenuItem, "donateToolStripMenuItem");
-            this.donateToolStripMenuItem.Click += new System.EventHandler(this.OnDonate);
             // 
             // toolStripStandard
             // 
@@ -932,8 +917,6 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemPalletFilm;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemHelpStartPage;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator16;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator17;
-        private System.Windows.Forms.ToolStripMenuItem donateToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator18;
         private System.Windows.Forms.ToolStripButton toolStripButtonPack;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemPack;

@@ -39,7 +39,7 @@
     <MinimumRequiredVersion>3.0.0.0</MinimumRequiredVersion>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>68</ApplicationRevision>
+    <ApplicationRevision>69</ApplicationRevision>
     <ApplicationVersion>3.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -273,6 +273,12 @@
     <Compile Include="FormExcelLibrary.Designer.cs">
       <DependentUpon>FormExcelLibrary.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormHPalletisation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormHPalletisation.Designer.cs">
+      <DependentUpon>FormHPalletisation.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormImportExcelCatalog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -356,6 +362,12 @@
     </Compile>
     <Compile Include="FormNewDocument.Designer.cs">
       <DependentUpon>FormNewDocument.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNewHAnalysis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNewHAnalysis.Designer.cs">
+      <DependentUpon>FormNewHAnalysis.cs</DependentUpon>
     </Compile>
     <Compile Include="FormNewInterlayer.cs">
       <SubType>Form</SubType>
@@ -1024,6 +1036,9 @@
     <EmbeddedResource Include="FormExcelLibrary.zh.resx">
       <DependentUpon>FormExcelLibrary.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormHPalletisation.resx">
+      <DependentUpon>FormHPalletisation.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormImportExcelCatalog.de.resx">
       <DependentUpon>FormImportExcelCatalog.cs</DependentUpon>
     </EmbeddedResource>
@@ -1514,6 +1529,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewDocument.zh.resx">
       <DependentUpon>FormNewDocument.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewHAnalysis.resx">
+      <DependentUpon>FormNewHAnalysis.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewInterlayer.de.resx">
       <DependentUpon>FormNewInterlayer.cs</DependentUpon>
