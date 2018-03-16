@@ -1,4 +1,5 @@
 ﻿#region Using directives
+using System;
 using System.Windows.Forms;
 
 using log4net;
@@ -16,7 +17,40 @@ namespace treeDiM.StackBuilder.Desktop
             InitializeComponent();
         }
         #endregion
-        
+
+        #region Form override
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+
+
+            UpdateGrid();
+        }
+        #endregion
+
+        #region Content grid
+        private void UpdateGrid()
+        {
+
+        }
+        #endregion
+
+        #region Event handlers
+        private void OnAddRow(object sender, System.EventArgs e)
+        {
+            _analysis.AddContent(GetNextPackable());
+            UpdateGrid();
+        }
+        private Packable GetNextPackable()
+        {
+            Packable p = null;
+            foreach (BoxProperties b in _document.Boxes)
+            {
+                p = b;
+            }
+            return p;
+        }
+        #endregion
         #region Data members
         protected Document _document;
         protected HAnalysis _analysis;

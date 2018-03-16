@@ -34,6 +34,20 @@ namespace treeDiM.StackBuilder.Basics
         public virtual double ContentTotalVolume => Content.Sum(ci => ci.Pack.Volume * ci.Number);
         public virtual double ContentTotalWeight => Content.Sum(ci => ci.Pack.Weight * ci.Number);
 
+        public void AddContent(Packable p, uint number, bool[] orientations)
+        {
+            _content.Add(new ContentItem(p, number) { AllowedOrientations = orientations });
+        }
+        public void AddContent(Packable p)
+        {
+            _content.Add(new ContentItem(p, 1) { AllowedOrientations = new bool[] { true, true, true } } );
+        }
+
+        public HSolution BuildSolution()
+        {
+            _solution = new HSolution();
+            return _solution;
+        }
         #region Non-public members
         protected HSolution Solution => _solution;
 
@@ -54,7 +68,7 @@ namespace treeDiM.StackBuilder.Basics
     #region ContentItem
     public class ContentItem
     {
-        ContentItem(Packable p, uint n) { Pack = p; Number = n; }
+        public ContentItem(Packable p, uint n) { Pack = p; Number = n; }
         public Packable Pack { get; set; }
         public uint Number { get; set; }
         public bool[] AllowedOrientations { get { return new bool[] { AllowOrientX, AllowOrientY, AllowOrientZ }; } set { _allowOrient = value; } }
