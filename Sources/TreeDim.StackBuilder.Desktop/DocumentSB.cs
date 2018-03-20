@@ -340,6 +340,13 @@ namespace treeDiM.StackBuilder.Desktop
             if (DialogResult.OK == form.ShowDialog()) {}
             return null;
         }
+        public HAnalysis CreateNewHAnalysisPalletUI()
+        {
+            if (!CanCreateAnalysisCasePallet) return null;
+            FormNewHAnalysis form = new FormNewHAnalysis(this, null);
+            if (DialogResult.OK == form.ShowDialog()) {}
+            return null;
+        }
         #endregion
 
         #region UI item edition

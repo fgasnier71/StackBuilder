@@ -1130,6 +1130,12 @@ namespace treeDiM.StackBuilder.Desktop
             try { AnalysisCaseTruck analysis = ((DocumentSB)ActiveDocument).CreateNewAnalysisCaseTruckUI(); }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
+        private void OnNewHAnalysisPallet(object sender, EventArgs e)
+        {
+            if (null == ActiveDocument) { _log.Error(message : "No active document!" ); }
+            try { HAnalysis hAnalysis = ((DocumentSB)ActiveDocument).CreateNewHAnalysisPalletUI(); }
+            catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
+        }
         #endregion
         #region Optimisation
         private void OnOptiPack(object sender, EventArgs e)
@@ -1337,5 +1343,6 @@ namespace treeDiM.StackBuilder.Desktop
         #region Static instance accessor
         public static FormMain GetInstance()  { return _instance; }
         #endregion
+
     }
 }

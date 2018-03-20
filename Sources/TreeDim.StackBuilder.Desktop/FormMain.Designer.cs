@@ -131,6 +131,7 @@
             this.saveFileDialogWebGL = new System.Windows.Forms.SaveFileDialog();
             this.timerLogin = new System.Windows.Forms.Timer(this.components);
             this.saveFileDialogExportXML = new System.Windows.Forms.SaveFileDialog();
+            this.toolStripMIHAnalysis = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripMain.SuspendLayout();
             this.toolStripStandard.SuspendLayout();
             this.SuspendLayout();
@@ -674,7 +675,8 @@
             this.toolStripSBAnalysisPallet.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMIAnalysisCasePallet,
             this.toolStripMIAnalysisCylinderPallet,
-            this.toolStripMIAnalysisBundlePallet});
+            this.toolStripMIAnalysisBundlePallet,
+            this.toolStripMIHAnalysis});
             resources.ApplyResources(this.toolStripSBAnalysisPallet, "toolStripSBAnalysisPallet");
             this.toolStripSBAnalysisPallet.Name = "toolStripSBAnalysisPallet";
             this.toolStripSBAnalysisPallet.Click += new System.EventHandler(this.OnAnalysisPallet);
@@ -834,6 +836,12 @@
             this.saveFileDialogExportXML.DefaultExt = "xml";
             resources.ApplyResources(this.saveFileDialogExportXML, "saveFileDialogExportXML");
             // 
+            // toolStripMIHAnalysis
+            // 
+            resources.ApplyResources(this.toolStripMIHAnalysis, "toolStripMIHAnalysis");
+            this.toolStripMIHAnalysis.Name = "toolStripMIHAnalysis";
+            this.toolStripMIHAnalysis.Click += new System.EventHandler(this.OnNewHAnalysisPallet);
+            // 
             // FormMain
             // 
             resources.ApplyResources(this, "$this");
@@ -955,5 +963,6 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMIPLMPackLib;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator21;
         private System.Windows.Forms.SaveFileDialog saveFileDialogExportXML;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMIHAnalysis;
     }
 }

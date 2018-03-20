@@ -22,10 +22,6 @@ namespace treeDiM.StackBuilder.Desktop
 {
     public partial class FormNewAnalysisBoxCase : FormNewAnalysis, IItemBaseFilter
     {
-        #region Data members
-        static readonly ILog _log = LogManager.GetLogger(typeof(FormNewAnalysisBoxCase));
-        #endregion
-
         #region Constructor
         public FormNewAnalysisBoxCase(Document doc, Analysis analysis)
             : base(doc, analysis)
@@ -214,6 +210,10 @@ namespace treeDiM.StackBuilder.Desktop
             constraintSet.SetAllowedOrientations(uCtrlCaseOrientation.AllowedOrientations);
             return constraintSet;        
         }
+        #endregion
+
+        #region Data members
+        static readonly ILog _log = LogManager.GetLogger(typeof(FormNewAnalysisBoxCase));
         #endregion
     }
 }
