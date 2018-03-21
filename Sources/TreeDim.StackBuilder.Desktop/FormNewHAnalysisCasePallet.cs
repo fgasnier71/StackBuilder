@@ -1,5 +1,6 @@
 ﻿#region Using directives
 using System;
+using System.Linq;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
@@ -7,11 +8,13 @@ using log4net;
 
 using treeDiM.StackBuilder.Basics;
 using treeDiM.StackBuilder.Graphics.Controls;
+
+using treeDiM.StackBuilder.Desktop.Properties;
 #endregion
 
 namespace treeDiM.StackBuilder.Desktop
 {
-    public partial class FormNewHAnalysisCasePallet : FormNewHAnalysis
+    public partial class FormNewHAnalysisCasePallet : FormNewHAnalysis, IItemBaseFilter
     {
         #region Constructor
         public FormNewHAnalysisCasePallet()
@@ -30,18 +33,20 @@ namespace treeDiM.StackBuilder.Desktop
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
-            //cbPallets.Initialize(_document, this, AnalysisCast?.Containers.FirstOrDefault());
+
+            cbPallets.Initialize(_document, this, AnalysisCast?.Containers.First());
+            if (null == AnalysisCast)
+                uCtrlPalletHeight.Value = Settings.Default.MaximumPalletHeight;
+            else
+                uCtrlPalletHeight.Value = AnalysisCast.ConstraintSet.MaximumPalletHeight;
         }
         #endregion
 
         #region ItemBaseFilter override
         public bool Accept(Control ctrl, ItemBase itemBase)
         {
-            /*
             if (ctrl == cbPallets)
-            {
-            }
-            */
+                return itemBase is PalletProperties;
             return false;
         }
         #endregion
@@ -64,9 +69,9 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Public properties
-        public HAnalysis AnalysisCast
+        public HAnalysisPallet AnalysisCast
         {
-            get { return _analysis as HAnalysis; }
+            get { return _analysis as HAnalysisPallet; }
             set { _analysis = value; }
         }
         #endregion

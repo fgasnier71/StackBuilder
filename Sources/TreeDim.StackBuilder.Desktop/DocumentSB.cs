@@ -343,7 +343,7 @@ namespace treeDiM.StackBuilder.Desktop
         public HAnalysis CreateNewHAnalysisPalletUI()
         {
             if (!CanCreateAnalysisCasePallet) return null;
-            FormNewHAnalysis form = new FormNewHAnalysis(this, null);
+            FormNewHAnalysis form = new FormNewHAnalysisCasePallet(this, null);
             if (DialogResult.OK == form.ShowDialog()) {}
             return null;
         }

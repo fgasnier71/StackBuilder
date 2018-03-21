@@ -29,14 +29,11 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormNewHAnalysis));
-            this.statusStrip = new System.Windows.Forms.StatusStrip();
-            this.statusLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.bnNext = new System.Windows.Forms.Button();
-            this.tbDescription = new System.Windows.Forms.TextBox();
-            this.tbName = new System.Windows.Forms.TextBox();
-            this.lbDescription = new System.Windows.Forms.Label();
-            this.lbName = new System.Windows.Forms.Label();
             this.splitContainerHoriz1 = new System.Windows.Forms.SplitContainer();
+            this.tbName = new System.Windows.Forms.TextBox();
+            this.lbName = new System.Windows.Forms.Label();
+            this.tbDescription = new System.Windows.Forms.TextBox();
+            this.lbDescription = new System.Windows.Forms.Label();
             this.splitContainerHoriz2 = new System.Windows.Forms.SplitContainer();
             this.splitContainerVert = new System.Windows.Forms.SplitContainer();
             this.bnAddRow = new System.Windows.Forms.Button();
@@ -44,7 +41,9 @@
             this.splitContainerSolutions = new System.Windows.Forms.SplitContainer();
             this.graphCtrl = new treeDiM.StackBuilder.Graphics.Graphics3DControl();
             this.gridSolutions = new SourceGrid.Grid();
-            this.statusStrip.SuspendLayout();
+            this.bnNext = new System.Windows.Forms.Button();
+            this.statusStrip = new System.Windows.Forms.StatusStrip();
+            this.statusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerHoriz1)).BeginInit();
             this.splitContainerHoriz1.Panel1.SuspendLayout();
             this.splitContainerHoriz1.Panel2.SuspendLayout();
@@ -62,45 +61,8 @@
             this.splitContainerSolutions.Panel2.SuspendLayout();
             this.splitContainerSolutions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.graphCtrl)).BeginInit();
+            this.statusStrip.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // statusStrip
-            // 
-            resources.ApplyResources(this.statusStrip, "statusStrip");
-            this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.statusLabel});
-            this.statusStrip.Name = "statusStrip";
-            // 
-            // statusLabel
-            // 
-            resources.ApplyResources(this.statusLabel, "statusLabel");
-            this.statusLabel.Name = "statusLabel";
-            // 
-            // bnNext
-            // 
-            resources.ApplyResources(this.bnNext, "bnNext");
-            this.bnNext.Name = "bnNext";
-            this.bnNext.UseVisualStyleBackColor = true;
-            // 
-            // tbDescription
-            // 
-            resources.ApplyResources(this.tbDescription, "tbDescription");
-            this.tbDescription.Name = "tbDescription";
-            // 
-            // tbName
-            // 
-            resources.ApplyResources(this.tbName, "tbName");
-            this.tbName.Name = "tbName";
-            // 
-            // lbDescription
-            // 
-            resources.ApplyResources(this.lbDescription, "lbDescription");
-            this.lbDescription.Name = "lbDescription";
-            // 
-            // lbName
-            // 
-            resources.ApplyResources(this.lbName, "lbName");
-            this.lbName.Name = "lbName";
             // 
             // splitContainerHoriz1
             // 
@@ -110,7 +72,6 @@
             // 
             // splitContainerHoriz1.Panel1
             // 
-            resources.ApplyResources(this.splitContainerHoriz1.Panel1, "splitContainerHoriz1.Panel1");
             this.splitContainerHoriz1.Panel1.Controls.Add(this.tbName);
             this.splitContainerHoriz1.Panel1.Controls.Add(this.lbName);
             this.splitContainerHoriz1.Panel1.Controls.Add(this.tbDescription);
@@ -118,8 +79,27 @@
             // 
             // splitContainerHoriz1.Panel2
             // 
-            resources.ApplyResources(this.splitContainerHoriz1.Panel2, "splitContainerHoriz1.Panel2");
             this.splitContainerHoriz1.Panel2.Controls.Add(this.splitContainerHoriz2);
+            // 
+            // tbName
+            // 
+            resources.ApplyResources(this.tbName, "tbName");
+            this.tbName.Name = "tbName";
+            // 
+            // lbName
+            // 
+            resources.ApplyResources(this.lbName, "lbName");
+            this.lbName.Name = "lbName";
+            // 
+            // tbDescription
+            // 
+            resources.ApplyResources(this.tbDescription, "tbDescription");
+            this.tbDescription.Name = "tbDescription";
+            // 
+            // lbDescription
+            // 
+            resources.ApplyResources(this.lbDescription, "lbDescription");
+            this.lbDescription.Name = "lbDescription";
             // 
             // splitContainerHoriz2
             // 
@@ -129,12 +109,10 @@
             // 
             // splitContainerHoriz2.Panel1
             // 
-            resources.ApplyResources(this.splitContainerHoriz2.Panel1, "splitContainerHoriz2.Panel1");
             this.splitContainerHoriz2.Panel1.Controls.Add(this.splitContainerVert);
             // 
             // splitContainerHoriz2.Panel2
             // 
-            resources.ApplyResources(this.splitContainerHoriz2.Panel2, "splitContainerHoriz2.Panel2");
             this.splitContainerHoriz2.Panel2.Controls.Add(this.bnNext);
             // 
             // splitContainerVert
@@ -144,13 +122,11 @@
             // 
             // splitContainerVert.Panel1
             // 
-            resources.ApplyResources(this.splitContainerVert.Panel1, "splitContainerVert.Panel1");
             this.splitContainerVert.Panel1.Controls.Add(this.bnAddRow);
             this.splitContainerVert.Panel1.Controls.Add(this.gridContent);
             // 
             // splitContainerVert.Panel2
             // 
-            resources.ApplyResources(this.splitContainerVert.Panel2, "splitContainerVert.Panel2");
             this.splitContainerVert.Panel2.Controls.Add(this.splitContainerSolutions);
             // 
             // bnAddRow
@@ -178,12 +154,10 @@
             // 
             // splitContainerSolutions.Panel1
             // 
-            resources.ApplyResources(this.splitContainerSolutions.Panel1, "splitContainerSolutions.Panel1");
             this.splitContainerSolutions.Panel1.Controls.Add(this.graphCtrl);
             // 
             // splitContainerSolutions.Panel2
             // 
-            resources.ApplyResources(this.splitContainerSolutions.Panel2, "splitContainerSolutions.Panel2");
             this.splitContainerSolutions.Panel2.Controls.Add(this.gridSolutions);
             // 
             // graphCtrl
@@ -202,6 +176,24 @@
             this.gridSolutions.TabStop = true;
             this.gridSolutions.ToolTipText = "";
             // 
+            // bnNext
+            // 
+            resources.ApplyResources(this.bnNext, "bnNext");
+            this.bnNext.Name = "bnNext";
+            this.bnNext.UseVisualStyleBackColor = true;
+            // 
+            // statusStrip
+            // 
+            this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.statusLabel});
+            resources.ApplyResources(this.statusStrip, "statusStrip");
+            this.statusStrip.Name = "statusStrip";
+            // 
+            // statusLabel
+            // 
+            this.statusLabel.Name = "statusLabel";
+            resources.ApplyResources(this.statusLabel, "statusLabel");
+            // 
             // FormNewHAnalysis
             // 
             resources.ApplyResources(this, "$this");
@@ -212,8 +204,6 @@
             this.MinimizeBox = false;
             this.Name = "FormNewHAnalysis";
             this.ShowInTaskbar = false;
-            this.statusStrip.ResumeLayout(false);
-            this.statusStrip.PerformLayout();
             this.splitContainerHoriz1.Panel1.ResumeLayout(false);
             this.splitContainerHoriz1.Panel1.PerformLayout();
             this.splitContainerHoriz1.Panel2.ResumeLayout(false);
@@ -232,6 +222,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerSolutions)).EndInit();
             this.splitContainerSolutions.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.graphCtrl)).EndInit();
+            this.statusStrip.ResumeLayout(false);
+            this.statusStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -241,18 +233,18 @@
 
         private System.Windows.Forms.StatusStrip statusStrip;
         private System.Windows.Forms.ToolStripStatusLabel statusLabel;
-        private System.Windows.Forms.Button bnNext;
         protected System.Windows.Forms.TextBox tbDescription;
         protected System.Windows.Forms.TextBox tbName;
         protected System.Windows.Forms.Label lbDescription;
         protected System.Windows.Forms.Label lbName;
-        private System.Windows.Forms.SplitContainer splitContainerHoriz1;
-        private System.Windows.Forms.SplitContainer splitContainerHoriz2;
-        private System.Windows.Forms.SplitContainer splitContainerVert;
-        private SourceGrid.Grid gridContent;
-        private System.Windows.Forms.SplitContainer splitContainerSolutions;
-        private Graphics.Graphics3DControl graphCtrl;
-        private SourceGrid.Grid gridSolutions;
-        private System.Windows.Forms.Button bnAddRow;
+        internal Graphics.Graphics3DControl graphCtrl;
+        internal System.Windows.Forms.Button bnNext;
+        internal System.Windows.Forms.SplitContainer splitContainerSolutions;
+        protected System.Windows.Forms.SplitContainer splitContainerHoriz1;
+        protected System.Windows.Forms.SplitContainer splitContainerHoriz2;
+        protected System.Windows.Forms.SplitContainer splitContainerVert;
+        protected SourceGrid.Grid gridContent;
+        protected SourceGrid.Grid gridSolutions;
+        protected System.Windows.Forms.Button bnAddRow;
     }
 }

@@ -66,11 +66,9 @@ namespace treeDiM.StackBuilder.Engine
 
 
         #region Non-Public Members
-
         private PackableBrick _packable;
         private PalletProperties _palletProperties;
         static readonly ILog _log = LogManager.GetLogger(typeof(SolverCasePallet));
-
         #endregion
 
     }

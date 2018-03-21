@@ -118,6 +118,7 @@
     <Compile Include="ConstraintSets\ConstraintSetPackablePallet.cs" />
     <Compile Include="ConstraintSets\ConstraintSetPackableTruck.cs" />
     <Compile Include="ConstraintSets\ConstraintSetPalletTruck.cs" />
+    <Compile Include="ConstraintSets\HConstraintSet.cs" />
     <Compile Include="ConstraintSets\HCylinderPalletConstraintSet.cs" />
     <Compile Include="ConstraintSets\PackPalletConstraintSet.cs" />
     <Compile Include="Containers\PackArrangement.cs" />
