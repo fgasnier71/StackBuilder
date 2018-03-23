@@ -1,5 +1,6 @@
 ﻿#region Using directives
 using System;
+using System.Text;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -56,8 +57,7 @@ namespace treeDiM.StackBuilder.WCFAppServ
                         sbPallet.Dimensions.M0, sbPallet.Dimensions.M1, sbPallet.Dimensions.M2)
                     {
                         Weight = sbPallet.Weight,
-                        Color = Color.FromArgb(sbPallet.Color),
-                        AdmissibleLoadWeight = sbPallet.AdmissibleLoad ?? 0.0
+                        Color = Color.FromArgb(sbPallet.Color)
                     };
                 else
                     palletProperties = new PalletProperties(null, "EUR2", 1200.0, 1000.0, 150.0);
@@ -89,6 +89,7 @@ namespace treeDiM.StackBuilder.WCFAppServ
                 double? weightNet = (double?)null;
                 Vector3D bbLoad = new Vector3D();
                 Vector3D bbGlob = new Vector3D();
+                string palletMapPhrase = string.Empty;
                 byte[] imageBytes = null;
                 string[] errors = null;
 
@@ -100,6 +101,7 @@ namespace treeDiM.StackBuilder.WCFAppServ
                     ref weightTotal, ref weightLoad, ref weightNet,
                     ref bbLoad, ref bbGlob,
                     ref volumeEfficiency, ref weightEfficiency,
+                    ref palletMapPhrase,
                     ref imageBytes, ref errors))
                 {
                     foreach (string err in errors)
@@ -128,6 +130,7 @@ namespace treeDiM.StackBuilder.WCFAppServ
                                 }
                             }
                         },
+                        PalletMapPhrase = palletMapPhrase,
                         Errors = lErrors.ToArray()
                     };
                 }
@@ -158,8 +161,7 @@ namespace treeDiM.StackBuilder.WCFAppServ
                         sbPallet.Dimensions.M0, sbPallet.Dimensions.M1, sbPallet.Dimensions.M2)
                     {
                         Weight = sbPallet.Weight,
-                        Color = Color.FromArgb(sbPallet.Color),
-                        AdmissibleLoadWeight = sbPallet.AdmissibleLoad ?? 0.0
+                        Color = Color.FromArgb(sbPallet.Color)
                     };
                 else
                     palletProperties = new PalletProperties(null, "EUR2", 1200.0, 1000.0, 150.0);
@@ -193,6 +195,7 @@ namespace treeDiM.StackBuilder.WCFAppServ
                 Vector3D bbGlob = new Vector3D();
                 byte[] imageBytes = null;
                 string[] errors = null;
+                string palletMapPhrase = string.Empty;
 
                 if (StackBuilderProcessor.GetBestSolution(
                     bundleProperties, palletProperties, interlayerProperties,
@@ -202,6 +205,7 @@ namespace treeDiM.StackBuilder.WCFAppServ
                     ref weightTotal, ref weightLoad, ref weightNet,
                     ref bbLoad, ref bbGlob,
                     ref volumeEfficiency, ref weightEfficiency,
+                    ref palletMapPhrase,
                     ref imageBytes, ref errors))
                 {
                     foreach (string err in errors)
@@ -457,6 +461,7 @@ namespace treeDiM.StackBuilder.WCFAppServ
             , ref double weightTotal, ref double weightLoad, ref double? weightNet
             , ref Vector3D bbLoad, ref Vector3D bbGlob
             , ref double volumeEfficency, ref double? weightEfficiency
+            , ref string palletMapPhrase
             , ref byte[] imageBytes
             , ref string[] errors)
         {
@@ -468,6 +473,7 @@ namespace treeDiM.StackBuilder.WCFAppServ
                 List<Analysis> analyses = solver.BuildAnalyses(constraintSet);
                 if (analyses.Count > 0)
                 {
+                    // first solution
                     Analysis analysis = analyses[0];
                     layerCount = analysis.Solution.LayerCount;
                     caseCount = analysis.Solution.ItemCount;
@@ -484,6 +490,7 @@ namespace treeDiM.StackBuilder.WCFAppServ
                     weightEfficiency = null;
                     if (analysis.Solution.WeightEfficiency.Activated)
                         weightEfficiency = analysis.Solution.WeightEfficiency.Value;
+                    palletMapPhrase = BuildPalletMapPhrase(analysis.Solution);
 
                     Graphics3DImage graphics = null;
                     // generate image path
@@ -510,6 +517,7 @@ namespace treeDiM.StackBuilder.WCFAppServ
             errors = lErrors.ToArray();
             return (0 == lErrors.Count);
         }
+
 
         public static bool GetBestSolution(PackableBrick packableProperties, BoxProperties caseProperties, InterlayerProperties interlayer
             , ConstraintSetBoxCase constraintSet
@@ -571,7 +579,65 @@ namespace treeDiM.StackBuilder.WCFAppServ
             errors = lErrors.ToArray();
             return (0 == lErrors.Count);
         }
-    }        
+
+        #region Helpers
+        private static string BuildPalletMapPhrase(Solution solution)
+        {
+            AnalysisCasePallet analysis = solution.Analysis as AnalysisCasePallet;
+            PalletProperties palletProperties = analysis.PalletProperties;
+
+            StringBuilder sb = new StringBuilder();
+            // 1st part
+            Dictionary<LayerPhrase, int> layerPhrases = solution.LayerPhrases;
+            bool first = true;
+            foreach (LayerPhrase lp in layerPhrases.Keys)
+            {
+                if (!first) sb.Append("+");
+                sb.Append(lp.Count);
+                string sDir = string.Empty;
+                switch (lp.Axis)
+                {
+                    case HalfAxis.HAxis.AXIS_X_N:
+                    case HalfAxis.HAxis.AXIS_X_P:
+                        sDir = "C";
+                        break;
+                    case HalfAxis.HAxis.AXIS_Y_N:
+                    case HalfAxis.HAxis.AXIS_Y_P:
+                        sDir = "F";
+                        break;
+                    case HalfAxis.HAxis.AXIS_Z_N:
+                    case HalfAxis.HAxis.AXIS_Z_P:
+                        sDir = "B";
+                        break;
+                }
+                sb.Append(sDir);
+                if (layerPhrases[lp] > 1)
+                    sb.AppendFormat("X{0}", layerPhrases[lp]);
+                first = false;
+            }
+            // inner space
+            sb.Append(" ");
+            // 2nd part
+            //  EUR -> 80x120 et « CEN » pour palette 100x120
+            if (PalletMatchesDimensionsInMM(analysis.PalletProperties, 1000, 800))          sb.Append("EUR");
+            else if (PalletMatchesDimensionsInMM(analysis.PalletProperties, 1000, 1200))     sb.Append("CEN");
+            else sb.Append("???");
+
+            return sb.ToString();
+        }
+        private static bool PalletMatchesDimensionsInMM(PalletProperties palletProperties, double length, double width)
+        {
+            double lengthInMM = UnitsManager.ConvertLengthTo(palletProperties.Length, UnitsManager.UnitSystem.UNIT_METRIC1);
+            double widthInMM = UnitsManager.ConvertLengthTo(palletProperties.Width, UnitsManager.UnitSystem.UNIT_METRIC1);
+
+            return (Math.Abs(lengthInMM - length) < 1.0 && Math.Abs(widthInMM - width) < 1.0)
+                || (Math.Abs(lengthInMM - width) < 1.0 && Math.Abs(widthInMM - length) < 1.0);
+
+        }
+        #endregion
+    }
     #endregion
+
+
 }
 

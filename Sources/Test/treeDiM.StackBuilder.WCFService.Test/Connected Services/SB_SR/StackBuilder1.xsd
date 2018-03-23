@@ -9,7 +9,6 @@
           <xs:element minOccurs="0" name="DimensionsInner" nillable="true" type="tns:DCSBDim3D" />
           <xs:element minOccurs="0" name="DimensionsOuter" nillable="true" type="tns:DCSBDim3D" />
           <xs:element minOccurs="0" name="HasInnerDims" type="xs:boolean" />
-          <xs:element minOccurs="0" name="IsCase" type="xs:boolean" />
           <xs:element minOccurs="0" name="MaxWeight" nillable="true" type="xs:double" />
           <xs:element minOccurs="0" name="NetWeight" nillable="true" type="xs:double" />
           <xs:element minOccurs="0" name="ShowTape" type="xs:boolean" />
@@ -23,7 +22,6 @@
   <xs:element name="DCSBCase" nillable="true" type="tns:DCSBCase" />
   <xs:complexType name="DCSBItem">
     <xs:sequence>
-      <xs:element minOccurs="0" name="AutoInsert" type="xs:boolean" />
       <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="ID" type="xs:int" />
       <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
@@ -43,7 +41,6 @@
     <xs:complexContent mixed="false">
       <xs:extension base="tns:DCSBItem">
         <xs:sequence>
-          <xs:element minOccurs="0" name="AdmissibleLoad" nillable="true" type="xs:double" />
           <xs:element minOccurs="0" name="Color" type="xs:int" />
           <xs:element minOccurs="0" name="Dimensions" nillable="true" type="tns:DCSBDim3D" />
           <xs:element minOccurs="0" name="PalletType" nillable="true" type="xs:string" />
@@ -153,6 +150,7 @@
       <xs:element minOccurs="0" name="LayerCount" type="xs:int" />
       <xs:element minOccurs="0" name="NetWeight" nillable="true" type="xs:double" />
       <xs:element minOccurs="0" name="OutFile" nillable="true" type="tns:DCCompFileOutput" />
+      <xs:element minOccurs="0" name="PalletMapPhrase" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="WeightLoad" type="xs:double" />
       <xs:element minOccurs="0" name="WeightTotal" type="xs:double" />
     </xs:sequence>

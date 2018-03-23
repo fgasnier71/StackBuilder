@@ -18,8 +18,6 @@ namespace treeDiM.StackBuilder.WCFAppServ
         [DataMember]
         public double Weight { get; set; }
         [DataMember]
-        public double? AdmissibleLoad { get; set; }
-        [DataMember]
         public int Color { get; set; }
     }
 

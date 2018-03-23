@@ -33,8 +33,49 @@
             this.rtbLog = new System.Windows.Forms.RichTextBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.bnCompute = new System.Windows.Forms.Button();
             this.bnExit = new System.Windows.Forms.Button();
+            this.tabCtrlContainer = new System.Windows.Forms.TabControl();
+            this.tabPallet = new System.Windows.Forms.TabPage();
+            this.nudOverhangY = new System.Windows.Forms.NumericUpDown();
+            this.lbPalletDim = new System.Windows.Forms.Label();
+            this.nudOverhangX = new System.Windows.Forms.NumericUpDown();
+            this.nudPalletDimX = new System.Windows.Forms.NumericUpDown();
+            this.lbOverhang = new System.Windows.Forms.Label();
+            this.nudPalletDimY = new System.Windows.Forms.NumericUpDown();
+            this.nudPalletWeight = new System.Windows.Forms.NumericUpDown();
+            this.nudPalletDimZ = new System.Windows.Forms.NumericUpDown();
+            this.label2 = new System.Windows.Forms.Label();
+            this.nudMaxPalletHeight = new System.Windows.Forms.NumericUpDown();
+            this.lbMaxPalletHeight = new System.Windows.Forms.Label();
+            this.tabCase = new System.Windows.Forms.TabPage();
+            this.nudCaseEmptyWeight = new System.Windows.Forms.NumericUpDown();
+            this.label3 = new System.Windows.Forms.Label();
+            this.nudInnerZ = new System.Windows.Forms.NumericUpDown();
+            this.nudInnerY = new System.Windows.Forms.NumericUpDown();
+            this.nudInnerX = new System.Windows.Forms.NumericUpDown();
+            this.label4 = new System.Windows.Forms.Label();
+            this.tabCtrlContent = new System.Windows.Forms.TabControl();
+            this.tabBox = new System.Windows.Forms.TabPage();
+            this.lbAllowedOrientations = new System.Windows.Forms.Label();
+            this.chkbAllowX = new System.Windows.Forms.CheckBox();
+            this.nudCaseWeight = new System.Windows.Forms.NumericUpDown();
+            this.chkbAllowY = new System.Windows.Forms.CheckBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.chkbAllowZ = new System.Windows.Forms.CheckBox();
+            this.nudCaseDimZ = new System.Windows.Forms.NumericUpDown();
+            this.nudCaseDimY = new System.Windows.Forms.NumericUpDown();
+            this.nudCaseDimX = new System.Windows.Forms.NumericUpDown();
+            this.lbCaseDim = new System.Windows.Forms.Label();
+            this.tabBundle = new System.Windows.Forms.TabPage();
+            this.nudFlatNumber = new System.Windows.Forms.NumericUpDown();
+            this.lbFlatNumber = new System.Windows.Forms.Label();
+            this.nudFlatWeight = new System.Windows.Forms.NumericUpDown();
+            this.lbFlatWeight = new System.Windows.Forms.Label();
+            this.nudFlatZ = new System.Windows.Forms.NumericUpDown();
+            this.nudFlatY = new System.Windows.Forms.NumericUpDown();
+            this.nudFlatX = new System.Windows.Forms.NumericUpDown();
+            this.lbFlat = new System.Windows.Forms.Label();
+            this.bnCompute = new System.Windows.Forms.Button();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
             this.lbLoadedPalletCaseCountValue = new System.Windows.Forms.Label();
             this.lbCaseCount = new System.Windows.Forms.Label();
@@ -44,47 +85,8 @@
             this.lbLoadedPalletEfficiency = new System.Windows.Forms.Label();
             this.lbLoadedPalletWeight = new System.Windows.Forms.Label();
             this.lbLoadedPalletDim = new System.Windows.Forms.Label();
-            this.tabCtrlContent = new System.Windows.Forms.TabControl();
-            this.tabBox = new System.Windows.Forms.TabPage();
-            this.tabBundle = new System.Windows.Forms.TabPage();
-            this.nudOverhangY = new System.Windows.Forms.NumericUpDown();
-            this.nudOverhangX = new System.Windows.Forms.NumericUpDown();
-            this.lbOverhang = new System.Windows.Forms.Label();
-            this.nudPalletDimZ = new System.Windows.Forms.NumericUpDown();
-            this.nudPalletWeight = new System.Windows.Forms.NumericUpDown();
-            this.nudCaseWeight = new System.Windows.Forms.NumericUpDown();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.chkbAllowX = new System.Windows.Forms.CheckBox();
-            this.chkbAllowY = new System.Windows.Forms.CheckBox();
-            this.chkbAllowZ = new System.Windows.Forms.CheckBox();
-            this.nudMaxPalletHeight = new System.Windows.Forms.NumericUpDown();
-            this.nudPalletDimY = new System.Windows.Forms.NumericUpDown();
-            this.nudPalletDimX = new System.Windows.Forms.NumericUpDown();
-            this.nudCaseDimZ = new System.Windows.Forms.NumericUpDown();
-            this.nudCaseDimY = new System.Windows.Forms.NumericUpDown();
-            this.nudCaseDimX = new System.Windows.Forms.NumericUpDown();
-            this.lbMaxPalletHeight = new System.Windows.Forms.Label();
-            this.lbPalletDim = new System.Windows.Forms.Label();
-            this.lbCaseDim = new System.Windows.Forms.Label();
-            this.lbFlat = new System.Windows.Forms.Label();
-            this.nudFlatX = new System.Windows.Forms.NumericUpDown();
-            this.nudFlatY = new System.Windows.Forms.NumericUpDown();
-            this.nudFlatZ = new System.Windows.Forms.NumericUpDown();
-            this.lbFlatWeight = new System.Windows.Forms.Label();
-            this.nudFlatWeight = new System.Windows.Forms.NumericUpDown();
-            this.lbFlatNumber = new System.Windows.Forms.Label();
-            this.nudFlatNumber = new System.Windows.Forms.NumericUpDown();
-            this.tabCtrlContainer = new System.Windows.Forms.TabControl();
-            this.tabPallet = new System.Windows.Forms.TabPage();
-            this.tabCase = new System.Windows.Forms.TabPage();
-            this.lbAllowedOrientations = new System.Windows.Forms.Label();
-            this.nudCaseEmptyWeight = new System.Windows.Forms.NumericUpDown();
-            this.label3 = new System.Windows.Forms.Label();
-            this.nudInnerZ = new System.Windows.Forms.NumericUpDown();
-            this.nudInnerY = new System.Windows.Forms.NumericUpDown();
-            this.nudInnerX = new System.Windows.Forms.NumericUpDown();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lbDescPalletMapPhrase = new System.Windows.Forms.Label();
+            this.lbPalletMapPhrase = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbStackbuilder)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -94,36 +96,36 @@
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
-            this.splitContainer3.Panel1.SuspendLayout();
-            this.splitContainer3.Panel2.SuspendLayout();
-            this.splitContainer3.SuspendLayout();
-            this.tabCtrlContent.SuspendLayout();
-            this.tabBox.SuspendLayout();
-            this.tabBundle.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudOverhangY)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudOverhangX)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudPalletDimZ)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudPalletWeight)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudCaseWeight)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudMaxPalletHeight)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudPalletDimY)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudPalletDimX)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudCaseDimZ)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudCaseDimY)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudCaseDimX)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudFlatX)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudFlatY)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudFlatZ)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudFlatWeight)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudFlatNumber)).BeginInit();
             this.tabCtrlContainer.SuspendLayout();
             this.tabPallet.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudOverhangY)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudOverhangX)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPalletDimX)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPalletDimY)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPalletWeight)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPalletDimZ)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudMaxPalletHeight)).BeginInit();
             this.tabCase.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudCaseEmptyWeight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudInnerZ)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudInnerY)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudInnerX)).BeginInit();
+            this.tabCtrlContent.SuspendLayout();
+            this.tabBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCaseWeight)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCaseDimZ)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCaseDimY)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCaseDimX)).BeginInit();
+            this.tabBundle.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudFlatNumber)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudFlatWeight)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudFlatZ)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudFlatY)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudFlatX)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
+            this.splitContainer3.Panel1.SuspendLayout();
+            this.splitContainer3.Panel2.SuspendLayout();
+            this.splitContainer3.SuspendLayout();
             this.SuspendLayout();
             // 
             // pbStackbuilder
@@ -183,17 +185,6 @@
             this.splitContainer2.SplitterDistance = 212;
             this.splitContainer2.TabIndex = 0;
             // 
-            // bnCompute
-            // 
-            this.bnCompute.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.bnCompute.Location = new System.Drawing.Point(705, 167);
-            this.bnCompute.Name = "bnCompute";
-            this.bnCompute.Size = new System.Drawing.Size(138, 23);
-            this.bnCompute.TabIndex = 49;
-            this.bnCompute.Text = "Call WCF service";
-            this.bnCompute.UseVisualStyleBackColor = true;
-            this.bnCompute.Click += new System.EventHandler(this.OnCompute);
-            // 
             // bnExit
             // 
             this.bnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -205,6 +196,515 @@
             this.bnExit.Text = "Exit";
             this.bnExit.UseVisualStyleBackColor = true;
             this.bnExit.Click += new System.EventHandler(this.OnExit);
+            // 
+            // tabCtrlContainer
+            // 
+            this.tabCtrlContainer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.tabCtrlContainer.Controls.Add(this.tabPallet);
+            this.tabCtrlContainer.Controls.Add(this.tabCase);
+            this.tabCtrlContainer.Location = new System.Drawing.Point(410, 16);
+            this.tabCtrlContainer.Name = "tabCtrlContainer";
+            this.tabCtrlContainer.SelectedIndex = 0;
+            this.tabCtrlContainer.Size = new System.Drawing.Size(433, 147);
+            this.tabCtrlContainer.TabIndex = 54;
+            // 
+            // tabPallet
+            // 
+            this.tabPallet.Controls.Add(this.nudOverhangY);
+            this.tabPallet.Controls.Add(this.lbPalletDim);
+            this.tabPallet.Controls.Add(this.nudOverhangX);
+            this.tabPallet.Controls.Add(this.nudPalletDimX);
+            this.tabPallet.Controls.Add(this.lbOverhang);
+            this.tabPallet.Controls.Add(this.nudPalletDimY);
+            this.tabPallet.Controls.Add(this.nudPalletWeight);
+            this.tabPallet.Controls.Add(this.nudPalletDimZ);
+            this.tabPallet.Controls.Add(this.label2);
+            this.tabPallet.Controls.Add(this.nudMaxPalletHeight);
+            this.tabPallet.Controls.Add(this.lbMaxPalletHeight);
+            this.tabPallet.Location = new System.Drawing.Point(4, 22);
+            this.tabPallet.Name = "tabPallet";
+            this.tabPallet.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPallet.Size = new System.Drawing.Size(425, 121);
+            this.tabPallet.TabIndex = 0;
+            this.tabPallet.Text = "Pallet";
+            this.tabPallet.UseVisualStyleBackColor = true;
+            // 
+            // nudOverhangY
+            // 
+            this.nudOverhangY.DecimalPlaces = 1;
+            this.nudOverhangY.Location = new System.Drawing.Point(222, 91);
+            this.nudOverhangY.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.nudOverhangY.Minimum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            -2147483648});
+            this.nudOverhangY.Name = "nudOverhangY";
+            this.nudOverhangY.Size = new System.Drawing.Size(74, 20);
+            this.nudOverhangY.TabIndex = 70;
+            // 
+            // lbPalletDim
+            // 
+            this.lbPalletDim.AutoSize = true;
+            this.lbPalletDim.Location = new System.Drawing.Point(6, 8);
+            this.lbPalletDim.Name = "lbPalletDim";
+            this.lbPalletDim.Size = new System.Drawing.Size(55, 13);
+            this.lbPalletDim.TabIndex = 54;
+            this.lbPalletDim.Text = "Pallet dim.";
+            // 
+            // nudOverhangX
+            // 
+            this.nudOverhangX.DecimalPlaces = 1;
+            this.nudOverhangX.Location = new System.Drawing.Point(142, 91);
+            this.nudOverhangX.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.nudOverhangX.Minimum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            -2147483648});
+            this.nudOverhangX.Name = "nudOverhangX";
+            this.nudOverhangX.Size = new System.Drawing.Size(74, 20);
+            this.nudOverhangX.TabIndex = 69;
+            // 
+            // nudPalletDimX
+            // 
+            this.nudPalletDimX.DecimalPlaces = 1;
+            this.nudPalletDimX.Location = new System.Drawing.Point(142, 6);
+            this.nudPalletDimX.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.nudPalletDimX.Name = "nudPalletDimX";
+            this.nudPalletDimX.Size = new System.Drawing.Size(74, 20);
+            this.nudPalletDimX.TabIndex = 59;
+            // 
+            // lbOverhang
+            // 
+            this.lbOverhang.AutoSize = true;
+            this.lbOverhang.Location = new System.Drawing.Point(7, 93);
+            this.lbOverhang.Name = "lbOverhang";
+            this.lbOverhang.Size = new System.Drawing.Size(54, 13);
+            this.lbOverhang.TabIndex = 68;
+            this.lbOverhang.Text = "Overhang";
+            // 
+            // nudPalletDimY
+            // 
+            this.nudPalletDimY.DecimalPlaces = 1;
+            this.nudPalletDimY.Location = new System.Drawing.Point(222, 6);
+            this.nudPalletDimY.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.nudPalletDimY.Name = "nudPalletDimY";
+            this.nudPalletDimY.Size = new System.Drawing.Size(74, 20);
+            this.nudPalletDimY.TabIndex = 60;
+            // 
+            // nudPalletWeight
+            // 
+            this.nudPalletWeight.DecimalPlaces = 3;
+            this.nudPalletWeight.Location = new System.Drawing.Point(142, 34);
+            this.nudPalletWeight.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.nudPalletWeight.Name = "nudPalletWeight";
+            this.nudPalletWeight.Size = new System.Drawing.Size(74, 20);
+            this.nudPalletWeight.TabIndex = 66;
+            // 
+            // nudPalletDimZ
+            // 
+            this.nudPalletDimZ.DecimalPlaces = 1;
+            this.nudPalletDimZ.Location = new System.Drawing.Point(303, 6);
+            this.nudPalletDimZ.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.nudPalletDimZ.Name = "nudPalletDimZ";
+            this.nudPalletDimZ.Size = new System.Drawing.Size(74, 20);
+            this.nudPalletDimZ.TabIndex = 67;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 36);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(67, 13);
+            this.label2.TabIndex = 64;
+            this.label2.Text = "Pallet weight";
+            // 
+            // nudMaxPalletHeight
+            // 
+            this.nudMaxPalletHeight.DecimalPlaces = 1;
+            this.nudMaxPalletHeight.Location = new System.Drawing.Point(142, 63);
+            this.nudMaxPalletHeight.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.nudMaxPalletHeight.Name = "nudMaxPalletHeight";
+            this.nudMaxPalletHeight.Size = new System.Drawing.Size(74, 20);
+            this.nudMaxPalletHeight.TabIndex = 61;
+            // 
+            // lbMaxPalletHeight
+            // 
+            this.lbMaxPalletHeight.AutoSize = true;
+            this.lbMaxPalletHeight.Location = new System.Drawing.Point(6, 65);
+            this.lbMaxPalletHeight.Name = "lbMaxPalletHeight";
+            this.lbMaxPalletHeight.Size = new System.Drawing.Size(90, 13);
+            this.lbMaxPalletHeight.TabIndex = 55;
+            this.lbMaxPalletHeight.Text = "Max. pallet height";
+            // 
+            // tabCase
+            // 
+            this.tabCase.Controls.Add(this.nudCaseEmptyWeight);
+            this.tabCase.Controls.Add(this.label3);
+            this.tabCase.Controls.Add(this.nudInnerZ);
+            this.tabCase.Controls.Add(this.nudInnerY);
+            this.tabCase.Controls.Add(this.nudInnerX);
+            this.tabCase.Controls.Add(this.label4);
+            this.tabCase.Location = new System.Drawing.Point(4, 22);
+            this.tabCase.Name = "tabCase";
+            this.tabCase.Padding = new System.Windows.Forms.Padding(3);
+            this.tabCase.Size = new System.Drawing.Size(425, 121);
+            this.tabCase.TabIndex = 1;
+            this.tabCase.Text = "Case";
+            this.tabCase.UseVisualStyleBackColor = true;
+            // 
+            // nudCaseEmptyWeight
+            // 
+            this.nudCaseEmptyWeight.DecimalPlaces = 3;
+            this.nudCaseEmptyWeight.Location = new System.Drawing.Point(143, 28);
+            this.nudCaseEmptyWeight.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.nudCaseEmptyWeight.Name = "nudCaseEmptyWeight";
+            this.nudCaseEmptyWeight.Size = new System.Drawing.Size(74, 20);
+            this.nudCaseEmptyWeight.TabIndex = 71;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 30);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(96, 13);
+            this.label3.TabIndex = 70;
+            this.label3.Text = "Empty case weight";
+            // 
+            // nudInnerZ
+            // 
+            this.nudInnerZ.DecimalPlaces = 1;
+            this.nudInnerZ.Location = new System.Drawing.Point(303, 4);
+            this.nudInnerZ.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.nudInnerZ.Name = "nudInnerZ";
+            this.nudInnerZ.Size = new System.Drawing.Size(74, 20);
+            this.nudInnerZ.TabIndex = 69;
+            // 
+            // nudInnerY
+            // 
+            this.nudInnerY.DecimalPlaces = 1;
+            this.nudInnerY.Location = new System.Drawing.Point(223, 4);
+            this.nudInnerY.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.nudInnerY.Name = "nudInnerY";
+            this.nudInnerY.Size = new System.Drawing.Size(74, 20);
+            this.nudInnerY.TabIndex = 68;
+            // 
+            // nudInnerX
+            // 
+            this.nudInnerX.DecimalPlaces = 1;
+            this.nudInnerX.Location = new System.Drawing.Point(143, 4);
+            this.nudInnerX.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.nudInnerX.Name = "nudInnerX";
+            this.nudInnerX.Size = new System.Drawing.Size(74, 20);
+            this.nudInnerX.TabIndex = 67;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 6);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(79, 13);
+            this.label4.TabIndex = 66;
+            this.label4.Text = "Case inner dim.";
+            // 
+            // tabCtrlContent
+            // 
+            this.tabCtrlContent.Controls.Add(this.tabBox);
+            this.tabCtrlContent.Controls.Add(this.tabBundle);
+            this.tabCtrlContent.Location = new System.Drawing.Point(3, 12);
+            this.tabCtrlContent.Name = "tabCtrlContent";
+            this.tabCtrlContent.SelectedIndex = 0;
+            this.tabCtrlContent.Size = new System.Drawing.Size(401, 151);
+            this.tabCtrlContent.TabIndex = 53;
+            // 
+            // tabBox
+            // 
+            this.tabBox.Controls.Add(this.lbAllowedOrientations);
+            this.tabBox.Controls.Add(this.chkbAllowX);
+            this.tabBox.Controls.Add(this.nudCaseWeight);
+            this.tabBox.Controls.Add(this.chkbAllowY);
+            this.tabBox.Controls.Add(this.label1);
+            this.tabBox.Controls.Add(this.chkbAllowZ);
+            this.tabBox.Controls.Add(this.nudCaseDimZ);
+            this.tabBox.Controls.Add(this.nudCaseDimY);
+            this.tabBox.Controls.Add(this.nudCaseDimX);
+            this.tabBox.Controls.Add(this.lbCaseDim);
+            this.tabBox.Location = new System.Drawing.Point(4, 22);
+            this.tabBox.Name = "tabBox";
+            this.tabBox.Padding = new System.Windows.Forms.Padding(3);
+            this.tabBox.Size = new System.Drawing.Size(393, 125);
+            this.tabBox.TabIndex = 0;
+            this.tabBox.Text = "Box";
+            this.tabBox.UseVisualStyleBackColor = true;
+            // 
+            // lbAllowedOrientations
+            // 
+            this.lbAllowedOrientations.AutoSize = true;
+            this.lbAllowedOrientations.Location = new System.Drawing.Point(4, 59);
+            this.lbAllowedOrientations.Name = "lbAllowedOrientations";
+            this.lbAllowedOrientations.Size = new System.Drawing.Size(101, 13);
+            this.lbAllowedOrientations.TabIndex = 66;
+            this.lbAllowedOrientations.Text = "Allowed orientations";
+            // 
+            // chkbAllowX
+            // 
+            this.chkbAllowX.AutoSize = true;
+            this.chkbAllowX.Location = new System.Drawing.Point(141, 58);
+            this.chkbAllowX.Name = "chkbAllowX";
+            this.chkbAllowX.Size = new System.Drawing.Size(33, 17);
+            this.chkbAllowX.TabIndex = 1;
+            this.chkbAllowX.Text = "X";
+            this.chkbAllowX.UseVisualStyleBackColor = true;
+            // 
+            // nudCaseWeight
+            // 
+            this.nudCaseWeight.DecimalPlaces = 3;
+            this.nudCaseWeight.Location = new System.Drawing.Point(141, 28);
+            this.nudCaseWeight.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.nudCaseWeight.Name = "nudCaseWeight";
+            this.nudCaseWeight.Size = new System.Drawing.Size(74, 20);
+            this.nudCaseWeight.TabIndex = 65;
+            // 
+            // chkbAllowY
+            // 
+            this.chkbAllowY.AutoSize = true;
+            this.chkbAllowY.Location = new System.Drawing.Point(181, 58);
+            this.chkbAllowY.Name = "chkbAllowY";
+            this.chkbAllowY.Size = new System.Drawing.Size(33, 17);
+            this.chkbAllowY.TabIndex = 2;
+            this.chkbAllowY.Text = "Y";
+            this.chkbAllowY.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(4, 30);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(65, 13);
+            this.label1.TabIndex = 63;
+            this.label1.Text = "Case weight";
+            // 
+            // chkbAllowZ
+            // 
+            this.chkbAllowZ.AutoSize = true;
+            this.chkbAllowZ.Location = new System.Drawing.Point(221, 58);
+            this.chkbAllowZ.Name = "chkbAllowZ";
+            this.chkbAllowZ.Size = new System.Drawing.Size(33, 17);
+            this.chkbAllowZ.TabIndex = 3;
+            this.chkbAllowZ.Text = "Z";
+            this.chkbAllowZ.UseVisualStyleBackColor = true;
+            // 
+            // nudCaseDimZ
+            // 
+            this.nudCaseDimZ.DecimalPlaces = 1;
+            this.nudCaseDimZ.Location = new System.Drawing.Point(301, 4);
+            this.nudCaseDimZ.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.nudCaseDimZ.Name = "nudCaseDimZ";
+            this.nudCaseDimZ.Size = new System.Drawing.Size(74, 20);
+            this.nudCaseDimZ.TabIndex = 58;
+            // 
+            // nudCaseDimY
+            // 
+            this.nudCaseDimY.DecimalPlaces = 1;
+            this.nudCaseDimY.Location = new System.Drawing.Point(221, 4);
+            this.nudCaseDimY.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.nudCaseDimY.Name = "nudCaseDimY";
+            this.nudCaseDimY.Size = new System.Drawing.Size(74, 20);
+            this.nudCaseDimY.TabIndex = 57;
+            // 
+            // nudCaseDimX
+            // 
+            this.nudCaseDimX.DecimalPlaces = 1;
+            this.nudCaseDimX.Location = new System.Drawing.Point(141, 4);
+            this.nudCaseDimX.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.nudCaseDimX.Name = "nudCaseDimX";
+            this.nudCaseDimX.Size = new System.Drawing.Size(74, 20);
+            this.nudCaseDimX.TabIndex = 56;
+            // 
+            // lbCaseDim
+            // 
+            this.lbCaseDim.AutoSize = true;
+            this.lbCaseDim.Location = new System.Drawing.Point(4, 6);
+            this.lbCaseDim.Name = "lbCaseDim";
+            this.lbCaseDim.Size = new System.Drawing.Size(53, 13);
+            this.lbCaseDim.TabIndex = 53;
+            this.lbCaseDim.Text = "Case dim.";
+            // 
+            // tabBundle
+            // 
+            this.tabBundle.Controls.Add(this.nudFlatNumber);
+            this.tabBundle.Controls.Add(this.lbFlatNumber);
+            this.tabBundle.Controls.Add(this.nudFlatWeight);
+            this.tabBundle.Controls.Add(this.lbFlatWeight);
+            this.tabBundle.Controls.Add(this.nudFlatZ);
+            this.tabBundle.Controls.Add(this.nudFlatY);
+            this.tabBundle.Controls.Add(this.nudFlatX);
+            this.tabBundle.Controls.Add(this.lbFlat);
+            this.tabBundle.Location = new System.Drawing.Point(4, 22);
+            this.tabBundle.Name = "tabBundle";
+            this.tabBundle.Padding = new System.Windows.Forms.Padding(3);
+            this.tabBundle.Size = new System.Drawing.Size(393, 125);
+            this.tabBundle.TabIndex = 1;
+            this.tabBundle.Text = "Bundle";
+            this.tabBundle.UseVisualStyleBackColor = true;
+            // 
+            // nudFlatNumber
+            // 
+            this.nudFlatNumber.Location = new System.Drawing.Point(143, 29);
+            this.nudFlatNumber.Name = "nudFlatNumber";
+            this.nudFlatNumber.Size = new System.Drawing.Size(74, 20);
+            this.nudFlatNumber.TabIndex = 90;
+            // 
+            // lbFlatNumber
+            // 
+            this.lbFlatNumber.AutoSize = true;
+            this.lbFlatNumber.Location = new System.Drawing.Point(7, 31);
+            this.lbFlatNumber.Name = "lbFlatNumber";
+            this.lbFlatNumber.Size = new System.Drawing.Size(62, 13);
+            this.lbFlatNumber.TabIndex = 89;
+            this.lbFlatNumber.Text = "Flat number";
+            // 
+            // nudFlatWeight
+            // 
+            this.nudFlatWeight.DecimalPlaces = 3;
+            this.nudFlatWeight.Location = new System.Drawing.Point(142, 55);
+            this.nudFlatWeight.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.nudFlatWeight.Name = "nudFlatWeight";
+            this.nudFlatWeight.Size = new System.Drawing.Size(74, 20);
+            this.nudFlatWeight.TabIndex = 88;
+            // 
+            // lbFlatWeight
+            // 
+            this.lbFlatWeight.AutoSize = true;
+            this.lbFlatWeight.Location = new System.Drawing.Point(7, 57);
+            this.lbFlatWeight.Name = "lbFlatWeight";
+            this.lbFlatWeight.Size = new System.Drawing.Size(58, 13);
+            this.lbFlatWeight.TabIndex = 87;
+            this.lbFlatWeight.Text = "Flat weight";
+            // 
+            // nudFlatZ
+            // 
+            this.nudFlatZ.DecimalPlaces = 1;
+            this.nudFlatZ.Location = new System.Drawing.Point(303, 4);
+            this.nudFlatZ.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.nudFlatZ.Name = "nudFlatZ";
+            this.nudFlatZ.Size = new System.Drawing.Size(74, 20);
+            this.nudFlatZ.TabIndex = 86;
+            // 
+            // nudFlatY
+            // 
+            this.nudFlatY.DecimalPlaces = 1;
+            this.nudFlatY.Location = new System.Drawing.Point(223, 4);
+            this.nudFlatY.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.nudFlatY.Name = "nudFlatY";
+            this.nudFlatY.Size = new System.Drawing.Size(73, 20);
+            this.nudFlatY.TabIndex = 85;
+            // 
+            // nudFlatX
+            // 
+            this.nudFlatX.DecimalPlaces = 1;
+            this.nudFlatX.Location = new System.Drawing.Point(143, 4);
+            this.nudFlatX.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.nudFlatX.Name = "nudFlatX";
+            this.nudFlatX.Size = new System.Drawing.Size(74, 20);
+            this.nudFlatX.TabIndex = 84;
+            // 
+            // lbFlat
+            // 
+            this.lbFlat.AutoSize = true;
+            this.lbFlat.Location = new System.Drawing.Point(7, 6);
+            this.lbFlat.Name = "lbFlat";
+            this.lbFlat.Size = new System.Drawing.Size(46, 13);
+            this.lbFlat.TabIndex = 83;
+            this.lbFlat.Text = "Flat dim.";
+            // 
+            // bnCompute
+            // 
+            this.bnCompute.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.bnCompute.Location = new System.Drawing.Point(705, 167);
+            this.bnCompute.Name = "bnCompute";
+            this.bnCompute.Size = new System.Drawing.Size(138, 23);
+            this.bnCompute.TabIndex = 49;
+            this.bnCompute.Text = "Call WCF service";
+            this.bnCompute.UseVisualStyleBackColor = true;
+            this.bnCompute.Click += new System.EventHandler(this.OnCompute);
             // 
             // splitContainer3
             // 
@@ -218,6 +718,8 @@
             // 
             // splitContainer3.Panel2
             // 
+            this.splitContainer3.Panel2.Controls.Add(this.lbPalletMapPhrase);
+            this.splitContainer3.Panel2.Controls.Add(this.lbDescPalletMapPhrase);
             this.splitContainer3.Panel2.Controls.Add(this.lbLoadedPalletCaseCountValue);
             this.splitContainer3.Panel2.Controls.Add(this.lbCaseCount);
             this.splitContainer3.Panel2.Controls.Add(this.lbLoadedPalletEfficiencyValue);
@@ -302,503 +804,23 @@
             this.lbLoadedPalletDim.TabIndex = 30;
             this.lbLoadedPalletDim.Text = "Loaded pallet dimensions";
             // 
-            // tabCtrlContent
-            // 
-            this.tabCtrlContent.Controls.Add(this.tabBox);
-            this.tabCtrlContent.Controls.Add(this.tabBundle);
-            this.tabCtrlContent.Location = new System.Drawing.Point(3, 12);
-            this.tabCtrlContent.Name = "tabCtrlContent";
-            this.tabCtrlContent.SelectedIndex = 0;
-            this.tabCtrlContent.Size = new System.Drawing.Size(401, 151);
-            this.tabCtrlContent.TabIndex = 53;
-            // 
-            // tabBox
-            // 
-            this.tabBox.Controls.Add(this.lbAllowedOrientations);
-            this.tabBox.Controls.Add(this.chkbAllowX);
-            this.tabBox.Controls.Add(this.nudCaseWeight);
-            this.tabBox.Controls.Add(this.chkbAllowY);
-            this.tabBox.Controls.Add(this.label1);
-            this.tabBox.Controls.Add(this.chkbAllowZ);
-            this.tabBox.Controls.Add(this.nudCaseDimZ);
-            this.tabBox.Controls.Add(this.nudCaseDimY);
-            this.tabBox.Controls.Add(this.nudCaseDimX);
-            this.tabBox.Controls.Add(this.lbCaseDim);
-            this.tabBox.Location = new System.Drawing.Point(4, 22);
-            this.tabBox.Name = "tabBox";
-            this.tabBox.Padding = new System.Windows.Forms.Padding(3);
-            this.tabBox.Size = new System.Drawing.Size(393, 125);
-            this.tabBox.TabIndex = 0;
-            this.tabBox.Text = "Box";
-            this.tabBox.UseVisualStyleBackColor = true;
-            // 
-            // tabBundle
-            // 
-            this.tabBundle.Controls.Add(this.nudFlatNumber);
-            this.tabBundle.Controls.Add(this.lbFlatNumber);
-            this.tabBundle.Controls.Add(this.nudFlatWeight);
-            this.tabBundle.Controls.Add(this.lbFlatWeight);
-            this.tabBundle.Controls.Add(this.nudFlatZ);
-            this.tabBundle.Controls.Add(this.nudFlatY);
-            this.tabBundle.Controls.Add(this.nudFlatX);
-            this.tabBundle.Controls.Add(this.lbFlat);
-            this.tabBundle.Location = new System.Drawing.Point(4, 22);
-            this.tabBundle.Name = "tabBundle";
-            this.tabBundle.Padding = new System.Windows.Forms.Padding(3);
-            this.tabBundle.Size = new System.Drawing.Size(393, 125);
-            this.tabBundle.TabIndex = 1;
-            this.tabBundle.Text = "Bundle";
-            this.tabBundle.UseVisualStyleBackColor = true;
-            // 
-            // nudOverhangY
-            // 
-            this.nudOverhangY.DecimalPlaces = 1;
-            this.nudOverhangY.Location = new System.Drawing.Point(222, 91);
-            this.nudOverhangY.Maximum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.nudOverhangY.Minimum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            -2147483648});
-            this.nudOverhangY.Name = "nudOverhangY";
-            this.nudOverhangY.Size = new System.Drawing.Size(74, 20);
-            this.nudOverhangY.TabIndex = 70;
-            // 
-            // nudOverhangX
-            // 
-            this.nudOverhangX.DecimalPlaces = 1;
-            this.nudOverhangX.Location = new System.Drawing.Point(142, 91);
-            this.nudOverhangX.Maximum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.nudOverhangX.Minimum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            -2147483648});
-            this.nudOverhangX.Name = "nudOverhangX";
-            this.nudOverhangX.Size = new System.Drawing.Size(74, 20);
-            this.nudOverhangX.TabIndex = 69;
-            // 
-            // lbOverhang
-            // 
-            this.lbOverhang.AutoSize = true;
-            this.lbOverhang.Location = new System.Drawing.Point(7, 93);
-            this.lbOverhang.Name = "lbOverhang";
-            this.lbOverhang.Size = new System.Drawing.Size(54, 13);
-            this.lbOverhang.TabIndex = 68;
-            this.lbOverhang.Text = "Overhang";
-            // 
-            // nudPalletDimZ
-            // 
-            this.nudPalletDimZ.DecimalPlaces = 1;
-            this.nudPalletDimZ.Location = new System.Drawing.Point(303, 6);
-            this.nudPalletDimZ.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.nudPalletDimZ.Name = "nudPalletDimZ";
-            this.nudPalletDimZ.Size = new System.Drawing.Size(74, 20);
-            this.nudPalletDimZ.TabIndex = 67;
-            // 
-            // nudPalletWeight
-            // 
-            this.nudPalletWeight.DecimalPlaces = 3;
-            this.nudPalletWeight.Location = new System.Drawing.Point(142, 34);
-            this.nudPalletWeight.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.nudPalletWeight.Name = "nudPalletWeight";
-            this.nudPalletWeight.Size = new System.Drawing.Size(74, 20);
-            this.nudPalletWeight.TabIndex = 66;
-            // 
-            // nudCaseWeight
-            // 
-            this.nudCaseWeight.DecimalPlaces = 3;
-            this.nudCaseWeight.Location = new System.Drawing.Point(141, 28);
-            this.nudCaseWeight.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.nudCaseWeight.Name = "nudCaseWeight";
-            this.nudCaseWeight.Size = new System.Drawing.Size(74, 20);
-            this.nudCaseWeight.TabIndex = 65;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 36);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(67, 13);
-            this.label2.TabIndex = 64;
-            this.label2.Text = "Pallet weight";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(4, 30);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 13);
-            this.label1.TabIndex = 63;
-            this.label1.Text = "Case weight";
-            // 
-            // chkbAllowX
-            // 
-            this.chkbAllowX.AutoSize = true;
-            this.chkbAllowX.Location = new System.Drawing.Point(141, 58);
-            this.chkbAllowX.Name = "chkbAllowX";
-            this.chkbAllowX.Size = new System.Drawing.Size(33, 17);
-            this.chkbAllowX.TabIndex = 1;
-            this.chkbAllowX.Text = "X";
-            this.chkbAllowX.UseVisualStyleBackColor = true;
-            // 
-            // chkbAllowY
-            // 
-            this.chkbAllowY.AutoSize = true;
-            this.chkbAllowY.Location = new System.Drawing.Point(181, 58);
-            this.chkbAllowY.Name = "chkbAllowY";
-            this.chkbAllowY.Size = new System.Drawing.Size(33, 17);
-            this.chkbAllowY.TabIndex = 2;
-            this.chkbAllowY.Text = "Y";
-            this.chkbAllowY.UseVisualStyleBackColor = true;
-            // 
-            // chkbAllowZ
-            // 
-            this.chkbAllowZ.AutoSize = true;
-            this.chkbAllowZ.Location = new System.Drawing.Point(221, 58);
-            this.chkbAllowZ.Name = "chkbAllowZ";
-            this.chkbAllowZ.Size = new System.Drawing.Size(33, 17);
-            this.chkbAllowZ.TabIndex = 3;
-            this.chkbAllowZ.Text = "Z";
-            this.chkbAllowZ.UseVisualStyleBackColor = true;
-            // 
-            // nudMaxPalletHeight
-            // 
-            this.nudMaxPalletHeight.DecimalPlaces = 1;
-            this.nudMaxPalletHeight.Location = new System.Drawing.Point(142, 63);
-            this.nudMaxPalletHeight.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.nudMaxPalletHeight.Name = "nudMaxPalletHeight";
-            this.nudMaxPalletHeight.Size = new System.Drawing.Size(74, 20);
-            this.nudMaxPalletHeight.TabIndex = 61;
-            // 
-            // nudPalletDimY
-            // 
-            this.nudPalletDimY.DecimalPlaces = 1;
-            this.nudPalletDimY.Location = new System.Drawing.Point(222, 6);
-            this.nudPalletDimY.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.nudPalletDimY.Name = "nudPalletDimY";
-            this.nudPalletDimY.Size = new System.Drawing.Size(74, 20);
-            this.nudPalletDimY.TabIndex = 60;
-            // 
-            // nudPalletDimX
-            // 
-            this.nudPalletDimX.DecimalPlaces = 1;
-            this.nudPalletDimX.Location = new System.Drawing.Point(142, 6);
-            this.nudPalletDimX.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.nudPalletDimX.Name = "nudPalletDimX";
-            this.nudPalletDimX.Size = new System.Drawing.Size(74, 20);
-            this.nudPalletDimX.TabIndex = 59;
-            // 
-            // nudCaseDimZ
-            // 
-            this.nudCaseDimZ.DecimalPlaces = 1;
-            this.nudCaseDimZ.Location = new System.Drawing.Point(301, 4);
-            this.nudCaseDimZ.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.nudCaseDimZ.Name = "nudCaseDimZ";
-            this.nudCaseDimZ.Size = new System.Drawing.Size(74, 20);
-            this.nudCaseDimZ.TabIndex = 58;
-            // 
-            // nudCaseDimY
-            // 
-            this.nudCaseDimY.DecimalPlaces = 1;
-            this.nudCaseDimY.Location = new System.Drawing.Point(221, 4);
-            this.nudCaseDimY.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.nudCaseDimY.Name = "nudCaseDimY";
-            this.nudCaseDimY.Size = new System.Drawing.Size(74, 20);
-            this.nudCaseDimY.TabIndex = 57;
-            // 
-            // nudCaseDimX
-            // 
-            this.nudCaseDimX.DecimalPlaces = 1;
-            this.nudCaseDimX.Location = new System.Drawing.Point(141, 4);
-            this.nudCaseDimX.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.nudCaseDimX.Name = "nudCaseDimX";
-            this.nudCaseDimX.Size = new System.Drawing.Size(74, 20);
-            this.nudCaseDimX.TabIndex = 56;
-            // 
-            // lbMaxPalletHeight
-            // 
-            this.lbMaxPalletHeight.AutoSize = true;
-            this.lbMaxPalletHeight.Location = new System.Drawing.Point(6, 65);
-            this.lbMaxPalletHeight.Name = "lbMaxPalletHeight";
-            this.lbMaxPalletHeight.Size = new System.Drawing.Size(90, 13);
-            this.lbMaxPalletHeight.TabIndex = 55;
-            this.lbMaxPalletHeight.Text = "Max. pallet height";
-            // 
-            // lbPalletDim
-            // 
-            this.lbPalletDim.AutoSize = true;
-            this.lbPalletDim.Location = new System.Drawing.Point(6, 8);
-            this.lbPalletDim.Name = "lbPalletDim";
-            this.lbPalletDim.Size = new System.Drawing.Size(55, 13);
-            this.lbPalletDim.TabIndex = 54;
-            this.lbPalletDim.Text = "Pallet dim.";
-            // 
-            // lbCaseDim
-            // 
-            this.lbCaseDim.AutoSize = true;
-            this.lbCaseDim.Location = new System.Drawing.Point(4, 6);
-            this.lbCaseDim.Name = "lbCaseDim";
-            this.lbCaseDim.Size = new System.Drawing.Size(53, 13);
-            this.lbCaseDim.TabIndex = 53;
-            this.lbCaseDim.Text = "Case dim.";
-            // 
-            // lbFlat
-            // 
-            this.lbFlat.AutoSize = true;
-            this.lbFlat.Location = new System.Drawing.Point(7, 6);
-            this.lbFlat.Name = "lbFlat";
-            this.lbFlat.Size = new System.Drawing.Size(46, 13);
-            this.lbFlat.TabIndex = 83;
-            this.lbFlat.Text = "Flat dim.";
-            // 
-            // nudFlatX
-            // 
-            this.nudFlatX.DecimalPlaces = 1;
-            this.nudFlatX.Location = new System.Drawing.Point(143, 4);
-            this.nudFlatX.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.nudFlatX.Name = "nudFlatX";
-            this.nudFlatX.Size = new System.Drawing.Size(74, 20);
-            this.nudFlatX.TabIndex = 84;
-            // 
-            // nudFlatY
-            // 
-            this.nudFlatY.DecimalPlaces = 1;
-            this.nudFlatY.Location = new System.Drawing.Point(223, 4);
-            this.nudFlatY.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.nudFlatY.Name = "nudFlatY";
-            this.nudFlatY.Size = new System.Drawing.Size(73, 20);
-            this.nudFlatY.TabIndex = 85;
-            // 
-            // nudFlatZ
-            // 
-            this.nudFlatZ.DecimalPlaces = 1;
-            this.nudFlatZ.Location = new System.Drawing.Point(303, 4);
-            this.nudFlatZ.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.nudFlatZ.Name = "nudFlatZ";
-            this.nudFlatZ.Size = new System.Drawing.Size(74, 20);
-            this.nudFlatZ.TabIndex = 86;
-            // 
-            // lbFlatWeight
-            // 
-            this.lbFlatWeight.AutoSize = true;
-            this.lbFlatWeight.Location = new System.Drawing.Point(7, 57);
-            this.lbFlatWeight.Name = "lbFlatWeight";
-            this.lbFlatWeight.Size = new System.Drawing.Size(58, 13);
-            this.lbFlatWeight.TabIndex = 87;
-            this.lbFlatWeight.Text = "Flat weight";
-            // 
-            // nudFlatWeight
-            // 
-            this.nudFlatWeight.DecimalPlaces = 3;
-            this.nudFlatWeight.Location = new System.Drawing.Point(142, 55);
-            this.nudFlatWeight.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.nudFlatWeight.Name = "nudFlatWeight";
-            this.nudFlatWeight.Size = new System.Drawing.Size(74, 20);
-            this.nudFlatWeight.TabIndex = 88;
-            // 
-            // lbFlatNumber
-            // 
-            this.lbFlatNumber.AutoSize = true;
-            this.lbFlatNumber.Location = new System.Drawing.Point(7, 31);
-            this.lbFlatNumber.Name = "lbFlatNumber";
-            this.lbFlatNumber.Size = new System.Drawing.Size(62, 13);
-            this.lbFlatNumber.TabIndex = 89;
-            this.lbFlatNumber.Text = "Flat number";
-            // 
-            // nudFlatNumber
-            // 
-            this.nudFlatNumber.Location = new System.Drawing.Point(143, 29);
-            this.nudFlatNumber.Name = "nudFlatNumber";
-            this.nudFlatNumber.Size = new System.Drawing.Size(74, 20);
-            this.nudFlatNumber.TabIndex = 90;
-            // 
-            // tabCtrlContainer
-            // 
-            this.tabCtrlContainer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.tabCtrlContainer.Controls.Add(this.tabPallet);
-            this.tabCtrlContainer.Controls.Add(this.tabCase);
-            this.tabCtrlContainer.Location = new System.Drawing.Point(410, 16);
-            this.tabCtrlContainer.Name = "tabCtrlContainer";
-            this.tabCtrlContainer.SelectedIndex = 0;
-            this.tabCtrlContainer.Size = new System.Drawing.Size(433, 147);
-            this.tabCtrlContainer.TabIndex = 54;
-            // 
-            // tabPallet
-            // 
-            this.tabPallet.Controls.Add(this.nudOverhangY);
-            this.tabPallet.Controls.Add(this.lbPalletDim);
-            this.tabPallet.Controls.Add(this.nudOverhangX);
-            this.tabPallet.Controls.Add(this.nudPalletDimX);
-            this.tabPallet.Controls.Add(this.lbOverhang);
-            this.tabPallet.Controls.Add(this.nudPalletDimY);
-            this.tabPallet.Controls.Add(this.nudPalletWeight);
-            this.tabPallet.Controls.Add(this.nudPalletDimZ);
-            this.tabPallet.Controls.Add(this.label2);
-            this.tabPallet.Controls.Add(this.nudMaxPalletHeight);
-            this.tabPallet.Controls.Add(this.lbMaxPalletHeight);
-            this.tabPallet.Location = new System.Drawing.Point(4, 22);
-            this.tabPallet.Name = "tabPallet";
-            this.tabPallet.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPallet.Size = new System.Drawing.Size(425, 121);
-            this.tabPallet.TabIndex = 0;
-            this.tabPallet.Text = "Pallet";
-            this.tabPallet.UseVisualStyleBackColor = true;
-            // 
-            // tabCase
-            // 
-            this.tabCase.Controls.Add(this.nudCaseEmptyWeight);
-            this.tabCase.Controls.Add(this.label3);
-            this.tabCase.Controls.Add(this.nudInnerZ);
-            this.tabCase.Controls.Add(this.nudInnerY);
-            this.tabCase.Controls.Add(this.nudInnerX);
-            this.tabCase.Controls.Add(this.label4);
-            this.tabCase.Location = new System.Drawing.Point(4, 22);
-            this.tabCase.Name = "tabCase";
-            this.tabCase.Padding = new System.Windows.Forms.Padding(3);
-            this.tabCase.Size = new System.Drawing.Size(425, 121);
-            this.tabCase.TabIndex = 1;
-            this.tabCase.Text = "Case";
-            this.tabCase.UseVisualStyleBackColor = true;
-            // 
-            // lbAllowedOrientations
-            // 
-            this.lbAllowedOrientations.AutoSize = true;
-            this.lbAllowedOrientations.Location = new System.Drawing.Point(4, 59);
-            this.lbAllowedOrientations.Name = "lbAllowedOrientations";
-            this.lbAllowedOrientations.Size = new System.Drawing.Size(101, 13);
-            this.lbAllowedOrientations.TabIndex = 66;
-            this.lbAllowedOrientations.Text = "Allowed orientations";
-            // 
-            // nudCaseEmptyWeight
-            // 
-            this.nudCaseEmptyWeight.DecimalPlaces = 3;
-            this.nudCaseEmptyWeight.Location = new System.Drawing.Point(143, 28);
-            this.nudCaseEmptyWeight.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.nudCaseEmptyWeight.Name = "nudCaseEmptyWeight";
-            this.nudCaseEmptyWeight.Size = new System.Drawing.Size(74, 20);
-            this.nudCaseEmptyWeight.TabIndex = 71;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 30);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(96, 13);
-            this.label3.TabIndex = 70;
-            this.label3.Text = "Empty case weight";
-            // 
-            // nudInnerZ
-            // 
-            this.nudInnerZ.DecimalPlaces = 1;
-            this.nudInnerZ.Location = new System.Drawing.Point(303, 4);
-            this.nudInnerZ.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.nudInnerZ.Name = "nudInnerZ";
-            this.nudInnerZ.Size = new System.Drawing.Size(74, 20);
-            this.nudInnerZ.TabIndex = 69;
-            // 
-            // nudInnerY
-            // 
-            this.nudInnerY.DecimalPlaces = 1;
-            this.nudInnerY.Location = new System.Drawing.Point(223, 4);
-            this.nudInnerY.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.nudInnerY.Name = "nudInnerY";
-            this.nudInnerY.Size = new System.Drawing.Size(74, 20);
-            this.nudInnerY.TabIndex = 68;
-            // 
-            // nudInnerX
-            // 
-            this.nudInnerX.DecimalPlaces = 1;
-            this.nudInnerX.Location = new System.Drawing.Point(143, 4);
-            this.nudInnerX.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.nudInnerX.Name = "nudInnerX";
-            this.nudInnerX.Size = new System.Drawing.Size(74, 20);
-            this.nudInnerX.TabIndex = 67;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 6);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(79, 13);
-            this.label4.TabIndex = 66;
-            this.label4.Text = "Case inner dim.";
+            // lbDescPalletMapPhrase
+            // 
+            this.lbDescPalletMapPhrase.AutoSize = true;
+            this.lbDescPalletMapPhrase.Location = new System.Drawing.Point(6, 132);
+            this.lbDescPalletMapPhrase.Name = "lbDescPalletMapPhrase";
+            this.lbDescPalletMapPhrase.Size = new System.Drawing.Size(87, 13);
+            this.lbDescPalletMapPhrase.TabIndex = 38;
+            this.lbDescPalletMapPhrase.Text = "PalletMapPhrase";
+            // 
+            // lbPalletMapPhrase
+            // 
+            this.lbPalletMapPhrase.AutoSize = true;
+            this.lbPalletMapPhrase.Location = new System.Drawing.Point(141, 132);
+            this.lbPalletMapPhrase.Name = "lbPalletMapPhrase";
+            this.lbPalletMapPhrase.Size = new System.Drawing.Size(10, 13);
+            this.lbPalletMapPhrase.TabIndex = 39;
+            this.lbPalletMapPhrase.Text = ":";
             // 
             // FormMain
             // 
@@ -820,41 +842,41 @@
             this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
-            this.splitContainer3.Panel1.ResumeLayout(false);
-            this.splitContainer3.Panel2.ResumeLayout(false);
-            this.splitContainer3.Panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
-            this.splitContainer3.ResumeLayout(false);
-            this.tabCtrlContent.ResumeLayout(false);
-            this.tabBox.ResumeLayout(false);
-            this.tabBox.PerformLayout();
-            this.tabBundle.ResumeLayout(false);
-            this.tabBundle.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudOverhangY)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudOverhangX)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudPalletDimZ)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudPalletWeight)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudCaseWeight)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudMaxPalletHeight)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudPalletDimY)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudPalletDimX)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudCaseDimZ)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudCaseDimY)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudCaseDimX)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudFlatX)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudFlatY)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudFlatZ)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudFlatWeight)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudFlatNumber)).EndInit();
             this.tabCtrlContainer.ResumeLayout(false);
             this.tabPallet.ResumeLayout(false);
             this.tabPallet.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudOverhangY)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudOverhangX)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPalletDimX)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPalletDimY)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPalletWeight)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPalletDimZ)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudMaxPalletHeight)).EndInit();
             this.tabCase.ResumeLayout(false);
             this.tabCase.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudCaseEmptyWeight)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudInnerZ)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudInnerY)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudInnerX)).EndInit();
+            this.tabCtrlContent.ResumeLayout(false);
+            this.tabBox.ResumeLayout(false);
+            this.tabBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCaseWeight)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCaseDimZ)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCaseDimY)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCaseDimX)).EndInit();
+            this.tabBundle.ResumeLayout(false);
+            this.tabBundle.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudFlatNumber)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudFlatWeight)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudFlatZ)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudFlatY)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudFlatX)).EndInit();
+            this.splitContainer3.Panel1.ResumeLayout(false);
+            this.splitContainer3.Panel2.ResumeLayout(false);
+            this.splitContainer3.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
+            this.splitContainer3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -916,6 +938,8 @@
         private System.Windows.Forms.NumericUpDown nudInnerY;
         private System.Windows.Forms.NumericUpDown nudInnerX;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lbPalletMapPhrase;
+        private System.Windows.Forms.Label lbDescPalletMapPhrase;
     }
 }
 

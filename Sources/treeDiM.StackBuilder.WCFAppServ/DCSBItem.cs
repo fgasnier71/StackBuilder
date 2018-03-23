@@ -42,7 +42,5 @@ namespace treeDiM.StackBuilder.WCFAppServ
         public string Description { get; set; }
         [DataMember]
         public int UnitSystem { get; set; }
-        [DataMember]
-        public bool AutoInsert { get; set; }
     }
 }

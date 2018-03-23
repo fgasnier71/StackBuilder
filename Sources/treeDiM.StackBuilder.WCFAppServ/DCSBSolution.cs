@@ -28,6 +28,8 @@ namespace treeDiM.StackBuilder.WCFAppServ
         [DataMember]
         public DCCompFileOutput OutFile { get; set; }
         [DataMember]
+        public string PalletMapPhrase { get; set; }
+        [DataMember]
         public string[] Errors { get; set; }
     }
 }

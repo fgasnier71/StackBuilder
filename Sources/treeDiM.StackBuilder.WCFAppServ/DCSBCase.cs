@@ -8,8 +8,6 @@ namespace treeDiM.StackBuilder.WCFAppServ
     public class DCSBCase : DCSBItem
     {
         [DataMember]
-        public bool IsCase { get; set; }
-        [DataMember]
         public DCSBDim3D DimensionsOuter { get; set; }
         [DataMember]
         public bool HasInnerDims { get; set; }

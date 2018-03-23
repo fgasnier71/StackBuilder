@@ -132,7 +132,6 @@ namespace treeDiM.StackBuilder.Basics
         private Solution _sol;
         private bool _symetryX, _symetryY;
         private int _indexLayer;
-        private List<int> _layerIndexes = new List<int>();
         #endregion
 
         #region Constructor
@@ -156,10 +155,10 @@ namespace treeDiM.StackBuilder.Basics
         { get { return _sol.LayerNetWeight(_indexLayer); } }
         public double Space
         { get { return _sol.LayerMaximumSpace(_indexLayer); } }
-        public List<int> LayerIndexes
-        { get { return _layerIndexes; } }
+        public List<int> LayerIndexes { get; } = new List<int>();
+
         public string LayerIndexesString
-        { get { return string.Join(",", _layerIndexes.ToArray()); } }
+        { get { return string.Join(",", LayerIndexes.ToArray()); } }
         public ILayer Layer3D
         {
             get
@@ -178,17 +177,26 @@ namespace treeDiM.StackBuilder.Basics
         }
         public void AddIndex(int index)
         {
-            _layerIndexes.Add(index);
+            LayerIndexes.Add(index);
         }
         #endregion
+    }
+    #endregion
+
+    #region LayerPhrase
+    // used for JJA
+    public struct LayerPhrase
+    {
+        public HalfAxis.HAxis Axis { get; set; }
+        public int Count { get; set; }
     }
     #endregion
 
     #region Solution
     public class Solution
     {
+
         #region Data members
-        private List<LayerDesc> _layerDescriptors;
         private List<SolutionItem> _solutionItems;
         private Analysis _analysis;
 
@@ -219,7 +227,7 @@ namespace treeDiM.StackBuilder.Basics
         public Solution(Analysis analysis, List<LayerDesc> layerDescs)
         {
             _analysis = analysis;
-            _layerDescriptors = layerDescs;
+            LayerDescriptors = layerDescs;
 
             _solutionItems = new List<SolutionItem>();
 
@@ -232,7 +240,7 @@ namespace treeDiM.StackBuilder.Basics
         public void RebuildLayers()
         {
             // sanity checks
-            if ((null == _layerDescriptors) || (0 == _layerDescriptors.Count))
+            if ((null == LayerDescriptors) || (0 == LayerDescriptors.Count))
                 throw new Exception("No layer descriptors available");
 
             // build list of used layers
@@ -241,23 +249,23 @@ namespace treeDiM.StackBuilder.Basics
             {
                 foreach (SolutionItem item in _solutionItems)
                 {
-                    if (!usedLayers.Contains(_layerDescriptors[item.LayerIndex]))
-                        usedLayers.Add(_layerDescriptors[item.LayerIndex]);
+                    if (!usedLayers.Contains(LayerDescriptors[item.LayerIndex]))
+                        usedLayers.Add(LayerDescriptors[item.LayerIndex]);
                 }
             }
             if (0 == usedLayers.Count)
-                usedLayers.Add(_layerDescriptors[0]);
+                usedLayers.Add(LayerDescriptors[0]);
             // get dimensions
             Vector2D actualDimensions = Vector2D.Zero;
             Solver.GetDimensions(usedLayers, _analysis.Content, _analysis.ContainerDimensions, ConstraintSet.MinimumSpace.Value, out actualDimensions);
 
             // actually build layers
             _layerTypes = new List<ILayer2D>();
-            foreach (LayerDesc layerDesc in _layerDescriptors)
+            foreach (LayerDesc layerDesc in LayerDescriptors)
                 _layerTypes.Add(Solver.BuildLayer(_analysis.Content, _analysis.ContainerDimensions, layerDesc, actualDimensions, ConstraintSet.MinimumSpace.Value));
         }
         private void InitializeSolutionItemList()
-        { 
+        {
             _solutionItems = new List<SolutionItem>();
 
             ConstraintSetAbstract constraintSet = _analysis.ConstraintSet;
@@ -415,7 +423,7 @@ namespace treeDiM.StackBuilder.Basics
             RebuildSolutionItemList();
         }
         public void ApplySymetryOnSelected(int axis)
-        { 
+        {
             // check selected layer
             if (!HasValidSelection) return;
             // get solution item
@@ -429,7 +437,7 @@ namespace treeDiM.StackBuilder.Basics
                 if (!HasValidSelection) return null;
                 if (-1 == _solutionItems[_selectedIndex].InterlayerIndex) return null;
                 if (_solutionItems[_selectedIndex].InterlayerIndex >= _analysis.Interlayers.Count) return null;
-                return _analysis.Interlayer( _solutionItems[_selectedIndex].InterlayerIndex ); 
+                return _analysis.Interlayer(_solutionItems[_selectedIndex].InterlayerIndex);
             }
         }
         #endregion
@@ -447,13 +455,10 @@ namespace treeDiM.StackBuilder.Basics
         {
             get { return _analysis.ConstraintSet; }
         }
-        public List<LayerDesc> LayerDescriptors
-        {
-            get { return _layerDescriptors; }
-        }
+        public List<LayerDesc> LayerDescriptors { get; }
         public List<InterlayerProperties> Interlayers
         {
-            get { return _analysis.Interlayers; } 
+            get { return _analysis.Interlayers; }
         }
         public List<SolutionItem> SolutionItems
         {
@@ -597,11 +602,11 @@ namespace treeDiM.StackBuilder.Basics
         {
             get
             {
-                return Analysis.BBoxLoadWDeco(BBoxLoad); 
+                return Analysis.BBoxLoadWDeco(BBoxLoad);
             }
         }
         public BBox3D BBoxGlobal
-        {   get { return Analysis.BBoxGlobal(BBoxLoad); } }
+        { get { return Analysis.BBoxGlobal(BBoxLoad); } }
         public int InterlayerCount
         {
             get
@@ -626,7 +631,7 @@ namespace treeDiM.StackBuilder.Basics
             {
                 int layerCount = 0, interlayerCount = 0, itemCount = 0;
                 GetCounts(ref layerCount, ref interlayerCount, ref itemCount);
-                return layerCount; 
+                return layerCount;
             }
         }
         private void GetCounts(ref int layerCount, ref int interlayerCount, ref int itemCount)
@@ -651,7 +656,7 @@ namespace treeDiM.StackBuilder.Basics
             }
         }
         public double LoadVolume => ItemCount * _analysis.Content.Volume;
-        public bool HasNetWeight =>  _analysis.Content.NetWeight.Activated;
+        public bool HasNetWeight => _analysis.Content.NetWeight.Activated;
         public double LoadWeight => ItemCount * _analysis.ContentWeight;
         public double Weight => LoadWeight + _analysis.ContainerWeight;
         public OptDouble NetWeight => ItemCount * _analysis.Content.NetWeight;
@@ -673,6 +678,23 @@ namespace treeDiM.StackBuilder.Basics
         public Vector3D COfG
         {
             get { return Vector3D.Zero; }
+        }
+        public Dictionary<LayerPhrase, int> LayerPhrases
+        {
+            get
+            {
+                Dictionary<LayerPhrase, int> dict = new Dictionary<LayerPhrase, int>();
+                foreach (SolutionItem solItem in _solutionItems)
+                {
+                    Layer2D layer = _layerTypes[solItem.LayerIndex] as Layer2D;
+                    LayerPhrase lp = new LayerPhrase() { Count = layer.Count, Axis = layer.VerticalAxisProp };
+                    if (dict.ContainsKey(lp))
+                        dict[lp] += 1;
+                    else
+                        dict.Add(lp, 1);
+                }
+                return dict;
+            }
         }
         #endregion
 

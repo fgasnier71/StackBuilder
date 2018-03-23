@@ -19,10 +19,6 @@ namespace treeDiM.StackBuilder.Engine
         public List<HSolution> BuildSolutions(Vector3D dimContainer, IEnumerable<ContentItem> contentItem, HConstraintSet constraintSet)
         {
             List<HSolution> solutions = new List<HSolution>();
-
-            Sharp3DBinPacking.BinPacker binPacker = new BinPacker();
-
-
             return solutions;
         }
     }

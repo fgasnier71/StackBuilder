@@ -27,9 +27,6 @@ namespace treeDiM.StackBuilder.WCFService.Test.SB_SR {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private bool AutoInsertField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string DescriptionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -48,19 +45,6 @@ namespace treeDiM.StackBuilder.WCFService.Test.SB_SR {
             }
             set {
                 this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool AutoInsert {
-            get {
-                return this.AutoInsertField;
-            }
-            set {
-                if ((this.AutoInsertField.Equals(value) != true)) {
-                    this.AutoInsertField = value;
-                    this.RaisePropertyChanged("AutoInsert");
-                }
             }
         }
         
@@ -133,9 +117,6 @@ namespace treeDiM.StackBuilder.WCFService.Test.SB_SR {
     public partial class DCSBPallet : treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBItem {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<double> AdmissibleLoadField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int ColorField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -146,19 +127,6 @@ namespace treeDiM.StackBuilder.WCFService.Test.SB_SR {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double WeightField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<double> AdmissibleLoad {
-            get {
-                return this.AdmissibleLoadField;
-            }
-            set {
-                if ((this.AdmissibleLoadField.Equals(value) != true)) {
-                    this.AdmissibleLoadField = value;
-                    this.RaisePropertyChanged("AdmissibleLoad");
-                }
-            }
-        }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public int Color {
@@ -358,9 +326,6 @@ namespace treeDiM.StackBuilder.WCFService.Test.SB_SR {
         private bool HasInnerDimsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private bool IsCaseField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<double> MaxWeightField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -426,19 +391,6 @@ namespace treeDiM.StackBuilder.WCFService.Test.SB_SR {
                 if ((this.HasInnerDimsField.Equals(value) != true)) {
                     this.HasInnerDimsField = value;
                     this.RaisePropertyChanged("HasInnerDims");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool IsCase {
-            get {
-                return this.IsCaseField;
-            }
-            set {
-                if ((this.IsCaseField.Equals(value) != true)) {
-                    this.IsCaseField = value;
-                    this.RaisePropertyChanged("IsCase");
                 }
             }
         }
@@ -1124,6 +1076,9 @@ namespace treeDiM.StackBuilder.WCFService.Test.SB_SR {
         private treeDiM.StackBuilder.WCFService.Test.SB_SR.DCCompFileOutput OutFileField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PalletMapPhraseField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double WeightLoadField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -1252,6 +1207,19 @@ namespace treeDiM.StackBuilder.WCFService.Test.SB_SR {
                 if ((object.ReferenceEquals(this.OutFileField, value) != true)) {
                     this.OutFileField = value;
                     this.RaisePropertyChanged("OutFile");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PalletMapPhrase {
+            get {
+                return this.PalletMapPhraseField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PalletMapPhraseField, value) != true)) {
+                    this.PalletMapPhraseField = value;
+                    this.RaisePropertyChanged("PalletMapPhrase");
                 }
             }
         }

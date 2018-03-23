@@ -96,8 +96,7 @@ namespace treeDiM.StackBuilder.WCFService.Test
                                     PalletType = "EUR2",
                                     Color = Color.Yellow.ToArgb(),
                                     Dimensions = PalletDimensions,
-                                    Weight = PalletWeight,
-                                    AdmissibleLoad = 10000.0
+                                    Weight = PalletWeight
                                 }
                                 , null
                                 , new DCSBConstraintSet()
@@ -140,7 +139,6 @@ namespace treeDiM.StackBuilder.WCFService.Test
                                 Color = Color.Yellow.ToArgb(),
                                 Dimensions = PalletDimensions,
                                 Weight = PalletWeight,
-                                AdmissibleLoad = 10000.0
                             }
                             , null
                             , new DCSBConstraintSet()
@@ -272,6 +270,7 @@ namespace treeDiM.StackBuilder.WCFService.Test
                     TotalPalletWeight = sol.WeightTotal;
                     PalletEfficiency = sol.Efficiency;
                     BBoxTotal = sol.BBoxTotal;
+                    PalletMapPhrase = sol.PalletMapPhrase;
                 }
             }
             catch (Exception ex)
@@ -322,7 +321,8 @@ namespace treeDiM.StackBuilder.WCFService.Test
         private int CaseCount               { set => lbLoadedPalletCaseCountValue.Text  = string.Format(": {0}", value); }
         private double TotalPalletWeight    { set => lbLoadedPalletWeightValue.Text     = string.Format(": {0:0.#} kg", value); }
         private double PalletEfficiency     { set => lbLoadedPalletEfficiencyValue.Text = string.Format(": {0:0.#} %", value); }
-        private DCSBDim3D BBoxTotal          { set => lbLoadedPalletDimValues.Text       = string.Format(": {0:0.#}x{1:0.#}x{2:0.#} mm", value.M0, value.M1, value.M2); }
+        private DCSBDim3D BBoxTotal         { set => lbLoadedPalletDimValues.Text       = string.Format(": {0:0.#}x{1:0.#}x{2:0.#} mm", value.M0, value.M1, value.M2); }
+        private string PalletMapPhrase      { set => lbPalletMapPhrase.Text             = string.Format(": {0}", value); }
         // logging
         private void ToRtb(string s)        { rtbLog.AppendText(s); }
         #endregion
