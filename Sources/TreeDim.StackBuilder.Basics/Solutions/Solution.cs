@@ -185,10 +185,11 @@ namespace treeDiM.StackBuilder.Basics
 
     #region LayerPhrase
     // used for JJA
-    public struct LayerPhrase
+    public struct LayerPhrase : IEquatable<LayerPhrase>
     {
         public HalfAxis.HAxis Axis { get; set; }
         public int Count { get; set; }
+        public bool Equals(LayerPhrase other) => Axis == other.Axis && Count == other.Count;
     }
     #endregion
 

@@ -584,8 +584,7 @@ namespace treeDiM.StackBuilder.WCFAppServ
         private static string BuildPalletMapPhrase(Solution solution)
         {
             AnalysisCasePallet analysis = solution.Analysis as AnalysisCasePallet;
-            PalletProperties palletProperties = analysis.PalletProperties;
-
+            if (null == analysis) return string.Empty;
             StringBuilder sb = new StringBuilder();
             // 1st part
             Dictionary<LayerPhrase, int> layerPhrases = solution.LayerPhrases;
