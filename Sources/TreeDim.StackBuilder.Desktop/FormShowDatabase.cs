@@ -783,6 +783,11 @@ namespace treeDiM.StackBuilder.Desktop
                         wcfClient.Client.SetAutoInsert(DCSBTypeEnum.TPallet, _pallets[iSel].ID, !_pallets[iSel].AutoInsert);
                         FillGridPallets(wcfClient);
                     }
+                    else if (g == gridInterlayers)
+                    {
+                        wcfClient.Client.SetAutoInsert(DCSBTypeEnum.TInterlayer, _interlayers[iSel].ID, !_interlayers[iSel].AutoInsert);
+                        FillGridInterlayers(wcfClient);
+                    }
                     else if (g == gridPalletCorners)
                     {
                         wcfClient.Client.SetAutoInsert(DCSBTypeEnum.TPalletCorner, _palletCorners[iSel].ID, !_palletCorners[iSel].AutoInsert);
@@ -849,6 +854,11 @@ namespace treeDiM.StackBuilder.Desktop
                     {
                         wcfClient.Client.RemoveItemById(DCSBTypeEnum.TPallet, _pallets[iSel].ID);
                         FillGridPallets(wcfClient);
+                    }
+                    else if (g == gridInterlayers)
+                    {
+                        wcfClient.Client.RemoveItemById(DCSBTypeEnum.TInterlayer, _interlayers[iSel].ID);
+                        FillGridInterlayers(wcfClient);
                     }
                     else if (g == gridPalletCorners)
                     {
