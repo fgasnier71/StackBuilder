@@ -38,7 +38,7 @@ namespace treeDiM.StackBuilder.Desktop
             if (null == AnalysisCast)
                 uCtrlPalletHeight.Value = Settings.Default.MaximumPalletHeight;
             else
-                uCtrlPalletHeight.Value = AnalysisCast.ConstraintSet.MaximumPalletHeight;
+                uCtrlPalletHeight.Value = AnalysisCast.ConstraintSet.MaximumHeight;
         }
         #endregion
 

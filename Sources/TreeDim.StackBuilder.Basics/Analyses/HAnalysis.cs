@@ -31,6 +31,8 @@ namespace treeDiM.StackBuilder.Basics
             }
         }
         public IEnumerable<ItemBase> Containers => _container;
+
+        public HConstraintSet ConstraintSet { get => _constraintSet; set => _constraintSet = value; }
         public virtual double ContentTotalVolume => Content.Sum(ci => ci.Pack.Volume * ci.Number);
         public virtual double ContentTotalWeight => Content.Sum(ci => ci.Pack.Weight * ci.Number);
 
@@ -59,7 +61,8 @@ namespace treeDiM.StackBuilder.Basics
         }
 
         private List<ContentItem> _content = new List<ContentItem>();
-        private List<ItemBase> _container = new List<ItemBase>(); 
+        private List<ItemBase> _container = new List<ItemBase>();
+        private HConstraintSet _constraintSet;
         private HSolution _solution;
         static readonly ILog _log = LogManager.GetLogger(typeof(Analysis));
         #endregion
