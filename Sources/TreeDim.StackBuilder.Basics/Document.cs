@@ -569,6 +569,29 @@ namespace treeDiM.StackBuilder.Basics
 
             return InsertAnalysis(analysis);
         }
+        public Analysis CreateNewAnalysisCasePallet(
+            string name, string description
+            , Packable packable, PalletProperties pallet
+            , List<InterlayerProperties> interlayers
+            , PalletCornerProperties palletCorners, PalletCapProperties palletCap, PalletFilmProperties palletFilm
+            , ConstraintSetCasePallet constraintSet
+            , List<KeyValuePair<LayerDesc, int>> listLayers
+            )
+        {
+            AnalysisCasePallet analysis = new AnalysisCasePallet(packable, pallet, constraintSet);
+            analysis.ID.SetNameDesc(name, description);
+            if (null != interlayers)
+            {
+                foreach (InterlayerProperties interlayer in interlayers)
+                    analysis.AddInterlayer(interlayer);
+            }
+            analysis.PalletCornerProperties = palletCorners;
+            analysis.PalletCapProperties = palletCap;
+            analysis.PalletFilmProperties = palletFilm;
+            analysis.AddSolution(listLayers);
+
+            return InsertAnalysis(analysis);
+        }
         public Analysis CreateNewAnalysisBoxCase(
             string name, string description
             , Packable packable, BoxProperties caseProperties

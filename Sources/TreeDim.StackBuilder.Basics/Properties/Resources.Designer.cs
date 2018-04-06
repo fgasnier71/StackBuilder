@@ -79,6 +79,24 @@ namespace treeDiM.StackBuilder.Basics.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Invalid dimension constraints.
+        /// </summary>
+        internal static string ID_INVALIDCONSTRAINTS_DIMENSIONS {
+            get {
+                return ResourceManager.GetString("ID_INVALIDCONSTRAINTS_DIMENSIONS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid weight constraints.
+        /// </summary>
+        internal static string ID_INVALIDCONSTRAINTS_WEIGHT {
+            get {
+                return ResourceManager.GetString("ID_INVALIDCONSTRAINTS_WEIGHT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Layer : .
         /// </summary>
         internal static string ID_LAYER {

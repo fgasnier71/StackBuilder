@@ -9,7 +9,7 @@ namespace treeDiM.StackBuilder.Basics
     /// <summary>
     /// Box properties (dimensions, colors, textures)
     /// </summary>
-    public class BoxProperties : BProperties
+    public class BoxProperties : BProperties, IContainer
     {
         /// <summary>
         /// Constructor 1
@@ -130,6 +130,10 @@ namespace treeDiM.StackBuilder.Basics
                 && dimItem[1] <= dimCase[1]
                 && dimItem[2] <= dimCase[2];        
         }
+        public Vector3D GetStackingDimensions(ConstraintSetAbstract constraintSet)
+        {
+            return InsideDimensions;
+        }
         public bool FitsIn(BoxProperties caseProperties, bool allowVerticalX, bool allowVerticalY, bool allowVerticalZ)
         {
             double[] dimItem = OuterDimensionsArray;
@@ -212,6 +216,8 @@ namespace treeDiM.StackBuilder.Basics
             _textures.Add(new Pair<HalfAxis.HAxis, Texture>(axis, new Texture(bmp, position, size, angle)));
             Modify();
         }
+
+
         /// <summary>
         /// Get / set face/texture pairs
         /// </summary>

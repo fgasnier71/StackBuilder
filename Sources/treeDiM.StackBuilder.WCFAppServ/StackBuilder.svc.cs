@@ -95,7 +95,8 @@ namespace treeDiM.StackBuilder.WCFAppServ
 
                 if (StackBuilderProcessor.GetBestSolution(
                     boxProperties, palletProperties, interlayerProperties,
-                    constraintSet, cameraPosition, showCotations, 0.03f,
+                    constraintSet, sbConstraintSet.AllowMultipleLayerOrientations,
+                    cameraPosition, showCotations, 0.03f,
                     new Size(expectedFormat.Size.CX, expectedFormat.Size.CY),
                     ref layerCount, ref caseCount, ref interlayerCount,
                     ref weightTotal, ref weightLoad, ref weightNet,
@@ -199,7 +200,8 @@ namespace treeDiM.StackBuilder.WCFAppServ
 
                 if (StackBuilderProcessor.GetBestSolution(
                     bundleProperties, palletProperties, interlayerProperties,
-                    constraintSet, cameraPosition, showCotations, 0.03f,
+                    constraintSet, false,
+                    cameraPosition, showCotations, 0.03f,
                     new Size(expectedFormat.Size.CX, expectedFormat.Size.CY),
                     ref layerCount, ref caseCount, ref interlayerCount,
                     ref weightTotal, ref weightLoad, ref weightNet,
@@ -298,7 +300,8 @@ namespace treeDiM.StackBuilder.WCFAppServ
 
                 if (StackBuilderProcessor.GetBestSolution(
                     bundleProperties, caseProperties, null,
-                    constraintSet, cameraPosition, showCotations, 0.03f,
+                    constraintSet, false,
+                    cameraPosition, showCotations, 0.03f,
                     new Size(expectedFormat.Size.CX, expectedFormat.Size.CY),
                     ref layerCount, ref caseCount, ref interlayerCount,
                     ref weightTotal, ref weightLoad, ref weightNet,
@@ -402,7 +405,8 @@ namespace treeDiM.StackBuilder.WCFAppServ
 
                 if (StackBuilderProcessor.GetBestSolution(
                     boxProperties, caseProperties, null,
-                    constraintSet, cameraPosition, showCotations, 0.03f,
+                    constraintSet, sbConstraintSet.AllowMultipleLayerOrientations,
+                    cameraPosition, showCotations, 0.03f,
                     new Size(expectedFormat.Size.CX, expectedFormat.Size.CY),
                     ref layerCount, ref caseCount, ref interlayerCount,
                     ref weightTotal, ref weightLoad, ref weightNet,
@@ -455,7 +459,7 @@ namespace treeDiM.StackBuilder.WCFAppServ
     {
         public static bool GetBestSolution(
             PackableBrick packableProperties, PalletProperties palletProperties, InterlayerProperties interlayer
-            , ConstraintSetCasePallet constraintSet
+            , ConstraintSetCasePallet constraintSet, bool allowMultipleLayerOrientations
             , Vector3D cameraPosition, bool showCotations, float fontSizeRatio, Size sz
             , ref int layerCount, ref int caseCount, ref int interlayerCount
             , ref double weightTotal, ref double weightLoad, ref double? weightNet
@@ -466,11 +470,16 @@ namespace treeDiM.StackBuilder.WCFAppServ
             , ref string[] errors)
         {
             List<string> lErrors = new List<string>();
+            if (!packableProperties.FitsIn(palletProperties, constraintSet))
+            {
+                lErrors.Add($"{packableProperties.Name} does not fit in {palletProperties.Name} with given constraint set!");
+                return false;
+            }
             try
             {
                 // use a solver and get a list of sorted analyses + select the best one
                 SolverCasePallet solver = new SolverCasePallet(packableProperties, palletProperties);
-                List<Analysis> analyses = solver.BuildAnalyses(constraintSet);
+                List<Analysis> analyses = solver.BuildAnalyses(constraintSet, allowMultipleLayerOrientations);
                 if (analyses.Count > 0)
                 {
                     // first solution
@@ -520,7 +529,7 @@ namespace treeDiM.StackBuilder.WCFAppServ
 
 
         public static bool GetBestSolution(PackableBrick packableProperties, BoxProperties caseProperties, InterlayerProperties interlayer
-            , ConstraintSetBoxCase constraintSet
+            , ConstraintSetBoxCase constraintSet, bool allowMultipleLayerOrientations
             , Vector3D cameraPosition, bool showCotations, float fontSizeRatio, Size sz
             , ref int layerCount, ref int caseCount, ref int interlayerCount
             , ref double weightTotal, ref double weightLoad, ref double? weightNet
@@ -531,10 +540,15 @@ namespace treeDiM.StackBuilder.WCFAppServ
             )
         {
             List<string> lErrors = new List<string>();
+            if (!packableProperties.FitsIn(caseProperties, constraintSet))
+            {
+                lErrors.Add($"{packableProperties.Name} does not fit in {caseProperties.Name} with given constraint set!");
+                return false;
+            }
             try
             {
                 SolverBoxCase solver = new SolverBoxCase(packableProperties, caseProperties);
-                List<Analysis> analyses = solver.BuildAnalyses(constraintSet);
+                List<Analysis> analyses = solver.BuildAnalyses(constraintSet, allowMultipleLayerOrientations);
                 if (analyses.Count > 0)
                 {
                     Analysis analysis = analyses[0];
@@ -554,9 +568,8 @@ namespace treeDiM.StackBuilder.WCFAppServ
                     if (analysis.Solution.WeightEfficiency.Activated)
                         weightEfficiency = analysis.Solution.WeightEfficiency.Value;
 
-                    Graphics3DImage graphics = null;
                     // generate image path
-                    graphics = new Graphics3DImage(sz)
+                    Graphics3DImage graphics = new Graphics3DImage(sz)
                     {
                         FontSizeRatio = fontSizeRatio,
                         CameraPosition = cameraPosition,
@@ -618,9 +631,12 @@ namespace treeDiM.StackBuilder.WCFAppServ
             sb.Append(" ");
             // 2nd part
             //  EUR -> 80x120 et « CEN » pour palette 100x120
-            if (PalletMatchesDimensionsInMM(analysis.PalletProperties, 1000, 800))          sb.Append("EUR");
-            else if (PalletMatchesDimensionsInMM(analysis.PalletProperties, 1000, 1200))     sb.Append("CEN");
-            else sb.Append("???");
+            if (PalletMatchesDimensionsInMM(analysis.PalletProperties, 1200, 800))
+                sb.Append("EUR");
+            else if (PalletMatchesDimensionsInMM(analysis.PalletProperties, 1200, 1000))
+                sb.Append("CEN");
+            else
+                sb.Append("???");
 
             return sb.ToString();
         }

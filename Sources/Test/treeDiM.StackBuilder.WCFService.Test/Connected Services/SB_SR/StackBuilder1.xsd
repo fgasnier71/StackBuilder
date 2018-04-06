@@ -64,6 +64,7 @@
   <xs:element name="DCSBInterlayer" nillable="true" type="tns:DCSBInterlayer" />
   <xs:complexType name="DCSBConstraintSet">
     <xs:sequence>
+      <xs:element minOccurs="0" name="AllowMultipleLayerOrientations" type="xs:boolean" />
       <xs:element minOccurs="0" name="MaxHeight" nillable="true" type="tns:DCSBConstraintDouble" />
       <xs:element minOccurs="0" name="MaxNumber" nillable="true" type="tns:DCSBConstraintInt" />
       <xs:element minOccurs="0" name="MaxWeight" nillable="true" type="tns:DCSBConstraintDouble" />

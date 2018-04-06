@@ -39,7 +39,8 @@ namespace treeDiM.StackBuilder.Engine
                 foreach (HalfAxis.HAxis axis in axes) // axis
                 {
                     // loop through
-                    Layer2D layer = BuildLayer(_packProperties, _palletProperties, _constraintSet, axis, false, false);
+                    Layer2D layer = BuildLayer(_packProperties, _palletProperties, _constraintSet
+                        , pattern.Name, axis, false, false);
                     double actualLength = 0.0, actualWidth = 0.0;
                     if (!pattern.GetLayerDimensionsChecked(layer, out actualLength, out actualWidth))
                         continue;
@@ -165,7 +166,8 @@ namespace treeDiM.StackBuilder.Engine
             return layerPosTemp;
         }
 
-        private Layer2D BuildLayer(PackProperties packProperties, PalletProperties palletProperties, PackPalletConstraintSet constraintSet, HalfAxis.HAxis axisOrtho, bool swapped, bool inversed)
+        private Layer2D BuildLayer(PackProperties packProperties, PalletProperties palletProperties, PackPalletConstraintSet constraintSet
+            , string patternName, HalfAxis.HAxis axisOrtho, bool swapped, bool inversed)
         {
             double forcedSpace = constraintSet.MinimumSpace.Value;
             return new Layer2D(
@@ -173,7 +175,7 @@ namespace treeDiM.StackBuilder.Engine
                     , new Vector2D(
                         palletProperties.Length + constraintSet.OverhangX + forcedSpace
                         , _palletProperties.Width + constraintSet.OverhangY + forcedSpace)
-                    , axisOrtho, swapped);
+                        , patternName, axisOrtho, swapped);
         }
         #endregion
 

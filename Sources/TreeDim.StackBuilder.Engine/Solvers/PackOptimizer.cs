@@ -43,7 +43,7 @@ namespace treeDiM.StackBuilder.Engine
         {
             throw new NotImplementedException();
         }
-        public List<Analysis> BuildAnalyses(ConstraintSetAbstract constraintSet)
+        public List<Analysis> BuildAnalyses(ConstraintSetAbstract constraintSet, bool allowMultipleLayerOrientations)
         {
             List<Analysis> analyses = PackOptimSolutions(
                 constraintSet as ConstraintSetCasePallet,
@@ -115,7 +115,7 @@ namespace treeDiM.StackBuilder.Engine
 
                     // solver
                     var solver = new SolverCasePallet(packProperties, _palletProperties);
-                    analyses.AddRange(solver.BuildAnalyses(constraintSet));
+                    analyses.AddRange(solver.BuildAnalyses(constraintSet, false));
                 }
                 catch (Exception ex)
                 {

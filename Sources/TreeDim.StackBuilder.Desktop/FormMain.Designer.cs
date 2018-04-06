@@ -109,6 +109,7 @@
             this.toolStripMIAnalysisCasePallet = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMIAnalysisCylinderPallet = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMIAnalysisBundlePallet = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMIHAnalysis = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSBAnalysesCase = new System.Windows.Forms.ToolStripSplitButton();
             this.toolStripMIAnalysisBoxCase = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMIAnalysisCylinderCase = new System.Windows.Forms.ToolStripMenuItem();
@@ -131,7 +132,6 @@
             this.saveFileDialogWebGL = new System.Windows.Forms.SaveFileDialog();
             this.timerLogin = new System.Windows.Forms.Timer(this.components);
             this.saveFileDialogExportXML = new System.Windows.Forms.SaveFileDialog();
-            this.toolStripMIHAnalysis = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripMain.SuspendLayout();
             this.toolStripStandard.SuspendLayout();
             this.SuspendLayout();
@@ -699,6 +699,12 @@
             this.toolStripMIAnalysisBundlePallet.Name = "toolStripMIAnalysisBundlePallet";
             this.toolStripMIAnalysisBundlePallet.Click += new System.EventHandler(this.OnNewAnalysisCasePallet);
             // 
+            // toolStripMIHAnalysis
+            // 
+            resources.ApplyResources(this.toolStripMIHAnalysis, "toolStripMIHAnalysis");
+            this.toolStripMIHAnalysis.Name = "toolStripMIHAnalysis";
+            this.toolStripMIHAnalysis.Click += new System.EventHandler(this.OnNewHAnalysisPallet);
+            // 
             // toolStripSBAnalysesCase
             // 
             this.toolStripSBAnalysesCase.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -835,12 +841,6 @@
             // 
             this.saveFileDialogExportXML.DefaultExt = "xml";
             resources.ApplyResources(this.saveFileDialogExportXML, "saveFileDialogExportXML");
-            // 
-            // toolStripMIHAnalysis
-            // 
-            resources.ApplyResources(this.toolStripMIHAnalysis, "toolStripMIHAnalysis");
-            this.toolStripMIHAnalysis.Name = "toolStripMIHAnalysis";
-            this.toolStripMIHAnalysis.Click += new System.EventHandler(this.OnNewHAnalysisPallet);
             // 
             // FormMain
             // 

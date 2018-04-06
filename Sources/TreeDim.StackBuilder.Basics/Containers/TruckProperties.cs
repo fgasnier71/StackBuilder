@@ -6,7 +6,7 @@ using Sharp3D.Math.Core;
 
 namespace treeDiM.StackBuilder.Basics
 {
-    public class TruckProperties : ItemBaseNamed, IPackContainer
+    public class TruckProperties : ItemBaseNamed, IContainer, IPackContainer
     {
         public TruckProperties(Document document)
             : base(document)
@@ -57,6 +57,17 @@ namespace treeDiM.StackBuilder.Basics
         public double InsideHeight => _height;
         public Vector3D InsideDimensions => new Vector3D(_length, _width, _height);
         public double[] InsideDimensionsArray => new double[3] { _length, _width, _height };
+        public Vector3D GetStackingDimensions(ConstraintSetAbstract constraintSet)
+        {
+            if (constraintSet is ConstraintSetPalletTruck constraintSetPalletTruck)
+            {
+                return new Vector3D(
+                    _length - 2.0 * constraintSetPalletTruck.MinDistanceLoadWall.X
+                    , _width - 2.0 * constraintSetPalletTruck.MinDistanceLoadWall.Y
+                    , _height - constraintSetPalletTruck.MinDistanceLoadRoof);
+            }
+            return InsideDimensions;
+        }
 
         public override string ToString()
         {

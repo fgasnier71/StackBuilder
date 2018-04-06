@@ -35,5 +35,7 @@ namespace treeDiM.StackBuilder.WCFAppServ
         public DCSBConstraintDouble MaxWeight { get; set; }
         [DataMember]
         public DCSBConstraintInt MaxNumber { get; set; }
+        [DataMember]
+        public bool AllowMultipleLayerOrientations { get; set; }
     }
 }

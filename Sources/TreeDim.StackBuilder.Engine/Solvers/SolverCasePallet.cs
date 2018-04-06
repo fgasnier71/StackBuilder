@@ -33,43 +33,59 @@ namespace treeDiM.StackBuilder.Engine
             return null;
         }
 
-        public List<Analysis> BuildAnalyses(ConstraintSetAbstract constraintSet)
+        public List<Analysis> BuildAnalyses(ConstraintSetAbstract constraintSet, bool allowMultipleLayerOrientations)
         {
             var analyses = new List<Analysis>();
             var constraintSetCasePallet = constraintSet as ConstraintSetCasePallet;
             if (null == constraintSetCasePallet)
                 return analyses;
             Vector2D overhang = constraintSetCasePallet.Overhang;
-            // build layer list
-            var solver = new LayerSolver();
-            List<Layer2D> layers = solver.BuildLayers(
-                _packable.OuterDimensions
-                , new Vector2D(_palletProperties.Length + 2.0 * overhang.X, _palletProperties.Width + 2.0 * overhang.Y)
-                , _palletProperties.Height
-                , constraintSetCasePallet
-                , true
-                );
-            Solution.SetSolver(solver);
-            // loop on layers
-            foreach (Layer2D layer in layers)
+
+            if (allowMultipleLayerOrientations)
             {
-                var layerDescs = new List<LayerDesc>();
-                layerDescs.Add(layer.LayerDescriptor);
+                List<KeyValuePair<LayerDesc, int>> listLayer = new List<KeyValuePair<LayerDesc, int>>();
+                LayerSolver.GetBestCombination(
+                    _packable.OuterDimensions,
+                    new Vector2D(_palletProperties.Length + 2.0 * overhang.X, _palletProperties.Width + 2.0 * overhang.Y),
+                    constraintSet,
+                    ref listLayer);
+
                 var analysis = new AnalysisCasePallet(_packable, _palletProperties, constraintSet as ConstraintSetCasePallet);
-                analysis.AddSolution(layerDescs);
+                analysis.AddSolution(listLayer);
                 // only add analysis if it has a valid solution
                 if (analysis.Solution.ItemCount > 0)
                     analyses.Add(analysis);
             }
+            else
+            {
+                // build layer list
+                var solver = new LayerSolver();
+                List<Layer2D> layers = solver.BuildLayers(
+                    _packable.OuterDimensions
+                    , new Vector2D(_palletProperties.Length + 2.0 * overhang.X, _palletProperties.Width + 2.0 * overhang.Y)
+                    , _palletProperties.Height
+                    , constraintSetCasePallet
+                    , true
+                    );
+                Solution.SetSolver(solver);
+                // loop on layers
+                foreach (Layer2D layer in layers)
+                {
+                    var layerDescs = new List<LayerDesc> { layer.LayerDescriptor };
+                    var analysis = new AnalysisCasePallet(_packable, _palletProperties, constraintSet as ConstraintSetCasePallet);
+                    analysis.AddSolution(layerDescs);
+                    // only add analysis if it has a valid solution
+                    if (analysis.Solution.ItemCount > 0)
+                        analyses.Add(analysis);
+                }
+            }
             return analyses;
         }
-
 
         #region Non-Public Members
         private PackableBrick _packable;
         private PalletProperties _palletProperties;
         static readonly ILog _log = LogManager.GetLogger(typeof(SolverCasePallet));
         #endregion
-
     }
 }

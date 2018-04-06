@@ -12,4 +12,13 @@ namespace treeDiM.StackBuilder.Basics
         Vector3D InsideDimensions { get; }
         double[] InsideDimensionsArray { get; }
     }
+    public interface IContainer
+    {
+        Vector3D GetStackingDimensions(ConstraintSetAbstract constraintSet);
+    }
+    public class InvalidConstraintSetException : Exception
+    {
+        public InvalidConstraintSetException() {}
+        public override string Message => "Invalid constraint set";
+    }
 }

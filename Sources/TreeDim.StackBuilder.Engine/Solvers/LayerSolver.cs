@@ -38,7 +38,7 @@ namespace treeDiM.StackBuilder.Engine
                             if (!pattern.CanBeSwapped && (iSwapped == 1))
                                 continue;
                             // instantiate layer
-                            var layer = new Layer2D(dimBox, dimContainer, axisOrtho, iSwapped == 1)
+                            var layer = new Layer2D(dimBox, dimContainer, pattern.Name, axisOrtho, iSwapped == 1)
                             {
                                 ForcedSpace = constraintSet.MinimumSpace.Value
                             };
@@ -92,7 +92,7 @@ namespace treeDiM.StackBuilder.Engine
         {
             LayerDescBox layerDescBox = layerDesc as LayerDescBox;
             // instantiate layer
-            var layer = new Layer2D(dimBox, dimContainer, layerDescBox.AxisOrtho, layerDesc.Swapped)
+            var layer = new Layer2D(dimBox, dimContainer, layerDescBox.PatternName, layerDescBox.AxisOrtho, layerDesc.Swapped)
             {
                 ForcedSpace = minSpace
             };
@@ -116,7 +116,7 @@ namespace treeDiM.StackBuilder.Engine
                 // casts
                 LayerDescBox layerDescBox = layerDesc as LayerDescBox;
                 // layer instantiation
-                layer = new Layer2D(packable.OuterDimensions, dimContainer, layerDescBox.AxisOrtho, layerDesc.Swapped) { ForcedSpace = minSpace };
+                layer = new Layer2D(packable.OuterDimensions, dimContainer, layerDesc.PatternName, layerDescBox.AxisOrtho, layerDesc.Swapped) { ForcedSpace = minSpace };
                 // get layer pattern
                 LayerPatternBox pattern = LayerPatternBox.GetByName(layerDesc.PatternName);
                 // dimensions
@@ -156,7 +156,7 @@ namespace treeDiM.StackBuilder.Engine
             {
                 LayerDescBox layerDescBox = layerDesc as LayerDescBox;
                 // instantiate layer
-                layer = new Layer2D(packable.OuterDimensions, dimContainer, layerDescBox.AxisOrtho, layerDesc.Swapped)
+                layer = new Layer2D(packable.OuterDimensions, dimContainer, layerDescBox.PatternName, layerDescBox.AxisOrtho, layerDesc.Swapped)
                 {
                     ForcedSpace = minSpace
                 };
@@ -186,7 +186,7 @@ namespace treeDiM.StackBuilder.Engine
         public Layer2D BuildLayer(Vector3D dimBox, Vector2D dimContainer, LayerDescBox layerDesc, Vector2D actualDimensions, double minSpace)
         {
             // instantiate layer
-            var layer = new Layer2D(dimBox, dimContainer, layerDesc.AxisOrtho, layerDesc.Swapped)
+            var layer = new Layer2D(dimBox, dimContainer, layerDesc.PatternName, layerDesc.AxisOrtho, layerDesc.Swapped)
             {
                 ForcedSpace = minSpace
             };
@@ -214,7 +214,7 @@ namespace treeDiM.StackBuilder.Engine
                 {
                     LayerDescBox layerDescBox = layerDesc as LayerDescBox;
                     // instantiate layer
-                    var layer = new Layer2D(packable.OuterDimensions, dimContainer, layerDescBox.AxisOrtho, layerDesc.Swapped)
+                    var layer = new Layer2D(packable.OuterDimensions, dimContainer, layerDescBox.PatternName, layerDescBox.AxisOrtho, layerDesc.Swapped)
                     {
                         ForcedSpace = minSpace
                     };
@@ -276,8 +276,7 @@ namespace treeDiM.StackBuilder.Engine
                         if (!pattern.CanBeSwapped && (iSwapped == 1))
                             continue;
                         // instantiate layer
-                        var layer = new Layer2D(dimBox, dimContainer, axisOrtho, iSwapped == 1);
-                        layer.PatternName = pattern.Name;
+                        var layer = new Layer2D(dimBox, dimContainer, pattern.Name, axisOrtho, iSwapped == 1);
                         double actualLength = 0.0, actualWidth = 0.0;
                         if (!pattern.GetLayerDimensionsChecked(layer, out actualLength, out actualWidth))
                             continue;

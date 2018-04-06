@@ -163,16 +163,16 @@ namespace treeDiM.StackBuilder.Graphics
                 pallet.Draw(graphics, transform);
             }
             else if (null != analysisPalletTruck)
-            { 
+            {
                 // ### draw truck
                 Truck truck = new Truck(analysisPalletTruck.TruckProperties);
                 truck.DrawBegin(graphics);
             }
             else if (null != analysisCaseTruck)
-            { 
+            {
                 // ### draw truck
                 Truck truck = new Truck(analysisCaseTruck.TruckProperties);
-                truck.DrawBegin(graphics);            
+                truck.DrawBegin(graphics);
             }
 
             // ### draw solution
@@ -193,7 +193,7 @@ namespace treeDiM.StackBuilder.Graphics
                         {
                             bool simplified = false;
                             if (simplified)
-                            { 
+                            {
                                 BoxProperties bProperties = new BoxProperties(null, solBBox.Dimensions);
                                 bProperties.SetColor(Color.Chocolate);
                                 Box b = new Box(pickId++, bProperties, bPosition.Transform(transform));
@@ -253,8 +253,8 @@ namespace treeDiM.StackBuilder.Graphics
 
                         BoxPosition bPosition = new BoxPosition(
                             new Vector3D(
-                            0.5 * (analysis.ContainerDimensions.X - interlayerProp.Length)
-                            , 0.5 * (analysis.ContainerDimensions.Y - interlayerProp.Width)
+                            analysis.Offset.X + 0.5 * (analysis.ContainerDimensions.X - interlayerProp.Length)
+                            , analysis.Offset.Y + 0.5 * (analysis.ContainerDimensions.Y - interlayerProp.Width)
                             , interlayerPos.ZLow
                             ), HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P);
                         Box box = new Box(pickId++, interlayerProp, bPosition.Transform(transform * upTranslation));
@@ -459,13 +459,13 @@ namespace treeDiM.StackBuilder.Graphics
         #region Helpers
         private BBox3D BoundingBoxDim(int index)
         {
-           PalletProperties palletProperties = null;
+            PalletProperties palletProperties = null;
             AnalysisCasePallet analysisCasePallet = _solution.Analysis as AnalysisCasePallet;
             if (null != analysisCasePallet)
                 palletProperties = analysisCasePallet.PalletProperties;
             AnalysisCylinderPallet analysisCylinderPallet = _solution.Analysis as AnalysisCylinderPallet;
             if (null != analysisCylinderPallet)
-                palletProperties = analysisCylinderPallet.PalletProperties; 
+                palletProperties = analysisCylinderPallet.PalletProperties;
 
             switch (index)
             {

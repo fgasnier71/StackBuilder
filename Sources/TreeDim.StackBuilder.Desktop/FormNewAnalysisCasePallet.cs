@@ -249,6 +249,16 @@ namespace treeDiM.StackBuilder.Desktop
                 foreach (KeyValuePair<LayerDesc, int> kvp in listLayer)
                     listLayerDesc.Add(kvp.Key);
                 uCtrlLayerList.SelectLayers(listLayerDesc);
+
+                _item = _document.CreateNewAnalysisCasePallet(
+                    ItemName, ItemDescription
+                    , SelectedPackable, SelectedPallet
+                    , new List<InterlayerProperties>()
+                    , null, null, null
+                    , BuildConstraintSet()
+                    , listLayer
+                    );
+                Close();
             }
             catch (Exception ex)
             {

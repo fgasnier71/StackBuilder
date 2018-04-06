@@ -42,6 +42,10 @@ namespace treeDiM.StackBuilder.Basics
         {
             return _patternName.GetHashCode() ^ _swapped.GetHashCode();
         }
+        public override string ToString()
+        {
+            return string.Format("{0}_{1}", _patternName, _swapped?"1":"0");
+        }
     }
     #endregion
 
@@ -165,8 +169,9 @@ namespace treeDiM.StackBuilder.Basics
         #endregion
 
         #region Constructor
-        public Layer2D(Vector3D dimBox, Vector2D dimContainer, HalfAxis.HAxis axisOrtho, bool swapped)
+        public Layer2D(Vector3D dimBox, Vector2D dimContainer, string patternName, HalfAxis.HAxis axisOrtho, bool swapped)
         {
+            _patternName = patternName;
             _axisOrtho = axisOrtho;
             _dimBox = dimBox;
             _dimContainer = dimContainer;
@@ -416,7 +421,10 @@ namespace treeDiM.StackBuilder.Basics
         }
         public LayerDesc LayerDescriptor
         {
-            get { return new LayerDescBox(_patternName, _axisOrtho, _swapped); }
+            get
+            {
+                return new LayerDescBox(_patternName, _axisOrtho, _swapped);
+            }
         }
         #endregion
     }

@@ -938,8 +938,6 @@ namespace treeDiM.StackBuilder.Exporters
         #endregion
 
         #region Data members
-        private double _xOffset = 2000.0;
-        private double _zOffset = 1500.0;
         private int _bmpWidth = 150;
         static readonly ILog _log = LogManager.GetLogger(typeof(ExporterCollada));
         #endregion

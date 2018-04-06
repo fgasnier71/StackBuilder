@@ -561,6 +561,9 @@ namespace treeDiM.StackBuilder.WCFService.Test.SB_SR {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool AllowMultipleLayerOrientationsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBConstraintDouble MaxHeightField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -582,6 +585,19 @@ namespace treeDiM.StackBuilder.WCFService.Test.SB_SR {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool AllowMultipleLayerOrientations {
+            get {
+                return this.AllowMultipleLayerOrientationsField;
+            }
+            set {
+                if ((this.AllowMultipleLayerOrientationsField.Equals(value) != true)) {
+                    this.AllowMultipleLayerOrientationsField = value;
+                    this.RaisePropertyChanged("AllowMultipleLayerOrientations");
+                }
             }
         }
         

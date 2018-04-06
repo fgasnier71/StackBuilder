@@ -1,6 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
+﻿using System.Drawing;
+using Sharp3D.Math.Core;
+
 
 namespace treeDiM.StackBuilder.Basics
 {
@@ -23,6 +23,7 @@ namespace treeDiM.StackBuilder.Basics
         public double Length { get; set; }
         public double Width { get; set; }
         public double Thickness { get; set; }
+        public Vector3D Dimensions => new Vector3D(Length, Width, Thickness);
         public double Weight { get; set; }
         public Color Color { get; set; }
 
@@ -30,7 +31,7 @@ namespace treeDiM.StackBuilder.Basics
         {
             var sBuilder = new System.Text.StringBuilder();
             sBuilder.Append(base.ToString());
-            sBuilder.Append($"Length= {Length} Width = {Width} Thickness = {Thickness}\nWeight = {Weight}");
+            sBuilder.Append($"Length= {Length} Width = {Width} Thickness = {Thickness.ToString("0.##")} Weight = {Weight.ToString("0.##")}");
             return sBuilder.ToString();
         }
     }

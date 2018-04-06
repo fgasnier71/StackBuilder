@@ -64,16 +64,16 @@ namespace treeDiM.StackBuilder.Basics
         {
             _solution = new Solution(this, layers);
         }
+        public void AddSolution(List<KeyValuePair<LayerDesc,int>> listLayers)
+        {
+            _solution = new Solution(this, listLayers);
+        }
         public int GetInterlayerIndex(InterlayerProperties interlayer)
         {
             if (null == interlayer) return -1;
             if (!_interlayers.Contains(interlayer))
                 _interlayers.Add(interlayer);
             return _interlayers.FindIndex(item => item == interlayer);
-        }
-        public void Clear()
-        {
-            // TODO - intentionally empty?
         }
         public virtual InterlayerProperties Interlayer(int index)
         {

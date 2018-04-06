@@ -105,7 +105,8 @@ namespace treeDiM.StackBuilder.WCFService.Test
                                     Orientation = new DCSBBool3() { X = AllowOrientX, Y = AllowOrientY, Z = AllowOrientZ },
                                     MaxHeight = new DCSBConstraintDouble() { Active = true, Value_d = MaxPalletHeight },
                                     MaxWeight = new DCSBConstraintDouble() { Active = false, Value_d = 1000.0 },
-                                    MaxNumber = new DCSBConstraintInt() { Active = false, Value_i = 100 }
+                                    MaxNumber = new DCSBConstraintInt() { Active = false, Value_i = 100 },
+                                    AllowMultipleLayerOrientations = true
                                 }
                                 , new DCCompFormat()
                                 {
@@ -269,8 +270,8 @@ namespace treeDiM.StackBuilder.WCFService.Test
                     CaseCount = sol.CaseCount;
                     TotalPalletWeight = sol.WeightTotal;
                     PalletEfficiency = sol.Efficiency;
-                    BBoxTotal = sol.BBoxTotal;
-                    PalletMapPhrase = sol.PalletMapPhrase;
+                    if (null != sol.BBoxLoad) { BBoxTotal = sol.BBoxTotal; }
+                    if (null != sol.PalletMapPhrase) { PalletMapPhrase = sol.PalletMapPhrase;}
                 }
             }
             catch (Exception ex)

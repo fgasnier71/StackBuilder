@@ -39,6 +39,41 @@ namespace treeDiM.StackBuilder.Basics
             return false;
         }
 
+        public bool FitsIn(IContainer container, ConstraintSetAbstract constraintSet)
+        {
+            Vector3D vPackable = OuterDimensions;
+            Vector3D vContainer = container.GetStackingDimensions(constraintSet);
+
+            if (constraintSet.AllowOrientation(HalfAxis.HAxis.AXIS_X_N) || constraintSet.AllowOrientation(HalfAxis.HAxis.AXIS_X_P))
+            {
+                if ((vPackable.X <= vContainer.Z)
+                    && (
+                    (vPackable.Y <= vContainer.X && vPackable.Z <= vContainer.Y)
+                    || (vPackable.Z <= vContainer.X && vPackable.Y <= vContainer.Y)
+                    ))
+                    return true;
+            }
+            if (constraintSet.AllowOrientation(HalfAxis.HAxis.AXIS_Y_N) || constraintSet.AllowOrientation(HalfAxis.HAxis.AXIS_Z_P))
+            {
+                if ((vPackable.Y <= vContainer.Z)
+                    && (
+                    (vPackable.X <= vContainer.X && vPackable.Z <= vContainer.Y)
+                    || (vPackable.Z <= vContainer.X && vPackable.X <=vContainer.Y)
+                    ))
+                    return true;
+            }
+            if (constraintSet.AllowOrientation(HalfAxis.HAxis.AXIS_Z_N) || constraintSet.AllowOrientation(HalfAxis.HAxis.AXIS_Z_P))
+            {
+                if ((vPackable.Z <= vContainer.Z)
+                    && (
+                    (vPackable.X <= vContainer.X && vPackable.Y <= vContainer.Y)
+                    || (vPackable.Y <= vContainer.X && vPackable.X <= vContainer.Y)
+                    ))
+                    return true;
+            }
+            return false;
+        }
+
         public override string ToString()
         {
             var sBuilder = new StringBuilder();

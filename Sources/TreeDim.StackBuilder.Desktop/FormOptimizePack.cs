@@ -335,7 +335,7 @@ namespace treeDiM.StackBuilder.Desktop
                     BuildParamSetPackOptim(),
                     cbColor.Color                    
                     );
-                _analyses = packOptimizer.BuildAnalyses( BuildConstraintSet() );
+                _analyses = packOptimizer.BuildAnalyses( BuildConstraintSet(), false );
 
                 // refill solution grid
                 FillGrid();

@@ -1206,7 +1206,7 @@ namespace treeDiM.StackBuilder.Desktop
         {
             try
             {
-                Process.Start("rundll32.exe", "dfshim.dll,ShOpenVerbApplication " + Properties.Settings.Default.UrlPLMPackLib);
+                Process.Start("rundll32.exe", "dfshim.dll,ShOpenVerbApplication " + Settings.Default.UrlPLMPackLib);
             }
             catch (Exception ex) { _log.Error(ex.Message); }
         }

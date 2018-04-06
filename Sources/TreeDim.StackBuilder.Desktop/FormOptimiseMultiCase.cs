@@ -246,7 +246,7 @@ namespace treeDiM.StackBuilder.Desktop
                         constraintSet.SetAllowedOrientations(uCtrlCaseOrient.AllowedOrientations);
                         // build solver + get analyses
                         SolverBoxCase solver = new SolverBoxCase(packable, caseProperties);
-                        _analyses.AddRange(solver.BuildAnalyses(constraintSet));
+                        _analyses.AddRange(solver.BuildAnalyses(constraintSet, false));
                     }
                 }
                 // sort analysis

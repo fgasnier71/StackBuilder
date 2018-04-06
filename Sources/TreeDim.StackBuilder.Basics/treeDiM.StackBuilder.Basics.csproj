@@ -223,7 +223,6 @@
     <Compile Include="Helpers\Texture.cs" />
     <Compile Include="ConstraintSets\TruckConstraintSet.cs" />
     <Compile Include="Solutions\Solution.cs" />
-    <Compile Include="Solutions\TruckSolution.cs" />
     <Compile Include="UnitsManager.cs" />
     <Compile Include="Controls\UCtrlDouble.cs">
       <SubType>UserControl</SubType>

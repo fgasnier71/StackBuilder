@@ -200,9 +200,6 @@ namespace treeDiM.StackBuilder.Basics
         #region Data members
         private List<SolutionItem> _solutionItems;
         private Analysis _analysis;
-
-        private int _selectedIndex = -1;
-
         internal List<ILayer2D> _layerTypes;
         private static ILayerSolver _solver;
 
@@ -230,10 +227,17 @@ namespace treeDiM.StackBuilder.Basics
             _analysis = analysis;
             LayerDescriptors = layerDescs;
 
-            _solutionItems = new List<SolutionItem>();
-
             RebuildLayers();
             InitializeSolutionItemList();
+        }
+        public Solution(Analysis analysis, List<KeyValuePair<LayerDesc, int>> layerList)
+        {
+            _analysis = analysis;
+            LayerDescriptors = layerList.ConvertAll(l => l.Key);
+
+            RebuildLayers();
+            InitializeSolutionItemList(layerList);
+            RebuildLayers();
         }
         #endregion
 
@@ -292,6 +296,20 @@ namespace treeDiM.StackBuilder.Basics
                 else
                     break;
 
+                symetryX = _analysis.AlternateLayersPref ? !symetryX : symetryX;
+                symetryY = _analysis.AlternateLayersPref ? !symetryY : symetryY;
+            }
+        }
+        private void InitializeSolutionItemList(List<KeyValuePair<LayerDesc, int>> listLayers)
+        {
+            _solutionItems = new List<SolutionItem>();
+
+            foreach (KeyValuePair<LayerDesc, int> kvp in listLayers)
+            {
+                bool symetryX = false, symetryY = false;
+
+                for (int i = 0; i < kvp.Value; ++i)
+                    _solutionItems.Add(new SolutionItem(GetLayerIndexFromLayerDesc(kvp.Key), -1, !symetryX, !symetryY));
                 symetryX = _analysis.AlternateLayersPref ? !symetryX : symetryX;
                 symetryY = _analysis.AlternateLayersPref ? !symetryY : symetryY;
             }
@@ -382,7 +400,7 @@ namespace treeDiM.StackBuilder.Basics
         #region Apply selection
         public void SelectLayer(int index)
         {
-            _selectedIndex = index;
+            SelectedLayerIndex = index;
             // rebuild layers
             RebuildLayers();
             // rebuild solution item list
@@ -393,7 +411,7 @@ namespace treeDiM.StackBuilder.Basics
             get
             {
                 if (!HasValidSelection) return null;
-                return _solutionItems[_selectedIndex];
+                return _solutionItems[SelectedLayerIndex];
             }
         }
         public void SetLayerTypeOnSelected(int iLayerType)
@@ -436,18 +454,16 @@ namespace treeDiM.StackBuilder.Basics
             get
             {
                 if (!HasValidSelection) return null;
-                if (-1 == _solutionItems[_selectedIndex].InterlayerIndex) return null;
-                if (_solutionItems[_selectedIndex].InterlayerIndex >= _analysis.Interlayers.Count) return null;
-                return _analysis.Interlayer(_solutionItems[_selectedIndex].InterlayerIndex);
+                if (-1 == _solutionItems[SelectedLayerIndex].InterlayerIndex) return null;
+                if (_solutionItems[SelectedLayerIndex].InterlayerIndex >= _analysis.Interlayers.Count) return null;
+                return _analysis.Interlayer(_solutionItems[SelectedLayerIndex].InterlayerIndex);
             }
         }
         #endregion
 
         #region Public properties
-        public int SelectedLayerIndex
-        {
-            get { return _selectedIndex; }
-        }
+        public int SelectedLayerIndex { get; private set; } = -1;
+
         public Analysis Analysis
         {
             get { return _analysis; }
@@ -590,7 +606,21 @@ namespace treeDiM.StackBuilder.Basics
                 if (!_bbox.IsValid)
                 {
                     foreach (ILayer layer in Layers)
-                        _bbox.Extend(layer.BoundingBox(Analysis.Content));
+                    {
+                        if (layer is Layer3DBox || layer is Layer3DCyl)
+                            _bbox.Extend(layer.BoundingBox(Analysis.Content));
+                        else if (layer is InterlayerPos)
+                        {
+                            InterlayerPos interLayerPos = layer as InterlayerPos;
+                            InterlayerProperties interlayerProp = Interlayers[interLayerPos.TypeId];
+                            Vector3D vecMin = new Vector3D(
+                                0.5 * (Analysis.ContainerDimensions.X - interlayerProp.Length)
+                                , 0.5 * (Analysis.ContainerDimensions.Y - interlayerProp.Width)
+                                , 0.0)
+                                + Analysis.Offset;
+                            _bbox.Extend(new BBox3D(vecMin, vecMin + interlayerProp.Dimensions));
+                        }
+                    }
                     // sanity check
                     if (!_bbox.IsValid)
                         _bbox.Extend(Vector3D.Zero);
@@ -868,7 +898,7 @@ namespace treeDiM.StackBuilder.Basics
 
         private bool HasValidSelection
         {
-            get { return _selectedIndex >= 0 && _selectedIndex < _solutionItems.Count; }
+            get { return SelectedLayerIndex >= 0 && SelectedLayerIndex < _solutionItems.Count; }
         }
 
         public List<LayerSummary> ListLayerSummary
@@ -889,6 +919,14 @@ namespace treeDiM.StackBuilder.Basics
                 }
                 return _layerSummaries;
             }
+        }
+
+        private int GetLayerIndexFromLayerDesc(LayerDesc layerDesc)
+        {
+            int index =_layerTypes.FindIndex(l => l.LayerDescriptor.ToString() == layerDesc.ToString());
+            if (-1 == index)
+                throw new Exception("No valid layer with desc {layerDesc}");
+            return index;
         }
         #endregion
 

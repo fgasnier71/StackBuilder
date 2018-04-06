@@ -6,7 +6,7 @@ using Sharp3D.Math.Core;
 
 namespace treeDiM.StackBuilder.Basics
 {
-    public class PalletProperties : ItemBaseNamed
+    public class PalletProperties : ItemBaseNamed, IContainer
     {
         public PalletProperties(Document document, string typeName, double length, double width, double height)
             : base(document)
@@ -59,6 +59,17 @@ namespace treeDiM.StackBuilder.Basics
             set { _color = value; Modify(); }
         }
         public BBox3D BoundingBox => new BBox3D(Vector3D.Zero, new Vector3D(_length, _width, _height));
+
+        public Vector3D GetStackingDimensions(ConstraintSetAbstract constraintSet)
+        {
+            ConstraintSetPackablePallet constraintSetPackablePallet = constraintSet as ConstraintSetPackablePallet;
+            if (null == constraintSetPackablePallet)
+                throw new InvalidConstraintSetException();
+            return new Vector3D(
+                _length + 2.0 * constraintSetPackablePallet.Overhang.X
+                , _width + 2.0 * constraintSetPackablePallet.Overhang.Y
+                , constraintSetPackablePallet.OptMaxHeight.Value - _height);
+        }
 
         public override string ToString()
         {
