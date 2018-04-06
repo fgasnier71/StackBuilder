@@ -252,8 +252,8 @@ namespace treeDiM.StackBuilder.Engine
             return true;
         }
 
-        public static bool GetBestCombination(Vector3D dimBox, Vector2D dimContainer,
-            ConstraintSetAbstract constraintSet, ref List<KeyValuePair<LayerDesc, int>> listLayer)
+        public static bool GetBestCombination(Vector3D dimBox, Vector3D dimContainer
+            , ConstraintSetAbstract constraintSet, ref List<KeyValuePair<LayerDesc, int>> listLayer)
         {
             var layDescs = new LayerDesc[3];
             var counts = new int[3] { 0, 0, 0 };
@@ -276,9 +276,9 @@ namespace treeDiM.StackBuilder.Engine
                         if (!pattern.CanBeSwapped && (iSwapped == 1))
                             continue;
                         // instantiate layer
-                        var layer = new Layer2D(dimBox, dimContainer, pattern.Name, axisOrtho, iSwapped == 1);
-                        double actualLength = 0.0, actualWidth = 0.0;
-                        if (!pattern.GetLayerDimensionsChecked(layer, out actualLength, out actualWidth))
+                        Vector2D layerDim = new Vector2D(dimContainer.X, dimContainer.Y);
+                        var layer = new Layer2D(dimBox, layerDim, pattern.Name, axisOrtho, iSwapped == 1);
+                        if (!pattern.GetLayerDimensionsChecked(layer, out double actualLength, out double actualWidth))
                             continue;
                         pattern.GenerateLayer(layer, actualLength, actualWidth);
                         if (0 == layer.Count)
@@ -295,31 +295,54 @@ namespace treeDiM.StackBuilder.Engine
                 }
             }
 
-            // get list of values
+            double stackingHeight = dimContainer.Z;
+
+            // single layer
             int indexIMax = 0, indexJMax = 0, noIMax = 0, noJMax = 0, iCountMax = 0;
-            for (int i = 0; i < 2; ++i)
+            for (int i=0; i<3; ++i)
             {
-                int j = i + 1;
-                // search best count
-                double palletHeight = constraintSet.OptMaxHeight.Value;
-                int noI = (int)Math.Floor(palletHeight / heights[i]);
+                int noLayers = 0;
+                if (counts[i] > 0)
+                    noLayers = (int)Math.Floor(stackingHeight / heights[i]);
+                if (counts[i] * noLayers > iCountMax)
+                {
+                    iCountMax = counts[i] * noLayers;
+                    indexIMax = i;
+                    noIMax = noLayers;
+                }
+            }
+
+            // layer combinations
+            int[] comb1 = { 0, 1, 2 };
+            int[] comb2 = { 1, 2, 0 };
+            for (int i = 0; i < 3; ++i)
+            {
+                int iComb1 = comb1[i];
+                int iComb2 = comb2[i];
+
+                int noI = 0;
+                if (counts[iComb1] != 0)
+                    noI = (int)Math.Floor(stackingHeight / heights[iComb1]);
                 // search all index
                 while (noI > 0)
                 {
-                    double remainingHeight = palletHeight - noI * heights[i];
-                    int noJ = (int)Math.Floor(remainingHeight / heights[j]);
-                    if (noI * counts[i] + noJ * counts[j] > iCountMax)
+                    double remainingHeight = stackingHeight - noI * heights[iComb1];
+                    int noJ = 0;
+                    if (counts[iComb2] != 0)
+                        noJ = (int)Math.Floor(remainingHeight / heights[iComb2]);
+                    if (noI * counts[iComb1] + noJ * counts[iComb2] > iCountMax)
                     {
-                        indexIMax = i;  indexJMax = j;
+                        indexIMax = iComb1;  indexJMax = iComb2;
                         noIMax = noI;   noJMax = noJ;
-                        iCountMax = noI * counts[i] + noJ * counts[j];
+                        iCountMax = noI * counts[iComb1] + noJ * counts[iComb2];
                     }
                     --noI;
                 } // while
             }
-
-            listLayer.Add(new KeyValuePair<LayerDesc, int>(layDescs[indexIMax], noIMax));
-            listLayer.Add(new KeyValuePair<LayerDesc, int>(layDescs[indexJMax], noJMax));
+            if (noIMax > 0)
+                listLayer.Add(new KeyValuePair<LayerDesc, int>(layDescs[indexIMax], noIMax));
+            if (noJMax > 0)
+                listLayer.Add(new KeyValuePair<LayerDesc, int>(layDescs[indexJMax], noJMax));
             return true;
         }
 

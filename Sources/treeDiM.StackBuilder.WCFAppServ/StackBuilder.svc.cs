@@ -647,7 +647,6 @@ namespace treeDiM.StackBuilder.WCFAppServ
 
             return (Math.Abs(lengthInMM - length) < 1.0 && Math.Abs(widthInMM - width) < 1.0)
                 || (Math.Abs(lengthInMM - width) < 1.0 && Math.Abs(widthInMM - length) < 1.0);
-
         }
         #endregion
     }

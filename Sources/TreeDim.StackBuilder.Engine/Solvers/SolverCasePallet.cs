@@ -46,10 +46,10 @@ namespace treeDiM.StackBuilder.Engine
                 List<KeyValuePair<LayerDesc, int>> listLayer = new List<KeyValuePair<LayerDesc, int>>();
                 LayerSolver.GetBestCombination(
                     _packable.OuterDimensions,
-                    new Vector2D(_palletProperties.Length + 2.0 * overhang.X, _palletProperties.Width + 2.0 * overhang.Y),
+                    _palletProperties.GetStackingDimensions(constraintSet),
                     constraintSet,
                     ref listLayer);
-
+                Solution.SetSolver(new LayerSolver());
                 var analysis = new AnalysisCasePallet(_packable, _palletProperties, constraintSet as ConstraintSetCasePallet);
                 analysis.AddSolution(listLayer);
                 // only add analysis if it has a valid solution

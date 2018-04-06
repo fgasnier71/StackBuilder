@@ -43,7 +43,7 @@ namespace treeDiM.StackBuilder.Engine
                 List<KeyValuePair<LayerDesc, int>> listLayer = new List<KeyValuePair<LayerDesc, int>>();
                 LayerSolver.GetBestCombination(
                     _packable.OuterDimensions,
-                    new Vector2D(_caseProperties.InsideLength, _caseProperties.InsideWidth),
+                    _caseProperties.GetStackingDimensions(constraintSet),
                     constraintSet,
                     ref listLayer);
 

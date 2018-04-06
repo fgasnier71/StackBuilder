@@ -295,7 +295,6 @@ namespace treeDiM.StackBuilder.Basics
                     _solutionItems.Add(new SolutionItem(0, -1, symetryX, symetryY));
                 else
                     break;
-
                 symetryX = _analysis.AlternateLayersPref ? !symetryX : symetryX;
                 symetryY = _analysis.AlternateLayersPref ? !symetryY : symetryY;
             }
@@ -303,15 +302,15 @@ namespace treeDiM.StackBuilder.Basics
         private void InitializeSolutionItemList(List<KeyValuePair<LayerDesc, int>> listLayers)
         {
             _solutionItems = new List<SolutionItem>();
-
             foreach (KeyValuePair<LayerDesc, int> kvp in listLayers)
             {
                 bool symetryX = false, symetryY = false;
-
                 for (int i = 0; i < kvp.Value; ++i)
-                    _solutionItems.Add(new SolutionItem(GetLayerIndexFromLayerDesc(kvp.Key), -1, !symetryX, !symetryY));
-                symetryX = _analysis.AlternateLayersPref ? !symetryX : symetryX;
-                symetryY = _analysis.AlternateLayersPref ? !symetryY : symetryY;
+                {
+                    _solutionItems.Add(new SolutionItem(GetLayerIndexFromLayerDesc(kvp.Key), -1, symetryX, symetryY));
+                    symetryX = _analysis.AlternateLayersPref ? !symetryX : symetryX;
+                    symetryY = _analysis.AlternateLayersPref ? !symetryY : symetryY;
+                }
             }
         }
         public void RebuildSolutionItemList()

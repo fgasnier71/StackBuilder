@@ -49,7 +49,8 @@ namespace treeDiM.StackBuilder.WCFService.Test
             CaseInnerWidth = 295.0;
             CaseInnerHeight = 195.0;
             CaseEmptyWeight = 0.25;
-
+            // allow multiple layer orientations
+            AllowMultipleLayerOrientations = true;
         }
         protected override void OnClosing(CancelEventArgs e)
         {
@@ -106,7 +107,7 @@ namespace treeDiM.StackBuilder.WCFService.Test
                                     MaxHeight = new DCSBConstraintDouble() { Active = true, Value_d = MaxPalletHeight },
                                     MaxWeight = new DCSBConstraintDouble() { Active = false, Value_d = 1000.0 },
                                     MaxNumber = new DCSBConstraintInt() { Active = false, Value_i = 100 },
-                                    AllowMultipleLayerOrientations = true
+                                    AllowMultipleLayerOrientations = this.AllowMultipleLayerOrientations
                                 }
                                 , new DCCompFormat()
                                 {
@@ -192,7 +193,8 @@ namespace treeDiM.StackBuilder.WCFService.Test
                             {
                                 Orientation = new DCSBBool3() { X = AllowOrientX, Y = AllowOrientY, Z = AllowOrientZ },
                                 MaxWeight = new DCSBConstraintDouble() { Active = false, Value_d = 1000.0 },
-                                MaxNumber = new DCSBConstraintInt() { Active = false, Value_i = 100 }
+                                MaxNumber = new DCSBConstraintInt() { Active = false, Value_i = 100 },
+                                AllowMultipleLayerOrientations = AllowMultipleLayerOrientations
                             }
                             , new DCCompFormat()
                             {
@@ -286,6 +288,7 @@ namespace treeDiM.StackBuilder.WCFService.Test
         #endregion
 
         #region Helpers
+        private bool AllowMultipleLayerOrientations { get => chkbAllowMultipleLayerOrientations.Checked; set => chkbAllowMultipleLayerOrientations.Checked = value; }
         // case (content)
         private double CaseLength { get => (double)nudCaseDimX.Value; set => nudCaseDimX.Value = (decimal)value; }
         private double CaseWidth {  get => (double)nudCaseDimY.Value; set => nudCaseDimY.Value = (decimal)value; }

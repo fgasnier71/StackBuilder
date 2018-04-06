@@ -77,6 +77,8 @@
             this.lbFlat = new System.Windows.Forms.Label();
             this.bnCompute = new System.Windows.Forms.Button();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
+            this.lbPalletMapPhrase = new System.Windows.Forms.Label();
+            this.lbDescPalletMapPhrase = new System.Windows.Forms.Label();
             this.lbLoadedPalletCaseCountValue = new System.Windows.Forms.Label();
             this.lbCaseCount = new System.Windows.Forms.Label();
             this.lbLoadedPalletEfficiencyValue = new System.Windows.Forms.Label();
@@ -85,8 +87,7 @@
             this.lbLoadedPalletEfficiency = new System.Windows.Forms.Label();
             this.lbLoadedPalletWeight = new System.Windows.Forms.Label();
             this.lbLoadedPalletDim = new System.Windows.Forms.Label();
-            this.lbDescPalletMapPhrase = new System.Windows.Forms.Label();
-            this.lbPalletMapPhrase = new System.Windows.Forms.Label();
+            this.chkbAllowMultipleLayerOrientations = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbStackbuilder)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -173,6 +174,7 @@
             // 
             // splitContainer2.Panel1
             // 
+            this.splitContainer2.Panel1.Controls.Add(this.chkbAllowMultipleLayerOrientations);
             this.splitContainer2.Panel1.Controls.Add(this.bnExit);
             this.splitContainer2.Panel1.Controls.Add(this.tabCtrlContainer);
             this.splitContainer2.Panel1.Controls.Add(this.tabCtrlContent);
@@ -732,6 +734,24 @@
             this.splitContainer3.SplitterDistance = 626;
             this.splitContainer3.TabIndex = 0;
             // 
+            // lbPalletMapPhrase
+            // 
+            this.lbPalletMapPhrase.AutoSize = true;
+            this.lbPalletMapPhrase.Location = new System.Drawing.Point(141, 132);
+            this.lbPalletMapPhrase.Name = "lbPalletMapPhrase";
+            this.lbPalletMapPhrase.Size = new System.Drawing.Size(10, 13);
+            this.lbPalletMapPhrase.TabIndex = 39;
+            this.lbPalletMapPhrase.Text = ":";
+            // 
+            // lbDescPalletMapPhrase
+            // 
+            this.lbDescPalletMapPhrase.AutoSize = true;
+            this.lbDescPalletMapPhrase.Location = new System.Drawing.Point(6, 132);
+            this.lbDescPalletMapPhrase.Name = "lbDescPalletMapPhrase";
+            this.lbDescPalletMapPhrase.Size = new System.Drawing.Size(87, 13);
+            this.lbDescPalletMapPhrase.TabIndex = 38;
+            this.lbDescPalletMapPhrase.Text = "PalletMapPhrase";
+            // 
             // lbLoadedPalletCaseCountValue
             // 
             this.lbLoadedPalletCaseCountValue.AutoSize = true;
@@ -804,23 +824,15 @@
             this.lbLoadedPalletDim.TabIndex = 30;
             this.lbLoadedPalletDim.Text = "Loaded pallet dimensions";
             // 
-            // lbDescPalletMapPhrase
+            // chkbAllowMultipleLayerOrientations
             // 
-            this.lbDescPalletMapPhrase.AutoSize = true;
-            this.lbDescPalletMapPhrase.Location = new System.Drawing.Point(6, 132);
-            this.lbDescPalletMapPhrase.Name = "lbDescPalletMapPhrase";
-            this.lbDescPalletMapPhrase.Size = new System.Drawing.Size(87, 13);
-            this.lbDescPalletMapPhrase.TabIndex = 38;
-            this.lbDescPalletMapPhrase.Text = "PalletMapPhrase";
-            // 
-            // lbPalletMapPhrase
-            // 
-            this.lbPalletMapPhrase.AutoSize = true;
-            this.lbPalletMapPhrase.Location = new System.Drawing.Point(141, 132);
-            this.lbPalletMapPhrase.Name = "lbPalletMapPhrase";
-            this.lbPalletMapPhrase.Size = new System.Drawing.Size(10, 13);
-            this.lbPalletMapPhrase.TabIndex = 39;
-            this.lbPalletMapPhrase.Text = ":";
+            this.chkbAllowMultipleLayerOrientations.AutoSize = true;
+            this.chkbAllowMultipleLayerOrientations.Location = new System.Drawing.Point(14, 172);
+            this.chkbAllowMultipleLayerOrientations.Name = "chkbAllowMultipleLayerOrientations";
+            this.chkbAllowMultipleLayerOrientations.Size = new System.Drawing.Size(171, 17);
+            this.chkbAllowMultipleLayerOrientations.TabIndex = 55;
+            this.chkbAllowMultipleLayerOrientations.Text = "Allow multiple layer orientations";
+            this.chkbAllowMultipleLayerOrientations.UseVisualStyleBackColor = true;
             // 
             // FormMain
             // 
@@ -839,6 +851,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.splitContainer2.Panel1.ResumeLayout(false);
+            this.splitContainer2.Panel1.PerformLayout();
             this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
@@ -940,6 +953,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lbPalletMapPhrase;
         private System.Windows.Forms.Label lbDescPalletMapPhrase;
+        private System.Windows.Forms.CheckBox chkbAllowMultipleLayerOrientations;
     }
 }
 
