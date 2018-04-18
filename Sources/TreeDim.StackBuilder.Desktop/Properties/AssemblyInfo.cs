@@ -15,7 +15,7 @@ using System.Runtime.InteropServices;
 #endif
 [assembly: AssemblyCompany("treeDiM")]
 [assembly: AssemblyProduct("PLMPack StackBuilder")]
-[assembly: AssemblyCopyright("Copyright TreeDim ©  2016")]
+[assembly: AssemblyCopyright("Copyright treeDiM ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

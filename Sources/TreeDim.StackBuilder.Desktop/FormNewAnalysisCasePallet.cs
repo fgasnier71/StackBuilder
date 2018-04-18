@@ -235,13 +235,13 @@ namespace treeDiM.StackBuilder.Desktop
                 PalletProperties palletProperties = cbPallets.SelectedType as PalletProperties;
                 if (null == packable || null == palletProperties)
                     return;
-
+                ConstraintSetAbstract constraintSet = BuildConstraintSet();
                 // get best combination
                 List<KeyValuePair<LayerDesc, int>> listLayer = new List<KeyValuePair<LayerDesc,int>>();
                 LayerSolver.GetBestCombination(
                     packable.OuterDimensions,
-                    new Vector2D(palletProperties.Length + 2.0 * uCtrlOverhang.ValueX, palletProperties.Width + 2.0 * uCtrlOverhang.ValueY),
-                    BuildConstraintSet(),
+                    palletProperties.GetStackingDimensions(constraintSet),
+                    constraintSet,
                     ref listLayer);
 
                 // select best layers

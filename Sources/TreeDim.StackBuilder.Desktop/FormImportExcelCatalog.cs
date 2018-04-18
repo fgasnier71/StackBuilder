@@ -65,10 +65,9 @@ namespace treeDiM.StackBuilder.Desktop
         #region Handlers
         private void OnDownloadExcelTemplate(object sender, EventArgs e)
         {
+            string fileURL = Properties.Settings.Default.ExcelTemplateFileURL;
             try
             {
-                string fileURL = Properties.Settings.Default.ExcelTemplateFileURL;
-
                 KnownFolder knownFolder = new KnownFolder(KnownFolderType.Downloads);
                 string downloadPath = Path.Combine(knownFolder.Path, Path.GetFileName(fileURL));
 
@@ -77,6 +76,10 @@ namespace treeDiM.StackBuilder.Desktop
 
                 if (File.Exists(downloadPath))
                     Process.Start(downloadPath);
+            }
+            catch (WebException ex)
+            {
+                MessageBox.Show($"Failed to download file {fileURL} : {ex.Message}");
             }
             catch (Exception ex)
             {
@@ -133,7 +136,7 @@ namespace treeDiM.StackBuilder.Desktop
                     {
                         ImportItem(_listTypes[_iProgress]);
                         ++_iProgress;
-                        _bgWorker.ReportProgress(_iProgress);
+                        _bgWorker.ReportProgress((int)Math.Floor((_iProgress * 100.0) / maxCount));
                         if (_bgWorker.CancellationPending)
                         {
                             // Set the e.Cancel flag so that the WorkerCompleted event
@@ -434,7 +437,7 @@ namespace treeDiM.StackBuilder.Desktop
         /// <param name="e"></param>
         void WorkerProgressChanged(object sender, ProgressChangedEventArgs e)
         {
-            progressBar.Value = Math.Min(e.ProgressPercentage, progressBar.Maximum);
+            progressBar.Value = Math.Min(_iProgress, progressBar.Maximum);
             UpdateStatus("Processing : " + e.ProgressPercentage + "%");
         }
         private void OnStopWork(object sender, EventArgs e)
@@ -472,7 +475,5 @@ namespace treeDiM.StackBuilder.Desktop
         protected BackgroundWorker _bgWorker;
         protected ILog _log = LogManager.GetLogger(typeof(FormImportExcelCatalog));
         #endregion
-
-
     }
 }
