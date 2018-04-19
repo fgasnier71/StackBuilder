@@ -33,7 +33,7 @@ namespace treeDiM.StackBuilder.Desktop
         #region Form override
         protected override void OnLoad(EventArgs e)
         {
- 	        base.OnLoad(e);
+            base.OnLoad(e);
             graphCtrl.DrawingContainer = this;
 
             bnImport.Enabled = (null != _doc);
@@ -55,7 +55,7 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region IDrawingContainer
-        public void Draw(Graphics3DControl ctrl, Graphics3D graphics)        
+        public void Draw(Graphics3DControl ctrl, Graphics3D graphics)
         {
             try
             {
@@ -313,6 +313,49 @@ namespace treeDiM.StackBuilder.Desktop
                 graphCtrl.Invalidate();
             }
         }
+        private void UpdateGrid()
+        {
+            try
+            {
+                _numberOfItems = 0;
+
+                string tabName = tabCtrlDBItems.SelectedTab.Name;
+                using (WCFClient wcfClient = new WCFClient())
+                {
+                    if (string.Equals(tabName, "tabPagePallet"))
+                        FillGridPallets(wcfClient);
+                    else if (string.Equals(tabName, "tabPagePalletCorner"))
+                        FillGridPalletCorners(wcfClient);
+                    else if (string.Equals(tabName, "tabPagePalletCap"))
+                        FillGridPalletCaps(wcfClient);
+                    else if (string.Equals(tabName, "tabPagePalletFilm"))
+                        FillGridPalletFilms(wcfClient);
+                    else if (string.Equals(tabName, "tabPageInterlayer"))
+                        FillGridInterlayers(wcfClient);
+                    else if (string.Equals(tabName, "tabPageBundle"))
+                        FillGridBundles(wcfClient);
+                    else if (string.Equals(tabName, "tabPageBox"))
+                        FillGridBoxes(wcfClient);
+                    else if (string.Equals(tabName, "tabPageCase"))
+                        FillGridCases(wcfClient);
+                    else if (string.Equals(tabName, "tabPageCylinder"))
+                        FillGridCylinders(wcfClient);
+                    else if (string.Equals(tabName, "tabPageTruck"))
+                        FillGridTrucks(wcfClient);
+                }
+                // update buttons
+                bnPrev.Enabled = RangeIndex > 0;
+                bnNext.Enabled = (RangeIndex + 1) * 20 < _numberOfItems;
+                lbCount.Text = string.Format(Properties.Resources.ID_DATABASEITEMCOUNT
+                    , (RangeIndex * 20) + 1
+                    , Math.Min( (RangeIndex + 1) * 20, _numberOfItems)
+                    , _numberOfItems);
+            }
+            catch (Exception ex)
+            {
+                _log.Error(ex.Message);
+            }
+        }
         #endregion
 
         #region Pallets
@@ -332,7 +375,7 @@ namespace treeDiM.StackBuilder.Desktop
             SourceGrid.Cells.Controllers.CustomEvents buttonDelete = new SourceGrid.Cells.Controllers.CustomEvents();
             buttonDelete.Click += new EventHandler(OnDeleteItem);
 
-            _pallets = wcfClient.Client.GetAllPallets();
+            _pallets = wcfClient.Client.GetAllPallets(RangeIndex, ref _numberOfItems);
             int iIndex = 0;
             foreach (DCSBPallet p in _pallets)
             {
@@ -379,7 +422,7 @@ namespace treeDiM.StackBuilder.Desktop
             SourceGrid.Cells.Controllers.CustomEvents buttonDelete = new SourceGrid.Cells.Controllers.CustomEvents();
             buttonDelete.Click += new EventHandler(OnDeleteItem);
 
-            _interlayers = wcfClient.Client.GetAllInterlayers();
+            _interlayers = wcfClient.Client.GetAllInterlayers(RangeIndex, ref _numberOfItems);
             int iIndex = 0;
             foreach (DCSBInterlayer i in _interlayers)
             {
@@ -427,7 +470,7 @@ namespace treeDiM.StackBuilder.Desktop
             SourceGrid.Cells.Controllers.CustomEvents buttonDelete = new SourceGrid.Cells.Controllers.CustomEvents();
             buttonDelete.Click += new EventHandler(OnDeleteItem);
 
-            _palletCaps = wcfClient.Client.GetAllPalletCaps();
+            _palletCaps = wcfClient.Client.GetAllPalletCaps(RangeIndex, ref _numberOfItems);
             int iIndex = 0;
             foreach (DCSBPalletCap pc in _palletCaps)
             {
@@ -478,7 +521,7 @@ namespace treeDiM.StackBuilder.Desktop
             SourceGrid.Cells.Controllers.CustomEvents buttonDelete = new SourceGrid.Cells.Controllers.CustomEvents();
             buttonDelete.Click += new EventHandler(OnDeleteItem);
 
-            _palletCorners = wcfClient.Client.GetAllPalletCorners();
+            _palletCorners = wcfClient.Client.GetAllPalletCorners(RangeIndex, ref _numberOfItems);
             int iIndex = 0;
             foreach (DCSBPalletCorner c in _palletCorners)
             {
@@ -520,7 +563,7 @@ namespace treeDiM.StackBuilder.Desktop
             SourceGrid.Cells.Controllers.CustomEvents buttonDelete = new SourceGrid.Cells.Controllers.CustomEvents();
             buttonDelete.Click += new EventHandler(OnDeleteItem);
 
-            _palletFilms = wcfClient.Client.GetAllPalletFilms();
+            _palletFilms = wcfClient.Client.GetAllPalletFilms(RangeIndex, ref _numberOfItems);
             int iIndex = 0;
             foreach (DCSBPalletFilm c in _palletFilms)
             {
@@ -560,7 +603,7 @@ namespace treeDiM.StackBuilder.Desktop
             SourceGrid.Cells.Controllers.CustomEvents buttonDelete = new SourceGrid.Cells.Controllers.CustomEvents();
             buttonDelete.Click += new EventHandler(OnDeleteItem);
 
-            _boxes = wcfClient.Client.GetAllBoxes();
+            _boxes = wcfClient.Client.GetAllBoxes(RangeIndex, ref _numberOfItems);
             int iIndex = 0;
             foreach (DCSBCase c in _boxes)
             {
@@ -602,7 +645,7 @@ namespace treeDiM.StackBuilder.Desktop
             SourceGrid.Cells.Controllers.CustomEvents buttonDelete = new SourceGrid.Cells.Controllers.CustomEvents();
             buttonDelete.Click += new EventHandler(OnDeleteItem);
 
-            _cases = wcfClient.Client.GetAllCases();
+            _cases = wcfClient.Client.GetAllCases(RangeIndex, ref _numberOfItems);
             int iIndex = 0;
             foreach (DCSBCase c in _cases)
             {
@@ -618,11 +661,11 @@ namespace treeDiM.StackBuilder.Desktop
                         UnitsManager.ConvertLengthFrom(c.DimensionsOuter.M1, us),
                         UnitsManager.ConvertLengthFrom(c.DimensionsOuter.M2, us)));
                 gridCases[iIndex, iCol++] = new SourceGrid.Cells.Cell(
-                    c.HasInnerDims ? 
+                    c.HasInnerDims ?
                     string.Format("{0:0.##} x {1:0.##} x {2:0.##}",
                         UnitsManager.ConvertLengthFrom(c.DimensionsInner.M0, us),
                         UnitsManager.ConvertLengthFrom(c.DimensionsInner.M1, us),
-                        UnitsManager.ConvertLengthFrom(c.DimensionsInner.M2, us)): "-");
+                        UnitsManager.ConvertLengthFrom(c.DimensionsInner.M2, us)) : "-");
                 gridCases[iIndex, iCol++] = new SourceGrid.Cells.Cell(UnitsManager.ConvertMassFrom(c.Weight, us));
                 gridCases[iIndex, iCol] = new SourceGrid.Cells.CheckBox(null, c.AutoInsert);
                 gridCases[iIndex, iCol++].AddController(checkBoxEvent);
@@ -655,7 +698,7 @@ namespace treeDiM.StackBuilder.Desktop
             SourceGrid.Cells.Controllers.CustomEvents buttonDelete = new SourceGrid.Cells.Controllers.CustomEvents();
             buttonDelete.Click += new EventHandler(OnDeleteItem);
 
-            _bundles = wcfClient.Client.GetAllBundles();
+            _bundles = wcfClient.Client.GetAllBundles(RangeIndex, ref _numberOfItems);
             int iIndex = 0;
             foreach (DCSBBundle b in _bundles)
             {
@@ -700,7 +743,7 @@ namespace treeDiM.StackBuilder.Desktop
             SourceGrid.Cells.Controllers.CustomEvents buttonDelete = new SourceGrid.Cells.Controllers.CustomEvents();
             buttonDelete.Click += new EventHandler(OnDeleteItem);
 
-            _cylinders = wcfClient.Client.GetAllCylinders();
+            _cylinders = wcfClient.Client.GetAllCylinders(RangeIndex, ref _numberOfItems);
             int iIndex = 0;
             foreach (DCSBCylinder cyl in _cylinders)
             {
@@ -741,7 +784,7 @@ namespace treeDiM.StackBuilder.Desktop
             SourceGrid.Cells.Controllers.CustomEvents buttonDelete = new SourceGrid.Cells.Controllers.CustomEvents();
             buttonDelete.Click += new EventHandler(OnDeleteItem);
             // get all trucks
-            _trucks = wcfClient.Client.GetAllTrucks();
+            _trucks = wcfClient.Client.GetAllTrucks(RangeIndex, ref _numberOfItems);
             int iIndex = 0;
             foreach (DCSBTruck t in _trucks)
             {
@@ -907,39 +950,11 @@ namespace treeDiM.StackBuilder.Desktop
                 _log.Error(ex.Message);
             }
         }
+
         private void OnSelectedTabChanged(object sender, EventArgs e)
         {
-            try
-            {
-                string tabName = tabCtrlDBItems.SelectedTab.Name;
-                using (WCFClient wcfClient = new WCFClient())
-                {
-                    if (string.Equals(tabName, "tabPagePallet"))
-                        FillGridPallets(wcfClient);
-                    else if (string.Equals(tabName, "tabPagePalletCorner"))
-                        FillGridPalletCorners(wcfClient);
-                    else if (string.Equals(tabName, "tabPagePalletCap"))
-                        FillGridPalletCaps(wcfClient);
-                    else if (string.Equals(tabName, "tabPagePalletFilm"))
-                        FillGridPalletFilms(wcfClient);
-                    else if (string.Equals(tabName, "tabPageInterlayer"))
-                        FillGridInterlayers(wcfClient);
-                    else if (string.Equals(tabName, "tabPageBundle"))
-                        FillGridBundles(wcfClient);
-                    else if (string.Equals(tabName, "tabPageBox"))
-                        FillGridBoxes(wcfClient);
-                    else if (string.Equals(tabName, "tabPageCase"))
-                        FillGridCases(wcfClient);
-                    else if (string.Equals(tabName, "tabPageCylinder"))
-                        FillGridCylinders(wcfClient);
-                    else if (string.Equals(tabName, "tabPageTruck"))
-                        FillGridTrucks(wcfClient);
-                }
-            }
-            catch (Exception ex)
-            {
-                _log.Error(ex.Message);
-            }            
+            RangeIndex = 0;
+            UpdateGrid();
         }
         private void OnSelChangeGrid(object sender, SourceGrid.RangeRegionChangedEventArgs e)
         {
@@ -955,16 +970,16 @@ namespace treeDiM.StackBuilder.Desktop
                 else
                 {
                     int iSel = indexes[0] - 1;
-                    if (g == gridPallets)       _selectedItem = _pallets[iSel];
+                    if (g == gridPallets) _selectedItem = _pallets[iSel];
                     if (g == gridPalletCorners) _selectedItem = _palletCorners[iSel];
-                    if (g == gridPalletCaps)    _selectedItem = _palletCaps[iSel];
-                    if (g == gridPalletFilms)   _selectedItem = _palletFilms[iSel];
-                    if (g == gridInterlayers)   _selectedItem = _interlayers[iSel];
-                    if (g == gridBoxes)         _selectedItem = _boxes[iSel];
-                    if (g == gridCases)         _selectedItem = _cases[iSel];
-                    if (g == gridBundles)       _selectedItem = _bundles[iSel];
-                    if (g == gridCylinders)     _selectedItem = _cylinders[iSel];
-                    if (g == gridTrucks)        _selectedItem = _trucks[iSel];
+                    if (g == gridPalletCaps) _selectedItem = _palletCaps[iSel];
+                    if (g == gridPalletFilms) _selectedItem = _palletFilms[iSel];
+                    if (g == gridInterlayers) _selectedItem = _interlayers[iSel];
+                    if (g == gridBoxes) _selectedItem = _boxes[iSel];
+                    if (g == gridCases) _selectedItem = _cases[iSel];
+                    if (g == gridBundles) _selectedItem = _bundles[iSel];
+                    if (g == gridCylinders) _selectedItem = _cylinders[iSel];
+                    if (g == gridTrucks) _selectedItem = _trucks[iSel];
                 }
                 graphCtrl.Invalidate();
             }
@@ -1154,11 +1169,28 @@ namespace treeDiM.StackBuilder.Desktop
                 _log.Error(ex.Message);
             }
         }
+        private void OnButtonPrev(object sender, EventArgs e)
+        {
+            if (RangeIndex > 0)
+                RangeIndex--;
+            UpdateGrid();
+        }
+        private void OnButtonNext(object sender, EventArgs e)
+        {
+            if ((RangeIndex + 1) * 20 < _numberOfItems)
+                RangeIndex++;
+            UpdateGrid();
+        }
+        #endregion
+
+        #region Private properties
+        private int RangeIndex { get; set; }
         #endregion
 
         #region Data members
         protected static ILog _log = LogManager.GetLogger(typeof(FormShowDatabase));
         private DCSBItem _selectedItem;
+        private int _numberOfItems = 0;
 
         private DCSBPallet[] _pallets = null;
         private DCSBPalletCap[] _palletCaps = null;
@@ -1172,6 +1204,9 @@ namespace treeDiM.StackBuilder.Desktop
         private DCSBTruck[] _trucks = null;
 
         private Document _doc;
+
         #endregion
+
+
     }
 }

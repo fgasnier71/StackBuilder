@@ -272,10 +272,12 @@ namespace Sharp3D.Boxologic
                     }
                     else
                     {
-                        smallestz.next = new Scrappad();
-                        smallestz.next.prev = smallestz;
-                        smallestz.next.Cumx = smallestz.Cumx;
-                        smallestz.next.Cumz = smallestz.Cumz;
+                        smallestz.next = new Scrappad
+                        {
+                            prev = smallestz,
+                            Cumx = smallestz.Cumx,
+                            Cumz = smallestz.Cumz
+                        };
                         smallestz.Cumx = cboxx;
                         smallestz.Cumz = smallestz.Cumz + cboxz;
                     }
@@ -325,9 +327,11 @@ namespace Sharp3D.Boxologic
                         }
                         else
                         {
-                            smallestz.next.prev = new Scrappad();
-                            smallestz.next.prev.next = smallestz.next;
-                            smallestz.next.prev.prev = smallestz;
+                            smallestz.next.prev = new Scrappad
+                            {
+                                next = smallestz.next,
+                                prev = smallestz
+                            };
                             smallestz.next = smallestz.next.prev;
                             smallestz.next.Cumx = smallestz.Cumx;
                             smallestz.Cumx = smallestz.Cumx - cboxx;
@@ -373,9 +377,11 @@ namespace Sharp3D.Boxologic
                         }
                         else
                         {
-                            smallestz.prev.next = new Scrappad();
-                            smallestz.prev.next.prev = smallestz.prev;
-                            smallestz.prev.next.next = smallestz;
+                            smallestz.prev.next = new Scrappad
+                            {
+                                prev = smallestz.prev,
+                                next = smallestz
+                            };
                             smallestz.prev = smallestz.prev.next;
                             smallestz.prev.Cumx = smallestz.prev.prev.Cumx + cboxx;
                             smallestz.prev.Cumz = smallestz.Cumz + cboxz;
@@ -429,9 +435,11 @@ namespace Sharp3D.Boxologic
                         else
                         {
                             boxList[(int)cboxi].Cox = smallestz.prev.Cumx;
-                            smallestz.prev.next = new Scrappad();
-                            smallestz.prev.next.prev = smallestz.prev;
-                            smallestz.prev.next.next = smallestz;
+                            smallestz.prev.next = new Scrappad
+                            {
+                                prev = smallestz.prev,
+                                next = smallestz
+                            };
                             smallestz.prev = smallestz.prev.next;
                             smallestz.prev.Cumx = smallestz.prev.prev.Cumx + cboxx;
                             smallestz.prev.Cumz = smallestz.Cumz + cboxz;
@@ -447,9 +455,11 @@ namespace Sharp3D.Boxologic
                         else
                         {
                             boxList[(int)cboxi].Cox = smallestz.Cumx - cboxx;
-                            smallestz.next.prev = new Scrappad();
-                            smallestz.next.prev.next = smallestz.next;
-                            smallestz.next.prev.prev = smallestz;
+                            smallestz.next.prev = new Scrappad
+                            {
+                                next = smallestz.next,
+                                prev = smallestz
+                            };
                             smallestz.next = smallestz.next.prev;
                             smallestz.next.Cumx = smallestz.Cumx;
                             smallestz.next.Cumz = smallestz.Cumz + cboxz;
@@ -500,9 +510,11 @@ namespace Sharp3D.Boxologic
                         }
                         else
                         {
-                            smallestz.prev.next = new Scrappad();
-                            smallestz.prev.next.prev = smallestz.prev;
-                            smallestz.prev.next.next = smallestz;
+                            smallestz.prev.next = new Scrappad
+                            {
+                                prev = smallestz.prev,
+                                next = smallestz
+                            };
                             smallestz.prev = smallestz.prev.next;
                             smallestz.prev.Cumx = smallestz.prev.prev.Cumx + cboxx;
                             smallestz.prev.Cumz = smallestz.Cumz + cboxz;

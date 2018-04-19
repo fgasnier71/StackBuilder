@@ -756,6 +756,15 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {0}-{1} out of {2} .
+        /// </summary>
+        internal static string ID_DATABASEITEMCOUNT {
+            get {
+                return ResourceManager.GetString("ID_DATABASEITEMCOUNT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Define at least one stacking pattern.
         /// </summary>
         internal static string ID_DEFINEATLEASTONEPATTERN {

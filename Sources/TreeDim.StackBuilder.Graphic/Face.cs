@@ -276,8 +276,7 @@ namespace treeDiM.StackBuilder.Graphics
         public bool RayIntersect(Ray ray, out Vector3D ptInter)
         {
             ptInter = Vector3D.Zero;
-            double u = 0.0, v = 0.0;
-            if (IntersectTriangle(ray, _points[0], _points[1], _points[2], out u, out v))
+            if (IntersectTriangle(ray, _points[0], _points[1], _points[2], out double u, out double v))
             {
                 Vector3D vecU = _points[1] - _points[0];
                 Vector3D vecV = _points[2] - _points[0];

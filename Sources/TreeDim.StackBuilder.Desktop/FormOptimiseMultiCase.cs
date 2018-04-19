@@ -53,7 +53,13 @@ namespace treeDiM.StackBuilder.Desktop
                 // load cases
                 using (WCFClient wcfClient = new WCFClient())
                 {
-                    _sbCases = wcfClient.Client.GetAllCases();
+                    int rangeIndex = 0, number = 0;
+                    bool endReached = false;
+                    while (!endReached)
+                    {
+                        _listCases.AddRange( wcfClient.Client.GetAllCases(rangeIndex++, ref number) );
+                        endReached = (rangeIndex * 20 > number);
+                    }
                 }
                 OnFillListCases(this, null);
             }
@@ -400,11 +406,11 @@ namespace treeDiM.StackBuilder.Desktop
         private void OnFillListCases(object sender, EventArgs e)
         {
             // sanity check
-            if (null == _sbCases) return;
+            if (_listCases.Count < 1) return;
             // clear check list
             chklbCases.Items.Clear();
             // fill list of cases
-            foreach (DCSBCase sbCase in _sbCases)
+            foreach (DCSBCase sbCase in _listCases)
             {
                 try
                 {
@@ -460,7 +466,7 @@ namespace treeDiM.StackBuilder.Desktop
         private List<Analysis> _analyses = new List<Analysis>();
         private List<int> _checkedIndices = new List<int>();
         private Analysis _selectedAnalysis;
-        private DCSBCase[] _sbCases;
+        private List<DCSBCase> _listCases = new List<DCSBCase>();
         protected static ILog _log = LogManager.GetLogger(typeof(FormOptimiseMultiCase));
         #endregion
     }

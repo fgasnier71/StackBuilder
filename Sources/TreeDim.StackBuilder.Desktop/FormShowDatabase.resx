@@ -131,6 +131,9 @@
   <data name="bnClose.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
   </data>
+  <data name="bnClose.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="bnClose.Location" type="System.Drawing.Point, System.Drawing">
     <value>697, 43</value>
   </data>
@@ -158,6 +161,8 @@
   </data>
   <data name="bnImport.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
+  </data>
+    <value>NoControl</value>
   </data>
   <data name="bnImport.Location" type="System.Drawing.Point, System.Drawing">
     <value>697, 13</value>
@@ -199,7 +204,7 @@
     <value>graphCtrl</value>
   </data>
   <data name="&gt;&gt;graphCtrl.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Graphics.Graphics3DControl, treeDiM.StackBuilder.Graphics, Version=3.0.0.57, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Graphics.Graphics3DControl, treeDiM.StackBuilder.Graphics, Version=3.0.0.71, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;graphCtrl.Parent" xml:space="preserve">
     <value>splitContainerForm.Panel1</value>
@@ -219,6 +224,99 @@
   <data name="&gt;&gt;splitContainerForm.Panel1.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="lbCount.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
+  <data name="lbCount.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbCount.Location" type="System.Drawing.Point, System.Drawing">
+    <value>620, 259</value>
+  </data>
+  <data name="lbCount.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
+    <value>No</value>
+  </data>
+  <data name="lbCount.Size" type="System.Drawing.Size, System.Drawing">
+    <value>67, 13</value>
+  </data>
+  <data name="lbCount.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="lbCount.Text" xml:space="preserve">
+    <value>1-20 out of 0</value>
+  </data>
+  <data name="lbCount.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopRight</value>
+  </data>
+  <data name="&gt;&gt;lbCount.Name" xml:space="preserve">
+    <value>lbCount</value>
+  </data>
+  <data name="&gt;&gt;lbCount.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbCount.Parent" xml:space="preserve">
+    <value>splitContainerForm.Panel2</value>
+  </data>
+  <data name="&gt;&gt;lbCount.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="bnNext.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
+  <data name="bnNext.Location" type="System.Drawing.Point, System.Drawing">
+    <value>741, 254</value>
+  </data>
+  <data name="bnNext.Size" type="System.Drawing.Size, System.Drawing">
+    <value>31, 23</value>
+  </data>
+  <data name="bnNext.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="bnNext.Text" xml:space="preserve">
+    <value>&gt;</value>
+  </data>
+  <data name="&gt;&gt;bnNext.Name" xml:space="preserve">
+    <value>bnNext</value>
+  </data>
+  <data name="&gt;&gt;bnNext.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;bnNext.Parent" xml:space="preserve">
+    <value>splitContainerForm.Panel2</value>
+  </data>
+  <data name="&gt;&gt;bnNext.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="bnPrev.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
+  <data name="bnPrev.Location" type="System.Drawing.Point, System.Drawing">
+    <value>708, 254</value>
+  </data>
+  <data name="bnPrev.Size" type="System.Drawing.Size, System.Drawing">
+    <value>31, 23</value>
+  </data>
+  <data name="bnPrev.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="bnPrev.Text" xml:space="preserve">
+    <value>&lt;</value>
+  </data>
+  <data name="&gt;&gt;bnPrev.Name" xml:space="preserve">
+    <value>bnPrev</value>
+  </data>
+  <data name="&gt;&gt;bnPrev.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;bnPrev.Parent" xml:space="preserve">
+    <value>splitContainerForm.Panel2</value>
+  </data>
+  <data name="&gt;&gt;bnPrev.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="tabCtrlDBItems.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
   <data name="gridBoxes.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -232,7 +330,7 @@
     <value>0, 0</value>
   </data>
   <data name="gridBoxes.Size" type="System.Drawing.Size, System.Drawing">
-    <value>776, 252</value>
+    <value>776, 228</value>
   </data>
   <data name="gridBoxes.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -253,7 +351,7 @@
     <value>4, 22</value>
   </data>
   <data name="tabPageBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>776, 252</value>
+    <value>776, 228</value>
   </data>
   <data name="tabPageBox.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -283,7 +381,7 @@
     <value>3, 3</value>
   </data>
   <data name="gridCases.Size" type="System.Drawing.Size, System.Drawing">
-    <value>770, 246</value>
+    <value>770, 218</value>
   </data>
   <data name="gridCases.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -307,7 +405,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="tabPageCase.Size" type="System.Drawing.Size, System.Drawing">
-    <value>776, 252</value>
+    <value>776, 224</value>
   </data>
   <data name="tabPageCase.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -337,7 +435,7 @@
     <value>0, 0</value>
   </data>
   <data name="gridBundles.Size" type="System.Drawing.Size, System.Drawing">
-    <value>776, 252</value>
+    <value>776, 224</value>
   </data>
   <data name="gridBundles.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -358,7 +456,7 @@
     <value>4, 22</value>
   </data>
   <data name="tabPageBundle.Size" type="System.Drawing.Size, System.Drawing">
-    <value>776, 252</value>
+    <value>776, 224</value>
   </data>
   <data name="tabPageBundle.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -388,7 +486,7 @@
     <value>0, 0</value>
   </data>
   <data name="gridCylinders.Size" type="System.Drawing.Size, System.Drawing">
-    <value>776, 252</value>
+    <value>776, 224</value>
   </data>
   <data name="gridCylinders.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -409,7 +507,7 @@
     <value>4, 22</value>
   </data>
   <data name="tabPageCylinder.Size" type="System.Drawing.Size, System.Drawing">
-    <value>776, 252</value>
+    <value>776, 224</value>
   </data>
   <data name="tabPageCylinder.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -439,7 +537,7 @@
     <value>0, 0</value>
   </data>
   <data name="gridInterlayers.Size" type="System.Drawing.Size, System.Drawing">
-    <value>776, 252</value>
+    <value>776, 224</value>
   </data>
   <data name="gridInterlayers.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -460,7 +558,7 @@
     <value>4, 22</value>
   </data>
   <data name="tabPageInterlayer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>776, 252</value>
+    <value>776, 224</value>
   </data>
   <data name="tabPageInterlayer.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -490,7 +588,7 @@
     <value>3, 3</value>
   </data>
   <data name="gridPallets.Size" type="System.Drawing.Size, System.Drawing">
-    <value>770, 246</value>
+    <value>770, 218</value>
   </data>
   <data name="gridPallets.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -514,7 +612,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="tabPagePallet.Size" type="System.Drawing.Size, System.Drawing">
-    <value>776, 252</value>
+    <value>776, 224</value>
   </data>
   <data name="tabPagePallet.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -547,7 +645,7 @@
     <value>0, 0</value>
   </data>
   <data name="gridTrucks.Size" type="System.Drawing.Size, System.Drawing">
-    <value>776, 252</value>
+    <value>776, 224</value>
   </data>
   <data name="gridTrucks.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -568,7 +666,7 @@
     <value>4, 22</value>
   </data>
   <data name="tabPageTruck.Size" type="System.Drawing.Size, System.Drawing">
-    <value>776, 252</value>
+    <value>776, 224</value>
   </data>
   <data name="tabPageTruck.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -598,7 +696,7 @@
     <value>0, 0</value>
   </data>
   <data name="gridPalletCorners.Size" type="System.Drawing.Size, System.Drawing">
-    <value>776, 252</value>
+    <value>776, 224</value>
   </data>
   <data name="gridPalletCorners.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -619,7 +717,7 @@
     <value>4, 22</value>
   </data>
   <data name="tabPagePalletCorner.Size" type="System.Drawing.Size, System.Drawing">
-    <value>776, 252</value>
+    <value>776, 224</value>
   </data>
   <data name="tabPagePalletCorner.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -649,7 +747,7 @@
     <value>3, 3</value>
   </data>
   <data name="gridPalletCaps.Size" type="System.Drawing.Size, System.Drawing">
-    <value>770, 246</value>
+    <value>770, 218</value>
   </data>
   <data name="gridPalletCaps.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -673,7 +771,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="tabPagePalletCap.Size" type="System.Drawing.Size, System.Drawing">
-    <value>776, 252</value>
+    <value>776, 224</value>
   </data>
   <data name="tabPagePalletCap.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -703,7 +801,7 @@
     <value>0, 0</value>
   </data>
   <data name="gridPalletFilms.Size" type="System.Drawing.Size, System.Drawing">
-    <value>776, 252</value>
+    <value>776, 224</value>
   </data>
   <data name="gridPalletFilms.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -724,7 +822,7 @@
     <value>4, 22</value>
   </data>
   <data name="tabPagePalletFilm.Size" type="System.Drawing.Size, System.Drawing">
-    <value>776, 252</value>
+    <value>776, 224</value>
   </data>
   <data name="tabPagePalletFilm.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -744,14 +842,11 @@
   <data name="&gt;&gt;tabPagePalletFilm.ZOrder" xml:space="preserve">
     <value>9</value>
   </data>
-  <data name="tabCtrlDBItems.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
   <data name="tabCtrlDBItems.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
   <data name="tabCtrlDBItems.Size" type="System.Drawing.Size, System.Drawing">
-    <value>784, 278</value>
+    <value>784, 254</value>
   </data>
   <data name="tabCtrlDBItems.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -766,7 +861,7 @@
     <value>splitContainerForm.Panel2</value>
   </data>
   <data name="&gt;&gt;tabCtrlDBItems.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>3</value>
   </data>
   <data name="&gt;&gt;splitContainerForm.Panel2.Name" xml:space="preserve">
     <value>splitContainerForm.Panel2</value>
