@@ -392,7 +392,7 @@ namespace treeDiM.StackBuilder.ExcelListEvaluator
                 constraintSet.SetMaxHeight(new OptDouble(true, PalletMaximumHeight));
 
                 SolverCasePallet solver = new SolverCasePallet(bProperties, PalletProperties);
-                List<Analysis> analyses = solver.BuildAnalyses(constraintSet);
+                List<Analysis> analyses = solver.BuildAnalyses(constraintSet, false);
                 if (analyses.Count > 0)
                 {
                     Analysis analysis = analyses[0];
@@ -430,7 +430,7 @@ namespace treeDiM.StackBuilder.ExcelListEvaluator
                 constraintSet.SetAllowedOrientations(new bool[] { !AllowOnlyZOrientation, !AllowOnlyZOrientation, true });
 
                 SolverBoxCase solver = new SolverBoxCase(bProperties, container);
-                List<Analysis> analyses = solver.BuildAnalyses(constraintSet);
+                List<Analysis> analyses = solver.BuildAnalyses(constraintSet, false);
                 if (analyses.Count > 0)
                 {
                     Analysis analysis = analyses[0];

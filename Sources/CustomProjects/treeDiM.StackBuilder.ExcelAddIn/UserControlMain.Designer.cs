@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.bnCompute = new System.Windows.Forms.Button();
-            this.uCtrlLayerList1 = new treeDiM.StackBuilder.Graphics.UCtrlLayerList();
+            this.uCtrlLayerList = new treeDiM.StackBuilder.Graphics.UCtrlLayerList();
             this.uCtrlCaseOrientation1 = new treeDiM.StackBuilder.Graphics.uCtrlCaseOrientation();
             this.SuspendLayout();
             // 
@@ -43,16 +43,19 @@
             this.bnCompute.UseVisualStyleBackColor = true;
             this.bnCompute.Click += new System.EventHandler(this.OnCompute);
             // 
-            // uCtrlLayerList1
+            // uCtrlLayerList
             // 
-            this.uCtrlLayerList1.AutoScroll = true;
-            this.uCtrlLayerList1.ButtonSizes = new System.Drawing.Size(150, 150);
-            this.uCtrlLayerList1.Location = new System.Drawing.Point(0, 150);
-            this.uCtrlLayerList1.Name = "uCtrlLayerList1";
-            this.uCtrlLayerList1.Show3D = true;
-            this.uCtrlLayerList1.SingleSelection = false;
-            this.uCtrlLayerList1.Size = new System.Drawing.Size(297, 332);
-            this.uCtrlLayerList1.TabIndex = 1;
+            this.uCtrlLayerList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.uCtrlLayerList.AutoScroll = true;
+            this.uCtrlLayerList.ButtonSizes = new System.Drawing.Size(150, 150);
+            this.uCtrlLayerList.Location = new System.Drawing.Point(0, 124);
+            this.uCtrlLayerList.Name = "uCtrlLayerList";
+            this.uCtrlLayerList.Show3D = true;
+            this.uCtrlLayerList.SingleSelection = false;
+            this.uCtrlLayerList.Size = new System.Drawing.Size(320, 358);
+            this.uCtrlLayerList.TabIndex = 1;
             // 
             // uCtrlCaseOrientation1
             // 
@@ -60,9 +63,9 @@
         false,
         false,
         true};
-            this.uCtrlCaseOrientation1.Location = new System.Drawing.Point(4, 34);
+            this.uCtrlCaseOrientation1.Location = new System.Drawing.Point(7, 8);
             this.uCtrlCaseOrientation1.Name = "uCtrlCaseOrientation1";
-            this.uCtrlCaseOrientation1.Size = new System.Drawing.Size(293, 110);
+            this.uCtrlCaseOrientation1.Size = new System.Drawing.Size(313, 110);
             this.uCtrlCaseOrientation1.TabIndex = 2;
             // 
             // UserControlMain
@@ -70,7 +73,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.uCtrlCaseOrientation1);
-            this.Controls.Add(this.uCtrlLayerList1);
+            this.Controls.Add(this.uCtrlLayerList);
             this.Controls.Add(this.bnCompute);
             this.Name = "UserControlMain";
             this.Size = new System.Drawing.Size(323, 637);
@@ -81,7 +84,7 @@
         #endregion
 
         private System.Windows.Forms.Button bnCompute;
-        private Graphics.UCtrlLayerList uCtrlLayerList1;
+        private Graphics.UCtrlLayerList uCtrlLayerList;
         private Graphics.uCtrlCaseOrientation uCtrlCaseOrientation1;
     }
 }

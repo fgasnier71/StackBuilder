@@ -245,7 +245,9 @@
       <DependentUpon>UserControlMain.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -271,7 +273,7 @@
       <DependentUpon>StackBuilderAddIn.Designer.xml</DependentUpon>
     </Compile>
     <AppDesigner Include="Properties\" />
-    <None Include="treeDiM.pfx" />
+    <None Include="treedim.pfx" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\TreeDim.StackBuilder.Basics\treeDiM.StackBuilder.Basics.csproj">
@@ -298,7 +300,7 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>treeDiM.pfx</ManifestKeyFile>
+    <ManifestKeyFile>treedim.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestCertificateThumbprint>CDA7627C161DB03A5953043237AB1240E2C9CDC5</ManifestCertificateThumbprint>
@@ -318,11 +320,11 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
-  <Import Project="..\..\packages\NuGet.Build.Tasks.Pack.4.4.0\build\NuGet.Build.Tasks.Pack.targets" Condition="Exists('..\..\packages\NuGet.Build.Tasks.Pack.4.4.0\build\NuGet.Build.Tasks.Pack.targets')" />
+  <Import Project="..\..\packages\NuGet.Build.Tasks.Pack.4.7.0\build\NuGet.Build.Tasks.Pack.targets" Condition="Exists('..\..\packages\NuGet.Build.Tasks.Pack.4.7.0\build\NuGet.Build.Tasks.Pack.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\..\packages\NuGet.Build.Tasks.Pack.4.4.0\build\NuGet.Build.Tasks.Pack.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\NuGet.Build.Tasks.Pack.4.4.0\build\NuGet.Build.Tasks.Pack.targets'))" />
+    <Error Condition="!Exists('..\..\packages\NuGet.Build.Tasks.Pack.4.7.0\build\NuGet.Build.Tasks.Pack.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\NuGet.Build.Tasks.Pack.4.7.0\build\NuGet.Build.Tasks.Pack.targets'))" />
   </Target>
 </Project>

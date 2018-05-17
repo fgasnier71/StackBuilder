@@ -105,7 +105,7 @@ namespace treeDiM.StackBuilder.ExcelAddIn
 
                 // use a solver and get a list of sorted analyses + select the best one
                 SolverCasePallet solver = new SolverCasePallet(bProperties, palletProperties);
-                List<Analysis> analyses = solver.BuildAnalyses(constraintSet);
+                List<Analysis> analyses = solver.BuildAnalyses(constraintSet, true);
                 if (analyses.Count > 0)
                 {
                     Analysis analysis = analyses[0];
