@@ -99,10 +99,6 @@
     <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
-    <Reference Include="NuGet.Configuration">
-      <HintPath>..\..\packages\NuGet.Configuration.4.7.0\lib\net46\NuGet.Configuration.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Sharp3D.Math, Version=1.0.3.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Sharp3D.Math.1.0.3\lib\net45\Sharp3D.Math.dll</HintPath>
       <Private>True</Private>
@@ -247,6 +243,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\OfficePickers\OfficePickers.csproj">
+      <Project>{cad56b75-481b-4c76-b090-4bc2ff5e5681}</Project>
+      <Name>OfficePickers</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\OptionsLib\OptionsLib.csproj">
       <Project>{5035348f-344f-4822-823e-6cb4d79d80d7}</Project>
       <Name>OptionsLib</Name>
@@ -328,8 +328,7 @@
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\MSBuildTasks.1.5.0.235\build\MSBuildTasks.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MSBuildTasks.1.5.0.235\build\MSBuildTasks.targets'))" />
-    <Error Condition="!Exists('..\packages\MSBuildTasks.1.5.0.235\build\MSBuildTasks.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MSBuildTasks.1.5.0.235\build\MSBuildTasks.targets'))" />
+    <Error Condition="!Exists('..\..\packages\MSBuildTasks.1.5.0.235\build\MSBuildTasks.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\MSBuildTasks.1.5.0.235\build\MSBuildTasks.targets'))" />
     <Error Condition="!Exists('..\..\packages\NuGet.Build.Tasks.Pack.4.7.0\build\NuGet.Build.Tasks.Pack.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\NuGet.Build.Tasks.Pack.4.7.0\build\NuGet.Build.Tasks.Pack.targets'))" />
     <Error Condition="!Exists('..\..\packages\MSBuildTasks.1.5.0.235\build\MSBuildTasks.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\MSBuildTasks.1.5.0.235\build\MSBuildTasks.targets'))" />
   </Target>

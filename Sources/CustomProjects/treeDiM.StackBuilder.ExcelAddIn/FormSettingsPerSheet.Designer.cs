@@ -1,6 +1,6 @@
 ﻿namespace treeDiM.StackBuilder.ExcelAddIn
 {
-    partial class FormSheetSettings
+    partial class FormSettingsPerSheet
     {
         /// <summary>
         /// Required designer variable.

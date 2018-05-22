@@ -42,6 +42,7 @@
             this.gpHelp = this.Factory.CreateRibbonGroup();
             this.bnWebSite = this.Factory.CreateRibbonButton();
             this.bnOpenSampleFile = this.Factory.CreateRibbonButton();
+            this.toggleRowSheet = this.Factory.CreateRibbonToggleButton();
             this.tabAddInStackBuilder.SuspendLayout();
             this.gpStackBuilder.SuspendLayout();
             this.gpHelp.SuspendLayout();
@@ -56,13 +57,15 @@
             // 
             // gpStackBuilder
             // 
-            this.gpStackBuilder.Items.Add(this.bnCompute);
+            this.gpStackBuilder.Items.Add(this.toggleRowSheet);
             this.gpStackBuilder.Items.Add(this.bnParameters);
+            this.gpStackBuilder.Items.Add(this.bnCompute);
             this.gpStackBuilder.Label = "StackBuilder Add-in";
             this.gpStackBuilder.Name = "gpStackBuilder";
             // 
             // bnCompute
             // 
+            this.bnCompute.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
             this.bnCompute.Image = ((System.Drawing.Image)(resources.GetObject("bnCompute.Image")));
             this.bnCompute.Label = "Compute";
             this.bnCompute.Name = "bnCompute";
@@ -71,6 +74,7 @@
             // 
             // bnParameters
             // 
+            this.bnParameters.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
             this.bnParameters.Image = ((System.Drawing.Image)(resources.GetObject("bnParameters.Image")));
             this.bnParameters.Label = "Parameters";
             this.bnParameters.Name = "bnParameters";
@@ -79,13 +83,14 @@
             // 
             // gpHelp
             // 
-            this.gpHelp.Items.Add(this.bnWebSite);
             this.gpHelp.Items.Add(this.bnOpenSampleFile);
+            this.gpHelp.Items.Add(this.bnWebSite);
             this.gpHelp.Label = "Help";
             this.gpHelp.Name = "gpHelp";
             // 
             // bnWebSite
             // 
+            this.bnWebSite.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
             this.bnWebSite.Image = ((System.Drawing.Image)(resources.GetObject("bnWebSite.Image")));
             this.bnWebSite.Label = "Web Site";
             this.bnWebSite.Name = "bnWebSite";
@@ -94,11 +99,23 @@
             // 
             // bnOpenSampleFile
             // 
+            this.bnOpenSampleFile.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
             this.bnOpenSampleFile.Image = ((System.Drawing.Image)(resources.GetObject("bnOpenSampleFile.Image")));
             this.bnOpenSampleFile.Label = "Open sample file";
             this.bnOpenSampleFile.Name = "bnOpenSampleFile";
             this.bnOpenSampleFile.ShowImage = true;
             this.bnOpenSampleFile.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.OnOpenSample);
+            // 
+            // toggleRowSheet
+            // 
+            this.toggleRowSheet.Checked = true;
+            this.toggleRowSheet.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+            this.toggleRowSheet.Image = ((System.Drawing.Image)(resources.GetObject("toggleRowSheet.Image")));
+            this.toggleRowSheet.Label = "Per row mode";
+            this.toggleRowSheet.Name = "toggleRowSheet";
+            this.toggleRowSheet.ShowImage = true;
+            this.toggleRowSheet.SuperTip = "Switch analysis per row / per sheet";
+            this.toggleRowSheet.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.OnModeChanged);
             // 
             // RibbonStackBuilder
             // 
@@ -125,6 +142,7 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonGroup gpHelp;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton bnWebSite;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton bnOpenSampleFile;
+        internal Microsoft.Office.Tools.Ribbon.RibbonToggleButton toggleRowSheet;
     }
 
     partial class ThisRibbonCollection

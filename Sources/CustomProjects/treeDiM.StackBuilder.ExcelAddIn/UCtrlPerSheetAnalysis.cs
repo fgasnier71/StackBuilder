@@ -19,9 +19,9 @@ using treeDiM.StackBuilder.ExcelAddIn.Properties;
 
 namespace treeDiM.StackBuilder.ExcelAddIn
 {
-    public partial class UserControlMain : UserControl
+    public partial class UCtrlPerSheetAnalysis : UserControl
     {
-        public UserControlMain()
+        public UCtrlPerSheetAnalysis()
         {
             InitializeComponent();
         }
@@ -29,7 +29,6 @@ namespace treeDiM.StackBuilder.ExcelAddIn
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
-
             try
             {
 
@@ -94,7 +93,7 @@ namespace treeDiM.StackBuilder.ExcelAddIn
                         Graphics3DImage graphics = null;
                        // generate image path
                        string stackImagePath = Path.Combine(Path.ChangeExtension(Path.GetTempFileName(), "png"));
-                        graphics = new Graphics3DImage(new Size(Settings.Default.ImageDef, Settings.Default.ImageDef))
+                        graphics = new Graphics3DImage(new Size(Settings.Default.ImageSize, Settings.Default.ImageSize))
                         {
                             FontSizeRatio = 0.01f,
                             CameraPosition = Graphics3D.Corner_0
@@ -128,7 +127,13 @@ namespace treeDiM.StackBuilder.ExcelAddIn
             }
         }
 
+        #region Static member functions
+        internal static string TaskPaneTitle => "Stackbuilder Per Sheet Analysis";
+        #endregion
+
         private string PalletTypeName { get { return "EUR2"; } }
+
+        #region Helpers
         private double ReadDouble(Excel.Worksheet wSheet, string cellName, string vName)
         {
             try
@@ -169,6 +174,7 @@ namespace treeDiM.StackBuilder.ExcelAddIn
                 throw ex;
             }
         }
+        #endregion
     }
 
 }

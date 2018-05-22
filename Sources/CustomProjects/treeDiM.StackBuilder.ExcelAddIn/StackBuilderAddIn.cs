@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
-using System.Text;
 
 using Excel = Microsoft.Office.Interop.Excel;
 
@@ -21,10 +20,16 @@ namespace treeDiM.StackBuilder.ExcelAddIn
 {
     public partial class StackBuilderAddIn
     {
+        #region Mode
+        public enum Mode { ANALYSIS_PERSHEET, ANALYSIS_PERROW }
+        public Mode CurrentMode { get; set; }
+        #endregion
         #region Handlers
         private void StackBuilderAddIn_Startup(object sender, System.EventArgs e)
         {
-            Basics.UnitsManager.CurrentUnitSystem = (Basics.UnitsManager.UnitSystem)Properties.Settings.Default.UnitSystem;
+            UnitsManager.CurrentUnitSystem = (UnitsManager.UnitSystem)Settings.Default.UnitSystem;
+            CurrentMode = (Mode)Settings.Default.Mode;
+
         }
         private void StackBuilderAddIn_Shutdown(object sender, System.EventArgs e)
         {
@@ -34,9 +39,23 @@ namespace treeDiM.StackBuilder.ExcelAddIn
         #region Addin pane
         public void ShowPane()
         {
-            var userControlMain = new UserControlMain();
-            var customPane = this.CustomTaskPanes.Add(userControlMain, TASKPANETITLE);
-            customPane.Width = userControlMain.Width;
+            RemovePane();
+            UserControl userCtrl = null;
+            string title = string.Empty;
+            switch (CurrentMode)
+            {
+                case Mode.ANALYSIS_PERSHEET:
+                    userCtrl = new UCtrlPerSheetAnalysis();
+                    title = UCtrlPerSheetAnalysis.TaskPaneTitle;
+                    break;
+                case Mode.ANALYSIS_PERROW:
+                    userCtrl = new UCtrlPerRowAnalysis();
+                    title = UCtrlPerRowAnalysis.TaskPaneTitle;
+                    break;
+                default: break;
+            }
+            var customPane = CustomTaskPanes.Add(userCtrl, title);
+            customPane.Width = userCtrl.Width + 300;
             customPane.Visible = true;
         }
         public void RemovePane()
@@ -44,9 +63,17 @@ namespace treeDiM.StackBuilder.ExcelAddIn
             for (int i = 0; i < this.CustomTaskPanes.Count; ++i)
             {
                 var ctp = this.CustomTaskPanes[i];
-                if (ctp.Title == TASKPANETITLE)
+                if (ctp.Title == UCtrlPerRowAnalysis.TaskPaneTitle || ctp.Title == UCtrlPerSheetAnalysis.TaskPaneTitle)
                     this.CustomTaskPanes.RemoveAt(i);
             }
+        }
+        #endregion
+
+        #region ChangeMode
+        public void ChangeMode(Mode mode)
+        {
+            CurrentMode = mode;
+            ShowPane();
         }
         #endregion
 
@@ -117,7 +144,7 @@ namespace treeDiM.StackBuilder.ExcelAddIn
                     Graphics3DImage graphics = null;
                     // generate image path
                     string stackImagePath = Path.Combine(Path.ChangeExtension(Path.GetTempFileName(), "png"));
-                    graphics = new Graphics3DImage(new Size(Settings.Default.ImageDef, Settings.Default.ImageDef));
+                    graphics = new Graphics3DImage(new Size(Settings.Default.ImageSize, Settings.Default.ImageSize));
                     graphics.FontSizeRatio = 0.01f;
                     graphics.CameraPosition = Graphics3D.Corner_0;
                     ViewerSolution sv = new ViewerSolution(analysis.Solution);
@@ -225,8 +252,8 @@ namespace treeDiM.StackBuilder.ExcelAddIn
         /// </summary>
         private void InternalStartup()
         {
-            this.Startup += new System.EventHandler(StackBuilderAddIn_Startup);
-            this.Shutdown += new System.EventHandler(StackBuilderAddIn_Shutdown);
+            this.Startup += new EventHandler(StackBuilderAddIn_Startup);
+            this.Shutdown += new EventHandler(StackBuilderAddIn_Shutdown);
         }
         #endregion
 

@@ -9,6 +9,9 @@ namespace treeDiM.StackBuilder.ExcelAddIn
     {
         private void RibbonStackBuilder_Load(object sender, RibbonUIEventArgs e)
         {
+            Globals.StackBuilderAddIn.CurrentMode = StackBuilderAddIn.Mode.ANALYSIS_PERROW;
+            toggleRowSheet.Checked = Globals.StackBuilderAddIn.CurrentMode == StackBuilderAddIn.Mode.ANALYSIS_PERROW;
+            Globals.StackBuilderAddIn.ShowPane();
         }
         private void OnCompute(object sender, RibbonControlEventArgs e)
         {
@@ -20,7 +23,13 @@ namespace treeDiM.StackBuilder.ExcelAddIn
         {
             try
             {
-                FormSheetSettings form = new FormSheetSettings();
+                Form form = null;
+                switch (Globals.StackBuilderAddIn.CurrentMode)
+                {
+                    case StackBuilderAddIn.Mode.ANALYSIS_PERROW: form = new FormSettingsPerRow(); break;
+                    case StackBuilderAddIn.Mode.ANALYSIS_PERSHEET: form = new FormSettingsPerSheet(); break;
+                    default: break;
+                }
                 form.ShowDialog();
             }
             catch (Exception ex)
@@ -36,6 +45,11 @@ namespace treeDiM.StackBuilder.ExcelAddIn
         private void OnOpenSample(object sender, RibbonControlEventArgs e)
         {
             try { Globals.StackBuilderAddIn.OpenSampleFile(); }
+            catch (Exception ex) { MessageBox.Show(ex.ToString()); }
+        }
+        private void OnModeChanged(object sender, RibbonControlEventArgs e)
+        {
+            try { Globals.StackBuilderAddIn.ChangeMode(toggleRowSheet.Checked ? StackBuilderAddIn.Mode.ANALYSIS_PERROW : StackBuilderAddIn.Mode.ANALYSIS_PERSHEET); }
             catch (Exception ex) { MessageBox.Show(ex.ToString()); }
         }
     }

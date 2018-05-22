@@ -32,11 +32,12 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <IsWebBootstrapper>True</IsWebBootstrapper>
+    <TargetFrameworkProfile />
     <BootstrapperEnabled>true</BootstrapperEnabled>
     <PublishUrl>ftp://plmpack.com/public/www/stackbuilder_excelAddin/ClickOnce/</PublishUrl>
     <InstallUrl>http://www.plmpack.com/stackbuilder_excelAddin/ClickOnce/</InstallUrl>
     <TargetCulture>en</TargetCulture>
-    <ApplicationVersion>1.0.0.7</ApplicationVersion>
+    <ApplicationVersion>1.0.0.10</ApplicationVersion>
     <AutoIncrementApplicationRevision>true</AutoIncrementApplicationRevision>
     <UpdateEnabled>true</UpdateEnabled>
     <UpdateInterval>0</UpdateInterval>
@@ -47,12 +48,11 @@
     <FriendlyName>StackBuilder Excel Add-in</FriendlyName>
     <OfficeApplicationDescription>An Excel addin that generates a palletization solution given a case, a pallet and a constraint set described in Excel sheet. Was tested with MS Excel 2016.</OfficeApplicationDescription>
     <LoadBehavior>3</LoadBehavior>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <ItemGroup>
-    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
       <Visible>False</Visible>
-      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 and x64%29</ProductName>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 and x64%29</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
     <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
@@ -138,6 +138,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
@@ -145,6 +146,9 @@
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="treeDiM.UserControls">
+      <HintPath>..\..\TreeDim.UserControls\bin\Release\treeDiM.UserControls.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Office.Tools.v4.0.Framework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
@@ -182,29 +186,39 @@
   -->
   <ItemGroup>
     <Compile Include="ExceptionCellReading.cs" />
-    <Compile Include="FormSheetSettings.cs">
+    <Compile Include="FormSettingsPerRow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormSheetSettings.Designer.cs">
-      <DependentUpon>FormSheetSettings.cs</DependentUpon>
+    <Compile Include="FormSettingsPerRow.Designer.cs">
+      <DependentUpon>FormSettingsPerRow.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormSettingsPerSheet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSettingsPerSheet.Designer.cs">
+      <DependentUpon>FormSettingsPerSheet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PalletItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="UserControlMain.cs">
+    <Compile Include="UCtrlPerRowAnalysis.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControlMain.Designer.cs">
-      <DependentUpon>UserControlMain.cs</DependentUpon>
+    <Compile Include="UCtrlPerRowAnalysis.Designer.cs">
+      <DependentUpon>UCtrlPerRowAnalysis.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="FormSheetSettings.resx">
-      <DependentUpon>FormSheetSettings.cs</DependentUpon>
+    <Compile Include="UCtrlPerSheetAnalysis.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCtrlPerSheetAnalysis.Designer.cs">
+      <DependentUpon>UCtrlPerSheetAnalysis.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="FormSettingsPerRow.resx">
+      <DependentUpon>FormSettingsPerRow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormSheetSettings.ru.resx">
-      <DependentUpon>FormSheetSettings.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormSheetSettings.zh.resx">
-      <DependentUpon>FormSheetSettings.cs</DependentUpon>
+    <EmbeddedResource Include="FormSettingsPerSheet.resx">
+      <DependentUpon>FormSettingsPerSheet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.de.resx" />
     <EmbeddedResource Include="Properties\Resources.es.resx" />
@@ -235,14 +249,11 @@
     <EmbeddedResource Include="RibbonStackBuilder.zh.resx">
       <DependentUpon>RibbonStackBuilder.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControlMain.resx">
-      <DependentUpon>UserControlMain.cs</DependentUpon>
+    <EmbeddedResource Include="UCtrlPerRowAnalysis.resx">
+      <DependentUpon>UCtrlPerRowAnalysis.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControlMain.ru.resx">
-      <DependentUpon>UserControlMain.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserControlMain.zh.resx">
-      <DependentUpon>UserControlMain.cs</DependentUpon>
+    <EmbeddedResource Include="UCtrlPerSheetAnalysis.resx">
+      <DependentUpon>UCtrlPerSheetAnalysis.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="packages.config">
@@ -288,6 +299,10 @@
       <Project>{2ad4c04c-5b8a-4e69-9b1c-402cb86860a7}</Project>
       <Name>treeDiM.StackBuilder.Graphics</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\TreeDim.StackBuilder.Reporting\treeDiM.StackBuilder.Reporting.csproj">
+      <Project>{1505a6e5-e6f9-4408-a5c8-968417081cbd}</Project>
+      <Name>treeDiM.StackBuilder.Reporting</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\" />
@@ -315,7 +330,7 @@
       <FlavorProperties GUID="{BAA0C2D2-18E2-41B9-852F-F413020CAA33}">
         <ProjectProperties HostName="Excel" HostPackage="{29A7B9D7-A7F1-4328-8EF0-6B2D1A56B2C1}" OfficeVersion="15.0" VstxVersion="4.0" ApplicationType="Excel" Language="cs" TemplatesPath="" DebugInfoExeName="#Software\Microsoft\Office\16.0\Excel\InstallRoot\Path#excel.exe" DebugInfoCommandLine="/x" AddItemTemplatesGuid="{51063C3A-E220-4D12-8922-BDA915ACD783}" />
         <Host Name="Excel" GeneratedCodeNamespace="treeDiM.StackBuilder.ExcelAddIn" PublishedHash="69C324AB27932AA2FBF2B7EA72250886FF164DE6" IconIndex="0">
-          <HostItem Name="ThisAddIn" Code="StackBuilderAddIn.cs" CanonicalName="AddIn" PublishedHash="3D331D2B2271A06E2A43FE99C2BF30CC294DCBD4" CanActivate="false" IconIndex="1" Blueprint="StackBuilderAddIn.Designer.xml" GeneratedCode="StackBuilderAddIn.Designer.cs" />
+          <HostItem Name="ThisAddIn" Code="StackBuilderAddIn.cs" CanonicalName="AddIn" PublishedHash="20F74B1602A3C056B2FB62F29C098F6EE6D8D52D" CanActivate="false" IconIndex="1" Blueprint="StackBuilderAddIn.Designer.xml" GeneratedCode="StackBuilderAddIn.Designer.cs" />
         </Host>
       </FlavorProperties>
     </VisualStudio>

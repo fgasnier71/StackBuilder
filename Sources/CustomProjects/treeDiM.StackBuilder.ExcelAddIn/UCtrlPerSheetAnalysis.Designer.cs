@@ -1,6 +1,6 @@
 ﻿namespace treeDiM.StackBuilder.ExcelAddIn
 {
-    partial class UserControlMain
+    partial class UCtrlPerSheetAnalysis
     {
         /// <summary> 
         /// Required designer variable.
@@ -35,7 +35,8 @@
             // 
             // bnCompute
             // 
-            this.bnCompute.Location = new System.Drawing.Point(4, 488);
+            this.bnCompute.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.bnCompute.Location = new System.Drawing.Point(7, 624);
             this.bnCompute.Name = "bnCompute";
             this.bnCompute.Size = new System.Drawing.Size(75, 23);
             this.bnCompute.TabIndex = 0;
@@ -54,7 +55,7 @@
             this.uCtrlLayerList.Name = "uCtrlLayerList";
             this.uCtrlLayerList.Show3D = true;
             this.uCtrlLayerList.SingleSelection = false;
-            this.uCtrlLayerList.Size = new System.Drawing.Size(320, 358);
+            this.uCtrlLayerList.Size = new System.Drawing.Size(297, 371);
             this.uCtrlLayerList.TabIndex = 1;
             // 
             // uCtrlCaseOrientation1
@@ -63,20 +64,20 @@
         false,
         false,
         true};
-            this.uCtrlCaseOrientation1.Location = new System.Drawing.Point(7, 8);
+            this.uCtrlCaseOrientation1.Location = new System.Drawing.Point(5, 7);
             this.uCtrlCaseOrientation1.Name = "uCtrlCaseOrientation1";
-            this.uCtrlCaseOrientation1.Size = new System.Drawing.Size(313, 110);
+            this.uCtrlCaseOrientation1.Size = new System.Drawing.Size(290, 110);
             this.uCtrlCaseOrientation1.TabIndex = 2;
             // 
-            // UserControlMain
+            // UCtrlPerSheetAnalysis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.uCtrlCaseOrientation1);
             this.Controls.Add(this.uCtrlLayerList);
             this.Controls.Add(this.bnCompute);
-            this.Name = "UserControlMain";
-            this.Size = new System.Drawing.Size(323, 637);
+            this.Name = "UCtrlPerSheetAnalysis";
+            this.Size = new System.Drawing.Size(300, 650);
             this.ResumeLayout(false);
 
         }

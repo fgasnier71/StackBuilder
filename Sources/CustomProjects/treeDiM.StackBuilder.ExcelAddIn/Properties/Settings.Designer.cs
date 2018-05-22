@@ -12,7 +12,7 @@ namespace treeDiM.StackBuilder.ExcelAddIn.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.5.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.7.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -229,13 +229,13 @@ namespace treeDiM.StackBuilder.ExcelAddIn.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1000")]
-        public int ImageDef {
+        [global::System.Configuration.DefaultSettingValueAttribute("768")]
+        public int ImageSize {
             get {
-                return ((int)(this["ImageDef"]));
+                return ((int)(this["ImageSize"]));
             }
             set {
-                this["ImageDef"] = value;
+                this["ImageSize"] = value;
             }
         }
         
@@ -259,13 +259,205 @@ namespace treeDiM.StackBuilder.ExcelAddIn.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public int UnitSystem {
             get {
                 return ((int)(this["UnitSystem"]));
             }
             set {
                 this["UnitSystem"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int Mode {
+            get {
+                return ((int)(this["Mode"]));
+            }
+            set {
+                this["Mode"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("2600")]
+        public double LoadedPalletHeight {
+            get {
+                return ((double)(this["LoadedPalletHeight"]));
+            }
+            set {
+                this["LoadedPalletHeight"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double OverhangX {
+            get {
+                return ((double)(this["OverhangX"]));
+            }
+            set {
+                this["OverhangX"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double OverhangY {
+            get {
+                return ((double)(this["OverhangY"]));
+            }
+            set {
+                this["OverhangY"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("A")]
+        public string ColumnLetterName {
+            get {
+                return ((string)(this["ColumnLetterName"]));
+            }
+            set {
+                this["ColumnLetterName"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("B")]
+        public string ColumnLetterDescription {
+            get {
+                return ((string)(this["ColumnLetterDescription"]));
+            }
+            set {
+                this["ColumnLetterDescription"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("C")]
+        public string ColumnLetterLength {
+            get {
+                return ((string)(this["ColumnLetterLength"]));
+            }
+            set {
+                this["ColumnLetterLength"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("D")]
+        public string ColumnLetterWidth {
+            get {
+                return ((string)(this["ColumnLetterWidth"]));
+            }
+            set {
+                this["ColumnLetterWidth"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("E")]
+        public string ColumnLetterHeight {
+            get {
+                return ((string)(this["ColumnLetterHeight"]));
+            }
+            set {
+                this["ColumnLetterHeight"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("F")]
+        public string ColumnLetterWeight {
+            get {
+                return ((string)(this["ColumnLetterWeight"]));
+            }
+            set {
+                this["ColumnLetterWeight"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("M")]
+        public string ColumnLetterOutputStart {
+            get {
+                return ((string)(this["ColumnLetterOutputStart"]));
+            }
+            set {
+                this["ColumnLetterOutputStart"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool UseDescription {
+            get {
+                return ((bool)(this["UseDescription"]));
+            }
+            set {
+                this["UseDescription"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1000")]
+        public int StackCountMax {
+            get {
+                return ((int)(this["StackCountMax"]));
+            }
+            set {
+                this["StackCountMax"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
+        public double MinDimensions {
+            get {
+                return ((double)(this["MinDimensions"]));
+            }
+            set {
+                this["MinDimensions"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool GenerateImageInRow {
+            get {
+                return ((bool)(this["GenerateImageInRow"]));
+            }
+            set {
+                this["GenerateImageInRow"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool GenerateImageInFolder {
+            get {
+                return ((bool)(this["GenerateImageInFolder"]));
+            }
+            set {
+                this["GenerateImageInFolder"] = value;
             }
         }
     }

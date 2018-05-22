@@ -1,13 +1,16 @@
-﻿using System;
+﻿#region Using directives
+using System;
 using System.ComponentModel;
 using System.Windows.Forms;
+
 using treeDiM.StackBuilder.ExcelAddIn.Properties;
+#endregion
 
 namespace treeDiM.StackBuilder.ExcelAddIn
 {
-    public partial class FormSheetSettings : Form
+    public partial class FormSettingsPerSheet : Form
     {
-        public FormSheetSettings()
+        public FormSettingsPerSheet()
         {
             InitializeComponent();
         }
@@ -37,7 +40,7 @@ namespace treeDiM.StackBuilder.ExcelAddIn
             uCtrlImageLeftTop.ValueY = Settings.Default.ImageTop;
             uCtrlImageDim.ValueX = Settings.Default.ImageWidth;
             uCtrlImageDim.ValueY = Settings.Default.ImageHeight;
-            nudImageDef.Value = (decimal)Settings.Default.ImageDef;
+            nudImageDef.Value = (decimal)Settings.Default.ImageSize;
 
             cbUnitSystem.SelectedIndex = Settings.Default.UnitSystem;
         }
@@ -68,7 +71,7 @@ namespace treeDiM.StackBuilder.ExcelAddIn
             Settings.Default.ImageTop = uCtrlImageLeftTop.ValueY;
             Settings.Default.ImageWidth = uCtrlImageDim.ValueX;
             Settings.Default.ImageHeight = uCtrlImageDim.ValueY;
-            Settings.Default.ImageDef = (int)nudImageDef.Value;
+            Settings.Default.ImageSize = (int)nudImageDef.Value;
 
             Settings.Default.UnitSystem = cbUnitSystem.SelectedIndex;
 

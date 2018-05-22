@@ -499,9 +499,11 @@ namespace treeDiM.StackBuilder.ExcelListEvaluator
             try
             {
                 object misValue = System.Reflection.Missing.Value;
-                Microsoft.Office.Interop.Excel.Application xlApp = new Microsoft.Office.Interop.Excel.Application();
-                xlApp.Visible = true;
-                xlApp.DisplayAlerts = false;
+                Microsoft.Office.Interop.Excel.Application xlApp = new Microsoft.Office.Interop.Excel.Application
+                {
+                    Visible = true,
+                    DisplayAlerts = false
+                };
                 Workbooks xlWorkBooks = xlApp.Workbooks;
                 Workbook xlWorkBook = xlWorkBooks.Open(filePath, Type.Missing, false );
                 Worksheet xlWorkSheet = xlWorkBook.Worksheets.get_Item("Sheet1");
@@ -529,7 +531,7 @@ namespace treeDiM.StackBuilder.ExcelListEvaluator
                 imageRange.ColumnWidth = 24;
                 double largestDimensionMinimum = LargestDimMin;
 
-                // loop throw
+                // loop through
                 for (int iRow = 2; iRow <= rowCount; ++iRow)
                 {
                     try
@@ -565,11 +567,11 @@ namespace treeDiM.StackBuilder.ExcelListEvaluator
                                 imageCell.Left + 1, imageCell.Top + 1, imageCell.Width - 2, imageCell.Height - 2);
                         }
                     }
-                    catch (System.OutOfMemoryException ex)
+                    catch (OutOfMemoryException ex)
                     {
                         _log.Error(ex.Message);
                     }
-                    catch (treeDiM.StackBuilder.Engine.EngineException ex)
+                    catch (EngineException ex)
                     {
                         _log.Error(ex.Message);
                     }
