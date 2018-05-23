@@ -127,11 +127,11 @@ namespace treeDiM.StackBuilder.ExcelAddIn
                             // get description
                             string description = (xlSheet.get_Range(colDescription + iRow, colDescription + iRow).Value).ToString();
                             // get length
-                            double length = (xlSheet.get_Range(colLength + iRow, colLength + iRow).Value);
+                            double length = xlSheet.get_Range(colLength + iRow, colLength + iRow).Value;
                             // get width
-                            double width = (xlSheet.get_Range(colWidth + iRow, colWidth + iRow).Value);
+                            double width = xlSheet.get_Range(colWidth + iRow, colWidth + iRow).Value;
                             // get height
-                            double height = (xlSheet.get_Range(colHeight + iRow, colHeight + iRow).Value);
+                            double height = xlSheet.get_Range(colHeight + iRow, colHeight + iRow).Value;
 
                             double maxDimension = Math.Max(Math.Max(length, width), height);
                             if (maxDimension < largestDimensionMinimum) continue;
