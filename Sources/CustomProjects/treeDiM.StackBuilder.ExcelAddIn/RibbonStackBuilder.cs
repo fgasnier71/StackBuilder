@@ -9,10 +9,15 @@ namespace treeDiM.StackBuilder.ExcelAddIn
     {
         private void RibbonStackBuilder_Load(object sender, RibbonUIEventArgs e)
         {
-            Globals.StackBuilderAddIn.CurrentMode = StackBuilderAddIn.Mode.ANALYSIS_PERROW;
-            toggleRowSheet.Checked = Globals.StackBuilderAddIn.CurrentMode == StackBuilderAddIn.Mode.ANALYSIS_PERROW;
-            Globals.StackBuilderAddIn.ShowPane();
+            Globals.StackBuilderAddIn.ModeChanged += OnModeChanged;
+            OnModeChanged(Globals.StackBuilderAddIn.CurrentMode);
         }
+
+        private void OnModeChanged(StackBuilderAddIn.Mode mode)
+        {
+            toggleRowSheet.Checked = mode == StackBuilderAddIn.Mode.ANALYSIS_PERROW;
+        }
+
         private void OnCompute(object sender, RibbonControlEventArgs e)
         {
             try { Globals.StackBuilderAddIn.Compute(); }

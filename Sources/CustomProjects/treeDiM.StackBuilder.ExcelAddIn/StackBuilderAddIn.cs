@@ -21,18 +21,20 @@ namespace treeDiM.StackBuilder.ExcelAddIn
     public partial class StackBuilderAddIn
     {
         #region Mode
-        public enum Mode { ANALYSIS_PERSHEET, ANALYSIS_PERROW }
+        public enum Mode {  ANALYSIS_PERROW, ANALYSIS_PERSHEET }
         public Mode CurrentMode { get; set; }
         #endregion
         #region Handlers
         private void StackBuilderAddIn_Startup(object sender, System.EventArgs e)
         {
             UnitsManager.CurrentUnitSystem = (UnitsManager.UnitSystem)Settings.Default.UnitSystem;
-            CurrentMode = (Mode)Settings.Default.Mode;
+            ChangeMode( (Mode)Settings.Default.Mode );
 
         }
         private void StackBuilderAddIn_Shutdown(object sender, System.EventArgs e)
         {
+            Settings.Default.UnitSystem = (int)UnitsManager.CurrentUnitSystem;
+            Settings.Default.Mode = (int)CurrentMode;
         }
         #endregion
 
@@ -74,6 +76,7 @@ namespace treeDiM.StackBuilder.ExcelAddIn
         {
             CurrentMode = mode;
             ShowPane();
+            ModeChanged(mode);
         }
         #endregion
 
@@ -258,5 +261,8 @@ namespace treeDiM.StackBuilder.ExcelAddIn
         #endregion
 
         private const string TASKPANETITLE = "StackBuilder";
+
+        public delegate void ModeChange(Mode mode);
+        public event ModeChange ModeChanged;
     }
 }

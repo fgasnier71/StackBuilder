@@ -37,12 +37,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RibbonStackBuilder));
             this.tabAddInStackBuilder = this.Factory.CreateRibbonTab();
             this.gpStackBuilder = this.Factory.CreateRibbonGroup();
-            this.bnCompute = this.Factory.CreateRibbonButton();
-            this.bnParameters = this.Factory.CreateRibbonButton();
-            this.gpHelp = this.Factory.CreateRibbonGroup();
-            this.bnWebSite = this.Factory.CreateRibbonButton();
-            this.bnOpenSampleFile = this.Factory.CreateRibbonButton();
             this.toggleRowSheet = this.Factory.CreateRibbonToggleButton();
+            this.bnParameters = this.Factory.CreateRibbonButton();
+            this.bnCompute = this.Factory.CreateRibbonButton();
+            this.gpHelp = this.Factory.CreateRibbonGroup();
+            this.bnOpenSampleFile = this.Factory.CreateRibbonButton();
+            this.bnWebSite = this.Factory.CreateRibbonButton();
             this.tabAddInStackBuilder.SuspendLayout();
             this.gpStackBuilder.SuspendLayout();
             this.gpHelp.SuspendLayout();
@@ -63,49 +63,6 @@
             this.gpStackBuilder.Label = "StackBuilder Add-in";
             this.gpStackBuilder.Name = "gpStackBuilder";
             // 
-            // bnCompute
-            // 
-            this.bnCompute.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
-            this.bnCompute.Image = ((System.Drawing.Image)(resources.GetObject("bnCompute.Image")));
-            this.bnCompute.Label = "Compute";
-            this.bnCompute.Name = "bnCompute";
-            this.bnCompute.ShowImage = true;
-            this.bnCompute.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.OnCompute);
-            // 
-            // bnParameters
-            // 
-            this.bnParameters.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
-            this.bnParameters.Image = ((System.Drawing.Image)(resources.GetObject("bnParameters.Image")));
-            this.bnParameters.Label = "Parameters";
-            this.bnParameters.Name = "bnParameters";
-            this.bnParameters.ShowImage = true;
-            this.bnParameters.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.OnParameters);
-            // 
-            // gpHelp
-            // 
-            this.gpHelp.Items.Add(this.bnOpenSampleFile);
-            this.gpHelp.Items.Add(this.bnWebSite);
-            this.gpHelp.Label = "Help";
-            this.gpHelp.Name = "gpHelp";
-            // 
-            // bnWebSite
-            // 
-            this.bnWebSite.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
-            this.bnWebSite.Image = ((System.Drawing.Image)(resources.GetObject("bnWebSite.Image")));
-            this.bnWebSite.Label = "Web Site";
-            this.bnWebSite.Name = "bnWebSite";
-            this.bnWebSite.ShowImage = true;
-            this.bnWebSite.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.OnShowWebSite);
-            // 
-            // bnOpenSampleFile
-            // 
-            this.bnOpenSampleFile.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
-            this.bnOpenSampleFile.Image = ((System.Drawing.Image)(resources.GetObject("bnOpenSampleFile.Image")));
-            this.bnOpenSampleFile.Label = "Open sample file";
-            this.bnOpenSampleFile.Name = "bnOpenSampleFile";
-            this.bnOpenSampleFile.ShowImage = true;
-            this.bnOpenSampleFile.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.OnOpenSample);
-            // 
             // toggleRowSheet
             // 
             this.toggleRowSheet.Checked = true;
@@ -116,6 +73,49 @@
             this.toggleRowSheet.ShowImage = true;
             this.toggleRowSheet.SuperTip = "Switch analysis per row / per sheet";
             this.toggleRowSheet.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.OnModeChanged);
+            // 
+            // bnParameters
+            // 
+            this.bnParameters.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+            this.bnParameters.Image = ((System.Drawing.Image)(resources.GetObject("bnParameters.Image")));
+            this.bnParameters.Label = "Parameters";
+            this.bnParameters.Name = "bnParameters";
+            this.bnParameters.ShowImage = true;
+            this.bnParameters.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.OnParameters);
+            // 
+            // bnCompute
+            // 
+            this.bnCompute.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+            this.bnCompute.Image = ((System.Drawing.Image)(resources.GetObject("bnCompute.Image")));
+            this.bnCompute.Label = "Compute";
+            this.bnCompute.Name = "bnCompute";
+            this.bnCompute.ShowImage = true;
+            this.bnCompute.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.OnCompute);
+            // 
+            // gpHelp
+            // 
+            this.gpHelp.Items.Add(this.bnOpenSampleFile);
+            this.gpHelp.Items.Add(this.bnWebSite);
+            this.gpHelp.Label = "Help";
+            this.gpHelp.Name = "gpHelp";
+            // 
+            // bnOpenSampleFile
+            // 
+            this.bnOpenSampleFile.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+            this.bnOpenSampleFile.Image = ((System.Drawing.Image)(resources.GetObject("bnOpenSampleFile.Image")));
+            this.bnOpenSampleFile.Label = "Open sample file";
+            this.bnOpenSampleFile.Name = "bnOpenSampleFile";
+            this.bnOpenSampleFile.ShowImage = true;
+            this.bnOpenSampleFile.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.OnOpenSample);
+            // 
+            // bnWebSite
+            // 
+            this.bnWebSite.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+            this.bnWebSite.Image = ((System.Drawing.Image)(resources.GetObject("bnWebSite.Image")));
+            this.bnWebSite.Label = "Web Site";
+            this.bnWebSite.Name = "bnWebSite";
+            this.bnWebSite.ShowImage = true;
+            this.bnWebSite.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.OnShowWebSite);
             // 
             // RibbonStackBuilder
             // 

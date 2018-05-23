@@ -36,13 +36,13 @@ namespace treeDiM.StackBuilder.ExcelAddIn
             base.OnClosing(e);
             if (!e.Cancel)
             {
-                Settings.Default.ColumnLetterName = cbName.SelectedText;
-                Settings.Default.ColumnLetterDescription = cbDescription.SelectedText;
-                Settings.Default.ColumnLetterLength = cbLength.SelectedText;
-                Settings.Default.ColumnLetterWidth = cbWidth.SelectedText;
-                Settings.Default.ColumnLetterHeight = cbHeight.SelectedText;
-                Settings.Default.ColumnLetterWeight = cbWeight.SelectedText;
-                Settings.Default.ColumnLetterOutputStart = cbOutputStart.SelectedText;
+                Settings.Default.ColumnLetterName = cbName.SelectedItem.ToString();
+                Settings.Default.ColumnLetterDescription = cbDescription.SelectedItem.ToString();
+                Settings.Default.ColumnLetterLength = cbLength.SelectedItem.ToString();
+                Settings.Default.ColumnLetterWidth = cbWidth.SelectedItem.ToString();
+                Settings.Default.ColumnLetterHeight = cbHeight.SelectedItem.ToString();
+                Settings.Default.ColumnLetterWeight = cbWeight.SelectedItem.ToString();
+                Settings.Default.ColumnLetterOutputStart = cbOutputStart.SelectedItem.ToString();
                 Settings.Default.ImageSize = (int)nudImageSize.Value;
                 Settings.Default.StackCountMax = (int)nudMaxCountImage.Value;
                 Settings.Default.MinDimensions = uCtrlMinDimensions.Value;
