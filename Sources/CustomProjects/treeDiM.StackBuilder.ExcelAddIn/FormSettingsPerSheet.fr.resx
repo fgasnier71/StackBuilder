@@ -117,58 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ID_CASE_HEIGHT" xml:space="preserve">
-    <value>Case height</value>
-  </data>
-  <data name="ID_CASE_LENGTH" xml:space="preserve">
-    <value>Case length</value>
-  </data>
-  <data name="ID_CASE_WEIGHT" xml:space="preserve">
-    <value>Case weight</value>
-  </data>
-  <data name="ID_CASE_WIDTH" xml:space="preserve">
-    <value>Case width</value>
-  </data>
-  <data name="ID_CONSTRAINTS_PALLETMAXIHEIGHT" xml:space="preserve">
-    <value>Maximum pallet height</value>
-  </data>
-  <data name="ID_CONSTRAINTS_PALLETMAXIWEIGHT" xml:space="preserve">
-    <value>Maximum pallet weight</value>
-  </data>
-  <data name="ID_ERROR_NOPALLETSELECTED" xml:space="preserve">
-    <value>No pallet selected!</value>
-  </data>
-  <data name="ID_LOAD_WEIGHT" xml:space="preserve">
-    <value>Load weight</value>
-  </data>
-  <data name="ID_PALLET_HEIGHT" xml:space="preserve">
-    <value>Pallet height</value>
-  </data>
-  <data name="ID_PALLET_LENGTH" xml:space="preserve">
-    <value>Pallet length</value>
-  </data>
-  <data name="ID_PALLET_WEIGHT" xml:space="preserve">
-    <value>Pallet weight</value>
-  </data>
-  <data name="ID_PALLET_WIDTH" xml:space="preserve">
-    <value>Pallet width</value>
-  </data>
-  <data name="ID_RESULT_EFFICIENCY" xml:space="preserve">
-    <value>Efficiency</value>
-  </data>
-  <data name="ID_RESULT_IMAGE" xml:space="preserve">
-    <value>Image</value>
-  </data>
-  <data name="ID_RESULT_LOADWEIGHT" xml:space="preserve">
-    <value>Load weight</value>
-  </data>
-  <data name="ID_RESULT_NOCASES" xml:space="preserve">
-    <value>Number of cases</value>
-  </data>
-  <data name="ID_RESULT_NOSOLUTIONFOUND" xml:space="preserve">
-    <value>No valid solution found!</value>
-  </data>
-  <data name="ID_RESULT_TOTALPALLETWEIGHT" xml:space="preserve">
-    <value>Total pallet weight</value>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Définir les cellules entrées/sorties et paramètres image...</value>
   </data>
 </root>

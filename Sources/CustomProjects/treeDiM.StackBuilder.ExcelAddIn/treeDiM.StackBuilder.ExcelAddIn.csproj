@@ -37,7 +37,7 @@
     <PublishUrl>ftp://plmpack.com/public/www/stackbuilder_excelAddin/ClickOnce/</PublishUrl>
     <InstallUrl>http://www.plmpack.com/stackbuilder_excelAddin/ClickOnce/</InstallUrl>
     <TargetCulture>en</TargetCulture>
-    <ApplicationVersion>1.0.0.10</ApplicationVersion>
+    <ApplicationVersion>1.0.0.11</ApplicationVersion>
     <AutoIncrementApplicationRevision>true</AutoIncrementApplicationRevision>
     <UpdateEnabled>true</UpdateEnabled>
     <UpdateInterval>0</UpdateInterval>
@@ -185,6 +185,7 @@
     can be found.
   -->
   <ItemGroup>
+    <Compile Include="ExcelHelpers.cs" />
     <Compile Include="ExceptionCellReading.cs" />
     <Compile Include="FormSettingsPerRow.cs">
       <SubType>Form</SubType>
@@ -214,8 +215,14 @@
     <Compile Include="UCtrlPerSheetAnalysis.Designer.cs">
       <DependentUpon>UCtrlPerSheetAnalysis.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FormSettingsPerRow.fr.resx">
+      <DependentUpon>FormSettingsPerRow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormSettingsPerRow.resx">
       <DependentUpon>FormSettingsPerRow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSettingsPerSheet.fr.resx">
+      <DependentUpon>FormSettingsPerSheet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSettingsPerSheet.resx">
       <DependentUpon>FormSettingsPerSheet.cs</DependentUpon>
@@ -248,6 +255,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RibbonStackBuilder.zh.resx">
       <DependentUpon>RibbonStackBuilder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCtrlPerRowAnalysis.fr.resx">
+      <DependentUpon>UCtrlPerRowAnalysis.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UCtrlPerRowAnalysis.resx">
       <DependentUpon>UCtrlPerRowAnalysis.cs</DependentUpon>

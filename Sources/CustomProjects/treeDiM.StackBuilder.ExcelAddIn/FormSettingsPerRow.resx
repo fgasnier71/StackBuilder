@@ -117,4 +117,1180 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="bnOk.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="bnOk.Location" type="System.Drawing.Point, System.Drawing">
+    <value>389, 3</value>
+  </data>
+  <data name="bnOk.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="bnOk.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="bnOk.Text" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="&gt;&gt;bnOk.Name" xml:space="preserve">
+    <value>bnOk</value>
+  </data>
+  <data name="&gt;&gt;bnOk.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;bnOk.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;bnOk.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="bnCancel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="bnCancel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>389, 32</value>
+  </data>
+  <data name="bnCancel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="bnCancel.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="bnCancel.Text" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="&gt;&gt;bnCancel.Name" xml:space="preserve">
+    <value>bnCancel</value>
+  </data>
+  <data name="&gt;&gt;bnCancel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;bnCancel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;bnCancel.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="cbWeight.Items" xml:space="preserve">
+    <value>A</value>
+  </data>
+  <data name="cbWeight.Items1" xml:space="preserve">
+    <value>B</value>
+  </data>
+  <data name="cbWeight.Items2" xml:space="preserve">
+    <value>C</value>
+  </data>
+  <data name="cbWeight.Items3" xml:space="preserve">
+    <value>D</value>
+  </data>
+  <data name="cbWeight.Items4" xml:space="preserve">
+    <value>E</value>
+  </data>
+  <data name="cbWeight.Items5" xml:space="preserve">
+    <value>F</value>
+  </data>
+  <data name="cbWeight.Items6" xml:space="preserve">
+    <value>G</value>
+  </data>
+  <data name="cbWeight.Items7" xml:space="preserve">
+    <value>H</value>
+  </data>
+  <data name="cbWeight.Items8" xml:space="preserve">
+    <value>I</value>
+  </data>
+  <data name="cbWeight.Items9" xml:space="preserve">
+    <value>J</value>
+  </data>
+  <data name="cbWeight.Items10" xml:space="preserve">
+    <value>K</value>
+  </data>
+  <data name="cbWeight.Items11" xml:space="preserve">
+    <value>L</value>
+  </data>
+  <data name="cbWeight.Items12" xml:space="preserve">
+    <value>M</value>
+  </data>
+  <data name="cbWeight.Items13" xml:space="preserve">
+    <value>N</value>
+  </data>
+  <data name="cbWeight.Items14" xml:space="preserve">
+    <value>O</value>
+  </data>
+  <data name="cbWeight.Items15" xml:space="preserve">
+    <value>P</value>
+  </data>
+  <data name="cbWeight.Items16" xml:space="preserve">
+    <value>Q</value>
+  </data>
+  <data name="cbWeight.Items17" xml:space="preserve">
+    <value>R</value>
+  </data>
+  <data name="cbWeight.Items18" xml:space="preserve">
+    <value>S</value>
+  </data>
+  <data name="cbWeight.Items19" xml:space="preserve">
+    <value>T</value>
+  </data>
+  <data name="cbWeight.Items20" xml:space="preserve">
+    <value>U</value>
+  </data>
+  <data name="cbWeight.Items21" xml:space="preserve">
+    <value>V</value>
+  </data>
+  <data name="cbWeight.Items22" xml:space="preserve">
+    <value>W</value>
+  </data>
+  <data name="cbWeight.Items23" xml:space="preserve">
+    <value>X</value>
+  </data>
+  <data name="cbWeight.Items24" xml:space="preserve">
+    <value>Y</value>
+  </data>
+  <data name="cbWeight.Items25" xml:space="preserve">
+    <value>Z</value>
+  </data>
+  <data name="cbWeight.Location" type="System.Drawing.Point, System.Drawing">
+    <value>112, 146</value>
+  </data>
+  <data name="cbWeight.Size" type="System.Drawing.Size, System.Drawing">
+    <value>45, 21</value>
+  </data>
+  <data name="cbWeight.TabIndex" type="System.Int32, mscorlib">
+    <value>26</value>
+  </data>
+  <data name="&gt;&gt;cbWeight.Name" xml:space="preserve">
+    <value>cbWeight</value>
+  </data>
+  <data name="&gt;&gt;cbWeight.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cbWeight.Parent" xml:space="preserve">
+    <value>gbInputColumns</value>
+  </data>
+  <data name="&gt;&gt;cbWeight.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="cbHeight.Items" xml:space="preserve">
+    <value>A</value>
+  </data>
+  <data name="cbHeight.Items1" xml:space="preserve">
+    <value>B</value>
+  </data>
+  <data name="cbHeight.Items2" xml:space="preserve">
+    <value>C</value>
+  </data>
+  <data name="cbHeight.Items3" xml:space="preserve">
+    <value>D</value>
+  </data>
+  <data name="cbHeight.Items4" xml:space="preserve">
+    <value>E</value>
+  </data>
+  <data name="cbHeight.Items5" xml:space="preserve">
+    <value>F</value>
+  </data>
+  <data name="cbHeight.Items6" xml:space="preserve">
+    <value>G</value>
+  </data>
+  <data name="cbHeight.Items7" xml:space="preserve">
+    <value>H</value>
+  </data>
+  <data name="cbHeight.Items8" xml:space="preserve">
+    <value>I</value>
+  </data>
+  <data name="cbHeight.Items9" xml:space="preserve">
+    <value>J</value>
+  </data>
+  <data name="cbHeight.Items10" xml:space="preserve">
+    <value>K</value>
+  </data>
+  <data name="cbHeight.Items11" xml:space="preserve">
+    <value>L</value>
+  </data>
+  <data name="cbHeight.Items12" xml:space="preserve">
+    <value>M</value>
+  </data>
+  <data name="cbHeight.Items13" xml:space="preserve">
+    <value>N</value>
+  </data>
+  <data name="cbHeight.Items14" xml:space="preserve">
+    <value>O</value>
+  </data>
+  <data name="cbHeight.Items15" xml:space="preserve">
+    <value>P</value>
+  </data>
+  <data name="cbHeight.Items16" xml:space="preserve">
+    <value>Q</value>
+  </data>
+  <data name="cbHeight.Items17" xml:space="preserve">
+    <value>R</value>
+  </data>
+  <data name="cbHeight.Items18" xml:space="preserve">
+    <value>S</value>
+  </data>
+  <data name="cbHeight.Items19" xml:space="preserve">
+    <value>T</value>
+  </data>
+  <data name="cbHeight.Items20" xml:space="preserve">
+    <value>U</value>
+  </data>
+  <data name="cbHeight.Items21" xml:space="preserve">
+    <value>V</value>
+  </data>
+  <data name="cbHeight.Items22" xml:space="preserve">
+    <value>W</value>
+  </data>
+  <data name="cbHeight.Items23" xml:space="preserve">
+    <value>X</value>
+  </data>
+  <data name="cbHeight.Items24" xml:space="preserve">
+    <value>Y</value>
+  </data>
+  <data name="cbHeight.Items25" xml:space="preserve">
+    <value>Z</value>
+  </data>
+  <data name="cbHeight.Location" type="System.Drawing.Point, System.Drawing">
+    <value>112, 120</value>
+  </data>
+  <data name="cbHeight.Size" type="System.Drawing.Size, System.Drawing">
+    <value>45, 21</value>
+  </data>
+  <data name="cbHeight.TabIndex" type="System.Int32, mscorlib">
+    <value>25</value>
+  </data>
+  <data name="&gt;&gt;cbHeight.Name" xml:space="preserve">
+    <value>cbHeight</value>
+  </data>
+  <data name="&gt;&gt;cbHeight.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cbHeight.Parent" xml:space="preserve">
+    <value>gbInputColumns</value>
+  </data>
+  <data name="&gt;&gt;cbHeight.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="cbWidth.Items" xml:space="preserve">
+    <value>A</value>
+  </data>
+  <data name="cbWidth.Items1" xml:space="preserve">
+    <value>B</value>
+  </data>
+  <data name="cbWidth.Items2" xml:space="preserve">
+    <value>C</value>
+  </data>
+  <data name="cbWidth.Items3" xml:space="preserve">
+    <value>D</value>
+  </data>
+  <data name="cbWidth.Items4" xml:space="preserve">
+    <value>E</value>
+  </data>
+  <data name="cbWidth.Items5" xml:space="preserve">
+    <value>F</value>
+  </data>
+  <data name="cbWidth.Items6" xml:space="preserve">
+    <value>G</value>
+  </data>
+  <data name="cbWidth.Items7" xml:space="preserve">
+    <value>H</value>
+  </data>
+  <data name="cbWidth.Items8" xml:space="preserve">
+    <value>I</value>
+  </data>
+  <data name="cbWidth.Items9" xml:space="preserve">
+    <value>J</value>
+  </data>
+  <data name="cbWidth.Items10" xml:space="preserve">
+    <value>K</value>
+  </data>
+  <data name="cbWidth.Items11" xml:space="preserve">
+    <value>L</value>
+  </data>
+  <data name="cbWidth.Items12" xml:space="preserve">
+    <value>M</value>
+  </data>
+  <data name="cbWidth.Items13" xml:space="preserve">
+    <value>N</value>
+  </data>
+  <data name="cbWidth.Items14" xml:space="preserve">
+    <value>O</value>
+  </data>
+  <data name="cbWidth.Items15" xml:space="preserve">
+    <value>P</value>
+  </data>
+  <data name="cbWidth.Items16" xml:space="preserve">
+    <value>Q</value>
+  </data>
+  <data name="cbWidth.Items17" xml:space="preserve">
+    <value>R</value>
+  </data>
+  <data name="cbWidth.Items18" xml:space="preserve">
+    <value>S</value>
+  </data>
+  <data name="cbWidth.Items19" xml:space="preserve">
+    <value>T</value>
+  </data>
+  <data name="cbWidth.Items20" xml:space="preserve">
+    <value>U</value>
+  </data>
+  <data name="cbWidth.Items21" xml:space="preserve">
+    <value>V</value>
+  </data>
+  <data name="cbWidth.Items22" xml:space="preserve">
+    <value>W</value>
+  </data>
+  <data name="cbWidth.Items23" xml:space="preserve">
+    <value>X</value>
+  </data>
+  <data name="cbWidth.Items24" xml:space="preserve">
+    <value>Y</value>
+  </data>
+  <data name="cbWidth.Items25" xml:space="preserve">
+    <value>Z</value>
+  </data>
+  <data name="cbWidth.Location" type="System.Drawing.Point, System.Drawing">
+    <value>112, 94</value>
+  </data>
+  <data name="cbWidth.Size" type="System.Drawing.Size, System.Drawing">
+    <value>45, 21</value>
+  </data>
+  <data name="cbWidth.TabIndex" type="System.Int32, mscorlib">
+    <value>24</value>
+  </data>
+  <data name="&gt;&gt;cbWidth.Name" xml:space="preserve">
+    <value>cbWidth</value>
+  </data>
+  <data name="&gt;&gt;cbWidth.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cbWidth.Parent" xml:space="preserve">
+    <value>gbInputColumns</value>
+  </data>
+  <data name="&gt;&gt;cbWidth.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="cbLength.Items" xml:space="preserve">
+    <value>A</value>
+  </data>
+  <data name="cbLength.Items1" xml:space="preserve">
+    <value>B</value>
+  </data>
+  <data name="cbLength.Items2" xml:space="preserve">
+    <value>C</value>
+  </data>
+  <data name="cbLength.Items3" xml:space="preserve">
+    <value>D</value>
+  </data>
+  <data name="cbLength.Items4" xml:space="preserve">
+    <value>E</value>
+  </data>
+  <data name="cbLength.Items5" xml:space="preserve">
+    <value>F</value>
+  </data>
+  <data name="cbLength.Items6" xml:space="preserve">
+    <value>G</value>
+  </data>
+  <data name="cbLength.Items7" xml:space="preserve">
+    <value>H</value>
+  </data>
+  <data name="cbLength.Items8" xml:space="preserve">
+    <value>I</value>
+  </data>
+  <data name="cbLength.Items9" xml:space="preserve">
+    <value>J</value>
+  </data>
+  <data name="cbLength.Items10" xml:space="preserve">
+    <value>K</value>
+  </data>
+  <data name="cbLength.Items11" xml:space="preserve">
+    <value>L</value>
+  </data>
+  <data name="cbLength.Items12" xml:space="preserve">
+    <value>M</value>
+  </data>
+  <data name="cbLength.Items13" xml:space="preserve">
+    <value>N</value>
+  </data>
+  <data name="cbLength.Items14" xml:space="preserve">
+    <value>O</value>
+  </data>
+  <data name="cbLength.Items15" xml:space="preserve">
+    <value>P</value>
+  </data>
+  <data name="cbLength.Items16" xml:space="preserve">
+    <value>Q</value>
+  </data>
+  <data name="cbLength.Items17" xml:space="preserve">
+    <value>R</value>
+  </data>
+  <data name="cbLength.Items18" xml:space="preserve">
+    <value>S</value>
+  </data>
+  <data name="cbLength.Items19" xml:space="preserve">
+    <value>T</value>
+  </data>
+  <data name="cbLength.Items20" xml:space="preserve">
+    <value>U</value>
+  </data>
+  <data name="cbLength.Items21" xml:space="preserve">
+    <value>V</value>
+  </data>
+  <data name="cbLength.Items22" xml:space="preserve">
+    <value>W</value>
+  </data>
+  <data name="cbLength.Items23" xml:space="preserve">
+    <value>X</value>
+  </data>
+  <data name="cbLength.Items24" xml:space="preserve">
+    <value>Y</value>
+  </data>
+  <data name="cbLength.Items25" xml:space="preserve">
+    <value>Z</value>
+  </data>
+  <data name="cbLength.Location" type="System.Drawing.Point, System.Drawing">
+    <value>112, 68</value>
+  </data>
+  <data name="cbLength.Size" type="System.Drawing.Size, System.Drawing">
+    <value>45, 21</value>
+  </data>
+  <data name="cbLength.TabIndex" type="System.Int32, mscorlib">
+    <value>23</value>
+  </data>
+  <data name="&gt;&gt;cbLength.Name" xml:space="preserve">
+    <value>cbLength</value>
+  </data>
+  <data name="&gt;&gt;cbLength.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cbLength.Parent" xml:space="preserve">
+    <value>gbInputColumns</value>
+  </data>
+  <data name="&gt;&gt;cbLength.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="cbDescription.Items" xml:space="preserve">
+    <value>A</value>
+  </data>
+  <data name="cbDescription.Items1" xml:space="preserve">
+    <value>B</value>
+  </data>
+  <data name="cbDescription.Items2" xml:space="preserve">
+    <value>C</value>
+  </data>
+  <data name="cbDescription.Items3" xml:space="preserve">
+    <value>D</value>
+  </data>
+  <data name="cbDescription.Items4" xml:space="preserve">
+    <value>E</value>
+  </data>
+  <data name="cbDescription.Items5" xml:space="preserve">
+    <value>F</value>
+  </data>
+  <data name="cbDescription.Items6" xml:space="preserve">
+    <value>G</value>
+  </data>
+  <data name="cbDescription.Items7" xml:space="preserve">
+    <value>H</value>
+  </data>
+  <data name="cbDescription.Items8" xml:space="preserve">
+    <value>I</value>
+  </data>
+  <data name="cbDescription.Items9" xml:space="preserve">
+    <value>J</value>
+  </data>
+  <data name="cbDescription.Items10" xml:space="preserve">
+    <value>K</value>
+  </data>
+  <data name="cbDescription.Items11" xml:space="preserve">
+    <value>L</value>
+  </data>
+  <data name="cbDescription.Items12" xml:space="preserve">
+    <value>M</value>
+  </data>
+  <data name="cbDescription.Items13" xml:space="preserve">
+    <value>N</value>
+  </data>
+  <data name="cbDescription.Items14" xml:space="preserve">
+    <value>O</value>
+  </data>
+  <data name="cbDescription.Items15" xml:space="preserve">
+    <value>P</value>
+  </data>
+  <data name="cbDescription.Items16" xml:space="preserve">
+    <value>Q</value>
+  </data>
+  <data name="cbDescription.Items17" xml:space="preserve">
+    <value>R</value>
+  </data>
+  <data name="cbDescription.Items18" xml:space="preserve">
+    <value>S</value>
+  </data>
+  <data name="cbDescription.Items19" xml:space="preserve">
+    <value>T</value>
+  </data>
+  <data name="cbDescription.Items20" xml:space="preserve">
+    <value>U</value>
+  </data>
+  <data name="cbDescription.Items21" xml:space="preserve">
+    <value>V</value>
+  </data>
+  <data name="cbDescription.Items22" xml:space="preserve">
+    <value>W</value>
+  </data>
+  <data name="cbDescription.Items23" xml:space="preserve">
+    <value>X</value>
+  </data>
+  <data name="cbDescription.Items24" xml:space="preserve">
+    <value>Y</value>
+  </data>
+  <data name="cbDescription.Items25" xml:space="preserve">
+    <value>Z</value>
+  </data>
+  <data name="cbDescription.Location" type="System.Drawing.Point, System.Drawing">
+    <value>112, 42</value>
+  </data>
+  <data name="cbDescription.Size" type="System.Drawing.Size, System.Drawing">
+    <value>45, 21</value>
+  </data>
+  <data name="cbDescription.TabIndex" type="System.Int32, mscorlib">
+    <value>22</value>
+  </data>
+  <data name="&gt;&gt;cbDescription.Name" xml:space="preserve">
+    <value>cbDescription</value>
+  </data>
+  <data name="&gt;&gt;cbDescription.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cbDescription.Parent" xml:space="preserve">
+    <value>gbInputColumns</value>
+  </data>
+  <data name="&gt;&gt;cbDescription.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="cbName.Items" xml:space="preserve">
+    <value>A</value>
+  </data>
+  <data name="cbName.Items1" xml:space="preserve">
+    <value>B</value>
+  </data>
+  <data name="cbName.Items2" xml:space="preserve">
+    <value>C</value>
+  </data>
+  <data name="cbName.Items3" xml:space="preserve">
+    <value>D</value>
+  </data>
+  <data name="cbName.Items4" xml:space="preserve">
+    <value>E</value>
+  </data>
+  <data name="cbName.Items5" xml:space="preserve">
+    <value>F</value>
+  </data>
+  <data name="cbName.Items6" xml:space="preserve">
+    <value>G</value>
+  </data>
+  <data name="cbName.Items7" xml:space="preserve">
+    <value>H</value>
+  </data>
+  <data name="cbName.Items8" xml:space="preserve">
+    <value>I</value>
+  </data>
+  <data name="cbName.Items9" xml:space="preserve">
+    <value>J</value>
+  </data>
+  <data name="cbName.Items10" xml:space="preserve">
+    <value>K</value>
+  </data>
+  <data name="cbName.Items11" xml:space="preserve">
+    <value>L</value>
+  </data>
+  <data name="cbName.Items12" xml:space="preserve">
+    <value>M</value>
+  </data>
+  <data name="cbName.Items13" xml:space="preserve">
+    <value>N</value>
+  </data>
+  <data name="cbName.Items14" xml:space="preserve">
+    <value>O</value>
+  </data>
+  <data name="cbName.Items15" xml:space="preserve">
+    <value>P</value>
+  </data>
+  <data name="cbName.Items16" xml:space="preserve">
+    <value>Q</value>
+  </data>
+  <data name="cbName.Items17" xml:space="preserve">
+    <value>R</value>
+  </data>
+  <data name="cbName.Items18" xml:space="preserve">
+    <value>S</value>
+  </data>
+  <data name="cbName.Items19" xml:space="preserve">
+    <value>T</value>
+  </data>
+  <data name="cbName.Items20" xml:space="preserve">
+    <value>U</value>
+  </data>
+  <data name="cbName.Items21" xml:space="preserve">
+    <value>V</value>
+  </data>
+  <data name="cbName.Items22" xml:space="preserve">
+    <value>W</value>
+  </data>
+  <data name="cbName.Items23" xml:space="preserve">
+    <value>X</value>
+  </data>
+  <data name="cbName.Items24" xml:space="preserve">
+    <value>Y</value>
+  </data>
+  <data name="cbName.Items25" xml:space="preserve">
+    <value>Z</value>
+  </data>
+  <data name="cbName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>112, 16</value>
+  </data>
+  <data name="cbName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>45, 21</value>
+  </data>
+  <data name="cbName.TabIndex" type="System.Int32, mscorlib">
+    <value>21</value>
+  </data>
+  <data name="&gt;&gt;cbName.Name" xml:space="preserve">
+    <value>cbName</value>
+  </data>
+  <data name="&gt;&gt;cbName.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cbName.Parent" xml:space="preserve">
+    <value>gbInputColumns</value>
+  </data>
+  <data name="&gt;&gt;cbName.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="chkbDescription.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="chkbDescription.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 44</value>
+  </data>
+  <data name="chkbDescription.Size" type="System.Drawing.Size, System.Drawing">
+    <value>79, 17</value>
+  </data>
+  <data name="chkbDescription.TabIndex" type="System.Int32, mscorlib">
+    <value>20</value>
+  </data>
+  <data name="chkbDescription.Text" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="&gt;&gt;chkbDescription.Name" xml:space="preserve">
+    <value>chkbDescription</value>
+  </data>
+  <data name="&gt;&gt;chkbDescription.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;chkbDescription.Parent" xml:space="preserve">
+    <value>gbInputColumns</value>
+  </data>
+  <data name="&gt;&gt;chkbDescription.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="label5.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 148</value>
+  </data>
+  <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>41, 13</value>
+  </data>
+  <data name="label5.TabIndex" type="System.Int32, mscorlib">
+    <value>19</value>
+  </data>
+  <data name="label5.Text" xml:space="preserve">
+    <value>Weight</value>
+  </data>
+  <data name="&gt;&gt;label5.Name" xml:space="preserve">
+    <value>label5</value>
+  </data>
+  <data name="&gt;&gt;label5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label5.Parent" xml:space="preserve">
+    <value>gbInputColumns</value>
+  </data>
+  <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="lbHeight.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbHeight.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 123</value>
+  </data>
+  <data name="lbHeight.Size" type="System.Drawing.Size, System.Drawing">
+    <value>38, 13</value>
+  </data>
+  <data name="lbHeight.TabIndex" type="System.Int32, mscorlib">
+    <value>18</value>
+  </data>
+  <data name="lbHeight.Text" xml:space="preserve">
+    <value>Height</value>
+  </data>
+  <data name="&gt;&gt;lbHeight.Name" xml:space="preserve">
+    <value>lbHeight</value>
+  </data>
+  <data name="&gt;&gt;lbHeight.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbHeight.Parent" xml:space="preserve">
+    <value>gbInputColumns</value>
+  </data>
+  <data name="&gt;&gt;lbHeight.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="lbWidth.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbWidth.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 98</value>
+  </data>
+  <data name="lbWidth.Size" type="System.Drawing.Size, System.Drawing">
+    <value>35, 13</value>
+  </data>
+  <data name="lbWidth.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
+  </data>
+  <data name="lbWidth.Text" xml:space="preserve">
+    <value>Width</value>
+  </data>
+  <data name="&gt;&gt;lbWidth.Name" xml:space="preserve">
+    <value>lbWidth</value>
+  </data>
+  <data name="&gt;&gt;lbWidth.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbWidth.Parent" xml:space="preserve">
+    <value>gbInputColumns</value>
+  </data>
+  <data name="&gt;&gt;lbWidth.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="lbLength.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbLength.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 71</value>
+  </data>
+  <data name="lbLength.Size" type="System.Drawing.Size, System.Drawing">
+    <value>40, 13</value>
+  </data>
+  <data name="lbLength.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="lbLength.Text" xml:space="preserve">
+    <value>Length</value>
+  </data>
+  <data name="&gt;&gt;lbLength.Name" xml:space="preserve">
+    <value>lbLength</value>
+  </data>
+  <data name="&gt;&gt;lbLength.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbLength.Parent" xml:space="preserve">
+    <value>gbInputColumns</value>
+  </data>
+  <data name="&gt;&gt;lbLength.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="lbName.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 20</value>
+  </data>
+  <data name="lbName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>35, 13</value>
+  </data>
+  <data name="lbName.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="lbName.Text" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="&gt;&gt;lbName.Name" xml:space="preserve">
+    <value>lbName</value>
+  </data>
+  <data name="&gt;&gt;lbName.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbName.Parent" xml:space="preserve">
+    <value>gbInputColumns</value>
+  </data>
+  <data name="&gt;&gt;lbName.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="gbInputColumns.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 3</value>
+  </data>
+  <data name="gbInputColumns.Size" type="System.Drawing.Size, System.Drawing">
+    <value>175, 201</value>
+  </data>
+  <data name="gbInputColumns.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="gbInputColumns.Text" xml:space="preserve">
+    <value>Input columns</value>
+  </data>
+  <data name="&gt;&gt;gbInputColumns.Name" xml:space="preserve">
+    <value>gbInputColumns</value>
+  </data>
+  <data name="&gt;&gt;gbInputColumns.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;gbInputColumns.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;gbInputColumns.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="cbOutputStart.Items" xml:space="preserve">
+    <value>A</value>
+  </data>
+  <data name="cbOutputStart.Items1" xml:space="preserve">
+    <value>B</value>
+  </data>
+  <data name="cbOutputStart.Items2" xml:space="preserve">
+    <value>C</value>
+  </data>
+  <data name="cbOutputStart.Items3" xml:space="preserve">
+    <value>D</value>
+  </data>
+  <data name="cbOutputStart.Items4" xml:space="preserve">
+    <value>E</value>
+  </data>
+  <data name="cbOutputStart.Items5" xml:space="preserve">
+    <value>F</value>
+  </data>
+  <data name="cbOutputStart.Items6" xml:space="preserve">
+    <value>G</value>
+  </data>
+  <data name="cbOutputStart.Items7" xml:space="preserve">
+    <value>H</value>
+  </data>
+  <data name="cbOutputStart.Items8" xml:space="preserve">
+    <value>I</value>
+  </data>
+  <data name="cbOutputStart.Items9" xml:space="preserve">
+    <value>J</value>
+  </data>
+  <data name="cbOutputStart.Items10" xml:space="preserve">
+    <value>K</value>
+  </data>
+  <data name="cbOutputStart.Items11" xml:space="preserve">
+    <value>L</value>
+  </data>
+  <data name="cbOutputStart.Items12" xml:space="preserve">
+    <value>M</value>
+  </data>
+  <data name="cbOutputStart.Items13" xml:space="preserve">
+    <value>N</value>
+  </data>
+  <data name="cbOutputStart.Items14" xml:space="preserve">
+    <value>O</value>
+  </data>
+  <data name="cbOutputStart.Items15" xml:space="preserve">
+    <value>P</value>
+  </data>
+  <data name="cbOutputStart.Items16" xml:space="preserve">
+    <value>Q</value>
+  </data>
+  <data name="cbOutputStart.Items17" xml:space="preserve">
+    <value>R</value>
+  </data>
+  <data name="cbOutputStart.Items18" xml:space="preserve">
+    <value>S</value>
+  </data>
+  <data name="cbOutputStart.Items19" xml:space="preserve">
+    <value>T</value>
+  </data>
+  <data name="cbOutputStart.Items20" xml:space="preserve">
+    <value>U</value>
+  </data>
+  <data name="cbOutputStart.Items21" xml:space="preserve">
+    <value>V</value>
+  </data>
+  <data name="cbOutputStart.Items22" xml:space="preserve">
+    <value>W</value>
+  </data>
+  <data name="cbOutputStart.Items23" xml:space="preserve">
+    <value>X</value>
+  </data>
+  <data name="cbOutputStart.Items24" xml:space="preserve">
+    <value>Y</value>
+  </data>
+  <data name="cbOutputStart.Items25" xml:space="preserve">
+    <value>Z</value>
+  </data>
+  <data name="cbOutputStart.Location" type="System.Drawing.Point, System.Drawing">
+    <value>136, 17</value>
+  </data>
+  <data name="cbOutputStart.Size" type="System.Drawing.Size, System.Drawing">
+    <value>45, 21</value>
+  </data>
+  <data name="cbOutputStart.TabIndex" type="System.Int32, mscorlib">
+    <value>22</value>
+  </data>
+  <data name="&gt;&gt;cbOutputStart.Name" xml:space="preserve">
+    <value>cbOutputStart</value>
+  </data>
+  <data name="&gt;&gt;cbOutputStart.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cbOutputStart.Parent" xml:space="preserve">
+    <value>gbOutput</value>
+  </data>
+  <data name="&gt;&gt;cbOutputStart.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="lbStartOutput.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbStartOutput.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 20</value>
+  </data>
+  <data name="lbStartOutput.Size" type="System.Drawing.Size, System.Drawing">
+    <value>29, 13</value>
+  </data>
+  <data name="lbStartOutput.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="lbStartOutput.Text" xml:space="preserve">
+    <value>Start</value>
+  </data>
+  <data name="&gt;&gt;lbStartOutput.Name" xml:space="preserve">
+    <value>lbStartOutput</value>
+  </data>
+  <data name="&gt;&gt;lbStartOutput.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbStartOutput.Parent" xml:space="preserve">
+    <value>gbOutput</value>
+  </data>
+  <data name="&gt;&gt;lbStartOutput.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="gbOutput.Location" type="System.Drawing.Point, System.Drawing">
+    <value>194, 3</value>
+  </data>
+  <data name="gbOutput.Size" type="System.Drawing.Size, System.Drawing">
+    <value>187, 52</value>
+  </data>
+  <data name="gbOutput.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="gbOutput.Text" xml:space="preserve">
+    <value>Output columns</value>
+  </data>
+  <data name="&gt;&gt;gbOutput.Name" xml:space="preserve">
+    <value>gbOutput</value>
+  </data>
+  <data name="&gt;&gt;gbOutput.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;gbOutput.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;gbOutput.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="nudImageSize.Location" type="System.Drawing.Point, System.Drawing">
+    <value>158, 16</value>
+  </data>
+  <data name="nudImageSize.Size" type="System.Drawing.Size, System.Drawing">
+    <value>57, 20</value>
+  </data>
+  <data name="nudImageSize.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;nudImageSize.Name" xml:space="preserve">
+    <value>nudImageSize</value>
+  </data>
+  <data name="&gt;&gt;nudImageSize.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;nudImageSize.Parent" xml:space="preserve">
+    <value>gbAdditionalProperties</value>
+  </data>
+  <data name="&gt;&gt;nudImageSize.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="label1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 16</value>
+  </data>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>57, 13</value>
+  </data>
+  <data name="label1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Image size</value>
+  </data>
+  <data name="&gt;&gt;label1.Name" xml:space="preserve">
+    <value>label1</value>
+  </data>
+  <data name="&gt;&gt;label1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
+    <value>gbAdditionalProperties</value>
+  </data>
+  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="gbAdditionalProperties.Location" type="System.Drawing.Point, System.Drawing">
+    <value>194, 164</value>
+  </data>
+  <data name="gbAdditionalProperties.Size" type="System.Drawing.Size, System.Drawing">
+    <value>263, 40</value>
+  </data>
+  <data name="gbAdditionalProperties.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
+  </data>
+  <data name="gbAdditionalProperties.Text" xml:space="preserve">
+    <value>Additional properties</value>
+  </data>
+  <data name="&gt;&gt;gbAdditionalProperties.Name" xml:space="preserve">
+    <value>gbAdditionalProperties</value>
+  </data>
+  <data name="&gt;&gt;gbAdditionalProperties.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;gbAdditionalProperties.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;gbAdditionalProperties.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="nudMaxCountImage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>158, 61</value>
+  </data>
+  <data name="nudMaxCountImage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>57, 20</value>
+  </data>
+  <data name="nudMaxCountImage.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;nudMaxCountImage.Name" xml:space="preserve">
+    <value>nudMaxCountImage</value>
+  </data>
+  <data name="&gt;&gt;nudMaxCountImage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;nudMaxCountImage.Parent" xml:space="preserve">
+    <value>gpConditions</value>
+  </data>
+  <data name="&gt;&gt;nudMaxCountImage.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="label2.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 46</value>
+  </data>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>159, 13</value>
+  </data>
+  <data name="label2.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Max. count for image generation</value>
+  </data>
+  <data name="&gt;&gt;label2.Name" xml:space="preserve">
+    <value>label2</value>
+  </data>
+  <data name="&gt;&gt;label2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
+    <value>gpConditions</value>
+  </data>
+  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="uCtrlMinDimensions.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 19</value>
+  </data>
+  <data name="uCtrlMinDimensions.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>100, 20</value>
+  </data>
+  <data name="uCtrlMinDimensions.Size" type="System.Drawing.Size, System.Drawing">
+    <value>245, 20</value>
+  </data>
+  <data name="uCtrlMinDimensions.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="uCtrlMinDimensions.Text" xml:space="preserve">
+    <value>Min. dimensions</value>
+  </data>
+  <data name="&gt;&gt;uCtrlMinDimensions.Name" xml:space="preserve">
+    <value>uCtrlMinDimensions</value>
+  </data>
+  <data name="&gt;&gt;uCtrlMinDimensions.Type" xml:space="preserve">
+    <value>treeDiM.StackBuilder.Basics.UCtrlDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.72, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;uCtrlMinDimensions.Parent" xml:space="preserve">
+    <value>gpConditions</value>
+  </data>
+  <data name="&gt;&gt;uCtrlMinDimensions.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="gpConditions.Location" type="System.Drawing.Point, System.Drawing">
+    <value>194, 62</value>
+  </data>
+  <data name="gpConditions.Size" type="System.Drawing.Size, System.Drawing">
+    <value>263, 102</value>
+  </data>
+  <data name="gpConditions.TabIndex" type="System.Int32, mscorlib">
+    <value>18</value>
+  </data>
+  <data name="gpConditions.Text" xml:space="preserve">
+    <value>Processing conditions</value>
+  </data>
+  <data name="&gt;&gt;gpConditions.Name" xml:space="preserve">
+    <value>gpConditions</value>
+  </data>
+  <data name="&gt;&gt;gpConditions.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;gpConditions.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;gpConditions.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>469, 211</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Define input/output columns for per row analyses...</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>FormSettingsPerRow</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

@@ -117,58 +117,71 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ID_CASE_HEIGHT" xml:space="preserve">
-    <value>Case height</value>
+  <data name="bnCancel.Text" xml:space="preserve">
+    <value>Annuler</value>
   </data>
-  <data name="ID_CASE_LENGTH" xml:space="preserve">
-    <value>Case length</value>
+  <data name="gbInputColumns.Text" xml:space="preserve">
+    <value>Colonnes des données d'entrées</value>
   </data>
-  <data name="ID_CASE_WEIGHT" xml:space="preserve">
-    <value>Case weight</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>38, 13</value>
   </data>
-  <data name="ID_CASE_WIDTH" xml:space="preserve">
-    <value>Case width</value>
+  <data name="label5.Text" xml:space="preserve">
+    <value>Masse</value>
   </data>
-  <data name="ID_CONSTRAINTS_PALLETMAXIHEIGHT" xml:space="preserve">
-    <value>Maximum pallet height</value>
+  <data name="lbHeight.Size" type="System.Drawing.Size, System.Drawing">
+    <value>45, 13</value>
   </data>
-  <data name="ID_CONSTRAINTS_PALLETMAXIWEIGHT" xml:space="preserve">
-    <value>Maximum pallet weight</value>
+  <data name="lbHeight.Text" xml:space="preserve">
+    <value>Hauteur</value>
   </data>
-  <data name="ID_ERROR_NOPALLETSELECTED" xml:space="preserve">
-    <value>No pallet selected!</value>
+  <data name="lbWidth.Size" type="System.Drawing.Size, System.Drawing">
+    <value>43, 13</value>
   </data>
-  <data name="ID_LOAD_WEIGHT" xml:space="preserve">
-    <value>Load weight</value>
+  <data name="lbWidth.Text" xml:space="preserve">
+    <value>Largeur</value>
   </data>
-  <data name="ID_PALLET_HEIGHT" xml:space="preserve">
-    <value>Pallet height</value>
+  <data name="lbLength.Size" type="System.Drawing.Size, System.Drawing">
+    <value>52, 13</value>
   </data>
-  <data name="ID_PALLET_LENGTH" xml:space="preserve">
-    <value>Pallet length</value>
+  <data name="lbLength.Text" xml:space="preserve">
+    <value>Longueur</value>
   </data>
-  <data name="ID_PALLET_WEIGHT" xml:space="preserve">
-    <value>Pallet weight</value>
+  <data name="lbName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>29, 13</value>
   </data>
-  <data name="ID_PALLET_WIDTH" xml:space="preserve">
-    <value>Pallet width</value>
+  <data name="lbName.Text" xml:space="preserve">
+    <value>Nom</value>
   </data>
-  <data name="ID_RESULT_EFFICIENCY" xml:space="preserve">
-    <value>Efficiency</value>
+  <data name="gbOutput.Text" xml:space="preserve">
+    <value>Colonne sorties</value>
   </data>
-  <data name="ID_RESULT_IMAGE" xml:space="preserve">
-    <value>Image</value>
+  <data name="lbStartOutput.Size" type="System.Drawing.Size, System.Drawing">
+    <value>79, 13</value>
   </data>
-  <data name="ID_RESULT_LOADWEIGHT" xml:space="preserve">
-    <value>Load weight</value>
+  <data name="lbStartOutput.Text" xml:space="preserve">
+    <value>Colonne départ</value>
   </data>
-  <data name="ID_RESULT_NOCASES" xml:space="preserve">
-    <value>Number of cases</value>
+  <data name="gbAdditionalProperties.Text" xml:space="preserve">
+    <value>Propriétés additionnels</value>
   </data>
-  <data name="ID_RESULT_NOSOLUTIONFOUND" xml:space="preserve">
-    <value>No valid solution found!</value>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>71, 13</value>
   </data>
-  <data name="ID_RESULT_TOTALPALLETWEIGHT" xml:space="preserve">
-    <value>Total pallet weight</value>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Taille d'image</value>
+  </data>
+  <data name="gpConditions.Text" xml:space="preserve">
+    <value>Conditions de calcul</value>
+  </data>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>217, 13</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Nombre maximum pour la génération d'image</value>
+  </data>
+  <data name="uCtrlMinDimensions.Text" xml:space="preserve">
+    <value>Dimension min.</value>
   </data>
 </root>

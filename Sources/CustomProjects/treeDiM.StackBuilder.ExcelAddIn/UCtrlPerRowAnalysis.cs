@@ -52,7 +52,7 @@ namespace treeDiM.StackBuilder.ExcelAddIn
             try
             {
                 string startLetter = Settings.Default.ColumnLetterOutputStart;
-                int colStartIndex = ColumnLetterToColumnIndex(Settings.Default.ColumnLetterOutputStart);
+                int colStartIndex = ExcelHelpers.ColumnLetterToColumnIndex(Settings.Default.ColumnLetterOutputStart);
 
                 Excel.Worksheet xlSheet = Globals.StackBuilderAddIn.Application.ActiveSheet as Excel.Worksheet;
                 Excel.Range range = xlSheet.UsedRange;
@@ -62,7 +62,7 @@ namespace treeDiM.StackBuilder.ExcelAddIn
                 List<PalletProperties> pallets = GetSelectedPallets();
                 if (0 == pallets.Count)
                 {
-                    MessageBox.Show("No pallet selected!");
+                    MessageBox.Show(Resources.ID_ERROR_NOPALLETSELECTED);
                     return;
                 }
                 int palletColStartIndex = colStartIndex - 1;
@@ -74,35 +74,48 @@ namespace treeDiM.StackBuilder.ExcelAddIn
                     int iNoCols = 0;
                     // modify header
                     // count
-                    Excel.Range countHeaderCell = xlSheet.get_Range(ColumnIndexToColumnLetter(iOutputFieldCount++) + 1);
-                    countHeaderCell.Value = "Count"; ++iNoCols;
+                    Excel.Range countHeaderCell = xlSheet.get_Range(ExcelHelpers.ColumnIndexToColumnLetter(iOutputFieldCount++) + 1);
+                    countHeaderCell.Value = Resources.ID_RESULT_NOCASES; ++iNoCols;
                     // load weight
-                    Excel.Range loadWeightHeaderCell = xlSheet.get_Range(ColumnIndexToColumnLetter(iOutputFieldCount++) + 1);
-                    loadWeightHeaderCell.Value = "Load weight"; ++iNoCols;
+                    Excel.Range loadWeightHeaderCell = xlSheet.get_Range(ExcelHelpers.ColumnIndexToColumnLetter(iOutputFieldCount++) + 1);
+                    loadWeightHeaderCell.Value = Resources.ID_RESULT_LOADWEIGHT; ++iNoCols;
                     // total pallet weight
-                    Excel.Range totalPalletWeightHeaderCell = xlSheet.get_Range(ColumnIndexToColumnLetter(iOutputFieldCount++) + 1);
-                    totalPalletWeightHeaderCell.Value = "Pallet weight"; iNoCols++;
+                    Excel.Range totalPalletWeightHeaderCell = xlSheet.get_Range(ExcelHelpers.ColumnIndexToColumnLetter(iOutputFieldCount++) + 1);
+                    totalPalletWeightHeaderCell.Value = Resources.ID_RESULT_TOTALPALLETWEIGHT; iNoCols++;
                     // efficiency
-                    Excel.Range efficiencyHeaderCell = xlSheet.get_Range(ColumnIndexToColumnLetter(iOutputFieldCount++) + 1);
-                    efficiencyHeaderCell.Value = "Efficiency (%)"; iNoCols++;
+                    Excel.Range efficiencyHeaderCell = xlSheet.get_Range(ExcelHelpers.ColumnIndexToColumnLetter(iOutputFieldCount++) + 1);
+                    efficiencyHeaderCell.Value = Resources.ID_RESULT_EFFICIENCY; iNoCols++;
                     // image
                     if (GenerateImage)
                     {
-                        Excel.Range imageHeaderCell = xlSheet.get_Range(ColumnIndexToColumnLetter(iOutputFieldCount) + 1);
-                        imageHeaderCell.Value = "Image"; iNoCols++;
+                        Excel.Range imageHeaderCell = xlSheet.get_Range(ExcelHelpers.ColumnIndexToColumnLetter(iOutputFieldCount) + 1);
+                        imageHeaderCell.Value = Resources.ID_RESULT_IMAGE; iNoCols++;
                     }
                     // set bold font for all header row
-                    Excel.Range headerRange = xlSheet.get_Range("a"+1, ColumnIndexToColumnLetter(iOutputFieldCount)+1);
+                    Excel.Range headerRange = xlSheet.get_Range("a"+1, ExcelHelpers.ColumnIndexToColumnLetter(iOutputFieldCount)+1);
                     headerRange.Font.Bold = true;
                     // modify range for images
                     if (GenerateImage)
                     {
-                        Excel.Range dataRange = xlSheet.get_Range("a" + 2, ColumnIndexToColumnLetter(iOutputFieldCount) + rowCount);
+                        Excel.Range dataRange = xlSheet.get_Range(
+                            "a" + 2,
+                            ExcelHelpers.ColumnIndexToColumnLetter(iOutputFieldCount) + rowCount);
                         dataRange.RowHeight = 128;
-                        Excel.Range imageRange = xlSheet.get_Range(ColumnIndexToColumnLetter(iOutputFieldCount) + 2, ColumnIndexToColumnLetter(iOutputFieldCount) + rowCount);
+                        Excel.Range imageRange = xlSheet.get_Range(
+                            ExcelHelpers.ColumnIndexToColumnLetter(iOutputFieldCount) + 2,
+                            ExcelHelpers.ColumnIndexToColumnLetter(iOutputFieldCount) + rowCount);
                         imageRange.ColumnWidth = 24;
                     }
                     double largestDimensionMinimum = LargestDimMin;
+
+
+                    string colName = Settings.Default.ColumnLetterName;
+                    string colDescription = Settings.Default.ColumnLetterDescription;
+                    string colLength = Settings.Default.ColumnLetterLength;
+                    string colWidth = Settings.Default.ColumnLetterWidth;
+                    string colHeight = Settings.Default.ColumnLetterHeight;
+                    string colWeight = Settings.Default.ColumnLetterWeight;
+
                     // loop through rows
                     for (int iRow = 2; iRow <= rowCount; ++iRow)
                     {
@@ -110,22 +123,22 @@ namespace treeDiM.StackBuilder.ExcelAddIn
                         try
                         {
                             // get name
-                            string name = (xlSheet.get_Range("a" + iRow, "a" + iRow).Value).ToString();
+                            string name = (xlSheet.get_Range(colName + iRow, colName + iRow).Value).ToString();
                             // get description
-                            string description = (xlSheet.get_Range("b" + iRow, "b" + iRow).Value).ToString();
+                            string description = (xlSheet.get_Range(colDescription + iRow, colDescription + iRow).Value).ToString();
                             // get length
-                            double length = (xlSheet.get_Range("c" + iRow, "c" + iRow).Value);
+                            double length = (xlSheet.get_Range(colLength + iRow, colLength + iRow).Value);
                             // get width
-                            double width = (xlSheet.get_Range("d" + iRow, "d" + iRow).Value);
+                            double width = (xlSheet.get_Range(colWidth + iRow, colWidth + iRow).Value);
                             // get height
-                            double height = (xlSheet.get_Range("e" + iRow, "e" + iRow).Value);
+                            double height = (xlSheet.get_Range(colHeight + iRow, colHeight + iRow).Value);
 
                             double maxDimension = Math.Max(Math.Max(length, width), height);
                             if (maxDimension < largestDimensionMinimum) continue;
 
                             // get weight
                             double? weight = null;
-                            try { weight = xlSheet.get_Range("f" + iRow, "f" + iRow).Value; } catch (Exception /*ex*/) { }
+                            try { weight = xlSheet.get_Range(colWeight + iRow, colWeight + iRow).Value; } catch (Exception /*ex*/) { }
                             // compute stacking
                             int stackCount = 0;
                             double loadWeight = 0.0, totalPalletWeight = 0.0, stackEfficiency = 0.0;
@@ -140,21 +153,23 @@ namespace treeDiM.StackBuilder.ExcelAddIn
                                 , ref stackEfficiency
                                 , ref stackImagePath);
                             // insert count
-                            Excel.Range countCel = xlSheet.get_Range(ColumnIndexToColumnLetter(iOutputFieldCount++) + iRow);
+                            Excel.Range countCel = xlSheet.get_Range(ExcelHelpers.ColumnIndexToColumnLetter(iOutputFieldCount++) + iRow);
                             countCel.Value = stackCount;
                             // insert load weight
-                            Excel.Range loadWeightCell = xlSheet.get_Range(ColumnIndexToColumnLetter(iOutputFieldCount++) + iRow);
+                            Excel.Range loadWeightCell = xlSheet.get_Range(ExcelHelpers.ColumnIndexToColumnLetter(iOutputFieldCount++) + iRow);
                             loadWeightCell.Value = loadWeight;
                             // insert total weight
-                            Excel.Range totalWeightCell = xlSheet.get_Range(ColumnIndexToColumnLetter(iOutputFieldCount++) + iRow);
+                            Excel.Range totalWeightCell = xlSheet.get_Range(ExcelHelpers.ColumnIndexToColumnLetter(iOutputFieldCount++) + iRow);
                             totalWeightCell.Value = totalPalletWeight;
                             // efficiency
-                            Excel.Range efficiencyCell = xlSheet.get_Range(ColumnIndexToColumnLetter(iOutputFieldCount++) + iRow);
-                            efficiencyCell.Value = stackEfficiency;
+                            Excel.Range efficiencyCell = xlSheet.get_Range(ExcelHelpers.ColumnIndexToColumnLetter(iOutputFieldCount++) + iRow);
+                            efficiencyCell.Value = Math.Round(stackEfficiency, 2);
                             // insert image 
                             if (GenerateImage)
                             {
-                                Excel.Range imageCell = xlSheet.get_Range(ColumnIndexToColumnLetter(iOutputFieldCount) + iRow, ColumnIndexToColumnLetter(iOutputFieldCount++) + iRow);
+                                Excel.Range imageCell = xlSheet.get_Range(
+                                    ExcelHelpers.ColumnIndexToColumnLetter(iOutputFieldCount) + iRow,
+                                    ExcelHelpers.ColumnIndexToColumnLetter(iOutputFieldCount++) + iRow);
                                 xlSheet.Shapes.AddPicture(stackImagePath,
                                     Microsoft.Office.Core.MsoTriState.msoFalse, Microsoft.Office.Core.MsoTriState.msoCTrue,
                                     imageCell.Left + 1, imageCell.Top + 1, imageCell.Width - 2, imageCell.Height - 2);
@@ -171,7 +186,8 @@ namespace treeDiM.StackBuilder.ExcelAddIn
                         catch (Microsoft.CSharp.RuntimeBinder.RuntimeBinderException /*ex*/)
                         {
                             iOutputFieldCount = palletColStartIndex;
-                            Excel.Range countCel = xlSheet.get_Range(ColumnIndexToColumnLetter(iOutputFieldCount++) + iRow);
+                            Excel.Range countCel = xlSheet.get_Range(
+                                ExcelHelpers.ColumnIndexToColumnLetter(iOutputFieldCount++) + iRow);
                             countCel.Value = string.Format($"ERROR : Invalid input data!");
                         }
                         catch (Exception ex)
@@ -184,6 +200,18 @@ namespace treeDiM.StackBuilder.ExcelAddIn
                     palletColStartIndex += iNoCols;
 
                 } // loop pallet
+            }
+            catch (System.Runtime.InteropServices.COMException ex)
+            {
+                switch ((uint)ex.ErrorCode)
+                {
+                    case 0x800A03EC:
+                        MessageBox.Show("NAME_NOT_FOUND : Could not find cell with given name!");
+                        break;
+                    default:
+                        MessageBox.Show(ex.Message);
+                        break;
+                }
             }
             catch (Exception ex)
             {
@@ -288,13 +316,13 @@ namespace treeDiM.StackBuilder.ExcelAddIn
                         try { typeName = worksheet.get_Range("g" + i, "g" + i).Value.ToString(); }
                         catch (Exception) {}
                         PalletProperties palletProp = new PalletProperties(null, typeName
-                            , ReadDouble("Pallet length", worksheet, "c" + i)
-                            , ReadDouble("Pallet width", worksheet, "d" + i)
-                            , ReadDouble("Pallet height", worksheet, "e" + i)
+                            , ExcelHelpers.ReadDouble("Pallet length", worksheet, "c" + i)
+                            , ExcelHelpers.ReadDouble("Pallet width", worksheet, "d" + i)
+                            , ExcelHelpers.ReadDouble("Pallet height", worksheet, "e" + i)
                             );
                         palletProp.ID.SetNameDesc(
-                            ReadString("Pallet name", worksheet, "a" + i),
-                            ReadString("Pallet description", worksheet, "b" + i)
+                            ExcelHelpers.ReadString("Pallet name", worksheet, "a" + i),
+                            ExcelHelpers.ReadString("Pallet description", worksheet, "b" + i)
                             );
                         listPallets.Add(palletProp);
                     }
@@ -304,7 +332,8 @@ namespace treeDiM.StackBuilder.ExcelAddIn
                     }
                 }
                 // fill list box
-                lbPallets.SelectionMode = SelectionMode.None;
+                lbPallets.Items.Clear();
+                lbPallets.SelectionMode = SelectionMode.One;
                 foreach (PalletProperties palletProperties in listPallets)
                 {
                     int index = lbPallets.Items.Add(new PalletItem(palletProperties));
@@ -360,6 +389,7 @@ namespace treeDiM.StackBuilder.ExcelAddIn
             ConstraintSetCasePallet constraintSet = new ConstraintSetCasePallet();
             constraintSet.SetAllowedOrientations(new bool[] { !AllowOnlyZOrientation, !AllowOnlyZOrientation, true });
             constraintSet.SetMaxHeight(new OptDouble(true, PalletMaximumHeight));
+            constraintSet.Overhang = Overhang;
 
             SolverCasePallet solver = new SolverCasePallet(bProperties, palletProperties);
             List<Analysis> analyses = solver.BuildAnalyses(constraintSet, false);
@@ -409,6 +439,7 @@ namespace treeDiM.StackBuilder.ExcelAddIn
         private double PalletMaximumHeight => uCtrlMaxPalletHeight.Value;
         private int StackCountMax => Settings.Default.StackCountMax;
         private double LargestDimMin => Settings.Default.MinDimensions;
+        private Vector2D Overhang => new Vector2D(uCtrlOverhang.ValueX, uCtrlOverhang.ValueY);
         #endregion
 
         #region Static member functions
@@ -416,54 +447,7 @@ namespace treeDiM.StackBuilder.ExcelAddIn
         #endregion
 
         #region Helpers
-        private static double ReadDouble(string name, Excel.Worksheet worksheet, string cellName)
-        {
-            try
-            {
-                return worksheet.get_Range(cellName, cellName).Value;
-            }
-            catch (Exception ex)
-            {
-                throw new ExceptionCellReading(name, cellName, ex.Message);
-            }
-        }
-        private static string ReadString(string name, Excel.Worksheet worksheet, string cellName)
-        {
-            try
-            {
-                return worksheet.get_Range(cellName, cellName).Value.ToString();
-            }
-            catch (Exception ex)
-            {
-                throw new ExceptionCellReading(name, cellName, ex.Message);
-            }
-        }
-        private static string ColumnIndexToColumnLetter(int colIndex)
-        {
-            int div = colIndex;
-            string colLetter = String.Empty;
-            int mod = 0;
 
-            while (div > 0)
-            {
-                mod = (div - 1) % 26;
-                colLetter = (char)(65 + mod) + colLetter;
-                div = (int)((div - mod) / 26);
-            }
-            return colLetter;
-        }
-        private static int ColumnLetterToColumnIndex(string columnLetter)
-        {
-            columnLetter = columnLetter.ToUpper();
-            int sum = 0;
-
-            for (int i = 0; i < columnLetter.Length; i++)
-            {
-                sum *= 26;
-                sum += (columnLetter[i] - 'A' + 1);
-            }
-            return sum;
-        }
         #endregion
 
 

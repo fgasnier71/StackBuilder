@@ -118,22 +118,28 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ID_CASE_HEIGHT" xml:space="preserve">
-    <value>Hauteur de boîtier</value>
+    <value>Hauteur caisse</value>
   </data>
   <data name="ID_CASE_LENGTH" xml:space="preserve">
-    <value>Longueur du carter</value>
+    <value>Longueur caisse</value>
   </data>
   <data name="ID_CASE_WEIGHT" xml:space="preserve">
     <value>Masse caisse</value>
   </data>
   <data name="ID_CASE_WIDTH" xml:space="preserve">
-    <value>Largeur du carter</value>
+    <value>Largeur caisse</value>
   </data>
   <data name="ID_CONSTRAINTS_PALLETMAXIHEIGHT" xml:space="preserve">
     <value>Hauteur maximale palette</value>
   </data>
   <data name="ID_CONSTRAINTS_PALLETMAXIWEIGHT" xml:space="preserve">
     <value>Poid maximum palette</value>
+  </data>
+  <data name="ID_ERROR_NOPALLETSELECTED" xml:space="preserve">
+    <value>Aucune palette sélectionnée!</value>
+  </data>
+  <data name="ID_LOAD_WEIGHT" xml:space="preserve">
+    <value>Masse chargement</value>
   </data>
   <data name="ID_PALLET_HEIGHT" xml:space="preserve">
     <value>Hauteur palette</value>
@@ -147,16 +153,22 @@
   <data name="ID_PALLET_WIDTH" xml:space="preserve">
     <value>Largeur de palette</value>
   </data>
+  <data name="ID_RESULT_EFFICIENCY" xml:space="preserve">
+    <value>Efficacité</value>
+  </data>
+  <data name="ID_RESULT_IMAGE" xml:space="preserve">
+    <value>Image</value>
+  </data>
   <data name="ID_RESULT_LOADWEIGHT" xml:space="preserve">
     <value>Masse chargement</value>
   </data>
   <data name="ID_RESULT_NOCASES" xml:space="preserve">
-    <value>Nombre de cas</value>
+    <value>Nombre de caisses</value>
   </data>
   <data name="ID_RESULT_NOSOLUTIONFOUND" xml:space="preserve">
     <value>Aucune solution valable trouvée !</value>
   </data>
   <data name="ID_RESULT_TOTALPALLETWEIGHT" xml:space="preserve">
-    <value>Total palletWeight</value>
+    <value>Masse totale palette</value>
   </data>
 </root>

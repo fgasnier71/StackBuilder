@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSettingsPerRow));
             this.bnOk = new System.Windows.Forms.Button();
             this.bnCancel = new System.Windows.Forms.Button();
             this.gbInputColumns = new System.Windows.Forms.GroupBox();
@@ -47,12 +48,12 @@
             this.cbOutputStart = new System.Windows.Forms.ComboBox();
             this.lbStartOutput = new System.Windows.Forms.Label();
             this.gbAdditionalProperties = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.nudImageSize = new System.Windows.Forms.NumericUpDown();
+            this.label1 = new System.Windows.Forms.Label();
             this.gpConditions = new System.Windows.Forms.GroupBox();
-            this.uCtrlMinDimensions = new treeDiM.StackBuilder.Basics.UCtrlDouble();
-            this.label2 = new System.Windows.Forms.Label();
             this.nudMaxCountImage = new System.Windows.Forms.NumericUpDown();
+            this.label2 = new System.Windows.Forms.Label();
+            this.uCtrlMinDimensions = new treeDiM.StackBuilder.Basics.UCtrlDouble();
             this.gbInputColumns.SuspendLayout();
             this.gbOutput.SuspendLayout();
             this.gbAdditionalProperties.SuspendLayout();
@@ -63,24 +64,16 @@
             // 
             // bnOk
             // 
-            this.bnOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            resources.ApplyResources(this.bnOk, "bnOk");
             this.bnOk.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.bnOk.Location = new System.Drawing.Point(389, 3);
             this.bnOk.Name = "bnOk";
-            this.bnOk.Size = new System.Drawing.Size(75, 23);
-            this.bnOk.TabIndex = 0;
-            this.bnOk.Text = "OK";
             this.bnOk.UseVisualStyleBackColor = true;
             // 
             // bnCancel
             // 
-            this.bnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            resources.ApplyResources(this.bnCancel, "bnCancel");
             this.bnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.bnCancel.Location = new System.Drawing.Point(389, 32);
             this.bnCancel.Name = "bnCancel";
-            this.bnCancel.Size = new System.Drawing.Size(75, 23);
-            this.bnCancel.TabIndex = 1;
-            this.bnCancel.Text = "Cancel";
             this.bnCancel.UseVisualStyleBackColor = true;
             // 
             // gbInputColumns
@@ -97,429 +90,358 @@
             this.gbInputColumns.Controls.Add(this.lbWidth);
             this.gbInputColumns.Controls.Add(this.lbLength);
             this.gbInputColumns.Controls.Add(this.lbName);
-            this.gbInputColumns.Location = new System.Drawing.Point(12, 3);
+            resources.ApplyResources(this.gbInputColumns, "gbInputColumns");
             this.gbInputColumns.Name = "gbInputColumns";
-            this.gbInputColumns.Size = new System.Drawing.Size(175, 201);
-            this.gbInputColumns.TabIndex = 15;
             this.gbInputColumns.TabStop = false;
-            this.gbInputColumns.Text = "Input columns";
             // 
             // cbWeight
             // 
             this.cbWeight.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbWeight.FormattingEnabled = true;
             this.cbWeight.Items.AddRange(new object[] {
-            "A",
-            "B",
-            "C",
-            "D",
-            "E",
-            "F",
-            "G",
-            "H",
-            "I",
-            "J",
-            "K",
-            "L",
-            "M",
-            "N",
-            "O",
-            "P",
-            "Q",
-            "R",
-            "S",
-            "T",
-            "U",
-            "V",
-            "W",
-            "X",
-            "Y",
-            "Z"});
-            this.cbWeight.Location = new System.Drawing.Point(112, 146);
+            resources.GetString("cbWeight.Items"),
+            resources.GetString("cbWeight.Items1"),
+            resources.GetString("cbWeight.Items2"),
+            resources.GetString("cbWeight.Items3"),
+            resources.GetString("cbWeight.Items4"),
+            resources.GetString("cbWeight.Items5"),
+            resources.GetString("cbWeight.Items6"),
+            resources.GetString("cbWeight.Items7"),
+            resources.GetString("cbWeight.Items8"),
+            resources.GetString("cbWeight.Items9"),
+            resources.GetString("cbWeight.Items10"),
+            resources.GetString("cbWeight.Items11"),
+            resources.GetString("cbWeight.Items12"),
+            resources.GetString("cbWeight.Items13"),
+            resources.GetString("cbWeight.Items14"),
+            resources.GetString("cbWeight.Items15"),
+            resources.GetString("cbWeight.Items16"),
+            resources.GetString("cbWeight.Items17"),
+            resources.GetString("cbWeight.Items18"),
+            resources.GetString("cbWeight.Items19"),
+            resources.GetString("cbWeight.Items20"),
+            resources.GetString("cbWeight.Items21"),
+            resources.GetString("cbWeight.Items22"),
+            resources.GetString("cbWeight.Items23"),
+            resources.GetString("cbWeight.Items24"),
+            resources.GetString("cbWeight.Items25")});
+            resources.ApplyResources(this.cbWeight, "cbWeight");
             this.cbWeight.Name = "cbWeight";
-            this.cbWeight.Size = new System.Drawing.Size(45, 21);
-            this.cbWeight.TabIndex = 26;
             // 
             // cbHeight
             // 
             this.cbHeight.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbHeight.FormattingEnabled = true;
             this.cbHeight.Items.AddRange(new object[] {
-            "A",
-            "B",
-            "C",
-            "D",
-            "E",
-            "F",
-            "G",
-            "H",
-            "I",
-            "J",
-            "K",
-            "L",
-            "M",
-            "N",
-            "O",
-            "P",
-            "Q",
-            "R",
-            "S",
-            "T",
-            "U",
-            "V",
-            "W",
-            "X",
-            "Y",
-            "Z"});
-            this.cbHeight.Location = new System.Drawing.Point(112, 120);
+            resources.GetString("cbHeight.Items"),
+            resources.GetString("cbHeight.Items1"),
+            resources.GetString("cbHeight.Items2"),
+            resources.GetString("cbHeight.Items3"),
+            resources.GetString("cbHeight.Items4"),
+            resources.GetString("cbHeight.Items5"),
+            resources.GetString("cbHeight.Items6"),
+            resources.GetString("cbHeight.Items7"),
+            resources.GetString("cbHeight.Items8"),
+            resources.GetString("cbHeight.Items9"),
+            resources.GetString("cbHeight.Items10"),
+            resources.GetString("cbHeight.Items11"),
+            resources.GetString("cbHeight.Items12"),
+            resources.GetString("cbHeight.Items13"),
+            resources.GetString("cbHeight.Items14"),
+            resources.GetString("cbHeight.Items15"),
+            resources.GetString("cbHeight.Items16"),
+            resources.GetString("cbHeight.Items17"),
+            resources.GetString("cbHeight.Items18"),
+            resources.GetString("cbHeight.Items19"),
+            resources.GetString("cbHeight.Items20"),
+            resources.GetString("cbHeight.Items21"),
+            resources.GetString("cbHeight.Items22"),
+            resources.GetString("cbHeight.Items23"),
+            resources.GetString("cbHeight.Items24"),
+            resources.GetString("cbHeight.Items25")});
+            resources.ApplyResources(this.cbHeight, "cbHeight");
             this.cbHeight.Name = "cbHeight";
-            this.cbHeight.Size = new System.Drawing.Size(45, 21);
-            this.cbHeight.TabIndex = 25;
             // 
             // cbWidth
             // 
             this.cbWidth.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbWidth.FormattingEnabled = true;
             this.cbWidth.Items.AddRange(new object[] {
-            "A",
-            "B",
-            "C",
-            "D",
-            "E",
-            "F",
-            "G",
-            "H",
-            "I",
-            "J",
-            "K",
-            "L",
-            "M",
-            "N",
-            "O",
-            "P",
-            "Q",
-            "R",
-            "S",
-            "T",
-            "U",
-            "V",
-            "W",
-            "X",
-            "Y",
-            "Z"});
-            this.cbWidth.Location = new System.Drawing.Point(112, 94);
+            resources.GetString("cbWidth.Items"),
+            resources.GetString("cbWidth.Items1"),
+            resources.GetString("cbWidth.Items2"),
+            resources.GetString("cbWidth.Items3"),
+            resources.GetString("cbWidth.Items4"),
+            resources.GetString("cbWidth.Items5"),
+            resources.GetString("cbWidth.Items6"),
+            resources.GetString("cbWidth.Items7"),
+            resources.GetString("cbWidth.Items8"),
+            resources.GetString("cbWidth.Items9"),
+            resources.GetString("cbWidth.Items10"),
+            resources.GetString("cbWidth.Items11"),
+            resources.GetString("cbWidth.Items12"),
+            resources.GetString("cbWidth.Items13"),
+            resources.GetString("cbWidth.Items14"),
+            resources.GetString("cbWidth.Items15"),
+            resources.GetString("cbWidth.Items16"),
+            resources.GetString("cbWidth.Items17"),
+            resources.GetString("cbWidth.Items18"),
+            resources.GetString("cbWidth.Items19"),
+            resources.GetString("cbWidth.Items20"),
+            resources.GetString("cbWidth.Items21"),
+            resources.GetString("cbWidth.Items22"),
+            resources.GetString("cbWidth.Items23"),
+            resources.GetString("cbWidth.Items24"),
+            resources.GetString("cbWidth.Items25")});
+            resources.ApplyResources(this.cbWidth, "cbWidth");
             this.cbWidth.Name = "cbWidth";
-            this.cbWidth.Size = new System.Drawing.Size(45, 21);
-            this.cbWidth.TabIndex = 24;
             // 
             // cbLength
             // 
             this.cbLength.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbLength.FormattingEnabled = true;
             this.cbLength.Items.AddRange(new object[] {
-            "A",
-            "B",
-            "C",
-            "D",
-            "E",
-            "F",
-            "G",
-            "H",
-            "I",
-            "J",
-            "K",
-            "L",
-            "M",
-            "N",
-            "O",
-            "P",
-            "Q",
-            "R",
-            "S",
-            "T",
-            "U",
-            "V",
-            "W",
-            "X",
-            "Y",
-            "Z"});
-            this.cbLength.Location = new System.Drawing.Point(112, 68);
+            resources.GetString("cbLength.Items"),
+            resources.GetString("cbLength.Items1"),
+            resources.GetString("cbLength.Items2"),
+            resources.GetString("cbLength.Items3"),
+            resources.GetString("cbLength.Items4"),
+            resources.GetString("cbLength.Items5"),
+            resources.GetString("cbLength.Items6"),
+            resources.GetString("cbLength.Items7"),
+            resources.GetString("cbLength.Items8"),
+            resources.GetString("cbLength.Items9"),
+            resources.GetString("cbLength.Items10"),
+            resources.GetString("cbLength.Items11"),
+            resources.GetString("cbLength.Items12"),
+            resources.GetString("cbLength.Items13"),
+            resources.GetString("cbLength.Items14"),
+            resources.GetString("cbLength.Items15"),
+            resources.GetString("cbLength.Items16"),
+            resources.GetString("cbLength.Items17"),
+            resources.GetString("cbLength.Items18"),
+            resources.GetString("cbLength.Items19"),
+            resources.GetString("cbLength.Items20"),
+            resources.GetString("cbLength.Items21"),
+            resources.GetString("cbLength.Items22"),
+            resources.GetString("cbLength.Items23"),
+            resources.GetString("cbLength.Items24"),
+            resources.GetString("cbLength.Items25")});
+            resources.ApplyResources(this.cbLength, "cbLength");
             this.cbLength.Name = "cbLength";
-            this.cbLength.Size = new System.Drawing.Size(45, 21);
-            this.cbLength.TabIndex = 23;
             // 
             // cbDescription
             // 
             this.cbDescription.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbDescription.FormattingEnabled = true;
             this.cbDescription.Items.AddRange(new object[] {
-            "A",
-            "B",
-            "C",
-            "D",
-            "E",
-            "F",
-            "G",
-            "H",
-            "I",
-            "J",
-            "K",
-            "L",
-            "M",
-            "N",
-            "O",
-            "P",
-            "Q",
-            "R",
-            "S",
-            "T",
-            "U",
-            "V",
-            "W",
-            "X",
-            "Y",
-            "Z"});
-            this.cbDescription.Location = new System.Drawing.Point(112, 42);
+            resources.GetString("cbDescription.Items"),
+            resources.GetString("cbDescription.Items1"),
+            resources.GetString("cbDescription.Items2"),
+            resources.GetString("cbDescription.Items3"),
+            resources.GetString("cbDescription.Items4"),
+            resources.GetString("cbDescription.Items5"),
+            resources.GetString("cbDescription.Items6"),
+            resources.GetString("cbDescription.Items7"),
+            resources.GetString("cbDescription.Items8"),
+            resources.GetString("cbDescription.Items9"),
+            resources.GetString("cbDescription.Items10"),
+            resources.GetString("cbDescription.Items11"),
+            resources.GetString("cbDescription.Items12"),
+            resources.GetString("cbDescription.Items13"),
+            resources.GetString("cbDescription.Items14"),
+            resources.GetString("cbDescription.Items15"),
+            resources.GetString("cbDescription.Items16"),
+            resources.GetString("cbDescription.Items17"),
+            resources.GetString("cbDescription.Items18"),
+            resources.GetString("cbDescription.Items19"),
+            resources.GetString("cbDescription.Items20"),
+            resources.GetString("cbDescription.Items21"),
+            resources.GetString("cbDescription.Items22"),
+            resources.GetString("cbDescription.Items23"),
+            resources.GetString("cbDescription.Items24"),
+            resources.GetString("cbDescription.Items25")});
+            resources.ApplyResources(this.cbDescription, "cbDescription");
             this.cbDescription.Name = "cbDescription";
-            this.cbDescription.Size = new System.Drawing.Size(45, 21);
-            this.cbDescription.TabIndex = 22;
             // 
             // cbName
             // 
             this.cbName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbName.FormattingEnabled = true;
             this.cbName.Items.AddRange(new object[] {
-            "A",
-            "B",
-            "C",
-            "D",
-            "E",
-            "F",
-            "G",
-            "H",
-            "I",
-            "J",
-            "K",
-            "L",
-            "M",
-            "N",
-            "O",
-            "P",
-            "Q",
-            "R",
-            "S",
-            "T",
-            "U",
-            "V",
-            "W",
-            "X",
-            "Y",
-            "Z"});
-            this.cbName.Location = new System.Drawing.Point(112, 16);
+            resources.GetString("cbName.Items"),
+            resources.GetString("cbName.Items1"),
+            resources.GetString("cbName.Items2"),
+            resources.GetString("cbName.Items3"),
+            resources.GetString("cbName.Items4"),
+            resources.GetString("cbName.Items5"),
+            resources.GetString("cbName.Items6"),
+            resources.GetString("cbName.Items7"),
+            resources.GetString("cbName.Items8"),
+            resources.GetString("cbName.Items9"),
+            resources.GetString("cbName.Items10"),
+            resources.GetString("cbName.Items11"),
+            resources.GetString("cbName.Items12"),
+            resources.GetString("cbName.Items13"),
+            resources.GetString("cbName.Items14"),
+            resources.GetString("cbName.Items15"),
+            resources.GetString("cbName.Items16"),
+            resources.GetString("cbName.Items17"),
+            resources.GetString("cbName.Items18"),
+            resources.GetString("cbName.Items19"),
+            resources.GetString("cbName.Items20"),
+            resources.GetString("cbName.Items21"),
+            resources.GetString("cbName.Items22"),
+            resources.GetString("cbName.Items23"),
+            resources.GetString("cbName.Items24"),
+            resources.GetString("cbName.Items25")});
+            resources.ApplyResources(this.cbName, "cbName");
             this.cbName.Name = "cbName";
-            this.cbName.Size = new System.Drawing.Size(45, 21);
-            this.cbName.TabIndex = 21;
             // 
             // chkbDescription
             // 
-            this.chkbDescription.AutoSize = true;
-            this.chkbDescription.Location = new System.Drawing.Point(8, 44);
+            resources.ApplyResources(this.chkbDescription, "chkbDescription");
             this.chkbDescription.Name = "chkbDescription";
-            this.chkbDescription.Size = new System.Drawing.Size(79, 17);
-            this.chkbDescription.TabIndex = 20;
-            this.chkbDescription.Text = "Description";
             this.chkbDescription.UseVisualStyleBackColor = true;
             this.chkbDescription.CheckedChanged += new System.EventHandler(this.OnDescriptionChecked);
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(8, 148);
+            resources.ApplyResources(this.label5, "label5");
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(41, 13);
-            this.label5.TabIndex = 19;
-            this.label5.Text = "Weight";
             // 
             // lbHeight
             // 
-            this.lbHeight.AutoSize = true;
-            this.lbHeight.Location = new System.Drawing.Point(8, 123);
+            resources.ApplyResources(this.lbHeight, "lbHeight");
             this.lbHeight.Name = "lbHeight";
-            this.lbHeight.Size = new System.Drawing.Size(38, 13);
-            this.lbHeight.TabIndex = 18;
-            this.lbHeight.Text = "Height";
             // 
             // lbWidth
             // 
-            this.lbWidth.AutoSize = true;
-            this.lbWidth.Location = new System.Drawing.Point(8, 98);
+            resources.ApplyResources(this.lbWidth, "lbWidth");
             this.lbWidth.Name = "lbWidth";
-            this.lbWidth.Size = new System.Drawing.Size(35, 13);
-            this.lbWidth.TabIndex = 17;
-            this.lbWidth.Text = "Width";
             // 
             // lbLength
             // 
-            this.lbLength.AutoSize = true;
-            this.lbLength.Location = new System.Drawing.Point(9, 71);
+            resources.ApplyResources(this.lbLength, "lbLength");
             this.lbLength.Name = "lbLength";
-            this.lbLength.Size = new System.Drawing.Size(40, 13);
-            this.lbLength.TabIndex = 16;
-            this.lbLength.Text = "Length";
             // 
             // lbName
             // 
-            this.lbName.AutoSize = true;
-            this.lbName.Location = new System.Drawing.Point(8, 20);
+            resources.ApplyResources(this.lbName, "lbName");
             this.lbName.Name = "lbName";
-            this.lbName.Size = new System.Drawing.Size(35, 13);
-            this.lbName.TabIndex = 15;
-            this.lbName.Text = "Name";
             // 
             // gbOutput
             // 
             this.gbOutput.Controls.Add(this.cbOutputStart);
             this.gbOutput.Controls.Add(this.lbStartOutput);
-            this.gbOutput.Location = new System.Drawing.Point(194, 3);
+            resources.ApplyResources(this.gbOutput, "gbOutput");
             this.gbOutput.Name = "gbOutput";
-            this.gbOutput.Size = new System.Drawing.Size(187, 52);
-            this.gbOutput.TabIndex = 16;
             this.gbOutput.TabStop = false;
-            this.gbOutput.Text = "Output columns";
             // 
             // cbOutputStart
             // 
             this.cbOutputStart.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbOutputStart.FormattingEnabled = true;
             this.cbOutputStart.Items.AddRange(new object[] {
-            "A",
-            "B",
-            "C",
-            "D",
-            "E",
-            "F",
-            "G",
-            "H",
-            "I",
-            "J",
-            "K",
-            "L",
-            "M",
-            "N",
-            "O",
-            "P",
-            "Q",
-            "R",
-            "S",
-            "T",
-            "U",
-            "V",
-            "W",
-            "X",
-            "Y",
-            "Z"});
-            this.cbOutputStart.Location = new System.Drawing.Point(136, 17);
+            resources.GetString("cbOutputStart.Items"),
+            resources.GetString("cbOutputStart.Items1"),
+            resources.GetString("cbOutputStart.Items2"),
+            resources.GetString("cbOutputStart.Items3"),
+            resources.GetString("cbOutputStart.Items4"),
+            resources.GetString("cbOutputStart.Items5"),
+            resources.GetString("cbOutputStart.Items6"),
+            resources.GetString("cbOutputStart.Items7"),
+            resources.GetString("cbOutputStart.Items8"),
+            resources.GetString("cbOutputStart.Items9"),
+            resources.GetString("cbOutputStart.Items10"),
+            resources.GetString("cbOutputStart.Items11"),
+            resources.GetString("cbOutputStart.Items12"),
+            resources.GetString("cbOutputStart.Items13"),
+            resources.GetString("cbOutputStart.Items14"),
+            resources.GetString("cbOutputStart.Items15"),
+            resources.GetString("cbOutputStart.Items16"),
+            resources.GetString("cbOutputStart.Items17"),
+            resources.GetString("cbOutputStart.Items18"),
+            resources.GetString("cbOutputStart.Items19"),
+            resources.GetString("cbOutputStart.Items20"),
+            resources.GetString("cbOutputStart.Items21"),
+            resources.GetString("cbOutputStart.Items22"),
+            resources.GetString("cbOutputStart.Items23"),
+            resources.GetString("cbOutputStart.Items24"),
+            resources.GetString("cbOutputStart.Items25")});
+            resources.ApplyResources(this.cbOutputStart, "cbOutputStart");
             this.cbOutputStart.Name = "cbOutputStart";
-            this.cbOutputStart.Size = new System.Drawing.Size(45, 21);
-            this.cbOutputStart.TabIndex = 22;
             // 
             // lbStartOutput
             // 
-            this.lbStartOutput.AutoSize = true;
-            this.lbStartOutput.Location = new System.Drawing.Point(6, 20);
+            resources.ApplyResources(this.lbStartOutput, "lbStartOutput");
             this.lbStartOutput.Name = "lbStartOutput";
-            this.lbStartOutput.Size = new System.Drawing.Size(29, 13);
-            this.lbStartOutput.TabIndex = 0;
-            this.lbStartOutput.Text = "Start";
             // 
             // gbAdditionalProperties
             // 
             this.gbAdditionalProperties.Controls.Add(this.nudImageSize);
             this.gbAdditionalProperties.Controls.Add(this.label1);
-            this.gbAdditionalProperties.Location = new System.Drawing.Point(194, 164);
+            resources.ApplyResources(this.gbAdditionalProperties, "gbAdditionalProperties");
             this.gbAdditionalProperties.Name = "gbAdditionalProperties";
-            this.gbAdditionalProperties.Size = new System.Drawing.Size(263, 40);
-            this.gbAdditionalProperties.TabIndex = 17;
             this.gbAdditionalProperties.TabStop = false;
-            this.gbAdditionalProperties.Text = "Additional properties";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 16);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(57, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Image size";
             // 
             // nudImageSize
             // 
-            this.nudImageSize.Location = new System.Drawing.Point(158, 16);
+            resources.ApplyResources(this.nudImageSize, "nudImageSize");
             this.nudImageSize.Maximum = new decimal(new int[] {
             10000,
             0,
             0,
             0});
             this.nudImageSize.Name = "nudImageSize";
-            this.nudImageSize.Size = new System.Drawing.Size(57, 20);
-            this.nudImageSize.TabIndex = 1;
+            // 
+            // label1
+            // 
+            resources.ApplyResources(this.label1, "label1");
+            this.label1.Name = "label1";
             // 
             // gpConditions
             // 
             this.gpConditions.Controls.Add(this.nudMaxCountImage);
             this.gpConditions.Controls.Add(this.label2);
             this.gpConditions.Controls.Add(this.uCtrlMinDimensions);
-            this.gpConditions.Location = new System.Drawing.Point(194, 62);
+            resources.ApplyResources(this.gpConditions, "gpConditions");
             this.gpConditions.Name = "gpConditions";
-            this.gpConditions.Size = new System.Drawing.Size(263, 102);
-            this.gpConditions.TabIndex = 18;
             this.gpConditions.TabStop = false;
-            this.gpConditions.Text = "Processing conditions";
-            // 
-            // uCtrlMinDimensions
-            // 
-            this.uCtrlMinDimensions.Location = new System.Drawing.Point(7, 19);
-            this.uCtrlMinDimensions.Minimum = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.uCtrlMinDimensions.MinimumSize = new System.Drawing.Size(100, 20);
-            this.uCtrlMinDimensions.Name = "uCtrlMinDimensions";
-            this.uCtrlMinDimensions.Size = new System.Drawing.Size(245, 20);
-            this.uCtrlMinDimensions.TabIndex = 2;
-            this.uCtrlMinDimensions.Text = "Min. dimensions";
-            this.uCtrlMinDimensions.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
-            this.uCtrlMinDimensions.Value = 0D;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(7, 46);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(159, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Max. count for image generation";
             // 
             // nudMaxCountImage
             // 
-            this.nudMaxCountImage.Location = new System.Drawing.Point(158, 61);
+            resources.ApplyResources(this.nudMaxCountImage, "nudMaxCountImage");
             this.nudMaxCountImage.Maximum = new decimal(new int[] {
             10000,
             0,
             0,
             0});
             this.nudMaxCountImage.Name = "nudMaxCountImage";
-            this.nudMaxCountImage.Size = new System.Drawing.Size(57, 20);
-            this.nudMaxCountImage.TabIndex = 4;
+            // 
+            // label2
+            // 
+            resources.ApplyResources(this.label2, "label2");
+            this.label2.Name = "label2";
+            // 
+            // uCtrlMinDimensions
+            // 
+            resources.ApplyResources(this.uCtrlMinDimensions, "uCtrlMinDimensions");
+            this.uCtrlMinDimensions.Minimum = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.uCtrlMinDimensions.Name = "uCtrlMinDimensions";
+            this.uCtrlMinDimensions.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlMinDimensions.Value = 0D;
             // 
             // FormSettingsPerRow
             // 
             this.AcceptButton = this.bnOk;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.bnCancel;
-            this.ClientSize = new System.Drawing.Size(469, 211);
             this.Controls.Add(this.gpConditions);
             this.Controls.Add(this.gbAdditionalProperties);
             this.Controls.Add(this.gbOutput);
@@ -531,7 +453,6 @@
             this.Name = "FormSettingsPerRow";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
-            this.Text = "Define input columns for per row analyses...";
             this.gbInputColumns.ResumeLayout(false);
             this.gbInputColumns.PerformLayout();
             this.gbOutput.ResumeLayout(false);

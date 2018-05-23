@@ -18,13 +18,13 @@ namespace treeDiM.StackBuilder.ExcelAddIn
         {
             base.OnLoad(e);
 
-            cbName.SelectedIndex = ColumnLetterToColumnIndex(Settings.Default.ColumnLetterName) - 1;
-            cbDescription.SelectedIndex = ColumnLetterToColumnIndex(Settings.Default.ColumnLetterDescription) - 1;
-            cbLength.SelectedIndex = ColumnLetterToColumnIndex(Settings.Default.ColumnLetterLength) - 1;
-            cbWidth.SelectedIndex = ColumnLetterToColumnIndex(Settings.Default.ColumnLetterWidth) - 1;
-            cbHeight.SelectedIndex = ColumnLetterToColumnIndex(Settings.Default.ColumnLetterHeight) - 1;
-            cbWeight.SelectedIndex = ColumnLetterToColumnIndex(Settings.Default.ColumnLetterWeight) - 1;
-            cbOutputStart.SelectedIndex = ColumnLetterToColumnIndex(Settings.Default.ColumnLetterOutputStart) - 1;
+            cbName.SelectedIndex = ExcelHelpers.ColumnLetterToColumnIndex(Settings.Default.ColumnLetterName) - 1;
+            cbDescription.SelectedIndex = ExcelHelpers.ColumnLetterToColumnIndex(Settings.Default.ColumnLetterDescription) - 1;
+            cbLength.SelectedIndex = ExcelHelpers.ColumnLetterToColumnIndex(Settings.Default.ColumnLetterLength) - 1;
+            cbWidth.SelectedIndex = ExcelHelpers.ColumnLetterToColumnIndex(Settings.Default.ColumnLetterWidth) - 1;
+            cbHeight.SelectedIndex = ExcelHelpers.ColumnLetterToColumnIndex(Settings.Default.ColumnLetterHeight) - 1;
+            cbWeight.SelectedIndex = ExcelHelpers.ColumnLetterToColumnIndex(Settings.Default.ColumnLetterWeight) - 1;
+            cbOutputStart.SelectedIndex = ExcelHelpers.ColumnLetterToColumnIndex(Settings.Default.ColumnLetterOutputStart) - 1;
             nudImageSize.Value = (decimal)Settings.Default.ImageSize;
             nudMaxCountImage.Value = (decimal)Settings.Default.StackCountMax;
             uCtrlMinDimensions.Value = Settings.Default.MinDimensions;
@@ -49,19 +49,6 @@ namespace treeDiM.StackBuilder.ExcelAddIn
 
                 Settings.Default.UseDescription = chkbDescription.Checked;
             }
-        }
-
-        private static int ColumnLetterToColumnIndex(string columnLetter)
-        {
-            columnLetter = columnLetter.ToUpper();
-            int sum = 0;
-
-            for (int i = 0; i < columnLetter.Length; i++)
-            {
-                sum *= 26;
-                sum += (columnLetter[i] - 'A' + 1);
-            }
-            return sum;
         }
 
         private void OnDescriptionChecked(object sender, EventArgs e)

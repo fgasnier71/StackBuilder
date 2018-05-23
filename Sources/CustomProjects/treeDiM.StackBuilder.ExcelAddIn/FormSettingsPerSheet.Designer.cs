@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSettingsPerSheet));
             this.bnOK = new System.Windows.Forms.Button();
             this.bnCancel = new System.Windows.Forms.Button();
             this.gbCase = new System.Windows.Forms.GroupBox();
@@ -75,28 +76,21 @@
             // 
             // bnOK
             // 
-            this.bnOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            resources.ApplyResources(this.bnOK, "bnOK");
             this.bnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.bnOK.Location = new System.Drawing.Point(705, 13);
             this.bnOK.Name = "bnOK";
-            this.bnOK.Size = new System.Drawing.Size(75, 23);
-            this.bnOK.TabIndex = 0;
-            this.bnOK.Text = "OK";
             this.bnOK.UseVisualStyleBackColor = true;
             // 
             // bnCancel
             // 
-            this.bnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            resources.ApplyResources(this.bnCancel, "bnCancel");
             this.bnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.bnCancel.Location = new System.Drawing.Point(705, 43);
             this.bnCancel.Name = "bnCancel";
-            this.bnCancel.Size = new System.Drawing.Size(75, 23);
-            this.bnCancel.TabIndex = 1;
-            this.bnCancel.Text = "Cancel";
             this.bnCancel.UseVisualStyleBackColor = true;
             // 
             // gbCase
             // 
+            resources.ApplyResources(this.gbCase, "gbCase");
             this.gbCase.Controls.Add(this.tbWeightCell);
             this.gbCase.Controls.Add(this.lbWeight);
             this.gbCase.Controls.Add(this.tbHeightCell);
@@ -105,79 +99,52 @@
             this.gbCase.Controls.Add(this.lbHeight);
             this.gbCase.Controls.Add(this.lbWidth);
             this.gbCase.Controls.Add(this.lbLength);
-            this.gbCase.Location = new System.Drawing.Point(13, 44);
             this.gbCase.Name = "gbCase";
-            this.gbCase.Size = new System.Drawing.Size(164, 143);
-            this.gbCase.TabIndex = 2;
             this.gbCase.TabStop = false;
-            this.gbCase.Text = "Case";
             // 
             // tbWeightCell
             // 
-            this.tbWeightCell.Location = new System.Drawing.Point(98, 100);
+            resources.ApplyResources(this.tbWeightCell, "tbWeightCell");
             this.tbWeightCell.Name = "tbWeightCell";
-            this.tbWeightCell.Size = new System.Drawing.Size(48, 20);
-            this.tbWeightCell.TabIndex = 7;
             // 
             // lbWeight
             // 
-            this.lbWeight.AutoSize = true;
-            this.lbWeight.Location = new System.Drawing.Point(10, 104);
+            resources.ApplyResources(this.lbWeight, "lbWeight");
             this.lbWeight.Name = "lbWeight";
-            this.lbWeight.Size = new System.Drawing.Size(60, 13);
-            this.lbWeight.TabIndex = 6;
-            this.lbWeight.Text = "Weight cell";
             // 
             // tbHeightCell
             // 
-            this.tbHeightCell.Location = new System.Drawing.Point(98, 72);
+            resources.ApplyResources(this.tbHeightCell, "tbHeightCell");
             this.tbHeightCell.Name = "tbHeightCell";
-            this.tbHeightCell.Size = new System.Drawing.Size(48, 20);
-            this.tbHeightCell.TabIndex = 5;
             // 
             // tbWidthCell
             // 
-            this.tbWidthCell.Location = new System.Drawing.Point(98, 44);
+            resources.ApplyResources(this.tbWidthCell, "tbWidthCell");
             this.tbWidthCell.Name = "tbWidthCell";
-            this.tbWidthCell.Size = new System.Drawing.Size(48, 20);
-            this.tbWidthCell.TabIndex = 4;
             // 
             // tbLengthCell
             // 
-            this.tbLengthCell.Location = new System.Drawing.Point(98, 16);
+            resources.ApplyResources(this.tbLengthCell, "tbLengthCell");
             this.tbLengthCell.Name = "tbLengthCell";
-            this.tbLengthCell.Size = new System.Drawing.Size(48, 20);
-            this.tbLengthCell.TabIndex = 3;
             // 
             // lbHeight
             // 
-            this.lbHeight.AutoSize = true;
-            this.lbHeight.Location = new System.Drawing.Point(10, 76);
+            resources.ApplyResources(this.lbHeight, "lbHeight");
             this.lbHeight.Name = "lbHeight";
-            this.lbHeight.Size = new System.Drawing.Size(57, 13);
-            this.lbHeight.TabIndex = 2;
-            this.lbHeight.Text = "Height cell";
             // 
             // lbWidth
             // 
-            this.lbWidth.AutoSize = true;
-            this.lbWidth.Location = new System.Drawing.Point(10, 48);
+            resources.ApplyResources(this.lbWidth, "lbWidth");
             this.lbWidth.Name = "lbWidth";
-            this.lbWidth.Size = new System.Drawing.Size(54, 13);
-            this.lbWidth.TabIndex = 1;
-            this.lbWidth.Text = "Width cell";
             // 
             // lbLength
             // 
-            this.lbLength.AutoSize = true;
-            this.lbLength.Location = new System.Drawing.Point(10, 20);
+            resources.ApplyResources(this.lbLength, "lbLength");
             this.lbLength.Name = "lbLength";
-            this.lbLength.Size = new System.Drawing.Size(59, 13);
-            this.lbLength.TabIndex = 0;
-            this.lbLength.Text = "Length cell";
             // 
             // gbPallet
             // 
+            resources.ApplyResources(this.gbPallet, "gbPallet");
             this.gbPallet.Controls.Add(this.tbPalletWeight);
             this.gbPallet.Controls.Add(this.label1);
             this.gbPallet.Controls.Add(this.label4);
@@ -186,124 +153,82 @@
             this.gbPallet.Controls.Add(this.tbPalletWidth);
             this.gbPallet.Controls.Add(this.label3);
             this.gbPallet.Controls.Add(this.tbPalletLength);
-            this.gbPallet.Location = new System.Drawing.Point(193, 44);
             this.gbPallet.Name = "gbPallet";
-            this.gbPallet.Size = new System.Drawing.Size(167, 143);
-            this.gbPallet.TabIndex = 3;
             this.gbPallet.TabStop = false;
-            this.gbPallet.Text = "Pallet";
             // 
             // tbPalletWeight
             // 
-            this.tbPalletWeight.Location = new System.Drawing.Point(97, 100);
+            resources.ApplyResources(this.tbPalletWeight, "tbPalletWeight");
             this.tbPalletWeight.Name = "tbPalletWeight";
-            this.tbPalletWeight.Size = new System.Drawing.Size(48, 20);
-            this.tbPalletWeight.TabIndex = 7;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 20);
+            resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(59, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Length cell";
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 104);
+            resources.ApplyResources(this.label4, "label4");
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(60, 13);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Weight cell";
             // 
             // tbPalletHeight
             // 
-            this.tbPalletHeight.Location = new System.Drawing.Point(97, 72);
+            resources.ApplyResources(this.tbPalletHeight, "tbPalletHeight");
             this.tbPalletHeight.Name = "tbPalletHeight";
-            this.tbPalletHeight.Size = new System.Drawing.Size(48, 20);
-            this.tbPalletHeight.TabIndex = 5;
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 48);
+            resources.ApplyResources(this.label2, "label2");
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(54, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Width cell";
             // 
             // tbPalletWidth
             // 
-            this.tbPalletWidth.Location = new System.Drawing.Point(97, 44);
+            resources.ApplyResources(this.tbPalletWidth, "tbPalletWidth");
             this.tbPalletWidth.Name = "tbPalletWidth";
-            this.tbPalletWidth.Size = new System.Drawing.Size(48, 20);
-            this.tbPalletWidth.TabIndex = 4;
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 76);
+            resources.ApplyResources(this.label3, "label3");
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(57, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Height cell";
             // 
             // tbPalletLength
             // 
-            this.tbPalletLength.Location = new System.Drawing.Point(97, 16);
+            resources.ApplyResources(this.tbPalletLength, "tbPalletLength");
             this.tbPalletLength.Name = "tbPalletLength";
-            this.tbPalletLength.Size = new System.Drawing.Size(48, 20);
-            this.tbPalletLength.TabIndex = 3;
             // 
             // gbConstraintSet
             // 
+            resources.ApplyResources(this.gbConstraintSet, "gbConstraintSet");
             this.gbConstraintSet.Controls.Add(this.tbMaxPalletWeight);
             this.gbConstraintSet.Controls.Add(this.tbMaxPalletHeight);
             this.gbConstraintSet.Controls.Add(this.lbMaximumPalletWeight);
             this.gbConstraintSet.Controls.Add(this.lbMaximumPalletHeight);
-            this.gbConstraintSet.Location = new System.Drawing.Point(13, 194);
             this.gbConstraintSet.Name = "gbConstraintSet";
-            this.gbConstraintSet.Size = new System.Drawing.Size(347, 84);
-            this.gbConstraintSet.TabIndex = 4;
             this.gbConstraintSet.TabStop = false;
-            this.gbConstraintSet.Text = "Constraint set";
             // 
             // tbMaxPalletWeight
             // 
-            this.tbMaxPalletWeight.Location = new System.Drawing.Point(277, 49);
+            resources.ApplyResources(this.tbMaxPalletWeight, "tbMaxPalletWeight");
             this.tbMaxPalletWeight.Name = "tbMaxPalletWeight";
-            this.tbMaxPalletWeight.Size = new System.Drawing.Size(48, 20);
-            this.tbMaxPalletWeight.TabIndex = 3;
             // 
             // tbMaxPalletHeight
             // 
-            this.tbMaxPalletHeight.Location = new System.Drawing.Point(277, 22);
+            resources.ApplyResources(this.tbMaxPalletHeight, "tbMaxPalletHeight");
             this.tbMaxPalletHeight.Name = "tbMaxPalletHeight";
-            this.tbMaxPalletHeight.Size = new System.Drawing.Size(48, 20);
-            this.tbMaxPalletHeight.TabIndex = 2;
             // 
             // lbMaximumPalletWeight
             // 
-            this.lbMaximumPalletWeight.AutoSize = true;
-            this.lbMaximumPalletWeight.Location = new System.Drawing.Point(10, 52);
+            resources.ApplyResources(this.lbMaximumPalletWeight, "lbMaximumPalletWeight");
             this.lbMaximumPalletWeight.Name = "lbMaximumPalletWeight";
-            this.lbMaximumPalletWeight.Size = new System.Drawing.Size(113, 13);
-            this.lbMaximumPalletWeight.TabIndex = 1;
-            this.lbMaximumPalletWeight.Text = "Maximum pallet weight";
             // 
             // lbMaximumPalletHeight
             // 
-            this.lbMaximumPalletHeight.AutoSize = true;
-            this.lbMaximumPalletHeight.Location = new System.Drawing.Point(10, 25);
+            resources.ApplyResources(this.lbMaximumPalletHeight, "lbMaximumPalletHeight");
             this.lbMaximumPalletHeight.Name = "lbMaximumPalletHeight";
-            this.lbMaximumPalletHeight.Size = new System.Drawing.Size(111, 13);
-            this.lbMaximumPalletHeight.TabIndex = 0;
-            this.lbMaximumPalletHeight.Text = "Maximum pallet height";
             // 
             // gbResults
             // 
+            resources.ApplyResources(this.gbResults, "gbResults");
             this.gbResults.Controls.Add(this.nudImageDef);
             this.gbResults.Controls.Add(this.label7);
             this.gbResults.Controls.Add(this.uCtrlImageDim);
@@ -314,134 +239,93 @@
             this.gbResults.Controls.Add(this.tbLoadWeight);
             this.gbResults.Controls.Add(this.tbTotalWeight);
             this.gbResults.Controls.Add(this.label6);
-            this.gbResults.Location = new System.Drawing.Point(367, 44);
             this.gbResults.Name = "gbResults";
-            this.gbResults.Size = new System.Drawing.Size(328, 234);
-            this.gbResults.TabIndex = 5;
             this.gbResults.TabStop = false;
-            this.gbResults.Text = "Results";
             // 
             // nudImageDef
             // 
-            this.nudImageDef.Location = new System.Drawing.Point(166, 200);
+            resources.ApplyResources(this.nudImageDef, "nudImageDef");
             this.nudImageDef.Maximum = new decimal(new int[] {
             2000,
             0,
             0,
             0});
             this.nudImageDef.Name = "nudImageDef";
-            this.nudImageDef.Size = new System.Drawing.Size(60, 20);
-            this.nudImageDef.TabIndex = 9;
             // 
             // label7
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(9, 204);
+            resources.ApplyResources(this.label7, "label7");
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(85, 13);
-            this.label7.TabIndex = 8;
-            this.label7.Text = "Image width def.";
             // 
             // uCtrlImageDim
             // 
-            this.uCtrlImageDim.Location = new System.Drawing.Point(9, 173);
+            resources.ApplyResources(this.uCtrlImageDim, "uCtrlImageDim");
             this.uCtrlImageDim.MinValue = -10000D;
             this.uCtrlImageDim.Name = "uCtrlImageDim";
-            this.uCtrlImageDim.Size = new System.Drawing.Size(317, 20);
-            this.uCtrlImageDim.TabIndex = 7;
-            this.uCtrlImageDim.Text = "Image dimensions";
             this.uCtrlImageDim.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlImageDim.ValueX = 0D;
             this.uCtrlImageDim.ValueY = 0D;
             // 
             // uCtrlImageLeftTop
             // 
-            this.uCtrlImageLeftTop.Location = new System.Drawing.Point(9, 145);
+            resources.ApplyResources(this.uCtrlImageLeftTop, "uCtrlImageLeftTop");
             this.uCtrlImageLeftTop.MinValue = -10000D;
             this.uCtrlImageLeftTop.Name = "uCtrlImageLeftTop";
-            this.uCtrlImageLeftTop.Size = new System.Drawing.Size(317, 20);
-            this.uCtrlImageLeftTop.TabIndex = 6;
-            this.uCtrlImageLeftTop.Text = "Image left/top position";
             this.uCtrlImageLeftTop.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlImageLeftTop.ValueX = 0D;
             this.uCtrlImageLeftTop.ValueY = 0D;
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 75);
+            resources.ApplyResources(this.label5, "label5");
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(93, 13);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "Total pallet weight";
             // 
             // lbNoCases
             // 
-            this.lbNoCases.AutoSize = true;
-            this.lbNoCases.Location = new System.Drawing.Point(6, 19);
+            resources.ApplyResources(this.lbNoCases, "lbNoCases");
             this.lbNoCases.Name = "lbNoCases";
-            this.lbNoCases.Size = new System.Drawing.Size(87, 13);
-            this.lbNoCases.TabIndex = 0;
-            this.lbNoCases.Text = "Number of cases";
             // 
             // tbNoCases
             // 
-            this.tbNoCases.Location = new System.Drawing.Point(166, 15);
+            resources.ApplyResources(this.tbNoCases, "tbNoCases");
             this.tbNoCases.Name = "tbNoCases";
-            this.tbNoCases.Size = new System.Drawing.Size(48, 20);
-            this.tbNoCases.TabIndex = 3;
             // 
             // tbLoadWeight
             // 
-            this.tbLoadWeight.Location = new System.Drawing.Point(166, 43);
+            resources.ApplyResources(this.tbLoadWeight, "tbLoadWeight");
             this.tbLoadWeight.Name = "tbLoadWeight";
-            this.tbLoadWeight.Size = new System.Drawing.Size(48, 20);
-            this.tbLoadWeight.TabIndex = 4;
             // 
             // tbTotalWeight
             // 
-            this.tbTotalWeight.Location = new System.Drawing.Point(166, 71);
+            resources.ApplyResources(this.tbTotalWeight, "tbTotalWeight");
             this.tbTotalWeight.Name = "tbTotalWeight";
-            this.tbTotalWeight.Size = new System.Drawing.Size(48, 20);
-            this.tbTotalWeight.TabIndex = 5;
             // 
             // label6
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 47);
+            resources.ApplyResources(this.label6, "label6");
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(65, 13);
-            this.label6.TabIndex = 1;
-            this.label6.Text = "Load weight";
             // 
             // label8
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(13, 13);
+            resources.ApplyResources(this.label8, "label8");
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(61, 13);
-            this.label8.TabIndex = 6;
-            this.label8.Text = "Unit system";
             // 
             // cbUnitSystem
             // 
+            resources.ApplyResources(this.cbUnitSystem, "cbUnitSystem");
             this.cbUnitSystem.FormattingEnabled = true;
             this.cbUnitSystem.Items.AddRange(new object[] {
-            "Metric 1 (mm/kg/l)",
-            "Metric 2 (cm/kg/l)",
-            "UK (in/lb/gal)",
-            "US (in/lb/gal)"});
-            this.cbUnitSystem.Location = new System.Drawing.Point(91, 10);
+            resources.GetString("cbUnitSystem.Items"),
+            resources.GetString("cbUnitSystem.Items1"),
+            resources.GetString("cbUnitSystem.Items2"),
+            resources.GetString("cbUnitSystem.Items3")});
             this.cbUnitSystem.Name = "cbUnitSystem";
-            this.cbUnitSystem.Size = new System.Drawing.Size(121, 21);
-            this.cbUnitSystem.TabIndex = 7;
             this.cbUnitSystem.SelectedIndexChanged += new System.EventHandler(this.OnUnitSystemChanged);
             // 
-            // FormSheetSettings
+            // FormSettingsPerSheet
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(792, 283);
             this.Controls.Add(this.cbUnitSystem);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.gbResults);
@@ -452,10 +336,9 @@
             this.Controls.Add(this.bnOK);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "FormSheetSettings";
+            this.Name = "FormSettingsPerSheet";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
-            this.Text = "Define input/output cells and image parameters...";
             this.gbCase.ResumeLayout(false);
             this.gbCase.PerformLayout();
             this.gbPallet.ResumeLayout(false);

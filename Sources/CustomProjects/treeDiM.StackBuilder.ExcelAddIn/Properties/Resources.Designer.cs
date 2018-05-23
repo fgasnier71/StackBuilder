@@ -115,6 +115,24 @@ namespace treeDiM.StackBuilder.ExcelAddIn.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No pallet selected!.
+        /// </summary>
+        internal static string ID_ERROR_NOPALLETSELECTED {
+            get {
+                return ResourceManager.GetString("ID_ERROR_NOPALLETSELECTED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Load weight.
+        /// </summary>
+        internal static string ID_LOAD_WEIGHT {
+            get {
+                return ResourceManager.GetString("ID_LOAD_WEIGHT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Pallet height.
         /// </summary>
         internal static string ID_PALLET_HEIGHT {
@@ -151,6 +169,24 @@ namespace treeDiM.StackBuilder.ExcelAddIn.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Efficiency.
+        /// </summary>
+        internal static string ID_RESULT_EFFICIENCY {
+            get {
+                return ResourceManager.GetString("ID_RESULT_EFFICIENCY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Image.
+        /// </summary>
+        internal static string ID_RESULT_IMAGE {
+            get {
+                return ResourceManager.GetString("ID_RESULT_IMAGE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Load weight.
         /// </summary>
         internal static string ID_RESULT_LOADWEIGHT {
@@ -178,7 +214,7 @@ namespace treeDiM.StackBuilder.ExcelAddIn.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Total palletWeight.
+        ///   Looks up a localized string similar to Total pallet weight.
         /// </summary>
         internal static string ID_RESULT_TOTALPALLETWEIGHT {
             get {

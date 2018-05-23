@@ -117,58 +117,60 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ID_CASE_HEIGHT" xml:space="preserve">
-    <value>Case height</value>
+  <data name="bnCompute.Text" xml:space="preserve">
+    <value>Calculer</value>
   </data>
-  <data name="ID_CASE_LENGTH" xml:space="preserve">
-    <value>Case length</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="bnEditPallets.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
+        dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAGTSURBVFhHxZMxT8JAGIaLMRqJwTA5+xecFTUmbvoD
+        BIxxkh+hgEocHV0A4+BmIlIKgwu6afp7jEbl8+7aUu/urSmJ+RyeUJ5r3/e7a+oQ0b8CJSdQcgIlJ1By
+        AiUnUHICJSdQcgIlJ1ByAiUnUHICJSdQcgIlJ1Am8pQjxcVS8PsT4F4bi5ajy2URFWfqBb8RBshQr9uh
+        ft8bh6Z1csiXSkbExbl6SRJhwPvJPHk9VwtN60bneVXeLq+JyDhbL0JEAdXp8Y5GjwuTuWNHlbeKBWoW
+        V0VsnK+XmYTlH/WsdpxvD/nUjhq5cOdBefoBwnIS03vu/ThU8lWbSeWomgl2XgqOPf0AUcCZeJdulwZ9
+        Nw4F7rM+B+9T5cY7N7FlFFqbpd7drb7LI8dy0X2DXkf9Hw2FP82qcnO3CEvIByfhuTJlIX2rvC7i9GyE
+        JZq7K/QXmLlJWEJ+Kq1SgXzfV5jrV/ub6miT1tt7G+p50ydhCRkeDWCuSW4qOyRLEtcPt+n6YEtc2msI
+        KDmBkhMoOYGSD3K+ARElrIY6amPZAAAAAElFTkSuQmCC
+</value>
   </data>
-  <data name="ID_CASE_WEIGHT" xml:space="preserve">
-    <value>Case weight</value>
+  <data name="bnRefreshPallets.Text" xml:space="preserve">
+    <value>Rafraîchir</value>
   </data>
-  <data name="ID_CASE_WIDTH" xml:space="preserve">
-    <value>Case width</value>
+  <data name="gpPallets.Text" xml:space="preserve">
+    <value>Palettes</value>
   </data>
-  <data name="ID_CONSTRAINTS_PALLETMAXIHEIGHT" xml:space="preserve">
-    <value>Maximum pallet height</value>
+  <data name="chkbOnlyZOrientation.Size" type="System.Drawing.Size, System.Drawing">
+    <value>234, 17</value>
   </data>
-  <data name="ID_CONSTRAINTS_PALLETMAXIWEIGHT" xml:space="preserve">
-    <value>Maximum pallet weight</value>
+  <data name="chkbOnlyZOrientation.Text" xml:space="preserve">
+    <value>Autoriser seulement une orientation verticale</value>
   </data>
-  <data name="ID_ERROR_NOPALLETSELECTED" xml:space="preserve">
-    <value>No pallet selected!</value>
+  <data name="uCtrlOverhang.Text" xml:space="preserve">
+    <value>Débord</value>
   </data>
-  <data name="ID_LOAD_WEIGHT" xml:space="preserve">
-    <value>Load weight</value>
+  <data name="uCtrlMaxPalletHeight.Text" xml:space="preserve">
+    <value>Hauteur palette</value>
   </data>
-  <data name="ID_PALLET_HEIGHT" xml:space="preserve">
-    <value>Pallet height</value>
+  <data name="gbConstraints.Text" xml:space="preserve">
+    <value>Contraintes</value>
   </data>
-  <data name="ID_PALLET_LENGTH" xml:space="preserve">
-    <value>Pallet length</value>
+  <data name="chkbGenerateReportInFolder.Size" type="System.Drawing.Size, System.Drawing">
+    <value>191, 17</value>
   </data>
-  <data name="ID_PALLET_WEIGHT" xml:space="preserve">
-    <value>Pallet weight</value>
+  <data name="chkbGenerateReportInFolder.Text" xml:space="preserve">
+    <value>Générer un rapport dans le dossier:</value>
   </data>
-  <data name="ID_PALLET_WIDTH" xml:space="preserve">
-    <value>Pallet width</value>
+  <data name="chkbGenerateImageInFolder.Size" type="System.Drawing.Size, System.Drawing">
+    <value>192, 17</value>
   </data>
-  <data name="ID_RESULT_EFFICIENCY" xml:space="preserve">
-    <value>Efficiency</value>
+  <data name="chkbGenerateImageInFolder.Text" xml:space="preserve">
+    <value>Générer les images dans le dossier:</value>
   </data>
-  <data name="ID_RESULT_IMAGE" xml:space="preserve">
-    <value>Image</value>
+  <data name="chkbGenerateImageInRow.Size" type="System.Drawing.Size, System.Drawing">
+    <value>233, 17</value>
   </data>
-  <data name="ID_RESULT_LOADWEIGHT" xml:space="preserve">
-    <value>Load weight</value>
-  </data>
-  <data name="ID_RESULT_NOCASES" xml:space="preserve">
-    <value>Number of cases</value>
-  </data>
-  <data name="ID_RESULT_NOSOLUTIONFOUND" xml:space="preserve">
-    <value>No valid solution found!</value>
-  </data>
-  <data name="ID_RESULT_TOTALPALLETWEIGHT" xml:space="preserve">
-    <value>Total pallet weight</value>
+  <data name="chkbGenerateImageInRow.Text" xml:space="preserve">
+    <value>Générer une image pour chaque ligne Excel</value>
   </data>
 </root>
