@@ -42,7 +42,7 @@
     <EntryPointProjectUniqueName>..\TreeDim.StackBuilder.Desktop\treeDiM.StackBuilder.Desktop.csproj</EntryPointProjectUniqueName>
     <PackageCertificateThumbprint>854C9B87D511317DABE2BCDC1107FE2F37ED9412</PackageCertificateThumbprint>
     <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
-    <AppxBundlePlatforms>neutral</AppxBundlePlatforms>
+    <AppxBundlePlatforms>x64</AppxBundlePlatforms>
     <AppxSymbolPackageEnabled>False</AppxSymbolPackageEnabled>
     <GenerateAppInstallerFile>False</GenerateAppInstallerFile>
     <AppInstallerUpdateFrequency>1</AppInstallerUpdateFrequency>

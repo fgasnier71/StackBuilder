@@ -1321,13 +1321,6 @@ namespace treeDiM.StackBuilder.Desktop
             try { Process.Start(Settings.Default.HelpPageUrl); }
             catch (Exception ex) { _log.Error(ex.ToString()); }
         }
-/*
-        private void OnDonate(object sender, EventArgs e)
-        {
-            try { Process.Start(Settings.Default.DonatePageUrl); }
-            catch (Exception ex) { _log.Error(ex.ToString()); }
-        }
-*/
         private void OnDisconnect(object sender, EventArgs e)
         {
             try
