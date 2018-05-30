@@ -34,7 +34,7 @@ namespace treeDiM.StackBuilder.Desktop
             ResourceManager resourceManager = new ResourceManager("treeDiM.StackBuilder.Desktop",
                 Assembly.GetExecutingAssembly());
 
-            this.Text = String.Format(treeDiM.StackBuilder.Desktop.Properties.Resources.ID_ABOUT, AssemblyTitle);
+            this.Text = String.Format(Resources.ID_ABOUT, AssemblyTitle);
             this.labelProductName.Text = AssemblyProduct;
             this.labelVersion.Text = String.Format("Version {0}", AssemblyVersion);
             this.labelCopyright.Text = AssemblyCopyright;
@@ -132,8 +132,8 @@ namespace treeDiM.StackBuilder.Desktop
 
         public string CompanyUrl
         {
-            set { this.linkLabelUrl.Text = value; }
-            get { return this.linkLabelUrl.Text; }
+            set { linkLabelUrl.Text = value; }
+            get { return linkLabelUrl.Text; }
         }
 
         public string SupportEmail
@@ -153,7 +153,7 @@ namespace treeDiM.StackBuilder.Desktop
                     {
                         userCount = wcfClient.Client.get_PLMPackRegisteredUserCount();
                     }
-                    return string.Format(Properties.Resources.ID_REGISTEREDUSERCOUNT, userCount);
+                    return string.Format(Resources.ID_REGISTEREDUSERCOUNT, userCount);
                 }
                 catch (Exception ex)
                 {

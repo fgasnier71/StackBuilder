@@ -69,7 +69,7 @@
             this.toolStripSeparator19 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItemBestCase = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemBestPack = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparatorPLMPackLib = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMIPLMPackLib = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator21 = new System.Windows.Forms.ToolStripSeparator();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -264,7 +264,7 @@
             this.toolStripSeparator19,
             this.toolStripMenuItemBestCase,
             this.toolStripMenuItemBestPack,
-            this.toolStripSeparator6,
+            this.toolStripSeparatorPLMPackLib,
             this.toolStripMIPLMPackLib,
             this.toolStripSeparator21,
             this.settingsToolStripMenuItem});
@@ -407,8 +407,8 @@
             // 
             // toolStripSeparator6
             // 
-            this.toolStripSeparator6.Name = "toolStripSeparator6";
-            resources.ApplyResources(this.toolStripSeparator6, "toolStripSeparator6");
+            this.toolStripSeparatorPLMPackLib.Name = "toolStripSeparator6";
+            resources.ApplyResources(this.toolStripSeparatorPLMPackLib, "toolStripSeparator6");
             // 
             // toolStripMIPLMPackLib
             // 
@@ -906,7 +906,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator9;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemBestPack;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator10;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparatorPLMPackLib;
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
         private System.Windows.Forms.SaveFileDialog saveFileDialogWebGL;
         private System.Windows.Forms.ToolStripButton toolStripButtonCylinder;

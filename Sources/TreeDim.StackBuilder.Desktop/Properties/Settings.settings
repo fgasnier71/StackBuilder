@@ -194,14 +194,11 @@
     <Setting Name="MaximumPalletWeight" Type="System.Double" Scope="User">
       <Value Profile="(Default)">1000</Value>
     </Setting>
-    <Setting Name="DonatePageUrl" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">http://www.plmpack.com/stackbuilder/stackbuilder_donate_page.htm</Value>
-    </Setting>
     <Setting Name="ExcelLibraryPath" Type="System.String" Scope="User">
       <Value Profile="(Default)">K:\GitHub\StackBuilder\Samples\SampleBook.xls</Value>
     </Setting>
     <Setting Name="StartPageUrl" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">http://www.treedim.com/stackbuilder/</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="CloseDbBrowserAfterImport" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
@@ -225,7 +222,7 @@
       <Value Profile="(Default)">8</Value>
     </Setting>
     <Setting Name="UrlPLMPackLib" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">http://www.plmpack.com/packlib/ClickOnce/PLMPackLibClient.application</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="AllowDisconnectedMode" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
@@ -271,6 +268,12 @@
     </Setting>
     <Setting Name="MaximumNumber" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">1000</Value>
+    </Setting>
+    <Setting Name="CompanyUrl" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://www.treedim.com/</Value>
+    </Setting>
+    <Setting Name="EmailSupport" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">info@treedim.com</Value>
     </Setting>
   </Settings>
 </SettingsFile>

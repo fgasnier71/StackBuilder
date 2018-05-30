@@ -131,6 +131,11 @@ namespace treeDiM.StackBuilder.Desktop
 
             UpdateToolbarState();
 
+            // show or hide PLMPackLib button
+            bool showMenuPLMPackLib = !string.IsNullOrEmpty(UrlPLMPackLib);
+            toolStripMIPLMPackLib.Visible = showMenuPLMPackLib;
+            toolStripSeparatorPLMPackLib.Visible = showMenuPLMPackLib;
+
             // windows settings
             if (null != Settings.Default.FormMainPosition)
                 Settings.Default.FormMainPosition.Restore(this);
@@ -247,17 +252,21 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Start page
-        private string StartPageURL => Settings.Default.StartPageUrl;
+        private string UrlStartPage => Settings.Default.StartPageUrl;
+        private string UrlPLMPackLib => Settings.Default.UrlPLMPackLib;
 
         public void ShowStartPage(object sender, EventArgs e)
         {
-            if (!Program.IsWebSiteReachable) return;
+            // do not try to show start page
+            // if StartPageUrl is empty or web site is reachable
+            if (string.IsNullOrEmpty(UrlStartPage) || !Program.IsWebSiteReachable)
+                return;
+           _log.InfoFormat("Showing start page (URL : {0})", UrlStartPage);
 
-           _log.InfoFormat("Showing start page (URL : {0})", StartPageURL);
             try
             {
                 _dockStartPage.Show(dockPanel, DockState.Document);
-                _dockStartPage.Url = new Uri(StartPageURL);
+                _dockStartPage.Url = new Uri(UrlStartPage);
             }
             catch (Exception ex)
             {
@@ -1206,7 +1215,8 @@ namespace treeDiM.StackBuilder.Desktop
         {
             try
             {
-                Process.Start("rundll32.exe", "dfshim.dll,ShOpenVerbApplication " + Settings.Default.UrlPLMPackLib);
+                if (!string.IsNullOrEmpty(UrlPLMPackLib))
+                    Process.Start("rundll32.exe", "dfshim.dll,ShOpenVerbApplication " + UrlPLMPackLib);
             }
             catch (Exception ex) { _log.Error(ex.Message); }
         }
@@ -1311,8 +1321,8 @@ namespace treeDiM.StackBuilder.Desktop
         {
             AboutBox form = new AboutBox()
             {
-                CompanyUrl = "https://github.com/treeDiM/StackBuilder/releases",
-                SupportEmail = "treedim@gmail.com"
+                CompanyUrl = Settings.Default.CompanyUrl,
+                SupportEmail = Settings.Default.EmailSupport
             };
             form.ShowDialog();
         }

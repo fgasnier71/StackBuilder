@@ -102,19 +102,16 @@ namespace treeDiM.StackBuilder.Desktop
         {
             get
             {
+                string testUrl = $"https://www.google.com/";
                 try
                 {
-                    Uri uri = new System.Uri(Settings.Default.StartPageUrl);
+                    Uri uri = new Uri(testUrl);
                     System.Net.IPHostEntry objIPHE = System.Net.Dns.GetHostEntry(uri.DnsSafeHost);
                     return true;
                 }
                 catch (System.Net.Sockets.SocketException /*ex*/)
                 {
-                    _log.Info(
-                        string.Format(
-                        "Url '{0}' could not be accessed : is the computer connected to the web?"
-                        , Settings.Default.StartPageUrl
-                        ));
+                    _log.InfoFormat("Url '{0}' could not be accessed -> the computer is probably not connected to the web!", testUrl);
                     return false;
                 }
                 catch (Exception ex)
