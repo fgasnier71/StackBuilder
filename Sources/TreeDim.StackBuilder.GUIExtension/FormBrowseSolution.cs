@@ -295,7 +295,7 @@ namespace treeDiM.StackBuilder.GUIExtension
                 foreach (LayerDesc layerDesc in solution.LayerDescriptors)
                 {
                     LayerSolver solver = new LayerSolver();
-                    Layer2D layer = solver.BuildLayer(_analysis.ContentDimensions, _analysis.ContainerDimensions, layerDesc as LayerDescBox);
+                    Layer2D layer = solver.BuildLayer(_analysis.ContentDimensions, _analysis.ContainerDimensions, layerDesc as LayerDescBox, 0.0);
                     cbLayerType.Items.Add(layer);
                 }
                 if (cbLayerType.Items.Count > 0)

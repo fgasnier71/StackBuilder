@@ -172,23 +172,23 @@ namespace treeDiM.StackBuilder.GUIExtension
         #endregion
 
         #region Event handlers
-        private void onWrapperTypeChanged(object sender, EventArgs e)
+        private void OnWrapperTypeChanged(object sender, EventArgs e)
         {
             // show tray height control
             uCtrlTrayHeight.Visible = (3 == cbWrapperType.SelectedIndex);
-            onDataChanged(sender, e);
+            OnDataChanged(sender, e);
         }
-        private void onBoxChanged(object sender, EventArgs e)
+        private void OnBoxChanged(object sender, EventArgs e)
         {
             SetMinCaseDimensions();
-            onDataChanged(sender, e);
+            OnDataChanged(sender, e);
         }
-        private void onPalletChanged(object sender, EventArgs e)
+        private void OnPalletChanged(object sender, EventArgs e)
         {
             SetMaxCaseDimensions();
-            onDataChanged(sender, e);
+            OnDataChanged(sender, e);
         }
-        private void onDataChanged(object sender, EventArgs e)
+        private void OnDataChanged(object sender, EventArgs e)
         {
             // stop timer
             _timer.Stop();
@@ -198,7 +198,7 @@ namespace treeDiM.StackBuilder.GUIExtension
             // restart timer
             _timer.Start();
         }
-        private void onTimerTick(object sender, EventArgs e)
+        private void OnTimerTick(object sender, EventArgs e)
         {
             try
             {
@@ -211,7 +211,7 @@ namespace treeDiM.StackBuilder.GUIExtension
                     BuildParamSetPackOptim(),
                     cbColor.Color
                     );
-                _analyses = packOptimizer.BuildAnalyses(BuildConstraintSet());
+                _analyses = packOptimizer.BuildAnalyses(BuildConstraintSet(), allowMultipleLayerOrientations: true);
                 // refill solution grid
                 FillGrid();
             }

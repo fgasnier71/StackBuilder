@@ -181,7 +181,7 @@
     <value>uCtrlTrayHeight</value>
   </data>
   <data name="&gt;&gt;uCtrlTrayHeight.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.68, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Basics.UCtrlDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.72, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlTrayHeight.Parent" xml:space="preserve">
     <value>gbWrapper</value>
@@ -348,6 +348,9 @@
   <data name="cbColor.Items40" xml:space="preserve">
     <value>Color</value>
   </data>
+  <data name="cbColor.Items41" xml:space="preserve">
+    <value>Color</value>
+  </data>
   <data name="cbColor.Location" type="System.Drawing.Point, System.Drawing">
     <value>470, 11</value>
   </data>
@@ -361,7 +364,7 @@
     <value>cbColor</value>
   </data>
   <data name="&gt;&gt;cbColor.Type" xml:space="preserve">
-    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=1.1.6633.17913, Culture=neutral, PublicKeyToken=null</value>
+    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=1.1.6743.17167, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;cbColor.Parent" xml:space="preserve">
     <value>gbWrapper</value>
@@ -451,7 +454,7 @@
     <value>uCtrlSurfacicMass</value>
   </data>
   <data name="&gt;&gt;uCtrlSurfacicMass.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.68, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Basics.UCtrlDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.72, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlSurfacicMass.Parent" xml:space="preserve">
     <value>gbWrapper</value>
@@ -478,7 +481,7 @@
     <value>uCtrlWallThickness</value>
   </data>
   <data name="&gt;&gt;uCtrlWallThickness.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.68, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Basics.UCtrlDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.72, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlWallThickness.Parent" xml:space="preserve">
     <value>gbWrapper</value>
@@ -502,7 +505,7 @@
     <value>uCtrlNoWalls</value>
   </data>
   <data name="&gt;&gt;uCtrlNoWalls.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.Controls.UCtrlTriInt, treeDiM.StackBuilder.Basics, Version=3.0.0.68, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Basics.Controls.UCtrlTriInt, treeDiM.StackBuilder.Basics, Version=3.0.0.72, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlNoWalls.Parent" xml:space="preserve">
     <value>gbWrapper</value>
@@ -550,7 +553,7 @@
     <value>cbPallets</value>
   </data>
   <data name="&gt;&gt;cbPallets.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered, treeDiM.StackBuilder.Graphics, Version=3.0.0.68, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered, treeDiM.StackBuilder.Graphics, Version=3.0.0.72, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;cbPallets.Parent" xml:space="preserve">
     <value>gbPallet</value>
@@ -574,7 +577,7 @@
     <value>uCtrlOverhang</value>
   </data>
   <data name="&gt;&gt;uCtrlOverhang.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlDualDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.68, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Basics.UCtrlDualDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.72, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlOverhang.Parent" xml:space="preserve">
     <value>gbPallet</value>
@@ -601,7 +604,7 @@
     <value>uCtrlPalletHeight</value>
   </data>
   <data name="&gt;&gt;uCtrlPalletHeight.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.68, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Basics.UCtrlDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.72, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlPalletHeight.Parent" xml:space="preserve">
     <value>gbPallet</value>
@@ -743,7 +746,7 @@
     <value>uCtrlPackDimensionsMax</value>
   </data>
   <data name="&gt;&gt;uCtrlPackDimensionsMax.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlTriDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.68, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Basics.UCtrlTriDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.72, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlPackDimensionsMax.Parent" xml:space="preserve">
     <value>gbCase</value>
@@ -770,7 +773,7 @@
     <value>uCtrlPackDimensionsMin</value>
   </data>
   <data name="&gt;&gt;uCtrlPackDimensionsMin.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlTriDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.68, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Basics.UCtrlTriDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.72, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlPackDimensionsMin.Parent" xml:space="preserve">
     <value>gbCase</value>
@@ -869,7 +872,7 @@
     <value>cbBoxes</value>
   </data>
   <data name="&gt;&gt;cbBoxes.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered, treeDiM.StackBuilder.Graphics, Version=3.0.0.68, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered, treeDiM.StackBuilder.Graphics, Version=3.0.0.72, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;cbBoxes.Parent" xml:space="preserve">
     <value>groupBox</value>
@@ -1184,7 +1187,7 @@
     <value>graphCtrlSolution</value>
   </data>
   <data name="&gt;&gt;graphCtrlSolution.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Graphics.Graphics3DControl, treeDiM.StackBuilder.Graphics, Version=3.0.0.68, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Graphics.Graphics3DControl, treeDiM.StackBuilder.Graphics, Version=3.0.0.72, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;graphCtrlSolution.Parent" xml:space="preserve">
     <value>splitContainer.Panel2</value>
@@ -1208,7 +1211,7 @@
     <value>graphCtrlPack</value>
   </data>
   <data name="&gt;&gt;graphCtrlPack.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Graphics.Graphics3DControl, treeDiM.StackBuilder.Graphics, Version=3.0.0.68, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Graphics.Graphics3DControl, treeDiM.StackBuilder.Graphics, Version=3.0.0.72, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;graphCtrlPack.Parent" xml:space="preserve">
     <value>splitContainer.Panel2</value>

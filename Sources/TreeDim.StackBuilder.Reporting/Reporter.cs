@@ -1,7 +1,6 @@
 ﻿#region Using directives
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 using System.Xml;
 using System.Xml.Xsl;
@@ -9,9 +8,6 @@ using System.Xml.Schema;
 using System.IO;
 
 using System.Drawing;
-
-using System.Diagnostics;
-using System.ComponentModel;
 using System.Reflection;
 
 using log4net;
@@ -33,7 +29,7 @@ namespace treeDiM.StackBuilder.Reporting
             if (baseUri != null)
                 return base.ResolveUri(baseUri, relativeUri);
             else
-                return base.ResolveUri(new Uri(@"K:\GitHub\StackBuilder\treeDiM.StackBuilder.Reporting\ReportTemplates"), relativeUri);
+                return base.ResolveUri(new Uri(@"D:\GitHub\StackBuilder\treeDiM.StackBuilder.Reporting\ReportTemplates"), relativeUri);
         }
     }
     #endregion
@@ -217,14 +213,14 @@ namespace treeDiM.StackBuilder.Reporting
         {
             get
             {
-                string companyLogo = Properties.Settings.Default.CompanyLogoPath;
+                string companyLogo = Settings.Default.CompanyLogoPath;
                 if (!File.Exists(companyLogo))
                 {
                     companyLogo = Path.Combine(
                         Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)
                         , "ReportTemplates\\YourLogoHere.png");
-                    Properties.Settings.Default.CompanyLogoPath = companyLogo;
-                    Properties.Settings.Default.Save();
+                    Settings.Default.CompanyLogoPath = companyLogo;
+                    Settings.Default.Save();
 
                     if (!File.Exists(companyLogo))
                         return string.Empty;
@@ -244,14 +240,14 @@ namespace treeDiM.StackBuilder.Reporting
         {
             get
             {
-                string templatePath = Properties.Settings.Default.TemplatePath;
+                string templatePath = Settings.Default.TemplatePath;
                 if (string.IsNullOrEmpty(templatePath) || !File.Exists(templatePath))
                 {
                     templatePath = Path.Combine(
                         Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)
                         , "ReportTemplates\\ReportTemplateHtml.xsl");
-                    Properties.Settings.Default.TemplatePath = templatePath;
-                    Properties.Settings.Default.Save();
+                    Settings.Default.TemplatePath = templatePath;
+                    Settings.Default.Save();
                     return templatePath;
                 }
                 return templatePath;
@@ -304,22 +300,55 @@ namespace treeDiM.StackBuilder.Reporting
                 Reporter.ValidateXmlDocument(xmlData, Path.Combine(Path.GetDirectoryName(absReportTemplatePath), "ReportSchema.xsd"));
             // check availibility of files
             if (!File.Exists(absReportTemplatePath))
-                throw new System.IO.FileNotFoundException(string.Format("Report template path ({0}) is invalid", absReportTemplatePath));
+                throw new FileNotFoundException(string.Format("Report template path ({0}) is invalid", absReportTemplatePath));
             // load generated xslt
             XmlTextReader xsltReader = new XmlTextReader(new FileStream(absReportTemplatePath, FileMode.Open, FileAccess.Read));
+            // check for needed language file (e.g. ENU.xml)
             string threeLetterLanguageAbbrev = System.Globalization.CultureInfo.CurrentCulture.ThreeLetterWindowsLanguageName;
-            if (!File.Exists(Path.Combine(Path.GetDirectoryName(absReportTemplatePath), threeLetterLanguageAbbrev + ".xml")))
+            if (!TryAndGetLanguageFile(absReportTemplatePath, threeLetterLanguageAbbrev))
             {
                 _log.Warn(string.Format("Language file {0}.xml could not be found! Trying ENU.xml...", threeLetterLanguageAbbrev));
                 threeLetterLanguageAbbrev = "ENU";
+
+                if (!TryAndGetLanguageFile(absReportTemplatePath, threeLetterLanguageAbbrev))
+                {
+                    _log.Warn(string.Format("Language file {0}.xml could not be found! Giving up!", threeLetterLanguageAbbrev));
+                    return;
+                }
             }
-            if (!File.Exists(Path.Combine(Path.GetDirectoryName(absReportTemplatePath), threeLetterLanguageAbbrev + ".xml")))
-                _log.Warn(string.Format("Language file {0}.xml could not be found!", threeLetterLanguageAbbrev));
             // generate word document
             byte[] wordDoc = GetReport(xmlData, xsltReader, Path.Combine(Path.GetDirectoryName(absReportTemplatePath), threeLetterLanguageAbbrev));
             // write resulting array to HDD, show process information
             using (FileStream fs = new FileStream(absOutputFilePath, FileMode.Create))
                 fs.Write(wordDoc, 0, wordDoc.Length);
+        }
+
+        private bool TryAndGetLanguageFile(string absReportTemplatePath, string threeLetterLanguageAbbrev)
+        {
+            string pathLanguageFileExpected = Path.Combine(Path.GetDirectoryName(absReportTemplatePath), threeLetterLanguageAbbrev + ".xml");
+            if (File.Exists(pathLanguageFileExpected))
+                return true;
+            else
+            {
+                string pathLanguageFileExec = Path.Combine(
+                    Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"ReportTemplates\" + threeLetterLanguageAbbrev + ".xml"
+                    );
+                if (!File.Exists(pathLanguageFileExec))
+                    return false;
+                else
+                {
+                    try
+                    {
+                        File.Copy(pathLanguageFileExec, pathLanguageFileExpected);
+                    }
+                    catch (Exception ex)
+                    {
+                        _log.Error(ex.Message);
+                        return false;
+                    }
+                    return true;
+                }
+            }
         }
         #endregion
 
@@ -1077,43 +1106,6 @@ namespace treeDiM.StackBuilder.Reporting
         }
         #endregion
 
-        #region BoxCaseAnalysis
-        /*
-        private void AppendBoxCaseAnalysisElement(ReportData inputData, XmlElement elemDocument, XmlDocument xmlDoc)
-        {
-            // check if case analysis
-            if (!inputData.IsBoxCaseAnalysis)
-                return;
-            BoxCaseAnalysis boxCaseAnalysis = inputData.BoxCaseAnalysis;
-            SelBoxCaseSolution selBoxCaseSolution = inputData.SelBoxCaseSolution;
-            // namespace
-            string ns = xmlDoc.DocumentElement.NamespaceURI;
-            // caseAnalysis
-            XmlElement elemBoxCaseAnalysis = xmlDoc.CreateElement("boxCaseAnalysis", ns);
-            elemDocument.AppendChild(elemBoxCaseAnalysis);
-            // name
-            XmlElement elemName = xmlDoc.CreateElement("name", ns);
-            elemName.InnerText = boxCaseAnalysis.Name;
-            elemBoxCaseAnalysis.AppendChild(elemName);
-            // description
-            XmlElement elemDescription = xmlDoc.CreateElement("description", ns);
-            elemDescription.InnerText = boxCaseAnalysis.Description;
-            elemBoxCaseAnalysis.AppendChild(elemDescription);
-            // box
-            if (boxCaseAnalysis.BProperties is BoxProperties)
-                AppendBoxElement(boxCaseAnalysis.BProperties as BoxProperties, elemBoxCaseAnalysis, xmlDoc);
-            else if (boxCaseAnalysis.BProperties is BundleProperties)
-                AppendBundleElement(boxCaseAnalysis.BProperties as BundleProperties, elemBoxCaseAnalysis, xmlDoc);
-            // case
-            AppendCaseElement(boxCaseAnalysis.CaseProperties, elemBoxCaseAnalysis, xmlDoc);
-            // constraint set
-            AppendBoxCaseConstraintSet(boxCaseAnalysis.ConstraintSet, elemBoxCaseAnalysis, xmlDoc);
-            // solution
-            AppendBoxCaseSolutionElement(selBoxCaseSolution.Solution, elemBoxCaseAnalysis, xmlDoc);
-        }
-        */ 
-        #endregion
-
         #region BoxProperties / PackProperties
         private void AppendCaseElement(BoxProperties caseProperties, ReportNode rnCase, XmlElement elemAnalysis, XmlDocument xmlDoc)
         {
@@ -1147,10 +1139,12 @@ namespace treeDiM.StackBuilder.Reporting
             // image
             if (rnCase.GetChildByName(Resources.ID_RN_IMAGE).Activated)
             {
-                Graphics3DImage graphics = new Graphics3DImage(new Size(ImageSizeDetail, ImageSizeDetail));
-                graphics.FontSizeRatio = FontSizeRatioDetail;
-                graphics.CameraPosition = Graphics3D.Corner_0;
-                graphics.Target = Vector3D.Zero;
+                Graphics3DImage graphics = new Graphics3DImage(new Size(ImageSizeDetail, ImageSizeDetail))
+                {
+                    FontSizeRatio = FontSizeRatioDetail,
+                    CameraPosition = Graphics3D.Corner_0,
+                    Target = Vector3D.Zero
+                };
                 Box box = new Box(0, caseProperties);
                 graphics.AddBox(box);
                 if (Reporter.ShowDimensions)
@@ -1358,7 +1352,7 @@ namespace treeDiM.StackBuilder.Reporting
         #region Deleting methods
         public void DeleteImageDirectory()
         {
-            try { System.IO.Directory.Delete(_imageDirectory, true); }
+            try { Directory.Delete(_imageDirectory, true); }
             catch (Exception ex) { _log.Error(ex.Message); }
         }
         #endregion

@@ -68,7 +68,7 @@
     <WarningLevel>4</WarningLevel>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
-    <PlatformTarget>x64</PlatformTarget>
+    <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup>
     <SignAssembly>false</SignAssembly>
@@ -159,8 +159,8 @@
     <Reference Include="SourceGrid, Version=4.40.4580.29115, Culture=neutral, PublicKeyToken=df6f5e538749e85d, processorArchitecture=MSIL">
       <HintPath>..\packages\SourceGrid.4.4.0\lib\net35\SourceGrid.dll</HintPath>
     </Reference>
-    <Reference Include="Syroot.Windows.IO.KnownFolders, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Syroot.Windows.IO.KnownFolders.1.0.2\lib\net40\Syroot.Windows.IO.KnownFolders.dll</HintPath>
+    <Reference Include="Syroot.KnownFolders, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syroot.Windows.IO.KnownFolders.1.1.0\lib\net452\Syroot.KnownFolders.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -2089,6 +2089,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="OptionPanels\OptionPanelDebugging.fr.resx">
       <DependentUpon>OptionPanelDebugging.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="OptionPanels\OptionPanelDebugging.it.resx">
       <DependentUpon>OptionPanelDebugging.cs</DependentUpon>
@@ -2671,7 +2672,7 @@
   </ItemGroup>
   <ItemGroup />
   <PropertyGroup>
-    <PostBuildEvent>copy /Y "$(SolutionDir)TreeDim.StackBuilder.Reporting\ReportTemplates" "$(TargetDir)ReportTemplates"
+    <PostBuildEvent>copy /Y "$(SolutionDir)TreeDim.StackBuilder.Reporting\ReportTemplates" "$(TargetDir)ReportTemplates\"
 if $(ConfigurationName) == Release "$(SolutionDir)Signfile.bat" $(TargetPath)
 </PostBuildEvent>
   </PropertyGroup>

@@ -197,7 +197,8 @@
             resources.GetString("cbColor.Items37"),
             resources.GetString("cbColor.Items38"),
             resources.GetString("cbColor.Items39"),
-            resources.GetString("cbColor.Items40")});
+            resources.GetString("cbColor.Items40"),
+            resources.GetString("cbColor.Items41")});
             this.cbColor.Name = "cbColor";
             this.cbColor.SelectedColorChanged += new System.EventHandler(this.OnDataChanged);
             // 

@@ -25,10 +25,11 @@ namespace treeDiM.StackBuilder.GUIExtension
             // sanity check
             Items.Clear();
             // load all pallets from database
+            int numberOfItems = 0;
             DCSBPallet[] pallets;
             using (WCFClient wcfClient = new WCFClient())
             {
-                pallets = wcfClient.Client.GetAllPallets();
+                pallets = wcfClient.Client.GetAllPallets(0, number: ref numberOfItems);
                 foreach (DCSBPallet pallet in pallets)
                 {
                     PalletProperties palletProperties = new PalletProperties(null, pallet.PalletType,

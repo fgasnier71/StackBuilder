@@ -65,9 +65,6 @@
     <Setting Name="NoSolutionsToKeep" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">10</Value>
     </Setting>
-    <Setting Name="ShowLogConsole" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">True</Value>
-    </Setting>
     <Setting Name="FormNewTruckAnalysisPosition" Type="treeDiM.StackBuilder.Desktop.WindowSettings" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
@@ -198,7 +195,7 @@
       <Value Profile="(Default)">K:\GitHub\StackBuilder\Samples\SampleBook.xls</Value>
     </Setting>
     <Setting Name="StartPageUrl" Type="System.String" Scope="Application">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">http://www.treedim.com/stackbuilder/</Value>
     </Setting>
     <Setting Name="CloseDbBrowserAfterImport" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
@@ -220,9 +217,6 @@
     </Setting>
     <Setting Name="GridFontSize" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">8</Value>
-    </Setting>
-    <Setting Name="UrlPLMPackLib" Type="System.String" Scope="Application">
-      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="AllowDisconnectedMode" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
@@ -274,6 +268,12 @@
     </Setting>
     <Setting Name="EmailSupport" Type="System.String" Scope="Application">
       <Value Profile="(Default)">info@treedim.com</Value>
+    </Setting>
+    <Setting Name="UrlPLMPackLib" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://www.plmpack.com/packlib/ClickOnce/PLMPackLibClient.application</Value>
+    </Setting>
+    <Setting Name="ShowLogConsole" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
     </Setting>
   </Settings>
 </SettingsFile>

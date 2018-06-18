@@ -1,5 +1,7 @@
 ﻿#region Using directives
 using System;
+using System.IO;
+using System.Reflection;
 
 using treeDiM.StackBuilder.Reporting.Properties;
 #endregion
@@ -23,14 +25,22 @@ namespace treeDiM.StackBuilder.Desktop
         {
  	        base.OnLoad(e);
 
+            string pathReportTemplateDir = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "ReportTemplates");
+            string pathReportTemplate = Settings.Default.TemplatePath;
+            if (string.IsNullOrEmpty(pathReportTemplate) || !File.Exists(pathReportTemplate))
+                pathReportTemplate = Path.Combine(pathReportTemplateDir, "ReportTemplateHtml.xsl");
+            string pathCompanyLogo = Settings.Default.CompanyLogoPath;
+            if (string.IsNullOrEmpty(pathCompanyLogo) || !File.Exists(pathCompanyLogo))
+                pathCompanyLogo = Path.Combine(pathReportTemplateDir, "YourLogoHere.png");
+
             // initialize
-            fileSelectCtrlReportTemplate.FileName = Settings.Default.TemplatePath;
-            fileSelectCompanyLogo.FileName = Settings.Default.CompanyLogoPath;
+            fileSelectCtrlReportTemplate.FileName = pathReportTemplate;
+            fileSelectCompanyLogo.FileName = pathCompanyLogo;
             nudTop.Value = (decimal)Settings.Default.MarginTop;
             nudBottom.Value = (decimal)Settings.Default.MarginBottom;
             nudLeft.Value = (decimal)Settings.Default.MarginLeft;
             nudRight.Value = (decimal)Settings.Default.MarginRight;
-            nudSleepTime.Value = (decimal)Settings.Default.SleepTimeBeforeImageDeletion;
+            nudSleepTime.Value = Settings.Default.SleepTimeBeforeImageDeletion;
 
             // events
             OptionsForm.OptionsSaving += new EventHandler(OptionsForm_OptionsSaving);
@@ -40,8 +50,8 @@ namespace treeDiM.StackBuilder.Desktop
         #region Handlers
         void OptionsForm_OptionsSaving(object sender, EventArgs e)
         {
-            Settings.Default.TemplatePath = fileSelectCtrlReportTemplate.FileName;
-            Settings.Default.CompanyLogoPath = fileSelectCompanyLogo.FileName;
+            Settings.Default.TemplatePath = File.Exists(fileSelectCtrlReportTemplate.FileName) ? fileSelectCtrlReportTemplate.FileName : string.Empty;
+            Settings.Default.CompanyLogoPath = File.Exists(fileSelectCompanyLogo.FileName) ? fileSelectCompanyLogo.FileName : string.Empty;
             Settings.Default.MarginTop = (float)nudTop.Value;
             Settings.Default.MarginBottom = (float)nudBottom.Value;
             Settings.Default.MarginLeft = (float)nudLeft.Value;

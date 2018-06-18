@@ -1,14 +1,8 @@
 ﻿#region Using directives
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Text;
 using System.IO;
 using System.Windows.Forms;
 using System.Diagnostics;
-using System.Threading.Tasks;
 
 using log4net;
 
@@ -43,6 +37,15 @@ namespace treeDiM.StackBuilder.Desktop
         {
             try
             {   Process.Start(Path.GetDirectoryName(Application.ExecutablePath)); }
+            catch (Exception ex)
+            { _log.Error(ex.Message); }
+        }
+        private void OnResetDefaultSettings(object sender, EventArgs e)
+        {
+            try
+            {
+                Settings.Default.Reset();
+            }
             catch (Exception ex)
             { _log.Error(ex.Message); }
         }

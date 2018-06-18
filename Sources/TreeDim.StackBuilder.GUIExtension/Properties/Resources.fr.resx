@@ -127,7 +127,7 @@
     <value>A3</value>
   </data>
 	<data name="ID_ANALYSISDESCRIPTION" xml:space="preserve">
-    <value>Empilage affaire {0} sur {1} palette </value>
+    <value>Chargement caisse {0} sur palette {1}</value>
   </data>
 	<data name="ID_ANALYSISHASNOVALIDSOLUTION" xml:space="preserve">
     <value>L’analyse n’a aucune solution valable</value>
@@ -139,13 +139,13 @@
     <value>Surface</value>
   </data>
 	<data name="ID_BUNDLECOUNT" xml:space="preserve">
-    <value>faisceaux de #</value>
+    <value>Liasse de #</value>
   </data>
 	<data name="ID_CASE" xml:space="preserve">
     <value>Caisse</value>
   </data>
 	<data name="ID_CASECOUNT" xml:space="preserve">
-    <value>Cas comte</value>
+    <value>Nb caisses</value>
   </data>
 	<data name="ID_CASESLAYER" xml:space="preserve">
     <value>Caisses/Couche</value>
@@ -157,10 +157,10 @@
     <value>Masse caisse</value>
   </data>
 	<data name="ID_DEFINEBUNDLEPALLETANALYSIS" xml:space="preserve">
-    <value>Définition d’analyse de faisceau/palette...</value>
+    <value>Définir analyse liasse/palette...</value>
   </data>
 	<data name="ID_DEFINECASEPALLETANALYSIS" xml:space="preserve">
-    <value>Définition de caisse/palette analyse...</value>
+    <value>Définir analyse caisse/palette...</value>
   </data>
 	<data name="ID_DIMENSIONS" xml:space="preserve">
     <value>Dimensions</value>
@@ -169,7 +169,7 @@
     <value>Double-cliquer une couche!</value>
   </data>
 	<data name="ID_EFFICIENCYPERCENTAGE" xml:space="preserve">
-    <value>Pourcentage de rendement</value>
+    <value>Efficacité (%)</value>
   </data>
 	<data name="ID_HEIGHT" xml:space="preserve">
     <value>Hauteur</value>
@@ -178,7 +178,7 @@
     <value>Index</value>
   </data>
 	<data name="ID_INSUFFICIENTPALLETHEIGHT" xml:space="preserve">
-    <value>Hauteur de la palette maximale ({0} {1}) devait dépasser {1} {2}</value>
+    <value>Hauteur maximale palette ({0} {1}) doit dépasser {1} {2}</value>
   </data>
 	<data name="ID_INSUFFICIENTVOLUME" xml:space="preserve">
     <value>Le volume maximum est insuffisant pour emballer {0} {1}.</value>
@@ -202,13 +202,13 @@
     <value>Longueur</value>
   </data>
 	<data name="ID_LOADDIMENSIONS" xml:space="preserve">
-    <value>Charge dimensions{0}({1}x{1}x{1})</value>
+    <value>Dimensions du chargement {0}({1}x{1}x{1})</value>
   </data>
 	<data name="ID_LOADWEIGHT_WU" xml:space="preserve">
     <value>Masse chargement ({0})</value>
   </data>
 	<data name="ID_MAXIMUMSPACE" xml:space="preserve">
-    <value>Maximum d’espace</value>
+    <value>Espace max.</value>
   </data>
 	<data name="ID_MAXLOWERTHANMIN" xml:space="preserve">
     <value>Incohérence : Maximum {0} est inférieur à minimal {1}.</value>
@@ -223,7 +223,7 @@
     <value>_ OptimAnalysis {0} {1} * {2} * {3} _ {4} {5}</value>
   </data>
 	<data name="ID_OPTCASEDESCRIPTION" xml:space="preserve">
-    <value>Cas généré par l’affaire optimisation pour boîte {0} et palette {1}</value>
+    <value>Caisse générée par l’optimisation pour étui {0} et palette {1}</value>
   </data>
 	<data name="ID_OPTDOCUMENTDESCRIPTION" xml:space="preserve">
     <value>Palettisation optimale pour boîte {0}</value>
@@ -259,13 +259,13 @@
     <value>Sélectionnez au moins une couche</value>
   </data>
 	<data name="ID_SELECTEDLAYER" xml:space="preserve">
-    <value>Calque sélectionné : {0}</value>
+    <value>Couche sélectionnée : {0}</value>
   </data>
 	<data name="ID_TOTALWEIGHT_WU" xml:space="preserve">
     <value>Poids total ({0})</value>
   </data>
 	<data name="ID_VOLUMEEFFICIENCY" xml:space="preserve">
-    <value>Rendement en volume (%)</value>
+    <value>Efficacité volumique (%)</value>
   </data>
 	<data name="ID_WEIGHT_WU" xml:space="preserve">
     <value>Masse ({0})</value>

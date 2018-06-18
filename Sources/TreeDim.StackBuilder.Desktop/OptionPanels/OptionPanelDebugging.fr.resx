@@ -117,20 +117,33 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="bnShowAppFolder.Text" xml:space="preserve">
+    <value>Explorer le dossier de l'application</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="bnResetDefaultSettings.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="bnResetDefaultSettings.Text" xml:space="preserve">
+    <value>Reset paramètres par défaut</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="chkbDisconnected.Size" type="System.Drawing.Size, System.Drawing">
+    <value>197, 17</value>
+  </data>
+  <data name="chkbDisconnected.Text" xml:space="preserve">
+    <value>Permettre un usage hors connection</value>
+  </data>
+  <data name="chkbShowStartPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>241, 17</value>
+  </data>
+  <data name="chkbShowStartPage.Text" xml:space="preserve">
+    <value>Afficher la page de l'application au démarrage</value>
+  </data>
   <data name="chkShowLogConsole.Size" type="System.Drawing.Size, System.Drawing">
     <value>165, 17</value>
   </data>
   <data name="chkShowLogConsole.Text" xml:space="preserve">
     <value>Afficher la console de logging</value>
-  </data>
-  <data name="bnShowAppFolder.Text" xml:space="preserve">
-    <value>Ouvrir le dossier de l'application</value>
-  </data>
-  <data name="chkbShowStartPage.Text" xml:space="preserve">
-    <value>Afficher la page de l'application au démarrage...</value>
-  </data>
-  <data name="chkbDisconnected.Text" xml:space="preserve">
-    <value>Permettre un usage hors connection</value>
   </data>
 </root>

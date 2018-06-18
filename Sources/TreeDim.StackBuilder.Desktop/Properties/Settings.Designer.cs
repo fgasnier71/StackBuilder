@@ -267,18 +267,6 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool ShowLogConsole {
-            get {
-                return ((bool)(this["ShowLogConsole"]));
-            }
-            set {
-                this["ShowLogConsole"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         public global::treeDiM.StackBuilder.Desktop.WindowSettings FormNewTruckAnalysisPosition {
             get {
                 return ((global::treeDiM.StackBuilder.Desktop.WindowSettings)(this["FormNewTruckAnalysisPosition"]));
@@ -787,7 +775,7 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://www.treedim.com/stackbuilder/")]
         public string StartPageUrl {
             get {
                 return ((string)(this["StartPageUrl"]));
@@ -875,15 +863,6 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
             }
             set {
                 this["GridFontSize"] = value;
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string UrlPLMPackLib {
-            get {
-                return ((string)(this["UrlPLMPackLib"]));
             }
         }
         
@@ -1082,6 +1061,27 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         public string EmailSupport {
             get {
                 return ((string)(this["EmailSupport"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://www.plmpack.com/packlib/ClickOnce/PLMPackLibClient.application")]
+        public string UrlPLMPackLib {
+            get {
+                return ((string)(this["UrlPLMPackLib"]));
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ShowLogConsole {
+            get {
+                return ((bool)(this["ShowLogConsole"]));
+            }
+            set {
+                this["ShowLogConsole"] = value;
             }
         }
     }
