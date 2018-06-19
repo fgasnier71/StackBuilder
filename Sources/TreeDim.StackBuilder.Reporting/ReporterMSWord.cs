@@ -1,17 +1,6 @@
 ﻿#region Using directives
 using System;
-using System.Collections.Generic;
-using System.Text;
-
 using System.IO;
-using System.Xml;
-
-using log4net;
-
-using treeDiM.StackBuilder.Basics;
-
-
-using Microsoft.Office.Interop;
 #endregion
 
 namespace treeDiM.StackBuilder.Reporting

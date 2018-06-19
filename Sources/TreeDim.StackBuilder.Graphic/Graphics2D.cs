@@ -1,7 +1,4 @@
 ﻿#region Data members
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Drawing;
 using Sharp3D.Math.Core;
 #endregion

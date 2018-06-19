@@ -1,7 +1,9 @@
-﻿using System;
+﻿#region Using directives
+using System;
 using System.IO;
 
 using Codaxy.WkHtmlToPdf;
+#endregion
 
 namespace treeDiM.StackBuilder.Reporting
 {

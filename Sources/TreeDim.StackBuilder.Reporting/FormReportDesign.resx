@@ -124,9 +124,6 @@
   <data name="cbHTMLSizeDetail.Size" type="System.Drawing.Size, System.Drawing">
     <value>80, 21</value>
   </data>
-  <data name="tabPageDetail.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 22</value>
-  </data>
   <data name="toolSBReportHTML.Size" type="System.Drawing.Size, System.Drawing">
     <value>23, 22</value>
   </data>
@@ -136,15 +133,15 @@
   <data name="&gt;&gt;cbDefinitionDetail.Name" xml:space="preserve">
     <value>cbDefinitionDetail</value>
   </data>
-  <data name="cbHTMLSizeDetail.Location" type="System.Drawing.Point, System.Drawing">
-    <value>72, 31</value>
+  <data name="&gt;&gt;cbDefinitionLarge.Type" xml:space="preserve">
+    <value>treeDiM.StackBuilder.Reporting.ComboImageDefinition, treeDiM.StackBuilder.Reporting, Version=3.0.0.72, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="lbFontSizeDetail.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
   <data name="&gt;&gt;cbHTMLSizeDetail.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Reporting.ComboImgSize, treeDiM.StackBuilder.Reporting, Version=3.0.0.36, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Reporting.ComboImgSize, treeDiM.StackBuilder.Reporting, Version=3.0.0.72, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;toolSBReportPDF.Name" xml:space="preserve">
     <value>toolSBReportPDF</value>
@@ -156,7 +153,7 @@
     <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;cbFontSizeLarge.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Reporting.ComboFontSize, treeDiM.StackBuilder.Reporting, Version=3.0.0.36, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Reporting.ComboFontSize, treeDiM.StackBuilder.Reporting, Version=3.0.0.72, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="cbHTMLSizeLarge.Location" type="System.Drawing.Point, System.Drawing">
     <value>72, 31</value>
@@ -188,6 +185,9 @@
   <data name="tabCtrlImageParam.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
+  <data name="&gt;&gt;cbFontSizeLarge.Parent" xml:space="preserve">
+    <value>tabPageLargeImg</value>
+  </data>
   <data name="_webBrowser.MinimumSize" type="System.Drawing.Size, System.Drawing">
     <value>20, 20</value>
   </data>
@@ -202,9 +202,6 @@
   </data>
   <data name="&gt;&gt;splitContainer2.Type" xml:space="preserve">
     <value>System.Windows.Forms.SplitContainer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_treeView.ZOrder" xml:space="preserve">
-    <value>0</value>
   </data>
   <data name="toolSBReportPrint.Text" xml:space="preserve">
     <value>Print...</value>
@@ -221,8 +218,8 @@
   <data name="lbDefinitionDetail.Size" type="System.Drawing.Size, System.Drawing">
     <value>51, 13</value>
   </data>
-  <data name="lbHTMLSizeLarge.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="&gt;&gt;lbDefinitionLarge.Parent" xml:space="preserve">
+    <value>tabPageLargeImg</value>
   </data>
   <data name="&gt;&gt;splitContainer2.Panel1.Parent" xml:space="preserve">
     <value>splitContainer2</value>
@@ -239,8 +236,14 @@
   <data name="$this.Text" xml:space="preserve">
     <value>Report...</value>
   </data>
-  <data name="&gt;&gt;lbHTMLSizeLarge.Name" xml:space="preserve">
-    <value>lbHTMLSizeLarge</value>
+  <data name="&gt;&gt;toolStrip.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="lbHTMLSizeLarge.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;lbDefinitionDetail.Name" xml:space="preserve">
+    <value>lbDefinitionDetail</value>
   </data>
   <data name="lbFontSizeLarge.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -254,11 +257,11 @@
   <data name="toolSBReportPDF.Size" type="System.Drawing.Size, System.Drawing">
     <value>23, 22</value>
   </data>
+  <data name="lbDefinitionDetail.Text" xml:space="preserve">
+    <value>Definition</value>
+  </data>
   <data name="&gt;&gt;cbFontSizeDetail.Parent" xml:space="preserve">
     <value>tabPageDetail</value>
-  </data>
-  <data name="&gt;&gt;splitContainer2.Panel1.ZOrder" xml:space="preserve">
-    <value>0</value>
   </data>
   <data name="toolStripSeparator2.Size" type="System.Drawing.Size, System.Drawing">
     <value>6, 25</value>
@@ -463,9 +466,6 @@
   <data name="statusLabelDef.Text" xml:space="preserve">
     <value>Ready</value>
   </data>
-  <data name="&gt;&gt;splitContainer1.Panel1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="lbHTMLSizeDetail.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -479,6 +479,9 @@
   <data name="&gt;&gt;_webBrowser.Type" xml:space="preserve">
     <value>System.Windows.Forms.WebBrowser, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="tabPageLargeImg.Size" type="System.Drawing.Size, System.Drawing">
+    <value>157, 104</value>
+  </data>
   <data name="&gt;&gt;lbFontSizeLarge.Parent" xml:space="preserve">
     <value>tabPageLargeImg</value>
   </data>
@@ -486,15 +489,18 @@
     <value>White</value>
   </data>
   <data name="&gt;&gt;cbDefinitionDetail.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Reporting.ComboImageDefinition, treeDiM.StackBuilder.Reporting, Version=3.0.0.36, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Reporting.ComboImageDefinition, treeDiM.StackBuilder.Reporting, Version=3.0.0.72, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;statusStrip.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="lbHTMLSizeLarge.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;cbHTMLSizeLarge.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="&gt;&gt;lbDefinitionDetail.ZOrder" xml:space="preserve">
+    <value>5</value>
   </data>
-  <data name="&gt;&gt;lbFontSizeDetail.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;cbHTMLSizeLarge.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
   <data name="toolSBReportWord.Text" xml:space="preserve">
@@ -506,14 +512,14 @@
   <data name="lbHTMLSizeDetail.Text" xml:space="preserve">
     <value>HTML size</value>
   </data>
-  <data name="cbDefinitionDetail.Size" type="System.Drawing.Size, System.Drawing">
-    <value>80, 21</value>
-  </data>
   <data name="&gt;&gt;splitContainer2.Panel2.Parent" xml:space="preserve">
     <value>splitContainer2</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>FormReportDesign</value>
+  </data>
+  <data name="lbFontSizeLarge.Location" type="System.Drawing.Point, System.Drawing">
+    <value>5, 62</value>
   </data>
   <data name="&gt;&gt;toolStripSeparator2.Name" xml:space="preserve">
     <value>toolStripSeparator2</value>
@@ -554,11 +560,11 @@
   <data name="cbFontSizeLarge.Location" type="System.Drawing.Point, System.Drawing">
     <value>72, 59</value>
   </data>
+  <data name="&gt;&gt;splitContainer1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitContainer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="lbFontSizeDetail.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
-  </data>
-  <data name="&gt;&gt;cbDefinitionDetail.Parent" xml:space="preserve">
-    <value>tabPageDetail</value>
   </data>
   <data name="&gt;&gt;cbFontSizeDetail.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -568,9 +574,6 @@
   </data>
   <data name="&gt;&gt;tabCtrlImageParam.ZOrder" xml:space="preserve">
     <value>0</value>
-  </data>
-  <data name="&gt;&gt;cbFontSizeDetail.Name" xml:space="preserve">
-    <value>cbFontSizeDetail</value>
   </data>
   <data name="&gt;&gt;lbHTMLSizeLarge.ZOrder" xml:space="preserve">
     <value>4</value>
@@ -599,9 +602,6 @@
   <data name="&gt;&gt;lbFontSizeLarge.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;tabPageLargeImg.Name" xml:space="preserve">
-    <value>tabPageLargeImg</value>
-  </data>
   <data name="&gt;&gt;cbDefinitionLarge.Name" xml:space="preserve">
     <value>cbDefinitionLarge</value>
   </data>
@@ -611,20 +611,14 @@
   <data name="&gt;&gt;cbFontSizeLarge.Name" xml:space="preserve">
     <value>cbFontSizeLarge</value>
   </data>
-  <data name="lbFontSizeDetail.Text" xml:space="preserve">
-    <value>Font size</value>
-  </data>
   <data name="tabPageDetail.Text" xml:space="preserve">
     <value>Detail image</value>
   </data>
   <data name="&gt;&gt;_webBrowser.Name" xml:space="preserve">
     <value>_webBrowser</value>
   </data>
-  <data name="cbFontSizeDetail.Size" type="System.Drawing.Size, System.Drawing">
-    <value>80, 21</value>
-  </data>
-  <data name="&gt;&gt;lbHTMLSizeLarge.Parent" xml:space="preserve">
-    <value>tabPageLargeImg</value>
+  <data name="tabPageLargeImg.Text" xml:space="preserve">
+    <value>Large image</value>
   </data>
   <data name="lbDefinitionDetail.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -635,14 +629,8 @@
   <data name="toolStrip.Size" type="System.Drawing.Size, System.Drawing">
     <value>884, 25</value>
   </data>
-  <data name="&gt;&gt;splitContainer2.Panel2.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
   <data name="lbFontSizeLarge.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
-  </data>
-  <data name="&gt;&gt;tabPageLargeImg.Parent" xml:space="preserve">
-    <value>tabCtrlImageParam</value>
   </data>
   <data name="splitContainer1.SplitterDistance" type="System.Int32, mscorlib">
     <value>165</value>
@@ -659,14 +647,17 @@
   <data name="lbHTMLSizeDetail.Location" type="System.Drawing.Point, System.Drawing">
     <value>5, 34</value>
   </data>
-  <data name="&gt;&gt;lbFontSizeDetail.Name" xml:space="preserve">
-    <value>lbFontSizeDetail</value>
+  <data name="cbHTMLSizeDetail.Location" type="System.Drawing.Point, System.Drawing">
+    <value>72, 31</value>
+  </data>
+  <data name="&gt;&gt;cbDefinitionDetail.ZOrder" xml:space="preserve">
+    <value>4</value>
   </data>
   <data name="&gt;&gt;cbHTMLSizeLarge.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Reporting.ComboImgSize, treeDiM.StackBuilder.Reporting, Version=3.0.0.36, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Reporting.ComboImgSize, treeDiM.StackBuilder.Reporting, Version=3.0.0.72, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="&gt;&gt;cbDefinitionLarge.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Reporting.ComboImageDefinition, treeDiM.StackBuilder.Reporting, Version=3.0.0.36, Culture=neutral, PublicKeyToken=null</value>
+  <data name="statusStrip.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 639</value>
   </data>
   <data name="&gt;&gt;lbHTMLSizeDetail.ZOrder" xml:space="preserve">
     <value>3</value>
@@ -676,6 +667,9 @@
   </data>
   <data name="lbDefinitionLarge.Location" type="System.Drawing.Point, System.Drawing">
     <value>5, 6</value>
+  </data>
+  <data name="&gt;&gt;lbFontSizeDetail.Name" xml:space="preserve">
+    <value>lbFontSizeDetail</value>
   </data>
   <data name="cbDefinitionDetail.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -698,21 +692,8 @@
   <data name="cbDefinitionDetail.Location" type="System.Drawing.Point, System.Drawing">
     <value>72, 3</value>
   </data>
-  <data name="toolSBReportHTML.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wwAADsMBx2+oZAAAAkdJREFUOE+VU0tME1EUfdEoImIEP7jQhVs/MSaa+FmwcG1MXLlwZ2I07v0lRPwA
-        ioCpqBVRVOLCX4jRgBtZaIgp7bQdiKVDKJ9a01Ba2krVAas53nun01rRRG9y8mbee/fMuefeUf8TWvQz
-        nN4pNLsmEZ2ZQ277zzGamoWjP4aTvREc6Z6AOu9BRZMfJ15H0O6LY0tbAJOZb/NJ4l+y2Oh8D3XOgyUN
-        XpRd8qG80YfVzbqg1RPLJ93UpooJ3kUyUKddWNmko6pFxxrCiit+VNKX7feFdRq2tQ9J4rNgskCQ+JqF
-        OuOS+tZeHUD5ZR9KG3zY/ySEHXeDUgIT8FkpqaruNDCR/sWHPfcNBOMmltLhMkre+3C4SJ6RMLHgopYn
-        4RJDSdO6kzSziHyak0SWX0arHPwWjwLT4gsTLG/042h3uHBvNyngzVVk1PY7Q+D6OvR4Hp0DCVxzx8RU
-        JmBDN98KWAQvhlNUoyYHDDZOnXXPR64zNkoIQlBBCfxlTrYV3NMT0rK/gtRIG9+GqXW1niKCdQ4y6V/j
-        8Mtx7Hs8gk1Uj02yqM6LNpq23JV8HHo+BlVDpVC5PC/XSYVa7xhE34eMQNW6haCqhRRc0HCwaxQ9I2l0
-        GSns6ghicb1XBooHq5K6ZdGSMdaDUsdfUVtoYJiAwV3hpBIC+8TkvPKd9Ox3K4+ZxunHkRcKJxtT0y/T
-        ZpvLs8FkrGpD6yDM7I9CeTxAW28HcKr3I+r7otLraRrrG+T0gach7CTp1Q8MHOsJ4014ppAoodRPIFgC
-        +mmsfZsAAAAASUVORK5CYII=
-</value>
+  <data name="&gt;&gt;cbFontSizeDetail.Name" xml:space="preserve">
+    <value>cbFontSizeDetail</value>
   </data>
   <data name="toolSBDimensions.Text" xml:space="preserve">
     <value>Show / Hide dimensions</value>
@@ -729,11 +710,14 @@
   <data name="&gt;&gt;toolSBReportHTML.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;lbDefinitionLarge.Parent" xml:space="preserve">
-    <value>tabPageLargeImg</value>
+  <data name="_treeView.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
   </data>
-  <data name="statusStrip.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 639</value>
+  <data name="&gt;&gt;cbDefinitionDetail.Parent" xml:space="preserve">
+    <value>tabPageDetail</value>
+  </data>
+  <data name="lbFontSizeDetail.Text" xml:space="preserve">
+    <value>Font size</value>
   </data>
   <data name="&gt;&gt;tabPageDetail.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -757,14 +741,17 @@
   <data name="&gt;&gt;cbHTMLSizeDetail.Name" xml:space="preserve">
     <value>cbHTMLSizeDetail</value>
   </data>
-  <data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>6, 25</value>
+  <data name="&gt;&gt;splitContainer2.Panel1.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;lbDefinitionDetail.ZOrder" xml:space="preserve">
-    <value>5</value>
+  <data name="lbFontSizeDetail.Size" type="System.Drawing.Size, System.Drawing">
+    <value>49, 13</value>
+  </data>
+  <data name="cbDefinitionDetail.Size" type="System.Drawing.Size, System.Drawing">
+    <value>80, 21</value>
   </data>
   <data name="cbFontSizeDetail.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -778,8 +765,8 @@
   <data name="&gt;&gt;statusStrip.Name" xml:space="preserve">
     <value>statusStrip</value>
   </data>
-  <data name="&gt;&gt;statusStrip.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;lbHTMLSizeLarge.Parent" xml:space="preserve">
+    <value>tabPageLargeImg</value>
   </data>
   <data name="tabCtrlImageParam.Size" type="System.Drawing.Size, System.Drawing">
     <value>165, 130</value>
@@ -805,20 +792,20 @@
   <data name="toolSBReportPDF.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>White</value>
   </data>
-  <data name="tabPageLargeImg.Text" xml:space="preserve">
-    <value>Large image</value>
+  <data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>6, 25</value>
   </data>
   <data name="&gt;&gt;splitContainer2.Panel2.Name" xml:space="preserve">
     <value>splitContainer2.Panel2</value>
   </data>
   <data name="&gt;&gt;cbFontSizeDetail.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Reporting.ComboFontSize, treeDiM.StackBuilder.Reporting, Version=3.0.0.36, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Reporting.ComboFontSize, treeDiM.StackBuilder.Reporting, Version=3.0.0.72, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="toolStrip.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
-  <data name="&gt;&gt;toolStrip.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="cbFontSizeDetail.Size" type="System.Drawing.Size, System.Drawing">
+    <value>80, 21</value>
   </data>
   <data name="statusStrip.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -826,8 +813,8 @@
   <data name="&gt;&gt;cbHTMLSizeDetail.Parent" xml:space="preserve">
     <value>tabPageDetail</value>
   </data>
-  <data name="lbDefinitionDetail.Text" xml:space="preserve">
-    <value>Definition</value>
+  <data name="&gt;&gt;splitContainer1.Panel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="toolSBReportPrint.Size" type="System.Drawing.Size, System.Drawing">
     <value>23, 22</value>
@@ -838,8 +825,8 @@
   <data name="tabPageDetail.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 3, 3, 3</value>
   </data>
-  <data name="&gt;&gt;cbFontSizeLarge.Parent" xml:space="preserve">
-    <value>tabPageLargeImg</value>
+  <data name="&gt;&gt;tabPageLargeImg.Parent" xml:space="preserve">
+    <value>tabCtrlImageParam</value>
   </data>
   <data name="&gt;&gt;lbDefinitionLarge.ZOrder" xml:space="preserve">
     <value>5</value>
@@ -882,8 +869,8 @@
   <data name="lbHTMLSizeDetail.Size" type="System.Drawing.Size, System.Drawing">
     <value>58, 13</value>
   </data>
-  <data name="lbFontSizeDetail.Size" type="System.Drawing.Size, System.Drawing">
-    <value>49, 13</value>
+  <data name="&gt;&gt;_treeView.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="splitContainer2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -894,8 +881,8 @@
   <data name="tabCtrlImageParam.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="_treeView.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left, Right</value>
+  <data name="tabPageDetail.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
   </data>
   <data name="&gt;&gt;toolStripSeparator1.Name" xml:space="preserve">
     <value>toolStripSeparator1</value>
@@ -903,11 +890,24 @@
   <data name="&gt;&gt;_treeView.Parent" xml:space="preserve">
     <value>splitContainer2.Panel1</value>
   </data>
-  <data name="&gt;&gt;splitContainer1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.SplitContainer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;tabPageLargeImg.Name" xml:space="preserve">
+    <value>tabPageLargeImg</value>
   </data>
-  <data name="lbFontSizeLarge.Location" type="System.Drawing.Point, System.Drawing">
-    <value>5, 62</value>
+  <data name="toolSBReportHTML.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAAkdJREFUOE+VU0tME1EUfdEoImIEP7jQhVs/MSaa+FmwcG1MXLlwZ2I07v0lRPwA
+        ioCpqBVRVOLCX4jRgBtZaIgp7bQdiKVDKJ9a01Ba2krVAas53nun01rRRG9y8mbee/fMuefeUf8TWvQz
+        nN4pNLsmEZ2ZQ277zzGamoWjP4aTvREc6Z6AOu9BRZMfJ15H0O6LY0tbAJOZb/NJ4l+y2Oh8D3XOgyUN
+        XpRd8qG80YfVzbqg1RPLJ93UpooJ3kUyUKddWNmko6pFxxrCiit+VNKX7feFdRq2tQ9J4rNgskCQ+JqF
+        OuOS+tZeHUD5ZR9KG3zY/ySEHXeDUgIT8FkpqaruNDCR/sWHPfcNBOMmltLhMkre+3C4SJ6RMLHgopYn
+        4RJDSdO6kzSziHyak0SWX0arHPwWjwLT4gsTLG/042h3uHBvNyngzVVk1PY7Q+D6OvR4Hp0DCVxzx8RU
+        JmBDN98KWAQvhlNUoyYHDDZOnXXPR64zNkoIQlBBCfxlTrYV3NMT0rK/gtRIG9+GqXW1niKCdQ4y6V/j
+        8Mtx7Hs8gk1Uj02yqM6LNpq23JV8HHo+BlVDpVC5PC/XSYVa7xhE34eMQNW6haCqhRRc0HCwaxQ9I2l0
+        GSns6ghicb1XBooHq5K6ZdGSMdaDUsdfUVtoYJiAwV3hpBIC+8TkvPKd9Ox3K4+ZxunHkRcKJxtT0y/T
+        ZpvLs8FkrGpD6yDM7I9CeTxAW28HcKr3I+r7otLraRrrG+T0gach7CTp1Q8MHOsJ4014ppAoodRPIFgC
+        +mmsfZsAAAAASUVORK5CYII=
+</value>
   </data>
   <data name="statusLabelDef.Size" type="System.Drawing.Size, System.Drawing">
     <value>39, 17</value>
@@ -915,8 +915,8 @@
   <data name="&gt;&gt;toolStrip.Name" xml:space="preserve">
     <value>toolStrip</value>
   </data>
-  <data name="&gt;&gt;cbDefinitionDetail.ZOrder" xml:space="preserve">
-    <value>4</value>
+  <data name="&gt;&gt;lbHTMLSizeLarge.Name" xml:space="preserve">
+    <value>lbHTMLSizeLarge</value>
   </data>
   <data name="&gt;&gt;splitContainer2.Panel2.Type" xml:space="preserve">
     <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -939,8 +939,8 @@
   <data name="toolStrip.Text" xml:space="preserve">
     <value>toolStrip1</value>
   </data>
-  <data name="&gt;&gt;lbDefinitionDetail.Name" xml:space="preserve">
-    <value>lbDefinitionDetail</value>
+  <data name="&gt;&gt;splitContainer2.Panel2.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="&gt;&gt;tabCtrlImageParam.Parent" xml:space="preserve">
     <value>splitContainer2.Panel2</value>
@@ -969,8 +969,8 @@
   <data name="lbHTMLSizeDetail.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="tabPageLargeImg.Size" type="System.Drawing.Size, System.Drawing">
-    <value>157, 104</value>
+  <data name="&gt;&gt;lbFontSizeDetail.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="&gt;&gt;cbHTMLSizeDetail.ZOrder" xml:space="preserve">
     <value>2</value>
@@ -990,9 +990,6 @@
   <data name="statusStrip.Size" type="System.Drawing.Size, System.Drawing">
     <value>884, 22</value>
   </data>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>ja</value>
-  </metadata>
   <metadata name="toolStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>126, 17</value>
   </metadata>

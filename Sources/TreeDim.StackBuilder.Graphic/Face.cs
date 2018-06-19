@@ -309,24 +309,24 @@ namespace treeDiM.StackBuilder.Graphics
                 return false;
             double invdet = 1.0 / det;
 
-	    	// calculate distance from vert0 to ray origin
+            // calculate distance from vert0 to ray origin
             Vector3D tvec = pt0 - ray.Origin;
 
-		// calculate U parameter and test bounds
-		u = -Vector3D.DotProduct(tvec, pvec) * invdet;
-		if (u < 0.0 || u > 1.0)
-			return false;
+            // calculate U parameter and test bounds
+            u = -Vector3D.DotProduct(tvec, pvec) * invdet;
+            if (u < 0.0 || u > 1.0)
+                return false;
 
-        // prepare to test V parameter
-        Vector3D qvec = Vector3D.CrossProduct(tvec, edge1);
+            // prepare to test V parameter
+            Vector3D qvec = Vector3D.CrossProduct(tvec, edge1);
 
-        // calculate vparameter
-        v = -Vector3D.DotProduct(ray.Direction, qvec) * invdet;
-        if (v < 0.0 || u + v > 1.0)
-            return false;
+            // calculate vparameter
+            v = -Vector3D.DotProduct(ray.Direction, qvec) * invdet;
+            if (v < 0.0 || u + v > 1.0)
+                return false;
 
-        // calculate t, ray intersects triangle
-        double t = Vector3D.DotProduct(edge2, qvec) * invdet;
+            // calculate t, ray intersects triangle
+            double t = Vector3D.DotProduct(edge2, qvec) * invdet;
             return true;
         }
 

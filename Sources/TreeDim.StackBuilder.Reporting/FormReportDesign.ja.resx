@@ -118,6 +118,54 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="lbFontSizeDetail.Size" type="System.Drawing.Size, System.Drawing">
+    <value>72, 13</value>
+  </data>
+  <data name="lbFontSizeDetail.Text" xml:space="preserve">
+    <value>フォント サイズ</value>
+  </data>
+  <data name="lbHTMLSizeDetail.Size" type="System.Drawing.Size, System.Drawing">
+    <value>79, 13</value>
+  </data>
+  <data name="lbHTMLSizeDetail.Text" xml:space="preserve">
+    <value>HTML のサイズ</value>
+  </data>
+  <data name="lbDefinitionDetail.Size" type="System.Drawing.Size, System.Drawing">
+    <value>31, 13</value>
+  </data>
+  <data name="lbDefinitionDetail.Text" xml:space="preserve">
+    <value>定義</value>
+  </data>
+  <data name="tabPageDetail.Text" xml:space="preserve">
+    <value>詳細画像</value>
+  </data>
+  <data name="lbFontSizeLarge.Size" type="System.Drawing.Size, System.Drawing">
+    <value>72, 13</value>
+  </data>
+  <data name="lbFontSizeLarge.Text" xml:space="preserve">
+    <value>フォント サイズ</value>
+  </data>
+  <data name="lbHTMLSizeLarge.Size" type="System.Drawing.Size, System.Drawing">
+    <value>79, 13</value>
+  </data>
+  <data name="lbHTMLSizeLarge.Text" xml:space="preserve">
+    <value>HTML のサイズ</value>
+  </data>
+  <data name="lbDefinitionLarge.Size" type="System.Drawing.Size, System.Drawing">
+    <value>31, 13</value>
+  </data>
+  <data name="lbDefinitionLarge.Text" xml:space="preserve">
+    <value>定義</value>
+  </data>
+  <data name="tabPageLargeImg.Text" xml:space="preserve">
+    <value>大きな画像</value>
+  </data>
+  <data name="statusLabelDef.Size" type="System.Drawing.Size, System.Drawing">
+    <value>69, 17</value>
+  </data>
+  <data name="statusLabelDef.Text" xml:space="preserve">
+    <value>準備ができて</value>
+  </data>
   <data name="toolSBReportWord.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -125,6 +173,9 @@
         Z7kfm/zsB3gzpHMgeY5JPnQOJK9jSOka9exxgDpOehygjpMeB6jjpMcBODJK571XoVE6770KjdJ57/XD
         N3z3g92YXauEAwxp1v7WAAAAAElFTkSuQmCC
 </value>
+  </data>
+  <data name="toolSBReportWord.Text" xml:space="preserve">
+    <value>単語</value>
   </data>
   <data name="toolSBReportPDF.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -134,6 +185,9 @@
         H9nKqDVgNIFpDcAEcvgfgGZM4HuYZg7wsDe21sAMEIIj5QBZdpqhHHCgFHDgi29hU/jjkYIOQAAAAABJ
         RU5ErkJggg==
 </value>
+  </data>
+  <data name="toolSBReportPDF.Text" xml:space="preserve">
+    <value>PDF レポート</value>
   </data>
   <data name="toolSBReportHTML.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -161,12 +215,21 @@
         nOPc34RHaOOsgveyj5CLr6i74MLUcReOQaJoB17QP0208ODJAAAAAElFTkSuQmCC
 </value>
   </data>
+  <data name="toolSBReportPrint.Text" xml:space="preserve">
+    <value>印刷.</value>
+  </data>
+  <data name="toolSBReportPrint.ToolTipText" xml:space="preserve">
+    <value>印刷</value>
+  </data>
   <data name="toolSBDimensions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABASURBVDhPYxgFcPAfSpMCUPQgc/AZhlMdjINPMwxgVQvi
         kIPhAMZBEcQBsKpF5uAzBKc6fJpwgVEDyNODDhgYAPNoKddm5onHAAAAAElFTkSuQmCC
 </value>
+  </data>
+  <data name="toolSBDimensions.Text" xml:space="preserve">
+    <value>寸法を表示しない/表示</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -296,58 +359,7 @@
         AACAAQAAgAEAAMABAADgAQAA8AEAAP//AAA=
 </value>
   </data>
-  <data name="toolSBReportPrint.Text" xml:space="preserve">
-    <value>印刷.</value>
-  </data>
-  <data name="statusStrip.Text" xml:space="preserve">
-    <value>statusStrip</value>
-  </data>
   <data name="$this.Text" xml:space="preserve">
     <value>レポート.</value>
-  </data>
-  <data name="lbDefinitionLarge.Text" xml:space="preserve">
-    <value>定義</value>
-  </data>
-  <data name="statusLabelDef.Text" xml:space="preserve">
-    <value>準備ができて</value>
-  </data>
-  <data name="toolSBReportWord.Text" xml:space="preserve">
-    <value>単語</value>
-  </data>
-  <data name="lbHTMLSizeDetail.Text" xml:space="preserve">
-    <value>HTML のサイズ</value>
-  </data>
-  <data name="toolSBReportPrint.ToolTipText" xml:space="preserve">
-    <value>印刷</value>
-  </data>
-  <data name="toolSBReportPDF.Text" xml:space="preserve">
-    <value>PDF レポート</value>
-  </data>
-  <data name="lbHTMLSizeLarge.Text" xml:space="preserve">
-    <value>HTML のサイズ</value>
-  </data>
-  <data name="lbFontSizeLarge.Text" xml:space="preserve">
-    <value>フォント サイズ</value>
-  </data>
-  <data name="lbFontSizeDetail.Text" xml:space="preserve">
-    <value>フォント サイズ</value>
-  </data>
-  <data name="tabPageDetail.Text" xml:space="preserve">
-    <value>詳細画像</value>
-  </data>
-  <data name="toolSBDimensions.Text" xml:space="preserve">
-    <value>寸法を表示しない/表示</value>
-  </data>
-  <data name="tabPageLargeImg.Text" xml:space="preserve">
-    <value>大きな画像</value>
-  </data>
-  <data name="lbDefinitionDetail.Text" xml:space="preserve">
-    <value>定義</value>
-  </data>
-  <data name="toolStrip.Text" xml:space="preserve">
-    <value>toolStrip1</value>
-  </data>
-  <data name="toolSBReportHTML.Text" xml:space="preserve">
-    <value>HTML</value>
   </data>
 </root>

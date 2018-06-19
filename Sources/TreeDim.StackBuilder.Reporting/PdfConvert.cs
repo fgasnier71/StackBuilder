@@ -1,12 +1,12 @@
-﻿using System;
+﻿#region Using directives
+using System;
 using System.Diagnostics;
 using System.Text;
 using System.IO;
-using System.Web;
 using System.Threading;
 using System.Collections.Generic;
 using System.Reflection;
-using System.Configuration;
+#endregion
 
 namespace Codaxy.WkHtmlToPdf
 {

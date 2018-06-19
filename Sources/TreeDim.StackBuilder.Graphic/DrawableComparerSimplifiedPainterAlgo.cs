@@ -1,7 +1,5 @@
 ﻿#region Using directives
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 using Sharp3D.Math.Core;
 #endregion
@@ -34,10 +32,8 @@ namespace treeDiM.StackBuilder.Graphics
         #region Helpers
         Vector3D Pos(Drawable d)
         {
-            Box b = d as Box;
-            if (null != b) return b.Position;
-            Cylinder c = d as Cylinder;
-            if (null != c) return c.Position.XYZ;
+            if (d is Box b) return b.Position;
+            if (d is Cylinder c) return c.Position.XYZ;
             return Vector3D.Zero;        
         }
         #endregion
