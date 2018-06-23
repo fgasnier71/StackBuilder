@@ -28,7 +28,6 @@ namespace treeDiM.StackBuilder.Engine
                     // is orientation allowed
                     if (!constraintSet.AllowOrientation(Layer2D.VerticalAxis(axisOrtho)))
                         continue;
-
                     // not swapped vs swapped pattern
                     for (int iSwapped = 0; iSwapped < 2; ++iSwapped)
                     {
@@ -253,11 +252,13 @@ namespace treeDiM.StackBuilder.Engine
         }
 
         public static bool GetBestCombination(Vector3D dimBox, Vector3D dimContainer
-            , ConstraintSetAbstract constraintSet, ref List<KeyValuePair<LayerDesc, int>> listLayer)
+            , ConstraintSetAbstract constraintSet
+            , ref List<KeyValuePair<LayerDesc, int>> listLayer)
         {
             var layDescs = new LayerDesc[3];
             var counts = new int[3] { 0, 0, 0 };
             var heights = new double[3] { 0.0, 0.0, 0.0 };
+            Vector2D layerDim = new Vector2D(dimContainer.X, dimContainer.Y);
 
             // loop through all patterns
             foreach (LayerPatternBox pattern in LayerPatternBox.All)
@@ -272,29 +273,39 @@ namespace treeDiM.StackBuilder.Engine
                     // not swapped vs swapped pattern
                     for (int iSwapped = 0; iSwapped < 2; ++iSwapped)
                     {
-                        // does swapping makes sense for this layer pattern ?
-                        if (!pattern.CanBeSwapped && (iSwapped == 1))
-                            continue;
-                        // instantiate layer
-                        Vector2D layerDim = new Vector2D(dimContainer.X, dimContainer.Y);
-                        var layer = new Layer2D(dimBox, layerDim, pattern.Name, axisOrtho, iSwapped == 1);
-                        if (!pattern.GetLayerDimensionsChecked(layer, out double actualLength, out double actualWidth))
-                            continue;
-                        pattern.GenerateLayer(layer, actualLength, actualWidth);
-                        if (0 == layer.Count)
-                            continue;
-
-                        int iAxisIndex = HalfAxis.Direction(axisOrtho);
-                        if (layer.Count > counts[iAxisIndex])
+                        try
                         {
-                            counts[iAxisIndex] = layer.Count;
-                            layDescs[iAxisIndex] = layer.LayerDescriptor;
-                            heights[iAxisIndex] = layer.BoxHeight;
+                            // does swapping makes sense for this layer pattern ?
+                            if (!pattern.CanBeSwapped && (iSwapped == 1))
+                                continue;
+                            // instantiate layer
+                            var layer = new Layer2D(dimBox, layerDim, pattern.Name, axisOrtho, iSwapped == 1)
+                            {
+                                ForcedSpace = constraintSet.MinimumSpace.Value
+                            };
+                            if (layer.NoLayers(constraintSet.OptMaxHeight.Value) < 1)
+                                continue;
+                            layer.PatternName = pattern.Name;
+                            if (!pattern.GetLayerDimensionsChecked(layer, out double actualLength, out double actualWidth))
+                                continue;
+                            pattern.GenerateLayer(layer, actualLength, actualWidth);
+                            if (0 == layer.Count)
+                                continue;
+                            int iAxisIndex = layer.VerticalDirection;
+                            if (layer.Count > counts[iAxisIndex])
+                            {
+                                counts[iAxisIndex] = layer.Count;
+                                layDescs[iAxisIndex] = layer.LayerDescriptor;
+                                heights[iAxisIndex] = layer.BoxHeight;
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            _log.Error($"Pattern: {pattern.Name} Orient: {axisOrtho.ToString()} Swapped: {iSwapped == 1} Message: {ex.Message}");
                         }
                     }
                 }
             }
-
             double stackingHeight = dimContainer.Z;
 
             // single layer
@@ -311,7 +322,6 @@ namespace treeDiM.StackBuilder.Engine
                     noIMax = noLayers;
                 }
             }
-
             // layer combinations
             int[] comb1 = { 0, 1, 2 };
             int[] comb2 = { 1, 2, 0 };
@@ -319,7 +329,14 @@ namespace treeDiM.StackBuilder.Engine
             {
                 int iComb1 = comb1[i];
                 int iComb2 = comb2[i];
-
+                // --swap layers so that the thickest stays at the bottom
+                if (heights[iComb2] > heights[iComb1])
+                {
+                    int iTemp = iComb1;
+                    iComb1 = iComb2;
+                    iComb2 = iTemp;
+                }
+                // --
                 int noI = 0;
                 if (counts[iComb1] != 0)
                     noI = (int)Math.Floor(stackingHeight / heights[iComb1]);

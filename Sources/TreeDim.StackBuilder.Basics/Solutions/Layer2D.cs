@@ -346,11 +346,8 @@ namespace treeDiM.StackBuilder.Basics
                 }
             }
         }
-        public HalfAxis.HAxis VerticalAxisProp
-        {
-            get { return VerticalAxis(_axisOrtho); }
-        }
-
+        public HalfAxis.HAxis VerticalAxisProp => VerticalAxis(_axisOrtho);
+        public int VerticalDirection => HalfAxis.Direction(VerticalAxisProp);
         public double BoxLength
         {
             get
