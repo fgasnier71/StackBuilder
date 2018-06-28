@@ -135,8 +135,7 @@ namespace treeDiM.StackBuilder.Engine
                 layer = new Layer2DCyl(cylProperties.RadiusOuter, cylProperties.Height, dimContainer, layerDesc.Swapped);
                 // get layer pattern
                 LayerPatternCyl pattern = LayerPatternCyl.GetByName(layerDesc.PatternName);
-                double actualLength = 0.0, actualWidth = 0.0;
-                if (!pattern.GetLayerDimensions(layer as Layer2DCyl, out actualLength, out actualWidth))
+                if (!pattern.GetLayerDimensions(layer as Layer2DCyl, out double actualLength, out double actualWidth))
                     return null;
                 pattern.GenerateLayer(layer as Layer2DCyl, actualLength, actualWidth);
             }

@@ -15,36 +15,29 @@ namespace treeDiM.StackBuilder.Basics
     #region LayerDesc
     public abstract class LayerDesc
     {
-        #region Data members
-        private string _patternName;
-        private bool _swapped;
-        #endregion
         #region Constructor
         public LayerDesc(string patternName, bool swapped)
         {
-            _patternName = patternName; _swapped = swapped;
+            PatternName = patternName; Swapped = swapped;
         }
         #endregion
         #region Public properties
-        public string PatternName
-        { get { return _patternName; } }
-        public bool Swapped
-        { get { return _swapped; } }
+        public string PatternName { get; }
+        public bool Swapped { get; }
         #endregion
 
         public override bool Equals(object obj)
         {
-            LayerDesc layerDesc = obj as LayerDesc;
-            if (null == layerDesc) return false;
-            return _patternName == layerDesc.PatternName && _swapped == layerDesc.Swapped;
+            if (!(obj is LayerDesc layerDesc)) return false;
+            return PatternName == layerDesc.PatternName && Swapped == layerDesc.Swapped;
         }
         public override int GetHashCode()
         {
-            return _patternName.GetHashCode() ^ _swapped.GetHashCode();
+            return PatternName.GetHashCode() ^ Swapped.GetHashCode();
         }
         public override string ToString()
         {
-            return string.Format("{0}_{1}", _patternName, _swapped?"1":"0");
+            return $"{PatternName}_{(Swapped ? "1" : "0")}";
         }
     }
     #endregion
@@ -77,24 +70,23 @@ namespace treeDiM.StackBuilder.Basics
     #region LayerDescBox
     public class LayerDescBox : LayerDesc
     {
+
         #region Data members
-        private HalfAxis.HAxis _axis;
         #endregion
         #region Constructor
         public LayerDescBox(string patternName, HalfAxis.HAxis axis, bool swapped)
             : base(patternName, swapped)
         {
-            _axis = axis;
+            AxisOrtho = axis;
         }
         #endregion
         #region Public properties
-        public HalfAxis.HAxis AxisOrtho
-        { get { return _axis; } }
+        public HalfAxis.HAxis AxisOrtho { get; }
         #endregion
         #region Object override
         public override string ToString()
         {
-            return string.Format("{0}|{1}|{2}", PatternName, HalfAxis.ToString(_axis), Swapped ? "t" : "f");
+            return string.Format("{0}|{1}|{2}", PatternName, HalfAxis.ToString(AxisOrtho), Swapped ? "t" : "f");
         }
         public override bool Equals(object obj)
         {
@@ -103,7 +95,7 @@ namespace treeDiM.StackBuilder.Basics
         }
         public override int GetHashCode()
         {
-            return base.GetHashCode() ^ _axis.GetHashCode();
+            return base.GetHashCode() ^ AxisOrtho.GetHashCode();
         }
         #endregion
         #region Static methods
@@ -128,20 +120,8 @@ namespace treeDiM.StackBuilder.Basics
     #region Layer2D
     public class Layer2D : List<LayerPosition>, ILayer2D
     {
-        #region Data members
-        private string _patternName = string.Empty;
-        /// <summary>
-        /// Refers to box default orientation
-        /// with ZP Length/Width refered in LayerPattern will be the same as in original
-        /// </summary>
-        private HalfAxis.HAxis _axisOrtho = HalfAxis.HAxis.AXIS_Z_P;
-        /// <summary>
-        /// When swapped: pallet length/width are swapped in LayerPattern 
-        /// for some LayerPattern, this allows computing 2 different layouts
-        /// </summary>
-        private bool _swapped = false;
 
-        private double _forcedSpace = 0.0;
+        #region Data members
         private double _maximumSpace = 0.0;
 
         private Vector2D _dimContainer;
@@ -171,20 +151,16 @@ namespace treeDiM.StackBuilder.Basics
         #region Constructor
         public Layer2D(Vector3D dimBox, Vector2D dimContainer, string patternName, HalfAxis.HAxis axisOrtho, bool swapped)
         {
-            _patternName = patternName;
-            _axisOrtho = axisOrtho;
+            PatternName = patternName;
+            AxisOrtho = axisOrtho;
             _dimBox = dimBox;
             _dimContainer = dimContainer;
-            _swapped = swapped;
+            Swapped = swapped;
         }
         #endregion
 
         #region Public properties
-        public double ForcedSpace
-        {
-            get { return _forcedSpace; }
-            set { _forcedSpace = value; }
-        }
+        public double ForcedSpace { get; set; } = 0.0;
         #endregion
 
         #region Public methods
@@ -210,14 +186,14 @@ namespace treeDiM.StackBuilder.Basics
             mat.M44 = 1.0;
             Transform3D localTransf = new Transform3D(mat);
             Transform3D localTransfInv = localTransf.Inverse();
-            Transform3D originTranslation = Transform3D.Translation(localTransfInv.transform(VecTransf) - new Vector3D(0.5*_forcedSpace, 0.5*_forcedSpace, 0.0));
+            Transform3D originTranslation = Transform3D.Translation(localTransfInv.transform(VecTransf) - new Vector3D(0.5*ForcedSpace, 0.5*ForcedSpace, 0.0));
 
             LayerPosition layerPos = new LayerPosition(
-                originTranslation.transform(new Vector3D(vPosition.X, vPosition.Y, 0.0) + 0.5*_forcedSpace*vAxisLength + 0.5*_forcedSpace*vAxisWidth) 
+                originTranslation.transform(new Vector3D(vPosition.X, vPosition.Y, 0.0) + 0.5*ForcedSpace*vAxisLength + 0.5*ForcedSpace*vAxisWidth) 
                 , HalfAxis.ToHalfAxis(localTransfInv.transform(HalfAxis.ToVector3D(LengthAxis)))
                 , HalfAxis.ToHalfAxis(localTransfInv.transform(HalfAxis.ToVector3D(WidthAxis)))
                 );
-            layerPos.Position += new Vector3D(0.5 * _forcedSpace, 0.5 * _forcedSpace, 0.0);
+            layerPos.Position += new Vector3D(0.5 * ForcedSpace, 0.5 * ForcedSpace, 0.0);
             // add position
             Add(layerPos.Adjusted(_dimBox));
         }
@@ -241,18 +217,13 @@ namespace treeDiM.StackBuilder.Basics
         #endregion
 
         #region ILayer2D implementation
-        public string PatternName
-        {
-            get { return _patternName; }
-            set { _patternName = value; }
-        }
-        public bool Swapped
-        {
-            get { return _swapped; }
-        }
+        public string PatternName { get; set; } = string.Empty;
+
+        public bool Swapped { get; } = false;
+
         public string Name
         {
-            get { return string.Format("{0}_{1}_{2}", PatternName, HalfAxis.ToString(_axisOrtho), _swapped ? "t" : "f"); }
+            get { return string.Format("{0}_{1}_{2}", PatternName, HalfAxis.ToString(AxisOrtho), Swapped ? "t" : "f"); }
         }
         public int NoLayers(double height)
         {
@@ -273,7 +244,7 @@ namespace treeDiM.StackBuilder.Basics
                     , CountInHeight(height)
                     , HalfAxis.ToString(AxisOrtho)
                     , PatternName
-                    , _swapped ? "t" : "f");
+                    , Swapped ? "t" : "f");
         }
         #endregion
 
@@ -310,15 +281,13 @@ namespace treeDiM.StackBuilder.Basics
         #endregion
 
         #region Public properties
-        public HalfAxis.HAxis AxisOrtho
-        {
-            get { return _axisOrtho; }
-        }
+        public HalfAxis.HAxis AxisOrtho { get; } = HalfAxis.HAxis.AXIS_Z_P;
+
         public HalfAxis.HAxis LengthAxis
         {
             get
             {
-                switch (_axisOrtho)
+                switch (AxisOrtho)
                 {
                     case HalfAxis.HAxis.AXIS_X_N: return HalfAxis.HAxis.AXIS_Z_P;
                     case HalfAxis.HAxis.AXIS_X_P: return HalfAxis.HAxis.AXIS_Y_P;
@@ -334,7 +303,7 @@ namespace treeDiM.StackBuilder.Basics
         {
             get
             {
-                switch (_axisOrtho)
+                switch (AxisOrtho)
                 {
                     case HalfAxis.HAxis.AXIS_X_N: return HalfAxis.HAxis.AXIS_Y_P;
                     case HalfAxis.HAxis.AXIS_X_P: return HalfAxis.HAxis.AXIS_Z_P;
@@ -346,20 +315,20 @@ namespace treeDiM.StackBuilder.Basics
                 }
             }
         }
-        public HalfAxis.HAxis VerticalAxisProp => VerticalAxis(_axisOrtho);
+        public HalfAxis.HAxis VerticalAxisProp => VerticalAxis(AxisOrtho);
         public int VerticalDirection => HalfAxis.Direction(VerticalAxisProp);
         public double BoxLength
         {
             get
             {
-                switch (_axisOrtho)
+                switch (AxisOrtho)
                 {
-                    case HalfAxis.HAxis.AXIS_X_N: return _dimBox.Z + _forcedSpace;
-                    case HalfAxis.HAxis.AXIS_X_P: return _dimBox.Z + _forcedSpace;
-                    case HalfAxis.HAxis.AXIS_Y_N: return _dimBox.X + _forcedSpace;
-                    case HalfAxis.HAxis.AXIS_Y_P: return _dimBox.Y + _forcedSpace;
-                    case HalfAxis.HAxis.AXIS_Z_N: return _dimBox.Y + _forcedSpace;
-                    case HalfAxis.HAxis.AXIS_Z_P: return _dimBox.X + _forcedSpace;
+                    case HalfAxis.HAxis.AXIS_X_N: return _dimBox.Z + ForcedSpace;
+                    case HalfAxis.HAxis.AXIS_X_P: return _dimBox.Z + ForcedSpace;
+                    case HalfAxis.HAxis.AXIS_Y_N: return _dimBox.X + ForcedSpace;
+                    case HalfAxis.HAxis.AXIS_Y_P: return _dimBox.Y + ForcedSpace;
+                    case HalfAxis.HAxis.AXIS_Z_N: return _dimBox.Y + ForcedSpace;
+                    case HalfAxis.HAxis.AXIS_Z_P: return _dimBox.X + ForcedSpace;
                     default: throw new Exception("Invalid ortho axis");
                 }
             }
@@ -368,14 +337,14 @@ namespace treeDiM.StackBuilder.Basics
         {
             get
             {
-                switch (_axisOrtho)
+                switch (AxisOrtho)
                 { 
-                    case HalfAxis.HAxis.AXIS_X_N: return _dimBox.Y + _forcedSpace;
-                    case HalfAxis.HAxis.AXIS_X_P: return _dimBox.X + _forcedSpace;
-                    case HalfAxis.HAxis.AXIS_Y_N: return _dimBox.Z + _forcedSpace;
-                    case HalfAxis.HAxis.AXIS_Y_P: return _dimBox.Z + _forcedSpace;
-                    case HalfAxis.HAxis.AXIS_Z_N: return _dimBox.X + _forcedSpace;
-                    case HalfAxis.HAxis.AXIS_Z_P: return _dimBox.Y + _forcedSpace;
+                    case HalfAxis.HAxis.AXIS_X_N: return _dimBox.Y + ForcedSpace;
+                    case HalfAxis.HAxis.AXIS_X_P: return _dimBox.X + ForcedSpace;
+                    case HalfAxis.HAxis.AXIS_Y_N: return _dimBox.Z + ForcedSpace;
+                    case HalfAxis.HAxis.AXIS_Y_P: return _dimBox.Z + ForcedSpace;
+                    case HalfAxis.HAxis.AXIS_Z_N: return _dimBox.X + ForcedSpace;
+                    case HalfAxis.HAxis.AXIS_Z_P: return _dimBox.Y + ForcedSpace;
                     default: throw new Exception("Invalid ortho axis");
                 }
             }
@@ -384,7 +353,7 @@ namespace treeDiM.StackBuilder.Basics
         {
             get
             {
-                switch (_axisOrtho)
+                switch (AxisOrtho)
                 {
                     case HalfAxis.HAxis.AXIS_X_N: return _dimBox.X;
                     case HalfAxis.HAxis.AXIS_X_P: return _dimBox.Y;
@@ -400,7 +369,7 @@ namespace treeDiM.StackBuilder.Basics
         {
             get
             {
-                switch (_axisOrtho)
+                switch (AxisOrtho)
                 {
                     case HalfAxis.HAxis.AXIS_X_N: return new Vector3D(_dimBox.Z, 0.0, 0.0);
                     case HalfAxis.HAxis.AXIS_X_P: return new Vector3D(0.0, 0.0, 0.0); ;
@@ -420,7 +389,7 @@ namespace treeDiM.StackBuilder.Basics
         {
             get
             {
-                return new LayerDescBox(_patternName, _axisOrtho, _swapped);
+                return new LayerDescBox(PatternName, AxisOrtho, Swapped);
             }
         }
         #endregion
@@ -431,7 +400,7 @@ namespace treeDiM.StackBuilder.Basics
     public class LayerComparerCount : IComparer<Layer2D>
     {
         #region Data members
-        private double _offsetZ = 0;
+        private readonly double _offsetZ = 0;
         private ConstraintSetAbstract _constraintSet;
         #endregion
 
