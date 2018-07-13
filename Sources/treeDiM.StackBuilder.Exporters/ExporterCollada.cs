@@ -803,7 +803,7 @@ namespace treeDiM.StackBuilder.Exporters
                     doubleArrayUV.Add(uv.X); doubleArrayUV.Add(uv.Y);
                     ++uvCount;
                 }
-                foreach (TriangleIndices tr in box.Triangles)
+                foreach (TriangleIndices tr in box.TriangleIndices)
                 {
                     triangle_string += tr.ConvertToString(boxCount);
                     ++triangleCount;

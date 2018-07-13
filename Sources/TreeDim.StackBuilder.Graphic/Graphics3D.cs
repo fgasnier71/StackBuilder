@@ -648,6 +648,62 @@ namespace treeDiM.StackBuilder.Graphics
             }
             return _currentTransf;
         }
+        public Transform3D GetCurrentTransformation(List<Vector3D> points)
+        {
+            if (null == _currentTransf)
+            {
+                // get transformations
+                Transform3D world2eye = GetWorldToEyeTransformation();
+                Transform3D orthographicProj = GetOrthographicProjection(
+                    new Vector3D(_viewport[0], _viewport[1], -10000.0)
+                    , new Vector3D(_viewport[2], _viewport[3], 10000.0));
+
+                // build automatic viewport
+                if (_autoViewport)
+                {
+                    Vector3D vecMin = new Vector3D(double.MaxValue, double.MaxValue, double.MaxValue);
+                    Vector3D vecMax = new Vector3D(double.MinValue, double.MinValue, double.MinValue);
+
+                    foreach (Vector3D pt in points)
+                    {
+                        Vector3D ptT = world2eye.transform(pt);
+                        vecMin.X = Math.Min(vecMin.X, ptT.X);
+                        vecMin.Y = Math.Min(vecMin.Y, ptT.Y);
+                        vecMin.Z = Math.Min(vecMin.Z, ptT.Z);
+                        vecMax.X = Math.Max(vecMax.X, ptT.X);
+                        vecMax.Y = Math.Max(vecMax.Y, ptT.Y);
+                        vecMax.Z = Math.Max(vecMax.Z, ptT.Z);
+                    }
+
+                    Vector3D vecMin1 = vecMin, vecMax1 = vecMax;
+                    // adjust width/height
+                    if ((vecMax.Y - vecMin.Y) / Size.Height > (vecMax.X - vecMin.X) / Size.Width)
+                    {
+                        double actualWidth = (vecMax.Y - vecMin.Y) * Size.Width / Size.Height;
+                        vecMin1.X = 0.5 * (vecMin.X + vecMax.X) - 0.5 * actualWidth;
+                        vecMax1.X = 0.5 * (vecMin.X + vecMax.X) + 0.5 * actualWidth;
+                    }
+                    else
+                    {
+                        double actualHeight = (vecMax.X - vecMin.X) * Size.Height / Size.Width;
+                        vecMin1.Y = 0.5 * (vecMin.Y + vecMax.Y) - 0.5 * actualHeight;
+                        vecMax1.Y = 0.5 * (vecMin.Y + vecMax.Y) + 0.5 * actualHeight;
+                    }
+                    // set margins
+                    double width = vecMax1.X - vecMin1.X;
+                    vecMin1.X -= _margin * width;
+                    vecMax1.X += _margin * width;
+                    double height = vecMax1.Y - vecMin1.Y;
+                    vecMin1.Y -= _margin * height;
+                    vecMax1.Y += _margin * height;
+
+                    orthographicProj = GetOrthographicProjection(vecMin1, vecMax1);
+                }
+                _currentTransf = orthographicProj * world2eye;
+            }
+            return _currentTransf;
+        }
+
         public void AddSegmentBackgound(Segment seg)
         { 
             _segmentsBackground.Add(seg);
@@ -695,6 +751,32 @@ namespace treeDiM.StackBuilder.Graphics
                 , StringFormat.GenericDefault);
         }
 
+        internal void Draw(Triangle tr, FaceDir dir)
+        {
+            System.Drawing.Graphics g = Graphics;
+
+            // test if triangle can actually be seen
+            if ((Vector3D.DotProduct(tr.Normal, _vCameraPos - _vTarget) > 0.0 && dir == FaceDir.BACK)
+                || (Vector3D.DotProduct(tr.Normal, _vCameraPos - _vTarget) < 0.0 && dir == FaceDir.FRONT))
+                return;
+            // compute triangle color
+            double cosA = Math.Abs(Vector3D.DotProduct(tr.Normal, VLight));
+            Color color = Color.FromArgb(
+                tr.IsSolid ? 255 : (dir == FaceDir.FRONT ? 64 : 255)
+                , (int)(tr.ColorFill.R * cosA)
+                , (int)(tr.ColorFill.G * cosA)
+                , (int)(tr.ColorFill.B * cosA));
+            Brush brush = new SolidBrush(color);
+            // draw filled triangle
+            Point[] pt = TransformPoint(GetCurrentTransformation(), tr.Points);
+            g.FillPolygon(brush, pt);
+            // draw path
+            Brush brush0 = new SolidBrush(tr.ColorPath);
+            for (int i = 1; i < pt.Length; ++i)
+                g.DrawLine(new Pen(brush0, 1.5f), pt[i - 1], pt[i]);
+            g.DrawLine(new Pen(brush0, 1.5f), pt[pt.Length - 1], pt[0]);
+        }
+
         /// <summary>
         /// Draw a face
         /// </summary>
@@ -703,13 +785,13 @@ namespace treeDiM.StackBuilder.Graphics
         {
             System.Drawing.Graphics g = Graphics;
 
-            // test if face can actuallt be seen
+            // test if face can actually be seen
             if ((Vector3D.DotProduct(face.Normal, _vCameraPos - _vTarget) > 0.0 && dir == FaceDir.BACK)
                 || (Vector3D.DotProduct(face.Normal, _vCameraPos - _vTarget) < 0.0 && dir == FaceDir.FRONT))
                 return;
 
             // compute face color
-            double cosA = System.Math.Abs(Vector3D.DotProduct(face.Normal, VLight));
+            double cosA = Math.Abs(Vector3D.DotProduct(face.Normal, VLight));
             Color color = Color.FromArgb(
                 face.IsSolid ? 255 : (dir == FaceDir.FRONT ? 64 : 255)
                 , (int)(face.ColorFill.R * cosA)
@@ -742,7 +824,7 @@ namespace treeDiM.StackBuilder.Graphics
                 return;
 
             // compute face color
-            double cosA = System.Math.Abs(Vector3D.DotProduct(face.Normal, VLight));
+            double cosA = Math.Abs(Vector3D.DotProduct(face.Normal, VLight));
             Color color = Color.FromArgb(
                 transparent ? 64 : 255
                 , (int)(colorApply.R * cosA)
@@ -838,7 +920,7 @@ namespace treeDiM.StackBuilder.Graphics
                 if (box.ShowTape && faces[5].IsVisible(_vTarget - _vCameraPos))
                 {
                     // get color
-                    double cosA = System.Math.Abs(Vector3D.DotProduct(faces[5].Normal, VLight));
+                    double cosA = Math.Abs(Vector3D.DotProduct(faces[5].Normal, VLight));
                     Color color = Color.FromArgb((int)(box.TapeColor.R * cosA), (int)(box.TapeColor.G * cosA), (int)(box.TapeColor.B * cosA));
                     // instantiate brush
                     Brush brushTape = new SolidBrush(color);

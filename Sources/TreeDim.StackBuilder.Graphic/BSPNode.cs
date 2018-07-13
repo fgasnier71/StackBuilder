@@ -1,6 +1,7 @@
 ﻿#region Using directives
-using System.Collections.Generic;
 using System;
+using System.Collections.Generic;
+using System.Text;
 
 using log4net;
 
@@ -9,6 +10,233 @@ using Sharp3D.Math.Core;
 
 namespace treeDiM.StackBuilder.Graphics
 {
+    internal class BSPNodeTri
+    {
+        #region Constructor
+        public BSPNodeTri(Triangle t)
+        {
+            Triangle = t;
+            InitEquation(t, ref A, ref B, ref C, ref D);
+        }
+        #endregion
+
+        #region Public accessors
+        public Triangle Triangle { get; set; }
+        public BSPNodeTri NodeLeft { get; set; }
+        public BSPNodeTri NodeRight { get; set; }
+        #endregion
+
+        #region Public method
+        public void Insert(Triangle t)
+        {
+            if (t.IsFlat)
+                return;
+            List<Triangle> side_left = new List<Triangle>();
+            List<Triangle> side_right = new List<Triangle>();
+            Split(t, ref side_left, ref side_right);
+
+            foreach (var tr in side_left)
+            {
+                if (tr.IsFlat)
+                    continue;
+                if (null == NodeLeft)
+                    NodeLeft = new BSPNodeTri(tr);
+                else
+                    NodeLeft.Insert(tr);
+            }
+            foreach (var tr in side_right)
+            {
+                if (tr.IsFlat)
+                    continue;
+                if (null == NodeRight)
+                    NodeRight = new BSPNodeTri(tr);
+                else
+                    NodeRight.Insert(tr);
+            }
+        }
+        public void RecursFillTriangleList(ref List<Triangle> triangles)
+        {
+            NodeRight?.RecursFillTriangleList(ref triangles);
+            triangles.Add(Triangle);
+            NodeLeft?.RecursFillTriangleList(ref triangles);
+        }
+        #endregion
+
+        #region Helpers
+        private void InitEquation(Triangle tr, ref double a, ref double b, ref double c, ref double d)
+        {
+            Vector3D n = tr.Normal;
+            if (tr.IsFlat)
+                throw new GraphicsException("Triangle is flat");
+            if (n.Z < 0) n = -n;
+            d = Vector3D.DotProduct(n, tr.Points[0]);
+            a = n.X;
+            b = n.Y;
+            c = n.Z;
+        }
+        private int Split(Triangle t, ref List<Triangle> t1, ref List<Triangle> t2)
+        {
+            Vector3D normal = t.Normal;
+            int[] v = new int[3];
+            int val = 0;
+            int i = 0;
+            foreach (Vector3D pt in t.Points)
+            {
+                v[i] = TestPoint(pt);
+                val += v[i];
+                i++;
+            }
+
+            switch (val)
+            {
+                case 3:
+                    t1.Add(t);
+                    return 1;
+                case -3:
+                    t2.Add(t);
+                    return 1;
+                case 2:
+                    t1.Add(t);
+                    return 1;
+                case -2:
+                    t2.Add(t);
+                    return 1;
+                case 0:
+                    if (v[0] != 0 || v[1] != 0 || v[2] != 0)
+                    {
+                        int pivot = 0, positive = 0, negative = 0;
+                        if (0 == v[0])
+                        {
+                            pivot = 0;
+                            if (v[1] > 0) { positive = 1; negative = 2; }
+                            else { positive = 2; negative = 1; }
+                        }
+                        if (0 == v[1])
+                        {
+                            pivot = 1;
+                            if (v[0] > 0) { positive = 0; negative = 2; }
+                            else { positive = 2; negative = 0; }
+                        }
+                        if (0 == v[2])
+                        {
+                            pivot = 2;
+                            if (v[0] > 0) { positive = 0; negative = 1; }
+                            else { positive = 1; negative = 0; }
+                        }
+                        // here positive, pivot and negative are ready
+                        Vector3D ptInter = Vector3D.Zero;
+                        TestLine(t.Points[positive], t.Points[negative], ref ptInter);                        
+                        t1.Add(new Triangle(t.PickId, t.Points[positive], ptInter, t.Points[pivot], t.ColorFill));
+                        t2.Add(new Triangle(t.PickId, t.Points[negative], t.Points[pivot], ptInter, t.ColorFill));
+                        return 2;
+                    }
+                    else
+                    {
+                        t1.Add(t);
+                        return 1;
+                    }
+                case -1:
+                    if (0 == v[0] * v[1] * v[2])
+                    {
+                        t2.Add(t);
+                        return 1;
+                    }
+                    {
+                        int positive = 0, negative1 = 0, negative2 = 0;
+                        if (v[0] == 1) { positive = 0; negative1 = 1; negative2 = 2; }
+                        if (v[1] == 1) { positive = 1; negative1 = 0; negative2 = 2; }
+                        if (v[2] == 1) { positive = 2; negative1 = 0; negative2 = 1; }
+                        Vector3D ptInter1 = Vector3D.Zero, ptInter2 = Vector3D.Zero;
+                        TestLine(t.Points[negative1], t.Points[positive], ref ptInter1);
+                        TestLine(t.Points[negative2], t.Points[positive], ref ptInter2);
+                        Triangle t11 = new Triangle(t.PickId, t.Points[positive], ptInter1, ptInter2, t.ColorFill);
+                        Triangle t21 = new Triangle(t.PickId, t.Points[negative2], ptInter2, ptInter1, t.ColorFill);
+                        Triangle t22 = new Triangle(t.PickId, t.Points[negative2], ptInter1, t.Points[negative1], t.ColorFill);
+
+                        if (!t11.IsFlat)
+                            t1.Add(AlignNormal(t11, normal));
+                        if (!t21.IsFlat)
+                            t2.Add(AlignNormal(t21, normal));
+                        if (!t22.IsFlat)
+                            t2.Add(AlignNormal(t22, normal));
+                        return 3;
+                    }
+                case 1:
+                    if (0 == v[0] * v[1] * v[2])
+                    {
+                        t1.Add(t);
+                        return 1;
+                    }
+                    {
+                        int negative = 0, positive1 = 0, positive2 = 0;
+                        if (v[0] == -1) { negative = 0; positive1 = 1; positive2 = 2; }
+                        if (v[1] == -1) { negative = 1; positive1 = 0; positive2 = 2; }
+                        if (v[2] == -1) { negative = 2; positive1 = 0; positive2 = 1; }
+                        Vector3D ptInter1 = Vector3D.Zero, ptInter2 = Vector3D.Zero;
+                        TestLine(t.Points[positive1], t.Points[negative], ref ptInter1);
+                        TestLine(t.Points[positive2], t.Points[negative], ref ptInter2);
+                        Triangle t11 = new Triangle(t.PickId, t.Points[positive1], ptInter1, ptInter2, t.ColorFill);
+                        Triangle t12 = new Triangle(t.PickId, t.Points[positive1], ptInter2, t.Points[positive2], t.ColorFill);
+                        Triangle t21 = new Triangle(t.PickId, t.Points[negative], ptInter2, ptInter1, t.ColorFill);
+
+                        if (!t11.IsFlat)
+                            t1.Add(AlignNormal(t11, normal));
+                        if (!t12.IsFlat)
+                            t1.Add(AlignNormal(t12, normal));
+                        if (!t21.IsFlat)
+                            t2.Add(AlignNormal(t21, normal));                        
+                        return 3;
+                    }
+                default:
+                    {
+                        StringBuilder sb = new StringBuilder();
+                        foreach (Vector3D pt in t.Points)
+                            sb.AppendLine(pt.ToString());
+                        throw new Exception(sb.ToString());
+                    }
+            }
+        }
+        public double ClassifyPoint(Vector3D pt)
+        {
+            return Vector3D.DotProduct(pt, new Vector3D(A, B, C)) - D;
+        }
+        private int TestPoint(Vector3D pt)
+        {
+            double Z = pt.X * A + pt.Y * B + pt.Z * C - D;
+            if (Z < Triangle.EPS) return -1;
+            else if (Z > Triangle.EPS) return 1;
+            else return 0;
+        }
+        private bool TestLine(Vector3D pt0, Vector3D pt1, ref Vector3D ptInter)
+        {
+            Vector3D normal = Triangle.Normal;
+            if (Math.Abs(Vector3D.DotProduct(normal, (pt1 - pt0))) < Triangle.EPS)
+            {
+                ptInter = pt0;
+                return false;
+            }
+            double s = (Vector3D.DotProduct(normal, Triangle.Points[0] - pt0) / (Vector3D.DotProduct(normal, pt1 - pt0)));
+            ptInter = pt0 + s * (pt1 - pt0);
+            return true;
+        }
+        private Triangle AlignNormal(Triangle t, Vector3D normal)
+        {
+            if (Vector3D.DotProduct(t.Normal, normal) < 0.0)
+                t.Swap12();            
+            return t;
+        }
+        #endregion
+
+        #region Private data members
+        private readonly double A;
+        private readonly double B;
+        private readonly double C;
+        private readonly double D;
+
+        private static readonly ILog _log = LogManager.GetLogger(typeof(BSPNodeTri));
+        #endregion
+    }
+
     internal class BSPNode
     {
         // constructor
@@ -60,8 +288,8 @@ namespace treeDiM.StackBuilder.Graphics
         private int TestPoint(Vector3D pt)
         {
             double Z = pt.X * A + pt.Y * B + pt.Z * C - D;
-            if (Z > EGALITY_EPS) return -1;
-            else if (Z > EGALITY_EPS) return 1;
+            if (Z < Triangle.EPS) return -1;
+            else if (Z > Triangle.EPS) return 1;
             else return 0;
         }
         private bool TestLine(Vector3D pt0, Vector3D pt1, ref Vector3D ptInter)

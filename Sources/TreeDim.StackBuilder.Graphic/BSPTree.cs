@@ -1,4 +1,5 @@
 ﻿#region Using directives
+using System;
 using System.Collections.Generic;
 
 using log4net;
@@ -8,7 +9,7 @@ using Sharp3D.Math.Core;
 
 namespace treeDiM.StackBuilder.Graphics
 {
-    internal class BSPTree
+    public class BSPTree
     {
         public BSPTree()
         {
@@ -18,51 +19,64 @@ namespace treeDiM.StackBuilder.Graphics
         {
             Root = null;
         }
-        public void Insert(Face f)
+        public void Insert(Triangle f)
         {
-            if (f.IsDegenerate)
-                return;
+            if (f.IsFlat) return;
 
             if (null == Root)
-                Root = new BSPNode(f);
+                Root = new BSPNodeTri(f);
             else
                 Root.Insert(f);
+        }
+        public void InsertBox(Box b)
+        {
+            foreach (Triangle tr in b.Triangles)
+                Insert(tr);
         }
 
         public void Draw(Graphics3D g)
         {
             if (null == Root)
                 return;
-            List<Face> faces = new List<Face>();
-            Draw(Root, g.CameraPosition, ref faces);
-            foreach (Face f in faces)
-                g.Draw(f, Graphics3D.FaceDir.FRONT);
+            List<Triangle> triangles = new List<Triangle>();
+            Draw(Root, g.CameraPosition, ref triangles);
+
+            List<Vector3D> points = new List<Vector3D>();
+            foreach (Triangle tr in triangles)
+            {
+                Console.WriteLine(tr.ToString());
+                foreach (Vector3D pt in tr.Points)
+                    points.Add(pt);
+            }
+            Transform3D transf = g.GetCurrentTransformation(points);
+            foreach (Triangle t in triangles)
+                g.Draw(t, Graphics3D.FaceDir.FRONT);
         }
 
-        private void Draw(BSPNode node, Vector3D ptEye, ref List<Face> faces)
+        private void Draw(BSPNodeTri node, Vector3D ptEye, ref List<Triangle> triangles)
         {
             if (null == node) return;
             double result = node.ClassifyPoint(ptEye);
-            if (result > 0)
+            if (result < 0)
             {
-                Draw(node.NodeLeft, ptEye, ref faces);
-                faces.Add(node.Face);
-                Draw(node.NodeRight, ptEye, ref faces);
+                Draw(node.NodeLeft, ptEye, ref triangles);
+                triangles.Add(node.Triangle);
+                Draw(node.NodeRight, ptEye, ref triangles);
             }
-            else if (result < 0)
+            else if (result > 0)
             {
-                Draw(node.NodeRight, ptEye, ref faces);
-                faces.Add(node.Face);
-                Draw(node.NodeLeft, ptEye, ref faces);
+                Draw(node.NodeRight, ptEye, ref triangles);
+                triangles.Add(node.Triangle);
+                Draw(node.NodeLeft, ptEye, ref triangles);
             }
             else // result == 0
             {
-                Draw(node.NodeRight, ptEye, ref faces);
-                Draw(node.NodeLeft, ptEye, ref faces);
+                Draw(node.NodeRight, ptEye, ref triangles);
+                Draw(node.NodeLeft, ptEye, ref triangles);
             }
         }
 
-        private BSPNode Root { get; set; }
+        private BSPNodeTri Root { get; set; }
         private static readonly ILog _log = LogManager.GetLogger(typeof(BSPTree));
     }
 }

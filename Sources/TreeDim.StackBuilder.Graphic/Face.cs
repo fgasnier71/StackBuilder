@@ -54,6 +54,96 @@ namespace treeDiM.StackBuilder.Graphics
     }
     #endregion
 
+    #region Triangle
+    public class Triangle
+    {
+        public Triangle(uint pickId, Vector3D[] vertices)
+        {
+            PickId = pickId;
+            for (int i = 0; i < 3; ++i)
+                Points[i] = vertices[i];
+        }
+        public Triangle(uint pickId, Vector3D pt0, Vector3D pt1, Vector3D pt2, Color colorFill)
+        {
+            PickId = pickId;
+            Points[0] = pt0; Points[1] = pt1; Points[2] = pt2;
+            ColorFill = colorFill;
+        }
+        public Vector3D Center
+        {
+            get
+            {
+                Vector3D vCenter = Vector3D.Zero;
+                foreach (Vector3D v in Points)
+                    vCenter += v;
+                return vCenter * (1.0 / Points.Length);
+            }
+        }
+        public Vector3D Normal
+        {
+            get
+            {
+                Vector3D vecNormal = Vector3D.CrossProduct(Points[1] - Points[0], Points[2] - Points[0]);
+                if (vecNormal.GetLength() < MathFunctions.EpsilonD)
+                    throw new GraphicsException("Triangle is degenerated");
+                vecNormal.Normalize();
+                return vecNormal;
+            }
+        }
+        public uint PickId { get; set; }
+        public bool IsSolid { get; set; } = true;
+        public Color ColorFill { get; set; } = Color.Red;
+        public Color ColorPath { get; set; } = Color.Black;
+        public Vector3D[] Points { get; } = new Vector3D[3];
+        public bool IsFlat => (Vector3D.CrossProduct(Points[1] - Points[0], Points[2] - Points[0]).GetLength() < EPS);
+        public int PointRelativePosition(Vector3D pt)
+        {
+            double dotProd = Vector3D.DotProduct(pt - Center, Normal);
+            if (Math.Abs(dotProd) < EPS)
+                return 0;
+            else
+                return (dotProd > 0 ? 1 : -1);
+        }
+        public bool IsVisible(Vector3D viewDir)
+        {
+            return Vector3D.DotProduct(viewDir, Normal) < 0.0;
+        }
+        public bool PointIsBehind(Vector3D pt, Vector3D viewDir)
+        {
+            return (Vector3D.DotProduct(pt - Center, Normal) * Vector3D.DotProduct(viewDir, Normal)) > EPS;
+        }
+        public bool PointIsInFront(Vector3D pt, Vector3D viewDir)
+        {
+            return (Vector3D.DotProduct(pt - Center, Normal) * Vector3D.DotProduct(viewDir, Normal)) < EPS;
+        }
+        public Triangle Transform(Transform3D transf)
+        {
+            Vector3D[] points = new Vector3D[3];
+            for (int i = 0; i < 3; ++i)
+                points[i] = transf.transform(Points[i]);
+            return new Triangle(PickId, points)
+            {
+                IsSolid = this.IsSolid,
+                ColorFill = this.ColorFill,
+                ColorPath = this.ColorPath
+            };
+        }
+        public void Swap12()
+        {
+            Vector3D ptTemp = Points[1];
+            Points[1] = Points[2];
+            Points[2] = ptTemp;
+        }
+
+        public override string ToString()
+        {
+            return $"({Points[0]}, {Points[1]}, {Points[2]})";
+        }
+
+        public static readonly double EPS = 0.0001;
+    }
+    #endregion
+
     #region Face
     public class Face
     {
@@ -70,6 +160,7 @@ namespace treeDiM.StackBuilder.Graphics
         /// </summary>
         private List<Texture> _textureList = new List<Texture>();
         private bool _isSolid = false;
+        private static readonly double eps = 0.0001;
         #endregion
 
         #region Constructor
@@ -246,7 +337,6 @@ namespace treeDiM.StackBuilder.Graphics
         /// </returns>
         public int PointRelativePosition(Vector3D pt)
         {
-            const double eps = 1.0E-06;
             double dotProd = Vector3D.DotProduct(pt - Center, Normal);
             if (Math.Abs(dotProd) < eps)
                 return 0;
@@ -263,13 +353,11 @@ namespace treeDiM.StackBuilder.Graphics
 
         public bool PointIsBehind(Vector3D pt, Vector3D viewDir)
         {
-            const double eps = 0.0001;
             return (Vector3D.DotProduct(pt - Center, Normal) * Vector3D.DotProduct(viewDir, Normal)) > eps;
         }
 
         public bool PointIsInFront(Vector3D pt, Vector3D viewDir)
         {
-            const double eps = 0.0001;
             return (Vector3D.DotProduct(pt - Center, Normal) * Vector3D.DotProduct(viewDir, Normal)) < eps;
         }
 

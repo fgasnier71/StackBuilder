@@ -1,7 +1,6 @@
 ﻿#region Using directives
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Drawing;
 using System.Diagnostics;
 using System.Linq;
@@ -25,10 +24,6 @@ namespace treeDiM.StackBuilder.Graphics
         protected BoxPosition _boxPosition;
         private Color[] _colors;
         private List<Texture>[] _textureLists = new List<Texture>[6];
-        /// <summary>
-        /// Bundle properties
-        /// </summary>
-        private bool _isBundle = false;
         private int _noFlats = 0;
         /// <summary>
         /// Tape related properties
@@ -108,8 +103,8 @@ namespace treeDiM.StackBuilder.Graphics
                 {
                     _colors = bProperties.Colors;
                     // IsBundle ?
-                    _isBundle = bProperties.IsBundle;
-                    if (_isBundle)
+                    IsBundle = bProperties.IsBundle;
+                    if (IsBundle)
                         _noFlats = (bProperties as BundleProperties).NoFlats;
                     // textures
                     BoxProperties boxProperties = bProperties as BoxProperties;
@@ -162,7 +157,7 @@ namespace treeDiM.StackBuilder.Graphics
                 throw new Exception(string.Format("Type {0} cannot be handled by Box constructor", packable.GetType().ToString() ));
 
             _colors = bProperties.Colors;
-            _isBundle = bProperties.IsBundle;
+            IsBundle = bProperties.IsBundle;
              // is box ?
             BoxProperties boxProperties = bProperties as BoxProperties;
             if (null != boxProperties)
@@ -221,7 +216,7 @@ namespace treeDiM.StackBuilder.Graphics
                     _tapeColor = boxProperties.TapeColor;
                 }
                 // IsBundle ?
-                _isBundle = bProperties.IsBundle;
+                IsBundle = bProperties.IsBundle;
                 if (bProperties.IsBundle)
                 {
                     BundleProperties bundleProp = packable as BundleProperties;
@@ -229,10 +224,9 @@ namespace treeDiM.StackBuilder.Graphics
                         _noFlats = bundleProp.NoFlats;
                 }
             }
-            PackProperties packProperties = packable as PackProperties;
-            if (null != packProperties)
-            { 
-            }            
+            if (packable is PackProperties packProperties)
+            {
+            }
         }
 
         public Box(uint pickId, PackProperties packProperties, BoxPosition bPosition)
@@ -291,7 +285,7 @@ namespace treeDiM.StackBuilder.Graphics
             _colors = Enumerable.Repeat<Color>(bundleProperties.Color, 6).ToArray();
             // specific
             _noFlats = bundleProperties.NoFlats;
-            _isBundle = bundleProperties.IsBundle;
+            IsBundle = bundleProperties.IsBundle;
         }
         #endregion
 
@@ -319,29 +313,16 @@ namespace treeDiM.StackBuilder.Graphics
         #endregion
 
         #region Public properties
-        public uint PickId
-        {
-            get { return _pickId; }
-        }
+        public uint PickId => _pickId;
+        public double Length => _dim[0];
+        public double Width => _dim[1];
+        public double Height => _dim[2];
         public Vector3D Position
         {
             get { return _boxPosition.Position; }
             set { _boxPosition.Position = value; }
         }
-        public double Length
-        {
-            get { return _dim[0]; }
-        }
-        public double Width
-        {
-            get { return _dim[1]; }
-        }
-        public double Height
-        {
-            get { return _dim[2]; }
-        }
-        public BoxPosition BPosition
-        {   get { return _boxPosition; } }
+        public BoxPosition BPosition => _boxPosition;
         public HalfAxis.HAxis HLengthAxis
         {
             get { return _boxPosition.DirectionLength;  }
@@ -359,16 +340,10 @@ namespace treeDiM.StackBuilder.Graphics
         public Vector3D HeightAxis
         { get { return Vector3D.CrossProduct(LengthAxis, WidthAxis); } }
 
-        public Color[] Colors
-        {
-            get { return _colors; }
-        }
+        public Color[] Colors => _colors;
 
-        public bool IsBundle
-        {
-            get { return _isBundle; }
-            set { _isBundle = value; }
-        }
+        public bool IsBundle { get; set; } = false;
+
         public int BundleFlats
         {   get { return _noFlats;  } }
 
@@ -473,7 +448,7 @@ namespace treeDiM.StackBuilder.Graphics
         }
         #endregion
 
-        #region Points / Faces
+        #region Points / Faces / Triangles
         public Vector3D[] Points
         {
             get
@@ -548,7 +523,7 @@ namespace treeDiM.StackBuilder.Graphics
             }
         }
 
-        public TriangleIndices[] Triangles
+        public TriangleIndices[] TriangleIndices
         {
             get
             {
@@ -610,7 +585,28 @@ namespace treeDiM.StackBuilder.Graphics
             }
             return tri;
         }
-
+        public Triangle[] Triangles
+        {
+            get
+            {
+                Vector3D[] points = Points;
+                return new Triangle[]
+                {
+                    new Triangle(PickId, points[0], points[4], points[3], _colors[0]),
+                    new Triangle(PickId, points[3], points[4], points[7], _colors[0]),
+                    new Triangle(PickId, points[1], points[2], points[5], _colors[1]),
+                    new Triangle(PickId, points[5], points[2], points[6], _colors[1]),
+                    new Triangle(PickId, points[0], points[1], points[4], _colors[2]),
+                    new Triangle(PickId, points[4], points[1], points[5], _colors[2]),
+                    new Triangle(PickId, points[7], points[6], points[2], _colors[3]),
+                    new Triangle(PickId, points[7], points[2], points[3], _colors[3]),
+                    new Triangle(PickId, points[0], points[3], points[1], _colors[4]),
+                    new Triangle(PickId, points[1], points[3], points[2], _colors[4]),
+                    new Triangle(PickId, points[4], points[5], points[7], _colors[5]),
+                    new Triangle(PickId, points[7], points[5], points[6], _colors[5])
+                };
+            }
+        }
         public Face[] Faces
         {
             get
@@ -698,13 +694,7 @@ namespace treeDiM.StackBuilder.Graphics
         #endregion
 
         #region Validity
-        public bool IsValid
-        {
-            get
-            {
-                return _dim[0] > 0.0 && _dim[1] > 0.0 && _dim[2] > 0.0 && (LengthAxis != WidthAxis);
-            }
-        }
+        public bool IsValid => _dim[0] > 0.0 && _dim[1] > 0.0 && _dim[2] > 0.0 && (LengthAxis != WidthAxis);
         #endregion
 
         #region Public methods
@@ -759,8 +749,7 @@ namespace treeDiM.StackBuilder.Graphics
             List<Vector3D> listIntersections = new List<Vector3D>();
             foreach (Face f in Faces)
             {
-                Vector3D pt;
-                if (f.RayIntersect(ray, out pt))
+                if (f.RayIntersect(ray, out Vector3D pt))
                     listIntersections.Add(pt);
             }
             // instantiate intersection comparer
