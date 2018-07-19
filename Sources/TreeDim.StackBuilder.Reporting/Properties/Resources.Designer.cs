@@ -295,6 +295,15 @@ namespace treeDiM.StackBuilder.Reporting.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Layers x Cases.
+        /// </summary>
+        internal static string ID_RN_NOLAYERSBYNOCASES {
+            get {
+                return ResourceManager.GetString("ID_RN_NOLAYERSBYNOCASES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Overhang.
         /// </summary>
         internal static string ID_RN_OVERHANG {

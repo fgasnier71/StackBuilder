@@ -103,4 +103,8 @@
   <str name="Case filling constraint">Riempimento astuccio vincolato</str>
   <str name="Limit reached">Limite Raggiunto</str>
   <str name="Index">Indice</str>
+  <str name="Layer Indexes">Layer Indexes</str>
+  <str name="Number of cases per layer">Number of cases per layer</str>
+  <str name="Layers x Cases">Layers x Cases</str>
+  <str name="Layers">Layers</str>
 </strings>

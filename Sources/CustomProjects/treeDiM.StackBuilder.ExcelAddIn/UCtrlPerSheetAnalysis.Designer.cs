@@ -30,7 +30,7 @@
         {
             this.bnCompute = new System.Windows.Forms.Button();
             this.uCtrlLayerList = new treeDiM.StackBuilder.Graphics.UCtrlLayerList();
-            this.uCtrlCaseOrientation1 = new treeDiM.StackBuilder.Graphics.uCtrlCaseOrientation();
+            this.uCtrlCaseOrientation = new treeDiM.StackBuilder.Graphics.uCtrlCaseOrientation();
             this.SuspendLayout();
             // 
             // bnCompute
@@ -58,22 +58,22 @@
             this.uCtrlLayerList.Size = new System.Drawing.Size(297, 371);
             this.uCtrlLayerList.TabIndex = 1;
             // 
-            // uCtrlCaseOrientation1
+            // uCtrlCaseOrientation
             // 
-            this.uCtrlCaseOrientation1.AllowedOrientations = new bool[] {
+            this.uCtrlCaseOrientation.AllowedOrientations = new bool[] {
         false,
         false,
         true};
-            this.uCtrlCaseOrientation1.Location = new System.Drawing.Point(5, 7);
-            this.uCtrlCaseOrientation1.Name = "uCtrlCaseOrientation1";
-            this.uCtrlCaseOrientation1.Size = new System.Drawing.Size(290, 110);
-            this.uCtrlCaseOrientation1.TabIndex = 2;
+            this.uCtrlCaseOrientation.Location = new System.Drawing.Point(5, 7);
+            this.uCtrlCaseOrientation.Name = "uCtrlCaseOrientation";
+            this.uCtrlCaseOrientation.Size = new System.Drawing.Size(290, 110);
+            this.uCtrlCaseOrientation.TabIndex = 2;
             // 
             // UCtrlPerSheetAnalysis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.uCtrlCaseOrientation1);
+            this.Controls.Add(this.uCtrlCaseOrientation);
             this.Controls.Add(this.uCtrlLayerList);
             this.Controls.Add(this.bnCompute);
             this.Name = "UCtrlPerSheetAnalysis";
@@ -86,6 +86,6 @@
 
         private System.Windows.Forms.Button bnCompute;
         private Graphics.UCtrlLayerList uCtrlLayerList;
-        private Graphics.uCtrlCaseOrientation uCtrlCaseOrientation1;
+        private Graphics.uCtrlCaseOrientation uCtrlCaseOrientation;
     }
 }

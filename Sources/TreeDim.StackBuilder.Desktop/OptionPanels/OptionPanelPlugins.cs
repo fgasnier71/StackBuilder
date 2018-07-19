@@ -11,12 +11,12 @@ namespace treeDiM.StackBuilder.Desktop
         {
             InitializeComponent();
 
-            CategoryPath = Properties.Resources.ID_OPTIONSPLUGINS;
-            DisplayName = Properties.Resources.ID_DISPLAYPLUGINS;
+            CategoryPath = Resources.ID_OPTIONSPLUGINS;
+            DisplayName = Resources.ID_DISPLAYPLUGINS;
         }
         #endregion
 
-        #region Handlers
+        #region Form override
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
@@ -27,9 +27,12 @@ namespace treeDiM.StackBuilder.Desktop
             chkbUsePlugin.Checked = File.Exists(pluginPath)
                 && string.Equals(Path.GetExtension(pluginPath), ".dll", StringComparison.CurrentCultureIgnoreCase);
              // events
-            OptionsForm.OptionsSaving += new EventHandler(OptionsForm_OptionsSaving);
+            OptionsForm.OptionsSaving += new EventHandler(OnOptionsSaving);
         }
-        void OptionsForm_OptionsSaving(object sender, EventArgs e)
+        #endregion
+
+        #region Handlers
+        void OnOptionsSaving(object sender, EventArgs e)
         {
             Settings.Default.PluginPath = fileSelectPlugin.FileName;
             Settings.Default.Save();
@@ -39,7 +42,5 @@ namespace treeDiM.StackBuilder.Desktop
             fileSelectPlugin.Enabled = chkbUsePlugin.Checked;
         }
         #endregion
-
-
     }
 }

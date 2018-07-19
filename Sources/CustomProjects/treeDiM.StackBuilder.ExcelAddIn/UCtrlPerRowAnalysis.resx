@@ -122,10 +122,7 @@
     <value>1</value>
   </data>
   <data name="&gt;&gt;uCtrlMaxPalletHeight.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.72, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="chkbGenerateReportInFolder.Text" xml:space="preserve">
-    <value>Generate report in folder:</value>
+    <value>treeDiM.StackBuilder.Basics.UCtrlDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.74, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;gbConstraints.Type" xml:space="preserve">
     <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -154,7 +151,10 @@
     <value>1</value>
   </data>
   <data name="&gt;&gt;folderSelect.Type" xml:space="preserve">
-    <value>treeDiM.UserControls.FileSelect, treeDiM.UserControls, Version=1.0.6711.32346, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.UserControls.FileSelect, treeDiM.UserControls, Version=1.0.6748.19980, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;gbOptions.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="bnRefreshPallets.Location" type="System.Drawing.Point, System.Drawing">
     <value>7, 121</value>
@@ -164,6 +164,9 @@
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>UCtrlPerRowAnalysis</value>
+  </data>
+  <data name="folderSelect.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 68</value>
   </data>
   <data name="bnEditPallets.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -177,11 +180,11 @@
   <data name="&gt;&gt;gbConstraints.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="uCtrlMaxPalletHeight.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="&gt;&gt;chkbGenerateImageInRow.Parent" xml:space="preserve">
+    <value>gbOptions</value>
   </data>
   <data name="&gt;&gt;reportFolderSelect.Type" xml:space="preserve">
-    <value>treeDiM.UserControls.FileSelect, treeDiM.UserControls, Version=1.0.6711.32346, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.UserControls.FileSelect, treeDiM.UserControls, Version=1.0.6748.19980, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="uCtrlMaxPalletHeight.Location" type="System.Drawing.Point, System.Drawing">
     <value>7, 20</value>
@@ -189,29 +192,20 @@
   <data name="uCtrlOverhang.Size" type="System.Drawing.Size, System.Drawing">
     <value>280, 20</value>
   </data>
-  <data name="&gt;&gt;uCtrlOverhang.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="chkbGenerateReportInFolder.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
   <data name="chkbGenerateImageInRow.Text" xml:space="preserve">
     <value>Generate image in row.</value>
   </data>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>6, 13</value>
   </data>
-  <data name="&gt;&gt;reportFolderSelect.Parent" xml:space="preserve">
-    <value>gbOptions</value>
+  <data name="&gt;&gt;gbOptions.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;bnCompute.Name" xml:space="preserve">
     <value>bnCompute</value>
   </data>
   <data name="&gt;&gt;uCtrlOverhang.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlDualDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.72, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;lbPallets.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>treeDiM.StackBuilder.Basics.UCtrlDualDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.74, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlMaxPalletHeight.ZOrder" xml:space="preserve">
     <value>2</value>
@@ -222,11 +216,14 @@
   <data name="&gt;&gt;chkbGenerateReportInFolder.Type" xml:space="preserve">
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;uCtrlOverhang.Name" xml:space="preserve">
-    <value>uCtrlOverhang</value>
+  <data name="chkbGenerateImageInRow.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
-  <data name="chkbGenerateImageInFolder.Size" type="System.Drawing.Size, System.Drawing">
-    <value>149, 17</value>
+  <data name="&gt;&gt;bnCompute.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;folderSelect.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="&gt;&gt;gpPallets.Name" xml:space="preserve">
     <value>gpPallets</value>
@@ -234,14 +231,14 @@
   <data name="gbConstraints.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
   </data>
+  <data name="gpPallets.Size" type="System.Drawing.Size, System.Drawing">
+    <value>293, 150</value>
+  </data>
   <data name="&gt;&gt;gbOptions.Name" xml:space="preserve">
     <value>gbOptions</value>
   </data>
   <data name="&gt;&gt;chkbOnlyZOrientation.Name" xml:space="preserve">
     <value>chkbOnlyZOrientation</value>
-  </data>
-  <data name="gbOptions.Text" xml:space="preserve">
-    <value>Options</value>
   </data>
   <data name="&gt;&gt;uCtrlMaxPalletHeight.Name" xml:space="preserve">
     <value>uCtrlMaxPalletHeight</value>
@@ -255,11 +252,17 @@
   <data name="uCtrlMaxPalletHeight.Text" xml:space="preserve">
     <value>Pallet height</value>
   </data>
+  <data name="&gt;&gt;chkbGenerateImageInFolder.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
   <data name="reportFolderSelect.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 117</value>
   </data>
   <data name="&gt;&gt;bnRefreshPallets.ZOrder" xml:space="preserve">
     <value>1</value>
+  </data>
+  <data name="chkbGenerateImageInRow.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 20</value>
   </data>
   <data name="gpPallets.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -276,9 +279,6 @@
   <data name="uCtrlOverhang.Location" type="System.Drawing.Point, System.Drawing">
     <value>7, 47</value>
   </data>
-  <data name="&gt;&gt;folderSelect.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
   <data name="gbOptions.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 265</value>
   </data>
@@ -291,29 +291,26 @@
   <data name="bnEditPallets.Size" type="System.Drawing.Size, System.Drawing">
     <value>79, 36</value>
   </data>
-  <data name="&gt;&gt;lbPallets.Name" xml:space="preserve">
-    <value>lbPallets</value>
-  </data>
   <data name="&gt;&gt;chkbGenerateImageInRow.Name" xml:space="preserve">
     <value>chkbGenerateImageInRow</value>
-  </data>
-  <data name="&gt;&gt;gbConstraints.Parent" xml:space="preserve">
-    <value>$this</value>
   </data>
   <data name="bnRefreshPallets.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
   </data>
+  <data name="folderSelect.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="chkbGenerateImageInFolder.Size" type="System.Drawing.Size, System.Drawing">
+    <value>149, 17</value>
+  </data>
   <data name="uCtrlOverhang.Text" xml:space="preserve">
     <value>Overhang</value>
   </data>
-  <data name="gbConstraints.Text" xml:space="preserve">
-    <value>Constraints</value>
-  </data>
-  <data name="&gt;&gt;gbOptions.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;gpPallets.ZOrder" xml:space="preserve">
+  <data name="gbConstraints.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
+  </data>
+  <data name="&gt;&gt;reportFolderSelect.Parent" xml:space="preserve">
+    <value>gbOptions</value>
   </data>
   <data name="&gt;&gt;bnEditPallets.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -321,11 +318,11 @@
   <data name="&gt;&gt;gpPallets.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
+  <data name="uCtrlOverhang.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
   <data name="&gt;&gt;chkbGenerateImageInFolder.Type" xml:space="preserve">
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;reportFolderSelect.ZOrder" xml:space="preserve">
-    <value>0</value>
   </data>
   <data name="gbOptions.Size" type="System.Drawing.Size, System.Drawing">
     <value>293, 142</value>
@@ -336,23 +333,20 @@
   <data name="lbPallets.Location" type="System.Drawing.Point, System.Drawing">
     <value>87, 20</value>
   </data>
-  <data name="lbPallets.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
+  <data name="&gt;&gt;bnCompute.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
-  <data name="uCtrlOverhang.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
-  </data>
-  <data name="folderSelect.TabIndex" type="System.Int32, mscorlib">
+  <data name="&gt;&gt;lbPallets.ZOrder" xml:space="preserve">
     <value>2</value>
+  </data>
+  <data name="chkbGenerateReportInFolder.Text" xml:space="preserve">
+    <value>Generate report in folder:</value>
   </data>
   <data name="&gt;&gt;bnRefreshPallets.Parent" xml:space="preserve">
     <value>gpPallets</value>
   </data>
-  <data name="gpPallets.Size" type="System.Drawing.Size, System.Drawing">
-    <value>293, 150</value>
-  </data>
-  <data name="&gt;&gt;chkbGenerateImageInRow.ZOrder" xml:space="preserve">
-    <value>4</value>
+  <data name="&gt;&gt;reportFolderSelect.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="&gt;&gt;bnRefreshPallets.Name" xml:space="preserve">
     <value>bnRefreshPallets</value>
@@ -362,6 +356,9 @@
   </data>
   <data name="chkbOnlyZOrientation.Text" xml:space="preserve">
     <value>Only vertical orientation allowed</value>
+  </data>
+  <data name="&gt;&gt;uCtrlOverhang.Parent" xml:space="preserve">
+    <value>gbConstraints</value>
   </data>
   <data name="uCtrlMaxPalletHeight.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
@@ -387,8 +384,11 @@
   <data name="&gt;&gt;gbConstraints.Name" xml:space="preserve">
     <value>gbConstraints</value>
   </data>
-  <data name="&gt;&gt;chkbOnlyZOrientation.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="gbOptions.Text" xml:space="preserve">
+    <value>Options</value>
+  </data>
+  <data name="chkbGenerateReportInFolder.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
   </data>
   <data name="bnEditPallets.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 20</value>
@@ -396,14 +396,14 @@
   <data name="gbConstraints.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 161</value>
   </data>
-  <data name="folderSelect.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 68</value>
+  <data name="lbPallets.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
   </data>
   <data name="bnCompute.Text" xml:space="preserve">
     <value>Compute</value>
   </data>
-  <data name="uCtrlMaxPalletHeight.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>100, 20</value>
+  <data name="&gt;&gt;chkbGenerateImageInRow.ZOrder" xml:space="preserve">
+    <value>4</value>
   </data>
   <data name="lbPallets.Size" type="System.Drawing.Size, System.Drawing">
     <value>200, 124</value>
@@ -420,32 +420,29 @@
   <data name="&gt;&gt;chkbGenerateImageInRow.Type" xml:space="preserve">
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;reportFolderSelect.Name" xml:space="preserve">
-    <value>reportFolderSelect</value>
-  </data>
   <data name="reportFolderSelect.Size" type="System.Drawing.Size, System.Drawing">
     <value>280, 20</value>
   </data>
-  <data name="&gt;&gt;chkbGenerateImageInFolder.ZOrder" xml:space="preserve">
-    <value>3</value>
+  <data name="&gt;&gt;lbPallets.Name" xml:space="preserve">
+    <value>lbPallets</value>
   </data>
-  <data name="chkbGenerateReportInFolder.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+  <data name="&gt;&gt;gbConstraints.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
-  <data name="chkbGenerateImageInRow.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="&gt;&gt;gpPallets.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
-  <data name="chkbGenerateImageInRow.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 20</value>
-  </data>
-  <data name="&gt;&gt;bnEditPallets.Name" xml:space="preserve">
-    <value>bnEditPallets</value>
+  <data name="&gt;&gt;uCtrlOverhang.Name" xml:space="preserve">
+    <value>uCtrlOverhang</value>
   </data>
   <data name="&gt;&gt;lbPallets.Parent" xml:space="preserve">
     <value>gpPallets</value>
   </data>
   <data name="&gt;&gt;chkbGenerateImageInFolder.Name" xml:space="preserve">
     <value>chkbGenerateImageInFolder</value>
+  </data>
+  <data name="uCtrlMaxPalletHeight.Size" type="System.Drawing.Size, System.Drawing">
+    <value>280, 20</value>
   </data>
   <data name="chkbGenerateImageInFolder.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -462,8 +459,8 @@
   <data name="&gt;&gt;chkbGenerateImageInFolder.Parent" xml:space="preserve">
     <value>gbOptions</value>
   </data>
-  <data name="&gt;&gt;bnCompute.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;uCtrlOverhang.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="bnEditPallets.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -478,23 +475,26 @@
         KDmBkhMoOYGSD3K+ARElrIY6amPZAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="&gt;&gt;gbOptions.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;chkbOnlyZOrientation.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="reportFolderSelect.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
   </data>
-  <data name="&gt;&gt;bnCompute.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="uCtrlMaxPalletHeight.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
   <data name="&gt;&gt;chkbOnlyZOrientation.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="uCtrlMaxPalletHeight.Size" type="System.Drawing.Size, System.Drawing">
-    <value>280, 20</value>
+  <data name="uCtrlMaxPalletHeight.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>100, 20</value>
   </data>
   <data name="folderSelect.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
+  </data>
+  <data name="bnCompute.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
   </data>
   <data name="bnCompute.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -505,23 +505,23 @@
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>System.Windows.Forms.UserControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;chkbGenerateImageInRow.Parent" xml:space="preserve">
-    <value>gbOptions</value>
+  <data name="chkbGenerateReportInFolder.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
-  <data name="gbConstraints.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+  <data name="&gt;&gt;reportFolderSelect.Name" xml:space="preserve">
+    <value>reportFolderSelect</value>
   </data>
   <data name="&gt;&gt;chkbGenerateReportInFolder.Name" xml:space="preserve">
     <value>chkbGenerateReportInFolder</value>
   </data>
+  <data name="&gt;&gt;bnEditPallets.Name" xml:space="preserve">
+    <value>bnEditPallets</value>
+  </data>
+  <data name="gbConstraints.Text" xml:space="preserve">
+    <value>Constraints</value>
+  </data>
   <data name="gbOptions.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
-  </data>
-  <data name="bnCompute.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 23</value>
-  </data>
-  <data name="&gt;&gt;uCtrlOverhang.Parent" xml:space="preserve">
-    <value>gbConstraints</value>
   </data>
   <data name="bnCompute.Location" type="System.Drawing.Point, System.Drawing">
     <value>11, 413</value>
@@ -534,8 +534,5 @@
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
-  </metadata>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>fr</value>
   </metadata>
 </root>

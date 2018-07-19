@@ -35,7 +35,7 @@ namespace treeDiM.StackBuilder.Desktop
             {
                 cbLanguages.Items.Add(new ComboCultureWrapper(ci));
                 ++i;
-                if (ci.DisplayName == CultureInfo.CurrentCulture.DisplayName)
+                if (ci.ThreeLetterWindowsLanguageName == CultureInfo.CurrentCulture.ThreeLetterWindowsLanguageName)
                     iSel = i;
             }
             cbLanguages.SelectedIndex = iSel;
@@ -96,17 +96,16 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Handlers
-        private void onComboSelectionChanged(object sender, EventArgs e)
+        private void OnComboSelectionChanged(object sender, EventArgs e)
         {
             // unit system
             Properties.Settings.Default.UnitSystem = cbUnitSystem.SelectedIndex;
             // culture
-            ComboCultureWrapper cCultWrapper = cbLanguages.SelectedItem as ComboCultureWrapper;
-            if (null != cCultWrapper)
-                Properties.Settings.Default.CultureToUse = cCultWrapper.ToCultureInfoString(); 
+            if (cbLanguages.SelectedItem is ComboCultureWrapper cCultWrapper)
+                Properties.Settings.Default.CultureToUse = cCultWrapper.ToCultureInfoString();
 
             // tells the user that the application must restart
-            this.ApplicationMustRestart = true;
+            ApplicationMustRestart = true;
         }
         #endregion
 

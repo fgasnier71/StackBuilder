@@ -58,7 +58,9 @@ namespace treeDiM.StackBuilder.Basics
         /// <param name="insideLength">Inner length</param>
         /// <param name="insideWidth">Inner width</param>
         /// <param name="insideHeight">Inner height</param>
-        public BoxProperties(Document document, double length, double width, double height, double insideLength, double insideWidth, double insideHeight)
+        public BoxProperties(Document document
+            , double length, double width, double height
+            , double insideLength, double insideWidth, double insideHeight)
             : base(document)
         {
             _length     = length;

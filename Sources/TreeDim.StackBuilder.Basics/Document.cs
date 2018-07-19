@@ -212,6 +212,24 @@ namespace treeDiM.StackBuilder.Basics
             Modify();
             return boxProperties;
         }
+        public BoxProperties CreateNewCase(
+            string name, string description
+            , double length, double width, double height
+            , double weight
+            , Color[] colors)
+        {
+            // instantiate and initialize
+            BoxProperties boxProperties = new BoxProperties(this, length, width, height);
+            boxProperties.SetWeight(weight);
+            boxProperties.ID.SetNameDesc(name, description);
+            boxProperties.SetAllColors(colors);
+            // insert in list
+            _typeList.Add(boxProperties);
+            // notify listeners
+            NotifyOnNewTypeCreated(boxProperties);
+            Modify();
+            return boxProperties;
+        }
         public BoxProperties CreateNewCase(BoxProperties boxProp)
         {
             // instantiate and initialize

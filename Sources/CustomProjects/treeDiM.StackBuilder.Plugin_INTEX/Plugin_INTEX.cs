@@ -122,10 +122,12 @@ namespace treeDiM.StackBuilder.Plugin
             // proceed : buid project file
             try
             {
-                FormNewINTEX form = new FormNewINTEX();
-                form._listItems = listItems;
-                form._listPallets = listPallets;
-                form._listCases = listCases;
+                FormNewINTEX form = new FormNewINTEX()
+                {
+                    ListItems = listItems,
+                    ListPallets = listPallets,
+                    ListCases = listCases
+                };
                 if (DialogResult.OK != form.ShowDialog())
                     return false;
                 // create document
@@ -139,13 +141,10 @@ namespace treeDiM.StackBuilder.Plugin
                 {
                     itemProperties = document.CreateNewCase(
                         item._ref
-                        , string.Format("{0};EAN14 : {1};UPC : {2};PCB : {3}", item._description, item._gencode, item._UPC, item._PCB)
+                        , $"{item._description};EAN14 : {item._gencode};UPC : {item._UPC};PCB : {item._PCB}"
                         , UnitsManager.ConvertLengthFrom(item._length, UnitsManager.UnitSystem.UNIT_METRIC2)
                         , UnitsManager.ConvertLengthFrom(item._width, UnitsManager.UnitSystem.UNIT_METRIC2)
                         , UnitsManager.ConvertLengthFrom(item._height, UnitsManager.UnitSystem.UNIT_METRIC2)
-                        , UnitsManager.ConvertLengthFrom(item._length - 0.6, UnitsManager.UnitSystem.UNIT_METRIC2)
-                        , UnitsManager.ConvertLengthFrom(item._width - 0.6, UnitsManager.UnitSystem.UNIT_METRIC2)
-                        , UnitsManager.ConvertLengthFrom(item._height - 0.6, UnitsManager.UnitSystem.UNIT_METRIC2)
                         , UnitsManager.ConvertMassFrom(item._weight, UnitsManager.UnitSystem.UNIT_METRIC2)
                         , colorsCase);
                 }

@@ -74,7 +74,7 @@
             this.chkShowLogConsole.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::treeDiM.StackBuilder.Desktop.Properties.Settings.Default, "ShowLogConsole", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.chkShowLogConsole.Name = "chkShowLogConsole";
             this.chkShowLogConsole.UseVisualStyleBackColor = true;
-            this.chkShowLogConsole.CheckedChanged += new System.EventHandler(this.ChkShowLogConsole_CheckedChanged);
+            this.chkShowLogConsole.CheckedChanged += new System.EventHandler(this.OnShowLogConsoleCheckChanged);
             // 
             // OptionPanelDebugging
             // 

@@ -59,5 +59,8 @@
     <Setting Name="ImageSize" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">768</Value>
     </Setting>
+    <Setting Name="FontSizeRatio" Type="System.Single" Scope="User">
+      <Value Profile="(Default)">0.015</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

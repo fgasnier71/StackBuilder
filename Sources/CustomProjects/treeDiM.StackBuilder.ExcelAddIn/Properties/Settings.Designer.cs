@@ -460,5 +460,17 @@ namespace treeDiM.StackBuilder.ExcelAddIn.Properties {
                 this["GenerateImageInFolder"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0.015")]
+        public float FontSizeRatio {
+            get {
+                return ((float)(this["FontSizeRatio"]));
+            }
+            set {
+                this["FontSizeRatio"] = value;
+            }
+        }
     }
 }

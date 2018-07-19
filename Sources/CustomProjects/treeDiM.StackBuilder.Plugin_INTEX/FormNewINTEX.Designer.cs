@@ -78,7 +78,7 @@
             this.cbRefDescription.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbRefDescription.FormattingEnabled = true;
             this.cbRefDescription.Name = "cbRefDescription";
-            this.cbRefDescription.SelectedIndexChanged += new System.EventHandler(this.cbRefDescription_SelectedIndexChanged);
+            this.cbRefDescription.SelectedIndexChanged += new System.EventHandler(this.OnCbDescriptionSelectedIndexChanged);
             // 
             // lbUPC
             // 
@@ -113,7 +113,7 @@
             this.cbPallet.FormattingEnabled = true;
             resources.ApplyResources(this.cbPallet, "cbPallet");
             this.cbPallet.Name = "cbPallet";
-            this.cbPallet.SelectedIndexChanged += new System.EventHandler(this.cbPallet_SelectedIndexChanged);
+            this.cbPallet.SelectedIndexChanged += new System.EventHandler(this.OnCbPalletSelectedIndexChanged);
             // 
             // lbFilePath
             // 
@@ -138,14 +138,14 @@
             this.cbCases.FormattingEnabled = true;
             resources.ApplyResources(this.cbCases, "cbCases");
             this.cbCases.Name = "cbCases";
-            this.cbCases.SelectedIndexChanged += new System.EventHandler(this.cbCases_SelectedIndexChanged);
+            this.cbCases.SelectedIndexChanged += new System.EventHandler(this.OnCbCasesSelectedIndexChanged);
             // 
             // chkUseIntermediatePacking
             // 
             resources.ApplyResources(this.chkUseIntermediatePacking, "chkUseIntermediatePacking");
             this.chkUseIntermediatePacking.Name = "chkUseIntermediatePacking";
             this.chkUseIntermediatePacking.UseVisualStyleBackColor = true;
-            this.chkUseIntermediatePacking.CheckedChanged += new System.EventHandler(this.chkUseIntermediatePacking_CheckedChanged);
+            this.chkUseIntermediatePacking.CheckedChanged += new System.EventHandler(this.OnChkbUseIntermediatePackingCheckedChanged);
             // 
             // statusStripDef
             // 
@@ -241,7 +241,6 @@
             this.MinimizeBox = false;
             this.Name = "FormNewINTEX";
             this.ShowInTaskbar = false;
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormNewINTEX_FormClosing);
             this.statusStripDef.ResumeLayout(false);
             this.statusStripDef.PerformLayout();
             this.ResumeLayout(false);

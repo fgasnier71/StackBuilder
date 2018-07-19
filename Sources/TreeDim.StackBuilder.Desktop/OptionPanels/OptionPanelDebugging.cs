@@ -18,16 +18,26 @@ namespace treeDiM.StackBuilder.Desktop
         {
             InitializeComponent();
 
-            CategoryPath = Properties.Resources.ID_OPTIONSDEBUGGING;
-            DisplayName = Properties.Resources.ID_DISPLAYDEBUGGING;
+            CategoryPath = Resources.ID_OPTIONSDEBUGGING;
+            DisplayName = Resources.ID_DISPLAYDEBUGGING;
+        }
+        #endregion
+
+        #region Form override
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+
+            // initialize controls
+            chkShowLogConsole.Checked = Settings.Default.ShowLogConsole;
+            // events
+            OptionsForm.OptionsSaving += new EventHandler(OnOptionsSaving);
         }
         #endregion
 
         #region Handlers
-        private void ChkShowLogConsole_CheckedChanged(object sender, EventArgs e)
+        private void OnShowLogConsoleCheckChanged(object sender, EventArgs e)
         {
-            // force setting
-            Settings.Default.ShowLogConsole = chkShowLogConsole.Checked;
             // show or hide log console
             FormMain form = FormMain.GetInstance();
             form.ShowLogConsole();
@@ -48,6 +58,11 @@ namespace treeDiM.StackBuilder.Desktop
             }
             catch (Exception ex)
             { _log.Error(ex.Message); }
+        }
+        private void OnOptionsSaving(object sender, EventArgs e)
+        {
+            Settings.Default.ShowLogConsole = chkShowLogConsole.Checked;
+            Settings.Default.Save();
         }
         #endregion
 

@@ -54,6 +54,8 @@
             this.nudMaxCountImage = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
             this.uCtrlMinDimensions = new treeDiM.StackBuilder.Basics.UCtrlDouble();
+            this.label8 = new System.Windows.Forms.Label();
+            this.cbUnitSystem = new System.Windows.Forms.ComboBox();
             this.gbInputColumns.SuspendLayout();
             this.gbOutput.SuspendLayout();
             this.gbAdditionalProperties.SuspendLayout();
@@ -436,12 +438,30 @@
             this.uCtrlMinDimensions.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlMinDimensions.Value = 0D;
             // 
+            // label8
+            // 
+            resources.ApplyResources(this.label8, "label8");
+            this.label8.Name = "label8";
+            // 
+            // cbUnitSystem
+            // 
+            this.cbUnitSystem.FormattingEnabled = true;
+            this.cbUnitSystem.Items.AddRange(new object[] {
+            resources.GetString("cbUnitSystem.Items"),
+            resources.GetString("cbUnitSystem.Items1"),
+            resources.GetString("cbUnitSystem.Items2"),
+            resources.GetString("cbUnitSystem.Items3")});
+            resources.ApplyResources(this.cbUnitSystem, "cbUnitSystem");
+            this.cbUnitSystem.Name = "cbUnitSystem";
+            // 
             // FormSettingsPerRow
             // 
             this.AcceptButton = this.bnOk;
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.bnCancel;
+            this.Controls.Add(this.cbUnitSystem);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.gpConditions);
             this.Controls.Add(this.gbAdditionalProperties);
             this.Controls.Add(this.gbOutput);
@@ -464,6 +484,7 @@
             this.gpConditions.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudMaxCountImage)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -494,5 +515,7 @@
         private Basics.UCtrlDouble uCtrlMinDimensions;
         private System.Windows.Forms.NumericUpDown nudMaxCountImage;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox cbUnitSystem;
     }
 }

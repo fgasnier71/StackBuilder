@@ -30,7 +30,7 @@
       <Value Profile="(Default)">0.05</Value>
     </Setting>
     <Setting Name="FontSizeRatioLarge" Type="System.Single" Scope="User">
-      <Value Profile="(Default)">0.01</Value>
+      <Value Profile="(Default)">0.015</Value>
     </Setting>
     <Setting Name="ImageDefinitionLarge" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">4</Value>

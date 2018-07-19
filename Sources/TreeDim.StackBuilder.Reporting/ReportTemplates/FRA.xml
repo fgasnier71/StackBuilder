@@ -129,6 +129,9 @@
   <str name="Image">Image</str>
   <str name="Admissible load weight">Chargement admissible</str>
   <str name="Solution">Solution</str>
-  <str name="Layer(s)">Couche(s)</str>
-  <str name="Spaces">Espace</str>  
+  <str name="Spaces">Espace</str>
+  <str name="Layer Indexes">Indexes couche</str>
+  <str name="Number of cases per layer">Caisses par couche</str>
+  <str name="Layers x Cases">Couche x Caisse</str>
+  <str name="Layers">Couches</str>
 </strings>

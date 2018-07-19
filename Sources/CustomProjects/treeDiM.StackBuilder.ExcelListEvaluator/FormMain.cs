@@ -379,7 +379,7 @@ namespace treeDiM.StackBuilder.ExcelListEvaluator
 
                 graphics = new Graphics3DImage(new Size(ImageSize, ImageSize))
                 {
-                    FontSizeRatio = 0.01f,
+                    FontSizeRatio = this.FontSizeRatio,
                     CameraPosition = Graphics3D.Corner_0
                 };
             }
@@ -462,6 +462,10 @@ namespace treeDiM.StackBuilder.ExcelListEvaluator
         private int ImageSize
         {
             get { return Settings.Default.ImageSize; }
+        }
+        private float FontSizeRatio
+        {
+            get { return Settings.Default.FontSizeRatio; }
         }
         private double[] StackingDims
         {

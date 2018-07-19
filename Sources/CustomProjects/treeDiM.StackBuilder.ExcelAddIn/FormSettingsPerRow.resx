@@ -145,7 +145,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;bnOk.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>7</value>
   </data>
   <data name="bnCancel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -172,7 +172,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;bnCancel.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>6</value>
   </data>
   <data name="cbWeight.Items" xml:space="preserve">
     <value>A</value>
@@ -931,7 +931,7 @@
     <value>11</value>
   </data>
   <data name="gbInputColumns.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 4</value>
+    <value>12, 36</value>
   </data>
   <data name="gbInputColumns.Size" type="System.Drawing.Size, System.Drawing">
     <value>175, 201</value>
@@ -952,7 +952,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;gbInputColumns.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>5</value>
   </data>
   <data name="cbOutputStart.Items" xml:space="preserve">
     <value>A</value>
@@ -1081,7 +1081,7 @@
     <value>1</value>
   </data>
   <data name="gbOutput.Location" type="System.Drawing.Point, System.Drawing">
-    <value>194, 4</value>
+    <value>194, 36</value>
   </data>
   <data name="gbOutput.Size" type="System.Drawing.Size, System.Drawing">
     <value>187, 52</value>
@@ -1102,7 +1102,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;gbOutput.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>4</value>
   </data>
   <data name="nudImageSize.Location" type="System.Drawing.Point, System.Drawing">
     <value>158, 16</value>
@@ -1153,7 +1153,7 @@
     <value>1</value>
   </data>
   <data name="gbAdditionalProperties.Location" type="System.Drawing.Point, System.Drawing">
-    <value>194, 165</value>
+    <value>194, 197</value>
   </data>
   <data name="gbAdditionalProperties.Size" type="System.Drawing.Size, System.Drawing">
     <value>263, 40</value>
@@ -1174,7 +1174,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;gbAdditionalProperties.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>3</value>
   </data>
   <data name="nudMaxCountImage.Location" type="System.Drawing.Point, System.Drawing">
     <value>158, 61</value>
@@ -1243,7 +1243,7 @@
     <value>uCtrlMinDimensions</value>
   </data>
   <data name="&gt;&gt;uCtrlMinDimensions.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.72, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Basics.UCtrlDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.74, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlMinDimensions.Parent" xml:space="preserve">
     <value>gpConditions</value>
@@ -1252,7 +1252,7 @@
     <value>2</value>
   </data>
   <data name="gpConditions.Location" type="System.Drawing.Point, System.Drawing">
-    <value>194, 63</value>
+    <value>194, 95</value>
   </data>
   <data name="gpConditions.Size" type="System.Drawing.Size, System.Drawing">
     <value>263, 102</value>
@@ -1273,6 +1273,69 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;gpConditions.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="label8.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label8.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label8.Location" type="System.Drawing.Point, System.Drawing">
+    <value>20, 8</value>
+  </data>
+  <data name="label8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>61, 13</value>
+  </data>
+  <data name="label8.TabIndex" type="System.Int32, mscorlib">
+    <value>19</value>
+  </data>
+  <data name="label8.Text" xml:space="preserve">
+    <value>Unit system</value>
+  </data>
+  <data name="&gt;&gt;label8.Name" xml:space="preserve">
+    <value>label8</value>
+  </data>
+  <data name="&gt;&gt;label8.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label8.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;label8.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="cbUnitSystem.Items" xml:space="preserve">
+    <value>Metric 1 (mm/kg/l)</value>
+  </data>
+  <data name="cbUnitSystem.Items1" xml:space="preserve">
+    <value>Metric 2 (cm/kg/l)</value>
+  </data>
+  <data name="cbUnitSystem.Items2" xml:space="preserve">
+    <value>UK (in/lb/gal)</value>
+  </data>
+  <data name="cbUnitSystem.Items3" xml:space="preserve">
+    <value>US (in/lb/gal)</value>
+  </data>
+  <data name="cbUnitSystem.Location" type="System.Drawing.Point, System.Drawing">
+    <value>124, 5</value>
+  </data>
+  <data name="cbUnitSystem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 21</value>
+  </data>
+  <data name="cbUnitSystem.TabIndex" type="System.Int32, mscorlib">
+    <value>20</value>
+  </data>
+  <data name="&gt;&gt;cbUnitSystem.Name" xml:space="preserve">
+    <value>cbUnitSystem</value>
+  </data>
+  <data name="&gt;&gt;cbUnitSystem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cbUnitSystem.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;cbUnitSystem.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">

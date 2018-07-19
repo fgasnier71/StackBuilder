@@ -103,4 +103,8 @@
   <str name="Case filling constraint">ケースの積付制限</str>
   <str name="Limit reached">限界に達しました</str>
   <str name="Index">索引</str>
+  <str name="Layer Indexes">Layer Indexes</str>
+  <str name="Number of cases per layer">Number of cases per layer</str>
+  <str name="Layers x Cases">Layers x Cases</str>
+  <str name="Layers">Layers</str>
 </strings>

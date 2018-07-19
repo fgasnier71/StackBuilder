@@ -90,7 +90,6 @@
             // 
             // gbCase
             // 
-            resources.ApplyResources(this.gbCase, "gbCase");
             this.gbCase.Controls.Add(this.tbWeightCell);
             this.gbCase.Controls.Add(this.lbWeight);
             this.gbCase.Controls.Add(this.tbHeightCell);
@@ -99,6 +98,7 @@
             this.gbCase.Controls.Add(this.lbHeight);
             this.gbCase.Controls.Add(this.lbWidth);
             this.gbCase.Controls.Add(this.lbLength);
+            resources.ApplyResources(this.gbCase, "gbCase");
             this.gbCase.Name = "gbCase";
             this.gbCase.TabStop = false;
             // 
@@ -144,7 +144,6 @@
             // 
             // gbPallet
             // 
-            resources.ApplyResources(this.gbPallet, "gbPallet");
             this.gbPallet.Controls.Add(this.tbPalletWeight);
             this.gbPallet.Controls.Add(this.label1);
             this.gbPallet.Controls.Add(this.label4);
@@ -153,6 +152,7 @@
             this.gbPallet.Controls.Add(this.tbPalletWidth);
             this.gbPallet.Controls.Add(this.label3);
             this.gbPallet.Controls.Add(this.tbPalletLength);
+            resources.ApplyResources(this.gbPallet, "gbPallet");
             this.gbPallet.Name = "gbPallet";
             this.gbPallet.TabStop = false;
             // 
@@ -198,11 +198,11 @@
             // 
             // gbConstraintSet
             // 
-            resources.ApplyResources(this.gbConstraintSet, "gbConstraintSet");
             this.gbConstraintSet.Controls.Add(this.tbMaxPalletWeight);
             this.gbConstraintSet.Controls.Add(this.tbMaxPalletHeight);
             this.gbConstraintSet.Controls.Add(this.lbMaximumPalletWeight);
             this.gbConstraintSet.Controls.Add(this.lbMaximumPalletHeight);
+            resources.ApplyResources(this.gbConstraintSet, "gbConstraintSet");
             this.gbConstraintSet.Name = "gbConstraintSet";
             this.gbConstraintSet.TabStop = false;
             // 
@@ -228,7 +228,6 @@
             // 
             // gbResults
             // 
-            resources.ApplyResources(this.gbResults, "gbResults");
             this.gbResults.Controls.Add(this.nudImageDef);
             this.gbResults.Controls.Add(this.label7);
             this.gbResults.Controls.Add(this.uCtrlImageDim);
@@ -239,6 +238,7 @@
             this.gbResults.Controls.Add(this.tbLoadWeight);
             this.gbResults.Controls.Add(this.tbTotalWeight);
             this.gbResults.Controls.Add(this.label6);
+            resources.ApplyResources(this.gbResults, "gbResults");
             this.gbResults.Name = "gbResults";
             this.gbResults.TabStop = false;
             // 
@@ -312,13 +312,13 @@
             // 
             // cbUnitSystem
             // 
-            resources.ApplyResources(this.cbUnitSystem, "cbUnitSystem");
             this.cbUnitSystem.FormattingEnabled = true;
             this.cbUnitSystem.Items.AddRange(new object[] {
             resources.GetString("cbUnitSystem.Items"),
             resources.GetString("cbUnitSystem.Items1"),
             resources.GetString("cbUnitSystem.Items2"),
             resources.GetString("cbUnitSystem.Items3")});
+            resources.ApplyResources(this.cbUnitSystem, "cbUnitSystem");
             this.cbUnitSystem.Name = "cbUnitSystem";
             this.cbUnitSystem.SelectedIndexChanged += new System.EventHandler(this.OnUnitSystemChanged);
             // 

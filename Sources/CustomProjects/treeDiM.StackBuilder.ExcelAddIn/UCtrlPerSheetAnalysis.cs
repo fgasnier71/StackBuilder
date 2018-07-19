@@ -31,7 +31,19 @@ namespace treeDiM.StackBuilder.ExcelAddIn
             base.OnLoad(e);
             try
             {
+                // show case in uCtrlCaseOrientation
+                if (Globals.StackBuilderAddIn.Application.ActiveSheet is Excel.Worksheet xlSheet)
+                {
+                    double caseLength = ReadDouble(xlSheet, Settings.Default.CellCaseLength, Resources.ID_CASE_LENGTH);
+                    double caseWidth = ReadDouble(xlSheet, Settings.Default.CellCaseWidth, Resources.ID_CASE_WIDTH);
+                    double caseHeight = ReadDouble(xlSheet, Settings.Default.CellCaseHeight, Resources.ID_CASE_HEIGHT);
 
+                    BoxProperties bProperties = new BoxProperties(null, caseLength, caseWidth, caseHeight);
+                    bProperties.SetColor(Color.Chocolate);
+                    bProperties.TapeWidth = new OptDouble(true, UnitsManager.ConvertLengthFrom(50.0, UnitsManager.UnitSystem.UNIT_METRIC1));
+                    bProperties.TapeColor = Color.Beige;
+                    uCtrlCaseOrientation.BProperties = bProperties;
+                }
             }
             catch (Exception ex)
             {
@@ -43,8 +55,7 @@ namespace treeDiM.StackBuilder.ExcelAddIn
         {
             try
             {
-                Excel.Worksheet xlSheet = Globals.StackBuilderAddIn.Application.ActiveSheet as Excel.Worksheet;
-                if (null != xlSheet)
+                if (Globals.StackBuilderAddIn.Application.ActiveSheet is Excel.Worksheet xlSheet)
                 {
                     Console.WriteLine(string.Format("Sheet name = {0}", xlSheet.Name));
 
@@ -66,7 +77,7 @@ namespace treeDiM.StackBuilder.ExcelAddIn
                     BoxProperties bProperties = new BoxProperties(null, caseLength, caseWidth, caseHeight);
                     bProperties.SetWeight(caseWeight);
                     bProperties.SetColor(Color.Chocolate);
-                    bProperties.TapeWidth = new OptDouble(true, 5);
+                    bProperties.TapeWidth = new OptDouble(true, UnitsManager.ConvertLengthFrom(50.0, UnitsManager.UnitSystem.UNIT_METRIC1));
                     bProperties.TapeColor = Color.Beige;
 
                     // build a pallet
@@ -91,11 +102,11 @@ namespace treeDiM.StackBuilder.ExcelAddIn
                         double totalWeight = analysis.Solution.Weight;   // <- your pallet weight
 
                         Graphics3DImage graphics = null;
-                       // generate image path
-                       string stackImagePath = Path.Combine(Path.ChangeExtension(Path.GetTempFileName(), "png"));
+                        // generate image path
+                        string stackImagePath = Path.Combine(Path.ChangeExtension(Path.GetTempFileName(), "png"));
                         graphics = new Graphics3DImage(new Size(Settings.Default.ImageSize, Settings.Default.ImageSize))
                         {
-                            FontSizeRatio = 0.01f,
+                            FontSizeRatio = Settings.Default.FontSizeRatio,
                             CameraPosition = Graphics3D.Corner_0
                         };
                         ViewerSolution sv = new ViewerSolution(analysis.Solution);
@@ -103,20 +114,20 @@ namespace treeDiM.StackBuilder.ExcelAddIn
                         graphics.Flush();
                         Bitmap bmp = graphics.Bitmap;
                         bmp.Save(stackImagePath);
-                    
 
-                    WriteInt(xlSheet, Settings.Default.CellNoCases, Resources.ID_RESULT_NOCASES, caseCount);
-                    WriteDouble(xlSheet, Settings.Default.CellLoadWeight, Resources.ID_RESULT_LOADWEIGHT, loadWeight);
-                    WriteDouble(xlSheet, Settings.Default.CellTotalPalletWeight, Resources.ID_RESULT_TOTALPALLETWEIGHT, totalWeight);
 
-                    string filePath = string.Empty;
+                        WriteInt(xlSheet, Settings.Default.CellNoCases, Resources.ID_RESULT_NOCASES, caseCount);
+                        WriteDouble(xlSheet, Settings.Default.CellLoadWeight, Resources.ID_RESULT_LOADWEIGHT, loadWeight);
+                        WriteDouble(xlSheet, Settings.Default.CellTotalPalletWeight, Resources.ID_RESULT_TOTALPALLETWEIGHT, totalWeight);
 
-                    Globals.StackBuilderAddIn.Application.ActiveSheet.Shapes.AddPicture(
-                        stackImagePath,
-                        Microsoft.Office.Core.MsoTriState.msoFalse,
-                        Microsoft.Office.Core.MsoTriState.msoCTrue,
-                        Settings.Default.ImageLeft / 0.035, Settings.Default.ImageTop / 0.035,
-                        Settings.Default.ImageWidth / 0.035, Settings.Default.ImageHeight / 0.035);
+                        string filePath = string.Empty;
+
+                        Globals.StackBuilderAddIn.Application.ActiveSheet.Shapes.AddPicture(
+                            stackImagePath,
+                            Microsoft.Office.Core.MsoTriState.msoFalse,
+                            Microsoft.Office.Core.MsoTriState.msoCTrue,
+                            Settings.Default.ImageLeft / 0.035, Settings.Default.ImageTop / 0.035,
+                            Settings.Default.ImageWidth / 0.035, Settings.Default.ImageHeight / 0.035);
                     }
                     // ###
                 }

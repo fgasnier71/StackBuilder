@@ -32,7 +32,7 @@ namespace treeDiM.StackBuilder.Basics
         }
         public IEnumerable<ItemBase> Containers => _container;
 
-        public HConstraintSet ConstraintSet { get => _constraintSet; set => _constraintSet = value; }
+        public HConstraintSet ConstraintSet { get; set; }
         public virtual double ContentTotalVolume => Content.Sum(ci => ci.Pack.Volume * ci.Number);
         public virtual double ContentTotalWeight => Content.Sum(ci => ci.Pack.Weight * ci.Number);
 
@@ -47,11 +47,11 @@ namespace treeDiM.StackBuilder.Basics
 
         public HSolution BuildSolution()
         {
-            _solution = new HSolution();
-            return _solution;
+            Solution = new HSolution();
+            return Solution;
         }
         #region Non-public members
-        protected HSolution Solution => _solution;
+        protected HSolution Solution { get; private set; }
 
         protected override void RemoveItselfFromDependancies()
         {
@@ -62,8 +62,6 @@ namespace treeDiM.StackBuilder.Basics
 
         private List<ContentItem> _content = new List<ContentItem>();
         private List<ItemBase> _container = new List<ItemBase>();
-        private HConstraintSet _constraintSet;
-        private HSolution _solution;
         static readonly ILog _log = LogManager.GetLogger(typeof(Analysis));
         #endregion
     }

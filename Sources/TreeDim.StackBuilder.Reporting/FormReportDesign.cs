@@ -80,7 +80,8 @@ namespace treeDiM.StackBuilder.Reporting
             Settings.Default.ImageHTMLSizeDetail = cbHTMLSizeDetail.SelectedIndex;
             Settings.Default.ImageHTMLSizeLarge = cbHTMLSizeLarge.SelectedIndex;
             // toolbar show dimension
-            Settings.Default.ShowDimensions = toolSBDimensions.Checked; 
+            Settings.Default.ShowDimensions = toolSBDimensions.Checked;
+            Settings.Default.Save();
         }
         #endregion
 

@@ -1,5 +1,7 @@
-﻿using System;
+﻿#region Using directives
+using System;
 using System.Text;
+#endregion
 
 namespace treeDiM.StackBuilder.ExcelAddIn
 {

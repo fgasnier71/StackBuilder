@@ -165,7 +165,7 @@ namespace treeDiM.StackBuilder.Desktop
             BoxProperties boxProperties = new BoxProperties(null
                  , dtCase.OuterDimensions[0], dtCase.OuterDimensions[1], dtCase.OuterDimensions[2]
                  , dtCase.InnerDimensions[0], dtCase.InnerDimensions[1], dtCase.InnerDimensions[2]);
-            Color[] colors = Enumerable.Repeat<Color>(Color.Chocolate, 6).ToArray();
+            Color[] colors = Enumerable.Repeat(Color.Chocolate, 6).ToArray();
             boxProperties.ID.SetNameDesc(dtCase.Name, dtCase.Description);
             boxProperties.SetAllColors(colors);
             boxProperties.TapeColor = Color.Beige;
@@ -179,7 +179,7 @@ namespace treeDiM.StackBuilder.Desktop
             BoxProperties boxProperties = new BoxProperties(null
                 , dtBox.Dimensions[0], dtBox.Dimensions[1], dtBox.Dimensions[2]);
             boxProperties.ID.SetNameDesc( dtBox.Name, dtBox.Description);
-            Color[] colors = Enumerable.Repeat<Color>( Color.Turquoise, 6).ToArray();
+            Color[] colors = Enumerable.Repeat( Color.Turquoise, 6).ToArray();
             boxProperties.SetAllColors(colors);
             boxProperties.SetWeight( dtBox.Weight );
             boxProperties.SetNetWeight( new OptDouble(dtBox.NetWeight > 0, dtBox.NetWeight) );

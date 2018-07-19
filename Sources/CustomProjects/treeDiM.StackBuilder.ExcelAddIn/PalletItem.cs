@@ -6,16 +6,8 @@ namespace treeDiM.StackBuilder.ExcelAddIn
 {
     internal class PalletItem
     {
-        public PalletItem(PalletProperties p)
-        {
-            PalletProp = p;
-        }
-
-        public override string ToString()
-        {
-            return $"{PalletProp.ID.Name} ({PalletProp.Length}x{PalletProp.Width}x{PalletProp.Height})";
-        }
-
+        public PalletItem(PalletProperties p) { PalletProp = p; }
+        public override string ToString() => $"{PalletProp.ID.Name} ({PalletProp.Length}x{PalletProp.Width}x{PalletProp.Height})";
         public PalletProperties PalletProp { get; set; }
     }
 }

@@ -46,7 +46,7 @@
             resources.GetString("cbUnitSystem.Items2"),
             resources.GetString("cbUnitSystem.Items3")});
             this.cbUnitSystem.Name = "cbUnitSystem";
-            this.cbUnitSystem.SelectedIndexChanged += new System.EventHandler(this.onComboSelectionChanged);
+            this.cbUnitSystem.SelectedIndexChanged += new System.EventHandler(this.OnComboSelectionChanged);
             // 
             // lbUnitSystem
             // 
@@ -64,7 +64,7 @@
             this.cbLanguages.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbLanguages.FormattingEnabled = true;
             this.cbLanguages.Name = "cbLanguages";
-            this.cbLanguages.SelectedIndexChanged += new System.EventHandler(this.onComboSelectionChanged);
+            this.cbLanguages.SelectedIndexChanged += new System.EventHandler(this.OnComboSelectionChanged);
             // 
             // OptionPanelUnits
             // 

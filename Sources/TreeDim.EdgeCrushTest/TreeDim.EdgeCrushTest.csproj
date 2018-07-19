@@ -132,13 +132,13 @@
     <EmbeddedResource Include="Properties\Resource.ja.resx" />
     <EmbeddedResource Include="Properties\Resource.nl.resx" />
     <EmbeddedResource Include="Properties\Resource.pl.resx" />
+    <EmbeddedResource Include="Properties\Resource.ru.resx" />
+    <EmbeddedResource Include="Properties\Resource.sv.resx" />
+    <EmbeddedResource Include="Properties\Resource.zh.resx" />
     <EmbeddedResource Include="Properties\Resource.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resource.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resource.ru.resx" />
-    <EmbeddedResource Include="Properties\Resource.sv.resx" />
-    <EmbeddedResource Include="Properties\Resource.zh.resx" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">

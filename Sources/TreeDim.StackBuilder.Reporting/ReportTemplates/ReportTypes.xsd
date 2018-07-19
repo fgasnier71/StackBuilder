@@ -242,6 +242,9 @@
   <xs:complexType name="solution">
     <xs:sequence>
       <xs:element name="item" minOccurs="1" maxOccurs="unbounded" type="rpt:contentItem"/>
+      <xs:element name="noLayers" minOccurs="0" maxOccurs="1" type="xs:int"/>
+      <xs:element name="noCasesPerLayer" minOccurs="0" maxOccurs="1" type="xs:int"/>
+      <xs:element name="noLayersAndNoCases" minOccurs="1" maxOccurs="1" type="xs:string"/>
       <xs:element name="netWeight" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
       <xs:element name="loadWeight" minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>
       <xs:element name="totalWeight" minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>

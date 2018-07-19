@@ -290,7 +290,7 @@ namespace treeDiM.StackBuilder.Reporting
             if (WriteImageFiles && !Directory.Exists(ImageDirectory))
                 Directory.CreateDirectory(ImageDirectory); 
             // create xml data file + XmlTextReader
-            string xmlFilePath = Path.ChangeExtension(System.IO.Path.GetTempFileName(), "xml");
+            string xmlFilePath = Path.ChangeExtension(Path.GetTempFileName(), "xml");
             CreateAnalysisDataFile(inputData, ref rootNode, xmlFilePath, WriteNamespace);
             XmlTextReader xmlData = new XmlTextReader(new FileStream(xmlFilePath, FileMode.Open, FileAccess.Read));
             // validate against schema
@@ -429,7 +429,7 @@ namespace treeDiM.StackBuilder.Reporting
             ReportNode rnCompanyLogo = rootNode.GetChildByName(Resources.ID_RN_COMPANYLOGO);
             if (rnCompanyLogo.Activated && !string.IsNullOrEmpty(CompanyLogo))
             {
-                System.Drawing.Bitmap logoBitmap = new Bitmap(System.Drawing.Bitmap.FromFile(CompanyLogo));
+                Bitmap logoBitmap = new Bitmap(System.Drawing.Bitmap.FromFile(CompanyLogo));
 
                 XmlElement elemCompanyLogo = xmlDoc.CreateElement("companyLogo", ns);
                 elemDocument.AppendChild(elemCompanyLogo);
@@ -613,12 +613,21 @@ namespace treeDiM.StackBuilder.Reporting
             }
             while (null != content && content.InnerContent(ref content, ref number));
             // ***
+            // Number of layers
+            Reporter.AppendElementValue(xmlDoc, elemSolution, "noLayers", sol.Layers.Count);
+            // Number of cases per layer
+            if (sol.HasConstantNoCasesPerLayer)
+                Reporter.AppendElementValue(xmlDoc, elemSolution, "noCasesPerLayer", sol.Layers[0].BoxCount);
+            // number layers x number cases
+            if (rnSolution.GetChildByName(Resources.ID_RN_NOLAYERSBYNOCASES).Activated)
+                Reporter.AppendElementValue(xmlDoc, elemSolution, "noLayersAndNoCases", sol.NoLayersPerNoCasesString);
+            // ***
             if (rnSolution.GetChildByName(Resources.ID_RN_WEIGHT).Activated)
             {
-            if (sol.HasNetWeight)
-                Reporter.AppendElementValue(xmlDoc, elemSolution, "netWeight", UnitsManager.UnitType.UT_MASS, sol.NetWeight.Value);
-            Reporter.AppendElementValue(xmlDoc, elemSolution, "loadWeight", UnitsManager.UnitType.UT_MASS, sol.LoadWeight);
-            Reporter.AppendElementValue(xmlDoc, elemSolution, "totalWeight", UnitsManager.UnitType.UT_MASS, sol.Weight);
+                if (sol.HasNetWeight)
+                    Reporter.AppendElementValue(xmlDoc, elemSolution, "netWeight", UnitsManager.UnitType.UT_MASS, sol.NetWeight.Value);
+                Reporter.AppendElementValue(xmlDoc, elemSolution, "loadWeight", UnitsManager.UnitType.UT_MASS, sol.LoadWeight);
+                Reporter.AppendElementValue(xmlDoc, elemSolution, "totalWeight", UnitsManager.UnitType.UT_MASS, sol.Weight);
             }
             if (rnSolution.GetChildByName(Resources.ID_RN_VOLUMEEFFICIENCY).Activated)
                 Reporter.AppendElementValue(xmlDoc, elemSolution, "efficiencyVolume", sol.VolumeEfficiency);

@@ -31,13 +31,17 @@ namespace treeDiM.StackBuilder.Graphics.TestBSPTree
 
                 Box b1 = new Box(0, 400, 300, 200, new BoxPosition(Vector3D.Zero, HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P)) { };
                 b1.SetAllFacesColor(Color.Chocolate);
-                Box b2 = new Box(1, 400, 300, 200, new BoxPosition(new Vector3D(400.0, 0.0, 0.0), HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P)) { };
+                Box b2 = new Box(1, 400, 300, 200, new BoxPosition(new Vector3D(600.0, 0.0, 0.0), HalfAxis.HAxis.AXIS_Z_P, HalfAxis.HAxis.AXIS_Y_P)) { };
                 b2.SetAllFacesColor(Color.BurlyWood);
                 Box b3 = new Box(2, 400, 300, 200, new BoxPosition(new Vector3D(300.0, 300.0, 0.0), HalfAxis.HAxis.AXIS_Y_P, HalfAxis.HAxis.AXIS_X_N)) { };
                 b3.SetAllFacesColor(Color.Chartreuse);
                 Box b4 = new Box(3, 300, 200, 50, new BoxPosition(new Vector3D(50.0, 50.0, 200.0), HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P)) { };
                 b4.SetAllFacesColor(Color.Coral);
-                List<Box> boxes = new List<Box> { b1, b2, b3, b4 };
+                Box b5 = new Box(4, 300, 200, 50, new BoxPosition(new Vector3D(50.0, 250.0, 200.0), HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P)) { };
+                b5.SetAllFacesColor(Color.Aquamarine);
+                Box b6 = new Box(5, 400, 250, 150, new BoxPosition(new Vector3D(575.0, 0.0, 400.0), HalfAxis.HAxis.AXIS_Z_P, HalfAxis.HAxis.AXIS_Y_P)) { };
+                b6.SetAllFacesColor(Color.Yellow);
+                List<Box> boxes = new List<Box> { b1, b2, b3, b4, b5, b6 };
                 BSPTree bspTree = new BSPTree();
                 foreach (Box b in boxes)
                     bspTree.InsertBox(b);

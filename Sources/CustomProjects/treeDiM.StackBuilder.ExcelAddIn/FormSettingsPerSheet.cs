@@ -74,7 +74,6 @@ namespace treeDiM.StackBuilder.ExcelAddIn
             Settings.Default.ImageSize = (int)nudImageDef.Value;
 
             Settings.Default.UnitSystem = cbUnitSystem.SelectedIndex;
-
             Settings.Default.Save();
 
             base.OnClosing(e);

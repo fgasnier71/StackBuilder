@@ -75,21 +75,26 @@ namespace treeDiM.StackBuilder.ExcelAddIn
                     // modify header
                     // count
                     Excel.Range countHeaderCell = xlSheet.get_Range(ExcelHelpers.ColumnIndexToColumnLetter(iOutputFieldCount++) + 1);
-                    countHeaderCell.Value = Resources.ID_RESULT_NOCASES; ++iNoCols;
+                    countHeaderCell.Value = Resources.ID_RESULT_NOCASES;
+                    ++iNoCols;
                     // load weight
                     Excel.Range loadWeightHeaderCell = xlSheet.get_Range(ExcelHelpers.ColumnIndexToColumnLetter(iOutputFieldCount++) + 1);
-                    loadWeightHeaderCell.Value = Resources.ID_RESULT_LOADWEIGHT; ++iNoCols;
+                    loadWeightHeaderCell.Value = Resources.ID_RESULT_LOADWEIGHT + " (" + UnitsManager.MassUnitString + ")";
+                    ++iNoCols;
                     // total pallet weight
                     Excel.Range totalPalletWeightHeaderCell = xlSheet.get_Range(ExcelHelpers.ColumnIndexToColumnLetter(iOutputFieldCount++) + 1);
-                    totalPalletWeightHeaderCell.Value = Resources.ID_RESULT_TOTALPALLETWEIGHT; iNoCols++;
+                    totalPalletWeightHeaderCell.Value = Resources.ID_RESULT_TOTALPALLETWEIGHT + " (" + UnitsManager.MassUnitString + ")";
+                    ++iNoCols;
                     // efficiency
                     Excel.Range efficiencyHeaderCell = xlSheet.get_Range(ExcelHelpers.ColumnIndexToColumnLetter(iOutputFieldCount++) + 1);
-                    efficiencyHeaderCell.Value = Resources.ID_RESULT_EFFICIENCY; iNoCols++;
+                    efficiencyHeaderCell.Value = Resources.ID_RESULT_EFFICIENCY + " (%)";
+                    ++iNoCols;
                     // image
                     if (GenerateImage)
                     {
                         Excel.Range imageHeaderCell = xlSheet.get_Range(ExcelHelpers.ColumnIndexToColumnLetter(iOutputFieldCount) + 1);
-                        imageHeaderCell.Value = Resources.ID_RESULT_IMAGE; iNoCols++;
+                        imageHeaderCell.Value = Resources.ID_RESULT_IMAGE;
+                        ++iNoCols;
                     }
                     // set bold font for all header row
                     Excel.Range headerRange = xlSheet.get_Range("a"+1, ExcelHelpers.ColumnIndexToColumnLetter(iOutputFieldCount)+1);
@@ -265,7 +270,7 @@ namespace treeDiM.StackBuilder.ExcelAddIn
                     int i = 2;
                     foreach (string typeName in palletTypes)
                     {
-                        Graphics.PalletData palletData = PalletData.GetByName(typeName);
+                        PalletData palletData = PalletData.GetByName(typeName);
                         worksheet.get_Range("a" + i, "a" + i).Value = palletData.Name;
                         worksheet.get_Range("b" + i, "b" + i).Value = palletData.Description;
                         worksheet.get_Range("c" + i, "c" + i).Value = palletData.Length;
@@ -320,6 +325,7 @@ namespace treeDiM.StackBuilder.ExcelAddIn
                             , ExcelHelpers.ReadDouble("Pallet width", worksheet, "d" + i)
                             , ExcelHelpers.ReadDouble("Pallet height", worksheet, "e" + i)
                             );
+                        palletProp.Weight = ExcelHelpers.ReadDouble("Weight", worksheet, "f" + i);
                         palletProp.ID.SetNameDesc(
                             ExcelHelpers.ReadString("Pallet name", worksheet, "a" + i),
                             ExcelHelpers.ReadString("Pallet description", worksheet, "b" + i)
@@ -366,7 +372,7 @@ namespace treeDiM.StackBuilder.ExcelAddIn
             bProperties.ID.SetNameDesc(name, description);
             if (weight.HasValue) bProperties.SetWeight(weight.Value);
             bProperties.SetColor(Color.Chocolate);
-            bProperties.TapeWidth = new OptDouble(true, Math.Min(50.0, 0.5 * width));
+            bProperties.TapeWidth = new OptDouble(true, Math.Min(UnitsManager.ConvertLengthFrom(50.0, UnitsManager.UnitSystem.UNIT_METRIC1), 0.5 * width));
             bProperties.TapeColor = Color.Beige;
 
             Graphics3DImage graphics = null;
@@ -380,7 +386,7 @@ namespace treeDiM.StackBuilder.ExcelAddIn
 
                 graphics = new Graphics3DImage(new Size(ImageSize, ImageSize))
                 {
-                    FontSizeRatio = 0.01f,
+                    FontSizeRatio = Settings.Default.FontSizeRatio,
                     CameraPosition = Graphics3D.Corner_0
                 };
             }

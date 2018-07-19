@@ -30,6 +30,8 @@ namespace treeDiM.StackBuilder.ExcelAddIn
             uCtrlMinDimensions.Value = Settings.Default.MinDimensions;
 
             chkbDescription.Checked = Settings.Default.UseDescription;
+
+            cbUnitSystem.SelectedIndex = Settings.Default.UnitSystem;
         }
         protected override void OnClosing(CancelEventArgs e)
         {
@@ -48,6 +50,9 @@ namespace treeDiM.StackBuilder.ExcelAddIn
                 Settings.Default.MinDimensions = uCtrlMinDimensions.Value;
 
                 Settings.Default.UseDescription = chkbDescription.Checked;
+
+                Settings.Default.UnitSystem = cbUnitSystem.SelectedIndex;
+                Settings.Default.Save();
             }
         }
 

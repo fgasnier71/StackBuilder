@@ -27,7 +27,7 @@ namespace treeDiM.StackBuilder.Plugin
         #endregion
 
         #region Event handlers
-        private void cbRefDescription_SelectedIndexChanged(object sender, EventArgs e)
+        private void OnCbDescriptionSelectedIndexChanged(object sender, EventArgs e)
         {
             _currentItem = (DataItemINTEX)cbRefDescription.SelectedItem;
             if (null == _currentItem)
@@ -48,19 +48,19 @@ namespace treeDiM.StackBuilder.Plugin
             UpdatePalletHeight();
             UpdateButtonOkStatus();
         }
-        private void cbPallet_SelectedIndexChanged(object sender, EventArgs e)
+        private void OnCbPalletSelectedIndexChanged(object sender, EventArgs e)
         {
             _currentPallet = (DataPalletINTEX)cbPallet.SelectedItem;
             // update pallet height if necessary
             UpdatePalletHeight();
             UpdateButtonOkStatus();
         }
-        private void cbCases_SelectedIndexChanged(object sender, EventArgs e)
+        private void OnCbCasesSelectedIndexChanged(object sender, EventArgs e)
         {
             _currentCase = (DataCaseINTEX)cbCases.SelectedItem;
             UpdateButtonOkStatus();
         }
-        private void chkUseIntermediatePacking_CheckedChanged(object sender, EventArgs e)
+        private void OnChkbUseIntermediatePackingCheckedChanged(object sender, EventArgs e)
         {
             lbCase.Enabled = chkUseIntermediatePacking.Checked;
             cbCases.Enabled = chkUseIntermediatePacking.Checked;
@@ -77,17 +77,17 @@ namespace treeDiM.StackBuilder.Plugin
             base.OnLoad(e);
             try
             {
-                foreach (DataItemINTEX item in _listItems)
+                foreach (DataItemINTEX item in ListItems)
                     cbRefDescription.Items.Add(item);
                 if (cbRefDescription.Items.Count > 0)
                     cbRefDescription.SelectedIndex = 0;
 
-                foreach (DataPalletINTEX pallet in _listPallets)
+                foreach (DataPalletINTEX pallet in ListPallets)
                     cbPallet.Items.Add(pallet);
                 if (cbPallet.Items.Count > 0)
                     cbPallet.SelectedIndex = 0;
 
-                foreach (DataCaseINTEX interCase in _listCases)
+                foreach (DataCaseINTEX interCase in ListCases)
                     cbCases.Items.Add(interCase);
                 if (cbCases.Items.Count > 0)
                     cbCases.SelectedIndex = 0;
@@ -95,9 +95,9 @@ namespace treeDiM.StackBuilder.Plugin
                 // initialize pallet height
                 PalletHeight = Properties.Settings.Default.PalletHeight;
                 // initialize intermediate packing
-                chkUseIntermediatePacking.Checked = _listCases.Count > 0 && Properties.Settings.Default.IntermediatePacking;
-                chkUseIntermediatePacking.Enabled = _listCases.Count > 0;
-                chkUseIntermediatePacking_CheckedChanged(null, null);
+                chkUseIntermediatePacking.Checked = ListCases.Count > 0 && Properties.Settings.Default.IntermediatePacking;
+                chkUseIntermediatePacking.Enabled = ListCases.Count > 0;
+                OnChkbUseIntermediatePackingCheckedChanged(null, null);
                 // initialize thickness
                 DefaultCaseThickness = Properties.Settings.Default.DefaultCaseThickness;
                 // update status and enable/disable OK button
@@ -108,8 +108,10 @@ namespace treeDiM.StackBuilder.Plugin
                 _log.Error(ex.ToString());
             }
         }
-        private void FormNewINTEX_FormClosing(object sender, FormClosingEventArgs e)
+        protected override void OnClosing(CancelEventArgs e)
         {
+            base.OnClosing(e);
+
             Properties.Settings.Default.IntermediatePacking = UseIntermediatePacking;
             Properties.Settings.Default.DefaultCaseThickness = DefaultCaseThickness;
             Properties.Settings.Default.PalletHeight = PalletHeight;
@@ -177,6 +179,10 @@ namespace treeDiM.StackBuilder.Plugin
             get { return uCtrlThickness.Value; }
             set { uCtrlThickness.Value = value; }
         }
+
+        public List<DataCaseINTEX> ListCases { get; set; }
+        public List<DataItemINTEX> ListItems { get; set; }
+        public List<DataPalletINTEX> ListPallets { get; set; }
         #endregion
 
         #region Helpers
@@ -189,12 +195,9 @@ namespace treeDiM.StackBuilder.Plugin
             string filePath = System.IO.Path.Combine(defaultDir, sRef);
             return System.IO.Path.ChangeExtension(filePath, "stb");
         }
-        #endregion
 
+        #endregion
         #region Data members
-        public List<DataItemINTEX> _listItems;
-        public List<DataPalletINTEX> _listPallets;
-        public List<DataCaseINTEX> _listCases;
         public DataItemINTEX _currentItem;
         public DataPalletINTEX _currentPallet;
         public DataCaseINTEX _currentCase;

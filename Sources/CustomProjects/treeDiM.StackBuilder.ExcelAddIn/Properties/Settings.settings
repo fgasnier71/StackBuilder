@@ -113,5 +113,8 @@
     <Setting Name="GenerateImageInFolder" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
+    <Setting Name="FontSizeRatio" Type="System.Single" Scope="User">
+      <Value Profile="(Default)">0.015</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -26,55 +26,24 @@ namespace treeDiM.StackBuilder.Graphics
             FRONT
             , BACK
         }
-        #endregion
 
+        #endregion
         #region Data members
-        /// <summary>
-        /// Eye position
-        /// </summary>
-        private Vector3D _vCameraPos = new Vector3D(0.0, 0.0, -1000.0);
-        /// <summary>
-        /// Target position
-        /// </summary>
-        private Vector3D _vTarget = Vector3D.Zero;
+
         /// <summary>
         /// Viewport
         /// </summary>
-        private float[] _viewport = new float[4];
+        private readonly float[] _viewport = new float[4];
         /// <summary>
         /// Compute viewport automatically if enabled
         /// </summary>
-        private bool _autoViewport = true;
-        /// <summary>
-        /// Margin coefficient
-        /// </summary>
-        private double _margin = 0.01;
-        /// <summary>
-        /// Background color
-        /// </summary>
-        private Color _backgroundColor = Color.White;
-        private float _fontSizeRatio = 0.02f;
+        private readonly bool _autoViewport = true;
+
         /// <summary>
         /// face in the background
         /// </summary>
         private List<Face> _facesBackground = new List<Face>();
-        /// <summary>
-        /// face buffer used for drawing
-        /// </summary>
-        private List<Face> _faces = new List<Face>();
-        /// <summay>
-        /// box buffer used for drawing
-        /// </summay>
-        private List<Box> _boxes = new List<Box>();
-        /// <summary>
-        /// cylinder buffer used for drawing
-        /// </summary>
-        private List<Cylinder> _cylinders = new List<Cylinder>();
-        /// <summary>
-        /// segments
-        /// </summary>
-        private List<Segment> _segments = new List<Segment>();
-        private List<Segment> _segmentsBackground = new List<Segment>();
+
         /// <summary>
         /// image inst
         /// </summary>
@@ -84,20 +53,7 @@ namespace treeDiM.StackBuilder.Graphics
         /// dimensions cube
         /// </summary>
         private List<DimensionCube> _dimensions = new List<DimensionCube>();
-        /// <summary>
-        /// Current transformation
-        /// </summary>
-        private Transform3D _currentTransf;
-        /// <summary>
-        /// Show box Ids (used of debugging purposes)
-        /// </summary>
-        private bool _showBoxIds = false;
-        private bool _showTextures = true;
-        private bool _showDimensions = true;
-        private bool _useBoxelOrderer = true;
         private uint _boxDrawingCounter = 0;
-        private bool _enableFaceSorting = true;
-
         private static double _cameraDistance = 100000.0;
 
         public static readonly Vector3D Front = new Vector3D(_cameraDistance, 0.0, 0.0);
@@ -138,6 +94,7 @@ namespace treeDiM.StackBuilder.Graphics
         #endregion
 
         #region Public properties
+        public float FontSizeRatio { get; set; } = 0.015f;
         public float FontSize
         {
             get
@@ -145,38 +102,21 @@ namespace treeDiM.StackBuilder.Graphics
                 if (null == Size)
                     return 0.0f;
                 else
-                    return _fontSizeRatio * Size.Height;
+                    return FontSizeRatio * Size.Height;
             }
         }
         /// <summary>
         /// Background color
         /// </summary>
-        public Color BackgroundColor
-        {
-            get { return _backgroundColor; }
-            set { _backgroundColor = value; }
-        }
-        public bool EnableFaceSorting
-        {
-            get { return _enableFaceSorting; }
-            set { _enableFaceSorting = value; }
-        }
+        public Color BackgroundColor { get; set; } = Color.White;
         /// <summary>
         /// View point (position of the observer's eye)
         /// </summary>
-        public Vector3D CameraPosition
-        {
-            get { return _vCameraPos; }
-            set { _vCameraPos = value; }
-        }
+        public Vector3D CameraPosition { get; set; } = new Vector3D(0.0, 0.0, -1000.0);
         /// <summary>
         /// Target point
         /// </summary>
-        public Vector3D Target
-        {
-            get { return _vTarget; }
-            set { _vTarget = value; }
-        }
+        public Vector3D Target { get; set; } = Vector3D.Zero;
         /// <summary>
         /// Light direction
         /// </summary>
@@ -184,7 +124,7 @@ namespace treeDiM.StackBuilder.Graphics
         {
             get
             {
-                Vector3D vLight = _vCameraPos - _vTarget;
+                Vector3D vLight = (CameraPosition + 5000 * Vector3D.ZAxis) - Target;
                 vLight.Normalize();
                 return vLight;
             }
@@ -196,49 +136,36 @@ namespace treeDiM.StackBuilder.Graphics
         {
             get
             {
-                Vector3D viewDir = _vTarget - _vCameraPos;
+                Vector3D viewDir = Target - CameraPosition;
                 viewDir.Normalize();
                 return viewDir;
             }
         }
-        public double MarginPercentage
-        {
-            get { return _margin; }
-            set { _margin = value; }
-        }
+        public double MarginPercentage { get; set; } = 0.01;
+
         /// <summary>
-        /// gets or sets boolean to show box ids
+        /// boolean to show box ids
         /// To be used when debugging
         /// </summary>
-        public bool ShowBoxIds
-        {
-            get { return _showBoxIds; }
-            set { _showBoxIds = value; }
-        }
+        public bool ShowBoxIds { get; set; } = false;
+        /// <summary>
+        /// boolean to show case testures
+        /// </summary>
+        public bool ShowTextures { get; set; } = true;
+        /// <summary>
+        ///  boolean to show or hide dimensions
+        /// </summary>
+        public bool ShowDimensions { get; set; } = true;
         /// <summary>
         /// gets or sets boxel order status
         /// If set to true the boxel order will be used when drawing box layers
         /// </summary>
-        public bool UseBoxelOrderer
-        {
-            get { return _useBoxelOrderer; }
-            set { _useBoxelOrderer = value; }
-        }
+        public bool UseBoxelOrderer { get; set; } = true;
+        /// <summary>
+        /// sort faces using face comparer (painter algo)
+        /// </summary>
+        public bool EnableFaceSorting { get; set; } = true;
 
-        public bool ShowTextures
-        {
-            get { return _showTextures; }
-            set { _showTextures = value; }
-        }
-        public bool ShowDimensions
-        {
-            get { return _showDimensions; }
-            set { _showDimensions = value; }
-        }
-        public float FontSizeRatio
-        {
-            set { _fontSizeRatio = value; }
-        }
         public Point Offset
         {
             get { return TransformPoint(GetCurrentTransformation(), Vector3D.Zero); }
@@ -279,7 +206,7 @@ namespace treeDiM.StackBuilder.Graphics
 
             ps = Mvp*Morth*Mcam*Mm*po
             */
-            Vector3D zaxis = _vCameraPos - _vTarget;
+            Vector3D zaxis = CameraPosition - Target;
             zaxis.Normalize();
             Vector3D up = Vector3D.ZAxis;
             Vector3D xaxis = Vector3D.CrossProduct(up, zaxis);
@@ -291,9 +218,9 @@ namespace treeDiM.StackBuilder.Graphics
             xaxis.Normalize();
             Vector3D yaxis = Vector3D.CrossProduct(zaxis, xaxis);
             Matrix4D Mcam = new Matrix4D(
-                    xaxis.X, xaxis.Y, xaxis.Z, -Vector3D.DotProduct(_vCameraPos - _vTarget, xaxis),
-                    yaxis.X, yaxis.Y, yaxis.Z, -Vector3D.DotProduct(_vCameraPos - _vTarget, yaxis),
-                    -zaxis.X, -zaxis.Y, -zaxis.Z, -Vector3D.DotProduct(_vCameraPos - _vTarget, -zaxis),
+                    xaxis.X, xaxis.Y, xaxis.Z, -Vector3D.DotProduct(CameraPosition - Target, xaxis),
+                    yaxis.X, yaxis.Y, yaxis.Z, -Vector3D.DotProduct(CameraPosition - Target, yaxis),
+                    -zaxis.X, -zaxis.Y, -zaxis.Z, -Vector3D.DotProduct(CameraPosition - Target, -zaxis),
                     0.0, 0.0, 0.0, 1.0
                 );
             return new Transform3D(Mcam);
@@ -325,18 +252,18 @@ namespace treeDiM.StackBuilder.Graphics
         /// <param name="face">Face item</param>
         public void AddFace(Face face)
         {
-            _faces.Add(face);
+            Faces.Add(face);
         }
         public void AddBox(Box box)
         {
             if (!box.IsValid)
                 throw new GraphicsException("Box is invalid and cannot be drawn!");
-            _boxes.Add(box);
+            Boxes.Add(box);
         }
 
         public void AddCylinder(Cylinder cylinder)
         {
-            _cylinders.Add(cylinder);
+            Cylinders.Add(cylinder);
         }
 
         public void AddDimensions(DimensionCube dimensionCube)
@@ -348,6 +275,12 @@ namespace treeDiM.StackBuilder.Graphics
         #region Abstract methods and properties
         abstract public Size Size { get; }
         abstract public System.Drawing.Graphics Graphics { get; }
+        public List<Cylinder> Cylinders { get; set; } = new List<Cylinder>();
+        public List<Segment> Segments { get; set; } = new List<Segment>();
+        public List<Segment> SegmentsBackground { get; set; } = new List<Segment>();
+        public List<Box> Boxes { get; set; } = new List<Box>();
+        public List<Face> Faces { get; set; } = new List<Face>();
+        public Transform3D CurrentTransf { get; set; }
         #endregion
 
         #region Public methods
@@ -372,47 +305,47 @@ namespace treeDiM.StackBuilder.Graphics
         public void Flush()
         {
             // initialize
-            Vector3D vLight = _vCameraPos - _vTarget; vLight.Normalize();
+            Vector3D vLight = CameraPosition - Target; vLight.Normalize();
             _boxDrawingCounter = 0;
-            _currentTransf = null;
+            CurrentTransf = null;
             System.Drawing.Graphics g = Graphics;
-            g.Clear(_backgroundColor);
+            g.Clear(BackgroundColor);
 
             if (EnableFaceSorting)
             {
                 // sort face list
                 FaceComparison faceComparer = new FaceComparison(GetWorldToEyeTransformation());
-                _faces.Sort(faceComparer);
+                Faces.Sort(faceComparer);
             }
             // draw background segments
-            foreach (Segment s in _segmentsBackground)
+            foreach (Segment s in SegmentsBackground)
                 Draw(s);
             // draw background faces
             foreach (Face face in _facesBackground)
                 Draw(face, FaceDir.FRONT);
             // draw all faces using solid / transparency depending on 
-            foreach (Face face in _faces)
+            foreach (Face face in Faces)
                 Draw(face, FaceDir.BACK);
 
             // sort box list
-            if (_useBoxelOrderer)
+            if (UseBoxelOrderer)
             {
-                BoxelOrderer boxelOrderer = new BoxelOrderer(_boxes);
-                boxelOrderer.Direction = _vTarget - _vCameraPos;
-                _boxes = boxelOrderer.GetSortedList();
+                BoxelOrderer boxelOrderer = new BoxelOrderer(Boxes);
+                boxelOrderer.Direction = Target - CameraPosition;
+                Boxes = boxelOrderer.GetSortedList();
             }
             else
-                _boxes.Sort(new BoxComparerSimplifiedPainterAlgo(GetWorldToEyeTransformation()));
+                Boxes.Sort(new BoxComparerSimplifiedPainterAlgo(GetWorldToEyeTransformation()));
 
             // sort cylinder list
-            _cylinders.Sort(new CylinderComparerSimplifiedPainterAlgo(GetWorldToEyeTransformation()));
+            Cylinders.Sort(new CylinderComparerSimplifiedPainterAlgo(GetWorldToEyeTransformation()));
 
-            if (_cylinders.Count > 0)
+            if (Cylinders.Count > 0)
             {
                 // sort by Z
                 List<Drawable> drawableList = new List<Drawable>();
-                drawableList.AddRange(_boxes);
-                drawableList.AddRange(_cylinders);
+                drawableList.AddRange(Boxes);
+                drawableList.AddRange(Cylinders);
                 drawableList.Sort(new DrawableComparerSimplifiedPainterAlgo());
 
                 List<Box> boxes = new List<Box>();
@@ -432,7 +365,7 @@ namespace treeDiM.StackBuilder.Graphics
                         if (boxes.Count > 0)
                         {
                             BoxelOrderer boxelOrderer = new BoxelOrderer(boxes);
-                            boxelOrderer.Direction = _vTarget - _vCameraPos;
+                            boxelOrderer.Direction = Target - CameraPosition;
                             boxes = boxelOrderer.GetSortedList();
                             // draw boxes
                             foreach (Box bb in boxes)
@@ -464,7 +397,7 @@ namespace treeDiM.StackBuilder.Graphics
 
                 // remaining boxes
                 BoxelOrderer boxelOrdererRem = new BoxelOrderer(boxes);
-                boxelOrdererRem.Direction = _vTarget - _vCameraPos;
+                boxelOrdererRem.Direction = Target - CameraPosition;
                 boxes = boxelOrdererRem.GetSortedList();
                 // draw boxes
                 foreach (Box bb in boxes)
@@ -481,7 +414,7 @@ namespace treeDiM.StackBuilder.Graphics
             else
             {
                 // draw all boxes
-                foreach (Box box in _boxes)
+                foreach (Box box in Boxes)
                     Draw(box);
             }
             // images inst
@@ -494,11 +427,11 @@ namespace treeDiM.StackBuilder.Graphics
                 foreach (ImageInst imageInst in _listImageInst)
                     boxesImage.Add(imageInst.ToBox());
 
-                if (_useBoxelOrderer && false) // NOT WORKING ? 
+                if (UseBoxelOrderer && false) // NOT WORKING ? 
                 {
                     BoxelOrderer boxelOrderer = new BoxelOrderer(boxesImage);
                     boxelOrderer.TuneParam = 10.0;
-                    boxelOrderer.Direction = _vTarget - _vCameraPos;
+                    boxelOrderer.Direction = Target - CameraPosition;
                     boxesImage = boxelOrderer.GetSortedList();
                 }
                 else
@@ -514,11 +447,11 @@ namespace treeDiM.StackBuilder.Graphics
                     Draw(im);
             }
             // draw faces : end
-            foreach (Face face in _faces)
+            foreach (Face face in Faces)
                 Draw(face, FaceDir.FRONT);
 
             // draw segment list (e.g. hatching)
-            foreach (Segment seg in _segments)
+            foreach (Segment seg in Segments)
                 Draw(seg);
 
             // draw cotation cubes
@@ -531,7 +464,7 @@ namespace treeDiM.StackBuilder.Graphics
 
         public Transform3D GetCurrentTransformation()
         {
-            if (null == _currentTransf)
+            if (null == CurrentTransf)
             {
                 // get transformations
                 Transform3D world2eye = GetWorldToEyeTransformation();
@@ -546,7 +479,7 @@ namespace treeDiM.StackBuilder.Graphics
                     Vector3D vecMax = new Vector3D(double.MinValue, double.MinValue, double.MinValue);
 
                     // boxes
-                    foreach (Box box in _boxes)
+                    foreach (Box box in Boxes)
                         foreach (Vector3D pt in box.Points)
                         {
                             Vector3D ptT = world2eye.transform(pt);
@@ -558,7 +491,7 @@ namespace treeDiM.StackBuilder.Graphics
                             vecMax.Z = Math.Max(vecMax.Z, ptT.Z);
                         }
                     // cylinders
-                    foreach (Cylinder cyl in _cylinders)
+                    foreach (Cylinder cyl in Cylinders)
                     {
                         foreach (Vector3D pt in cyl.BottomPoints)
                         {
@@ -582,7 +515,7 @@ namespace treeDiM.StackBuilder.Graphics
                         }
                     }
                     // faces
-                    foreach (Face face in _faces)
+                    foreach (Face face in Faces)
                         foreach (Vector3D pt in face.Points)
                         {
                             Vector3D ptT = world2eye.transform(pt);
@@ -595,7 +528,7 @@ namespace treeDiM.StackBuilder.Graphics
                         }
 
                     // segments
-                    foreach (Segment seg in _segments)
+                    foreach (Segment seg in Segments)
                         foreach (Vector3D pt in seg.Points)
                         {
                             Vector3D ptT = world2eye.transform(pt);
@@ -636,21 +569,21 @@ namespace treeDiM.StackBuilder.Graphics
                     }
                     // set margins
                     double width = vecMax1.X - vecMin1.X;
-                    vecMin1.X -= _margin * width;
-                    vecMax1.X += _margin * width;
+                    vecMin1.X -= MarginPercentage * width;
+                    vecMax1.X += MarginPercentage * width;
                     double height = vecMax1.Y - vecMin1.Y;
-                    vecMin1.Y -= _margin * height;
-                    vecMax1.Y += _margin * height;
+                    vecMin1.Y -= MarginPercentage * height;
+                    vecMax1.Y += MarginPercentage * height;
 
                     orthographicProj = GetOrthographicProjection(vecMin1, vecMax1);
                 }
-                _currentTransf = orthographicProj * world2eye;
+                CurrentTransf = orthographicProj * world2eye;
             }
-            return _currentTransf;
+            return CurrentTransf;
         }
         public Transform3D GetCurrentTransformation(List<Vector3D> points)
         {
-            if (null == _currentTransf)
+            if (null == CurrentTransf)
             {
                 // get transformations
                 Transform3D world2eye = GetWorldToEyeTransformation();
@@ -691,26 +624,26 @@ namespace treeDiM.StackBuilder.Graphics
                     }
                     // set margins
                     double width = vecMax1.X - vecMin1.X;
-                    vecMin1.X -= _margin * width;
-                    vecMax1.X += _margin * width;
+                    vecMin1.X -= MarginPercentage * width;
+                    vecMax1.X += MarginPercentage * width;
                     double height = vecMax1.Y - vecMin1.Y;
-                    vecMin1.Y -= _margin * height;
-                    vecMax1.Y += _margin * height;
+                    vecMin1.Y -= MarginPercentage * height;
+                    vecMax1.Y += MarginPercentage * height;
 
                     orthographicProj = GetOrthographicProjection(vecMin1, vecMax1);
                 }
-                _currentTransf = orthographicProj * world2eye;
+                CurrentTransf = orthographicProj * world2eye;
             }
-            return _currentTransf;
+            return CurrentTransf;
         }
 
         public void AddSegmentBackgound(Segment seg)
         { 
-            _segmentsBackground.Add(seg);
+            SegmentsBackground.Add(seg);
         }
         public void AddSegment(Segment seg)
         {
-            _segments.Add(seg);
+            Segments.Add(seg);
         }
         public void AddImage(Analysis analysis, Vector3D vDimensions, BoxPosition boxPosition)
         {
@@ -756,8 +689,8 @@ namespace treeDiM.StackBuilder.Graphics
             System.Drawing.Graphics g = Graphics;
 
             // test if triangle can actually be seen
-            if ((Vector3D.DotProduct(tr.Normal, _vCameraPos - _vTarget) > 0.0 && dir == FaceDir.BACK)
-                || (Vector3D.DotProduct(tr.Normal, _vCameraPos - _vTarget) < 0.0 && dir == FaceDir.FRONT))
+            if ((Vector3D.DotProduct(tr.Normal, CameraPosition - Target) > 0.0 && dir == FaceDir.BACK)
+                || (Vector3D.DotProduct(tr.Normal, CameraPosition - Target) < 0.0 && dir == FaceDir.FRONT))
                 return;
             // compute triangle color
             double cosA = Math.Abs(Vector3D.DotProduct(tr.Normal, VLight));
@@ -786,8 +719,8 @@ namespace treeDiM.StackBuilder.Graphics
             System.Drawing.Graphics g = Graphics;
 
             // test if face can actually be seen
-            if ((Vector3D.DotProduct(face.Normal, _vCameraPos - _vTarget) > 0.0 && dir == FaceDir.BACK)
-                || (Vector3D.DotProduct(face.Normal, _vCameraPos - _vTarget) < 0.0 && dir == FaceDir.FRONT))
+            if ((Vector3D.DotProduct(face.Normal, CameraPosition - Target) > 0.0 && dir == FaceDir.BACK)
+                || (Vector3D.DotProduct(face.Normal, CameraPosition - Target) < 0.0 && dir == FaceDir.FRONT))
                 return;
 
             // compute face color
@@ -819,8 +752,8 @@ namespace treeDiM.StackBuilder.Graphics
             System.Drawing.Graphics g = Graphics;
 
             // test if face can actuallt be seen
-            if ((Vector3D.DotProduct(face.Normal, _vCameraPos - _vTarget) > 0.0 && dir == FaceDir.BACK)
-                || (Vector3D.DotProduct(face.Normal, _vCameraPos - _vTarget) < 0.0 && dir == FaceDir.FRONT))
+            if ((Vector3D.DotProduct(face.Normal, CameraPosition - Target) > 0.0 && dir == FaceDir.BACK)
+                || (Vector3D.DotProduct(face.Normal, CameraPosition - Target) < 0.0 && dir == FaceDir.FRONT))
                 return;
 
             // compute face color
@@ -869,7 +802,7 @@ namespace treeDiM.StackBuilder.Graphics
                     // face normal
                     Vector3D normal = face.Normal;
                     // visible ?
-                    if (!faces[i].IsVisible(_vTarget - _vCameraPos))
+                    if (!faces[i].IsVisible(Target - CameraPosition))
                         continue;
                     // color
                     faces[i].ColorFill = box.Colors[i];
@@ -917,7 +850,7 @@ namespace treeDiM.StackBuilder.Graphics
                 }
 
                 // draw box tape
-                if (box.ShowTape && faces[5].IsVisible(_vTarget - _vCameraPos))
+                if (box.ShowTape && faces[5].IsVisible(Target - CameraPosition))
                 {
                     // get color
                     double cosA = Math.Abs(Vector3D.DotProduct(faces[5].Normal, VLight));
@@ -937,7 +870,7 @@ namespace treeDiM.StackBuilder.Graphics
                     g.DrawLine(penPathThick, pts[ptCount - 1], pts[0]);
                 }
             }
-            if (_showBoxIds)
+            if (ShowBoxIds)
             {
                 // draw box id
                 Point ptId = TransformPoint(GetCurrentTransformation(), box.TopFace.Center);
@@ -1003,7 +936,7 @@ namespace treeDiM.StackBuilder.Graphics
             // ***
 
             Point ptZero = TransformPoint(GetCurrentTransformation(), Vector3D.Zero);
-            bmp = imgCached.Image(s, _vCameraPos, _vTarget, ref offset);
+            bmp = imgCached.Image(s, CameraPosition, Target, ref offset);
         }
         #endregion
 
@@ -1032,7 +965,7 @@ namespace treeDiM.StackBuilder.Graphics
                 {
                     Vector3D normal = face.Normal;
                     // visible ?
-                    if (!face.IsVisible(_vTarget - _vCameraPos))
+                    if (!face.IsVisible(Target - CameraPosition))
                         continue;
 
                     // color
@@ -1052,7 +985,7 @@ namespace treeDiM.StackBuilder.Graphics
             double cosTop = System.Math.Abs(Vector3D.DotProduct(HalfAxis.ToVector3D(cyl.Position.Direction), VLight));
             Color colorTop = Color.FromArgb((int)(cyl.ColorTop.R * cosTop), (int)(cyl.ColorTop.G * cosTop), (int)(cyl.ColorTop.B * cosTop));
             Brush brushTop = new SolidBrush(colorTop);
-            bool topVisible = Vector3D.DotProduct(HalfAxis.ToVector3D(cyl.Position.Direction), _vTarget - _vCameraPos) < 0;
+            bool topVisible = Vector3D.DotProduct(HalfAxis.ToVector3D(cyl.Position.Direction), Target - CameraPosition) < 0;
 
             if (cyl.DiameterInner > 0)
             {
@@ -1064,7 +997,7 @@ namespace treeDiM.StackBuilder.Graphics
                         Vector3D normal = face.Normal;
 
                         // visible ?
-                        if (!face.IsVisible(_vTarget - _vCameraPos))
+                        if (!face.IsVisible(Target - CameraPosition))
                             continue;
                         // color
                         // draw polygon

@@ -324,7 +324,7 @@ namespace treeDiM.StackBuilder.Desktop
             if (AssemblyConf == "debug" || Settings.Default.ShowLogConsole)
             {
                 _logConsole = new DockContentLogConsole();
-                _logConsole.Show(dockPanel, WeifenLuo.WinFormsUI.Docking.DockState.DockBottom);
+                _logConsole.Show(dockPanel, DockState.DockBottom);
             }
             else
             {

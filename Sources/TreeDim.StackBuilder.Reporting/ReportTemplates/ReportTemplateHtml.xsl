@@ -273,6 +273,18 @@
     </h3>
     <table class="style1">
       <xsl:apply-templates select="item"/>
+      <xsl:if test="noLayersAndNoCases">
+        <tr>
+          <td class="style2" colspan="1">
+            <b>
+              <xsl:value-of select="$loc/str[@name='Layers x Cases']"/>
+            </b>
+          </td>
+          <td class="style3" colspan="3">
+            <xsl:value-of select="noLayersAndNoCases"/>
+          </td>
+        </tr>
+      </xsl:if>
       <xsl:if test="netWeight">
         <tr>
           <td class="style2" colspan="1">
@@ -351,7 +363,7 @@
           <xsl:value-of select="name"/>
         </b>
       </td>
-      <td class="style3" colspan="3">
+      <td class="style3" colspan="1">
         <xsl:value-of select="value"/>
       </td>
     </tr>
@@ -457,7 +469,7 @@
       <tr>
         <td class="style2" colspan="1">
           <b>
-            <xsl:value-of select="$loc/str[@name='Layer(s)']"/>
+            <xsl:value-of select="$loc/str[@name='Layer Indexes']"/>
           </b>
         </td>
         <td class="style3" colspan="1">

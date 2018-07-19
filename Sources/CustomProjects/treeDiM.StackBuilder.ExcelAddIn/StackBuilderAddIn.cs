@@ -147,9 +147,11 @@ namespace treeDiM.StackBuilder.ExcelAddIn
                     Graphics3DImage graphics = null;
                     // generate image path
                     string stackImagePath = Path.Combine(Path.ChangeExtension(Path.GetTempFileName(), "png"));
-                    graphics = new Graphics3DImage(new Size(Settings.Default.ImageSize, Settings.Default.ImageSize));
-                    graphics.FontSizeRatio = 0.01f;
-                    graphics.CameraPosition = Graphics3D.Corner_0;
+                    graphics = new Graphics3DImage(new Size(Settings.Default.ImageSize, Settings.Default.ImageSize))
+                    {
+                        FontSizeRatio = Settings.Default.FontSizeRatio,
+                        CameraPosition = Graphics3D.Corner_0
+                    };
                     ViewerSolution sv = new ViewerSolution(analysis.Solution);
                     sv.Draw(graphics, Transform3D.Identity);
                     graphics.Flush();
