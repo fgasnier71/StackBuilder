@@ -56,6 +56,7 @@ namespace treeDiM.StackBuilder.Desktop
         {
             try
             {
+
             }
             catch (Exception ex)
             {
@@ -64,7 +65,14 @@ namespace treeDiM.StackBuilder.Desktop
         }
         private void OnCaseAdded(object sender, EventArgs e)
         {
-
+            try
+            {
+            }
+            catch (Exception ex)
+            {
+                _log.Error(ex.ToString());
+            }
+            OnInputChanged(sender, e);
         }
         #endregion
 

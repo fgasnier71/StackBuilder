@@ -405,10 +405,10 @@
             this.toolStripMenuItemBestPack.Name = "toolStripMenuItemBestPack";
             this.toolStripMenuItemBestPack.Click += new System.EventHandler(this.OnOptiPack);
             // 
-            // toolStripSeparator6
+            // toolStripSeparatorPLMPackLib
             // 
-            this.toolStripSeparatorPLMPackLib.Name = "toolStripSeparator6";
-            resources.ApplyResources(this.toolStripSeparatorPLMPackLib, "toolStripSeparator6");
+            this.toolStripSeparatorPLMPackLib.Name = "toolStripSeparatorPLMPackLib";
+            resources.ApplyResources(this.toolStripSeparatorPLMPackLib, "toolStripSeparatorPLMPackLib");
             // 
             // toolStripMIPLMPackLib
             // 
