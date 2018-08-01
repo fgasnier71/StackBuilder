@@ -1,15 +1,11 @@
 ﻿#region Using directives
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Drawing;
 
 using treeDiM.StackBuilder.Basics;
 
 using Sharp3D.Math.Core;
-
-using log4net;
 #endregion
 
 namespace treeDiM.StackBuilder.Graphics
@@ -94,8 +90,7 @@ namespace treeDiM.StackBuilder.Graphics
 
                 foreach (Face f in faces)
                 {
-                    Vector3D ptInter;
-                    if (f.IsVisible(ViewDir) && f.RayIntersect(ray, out ptInter))
+                    if (f.IsVisible(ViewDir) && f.RayIntersect(ray, out Vector3D ptInter))
                         return true;
                 }
             }

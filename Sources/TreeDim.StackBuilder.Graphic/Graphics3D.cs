@@ -254,6 +254,10 @@ namespace treeDiM.StackBuilder.Graphics
         {
             Faces.Add(face);
         }
+        public void AddTriangle(Triangle triangle)
+        {
+            Triangles.Add(triangle);
+        }
         public void AddBox(Box box)
         {
             if (!box.IsValid)
@@ -280,6 +284,7 @@ namespace treeDiM.StackBuilder.Graphics
         public List<Segment> SegmentsBackground { get; set; } = new List<Segment>();
         public List<Box> Boxes { get; set; } = new List<Box>();
         public List<Face> Faces { get; set; } = new List<Face>();
+        public List<Triangle> Triangles { get; set; } = new List<Triangle>();
         public Transform3D CurrentTransf { get; set; }
         #endregion
 
@@ -323,15 +328,17 @@ namespace treeDiM.StackBuilder.Graphics
             // draw background faces
             foreach (Face face in _facesBackground)
                 Draw(face, FaceDir.FRONT);
-            // draw all faces using solid / transparency depending on 
+            // draw all faces using solid / transparency
             foreach (Face face in Faces)
                 Draw(face, FaceDir.BACK);
+            // draw triangles
+            foreach (Triangle tr in Triangles)
+                Draw(tr, FaceDir.FRONT);
 
             // sort box list
             if (UseBoxelOrderer)
             {
-                BoxelOrderer boxelOrderer = new BoxelOrderer(Boxes);
-                boxelOrderer.Direction = Target - CameraPosition;
+                BoxelOrderer boxelOrderer = new BoxelOrderer(Boxes) { Direction = Target - CameraPosition };
                 Boxes = boxelOrderer.GetSortedList();
             }
             else
@@ -364,8 +371,7 @@ namespace treeDiM.StackBuilder.Graphics
                     {
                         if (boxes.Count > 0)
                         {
-                            BoxelOrderer boxelOrderer = new BoxelOrderer(boxes);
-                            boxelOrderer.Direction = Target - CameraPosition;
+                            BoxelOrderer boxelOrderer = new BoxelOrderer(boxes) { Direction = Target - CameraPosition };
                             boxes = boxelOrderer.GetSortedList();
                             // draw boxes
                             foreach (Box bb in boxes)
@@ -396,8 +402,7 @@ namespace treeDiM.StackBuilder.Graphics
                 }
 
                 // remaining boxes
-                BoxelOrderer boxelOrdererRem = new BoxelOrderer(boxes);
-                boxelOrdererRem.Direction = Target - CameraPosition;
+                BoxelOrderer boxelOrdererRem = new BoxelOrderer(boxes) { Direction = Target - CameraPosition };
                 boxes = boxelOrdererRem.GetSortedList();
                 // draw boxes
                 foreach (Box bb in boxes)
@@ -416,6 +421,9 @@ namespace treeDiM.StackBuilder.Graphics
                 // draw all boxes
                 foreach (Box box in Boxes)
                     Draw(box);
+                // draw all triangles
+                foreach (Triangle tr in Triangles)
+                    Draw(tr, FaceDir.FRONT);
             }
             // images inst
             if (_listImageInst.Count > 0)
@@ -481,6 +489,18 @@ namespace treeDiM.StackBuilder.Graphics
                     // boxes
                     foreach (Box box in Boxes)
                         foreach (Vector3D pt in box.Points)
+                        {
+                            Vector3D ptT = world2eye.transform(pt);
+                            vecMin.X = Math.Min(vecMin.X, ptT.X);
+                            vecMin.Y = Math.Min(vecMin.Y, ptT.Y);
+                            vecMin.Z = Math.Min(vecMin.Z, ptT.Z);
+                            vecMax.X = Math.Max(vecMax.X, ptT.X);
+                            vecMax.Y = Math.Max(vecMax.Y, ptT.Y);
+                            vecMax.Z = Math.Max(vecMax.Z, ptT.Z);
+                        }
+                    // triangles
+                    foreach (var tr in Triangles)
+                        foreach (Vector3D pt in tr.Points)
                         {
                             Vector3D ptT = world2eye.transform(pt);
                             vecMin.X = Math.Min(vecMin.X, ptT.X);

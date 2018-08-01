@@ -902,6 +902,8 @@ namespace treeDiM.StackBuilder.Basics
         {
             get { return new ReadOnlyCollection<ItemBase>(_typeList); }
         }
+        public IEnumerable<BoxProperties> Bricks =>
+            _typeList.OfType<BoxProperties>();
 
         public IEnumerable<BoxProperties> Boxes =>
             _typeList.OfType<BoxProperties>().Where(x => !x.HasInsideDimensions);

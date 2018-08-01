@@ -11,8 +11,13 @@ namespace treeDiM.StackBuilder.Basics
     /// </summary>
     public class HSolution
     {
-        public IEnumerable<HSolItem> SolItems { get; set; }
+        public IEnumerable<HSolItem> SolItems { get => hSolItems; }
         public IEnumerable<HUnloadedElt> UnloadedElts { get; set; }
+        public HAnalysis Analysis { get; set; }
+
+        public HSolItem CreateSolItem() { hSolItems.Add(new HSolItem()); return hSolItems[hSolItems.Count - 1]; }
+
+        private readonly List<HSolItem> hSolItems = new List<HSolItem>();
     }
     /// <summary>
     /// Heterogeneous solution item
@@ -20,10 +25,17 @@ namespace treeDiM.StackBuilder.Basics
     public class HSolItem
     {
         public int ContainerType { get; set; }
-        public IEnumerable<HSolElement> ContainedElements {get; set;}
+        public IEnumerable<HSolElement> ContainedElements { get => hSolElt; }
+
+        public void InsertContainedElt(int contentType, BoxPosition bPosition)
+        {
+            hSolElt.Add(new HSolElement() { ContentType = contentType, Position = bPosition });
+        }
 
         public Vector3D LoadDimensions { get; set; }
         public Vector3D TotalDimensions { get; set; }
+
+        private readonly List<HSolElement> hSolElt = new List<HSolElement>();
     }
     /// <summary>
     /// Solution element

@@ -231,9 +231,8 @@ namespace treeDiM.StackBuilder.Desktop
         {
             try
             {
-                Packable packable = cbCases.SelectedType as Packable;
                 PalletProperties palletProperties = cbPallets.SelectedType as PalletProperties;
-                if (null == packable || null == palletProperties)
+                if (!(cbCases.SelectedType is Packable packable) || null == palletProperties)
                     return;
                 ConstraintSetAbstract constraintSet = BuildConstraintSet();
                 // get best combination

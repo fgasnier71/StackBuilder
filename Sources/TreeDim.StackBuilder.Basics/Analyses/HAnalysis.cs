@@ -1,6 +1,7 @@
 ﻿#region Using directives
-using System.Collections.Generic;
+using System;
 using System.Linq;
+using System.Collections.Generic;
 
 using log4net;
 #endregion
@@ -12,6 +13,7 @@ namespace treeDiM.StackBuilder.Basics
         public HAnalysis(Document doc)
             : base(doc)
         {
+            Solution = new HSolution() { Analysis = this };
         }
         public IEnumerable<ContentItem> Content
         {
@@ -30,7 +32,14 @@ namespace treeDiM.StackBuilder.Basics
                 }
             }
         }
-        public IEnumerable<ItemBase> Containers => _container;
+        public Packable ContentTypeByIndex(int index)
+        {
+            if (index < 0 || index >= _content.Count)
+                throw new Exception($"Invalid type index {index}");
+            return _content[index].Pack;
+        }
+
+        public IEnumerable<ItemBase> Containers => _containers;
 
         public HConstraintSet ConstraintSet { get; set; }
         public virtual double ContentTotalVolume => Content.Sum(ci => ci.Pack.Volume * ci.Number);
@@ -47,11 +56,10 @@ namespace treeDiM.StackBuilder.Basics
 
         public HSolution BuildSolution()
         {
-            Solution = new HSolution();
             return Solution;
         }
         #region Non-public members
-        protected HSolution Solution { get; private set; }
+        public HSolution Solution { get; private set; }
 
         protected override void RemoveItselfFromDependancies()
         {
@@ -61,7 +69,7 @@ namespace treeDiM.StackBuilder.Basics
         }
 
         private List<ContentItem> _content = new List<ContentItem>();
-        private List<ItemBase> _container = new List<ItemBase>();
+        protected readonly List<ItemBase> _containers = new List<ItemBase>();
         static readonly ILog _log = LogManager.GetLogger(typeof(Analysis));
         #endregion
     }

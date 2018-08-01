@@ -51,21 +51,22 @@ namespace treeDiM.StackBuilder.Engine
             var result = binPacker.Pack(parameter);
 
             HSolution sol = new HSolution();
-            List<HSolItem> solItems = new List<HSolItem>();
             foreach (var bins in result.BestResult)
             {
+                HSolItem hSolItem = sol.CreateSolItem();
                 foreach (var cuboid in bins)
                 {
-                    solItems.Add(CuboidToSolItem(cuboid));
+                    CuboidToSolItem(cuboid, out int index, out BoxPosition pos);
+                    hSolItem.InsertContainedElt(index, pos);
                 }
             }
-            sol.SolItems = solItems;
-            solutions.Add(new HSolution() { SolItems = solItems });
+ 
+            solutions.Add(sol);
             return solutions;
         }
-        private HSolItem CuboidToSolItem(Cuboid cuboid)
+        private void CuboidToSolItem(Cuboid cuboid, out int index, out BoxPosition pos)
         {
-            return new HSolItem() {};
+            index = 0; pos = new BoxPosition();
         }
     }
 

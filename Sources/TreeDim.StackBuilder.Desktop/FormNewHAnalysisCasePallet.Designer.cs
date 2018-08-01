@@ -59,6 +59,13 @@
             this.splitContainerVert.Panel1.Controls.Add(this.uCtrlPalletHeight);
             this.splitContainerVert.Panel1.Controls.Add(this.lbPallet);
             // 
+            // gridContent
+            // 
+            this.gridContent.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.gridContent.ColumnsCount = 2;
+            this.gridContent.FixedRows = 1;
+            this.gridContent.RowsCount = 1;
+            // 
             // lbPallet
             // 
             resources.ApplyResources(this.lbPallet, "lbPallet");
@@ -75,6 +82,7 @@
             this.uCtrlPalletHeight.Name = "uCtrlPalletHeight";
             this.uCtrlPalletHeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlPalletHeight.Value = 0D;
+            this.uCtrlPalletHeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.ValueChangedDelegate(this.OnInputChanged);
             // 
             // cbPallets
             // 
@@ -82,6 +90,7 @@
             this.cbPallets.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbPallets.FormattingEnabled = true;
             this.cbPallets.Name = "cbPallets";
+            this.cbPallets.SelectedIndexChanged += new System.EventHandler(this.OnInputChanged);
             // 
             // FormNewHAnalysisCasePallet
             // 

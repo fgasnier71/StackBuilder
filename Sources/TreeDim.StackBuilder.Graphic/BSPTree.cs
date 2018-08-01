@@ -41,6 +41,9 @@ namespace treeDiM.StackBuilder.Graphics
             List<Triangle> triangles = new List<Triangle>();
             Draw(Root, g.CameraPosition, ref triangles);
 
+            foreach (var tr in triangles)
+                g.AddTriangle(tr);
+            /*
             List<Vector3D> points = new List<Vector3D>();
             foreach (Triangle tr in triangles)
             {
@@ -51,6 +54,7 @@ namespace treeDiM.StackBuilder.Graphics
             Transform3D transf = g.GetCurrentTransformation(points);
             foreach (Triangle t in triangles)
                 g.Draw(t, Graphics3D.FaceDir.FRONT);
+            */
         }
 
         private void Draw(BSPNodeTri node, Vector3D ptEye, ref List<Triangle> triangles)

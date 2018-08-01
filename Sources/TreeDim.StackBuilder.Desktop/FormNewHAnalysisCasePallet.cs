@@ -1,7 +1,6 @@
 ﻿#region Using directives
 using System;
 using System.Linq;
-using System.Collections.Generic;
 using System.Windows.Forms;
 
 using log4net;
@@ -34,11 +33,18 @@ namespace treeDiM.StackBuilder.Desktop
         {
             base.OnLoad(e);
 
-            cbPallets.Initialize(_document, this, AnalysisCast?.Containers.First());
+            var containers = AnalysisCast?.Containers;
+            ItemBase curPallet = null;
+            if (null != containers && containers.Count() > 0)
+                curPallet = containers.First();
+            cbPallets.Initialize(_document, this, curPallet);
+
             if (null == AnalysisCast)
                 uCtrlPalletHeight.Value = Settings.Default.MaximumPalletHeight;
             else
                 uCtrlPalletHeight.Value = AnalysisCast.ConstraintSet.MaximumHeight;
+
+            AnalysisCast.Pallet = SelectedPallet;
         }
         #endregion
 
@@ -85,11 +91,7 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Helpers
-        private List<BoxProperties> BuildListOfCases()
-        {
-            List<BoxProperties> listCases = new List<BoxProperties>();
-            return listCases;
-        }
+        private PalletProperties SelectedPallet => cbPallets.SelectedType as PalletProperties;
         #endregion
 
         #region Data members

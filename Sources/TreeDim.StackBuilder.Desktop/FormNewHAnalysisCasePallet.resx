@@ -256,13 +256,13 @@
     <value>cbPallets</value>
   </data>
   <data name="&gt;&gt;cbPallets.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered, treeDiM.StackBuilder.Graphics, Version=3.0.0.76, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;cbPallets.Parent" xml:space="preserve">
     <value>splitContainerVert.Panel1</value>
   </data>
   <data name="&gt;&gt;cbPallets.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>2</value>
   </data>
   <data name="uCtrlPalletHeight.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
@@ -286,13 +286,13 @@
     <value>uCtrlPalletHeight</value>
   </data>
   <data name="&gt;&gt;uCtrlPalletHeight.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.69, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Basics.UCtrlDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.76, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlPalletHeight.Parent" xml:space="preserve">
     <value>splitContainerVert.Panel1</value>
   </data>
   <data name="&gt;&gt;uCtrlPalletHeight.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>3</value>
   </data>
   <data name="lbPallet.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -319,7 +319,7 @@
     <value>splitContainerVert.Panel1</value>
   </data>
   <data name="&gt;&gt;lbPallet.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>4</value>
   </data>
   <data name="&gt;&gt;splitContainerVert.Panel1.Name" xml:space="preserve">
     <value>splitContainerVert.Panel1</value>
@@ -367,7 +367,7 @@
     <value>splitContainerVert.Panel1</value>
   </data>
   <data name="&gt;&gt;gridContent.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>1</value>
   </data>
   <data name="&gt;&gt;gridSolutions.Name" xml:space="preserve">
     <value>gridSolutions</value>
@@ -391,7 +391,7 @@
     <value>splitContainerVert.Panel1</value>
   </data>
   <data name="&gt;&gt;bnAddRow.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -537,6 +537,6 @@
     <value>FormNewHAnalysisCasePallet</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Desktop.FormNewHAnalysis, treeDiM.StackBuilder.Desktop, Version=3.0.0.69, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Desktop.FormNewHAnalysis, treeDiM.StackBuilder.Desktop, Version=3.0.0.76, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

@@ -111,6 +111,7 @@
     <Compile Include="Corner.cs" />
     <Compile Include="CylinderComparer.cs" />
     <Compile Include="DrawableComparerSimplifiedPainterAlgo.cs" />
+    <Compile Include="SolutionViewers\ViewerHSolution.cs" />
     <Compile Include="Types\Film.cs" />
     <Compile Include="Controls\Graphics3DControl.cs">
       <SubType>UserControl</SubType>

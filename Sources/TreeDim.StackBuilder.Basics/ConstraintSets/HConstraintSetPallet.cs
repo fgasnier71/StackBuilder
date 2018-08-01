@@ -3,8 +3,7 @@
 
 namespace treeDiM.StackBuilder.Basics
 {
-    public class HConstraintSet
+    public class HConstraintSetPallet : HConstraintSet
     {
-        public virtual double MaximumHeight { get; set; }
     }
 }

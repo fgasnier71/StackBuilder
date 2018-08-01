@@ -10,7 +10,7 @@ namespace treeDiM.StackBuilder.Basics
     {
         public ConstraintSetBoxCase(Packable container)
             : base(container)
-        {
+        {            
         }
 
         public override string AllowedOrientationsString
