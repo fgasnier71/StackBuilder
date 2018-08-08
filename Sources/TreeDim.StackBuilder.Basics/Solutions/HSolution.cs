@@ -1,4 +1,5 @@
 ﻿#region Using directives
+using System.Linq;
 using System.Collections.Generic;
 
 using Sharp3D.Math.Core;
@@ -11,11 +12,30 @@ namespace treeDiM.StackBuilder.Basics
     /// </summary>
     public class HSolution
     {
+        public HSolution(string algo) { Algorithm = algo; }
         public IEnumerable<HSolItem> SolItems { get => hSolItems; }
         public IEnumerable<HUnloadedElt> UnloadedElts { get; set; }
         public HAnalysis Analysis { get; set; }
-
         public HSolItem CreateSolItem() { hSolItems.Add(new HSolItem()); return hSolItems[hSolItems.Count - 1]; }
+        public string Algorithm { get; private set; } = string.Empty;
+        public int LoadedCasesCount
+        {
+            get
+            {
+                int iCount = 0;
+                foreach (HSolItem solItem in SolItems)
+                    iCount += solItem.Count;
+                return iCount;
+            }
+        }
+        public int UnloadedCasesCount => UnloadedElts.ToList().Count;
+        public double LoadedVolumePercentage
+        {
+            get
+            {
+                return 100.0;
+            }
+        }
 
         private readonly List<HSolItem> hSolItems = new List<HSolItem>();
     }
@@ -31,7 +51,7 @@ namespace treeDiM.StackBuilder.Basics
         {
             hSolElt.Add(new HSolElement() { ContentType = contentType, Position = bPosition });
         }
-
+        public int Count => hSolElt.Count;
         public Vector3D LoadDimensions { get; set; }
         public Vector3D TotalDimensions { get; set; }
 

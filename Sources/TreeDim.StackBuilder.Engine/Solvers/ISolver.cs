@@ -22,6 +22,6 @@ namespace treeDiM.StackBuilder.Engine
     /// </summary>
     interface IHSolver
     {
-        List<HSolution> BuildSolutions(Vector3D dimContainer, IEnumerable<ContentItem> contentItem, HConstraintSet constraintSet);
+        List<HSolution> BuildSolutions(Vector3D dimContainer, List<ContentItem> contentItem, HConstraintSet constraintSet);
     }
 }

@@ -189,13 +189,15 @@ namespace treeDiM.StackBuilder.Basics
         {
             get
             {
-                List<DataDef> dataDefs = new List<DataDef>();
-                dataDefs.Add(new DataDef(Resources.ID_PACKCOUNT, typeof(string), UnitsManager.UnitType.UT_NONE, false));
-                dataDefs.Add(new DataDef(Resources.ID_CONSUMERSALESUNITS, typeof(int), UnitsManager.UnitType.UT_NONE, true));
-                dataDefs.Add(new DataDef(Resources.ID_LAYERWEIGHT, typeof(double), UnitsManager.UnitType.UT_MASS, true));
-                dataDefs.Add(new DataDef(Resources.ID_PALLETWEIGHT, typeof(double), UnitsManager.UnitType.UT_MASS, true));
-                dataDefs.Add(new DataDef(Resources.ID_PALLETHEIGHT, typeof(double), UnitsManager.UnitType.UT_LENGTH, true));
-                dataDefs.Add(new DataDef(Resources.ID_MAXIMUMSPACE, typeof(double), UnitsManager.UnitType.UT_LENGTH, true ));
+                List<DataDef> dataDefs = new List<DataDef>
+                {
+                    new DataDef(Resources.ID_PACKCOUNT, typeof(string), UnitsManager.UnitType.UT_NONE, false),
+                    new DataDef(Resources.ID_CONSUMERSALESUNITS, typeof(int), UnitsManager.UnitType.UT_NONE, true),
+                    new DataDef(Resources.ID_LAYERWEIGHT, typeof(double), UnitsManager.UnitType.UT_MASS, true),
+                    new DataDef(Resources.ID_PALLETWEIGHT, typeof(double), UnitsManager.UnitType.UT_MASS, true),
+                    new DataDef(Resources.ID_PALLETHEIGHT, typeof(double), UnitsManager.UnitType.UT_LENGTH, true),
+                    new DataDef(Resources.ID_MAXIMUMSPACE, typeof(double), UnitsManager.UnitType.UT_LENGTH, true)
+                };
                 return dataDefs.ToArray();
             }
         }
@@ -203,13 +205,15 @@ namespace treeDiM.StackBuilder.Basics
         {
             get
             {
-                List<object> values = new List<object>();
-                values.Add(string.Format("{0}\n({1} * {2})", PackCount, PackPerLayer, LayerCount));
-                values.Add(CSUCount);
-                values.Add(LayerWeight);
-                values.Add(PalletWeight);
-                values.Add(PalletHeight);
-                values.Add(MaximumSpace);
+                List<object> values = new List<object>
+                {
+                    string.Format("{0}\n({1} * {2})", PackCount, PackPerLayer, LayerCount),
+                    CSUCount,
+                    LayerWeight,
+                    PalletWeight,
+                    PalletHeight,
+                    MaximumSpace
+                };
                 return values;
             }
         }

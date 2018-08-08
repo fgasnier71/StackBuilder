@@ -13,17 +13,17 @@ namespace treeDiM.StackBuilder.Basics
         public HAnalysis(Document doc)
             : base(doc)
         {
-            Solution = new HSolution() { Analysis = this };
+            Solution = new HSolution(string.Empty) { Analysis = this };
         }
+
+        #region Content
         public IEnumerable<ContentItem> Content
         {
             get { return _content; }
             set
             {
                 if (value == _content) return;
-                foreach (ContentItem ci in _content)
-                    ci.Pack.RemoveDependancy(this);
-                _content.Clear();
+                ClearContent();
                 foreach (ContentItem ci in value)
                 {
                     if (null != ParentDocument)
@@ -38,13 +38,12 @@ namespace treeDiM.StackBuilder.Basics
                 throw new Exception($"Invalid type index {index}");
             return _content[index].Pack;
         }
-
-        public IEnumerable<ItemBase> Containers => _containers;
-
-        public HConstraintSet ConstraintSet { get; set; }
-        public virtual double ContentTotalVolume => Content.Sum(ci => ci.Pack.Volume * ci.Number);
-        public virtual double ContentTotalWeight => Content.Sum(ci => ci.Pack.Weight * ci.Number);
-
+        public void ClearContent()
+        {
+            foreach (ContentItem ci in _content)
+                ci.Pack.RemoveDependancy(this);
+            _content.Clear();
+        }
         public void AddContent(Packable p, uint number, bool[] orientations)
         {
             _content.Add(new ContentItem(p, number) { AllowedOrientations = orientations });
@@ -53,6 +52,14 @@ namespace treeDiM.StackBuilder.Basics
         {
             _content.Add(new ContentItem(p, 1) { AllowedOrientations = new bool[] { true, true, true } } );
         }
+        #endregion
+
+        public IEnumerable<ItemBase> Containers => _containers;
+
+        public HConstraintSet ConstraintSet { get; set; }
+        public virtual double ContentTotalVolume => Content.Sum(ci => ci.Pack.Volume * ci.Number);
+        public virtual double ContentTotalWeight => Content.Sum(ci => ci.Pack.Weight * ci.Number);
+
 
         public HSolution BuildSolution()
         {

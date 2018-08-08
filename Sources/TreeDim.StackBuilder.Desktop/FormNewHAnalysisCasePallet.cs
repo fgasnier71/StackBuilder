@@ -9,6 +9,7 @@ using treeDiM.StackBuilder.Basics;
 using treeDiM.StackBuilder.Graphics.Controls;
 
 using treeDiM.StackBuilder.Desktop.Properties;
+using Sharp3D.Math.Core;
 #endregion
 
 namespace treeDiM.StackBuilder.Desktop
@@ -57,12 +58,25 @@ namespace treeDiM.StackBuilder.Desktop
         }
         #endregion
 
+        #region FormHAnalysis override
+        protected override HConstraintSet ConstraintSet => new HConstraintSetPallet() { MaximumHeight = uCtrlPalletHeight.Value };
+        protected override Vector3D DimContainer
+        {
+            get
+            {
+                var pallet = SelectedPallet;
+                if (null == pallet) return Vector3D.Zero;
+                return new Vector3D(pallet.Length, pallet.Width, MaximumPalletHeight - pallet.Height);
+            }
+        }
+        #endregion
+
         #region Event handlers
         private void OnInputChanged(object sender, EventArgs e)
         {
             try
             {
-
+                Compute();
             }
             catch (Exception ex)
             {
@@ -73,6 +87,7 @@ namespace treeDiM.StackBuilder.Desktop
         {
             try
             {
+
             }
             catch (Exception ex)
             {
@@ -92,6 +107,7 @@ namespace treeDiM.StackBuilder.Desktop
 
         #region Helpers
         private PalletProperties SelectedPallet => cbPallets.SelectedType as PalletProperties;
+        private double MaximumPalletHeight => uCtrlPalletHeight.Value;
         #endregion
 
         #region Data members

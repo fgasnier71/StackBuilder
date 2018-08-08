@@ -16,20 +16,8 @@ namespace treeDiM.StackBuilder.Desktop
             FirstBackground = new DevAge.Drawing.VisualElements.BackgroundSolid(firstColor);
             SecondBackground = new DevAge.Drawing.VisualElements.BackgroundSolid(secondColor);
         }
-
-        private DevAge.Drawing.VisualElements.IVisualElement mFirstBackground;
-        public DevAge.Drawing.VisualElements.IVisualElement FirstBackground
-        {
-            get { return mFirstBackground; }
-            set { mFirstBackground = value; }
-        }
-
-        private DevAge.Drawing.VisualElements.IVisualElement mSecondBackground;
-        public DevAge.Drawing.VisualElements.IVisualElement SecondBackground
-        {
-            get { return mSecondBackground; }
-            set { mSecondBackground = value; }
-        }
+        public DevAge.Drawing.VisualElements.IVisualElement FirstBackground { get; set; }
+        public DevAge.Drawing.VisualElements.IVisualElement SecondBackground { get; set; }
 
         protected override void PrepareView(SourceGrid.CellContext context)
         {
@@ -48,20 +36,8 @@ namespace treeDiM.StackBuilder.Desktop
             FirstBackground = new DevAge.Drawing.VisualElements.BackgroundSolid(firstColor);
             SecondBackground = new DevAge.Drawing.VisualElements.BackgroundSolid(secondColor);
         }
-
-        private DevAge.Drawing.VisualElements.IVisualElement mFirstBackground;
-        public DevAge.Drawing.VisualElements.IVisualElement FirstBackground
-        {
-            get { return mFirstBackground; }
-            set { mFirstBackground = value; }
-        }
-
-        private DevAge.Drawing.VisualElements.IVisualElement mSecondBackground;
-        public DevAge.Drawing.VisualElements.IVisualElement SecondBackground
-        {
-            get { return mSecondBackground; }
-            set { mSecondBackground = value; }
-        }
+        public DevAge.Drawing.VisualElements.IVisualElement FirstBackground { get; set; }
+        public DevAge.Drawing.VisualElements.IVisualElement SecondBackground { get; set; }
 
         protected override void PrepareView(SourceGrid.CellContext context)
         {

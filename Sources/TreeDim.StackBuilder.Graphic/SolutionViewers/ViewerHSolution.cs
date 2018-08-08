@@ -21,6 +21,8 @@ namespace treeDiM.StackBuilder.Graphics
         #region Abstract methods
         public override void Draw(Graphics3D graphics, Transform3D transform)
         {
+            if (null == Solution)
+                return;
             // draw pallet
             PalletProperties palletProperties = Solution.Analysis.Containers.First() as PalletProperties;
             Pallet p = new Pallet(palletProperties);

@@ -845,4 +845,16 @@ Closing form...</value>
   <data name="ID_DATABASEITEMCOUNT" xml:space="preserve">
     <value>{0}-{1} out of {2} </value>
   </data>
+  <data name="ID_ALGORITHM" xml:space="preserve">
+    <value>Algorithm</value>
+  </data>
+  <data name="ID_LOADEDCASES" xml:space="preserve">
+    <value>Loaded cases</value>
+  </data>
+  <data name="ID_LOADEDVOLUMEPERCENTAGE" xml:space="preserve">
+    <value>Loaded volume percentage</value>
+  </data>
+  <data name="ID_UNLOADEDCASES" xml:space="preserve">
+    <value>Unloaded cases</value>
+  </data>
 </root>

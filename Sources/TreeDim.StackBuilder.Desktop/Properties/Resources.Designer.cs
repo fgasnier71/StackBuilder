@@ -439,6 +439,15 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Algorithm.
+        /// </summary>
+        internal static string ID_ALGORITHM {
+            get {
+                return ResourceManager.GetString("ID_ALGORITHM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Allow aligned and/or alternate layers.
         /// </summary>
         internal static string ID_ALLOWALIGNEDORALTERNATELAYERS {
@@ -1407,6 +1416,24 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Loaded cases.
+        /// </summary>
+        internal static string ID_LOADEDCASES {
+            get {
+                return ResourceManager.GetString("ID_LOADEDCASES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Loaded volume percentage.
+        /// </summary>
+        internal static string ID_LOADEDVOLUMEPERCENTAGE {
+            get {
+                return ResourceManager.GetString("ID_LOADEDVOLUMEPERCENTAGE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Load height.
         /// </summary>
         internal static string ID_LOADHEIGHT {
@@ -2026,6 +2053,15 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         internal static string ID_UNITSYSTEM {
             get {
                 return ResourceManager.GetString("ID_UNITSYSTEM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unloaded cases.
+        /// </summary>
+        internal static string ID_UNLOADEDCASES {
+            get {
+                return ResourceManager.GetString("ID_UNLOADEDCASES", resourceCulture);
             }
         }
         
