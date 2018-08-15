@@ -14,7 +14,7 @@ namespace treeDiM.StackBuilder.Basics
     {
         public HSolution(string algo) { Algorithm = algo; }
         public IEnumerable<HSolItem> SolItems { get => hSolItems; }
-        public IEnumerable<HUnloadedElt> UnloadedElts { get; set; }
+        public IEnumerable<HUnloadedElt> UnloadedElts { get => hUnloadedElts; }
         public HAnalysis Analysis { get; set; }
         public HSolItem CreateSolItem() { hSolItems.Add(new HSolItem()); return hSolItems[hSolItems.Count - 1]; }
         public string Algorithm { get; private set; } = string.Empty;
@@ -38,6 +38,7 @@ namespace treeDiM.StackBuilder.Basics
         }
 
         private readonly List<HSolItem> hSolItems = new List<HSolItem>();
+        private readonly List<HUnloadedElt> hUnloadedElts = new List<HUnloadedElt>();
     }
     /// <summary>
     /// Heterogeneous solution item

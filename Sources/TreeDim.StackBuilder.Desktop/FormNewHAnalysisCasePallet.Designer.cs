@@ -82,7 +82,7 @@
             this.uCtrlPalletHeight.Name = "uCtrlPalletHeight";
             this.uCtrlPalletHeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlPalletHeight.Value = 0D;
-            this.uCtrlPalletHeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.ValueChangedDelegate(this.OnInputChanged);
+            this.uCtrlPalletHeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.ValueChangedDelegate(this.OnDataModified);
             // 
             // cbPallets
             // 
@@ -90,7 +90,7 @@
             this.cbPallets.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbPallets.FormattingEnabled = true;
             this.cbPallets.Name = "cbPallets";
-            this.cbPallets.SelectedIndexChanged += new System.EventHandler(this.OnInputChanged);
+            this.cbPallets.SelectedIndexChanged += new System.EventHandler(this.OnDataModified);
             // 
             // FormNewHAnalysisCasePallet
             // 

@@ -261,41 +261,11 @@
   <data name="splitContainerVert.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
-  <data name="bnAddRow.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Right</value>
-  </data>
-  <data name="bnAddRow.Location" type="System.Drawing.Point, System.Drawing">
-    <value>223, 423</value>
-  </data>
-  <data name="bnAddRow.Size" type="System.Drawing.Size, System.Drawing">
-    <value>36, 23</value>
-  </data>
-  <data name="bnAddRow.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="bnAddRow.Text" xml:space="preserve">
-    <value>+</value>
-  </data>
-  <data name="&gt;&gt;bnAddRow.Name" xml:space="preserve">
-    <value>bnAddRow</value>
-  </data>
-  <data name="&gt;&gt;bnAddRow.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;bnAddRow.Parent" xml:space="preserve">
-    <value>splitContainerVert.Panel1</value>
-  </data>
-  <data name="&gt;&gt;bnAddRow.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="gridContent.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left, Right</value>
-  </data>
   <data name="gridContent.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 83</value>
   </data>
   <data name="gridContent.Size" type="System.Drawing.Size, System.Drawing">
-    <value>256, 338</value>
+    <value>256, 366</value>
   </data>
   <data name="gridContent.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -310,7 +280,7 @@
     <value>splitContainerVert.Panel1</value>
   </data>
   <data name="&gt;&gt;gridContent.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>0</value>
   </data>
   <data name="&gt;&gt;splitContainerVert.Panel1.Name" xml:space="preserve">
     <value>splitContainerVert.Panel1</value>
@@ -349,7 +319,7 @@
     <value>graphCtrl</value>
   </data>
   <data name="&gt;&gt;graphCtrl.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Graphics.Graphics3DControl, treeDiM.StackBuilder.Graphics, Version=3.0.0.69, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Graphics.Graphics3DControl, treeDiM.StackBuilder.Graphics, Version=3.0.0.76, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;graphCtrl.Parent" xml:space="preserve">
     <value>splitContainerSolutions.Panel1</value>

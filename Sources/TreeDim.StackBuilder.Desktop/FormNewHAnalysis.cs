@@ -1,6 +1,5 @@
 ﻿#region Using directives
 using System;
-using System.Linq;
 using System.Windows.Forms;
 using System.Collections.Generic;
 using System.Drawing;
@@ -44,47 +43,45 @@ namespace treeDiM.StackBuilder.Desktop
 
             // initialize graphic control 
             graphCtrl.DrawingContainer = this;
-            /*
-                        lBoxes.Add( _document.CreateNewBox("Case 400x300x200", string.Empty, 400, 300, 200, 5.0, Enumerable.Repeat(Color.Chocolate, 6).ToArray()) );
-                        lBoxes.Add( _document.CreateNewBox("Case 300x200x50", string.Empty, 300, 200, 50, 5.0, Enumerable.Repeat(Color.BurlyWood, 6).ToArray()) );
-                        lBoxes.Add( _document.CreateNewBox("Case 400x250x150", string.Empty, 400, 250, 200, 5.0, Enumerable.Repeat(Color.Chartreuse, 6).ToArray()) );
-            */
-            lBoxes.Add(_document.CreateNewBox("Case 150x100x150", string.Empty, 150, 100, 150, 5.0, Enumerable.Repeat(Color.Chocolate, 6).ToArray()));
-            lBoxes.Add(_document.CreateNewBox("Case 500x500x500", string.Empty, 500, 500, 500, 5.0, Enumerable.Repeat(Color.BurlyWood, 6).ToArray()));
-            lBoxes.Add(_document.CreateNewBox("Case 500x550x700", string.Empty, 500, 550, 700, 5.0, Enumerable.Repeat(Color.Chartreuse, 6).ToArray()));
-            lBoxes.Add(_document.CreateNewBox("Case 350x350x350", string.Empty, 350, 350, 350, 5.0, Enumerable.Repeat(Color.BurlyWood, 6).ToArray()));
-            lBoxes.Add(_document.CreateNewBox("Case 650x750x850", string.Empty, 650, 750, 850, 5.0, Enumerable.Repeat(Color.Chartreuse, 6).ToArray()));
 
-            _analysis.ClearContent();
-            _analysis.AddContent(lBoxes[0], 1, new bool[] { true, true, true });
-            _analysis.AddContent(lBoxes[1], 1, new bool[] { true, true, true });
-            _analysis.AddContent(lBoxes[2], 1, new bool[] { true, true, true });
-            _analysis.AddContent(lBoxes[3], 1, new bool[] { true, true, true });
-            _analysis.AddContent(lBoxes[4], 1, new bool[] { true, true, true });
+            // handling content grid events
+            _checkBoxEvent.Click += new EventHandler(OnDataModified);
+            _numUpDownEvent.ValueChanged += new EventHandler(OnDataModified);
+            FillContentGrid();
 
-            // handling checkbox event
-            SourceGrid.Cells.Controllers.CustomEvents checkBoxEvent = new SourceGrid.Cells.Controllers.CustomEvents();
-            checkBoxEvent.Click += new EventHandler(OnDataModified);
-            UpdateGrid();
+            // handling row change in solution grid
+            gridSolutions.Selection.SelectionChanged += OnSolutionChanged;
 
             OnDataModified(this, null);
+        }
+
+        private void OnSolutionChanged(object sender, SourceGrid.RangeRegionChangedEventArgs e)
+        {
+            graphCtrl.Invalidate();
         }
         #endregion
 
         #region IDrawingContainer
         public void Draw(Graphics3DControl ctrl, Graphics3D graphics)
         {
-            HSolution sol = SelectedSolution;
-            if (null != sol)
+            try
             {
-                ViewerHSolution sv = new ViewerHSolution(sol);
-                sv.Draw(graphics, Transform3D.Identity);
+                HSolution sol = SelectedSolution;
+                if (null != sol)
+                {
+                    ViewerHSolution sv = new ViewerHSolution(sol);
+                    sv.Draw(graphics, Transform3D.Identity);
+                }
+            }
+            catch (Exception ex)
+            {
+                _log.Error(ex.ToString());
             }
         }
         #endregion
 
-        #region Content grid
-        private void UpdateGrid()
+        #region Grids
+        private void FillContentGrid()
         {
             try
             {
@@ -121,19 +118,20 @@ namespace treeDiM.StackBuilder.Desktop
 
                 // content
                 int iIndex = 0;
-                foreach (ContentItem ci in _analysis.Content)
+                foreach (ContentItem ci in ContentItems)
                 {
                     // insert row
                     gridContent.Rows.Insert(++iIndex);
                     iCol = 0;
                     // name
-                    gridContent[iIndex, iCol] = new SourceGrid.Cells.Cell(ci.Pack.Name) { View = viewNormal };
+                    gridContent[iIndex, iCol] = new SourceGrid.Cells.Cell(ci.Pack.Name) { View = viewNormal, Tag = ci.Pack };
                     // number
                     gridContent[iIndex, ++iCol] = new SourceGrid.Cells.Cell("NumericUpDown") { View = viewNormal };
                     gridContent[iIndex, iCol] = new SourceGrid.Cells.Cell((int)ci.Number) { View = viewNormal };
-                    SourceGrid.Cells.Editors.NumericUpDown l_NumericUpDownEditor = new SourceGrid.Cells.Editors.NumericUpDown(typeof(int), 50, 1, 1);
+                    SourceGrid.Cells.Editors.NumericUpDown l_NumericUpDownEditor = new SourceGrid.Cells.Editors.NumericUpDown(typeof(int), 50, 0, 1);
                     l_NumericUpDownEditor.SetEditValue((int)ci.Number);
                     gridContent[iIndex, iCol].Editor = l_NumericUpDownEditor;
+                    gridContent[iIndex, iCol].AddController(_numUpDownEvent);
                     // orientation X
                     gridContent[iIndex, ++iCol] = new SourceGrid.Cells.CheckBox(null, ci.AllowOrientX);
                     gridContent[iIndex, iCol].AddController(_checkBoxEvent);
@@ -152,11 +150,11 @@ namespace treeDiM.StackBuilder.Desktop
             }
             catch (Exception ex)
             {
-                _log.Error(ex.Message);
+                _log.Error(ex.ToString());
             }
         }
 
-        private void UpdateResultGrid()
+        private void FillResultGrid()
         {
             try
             {
@@ -208,10 +206,15 @@ namespace treeDiM.StackBuilder.Desktop
                 gridSolutions.AutoStretchColumnsToFitWidth = true;
                 gridSolutions.Invalidate();
 
+                // select first solution
+                if (gridSolutions.RowsCount > 1)
+                    gridSolutions.Selection.SelectRow(1, true);
+                else
+                    graphCtrl.Invalidate();
             }
             catch (Exception ex)
             {
-                _log.Error(ex.Message);
+                _log.Error(ex.ToString());
             }
         }
         #endregion
@@ -220,70 +223,68 @@ namespace treeDiM.StackBuilder.Desktop
         protected virtual Vector3D DimContainer { get; }
         protected virtual HConstraintSet ConstraintSet { get; }
 
-        protected virtual List<ContentItem> GetContentItems()
+        protected void LoadContentItems()
         {
+            if (null == _analysis)
+                return;
             // initialise analysis
-
             _analysis.ClearContent();
-            _analysis.AddContent(lBoxes[0], 1, new bool[] { true, true, true });
-            _analysis.AddContent(lBoxes[1], 1, new bool[] { true, true, true });
-            _analysis.AddContent(lBoxes[2], 1, new bool[] { true, true, true });
-            _analysis.AddContent(lBoxes[3], 1, new bool[] { true, true, true });
-            _analysis.AddContent(lBoxes[4], 1, new bool[] { true, true, true });
-
-            return new List<ContentItem>(_analysis.Content);
+            for (int iRow = 1; iRow < gridContent.RowsCount; ++iRow)
+            {
+                // get packable
+                Packable p = gridContent[iRow, 0].Tag as Packable;
+                // get number
+                SourceGrid.Cells.Editors.NumericUpDown upDownEditor = gridContent[iRow, 1].Editor as SourceGrid.Cells.Editors.NumericUpDown;
+                int number = (int)upDownEditor.GetEditedValue();
+                SourceGrid.Cells.CheckBox checkBoxX = gridContent[iRow, 2] as SourceGrid.Cells.CheckBox;
+                SourceGrid.Cells.CheckBox checkBoxY = gridContent[iRow, 3] as SourceGrid.Cells.CheckBox;
+                SourceGrid.Cells.CheckBox checkBoxZ = gridContent[iRow, 4] as SourceGrid.Cells.CheckBox;
+                // get orientation
+                bool[] orientations = new bool[3] { (bool)checkBoxX.Value, (bool)checkBoxY.Value, (bool)checkBoxZ.Value };
+                _analysis.AddContent(p, (uint)number, orientations);
+            }
         }
+
+        protected virtual void LoadContainer() {}
 
         protected void Compute()
         {
+            if (null == _analysis) return;
+            LoadContentItems();
+            LoadContainer();
+            _analysis.ConstraintSet = ConstraintSet;
+
+            if (!_analysis.IsValid)
+                return;
             try
             {
                 HSolver solver = new HSolver();
                 _solutions = solver.BuildSolutions(_analysis);
-                //_solutions = solver.BuildSolutions(DimContainer, GetContentItems(), ConstraintSet);
+            }
+            catch (InvalidOperationException ex)
+            {
+                _log.WarnFormat("Solver -> {0}", ex.Message);
             }
             catch (Exception ex)
             {
                 _log.Error(ex.ToString());
             }
-
-            /*
-            HSolItem solItem = SelectedSolution.CreateSolItem();
-            solItem.InsertContainedElt(0, new BoxPosition(new Vector3D(0.0, 0.0, 150.0), HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P));
-            solItem.InsertContainedElt(0, new BoxPosition(new Vector3D(600.0, 0.0, 150.0), HalfAxis.HAxis.AXIS_Z_P, HalfAxis.HAxis.AXIS_Y_P));
-            solItem.InsertContainedElt(0, new BoxPosition(new Vector3D(300.0, 300.0, 150.0), HalfAxis.HAxis.AXIS_Y_P, HalfAxis.HAxis.AXIS_X_N));
-            solItem.InsertContainedElt(0, new BoxPosition(new Vector3D(600.0, 300.0, 150.0), HalfAxis.HAxis.AXIS_Y_P, HalfAxis.HAxis.AXIS_X_N));
-            solItem.InsertContainedElt(1, new BoxPosition(new Vector3D(50.0, 50.0, 350.0), HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P));
-            solItem.InsertContainedElt(1, new BoxPosition(new Vector3D(50.0, 250.0, 350.0), HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P));
-            solItem.InsertContainedElt(1, new BoxPosition(new Vector3D(50.0, 450.0, 350.0), HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P));
-            solItem.InsertContainedElt(1, new BoxPosition(new Vector3D(50.0, 50.0, 400.0), HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P));
-            solItem.InsertContainedElt(1, new BoxPosition(new Vector3D(50.0, 250.0, 400.0), HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P));
-            solItem.InsertContainedElt(1, new BoxPosition(new Vector3D(50.0, 450.0, 400.0), HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P));
-            solItem.InsertContainedElt(2, new BoxPosition(new Vector3D(600.0, 0.0, 550.0), HalfAxis.HAxis.AXIS_Z_P, HalfAxis.HAxis.AXIS_Y_P));
-            solItem.InsertContainedElt(2, new BoxPosition(new Vector3D(600.0, 250, 550.0), HalfAxis.HAxis.AXIS_Z_P, HalfAxis.HAxis.AXIS_Y_P));
-            */
         }
         #endregion
 
         #region Event handlers
-        private void OnDataModified(object sender, EventArgs e)
-        {
-            Compute();
-            UpdateResultGrid();
-        }
-        private void OnAddRow(object sender, EventArgs e)
+        protected void OnDataModified(object sender, EventArgs e)
         {
             try
             {
-                Packable p = GetNextPackable();
-                if (null != p)
-                    _analysis.AddContent(p);
+                Compute();
+                FillResultGrid();
+                graphCtrl.Invalidate();
             }
             catch (Exception ex)
             {
                 _log.Error(ex.ToString());
             }
-            UpdateGrid();
         }
         #endregion
 
@@ -292,27 +293,32 @@ namespace treeDiM.StackBuilder.Desktop
             get
             {
                 if (_solutions.Count > 0)
-                    return _solutions[0];
+                {
+                    SourceGrid.RangeRegion region = gridSolutions.Selection.GetSelectionRegion();
+                    int[] indexes = region.GetRowsIndex();
+                    // no selection -> exit
+                    if (indexes.Length == 0)
+                        return null;
+                    return _solutions[indexes[0] - 1];
+                }
                 else
                     return null;
             }
         }
 
         #region Helpers
-        private Packable GetNextPackable()
+        private List<ContentItem> ContentItems
         {
-            Packable p = null;
-            foreach (BoxProperties b in _document.Bricks)
+            get
             {
-                if (!ContentItemsContainsPackable(b))
-                    p = b;
-                break;
+                List<ContentItem> contentItems = new List<ContentItem>();
+                foreach (BoxProperties boxProperties in _document.Bricks)
+                {
+                    bool[] orientations = new bool[] { true, true, true };
+                    contentItems.Add(new ContentItem(boxProperties, 1, orientations));
+                }
+                return contentItems;
             }
-            return p;
-        }
-        private bool ContentItemsContainsPackable(Packable p)
-        {
-            return (null != _contentItems.Find(ci => ci.Pack == p));
         }
         #endregion
 
@@ -321,9 +327,11 @@ namespace treeDiM.StackBuilder.Desktop
         protected HAnalysis _analysis;
         protected List<HSolution> _solutions = new List<HSolution>();
         protected List<ContentItem> _contentItems;
-        protected SourceGrid.Cells.Controllers.CustomEvents _checkBoxEvent = new SourceGrid.Cells.Controllers.CustomEvents();
         protected static ILog _log = LogManager.GetLogger(typeof(FormNewHAnalysis));
         protected List<BoxProperties> lBoxes = new List<BoxProperties>();
+
+        protected SourceGrid.Cells.Controllers.CustomEvents _checkBoxEvent = new SourceGrid.Cells.Controllers.CustomEvents();
+        protected SourceGrid.Cells.Controllers.CustomEvents _numUpDownEvent = new SourceGrid.Cells.Controllers.CustomEvents();
         #endregion
     }
 }

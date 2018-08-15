@@ -283,10 +283,12 @@ namespace treeDiM.StackBuilder.Desktop
                 { AutomaticSortEnabled = false, View = viewColumnHeader };
 
                 gridSolutions.AutoStretchRowsToFitHeight = true;
-                SourceGrid.Cells.Controllers.ToolTipText toolTipController = new SourceGrid.Cells.Controllers.ToolTipText();
-                toolTipController.ToolTipTitle = "";
-                toolTipController.ToolTipIcon = ToolTipIcon.None;
-                toolTipController.IsBalloon = false;
+                SourceGrid.Cells.Controllers.ToolTipText toolTipController = new SourceGrid.Cells.Controllers.ToolTipText
+                {
+                    ToolTipTitle = "",
+                    ToolTipIcon = ToolTipIcon.None,
+                    IsBalloon = false
+                };
 
                 foreach (Layer2D layer in _layers)
                 {

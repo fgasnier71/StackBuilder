@@ -133,8 +133,8 @@
     <AssemblyInfo CodeLanguage="CS" OutputFile="$(ProjectDir)..\SharedAssemblyInfo.cs" AssemblyVersion="$(AssemblyVersionToUse)" AssemblyFileVersion="$(AssemblyVersionToUse)" />
   </Target>
   <ItemGroup>
-    <Reference Include="CrashReporter.NET, Version=1.5.3.0, Culture=neutral, PublicKeyToken=986591a91592b7e6, processorArchitecture=MSIL">
-      <HintPath>..\packages\CrashReporter.NET.Official.1.5.3\lib\net452\CrashReporter.NET.dll</HintPath>
+    <Reference Include="CrashReporter.NET, Version=1.5.5.0, Culture=neutral, PublicKeyToken=7828e0fd88cab698, processorArchitecture=MSIL">
+      <HintPath>..\packages\CrashReporter.NET.Official.1.5.5\lib\net452\CrashReporter.NET.dll</HintPath>
     </Reference>
     <Reference Include="Cureos.Measures">
       <HintPath>..\ThirdPartyAssemblies\Cureos.Measures.dll</HintPath>

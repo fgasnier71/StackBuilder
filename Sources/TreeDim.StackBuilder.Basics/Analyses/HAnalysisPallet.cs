@@ -1,15 +1,41 @@
 ﻿#region Using directives
+using System.Collections.Generic;
+
+using Sharp3D.Math.Core;
+
+using log4net;
 #endregion
 
 namespace treeDiM.StackBuilder.Basics
 {
     public class HAnalysisPallet : HAnalysis
     {
+        #region Constructor
         public HAnalysisPallet(Document doc) : base(doc)
         {
             ConstraintSet = new HConstraintSetPallet() { MaximumHeight = 1700.0 };
         }
+        #endregion
 
-        public PalletProperties Pallet { set => _containers.Add(value);  }
+        #region Specific properties
+        public PalletProperties Pallet { set { _containers.Clear(); _containers.Add(value); }  }
+        #endregion
+
+        #region Override HAnalysis
+        public override Vector3D DimContainer(int index)
+        {
+            if (_containers[index] is PalletProperties palletProperties)
+                return new Vector3D(palletProperties.Length, palletProperties.Width, ConstraintSet.MaximumHeight - palletProperties.Height);
+            else
+                return Vector3D.Zero;
+        }
+        public override Vector3D Offset(int index)
+        {
+            if (_containers[index] is PalletProperties palletProperties)
+                return new Vector3D(0.0, 0.0, palletProperties.Height);
+            else
+                return Vector3D.Zero;
+        }
+        #endregion
     }
 }

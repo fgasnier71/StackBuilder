@@ -5,6 +5,6 @@ namespace treeDiM.StackBuilder.Basics
 {
     public class HConstraintSet
     {
-        public virtual double MaximumHeight { get; set; }
+        public double MaximumHeight { get; set; }
     }
 }

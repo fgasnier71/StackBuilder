@@ -36,7 +36,6 @@
             this.lbDescription = new System.Windows.Forms.Label();
             this.splitContainerHoriz2 = new System.Windows.Forms.SplitContainer();
             this.splitContainerVert = new System.Windows.Forms.SplitContainer();
-            this.bnAddRow = new System.Windows.Forms.Button();
             this.gridContent = new SourceGrid.Grid();
             this.splitContainerSolutions = new System.Windows.Forms.SplitContainer();
             this.graphCtrl = new treeDiM.StackBuilder.Graphics.Graphics3DControl();
@@ -122,24 +121,16 @@
             // 
             // splitContainerVert.Panel1
             // 
-            this.splitContainerVert.Panel1.Controls.Add(this.bnAddRow);
             this.splitContainerVert.Panel1.Controls.Add(this.gridContent);
             // 
             // splitContainerVert.Panel2
             // 
             this.splitContainerVert.Panel2.Controls.Add(this.splitContainerSolutions);
             // 
-            // bnAddRow
-            // 
-            resources.ApplyResources(this.bnAddRow, "bnAddRow");
-            this.bnAddRow.Name = "bnAddRow";
-            this.bnAddRow.UseVisualStyleBackColor = true;
-            this.bnAddRow.Click += new System.EventHandler(this.OnAddRow);
-            // 
             // gridContent
             // 
-            resources.ApplyResources(this.gridContent, "gridContent");
             this.gridContent.EnableSort = true;
+            resources.ApplyResources(this.gridContent, "gridContent");
             this.gridContent.Name = "gridContent";
             this.gridContent.OptimizeMode = SourceGrid.CellOptimizeMode.ForRows;
             this.gridContent.SelectionMode = SourceGrid.GridSelectionMode.Cell;
@@ -168,11 +159,15 @@
             // 
             // gridSolutions
             // 
+            this.gridSolutions.AcceptsInputChar = false;
+            this.gridSolutions.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.gridSolutions.ColumnsCount = 5;
             resources.ApplyResources(this.gridSolutions, "gridSolutions");
-            this.gridSolutions.EnableSort = true;
+            this.gridSolutions.EnableSort = false;
             this.gridSolutions.Name = "gridSolutions";
             this.gridSolutions.OptimizeMode = SourceGrid.CellOptimizeMode.ForRows;
-            this.gridSolutions.SelectionMode = SourceGrid.GridSelectionMode.Cell;
+            this.gridSolutions.SelectionMode = SourceGrid.GridSelectionMode.Row;
+            this.gridSolutions.SpecialKeys = SourceGrid.GridSpecialKeys.PageDownUp;
             this.gridSolutions.TabStop = true;
             this.gridSolutions.ToolTipText = "";
             // 
@@ -245,6 +240,5 @@
         protected System.Windows.Forms.SplitContainer splitContainerVert;
         protected SourceGrid.Grid gridContent;
         protected SourceGrid.Grid gridSolutions;
-        protected System.Windows.Forms.Button bnAddRow;
     }
 }
