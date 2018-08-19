@@ -186,6 +186,9 @@
     <EmbeddedResource Include="CtrlComboDBPallet.sv.resx">
       <DependentUpon>CtrlComboDBPallet.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CtrlComboDBPallet.tr.resx">
+      <DependentUpon>CtrlComboDBPallet.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CtrlComboDBPallet.zh.resx">
       <DependentUpon>CtrlComboDBPallet.cs</DependentUpon>
     </EmbeddedResource>
@@ -196,6 +199,9 @@
       <DependentUpon>FormBrowseSolution.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormBrowseSolution.sv.resx">
+      <DependentUpon>FormBrowseSolution.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormBrowseSolution.tr.resx">
       <DependentUpon>FormBrowseSolution.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormBrowseSolution.zh.resx">
@@ -228,6 +234,9 @@
     <EmbeddedResource Include="FormDefineAnalysisBundleCase.sv.resx">
       <DependentUpon>FormDefineAnalysisBundleCase.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormDefineAnalysisBundleCase.tr.resx">
+      <DependentUpon>FormDefineAnalysisBundleCase.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormDefineAnalysisBundleCase.zh.resx">
       <DependentUpon>FormDefineAnalysisBundleCase.cs</DependentUpon>
     </EmbeddedResource>
@@ -241,6 +250,9 @@
       <DependentUpon>FormDefineAnalysisCasePallet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormDefineAnalysisCasePallet.sv.resx">
+      <DependentUpon>FormDefineAnalysisCasePallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDefineAnalysisCasePallet.tr.resx">
       <DependentUpon>FormDefineAnalysisCasePallet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormDefineAnalysisCasePallet.zh.resx">
@@ -276,6 +288,9 @@
     <EmbeddedResource Include="FormDefineCaseOptimization.sv.resx">
       <DependentUpon>FormDefineCaseOptimization.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormDefineCaseOptimization.tr.resx">
+      <DependentUpon>FormDefineCaseOptimization.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormDefineCaseOptimization.zh.resx">
       <DependentUpon>FormDefineCaseOptimization.cs</DependentUpon>
     </EmbeddedResource>
@@ -293,6 +308,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.ru.resx" />
     <EmbeddedResource Include="Properties\Resources.sv.resx" />
+    <EmbeddedResource Include="Properties\Resources.tr.resx" />
     <EmbeddedResource Include="Properties\Resources.zh.resx" />
     <EmbeddedResource Include="UCtrlBundle.resx">
       <DependentUpon>UCtrlBundle.cs</DependentUpon>
@@ -301,6 +317,9 @@
       <DependentUpon>UCtrlBundle.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UCtrlBundle.sv.resx">
+      <DependentUpon>UCtrlBundle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCtrlBundle.tr.resx">
       <DependentUpon>UCtrlBundle.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UCtrlBundle.zh.resx">
@@ -315,6 +334,9 @@
     <EmbeddedResource Include="UCtrlCase.sv.resx">
       <DependentUpon>UCtrlCase.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UCtrlCase.tr.resx">
+      <DependentUpon>UCtrlCase.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UCtrlCase.zh.resx">
       <DependentUpon>UCtrlCase.cs</DependentUpon>
     </EmbeddedResource>
@@ -325,6 +347,9 @@
       <DependentUpon>UCtrlPackable.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UCtrlPackable.sv.resx">
+      <DependentUpon>UCtrlPackable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCtrlPackable.tr.resx">
       <DependentUpon>UCtrlPackable.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UCtrlPackable.zh.resx">

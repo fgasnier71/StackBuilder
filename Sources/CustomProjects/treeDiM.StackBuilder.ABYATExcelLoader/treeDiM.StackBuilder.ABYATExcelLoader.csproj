@@ -105,6 +105,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\..\SharedAssemblyInfo.cs">
+      <Link>Properties\SharedAssemblyInfo.cs</Link>
+    </Compile>
     <Compile Include="ExcelDataReader.cs" />
     <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
@@ -130,13 +133,7 @@
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormMain.ru.resx">
-      <DependentUpon>FormMain.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormMain.sv.resx">
-      <DependentUpon>FormMain.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormMain.zh.resx">
+    <EmbeddedResource Include="FormMain.tr.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormOptionsSettings.resx">
@@ -146,6 +143,9 @@
       <DependentUpon>FormOptionsSettings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormOptionsSettings.sv.resx">
+      <DependentUpon>FormOptionsSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormOptionsSettings.tr.resx">
       <DependentUpon>FormOptionsSettings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormOptionsSettings.zh.resx">
@@ -160,18 +160,16 @@
     <EmbeddedResource Include="OptionsPanelFiltering.sv.resx">
       <DependentUpon>OptionsPanelFiltering.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="OptionsPanelFiltering.tr.resx">
+      <DependentUpon>OptionsPanelFiltering.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="OptionsPanelFiltering.zh.resx">
       <DependentUpon>OptionsPanelFiltering.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.de-DE.resx" />
     <EmbeddedResource Include="Properties\Resources.de.resx" />
-    <EmbeddedResource Include="Properties\Resources.es-ES.resx" />
     <EmbeddedResource Include="Properties\Resources.es.resx" />
-    <EmbeddedResource Include="Properties\Resources.fr-FR.resx" />
     <EmbeddedResource Include="Properties\Resources.fr.resx" />
-    <EmbeddedResource Include="Properties\Resources.it-IT.resx" />
     <EmbeddedResource Include="Properties\Resources.it.resx" />
-    <EmbeddedResource Include="Properties\Resources.ja-JP.resx" />
     <EmbeddedResource Include="Properties\Resources.ja.resx" />
     <EmbeddedResource Include="Properties\Resources.nl.resx" />
     <EmbeddedResource Include="Properties\Resources.pl.resx" />
@@ -187,6 +185,7 @@
     </Compile>
     <EmbeddedResource Include="Properties\Resources.ru.resx" />
     <EmbeddedResource Include="Properties\Resources.sv.resx" />
+    <EmbeddedResource Include="Properties\Resources.tr.resx" />
     <EmbeddedResource Include="Properties\Resources.zh.resx" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

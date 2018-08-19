@@ -124,6 +124,9 @@
     <EmbeddedResource Include="OptionsForm.sv.resx">
       <DependentUpon>OptionsForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="OptionsForm.tr.resx">
+      <DependentUpon>OptionsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="OptionsForm.zh.resx">
       <DependentUpon>OptionsForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -137,6 +140,9 @@
       <DependentUpon>OptionsPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OptionsPanel.sv.resx">
+      <DependentUpon>OptionsPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OptionsPanel.tr.resx">
       <DependentUpon>OptionsPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OptionsPanel.zh.resx">

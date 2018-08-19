@@ -175,6 +175,9 @@
     <EmbeddedResource Include="FormMain.sv.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormMain.tr.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormMain.zh.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
@@ -182,6 +185,9 @@
       <DependentUpon>FormOptionsSettings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormOptionsSettings.ru.resx">
+      <DependentUpon>FormOptionsSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormOptionsSettings.tr.resx">
       <DependentUpon>FormOptionsSettings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormOptionsSettings.zh.resx">
@@ -193,6 +199,9 @@
     <EmbeddedResource Include="OptionsPanelFiltering.ru.resx">
       <DependentUpon>OptionsPanelFiltering.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="OptionsPanelFiltering.tr.resx">
+      <DependentUpon>OptionsPanelFiltering.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="OptionsPanelFiltering.zh.resx">
       <DependentUpon>OptionsPanelFiltering.cs</DependentUpon>
     </EmbeddedResource>
@@ -200,6 +209,9 @@
       <DependentUpon>OptionsPanelImageSize.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OptionsPanelImageSize.ru.resx">
+      <DependentUpon>OptionsPanelImageSize.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OptionsPanelImageSize.tr.resx">
       <DependentUpon>OptionsPanelImageSize.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OptionsPanelImageSize.zh.resx">
@@ -224,6 +236,7 @@
     </Compile>
     <EmbeddedResource Include="Properties\Resources.ru.resx" />
     <EmbeddedResource Include="Properties\Resources.sv.resx" />
+    <EmbeddedResource Include="Properties\Resources.tr.resx" />
     <EmbeddedResource Include="Properties\Resources.zh.resx" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
