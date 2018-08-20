@@ -590,21 +590,60 @@ namespace treeDiM.StackBuilder.Graphics
             get
             {
                 Vector3D[] points = Points;
-                return new Triangle[]
+                if (ShowTape)
                 {
-                    new Triangle(PickId, points[0], points[4], points[3], _colors[0]),
-                    new Triangle(PickId, points[3], points[4], points[7], _colors[0]),
-                    new Triangle(PickId, points[1], points[2], points[5], _colors[1]),
-                    new Triangle(PickId, points[5], points[2], points[6], _colors[1]),
-                    new Triangle(PickId, points[0], points[1], points[4], _colors[2]),
-                    new Triangle(PickId, points[4], points[1], points[5], _colors[2]),
-                    new Triangle(PickId, points[7], points[6], points[2], _colors[3]),
-                    new Triangle(PickId, points[7], points[2], points[3], _colors[3]),
-                    new Triangle(PickId, points[0], points[3], points[1], _colors[4]),
-                    new Triangle(PickId, points[1], points[3], points[2], _colors[4]),
-                    new Triangle(PickId, points[4], points[5], points[7], _colors[5]),
-                    new Triangle(PickId, points[7], points[5], points[6], _colors[5])
-                };
+                    Vector3D[] tapePoints = TapePoints;
+                    return new Triangle[]
+                    {
+                        // XN
+                        new Triangle(PickId, points[0], points[4], points[3], _colors[0]),
+                        new Triangle(PickId, points[3], points[4], points[7], _colors[0]),
+                        // XP
+                        new Triangle(PickId, points[1], points[2], points[5], _colors[1]),
+                        new Triangle(PickId, points[5], points[2], points[6], _colors[1]),
+                        // YN
+                        new Triangle(PickId, points[0], points[1], points[4], _colors[2]),
+                        new Triangle(PickId, points[4], points[1], points[5], _colors[2]),
+                        // YP
+                        new Triangle(PickId, points[7], points[6], points[2], _colors[3]),
+                        new Triangle(PickId, points[7], points[2], points[3], _colors[3]),
+                        // ZN
+                        new Triangle(PickId, points[0], points[3], points[1], _colors[4]),
+                        new Triangle(PickId, points[1], points[3], points[2], _colors[4]),
+                        // ZP
+                        //
+                        // 7-----------6
+                        // |           |
+                        // t3          t2
+                        // |           |
+                        // t0          t1
+                        // |           |
+                        // 4-----------5
+
+                        new Triangle(PickId, points[4], points[5], tapePoints[0], _colors[5]),
+                        new Triangle(PickId, tapePoints[0], points[5], tapePoints[1], _colors[5]),
+                        new Triangle(PickId, tapePoints[0], tapePoints[1], tapePoints[2], _tapeColor),
+                        new Triangle(PickId, tapePoints[0], tapePoints[2], tapePoints[3], _tapeColor),
+                        new Triangle(PickId, tapePoints[3], tapePoints[2], points[6], _colors[5]),
+                        new Triangle(PickId, tapePoints[3], points[6], points[7], _colors[5])
+                    };
+                }
+                else
+                    return new Triangle[]
+                    {
+                        new Triangle(PickId, points[0], points[4], points[3], _colors[0]),
+                        new Triangle(PickId, points[3], points[4], points[7], _colors[0]),
+                        new Triangle(PickId, points[1], points[2], points[5], _colors[1]),
+                        new Triangle(PickId, points[5], points[2], points[6], _colors[1]),
+                        new Triangle(PickId, points[0], points[1], points[4], _colors[2]),
+                        new Triangle(PickId, points[4], points[1], points[5], _colors[2]),
+                        new Triangle(PickId, points[7], points[6], points[2], _colors[3]),
+                        new Triangle(PickId, points[7], points[2], points[3], _colors[3]),
+                        new Triangle(PickId, points[0], points[3], points[1], _colors[4]),
+                        new Triangle(PickId, points[1], points[3], points[2], _colors[4]),
+                        new Triangle(PickId, points[4], points[5], points[7], _colors[5]),
+                        new Triangle(PickId, points[7], points[5], points[6], _colors[5])
+                    };
             }
         }
         public Face[] Faces
