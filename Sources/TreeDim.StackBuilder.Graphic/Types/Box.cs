@@ -359,7 +359,6 @@ namespace treeDiM.StackBuilder.Graphics
                 return topFace;
             }
         }
-
         public Vector3D[] Oriented(Vector3D pt0, Vector3D pt1, Vector3D pt2, Vector3D pt3, Vector3D pt)
         {
             Vector3D crossProduct = Vector3D.CrossProduct(pt1 - pt0, pt2 - pt0);
@@ -368,7 +367,6 @@ namespace treeDiM.StackBuilder.Graphics
             else
                 return new Vector3D[] { pt3, pt2, pt1, pt0 };
         }
-
         public Vector3D Center
         {
             get
@@ -385,7 +383,6 @@ namespace treeDiM.StackBuilder.Graphics
         {   get { return _tapeWidth; } }
         public Color TapeColor
         {   get { return _tapeColor; } }
-
         public Vector3D[] TapePoints
         {
             get
@@ -471,16 +468,16 @@ namespace treeDiM.StackBuilder.Graphics
                 return points;
             }
         }
-
         public Vector3D[] PointsSmallOffset
         {
             get
             {
+                Vector3D position = _boxPosition.Position;
                 Vector3D lengthAxis = LengthAxis;
                 Vector3D widthAxis = WidthAxis;
                 Vector3D heightAxis = HeightAxis;
-                const double offset = 3.0;
                 Vector3D[] points = new Vector3D[8];
+                const double offset = 3.0;
                 Vector3D origin = new Vector3D(offset, offset, offset);
                 points[0] = origin;
                 points[1] = origin + (_dim[0] - 2.0 * offset) * lengthAxis;
@@ -495,7 +492,6 @@ namespace treeDiM.StackBuilder.Graphics
                 return points;
             }
         }
-
         public Vector3D[] Normals
         {
             get
@@ -522,7 +518,6 @@ namespace treeDiM.StackBuilder.Graphics
                 return uvs;
             }
         }
-
         public TriangleIndices[] TriangleIndices
         {
             get
@@ -589,6 +584,10 @@ namespace treeDiM.StackBuilder.Graphics
         {
             get
             {
+                //
+                //
+                //
+                //
                 Vector3D[] points = Points;
                 if (ShowTape)
                 {
@@ -596,20 +595,45 @@ namespace treeDiM.StackBuilder.Graphics
                     return new Triangle[]
                     {
                         // XN
-                        new Triangle(PickId, points[0], points[4], points[3], _colors[0]),
-                        new Triangle(PickId, points[3], points[4], points[7], _colors[0]),
+                        //
+                        // 7 ------- 4
+                        // |         |
+                        // 3 ------- 0
+                        //
+                        new Triangle(PickId, points[0], true, points[4], false, points[3], true, _colors[0]),
+                        new Triangle(PickId, points[3], false, points[4], true, points[7], true, _colors[0]),
                         // XP
-                        new Triangle(PickId, points[1], points[2], points[5], _colors[1]),
-                        new Triangle(PickId, points[5], points[2], points[6], _colors[1]),
+                        //
+                        // 5 ------- 6
+                        // |         |
+                        // 1 ------- 2
+                        //
+                        new Triangle(PickId, points[1], true, points[2], false, points[5], true, _colors[1]),
+                        new Triangle(PickId, points[5], false, points[2], true, points[6], true, _colors[1]),
                         // YN
-                        new Triangle(PickId, points[0], points[1], points[4], _colors[2]),
-                        new Triangle(PickId, points[4], points[1], points[5], _colors[2]),
+                        //
+                        // 4 -------- 5
+                        // |          |
+                        // 0 -------- 1
+                        //
+                        new Triangle(PickId, points[0], true, points[1], false, points[4], true, _colors[2]),
+                        new Triangle(PickId, points[4], false, points[1], true, points[5], true, _colors[2]),
                         // YP
-                        new Triangle(PickId, points[7], points[6], points[2], _colors[3]),
-                        new Triangle(PickId, points[7], points[2], points[3], _colors[3]),
+                        //
+                        // 6 -------- 7
+                        // |          | 
+                        // 2 -------- 3
+                        //
+                        new Triangle(PickId, points[7], true, points[6], true, points[2], false, _colors[3]),
+                        new Triangle(PickId, points[7], false, points[2], true, points[3], true, _colors[3]),
                         // ZN
-                        new Triangle(PickId, points[0], points[3], points[1], _colors[4]),
-                        new Triangle(PickId, points[1], points[3], points[2], _colors[4]),
+                        //
+                        // 3 -------- 2
+                        // |          | 
+                        // 0 -------- 1
+                        //
+                        new Triangle(PickId, points[0], true, points[3], false, points[1], true, _colors[4]),
+                        new Triangle(PickId, points[1], false, points[3], true, points[2], true, _colors[4]),
                         // ZP
                         //
                         // 7-----------6
@@ -620,29 +644,29 @@ namespace treeDiM.StackBuilder.Graphics
                         // |           |
                         // 4-----------5
 
-                        new Triangle(PickId, points[4], points[5], tapePoints[0], _colors[5]),
-                        new Triangle(PickId, tapePoints[0], points[5], tapePoints[1], _colors[5]),
-                        new Triangle(PickId, tapePoints[0], tapePoints[1], tapePoints[2], _tapeColor),
-                        new Triangle(PickId, tapePoints[0], tapePoints[2], tapePoints[3], _tapeColor),
-                        new Triangle(PickId, tapePoints[3], tapePoints[2], points[6], _colors[5]),
-                        new Triangle(PickId, tapePoints[3], points[6], points[7], _colors[5])
+                        new Triangle(PickId, points[4], true, points[5], false, tapePoints[0], true, _colors[5]),
+                        new Triangle(PickId, tapePoints[0], false, points[5], true, tapePoints[1], true, _colors[5]),
+                        new Triangle(PickId, tapePoints[0], true, tapePoints[1], true, tapePoints[2], false, _tapeColor),
+                        new Triangle(PickId, tapePoints[0], false, tapePoints[2], true, tapePoints[3], true, _tapeColor),
+                        new Triangle(PickId, tapePoints[3], true, tapePoints[2], true, points[6], false, _colors[5]),
+                        new Triangle(PickId, tapePoints[3], false, points[6], true, points[7], true, _colors[5])
                     };
                 }
                 else
                     return new Triangle[]
                     {
-                        new Triangle(PickId, points[0], points[4], points[3], _colors[0]),
-                        new Triangle(PickId, points[3], points[4], points[7], _colors[0]),
-                        new Triangle(PickId, points[1], points[2], points[5], _colors[1]),
-                        new Triangle(PickId, points[5], points[2], points[6], _colors[1]),
-                        new Triangle(PickId, points[0], points[1], points[4], _colors[2]),
-                        new Triangle(PickId, points[4], points[1], points[5], _colors[2]),
-                        new Triangle(PickId, points[7], points[6], points[2], _colors[3]),
-                        new Triangle(PickId, points[7], points[2], points[3], _colors[3]),
-                        new Triangle(PickId, points[0], points[3], points[1], _colors[4]),
-                        new Triangle(PickId, points[1], points[3], points[2], _colors[4]),
-                        new Triangle(PickId, points[4], points[5], points[7], _colors[5]),
-                        new Triangle(PickId, points[7], points[5], points[6], _colors[5])
+                        new Triangle(PickId, points[0], true, points[4], false, points[3], true, _colors[0]),
+                        new Triangle(PickId, points[3], false, points[4], true, points[7], true, _colors[0]),
+                        new Triangle(PickId, points[1], true, points[2], false, points[5], true, _colors[1]),
+                        new Triangle(PickId, points[5], false, points[2], true, points[6], true, _colors[1]),
+                        new Triangle(PickId, points[0], true, points[1], false, points[4], true, _colors[2]),
+                        new Triangle(PickId, points[4], false, points[1], true, points[5], true, _colors[2]),
+                        new Triangle(PickId, points[7], true, points[6], true, points[2], false, _colors[3]),
+                        new Triangle(PickId, points[7], false, points[2], true, points[3], true, _colors[3]),
+                        new Triangle(PickId, points[0], true, points[3], false, points[1], true, _colors[4]),
+                        new Triangle(PickId, points[1], false, points[3], true, points[2], true, _colors[4]),
+                        new Triangle(PickId, points[4], true, points[5], false, points[7], true, _colors[5]),
+                        new Triangle(PickId, points[7], false, points[5], true, points[6], true, _colors[5])
                     };
             }
         }
@@ -754,17 +778,14 @@ namespace treeDiM.StackBuilder.Graphics
             for (int i = 0; i < 6; ++i)
                 _colors[i] = color;
         }
-
         public void SetFaceColor(HalfAxis.HAxis iFace, Color color)
         {
             _colors[(int)iFace] = color;
         }
-
         public void SetFaceTextures(HalfAxis.HAxis iFace, List<Texture> textures)
         {
             _textureLists[(int)iFace] = textures;
         }
-
         public bool PointInside(Vector3D pt)
         {
             foreach (Face face in Faces)
@@ -774,7 +795,6 @@ namespace treeDiM.StackBuilder.Graphics
             }
             return true;
         }
-
         public void ApplyElong(double d)
         {
             _dim[0] += d;
@@ -782,7 +802,6 @@ namespace treeDiM.StackBuilder.Graphics
             _dim[2] += d;
             _boxPosition.Position = _boxPosition.Position - new Vector3D(-0.5 * d, -0.5 * d, -0.5 * d);
         }
-
         public bool RayIntersect(Ray ray, out Vector3D ptInter)
         {
             List<Vector3D> listIntersections = new List<Vector3D>();

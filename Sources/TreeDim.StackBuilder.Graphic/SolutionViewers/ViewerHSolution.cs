@@ -30,6 +30,8 @@ namespace treeDiM.StackBuilder.Graphics
 
             // get list of boxes
             List<Box> boxes = new List<Box>();
+            if (0 == Solution.SolItems.ToList<HSolItem>().Count)
+                return;
             HSolItem solItem = Solution.SolItems.First();
             uint pickId = 0;
             foreach (HSolElement solElt in solItem.ContainedElements)

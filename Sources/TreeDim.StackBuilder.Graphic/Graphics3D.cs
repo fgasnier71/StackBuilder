@@ -725,9 +725,14 @@ namespace treeDiM.StackBuilder.Graphics
             g.FillPolygon(brush, pt);
             // draw path
             Brush brush0 = new SolidBrush(tr.ColorPath);
+            Pen pen0 = new Pen(brush0, 0);
             for (int i = 1; i < pt.Length; ++i)
-                g.DrawLine(new Pen(brush0, 1.5f), pt[i - 1], pt[i]);
-            g.DrawLine(new Pen(brush0, 1.5f), pt[pt.Length - 1], pt[0]);
+            {
+                if (tr.DrawPath[i-1])
+                    g.DrawLine(pen0, pt[i - 1], pt[i]);
+            }
+            if (tr.DrawPath[2])
+                g.DrawLine(pen0, pt[pt.Length - 1], pt[0]);
         }
 
         /// <summary>
