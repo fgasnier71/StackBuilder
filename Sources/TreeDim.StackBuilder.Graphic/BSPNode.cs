@@ -288,14 +288,15 @@ namespace treeDiM.StackBuilder.Graphics
         private int TestPoint(Vector3D pt)
         {
             double Z = pt.X * A + pt.Y * B + pt.Z * C - D;
-            if (Z < Triangle.EPS) return -1;
+
+            if (Z < -Triangle.EPS) return -1;
             else if (Z > Triangle.EPS) return 1;
             else return 0;
         }
         private bool TestLine(Vector3D pt0, Vector3D pt1, ref Vector3D ptInter)
         {
             Vector3D normal = Face.Normal;
-            if (Math.Abs(Vector3D.DotProduct(normal, pt1 - pt0)) < EGALITY_EPS)
+            if (Math.Abs(Vector3D.DotProduct(normal, pt1 - pt0)) < Triangle.EPS)
             {
                 ptInter = pt0;
                 return false;
@@ -392,7 +393,6 @@ namespace treeDiM.StackBuilder.Graphics
         private readonly double B;
         private readonly double C;
         private readonly double D;
-        private static readonly double EGALITY_EPS = 0.00001;
         private static readonly ILog _log = LogManager.GetLogger(typeof(BSPNode));
         #endregion
     }

@@ -59,6 +59,7 @@ namespace treeDiM.StackBuilder.Basics
         #region Container
         public IEnumerable<ItemBase> Containers => _containers;
         public abstract Vector3D DimContainer(int index);
+        public abstract BBox3D AdditionalBoudingBox(int index);
         #endregion
 
         public HConstraintSet ConstraintSet { get; set; }

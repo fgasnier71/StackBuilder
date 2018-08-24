@@ -36,6 +36,13 @@ namespace treeDiM.StackBuilder.Basics
             else
                 return Vector3D.Zero;
         }
+        public override BBox3D AdditionalBoudingBox(int index)
+        {
+            if (_containers[index] is PalletProperties palletProperties)
+                return palletProperties.BoundingBox;
+            else
+                return BBox3D.Initial;
+        }
         #endregion
     }
 }

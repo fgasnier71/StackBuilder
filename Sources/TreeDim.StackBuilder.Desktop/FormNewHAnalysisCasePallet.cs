@@ -72,6 +72,10 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Event handlers
+        private void OnDataModifiedOverride(object sender, EventArgs e)
+        {
+            OnDataModified(sender, e);
+        }
         #endregion
 
         #region Public properties

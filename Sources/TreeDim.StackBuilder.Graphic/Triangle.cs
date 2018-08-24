@@ -121,7 +121,7 @@ namespace treeDiM.StackBuilder.Graphics
             return $"({Points[0]}, {Points[1]}, {Points[2]})";
         }
 
-        public static readonly double EPS = 0.0001;
+        public static readonly double EPS = 0.1;
     }
     #endregion
 }
