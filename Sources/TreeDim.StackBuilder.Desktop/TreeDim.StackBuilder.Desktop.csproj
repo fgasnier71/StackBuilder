@@ -262,6 +262,12 @@
     <Compile Include="DockContentECTAnalysis.Designer.cs">
       <DependentUpon>DockContentECTAnalysis.cs</DependentUpon>
     </Compile>
+    <Compile Include="DockContentHAnalysis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DockContentHAnalysis.Designer.cs">
+      <DependentUpon>DockContentHAnalysis.cs</DependentUpon>
+    </Compile>
     <Compile Include="DockContentLogConsole.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -959,6 +965,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DockContentECTAnalysis.zh.resx">
       <DependentUpon>DockContentECTAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentHAnalysis.resx">
+      <DependentUpon>DockContentHAnalysis.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DockContentLogConsole.es.resx">
       <DependentUpon>DockContentLogConsole.cs</DependentUpon>

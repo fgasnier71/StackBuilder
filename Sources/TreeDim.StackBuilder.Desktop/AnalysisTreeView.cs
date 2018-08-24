@@ -1,15 +1,11 @@
 ﻿#region Using directives
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
-using System.Data;
-using System.Text;
 using System.Windows.Forms;
 using System.Diagnostics;
 
 using treeDiM.StackBuilder.Basics;
-using treeDiM.StackBuilder.Engine;
 using treeDiM.StackBuilder.Desktop.Properties;
 
 using log4net;

@@ -2,16 +2,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.ComponentModel;
 using System.Windows.Forms;
 
 using treeDiM.StackBuilder.Basics;
-using treeDiM.StackBuilder.Engine;
-using treeDiM.StackBuilder.Reporting;
 
 // Docking
-using WeifenLuo.WinFormsUI.Docking;
 #endregion
 
 namespace treeDiM.StackBuilder.Desktop
