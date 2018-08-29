@@ -358,6 +358,8 @@ namespace treeDiM.StackBuilder.Desktop
         {
             if (null != eventArg.Analysis)
                 CreateOrActivateViewAnalysis(eventArg.Analysis);
+            else if (null != eventArg.HAnalysis)
+                CreateOrActivateViewHAnalysis(eventArg.HAnalysis);
             else if (null != eventArg.ItemBase)
             {
                 ItemBase itemProp = eventArg.ItemBase;
@@ -567,6 +569,18 @@ namespace treeDiM.StackBuilder.Desktop
                 _log.Error(ex.ToString()); Program.SendCrashReport(ex);
             }
         }
+        public void GenerateReport(HAnalysis analysis)
+        {
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+                _log.Error(ex.ToString()); Program.SendCrashReport(ex);
+            }
+        }
+
         public void GenerateExport(Analysis analysis, string extension)
         {
             try
@@ -597,6 +611,17 @@ namespace treeDiM.StackBuilder.Desktop
             }
         }
 
+        public void GenerateExport(HAnalysis analysis, string extension)
+        {
+            try
+            {
+            }
+            catch (Exception ex)
+            {
+                _log.Error(ex.ToString()); Program.SendCrashReport(ex);
+            }
+        }
+
         private void OnSolutionReportNodeClicked(object sender, AnalysisTreeViewEventArgs eventArg)
         {
             if (null != eventArg.Analysis)
@@ -607,9 +632,19 @@ namespace treeDiM.StackBuilder.Desktop
         {
             try
             {
-                if ((eventArg.Document is DocumentSB doc) && (null != eventArg.Analysis))
-                    doc.EditAnalysis(eventArg.Analysis);
-                CreateOrActivateViewAnalysis(eventArg.Analysis);                      
+                if (eventArg.Document is DocumentSB doc)
+                {
+                    if (null != eventArg.Analysis)
+                    {
+                        doc.EditAnalysis(eventArg.Analysis);
+                        CreateOrActivateViewAnalysis(eventArg.Analysis);
+                    }
+                    else if (null != eventArg.HAnalysis)
+                    {
+                        doc.EditAnalysis(eventArg.HAnalysis);
+                        CreateOrActivateViewHAnalysis(eventArg.HAnalysis);
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -930,16 +965,21 @@ namespace treeDiM.StackBuilder.Desktop
 
         #region IDocumentListener implementation
         // new
-        public void OnNewDocument(Document doc) {}
+        public void OnNewDocument(Document doc) { doc.DocumentClosed += OnDocumentClosed; }
         public void OnNewTypeCreated(Document doc, ItemBase itemBase) { }
         public void OnNewAnalysisCreated(Document doc, Analysis analysis) => CreateOrActivateViewAnalysis(analysis);
         public void OnAnalysisUpdated(Document doc, Analysis analysis) => CreateOrActivateViewAnalysis(analysis);
+        public void OnNewAnalysisCreated(Document doc, HAnalysis analysis) => CreateOrActivateViewHAnalysis(analysis);
+        public void OnAnalysisUpdated(Document doc, HAnalysis analysis) =>  CreateOrActivateViewHAnalysis(analysis);
         public void OnNewECTAnalysisCreated(Document doc) {  }
         // remove
         public void OnTypeRemoved(Document doc, ItemBase itemBase) { }
         public void OnAnalysisRemoved(Document doc, ItemBase itemBase) { }
         // close
-        public void OnDocumentClosed(Document doc) { }
+        public void OnDocumentClosed(Document doc)
+        {
+            doc.DocumentClosed -= OnDocumentClosed;
+        }
         #endregion
 
         #region Connection / disconnection
@@ -1233,13 +1273,7 @@ namespace treeDiM.StackBuilder.Desktop
         #region Form activation/creation
         public void CreateOrActivateViewAnalysis(Analysis analysis)
         { 
-            AnalysisCasePallet analysisCasePallet = analysis as AnalysisCasePallet;
-            AnalysisBoxCase analysisBoxCase = analysis as AnalysisBoxCase;
             AnalysisPalletTruck analysisPalletTruck = analysis as AnalysisPalletTruck;
-            AnalysisCylinderCase analysisCylinderCase = analysis as AnalysisCylinderCase;
-            AnalysisCylinderPallet analysisCylinderPallet = analysis as AnalysisCylinderPallet;
-            AnalysisCaseTruck analysisCaseTruck = analysis as AnalysisCaseTruck;
-
             // ---> search among existing views
             // ---> activate if found
             foreach (IDocument doc in Documents)
@@ -1259,15 +1293,35 @@ namespace treeDiM.StackBuilder.Desktop
                         }
                     }
                 }
-
             // ---> not found : create new form
             // get document
             DocumentSB parentDocument = (DocumentSB)analysis.ParentDocument;
             // create form and show
             DockContentView formAnalysis = parentDocument.CreateViewAnalysis(analysis);
             if (null != formAnalysis)
-                formAnalysis.Show(dockPanel, WeifenLuo.WinFormsUI.Docking.DockState.Document);
+                formAnalysis.Show(dockPanel, DockState.Document);
         }
+        public void CreateOrActivateViewHAnalysis(HAnalysis analysis)
+        {
+            // ---> search among existing views
+            // ---> activate if found
+            foreach (IDocument doc in Documents)
+                foreach (IView view in doc.Views)
+                {
+                    if (view is DockContentHAnalysis formAnalysis && formAnalysis.Analysis == analysis)
+                    {
+                        formAnalysis.Activate();
+                        return;
+                    }
+                }
+            // ---> not found : create new form
+            DocumentSB parentDocument = analysis.ParentDocument as DocumentSB;
+            // create form and show
+            DockContentView formHAnalysis = parentDocument.CreateViewHAnalysis(analysis);
+            if (null != formHAnalysis)
+                formHAnalysis.Show(dockPanel, DockState.Document);
+        }
+
         /// <summary>
         /// ECT analysis view
         /// </summary>

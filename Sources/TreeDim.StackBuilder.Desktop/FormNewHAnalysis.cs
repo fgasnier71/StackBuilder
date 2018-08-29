@@ -30,9 +30,11 @@ namespace treeDiM.StackBuilder.Desktop
 
             if (null == _analysis)
             {
-                _analysis = new HAnalysisPallet(_document);
+                _analysis = IntantiateTempAnalysis();
+                UseTempAnalysis = true;
                 _analysis.ID.SetNameDesc(doc.GetValidNewAnalysisName("HAnalysis"), string.Empty);
             }
+
         }
         #endregion
 
@@ -40,6 +42,10 @@ namespace treeDiM.StackBuilder.Desktop
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
+
+            // initialize name / description
+            ItemName = _analysis.ID.Name;
+            ItemDescription = _analysis.ID.Description;
 
             // initialize graphic control 
             graphCtrl.DrawingContainer = this;
@@ -205,7 +211,7 @@ namespace treeDiM.StackBuilder.Desktop
 
                 // solutions
                 int iIndex = 0;
-                foreach (HSolution sol in _solutions)
+                foreach (HSolution sol in Solutions)
                 {
                     // insert row
                     gridSolutions.Rows.Insert(++iIndex);
@@ -238,26 +244,30 @@ namespace treeDiM.StackBuilder.Desktop
         #region Computation
         protected virtual Vector3D DimContainer { get; }
         protected virtual HConstraintSet ConstraintSet { get; }
-
-        protected void LoadContentItems()
+        protected List<ContentItem> ListContentItems
         {
-            if (null == _analysis)
-                return;
-            // initialise analysis
-            _analysis.ClearContent();
-            for (int iRow = 1; iRow < gridContent.RowsCount; ++iRow)
+            get
             {
-                // get packable
-                Packable p = gridContent[iRow, 0].Tag as Packable;
-                // get number
-                SourceGrid.Cells.Editors.NumericUpDown upDownEditor = gridContent[iRow, 1].Editor as SourceGrid.Cells.Editors.NumericUpDown;
-                int number = (int)upDownEditor.GetEditedValue();
-                SourceGrid.Cells.CheckBox checkBoxX = gridContent[iRow, 2] as SourceGrid.Cells.CheckBox;
-                SourceGrid.Cells.CheckBox checkBoxY = gridContent[iRow, 3] as SourceGrid.Cells.CheckBox;
-                SourceGrid.Cells.CheckBox checkBoxZ = gridContent[iRow, 4] as SourceGrid.Cells.CheckBox;
-                // get orientation
-                bool[] orientations = new bool[3] { (bool)checkBoxX.Value, (bool)checkBoxY.Value, (bool)checkBoxZ.Value };
-                _analysis.AddContent(p, (uint)number, orientations);
+                List<ContentItem> contentItems = new List<ContentItem>();
+                for (int iRow = 1; iRow < gridContent.RowsCount; ++iRow)
+                {
+                    try
+                    {
+                        // get packable
+                        Packable p = gridContent[iRow, 0].Tag as Packable;
+                        // get number
+                        SourceGrid.Cells.Editors.NumericUpDown upDownEditor = gridContent[iRow, 1].Editor as SourceGrid.Cells.Editors.NumericUpDown;
+                        int number = (int)upDownEditor.GetEditedValue();
+                        SourceGrid.Cells.CheckBox checkBoxX = gridContent[iRow, 2] as SourceGrid.Cells.CheckBox;
+                        SourceGrid.Cells.CheckBox checkBoxY = gridContent[iRow, 3] as SourceGrid.Cells.CheckBox;
+                        SourceGrid.Cells.CheckBox checkBoxZ = gridContent[iRow, 4] as SourceGrid.Cells.CheckBox;
+                        // get orientation
+                        bool[] orientations = new bool[3] { (bool)checkBoxX.Value, (bool)checkBoxY.Value, (bool)checkBoxZ.Value };
+                        contentItems.Add(new ContentItem(p, (uint)number, orientations));
+                    }
+                    catch (Exception /*ex*/) {}
+                }
+                return contentItems;
             }
         }
 
@@ -266,7 +276,8 @@ namespace treeDiM.StackBuilder.Desktop
         protected void Compute()
         {
             if (null == _analysis) return;
-            LoadContentItems();
+            _analysis.ClearContent();
+            _analysis.AddContent(ListContentItems);
             LoadContainer();
             _analysis.ConstraintSet = ConstraintSet;
 
@@ -275,7 +286,7 @@ namespace treeDiM.StackBuilder.Desktop
             try
             {
                 HSolver solver = new HSolver();
-                _solutions = solver.BuildSolutions(_analysis);
+                Solutions = solver.BuildSolutions(_analysis);
             }
             catch (InvalidOperationException ex)
             {
@@ -320,13 +331,25 @@ namespace treeDiM.StackBuilder.Desktop
             UpdateSolItemIndexButtons();
             PreventUpdate = false;
         }
+        private void OnNext(object sender, EventArgs e)
+        {
+            try
+            {
+                CreateNewAnalysis();
+                Close();
+            }
+            catch (Exception ex)
+            {
+                _log.Error(ex.ToString());
+            }
+        }
         #endregion
 
         private int SelectedSolutionIndex
         {
             get
             {
-                if (_solutions.Count < 1)
+                if (Solutions.Count < 1)
                     return -1;
                 SourceGrid.RangeRegion region = gridSolutions.Selection.GetSelectionRegion();
                 int[] indexes = region.GetRowsIndex();
@@ -334,17 +357,27 @@ namespace treeDiM.StackBuilder.Desktop
                 return indexes.Length > 0 ? indexes[0] - 1 : -1;
             }
         }
-        private HSolution SelectedSolution
+        protected HSolution SelectedSolution
         {
             get
             {
                 int iSel = SelectedSolutionIndex;
                 if (-1 == iSel) return null;
-                else return _solutions[iSel];
+                else return Solutions[iSel];
             }
         }
 
         #region Helpers
+        protected string ItemName
+        {
+            get => tbName.Text;
+            set => tbName.Text = value;
+        }
+        protected string ItemDescription
+        {
+            get => tbDescription.Text;
+            set => tbDescription.Text = value;
+        }
         private List<ContentItem> ContentItems
         {
             get
@@ -381,18 +414,22 @@ namespace treeDiM.StackBuilder.Desktop
                 UpdateSolItemIndexButtons();
             }
         }
+        protected virtual void CreateNewAnalysis() {}
+        protected virtual HAnalysis IntantiateTempAnalysis() { return null; }
+
+        private bool UseTempAnalysis { get; set; }
+        protected List<HSolution> Solutions { get; set; } = new List<HSolution>();
         #endregion
 
         #region Data members
         protected Document _document;
         protected HAnalysis _analysis;
-        protected List<HSolution> _solutions = new List<HSolution>();
         protected List<ContentItem> _contentItems;
         protected static ILog _log = LogManager.GetLogger(typeof(FormNewHAnalysis));
         protected List<BoxProperties> lBoxes = new List<BoxProperties>();
         protected int _selectedSolutionIndex = -1, _solItemIndex = 0;
-
         protected SourceGrid.Cells.Controllers.CustomEvents _checkBoxEvent = new SourceGrid.Cells.Controllers.CustomEvents();
+
         protected SourceGrid.Cells.Controllers.CustomEvents _numUpDownEvent = new SourceGrid.Cells.Controllers.CustomEvents();
         #endregion
     }

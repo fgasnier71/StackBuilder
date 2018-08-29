@@ -41,6 +41,19 @@ namespace treeDiM.StackBuilder.Reporting
             BuildAnalysisReport(inputData, ref rnRoot, absTemplatePath, htmlFilePath);
 
             PdfConvert.ConvertHtmlToPdf(new PdfDocument() { Url = htmlFilePath }, new PdfOutput() { OutputFilePath = absOutputFilePath });
+            
+            /*
+            using (MemoryStream stream = new MemoryStream())
+            {
+                StringReader sr = new StringReader(File.ReadAllText(htmlFilePath));
+                Document pdfDoc = new Document(PageSize.A4, 10f, 10f, 100f, 0f);
+                PdfWriter writer = PdfWriter.GetInstance(pdfDoc, stream);
+                pdfDoc.Open();
+                XMLWorkerHelper.GetInstance().ParseXHtml(writer, pdfDoc, sr);
+                pdfDoc.Close();
+                File.WriteAllBytes(absOutputFilePath, stream.ToArray());
+            }
+            */
         }
         public override bool WriteNamespace => false;
         public override bool WriteImageFiles => true;

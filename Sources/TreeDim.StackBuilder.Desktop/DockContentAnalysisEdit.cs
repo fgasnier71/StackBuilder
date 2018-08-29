@@ -105,7 +105,7 @@ namespace treeDiM.StackBuilder.Desktop
         }
         public virtual string GridCaption
         {
-            get { return Properties.Resources.ID_LOAD; }
+            get { return Resources.ID_LOAD; }
         }
         protected int GridFontSize { get; set; }
         #endregion

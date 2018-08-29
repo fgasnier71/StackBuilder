@@ -69,6 +69,19 @@ namespace treeDiM.StackBuilder.Desktop
             base.LoadContainer();
             AnalysisCast.Pallet = SelectedPallet;
         }
+        protected override void CreateNewAnalysis()
+        {
+            _analysis = _document.CreateNewHAnalysisCasePallet(
+                ItemName, ItemDescription,
+                ListContentItems,
+                SelectedPallet,
+                ConstraintSet as HConstraintSetPallet,
+                SelectedSolution);
+        }
+        protected override HAnalysis IntantiateTempAnalysis()
+        {
+            return new HAnalysisPallet(_document);
+        }
         #endregion
 
         #region Event handlers

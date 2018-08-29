@@ -30,19 +30,19 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DockContentHAnalysis));
             this.toolStripAnalysis = new System.Windows.Forms.ToolStrip();
+            this.toolStripButtonBack = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButtonReport = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButtonExportXML = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.graphCtrlSolution = new treeDiM.StackBuilder.Graphics.Graphics3DControl();
-            this.gridSolutions = new SourceGrid.Grid();
-            this.toolStripButtonReport = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButtonExportXML = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButtonBack = new System.Windows.Forms.ToolStripButton();
-            this.bnSolItemIndexDown = new System.Windows.Forms.Button();
-            this.lbSolItemIndex = new System.Windows.Forms.Label();
             this.bnSolItemIndexUp = new System.Windows.Forms.Button();
+            this.lbSolItemIndex = new System.Windows.Forms.Label();
+            this.bnSolItemIndexDown = new System.Windows.Forms.Button();
+            this.gridSolutions = new SourceGrid.Grid();
             this.toolStripAnalysis.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -68,6 +68,60 @@
             this.toolStripAnalysis.Name = "toolStripAnalysis";
             this.toolStripAnalysis.Size = new System.Drawing.Size(800, 25);
             this.toolStripAnalysis.TabIndex = 1;
+            // 
+            // toolStripButtonBack
+            // 
+            this.toolStripButtonBack.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonBack.Enabled = false;
+            this.toolStripButtonBack.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonBack.Image")));
+            this.toolStripButtonBack.ImageTransparentColor = System.Drawing.Color.White;
+            this.toolStripButtonBack.Name = "toolStripButtonBack";
+            this.toolStripButtonBack.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonBack.Text = "Back...";
+            this.toolStripButtonBack.Click += new System.EventHandler(this.OnBack);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripButtonReport
+            // 
+            this.toolStripButtonReport.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonReport.Enabled = false;
+            this.toolStripButtonReport.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonReport.Image")));
+            this.toolStripButtonReport.ImageTransparentColor = System.Drawing.Color.White;
+            this.toolStripButtonReport.Name = "toolStripButtonReport";
+            this.toolStripButtonReport.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonReport.Text = "Generate report...";
+            this.toolStripButtonReport.Click += new System.EventHandler(this.OnGenerateReport);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripButtonExportXML
+            // 
+            this.toolStripButtonExportXML.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonExportXML.Enabled = false;
+            this.toolStripButtonExportXML.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonExportXML.Image")));
+            this.toolStripButtonExportXML.ImageTransparentColor = System.Drawing.Color.White;
+            this.toolStripButtonExportXML.Name = "toolStripButtonExportXML";
+            this.toolStripButtonExportXML.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonExportXML.Text = "Export XML...";
+            this.toolStripButtonExportXML.Click += new System.EventHandler(this.OnGenerateExport);
+            // 
+            // toolStripButton3
+            // 
+            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton3.Enabled = false;
+            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
+            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.White;
+            this.toolStripButton3.Name = "toolStripButton3";
+            this.toolStripButton3.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton3.Text = "Export CSV...";
+            this.toolStripButton3.Click += new System.EventHandler(this.OnGenerateExport);
             // 
             // splitContainer1
             // 
@@ -115,6 +169,34 @@
             this.graphCtrlSolution.TabIndex = 0;
             this.graphCtrlSolution.Viewer = null;
             // 
+            // bnSolItemIndexUp
+            // 
+            this.bnSolItemIndexUp.Location = new System.Drawing.Point(57, 4);
+            this.bnSolItemIndexUp.Name = "bnSolItemIndexUp";
+            this.bnSolItemIndexUp.Size = new System.Drawing.Size(23, 23);
+            this.bnSolItemIndexUp.TabIndex = 2;
+            this.bnSolItemIndexUp.Text = "+";
+            this.bnSolItemIndexUp.UseVisualStyleBackColor = true;
+            // 
+            // lbSolItemIndex
+            // 
+            this.lbSolItemIndex.AutoSize = true;
+            this.lbSolItemIndex.Location = new System.Drawing.Point(36, 8);
+            this.lbSolItemIndex.Name = "lbSolItemIndex";
+            this.lbSolItemIndex.Size = new System.Drawing.Size(13, 13);
+            this.lbSolItemIndex.TabIndex = 1;
+            this.lbSolItemIndex.Text = "0";
+            // 
+            // bnSolItemIndexDown
+            // 
+            this.bnSolItemIndexDown.Location = new System.Drawing.Point(4, 4);
+            this.bnSolItemIndexDown.Name = "bnSolItemIndexDown";
+            this.bnSolItemIndexDown.Size = new System.Drawing.Size(23, 23);
+            this.bnSolItemIndexDown.TabIndex = 0;
+            this.bnSolItemIndexDown.Text = "-";
+            this.bnSolItemIndexDown.UseVisualStyleBackColor = true;
+            this.bnSolItemIndexDown.Click += new System.EventHandler(this.OnSolItemIndexDown);
+            // 
             // gridSolutions
             // 
             this.gridSolutions.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -127,84 +209,6 @@
             this.gridSolutions.TabIndex = 0;
             this.gridSolutions.TabStop = true;
             this.gridSolutions.ToolTipText = "";
-            // 
-            // toolStripButtonReport
-            // 
-            this.toolStripButtonReport.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonReport.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonReport.Image")));
-            this.toolStripButtonReport.ImageTransparentColor = System.Drawing.Color.White;
-            this.toolStripButtonReport.Name = "toolStripButtonReport";
-            this.toolStripButtonReport.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonReport.Text = "Generate report...";
-            this.toolStripButtonReport.Click += new System.EventHandler(this.OnGenerateReport);
-            // 
-            // toolStripButtonExportXML
-            // 
-            this.toolStripButtonExportXML.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonExportXML.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonExportXML.Image")));
-            this.toolStripButtonExportXML.ImageTransparentColor = System.Drawing.Color.White;
-            this.toolStripButtonExportXML.Name = "toolStripButtonExportXML";
-            this.toolStripButtonExportXML.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonExportXML.Text = "Export XML...";
-            this.toolStripButtonExportXML.Click += new System.EventHandler(this.OnGenerateExportXML);
-            // 
-            // toolStripButton3
-            // 
-            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
-            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.White;
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton3.Text = "Export CSV...";
-            this.toolStripButton3.Click += new System.EventHandler(this.OnGenerateExportCSV);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripButtonBack
-            // 
-            this.toolStripButtonBack.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonBack.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonBack.Image")));
-            this.toolStripButtonBack.ImageTransparentColor = System.Drawing.Color.White;
-            this.toolStripButtonBack.Name = "toolStripButtonBack";
-            this.toolStripButtonBack.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonBack.Text = "Back...";
-            this.toolStripButtonBack.Click += new System.EventHandler(this.OnBack);
-            // 
-            // bnSolItemIndexDown
-            // 
-            this.bnSolItemIndexDown.Location = new System.Drawing.Point(4, 4);
-            this.bnSolItemIndexDown.Name = "bnSolItemIndexDown";
-            this.bnSolItemIndexDown.Size = new System.Drawing.Size(23, 23);
-            this.bnSolItemIndexDown.TabIndex = 0;
-            this.bnSolItemIndexDown.Text = "-";
-            this.bnSolItemIndexDown.UseVisualStyleBackColor = true;
-            this.bnSolItemIndexDown.Click += new System.EventHandler(this.OnSolItemIndexDown);
-            // 
-            // lbSolItemIndex
-            // 
-            this.lbSolItemIndex.AutoSize = true;
-            this.lbSolItemIndex.Location = new System.Drawing.Point(36, 8);
-            this.lbSolItemIndex.Name = "lbSolItemIndex";
-            this.lbSolItemIndex.Size = new System.Drawing.Size(13, 13);
-            this.lbSolItemIndex.TabIndex = 1;
-            this.lbSolItemIndex.Text = "0";
-            // 
-            // bnSolItemIndexUp
-            // 
-            this.bnSolItemIndexUp.Location = new System.Drawing.Point(57, 4);
-            this.bnSolItemIndexUp.Name = "bnSolItemIndexUp";
-            this.bnSolItemIndexUp.Size = new System.Drawing.Size(23, 23);
-            this.bnSolItemIndexUp.TabIndex = 2;
-            this.bnSolItemIndexUp.Text = "+";
-            this.bnSolItemIndexUp.UseVisualStyleBackColor = true;
             // 
             // DockContentHAnalysis
             // 
