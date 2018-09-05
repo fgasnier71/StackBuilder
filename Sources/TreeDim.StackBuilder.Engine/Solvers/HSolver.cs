@@ -41,10 +41,10 @@ namespace treeDiM.StackBuilder.Engine
             var binPackResult = binPacker.Pack(parameter);
 
             List<HSolution> solutions = new List<HSolution>();
-            foreach (var result in binPackResult.AllResults)
-            {
-                HSolution sol = new HSolution(binPackResult.BestAlgorithmName) { Analysis = analysis };
-                foreach (var bins in result)
+            //foreach (var result in binPackResult.BestResult)
+            //{
+                HSolution sol = new HSolution("") { Analysis = analysis };
+                foreach (var bins in binPackResult.BestResult)
                 {
                     HSolItem hSolItem = sol.CreateSolItem();
                     foreach (var cuboid in bins)
@@ -54,7 +54,7 @@ namespace treeDiM.StackBuilder.Engine
                     }
                 }
                 solutions.Add(sol);
-            }
+            //}
             // *** Sharp3DBinPacking : end
 
             return solutions;
