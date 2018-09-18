@@ -24,7 +24,7 @@ namespace Sharp3D.Boxologic
         public long Vol => Dim1 * Dim2 * Dim3;
     }
 
-    public class BoxInfo : St_instance
+    public class Cuboid : St_instance
     {
         public void SetPacked(long cboxx, long cboxy, long cboxz)
         {

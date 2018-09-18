@@ -11,7 +11,7 @@ namespace Sharp3D.Boxologic
         #region Private data members
         private DateTime _timeStart, _timeStop;
         private PalletInfo pallet;
-        private List<BoxInfo> boxList = new List<BoxInfo>();
+        private List<Cuboid> boxList = new List<Cuboid>();
         private List<Layer> layers = new List<Layer>();
         private Scrappad scrapfirst, smallestz;
         private Scrappad trash;
@@ -47,7 +47,7 @@ namespace Sharp3D.Boxologic
             foreach (BoxItem bi in listBoxItem)
             {
                 for (int i = 0; i < bi.N; ++i)
-                    boxList.Add(new BoxInfo() { ID= bi.ID, Dim1 = bi.Boxx, Dim2 = bi.Boxy, Dim3 = bi.Boxz, N = bi.N });
+                    boxList.Add(new Cuboid() { ID= bi.ID, Dim1 = bi.Boxx, Dim2 = bi.Boxy, Dim3 = bi.Boxz, N = bi.N });
             }
             // pallet
             pallet = new PalletInfo(palletLength, palletWidth, palletHeight);
@@ -63,7 +63,7 @@ namespace Sharp3D.Boxologic
         private void Initialize()
         {
             total_box_volume = 0;
-            foreach (BoxInfo bi in boxList)
+            foreach (Cuboid bi in boxList)
             { total_box_volume += bi.Vol; }
 
             scrapfirst = new Scrappad();
@@ -97,7 +97,7 @@ namespace Sharp3D.Boxologic
                     remainpy = pallet.Pallet_y;
                     remainpz = pallet.Pallet_z;
                     packednumbox = 0;
-                    foreach (BoxInfo bi in boxList)
+                    foreach (Cuboid bi in boxList)
                         bi.Is_packed = false;
 
                     // ### BEGIN DO-WHILE
@@ -148,7 +148,7 @@ namespace Sharp3D.Boxologic
         #region List_candidate_layers (DONE)
         public void List_candidate_layers(bool show)
         {
-            foreach (BoxInfo bi1 in boxList)
+            foreach (Cuboid bi1 in boxList)
             {
                 for (int y = 1; y <= 3; ++y)
                 {
@@ -188,7 +188,7 @@ namespace Sharp3D.Boxologic
                         continue;
 
                     long layereval = 0;
-                    foreach (BoxInfo bi2 in boxList)
+                    foreach (Cuboid bi2 in boxList)
                     {
                         if (bi1 != bi2)
                         {
@@ -262,7 +262,7 @@ namespace Sharp3D.Boxologic
                     if (layerdone) break;
                     if (evened) continue;
 
-                    BoxInfo bi = boxList[(int)cboxi];
+                    Cuboid bi = boxList[(int)cboxi];
                     boxList[(int)cboxi].Cox = 0;
                     boxList[(int)cboxi].Coy = packedy;
                     boxList[(int)cboxi].Coz = smallestz.Cumz;
@@ -295,7 +295,7 @@ namespace Sharp3D.Boxologic
                     if (layerdone) break;
                     if (evened) continue;
 
-                    BoxInfo bi = boxList[(int)cboxi];
+                    Cuboid bi = boxList[(int)cboxi];
                     bi.Coy = packedy;
                     bi.Coz = smallestz.Cumz;
                     if (cboxx == smallestz.Cumx)
@@ -352,7 +352,7 @@ namespace Sharp3D.Boxologic
                     if (layerdone) break;
                     if (evened) continue;
 
-                    BoxInfo bi = boxList[(int)cboxi];
+                    Cuboid bi = boxList[(int)cboxi];
                     bi.Coy = packedy;
                     bi.Coz = smallestz.Cumz;
                     bi.Cox = smallestz.prev.Cumx;
@@ -538,7 +538,7 @@ namespace Sharp3D.Boxologic
             layerThickness = 0;
             for (int x = 0; x < boxList.Count; x++)
             {
-                BoxInfo bi = boxList[x];
+                Cuboid bi = boxList[x];
                 if (bi.Is_packed)
                     continue;
                 for (int y = 1; y <= 3; y++)
@@ -604,7 +604,7 @@ namespace Sharp3D.Boxologic
             , long bboxi, long bboxx, long bboxy, long bboxz)
         {
             evened = false;
-            if (boxi > 0)
+            if (boxi >= 0 && 0 != boxx * boxy *boxz)
             {
                 cboxi = boxi;
                 cboxx = boxx;
@@ -613,7 +613,7 @@ namespace Sharp3D.Boxologic
             }
             else
             {
-                if ((bboxi > 0) && (layerinlayer > 0 || (null == smallestz.prev && null == smallestz.next)))
+                if ((bboxi >= 0 && 0 != bboxx * bboxy * bboxz) && (layerinlayer > 0 || (null == smallestz.prev && null == smallestz.next)))
                 {
                     if (layerinlayer == 0.0)
                     {
@@ -690,7 +690,7 @@ namespace Sharp3D.Boxologic
         private void VolumeCheck(int cboxi, long cboxx, long cboxy, long cboxz, bool packingbest
             , ref bool hundredpercent)
         {
-            BoxInfo bi = boxList[cboxi];
+            Cuboid bi = boxList[cboxi];
             bi.SetPacked(cboxx, cboxy, cboxz);
             packedvolume += bi.Vol;
             packednumbox++;
@@ -728,8 +728,9 @@ namespace Sharp3D.Boxologic
                     if (!boxList[x].Is_packed) break;
                 }
                 if (boxList[x].Is_packed) continue;
-                if (x >= boxList.Count) return;
-                BoxInfo bi = boxList[x];
+                if (x >= boxList.Count)
+                    return;
+                Cuboid bi = boxList[x];
                 // 1 2 3
                 Analyse_box(x, hmx, hy, hmy, hz, hmz,
                     bi.Dim1, bi.Dim2, bi.Dim3
@@ -879,7 +880,7 @@ namespace Sharp3D.Boxologic
             remainpy = pallet.Pallet_y;
             remainpz = pallet.Pallet_z;
 
-            foreach (BoxInfo bi in boxList)
+            foreach (Cuboid bi in boxList)
                 bi.Is_packed = false;
 
             bool hundredpercent = false;
@@ -911,7 +912,7 @@ namespace Sharp3D.Boxologic
 
 
             Solution sol = new Solution() { Variant = best_variant, Iteration = best_iteration };
-            foreach (BoxInfo bi in boxList)
+            foreach (Cuboid bi in boxList)
             {
                 if (bi.Is_packed)
                     sol.ItemsPacked.Add(bi.ToSolItem(best_variant));
