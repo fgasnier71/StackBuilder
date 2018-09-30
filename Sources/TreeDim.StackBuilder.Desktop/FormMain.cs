@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using System.Threading;
 using System.Diagnostics;
 using System.Reflection;
+using System.Configuration;
 
 using WeifenLuo.WinFormsUI.Docking;
 using log4net;
@@ -160,23 +161,30 @@ namespace treeDiM.StackBuilder.Desktop
 
         protected override void OnClosing(CancelEventArgs e)
         {
-            try
+             try
             {
+                // save form position
                 if (null == Settings.Default.FormMainPosition)
                     Settings.Default.FormMainPosition = new WindowSettings();
                 Settings.Default.FormMainPosition.Record(this);
                 Settings.Default.Save();
-
+                // Close all documents
+                CloseAllDocuments(e);
             }
-            catch (System.Configuration.ConfigurationErrorsException ex)
+            catch (ConfigurationErrorsException ex)
             {
                 _log.Error(string.Format("Failed to save user configuration: {0}", ex.ToString()));
+            }
+            catch (DirectoryNotFoundException ex)
+            {
+                MessageBox.Show(ex.Message);
+                _log.Error(ex.Message);
             }
             catch (Exception ex)
             {
                 _log.Error(ex.ToString());
             }
-            CloseAllDocuments(e);
+            // default behavior
             base.OnClosing(e);
         }
         #endregion
@@ -577,7 +585,7 @@ namespace treeDiM.StackBuilder.Desktop
             }
             catch (Exception ex)
             {
-                _log.Error(ex.ToString()); Program.SendCrashReport(ex);
+                _log.Error(ex.ToString());
             }
         }
 
@@ -605,9 +613,13 @@ namespace treeDiM.StackBuilder.Desktop
                     }
                 }
             }
+            catch (ExceptionUnexpectedAnalysisType ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
             catch (Exception ex)
             {
-                _log.Error(ex.ToString()); Program.SendCrashReport(ex);
+                _log.Error(ex.ToString());
             }
         }
 
@@ -927,7 +939,7 @@ namespace treeDiM.StackBuilder.Desktop
                     foreach (IView view in doc.Views)
                     {
                         Form form = view as Form;
-                        if (this.ActiveMdiChild == form)
+                        if (ActiveMdiChild == form)
                             return view;
                     }
                 return null;
@@ -1141,7 +1153,7 @@ namespace treeDiM.StackBuilder.Desktop
         {
             if (null == ActiveDocument) { _log.Error(message:"No active document!"); }
             try { ((DocumentSB)ActiveDocument).CreateNewAnalysisBoxCaseUI(); }
-            catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
+            catch (Exception ex){ _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
         private void OnNewAnalysisCylinderCase(object sender, EventArgs e)
         { 

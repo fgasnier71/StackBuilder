@@ -39,7 +39,7 @@
     <MinimumRequiredVersion>3.0.0.0</MinimumRequiredVersion>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>78</ApplicationRevision>
+    <ApplicationRevision>79</ApplicationRevision>
     <ApplicationVersion>3.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -551,15 +551,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Content Include="ReportTemplates\NLD.xml" />
     <Content Include="ReportTemplates\POL.xml" />
-    <Content Include="wkHtmlToPdf\wkhtmltoimage.exe">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="wkHtmlToPdf\wkhtmltopdf.exe">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="wkHtmlToPdf\wkhtmltox.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <EmbeddedResource Include="AboutBox.de.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </EmbeddedResource>

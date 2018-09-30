@@ -98,6 +98,7 @@ namespace treeDiM.StackBuilder.Desktop
             // culture
             if (cbLanguages.SelectedItem is ComboCultureWrapper cCultWrapper)
                 Properties.Settings.Default.CultureToUse = cCultWrapper.ToCultureInfoString();
+            Properties.Settings.Default.Save();
 
             // tells the user that the application must restart
             ApplicationMustRestart = true;

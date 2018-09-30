@@ -1337,7 +1337,7 @@ namespace treeDiM.StackBuilder.Basics
             tapeColor = Color.Black;
             try
             {
-                tapeWidth = UnitsManager.ConvertLengthFrom(Convert.ToDouble(eltTape.Attributes["TapeWidth"].Value, CultureInfo.InvariantCulture), _unitSystem);
+                tapeWidth = Convert.ToDouble(eltTape.Attributes["TapeWidth"].Value, CultureInfo.InvariantCulture);
                 string sColorArgb = eltTape.Attributes["TapeColor"].Value;
                 tapeColor = Color.FromArgb(Convert.ToInt32(sColorArgb));
             }

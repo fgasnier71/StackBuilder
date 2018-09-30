@@ -32,8 +32,8 @@ namespace treeDiM.StackBuilder.Desktop
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
-            cbCases.Initialize(_document, this, initialSelect: AnalysisCast?.Content);
-            cbPallets.Initialize(_document, this, initialSelect: AnalysisCast?.PalletProperties);
+            cbCases.Initialize(_document, this, initiallySelectedItem: AnalysisCast?.Content);
+            cbPallets.Initialize(_document, this, initiallySelectedItem: AnalysisCast?.PalletProperties);
 
             if (null == AnalysisCast)
             {
