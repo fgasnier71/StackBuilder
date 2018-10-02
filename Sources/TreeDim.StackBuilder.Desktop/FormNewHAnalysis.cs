@@ -315,21 +315,37 @@ namespace treeDiM.StackBuilder.Desktop
         } 
         private void OnSolItemIndexUp(object sender, EventArgs e)
         {
-            PreventUpdate = true;
-            if (SolItemIndex < SelectedSolution.SolItemCount - 1)
-                SolItemIndex = SolItemIndex + 1;
-            graphCtrl.Invalidate();
-            UpdateSolItemIndexButtons();
-            PreventUpdate = false;
+            try
+            {
+                if (null == SelectedSolution) return;
+                PreventUpdate = true;
+                if (SolItemIndex < SelectedSolution.SolItemCount - 1)
+                    SolItemIndex = SolItemIndex + 1;
+                graphCtrl.Invalidate();
+                UpdateSolItemIndexButtons();
+                PreventUpdate = false;
+            }
+            catch (Exception ex)
+            {
+                _log.Error(ex.ToString());
+            }
         }
         private void OnSolItemIndexDown(object sender, EventArgs e)
         {
-            PreventUpdate = true;
-            if (SolItemIndex > 0)
-                SolItemIndex = SolItemIndex - 1;
-            graphCtrl.Invalidate();
-            UpdateSolItemIndexButtons();
-            PreventUpdate = false;
+            try
+            {
+                if (null == SelectedSolution) return;
+                PreventUpdate = true;
+                if (SolItemIndex > 0)
+                    SolItemIndex = SolItemIndex - 1;
+                graphCtrl.Invalidate();
+                UpdateSolItemIndexButtons();
+                PreventUpdate = false;
+            }
+            catch (Exception ex)
+            {
+                _log.Error(ex.ToString());
+            }
         }
         private void OnNext(object sender, EventArgs e)
         {

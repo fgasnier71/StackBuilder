@@ -162,6 +162,7 @@ namespace treeDiM.StackBuilder.Desktop
         {
             try
             {
+                if (null == Solution) return;
                 if (SolItemIndex < Solution.SolItemCount - 1)
                     SolItemIndex = SolItemIndex + 1;
                 graphCtrlSolution.Invalidate();
@@ -176,6 +177,7 @@ namespace treeDiM.StackBuilder.Desktop
         {
             try
             {
+                if (null == Solution) return;
                 if (SolItemIndex > 0)
                     SolItemIndex = SolItemIndex - 1;
                 graphCtrlSolution.Invalidate();
