@@ -945,7 +945,6 @@ namespace treeDiM.StackBuilder.Desktop
                 return null;
             }            
         }
-
         public IDocument ActiveDocument
         {
             get
@@ -956,7 +955,17 @@ namespace treeDiM.StackBuilder.Desktop
                 else if (_documents.Count == 1)
                     return _documents[0];
                 else
+                {
+                    _log.Warn(message: "No active document!");
                     return null;
+                }
+            }
+        }
+        public DocumentSB ActiveDocumentDB
+        {
+            get
+            {
+                return ActiveDocument as DocumentSB;
             }
         }
 
@@ -1151,50 +1160,42 @@ namespace treeDiM.StackBuilder.Desktop
         }
         private void OnNewAnalysisBoxCase(object sender, EventArgs e)
         {
-            if (null == ActiveDocument) { _log.Error(message:"No active document!"); }
-            try { ((DocumentSB)ActiveDocument).CreateNewAnalysisBoxCaseUI(); }
+            try { ActiveDocumentDB?.CreateNewAnalysisBoxCaseUI(); }
             catch (Exception ex){ _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
         private void OnNewAnalysisCylinderCase(object sender, EventArgs e)
         { 
-            if (null == ActiveDocument) { _log.Error(message:"No active document!"); }
-            try { ((DocumentSB)ActiveDocument).CreateNewAnalysisCylinderCaseUI(); }
+            try { ActiveDocumentDB?.CreateNewAnalysisCylinderCaseUI(); }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
         private void OnNewAnalysisPalletTruck(object sender, EventArgs e)
         {
-            if (null == ActiveDocument) { _log.Error(message:"No active document!"); }
-            try { ((DocumentSB)ActiveDocument).CreateNewAnalysisPalletTruckUI(); }
+            try { ActiveDocumentDB?.CreateNewAnalysisPalletTruckUI(); }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
         private void OnNewAnalysisCasePallet(object sender, EventArgs e)
         {
-            if (null == ActiveDocument) { _log.Error(message: "No active document!"); }
-            try { ((DocumentSB)ActiveDocument).CreateNewAnalysisCasePalletUI(); }
+            try { ActiveDocumentDB?.CreateNewAnalysisCasePalletUI(); }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
         private void OnNewAnalysisCylinderPallet(object sender, EventArgs e)
         {
-            if (null == ActiveDocument) { _log.Error(message: "No active document!"); }
-            try { ((DocumentSB)ActiveDocument).CreateNewAnalysisCylinderPalletUI(); }
+            try { ActiveDocumentDB?.CreateNewAnalysisCylinderPalletUI(); }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
         private void OnNewAnalysisBoxCasePallet(object sender, EventArgs e)
         {
-            if (null == ActiveDocument) { _log.Error(message: "No active document!"); }
-            try { ((DocumentSB)ActiveDocument).CreateNewAnalysisBoxCaseUI(); }
+            try { ActiveDocumentDB?.CreateNewAnalysisBoxCaseUI(); }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
         private void OnNewAnalysisCaseTruck(object sender, EventArgs e)
         {
-            if (null == ActiveDocument) { _log.Error(message: "No active document!"); }
-            try { AnalysisCaseTruck analysis = ((DocumentSB)ActiveDocument).CreateNewAnalysisCaseTruckUI(); }
+            try { ActiveDocumentDB?.CreateNewAnalysisCaseTruckUI(); }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
         private void OnNewHAnalysisPallet(object sender, EventArgs e)
         {
-            if (null == ActiveDocument) { _log.Error(message : "No active document!" ); }
-            try { HAnalysis hAnalysis = ((DocumentSB)ActiveDocument).CreateNewHAnalysisPalletUI(); }
+            try { ActiveDocumentDB?.CreateNewHAnalysisPalletUI(); }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
         #endregion
