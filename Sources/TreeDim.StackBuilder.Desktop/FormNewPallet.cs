@@ -146,6 +146,7 @@ namespace treeDiM.StackBuilder.Desktop
         private void OnPalletPropertyChanged(object sender, EventArgs e)
         {
             graphCtrl.Invalidate();
+            UpdateStatus(string.Empty);
         }
         private void OnPalletTypeChanged(object sender, EventArgs e)
         {
