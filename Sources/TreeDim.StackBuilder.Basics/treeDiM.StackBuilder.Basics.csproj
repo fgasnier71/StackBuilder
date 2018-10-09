@@ -126,10 +126,17 @@
     <Compile Include="Containers\PackArrangement.cs" />
     <Compile Include="Containers\PackProperties.cs" />
     <Compile Include="Containers\PackWrapper.cs" />
+    <Compile Include="Containers\Strappers.cs" />
     <Compile Include="Containers\WrapperCardboard.cs" />
     <Compile Include="Containers\WrapperPaper.cs" />
     <Compile Include="Containers\WrapperPolyethilene.cs" />
     <Compile Include="Containers\WrapperTray.cs" />
+    <Compile Include="Controls\CtrlStrapperSet.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\CtrlStrapperSet.Designer.cs">
+      <DependentUpon>CtrlStrapperSet.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\UCtrlDualDouble.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -270,6 +277,9 @@
     <Folder Include="Schemas\" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Controls\CtrlStrapperSet.resx">
+      <DependentUpon>CtrlStrapperSet.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\UCtrlDouble.tr.resx">
       <DependentUpon>UCtrlDouble.cs</DependentUpon>
     </EmbeddedResource>
