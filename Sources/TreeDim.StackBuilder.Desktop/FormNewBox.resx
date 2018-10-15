@@ -227,54 +227,6 @@
   <data name="&gt;&gt;lbFace.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="&gt;&gt;uCtrlDimensionsInner.Name" xml:space="preserve">
-    <value>uCtrlDimensionsInner</value>
-  </data>
-  <data name="&gt;&gt;uCtrlDimensionsInner.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlOptTriDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.67, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;uCtrlDimensionsInner.Parent" xml:space="preserve">
-    <value>gbDimensions</value>
-  </data>
-  <data name="&gt;&gt;uCtrlDimensionsInner.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;uCtrlDimensionsOuter.Name" xml:space="preserve">
-    <value>uCtrlDimensionsOuter</value>
-  </data>
-  <data name="&gt;&gt;uCtrlDimensionsOuter.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlTriDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.67, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;uCtrlDimensionsOuter.Parent" xml:space="preserve">
-    <value>gbDimensions</value>
-  </data>
-  <data name="&gt;&gt;uCtrlDimensionsOuter.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="gbDimensions.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 62</value>
-  </data>
-  <data name="gbDimensions.Size" type="System.Drawing.Size, System.Drawing">
-    <value>354, 74</value>
-  </data>
-  <data name="gbDimensions.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="gbDimensions.Text" xml:space="preserve">
-    <value>Dimensions</value>
-  </data>
-  <data name="&gt;&gt;gbDimensions.Name" xml:space="preserve">
-    <value>gbDimensions</value>
-  </data>
-  <data name="&gt;&gt;gbDimensions.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;gbDimensions.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;gbDimensions.ZOrder" xml:space="preserve">
-    <value>12</value>
-  </data>
   <data name="uCtrlDimensionsInner.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 47</value>
   </data>
@@ -295,7 +247,7 @@
     <value>uCtrlDimensionsInner</value>
   </data>
   <data name="&gt;&gt;uCtrlDimensionsInner.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlOptTriDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.67, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Basics.UCtrlOptTriDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.80, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlDimensionsInner.Parent" xml:space="preserve">
     <value>gbDimensions</value>
@@ -322,13 +274,37 @@
     <value>uCtrlDimensionsOuter</value>
   </data>
   <data name="&gt;&gt;uCtrlDimensionsOuter.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlTriDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.67, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Basics.UCtrlTriDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.80, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlDimensionsOuter.Parent" xml:space="preserve">
     <value>gbDimensions</value>
   </data>
   <data name="&gt;&gt;uCtrlDimensionsOuter.ZOrder" xml:space="preserve">
     <value>1</value>
+  </data>
+  <data name="gbDimensions.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 60</value>
+  </data>
+  <data name="gbDimensions.Size" type="System.Drawing.Size, System.Drawing">
+    <value>354, 74</value>
+  </data>
+  <data name="gbDimensions.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="gbDimensions.Text" xml:space="preserve">
+    <value>Dimensions</value>
+  </data>
+  <data name="&gt;&gt;gbDimensions.Name" xml:space="preserve">
+    <value>gbDimensions</value>
+  </data>
+  <data name="&gt;&gt;gbDimensions.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;gbDimensions.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;gbDimensions.ZOrder" xml:space="preserve">
+    <value>11</value>
   </data>
   <data name="cbFace.Items" xml:space="preserve">
     <value>Rear</value>
@@ -723,6 +699,18 @@
   <data name="cbColor.Items115" xml:space="preserve">
     <value>Color</value>
   </data>
+  <data name="cbColor.Items116" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items117" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items118" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items119" xml:space="preserve">
+    <value>Color</value>
+  </data>
   <data name="cbColor.Location" type="System.Drawing.Point, System.Drawing">
     <value>188, 37</value>
   </data>
@@ -736,61 +724,13 @@
     <value>cbColor</value>
   </data>
   <data name="&gt;&gt;cbColor.Type" xml:space="preserve">
-    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=1.1.6599.6743, Culture=neutral, PublicKeyToken=null</value>
+    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=1.1.6859.21597, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;cbColor.Parent" xml:space="preserve">
     <value>gbFaceColor</value>
   </data>
   <data name="&gt;&gt;cbColor.ZOrder" xml:space="preserve">
     <value>2</value>
-  </data>
-  <data name="&gt;&gt;btBitmaps.Name" xml:space="preserve">
-    <value>btBitmaps</value>
-  </data>
-  <data name="&gt;&gt;btBitmaps.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btBitmaps.Parent" xml:space="preserve">
-    <value>gbFaceColor</value>
-  </data>
-  <data name="&gt;&gt;btBitmaps.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;chkAllFaces.Name" xml:space="preserve">
-    <value>chkAllFaces</value>
-  </data>
-  <data name="&gt;&gt;chkAllFaces.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;chkAllFaces.Parent" xml:space="preserve">
-    <value>gbFaceColor</value>
-  </data>
-  <data name="&gt;&gt;chkAllFaces.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="gbFaceColor.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 140</value>
-  </data>
-  <data name="gbFaceColor.Size" type="System.Drawing.Size, System.Drawing">
-    <value>354, 67</value>
-  </data>
-  <data name="gbFaceColor.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="gbFaceColor.Text" xml:space="preserve">
-    <value>Face color</value>
-  </data>
-  <data name="&gt;&gt;gbFaceColor.Name" xml:space="preserve">
-    <value>gbFaceColor</value>
-  </data>
-  <data name="&gt;&gt;gbFaceColor.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;gbFaceColor.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;gbFaceColor.ZOrder" xml:space="preserve">
-    <value>11</value>
   </data>
   <data name="btBitmaps.Location" type="System.Drawing.Point, System.Drawing">
     <value>270, 37</value>
@@ -843,64 +783,28 @@
   <data name="&gt;&gt;chkAllFaces.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;uCtrlMaxWeight.Name" xml:space="preserve">
-    <value>uCtrlMaxWeight</value>
+  <data name="gbFaceColor.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 229</value>
   </data>
-  <data name="&gt;&gt;uCtrlMaxWeight.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlOptDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.67, Culture=neutral, PublicKeyToken=null</value>
+  <data name="gbFaceColor.Size" type="System.Drawing.Size, System.Drawing">
+    <value>354, 67</value>
   </data>
-  <data name="&gt;&gt;uCtrlMaxWeight.Parent" xml:space="preserve">
-    <value>gbWeight</value>
+  <data name="gbFaceColor.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
   </data>
-  <data name="&gt;&gt;uCtrlMaxWeight.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="gbFaceColor.Text" xml:space="preserve">
+    <value>Face color</value>
   </data>
-  <data name="&gt;&gt;vcWeight.Name" xml:space="preserve">
-    <value>vcWeight</value>
+  <data name="&gt;&gt;gbFaceColor.Name" xml:space="preserve">
+    <value>gbFaceColor</value>
   </data>
-  <data name="&gt;&gt;vcWeight.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.67, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;vcWeight.Parent" xml:space="preserve">
-    <value>gbWeight</value>
-  </data>
-  <data name="&gt;&gt;vcWeight.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;uCtrlNetWeight.Name" xml:space="preserve">
-    <value>uCtrlNetWeight</value>
-  </data>
-  <data name="&gt;&gt;uCtrlNetWeight.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlOptDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.67, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;uCtrlNetWeight.Parent" xml:space="preserve">
-    <value>gbWeight</value>
-  </data>
-  <data name="&gt;&gt;uCtrlNetWeight.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="gbWeight.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 263</value>
-  </data>
-  <data name="gbWeight.Size" type="System.Drawing.Size, System.Drawing">
-    <value>354, 92</value>
-  </data>
-  <data name="gbWeight.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="gbWeight.Text" xml:space="preserve">
-    <value>Weight</value>
-  </data>
-  <data name="&gt;&gt;gbWeight.Name" xml:space="preserve">
-    <value>gbWeight</value>
-  </data>
-  <data name="&gt;&gt;gbWeight.Type" xml:space="preserve">
+  <data name="&gt;&gt;gbFaceColor.Type" xml:space="preserve">
     <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;gbWeight.Parent" xml:space="preserve">
+  <data name="&gt;&gt;gbFaceColor.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;gbWeight.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;gbFaceColor.ZOrder" xml:space="preserve">
     <value>10</value>
   </data>
   <data name="uCtrlMaxWeight.Location" type="System.Drawing.Point, System.Drawing">
@@ -921,7 +825,7 @@
   <data name="uCtrlMaxWeight.Value" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAFN0cmVlRGlNLlN0YWNrQnVpbGRlci5CYXNpY3MsIFZlcnNpb249
-        My4wLjAuNjcsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49bnVsbAUBAAAAJXRyZWVEaU0u
+        My4wLjAuODAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49bnVsbAUBAAAAJXRyZWVEaU0u
         U3RhY2tCdWlsZGVyLkJhc2ljcy5PcHREb3VibGUCAAAACl9hY3RpdmF0ZWQEX3ZhbAAAAQYCAAAAAAAA
         AAAAAAAACw==
 </value>
@@ -930,7 +834,7 @@
     <value>uCtrlMaxWeight</value>
   </data>
   <data name="&gt;&gt;uCtrlMaxWeight.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlOptDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.67, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Basics.UCtrlOptDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.80, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlMaxWeight.Parent" xml:space="preserve">
     <value>gbWeight</value>
@@ -957,7 +861,7 @@
     <value>vcWeight</value>
   </data>
   <data name="&gt;&gt;vcWeight.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.67, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Basics.UCtrlDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.80, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;vcWeight.Parent" xml:space="preserve">
     <value>gbWeight</value>
@@ -983,7 +887,7 @@
   <data name="uCtrlNetWeight.Value" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAFN0cmVlRGlNLlN0YWNrQnVpbGRlci5CYXNpY3MsIFZlcnNpb249
-        My4wLjAuNjcsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49bnVsbAUBAAAAJXRyZWVEaU0u
+        My4wLjAuODAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49bnVsbAUBAAAAJXRyZWVEaU0u
         U3RhY2tCdWlsZGVyLkJhc2ljcy5PcHREb3VibGUCAAAACl9hY3RpdmF0ZWQEX3ZhbAAAAQYCAAAAAAAA
         AAAAAAAACw==
 </value>
@@ -992,13 +896,37 @@
     <value>uCtrlNetWeight</value>
   </data>
   <data name="&gt;&gt;uCtrlNetWeight.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlOptDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.67, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Basics.UCtrlOptDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.80, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlNetWeight.Parent" xml:space="preserve">
     <value>gbWeight</value>
   </data>
   <data name="&gt;&gt;uCtrlNetWeight.ZOrder" xml:space="preserve">
     <value>2</value>
+  </data>
+  <data name="gbWeight.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 136</value>
+  </data>
+  <data name="gbWeight.Size" type="System.Drawing.Size, System.Drawing">
+    <value>354, 92</value>
+  </data>
+  <data name="gbWeight.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="gbWeight.Text" xml:space="preserve">
+    <value>Weight</value>
+  </data>
+  <data name="&gt;&gt;gbWeight.Name" xml:space="preserve">
+    <value>gbWeight</value>
+  </data>
+  <data name="&gt;&gt;gbWeight.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;gbWeight.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;gbWeight.ZOrder" xml:space="preserve">
+    <value>9</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="graphCtrl.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
@@ -1008,7 +936,7 @@
     <value>366, 69</value>
   </data>
   <data name="graphCtrl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 256</value>
+    <value>210, 227</value>
   </data>
   <data name="graphCtrl.TabIndex" type="System.Int32, mscorlib">
     <value>19</value>
@@ -1017,16 +945,16 @@
     <value>graphCtrl</value>
   </data>
   <data name="&gt;&gt;graphCtrl.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Graphics.Graphics3DControl, treeDiM.StackBuilder.Graphics, Version=3.0.0.67, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Graphics.Graphics3DControl, treeDiM.StackBuilder.Graphics, Version=3.0.0.80, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;graphCtrl.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;graphCtrl.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>8</value>
   </data>
   <data name="uCtrlTapeWidth.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 17</value>
+    <value>6, 6</value>
   </data>
   <data name="uCtrlTapeWidth.MinimumSize" type="System.Drawing.Size, System.Drawing">
     <value>100, 20</value>
@@ -1043,7 +971,7 @@
   <data name="uCtrlTapeWidth.Value" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAFN0cmVlRGlNLlN0YWNrQnVpbGRlci5CYXNpY3MsIFZlcnNpb249
-        My4wLjAuNjcsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49bnVsbAUBAAAAJXRyZWVEaU0u
+        My4wLjAuODAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49bnVsbAUBAAAAJXRyZWVEaU0u
         U3RhY2tCdWlsZGVyLkJhc2ljcy5PcHREb3VibGUCAAAACl9hY3RpdmF0ZWQEX3ZhbAAAAQYCAAAAAAAA
         AAAAAAAACw==
 </value>
@@ -1052,13 +980,13 @@
     <value>uCtrlTapeWidth</value>
   </data>
   <data name="&gt;&gt;uCtrlTapeWidth.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlOptDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.67, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Basics.UCtrlOptDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.80, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlTapeWidth.Parent" xml:space="preserve">
-    <value>gbTape</value>
+    <value>tabPageTape</value>
   </data>
   <data name="&gt;&gt;uCtrlTapeWidth.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="cbTapeColor.IntegralHeight" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -1417,8 +1345,20 @@
   <data name="cbTapeColor.Items116" xml:space="preserve">
     <value>Color</value>
   </data>
+  <data name="cbTapeColor.Items117" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbTapeColor.Items118" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbTapeColor.Items119" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbTapeColor.Items120" xml:space="preserve">
+    <value>Color</value>
+  </data>
   <data name="cbTapeColor.Location" type="System.Drawing.Point, System.Drawing">
-    <value>271, 17</value>
+    <value>271, 5</value>
   </data>
   <data name="cbTapeColor.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 22</value>
@@ -1430,19 +1370,19 @@
     <value>cbTapeColor</value>
   </data>
   <data name="&gt;&gt;cbTapeColor.Type" xml:space="preserve">
-    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=1.1.6599.6743, Culture=neutral, PublicKeyToken=null</value>
+    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=1.1.6859.21597, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;cbTapeColor.Parent" xml:space="preserve">
-    <value>gbTape</value>
+    <value>tabPageTape</value>
   </data>
   <data name="&gt;&gt;cbTapeColor.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>0</value>
   </data>
   <data name="lbTapeColor.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="lbTapeColor.Location" type="System.Drawing.Point, System.Drawing">
-    <value>205, 22</value>
+    <value>205, 10</value>
   </data>
   <data name="lbTapeColor.Size" type="System.Drawing.Size, System.Drawing">
     <value>58, 13</value>
@@ -1460,40 +1400,16 @@
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lbTapeColor.Parent" xml:space="preserve">
-    <value>gbTape</value>
+    <value>tabPageTape</value>
   </data>
   <data name="&gt;&gt;lbTapeColor.ZOrder" xml:space="preserve">
     <value>2</value>
-  </data>
-  <data name="gbTape.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 211</value>
-  </data>
-  <data name="gbTape.Size" type="System.Drawing.Size, System.Drawing">
-    <value>354, 45</value>
-  </data>
-  <data name="gbTape.TabIndex" type="System.Int32, mscorlib">
-    <value>21</value>
-  </data>
-  <data name="gbTape.Text" xml:space="preserve">
-    <value>Tape</value>
-  </data>
-  <data name="&gt;&gt;gbTape.Name" xml:space="preserve">
-    <value>gbTape</value>
-  </data>
-  <data name="&gt;&gt;gbTape.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;gbTape.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;gbTape.ZOrder" xml:space="preserve">
-    <value>8</value>
   </data>
   <data name="bnSaveToDB.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
   </data>
   <data name="bnSaveToDB.Location" type="System.Drawing.Point, System.Drawing">
-    <value>433, 332</value>
+    <value>433, 413</value>
   </data>
   <data name="bnSaveToDB.Size" type="System.Drawing.Size, System.Drawing">
     <value>139, 23</value>
@@ -1516,6 +1432,102 @@
   <data name="&gt;&gt;bnSaveToDB.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
+  <data name="tabPageTape.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="tabPageTape.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="tabPageTape.Size" type="System.Drawing.Size, System.Drawing">
+    <value>570, 84</value>
+  </data>
+  <data name="tabPageTape.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="tabPageTape.Text" xml:space="preserve">
+    <value>Tape</value>
+  </data>
+  <data name="&gt;&gt;tabPageTape.Name" xml:space="preserve">
+    <value>tabPageTape</value>
+  </data>
+  <data name="&gt;&gt;tabPageTape.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabPageTape.Parent" xml:space="preserve">
+    <value>tabCtrl</value>
+  </data>
+  <data name="&gt;&gt;tabPageTape.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="ctrlStrapperSet.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 3</value>
+  </data>
+  <data name="ctrlStrapperSet.Size" type="System.Drawing.Size, System.Drawing">
+    <value>567, 78</value>
+  </data>
+  <data name="ctrlStrapperSet.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;ctrlStrapperSet.Name" xml:space="preserve">
+    <value>ctrlStrapperSet</value>
+  </data>
+  <data name="&gt;&gt;ctrlStrapperSet.Type" xml:space="preserve">
+    <value>treeDiM.StackBuilder.Basics.Controls.CtrlStrapperSet, treeDiM.StackBuilder.Basics, Version=3.0.0.80, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;ctrlStrapperSet.Parent" xml:space="preserve">
+    <value>tabPageStrappers</value>
+  </data>
+  <data name="&gt;&gt;ctrlStrapperSet.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tabPageStrappers.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="tabPageStrappers.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="tabPageStrappers.Size" type="System.Drawing.Size, System.Drawing">
+    <value>570, 84</value>
+  </data>
+  <data name="tabPageStrappers.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="tabPageStrappers.Text" xml:space="preserve">
+    <value>Strappers</value>
+  </data>
+  <data name="&gt;&gt;tabPageStrappers.Name" xml:space="preserve">
+    <value>tabPageStrappers</value>
+  </data>
+  <data name="&gt;&gt;tabPageStrappers.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabPageStrappers.Parent" xml:space="preserve">
+    <value>tabCtrl</value>
+  </data>
+  <data name="&gt;&gt;tabPageStrappers.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="tabCtrl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 302</value>
+  </data>
+  <data name="tabCtrl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>578, 110</value>
+  </data>
+  <data name="tabCtrl.TabIndex" type="System.Int32, mscorlib">
+    <value>23</value>
+  </data>
+  <data name="&gt;&gt;tabCtrl.Name" xml:space="preserve">
+    <value>tabCtrl</value>
+  </data>
+  <data name="&gt;&gt;tabCtrl.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabCtrl.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;tabCtrl.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -1523,13 +1535,13 @@
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>584, 381</value>
+    <value>584, 461</value>
   </data>
   <data name="$this.MaximumSize" type="System.Drawing.Size, System.Drawing">
-    <value>600, 420</value>
+    <value>600, 500</value>
   </data>
   <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>600, 420</value>
+    <value>600, 500</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Define a new box/case...</value>
@@ -1538,6 +1550,6 @@
     <value>FormNewBox</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Desktop.FormNewBase, treeDiM.StackBuilder.Desktop, Version=3.0.0.67, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Desktop.FormNewBase, treeDiM.StackBuilder.Desktop, Version=3.0.0.80, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

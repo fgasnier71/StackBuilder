@@ -228,7 +228,5 @@
         private Basics.UCtrlDouble uCtrlAdmissibleLoad;
         private Basics.UCtrlDouble uCtrlWeight;
         private Basics.UCtrlTriDouble uCtrlDimensions;
-        private System.Windows.Forms.StatusStrip statusStripDef;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelDef;
     }
 }

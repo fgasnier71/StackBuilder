@@ -33,6 +33,7 @@ namespace treeDiM.StackBuilder.Desktop
         public List<Pair<HalfAxis.HAxis, Texture>> _textures;
         private double _thicknessLength = 0.0, _thicknessWidth = 0.0, _thicknessHeight = 0.0;
         static readonly ILog _log = LogManager.GetLogger(typeof(FormNewBox));
+        private StrapperSet _strapperSet = new StrapperSet();
         #endregion
 
         #region Constructor
@@ -99,6 +100,9 @@ namespace treeDiM.StackBuilder.Desktop
                 Weight = UnitsManager.ConvertMassFrom(1.0, UnitsManager.UnitSystem.UNIT_METRIC1);
                 // net weight
                 NetWeight = new OptDouble(false, UnitsManager.ConvertMassFrom(0.0, UnitsManager.UnitSystem.UNIT_METRIC1));
+
+                ctrlStrapperSet.StrapperSet = _strapperSet;
+
                 // disable Ok button
                 UpdateStatus(string.Empty);
             }
@@ -145,6 +149,9 @@ namespace treeDiM.StackBuilder.Desktop
                 cbTapeColor.Color = boxProperties.TapeColor;
                 // set default face
                 cbFace.SelectedIndex = 0;
+
+                ctrlStrapperSet.StrapperSet = _strapperSet;
+
                 // disable Ok button
                 UpdateStatus(string.Empty);
             }
@@ -265,6 +272,13 @@ namespace treeDiM.StackBuilder.Desktop
             get { return cbTapeColor.Color;}
             set { cbTapeColor.Color = value; }
         }
+        /// <summary>
+        /// Strapper set
+        /// </summary>
+        public StrapperSet CaseStrapperSet
+        {
+            get { return null; }
+        }
         #endregion
 
         #region FormNewBase override
@@ -282,7 +296,6 @@ namespace treeDiM.StackBuilder.Desktop
             uCtrlDimensionsInner.Visible = _mode == Mode.MODE_CASE;
             uCtrlMaxWeight.Visible = _mode == Mode.MODE_CASE;
 
-            gbTape.Visible = _mode == Mode.MODE_CASE;
             lbTapeColor.Visible = _mode == Mode.MODE_CASE;
             cbTapeColor.Visible = _mode == Mode.MODE_CASE;
             uCtrlTapeWidth.Visible = _mode == Mode.MODE_CASE;
@@ -337,6 +350,8 @@ namespace treeDiM.StackBuilder.Desktop
                         BoxWidth = InsideWidth + _thicknessWidth;
                     if (BoxHeight <= InsideHeight)
                         BoxHeight = InsideHeight + _thicknessHeight;
+
+                    _strapperSet.SetDimension(BoxLength, BoxWidth, BoxHeight);
                 }
                 uCtrlNetWeight.Enabled = !uCtrlDimensionsInner.Checked;
                 uCtrlMaxWeight.Enabled = uCtrlDimensionsInner.Checked;

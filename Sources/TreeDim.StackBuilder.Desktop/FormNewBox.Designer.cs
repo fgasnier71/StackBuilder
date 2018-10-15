@@ -43,16 +43,21 @@
             this.vcWeight = new treeDiM.StackBuilder.Basics.UCtrlDouble();
             this.uCtrlNetWeight = new treeDiM.StackBuilder.Basics.UCtrlOptDouble();
             this.graphCtrl = new treeDiM.StackBuilder.Graphics.Graphics3DControl();
-            this.gbTape = new System.Windows.Forms.GroupBox();
             this.uCtrlTapeWidth = new treeDiM.StackBuilder.Basics.UCtrlOptDouble();
             this.cbTapeColor = new OfficePickers.ColorPicker.ComboBoxColorPicker();
             this.lbTapeColor = new System.Windows.Forms.Label();
             this.bnSaveToDB = new System.Windows.Forms.Button();
+            this.tabCtrl = new System.Windows.Forms.TabControl();
+            this.tabPageTape = new System.Windows.Forms.TabPage();
+            this.tabPageStrappers = new System.Windows.Forms.TabPage();
+            this.ctrlStrapperSet = new treeDiM.StackBuilder.Basics.Controls.CtrlStrapperSet();
             this.gbDimensions.SuspendLayout();
             this.gbFaceColor.SuspendLayout();
             this.gbWeight.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.graphCtrl)).BeginInit();
-            this.gbTape.SuspendLayout();
+            this.tabCtrl.SuspendLayout();
+            this.tabPageTape.SuspendLayout();
+            this.tabPageStrappers.SuspendLayout();
             this.SuspendLayout();
             // 
             // bnOk
@@ -252,7 +257,11 @@
             resources.GetString("cbColor.Items112"),
             resources.GetString("cbColor.Items113"),
             resources.GetString("cbColor.Items114"),
-            resources.GetString("cbColor.Items115")});
+            resources.GetString("cbColor.Items115"),
+            resources.GetString("cbColor.Items116"),
+            resources.GetString("cbColor.Items117"),
+            resources.GetString("cbColor.Items118"),
+            resources.GetString("cbColor.Items119")});
             this.cbColor.Name = "cbColor";
             this.cbColor.SelectedColorChanged += new System.EventHandler(this.OnFaceColorChanged);
             // 
@@ -335,15 +344,6 @@
             this.graphCtrl.Name = "graphCtrl";
             this.graphCtrl.TabStop = false;
             this.graphCtrl.Viewer = null;
-            // 
-            // gbTape
-            // 
-            this.gbTape.Controls.Add(this.uCtrlTapeWidth);
-            this.gbTape.Controls.Add(this.cbTapeColor);
-            this.gbTape.Controls.Add(this.lbTapeColor);
-            resources.ApplyResources(this.gbTape, "gbTape");
-            this.gbTape.Name = "gbTape";
-            this.gbTape.TabStop = false;
             // 
             // uCtrlTapeWidth
             // 
@@ -483,7 +483,11 @@
             resources.GetString("cbTapeColor.Items113"),
             resources.GetString("cbTapeColor.Items114"),
             resources.GetString("cbTapeColor.Items115"),
-            resources.GetString("cbTapeColor.Items116")});
+            resources.GetString("cbTapeColor.Items116"),
+            resources.GetString("cbTapeColor.Items117"),
+            resources.GetString("cbTapeColor.Items118"),
+            resources.GetString("cbTapeColor.Items119"),
+            resources.GetString("cbTapeColor.Items120")});
             this.cbTapeColor.Name = "cbTapeColor";
             this.cbTapeColor.SelectedColorChanged += new System.EventHandler(this.OnFaceColorChanged);
             // 
@@ -499,12 +503,43 @@
             this.bnSaveToDB.UseVisualStyleBackColor = true;
             this.bnSaveToDB.Click += new System.EventHandler(this.OnSaveToDatabase);
             // 
+            // tabCtrl
+            // 
+            this.tabCtrl.Controls.Add(this.tabPageTape);
+            this.tabCtrl.Controls.Add(this.tabPageStrappers);
+            resources.ApplyResources(this.tabCtrl, "tabCtrl");
+            this.tabCtrl.Name = "tabCtrl";
+            this.tabCtrl.SelectedIndex = 0;
+            // 
+            // tabPageTape
+            // 
+            this.tabPageTape.Controls.Add(this.cbTapeColor);
+            this.tabPageTape.Controls.Add(this.uCtrlTapeWidth);
+            this.tabPageTape.Controls.Add(this.lbTapeColor);
+            resources.ApplyResources(this.tabPageTape, "tabPageTape");
+            this.tabPageTape.Name = "tabPageTape";
+            this.tabPageTape.UseVisualStyleBackColor = true;
+            // 
+            // tabPageStrappers
+            // 
+            this.tabPageStrappers.Controls.Add(this.ctrlStrapperSet);
+            resources.ApplyResources(this.tabPageStrappers, "tabPageStrappers");
+            this.tabPageStrappers.Name = "tabPageStrappers";
+            this.tabPageStrappers.UseVisualStyleBackColor = true;
+            // 
+            // ctrlStrapperSet
+            // 
+            resources.ApplyResources(this.ctrlStrapperSet, "ctrlStrapperSet");
+            this.ctrlStrapperSet.Name = "ctrlStrapperSet";
+            this.ctrlStrapperSet.Number = 0;
+            this.ctrlStrapperSet.StrapperSet = null;
+            // 
             // FormNewBox
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.tabCtrl);
             this.Controls.Add(this.bnSaveToDB);
-            this.Controls.Add(this.gbTape);
             this.Controls.Add(this.graphCtrl);
             this.Controls.Add(this.gbWeight);
             this.Controls.Add(this.gbFaceColor);
@@ -515,7 +550,6 @@
             this.Controls.SetChildIndex(this.gbFaceColor, 0);
             this.Controls.SetChildIndex(this.gbWeight, 0);
             this.Controls.SetChildIndex(this.graphCtrl, 0);
-            this.Controls.SetChildIndex(this.gbTape, 0);
             this.Controls.SetChildIndex(this.bnSaveToDB, 0);
             this.Controls.SetChildIndex(this.bnOk, 0);
             this.Controls.SetChildIndex(this.bnCancel, 0);
@@ -523,13 +557,16 @@
             this.Controls.SetChildIndex(this.lbDescription, 0);
             this.Controls.SetChildIndex(this.tbName, 0);
             this.Controls.SetChildIndex(this.tbDescription, 0);
+            this.Controls.SetChildIndex(this.tabCtrl, 0);
             this.gbDimensions.ResumeLayout(false);
             this.gbFaceColor.ResumeLayout(false);
             this.gbFaceColor.PerformLayout();
             this.gbWeight.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.graphCtrl)).EndInit();
-            this.gbTape.ResumeLayout(false);
-            this.gbTape.PerformLayout();
+            this.tabCtrl.ResumeLayout(false);
+            this.tabPageTape.ResumeLayout(false);
+            this.tabPageTape.PerformLayout();
+            this.tabPageStrappers.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -545,7 +582,6 @@
         private treeDiM.StackBuilder.Graphics.Graphics3DControl graphCtrl;
         private System.Windows.Forms.CheckBox chkAllFaces;
         private System.Windows.Forms.Button btBitmaps;
-        private System.Windows.Forms.GroupBox gbTape;
         private OfficePickers.ColorPicker.ComboBoxColorPicker cbTapeColor;
         private System.Windows.Forms.Label lbTapeColor;
         private Basics.UCtrlOptDouble uCtrlNetWeight;
@@ -555,5 +591,9 @@
         private Basics.UCtrlOptDouble uCtrlTapeWidth;
         private System.Windows.Forms.Button bnSaveToDB;
         private Basics.UCtrlOptDouble uCtrlMaxWeight;
+        private System.Windows.Forms.TabControl tabCtrl;
+        private System.Windows.Forms.TabPage tabPageTape;
+        private System.Windows.Forms.TabPage tabPageStrappers;
+        private Basics.Controls.CtrlStrapperSet ctrlStrapperSet;
     }
 }

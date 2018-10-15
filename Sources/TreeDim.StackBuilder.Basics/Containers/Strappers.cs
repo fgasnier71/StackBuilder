@@ -1,6 +1,8 @@
 ﻿#region Using directives
 using System.Collections.Generic;
 using System.Drawing;
+
+using Sharp3D.Math.Core;
 #endregion
 
 namespace treeDiM.StackBuilder.Basics
@@ -12,6 +14,10 @@ namespace treeDiM.StackBuilder.Basics
         public double Abscissa { get; set; }
         public double Width { get; set; }
         public Color Color { get; set; }
+        public bool IsOnFace(HalfAxis.HAxis axis, BoxPosition boxPosition, ref List<Vector3D> points)
+        {
+            return false;
+        }
     }
     #endregion
 
@@ -19,15 +25,16 @@ namespace treeDiM.StackBuilder.Basics
     public class StrapperSet
     {
         #region Constructors
+        public StrapperSet() { dimensions = new double[3] { 0.0, 0.0, 0.0 }; }
         public StrapperSet(double[] dims) { dimensions = dims; }
         public StrapperSet(PackableBrick packable) { Packable = packable;}
         #endregion
 
         #region Public properties
         public PackableBrick Packable { get; private set; }
-        public Color Color { get; set; }
-        public double Width { get; set; }
-        public int[] Number { get; set; }
+        public Color Color { get; set; } = Color.LightGray;
+        public double Width { get; set; } = 10.0;
+        public int[] Number { get; set; } = new int[3] { 0, 0, 0 };
         private double[] Dimensions => Packable is null ? dimensions : Packable.Dimensions;
         public IEnumerable<Strapper> Strappers
         {
@@ -45,12 +52,27 @@ namespace treeDiM.StackBuilder.Basics
         #endregion
 
         #region Setting / getting number and space
+        public void SetDimension(double length, double width, double height)
+        {
+            dimensions[0] = length;
+            dimensions[1] = width;
+            dimensions[2] = height;
+        }
+        public void SetNumber(int dir, int number)
+        {
+            if (number != Number[dir])
+            {
+                Number[dir] = number;
+                SetEvenlySpaced(dir, number, IdealEvenSpace(dir));
+            }
+        }
         public bool SetEvenlySpaced(int dir, int number, double space)
         {
+            evenlySpaced[dir] = number >= 2;
             if ((number-1) * space >= Dimensions[dir])
-                return false;
-            evenlySpaced[dir] = true;
-            spaces[dir] = space;
+                spaces[dir] = MaximumEvenSpace(dir);
+            else
+                spaces[dir] = space;
             return true;
         }
         public void SetUnevenlySpaced(int dir)
@@ -85,17 +107,20 @@ namespace treeDiM.StackBuilder.Basics
             else
                 return 0.5 * Dimensions[dir]; 
         }
-        #endregion
-
-        #region Private helpers
-        private List<double> ActualAbscissa(int dir)
+        public OptDouble GetSpacing(int dir)
+        {
+            return new OptDouble(evenlySpaced[dir], spaces[dir]);
+        }
+        public List<double> ActualAbscissa(int dir)
         {
             if (evenlySpaced[dir])
                 return EvenlySpacedAbscissa(dir);
             else
                 return abscissa[dir];
         }
+        #endregion
 
+        #region Private helpers
         private List<double> EvenlySpacedAbscissa(int dir)
         {
             List<double> abs = new List<double>();

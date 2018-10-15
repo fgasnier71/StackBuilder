@@ -137,11 +137,23 @@
     <Compile Include="Controls\CtrlStrapperSet.Designer.cs">
       <DependentUpon>CtrlStrapperSet.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\FormValueArray.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\FormValueArray.Designer.cs">
+      <DependentUpon>FormValueArray.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\UCtrlDualDouble.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Controls\UCtrlDualDouble.Designer.cs">
       <DependentUpon>UCtrlDualDouble.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UCtrlInt.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UCtrlInt.Designer.cs">
+      <DependentUpon>UCtrlInt.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\UCtrlOptInt.cs">
       <SubType>UserControl</SubType>
@@ -241,6 +253,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\OfficePickers\OfficePickers.csproj">
+      <Project>{cad56b75-481b-4c76-b090-4bc2ff5e5681}</Project>
+      <Name>OfficePickers</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TreeDim.EdgeCrushTest\treeDiM.EdgeCrushTest.csproj">
       <Project>{E4240EE0-60B3-4435-BD09-F81D56C0899A}</Project>
       <Name>treeDiM.EdgeCrushTest</Name>
@@ -279,9 +295,16 @@
   <ItemGroup>
     <EmbeddedResource Include="Controls\CtrlStrapperSet.resx">
       <DependentUpon>CtrlStrapperSet.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\FormValueArray.resx">
+      <DependentUpon>FormValueArray.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\UCtrlDouble.tr.resx">
       <DependentUpon>UCtrlDouble.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UCtrlInt.resx">
+      <DependentUpon>UCtrlInt.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\UCtrlOptDouble.tr.resx">
       <DependentUpon>UCtrlOptDouble.cs</DependentUpon>

@@ -7,10 +7,10 @@ using System.Windows.Forms;
 
 namespace treeDiM.StackBuilder.Basics
 {
-    public partial class UCtrlDouble : UserControl
+    public partial class UCtrlInt : UserControl
     {
         #region Delegates
-        public delegate void ValueChangedDelegate(object sender, EventArgs args);
+        public delegate void ValueChangedDelegate(object sender, EventArgs e);
         #endregion
 
         #region Events
@@ -18,7 +18,7 @@ namespace treeDiM.StackBuilder.Basics
         #endregion
 
         #region Constructor
-        public UCtrlDouble()
+        public UCtrlInt()
         {
             InitializeComponent();
         }
@@ -35,10 +35,10 @@ namespace treeDiM.StackBuilder.Basics
             set { lbName.Text = value; }
         }
         [Browsable(true)]
-        public double Value
+        public int Value
         {
-            get { return (double)nudValue.Value; }
-            set { try { nudValue.Value = (decimal)value; } catch (ArgumentOutOfRangeException) {} }
+            get { return (int)nudValue.Value; }
+            set { try { nudValue.Value = value; } catch (ArgumentOutOfRangeException) { } }
         }
         [Browsable(true)]
         public decimal Minimum
@@ -46,34 +46,15 @@ namespace treeDiM.StackBuilder.Basics
             get { return nudValue.Minimum; }
             set { nudValue.Minimum = value; }
         }
-        [Browsable(true)]
-        public UnitsManager.UnitType Unit
-        {
-            get { return _unitType; }
-            set
-            {
-                _unitType = value;
-                lbUnit.Text = UnitsManager.UnitString(_unitType);
-                nudValue.DecimalPlaces = UnitsManager.NoDecimals(_unitType);
-            }
-        }
         #endregion
 
         #region Event handlers
         private void OnValueChangedLocal(object sender, EventArgs e) => ValueChanged?.Invoke(this, e);
-        private void ValueControl_SizeChanged(object sender, EventArgs e)
-        {
-            // set nud location
-            nudValue.Location = new Point(Width - stNudLength - stLbUnitLength, 0);
-            // set unit location
-            lbUnit.Location = new Point(Width - stLbUnitLength + 1, 4);
-        }
+        private void OnSizeChanged(object sender, EventArgs e) => nudValue.Location = new Point(Width - stNudLength, 0);
         #endregion
 
         #region Data members
-        private UnitsManager.UnitType _unitType;
         public static int stNudLength = 60;
-        public static int stLbUnitLength = 38;
         #endregion
     }
 }
