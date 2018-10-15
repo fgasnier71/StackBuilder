@@ -17,8 +17,6 @@ namespace treeDiM.StackBuilder.Graphics
     {
 
         #region Data members
-        private readonly Color[] _colors = new Color[6];
-        private readonly Color _colorPath = Color.Black;
         private Vector3D[] _points;
         private Transform3D _transf = Transform3D.Identity;
         #endregion
@@ -32,8 +30,8 @@ namespace treeDiM.StackBuilder.Graphics
             InsideLength = boxProperties.InsideLength;
             InsideWidth = boxProperties.InsideWidth;
             InsideHeight = boxProperties.InsideHeight;
-            _colors = boxProperties.Colors;
-            _colorPath = Color.Black;
+            Colors = boxProperties.Colors;
+            ColorPath = Color.Black;
         }
         public Case(BoxProperties boxProperties, Transform3D transf)
         {
@@ -43,8 +41,8 @@ namespace treeDiM.StackBuilder.Graphics
             InsideLength = boxProperties.InsideLength;
             InsideWidth = boxProperties.InsideWidth;
             InsideHeight = boxProperties.InsideHeight;
-            _colors = boxProperties.Colors;
-            _colorPath = Color.Black;
+            Colors = boxProperties.Colors;
+            ColorPath = Color.Black;
             _transf = transf;
         }
         #endregion
@@ -78,8 +76,6 @@ namespace treeDiM.StackBuilder.Graphics
         {
             get
             {
-                double xThickness = Length > InsideLength ? 0.5 * (Length - InsideLength) : 0.0;
-                double yThickness = Width > InsideWidth ? 0.5 * (Width - InsideWidth) : 0.0;
                 double zThickness = Height > InsideHeight ? 0.5 * (Height - InsideHeight) : 0.0;
                 if (null == _points)
                 {
@@ -105,16 +101,14 @@ namespace treeDiM.StackBuilder.Graphics
         {
             get
             {
-                Face[] faces = new Face[6];
-                Vector3D[] points = Points;
-
-                faces[0] = new Face(PickId, new Vector3D[] { points[3], points[2], points[1], points[0] }, _colors[0], _colorPath, true);    // AXIS_Z_P
-                faces[1] = new Face(PickId, new Vector3D[] { points[4], points[5], points[6], points[7] }, _colors[1], _colorPath, true);    // AXIS_Z_N
-                faces[2] = new Face(PickId, new Vector3D[] { points[1], points[5], points[4], points[0] }, _colors[2], _colorPath, true);    // AXIS_Y_P
-                faces[3] = new Face(PickId, new Vector3D[] { points[3], points[7], points[6], points[2] }, _colors[3], _colorPath, true);    // AXIS_Y_N
-                faces[4] = new Face(PickId, new Vector3D[] { points[2], points[6], points[5], points[1] }, _colors[4], _colorPath, true);    // AXIS_X_N
-                faces[5] = new Face(PickId, new Vector3D[] { points[4], points[7], points[3], points[0] }, _colors[5], _colorPath, true);    // AXIS_X_P
-
+                var points = Points;
+                var faces = new Face[6];
+                faces[0] = new Face(PickId, new Vector3D[] { points[3], points[2], points[1], points[0] }, Colors[0], ColorPath, true);    // AXIS_Z_P
+                faces[1] = new Face(PickId, new Vector3D[] { points[4], points[5], points[6], points[7] }, Colors[1], ColorPath, true);    // AXIS_Z_N
+                faces[2] = new Face(PickId, new Vector3D[] { points[1], points[5], points[4], points[0] }, Colors[2], ColorPath, true);    // AXIS_Y_P
+                faces[3] = new Face(PickId, new Vector3D[] { points[3], points[7], points[6], points[2] }, Colors[3], ColorPath, true);    // AXIS_Y_N
+                faces[4] = new Face(PickId, new Vector3D[] { points[2], points[6], points[5], points[1] }, Colors[4], ColorPath, true);    // AXIS_X_N
+                faces[5] = new Face(PickId, new Vector3D[] { points[4], points[7], points[3], points[0] }, Colors[5], ColorPath, true);    // AXIS_X_P
                 return faces;
             }
         }
@@ -122,31 +116,28 @@ namespace treeDiM.StackBuilder.Graphics
         {
             get
             {
-                Face[] faces = new Face[6];
-                Vector3D[] points = InsidePoints;
-
-                faces[0] = new Face(PickId, new Vector3D[] { points[3], points[2], points[1], points[0] }, _colors[0], _colorPath, false);    // AXIS_Z_P
-                faces[1] = new Face(PickId, new Vector3D[] { points[4], points[5], points[6], points[7] }, _colors[1], _colorPath, false);    // AXIS_Z_N
-                faces[2] = new Face(PickId, new Vector3D[] { points[1], points[5], points[4], points[0] }, _colors[2], _colorPath, false);    // AXIS_Y_P
-                faces[3] = new Face(PickId, new Vector3D[] { points[3], points[7], points[6], points[2] }, _colors[3], _colorPath, false);    // AXIS_Y_N
-                faces[4] = new Face(PickId, new Vector3D[] { points[2], points[6], points[5], points[1] }, _colors[4], _colorPath, false);    // AXIS_X_N
-                faces[5] = new Face(PickId, new Vector3D[] { points[4], points[7], points[3], points[0] }, _colors[5], _colorPath, false);    // AXIS_X_P
-
+                var points = InsidePoints;
+                var faces = new Face[6];
+                faces[0] = new Face(PickId, new Vector3D[] { points[3], points[2], points[1], points[0] }, Colors[0], ColorPath, false);    // AXIS_Z_P
+                faces[1] = new Face(PickId, new Vector3D[] { points[4], points[5], points[6], points[7] }, Colors[1], ColorPath, false);    // AXIS_Z_N
+                faces[2] = new Face(PickId, new Vector3D[] { points[1], points[5], points[4], points[0] }, Colors[2], ColorPath, false);    // AXIS_Y_P
+                faces[3] = new Face(PickId, new Vector3D[] { points[3], points[7], points[6], points[2] }, Colors[3], ColorPath, false);    // AXIS_Y_N
+                faces[4] = new Face(PickId, new Vector3D[] { points[2], points[6], points[5], points[1] }, Colors[4], ColorPath, false);    // AXIS_X_N
+                faces[5] = new Face(PickId, new Vector3D[] { points[4], points[7], points[3], points[0] }, Colors[5], ColorPath, false);    // AXIS_X_P
                 return faces;
             }
         }
 
         public double Length { get; }
         public double Width { get; }
-
         public double Height { get; }
-
         public double InsideLength { get; }
-
         public double InsideWidth { get; }
-        public uint PickId { get; set; } = 0;
-
         public double InsideHeight { get; }
+
+        public uint PickId { get; set; } = 0;
+        public Color[] Colors { get; } = new Color[6];
+        public Color ColorPath { get; } = Color.Black;
         #endregion
 
         #region Overrides

@@ -21,7 +21,7 @@ namespace treeDiM.StackBuilder.Graphics
             _arrangement = _packProperties.Arrangement;
             _innerBox = new Box(0, packProperties.Box);
             _forceTransparency = false;
-            _boxPosition = BoxPosition.Zero;
+            BoxPosition = BoxPosition.Zero;
         }
         public Pack(uint pickId, PackProperties packProperties, BoxPosition position)
             : base(pickId, packProperties, position)
@@ -106,9 +106,9 @@ namespace treeDiM.StackBuilder.Graphics
                 if (null != tray) height = tray.Height;
                 if (height <= 1.0)
                     height = 40.0;
-                Vector3D position = _boxPosition.Position;
-                Vector3D lengthAxis = HalfAxis.ToVector3D(_boxPosition.DirectionLength);
-                Vector3D widthAxis = HalfAxis.ToVector3D(_boxPosition.DirectionWidth);
+                Vector3D position = BoxPosition.Position;
+                Vector3D lengthAxis = HalfAxis.ToVector3D(BoxPosition.DirectionLength);
+                Vector3D widthAxis = HalfAxis.ToVector3D(BoxPosition.DirectionWidth);
                 Vector3D heightAxis = Vector3D.CrossProduct(lengthAxis, widthAxis);
                 Vector3D[] points = new Vector3D[8];
                 points[0] = position;
