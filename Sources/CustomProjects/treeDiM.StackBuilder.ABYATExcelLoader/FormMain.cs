@@ -6,7 +6,9 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.IO;
 
+using Excel = Microsoft.Office.Interop.Excel;
 using Microsoft.Office.Interop.Excel;
+using Microsoft.Office.Core;
 
 using log4net;
 using Sharp3D.Math.Core;
@@ -17,7 +19,6 @@ using treeDiM.StackBuilder.Engine;
 using treeDiM.StackBuilder.Reporting;
 
 using treeDiM.StackBuilder.ABYATExcelLoader.Properties;
-
 #endregion
 
 namespace treeDiM.StackBuilder.ABYATExcelLoader
@@ -182,12 +183,12 @@ namespace treeDiM.StackBuilder.ABYATExcelLoader
         }
         #endregion
         #region Menu event handlers
-        private void onSettings(object sender, EventArgs e)
+        private void OnSettings(object sender, EventArgs e)
         {
             FormOptionsSettings form = new FormOptionsSettings();
             form.ShowDialog();
         }
-        private void onExit(object sender, EventArgs e)
+        private void OnExit(object sender, EventArgs e)
         {
             Close();
         }
@@ -324,9 +325,11 @@ namespace treeDiM.StackBuilder.ABYATExcelLoader
             {
                 // generate image path
                 stackImagePath = Path.Combine(Path.ChangeExtension(Path.GetTempFileName(), "png"));
-                graphics = new Graphics3DImage(new Size(ImageSize, ImageSize));
-                graphics.FontSizeRatio = 0.01f;
-                graphics.CameraPosition = Graphics3D.Corner_0;
+                graphics = new Graphics3DImage(new Size(ImageSize, ImageSize))
+                {
+                    FontSizeRatio = 0.01f,
+                    CameraPosition = Graphics3D.Corner_0
+                };
             }
 
             // compute analysis
@@ -337,7 +340,7 @@ namespace treeDiM.StackBuilder.ABYATExcelLoader
                 constraintSet.SetMaxHeight(new OptDouble(true, PalletMaximumHeight));
 
                 SolverCasePallet solver = new SolverCasePallet(bProperties, PalletProperties);
-                List<Analysis> analyses = solver.BuildAnalyses(constraintSet);
+                List<Analysis> analyses = solver.BuildAnalyses(constraintSet, false);
                 if (analyses.Count > 0)
                 {
                     Analysis analysis = analyses[0];
@@ -359,7 +362,7 @@ namespace treeDiM.StackBuilder.ABYATExcelLoader
 
                             ReportNode rnRoot = null;
                             Margins margins = new Margins();
-                            Reporting.Reporter reporter = new ReporterMSWord(inputData, ref rnRoot, Reporter.TemplatePath, outputFilePath, margins);
+                            Reporter reporter = new ReporterMSWord(inputData, ref rnRoot, Reporter.TemplatePath, outputFilePath, margins);
 
                         }
                     }
@@ -375,7 +378,7 @@ namespace treeDiM.StackBuilder.ABYATExcelLoader
                 constraintSet.SetAllowedOrientations(new bool[] { false, false, true });
 
                 SolverBoxCase solver = new SolverBoxCase(bProperties, container);
-                List<Analysis> analyses = solver.BuildAnalyses(constraintSet);
+                List<Analysis> analyses = solver.BuildAnalyses(constraintSet, false);
                 if (analyses.Count > 0)
                 {
                     Analysis analysis = analyses[0];
@@ -448,9 +451,11 @@ namespace treeDiM.StackBuilder.ABYATExcelLoader
             try
             {
                 object misValue = System.Reflection.Missing.Value;
-                Microsoft.Office.Interop.Excel.Application xlApp = new Microsoft.Office.Interop.Excel.Application();
-                xlApp.Visible = true;
-                xlApp.DisplayAlerts = false;
+                Excel.Application xlApp = new Excel.Application
+                {
+                    Visible = true,
+                    DisplayAlerts = false
+                };
                 Workbooks xlWorkBooks = xlApp.Workbooks;
                 Workbook xlWorkBook = xlWorkBooks.Open(filePath, Type.Missing, false );
                 Worksheet xlWorkSheet = xlWorkBook.Worksheets.get_Item("Sheet1");
@@ -508,15 +513,16 @@ namespace treeDiM.StackBuilder.ABYATExcelLoader
                         if (GenerateImage)
                         {
                             Range imageCell = xlWorkSheet.get_Range("o" + iRow, "o" + iRow);
-                            xlWorkSheet.Shapes.AddPicture(stackImagePath, MsoTriState.msoFalse, MsoTriState.msoCTrue,
-                                imageCell.Left + 1, imageCell.Top + 1, imageCell.Width - 2, imageCell.Height - 2);
+                            xlWorkSheet.Shapes.AddPicture(stackImagePath,
+                                LinkToFile: MsoTriState.msoFalse, SaveWithDocument: MsoTriState.msoCTrue,
+                                Left: imageCell.Left + 1, Top: imageCell.Top + 1, Width: imageCell.Width - 2, Height: imageCell.Height - 2);
                         }
                     }
-                    catch (System.OutOfMemoryException ex)
+                    catch (OutOfMemoryException ex)
                     {
                         _log.Error(ex.Message);
                     }
-                    catch (treeDiM.StackBuilder.Engine.EngineException ex)
+                    catch (EngineException ex)
                     {
                         _log.Error(ex.Message);
                     }

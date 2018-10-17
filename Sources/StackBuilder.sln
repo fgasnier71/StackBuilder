@@ -75,6 +75,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TreeDim.StackBuilder.Graphi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sharp3DBinPacking", "..\..\Sharp3DBinPacking\Sharp3DBinPacking\Sharp3DBinPacking.csproj", "{FF58E175-73B1-41D2-816B-3B648B2CAFB3}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WIX", "WIX", "{7C541C76-20F1-40D8-A683-29062638D9B9}"
+EndProject
+Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "treeDiM.StackBuilder.WCFServiceInstaller", "treeDiM.StackBuilder.WCFServiceInstaller\treeDiM.StackBuilder.WCFServiceInstaller.wixproj", "{3BB34EA7-38A7-4F6D-AA49-29EB577C944A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -500,6 +504,18 @@ Global
 		{FF58E175-73B1-41D2-816B-3B648B2CAFB3}.Release|x64.Build.0 = Release|Any CPU
 		{FF58E175-73B1-41D2-816B-3B648B2CAFB3}.Release|x86.ActiveCfg = Release|Any CPU
 		{FF58E175-73B1-41D2-816B-3B648B2CAFB3}.Release|x86.Build.0 = Release|Any CPU
+		{3BB34EA7-38A7-4F6D-AA49-29EB577C944A}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{3BB34EA7-38A7-4F6D-AA49-29EB577C944A}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{3BB34EA7-38A7-4F6D-AA49-29EB577C944A}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{3BB34EA7-38A7-4F6D-AA49-29EB577C944A}.Debug|x64.ActiveCfg = Debug|x86
+		{3BB34EA7-38A7-4F6D-AA49-29EB577C944A}.Debug|x86.ActiveCfg = Debug|x86
+		{3BB34EA7-38A7-4F6D-AA49-29EB577C944A}.Debug|x86.Build.0 = Debug|x86
+		{3BB34EA7-38A7-4F6D-AA49-29EB577C944A}.Release|Any CPU.ActiveCfg = Release|x86
+		{3BB34EA7-38A7-4F6D-AA49-29EB577C944A}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{3BB34EA7-38A7-4F6D-AA49-29EB577C944A}.Release|Mixed Platforms.Build.0 = Release|x86
+		{3BB34EA7-38A7-4F6D-AA49-29EB577C944A}.Release|x64.ActiveCfg = Release|x86
+		{3BB34EA7-38A7-4F6D-AA49-29EB577C944A}.Release|x86.ActiveCfg = Release|x86
+		{3BB34EA7-38A7-4F6D-AA49-29EB577C944A}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -522,11 +538,12 @@ Global
 		{129E36B8-F098-4721-97CF-B8D6A78C07F1} = {36E4D3C5-28FD-46B9-8763-C3316F67C6BE}
 		{62FD0D31-CF0D-42CD-A70A-6973440B5727} = {36E4D3C5-28FD-46B9-8763-C3316F67C6BE}
 		{D5FBE9D8-DFAE-49F0-B9DA-0795B98D887F} = {36E4D3C5-28FD-46B9-8763-C3316F67C6BE}
+		{3BB34EA7-38A7-4F6D-AA49-29EB577C944A} = {7C541C76-20F1-40D8-A683-29062638D9B9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		RESX_ConfirmAddLanguageFile = False
-		SolutionGuid = {A8385DDB-1893-4CF8-83DF-F57C7AB7069B}
-		RESX_AutoCreateNewLanguageFiles = True
 		RESX_PrefixTranslations = False
+		RESX_AutoCreateNewLanguageFiles = True
+		SolutionGuid = {A8385DDB-1893-4CF8-83DF-F57C7AB7069B}
+		RESX_ConfirmAddLanguageFile = False
 	EndGlobalSection
 EndGlobal

@@ -87,7 +87,7 @@
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
             this.exitToolStripMenuItem.Text = "Exit";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.onExit);
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.OnExit);
             // 
             // toolStripMITools
             // 
@@ -102,7 +102,7 @@
             this.toolStripMISettings.Name = "toolStripMISettings";
             this.toolStripMISettings.Size = new System.Drawing.Size(116, 22);
             this.toolStripMISettings.Text = "Settings";
-            this.toolStripMISettings.Click += new System.EventHandler(this.onSettings);
+            this.toolStripMISettings.Click += new System.EventHandler(this.OnSettings);
             // 
             // statusStrip
             // 
