@@ -123,4 +123,14 @@
   <metadata name="statusStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>132, 17</value>
   </metadata>
+  <assembly alias="Sharp3D.Math" name="Sharp3D.Math, Version=1.0.3.0, Culture=neutral, PublicKeyToken=null" />
+  <data name="uCtrlPalletDimensions.Value" type="Sharp3D.Math.Core.Vector3D, Sharp3D.Math">
+    <value>(0, 0, 0)</value>
+  </data>
+  <data name="uCtrlTruckDimensions.Value" type="Sharp3D.Math.Core.Vector3D, Sharp3D.Math">
+    <value>(0, 0, 0)</value>
+  </data>
+  <metadata name="folderBrowserDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>241, 17</value>
+  </metadata>
 </root>

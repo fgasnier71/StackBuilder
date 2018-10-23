@@ -55,6 +55,8 @@ namespace treeDiM.StackBuilder.ABYATExcelLoader
             chkbOpenFile.Checked = Settings.Default.OpenGeneratedFile;
             GenerateImage = Settings.Default.GenerateImage;
             InputFilePath = Settings.Default.InputFilePath;
+
+            OnSaveImagesInFolder(this, null);
         }
         protected override void OnClosing(CancelEventArgs e)
         {
@@ -112,12 +114,15 @@ namespace treeDiM.StackBuilder.ABYATExcelLoader
                 return Path.ChangeExtension(outputPath, Path.GetExtension(InputFilePath));
             }
         }
+        private string ImageFolderSuggested => Path.GetDirectoryName(OutputFilePath);
+        private string ImageFolder
+        {   get => chkbSaveImageInFolder.Checked ? tbImageFolder.Text : string.Empty; }
         private int Mode
         {
             get { return rbPallet.Checked ? 0 : 1; }
             set { rbPallet.Checked = (0 == value); rbContainer.Checked = (1 == value); }
         }
-        private bool GenerateReport { get { return chkbGenerateReport.Checked; } set { chkbGenerateReport.Checked = value; } }
+        private bool GenerateReport { get => false; }
         private bool GenerateImage { get { return chkbGenerateImage.Checked; } set { chkbGenerateImage.Checked = value; } }
         private double PalletLength { get { return uCtrlPalletDimensions.ValueX; } set { uCtrlPalletDimensions.ValueX = value; } }
         private double PalletWidth { get { return uCtrlPalletDimensions.ValueY; } set { uCtrlPalletDimensions.ValueY = value; } }
@@ -194,7 +199,7 @@ namespace treeDiM.StackBuilder.ABYATExcelLoader
         }
         #endregion
         #region Control event handlers
-        private void onInputFilePathChanged(object sender, EventArgs e)
+        private void OnInputFilePathChanged(object sender, EventArgs e)
         {
             string filePath = fileSelectExcel.FileName;
             _dataCases.Clear();
@@ -260,14 +265,14 @@ namespace treeDiM.StackBuilder.ABYATExcelLoader
             cbPalletType.Enabled = (0 == iMode);
 
             uCtrlTruckDimensions.Enabled = (1 == iMode);
-            onDataChanged(this, e);
+            OnDataChanged(this, e);
         }
-        private void onDataChanged(object sender, EventArgs args)
+        private void OnDataChanged(object sender, EventArgs args)
         {
             graphCtrlPallet.Invalidate();
             UpdateStatus();
         }
-        private void onGenerate(object sender, EventArgs e)
+        private void OnGenerate(object sender, EventArgs e)
         {
             try
             {
@@ -305,9 +310,24 @@ namespace treeDiM.StackBuilder.ABYATExcelLoader
                 MessageBox.Show(ex.ToString());
             }
         }
+        private void OnSaveImagesInFolder(object sender, EventArgs e)
+        {
+            tbImageFolder.Enabled = chkbSaveImageInFolder.Checked;
+            bnSelectImageFolder.Enabled = chkbSaveImageInFolder.Checked;
+        }
+        private void OnSelectImageFolder(object sender, EventArgs e)
+        {
+            folderBrowserDialog.SelectedPath = tbImageFolder.Text;
+            if (DialogResult.OK == folderBrowserDialog.ShowDialog())
+                tbImageFolder.Text = folderBrowserDialog.SelectedPath;
+        }
+        private void OnOutputFilePathChanged(object sender, EventArgs e)
+        {
+            tbImageFolder.Text = ImageFolderSuggested;
+        }
         #endregion
         #region Computing result
-        private void generateResult(double length, double width, double height, double? weight, ref int stackCount, ref double stackWeight, ref string stackImagePath)
+        private void GenerateResult(string name, double length, double width, double height, double? weight, ref int stackCount, ref double stackWeight, ref string stackImagePath)
         {
             stackCount = 0;
             stackWeight = 0.0;
@@ -393,10 +413,12 @@ namespace treeDiM.StackBuilder.ABYATExcelLoader
                     }
                 }
             }
-            if (GenerateImage)
+            if (GenerateImage && stackCount <= StackCountMax)
             {
                 Bitmap bmp = graphics.Bitmap;
                 bmp.Save(stackImagePath, System.Drawing.Imaging.ImageFormat.Png);
+                if (Directory.Exists(ImageFolder))
+                    File.Copy(stackImagePath, Path.Combine(ImageFolder, Path.ChangeExtension(name, "png")), true);
             }
         }
         private double LargestDimMin
@@ -488,6 +510,8 @@ namespace treeDiM.StackBuilder.ABYATExcelLoader
                 {
                     try
                     {
+                        // get name
+                        string articleNumber = (xlWorkSheet.get_Range("a" + iRow, "a" + iRow).Value);
                         // get length
                         double length = (xlWorkSheet.get_Range("f" + iRow, "f" + iRow).Value);
                         // get width
@@ -496,13 +520,13 @@ namespace treeDiM.StackBuilder.ABYATExcelLoader
                         double height = (xlWorkSheet.get_Range("h" + iRow, "h" + iRow).Value);
                         // get weight
                         double? weight = (xlWorkSheet.get_Range("j" + iRow, "j" + iRow).Value);
-                        double maxDimension = Math.Max(Math.Max(length, width), height);
+                        double maxDimension = Math.Max(length, width);
                         if (maxDimension < largestDimensionMinimum) continue;
                         // compute stacking
                         int stackCount = 0;
                         double stackWeight = 0.0;
                         string stackImagePath = string.Empty;
-                        generateResult(length, width, height, weight,
+                        GenerateResult(articleNumber, length, width, height, weight,
                             ref stackCount, ref stackWeight, ref stackImagePath);
                         // insert count & weight
                         Range countCell = xlWorkSheet.get_Range("m" + iRow, "m" + iRow);
@@ -510,7 +534,7 @@ namespace treeDiM.StackBuilder.ABYATExcelLoader
                         Range weightCell = xlWorkSheet.get_Range("n" + iRow, "n" + iRow);
                         weightCell.Value = stackWeight;
                         // insert image in "o"+iRow
-                        if (GenerateImage)
+                        if (GenerateImage && stackCount <= StackCountMax)
                         {
                             Range imageCell = xlWorkSheet.get_Range("o" + iRow, "o" + iRow);
                             xlWorkSheet.Shapes.AddPicture(stackImagePath,

@@ -54,7 +54,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestCertificateThumbprint>CDA7627C161DB03A5953043237AB1240E2C9CDC5</ManifestCertificateThumbprint>
@@ -142,9 +142,6 @@
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormMain.tr.resx">
-      <DependentUpon>FormMain.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormOptionsSettings.resx">
       <DependentUpon>FormOptionsSettings.cs</DependentUpon>
     </EmbeddedResource>
@@ -161,18 +158,6 @@
       <DependentUpon>FormOptionsSettings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OptionsPanelFiltering.resx">
-      <DependentUpon>OptionsPanelFiltering.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="OptionsPanelFiltering.ru.resx">
-      <DependentUpon>OptionsPanelFiltering.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="OptionsPanelFiltering.sv.resx">
-      <DependentUpon>OptionsPanelFiltering.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="OptionsPanelFiltering.tr.resx">
-      <DependentUpon>OptionsPanelFiltering.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="OptionsPanelFiltering.zh.resx">
       <DependentUpon>OptionsPanelFiltering.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.de.resx" />
@@ -255,7 +240,8 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>if $(ConfigurationName) == Release "$(SolutionDir)Signfile.bat" $(TargetPath)
+    <PostBuildEvent>if $(ConfigurationName) == Release "$(SolutionDir)Signfile.bat" "$(TargetPath)"
+
 </PostBuildEvent>
   </PropertyGroup>
   <Import Project="..\..\packages\NuGet.Build.Tasks.Pack.4.7.0\build\NuGet.Build.Tasks.Pack.targets" Condition="Exists('..\..\packages\NuGet.Build.Tasks.Pack.4.7.0\build\NuGet.Build.Tasks.Pack.targets')" />
