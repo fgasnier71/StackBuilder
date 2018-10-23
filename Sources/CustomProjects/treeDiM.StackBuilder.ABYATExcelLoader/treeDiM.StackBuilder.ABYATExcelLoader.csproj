@@ -28,7 +28,7 @@
     <InstallUrl>http://www.plmpack.com/stackbuilder/ABYAT/ClickOnce/</InstallUrl>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>11</ApplicationRevision>
+    <ApplicationRevision>12</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -54,7 +54,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>false</SignManifests>
+    <SignManifests>true</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestCertificateThumbprint>CDA7627C161DB03A5953043237AB1240E2C9CDC5</ManifestCertificateThumbprint>
@@ -143,18 +143,6 @@
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormOptionsSettings.resx">
-      <DependentUpon>FormOptionsSettings.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormOptionsSettings.ru.resx">
-      <DependentUpon>FormOptionsSettings.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormOptionsSettings.sv.resx">
-      <DependentUpon>FormOptionsSettings.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormOptionsSettings.tr.resx">
-      <DependentUpon>FormOptionsSettings.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormOptionsSettings.zh.resx">
       <DependentUpon>FormOptionsSettings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OptionsPanelFiltering.resx">
