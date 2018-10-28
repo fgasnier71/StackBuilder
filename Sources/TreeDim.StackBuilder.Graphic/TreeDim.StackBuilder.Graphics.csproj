@@ -96,6 +96,12 @@
     <Compile Include="Controls\UCtrlCaseOrientation.Designer.cs">
       <DependentUpon>UCtrlCaseOrientation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\UCtrlCaseOrientationSimple.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UCtrlCaseOrientationSimple.Designer.cs">
+      <DependentUpon>UCtrlCaseOrientationSimple.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\UCtrlLayerList.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -230,10 +236,10 @@
     <EmbeddedResource Include="Controls\UCtrlCaseOrientation.tr.resx">
       <DependentUpon>UCtrlCaseOrientation.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\UCtrlLayerList.resx">
-      <DependentUpon>UCtrlLayerList.cs</DependentUpon>
+    <EmbeddedResource Include="Controls\UCtrlCaseOrientationSimple.resx">
+      <DependentUpon>UCtrlCaseOrientationSimple.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\UCtrlLayerList.tr.resx">
+    <EmbeddedResource Include="Controls\UCtrlLayerList.resx">
       <DependentUpon>UCtrlLayerList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\UCtrlPackable.resx">

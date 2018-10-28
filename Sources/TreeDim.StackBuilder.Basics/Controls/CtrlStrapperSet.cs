@@ -30,7 +30,7 @@ namespace treeDiM.StackBuilder.Basics.Controls
         public int Dir => cbDir.SelectedIndex;
         public bool EvenlySpaced
         {
-            get => uCtrlEvenSpacing.Value.Activated;
+            get => true;
         }
         public int Number
         {
@@ -68,10 +68,8 @@ namespace treeDiM.StackBuilder.Basics.Controls
         {
             if (DesignMode || null == StrapperSet) return;
 
-            OptDouble optSpacing = uCtrlEvenSpacing.Value;
-            if (optSpacing.Activated)
-                StrapperSet.SetEvenlySpaced(Dir, Number, uCtrlEvenSpacing.Value.Value);
-            bnEditAbscissa.Enabled = !optSpacing.Activated;
+            double optSpacing = uCtrlSpacing.Value;
+            StrapperSet.SetEvenlySpaced(Dir, Number, uCtrlSpacing.Value);
             // strapper changed
             OnStrapperChanged(sender, e);
         }
@@ -106,11 +104,9 @@ namespace treeDiM.StackBuilder.Basics.Controls
             PreventUpdate = true;
 
             bool enableSpacing = StrapperSet.Number[Dir] >= 2;
-            uCtrlEvenSpacing.Enabled = enableSpacing;
-            bnEditAbscissa.Enabled = enableSpacing;
+            uCtrlSpacing.Enabled = enableSpacing;
 
-            uCtrlEvenSpacing.Value = StrapperSet.GetSpacing(Dir);
-            bnEditAbscissa.Enabled = !uCtrlEvenSpacing.Value.Activated;            
+            uCtrlSpacing.Value = StrapperSet.GetSpacing(Dir).Value;
             PreventUpdate = false;
         }
         #endregion

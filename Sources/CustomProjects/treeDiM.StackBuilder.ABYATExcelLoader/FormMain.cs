@@ -162,12 +162,14 @@ namespace treeDiM.StackBuilder.ABYATExcelLoader
         {
             get
             {
-                TruckProperties truck = new TruckProperties(null, TruckLength, TruckWidth, TruckHeight);
-                truck.Color = Color.LightBlue;
+                TruckProperties truck = new TruckProperties(null, TruckLength, TruckWidth, TruckHeight)
+                {
+                    Color = Color.LightBlue
+                };
                 return truck;
             }
         }
-
+        private bool[] AllowedCaseOrientations => new bool[] { !chkbAllowZOrientationOnly.Checked, !chkbAllowZOrientationOnly.Checked, true };
         #endregion
         #region Status
         private void UpdateStatus()
@@ -235,7 +237,7 @@ namespace treeDiM.StackBuilder.ABYATExcelLoader
                             uCtrlTruckDimensions.ValueZ = Math.Max(uCtrlTruckDimensions.ValueZ, _dimensionsMax[2]+1.0);
                         }
                     }
-                    catch (System.IO.IOException ex)
+                    catch (IOException ex)
                     {
                         _log.Info(ex.Message);
                         if (DialogResult.No == MessageBox.Show(string.Format("File {0} is locked. Make sure it is not opened in Excel.\nTry again?", Path.GetFileName(InputFilePath)),
@@ -356,7 +358,7 @@ namespace treeDiM.StackBuilder.ABYATExcelLoader
             if (0 == Mode)
             {
                 ConstraintSetCasePallet constraintSet = new ConstraintSetCasePallet();
-                constraintSet.SetAllowedOrientations(new bool[] { false, false, true });
+                constraintSet.SetAllowedOrientations(AllowedCaseOrientations);
                 constraintSet.SetMaxHeight(new OptDouble(true, PalletMaximumHeight));
 
                 SolverCasePallet solver = new SolverCasePallet(bProperties, PalletProperties);
@@ -395,7 +397,7 @@ namespace treeDiM.StackBuilder.ABYATExcelLoader
                 container.SetAllColors(new Color[] { lblue, lblue, lblue, lblue, lblue, lblue });
                 container.SetWeight(0.0);
                 ConstraintSetBoxCase constraintSet = new ConstraintSetBoxCase(container);
-                constraintSet.SetAllowedOrientations(new bool[] { false, false, true });
+                constraintSet.SetAllowedOrientations(AllowedCaseOrientations);
 
                 SolverBoxCase solver = new SolverBoxCase(bProperties, container);
                 List<Analysis> analyses = solver.BuildAnalyses(constraintSet, false);
@@ -512,6 +514,8 @@ namespace treeDiM.StackBuilder.ABYATExcelLoader
                     {
                         // get name
                         string articleNumber = (xlWorkSheet.get_Range("a" + iRow, "a" + iRow).Value);
+                        if (null == articleNumber)
+                            continue;
                         // get length
                         double length = (xlWorkSheet.get_Range("f" + iRow, "f" + iRow).Value);
                         // get width

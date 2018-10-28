@@ -943,9 +943,13 @@ namespace treeDiM.StackBuilder.Graphics
                     g.DrawLine(penPathThick, pts[ptCount - 1], pts[0]);
                 }
 
-                foreach (Strapper s in box.StrapperList)
+                foreach (var sf in box.StrapperFaces)
                 {
-
+                    // get color
+                    // instantiate brush
+                    // get face points
+                    // fill polygon
+                    // draw path
                 }
             }
             if (ShowBoxIds)

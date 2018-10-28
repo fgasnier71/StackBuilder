@@ -86,7 +86,7 @@ namespace treeDiM.StackBuilder.Graphics
             }
             else
             {
-                BProperties bProperties = PackableToBProperties(packable);
+                var bProperties = PackableToBProperties(packable);
                 if (null != bProperties)
                 {
                     Colors = bProperties.Colors;
@@ -95,8 +95,7 @@ namespace treeDiM.StackBuilder.Graphics
                     if (IsBundle)
                         BundleFlats = (bProperties as BundleProperties).NoFlats;
                     // textures
-                    BoxProperties boxProperties = bProperties as BoxProperties;
-                    if (null != boxProperties)
+                    if (bProperties is BoxProperties boxProperties)
                     {
                         List<Pair<HalfAxis.HAxis, Texture>> textures = boxProperties.TextureList;
                         foreach (Pair<HalfAxis.HAxis, Texture> tex in textures)
@@ -110,6 +109,9 @@ namespace treeDiM.StackBuilder.Graphics
                         TapeWidth = boxProperties.TapeWidth;
                         TapeColor = boxProperties.TapeColor;
                     }
+
+                    if (null != bProperties.Strappers)
+                        StrapperList = new List<Strapper>(bProperties.Strappers.Strappers);
                 }
             }
         }
@@ -164,8 +166,7 @@ namespace treeDiM.StackBuilder.Graphics
             // is bundle ?
             else if (bProperties.IsBundle)
             {
-                BundleProperties bundleProp = bProperties as BundleProperties;
-                if (null != bundleProp)
+                if (bProperties is BundleProperties bundleProp)
                     BundleFlats = bundleProp.NoFlats;
             }
         }
@@ -382,6 +383,27 @@ namespace treeDiM.StackBuilder.Graphics
                 points[2] = Position + _dim[0] * lengthAxis + 0.5 * (_dim[1] + TapeWidth) * widthAxis + _dim[2] * heightAxis;
                 points[3] = Position + 0.0 * lengthAxis     + 0.5 * (_dim[1] + TapeWidth) * widthAxis + _dim[2] * heightAxis;
                 return points;
+            }
+        }
+        public Face[] StrapperFaces
+        {
+            get
+            {
+                Vector3D lengthAxis = LengthAxis;
+                Vector3D widthAxis = WidthAxis;
+                Vector3D heightAxis = HeightAxis;
+                List<Face> faces = new List<Face>();
+                foreach (var s in StrapperList)
+                {
+                    switch (s.Axis)
+                    {
+                        case 0: break;
+                        case 1: break;
+                        case 2: break;
+                        default: break;
+                    }
+                }
+                return faces.ToArray();
             }
         }
         public List<Strapper> StrapperList { get; } = new List<Strapper>();
@@ -745,7 +767,6 @@ namespace treeDiM.StackBuilder.Graphics
 
         #region Validity
         public bool IsValid => _dim[0] > 0.0 && _dim[1] > 0.0 && _dim[2] > 0.0 && (LengthAxis != WidthAxis);
-
         #endregion
 
         #region Public methods

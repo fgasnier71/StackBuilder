@@ -39,14 +39,10 @@
             this.lbFilePath = new System.Windows.Forms.Label();
             this.fileSelectExcel = new treeDiM.UserControls.FileSelect();
             this.graphCtrlPallet = new treeDiM.StackBuilder.Graphics.Graphics3DControl();
-            this.uCtrlPalletDimensions = new treeDiM.StackBuilder.Basics.UCtrlTriDouble();
             this.gbInput = new System.Windows.Forms.GroupBox();
             this.lbCaseLoaded = new System.Windows.Forms.Label();
             this.cbPalletType = new System.Windows.Forms.ComboBox();
             this.lbPalletType = new System.Windows.Forms.Label();
-            this.uCtrlTruckDimensions = new treeDiM.StackBuilder.Basics.UCtrlTriDouble();
-            this.uCtrlPalletWeight = new treeDiM.StackBuilder.Basics.UCtrlDouble();
-            this.uCtrlMaximumPalletHeight = new treeDiM.StackBuilder.Basics.UCtrlDouble();
             this.rbContainer = new System.Windows.Forms.RadioButton();
             this.rbPallet = new System.Windows.Forms.RadioButton();
             this.gbOutput = new System.Windows.Forms.GroupBox();
@@ -60,6 +56,11 @@
             this.lbOutputFilePath = new System.Windows.Forms.Label();
             this.richTextBoxLog = new System.Windows.Forms.RichTextBox();
             this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
+            this.uCtrlTruckDimensions = new treeDiM.StackBuilder.Basics.UCtrlTriDouble();
+            this.uCtrlPalletWeight = new treeDiM.StackBuilder.Basics.UCtrlDouble();
+            this.uCtrlMaximumPalletHeight = new treeDiM.StackBuilder.Basics.UCtrlDouble();
+            this.uCtrlPalletDimensions = new treeDiM.StackBuilder.Basics.UCtrlTriDouble();
+            this.chkbAllowZOrientationOnly = new System.Windows.Forms.CheckBox();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.graphCtrlPallet)).BeginInit();
@@ -145,36 +146,18 @@
             // 
             this.graphCtrlPallet.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.graphCtrlPallet.Location = new System.Drawing.Point(213, 209);
+            this.graphCtrlPallet.Location = new System.Drawing.Point(229, 208);
             this.graphCtrlPallet.Name = "graphCtrlPallet";
-            this.graphCtrlPallet.Size = new System.Drawing.Size(267, 241);
+            this.graphCtrlPallet.Size = new System.Drawing.Size(240, 240);
             this.graphCtrlPallet.TabIndex = 4;
             this.graphCtrlPallet.Viewer = null;
-            // 
-            // uCtrlPalletDimensions
-            // 
-            this.uCtrlPalletDimensions.Location = new System.Drawing.Point(102, 57);
-            this.uCtrlPalletDimensions.Minimum = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.uCtrlPalletDimensions.Name = "uCtrlPalletDimensions";
-            this.uCtrlPalletDimensions.Size = new System.Drawing.Size(378, 20);
-            this.uCtrlPalletDimensions.TabIndex = 6;
-            this.uCtrlPalletDimensions.Text = "Dimensions";
-            this.uCtrlPalletDimensions.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
-            this.uCtrlPalletDimensions.Value = ((Sharp3D.Math.Core.Vector3D)(resources.GetObject("uCtrlPalletDimensions.Value")));
-            this.uCtrlPalletDimensions.ValueX = 0D;
-            this.uCtrlPalletDimensions.ValueY = 0D;
-            this.uCtrlPalletDimensions.ValueZ = 0D;
-            this.uCtrlPalletDimensions.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlTriDouble.ValueChangedDelegate(this.OnDataChanged);
             // 
             // gbInput
             // 
             this.gbInput.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbInput.Controls.Add(this.chkbAllowZOrientationOnly);
             this.gbInput.Controls.Add(this.lbCaseLoaded);
             this.gbInput.Controls.Add(this.cbPalletType);
             this.gbInput.Controls.Add(this.lbPalletType);
@@ -189,7 +172,7 @@
             this.gbInput.Controls.Add(this.graphCtrlPallet);
             this.gbInput.Location = new System.Drawing.Point(6, 27);
             this.gbInput.Name = "gbInput";
-            this.gbInput.Size = new System.Drawing.Size(671, 456);
+            this.gbInput.Size = new System.Drawing.Size(671, 457);
             this.gbInput.TabIndex = 7;
             this.gbInput.TabStop = false;
             this.gbInput.Text = "Input";
@@ -221,57 +204,6 @@
             this.lbPalletType.Size = new System.Drawing.Size(56, 13);
             this.lbPalletType.TabIndex = 12;
             this.lbPalletType.Text = "Pallet type";
-            // 
-            // uCtrlTruckDimensions
-            // 
-            this.uCtrlTruckDimensions.Location = new System.Drawing.Point(102, 183);
-            this.uCtrlTruckDimensions.Minimum = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.uCtrlTruckDimensions.Name = "uCtrlTruckDimensions";
-            this.uCtrlTruckDimensions.Size = new System.Drawing.Size(378, 20);
-            this.uCtrlTruckDimensions.TabIndex = 11;
-            this.uCtrlTruckDimensions.Text = "Dimensions";
-            this.uCtrlTruckDimensions.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
-            this.uCtrlTruckDimensions.Value = ((Sharp3D.Math.Core.Vector3D)(resources.GetObject("uCtrlTruckDimensions.Value")));
-            this.uCtrlTruckDimensions.ValueX = 0D;
-            this.uCtrlTruckDimensions.ValueY = 0D;
-            this.uCtrlTruckDimensions.ValueZ = 0D;
-            this.uCtrlTruckDimensions.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlTriDouble.ValueChangedDelegate(this.OnDataChanged);
-            // 
-            // uCtrlPalletWeight
-            // 
-            this.uCtrlPalletWeight.Location = new System.Drawing.Point(102, 84);
-            this.uCtrlPalletWeight.Minimum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            -2147483648});
-            this.uCtrlPalletWeight.MinimumSize = new System.Drawing.Size(100, 20);
-            this.uCtrlPalletWeight.Name = "uCtrlPalletWeight";
-            this.uCtrlPalletWeight.Size = new System.Drawing.Size(254, 20);
-            this.uCtrlPalletWeight.TabIndex = 10;
-            this.uCtrlPalletWeight.Text = "Pallet weight";
-            this.uCtrlPalletWeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_MASS;
-            this.uCtrlPalletWeight.Value = 0D;
-            // 
-            // uCtrlMaximumPalletHeight
-            // 
-            this.uCtrlMaximumPalletHeight.Location = new System.Drawing.Point(102, 112);
-            this.uCtrlMaximumPalletHeight.Minimum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            -2147483648});
-            this.uCtrlMaximumPalletHeight.MinimumSize = new System.Drawing.Size(100, 20);
-            this.uCtrlMaximumPalletHeight.Name = "uCtrlMaximumPalletHeight";
-            this.uCtrlMaximumPalletHeight.Size = new System.Drawing.Size(254, 20);
-            this.uCtrlMaximumPalletHeight.TabIndex = 9;
-            this.uCtrlMaximumPalletHeight.Text = "Maximum loaded pallet height";
-            this.uCtrlMaximumPalletHeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
-            this.uCtrlMaximumPalletHeight.Value = 0D;
             // 
             // rbContainer
             // 
@@ -309,9 +241,9 @@
             this.gbOutput.Controls.Add(this.bnGenerate);
             this.gbOutput.Controls.Add(this.fileSelectOutput);
             this.gbOutput.Controls.Add(this.lbOutputFilePath);
-            this.gbOutput.Location = new System.Drawing.Point(6, 489);
+            this.gbOutput.Location = new System.Drawing.Point(6, 490);
             this.gbOutput.Name = "gbOutput";
-            this.gbOutput.Size = new System.Drawing.Size(671, 87);
+            this.gbOutput.Size = new System.Drawing.Size(671, 90);
             this.gbOutput.TabIndex = 8;
             this.gbOutput.TabStop = false;
             this.gbOutput.Text = "Output";
@@ -393,11 +325,93 @@
             // 
             // richTextBoxLog
             // 
-            this.richTextBoxLog.Location = new System.Drawing.Point(0, 581);
+            this.richTextBoxLog.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.richTextBoxLog.Location = new System.Drawing.Point(0, 584);
             this.richTextBoxLog.Name = "richTextBoxLog";
             this.richTextBoxLog.Size = new System.Drawing.Size(684, 55);
             this.richTextBoxLog.TabIndex = 10;
             this.richTextBoxLog.Text = "";
+            // 
+            // uCtrlTruckDimensions
+            // 
+            this.uCtrlTruckDimensions.Location = new System.Drawing.Point(102, 183);
+            this.uCtrlTruckDimensions.Minimum = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.uCtrlTruckDimensions.Name = "uCtrlTruckDimensions";
+            this.uCtrlTruckDimensions.Size = new System.Drawing.Size(378, 20);
+            this.uCtrlTruckDimensions.TabIndex = 11;
+            this.uCtrlTruckDimensions.Text = "Dimensions";
+            this.uCtrlTruckDimensions.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlTruckDimensions.Value = ((Sharp3D.Math.Core.Vector3D)(resources.GetObject("uCtrlTruckDimensions.Value")));
+            this.uCtrlTruckDimensions.ValueX = 0D;
+            this.uCtrlTruckDimensions.ValueY = 0D;
+            this.uCtrlTruckDimensions.ValueZ = 0D;
+            this.uCtrlTruckDimensions.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlTriDouble.ValueChangedDelegate(this.OnDataChanged);
+            // 
+            // uCtrlPalletWeight
+            // 
+            this.uCtrlPalletWeight.Location = new System.Drawing.Point(102, 84);
+            this.uCtrlPalletWeight.Minimum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            -2147483648});
+            this.uCtrlPalletWeight.MinimumSize = new System.Drawing.Size(100, 20);
+            this.uCtrlPalletWeight.Name = "uCtrlPalletWeight";
+            this.uCtrlPalletWeight.Size = new System.Drawing.Size(254, 20);
+            this.uCtrlPalletWeight.TabIndex = 10;
+            this.uCtrlPalletWeight.Text = "Pallet weight";
+            this.uCtrlPalletWeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_MASS;
+            this.uCtrlPalletWeight.Value = 0D;
+            // 
+            // uCtrlMaximumPalletHeight
+            // 
+            this.uCtrlMaximumPalletHeight.Location = new System.Drawing.Point(102, 112);
+            this.uCtrlMaximumPalletHeight.Minimum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            -2147483648});
+            this.uCtrlMaximumPalletHeight.MinimumSize = new System.Drawing.Size(100, 20);
+            this.uCtrlMaximumPalletHeight.Name = "uCtrlMaximumPalletHeight";
+            this.uCtrlMaximumPalletHeight.Size = new System.Drawing.Size(254, 20);
+            this.uCtrlMaximumPalletHeight.TabIndex = 9;
+            this.uCtrlMaximumPalletHeight.Text = "Maximum loaded pallet height";
+            this.uCtrlMaximumPalletHeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlMaximumPalletHeight.Value = 0D;
+            // 
+            // uCtrlPalletDimensions
+            // 
+            this.uCtrlPalletDimensions.Location = new System.Drawing.Point(102, 57);
+            this.uCtrlPalletDimensions.Minimum = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.uCtrlPalletDimensions.Name = "uCtrlPalletDimensions";
+            this.uCtrlPalletDimensions.Size = new System.Drawing.Size(378, 20);
+            this.uCtrlPalletDimensions.TabIndex = 6;
+            this.uCtrlPalletDimensions.Text = "Dimensions";
+            this.uCtrlPalletDimensions.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlPalletDimensions.Value = ((Sharp3D.Math.Core.Vector3D)(resources.GetObject("uCtrlPalletDimensions.Value")));
+            this.uCtrlPalletDimensions.ValueX = 0D;
+            this.uCtrlPalletDimensions.ValueY = 0D;
+            this.uCtrlPalletDimensions.ValueZ = 0D;
+            this.uCtrlPalletDimensions.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlTriDouble.ValueChangedDelegate(this.OnDataChanged);
+            // 
+            // chkbAllowZOrientationOnly
+            // 
+            this.chkbAllowZOrientationOnly.AutoSize = true;
+            this.chkbAllowZOrientationOnly.Location = new System.Drawing.Point(7, 207);
+            this.chkbAllowZOrientationOnly.Name = "chkbAllowZOrientationOnly";
+            this.chkbAllowZOrientationOnly.Size = new System.Drawing.Size(135, 17);
+            this.chkbAllowZOrientationOnly.TabIndex = 18;
+            this.chkbAllowZOrientationOnly.Text = "Allow only Z orientation";
+            this.chkbAllowZOrientationOnly.UseVisualStyleBackColor = true;
             // 
             // FormMain
             // 
@@ -463,6 +477,7 @@
         private System.Windows.Forms.Button bnSelectImageFolder;
         private System.Windows.Forms.TextBox tbImageFolder;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog;
+        private System.Windows.Forms.CheckBox chkbAllowZOrientationOnly;
     }
 }
 

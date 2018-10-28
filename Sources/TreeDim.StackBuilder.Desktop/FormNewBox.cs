@@ -275,10 +275,7 @@ namespace treeDiM.StackBuilder.Desktop
         /// <summary>
         /// Strapper set
         /// </summary>
-        public StrapperSet CaseStrapperSet
-        {
-            get { return null; }
-        }
+        public StrapperSet StrapperSet => _strapperSet;
         #endregion
 
         #region FormNewBase override
@@ -488,6 +485,7 @@ namespace treeDiM.StackBuilder.Desktop
             boxProperties.TextureList = _textures;
             boxProperties.TapeWidth = TapeWidth;
             boxProperties.TapeColor = TapeColor;
+            boxProperties.Strappers = StrapperSet;
             graphics.AddBox(new Box(0, boxProperties));
             graphics.AddDimensions(new DimensionCube(uCtrlDimensionsOuter.ValueX, uCtrlDimensionsOuter.ValueY, uCtrlDimensionsOuter.ValueZ));
         }

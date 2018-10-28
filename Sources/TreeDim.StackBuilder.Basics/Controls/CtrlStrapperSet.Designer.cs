@@ -28,15 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CtrlStrapperSet));
             this.cbDir = new System.Windows.Forms.ComboBox();
             this.lbDirection = new System.Windows.Forms.Label();
-            this.bnEditAbscissa = new System.Windows.Forms.Button();
-            this.uCtrlEvenSpacing = new treeDiM.StackBuilder.Basics.UCtrlOptDouble();
             this.uCtrlWidth = new treeDiM.StackBuilder.Basics.UCtrlDouble();
             this.uCtrlNumber = new treeDiM.StackBuilder.Basics.UCtrlInt();
             this.cbColor = new OfficePickers.ColorPicker.ComboBoxColorPicker();
             this.lbColor = new System.Windows.Forms.Label();
+            this.uCtrlSpacing = new treeDiM.StackBuilder.Basics.UCtrlDouble();
             this.SuspendLayout();
             // 
             // cbDir
@@ -61,32 +59,6 @@
             this.lbDirection.Size = new System.Drawing.Size(26, 13);
             this.lbDirection.TabIndex = 1;
             this.lbDirection.Text = "Axis";
-            // 
-            // bnEditAbscissa
-            // 
-            this.bnEditAbscissa.Location = new System.Drawing.Point(507, 38);
-            this.bnEditAbscissa.Name = "bnEditAbscissa";
-            this.bnEditAbscissa.Size = new System.Drawing.Size(24, 19);
-            this.bnEditAbscissa.TabIndex = 5;
-            this.bnEditAbscissa.Text = "...";
-            this.bnEditAbscissa.UseVisualStyleBackColor = true;
-            this.bnEditAbscissa.Click += new System.EventHandler(this.OnEditAbscissa);
-            // 
-            // uCtrlEvenSpacing
-            // 
-            this.uCtrlEvenSpacing.Location = new System.Drawing.Point(293, 37);
-            this.uCtrlEvenSpacing.Minimum = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.uCtrlEvenSpacing.MinimumSize = new System.Drawing.Size(100, 20);
-            this.uCtrlEvenSpacing.Name = "uCtrlEvenSpacing";
-            this.uCtrlEvenSpacing.Size = new System.Drawing.Size(208, 20);
-            this.uCtrlEvenSpacing.TabIndex = 4;
-            this.uCtrlEvenSpacing.Text = "Even spacing";
-            this.uCtrlEvenSpacing.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
-            this.uCtrlEvenSpacing.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlOptDouble.ValueChangedDelegate(this.OnSpacingChanged);
             // 
             // uCtrlWidth
             // 
@@ -134,6 +106,7 @@
             this.cbColor.Items.AddRange(new object[] {
             "Color",
             "Color",
+            "Color",
             "Color"});
             this.cbColor.Location = new System.Drawing.Point(73, 35);
             this.cbColor.Name = "cbColor";
@@ -150,14 +123,29 @@
             this.lbColor.TabIndex = 7;
             this.lbColor.Text = "Color";
             // 
+            // uCtrlSpacing
+            // 
+            this.uCtrlSpacing.Location = new System.Drawing.Point(293, 35);
+            this.uCtrlSpacing.Minimum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            -2147483648});
+            this.uCtrlSpacing.MinimumSize = new System.Drawing.Size(100, 20);
+            this.uCtrlSpacing.Name = "uCtrlSpacing";
+            this.uCtrlSpacing.Size = new System.Drawing.Size(209, 20);
+            this.uCtrlSpacing.TabIndex = 8;
+            this.uCtrlSpacing.Text = "Spacing";
+            this.uCtrlSpacing.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlSpacing.Value = 0D;
+            // 
             // CtrlStrapperSet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.uCtrlSpacing);
             this.Controls.Add(this.lbColor);
             this.Controls.Add(this.cbColor);
-            this.Controls.Add(this.bnEditAbscissa);
-            this.Controls.Add(this.uCtrlEvenSpacing);
             this.Controls.Add(this.uCtrlWidth);
             this.Controls.Add(this.uCtrlNumber);
             this.Controls.Add(this.lbDirection);
@@ -175,9 +163,8 @@
         private System.Windows.Forms.Label lbDirection;
         private UCtrlInt uCtrlNumber;
         private UCtrlDouble uCtrlWidth;
-        private UCtrlOptDouble uCtrlEvenSpacing;
-        private System.Windows.Forms.Button bnEditAbscissa;
         private OfficePickers.ColorPicker.ComboBoxColorPicker cbColor;
         private System.Windows.Forms.Label lbColor;
+        private UCtrlDouble uCtrlSpacing;
     }
 }
