@@ -358,7 +358,7 @@ namespace treeDiM.StackBuilder.ABYATExcelLoader
             if (0 == Mode)
             {
                 ConstraintSetCasePallet constraintSet = new ConstraintSetCasePallet();
-                constraintSet.SetAllowedOrientations(AllowedCaseOrientations);
+                constraintSet.SetAllowedOrientations(height > 15.0 ? AllowedCaseOrientations : new bool[]{ false, false, true });
                 constraintSet.SetMaxHeight(new OptDouble(true, PalletMaximumHeight));
 
                 SolverCasePallet solver = new SolverCasePallet(bProperties, PalletProperties);
