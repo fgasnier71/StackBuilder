@@ -3,8 +3,14 @@
   <Fragment>
     <Directory Id="TARGETDIR" Name="SourceDir">
       <Directory Id="ProgramFilesFolder">
-        <Directory Id="INSTALLFOLDER" Name="StackBuilderWS"/>
+        <Directory Id="treeDiM" Name="treeDiM">
+          <Directory Id="INSTALLFOLDER" Name="treeDiM.StackBuilder.WCFAppServ">
+            <Directory Id="BIN" Name="Bin"/>
+          </Directory>
+          <Directory Id="SAMPLECLIENT" Name="treeDiM.StackBuilder.WCFService.Test"/>
+        </Directory>
       </Directory>
+      <Directory Id="DesktopFolder" Name="Desktop"/>
     </Directory>
   </Fragment>
 </Wix>

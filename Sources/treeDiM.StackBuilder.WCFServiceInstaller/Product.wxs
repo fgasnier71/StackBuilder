@@ -2,12 +2,12 @@
 <?include $(sys.CURRENTDIR)\Config.wxi?>
 
 <Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
-	<Product Id="*" Name="treeDiM.StackBuilder.WCFServiceInstaller"
+  <Product Id="*" Name="treeDiM.StackBuilder.WCFServiceInstaller"
            Language="1033"
            Version="$(var.ProductVersion)"
            Manufacturer="$(var.Manufacturer)"
            UpgradeCode="38aeffc2-061f-43e4-9291-93fa30efe5c8">
-		<Package Id="*"
+    <Package Id="*"
              InstallerVersion="200"
              Compressed="yes"
              InstallScope="perMachine"
@@ -15,16 +15,16 @@
              ShortNames="no"
              />
     <MediaTemplate EmbedCab="yes"/>
-		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+    <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
     <Feature Id="ProductFeature"
              Title="treeDiM.StackBuilder.WCFAppServ"
              Level="1">
-			<ComponentGroupRef Id="ProductComponents" />
+      <ComponentGroupRef Id="ServiceDefinition" />
+      <ComponentGroupRef Id="ServiceBinaries"/>
       <ComponentGroupRef Id="WebIISConfiguration"/>
-		</Feature>
-
-    <UIRef Id="WixUI_ErrorProgressText"/>
-    <UIRef Id="WixUI_Common"/>
+      <ComponentGroupRef Id="SampleClientBinaries"/>
+      <ComponentGroupRef Id="SampleClientShortcut"/>
+    </Feature>
 
     <Property Id="VIRTUAL_DIR_VAL" Value="StackBuilderWebApp" />
     <!-- check whether IIS is installed or not -->
@@ -33,5 +33,5 @@
     </Property>
     <Condition Message="IIS must be installed">Installed OR IIS_MAJOR_VERSION</Condition>
     <!-- check whether IIS is installed or not -->
-	</Product>
+  </Product>
 </Wix>

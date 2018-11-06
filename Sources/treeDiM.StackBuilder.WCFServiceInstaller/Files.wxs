@@ -1,8 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?include $(sys.CURRENTDIR)\Config.wxi?>
+
 <Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
-	<Fragment>
+  <Fragment>
+    <Icon Id="ShortcutIcon.ico" SourceFile="..\Test\treeDiM.StackBuilder.WCFService.Test\bin\Release\treeDiM.StackBuilder.WCFService.Test.exe" />
     <DirectoryRef Id="INSTALLFOLDER"/>
-    <ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
+    <ComponentGroup Id="ServiceDefinition" Directory="INSTALLFOLDER">
+      <Component Id="StackBuilder.svc" Guid="{6D53F34C-CBCA-4941-9A47-46AF05D9D142}">
+        <File Source="..\treeDiM.StackBuilder.WCFAppServ\StackBuilder.svc"/>
+      </Component>
+      <Component Id="Web.config" Guid="{E9D8B7D1-EFA3-4DD5-AA1A-C8D21F8C2744}">
+        <File Source="..\treeDiM.StackBuilder.WCFAppServ\Web.config"/>
+      </Component>
+    </ComponentGroup>
+    <DirectoryRef Id="BIN"/>
+    <ComponentGroup Id="ServiceBinaries" Directory="BIN">
       <Component Id="log4net.dll" Guid="{5D99E00C-F330-4ADD-97F8-E9D78117EE85}">
         <File Source="..\treeDiM.StackBuilder.WCFAppServ\bin\release\log4net.dll"/>
       </Component>
@@ -38,6 +50,31 @@
         <File Source="..\treeDiM.StackBuilder.WCFAppServ\bin\release\treeDiM.StackBuilder.Graphics.dll"/>
         <File Source="..\treeDiM.StackBuilder.WCFAppServ\bin\release\treeDiM.StackBuilder.WCFAppServ.dll"/>
         <File Source="..\treeDiM.StackBuilder.WCFAppServ\bin\release\treeDiM.StackBuilder.WCFAppServ.dll.config"/>
+      </Component>
+    </ComponentGroup>
+    <DirectoryRef Id="SAMPLECLIENT"/>
+    <ComponentGroup Id="SampleClientBinaries" Directory="SAMPLECLIENT">
+      <Component Id="treeDiM.StackBuilder.WCFService.Test.exe" Guid="{2992012D-9BD4-42CB-99B6-8C73846AECFD}">
+        <File Source="..\Test\treeDiM.StackBuilder.WCFService.Test\bin\Release\treeDiM.StackBuilder.WCFService.Test.exe"/>
+        <File Source="..\Test\treeDiM.StackBuilder.WCFService.Test\bin\Release\treeDiM.StackBuilder.WCFService.Test.exe.config"/>
+      </Component>
+    </ComponentGroup>
+    <DirectoryRef Id="DesktopFolder"/>
+    <ComponentGroup Id="SampleClientShortcut" Directory="DesktopFolder">
+      <Component Id="DesktopShortcutComp" Guid="{2B4BEA63-326B-40a3-9DF4-44E7E29EE4DC}">
+        <Shortcut Id="DesktopShortCut"
+                  Name="treeDiM.StackBuilder.WCFService.Test"
+                  Description="Sample client app"
+                  Target="[SAMPLECLIENT]treeDiM.StackBuilder.WCFService.Test.exe"
+                  Icon="ShortcutIcon.ico"
+                  WorkingDirectory="SAMPLECLIENT" />
+        <RemoveFolder Id="DesktopFolder" On="uninstall"/>
+        <RegistryValue Root="HKCU"
+                       Key="Software/$(var.Manufacturer)/SampleClient_Desktop"
+                       Name="installed"
+                       Type="integer"
+                       Value="1"
+                       KeyPath="yes" />
       </Component>
     </ComponentGroup>
 	</Fragment>

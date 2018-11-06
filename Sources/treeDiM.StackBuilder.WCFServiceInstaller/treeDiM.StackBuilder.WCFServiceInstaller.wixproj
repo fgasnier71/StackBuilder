@@ -25,6 +25,7 @@
     <Compile Include="Files.wxs" />
     <Compile Include="IISConfiguration.wxs" />
     <Compile Include="Product.wxs" />
+    <Compile Include="UI.wxs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Config.wxi" />
