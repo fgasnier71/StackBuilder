@@ -45,13 +45,14 @@
             this.lbName.AutoEllipsis = true;
             this.lbName.Location = new System.Drawing.Point(0, 2);
             this.lbName.Name = "lbName";
-            this.lbName.Size = new System.Drawing.Size(103, 20);
+            this.lbName.Size = new System.Drawing.Size(115, 20);
             this.lbName.TabIndex = 0;
             this.lbName.Text = "Name";
             // 
             // nudX
             // 
-            this.nudX.Location = new System.Drawing.Point(109, 0);
+            this.nudX.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.nudX.Location = new System.Drawing.Point(120, 0);
             this.nudX.Minimum = new decimal(new int[] {
             1,
             0,
@@ -69,7 +70,8 @@
             // 
             // nudY
             // 
-            this.nudY.Location = new System.Drawing.Point(173, 0);
+            this.nudY.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.nudY.Location = new System.Drawing.Point(182, 0);
             this.nudY.Minimum = new decimal(new int[] {
             1,
             0,
@@ -87,7 +89,8 @@
             // 
             // nudZ
             // 
-            this.nudZ.Location = new System.Drawing.Point(237, 0);
+            this.nudZ.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.nudZ.Location = new System.Drawing.Point(244, 0);
             this.nudZ.Minimum = new decimal(new int[] {
             1,
             0,
@@ -112,7 +115,7 @@
             this.Controls.Add(this.nudX);
             this.Controls.Add(this.lbName);
             this.Name = "UCtrlTriInt";
-            this.Size = new System.Drawing.Size(300, 20);
+            this.Size = new System.Drawing.Size(308, 20);
             this.SizeChanged += new System.EventHandler(this.OnSizeChanged);
             ((System.ComponentModel.ISupportInitialize)(this.nudX)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudY)).EndInit();

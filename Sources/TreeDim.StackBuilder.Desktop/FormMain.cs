@@ -391,6 +391,7 @@ namespace treeDiM.StackBuilder.Desktop
                         box.TextureList = form.TextureList;
                         box.TapeWidth = form.TapeWidth;
                         box.TapeColor = form.TapeColor;
+                        box.StrapperSet = form.StrapperSet;
                         box.EndUpdate();
                     }
                 }
@@ -411,6 +412,7 @@ namespace treeDiM.StackBuilder.Desktop
                         pack.Wrap = form.Wrapper;
                         if (form.HasForcedOuterDimensions)
                             pack.ForceOuterDimensions(form.OuterDimensions);
+                        pack.StrapperSet = form.StrapperSet;
                         pack.EndUpdate();
                     }
                 }

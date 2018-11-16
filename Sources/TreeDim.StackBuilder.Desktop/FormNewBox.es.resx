@@ -121,20 +121,8 @@
     <value>Cancelar</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="lbFace.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 41</value>
-  </data>
-  <data name="lbFace.Size" type="System.Drawing.Size, System.Drawing">
-    <value>29, 13</value>
-  </data>
   <data name="lbFace.Text" xml:space="preserve">
     <value>Cara</value>
-  </data>
-  <data name="gbDimensions.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 55</value>
-  </data>
-  <data name="gbDimensions.Size" type="System.Drawing.Size, System.Drawing">
-    <value>354, 76</value>
   </data>
   <data name="gbDimensions.Text" xml:space="preserve">
     <value>Medidas</value>
@@ -163,35 +151,14 @@
   <data name="cbFace.Items5" xml:space="preserve">
     <value>Superior</value>
   </data>
-  <data name="cbFace.Location" type="System.Drawing.Point, System.Drawing">
-    <value>76, 38</value>
-  </data>
-  <data name="cbColor.Location" type="System.Drawing.Point, System.Drawing">
-    <value>177, 38</value>
-  </data>
-  <data name="gbFaceColor.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 137</value>
-  </data>
   <data name="gbFaceColor.Text" xml:space="preserve">
     <value>Color de la cara</value>
-  </data>
-  <data name="btBitmaps.Location" type="System.Drawing.Point, System.Drawing">
-    <value>259, 38</value>
   </data>
   <data name="btBitmaps.Text" xml:space="preserve">
     <value>Mapa de bits…</value>
   </data>
-  <data name="chkAllFaces.Size" type="System.Drawing.Size, System.Drawing">
-    <value>176, 17</value>
-  </data>
   <data name="chkAllFaces.Text" xml:space="preserve">
     <value>Todas las caras del mismo color</value>
-  </data>
-  <data name="gbWeight.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 259</value>
-  </data>
-  <data name="gbWeight.Size" type="System.Drawing.Size, System.Drawing">
-    <value>354, 94</value>
   </data>
   <data name="gbWeight.Text" xml:space="preserve">
     <value>Peso</value>
@@ -202,56 +169,23 @@
   <data name="uCtrlNetWeight.Text" xml:space="preserve">
     <value>Peso neto</value>
   </data>
-  <data name="lblName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>44, 13</value>
-  </data>
   <data name="lblName.Text" xml:space="preserve">
     <value>Nombre</value>
-  </data>
-  <data name="lblDescription.Size" type="System.Drawing.Size, System.Drawing">
-    <value>63, 13</value>
   </data>
   <data name="lblDescription.Text" xml:space="preserve">
     <value>Descripción</value>
   </data>
-  <data name="graphCtrl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>366, 61</value>
-  </data>
-  <data name="gbTape.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 207</value>
-  </data>
-  <data name="gbTape.Size" type="System.Drawing.Size, System.Drawing">
-    <value>354, 49</value>
-  </data>
   <data name="gbTape.Text" xml:space="preserve">
     <value>Cinta</value>
   </data>
-  <data name="uCtrlTapeWidth.Size" type="System.Drawing.Size, System.Drawing">
-    <value>220, 20</value>
-  </data>
   <data name="uCtrlTapeWidth.Text" xml:space="preserve">
     <value>Anchura de la cinta</value>
-  </data>
-  <data name="cbTapeColor.Location" type="System.Drawing.Point, System.Drawing">
-    <value>302, 17</value>
-  </data>
-  <data name="cbTapeColor.Size" type="System.Drawing.Size, System.Drawing">
-    <value>49, 22</value>
-  </data>
-  <data name="lbTapeColor.Location" type="System.Drawing.Point, System.Drawing">
-    <value>223, 21</value>
-  </data>
-  <data name="lbTapeColor.Size" type="System.Drawing.Size, System.Drawing">
-    <value>83, 13</value>
   </data>
   <data name="lbTapeColor.Text" xml:space="preserve">
     <value>Color de la cinta</value>
   </data>
   <data name="bnSaveToDB.Text" xml:space="preserve">
     <value>Guardar en base de datos</value>
-  </data>
-  <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>600, 400</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Definir un nuevo caso de caja/embalaje</value>

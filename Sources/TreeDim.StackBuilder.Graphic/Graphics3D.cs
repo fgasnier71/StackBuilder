@@ -28,6 +28,7 @@ namespace treeDiM.StackBuilder.Graphics
         }
 
         #endregion
+
         #region Data members
 
         /// <summary>
@@ -879,7 +880,7 @@ namespace treeDiM.StackBuilder.Graphics
                         continue;
                     // color
                     faces[i].ColorFill = box.Colors[i];
-                    double cosA = System.Math.Abs(Vector3D.DotProduct(faces[i].Normal, VLight));
+                    double cosA = Math.Abs(Vector3D.DotProduct(faces[i].Normal, VLight));
                     Color color = Color.FromArgb((int)(faces[i].ColorFill.R * cosA), (int)(faces[i].ColorFill.G * cosA), (int)(faces[i].ColorFill.B * cosA));
                     // points
                     Vector3D[] points3D = faces[i].Points;
@@ -913,8 +914,8 @@ namespace treeDiM.StackBuilder.Graphics
                         for (int iSlice = 0; iSlice < noSlice - 1; ++iSlice)
                         {
                             Vector3D[] ptSlice = new Vector3D[2];
-                            ptSlice[0] = points3D[0] + ((double)(iSlice + 1) / (double)noSlice) * (points3D[3] - points3D[0]);
-                            ptSlice[1] = points3D[1] + ((double)(iSlice + 1) / (double)noSlice) * (points3D[2] - points3D[1]);
+                            ptSlice[0] = points3D[0] + ((iSlice + 1) / (double)noSlice) * (points3D[3] - points3D[0]);
+                            ptSlice[1] = points3D[1] + ((iSlice + 1) / (double)noSlice) * (points3D[2] - points3D[1]);
 
                             Point[] pt2D = TransformPoint(GetCurrentTransformation(), ptSlice);
                             g.DrawLine(penPathThin, pt2D[0], pt2D[1]);
@@ -941,15 +942,28 @@ namespace treeDiM.StackBuilder.Graphics
                     for (int j = 1; j < ptCount; ++j)
                         g.DrawLine(penPathThick, pts[j - 1], pts[j]);
                     g.DrawLine(penPathThick, pts[ptCount - 1], pts[0]);
-                }
-
-                foreach (var sf in box.StrapperFaces)
+                }                
+            }
+            foreach (var sf in box.StrapperFaces)
+            {
+                if (sf.IsVisible(Target - CameraPosition))
                 {
                     // get color
+                    double cosA = Math.Abs(Vector3D.DotProduct(sf.Normal, VLight));
+                    Color color = Color.FromArgb((int)(sf.ColorFill.R * cosA), (int)(sf.ColorFill.G * cosA), (int)(sf.ColorFill.B * cosA));
                     // instantiate brush
+                    Brush brushStrapper = new SolidBrush(color);
                     // get face points
+                    Point[] pts = TransformPoint(GetCurrentTransformation(), sf.Points);
                     // fill polygon
+                    g.FillPolygon(brushStrapper, pts);
                     // draw path
+                    Brush brushPath = new SolidBrush(sf.ColorPath);
+                    Pen penPathThick = new Pen(brushPath, 1.5f);
+                    int ptCount = pts.Length;
+                    for (int j = 1; j < ptCount; ++j)
+                        g.DrawLine(penPathThick, pts[j - 1], pts[j]);
+                    g.DrawLine(penPathThick, pts[ptCount - 1], pts[0]);
                 }
             }
             if (ShowBoxIds)

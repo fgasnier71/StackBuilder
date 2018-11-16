@@ -1494,6 +1494,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewBox.fr.resx">
       <DependentUpon>FormNewBox.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewBox.resx">
       <SubType>Designer</SubType>
@@ -1505,6 +1506,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewBox.es.resx">
       <DependentUpon>FormNewBox.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewBox.it.resx">
       <DependentUpon>FormNewBox.cs</DependentUpon>
@@ -1709,12 +1711,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewPack.fr.resx">
       <DependentUpon>FormNewPack.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewPack.it.resx">
       <DependentUpon>FormNewPack.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewPack.ja.resx">
       <DependentUpon>FormNewPack.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewPack.nl.resx">
       <DependentUpon>FormNewPack.cs</DependentUpon>

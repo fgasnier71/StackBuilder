@@ -31,9 +31,9 @@ namespace treeDiM.StackBuilder.Desktop
         public Color[] _faceColors = new Color[6];
         public Mode _mode;
         public List<Pair<HalfAxis.HAxis, Texture>> _textures;
+        public StrapperSet StrapperSet { get; } = new StrapperSet();
         private double _thicknessLength = 0.0, _thicknessWidth = 0.0, _thicknessHeight = 0.0;
         static readonly ILog _log = LogManager.GetLogger(typeof(FormNewBox));
-        private StrapperSet _strapperSet = new StrapperSet();
         #endregion
 
         #region Constructor
@@ -101,7 +101,8 @@ namespace treeDiM.StackBuilder.Desktop
                 // net weight
                 NetWeight = new OptDouble(false, UnitsManager.ConvertMassFrom(0.0, UnitsManager.UnitSystem.UNIT_METRIC1));
 
-                ctrlStrapperSet.StrapperSet = _strapperSet;
+                StrapperSet = new StrapperSet();
+                ctrlStrapperSet.StrapperSet = StrapperSet;
 
                 // disable Ok button
                 UpdateStatus(string.Empty);
@@ -149,8 +150,9 @@ namespace treeDiM.StackBuilder.Desktop
                 cbTapeColor.Color = boxProperties.TapeColor;
                 // set default face
                 cbFace.SelectedIndex = 0;
-
-                ctrlStrapperSet.StrapperSet = _strapperSet;
+                // set StrapperSet
+                StrapperSet = boxProperties.StrapperSet.Clone();
+                ctrlStrapperSet.StrapperSet = StrapperSet;
 
                 // disable Ok button
                 UpdateStatus(string.Empty);
@@ -272,10 +274,7 @@ namespace treeDiM.StackBuilder.Desktop
             get { return cbTapeColor.Color;}
             set { cbTapeColor.Color = value; }
         }
-        /// <summary>
-        /// Strapper set
-        /// </summary>
-        public StrapperSet StrapperSet => _strapperSet;
+
         #endregion
 
         #region FormNewBase override
@@ -348,7 +347,7 @@ namespace treeDiM.StackBuilder.Desktop
                     if (BoxHeight <= InsideHeight)
                         BoxHeight = InsideHeight + _thicknessHeight;
 
-                    _strapperSet.SetDimension(BoxLength, BoxWidth, BoxHeight);
+                    StrapperSet.SetDimension(BoxLength, BoxWidth, BoxHeight);
                 }
                 uCtrlNetWeight.Enabled = !uCtrlDimensionsInner.Checked;
                 uCtrlMaxWeight.Enabled = uCtrlDimensionsInner.Checked;
@@ -480,14 +479,17 @@ namespace treeDiM.StackBuilder.Desktop
         #region Draw box
         public void Draw(Graphics3DControl ctrl, Graphics3D graphics)
         {
-            BoxProperties boxProperties = new BoxProperties(null, uCtrlDimensionsOuter.ValueX, uCtrlDimensionsOuter.ValueY, uCtrlDimensionsOuter.ValueZ);
+            BoxProperties boxProperties = new BoxProperties(
+                null, uCtrlDimensionsOuter.ValueX, uCtrlDimensionsOuter.ValueY, uCtrlDimensionsOuter.ValueZ);
             boxProperties.SetAllColors(_faceColors);
             boxProperties.TextureList = _textures;
             boxProperties.TapeWidth = TapeWidth;
             boxProperties.TapeColor = TapeColor;
-            boxProperties.Strappers = StrapperSet;
+            boxProperties.StrapperSet = StrapperSet;
             graphics.AddBox(new Box(0, boxProperties));
-            graphics.AddDimensions(new DimensionCube(uCtrlDimensionsOuter.ValueX, uCtrlDimensionsOuter.ValueY, uCtrlDimensionsOuter.ValueZ));
+            graphics.AddDimensions(
+                new DimensionCube(uCtrlDimensionsOuter.ValueX, uCtrlDimensionsOuter.ValueY, uCtrlDimensionsOuter.ValueZ)
+                );
         }
         #endregion
 

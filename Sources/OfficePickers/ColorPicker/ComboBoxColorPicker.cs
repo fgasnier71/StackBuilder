@@ -95,9 +95,8 @@ namespace OfficePickers.ColorPicker
         /// <param name="e"></param>
         public void OnSelectedColorChanged(EventArgs e)
         {
-            if (SelectedColorChanged != null)
-                SelectedColorChanged(this, e);
-            this.Refresh();
+            SelectedColorChanged?.Invoke(this, e);
+            Refresh();
         }
         #endregion
 
@@ -117,9 +116,7 @@ namespace OfficePickers.ColorPicker
         private void ShowDropDown() 
         {            
             if (_colorPicker != null) 
-            {
                 _colorPicker.Show(this, 0, this.Height);
-            }
         }
         /// <summary>
         /// Overrides, paint rectangle in the item regions instead of text

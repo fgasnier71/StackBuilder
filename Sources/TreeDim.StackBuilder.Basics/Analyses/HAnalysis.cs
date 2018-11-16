@@ -135,8 +135,6 @@ namespace treeDiM.StackBuilder.Basics
         }
         private static bool MostlyEqual(double val0, double val1) => Math.Abs(val1 - val0) < 1.0e-03;
         private bool[] _allowOrient = { true, true, true };
-
-
     }
     #endregion
 }

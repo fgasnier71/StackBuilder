@@ -109,12 +109,11 @@ namespace treeDiM.StackBuilder.Graphics
                         TapeWidth = boxProperties.TapeWidth;
                         TapeColor = boxProperties.TapeColor;
                     }
-
-                    if (null != bProperties.Strappers)
-                        StrapperList = new List<Strapper>(bProperties.Strappers.Strappers);
                 }
+                if (packable is PackableBrickNamed packableBrickNamed)
+                     StrapperList = new List<Strapper>(packableBrickNamed.StrapperSet.Strappers);
             }
-        }
+       }
         public Box(uint pickId, PalletCapProperties capProperties, Vector3D position)
         {
             PickId = pickId;
@@ -148,9 +147,8 @@ namespace treeDiM.StackBuilder.Graphics
 
             Colors = bProperties.Colors;
             IsBundle = bProperties.IsBundle;
-             // is box ?
-            BoxProperties boxProperties = bProperties as BoxProperties;
-            if (null != boxProperties)
+            // is box ?
+            if (bProperties is BoxProperties boxProperties)
             {
                 List<Pair<HalfAxis.HAxis, Texture>> textures = boxProperties.TextureList;
                 foreach (Pair<HalfAxis.HAxis, Texture> tex in textures)
@@ -169,6 +167,8 @@ namespace treeDiM.StackBuilder.Graphics
                 if (bProperties is BundleProperties bundleProp)
                     BundleFlats = bundleProp.NoFlats;
             }
+            if (packable is PackableBrickNamed packableBrickNamed)
+                StrapperList = new List<Strapper>(packableBrickNamed.StrapperSet.Strappers);
         }
 
         public Box(uint pickId, PackableBrick packable, LayerPosition bPosition)
@@ -183,7 +183,7 @@ namespace treeDiM.StackBuilder.Graphics
             // set position
             BoxPosition = new BoxPosition( bPosition.Position, bPosition.LengthAxis, bPosition.WidthAxis);
             // colors
-            Colors = Enumerable.Repeat<Color>(Color.Chocolate, 6).ToArray();
+            Colors = Enumerable.Repeat(Color.Chocolate, 6).ToArray();
 
             BProperties bProperties = PackableToBProperties(packable);
             if (null != bProperties)
@@ -205,16 +205,11 @@ namespace treeDiM.StackBuilder.Graphics
                 }
                 // IsBundle ?
                 IsBundle = bProperties.IsBundle;
-                if (bProperties.IsBundle)
-                {
-                    BundleProperties bundleProp = packable as BundleProperties;
-                    if (null != bundleProp)
-                        BundleFlats = bundleProp.NoFlats;
-                }
+                if (packable is BundleProperties bundleProp)
+                    BundleFlats = bundleProp.NoFlats;
             }
-            if (packable is PackProperties packProperties)
-            {
-            }
+            if (packable is PackableBrickNamed packableBrickNamed)
+                StrapperList = new List<Strapper>(packableBrickNamed.StrapperSet.Strappers);
         }
 
         public Box(uint pickId, PackProperties packProperties, BoxPosition bPosition)
@@ -229,9 +224,12 @@ namespace treeDiM.StackBuilder.Graphics
             // box position
             BoxPosition = new BoxPosition(Vector3D.Zero, HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P);
             // colors
-            Colors = Enumerable.Repeat<Color>(Color.Chocolate, 6).ToArray();
+            Colors = Enumerable.Repeat(Color.Chocolate, 6).ToArray();
             // set position
             BoxPosition = bPosition;
+            // stappers
+            StrapperList = new List<Strapper>(packProperties.StrapperSet.Strappers);
+
         }
 
         public Box(uint pickId, InterlayerProperties interlayerProperties)
@@ -392,15 +390,51 @@ namespace treeDiM.StackBuilder.Graphics
                 Vector3D lengthAxis = LengthAxis;
                 Vector3D widthAxis = WidthAxis;
                 Vector3D heightAxis = HeightAxis;
+
                 List<Face> faces = new List<Face>();
                 foreach (var s in StrapperList)
                 {
+                    var points = new Vector3D[4];
+                    var axis = Vector3D.Zero;
+
                     switch (s.Axis)
                     {
-                        case 0: break;
-                        case 1: break;
-                        case 2: break;
-                        default: break;
+                        case 0:
+                            axis = LengthAxis;
+                            points[3] = new Vector3D(s.Abscissa, 0.0, 0.0);
+                            points[2] = new Vector3D(s.Abscissa, Width, 0.0);
+                            points[1] = new Vector3D(s.Abscissa, Width, Height);
+                            points[0] = new Vector3D(s.Abscissa, 0.0, Height);
+                            break;
+                        case 1:
+                            axis = WidthAxis;
+                            points[0] = new Vector3D(0.0, s.Abscissa, 0.0);
+                            points[1] = new Vector3D(Length, s.Abscissa, 0.0);
+                            points[2] = new Vector3D(Length, s.Abscissa, Height);
+                            points[3] = new Vector3D(0.0, s.Abscissa, Height);
+                            break;
+                        case 2:
+                            axis = HeightAxis;
+                            points[3] = new Vector3D(0.0, 0.0, s.Abscissa);
+                            points[2] = new Vector3D(Length, 0.0, s.Abscissa);
+                            points[1] = new Vector3D(Length, Width, s.Abscissa);
+                            points[0] = new Vector3D(0.0, Width, s.Abscissa);
+                            break;
+                        default:
+                            break;
+                    }
+
+                    for (int i = 0; i < 4; ++i)
+                    {
+                        var pt0 = Position + points[i].X * LengthAxis + points[i].Y * WidthAxis + points[i].Z * HeightAxis;
+                        int i1 = i + 1 < 4 ? i + 1 : 0;
+                        var pt1 = Position + points[i1].X * LengthAxis + points[i1].Y * WidthAxis + points[i1].Z * HeightAxis;
+                        var vertices = new Vector3D[4];
+                        vertices[0] = pt0 - 0.5 * s.Width * axis;
+                        vertices[1] = pt0 + 0.5 * s.Width * axis;
+                        vertices[2] = pt1 + 0.5 * s.Width * axis;
+                        vertices[3] = pt1 - 0.5 * s.Width * axis;
+                        faces.Add( new Face(0, vertices, true){ ColorFill = s.Color } );
                     }
                 }
                 return faces.ToArray();

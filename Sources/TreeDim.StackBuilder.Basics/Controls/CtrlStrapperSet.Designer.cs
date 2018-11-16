@@ -107,6 +107,9 @@
             "Color",
             "Color",
             "Color",
+            "Color",
+            "Color",
+            "Color",
             "Color"});
             this.cbColor.Location = new System.Drawing.Point(73, 35);
             this.cbColor.Name = "cbColor";
@@ -138,6 +141,7 @@
             this.uCtrlSpacing.Text = "Spacing";
             this.uCtrlSpacing.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlSpacing.Value = 0D;
+            this.uCtrlSpacing.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.ValueChangedDelegate(this.OnStrapperChanged);
             // 
             // CtrlStrapperSet
             // 

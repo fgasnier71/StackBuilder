@@ -17,8 +17,8 @@ namespace treeDiM.StackBuilder.Desktop
     public partial class FormNewPack : FormNewBase, IDrawingContainer
     {
         #region Data members
-        private List<BoxProperties> _boxes = new List<BoxProperties>();
         private PackProperties _packProperties;
+        public StrapperSet StrapperSet { get; } = new StrapperSet();
         static readonly ILog _log = LogManager.GetLogger(typeof(FormNewPack));
         #endregion
 
@@ -27,7 +27,8 @@ namespace treeDiM.StackBuilder.Desktop
             : base(doc, packProperties)
         {
             InitializeComponent();
-            _packProperties = packProperties;           
+            _packProperties = packProperties;
+            StrapperSet = null != _packProperties ? _packProperties.StrapperSet.Clone() : new StrapperSet();
         }
         #endregion
 
@@ -38,7 +39,7 @@ namespace treeDiM.StackBuilder.Desktop
             // Graphics3DControl
             graphCtrl.DrawingContainer = this;
             // list of packs
-            ComboBoxHelpers.FillCombo(_boxes.ToArray(), cbInnerBox, null != _packProperties ? _packProperties.Box : _boxes[0]);
+            ComboBoxHelpers.FillCombo(Boxes.ToArray(), cbInnerBox, null != _packProperties ? _packProperties.Box : Boxes[0]);
             // arrangement
             if (null != _packProperties)
             {
@@ -57,6 +58,9 @@ namespace treeDiM.StackBuilder.Desktop
                 uCtrlThickness.Value = UnitsManager.ConvertLengthFrom(0.1, UnitsManager.UnitSystem.UNIT_METRIC1);
                 uCtrlHeight.Value = UnitsManager.ConvertLengthFrom(40, UnitsManager.UnitSystem.UNIT_METRIC1);
             }
+            // set StrapperSet
+            ctrlStrapperSet.StrapperSet = StrapperSet;
+
             // disable Ok button
             UpdateStatus(string.Empty);
         }
@@ -66,7 +70,7 @@ namespace treeDiM.StackBuilder.Desktop
 
         public override void UpdateStatus(string message)
         {
-            if (!this.DesignMode)
+            if (!DesignMode)
             {
                 double length = 0.0, width = 0.0, height = 0.0;
                 PackProperties.GetDimensions(
@@ -75,24 +79,20 @@ namespace treeDiM.StackBuilder.Desktop
                     Arrangement,
                     ref length, ref width, ref height);
                 if (uCtrlOuterDimensions.Checked && (uCtrlOuterDimensions.X < length || uCtrlOuterDimensions.Y < width || uCtrlOuterDimensions.Z < height))
-                    message = Properties.Resources.ID_INVALIDOUTERDIMENSION;
+                    message = Resources.ID_INVALIDOUTERDIMENSION;
             }
             base.UpdateStatus(message);
         }
         #endregion
 
         #region Public properties
-        public List<BoxProperties> Boxes
-        {
-            set { _boxes = value; }
-            get { return _boxes; }
-        }
+        public List<BoxProperties> Boxes { set; get; } = new List<BoxProperties>();
         public BoxProperties SelectedBox
         {
             get
             {
-                if (_boxes.Count > 0 && -1 != cbInnerBox.SelectedIndex)
-                    return _boxes[cbInnerBox.SelectedIndex];
+                if (Boxes.Count > 0 && -1 != cbInnerBox.SelectedIndex)
+                    return Boxes[cbInnerBox.SelectedIndex];
                 else
                     return null;
             }
@@ -278,8 +278,13 @@ namespace treeDiM.StackBuilder.Desktop
         #region IDrawingContainer
         public void Draw(Graphics3DControl ctrl, Graphics3D graphics)
         {
+            StrapperSet.SetDimension(OuterDimensions);
             // build pack
-            PackProperties packProperties = new PackProperties(null, SelectedBox, Arrangement, BoxOrientation, Wrapper);
+            PackProperties packProperties = new PackProperties(
+                null, SelectedBox, Arrangement, BoxOrientation, Wrapper)
+            {
+                StrapperSet = StrapperSet
+            };
             if (uCtrlOuterDimensions.Checked)
                 packProperties.ForceOuterDimensions(
                     new Vector3D(uCtrlOuterDimensions.X, uCtrlOuterDimensions.Y, uCtrlOuterDimensions.Z) );

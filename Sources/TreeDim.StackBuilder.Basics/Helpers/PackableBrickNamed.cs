@@ -1,17 +1,17 @@
-﻿using System;
-
-namespace treeDiM.StackBuilder.Basics
+﻿namespace treeDiM.StackBuilder.Basics
 {
     public abstract class PackableBrickNamed : PackableBrick
     {
         public PackableBrickNamed(Document parentDocument)
             : base(parentDocument)
         {
+            _strapperSet = new StrapperSet(this);
         }
         public PackableBrickNamed(Document parentDocument, string name, string description)
             : base(parentDocument)
         {
             ID.SetNameDesc(name, description);
+            _strapperSet = new StrapperSet(this);
         }
 
         public override GlobID ID => _id;
@@ -30,7 +30,7 @@ namespace treeDiM.StackBuilder.Basics
             Modify();
         }
 
-        public virtual StrapperSet Strappers
+        public virtual StrapperSet StrapperSet
         {
             get => _strapperSet; set => _strapperSet = value;
         }

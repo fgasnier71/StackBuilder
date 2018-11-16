@@ -44,7 +44,6 @@ namespace treeDiM.StackBuilder.Basics.Controls
         public event OnValueChanged ValueChanged;
         #endregion
 
-
         #region Handlers
         private void OnDirectionChanged(object sender, EventArgs e)
         {
@@ -64,14 +63,15 @@ namespace treeDiM.StackBuilder.Basics.Controls
             }
             ValueChanged?.Invoke(this, e);
         }
-        private void OnSpacingChanged(object sender, EventArgs e)
+        private void OnStrapperChanged(object sender, EventArgs e)
         {
-            if (DesignMode || null == StrapperSet) return;
-
-            double optSpacing = uCtrlSpacing.Value;
-            StrapperSet.SetEvenlySpaced(Dir, Number, uCtrlSpacing.Value);
-            // strapper changed
-            OnStrapperChanged(sender, e);
+            if (!PreventUpdate)
+            {
+                StrapperSet.Color = cbColor.Color;
+                StrapperSet.Width = uCtrlWidth.Value;
+                StrapperSet.SetEvenlySpaced(Dir, Number, uCtrlSpacing.Value);
+            }
+            ValueChanged?.Invoke(this, e);
         }
         private void OnEditAbscissa(object sender, EventArgs e)
         {
@@ -82,12 +82,6 @@ namespace treeDiM.StackBuilder.Basics.Controls
             // strapper changed
             OnStrapperChanged(sender, e);
         }
-        private void OnStrapperChanged(object sender, EventArgs e)
-        {
-            StrapperSet.Color = cbColor.Color;
-            StrapperSet.Width = uCtrlWidth.Value;
-            ValueChanged?.Invoke(this, e);
-        }
         #endregion
 
         #region Helpers
@@ -95,17 +89,17 @@ namespace treeDiM.StackBuilder.Basics.Controls
         {
             if (DesignMode || null == StrapperSet) return;
             cbDir.SelectedIndex = 0;
+            PreventUpdate = true;
             cbColor.Color = StrapperSet.Color;
             uCtrlWidth.Value = StrapperSet.Width;
+            PreventUpdate = false;
         }
         private void InitializeSpacing()
         {
             if (DesignMode || null == StrapperSet) return;
             PreventUpdate = true;
-
             bool enableSpacing = StrapperSet.Number[Dir] >= 2;
             uCtrlSpacing.Enabled = enableSpacing;
-
             uCtrlSpacing.Value = StrapperSet.GetSpacing(Dir).Value;
             PreventUpdate = false;
         }
@@ -115,6 +109,5 @@ namespace treeDiM.StackBuilder.Basics.Controls
         private StrapperSet strapperSet;
         private bool PreventUpdate { get; set; }
         #endregion
-
     }
 }

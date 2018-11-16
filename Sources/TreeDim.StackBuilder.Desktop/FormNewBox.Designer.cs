@@ -276,7 +276,8 @@
             resources.GetString("cbColor.Items119"),
             resources.GetString("cbColor.Items120"),
             resources.GetString("cbColor.Items121"),
-            resources.GetString("cbColor.Items122")});
+            resources.GetString("cbColor.Items122"),
+            resources.GetString("cbColor.Items123")});
             this.cbColor.Name = "cbColor";
             this.cbColor.SelectedColorChanged += new System.EventHandler(this.OnFaceColorChanged);
             // 
@@ -505,7 +506,8 @@
             resources.GetString("cbTapeColor.Items120"),
             resources.GetString("cbTapeColor.Items121"),
             resources.GetString("cbTapeColor.Items122"),
-            resources.GetString("cbTapeColor.Items123")});
+            resources.GetString("cbTapeColor.Items123"),
+            resources.GetString("cbTapeColor.Items124")});
             this.cbTapeColor.Name = "cbTapeColor";
             this.cbTapeColor.SelectedColorChanged += new System.EventHandler(this.OnFaceColorChanged);
             // 
@@ -551,6 +553,7 @@
             this.ctrlStrapperSet.Name = "ctrlStrapperSet";
             this.ctrlStrapperSet.Number = 0;
             this.ctrlStrapperSet.StrapperSet = null;
+            this.ctrlStrapperSet.ValueChanged += new treeDiM.StackBuilder.Basics.Controls.CtrlStrapperSet.OnValueChanged(this.OnBoxPropertyChanged);
             // 
             // FormNewBox
             // 

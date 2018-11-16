@@ -15,7 +15,7 @@ namespace treeDiM.StackBuilder.Graphics
     {
         #region Constructor
         public Pack(uint pickId, PackProperties packProperties)
-            : base(pickId, packProperties.Length, packProperties.Width, packProperties.Height)
+            : base(pickId, packProperties)
         {
             _packProperties = packProperties;
             _arrangement = _packProperties.Arrangement;

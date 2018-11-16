@@ -43,7 +43,7 @@
             this.nudValueX.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.nudValueX.DecimalPlaces = 2;
-            this.nudValueX.Location = new System.Drawing.Point(121, 0);
+            this.nudValueX.Location = new System.Drawing.Point(120, 0);
             this.nudValueX.Maximum = new decimal(new int[] {
             100000,
             0,
@@ -59,7 +59,7 @@
             this.nudValueY.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.nudValueY.DecimalPlaces = 2;
-            this.nudValueY.Location = new System.Drawing.Point(185, 0);
+            this.nudValueY.Location = new System.Drawing.Point(182, 0);
             this.nudValueY.Maximum = new decimal(new int[] {
             100000,
             0,
@@ -75,7 +75,7 @@
             this.nudValueZ.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.nudValueZ.DecimalPlaces = 2;
-            this.nudValueZ.Location = new System.Drawing.Point(247, 0);
+            this.nudValueZ.Location = new System.Drawing.Point(244, 0);
             this.nudValueZ.Maximum = new decimal(new int[] {
             100000,
             0,
@@ -103,7 +103,7 @@
             this.lbUnit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lbUnit.AutoSize = true;
-            this.lbUnit.Location = new System.Drawing.Point(315, 4);
+            this.lbUnit.Location = new System.Drawing.Point(308, 4);
             this.lbUnit.Name = "lbUnit";
             this.lbUnit.Size = new System.Drawing.Size(24, 13);
             this.lbUnit.TabIndex = 4;
@@ -119,7 +119,7 @@
             this.Controls.Add(this.nudValueY);
             this.Controls.Add(this.nudValueX);
             this.Name = "UCtrlTriDouble";
-            this.Size = new System.Drawing.Size(350, 20);
+            this.Size = new System.Drawing.Size(340, 20);
             this.SizeChanged += new System.EventHandler(this.OnSizeChanged);
             ((System.ComponentModel.ISupportInitialize)(this.nudValueX)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudValueY)).EndInit();

@@ -1,4 +1,6 @@
 ﻿#region Using directives
+using System;
+using System.Linq;
 using System.Collections.Generic;
 using System.Drawing;
 
@@ -14,10 +16,6 @@ namespace treeDiM.StackBuilder.Basics
         public double Abscissa { get; set; }
         public double Width { get; set; }
         public Color Color { get; set; }
-        public bool IsOnFace(HalfAxis.HAxis axis, BoxPosition boxPosition, ref List<Vector3D> points)
-        {
-            return false;
-        }
     }
     #endregion
 
@@ -25,9 +23,18 @@ namespace treeDiM.StackBuilder.Basics
     public class StrapperSet
     {
         #region Constructors
-        public StrapperSet() { dimensions = new double[3] { 0.0, 0.0, 0.0 }; }
-        public StrapperSet(double[] dims) { dimensions = dims; }
-        public StrapperSet(PackableBrick packable) { Packable = packable;}
+        public StrapperSet()
+        {
+            dimensions = new double[3]{ 0.0, 0.0, 0.0 };
+        }
+        public StrapperSet(double[] dims)
+        {
+            dimensions = dims;
+        }
+        public StrapperSet(PackableBrick packable)
+        {
+            Packable = packable;
+        }
         #endregion
 
         #region Public properties
@@ -58,6 +65,16 @@ namespace treeDiM.StackBuilder.Basics
             dimensions[1] = width;
             dimensions[2] = height;
         }
+        public void SetDimension(double[] dim)
+        {
+            Array.Copy(dim, dimensions, 3);
+        }
+        public void SetDimension(Vector3D dim)
+        {
+            dimensions[0] = dim.X;
+            dimensions[1] = dim.Y;
+            dimensions[2] = dim.Z;
+        }
         public void SetNumber(int dir, int number)
         {
             if (number != Number[dir])
@@ -68,8 +85,10 @@ namespace treeDiM.StackBuilder.Basics
         }
         public bool SetEvenlySpaced(int dir, int number, double space)
         {
-            evenlySpaced[dir] = number >= 2;
-            if ((number-1) * space >= Dimensions[dir])
+            evenlySpaced[dir] = true;
+            if (number == 1)
+                spaces[dir] = 0.0;
+            else if ((number - 1) * space >= Dimensions[dir])
                 spaces[dir] = MaximumEvenSpace(dir);
             else
                 spaces[dir] = space;
@@ -116,7 +135,31 @@ namespace treeDiM.StackBuilder.Basics
             if (evenlySpaced[dir])
                 return EvenlySpacedAbscissa(dir);
             else
+            {
+                if (null == abscissa[dir]) abscissa[dir] = new List<double>();
                 return abscissa[dir];
+            }
+        }
+        #endregion
+
+        #region Clone method
+        public StrapperSet Clone()
+        {
+            var strapperSet = new StrapperSet()
+            {
+                Color = Color,
+                Width = Width,
+                Packable = Packable
+            };
+            strapperSet.SetDimension(Dimensions);
+            Array.Copy(Number,          strapperSet.Number,         3);
+            Array.Copy(spaces,          strapperSet.spaces,         3);
+            Array.Copy(evenlySpaced,    strapperSet.evenlySpaced,   3);
+            for (int i = 0; i < 3; ++i)
+            {
+                abscissa[i].ForEach((item) => { strapperSet.abscissa[i].Add(item); });
+            }
+            return strapperSet;
         }
         #endregion
 
@@ -124,12 +167,12 @@ namespace treeDiM.StackBuilder.Basics
         private List<double> EvenlySpacedAbscissa(int dir)
         {
             List<double> abs = new List<double>();
-            int no = numbers[dir];
+            int no = Number[dir];
             if (0 != no)
             {
                 double sp = spaces[dir];
-                double length = Packable.Dim(0);
-                double first = (length - (no - 1) * sp) / (no + 1);
+                double length = Dimensions[dir];
+                double first = (length - (no - 1) * sp) / 2;
 
                 for (int i = 0; i < no; ++i)
                     abs.Add(first + i * sp);
@@ -140,10 +183,9 @@ namespace treeDiM.StackBuilder.Basics
 
         #region Data members
         private readonly double[] dimensions = new double[3];
-        private readonly int[] numbers = new int[3];
         private readonly double[] spaces = new double[3];
-        private readonly bool[] evenlySpaced = new bool[3];
-        private readonly List<double>[] abscissa = new List<double>[3];
+        private readonly bool[] evenlySpaced = new bool[3] { true, true, true };
+        private readonly List<double>[] abscissa = Enumerable.Repeat(new List<double>(), 3).ToArray();
         #endregion
     }
     #endregion

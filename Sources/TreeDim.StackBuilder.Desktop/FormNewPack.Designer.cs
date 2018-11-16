@@ -36,7 +36,6 @@
             this.cbDir = new System.Windows.Forms.ComboBox();
             this.uCtrlOuterDimensions = new treeDiM.StackBuilder.Basics.UCtrlOptTriDouble();
             this.uCtrlLayout = new treeDiM.StackBuilder.Basics.Controls.UCtrlTriInt();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.uCtrlHeight = new treeDiM.StackBuilder.Basics.UCtrlDouble();
             this.uCtrlWalls = new treeDiM.StackBuilder.Basics.Controls.UCtrlTriInt();
             this.chkbTransparent = new System.Windows.Forms.CheckBox();
@@ -46,8 +45,14 @@
             this.uCtrlThickness = new treeDiM.StackBuilder.Basics.UCtrlDouble();
             this.lbWrapperColor = new System.Windows.Forms.Label();
             this.cbColor = new OfficePickers.ColorPicker.ComboBoxColorPicker();
+            this.tabCtrl = new System.Windows.Forms.TabControl();
+            this.tabWrapper = new System.Windows.Forms.TabPage();
+            this.tabStrappers = new System.Windows.Forms.TabPage();
+            this.ctrlStrapperSet = new treeDiM.StackBuilder.Basics.Controls.CtrlStrapperSet();
             ((System.ComponentModel.ISupportInitialize)(this.graphCtrl)).BeginInit();
-            this.groupBox1.SuspendLayout();
+            this.tabCtrl.SuspendLayout();
+            this.tabWrapper.SuspendLayout();
+            this.tabStrappers.SuspendLayout();
             this.SuspendLayout();
             // 
             // bnOk
@@ -125,21 +130,6 @@
             this.uCtrlLayout.NoY = 1;
             this.uCtrlLayout.NoZ = 1;
             this.uCtrlLayout.ValueChanged += new treeDiM.StackBuilder.Basics.Controls.UCtrlTriInt.ValueChangedDelegate(this.OnPackChanged);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.uCtrlHeight);
-            this.groupBox1.Controls.Add(this.uCtrlWalls);
-            this.groupBox1.Controls.Add(this.chkbTransparent);
-            this.groupBox1.Controls.Add(this.lbType);
-            this.groupBox1.Controls.Add(this.cbType);
-            this.groupBox1.Controls.Add(this.uCtrlWeight);
-            this.groupBox1.Controls.Add(this.uCtrlThickness);
-            this.groupBox1.Controls.Add(this.lbWrapperColor);
-            this.groupBox1.Controls.Add(this.cbColor);
-            resources.ApplyResources(this.groupBox1, "groupBox1");
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.TabStop = false;
             // 
             // uCtrlHeight
             // 
@@ -255,15 +245,61 @@
             resources.GetString("cbColor.Items23"),
             resources.GetString("cbColor.Items24"),
             resources.GetString("cbColor.Items25"),
-            resources.GetString("cbColor.Items26")});
+            resources.GetString("cbColor.Items26"),
+            resources.GetString("cbColor.Items27"),
+            resources.GetString("cbColor.Items28"),
+            resources.GetString("cbColor.Items29"),
+            resources.GetString("cbColor.Items30"),
+            resources.GetString("cbColor.Items31"),
+            resources.GetString("cbColor.Items32"),
+            resources.GetString("cbColor.Items33"),
+            resources.GetString("cbColor.Items34")});
             this.cbColor.Name = "cbColor";
             this.cbColor.SelectedColorChanged += new System.EventHandler(this.OnPackChanged);
+            // 
+            // tabCtrl
+            // 
+            resources.ApplyResources(this.tabCtrl, "tabCtrl");
+            this.tabCtrl.Controls.Add(this.tabWrapper);
+            this.tabCtrl.Controls.Add(this.tabStrappers);
+            this.tabCtrl.Name = "tabCtrl";
+            this.tabCtrl.SelectedIndex = 0;
+            // 
+            // tabWrapper
+            // 
+            this.tabWrapper.Controls.Add(this.uCtrlHeight);
+            this.tabWrapper.Controls.Add(this.lbType);
+            this.tabWrapper.Controls.Add(this.uCtrlWalls);
+            this.tabWrapper.Controls.Add(this.cbColor);
+            this.tabWrapper.Controls.Add(this.chkbTransparent);
+            this.tabWrapper.Controls.Add(this.lbWrapperColor);
+            this.tabWrapper.Controls.Add(this.uCtrlWeight);
+            this.tabWrapper.Controls.Add(this.uCtrlThickness);
+            this.tabWrapper.Controls.Add(this.cbType);
+            resources.ApplyResources(this.tabWrapper, "tabWrapper");
+            this.tabWrapper.Name = "tabWrapper";
+            this.tabWrapper.UseVisualStyleBackColor = true;
+            // 
+            // tabStrappers
+            // 
+            this.tabStrappers.Controls.Add(this.ctrlStrapperSet);
+            resources.ApplyResources(this.tabStrappers, "tabStrappers");
+            this.tabStrappers.Name = "tabStrappers";
+            this.tabStrappers.UseVisualStyleBackColor = true;
+            // 
+            // ctrlStrapperSet
+            // 
+            resources.ApplyResources(this.ctrlStrapperSet, "ctrlStrapperSet");
+            this.ctrlStrapperSet.Name = "ctrlStrapperSet";
+            this.ctrlStrapperSet.Number = 0;
+            this.ctrlStrapperSet.StrapperSet = null;
+            this.ctrlStrapperSet.ValueChanged += new treeDiM.StackBuilder.Basics.Controls.CtrlStrapperSet.OnValueChanged(this.OnPackChanged);
             // 
             // FormNewPack
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.tabCtrl);
             this.Controls.Add(this.uCtrlLayout);
             this.Controls.Add(this.uCtrlOuterDimensions);
             this.Controls.Add(this.cbDir);
@@ -286,10 +322,12 @@
             this.Controls.SetChildIndex(this.cbDir, 0);
             this.Controls.SetChildIndex(this.uCtrlOuterDimensions, 0);
             this.Controls.SetChildIndex(this.uCtrlLayout, 0);
-            this.Controls.SetChildIndex(this.groupBox1, 0);
+            this.Controls.SetChildIndex(this.tabCtrl, 0);
             ((System.ComponentModel.ISupportInitialize)(this.graphCtrl)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.tabCtrl.ResumeLayout(false);
+            this.tabWrapper.ResumeLayout(false);
+            this.tabWrapper.PerformLayout();
+            this.tabStrappers.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -304,7 +342,6 @@
         private System.Windows.Forms.ComboBox cbDir;
         private Basics.UCtrlOptTriDouble uCtrlOuterDimensions;
         private Basics.Controls.UCtrlTriInt uCtrlLayout;
-        private System.Windows.Forms.GroupBox groupBox1;
         private Basics.UCtrlDouble uCtrlWeight;
         private Basics.UCtrlDouble uCtrlThickness;
         private System.Windows.Forms.Label lbWrapperColor;
@@ -314,5 +351,9 @@
         private Basics.Controls.UCtrlTriInt uCtrlWalls;
         private System.Windows.Forms.CheckBox chkbTransparent;
         private Basics.UCtrlDouble uCtrlHeight;
+        private System.Windows.Forms.TabControl tabCtrl;
+        private System.Windows.Forms.TabPage tabWrapper;
+        private System.Windows.Forms.TabPage tabStrappers;
+        private Basics.Controls.CtrlStrapperSet ctrlStrapperSet;
     }
 }
