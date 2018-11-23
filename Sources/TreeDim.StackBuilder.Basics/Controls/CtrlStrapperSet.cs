@@ -49,7 +49,7 @@ namespace treeDiM.StackBuilder.Basics.Controls
         {
             if (DesignMode || null == StrapperSet) return;
             PreventUpdate = true;
-            uCtrlNumber.Value = StrapperSet.Number[Dir];
+            uCtrlNumber.Value = StrapperSet.GetNumber(Dir);
             InitializeSpacing();
             PreventUpdate = false;
         }
@@ -98,7 +98,7 @@ namespace treeDiM.StackBuilder.Basics.Controls
         {
             if (DesignMode || null == StrapperSet) return;
             PreventUpdate = true;
-            bool enableSpacing = StrapperSet.Number[Dir] >= 2;
+            bool enableSpacing = StrapperSet.GetNumber(Dir) >= 2;
             uCtrlSpacing.Enabled = enableSpacing;
             uCtrlSpacing.Value = StrapperSet.GetSpacing(Dir).Value;
             PreventUpdate = false;

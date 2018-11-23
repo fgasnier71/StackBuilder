@@ -32,7 +32,8 @@
 
         public virtual StrapperSet StrapperSet
         {
-            get => _strapperSet; set => _strapperSet = value;
+            get => _strapperSet;
+            set { _strapperSet = value; _strapperSet.Packable = this; }
         }
 
         #region Non-Public Members
