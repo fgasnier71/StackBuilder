@@ -59,7 +59,6 @@ namespace treeDiM.StackBuilder.Basics
         }
 
         #region Non-Public Members
-
         protected TruckProperties _truckProperties;
 
         protected AnalysisPackableTruck(Document document, Packable packable, TruckProperties truckProperties,
@@ -83,7 +82,6 @@ namespace treeDiM.StackBuilder.Basics
             if (null != _truckProperties)
                 _truckProperties.RemoveDependancy(this);
         }
-
         #endregion
     }
 }

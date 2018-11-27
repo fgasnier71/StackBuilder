@@ -8,13 +8,12 @@ namespace treeDiM.StackBuilder.Basics
         {
             get
             {
-                TruckProperties truckProperties = _container as TruckProperties;
-                if (null == truckProperties)
+                if (!(_container is TruckProperties truckProperties))
                     throw new Exception("Invalid container");
+
                 return new OptDouble(true, truckProperties.InsideHeight);
             }
         }
-
 
         public void SetMaxWeight(OptDouble maxWeight)
         {

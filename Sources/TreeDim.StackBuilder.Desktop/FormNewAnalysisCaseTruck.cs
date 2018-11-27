@@ -237,7 +237,7 @@ namespace treeDiM.StackBuilder.Desktop
             ConstraintSetCaseTruck constraintSet = new ConstraintSetCaseTruck(SelectedTruck)
             {
                 MinDistanceLoadWall = new Vector2D(uCtrlMinDistanceLoadWall.ValueX, uCtrlMinDistanceLoadWall.ValueY),
-                MinDistanceLoadRoof = uCtrlMinDistanceLoadRoof.Value
+                MinDistanceLoadRoof = uCtrlMinDistanceLoadRoof.Value,
             };
             constraintSet.SetAllowedOrientations(uCtrlCaseOrientation.AllowedOrientations);
             return constraintSet;

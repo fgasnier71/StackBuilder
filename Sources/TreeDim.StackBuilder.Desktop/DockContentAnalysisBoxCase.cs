@@ -4,10 +4,6 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.Globalization;
 
-// Docking
-// log4net
-// Sharp3D
-
 using treeDiM.StackBuilder.Basics;
 using treeDiM.StackBuilder.Desktop.Properties;
 #endregion

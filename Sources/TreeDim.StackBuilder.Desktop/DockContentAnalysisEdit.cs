@@ -49,7 +49,7 @@ namespace treeDiM.StackBuilder.Desktop
 
             // --- window caption
             if (null != Analysis)
-                this.Text = Analysis.Name + " - " + Analysis.ParentDocument.Name;
+                Text = Analysis.Name + " - " + Analysis.ParentDocument.Name;
 
             // initialize drawing container
             graphCtrlSolution.DrawingContainer = this;

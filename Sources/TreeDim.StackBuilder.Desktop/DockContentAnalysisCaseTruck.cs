@@ -32,31 +32,6 @@ namespace treeDiM.StackBuilder.Desktop
         #region Override DockContentAnalysisEdit
         public override string GridCaption
         {   get { return Resources.ID_TRUCK; } }
-        /*
-        public override void FillGrid()
-        {
-            // clear grid
-            gridSolutions.Rows.Clear();
-            // border
-            gridSolutions.BorderStyle = BorderStyle.FixedSingle;
-            gridSolutions.ColumnsCount = 2;
-            gridSolutions.FixedColumns = 1;
-        }
-
-        public override void UpdateGrid()
-        {
-            // remove all existing rows
-            gridSolutions.Rows.Clear();
-
-
-
-
-            gridSolutions.AutoSizeCells();
-            gridSolutions.Columns.StretchToFit();
-            gridSolutions.AutoStretchColumnsToFitWidth = true;
-            gridSolutions.Invalidate();
-        }
-        */ 
         #endregion
     }
 }
