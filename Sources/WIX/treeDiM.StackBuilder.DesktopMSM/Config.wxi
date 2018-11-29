@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Shortcut folder -->
+<?define ShortcutFolder="treeDiM"?>
+<!-- Package_Description -->
+<?define PackageDescription = "Installs stacking application StackBuilder" ?>
+<Include/>  

@@ -124,9 +124,6 @@
     <value>Avbryt</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="lbFace.Size" type="System.Drawing.Size, System.Drawing">
-    <value>42, 13</value>
-  </data>
   <data name="lbFace.Text" xml:space="preserve">
     <value>Ansikte</value>
   </data>
@@ -469,9 +466,6 @@
   <data name="btBitmaps.Text" xml:space="preserve">
     <value>Bitmappar...</value>
   </data>
-  <data name="chkAllFaces.Size" type="System.Drawing.Size, System.Drawing">
-    <value>155, 17</value>
-  </data>
   <data name="chkAllFaces.Text" xml:space="preserve">
     <value>Alla ansikten är samma färg</value>
   </data>
@@ -489,9 +483,6 @@
   </data>
   <data name="lblName.Text" xml:space="preserve">
     <value>Namn</value>
-  </data>
-  <data name="lblDescription.Size" type="System.Drawing.Size, System.Drawing">
-    <value>62, 13</value>
   </data>
   <data name="lblDescription.Text" xml:space="preserve">
     <value>Beskrivning</value>
@@ -810,9 +801,6 @@
   </data>
   <data name="cbTapeColor.Items112" xml:space="preserve">
     <value>Color</value>
-  </data>
-  <data name="lbTapeColor.Size" type="System.Drawing.Size, System.Drawing">
-    <value>53, 13</value>
   </data>
   <data name="lbTapeColor.Text" xml:space="preserve">
     <value>Tape färg</value>

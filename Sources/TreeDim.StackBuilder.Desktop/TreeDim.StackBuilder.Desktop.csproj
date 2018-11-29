@@ -39,7 +39,7 @@
     <MinimumRequiredVersion>3.0.0.0</MinimumRequiredVersion>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>80</ApplicationRevision>
+    <ApplicationRevision>82</ApplicationRevision>
     <ApplicationVersion>3.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -1210,6 +1210,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewAnalysis.nl.resx">
       <DependentUpon>FormNewAnalysis.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewAnalysis.pl.resx">
       <DependentUpon>FormNewAnalysis.cs</DependentUpon>
@@ -1516,21 +1517,26 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewBox.nl.resx">
       <DependentUpon>FormNewBox.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewBox.pl.resx">
       <DependentUpon>FormNewBox.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewBox.ru.resx">
       <DependentUpon>FormNewBox.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewBox.sv.resx">
       <DependentUpon>FormNewBox.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewBox.tr.resx">
       <DependentUpon>FormNewBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewBox.zh.resx">
       <DependentUpon>FormNewBox.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewBundle.de.resx">
       <DependentUpon>FormNewBundle.cs</DependentUpon>
@@ -1708,6 +1714,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewPack.es.resx">
       <DependentUpon>FormNewPack.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewPack.fr.resx">
       <DependentUpon>FormNewPack.cs</DependentUpon>
@@ -1723,6 +1730,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewPack.nl.resx">
       <DependentUpon>FormNewPack.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewPack.pl.resx">
       <DependentUpon>FormNewPack.cs</DependentUpon>
@@ -2875,82 +2883,82 @@ if $(ConfigurationName) == Release "$(SolutionDir)Signfile.bat" "$(TargetPath)"
   <ItemGroup>
     <PublishFile Include="ReportTemplates\DEU.xml">
       <Visible>False</Visible>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="ReportTemplates\ENU.xml">
       <Visible>False</Visible>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="ReportTemplates\ESP.xml">
       <Visible>False</Visible>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="ReportTemplates\FRA.xml">
       <Visible>False</Visible>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="ReportTemplates\ITA.xml">
       <Visible>False</Visible>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="ReportTemplates\JPN.xml">
       <Visible>False</Visible>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="ReportTemplates\NLD.xml">
       <Visible>False</Visible>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="ReportTemplates\POL.xml">
       <Visible>False</Visible>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
   </ItemGroup>

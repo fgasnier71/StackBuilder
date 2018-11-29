@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?include $(sys.CURRENTDIR)..\treeDiM.stackBuilder.DesktopMSM\CommonConfig.wxi?>
+<?include $(sys.CURRENTDIR)\Config.wxi?>
+
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
+     xmlns:util="http://schemas.microsoft.com/wix/UtilExtension"
+     xmlns:netfx="http://schemas.microsoft.com/wix/NetFxExtension"
+     >
+	<Product Id="*"
+           Name="$(var.ProductName) $(var.ProductVersion)"
+           Language="1033"
+           Version="$(var.ProductVersion)"
+           Manufacturer="$(var.ProductManufacturer)"
+           UpgradeCode="$(var.UpgradeCode)"
+           >
+		<Package Id="*"
+             Description="$(var.Package_Description)"
+             Comments="$(var.Package_Comments)"
+             Manufacturer="$(var.ProductManufacturer)"
+             Keywords="$(var.Package_Keywords)"
+             InstallerVersion="301"
+             Compressed="yes"
+             InstallScope="perMachine"
+             ReadOnly="yes"
+             ShortNames="no"
+             SummaryCodepage="1252"
+             />
+    <MediaTemplate EmbedCab="yes"/>
+    <!--Icon-->
+    <Icon Id="treeDiM.ico" SourceFile="treeDiM.ico"/>
+    <Property Id="ARPPRODUCTICON" Value="treeDiM.ico" />
+    <!--Upgrade table-->
+    <MajorUpgrade
+      Schedule="afterInstallInitialize"
+      AllowDowngrades="no"
+      AllowSameVersionUpgrades="no"
+      DowngradeErrorMessage="A newer version of [ProductName] is already installed."
+      />
+    <Upgrade Id="FC448406-ACD2-42DB-91B6-5E37A43C949C">
+      <UpgradeVersion Minimum="0.0.0.0"
+                      Maximum="99.0.0.0"
+                      Property="PREVIOUSVERSIONSINSTALLED"
+                      IncludeMinimum="yes"
+                      IncludeMaximum="no"
+                      IgnoreRemoveFailure="yes"
+                      />
+    </Upgrade>
+    <!--PackLib merge module-->
+    <DirectoryRef Id="$(var.InstallLocation)">
+      <Merge Id="treeDiM.StackBuilder.DesktopMSM" Language="1033" DiskId="1" SourceFile="..\treeDiM.StackBuilder.DesktopMSM\bin\Release\treeDiM.StackBuilder.DesktopMSM.msm"/>
+    </DirectoryRef>
+    <Feature Id="ProductFeature" Title="treeDiM.StackBuilder.DesktopMSI" Level="1" Absent="disallow"
+             Display="expand" ConfigurableDirectory="$(var.InstallLocation)">
+      <MergeRef Id="treeDiM.StackBuilder.DesktopMSM" Primary="yes"/>
+		</Feature>
+    <!--Properties-->
+    <Property Id="PROJECT_UPGRADE" Secure="yes"/>
+    <Property Id="INSTALLDESKTOPSHORTCUT" Value="1" />
+    <Property Id="REBOOT" Value="ReallySuppress"/>
+    <Property Id="MSIRESTARTMANAGERCONTROL" Value="Disable" />
+    <Property Id="WIXUI_INSTALLDIR" Value="INSTALLFOLDER" />
+    <!--Property references-->
+    <PropertyRef Id="NETFRAMEWORK40CLIENT" />
+    <PropertyRef Id="NETFRAMEWORK40FULL" />
+    <!--Installer icon-->
+    <Property Id="ARPHELPLINK" Value="$(var.CompanyURL)" />
+    <Property Id="ARPURLINFOABOUT" Value="$(var.CompanyURL)" />
+    <!-- Conditions-->
+    <Condition Message="A later version of [ProductName] is already installed. Setup will now exit.">NOT PROJECT_DOWNGRADE OR Installed</Condition>
+    <Condition Message="This application is only supported on Windows XP, Windows Vista, Windows 7 and Windows Server 2008, or higher."><![CDATA[Installed OR (VersionNT >= 500)]]></Condition>
+    <Condition Message="This application requires .NET Framework 4.6.1. Please, install the .NET framework then run this installer again."><![CDATA[Installed OR NETFRAMEWORK40CLIENT]]></Condition>
+    <!-- Install execute sequence -->
+    <InstallExecuteSequence />
+    <InstallUISequence />
+    <!--Custom actions-->
+    <CustomActionRef Id="CA_BlockOlderVersionInstall"/>
+    <CustomActionRef Id="CA_ErrWrongWindowsVersion"/>
+    <!-- UI -->
+    <WixVariable Id="WixUIBannerBmp" Value="WixUIBannerBmp.bmp" />
+    <WixVariable Id="WixUIDialogBmp" Value="WixUIDialogBmp.bmp" />
+    <WixVariable Id="WixUILicenseRtf" Value="License.rtf" />
+    <UI>
+      <UIRef Id="WixUI_InstallDir" />
+    </UI>
+
+  </Product>
+</Wix>

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?include $(sys.CURRENTDIR)\Config.wxi?>
+<?include $(sys.CURRENTDIR)\CommonConfig.wxi?>
+
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
+	<Module Id="treeDiM.StackBuilder.DesktopMSM"
+          Language="1033"
+          Version="$(var.ProductVersion)">
+		<Package Id="3d411926-f197-4f95-a45d-96b6c6970c36"
+             Description="$(var.PackageDescription)"
+             Comments="StackBuilder"
+             Manufacturer="$(var.ProductManufacturer)"
+             InstallerVersion="301" />
+    <!-- Forcibly overwriting preexisting files during installation -->
+    <Property Id="ALLUSERS" Value="1" />
+    <!--Shortcut icon-->
+    <Icon Id="ShortcutIcon.ico" SourceFile="..\..\treeDiM.StackBuilder.Desktop\bin\Release\treeDiM.StackBuilder.Desktop.exe" />
+    <!--********** Application files : BEGIN **********-->
+    <DirectoryRef Id="Bin">
+      <Component Id="treeDiM.StackBuilder.Desktop.exe" Guid="{E4F30A5C-2797-4FDB-9798-A8F8517A5BE3}">
+        <File Source="..\..\treeDiM.StackBuilder.Desktop\bin\Release\treeDiM.StackBuilder.Desktop.exe"/>
+        <File Source="..\..\treeDiM.StackBuilder.Desktop\bin\Release\treeDiM.StackBuilder.Desktop.exe.config"/>
+        <File Source="..\..\treeDiM.StackBuilder.Desktop\bin\Release\CrashReporter.NET.dll"/>
+        <File Source="..\..\treeDiM.StackBuilder.Desktop\bin\Release\Cureos.Measures.dll"/>
+        <File Source="..\..\treeDiM.StackBuilder.Desktop\bin\Release\ExcelDataReader.DataSet.dll"/>
+        <File Source="..\..\treeDiM.StackBuilder.Desktop\bin\Release\ExcelDataReader.dll"/>
+        <File Source="..\..\treeDiM.StackBuilder.Desktop\bin\Release\log4net.dll"/>
+        <File Source="..\..\treeDiM.StackBuilder.Desktop\bin\Release\netstandard.dll"/>
+        <File Source="..\..\treeDiM.StackBuilder.Desktop\bin\Release\Newtonsoft.Json.dll"/>
+        <File Source="..\..\treeDiM.StackBuilder.Desktop\bin\Release\OfficePickers.dll"/>
+        <File Source="..\..\treeDiM.StackBuilder.Desktop\bin\Release\OptionsLib.dll"/>
+        <File Source="..\..\treeDiM.StackBuilder.Desktop\bin\Release\PropertyGridEx.dll"/>
+        <File Source="..\..\treeDiM.StackBuilder.Desktop\bin\Release\Sharp3D.Math.dll"/>
+        <File Source="..\..\treeDiM.StackBuilder.Desktop\bin\Release\Sharp3DBinPacking.dll"/>
+        <File Source="..\..\treeDiM.StackBuilder.Desktop\bin\Release\SourceGrid.dll"/>
+        <File Source="..\..\treeDiM.StackBuilder.Desktop\bin\Release\Syroot.KnownFolders.dll"/>
+        <File Source="..\..\treeDiM.StackBuilder.Desktop\bin\Release\System.Collections.Immutable.dll"/>
+        <File Source="..\..\treeDiM.StackBuilder.Desktop\bin\Release\treeDiM.EdgeCrushTest.dll"/>
+        <File Source="..\..\treeDiM.StackBuilder.Desktop\bin\Release\treeDiM.PLMPack.DBClient.dll"/>
+        <File Source="..\..\treeDiM.StackBuilder.Desktop\bin\Release\treeDiM.StackBuilder.Basics.dll"/>
+        <File Source="..\..\treeDiM.StackBuilder.Desktop\bin\Release\treeDiM.StackBuilder.Engine.dll"/>
+        <File Source="..\..\treeDiM.StackBuilder.Desktop\bin\Release\treeDiM.StackBuilder.ExcelReader.dll"/>
+        <File Source="..\..\treeDiM.StackBuilder.Desktop\bin\Release\treeDiM.StackBuilder.Exporters.dll"/>
+        <File Source="..\..\treeDiM.StackBuilder.Desktop\bin\Release\treeDiM.StackBuilder.Graphics.dll"/>
+        <File Source="..\..\treeDiM.StackBuilder.Desktop\bin\Release\treeDiM.StackBuilder.Plugin.dll"/>
+        <File Source="..\..\treeDiM.StackBuilder.Desktop\bin\Release\treeDiM.StackBuilder.Reporting.dll"/>
+        <File Source="..\..\treeDiM.StackBuilder.Desktop\bin\Release\treeDiM.UserControls.dll"/>
+        <File Source="..\..\treeDiM.StackBuilder.Desktop\bin\Release\WeifenLuo.WinFormsUI.Docking.dll"/>
+        <File Source="..\..\treeDiM.StackBuilder.Desktop\bin\Release\WeifenLuo.WinFormsUI.Docking.ThemeVS2015.dll"/>
+        <File Source="..\..\treeDiM.StackBuilder.Desktop\bin\Release\WkHtmlToXSharp.dll"/>
+        <File Source="..\..\treeDiM.StackBuilder.Desktop\bin\Release\WkHtmlToXSharp.Win32.dll"/>
+        <File Source="..\..\treeDiM.StackBuilder.Desktop\bin\Release\WkHtmlToXSharp.Win64.dll"/>
+      </Component>
+    </DirectoryRef>
+    <DirectoryRef Id="fr">
+      <Component Id="fr.resources.dll" Guid="{862C25FD-F5BB-42CC-ACC5-8A6A51685B1C}">
+        <File Source="..\..\treeDiM.StackBuilder.Desktop\bin\Release\fr\OptionsLib.resources.dll"/>
+        <File Source="..\..\treeDiM.StackBuilder.Desktop\bin\Release\fr\treeDiM.EdgeCrushTest.resources.dll"/>
+        <File Source="..\..\treeDiM.StackBuilder.Desktop\bin\Release\fr\treeDiM.PLMPack.DBClient.resources.dll"/>
+        <File Source="..\..\treeDiM.StackBuilder.Desktop\bin\Release\fr\treeDiM.StackBuilder.Basics.resources.dll"/>
+        <File Source="..\..\treeDiM.StackBuilder.Desktop\bin\Release\fr\treeDiM.StackBuilder.Desktop.resources.dll"/>
+        <File Source="..\..\treeDiM.StackBuilder.Desktop\bin\Release\fr\treeDiM.StackBuilder.Reporting.resources.dll"/>
+        <File Source="..\..\treeDiM.StackBuilder.Desktop\bin\Release\fr\treeDiM.UserControls.resources.dll"/>
+      </Component>
+    </DirectoryRef>
+    <DirectoryRef Id="es">
+      <Component Id="es.resources.dll" Guid="{61D3DE81-BA33-4273-844D-226F752B88BA}">
+        <File Source="..\..\treeDiM.StackBuilder.Desktop\bin\Release\es\OptionsLib.resources.dll"/>
+        <File Source="..\..\treeDiM.StackBuilder.Desktop\bin\Release\es\treeDiM.EdgeCrushTest.resources.dll"/>
+        <File Source="..\..\treeDiM.StackBuilder.Desktop\bin\Release\es\treeDiM.PLMPack.DBClient.resources.dll"/>
+        <File Source="..\..\treeDiM.StackBuilder.Desktop\bin\Release\es\treeDiM.StackBuilder.Basics.resources.dll"/>
+        <File Source="..\..\treeDiM.StackBuilder.Desktop\bin\Release\es\treeDiM.StackBuilder.Desktop.resources.dll"/>
+        <File Source="..\..\treeDiM.StackBuilder.Desktop\bin\Release\es\treeDiM.StackBuilder.Reporting.resources.dll"/>
+        <File Source="..\..\treeDiM.StackBuilder.Desktop\bin\Release\es\treeDiM.UserControls.resources.dll"/>
+      </Component>      
+    </DirectoryRef>
+    <DirectoryRef Id="it">
+      <Component Id="it.resources.dll" Guid="{4B733397-771E-43FD-830F-AED8EE4BC0BB}">
+        <File Source="..\..\treeDiM.StackBuilder.Desktop\bin\Release\it\OptionsLib.resources.dll"/>
+        <File Source="..\..\treeDiM.StackBuilder.Desktop\bin\Release\it\treeDiM.EdgeCrushTest.resources.dll"/>
+        <File Source="..\..\treeDiM.StackBuilder.Desktop\bin\Release\it\treeDiM.PLMPack.DBClient.resources.dll"/>
+        <File Source="..\..\treeDiM.StackBuilder.Desktop\bin\Release\it\treeDiM.StackBuilder.Basics.resources.dll"/>
+        <File Source="..\..\treeDiM.StackBuilder.Desktop\bin\Release\it\treeDiM.StackBuilder.Desktop.resources.dll"/>
+        <File Source="..\..\treeDiM.StackBuilder.Desktop\bin\Release\it\treeDiM.StackBuilder.Reporting.resources.dll"/>
+        <File Source="..\..\treeDiM.StackBuilder.Desktop\bin\Release\it\treeDiM.UserControls.resources.dll"/>
+      </Component>           
+    </DirectoryRef>
+    <DirectoryRef Id="Data">
+    </DirectoryRef>
+    <DirectoryRef Id="ApplicationProgramsFolder">
+      <Component Id="ProgramMenuShortcutComp" Guid="{7EEC4FCC-7CD9-453B-B149-C751DCFF1AD7}">
+        <Shortcut Id="PMenuShortcut"
+                  Name="StackBuilder"
+                  Description="StackBuilder"
+                  Target="[Bin]treeDiM.StackBuilder.Desktop.exe"
+                  Icon="ShortcutIcon.ico"
+                  WorkingDirectory="Bin"/>
+        <RemoveFolder Id="ApplicationProgramsFolder" On="uninstall"/>
+        <RegistryValue Root="HKCR"
+                       Key="Software/$(var.ProductManufacturer)/PMenuShortcut"
+                       Name="installed"
+                       Type="integer"
+                       Value="1"
+                       KeyPath="yes"/>
+      </Component>
+    </DirectoryRef>
+    <DirectoryRef Id="DesktopFolder">
+      <Component Id="DesktopShortcutComp" Guid="{E75368FE-2CF8-47AF-8CC1-74F9716F8E3A}">
+        <Shortcut Id="DShortcut"
+                  Name="StackBuilder"
+                  Description="StackBuilder"
+                  Target="[Bin]treeDiM.StackBuilder.Desktop.exe"
+                  Icon="ShortcutIcon.ico"
+                  WorkingDirectory="Bin" />
+        <RemoveFolder Id="DesktopFolder" On="uninstall"/>
+        <RegistryValue Root="HKCR"
+                       Key="Software/$(var.ProductManufacturer)/DShortcut"
+                       Name="installed"
+                       Type="integer"
+                       Value="1"
+                       KeyPath="yes" />
+      </Component>
+    </DirectoryRef>
+  </Module>
+</Wix>

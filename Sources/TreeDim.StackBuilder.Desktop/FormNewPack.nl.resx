@@ -121,174 +121,27 @@
   <data name="bnOk.Location" type="System.Drawing.Point, System.Drawing">
     <value>505, 10</value>
   </data>
-  <data name="&gt;&gt;bnOk.Name" xml:space="preserve">
-    <value>bnOk</value>
-  </data>
-  <data name="&gt;&gt;bnOk.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;bnOk.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;bnOk.ZOrder" xml:space="preserve">
-    <value>14</value>
-  </data>
   <data name="bnCancel.Location" type="System.Drawing.Point, System.Drawing">
     <value>505, 38</value>
-  </data>
-  <data name="&gt;&gt;bnCancel.Name" xml:space="preserve">
-    <value>bnCancel</value>
-  </data>
-  <data name="&gt;&gt;bnCancel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;bnCancel.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;bnCancel.ZOrder" xml:space="preserve">
-    <value>13</value>
-  </data>
-  <data name="&gt;&gt;lbName.Name" xml:space="preserve">
-    <value>lbName</value>
-  </data>
-  <data name="&gt;&gt;lbName.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbName.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;lbName.ZOrder" xml:space="preserve">
-    <value>12</value>
-  </data>
-  <data name="&gt;&gt;lbDescription.Name" xml:space="preserve">
-    <value>lbDescription</value>
-  </data>
-  <data name="&gt;&gt;lbDescription.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbDescription.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;lbDescription.ZOrder" xml:space="preserve">
-    <value>11</value>
-  </data>
-  <data name="&gt;&gt;tbName.Name" xml:space="preserve">
-    <value>tbName</value>
-  </data>
-  <data name="&gt;&gt;tbName.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tbName.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;tbName.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="tbDescription.Size" type="System.Drawing.Size, System.Drawing">
-    <value>384, 20</value>
-  </data>
-  <data name="&gt;&gt;tbDescription.Name" xml:space="preserve">
-    <value>tbDescription</value>
-  </data>
-  <data name="&gt;&gt;tbDescription.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tbDescription.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;tbDescription.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="graphCtrl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>295, 95</value>
-  </data>
-  <data name="graphCtrl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>277, 215</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="graphCtrl.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
   </data>
-  <data name="&gt;&gt;graphCtrl.Name" xml:space="preserve">
-    <value>graphCtrl</value>
-  </data>
-  <data name="&gt;&gt;graphCtrl.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Graphics.Graphics3DControl, treeDiM.StackBuilder.Graphics, Version=3.0.0.13, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;graphCtrl.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;graphCtrl.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
   <data name="lbBox.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
-  </data>
-  <data name="lbBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 69</value>
-  </data>
-  <data name="lbBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>25, 13</value>
   </data>
   <data name="lbBox.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
   </data>
-  <data name="&gt;&gt;lbBox.Name" xml:space="preserve">
-    <value>lbBox</value>
-  </data>
-  <data name="&gt;&gt;lbBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbBox.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;lbBox.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="cbInnerBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>111, 65</value>
-  </data>
-  <data name="cbInnerBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>178, 21</value>
-  </data>
   <data name="cbInnerBox.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
-  </data>
-  <data name="&gt;&gt;cbInnerBox.Name" xml:space="preserve">
-    <value>cbInnerBox</value>
-  </data>
-  <data name="&gt;&gt;cbInnerBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cbInnerBox.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;cbInnerBox.ZOrder" xml:space="preserve">
-    <value>5</value>
   </data>
   <data name="lbDir.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="lbDir.Location" type="System.Drawing.Point, System.Drawing">
-    <value>365, 69</value>
-  </data>
-  <data name="lbDir.Size" type="System.Drawing.Size, System.Drawing">
-    <value>49, 13</value>
-  </data>
   <data name="lbDir.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
-  </data>
-  <data name="&gt;&gt;lbDir.Name" xml:space="preserve">
-    <value>lbDir</value>
-  </data>
-  <data name="&gt;&gt;lbDir.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbDir.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;lbDir.ZOrder" xml:space="preserve">
-    <value>4</value>
   </data>
   <data name="cbDir.Location" type="System.Drawing.Point, System.Drawing">
     <value>422, 65</value>
@@ -298,18 +151,6 @@
   </data>
   <data name="cbDir.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
-  </data>
-  <data name="&gt;&gt;cbDir.Name" xml:space="preserve">
-    <value>cbDir</value>
-  </data>
-  <data name="&gt;&gt;cbDir.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cbDir.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;cbDir.ZOrder" xml:space="preserve">
-    <value>3</value>
   </data>
   <data name="uCtrlOuterDimensions.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -323,21 +164,9 @@
   <data name="uCtrlOuterDimensions.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
   </data>
-  <assembly alias="Sharp3D.Math" name="Sharp3D.Math, Version=3.0.0.13, Culture=neutral, PublicKeyToken=null" />
+  <assembly alias="Sharp3D.Math" name="Sharp3D.Math, Version=1.0.3.0, Culture=neutral, PublicKeyToken=null" />
   <data name="uCtrlOuterDimensions.Value" type="Sharp3D.Math.Core.Vector3D, Sharp3D.Math">
     <value>(0, 0, 0)</value>
-  </data>
-  <data name="&gt;&gt;uCtrlOuterDimensions.Name" xml:space="preserve">
-    <value>uCtrlOuterDimensions</value>
-  </data>
-  <data name="&gt;&gt;uCtrlOuterDimensions.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlOptTriDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.13, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;uCtrlOuterDimensions.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;uCtrlOuterDimensions.ZOrder" xml:space="preserve">
-    <value>2</value>
   </data>
   <data name="uCtrlLayout.Location" type="System.Drawing.Point, System.Drawing">
     <value>16, 95</value>
@@ -347,18 +176,6 @@
   </data>
   <data name="uCtrlLayout.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>
-  </data>
-  <data name="&gt;&gt;uCtrlLayout.Name" xml:space="preserve">
-    <value>uCtrlLayout</value>
-  </data>
-  <data name="&gt;&gt;uCtrlLayout.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.Controls.UCtrlTriInt, treeDiM.StackBuilder.Basics, Version=3.0.0.13, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;uCtrlLayout.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;uCtrlLayout.ZOrder" xml:space="preserve">
-    <value>1</value>
   </data>
   <data name="uCtrlHeight.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 162</value>
@@ -372,18 +189,6 @@
   <data name="uCtrlHeight.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
   </data>
-  <data name="&gt;&gt;uCtrlHeight.Name" xml:space="preserve">
-    <value>uCtrlHeight</value>
-  </data>
-  <data name="&gt;&gt;uCtrlHeight.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.13, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;uCtrlHeight.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;uCtrlHeight.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
   <data name="uCtrlWalls.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 135</value>
   </data>
@@ -392,18 +197,6 @@
   </data>
   <data name="uCtrlWalls.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
-  </data>
-  <data name="&gt;&gt;uCtrlWalls.Name" xml:space="preserve">
-    <value>uCtrlWalls</value>
-  </data>
-  <data name="&gt;&gt;uCtrlWalls.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.Controls.UCtrlTriInt, treeDiM.StackBuilder.Basics, Version=3.0.0.13, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;uCtrlWalls.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;uCtrlWalls.ZOrder" xml:space="preserve">
-    <value>1</value>
   </data>
   <data name="chkbTransparent.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -417,18 +210,6 @@
   <data name="chkbTransparent.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
   </data>
-  <data name="&gt;&gt;chkbTransparent.Name" xml:space="preserve">
-    <value>chkbTransparent</value>
-  </data>
-  <data name="&gt;&gt;chkbTransparent.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;chkbTransparent.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;chkbTransparent.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
   <data name="lbType.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -441,18 +222,6 @@
   <data name="lbType.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
   </data>
-  <data name="&gt;&gt;lbType.Name" xml:space="preserve">
-    <value>lbType</value>
-  </data>
-  <data name="&gt;&gt;lbType.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbType.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;lbType.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
   <data name="cbType.Location" type="System.Drawing.Point, System.Drawing">
     <value>88, 13</value>
   </data>
@@ -461,18 +230,6 @@
   </data>
   <data name="cbType.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
-  </data>
-  <data name="&gt;&gt;cbType.Name" xml:space="preserve">
-    <value>cbType</value>
-  </data>
-  <data name="&gt;&gt;cbType.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cbType.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;cbType.ZOrder" xml:space="preserve">
-    <value>4</value>
   </data>
   <data name="uCtrlWeight.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 89</value>
@@ -484,18 +241,6 @@
     <value>180, 20</value>
   </data>
   <data name="uCtrlWeight.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;uCtrlWeight.Name" xml:space="preserve">
-    <value>uCtrlWeight</value>
-  </data>
-  <data name="&gt;&gt;uCtrlWeight.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.13, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;uCtrlWeight.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;uCtrlWeight.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
   <data name="uCtrlThickness.Location" type="System.Drawing.Point, System.Drawing">
@@ -510,18 +255,6 @@
   <data name="uCtrlThickness.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
-  <data name="&gt;&gt;uCtrlThickness.Name" xml:space="preserve">
-    <value>uCtrlThickness</value>
-  </data>
-  <data name="&gt;&gt;uCtrlThickness.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.13, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;uCtrlThickness.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;uCtrlThickness.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
   <data name="lbWrapperColor.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -533,18 +266,6 @@
   </data>
   <data name="lbWrapperColor.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
-  </data>
-  <data name="&gt;&gt;lbWrapperColor.Name" xml:space="preserve">
-    <value>lbWrapperColor</value>
-  </data>
-  <data name="&gt;&gt;lbWrapperColor.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbWrapperColor.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;lbWrapperColor.ZOrder" xml:space="preserve">
-    <value>7</value>
   </data>
   <data name="cbColor.IntegralHeight" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -561,18 +282,6 @@
   <data name="cbColor.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;cbColor.Name" xml:space="preserve">
-    <value>cbColor</value>
-  </data>
-  <data name="&gt;&gt;cbColor.Type" xml:space="preserve">
-    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=1.1.6203.20947, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;cbColor.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;cbColor.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
   <data name="groupBox1.Location" type="System.Drawing.Point, System.Drawing">
     <value>13, 122</value>
   </data>
@@ -582,32 +291,14 @@
   <data name="groupBox1.TabIndex" type="System.Int32, mscorlib">
     <value>15</value>
   </data>
-  <data name="&gt;&gt;groupBox1.Name" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;groupBox1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;groupBox1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;groupBox1.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <data name="$this.Localizable" type="System.Boolean, mscorlib">
     <value>True</value>
-  </metadata>
+  </data>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>584, 362</value>
-  </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>FormNewPack</value>
-  </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Desktop.FormNewBase, treeDiM.StackBuilder.Desktop, Version=3.0.0.13, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="lbBox.Text" xml:space="preserve">
     <value>Vak</value>

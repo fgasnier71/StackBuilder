@@ -118,6 +118,9 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="lbBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>51, 13</value>
+  </data>
   <data name="lbBox.Text" xml:space="preserve">
     <value>Etui / UC</value>
   </data>
@@ -160,10 +163,10 @@
   <data name="uCtrlThickness.Text" xml:space="preserve">
     <value>Epaisseur</value>
   </data>
-  <data name="lbWrapperColor.Text" xml:space="preserve">
-    <value>Couleur</value>
+  <data name="lbWrapperColor.Size" type="System.Drawing.Size, System.Drawing">
+    <value>43, 13</value>
   </data>
-  <data name="cbColor.Items1" xml:space="preserve">
+  <data name="lbWrapperColor.Text" xml:space="preserve">
     <value>Couleur</value>
   </data>
   <data name="cbColor.Items2" xml:space="preserve">
@@ -244,7 +247,10 @@
   <data name="cbColor.Items27" xml:space="preserve">
     <value>Couleur</value>
   </data>
-  <data name="cbColor.Items33" xml:space="preserve">
+  <data name="cbColor.Items28" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbColor.Items35" xml:space="preserve">
     <value>Color</value>
   </data>
   <data name="$this.Text" xml:space="preserve">

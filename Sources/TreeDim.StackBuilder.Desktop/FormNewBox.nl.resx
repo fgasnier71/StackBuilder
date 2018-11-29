@@ -122,12 +122,6 @@
     <value>Top, Right</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="bnOK.Location" type="System.Drawing.Point, System.Drawing">
-    <value>497, 6</value>
-  </data>
-  <data name="bnOK.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 23</value>
-  </data>
   <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="bnOK.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -147,12 +141,6 @@
   <data name="bnCancel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
   </data>
-  <data name="bnCancel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>497, 32</value>
-  </data>
-  <data name="bnCancel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 23</value>
-  </data>
   <data name="bnCancel.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
   </data>
@@ -170,12 +158,6 @@
   </data>
   <data name="lbFace.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
-  </data>
-  <data name="lbFace.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 41</value>
-  </data>
-  <data name="lbFace.Size" type="System.Drawing.Size, System.Drawing">
-    <value>31, 13</value>
   </data>
   <data name="lbFace.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -195,12 +177,6 @@
   <data name="lbInsideHeight.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="lbInsideHeight.Location" type="System.Drawing.Point, System.Drawing">
-    <value>186, 72</value>
-  </data>
-  <data name="lbInsideHeight.Size" type="System.Drawing.Size, System.Drawing">
-    <value>67, 13</value>
-  </data>
   <data name="lbInsideHeight.TabIndex" type="System.Int32, mscorlib">
     <value>18</value>
   </data>
@@ -219,12 +195,6 @@
   <data name="lbInsideWidth.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="lbInsideWidth.Location" type="System.Drawing.Point, System.Drawing">
-    <value>186, 45</value>
-  </data>
-  <data name="lbInsideWidth.Size" type="System.Drawing.Size, System.Drawing">
-    <value>63, 13</value>
-  </data>
   <data name="lbInsideWidth.TabIndex" type="System.Int32, mscorlib">
     <value>17</value>
   </data>
@@ -242,12 +212,6 @@
   </data>
   <data name="lbInsideLength.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
-  </data>
-  <data name="lbInsideLength.Location" type="System.Drawing.Point, System.Drawing">
-    <value>186, 18</value>
-  </data>
-  <data name="lbInsideLength.Size" type="System.Drawing.Size, System.Drawing">
-    <value>67, 13</value>
   </data>
   <data name="lbInsideLength.TabIndex" type="System.Int32, mscorlib">
     <value>16</value>
@@ -270,12 +234,6 @@
   <data name="lbUnitHeightInside.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="lbUnitHeightInside.Location" type="System.Drawing.Point, System.Drawing">
-    <value>323, 72</value>
-  </data>
-  <data name="lbUnitHeightInside.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 13</value>
-  </data>
   <data name="lbUnitHeightInside.TabIndex" type="System.Int32, mscorlib">
     <value>15</value>
   </data>
@@ -296,12 +254,6 @@
   </data>
   <data name="lbUnitWidthInside.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
-  </data>
-  <data name="lbUnitWidthInside.Location" type="System.Drawing.Point, System.Drawing">
-    <value>323, 45</value>
-  </data>
-  <data name="lbUnitWidthInside.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 13</value>
   </data>
   <data name="lbUnitWidthInside.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -324,12 +276,6 @@
   <data name="lbUnitLengthInside.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="lbUnitLengthInside.Location" type="System.Drawing.Point, System.Drawing">
-    <value>323, 18</value>
-  </data>
-  <data name="lbUnitLengthInside.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 13</value>
-  </data>
   <data name="lbUnitLengthInside.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
@@ -344,12 +290,6 @@
   </data>
   <data name="&gt;&gt;lbUnitLengthInside.ZOrder" xml:space="preserve">
     <value>5</value>
-  </data>
-  <data name="nudInsideLength.Location" type="System.Drawing.Point, System.Drawing">
-    <value>258, 18</value>
-  </data>
-  <data name="nudInsideLength.Size" type="System.Drawing.Size, System.Drawing">
-    <value>60, 20</value>
   </data>
   <data name="nudInsideLength.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -366,12 +306,6 @@
   <data name="&gt;&gt;nudInsideLength.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
-  <data name="nudInsideHeight.Location" type="System.Drawing.Point, System.Drawing">
-    <value>258, 72</value>
-  </data>
-  <data name="nudInsideHeight.Size" type="System.Drawing.Size, System.Drawing">
-    <value>60, 20</value>
-  </data>
   <data name="nudInsideHeight.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>
   </data>
@@ -386,12 +320,6 @@
   </data>
   <data name="&gt;&gt;nudInsideHeight.ZOrder" xml:space="preserve">
     <value>7</value>
-  </data>
-  <data name="nudInsideWidth.Location" type="System.Drawing.Point, System.Drawing">
-    <value>258, 45</value>
-  </data>
-  <data name="nudInsideWidth.Size" type="System.Drawing.Size, System.Drawing">
-    <value>60, 20</value>
   </data>
   <data name="nudInsideWidth.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -414,12 +342,6 @@
   <data name="lbUnitHeight.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="lbUnitHeight.Location" type="System.Drawing.Point, System.Drawing">
-    <value>144, 72</value>
-  </data>
-  <data name="lbUnitHeight.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 13</value>
-  </data>
   <data name="lbUnitHeight.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
   </data>
@@ -440,12 +362,6 @@
   </data>
   <data name="lbUnitWidth.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
-  </data>
-  <data name="lbUnitWidth.Location" type="System.Drawing.Point, System.Drawing">
-    <value>144, 45</value>
-  </data>
-  <data name="lbUnitWidth.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 13</value>
   </data>
   <data name="lbUnitWidth.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -468,12 +384,6 @@
   <data name="lbUnitLength.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="lbUnitLength.Location" type="System.Drawing.Point, System.Drawing">
-    <value>144, 18</value>
-  </data>
-  <data name="lbUnitLength.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 13</value>
-  </data>
   <data name="lbUnitLength.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
@@ -488,12 +398,6 @@
   </data>
   <data name="&gt;&gt;lbUnitLength.ZOrder" xml:space="preserve">
     <value>11</value>
-  </data>
-  <data name="nudLength.Location" type="System.Drawing.Point, System.Drawing">
-    <value>76, 18</value>
-  </data>
-  <data name="nudLength.Size" type="System.Drawing.Size, System.Drawing">
-    <value>60, 20</value>
   </data>
   <data name="nudLength.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -510,12 +414,6 @@
   <data name="&gt;&gt;nudLength.ZOrder" xml:space="preserve">
     <value>12</value>
   </data>
-  <data name="nudHeight.Location" type="System.Drawing.Point, System.Drawing">
-    <value>76, 72</value>
-  </data>
-  <data name="nudHeight.Size" type="System.Drawing.Size, System.Drawing">
-    <value>60, 20</value>
-  </data>
   <data name="nudHeight.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
   </data>
@@ -530,12 +428,6 @@
   </data>
   <data name="&gt;&gt;nudHeight.ZOrder" xml:space="preserve">
     <value>13</value>
-  </data>
-  <data name="nudWidth.Location" type="System.Drawing.Point, System.Drawing">
-    <value>76, 45</value>
-  </data>
-  <data name="nudWidth.Size" type="System.Drawing.Size, System.Drawing">
-    <value>60, 20</value>
   </data>
   <data name="nudWidth.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -558,12 +450,6 @@
   <data name="lbHeight.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="lbHeight.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 72</value>
-  </data>
-  <data name="lbHeight.Size" type="System.Drawing.Size, System.Drawing">
-    <value>38, 13</value>
-  </data>
   <data name="lbHeight.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
   </data>
@@ -584,12 +470,6 @@
   </data>
   <data name="lbWidth.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
-  </data>
-  <data name="lbWidth.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 45</value>
-  </data>
-  <data name="lbWidth.Size" type="System.Drawing.Size, System.Drawing">
-    <value>35, 13</value>
   </data>
   <data name="lbWidth.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -612,12 +492,6 @@
   <data name="lbLength.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="lbLength.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 18</value>
-  </data>
-  <data name="lbLength.Size" type="System.Drawing.Size, System.Drawing">
-    <value>40, 13</value>
-  </data>
   <data name="lbLength.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
@@ -633,12 +507,6 @@
   <data name="&gt;&gt;lbLength.ZOrder" xml:space="preserve">
     <value>17</value>
   </data>
-  <data name="gbDimensions.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 62</value>
-  </data>
-  <data name="gbDimensions.Size" type="System.Drawing.Size, System.Drawing">
-    <value>354, 102</value>
-  </data>
   <data name="gbDimensions.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
@@ -653,12 +521,6 @@
   </data>
   <data name="&gt;&gt;gbDimensions.ZOrder" xml:space="preserve">
     <value>10</value>
-  </data>
-  <data name="cbFace.Location" type="System.Drawing.Point, System.Drawing">
-    <value>76, 38</value>
-  </data>
-  <data name="cbFace.Size" type="System.Drawing.Size, System.Drawing">
-    <value>96, 21</value>
   </data>
   <data name="cbFace.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -681,12 +543,6 @@
   <data name="cbColor.ItemHeight" type="System.Int32, mscorlib">
     <value>16</value>
   </data>
-  <data name="cbColor.Location" type="System.Drawing.Point, System.Drawing">
-    <value>177, 38</value>
-  </data>
-  <data name="cbColor.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 22</value>
-  </data>
   <data name="cbColor.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
@@ -701,12 +557,6 @@
   </data>
   <data name="&gt;&gt;cbColor.ZOrder" xml:space="preserve">
     <value>2</value>
-  </data>
-  <data name="btBitmaps.Location" type="System.Drawing.Point, System.Drawing">
-    <value>259, 38</value>
-  </data>
-  <data name="btBitmaps.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 23</value>
   </data>
   <data name="btBitmaps.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -726,12 +576,6 @@
   <data name="chkAllFaces.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="chkAllFaces.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 20</value>
-  </data>
-  <data name="chkAllFaces.Size" type="System.Drawing.Size, System.Drawing">
-    <value>156, 17</value>
-  </data>
   <data name="chkAllFaces.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
@@ -746,12 +590,6 @@
   </data>
   <data name="&gt;&gt;chkAllFaces.ZOrder" xml:space="preserve">
     <value>1</value>
-  </data>
-  <data name="gbFaceColor.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 166</value>
-  </data>
-  <data name="gbFaceColor.Size" type="System.Drawing.Size, System.Drawing">
-    <value>354, 67</value>
   </data>
   <data name="gbFaceColor.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -771,12 +609,6 @@
   <data name="lbWeight.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="lbWeight.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 24</value>
-  </data>
-  <data name="lbWeight.Size" type="System.Drawing.Size, System.Drawing">
-    <value>41, 13</value>
-  </data>
   <data name="lbWeight.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
@@ -795,12 +627,6 @@
   <data name="lbWeightOnTop.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="lbWeightOnTop.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 48</value>
-  </data>
-  <data name="lbWeightOnTop.Size" type="System.Drawing.Size, System.Drawing">
-    <value>123, 13</value>
-  </data>
   <data name="lbWeightOnTop.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
@@ -816,12 +642,6 @@
   <data name="&gt;&gt;lbWeightOnTop.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="nudWeight.Location" type="System.Drawing.Point, System.Drawing">
-    <value>249, 20</value>
-  </data>
-  <data name="nudWeight.Size" type="System.Drawing.Size, System.Drawing">
-    <value>60, 20</value>
-  </data>
   <data name="nudWeight.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
@@ -836,12 +656,6 @@
   </data>
   <data name="&gt;&gt;nudWeight.ZOrder" xml:space="preserve">
     <value>3</value>
-  </data>
-  <data name="nudWeightOnTop.Location" type="System.Drawing.Point, System.Drawing">
-    <value>249, 44</value>
-  </data>
-  <data name="nudWeightOnTop.Size" type="System.Drawing.Size, System.Drawing">
-    <value>60, 20</value>
   </data>
   <data name="nudWeightOnTop.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -861,12 +675,6 @@
   <data name="lbUnitWeightOnTop.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="lbUnitWeightOnTop.Location" type="System.Drawing.Point, System.Drawing">
-    <value>315, 48</value>
-  </data>
-  <data name="lbUnitWeightOnTop.Size" type="System.Drawing.Size, System.Drawing">
-    <value>19, 13</value>
-  </data>
   <data name="lbUnitWeightOnTop.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
@@ -885,12 +693,6 @@
   <data name="lbUnitWeight.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="lbUnitWeight.Location" type="System.Drawing.Point, System.Drawing">
-    <value>315, 24</value>
-  </data>
-  <data name="lbUnitWeight.Size" type="System.Drawing.Size, System.Drawing">
-    <value>19, 13</value>
-  </data>
   <data name="lbUnitWeight.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
@@ -905,12 +707,6 @@
   </data>
   <data name="&gt;&gt;lbUnitWeight.ZOrder" xml:space="preserve">
     <value>1</value>
-  </data>
-  <data name="gbWeight.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 309</value>
-  </data>
-  <data name="gbWeight.Size" type="System.Drawing.Size, System.Drawing">
-    <value>354, 70</value>
   </data>
   <data name="gbWeight.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -930,12 +726,6 @@
   <data name="trackBarHorizAngle.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left, Right</value>
   </data>
-  <data name="trackBarHorizAngle.Location" type="System.Drawing.Point, System.Drawing">
-    <value>366, 330</value>
-  </data>
-  <data name="trackBarHorizAngle.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 45</value>
-  </data>
   <data name="trackBarHorizAngle.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
   </data>
@@ -953,12 +743,6 @@
   </data>
   <data name="lblName.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
-  </data>
-  <data name="lblName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>13, 6</value>
-  </data>
-  <data name="lblName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>35, 13</value>
   </data>
   <data name="lblName.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -978,12 +762,6 @@
   <data name="lblDescription.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="lblDescription.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 32</value>
-  </data>
-  <data name="lblDescription.Size" type="System.Drawing.Size, System.Drawing">
-    <value>60, 13</value>
-  </data>
   <data name="lblDescription.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
@@ -998,12 +776,6 @@
   </data>
   <data name="&gt;&gt;lblDescription.ZOrder" xml:space="preserve">
     <value>4</value>
-  </data>
-  <data name="tbName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>99, 6</value>
-  </data>
-  <data name="tbName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>143, 20</value>
   </data>
   <data name="tbName.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -1023,12 +795,6 @@
   <data name="tbDescription.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
   </data>
-  <data name="tbDescription.Location" type="System.Drawing.Point, System.Drawing">
-    <value>99, 32</value>
-  </data>
-  <data name="tbDescription.Size" type="System.Drawing.Size, System.Drawing">
-    <value>392, 20</value>
-  </data>
   <data name="tbDescription.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
@@ -1047,12 +813,6 @@
   <data name="pictureBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
   </data>
-  <data name="pictureBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>366, 69</value>
-  </data>
-  <data name="pictureBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 255</value>
-  </data>
   <data name="pictureBox.TabIndex" type="System.Int32, mscorlib">
     <value>19</value>
   </data>
@@ -1067,18 +827,6 @@
   </data>
   <data name="&gt;&gt;pictureBox.ZOrder" xml:space="preserve">
     <value>7</value>
-  </data>
-  <metadata name="statusStripDef.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>0, 340</value>
-  </metadata>
-  <data name="toolStripStatusLabelDef.Size" type="System.Drawing.Size, System.Drawing">
-    <value>130, 17</value>
-  </data>
-  <data name="statusStripDef.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 382</value>
-  </data>
-  <data name="statusStripDef.Size" type="System.Drawing.Size, System.Drawing">
-    <value>584, 22</value>
   </data>
   <data name="statusStripDef.TabIndex" type="System.Int32, mscorlib">
     <value>20</value>
@@ -1101,12 +849,6 @@
   <data name="cbTapeColor.ItemHeight" type="System.Int32, mscorlib">
     <value>16</value>
   </data>
-  <data name="cbTapeColor.Location" type="System.Drawing.Point, System.Drawing">
-    <value>259, 35</value>
-  </data>
-  <data name="cbTapeColor.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 22</value>
-  </data>
   <data name="cbTapeColor.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
@@ -1121,12 +863,6 @@
   </data>
   <data name="&gt;&gt;cbTapeColor.ZOrder" xml:space="preserve">
     <value>0</value>
-  </data>
-  <data name="nudTapeWidth.Location" type="System.Drawing.Point, System.Drawing">
-    <value>77, 36</value>
-  </data>
-  <data name="nudTapeWidth.Size" type="System.Drawing.Size, System.Drawing">
-    <value>77, 20</value>
   </data>
   <data name="nudTapeWidth.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -1146,12 +882,6 @@
   <data name="lbTapeColor.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="lbTapeColor.Location" type="System.Drawing.Point, System.Drawing">
-    <value>193, 40</value>
-  </data>
-  <data name="lbTapeColor.Size" type="System.Drawing.Size, System.Drawing">
-    <value>58, 13</value>
-  </data>
   <data name="lbTapeColor.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
@@ -1169,12 +899,6 @@
   </data>
   <data name="lbTapeWidth.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
-  </data>
-  <data name="lbTapeWidth.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 40</value>
-  </data>
-  <data name="lbTapeWidth.Size" type="System.Drawing.Size, System.Drawing">
-    <value>60, 13</value>
   </data>
   <data name="lbTapeWidth.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -1194,12 +918,6 @@
   <data name="checkBoxTape.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="checkBoxTape.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 18</value>
-  </data>
-  <data name="checkBoxTape.Size" type="System.Drawing.Size, System.Drawing">
-    <value>148, 17</value>
-  </data>
   <data name="checkBoxTape.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
@@ -1214,12 +932,6 @@
   </data>
   <data name="&gt;&gt;checkBoxTape.ZOrder" xml:space="preserve">
     <value>4</value>
-  </data>
-  <data name="gbTape.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 237</value>
-  </data>
-  <data name="gbTape.Size" type="System.Drawing.Size, System.Drawing">
-    <value>354, 66</value>
   </data>
   <data name="gbTape.TabIndex" type="System.Int32, mscorlib">
     <value>21</value>
@@ -1239,15 +951,6 @@
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 13</value>
-  </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>584, 404</value>
-  </data>
-  <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>600, 400</value>
-  </data>
   <data name="&gt;&gt;toolStripStatusLabelDef.Name" xml:space="preserve">
     <value>toolStripStatusLabelDef</value>
   </data>

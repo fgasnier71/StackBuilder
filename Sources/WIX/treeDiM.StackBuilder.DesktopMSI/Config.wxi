@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?define PlatformProgramFilesFolder = "ProgramFilesFolder" ?>
+<?define InstallLocation = INSTALLFOLDER?>
+<!--Upgrade code-->
+<?define UpgradeCode = "{D9195427-862D-4ECE-9104-CE2804F4E0BE}"?>
+<!-- Package_Description -->
+<?define Package_Description = "Installs StackBuilder files" ?>
+<!-- Package_Comments -->
+<?define Package_Comments = "PLMPack StackBuilder"?>
+<!--Keywords-->
+<?define Package_Keywords = "Installer, StackBuilder"?>
+
+<Include>
+</Include>

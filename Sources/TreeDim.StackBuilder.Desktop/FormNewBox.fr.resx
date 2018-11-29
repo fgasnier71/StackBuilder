@@ -120,10 +120,13 @@
   <data name="uCtrlDimensionsOuter.Text" xml:space="preserve">
     <value>Dimensions extérieures</value>
   </data>
-  <data name="cbColor.Items123" xml:space="preserve">
+  <data name="cbColor.Items124" xml:space="preserve">
     <value>Color</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="chkAllFaces.Size" type="System.Drawing.Size, System.Drawing">
+    <value>222, 17</value>
+  </data>
   <data name="chkAllFaces.Text" xml:space="preserve">
     <value>Toutes les faces sont de la même couleur</value>
   </data>
@@ -139,7 +142,7 @@
   <data name="gbWeight.Text" xml:space="preserve">
     <value>Poids</value>
   </data>
-  <data name="cbTapeColor.Items124" xml:space="preserve">
+  <data name="cbTapeColor.Items125" xml:space="preserve">
     <value>Color</value>
   </data>
   <data name="tabPageTape.Text" xml:space="preserve">
