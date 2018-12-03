@@ -1200,6 +1200,11 @@ namespace treeDiM.StackBuilder.Desktop
             try { ActiveDocumentDB?.CreateNewHAnalysisPalletUI(); }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
+        private void OnNewHAnalysisTruck(object sender, EventArgs e)
+        {
+            try { ActiveDocumentDB?.CreateNewHAnalysisTruckUI(); }
+            catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
+        }
         #endregion
         #region Optimisation
         private void OnOptiPack(object sender, EventArgs e)
@@ -1415,6 +1420,5 @@ namespace treeDiM.StackBuilder.Desktop
         #region Static instance accessor
         public static FormMain GetInstance()  { return _instance; }
         #endregion
-
     }
 }

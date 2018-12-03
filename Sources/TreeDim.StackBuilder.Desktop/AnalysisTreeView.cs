@@ -85,6 +85,7 @@ namespace treeDiM.StackBuilder.Desktop
             else if (item is AnalysisCylinderCase) return 17;
             else if (item is HAnalysisPallet) return 14;
             else if (item is HAnalysisCase) return 17;
+            else if (item is HAnalysisTruck) return 16;
             else
             {
                 _log.Error("Unexpected analysis type");
@@ -207,14 +208,20 @@ namespace treeDiM.StackBuilder.Desktop
             }
             else if (nodeTag.Type == NodeTag.NodeType.NT_ANALYSIS)
             {
+                string analysisName = string.Empty;
+                if (null != nodeTag.Analysis)
+                    analysisName = nodeTag.Analysis.Name;
+                else if (null != nodeTag.HAnalysis)
+                    analysisName = nodeTag.HAnalysis.Name;
+
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(
-                    string.Format(Resources.ID_EDIT, nodeTag.Analysis.Name), null
+                    string.Format(Resources.ID_EDIT, analysisName), null
                     , new EventHandler(OnEditAnalysis)));
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(
-                    string.Format(Resources.ID_DELETEITEM, nodeTag.Analysis.Name), AnalysisTreeView.DELETE
+                    string.Format(Resources.ID_DELETEITEM, analysisName), AnalysisTreeView.DELETE
                     , new EventHandler(OnDeleteBaseItem)));
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(
-                    string.Format(Resources.ID_GENERATEREPORT, nodeTag.Analysis.Name), AnalysisTreeView.WORD
+                    string.Format(Resources.ID_GENERATEREPORT, analysisName), AnalysisTreeView.WORD
                     , new EventHandler(OnAnalysisReport)));
             }
         }

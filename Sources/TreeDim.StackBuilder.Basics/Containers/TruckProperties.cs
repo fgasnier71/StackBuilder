@@ -1,8 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿#region Using directives
 using System.Drawing;
 
 using Sharp3D.Math.Core;
+#endregion
 
 namespace treeDiM.StackBuilder.Basics
 {
@@ -68,6 +68,7 @@ namespace treeDiM.StackBuilder.Basics
             }
             return InsideDimensions;
         }
+        public BBox3D BoundingBox => new BBox3D(Vector3D.Zero, InsideDimensions);
 
         public override string ToString()
         {

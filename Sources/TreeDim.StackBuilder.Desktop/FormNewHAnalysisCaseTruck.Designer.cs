@@ -1,6 +1,6 @@
 ﻿namespace treeDiM.StackBuilder.Desktop
 {
-    partial class FormNewHAnalysisCasePallet
+    partial class FormNewHAnalysisCaseTruck
     {
         /// <summary>
         /// Required designer variable.
@@ -28,10 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormNewHAnalysisCasePallet));
-            this.lbPallet = new System.Windows.Forms.Label();
-            this.uCtrlPalletHeight = new treeDiM.StackBuilder.Basics.UCtrlDouble();
-            this.cbPallets = new treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered();
+            this.cbTrucks = new treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered();
+            this.lbTruck = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerHoriz1)).BeginInit();
             this.splitContainerHoriz1.Panel1.SuspendLayout();
             this.splitContainerHoriz1.Panel2.SuspendLayout();
@@ -44,52 +42,62 @@
             this.splitContainerVert.SuspendLayout();
             this.SuspendLayout();
             // 
+            // tbDescription
+            // 
+            this.tbDescription.Size = new System.Drawing.Size(712, 20);
+            // 
             // splitContainerHoriz1
             // 
+            this.splitContainerHoriz1.Size = new System.Drawing.Size(800, 428);
             // 
             // splitContainerHoriz2
             // 
+            this.splitContainerHoriz2.Size = new System.Drawing.Size(800, 370);
+            this.splitContainerHoriz2.SplitterDistance = 227;
             // 
             // splitContainerVert
             // 
             // 
             // splitContainerVert.Panel1
             // 
-            this.splitContainerVert.Panel1.Controls.Add(this.cbPallets);
-            this.splitContainerVert.Panel1.Controls.Add(this.uCtrlPalletHeight);
-            this.splitContainerVert.Panel1.Controls.Add(this.lbPallet);
+            this.splitContainerVert.Panel1.Controls.Add(this.cbTrucks);
+            this.splitContainerVert.Panel1.Controls.Add(this.lbTruck);
+            this.splitContainerVert.Size = new System.Drawing.Size(800, 227);
+            this.splitContainerVert.SplitterDistance = 271;
             // 
-            // lbPallet
+            // gridSolutions
             // 
-            resources.ApplyResources(this.lbPallet, "lbPallet");
-            this.lbPallet.Name = "lbPallet";
+            this.gridSolutions.Size = new System.Drawing.Size(525, 48);
             // 
-            // uCtrlPalletHeight
+            // cbTrucks
             // 
-            resources.ApplyResources(this.uCtrlPalletHeight, "uCtrlPalletHeight");
-            this.uCtrlPalletHeight.Minimum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            -2147483648});
-            this.uCtrlPalletHeight.Name = "uCtrlPalletHeight";
-            this.uCtrlPalletHeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
-            this.uCtrlPalletHeight.Value = 0D;
-            this.uCtrlPalletHeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.ValueChangedDelegate(this.OnDataModifiedOverride);
+            this.cbTrucks.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbTrucks.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTrucks.FormattingEnabled = true;
+            this.cbTrucks.Location = new System.Drawing.Point(102, 7);
+            this.cbTrucks.Name = "cbTrucks";
+            this.cbTrucks.Size = new System.Drawing.Size(150, 21);
+            this.cbTrucks.TabIndex = 6;
+            this.cbTrucks.SelectedIndexChanged += new System.EventHandler(this.OnDataModifiedOverride);
             // 
-            // cbPallets
+            // lbTruck
             // 
-            resources.ApplyResources(this.cbPallets, "cbPallets");
-            this.cbPallets.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbPallets.FormattingEnabled = true;
-            this.cbPallets.Name = "cbPallets";
-            this.cbPallets.SelectedIndexChanged += new System.EventHandler(this.OnDataModifiedOverride);
+            this.lbTruck.AutoSize = true;
+            this.lbTruck.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lbTruck.Location = new System.Drawing.Point(9, 10);
+            this.lbTruck.Name = "lbTruck";
+            this.lbTruck.Size = new System.Drawing.Size(35, 13);
+            this.lbTruck.TabIndex = 5;
+            this.lbTruck.Text = "Truck";
             // 
-            // FormNewHAnalysisCasePallet
+            // FormNewHAnalysisCaseTruck
             // 
-            resources.ApplyResources(this, "$this");
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Name = "FormNewHAnalysisCasePallet";
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Name = "FormNewHAnalysisCaseTruck";
+            this.Text = "Create new heterogeneous case/truck analysis...";
             this.splitContainerHoriz1.Panel1.ResumeLayout(false);
             this.splitContainerHoriz1.Panel1.PerformLayout();
             this.splitContainerHoriz1.Panel2.ResumeLayout(false);
@@ -106,10 +114,10 @@
             this.PerformLayout();
 
         }
+
         #endregion
 
-        private treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered cbPallets;
-        private Basics.UCtrlDouble uCtrlPalletHeight;
-        private System.Windows.Forms.Label lbPallet;
+        private Graphics.Controls.CCtrlComboFiltered cbTrucks;
+        private System.Windows.Forms.Label lbTruck;
     }
 }

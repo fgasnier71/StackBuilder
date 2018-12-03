@@ -43,6 +43,9 @@ namespace treeDiM.StackBuilder.Desktop
         {
             base.OnLoad(e);
 
+            if (DesignMode || null == _analysis)
+                return;
+
             // initialize name / description
             ItemName = _analysis.ID.Name;
             ItemDescription = _analysis.ID.Description;
@@ -149,7 +152,7 @@ namespace treeDiM.StackBuilder.Desktop
                     // number
                     gridContent[iIndex, ++iCol] = new SourceGrid.Cells.Cell("NumericUpDown") { View = viewNormal };
                     gridContent[iIndex, iCol] = new SourceGrid.Cells.Cell((int)ci.Number) { View = viewNormal };
-                    SourceGrid.Cells.Editors.NumericUpDown l_NumericUpDownEditor = new SourceGrid.Cells.Editors.NumericUpDown(typeof(int), 50, 0, 1);
+                    SourceGrid.Cells.Editors.NumericUpDown l_NumericUpDownEditor = new SourceGrid.Cells.Editors.NumericUpDown(typeof(int), 1000, 0, 1);
                     l_NumericUpDownEditor.SetEditValue((int)ci.Number);
                     gridContent[iIndex, iCol].Editor = l_NumericUpDownEditor;
                     gridContent[iIndex, iCol].AddController(_numUpDownEvent);
@@ -163,7 +166,6 @@ namespace treeDiM.StackBuilder.Desktop
                     gridContent[iIndex, ++iCol] = new SourceGrid.Cells.CheckBox(null, ci.AllowOrientZ);
                     gridContent[iIndex, iCol].AddController(_checkBoxEvent);
                 }
-
                 gridContent.AutoSizeCells();
                 gridContent.Columns.StretchToFit();
                 gridContent.AutoStretchColumnsToFitWidth = true;
@@ -361,6 +363,7 @@ namespace treeDiM.StackBuilder.Desktop
         }
         #endregion
 
+        #region Selected solution
         private int SelectedSolutionIndex
         {
             get
@@ -382,6 +385,7 @@ namespace treeDiM.StackBuilder.Desktop
                 else return Solutions[iSel];
             }
         }
+        #endregion
 
         #region Helpers
         protected string ItemName

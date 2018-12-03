@@ -4,108 +4,99 @@ using System.Linq;
 using System.Windows.Forms;
 
 using log4net;
-
+using Sharp3D.Math.Core;
 using treeDiM.StackBuilder.Basics;
 using treeDiM.StackBuilder.Graphics.Controls;
-
-using treeDiM.StackBuilder.Desktop.Properties;
-using Sharp3D.Math.Core;
 #endregion
 
 namespace treeDiM.StackBuilder.Desktop
 {
-    public partial class FormNewHAnalysisCasePallet : FormNewHAnalysis, IItemBaseFilter
+    public partial class FormNewHAnalysisCaseTruck : FormNewHAnalysis, IItemBaseFilter
     {
-        #region Constructor
-        public FormNewHAnalysisCasePallet()
+        public FormNewHAnalysisCaseTruck()
             : base()
         {
             InitializeComponent();
         }
-        public FormNewHAnalysisCasePallet(Document doc, HAnalysis analysis)
+        public FormNewHAnalysisCaseTruck(Document doc, HAnalysis analysis)
             : base(doc, analysis)
         {
             InitializeComponent();
         }
-        #endregion
-
         #region Form override
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
 
             var containers = AnalysisCast?.Containers;
-            ItemBase curPallet = null;
+            ItemBase curTruck = null;
             if (null != containers && containers.Count() > 0)
-                curPallet = containers.First();
-            cbPallets.Initialize(_document, this, curPallet);
-
-            uCtrlPalletHeight.Value = Settings.Default.MaximumPalletHeight;
+                curTruck = containers.First();
+            cbTrucks.Initialize(_document, this, curTruck);
         }
         #endregion
+
 
         #region ItemBaseFilter override
         public bool Accept(Control ctrl, ItemBase itemBase)
         {
-            if (ctrl == cbPallets)
-                return itemBase is PalletProperties;
+            if (ctrl == cbTrucks)
+                return itemBase is TruckProperties;
             return false;
         }
         #endregion
 
         #region FormHAnalysis override
-        protected override HConstraintSet ConstraintSet => new HConstraintSetPallet() { MaximumHeight = uCtrlPalletHeight.Value };
+        protected override HConstraintSet ConstraintSet => new HConstraintSetTruck();
         protected override Vector3D DimContainer
         {
             get
             {
-                var pallet = SelectedPallet;
-                if (null == pallet) return Vector3D.Zero;
-                return new Vector3D(pallet.Length, pallet.Width, MaximumPalletHeight - pallet.Height);
+                var truck = SelectedTruck;
+                return null != truck ? truck.InsideDimensions : Vector3D.Zero;
             }
         }
         protected override void LoadContainer()
         {
             base.LoadContainer();
-            AnalysisCast.Pallet = SelectedPallet;
+            AnalysisCast.Truck = SelectedTruck;
         }
         protected override void CreateNewAnalysis()
         {
-            _analysis = _document.CreateNewHAnalysisCasePallet(
+            _analysis = _document.CreateNewHAnalysisCaseTruck(
                 ItemName, ItemDescription,
                 ListContentItems,
-                SelectedPallet,
-                ConstraintSet as HConstraintSetPallet,
+                SelectedTruck,
+                ConstraintSet as HConstraintSetTruck,
                 SelectedSolution);
         }
         protected override HAnalysis IntantiateTempAnalysis()
         {
-            return new HAnalysisPallet(_document);
+            return new HAnalysisTruck(_document);
         }
         #endregion
 
-        #region Event handlers
+        #region EventHandlers
         private void OnDataModifiedOverride(object sender, EventArgs e)
         {
             OnDataModified(sender, e);
         }
         #endregion
 
-        #region Public properties
-        public HAnalysisPallet AnalysisCast
+        #region Protected properties
+        protected HAnalysisTruck AnalysisCast
         {
-            get { return _analysis as HAnalysisPallet; }
+            get { return _analysis as HAnalysisTruck; }
             set { _analysis = value; }
         }
         #endregion
 
         #region Helpers
-        private PalletProperties SelectedPallet => cbPallets.SelectedType as PalletProperties;
-        private double MaximumPalletHeight => uCtrlPalletHeight.Value;
+        private TruckProperties SelectedTruck => cbTrucks.SelectedType as TruckProperties;
         #endregion
 
         #region Data members
-        new static readonly ILog _log = LogManager.GetLogger(typeof(FormNewHAnalysisCasePallet));
+        new static readonly ILog _log = LogManager.GetLogger(typeof(FormNewHAnalysisCaseTruck));
         #endregion
     }
 }

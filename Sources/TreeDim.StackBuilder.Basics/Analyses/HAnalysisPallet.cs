@@ -1,9 +1,5 @@
 ﻿#region Using directives
-using System.Collections.Generic;
-
 using Sharp3D.Math.Core;
-
-using log4net;
 #endregion
 
 namespace treeDiM.StackBuilder.Basics
@@ -24,10 +20,9 @@ namespace treeDiM.StackBuilder.Basics
         #region Override HAnalysis
         public override Vector3D DimContainer(int index)
         {
-            if (index < _containers.Count && _containers[index] is PalletProperties palletProperties)
-                return new Vector3D(palletProperties.Length, palletProperties.Width, ConstraintSet.MaximumHeight - palletProperties.Height);
-            else
-                return Vector3D.Zero;
+            return index < _containers.Count && _containers[index] is PalletProperties palletProperties
+                ? new Vector3D(palletProperties.Length, palletProperties.Width, ConstraintSet.MaximumHeight - palletProperties.Height)
+                : Vector3D.Zero;
         }
         public override Vector3D Offset(int index)
         {

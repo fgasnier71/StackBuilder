@@ -1,6 +1,6 @@
 ﻿namespace treeDiM.StackBuilder.Basics
 {
-    public class HConstraintSetPallet : HConstraintSet
+    public class HConstraintSetTruck : HConstraintSet
     {
     }
 }

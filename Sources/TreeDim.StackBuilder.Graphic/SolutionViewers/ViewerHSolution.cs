@@ -26,9 +26,17 @@ namespace treeDiM.StackBuilder.Graphics
             if (null == Solution)
                 return;
             // draw pallet
-            PalletProperties palletProperties = Solution.Analysis.Containers.First() as PalletProperties;
-            Pallet p = new Pallet(palletProperties);
-            p.Draw(graphics, transform);
+            if (Solution.Analysis.Containers.First() is PalletProperties palletProperties)
+            {
+                Pallet p = new Pallet(palletProperties);
+                p.Draw(graphics, transform);
+            }
+            TruckProperties truckProperties = Solution.Analysis.Containers.First() as TruckProperties;
+            if (null != truckProperties)
+            {
+                Truck t = new Truck(truckProperties);
+                t.DrawBegin(graphics);
+            }
 
             // check validity
             if (!(SolItemIndex < Solution.SolItemCount))
@@ -55,6 +63,12 @@ namespace treeDiM.StackBuilder.Graphics
             foreach (Box b in boxes)
                 bspTree.InsertBox(b);
             bspTree.Draw(graphics);
+            // draw truck end
+            if (null != truckProperties)
+            {
+                Truck t = new Truck(truckProperties);
+                t.DrawEnd(graphics);
+            }
 
             // ### dimensions
             if (graphics.ShowDimensions)

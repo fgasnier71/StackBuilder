@@ -104,6 +104,7 @@
     <Compile Include="Analyses\HAnalysis.cs" />
     <Compile Include="Analyses\HAnalysisCase.cs" />
     <Compile Include="Analyses\HAnalysisPallet.cs" />
+    <Compile Include="Analyses\HAnalysisTruck.cs" />
     <Compile Include="Analyses\LoadedCase.cs" />
     <Compile Include="Analyses\LoadedPallet.cs" />
     <Compile Include="Analyses\PackableLoaded.cs" />
@@ -121,6 +122,7 @@
     <Compile Include="ConstraintSets\HConstraintSet.cs" />
     <Compile Include="ConstraintSets\HConstraintSetCase.cs" />
     <Compile Include="ConstraintSets\HConstraintSetPallet.cs" />
+    <Compile Include="ConstraintSets\HConstraintSetTruck.cs" />
     <Compile Include="ConstraintSets\HCylinderPalletConstraintSet.cs" />
     <Compile Include="ConstraintSets\PackPalletConstraintSet.cs" />
     <Compile Include="Containers\PackArrangement.cs" />

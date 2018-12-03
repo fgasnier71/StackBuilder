@@ -702,6 +702,24 @@ namespace treeDiM.StackBuilder.Basics
             return InsertAnalysis(analysis);
         }
 
+        public HAnalysis CreateNewHAnalysisCaseTruck(
+            string name, string description,
+            List<ContentItem> contentItems,
+            TruckProperties truckProperties,
+            HConstraintSetTruck constraintSet,
+            HSolution solution)
+        {
+            HAnalysisTruck analysis = new HAnalysisTruck(this)
+            {
+                Content = contentItems,
+                Truck = truckProperties,
+                ConstraintSet = constraintSet,
+                Solution = solution
+            };
+            analysis.ID.SetNameDesc(name, description);
+            return InsertAnalysis(analysis);
+        }
+
         private Analysis InsertAnalysis(Analysis analysis)
         {
             Analyses.Add(analysis);
@@ -900,8 +918,14 @@ namespace treeDiM.StackBuilder.Basics
                 if (!Analyses.Remove(item as Analysis))
                     _log.Warn(string.Format("Failed to properly remove analysis {0}", item.ID.Name));
             }
+            else if (item is HAnalysis)
+            {
+                NotifyOnAnalysisRemoved(item);
+                if (!HAnalyses.Remove(item as HAnalysis))
+                    _log.Warn(string.Format("Failed to properly remove analysis {0}", item.ID.Name));
+            }
             else if (item is AnalysisLegacy)
-            { 
+            {
                 NotifyOnAnalysisRemoved(item);
                 if (!_analysesLegacy.Remove(item as AnalysisLegacy))
                     _log.Warn(string.Format("Failed to properly remove analysis {0}", item.ID.Name));

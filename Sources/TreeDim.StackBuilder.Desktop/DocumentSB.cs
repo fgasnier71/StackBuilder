@@ -127,6 +127,7 @@ namespace treeDiM.StackBuilder.Desktop
         {
             DockContentView form = null;
             if (analysis is HAnalysisPallet) form = new DockContentHAnalysisCasePallet(this, analysis);
+            else if (analysis is HAnalysisTruck) form = new DockContentHAnalysisCaseTruck(this, analysis);
             else
             {
                 _log.Error(string.Format("Analysis ({0}) type not handled", analysis.Name));
@@ -351,12 +352,17 @@ namespace treeDiM.StackBuilder.Desktop
             if (DialogResult.OK == form.ShowDialog()) {}
             return null;
         }
-        public HAnalysis CreateNewHAnalysisPalletUI()
+        public void CreateNewHAnalysisPalletUI()
         {
-            if (!CanCreateAnalysisCasePallet) return null;
+            if (!CanCreateAnalysisCasePallet) return;
             FormNewHAnalysis form = new FormNewHAnalysisCasePallet(this, null);
             if (DialogResult.OK == form.ShowDialog()) {}
-            return null;
+        }
+        public void CreateNewHAnalysisTruckUI()
+        {
+            if (!CanCreateAnalysisCaseTruck) return;
+            FormNewHAnalysis form = new FormNewHAnalysisCaseTruck(this, null);
+            if (DialogResult.OK == form.ShowDialog()) {}
         }
         #endregion
 
@@ -395,6 +401,7 @@ namespace treeDiM.StackBuilder.Desktop
             // instantiate a form to edit analysis
             Form form = null;
             if (analysis is HAnalysisPallet) form = new FormNewHAnalysisCasePallet(this, analysis);
+            else if (analysis is HAnalysisTruck) form = new FormNewHAnalysisCaseTruck(this, analysis);
             else
             {
                 MessageBox.Show("Unexpected analysis type!");

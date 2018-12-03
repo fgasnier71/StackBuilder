@@ -4,9 +4,9 @@ using treeDiM.StackBuilder.Basics;
 
 namespace treeDiM.StackBuilder.Desktop
 {
-    public partial class DockContentHAnalysisCasePallet : DockContentHAnalysis
+    public partial class DockContentHAnalysisCaseTruck : DockContentHAnalysis
     {
-        public DockContentHAnalysisCasePallet(IDocument document, HAnalysis analysis)
+        public DockContentHAnalysisCaseTruck(IDocument document, HAnalysis analysis)
             : base(document, analysis)
         {
             InitializeComponent();
