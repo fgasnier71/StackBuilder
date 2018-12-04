@@ -80,7 +80,7 @@ namespace treeDiM.StackBuilder.Desktop
         }
         protected override HAnalysis IntantiateTempAnalysis()
         {
-            return new HAnalysisPallet(_document);
+            return new HAnalysisPallet(null);
         }
         #endregion
 

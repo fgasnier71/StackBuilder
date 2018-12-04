@@ -79,8 +79,8 @@ namespace treeDiM.StackBuilder.Basics
         {
             return _interlayers[index];
         }
-        public void SetTemporary() { _temporary = true; }
-        public bool Temporary => _temporary;
+        public void SetTemporary() { Temporary = true; }
+        public bool Temporary { get; private set; } = false;
 
         public override void OnEndUpdate(ItemBase updatedAttribute)
         {
@@ -125,7 +125,6 @@ namespace treeDiM.StackBuilder.Basics
         /// </summary>
         protected Packable _packable;
         static readonly ILog _log = LogManager.GetLogger(typeof(Analysis));
-        private bool _temporary = false;
 
         protected Analysis(Document doc, Packable packable) : base(doc)
         {

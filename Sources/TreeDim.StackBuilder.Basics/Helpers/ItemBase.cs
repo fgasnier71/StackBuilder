@@ -43,13 +43,14 @@ namespace treeDiM.StackBuilder.Basics
         public virtual void AddDependancy(ItemBase dependancy)
         {
             // if analysis is temporary, do not record dependancy
-            Analysis analysis = dependancy as Analysis;
-            if (null != analysis && analysis.Temporary)
+            if (dependancy is Analysis analysis && analysis.Temporary)
+                return;
+            if (dependancy is HAnalysis hAnalysis && hAnalysis.Temporary)
                 return;
             // check if dependancy already recorded
             if (_dependancies.Contains(dependancy))
             {
-                _log.Warn(string.Format("Tried to add {0} as a dependancy of {1} a second time!", dependancy.ID.Name, this.ID.Name));
+                _log.Warn(string.Format("Tried to add {0} as a dependancy of {1} a second time!", dependancy.ID.Name, ID.Name));
                 return;
             }
             // actually add dependancy

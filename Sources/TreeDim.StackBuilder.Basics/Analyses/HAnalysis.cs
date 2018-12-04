@@ -70,6 +70,7 @@ namespace treeDiM.StackBuilder.Basics
         public abstract BBox3D AdditionalBoudingBox(int index);
         #endregion
 
+        public bool Temporary => null == ParentDocument;
         public HConstraintSet ConstraintSet { get; set; }
         public virtual double ContentTotalVolume => Content.Sum(ci => ci.Pack.Volume * ci.Number);
         public virtual double ContentTotalWeight => Content.Sum(ci => ci.Pack.Weight * ci.Number);

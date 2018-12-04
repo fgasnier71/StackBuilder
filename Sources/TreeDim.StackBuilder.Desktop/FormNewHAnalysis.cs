@@ -34,7 +34,6 @@ namespace treeDiM.StackBuilder.Desktop
                 UseTempAnalysis = true;
                 _analysis.ID.SetNameDesc(doc.GetValidNewAnalysisName("HAnalysis"), string.Empty);
             }
-
         }
         #endregion
 

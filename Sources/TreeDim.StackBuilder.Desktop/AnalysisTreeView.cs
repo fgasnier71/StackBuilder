@@ -221,7 +221,7 @@ namespace treeDiM.StackBuilder.Desktop
                     string.Format(Resources.ID_DELETEITEM, analysisName), AnalysisTreeView.DELETE
                     , new EventHandler(OnDeleteBaseItem)));
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(
-                    string.Format(Resources.ID_GENERATEREPORT, analysisName), AnalysisTreeView.WORD
+                    string.Format(Resources.ID_GENERATEREPORT, analysisName), WORD
                     , new EventHandler(OnAnalysisReport)));
             }
         }
@@ -469,7 +469,7 @@ namespace treeDiM.StackBuilder.Desktop
         {
             get
             {
-                TreeNode currentNode = this.SelectedNode;
+                TreeNode currentNode = SelectedNode;
                 if (null == currentNode)
                     throw new Exception("No node selected");
                 return currentNode.Tag as NodeTag;
@@ -480,8 +480,7 @@ namespace treeDiM.StackBuilder.Desktop
             // check with node itself
             if (null != node)
             {
-                NodeTag tag = node.Tag as NodeTag;
-                if (null == tag)
+                if (!(node.Tag is NodeTag tag))
                 {
                     _log.Error(string.Format("Node {0} has no valid NodeTag", node.Text));
                     return null;
@@ -820,7 +819,9 @@ namespace treeDiM.StackBuilder.Desktop
             // test
             if (null == analysisNode)
             {
-                _log.Error(string.Format("Failed to find a valid tree node for analysis {0}", analysis.Name));
+                _log.Error(
+                    string.Format("Failed to find a valid tree node for analysis {0}"
+                    , analysis.Name));
                 return;
             }
             // remove node
@@ -1052,42 +1053,37 @@ namespace treeDiM.StackBuilder.Desktop
             /// </summary>
             NT_UNKNOWN
         }
-        #endregion
 
-        #region Data members
-        private NodeType _type;
-        private Document _document;
-        private ItemBase _itemBase;
         #endregion
 
         #region Constructor
         public NodeTag(NodeType type, Document document)
         {
-            _type = type;
-            _document = document;       
+            Type = type;
+            Document = document;       
         }
         public NodeTag(NodeType type, Document document, ItemBase itemBase)
         {
-            _type = type;
-            _document = document;
-            _itemBase = itemBase;
+            Type = type;
+            Document = document;
+            ItemProperties = itemBase;
         }
         #endregion
 
         #region Object method overrides
         public override bool Equals(object obj)
         {
-            NodeTag nodeTag = obj as NodeTag;
-            if (null == nodeTag) return false;
-            return _type == nodeTag._type
-                && _document == nodeTag._document
-                && _itemBase == nodeTag._itemBase;
+            return !(obj is NodeTag nodeTag)
+                ? false
+                : Type == nodeTag.Type
+                && Document == nodeTag.Document
+                && ItemProperties == nodeTag.ItemProperties;
         }
         public override int GetHashCode()
         {
-            return _type.GetHashCode()
-                ^ _document.GetHashCode()
-                ^ _itemBase.GetHashCode();
+            return Type.GetHashCode()
+                ^ Document.GetHashCode()
+                ^ ItemProperties.GetHashCode();
         }
         #endregion
 
@@ -1095,20 +1091,20 @@ namespace treeDiM.StackBuilder.Desktop
         /// <summary>
         /// returns node type
         /// </summary>
-        public NodeType Type { get { return _type; } }
+        public NodeType Type { get; }
         /// <summary>
         /// returns document adressed 
         /// </summary>
-        public Document Document { get { return _document; } }
+        public Document Document { get; }
         /// <summary>
         /// returns itempProperties (box/palet/interlayer)
         /// </summary>
-        public ItemBase ItemProperties { get { return _itemBase; } }
+        public ItemBase ItemProperties { get; }
         /// <summary>
         /// returns analysis if any
         /// </summary>
-        public Analysis Analysis => _itemBase as Analysis;
-        public HAnalysis HAnalysis => _itemBase as HAnalysis;
+        public Analysis Analysis => ItemProperties as Analysis;
+        public HAnalysis HAnalysis => ItemProperties as HAnalysis;
         #endregion
     }
     #endregion
