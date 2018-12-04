@@ -13,9 +13,7 @@ using System.Runtime.InteropServices;
 #else
 [assembly: AssemblyConfiguration("Release")]
 #endif
-[assembly: AssemblyCompany("treeDiM")]
 [assembly: AssemblyProduct("treeDiM.StackBuilder.WCFService.Test")]
-[assembly: AssemblyCopyright("Copyright treeDiM ©  2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

@@ -13,9 +13,7 @@ using System.Runtime.InteropServices;
 #else
 [assembly: AssemblyConfiguration("Release")]
 #endif
-[assembly: AssemblyCompany("treeDiM")]
 [assembly: AssemblyProduct("PLMPack StackBuilder")]
-[assembly: AssemblyCopyright("Copyright treeDiM ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

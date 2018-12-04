@@ -8,9 +8,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("treeDiM.StackBuilder.Graphic")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("TreeDim")]
 [assembly: AssemblyProduct("treeDiM.StackBuilder.Graphic")]
-[assembly: AssemblyCopyright("Copyright TreeDim ©  2009")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

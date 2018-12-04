@@ -9,9 +9,7 @@ using System.Security;
 [assembly: AssemblyTitle("treeDiM.StackBuilder.ExcelAddIn")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("treeDiM.StackBuilder.ExcelAddIn")]
-[assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

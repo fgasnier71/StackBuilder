@@ -8,9 +8,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("treeDiM.StackBuilder.GUIExtension")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("treeDiM")]
 [assembly: AssemblyProduct("treeDiM.StackBuilder.GUIExtension")]
-[assembly: AssemblyCopyright("Copyright © Microsoft 2014")]
 [assembly: AssemblyTrademark("treeDiM")]
 [assembly: AssemblyCulture("")]
 

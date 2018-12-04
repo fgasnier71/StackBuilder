@@ -1,7 +1,5 @@
 ﻿#region Using directives
 using System.Collections.Generic;
-using System.Text;
-using treeDiM.StackBuilder.Graphics;
 
 using System.Drawing;
 using System.IO;

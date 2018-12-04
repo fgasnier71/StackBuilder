@@ -1,0 +1,245 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="XMLFileDB"
+    targetNamespace="/treeDiM/StackBuilder"
+    elementFormDefault="qualified"
+    xmlns="http://tempuri.org/XMLFileDB.xsd"
+    xmlns:mstns="http://tempuri.org/XMLFileDB.xsd"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:fileDB="/treeDiM/StackBuilder"
+>
+  <!-- intArray-->
+  <xs:simpleType name="intArray">
+    <xs:list itemType="xs:integer"/>
+  </xs:simpleType>
+  <!-- intArray6 -->
+  <xs:simpleType name="intArray6">
+    <xs:restriction base="fileDB:intArray">
+      <xs:length value="6"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <!-- doubleArray-->
+  <xs:simpleType name ="doubleArray">
+    <xs:list itemType="xs:double"/>
+  </xs:simpleType>
+  <!-- doubleArray3-->
+  <xs:simpleType name="doubleArray3">
+    <xs:restriction base="fileDB:doubleArray">
+      <xs:length value="3"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <!-- color -->
+  <xs:simpleType name="color">
+    <xs:restriction base="xs:int"/>
+  </xs:simpleType>
+  <!-- colorArray -->
+  <xs:simpleType name="colorArray">
+    <xs:list itemType="fileDB:color"/>
+  </xs:simpleType>
+  <!-- colorArray6 -->
+  <xs:simpleType name="colorArray6">
+    <xs:restriction base="fileDB:colorArray">
+      <xs:length value="6"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <!-- item : BEGIN -->
+  <xs:complexType name="item" abstract="true">
+    <xs:annotation>
+      <xs:documentation>
+        Describes a type with name, description, weight
+      </xs:documentation>
+    </xs:annotation>
+    <xs:attribute name="name" type="xs:string" use="required"/>
+    <xs:attribute name="description" type="xs:string" use="required"/>
+    <xs:attribute name="weight" type="xs:double" use="required"/>
+  </xs:complexType>
+  <!-- box -->
+  <xs:complexType name="box">
+    <xs:annotation>
+      <xs:documentation>
+        Box
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="fileDB:item">
+        <xs:attribute name="dim" type="fileDB:doubleArray3" use="required"/>
+        <xs:attribute name="netweight" type="xs:double" use="optional"/>
+        <xs:attribute name="admissibleLoadOnTop" type="xs:double" use="optional"/>
+        <xs:attribute name="faceColors" type="fileDB:colorArray6" use="required"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <!-- case -->
+  <xs:complexType name="case">
+    <xs:annotation>
+      <xs:documentation>
+        Case
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="fileDB:item">
+        <xs:attribute name="dimExt" type="fileDB:doubleArray3" use="required"/>
+        <xs:attribute name="dimInt" type="fileDB:doubleArray3" use="optional"/>
+        <xs:attribute name="netWeight" type="xs:double" use="optional"/>
+        <xs:attribute name="admissibleLoadOnTop" type="xs:double" use="optional"/>
+        <xs:attribute name="faceColors" type="fileDB:colorArray6" use="required"/>
+        <xs:attribute name="tapeWidth" type="xs:double" use="optional"/>
+        <xs:attribute name="tapeColor" type="xs:int" use="optional"/>        
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <!-- bundle -->
+  <xs:complexType name="bundle">
+    <xs:annotation>
+      <xs:documentation>
+        Bundle
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="fileDB:item">
+        <xs:attribute name="dimFlat" type="fileDB:doubleArray3" use="required"/>
+        <xs:attribute name="numberOfFlats" type="xs:int" use="required"/>
+        <xs:attribute name="unitWeight" type="xs:double" use="required"/>
+        <xs:attribute name="color" type="xs:int" use="required"/>        
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <!-- pallet -->
+  <xs:complexType name="pallet">
+    <xs:annotation>
+      <xs:documentation>
+        Pallet
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="fileDB:item">
+        <xs:attribute name="dimensions" type="fileDB:doubleArray3" use="required"/>
+        <xs:attribute name="color" type="fileDB:color" use="required"/>
+        <xs:attribute name="admissibleLoad" type="xs:double" use="optional"/>
+        <xs:attribute name="palletType" type="xs:string" use="required"/>
+       </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <!-- interlayer -->
+  <xs:complexType name="interlayer">
+    <xs:annotation>
+      <xs:documentation>
+        Interlayer
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+    <xs:extension base="fileDB:item">
+      <xs:attribute name="dimensions" type="fileDB:doubleArray3" use="required"/>
+      <xs:attribute name="color" type="fileDB:color" use="required"/>
+    </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <!-- pallet corner -->
+  <xs:complexType name="palletCorners">
+    <xs:annotation>
+      <xs:documentation>
+        Pallet corners
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="fileDB:item">
+        <xs:attribute name="length" type="xs:double"/>
+        <xs:attribute name="width" type="xs:double"/>        
+        <xs:attribute name="thickness" type="xs:double"/>
+        <xs:attribute name="color" type="fileDB:color"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <!-- pallet cap -->
+  <xs:complexType name="palletCap">
+    <xs:annotation>
+      <xs:documentation>
+        Pallet cap
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="fileDB:item">
+        <xs:attribute name="dimensionsOuter" type="fileDB:doubleArray3" use="required"/>
+        <xs:attribute name="dimensionsInner" type="fileDB:doubleArray3" use="required"/>
+        <xs:attribute name="color" type="fileDB:color" use="required"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <!-- pallet film -->
+  <xs:complexType name="palletFilm">
+    <xs:annotation>
+      <xs:documentation>
+        Pallet film
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="fileDB:item">
+        <xs:attribute name="useHatching" type="xs:boolean"/>
+        <xs:attribute name="useTransparency" type="xs:boolean"/>
+        <xs:attribute name="hatchingSpace" type="xs:double"/>
+        <xs:attribute name="hatchingAngle" type="xs:double"/>
+        <xs:attribute name="color" type="fileDB:color"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <!-- cylinder -->
+  <xs:complexType name="cylinder">
+    <xs:annotation>
+      <xs:documentation>
+        Cylinder
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="fileDB:item">
+        <xs:attribute name="radiusOuter" type="xs:double" use="required"/>
+        <xs:attribute name="radiusInner" type="xs:double" use="optional"/>
+        <xs:attribute name="colorTop" type="fileDB:color" use="required"/>
+        <xs:attribute name="colorOuter" type="fileDB:color" use ="required"/>
+        <xs:attribute name="colorInner" type="fileDB:color" use="optional"/>
+        <xs:attribute name="height" type="xs:double" use="required"/>
+        <xs:attribute name="netweight" type="xs:double" use="optional"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <!-- truck -->
+  <xs:complexType name="truck">
+    <xs:annotation>
+      <xs:documentation>
+        Truck
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="fileDB:item">
+        <xs:attribute name="dim" type="fileDB:doubleArray3" use="required"/>
+        <xs:attribute name="admissibleLoad" type="xs:double" use="required"/>
+        <xs:attribute name="color" type="fileDB:color" use="required"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <!-- item : END-->
+  <!-- XMLFILEDB : BEG-->
+  <xs:element name="XmlFileDB">
+    <xs:annotation>
+      <xs:documentation>
+        Database
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="typeList">
+          <xs:annotation>
+            <xs:documentation>
+              List of types
+            </xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="type" type="fileDB:item" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>  
+      </xs:sequence>
+      <xs:attribute name="author" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <!-- XMLFILEDB : END-->
+</xs:schema>

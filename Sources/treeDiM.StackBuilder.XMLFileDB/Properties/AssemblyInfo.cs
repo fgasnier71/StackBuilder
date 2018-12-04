@@ -2,20 +2,20 @@
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-// General Information about an assembly is controlled through the following 
+// General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("treeDiM.StackBuilder.Reporting")]
+[assembly: AssemblyTitle("treeDiM.StackBuilder.XMLFileDB")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyProduct("treeDiM.StackBuilder.Reporting")]
+[assembly: AssemblyProduct("treeDiM.StackBuilder.XMLFileDB")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
-// Setting ComVisible to false makes the types in this assembly not visible 
-// to COM components.  If you need to access a type in this assembly from 
+// Setting ComVisible to false makes the types in this assembly not visible
+// to COM components.  If you need to access a type in this assembly from
 // COM, set the ComVisible attribute to true on that type.
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("4a1fff15-d1e5-463e-8474-ab849e21bbd8")]
+[assembly: Guid("3231882f-18e4-4b20-863d-5367a819d0e3")]
