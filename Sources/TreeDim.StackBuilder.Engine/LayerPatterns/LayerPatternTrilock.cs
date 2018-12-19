@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 
 using Sharp3D.Math.Core;
@@ -104,7 +103,6 @@ namespace treeDiM.StackBuilder.Engine
         }
 
         #region Non-Public Members
-
         int GetOptimalSizeArea1(double boxLength, double boxWidth, double palletLength, double palletWidth
             , out int sizeX_area1Opt, out int sizeY_area1Opt)
         {
@@ -141,7 +139,6 @@ namespace treeDiM.StackBuilder.Engine
 
             return sizeX_area1 * sizeY_area1 + sizeX_area2 * sizeY_area2 + sizeX_area3 * sizeY_area3;
         }
-
         #endregion
     }
 }

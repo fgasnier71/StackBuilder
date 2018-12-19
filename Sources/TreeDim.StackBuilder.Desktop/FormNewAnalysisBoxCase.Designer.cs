@@ -36,23 +36,21 @@
             this.cbBoxes = new treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered();
             this.uCtrlLayerList = new treeDiM.StackBuilder.Graphics.UCtrlLayerList();
             this.uCtrlCaseOrientation = new treeDiM.StackBuilder.Graphics.uCtrlCaseOrientation();
+            this.tabControlConstraints = new System.Windows.Forms.TabControl();
+            this.tabPageStopCriterions = new System.Windows.Forms.TabPage();
+            this.uCtrlOptMaximumWeight = new treeDiM.StackBuilder.Basics.UCtrlOptDouble();
+            this.uCtrlOptMaxNumber = new treeDiM.StackBuilder.Basics.UCtrlOptInt();
+            this.tabControlConstraints.SuspendLayout();
+            this.tabPageStopCriterions.SuspendLayout();
             this.SuspendLayout();
             // 
             // tbDescription
             // 
             resources.ApplyResources(this.tbDescription, "tbDescription");
             // 
-            // tbName
-            // 
-            resources.ApplyResources(this.tbName, "tbName");
-            // 
             // lbDescription
             // 
             resources.ApplyResources(this.lbDescription, "lbDescription");
-            // 
-            // lbName
-            // 
-            resources.ApplyResources(this.lbName, "lbName");
             // 
             // checkBoxBestLayersOnly
             // 
@@ -73,17 +71,17 @@
             // 
             // cbCases
             // 
-            resources.ApplyResources(this.cbCases, "cbCases");
             this.cbCases.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCases.FormattingEnabled = true;
+            resources.ApplyResources(this.cbCases, "cbCases");
             this.cbCases.Name = "cbCases";
             this.cbCases.SelectedIndexChanged += new System.EventHandler(this.OnInputChanged);
             // 
             // cbBoxes
             // 
-            resources.ApplyResources(this.cbBoxes, "cbBoxes");
             this.cbBoxes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbBoxes.FormattingEnabled = true;
+            resources.ApplyResources(this.cbBoxes, "cbBoxes");
             this.cbBoxes.Name = "cbBoxes";
             this.cbBoxes.SelectedIndexChanged += new System.EventHandler(this.OnBoxChanged);
             // 
@@ -97,18 +95,53 @@
             // 
             // uCtrlCaseOrientation
             // 
-            resources.ApplyResources(this.uCtrlCaseOrientation, "uCtrlCaseOrientation");
             this.uCtrlCaseOrientation.AllowedOrientations = new bool[] {
         false,
         false,
         true};
+            resources.ApplyResources(this.uCtrlCaseOrientation, "uCtrlCaseOrientation");
             this.uCtrlCaseOrientation.Name = "uCtrlCaseOrientation";
             this.uCtrlCaseOrientation.CheckedChanged += new treeDiM.StackBuilder.Graphics.uCtrlCaseOrientation.CheckChanged(this.OnInputChanged);
+            // 
+            // tabControlConstraints
+            // 
+            resources.ApplyResources(this.tabControlConstraints, "tabControlConstraints");
+            this.tabControlConstraints.Controls.Add(this.tabPageStopCriterions);
+            this.tabControlConstraints.Name = "tabControlConstraints";
+            this.tabControlConstraints.SelectedIndex = 0;
+            // 
+            // tabPageStopCriterions
+            // 
+            this.tabPageStopCriterions.Controls.Add(this.uCtrlOptMaxNumber);
+            this.tabPageStopCriterions.Controls.Add(this.uCtrlOptMaximumWeight);
+            resources.ApplyResources(this.tabPageStopCriterions, "tabPageStopCriterions");
+            this.tabPageStopCriterions.Name = "tabPageStopCriterions";
+            this.tabPageStopCriterions.UseVisualStyleBackColor = true;
+            // 
+            // uCtrlOptMaximumWeight
+            // 
+            resources.ApplyResources(this.uCtrlOptMaximumWeight, "uCtrlOptMaximumWeight");
+            this.uCtrlOptMaximumWeight.Minimum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            -2147483648});
+            this.uCtrlOptMaximumWeight.Name = "uCtrlOptMaximumWeight";
+            this.uCtrlOptMaximumWeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_MASS;
+            this.uCtrlOptMaximumWeight.Value = ((treeDiM.StackBuilder.Basics.OptDouble)(resources.GetObject("uCtrlOptMaximumWeight.Value")));
+            // 
+            // uCtrlOptMaxNumber
+            // 
+            resources.ApplyResources(this.uCtrlOptMaxNumber, "uCtrlOptMaxNumber");
+            this.uCtrlOptMaxNumber.Minimum = 0;
+            this.uCtrlOptMaxNumber.Name = "uCtrlOptMaxNumber";
+            this.uCtrlOptMaxNumber.Value = ((treeDiM.StackBuilder.Basics.OptInt)(resources.GetObject("uCtrlOptMaxNumber.Value")));
             // 
             // FormNewAnalysisBoxCase
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.tabControlConstraints);
             this.Controls.Add(this.lbCase);
             this.Controls.Add(this.lbBox);
             this.Controls.Add(this.checkBoxBestLayersOnly);
@@ -128,6 +161,9 @@
             this.Controls.SetChildIndex(this.lbDescription, 0);
             this.Controls.SetChildIndex(this.tbName, 0);
             this.Controls.SetChildIndex(this.tbDescription, 0);
+            this.Controls.SetChildIndex(this.tabControlConstraints, 0);
+            this.tabControlConstraints.ResumeLayout(false);
+            this.tabPageStopCriterions.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -142,5 +178,9 @@
         private System.Windows.Forms.CheckBox checkBoxBestLayersOnly;
         private System.Windows.Forms.Label lbBox;
         private System.Windows.Forms.Label lbCase;
+        private System.Windows.Forms.TabControl tabControlConstraints;
+        private System.Windows.Forms.TabPage tabPageStopCriterions;
+        private Basics.UCtrlOptDouble uCtrlOptMaximumWeight;
+        private Basics.UCtrlOptInt uCtrlOptMaxNumber;
     }
 }

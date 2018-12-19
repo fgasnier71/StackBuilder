@@ -479,13 +479,15 @@ namespace treeDiM.StackBuilder.Desktop
         #region Draw box
         public void Draw(Graphics3DControl ctrl, Graphics3D graphics)
         {
-            BoxProperties boxProperties = new BoxProperties(
-                null, uCtrlDimensionsOuter.ValueX, uCtrlDimensionsOuter.ValueY, uCtrlDimensionsOuter.ValueZ);
+            var boxProperties = new BoxProperties(
+                null, uCtrlDimensionsOuter.ValueX, uCtrlDimensionsOuter.ValueY, uCtrlDimensionsOuter.ValueZ)
+            {
+                TextureList = _textures,
+                TapeWidth = TapeWidth,
+                TapeColor = TapeColor,
+                StrapperSet = StrapperSet
+            };
             boxProperties.SetAllColors(_faceColors);
-            boxProperties.TextureList = _textures;
-            boxProperties.TapeWidth = TapeWidth;
-            boxProperties.TapeColor = TapeColor;
-            boxProperties.StrapperSet = StrapperSet;
             graphics.AddBox(new Box(0, boxProperties));
             graphics.AddDimensions(
                 new DimensionCube(uCtrlDimensionsOuter.ValueX, uCtrlDimensionsOuter.ValueY, uCtrlDimensionsOuter.ValueZ)

@@ -44,10 +44,20 @@ namespace treeDiM.StackBuilder.Desktop
             uCtrlLayerList.RefreshFinished += OnLayerSelected;
             uCtrlLayerList.ButtonSizes = new Size(100, 100);
 
-            if (null == AnalysisBase)
+            if (null == AnalysisCast)
             {
                 uCtrlCaseOrientation.AllowedOrientations = new bool[]
                 { Settings.Default.AllowVerticalX, Settings.Default.AllowVerticalY, Settings.Default.AllowVerticalZ };
+                uCtrlOptMaximumWeight.Value = new OptDouble(false, Settings.Default.MaximumCaseWeight);
+                uCtrlOptMaxNumber.Value = new OptInt(false, 1000);
+            }
+            else
+            {
+                if (AnalysisCast.ConstraintSet is ConstraintSetBoxCase constraintSet)
+                {
+                    uCtrlOptMaximumWeight.Value = constraintSet.OptMaxWeight;
+                    uCtrlOptMaxNumber.Value = constraintSet.OptMaxNumber;
+                }
             }
             checkBoxBestLayersOnly.Checked = Settings.Default.KeepBestSolutions;
         }
@@ -58,6 +68,9 @@ namespace treeDiM.StackBuilder.Desktop
             Settings.Default.AllowVerticalX = uCtrlCaseOrientation.AllowedOrientations[0];
             Settings.Default.AllowVerticalY = uCtrlCaseOrientation.AllowedOrientations[1];
             Settings.Default.AllowVerticalZ = uCtrlCaseOrientation.AllowedOrientations[2];
+
+            if (uCtrlOptMaximumWeight.Value.Activated)
+                Settings.Default.MaximumCaseWeight = uCtrlOptMaximumWeight.Value.Value;
 
             Settings.Default.KeepBestSolutions = checkBoxBestLayersOnly.Checked;
         }
@@ -205,6 +218,8 @@ namespace treeDiM.StackBuilder.Desktop
             // constraint set
             ConstraintSetBoxCase constraintSet = new ConstraintSetBoxCase(SelectedCaseProperties);
             constraintSet.SetAllowedOrientations(uCtrlCaseOrientation.AllowedOrientations);
+            constraintSet.OptMaxWeight = uCtrlOptMaximumWeight.Value;
+            constraintSet.OptMaxNumber = uCtrlOptMaxNumber.Value;
             return constraintSet;        
         }
         #endregion

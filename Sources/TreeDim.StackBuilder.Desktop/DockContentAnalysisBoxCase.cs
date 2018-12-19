@@ -32,6 +32,13 @@ namespace treeDiM.StackBuilder.Desktop
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
+
+            uCtrlOptMaximumWeight.Value = _analysis.ConstraintSet.OptMaxWeight;
+            uCtrlOptMaxNumber.Value = _analysis.ConstraintSet.OptMaxNumber;
+
+            uCtrlOptMaximumWeight.ValueChanged += new UCtrlOptDouble.ValueChangedDelegate(OnCriterionChanged);
+            uCtrlOptMaxNumber.ValueChanged += new UCtrlOptInt.ValueChangedDelegate(OnCriterionChanged);
+
         }
         #endregion
 
@@ -237,6 +244,26 @@ namespace treeDiM.StackBuilder.Desktop
             gridSolutions.Columns.StretchToFit();
             gridSolutions.AutoStretchColumnsToFitWidth = true;
             gridSolutions.Invalidate();
+        }
+        #endregion
+
+        #region Event handlers
+        private void OnCriterionChanged(object sender, EventArgs args)
+        {
+            try
+            {
+                var constraintSet = _solution.Analysis.ConstraintSet as ConstraintSetBoxCase;
+                constraintSet.OptMaxWeight = uCtrlOptMaximumWeight.Value;
+                constraintSet.OptMaxNumber = uCtrlOptMaxNumber.Value;
+                _solution.RebuildSolutionItemList();
+            }
+            catch (Exception ex)
+            {
+                _log.Error(ex.ToString());
+            }
+            // update drawing & grid
+            graphCtrlSolution.Invalidate();
+            UpdateGrid();
         }
         #endregion
     }

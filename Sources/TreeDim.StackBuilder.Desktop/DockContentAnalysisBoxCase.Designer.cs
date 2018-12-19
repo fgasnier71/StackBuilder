@@ -29,51 +29,57 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DockContentAnalysisBoxCase));
+            this.gbStopCriterions = new System.Windows.Forms.GroupBox();
+            this.uCtrlOptMaxNumber = new treeDiM.StackBuilder.Basics.UCtrlOptInt();
+            this.uCtrlOptMaximumWeight = new treeDiM.StackBuilder.Basics.UCtrlOptDouble();
             ((System.ComponentModel.ISupportInitialize)(this.graphCtrlSolution)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerHoriz)).BeginInit();
             this.splitContainerHoriz.Panel1.SuspendLayout();
+            this.splitContainerHoriz.Panel2.SuspendLayout();
             this.splitContainerHoriz.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerVert)).BeginInit();
             this.splitContainerVert.Panel1.SuspendLayout();
             this.splitContainerVert.Panel2.SuspendLayout();
             this.splitContainerVert.SuspendLayout();
+            this.gbStopCriterions.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // graphCtrlSolution
-            // 
-            resources.ApplyResources(this.graphCtrlSolution, "graphCtrlSolution");
             // 
             // splitContainerHoriz
             // 
-            resources.ApplyResources(this.splitContainerHoriz, "splitContainerHoriz");
-            // 
-            // splitContainerHoriz.Panel1
-            // 
-            resources.ApplyResources(this.splitContainerHoriz.Panel1, "splitContainerHoriz.Panel1");
             // 
             // splitContainerHoriz.Panel2
             // 
-            resources.ApplyResources(this.splitContainerHoriz.Panel2, "splitContainerHoriz.Panel2");
+            this.splitContainerHoriz.Panel2.Controls.Add(this.gbStopCriterions);
             // 
             // splitContainerVert
             // 
-            resources.ApplyResources(this.splitContainerVert, "splitContainerVert");
             // 
-            // splitContainerVert.Panel1
+            // gbStopCriterions
             // 
-            resources.ApplyResources(this.splitContainerVert.Panel1, "splitContainerVert.Panel1");
+            resources.ApplyResources(this.gbStopCriterions, "gbStopCriterions");
+            this.gbStopCriterions.Controls.Add(this.uCtrlOptMaxNumber);
+            this.gbStopCriterions.Controls.Add(this.uCtrlOptMaximumWeight);
+            this.gbStopCriterions.Name = "gbStopCriterions";
+            this.gbStopCriterions.TabStop = false;
             // 
-            // splitContainerVert.Panel2
+            // uCtrlOptMaxNumber
             // 
-            resources.ApplyResources(this.splitContainerVert.Panel2, "splitContainerVert.Panel2");
+            resources.ApplyResources(this.uCtrlOptMaxNumber, "uCtrlOptMaxNumber");
+            this.uCtrlOptMaxNumber.Minimum = 0;
+            this.uCtrlOptMaxNumber.Name = "uCtrlOptMaxNumber";
+            this.uCtrlOptMaxNumber.Value = ((treeDiM.StackBuilder.Basics.OptInt)(resources.GetObject("uCtrlOptMaxNumber.Value")));
             // 
-            // cbInterlayer
+            // uCtrlOptMaximumWeight
             // 
-            resources.ApplyResources(this.cbInterlayer, "cbInterlayer");
-            // 
-            // gridSolutions
-            // 
-            resources.ApplyResources(this.gridSolutions, "gridSolutions");
+            resources.ApplyResources(this.uCtrlOptMaximumWeight, "uCtrlOptMaximumWeight");
+            this.uCtrlOptMaximumWeight.Minimum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            -2147483648});
+            this.uCtrlOptMaximumWeight.Name = "uCtrlOptMaximumWeight";
+            this.uCtrlOptMaximumWeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_MASS;
+            this.uCtrlOptMaximumWeight.Value = ((treeDiM.StackBuilder.Basics.OptDouble)(resources.GetObject("uCtrlOptMaximumWeight.Value")));
             // 
             // DockContentAnalysisBoxCase
             // 
@@ -82,12 +88,15 @@
             this.Name = "DockContentAnalysisBoxCase";
             ((System.ComponentModel.ISupportInitialize)(this.graphCtrlSolution)).EndInit();
             this.splitContainerHoriz.Panel1.ResumeLayout(false);
+            this.splitContainerHoriz.Panel2.ResumeLayout(false);
+            this.splitContainerHoriz.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerHoriz)).EndInit();
             this.splitContainerHoriz.ResumeLayout(false);
             this.splitContainerVert.Panel1.ResumeLayout(false);
             this.splitContainerVert.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerVert)).EndInit();
             this.splitContainerVert.ResumeLayout(false);
+            this.gbStopCriterions.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -95,5 +104,8 @@
 
         #endregion
 
+        private System.Windows.Forms.GroupBox gbStopCriterions;
+        private Basics.UCtrlOptInt uCtrlOptMaxNumber;
+        private Basics.UCtrlOptDouble uCtrlOptMaximumWeight;
     }
 }
