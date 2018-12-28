@@ -23,7 +23,7 @@ namespace treeDiM.StackBuilder.Engine
             , new LayerPatternSpirale()
             , new LayerPatternEnlargedSpirale()
             , new LayerPatternOpposed()
-            //, new LayerPatternMSpirale()
+            , new LayerPatternMSpirale()
             //, new LayerPatternMSpirale4Parts()
         });
 

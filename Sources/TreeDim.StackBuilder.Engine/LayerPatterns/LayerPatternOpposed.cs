@@ -1,10 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using log4net;
 using Sharp3D.Math.Core;
 
 using treeDiM.StackBuilder.Basics;
@@ -228,7 +222,7 @@ namespace treeDiM.StackBuilder.Engine
         #endregion
 
         #region Data members
-        private bool _logPosition = false;
+        private readonly bool _logPosition = false;
         #endregion
     }
 }
