@@ -25,6 +25,7 @@ namespace treeDiM.StackBuilder.Engine
             , new LayerPatternOpposed()
             , new LayerPatternMSpirale()
             //, new LayerPatternMSpirale4Parts()
+            //, new LayerPatternBrick()
         });
 
         public static LayerPatternBox GetByName(string patternName)

@@ -7,7 +7,7 @@ using treeDiM.StackBuilder.Basics;
 
 namespace treeDiM.StackBuilder.Engine
 {
-    class LayerPatternMSpirale : LayerPatternBox
+    internal class LayerPatternMSpirale : LayerPatternBox
     {
         public override string Name => "Multi-Spirale";
         public override int GetNumberOfVariants(Layer2D layer) => 1;
@@ -71,11 +71,12 @@ namespace treeDiM.StackBuilder.Engine
                     noSpiraleX * spiraleLength
                     , noArea3X * (area3LengthAligned ? boxLength : boxWidth));
 
-                GenerateRectanglePositions(layer, noArea2X, noArea2Y, boxLength, boxWidth, offset
+                GenerateRectanglePositions(layer, offset, boxLength, boxWidth
+                    , noArea2X, noArea2Y
                     , xStart, 0.0, 0.0, ySpace, area2LengthAligned);
 
                 // area 3
-                GenerateRectanglePositions(layer, noArea3X, noArea3Y, boxLength, boxWidth, offset
+                GenerateRectanglePositions(layer, offset, boxLength, boxWidth, noArea3X, noArea3Y
                     , 0.0, noSpiraleY * spiraleLength, 0.0, 0.0, area3LengthAligned);
             }
             else
@@ -90,11 +91,11 @@ namespace treeDiM.StackBuilder.Engine
                     noSpiraleY * spiraleLength
                     , noArea2Y * (area2LengthAligned ? boxWidth : boxLength));
 
-                GenerateRectanglePositions(layer, noArea3X, noArea3Y, boxLength, boxWidth, offset
+                GenerateRectanglePositions(layer, offset, boxLength, boxWidth, noArea3X, noArea3Y
                     , 0.0, yStart, xSpace, 0.0, area3LengthAligned);
 
                 // area 2
-                GenerateRectanglePositions(layer, noArea2X, noArea2Y, boxLength, boxWidth, offset
+                GenerateRectanglePositions(layer, offset, boxLength, boxWidth, noArea2X, noArea2Y
                     , noSpiraleX * spiraleLength, 0.0, 0.0, 0.0, area2LengthAligned); 
             }
         }
@@ -145,7 +146,7 @@ namespace treeDiM.StackBuilder.Engine
         // Area 1 spirales (noSpiraleX * noSpiraleY)
         // Area 2 Remaining (noArea2X * noArea2Y) | orientation (area2LengthAligned)
         // Area 3 Remaining (noArea3X * noArea3Y) | orientation (area3LengthAligned) 
-        int GetSizeXY(double boxLength, double boxWidth, double palletLength, double palletWidth
+        protected int GetSizeXY(double boxLength, double boxWidth, double palletLength, double palletWidth
             , out int noSpiraleX, out int noSpiraleY
             , out int noArea2X, out int noArea2Y, out bool area2LengthAligned
             , out int noArea3X, out int noArea3Y, out bool area3LengthAligned
@@ -180,7 +181,7 @@ namespace treeDiM.StackBuilder.Engine
 
             return noSpiraleX * noSpiraleY * 4 + noArea2X * noArea2Y + noArea2X * noArea2Y;
         }
-        int GetBestRectangle(double boxLength, double boxWidth, double rectLength, double rectWidth
+        protected int GetBestRectangle(double boxLength, double boxWidth, double rectLength, double rectWidth
             , out int noX, out int noY, out bool lengthAligned)
         {
             int noXLengthAligned = (int)Math.Floor(rectLength / boxLength);
@@ -196,9 +197,9 @@ namespace treeDiM.StackBuilder.Engine
             return noX * noY;
         }
 
-        void GenerateRectanglePositions(ILayer2D layer
+        protected void GenerateRectanglePositions(ILayer2D layer, Vector2D offset
+            , double boxLength, double boxWidth
             , int noX, int noY
-            , double boxLength, double boxWidth, Vector2D offset
             , double startX, double startY
             , double spaceX, double spaceY
             , bool lengthAligned)
