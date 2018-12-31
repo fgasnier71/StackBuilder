@@ -7,9 +7,9 @@ using treeDiM.StackBuilder.Basics;
 
 namespace treeDiM.StackBuilder.Engine
 {
-    class LayerPatternMSpirale4Parts : LayerPatternBox
+    class LayerPatternMSpirale8Parts : LayerPatternBox
     {
-        public override string Name => "MSpirale 4 parts";
+        public override string Name => "MSpirale 8 parts";
         public override bool CanBeSwapped => true;
         public override bool CanBeInverted => true;
         public override bool IsSymetric => true;
@@ -23,7 +23,7 @@ namespace treeDiM.StackBuilder.Engine
             double palletWidth = GetPalletWidth(layer);
             double boxLength = GetBoxLength(layer);
             double boxWidth = GetBoxWidth(layer);
-            double spiraleLength = boxLength + boxWidth;
+            double spiraleLength = boxLength + 2 * boxWidth;
 
             GetSizeXY(boxLength, boxWidth, palletLength, palletWidth
                 , out int noSpiraleX, out int noSpiraleY
@@ -56,7 +56,7 @@ namespace treeDiM.StackBuilder.Engine
                         , HalfAxis.HAxis.AXIS_Y_P, HalfAxis.HAxis.AXIS_X_N);
                     AddPosition(
                         layer
-                        , new Vector2D(xBase + boxLength + 2 * boxWidth, yBase + boxWidth) + offset
+                        , new Vector2D(xBase + boxLength + 2 * boxWidth, yBase) + offset
                         , HalfAxis.HAxis.AXIS_Y_P, HalfAxis.HAxis.AXIS_X_N);
                     // 3
                     AddPosition(
