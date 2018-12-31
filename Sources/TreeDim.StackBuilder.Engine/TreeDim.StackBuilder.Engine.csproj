@@ -92,7 +92,7 @@
     <Compile Include="LayerPatterns\LayerPatternInterlockedSymetric.cs" />
     <Compile Include="LayerPatterns\LayerPatternInterlockedSymetric2.cs" />
     <Compile Include="LayerPatterns\LayerPatternMSpirale.cs" />
-    <Compile Include="LayerPatterns\LayerPatternMSpirale4Parts.cs" />
+    <Compile Include="LayerPatterns\LayerPatternMSpirale8Parts.cs" />
     <Compile Include="LayerPatterns\LayerPatternOpposed.cs" />
     <Compile Include="Solvers\HCylinderSolver.cs" />
     <Compile Include="Solvers\HSolver.cs" />
