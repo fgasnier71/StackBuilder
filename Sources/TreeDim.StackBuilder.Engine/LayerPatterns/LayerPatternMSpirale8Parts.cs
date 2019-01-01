@@ -217,7 +217,7 @@ namespace treeDiM.StackBuilder.Engine
             , double startX, double startY
             , double spaceX, double spaceY
             , bool lengthAligned)
-                {
+        {
             double length = lengthAligned ? boxLength : boxWidth;
             double width = lengthAligned ? boxWidth : boxLength;
             for (int i = 0; i < noX; ++i)

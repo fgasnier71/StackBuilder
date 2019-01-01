@@ -35,9 +35,11 @@ namespace treeDiM.StackBuilder.Engine
             double boxLength = GetBoxLength(layer);
             double boxWidth = GetBoxWidth(layer);
 
+            int noInLength = (int)Math.Floor(palletLength / boxLength);
+            int noInWidth = (int)Math.Floor((palletWidth - 2 * boxWidth) / boxLength);
 
-            layerLength = 0.0;
-            layerWidth = 0.0;
+            layerLength = noInLength * boxLength;
+            layerWidth = noInWidth * boxLength + 2 * boxWidth;
 
             Debug.Assert(layerLength <= palletLength);
             Debug.Assert(layerWidth <= palletWidth);
@@ -45,11 +47,51 @@ namespace treeDiM.StackBuilder.Engine
             return true;
         }
 
-        protected void RecursiveInsertion(ILayer layer
+        protected void RecursiveInsertion(ILayer2D layer
+            , Vector2D offset
             , double rectLength, double rectWidth
             , double boxLength, double boxWidth
             )
         {
+            int noInLength = (int)Math.Floor(rectLength / boxLength);
+            int noInWidth = (int)Math.Floor((rectWidth - 2 * boxWidth) / boxLength);
+
+            Vector2D internalOffset = new Vector2D(
+                0.5 * (rectLength - noInLength * boxLength)
+                , 0.5 * (rectWidth - noInWidth * boxLength - 2.0 * boxWidth)
+                );
+
+            if (noInLength > 0 && noInWidth > 0)
+            {
+                for (int i = 0; i < noInLength; ++i)
+                {
+                    AddPosition(layer
+                        , offset + internalOffset + new Vector2D(i * boxLength, 0.0)
+                        , HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P);
+                    AddPosition(layer
+                        , offset + internalOffset + new Vector2D(i * boxLength, noInWidth * boxLength + boxWidth)
+                        , HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P);
+                }
+                for (int i = 0; i < noInWidth; ++i)
+                {
+                    AddPosition(layer
+                        , offset + internalOffset + new Vector2D(boxWidth, boxWidth + i * boxLength)
+                        , HalfAxis.HAxis.AXIS_Y_P, HalfAxis.HAxis.AXIS_X_N);
+                    AddPosition(layer
+                        , offset + internalOffset + new Vector2D(2 * boxWidth + noInLength * boxLength, boxWidth + i * boxLength)
+                        , HalfAxis.HAxis.AXIS_Y_P, HalfAxis.HAxis.AXIS_X_N);
+                }
+
+                // new internal rectangle
+                RecursiveInsertion(layer
+                    , offset + internalOffset
+                    , noInLength * boxLength - 2 * boxWidth, noInWidth * boxLength
+                    , boxLength, boxWidth);
+            }
+            else
+            {
+
+            }
         }
     }
 }

@@ -7,9 +7,9 @@ using treeDiM.StackBuilder.Basics;
 
 namespace treeDiM.StackBuilder.Engine
 {
-    internal class LayerPatternMSpirale : LayerPatternBox
+    internal class LayerPatternMSpirale4Parts : LayerPatternBox
     {
-        public override string Name => "Multi-Spirale";
+        public override string Name => "M Spirale 4 parts";
         public override int GetNumberOfVariants(Layer2D layer) => 1;
         public override bool IsSymetric => false;
         public override bool CanBeSwapped => true;
