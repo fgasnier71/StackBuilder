@@ -61,6 +61,16 @@ namespace treeDiM.StackBuilder.Engine
                 , 0.5 * (rectWidth - noInWidth * boxLength - 2.0 * boxWidth)
                 );
 
+            if (noInWidth <= 0 && 2 * boxWidth > rectWidth)
+            {
+                if (boxWidth > rectWidth)
+                    noInLength = 0;
+
+                internalOffset = new Vector2D(
+                    0.5 * (rectLength - noInLength * boxLength)
+                    , 0.5 * (rectWidth - boxWidth));
+            }
+            // insert boxes
             if (noInLength > 0)
             {
                 for (int i = 0; i < noInLength; ++i)
@@ -68,9 +78,11 @@ namespace treeDiM.StackBuilder.Engine
                     AddPosition(layer
                         , offset + internalOffset + new Vector2D(i * boxLength, 0.0)
                         , HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P);
-                    AddPosition(layer
-                        , offset + internalOffset + new Vector2D(i * boxLength, noInWidth * boxLength + boxWidth)
-                        , HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P);
+
+                    if (2 * boxWidth <= rectWidth)
+                        AddPosition(layer
+                            , offset + internalOffset + new Vector2D(i * boxLength, noInWidth * boxLength + boxWidth)
+                            , HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P);
                 }
                 for (int i = 0; i < noInWidth; ++i)
                 {
@@ -89,10 +101,6 @@ namespace treeDiM.StackBuilder.Engine
                         , noInLength * boxLength - 2 * boxWidth, noInWidth * boxLength
                         , boxLength, boxWidth);
                 }
-            else
-            {
-
-            }
         }
     }
 }
