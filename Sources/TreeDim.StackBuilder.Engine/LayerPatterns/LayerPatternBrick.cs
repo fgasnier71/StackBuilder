@@ -25,7 +25,7 @@ namespace treeDiM.StackBuilder.Engine
             double boxWidth = GetBoxWidth(layer);
 
             Vector2D offset = GetOffset(layer, actualLength, actualWidth);
-
+            RecursiveInsertion(layer, offset, actualLength, actualWidth, boxLength, boxWidth);
         }
 
         public override bool GetLayerDimensions(ILayer2D layer, out double layerLength, out double layerWidth)
@@ -61,7 +61,7 @@ namespace treeDiM.StackBuilder.Engine
                 , 0.5 * (rectWidth - noInWidth * boxLength - 2.0 * boxWidth)
                 );
 
-            if (noInLength > 0 && noInWidth > 0)
+            if (noInLength > 0)
             {
                 for (int i = 0; i < noInLength; ++i)
                 {
@@ -78,16 +78,17 @@ namespace treeDiM.StackBuilder.Engine
                         , offset + internalOffset + new Vector2D(boxWidth, boxWidth + i * boxLength)
                         , HalfAxis.HAxis.AXIS_Y_P, HalfAxis.HAxis.AXIS_X_N);
                     AddPosition(layer
-                        , offset + internalOffset + new Vector2D(2 * boxWidth + noInLength * boxLength, boxWidth + i * boxLength)
+                        , offset + internalOffset + new Vector2D(noInLength * boxLength, boxWidth + i * boxLength)
                         , HalfAxis.HAxis.AXIS_Y_P, HalfAxis.HAxis.AXIS_X_N);
                 }
 
                 // new internal rectangle
-                RecursiveInsertion(layer
-                    , offset + internalOffset
-                    , noInLength * boxLength - 2 * boxWidth, noInWidth * boxLength
-                    , boxLength, boxWidth);
-            }
+                if (noInLength > 0 && noInWidth > 0)
+                    RecursiveInsertion(layer
+                        , offset + internalOffset + new Vector2D(boxWidth, boxWidth)
+                        , noInLength * boxLength - 2 * boxWidth, noInWidth * boxLength
+                        , boxLength, boxWidth);
+                }
             else
             {
 
