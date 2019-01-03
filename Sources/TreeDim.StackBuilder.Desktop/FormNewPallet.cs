@@ -45,9 +45,10 @@ namespace treeDiM.StackBuilder.Desktop
             else
             {
                 // set selected item
-                PalletTypeName = Properties.Settings.Default.PalletTypeName;
+                PalletTypeName = Settings.Default.PalletTypeName;
                 OnPalletTypeChanged(this, null);
             }
+            UpdateStatus(string.Empty);
             // set unit labels
             UnitsManager.AdaptUnitLabels(this);
         }
@@ -74,6 +75,10 @@ namespace treeDiM.StackBuilder.Desktop
             Settings.Default.FormNewPalletPosition.Record(this);
             // pallet type name
             Settings.Default.PalletTypeName = PalletTypeName;
+        }
+        public override void UpdateStatus(string message)
+        {
+            base.UpdateStatus(message);
         }
         #endregion
 

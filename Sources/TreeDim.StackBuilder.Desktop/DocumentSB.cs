@@ -411,7 +411,11 @@ namespace treeDiM.StackBuilder.Desktop
         }
         #endregion
 
-        #region Legacy
+        #region Object override
+        public override string ToString()
+        {
+            return Name;
+        }
         #endregion
     }
 }

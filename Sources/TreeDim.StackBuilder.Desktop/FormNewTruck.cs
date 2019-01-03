@@ -125,10 +125,7 @@ namespace treeDiM.StackBuilder.Desktop
         #region Handlers
         public override void UpdateStatus(string message)
         {
-            if (!this.DesignMode)
-            { 
-            }
-            base.UpdateStatus(message);
+           base.UpdateStatus(message);
         }
 
         private void OnTruckPropertyChanged(object sender, EventArgs e)

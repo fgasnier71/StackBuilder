@@ -25,6 +25,4 @@ namespace treeDiM.StackBuilder.Desktop
 
         event EventHandler Modified;
     }
-
-
 }
