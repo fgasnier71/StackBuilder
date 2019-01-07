@@ -33,7 +33,8 @@ namespace Sharp3D.Boxologic
     public class Scrappad
     {
         public Scrappad() { }
-        public Scrappad prev, next;
+        public Scrappad Prev { get; set; }
+        public Scrappad Next { get; set; }
         public decimal Cumx { get; set; }
         public decimal Cumz { get; set; }
     }

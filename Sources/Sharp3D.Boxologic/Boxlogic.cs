@@ -9,7 +9,8 @@ namespace Sharp3D.Boxologic
     public class Boxlogic
     {
         #region Private data members
-        private DateTime _timeStart, _timeStop;
+        private DateTime TimeStart { get; set; }
+        private DateTime TimeStop { get; set; }
         private PalletInfo pallet;
         private List<Cuboid> boxList = new List<Cuboid>();
         private List<Layer> layers = new List<Layer>();
@@ -54,10 +55,10 @@ namespace Sharp3D.Boxologic
             // output file
             fso = new StreamWriter(OutputFilePath, true);
 
-            _timeStart = DateTime.Now;
+            TimeStart = DateTime.Now;
             Initialize();
             Execute_iterations();
-            _timeStop = DateTime.Now;
+            TimeStop = DateTime.Now;
             Report_results(ref solArray);
         }
         private void Initialize()
@@ -85,7 +86,7 @@ namespace Sharp3D.Boxologic
                 foreach (Layer l in layers)
                 {
                     ++number_of_iterations;
-                    double elapsed_time = (DateTime.Now - _timeStart).TotalSeconds;
+                    double elapsed_time = (DateTime.Now - TimeStart).TotalSeconds;
                     Console.WriteLine(
                         string.Format("VARIANT: {0,5:#####}; ITERATION (TOTAL): {1,5:#####}; BEST SO FAR: {2:0.000}; TIME: {3:0.00}"
                             , variant, number_of_iterations, pallet_volume_used_percentage, elapsed_time));
@@ -220,11 +221,11 @@ namespace Sharp3D.Boxologic
         {
             Scrappad scrapmemb = scrapfirst;
             Scrappad sz = scrapfirst;
-            while (null != scrapmemb.next)
+            while (null != scrapmemb.Next)
             {
-                if (scrapmemb.next.Cumz < sz.Cumz)
-                    sz = scrapmemb.next;
-                scrapmemb = scrapmemb.next;
+                if (scrapmemb.Next.Cumz < sz.Cumz)
+                    sz = scrapmemb.Next;
+                scrapmemb = scrapmemb.Next;
             }
             return sz;
         }
@@ -251,7 +252,7 @@ namespace Sharp3D.Boxologic
             {
                 smallestz = Find_smallest_z();
 
-                if (null == smallestz.prev && null == smallestz.next)
+                if (null == smallestz.Prev && null == smallestz.Next)
                 {
                     //*** SITUATION-1: NO BOXES ON THE RIGHT AND LEFT SIDES ***
                     decimal lenx = smallestz.Cumx;
@@ -272,9 +273,9 @@ namespace Sharp3D.Boxologic
                     }
                     else
                     {
-                        smallestz.next = new Scrappad
+                        smallestz.Next = new Scrappad
                         {
-                            prev = smallestz,
+                            Prev = smallestz,
                             Cumx = smallestz.Cumx,
                             Cumz = smallestz.Cumz
                         };
@@ -283,11 +284,11 @@ namespace Sharp3D.Boxologic
                     }
                     VolumeCheck((int)cboxi, cboxx, cboxy, cboxz, packingbest, ref hundredpercent);
                 }
-                else if (null == smallestz.prev)
+                else if (null == smallestz.Prev)
                 {
                     //*** SITUATION-2: NO BOXES ON THE LEFT SIDE ***
                     decimal lenx = smallestz.Cumx;
-                    decimal lenz = smallestz.next.Cumz - smallestz.Cumz;
+                    decimal lenz = smallestz.Next.Cumz - smallestz.Cumz;
                     decimal lpz = remainpz - smallestz.Cumz;
                     Find_box(lenx, layerThickness, remainpy, lenz, lpz
                         , ref cboxi, ref cboxx, ref cboxy, ref cboxz);
@@ -301,15 +302,15 @@ namespace Sharp3D.Boxologic
                     if (cboxx == smallestz.Cumx)
                     {
                         bi.Cox = 0;
-                        if (smallestz.Cumz + cboxz == smallestz.next.Cumz)
+                        if (smallestz.Cumz + cboxz == smallestz.Next.Cumz)
                         {
-                            smallestz.Cumz = smallestz.next.Cumz;
-                            smallestz.Cumx = smallestz.next.Cumx;
-                            trash = smallestz.next;
-                            smallestz.next = smallestz.next.next;
-                            if (null != smallestz.next)
+                            smallestz.Cumz = smallestz.Next.Cumz;
+                            smallestz.Cumx = smallestz.Next.Cumx;
+                            trash = smallestz.Next;
+                            smallestz.Next = smallestz.Next.Next;
+                            if (null != smallestz.Next)
                             {
-                                smallestz.next.prev = smallestz;
+                                smallestz.Next.Prev = smallestz;
                             }
                         }
                         else
@@ -321,30 +322,30 @@ namespace Sharp3D.Boxologic
                     {
                         bi = boxList[(int)cboxi];
                         bi.Cox = smallestz.Cumx - cboxx;
-                        if (smallestz.Cumz + cboxz == smallestz.next.Cumz)
+                        if (smallestz.Cumz + cboxz == smallestz.Next.Cumz)
                         {
                             smallestz.Cumx = smallestz.Cumx - cboxx;
                         }
                         else
                         {
-                            smallestz.next.prev = new Scrappad
+                            smallestz.Next.Prev = new Scrappad
                             {
-                                next = smallestz.next,
-                                prev = smallestz
+                                Next = smallestz.Next,
+                                Prev = smallestz
                             };
-                            smallestz.next = smallestz.next.prev;
-                            smallestz.next.Cumx = smallestz.Cumx;
+                            smallestz.Next = smallestz.Next.Prev;
+                            smallestz.Next.Cumx = smallestz.Cumx;
                             smallestz.Cumx = smallestz.Cumx - cboxx;
-                            smallestz.next.Cumz = smallestz.Cumz + cboxz;
+                            smallestz.Next.Cumz = smallestz.Cumz + cboxz;
                         }
                     }
                     VolumeCheck((int)cboxi, cboxx, cboxy, cboxz, packingbest, ref hundredpercent);
                 }
-                else if (null == smallestz.next)
+                else if (null == smallestz.Next)
                 {
                     //*** SITUATION-3: NO BOXES ON THE RIGHT SIDE ***
-                    decimal lenx = smallestz.Cumx - smallestz.prev.Cumx;
-                    decimal lenz = smallestz.prev.Cumz - smallestz.Cumz;
+                    decimal lenx = smallestz.Cumx - smallestz.Prev.Cumx;
+                    decimal lenz = smallestz.Prev.Cumz - smallestz.Cumz;
                     decimal lpz = remainpz - smallestz.Cumz;
                     Find_box(lenx, layerThickness, remainpy, lenz, lpz
                         , ref cboxi, ref cboxx, ref cboxy, ref cboxz);
@@ -355,14 +356,14 @@ namespace Sharp3D.Boxologic
                     Cuboid bi = boxList[(int)cboxi];
                     bi.Coy = packedy;
                     bi.Coz = smallestz.Cumz;
-                    bi.Cox = smallestz.prev.Cumx;
+                    bi.Cox = smallestz.Prev.Cumx;
 
-                    if (cboxx == smallestz.Cumx - smallestz.prev.Cumx)
+                    if (cboxx == smallestz.Cumx - smallestz.Prev.Cumx)
                     {
-                        if (smallestz.Cumz + cboxz == smallestz.prev.Cumz)
+                        if (smallestz.Cumz + cboxz == smallestz.Prev.Cumz)
                         {
-                            smallestz.prev.Cumx = smallestz.Cumx;
-                            smallestz.prev.next = null;
+                            smallestz.Prev.Cumx = smallestz.Cumx;
+                            smallestz.Prev.Next = null;
                         }
                         else
                         {
@@ -371,30 +372,30 @@ namespace Sharp3D.Boxologic
                     }
                     else
                     {
-                        if (smallestz.Cumz + cboxz == smallestz.prev.Cumz)
+                        if (smallestz.Cumz + cboxz == smallestz.Prev.Cumz)
                         {
-                            smallestz.prev.Cumx = smallestz.prev.Cumx + cboxx;
+                            smallestz.Prev.Cumx = smallestz.Prev.Cumx + cboxx;
                         }
                         else
                         {
-                            smallestz.prev.next = new Scrappad
+                            smallestz.Prev.Next = new Scrappad
                             {
-                                prev = smallestz.prev,
-                                next = smallestz
+                                Prev = smallestz.Prev,
+                                Next = smallestz
                             };
-                            smallestz.prev = smallestz.prev.next;
-                            smallestz.prev.Cumx = smallestz.prev.prev.Cumx + cboxx;
-                            smallestz.prev.Cumz = smallestz.Cumz + cboxz;
+                            smallestz.Prev = smallestz.Prev.Next;
+                            smallestz.Prev.Cumx = smallestz.Prev.Prev.Cumx + cboxx;
+                            smallestz.Prev.Cumz = smallestz.Cumz + cboxz;
                         }
                     }
                     VolumeCheck((int)cboxi, cboxx, cboxy, cboxz, packingbest, ref hundredpercent);
                 }
-                else if (smallestz.prev.Cumz == smallestz.next.Cumz)
+                else if (smallestz.Prev.Cumz == smallestz.Next.Cumz)
                 {
                     //*** SITUATION-4: THERE ARE BOXES ON BOTH OF THE SIDES ***
                     //*** SUBSITUATION-4A: SIDES ARE EQUAL TO EACH OTHER ***
-                    decimal lenx = smallestz.Cumx - smallestz.prev.Cumx;
-                    decimal lenz = smallestz.prev.Cumz - smallestz.Cumz;
+                    decimal lenx = smallestz.Cumx - smallestz.Prev.Cumx;
+                    decimal lenz = smallestz.Prev.Cumz - smallestz.Cumz;
                     decimal lpz = remainpz - smallestz.Cumz;
                     Find_box(lenx, layerThickness, remainpy, lenz, lpz
                         , ref cboxi, ref cboxx, ref cboxy, ref cboxz);
@@ -404,20 +405,20 @@ namespace Sharp3D.Boxologic
 
                     boxList[(int)cboxi].Coy = packedy;
                     boxList[(int)cboxi].Coz = smallestz.Cumz;
-                    if (cboxx == smallestz.Cumx - smallestz.prev.Cumx)
+                    if (cboxx == smallestz.Cumx - smallestz.Prev.Cumx)
                     {
-                        boxList[(int)cboxi].Cox = smallestz.prev.Cumx;
-                        if (smallestz.Cumz + cboxz == smallestz.next.Cumz)
+                        boxList[(int)cboxi].Cox = smallestz.Prev.Cumx;
+                        if (smallestz.Cumz + cboxz == smallestz.Next.Cumz)
                         {
-                            smallestz.prev.Cumx = smallestz.next.Cumx;
-                            if (null != smallestz.next.next)
+                            smallestz.Prev.Cumx = smallestz.Next.Cumx;
+                            if (null != smallestz.Next.Next)
                             {
-                                smallestz.prev.next = smallestz.next.next;
-                                smallestz.next.next.prev = smallestz.prev;
+                                smallestz.Prev.Next = smallestz.Next.Next;
+                                smallestz.Next.Next.Prev = smallestz.Prev;
                             }
                             else
                             {
-                                smallestz.prev.next = null;
+                                smallestz.Prev.Next = null;
                             }
                         }
                         else
@@ -425,44 +426,44 @@ namespace Sharp3D.Boxologic
                             smallestz.Cumz = smallestz.Cumz + cboxz;
                         }
                     }
-                    else if (smallestz.prev.Cumx < pallet.Pallet_x - smallestz.Cumx)
+                    else if (smallestz.Prev.Cumx < pallet.Pallet_x - smallestz.Cumx)
                     {
-                        if (smallestz.Cumz + cboxz == smallestz.prev.Cumz)
+                        if (smallestz.Cumz + cboxz == smallestz.Prev.Cumz)
                         {
                             smallestz.Cumx = smallestz.Cumx - cboxx;
                             boxList[(int)cboxi].Cox = smallestz.Cumx - cboxx;
                         }
                         else
                         {
-                            boxList[(int)cboxi].Cox = smallestz.prev.Cumx;
-                            smallestz.prev.next = new Scrappad
+                            boxList[(int)cboxi].Cox = smallestz.Prev.Cumx;
+                            smallestz.Prev.Next = new Scrappad
                             {
-                                prev = smallestz.prev,
-                                next = smallestz
+                                Prev = smallestz.Prev,
+                                Next = smallestz
                             };
-                            smallestz.prev = smallestz.prev.next;
-                            smallestz.prev.Cumx = smallestz.prev.prev.Cumx + cboxx;
-                            smallestz.prev.Cumz = smallestz.Cumz + cboxz;
+                            smallestz.Prev = smallestz.Prev.Next;
+                            smallestz.Prev.Cumx = smallestz.Prev.Prev.Cumx + cboxx;
+                            smallestz.Prev.Cumz = smallestz.Cumz + cboxz;
                         }
                     }
                     else
                     {
-                        if (smallestz.Cumz + cboxz == smallestz.prev.Cumz)
+                        if (smallestz.Cumz + cboxz == smallestz.Prev.Cumz)
                         {
-                            smallestz.prev.Cumx = smallestz.prev.Cumx + cboxx;
-                            boxList[(int)cboxi].Cox = smallestz.prev.Cumx;
+                            smallestz.Prev.Cumx = smallestz.Prev.Cumx + cboxx;
+                            boxList[(int)cboxi].Cox = smallestz.Prev.Cumx;
                         }
                         else
                         {
                             boxList[(int)cboxi].Cox = smallestz.Cumx - cboxx;
-                            smallestz.next.prev = new Scrappad
+                            smallestz.Next.Prev = new Scrappad
                             {
-                                next = smallestz.next,
-                                prev = smallestz
+                                Next = smallestz.Next,
+                                Prev = smallestz
                             };
-                            smallestz.next = smallestz.next.prev;
-                            smallestz.next.Cumx = smallestz.Cumx;
-                            smallestz.next.Cumz = smallestz.Cumz + cboxz;
+                            smallestz.Next = smallestz.Next.Prev;
+                            smallestz.Next.Cumx = smallestz.Cumx;
+                            smallestz.Next.Cumz = smallestz.Cumz + cboxz;
                             smallestz.Cumx = smallestz.Cumx - cboxx;
                         }
                     }
@@ -472,8 +473,8 @@ namespace Sharp3D.Boxologic
                 {
                     //*** SUBSITUATION-4B: SIDES ARE NOT EQUAL TO EACH OTHER ***
                     //*** SUBSITUATION-4B: SIDES ARE NOT EQUAL TO EACH OTHER ***
-                    decimal lenx = smallestz.Cumx - smallestz.prev.Cumx;
-                    decimal lenz = smallestz.prev.Cumz - smallestz.Cumz;
+                    decimal lenx = smallestz.Cumx - smallestz.Prev.Cumx;
+                    decimal lenz = smallestz.Prev.Cumz - smallestz.Cumz;
                     decimal lpz = remainpz - smallestz.Cumz;
                     Find_box(lenx, layerThickness, remainpy, lenz, lpz
                         , ref cboxi, ref cboxx, ref cboxy, ref cboxz);
@@ -483,14 +484,14 @@ namespace Sharp3D.Boxologic
 
                     boxList[(int)cboxi].Coy = packedy;
                     boxList[(int)cboxi].Coz = smallestz.Cumz;
-                    boxList[(int)cboxi].Cox = smallestz.prev.Cumx;
-                    if (cboxx == smallestz.Cumx - smallestz.prev.Cumx)
+                    boxList[(int)cboxi].Cox = smallestz.Prev.Cumx;
+                    if (cboxx == smallestz.Cumx - smallestz.Prev.Cumx)
                     {
-                        if (smallestz.Cumz + cboxz == smallestz.prev.Cumz)
+                        if (smallestz.Cumz + cboxz == smallestz.Prev.Cumz)
                         {
-                            smallestz.prev.Cumx = smallestz.Cumx;
-                            smallestz.prev.next = smallestz.next;
-                            smallestz.next.prev = smallestz.prev;
+                            smallestz.Prev.Cumx = smallestz.Cumx;
+                            smallestz.Prev.Next = smallestz.Next;
+                            smallestz.Next.Prev = smallestz.Prev;
                         }
                         else
                         {
@@ -499,25 +500,25 @@ namespace Sharp3D.Boxologic
                     }
                     else
                     {
-                        if (smallestz.Cumz + cboxz == smallestz.prev.Cumz)
+                        if (smallestz.Cumz + cboxz == smallestz.Prev.Cumz)
                         {
-                            smallestz.prev.Cumx = smallestz.prev.Cumx + cboxx;
+                            smallestz.Prev.Cumx = smallestz.Prev.Cumx + cboxx;
                         }
-                        else if (smallestz.Cumz + cboxz == smallestz.next.Cumz)
+                        else if (smallestz.Cumz + cboxz == smallestz.Next.Cumz)
                         {
                             boxList[(int)cboxi].Cox = smallestz.Cumx - cboxx;
                             smallestz.Cumx = smallestz.Cumx - cboxx;
                         }
                         else
                         {
-                            smallestz.prev.next = new Scrappad
+                            smallestz.Prev.Next = new Scrappad
                             {
-                                prev = smallestz.prev,
-                                next = smallestz
+                                Prev = smallestz.Prev,
+                                Next = smallestz
                             };
-                            smallestz.prev = smallestz.prev.next;
-                            smallestz.prev.Cumx = smallestz.prev.prev.Cumx + cboxx;
-                            smallestz.prev.Cumz = smallestz.Cumz + cboxz;
+                            smallestz.Prev = smallestz.Prev.Next;
+                            smallestz.Prev.Cumx = smallestz.Prev.Prev.Cumx + cboxx;
+                            smallestz.Prev.Cumz = smallestz.Cumz + cboxz;
                         }
                     }
                     VolumeCheck((int)cboxi, cboxx, cboxy, cboxz, packingbest, ref hundredpercent);
@@ -613,7 +614,7 @@ namespace Sharp3D.Boxologic
             }
             else
             {
-                if ((bboxi >= 0 && 0 != bboxx * bboxy * bboxz) && (layerinlayer > 0 || (null == smallestz.prev && null == smallestz.next)))
+                if ((bboxi >= 0 && 0 != bboxx * bboxy * bboxz) && (layerinlayer > 0 || (null == smallestz.Prev && null == smallestz.Next)))
                 {
                     if (layerinlayer == 0.0M)
                     {
@@ -629,51 +630,51 @@ namespace Sharp3D.Boxologic
                 }
                 else
                 {
-                    if (null == smallestz.prev && null == smallestz.next)
+                    if (null == smallestz.Prev && null == smallestz.Next)
                     {
                         layerdone = true;
                     }
                     else
                     {
                         evened = true;
-                        if (null == smallestz.prev)
+                        if (null == smallestz.Prev)
                         {
-                            trash = smallestz.next;
-                            smallestz.Cumx = smallestz.next.Cumx;
-                            smallestz.Cumz = smallestz.next.Cumz;
-                            smallestz.next = smallestz.next.next;
-                            if (null != smallestz.next)
+                            trash = smallestz.Next;
+                            smallestz.Cumx = smallestz.Next.Cumx;
+                            smallestz.Cumz = smallestz.Next.Cumz;
+                            smallestz.Next = smallestz.Next.Next;
+                            if (null != smallestz.Next)
                             {
-                                smallestz.next.prev = smallestz;
+                                smallestz.Next.Prev = smallestz;
                             }
                             trash = null;
                         }
-                        else if (null == smallestz.next)
+                        else if (null == smallestz.Next)
                         {
-                            smallestz.prev.next = null;
-                            smallestz.prev.Cumx = smallestz.Cumx;
+                            smallestz.Prev.Next = null;
+                            smallestz.Prev.Cumx = smallestz.Cumx;
                             smallestz = null;
                         }
                         else
                         {
-                            if (smallestz.prev.Cumz == smallestz.next.Cumz)
+                            if (smallestz.Prev.Cumz == smallestz.Next.Cumz)
                             {
-                                smallestz.prev.next = smallestz.next.next;
-                                if (null != smallestz.next.next)
+                                smallestz.Prev.Next = smallestz.Next.Next;
+                                if (null != smallestz.Next.Next)
                                 {
-                                    smallestz.next.next.prev = smallestz.prev;
+                                    smallestz.Next.Next.Prev = smallestz.Prev;
                                 }
-                                smallestz.prev.Cumx = smallestz.next.Cumx;
-                                smallestz.next = null;
+                                smallestz.Prev.Cumx = smallestz.Next.Cumx;
+                                smallestz.Next = null;
                                 smallestz = null;
                             }
                             else
                             {
-                                smallestz.prev.next = smallestz.next;
-                                smallestz.next.prev = smallestz.prev;
-                                if (smallestz.prev.Cumz < smallestz.next.Cumz)
+                                smallestz.Prev.Next = smallestz.Next;
+                                smallestz.Next.Prev = smallestz.Prev;
+                                if (smallestz.Prev.Cumz < smallestz.Next.Cumz)
                                 {
-                                    smallestz.prev.Cumx = smallestz.Cumx;
+                                    smallestz.Prev.Cumx = smallestz.Cumx;
                                 }
                                 smallestz = null;
                             }
@@ -871,7 +872,7 @@ namespace Sharp3D.Boxologic
             pallet.Variant = best_variant;
             double packed_box_percentage = (double)best_solution_volume * 100 / (double)total_box_volume;
             pallet_volume_used_percentage = (double)best_solution_volume * 100 / (double)pallet.Vol;
-            double elapsed_time = (_timeStop - _timeStart).TotalMilliseconds * 0.001;
+            double elapsed_time = (TimeStop - TimeStart).TotalMilliseconds * 0.001;
 
             List_candidate_layers(false);
             packedvolume = 0;
