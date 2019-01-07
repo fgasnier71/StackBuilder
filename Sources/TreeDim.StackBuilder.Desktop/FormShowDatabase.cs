@@ -31,7 +31,7 @@ namespace treeDiM.StackBuilder.Desktop
             base.OnLoad(e);
             graphCtrl.DrawingContainer = this;
 
-            bnImport.Enabled = (null != _doc);
+            bnImport.Enabled = FormMain.GetInstance().HasDocuments;
 
             gridPallets.Selection.SelectionChanged += new SourceGrid.RangeRegionChangedEventHandler(OnSelChangeGrid);
             gridPalletCorners.Selection.SelectionChanged += new SourceGrid.RangeRegionChangedEventHandler(OnSelChangeGrid);
@@ -207,9 +207,14 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Public properties
-        public Document Document
+        private Document Document
         {
-            set { _doc = value; }
+            get
+            {
+                if (null == _doc)
+                    _doc = FormMain.GetInstance().ActiveDocumentSB;
+                return _doc;
+            }
         }
         #endregion 
 
@@ -986,7 +991,7 @@ namespace treeDiM.StackBuilder.Desktop
         private void OnImport(object sender, EventArgs e)
         {
             // sanity check
-            if (null == _doc || null == _selectedItem) return;
+            if (null == Document || null == _selectedItem) return;
             // checking name
             string name = _selectedItem.Name;
             if (!GetValidName(ref name)) return; // user exited without entering a valid name
@@ -997,7 +1002,7 @@ namespace treeDiM.StackBuilder.Desktop
                 // pallet
                 if (_selectedItem is DCSBPallet dcsbPallet)
                 {
-                    PalletProperties palletProperties = _doc.CreateNewPallet(
+                    PalletProperties palletProperties = Document.CreateNewPallet(
                         name, dcsbPallet.Description,
                         dcsbPallet.PalletType,
                         UnitsManager.ConvertLengthFrom(dcsbPallet.Dimensions.M0, us),
@@ -1012,7 +1017,7 @@ namespace treeDiM.StackBuilder.Desktop
                 // interlayer
                 if (_selectedItem is DCSBInterlayer dcsbInterlayer)
                 {
-                    InterlayerProperties interlayerProp = _doc.CreateNewInterlayer(
+                    InterlayerProperties interlayerProp = Document.CreateNewInterlayer(
                         name, dcsbInterlayer.Description,
                         UnitsManager.ConvertLengthFrom(dcsbInterlayer.Dimensions.M0, us),
                         UnitsManager.ConvertLengthFrom(dcsbInterlayer.Dimensions.M1, us),
@@ -1030,7 +1035,7 @@ namespace treeDiM.StackBuilder.Desktop
 
                     BoxProperties bProperties = null;
                     if (dcsbCase.IsCase)
-                        bProperties = _doc.CreateNewCase(name, dcsbCase.Description,
+                        bProperties = Document.CreateNewCase(name, dcsbCase.Description,
                             UnitsManager.ConvertLengthFrom(dcsbCase.DimensionsOuter.M0, us),
                             UnitsManager.ConvertLengthFrom(dcsbCase.DimensionsOuter.M1, us),
                             UnitsManager.ConvertLengthFrom(dcsbCase.DimensionsOuter.M2, us),
@@ -1040,7 +1045,7 @@ namespace treeDiM.StackBuilder.Desktop
                             UnitsManager.ConvertMassFrom(dcsbCase.Weight, us),
                             colors);
                     else
-                        bProperties = _doc.CreateNewBox(
+                        bProperties = Document.CreateNewBox(
                             name, dcsbCase.Description,
                             UnitsManager.ConvertLengthFrom(dcsbCase.DimensionsOuter.M0, us),
                             UnitsManager.ConvertLengthFrom(dcsbCase.DimensionsOuter.M1, us),
@@ -1058,7 +1063,7 @@ namespace treeDiM.StackBuilder.Desktop
                 // bundle
                 if (_selectedItem is DCSBBundle dcsbBundle)
                 {
-                    BundleProperties bundle = _doc.CreateNewBundle(name, dcsbBundle.Description,
+                    BundleProperties bundle = Document.CreateNewBundle(name, dcsbBundle.Description,
                         UnitsManager.ConvertLengthFrom(dcsbBundle.DimensionsUnit.M0, us),
                         UnitsManager.ConvertLengthFrom(dcsbBundle.DimensionsUnit.M1, us),
                         UnitsManager.ConvertLengthFrom(dcsbBundle.DimensionsUnit.M2, us),
@@ -1069,7 +1074,7 @@ namespace treeDiM.StackBuilder.Desktop
                 // cylinder
                 if (_selectedItem is DCSBCylinder dcsbCylinder)
                 {
-                    CylinderProperties cylProp = _doc.CreateNewCylinder(
+                    CylinderProperties cylProp = Document.CreateNewCylinder(
                         name, dcsbCylinder.Description,
                         UnitsManager.ConvertLengthFrom(dcsbCylinder.RadiusOuter, us),
                         UnitsManager.ConvertLengthFrom(dcsbCylinder.RadiusInner, us),
@@ -1081,7 +1086,7 @@ namespace treeDiM.StackBuilder.Desktop
                 // trucks
                 if (_selectedItem is DCSBTruck dcsbTruck)
                 {
-                    TruckProperties truckProp = _doc.CreateNewTruck(
+                    TruckProperties truckProp = Document.CreateNewTruck(
                         name, dcsbTruck.Description,
                         UnitsManager.ConvertLengthFrom(dcsbTruck.DimensionsInner.M0, us),
                         UnitsManager.ConvertLengthFrom(dcsbTruck.DimensionsInner.M1, us),
@@ -1093,7 +1098,7 @@ namespace treeDiM.StackBuilder.Desktop
                 // pallet cap
                 if (_selectedItem is DCSBPalletCap dcsbCap)
                 {
-                    PalletCapProperties palletCapProperties = _doc.CreateNewPalletCap(
+                    PalletCapProperties palletCapProperties = Document.CreateNewPalletCap(
                         dcsbCap.Name, dcsbCap.Description,
                         UnitsManager.ConvertLengthFrom(dcsbCap.DimensionsOuter.M0, us),
                         UnitsManager.ConvertLengthFrom(dcsbCap.DimensionsOuter.M1, us),
@@ -1108,7 +1113,7 @@ namespace treeDiM.StackBuilder.Desktop
                 // pallet corner
                 if (_selectedItem is DCSBPalletCorner dcsbPalletCorner)
                 {
-                    PalletCornerProperties palletCornerProperties = _doc.CreateNewPalletCorners(
+                    PalletCornerProperties palletCornerProperties = Document.CreateNewPalletCorners(
                         name, dcsbPalletCorner.Description,
                         UnitsManager.ConvertLengthFrom(dcsbPalletCorner.Length, us),
                         UnitsManager.ConvertLengthFrom(dcsbPalletCorner.Width, us),
@@ -1120,7 +1125,7 @@ namespace treeDiM.StackBuilder.Desktop
                 // pallet film
                 if (_selectedItem is DCSBPalletFilm dcsbPalletFilm)
                 {
-                    PalletFilmProperties palletFilm = _doc.CreateNewPalletFilm(name, dcsbPalletFilm.Description,
+                    PalletFilmProperties palletFilm = Document.CreateNewPalletFilm(name, dcsbPalletFilm.Description,
                         dcsbPalletFilm.UseTransparency, dcsbPalletFilm.UseHatching,
                         dcsbPalletFilm.HatchingSpace, dcsbPalletFilm.HatchingAngle,
                         Color.FromArgb(dcsbPalletFilm.Color));
@@ -1136,10 +1141,10 @@ namespace treeDiM.StackBuilder.Desktop
 
         private bool GetValidName(ref string name)
         {
-            if (_doc.IsValidNewTypeName(name, null))
+            if (Document.IsValidNewTypeName(name, null))
                 return true;
             // not a valid name, show dialog box
-            FormValidTypeName form = new FormValidTypeName(_doc)
+            FormValidTypeName form = new FormValidTypeName(Document)
             {
                 ItemName = name
             };
@@ -1197,11 +1202,7 @@ namespace treeDiM.StackBuilder.Desktop
         private DCSBCylinder[] _cylinders = null;
         private DCSBInterlayer[] _interlayers = null;
         private DCSBTruck[] _trucks = null;
-
-        private Document _doc;
-
+        private DocumentSB _doc = null;
         #endregion
-
-
     }
 }

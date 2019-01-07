@@ -672,7 +672,7 @@ namespace treeDiM.StackBuilder.Desktop
         {
             // form text
             string caption = string.Empty;
-            if (ActiveDocument is DocumentSB doc)
+            if (ActiveDocumentOrFirst is DocumentSB doc)
             {
                 caption += Path.GetFileNameWithoutExtension(doc.FilePath);
                 caption += " - ";
@@ -685,7 +685,7 @@ namespace treeDiM.StackBuilder.Desktop
         /// </summary>
         private void UpdateToolbarState()
         {
-            DocumentSB doc = (DocumentSB)ActiveDocument;
+            DocumentSB doc = FirstDocument;
             // save
             toolStripMenuItemSave.Enabled = (null != doc) && (doc.IsDirty);
             toolStripButtonSave.Enabled = (null != doc) && (doc.IsDirty);
@@ -927,8 +927,9 @@ namespace treeDiM.StackBuilder.Desktop
         /// <summary>
         /// Access list of documents
         /// </summary>
-        public List<IDocument> Documents { get { return _documents; } }
+        public List<IDocument> Documents => _documents;
 
+        public bool HasDocuments => Documents.Count > 0;
         /// <summary>
         /// Get active view based on ActiveMdiChild
         /// </summary>
@@ -954,23 +955,44 @@ namespace treeDiM.StackBuilder.Desktop
                 IView view = ActiveView;
                 if (view != null)
                     return view.Document;
+                else if (_documents.Count == 0)
+                    return null;
                 else if (_documents.Count == 1)
                     return _documents[0];
                 else
                 {
-                    _log.Warn(message: "No active document!");
-                    return null;
+                    // try and disambiguate
+                    IDocument doc = null;
+                    var form = new FormDocDisambiguate() { StartPosition = FormStartPosition.CenterParent };
+                    if (DialogResult.OK == form.ShowDialog())
+                    {
+                        doc = form.Document;
+                    }
+                    if (null != doc)
+                        return doc;
+                    else
+                    {
+                        _log.Warn(message: "No active document!");
+                        return null;
+                    }
                 }
             }
         }
-        public DocumentSB ActiveDocumentDB
+        public DocumentSB ActiveDocumentSB => ActiveDocument as DocumentSB;
+        public DocumentSB FirstDocument => _documents.Count > 0 ? _documents[0] as DocumentSB : null;
+        public DocumentSB ActiveDocumentOrFirst
         {
             get
             {
-                return ActiveDocument as DocumentSB;
+                IView view = ActiveView;
+                if (view != null)
+                    return view.Document as DocumentSB;
+                else if (_documents.Count > 0)
+                    return _documents[0] as DocumentSB;
+                else
+                    return null;
             }
         }
-
         /// <summary>
         /// Returns true if at least one document is dirty
         /// </summary>
@@ -1083,37 +1105,37 @@ namespace treeDiM.StackBuilder.Desktop
         #region Items
         private void ToolAddNewBox(object sender, EventArgs e)
         {
-            try { ((DocumentSB)ActiveDocument).CreateNewBoxUI();    }
+            try { ActiveDocumentSB.CreateNewBoxUI();    }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
         private void ToolAddNewCase(object sender, EventArgs e)
         {
-            try { ((DocumentSB)ActiveDocument).CreateNewCaseUI(); }
+            try { ActiveDocumentSB.CreateNewCaseUI(); }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
         private void ToolAddNewPack(object sender, EventArgs e)
         {
-            try { ((DocumentSB)ActiveDocument).CreateNewPackUI(); }
+            try { ActiveDocumentSB.CreateNewPackUI(); }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
         private void ToolAddNewBundle(object sender, EventArgs e)
         {
-            try { ((DocumentSB)ActiveDocument).CreateNewBundleUI(); }
+            try { ActiveDocumentSB.CreateNewBundleUI(); }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
         private void ToolAddNewCylinder(object sender, EventArgs e)
         {
-            try { ((DocumentSB)ActiveDocument).CreateNewCylinderUI(); }
+            try { ActiveDocumentSB.CreateNewCylinderUI(); }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
          }
         private void ToolAddNewPallet(object sender, EventArgs e)
         {
-            try { ((DocumentSB)ActiveDocument).CreateNewPalletUI(); }
+            try { ActiveDocumentSB.CreateNewPalletUI(); }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
         private void ToolAddNewTruck(object sender, EventArgs e)
         {
-            try { ((DocumentSB)ActiveDocument).CreateNewTruckUI(); }
+            try { ActiveDocumentSB.CreateNewTruckUI(); }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
         #endregion
@@ -1162,47 +1184,47 @@ namespace treeDiM.StackBuilder.Desktop
         }
         private void OnNewAnalysisBoxCase(object sender, EventArgs e)
         {
-            try { ActiveDocumentDB?.CreateNewAnalysisBoxCaseUI(); }
+            try { ActiveDocumentSB?.CreateNewAnalysisBoxCaseUI(); }
             catch (Exception ex){ _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
         private void OnNewAnalysisCylinderCase(object sender, EventArgs e)
         { 
-            try { ActiveDocumentDB?.CreateNewAnalysisCylinderCaseUI(); }
+            try { ActiveDocumentSB?.CreateNewAnalysisCylinderCaseUI(); }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
         private void OnNewAnalysisPalletTruck(object sender, EventArgs e)
         {
-            try { ActiveDocumentDB?.CreateNewAnalysisPalletTruckUI(); }
+            try { ActiveDocumentSB?.CreateNewAnalysisPalletTruckUI(); }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
         private void OnNewAnalysisCasePallet(object sender, EventArgs e)
         {
-            try { ActiveDocumentDB?.CreateNewAnalysisCasePalletUI(); }
+            try { ActiveDocumentSB?.CreateNewAnalysisCasePalletUI(); }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
         private void OnNewAnalysisCylinderPallet(object sender, EventArgs e)
         {
-            try { ActiveDocumentDB?.CreateNewAnalysisCylinderPalletUI(); }
+            try { ActiveDocumentSB?.CreateNewAnalysisCylinderPalletUI(); }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
         private void OnNewAnalysisBoxCasePallet(object sender, EventArgs e)
         {
-            try { ActiveDocumentDB?.CreateNewAnalysisBoxCaseUI(); }
+            try { ActiveDocumentSB?.CreateNewAnalysisBoxCaseUI(); }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
         private void OnNewAnalysisCaseTruck(object sender, EventArgs e)
         {
-            try { ActiveDocumentDB?.CreateNewAnalysisCaseTruckUI(); }
+            try { ActiveDocumentSB?.CreateNewAnalysisCaseTruckUI(); }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
         private void OnNewHAnalysisPallet(object sender, EventArgs e)
         {
-            try { ActiveDocumentDB?.CreateNewHAnalysisPalletUI(); }
+            try { ActiveDocumentSB?.CreateNewHAnalysisPalletUI(); }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
         private void OnNewHAnalysisTruck(object sender, EventArgs e)
         {
-            try { ActiveDocumentDB?.CreateNewHAnalysisTruckUI(); }
+            try { ActiveDocumentSB?.CreateNewHAnalysisTruckUI(); }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
         #endregion
@@ -1212,7 +1234,7 @@ namespace treeDiM.StackBuilder.Desktop
             try
             {
                 // show optimisation form
-                FormOptimizePack form = new FormOptimizePack((DocumentSB)ActiveDocument);
+                FormOptimizePack form = new FormOptimizePack(ActiveDocumentSB);
                 form.ShowDialog();
             }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
@@ -1223,7 +1245,7 @@ namespace treeDiM.StackBuilder.Desktop
             {
                 FormOptimiseMultiCase form = new FormOptimiseMultiCase()
                 {
-                    Document = (DocumentSB)ActiveDocument
+                    Document = ActiveDocumentSB
                 };
                 form.ShowDialog();
             }
@@ -1238,10 +1260,7 @@ namespace treeDiM.StackBuilder.Desktop
                 if (Program.UseDisconnected)
                     return;
                 // Form show database
-                FormShowDatabase form = new FormShowDatabase()
-                {
-                    Document = ActiveDocument as Document
-                };
+                var form = new FormShowDatabase();
                 form.ShowDialog();
                 // update toolbar state as database may now be empty
                 UpdateToolbarState();
@@ -1262,7 +1281,7 @@ namespace treeDiM.StackBuilder.Desktop
         {
             try
             {
-                DocumentSB doc = ActiveDocument as DocumentSB;
+                DocumentSB doc = ActiveDocumentSB;
                 if (null == doc) return;
                 FormExcelLibrary form = new FormExcelLibrary(doc);
                 form.ShowDialog();
@@ -1351,8 +1370,7 @@ namespace treeDiM.StackBuilder.Desktop
             foreach (IDocument doc in Documents)
                 foreach (IView view in doc.Views)
                 {
-                    DockContentECTAnalysis form = view as DockContentECTAnalysis;
-                    if (null == form) continue;
+                    if (!(view is DockContentECTAnalysis form)) continue;
                     if (analysis == form.ECTAnalysis)
                     {
                         form.Activate();
@@ -1366,7 +1384,7 @@ namespace treeDiM.StackBuilder.Desktop
             // instantiate form
             DockContentECTAnalysis formECTAnalysis = parentDocument.CreateECTAnalysisView(analysis);
             // show docked
-            formECTAnalysis.Show(dockPanel, WeifenLuo.WinFormsUI.Docking.DockState.Document);
+            formECTAnalysis.Show(dockPanel, DockState.Document);
         }
         #endregion
 
