@@ -15,7 +15,7 @@ namespace treeDiM.StackBuilder.Engine
         #region Data members
         private HCylinderPalletAnalysis _analysis;
         private HCylinderPalletSolution _solution;
-        private List<Analysis> _truckAnalyses = new List<Analysis>();
+        private List<AnalysisHomo> _truckAnalyses = new List<AnalysisHomo>();
         #endregion
 
         #region Constructor

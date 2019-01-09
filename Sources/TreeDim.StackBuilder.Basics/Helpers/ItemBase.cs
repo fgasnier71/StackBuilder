@@ -43,9 +43,9 @@ namespace treeDiM.StackBuilder.Basics
         public virtual void AddDependancy(ItemBase dependancy)
         {
             // if analysis is temporary, do not record dependancy
-            if (dependancy is Analysis analysis && analysis.Temporary)
+            if (dependancy is AnalysisHomo analysis && analysis.Temporary)
                 return;
-            if (dependancy is HAnalysis hAnalysis && hAnalysis.Temporary)
+            if (dependancy is AnalysisHetero hAnalysis && hAnalysis.Temporary)
                 return;
             // check if dependancy already recorded
             if (_dependancies.Contains(dependancy))

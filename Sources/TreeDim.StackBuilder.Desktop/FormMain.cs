@@ -579,19 +579,8 @@ namespace treeDiM.StackBuilder.Desktop
                 _log.Error(ex.ToString()); Program.SendCrashReport(ex);
             }
         }
-        public void GenerateReport(HAnalysis analysis)
-        {
-            try
-            {
 
-            }
-            catch (Exception ex)
-            {
-                _log.Error(ex.ToString());
-            }
-        }
-
-        public void GenerateExport(Analysis analysis, string extension)
+        public void GenerateExport(AnalysisHomo analysis, string extension)
         {
             try
             {
@@ -625,7 +614,7 @@ namespace treeDiM.StackBuilder.Desktop
             }
         }
 
-        public void GenerateExport(HAnalysis analysis, string extension)
+        public void GenerateExport(AnalysisHetero analysis, string extension)
         {
             try
             {
@@ -1012,10 +1001,10 @@ namespace treeDiM.StackBuilder.Desktop
         // new
         public void OnNewDocument(Document doc) { doc.DocumentClosed += OnDocumentClosed; }
         public void OnNewTypeCreated(Document doc, ItemBase itemBase) { }
-        public void OnNewAnalysisCreated(Document doc, Analysis analysis) => CreateOrActivateViewAnalysis(analysis);
-        public void OnAnalysisUpdated(Document doc, Analysis analysis) => CreateOrActivateViewAnalysis(analysis);
-        public void OnNewAnalysisCreated(Document doc, HAnalysis analysis) => CreateOrActivateViewHAnalysis(analysis);
-        public void OnAnalysisUpdated(Document doc, HAnalysis analysis) =>  CreateOrActivateViewHAnalysis(analysis);
+        public void OnNewAnalysisCreated(Document doc, AnalysisHomo analysis) => CreateOrActivateViewAnalysis(analysis);
+        public void OnAnalysisUpdated(Document doc, AnalysisHomo analysis) => CreateOrActivateViewAnalysis(analysis);
+        public void OnNewAnalysisCreated(Document doc, AnalysisHetero analysis) => CreateOrActivateViewHAnalysis(analysis);
+        public void OnAnalysisUpdated(Document doc, AnalysisHetero analysis) =>  CreateOrActivateViewHAnalysis(analysis);
         public void OnNewECTAnalysisCreated(Document doc) {  }
         // remove
         public void OnTypeRemoved(Document doc, ItemBase itemBase) { }
@@ -1310,7 +1299,7 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Form activation/creation
-        public void CreateOrActivateViewAnalysis(Analysis analysis)
+        public void CreateOrActivateViewAnalysis(AnalysisHomo analysis)
         { 
             AnalysisPalletTruck analysisPalletTruck = analysis as AnalysisPalletTruck;
             // ---> search among existing views
@@ -1340,7 +1329,7 @@ namespace treeDiM.StackBuilder.Desktop
             if (null != formAnalysis)
                 formAnalysis.Show(dockPanel, DockState.Document);
         }
-        public void CreateOrActivateViewHAnalysis(HAnalysis analysis)
+        public void CreateOrActivateViewHAnalysis(AnalysisHetero analysis)
         {
             // ---> search among existing views
             // ---> activate if found

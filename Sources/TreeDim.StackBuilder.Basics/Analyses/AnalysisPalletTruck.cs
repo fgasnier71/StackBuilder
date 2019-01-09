@@ -3,7 +3,7 @@ using log4net;
 
 namespace treeDiM.StackBuilder.Basics
 {
-    public class AnalysisPalletTruck : Analysis
+    public class AnalysisPalletTruck : AnalysisHomo
     {
         public AnalysisPalletTruck(
             Packable packable,

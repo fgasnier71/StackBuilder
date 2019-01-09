@@ -46,7 +46,7 @@ namespace treeDiM.StackBuilder.Exporters
         #region Export
         public override string Filter => "Collada (*.dae) | *.dae";
         public override string Extension => "dae";
-        public override void Export(Analysis analysis, string filePath)
+        public override void Export(AnalysisHomo analysis, string filePath)
         {
             /*
             PalletProperties palletProperties = _palletSolution.Analysis.PalletProperties;

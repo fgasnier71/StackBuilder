@@ -13,7 +13,7 @@ namespace treeDiM.StackBuilder.Desktop
     {
         #region Data members
         protected Document _document;
-        protected Analysis _item;
+        protected AnalysisHomo _item;
         #endregion
 
         #region Constructors
@@ -21,7 +21,7 @@ namespace treeDiM.StackBuilder.Desktop
         {
             InitializeComponent();
         }
-        public FormNewAnalysis(Document document, Analysis item)
+        public FormNewAnalysis(Document document, AnalysisHomo item)
         {
             InitializeComponent();
 
@@ -99,7 +99,7 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Public properties
-        public Analysis AnalysisBase
+        public AnalysisHomo AnalysisBase
         {
             get { return _item; }
             set { _item = value; }

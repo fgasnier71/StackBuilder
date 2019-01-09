@@ -362,10 +362,10 @@ namespace treeDiM.StackBuilder.ABYATExcelLoader
                 constraintSet.SetMaxHeight(new OptDouble(true, PalletMaximumHeight));
 
                 SolverCasePallet solver = new SolverCasePallet(bProperties, PalletProperties);
-                List<Analysis> analyses = solver.BuildAnalyses(constraintSet, false);
+                List<AnalysisHomo> analyses = solver.BuildAnalyses(constraintSet, false);
                 if (analyses.Count > 0)
                 {
-                    Analysis analysis = analyses[0];
+                    AnalysisHomo analysis = analyses[0];
                     stackCount = analysis.Solution.ItemCount;
                     stackWeight = analysis.Solution.Weight;
 
@@ -400,10 +400,10 @@ namespace treeDiM.StackBuilder.ABYATExcelLoader
                 constraintSet.SetAllowedOrientations(AllowedCaseOrientations);
 
                 SolverBoxCase solver = new SolverBoxCase(bProperties, container);
-                List<Analysis> analyses = solver.BuildAnalyses(constraintSet, false);
+                List<AnalysisHomo> analyses = solver.BuildAnalyses(constraintSet, false);
                 if (analyses.Count > 0)
                 {
-                    Analysis analysis = analyses[0];
+                    AnalysisHomo analysis = analyses[0];
                     stackCount = analysis.Solution.ItemCount;
                     stackWeight = analysis.Solution.Weight;
 

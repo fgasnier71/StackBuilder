@@ -479,11 +479,11 @@ namespace treeDiM.StackBuilder.WCFAppServ
             {
                 // use a solver and get a list of sorted analyses + select the best one
                 SolverCasePallet solver = new SolverCasePallet(packableProperties, palletProperties);
-                List<Analysis> analyses = solver.BuildAnalyses(constraintSet, allowMultipleLayerOrientations);
+                List<AnalysisHomo> analyses = solver.BuildAnalyses(constraintSet, allowMultipleLayerOrientations);
                 if (analyses.Count > 0)
                 {
                     // first solution
-                    Analysis analysis = analyses[0];
+                    AnalysisHomo analysis = analyses[0];
                     layerCount = analysis.Solution.LayerCount;
                     caseCount = analysis.Solution.ItemCount;
                     interlayerCount = analysis.Solution.LayerCount;
@@ -548,10 +548,10 @@ namespace treeDiM.StackBuilder.WCFAppServ
             try
             {
                 SolverBoxCase solver = new SolverBoxCase(packableProperties, caseProperties);
-                List<Analysis> analyses = solver.BuildAnalyses(constraintSet, allowMultipleLayerOrientations);
+                List<AnalysisHomo> analyses = solver.BuildAnalyses(constraintSet, allowMultipleLayerOrientations);
                 if (analyses.Count > 0)
                 {
-                    Analysis analysis = analyses[0];
+                    AnalysisHomo analysis = analyses[0];
                     layerCount = analysis.Solution.LayerCount;
                     caseCount = analysis.Solution.ItemCount;
                     interlayerCount = analysis.Solution.LayerCount;

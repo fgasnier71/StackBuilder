@@ -1308,6 +1308,15 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Items.
+        /// </summary>
+        internal static string ID_ITEMS {
+            get {
+                return ResourceManager.GetString("ID_ITEMS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Layer.
         /// </summary>
         internal static string ID_LAYER {
@@ -1767,6 +1776,15 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Pallet #{0}.
+        /// </summary>
+        internal static string ID_PALLET_NUMBER {
+            get {
+                return ResourceManager.GetString("ID_PALLET_NUMBER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cap.
         /// </summary>
         internal static string ID_PALLETCAP {
@@ -1826,6 +1844,15 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         internal static string ID_PALLETCOUNT {
             get {
                 return ResourceManager.GetString("ID_PALLETCOUNT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pallet data.
+        /// </summary>
+        internal static string ID_PALLETDATA {
+            get {
+                return ResourceManager.GetString("ID_PALLETDATA", resourceCulture);
             }
         }
         
@@ -1909,6 +1936,15 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         internal static string ID_PALLETWEIGHT {
             get {
                 return ResourceManager.GetString("ID_PALLETWEIGHT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pallet weight.
+        /// </summary>
+        internal static string ID_PALLETWEIGHT_WU {
+            get {
+                return ResourceManager.GetString("ID_PALLETWEIGHT_WU", resourceCulture);
             }
         }
         

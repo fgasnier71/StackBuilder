@@ -5,7 +5,7 @@ using Sharp3D.Math.Core;
 
 namespace treeDiM.StackBuilder.Basics
 {
-    public abstract class AnalysisPackableCase : Analysis
+    public abstract class AnalysisPackableCase : AnalysisHomo
     {
         public BoxProperties CaseProperties
         {

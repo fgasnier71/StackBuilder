@@ -102,7 +102,7 @@ namespace treeDiM.StackBuilder.Graphics
 
         #region Data
         public HSolution Solution { get; set; }
-        public HAnalysis Analysis => Solution.Analysis;
+        public AnalysisHetero Analysis => Solution.Analysis;
         public int SolItemIndex { get; set; } = 0;
         #endregion
     }

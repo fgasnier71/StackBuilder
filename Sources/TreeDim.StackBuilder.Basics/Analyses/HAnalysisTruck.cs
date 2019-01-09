@@ -4,7 +4,7 @@ using Sharp3D.Math.Core;
 
 namespace treeDiM.StackBuilder.Basics
 {
-    public class HAnalysisTruck : HAnalysis
+    public class HAnalysisTruck : AnalysisHetero
     {
         #region Constructor
         public HAnalysisTruck(Document doc) : base(doc)
@@ -24,7 +24,6 @@ namespace treeDiM.StackBuilder.Basics
                 ? truckProperties.BoundingBox
                 : BBox3D.Initial;
         }
-
         public override Vector3D DimContainer(int index)
         {
             if (index < _containers.Count && _containers[index] is TruckProperties truckProperties)
@@ -32,7 +31,7 @@ namespace treeDiM.StackBuilder.Basics
             else
                 return Vector3D.Zero;
         }
-
+        public override double WeightContainer(int index) => 0.0;
         public override Vector3D Offset(int index)
         {
             return Vector3D.Zero;

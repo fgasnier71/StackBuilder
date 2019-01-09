@@ -22,7 +22,7 @@ namespace treeDiM.StackBuilder.Desktop
         {
             InitializeComponent();
         }
-        public FormNewHAnalysis(Document doc, HAnalysis analysis)
+        public FormNewHAnalysis(Document doc, AnalysisHetero analysis)
         {
             InitializeComponent();
             _document = doc;
@@ -434,7 +434,7 @@ namespace treeDiM.StackBuilder.Desktop
             }
         }
         protected virtual void CreateNewAnalysis() {}
-        protected virtual HAnalysis IntantiateTempAnalysis() { return null; }
+        protected virtual AnalysisHetero IntantiateTempAnalysis() { return null; }
 
         private bool UseTempAnalysis { get; set; }
         protected List<HSolution> Solutions { get; set; } = new List<HSolution>();
@@ -442,7 +442,7 @@ namespace treeDiM.StackBuilder.Desktop
 
         #region Data members
         protected Document _document;
-        protected HAnalysis _analysis;
+        protected AnalysisHetero _analysis;
         protected List<ContentItem> _contentItems;
         protected static ILog _log = LogManager.GetLogger(typeof(FormNewHAnalysis));
         protected List<BoxProperties> lBoxes = new List<BoxProperties>();

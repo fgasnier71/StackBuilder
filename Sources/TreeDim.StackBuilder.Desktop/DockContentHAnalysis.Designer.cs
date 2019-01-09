@@ -72,7 +72,6 @@
             // toolStripButtonBack
             // 
             this.toolStripButtonBack.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonBack.Enabled = false;
             this.toolStripButtonBack.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonBack.Image")));
             this.toolStripButtonBack.ImageTransparentColor = System.Drawing.Color.White;
             this.toolStripButtonBack.Name = "toolStripButtonBack";
@@ -88,7 +87,6 @@
             // toolStripButtonReport
             // 
             this.toolStripButtonReport.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonReport.Enabled = false;
             this.toolStripButtonReport.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonReport.Image")));
             this.toolStripButtonReport.ImageTransparentColor = System.Drawing.Color.White;
             this.toolStripButtonReport.Name = "toolStripButtonReport";
@@ -177,6 +175,7 @@
             this.bnSolItemIndexUp.TabIndex = 2;
             this.bnSolItemIndexUp.Text = "+";
             this.bnSolItemIndexUp.UseVisualStyleBackColor = true;
+            this.bnSolItemIndexUp.Click += new System.EventHandler(this.OnSolItemIndexUp);
             // 
             // lbSolItemIndex
             // 

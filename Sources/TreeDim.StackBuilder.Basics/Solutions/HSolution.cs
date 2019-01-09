@@ -15,7 +15,7 @@ namespace treeDiM.StackBuilder.Basics
         public HSolution(string algo) { Algorithm = algo; }
         public IEnumerable<HSolItem> SolItems { get => hSolItems; }
         public IEnumerable<HUnloadedElt> UnloadedElts { get => hUnloadedElts; }
-        public HAnalysis Analysis { get; set; }
+        public AnalysisHetero Analysis { get; set; }
         public HSolItem CreateSolItem() { hSolItems.Add(new HSolItem()); return hSolItems[hSolItems.Count - 1]; }
         public string Algorithm { get; private set; } = string.Empty;
         public int LoadedCasesCount
@@ -67,8 +67,18 @@ namespace treeDiM.StackBuilder.Basics
         {
             return SolItem(solItemIndex).BBox(this);
         }
+        public virtual double LoadWeight(int solItemIndex)
+        {
+            return SolItem(solItemIndex).LoadWeight(this);
+        }
+        public virtual double Weight(int solItemIndex)
+        {
+            return LoadWeight(solItemIndex) + Analysis.WeightContainer(solItemIndex);
+        }
+        #region Data members
         private readonly List<HSolItem> hSolItems = new List<HSolItem>();
         private readonly List<HUnloadedElt> hUnloadedElts = new List<HUnloadedElt>();
+        #endregion
     }
     /// <summary>
     /// Heterogeneous solution item
@@ -83,16 +93,35 @@ namespace treeDiM.StackBuilder.Basics
             hSolElt.Add(new HSolElement() { ContentType = contentType, Position = bPosition });
         }
         public int Count => hSolElt.Count;
-        public Vector3D LoadDimensions { get; set; }
-        public Vector3D TotalDimensions { get; set; }
         public BBox3D BBox(HSolution sol)
         {
-            HAnalysis analysis = sol.Analysis;
+            AnalysisHetero analysis = sol.Analysis;
             BBox3D bbox = new BBox3D();
             foreach (var solElt in ContainedElements)
                 bbox.Extend(solElt.Position.BBox(analysis.ContentTypeByIndex(solElt.ContentType).OuterDimensions));
             return bbox;
         }
+        public double LoadWeight(HSolution sol)
+        {
+            AnalysisHetero analysis = sol.Analysis;
+            return ContainedElements.Sum(item => analysis.ContentTypeByIndex(item.ContentType).Weight);
+        }
+        public Dictionary<int, int> SolutionItems
+        {
+            get
+            {
+                var solutionItems = new Dictionary<int, int>();
+                foreach (var solElt in ContainedElements)
+                {
+                    int no = 0;
+                    if (solutionItems.Keys.Contains(solElt.ContentType))
+                        no = solutionItems[solElt.ContentType];
+                    solutionItems[solElt.ContentType] = no + 1;
+                }
+                return solutionItems;
+            }
+        }
+      
         private readonly List<HSolElement> hSolElt = new List<HSolElement>();
     }
     /// <summary>

@@ -29,11 +29,11 @@ namespace treeDiM.StackBuilder.GUIExtension
         #region Data members
         private static ILog _log = LogManager.GetLogger(typeof(FormBrowseSolution));
         private Document _doc;
-        private Analysis _analysis;
+        private AnalysisHomo _analysis;
         #endregion
 
         #region Constructor
-        public FormBrowseSolution(Document doc, Analysis analysis)
+        public FormBrowseSolution(Document doc, AnalysisHomo analysis)
         {
             InitializeComponent();
 

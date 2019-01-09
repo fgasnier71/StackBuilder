@@ -123,6 +123,7 @@
           </tr>
         </table>
         <xsl:apply-templates select="analysis"/>
+        <xsl:apply-templates select="hAnalysis"/>
       </body>
     </html>
   </xsl:template>
@@ -158,6 +159,27 @@
     <xsl:apply-templates select="palletFilm"/>
     <xsl:apply-templates select="constraintSet"/>
     <xsl:apply-templates select="solution"/>
+  </xsl:template>
+  <!--#### HANALYSIS ####-->
+  <xsl:template match="hAnalysis">
+     <h2>
+      <xsl:value-of select="$loc/str[@name='hAnalysis']"/>: <xsl:value-of select="name"/>
+    </h2>
+    <table class="style1" cellpadding="3">
+            <xsl:if test="description">
+        <tr>
+          <td class="style2" colspan="1">
+            <b>
+              <xsl:value-of select="$loc/str[@name='Description']"/>
+            </b>
+          </td>
+          <td class="style3" colspan="2">
+            <xsl:value-of select="description"/>
+          </td>
+        </tr>
+      </xsl:if>
+    </table>
+  <xsl:apply-templates select="hSolution"/>
   </xsl:template>
   <!--#### ECTANALYSIS ####-->
   <xsl:template match="ectAnalysis">

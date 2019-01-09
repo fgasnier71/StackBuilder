@@ -26,7 +26,7 @@ namespace treeDiM.StackBuilder.Basics
         public abstract bool IsBrick { get; }
         public bool IsCylinder => !IsBrick;
 
-        public virtual bool InnerAnalysis(ref Analysis analysis)
+        public virtual bool InnerAnalysis(ref AnalysisHomo analysis)
         {
             analysis = null;
             return false;

@@ -2,9 +2,9 @@
 using System;
 using System.Windows.Forms;
 using System.Drawing;
+using System.Globalization;
 
 using log4net;
-
 using Sharp3D.Math.Core;
 
 using treeDiM.StackBuilder.Basics;
@@ -22,7 +22,7 @@ namespace treeDiM.StackBuilder.Desktop
         {
             InitializeComponent();
         }
-        public DockContentHAnalysis(IDocument document, HAnalysis analysis)
+        public DockContentHAnalysis(IDocument document, AnalysisHetero analysis)
             : base(document)
         {
             Analysis = analysis;
@@ -80,7 +80,7 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Public properties
-        public HAnalysis Analysis { get; set; } = null;
+        public AnalysisHetero Analysis { get; set; } = null;
         public HSolution Solution { get; set; }
         #endregion
         #region Protected properties
@@ -99,62 +99,173 @@ namespace treeDiM.StackBuilder.Desktop
             // border
             gridSolutions.BorderStyle = BorderStyle.FixedSingle;
             gridSolutions.ColumnsCount = 2;
+            gridSolutions.Columns[0].Width = 100;
             gridSolutions.FixedColumns = 1;
         }
         public virtual void UpdateGrid()
         {
             try
             {
+                // sanity check
+                if (gridSolutions.ColumnsCount < 2)
+                    return;
                 // remove all existing rows
                 gridSolutions.Rows.Clear();
                 // *** IViews
                 // caption header
-                SourceGrid.Cells.Views.RowHeader captionHeader = new SourceGrid.Cells.Views.RowHeader();
                 DevAge.Drawing.VisualElements.RowHeader veHeaderCaption = new DevAge.Drawing.VisualElements.RowHeader()
                 {
                     BackColor = Color.SteelBlue,
                     Border = DevAge.Drawing.RectangleBorder.NoBorder
                 };
-                captionHeader.Background = veHeaderCaption;
-                captionHeader.ForeColor = Color.Black;
-                captionHeader.Font = new Font("Arial", GridFontSize, FontStyle.Bold);
-                captionHeader.TextAlignment = DevAge.Drawing.ContentAlignment.MiddleCenter;
+                SourceGrid.Cells.Views.RowHeader captionHeader = new SourceGrid.Cells.Views.RowHeader
+                {
+                    Background = veHeaderCaption,
+                    ForeColor = Color.Black,
+                    Font = new Font("Arial", GridFontSize+2, FontStyle.Bold),
+                    TextAlignment = DevAge.Drawing.ContentAlignment.MiddleCenter
+                };
+                SourceGrid.Cells.Views.RowHeader captionHeader2 = new SourceGrid.Cells.Views.RowHeader
+                {
+                    Background = veHeaderCaption,
+                    ForeColor = Color.Black,
+                    Font = new Font("Arial", GridFontSize, FontStyle.Regular),
+                    TextAlignment = DevAge.Drawing.ContentAlignment.MiddleCenter
+                };
                 // viewRowHeader
-                SourceGrid.Cells.Views.RowHeader viewRowHeader = new SourceGrid.Cells.Views.RowHeader();
                 DevAge.Drawing.VisualElements.RowHeader backHeader = new DevAge.Drawing.VisualElements.RowHeader()
                 {
                     BackColor = Color.LightGray,
                     Border = DevAge.Drawing.RectangleBorder.NoBorder
                 };
-                viewRowHeader.Background = backHeader;
-                viewRowHeader.ForeColor = Color.Black;
-                viewRowHeader.Font = new Font("Arial", GridFontSize, FontStyle.Regular);
+                SourceGrid.Cells.Views.RowHeader viewRowHeader = new SourceGrid.Cells.Views.RowHeader
+                {
+                    Background = backHeader,
+                    ForeColor = Color.Black,
+                    Font = new Font("Arial", GridFontSize, FontStyle.Regular)
+                };
                 // viewNormal
                 CellBackColorAlternate viewNormal = new CellBackColorAlternate(Color.LightBlue, Color.White);
                 // ***
 
-                SourceGrid.Cells.RowHeader rowHeader;
                 int iRow = -1;
-
-                // loading caption
-                gridSolutions.Rows.Insert(++iRow);
-                rowHeader = new SourceGrid.Cells.RowHeader(GridCaption)
+                // ### sol items : begin
+                int solItemIndex = 0;
+                foreach (var solItem in Solution.SolItems)
                 {
-                    ColumnSpan = 2,
-                    View = captionHeader
-                };
-                gridSolutions[iRow, 0] = rowHeader;
+                    gridSolutions.Rows.Insert(++iRow);
+                    var rowHeader = new SourceGrid.Cells.RowHeader(string.Format(Resources.ID_PALLET_NUMBER, solItemIndex))
+                    {
+                        ColumnSpan = 2,
+                        View = captionHeader
+                    };
+                    gridSolutions[iRow, 0] = rowHeader;
+
+                    gridSolutions.Rows.Insert(++iRow);
+                    rowHeader = new SourceGrid.Cells.RowHeader(Resources.ID_ITEMS)
+                    {
+                        ColumnSpan = 2,
+                        View = captionHeader2
+                    };
+                    gridSolutions[iRow, 0] = rowHeader;
+
+                    var dictNameCount = solItem.SolutionItems;
+                    foreach (int containedItemIndex in dictNameCount.Keys)
+                    {
+                        // name
+                        string name = string.Empty;
+                        if (Analysis.ContentTypeByIndex(containedItemIndex) is Packable packable)
+                            name = packable.Name;
+                        // count
+                        int count = dictNameCount[containedItemIndex];
+
+                        if (count > 0)
+                        {
+                            gridSolutions.Rows.Insert(++iRow);
+                            var itemHeader = new SourceGrid.Cells.RowHeader(name)
+                            {
+                                View = viewRowHeader
+                            };
+                            gridSolutions[iRow, 0] = itemHeader;
+                            gridSolutions[iRow, 1] = new SourceGrid.Cells.Cell(string.Format("{0}", count));
+                        }
+                    }
+
+                    // pallet data header
+                    gridSolutions.Rows.Insert(++iRow);
+                    rowHeader = new SourceGrid.Cells.RowHeader(Resources.ID_PALLETDATA)
+                    {
+                        ColumnSpan = 2,
+                        View = captionHeader2
+                    };
+                    gridSolutions[iRow, 0] = rowHeader;
+                    // ***
+                    // outer dimensions
+                    BBox3D bboxGlobal = Solution.BBoxGlobal(solItemIndex);
+                    // ---
+                    gridSolutions.Rows.Insert(++iRow);
+                    rowHeader = new SourceGrid.Cells.RowHeader(
+                        string.Format(Resources.ID_OUTERDIMENSIONS, UnitsManager.LengthUnitString))
+                    {
+                        View = viewRowHeader
+                    };
+                    gridSolutions[iRow, 0] = rowHeader;
+                    gridSolutions[iRow, 1] = new SourceGrid.Cells.Cell(
+                        string.Format(CultureInfo.InvariantCulture
+                        , "{0:0.#} x {1:0.#} x {2:0.#}"
+                        , bboxGlobal.Length, bboxGlobal.Width, bboxGlobal.Height));
+                    // load dimensions
+                    BBox3D bboxLoad = Solution.BBoxLoad(solItemIndex);
+                    gridSolutions.Rows.Insert(++iRow);
+                    rowHeader = new SourceGrid.Cells.RowHeader(
+                        string.Format(Resources.ID_LOADDIMENSIONS, UnitsManager.LengthUnitString))
+                    {
+                        View = viewRowHeader
+                    };
+                    gridSolutions[iRow, 0] = rowHeader;
+                    gridSolutions[iRow, 1] = new SourceGrid.Cells.Cell(
+                        string.Format(CultureInfo.InvariantCulture
+                        , "{0:0.#} x {1:0.#} x {2:0.#}"
+                        , bboxLoad.Length, bboxLoad.Width, bboxLoad.Height));
+                    // ***
+                    // ***
+                    // load weight
+                    gridSolutions.Rows.Insert(++iRow);
+                    rowHeader = new SourceGrid.Cells.RowHeader(
+                        string.Format(Resources.ID_LOADWEIGHT_WU, UnitsManager.MassUnitString))
+                    {
+                        View = viewRowHeader
+                    };
+                    gridSolutions[iRow, 0] = rowHeader;
+                    gridSolutions[iRow, 1] = new SourceGrid.Cells.Cell(
+                        string.Format(CultureInfo.InvariantCulture, "{0:0.#}", Solution.LoadWeight(solItemIndex)));
+
+                    // total weight
+                    gridSolutions.Rows.Insert(++iRow);
+                    rowHeader = new SourceGrid.Cells.RowHeader(
+                        string.Format(Resources.ID_PALLETWEIGHT_WU, UnitsManager.MassUnitString))
+                    {
+                        View = viewRowHeader
+                    };
+                    gridSolutions[iRow, 0] = rowHeader;
+                    gridSolutions[iRow, 1] = new SourceGrid.Cells.Cell(
+                        string.Format(CultureInfo.InvariantCulture
+                        , "{0:0.#}"
+                        , Solution.Weight(solItemIndex)));
+                    // ***
+                    // increment sol item index
+                    ++solItemIndex;
+                }
+                // ### sol items : end
+                gridSolutions.AutoSizeCells();
+                gridSolutions.AutoStretchColumnsToFitWidth = true;
+                gridSolutions.Invalidate();
             }
             catch (Exception ex)
             {
                 _log.Error(ex.ToString());
             }
         }
-        #endregion
-
-        #region Data members
-        protected HSolution _solution;
-        private static ILog _log = LogManager.GetLogger(typeof(DockContentHAnalysis));
         #endregion
 
         #region Event handlers
@@ -190,13 +301,10 @@ namespace treeDiM.StackBuilder.Desktop
         }
         private void OnBack(object sender, EventArgs e)
         {
-            try
-            {
-            }
-            catch (Exception ex)
-            {
-                _log.Error(ex.ToString());
-            }
+            // close this form
+            Close();
+            // call edit analysis
+            Document.EditAnalysis(Solution.Analysis);
         }
         private void OnGenerateReport(object sender, EventArgs e)
         {
@@ -204,23 +312,29 @@ namespace treeDiM.StackBuilder.Desktop
         }
         private void OnGenerateExport(object sender, EventArgs e)
         {
-                ToolStripButton tsb = sender as ToolStripButton;
-                string extension = string.Empty;
-                switch (tsb.Name)
-                {
-                    case "toolStripButtonExportXML": extension = "xml"; break;
-                    case "toolStripButtonExportCSV": extension = "csv"; break;
-                    case "toolStripButtonExportDAE": extension = "dae"; break;
-                    default: break;
-                }
-                FormMain.GetInstance().GenerateExport(Analysis, extension);
+            ToolStripButton tsb = sender as ToolStripButton;
+            string extension = string.Empty;
+            switch (tsb.Name)
+            {
+                case "toolStripButtonExportXML": extension = "xml"; break;
+                case "toolStripButtonExportCSV": extension = "csv"; break;
+                case "toolStripButtonExportDAE": extension = "dae"; break;
+                default: break;
+            }
+            FormMain.GetInstance().GenerateExport(Analysis, extension);
         }
         #endregion
 
+        #region Helpers
         private void UpdateSolItemIndexButtons()
         {
             bnSolItemIndexDown.Enabled = SolItemIndex > 0;
             bnSolItemIndexUp.Enabled = SolItemIndex < Solution.SolItemCount - 1;
         }
+        #endregion
+
+        #region Data members
+        private static ILog _log = LogManager.GetLogger(typeof(DockContentHAnalysis));
+        #endregion
     }
 }

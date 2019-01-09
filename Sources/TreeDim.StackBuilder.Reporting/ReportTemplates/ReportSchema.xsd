@@ -40,7 +40,17 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <!-- ANALYSIS : END-->        
+        <!-- ANALYSIS : END-->
+        <xs:element name="hAnalysis" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="name" type="xs:string"/>
+              <xs:element name="description" type="xs:string"/>
+              <xs:element name="itemQuantities" minOccurs="1" maxOccurs="1" type="rpt:itemQuantities"/>
+              <xs:element name="hSolution" minOccurs="0" maxOccurs="1" type="rpt:hSolution"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
         <!-- TRUCKANALYSIS : BEG-->
         <xs:element name="truckAnalysis" minOccurs="0" maxOccurs="1">
           <xs:complexType>

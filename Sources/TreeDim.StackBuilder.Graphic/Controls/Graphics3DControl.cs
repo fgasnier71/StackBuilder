@@ -25,15 +25,9 @@ namespace treeDiM.StackBuilder.Graphics
     public partial class Graphics3DControl : UserControl, ISupportInitialize
     {
         #region Data members
-        public double _angleHoriz = 45.0, _angleVert = 45.0;
-        private IDrawingContainer _drawingContainer;
-        private Viewer _viewer;
-        private bool _isDrag = false;
         private Point _prevLocation;
-        private bool _showToolBar = false;
         private const int _toolbarButtonOffset = 17;
         internal static Cursor _cursorRotate;
-        private bool _showDimensions = true;
         static readonly ILog _log = LogManager.GetLogger(typeof(Graphics3DControl));
         #endregion
 
@@ -51,7 +45,7 @@ namespace treeDiM.StackBuilder.Graphics
         public Graphics3DControl()
         {
             InitializeComponent();
-            _drawingContainer = null;
+            DrawingContainer = null;
 
             // double buffering
             SetDoubleBuffered();
@@ -95,20 +89,13 @@ namespace treeDiM.StackBuilder.Graphics
         #endregion
 
         #region Accessors
-        public IDrawingContainer DrawingContainer
-        {
-            set { _drawingContainer = value; }            
-        }
-        public Viewer Viewer
-        {
-            get { return _viewer; }
-            set { _viewer = value; }
-        }
-        protected bool ShowDimensions
-        {
-            get { return _showDimensions; }
-            set { _showDimensions = value; }
-        }
+        public IDrawingContainer DrawingContainer { set; private get; }
+        public Viewer Viewer { get; set; }
+        protected bool ShowDimensions { get; set; } = true;
+        private bool Dragging { get; set; } = false;
+        public bool ShowToolBar { get; private set; } = false;
+        private double AngleHoriz { get; set; } = 45.0;
+        private double AngleVert { get; set; } = 45.0;
         #endregion
 
         #region Overrides
@@ -118,8 +105,8 @@ namespace treeDiM.StackBuilder.Graphics
             try
             {
                 Graphics3DForm graphics = new Graphics3DForm(this, e.Graphics);
-                double angleHorizRad = _angleHoriz * Math.PI / 180.0;
-                double angleVertRad = _angleVert * Math.PI / 180.0;
+                double angleHorizRad = AngleHoriz * Math.PI / 180.0;
+                double angleVertRad = AngleVert * Math.PI / 180.0;
                 double cameraDistance = 100000.0;
                 graphics.CameraPosition = new Vector3D(
                     cameraDistance * Math.Cos(angleHorizRad) * Math.Cos(angleVertRad)
@@ -134,11 +121,11 @@ namespace treeDiM.StackBuilder.Graphics
                 graphics.ShowDimensions = ShowDimensions;
                 graphics.FontSizeRatio = 10.0f / (float)Size.Height;
 
-                if (null != _drawingContainer)
+                if (null != DrawingContainer)
                 {
                     try
                     {
-                        _drawingContainer.Draw(this, graphics);
+                        DrawingContainer.Draw(this, graphics);
                     }
                     catch (Exception ex)
                     {
@@ -150,11 +137,11 @@ namespace treeDiM.StackBuilder.Graphics
                         _log.Error(ex.ToString());
                     }
                 }
-                if (null != _viewer)
+                if (null != Viewer)
                 {
                     try
                     {
-                        _viewer.Draw(graphics, Transform3D.Identity);
+                        Viewer.Draw(graphics, Transform3D.Identity);
                     }
                     catch (Exception ex)
                     {
@@ -169,10 +156,10 @@ namespace treeDiM.StackBuilder.Graphics
 
                 graphics.Flush();
 
-                if (null != _viewer)
+                if (null != Viewer)
                 {
-                    _viewer.CurrentTransformation = graphics.GetCurrentTransformation();
-                    _viewer.ViewDir = graphics.ViewDirection;
+                    Viewer.CurrentTransformation = graphics.GetCurrentTransformation();
+                    Viewer.ViewDir = graphics.ViewDirection;
                 }
 
                 // draw toolbar
@@ -211,10 +198,6 @@ namespace treeDiM.StackBuilder.Graphics
             }
             return -1;
         }
-        public bool ShowToolBar
-        {
-            get { return _showToolBar; }
-        }
 
         void DrawToolBar(System.Drawing.Graphics g)
         { 
@@ -238,15 +221,15 @@ namespace treeDiM.StackBuilder.Graphics
         {
             switch (iIndex)
             {
-                case 0: _angleHoriz = 0.0; _angleVert = 0.0; break;
-                case 1: _angleHoriz = 90.0; _angleVert = 0.0; break;
-                case 2: _angleHoriz = 180.0; _angleVert = 0.0; break;
-                case 3: _angleHoriz = 270.0; _angleVert = 0.0; break;
-                case 4: _angleHoriz = 0.0; _angleVert = 90.0; break;
-                case 5: _angleHoriz = 45.0 + 0.0; _angleVert = 45.0; break;
-                case 6: _angleHoriz = 45.0 + 90.0; _angleVert = 45.0; break;
-                case 7: _angleHoriz = 45.0 + 180.0; _angleVert = 45.0; break;
-                case 8: _angleHoriz = 45.0 + 270.0; _angleVert = 45.0; break;
+                case 0: AngleHoriz = 0.0; AngleVert = 0.0; break;
+                case 1: AngleHoriz = 90.0; AngleVert = 0.0; break;
+                case 2: AngleHoriz = 180.0; AngleVert = 0.0; break;
+                case 3: AngleHoriz = 270.0; AngleVert = 0.0; break;
+                case 4: AngleHoriz = 0.0; AngleVert = 90.0; break;
+                case 5: AngleHoriz = 45.0 + 0.0; AngleVert = 45.0; break;
+                case 6: AngleHoriz = 45.0 + 90.0; AngleVert = 45.0; break;
+                case 7: AngleHoriz = 45.0 + 180.0; AngleVert = 45.0; break;
+                case 8: AngleHoriz = 45.0 + 270.0; AngleVert = 45.0; break;
                 case 9: ShowDimensions = !ShowDimensions; break;
                 default: break;
             }
@@ -258,35 +241,34 @@ namespace treeDiM.StackBuilder.Graphics
         private void OnMouseMove(object sender, MouseEventArgs e)
         {
             // not dragging ?
-            if (!_isDrag)
+            if (!Dragging)
             {
                 bool showToolBar = ShowHideToolBar(e.Location);
-                if (_showToolBar != showToolBar)
+                if (ShowToolBar != showToolBar)
                 {
-                    _showToolBar = showToolBar;
+                    ShowToolBar = showToolBar;
                     Invalidate();
                 }
             }
             else
             {
-
                 double angleXDiff = -(e.Location.X - _prevLocation.X) * 360.0 / Size.Width;
                 double angleYDiff = (e.Location.Y - _prevLocation.Y) * 90.0 / Size.Height;
                 _prevLocation = e.Location;
 
-                if (_angleHoriz + angleXDiff < 0.0)
-                    _angleHoriz += angleXDiff + 360.0;
-                else if (_angleHoriz + angleXDiff > 360.0)
-                    _angleHoriz += angleXDiff - 360.0;
+                if (AngleHoriz + angleXDiff < 0.0)
+                    AngleHoriz += angleXDiff + 360.0;
+                else if (AngleHoriz + angleXDiff > 360.0)
+                    AngleHoriz += angleXDiff - 360.0;
                 else
-                    _angleHoriz += angleXDiff;
+                    AngleHoriz += angleXDiff;
 
-                if (_angleVert + angleYDiff < 0.0)
-                    _angleVert = 0.0;
-                else if (_angleVert + angleYDiff >= 90.0)
-                    _angleVert = 90.0;
+                if (AngleVert + angleYDiff < 0.0)
+                    AngleVert = 0.0;
+                else if (AngleVert + angleYDiff >= 90.0)
+                    AngleVert = 90.0;
                 else
-                    _angleVert += angleYDiff;
+                    AngleVert += angleYDiff;
 
                 Invalidate();
             }
@@ -295,7 +277,7 @@ namespace treeDiM.StackBuilder.Graphics
         private void OnMouseDown(object sender, MouseEventArgs e)
         {
             // clicking toolbar ?
-            if (!_isDrag)
+            if (!Dragging)
             { 
                 int tbBIndex = ToolbarButtonIndex(e.Location);
                 if ((-1 != tbBIndex) && (null != ButtonPressed))
@@ -307,18 +289,18 @@ namespace treeDiM.StackBuilder.Graphics
             // switch to drag mode
             if (MouseButtons.Left == e.Button)
             {
-                _isDrag = true;
+                Dragging = true;
                 _prevLocation = e.Location;
             }
             // set rotate cursor
-            Cursor.Current = _isDrag ? CursorRotate : Cursors.Default;
+            Cursor.Current = Dragging ? CursorRotate : Cursors.Default;
         }
 
         private void OnMouseUp(object sender, MouseEventArgs e)
         {
             if (MouseButtons.Left == e.Button)
             {
-                _isDrag = false;
+                Dragging = false;
                 _prevLocation = e.Location;
                 // back to default cursor
                 Cursor.Current = Cursors.Default;
@@ -333,11 +315,18 @@ namespace treeDiM.StackBuilder.Graphics
         }
         private void OnMouseDoubleClick(object sender, MouseEventArgs e)
         {
-            // sanity checks
-            if (null != _viewer && _viewer.TryPicking(e.Location.X, e.Location.Y, out uint index))
-                VolumeSelected?.Invoke((int)index);
-            else
-                VolumeSelected?.Invoke(-1);
+            try
+            {
+                // sanity checks
+                if (null != Viewer && Viewer.TryPicking(e.Location.X, e.Location.Y, out uint index))
+                    VolumeSelected?.Invoke((int)index);
+                else
+                    VolumeSelected?.Invoke(-1);
+            }
+            catch (Exception ex)
+            {
+                _log.Error(ex.ToString());
+            }
             Invalidate();
         }
         #endregion

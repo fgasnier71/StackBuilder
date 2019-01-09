@@ -31,14 +31,14 @@ namespace treeDiM.StackBuilder.Graphics.Controls
                         ++index;
                     }
 
-                Analysis analysisInitial = null;
+                AnalysisHomo analysisInitial = null;
                 if (null != initiallySelectedItem)
                 {
                     if (initiallySelectedItem is PackableLoaded packableLoadedInitial)
                         analysisInitial = packableLoadedInitial.ParentAnalysis;
                 }
 
-                foreach (Analysis analysis in doc.Analyses)
+                foreach (AnalysisHomo analysis in doc.Analyses)
                 {
                     PackableLoaded eqvtPackable = analysis.EquivalentPackable;
                     if (null == eqvtPackable) continue;

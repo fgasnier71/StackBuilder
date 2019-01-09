@@ -28,7 +28,7 @@ namespace treeDiM.StackBuilder.Desktop
 
             InitializeComponent();
         }
-        public DockContentAnalysisEdit(IDocument document, Analysis analysis)
+        public DockContentAnalysisEdit(IDocument document, AnalysisHomo analysis)
             : base(document)
         {
             _analysis = analysis;
@@ -94,7 +94,7 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Public properties
-        public Analysis Analysis
+        public AnalysisHomo Analysis
         {
             get { return _analysis; }
         }
@@ -504,7 +504,7 @@ namespace treeDiM.StackBuilder.Desktop
         /// <summary>
         /// analysis
         /// </summary>
-        protected Analysis _analysis;
+        protected AnalysisHomo _analysis;
         /// <summary>
         /// solution
         /// </summary>

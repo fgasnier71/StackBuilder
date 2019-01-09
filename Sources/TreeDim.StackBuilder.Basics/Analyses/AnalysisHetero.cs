@@ -10,9 +10,9 @@ using log4net;
 
 namespace treeDiM.StackBuilder.Basics
 {
-    public abstract class HAnalysis : ItemBaseNamed
+    public abstract class AnalysisHetero : Analysis
     {
-        public HAnalysis(Document doc)
+        public AnalysisHetero(Document doc)
             : base(doc)
         {
             Solution = new HSolution(string.Empty) { Analysis = this };
@@ -68,9 +68,9 @@ namespace treeDiM.StackBuilder.Basics
         public IEnumerable<ItemBase> Containers => _containers;
         public abstract Vector3D DimContainer(int index);
         public abstract BBox3D AdditionalBoudingBox(int index);
+        public abstract double WeightContainer(int index);
         #endregion
 
-        public bool Temporary => null == ParentDocument;
         public HConstraintSet ConstraintSet { get; set; }
         public virtual double ContentTotalVolume => Content.Sum(ci => ci.Pack.Volume * ci.Number);
         public virtual double ContentTotalWeight => Content.Sum(ci => ci.Pack.Weight * ci.Number);
@@ -81,6 +81,7 @@ namespace treeDiM.StackBuilder.Basics
         {
             return Solution;
         }
+        public override bool HasValidSolution => null != Solution;
         #region Non-public members
         public HSolution Solution { get; set; }
 
@@ -93,7 +94,7 @@ namespace treeDiM.StackBuilder.Basics
 
         private List<ContentItem> _content = new List<ContentItem>();
         protected readonly List<ItemBase> _containers = new List<ItemBase>();
-        static readonly ILog _log = LogManager.GetLogger(typeof(Analysis));
+        static readonly ILog _log = LogManager.GetLogger(typeof(AnalysisHomo));
         #endregion
     }
 

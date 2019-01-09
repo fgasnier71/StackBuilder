@@ -12,8 +12,8 @@ namespace treeDiM.StackBuilder.Exporters
 
     public class ExceptionUnexpectedAnalysisType : Exception
     {
-        public ExceptionUnexpectedAnalysisType(Analysis analysis) { InputAnalysis = analysis; }
+        public ExceptionUnexpectedAnalysisType(AnalysisHomo analysis) { InputAnalysis = analysis; }
         public override string Message => string.Format("Unexpected analysis type = {0}", InputAnalysis.GetType().ToString());
-        public Analysis InputAnalysis { get; set; }
+        public AnalysisHomo InputAnalysis { get; set; }
     }
 }

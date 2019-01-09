@@ -724,7 +724,7 @@ namespace treeDiM.StackBuilder.Desktop
                 nodeItem.Nodes.Add(subNode);
             }
         }
-        public void OnNewAnalysisCreated(Document doc, Analysis analysis)
+        public void OnNewAnalysisCreated(Document doc, AnalysisHomo analysis)
         {
             // get parent node
             TreeNode parentNode = FindNode(null, new NodeTag(NodeTag.NodeType.NT_LISTANALYSIS, doc));
@@ -737,14 +737,14 @@ namespace treeDiM.StackBuilder.Desktop
             parentNode.Nodes.Add( nodeAnalysis );
             parentNode.Expand();
         }
-        public void OnAnalysisUpdated(Document doc, Analysis analysis)
+        public void OnAnalysisUpdated(Document doc, AnalysisHomo analysis)
         {
             // get parent node
             TreeNode analysisNode = FindNode(null, new NodeTag(NodeTag.NodeType.NT_ANALYSIS, doc, analysis));
             if (null != analysisNode)
                 analysisNode.Name = analysis.Name;
         }
-        public void OnNewAnalysisCreated(Document doc, HAnalysis analysis)
+        public void OnNewAnalysisCreated(Document doc, AnalysisHetero analysis)
         {
             // get parent node
             TreeNode parentNode = FindNode(null, new NodeTag(NodeTag.NodeType.NT_LISTANALYSIS, doc));
@@ -757,7 +757,7 @@ namespace treeDiM.StackBuilder.Desktop
             parentNode.Nodes.Add( nodeAnalysis );
             parentNode.Expand();
         }
-        public void OnAnalysisUpdated(Document doc, HAnalysis analysis)
+        public void OnAnalysisUpdated(Document doc, AnalysisHetero analysis)
         {
             TreeNode analysisNode = FindNode(null, new NodeTag(NodeTag.NodeType.NT_ANALYSIS, doc, analysis));
             if (null != analysisNode)
@@ -1103,8 +1103,8 @@ namespace treeDiM.StackBuilder.Desktop
         /// <summary>
         /// returns analysis if any
         /// </summary>
-        public Analysis Analysis => ItemProperties as Analysis;
-        public HAnalysis HAnalysis => ItemProperties as HAnalysis;
+        public AnalysisHomo Analysis => ItemProperties as AnalysisHomo;
+        public AnalysisHetero HAnalysis => ItemProperties as AnalysisHetero;
         #endregion
     }
     #endregion
@@ -1121,8 +1121,8 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
         #region Public properties
         public Document Document => NodeTag.Document;
-        public Analysis Analysis => NodeTag.Analysis;
-        public HAnalysis HAnalysis => NodeTag.HAnalysis;
+        public AnalysisHomo Analysis => NodeTag.Analysis;
+        public AnalysisHetero HAnalysis => NodeTag.HAnalysis;
         public ItemBase ItemBase => NodeTag.ItemProperties;
         #endregion
         #region Private properties

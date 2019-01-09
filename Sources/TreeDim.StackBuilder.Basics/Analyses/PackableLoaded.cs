@@ -8,17 +8,17 @@ namespace treeDiM.StackBuilder.Basics
         public override GlobID ID => _analysis.ID;
         public override double Weight => ParentSolution.Weight;
         public override OptDouble NetWeight => ParentSolution.NetWeight;
-        public Analysis ParentAnalysis => _analysis;
+        public AnalysisHomo ParentAnalysis => _analysis;
 
         #region Non-Public Members
-        protected PackableLoaded(Analysis analysis)
+        protected PackableLoaded(AnalysisHomo analysis)
             : base(analysis.ParentDocument)
         {
             _analysis = analysis;
         }
 
         protected Solution ParentSolution => _analysis.Solution;
-        protected Analysis _analysis;
+        protected AnalysisHomo _analysis;
         #endregion
 
         #region Override ItemBase (dependancies)

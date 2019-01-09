@@ -155,9 +155,11 @@ namespace treeDiM.StackBuilder.Reporting
         }
         private void AddNode(ReportNode rn, TreeNode tnParent)
         {
-            TreeNode tn = new TreeNode(rn.Name);
-            tn.Checked = rn.Activated;
-            tn.Tag = rn;
+            TreeNode tn = new TreeNode(rn.Name)
+            {
+                Checked = rn.Activated,
+                Tag = rn
+            };
             tnParent.Nodes.Add(tn);
 
             foreach (ReportNode rnChild in rn.Children)

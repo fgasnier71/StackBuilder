@@ -96,6 +96,7 @@
     <Compile Include="AnalysesLegacy\IBoxCaseAnalysisSolver.cs" />
     <Compile Include="AnalysesLegacy\IPackPalletAnalysisSolver.cs" />
     <Compile Include="Analyses\Analysis.cs" />
+    <Compile Include="Analyses\AnalysisHomo.cs" />
     <Compile Include="Analyses\AnalysisBoxCase.cs" />
     <Compile Include="Analyses\AnalysisCasePallet.cs" />
     <Compile Include="Analyses\AnalysisCaseTruck.cs" />
@@ -107,7 +108,7 @@
     <Compile Include="Analyses\AnalysisPalletTruck.cs" />
     <Compile Include="AnalysesLegacy\PackPalletAnalysis.cs" />
     <Compile Include="Analyses\AnalysisComparer.cs" />
-    <Compile Include="Analyses\HAnalysis.cs" />
+    <Compile Include="Analyses\AnalysisHetero.cs" />
     <Compile Include="Analyses\HAnalysisCase.cs" />
     <Compile Include="Analyses\HAnalysisPallet.cs" />
     <Compile Include="Analyses\HAnalysisTruck.cs" />

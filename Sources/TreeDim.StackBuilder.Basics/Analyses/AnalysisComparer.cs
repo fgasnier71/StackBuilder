@@ -4,9 +4,9 @@ using System.Linq;
 
 namespace treeDiM.StackBuilder.Basics
 {
-    public class AnalysisComparer : IComparer<Analysis>
+    public class AnalysisComparer : IComparer<AnalysisHomo>
     {
-        public int Compare(Analysis x, Analysis y)
+        public int Compare(AnalysisHomo x, AnalysisHomo y)
         {
             if (x.Solution.ItemCount < y.Solution.ItemCount)
                 return 1;

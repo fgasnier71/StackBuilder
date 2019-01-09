@@ -181,7 +181,7 @@ namespace treeDiM.StackBuilder.Desktop
                 BoxProperties caseProperties = _doc.CreateNewCase(caseSel);
                 // create analysis
                 List<InterlayerProperties> interlayers = new List<InterlayerProperties>();
-                Analysis analysis = _doc.CreateNewAnalysisBoxCase(
+                AnalysisHomo analysis = _doc.CreateNewAnalysisBoxCase(
                     AnalysisName, AnalysisDescription,
                     analysisSel.Content, caseProperties,
                     interlayers,
@@ -348,7 +348,7 @@ namespace treeDiM.StackBuilder.Desktop
             gridSolutions[0, iCol++] = columnHeader;
 
             int iRow = 0;
-            foreach (Analysis analysis in _analyses)
+            foreach (AnalysisHomo analysis in _analyses)
             {
                 AnalysisBoxCase analysisBoxCase = analysis as AnalysisBoxCase;
                 BoxProperties caseProperties = analysisBoxCase.CaseProperties;
@@ -463,9 +463,9 @@ namespace treeDiM.StackBuilder.Desktop
 
         #region Data members
         private DocumentSB _doc;
-        private List<Analysis> _analyses = new List<Analysis>();
+        private List<AnalysisHomo> _analyses = new List<AnalysisHomo>();
         private List<int> _checkedIndices = new List<int>();
-        private Analysis _selectedAnalysis;
+        private AnalysisHomo _selectedAnalysis;
         private List<DCSBCase> _listCases = new List<DCSBCase>();
         protected static ILog _log = LogManager.GetLogger(typeof(FormOptimiseMultiCase));
         #endregion

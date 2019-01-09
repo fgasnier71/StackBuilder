@@ -216,35 +216,38 @@ namespace treeDiM.StackBuilder.Desktop
                 gridSolutions.Rows.Clear();
                 // *** IViews 
                 // captionHeader
-                SourceGrid.Cells.Views.RowHeader captionHeader = new SourceGrid.Cells.Views.RowHeader();
                 DevAge.Drawing.VisualElements.RowHeader veHeaderCaption = new DevAge.Drawing.VisualElements.RowHeader()
                 {
                     BackColor = Color.SteelBlue,
                     Border = DevAge.Drawing.RectangleBorder.NoBorder
                 };
-                captionHeader.Background = veHeaderCaption;
-                captionHeader.ForeColor = Color.Black;
-                captionHeader.Font = new Font("Arial", GridFontSize, FontStyle.Bold);
-                captionHeader.TextAlignment = DevAge.Drawing.ContentAlignment.MiddleCenter;
+                SourceGrid.Cells.Views.RowHeader captionHeader = new SourceGrid.Cells.Views.RowHeader
+                {
+                    Background = veHeaderCaption,
+                    ForeColor = Color.Black,
+                    Font = new Font("Arial", GridFontSize, FontStyle.Bold),
+                    TextAlignment = DevAge.Drawing.ContentAlignment.MiddleCenter
+                };
                 // viewRowHeader
-                SourceGrid.Cells.Views.RowHeader viewRowHeader = new SourceGrid.Cells.Views.RowHeader();
                 DevAge.Drawing.VisualElements.RowHeader backHeader = new DevAge.Drawing.VisualElements.RowHeader()
                 {
                     BackColor = Color.LightGray,
                     Border = DevAge.Drawing.RectangleBorder.NoBorder
                 };
-                viewRowHeader.Background = backHeader;
-                viewRowHeader.ForeColor = Color.Black;
-                viewRowHeader.Font = new Font("Arial", GridFontSize, FontStyle.Regular);
+                SourceGrid.Cells.Views.RowHeader viewRowHeader = new SourceGrid.Cells.Views.RowHeader
+                {
+                    Background = backHeader,
+                    ForeColor = Color.Black,
+                    Font = new Font("Arial", GridFontSize, FontStyle.Regular)
+                };
                 // viewNormal
                 CellBackColorAlternate viewNormal = new CellBackColorAlternate(Color.LightBlue, Color.White);
                 // ***
 
-                SourceGrid.Cells.RowHeader rowHeader;
                 int iRow = -1;
                 // pallet caption
                 gridSolutions.Rows.Insert(++iRow);
-                rowHeader = new SourceGrid.Cells.RowHeader(Resources.ID_PALLET)
+                SourceGrid.Cells.RowHeader rowHeader = new SourceGrid.Cells.RowHeader(Resources.ID_PALLET)
                 {
                     ColumnSpan = 2,
                     View = captionHeader

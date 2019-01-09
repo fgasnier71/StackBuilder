@@ -20,7 +20,7 @@ namespace treeDiM.StackBuilder.Desktop
     public partial class FormNewAnalysisBoxCase : FormNewAnalysis, IItemBaseFilter
     {
         #region Constructor
-        public FormNewAnalysisBoxCase(Document doc, Analysis analysis)
+        public FormNewAnalysisBoxCase(Document doc, AnalysisHomo analysis)
             : base(doc, analysis)
         {
             InitializeComponent();

@@ -860,4 +860,16 @@ Closing form...</value>
   <data name="ID_NUMBEROFPALLETS" xml:space="preserve">
     <value>Number of pallets</value>
   </data>
+  <data name="ID_ITEMS" xml:space="preserve">
+    <value>Items</value>
+  </data>
+  <data name="ID_PALLET_NUMBER" xml:space="preserve">
+    <value>Pallet #{0}</value>
+  </data>
+  <data name="ID_PALLETDATA" xml:space="preserve">
+    <value>Pallet data</value>
+  </data>
+  <data name="ID_PALLETWEIGHT_WU" xml:space="preserve">
+    <value>Pallet weight</value>
+  </data>
 </root>

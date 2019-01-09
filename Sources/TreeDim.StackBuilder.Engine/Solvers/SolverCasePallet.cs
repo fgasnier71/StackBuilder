@@ -33,9 +33,9 @@ namespace treeDiM.StackBuilder.Engine
             return null;
         }
 
-        public List<Analysis> BuildAnalyses(ConstraintSetAbstract constraintSet, bool allowMultipleLayerOrientations)
+        public List<AnalysisHomo> BuildAnalyses(ConstraintSetAbstract constraintSet, bool allowMultipleLayerOrientations)
         {
-            var analyses = new List<Analysis>();
+            var analyses = new List<AnalysisHomo>();
             var constraintSetCasePallet = constraintSet as ConstraintSetCasePallet;
             if (null == constraintSetCasePallet)
                 return analyses;

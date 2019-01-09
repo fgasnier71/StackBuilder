@@ -61,37 +61,22 @@ namespace treeDiM.StackBuilder.Reporting
     {
         #region Data members
         private Analysis _analysis;
-        private Solution _solution;
         #endregion
 
         #region Constructors
         public ReportData(Analysis analysis)
         {
             _analysis = analysis;
-            _solution = analysis.Solution;
         }
         #endregion
 
         #region Public accessors
         public Document Document
         {
-            get
-            {
-                if (null != _analysis)
-                    return _analysis.ParentDocument;
-                return null;
-            }
+            get =>_analysis?.ParentDocument;
         }
 
-        public string Title
-        {
-            get
-            {
-                if (null != _analysis)
-                    return _analysis.Name;
-                return null;
-            }
-        }
+        public string Title => _analysis != null ? _analysis.Name : string.Empty;
         public Analysis MainAnalysis
         {
             get
@@ -100,10 +85,7 @@ namespace treeDiM.StackBuilder.Reporting
                 return _analysis;
             }
         }
-        public bool IsValid
-        {
-            get { return null != _analysis && null != _solution; }
-        }
+        public bool IsValid => null != _analysis && (_analysis.HasValidSolution); 
         #endregion
 
         #region IItemListener related methods
@@ -434,6 +416,7 @@ namespace treeDiM.StackBuilder.Reporting
                 string.Format(Resources.ID_RN_ANALYSIS, inputData.MainAnalysis.Name));
             if (rnAnalysis.Activated)
                 AppendAnalysisElement(inputData.MainAnalysis, rnAnalysis, elemDocument, xmlDoc);
+            
             // finally save xml document
             _log.Debug(string.Format("Generating xml data file {0}", xmlDataFilePath));
             xmlDoc.Save(xmlDataFilePath);
@@ -442,18 +425,25 @@ namespace treeDiM.StackBuilder.Reporting
 
         #region Analyses
         private void AppendAnalysisElement(Analysis analysis, ReportNode rnAnalysis, XmlElement elemDocument, XmlDocument xmlDoc)
+        {
+            if (analysis is AnalysisHomo analysisHomo)
+                AppendAnalysisHomoElement(analysisHomo, rnAnalysis, elemDocument, xmlDoc);
+            else if (analysis is AnalysisHetero analysisHetero)
+                AppendAnalysisHeterogeneousElement(analysisHetero, rnAnalysis, elemDocument, xmlDoc);
+        }
+        private void AppendAnalysisHomoElement(AnalysisHomo analysis, ReportNode rnAnalysis, XmlElement elemDocument, XmlDocument xmlDoc)
         { 
             Packable content = analysis.Content;
 
             bool hasContent = false;
             // check for inner analysis
-            Analysis innerAnalysis = null;
+            AnalysisHomo innerAnalysis = null;
             if (content.InnerAnalysis(ref innerAnalysis))
             {
                 // -> proceed recursively
                 ReportNode rnInnerAnalysis = rnAnalysis.GetChildByName(string.Format(Resources.ID_RN_ANALYSIS, innerAnalysis.Name));
                 if (rnInnerAnalysis.Activated)
-                    AppendAnalysisElement(innerAnalysis, rnInnerAnalysis, elemDocument, xmlDoc);
+                    AppendAnalysisHomoElement(innerAnalysis, rnInnerAnalysis, elemDocument, xmlDoc);
             }
             else
                 hasContent = true;
@@ -504,6 +494,33 @@ namespace treeDiM.StackBuilder.Reporting
             ReportNode rnSolution = rnAnalysis.GetChildByName(Resources.ID_RN_SOLUTION);
             if (rnSolution.Activated)
                 AppendSolutionElement(analysis.Solution, rnSolution, eltAnalysis, xmlDoc);
+        }
+
+        private void AppendAnalysisHeterogeneousElement(AnalysisHetero analysis, ReportNode rnAnalysis, XmlElement elemDocument, XmlDocument xmlDoc)
+        {
+            // ### 0. HANALYSIS ELT
+            string ns = xmlDoc.DocumentElement.NamespaceURI;
+            XmlElement eltAnalysis = xmlDoc.CreateElement("hAnalysis", ns);
+            elemDocument.AppendChild(eltAnalysis);
+            // name
+            XmlElement elemName = xmlDoc.CreateElement("name", ns);
+            elemName.InnerText = analysis.Name;
+            eltAnalysis.AppendChild(elemName);
+            // description
+            if (rnAnalysis.GetChildByName(Resources.ID_RN_DESCRIPTION).Activated)
+            {
+                XmlElement elemDescription = xmlDoc.CreateElement("description", ns);
+                elemDescription.InnerText = analysis.Description;
+                eltAnalysis.AppendChild(elemDescription);
+            }
+            // 1. CONTENT
+            // 2. CONTAINER
+            // 3. CONSTRAINTSET
+            // 4. SOLUTION
+            ReportNode rnSolution = rnAnalysis.GetChildByName(Resources.ID_RN_SOLUTION);
+            if (rnSolution.Activated)
+                AppendSolutionHeterogeneousElement(analysis.Solution, rnSolution, eltAnalysis, xmlDoc);
+
         }
 
         private string PackableType(ItemBase itemBase)
@@ -588,7 +605,7 @@ namespace treeDiM.StackBuilder.Reporting
             elemAnalysis.AppendChild(elemSolution);
 
             // *** Item # (Recursive count)
-            Analysis analysis = sol.Analysis;
+            AnalysisHomo analysis = sol.Analysis;
             Packable content = analysis.Content;
             int itemCount = sol.ItemCount;
             int number = 1;
@@ -735,6 +752,13 @@ namespace treeDiM.StackBuilder.Reporting
                     }
                 }
             }
+        }
+
+        private void AppendSolutionHeterogeneousElement(HSolution sol, ReportNode rnSolution, XmlElement elemAnalysis, XmlDocument xmlDoc)
+        {
+            string ns = xmlDoc.DocumentElement.NamespaceURI;
+            XmlElement elemSolution = xmlDoc.CreateElement("solution", ns);
+            elemAnalysis.AppendChild(elemSolution);
         }
 
         private void AppendPalletElement(PalletProperties palletProp, ReportNode rnPallet, XmlElement elemAnalysis, XmlDocument xmlDoc)
@@ -1018,7 +1042,7 @@ namespace treeDiM.StackBuilder.Reporting
             AppendThumbnailElement(xmlDoc, elemPalletCap, graphics.Bitmap);
         }
 
-        private void AppendPalletFilmElement(PalletFilmProperties palletFilmProp, Analysis analyis, XmlElement elemPalletAnalysis, XmlDocument xmlDoc)
+        private void AppendPalletFilmElement(PalletFilmProperties palletFilmProp, AnalysisHomo analyis, XmlElement elemPalletAnalysis, XmlDocument xmlDoc)
         {
             // sanity check
             if (null == palletFilmProp) return;

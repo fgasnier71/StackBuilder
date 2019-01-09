@@ -22,7 +22,7 @@ namespace treeDiM.StackBuilder.Desktop
         {
             InitializeComponent();
         }
-        public FormNewHAnalysisCasePallet(Document doc, HAnalysis analysis)
+        public FormNewHAnalysisCasePallet(Document doc, AnalysisHetero analysis)
             : base(doc, analysis)
         {
             InitializeComponent();
@@ -78,7 +78,7 @@ namespace treeDiM.StackBuilder.Desktop
                 ConstraintSet as HConstraintSetPallet,
                 SelectedSolution);
         }
-        protected override HAnalysis IntantiateTempAnalysis()
+        protected override AnalysisHetero IntantiateTempAnalysis()
         {
             return new HAnalysisPallet(null);
         }

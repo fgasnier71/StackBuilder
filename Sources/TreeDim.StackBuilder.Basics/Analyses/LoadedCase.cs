@@ -34,7 +34,7 @@ namespace treeDiM.StackBuilder.Basics
             number = ParentSolution.ItemCount;
             return true;
         }
-        public override bool InnerAnalysis(ref Analysis analysis)
+        public override bool InnerAnalysis(ref AnalysisHomo analysis)
         {
             analysis = Analysis;
             return true;

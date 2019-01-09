@@ -18,7 +18,7 @@ namespace treeDiM.StackBuilder.Exporters
         public ExporterXML(){}
         public override string Filter => "eXchange Markup Language (*.xml)|*.xml";
         public override string Extension => "xml";
-        public override void Export(Analysis analysis, string fileName)
+        public override void Export(AnalysisHomo analysis, string fileName)
         {
             Solution sol = analysis.Solution;
 
@@ -77,7 +77,7 @@ namespace treeDiM.StackBuilder.Exporters
                 }
             }
         }
-        private loadSpace BuildLoadSpace(Analysis analysis)
+        private loadSpace BuildLoadSpace(AnalysisHomo analysis)
         {
             if (analysis is AnalysisCasePallet analysisCasePallet)
             {
@@ -99,7 +99,7 @@ namespace treeDiM.StackBuilder.Exporters
             else
                 throw new Exception(string.Format("Unexpected analysis type : {0}", analysis.GetType()));
         }
-        private item BuildItem(Analysis analysis)
+        private item BuildItem(AnalysisHomo analysis)
         {
             if (analysis is AnalysisCasePallet analysisCasePallet)
             {

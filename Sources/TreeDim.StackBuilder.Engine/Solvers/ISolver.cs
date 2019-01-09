@@ -13,7 +13,7 @@ namespace treeDiM.StackBuilder.Engine
     /// </summary>
     interface ISolver
     {
-        List<Analysis> BuildAnalyses(ConstraintSetAbstract constraintSet, bool allowMultipleLayerOrientations);
+        List<AnalysisHomo> BuildAnalyses(ConstraintSetAbstract constraintSet, bool allowMultipleLayerOrientations);
         Layer2D BuildBestLayer(ConstraintSetAbstract constraintSet);
     }
 
@@ -22,6 +22,6 @@ namespace treeDiM.StackBuilder.Engine
     /// </summary>
     interface IHSolver
     {
-        List<HSolution> BuildSolutions(HAnalysis analysis);
+        List<HSolution> BuildSolutions(AnalysisHetero analysis);
     }
 }

@@ -1,13 +1,13 @@
 @echo off
 
 REM sign the file...
-REM "C:\Program Files (x86)\Microsoft SDKs\ClickOnce\SignTool\signtool.exe" sign /f "K:\Github\Signing\treeDiM.pfx" /p 2B3gmehk %1
+REM "C:\Program Files (x86)\Microsoft SDKs\ClickOnce\SignTool\signtool.exe" sign /f "E:\Github\Signing\treeDiM.pfx" /p 2B3gmehk %1
 
 REM if %errorlevel% neq 0 exit /b %errorlevel%
 
 set timestamp_server=http://timestamp.comodoca.com/authenticode
 set sign_tool="C:\Program Files (x86)\Microsoft SDKs\ClickOnce\SignTool\signtool.exe"
-set cer_path="D:\Github\Signing\treeDiM.pfx"
+set cer_path="E:\Github\Signing\treeDiM.pfx"
 
 REM check signtool exists
 if not exist %sign_tool% (

@@ -4,7 +4,7 @@ using Sharp3D.Math.Core;
 
 namespace treeDiM.StackBuilder.Basics
 {
-    public class HAnalysisCase : HAnalysis
+    public class HAnalysisCase : AnalysisHetero
     {
         #region Constructor
         public HAnalysisCase(Document doc) : base(doc)
@@ -17,6 +17,11 @@ namespace treeDiM.StackBuilder.Basics
         {
             BoxProperties bProperties = _containers[index] as BoxProperties;
             return bProperties.InsideDimensions;
+        }
+        public override double WeightContainer(int index)
+        {
+            return index < _containers.Count && _containers[index] is BoxProperties boxProperties
+                ? boxProperties.Weight : 0.0;
         }
         public override Vector3D Offset(int index)
         {

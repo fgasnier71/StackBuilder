@@ -106,7 +106,7 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region View creation methods
-        public DockContentView CreateViewAnalysis(Analysis analysis)
+        public DockContentView CreateViewAnalysis(AnalysisHomo analysis)
         {
             DockContentView form = null;
             if (analysis is AnalysisCasePallet) form = new DockContentAnalysisCasePallet(this, analysis as AnalysisCasePallet);
@@ -123,7 +123,7 @@ namespace treeDiM.StackBuilder.Desktop
             AddView(form);
             return form;
         }
-        public DockContentView CreateViewHAnalysis(HAnalysis analysis)
+        public DockContentView CreateViewHAnalysis(AnalysisHetero analysis)
         {
             DockContentView form = null;
             if (analysis is HAnalysisPallet) form = new DockContentHAnalysisCasePallet(this, analysis);
@@ -367,7 +367,7 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region UI item edition
-        public void EditAnalysis(Analysis analysis)
+        public void EditAnalysis(AnalysisHomo analysis)
         {
             // search for any DockContentAnalysis window and close it
             var seq = (from view in Views
@@ -390,7 +390,7 @@ namespace treeDiM.StackBuilder.Desktop
             }
             if (DialogResult.OK == form.ShowDialog()) { }
         }
-        public void EditAnalysis(HAnalysis analysis)
+        public void EditAnalysis(AnalysisHetero analysis)
         {
             // search for DockContentHAnalysis window and close it
             var seq = (from view in Views

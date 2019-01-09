@@ -13,7 +13,7 @@ namespace treeDiM.StackBuilder.Engine
 {
     public class HSolver : IHSolver
     {
-        public List<HSolution> BuildSolutions(HAnalysis analysis)
+        public List<HSolution> BuildSolutions(AnalysisHetero analysis)
         {
             List<ContentItem> contentItems = new List<ContentItem>(analysis.Content);
             // *** Sharp3DBinPacking : begin
@@ -28,10 +28,12 @@ namespace treeDiM.StackBuilder.Engine
                         listCuboids.Add(
                             new Cuboid((decimal)b.Length, (decimal)b.Width, (decimal)b.Height)
                             {
-                                Tag = b,
-                                AllowOrientX = ci.AllowOrientX,
-                                AllowOrientY = ci.AllowOrientY,
-                                AllowOrientZ = ci.AllowOrientZ
+                                Tag = b
+                                /*
+                                , AllowOrientX = ci.AllowOrientX
+                                , AllowOrientY = ci.AllowOrientY
+                                , AllowOrientZ = ci.AllowOrientZ
+                                */
                             }
                         );
                     if (!ci.AllowOrientX || !ci.AllowOrientY || !ci.AllowOrientZ)
@@ -44,7 +46,7 @@ namespace treeDiM.StackBuilder.Engine
             // Create a bin packer instance
             // The default bin packer will test all algorithms and try to find the best result
             // BinPackerVerifyOption is used to avoid bugs, it will check whether the result is correct
-            var binPacker = BinPacker.GetDefault(BinPackerVerifyOption.BestOnly, bAllowAllOrientations);
+            var binPacker = BinPacker.GetDefault(BinPackerVerifyOption.BestOnly/*, bAllowAllOrientations*/);
             // The result contains bins which contains packed cuboids whith their coordinates
             var parameter = new BinPackParameter(
                 (decimal)dimContainer.X, (decimal)dimContainer.Y, (decimal)dimContainer.Z,

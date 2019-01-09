@@ -43,9 +43,9 @@ namespace treeDiM.StackBuilder.Engine
         {
             throw new NotImplementedException();
         }
-        public List<Analysis> BuildAnalyses(ConstraintSetAbstract constraintSet, bool allowMultipleLayerOrientations)
+        public List<AnalysisHomo> BuildAnalyses(ConstraintSetAbstract constraintSet, bool allowMultipleLayerOrientations)
         {
-            List<Analysis> analyses = PackOptimSolutions(
+            List<AnalysisHomo> analyses = PackOptimSolutions(
                 constraintSet as ConstraintSetCasePallet,
                 _paramSetPackOptim.NoBoxes);
             return analyses;
@@ -97,10 +97,10 @@ namespace treeDiM.StackBuilder.Engine
             return caseDefinitionList;
         }
 
-        private List<Analysis> PackOptimSolutions(ConstraintSetCasePallet constraintSet, int iNumber)
+        private List<AnalysisHomo> PackOptimSolutions(ConstraintSetCasePallet constraintSet, int iNumber)
         {
             // TODO: better as IEnumerable<>?
-            var analyses = new List<Analysis>();
+            var analyses = new List<AnalysisHomo>();
             foreach (CaseDefinition caseDefinition in CaseDefinitions(iNumber))
             {
                 try

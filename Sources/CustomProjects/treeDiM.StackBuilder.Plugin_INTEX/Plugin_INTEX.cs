@@ -209,7 +209,7 @@ namespace treeDiM.StackBuilder.Plugin
                             layerDescs.Add(layer.LayerDescriptor);
 
                         // create case analysis
-                        Analysis analysis = document.CreateNewAnalysisBoxCase(
+                        AnalysisHomo analysis = document.CreateNewAnalysisBoxCase(
                             string.Format(Properties.Resources.ID_PACKING, item._ref)
                             , item._description
                             , itemProperties
@@ -249,7 +249,7 @@ namespace treeDiM.StackBuilder.Plugin
                         layerDescs.Add(layer.LayerDescriptor);                          
 
                     // create analysis
-                    Analysis palletAnalysis = document.CreateNewAnalysisCasePallet(
+                    AnalysisHomo palletAnalysis = document.CreateNewAnalysisCasePallet(
                         item._ref, item.ToString()
                         , form.UseIntermediatePacking ? currentCase : itemProperties
                         , currentPallet,

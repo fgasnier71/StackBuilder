@@ -244,7 +244,7 @@ namespace treeDiM.StackBuilder.Desktop
                 gridSolutions[0, iCol++] = columnHeader;
 
                 int iRow = 0;
-                foreach (Analysis analysis in _analyses)
+                foreach (AnalysisHomo analysis in _analyses)
                 {
                     AnalysisCasePallet analysisCasePallet = analysis as AnalysisCasePallet;
                     PackProperties pack = analysisCasePallet.Content as PackProperties;
@@ -395,7 +395,7 @@ namespace treeDiM.StackBuilder.Desktop
                 PackProperties packProperties = _doc.CreateNewPack(packSel);
                 // create analysis
                 List<InterlayerProperties> interlayers = new List<InterlayerProperties>();
-                Analysis packAnalysis = _doc.CreateNewAnalysisCasePallet(
+                AnalysisHomo packAnalysis = _doc.CreateNewAnalysisCasePallet(
                     AnalysisName, AnalysisDescription,
                     packProperties, SelectedPallet,
                     interlayers, null, null, null,
@@ -510,8 +510,8 @@ namespace treeDiM.StackBuilder.Desktop
 
         #region Data members
         private DocumentSB _doc;
-        private List<Analysis> _analyses = new List<Analysis>();
-        private Analysis _selectedAnalysis;
+        private List<AnalysisHomo> _analyses = new List<AnalysisHomo>();
+        private AnalysisHomo _selectedAnalysis;
         private static ILog _log = LogManager.GetLogger(typeof(FormOptimizePack));
         #endregion
     }

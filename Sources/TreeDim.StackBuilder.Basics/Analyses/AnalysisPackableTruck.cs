@@ -5,7 +5,7 @@ using Sharp3D.Math.Core;
 
 namespace treeDiM.StackBuilder.Basics
 {
-    public abstract class AnalysisPackableTruck : Analysis
+    public abstract class AnalysisPackableTruck : AnalysisHomo
     {
         public override ItemBase Container => _truckProperties;
         public override Vector2D ContainerDimensions

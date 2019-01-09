@@ -214,7 +214,7 @@ namespace treeDiM.StackBuilder.Basics
         #endregion
 
         #region Constructor
-        public Solution(Analysis analysis, List<LayerDesc> layerDescs)
+        public Solution(AnalysisHomo analysis, List<LayerDesc> layerDescs)
         {
             Analysis = analysis;
             LayerDescriptors = layerDescs;
@@ -222,7 +222,7 @@ namespace treeDiM.StackBuilder.Basics
             RebuildLayers();
             InitializeSolutionItemList();
         }
-        public Solution(Analysis analysis, List<KeyValuePair<LayerDesc, int>> layerList)
+        public Solution(AnalysisHomo analysis, List<KeyValuePair<LayerDesc, int>> layerList)
         {
             Analysis = analysis;
             LayerDescriptors = layerList.ConvertAll(l => l.Key);
@@ -455,7 +455,7 @@ namespace treeDiM.StackBuilder.Basics
         #region Public properties
         public int SelectedLayerIndex { get; private set; } = -1;
 
-        public Analysis Analysis { get; }
+        public AnalysisHomo Analysis { get; }
         public ConstraintSetAbstract ConstraintSet
         {
             get { return Analysis.ConstraintSet; }

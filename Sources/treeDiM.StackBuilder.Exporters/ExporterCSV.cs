@@ -11,7 +11,7 @@ namespace treeDiM.StackBuilder.Exporters
         public ExporterCSV() {}
         public override string Filter => "Comma Separated Values (*.csv)|*.csv";
         public override string Extension => "csv";
-        public override void Export(Analysis analysis, string filePath)
+        public override void Export(AnalysisHomo analysis, string filePath)
         {
             var csv = new StringBuilder();
             Solution sol = analysis.Solution;

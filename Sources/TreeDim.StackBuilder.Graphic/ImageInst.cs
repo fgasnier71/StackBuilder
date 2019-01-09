@@ -12,19 +12,19 @@ namespace treeDiM.StackBuilder.Graphics
     public class ImageInst
     {
         #region Data members
-        private Analysis _analysis;
+        private AnalysisHomo _analysis;
         private BoxPosition _boxPosition;
         private Vector3D _dims = Vector3D.Zero;
         #endregion
         #region Constructor
-        public ImageInst(Analysis analysis, Vector3D dims, BoxPosition boxPosition)
+        public ImageInst(AnalysisHomo analysis, Vector3D dims, BoxPosition boxPosition)
         {
             _analysis = analysis; _dims = dims; _boxPosition = boxPosition;
         }
         #endregion
         #region Public properties
         public Vector3D PointBase { get { return _boxPosition.Position; } }
-        public Analysis Analysis { get { return _analysis; } }
+        public AnalysisHomo Analysis { get { return _analysis; } }
         public HalfAxis.HAxis AxisLength { get { return _boxPosition.DirectionLength; } }
         public HalfAxis.HAxis AxisWidth { get { return _boxPosition.DirectionWidth; } }
         #endregion
@@ -40,7 +40,7 @@ namespace treeDiM.StackBuilder.Graphics
     internal class ImageCached
     {
         #region Data members
-        private Analysis _analysis;
+        private AnalysisHomo _analysis;
         private HalfAxis.HAxis _axisLength, _axisWidth;
         private Bitmap _bitmap;
         private Point _offset;
@@ -48,13 +48,13 @@ namespace treeDiM.StackBuilder.Graphics
         #endregion
 
         #region Constructor
-        public ImageCached(Analysis analysis, HalfAxis.HAxis axisLength, HalfAxis.HAxis axisWidth)
+        public ImageCached(AnalysisHomo analysis, HalfAxis.HAxis axisLength, HalfAxis.HAxis axisWidth)
         {
             _analysis = analysis; _axisLength = axisLength; _axisWidth = axisWidth;
         }
         #endregion
         #region Public properties
-        public Analysis Analysis { get { return _analysis; } }
+        public AnalysisHomo Analysis { get { return _analysis; } }
         #endregion
         #region Public methods
         public Bitmap Image(Size s, Vector3D vCamera, Vector3D vTarget, ref Point offset)

@@ -4,7 +4,7 @@ using Sharp3D.Math.Core;
 
 namespace treeDiM.StackBuilder.Basics
 {
-    public class HAnalysisPallet : HAnalysis
+    public class HAnalysisPallet : AnalysisHetero
     {
         #region Constructor
         public HAnalysisPallet(Document doc) : base(doc)
@@ -23,6 +23,11 @@ namespace treeDiM.StackBuilder.Basics
             return index < _containers.Count && _containers[index] is PalletProperties palletProperties
                 ? new Vector3D(palletProperties.Length, palletProperties.Width, ConstraintSet.MaximumHeight - palletProperties.Height)
                 : Vector3D.Zero;
+        }
+        public override double WeightContainer(int index)
+        {
+            return index < _containers.Count && _containers[index] is PalletProperties palletProperties
+                ? palletProperties.Weight : 0.0;
         }
         public override Vector3D Offset(int index)
         {

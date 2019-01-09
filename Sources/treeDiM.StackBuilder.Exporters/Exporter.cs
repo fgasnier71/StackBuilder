@@ -4,7 +4,7 @@ namespace treeDiM.StackBuilder.Exporters
 {
     public abstract class Exporter
     {
-        public abstract void Export(Analysis analysis, string filePath);
+        public abstract void Export(AnalysisHomo analysis, string filePath);
         public abstract string Filter { get; }
         public abstract string Extension { get; }
     }

@@ -6,7 +6,7 @@ namespace treeDiM.StackBuilder.Desktop
 {
     public partial class DockContentHAnalysisCasePallet : DockContentHAnalysis
     {
-        public DockContentHAnalysisCasePallet(IDocument document, HAnalysis analysis)
+        public DockContentHAnalysisCasePallet(IDocument document, AnalysisHetero analysis)
             : base(document, analysis)
         {
             InitializeComponent();

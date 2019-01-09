@@ -25,7 +25,7 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Constructor
-        public FormNewAnalysisCylinderCase(Document doc, Analysis analysis)
+        public FormNewAnalysisCylinderCase(Document doc, AnalysisHomo analysis)
             : base(doc, analysis)
         {
             InitializeComponent();

@@ -17,8 +17,6 @@ namespace treeDiM.StackBuilder.Graphics
         /// list of picking boxes with id
         /// </summary>
         private List<Tuple<BBox3D, uint>> _listPickingBox = new List<Tuple<BBox3D, uint>>();
-        private Transform3D _currentTransf;
-        private Vector3D _viewDir;
         #endregion
 
         #region Abstract methods
@@ -37,6 +35,8 @@ namespace treeDiM.StackBuilder.Graphics
         }
         protected Ray GetPickingRay(int x, int y)
         {
+            if (null == CurrentTransformation)
+                throw new Exception("CurrentTransformation is null");
             // normalised_x = 2 * mouse_x / win_width - 1
             // normalised_y = 1 - 2 * mouse_y / win_height
             // note the y pos is inverted, so +y is at the top of the screen
@@ -45,20 +45,12 @@ namespace treeDiM.StackBuilder.Graphics
             // camera_pos = ray_origin = modelViewMat.inverse().col(4)
             // ray_dir = near_point - camera_pos
             Transform3D eye2worldTransf = CurrentTransformation.Inverse();
-            Vector3D vNear = eye2worldTransf.transform(new Vector3D((double)x, (double)y, 0.0));
-            Vector3D vFar = eye2worldTransf.transform(new Vector3D((double)x, (double)y, 1.0));
+            Vector3D vNear = eye2worldTransf.transform(new Vector3D(x, y, 0.0));
+            Vector3D vFar = eye2worldTransf.transform(new Vector3D(x, y, 1.0));
             return new Ray(vNear, vFar);
         }
-        public Transform3D CurrentTransformation
-        {
-            get { return _currentTransf; }
-            set { _currentTransf = value; }
-        }
-        public Vector3D ViewDir
-        {
-            get { return _viewDir; }
-            set { _viewDir = value; }
-        }
+        public Transform3D CurrentTransformation { get; set; }
+        public Vector3D ViewDir { get; set; }
 
         public bool TryPicking(int x, int y, out uint index)
         {
@@ -125,7 +117,7 @@ namespace treeDiM.StackBuilder.Graphics
             ClearPickingBoxes();
 
             if (null == _solution) return;
-            Analysis analysis = _solution.Analysis;
+            AnalysisHomo analysis = _solution.Analysis;
             AnalysisCasePallet analysisCasePallet = analysis as AnalysisCasePallet;
             AnalysisBoxCase analysisBoxCase = analysis as AnalysisBoxCase;
             AnalysisCylinderCase analysisCylinderCase = analysis as AnalysisCylinderCase;

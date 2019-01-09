@@ -21,7 +21,7 @@ namespace treeDiM.StackBuilder.Desktop
         {
             InitializeComponent();
         }
-        public DockContentAnalysisBoxCase(IDocument document, Analysis analysis)
+        public DockContentAnalysisBoxCase(IDocument document, AnalysisHomo analysis)
             : base(document, analysis)
         {
             InitializeComponent();

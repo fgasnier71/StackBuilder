@@ -18,7 +18,7 @@ namespace treeDiM.StackBuilder.Desktop
         {
             InitializeComponent();
         }
-        public FormNewHAnalysisCaseTruck(Document doc, HAnalysis analysis)
+        public FormNewHAnalysisCaseTruck(Document doc, AnalysisHetero analysis)
             : base(doc, analysis)
         {
             InitializeComponent();
@@ -70,7 +70,7 @@ namespace treeDiM.StackBuilder.Desktop
                 ConstraintSet as HConstraintSetTruck,
                 SelectedSolution);
         }
-        protected override HAnalysis IntantiateTempAnalysis()
+        protected override AnalysisHetero IntantiateTempAnalysis()
         {
             return new HAnalysisTruck(_document);
         }

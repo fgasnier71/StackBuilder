@@ -192,6 +192,16 @@
     </xs:sequence>
   </xs:complexType>
   <!--VALUE WITH UNIT : END-->
+  <!--VALUE3 WITH UNIT : BEGIN-->
+  <xs:complexType name="value3WUnit">
+    <xs:sequence>
+      <xs:element name="unit" type="xs:string"/>
+      <xs:element name="v0" type="xs:double"/>
+      <xs:element name="v1" type="xs:double"/>
+      <xs:element name="v2" type="xs:double"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--VALUE3 WITH UNIT : END-->
   <!--IMAGETHUMBSIZE : BEG-->
   <xs:complexType name="imageThumbSize">
     <xs:sequence>
@@ -241,7 +251,7 @@
   <!--SOLUTION : BEG-->
   <xs:complexType name="solution">
     <xs:sequence>
-      <xs:element name="item" minOccurs="1" maxOccurs="unbounded" type="rpt:contentItem"/>
+      <xs:element name="contentItem" minOccurs="1" maxOccurs="unbounded" type="rpt:contentItem"/>
       <xs:element name="noLayers" minOccurs="0" maxOccurs="1" type="xs:int"/>
       <xs:element name="noCasesPerLayer" minOccurs="0" maxOccurs="1" type="xs:int"/>
       <xs:element name="noLayersAndNoCases" minOccurs="1" maxOccurs="1" type="xs:string"/>
@@ -287,4 +297,43 @@
     </xs:sequence>
   </xs:complexType>
   <!--LAYER : END-->
+  <!--HSOLUTION : BEGIN-->
+  <xs:complexType name="hSolution">
+    <xs:sequence>
+      <xs:element name="solItem" minOccurs="0" maxOccurs="unbounded" type="rpt:solItem"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--HSOLUTION : END-->
+  <!--SOLITEM : BEGIN-->
+  <xs:complexType name="solItem">
+    <xs:sequence>
+      <xs:element name="index" type="xs:int"/>
+      <xs:element name="itemQuantities" type="rpt:itemQuantities"/>
+      <xs:element name="loadBBox" minOccurs="1" maxOccurs="1" type="rpt:value3WUnit"/>
+      <xs:element name="totalBBox" minOccurs="1" maxOccurs="1" type="rpt:value3WUnit"/>
+      <xs:element name="loadWeight" minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>
+      <xs:element name="totalWeight" minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>
+      <xs:element name="view_solution_front" type="rpt:view_solution_front"/>
+      <xs:element name="view_solution_left" type="rpt:view_solution_left"/>
+      <xs:element name="view_solution_right" type="rpt:view_solution_right"/>
+      <xs:element name="view_solution_back" type="rpt:view_solution_back"/>
+      <xs:element name="view_solution_iso" type="rpt:view_solution_iso"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--SOLITEM : END-->
+  <!--SOLITEMCONTENT : BEGIN-->
+  <xs:complexType name="itemQuantities">
+    <xs:sequence>
+      <xs:element name="itemQuantity" minOccurs="0" maxOccurs="unbounded" type="rpt:itemQuantity"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--SOLITEMCONTENT : END-->
+  <!--ITEMQUANTITY : BEGIN-->
+  <xs:complexType name="itemQuantity">
+    <xs:sequence>
+      <xs:element name="name" minOccurs="1" maxOccurs="1" type="xs:string"/>
+      <xs:element name="quantity" minOccurs="1" maxOccurs="1" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--ITEMQUANTITY : END-->
 </xs:schema>
