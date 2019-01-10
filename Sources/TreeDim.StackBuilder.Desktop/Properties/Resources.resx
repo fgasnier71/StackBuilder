@@ -872,4 +872,7 @@ Closing form...</value>
   <data name="ID_PALLETWEIGHT_WU" xml:space="preserve">
     <value>Pallet weight</value>
   </data>
+  <data name="ID_TRUCKADMISSIBLELOAD" xml:space="preserve">
+    <value>Truck must have a valid admissible load value.</value>
+  </data>
 </root>

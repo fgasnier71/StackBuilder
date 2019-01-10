@@ -162,11 +162,11 @@
   </xsl:template>
   <!--#### HANALYSIS ####-->
   <xsl:template match="hAnalysis">
-     <h2>
+    <h2>
       <xsl:value-of select="$loc/str[@name='hAnalysis']"/>: <xsl:value-of select="name"/>
     </h2>
     <table class="style1" cellpadding="3">
-            <xsl:if test="description">
+      <xsl:if test="description">
         <tr>
           <td class="style2" colspan="1">
             <b>
@@ -179,7 +179,7 @@
         </tr>
       </xsl:if>
     </table>
-  <xsl:apply-templates select="hSolution"/>
+    <xsl:apply-templates select="hSolution"/>
   </xsl:template>
   <!--#### ECTANALYSIS ####-->
   <xsl:template match="ectAnalysis">
@@ -377,7 +377,65 @@
     </table>
     <xsl:apply-templates select="layers"/>
   </xsl:template>
-  <!--### ITEM ####-->
+  <!--#### HSOLUTION ####-->
+  <xsl:template match="hSolution">
+    <h3>
+      <xsl:value-of select="$loc/str[@name='Solution']"/>
+    </h3>
+    <xsl:apply-templates select="solItem"/>
+  </xsl:template>
+  <!--#### SOLITEM ####-->
+  <xsl:template match="solItem">
+    <h4>
+      <xsl:value-of select="$loc/str[@name='Part']"/>
+    </h4>
+    <table class="style1">
+      <xsl:if test="loadWeight">
+        <tr>
+          <td class="style2" colspan="1">
+            <b>
+              <xsl:value-of select="$loc/str[@name='Load weight']"/> (<xsl:value-of select="loadWeight/unit"/>)
+            </b>
+          </td>
+          <td class="style3" colspan="3">
+            <xsl:value-of select="loadWeight/value"/>
+          </td>
+        </tr>
+      </xsl:if>
+      <xsl:if test="totalWeight">
+        <tr>
+          <td class="style2" colspan="1">
+            <b>
+              <xsl:value-of select="$loc/str[@name='Weight']"/> (<xsl:value-of select="totalWeight/unit"/>)
+            </b>
+          </td>
+          <td class="style3" colspan="3">
+            <xsl:value-of select="totalWeight/value"/>
+          </td>
+        </tr>
+      </xsl:if>
+      <tr>
+        <td align="middle" colspan="1">
+          <xsl:apply-templates select="view_solution_front"/>
+        </td>
+        <td align="middle" colspan="1">
+          <xsl:apply-templates select="view_solution_left"/>
+        </td>
+        <td align="middle" colspan="1">
+          <xsl:apply-templates select="view_solution_right"/>
+        </td>
+        <td align="middle" colspan="1">
+          <xsl:apply-templates select="view_solution_back"/>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="4" align="middle">
+          <xsl:apply-templates select="view_solution_iso"/>
+        </td>
+      </tr>
+    </table>
+  </xsl:template>
+   <!--#### ITEM ####-->
   <xsl:template match="item">
     <tr>
       <td class="style2" colspan="1">

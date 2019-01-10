@@ -1,7 +1,4 @@
-﻿#region Using directives
-#endregion
-
-namespace treeDiM.StackBuilder.Reporting
+﻿namespace treeDiM.StackBuilder.Reporting
 {
     public class ReporterHtml : Reporter
     {

@@ -1,4 +1,4 @@
-<?xml version="1.0" ?>
+﻿<?xml version="1.0" ?>
 <strings>
   <str name="Document">Document</str>
   <str name="Date">Date</str>
@@ -134,4 +134,5 @@
   <str name="Number of cases per layer">Caisses par couche</str>
   <str name="Layers x Cases">Couche x Caisse</str>
   <str name="Layers">Couches</str>
+  <str name="Part">Partie</str>
 </strings>

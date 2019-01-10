@@ -125,6 +125,8 @@ namespace treeDiM.StackBuilder.Desktop
         #region Handlers
         public override void UpdateStatus(string message)
         {
+            if (TruckAdmissibleLoadWeight < 1.0)
+                message = Resources.ID_TRUCKADMISSIBLELOAD;
            base.UpdateStatus(message);
         }
 

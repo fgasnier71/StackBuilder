@@ -59,7 +59,7 @@ namespace treeDiM.StackBuilder.Basics
         public virtual BBox3D BBoxGlobal(int solItemIndex)
         {
             BBox3D bbox = new BBox3D();
-            bbox.Extend(Analysis.AdditionalBoudingBox(solItemIndex));
+            bbox.Extend(Analysis.AdditionalBoudingBox(SolItem(solItemIndex).ContainerType));
             bbox.Extend( BBoxLoad(solItemIndex));
             return bbox;
         }
@@ -73,7 +73,7 @@ namespace treeDiM.StackBuilder.Basics
         }
         public virtual double Weight(int solItemIndex)
         {
-            return LoadWeight(solItemIndex) + Analysis.WeightContainer(solItemIndex);
+            return LoadWeight(solItemIndex) + Analysis.WeightContainer(SolItem(solItemIndex).ContainerType);
         }
         #region Data members
         private readonly List<HSolItem> hSolItems = new List<HSolItem>();
@@ -85,7 +85,7 @@ namespace treeDiM.StackBuilder.Basics
     /// </summary>
     public class HSolItem
     {
-        public int ContainerType { get; set; }
+        public int ContainerType { get; set; } = 0;
         public IEnumerable<HSolElement> ContainedElements { get => hSolElt; }
 
         public void InsertContainedElt(int contentType, BoxPosition bPosition)

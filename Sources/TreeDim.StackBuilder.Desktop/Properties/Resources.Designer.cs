@@ -2084,6 +2084,15 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Truck must have a valid admissible load value..
+        /// </summary>
+        internal static string ID_TRUCKADMISSIBLELOAD {
+            get {
+                return ResourceManager.GetString("ID_TRUCKADMISSIBLELOAD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Unexpected type: {0}.
         /// </summary>
         internal static string ID_UNEXPECTEDTYPE {

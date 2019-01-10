@@ -693,7 +693,6 @@ namespace treeDiM.StackBuilder.Reporting
             ReportNode rnLayers = rnSolution.GetChildByName(Resources.ID_RN_LAYERS);
             if (rnLayers.Activated)
             {
-
                 // layers
                 XmlElement elemLayers = xmlDoc.CreateElement("layers", ns);
                 elemSolution.AppendChild(elemLayers);
@@ -757,8 +756,82 @@ namespace treeDiM.StackBuilder.Reporting
         private void AppendSolutionHeterogeneousElement(HSolution sol, ReportNode rnSolution, XmlElement elemAnalysis, XmlDocument xmlDoc)
         {
             string ns = xmlDoc.DocumentElement.NamespaceURI;
-            XmlElement elemSolution = xmlDoc.CreateElement("solution", ns);
+            XmlElement elemSolution = xmlDoc.CreateElement("hSolution", ns);
             elemAnalysis.AppendChild(elemSolution);
+
+            // *** Item # (Recursive count)
+            AnalysisHetero analysis = sol.Analysis;
+
+            for (int solItemIndex = 0; solItemIndex < sol.SolItemCount; ++solItemIndex)
+            {
+                XmlElement elemSolItem = xmlDoc.CreateElement("solItem", ns);
+                elemSolution.AppendChild(elemSolItem);
+
+                // index
+                XmlElement elemIndex = xmlDoc.CreateElement("index", ns);
+                elemIndex.InnerText = solItemIndex.ToString();
+                elemSolItem.AppendChild(elemIndex);
+                AppendElementValue(xmlDoc, elemSolItem, "loadWeight", UnitsManager.UnitType.UT_MASS, sol.LoadWeight(solItemIndex));
+                AppendElementValue(xmlDoc, elemSolItem, "totalWeight", UnitsManager.UnitType.UT_MASS, sol.Weight(solItemIndex));
+
+                ReportNode rnViews = rnSolution.GetChildByName(Resources.ID_RN_VIEWS);
+                ReportNode rnViewIso = rnSolution.GetChildByName(Resources.ID_RN_VIEWISO);
+
+                // --- case images
+                for (int i = 0; i < 5; ++i)
+                {
+                    if (i < 4 && !rnViews.Activated) continue;
+                    if (i == 4 && !rnViewIso.Activated) continue;
+
+                    // initialize drawing values
+                    string viewName = string.Empty;
+                    Vector3D cameraPos = Vector3D.Zero;
+                    int imageWidth = ImageSizeDetail, imgHTMLWidth = ImageHTMLSizeDetail;
+                    bool showDimLocal = false;
+                    switch (i)
+                    {
+                        case 0: viewName = "view_solution_front"; cameraPos = Graphics3D.Front; break;
+                        case 1: viewName = "view_solution_left"; cameraPos = Graphics3D.Left; break;
+                        case 2: viewName = "view_solution_right"; cameraPos = Graphics3D.Right; break;
+                        case 3: viewName = "view_solution_back"; cameraPos = Graphics3D.Back; break;
+                        case 4:
+                            viewName = "view_solution_iso"; cameraPos = Graphics3D.Corner_0;
+                            imageWidth = ImageSizeLarge;
+                            imgHTMLWidth = ImageHTMLSizeLarge;
+                            showDimLocal = true;
+                            break;
+                        default: break;
+                    }
+                    // instantiate graphics
+                    Graphics3DImage graphics = new Graphics3DImage(new Size(imageWidth, imageWidth))
+                    {
+                        FontSizeRatio = FontSizeRatioLarge,
+                        // set camera position 
+                        CameraPosition = cameraPos,
+                        ShowDimensions = showDimLocal && ShowDimensions
+                    };
+
+                    // instantiate solution viewer
+                    var sv = new ViewerHSolution(sol, solItemIndex);
+                    sv.Draw(graphics, Transform3D.Identity);
+                    graphics.Flush();
+                    // image path
+                    string imagePath = SaveImageAs(graphics.Bitmap);
+
+                    // ---
+                    XmlElement elemImage = xmlDoc.CreateElement(viewName, ns);
+                    elemSolItem.AppendChild(elemImage);
+                    XmlElement elemImagePath = xmlDoc.CreateElement("imagePath");
+                    elemImage.AppendChild(elemImagePath);
+                    elemImagePath.InnerText = imagePath;
+                    XmlElement elemWidth = xmlDoc.CreateElement("width");
+                    elemImage.AppendChild(elemWidth);
+                    elemWidth.InnerText = imgHTMLWidth.ToString();
+                    XmlElement elemHeight = xmlDoc.CreateElement("height");
+                    elemImage.AppendChild(elemHeight);
+                    elemHeight.InnerText = imgHTMLWidth.ToString();
+                }
+            }
         }
 
         private void AppendPalletElement(PalletProperties palletProp, ReportNode rnPallet, XmlElement elemAnalysis, XmlDocument xmlDoc)
@@ -1317,6 +1390,28 @@ namespace treeDiM.StackBuilder.Reporting
                 valueElement.InnerText = string.Format(UnitsManager.UnitFormat(unitType), optValue.Value);
                 createdElement.AppendChild(valueElement);
             }
+        }
+        private static void AppendElementBB(XmlDocument xmlDoc, XmlElement parent, string eltName, UnitsManager.UnitType unitType, double[] eltValue)
+        {
+            // eltName
+            XmlElement createdElement = xmlDoc.CreateElement(eltName, xmlDoc.DocumentElement.NamespaceURI);
+            parent.AppendChild(createdElement);
+            // unit
+            XmlElement unitElement = xmlDoc.CreateElement("unit", xmlDoc.DocumentElement.NamespaceURI);
+            unitElement.InnerText = UnitsManager.UnitString(unitType);
+            createdElement.AppendChild(unitElement);
+            // v0
+            XmlElement valueElement0 = xmlDoc.CreateElement("v0", xmlDoc.DocumentElement.NamespaceURI);
+            valueElement0.InnerText = string.Format(UnitsManager.UnitFormat(unitType), eltValue);
+            createdElement.AppendChild(valueElement0);
+            // v1
+            XmlElement valueElement1 = xmlDoc.CreateElement("v1", xmlDoc.DocumentElement.NamespaceURI);
+            valueElement1.InnerText = string.Format(UnitsManager.UnitFormat(unitType), eltValue);
+            createdElement.AppendChild(valueElement1);
+            // v2
+            XmlElement valueElement2 = xmlDoc.CreateElement("v2", xmlDoc.DocumentElement.NamespaceURI);
+            valueElement2.InnerText = string.Format(UnitsManager.UnitFormat(unitType), eltValue);
+            createdElement.AppendChild(valueElement2);
         }
         private static void AppendElementValue(XmlDocument xmlDoc, XmlElement parent, string eltName, UnitsManager.UnitType unitType, double eltValue)
         {

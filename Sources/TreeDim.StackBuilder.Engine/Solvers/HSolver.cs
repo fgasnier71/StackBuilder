@@ -29,11 +29,9 @@ namespace treeDiM.StackBuilder.Engine
                             new Cuboid((decimal)b.Length, (decimal)b.Width, (decimal)b.Height)
                             {
                                 Tag = b
-                                /*
                                 , AllowOrientX = ci.AllowOrientX
                                 , AllowOrientY = ci.AllowOrientY
                                 , AllowOrientZ = ci.AllowOrientZ
-                                */
                             }
                         );
                     if (!ci.AllowOrientX || !ci.AllowOrientY || !ci.AllowOrientZ)
@@ -46,7 +44,7 @@ namespace treeDiM.StackBuilder.Engine
             // Create a bin packer instance
             // The default bin packer will test all algorithms and try to find the best result
             // BinPackerVerifyOption is used to avoid bugs, it will check whether the result is correct
-            var binPacker = BinPacker.GetDefault(BinPackerVerifyOption.BestOnly/*, bAllowAllOrientations*/);
+            var binPacker = BinPacker.GetDefault(BinPackerVerifyOption.BestOnly, bAllowAllOrientations);
             // The result contains bins which contains packed cuboids whith their coordinates
             var parameter = new BinPackParameter(
                 (decimal)dimContainer.X, (decimal)dimContainer.Y, (decimal)dimContainer.Z,
