@@ -316,7 +316,6 @@
       <DependentUpon>StackBuilderAddIn.Designer.xml</DependentUpon>
     </Compile>
     <AppDesigner Include="Properties\" />
-    <None Include="treedim.pfx" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\TreeDim.StackBuilder.Basics\treeDiM.StackBuilder.Basics.csproj">

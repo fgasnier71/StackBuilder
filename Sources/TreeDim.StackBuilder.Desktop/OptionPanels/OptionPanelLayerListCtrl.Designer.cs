@@ -40,6 +40,7 @@
             resources.ApplyResources(this.rbView1, "rbView1");
             this.rbView1.Name = "rbView1";
             this.rbView1.UseVisualStyleBackColor = true;
+            this.rbView1.CheckedChanged += new System.EventHandler(this.OnLayerViewChanged);
             // 
             // rbView2
             // 
@@ -48,6 +49,7 @@
             this.rbView2.Name = "rbView2";
             this.rbView2.TabStop = true;
             this.rbView2.UseVisualStyleBackColor = true;
+            this.rbView2.CheckedChanged += new System.EventHandler(this.OnLayerViewChanged);
             // 
             // lbThumbSize
             // 
@@ -56,7 +58,6 @@
             // 
             // cbThumbSize
             // 
-            resources.ApplyResources(this.cbThumbSize, "cbThumbSize");
             this.cbThumbSize.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbThumbSize.FormattingEnabled = true;
             this.cbThumbSize.Items.AddRange(new object[] {
@@ -64,7 +65,9 @@
             resources.GetString("cbThumbSize.Items1"),
             resources.GetString("cbThumbSize.Items2"),
             resources.GetString("cbThumbSize.Items3")});
+            resources.ApplyResources(this.cbThumbSize, "cbThumbSize");
             this.cbThumbSize.Name = "cbThumbSize";
+            this.cbThumbSize.SelectedIndexChanged += new System.EventHandler(this.OnThumbnailSizeChanged);
             // 
             // OptionPanelLayerListCtrl
             // 
@@ -77,7 +80,6 @@
             this.Controls.Add(this.rbView1);
             this.DisplayName = "Layer view control";
             this.Name = "OptionPanelLayerListCtrl";
-            this.Load += new System.EventHandler(this.OptionPanelLayerListCtrl_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

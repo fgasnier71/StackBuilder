@@ -50,10 +50,8 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.uCtrlLayerList.AutoScroll = true;
-            this.uCtrlLayerList.ButtonSizes = new System.Drawing.Size(150, 150);
             this.uCtrlLayerList.Location = new System.Drawing.Point(0, 124);
             this.uCtrlLayerList.Name = "uCtrlLayerList";
-            this.uCtrlLayerList.Show3D = true;
             this.uCtrlLayerList.SingleSelection = false;
             this.uCtrlLayerList.Size = new System.Drawing.Size(297, 371);
             this.uCtrlLayerList.TabIndex = 1;

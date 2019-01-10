@@ -37,7 +37,6 @@ namespace treeDiM.StackBuilder.Desktop
             // event handling
             uCtrlLayerList.LayerSelected += OnLayerSelected;
             uCtrlLayerList.RefreshFinished += OnLayerSelected;
-            uCtrlLayerList.ButtonSizes = new Size(100, 100);
 
             if (null == AnalysisCast)
             {

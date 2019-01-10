@@ -244,10 +244,8 @@
             // uCtrlLayerList
             // 
             this.uCtrlLayerList.AutoScroll = true;
-            this.uCtrlLayerList.ButtonSizes = new System.Drawing.Size(150, 150);
             this.uCtrlLayerList.Location = new System.Drawing.Point(0, 312);
             this.uCtrlLayerList.Name = "uCtrlLayerList";
-            this.uCtrlLayerList.Show3D = true;
             this.uCtrlLayerList.SingleSelection = false;
             this.uCtrlLayerList.Size = new System.Drawing.Size(634, 295);
             this.uCtrlLayerList.TabIndex = 6;

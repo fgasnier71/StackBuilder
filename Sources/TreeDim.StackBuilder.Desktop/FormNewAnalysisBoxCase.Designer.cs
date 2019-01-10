@@ -88,9 +88,7 @@
             // uCtrlLayerList
             // 
             resources.ApplyResources(this.uCtrlLayerList, "uCtrlLayerList");
-            this.uCtrlLayerList.ButtonSizes = new System.Drawing.Size(150, 150);
             this.uCtrlLayerList.Name = "uCtrlLayerList";
-            this.uCtrlLayerList.Show3D = true;
             this.uCtrlLayerList.SingleSelection = false;
             // 
             // uCtrlCaseOrientation

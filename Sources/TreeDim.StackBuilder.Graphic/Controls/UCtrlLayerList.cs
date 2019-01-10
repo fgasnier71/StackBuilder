@@ -29,7 +29,6 @@ namespace treeDiM.StackBuilder.Graphics
         private int _x, _y;
         private ToolTip tooltip = new ToolTip();
         private double _contHeight = 0.0;
-        private bool _firstLayerSelected = false;
         private bool _show3D;
         #endregion
 
@@ -51,9 +50,9 @@ namespace treeDiM.StackBuilder.Graphics
             // single selection
             SingleSelection = false;
             // set default value for Show3D from settings
-            Show3D = Graphics.Properties.Settings.Default.LayerView3D;
+            Show3D = Properties.Settings.Default.LayerView3D;
             // set default thumbnail size from settings
-            switch (Graphics.Properties.Settings.Default.LayerViewThumbSizeIndex)
+            switch (Properties.Settings.Default.LayerViewThumbSizeIndex)
             {
                 case 0: ButtonSizes = new Size(75, 75); break;
                 case 1: ButtonSizes = new Size(100, 100); break;
@@ -92,11 +91,7 @@ namespace treeDiM.StackBuilder.Graphics
         [Browsable(false),
         EditorBrowsable(EditorBrowsableState.Never),
         DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public bool FirstLayerSelected
-        {
-            get { return _firstLayerSelected; }
-            set { _firstLayerSelected = value; }
-        }
+        public bool FirstLayerSelected { get; set; } = false;
         [Browsable(false),
         EditorBrowsable(EditorBrowsableState.Never),
         DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
@@ -125,6 +120,7 @@ namespace treeDiM.StackBuilder.Graphics
         {
             set { _packable = value; }
         }
+        [Browsable(false)]
         public Size ButtonSizes
         {
             get { return szButtons; }
@@ -152,6 +148,7 @@ namespace treeDiM.StackBuilder.Graphics
                 return layers.ToArray();
             }
         }
+        [Browsable(false)]
         public bool Show3D
         {
             get { return _show3D; }
@@ -163,8 +160,7 @@ namespace treeDiM.StackBuilder.Graphics
                  Start(); 
             }
         }
-        public bool SingleSelection
-        { get; set; }
+        public bool SingleSelection { get; set; }
         #endregion
 
         #region Event handler
@@ -188,7 +184,7 @@ namespace treeDiM.StackBuilder.Graphics
                 RefreshFinished?.Invoke(this, null);
                 return;
             }
-            bool selected = (0 == Controls.Count) ? _firstLayerSelected : false;
+            bool selected = (0 == Controls.Count) ? FirstLayerSelected : false;
 
             ILayer2D layer = _layerList[_index];
 
