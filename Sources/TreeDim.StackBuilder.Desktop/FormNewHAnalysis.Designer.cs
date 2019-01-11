@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormNewHAnalysis));
             this.splitContainerHoriz1 = new System.Windows.Forms.SplitContainer();
             this.tbName = new System.Windows.Forms.TextBox();
@@ -47,6 +48,7 @@
             this.bnNext = new System.Windows.Forms.Button();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.statusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this._timer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerHoriz1)).BeginInit();
             this.splitContainerHoriz1.Panel1.SuspendLayout();
             this.splitContainerHoriz1.Panel2.SuspendLayout();
@@ -233,6 +235,11 @@
             this.statusLabel.Name = "statusLabel";
             resources.ApplyResources(this.statusLabel, "statusLabel");
             // 
+            // timer
+            // 
+            this._timer.Interval = 1000;
+            this._timer.Tick += new System.EventHandler(this.OnTimerTick);
+            // 
             // FormNewHAnalysis
             // 
             resources.ApplyResources(this, "$this");
@@ -293,5 +300,6 @@
         private System.Windows.Forms.Label lbSolItemIndex;
         private System.Windows.Forms.Button bnSolItemIndexDown;
         private System.Windows.Forms.Button bnSolItemIndexUp;
+        private System.Windows.Forms.Timer _timer;
     }
 }

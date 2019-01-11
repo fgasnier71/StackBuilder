@@ -298,6 +298,15 @@ namespace treeDiM.StackBuilder.Desktop
                 _log.Error(ex.ToString());
             }
         }
+
+        private void OnTimerTick(object sender, EventArgs e)
+        {
+            _timer.Stop();
+            Compute();
+            FillResultGrid();
+            graphCtrl.Invalidate();
+        }
+
         #endregion
 
         #region Event handlers
@@ -305,15 +314,17 @@ namespace treeDiM.StackBuilder.Desktop
         {
             try
             {
-                Compute();
+                _timer.Stop();
+                Solutions.Clear();
                 FillResultGrid();
-                graphCtrl.Invalidate();
+                _timer.Start();
             }
             catch (Exception ex)
             {
                 _log.Error(ex.ToString());
             }
-        } 
+        }
+        
         private void OnSolItemIndexUp(object sender, EventArgs e)
         {
             try
@@ -448,7 +459,6 @@ namespace treeDiM.StackBuilder.Desktop
         protected List<BoxProperties> lBoxes = new List<BoxProperties>();
         protected int _selectedSolutionIndex = -1, _solItemIndex = 0;
         protected SourceGrid.Cells.Controllers.CustomEvents _checkBoxEvent = new SourceGrid.Cells.Controllers.CustomEvents();
-
         protected SourceGrid.Cells.Controllers.CustomEvents _numUpDownEvent = new SourceGrid.Cells.Controllers.CustomEvents();
         #endregion
     }
