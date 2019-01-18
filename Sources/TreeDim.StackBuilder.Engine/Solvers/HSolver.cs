@@ -1,9 +1,11 @@
 ﻿#region Using directives
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 using Sharp3D.Math.Core;
 using Sharp3DBinPacking;
+using Sharp3D.Boxologic;
 using log4net;
 
 using treeDiM.StackBuilder.Basics;
@@ -34,9 +36,9 @@ namespace treeDiM.StackBuilder.Engine
                                 , AllowOrientZ = ci.AllowOrientZ
                             }
                         );
-                    if (!ci.AllowOrientX || !ci.AllowOrientY || !ci.AllowOrientZ)
-                        bAllowAllOrientations = false;
                 }
+                if (!ci.AllowOrientX || !ci.AllowOrientY || !ci.AllowOrientZ)
+                    bAllowAllOrientations = false;
             }
             // dim container + offset
             Vector3D dimContainer = analysis.DimContainer(0), offset = analysis.Offset(0);
@@ -56,22 +58,95 @@ namespace treeDiM.StackBuilder.Engine
 
             List<HSolution> solutions = new List<HSolution>();
             //foreach (var result in binPackResult.BestResult)
-            //{
-            HSolution sol = new HSolution("") { Analysis = analysis };
-            foreach (var bins in binPackResult.BestResult)
             {
-                HSolItem hSolItem = sol.CreateSolItem();
-                foreach (var cuboid in bins)
+                HSolution sol = new HSolution("Sharp3DBinPacking") { Analysis = analysis };
+                foreach (var bins in binPackResult.BestResult)
                 {
-                    CuboidToSolItem(contentItems, offset, cuboid, out int index, out BoxPosition pos);
-                    hSolItem.InsertContainedElt(index, pos);
+                    HSolItem hSolItem = sol.CreateSolItem();
+                    foreach (var cuboid in bins)
+                    {
+                        CuboidToSolItem(contentItems, offset, cuboid, out int index, out BoxPosition pos);
+                        hSolItem.InsertContainedElt(index, pos);
+                    }
                 }
+                solutions.Add(sol);
             }
-            solutions.Add(sol);
-            //}
             // *** Sharp3DBinPacking : end
 
+            // *** BoxoLogic : begin
+            List<BoxItem> listItems = new List<BoxItem>();
+            foreach (ContentItem ci in contentItems)
+            {
+                for (int i = 0; i < ci.Number; ++i)
+                {
+                    if (ci.Pack is BoxProperties b)
+                        listItems.Add(
+                            new BoxItem()
+                            {
+                                ID=BoxToID(b),
+                                Boxx=(decimal)b.Length,
+                                Boxy=(decimal)b.Width,
+                                Boxz=(decimal)b.Height,
+                                N=1
+                            }
+                        );
+                }
+            }
+            var bl = new Boxlogic() { OutputFilePath = string.Empty };
+            var solArray = new SolutionArray();
+            bl.Run(listItems.ToArray(), (decimal)dimContainer.X, (decimal)dimContainer.Y, (decimal)dimContainer.Z, ref solArray);
+            foreach (var solution in solArray.Solutions)
+            {
+                HSolution sol = new HSolution("Boxologic") { Analysis = analysis };
+                HSolItem hSolItem = sol.CreateSolItem();
+                foreach (var item in solution.ItemsPacked)
+                {
+                    BoxInfoToSolItem(contentItems, offset, item, out int index, out BoxPosition pos);
+                    hSolItem.InsertContainedElt(index, pos);
+                }
+                solutions.Add(sol);
+            }
+            // *** BoxoLogic : end
+
             return solutions;
+        }
+        private uint BoxToID(BoxProperties b)
+        {
+            if (!_dictionnary.ContainsKey(b))
+                _dictionnary.Add(b, (uint)_dictionnary.Count);
+            return _dictionnary[b];
+        }
+        private BoxProperties IDToBox(uint id)
+        {
+            if (!_dictionnary.ContainsValue(id))
+                return null;
+            return _dictionnary.FirstOrDefault(x => x.Value == id).Key;
+        }
+
+        private bool BoxInfoToSolItem(List<ContentItem> contentItems, Vector3D offset, SolItem solItem, out int index, out BoxPosition pos)
+        {
+            index = 0;
+            pos = BoxPosition.Zero;
+
+            BoxProperties b = IDToBox(solItem.Id);
+            if (null != b)
+            {
+                try
+                {
+                    index = (int)solItem.Id;
+                    pos = BoxPosition.FromPositionDimension(
+                        new Vector3D((double)solItem.X, (double)solItem.Y, (double)solItem.Z) + offset,
+                        new Vector3D((double)solItem.BX, (double)solItem.BY, (double)solItem.BZ) + offset,
+                        new Vector3D((double)solItem.DimX, (double)solItem.DimY, (double)solItem.DimZ)
+                        );
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    _log.Error(ex.Message);
+                }
+            }
+            return false;
         }
 
         private bool CuboidToSolItem(List<ContentItem> contentItems, Vector3D offset, Cuboid cuboid, out int index, out BoxPosition pos)
@@ -87,8 +162,8 @@ namespace treeDiM.StackBuilder.Engine
                     pos = BoxPosition.FromPositionDimension(
                         new Vector3D((double)cuboid.X, (double)cuboid.Y, (double)cuboid.Z) + offset,
                         new Vector3D((double)cuboid.Width, (double)cuboid.Height, (double)cuboid.Depth),
-                        new Vector3D(bProperties.Length, bProperties.Width, bProperties.Height));
-
+                        new Vector3D(bProperties.Length, bProperties.Width, bProperties.Height)
+                        );
                     return true;
                 }
                 catch (Exception ex)
@@ -99,6 +174,7 @@ namespace treeDiM.StackBuilder.Engine
             return false;
         }
 
+        private Dictionary<BoxProperties, uint> _dictionnary = new Dictionary<BoxProperties, uint>();
         private static ILog _log = LogManager.GetLogger(typeof(HSolver));
     }
 }

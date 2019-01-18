@@ -112,1552 +112,354 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="bnOK.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="bnOK.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="&gt;&gt;bnOK.Name" xml:space="preserve">
-    <value>bnOK</value>
-  </data>
-  <data name="&gt;&gt;bnOK.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;bnOK.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;bnOK.ZOrder" xml:space="preserve">
-    <value>12</value>
-  </data>
-  <data name="bnCancel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="bnCancel.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
-  </data>
-  <data name="&gt;&gt;bnCancel.Name" xml:space="preserve">
-    <value>bnCancel</value>
-  </data>
-  <data name="&gt;&gt;bnCancel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;bnCancel.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;bnCancel.ZOrder" xml:space="preserve">
-    <value>11</value>
-  </data>
-  <data name="lbFace.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lbFace.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;lbFace.Name" xml:space="preserve">
-    <value>lbFace</value>
-  </data>
-  <data name="&gt;&gt;lbFace.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbFace.Parent" xml:space="preserve">
-    <value>gbFaceColor</value>
-  </data>
-  <data name="&gt;&gt;lbFace.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="lbInsideHeight.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lbInsideHeight.TabIndex" type="System.Int32, mscorlib">
-    <value>18</value>
-  </data>
-  <data name="&gt;&gt;lbInsideHeight.Name" xml:space="preserve">
-    <value>lbInsideHeight</value>
-  </data>
-  <data name="&gt;&gt;lbInsideHeight.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbInsideHeight.Parent" xml:space="preserve">
-    <value>gbDimensions</value>
-  </data>
-  <data name="&gt;&gt;lbInsideHeight.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="lbInsideWidth.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lbInsideWidth.TabIndex" type="System.Int32, mscorlib">
-    <value>17</value>
-  </data>
-  <data name="&gt;&gt;lbInsideWidth.Name" xml:space="preserve">
-    <value>lbInsideWidth</value>
-  </data>
-  <data name="&gt;&gt;lbInsideWidth.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbInsideWidth.Parent" xml:space="preserve">
-    <value>gbDimensions</value>
-  </data>
-  <data name="&gt;&gt;lbInsideWidth.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="lbInsideLength.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lbInsideLength.TabIndex" type="System.Int32, mscorlib">
-    <value>16</value>
-  </data>
-  <data name="&gt;&gt;lbInsideLength.Name" xml:space="preserve">
-    <value>lbInsideLength</value>
-  </data>
-  <data name="&gt;&gt;lbInsideLength.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbInsideLength.Parent" xml:space="preserve">
-    <value>gbDimensions</value>
-  </data>
-  <data name="&gt;&gt;lbInsideLength.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="lbUnitHeightInside.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lbUnitHeightInside.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lbUnitHeightInside.TabIndex" type="System.Int32, mscorlib">
-    <value>15</value>
-  </data>
-  <data name="&gt;&gt;lbUnitHeightInside.Name" xml:space="preserve">
-    <value>lbUnitHeightInside</value>
-  </data>
-  <data name="&gt;&gt;lbUnitHeightInside.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbUnitHeightInside.Parent" xml:space="preserve">
-    <value>gbDimensions</value>
-  </data>
-  <data name="&gt;&gt;lbUnitHeightInside.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="lbUnitWidthInside.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lbUnitWidthInside.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lbUnitWidthInside.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
-  </data>
-  <data name="&gt;&gt;lbUnitWidthInside.Name" xml:space="preserve">
-    <value>lbUnitWidthInside</value>
-  </data>
-  <data name="&gt;&gt;lbUnitWidthInside.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbUnitWidthInside.Parent" xml:space="preserve">
-    <value>gbDimensions</value>
-  </data>
-  <data name="&gt;&gt;lbUnitWidthInside.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="lbUnitLengthInside.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lbUnitLengthInside.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lbUnitLengthInside.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;lbUnitLengthInside.Name" xml:space="preserve">
-    <value>lbUnitLengthInside</value>
-  </data>
-  <data name="&gt;&gt;lbUnitLengthInside.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbUnitLengthInside.Parent" xml:space="preserve">
-    <value>gbDimensions</value>
-  </data>
-  <data name="&gt;&gt;lbUnitLengthInside.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="nudInsideLength.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;nudInsideLength.Name" xml:space="preserve">
-    <value>nudInsideLength</value>
-  </data>
-  <data name="&gt;&gt;nudInsideLength.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;nudInsideLength.Parent" xml:space="preserve">
-    <value>gbDimensions</value>
-  </data>
-  <data name="&gt;&gt;nudInsideLength.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="nudInsideHeight.TabIndex" type="System.Int32, mscorlib">
-    <value>14</value>
-  </data>
-  <data name="&gt;&gt;nudInsideHeight.Name" xml:space="preserve">
-    <value>nudInsideHeight</value>
-  </data>
-  <data name="&gt;&gt;nudInsideHeight.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;nudInsideHeight.Parent" xml:space="preserve">
-    <value>gbDimensions</value>
-  </data>
-  <data name="&gt;&gt;nudInsideHeight.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="nudInsideWidth.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
-  </data>
-  <data name="&gt;&gt;nudInsideWidth.Name" xml:space="preserve">
-    <value>nudInsideWidth</value>
-  </data>
-  <data name="&gt;&gt;nudInsideWidth.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;nudInsideWidth.Parent" xml:space="preserve">
-    <value>gbDimensions</value>
-  </data>
-  <data name="&gt;&gt;nudInsideWidth.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="lbUnitHeight.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lbUnitHeight.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lbUnitHeight.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
-  </data>
-  <data name="&gt;&gt;lbUnitHeight.Name" xml:space="preserve">
-    <value>lbUnitHeight</value>
-  </data>
-  <data name="&gt;&gt;lbUnitHeight.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbUnitHeight.Parent" xml:space="preserve">
-    <value>gbDimensions</value>
-  </data>
-  <data name="&gt;&gt;lbUnitHeight.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="lbUnitWidth.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lbUnitWidth.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lbUnitWidth.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="&gt;&gt;lbUnitWidth.Name" xml:space="preserve">
-    <value>lbUnitWidth</value>
-  </data>
-  <data name="&gt;&gt;lbUnitWidth.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbUnitWidth.Parent" xml:space="preserve">
-    <value>gbDimensions</value>
-  </data>
-  <data name="&gt;&gt;lbUnitWidth.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="lbUnitLength.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lbUnitLength.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lbUnitLength.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;lbUnitLength.Name" xml:space="preserve">
-    <value>lbUnitLength</value>
-  </data>
-  <data name="&gt;&gt;lbUnitLength.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbUnitLength.Parent" xml:space="preserve">
-    <value>gbDimensions</value>
-  </data>
-  <data name="&gt;&gt;lbUnitLength.ZOrder" xml:space="preserve">
-    <value>11</value>
-  </data>
-  <data name="nudLength.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;nudLength.Name" xml:space="preserve">
-    <value>nudLength</value>
-  </data>
-  <data name="&gt;&gt;nudLength.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;nudLength.Parent" xml:space="preserve">
-    <value>gbDimensions</value>
-  </data>
-  <data name="&gt;&gt;nudLength.ZOrder" xml:space="preserve">
-    <value>12</value>
-  </data>
-  <data name="nudHeight.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
-  </data>
-  <data name="&gt;&gt;nudHeight.Name" xml:space="preserve">
-    <value>nudHeight</value>
-  </data>
-  <data name="&gt;&gt;nudHeight.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;nudHeight.Parent" xml:space="preserve">
-    <value>gbDimensions</value>
-  </data>
-  <data name="&gt;&gt;nudHeight.ZOrder" xml:space="preserve">
-    <value>13</value>
-  </data>
-  <data name="nudWidth.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;nudWidth.Name" xml:space="preserve">
-    <value>nudWidth</value>
-  </data>
-  <data name="&gt;&gt;nudWidth.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;nudWidth.Parent" xml:space="preserve">
-    <value>gbDimensions</value>
-  </data>
-  <data name="&gt;&gt;nudWidth.ZOrder" xml:space="preserve">
-    <value>14</value>
-  </data>
-  <data name="lbHeight.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lbHeight.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lbHeight.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
-  </data>
-  <data name="&gt;&gt;lbHeight.Name" xml:space="preserve">
-    <value>lbHeight</value>
-  </data>
-  <data name="&gt;&gt;lbHeight.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbHeight.Parent" xml:space="preserve">
-    <value>gbDimensions</value>
-  </data>
-  <data name="&gt;&gt;lbHeight.ZOrder" xml:space="preserve">
-    <value>15</value>
-  </data>
-  <data name="lbWidth.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lbWidth.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lbWidth.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;lbWidth.Name" xml:space="preserve">
-    <value>lbWidth</value>
-  </data>
-  <data name="&gt;&gt;lbWidth.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbWidth.Parent" xml:space="preserve">
-    <value>gbDimensions</value>
-  </data>
-  <data name="&gt;&gt;lbWidth.ZOrder" xml:space="preserve">
-    <value>16</value>
-  </data>
-  <data name="lbLength.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lbLength.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lbLength.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;lbLength.Name" xml:space="preserve">
-    <value>lbLength</value>
-  </data>
-  <data name="&gt;&gt;lbLength.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbLength.Parent" xml:space="preserve">
-    <value>gbDimensions</value>
-  </data>
-  <data name="&gt;&gt;lbLength.ZOrder" xml:space="preserve">
-    <value>17</value>
-  </data>
-  <data name="gbDimensions.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;gbDimensions.Name" xml:space="preserve">
-    <value>gbDimensions</value>
-  </data>
-  <data name="&gt;&gt;gbDimensions.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;gbDimensions.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;gbDimensions.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="cbFace.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;cbFace.Name" xml:space="preserve">
-    <value>cbFace</value>
-  </data>
-  <data name="&gt;&gt;cbFace.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cbFace.Parent" xml:space="preserve">
-    <value>gbFaceColor</value>
-  </data>
-  <data name="&gt;&gt;cbFace.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="cbColor.IntegralHeight" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="cbColor.ItemHeight" type="System.Int32, mscorlib">
-    <value>16</value>
-  </data>
-  <data name="cbColor.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;cbColor.Name" xml:space="preserve">
-    <value>cbColor</value>
-  </data>
-  <data name="&gt;&gt;cbColor.Type" xml:space="preserve">
-    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=1.1.4541.19745, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;cbColor.Parent" xml:space="preserve">
-    <value>gbFaceColor</value>
-  </data>
-  <data name="&gt;&gt;cbColor.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="btBitmaps.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;btBitmaps.Name" xml:space="preserve">
-    <value>btBitmaps</value>
-  </data>
-  <data name="&gt;&gt;btBitmaps.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btBitmaps.Parent" xml:space="preserve">
-    <value>gbFaceColor</value>
-  </data>
-  <data name="&gt;&gt;btBitmaps.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="chkAllFaces.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="chkAllFaces.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;chkAllFaces.Name" xml:space="preserve">
-    <value>chkAllFaces</value>
-  </data>
-  <data name="&gt;&gt;chkAllFaces.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;chkAllFaces.Parent" xml:space="preserve">
-    <value>gbFaceColor</value>
-  </data>
-  <data name="&gt;&gt;chkAllFaces.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="gbFaceColor.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;gbFaceColor.Name" xml:space="preserve">
-    <value>gbFaceColor</value>
-  </data>
-  <data name="&gt;&gt;gbFaceColor.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;gbFaceColor.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;gbFaceColor.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="lbWeight.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lbWeight.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;lbWeight.Name" xml:space="preserve">
-    <value>lbWeight</value>
-  </data>
-  <data name="&gt;&gt;lbWeight.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbWeight.Parent" xml:space="preserve">
-    <value>gbWeight</value>
-  </data>
-  <data name="&gt;&gt;lbWeight.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="lbWeightOnTop.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lbWeightOnTop.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;lbWeightOnTop.Name" xml:space="preserve">
-    <value>lbWeightOnTop</value>
-  </data>
-  <data name="&gt;&gt;lbWeightOnTop.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbWeightOnTop.Parent" xml:space="preserve">
-    <value>gbWeight</value>
-  </data>
-  <data name="&gt;&gt;lbWeightOnTop.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="nudWeight.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;nudWeight.Name" xml:space="preserve">
-    <value>nudWeight</value>
-  </data>
-  <data name="&gt;&gt;nudWeight.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;nudWeight.Parent" xml:space="preserve">
-    <value>gbWeight</value>
-  </data>
-  <data name="&gt;&gt;nudWeight.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="nudWeightOnTop.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;nudWeightOnTop.Name" xml:space="preserve">
-    <value>nudWeightOnTop</value>
-  </data>
-  <data name="&gt;&gt;nudWeightOnTop.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;nudWeightOnTop.Parent" xml:space="preserve">
-    <value>gbWeight</value>
-  </data>
-  <data name="&gt;&gt;nudWeightOnTop.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="lbUnitWeightOnTop.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lbUnitWeightOnTop.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;lbUnitWeightOnTop.Name" xml:space="preserve">
-    <value>lbUnitWeightOnTop</value>
-  </data>
-  <data name="&gt;&gt;lbUnitWeightOnTop.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbUnitWeightOnTop.Parent" xml:space="preserve">
-    <value>gbWeight</value>
-  </data>
-  <data name="&gt;&gt;lbUnitWeightOnTop.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="lbUnitWeight.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lbUnitWeight.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;lbUnitWeight.Name" xml:space="preserve">
-    <value>lbUnitWeight</value>
-  </data>
-  <data name="&gt;&gt;lbUnitWeight.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbUnitWeight.Parent" xml:space="preserve">
-    <value>gbWeight</value>
-  </data>
-  <data name="&gt;&gt;lbUnitWeight.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="gbWeight.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;gbWeight.Name" xml:space="preserve">
-    <value>gbWeight</value>
-  </data>
-  <data name="&gt;&gt;gbWeight.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;gbWeight.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;gbWeight.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="trackBarHorizAngle.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left, Right</value>
-  </data>
-  <data name="trackBarHorizAngle.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;trackBarHorizAngle.Name" xml:space="preserve">
-    <value>trackBarHorizAngle</value>
-  </data>
-  <data name="&gt;&gt;trackBarHorizAngle.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TrackBar, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;trackBarHorizAngle.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;trackBarHorizAngle.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="lblName.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lblName.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;lblName.Name" xml:space="preserve">
-    <value>lblName</value>
-  </data>
-  <data name="&gt;&gt;lblName.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblName.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;lblName.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="lblDescription.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lblDescription.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;lblDescription.Name" xml:space="preserve">
-    <value>lblDescription</value>
-  </data>
-  <data name="&gt;&gt;lblDescription.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblDescription.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;lblDescription.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="tbName.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;tbName.Name" xml:space="preserve">
-    <value>tbName</value>
-  </data>
-  <data name="&gt;&gt;tbName.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tbName.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;tbName.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="tbDescription.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
-  </data>
-  <data name="tbDescription.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;tbDescription.Name" xml:space="preserve">
-    <value>tbDescription</value>
-  </data>
-  <data name="&gt;&gt;tbDescription.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tbDescription.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;tbDescription.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="pictureBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left, Right</value>
-  </data>
-  <data name="pictureBox.TabIndex" type="System.Int32, mscorlib">
-    <value>19</value>
-  </data>
-  <data name="&gt;&gt;pictureBox.Name" xml:space="preserve">
-    <value>pictureBox</value>
-  </data>
-  <data name="&gt;&gt;pictureBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pictureBox.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;pictureBox.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="statusStripDef.TabIndex" type="System.Int32, mscorlib">
-    <value>20</value>
-  </data>
-  <data name="&gt;&gt;statusStripDef.Name" xml:space="preserve">
-    <value>statusStripDef</value>
-  </data>
-  <data name="&gt;&gt;statusStripDef.Type" xml:space="preserve">
-    <value>System.Windows.Forms.StatusStrip, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;statusStripDef.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;statusStripDef.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="cbTapeColor.IntegralHeight" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="cbTapeColor.ItemHeight" type="System.Int32, mscorlib">
-    <value>16</value>
-  </data>
-  <data name="cbTapeColor.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;cbTapeColor.Name" xml:space="preserve">
-    <value>cbTapeColor</value>
-  </data>
-  <data name="&gt;&gt;cbTapeColor.Type" xml:space="preserve">
-    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=1.1.4541.19745, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;cbTapeColor.Parent" xml:space="preserve">
-    <value>gbTape</value>
-  </data>
-  <data name="&gt;&gt;cbTapeColor.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="nudTapeWidth.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;nudTapeWidth.Name" xml:space="preserve">
-    <value>nudTapeWidth</value>
-  </data>
-  <data name="&gt;&gt;nudTapeWidth.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;nudTapeWidth.Parent" xml:space="preserve">
-    <value>gbTape</value>
-  </data>
-  <data name="&gt;&gt;nudTapeWidth.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="lbTapeColor.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lbTapeColor.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;lbTapeColor.Name" xml:space="preserve">
-    <value>lbTapeColor</value>
-  </data>
-  <data name="&gt;&gt;lbTapeColor.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbTapeColor.Parent" xml:space="preserve">
-    <value>gbTape</value>
-  </data>
-  <data name="&gt;&gt;lbTapeColor.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="lbTapeWidth.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lbTapeWidth.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;lbTapeWidth.Name" xml:space="preserve">
-    <value>lbTapeWidth</value>
-  </data>
-  <data name="&gt;&gt;lbTapeWidth.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbTapeWidth.Parent" xml:space="preserve">
-    <value>gbTape</value>
-  </data>
-  <data name="&gt;&gt;lbTapeWidth.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="checkBoxTape.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="checkBoxTape.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;checkBoxTape.Name" xml:space="preserve">
-    <value>checkBoxTape</value>
-  </data>
-  <data name="&gt;&gt;checkBoxTape.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;checkBoxTape.Parent" xml:space="preserve">
-    <value>gbTape</value>
-  </data>
-  <data name="&gt;&gt;checkBoxTape.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="gbTape.TabIndex" type="System.Int32, mscorlib">
-    <value>21</value>
-  </data>
-  <data name="&gt;&gt;gbTape.Name" xml:space="preserve">
-    <value>gbTape</value>
-  </data>
-  <data name="&gt;&gt;gbTape.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;gbTape.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;gbTape.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="&gt;&gt;toolStripStatusLabelDef.Name" xml:space="preserve">
-    <value>toolStripStatusLabelDef</value>
-  </data>
-  <data name="&gt;&gt;toolStripStatusLabelDef.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>FormNewBox</value>
-  </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="cbColor.Items6" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbTapeColor.Items91" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbTapeColor.Items46" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbTapeColor.Items21" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbTapeColor.Items85" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items65" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items12" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbFace.Items5" xml:space="preserve">
-    <value>Boven</value>
-  </data>
-  <data name="cbFace.Items4" xml:space="preserve">
-    <value>Onderkant</value>
-  </data>
-  <data name="cbFace.Items3" xml:space="preserve">
-    <value>Links</value>
-  </data>
-  <data name="cbFace.Items2" xml:space="preserve">
-    <value>Rechts</value>
-  </data>
-  <data name="cbFace.Items1" xml:space="preserve">
-    <value>Voorzijde</value>
-  </data>
-  <data name="cbTapeColor.Items90" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbTapeColor.Items58" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbTapeColor.Items62" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items33" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items1" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbTapeColor.Items44" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbTapeColor.Items73" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items50" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items98" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbTapeColor.Items11" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items15" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbTapeColor.Items29" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items39" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbTapeColor.Items88" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbTapeColor.Items48" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items48" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Het definiëren van een nieuwe vak/case...</value>
-  </data>
-  <data name="cbTapeColor.Items32" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items57" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbTapeColor.Items41" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items75" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbTapeColor.Items19" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbTapeColor.Items" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items86" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbTapeColor.Items14" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items62" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbTapeColor.Items94" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbTapeColor.Items77" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items93" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items37" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbTapeColor.Items10" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items54" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items78" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbTapeColor.Items15" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items51" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items99" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbTapeColor.Items7" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbTapeColor.Items28" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items47" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbTapeColor.Items98" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items43" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbTapeColor.Items54" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items28" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbTapeColor.Items24" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbTapeColor.Items82" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="statusStripDef.Text" xml:space="preserve">
-    <value>statusStripDef</value>
-  </data>
-  <data name="cbColor.Items41" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbTapeColor.Items45" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items49" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items91" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbTapeColor.Items20" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items66" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbTapeColor.Items50" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbTapeColor.Items18" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="lblName.Text" xml:space="preserve">
-    <value>Naam</value>
-  </data>
-  <data name="uCtrlNetWeight.Text" xml:space="preserve">
-    <value>Netto gewicht</value>
-  </data>
-  <data name="cbColor.Items97" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbTapeColor.Items97" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items73" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items5" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbTapeColor.Items76" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items34" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items82" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbTapeColor.Items102" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items55" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items31" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbTapeColor.Items72" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items16" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbTapeColor.Items80" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbTapeColor.Items43" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items23" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items40" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items88" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbTapeColor.Items100" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items29" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="vcWeight.Text" xml:space="preserve">
-    <value>Gewicht</value>
-  </data>
-  <data name="btBitmaps.Text" xml:space="preserve">
-    <value>Bitmaps...</value>
   </data>
   <data name="bnCancel.Text" xml:space="preserve">
     <value>Annuleren</value>
   </data>
-  <data name="cbTapeColor.Items37" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items77" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items3" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="toolStripStatusLabelDef.Text" xml:space="preserve">
-    <value>toolStripStatusLabelDef</value>
-  </data>
-  <data name="cbColor.Items94" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbTapeColor.Items96" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items70" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbTapeColor.Items65" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbTapeColor.Items49" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbTapeColor.Items71" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items35" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbTapeColor.Items64" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="bnOK.Text" xml:space="preserve">
-    <value>OK</value>
-  </data>
-  <data name="cbTapeColor.Items3" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items52" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbTapeColor.Items84" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbTapeColor.Items60" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbTapeColor.Items101" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbTapeColor.Items67" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items27" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items44" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items20" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items68" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="lbTapeColor.Text" xml:space="preserve">
-    <value>Tape kleur</value>
-  </data>
-  <data name="cbTapeColor.Items70" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="uCtrlDimensionsOuter.Text" xml:space="preserve">
-    <value>Buitenafmeting</value>
-  </data>
-  <data name="cbColor.Items89" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbTapeColor.Items6" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbTapeColor.Items27" xml:space="preserve">
-    <value>Kleur</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="lbFace.Size" type="System.Drawing.Size, System.Drawing">
+    <value>43, 13</value>
   </data>
   <data name="lbFace.Text" xml:space="preserve">
     <value>Gezicht</value>
   </data>
-  <data name="cbTapeColor.Items57" xml:space="preserve">
-    <value>Kleur</value>
+  <data name="uCtrlDimensionsInner.Text" xml:space="preserve">
+    <value>Binnenafmetingen</value>
   </data>
-  <data name="cbTapeColor.Items40" xml:space="preserve">
-    <value>Kleur</value>
+  <data name="uCtrlDimensionsOuter.Text" xml:space="preserve">
+    <value>Buitenafmeting</value>
   </data>
-  <data name="cbTapeColor.Items23" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbTapeColor.Items8" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbTapeColor.Items36" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items74" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items18" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbTapeColor.Items30" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbTapeColor.Items75" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items95" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items71" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbTapeColor.Items51" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items9" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items56" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbTapeColor.Items5" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items32" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items101" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items87" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbTapeColor.Items87" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items63" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items4" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="gbFaceColor.Text" xml:space="preserve">
-    <value>Kleur van het gezicht</value>
+  <data name="gbDimensions.Text" xml:space="preserve">
+    <value>Afmetingen</value>
   </data>
   <data name="cbFace.Items" xml:space="preserve">
     <value>Achterzijde</value>
   </data>
-  <data name="cbTapeColor.Items66" xml:space="preserve">
-    <value>Kleur</value>
+  <data name="cbFace.Items1" xml:space="preserve">
+    <value>Voorzijde</value>
   </data>
-  <data name="cbColor.Items80" xml:space="preserve">
-    <value>Kleur</value>
+  <data name="cbFace.Items2" xml:space="preserve">
+    <value>Rechts</value>
   </data>
-  <data name="cbColor.Items24" xml:space="preserve">
-    <value>Kleur</value>
+  <data name="cbFace.Items3" xml:space="preserve">
+    <value>Links</value>
   </data>
-  <data name="cbTapeColor.Items42" xml:space="preserve">
-    <value>Kleur</value>
+  <data name="cbFace.Items4" xml:space="preserve">
+    <value>Onderkant</value>
   </data>
-  <data name="cbColor.Items100" xml:space="preserve">
-    <value>Kleur</value>
+  <data name="cbFace.Items5" xml:space="preserve">
+    <value>Boven</value>
   </data>
-  <data name="cbColor.Items45" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items21" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items69" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbTapeColor.Items99" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbTapeColor.Items78" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbTapeColor.Items12" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="uCtrlTapeWidth.Text" xml:space="preserve">
-    <value>Band breedte</value>
-  </data>
-  <data name="cbTapeColor.Items13" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items7" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbTapeColor.Items52" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbTapeColor.Items56" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items26" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items30" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items90" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbTapeColor.Items83" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbTapeColor.Items31" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbTapeColor.Items95" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items19" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items92" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items36" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="chkAllFaces.Text" xml:space="preserve">
-    <value>Alle vlakken zijn dezelfde kleur</value>
-  </data>
-  <data name="cbColor.Items67" xml:space="preserve">
+  <data name="cbColor.Items1" xml:space="preserve">
     <value>Kleur</value>
   </data>
   <data name="cbColor.Items2" xml:space="preserve">
     <value>Kleur</value>
   </data>
-  <data name="cbColor.Items83" xml:space="preserve">
+  <data name="cbColor.Items3" xml:space="preserve">
     <value>Kleur</value>
   </data>
-  <data name="cbTapeColor.Items59" xml:space="preserve">
+  <data name="cbColor.Items4" xml:space="preserve">
     <value>Kleur</value>
   </data>
-  <data name="cbColor.Items84" xml:space="preserve">
+  <data name="cbColor.Items5" xml:space="preserve">
     <value>Kleur</value>
   </data>
-  <data name="cbColor.Items60" xml:space="preserve">
+  <data name="cbColor.Items6" xml:space="preserve">
     <value>Kleur</value>
   </data>
-  <data name="cbTapeColor.Items63" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="bnSaveToDB.Text" xml:space="preserve">
-    <value>Database opslaan</value>
-  </data>
-  <data name="cbTapeColor.Items61" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items81" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items25" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbTapeColor.Items79" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbTapeColor.Items92" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbTapeColor.Items2" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items42" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="uCtrlDimensionsInner.Text" xml:space="preserve">
-    <value>Binnenafmetingen</value>
-  </data>
-  <data name="cbTapeColor.Items25" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbTapeColor.Items17" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items17" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items13" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items79" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items10" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items58" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="gbDimensions.Text" xml:space="preserve">
-    <value>Afmetingen</value>
-  </data>
-  <data name="cbTapeColor.Items35" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbTapeColor.Items34" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="gbWeight.Text" xml:space="preserve">
-    <value>Gewicht</value>
-  </data>
-  <data name="cbTapeColor.Items22" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items96" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbTapeColor.Items1" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items72" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbTapeColor.Items69" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbTapeColor.Items93" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbTapeColor.Items33" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbTapeColor.Items47" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbTapeColor.Items9" xml:space="preserve">
+  <data name="cbColor.Items7" xml:space="preserve">
     <value>Kleur</value>
   </data>
   <data name="cbColor.Items8" xml:space="preserve">
     <value>Kleur</value>
   </data>
-  <data name="cbTapeColor.Items26" xml:space="preserve">
+  <data name="cbColor.Items9" xml:space="preserve">
     <value>Kleur</value>
   </data>
-  <data name="cbColor.Items64" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbTapeColor.Items86" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbTapeColor.Items53" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items85" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbTapeColor.Items81" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items61" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="gbTape.Text" xml:space="preserve">
-    <value>Tape</value>
-  </data>
-  <data name="cbColor.Items46" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbTapeColor.Items4" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items22" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbTapeColor.Items38" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items53" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbTapeColor.Items74" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbTapeColor.Items16" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items14" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items38" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbTapeColor.Items39" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbTapeColor.Items55" xml:space="preserve">
+  <data name="cbColor.Items10" xml:space="preserve">
     <value>Kleur</value>
   </data>
   <data name="cbColor.Items11" xml:space="preserve">
     <value>Kleur</value>
   </data>
+  <data name="cbColor.Items12" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items13" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items14" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items15" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items16" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items17" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items18" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items19" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items20" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items21" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items22" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items23" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items24" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items25" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items26" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items27" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items28" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items29" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items30" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items31" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items32" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items33" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items34" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items35" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items36" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items37" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items38" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items39" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items40" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items41" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items42" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items43" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items44" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items45" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items46" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items47" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items48" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items49" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items50" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items51" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items52" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items53" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items54" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items55" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items56" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items57" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items58" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
   <data name="cbColor.Items59" xml:space="preserve">
     <value>Kleur</value>
   </data>
-  <data name="cbTapeColor.Items89" xml:space="preserve">
+  <data name="cbColor.Items60" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items61" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items62" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items63" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items64" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items65" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items66" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items67" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items68" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items69" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items70" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items71" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items72" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items73" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items74" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items75" xml:space="preserve">
     <value>Kleur</value>
   </data>
   <data name="cbColor.Items76" xml:space="preserve">
     <value>Kleur</value>
   </data>
-  <data name="cbTapeColor.Items68" xml:space="preserve">
+  <data name="cbColor.Items77" xml:space="preserve">
     <value>Kleur</value>
   </data>
-  <data name="lblDescription.Text" xml:space="preserve">
-    <value>Beschrijving</value>
+  <data name="cbColor.Items78" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items79" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items80" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items81" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items82" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items83" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items84" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items85" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items86" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items87" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items88" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items89" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items90" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items91" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items92" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items93" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items94" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items95" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items96" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items97" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items98" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items99" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items100" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items101" xml:space="preserve">
+    <value>Kleur</value>
   </data>
   <data name="cbColor.Items102" xml:space="preserve">
     <value>Kleur</value>
@@ -1698,8 +500,341 @@
   <data name="cbColor.Items114" xml:space="preserve">
     <value>Kleur</value>
   </data>
+  <data name="cbColor.Items115" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items125" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="chkAllFaces.Size" type="System.Drawing.Size, System.Drawing">
+    <value>171, 17</value>
+  </data>
+  <data name="chkAllFaces.Text" xml:space="preserve">
+    <value>Alle vlakken zijn dezelfde kleur</value>
+  </data>
+  <data name="gbFaceColor.Text" xml:space="preserve">
+    <value>Kleur van het gezicht</value>
+  </data>
   <data name="uCtrlMaxWeight.Text" xml:space="preserve">
     <value>Max gewicht</value>
+  </data>
+  <data name="vcWeight.Text" xml:space="preserve">
+    <value>Gewicht</value>
+  </data>
+  <data name="uCtrlNetWeight.Text" xml:space="preserve">
+    <value>Netto gewicht</value>
+  </data>
+  <data name="gbWeight.Text" xml:space="preserve">
+    <value>Gewicht</value>
+  </data>
+  <data name="uCtrlTapeWidth.Text" xml:space="preserve">
+    <value>Band breedte</value>
+  </data>
+  <data name="cbTapeColor.Items1" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items2" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items3" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items4" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items5" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items6" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items7" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items8" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items9" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items10" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items11" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items12" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items13" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items14" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items15" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items16" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items17" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items18" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items19" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items20" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items21" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items22" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items23" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items24" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items25" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items26" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items27" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items28" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items29" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items30" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items31" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items32" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items33" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items34" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items35" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items36" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items37" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items38" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items39" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items40" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items41" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items42" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items43" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items44" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items45" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items46" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items47" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items48" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items49" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items50" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items51" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items52" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items53" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items54" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items55" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items56" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items57" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items58" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items59" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items60" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items61" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items62" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items63" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items64" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items65" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items66" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items67" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items68" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items69" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items70" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items71" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items72" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items73" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items74" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items75" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items76" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items77" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items78" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items79" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items80" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items81" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items82" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items83" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items84" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items85" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items86" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items87" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items88" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items89" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items90" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items91" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items92" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items93" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items94" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items95" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items96" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items97" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items98" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items99" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items100" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items101" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items102" xml:space="preserve">
+    <value>Kleur</value>
   </data>
   <data name="cbTapeColor.Items103" xml:space="preserve">
     <value>Kleur</value>
@@ -1739,5 +874,20 @@
   </data>
   <data name="cbTapeColor.Items115" xml:space="preserve">
     <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items116" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTapeColor.Items126" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="lbTapeColor.Text" xml:space="preserve">
+    <value>Tape kleur</value>
+  </data>
+  <data name="bnSaveToDB.Text" xml:space="preserve">
+    <value>Database opslaan</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Het definiëren van een nieuwe vak/case...</value>
   </data>
 </root>

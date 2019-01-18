@@ -32,7 +32,7 @@ namespace Sharp3D.Boxologic.Test
 
                 Boxlogic bl = new Boxlogic
                 {
-                    OutputFilePath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "output.txt")
+                    OutputFilePath = string.Empty
                 };
                 SolutionArray solArray = new SolutionArray();
                 bl.Run(boxItem, 1040, 960, 840, ref solArray);

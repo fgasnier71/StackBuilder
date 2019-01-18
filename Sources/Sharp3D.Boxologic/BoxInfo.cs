@@ -3,7 +3,7 @@ using System.IO;
 
 namespace Sharp3D.Boxologic
 {
-    public class Cuboid : St_instance
+    public class BoxInfo : St_instance
     {
         public void SetPacked(decimal cboxx, decimal cboxy, decimal cboxz)
         {
@@ -82,16 +82,17 @@ namespace Sharp3D.Boxologic
                 default:
                     break;
             }
-            file.WriteLine(
-                string.Format(
-                "{0} {1} {2} {3} {4} {5} {6} {7} {8} {9} {10}",
-                index,
-                Is_packed ? 1 : 0,
-                Dim1, Dim2, Dim3,
-                x, y, z,
-                bx, by, bz
-                )
-                );
+            if (null != file)
+                file.WriteLine(
+                    string.Format(
+                    "{0} {1} {2} {3} {4} {5} {6} {7} {8} {9} {10}",
+                    index,
+                    Is_packed ? 1 : 0,
+                    Dim1, Dim2, Dim3,
+                    x, y, z,
+                    bx, by, bz
+                    )
+                    );
             Cox = x;
             Coy = y;
             Coz = z;
@@ -160,16 +161,13 @@ namespace Sharp3D.Boxologic
 
             return new SolItem()
             {
-                Id = ID
-                ,
+                Id = ID,
                 X = x,
                 Y = y,
-                Z = z
-                ,
+                Z = z,
                 BX = bx,
                 BY = by,
-                BZ = bz
-                ,
+                BZ = bz,
                 DimX = Dim1,
                 DimY = Dim2,
                 DimZ = Dim3

@@ -117,11 +117,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="uCtrlDimensionsInner.Text" xml:space="preserve">
+    <value>Dim. intérieures</value>
+  </data>
   <data name="uCtrlDimensionsOuter.Text" xml:space="preserve">
     <value>Dimensions extérieures</value>
   </data>
-  <data name="cbColor.Items124" xml:space="preserve">
-    <value>Color</value>
+  <data name="btBitmaps.Text" xml:space="preserve">
+    <value>Images...</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="chkAllFaces.Size" type="System.Drawing.Size, System.Drawing">
@@ -133,6 +136,9 @@
   <data name="gbFaceColor.Text" xml:space="preserve">
     <value>Couleurs face</value>
   </data>
+  <data name="uCtrlMaxWeight.Text" xml:space="preserve">
+    <value>Masse maximale</value>
+  </data>
   <data name="vcWeight.Text" xml:space="preserve">
     <value>Poids</value>
   </data>
@@ -142,8 +148,20 @@
   <data name="gbWeight.Text" xml:space="preserve">
     <value>Poids</value>
   </data>
-  <data name="cbTapeColor.Items125" xml:space="preserve">
-    <value>Color</value>
+  <data name="uCtrlTapeWidth.Text" xml:space="preserve">
+    <value>Largeur ruban</value>
+  </data>
+  <data name="cbTapeColor.Location" type="System.Drawing.Point, System.Drawing">
+    <value>285, 5</value>
+  </data>
+  <data name="lbTapeColor.Size" type="System.Drawing.Size, System.Drawing">
+    <value>73, 13</value>
+  </data>
+  <data name="lbTapeColor.Text" xml:space="preserve">
+    <value>Couleur ruban</value>
+  </data>
+  <data name="bnSaveToDB.Text" xml:space="preserve">
+    <value>Vers la base de données</value>
   </data>
   <data name="tabPageTape.Text" xml:space="preserve">
     <value>Ruban</value>

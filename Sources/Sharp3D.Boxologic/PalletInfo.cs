@@ -2,7 +2,7 @@
 {
     public class PalletInfo : St_instance
     {
-        public PalletInfo(int dim1, int dim2, int dim3)
+        public PalletInfo(decimal dim1, decimal dim2, decimal dim3)
         { Dim1 = dim1; Dim2 = dim2; Dim3 = dim3; }
         public int Variant { get; set; }
         public decimal Pallet_x
