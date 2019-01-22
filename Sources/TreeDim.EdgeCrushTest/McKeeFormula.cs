@@ -63,24 +63,24 @@ namespace treeDiM.EdgeCrushTest
             , string cardboardId, string caseType
             , FormulaType mcKeeFormulaType)
         {
-            if (!McKeeFormula.CardboardQualityDictionary.ContainsKey(cardboardId))
+            if (!CardboardQualityDictionary.ContainsKey(cardboardId))
                 throw new Exception(Exception.ErrorType.ERROR_INVALIDCARDBOARD, cardboardId);
-            QualityData qualityData = McKeeFormula.CardboardQualityDictionary[cardboardId];
+            QualityData qualityData = CardboardQualityDictionary[cardboardId];
 
-            if (!McKeeFormula.CaseTypeDictionary.ContainsKey(caseType))
+            if (!CaseTypeDictionary.ContainsKey(caseType))
                 throw new Exception(Exception.ErrorType.ERROR_INVALIDCASETYPE, caseType);
-            double caseTypeCoef = McKeeFormula.CaseTypeDictionary[caseType];
+            double caseTypeCoef = CaseTypeDictionary[caseType];
 
             switch (mcKeeFormulaType)
             { 
                 case FormulaType.MCKEE_CLASSIC:
-                    return McKeeFormula.ComputeBCT_ECT(length, width, qualityData.Thickness, qualityData.ECT) * caseTypeCoef;
+                    return ComputeBCT_ECT(length, width, qualityData.Thickness, qualityData.ECT) * caseTypeCoef;
                 case FormulaType.MCKEE_IMPROVED:
-                    return McKeeFormula.ComputeBCT_Stiffness(length, width, height,
+                    return ComputeBCT_Stiffness(length, width, height,
                         qualityData.Thickness, qualityData.RigidityDX, qualityData.RigidityDY,
                         qualityData.ECT) * caseTypeCoef;
                 default:
-                    throw new treeDiM.EdgeCrushTest.Exception(Exception.ErrorType.ERROR_INVALIDFORMULATYPE, string.Empty); 
+                    throw new Exception(Exception.ErrorType.ERROR_INVALIDFORMULATYPE, string.Empty); 
             }
         }
         #endregion
@@ -89,7 +89,7 @@ namespace treeDiM.EdgeCrushTest
         public static Dictionary<KeyValuePair<string, string>, double> EvaluateEdgeCrushTestMatrix(
             double L, double B, double H
             , string cardboardId, string caseType, string printType
-            , McKeeFormula.FormulaType mcKeeFormulaType)
+            , FormulaType mcKeeFormulaType)
         {
             // get dictionnaries
             Dictionary<string, double> humidityCoefDictionary = HumidityCoefDictionary;
@@ -113,26 +113,26 @@ namespace treeDiM.EdgeCrushTest
         /// <summary>
         /// Convert to McKeeFormula to string
         /// </summary>
-        public static string ModeText(McKeeFormula.FormulaType type)
+        public static string ModeText(FormulaType type)
         {
             switch (type)
             {
-                case McKeeFormula.FormulaType.MCKEE_CLASSIC: return treeDiM.EdgeCrushTest.Properties.Resource.MCKEEFORMULA_CLASSIC;
-                case McKeeFormula.FormulaType.MCKEE_IMPROVED: return treeDiM.EdgeCrushTest.Properties.Resource.MCKEEFORMULA_IMPROVED;
+                case FormulaType.MCKEE_CLASSIC: return Resource.MCKEEFORMULA_CLASSIC;
+                case FormulaType.MCKEE_IMPROVED: return Resource.MCKEEFORMULA_IMPROVED;
                 default: return "";
             }
         }
         /// <summary>
         /// Convert string to McKeeFormula
         /// </summary>
-        public static McKeeFormula.FormulaType TextToMode(string sMode)
+        public static FormulaType TextToMode(string sMode)
         {
-            if (string.Equals(sMode, treeDiM.EdgeCrushTest.Properties.Resource.MCKEEFORMULA_CLASSIC))
-                return McKeeFormula.FormulaType.MCKEE_CLASSIC;
-            else if (string.Equals(sMode, treeDiM.EdgeCrushTest.Properties.Resource.MCKEEFORMULA_IMPROVED))
-                return McKeeFormula.FormulaType.MCKEE_IMPROVED;
+            if (string.Equals(sMode, Resource.MCKEEFORMULA_CLASSIC))
+                return FormulaType.MCKEE_CLASSIC;
+            else if (string.Equals(sMode, Resource.MCKEEFORMULA_IMPROVED))
+                return FormulaType.MCKEE_IMPROVED;
             else
-                return McKeeFormula.FormulaType.MCKEE_CLASSIC;
+                return FormulaType.MCKEE_CLASSIC;
         }
         /// <summary>
         /// Case type dictionary
@@ -143,7 +143,7 @@ namespace treeDiM.EdgeCrushTest
             {
                 Dictionary<string, double> caseTypeDictionary = new Dictionary<string,double>()
                 {
-                    { treeDiM.EdgeCrushTest.Properties.Resource.CASETYPE_AMERICANCASE, 1.0 }
+                    { Resource.CASETYPE_AMERICANCASE, 1.0 }
                 };
                 return caseTypeDictionary;
             }
@@ -176,13 +176,13 @@ namespace treeDiM.EdgeCrushTest
             {
                 Dictionary<string, double> jStockCoef = new Dictionary<string, double>()
                 {
-                    {treeDiM.EdgeCrushTest.Properties.Resource.STORAGEDURATION_0DAY, 1.0}
-                    , {treeDiM.EdgeCrushTest.Properties.Resource.STORAGEDURATION_1_3DAYS, 0.7}
-                    , {treeDiM.EdgeCrushTest.Properties.Resource.STORAGEDURATION_4_10DAYS, 0.65}
-                    , {treeDiM.EdgeCrushTest.Properties.Resource.STORAGEDURATION_11_30DAYS, 0.6}
-                    , {treeDiM.EdgeCrushTest.Properties.Resource.STORAGEDURATION_1_3MONTHES, 0.55}
-                    , {treeDiM.EdgeCrushTest.Properties.Resource.STORAGEDURATION_3_4MONTHES, 0.5}
-                    , {treeDiM.EdgeCrushTest.Properties.Resource.STORAGEDURATION_4_MONTHES, 0.45}
+                    {Resource.STORAGEDURATION_0DAY, 1.0}
+                    , {Resource.STORAGEDURATION_1_3DAYS, 0.7}
+                    , {Resource.STORAGEDURATION_4_10DAYS, 0.65}
+                    , {Resource.STORAGEDURATION_11_30DAYS, 0.6}
+                    , {Resource.STORAGEDURATION_1_3MONTHES, 0.55}
+                    , {Resource.STORAGEDURATION_3_4MONTHES, 0.5}
+                    , {Resource.STORAGEDURATION_4_MONTHES, 0.45}
                 };
                 return jStockCoef;
             }
@@ -196,10 +196,10 @@ namespace treeDiM.EdgeCrushTest
             {
                 Dictionary<string, double> printCoefDictionary = new Dictionary<string,double>()
                 {
-                    {treeDiM.EdgeCrushTest.Properties.Resource.PRINTEDSURFACE_SIMPLE, 1.0}
-                    , {treeDiM.EdgeCrushTest.Properties.Resource.PRINTEDSURFACE_DISTRIBUTED, 0.9}
-                    , {treeDiM.EdgeCrushTest.Properties.Resource.PRINTEDSURFACE_COMPLEX, 0.8}
-                    , {treeDiM.EdgeCrushTest.Properties.Resource.PRINTEDSURFACE_COVERED, 0.7}
+                    {Resource.PRINTEDSURFACE_SIMPLE, 1.0}
+                    , {Resource.PRINTEDSURFACE_DISTRIBUTED, 0.9}
+                    , {Resource.PRINTEDSURFACE_COMPLEX, 0.8}
+                    , {Resource.PRINTEDSURFACE_COVERED, 0.7}
                 };
                 return printCoefDictionary;
             }

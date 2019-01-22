@@ -128,7 +128,6 @@ namespace Sharp3D.Boxologic
                             remainpy = preremainpy;
                             remainpz = pallet.Pallet_z;
                         }
-                        //System.Diagnostics.Debug.Assert(remainpy >= 0);
                         Find_layer(remainpy, pallet);
                     }
                     while (packing);

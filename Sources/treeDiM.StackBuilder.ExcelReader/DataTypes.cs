@@ -1,10 +1,7 @@
 ﻿#region Using directives
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Data;
-using System.Globalization;
 #endregion
 
 namespace treeDiM.StackBuilder.ExcelReader
