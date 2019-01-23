@@ -99,9 +99,33 @@ namespace treeDiM.StackBuilder.Engine
             {
                 HSolution sol = new HSolution("Boxologic") { Analysis = analysis };
                 HSolItem hSolItem = sol.CreateSolItem();
+
+                Transform3D transform = Transform3D.Identity;
+                switch (solution.Variant)
+                {
+                    case 1:
+                        transform = Transform3D.Translation(new Vector3D(0.0, dimContainer.Y, 0.0)) * Transform3D.RotationX(90.0);
+                        break;
+                    case 2:
+                        transform = Transform3D.Translation(new Vector3D(dimContainer.X, 0.0, 0.0)) * Transform3D.RotationZ(90.0);
+                        break;
+                    case 3:
+                        transform = Transform3D.Translation(new Vector3D(dimContainer.X, 0.0, 0.0)) * Transform3D.RotationZ(90.0);
+                        break;
+                    case 4:
+                        transform = Transform3D.Translation(new Vector3D(dimContainer.X, 0.0, 0.0)) * Transform3D.RotationY(-90.0);
+                        break;
+                    case 5:
+                        transform = Transform3D.Translation(new Vector3D(0.0, dimContainer.Y, 0.0)) * Transform3D.RotationX(90.0);
+                        break;
+                    default:
+                        transform = Transform3D.Identity;
+                        break;
+                }
+
                 foreach (var item in solution.ItemsPacked)
                 {
-                    BoxInfoToSolItem(contentItems, offset, item, out int index, out BoxPosition pos);
+                    BoxInfoToSolItem(contentItems, offset, item, transform, out int index, out BoxPosition pos);
                     hSolItem.InsertContainedElt(index, pos);
                 }
                 solutions.Add(sol);
@@ -123,7 +147,7 @@ namespace treeDiM.StackBuilder.Engine
             return _dictionnary.FirstOrDefault(x => x.Value == id).Key;
         }
 
-        private bool BoxInfoToSolItem(List<ContentItem> contentItems, Vector3D offset, SolItem solItem, out int index, out BoxPosition pos)
+        private bool BoxInfoToSolItem(List<ContentItem> contentItems, Vector3D offset, SolItem solItem, Transform3D transform, out int index, out BoxPosition pos)
         {
             index = 0;
             pos = BoxPosition.Zero;
@@ -135,10 +159,12 @@ namespace treeDiM.StackBuilder.Engine
                 {
                     index = (int)solItem.Id;
                     pos = BoxPosition.FromPositionDimension(
-                        new Vector3D((double)solItem.X, (double)solItem.Y, (double)solItem.Z) + offset,
-                        new Vector3D((double)solItem.BX, (double)solItem.BY, (double)solItem.BZ) + offset,
+                        new Vector3D((double)solItem.X, (double)solItem.Y, (double)solItem.Z),
+                        new Vector3D((double)solItem.BX, (double)solItem.BY, (double)solItem.BZ),
                         new Vector3D((double)solItem.DimX, (double)solItem.DimY, (double)solItem.DimZ)
                         );
+                    pos =  pos.Transform(Transform3D.Translation(offset) * transform);
+
                     return true;
                 }
                 catch (Exception ex)

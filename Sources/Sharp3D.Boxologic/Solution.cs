@@ -1,6 +1,7 @@
 ﻿#region Using directives
 using System.Collections.Generic;
 using System.Text;
+using System;
 #endregion
 
 namespace Sharp3D.Boxologic
@@ -24,6 +25,16 @@ namespace Sharp3D.Boxologic
     {
         public int Variant { get; set; }
         public int Iteration { get; set; }
+        public double ZMax
+        {
+            get
+            {
+                decimal zMax = 0M;
+                foreach (var solItem in ItemsPacked)
+                    zMax = Math.Max(zMax, solItem.Z + solItem.BZ);
+                return (double)zMax;                
+            }
+        }
         public List<SolItem> ItemsPacked = new List<SolItem>();
         public List<SolItem> ItemsUnpacked = new List<SolItem>();
         public override string ToString()
