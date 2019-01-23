@@ -621,6 +621,11 @@ namespace treeDiM.StackBuilder.Basics
             AnalysisBoxCase analysis = new AnalysisBoxCase(
                 this, packable, caseProperties, constraintSet);
             analysis.ID.SetNameDesc( name, description );
+            if (null != interlayers)
+            {
+                foreach (InterlayerProperties interlayer in interlayers)
+                    analysis.AddInterlayer(interlayer);
+            }
             analysis.AddSolution(layerDescs);
 
             return InsertAnalysis(analysis);
@@ -635,6 +640,11 @@ namespace treeDiM.StackBuilder.Basics
             AnalysisCaseTruck analysis = new AnalysisCaseTruck(
                 this, packable, truckProperties, constraintSet);
             analysis.ID.SetNameDesc(name, description);
+            if (null != interlayers)
+            {
+                foreach (InterlayerProperties interlayer in interlayers)
+                    analysis.AddInterlayer(interlayer);
+            }
             analysis.AddSolution(layerDescs);
             return InsertAnalysis(analysis);
         }
@@ -663,6 +673,11 @@ namespace treeDiM.StackBuilder.Basics
             AnalysisCylinderPallet analysis = new AnalysisCylinderPallet(
                 cylinder, palletProperties, constraintSet);
             analysis.ID.SetNameDesc(name, description);
+            if (null != interlayers)
+            {
+                foreach (InterlayerProperties interlayer in interlayers)
+                    analysis.AddInterlayer(interlayer);
+            }
             analysis.AddSolution(layerDescs);
 
             return InsertAnalysis(analysis);
@@ -678,6 +693,11 @@ namespace treeDiM.StackBuilder.Basics
             AnalysisCylinderCase analysis = new AnalysisCylinderCase(
                 this, cylinder, caseProperties, constraintSet);
             analysis.ID.SetNameDesc(name, description);
+            if (null != interlayers)
+            {
+                foreach (InterlayerProperties interlayer in interlayers)
+                    analysis.AddInterlayer(interlayer);
+            }
             analysis.AddSolution(layerDescs);
 
             return InsertAnalysis(analysis);
@@ -1719,7 +1739,7 @@ namespace treeDiM.StackBuilder.Basics
                 foreach (XmlNode node in eltAnalysis.ChildNodes)
                 {
                     if (string.Equals(node.Name, "ConstraintSet", StringComparison.CurrentCultureIgnoreCase))
-                        constraintSet = LoadConstraintSetCasePallet(node as XmlElement);
+                        constraintSet = LoadConstraintSetCylinderCase(node as XmlElement, caseProperties);
                     else if (string.Equals(node.Name, "Solution", StringComparison.CurrentCultureIgnoreCase))
                         LoadSolution(node as XmlElement, out listLayerDesc, out listSolItems);
                     else if (string.Equals(node.Name, "Interlayers", StringComparison.CurrentCultureIgnoreCase))
@@ -2218,7 +2238,7 @@ namespace treeDiM.StackBuilder.Basics
                         XmlElement eltLayerDesc = nodeLayerDesc as XmlElement;
                         if (string.Equals(eltLayerDesc.Name, "LayerDescBox", StringComparison.CurrentCultureIgnoreCase))
                             listDesc.Add( LayerDescBox.Parse(eltLayerDesc.InnerText) );
-                        else if (string.Equals(eltLayerDesc.Name, "LayerDescDisk", StringComparison.CurrentCultureIgnoreCase))
+                        else if (string.Equals(eltLayerDesc.Name, "LayerDescCyl", StringComparison.CurrentCultureIgnoreCase))
                             listDesc.Add( LayerDescCyl.Parse(eltLayerDesc.InnerText) );
                     }
                 }
@@ -3258,10 +3278,13 @@ namespace treeDiM.StackBuilder.Basics
             foreach (LayerDesc layerDesc in sol.LayerDescriptors)
             {
                 string eltLayerDescName = string.Empty;
-                if (layerDesc is LayerDescBox) eltLayerDescName = "LayerDescBox";
-                else if (layerDesc is LayerDescCyl) eltLayerDescName = "LayerDescCyl";
-                else throw new Exception("Unexpected LayerDesc type!");
-                XmlElement eltLayerDesc = xmlDoc.CreateElement("LayerDescBox");
+                if (layerDesc is LayerDescBox)
+                    eltLayerDescName = "LayerDescBox";
+                else if (layerDesc is LayerDescCyl)
+                    eltLayerDescName = "LayerDescCyl";
+                else
+                    throw new Exception("Unexpected LayerDesc type!");
+                XmlElement eltLayerDesc = xmlDoc.CreateElement(eltLayerDescName);
                 eltLayerDesc.InnerText = layerDesc.ToString();
                 eltLayerDescriptors.AppendChild(eltLayerDesc);
             }

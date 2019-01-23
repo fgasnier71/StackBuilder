@@ -12,8 +12,8 @@ namespace treeDiM.StackBuilder.Engine
 {
     internal abstract class LayerPatternCyl : LayerPattern
     {
-        // This is OK as long as LayerPatternBox objects are immutable
-        public static readonly IReadOnlyList<LayerPatternCyl> All = ImmutableList.CreateRange(new LayerPatternCyl[] {
+        // This is OK as long as LayerPatternCyl objects are immutable
+        public static IReadOnlyList<LayerPatternCyl> All => ImmutableList.CreateRange(new LayerPatternCyl[] {
             new CylinderLayerPatternAligned()
             , new CylinderLayerPatternExpanded()
             , new CylinderLayerPatternStaggered()
@@ -26,15 +26,14 @@ namespace treeDiM.StackBuilder.Engine
         {
             return All[GetPatternNameIndex(patternName)];
         }
-
         public static int GetPatternNameIndex(string patternName)
         {
-            int index = All.FindIndex(x => string.Equals(x.Name, patternName, StringComparison.OrdinalIgnoreCase));
+            int index = All.FindIndex(x => string.Equals(x.Name.Trim(), patternName.Trim(), StringComparison.OrdinalIgnoreCase));
             return index != -1
                 ? index
                 : throw new ArgumentException($"Invalid pattern name = {patternName}", nameof(patternName));
         }
-        
+
         public void AddPosition(ILayer2D layer, Vector2D vPosition)
         {
             Matrix4D matRot = Matrix4D.Identity;

@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<Document Name="PROJETO MEN - ARRAJO OLEO DE BARBA" Description="PROJETO MEN - ARRAJO OLEO DE BARBA" Author="fernandohcj" DateCreated="1/15/2019 8:27:54 AM" UnitSystem="0">
+  <ItemProperties>
+    <BoxProperties Id="32b2df92-9798-408e-ab4f-729c3e5673fb" Name="CAIXA 500 ML" Description="CAIXA 500 ML" Length="413" Width="279" Height="224" InsideLength="407" InsideWidth="273" InsideHeight="212" Weight="0.3" NetWeight="0, 0" ShowTape="True">
+      <FaceColors>
+        <FaceColor FaceIndex="0" Color="-2987746" />
+        <FaceColor FaceIndex="1" Color="-2987746" />
+        <FaceColor FaceIndex="2" Color="-2987746" />
+        <FaceColor FaceIndex="3" Color="-2987746" />
+        <FaceColor FaceIndex="4" Color="-2987746" />
+        <FaceColor FaceIndex="5" Color="-2987746" />
+      </FaceColors>
+      <Textures />
+      <Tape TapeWidth="64" TapeColor="-657956" />
+      <StrapperSet Width="10" Color="-2894893" />
+    </BoxProperties>
+    <CylinderProperties Id="2b9ddf60-6f06-4bda-b65b-dbb1f33628ce" Name="OLEO DE BARBA 30 ML" Description="OLEO DE BARBA 30 ML" RadiusOuter="15.5" RadiusInner="0" Height="104" Weight="0.046" ColorTop="-8355712" ColorWallOuter="-7876870" ColorWallInner="-2987746" />
+    <InterlayerProperties Id="8da0a1e4-580f-491d-a2d1-1758e06a70d8" Name="XI" Description="Interlayer0" Length="390" Width="260" Thickness="3" Weight="0.1" Color="-65536" />
+  </ItemProperties>
+  <Analyses>
+    <AnalysisCylinderCase Id="c01d6244-10ad-4596-af97-172970493d31" Name="Analysis0" Description="Analysis0" ContentId="2b9ddf60-6f06-4bda-b65b-dbb1f33628ce" ContainerId="32b2df92-9798-408e-ab4f-729c3e5673fb" Orientations="0,0,1">
+      <Interlayers>
+        <Interlayer>8da0a1e4-580f-491d-a2d1-1758e06a70d8</Interlayer>
+      </Interlayers>
+      <ConstraintSet MaximumWeight="0, 0" MaximumNumberOfItems="0, 0" />
+      <Solution>
+        <LayerDescriptors>
+          <LayerDescCyl>Staggered | f</LayerDescCyl>
+        </LayerDescriptors>
+        <SolutionItems>
+          <SolutionItem>0,-1,0,0</SolutionItem>
+          <SolutionItem>0,0,1,1</SolutionItem>
+        </SolutionItems>
+      </Solution>
+    </AnalysisCylinderCase>
+  </Analyses>
+</Document>

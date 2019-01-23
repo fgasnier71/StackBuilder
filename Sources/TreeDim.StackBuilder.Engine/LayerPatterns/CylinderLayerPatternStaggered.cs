@@ -13,9 +13,8 @@ namespace treeDiM.StackBuilder.Engine
         public override bool GetLayerDimensions(ILayer2D layer, out double actualLength, out double actualWidth)
         {
             Layer2DCyl layerCyl = layer as Layer2DCyl;
-            int firstRowLength = 0; int secondRowLength = 0; int rowNumber = 0;
             ComputeRowNumberAndLength(layerCyl
-                , out firstRowLength, out secondRowLength, out rowNumber
+                , out int firstRowLength, out int secondRowLength, out int rowNumber
                 , out actualLength, out actualWidth);
             return (firstRowLength > 0) && (secondRowLength > 0) && (rowNumber > 0);
         }
@@ -26,11 +25,9 @@ namespace treeDiM.StackBuilder.Engine
             double palletWidth = GetPalletWidth(layer);
             double radius = GetRadius(layer);
 
-
             Layer2DCyl layerCyl = layer as Layer2DCyl;
-            int firstRowLength = 0; int secondRowLength = 0; int rowNumber = 0;
             if (!ComputeRowNumberAndLength(layerCyl
-                , out firstRowLength, out secondRowLength, out rowNumber
+                , out int firstRowLength, out int secondRowLength, out int rowNumber
                 , out actualLength, out actualWidth))
                 return;
 

@@ -524,7 +524,7 @@ namespace treeDiM.StackBuilder.Basics
                 // build layers
                 foreach (SolutionItem solItem in _solutionItems)
                 {
-                    if (solItem.HasInterlayer)
+                    if (solItem.HasInterlayer && Analysis.Interlayers.Count > 0)
                     {
                         InterlayerProperties interlayer = Analysis.Interlayer(solItem.InterlayerIndex);
                         llayers.Add(new InterlayerPos(zLayer + Analysis.Offset.Z, solItem.InterlayerIndex));

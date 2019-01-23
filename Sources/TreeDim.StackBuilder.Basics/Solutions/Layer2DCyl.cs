@@ -29,7 +29,7 @@ namespace treeDiM.StackBuilder.Basics
         }
         public static LayerDescCyl Parse(string value)
         {
-            Regex r = new Regex(@"(?<name>|?<swap>))", RegexOptions.Singleline);
+            Regex r = new Regex(@"(?<name>.*)\|(?<swap>.*)", RegexOptions.Singleline);
             Match m = r.Match(value);
             if (m.Success)
             {

@@ -32,10 +32,9 @@ namespace treeDiM.StackBuilder.Engine
         {
             return All[GetPatternNameIndex(patternName)];
         }
-
         public static int GetPatternNameIndex(string patternName)
         {
-            int index = All.FindIndex(x => string.Equals(x.Name, patternName, StringComparison.OrdinalIgnoreCase));
+            int index = All.FindIndex(x => string.Equals(x.Name.Trim(), patternName.Trim(), StringComparison.OrdinalIgnoreCase));
             return index != -1
                 ? index
                 : throw new ArgumentException($"Invalid pattern name = {patternName}", nameof(patternName));
