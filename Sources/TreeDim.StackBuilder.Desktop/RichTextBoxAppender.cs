@@ -101,12 +101,12 @@ namespace log4net.Appender
         {
             set
             {
-                if (!object.ReferenceEquals(value, _richtextBox))
+                if (!object.ReferenceEquals(value, RichtextBox))
                 {
-                    if (_containerForm != null)
+                    if (ContainerForm != null)
                     {
-                        _containerForm.FormClosed -= new FormClosedEventHandler(containerForm_FormClosed);
-                        _containerForm = null;
+                        ContainerForm.FormClosed -= new FormClosedEventHandler(containerForm_FormClosed);
+                        ContainerForm = null;
                     }
 
                     if (value != null)
@@ -114,16 +114,16 @@ namespace log4net.Appender
                         value.ReadOnly = true;
                         value.HideSelection = false;
 
-                        _containerForm = value.FindForm();
-                        _containerForm.FormClosed += new FormClosedEventHandler(containerForm_FormClosed);
+                        ContainerForm = value.FindForm();
+                        ContainerForm.FormClosed += new FormClosedEventHandler(containerForm_FormClosed);
                     }
 
-                    _richtextBox = value;
+                    RichtextBox = value;
                 }
             }
             get
             {
-                return _richtextBox;
+                return RichtextBox;
             }
         }
 
@@ -139,7 +139,7 @@ namespace log4net.Appender
         /// </remarks>
         public void AddMapping(LevelTextStyle mapping)
         {
-            _levelMapping.Add(mapping);
+            LevelMapping.Add(mapping);
         }
 
         /// <summary>
@@ -147,12 +147,12 @@ namespace log4net.Appender
         /// </summary>
         public int MaxBufferLength
         {
-            get { return _maxTextLength; }
+            get { return MaxTextLength; }
             set 
             {
                 if (value > 0)
                 {
-                    _maxTextLength = value;
+                    MaxTextLength = value;
                 }
             }
         }
@@ -172,7 +172,7 @@ namespace log4net.Appender
         public override void ActivateOptions()
         {
             base.ActivateOptions();
-            _levelMapping.ActivateOptions();
+            LevelMapping.ActivateOptions();
         }
 
         /// <summary>
@@ -192,11 +192,11 @@ namespace log4net.Appender
         /// </remarks>
         protected override void Append(LoggingEvent LoggingEvent)
         {
-            if (_richtextBox != null)
+            if (RichtextBox != null)
             {
-                if (_richtextBox.InvokeRequired)
+                if (RichtextBox.InvokeRequired)
                 {
-                    _richtextBox.Invoke(
+                    RichtextBox.Invoke(
                             new UpdateControlDelegate(UpdateControl),
                             new object[] { LoggingEvent });
                 }
@@ -224,41 +224,41 @@ namespace log4net.Appender
         {
             // There may be performance issues if the buffer gets too long
             // So periodically clear the buffer
-            if (_richtextBox.TextLength > _maxTextLength)
+            if (RichtextBox.TextLength > MaxTextLength)
             {
-                _richtextBox.Clear();
-                _richtextBox.AppendText(string.Format("(earlier messages cleared because log length exceeded maximum of {0})\n\n", _maxTextLength));
+                RichtextBox.Clear();
+                RichtextBox.AppendText(string.Format("(earlier messages cleared because log length exceeded maximum of {0})\n\n", MaxTextLength));
             }
 
             // look for a style mapping
-            LevelTextStyle selectedStyle =_levelMapping.Lookup(loggingEvent.Level) as LevelTextStyle;
+            LevelTextStyle selectedStyle =LevelMapping.Lookup(loggingEvent.Level) as LevelTextStyle;
             if (selectedStyle != null)
             {
                 // set the colors of the text about to be appended
-                _richtextBox.SelectionBackColor = selectedStyle.BackColor;
-                _richtextBox.SelectionColor = selectedStyle.TextColor;
+                RichtextBox.SelectionBackColor = selectedStyle.BackColor;
+                RichtextBox.SelectionColor = selectedStyle.TextColor;
 
                 // alter selection font as much as necessary
                 // missing settings are replaced by the font settings on the control
                 if (selectedStyle.Font != null)
                 {
                     // set Font Family, size and styles
-                    _richtextBox.SelectionFont = selectedStyle.Font;
+                    RichtextBox.SelectionFont = selectedStyle.Font;
                 }
-                else if (selectedStyle.PointSize > 0 && _richtextBox.Font.SizeInPoints != selectedStyle.PointSize)
+                else if (selectedStyle.PointSize > 0 && RichtextBox.Font.SizeInPoints != selectedStyle.PointSize)
                 {
                     // use control's font family, set size and styles
-                    float size = selectedStyle.PointSize > 0.0f ? selectedStyle.PointSize : _richtextBox.Font.SizeInPoints;
-                    _richtextBox.SelectionFont = new Font(_richtextBox.Font.FontFamily.Name, size, selectedStyle.FontStyle);
+                    float size = selectedStyle.PointSize > 0.0f ? selectedStyle.PointSize : RichtextBox.Font.SizeInPoints;
+                    RichtextBox.SelectionFont = new Font(RichtextBox.Font.FontFamily.Name, size, selectedStyle.FontStyle);
                 }
-                else if (_richtextBox.Font.Style != selectedStyle.FontStyle)
+                else if (RichtextBox.Font.Style != selectedStyle.FontStyle)
                 {
                     // use control's font family and size, set styles
-                    _richtextBox.SelectionFont = new Font(_richtextBox.Font, selectedStyle.FontStyle);
+                    RichtextBox.SelectionFont = new Font(RichtextBox.Font, selectedStyle.FontStyle);
                 }
             }
 
-            _richtextBox.AppendText(RenderLoggingEvent(loggingEvent));
+            RichtextBox.AppendText(RenderLoggingEvent(loggingEvent));
         }
 
         /// <summary>
@@ -277,10 +277,10 @@ namespace log4net.Appender
         protected override void OnClose()
         {
             base.OnClose();
-            if (_containerForm != null)
+            if (ContainerForm != null)
             {
-                _containerForm.FormClosed -= new FormClosedEventHandler(containerForm_FormClosed);
-                _containerForm = null;
+                ContainerForm.FormClosed -= new FormClosedEventHandler(containerForm_FormClosed);
+                ContainerForm = null;
             }
         }
 
@@ -300,6 +300,11 @@ namespace log4net.Appender
                 return true;
             }
         }
+
+        public RichTextBox RichtextBox { get; set; } = null;
+        public int MaxTextLength { get; set; } = 100000;
+        public LevelMapping LevelMapping { get; set; } = new LevelMapping();
+        public Form ContainerForm { get; set; } = null;
 
         #endregion
 
@@ -342,28 +347,7 @@ namespace log4net.Appender
             }
             return false;
         }
-        #endregion
 
-        #region Private Instance Fields
-        /// <summary>
-        /// Reference to RichTextBox control that will display log events
-        /// </summary>
-        private RichTextBox _richtextBox = null;
-
-        /// <summary>
-        /// Reference to Form that contains <code>_richtextBox</code>
-        /// </summary>
-        private Form _containerForm = null;
-
-        /// <summary>
-        /// Mapping from level object to text style
-        /// </summary>
-        private LevelMapping _levelMapping = new LevelMapping();
-
-        /// <summary>
-        /// Maximum length of RichTextBox buffer
-        /// </summary>
-        private int _maxTextLength = 100000;
         #endregion
 
         #region LevelTextStyle LevelMappingEntry
@@ -378,71 +362,30 @@ namespace log4net.Appender
         /// </remarks>
         public class LevelTextStyle : LevelMappingEntry
         {
-            private string _textColorName = "ControlText";
-            private string _backColorName = "ControlLight";
-            private Color _textColor;
-            private Color _backColor;
-            private FontStyle _fontStyle = FontStyle.Regular;
-            private float _pointSize = 0.0f;
-            private bool _bold = false;
-            private bool _italic = false;
-            private string _fontFamilyName = null;
-            private Font _font = null;
-
             /// <summary>
             /// Name of a KnownColor used for text
             /// </summary>
-            public string TextColorName
-            {
-                get { return _textColorName; }
-                set { _textColorName = value; }
-            }
-
+            public string TextColorName { get; set; } = "ControlText";
             /// <summary>
             /// Name of a KnownColor used as text background
             /// </summary>
-            public string BackColorName
-            {
-                get { return _backColorName; }
-                set { _backColorName = value; }
-            }
-
+            public string BackColorName { get; set; } = "ControlLight";
             /// <summary>
             /// Name of a font family
             /// </summary>
-            public string FontFamilyName
-            {
-                get { return _fontFamilyName; }
-                set { _fontFamilyName = value; }
-            }
-
+            public string FontFamilyName { get; set; } = null;
             /// <summary>
             /// Display level in bold style
             /// </summary>
-            public bool Bold
-            {
-                get { return _bold; }
-                set { _bold = value; }
-            }
-
+            public bool Bold { get; set; } = false;
             /// <summary>
             /// Display level in italic style
             /// </summary>
-            public bool Italic
-            {
-                get { return _italic; }
-                set { _italic = value; }
-            }
-
+            public bool Italic { get; set; } = false;
             /// <summary>
             /// Font size of level, 0 to use default
             /// </summary>
-            public float PointSize
-            {
-                get { return _pointSize; }
-                set { _pointSize = value; }
-            }
-
+            public float PointSize { get; set; } = 0.0f;
             /// <summary>
             /// Initialize the options for the object
             /// </summary>
@@ -450,44 +393,28 @@ namespace log4net.Appender
             public override void ActivateOptions()
             {
                 base.ActivateOptions();
-                _textColor = Color.FromName(_textColorName);
-                _backColor = Color.FromName(_backColorName);
-                if (_bold) _fontStyle |= FontStyle.Bold;
-                if (_italic) _fontStyle |= FontStyle.Italic;
+                TextColor = Color.FromName(TextColorName);
+                BackColor = Color.FromName(BackColorName);
+                if (Bold) FontStyle |= FontStyle.Bold;
+                if (Italic) FontStyle |= FontStyle.Italic;
 
-                if (_fontFamilyName != null)
+                if (FontFamilyName != null)
                 {
-                    float size = _pointSize > 0.0f ? _pointSize : 8.25f;
+                    float size = PointSize > 0.0f ? PointSize : 8.25f;
                     try
                     {
-                        _font = new Font(_fontFamilyName, size, _fontStyle);
+                        Font = new Font(FontFamilyName, size, FontStyle);
                     }
                     catch (Exception)
                     {
-                        _font = null;
+                        Font = null;
                     }
                 }
             }
-
-            internal Color TextColor
-            {
-                get { return _textColor; }
-            }
-
-            internal Color BackColor
-            {
-                get { return _backColor; }
-            }
-
-            internal FontStyle FontStyle
-            {
-                get { return _fontStyle; }
-            }
-
-            internal Font Font
-            {
-                get { return _font; }
-            }
+            internal Color TextColor { get; private set; }
+            internal Color BackColor { get; private set; }
+            internal FontStyle FontStyle { get; private set; } = FontStyle.Regular;
+            internal Font Font { get; private set; } = null;
         }
         #endregion
     }
