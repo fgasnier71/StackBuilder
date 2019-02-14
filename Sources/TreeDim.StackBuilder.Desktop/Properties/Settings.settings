@@ -278,5 +278,8 @@
     <Setting Name="MaximumCaseWeight" Type="System.Double" Scope="User">
       <Value Profile="(Default)">20</Value>
     </Setting>
+    <Setting Name="AutoUpdaterXMLPath" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://plmpack.com/stackbuilder/download/AutoUpdater.xml</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -92,7 +92,7 @@ namespace treeDiM.StackBuilder.Desktop
                 if (null == analysis)
                     AnalysisBase = _document.CreateNewAnalysisBoxCase(
                         ItemName, ItemDescription
-                        , SelectedBoxProperties, SelectedCaseProperties
+                        , SelectedBoxProperties, SelectedCase
                         , new List<InterlayerProperties>()
                         , BuildConstraintSet()
                         , layerDescs
@@ -101,12 +101,48 @@ namespace treeDiM.StackBuilder.Desktop
                 {
                     analysis.ID.SetNameDesc(ItemName, ItemDescription);
                     analysis.Content = SelectedBoxProperties;
-                    analysis.CaseProperties = SelectedCaseProperties;
+                    analysis.CaseProperties = SelectedCase;
                     analysis.ConstraintSet = BuildConstraintSet();
                     analysis.AddSolution(layerDescs);
 
                     _document.UpdateAnalysis(analysis);
                 }
+                Close();
+            }
+            catch (Exception ex)
+            {
+                _log.Error(ex.ToString());
+            }
+        }
+        private void OnBestCombinationClicked(object sender, EventArgs e)
+        {
+            try
+            {
+                // get case
+                BoxProperties caseProperties = cbCases.SelectedType as BoxProperties;
+                if (!(cbCases.SelectedType is PackableBrick packable) || null == caseProperties)
+                    return;
+                var constraintSet = BuildConstraintSet();
+                // get best combination
+                List<KeyValuePair<LayerDesc, int>> listLayer = new List<KeyValuePair<LayerDesc, int>>();
+                LayerSolver.GetBestCombination(
+                    packable.OuterDimensions,
+                    caseProperties.GetStackingDimensions(constraintSet),
+                    constraintSet,
+                    ref listLayer);
+                // select best layer
+                List<LayerDesc> layerDesc = new List<LayerDesc>();
+                foreach (KeyValuePair<LayerDesc, int> kvp in listLayer)
+                    layerDesc.Add(kvp.Key);
+                uCtrlLayerList.SelectLayers(layerDesc);
+
+                _item = _document.CreateNewAnalysisBoxCase(
+                    ItemName, ItemDescription
+                    , SelectedBoxProperties, SelectedCase
+                    , new List<InterlayerProperties>()
+                    , BuildConstraintSet()
+                    , layerDesc
+                    );
                 Close();
             }
             catch (Exception ex)
@@ -121,8 +157,7 @@ namespace treeDiM.StackBuilder.Desktop
         {
             if (ctrl == cbBoxes)
             {
-                PackableBrick packable = itemBase as PackableBrick;
-                return null != packable
+                return itemBase is PackableBrick packable
                     && (
                     (packable is BoxProperties)
                     || (packable is BundleProperties)
@@ -132,8 +167,7 @@ namespace treeDiM.StackBuilder.Desktop
             }
             else if (ctrl == cbCases)
             {
-                Packable packable = itemBase as Packable;
-                return null != packable
+                return itemBase is Packable packable
                     && packable.IsCase
                     && (packable is BoxProperties)
                     && (packable != SelectedBoxProperties);
@@ -147,7 +181,7 @@ namespace treeDiM.StackBuilder.Desktop
         {
             get { return cbBoxes.SelectedType as Packable; }
         }
-        private BoxProperties SelectedCaseProperties
+        private BoxProperties SelectedCase
         {
             get { return cbCases.SelectedType as BoxProperties; }
         }
@@ -169,9 +203,8 @@ namespace treeDiM.StackBuilder.Desktop
             try
             {
                 // get box / case
-                PackableBrick packable = cbBoxes.SelectedType as PackableBrick;
                 BoxProperties caseProperties = cbCases.SelectedType as BoxProperties;
-                if (null == packable || null == caseProperties)
+                if (!(cbBoxes.SelectedType is PackableBrick packable) || null == caseProperties)
                     return;
 
                 // update orientation control
@@ -197,7 +230,6 @@ namespace treeDiM.StackBuilder.Desktop
                 _log.Error(ex.ToString());
             }
         }
-
         protected void OnLayerSelected(object sender, EventArgs e)
         {
             try
@@ -216,7 +248,7 @@ namespace treeDiM.StackBuilder.Desktop
         private ConstraintSetBoxCase BuildConstraintSet()
         { 
             // constraint set
-            ConstraintSetBoxCase constraintSet = new ConstraintSetBoxCase(SelectedCaseProperties);
+            ConstraintSetBoxCase constraintSet = new ConstraintSetBoxCase(SelectedCase);
             constraintSet.SetAllowedOrientations(uCtrlCaseOrientation.AllowedOrientations);
             constraintSet.OptMaxWeight = uCtrlOptMaximumWeight.Value;
             constraintSet.OptMaxNumber = uCtrlOptMaxNumber.Value;

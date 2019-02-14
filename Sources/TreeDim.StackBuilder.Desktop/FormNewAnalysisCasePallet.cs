@@ -203,9 +203,8 @@ namespace treeDiM.StackBuilder.Desktop
             try
             {
                 // get case /pallet
-                Packable packable = cbCases.SelectedType as Packable;
                 PalletProperties palletProperties = cbPallets.SelectedType as PalletProperties;
-                if (null == packable || null == palletProperties)
+                if (!(cbCases.SelectedType is Packable packable) || null == palletProperties)
                     return;
                 // compute
                 LayerSolver solver = new LayerSolver();
@@ -241,12 +240,11 @@ namespace treeDiM.StackBuilder.Desktop
                     palletProperties.GetStackingDimensions(constraintSet),
                     constraintSet,
                     ref listLayer);
-
                 // select best layers
-                List<LayerDesc> listLayerDesc = new List<LayerDesc>();
+                List<LayerDesc> LayerDesc = new List<LayerDesc>();
                 foreach (KeyValuePair<LayerDesc, int> kvp in listLayer)
-                    listLayerDesc.Add(kvp.Key);
-                uCtrlLayerList.SelectLayers(listLayerDesc);
+                    LayerDesc.Add(kvp.Key);
+                uCtrlLayerList.SelectLayers(LayerDesc);
 
                 _item = _document.CreateNewAnalysisCasePallet(
                     ItemName, ItemDescription

@@ -1096,5 +1096,14 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
                 this["MaximumCaseWeight"] = value;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://plmpack.com/stackbuilder/download/AutoUpdater.xml")]
+        public string AutoUpdaterXMLPath {
+            get {
+                return ((string)(this["AutoUpdaterXMLPath"]));
+            }
+        }
     }
 }

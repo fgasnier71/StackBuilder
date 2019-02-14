@@ -13,6 +13,8 @@ using System.Configuration;
 using WeifenLuo.WinFormsUI.Docking;
 using log4net;
 using Utilities;
+using AutoUpdaterDotNET;
+using Syroot.Windows.IO;
 
 using treeDiM.StackBuilder.Basics;
 using treeDiM.StackBuilder.Engine;
@@ -39,11 +41,6 @@ namespace treeDiM.StackBuilder.Desktop
         private DockContentStartPage _dockStartPage = new DockContentStartPage();
         private ToolStripProfessionalRenderer _defaultRenderer = new ToolStripProfessionalRenderer(new PropertyGridEx.CustomColorScheme());
         private DeserializeDockContent _deserializeDockContent;
-        /// <summary>
-        /// List of document instance
-        /// The document class holds data (boxes/pallets/interlayers/anslyses)
-        /// </summary>
-        private List<IDocument> _documents = new List<IDocument>();
         static readonly ILog _log = LogManager.GetLogger(typeof(FormMain));
         private static FormMain _instance;
         private MruManager _mruManager;
@@ -59,7 +56,6 @@ namespace treeDiM.StackBuilder.Desktop
             _deserializeDockContent = new DeserializeDockContent(ReloadContent);
 
             InitializeComponent();
-
 
             // load file passed as argument
             string[] args = Environment.GetCommandLineArgs();
@@ -200,7 +196,7 @@ namespace treeDiM.StackBuilder.Desktop
         }
         private IPlugin LoadPlugin()
         {
-            string pluginPath = Properties.Settings.Default.PluginPath;
+            string pluginPath = Settings.Default.PluginPath;
             if (string.IsNullOrEmpty(pluginPath)
                 || string.Equals(Path.GetExtension(pluginPath), "dll")
                 || !File.Exists(pluginPath))
@@ -300,6 +296,11 @@ namespace treeDiM.StackBuilder.Desktop
                     }
                 }
                 // note : CreateBasicLayout now called by OnConnected()
+                // AutoUpdater.NET
+                var knownFolder = new KnownFolder(KnownFolderType.Downloads);
+                AutoUpdater.DownloadPath = knownFolder.Path;
+                AutoUpdater.UpdateMode = Mode.Normal;
+                AutoUpdater.Start(Settings.Default.AutoUpdaterXMLPath);
             }
             catch (Exception ex)
             {
@@ -311,11 +312,11 @@ namespace treeDiM.StackBuilder.Desktop
         #region Docking
         private void CreateBasicLayout()
         {
-            _documentExplorer.Show(dockPanel, WeifenLuo.WinFormsUI.Docking.DockState.DockLeft);
+            _documentExplorer.Show(dockPanel, DockState.DockLeft);
             _documentExplorer.DocumentTreeView.AnalysisNodeClicked += new AnalysisTreeView.AnalysisNodeClickHandler(DocumentTreeView_NodeClicked);
             _documentExplorer.DocumentTreeView.SolutionReportClicked += new AnalysisTreeView.AnalysisNodeClickHandler(OnSolutionReportNodeClicked);
             ShowLogConsole();
-            if (AssemblyConf != "debug" && Properties.Settings.Default.ShowStartPage)
+            if (AssemblyConf != "debug" && Settings.Default.ShowStartPage)
                 ShowStartPage(this, null);
         }
 
@@ -747,7 +748,6 @@ namespace treeDiM.StackBuilder.Desktop
             // disconnected mode
             toolStripMenuItemEditDB.Enabled = !Program.UseDisconnected;
             editPaletSolutionsDB.Enabled = !Program.UseDisconnected;
-
         }
         #endregion
 
@@ -808,7 +808,7 @@ namespace treeDiM.StackBuilder.Desktop
             if (doc is DocumentSB docSB)
                 docSB.AddListener(this);
             // add document 
-            _documents.Add(doc);
+            Documents.Add(doc);
             doc.Modified += new EventHandler(OnDocumentModified);
             UpdateToolbarState();
         }
@@ -848,11 +848,10 @@ namespace treeDiM.StackBuilder.Desktop
             if (e.Cancel) return;
 
             // try and close every opened documents
-            while (_documents.Count > 0)
+            while (Documents.Count > 0)
             {
                 if (e.Cancel) return;
-
-                IDocument doc = _documents[0];
+                IDocument doc = Documents[0];
                 CloseDocument(doc, e);
             }
         }
@@ -880,7 +879,7 @@ namespace treeDiM.StackBuilder.Desktop
             // close document
             doc.Close();
             // remove from document list
-            _documents.Remove(doc);
+            Documents.Remove(doc);
             // handle the case
             _log.Debug(string.Format("Document {0} closed", doc.Name));
             // update toolbar
@@ -916,7 +915,7 @@ namespace treeDiM.StackBuilder.Desktop
         /// <summary>
         /// Access list of documents
         /// </summary>
-        public List<IDocument> Documents => _documents;
+        public List<IDocument> Documents { get; } = new List<IDocument>();
 
         public bool HasDocuments => Documents.Count > 0;
         /// <summary>
@@ -944,10 +943,10 @@ namespace treeDiM.StackBuilder.Desktop
                 IView view = ActiveView;
                 if (view != null)
                     return view.Document;
-                else if (_documents.Count == 0)
+                else if (Documents.Count == 0)
                     return null;
-                else if (_documents.Count == 1)
-                    return _documents[0];
+                else if (Documents.Count == 1)
+                    return Documents[0];
                 else
                 {
                     // try and disambiguate
@@ -968,7 +967,7 @@ namespace treeDiM.StackBuilder.Desktop
             }
         }
         public DocumentSB ActiveDocumentSB => ActiveDocument as DocumentSB;
-        public DocumentSB FirstDocument => _documents.Count > 0 ? _documents[0] as DocumentSB : null;
+        public DocumentSB FirstDocument => Documents.Count > 0 ? Documents[0] as DocumentSB : null;
         public DocumentSB ActiveDocumentOrFirst
         {
             get
@@ -976,8 +975,8 @@ namespace treeDiM.StackBuilder.Desktop
                 IView view = ActiveView;
                 if (view != null)
                     return view.Document as DocumentSB;
-                else if (_documents.Count > 0)
-                    return _documents[0] as DocumentSB;
+                else if (Documents.Count > 0)
+                    return Documents[0] as DocumentSB;
                 else
                     return null;
             }
@@ -1382,7 +1381,7 @@ namespace treeDiM.StackBuilder.Desktop
         {
             get
             {
-                object[] attributes = System.Reflection.Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(AssemblyConfigurationAttribute), false);
+                object[] attributes = Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(AssemblyConfigurationAttribute), false);
                 // If there is at least one Title attribute
                 if (attributes.Length > 0)
                 {

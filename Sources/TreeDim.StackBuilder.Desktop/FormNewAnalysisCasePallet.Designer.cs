@@ -247,25 +247,23 @@
 
         #endregion
 
-        //private System.Windows.Forms.ComboBox cbPallets;
         private treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered cbPallets;
-        //private System.Windows.Forms.ComboBox cbCases;
         private treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered cbCases;
-        private System.Windows.Forms.Label lbBox;
-        private Basics.UCtrlDualDouble uCtrlOverhang;
-        private System.Windows.Forms.Label lbPallet;
+        private Graphics.uCtrlCaseOrientation uCtrlCaseOrientation;
         private Graphics.UCtrlLayerList uCtrlLayerList;
+        private Basics.UCtrlOptDouble uCtrlOptSpace;
+        private Basics.UCtrlDualDouble uCtrlOverhang;
+        private Basics.UCtrlOptDouble uCtrlOptMaximumWeight;
+        private Basics.UCtrlDouble uCtrlMaximumHeight;
+        private Basics.UCtrlOptInt uCtrlOptMaxNumber;
+        private System.Windows.Forms.Label lbBox;
+        private System.Windows.Forms.Label lbPallet;
         private System.Windows.Forms.CheckBox checkBoxBestLayersOnly;
         private System.Windows.Forms.Button bnBestCombination;
-        private Graphics.uCtrlCaseOrientation uCtrlCaseOrientation;
         private System.Windows.Forms.TabControl tabCtrlConstraints;
         private System.Windows.Forms.TabPage tabPageOverhang;
         private System.Windows.Forms.TabPage tabPageStopCriterions;
         private System.Windows.Forms.TabPage tabPageSpaces;
-        private Basics.UCtrlOptDouble uCtrlOptSpace;
         private System.Windows.Forms.Label lbSelect;
-        private Basics.UCtrlOptDouble uCtrlOptMaximumWeight;
-        private Basics.UCtrlDouble uCtrlMaximumHeight;
-        private Basics.UCtrlOptInt uCtrlOptMaxNumber;
     }
 }

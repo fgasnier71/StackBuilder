@@ -36,33 +36,45 @@
             // 
             // lblVersion
             // 
-            resources.ApplyResources(this.lblVersion, "lblVersion");
+            this.lblVersion.AutoSize = true;
             this.lblVersion.BackColor = System.Drawing.Color.Transparent;
+            this.lblVersion.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
             this.lblVersion.ForeColor = System.Drawing.Color.White;
+            this.lblVersion.Location = new System.Drawing.Point(465, 146);
             this.lblVersion.Name = "lblVersion";
+            this.lblVersion.Size = new System.Drawing.Size(86, 25);
+            this.lblVersion.TabIndex = 0;
+            this.lblVersion.Text = "Version";
             // 
             // timerClose
             // 
             this.timerClose.Enabled = true;
             this.timerClose.Interval = 1000;
-            this.timerClose.Tick += new System.EventHandler(this.timerClose_Tick);
+            this.timerClose.Tick += new System.EventHandler(this.OnTimerTick);
             // 
             // FormSplashScreen
             // 
-            resources.ApplyResources(this, "$this");
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Black;
+            this.BackColor = System.Drawing.Color.White;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(866, 491);
             this.ControlBox = false;
             this.Controls.Add(this.lblVersion);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.ImeMode = System.Windows.Forms.ImeMode.Disable;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormSplashScreen";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
-            this.TransparencyKey = System.Drawing.Color.Black;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "SplashScreen";
+            this.TransparencyKey = System.Drawing.Color.White;
             this.ResumeLayout(false);
             this.PerformLayout();
 

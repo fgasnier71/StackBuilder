@@ -139,6 +139,9 @@
     <AssemblyInfo CodeLanguage="CS" OutputFile="$(ProjectDir)..\SharedAssemblyInfo.cs" AssemblyVersion="$(AssemblyVersionToUse)" AssemblyFileVersion="$(AssemblyVersionToUse)" />
   </Target>
   <ItemGroup>
+    <Reference Include="AutoUpdater.NET, Version=1.5.0.0, Culture=neutral, PublicKeyToken=501435c91b35f4bc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autoupdater.NET.Official.1.5.0\lib\net40\AutoUpdater.NET.dll</HintPath>
+    </Reference>
     <Reference Include="CrashReporter.NET, Version=1.5.6.0, Culture=neutral, PublicKeyToken=7828e0fd88cab698, processorArchitecture=MSIL">
       <HintPath>..\packages\CrashReporter.NET.Official.1.5.6\lib\net452\CrashReporter.NET.dll</HintPath>
     </Reference>
@@ -576,6 +579,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Content Include="AutoUpdater\AutoUpdater.xml" />
+    <Content Include="AutoUpdater\ChangeLog.html" />
     <Content Include="ReportTemplates\NLD.xml" />
     <Content Include="ReportTemplates\POL.xml" />
     <EmbeddedResource Include="AboutBox.de.resx">
@@ -2140,36 +2145,6 @@
     <EmbeddedResource Include="FormShowDatabase.zh.resx">
       <DependentUpon>FormShowDatabase.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormSplashScreen.de.resx">
-      <DependentUpon>FormSplashScreen.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormSplashScreen.fr.resx">
-      <DependentUpon>FormSplashScreen.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormSplashScreen.it.resx">
-      <DependentUpon>FormSplashScreen.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormSplashScreen.ja.resx">
-      <DependentUpon>FormSplashScreen.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormSplashScreen.nl.resx">
-      <DependentUpon>FormSplashScreen.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormSplashScreen.pl.resx">
-      <DependentUpon>FormSplashScreen.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormSplashScreen.ru.resx">
-      <DependentUpon>FormSplashScreen.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormSplashScreen.sv.resx">
-      <DependentUpon>FormSplashScreen.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormSplashScreen.tr.resx">
-      <DependentUpon>FormSplashScreen.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormSplashScreen.zh.resx">
-      <DependentUpon>FormSplashScreen.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormValidTypeName.de.resx">
       <DependentUpon>FormValidTypeName.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -2543,9 +2518,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormSplashScreen.es.resx">
-      <DependentUpon>FormSplashScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSplashScreen.resx">
       <DependentUpon>FormSplashScreen.cs</DependentUpon>
@@ -2999,12 +2971,12 @@ if $(ConfigurationName) == Release "$(SolutionDir)Signfile.bat" "$(TargetPath)"
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\MSBuildTasks.1.5.0.235\build\MSBuildTasks.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MSBuildTasks.1.5.0.235\build\MSBuildTasks.targets'))" />
     <Error Condition="!Exists('..\packages\MSBuildTasks.1.5.0.235\build\MSBuildTasks.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MSBuildTasks.1.5.0.235\build\MSBuildTasks.targets'))" />
-    <Error Condition="!Exists('..\packages\NuGet.Build.Tasks.Pack.4.9.2\build\NuGet.Build.Tasks.Pack.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NuGet.Build.Tasks.Pack.4.9.2\build\NuGet.Build.Tasks.Pack.targets'))" />
+    <Error Condition="!Exists('..\packages\NuGet.Build.Tasks.Pack.4.9.3\build\NuGet.Build.Tasks.Pack.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NuGet.Build.Tasks.Pack.4.9.3\build\NuGet.Build.Tasks.Pack.targets'))" />
   </Target>
   <Import Project="..\packages\MSBuildTasks.1.5.0.235\build\MSBuildTasks.targets" Condition="Exists('..\packages\MSBuildTasks.1.5.0.235\build\MSBuildTasks.targets')" />
   <PropertyGroup>
     <PreBuildEvent>
     </PreBuildEvent>
   </PropertyGroup>
-  <Import Project="..\packages\NuGet.Build.Tasks.Pack.4.9.2\build\NuGet.Build.Tasks.Pack.targets" Condition="Exists('..\packages\NuGet.Build.Tasks.Pack.4.9.2\build\NuGet.Build.Tasks.Pack.targets')" />
+  <Import Project="..\packages\NuGet.Build.Tasks.Pack.4.9.3\build\NuGet.Build.Tasks.Pack.targets" Condition="Exists('..\packages\NuGet.Build.Tasks.Pack.4.9.3\build\NuGet.Build.Tasks.Pack.targets')" />
 </Project>

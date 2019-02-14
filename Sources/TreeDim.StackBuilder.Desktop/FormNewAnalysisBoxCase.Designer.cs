@@ -38,8 +38,9 @@
             this.uCtrlCaseOrientation = new treeDiM.StackBuilder.Graphics.uCtrlCaseOrientation();
             this.tabControlConstraints = new System.Windows.Forms.TabControl();
             this.tabPageStopCriterions = new System.Windows.Forms.TabPage();
-            this.uCtrlOptMaximumWeight = new treeDiM.StackBuilder.Basics.UCtrlOptDouble();
             this.uCtrlOptMaxNumber = new treeDiM.StackBuilder.Basics.UCtrlOptInt();
+            this.uCtrlOptMaximumWeight = new treeDiM.StackBuilder.Basics.UCtrlOptDouble();
+            this.bnBestCombination = new System.Windows.Forms.Button();
             this.tabControlConstraints.SuspendLayout();
             this.tabPageStopCriterions.SuspendLayout();
             this.SuspendLayout();
@@ -88,7 +89,9 @@
             // uCtrlLayerList
             // 
             resources.ApplyResources(this.uCtrlLayerList, "uCtrlLayerList");
+            this.uCtrlLayerList.ButtonSizes = new System.Drawing.Size(150, 150);
             this.uCtrlLayerList.Name = "uCtrlLayerList";
+            this.uCtrlLayerList.Show3D = true;
             this.uCtrlLayerList.SingleSelection = false;
             // 
             // uCtrlCaseOrientation
@@ -116,6 +119,13 @@
             this.tabPageStopCriterions.Name = "tabPageStopCriterions";
             this.tabPageStopCriterions.UseVisualStyleBackColor = true;
             // 
+            // uCtrlOptMaxNumber
+            // 
+            resources.ApplyResources(this.uCtrlOptMaxNumber, "uCtrlOptMaxNumber");
+            this.uCtrlOptMaxNumber.Minimum = 0;
+            this.uCtrlOptMaxNumber.Name = "uCtrlOptMaxNumber";
+            this.uCtrlOptMaxNumber.Value = ((treeDiM.StackBuilder.Basics.OptInt)(resources.GetObject("uCtrlOptMaxNumber.Value")));
+            // 
             // uCtrlOptMaximumWeight
             // 
             resources.ApplyResources(this.uCtrlOptMaximumWeight, "uCtrlOptMaximumWeight");
@@ -128,17 +138,18 @@
             this.uCtrlOptMaximumWeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_MASS;
             this.uCtrlOptMaximumWeight.Value = ((treeDiM.StackBuilder.Basics.OptDouble)(resources.GetObject("uCtrlOptMaximumWeight.Value")));
             // 
-            // uCtrlOptMaxNumber
+            // bnBestCombination
             // 
-            resources.ApplyResources(this.uCtrlOptMaxNumber, "uCtrlOptMaxNumber");
-            this.uCtrlOptMaxNumber.Minimum = 0;
-            this.uCtrlOptMaxNumber.Name = "uCtrlOptMaxNumber";
-            this.uCtrlOptMaxNumber.Value = ((treeDiM.StackBuilder.Basics.OptInt)(resources.GetObject("uCtrlOptMaxNumber.Value")));
+            resources.ApplyResources(this.bnBestCombination, "bnBestCombination");
+            this.bnBestCombination.Name = "bnBestCombination";
+            this.bnBestCombination.UseVisualStyleBackColor = true;
+            this.bnBestCombination.Click += new System.EventHandler(this.OnBestCombinationClicked);
             // 
             // FormNewAnalysisBoxCase
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.bnBestCombination);
             this.Controls.Add(this.tabControlConstraints);
             this.Controls.Add(this.lbCase);
             this.Controls.Add(this.lbBox);
@@ -160,6 +171,7 @@
             this.Controls.SetChildIndex(this.tbName, 0);
             this.Controls.SetChildIndex(this.tbDescription, 0);
             this.Controls.SetChildIndex(this.tabControlConstraints, 0);
+            this.Controls.SetChildIndex(this.bnBestCombination, 0);
             this.tabControlConstraints.ResumeLayout(false);
             this.tabPageStopCriterions.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -180,5 +192,6 @@
         private System.Windows.Forms.TabPage tabPageStopCriterions;
         private Basics.UCtrlOptDouble uCtrlOptMaximumWeight;
         private Basics.UCtrlOptInt uCtrlOptMaxNumber;
+        private System.Windows.Forms.Button bnBestCombination;
     }
 }

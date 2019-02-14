@@ -68,7 +68,7 @@ namespace treeDiM.StackBuilder.Desktop
             string fileURL = Properties.Settings.Default.ExcelTemplateFileURL;
             try
             {
-                KnownFolder knownFolder = new KnownFolder(KnownFolderType.Downloads);
+                var knownFolder = new KnownFolder(KnownFolderType.Downloads);
                 string downloadPath = Path.Combine(knownFolder.Path, Path.GetFileName(fileURL));
 
                 using (var client = new WebClient())

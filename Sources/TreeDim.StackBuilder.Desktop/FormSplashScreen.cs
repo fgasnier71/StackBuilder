@@ -12,11 +12,6 @@ namespace treeDiM.StackBuilder.Desktop
     /// </summary>
     public partial class FormSplashScreen : Form
     {
-        #region Data members
-        private Form _parentForm;
-        private bool _transparent = false;
-        #endregion
-
         #region Constructor
         /// <summary>
         /// Constructor
@@ -24,18 +19,14 @@ namespace treeDiM.StackBuilder.Desktop
         public FormSplashScreen(Form parentForm)
         {
             // save parent form
-            _parentForm = parentForm;
-
             InitializeComponent();
-
             // make lower right pixel color transparent
-            Bitmap b = new Bitmap(this.BackgroundImage);
+            Bitmap b = new Bitmap(BackgroundImage);
             if (Transparent)
                 b.MakeTransparent(b.GetPixel(1, 1));
-            this.BackgroundImage = b;
-
+            BackgroundImage = b;
             // version
-            lblVersion.Text = String.Format("Version {0}", AssemblyVersion); ;
+            lblVersion.Text = $"{AssemblyVersion}";
         }
         #endregion
 
@@ -43,13 +34,7 @@ namespace treeDiM.StackBuilder.Desktop
         /// <summary>
         /// retrieves assembly version
         /// </summary>
-        public string AssemblyVersion
-        {
-            get
-            {
-                return Assembly.GetExecutingAssembly().GetName().Version.ToString();
-            }
-        }
+        public string AssemblyVersion => Assembly.GetExecutingAssembly().GetName().Version.ToString();
         /// <summary>
         ///  set / get time interval after which the splash screen will close
         /// </summary>
@@ -61,21 +46,16 @@ namespace treeDiM.StackBuilder.Desktop
         /// <summary>
         /// set / get transparency
         /// </summary>
-        public bool Transparent
-        {
-            get { return _transparent; }
-            set { _transparent = value; }
-        }
+        public bool Transparent { get; set; } = false;
         #endregion
 
         /// <summary>
         /// handles timer click and closes splashscreen
         /// </summary>
-        private void timerClose_Tick(object sender, EventArgs e)
+        private void OnTimerTick(object sender, EventArgs e)
         {
             Close();
-            if (null != _parentForm)
-                _parentForm.BringToFront();
+            ParentForm?.BringToFront();
         }
     }
 }

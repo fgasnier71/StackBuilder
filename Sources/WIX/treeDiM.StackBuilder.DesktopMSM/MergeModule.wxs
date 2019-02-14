@@ -25,6 +25,7 @@
         <File Source="..\..\treeDiM.StackBuilder.Desktop\bin\Release\ExcelDataReader.DataSet.dll"/>
         <File Source="..\..\treeDiM.StackBuilder.Desktop\bin\Release\ExcelDataReader.dll"/>
         <File Source="..\..\treeDiM.StackBuilder.Desktop\bin\Release\log4net.dll"/>
+        <File Source="..\..\treeDiM.StackBuilder.Desktop\bin\Release\AutoUpdater.NET.dll"/>
         <File Source="..\..\treeDiM.StackBuilder.Desktop\bin\Release\netstandard.dll"/>
         <File Source="..\..\treeDiM.StackBuilder.Desktop\bin\Release\Newtonsoft.Json.dll"/>
         <File Source="..\..\treeDiM.StackBuilder.Desktop\bin\Release\OfficePickers.dll"/>

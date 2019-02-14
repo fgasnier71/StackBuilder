@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<item>
+  <version>3.0.0.85</version>
+  <url>http://plmpack.com/stackbuilder/download/StackBuilder_MSI.msi</url>
+  <changelog>http://plmpack.com/stackbuilder/download/ChangeLog.html</changelog>
+  <mandatory>true</mandatory>
+</item>

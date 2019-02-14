@@ -27,8 +27,7 @@
              />
     <MediaTemplate EmbedCab="yes"/>
     <!--Icon-->
-    <Icon Id="treeDiM.ico" SourceFile="treeDiM.ico"/>
-    <Property Id="ARPPRODUCTICON" Value="treeDiM.ico" />
+    <Icon Id="StackBuilder.ico" SourceFile="StackBuilder.ico"/>
     <!--Upgrade table-->
     <MajorUpgrade
       Schedule="afterInstallInitialize"
@@ -49,6 +48,7 @@
     <DirectoryRef Id="$(var.InstallLocation)">
       <Merge Id="treeDiM.StackBuilder.DesktopMSM" Language="1033" DiskId="1" SourceFile="..\treeDiM.StackBuilder.DesktopMSM\bin\Release\treeDiM.StackBuilder.DesktopMSM.msm"/>
     </DirectoryRef>
+    <!--Features-->
     <Feature Id="ProductFeature" Title="treeDiM.StackBuilder.DesktopMSI" Level="1" Absent="disallow"
              Display="expand" ConfigurableDirectory="$(var.InstallLocation)">
       <MergeRef Id="treeDiM.StackBuilder.DesktopMSM" Primary="yes"/>
@@ -56,13 +56,13 @@
     <!--Properties-->
     <Property Id="PROJECT_UPGRADE" Secure="yes"/>
     <Property Id="INSTALLDESKTOPSHORTCUT" Value="1" />
-    <Property Id="REBOOT" Value="ReallySuppress"/>
+    <Property Id="REBOOT">ReallySuppress</Property>
     <Property Id="MSIRESTARTMANAGERCONTROL" Value="Disable" />
-    <Property Id="WIXUI_INSTALLDIR" Value="INSTALLFOLDER" />
     <!--Property references-->
     <PropertyRef Id="NETFRAMEWORK40CLIENT" />
     <PropertyRef Id="NETFRAMEWORK40FULL" />
     <!--Installer icon-->
+    <Property Id="ARPPRODUCTICON" Value="StackBuilder.ico" />
     <Property Id="ARPHELPLINK" Value="$(var.CompanyURL)" />
     <Property Id="ARPURLINFOABOUT" Value="$(var.CompanyURL)" />
     <!-- Conditions-->
@@ -72,16 +72,18 @@
     <!-- Install execute sequence -->
     <InstallExecuteSequence />
     <InstallUISequence />
-    <!--Custom actions-->
-    <CustomActionRef Id="CA_BlockOlderVersionInstall"/>
-    <CustomActionRef Id="CA_ErrWrongWindowsVersion"/>
     <!-- UI -->
+    <UIRef Id="WixUI_InstallDir" />
+    <Property Id="WIXUI_INSTALLDIR" Value="INSTALLFOLDER" />
     <WixVariable Id="WixUIBannerBmp" Value="WixUIBannerBmp.bmp" />
     <WixVariable Id="WixUIDialogBmp" Value="WixUIDialogBmp.bmp" />
     <WixVariable Id="WixUILicenseRtf" Value="License.rtf" />
     <UI>
-      <UIRef Id="WixUI_InstallDir" />
+      <Publish Dialog="WelcomeDlg" Control="Next" Event="NewDialog" Value="InstallDirDlg">1</Publish>
+      <Publish Dialog="InstallDirDlg" Control="Back" Event="NewDialog" Value="WelcomeDlg">1</Publish>
     </UI>
-
+    <!--Custom actions-->
+    <CustomActionRef Id="CA_BlockOlderVersionInstall"/>
+    <CustomActionRef Id="CA_ErrWrongWindowsVersion"/>
   </Product>
 </Wix>
