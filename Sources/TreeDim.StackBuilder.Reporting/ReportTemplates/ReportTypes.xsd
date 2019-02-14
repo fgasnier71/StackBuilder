@@ -332,7 +332,8 @@
   <xs:complexType name="itemQuantity">
     <xs:sequence>
       <xs:element name="name" minOccurs="1" maxOccurs="1" type="xs:string"/>
-      <xs:element name="quantity" minOccurs="1" maxOccurs="1" type="xs:string"/>
+      <xs:element name="count" minOccurs="1" maxOccurs="1" type="xs:string"/>
+      <xs:element name="weight" minOccurs="1" maxOccurs="1" type="xs:string"/>
     </xs:sequence>
   </xs:complexType>
   <!--ITEMQUANTITY : END-->

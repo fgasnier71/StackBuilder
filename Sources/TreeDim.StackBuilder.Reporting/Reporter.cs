@@ -1,5 +1,6 @@
 ﻿#region Using directives
 using System;
+using System.Linq;
 using System.Collections.Generic;
 
 using System.Xml;
@@ -515,7 +516,14 @@ namespace treeDiM.StackBuilder.Reporting
             }
             // 1. CONTENT
             // 2. CONTAINER
+            ItemBase container = analysis.Containers.First();
+            ReportNode rnContainer = rnAnalysis.GetChildByName(string.Format("{0}", PackableType(container)));
+            if (rnContainer.Activated)
+                AppendContainerElement(container, rnContainer, eltAnalysis, xmlDoc);
             // 3. CONSTRAINTSET
+            ReportNode rnConstraintSet = rnAnalysis.GetChildByName(Resources.ID_RN_CONSTRAINTSET);
+            if (rnConstraintSet.Activated)
+                AppendConstraintSet(analysis.ConstraintSet, rnConstraintSet, eltAnalysis, xmlDoc);
             // 4. SOLUTION
             ReportNode rnSolution = rnAnalysis.GetChildByName(Resources.ID_RN_SOLUTION);
             if (rnSolution.Activated)
@@ -598,6 +606,17 @@ namespace treeDiM.StackBuilder.Reporting
             if (constraintSet.OptMaxNumber.Activated && rnConstraintSet.GetChildByName(Resources.ID_RN_MAXIMUMNUMBER).Activated)
                 AppendElementValue(xmlDoc, elemConstraintSet, "maximumNumber", constraintSet.OptMaxNumber.Value);
         }
+        private void AppendConstraintSet(HConstraintSet constraintSet, ReportNode rnConstraintSet, XmlElement elemAnalysis, XmlDocument xmlDoc)
+        {
+            string ns = xmlDoc.DocumentElement.NamespaceURI;
+            XmlElement elemConstraintSet = xmlDoc.CreateElement("hConstraintSet", ns);
+            elemAnalysis.AppendChild(elemConstraintSet);
+
+            if (constraintSet is HConstraintSetPallet constraintSetPallet)
+            { AppendElementValue(xmlDoc, elemConstraintSet, "maximumHeight", UnitsManager.UnitType.UT_LENGTH, constraintSetPallet.MaximumHeight); }
+            if (constraintSet is HConstraintSetCase constraintSetCase)
+            { }
+        }
         private void AppendSolutionElement(Solution sol, ReportNode rnSolution, XmlElement elemAnalysis, XmlDocument xmlDoc)
         {
             string ns = xmlDoc.DocumentElement.NamespaceURI;
@@ -667,7 +686,7 @@ namespace treeDiM.StackBuilder.Reporting
                 graphics.FontSizeRatio = FontSizeRatioLarge;
                 // set camera position 
                 graphics.CameraPosition = cameraPos;
-                graphics.ShowDimensions = showDimLocal && Reporter.ShowDimensions;
+                graphics.ShowDimensions = showDimLocal && ShowDimensions;
 
                 // instantiate solution viewer
                 ViewerSolution sv = new ViewerSolution(sol);
@@ -767,13 +786,38 @@ namespace treeDiM.StackBuilder.Reporting
                 XmlElement elemSolItem = xmlDoc.CreateElement("solItem", ns);
                 elemSolution.AppendChild(elemSolItem);
 
+                HSolItem hSolItem = sol.SolItem(solItemIndex);
                 // index
-                XmlElement elemIndex = xmlDoc.CreateElement("index", ns);
-                elemIndex.InnerText = solItemIndex.ToString();
-                elemSolItem.AppendChild(elemIndex);
-                AppendElementValue(xmlDoc, elemSolItem, "loadWeight", UnitsManager.UnitType.UT_MASS, sol.LoadWeight(solItemIndex));
-                AppendElementValue(xmlDoc, elemSolItem, "totalWeight", UnitsManager.UnitType.UT_MASS, sol.Weight(solItemIndex));
+                AppendElementValue(xmlDoc, elemSolItem, "index", solItemIndex);
+                // itemQuantities
+                ReportNode rnItemNumbers = rnSolution.GetChildByName(Resources.ID_RN_ITEMNUMBERS);
+                if (rnItemNumbers.Activated)
+                {
+                    XmlElement elemItemNumbers = xmlDoc.CreateElement("itemQuantities", ns);
+                    elemSolItem.AppendChild(elemItemNumbers);
 
+                    var dictNameCount = hSolItem.SolutionItems;
+                    foreach (int containedItemIndex in dictNameCount.Keys)
+                    {
+                        XmlElement elemItemNumber = xmlDoc.CreateElement("itemQuantity", ns);
+                        elemItemNumbers.AppendChild(elemItemNumber);
+                        if (analysis.ContentTypeByIndex(containedItemIndex) is Packable packable)
+                        {
+                            // name
+                            AppendElementValue(xmlDoc, elemItemNumber, "name", packable.Name);
+                            // count
+                            AppendElementValue(xmlDoc, elemItemNumber, "count", dictNameCount[containedItemIndex]);
+                            // weight
+                            AppendElementValue(xmlDoc, elemItemNumber, "weight", packable.Weight * dictNameCount[containedItemIndex]);
+                        }
+                    }
+                }
+                ReportNode rnLoadWeight = rnSolution.GetChildByName(Resources.ID_RN_LOADWEIGHT);
+                if (rnLoadWeight.Activated)
+                    AppendElementValue(xmlDoc, elemSolItem, "loadWeight", UnitsManager.UnitType.UT_MASS, sol.LoadWeight(solItemIndex));
+                ReportNode rnTotalWeight = rnSolution.GetChildByName(Resources.ID_RN_TOTALWEIGHT);
+                if (rnTotalWeight.Activated)
+                    AppendElementValue(xmlDoc, elemSolItem, "totalWeight", UnitsManager.UnitType.UT_MASS, sol.Weight(solItemIndex));
                 ReportNode rnViews = rnSolution.GetChildByName(Resources.ID_RN_VIEWS);
                 ReportNode rnViewIso = rnSolution.GetChildByName(Resources.ID_RN_VIEWISO);
 
@@ -1027,7 +1071,7 @@ namespace treeDiM.StackBuilder.Reporting
                 graphics.CameraPosition = Graphics3D.Corner_0;
                 Box box = new Box(0, interlayerProp);
                 graphics.AddBox(box);
-                if (Reporter.ShowDimensions)
+                if (ShowDimensions)
                 {
                     DimensionCube dc = new DimensionCube(interlayerProp.Length, interlayerProp.Width, interlayerProp.Thickness); 
                     graphics.AddDimensions(dc);
@@ -1445,7 +1489,7 @@ namespace treeDiM.StackBuilder.Reporting
             createdElement.InnerText = string.Format("{0}", eltValue);
             parent.AppendChild(createdElement);
         }
-        private static void AppendContentItem(XmlDocument xmlDoc, XmlElement parent, string itemName, int itemNumber)
+        private static void AppendContentItem(XmlDocument xmlDoc, XmlElement parent, string itemName, int itemQuantity)
         {
             string ns = xmlDoc.DocumentElement.NamespaceURI;
             XmlElement elemItem = xmlDoc.CreateElement("item", ns);
@@ -1454,9 +1498,9 @@ namespace treeDiM.StackBuilder.Reporting
             XmlElement elemName = xmlDoc.CreateElement("name", ns);
             elemName.InnerText = itemName;
             elemItem.AppendChild(elemName);
-            // itemNumber
+            // itemQuantity
             XmlElement elemValue = xmlDoc.CreateElement("value", ns);
-            elemValue.InnerText = itemNumber.ToString();
+            elemValue.InnerText = itemQuantity.ToString();
             elemItem.AppendChild(elemValue);
         }
         private string SaveImageAs(Bitmap bmp)

@@ -296,7 +296,7 @@ namespace treeDiM.StackBuilder.Desktop
                 {
                     using (WCFClient wcfClient = new WCFClient())
                     {
-                        wcfClient.Client.Connect();
+                        wcfClient.Client.ConnectClient(Application.ProductName);
                     }
                 }
                 // note : CreateBasicLayout now called by OnConnected()

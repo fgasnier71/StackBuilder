@@ -1,8 +1,9 @@
 ﻿<?xml version="1.0" ?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-  <xsl:param name="lang"/>  <!-- param set in command line -->
+  <xsl:param name="lang"/>
+  <!-- param set in command line -->
   <xsl:variable name="loc" select="document(concat( $lang, '.xml'), .)/strings"/>
-  <xsl:output method="html" indent="yes"/> 
+  <xsl:output method="html" indent="yes"/>
   <xsl:template match="report">
     <html>
       <head>
@@ -163,7 +164,7 @@
   <!--#### HANALYSIS ####-->
   <xsl:template match="hAnalysis">
     <h2>
-      <xsl:value-of select="$loc/str[@name='hAnalysis']"/>: <xsl:value-of select="name"/>
+      <xsl:value-of select="$loc/str[@name='Analysis']"/>: <xsl:value-of select="name"/>
     </h2>
     <table class="style1" cellpadding="3">
       <xsl:if test="description">
@@ -179,6 +180,8 @@
         </tr>
       </xsl:if>
     </table>
+    <xsl:apply-templates select="pallet"/>
+    <xsl:apply-templates select="hConstraintSet"/>
     <xsl:apply-templates select="hSolution"/>
   </xsl:template>
   <!--#### ECTANALYSIS ####-->
@@ -377,6 +380,26 @@
     </table>
     <xsl:apply-templates select="layers"/>
   </xsl:template>
+  <!--### HCONSTRAINTSET ###-->
+  <xsl:template match="hConstraintSet">
+    <h3>
+      <xsl:value-of select="$loc/str[@name='Constraint set']"/>
+    </h3>
+    <table class="style1">
+      <xsl:if test="maximumHeight">
+        <tr>
+          <td class="style2">
+            <b>
+              <xsl:value-of select="$loc/str[@name='Maximum pallet height']"/> (<xsl:value-of select="maximumHeight/unit"/>)
+            </b>
+          </td>
+          <td class="style3" colspan="3">
+            <xsl:value-of select="maximumHeight/value"/>
+          </td>
+        </tr>
+      </xsl:if>
+    </table>
+  </xsl:template>
   <!--#### HSOLUTION ####-->
   <xsl:template match="hSolution">
     <h3>
@@ -387,8 +410,9 @@
   <!--#### SOLITEM ####-->
   <xsl:template match="solItem">
     <h4>
-      <xsl:value-of select="$loc/str[@name='Part']"/>
+      <xsl:value-of select="$loc/str[@name='Part']"/> : <xsl:value-of select="index"/>
     </h4>
+    <xsl:apply-templates select="itemQuantities"/>
     <table class="style1">
       <xsl:if test="loadWeight">
         <tr>
@@ -435,7 +459,50 @@
       </tr>
     </table>
   </xsl:template>
-   <!--#### ITEM ####-->
+  <!--#### ITEMQUANTITIES-->
+  <xsl:template match="itemQuantities">
+    <h4>
+      <xsl:value-of select="$loc/str[@name='Items']"/>
+    </h4>
+    <table class="style1">
+      <tr>
+        <td class="style2" colspan="1">
+          <b>
+            <xsl:value-of select="$loc/str[@name='Name']"/>
+          </b>
+        </td>
+        <td class="style2" colspan="1">
+          <b>
+            <xsl:value-of select="$loc/str[@name='Count']"/>
+          </b>
+        </td>
+        <td class="style2" colspan="1">
+          <b>
+            <xsl:value-of select="$loc/str[@name='Weight']"/>
+          </b>
+        </td>
+      </tr>
+      <xsl:apply-templates select="itemQuantity"/>
+      <tr/>
+    </table>
+  </xsl:template>
+  <!--#### ITEMQUANTITY-->
+  <xsl:template match="itemQuantity">
+    <tr>
+      <td class="style2" colspan="1">
+        <b>
+          <xsl:value-of select="name"/>
+        </b>
+      </td>
+      <td class="style2" colspan="1">
+        <xsl:value-of select="count"/>
+      </td>
+      <td class="style2" colspan="1">
+        <xsl:value-of select="weight"/>
+      </td>
+    </tr>
+  </xsl:template>
+  <!--#### ITEM ####-->
   <xsl:template match="item">
     <tr>
       <td class="style2" colspan="1">
@@ -455,10 +522,10 @@
         <xsl:value-of select="imagePath"/>
       </xsl:attribute>
       <xsl:attribute name="width">
-        <xsl:value-of select="width"/>      
+        <xsl:value-of select="width"/>
       </xsl:attribute>
       <xsl:attribute name="height">
-        <xsl:value-of select="height"/>      
+        <xsl:value-of select="height"/>
       </xsl:attribute>
     </img>
   </xsl:template>
@@ -1282,7 +1349,9 @@
   </xsl:template>
   <!--#### BOX ####-->
   <xsl:template match="box">
-    <h3><xsl:value-of select="$loc/str[@name='Box']"/></h3>
+    <h3>
+      <xsl:value-of select="$loc/str[@name='Box']"/>
+    </h3>
     <table class="style1">
       <tr>
         <td class="style2" colspan="1">

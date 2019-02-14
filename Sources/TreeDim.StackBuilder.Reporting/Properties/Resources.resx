@@ -183,8 +183,14 @@
   <data name="ID_RN_INTERLAYER" xml:space="preserve">
     <value>Interlayer</value>
   </data>
+  <data name="ID_RN_ITEMNUMBERS" xml:space="preserve">
+    <value>Items</value>
+  </data>
   <data name="ID_RN_LAYERS" xml:space="preserve">
     <value>Layers</value>
+  </data>
+  <data name="ID_RN_LOADWEIGHT" xml:space="preserve">
+    <value>Load weight</value>
   </data>
   <data name="ID_RN_MAXIMUMHEIGHT" xml:space="preserve">
     <value>Maximum height</value>
@@ -212,6 +218,9 @@
   </data>
   <data name="ID_RN_SPACES" xml:space="preserve">
     <value>Spaces</value>
+  </data>
+  <data name="ID_RN_TOTALWEIGHT" xml:space="preserve">
+    <value>Total weight</value>
   </data>
   <data name="ID_RN_TRUCK" xml:space="preserve">
     <value>Truck</value>

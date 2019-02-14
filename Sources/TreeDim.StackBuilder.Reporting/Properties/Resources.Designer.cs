@@ -259,11 +259,29 @@ namespace treeDiM.StackBuilder.Reporting.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Items.
+        /// </summary>
+        internal static string ID_RN_ITEMNUMBERS {
+            get {
+                return ResourceManager.GetString("ID_RN_ITEMNUMBERS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Layers.
         /// </summary>
         internal static string ID_RN_LAYERS {
             get {
                 return ResourceManager.GetString("ID_RN_LAYERS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Load weight.
+        /// </summary>
+        internal static string ID_RN_LOADWEIGHT {
+            get {
+                return ResourceManager.GetString("ID_RN_LOADWEIGHT", resourceCulture);
             }
         }
         
@@ -345,6 +363,15 @@ namespace treeDiM.StackBuilder.Reporting.Properties {
         internal static string ID_RN_SPACES {
             get {
                 return ResourceManager.GetString("ID_RN_SPACES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Total weight.
+        /// </summary>
+        internal static string ID_RN_TOTALWEIGHT {
+            get {
+                return ResourceManager.GetString("ID_RN_TOTALWEIGHT", resourceCulture);
             }
         }
         

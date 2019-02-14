@@ -135,4 +135,6 @@
   <str name="Layers x Cases">Couche x Caisse</str>
   <str name="Layers">Couches</str>
   <str name="Part">Partie</str>
+  <str name="Count">Nombre</str>
+  <str name="Items">Items</str>
 </strings>

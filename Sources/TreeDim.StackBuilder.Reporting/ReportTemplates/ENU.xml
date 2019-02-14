@@ -134,4 +134,6 @@
   <str name="Layers x Cases">Layers x Cases</str>
   <str name="Layers">Layers</str>
   <str name="Part">Part</str>
+  <str name="Count">Count</str>
+  <str name="Items">Items</str>
 </strings>

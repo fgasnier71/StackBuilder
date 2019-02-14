@@ -228,4 +228,10 @@
   <data name="ID_RN_NOLAYERSBYNOCASES" xml:space="preserve">
     <value>Couches x Caisses</value>
   </data>
+  <data name="ID_RN_LOADWEIGHT" xml:space="preserve">
+    <value>Poids chargement</value>
+  </data>
+  <data name="ID_RN_TOTALWEIGHT" xml:space="preserve">
+    <value>Poids total</value>
+  </data>
 </root>
