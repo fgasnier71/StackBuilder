@@ -54,6 +54,7 @@
       <MergeRef Id="treeDiM.StackBuilder.DesktopMSM" Primary="yes"/>
 		</Feature>
     <!--Properties-->
+    <Property Id="REINSTALLMODE" Value="amus" />
     <Property Id="PROJECT_UPGRADE" Secure="yes"/>
     <Property Id="INSTALLDESKTOPSHORTCUT" Value="1" />
     <Property Id="REBOOT">ReallySuppress</Property>
