@@ -120,7 +120,7 @@ namespace treeDiM.StackBuilder.Desktop
             {
                 // get case
                 BoxProperties caseProperties = cbCases.SelectedType as BoxProperties;
-                if (!(cbCases.SelectedType is PackableBrick packable) || null == caseProperties)
+                if (!(cbBoxes.SelectedType is PackableBrick packable) || null == caseProperties)
                     return;
                 var constraintSet = BuildConstraintSet();
                 // get best combination
@@ -130,6 +130,11 @@ namespace treeDiM.StackBuilder.Desktop
                     caseProperties.GetStackingDimensions(constraintSet),
                     constraintSet,
                     ref listLayer);
+                if (0 == listLayer.Count)
+                {
+                    _log.Warn("Failed to find a single valid layer");
+                    return;
+                }
                 // select best layer
                 List<LayerDesc> layerDesc = new List<LayerDesc>();
                 foreach (KeyValuePair<LayerDesc, int> kvp in listLayer)
