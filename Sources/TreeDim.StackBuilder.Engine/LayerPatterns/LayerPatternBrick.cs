@@ -89,9 +89,10 @@ namespace treeDiM.StackBuilder.Engine
                     AddPosition(layer
                         , offset + internalOffset + new Vector2D(boxWidth, boxWidth + i * boxLength)
                         , HalfAxis.HAxis.AXIS_Y_P, HalfAxis.HAxis.AXIS_X_N);
-                    AddPosition(layer
-                        , offset + internalOffset + new Vector2D(noInLength * boxLength, boxWidth + i * boxLength)
-                        , HalfAxis.HAxis.AXIS_Y_P, HalfAxis.HAxis.AXIS_X_N);
+                    if (2 * boxWidth <= rectLength)
+                        AddPosition(layer
+                            , offset + internalOffset + new Vector2D(noInLength * boxLength, boxWidth + i * boxLength)
+                            , HalfAxis.HAxis.AXIS_Y_P, HalfAxis.HAxis.AXIS_X_N);
                 }
 
                 // new internal rectangle
