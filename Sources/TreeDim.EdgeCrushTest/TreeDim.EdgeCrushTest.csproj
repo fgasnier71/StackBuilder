@@ -113,6 +113,9 @@
     <EmbeddedResource Include="FormEditCardboardQualityData.pl.resx">
       <DependentUpon>FormEditCardboardQualityData.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormEditCardboardQualityData.pt.resx">
+      <DependentUpon>FormEditCardboardQualityData.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormEditCardboardQualityData.resx">
       <DependentUpon>FormEditCardboardQualityData.cs</DependentUpon>
     </EmbeddedResource>
@@ -135,6 +138,7 @@
     <EmbeddedResource Include="Properties\Resource.ja.resx" />
     <EmbeddedResource Include="Properties\Resource.nl.resx" />
     <EmbeddedResource Include="Properties\Resource.pl.resx" />
+    <EmbeddedResource Include="Properties\Resource.pt.resx" />
     <EmbeddedResource Include="Properties\Resource.ru.resx" />
     <EmbeddedResource Include="Properties\Resource.sv.resx" />
     <EmbeddedResource Include="Properties\Resource.tr.resx" />

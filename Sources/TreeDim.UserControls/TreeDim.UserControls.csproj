@@ -140,6 +140,9 @@
     <EmbeddedResource Include="ProgressWindow.pl.resx">
       <DependentUpon>ProgressWindow.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ProgressWindow.pt.resx">
+      <DependentUpon>ProgressWindow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ProgressWindow.resx">
       <DependentUpon>ProgressWindow.cs</DependentUpon>
       <SubType>Designer</SubType>

@@ -302,21 +302,39 @@
     <Folder Include="Schemas\" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Controls\CtrlStrapperSet.pt.resx">
+      <DependentUpon>CtrlStrapperSet.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\CtrlStrapperSet.resx">
       <DependentUpon>CtrlStrapperSet.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\FormValueArray.pt.resx">
+      <DependentUpon>FormValueArray.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\FormValueArray.resx">
       <DependentUpon>FormValueArray.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UCtrlDouble.pt.resx">
+      <DependentUpon>UCtrlDouble.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\UCtrlDouble.tr.resx">
       <DependentUpon>UCtrlDouble.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UCtrlInt.pt.resx">
+      <DependentUpon>UCtrlInt.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\UCtrlInt.resx">
       <DependentUpon>UCtrlInt.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UCtrlOptDouble.pt.resx">
+      <DependentUpon>UCtrlOptDouble.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\UCtrlOptDouble.tr.resx">
       <DependentUpon>UCtrlOptDouble.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UCtrlOptInt.pt.resx">
+      <DependentUpon>UCtrlOptInt.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\UCtrlOptInt.resx">
       <DependentUpon>UCtrlOptInt.cs</DependentUpon>
@@ -324,11 +342,20 @@
     <EmbeddedResource Include="Controls\UCtrlOptInt.tr.resx">
       <DependentUpon>UCtrlOptInt.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UCtrlOptTriDouble.pt.resx">
+      <DependentUpon>UCtrlOptTriDouble.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\UCtrlOptTriDouble.tr.resx">
       <DependentUpon>UCtrlOptTriDouble.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UCtrlTriDouble.pt.resx">
+      <DependentUpon>UCtrlTriDouble.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\UCtrlTriDouble.tr.resx">
       <DependentUpon>UCtrlTriDouble.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UCtrlTriInt.pt.resx">
+      <DependentUpon>UCtrlTriInt.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\UCtrlTriInt.resx">
       <DependentUpon>UCtrlTriInt.cs</DependentUpon>
@@ -355,6 +382,7 @@
     <EmbeddedResource Include="Properties\Resources.ja.resx" />
     <EmbeddedResource Include="Properties\Resources.nl.resx" />
     <EmbeddedResource Include="Properties\Resources.pl.resx" />
+    <EmbeddedResource Include="Properties\Resources.pt.resx" />
     <EmbeddedResource Include="Properties\Resources.ru.resx" />
     <EmbeddedResource Include="Properties\Resources.sv.resx" />
     <EmbeddedResource Include="Properties\Resources.tr.resx" />

@@ -136,11 +136,20 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RichTextBoxAppender.cs" />
+    <EmbeddedResource Include="FormMain.pt.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormOptionsSettings.pt.resx">
+      <DependentUpon>FormOptionsSettings.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormOptionsSettings.resx">
       <DependentUpon>FormOptionsSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OptionsPanelFiltering.pt.resx">
+      <DependentUpon>OptionsPanelFiltering.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OptionsPanelFiltering.resx">
       <DependentUpon>OptionsPanelFiltering.cs</DependentUpon>
@@ -152,6 +161,7 @@
     <EmbeddedResource Include="Properties\Resources.ja.resx" />
     <EmbeddedResource Include="Properties\Resources.nl.resx" />
     <EmbeddedResource Include="Properties\Resources.pl.resx" />
+    <EmbeddedResource Include="Properties\Resources.pt.resx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

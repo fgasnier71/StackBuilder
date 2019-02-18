@@ -218,19 +218,67 @@
     <Compile Include="UCtrlPerSheetAnalysis.Designer.cs">
       <DependentUpon>UCtrlPerSheetAnalysis.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FormSettingsPerRow.de.resx">
+      <DependentUpon>FormSettingsPerRow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSettingsPerRow.es.resx">
+      <DependentUpon>FormSettingsPerRow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormSettingsPerRow.fr.resx">
+      <DependentUpon>FormSettingsPerRow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSettingsPerRow.it.resx">
+      <DependentUpon>FormSettingsPerRow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSettingsPerRow.ja.resx">
+      <DependentUpon>FormSettingsPerRow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSettingsPerRow.pl.resx">
+      <DependentUpon>FormSettingsPerRow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSettingsPerRow.pt.resx">
       <DependentUpon>FormSettingsPerRow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSettingsPerRow.resx">
       <DependentUpon>FormSettingsPerRow.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormSettingsPerRow.ru.resx">
+      <DependentUpon>FormSettingsPerRow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSettingsPerRow.sv.resx">
+      <DependentUpon>FormSettingsPerRow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormSettingsPerRow.tr.resx">
       <DependentUpon>FormSettingsPerRow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSettingsPerSheet.de.resx">
+      <DependentUpon>FormSettingsPerSheet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSettingsPerSheet.es.resx">
+      <DependentUpon>FormSettingsPerSheet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSettingsPerSheet.fr.resx">
       <DependentUpon>FormSettingsPerSheet.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormSettingsPerSheet.it.resx">
+      <DependentUpon>FormSettingsPerSheet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSettingsPerSheet.ja.resx">
+      <DependentUpon>FormSettingsPerSheet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSettingsPerSheet.pl.resx">
+      <DependentUpon>FormSettingsPerSheet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSettingsPerSheet.pt.resx">
+      <DependentUpon>FormSettingsPerSheet.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormSettingsPerSheet.resx">
+      <DependentUpon>FormSettingsPerSheet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSettingsPerSheet.ru.resx">
+      <DependentUpon>FormSettingsPerSheet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSettingsPerSheet.sv.resx">
       <DependentUpon>FormSettingsPerSheet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSettingsPerSheet.tr.resx">
@@ -243,6 +291,7 @@
     <EmbeddedResource Include="Properties\Resources.ja.resx" />
     <EmbeddedResource Include="Properties\Resources.nl.resx" />
     <EmbeddedResource Include="Properties\Resources.pl.resx" />
+    <EmbeddedResource Include="Properties\Resources.pt.resx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -257,6 +306,9 @@
     <EmbeddedResource Include="Properties\Resources.sv.resx" />
     <EmbeddedResource Include="Properties\Resources.tr.resx" />
     <EmbeddedResource Include="Properties\Resources.zh.resx" />
+    <EmbeddedResource Include="RibbonStackBuilder.pt.resx">
+      <DependentUpon>RibbonStackBuilder.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RibbonStackBuilder.resx">
       <DependentUpon>RibbonStackBuilder.cs</DependentUpon>
     </EmbeddedResource>
@@ -269,14 +321,41 @@
     <EmbeddedResource Include="RibbonStackBuilder.zh.resx">
       <DependentUpon>RibbonStackBuilder.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UCtrlPerRowAnalysis.de.resx">
+      <DependentUpon>UCtrlPerRowAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCtrlPerRowAnalysis.es.resx">
+      <DependentUpon>UCtrlPerRowAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UCtrlPerRowAnalysis.fr.resx">
+      <DependentUpon>UCtrlPerRowAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCtrlPerRowAnalysis.it.resx">
+      <DependentUpon>UCtrlPerRowAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCtrlPerRowAnalysis.ja.resx">
+      <DependentUpon>UCtrlPerRowAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCtrlPerRowAnalysis.pl.resx">
+      <DependentUpon>UCtrlPerRowAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCtrlPerRowAnalysis.pt.resx">
       <DependentUpon>UCtrlPerRowAnalysis.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UCtrlPerRowAnalysis.resx">
       <DependentUpon>UCtrlPerRowAnalysis.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UCtrlPerRowAnalysis.ru.resx">
+      <DependentUpon>UCtrlPerRowAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCtrlPerRowAnalysis.sv.resx">
+      <DependentUpon>UCtrlPerRowAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UCtrlPerRowAnalysis.tr.resx">
       <DependentUpon>UCtrlPerRowAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCtrlPerSheetAnalysis.pt.resx">
+      <DependentUpon>UCtrlPerSheetAnalysis.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UCtrlPerSheetAnalysis.resx">
       <DependentUpon>UCtrlPerSheetAnalysis.cs</DependentUpon>
