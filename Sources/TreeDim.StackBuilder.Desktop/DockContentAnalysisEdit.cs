@@ -21,13 +21,6 @@ namespace treeDiM.StackBuilder.Desktop
     public partial class DockContentAnalysisEdit : DockContentView, IDrawingContainer, IItemBaseFilter
     {
         #region Constructor
-        public DockContentAnalysisEdit()
-            : base(null)
-        {
-            _analysis = null;
-
-            InitializeComponent();
-        }
         public DockContentAnalysisEdit(IDocument document, AnalysisHomo analysis)
             : base(document)
         {
@@ -442,11 +435,12 @@ namespace treeDiM.StackBuilder.Desktop
                     cbLayerType.SelectedIndex = 0;
 
                 // fill combo cbInterlayer
-                Document document = _document as Document;
+                Document document = Document as Document;
                 cbInterlayer.Initialize(document, this, null);
             }
-            catch (Exception /*ex*/)
+            catch (Exception ex)
             {
+                _log.Error(ex.ToString());
             }
         }
         protected void UpdateControls()
@@ -494,8 +488,9 @@ namespace treeDiM.StackBuilder.Desktop
                     tbClickLayer.Show();
                 }
             }
-            catch (Exception /*ex*/)
+            catch (Exception ex)
             {
+                _log.Error(ex.ToString());
             }
         }
         #endregion

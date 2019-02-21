@@ -16,11 +16,6 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Constructor
-        public DockContentAnalysisBoxCase()
-            : base()
-        {
-            InitializeComponent();
-        }
         public DockContentAnalysisBoxCase(IDocument document, AnalysisHomo analysis)
             : base(document, analysis)
         {

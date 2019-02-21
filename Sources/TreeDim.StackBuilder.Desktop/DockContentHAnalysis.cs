@@ -304,7 +304,12 @@ namespace treeDiM.StackBuilder.Desktop
             // close this form
             Close();
             // call edit analysis
-            Document.EditAnalysis(Solution.Analysis);
+            if (null != Document && null != Solution)
+                Document.EditAnalysis(Solution.Analysis);
+            else
+                _log.Error("Solution or Document must not be null");
+
+
         }
         private void OnGenerateReport(object sender, EventArgs e)
         {

@@ -172,7 +172,7 @@ namespace treeDiM.StackBuilder.Desktop
         {
             get
             {
-                Document doc = _document as Document;
+                Document doc = Document as Document;
                 return doc.GetByType(typeof(PalletCornerProperties)).ToArray(); 
             }
         }
@@ -180,7 +180,7 @@ namespace treeDiM.StackBuilder.Desktop
         {
             get
             {
-                Document doc = _document as Document;
+                Document doc = Document as Document;
                 return doc.GetByType(typeof(PalletCapProperties)).ToArray(); 
             }
         }
@@ -188,7 +188,7 @@ namespace treeDiM.StackBuilder.Desktop
         {
             get
             {
-                Document doc = _document as Document;
+                Document doc = Document as Document;
                 return doc.GetByType(typeof(PalletFilmProperties)).ToArray(); 
             }
         }

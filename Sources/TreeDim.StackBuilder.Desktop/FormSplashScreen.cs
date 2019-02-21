@@ -23,8 +23,7 @@ namespace treeDiM.StackBuilder.Desktop
             // make lower right pixel color transparent
             Bitmap b = new Bitmap(BackgroundImage);
             if (Transparent)
-                b.MakeTransparent(b.GetPixel(1, 1));
-            BackgroundImage = b;
+                TransparencyKey = b.GetPixel(1, 1); ;
             // version
             lblVersion.Text = $"{AssemblyVersion}";
         }
@@ -46,7 +45,7 @@ namespace treeDiM.StackBuilder.Desktop
         /// <summary>
         /// set / get transparency
         /// </summary>
-        public bool Transparent { get; set; } = false;
+        public bool Transparent { get; set; } = true;
         #endregion
 
         /// <summary>
