@@ -1129,6 +1129,21 @@ namespace treeDiM.StackBuilder.Basics
                         }
                     }
                 }
+                // load heterogeneous analyses
+                if (string.Equals(docChildNode.Name, "HAnalyses", StringComparison.CurrentCultureIgnoreCase))
+                {
+                    foreach (XmlNode analysisNode in docChildNode.ChildNodes)
+                    {
+                        try
+                        {
+                            LoadHAnalysis(analysisNode as XmlElement);
+                        }
+                        catch (Exception ex)
+                        {
+                            _log.Error(ex.ToString());
+                        }
+                    }
+                }
             }
         }
 
@@ -1921,7 +1936,29 @@ namespace treeDiM.StackBuilder.Basics
                     }
                 }
             }
-        } 
+        }
+
+        private void LoadHAnalysis(XmlElement eltAnalysis)
+        {
+            string sId = string.Empty;
+            if (eltAnalysis.HasAttribute("Id"))
+                sId = eltAnalysis.Attributes["Id"].Value;
+            string sName = eltAnalysis.Attributes["Name"].Value;
+            string sDescription = eltAnalysis.Attributes["Description"].Value;
+
+            if (string.Equals(eltAnalysis.Name, "HAnalysisPallet"))
+            {
+            }
+            else if (string.Equals(eltAnalysis.Name, "HAnalysisCase"))
+            {
+            }
+            else if (string.Equals(eltAnalysis.Name, "HAnalysisCaseTruck"))
+            {
+            }
+            else if (string.Equals(eltAnalysis.Name, "HAnalysisPalletTruck"))
+            {
+            }
+        }
 
         #region ConstraintSet loading
         private ConstraintSetAbstract LoadConstraintSetCasePallet(XmlElement eltConstraintSet)
@@ -2481,6 +2518,11 @@ namespace treeDiM.StackBuilder.Basics
                 xmlRootElement.AppendChild(xmlAnalysesElt);
                 foreach (AnalysisHomo analysis in Analyses)
                     SaveAnalysis(analysis, xmlAnalysesElt, xmlDoc);
+                XmlElement xmlHAnalysesElt = xmlDoc.CreateElement("HAnalyses");
+                xmlRootElement.AppendChild(xmlHAnalysesElt);
+                foreach (AnalysisHetero analysis in HAnalyses)
+                    SaveHAnalysis(analysis, xmlHAnalysesElt, xmlDoc);
+
                 // finally save XmlDocument
                 xmlDoc.Save(filePath);
             }
@@ -3297,6 +3339,48 @@ namespace treeDiM.StackBuilder.Basics
                 eltSolutionItem.InnerText = solItem.ToString();
                 eltSolutionItems.AppendChild(eltSolutionItem);
             }
+        }
+
+        private void SaveHAnalysis(AnalysisHetero analysis, XmlElement parentElement, XmlDocument xmlDoc)
+        {
+            HAnalysisPallet analysisPallet = analysis as HAnalysisPallet;
+            HAnalysisCase analysisCase = analysis as HAnalysisCase;
+            HAnalysisTruck analysisTruck = analysis as HAnalysisTruck;
+            // analysis name
+            string analysisName = string.Empty;
+            if (null != analysisPallet) analysisName = "HAnalysisPallet";
+            else if (null != analysisCase) analysisName = "HAnalysisCase";
+            else if (null != analysisTruck) analysisName = "HAnalysisTruck";
+            else return;
+
+            // create analysis element
+            XmlElement xmlAnalysisElt = xmlDoc.CreateElement(analysisName);
+            parentElement.AppendChild(xmlAnalysisElt);
+            // guid
+            XmlAttribute analysisGuidAttribute = xmlDoc.CreateAttribute("Id");
+            analysisGuidAttribute.Value = analysis.ID.IGuid.ToString();
+            xmlAnalysisElt.Attributes.Append(analysisGuidAttribute);
+            // name
+            XmlAttribute analysisNameAttribute = xmlDoc.CreateAttribute("Name");
+            analysisNameAttribute.Value = analysis.ID.Name;
+            xmlAnalysisElt.Attributes.Append(analysisNameAttribute);
+            // description
+            XmlAttribute analysisDescriptionAttribute = xmlDoc.CreateAttribute("Description");
+            analysisDescriptionAttribute.Value = analysis.ID.Description;
+            xmlAnalysisElt.Attributes.Append(analysisDescriptionAttribute);
+
+            if (null != analysisPallet)
+            {
+            }
+            else if (null != analysisCase)
+            {
+            }
+            else if (null != analysisTruck)
+            {
+            }
+        }
+        private void SaveHSolution(HSolution hSolution, XmlElement parentElt, XmlDocument xmlDoc)
+        {
         }
         #endregion
 

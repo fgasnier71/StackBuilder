@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?include $(sys.CURRENTDIR)\Config.wxi?>
+<?define TestAppBinDir=..\..\Test\treeDiM.StackBuilder.WCFService.Test\bin\Release\?>
+
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
+  <Fragment>
+    <Icon Id="ShortcutIcon.ico" SourceFile="$(var.TestAppBinDir)treeDiM.StackBuilder.WCFService.Test.exe" />
+    <DirectoryRef Id="SAMPLECLIENT"/>
+    <ComponentGroup Id="SampleClientBinaries" Directory="SAMPLECLIENT">
+      <Component Id="treeDiM.StackBuilder.WCFService.Test.exe" Guid="{2992012D-9BD4-42CB-99B6-8C73846AECFD}">
+        <File Source="$(var.TestAppBinDir)treeDiM.StackBuilder.WCFService.Test.exe"/>
+        <File Source="$(var.TestAppBinDir)treeDiM.StackBuilder.WCFService.Test.exe.config"/>
+      </Component>
+    </ComponentGroup>
+    <DirectoryRef Id="DesktopFolder"/>
+    <ComponentGroup Id="SampleClientShortcut" Directory="DesktopFolder">
+      <Component Id="DesktopShortcutComp" Guid="{2B4BEA63-326B-40a3-9DF4-44E7E29EE4DC}">
+        <Shortcut Id="DesktopShortCut"
+                  Name="treeDiM.StackBuilder.WCFService.Test"
+                  Description="Sample client app"
+                  Target="[SAMPLECLIENT]treeDiM.StackBuilder.WCFService.Test.exe"
+                  Icon="ShortcutIcon.ico"
+                  WorkingDirectory="SAMPLECLIENT" />
+        <RemoveFolder Id="DesktopFolder" On="uninstall"/>
+        <RegistryValue Root="HKCU"
+                       Key="Software/$(var.Manufacturer)/SampleClient_Desktop"
+                       Name="installed"
+                       Type="integer"
+                       Value="1"
+                       KeyPath="yes" />
+      </Component>
+    </ComponentGroup>
+  </Fragment>
+</Wix>

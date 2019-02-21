@@ -23,6 +23,7 @@
   <ItemGroup>
     <Compile Include="DirectoryTree.wxs" />
     <Compile Include="Files.wxs" />
+    <Compile Include="FileSampleClient.wxs" />
     <Compile Include="IISConfiguration.wxs" />
     <Compile Include="Product.wxs" />
     <Compile Include="UI.wxs" />
