@@ -54,6 +54,5 @@
         <File Source="$(var.BinDir)treeDiM.StackBuilder.WCFAppServ.dll.config"/>
       </Component>
     </ComponentGroup>
-
 	</Fragment>
 </Wix>

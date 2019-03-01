@@ -40,8 +40,12 @@
       <ComponentGroupRef Id="ServiceDefinition" />
       <ComponentGroupRef Id="ServiceBinaries"/>
       <ComponentGroupRef Id="WebIISConfiguration"/>
-      <ComponentGroupRef Id="SampleClientBinaries"/>
-      <ComponentGroupRef Id="SampleClientShortcut"/>
+      <Feature Id="SampleClient"
+               Title="Sample Client"
+               Level="2">
+        <ComponentGroupRef Id="SampleClientBinaries"/>
+        <ComponentGroupRef Id="SampleClientShortcut"/>
+      </Feature>
     </Feature>
     <!--Features : end-->
 
