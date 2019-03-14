@@ -5,31 +5,33 @@
      >
   <Fragment>
     <PropertyRef Id="VIRTUAL_DIR_VAL"/>
-
-    <!-- Install to default web site -->
-    <iis:WebSite Id="DefaultWebSite" Description='Default Web Site'>
-      <iis:WebAddress Id="AllUnassigned" Port="80" />
-    </iis:WebSite>
-    
     <DirectoryRef Id="INSTALLFOLDER">
-      <Component Id="WebAppPoolCmp" Guid="{B666438C-CFCB-434D-BB0B-CBFE247A6187}" KeyPath="yes">
-        <iis:WebAppPool Id="StackBuilderWCFAppPool"
-                        Name="StackBuilderWCF"
+      <Component Id="StackBuilderWCF_IISConfigure" Guid="5146762F-0E78-47d2-A105-6E18E2993619" KeyPath="yes">
+        <!--define application pool-->
+        <iis:WebAppPool Id="StackBuilderWCF_AppPool"
+                        Name="StackBuilderWebApp"
                         Identity="applicationPoolIdentity"
                         ManagedPipelineMode="Integrated"
-                        ManagedRuntimeVersion="v4.6" />
-      </Component>
-      <Component Id="WebVirtualDirCmp" Guid="{CD98CADA-C8AD-4DEF-9F31-61E62A3E4FC7}" KeyPath="yes">
-        <!-- Install to default web site -->
-        <iis:WebVirtualDir Id ="WebVirtualDir" Alias="[VIRTUAL_DIR_VAL]" Directory="INSTALLFOLDER" WebSite="DefaultWebSite">
-          <iis:WebDirProperties Id="WebDirProperties" AnonymousAccess="yes" BasicAuthentication="no" WindowsAuthentication="no"/>
-          <iis:WebApplication Id="WebApplication" Name="[VIRTUAL_DIR_VAL]"/>
-        </iis:WebVirtualDir>        
+                        ManagedRuntimeVersion="v4.6"
+                      />
+
+        <!--define web site-->
+        <iis:WebSite Id="StackBuilder_WebSite"
+                     Description="StackBuilder WebSite"
+                     AutoStart="yes"
+                     StartOnInstall="yes"
+                     ConfigureIfExists="yes"
+                     Directory="INSTALLFOLDER"
+        >
+          <iis:WebAddress Id="AllUnassigned" Port="80" />
+          <iis:WebVirtualDir Id="WebVirtualDir" Alias="[VIRTUAL_DIR_VAL]" Directory="INSTALLFOLDER" WebSite="StackBuilder_WebSite" >
+            <iis:WebDirProperties Id="WebDirProperties" AnonymousAccess="yes" BasicAuthentication="no" WindowsAuthentication="no" />
+          </iis:WebVirtualDir>
+        </iis:WebSite>
       </Component>
     </DirectoryRef>
     <ComponentGroup Id="WebIISConfiguration">
-      <ComponentRef Id="WebAppPoolCmp"/>
-      <ComponentRef Id="WebVirtualDirCmp"/>
+      <ComponentRef Id="StackBuilderWCF_IISConfigure"/>
     </ComponentGroup>
   </Fragment>
 </Wix>

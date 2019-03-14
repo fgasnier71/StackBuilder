@@ -702,15 +702,49 @@ namespace treeDiM.StackBuilder.Basics
         {
             get
             {
+                // initialize loaded weight & count
+                double weight = Analysis.ContainerWeight;
+                int iBoxCount = 0;
+                bool stop = false;
+
                 Dictionary<LayerPhrase, int> dict = new Dictionary<LayerPhrase, int>();
                 foreach (SolutionItem solItem in _solutionItems)
                 {
                     Layer2D layer = _layerTypes[solItem.LayerIndex] as Layer2D;
-                    LayerPhrase lp = new LayerPhrase() { Count = layer.Count, Axis = layer.VerticalAxisProp };
-                    if (dict.ContainsKey(lp))
-                        dict[lp] += 1;
+                    if (!ConstraintSet.OptMaxWeight.Activated || !ConstraintSet.OptMaxNumber.Activated)
+                    {
+                        LayerPhrase lp = new LayerPhrase() { Count = layer.Count, Axis = layer.VerticalAxisProp };
+                        if (dict.ContainsKey(lp))
+                            dict[lp] += 1;
+                        else
+                            dict.Add(lp, 1);
+                    }
                     else
-                        dict.Add(lp, 1);
+                    {
+                        int iLayerBoxCount = 0;
+                        foreach (LayerPosition layerPos in layer)
+                        {
+                            if (!ConstraintSet.CritNumberReached(iBoxCount + 1)
+                                && !ConstraintSet.CritWeightReached(weight + Analysis.ContentWeight))
+                            {
+                                ++iLayerBoxCount;
+                                ++iBoxCount;
+                                weight += Analysis.ContentWeight;
+                            }
+                            else
+                                stop = true;
+                        }
+                        if (iLayerBoxCount > 0)
+                        {
+                            LayerPhrase lp = new LayerPhrase() { Count = iLayerBoxCount, Axis = layer.VerticalAxisProp };
+                            if (dict.ContainsKey(lp))
+                                dict[lp] += 1;
+                            else
+                                dict.Add(lp, 1);
+                        }
+                    }
+                    if (stop)
+                        break;
                 }
                 return dict;
             }

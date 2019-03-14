@@ -42,7 +42,7 @@
       <ComponentGroupRef Id="WebIISConfiguration"/>
       <Feature Id="SampleClient"
                Title="Sample Client"
-               Level="2">
+               Level="1">
         <ComponentGroupRef Id="SampleClientBinaries"/>
         <ComponentGroupRef Id="SampleClientShortcut"/>
       </Feature>
