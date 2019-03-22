@@ -134,6 +134,17 @@ namespace treeDiM.StackBuilder.Basics
             return bpi.ToBoxPosition(dimOriginal);
         }
         private static bool MostlyEqual(double val0, double val1) => Math.Abs(val1 - val0) < 1.0e-03;
+        public static BoxPosition Parse(string s)
+        {
+            string[] sArray = s.Split('|');
+            var v = Vector3D.Parse(sArray[0]);
+            string sOrientation = sArray[1];
+            sOrientation = sOrientation.Trim();
+            sOrientation = sOrientation.TrimStart('(');
+            sOrientation = sOrientation.TrimEnd(')');
+            string[] vOrientation = sOrientation.Split(',');
+            return new BoxPosition(v, HalfAxis.Parse(vOrientation[0]), HalfAxis.Parse(vOrientation[1]));
+        }
         #endregion
 
         #region Object method overrides

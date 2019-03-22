@@ -14,14 +14,24 @@ namespace treeDiM.StackBuilder.Basics
         #endregion
 
         #region Specific properties
-        public PalletProperties Pallet { set { _containers.Clear(); _containers.Add(value); }  }
+        public PalletProperties Pallet
+        {
+            set { _containers.Clear(); _containers.Add(value); }
+            get
+            {
+                if (_containers.Count < 1) return null;
+                return _containers[0] as PalletProperties;
+            }
+        }
         #endregion
 
         #region Override HAnalysis
         public override Vector3D DimContainer(int index)
         {
+            HConstraintSetPallet constraintSet = ConstraintSet as HConstraintSetPallet;
+
             return index < _containers.Count && _containers[index] is PalletProperties palletProperties
-                ? new Vector3D(palletProperties.Length, palletProperties.Width, ConstraintSet.MaximumHeight - palletProperties.Height)
+                ? new Vector3D(palletProperties.Length, palletProperties.Width, constraintSet.MaximumHeight - palletProperties.Height)
                 : Vector3D.Zero;
         }
         public override double WeightContainer(int index)

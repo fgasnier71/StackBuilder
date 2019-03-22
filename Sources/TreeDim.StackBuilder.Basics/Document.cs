@@ -719,6 +719,7 @@ namespace treeDiM.StackBuilder.Basics
                 Solution = solution
             };
             analysis.ID.SetNameDesc(name, description);
+            solution.Analysis = analysis;
             return InsertAnalysis(analysis);
         }
 
@@ -737,6 +738,7 @@ namespace treeDiM.StackBuilder.Basics
                 Solution = solution
             };
             analysis.ID.SetNameDesc(name, description);
+            solution.Analysis = analysis;
             return InsertAnalysis(analysis);
         }
 
@@ -1301,7 +1303,6 @@ namespace treeDiM.StackBuilder.Basics
                 return null;
         }
 
-
         private void LoadCylinderProperties(XmlElement eltCylinderProperties)
         {
             string sid = eltCylinderProperties.Attributes["Id"].Value;
@@ -1374,7 +1375,7 @@ namespace treeDiM.StackBuilder.Basics
                     // angle
                     double angle = Convert.ToDouble(xmlFaceTexture.Attributes["Angle"].Value, CultureInfo.InvariantCulture);
                     // bitmap
-                    Bitmap bmp = Document.StringToBitmap(xmlFaceTexture.Attributes["Bitmap"].Value);
+                    Bitmap bmp = StringToBitmap(xmlFaceTexture.Attributes["Bitmap"].Value);
                     // add texture pair
                     listTexture.Add(new Pair<HalfAxis.HAxis, Texture>(faceNormal
                         , new Texture(
@@ -1676,9 +1677,9 @@ namespace treeDiM.StackBuilder.Basics
                 foreach (XmlNode node in eltAnalysis.ChildNodes)
                 {
                     if (string.Equals(node.Name, "ConstraintSet", StringComparison.CurrentCultureIgnoreCase))
-                        constraintSet = LoadConstraintSetCasePallet( node as XmlElement );
+                        constraintSet = LoadConstraintSetCasePallet(node as XmlElement);
                     else if (string.Equals(node.Name, "Solution", StringComparison.CurrentCultureIgnoreCase))
-                        LoadSolution(node as XmlElement, out listLayerDesc, out listSolItems);                        
+                        LoadSolution(node as XmlElement, out listLayerDesc, out listSolItems);
                     else if (string.Equals(node.Name, "Interlayers", StringComparison.CurrentCultureIgnoreCase))
                         interlayers = LoadInterlayers(node as XmlElement);
                 }
@@ -1692,7 +1693,7 @@ namespace treeDiM.StackBuilder.Basics
                 if (!string.IsNullOrEmpty(sId))
                     analysis.ID.IGuid = Guid.Parse(sId);
                 analysis.Solution.SolutionItems = listSolItems;
-                
+
             }
             else if (string.Equals(eltAnalysis.Name, "AnalysisBoxCase", StringComparison.CurrentCultureIgnoreCase))
             {
@@ -1704,9 +1705,9 @@ namespace treeDiM.StackBuilder.Basics
                 foreach (XmlNode node in eltAnalysis.ChildNodes)
                 {
                     if (string.Equals(node.Name, "ConstraintSet", StringComparison.CurrentCultureIgnoreCase))
-                        constraintSet = LoadConstraintSetBoxCase( node as XmlElement, caseProperties );
+                        constraintSet = LoadConstraintSetBoxCase(node as XmlElement, caseProperties);
                     else if (string.Equals(node.Name, "Solution", StringComparison.CurrentCultureIgnoreCase))
-                        LoadSolution(node as XmlElement, out listLayerDesc, out listSolItems);                        
+                        LoadSolution(node as XmlElement, out listLayerDesc, out listSolItems);
                     else if (string.Equals(node.Name, "Interlayers", StringComparison.CurrentCultureIgnoreCase))
                         interlayers = LoadInterlayers(node as XmlElement);
                 }
@@ -1729,9 +1730,9 @@ namespace treeDiM.StackBuilder.Basics
                 foreach (XmlNode node in eltAnalysis.ChildNodes)
                 {
                     if (string.Equals(node.Name, "ConstraintSet", StringComparison.CurrentCultureIgnoreCase))
-                        constraintSet = LoadConstraintSetCasePallet( node as XmlElement );
+                        constraintSet = LoadConstraintSetCasePallet(node as XmlElement);
                     else if (string.Equals(node.Name, "Solution", StringComparison.CurrentCultureIgnoreCase))
-                        LoadSolution(node as XmlElement, out listLayerDesc, out listSolItems);                        
+                        LoadSolution(node as XmlElement, out listLayerDesc, out listSolItems);
                     else if (string.Equals(node.Name, "Interlayers", StringComparison.CurrentCultureIgnoreCase))
                         interlayers = LoadInterlayers(node as XmlElement);
                 }
@@ -1746,7 +1747,7 @@ namespace treeDiM.StackBuilder.Basics
                 analysis.Solution.SolutionItems = listSolItems;
             }
             else if (string.Equals(eltAnalysis.Name, "AnalysisCylinderCase", StringComparison.CurrentCultureIgnoreCase))
-            { 
+            {
                 Packable cylinderProperties = GetContentByGuid(Guid.Parse(sContentId)) as Packable;
                 BoxProperties caseProperties = GetTypeByGuid(sContainerId) as BoxProperties;
 
@@ -1946,14 +1947,105 @@ namespace treeDiM.StackBuilder.Basics
             string sName = eltAnalysis.Attributes["Name"].Value;
             string sDescription = eltAnalysis.Attributes["Description"].Value;
 
-            if (string.Equals(eltAnalysis.Name, "HAnalysisPallet"))
+            // analysis members
+            var containers = new List<ItemBase>(); 
+            var contentItems = new List<ContentItem>();
+            HSolution solution = null;
+            HConstraintSet constraintSet = null;
+
+            foreach (XmlNode node in eltAnalysis.ChildNodes)
             {
+                if (string.Equals(node.Name, "Containers", StringComparison.CurrentCultureIgnoreCase))
+                {
+                    var eltContainers = node as XmlElement;
+                    foreach (var nodeContainer in eltContainers.ChildNodes)
+                    {
+                        if (nodeContainer is XmlElement eltContainer)
+                        {
+                            containers.Add(GetTypeByGuid(Guid.Parse(eltContainer.Attributes["Id"].Value)));
+                        }
+                    }
+                }
+                else if (string.Equals(node.Name, "ContentItems", StringComparison.CurrentCultureIgnoreCase))
+                {
+                    XmlElement eltContentItems = node as XmlElement;
+                    foreach (XmlNode nodeContentItem in eltContentItems)
+                    {
+                        if (nodeContentItem is XmlElement eltContentItem)
+                        {
+                            string sPackableId = eltContentItem.Attributes["PackableId"].Value;
+                            uint number = Convert.ToUInt32(eltContentItem.Attributes["Number"].Value);
+                            string sOrientations = eltContentItem.Attributes["Orientations"].Value;
+                            bool[] orientations = sOrientations.Split(',').Select(s => bool.Parse(s)).ToArray();
+
+                            contentItems.Add(new ContentItem(GetTypeByGuid(sPackableId) as Packable, number, orientations));
+                        }
+                    }
+                }
+                else if (string.Equals(node.Name, "HConstraintSetPallet", StringComparison.CurrentCultureIgnoreCase))
+                {
+                    if (node is XmlElement eltHConstraintSet)
+                    {
+                        string sMaximumHeight = eltHConstraintSet.Attributes["MaximumHeight"].Value;
+                        constraintSet = new HConstraintSetPallet() { MaximumHeight = UnitsManager.ConvertLengthFrom(Convert.ToDouble(sMaximumHeight), UnitSystem) };
+                    }
+                }
+                else if (string.Equals(node.Name, "HConstraintSettruck", StringComparison.CurrentCultureIgnoreCase))
+                {
+                }
+                else if (string.Equals(node.Name, "HSolution", StringComparison.CurrentCultureIgnoreCase))
+                {
+                    XmlElement eltSolution = node as XmlElement;
+                    solution = new HSolution(eltSolution.Attributes["Algo"].Value);
+
+                    foreach (var nodeSolItem in eltSolution.ChildNodes)
+                    {
+                        if (nodeSolItem is XmlElement eltSolItem)
+                        {
+                            var hSolItem = solution.CreateSolItem();
+                            hSolItem.ContainerType = 0;
+                            foreach (var nodeContained in eltSolItem.ChildNodes)
+                            {
+                                if (nodeContained is XmlElement eltContained)
+                                {
+                                    hSolItem.InsertContainedElt(
+                                        Convert.ToInt32(eltContained.Attributes["ContentTypeIndex"].Value),
+                                        UnitsManager.ConvertLengthFrom(BoxPosition.Parse(eltContained.Attributes["Position"].Value), UnitSystem));
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            // sanity check
+            if (containers.Count < 1)
+            {
+                _log.Error("No container found!");
+                return;
+            }
+            // instantiate analysis
+            if (string.Equals(eltAnalysis.Name, "HAnalysisPallet", StringComparison.CurrentCultureIgnoreCase))
+            {                
+                AnalysisHetero analysis = CreateNewHAnalysisCasePallet(
+                    sName, sDescription,
+                    contentItems, containers[0] as PalletProperties,
+                    constraintSet as HConstraintSetPallet,
+                    solution
+                    );
             }
             else if (string.Equals(eltAnalysis.Name, "HAnalysisCase"))
             {
+                
             }
             else if (string.Equals(eltAnalysis.Name, "HAnalysisCaseTruck"))
             {
+                string sTruckId = eltAnalysis.Attributes["TruckId"].Value;
+                AnalysisHetero analysis = CreateNewHAnalysisCaseTruck(
+                    sName, sDescription,
+                    contentItems, containers[0] as TruckProperties,
+                    constraintSet as HConstraintSetTruck,
+                    solution
+                    );
             }
             else if (string.Equals(eltAnalysis.Name, "HAnalysisPalletTruck"))
             {
@@ -2420,6 +2512,14 @@ namespace treeDiM.StackBuilder.Basics
             }
 
             return layer;
+        }
+
+        private BoxPosition LoadBoxPosition(XmlElement eltBoxPosition)
+        {
+            string sPosition = eltBoxPosition.Attributes["Position"].Value;
+            string sAxisLength = eltBoxPosition.Attributes["AxisLength"].Value;
+            string sAxisWidth = eltBoxPosition.Attributes["AxisWidth"].Value;
+            return new BoxPosition(UnitsManager.ConvertLengthFrom(Vector3D.Parse(sPosition), UnitSystem), HalfAxis.Parse(sAxisLength), HalfAxis.Parse(sAxisWidth));
         }
         #endregion
 
@@ -3354,29 +3454,110 @@ namespace treeDiM.StackBuilder.Basics
             else return;
 
             // create analysis element
-            XmlElement xmlAnalysisElt = xmlDoc.CreateElement(analysisName);
-            parentElement.AppendChild(xmlAnalysisElt);
+            XmlElement eltAnalysis = xmlDoc.CreateElement(analysisName);
+            parentElement.AppendChild(eltAnalysis);
             // guid
             XmlAttribute analysisGuidAttribute = xmlDoc.CreateAttribute("Id");
             analysisGuidAttribute.Value = analysis.ID.IGuid.ToString();
-            xmlAnalysisElt.Attributes.Append(analysisGuidAttribute);
+            eltAnalysis.Attributes.Append(analysisGuidAttribute);
             // name
             XmlAttribute analysisNameAttribute = xmlDoc.CreateAttribute("Name");
             analysisNameAttribute.Value = analysis.ID.Name;
-            xmlAnalysisElt.Attributes.Append(analysisNameAttribute);
+            eltAnalysis.Attributes.Append(analysisNameAttribute);
             // description
             XmlAttribute analysisDescriptionAttribute = xmlDoc.CreateAttribute("Description");
             analysisDescriptionAttribute.Value = analysis.ID.Description;
-            xmlAnalysisElt.Attributes.Append(analysisDescriptionAttribute);
+            eltAnalysis.Attributes.Append(analysisDescriptionAttribute);
+            // containers
+            var eltContainers = xmlDoc.CreateElement("Containers");
+            eltAnalysis.AppendChild(eltContainers);
+            foreach (var container in analysis.Containers)
+            {
+                var eltContainer = xmlDoc.CreateElement("Container");
+                eltContainers.AppendChild(eltContainer);
+                // Id
+                var attId = xmlDoc.CreateAttribute("Id");
+                attId.Value = container.ID.IGuid.ToString();
+                eltContainer.Attributes.Append(attId);
+            }
+            // contentItems
+            XmlElement eltContentItems = xmlDoc.CreateElement("ContentItems");
+            eltAnalysis.AppendChild(eltContentItems);
+            foreach (ContentItem ci in analysis.Content)
+            {
+                var eltCI = xmlDoc.CreateElement("ContentItem");
+                eltContentItems.AppendChild(eltCI);
+                // set PackableId
+                var attPackId = xmlDoc.CreateAttribute("PackableId");
+                attPackId.Value = ci.Pack.ID.IGuid.ToString();
+                eltCI.Attributes.Append(attPackId);
+                // set number
+                var attNumber = xmlDoc.CreateAttribute("Number");
+                attNumber.Value = ci.Number.ToString();
+                eltCI.Attributes.Append(attNumber);
+                // set content items
+                var orientations = ci.AllowedOrientations;
+                var attOrientations = xmlDoc.CreateAttribute("Orientations");
+                attOrientations.Value = string.Join(",", ci.AllowedOrientations);
+                eltCI.Attributes.Append(attOrientations);
+            }
+            // solution
+            var eltHSolution = xmlDoc.CreateElement("HSolution");
+            eltAnalysis.AppendChild(eltHSolution);
+            // set algorithm
+            var attAlgo = xmlDoc.CreateAttribute("Algo");
+            attAlgo.Value = analysis.Solution.Algorithm;
+            eltHSolution.Attributes.Append(attAlgo);
+            foreach (var solItem in analysis.Solution.SolItems)
+            {
+                var eltSolItem = xmlDoc.CreateElement("SolItem");
+                eltHSolution.AppendChild(eltSolItem);
 
+                foreach (var contElt in solItem.ContainedElements)
+                {
+                    var eltContained = xmlDoc.CreateElement("ContentElt");
+                    eltSolItem.AppendChild(eltContained);
+
+                    // ContentTypeIndex
+                    var attContentType = xmlDoc.CreateAttribute("ContentTypeIndex");
+                    attContentType.Value = contElt.ContentType.ToString();
+                    eltContained.Attributes.Append(attContentType);
+                    // BoxPosition
+                    var attPosition = xmlDoc.CreateAttribute("Position");
+                    attPosition.Value = contElt.Position.ToString();
+                    eltContained.Attributes.Append(attPosition);
+                }
+            }
             if (null != analysisPallet)
             {
+                HConstraintSetPallet constraintSet = analysisPallet.ConstraintSet as HConstraintSetPallet;
+                // element containers
+                var eltContainer = xmlDoc.CreateElement("Container");
+                eltContainers.AppendChild(eltContainer);
+                var attId = xmlDoc.CreateAttribute("Id");
+                attId.Value = analysisPallet.Pallet.ID.IGuid.ToString();
+                eltContainer.Attributes.Append(attId);
+                // element HConstraintSetPallet
+                var eltConstraintSet = xmlDoc.CreateElement("HConstraintSetPallet");
+                eltAnalysis.AppendChild(eltConstraintSet);
+                // attribute MaximumHeight
+                var attMaximumHeight = xmlDoc.CreateAttribute("MaximumHeight");
+                attMaximumHeight.Value = string.Format(CultureInfo.InvariantCulture, "{0}",  constraintSet.MaximumHeight.ToString());
+                eltConstraintSet.Attributes.Append(attMaximumHeight);
             }
             else if (null != analysisCase)
             {
+                HConstraintSetCase constraintSet = analysisCase.ConstraintSet as HConstraintSetCase;
+                // element HConstraintSetCase
+                var eltConstraintSet = xmlDoc.CreateElement("HConstraintSetCase");
+                eltAnalysis.AppendChild(eltConstraintSet);
             }
             else if (null != analysisTruck)
             {
+                HConstraintSetTruck constraintSet = analysisTruck.ConstraintSet as HConstraintSetTruck;
+                // element HConstraintSetTruck
+                var eltConstraintSet = xmlDoc.CreateElement("HConstraintSetTruck");
+                eltAnalysis.AppendChild(eltConstraintSet);
             }
         }
         private void SaveHSolution(HSolution hSolution, XmlElement parentElt, XmlDocument xmlDoc)
@@ -3816,7 +3997,7 @@ namespace treeDiM.StackBuilder.Basics
         private static Bitmap StringToBitmap(string bmpData)
         {
             byte[] bytes = Convert.FromBase64String(bmpData);
-            return new Bitmap(new System.IO.MemoryStream(bytes));
+            return new Bitmap(new MemoryStream(bytes));
         }
         private static int[] ParseInt2(string value)
         {

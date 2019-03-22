@@ -309,10 +309,10 @@ namespace treeDiM.StackBuilder.Basics
             {
                 switch (CurrentUnitSystem)
                 {
-                    case UnitsManager.UnitSystem.UNIT_METRIC1: return 1.0E-06; //mm² to m²
-                    case UnitsManager.UnitSystem.UNIT_METRIC2: return 1.0E-04; //cm² to m²
-                    case UnitsManager.UnitSystem.UNIT_IMPERIAL: return 1.0; // in² to in²
-                    case UnitsManager.UnitSystem.UNIT_US: return 1.0; // in² to in²
+                    case UnitSystem.UNIT_METRIC1: return 1.0E-06; //mm² to m²
+                    case UnitSystem.UNIT_METRIC2: return 1.0E-04; //cm² to m²
+                    case UnitSystem.UNIT_IMPERIAL: return 1.0; // in² to in²
+                    case UnitSystem.UNIT_US: return 1.0; // in² to in²
                     default: throw new Exception("Invalid unit system!");                    
                 }
             }
@@ -323,44 +323,44 @@ namespace treeDiM.StackBuilder.Basics
             {
                 switch (CurrentUnitSystem)
                 {
-                    case UnitsManager.UnitSystem.UNIT_METRIC1: return 10.0E-06; //mm³ to l
-                    case UnitsManager.UnitSystem.UNIT_METRIC2: return 1.0E-03; //cm³ to l
-                    case UnitsManager.UnitSystem.UNIT_IMPERIAL: return 1.0; // in³ to in³
-                    case UnitsManager.UnitSystem.UNIT_US: return 1.0; // in³ to in³
+                    case UnitSystem.UNIT_METRIC1: return 10.0E-06; //mm³ to l
+                    case UnitSystem.UNIT_METRIC2: return 1.0E-03; //cm³ to l
+                    case UnitSystem.UNIT_IMPERIAL: return 1.0; // in³ to in³
+                    case UnitSystem.UNIT_US: return 1.0; // in³ to in³
                     default: throw new Exception("Invalid unit system!");
                 }
             }
         }
-        private static IUnit<Length> LengthUnitFromUnitSystem(UnitsManager.UnitSystem unitSystem)
+        private static IUnit<Length> LengthUnitFromUnitSystem(UnitSystem unitSystem)
         {
             switch (unitSystem)
             {
-                case UnitsManager.UnitSystem.UNIT_METRIC1: return Cureos.Measures.Quantities.Length.MilliMeter;
-                case UnitsManager.UnitSystem.UNIT_METRIC2: return Cureos.Measures.Quantities.Length.CentiMeter;
-                case UnitsManager.UnitSystem.UNIT_IMPERIAL: return Cureos.Measures.Quantities.Length.Inch;
-                case UnitsManager.UnitSystem.UNIT_US: return Cureos.Measures.Quantities.Length.Inch;
+                case UnitSystem.UNIT_METRIC1: return Length.MilliMeter;
+                case UnitSystem.UNIT_METRIC2: return Length.CentiMeter;
+                case UnitSystem.UNIT_IMPERIAL: return Length.Inch;
+                case UnitSystem.UNIT_US: return Length.Inch;
                 default: throw new Exception("Invalid unit system!");
             }
         }
-        private static IUnit<Mass> MassUnitFromUnitSystem(UnitsManager.UnitSystem unitSystem)
+        private static IUnit<Mass> MassUnitFromUnitSystem(UnitSystem unitSystem)
         {
             switch (unitSystem)
             {
-                case UnitsManager.UnitSystem.UNIT_METRIC1: return Cureos.Measures.Quantities.Mass.KiloGram;
-                case UnitsManager.UnitSystem.UNIT_METRIC2: return Cureos.Measures.Quantities.Mass.KiloGram;
-                case UnitsManager.UnitSystem.UNIT_IMPERIAL: return Cureos.Measures.Quantities.Mass.Pound;
-                case UnitsManager.UnitSystem.UNIT_US: return Cureos.Measures.Quantities.Mass.Pound;
+                case UnitSystem.UNIT_METRIC1: return Mass.KiloGram;
+                case UnitSystem.UNIT_METRIC2: return Mass.KiloGram;
+                case UnitSystem.UNIT_IMPERIAL: return Mass.Pound;
+                case UnitSystem.UNIT_US: return Mass.Pound;
                 default: throw new Exception("Invalid unit system!");
             }
         }
-        private static IUnit<SurfaceDensity> SurfaceMassUnitFromUnitSystem(UnitsManager.UnitSystem unitSystem)
+        private static IUnit<SurfaceDensity> SurfaceMassUnitFromUnitSystem(UnitSystem unitSystem)
         {
             switch (unitSystem)
             {
-                case UnitsManager.UnitSystem.UNIT_METRIC1: return Cureos.Measures.Quantities.SurfaceDensity.KiloGramPerSquareMeter;
-                case UnitsManager.UnitSystem.UNIT_METRIC2: return Cureos.Measures.Quantities.SurfaceDensity.KiloGramPerSquareMeter;
-                case UnitsManager.UnitSystem.UNIT_IMPERIAL: return Cureos.Measures.Quantities.SurfaceDensity.PoundPerSquareInch;
-                case UnitsManager.UnitSystem.UNIT_US: return Cureos.Measures.Quantities.SurfaceDensity.PoundPerSquareInch;
+                case UnitSystem.UNIT_METRIC1: return SurfaceDensity.KiloGramPerSquareMeter;
+                case UnitSystem.UNIT_METRIC2: return SurfaceDensity.KiloGramPerSquareMeter;
+                case UnitSystem.UNIT_IMPERIAL: return SurfaceDensity.PoundPerSquareInch;
+                case UnitSystem.UNIT_US: return SurfaceDensity.PoundPerSquareInch;
                 default: throw new Exception("Invalid unit system!");
             }
         }
@@ -374,7 +374,7 @@ namespace treeDiM.StackBuilder.Basics
                 return measure.GetAmount(LengthUnitFromUnitSystem(unitSystem));
             }       
         }
-        public static double ConvertLengthFrom(double value, UnitsManager.UnitSystem unitSystem)
+        public static double ConvertLengthFrom(double value, UnitSystem unitSystem)
         {
             if (unitSystem == CurrentUnitSystem)
                 return value;
@@ -384,7 +384,7 @@ namespace treeDiM.StackBuilder.Basics
                 return measure.GetAmount(LengthUnitFromUnitSystem(CurrentUnitSystem));
             }
         }
-        public static Vector2D ConvertLengthFrom(Vector2D value, UnitsManager.UnitSystem unitSystem)
+        public static Vector2D ConvertLengthFrom(Vector2D value, UnitSystem unitSystem)
         {
             if (unitSystem == CurrentUnitSystem)
                 return value;
@@ -398,7 +398,7 @@ namespace treeDiM.StackBuilder.Basics
                     );
             }        
         }
-        public static Vector3D ConvertLengthFrom(Vector3D value, UnitsManager.UnitSystem unitSystem)
+        public static Vector3D ConvertLengthFrom(Vector3D value, UnitSystem unitSystem)
         {
             if (unitSystem == CurrentUnitSystem)
                 return value;
@@ -414,7 +414,15 @@ namespace treeDiM.StackBuilder.Basics
                     );
             }
         }
-        public static double ConvertMassTo(double value, UnitsManager.UnitSystem unitSystem)
+        public static BoxPosition ConvertLengthFrom(BoxPosition value, UnitSystem unitSystem)
+        {
+            if (unitSystem == CurrentUnitSystem)
+                return value;
+            else
+                return new BoxPosition(
+                    ConvertLengthFrom(value.Position, unitSystem), value.DirectionLength, value.DirectionWidth);
+        }
+        public static double ConvertMassTo(double value, UnitSystem unitSystem)
         {
             if (unitSystem == CurrentUnitSystem)
                 return value;
@@ -424,7 +432,7 @@ namespace treeDiM.StackBuilder.Basics
                 return measure.GetAmount(MassUnitFromUnitSystem(unitSystem));
             }
         }
-        public static double ConvertMassFrom(double value, UnitsManager.UnitSystem unitSystem)
+        public static double ConvertMassFrom(double value, UnitSystem unitSystem)
         {
             if (unitSystem == CurrentUnitSystem)
                 return value;
@@ -434,7 +442,7 @@ namespace treeDiM.StackBuilder.Basics
                 return measure.GetAmount(MassUnitFromUnitSystem(CurrentUnitSystem));
             }       
         }
-        public static double ConvertSurfaceMassFrom(double value, UnitsManager.UnitSystem unitSystem)
+        public static double ConvertSurfaceMassFrom(double value, UnitSystem unitSystem)
         {
             if (unitSystem == CurrentUnitSystem)
                 return value;
