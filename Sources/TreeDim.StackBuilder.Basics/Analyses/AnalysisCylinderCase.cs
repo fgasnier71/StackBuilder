@@ -9,7 +9,7 @@ namespace treeDiM.StackBuilder.Basics
             Document doc,
             Packable packable,
             BoxProperties caseProperties,
-            ConstraintSetCylinderCase constraintSet)
+            ConstraintSetCylinderContainer constraintSet)
             : base(doc, packable, caseProperties, constraintSet)
         {
         }

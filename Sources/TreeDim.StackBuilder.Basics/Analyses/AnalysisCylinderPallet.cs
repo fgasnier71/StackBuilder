@@ -1,7 +1,4 @@
-﻿using System;
-using System.Linq;
-
-namespace treeDiM.StackBuilder.Basics
+﻿namespace treeDiM.StackBuilder.Basics
 {
     public class AnalysisCylinderPallet : AnalysisPackablePallet
     {

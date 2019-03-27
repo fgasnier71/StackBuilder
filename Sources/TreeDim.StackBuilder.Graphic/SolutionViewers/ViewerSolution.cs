@@ -118,50 +118,25 @@ namespace treeDiM.StackBuilder.Graphics
 
             if (null == _solution) return;
             AnalysisHomo analysis = _solution.Analysis;
-            AnalysisCasePallet analysisCasePallet = analysis as AnalysisCasePallet;
-            AnalysisBoxCase analysisBoxCase = analysis as AnalysisBoxCase;
-            AnalysisCylinderCase analysisCylinderCase = analysis as AnalysisCylinderCase;
-            AnalysisCylinderPallet analysisCylinderPallet = analysis as AnalysisCylinderPallet;
-            AnalysisPalletTruck analysisPalletTruck = analysis as AnalysisPalletTruck;
-            AnalysisCaseTruck analysisCaseTruck = analysis as AnalysisCaseTruck;
 
-            if (null != analysisCasePallet)
+            if (analysis is AnalysisPackablePallet analysisPackablePallet)
             {
                 // ### draw pallet
-                Pallet pallet = new Pallet(analysisCasePallet.PalletProperties);
+                Pallet pallet = new Pallet(analysisPackablePallet.PalletProperties);
                 pallet.Draw(graphics, transform);
             }
-            else if (null != analysisBoxCase)
+            else if (analysis is AnalysisPackableCase analysisPackableCase)
             {
                 // draw case (inside)
-                Case case_ = new Case(analysisBoxCase.CaseProperties);
+                Case case_ = new Case(analysisPackableCase.CaseProperties);
                 case_.DrawInside(graphics, transform);
             }
-            else if (null != analysisCylinderCase)
-            {
-                // ### draw case (inside)
-                Case case_ = new Case(analysisCylinderCase.CaseProperties);
-                case_.DrawInside(graphics, transform);
-            }
-            else if (null != analysisCylinderPallet)
-            {
-                // ### draw pallet
-                Pallet pallet = new Pallet(analysisCylinderPallet.PalletProperties);
-                pallet.Draw(graphics, transform);
-            }
-            else if (null != analysisPalletTruck)
-            {
+            else if (analysis is AnalysisPackableTruck analysisPackableTruck1)
+            { 
                 // ### draw truck
-                Truck truck = new Truck(analysisPalletTruck.TruckProperties);
+                Truck truck = new Truck(analysisPackableTruck1.TruckProperties);
                 truck.DrawBegin(graphics);
             }
-            else if (null != analysisCaseTruck)
-            {
-                // ### draw truck
-                Truck truck = new Truck(analysisCaseTruck.TruckProperties);
-                truck.DrawBegin(graphics);
-            }
-
             // ### draw solution
             uint layerId = 0, pickId = 0;
             List<ILayer> layers = _solution.Layers;
@@ -252,7 +227,7 @@ namespace treeDiM.StackBuilder.Graphics
             }
             BBox3D loadBBox = _solution.BBoxLoad;
             BBox3D loadBBoxWDeco = _solution.BBoxLoadWDeco;
-            if (null != analysisCasePallet)
+            if (analysis is AnalysisCasePallet analysisCasePallet)
             {
                 #region Pallet corners
                 // ### pallet corners : Begin
@@ -368,15 +343,9 @@ namespace treeDiM.StackBuilder.Graphics
                     film.DrawEnd(graphics);
                 #endregion
             }
-
-            if (null != analysisPalletTruck)
+            else if (analysis is AnalysisPackableTruck analysisPackableTruck2)
             {
-                Truck truck = new Truck(analysisPalletTruck.TruckProperties);
-                truck.DrawEnd(graphics);
-            }
-            else if (null != analysisCaseTruck)
-            {
-                Truck truck = new Truck(analysisCaseTruck.TruckProperties);
+                Truck truck = new Truck(analysisPackableTruck2.TruckProperties);
                 truck.DrawEnd(graphics);
             }
 

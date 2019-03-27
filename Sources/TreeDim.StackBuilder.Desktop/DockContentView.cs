@@ -10,6 +10,11 @@ namespace treeDiM.StackBuilder.Desktop
     public partial class DockContentView : DockContent, IView, IItemListener
     {
         #region Constructor
+        public DockContentView()
+        {
+            Document = null;
+            InitializeComponent();
+        }
         public DockContentView(IDocument document)
         {
             Document = document;

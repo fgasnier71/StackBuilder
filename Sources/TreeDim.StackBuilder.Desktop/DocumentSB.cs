@@ -115,6 +115,7 @@ namespace treeDiM.StackBuilder.Desktop
             else if (analysis is AnalysisCylinderCase) form = new DockContentAnalysisCylinderCase(this, analysis as AnalysisCylinderCase);
             else if (analysis is AnalysisPalletTruck) form = new DockContentAnalysisPalletTruck(this, analysis as AnalysisPalletTruck);
             else if (analysis is AnalysisCaseTruck) form = new DockContentAnalysisCaseTruck(this, analysis as AnalysisCaseTruck);
+            else if (analysis is AnalysisCylinderTruck) form = new DockContentAnalysisCylinderTruck(this, analysis as AnalysisCylinderTruck);
             else
             {
                 _log.Error(string.Format("Analysis ({0}) type not handled", analysis.Name));
@@ -352,6 +353,14 @@ namespace treeDiM.StackBuilder.Desktop
             if (DialogResult.OK == form.ShowDialog()) {}
             return null;
         }
+        public AnalysisCylinderTruck CreateNewAnalysisCylinderTruckUI()
+        {
+            if (!CanCreateAnalysisCylinderTruck) return null;
+            FormNewAnalysisCylinderTruck form = new FormNewAnalysisCylinderTruck(this, null);
+            if (DialogResult.OK == form.ShowDialog()) {}
+            return null;
+        }
+
         public void CreateNewHAnalysisPalletUI()
         {
             if (!CanCreateAnalysisCasePallet) return;
@@ -404,7 +413,7 @@ namespace treeDiM.StackBuilder.Desktop
             else if (analysis is HAnalysisTruck) form = new FormNewHAnalysisCaseTruck(this, analysis);
             else
             {
-                MessageBox.Show("Unexpected analysis type!");
+                _log.Error($"Unexpected analysis type = {analysis.GetType().ToString()}");
                 return;
             }
             if (DialogResult.OK == form.ShowDialog()) { }

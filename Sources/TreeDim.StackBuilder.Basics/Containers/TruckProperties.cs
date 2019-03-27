@@ -74,7 +74,7 @@ namespace treeDiM.StackBuilder.Basics
         {
             var sBuilder = new System.Text.StringBuilder();
             sBuilder.Append(base.ToString());
-            sBuilder.Append(string.Format("TruckProperties => Length {0} Width {0} Height {0}", _length, _width, _height));
+            sBuilder.Append($"TruckProperties => Length:{InsideLength} Width {InsideWidth} Height {InsideHeight}");
             return sBuilder.ToString();
         }
 

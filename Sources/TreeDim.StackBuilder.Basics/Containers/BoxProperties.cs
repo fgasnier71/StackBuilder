@@ -9,7 +9,7 @@ namespace treeDiM.StackBuilder.Basics
     /// <summary>
     /// Box properties (dimensions, colors, textures)
     /// </summary>
-    public class BoxProperties : BProperties, IContainer
+    public class BoxProperties : BProperties, IContainer, IPackContainer
     {
         /// <summary>
         /// Constructor 1

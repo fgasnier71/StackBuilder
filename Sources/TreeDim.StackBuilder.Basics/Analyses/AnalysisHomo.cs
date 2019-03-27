@@ -95,7 +95,7 @@ namespace treeDiM.StackBuilder.Basics
         public virtual void RecomputeSolution()
         {
             // get best layers
-            List<Layer2D> bestLayers = Solution.Solver.BuildLayers(Content.OuterDimensions, ContainerDimensions, Offset.Z, ConstraintSet, true);
+            List<ILayer2D> bestLayers = Solution.Solver.BuildLayers(Content, ContainerDimensions, Offset.Z, ConstraintSet, true);
             List<LayerDesc> bestLayerDescs = bestLayers.ConvertAll(l => l.LayerDescriptor);
 
             bool allFound = true;

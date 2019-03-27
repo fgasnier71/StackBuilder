@@ -63,7 +63,7 @@ namespace treeDiM.StackBuilder.Basics
             Document document,
             Packable packable,
             BoxProperties caseProperties,
-            ConstraintSetPackableCase constraintSet)
+            ConstraintSetPackableContainer constraintSet)
             : base(document, packable)
         {
             // sanity checks

@@ -6,9 +6,9 @@ using log4net;
 
 namespace treeDiM.StackBuilder.Basics
 {
-    public class ConstraintSetBoxCase : ConstraintSetPackableCase
+    public class ConstraintSetBoxCase : ConstraintSetPackableContainer
     {
-        public ConstraintSetBoxCase(Packable container)
+        public ConstraintSetBoxCase(IPackContainer container)
             : base(container)
         {            
         }

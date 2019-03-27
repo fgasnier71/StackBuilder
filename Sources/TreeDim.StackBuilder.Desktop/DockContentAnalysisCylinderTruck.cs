@@ -7,10 +7,10 @@ using treeDiM.StackBuilder.Desktop.Properties;
 
 namespace treeDiM.StackBuilder.Desktop
 {
-    public partial class DockContentAnalysisCaseTruck : DockContentAnalysisEdit
+    public partial class DockContentAnalysisCylinderTruck : DockContentAnalysisEdit
     {
         #region Constructor
-        public DockContentAnalysisCaseTruck(IDocument doc, AnalysisCaseTruck analysis)
+        public DockContentAnalysisCylinderTruck(IDocument doc, AnalysisCylinderTruck analysis)
             : base(doc, analysis)
         {
             InitializeComponent();
@@ -19,11 +19,11 @@ namespace treeDiM.StackBuilder.Desktop
 
         #region Override DockContentAnalysisEdit
         public override string GridCaption
-        {   get { return Resources.ID_TRUCK; } }
+        { get { return Resources.ID_TRUCK; } }
         #endregion
 
         #region Data members
-        static readonly new ILog _log = LogManager.GetLogger(typeof(DockContentAnalysisCaseTruck));
+        private new static readonly ILog _log = LogManager.GetLogger(typeof(DockContentAnalysisCylinderTruck));
         #endregion
     }
 }

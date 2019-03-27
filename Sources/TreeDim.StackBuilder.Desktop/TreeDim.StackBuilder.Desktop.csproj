@@ -39,7 +39,7 @@
     <MinimumRequiredVersion>3.0.0.0</MinimumRequiredVersion>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>86</ApplicationRevision>
+    <ApplicationRevision>88</ApplicationRevision>
     <ApplicationVersion>3.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -78,7 +78,7 @@
     </AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>false</SignManifests>
+    <SignManifests>true</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
     <DelaySign>false</DelaySign>
@@ -107,10 +107,10 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>CDA7627C161DB03A5953043237AB1240E2C9CDC5</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>E560907200F8CCA932E8CA665AA2916D0D74ED5A</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>treedim.pfx</ManifestKeyFile>
+    <ManifestKeyFile>treedim2021.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestTimestampUrl>http://timestamp.comodoca.com/authenticode</ManifestTimestampUrl>
@@ -247,6 +247,12 @@
     <Compile Include="DockContentAnalysisCylinderPallet.Designer.cs">
       <DependentUpon>DockContentAnalysisCylinderPallet.cs</DependentUpon>
     </Compile>
+    <Compile Include="DockContentAnalysisCylinderTruck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DockContentAnalysisCylinderTruck.Designer.cs">
+      <DependentUpon>DockContentAnalysisCylinderTruck.cs</DependentUpon>
+    </Compile>
     <Compile Include="DockContentAnalysisEdit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -374,6 +380,12 @@
     </Compile>
     <Compile Include="FormNewAnalysisCasePallet.Designer.cs">
       <DependentUpon>FormNewAnalysisCasePallet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNewAnalysisCylinderTruck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNewAnalysisCylinderTruck.Designer.cs">
+      <DependentUpon>FormNewAnalysisCylinderTruck.cs</DependentUpon>
     </Compile>
     <Compile Include="FormNewAnalysisPalletTruck.cs">
       <SubType>Form</SubType>
@@ -1536,6 +1548,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewAnalysisCylinderPallet.zh.resx">
       <DependentUpon>FormNewAnalysisCylinderPallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisCylinderTruck.resx">
+      <DependentUpon>FormNewAnalysisCylinderTruck.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewAnalysisPalletTruck.de.resx">
       <DependentUpon>FormNewAnalysisPalletTruck.cs</DependentUpon>
@@ -2804,7 +2819,7 @@
       <DependentUpon>ToolTipListBox.cs</DependentUpon>
     </Compile>
     <Compile Include="WindowSettings.cs" />
-    <None Include="treedim.pfx" />
+    <None Include="treedim2021.pfx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Pallet.bmp" />

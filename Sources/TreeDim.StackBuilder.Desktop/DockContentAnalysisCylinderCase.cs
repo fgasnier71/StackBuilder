@@ -1,5 +1,4 @@
 ﻿#region Using directives
-
 using treeDiM.StackBuilder.Basics;
 using treeDiM.StackBuilder.Desktop.Properties;
 #endregion

@@ -43,18 +43,6 @@
             // 
             resources.ApplyResources(this.tbDescription, "tbDescription");
             // 
-            // tbName
-            // 
-            resources.ApplyResources(this.tbName, "tbName");
-            // 
-            // lbDescription
-            // 
-            resources.ApplyResources(this.lbDescription, "lbDescription");
-            // 
-            // lbName
-            // 
-            resources.ApplyResources(this.lbName, "lbName");
-            // 
             // lbCylinder
             // 
             resources.ApplyResources(this.lbCylinder, "lbCylinder");
@@ -67,31 +55,33 @@
             // 
             // cbCylinders
             // 
-            resources.ApplyResources(this.cbCylinders, "cbCylinders");
             this.cbCylinders.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCylinders.FormattingEnabled = true;
+            resources.ApplyResources(this.cbCylinders, "cbCylinders");
             this.cbCylinders.Name = "cbCylinders";
-            this.cbCylinders.SelectedIndexChanged += new System.EventHandler(this.onCylinderChanged);
+            this.cbCylinders.SelectedIndexChanged += new System.EventHandler(this.OnCylinderChanged);
             // 
             // cbCases
             // 
-            resources.ApplyResources(this.cbCases, "cbCases");
             this.cbCases.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCases.FormattingEnabled = true;
+            resources.ApplyResources(this.cbCases, "cbCases");
             this.cbCases.Name = "cbCases";
-            this.cbCases.SelectedIndexChanged += new System.EventHandler(this.onInputChanged);
+            this.cbCases.SelectedIndexChanged += new System.EventHandler(this.OnInputChanged);
             // 
             // checkBoxBestLayersOnly
             // 
             resources.ApplyResources(this.checkBoxBestLayersOnly, "checkBoxBestLayersOnly");
             this.checkBoxBestLayersOnly.Name = "checkBoxBestLayersOnly";
             this.checkBoxBestLayersOnly.UseVisualStyleBackColor = true;
-            this.checkBoxBestLayersOnly.CheckedChanged += new System.EventHandler(this.onInputChanged);
+            this.checkBoxBestLayersOnly.CheckedChanged += new System.EventHandler(this.OnInputChanged);
             // 
             // uCtrlLayerList
             // 
             resources.ApplyResources(this.uCtrlLayerList, "uCtrlLayerList");
+            this.uCtrlLayerList.ButtonSizes = new System.Drawing.Size(150, 150);
             this.uCtrlLayerList.Name = "uCtrlLayerList";
+            this.uCtrlLayerList.Show3D = true;
             this.uCtrlLayerList.SingleSelection = false;
             // 
             // lbSelect

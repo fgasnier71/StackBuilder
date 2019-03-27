@@ -1,10 +1,10 @@
-﻿using System;
+﻿#region Using directives
+using System;
 using System.Text.RegularExpressions;
 using System.Diagnostics;
 
 using log4net;
-
-using Sharp3D.Math.Core;
+#endregion
 
 namespace treeDiM.StackBuilder.Basics
 {
@@ -51,34 +51,12 @@ namespace treeDiM.StackBuilder.Basics
                     throw new Exception("Invalid axis");
             }
         }
-        public override OptDouble OptMaxWeight
-        {
-            get
-            {
-                if (_container is TruckProperties truckProperties)
-                    return new OptDouble(truckProperties.AdmissibleLoadWeight > 0.0, truckProperties.AdmissibleLoadWeight);
-                else
-                    return OptDouble.Zero;
-            }
-        }
-        public override OptDouble OptMaxHeight
-        {
-            get
-            {
-                if (_container is TruckProperties truckProperties)
-                    return new OptDouble(true, truckProperties.InsideHeight - MinDistanceLoadRoof);
-                else
-                    return OptDouble.Zero;
-            }
-        }
         public void SetAllowedOrientations(bool[] axesAllowed)
         {
             Debug.Assert(axesAllowed.Length == 3);
             for (int i=0; i<3; ++i)
                 AxesAllowed[i] = axesAllowed[i];
         }
-        public Vector2D MinDistanceLoadWall { get; set; }
-        public double MinDistanceLoadRoof { get; set; }
         public bool[] AxesAllowed { get; } = new bool[] { true, true, true };
 
         #region Non-Public Members

@@ -8,11 +8,11 @@ using log4net;
 
 namespace treeDiM.StackBuilder.Basics
 {
-    public class ConstraintSetPalletTruck : ConstraintSetAbstract
+    public class ConstraintSetPalletTruck : ConstraintSetPackableTruck
     {
         public ConstraintSetPalletTruck(IPackContainer container)
+            : base(container)
         {
-            _container = container;
         }
         public override bool AllowOrientation(HalfAxis.HAxis axisOrtho) => axisOrtho == HalfAxis.HAxis.AXIS_Z_P;
         public override string AllowedOrientationsString
@@ -40,8 +40,6 @@ namespace treeDiM.StackBuilder.Basics
         public override bool AllowUncompleteLayer => true;
         public override bool Valid => true;
 
-        public Vector2D MinDistanceLoadWall { get; set; }
-        public double MinDistanceLoadRoof { get; set; }
         public bool AllowMultipleLayers { get; set; }
         public override bool CritLayerNumberReached(int layerNumber)
         {
@@ -49,7 +47,6 @@ namespace treeDiM.StackBuilder.Basics
         }
 
         #region Non-Public Members
-        private IPackContainer _container;
         protected static readonly ILog _log = LogManager.GetLogger(typeof(ConstraintSetPalletTruck));
         #endregion
     }

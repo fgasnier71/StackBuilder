@@ -2,17 +2,23 @@
 
 namespace treeDiM.StackBuilder.Basics
 {
-    public abstract class ConstraintSetPackableCase : ConstraintSetAbstract
+    public abstract class ConstraintSetPackableContainer : ConstraintSetAbstract
     {
         public override OptDouble OptMaxHeight
         {
             get
             {
-                BoxProperties caseProperties = _container as BoxProperties;
-                if (null == caseProperties)
+                if (_container is BoxProperties caseProperties)
+                {
+                    double wallThickness = caseProperties.Height - caseProperties.InsideHeight > 0 ? 0.5 * (caseProperties.Height - caseProperties.InsideHeight) : 0.0;
+                    return new OptDouble(true, caseProperties.InsideHeight + wallThickness);
+                }
+                else if (_container is TruckProperties truckProperties)
+                {
+                    return new OptDouble(true, truckProperties.InsideHeight);
+                }
+                else
                     throw new Exception("Invalid container");
-                double wallThickness = caseProperties.Height - caseProperties.InsideHeight > 0 ? 0.5 * (caseProperties.Height - caseProperties.InsideHeight) : 0.0;
-                return new OptDouble(true, caseProperties.InsideHeight + wallThickness);
             }
         }
         public override bool AllowUncompleteLayer => true;
@@ -28,12 +34,12 @@ namespace treeDiM.StackBuilder.Basics
         }
 
         #region Non-Public Members
-        protected Packable _container;
+        protected IPackContainer _container;
 
-        protected ConstraintSetPackableCase(Packable container)
+        protected ConstraintSetPackableContainer(IPackContainer container)
         {
             _container = container;
-            if (!container.IsCase)
+            if (!container.HasInsideDimensions)
                 throw new Exception("Invalid container!");
         }
         #endregion

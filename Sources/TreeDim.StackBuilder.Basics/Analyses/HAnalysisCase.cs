@@ -34,6 +34,5 @@ namespace treeDiM.StackBuilder.Basics
             return new BBox3D(Vector3D.Zero, bProperties.OuterDimensions);
         }
         #endregion
-
     }
 }

@@ -1,36 +1,30 @@
 ﻿#region Using directives
-using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using System.Drawing;
 
 using log4net;
-
 using Sharp3D.Math.Core;
 
-using treeDiM.StackBuilder.Engine;
 using treeDiM.StackBuilder.Basics;
+using treeDiM.StackBuilder.Engine;
 using treeDiM.StackBuilder.Graphics.Controls;
 using treeDiM.StackBuilder.Desktop.Properties;
+using System;
 #endregion
 
 namespace treeDiM.StackBuilder.Desktop
 {
-    public partial class FormNewAnalysisCylinderCase
+    public partial class FormNewAnalysisCylinderTruck
         : FormNewAnalysis, IItemBaseFilter
     {
-
         #region Constructor
-        public FormNewAnalysisCylinderCase(Document doc, AnalysisHomo analysis)
+        public FormNewAnalysisCylinderTruck(Document doc, AnalysisHomo analysis)
             : base(doc, analysis)
         {
             InitializeComponent();
         }
-        #endregion
-
-        #region FormNewBase overrides
-        public override string ItemDefaultName => Resources.ID_ANALYSIS;
         #endregion
 
         #region Form override
@@ -38,27 +32,54 @@ namespace treeDiM.StackBuilder.Desktop
         {
             base.OnLoad(e);
             cbCylinders.Initialize(_document, this, AnalysisCast?.Content);
-            cbCases.Initialize(_document, this, AnalysisCast?.CaseProperties);
+            cbTrucks.Initialize(_document, this, AnalysisCast?.TruckProperties);
 
             // event handling
-            uCtrlLayerList.LayerSelected += OnLayerSelected;
-            uCtrlLayerList.RefreshFinished += OnLayerSelected;
-            uCtrlLayerList.ButtonSizes = new Size(100, 100);
+            uCtrlLayerList.LayerSelected += OnSolutionSelected;
+            uCtrlLayerList.ButtonSizes = new Size(250, 100);
 
+            if (null == AnalysisCast)
+            {
+                tbName.Text = _document.GetValidNewAnalysisName(ItemDefaultName);
+                tbDescription.Text = tbName.Text;
+
+                uCtrlMinDistanceLoadWall.ValueX = Settings.Default.MinDistancePalletTruckWallX;
+                uCtrlMinDistanceLoadWall.ValueY = Settings.Default.MinDistancePalletTruckWallY;
+                uCtrlMinDistanceLoadRoof.Value = Settings.Default.MinDistancePalletTruckRoof;
+            }
+            else
+            {
+                tbName.Text = AnalysisBase.Name;
+                tbDescription.Text = AnalysisBase.Description;
+
+                ConstraintSetCylinderTruck constraintSet = AnalysisBase.ConstraintSet as ConstraintSetCylinderTruck;
+                uCtrlMinDistanceLoadWall.ValueX = constraintSet.MinDistanceLoadWall.X;
+                uCtrlMinDistanceLoadWall.ValueY = constraintSet.MinDistanceLoadWall.Y;
+                uCtrlMinDistanceLoadRoof.Value = constraintSet.MinDistanceLoadRoof;
+            }
             checkBoxBestLayersOnly.Checked = Settings.Default.KeepBestSolutions;
         }
 
         protected override void OnClosed(EventArgs e)
         {
             base.OnClosed(e);
+            Settings.Default.MinDistancePalletTruckWallX = uCtrlMinDistanceLoadWall.ValueX;
+            Settings.Default.MinDistancePalletTruckWallY = uCtrlMinDistanceLoadWall.ValueY;
+            Settings.Default.MinDistancePalletTruckRoof = uCtrlMinDistanceLoadRoof.Value;
             Settings.Default.KeepBestSolutions = checkBoxBestLayersOnly.Checked;
+            Settings.Default.Save();
         }
+        #endregion
+
+        #region FormNewBase overrides
+        public override string ItemDefaultName => Resources.ID_ANALYSIS;
         #endregion
 
         #region FormNewAnalysis override
         public override void OnNext()
         {
             base.OnNext();
+
             try
             {
                 List<LayerDesc> layerDescs = new List<LayerDesc>();
@@ -67,12 +88,11 @@ namespace treeDiM.StackBuilder.Desktop
 
                 Solution.SetSolver(new LayerSolver());
 
-                if (!(_item is AnalysisCylinderCase analysis))
+                if (!(_item is AnalysisCylinderTruck analysis))
                 {
-                    _item = _document.CreateNewAnalysisCylinderCase(
+                    _item = _document.CreateNewAnalysisCylinderTruck(
                         ItemName, ItemDescription
-                        , SelectedCylinder, SelectedCase
-                        , new List<InterlayerProperties>()
+                        , SelectedCylinder, SelectedTruck
                         , BuildConstraintSet()
                         , layerDescs);
                 }
@@ -80,7 +100,7 @@ namespace treeDiM.StackBuilder.Desktop
                 {
                     analysis.ID.SetNameDesc(ItemName, ItemDescription);
                     analysis.Content = SelectedCylinder;
-                    analysis.CaseProperties = SelectedCase;
+                    analysis.TruckProperties = SelectedTruck;
                     analysis.ConstraintSet = BuildConstraintSet();
                     analysis.AddSolution(layerDescs);
 
@@ -99,20 +119,15 @@ namespace treeDiM.StackBuilder.Desktop
         public bool Accept(Control ctrl, ItemBase itemBase)
         {
             if (ctrl == cbCylinders)
-            {
-                return itemBase is CylinderProperties;
-            }
-            else if (ctrl == cbCases)
-            {
-                PackableBrick packable = itemBase as PackableBrick;
-                return (null != packable) && (packable.IsCase);
-            }
-            return false;
+            { return itemBase is CylinderProperties; }
+            else if (ctrl == cbTrucks)
+            { return itemBase is TruckProperties; }
+            else return false;
         }
         #endregion
 
         #region Event handlers
-        private void OnLayerSelected(object sender, EventArgs e)
+        private void OnSolutionSelected(object sender, EventArgs e)
         {
             try
             {
@@ -128,22 +143,23 @@ namespace treeDiM.StackBuilder.Desktop
         {
             try
             {
-                // get cylinder & case
-                BoxProperties caseProperties = SelectedCase;
-                CylinderProperties cylinder = SelectedCylinder;
-                if (null == cylinder || null == caseProperties)
+                // get cylinder & truck
+                var truck = SelectedTruck;
+                var cylinder = SelectedCylinder;
+                if (null == cylinder || null == truck)
                     return;
                 // compute
                 LayerSolver solver = new LayerSolver();
                 List<Layer2DCyl> layers = solver.BuildLayers(
                     cylinder.RadiusOuter, cylinder.Height
-                    , new Vector2D(caseProperties.InsideLength, caseProperties.InsideWidth)
+                    , new Vector2D(truck.InsideLength, truck.InsideWidth)
                     , 0.0
-                    , BuildConstraintSet()
+                    ,  BuildConstraintSet()
                     , checkBoxBestLayersOnly.Checked
                     );
+                // update control
                 uCtrlLayerList.Packable = cylinder;
-                uCtrlLayerList.ContainerHeight = caseProperties.InsideHeight;
+                uCtrlLayerList.ContainerHeight = truck.InsideHeight;
                 uCtrlLayerList.FirstLayerSelected = true;
                 uCtrlLayerList.LayerList = layers.Cast<ILayer2D>().ToList();
             }
@@ -156,26 +172,29 @@ namespace treeDiM.StackBuilder.Desktop
         {
             uCtrlPackable.PackableProperties = SelectedCylinder;
             OnInputChanged(sender, e);
-            OnLayerSelected(sender, e);
+            OnSolutionSelected(sender, e);
+        }
+        #endregion
+
+        #region Helpers
+        private ConstraintSetCylinderTruck BuildConstraintSet()
+        {
+            return new ConstraintSetCylinderTruck(SelectedTruck)
+            {
+                MinDistanceLoadWall = new Vector2D(uCtrlMinDistanceLoadWall.ValueX, uCtrlMinDistanceLoadWall.ValueY),
+                MinDistanceLoadRoof = uCtrlMinDistanceLoadRoof.Value
+            };
         }
         #endregion
 
         #region Private properties
         private CylinderProperties SelectedCylinder => cbCylinders.SelectedType as CylinderProperties;
-        private BoxProperties SelectedCase => cbCases.SelectedType as BoxProperties;
-        private AnalysisCylinderCase AnalysisCast => _item as AnalysisCylinderCase;
-        #endregion
-
-        #region Helpers
-        private ConstraintSetCylinderContainer BuildConstraintSet()
-        {
-            ConstraintSetCylinderContainer constraintSet = new ConstraintSetCylinderContainer(SelectedCase);
-            return constraintSet;
-        }
+        private TruckProperties SelectedTruck => cbTrucks.SelectedType as TruckProperties;
+        private AnalysisCylinderTruck AnalysisCast => _item as AnalysisCylinderTruck;
         #endregion
 
         #region Data members
-        static readonly ILog _log = LogManager.GetLogger(typeof(FormNewAnalysisCylinderCase));
+        static readonly ILog _log = LogManager.GetLogger(typeof(FormNewAnalysisCylinderTruck));
         #endregion
     }
 }

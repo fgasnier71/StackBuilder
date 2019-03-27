@@ -17,7 +17,8 @@ using treeDiM.StackBuilder.Desktop.Properties;
 
 namespace treeDiM.StackBuilder.Desktop
 {
-    public partial class FormNewAnalysisCaseTruck : FormNewAnalysis, IItemBaseFilter
+    public partial class FormNewAnalysisCaseTruck
+        : FormNewAnalysis, IItemBaseFilter
     {
         #region Data members
         static readonly ILog _log = LogManager.GetLogger(typeof(FormNewAnalysisCaseTruck));
@@ -44,8 +45,8 @@ namespace treeDiM.StackBuilder.Desktop
             cbTrucks.Initialize(_document, this, null != AnalysisCast ? AnalysisCast.Container : null);
 
             // event handling
-            uCtrlLayerList.LayerSelected += onLayerSelected;
-            uCtrlLayerList.RefreshFinished += onLayerSelected;
+            uCtrlLayerList.LayerSelected += OnLayerSelected;
+            uCtrlLayerList.RefreshFinished += OnLayerSelected;
             uCtrlLayerList.ButtonSizes = new Size(250, 100);
 
             if (null == AnalysisCast)
@@ -158,38 +159,32 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Private properties
-        private Packable SelectedPackable
-        {
-            get { return cbCases.SelectedType as Packable; }
-        }
-        private TruckProperties SelectedTruck
-        {
-            get { return cbTrucks.SelectedType as TruckProperties; }
-        }
+        private PackableBrick SelectedPackable => cbCases.SelectedType as PackableBrick;
+        private TruckProperties SelectedTruck => cbTrucks.SelectedType as TruckProperties;
         #endregion
 
         #region Event handlers
-        protected void onCaseChanged(object sender, EventArgs e)
+        protected void OnCaseChanged(object sender, EventArgs e)
         {
             try
             {
-                uCtrlCaseOrientation.BProperties = cbCases.SelectedType as PackableBrick;
-                onInputChanged(sender, e);
-                onLayerSelected(sender, e);
+                uCtrlCaseOrientation.BProperties = SelectedPackable;
+                OnInputChanged(sender, e);
+                OnLayerSelected(sender, e);
             }
             catch (Exception ex)
             {
                 _log.Error(ex.ToString());
             }
         }
-        private void onInputChanged(object sender, EventArgs e)
+        private void OnInputChanged(object sender, EventArgs e)
         {
             try
             {
                 // get box / case
-                PackableBrick packable = cbCases.SelectedType as PackableBrick;
-                TruckProperties truckProperties = cbTrucks.SelectedType as TruckProperties;
-                if (null == packable || null == truckProperties)
+                PackableBrick packable = SelectedPackable;
+                TruckProperties truck = SelectedTruck;
+                if (null == packable || null == truck)
                     return;
 
                 // update orientation control
@@ -200,15 +195,15 @@ namespace treeDiM.StackBuilder.Desktop
                 List<Layer2D> layers = solver.BuildLayers(
                     packable.OuterDimensions
                     , new Vector2D(
-                        truckProperties.InsideLength - 2.0 * uCtrlMinDistanceLoadWall.ValueX
-                        , truckProperties.InsideWidth - 2.0 * uCtrlMinDistanceLoadWall.ValueY)
+                        truck.InsideLength - 2.0 * uCtrlMinDistanceLoadWall.ValueX
+                        , truck.InsideWidth - 2.0 * uCtrlMinDistanceLoadWall.ValueY)
                     , 0.0 /* offsetZ */
                     , BuildConstraintSet()
                     , checkBoxBestLayersOnly.Checked
                     );
                 // update control
                 uCtrlLayerList.Packable = packable;
-                uCtrlLayerList.ContainerHeight = truckProperties.InsideHeight - uCtrlMinDistanceLoadRoof.Value;
+                uCtrlLayerList.ContainerHeight = truck.InsideHeight - uCtrlMinDistanceLoadRoof.Value;
                 uCtrlLayerList.FirstLayerSelected = true;
                 uCtrlLayerList.LayerList = layers.Cast<ILayer2D>().ToList();
             }
@@ -217,7 +212,7 @@ namespace treeDiM.StackBuilder.Desktop
                 _log.Error(ex.ToString());
             }
         }
-        protected void onLayerSelected(object sender, EventArgs e)
+        protected void OnLayerSelected(object sender, EventArgs e)
         {
             try
             {
@@ -237,7 +232,7 @@ namespace treeDiM.StackBuilder.Desktop
             ConstraintSetCaseTruck constraintSet = new ConstraintSetCaseTruck(SelectedTruck)
             {
                 MinDistanceLoadWall = new Vector2D(uCtrlMinDistanceLoadWall.ValueX, uCtrlMinDistanceLoadWall.ValueY),
-                MinDistanceLoadRoof = uCtrlMinDistanceLoadRoof.Value,
+                MinDistanceLoadRoof = uCtrlMinDistanceLoadRoof.Value
             };
             constraintSet.SetAllowedOrientations(uCtrlCaseOrientation.AllowedOrientations);
             return constraintSet;

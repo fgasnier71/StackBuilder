@@ -96,6 +96,7 @@
     <Compile Include="AnalysesLegacy\IBoxCaseAnalysisSolver.cs" />
     <Compile Include="AnalysesLegacy\IPackPalletAnalysisSolver.cs" />
     <Compile Include="Analyses\Analysis.cs" />
+    <Compile Include="Analyses\AnalysisCylinderTruck.cs" />
     <Compile Include="Analyses\AnalysisHomo.cs" />
     <Compile Include="Analyses\AnalysisBoxCase.cs" />
     <Compile Include="Analyses\AnalysisCasePallet.cs" />
@@ -121,7 +122,7 @@
     <Compile Include="ConstraintSets\ConstraintSetBoxCase.cs" />
     <Compile Include="ConstraintSets\ConstraintSetCasePallet.cs" />
     <Compile Include="ConstraintSets\ConstraintSetCaseTruck.cs" />
-    <Compile Include="ConstraintSets\ConstraintSetCylinderCase.cs" />
+    <Compile Include="ConstraintSets\ConstraintSetCylinderContainer.cs" />
     <Compile Include="ConstraintSets\ConstraintSetPackableCase.cs" />
     <Compile Include="ConstraintSets\ConstraintSetPackablePallet.cs" />
     <Compile Include="ConstraintSets\ConstraintSetPackableTruck.cs" />

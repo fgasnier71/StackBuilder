@@ -63,7 +63,7 @@
             this.cbCases.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCases.FormattingEnabled = true;
             this.cbCases.Name = "cbCases";
-            this.cbCases.SelectedIndexChanged += new System.EventHandler(this.onCaseChanged);
+            this.cbCases.SelectedIndexChanged += new System.EventHandler(this.OnCaseChanged);
             // 
             // lbBox
             // 
@@ -78,7 +78,7 @@
         false,
         true};
             this.uCtrlCaseOrientation.Name = "uCtrlCaseOrientation";
-            this.uCtrlCaseOrientation.CheckedChanged += new treeDiM.StackBuilder.Graphics.uCtrlCaseOrientation.CheckChanged(this.onInputChanged);
+            this.uCtrlCaseOrientation.CheckedChanged += new treeDiM.StackBuilder.Graphics.uCtrlCaseOrientation.CheckChanged(this.OnInputChanged);
             // 
             // lbSelect
             // 
@@ -98,7 +98,7 @@
             resources.ApplyResources(this.checkBoxBestLayersOnly, "checkBoxBestLayersOnly");
             this.checkBoxBestLayersOnly.Name = "checkBoxBestLayersOnly";
             this.checkBoxBestLayersOnly.UseVisualStyleBackColor = true;
-            this.checkBoxBestLayersOnly.CheckedChanged += new System.EventHandler(this.onInputChanged);
+            this.checkBoxBestLayersOnly.CheckedChanged += new System.EventHandler(this.OnInputChanged);
             // 
             // cbTrucks
             // 
@@ -106,7 +106,7 @@
             this.cbTrucks.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTrucks.FormattingEnabled = true;
             this.cbTrucks.Name = "cbTrucks";
-            this.cbTrucks.SelectedIndexChanged += new System.EventHandler(this.onInputChanged);
+            this.cbTrucks.SelectedIndexChanged += new System.EventHandler(this.OnInputChanged);
             // 
             // lbTrucks
             // 
@@ -121,7 +121,7 @@
             this.uCtrlMinDistanceLoadWall.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlMinDistanceLoadWall.ValueX = 0D;
             this.uCtrlMinDistanceLoadWall.ValueY = 0D;
-            this.uCtrlMinDistanceLoadWall.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDualDouble.ValueChangedDelegate(this.onInputChanged);
+            this.uCtrlMinDistanceLoadWall.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDualDouble.ValueChangedDelegate(this.OnInputChanged);
             // 
             // uCtrlMinDistanceLoadRoof
             // 
@@ -134,7 +134,7 @@
             this.uCtrlMinDistanceLoadRoof.Name = "uCtrlMinDistanceLoadRoof";
             this.uCtrlMinDistanceLoadRoof.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlMinDistanceLoadRoof.Value = 0D;
-            this.uCtrlMinDistanceLoadRoof.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.ValueChangedDelegate(this.onInputChanged);
+            this.uCtrlMinDistanceLoadRoof.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.ValueChangedDelegate(this.OnInputChanged);
             // 
             // FormNewAnalysisCaseTruck
             // 

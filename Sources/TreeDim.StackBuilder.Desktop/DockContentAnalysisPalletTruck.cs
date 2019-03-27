@@ -3,8 +3,7 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Globalization;
-// Docking
-// log4net
+
 using log4net;
 
 using treeDiM.StackBuilder.Basics;

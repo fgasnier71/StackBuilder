@@ -587,6 +587,7 @@ namespace treeDiM.StackBuilder.Basics
 
             return InsertAnalysis(analysis);
         }
+
         public AnalysisHomo CreateNewAnalysisCasePallet(
             string name, string description
             , Packable packable, PalletProperties pallet
@@ -610,6 +611,7 @@ namespace treeDiM.StackBuilder.Basics
 
             return InsertAnalysis(analysis);
         }
+
         public AnalysisHomo CreateNewAnalysisBoxCase(
             string name, string description
             , Packable packable, BoxProperties caseProperties
@@ -627,9 +629,29 @@ namespace treeDiM.StackBuilder.Basics
                     analysis.AddInterlayer(interlayer);
             }
             analysis.AddSolution(layerDescs);
-
             return InsertAnalysis(analysis);
         }
+
+        public AnalysisHomo CreateNewAnalysisBoxCase(
+            string name, string description
+            , Packable packable, BoxProperties caseProperties
+            , List<InterlayerProperties> interlayers
+            , ConstraintSetBoxCase constraintSet
+            , List<KeyValuePair<LayerDesc, int>> listLayers
+            )
+        {
+            AnalysisBoxCase analysis = new AnalysisBoxCase(
+                this, packable, caseProperties, constraintSet);
+            analysis.ID.SetNameDesc(name, description);
+            if (null != interlayers)
+            {
+                foreach (InterlayerProperties interlayer in interlayers)
+                    analysis.AddInterlayer(interlayer);
+            }
+            analysis.AddSolution(listLayers);
+            return InsertAnalysis(analysis);
+        }
+
         public AnalysisHomo CreateNewAnalysisCaseTruck(
             string name, string description
             , Packable packable, TruckProperties truckProperties
@@ -686,10 +708,9 @@ namespace treeDiM.StackBuilder.Basics
             string name, string description
             , CylinderProperties cylinder, BoxProperties caseProperties
             , List<InterlayerProperties> interlayers
-            , ConstraintSetCylinderCase constraintSet
+            , ConstraintSetCylinderContainer constraintSet
             , List<LayerDesc> layerDescs)
         {
-            // analysis
             AnalysisCylinderCase analysis = new AnalysisCylinderCase(
                 this, cylinder, caseProperties, constraintSet);
             analysis.ID.SetNameDesc(name, description);
@@ -700,6 +721,19 @@ namespace treeDiM.StackBuilder.Basics
             }
             analysis.AddSolution(layerDescs);
 
+            return InsertAnalysis(analysis);
+        }
+
+        public AnalysisHomo CreateNewAnalysisCylinderTruck(
+            string name, string description
+            , CylinderProperties cylinder, TruckProperties truckProperties
+            , ConstraintSetCylinderTruck constraintSet
+            , List<LayerDesc> layerDescs)
+        {
+            var analysis = new AnalysisCylinderTruck(
+                this, cylinder, truckProperties, constraintSet);
+            analysis.ID.SetNameDesc(name, description);
+            analysis.AddSolution(layerDescs);
             return InsertAnalysis(analysis);
         }
 
@@ -774,7 +808,6 @@ namespace treeDiM.StackBuilder.Basics
             // set document dirty
             Modify();
         }
-
         #endregion
 
         #region Legacy analyses instantiation method
@@ -1006,28 +1039,18 @@ namespace treeDiM.StackBuilder.Basics
 
         #region Allowing analysis/opti
         public bool CanCreatePack => Boxes.Any();
-        public bool CanCreateAnalysisCasePallet
-        { get { return Cases.Any() && Pallets.Any(); } }
-        public bool CanCreateAnalysisBundlePallet
-        { get { return Bundles.Any() && Pallets.Any(); } }
-        public bool CanCreateAnalysisBoxCase
-        { get { return (Boxes.Any() || Cases.Any()) && Cases.Any(); } }
-        public bool CanCreateAnalysisBundleCase
-        { get { return Bundles.Any() && Cases.Any(); } }
-        public bool CanCreateAnalysisCylinderPallet
-        { get { return Cylinders.Any() && Pallets.Any(); } }
-        public bool CanCreateAnalysisCylinderCase
-        { get { return Cylinders.Any() && Cases.Any(); } }
-        public bool CanCreateAnalysisPalletTruck
-        { get { return Trucks.Any(); } }
-        public bool CanCreateAnalysisCaseTruck
-        { get { return Trucks.Any() && Cases.Any(); } }
-        public bool CanCreateOptiCasePallet
-        { get { return Boxes.Any() && Pallets.Any(); } }
-        public bool CanCreateOptiPack
-        { get { return Boxes.Any() && Pallets.Any(); } }
-        public bool CanCreateOptiMulticase
-        { get { return (Bundles.Any()) || this.Boxes.Any() || (Cases.Any()); } }
+        public bool CanCreateAnalysisCasePallet => Cases.Any() && Pallets.Any();
+        public bool CanCreateAnalysisBundlePallet => Bundles.Any() && Pallets.Any();
+        public bool CanCreateAnalysisBoxCase =>(Boxes.Any() || Cases.Any()) && Cases.Any();
+        public bool CanCreateAnalysisBundleCase => Bundles.Any() && Cases.Any();
+        public bool CanCreateAnalysisCylinderPallet => Cylinders.Any() && Pallets.Any();
+        public bool CanCreateAnalysisCylinderCase => Cylinders.Any() && Cases.Any();
+        public bool CanCreateAnalysisPalletTruck => Trucks.Any();
+        public bool CanCreateAnalysisCaseTruck => Trucks.Any() && Cases.Any();
+        public bool CanCreateAnalysisCylinderTruck => Trucks.Any() && Cylinders.Any();
+        public bool CanCreateOptiCasePallet => Boxes.Any() && Pallets.Any();
+        public bool CanCreateOptiPack => Boxes.Any() && Pallets.Any();
+        public bool CanCreateOptiMulticase => Bundles.Any() || Boxes.Any() || Cases.Any();
         #endregion
 
         #region Load methods
@@ -1766,7 +1789,7 @@ namespace treeDiM.StackBuilder.Basics
                     sName, sDescription
                     , cylinderProperties as CylinderProperties, caseProperties
                     , interlayers
-                    , constraintSet as ConstraintSetCylinderCase
+                    , constraintSet as ConstraintSetCylinderContainer
                     , listLayerDesc);
                 if (!string.IsNullOrEmpty(sId))
                     analysis.ID.IGuid = Guid.Parse(sId);
@@ -2067,14 +2090,14 @@ namespace treeDiM.StackBuilder.Basics
             constraintSet.PalletFilmTurns = LoadInt(eltConstraintSet, "PalletFilmTurns");
             return constraintSet;
         }
-        private ConstraintSetAbstract LoadConstraintSetBoxCase(XmlElement eltConstraintSet, Packable container)
+        private ConstraintSetAbstract LoadConstraintSetBoxCase(XmlElement eltConstraintSet, IPackContainer container)
         {
             ConstraintSetBoxCase constraintSet = new ConstraintSetBoxCase(container);
             return constraintSet;
         }
-        private ConstraintSetAbstract LoadConstraintSetCylinderCase(XmlElement eltConstraintSet, Packable container)
+        private ConstraintSetAbstract LoadConstraintSetCylinderCase(XmlElement eltConstraintSet, IPackContainer container)
         {
-            ConstraintSetCylinderCase constraintSet = new ConstraintSetCylinderCase(container);
+            ConstraintSetCylinderContainer constraintSet = new ConstraintSetCylinderContainer(container);
             return constraintSet;
         }
         private ConstraintSetAbstract LoadConstraintSetPalletTruck(XmlElement eltConstraintSet, IPackContainer container)
@@ -3281,6 +3304,7 @@ namespace treeDiM.StackBuilder.Basics
             AnalysisCylinderCase analysisCylinderCase = analysis as AnalysisCylinderCase;
             AnalysisPalletTruck analysisPalletTruck = analysis as AnalysisPalletTruck;
             AnalysisCaseTruck analysisCaseTruck = analysis as AnalysisCaseTruck;
+            AnalysisCylinderTruck analysisCylinderTruck = analysis as AnalysisCylinderTruck;
 
             string analysisName = string.Empty;
             if (null != analysisCasePallet) analysisName = "AnalysisCasePallet";
@@ -3289,7 +3313,8 @@ namespace treeDiM.StackBuilder.Basics
             else if (null != analysisCylinderCase) analysisName = "AnalysisCylinderCase";
             else if (null != analysisPalletTruck) analysisName = "AnalysisPalletTruck";
             else if (null != analysisCaseTruck) analysisName = "AnalysisCaseTruck";
-            else throw new Exception("Unexpected analysis type");
+            else if (null != analysisCylinderTruck) analysisName = "AnalysisCylinderTruck";
+            else throw new Exception($"Unexpected analysis type = {analysis.GetType().ToString()}");
 
             // create analysis element
             XmlElement xmlAnalysisElt = xmlDoc.CreateElement(analysisName);

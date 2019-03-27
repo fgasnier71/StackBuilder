@@ -101,6 +101,9 @@
     <EmbeddedResource Include="FormEditCardboardQualityData.fr.resx">
       <DependentUpon>FormEditCardboardQualityData.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormEditCardboardQualityData.it-IT.resx">
+      <DependentUpon>FormEditCardboardQualityData.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormEditCardboardQualityData.it.resx">
       <DependentUpon>FormEditCardboardQualityData.cs</DependentUpon>
     </EmbeddedResource>

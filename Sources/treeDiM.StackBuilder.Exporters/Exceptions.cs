@@ -13,7 +13,7 @@ namespace treeDiM.StackBuilder.Exporters
     public class ExceptionUnexpectedAnalysisType : Exception
     {
         public ExceptionUnexpectedAnalysisType(AnalysisHomo analysis) { InputAnalysis = analysis; }
-        public override string Message => string.Format("Unexpected analysis type = {0}", InputAnalysis.GetType().ToString());
+        public override string Message => $"Unexpected analysis type = {InputAnalysis.GetType().ToString()}";
         public AnalysisHomo InputAnalysis { get; set; }
     }
 }

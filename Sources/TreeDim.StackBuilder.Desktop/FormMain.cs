@@ -731,6 +731,8 @@ namespace treeDiM.StackBuilder.Desktop
             // new cylinder/case analysis
             toolStripMenuItemNewAnalysisCylinderCase.Enabled = (null != doc) && doc.CanCreateAnalysisCylinderCase;
             toolStripMIAnalysisCylinderCase.Enabled = (null != doc) && doc.CanCreateAnalysisCylinderCase;
+            // new cylinder/truck analysis
+            toolStripMIAnalysisCylinderTruck.Enabled = (null != doc) && doc.CanCreateAnalysisCylinderTruck;
             // new pallet/truck analysis
             toolStripMenuItemAnalysisPalletTruck.Enabled = (null != doc) && doc.CanCreateAnalysisPalletTruck;
             toolStripSBAnalysesTruck.Enabled = (null != doc) && doc.CanCreateAnalysisCaseTruck;
@@ -1205,6 +1207,11 @@ namespace treeDiM.StackBuilder.Desktop
             try { ActiveDocumentSB?.CreateNewAnalysisCaseTruckUI(); }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
+        private void OnNewAnalysisCylinderTruck(object sender, EventArgs e)
+        {
+            try { ActiveDocumentSB?.CreateNewAnalysisCylinderTruckUI(); }
+            catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
+        }
         private void OnNewHAnalysisPallet(object sender, EventArgs e)
         {
             try { ActiveDocumentSB?.CreateNewHAnalysisPalletUI(); }
@@ -1426,5 +1433,6 @@ namespace treeDiM.StackBuilder.Desktop
         #region Static instance accessor
         public static FormMain GetInstance()  { return _instance; }
         #endregion
+
     }
 }

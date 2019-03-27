@@ -86,7 +86,112 @@ namespace treeDiM.StackBuilder.Engine
 
             return listLayers0;
         }
+        public List<ILayer2D> BuildLayers(
+            Packable packable, Vector2D dimContainer,
+            double offsetZ, /* e.g. pallet height */
+            ConstraintSetAbstract constraintSet, bool keepOnlyBest)
+        {
+            var listLayers0 = new List<ILayer2D>();
 
+            if (packable is PackableBrick packableBrick)
+            {
+                // loop through all patterns
+                foreach (LayerPatternBox pattern in LayerPatternBox.All)
+                {
+                    // loop through all orientation
+                    HalfAxis.HAxis[] patternAxes = pattern.IsSymetric ? HalfAxis.Positives : HalfAxis.All;
+                    foreach (HalfAxis.HAxis axisOrtho in patternAxes)
+                    {
+                        // is orientation allowed
+                        if (!constraintSet.AllowOrientation(Layer2D.VerticalAxis(axisOrtho)))
+                            continue;
+                        // not swapped vs swapped pattern
+                        for (int iSwapped = 0; iSwapped < 2; ++iSwapped)
+                        {
+                            try
+                            {
+                                // does swapping makes sense for this layer pattern ?
+                                if (!pattern.CanBeSwapped && (iSwapped == 1))
+                                    continue;
+                                // instantiate layer
+                                var layer = new Layer2D(packableBrick.OuterDimensions, dimContainer, pattern.Name, axisOrtho, iSwapped == 1)
+                                {
+                                    ForcedSpace = constraintSet.MinimumSpace.Value
+                                };
+                                if (layer.NoLayers(constraintSet.OptMaxHeight.Value) < 1)
+                                    continue;
+                                layer.PatternName = pattern.Name;
+                                if (!pattern.GetLayerDimensionsChecked(layer, out double actualLength, out double actualWidth))
+                                    continue;
+                                pattern.GenerateLayer(layer, actualLength, actualWidth);
+                                if (0 == layer.Count)
+                                    continue;
+                                listLayers0.Add(layer);
+                            }
+                            catch (Exception ex)
+                            {
+                                _log.ErrorFormat("Pattern: {0} Orient: {1} Swapped: {2} Message: {3}"
+                                    , pattern.Name
+                                    , axisOrtho.ToString()
+                                    , iSwapped == 1 ? "True" : "False"
+                                    , ex.Message);
+                            }
+                        }
+                    }
+                } 
+            }
+            else if (packable is CylinderProperties cylinder)
+            {
+                // loop through all patterns
+                foreach (LayerPatternCyl pattern in LayerPatternCyl.All)
+                {
+                    // not swapped vs swapped pattern
+                    for (int iSwapped = 0; iSwapped < 2; ++iSwapped)
+                    {
+                        try
+                        {
+                            var layer = new Layer2DCyl(cylinder.RadiusOuter, cylinder.Height, dimContainer, iSwapped == 1) { PatternName = pattern.Name };
+                            if (!pattern.GetLayerDimensions(layer as Layer2DCyl, out double actualLength, out double actualWidth))
+                                continue;
+                            pattern.GenerateLayer(layer as Layer2DCyl, actualLength, actualWidth);
+                            if (0 == layer.Count)
+                                continue;
+                            listLayers0.Add(layer);
+                        }
+                        catch (Exception ex)
+                        {
+                            _log.ErrorFormat("Pattern: {0} Swapped: {1} Message: {2}"
+                                , pattern.Name
+                                , iSwapped == 1 ? "True" : "False"
+                                , ex.Message);
+                        }
+                    }
+                }
+            }
+            // keep only best layers
+            if (keepOnlyBest)
+            {
+                // 1. get best count
+                int bestCount = 0;
+                foreach (ILayer2D layer in listLayers0)
+                    bestCount = Math.Max(layer.CountInHeight(constraintSet.OptMaxHeight.Value - offsetZ), bestCount);
+
+                // 2. remove any layer that does not match the best count given its orientation
+                var listLayers1 = new List<ILayer2D>();
+                foreach (ILayer2D layer in listLayers0)
+                {
+                    if (layer.CountInHeight(constraintSet.OptMaxHeight.Value - offsetZ) >= bestCount)
+                        listLayers1.Add(layer);
+                }
+                // 3. copy back in original list
+                listLayers0.Clear();
+                listLayers0.AddRange(listLayers1);
+            }
+            if (constraintSet.OptMaxHeight.Activated)
+                listLayers0.Sort(new LayerComparerCount(constraintSet, offsetZ));
+
+            return listLayers0;
+        }
         public Layer2D BuildLayer(Vector3D dimBox, Vector2D dimContainer, LayerDescBox layerDesc, double minSpace)
         {
             LayerDescBox layerDescBox = layerDesc as LayerDescBox;

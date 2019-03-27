@@ -21,6 +21,12 @@ namespace treeDiM.StackBuilder.Desktop
     public partial class DockContentAnalysisEdit : DockContentView, IDrawingContainer, IItemBaseFilter
     {
         #region Constructor
+        public DockContentAnalysisEdit() : base()
+        {
+            _analysis = null;
+            _solution = null;
+            InitializeComponent();
+        }
         public DockContentAnalysisEdit(IDocument document, AnalysisHomo analysis)
             : base(document)
         {

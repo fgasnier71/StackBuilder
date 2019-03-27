@@ -146,7 +146,7 @@ namespace treeDiM.StackBuilder.Desktop
                     , SelectedBoxProperties, SelectedCase
                     , new List<InterlayerProperties>()
                     , BuildConstraintSet()
-                    , layerDesc
+                    , listLayer
                     );
                 Close();
             }

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 
 using Sharp3D.Math.Core;
 
@@ -12,11 +11,22 @@ namespace treeDiM.StackBuilder.Basics
         {
             get
             {
-                ConstraintSetCaseTruck constraintSet = ConstraintSet as ConstraintSetCaseTruck;
-                return new Vector2D(
-                    _truckProperties.InsideLength - 2.0 * constraintSet.MinDistanceLoadWall.X
-                    , _truckProperties.InsideWidth - 2.0 * constraintSet.MinDistanceLoadWall.Y
-                    );
+                if (ConstraintSet is ConstraintSetCaseTruck constraintSet)
+                {
+                    return new Vector2D(
+                        _truckProperties.InsideLength - 2.0 * constraintSet.MinDistanceLoadWall.X
+                        , _truckProperties.InsideWidth - 2.0 * constraintSet.MinDistanceLoadWall.Y
+                        );
+                }
+                else if (ConstraintSet is ConstraintSetCylinderTruck constraintSetCylTruck)
+                {
+                    return new Vector2D(
+                        _truckProperties.InsideLength - 2.0 * constraintSetCylTruck.MinDistanceLoadWall.X
+                        , _truckProperties.InsideWidth - 2.0 * constraintSetCylTruck.MinDistanceLoadWall.Y
+                        );
+                }
+                else
+                    return Vector2D.Zero;
             }
         }
         public override double ContainerLoadingVolume => _truckProperties.Volume;
@@ -27,11 +37,22 @@ namespace treeDiM.StackBuilder.Basics
         {
             get
             {
-                ConstraintSetCaseTruck constraintSet = ConstraintSet as ConstraintSetCaseTruck;
-                return new Vector3D(
-                    constraintSet.MinDistanceLoadWall.X
-                    , constraintSet.MinDistanceLoadWall.Y
-                    , 0.0);
+                if (ConstraintSet is ConstraintSetCaseTruck constraintSet)
+                {
+                    return new Vector3D(
+                        constraintSet.MinDistanceLoadWall.X
+                        , constraintSet.MinDistanceLoadWall.Y
+                        , 0.0);
+                }
+                else if (ConstraintSet is ConstraintSetCylinderTruck constraintSetCyl)
+                {
+                    return new Vector3D(
+                        constraintSetCyl.MinDistanceLoadWall.X
+                        , constraintSetCyl.MinDistanceLoadWall.Y
+                        , 0.0);
+                }
+                else
+                    return Vector3D.Zero;
             }
         }
         public TruckProperties TruckProperties
@@ -62,14 +83,14 @@ namespace treeDiM.StackBuilder.Basics
         protected TruckProperties _truckProperties;
 
         protected AnalysisPackableTruck(Document document, Packable packable, TruckProperties truckProperties,
-            ConstraintSetPackableTruck constraintSet)
+            ConstraintSetAbstract constraintSet)
             : base(document, packable)
         {
             // sanity checks
             if ( null != ParentDocument
                 && null != truckProperties.ParentDocument
                 && truckProperties.ParentDocument != ParentDocument)
-                throw new Exception("case & truck do not belong to the same document");
+                throw new Exception("content & truck do not belong to the same document");
             // also add dependancy
             TruckProperties = truckProperties;
 

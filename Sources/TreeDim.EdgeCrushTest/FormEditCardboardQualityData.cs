@@ -13,9 +13,7 @@ namespace treeDiM.EdgeCrushTest
     public partial class FormEditCardboardQualityData : Form
     {
         #region Data members
-        enum Mode
-        { MODE_CREATE
-            , MODE_MODIFY}
+        enum Mode { MODE_CREATE, MODE_MODIFY}
         #endregion
 
         #region Constructor
@@ -24,5 +22,7 @@ namespace treeDiM.EdgeCrushTest
             InitializeComponent();
         }
         #endregion
+
+
     }
 }
