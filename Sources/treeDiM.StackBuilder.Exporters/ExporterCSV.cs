@@ -2,6 +2,8 @@
 using System.Text;
 using System.IO;
 
+using Sharp3D.Math.Core;
+
 using treeDiM.StackBuilder.Basics;
 
 namespace treeDiM.StackBuilder.Exporters
@@ -11,7 +13,7 @@ namespace treeDiM.StackBuilder.Exporters
         public ExporterCSV() {}
         public override string Filter => "Comma Separated Values (*.csv)|*.csv";
         public override string Extension => "csv";
-        public override void Export(AnalysisHomo analysis, string filePath)
+        public override void Export(AnalysisHomo analysis, ref Stream stream)
         {
             var csv = new StringBuilder();
             Solution sol = analysis.Solution;
@@ -22,17 +24,21 @@ namespace treeDiM.StackBuilder.Exporters
                 {
                     foreach (BoxPosition bPosition in layerBox)
                     {
+                        Vector3D writtenPosition = ConvertPosition(bPosition, analysis.ContentDimensions);
                         csv.AppendLine(string.Format("{0};{1};{2};{3};{4};{5}",
                             1,
-                            bPosition.Position.X,
-                            bPosition.Position.Y,
-                            bPosition.Position.Z,
+                            writtenPosition.X,
+                            writtenPosition.Y,
+                            writtenPosition.Z,
                             bPosition.DirectionLength,
                             bPosition.DirectionWidth));
                     }
                 }
             }
-            File.WriteAllText(filePath, csv.ToString());
+            var writer = new StreamWriter(stream);
+            writer.Write(csv.ToString());
+            writer.Flush();
+            stream.Position = 0;
         }
     }
 }

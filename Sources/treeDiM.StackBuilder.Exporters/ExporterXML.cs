@@ -4,6 +4,8 @@ using System.Text;
 using System.IO;
 using System.Xml.Serialization;
 
+using Sharp3D.Math.Core;
+
 using treeDiM.StackBuilder.Basics;
 using stb;
 
@@ -18,7 +20,7 @@ namespace treeDiM.StackBuilder.Exporters
         public ExporterXML(){}
         public override string Filter => "eXchange Markup Language (*.xml)|*.xml";
         public override string Extension => "xml";
-        public override void Export(AnalysisHomo analysis, string fileName)
+        public override void Export(AnalysisHomo analysis, ref Stream stream)
         {
             Solution sol = analysis.Solution;
 
@@ -50,17 +52,16 @@ namespace treeDiM.StackBuilder.Exporters
                             cOfG = new cOfG() { x = sol.COfG.X, y = sol.COfG.Y, z = sol.COfG.Z },
                             loadHeight = sol.BBoxLoad.Height
                         },
-                        placement = BuildPlacementArray(sol)
+                        placement = BuildPlacementArray(sol, analysis)
                     }
                 }
             };
+
             // serialization
-            using (Stream stream = File.Open(fileName, FileMode.Create))
-            {
-                XmlSerializer serializer = new XmlSerializer(typeof(orderDocument));
-                serializer.Serialize(stream, document);
-                stream.Flush();
-            }
+            XmlSerializer serializer = new XmlSerializer(typeof(orderDocument));
+            serializer.Serialize(stream, document);
+            stream.Flush();
+            stream.Seek(0, SeekOrigin.Begin);
         }
         #region Helpers
         private units CurrentUnit
@@ -124,7 +125,7 @@ namespace treeDiM.StackBuilder.Exporters
             else
                 throw new Exception(string.Format("Unexpected analysis type : {0}", analysis.GetType()));
         }
-        private placement[] BuildPlacementArray(Solution sol)
+        private placement[] BuildPlacementArray(Solution sol, AnalysisHomo analysis)
         {
             List<placement> lPlacements = new List<placement>();
             List<ILayer> layers = sol.Layers;
@@ -134,13 +135,14 @@ namespace treeDiM.StackBuilder.Exporters
                 {
                     foreach (BoxPosition bPosition in layerBox)
                     {
+                        Vector3D writtenPosition = ConvertPosition(bPosition, analysis.ContentDimensions);
                         lPlacements.Add(
                             new placement()
                             {
                                 itemId = 1,
-                                x = bPosition.Position.X,
-                                y = bPosition.Position.Y,
-                                z = bPosition.Position.Z,
+                                x = writtenPosition.X,
+                                y = writtenPosition.Y,
+                                z = writtenPosition.Z,
                                 L = ToAxis(bPosition.DirectionLength),
                                 W = ToAxis(bPosition.DirectionWidth)
                             }
@@ -154,12 +156,12 @@ namespace treeDiM.StackBuilder.Exporters
         {
             switch (axis)
             {
-                case HalfAxis.HAxis.AXIS_X_N: return stb.HAxis.XN;
-                case HalfAxis.HAxis.AXIS_X_P: return stb.HAxis.XP;
-                case HalfAxis.HAxis.AXIS_Y_N: return stb.HAxis.YN;
-                case HalfAxis.HAxis.AXIS_Y_P: return stb.HAxis.YP;
-                case HalfAxis.HAxis.AXIS_Z_N: return stb.HAxis.ZN;
-                case HalfAxis.HAxis.AXIS_Z_P: return stb.HAxis.ZP;
+                case HalfAxis.HAxis.AXIS_X_N: return HAxis.XN;
+                case HalfAxis.HAxis.AXIS_X_P: return HAxis.XP;
+                case HalfAxis.HAxis.AXIS_Y_N: return HAxis.YN;
+                case HalfAxis.HAxis.AXIS_Y_P: return HAxis.YP;
+                case HalfAxis.HAxis.AXIS_Z_N: return HAxis.ZN;
+                case HalfAxis.HAxis.AXIS_Z_P: return HAxis.ZP;
                 default: return HAxis.XN;
             }
         }

@@ -33,6 +33,7 @@
             this.rtbLog = new System.Windows.Forms.RichTextBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.chkbAllowMultipleLayerOrientations = new System.Windows.Forms.CheckBox();
             this.bnExit = new System.Windows.Forms.Button();
             this.tabCtrlContainer = new System.Windows.Forms.TabControl();
             this.tabPallet = new System.Windows.Forms.TabPage();
@@ -87,7 +88,8 @@
             this.lbLoadedPalletEfficiency = new System.Windows.Forms.Label();
             this.lbLoadedPalletWeight = new System.Windows.Forms.Label();
             this.lbLoadedPalletDim = new System.Windows.Forms.Label();
-            this.chkbAllowMultipleLayerOrientations = new System.Windows.Forms.CheckBox();
+            this.lbMaxPalletWeight = new System.Windows.Forms.Label();
+            this.nudMaxPalletWeight = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.pbStackbuilder)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -127,6 +129,7 @@
             this.splitContainer3.Panel1.SuspendLayout();
             this.splitContainer3.Panel2.SuspendLayout();
             this.splitContainer3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudMaxPalletWeight)).BeginInit();
             this.SuspendLayout();
             // 
             // pbStackbuilder
@@ -134,7 +137,7 @@
             this.pbStackbuilder.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pbStackbuilder.Location = new System.Drawing.Point(0, 0);
             this.pbStackbuilder.Name = "pbStackbuilder";
-            this.pbStackbuilder.Size = new System.Drawing.Size(626, 316);
+            this.pbStackbuilder.Size = new System.Drawing.Size(691, 441);
             this.pbStackbuilder.TabIndex = 19;
             this.pbStackbuilder.TabStop = false;
             // 
@@ -143,7 +146,7 @@
             this.rtbLog.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rtbLog.Location = new System.Drawing.Point(0, 0);
             this.rtbLog.Name = "rtbLog";
-            this.rtbLog.Size = new System.Drawing.Size(846, 86);
+            this.rtbLog.Size = new System.Drawing.Size(934, 107);
             this.rtbLog.TabIndex = 27;
             this.rtbLog.Text = "";
             // 
@@ -161,8 +164,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.rtbLog);
-            this.splitContainer1.Size = new System.Drawing.Size(846, 622);
-            this.splitContainer1.SplitterDistance = 532;
+            this.splitContainer1.Size = new System.Drawing.Size(934, 761);
+            this.splitContainer1.SplitterDistance = 650;
             this.splitContainer1.TabIndex = 33;
             // 
             // splitContainer2
@@ -183,15 +186,25 @@
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.splitContainer3);
-            this.splitContainer2.Size = new System.Drawing.Size(846, 532);
-            this.splitContainer2.SplitterDistance = 212;
+            this.splitContainer2.Size = new System.Drawing.Size(934, 650);
+            this.splitContainer2.SplitterDistance = 205;
             this.splitContainer2.TabIndex = 0;
+            // 
+            // chkbAllowMultipleLayerOrientations
+            // 
+            this.chkbAllowMultipleLayerOrientations.AutoSize = true;
+            this.chkbAllowMultipleLayerOrientations.Location = new System.Drawing.Point(14, 172);
+            this.chkbAllowMultipleLayerOrientations.Name = "chkbAllowMultipleLayerOrientations";
+            this.chkbAllowMultipleLayerOrientations.Size = new System.Drawing.Size(171, 17);
+            this.chkbAllowMultipleLayerOrientations.TabIndex = 55;
+            this.chkbAllowMultipleLayerOrientations.Text = "Allow multiple layer orientations";
+            this.chkbAllowMultipleLayerOrientations.UseVisualStyleBackColor = true;
             // 
             // bnExit
             // 
             this.bnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.bnExit.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.bnExit.Location = new System.Drawing.Point(768, 3);
+            this.bnExit.Location = new System.Drawing.Point(856, 3);
             this.bnExit.Name = "bnExit";
             this.bnExit.Size = new System.Drawing.Size(75, 23);
             this.bnExit.TabIndex = 33;
@@ -204,14 +217,16 @@
             this.tabCtrlContainer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.tabCtrlContainer.Controls.Add(this.tabPallet);
             this.tabCtrlContainer.Controls.Add(this.tabCase);
-            this.tabCtrlContainer.Location = new System.Drawing.Point(410, 16);
+            this.tabCtrlContainer.Location = new System.Drawing.Point(405, 16);
             this.tabCtrlContainer.Name = "tabCtrlContainer";
             this.tabCtrlContainer.SelectedIndex = 0;
-            this.tabCtrlContainer.Size = new System.Drawing.Size(433, 147);
+            this.tabCtrlContainer.Size = new System.Drawing.Size(526, 147);
             this.tabCtrlContainer.TabIndex = 54;
             // 
             // tabPallet
             // 
+            this.tabPallet.Controls.Add(this.nudMaxPalletWeight);
+            this.tabPallet.Controls.Add(this.lbMaxPalletWeight);
             this.tabPallet.Controls.Add(this.nudOverhangY);
             this.tabPallet.Controls.Add(this.lbPalletDim);
             this.tabPallet.Controls.Add(this.nudOverhangX);
@@ -226,7 +241,7 @@
             this.tabPallet.Location = new System.Drawing.Point(4, 22);
             this.tabPallet.Name = "tabPallet";
             this.tabPallet.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPallet.Size = new System.Drawing.Size(425, 121);
+            this.tabPallet.Size = new System.Drawing.Size(518, 121);
             this.tabPallet.TabIndex = 0;
             this.tabPallet.Text = "Pallet";
             this.tabPallet.UseVisualStyleBackColor = true;
@@ -700,7 +715,7 @@
             // bnCompute
             // 
             this.bnCompute.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.bnCompute.Location = new System.Drawing.Point(705, 167);
+            this.bnCompute.Location = new System.Drawing.Point(793, 167);
             this.bnCompute.Name = "bnCompute";
             this.bnCompute.Size = new System.Drawing.Size(138, 23);
             this.bnCompute.TabIndex = 49;
@@ -730,8 +745,8 @@
             this.splitContainer3.Panel2.Controls.Add(this.lbLoadedPalletEfficiency);
             this.splitContainer3.Panel2.Controls.Add(this.lbLoadedPalletWeight);
             this.splitContainer3.Panel2.Controls.Add(this.lbLoadedPalletDim);
-            this.splitContainer3.Size = new System.Drawing.Size(846, 316);
-            this.splitContainer3.SplitterDistance = 626;
+            this.splitContainer3.Size = new System.Drawing.Size(934, 441);
+            this.splitContainer3.SplitterDistance = 691;
             this.splitContainer3.TabIndex = 0;
             // 
             // lbPalletMapPhrase
@@ -824,21 +839,33 @@
             this.lbLoadedPalletDim.TabIndex = 30;
             this.lbLoadedPalletDim.Text = "Loaded pallet dimensions";
             // 
-            // chkbAllowMultipleLayerOrientations
+            // lbMaxPalletWeight
             // 
-            this.chkbAllowMultipleLayerOrientations.AutoSize = true;
-            this.chkbAllowMultipleLayerOrientations.Location = new System.Drawing.Point(14, 172);
-            this.chkbAllowMultipleLayerOrientations.Name = "chkbAllowMultipleLayerOrientations";
-            this.chkbAllowMultipleLayerOrientations.Size = new System.Drawing.Size(171, 17);
-            this.chkbAllowMultipleLayerOrientations.TabIndex = 55;
-            this.chkbAllowMultipleLayerOrientations.Text = "Allow multiple layer orientations";
-            this.chkbAllowMultipleLayerOrientations.UseVisualStyleBackColor = true;
+            this.lbMaxPalletWeight.AutoSize = true;
+            this.lbMaxPalletWeight.Location = new System.Drawing.Point(336, 65);
+            this.lbMaxPalletWeight.Name = "lbMaxPalletWeight";
+            this.lbMaxPalletWeight.Size = new System.Drawing.Size(92, 13);
+            this.lbMaxPalletWeight.TabIndex = 71;
+            this.lbMaxPalletWeight.Text = "Max. pallet weight";
+            // 
+            // nudMaxPalletWeight
+            // 
+            this.nudMaxPalletWeight.DecimalPlaces = 1;
+            this.nudMaxPalletWeight.Location = new System.Drawing.Point(438, 63);
+            this.nudMaxPalletWeight.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.nudMaxPalletWeight.Name = "nudMaxPalletWeight";
+            this.nudMaxPalletWeight.Size = new System.Drawing.Size(74, 20);
+            this.nudMaxPalletWeight.TabIndex = 72;
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(846, 622);
+            this.ClientSize = new System.Drawing.Size(934, 761);
             this.Controls.Add(this.splitContainer1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -890,6 +917,7 @@
             this.splitContainer3.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
             this.splitContainer3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.nudMaxPalletWeight)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -954,6 +982,8 @@
         private System.Windows.Forms.Label lbPalletMapPhrase;
         private System.Windows.Forms.Label lbDescPalletMapPhrase;
         private System.Windows.Forms.CheckBox chkbAllowMultipleLayerOrientations;
+        private System.Windows.Forms.NumericUpDown nudMaxPalletWeight;
+        private System.Windows.Forms.Label lbMaxPalletWeight;
     }
 }
 

@@ -190,7 +190,6 @@ namespace treeDiM.StackBuilder.Basics
     #region Solution
     public class Solution
     {
-
         #region Data members
         private List<SolutionItem> _solutionItems;
         internal List<ILayer2D> _layerTypes;
@@ -712,7 +711,7 @@ namespace treeDiM.StackBuilder.Basics
                 foreach (SolutionItem solItem in _solutionItems)
                 {
                     Layer2D layer = _layerTypes[solItem.LayerIndex] as Layer2D;
-                    if (!ConstraintSet.OptMaxWeight.Activated || !ConstraintSet.OptMaxNumber.Activated)
+                    if (!ConstraintSet.OptMaxWeight.Activated && !ConstraintSet.OptMaxNumber.Activated)
                     {
                         LayerPhrase lp = new LayerPhrase() { Count = layer.Count, Axis = layer.VerticalAxisProp };
                         if (dict.ContainsKey(lp))

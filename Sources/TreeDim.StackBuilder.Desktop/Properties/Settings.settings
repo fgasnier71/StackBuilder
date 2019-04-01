@@ -281,5 +281,8 @@
     <Setting Name="AutoUpdaterXMLPath" Type="System.String" Scope="Application">
       <Value Profile="(Default)">http://plmpack.com/stackbuilder/download/AutoUpdater.xml</Value>
     </Setting>
+    <Setting Name="ExportCoordinatesMode" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

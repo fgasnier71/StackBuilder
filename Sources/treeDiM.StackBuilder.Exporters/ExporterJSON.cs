@@ -15,7 +15,7 @@ namespace treeDiM.StackBuilder.Exporters
     {
         public override string Filter => "json|*.json";
         public override string Extension => "json";
-        public override void Export(AnalysisHomo analysis, string filePath)
+        public override void Export(AnalysisHomo analysis, ref Stream stream)
         {
             Solution sol = analysis.Solution;
             string nameContainer = analysis.Container.Name;
@@ -68,6 +68,7 @@ namespace treeDiM.StackBuilder.Exporters
                 Materials = new List<Material>() { matContainer, matContent },
                 Object = new Json.Object()
             };
+            string filePath = string.Empty;
             File.WriteAllText( filePath, JsonConvert.SerializeObject(rootObj) );
         }
     }

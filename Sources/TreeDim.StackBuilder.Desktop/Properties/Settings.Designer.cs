@@ -1105,5 +1105,17 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
                 return ((string)(this["AutoUpdaterXMLPath"]));
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int ExportCoordinatesMode {
+            get {
+                return ((int)(this["ExportCoordinatesMode"]));
+            }
+            set {
+                this["ExportCoordinatesMode"] = value;
+            }
+        }
     }
 }

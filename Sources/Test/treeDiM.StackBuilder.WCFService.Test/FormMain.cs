@@ -44,6 +44,7 @@ namespace treeDiM.StackBuilder.WCFService.Test
             PalletHeight = 145.0;
             PalletWeight = 24.0;
             MaxPalletHeight = 1200;
+            MaxPalletWeight = 1000.0;
             // case 
             CaseInnerLength = 395.0;
             CaseInnerWidth = 295.0;
@@ -105,7 +106,7 @@ namespace treeDiM.StackBuilder.WCFService.Test
                                     Overhang = PalletOverhang,
                                     Orientation = new DCSBBool3() { X = AllowOrientX, Y = AllowOrientY, Z = AllowOrientZ },
                                     MaxHeight = new DCSBConstraintDouble() { Active = true, Value_d = MaxPalletHeight },
-                                    MaxWeight = new DCSBConstraintDouble() { Active = false, Value_d = 1000.0 },
+                                    MaxWeight = new DCSBConstraintDouble() { Active = true, Value_d = MaxPalletWeight },
                                     MaxNumber = new DCSBConstraintInt() { Active = false, Value_i = 100 },
                                     AllowMultipleLayerOrientations = this.AllowMultipleLayerOrientations
                                 }
@@ -317,6 +318,7 @@ namespace treeDiM.StackBuilder.WCFService.Test
         private double PalletHeight { get => (double)nudPalletDimZ.Value; set => nudPalletDimZ.Value = (decimal)value; }
         private double PalletWeight { get => (double)nudPalletWeight.Value; set => nudPalletWeight.Value = (decimal)value; }
         private double MaxPalletHeight { get => (double)nudMaxPalletHeight.Value; set => nudMaxPalletHeight.Value = (decimal)value; }
+        private double MaxPalletWeight { get => (double)nudMaxPalletWeight.Value; set => nudMaxPalletWeight.Value = (decimal)value; }
         private double OverhangX { get => (double)nudOverhangX.Value; }
         private double OverhangY { get => (double)nudOverhangY.Value; }
         private DCSBDim3D PalletDimensions => new DCSBDim3D() { M0 = PalletLength, M1 = PalletWidth, M2 = PalletHeight };

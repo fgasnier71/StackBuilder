@@ -583,16 +583,21 @@ namespace treeDiM.StackBuilder.Desktop
 
         public void GenerateExport(AnalysisHomo analysis, string extension)
         {
+            FormExporter form = new FormExporter() { Analysis = analysis, Extension = extension };
+            if (DialogResult.OK == form.ShowDialog())
+            {
+            }
+/*
             try
             {
                 Exporter exporter = ExporterFactory.GetExporterByExt(extension);
-                saveFileDialogExportXML.FileName = analysis.Name + "." + exporter.Extension;
-                saveFileDialogExportXML.Filter = exporter.Filter;
-                saveFileDialogExportXML.DefaultExt = exporter.Extension;
+                saveFileDialogExport.FileName = analysis.Name + "." + exporter.Extension;
+                saveFileDialogExport.Filter = exporter.Filter;
+                saveFileDialogExport.DefaultExt = exporter.Extension;
 
-                if (DialogResult.OK == saveFileDialogExportXML.ShowDialog())
+                if (DialogResult.OK == saveFileDialogExport.ShowDialog())
                 {
-                    string filePath = saveFileDialogExportXML.FileName;
+                    string filePath = saveFileDialogExport.FileName;
                     exporter.Export(analysis, filePath);
 
                     if (exporter.Extension == "dae")
@@ -613,6 +618,7 @@ namespace treeDiM.StackBuilder.Desktop
             {
                 _log.Error(ex.ToString());
             }
+            */
         }
 
         public void GenerateExport(AnalysisHetero analysis, string extension)

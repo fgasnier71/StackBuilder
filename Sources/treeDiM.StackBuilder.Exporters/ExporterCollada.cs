@@ -1,4 +1,5 @@
-﻿using System;
+﻿#region Using directives
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
@@ -11,6 +12,7 @@ using log4net;
 using treeDiM.StackBuilder.Basics;
 using treeDiM.StackBuilder.Graphics;
 using treeDiM.StackBuilder.Exporters.Properties;
+#endregion
 
 namespace treeDiM.StackBuilder.Exporters
 {
@@ -46,7 +48,7 @@ namespace treeDiM.StackBuilder.Exporters
         #region Export
         public override string Filter => "Collada (*.dae) | *.dae";
         public override string Extension => "dae";
-        public override void Export(AnalysisHomo analysis, string filePath)
+        public override void Export(AnalysisHomo analysis, ref Stream stream)
         {
             /*
             PalletProperties palletProperties = _palletSolution.Analysis.PalletProperties;

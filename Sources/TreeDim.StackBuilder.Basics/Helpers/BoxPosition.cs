@@ -54,6 +54,13 @@ namespace treeDiM.StackBuilder.Basics
                 bbox.Extend(pt);
             return bbox;
         }
+        public Vector3D Center(Vector3D dimensions)
+        {
+            Vector3D vI = HalfAxis.ToVector3D(DirectionLength);
+            Vector3D vJ = HalfAxis.ToVector3D(DirectionWidth);
+            Vector3D vK = Vector3D.CrossProduct(vI, vJ);
+            return Position + (0.5 * dimensions.X * vI) + (0.5 * dimensions.Y * vJ) + (0.5 * dimensions.Z * vK);
+        }
         #endregion
 
         #region Static properties

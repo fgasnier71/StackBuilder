@@ -132,7 +132,7 @@
             this.saveFileDialogSB = new System.Windows.Forms.SaveFileDialog();
             this.saveFileDialogWebGL = new System.Windows.Forms.SaveFileDialog();
             this.timerLogin = new System.Windows.Forms.Timer(this.components);
-            this.saveFileDialogExportXML = new System.Windows.Forms.SaveFileDialog();
+            this.saveFileDialogExport = new System.Windows.Forms.SaveFileDialog();
             this.toolStripMIAnalysisCylinderTruck = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripMain.SuspendLayout();
             this.toolStripStandard.SuspendLayout();
@@ -849,8 +849,8 @@
             // 
             // saveFileDialogExportXML
             // 
-            this.saveFileDialogExportXML.DefaultExt = "xml";
-            resources.ApplyResources(this.saveFileDialogExportXML, "saveFileDialogExportXML");
+            this.saveFileDialogExport.DefaultExt = "xml";
+            resources.ApplyResources(this.saveFileDialogExport, "saveFileDialogExportXML");
             // 
             // toolStripMIAnalysisCylinderTruck
             // 
@@ -978,7 +978,7 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMIAnalysisCaseTruck;
         private System.Windows.Forms.ToolStripMenuItem toolStripMIPLMPackLib;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator21;
-        private System.Windows.Forms.SaveFileDialog saveFileDialogExportXML;
+        private System.Windows.Forms.SaveFileDialog saveFileDialogExport;
         private System.Windows.Forms.ToolStripMenuItem toolStripMIHAnalysis;
         private System.Windows.Forms.ToolStripMenuItem toolStripMIHAnalysisCaseTruck;
         private System.Windows.Forms.ToolStripMenuItem toolStripMIAnalysisCylinderTruck;
