@@ -104,7 +104,12 @@ namespace treeDiM.StackBuilder.WCFService.Test
                                 , new DCSBConstraintSet()
                                 {
                                     Overhang = PalletOverhang,
-                                    Orientation = new DCSBBool3() { X = AllowOrientX, Y = AllowOrientY, Z = AllowOrientZ },
+                                    Orientation = new DCSBBool3()
+                                    {
+                                        X = AllowOrientX,
+                                        Y = AllowOrientY,
+                                        Z = AllowOrientZ
+                                    },
                                     MaxHeight = new DCSBConstraintDouble() { Active = true, Value_d = MaxPalletHeight },
                                     MaxWeight = new DCSBConstraintDouble() { Active = true, Value_d = MaxPalletWeight },
                                     MaxNumber = new DCSBConstraintInt() { Active = false, Value_i = 100 },
@@ -273,7 +278,8 @@ namespace treeDiM.StackBuilder.WCFService.Test
                     CaseCount = sol.CaseCount;
                     TotalPalletWeight = sol.WeightTotal;
                     PalletEfficiency = sol.Efficiency;
-                    if (null != sol.BBoxLoad) { BBoxTotal = sol.BBoxTotal; }
+                    if (null != sol.BBoxTotal)  { BBoxTotal = sol.BBoxTotal; }
+                    if (null != sol.BBoxLoad)   { BBoxLoad = sol.BBoxLoad; }
                     if (null != sol.PalletMapPhrase) { PalletMapPhrase = sol.PalletMapPhrase;}
                 }
             }
@@ -324,11 +330,12 @@ namespace treeDiM.StackBuilder.WCFService.Test
         private DCSBDim3D PalletDimensions => new DCSBDim3D() { M0 = PalletLength, M1 = PalletWidth, M2 = PalletHeight };
         private DCSBDim2D PalletOverhang => new DCSBDim2D() { M0 = OverhangX, M1 = OverhangY };
         // solution        
-        private int CaseCount               { set => lbLoadedPalletCaseCountValue.Text  = string.Format(": {0}", value); }
-        private double TotalPalletWeight    { set => lbLoadedPalletWeightValue.Text     = string.Format(": {0:0.#} kg", value); }
-        private double PalletEfficiency     { set => lbLoadedPalletEfficiencyValue.Text = string.Format(": {0:0.#} %", value); }
-        private DCSBDim3D BBoxTotal         { set => lbLoadedPalletDimValues.Text       = string.Format(": {0:0.#}x{1:0.#}x{2:0.#} mm", value.M0, value.M1, value.M2); }
-        private string PalletMapPhrase      { set => lbPalletMapPhrase.Text             = string.Format(": {0}", value); }
+        private int CaseCount               { set => lbLoadedPalletCaseCountValue.Text     = string.Format(": {0}", value); }
+        private double TotalPalletWeight    { set => lbLoadedPalletWeightValue.Text        = string.Format(": {0:0.#} kg", value); }
+        private double PalletEfficiency     { set => lbLoadedPalletEfficiencyValue.Text    = string.Format(": {0:0.#} %", value); }
+        private DCSBDim3D BBoxTotal         { set => lbTotalPalletDimValues.Text           = string.Format(": {0:0.#} x{1:0.#} x{2:0.#} mm", value.M0, value.M1, value.M2); }
+        private DCSBDim3D BBoxLoad          { set => lbLoadDimValues.Text                  = string.Format(": {0:0.#} x{1:0.#} x{2:0.#} mm", value.M0, value.M1, value.M2); }
+        private string PalletMapPhrase      { set => lbPalletMapPhrase.Text                = string.Format(": {0}", value); }
         // logging
         private void ToRtb(string s)        { rtbLog.AppendText(s); }
         #endregion

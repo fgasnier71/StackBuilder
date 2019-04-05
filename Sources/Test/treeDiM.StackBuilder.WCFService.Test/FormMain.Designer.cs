@@ -37,6 +37,8 @@
             this.bnExit = new System.Windows.Forms.Button();
             this.tabCtrlContainer = new System.Windows.Forms.TabControl();
             this.tabPallet = new System.Windows.Forms.TabPage();
+            this.nudMaxPalletWeight = new System.Windows.Forms.NumericUpDown();
+            this.lbMaxPalletWeight = new System.Windows.Forms.Label();
             this.nudOverhangY = new System.Windows.Forms.NumericUpDown();
             this.lbPalletDim = new System.Windows.Forms.Label();
             this.nudOverhangX = new System.Windows.Forms.NumericUpDown();
@@ -84,12 +86,12 @@
             this.lbCaseCount = new System.Windows.Forms.Label();
             this.lbLoadedPalletEfficiencyValue = new System.Windows.Forms.Label();
             this.lbLoadedPalletWeightValue = new System.Windows.Forms.Label();
-            this.lbLoadedPalletDimValues = new System.Windows.Forms.Label();
+            this.lbTotalPalletDimValues = new System.Windows.Forms.Label();
             this.lbLoadedPalletEfficiency = new System.Windows.Forms.Label();
             this.lbLoadedPalletWeight = new System.Windows.Forms.Label();
-            this.lbLoadedPalletDim = new System.Windows.Forms.Label();
-            this.lbMaxPalletWeight = new System.Windows.Forms.Label();
-            this.nudMaxPalletWeight = new System.Windows.Forms.NumericUpDown();
+            this.lbTotalPalletDim = new System.Windows.Forms.Label();
+            this.lbLoadDim = new System.Windows.Forms.Label();
+            this.lbLoadDimValues = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbStackbuilder)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -101,6 +103,7 @@
             this.splitContainer2.SuspendLayout();
             this.tabCtrlContainer.SuspendLayout();
             this.tabPallet.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudMaxPalletWeight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudOverhangY)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudOverhangX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPalletDimX)).BeginInit();
@@ -129,7 +132,6 @@
             this.splitContainer3.Panel1.SuspendLayout();
             this.splitContainer3.Panel2.SuspendLayout();
             this.splitContainer3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudMaxPalletWeight)).BeginInit();
             this.SuspendLayout();
             // 
             // pbStackbuilder
@@ -245,6 +247,28 @@
             this.tabPallet.TabIndex = 0;
             this.tabPallet.Text = "Pallet";
             this.tabPallet.UseVisualStyleBackColor = true;
+            // 
+            // nudMaxPalletWeight
+            // 
+            this.nudMaxPalletWeight.DecimalPlaces = 1;
+            this.nudMaxPalletWeight.Location = new System.Drawing.Point(438, 63);
+            this.nudMaxPalletWeight.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.nudMaxPalletWeight.Name = "nudMaxPalletWeight";
+            this.nudMaxPalletWeight.Size = new System.Drawing.Size(74, 20);
+            this.nudMaxPalletWeight.TabIndex = 72;
+            // 
+            // lbMaxPalletWeight
+            // 
+            this.lbMaxPalletWeight.AutoSize = true;
+            this.lbMaxPalletWeight.Location = new System.Drawing.Point(336, 65);
+            this.lbMaxPalletWeight.Name = "lbMaxPalletWeight";
+            this.lbMaxPalletWeight.Size = new System.Drawing.Size(92, 13);
+            this.lbMaxPalletWeight.TabIndex = 71;
+            this.lbMaxPalletWeight.Text = "Max. pallet weight";
             // 
             // nudOverhangY
             // 
@@ -394,7 +418,7 @@
             this.tabCase.Location = new System.Drawing.Point(4, 22);
             this.tabCase.Name = "tabCase";
             this.tabCase.Padding = new System.Windows.Forms.Padding(3);
-            this.tabCase.Size = new System.Drawing.Size(425, 121);
+            this.tabCase.Size = new System.Drawing.Size(518, 121);
             this.tabCase.TabIndex = 1;
             this.tabCase.Text = "Case";
             this.tabCase.UseVisualStyleBackColor = true;
@@ -735,16 +759,18 @@
             // 
             // splitContainer3.Panel2
             // 
+            this.splitContainer3.Panel2.Controls.Add(this.lbLoadDimValues);
+            this.splitContainer3.Panel2.Controls.Add(this.lbLoadDim);
             this.splitContainer3.Panel2.Controls.Add(this.lbPalletMapPhrase);
             this.splitContainer3.Panel2.Controls.Add(this.lbDescPalletMapPhrase);
             this.splitContainer3.Panel2.Controls.Add(this.lbLoadedPalletCaseCountValue);
             this.splitContainer3.Panel2.Controls.Add(this.lbCaseCount);
             this.splitContainer3.Panel2.Controls.Add(this.lbLoadedPalletEfficiencyValue);
             this.splitContainer3.Panel2.Controls.Add(this.lbLoadedPalletWeightValue);
-            this.splitContainer3.Panel2.Controls.Add(this.lbLoadedPalletDimValues);
+            this.splitContainer3.Panel2.Controls.Add(this.lbTotalPalletDimValues);
             this.splitContainer3.Panel2.Controls.Add(this.lbLoadedPalletEfficiency);
             this.splitContainer3.Panel2.Controls.Add(this.lbLoadedPalletWeight);
-            this.splitContainer3.Panel2.Controls.Add(this.lbLoadedPalletDim);
+            this.splitContainer3.Panel2.Controls.Add(this.lbTotalPalletDim);
             this.splitContainer3.Size = new System.Drawing.Size(934, 441);
             this.splitContainer3.SplitterDistance = 691;
             this.splitContainer3.TabIndex = 0;
@@ -752,7 +778,7 @@
             // lbPalletMapPhrase
             // 
             this.lbPalletMapPhrase.AutoSize = true;
-            this.lbPalletMapPhrase.Location = new System.Drawing.Point(141, 132);
+            this.lbPalletMapPhrase.Location = new System.Drawing.Point(141, 165);
             this.lbPalletMapPhrase.Name = "lbPalletMapPhrase";
             this.lbPalletMapPhrase.Size = new System.Drawing.Size(10, 13);
             this.lbPalletMapPhrase.TabIndex = 39;
@@ -761,7 +787,7 @@
             // lbDescPalletMapPhrase
             // 
             this.lbDescPalletMapPhrase.AutoSize = true;
-            this.lbDescPalletMapPhrase.Location = new System.Drawing.Point(6, 132);
+            this.lbDescPalletMapPhrase.Location = new System.Drawing.Point(6, 165);
             this.lbDescPalletMapPhrase.Name = "lbDescPalletMapPhrase";
             this.lbDescPalletMapPhrase.Size = new System.Drawing.Size(87, 13);
             this.lbDescPalletMapPhrase.TabIndex = 38;
@@ -788,7 +814,7 @@
             // lbLoadedPalletEfficiencyValue
             // 
             this.lbLoadedPalletEfficiencyValue.AutoSize = true;
-            this.lbLoadedPalletEfficiencyValue.Location = new System.Drawing.Point(141, 103);
+            this.lbLoadedPalletEfficiencyValue.Location = new System.Drawing.Point(141, 136);
             this.lbLoadedPalletEfficiencyValue.Name = "lbLoadedPalletEfficiencyValue";
             this.lbLoadedPalletEfficiencyValue.Size = new System.Drawing.Size(36, 13);
             this.lbLoadedPalletEfficiencyValue.TabIndex = 35;
@@ -797,25 +823,25 @@
             // lbLoadedPalletWeightValue
             // 
             this.lbLoadedPalletWeightValue.AutoSize = true;
-            this.lbLoadedPalletWeightValue.Location = new System.Drawing.Point(141, 73);
+            this.lbLoadedPalletWeightValue.Location = new System.Drawing.Point(141, 106);
             this.lbLoadedPalletWeightValue.Name = "lbLoadedPalletWeightValue";
             this.lbLoadedPalletWeightValue.Size = new System.Drawing.Size(40, 13);
             this.lbLoadedPalletWeightValue.TabIndex = 34;
             this.lbLoadedPalletWeightValue.Text = ": 0 (kg)";
             // 
-            // lbLoadedPalletDimValues
+            // lbTotalPalletDimValues
             // 
-            this.lbLoadedPalletDimValues.AutoSize = true;
-            this.lbLoadedPalletDimValues.Location = new System.Drawing.Point(141, 43);
-            this.lbLoadedPalletDimValues.Name = "lbLoadedPalletDimValues";
-            this.lbLoadedPalletDimValues.Size = new System.Drawing.Size(78, 13);
-            this.lbLoadedPalletDimValues.TabIndex = 33;
-            this.lbLoadedPalletDimValues.Text = ": 0 x 0 x 0 (mm)";
+            this.lbTotalPalletDimValues.AutoSize = true;
+            this.lbTotalPalletDimValues.Location = new System.Drawing.Point(141, 76);
+            this.lbTotalPalletDimValues.Name = "lbTotalPalletDimValues";
+            this.lbTotalPalletDimValues.Size = new System.Drawing.Size(78, 13);
+            this.lbTotalPalletDimValues.TabIndex = 33;
+            this.lbTotalPalletDimValues.Text = ": 0 x 0 x 0 (mm)";
             // 
             // lbLoadedPalletEfficiency
             // 
             this.lbLoadedPalletEfficiency.AutoSize = true;
-            this.lbLoadedPalletEfficiency.Location = new System.Drawing.Point(6, 103);
+            this.lbLoadedPalletEfficiency.Location = new System.Drawing.Point(6, 136);
             this.lbLoadedPalletEfficiency.Name = "lbLoadedPalletEfficiency";
             this.lbLoadedPalletEfficiency.Size = new System.Drawing.Size(115, 13);
             this.lbLoadedPalletEfficiency.TabIndex = 32;
@@ -824,42 +850,38 @@
             // lbLoadedPalletWeight
             // 
             this.lbLoadedPalletWeight.AutoSize = true;
-            this.lbLoadedPalletWeight.Location = new System.Drawing.Point(6, 73);
+            this.lbLoadedPalletWeight.Location = new System.Drawing.Point(6, 106);
             this.lbLoadedPalletWeight.Name = "lbLoadedPalletWeight";
             this.lbLoadedPalletWeight.Size = new System.Drawing.Size(105, 13);
             this.lbLoadedPalletWeight.TabIndex = 31;
             this.lbLoadedPalletWeight.Text = "Loaded pallet weight";
             // 
-            // lbLoadedPalletDim
+            // lbTotalPalletDim
             // 
-            this.lbLoadedPalletDim.AutoSize = true;
-            this.lbLoadedPalletDim.Location = new System.Drawing.Point(6, 43);
-            this.lbLoadedPalletDim.Name = "lbLoadedPalletDim";
-            this.lbLoadedPalletDim.Size = new System.Drawing.Size(126, 13);
-            this.lbLoadedPalletDim.TabIndex = 30;
-            this.lbLoadedPalletDim.Text = "Loaded pallet dimensions";
+            this.lbTotalPalletDim.AutoSize = true;
+            this.lbTotalPalletDim.Location = new System.Drawing.Point(6, 76);
+            this.lbTotalPalletDim.Name = "lbTotalPalletDim";
+            this.lbTotalPalletDim.Size = new System.Drawing.Size(114, 13);
+            this.lbTotalPalletDim.TabIndex = 30;
+            this.lbTotalPalletDim.Text = "Total pallet dimensions";
             // 
-            // lbMaxPalletWeight
+            // lbLoadDim
             // 
-            this.lbMaxPalletWeight.AutoSize = true;
-            this.lbMaxPalletWeight.Location = new System.Drawing.Point(336, 65);
-            this.lbMaxPalletWeight.Name = "lbMaxPalletWeight";
-            this.lbMaxPalletWeight.Size = new System.Drawing.Size(92, 13);
-            this.lbMaxPalletWeight.TabIndex = 71;
-            this.lbMaxPalletWeight.Text = "Max. pallet weight";
+            this.lbLoadDim.AutoSize = true;
+            this.lbLoadDim.Location = new System.Drawing.Point(6, 46);
+            this.lbLoadDim.Name = "lbLoadDim";
+            this.lbLoadDim.Size = new System.Drawing.Size(86, 13);
+            this.lbLoadDim.TabIndex = 40;
+            this.lbLoadDim.Text = "Load dimensions";
             // 
-            // nudMaxPalletWeight
+            // lbLoadDimValues
             // 
-            this.nudMaxPalletWeight.DecimalPlaces = 1;
-            this.nudMaxPalletWeight.Location = new System.Drawing.Point(438, 63);
-            this.nudMaxPalletWeight.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.nudMaxPalletWeight.Name = "nudMaxPalletWeight";
-            this.nudMaxPalletWeight.Size = new System.Drawing.Size(74, 20);
-            this.nudMaxPalletWeight.TabIndex = 72;
+            this.lbLoadDimValues.AutoSize = true;
+            this.lbLoadDimValues.Location = new System.Drawing.Point(141, 46);
+            this.lbLoadDimValues.Name = "lbLoadDimValues";
+            this.lbLoadDimValues.Size = new System.Drawing.Size(78, 13);
+            this.lbLoadDimValues.TabIndex = 41;
+            this.lbLoadDimValues.Text = ": 0 x 0 x 0 (mm)";
             // 
             // FormMain
             // 
@@ -885,6 +907,7 @@
             this.tabCtrlContainer.ResumeLayout(false);
             this.tabPallet.ResumeLayout(false);
             this.tabPallet.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudMaxPalletWeight)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudOverhangY)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudOverhangX)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPalletDimX)).EndInit();
@@ -917,7 +940,6 @@
             this.splitContainer3.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
             this.splitContainer3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.nudMaxPalletWeight)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -934,10 +956,10 @@
         private System.Windows.Forms.Label lbCaseCount;
         private System.Windows.Forms.Label lbLoadedPalletEfficiencyValue;
         private System.Windows.Forms.Label lbLoadedPalletWeightValue;
-        private System.Windows.Forms.Label lbLoadedPalletDimValues;
+        private System.Windows.Forms.Label lbTotalPalletDimValues;
         private System.Windows.Forms.Label lbLoadedPalletEfficiency;
         private System.Windows.Forms.Label lbLoadedPalletWeight;
-        private System.Windows.Forms.Label lbLoadedPalletDim;
+        private System.Windows.Forms.Label lbTotalPalletDim;
         private System.Windows.Forms.TabControl tabCtrlContent;
         private System.Windows.Forms.TabPage tabBox;
         private System.Windows.Forms.TabPage tabBundle;
@@ -984,6 +1006,8 @@
         private System.Windows.Forms.CheckBox chkbAllowMultipleLayerOrientations;
         private System.Windows.Forms.NumericUpDown nudMaxPalletWeight;
         private System.Windows.Forms.Label lbMaxPalletWeight;
+        private System.Windows.Forms.Label lbLoadDimValues;
+        private System.Windows.Forms.Label lbLoadDim;
     }
 }
 
