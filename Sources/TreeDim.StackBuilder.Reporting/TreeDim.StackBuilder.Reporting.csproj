@@ -146,6 +146,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="ReporterPDF.cs" />
+    <Compile Include="ReportNode.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TreeDim.EdgeCrushTest\treeDiM.EdgeCrushTest.csproj">

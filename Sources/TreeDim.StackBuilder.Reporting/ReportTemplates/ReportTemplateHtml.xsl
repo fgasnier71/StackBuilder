@@ -500,6 +500,9 @@
       <td class="style2" colspan="1">
         <xsl:value-of select="weight"/>
       </td>
+      <td class="style2" colspan="1">
+        <xsl:apply-templates select="imageThumbSize"/>
+      </td>
     </tr>
   </xsl:template>
   <!--#### ITEM ####-->

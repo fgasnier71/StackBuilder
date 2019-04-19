@@ -17,6 +17,7 @@ namespace treeDiM.StackBuilder.Engine
             new CylinderLayerPatternAligned()
             , new CylinderLayerPatternExpanded()
             , new CylinderLayerPatternStaggered()
+            , new CylinderLayerPatternStaggered2()
             , new CylinderLayerPatternMixed12()
             , new CylinderLayerPatternMixed121()
             , new CylinderLayerPatternMixed212()
@@ -69,14 +70,15 @@ namespace treeDiM.StackBuilder.Engine
         }
 
         #region Non-Public Members
-
-        protected static readonly ILog _log = LogManager.GetLogger(typeof(LayerPatternCyl));
-
         protected double GetRadius(ILayer2D layer)
         {
             return ((Layer2DCyl)layer).CylinderRadius;
         }
-
+        protected double GetDiameter(ILayer2D layer)
+        {
+            return 2.0 * ((Layer2DCyl)layer).CylinderRadius;
+        }
+        protected static readonly ILog _log = LogManager.GetLogger(typeof(LayerPatternCyl));
         #endregion
     }
 }

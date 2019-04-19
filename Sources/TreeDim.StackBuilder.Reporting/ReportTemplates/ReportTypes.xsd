@@ -334,6 +334,7 @@
       <xs:element name="name" minOccurs="1" maxOccurs="1" type="xs:string"/>
       <xs:element name="count" minOccurs="1" maxOccurs="1" type="xs:string"/>
       <xs:element name="weight" minOccurs="1" maxOccurs="1" type="xs:string"/>
+      <xs:element name="imageThumbSize" minOccurs="1" maxOccurs="1" type="rpt:imageThumbSize"/>
     </xs:sequence>
   </xs:complexType>
   <!--ITEMQUANTITY : END-->
