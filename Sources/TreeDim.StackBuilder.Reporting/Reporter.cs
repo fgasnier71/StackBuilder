@@ -640,16 +640,24 @@ namespace treeDiM.StackBuilder.Reporting
                     default: break;
                 }
                 // instantiate graphics
-                Graphics3DImage graphics = new Graphics3DImage(new Size(imageWidth, imageWidth));
-                graphics.FontSizeRatio = FontSizeRatioLarge;
-                // set camera position 
-                graphics.CameraPosition = cameraPos;
-                graphics.ShowDimensions = showDimLocal && ShowDimensions;
+                Graphics3DImage graphics = new Graphics3DImage(new Size(imageWidth, imageWidth))
+                {
+                    FontSizeRatio = FontSizeRatioLarge,
+                    CameraPosition = cameraPos,
+                    ShowDimensions = showDimLocal && ShowDimensions
+                };
 
-                // instantiate solution viewer
-                ViewerSolution sv = new ViewerSolution(sol);
-                sv.Draw(graphics, Transform3D.Identity);
-                graphics.Flush();
+                try
+                {
+                    // instantiate solution viewer
+                    ViewerSolution sv = new ViewerSolution(sol);
+                    sv.Draw(graphics, Transform3D.Identity);
+                    graphics.Flush();
+                }
+                catch (Exception ex)
+                {
+                    _log.Error(ex.ToString());
+                }
                 // image path
                 string imagePath = SaveImageAs(graphics.Bitmap);
 
@@ -1469,7 +1477,10 @@ namespace treeDiM.StackBuilder.Reporting
             if (!WriteImageFiles) return string.Empty;
             string fileName = string.Format("image_{0}.png", ++_imageIndex);
             try { bmp.Save(Path.Combine(ImageDirectory, fileName), System.Drawing.Imaging.ImageFormat.Png); }
-            catch (Exception ex) { _log.Error(ex.ToString()); }
+            catch (Exception ex)
+            {
+                _log.Error(ex.ToString());
+            }
             return @"images\" + fileName;
         }
         public string ToAbsolute(string pathString)

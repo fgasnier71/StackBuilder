@@ -127,14 +127,20 @@ namespace treeDiM.StackBuilder.Graphics
             }
             else if (analysis is AnalysisPackableCase analysisPackableCase)
             {
-                // draw case (inside)
+                // ### draw case (inside)
                 Case case_ = new Case(analysisPackableCase.CaseProperties);
                 case_.DrawInside(graphics, transform);
             }
-            else if (analysis is AnalysisPackableTruck analysisPackableTruck1)
-            { 
+            else if (analysis is AnalysisPackableTruck analysisPackableTruck)
+            {
                 // ### draw truck
-                Truck truck = new Truck(analysisPackableTruck1.TruckProperties);
+                Truck truck = new Truck(analysisPackableTruck.TruckProperties);
+                truck.DrawBegin(graphics);
+            }
+            else if (analysis is AnalysisPalletTruck analysisPalletTruck)
+            {
+                // ### draw truck
+                Truck truck = new Truck(analysisPalletTruck.TruckProperties);
                 truck.DrawBegin(graphics);
             }
             // ### draw solution
@@ -348,7 +354,11 @@ namespace treeDiM.StackBuilder.Graphics
                 Truck truck = new Truck(analysisPackableTruck2.TruckProperties);
                 truck.DrawEnd(graphics);
             }
-
+            else if (analysis is AnalysisPalletTruck analysisPalletTruck)
+            {
+                Truck truck = new Truck(analysisPalletTruck.TruckProperties);
+                truck.DrawEnd(graphics);
+            }
             // ### dimensions
             // dimensions should only be shown when no layer is selected
             if (graphics.ShowDimensions && (-1 == _solution.SelectedLayerIndex))

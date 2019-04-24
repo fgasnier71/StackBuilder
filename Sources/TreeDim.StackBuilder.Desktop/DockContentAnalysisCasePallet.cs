@@ -115,8 +115,8 @@ namespace treeDiM.StackBuilder.Desktop
             {
                 if (cbPalletCorners.Items.Count > 0 && chkbPalletCorners.Checked)
                 {
-                    ItemBaseCB item = cbPalletCorners.SelectedItem as ItemBaseCB;
-                    return  item.Item as PalletCornerProperties;
+                    if (cbPalletCorners.SelectedItem is ItemBaseCB item)
+                        return  item.Item as PalletCornerProperties;
                 }
                 return null;
             }
@@ -127,8 +127,8 @@ namespace treeDiM.StackBuilder.Desktop
             {
                 if (cbPalletCap.Items.Count > 0 && chkbPalletCap.Checked)
                 {
-                    ItemBaseCB item = cbPalletCap.SelectedItem as ItemBaseCB;
-                    return item.Item as PalletCapProperties;
+                    if (cbPalletCap.SelectedItem is ItemBaseCB item)
+                        return item.Item as PalletCapProperties;
                 }
                 return null;
             }
@@ -139,8 +139,8 @@ namespace treeDiM.StackBuilder.Desktop
             {
                 if (cbPalletFilm.Items.Count > 0 && chkbPalletFilm.Checked)
                 {
-                    ItemBaseCB item = cbPalletFilm.SelectedItem as ItemBaseCB;
-                    return item.Item as PalletFilmProperties;
+                    if (cbPalletFilm.SelectedItem is ItemBaseCB item)
+                        return item.Item as PalletFilmProperties;
                 }
                 return null;
             }

@@ -451,7 +451,7 @@ namespace treeDiM.StackBuilder.Graphics
                 double xmin = double.MaxValue,
                     ymin = double.MaxValue,
                     zmin = double.MaxValue;
-                foreach (Vector3D v in this.Points)
+                foreach (Vector3D v in Points)
                 {
                     xmin = Math.Min(v.X, xmin);
                     ymin = Math.Min(v.Y, ymin);
@@ -489,7 +489,7 @@ namespace treeDiM.StackBuilder.Graphics
         #endregion
 
         #region Points / Faces / Triangles
-        public Vector3D[] Points
+        public override Vector3D[] Points
         {
             get
             {

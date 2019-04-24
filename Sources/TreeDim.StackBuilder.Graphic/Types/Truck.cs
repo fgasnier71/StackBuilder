@@ -18,19 +18,17 @@ namespace treeDiM.StackBuilder.Graphics
     {
         #region Data members
         private uint _pickId = 0;
-        private double _length, _width, _height;
-        private Color _colorFill, _colorPath;
         private Vector3D[] _points;
         #endregion
 
         #region Constructor
         public Truck(TruckProperties truckProperties)
         {
-            _length = truckProperties.Length;
-            _width = truckProperties.Width;
-            _height = truckProperties.Height;
-            _colorFill = truckProperties.Color;
-            _colorPath = Color.Black;
+            Length = truckProperties.Length;
+            Width = truckProperties.Width;
+            Height = truckProperties.Height;
+            ColorFill = truckProperties.Color;
+            ColorPath = Color.Black;
         }
         #endregion
 
@@ -72,14 +70,14 @@ namespace treeDiM.StackBuilder.Graphics
                 seg1 = new int[2] { 4, 5 };
                 seg2 = new int[2] { 0, 4 };
             }
-            graphics.AddSegment(new Segment(Points[seg0[0]], Points[seg0[1]], _colorPath) );
-            graphics.AddSegment(new Segment(Points[seg1[0]], Points[seg1[1]], _colorPath));
-            graphics.AddSegment(new Segment(Points[seg2[0]], Points[seg2[1]], _colorPath));
+            graphics.AddSegment(new Segment(Points[seg0[0]], Points[seg0[1]], ColorPath) );
+            graphics.AddSegment(new Segment(Points[seg1[0]], Points[seg1[1]], ColorPath));
+            graphics.AddSegment(new Segment(Points[seg2[0]], Points[seg2[1]], ColorPath));
         }
         #endregion
 
         #region Public properties
-        public Vector3D[] Points
+        public override Vector3D[] Points
         {
             get
             {
@@ -87,14 +85,14 @@ namespace treeDiM.StackBuilder.Graphics
                 {
                     _points = new Vector3D[8];
                     _points[0] = new Vector3D(0.0, 0.0, 0.0);
-                    _points[1] = new Vector3D(_length, 0.0, 0.0);
-                    _points[2] = new Vector3D(_length, _width, 0.0);
-                    _points[3] = new Vector3D(0.0, _width, 0.0);
+                    _points[1] = new Vector3D(Length, 0.0, 0.0);
+                    _points[2] = new Vector3D(Length, Width, 0.0);
+                    _points[3] = new Vector3D(0.0, Width, 0.0);
 
-                    _points[4] = new Vector3D(0.0, 0.0, _height);
-                    _points[5] = new Vector3D(_length, 0.0, _height);
-                    _points[6] = new Vector3D(_length, _width, _height);
-                    _points[7] = new Vector3D(0.0, _width, _height);
+                    _points[4] = new Vector3D(0.0, 0.0, Height);
+                    _points[5] = new Vector3D(Length, 0.0, Height);
+                    _points[6] = new Vector3D(Length, Width, Height);
+                    _points[7] = new Vector3D(0.0, Width, Height);
                 }
                 return _points;
             }
@@ -107,20 +105,20 @@ namespace treeDiM.StackBuilder.Graphics
                 Segment[] segments = new Segment[12];
                 Vector3D[] points = Points;
 
-                segments[0] = new Segment(points[0], points[1], _colorPath);
-                segments[1] = new Segment(points[1], points[2], _colorPath);
-                segments[2] = new Segment(points[2], points[3], _colorPath);
-                segments[3] = new Segment(points[3], points[0], _colorPath);
+                segments[0] = new Segment(points[0], points[1], ColorPath);
+                segments[1] = new Segment(points[1], points[2], ColorPath);
+                segments[2] = new Segment(points[2], points[3], ColorPath);
+                segments[3] = new Segment(points[3], points[0], ColorPath);
 
-                segments[4] = new Segment(points[4], points[5], _colorPath);
-                segments[5] = new Segment(points[5], points[6], _colorPath);
-                segments[6] = new Segment(points[6], points[7], _colorPath);
-                segments[7] = new Segment(points[7], points[4], _colorPath);
+                segments[4] = new Segment(points[4], points[5], ColorPath);
+                segments[5] = new Segment(points[5], points[6], ColorPath);
+                segments[6] = new Segment(points[6], points[7], ColorPath);
+                segments[7] = new Segment(points[7], points[4], ColorPath);
 
-                segments[8] = new Segment(points[0], points[4], _colorPath);
-                segments[9] = new Segment(points[1], points[5], _colorPath);
-                segments[10] = new Segment(points[2], points[6], _colorPath);
-                segments[11] = new Segment(points[3], points[7], _colorPath);
+                segments[8] = new Segment(points[0], points[4], ColorPath);
+                segments[9] = new Segment(points[1], points[5], ColorPath);
+                segments[10] = new Segment(points[2], points[6], ColorPath);
+                segments[11] = new Segment(points[3], points[7], ColorPath);
 
                 return segments;
             }
@@ -133,15 +131,21 @@ namespace treeDiM.StackBuilder.Graphics
                 Face[] faces = new Face[5];
                 Vector3D[] points = Points;
 
-                faces[0] = new Face(_pickId, new Vector3D[] { points[3], points[2], points[1], points[0] }, _colorFill, _colorPath, false);    // AXIS_Z_P
-                faces[1] = new Face(_pickId, new Vector3D[] { points[1], points[5], points[4], points[0] }, _colorFill, _colorPath, false);    // AXIS_Y_P
-                faces[2] = new Face(_pickId, new Vector3D[] { points[3], points[7], points[6], points[2] }, _colorFill, _colorPath, false);    // AXIS_Y_N
-                faces[3] = new Face(_pickId, new Vector3D[] { points[2], points[6], points[5], points[1] }, _colorFill, _colorPath, false);    // AXIS_X_N
-                faces[4] = new Face(_pickId, new Vector3D[] { points[4], points[7], points[3], points[0] }, _colorFill, _colorPath, false);    // AXIS_X_P
+                faces[0] = new Face(_pickId, new Vector3D[] { points[3], points[2], points[1], points[0] }, ColorFill, ColorPath, false);    // AXIS_Z_P
+                faces[1] = new Face(_pickId, new Vector3D[] { points[1], points[5], points[4], points[0] }, ColorFill, ColorPath, false);    // AXIS_Y_P
+                faces[2] = new Face(_pickId, new Vector3D[] { points[3], points[7], points[6], points[2] }, ColorFill, ColorPath, false);    // AXIS_Y_N
+                faces[3] = new Face(_pickId, new Vector3D[] { points[2], points[6], points[5], points[1] }, ColorFill, ColorPath, false);    // AXIS_X_N
+                faces[4] = new Face(_pickId, new Vector3D[] { points[4], points[7], points[3], points[0] }, ColorFill, ColorPath, false);    // AXIS_X_P
 
                 return faces;
             }
         }
+
+        public double Length { get; set; }
+        public double Width { get; set; }
+        public double Height { get; set; }
+        public Color ColorFill { get; set; }
+        public Color ColorPath { get; set; }
         #endregion
     }
 }

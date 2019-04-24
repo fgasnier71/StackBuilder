@@ -54,7 +54,7 @@ namespace treeDiM.StackBuilder.Graphics
         { get { return _dim[1]; } }
         public double Height
         { get { return _dim[2]; } }
-        public Face[] Faces
+        public override Vector3D[] Points
         {
             get
             {
@@ -64,15 +64,24 @@ namespace treeDiM.StackBuilder.Graphics
                 Vector3D heightAxis = HeightAxis;
 
                 Vector3D[] points = new Vector3D[8];
+
                 points[0] = position;
                 points[1] = position + _dim[0] * axisLength;
                 points[2] = position + _dim[0] * axisLength + _dim[1] * axisWidth;
                 points[3] = position + _dim[1] * axisWidth;
-
                 points[4] = position + _dim[2] * heightAxis;
                 points[5] = position + _dim[2] * heightAxis + _dim[0] * axisLength;
                 points[6] = position + _dim[2] * heightAxis + _dim[0] * axisLength + _dim[1] * axisWidth;
                 points[7] = position + _dim[2] * heightAxis + _dim[1] * axisWidth;
+
+                return points;
+            }
+        }
+        public Face[] Faces
+        {
+            get
+            {
+                Vector3D[] points = Points;
 
                 Face[] faces = new Face[6];
                 faces[0] = new Face(_pickId, new Vector3D[] { points[3], points[0], points[4], points[7] }, true); // AXIS_X_N

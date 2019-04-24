@@ -88,8 +88,8 @@ namespace treeDiM.StackBuilder.Graphics
 
                 for (int i = 0; i < _noFaces; ++i)
                 {
-                    double angleBeg = (double)i * 2.0 * Math.PI / (double)_noFaces;
-                    double angleEnd = (double)(i + 1) * 2.0 * Math.PI / (double)_noFaces;
+                    double angleBeg = i * 2.0 * Math.PI / _noFaces;
+                    double angleEnd = (i + 1) * 2.0 * Math.PI / _noFaces;
                     Vector3D vRadiusBeg = new Vector3D(0.0, Math.Cos(angleBeg), Math.Sin(angleBeg));
                     Vector3D vRadiusEnd = new Vector3D(0.0, Math.Cos(angleEnd), Math.Sin(angleEnd));
                     Vector3D vLength = _height * Vector3D.XAxis;
@@ -112,8 +112,8 @@ namespace treeDiM.StackBuilder.Graphics
                 Face[] faces = new Face[2 * _noFaces];
                 for (uint i = 0; i < _noFaces; ++i)
                 {
-                    double angleBeg = (double)i * 2.0 * Math.PI / (double)_noFaces;
-                    double angleEnd = (double)(i + 1) * 2.0 * Math.PI / (double)_noFaces;
+                    double angleBeg = i * 2.0 * Math.PI / _noFaces;
+                    double angleEnd = (i + 1) * 2.0 * Math.PI / _noFaces;
                     Vector3D vRadiusBeg = new Vector3D(0.0, Math.Cos(angleBeg), Math.Sin(angleBeg));
                     Vector3D vRadiusEnd = new Vector3D(0.0, Math.Cos(angleEnd), Math.Sin(angleEnd));
                     Vector3D vLength = _height * Vector3D.XAxis;
@@ -128,8 +128,8 @@ namespace treeDiM.StackBuilder.Graphics
 
                 for (uint i = 0; i < _noFaces; ++i)
                 {
-                    double angleBeg = (double)i * 2.0 * Math.PI / (double)_noFaces;
-                    double angleEnd = (double)(i + 1) * 2.0 * Math.PI / (double)_noFaces;
+                    double angleBeg = i * 2.0 * Math.PI / _noFaces;
+                    double angleEnd = (i + 1) * 2.0 * Math.PI / _noFaces;
                     Vector3D vRadiusBeg = new Vector3D(0.0, Math.Cos(angleBeg), Math.Sin(angleBeg));
                     Vector3D vRadiusEnd = new Vector3D(0.0, Math.Cos(angleEnd), Math.Sin(angleEnd));
                     Vector3D vLength = _height * Vector3D.XAxis;
@@ -191,6 +191,22 @@ namespace treeDiM.StackBuilder.Graphics
                     double angle = i * 2.0 * Math.PI / _noFaces;
                     Vector3D vRadius = new Vector3D(0.0, Math.Cos(angle), Math.Sin(angle));
                     pts[i] = t.transform(_radiusOuter * vRadius + _height * Vector3D.XAxis);
+                }
+                return pts;
+            }
+        }
+        public override Vector3D[] Points
+        {
+            get
+            {
+                Transform3D t = _cylPosition.Transf;
+                var pts = new Vector3D[8];
+                for (int i = 0; i < 4; ++i)
+                {
+                    double angle = i *  Math.PI / 2.0;
+                    var vRadius = new Vector3D(0.0, Math.Cos(angle), Math.Sin(angle));
+                    pts[i] = t.transform(_radiusOuter * vRadius);
+                    pts[i + 4] = t.transform(_radiusOuter * vRadius + _height * Vector3D.XAxis);
                 }
                 return pts;
             }

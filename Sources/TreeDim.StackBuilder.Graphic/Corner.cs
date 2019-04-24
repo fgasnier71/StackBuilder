@@ -68,7 +68,7 @@ namespace treeDiM.StackBuilder.Graphics
             _widthAxis = widthAxis;
         }
 
-        public Vector3D[] Points
+        public override Vector3D[] Points
         {
             get
             {

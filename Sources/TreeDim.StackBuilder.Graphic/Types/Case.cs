@@ -51,7 +51,7 @@ namespace treeDiM.StackBuilder.Graphics
         /// <summary>
         /// Points
         /// </summary>
-        public Vector3D[] Points
+        public override Vector3D[] Points
         {
             get
             {

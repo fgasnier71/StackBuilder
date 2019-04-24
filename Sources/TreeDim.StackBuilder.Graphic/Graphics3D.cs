@@ -55,7 +55,7 @@ namespace treeDiM.StackBuilder.Graphics
         /// </summary>
         private List<DimensionCube> _dimensions = new List<DimensionCube>();
         private uint _boxDrawingCounter = 0;
-        private static double _cameraDistance = 100000.0;
+        private static readonly double _cameraDistance = 100000.0;
 
         public static readonly Vector3D Front = new Vector3D(_cameraDistance, 0.0, 0.0);
         public static readonly Vector3D Back = new Vector3D(-_cameraDistance, 0.0, 0.0);
@@ -485,9 +485,11 @@ namespace treeDiM.StackBuilder.Graphics
 
                 if (UseBoxelOrderer && false) // NOT WORKING ? 
                 {
-                    BoxelOrderer boxelOrderer = new BoxelOrderer(boxesImage);
-                    boxelOrderer.TuneParam = 10.0;
-                    boxelOrderer.Direction = Target - CameraPosition;
+                    BoxelOrderer boxelOrderer = new BoxelOrderer(boxesImage)
+                    {
+                        TuneParam = 10.0,
+                        Direction = Target - CameraPosition
+                    };
                     boxesImage = boxelOrderer.GetSortedList();
                 }
                 else
@@ -531,122 +533,64 @@ namespace treeDiM.StackBuilder.Graphics
                 // build automatic viewport
                 if (_autoViewport)
                 {
-                    Vector3D vecMin = new Vector3D(double.MaxValue, double.MaxValue, double.MaxValue);
-                    Vector3D vecMax = new Vector3D(double.MinValue, double.MinValue, double.MinValue);
+                    BBox3D bbox = new BBox3D();
 
                     // boxes
-                    foreach (Box box in Boxes)
-                        foreach (Vector3D pt in box.Points)
-                        {
-                            Vector3D ptT = world2eye.transform(pt);
-                            vecMin.X = Math.Min(vecMin.X, ptT.X);
-                            vecMin.Y = Math.Min(vecMin.Y, ptT.Y);
-                            vecMin.Z = Math.Min(vecMin.Z, ptT.Z);
-                            vecMax.X = Math.Max(vecMax.X, ptT.X);
-                            vecMax.Y = Math.Max(vecMax.Y, ptT.Y);
-                            vecMax.Z = Math.Max(vecMax.Z, ptT.Z);
-                        }
+                    foreach (var box in Boxes)
+                       bbox.Extend( box.GetBBox(world2eye) );
                     // triangles
                     foreach (var tr in Triangles)
                         foreach (Vector3D pt in tr.Points)
-                        {
-                            Vector3D ptT = world2eye.transform(pt);
-                            vecMin.X = Math.Min(vecMin.X, ptT.X);
-                            vecMin.Y = Math.Min(vecMin.Y, ptT.Y);
-                            vecMin.Z = Math.Min(vecMin.Z, ptT.Z);
-                            vecMax.X = Math.Max(vecMax.X, ptT.X);
-                            vecMax.Y = Math.Max(vecMax.Y, ptT.Y);
-                            vecMax.Z = Math.Max(vecMax.Z, ptT.Z);
-                        }
+                            bbox.Extend(world2eye.transform(pt));
                     // cylinders
-                    foreach (Cylinder cyl in Cylinders)
-                    {
-                        foreach (Vector3D pt in cyl.BottomPoints)
-                        {
-                            Vector3D ptT = world2eye.transform(pt);
-                            vecMin.X = Math.Min(vecMin.X, ptT.X);
-                            vecMin.Y = Math.Min(vecMin.Y, ptT.Y);
-                            vecMin.Z = Math.Min(vecMin.Z, ptT.Z);
-                            vecMax.X = Math.Max(vecMax.X, ptT.X);
-                            vecMax.Y = Math.Max(vecMax.Y, ptT.Y);
-                            vecMax.Z = Math.Max(vecMax.Z, ptT.Z);
-                        }
-                        foreach (Vector3D pt in cyl.TopPoints)
-                        {
-                            Vector3D ptT = world2eye.transform(pt);
-                            vecMin.X = Math.Min(vecMin.X, ptT.X);
-                            vecMin.Y = Math.Min(vecMin.Y, ptT.Y);
-                            vecMin.Z = Math.Min(vecMin.Z, ptT.Z);
-                            vecMax.X = Math.Max(vecMax.X, ptT.X);
-                            vecMax.Y = Math.Max(vecMax.Y, ptT.Y);
-                            vecMax.Z = Math.Max(vecMax.Z, ptT.Z);
-                        }
-                    }
+                    foreach (var cyl in Cylinders)
+                        bbox.Extend(cyl.GetBBox(world2eye));
                     // faces
                     foreach (Face face in Faces)
                         foreach (Vector3D pt in face.Points)
-                        {
-                            Vector3D ptT = world2eye.transform(pt);
-                            vecMin.X = Math.Min(vecMin.X, ptT.X);
-                            vecMin.Y = Math.Min(vecMin.Y, ptT.Y);
-                            vecMin.Z = Math.Min(vecMin.Z, ptT.Z);
-                            vecMax.X = Math.Max(vecMax.X, ptT.X);
-                            vecMax.Y = Math.Max(vecMax.Y, ptT.Y);
-                            vecMax.Z = Math.Max(vecMax.Z, ptT.Z);
-                        }
-
+                            bbox.Extend( world2eye.transform(pt) );
                     // segments
                     foreach (Segment seg in Segments)
                         foreach (Vector3D pt in seg.Points)
-                        {
-                            Vector3D ptT = world2eye.transform(pt);
-                            vecMin.X = Math.Min(vecMin.X, ptT.X);
-                            vecMin.Y = Math.Min(vecMin.Y, ptT.Y);
-                            vecMin.Z = Math.Min(vecMin.Z, ptT.Z);
-                            vecMax.X = Math.Max(vecMax.X, ptT.X);
-                            vecMax.Y = Math.Max(vecMax.Y, ptT.Y);
-                            vecMax.Z = Math.Max(vecMax.Z, ptT.Z);
-                        }
-
+                            bbox.Extend( world2eye.transform(pt) );
                     // cube dimensions
                     foreach (DimensionCube dimCube in _dimensions)
                         foreach (Vector3D pt in dimCube.DrawingPoints(this))
-                        {
-                            Vector3D ptT = world2eye.transform(pt);
-                            vecMin.X = Math.Min(vecMin.X, ptT.X);
-                            vecMin.Y = Math.Min(vecMin.Y, ptT.Y);
-                            vecMin.Z = Math.Min(vecMin.Z, ptT.Z);
-                            vecMax.X = Math.Max(vecMax.X, ptT.X);
-                            vecMax.Y = Math.Max(vecMax.Y, ptT.Y);
-                            vecMax.Z = Math.Max(vecMax.Z, ptT.Z);
-                        }
+                           bbox.Extend( world2eye.transform(pt) );
+                    // image inst
+                    foreach (var imageInst in _listImageInst)
+                        bbox.Extend(world2eye.transform(imageInst.PointBase));
 
-                    Vector3D vecMin1 = vecMin, vecMax1 = vecMax;
-                    // adjust width/height
-                    if ((vecMax.Y - vecMin.Y) / Size.Height > (vecMax.X - vecMin.X) / Size.Width)
+                    if (bbox.IsValid)
                     {
-                        double actualWidth = (vecMax.Y - vecMin.Y) * Size.Width / Size.Height;
-                        vecMin1.X = 0.5 * (vecMin.X + vecMax.X) - 0.5 * actualWidth;
-                        vecMax1.X = 0.5 * (vecMin.X + vecMax.X) + 0.5 * actualWidth;
+                        Vector3D vecMin1 = bbox.PtMin, vecMax1 = bbox.PtMax;
+                        // adjust width/height
+                        if ((bbox.PtMax.Y - bbox.PtMin.Y) / Size.Height > (bbox.PtMax.X - bbox.PtMin.X) / Size.Width)
+                        {
+                            double actualWidth = (bbox.PtMax.Y - bbox.PtMin.Y) * Size.Width / Size.Height;
+                            vecMin1.X = 0.5 * (bbox.PtMin.X + bbox.PtMax.X) - 0.5 * actualWidth;
+                            vecMax1.X = 0.5 * (bbox.PtMin.X + bbox.PtMax.X) + 0.5 * actualWidth;
+                        }
+                        else
+                        {
+                            double actualHeight = (bbox.PtMax.X - bbox.PtMin.X) * Size.Height / Size.Width;
+                            vecMin1.Y = 0.5 * (bbox.PtMin.Y + bbox.PtMax.Y) - 0.5 * actualHeight;
+                            vecMax1.Y = 0.5 * (bbox.PtMin.Y + bbox.PtMax.Y) + 0.5 * actualHeight;
+                        }
+                        // set margins
+                        double width = vecMax1.X - vecMin1.X;
+                        vecMin1.X -= MarginPercentage * width;
+                        vecMax1.X += MarginPercentage * width;
+                        double height = vecMax1.Y - vecMin1.Y;
+                        vecMin1.Y -= MarginPercentage * height;
+                        vecMax1.Y += MarginPercentage * height;
+
+                        orthographicProj = GetOrthographicProjection(vecMin1, vecMax1);
                     }
                     else
-                    {
-                        double actualHeight = (vecMax.X - vecMin.X) * Size.Height / Size.Width;
-                        vecMin1.Y = 0.5 * (vecMin.Y + vecMax.Y) - 0.5 * actualHeight;
-                        vecMax1.Y = 0.5 * (vecMin.Y + vecMax.Y) + 0.5 * actualHeight;
-                    }
-                    // set margins
-                    double width = vecMax1.X - vecMin1.X;
-                    vecMin1.X -= MarginPercentage * width;
-                    vecMax1.X += MarginPercentage * width;
-                    double height = vecMax1.Y - vecMin1.Y;
-                    vecMin1.Y -= MarginPercentage * height;
-                    vecMax1.Y += MarginPercentage * height;
-
-                    orthographicProj = GetOrthographicProjection(vecMin1, vecMax1);
+                        _log.Warn("Graphics3D.GetCurrentTransformation() -> BBox invalid : can not compute viewport automatically");
                 }
                 CurrentTransf = orthographicProj * world2eye;
-                //CurrentTransf = GetPerspectiveTransformation2(_viewport[2] - _viewport[0], _viewport[3]-_viewport[1], 100, 1000.0, 45.0)* world2eye; 
             }
             return CurrentTransf;
         }
@@ -998,14 +942,28 @@ namespace treeDiM.StackBuilder.Graphics
 
         internal void Draw(ImageInst img)
         {
-            Point ptImg = TransformPoint(GetCurrentTransformation(), img.PointBase);
+            try
+            {
+                Point ptImg = TransformPoint(GetCurrentTransformation(), img.PointBase);
 
-            Bitmap bmp = null;
-            Point ptOffset = Point.Empty;
-            GetCachedBitmap(img, ref bmp, ref ptOffset);
-            
-            System.Drawing.Graphics g = Graphics;
-            g.DrawImage(bmp, new Point(ptImg.X - ptOffset.X, ptImg.Y - ptOffset.Y));
+                Bitmap bmp = null;
+                Point ptOffset = Point.Empty;
+                GetCachedBitmap(img, ref bmp, ref ptOffset);
+
+                if (ptImg.X > 0 || ptImg.Y > 0)
+                {
+                    System.Drawing.Graphics g = Graphics;
+                    g.DrawImage(bmp, new Point(ptImg.X - ptOffset.X, ptImg.Y - ptOffset.Y));
+                }
+                else
+                {
+                    _log.Error("Invalid image position");
+                }
+            }
+            catch (Exception ex)
+            {
+                _log.Error(ex.ToString());
+            }
         }
         internal void GetCachedBitmap(ImageInst img, ref Bitmap bmp, ref Point offset)
         {

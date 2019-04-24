@@ -149,7 +149,6 @@ namespace treeDiM.StackBuilder.Graphics
     public class Film : Drawable
     {
         #region Data members
-        private bool _hasTransparency = false, _hasHatching = false;
         private double _hatchSpacing, _hatchAngle;
         private Color _color;
         private List<FilmRectangle> _rectangles = new List<FilmRectangle>();
@@ -159,16 +158,16 @@ namespace treeDiM.StackBuilder.Graphics
         public Film(Color color, bool transparency, bool hatching, double hatchSpacing, double hatchAngle)
         {
             _color = color;
-            _hasTransparency = transparency;
-            _hasHatching = hatching;
+            HasTransparency = transparency;
+            HasHatching = hatching;
             _hatchSpacing = hatchSpacing;
             _hatchAngle = hatchAngle;
         }
         #endregion
 
         #region Public methods
-        public bool HasTransparency { get { return _hasTransparency; } }
-        public bool HasHatching { get { return _hasHatching; } }
+        public bool HasTransparency { get; } = false;
+        public bool HasHatching { get; } = false;
 
         public void AddRectangle(FilmRectangle rect)
         {
@@ -196,7 +195,7 @@ namespace treeDiM.StackBuilder.Graphics
         {
             foreach (FilmRectangle rectangle in _rectangles)
             {
-                double cosA = System.Math.Abs(Vector3D.DotProduct(rectangle.Normal, graph.ViewDirection));
+                double cosA = Math.Abs(Vector3D.DotProduct(rectangle.Normal, graph.ViewDirection));
                 Color color = Color.FromArgb(
                     255
                     , (int)(rectangle.Color.R * cosA)

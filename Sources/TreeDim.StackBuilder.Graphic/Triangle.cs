@@ -87,9 +87,9 @@ namespace treeDiM.StackBuilder.Graphics
                 points[i] = transf.transform(Points[i]);
             return new Triangle(PickId, points, DrawPath)
             {
-                IsSolid = this.IsSolid,
-                ColorFill = this.ColorFill,
-                ColorPath = this.ColorPath
+                IsSolid = IsSolid,
+                ColorFill = ColorFill,
+                ColorPath = ColorPath
             };
         }
         public void Swap12()

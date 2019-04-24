@@ -23,11 +23,6 @@ namespace treeDiM.StackBuilder.Basics
     #region BBox3D
     public class BBox3D : ICloneable
     {
-        #region Data members
-        private Vector3D _ptMin = new Vector3D(double.MaxValue, double.MaxValue, double.MaxValue);
-        private Vector3D _ptMax = new Vector3D(double.MinValue, double.MinValue, double.MinValue);
-        #endregion
-
         #region Constructor
         public BBox3D()
         {
@@ -44,8 +39,8 @@ namespace treeDiM.StackBuilder.Basics
         }
         public BBox3D(BBox3D box)
         {
-            _ptMin = new Vector3D(box._ptMin);
-            _ptMax = new Vector3D(box._ptMax);
+            PtMin = new Vector3D(box.PtMin);
+            PtMax = new Vector3D(box.PtMax);
         }
         #endregion
 
@@ -56,75 +51,61 @@ namespace treeDiM.StackBuilder.Basics
         #region Public methods
         public bool IsValid
         {
-            get { return (_ptMin.X <= _ptMax.X) && (_ptMin.Y <= _ptMax.Y) && (_ptMin.Z <= _ptMax.Z); }
+            get { return (PtMin.X <= PtMax.X) && (PtMin.Y <= PtMax.Y) && (PtMin.Z <= PtMax.Z); }
         }
         public void Reset()
         {
-            _ptMin = new Vector3D(double.MaxValue, double.MaxValue, double.MaxValue);
-            _ptMax = new Vector3D(double.MinValue, double.MinValue, double.MinValue);
+            PtMin = new Vector3D(double.MaxValue, double.MaxValue, double.MaxValue);
+            PtMax = new Vector3D(double.MinValue, double.MinValue, double.MinValue);
         }
         public void Extend(Vector3D vec)
         {
-            _ptMin.X = Math.Min(_ptMin.X, vec.X);
-            _ptMin.Y = Math.Min(_ptMin.Y, vec.Y);
-            _ptMin.Z = Math.Min(_ptMin.Z, vec.Z);
-
-            _ptMax.X = Math.Max(_ptMax.X, vec.X);
-            _ptMax.Y = Math.Max(_ptMax.Y, vec.Y);
-            _ptMax.Z = Math.Max(_ptMax.Z, vec.Z);
-
+            PtMin = new Vector3D(Math.Min(PtMin.X, vec.X), Math.Min(PtMin.Y, vec.Y), Math.Min(PtMin.Z, vec.Z));
+            PtMax = new Vector3D( Math.Max(PtMax.X, vec.X), Math.Max(PtMax.Y, vec.Y), Math.Max(PtMax.Z, vec.Z));
         }
         public void Extend(BBox3D box)
         {
-            _ptMin.X = Math.Min(_ptMin.X, box._ptMin.X);
-            _ptMin.Y = Math.Min(_ptMin.Y, box._ptMin.Y);
-            _ptMin.Z = Math.Min(_ptMin.Z, box._ptMin.Z);
-            _ptMax.X = Math.Max(_ptMax.X, box._ptMax.X);
-            _ptMax.Y = Math.Max(_ptMax.Y, box._ptMax.Y);
-            _ptMax.Z = Math.Max(_ptMax.Z, box._ptMax.Z);
+            Extend(box.PtMin);
+            Extend(box.PtMax);
         }
         public void Inflate(double margin)
         {
             if (!IsValid)
                 throw new InvalidBBoxException("Box is invalid: can not set margin");
-            _ptMin.X -= margin;
-            _ptMax.X += margin;
-            _ptMin.Y -= margin;
-            _ptMax.Y += margin;
-            _ptMin.Z -= margin;
-            _ptMax.Z += margin;
+            PtMin = PtMin - new Vector3D(margin, margin, margin);
+            PtMax = PtMax + new Vector3D(margin, margin, margin);
         }
         #endregion
 
         #region Public properties
-        public double Length { get { return _ptMax.X - _ptMin.X; } }
-        public double Width { get { return _ptMax.Y - _ptMin.Y; } }
-        public double Height { get { return _ptMax.Z - _ptMin.Z; } }
-        public Vector3D PtMin { get { return _ptMin; } }
-        public Vector3D PtMax { get { return _ptMax; } }
+        public double Length { get { return PtMax.X - PtMin.X; } }
+        public double Width { get { return PtMax.Y - PtMin.Y; } }
+        public double Height { get { return PtMax.Z - PtMin.Z; } }
+        public Vector3D PtMin { get; set; } = new Vector3D(double.MaxValue, double.MaxValue, double.MaxValue);
+        public Vector3D PtMax { get; set; } = new Vector3D(double.MinValue, double.MinValue, double.MinValue);
         public Vector3D[] Corners
         {
             get
             {
                 Vector3D[] corners = new Vector3D[8];
-                corners[0] = new Vector3D(_ptMin.X, _ptMin.Y, _ptMin.Z);
-                corners[1] = new Vector3D(_ptMax.X, _ptMin.Y, _ptMin.Z);
-                corners[2] = new Vector3D(_ptMax.X, _ptMax.Y, _ptMin.Z);
-                corners[3] = new Vector3D(_ptMin.X, _ptMax.Y, _ptMin.Z);
-                corners[4] = new Vector3D(_ptMin.X, _ptMin.Y, _ptMax.Z);
-                corners[5] = new Vector3D(_ptMax.X, _ptMin.Y, _ptMax.Z);
-                corners[6] = new Vector3D(_ptMax.X, _ptMax.Y, _ptMax.Z);
-                corners[7] = new Vector3D(_ptMin.X, _ptMax.Y, _ptMax.Z);
+                corners[0] = new Vector3D(PtMin.X, PtMin.Y, PtMin.Z);
+                corners[1] = new Vector3D(PtMax.X, PtMin.Y, PtMin.Z);
+                corners[2] = new Vector3D(PtMax.X, PtMax.Y, PtMin.Z);
+                corners[3] = new Vector3D(PtMin.X, PtMax.Y, PtMin.Z);
+                corners[4] = new Vector3D(PtMin.X, PtMin.Y, PtMax.Z);
+                corners[5] = new Vector3D(PtMax.X, PtMin.Y, PtMax.Z);
+                corners[6] = new Vector3D(PtMax.X, PtMax.Y, PtMax.Z);
+                corners[7] = new Vector3D(PtMin.X, PtMax.Y, PtMax.Z);
                 return corners;
             }
         }
         public double[] Dimensions
         {
-            get { return new double[] { _ptMax.X - _ptMin.X, _ptMax.Y - _ptMin.Y, _ptMax.Z - _ptMin.Z }; }
+            get { return new double[] { PtMax.X - PtMin.X, PtMax.Y - PtMin.Y, PtMax.Z - PtMin.Z }; }
         }
         public Vector3D DimensionsVec
         {
-            get { return _ptMax - _ptMin; }
+            get { return PtMax - PtMin; }
         }
         #endregion
 
@@ -154,7 +135,7 @@ namespace treeDiM.StackBuilder.Basics
         /// <returns>A 32-bit signed integer hash code.</returns>
         public override int GetHashCode()
         {
-            return _ptMin.GetHashCode() ^ _ptMax.GetHashCode();
+            return PtMin.GetHashCode() ^ PtMax.GetHashCode();
         }
         /// <summary>
         /// Returns a value indicating whether this instance is equal to
@@ -167,7 +148,7 @@ namespace treeDiM.StackBuilder.Basics
             if (obj is BBox3D)
             {
                 BBox3D v = (BBox3D)obj;
-                return (_ptMin.Equals(v._ptMin)) && (_ptMax.Equals(v._ptMax));
+                return (PtMin.Equals(v.PtMin)) && (PtMax.Equals(v.PtMax));
             }
             return false;
         }
@@ -177,7 +158,7 @@ namespace treeDiM.StackBuilder.Basics
         /// <returns>A string representation of this object.</returns>        public override string ToString()
         public override string ToString()
         {
-            return string.Format("xmin = {0}, ymin = {1}, zmin = {2}, xmax = {3}, ymax = {4}, zmax = {5}", _ptMin.X, _ptMin.Y, _ptMin.Z, _ptMax.X, _ptMax.Y, _ptMax.Z);
+            return string.Format("xmin = {0}, ymin = {1}, zmin = {2}, xmax = {3}, ymax = {4}, zmax = {5}", PtMin.X, PtMin.Y, PtMin.Z, PtMax.X, PtMax.Y, PtMax.Z);
         }
         #endregion
     }
