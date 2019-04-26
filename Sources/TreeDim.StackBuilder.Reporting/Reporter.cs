@@ -761,6 +761,13 @@ namespace treeDiM.StackBuilder.Reporting
                 {
                     XmlElement elemItemNumbers = xmlDoc.CreateElement("itemQuantities", ns);
                     elemSolItem.AppendChild(elemItemNumbers);
+                    // unit
+                    XmlElement unitElement = xmlDoc.CreateElement("unitWeight", xmlDoc.DocumentElement.NamespaceURI);
+                    unitElement.InnerText = UnitsManager.MassUnitString;
+                    elemItemNumbers.AppendChild(unitElement);
+
+                    // create a report node for all images
+                    ReportNode rnItemImages = rnItemNumbers.GetChildByName(Resources.ID_RN_IMAGES);
 
                     var dictNameCount = hSolItem.SolutionItems;
                     foreach (int containedItemIndex in dictNameCount.Keys)
@@ -776,8 +783,22 @@ namespace treeDiM.StackBuilder.Reporting
                             // weight
                             AppendElementValue(xmlDoc, elemItemNumber, "weight", packable.Weight * dictNameCount[containedItemIndex]);
                             // image
-                            XmlElement elemImage = xmlDoc.CreateElement("image", ns);
-                            elemSolItem.AppendChild(elemImage);
+                            if (rnItemImages.Activated)
+                            {
+                                Graphics3DImage graphics = new Graphics3DImage(new Size(ImageSizeDetail, ImageSizeDetail))
+                                {
+                                    FontSizeRatio = FontSizeRatioDetail,
+                                    CameraPosition = Graphics3D.Corner_0,
+                                    Target = Vector3D.Zero
+                                };
+                                if (packable is BoxProperties caseProperties)
+                                {
+                                    Box box = new Box(0, caseProperties);
+                                    graphics.AddBox(box);
+                                }
+                                graphics.Flush();
+                                AppendThumbnailElement(xmlDoc, elemItemNumber, graphics.Bitmap);
+                            }
                         }
                     }
                 }

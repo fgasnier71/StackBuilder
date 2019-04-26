@@ -180,6 +180,9 @@
   <data name="ID_RN_IMAGE" xml:space="preserve">
     <value>Image</value>
   </data>
+  <data name="ID_RN_IMAGES" xml:space="preserve">
+    <value>Images</value>
+  </data>
   <data name="ID_RN_INTERLAYER" xml:space="preserve">
     <value>Interlayer</value>
   </data>

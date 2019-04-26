@@ -324,6 +324,7 @@
   <!--SOLITEMCONTENT : BEGIN-->
   <xs:complexType name="itemQuantities">
     <xs:sequence>
+      <xs:element name="unitWeight" minOccurs="1" maxOccurs="1" type="xs:string"/>
       <xs:element name="itemQuantity" minOccurs="0" maxOccurs="unbounded" type="rpt:itemQuantity"/>
     </xs:sequence>
   </xs:complexType>

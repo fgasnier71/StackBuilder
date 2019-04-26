@@ -478,7 +478,7 @@
         </td>
         <td class="style2" colspan="1">
           <b>
-            <xsl:value-of select="$loc/str[@name='Weight']"/>
+            <xsl:value-of select="$loc/str[@name='Weight']"/> (<xsl:value-of select="unitWeight"/>)
           </b>
         </td>
       </tr>
@@ -500,9 +500,11 @@
       <td class="style2" colspan="1">
         <xsl:value-of select="weight"/>
       </td>
-      <td class="style2" colspan="1">
-        <xsl:apply-templates select="imageThumbSize"/>
-      </td>
+      <xsl:if test="imageThumbSize">
+        <td class="style2" colspan="1">
+          <xsl:apply-templates select="imageThumbSize"/>
+        </td>
+      </xsl:if>
     </tr>
   </xsl:template>
   <!--#### ITEM ####-->

@@ -250,6 +250,15 @@ namespace treeDiM.StackBuilder.Reporting.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Images.
+        /// </summary>
+        internal static string ID_RN_IMAGES {
+            get {
+                return ResourceManager.GetString("ID_RN_IMAGES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Interlayer.
         /// </summary>
         internal static string ID_RN_INTERLAYER {
