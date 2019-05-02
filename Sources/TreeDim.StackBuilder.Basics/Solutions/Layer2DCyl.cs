@@ -68,8 +68,8 @@ namespace treeDiM.StackBuilder.Basics
         #region Public methods
         public bool IsValidPosition(Vector2D vPosition)
         {
-            return (vPosition.X - _radius >= 0) && (vPosition.X + _radius <= _dimContainer.X)
-                && (vPosition.Y - _radius >= 0) && (vPosition.Y + _radius <= _dimContainer.Y);
+            return (vPosition.X - _radius >= -1) && (vPosition.X + _radius <= _dimContainer.X)
+                && (vPosition.Y - _radius >= -1) && (vPosition.Y + _radius <= _dimContainer.Y);
         }
         public int CountInHeight(double height)
         {

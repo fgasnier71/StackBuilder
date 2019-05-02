@@ -734,15 +734,17 @@ namespace treeDiM.StackBuilder.Desktop
             toolStripMenuItemNewAnalysisBoxCase.Enabled = (null != doc) && doc.CanCreateAnalysisBoxCase;
             toolStripMIAnalysisBoxCase.Enabled = (null != doc) && doc.CanCreateAnalysisBoxCase;
             toolStripMIAnalysisBundleCase.Enabled = (null != doc) && doc.CanCreateAnalysisBundleCase;
-            // new cylinder/case analysis
+            // new case analysis
             toolStripMenuItemNewAnalysisCylinderCase.Enabled = (null != doc) && doc.CanCreateAnalysisCylinderCase;
             toolStripMIAnalysisCylinderCase.Enabled = (null != doc) && doc.CanCreateAnalysisCylinderCase;
-            // new cylinder/truck analysis
+            // new truck analyses
+            toolStripMIAnalysisCaseTruck.Enabled = (null != doc) && doc.CanCreateAnalysisCaseTruck;
+            toolStripMIHAnalysisCaseTruck.Enabled = (null != doc) && doc.CanCreateAnalysisCaseTruck;
+            toolStripMIAnalysisPalletTruck.Enabled = (null != doc) && doc.CanCreateAnalysisPalletTruck;
             toolStripMIAnalysisCylinderTruck.Enabled = (null != doc) && doc.CanCreateAnalysisCylinderTruck;
-            // new pallet/truck analysis
             toolStripMenuItemAnalysisPalletTruck.Enabled = (null != doc) && doc.CanCreateAnalysisPalletTruck;
-            toolStripSBAnalysesTruck.Enabled = (null != doc) && doc.CanCreateAnalysisCaseTruck;
             // split buttons
+            toolStripSBAnalysesTruck.Enabled = (null != doc);
             toolStripSBAnalysisPallet.Enabled = (null != doc);
             toolStripSBAnalysesCase.Enabled = (null != doc);
             toolStripSBOptimisations.Enabled = (null != doc);
@@ -1439,6 +1441,5 @@ namespace treeDiM.StackBuilder.Desktop
         #region Static instance accessor
         public static FormMain GetInstance()  { return _instance; }
         #endregion
-
     }
 }

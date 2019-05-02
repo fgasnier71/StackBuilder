@@ -438,6 +438,12 @@
     <Compile Include="FormNewHAnalysis.Designer.cs">
       <DependentUpon>FormNewHAnalysis.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormNewHAnalysisBoxCase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNewHAnalysisBoxCase.Designer.cs">
+      <DependentUpon>FormNewHAnalysisBoxCase.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormNewHAnalysisCasePallet.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1827,6 +1833,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewHAnalysis.tr.resx">
       <DependentUpon>FormNewHAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewHAnalysisBoxCase.resx">
+      <DependentUpon>FormNewHAnalysisBoxCase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewHAnalysisCasePallet.pt.resx">
       <DependentUpon>FormNewHAnalysisCasePallet.cs</DependentUpon>

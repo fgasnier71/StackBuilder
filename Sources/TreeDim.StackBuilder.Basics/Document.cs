@@ -1045,7 +1045,7 @@ namespace treeDiM.StackBuilder.Basics
         public bool CanCreateAnalysisBundleCase => Bundles.Any() && Cases.Any();
         public bool CanCreateAnalysisCylinderPallet => Cylinders.Any() && Pallets.Any();
         public bool CanCreateAnalysisCylinderCase => Cylinders.Any() && Cases.Any();
-        public bool CanCreateAnalysisPalletTruck => Trucks.Any();
+        public bool CanCreateAnalysisPalletTruck => Trucks.Any() && Pallets.Any();
         public bool CanCreateAnalysisCaseTruck => Trucks.Any() && Cases.Any();
         public bool CanCreateAnalysisCylinderTruck => Trucks.Any() && Cylinders.Any();
         public bool CanCreateOptiCasePallet => Boxes.Any() && Pallets.Any();

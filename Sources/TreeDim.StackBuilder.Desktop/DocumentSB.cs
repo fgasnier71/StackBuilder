@@ -392,6 +392,7 @@ namespace treeDiM.StackBuilder.Desktop
             else if (analysis is AnalysisCylinderCase) form = new FormNewAnalysisCylinderCase(this, analysis);
             else if (analysis is AnalysisPalletTruck) form = new FormNewAnalysisPalletTruck(this, analysis);
             else if (analysis is AnalysisCaseTruck) form = new FormNewAnalysisCaseTruck(this, analysis);
+            else if (analysis is AnalysisCylinderTruck) form = new FormNewAnalysisCylinderTruck(this, analysis);
             else
             {
                 MessageBox.Show("Unexepected analysis type!");
@@ -410,6 +411,7 @@ namespace treeDiM.StackBuilder.Desktop
             // instantiate a form to edit analysis
             Form form = null;
             if (analysis is HAnalysisPallet) form = new FormNewHAnalysisCasePallet(this, analysis);
+            else if (analysis is HAnalysisCase) form = new FormNewHAnalysisBoxCase(this, analysis);
             else if (analysis is HAnalysisTruck) form = new FormNewHAnalysisCaseTruck(this, analysis);
             else
             {
