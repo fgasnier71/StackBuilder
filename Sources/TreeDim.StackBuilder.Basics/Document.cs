@@ -1960,6 +1960,32 @@ namespace treeDiM.StackBuilder.Basics
                     }
                 }
             }
+            else if (string.Equals(eltAnalysis.Name, "AnalysisCylinderTruck", StringComparison.CurrentCultureIgnoreCase))
+            {
+                TruckProperties truckProperties = GetTypeByGuid(sContainerId) as TruckProperties;
+                ConstraintSetCylinderTruck constraintSet = null;
+
+                foreach (XmlNode node in eltAnalysis.ChildNodes)
+                {
+                    // load constraint set
+                    if (string.Equals(node.Name, "ConstraintSet", StringComparison.CurrentCultureIgnoreCase))
+                        constraintSet = LoadConstraintSetCylinderTruck(node as XmlElement, truckProperties);
+                    // load solutions
+                    else if (string.Equals(node.Name, "Solutions", StringComparison.CurrentCultureIgnoreCase))
+                    {
+                    }
+                }
+
+                List<LayerDesc> layerDescs = new List<LayerDesc>();
+                
+
+                var analysis = CreateNewAnalysisCylinderTruck(
+                    sName, sDescription,
+                    GetTypeByGuid(sContentId) as CylinderProperties,
+                    GetTypeByGuid(sContainerId) as TruckProperties,
+                    constraintSet,
+                    layerDescs);
+            }
         }
 
         private void LoadHAnalysis(XmlElement eltAnalysis)
@@ -2252,6 +2278,11 @@ namespace treeDiM.StackBuilder.Basics
             if (!constraints.IsValid)
                 throw new Exception("Invalid constraint set");
             return constraints;
+        }
+
+        private ConstraintSetCylinderTruck LoadConstraintSetCylinderTruck(XmlElement eltConstraintSet, TruckProperties truckProperties)
+        {
+            return new ConstraintSetCylinderTruck(truckProperties);
         }
 
         private PalletConstraintSet LoadCasePalletConstraintSet_Box(XmlElement eltConstraintSet)
@@ -3390,7 +3421,6 @@ namespace treeDiM.StackBuilder.Basics
             attMaximumNumber.Value = constraintSet.OptMaxNumber.ToString();
             eltContraintSet.Attributes.Append(attMaximumNumber);
 
-
             if (null != analysisCasePallet)
             {
                 ConstraintSetCasePallet constraintSetCasePallet = analysisCasePallet.ConstraintSet as ConstraintSetCasePallet;
@@ -3429,7 +3459,19 @@ namespace treeDiM.StackBuilder.Basics
 
                 XmlAttribute attAllowMultipleLayers = xmlDoc.CreateAttribute("AllowMultipleLayers");
                 attAllowMultipleLayers.Value = constraintSetPalletTruck.AllowMultipleLayers ? "1" : "0";
-                eltContraintSet.Attributes.Append(attAllowMultipleLayers);                
+                eltContraintSet.Attributes.Append(attAllowMultipleLayers);
+            }
+            else if (null != analysisCylinderTruck)
+            {
+                ConstraintSetCylinderTruck constraintSetCylinderTruck = analysisCylinderTruck.ConstraintSet as ConstraintSetCylinderTruck;
+
+                XmlAttribute attMinDistanceLoadWall = xmlDoc.CreateAttribute("MinDistanceLoadWall");
+                attMinDistanceLoadWall.Value = constraintSetCylinderTruck.MinDistanceLoadWall.ToString();
+                eltContraintSet.Attributes.Append(attMinDistanceLoadWall);
+
+                XmlAttribute attMinDistanceLoadRoof = xmlDoc.CreateAttribute("MinDistanceLoadRoof");
+                attMinDistanceLoadRoof.Value = constraintSetCylinderTruck.MinDistanceLoadRoof.ToString();
+                eltContraintSet.Attributes.Append(attMinDistanceLoadRoof);
             }
             // solution
             SaveSolution(analysis.Solution, xmlAnalysisElt, xmlDoc);

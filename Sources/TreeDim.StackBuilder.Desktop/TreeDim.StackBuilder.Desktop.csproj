@@ -110,7 +110,7 @@
     <ManifestCertificateThumbprint>E560907200F8CCA932E8CA665AA2916D0D74ED5A</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>treedim2021.pfx</ManifestKeyFile>
+    <ManifestKeyFile>treedim.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestTimestampUrl>http://timestamp.comodoca.com/authenticode</ManifestTimestampUrl>
@@ -2841,7 +2841,7 @@
       <DependentUpon>ToolTipListBox.cs</DependentUpon>
     </Compile>
     <Compile Include="WindowSettings.cs" />
-    <None Include="treedim2021.pfx" />
+    <None Include="treedim.pfx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Pallet.bmp" />
