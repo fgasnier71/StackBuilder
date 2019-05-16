@@ -69,7 +69,7 @@
             this.uCtrlFlatWeight.Name = "uCtrlFlatWeight";
             this.uCtrlFlatWeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_MASS;
             this.uCtrlFlatWeight.Value = 0D;
-            this.uCtrlFlatWeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.ValueChangedDelegate(this.onInputValueChanged);
+            this.uCtrlFlatWeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.ValueChangedDelegate(this.OnInputValueChanged);
             // 
             // uCtrlFlatDimensions
             // 
@@ -81,10 +81,11 @@
             0});
             this.uCtrlFlatDimensions.Name = "uCtrlFlatDimensions";
             this.uCtrlFlatDimensions.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlFlatDimensions.Value = ((Sharp3D.Math.Core.Vector3D)(resources.GetObject("uCtrlFlatDimensions.Value")));
             this.uCtrlFlatDimensions.ValueX = 0D;
             this.uCtrlFlatDimensions.ValueY = 0D;
             this.uCtrlFlatDimensions.ValueZ = 0D;
-            this.uCtrlFlatDimensions.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlTriDouble.ValueChangedDelegate(this.onInputValueChanged);
+            this.uCtrlFlatDimensions.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlTriDouble.ValueChangedDelegate(this.OnInputValueChanged);
             // 
             // nudNumberOfFlats
             // 
@@ -100,7 +101,7 @@
             0,
             0,
             0});
-            this.nudNumberOfFlats.ValueChanged += new System.EventHandler(this.onInputValueChanged);
+            this.nudNumberOfFlats.ValueChanged += new System.EventHandler(this.OnInputValueChanged);
             // 
             // lbNumberOfFlats
             // 
@@ -126,7 +127,7 @@
             this.uCtrlCaseWeight.Name = "uCtrlCaseWeight";
             this.uCtrlCaseWeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_MASS;
             this.uCtrlCaseWeight.Value = 0D;
-            this.uCtrlCaseWeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.ValueChangedDelegate(this.onInputValueChanged);
+            this.uCtrlCaseWeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.ValueChangedDelegate(this.OnInputValueChanged);
             // 
             // uCtrlCaseDimensions
             // 
@@ -138,10 +139,11 @@
             0});
             this.uCtrlCaseDimensions.Name = "uCtrlCaseDimensions";
             this.uCtrlCaseDimensions.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlCaseDimensions.Value = ((Sharp3D.Math.Core.Vector3D)(resources.GetObject("uCtrlCaseDimensions.Value")));
             this.uCtrlCaseDimensions.ValueX = 0D;
             this.uCtrlCaseDimensions.ValueY = 0D;
             this.uCtrlCaseDimensions.ValueZ = 0D;
-            this.uCtrlCaseDimensions.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlTriDouble.ValueChangedDelegate(this.onInputValueChanged);
+            this.uCtrlCaseDimensions.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlTriDouble.ValueChangedDelegate(this.OnInputValueChanged);
             // 
             // bnCancel
             // 
@@ -165,7 +167,9 @@
             // uCtrlLayerList
             // 
             resources.ApplyResources(this.uCtrlLayerList, "uCtrlLayerList");
+            this.uCtrlLayerList.ButtonSizes = new System.Drawing.Size(150, 150);
             this.uCtrlLayerList.Name = "uCtrlLayerList";
+            this.uCtrlLayerList.Show3D = true;
             this.uCtrlLayerList.SingleSelection = false;
             // 
             // bnNext
@@ -173,7 +177,7 @@
             resources.ApplyResources(this.bnNext, "bnNext");
             this.bnNext.Name = "bnNext";
             this.bnNext.UseVisualStyleBackColor = true;
-            this.bnNext.Click += new System.EventHandler(this.onNext);
+            this.bnNext.Click += new System.EventHandler(this.OnNext);
             // 
             // FormDefineAnalysisBundleCase
             // 

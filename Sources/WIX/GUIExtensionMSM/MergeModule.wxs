@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?include $(sys.CURRENTDIR)\..\treeDiM.StackBuilder.DesktopMSM\CommonConfig.wxi?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	<Module Id="GUIExtensionMSM"
+          Language="1033"
+          Version="$(var.ProductVersion)">
+		<Package Id="45a73b8d-6492-4d53-9bda-6465e546325a"
+             Manufacturer="$(var.ProductManufacturer)"
+             InstallerVersion="200" />
+
+    <!--ComponentGroupRefs (Components harvested with heat.exe) : BEGIN-->
+    <ComponentGroupRef Id="GUIExtensionGroup"/>
+    <ComponentGroupRef Id="ReportTemplatesGroup"/>
+     <!--ComponentGroupRefs (Components harvested with heat.exe) : END-->
+	</Module>
+</Wix>

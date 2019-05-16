@@ -15,8 +15,6 @@ using treeDiM.StackBuilder.Basics;
 using treeDiM.StackBuilder.Graphics;
 using treeDiM.StackBuilder.Engine;
 using treeDiM.StackBuilder.GUIExtension.Properties;
-
-using treeDiM.PLMPack.DBClient;
 #endregion
 
 namespace treeDiM.StackBuilder.GUIExtension
@@ -24,7 +22,7 @@ namespace treeDiM.StackBuilder.GUIExtension
     internal partial class FormDefineAnalysisCasePallet : Form, IDrawingContainer
     {
         #region Enums
-        public enum eMode { PACK_CASE, PACK_BUNDLE}
+        public enum EMode { PACK_CASE, PACK_BUNDLE}
         #endregion
 
         #region Data members
@@ -33,16 +31,16 @@ namespace treeDiM.StackBuilder.GUIExtension
         #endregion
 
         #region Constructor
-        public FormDefineAnalysisCasePallet(eMode mode, double length, double width, double height)
+        public FormDefineAnalysisCasePallet(EMode mode, double length, double width, double height)
         {
             InitializeComponent();
 
-            uCtrlCase.Visible = (mode == eMode.PACK_CASE);
-            uCtrlBundle.Visible = (mode == eMode.PACK_BUNDLE);
+            uCtrlCase.Visible = (mode == EMode.PACK_CASE);
+            uCtrlBundle.Visible = (mode == EMode.PACK_BUNDLE);
 
             switch (mode)
             {
-                case eMode.PACK_CASE:
+                case EMode.PACK_CASE:
                     {
                         Text = Resources.ID_DEFINECASEPALLETANALYSIS;
                         _uctrlPackable = uCtrlCase;
@@ -50,7 +48,7 @@ namespace treeDiM.StackBuilder.GUIExtension
                         uCtrlCase.Weight = 1.0;
                     }
                     break;
-                case eMode.PACK_BUNDLE:
+                case EMode.PACK_BUNDLE:
                     {
                         Text = Resources.ID_DEFINEBUNDLEPALLETANALYSIS;
                         _uctrlPackable = uCtrlBundle;
@@ -204,8 +202,6 @@ namespace treeDiM.StackBuilder.GUIExtension
                     layerDescs.Add(layer2D.LayerDescriptor);
 
                 string userName = string.Empty;
-                using (WCFClient wcfClient = new WCFClient())
-                { userName = wcfClient.User.Name; }
 
                 Document doc = new Document(DocumentName, DocumentDescription, userName, DateTime.Now, null);
                 Packable packable = doc.CreateNewPackable(_uctrlPackable.PackableProperties);

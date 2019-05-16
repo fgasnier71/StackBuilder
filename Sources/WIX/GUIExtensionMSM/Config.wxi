@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?define GuiExtensionSourceDir=..\..\TreeDim.StackBuilder.GUIExtension\bin\Release?>
+<?define ReportTemplatesSourceDir=..\..\TreeDim.StackBuilder.Reporting\ReportTemplates?>
+<Include>	
+</Include>

@@ -3,10 +3,8 @@ using System.Drawing;
 using System.Windows.Forms;
 
 using treeDiM.StackBuilder.Basics;
+using treeDiM.StackBuilder.Graphics;
 using treeDiM.StackBuilder.Graphics.Controls;
-
-using treeDiM.PLMPack.DBClient;
-using treeDiM.PLMPack.DBClient.PLMPackSR;
 #endregion
 
 namespace treeDiM.StackBuilder.GUIExtension
@@ -20,25 +18,20 @@ namespace treeDiM.StackBuilder.GUIExtension
 
         public void Initialize()
         {
-            if (this.DesignMode)
+            if (DesignMode)
                 return;
             // sanity check
             Items.Clear();
             // load all pallets from database
-            int numberOfItems = 0;
-            DCSBPallet[] pallets;
-            using (WCFClient wcfClient = new WCFClient())
+            foreach (string typeName in PalletData.TypeNames)
             {
-                pallets = wcfClient.Client.GetAllPallets(0, number: ref numberOfItems);
-                foreach (DCSBPallet pallet in pallets)
-                {
-                    PalletProperties palletProperties = new PalletProperties(null, pallet.PalletType,
-                        pallet.Dimensions.M0, pallet.Dimensions.M1, pallet.Dimensions.M2);
-                    palletProperties.ID.SetNameDesc(pallet.Name, pallet.Description);
-                    palletProperties.Weight = pallet.Weight;
-                    palletProperties.Color = Color.Yellow;
-                    Items.Add(new ItemBaseWrapper(palletProperties));
-                }
+                PalletData palletData = PalletData.GetByName(typeName);
+                PalletProperties palletProperties = new PalletProperties(null, typeName,
+                    palletData.Dimensions.X, palletData.Dimensions.Y, palletData.Dimensions.Z);
+                palletProperties.ID.SetNameDesc(typeName, palletData.Description);
+                palletProperties.Weight = palletData.Weight;
+                palletProperties.Color = Color.Yellow;
+                Items.Add(new ItemBaseWrapper(palletProperties));
             }
             // always select first item
             if (Items.Count > 0)
@@ -49,8 +42,7 @@ namespace treeDiM.StackBuilder.GUIExtension
         {
             get
             {
-                ItemBaseWrapper wrapper = SelectedItem as ItemBaseWrapper;
-                return null == wrapper ? null : wrapper.ItemBase;
+                return !(SelectedItem is ItemBaseWrapper wrapper) ? null : wrapper.ItemBase;
             }
         }
 
@@ -58,8 +50,7 @@ namespace treeDiM.StackBuilder.GUIExtension
         {
             get
             {
-                ItemBaseWrapper wrapper = SelectedItem as ItemBaseWrapper;
-                return null == wrapper ? null : wrapper.ItemBase as PalletProperties;
+                return !(SelectedItem is ItemBaseWrapper wrapper) ? null : wrapper.ItemBase as PalletProperties;
             }
         }
     }

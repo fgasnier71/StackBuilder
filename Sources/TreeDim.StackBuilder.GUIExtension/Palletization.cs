@@ -17,7 +17,7 @@ namespace treeDiM.StackBuilder.GUIExtension
     {
         public static void StartCasePalletization(string name, double length, double width, double height)
         {
-            FormDefineAnalysisCasePallet form = new FormDefineAnalysisCasePallet(FormDefineAnalysisCasePallet.eMode.PACK_CASE, length, width, height);
+            FormDefineAnalysisCasePallet form = new FormDefineAnalysisCasePallet(FormDefineAnalysisCasePallet.EMode.PACK_CASE, length, width, height);
             form.CaseName = name;
             form.ShowDialog();
         }
@@ -32,7 +32,7 @@ namespace treeDiM.StackBuilder.GUIExtension
         }
         public static void StartBundlePalletAnalysis(string name, double length, double width, double height)
         {
-            FormDefineAnalysisCasePallet form = new FormDefineAnalysisCasePallet(FormDefineAnalysisCasePallet.eMode.PACK_BUNDLE, length, width, height);
+            FormDefineAnalysisCasePallet form = new FormDefineAnalysisCasePallet(FormDefineAnalysisCasePallet.EMode.PACK_BUNDLE, length, width, height);
             form.CaseName = name;
             form.ShowDialog();
         }

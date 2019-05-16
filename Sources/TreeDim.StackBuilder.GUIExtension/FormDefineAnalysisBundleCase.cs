@@ -1,23 +1,19 @@
-﻿using System;
+﻿#region Using directives
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-using System.Diagnostics;
 
 using log4net;
 using Sharp3D.Math.Core;
 
 using treeDiM.StackBuilder.Basics;
-using treeDiM.StackBuilder.Graphics;
 using treeDiM.StackBuilder.Engine;
-using treeDiM.StackBuilder.Reporting;
 using treeDiM.StackBuilder.GUIExtension.Properties;
-
-using treeDiM.PLMPack.DBClient;
+#endregion
 
 namespace treeDiM.StackBuilder.GUIExtension
 {
@@ -140,7 +136,7 @@ namespace treeDiM.StackBuilder.GUIExtension
         #endregion
 
         #region Event handlers
-        private void onInputValueChanged(object sender, EventArgs args)
+        private void OnInputValueChanged(object sender, EventArgs args)
         {
             try
             {
@@ -166,7 +162,7 @@ namespace treeDiM.StackBuilder.GUIExtension
                 _log.Error(ex.ToString());
             }
         }
-        private void onNext(object sender, EventArgs e)
+        private void OnNext(object sender, EventArgs e)
         {
             try
             {
@@ -178,10 +174,6 @@ namespace treeDiM.StackBuilder.GUIExtension
 
 
                 string userName = string.Empty;
-                using (WCFClient wcfClient = new WCFClient())
-                {
-                    userName = wcfClient.User.Name;
-                }
 
                 Document doc = new Document(DocumentName, DocumentDescription, userName, DateTime.Now, null);
                 Packable packable = doc.CreateNewPackable(BundleProp);

@@ -1,0 +1,1 @@
+"C:\Program Files (x86)\WiX Toolset v3.14\bin\heat.exe" dir "..\..\TreeDim.StackBuilder.Reporting\ReportTemplates" -dr ReportTemplates -cg ReportTemplatesGroup -gg -g1 -sf -srd -sreg -var "var.ReportTemplatesSourceDir" -o ".\GroupReportTemplates.wxs"

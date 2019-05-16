@@ -1,0 +1,1 @@
+"C:\Program Files (x86)\WiX Toolset v3.14\bin\heat.exe" dir "..\..\TreeDim.StackBuilder.GUIExtension\bin\Release" -dr Bin -cg GUIExtensionGroup -gg -g1 -sf -srd -sreg -var "var.GuiExtensionSourceDir" -o ".\GroupGUIExtension.wxs"
