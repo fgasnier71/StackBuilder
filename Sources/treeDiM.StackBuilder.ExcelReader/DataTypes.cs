@@ -28,10 +28,20 @@ namespace treeDiM.StackBuilder.ExcelReader
         public DataType(int rowId, DataRow dtRow)
         {
             RowId = rowId;
-            if (!(dtRow[0] is string)) throw new InvalidRowException("DataType", rowId, "Name", typeof(string));
-            Name = dtRow[0] as string;
-            if (!(dtRow[1] is string)) throw new InvalidRowException("DataType", rowId, "Description", typeof(string));
-            Description = dtRow[1] as string;
+            // read name
+            if (dtRow[0] is string)
+                Name = dtRow[0] as string;
+            else if (null != dtRow[0])
+                Name = dtRow[0].ToString();
+            else
+                throw new InvalidRowException("DataType", rowId, "Name", typeof(string));
+            // read description
+            if (dtRow[1] is string)
+                Description = dtRow[1] as string;
+            else if (null != dtRow[1])
+                Description = dtRow[1].ToString();
+            else
+                throw new InvalidRowException("DataType", rowId, "Description", typeof(string));
         }
         public int RowId { get; set; }
         public string Name { get; set; }

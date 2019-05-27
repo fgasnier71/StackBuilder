@@ -2,7 +2,7 @@
 <?include $(sys.CURRENTDIR)\Config.wxi?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
     <Fragment>
-        <DirectoryRef Id="Bin">
+        <DirectoryRef Id="PackLib">
             <Directory Id="dir79C3E2AFE9261FB8C8ECA0864B9183CD" Name="es" />
             <Directory Id="dir9AA3BF36EA892601E370D102B541D66A" Name="fr" />
             <Directory Id="dirDC80E2C98BFA6A946C23A92CDA674B13" Name="it" />
@@ -11,49 +11,49 @@
     </Fragment>
     <Fragment>
         <ComponentGroup Id="GUIExtensionGroup">
-            <Component Id="cmpB5F2771100F52D12860FA3E195E1F2BE" Directory="Bin" Guid="0694E899-0309-4146-80EA-FA32D5348BCC">
+            <Component Id="cmpB5F2771100F52D12860FA3E195E1F2BE" Directory="PackLib" Guid="0694E899-0309-4146-80EA-FA32D5348BCC">
                 <File Id="fil0777030352A360404A6D34865891981F" KeyPath="yes" Source="$(var.GuiExtensionSourceDir)\Cureos.Measures.dll" />
             </Component>
-            <Component Id="cmp4BE6F1602D4A9E1169DDC4AE88F5C696" Directory="Bin" Guid="6101497B-361D-4831-AEDD-25760CFD19C3">
+            <Component Id="cmp4BE6F1602D4A9E1169DDC4AE88F5C696" Directory="PackLib" Guid="6101497B-361D-4831-AEDD-25760CFD19C3">
                 <File Id="fil4D4DF82747F4478F4F1600C76F820CB5" KeyPath="yes" Source="$(var.GuiExtensionSourceDir)\netstandard.dll" />
             </Component>
-            <Component Id="cmpF7DBB3DB90C231795A210FA29B9BDED6" Directory="Bin" Guid="27C6BAEA-1433-46EE-9C35-AAFDA6429391">
+            <Component Id="cmpF7DBB3DB90C231795A210FA29B9BDED6" Directory="PackLib" Guid="27C6BAEA-1433-46EE-9C35-AAFDA6429391">
                 <File Id="filD41C721A8E2554B9F5A5C934F20CA9B0" KeyPath="yes" Source="$(var.GuiExtensionSourceDir)\Sharp3D.Boxologic.dll" />
             </Component>
-            <Component Id="cmp8BF276CB484B0E1D3700226FB70DF47A" Directory="Bin" Guid="D1F04C38-CF9B-43ED-9FDC-050E58840EE1">
+            <Component Id="cmp8BF276CB484B0E1D3700226FB70DF47A" Directory="PackLib" Guid="D1F04C38-CF9B-43ED-9FDC-050E58840EE1">
                 <File Id="fil4B006E3FF9F9CDC5BC83A373A844FE22" KeyPath="yes" Source="$(var.GuiExtensionSourceDir)\Sharp3DBinPacking.dll" />
             </Component>
-            <Component Id="cmpFA3F737CB13792E4A80AE73247CC1070" Directory="Bin" Guid="B832CA75-FBE7-4797-B7B4-9A97AEBEA39F">
+            <Component Id="cmpFA3F737CB13792E4A80AE73247CC1070" Directory="PackLib" Guid="B832CA75-FBE7-4797-B7B4-9A97AEBEA39F">
                 <File Id="fil78601734F77601AB601C5337002EB694" KeyPath="yes" Source="$(var.GuiExtensionSourceDir)\SourceGrid.dll" />
             </Component>
-            <Component Id="cmp5B1324C9C051CA3E1B973FCB82A73E52" Directory="Bin" Guid="BFE8F873-2EF6-4A61-8B87-9137AC02C5A4">
+            <Component Id="cmp5B1324C9C051CA3E1B973FCB82A73E52" Directory="PackLib" Guid="BFE8F873-2EF6-4A61-8B87-9137AC02C5A4">
                 <File Id="filABC17A98520B61E1C81C03E2874D19DA" KeyPath="yes" Source="$(var.GuiExtensionSourceDir)\System.Collections.Immutable.dll" />
             </Component>
-            <Component Id="cmp47F408C085BBFCDAF267D3D7E06AB8F3" Directory="Bin" Guid="80CDDCE6-4290-45AF-9412-9DB18054105D">
+            <Component Id="cmp47F408C085BBFCDAF267D3D7E06AB8F3" Directory="PackLib" Guid="80CDDCE6-4290-45AF-9412-9DB18054105D">
                 <File Id="fil5A524DC56CD4410FC61FC17C684CCD75" KeyPath="yes" Source="$(var.GuiExtensionSourceDir)\treeDiM.EdgeCrushTest.dll" />
             </Component>
-            <Component Id="cmp7A726A41FE490FD1DB24ADB922A2F7F5" Directory="Bin" Guid="B7BED3E0-D6F7-4A6E-9BAE-05728B521B1E">
+            <Component Id="cmp7A726A41FE490FD1DB24ADB922A2F7F5" Directory="PackLib" Guid="B7BED3E0-D6F7-4A6E-9BAE-05728B521B1E">
                 <File Id="filB6BCFE6CF7E39F7254E8F2847BCBACE2" KeyPath="yes" Source="$(var.GuiExtensionSourceDir)\treeDiM.StackBuilder.Basics.dll" />
             </Component>
-            <Component Id="cmpB5748DB170CF33732C3F08AE87AB1FDE" Directory="Bin" Guid="FC88554E-1417-48BE-95C2-7A905FC4674E">
+            <Component Id="cmpB5748DB170CF33732C3F08AE87AB1FDE" Directory="PackLib" Guid="FC88554E-1417-48BE-95C2-7A905FC4674E">
                 <File Id="fil12CDB3AEF441E1C73ABFEC95843F324B" KeyPath="yes" Source="$(var.GuiExtensionSourceDir)\treeDiM.StackBuilder.Engine.dll" />
             </Component>
-            <Component Id="cmpBFF4558AFE987E56C73FECF9CDBBD38B" Directory="Bin" Guid="28F0AF5C-4F0A-44C5-BF19-4071A1D49783">
+            <Component Id="cmpBFF4558AFE987E56C73FECF9CDBBD38B" Directory="PackLib" Guid="28F0AF5C-4F0A-44C5-BF19-4071A1D49783">
                 <File Id="fil9FD2C3909106DCF01889C88A03BFE266" KeyPath="yes" Source="$(var.GuiExtensionSourceDir)\treeDiM.StackBuilder.Graphics.dll" />
             </Component>
-            <Component Id="cmp4C0D20C2D928426F166AF7598E96B12B" Directory="Bin" Guid="91E8FAA9-CB82-4CEF-842D-CCB8A91DCA22">
+            <Component Id="cmp4C0D20C2D928426F166AF7598E96B12B" Directory="PackLib" Guid="91E8FAA9-CB82-4CEF-842D-CCB8A91DCA22">
                 <File Id="fil61C70AB00DFA836D401AC358ECFDAF2B" KeyPath="yes" Source="$(var.GuiExtensionSourceDir)\treeDiM.StackBuilder.GUIExtension.dll" />
             </Component>
-            <Component Id="cmp788DA1EB975A4D0BCBB7FF31BB8579CC" Directory="Bin" Guid="EEAA1B6E-71C2-4AA2-8C5C-1DD95C2CAF14">
+            <Component Id="cmp788DA1EB975A4D0BCBB7FF31BB8579CC" Directory="PackLib" Guid="EEAA1B6E-71C2-4AA2-8C5C-1DD95C2CAF14">
                 <File Id="fil77C3DB2B6EDA5DEB53EFDBD66F1C0C7A" KeyPath="yes" Source="$(var.GuiExtensionSourceDir)\treeDiM.StackBuilder.Reporting.dll" />
             </Component>
-            <Component Id="cmpE3F9AC1278086F7241583DF31CC8988B" Directory="Bin" Guid="436FADD2-7C1C-46E8-B7B6-AB76BF034C81">
+            <Component Id="cmpE3F9AC1278086F7241583DF31CC8988B" Directory="PackLib" Guid="436FADD2-7C1C-46E8-B7B6-AB76BF034C81">
                 <File Id="fil62B534534610968F79205117BD020C90" KeyPath="yes" Source="$(var.GuiExtensionSourceDir)\WkHtmlToXSharp.dll" />
             </Component>
-            <Component Id="cmpF144BD63BE7032C01B30BAEE5A70F442" Directory="Bin" Guid="B98F3C6B-8656-4AC6-9EEC-727804C271AF">
+            <Component Id="cmpF144BD63BE7032C01B30BAEE5A70F442" Directory="PackLib" Guid="B98F3C6B-8656-4AC6-9EEC-727804C271AF">
                 <File Id="fil3FA9E7FCA81EC2DFA3D5F68AC1BD5CA8" KeyPath="yes" Source="$(var.GuiExtensionSourceDir)\WkHtmlToXSharp.Win32.dll" />
             </Component>
-            <Component Id="cmp0BFEB3397B08109BFA50F3E16673DBAB" Directory="Bin" Guid="1C8C723C-593F-49DF-9E70-E8DA5734853A">
+            <Component Id="cmp0BFEB3397B08109BFA50F3E16673DBAB" Directory="PackLib" Guid="1C8C723C-593F-49DF-9E70-E8DA5734853A">
                 <File Id="filBCF2B21E0788B232786FCD86C9F92E85" KeyPath="yes" Source="$(var.GuiExtensionSourceDir)\WkHtmlToXSharp.Win64.dll" />
             </Component>
             <Component Id="cmp0C629C75952F5FCBF97857E806F6541F" Directory="dir79C3E2AFE9261FB8C8ECA0864B9183CD" Guid="3BF22800-4E24-4756-85A7-4BB19CF11757">

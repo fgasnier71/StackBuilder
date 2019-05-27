@@ -2841,7 +2841,6 @@
       <DependentUpon>ToolTipListBox.cs</DependentUpon>
     </Compile>
     <Compile Include="WindowSettings.cs" />
-    <None Include="treedim.pfx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Pallet.bmp" />

@@ -3,7 +3,7 @@
   <Fragment>
     <Directory Id="TARGETDIR" Name="SourceDir">
       <Directory Id="MergeRedirectFolder">
-        <Directory Id="Bin" Name="Bin">
+        <Directory Id="PackLib" Name="PackLib">
           <Directory Id="fr" Name="fr"/>
           <Directory Id="es" Name="es"/>
           <Directory Id="it" Name="it"/>
