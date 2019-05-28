@@ -245,7 +245,7 @@ namespace treeDiM.StackBuilder.Basics
         }
 
         // Tape properties
-        public OptDouble TapeWidth { get; set; }
+        public OptDouble TapeWidth { get; set; } = OptDouble.Zero;
         public Color TapeColor { get; set; }
 
         public override bool IsBundle => false;

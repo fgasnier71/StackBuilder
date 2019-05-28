@@ -9,6 +9,7 @@ using System.Threading;
 using System.Diagnostics;
 using System.Reflection;
 using System.Configuration;
+using System.Drawing;
 
 using WeifenLuo.WinFormsUI.Docking;
 using log4net;
@@ -771,8 +772,8 @@ namespace treeDiM.StackBuilder.Desktop
             FormNewDocument form = new FormNewDocument();
             if (DialogResult.OK == form.ShowDialog())
             {
-                AddDocument(new DocumentSB(form.DocName, form.DocDescription, form.Author, _documentExplorer.DocumentTreeView));
-                _log.Debug("New document added!");
+                AddDocument(new DocumentSB(form.DocName, form.DocDescription, form.Author, _documentExplorer.DocumentTreeView), true);
+                _log.Info("New document added!");
             }
             UpdateFormUI();
         }
@@ -793,7 +794,7 @@ namespace treeDiM.StackBuilder.Desktop
                     MessageBox.Show(string.Format(Resources.ID_FILENOTFOUND, filePath));
                     return;
                 }
-                AddDocument(new DocumentSB(filePath, _documentExplorer.DocumentTreeView));
+                AddDocument(new DocumentSB(filePath, _documentExplorer.DocumentTreeView), false);
 
                 // update mruFileManager as file was successfully loaded
                 if (null != _mruManager)
@@ -812,13 +813,235 @@ namespace treeDiM.StackBuilder.Desktop
             UpdateFormUI();
         }
 
-        public void AddDocument(IDocument doc)
+        public void AddDocument(IDocument doc, bool newDoc)
         {
             // add this form as document listener
-            if (doc is DocumentSB docSB)
-                docSB.AddListener(this);
+            DocumentSB docSB = doc as DocumentSB;
+            docSB?.AddListener(this);
             // add document 
             Documents.Add(doc);
+
+            // insert database items
+            if (newDoc && !Program.UseDisconnected && WCFClient.IsConnected && null != docSB)
+            {
+                try
+                {
+                    using (WCFClient wcfClient = new WCFClient())
+                    {
+                        // pallets
+                        int rangeIndex = 0, numberOfItems = 0;
+                        do
+                        {
+                            DCSBPallet[] pallets = wcfClient.Client.GetAllPalletsAuto(rangeIndex++, ref numberOfItems, true);
+                            foreach (var dcsbPallet in pallets)
+                            {
+                                UnitsManager.UnitSystem us = (UnitsManager.UnitSystem)dcsbPallet.UnitSystem;
+
+                                PalletProperties palletProperties = docSB.CreateNewPallet(
+                                    dcsbPallet.Name, dcsbPallet.Description,
+                                    dcsbPallet.PalletType,
+                                    UnitsManager.ConvertLengthFrom(dcsbPallet.Dimensions.M0, us),
+                                    UnitsManager.ConvertLengthFrom(dcsbPallet.Dimensions.M1, us),
+                                    UnitsManager.ConvertLengthFrom(dcsbPallet.Dimensions.M2, us),
+                                    UnitsManager.ConvertMassFrom(dcsbPallet.Weight, us),
+                                    Color.FromArgb(dcsbPallet.Color));
+
+                                if (null != dcsbPallet.AdmissibleLoad)
+                                    palletProperties.AdmissibleLoadWeight = UnitsManager.ConvertMassFrom(dcsbPallet.AdmissibleLoad.Value, us);
+                            }
+                        }
+                        while ((rangeIndex + 1) * 20 < numberOfItems);
+
+                        // cases
+                        rangeIndex = 0; numberOfItems = 0;
+                        do
+                        {
+                            DCSBCase[] cases = wcfClient.Client.GetAllCasesAuto(rangeIndex++, ref numberOfItems, true);
+                            foreach (var dcsbCase in cases)
+                            {
+                                UnitsManager.UnitSystem us = (UnitsManager.UnitSystem)dcsbCase.UnitSystem;
+
+                                var colors = new Color[6];
+                                for (int i = 0; i < 6; ++i)
+                                    colors[i] = Color.FromArgb(dcsbCase.Colors[i]);
+
+                                BoxProperties bProperties = null;
+                                if (dcsbCase.IsCase)
+                                    bProperties = docSB.CreateNewCase(dcsbCase.Name, dcsbCase.Description,
+                                    UnitsManager.ConvertLengthFrom(dcsbCase.DimensionsOuter.M0, us),
+                                    UnitsManager.ConvertLengthFrom(dcsbCase.DimensionsOuter.M1, us),
+                                    UnitsManager.ConvertLengthFrom(dcsbCase.DimensionsOuter.M2, us),
+                                    UnitsManager.ConvertLengthFrom(dcsbCase.DimensionsInner.M0, us),
+                                    UnitsManager.ConvertLengthFrom(dcsbCase.DimensionsInner.M1, us),
+                                    UnitsManager.ConvertLengthFrom(dcsbCase.DimensionsInner.M2, us),
+                                    UnitsManager.ConvertMassFrom(dcsbCase.Weight, us),
+                                    colors);
+                                else
+                                    bProperties = docSB.CreateNewBox(
+                                        dcsbCase.Name, dcsbCase.Description,
+                                        UnitsManager.ConvertLengthFrom(dcsbCase.DimensionsOuter.M0, us),
+                                        UnitsManager.ConvertLengthFrom(dcsbCase.DimensionsOuter.M1, us),
+                                        UnitsManager.ConvertLengthFrom(dcsbCase.DimensionsOuter.M2, us),
+                                        UnitsManager.ConvertMassFrom(dcsbCase.Weight, us),
+                                        colors);
+                                bProperties.TapeWidth = new OptDouble(dcsbCase.IsCase && dcsbCase.ShowTape, UnitsManager.ConvertLengthFrom(dcsbCase.TapeWidth, us));
+                                bProperties.TapeColor = Color.FromArgb(dcsbCase.TapeColor);
+                                bProperties.SetNetWeight(
+                                    new OptDouble(!dcsbCase.HasInnerDims && dcsbCase.NetWeight.HasValue
+                                        , dcsbCase.NetWeight ?? 0.0));
+                                List<Pair<HalfAxis.HAxis, Texture>> textures = new List<Pair<HalfAxis.HAxis, Texture>>();
+                                bProperties.TextureList = textures;
+                            }
+                        }
+                        while ((rangeIndex + 1) * 20 < numberOfItems);
+
+                        // bundles
+                        rangeIndex = 0; numberOfItems = 0;
+                        do
+                        {
+                            DCSBBundle[] bundles = wcfClient.Client.GetAllBundlesAuto(rangeIndex++, ref numberOfItems, true);
+                            foreach (var dcsbBundle in bundles)
+                            {
+                                UnitsManager.UnitSystem us = (UnitsManager.UnitSystem)dcsbBundle.UnitSystem;
+
+                                docSB.CreateNewBundle(dcsbBundle.Name, dcsbBundle.Description,
+                                    UnitsManager.ConvertLengthFrom(dcsbBundle.DimensionsUnit.M0, us),
+                                    UnitsManager.ConvertLengthFrom(dcsbBundle.DimensionsUnit.M1, us),
+                                    UnitsManager.ConvertLengthFrom(dcsbBundle.DimensionsUnit.M2, us),
+                                    UnitsManager.ConvertMassFrom(dcsbBundle.UnitWeight, us),
+                                    Color.FromArgb(dcsbBundle.Color),
+                                    dcsbBundle.Number);
+                            }
+                        }
+                        while ((rangeIndex + 1) * 20 < numberOfItems);
+                        
+                        // interlayers
+                        rangeIndex = 0; numberOfItems = 0;
+                        do
+                        {
+                            DCSBInterlayer[] interlayers = wcfClient.Client.GetAllInterlayersAuto(rangeIndex++, ref numberOfItems, true);
+                            foreach (var dcsbInterlayer in interlayers)
+                            {
+                                UnitsManager.UnitSystem us = (UnitsManager.UnitSystem)dcsbInterlayer.UnitSystem;
+
+                                docSB.CreateNewInterlayer(dcsbInterlayer.Name, dcsbInterlayer.Description,
+                                    UnitsManager.ConvertLengthFrom(dcsbInterlayer.Dimensions.M0, us),
+                                    UnitsManager.ConvertLengthFrom(dcsbInterlayer.Dimensions.M1, us),
+                                    UnitsManager.ConvertLengthFrom(dcsbInterlayer.Dimensions.M2, us),
+                                    UnitsManager.ConvertMassFrom(dcsbInterlayer.Weight, us),
+                                    Color.FromArgb(dcsbInterlayer.Color)
+                                    );
+                            }
+                        }
+                        while ((rangeIndex + 1) * 20 < numberOfItems);
+
+                        // trucks
+                        rangeIndex = 0; numberOfItems = 0;
+                        do
+                        {
+                            DCSBTruck[] trucks = wcfClient.Client.GetAllTrucksAuto(rangeIndex++, ref numberOfItems, true);
+                            foreach (var dcsbTruck in trucks)
+                            {
+                                UnitsManager.UnitSystem us = (UnitsManager.UnitSystem)dcsbTruck.UnitSystem;
+
+                                docSB.CreateNewTruck(dcsbTruck.Name, dcsbTruck.Description,
+                                    UnitsManager.ConvertLengthFrom(dcsbTruck.DimensionsInner.M0, us),
+                                    UnitsManager.ConvertLengthFrom(dcsbTruck.DimensionsInner.M1, us),
+                                    UnitsManager.ConvertLengthFrom(dcsbTruck.DimensionsInner.M2, us),
+                                    UnitsManager.ConvertMassFrom(dcsbTruck.AdmissibleLoad, us),
+                                    Color.FromArgb(dcsbTruck.Color)
+                                    );
+                            }
+                        }
+                        while ((rangeIndex + 1) * 20 < numberOfItems);
+
+                        // cylinders
+                        rangeIndex = 0; numberOfItems = 0;
+                        do
+                        {
+                            DCSBCylinder[] cylinders = wcfClient.Client.GetAllCylindersAuto(rangeIndex++, ref numberOfItems, true);
+                            foreach (var dcsbCylinder in cylinders)
+                            {
+                                UnitsManager.UnitSystem us = (UnitsManager.UnitSystem)dcsbCylinder.UnitSystem;
+                                docSB.CreateNewCylinder(
+                                   dcsbCylinder.Name, dcsbCylinder.Description,
+                                   UnitsManager.ConvertLengthFrom(dcsbCylinder.RadiusOuter, us),
+                                   UnitsManager.ConvertLengthFrom(dcsbCylinder.RadiusInner, us),
+                                   UnitsManager.ConvertLengthFrom(dcsbCylinder.Height, us),
+                                   UnitsManager.ConvertMassFrom(dcsbCylinder.Weight, us),
+                                   Color.FromArgb(dcsbCylinder.ColorTop), Color.FromArgb(dcsbCylinder.ColorOuter), Color.FromArgb(dcsbCylinder.ColorInner)
+                                   );
+                            }
+                        }
+                        while ((rangeIndex + 1) * 20 < numberOfItems);
+
+                        // pallet corners
+                        rangeIndex = 0; numberOfItems = 0;
+                        do
+                        {
+                            DCSBPalletCorner[] palletCorners = wcfClient.Client.GetAllPalletCornersAuto(rangeIndex++, ref numberOfItems, true);
+                            foreach (var dcsbPalletCorner in palletCorners)
+                            {
+                                UnitsManager.UnitSystem us = (UnitsManager.UnitSystem)dcsbPalletCorner.UnitSystem;
+                                docSB.CreateNewPalletCorners(
+                                    dcsbPalletCorner.Name, dcsbPalletCorner.Description,
+                                    UnitsManager.ConvertLengthFrom(dcsbPalletCorner.Length, us),
+                                    UnitsManager.ConvertLengthFrom(dcsbPalletCorner.Width, us),
+                                    UnitsManager.ConvertLengthFrom(dcsbPalletCorner.Thickness, us),
+                                    UnitsManager.ConvertMassFrom(dcsbPalletCorner.Weight, us),
+                                    Color.FromArgb(dcsbPalletCorner.Color)
+                                    );
+                            }
+                        }
+                        while ((rangeIndex + 1) * 20 < numberOfItems);
+
+                        // pallet caps
+                        rangeIndex = 0; numberOfItems = 0;
+                        do
+                        {
+                            DCSBPalletCap[] palletCaps = wcfClient.Client.GetAllPalletCapsAuto(rangeIndex++, ref numberOfItems, true);
+
+                            foreach (var dcsbCap in palletCaps)
+                            {
+                                UnitsManager.UnitSystem us = (UnitsManager.UnitSystem)dcsbCap.UnitSystem;
+                                docSB.CreateNewPalletCap(
+                                    dcsbCap.Name, dcsbCap.Description,
+                                    UnitsManager.ConvertLengthFrom(dcsbCap.DimensionsOuter.M0, us),
+                                    UnitsManager.ConvertLengthFrom(dcsbCap.DimensionsOuter.M1, us),
+                                    UnitsManager.ConvertLengthFrom(dcsbCap.DimensionsOuter.M2, us),
+                                    UnitsManager.ConvertLengthFrom(dcsbCap.DimensionsInner.M0, us),
+                                    UnitsManager.ConvertLengthFrom(dcsbCap.DimensionsInner.M1, us),
+                                    UnitsManager.ConvertLengthFrom(dcsbCap.DimensionsInner.M2, us),
+                                    UnitsManager.ConvertMassFrom(dcsbCap.Weight, us),
+                                    Color.FromArgb(dcsbCap.Color)
+                                    );
+                            }
+                        }
+                        while ((rangeIndex + 1) * 20 < numberOfItems);
+
+                        // pallet films
+                        rangeIndex = 0; numberOfItems = 0;
+                        do
+                        {
+                            DCSBPalletFilm[] palletFilms = wcfClient.Client.GetAllPalletFilmsAuto(rangeIndex++, ref numberOfItems, true);
+                            foreach (var dcsbPalletFilm in palletFilms)
+                            {
+                                UnitsManager.UnitSystem us = (UnitsManager.UnitSystem)dcsbPalletFilm.UnitSystem;
+                                docSB.CreateNewPalletFilm(dcsbPalletFilm.Name, dcsbPalletFilm.Description,
+                                    dcsbPalletFilm.UseTransparency, dcsbPalletFilm.UseHatching,
+                                    dcsbPalletFilm.HatchingSpace, dcsbPalletFilm.HatchingAngle,
+                                    Color.FromArgb(dcsbPalletFilm.Color));
+                            }
+                        }
+                        while ((rangeIndex + 1) * 20 < numberOfItems);
+
+                   } // using
+                }
+                catch (Exception ex)
+                {
+                    _log.Error(ex.ToString());
+                }
+            }
             doc.Modified += new EventHandler(OnDocumentModified);
             UpdateToolbarState();
         }

@@ -11,7 +11,7 @@ namespace treeDiM.StackBuilder.Desktop
         void SaveDocument();
         void CloseDocument();
 
-        void AddDocument(IDocument doc);
+        void AddDocument(IDocument doc, bool newDoc);
         List<IDocument> Documents { get; }
 
         IView ActiveView { get; }

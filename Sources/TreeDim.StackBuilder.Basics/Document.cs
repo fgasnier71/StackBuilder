@@ -1943,7 +1943,7 @@ namespace treeDiM.StackBuilder.Basics
                     if (string.Equals(node.Name, "ConstraintSetCase", StringComparison.CurrentCultureIgnoreCase))
                         constraintSet = LoadBoxCaseConstraintSet(node as XmlElement);
                     // load solutions
-                    else if (string.Equals(node.Name, "Solutions", StringComparison.CurrentCultureIgnoreCase))
+                    else if (string.Equals(node.Name, "Solution", StringComparison.CurrentCultureIgnoreCase))
                     {
                         boxCaseSolutionsElt = node as XmlElement;
 
@@ -1971,20 +1971,20 @@ namespace treeDiM.StackBuilder.Basics
                     if (string.Equals(node.Name, "ConstraintSet", StringComparison.CurrentCultureIgnoreCase))
                         constraintSet = LoadConstraintSetCylinderTruck(node as XmlElement, truckProperties);
                     // load solutions
-                    else if (string.Equals(node.Name, "Solutions", StringComparison.CurrentCultureIgnoreCase))
-                    {
-                    }
-                }
-
-                List<LayerDesc> layerDescs = new List<LayerDesc>();
-                
+                    else if (string.Equals(node.Name, "Solution", StringComparison.CurrentCultureIgnoreCase))
+                        LoadSolution(node as XmlElement, out listLayerDesc, out listSolItems);
+                }                
 
                 var analysis = CreateNewAnalysisCylinderTruck(
                     sName, sDescription,
                     GetTypeByGuid(sContentId) as CylinderProperties,
                     GetTypeByGuid(sContainerId) as TruckProperties,
                     constraintSet,
-                    layerDescs);
+                    listLayerDesc);
+
+                if (!string.IsNullOrEmpty(sId))
+                    analysis.ID.IGuid = Guid.Parse(sId);
+                analysis.Solution.SolutionItems = listSolItems;
             }
         }
 
@@ -3404,6 +3404,7 @@ namespace treeDiM.StackBuilder.Basics
                     xmlAnalysisElt.Attributes.Append(palletFilmIdAttribute);
                 }
             }
+
             // constraint set
             ConstraintSetAbstract constraintSet = analysis.ConstraintSet; 
             XmlElement eltContraintSet = xmlDoc.CreateElement("ConstraintSet");

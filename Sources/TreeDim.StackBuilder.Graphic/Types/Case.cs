@@ -58,15 +58,15 @@ namespace treeDiM.StackBuilder.Graphics
                 if (null == _points)
                 {
                     _points = new Vector3D[8];
-                    _points[0] = _transf.transform(new Vector3D(0.0, 0.0, 0.0));
-                    _points[1] = _transf.transform(new Vector3D(Length, 0.0, 0.0));
-                    _points[2] = _transf.transform(new Vector3D(Length, Width, 0.0));
-                    _points[3] = _transf.transform(new Vector3D(0.0, Width, 0.0));
+                    _points[0] = _transf.transform(new Vector3D(0.0,    0.0,    0.0));
+                    _points[1] = _transf.transform(new Vector3D(Length, 0.0,    0.0));
+                    _points[2] = _transf.transform(new Vector3D(Length, Width,  0.0));
+                    _points[3] = _transf.transform(new Vector3D(0.0,    Width,  0.0));
 
-                    _points[4] = _transf.transform(new Vector3D(0.0, 0.0, Height));
-                    _points[5] = _transf.transform(new Vector3D(Length, 0.0, Height));
-                    _points[6] = _transf.transform(new Vector3D(Length, Width, Height));
-                    _points[7] = _transf.transform(new Vector3D(0.0, Width, Height));
+                    _points[4] = _transf.transform(new Vector3D(0.0,    0.0,    Height));
+                    _points[5] = _transf.transform(new Vector3D(Length, 0.0,    Height));
+                    _points[6] = _transf.transform(new Vector3D(Length, Width,  Height));
+                    _points[7] = _transf.transform(new Vector3D(0.0,    Width,  Height));
                 }
                 return _points;
             }
@@ -81,15 +81,15 @@ namespace treeDiM.StackBuilder.Graphics
                 {
                     _points = new Vector3D[8];
 
-                    _points[0] = _transf.transform(new Vector3D(0.0, 0.0, 0.0));
-                    _points[1] = _transf.transform(new Vector3D(InsideLength, 0.0, 0.0));
-                    _points[2] = _transf.transform(new Vector3D(InsideLength, InsideWidth, 0.0 + zThickness));
-                    _points[3] = _transf.transform(new Vector3D(0.0, InsideWidth, 0.0 + zThickness));
+                    _points[0] = _transf.transform(new Vector3D(0.0,            0.0,        zThickness));
+                    _points[1] = _transf.transform(new Vector3D(InsideLength,   0.0,        zThickness));
+                    _points[2] = _transf.transform(new Vector3D(InsideLength,   InsideWidth, zThickness));
+                    _points[3] = _transf.transform(new Vector3D(0.0,            InsideWidth, zThickness));
 
-                    _points[4] = _transf.transform(new Vector3D(0.0, 0.0, InsideHeight + zThickness));
-                    _points[5] = _transf.transform(new Vector3D(InsideLength, 0.0, InsideHeight + zThickness));
-                    _points[6] = _transf.transform(new Vector3D(InsideLength, InsideWidth, InsideHeight + zThickness));
-                    _points[7] = _transf.transform(new Vector3D(0.0, InsideWidth, InsideHeight + zThickness));
+                    _points[4] = _transf.transform(new Vector3D(0.0,            0.0,            InsideHeight + zThickness));
+                    _points[5] = _transf.transform(new Vector3D(InsideLength,   0.0,            InsideHeight + zThickness));
+                    _points[6] = _transf.transform(new Vector3D(InsideLength,   InsideWidth,    InsideHeight + zThickness));
+                    _points[7] = _transf.transform(new Vector3D(0.0,            InsideWidth,    InsideHeight + zThickness));
                 }
                 return _points;
             }

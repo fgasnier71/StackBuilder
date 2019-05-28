@@ -30,36 +30,36 @@ namespace treeDiM.StackBuilder.Desktop
             {
                 // build image list for tree
                 ImageList = new ImageList();
-                ImageList.Images.Add(AnalysisTreeView.CLSDFOLD);                    // 0
-                ImageList.Images.Add(AnalysisTreeView.OPENFOLD);                    // 1
-                ImageList.Images.Add(AnalysisTreeView.DOC);                         // 2
-                ImageList.Images.Add(AnalysisTreeView.Box);                         // 3
-                ImageList.Images.Add(AnalysisTreeView.Case);                        // 4
-                ImageList.Images.Add(AnalysisTreeView.Bundle);                      // 5
-                ImageList.Images.Add(AnalysisTreeView.Cylinder);                    // 6
-                ImageList.Images.Add(AnalysisTreeView.Pallet);                      // 7
-                ImageList.Images.Add(AnalysisTreeView.Interlayer);                  // 8
-                ImageList.Images.Add(AnalysisTreeView.Truck);                       // 9
-                ImageList.Images.Add(AnalysisTreeView.PalletCorners);               // 10
-                ImageList.Images.Add(AnalysisTreeView.PalletCap);                   // 11
-                ImageList.Images.Add(AnalysisTreeView.PalletFilm);                  // 12
-                ImageList.Images.Add(AnalysisTreeView.Pack);                        // 13
-                ImageList.Images.Add(AnalysisTreeView.AnalysisCasePallet);          // 14
-                ImageList.Images.Add(AnalysisTreeView.AnalysisBundlePallet);        // 15
-                ImageList.Images.Add(AnalysisTreeView.AnalysisTruck);               // 16
-                ImageList.Images.Add(AnalysisTreeView.AnalysisCase);                // 17
-                ImageList.Images.Add(AnalysisTreeView.AnalysisStackingStrength);    // 18
-                ImageList.Images.Add(AnalysisTreeView.AnalysisCylinderPallet);      // 19
-                ImageList.Images.Add(AnalysisTreeView.AnalysisHCylinderPallet);     // 20
-                ImageList.Images.Add(AnalysisTreeView.AnalysisPackPallet);          // 21
+                ImageList.Images.Add(CLSDFOLD);                    // 0
+                ImageList.Images.Add(OPENFOLD);                    // 1
+                ImageList.Images.Add(DOC);                         // 2
+                ImageList.Images.Add(Box);                         // 3
+                ImageList.Images.Add(Case);                        // 4
+                ImageList.Images.Add(Bundle);                      // 5
+                ImageList.Images.Add(Cylinder);                    // 6
+                ImageList.Images.Add(Pallet);                      // 7
+                ImageList.Images.Add(Interlayer);                  // 8
+                ImageList.Images.Add(Truck);                       // 9
+                ImageList.Images.Add(PalletCorners);               // 10
+                ImageList.Images.Add(PalletCap);                   // 11
+                ImageList.Images.Add(PalletFilm);                  // 12
+                ImageList.Images.Add(Pack);                        // 13
+                ImageList.Images.Add(AnalysisCasePallet);          // 14
+                ImageList.Images.Add(AnalysisBundlePallet);        // 15
+                ImageList.Images.Add(AnalysisTruck);               // 16
+                ImageList.Images.Add(AnalysisCase);                // 17
+                ImageList.Images.Add(AnalysisStackingStrength);    // 18
+                ImageList.Images.Add(AnalysisCylinderPallet);      // 19
+                ImageList.Images.Add(AnalysisHCylinderPallet);     // 20
+                ImageList.Images.Add(AnalysisPackPallet);          // 21
                // instantiate context menu
-                this.ContextMenuStrip = new ContextMenuStrip();
+                ContextMenuStrip = new ContextMenuStrip();
                 // attach event handlers
-                this.NodeMouseClick += new TreeNodeMouseClickEventHandler(AnalysisTreeView_NodeMouseClick);
-                this.NodeMouseDoubleClick += new TreeNodeMouseClickEventHandler(OnNodeLeftDoubleClick);
-                this.ContextMenuStrip.Opening += new CancelEventHandler(ContextMenuStrip_Opening);
-                this.DrawMode = TreeViewDrawMode.OwnerDrawText;
-                this.DrawNode += new DrawTreeNodeEventHandler(AnalysisTreeView_DrawNode);
+                NodeMouseClick += new TreeNodeMouseClickEventHandler(AnalysisTreeView_NodeMouseClick);
+                NodeMouseDoubleClick += new TreeNodeMouseClickEventHandler(OnNodeLeftDoubleClick);
+                ContextMenuStrip.Opening += new CancelEventHandler(ContextMenuStrip_Opening);
+                DrawMode = TreeViewDrawMode.OwnerDrawText;
+                DrawNode += new DrawTreeNodeEventHandler(AnalysisTreeView_DrawNode);
             }
             catch (Exception ex)
             {
@@ -96,12 +96,12 @@ namespace treeDiM.StackBuilder.Desktop
 
         private void InitializeComponent()
         {
-            this.SuspendLayout();
+            SuspendLayout();
             // 
             // AnalysisTreeView
             // 
-            this.DrawMode = System.Windows.Forms.TreeViewDrawMode.OwnerDrawText;
-            this.ResumeLayout(false);
+            DrawMode = TreeViewDrawMode.OwnerDrawText;
+            ResumeLayout(false);
 
         }
         #endregion
@@ -112,7 +112,7 @@ namespace treeDiM.StackBuilder.Desktop
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void ContextMenuStrip_Opening(object sender, System.ComponentModel.CancelEventArgs e)
+        private void ContextMenuStrip_Opening(object sender, CancelEventArgs e)
         {
             try
             {
@@ -121,13 +121,13 @@ namespace treeDiM.StackBuilder.Desktop
                 if (node == null) return; // user might right click no valid node
                 SelectedNode = node;
                 // clear previous items
-                this.ContextMenuStrip.Items.Clear();
+                ContextMenuStrip.Items.Clear();
                 // let the provider do his work
                 if (node.Tag is NodeTag nodeTag)
-                    QueryContextMenuItems(nodeTag, this.ContextMenuStrip);
+                    QueryContextMenuItems(nodeTag, ContextMenuStrip);
                 // set Cancel to false. 
                 // it is optimized to true based on empty entry.
-                e.Cancel = !(this.ContextMenuStrip.Items.Count > 0);
+                e.Cancel = !(ContextMenuStrip.Items.Count > 0);
             }
             catch (Exception ex)
             {
@@ -139,21 +139,21 @@ namespace treeDiM.StackBuilder.Desktop
         {
             if (nodeTag.Type == NodeTag.NodeType.NT_DOCUMENT)
             {
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWBOX, AnalysisTreeView.Box         , new EventHandler(OnCreateNewBox)));
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWCASE, AnalysisTreeView.Case, new EventHandler(OnCreateNewCase)));
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWCYLINDER, AnalysisTreeView.Cylinder, new EventHandler(OnCreateNewCylinder)));
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWPALLET, AnalysisTreeView.Pallet      , new EventHandler(OnCreateNewPallet)));
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWINTERLAYER, AnalysisTreeView.Interlayer, new EventHandler(OnCreateNewInterlayer)));
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWBUNDLE, AnalysisTreeView.Bundle      , new EventHandler(OnCreateNewBundle)));
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWPALLETCORNERS, AnalysisTreeView.PalletCorners, new EventHandler(OnCreateNewPalletCorners)));
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWPALLETCAP, AnalysisTreeView.PalletCap, new EventHandler(OnCreateNewPalletCap)));
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWPALLETFILM, AnalysisTreeView.PalletFilm, new EventHandler(OnCreateNewPalletFilm)));
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWTRUCK, AnalysisTreeView.Truck       , new EventHandler(OnCreateNewTruck)));
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWBOX, Box, new EventHandler(OnCreateNewBox)) { ImageTransparentColor = Color.White } );
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWCASE, Case, new EventHandler(OnCreateNewCase)) { ImageTransparentColor = Color.White });
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWCYLINDER, Cylinder, new EventHandler(OnCreateNewCylinder)) { ImageTransparentColor = Color.White });
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWPALLET, Pallet, new EventHandler(OnCreateNewPallet)) { ImageTransparentColor = Color.White });
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWINTERLAYER, Interlayer, new EventHandler(OnCreateNewInterlayer)) { ImageTransparentColor = Color.White });
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWBUNDLE, Bundle, new EventHandler(OnCreateNewBundle)) { ImageTransparentColor = Color.White });
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWPALLETCORNERS, PalletCorners, new EventHandler(OnCreateNewPalletCorners)) { ImageTransparentColor = Color.White });
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWPALLETCAP, PalletCap, new EventHandler(OnCreateNewPalletCap)) { ImageTransparentColor = Color.White });
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWPALLETFILM, PalletFilm, new EventHandler(OnCreateNewPalletFilm)) { ImageTransparentColor = Color.White });
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWTRUCK, Truck, new EventHandler(OnCreateNewTruck)) { ImageTransparentColor = Color.White });
 
                 if (((DocumentSB)nodeTag.Document).CanCreateAnalysisCasePallet || ((DocumentSB)nodeTag.Document).CanCreateOptiCasePallet)
                     contextMenuStrip.Items.Add(new ToolStripSeparator());
                 if (((DocumentSB)nodeTag.Document).CanCreateAnalysisCasePallet)
-                    contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWANALYSIS, AnalysisTreeView.AnalysisCasePallet, new EventHandler(OnCreateNewAnalysisCasePallet)));
+                    contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWANALYSIS, AnalysisCasePallet, new EventHandler(OnCreateNewAnalysisCasePallet)));
                 /*
                 if (((DocumentSB)nodeTag.Document).CanCreateOptiCasePallet)
                     contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWCASEANALYSIS, AnalysisTreeView.AnalysisCase, new EventHandler(onCreateNewAnalysisCase)));
@@ -176,36 +176,36 @@ namespace treeDiM.StackBuilder.Desktop
                 )
             {
                 string message = string.Format(Resources.ID_DELETEITEM, nodeTag.ItemProperties.Name);
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(message, AnalysisTreeView.DELETE, new EventHandler(OnDeleteBaseItem)));
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(message, DELETE, new EventHandler(OnDeleteBaseItem)));
             }
             else if (nodeTag.Type == NodeTag.NodeType.NT_LISTBOX)
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWBOX, AnalysisTreeView.Box, new EventHandler(OnCreateNewBox)));
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWBOX, Box, new EventHandler(OnCreateNewBox)) { ImageTransparentColor = Color.White} );
             else if (nodeTag.Type == NodeTag.NodeType.NT_LISTCASE)
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWCASE, AnalysisTreeView.Case, new EventHandler(OnCreateNewCase)));
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWCASE, Case, new EventHandler(OnCreateNewCase)) { ImageTransparentColor = Color.White} );
             else if (nodeTag.Type == NodeTag.NodeType.NT_LISTCYLINDER)
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWCYLINDER, AnalysisTreeView.Cylinder, new EventHandler(OnCreateNewCylinder)));
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWCYLINDER, Cylinder, new EventHandler(OnCreateNewCylinder)) { ImageTransparentColor = Color.White} );
             else if (nodeTag.Type == NodeTag.NodeType.NT_LISTPALLET)
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWPALLET, AnalysisTreeView.Pallet, new EventHandler(OnCreateNewPallet)));
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWPALLET, Pallet, new EventHandler(OnCreateNewPallet)) { ImageTransparentColor = Color.White} );
             else if (nodeTag.Type == NodeTag.NodeType.NT_LISTINTERLAYER)
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWINTERLAYER, AnalysisTreeView.Interlayer, new EventHandler(OnCreateNewInterlayer)));
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWINTERLAYER, Interlayer, new EventHandler(OnCreateNewInterlayer)) { ImageTransparentColor = Color.White} );
             else if (nodeTag.Type == NodeTag.NodeType.NT_LISTBUNDLE)
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWBUNDLE, AnalysisTreeView.Bundle, new EventHandler(OnCreateNewBundle)));
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWBUNDLE, Bundle, new EventHandler(OnCreateNewBundle)) { ImageTransparentColor = Color.White} );
             else if (nodeTag.Type == NodeTag.NodeType.NT_LISTTRUCK)
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWTRUCK, AnalysisTreeView.Truck, new EventHandler(OnCreateNewTruck)));
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWTRUCK, Truck, new EventHandler(OnCreateNewTruck)) { ImageTransparentColor = Color.White} );
             else if (nodeTag.Type == NodeTag.NodeType.NT_LISTPALLETCORNERS)
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWPALLETCORNERS, AnalysisTreeView.PalletCorners, new EventHandler(OnCreateNewPalletCorners)));
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWPALLETCORNERS, PalletCorners, new EventHandler(OnCreateNewPalletCorners)) { ImageTransparentColor = Color.White} );
             else if (nodeTag.Type == NodeTag.NodeType.NT_LISTPALLETCAP)
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWPALLETCAP, AnalysisTreeView.PalletCap, new EventHandler(OnCreateNewPalletCap)));
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWPALLETCAP, PalletCap, new EventHandler(OnCreateNewPalletCap)) { ImageTransparentColor = Color.White} );
             else if (nodeTag.Type == NodeTag.NodeType.NT_LISTPALLETFILM)
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWPALLETFILM, AnalysisTreeView.PalletFilm, new EventHandler(OnCreateNewPalletFilm)));
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWPALLETFILM, PalletFilm, new EventHandler(OnCreateNewPalletFilm)) { ImageTransparentColor = Color.White} );
             else if (nodeTag.Type == NodeTag.NodeType.NT_LISTANALYSIS)
             {
                 if (nodeTag.Document.CanCreateAnalysisCasePallet)
-                    contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWANALYSIS, AnalysisTreeView.AnalysisCasePallet, new EventHandler(OnCreateNewAnalysisCasePallet)));
+                    contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWANALYSIS, AnalysisCasePallet, new EventHandler(OnCreateNewAnalysisCasePallet)) { ImageTransparentColor = Color.White} );
                 if (nodeTag.Document.CanCreateAnalysisCylinderPallet)
-                    contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWCYLINDERANALYSIS, AnalysisTreeView.AnalysisCylinderPallet, new EventHandler(OnCreateNewAnalysisCylinderPallet)));
+                    contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWCYLINDERANALYSIS, AnalysisCylinderPallet, new EventHandler(OnCreateNewAnalysisCylinderPallet)) { ImageTransparentColor = Color.White} );
                 if (nodeTag.Document.CanCreateAnalysisPalletTruck)
-                    contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWTRUCKANALYSIS, AnalysisTreeView.AnalysisTruck, new EventHandler(OnCreateNewAnalysisPalletTruck)));
+                    contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWTRUCKANALYSIS, AnalysisTruck, new EventHandler(OnCreateNewAnalysisPalletTruck)) { ImageTransparentColor = Color.White} );
             }
             else if (nodeTag.Type == NodeTag.NodeType.NT_ANALYSIS)
             {
@@ -216,14 +216,11 @@ namespace treeDiM.StackBuilder.Desktop
                     analysisName = nodeTag.HAnalysis.Name;
 
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(
-                    string.Format(Resources.ID_EDIT, analysisName), null
-                    , new EventHandler(OnEditAnalysis)));
+                    string.Format(Resources.ID_EDIT, analysisName), null, new EventHandler(OnEditAnalysis)) { ImageTransparentColor = Color.White });
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(
-                    string.Format(Resources.ID_DELETEITEM, analysisName), AnalysisTreeView.DELETE
-                    , new EventHandler(OnDeleteBaseItem)));
+                    string.Format(Resources.ID_DELETEITEM, analysisName), DELETE, new EventHandler(OnDeleteBaseItem)) { ImageTransparentColor = Color.White });
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(
-                    string.Format(Resources.ID_GENERATEREPORT, analysisName), WORD
-                    , new EventHandler(OnAnalysisReport)));
+                    string.Format(Resources.ID_GENERATEREPORT, analysisName), WORD, new EventHandler(OnAnalysisReport)) { ImageTransparentColor = Color.White });
             }
         }
         #endregion
