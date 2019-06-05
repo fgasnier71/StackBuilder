@@ -3,4 +3,5 @@
 <?define ShortcutFolder="treeDiM"?>
 <!-- Package_Description -->
 <?define PackageDescription = "Installs stacking application StackBuilder" ?>
+<?define ReportTemplatesSourceDir = "..\..\TreeDim.StackBuilder.Reporting\ReportTemplates" ?>
 <Include/>  

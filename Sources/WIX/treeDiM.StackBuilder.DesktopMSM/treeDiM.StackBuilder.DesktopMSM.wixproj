@@ -18,9 +18,11 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <OutputPath>bin\$(Configuration)\</OutputPath>
     <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
+    <SuppressSpecificWarnings>1076</SuppressSpecificWarnings>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="DirectoryTree.wxs" />
+    <Compile Include="GroupReportTemplates.wxs" />
     <Compile Include="MergeModule.wxs" />
   </ItemGroup>
   <ItemGroup>

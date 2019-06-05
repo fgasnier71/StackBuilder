@@ -3,7 +3,7 @@
   <!-- Product manufacturer -->
   <?define ProductManufacturer = "treeDiM"?>
   <!-- Product version -->
-  <?define ProductVersion = "3.0.0.90"?>
+  <?define ProductVersion = "3.0.0.91"?>
   <!-- Company URL -->
   <?define CompanyURL = "http://www.treedim.com/" ?>
   <!-- Product name as it appears in Add/Remove Programs-->

@@ -122,5 +122,9 @@
                        KeyPath="yes" />
       </Component>
     </DirectoryRef>
+
+    <!--ComponentGroupRefs (Components harvested with heat.exe) : BEGIN-->
+    <ComponentGroupRef Id="ReportTemplatesGroup"/>
+    <!--ComponentGroupRefs : END-->
   </Module>
 </Wix>

@@ -2,23 +2,21 @@
 <?include $(sys.CURRENTDIR)\Config.wxi?>
 
 <Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
-	<Fragment>
+  <Fragment>
     <Directory Id="TARGETDIR" Name="SourceDir">
       <Directory Id="MergeRedirectFolder">
-        <Directory Id="StackBuilder" Name="StackBuilder">
-          <Directory Id="Bin" Name="Bin">
-            <Directory Id="fr" Name="fr"/>
-            <Directory Id="es" Name="es"/>
-            <Directory Id="it" Name="it"/>
-          </Directory>
+        <Directory Id="Bin" Name="Bin">
+          <Directory Id="fr" Name="fr"/>
+          <Directory Id="es" Name="es"/>
+          <Directory Id="it" Name="it"/>
           <Directory Id="ReportTemplates" Name="ReportTemplates"/>
-          <Directory Id="Data" Name="Data"/>
         </Directory>
+        <Directory Id="Data" Name="Data"/>
       </Directory>
       <Directory Id="ProgramMenuFolder" Name="Programs" ShortName="PMenu">
         <Directory Id="ApplicationProgramsFolder" Name="$(var.ShortcutFolder)"/>
       </Directory>
       <Directory Id="DesktopFolder" Name="Desktop"/>
     </Directory>
-	</Fragment>
+  </Fragment>
 </Wix>
