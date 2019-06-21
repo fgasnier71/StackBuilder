@@ -88,6 +88,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "treeDiM.StackBuilder.XMLFil
 EndProject
 Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "GUIExtensionMSM", "WIX\GUIExtensionMSM\GUIExtensionMSM.wixproj", "{310583E5-EE29-419D-860B-C0E31B767987}"
 EndProject
+Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "treeDiM.StackBuilder.DesktopBootstrapper", "WIX\treeDiM.StackBuilder.DesktopBootstrapper\treeDiM.StackBuilder.DesktopBootstrapper.wixproj", "{17862F64-872C-4983-BB26-AF1D09542B04}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -562,6 +564,18 @@ Global
 		{310583E5-EE29-419D-860B-C0E31B767987}.Release|x64.ActiveCfg = Release|x86
 		{310583E5-EE29-419D-860B-C0E31B767987}.Release|x86.ActiveCfg = Release|x86
 		{310583E5-EE29-419D-860B-C0E31B767987}.Release|x86.Build.0 = Release|x86
+		{17862F64-872C-4983-BB26-AF1D09542B04}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{17862F64-872C-4983-BB26-AF1D09542B04}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{17862F64-872C-4983-BB26-AF1D09542B04}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{17862F64-872C-4983-BB26-AF1D09542B04}.Debug|x64.ActiveCfg = Debug|x86
+		{17862F64-872C-4983-BB26-AF1D09542B04}.Debug|x86.ActiveCfg = Debug|x86
+		{17862F64-872C-4983-BB26-AF1D09542B04}.Debug|x86.Build.0 = Debug|x86
+		{17862F64-872C-4983-BB26-AF1D09542B04}.Release|Any CPU.ActiveCfg = Release|x86
+		{17862F64-872C-4983-BB26-AF1D09542B04}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{17862F64-872C-4983-BB26-AF1D09542B04}.Release|Mixed Platforms.Build.0 = Release|x86
+		{17862F64-872C-4983-BB26-AF1D09542B04}.Release|x64.ActiveCfg = Release|x86
+		{17862F64-872C-4983-BB26-AF1D09542B04}.Release|x86.ActiveCfg = Release|x86
+		{17862F64-872C-4983-BB26-AF1D09542B04}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -588,11 +602,12 @@ Global
 		{302DFA4A-A31C-4DD1-A656-5CF64B1F2A1C} = {7C541C76-20F1-40D8-A683-29062638D9B9}
 		{3BB34EA7-38A7-4F6D-AA49-29EB577C944A} = {7C541C76-20F1-40D8-A683-29062638D9B9}
 		{310583E5-EE29-419D-860B-C0E31B767987} = {7C541C76-20F1-40D8-A683-29062638D9B9}
+		{17862F64-872C-4983-BB26-AF1D09542B04} = {7C541C76-20F1-40D8-A683-29062638D9B9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		RESX_PrefixTranslations = False
-		RESX_AutoCreateNewLanguageFiles = True
-		SolutionGuid = {A8385DDB-1893-4CF8-83DF-F57C7AB7069B}
 		RESX_ConfirmAddLanguageFile = False
+		SolutionGuid = {A8385DDB-1893-4CF8-83DF-F57C7AB7069B}
+		RESX_AutoCreateNewLanguageFiles = True
+		RESX_PrefixTranslations = False
 	EndGlobalSection
 EndGlobal

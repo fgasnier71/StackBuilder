@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?include $(sys.CURRENTDIR)..\treeDiM.StackBuilder.DeskTopMSM\CommonConfig.wxi?>
+<?include $(sys.CURRENTDIR)Config.wxi?>
+
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
+    xmlns:bal="http://schemas.microsoft.com/wix/BalExtension">
+  <Bundle Name="$(var.ProductName)"
+           Version="$(var.ProductVersion)"
+           Manufacturer="$(var.ProductManufacturer)"
+           UpgradeCode="$(var.UpgradeCode)"
+           IconSourceFile="StackBuilder.ico"
+           Copyright="Copyright© 2019, treeDiM"
+           AboutUrl="$(var.CompanyURL)"
+           HelpUrl="$(var.CompanyURL)"
+           Condition="(VersionNT >= v5.0)">
+    <BootstrapperApplicationRef Id="WixStandardBootstrapperApplication.HyperlinkLicense">
+      <bal:WixStandardBootstrapperApplication
+        SuppressOptionsUI="no"
+        LicenseUrl=""        
+        ThemeFile="Theme.xml"
+        LocalizationFile="Theme.wxl"
+        />
+    </BootstrapperApplicationRef>
+    <WixVariable Id="WixExtbaLicenseRtf" Value="License.rtf" />
+    <WixVariable Id="WixStdbaLogo" Value="WixUIBannerBmp.bmp" />
+    <?if $(var.Platform) = x64 ?>
+    <Variable Name="InstallFolder" Type="string" Value="[ProgramFiles64Folder]treeDiM\StackBuilder" />
+    <?else?>
+    <Variable Name="InstallFolder" Type="string" Value="[ProgramFilesFolder]treeDiM\StackBuilder" />
+    <?endif?>
+    <Variable Name="LaunchTarget" Value="[InstallFolder]\Bin\treeDiM.StackBuilder.Desktop.exe"/>
+    <Chain>
+      <MsiPackage
+                Compressed="yes"
+                SourceFile="..\treeDiM.StackBuilder.DesktopMSI\bin\Release\StackBuilder_MSI.msi"
+                Vital="yes"
+                DisplayInternalUI="no"
+                ForcePerMachine="yes"
+                Visible="yes">
+        <MsiProperty Name="ARPSYSTEMCOMPONENT" Value="1"/>
+        <MsiProperty Name="INSTALLLOCATION" Value="[InstallFolder]" />
+      </MsiPackage>
+    </Chain>
+  </Bundle>
+</Wix>

@@ -39,7 +39,7 @@
     <MinimumRequiredVersion>3.0.0.0</MinimumRequiredVersion>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>92</ApplicationRevision>
+    <ApplicationRevision>93</ApplicationRevision>
     <ApplicationVersion>3.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -220,6 +220,7 @@
       <DependentUpon>CheckedListBoxWithImage.cs</DependentUpon>
     </Compile>
     <Compile Include="ComboBoxItems.cs" />
+    <Compile Include="DatabaseHelpers.cs" />
     <Compile Include="DockContentAnalysisBoxCase.cs">
       <SubType>Form</SubType>
     </Compile>

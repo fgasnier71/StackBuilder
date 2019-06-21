@@ -58,11 +58,13 @@ namespace treeDiM.StackBuilder.Desktop
         {
             base.OnLoad(e);
             graphCtrl.DrawingContainer = this;
+            // enable / disable database button
+            bnSendToDB.Enabled = WCFClient.IsConnected;
         }
         public override void UpdateStatus(string message)
         {
             if (CornerThickness >= CornerWidth)
-                message = Properties.Resources.ID_INVALIDTHICKNESSWIDTHPAIR;
+                message = Resources.ID_INVALIDTHICKNESSWIDTHPAIR;
 
             base.UpdateStatus(message);
         }
@@ -127,15 +129,12 @@ namespace treeDiM.StackBuilder.Desktop
         {
             try
             {
-                FormSetItemName form = new FormSetItemName()
-                {
-                    ItemName = ItemName
-                };
+                FormSetItemName form = new FormSetItemName() { ItemName = ItemName };
                 if (DialogResult.OK == form.ShowDialog())
                 {
                     using (WCFClient wcfClient = new WCFClient())
                     {
-                        wcfClient.Client.CreateNewPalletCorner(new DCSBPalletCorner()
+                        wcfClient.Client?.CreateNewPalletCorner(new DCSBPalletCorner()
                         {
                             Name = form.ItemName,
                             Description = ItemDescription,

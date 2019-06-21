@@ -67,6 +67,8 @@ namespace treeDiM.StackBuilder.Desktop
             // windows settings
             if (null != Settings.Default.FormNewTruckPosition)
                 Settings.Default.FormNewTruckPosition.Restore(this);
+            // enable/disable database button
+            bnSendToDB.Enabled = WCFClient.IsConnected;
         }
         protected override void OnClosing(CancelEventArgs e)
         {
@@ -150,7 +152,7 @@ namespace treeDiM.StackBuilder.Desktop
                 {
                     using (WCFClient wcfClient = new WCFClient())
                     {
-                        wcfClient.Client.CreateNewTruck(new DCSBTruck()
+                        wcfClient.Client?.CreateNewTruck(new DCSBTruck()
                         {
                             Name = form.ItemName,
                             Description = ItemDescription,

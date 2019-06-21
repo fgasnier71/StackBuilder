@@ -60,6 +60,9 @@ namespace treeDiM.StackBuilder.Desktop
         {
             base.OnLoad(e);
             graphCtrl.DrawingContainer = this;
+
+            // enable / disable database button
+            bnSendToDB.Enabled = WCFClient.IsConnected;
         }
 
         public override string ItemDefaultName
@@ -174,7 +177,7 @@ namespace treeDiM.StackBuilder.Desktop
                 {
                     using (WCFClient wcfClient = new WCFClient())
                     {
-                        wcfClient.Client.CreateNewPalletCap(new DCSBPalletCap()
+                        wcfClient.Client?.CreateNewPalletCap(new DCSBPalletCap()
                         {
                             Name = form.ItemName,
                             Description = ItemDescription,

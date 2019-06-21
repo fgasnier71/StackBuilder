@@ -51,6 +51,18 @@
             this.gbFaceColor.SuspendLayout();
             this.SuspendLayout();
             // 
+            // bnOk
+            // 
+            resources.ApplyResources(this.bnOk, "bnOk");
+            // 
+            // bnCancel
+            // 
+            resources.ApplyResources(this.bnCancel, "bnCancel");
+            // 
+            // tbDescription
+            // 
+            resources.ApplyResources(this.tbDescription, "tbDescription");
+            // 
             // gbDimensions
             // 
             this.gbDimensions.Controls.Add(this.uCtrlHeight);
@@ -250,7 +262,8 @@
             resources.GetString("cbColorWallInner.Items86"),
             resources.GetString("cbColorWallInner.Items87"),
             resources.GetString("cbColorWallInner.Items88"),
-            resources.GetString("cbColorWallInner.Items89")});
+            resources.GetString("cbColorWallInner.Items89"),
+            resources.GetString("cbColorWallInner.Items90")});
             this.cbColorWallInner.Name = "cbColorWallInner";
             this.cbColorWallInner.SelectedColorChanged += new System.EventHandler(this.OnValueChanged);
             // 
@@ -356,7 +369,8 @@
             resources.GetString("cbColorWallOuter.Items85"),
             resources.GetString("cbColorWallOuter.Items86"),
             resources.GetString("cbColorWallOuter.Items87"),
-            resources.GetString("cbColorWallOuter.Items88")});
+            resources.GetString("cbColorWallOuter.Items88"),
+            resources.GetString("cbColorWallOuter.Items89")});
             this.cbColorWallOuter.Name = "cbColorWallOuter";
             this.cbColorWallOuter.SelectedColorChanged += new System.EventHandler(this.OnValueChanged);
             // 
@@ -461,7 +475,8 @@
             resources.GetString("cbColorTop.Items84"),
             resources.GetString("cbColorTop.Items85"),
             resources.GetString("cbColorTop.Items86"),
-            resources.GetString("cbColorTop.Items87")});
+            resources.GetString("cbColorTop.Items87"),
+            resources.GetString("cbColorTop.Items88")});
             this.cbColorTop.Name = "cbColorTop";
             this.cbColorTop.SelectedColorChanged += new System.EventHandler(this.OnValueChanged);
             // 
@@ -486,17 +501,25 @@
             this.Controls.Add(this.graphCtrl);
             this.Controls.Add(this.gbWeight);
             this.Controls.Add(this.gbDimensions);
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "FormNewCylinder";
-            this.ShowIcon = false;
-            this.ShowInTaskbar = false;
+            this.Controls.SetChildIndex(this.gbDimensions, 0);
+            this.Controls.SetChildIndex(this.gbWeight, 0);
+            this.Controls.SetChildIndex(this.graphCtrl, 0);
+            this.Controls.SetChildIndex(this.gbFaceColor, 0);
+            this.Controls.SetChildIndex(this.bnSendToDB, 0);
+            this.Controls.SetChildIndex(this.bnOk, 0);
+            this.Controls.SetChildIndex(this.bnCancel, 0);
+            this.Controls.SetChildIndex(this.lbName, 0);
+            this.Controls.SetChildIndex(this.lbDescription, 0);
+            this.Controls.SetChildIndex(this.tbName, 0);
+            this.Controls.SetChildIndex(this.tbDescription, 0);
             this.gbDimensions.ResumeLayout(false);
             this.gbWeight.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.graphCtrl)).EndInit();
             this.gbFaceColor.ResumeLayout(false);
             this.gbFaceColor.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

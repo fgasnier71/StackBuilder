@@ -19,9 +19,6 @@ namespace treeDiM.StackBuilder.Desktop
 {
     public partial class FormNewPallet : FormNewBase, IDrawingContainer
     {
-        #region Data members
-        static readonly ILog _log = LogManager.GetLogger(typeof(FormNewPallet));
-        #endregion
 
         #region Constructor
         public FormNewPallet(Document document, PalletProperties palletProperties)
@@ -66,13 +63,17 @@ namespace treeDiM.StackBuilder.Desktop
             // windows settings
             if (null != Settings.Default.FormNewPalletPosition)
                 Settings.Default.FormNewPalletPosition.Restore(this);
+            // enable / disable database button
+            bnSendToDB.Enabled = WCFClient.IsConnected;
         }
         protected override void OnClosing(CancelEventArgs e)
         {
             base.OnClosing(e);
+            // form position
             if (null == Settings.Default.FormNewPalletPosition)
                 Settings.Default.FormNewPalletPosition = new WindowSettings();
             Settings.Default.FormNewPalletPosition.Record(this);
+
             // pallet type name
             Settings.Default.PalletTypeName = PalletTypeName;
         }
@@ -176,15 +177,12 @@ namespace treeDiM.StackBuilder.Desktop
         {
             try
             {
-                FormSetItemName form = new FormSetItemName()
-                {
-                    ItemName = ItemName
-                };
+                FormSetItemName form = new FormSetItemName() {  ItemName = ItemName };
                 if (DialogResult.OK == form.ShowDialog())
                 {
                     using (WCFClient wcfClient = new WCFClient())
                     {
-                        wcfClient.Client.CreateNewPallet(new DCSBPallet()
+                        wcfClient.Client?.CreateNewPallet(new DCSBPallet()
                         {
                             Name = form.ItemName,
                             Description = ItemDescription,
@@ -205,6 +203,10 @@ namespace treeDiM.StackBuilder.Desktop
                 _log.Error(ex.Message);
             }
         }
+        #endregion
+
+        #region Data members
+        static readonly ILog _log = LogManager.GetLogger(typeof(FormNewPallet));
         #endregion
     }
 }

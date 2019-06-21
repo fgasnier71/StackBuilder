@@ -46,18 +46,6 @@
             // 
             resources.ApplyResources(this.bnCancel, "bnCancel");
             // 
-            // lbName
-            // 
-            resources.ApplyResources(this.lbName, "lbName");
-            // 
-            // lbDescription
-            // 
-            resources.ApplyResources(this.lbDescription, "lbDescription");
-            // 
-            // tbName
-            // 
-            resources.ApplyResources(this.tbName, "tbName");
-            // 
             // tbDescription
             // 
             resources.ApplyResources(this.tbDescription, "tbDescription");
@@ -122,7 +110,8 @@
             resources.GetString("cbColor.Items47"),
             resources.GetString("cbColor.Items48"),
             resources.GetString("cbColor.Items49"),
-            resources.GetString("cbColor.Items50")});
+            resources.GetString("cbColor.Items50"),
+            resources.GetString("cbColor.Items51")});
             this.cbColor.Name = "cbColor";
             this.cbColor.SelectedColorChanged += new System.EventHandler(this.OnTruckPropertyChanged);
             // 
@@ -155,6 +144,7 @@
             0});
             this.uCtrlInnerDimensions.Name = "uCtrlInnerDimensions";
             this.uCtrlInnerDimensions.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlInnerDimensions.Value = ((Sharp3D.Math.Core.Vector3D)(resources.GetObject("uCtrlInnerDimensions.Value")));
             this.uCtrlInnerDimensions.ValueX = 0D;
             this.uCtrlInnerDimensions.ValueY = 0D;
             this.uCtrlInnerDimensions.ValueZ = 0D;

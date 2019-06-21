@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Package_Description -->
+<?define Package_Description = "Installs StackBuilder files" ?>
+<!-- Package_Comments -->
+<?define Package_Comments = "registers StackBuilder"?>
+<!-- Merge module directory -->
+<?define MergeModuleDir="C:\Program Files (x86)\Common Files\Merge Modules"?>
+<!--Shortcut folder-->
+<?define ShortcutFolder="treeDiM"?>
+
+<?define UpgradeCode="{6743BA88-C263-4F37-8A01-02695F263F1A}"?>
+<Include/>

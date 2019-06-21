@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Linq;
 
 using log4net;
 using Sharp3D.Math.Core;
@@ -500,20 +501,15 @@ namespace treeDiM.StackBuilder.Desktop
         {
             try
             {
-                FormSetItemName form = new FormSetItemName()
-                {
-                    ItemName = BoxName
-                };
+                FormSetItemName form = new FormSetItemName() { ItemName = BoxName };
                 if (DialogResult.OK == form.ShowDialog())
                 {
                     using (WCFClient wcfClient = new WCFClient())
                     {
-                        // colors
-                        int[] colors = new int[6];
-                        for (int i = 0; i < 6; ++i)
-                            colors[i] = _faceColors[i].ToArgb();
+                        int[] colors = (from fc in _faceColors select fc.ToArgb()).ToArray();
 
-                        wcfClient.Client.CreateNewCase(new DCSBCase()
+                        var client = wcfClient.Client;
+                        client?.CreateNewCase(new DCSBCase()
                         {
                             Name = form.ItemName,
                             Description = Description,
@@ -526,8 +522,8 @@ namespace treeDiM.StackBuilder.Desktop
                             TapeWidth = TapeWidth.Value,
                             TapeColor = TapeColor.ToArgb(),
                             Weight = Weight,
-                            NetWeight = !HasInsideDimensions && NetWeight.Activated ? this.NetWeight.Value : new Nullable<double>(),
-                            MaxWeight = HasInsideDimensions && MaxWeight.Activated ? this.MaxWeight.Value : new Nullable<double>(),
+                            NetWeight = !HasInsideDimensions && NetWeight.Activated ? NetWeight.Value : new double?(),
+                            MaxWeight = HasInsideDimensions && MaxWeight.Activated ? MaxWeight.Value : new double?(),
                             Colors = colors,
                             AutoInsert = false
                         }

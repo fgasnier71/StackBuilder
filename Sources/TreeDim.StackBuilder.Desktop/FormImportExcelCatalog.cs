@@ -163,6 +163,9 @@ namespace treeDiM.StackBuilder.Desktop
             {
                 using (WCFClient wcfClient = new WCFClient())
                 {
+                    var client = wcfClient.Client;
+                    if (null == client) return;
+
                     // does item already exist?
                     if (!CanWrite(wcfClient.Client, dt))
                     {

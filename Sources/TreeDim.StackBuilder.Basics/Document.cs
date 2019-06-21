@@ -1134,7 +1134,7 @@ namespace treeDiM.StackBuilder.Basics
                         }
                         catch (Exception ex)
                         {
-                            _log.Error(ex.ToString());
+                            _log.Error($"Failed to load type: {ex.Message}");
                         }
                     }
                 }
@@ -1150,7 +1150,7 @@ namespace treeDiM.StackBuilder.Basics
                         }
                         catch (Exception ex)
                         {
-                            _log.Error(ex.ToString());
+                            _log.Error($"Failed to load analysis: {ex.Message}");
                         }
                     }
                 }
@@ -1165,7 +1165,7 @@ namespace treeDiM.StackBuilder.Basics
                         }
                         catch (Exception ex)
                         {
-                            _log.Error(ex.ToString());
+                            _log.Error($"Failed to load analysis: {ex.Message}");
                         }
                     }
                 }

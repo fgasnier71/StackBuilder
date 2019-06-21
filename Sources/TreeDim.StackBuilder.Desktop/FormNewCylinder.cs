@@ -65,6 +65,9 @@ namespace treeDiM.StackBuilder.Desktop
         {
             base.OnLoad(e);
             graphCtrl.DrawingContainer = this;
+
+            // enable / disable 
+            bnSendToDB.Enabled = WCFClient.IsConnected;
         }
         #endregion
 
@@ -160,7 +163,7 @@ namespace treeDiM.StackBuilder.Desktop
                 {
                     using (WCFClient wcfClient = new WCFClient())
                     {
-                        wcfClient.Client.CreateNewCylinder(new DCSBCylinder()
+                        wcfClient.Client?.CreateNewCylinder(new DCSBCylinder()
                         {
                             Name = form.ItemName,
                             Description = ItemDescription,
@@ -169,7 +172,7 @@ namespace treeDiM.StackBuilder.Desktop
                             RadiusInner = RadiusInner,
                             Height = CylinderHeight,
                             Weight = Weight,
-                            NetWeight = this.NetWeight.Activated ? this.NetWeight.Value : new Nullable<double>(),
+                            NetWeight = NetWeight.Activated ? this.NetWeight.Value : new Nullable<double>(),
                             ColorOuter = ColorWallOuter.ToArgb(),
                             ColorInner = ColorWallInner.ToArgb(),
                             ColorTop = ColorTop.ToArgb(),

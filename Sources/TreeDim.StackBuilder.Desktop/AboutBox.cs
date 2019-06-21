@@ -148,7 +148,8 @@ namespace treeDiM.StackBuilder.Desktop
                     int userCount = 0;
                     using (WCFClient wcfClient = new WCFClient())
                     {
-                        userCount = wcfClient.Client.get_PLMPackRegisteredUserCount();
+                        var client = wcfClient.Client;
+                        userCount = null != client ? client.get_PLMPackRegisteredUserCount() : 0;
                     }
                     return string.Format(Resources.ID_REGISTEREDUSERCOUNT, userCount);
                 }

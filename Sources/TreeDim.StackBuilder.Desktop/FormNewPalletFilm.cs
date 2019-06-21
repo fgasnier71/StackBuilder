@@ -16,10 +16,6 @@ namespace treeDiM.StackBuilder.Desktop
 {
     public partial class FormNewPalletFilm : FormNewBase
     {
-        #region Data members
-        protected static ILog _log = LogManager.GetLogger(typeof(FormNewPalletFilm));
-        #endregion
-
         #region Constructor
         public FormNewPalletFilm(Document doc, PalletFilmProperties item)
             : base(doc, item)
@@ -58,6 +54,15 @@ namespace treeDiM.StackBuilder.Desktop
                 message = Resources.ID_USETRANSPARENCYORHATCHING;
 
             base.UpdateStatus(message);
+        }
+        #endregion
+
+        #region FormNew overrides
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+            // enable / disable database button
+            bnSendToDB.Enabled = WCFClient.IsConnected;
         }
         #endregion
 
@@ -103,15 +108,12 @@ namespace treeDiM.StackBuilder.Desktop
         {
             try
             {
-                FormSetItemName form = new FormSetItemName()
-                {
-                    ItemName = ItemName
-                };
+                FormSetItemName form = new FormSetItemName() { ItemName = ItemName };
                 if (DialogResult.OK == form.ShowDialog())
                 {
                     using (WCFClient wcfClient = new WCFClient())
                     {
-                        wcfClient.Client.CreateNewPalletFilm(new DCSBPalletFilm()
+                        wcfClient.Client?.CreateNewPalletFilm(new DCSBPalletFilm()
                         {
                             Name = form.ItemName,
                             Description = ItemDescription,
@@ -133,6 +135,10 @@ namespace treeDiM.StackBuilder.Desktop
                 _log.Error(ex.Message);
             }
         }
+        #endregion
+
+        #region Data members
+        protected static ILog _log = LogManager.GetLogger(typeof(FormNewPalletFilm));
         #endregion
     }
 }

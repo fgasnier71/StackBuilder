@@ -53,12 +53,16 @@ namespace treeDiM.StackBuilder.Desktop
                 // load cases
                 using (WCFClient wcfClient = new WCFClient())
                 {
-                    int rangeIndex = 0, number = 0;
-                    bool endReached = false;
-                    while (!endReached)
+                    var client = wcfClient.Client;
+                    if (null != client)
                     {
-                        _listCases.AddRange( wcfClient.Client.GetAllCases(rangeIndex++, ref number) );
-                        endReached = (rangeIndex * 20 > number);
+                        int rangeIndex = 0, number = 0;
+                        bool endReached = false;
+                        while (!endReached)
+                        {
+                            _listCases.AddRange(client.GetAllCases(rangeIndex++, ref number));
+                            endReached = (rangeIndex * 20 > number);
+                        }
                     }
                 }
                 OnFillListCases(this, null);

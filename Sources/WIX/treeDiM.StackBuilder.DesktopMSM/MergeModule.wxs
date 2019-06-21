@@ -2,7 +2,8 @@
 <?include $(sys.CURRENTDIR)\Config.wxi?>
 <?include $(sys.CURRENTDIR)\CommonConfig.wxi?>
 
-<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs"
+     xmlns:util="http://wixtoolset.org/schemas/v4/wxs/util">
 	<Module Id="treeDiM.StackBuilder.DesktopMSM"
           Language="1033"
           Version="$(var.ProductVersion)">
@@ -17,6 +18,11 @@
     <Icon Id="ShortcutIcon.ico" SourceFile="..\..\treeDiM.StackBuilder.Desktop\bin\Release\treeDiM.StackBuilder.Desktop.exe" />
     <!--********** Application files : BEGIN **********-->
     <DirectoryRef Id="Bin">
+      <Component Id="BinPermissions" Guid="{88F40CA2-B308-4C73-9E92-70660FE0DB21}">
+        <CreateFolder>
+          <util:PermissionEx User="Users" GenericAll="yes"/>
+        </CreateFolder>
+      </Component>
       <Component Id="treeDiM.StackBuilder.Desktop.exe" Guid="{E4F30A5C-2797-4FDB-9798-A8F8517A5BE3}">
         <File Source="..\..\treeDiM.StackBuilder.Desktop\bin\Release\treeDiM.StackBuilder.Desktop.exe"/>
         <File Source="..\..\treeDiM.StackBuilder.Desktop\bin\Release\treeDiM.StackBuilder.Desktop.exe.config"/>

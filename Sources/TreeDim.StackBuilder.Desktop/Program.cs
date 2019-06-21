@@ -47,13 +47,13 @@ namespace treeDiM.StackBuilder.Desktop
             // note: arguments are handled within FormMain constructor
             // using Environment.GetCommandLineArgs()
             // force CultureToUse culture if specified in config file
-            string specifiedCulture = treeDiM.StackBuilder.Desktop.Properties.Settings.Default.CultureToUse;
+            string specifiedCulture = Settings.Default.CultureToUse;
             if (!string.IsNullOrEmpty(specifiedCulture))
             {
                 try
                 {
-                    Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo(specifiedCulture);
-                    Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(specifiedCulture);
+                    Thread.CurrentThread.CurrentCulture = new CultureInfo(specifiedCulture);
+                    Thread.CurrentThread.CurrentUICulture = new CultureInfo(specifiedCulture);
                 }
                 catch (Exception ex)
                 {

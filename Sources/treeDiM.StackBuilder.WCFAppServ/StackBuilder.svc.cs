@@ -49,7 +49,7 @@ namespace treeDiM.StackBuilder.WCFAppServ
                         boxProperties.SetColor((HalfAxis.HAxis)i, Color.FromArgb(sbCase.Colors[i]));
                 }
                 else
-                    boxProperties.SetAllColors(Enumerable.Repeat<Color>(Color.Chocolate, 6).ToArray());
+                    boxProperties.SetAllColors(Enumerable.Repeat(Color.Chocolate, 6).ToArray());
 
                 PalletProperties palletProperties = null;
                 if (null != sbPallet.Dimensions)
@@ -74,6 +74,7 @@ namespace treeDiM.StackBuilder.WCFAppServ
                 OptInt oMaxNumber = null != sbConstraintSet.MaxNumber ? new OptInt(sbConstraintSet.MaxNumber.Active, sbConstraintSet.MaxNumber.Value_i) : OptInt.Zero;
                 ConstraintSetCasePallet constraintSet = new ConstraintSetCasePallet()
                 {
+                    Overhang = new Vector2D(sbConstraintSet.Overhang.M0, sbConstraintSet.Overhang.M1),
                     OptMaxWeight = oMaxWeight,
                     OptMaxNumber = oMaxNumber
                 };
@@ -86,7 +87,7 @@ namespace treeDiM.StackBuilder.WCFAppServ
                 int layerCount = 0, caseCount = 0, interlayerCount = 0;
                 double weightTotal = 0.0, weightLoad = 0.0, volumeEfficiency = 0.0;
                 double? weightEfficiency = 0.0;
-                double? weightNet = (double?)null;
+                double? weightNet = null;
                 Vector3D bbLoad = new Vector3D();
                 Vector3D bbGlob = new Vector3D();
                 string palletMapPhrase = string.Empty;
@@ -179,6 +180,7 @@ namespace treeDiM.StackBuilder.WCFAppServ
                 OptInt oMaxNumber = null != sbConstraintSet.MaxNumber ? new OptInt(sbConstraintSet.MaxNumber.Active, sbConstraintSet.MaxNumber.Value_i) : OptInt.Zero;
                 ConstraintSetCasePallet constraintSet = new ConstraintSetCasePallet()
                 {
+                    Overhang = new Vector2D(sbConstraintSet.Overhang.M0, sbConstraintSet.Overhang.M1),
                     OptMaxWeight = oMaxWeight,
                     OptMaxNumber = oMaxNumber
                 };
@@ -397,7 +399,7 @@ namespace treeDiM.StackBuilder.WCFAppServ
                 int layerCount = 0, caseCount = 0, interlayerCount = 0;
                 double weightTotal = 0.0, weightLoad = 0.0, volumeEfficiency = 0.0;
                 double? weightEfficiency = 0.0;
-                double? weightNet = (double?)null;
+                double? weightNet = null;
                 Vector3D bbLoad = new Vector3D();
                 Vector3D bbGlob = new Vector3D();
                 byte[] imageBytes = null;

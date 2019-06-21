@@ -266,7 +266,8 @@
             resources.GetString("cbColor.Items32"),
             resources.GetString("cbColor.Items33"),
             resources.GetString("cbColor.Items34"),
-            resources.GetString("cbColor.Items35")});
+            resources.GetString("cbColor.Items35"),
+            resources.GetString("cbColor.Items36")});
             this.cbColor.Name = "cbColor";
             this.cbColor.SelectedColorChanged += new System.EventHandler(this.OnPackChanged);
             // 

@@ -67,6 +67,9 @@ namespace treeDiM.StackBuilder.Desktop
 
             graphCtrl.DrawingContainer = this;
             graphCtrl.Invalidate();
+
+            // enable / disable database button
+            bnSendToDB.Enabled = WCFClient.IsConnected;
         }
         protected override void OnClosing(CancelEventArgs e)
         {
@@ -145,7 +148,7 @@ namespace treeDiM.StackBuilder.Desktop
                 {
                     using (WCFClient wcfClient = new WCFClient())
                     {
-                        wcfClient.Client.CreateNewInterlayer(new DCSBInterlayer()
+                        wcfClient.Client?.CreateNewInterlayer(new DCSBInterlayer()
                         {
                             Name = form.ItemName,
                             Description = ItemDescription,

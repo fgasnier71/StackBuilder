@@ -52,7 +52,13 @@ namespace treeDiM.StackBuilder.Desktop
                 try
                 {
                     using (WCFClient wcfClient = new WCFClient())
-                    { return wcfClient.User.Name; }
+                    {
+                        var client = wcfClient.Client;
+                        if (null != client)
+                            return wcfClient.User.Name;
+                        else
+                            return string.Empty;
+                    }
                 }
                 catch (Exception ex)
                 {

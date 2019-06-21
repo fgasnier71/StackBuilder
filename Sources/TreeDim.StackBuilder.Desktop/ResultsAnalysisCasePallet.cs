@@ -9,11 +9,9 @@ namespace treeDiM.StackBuilder.Desktop
 {
     public class ResultsAnalysisCasePallet
     {
+
         #region Private data members
-        int _noCases = 0, _noLayers = 0;
-        double _weightLoad = 0.0, _weightTotal = 0.0;
         double[] _dimensionsOuter = new double[3], _dimensionsLoad = new double[3];
-        double _efficiencyVolume = 0.0;
         List<KeyValuePair<int, int>> _layers = new List<KeyValuePair<int, int>>();
         #endregion
 
@@ -23,21 +21,13 @@ namespace treeDiM.StackBuilder.Desktop
         [Description("Number of cases")]   // description
         [Category("Loading")]              // belongs to category "Loading"
         [DisplayName("Number of cases")]   // display name
-        public int NoCases
-        {
-            get { return _noCases; }
-            set { _noCases = value; }
-        }
+        public int NoCases { get; set; } = 0;
         [Browsable(true)]                   // property should be visible
         [ReadOnly(true)]                    // property should be readonly
         [Description("Number of layers")]   // description
         [Category("Loading")]               // belongs to category "Loading"
         [DisplayName("Number of layers")]   // display name
-        public int NoLayers
-        {
-            get { return _noLayers; }
-            set { _noLayers = value; }
-        }
+        public int NoLayers { get; set; } = 0;
         [Browsable(true)]
         [ReadOnly(true)]
         [Description("Number of cases per layer")]
@@ -56,21 +46,13 @@ namespace treeDiM.StackBuilder.Desktop
         [Description("Load weight")]
         [Category("Weight")]
         [DisplayName("Load weight")]
-        public double WeightLoad
-        {
-            get { return _weightLoad; }
-            set { _weightLoad = value; }
-        }
+        public double WeightLoad { get; set; } = 0.0;
         [Browsable(true)]
         [ReadOnly(true)]
         [Description("Total weight")]
         [Category("Weight")]
         [DisplayName("Total pallet weight")]
-        public double WeightTotal
-        {
-            get { return _weightTotal; }
-            set { _weightTotal = value; }
-        }
+        public double WeightTotal { get; set; } = 0.0;
         [Browsable(true)]
         [ReadOnly(true)]
         [Description("Outer Dimensions")]
@@ -125,11 +107,7 @@ namespace treeDiM.StackBuilder.Desktop
         [Description("Volume efficiency (%)")]
         [Category("Efficiency")]
         [DisplayName("Volume efficiency (%)")]
-        public double EfficiencyVolume
-        {
-            get { return _efficiencyVolume; }
-            set { _efficiencyVolume = value; }
-        }
+        public double EfficiencyVolume { get; set; } = 0.0;
         #endregion
     }
 }

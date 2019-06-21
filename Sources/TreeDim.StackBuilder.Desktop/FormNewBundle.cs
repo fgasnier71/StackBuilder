@@ -66,6 +66,8 @@ namespace treeDiM.StackBuilder.Desktop
             // windows settings
             if (null != Settings.Default.FormNewBundlePosition)
                 Settings.Default.FormNewBundlePosition.Restore(this);
+            // enable / disable database button
+            bnSendToDB.Enabled = WCFClient.IsConnected;
         }
         protected override void OnClosing(CancelEventArgs e)
         {
@@ -164,7 +166,7 @@ namespace treeDiM.StackBuilder.Desktop
                 {
                     using (WCFClient wcfClient = new WCFClient())
                     {
-                        wcfClient.Client.CreateNewBundle(new DCSBBundle()
+                        wcfClient.Client?.CreateNewBundle(new DCSBBundle()
                         {
                             Name = form.ItemName,
                             Description = Description,

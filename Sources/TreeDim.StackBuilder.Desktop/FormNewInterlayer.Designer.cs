@@ -34,7 +34,7 @@
             this.uCtrlWeight = new treeDiM.StackBuilder.Basics.UCtrlDouble();
             this.cbColor = new OfficePickers.ColorPicker.ComboBoxColorPicker();
             this.lbColor = new System.Windows.Forms.Label();
-            this.bnSendToDatabase = new System.Windows.Forms.Button();
+            this.bnSendToDB = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.graphCtrl)).BeginInit();
             this.SuspendLayout();
             // 
@@ -152,16 +152,16 @@
             // 
             // bnSendToDatabase
             // 
-            resources.ApplyResources(this.bnSendToDatabase, "bnSendToDatabase");
-            this.bnSendToDatabase.Name = "bnSendToDatabase";
-            this.bnSendToDatabase.UseVisualStyleBackColor = true;
-            this.bnSendToDatabase.Click += new System.EventHandler(this.OnSendToDatabase);
+            resources.ApplyResources(this.bnSendToDB, "bnSendToDatabase");
+            this.bnSendToDB.Name = "bnSendToDatabase";
+            this.bnSendToDB.UseVisualStyleBackColor = true;
+            this.bnSendToDB.Click += new System.EventHandler(this.OnSendToDatabase);
             // 
             // FormNewInterlayer
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.bnSendToDatabase);
+            this.Controls.Add(this.bnSendToDB);
             this.Controls.Add(this.cbColor);
             this.Controls.Add(this.lbColor);
             this.Controls.Add(this.uCtrlWeight);
@@ -173,7 +173,7 @@
             this.Controls.SetChildIndex(this.uCtrlWeight, 0);
             this.Controls.SetChildIndex(this.lbColor, 0);
             this.Controls.SetChildIndex(this.cbColor, 0);
-            this.Controls.SetChildIndex(this.bnSendToDatabase, 0);
+            this.Controls.SetChildIndex(this.bnSendToDB, 0);
             this.Controls.SetChildIndex(this.bnOk, 0);
             this.Controls.SetChildIndex(this.bnCancel, 0);
             this.Controls.SetChildIndex(this.lbName, 0);
@@ -193,6 +193,6 @@
         private Basics.UCtrlDouble uCtrlWeight;
         private OfficePickers.ColorPicker.ComboBoxColorPicker cbColor;
         private System.Windows.Forms.Label lbColor;
-        private System.Windows.Forms.Button bnSendToDatabase;
+        private System.Windows.Forms.Button bnSendToDB;
     }
 }
