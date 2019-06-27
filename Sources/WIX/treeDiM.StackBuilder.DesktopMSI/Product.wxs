@@ -2,11 +2,14 @@
 <?include $(sys.CURRENTDIR)..\treeDiM.stackBuilder.DesktopMSM\CommonConfig.wxi?>
 <?include $(sys.CURRENTDIR)\Config.wxi?>
 
+
+
+
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
      xmlns:util="http://schemas.microsoft.com/wix/UtilExtension"
      xmlns:netfx="http://schemas.microsoft.com/wix/NetFxExtension"
      >
-	<Product Id="*"
+	<Product Id="$(var.ProductCode)"
            Name="$(var.ProductName)"
            Language="1033"
            Version="$(var.ProductVersion)"
@@ -18,7 +21,7 @@
              Comments="$(var.Package_Comments)"
              Manufacturer="$(var.ProductManufacturer)"
              Keywords="$(var.Package_Keywords)"
-             InstallerVersion="301"
+             InstallerVersion="500"
              Compressed="yes"
              InstallScope="perMachine"
              ReadOnly="yes"
@@ -29,12 +32,14 @@
     <!--Icon-->
     <Icon Id="StackBuilder.ico" SourceFile="StackBuilder.ico"/>
     <!--Upgrade table-->
+    <!--
     <MajorUpgrade
       Schedule="afterInstallInitialize"
       AllowDowngrades="no"
       AllowSameVersionUpgrades="no"
       DowngradeErrorMessage="A newer version of [ProductName] is already installed."
       />
+     --> 
     <Upgrade Id="FC448406-ACD2-42DB-91B6-5E37A43C949C">
       <UpgradeVersion Minimum="0.0.0.0"
                       Maximum="99.0.0.0"
@@ -44,6 +49,11 @@
                       IgnoreRemoveFailure="yes"
                       />
     </Upgrade>
+    <InstallExecuteSequence>
+      <!-- Potential scheduling (after): InstallValidate, InstallInitialize, InstallExecute, InstallExecuteAgain, InstallFinalize -->
+      <RemoveExistingProducts After="InstallInitialize" />
+    </InstallExecuteSequence>
+    
     <!--PackLib merge module-->
     <DirectoryRef Id="$(var.InstallLocation)">
       <Merge Id="treeDiM.StackBuilder.DesktopMSM" Language="1033" DiskId="1" SourceFile="..\treeDiM.StackBuilder.DesktopMSM\bin\Release\treeDiM.StackBuilder.DesktopMSM.msm"/>

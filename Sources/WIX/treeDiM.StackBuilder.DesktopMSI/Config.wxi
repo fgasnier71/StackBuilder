@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <?define PlatformProgramFilesFolder = "ProgramFilesFolder" ?>
 <?define InstallLocation = INSTALLFOLDER?>
+<!--Product code-->
+<?define ProductCode = "{4D4825CA-7F9D-42C3-8FD5-74D280F076BC}"?>
 <!--Upgrade code-->
 <?define UpgradeCode = "{D9195427-862D-4ECE-9104-CE2804F4E0BE}"?>
 <!-- Package_Description -->
