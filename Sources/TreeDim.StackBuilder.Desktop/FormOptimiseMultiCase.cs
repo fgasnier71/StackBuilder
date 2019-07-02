@@ -34,7 +34,7 @@ namespace treeDiM.StackBuilder.Desktop
         {
             base.OnLoad(e);
             // fill combo boxes
-            cbBoxes.Initialize(_doc, this, null);
+            cbBoxes.Initialize(Document, this, null);
             // initialize orientation
             uCtrlCaseOrient.AllowedOrientations = new bool[] { Settings.Default.AllowVerticalX, Settings.Default.AllowVerticalY, Settings.Default.AllowVerticalZ };
             // initialize grid
@@ -71,6 +71,8 @@ namespace treeDiM.StackBuilder.Desktop
             {
                 _log.Error(ex.Message);
             }
+            // Mode
+            uCtrlNumberPerCase.Value = new OptInt(false, 2);
             // update graph control
             graphCtrl.DrawingContainer = this;
         }
@@ -116,8 +118,7 @@ namespace treeDiM.StackBuilder.Desktop
         {
             if (ctrl == cbBoxes)
             {
-                PackableBrick packable = itemBase as PackableBrick;
-                if (null == packable)
+                if (!(itemBase is PackableBrick packable))
                     return false;
                 if (packable is BoxProperties bProperties)
                     return !bProperties.HasInsideDimensions;
@@ -153,7 +154,7 @@ namespace treeDiM.StackBuilder.Desktop
             ComputeSolutions();
             UpdateStatus(string.Empty);
         }
-        private void OnOrientationChanged(object sender, EventArgs e)
+        private void OnConstraintsChanged(object sender, EventArgs e)
         {
             ComputeSolutions();
             UpdateStatus(string.Empty);
@@ -182,10 +183,10 @@ namespace treeDiM.StackBuilder.Desktop
                 AnalysisBoxCase analysisSel = SelectedAnalysis;
                 BoxProperties caseSel = analysisSel.CaseProperties;
                 // create case
-                BoxProperties caseProperties = _doc.CreateNewCase(caseSel);
+                BoxProperties caseProperties = Document.CreateNewCase(caseSel);
                 // create analysis
                 List<InterlayerProperties> interlayers = new List<InterlayerProperties>();
-                AnalysisHomo analysis = _doc.CreateNewAnalysisBoxCase(
+                AnalysisHomo analysis = Document.CreateNewAnalysisBoxCase(
                     AnalysisName, AnalysisDescription,
                     analysisSel.Content, caseProperties,
                     interlayers,
@@ -242,6 +243,8 @@ namespace treeDiM.StackBuilder.Desktop
             // clear existing analyses
             _analyses.Clear();
 
+            int expectedCount = uCtrlNumberPerCase.Value.Activated ? uCtrlNumberPerCase.Value.Value : -1;
+
             try
             {
                 PackableBrick packable = cbBoxes.SelectedType as PackableBrick;
@@ -254,9 +257,16 @@ namespace treeDiM.StackBuilder.Desktop
                         // build constraint set
                         ConstraintSetBoxCase constraintSet = new ConstraintSetBoxCase(caseProperties);
                         constraintSet.SetAllowedOrientations(uCtrlCaseOrient.AllowedOrientations);
+                        if (uCtrlNumberPerCase.Value.Activated)
+                            constraintSet.SetMaxNumber(uCtrlNumberPerCase.Value.Value);
                         // build solver + get analyses
                         SolverBoxCase solver = new SolverBoxCase(packable, caseProperties);
-                        _analyses.AddRange(solver.BuildAnalyses(constraintSet, false));
+                        var listAnalyses = solver.BuildAnalyses(constraintSet, false);
+                        foreach (var analysis in listAnalyses)
+                        {
+                            if ((-1 == expectedCount) || (expectedCount == analysis.Solution.ItemCount)  )
+                                _analyses.Add(analysis);
+                        }
                     }
                 }
                 // sort analysis
@@ -274,9 +284,8 @@ namespace treeDiM.StackBuilder.Desktop
         #region Grid
         private int GridFontSize
         {
-            get { return Properties.Settings.Default.GridFontSize; }
+            get { return Settings.Default.GridFontSize; }
         }
-
         private void FillGrid()
         {
             // remove all existing rows
@@ -316,14 +325,14 @@ namespace treeDiM.StackBuilder.Desktop
             int iCol = 0;
             SourceGrid.Cells.ColumnHeader columnHeader;
             // name
-            columnHeader = new SourceGrid.Cells.ColumnHeader(Properties.Resources.ID_CASENAME)
+            columnHeader = new SourceGrid.Cells.ColumnHeader(Resources.ID_CASENAME)
             {
                 AutomaticSortEnabled = false,
                 View = viewColumnHeader
             };
             gridSolutions[0, iCol++] = columnHeader;
             // dimensions
-            columnHeader = new SourceGrid.Cells.ColumnHeader(string.Format(Properties.Resources.ID_DIMENSIONS, UnitsManager.LengthUnitString))
+            columnHeader = new SourceGrid.Cells.ColumnHeader(string.Format(Resources.ID_DIMENSIONS, UnitsManager.LengthUnitString))
             {
                 AutomaticSortEnabled = false,
                 View = viewColumnHeader
@@ -337,14 +346,14 @@ namespace treeDiM.StackBuilder.Desktop
             };
             gridSolutions[0, iCol++] = columnHeader;
             // efficiency
-            columnHeader = new SourceGrid.Cells.ColumnHeader(Properties.Resources.ID_EFFICIENCYPERCENTAGE)
+            columnHeader = new SourceGrid.Cells.ColumnHeader(Resources.ID_EFFICIENCYPERCENTAGE)
             {
                 AutomaticSortEnabled = false,
                 View = viewColumnHeader
             };
             gridSolutions[0, iCol++] = columnHeader;
             // weight
-            columnHeader = new SourceGrid.Cells.ColumnHeader(string.Format(Properties.Resources.ID_WEIGHT_WU, UnitsManager.MassUnitString))
+            columnHeader = new SourceGrid.Cells.ColumnHeader(string.Format(Resources.ID_WEIGHT_WU, UnitsManager.MassUnitString))
             {
                 AutomaticSortEnabled = false,
                 View = viewColumnHeader
@@ -389,11 +398,7 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Public properties
-        public DocumentSB Document
-        {
-            get { return _doc; }
-            set { _doc = value; }
-        }
+        public DocumentSB Document { get; set; }
         private string AnalysisName
         {
             get { return tbAnalysisName.Text; }
@@ -464,9 +469,7 @@ namespace treeDiM.StackBuilder.Desktop
             OnCaseChecked(this, null);
         }
         #endregion
-
         #region Data members
-        private DocumentSB _doc;
         private List<AnalysisHomo> _analyses = new List<AnalysisHomo>();
         private List<int> _checkedIndices = new List<int>();
         private AnalysisHomo _selectedAnalysis;

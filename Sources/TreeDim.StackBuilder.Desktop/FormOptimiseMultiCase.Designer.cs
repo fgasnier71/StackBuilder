@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormOptimiseMultiCase));
             this.splitContainerHoriz = new System.Windows.Forms.SplitContainer();
+            this.uCtrlCaseDimensionsMax = new treeDiM.StackBuilder.Basics.UCtrlOptTriDouble();
+            this.uCtrlCaseDimensionsMin = new treeDiM.StackBuilder.Basics.UCtrlOptTriDouble();
             this.gridSolutions = new SourceGrid.Grid();
             this.cbBoxes = new treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered();
             this.uCtrlCaseOrient = new treeDiM.StackBuilder.Graphics.uCtrlCaseOrientation();
@@ -45,8 +47,7 @@
             this.graphCtrl = new treeDiM.StackBuilder.Graphics.Graphics3DControl();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelDef = new System.Windows.Forms.ToolStripStatusLabel();
-            this.uCtrlCaseDimensionsMin = new treeDiM.StackBuilder.Basics.UCtrlOptTriDouble();
-            this.uCtrlCaseDimensionsMax = new treeDiM.StackBuilder.Basics.UCtrlOptTriDouble();
+            this.uCtrlNumberPerCase = new treeDiM.StackBuilder.Basics.UCtrlOptInt();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerHoriz)).BeginInit();
             this.splitContainerHoriz.Panel1.SuspendLayout();
             this.splitContainerHoriz.Panel2.SuspendLayout();
@@ -62,6 +63,7 @@
             // 
             // splitContainerHoriz.Panel1
             // 
+            this.splitContainerHoriz.Panel1.Controls.Add(this.uCtrlNumberPerCase);
             this.splitContainerHoriz.Panel1.Controls.Add(this.uCtrlCaseDimensionsMax);
             this.splitContainerHoriz.Panel1.Controls.Add(this.uCtrlCaseDimensionsMin);
             this.splitContainerHoriz.Panel1.Controls.Add(this.gridSolutions);
@@ -81,6 +83,40 @@
             this.splitContainerHoriz.Panel2.Controls.Add(this.lbAnalysisName);
             this.splitContainerHoriz.Panel2.Controls.Add(this.graphCtrl);
             this.splitContainerHoriz.Panel2.Controls.Add(this.statusStrip);
+            // 
+            // uCtrlCaseDimensionsMax
+            // 
+            this.uCtrlCaseDimensionsMax.Checked = false;
+            resources.ApplyResources(this.uCtrlCaseDimensionsMax, "uCtrlCaseDimensionsMax");
+            this.uCtrlCaseDimensionsMax.Minimum = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.uCtrlCaseDimensionsMax.Name = "uCtrlCaseDimensionsMax";
+            this.uCtrlCaseDimensionsMax.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlCaseDimensionsMax.Value = ((Sharp3D.Math.Core.Vector3D)(resources.GetObject("uCtrlCaseDimensionsMax.Value")));
+            this.uCtrlCaseDimensionsMax.X = 0D;
+            this.uCtrlCaseDimensionsMax.Y = 0D;
+            this.uCtrlCaseDimensionsMax.Z = 0D;
+            this.uCtrlCaseDimensionsMax.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlOptTriDouble.ValueChangedDelegate(this.OnFillListCases);
+            // 
+            // uCtrlCaseDimensionsMin
+            // 
+            this.uCtrlCaseDimensionsMin.Checked = false;
+            resources.ApplyResources(this.uCtrlCaseDimensionsMin, "uCtrlCaseDimensionsMin");
+            this.uCtrlCaseDimensionsMin.Minimum = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.uCtrlCaseDimensionsMin.Name = "uCtrlCaseDimensionsMin";
+            this.uCtrlCaseDimensionsMin.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlCaseDimensionsMin.Value = ((Sharp3D.Math.Core.Vector3D)(resources.GetObject("uCtrlCaseDimensionsMin.Value")));
+            this.uCtrlCaseDimensionsMin.X = 0D;
+            this.uCtrlCaseDimensionsMin.Y = 0D;
+            this.uCtrlCaseDimensionsMin.Z = 0D;
+            this.uCtrlCaseDimensionsMin.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlOptTriDouble.ValueChangedDelegate(this.OnFillListCases);
             // 
             // gridSolutions
             // 
@@ -108,7 +144,7 @@
         true};
             resources.ApplyResources(this.uCtrlCaseOrient, "uCtrlCaseOrient");
             this.uCtrlCaseOrient.Name = "uCtrlCaseOrient";
-            this.uCtrlCaseOrient.CheckedChanged += new treeDiM.StackBuilder.Graphics.uCtrlCaseOrientation.CheckChanged(this.OnOrientationChanged);
+            this.uCtrlCaseOrient.CheckedChanged += new treeDiM.StackBuilder.Graphics.uCtrlCaseOrientation.CheckChanged(this.OnConstraintsChanged);
             // 
             // chklbCases
             // 
@@ -180,39 +216,13 @@
             this.toolStripStatusLabelDef.Name = "toolStripStatusLabelDef";
             resources.ApplyResources(this.toolStripStatusLabelDef, "toolStripStatusLabelDef");
             // 
-            // uCtrlCaseDimensionsMin
+            // uCtrlNumberPerCase
             // 
-            this.uCtrlCaseDimensionsMin.Checked = false;
-            resources.ApplyResources(this.uCtrlCaseDimensionsMin, "uCtrlCaseDimensionsMin");
-            this.uCtrlCaseDimensionsMin.Minimum = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.uCtrlCaseDimensionsMin.Name = "uCtrlCaseDimensionsMin";
-            this.uCtrlCaseDimensionsMin.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
-            this.uCtrlCaseDimensionsMin.Value = ((Sharp3D.Math.Core.Vector3D)(resources.GetObject("uCtrlCaseDimensionsMin.Value")));
-            this.uCtrlCaseDimensionsMin.X = 0D;
-            this.uCtrlCaseDimensionsMin.Y = 0D;
-            this.uCtrlCaseDimensionsMin.Z = 0D;
-            this.uCtrlCaseDimensionsMin.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlOptTriDouble.ValueChangedDelegate(this.OnFillListCases);
-            // 
-            // uCtrlCaseDimensionsMax
-            // 
-            this.uCtrlCaseDimensionsMax.Checked = false;
-            resources.ApplyResources(this.uCtrlCaseDimensionsMax, "uCtrlCaseDimensionsMax");
-            this.uCtrlCaseDimensionsMax.Minimum = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.uCtrlCaseDimensionsMax.Name = "uCtrlCaseDimensionsMax";
-            this.uCtrlCaseDimensionsMax.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
-            this.uCtrlCaseDimensionsMax.Value = ((Sharp3D.Math.Core.Vector3D)(resources.GetObject("uCtrlCaseDimensionsMax.Value")));
-            this.uCtrlCaseDimensionsMax.X = 0D;
-            this.uCtrlCaseDimensionsMax.Y = 0D;
-            this.uCtrlCaseDimensionsMax.Z = 0D;
-            this.uCtrlCaseDimensionsMax.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlOptTriDouble.ValueChangedDelegate(this.OnFillListCases);
+            resources.ApplyResources(this.uCtrlNumberPerCase, "uCtrlNumberPerCase");
+            this.uCtrlNumberPerCase.Minimum = -10000;
+            this.uCtrlNumberPerCase.Name = "uCtrlNumberPerCase";
+            this.uCtrlNumberPerCase.Value = ((treeDiM.StackBuilder.Basics.OptInt)(resources.GetObject("uCtrlNumberPerCase.Value")));
+            this.uCtrlNumberPerCase.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlOptInt.ValueChangedDelegate(this.OnConstraintsChanged);
             // 
             // FormOptimiseMultiCase
             // 
@@ -258,5 +268,6 @@
         private System.Windows.Forms.Label lbAnalysisName;
         private Basics.UCtrlOptTriDouble uCtrlCaseDimensionsMax;
         private Basics.UCtrlOptTriDouble uCtrlCaseDimensionsMin;
+        private Basics.UCtrlOptInt uCtrlNumberPerCase;
     }
 }
