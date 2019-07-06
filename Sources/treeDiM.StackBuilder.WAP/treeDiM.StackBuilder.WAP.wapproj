@@ -38,9 +38,8 @@
     <TargetPlatformVersion>10.0.16299.0</TargetPlatformVersion>
     <TargetPlatformMinVersion>10.0.14393.0</TargetPlatformMinVersion>
     <DefaultLanguage>en-US</DefaultLanguage>
-    <PackageCertificateKeyFile>treeDiM.StackBuilder.WAP_StoreKey.pfx</PackageCertificateKeyFile>
     <EntryPointProjectUniqueName>..\TreeDim.StackBuilder.Desktop\treeDiM.StackBuilder.Desktop.csproj</EntryPointProjectUniqueName>
-    <PackageCertificateThumbprint>854C9B87D511317DABE2BCDC1107FE2F37ED9412</PackageCertificateThumbprint>
+    <PackageCertificateThumbprint>E560907200F8CCA932E8CA665AA2916D0D74ED5A</PackageCertificateThumbprint>
     <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
     <AppxBundlePlatforms>x64</AppxBundlePlatforms>
     <AppxSymbolPackageEnabled>False</AppxSymbolPackageEnabled>
@@ -71,7 +70,6 @@
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
-    <None Include="treeDiM.StackBuilder.WAP_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
@@ -86,7 +84,6 @@
     <Content Include="Assets\StoreLogo.png" />
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
     <None Include="Package.xml" />
-    <None Include="treeDiM.StackBuilder.WAP_StoreKey.pfx" />
     <None Include="Package.StoreAssociation.xml" />
   </ItemGroup>
   <ItemGroup>
