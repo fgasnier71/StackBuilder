@@ -2,12 +2,9 @@
 <?include $(sys.CURRENTDIR)..\treeDiM.stackBuilder.DesktopMSM\CommonConfig.wxi?>
 <?include $(sys.CURRENTDIR)\Config.wxi?>
 
-
-
-
-<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs"
-     xmlns:util="http://wixtoolset.org/wix/UtilExtension"
-     xmlns:netfx="http://wixtoolset.org/wix/NetFxExtension"
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
+     xmlns:util="http://schemas.microsoft.com/wix/UtilExtension"
+     xmlns:netfx="http://schemas.microsoft.com/wix/NetFxExtension"
      >
 	<Product Id="$(var.ProductCode)"
            Name="$(var.ProductName)"
