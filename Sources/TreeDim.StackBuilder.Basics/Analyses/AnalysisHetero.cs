@@ -40,6 +40,14 @@ namespace treeDiM.StackBuilder.Basics
                 throw new Exception($"Invalid type index {index}");
             return _content[index].Pack;
         }
+        public uint GetNoContent(Packable p)
+        {
+            var contentItem = _content.Find(ci => ci.Pack == p);
+            if (null != contentItem)
+                return contentItem.Number;
+            else
+                return 0;
+        }
         public void ClearContent()
         {
             foreach (ContentItem ci in _content)

@@ -97,6 +97,35 @@ namespace treeDiM.StackBuilder.Basics
         {
             return Transform(this, transform);
         }
+        public BoxPosition Adjusted(Vector3D dimensions)
+        {
+            var boxPosTemp = new BoxPosition(Position, DirectionLength, DirectionWidth);
+            // reverse if oriented to Z- (AXIS_Z_N)
+            if (DirectionHeight == HalfAxis.HAxis.AXIS_Z_N)
+            {
+                if (DirectionLength == HalfAxis.HAxis.AXIS_X_P)
+                {
+                    boxPosTemp.DirectionWidth = HalfAxis.HAxis.AXIS_Y_P;
+                    boxPosTemp.Position += new Vector3D(0.0, -dimensions.Y, -dimensions.Z);
+                }
+                else if (DirectionLength == HalfAxis.HAxis.AXIS_Y_P)
+                {
+                    boxPosTemp.DirectionWidth = HalfAxis.HAxis.AXIS_X_N;
+                    boxPosTemp.Position += new Vector3D(dimensions.Y, 0.0, -dimensions.Z);
+                }
+                else if (DirectionLength == HalfAxis.HAxis.AXIS_X_N)
+                {
+                    boxPosTemp.DirectionLength = HalfAxis.HAxis.AXIS_X_P;
+                    boxPosTemp.Position += new Vector3D(-dimensions.X, 0.0, -dimensions.Z);
+                }
+                else if (DirectionLength == HalfAxis.HAxis.AXIS_Y_N)
+                {
+                    boxPosTemp.DirectionWidth = HalfAxis.HAxis.AXIS_X_P;
+                    boxPosTemp.Position += new Vector3D(-dimensions.Y, 0.0, -dimensions.Z);
+                }
+            }
+            return boxPosTemp;
+        }
         #endregion
 
         #region Static members

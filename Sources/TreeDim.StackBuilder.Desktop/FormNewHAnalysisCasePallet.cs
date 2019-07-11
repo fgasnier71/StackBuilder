@@ -16,17 +16,9 @@ namespace treeDiM.StackBuilder.Desktop
 {
     public partial class FormNewHAnalysisCasePallet : FormNewHAnalysis, IItemBaseFilter
     {
-        #region Constructor
-        public FormNewHAnalysisCasePallet()
-            : base()
-        {
-            InitializeComponent();
-        }
-        public FormNewHAnalysisCasePallet(Document doc, AnalysisHetero analysis)
-            : base(doc, analysis)
-        {
-            InitializeComponent();
-        }
+        #region Constructors
+        public FormNewHAnalysisCasePallet(): base() => InitializeComponent();
+        public FormNewHAnalysisCasePallet(Document doc, AnalysisHetero analysis): base(doc, analysis) => InitializeComponent();
         #endregion
 
         #region Form override
@@ -71,7 +63,7 @@ namespace treeDiM.StackBuilder.Desktop
         }
         protected override void CreateNewAnalysis()
         {
-            _analysis = _document.CreateNewHAnalysisCasePallet(
+            HAnalysis = _document.CreateNewHAnalysisCasePallet(
                 ItemName, ItemDescription,
                 ListContentItems,
                 SelectedPallet,
@@ -94,8 +86,8 @@ namespace treeDiM.StackBuilder.Desktop
         #region Public properties
         public HAnalysisPallet AnalysisCast
         {
-            get { return _analysis as HAnalysisPallet; }
-            set { _analysis = value; }
+            get { return HAnalysis as HAnalysisPallet; }
+            set { HAnalysis = value; }
         }
         #endregion
 

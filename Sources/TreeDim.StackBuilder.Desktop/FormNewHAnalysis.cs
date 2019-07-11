@@ -26,13 +26,12 @@ namespace treeDiM.StackBuilder.Desktop
         {
             InitializeComponent();
             _document = doc;
-            _analysis = analysis;
-
-            if (null == _analysis)
+            HAnalysis = analysis;
+            if (null == HAnalysis)
             {
-                _analysis = IntantiateTempAnalysis();
+                HAnalysis = IntantiateTempAnalysis();
                 UseTempAnalysis = true;
-                _analysis.ID.SetNameDesc(doc.GetValidNewAnalysisName("HAnalysis"), string.Empty);
+                HAnalysis.ID.SetNameDesc(doc.GetValidNewAnalysisName("HAnalysis"), string.Empty);
             }
         }
         #endregion
@@ -42,12 +41,12 @@ namespace treeDiM.StackBuilder.Desktop
         {
             base.OnLoad(e);
 
-            if (DesignMode || null == _analysis)
+            if (DesignMode || null == HAnalysis)
                 return;
 
             // initialize name / description
-            ItemName = _analysis.ID.Name;
-            ItemDescription = _analysis.ID.Description;
+            ItemName = HAnalysis.ID.Name;
+            ItemDescription = HAnalysis.ID.Description;
 
             // initialize graphic control 
             graphCtrl.DrawingContainer = this;
@@ -62,7 +61,6 @@ namespace treeDiM.StackBuilder.Desktop
 
             OnDataModified(this, null);
         }
-
         private void OnSolutionChanged(object sender, SourceGrid.RangeRegionChangedEventArgs e)
         {
             if (PreventUpdate)
@@ -181,6 +179,9 @@ namespace treeDiM.StackBuilder.Desktop
             try
             {
                 _selectedSolutionIndex = -1;
+
+                SourceGrid.Cells.Controllers.ToolTipText toolTipController = new SourceGrid.Cells.Controllers.ToolTipText { IsBalloon = true };
+
                 // remove existing rows
                 gridSolutions.Rows.Clear();
                 // viewColumnHeader
@@ -218,7 +219,8 @@ namespace treeDiM.StackBuilder.Desktop
                     gridSolutions.Rows.Insert(++iIndex);
                     iCol = 0;
                     // name
-                    gridSolutions[iIndex, iCol] = new SourceGrid.Cells.Cell(iIndex) { View = viewNormal };
+                    gridSolutions[iIndex, iCol] = new SourceGrid.Cells.Cell($"{iIndex}") { View = viewNormal, ToolTipText = sol.Algorithm };
+                    gridSolutions[iIndex, iCol].AddController( toolTipController );
                     gridSolutions[iIndex, ++iCol] = new SourceGrid.Cells.Cell(sol.LoadedCasesCountString) { View = viewNormal };
                     gridSolutions[iIndex, ++iCol] = new SourceGrid.Cells.Cell(sol.SolItemCount) { View = viewNormal };
                     gridSolutions[iIndex, ++iCol] = new SourceGrid.Cells.Cell(sol.LoadedVolumePercentage) { View = viewNormal };
@@ -266,7 +268,10 @@ namespace treeDiM.StackBuilder.Desktop
                         bool[] orientations = new bool[3] { (bool)checkBoxX.Value, (bool)checkBoxY.Value, (bool)checkBoxZ.Value };
                         contentItems.Add(new ContentItem(p, (uint)number, orientations));
                     }
-                    catch (Exception /*ex*/) {}
+                    catch (Exception ex)
+                    {
+                        _log.Error(ex.ToString());
+                    }
                 }
                 return contentItems;
             }
@@ -276,18 +281,17 @@ namespace treeDiM.StackBuilder.Desktop
 
         protected void Compute()
         {
-            if (null == _analysis) return;
-            _analysis.ClearContent();
-            _analysis.AddContent(ListContentItems);
+            if (null == HAnalysis) return;
+            HAnalysis.ClearContent();
+            HAnalysis.AddContent(ListContentItems);
             LoadContainer();
-            _analysis.ConstraintSet = ConstraintSet;
-
-            if (!_analysis.IsValid)
+            HAnalysis.ConstraintSet = ConstraintSet;
+            if (!HAnalysis.IsValid)
                 return;
             try
             {
                 HSolver solver = new HSolver();
-                Solutions = solver.BuildSolutions(_analysis);
+                Solutions = solver.BuildSolutions(HAnalysis);
             }
             catch (InvalidOperationException ex)
             {
@@ -378,8 +382,7 @@ namespace treeDiM.StackBuilder.Desktop
         {
             get
             {
-                if (Solutions.Count < 1)
-                    return -1;
+                if (Solutions.Count < 1) return -1;
                 SourceGrid.RangeRegion region = gridSolutions.Selection.GetSelectionRegion();
                 int[] indexes = region.GetRowsIndex();
                 // no selection -> exit
@@ -416,10 +419,19 @@ namespace treeDiM.StackBuilder.Desktop
                 foreach (BoxProperties boxProperties in _document.Bricks)
                 {
                     bool[] orientations = new bool[] { true, true, true };
-                    contentItems.Add(new ContentItem(boxProperties, 1, orientations));
+                    contentItems.Add(new ContentItem(boxProperties, GetNoItems(boxProperties), orientations));
                 }
                 return contentItems;
             }
+        }
+        private uint GetNoItems(Packable p)
+        {
+            uint noItems = 0;
+            if (null == HAnalysis)
+                noItems = Properties.Settings.Default.NoItemsHeterogeneous;
+            else
+                noItems = HAnalysis.GetNoContent(p);
+            return noItems;
         }
         private void UpdateSolItemIndexButtons()
         {
@@ -449,17 +461,17 @@ namespace treeDiM.StackBuilder.Desktop
 
         private bool UseTempAnalysis { get; set; }
         protected List<HSolution> Solutions { get; set; } = new List<HSolution>();
+        protected AnalysisHetero HAnalysis { get; set; }
         #endregion
 
         #region Data members
         protected Document _document;
-        protected AnalysisHetero _analysis;
         protected List<ContentItem> _contentItems;
-        protected static ILog _log = LogManager.GetLogger(typeof(FormNewHAnalysis));
         protected List<BoxProperties> lBoxes = new List<BoxProperties>();
         protected int _selectedSolutionIndex = -1, _solItemIndex = 0;
         protected SourceGrid.Cells.Controllers.CustomEvents _checkBoxEvent = new SourceGrid.Cells.Controllers.CustomEvents();
         protected SourceGrid.Cells.Controllers.CustomEvents _numUpDownEvent = new SourceGrid.Cells.Controllers.CustomEvents();
+        protected static ILog _log = LogManager.GetLogger(typeof(FormNewHAnalysis));
         #endregion
     }
 }

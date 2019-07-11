@@ -48,7 +48,15 @@ namespace Sharp3D.Boxologic
             foreach (BoxItem bi in listBoxItem)
             {
                 for (int i = 0; i < bi.N; ++i)
-                    boxList.Add(new BoxInfo() { ID= bi.ID, Dim1 = bi.Boxx, Dim2 = bi.Boxy, Dim3 = bi.Boxz, N = bi.N });
+                    boxList.Add(
+                        new BoxInfo()
+                        {
+                            ID = bi.ID,
+                            Dim1 = bi.Boxx, Dim2 = bi.Boxy, Dim3 = bi.Boxz,
+                            N = bi.N,
+                            AllowX = bi.AllowX, AllowY = bi.AllowY, AllowZ = bi.AllowZ
+                        }
+                        );
             }
             // pallet
             pallet = new PalletInfo(palletLength, palletWidth, palletHeight);
@@ -77,7 +85,7 @@ namespace Sharp3D.Boxologic
         public void Execute_iterations()
         {
             bool hundredpercent = false;
-            for (int variant = 0; variant < 6; ++variant)
+            for (int variant = 1; variant < 6; ++variant)
             {
                 best_solution_volume = 0;
                 number_of_iterations = 0;
@@ -85,7 +93,7 @@ namespace Sharp3D.Boxologic
                 // initialize pallet
                 pallet.Variant = variant;
                 // LISTS ALL POSSIBLE LAYER HEIGHTS BY GIVING A WEIGHT VALUE TO EACH OF THEM.
-                List_candidate_layers(false);
+                List_candidate_layers(variant);
 
                 int iLayerIndex = 0, itelayer = 0;
                 foreach (Layer l in layers)
@@ -111,7 +119,7 @@ namespace Sharp3D.Boxologic
                     {
                         layerinlayer = 0;
                         layerdone = false;
-                        Pack_layer(false, ref hundredpercent);
+                        Pack_layer(variant, false, ref hundredpercent);
                         packedy = packedy + layerThickness;
                         remainpy = pallet.Pallet_y - packedy;
                         if (0 != layerinlayer)
@@ -123,7 +131,7 @@ namespace Sharp3D.Boxologic
                             remainpz = lilz;
                             layerThickness = layerinlayer;
                             layerdone = false;
-                            Pack_layer(false, ref hundredpercent);
+                            Pack_layer(variant, false, ref hundredpercent);
                             packedy = prepackedy;
                             remainpy = preremainpy;
                             remainpz = pallet.Pallet_z;
@@ -150,12 +158,13 @@ namespace Sharp3D.Boxologic
                     pallet_volume_used_percentage = (double)best_solution_volume * 100 / (double)pallet.Vol;
                 }
                 //if (hundredpercent) break;
-                if ((pallet.Dim1 == pallet.Dim2) && (pallet.Dim2 == pallet.Dim3)) variant = 5;
+                if ((pallet.Dim1 == pallet.Dim2) && (pallet.Dim2 == pallet.Dim3))
+                    variant = 5;
             }
         }
         #endregion
         #region List_candidate_layers (DONE)
-        public void List_candidate_layers(bool show)
+        public void List_candidate_layers(int variant)
         {
             foreach (BoxInfo bi1 in boxList)
             {
@@ -213,12 +222,6 @@ namespace Sharp3D.Boxologic
                 }
             }
             layers.Sort(new LayerComparer());
-
-            if (show)
-            {
-                foreach (Layer l in layers)
-                    Console.WriteLine(l.ToString());
-            }
         }
         #endregion
         #region Find_smallest_z (DONE)
@@ -242,7 +245,7 @@ namespace Sharp3D.Boxologic
         ///----------------------------------------------------------------------------
         /// PACKS THE BOXES FOUND AND ARRANGES ALL VARIABLES AND RECORDS PROPERLY
         ///----------------------------------------------------------------------------
-        private bool Pack_layer(bool packingbest, ref bool hundredpercent)
+        private bool Pack_layer(int variant, bool packingbest, ref bool hundredpercent)
         {
             if (0 == layerThickness)
             {
@@ -265,7 +268,7 @@ namespace Sharp3D.Boxologic
                     //*** SITUATION-1: NO BOXES ON THE RIGHT AND LEFT SIDES ***
                     decimal lenx = smallestz.Cumx;
                     decimal lpz = remainpz - smallestz.Cumz;
-                    Find_box(lenx, layerThickness, remainpy, lpz, lpz,
+                    Find_box(variant, lenx, layerThickness, remainpy, lpz, lpz,
                         ref cboxi, ref cboxx, ref cboxy, ref cboxz);
 
                     if (layerdone) break;
@@ -298,7 +301,7 @@ namespace Sharp3D.Boxologic
                     decimal lenx = smallestz.Cumx;
                     decimal lenz = smallestz.Next.Cumz - smallestz.Cumz;
                     decimal lpz = remainpz - smallestz.Cumz;
-                    Find_box(lenx, layerThickness, remainpy, lenz, lpz
+                    Find_box(variant, lenx, layerThickness, remainpy, lenz, lpz
                         , ref cboxi, ref cboxx, ref cboxy, ref cboxz);
 
                     if (layerdone) break;
@@ -355,7 +358,7 @@ namespace Sharp3D.Boxologic
                     decimal lenx = smallestz.Cumx - smallestz.Prev.Cumx;
                     decimal lenz = smallestz.Prev.Cumz - smallestz.Cumz;
                     decimal lpz = remainpz - smallestz.Cumz;
-                    Find_box(lenx, layerThickness, remainpy, lenz, lpz
+                    Find_box(variant, lenx, layerThickness, remainpy, lenz, lpz
                         , ref cboxi, ref cboxx, ref cboxy, ref cboxz);
 
                     if (layerdone) break;
@@ -405,7 +408,7 @@ namespace Sharp3D.Boxologic
                     decimal lenx = smallestz.Cumx - smallestz.Prev.Cumx;
                     decimal lenz = smallestz.Prev.Cumz - smallestz.Cumz;
                     decimal lpz = remainpz - smallestz.Cumz;
-                    Find_box(lenx, layerThickness, remainpy, lenz, lpz
+                    Find_box(variant, lenx, layerThickness, remainpy, lenz, lpz
                         , ref cboxi, ref cboxx, ref cboxy, ref cboxz);
 
                     if (layerdone) break;
@@ -480,11 +483,10 @@ namespace Sharp3D.Boxologic
                 else
                 {
                     //*** SUBSITUATION-4B: SIDES ARE NOT EQUAL TO EACH OTHER ***
-                    //*** SUBSITUATION-4B: SIDES ARE NOT EQUAL TO EACH OTHER ***
                     decimal lenx = smallestz.Cumx - smallestz.Prev.Cumx;
                     decimal lenz = smallestz.Prev.Cumz - smallestz.Cumz;
                     decimal lpz = remainpz - smallestz.Cumz;
-                    Find_box(lenx, layerThickness, remainpy, lenz, lpz
+                    Find_box(variant, lenx, layerThickness, remainpy, lenz, lpz
                         , ref cboxi, ref cboxx, ref cboxy, ref cboxz);
 
                     if (layerdone) break;
@@ -719,7 +721,7 @@ namespace Sharp3D.Boxologic
         /// FINDS THE MOST PROPER BOXES BY LOOKING AT ALL SIX POSSIBLE ORIENTATIONS,
         /// EMPTY SPACE GIVEN, ADJACENT BOXES, AND PALLET LIMITS 
         /// </summary>
-        private void Find_box(decimal hmx, decimal hy, decimal hmy, decimal hz, decimal hmz,
+        private void Find_box(int variant, decimal hmx, decimal hy, decimal hmy, decimal hz, decimal hmz,
             ref decimal cboxi, ref decimal cboxx, ref decimal cboxy, ref decimal cboxz)
         {
             decimal boxi = 0;
@@ -742,49 +744,100 @@ namespace Sharp3D.Boxologic
                     return;
                 BoxInfo bi = boxList[x];
                 // 1 2 3
-                Analyse_box(x, hmx, hy, hmy, hz, hmz,
-                    bi.Dim1, bi.Dim2, bi.Dim3
-                    , ref bfx, ref bfy, ref bfz
-                    , ref bbfx, ref bbfy, ref bbfz
-                    , ref boxi, ref boxx, ref boxy, ref boxz
-                    , ref bboxi, ref bboxx, ref bboxy, ref bboxz);
-                if ((bi.Dim1 == bi.Dim3) && (bi.Dim3 == bi.Dim2))
-                    continue;
+                if ( (variant == 1 && bi.AllowZ) 
+                    || (variant == 2 && bi.AllowX)
+                    || (variant == 3 && bi.AllowX)
+                    || (variant == 4 && bi.AllowZ)
+                    || (variant == 5 && bi.AllowY)
+                    )
+                {
+                    Analyse_box(x, hmx, hy, hmy, hz, hmz,
+                        bi.Dim1, bi.Dim2, bi.Dim3
+                        , ref bfx, ref bfy, ref bfz
+                        , ref bbfx, ref bbfy, ref bbfz
+                        , ref boxi, ref boxx, ref boxy, ref boxz
+                        , ref bboxi, ref bboxx, ref bboxy, ref bboxz);
+
+                    if ((bi.Dim1 == bi.Dim3) && (bi.Dim3 == bi.Dim2))
+                        continue;
+                }
                 // 1 3 2
-                Analyse_box(x, hmx, hy, hmy, hz, hmz
-                    , bi.Dim1, bi.Dim3, bi.Dim2
-                    , ref bfx, ref bfy, ref bfz
-                    , ref bbfx, ref bbfy, ref bbfz
-                    , ref boxi, ref boxx, ref boxy, ref boxz
-                    , ref bboxi, ref bboxx, ref bboxy, ref bboxz);
+                if ( (variant == 1 && bi.AllowY)
+                    || (variant == 2 && bi.AllowX)
+                    || (variant == 3 && bi.AllowX)
+                    || (variant == 4 && bi.AllowY)
+                    || (variant == 5 && bi.AllowZ)
+                    )
+                {
+                    Analyse_box(x, hmx, hy, hmy, hz, hmz
+                        , bi.Dim1, bi.Dim3, bi.Dim2
+                        , ref bfx, ref bfy, ref bfz
+                        , ref bbfx, ref bbfy, ref bbfz
+                        , ref boxi, ref boxx, ref boxy, ref boxz
+                        , ref bboxi, ref bboxx, ref bboxy, ref bboxz);
+                }
+                
                 // 2 1 3
-                Analyse_box(x, hmx, hy, hmy, hz, hmz
-                    , bi.Dim2, bi.Dim1, bi.Dim3
-                    , ref bfx, ref bfy, ref bfz
-                    , ref bbfx, ref bbfy, ref bbfz
-                    , ref boxi, ref boxx, ref boxy, ref boxz
-                    , ref bboxi, ref bboxx, ref bboxy, ref bboxz);
+                if ( (variant == 1 &&  bi.AllowZ)
+                    || (variant == 2 && bi.AllowY)
+                    || (variant == 3 && bi.AllowY)
+                    || (variant == 4 && bi.AllowZ)
+                    || (variant == 5 && bi.AllowX)
+                    )
+                {
+                    Analyse_box(x, hmx, hy, hmy, hz, hmz
+                        , bi.Dim2, bi.Dim1, bi.Dim3
+                        , ref bfx, ref bfy, ref bfz
+                        , ref bbfx, ref bbfy, ref bbfz
+                        , ref boxi, ref boxx, ref boxy, ref boxz
+                        , ref bboxi, ref bboxx, ref bboxy, ref bboxz);
+                }                
                 // 2 3 1
-                Analyse_box(x, hmx, hy, hmy, hz, hmz
-                    , bi.Dim2, bi.Dim3, bi.Dim1
-                    , ref bfx, ref bfy, ref bfz
-                    , ref bbfx, ref bbfy, ref bbfz
-                    , ref boxi, ref boxx, ref boxy, ref boxz
-                    , ref bboxi, ref bboxx, ref bboxy, ref bboxz);
+                if ( (variant == 1 && bi.AllowX)
+                    || (variant == 2 && bi.AllowY)
+                    || (variant == 3 && bi.AllowY)
+                    || (variant == 4 && bi.AllowX)
+                    || (variant == 5 && bi.AllowZ)
+                    )
+                {
+                    Analyse_box(x, hmx, hy, hmy, hz, hmz
+                        , bi.Dim2, bi.Dim3, bi.Dim1
+                        , ref bfx, ref bfy, ref bfz
+                        , ref bbfx, ref bbfy, ref bbfz
+                        , ref boxi, ref boxx, ref boxy, ref boxz
+                        , ref bboxi, ref bboxx, ref bboxy, ref bboxz);
+                }
                 // 3 1 2
-                Analyse_box(x, hmx, hy, hmy, hz, hmz
-                    , bi.Dim3, bi.Dim1, bi.Dim2
-                    , ref bfx, ref bfy, ref bfz
-                    , ref bbfx, ref bbfy, ref bbfz
-                    , ref boxi, ref boxx, ref boxy, ref boxz
-                    , ref bboxi, ref bboxx, ref bboxy, ref bboxz);
+                if ( (variant == 1 &&  bi.AllowY)
+                    || (variant == 2 && bi.AllowZ)
+                    || (variant == 3 && bi.AllowZ)
+                    || (variant == 4 && bi.AllowY)
+                    || (variant == 5 && bi.AllowX)
+                    )
+                {
+                    Analyse_box(x, hmx, hy, hmy, hz, hmz
+                        , bi.Dim3, bi.Dim1, bi.Dim2
+                        , ref bfx, ref bfy, ref bfz
+                        , ref bbfx, ref bbfy, ref bbfz
+                        , ref boxi, ref boxx, ref boxy, ref boxz
+                        , ref bboxi, ref bboxx, ref bboxy, ref bboxz);
+                }
                 // 3 2 1
-                Analyse_box(x, hmx, hy, hmy, hz, hmz
-                    , bi.Dim3, bi.Dim2, bi.Dim1
-                    , ref bfx, ref bfy, ref bfz
-                    , ref bbfx, ref bbfy, ref bbfz
-                    , ref boxi, ref boxx, ref boxy, ref boxz
-                    , ref bboxi, ref bboxx, ref bboxy, ref bboxz);
+                if ( (variant == 1 && bi.AllowX)
+                    || (variant == 2 && bi.AllowZ)
+                    || (variant == 3 && bi.AllowZ)
+                    || (variant == 4 && bi.AllowX)
+                    || (variant == 5 && bi.AllowY)
+                    )
+                {
+                    Analyse_box(x, hmx, hy, hmy, hz, hmz
+                        , bi.Dim3, bi.Dim2, bi.Dim1
+                        , ref bfx, ref bfy, ref bfz
+                        , ref bbfx, ref bbfy, ref bbfz
+                        , ref boxi, ref boxx, ref boxy, ref boxz
+                        , ref bboxi, ref bboxx, ref bboxy, ref bboxz);
+                }
+                
             }
             CheckFound(ref cboxi, ref cboxx, ref cboxy, ref cboxz
                 , boxi, boxx, boxy, boxz
@@ -882,7 +935,7 @@ namespace Sharp3D.Boxologic
             pallet_volume_used_percentage = (double)best_solution_volume * 100 / (double)pallet.Vol;
             double elapsed_time = (TimeStop - TimeStart).TotalMilliseconds * 0.001;
 
-            List_candidate_layers(false);
+            List_candidate_layers(best_variant);
             packedvolume = 0;
             packedy = 0;
             packing = true;
@@ -898,7 +951,7 @@ namespace Sharp3D.Boxologic
             {
                 layerinlayer = 0;
                 layerdone = false;
-                Pack_layer(true, ref hundredpercent);
+                Pack_layer(best_variant, true, ref hundredpercent);
                 packedy += layerThickness;
                 remainpy = pallet.Pallet_y - packedy;
                 if (0 != layerinlayer)
@@ -910,7 +963,7 @@ namespace Sharp3D.Boxologic
                     remainpz = lilz;
                     layerThickness = layerinlayer;
                     layerdone = false;
-                    Pack_layer(true, ref hundredpercent);
+                    Pack_layer(best_variant, true, ref hundredpercent);
                     packedy = prepackedy;
                     remainpy = preremainpy;
                     remainpz = pallet.Pallet_z;
@@ -962,7 +1015,7 @@ namespace Sharp3D.Boxologic
                 pallet_volume_used_percentage = (double)best_iterations[variant].Value * 100 / (double)pallet.Vol;
                 double elapsed_time = (TimeStop - TimeStart).TotalMilliseconds * 0.001;
 
-                List_candidate_layers(false);
+                List_candidate_layers(variant);
                 packedvolume = 0;
                 packedy = 0;
                 packing = true;
@@ -978,7 +1031,7 @@ namespace Sharp3D.Boxologic
                 {
                     layerinlayer = 0;
                     layerdone = false;
-                    Pack_layer(true, ref hundredpercent);
+                    Pack_layer(variant, true, ref hundredpercent);
                     packedy += layerThickness;
                     remainpy = pallet.Pallet_y - packedy;
                     if (0 != layerinlayer)
@@ -990,7 +1043,7 @@ namespace Sharp3D.Boxologic
                         remainpz = lilz;
                         layerThickness = layerinlayer;
                         layerdone = false;
-                        Pack_layer(true, ref hundredpercent);
+                        Pack_layer(variant, true, ref hundredpercent);
                         packedy = prepackedy;
                         remainpy = preremainpy;
                         remainpz = pallet.Pallet_z;

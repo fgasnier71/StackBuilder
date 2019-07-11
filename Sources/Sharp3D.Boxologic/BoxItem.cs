@@ -9,6 +9,9 @@ namespace Sharp3D.Boxologic
         public decimal Boxz { get; set; }
         public int N { get; set; }
         public uint ID { get; set; }
+        public bool AllowX { get; set; } = true;
+        public bool AllowY { get; set; } = true;
+        public bool AllowZ { get; set; } = true;
     }
     public class Layer
     {

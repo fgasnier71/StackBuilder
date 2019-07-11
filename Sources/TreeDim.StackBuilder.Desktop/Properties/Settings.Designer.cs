@@ -1117,5 +1117,17 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
                 this["ExportCoordinatesMode"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public uint NoItemsHeterogeneous {
+            get {
+                return ((uint)(this["NoItemsHeterogeneous"]));
+            }
+            set {
+                this["NoItemsHeterogeneous"] = value;
+            }
+        }
     }
 }

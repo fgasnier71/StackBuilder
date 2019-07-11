@@ -57,8 +57,8 @@ namespace treeDiM.StackBuilder.Desktop
         #region Public properties
         public HAnalysisCase AnalysisCast
         {
-            get { return _analysis as HAnalysisCase; }
-            set { _analysis = value; }
+            get { return HAnalysis as HAnalysisCase; }
+            set { HAnalysis = value; }
         }
         #endregion
 

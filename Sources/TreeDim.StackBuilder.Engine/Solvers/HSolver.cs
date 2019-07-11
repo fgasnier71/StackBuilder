@@ -17,7 +17,13 @@ namespace treeDiM.StackBuilder.Engine
     {
         public List<HSolution> BuildSolutions(AnalysisHetero analysis)
         {
+            // dim container + offset
+            Vector3D dimContainer = analysis.DimContainer(0), offset = analysis.Offset(0);
+            // content items
             List<ContentItem> contentItems = new List<ContentItem>(analysis.Content);
+            // solutions
+            List<HSolution> solutions = new List<HSolution>();
+
             // *** Sharp3DBinPacking : begin
             // create cuboid list
             List<Cuboid> listCuboids = new List<Cuboid>();
@@ -40,8 +46,6 @@ namespace treeDiM.StackBuilder.Engine
                 if (!ci.AllowOrientX || !ci.AllowOrientY || !ci.AllowOrientZ)
                     bAllowAllOrientations = false;
             }
-            // dim container + offset
-            Vector3D dimContainer = analysis.DimContainer(0), offset = analysis.Offset(0);
 
             // Create a bin packer instance
             // The default bin packer will test all algorithms and try to find the best result
@@ -51,13 +55,9 @@ namespace treeDiM.StackBuilder.Engine
             var parameter = new BinPackParameter(
                 (decimal)dimContainer.X, (decimal)dimContainer.Y, (decimal)dimContainer.Z,
                 listCuboids.ToArray())
-            {
-            };
+            {};
 
             var binPackResult = binPacker.Pack(parameter);
-
-            List<HSolution> solutions = new List<HSolution>();
-            //foreach (var result in binPackResult.BestResult)
             {
                 HSolution sol = new HSolution("Sharp3DBinPacking") { Analysis = analysis };
                 foreach (var bins in binPackResult.BestResult)
@@ -87,6 +87,9 @@ namespace treeDiM.StackBuilder.Engine
                                 Boxx=(decimal)b.Length,
                                 Boxy=(decimal)b.Width,
                                 Boxz=(decimal)b.Height,
+                                AllowX = ci.AllowOrientX,
+                                AllowY = ci.AllowOrientY,
+                                AllowZ = ci.AllowOrientZ,
                                 N=1
                             }
                         );
@@ -97,36 +100,24 @@ namespace treeDiM.StackBuilder.Engine
             bl.Run(listItems.ToArray(), (decimal)dimContainer.X, (decimal)dimContainer.Y, (decimal)dimContainer.Z, ref solArray);
             foreach (var solution in solArray.Solutions)
             {
-                HSolution sol = new HSolution("Boxologic") { Analysis = analysis };
+                HSolution sol = new HSolution($"Boxologic - Variant {solution.Variant}") { Analysis = analysis };
                 HSolItem hSolItem = sol.CreateSolItem();
 
                 Transform3D transform = Transform3D.Identity;
                 switch (solution.Variant)
                 {
-                    case 1:
-                        transform = Transform3D.Translation(new Vector3D(0.0, dimContainer.Y, 0.0)) * Transform3D.RotationX(90.0);
-                        break;
-                    case 2:
-                        transform = Transform3D.Translation(new Vector3D(dimContainer.X, 0.0, 0.0)) * Transform3D.RotationZ(90.0);
-                        break;
-                    case 3:
-                        transform = Transform3D.Translation(new Vector3D(dimContainer.X, 0.0, 0.0)) * Transform3D.RotationZ(90.0);
-                        break;
-                    case 4:
-                        transform = Transform3D.Translation(new Vector3D(dimContainer.X, 0.0, 0.0)) * Transform3D.RotationY(-90.0);
-                        break;
-                    case 5:
-                        transform = Transform3D.Translation(new Vector3D(0.0, dimContainer.Y, 0.0)) * Transform3D.RotationX(90.0);
-                        break;
-                    default:
-                        transform = Transform3D.Identity;
-                        break;
+                    case 1: transform = Transform3D.Translation(new Vector3D(0.0, dimContainer.Y, 0.0)) * Transform3D.RotationX(90.0); break;
+                    case 2: transform = Transform3D.Translation(new Vector3D(dimContainer.X, 0.0, 0.0)) * Transform3D.RotationZ(90.0); break;
+                    case 3: transform = Transform3D.Translation(new Vector3D(dimContainer.X, 0.0, 0.0)) * Transform3D.RotationZ(90.0); break;
+                    case 4: transform = Transform3D.Translation(new Vector3D(dimContainer.X, 0.0, 0.0)) * Transform3D.RotationY(-90.0); break;
+                    case 5: transform = Transform3D.Translation(new Vector3D(0.0, dimContainer.Y, 0.0)) * Transform3D.RotationX(90.0); break;
+                    default: transform = Transform3D.Identity; break;
                 }
 
                 foreach (var item in solution.ItemsPacked)
                 {
                     BoxInfoToSolItem(contentItems, offset, item, transform, out int index, out BoxPosition pos);
-                    hSolItem.InsertContainedElt(index, pos);
+                    hSolItem.InsertContainedElt(index, pos.Adjusted(new Vector3D((double)item.DimX, (double)item.DimY, (double)item.DimZ)));
                 }
                 solutions.Add(sol);
             }

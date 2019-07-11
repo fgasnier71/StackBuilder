@@ -18,6 +18,10 @@ namespace Sharp3D.Boxologic
         public decimal Coz { get; set; }
         public int N { get; set; }
         public uint ID { get; set; }
+        public bool AllowX { get; set; } = true;
+        public bool AllowY { get; set; } = true;
+        public bool AllowZ { get; set; } = true;
+
         public void Write(int index)
         {
             if (Is_packed)

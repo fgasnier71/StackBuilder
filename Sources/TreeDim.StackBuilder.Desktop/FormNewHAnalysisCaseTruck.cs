@@ -13,29 +13,23 @@ namespace treeDiM.StackBuilder.Desktop
 {
     public partial class FormNewHAnalysisCaseTruck : FormNewHAnalysis, IItemBaseFilter
     {
-        public FormNewHAnalysisCaseTruck()
-            : base()
-        {
-            InitializeComponent();
-        }
-        public FormNewHAnalysisCaseTruck(Document doc, AnalysisHetero analysis)
-            : base(doc, analysis)
-        {
-            InitializeComponent();
-        }
+        #region Constructor
+        public FormNewHAnalysisCaseTruck(): base() => InitializeComponent();
+        public FormNewHAnalysisCaseTruck(Document doc, AnalysisHetero analysis): base(doc, analysis) => InitializeComponent();
+        #endregion
+
         #region Form override
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
 
             var containers = AnalysisCast?.Containers;
-            ItemBase curTruck = null;
+            ItemBase currentTruck = null;
             if (null != containers && containers.Count() > 0)
-                curTruck = containers.First();
-            cbTrucks.Initialize(_document, this, curTruck);
+                currentTruck = containers.First();
+            cbTrucks.Initialize(_document, this, currentTruck);
         }
         #endregion
-
 
         #region ItemBaseFilter override
         public bool Accept(Control ctrl, ItemBase itemBase)
@@ -63,7 +57,7 @@ namespace treeDiM.StackBuilder.Desktop
         }
         protected override void CreateNewAnalysis()
         {
-            _analysis = _document.CreateNewHAnalysisCaseTruck(
+            HAnalysis = _document.CreateNewHAnalysisCaseTruck(
                 ItemName, ItemDescription,
                 ListContentItems,
                 SelectedTruck,
@@ -86,8 +80,8 @@ namespace treeDiM.StackBuilder.Desktop
         #region Protected properties
         protected HAnalysisTruck AnalysisCast
         {
-            get { return _analysis as HAnalysisTruck; }
-            set { _analysis = value; }
+            get { return HAnalysis as HAnalysisTruck; }
+            set { HAnalysis = value; }
         }
         #endregion
 
