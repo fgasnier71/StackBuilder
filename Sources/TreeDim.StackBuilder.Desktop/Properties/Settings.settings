@@ -192,7 +192,7 @@
       <Value Profile="(Default)">1000</Value>
     </Setting>
     <Setting Name="ExcelLibraryPath" Type="System.String" Scope="User">
-      <Value Profile="(Default)">K:\GitHub\StackBuilder\Samples\SampleBook.xls</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="StartPageUrl" Type="System.String" Scope="Application">
       <Value Profile="(Default)">http://www.treedim.com/stackbuilder/</Value>
@@ -270,7 +270,7 @@
       <Value Profile="(Default)">info@treedim.com</Value>
     </Setting>
     <Setting Name="UrlPLMPackLib" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">http://www.plmpack.com/packlib/ClickOnce/PLMPackLibClient.application</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="ShowLogConsole" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>

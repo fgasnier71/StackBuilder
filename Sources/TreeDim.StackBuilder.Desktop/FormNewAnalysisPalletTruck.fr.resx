@@ -154,4 +154,7 @@
   <data name="uCtrlMinDistanceLoadRoof.Text" xml:space="preserve">
     <value>Distance minimale chargement/toit</value>
   </data>
+  <data name="uCtrlMaxNoPallets.Text" xml:space="preserve">
+    <value>Nombre maximum de</value>
+  </data>
 </root>

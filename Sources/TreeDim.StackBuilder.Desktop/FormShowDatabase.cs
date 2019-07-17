@@ -356,8 +356,9 @@ namespace treeDiM.StackBuilder.Desktop
                 _log.Error(ex.Message);
             }
         }
+        private string SearchString => tbSearch.Text.Trim();
+        private bool SearchDescription { get => chkbSearchDescription.Checked; set => chkbSearchDescription.Checked = value; }
         #endregion
-
         #region Pallets
         void FillGridPallets(WCFClient wcfClient)
         {
@@ -375,7 +376,7 @@ namespace treeDiM.StackBuilder.Desktop
             SourceGrid.Cells.Controllers.CustomEvents buttonDelete = new SourceGrid.Cells.Controllers.CustomEvents();
             buttonDelete.Click += new EventHandler(OnDeleteItem);
 
-            _pallets = wcfClient.Client.GetAllPallets(RangeIndex, ref _numberOfItems);
+            _pallets = wcfClient.Client.GetAllPalletsSearch(SearchString, SearchDescription, RangeIndex, ref _numberOfItems, false);
             int iIndex = 0;
             foreach (DCSBPallet p in _pallets)
             {
@@ -422,7 +423,7 @@ namespace treeDiM.StackBuilder.Desktop
             SourceGrid.Cells.Controllers.CustomEvents buttonDelete = new SourceGrid.Cells.Controllers.CustomEvents();
             buttonDelete.Click += new EventHandler(OnDeleteItem);
 
-            _interlayers = wcfClient.Client.GetAllInterlayers(RangeIndex, ref _numberOfItems);
+            _interlayers = wcfClient.Client.GetAllInterlayersSearch(SearchString, SearchDescription, RangeIndex, ref _numberOfItems, false);
             int iIndex = 0;
             foreach (DCSBInterlayer i in _interlayers)
             {
@@ -470,7 +471,7 @@ namespace treeDiM.StackBuilder.Desktop
             SourceGrid.Cells.Controllers.CustomEvents buttonDelete = new SourceGrid.Cells.Controllers.CustomEvents();
             buttonDelete.Click += new EventHandler(OnDeleteItem);
 
-            _palletCaps = wcfClient.Client.GetAllPalletCaps(RangeIndex, ref _numberOfItems);
+            _palletCaps = wcfClient.Client.GetAllPalletCapsSearch(SearchString, SearchDescription, RangeIndex, ref _numberOfItems, false);
             int iIndex = 0;
             foreach (DCSBPalletCap pc in _palletCaps)
             {
@@ -521,7 +522,7 @@ namespace treeDiM.StackBuilder.Desktop
             SourceGrid.Cells.Controllers.CustomEvents buttonDelete = new SourceGrid.Cells.Controllers.CustomEvents();
             buttonDelete.Click += new EventHandler(OnDeleteItem);
 
-            _palletCorners = wcfClient.Client.GetAllPalletCorners(RangeIndex, ref _numberOfItems);
+            _palletCorners = wcfClient.Client.GetAllPalletCornersSearch(SearchString, SearchDescription, RangeIndex, ref _numberOfItems, false);
             int iIndex = 0;
             foreach (DCSBPalletCorner c in _palletCorners)
             {
@@ -563,7 +564,7 @@ namespace treeDiM.StackBuilder.Desktop
             SourceGrid.Cells.Controllers.CustomEvents buttonDelete = new SourceGrid.Cells.Controllers.CustomEvents();
             buttonDelete.Click += new EventHandler(OnDeleteItem);
 
-            _palletFilms = wcfClient.Client.GetAllPalletFilms(RangeIndex, ref _numberOfItems);
+            _palletFilms = wcfClient.Client.GetAllPalletFilmsSearch(SearchString, SearchDescription, RangeIndex, ref _numberOfItems, false);
             int iIndex = 0;
             foreach (DCSBPalletFilm c in _palletFilms)
             {
@@ -603,7 +604,7 @@ namespace treeDiM.StackBuilder.Desktop
             SourceGrid.Cells.Controllers.CustomEvents buttonDelete = new SourceGrid.Cells.Controllers.CustomEvents();
             buttonDelete.Click += new EventHandler(OnDeleteItem);
 
-            _boxes = wcfClient.Client.GetAllBoxes(RangeIndex, ref _numberOfItems);
+            _boxes = wcfClient.Client.GetAllBoxesSearch(SearchString, SearchDescription, RangeIndex, ref _numberOfItems, false);
             int iIndex = 0;
             foreach (DCSBCase c in _boxes)
             {
@@ -645,7 +646,7 @@ namespace treeDiM.StackBuilder.Desktop
             SourceGrid.Cells.Controllers.CustomEvents buttonDelete = new SourceGrid.Cells.Controllers.CustomEvents();
             buttonDelete.Click += new EventHandler(OnDeleteItem);
 
-            _cases = wcfClient.Client.GetAllCases(RangeIndex, ref _numberOfItems);
+            _cases = wcfClient.Client.GetAllCasesSearch(SearchString, SearchDescription, RangeIndex, ref _numberOfItems, false);
             int iIndex = 0;
             foreach (DCSBCase c in _cases)
             {
@@ -698,7 +699,7 @@ namespace treeDiM.StackBuilder.Desktop
             SourceGrid.Cells.Controllers.CustomEvents buttonDelete = new SourceGrid.Cells.Controllers.CustomEvents();
             buttonDelete.Click += new EventHandler(OnDeleteItem);
 
-            _bundles = wcfClient.Client.GetAllBundles(RangeIndex, ref _numberOfItems);
+            _bundles = wcfClient.Client.GetAllBundlesSearch(SearchString, SearchDescription, RangeIndex, ref _numberOfItems, false);
             int iIndex = 0;
             foreach (DCSBBundle b in _bundles)
             {
@@ -743,7 +744,7 @@ namespace treeDiM.StackBuilder.Desktop
             SourceGrid.Cells.Controllers.CustomEvents buttonDelete = new SourceGrid.Cells.Controllers.CustomEvents();
             buttonDelete.Click += new EventHandler(OnDeleteItem);
 
-            _cylinders = wcfClient.Client.GetAllCylinders(RangeIndex, ref _numberOfItems);
+            _cylinders = wcfClient.Client.GetAllCylindersSearch(SearchString, SearchDescription, RangeIndex, ref _numberOfItems, false);
             int iIndex = 0;
             foreach (DCSBCylinder cyl in _cylinders)
             {
@@ -784,7 +785,7 @@ namespace treeDiM.StackBuilder.Desktop
             SourceGrid.Cells.Controllers.CustomEvents buttonDelete = new SourceGrid.Cells.Controllers.CustomEvents();
             buttonDelete.Click += new EventHandler(OnDeleteItem);
             // get all trucks
-            _trucks = wcfClient.Client.GetAllTrucks(RangeIndex, ref _numberOfItems);
+            _trucks = wcfClient.Client.GetAllTrucksSearch(SearchString, SearchDescription, RangeIndex, ref _numberOfItems, false);
             int iIndex = 0;
             foreach (DCSBTruck t in _trucks)
             {
@@ -950,9 +951,12 @@ namespace treeDiM.StackBuilder.Desktop
                 _log.Error(ex.Message);
             }
         }
-
         private void OnSelectedTabChanged(object sender, EventArgs e)
         {
+            // clear search string
+            tbSearch.Clear();
+            OnSearchFieldChanged(this, null);
+            // update grid
             RangeIndex = 0;
             UpdateGrid();
         }
@@ -1181,6 +1185,14 @@ namespace treeDiM.StackBuilder.Desktop
                 RangeIndex++;
             UpdateGrid();
         }
+        private void OnSearchFieldChanged(object sender, EventArgs e)
+        {
+            bnSearch.Enabled = !string.IsNullOrEmpty(SearchString);
+        }
+        private void OnSearch(object sender, EventArgs e)
+        {
+            UpdateGrid();
+        }
         #endregion
 
         #region Private properties
@@ -1203,6 +1215,9 @@ namespace treeDiM.StackBuilder.Desktop
         private DCSBInterlayer[] _interlayers = null;
         private DCSBTruck[] _trucks = null;
         private DocumentSB _doc = null;
+
         #endregion
+
+
     }
 }

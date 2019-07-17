@@ -136,4 +136,16 @@
   <data name="$this.Text" xml:space="preserve">
     <value>Créer une nouvelle analyse étui/caisse...</value>
   </data>
+  <data name="tabPageStopCriterions.Text" xml:space="preserve">
+    <value>Critère d'arrêt</value>
+  </data>
+  <data name="uCtrlOptMaxNumber.Text" xml:space="preserve">
+    <value>Nombre maximum</value>
+  </data>
+  <data name="uCtrlOptMaximumWeight.Text" xml:space="preserve">
+    <value>Poid maximum caisse</value>
+  </data>
+  <data name="bnBestCombination.Text" xml:space="preserve">
+    <value>Afficher la meilleure combinaison</value>
+  </data>
 </root>

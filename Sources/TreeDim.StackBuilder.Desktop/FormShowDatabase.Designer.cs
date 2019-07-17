@@ -33,6 +33,9 @@
             this.bnClose = new System.Windows.Forms.Button();
             this.bnImport = new System.Windows.Forms.Button();
             this.graphCtrl = new treeDiM.StackBuilder.Graphics.Graphics3DControl();
+            this.chkbSearchDescription = new System.Windows.Forms.CheckBox();
+            this.bnSearch = new System.Windows.Forms.Button();
+            this.tbSearch = new System.Windows.Forms.TextBox();
             this.lbCount = new System.Windows.Forms.Label();
             this.bnNext = new System.Windows.Forms.Button();
             this.bnPrev = new System.Windows.Forms.Button();
@@ -86,12 +89,17 @@
             // 
             // splitContainerForm.Panel1
             // 
+            resources.ApplyResources(this.splitContainerForm.Panel1, "splitContainerForm.Panel1");
             this.splitContainerForm.Panel1.Controls.Add(this.bnClose);
             this.splitContainerForm.Panel1.Controls.Add(this.bnImport);
             this.splitContainerForm.Panel1.Controls.Add(this.graphCtrl);
             // 
             // splitContainerForm.Panel2
             // 
+            resources.ApplyResources(this.splitContainerForm.Panel2, "splitContainerForm.Panel2");
+            this.splitContainerForm.Panel2.Controls.Add(this.chkbSearchDescription);
+            this.splitContainerForm.Panel2.Controls.Add(this.bnSearch);
+            this.splitContainerForm.Panel2.Controls.Add(this.tbSearch);
             this.splitContainerForm.Panel2.Controls.Add(this.lbCount);
             this.splitContainerForm.Panel2.Controls.Add(this.bnNext);
             this.splitContainerForm.Panel2.Controls.Add(this.bnPrev);
@@ -116,6 +124,25 @@
             resources.ApplyResources(this.graphCtrl, "graphCtrl");
             this.graphCtrl.Name = "graphCtrl";
             this.graphCtrl.Viewer = null;
+            // 
+            // chkbSearchDescription
+            // 
+            resources.ApplyResources(this.chkbSearchDescription, "chkbSearchDescription");
+            this.chkbSearchDescription.Name = "chkbSearchDescription";
+            this.chkbSearchDescription.UseVisualStyleBackColor = true;
+            // 
+            // bnSearch
+            // 
+            resources.ApplyResources(this.bnSearch, "bnSearch");
+            this.bnSearch.Name = "bnSearch";
+            this.bnSearch.UseVisualStyleBackColor = true;
+            this.bnSearch.Click += new System.EventHandler(this.OnSearch);
+            // 
+            // tbSearch
+            // 
+            resources.ApplyResources(this.tbSearch, "tbSearch");
+            this.tbSearch.Name = "tbSearch";
+            this.tbSearch.TextChanged += new System.EventHandler(this.OnSearchFieldChanged);
             // 
             // lbCount
             // 
@@ -155,8 +182,8 @@
             // 
             // tabPageBox
             // 
-            this.tabPageBox.Controls.Add(this.gridBoxes);
             resources.ApplyResources(this.tabPageBox, "tabPageBox");
+            this.tabPageBox.Controls.Add(this.gridBoxes);
             this.tabPageBox.Name = "tabPageBox";
             this.tabPageBox.UseVisualStyleBackColor = true;
             // 
@@ -172,8 +199,8 @@
             // 
             // tabPageCase
             // 
-            this.tabPageCase.Controls.Add(this.gridCases);
             resources.ApplyResources(this.tabPageCase, "tabPageCase");
+            this.tabPageCase.Controls.Add(this.gridCases);
             this.tabPageCase.Name = "tabPageCase";
             this.tabPageCase.UseVisualStyleBackColor = true;
             // 
@@ -191,8 +218,8 @@
             // 
             // tabPageBundle
             // 
-            this.tabPageBundle.Controls.Add(this.gridBundles);
             resources.ApplyResources(this.tabPageBundle, "tabPageBundle");
+            this.tabPageBundle.Controls.Add(this.gridBundles);
             this.tabPageBundle.Name = "tabPageBundle";
             this.tabPageBundle.UseVisualStyleBackColor = true;
             // 
@@ -210,8 +237,8 @@
             // 
             // tabPageCylinder
             // 
-            this.tabPageCylinder.Controls.Add(this.gridCylinders);
             resources.ApplyResources(this.tabPageCylinder, "tabPageCylinder");
+            this.tabPageCylinder.Controls.Add(this.gridCylinders);
             this.tabPageCylinder.Name = "tabPageCylinder";
             this.tabPageCylinder.UseVisualStyleBackColor = true;
             // 
@@ -229,8 +256,8 @@
             // 
             // tabPageInterlayer
             // 
-            this.tabPageInterlayer.Controls.Add(this.gridInterlayers);
             resources.ApplyResources(this.tabPageInterlayer, "tabPageInterlayer");
+            this.tabPageInterlayer.Controls.Add(this.gridInterlayers);
             this.tabPageInterlayer.Name = "tabPageInterlayer";
             this.tabPageInterlayer.UseVisualStyleBackColor = true;
             // 
@@ -248,8 +275,8 @@
             // 
             // tabPagePallet
             // 
-            this.tabPagePallet.Controls.Add(this.gridPallets);
             resources.ApplyResources(this.tabPagePallet, "tabPagePallet");
+            this.tabPagePallet.Controls.Add(this.gridPallets);
             this.tabPagePallet.Name = "tabPagePallet";
             this.tabPagePallet.UseVisualStyleBackColor = true;
             // 
@@ -267,8 +294,8 @@
             // 
             // tabPageTruck
             // 
-            this.tabPageTruck.Controls.Add(this.gridTrucks);
             resources.ApplyResources(this.tabPageTruck, "tabPageTruck");
+            this.tabPageTruck.Controls.Add(this.gridTrucks);
             this.tabPageTruck.Name = "tabPageTruck";
             this.tabPageTruck.UseVisualStyleBackColor = true;
             // 
@@ -286,8 +313,8 @@
             // 
             // tabPagePalletCorner
             // 
-            this.tabPagePalletCorner.Controls.Add(this.gridPalletCorners);
             resources.ApplyResources(this.tabPagePalletCorner, "tabPagePalletCorner");
+            this.tabPagePalletCorner.Controls.Add(this.gridPalletCorners);
             this.tabPagePalletCorner.Name = "tabPagePalletCorner";
             this.tabPagePalletCorner.UseVisualStyleBackColor = true;
             // 
@@ -305,8 +332,8 @@
             // 
             // tabPagePalletCap
             // 
-            this.tabPagePalletCap.Controls.Add(this.gridPalletCaps);
             resources.ApplyResources(this.tabPagePalletCap, "tabPagePalletCap");
+            this.tabPagePalletCap.Controls.Add(this.gridPalletCaps);
             this.tabPagePalletCap.Name = "tabPagePalletCap";
             this.tabPagePalletCap.UseVisualStyleBackColor = true;
             // 
@@ -324,8 +351,8 @@
             // 
             // tabPagePalletFilm
             // 
-            this.tabPagePalletFilm.Controls.Add(this.gridPalletFilms);
             resources.ApplyResources(this.tabPagePalletFilm, "tabPagePalletFilm");
+            this.tabPagePalletFilm.Controls.Add(this.gridPalletFilms);
             this.tabPagePalletFilm.Name = "tabPagePalletFilm";
             this.tabPagePalletFilm.UseVisualStyleBackColor = true;
             // 
@@ -343,15 +370,15 @@
             // 
             // toolStripMain
             // 
+            resources.ApplyResources(this.toolStripMain, "toolStripMain");
             this.toolStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripBExcel});
-            resources.ApplyResources(this.toolStripMain, "toolStripMain");
             this.toolStripMain.Name = "toolStripMain";
             // 
             // toolStripBExcel
             // 
-            this.toolStripBExcel.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             resources.ApplyResources(this.toolStripBExcel, "toolStripBExcel");
+            this.toolStripBExcel.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripBExcel.Name = "toolStripBExcel";
             this.toolStripBExcel.Click += new System.EventHandler(this.OnImportFromExcelFile);
             // 
@@ -422,5 +449,8 @@
         private System.Windows.Forms.Label lbCount;
         private System.Windows.Forms.Button bnNext;
         private System.Windows.Forms.Button bnPrev;
+        private System.Windows.Forms.Button bnSearch;
+        private System.Windows.Forms.TextBox tbSearch;
+        private System.Windows.Forms.CheckBox chkbSearchDescription;
     }
 }

@@ -1586,4 +1586,10 @@
   <data name="saveFileDialogExportXML.Filter" xml:space="preserve">
     <value>Échanger des Markup Language (*.xml) | * .xml</value>
   </data>
+  <data name="toolStripMIAnalysisCylinderTruck.Text" xml:space="preserve">
+    <value>Cylindre/Camion</value>
+  </data>
+  <data name="toolStripMIHAnalysisCaseTruck.Text" xml:space="preserve">
+    <value>Caisse/Camion hétérogène</value>
+  </data>
 </root>

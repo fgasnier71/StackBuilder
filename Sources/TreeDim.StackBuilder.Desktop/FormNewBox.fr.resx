@@ -166,4 +166,22 @@
   <data name="tabPageTape.Text" xml:space="preserve">
     <value>Ruban</value>
   </data>
+  <data name="cbColor.Items6" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbFace.Items5" xml:space="preserve">
+    <value>Dessus</value>
+  </data>
+  <data name="cbFace.Items4" xml:space="preserve">
+    <value>Dessous</value>
+  </data>
+  <data name="cbFace.Items3" xml:space="preserve">
+    <value>Gauche</value>
+  </data>
+  <data name="cbFace.Items2" xml:space="preserve">
+    <value>Droite</value>
+  </data>
+  <data name="cbFace.Items1" xml:space="preserve">
+    <value>Face</value>
+  </data>
 </root>

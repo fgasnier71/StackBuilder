@@ -412,7 +412,7 @@
             resources.ApplyResources(this.bnNext, "bnNext");
             this.bnNext.Name = "bnNext";
             this.bnNext.UseVisualStyleBackColor = true;
-            this.bnNext.Click += new System.EventHandler(this.onNext);
+            this.bnNext.Click += new System.EventHandler(this.OnNext);
             // 
             // graphCtrlSolution
             // 

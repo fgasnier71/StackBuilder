@@ -153,7 +153,7 @@ namespace treeDiM.StackBuilder.Desktop
                 if (((DocumentSB)nodeTag.Document).CanCreateAnalysisCasePallet || ((DocumentSB)nodeTag.Document).CanCreateOptiCasePallet)
                     contextMenuStrip.Items.Add(new ToolStripSeparator());
                 if (((DocumentSB)nodeTag.Document).CanCreateAnalysisCasePallet)
-                    contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWANALYSIS, AnalysisCasePallet, new EventHandler(OnCreateNewAnalysisCasePallet)));
+                    contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWANALYSIS, AnalysisCasePallet, new EventHandler(OnCreateNewAnalysisCasePallet)) { ImageTransparentColor = Color.White });
                 /*
                 if (((DocumentSB)nodeTag.Document).CanCreateOptiCasePallet)
                     contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWCASEANALYSIS, AnalysisTreeView.AnalysisCase, new EventHandler(onCreateNewAnalysisCase)));

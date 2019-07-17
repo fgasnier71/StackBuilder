@@ -155,7 +155,7 @@
     <value>uCtrlNumberPerCase</value>
   </data>
   <data name="&gt;&gt;uCtrlNumberPerCase.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlOptInt, treeDiM.StackBuilder.Basics, Version=3.0.0.94, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Basics.UCtrlOptInt, treeDiM.StackBuilder.Basics, Version=3.0.0.95, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlNumberPerCase.Parent" xml:space="preserve">
     <value>splitContainerHoriz.Panel1</value>
@@ -183,7 +183,7 @@
     <value>uCtrlCaseDimensionsMax</value>
   </data>
   <data name="&gt;&gt;uCtrlCaseDimensionsMax.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlOptTriDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.94, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Basics.UCtrlOptTriDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.95, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlCaseDimensionsMax.Parent" xml:space="preserve">
     <value>splitContainerHoriz.Panel1</value>
@@ -210,7 +210,7 @@
     <value>uCtrlCaseDimensionsMin</value>
   </data>
   <data name="&gt;&gt;uCtrlCaseDimensionsMin.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlOptTriDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.94, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Basics.UCtrlOptTriDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.95, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlCaseDimensionsMin.Parent" xml:space="preserve">
     <value>splitContainerHoriz.Panel1</value>
@@ -258,7 +258,7 @@
     <value>cbBoxes</value>
   </data>
   <data name="&gt;&gt;cbBoxes.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered, treeDiM.StackBuilder.Graphics, Version=3.0.0.94, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered, treeDiM.StackBuilder.Graphics, Version=3.0.0.95, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;cbBoxes.Parent" xml:space="preserve">
     <value>splitContainerHoriz.Panel1</value>
@@ -279,7 +279,7 @@
     <value>uCtrlCaseOrient</value>
   </data>
   <data name="&gt;&gt;uCtrlCaseOrient.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Graphics.uCtrlCaseOrientation, treeDiM.StackBuilder.Graphics, Version=3.0.0.94, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Graphics.uCtrlCaseOrientation, treeDiM.StackBuilder.Graphics, Version=3.0.0.95, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlCaseOrient.Parent" xml:space="preserve">
     <value>splitContainerHoriz.Panel1</value>
@@ -570,7 +570,7 @@
     <value>graphCtrl</value>
   </data>
   <data name="&gt;&gt;graphCtrl.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Graphics.Graphics3DControl, treeDiM.StackBuilder.Graphics, Version=3.0.0.94, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Graphics.Graphics3DControl, treeDiM.StackBuilder.Graphics, Version=3.0.0.95, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;graphCtrl.Parent" xml:space="preserve">
     <value>splitContainerHoriz.Panel2</value>

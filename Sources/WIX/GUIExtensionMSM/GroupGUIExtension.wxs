@@ -14,9 +14,6 @@
             <Component Id="cmpB5F2771100F52D12860FA3E195E1F2BE" Directory="PackLib" Guid="0694E899-0309-4146-80EA-FA32D5348BCC">
                 <File Id="fil0777030352A360404A6D34865891981F" KeyPath="yes" Source="$(var.GuiExtensionSourceDir)\Cureos.Measures.dll" />
             </Component>
-            <Component Id="cmp4BE6F1602D4A9E1169DDC4AE88F5C696" Directory="PackLib" Guid="6101497B-361D-4831-AEDD-25760CFD19C3">
-                <File Id="fil4D4DF82747F4478F4F1600C76F820CB5" KeyPath="yes" Source="$(var.GuiExtensionSourceDir)\netstandard.dll" />
-            </Component>
             <Component Id="cmpF7DBB3DB90C231795A210FA29B9BDED6" Directory="PackLib" Guid="27C6BAEA-1433-46EE-9C35-AAFDA6429391">
                 <File Id="filD41C721A8E2554B9F5A5C934F20CA9B0" KeyPath="yes" Source="$(var.GuiExtensionSourceDir)\Sharp3D.Boxologic.dll" />
             </Component>

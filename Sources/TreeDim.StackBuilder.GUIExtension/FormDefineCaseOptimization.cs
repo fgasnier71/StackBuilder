@@ -2,21 +2,14 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-using System.Diagnostics;
-using System.IO;
 
 using log4net;
 
 using treeDiM.StackBuilder.Basics;
 using treeDiM.StackBuilder.Graphics;
-using treeDiM.StackBuilder.Graphics.Controls;
 using treeDiM.StackBuilder.Engine;
-using treeDiM.StackBuilder.Reporting;
 
 using Sharp3D.Math.Core;
 
@@ -66,7 +59,7 @@ namespace treeDiM.StackBuilder.GUIExtension
             // set default wrapper type
             cbWrapperType.SelectedIndex = Settings.Default.WrapperType;
             // initialize grid
-            gridSolutions.Selection.SelectionChanged += new SourceGrid.RangeRegionChangedEventHandler(onSelChangeGrid);
+            gridSolutions.Selection.SelectionChanged += new SourceGrid.RangeRegionChangedEventHandler(OnSelChangeGrid);
 
             UpdateStatus(string.Empty);
         }
@@ -205,6 +198,9 @@ namespace treeDiM.StackBuilder.GUIExtension
                 _timer.Stop();
                 // instantiate document
                 _doc = new Document(BoxName, BoxName, "", DateTime.Now, null);
+                // 
+                if (uCtrlDimensionsBox.ValueX < 1.0e-03 || uCtrlDimensionsBox.ValueY < 1.0e-03 || uCtrlDimensionsBox.ValueZ < 1.0e-03)
+                    return;
                 // recompute optimisation
                 PackOptimizer packOptimizer = new PackOptimizer(
                     SelectedBox, SelectedPallet,
@@ -220,7 +216,7 @@ namespace treeDiM.StackBuilder.GUIExtension
                 _log.Error(ex.ToString());
             }
         }
-        private void onSelChangeGrid(object sender, SourceGrid.RangeRegionChangedEventArgs e)
+        private void OnSelChangeGrid(object sender, SourceGrid.RangeRegionChangedEventArgs e)
         {
             try
             {
@@ -251,7 +247,7 @@ namespace treeDiM.StackBuilder.GUIExtension
                 _log.Error(ex.Message);
             }
         }
-        private void onNext(object sender, EventArgs e)
+        private void OnNext(object sender, EventArgs e)
         {
             try
             {
@@ -296,18 +292,6 @@ namespace treeDiM.StackBuilder.GUIExtension
         #endregion
 
         #region Helpers
-        private int SelectedSolutionIndex
-        {
-            get
-            {
-                SourceGrid.RangeRegion region = gridSolutions.Selection.GetSelectionRegion();
-                int[] indexes = region.GetRowsIndex();
-                // no selection -> exit
-                if (indexes.Length == 0) return -1;
-                // return index
-                return indexes[0] - 1;
-            }
-        }
         /// <summary>
         /// Use box dimensions to set min case dimensions
         /// </summary>
