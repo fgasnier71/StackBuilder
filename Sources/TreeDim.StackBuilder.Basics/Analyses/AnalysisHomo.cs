@@ -2,11 +2,8 @@
 
 using Sharp3D.Math.Core;
 
-using log4net;
-
 namespace treeDiM.StackBuilder.Basics
 {
-
     public abstract class AnalysisHomo : Analysis
     {
         public Packable Content
@@ -124,7 +121,6 @@ namespace treeDiM.StackBuilder.Basics
         /// Content
         /// </summary>
         protected Packable _packable;
-        static readonly ILog _log = LogManager.GetLogger(typeof(AnalysisHomo));
 
         protected AnalysisHomo(Document doc, Packable packable) : base(doc)
         {

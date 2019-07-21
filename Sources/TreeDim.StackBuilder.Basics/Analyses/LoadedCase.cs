@@ -1,7 +1,4 @@
-﻿using System;
-using System.Linq;
-
-namespace treeDiM.StackBuilder.Basics
+﻿namespace treeDiM.StackBuilder.Basics
 {
     public class LoadedCase : PackableLoaded
     {
@@ -41,7 +38,7 @@ namespace treeDiM.StackBuilder.Basics
         }
 
         #region Non-Public Members
-        private AnalysisBoxCase Analysis => ParentAnalysis as AnalysisBoxCase;
+        private AnalysisPackableCase Analysis => ParentAnalysis as AnalysisPackableCase;
         protected override string TypeName => Properties.Resources.ID_LOADEDCASE;
         #endregion
     }

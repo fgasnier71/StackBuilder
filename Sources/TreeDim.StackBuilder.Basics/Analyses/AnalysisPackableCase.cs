@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 
 using Sharp3D.Math.Core;
 
@@ -9,7 +8,7 @@ namespace treeDiM.StackBuilder.Basics
     {
         public BoxProperties CaseProperties
         {
-            get { return _caseProperties; }
+            get => _caseProperties;
             set
             {
                 if (_caseProperties == value) return;
@@ -38,23 +37,9 @@ namespace treeDiM.StackBuilder.Basics
             }
         }
 
-        public override bool AllowInterlayer(InterlayerProperties interlayer)
-        {
-            return interlayer.Length < _caseProperties.InsideLength
-                && interlayer.Width < _caseProperties.InsideWidth;
-        }
-
-        public override BBox3D BBoxGlobal(BBox3D loadBBox)
-        {
-            return new BBox3D(
-                0.0, 0.0, 0.0,
-                _caseProperties.InsideLength, _caseProperties.InsideWidth, _caseProperties.InsideHeight);
-        }
-
-        public override BBox3D BBoxLoadWDeco(BBox3D loadBBox)
-        {
-            return loadBBox;
-        }
+        public override bool AllowInterlayer(InterlayerProperties interlayer) => interlayer.Length <= _caseProperties.InsideLength  && interlayer.Width <= _caseProperties.InsideWidth;
+        public override BBox3D BBoxGlobal(BBox3D loadBBox) => new BBox3D(0.0, 0.0, 0.0, _caseProperties.InsideLength, _caseProperties.InsideWidth, _caseProperties.InsideHeight);
+        public override BBox3D BBoxLoadWDeco(BBox3D loadBBox) => loadBBox;
 
         #region Non-Public Members
         protected BoxProperties _caseProperties;
