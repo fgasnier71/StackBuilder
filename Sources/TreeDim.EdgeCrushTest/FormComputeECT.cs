@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.Linq;
 
 using Sharp3D.Math.Core;
+
+using treeDiM.EdgeCrushTest.Properties;
 #endregion
 
 namespace treeDiM.EdgeCrushTest
@@ -25,8 +27,8 @@ namespace treeDiM.EdgeCrushTest
             base.OnLoad(e);
 
             // initialize dimensions load
-            CaseDimensions = new Vector3D(400.0, 300.0, 200.0);
-            TopLoad = 50.0;
+            CaseDimensions = new Vector3D(Settings.Default.CaseDimX, Settings.Default.CaseDimY, Settings.Default.CaseDimZ);
+            TopLoad = Settings.Default.ExpectedLoad;
             McKeeFormulaType = McKeeFormula.FormulaType.MCKEE_CLASSIC;
 
             // fill material grid
@@ -42,6 +44,16 @@ namespace treeDiM.EdgeCrushTest
 
             gridMat.Selection.SelectionChanged += new SourceGrid.RangeRegionChangedEventHandler(OnMaterialChanged);
         }
+        protected override void OnClosed(EventArgs e)
+        {
+            base.OnClosed(e);
+
+            Settings.Default.CaseDimX = CaseDimensions.X;
+            Settings.Default.CaseDimY = CaseDimensions.Y;
+            Settings.Default.CaseDimZ = CaseDimensions.Z;
+
+            Settings.Default.ExpectedLoad = TopLoad;
+        }
         #endregion
 
         #region Private properties
@@ -52,8 +64,8 @@ namespace treeDiM.EdgeCrushTest
         }
         private double TopLoad
         {
-            get => (double)nudLoad.Value;
-            set => nudLoad.Value = (decimal)value;
+            get => uCtrlLoad.Value;
+            set => uCtrlLoad.Value = value;
         }
         private McKeeFormula.FormulaType McKeeFormulaType
         {
@@ -71,6 +83,7 @@ namespace treeDiM.EdgeCrushTest
         {
             // remove all existing rows
             gridMat.Rows.Clear();
+            gridMat.Selection.EnableMultiSelection = false;
             // view column header
             var viewColumnHeader = new SourceGrid.Cells.Views.ColumnHeader()
             {
@@ -92,39 +105,37 @@ namespace treeDiM.EdgeCrushTest
             int iCol = 0;
             SourceGrid.Cells.ColumnHeader columnHeader;
             // name
-            columnHeader = new SourceGrid.Cells.ColumnHeader(Properties.Resources.ID_NAME)
+            columnHeader = new SourceGrid.Cells.ColumnHeader(Resources.ID_NAME)
             {
                 AutomaticSortEnabled = false,
                 View = viewColumnHeader
             };
             gridMat[0, iCol++] = columnHeader;
             // profile
-            columnHeader = new SourceGrid.Cells.ColumnHeader(Properties.Resources.ID_PROFILE)
+            columnHeader = new SourceGrid.Cells.ColumnHeader(Resources.ID_PROFILE)
             {
                 AutomaticSortEnabled = false,
                 View = viewColumnHeader
             };
             gridMat[0, iCol++] = columnHeader;
             // thickness
-            columnHeader = new SourceGrid.Cells.ColumnHeader(Properties.Resources.ID_THICKNESS)
+            columnHeader = new SourceGrid.Cells.ColumnHeader(Resources.ID_THICKNESS)
             {
                 AutomaticSortEnabled = false,
                 View = viewColumnHeader
             };
             gridMat[0, iCol++] = columnHeader;
             // ECT
-            columnHeader = new SourceGrid.Cells.ColumnHeader(Properties.Resources.ID_STATICBCT)
+            columnHeader = new SourceGrid.Cells.ColumnHeader(Resources.ID_STATICBCT)
             {
                 AutomaticSortEnabled = false,
                 View = viewColumnHeader
             };
             gridMat[0, iCol++] = columnHeader;
 
-
             int iIndex = 0;
             var dictQuality = CardboardQualityAccessor.Instance.CardboardQualityDictionary;
             Vector3D dim = CaseDimensions;
-
             // views
             CellColorFromValue viewNormal = new CellColorFromValue(TopLoad * 9.81 / 10) {}; // convert mass in kg to load in daN
 
@@ -139,7 +150,7 @@ namespace treeDiM.EdgeCrushTest
                 gridMat[iIndex, iCol++] = new SourceGrid.Cells.Cell(quality.Profile);
                 gridMat[iIndex, iCol++] = new SourceGrid.Cells.Cell($"{quality.Thickness:0.##}");
 
-                double staticBCT = McKeeFormula.ComputeStaticBCT(dim.X, dim.Y, dim.Z, q.Key, Properties.Resources.CASETYPE_AMERICANCASE, McKeeFormulaType);
+                double staticBCT = McKeeFormula.ComputeStaticBCT(dim.X, dim.Y, dim.Z, q.Key, Resources.CASETYPE_AMERICANCASE, McKeeFormulaType);
                 gridMat[iIndex, iCol++] = new SourceGrid.Cells.Cell($"{staticBCT:0.##}") { View = viewNormal };
             }
             gridMat.AutoStretchColumnsToFitWidth = true;

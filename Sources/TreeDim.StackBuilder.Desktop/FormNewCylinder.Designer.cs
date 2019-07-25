@@ -82,7 +82,6 @@
             0});
             this.uCtrlHeight.Name = "uCtrlHeight";
             this.uCtrlHeight.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
-            this.uCtrlHeight.Value = 0D;
             this.uCtrlHeight.ValueChanged += new treeDiM.Basics.UCtrlDouble.ValueChangedDelegate(this.OnValueChanged);
             // 
             // uCtrlDiameterInner
@@ -95,7 +94,6 @@
             0});
             this.uCtrlDiameterInner.Name = "uCtrlDiameterInner";
             this.uCtrlDiameterInner.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
-            this.uCtrlDiameterInner.Value = 0D;
             this.uCtrlDiameterInner.ValueChanged += new treeDiM.Basics.UCtrlDouble.ValueChangedDelegate(this.OnValueChanged);
             // 
             // uCtrlDiameterOuter
@@ -108,7 +106,6 @@
             0});
             this.uCtrlDiameterOuter.Name = "uCtrlDiameterOuter";
             this.uCtrlDiameterOuter.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
-            this.uCtrlDiameterOuter.Value = 0D;
             this.uCtrlDiameterOuter.ValueChanged += new treeDiM.Basics.UCtrlDouble.ValueChangedDelegate(this.OnValueChanged);
             // 
             // gbWeight
@@ -141,7 +138,6 @@
             0});
             this.uCtrlWeight.Name = "uCtrlWeight";
             this.uCtrlWeight.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_MASS;
-            this.uCtrlWeight.Value = 0D;
             this.uCtrlWeight.ValueChanged += new treeDiM.Basics.UCtrlDouble.ValueChangedDelegate(this.OnValueChanged);
             // 
             // graphCtrl
@@ -262,7 +258,8 @@
             resources.GetString("cbColorWallInner.Items87"),
             resources.GetString("cbColorWallInner.Items88"),
             resources.GetString("cbColorWallInner.Items89"),
-            resources.GetString("cbColorWallInner.Items90")});
+            resources.GetString("cbColorWallInner.Items90"),
+            resources.GetString("cbColorWallInner.Items91")});
             this.cbColorWallInner.Name = "cbColorWallInner";
             this.cbColorWallInner.SelectedColorChanged += new System.EventHandler(this.OnValueChanged);
             // 
@@ -369,7 +366,8 @@
             resources.GetString("cbColorWallOuter.Items86"),
             resources.GetString("cbColorWallOuter.Items87"),
             resources.GetString("cbColorWallOuter.Items88"),
-            resources.GetString("cbColorWallOuter.Items89")});
+            resources.GetString("cbColorWallOuter.Items89"),
+            resources.GetString("cbColorWallOuter.Items90")});
             this.cbColorWallOuter.Name = "cbColorWallOuter";
             this.cbColorWallOuter.SelectedColorChanged += new System.EventHandler(this.OnValueChanged);
             // 
@@ -475,7 +473,8 @@
             resources.GetString("cbColorTop.Items85"),
             resources.GetString("cbColorTop.Items86"),
             resources.GetString("cbColorTop.Items87"),
-            resources.GetString("cbColorTop.Items88")});
+            resources.GetString("cbColorTop.Items88"),
+            resources.GetString("cbColorTop.Items89")});
             this.cbColorTop.Name = "cbColorTop";
             this.cbColorTop.SelectedColorChanged += new System.EventHandler(this.OnValueChanged);
             // 

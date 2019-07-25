@@ -45,9 +45,9 @@ namespace treeDiM.StackBuilder.Desktop
                 uCtrlDiameterInner.Value = UnitsManager.ConvertLengthFrom(0.0, UnitsManager.UnitSystem.UNIT_METRIC1);
                 uCtrlHeight.Value = UnitsManager.ConvertLengthFrom(150.0, UnitsManager.UnitSystem.UNIT_METRIC1);
                 uCtrlWeight.Value = UnitsManager.ConvertMassFrom(1.0, UnitsManager.UnitSystem.UNIT_METRIC1);
-                cbColorWallOuter.Color = System.Drawing.Color.LightSkyBlue;
-                cbColorWallInner.Color = System.Drawing.Color.Chocolate;
-                cbColorTop.Color = System.Drawing.Color.Gray;            
+                cbColorWallOuter.Color = Color.LightSkyBlue;
+                cbColorWallInner.Color = Color.Chocolate;
+                cbColorTop.Color = Color.Gray;            
             }
             // disable Ok button
             UpdateStatus(string.Empty);        
@@ -173,7 +173,7 @@ namespace treeDiM.StackBuilder.Desktop
                             RadiusInner = RadiusInner,
                             Height = CylinderHeight,
                             Weight = Weight,
-                            NetWeight = NetWeight.Activated ? this.NetWeight.Value : new Nullable<double>(),
+                            NetWeight = NetWeight.Activated ? NetWeight.Value : new double?(),
                             ColorOuter = ColorWallOuter.ToArgb(),
                             ColorInner = ColorWallInner.ToArgb(),
                             ColorTop = ColorTop.ToArgb(),

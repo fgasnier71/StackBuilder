@@ -22,5 +22,53 @@ namespace treeDiM.EdgeCrushTest.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("400")]
+        public double CaseDimX {
+            get {
+                return ((double)(this["CaseDimX"]));
+            }
+            set {
+                this["CaseDimX"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("300")]
+        public double CaseDimY {
+            get {
+                return ((double)(this["CaseDimY"]));
+            }
+            set {
+                this["CaseDimY"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("200")]
+        public double CaseDimZ {
+            get {
+                return ((double)(this["CaseDimZ"]));
+            }
+            set {
+                this["CaseDimZ"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("200")]
+        public double ExpectedLoad {
+            get {
+                return ((double)(this["ExpectedLoad"]));
+            }
+            set {
+                this["ExpectedLoad"] = value;
+            }
+        }
     }
 }

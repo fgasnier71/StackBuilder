@@ -490,7 +490,7 @@
     <value>uCtrlNoWalls</value>
   </data>
   <data name="&gt;&gt;uCtrlNoWalls.Type" xml:space="preserve">
-    <value>treeDiM.Basics.UCtrlTriInt, treeDiM.Basics, Version=3.0.0.96, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.Basics.UCtrlTriInt, treeDiM.Basics, Version=3.0.0.98, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlNoWalls.Parent" xml:space="preserve">
     <value>gbWrapper</value>

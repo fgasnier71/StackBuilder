@@ -31,17 +31,15 @@
             this.bnOK = new System.Windows.Forms.Button();
             this.bnCancel = new System.Windows.Forms.Button();
             this.splitContainerHoriz = new System.Windows.Forms.SplitContainer();
+            this.uCtrlLoad = new treeDiM.Basics.UCtrlDouble();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cbMcKeeFormulaType = new System.Windows.Forms.ComboBox();
             this.uCtrlCaseDimensions = new treeDiM.Basics.UCtrlTriDouble();
             this.splitContainerVert = new System.Windows.Forms.SplitContainer();
             this.gridMat = new SourceGrid.Grid();
-            this.cbMcKeeFormulaType = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lbLoad = new System.Windows.Forms.Label();
-            this.nudLoad = new System.Windows.Forms.NumericUpDown();
-            this.lbUnitLoad = new System.Windows.Forms.Label();
-            this.gridDynamicBCT = new SourceGrid.Grid();
-            this.cbPrintedArea = new System.Windows.Forms.ComboBox();
             this.lbPrintedArea = new System.Windows.Forms.Label();
+            this.cbPrintedArea = new System.Windows.Forms.ComboBox();
+            this.gridDynamicBCT = new SourceGrid.Grid();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerHoriz)).BeginInit();
             this.splitContainerHoriz.Panel1.SuspendLayout();
             this.splitContainerHoriz.Panel2.SuspendLayout();
@@ -50,7 +48,6 @@
             this.splitContainerVert.Panel1.SuspendLayout();
             this.splitContainerVert.Panel2.SuspendLayout();
             this.splitContainerVert.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudLoad)).BeginInit();
             this.SuspendLayout();
             // 
             // bnOK
@@ -83,9 +80,7 @@
             // 
             // splitContainerHoriz.Panel1
             // 
-            this.splitContainerHoriz.Panel1.Controls.Add(this.lbUnitLoad);
-            this.splitContainerHoriz.Panel1.Controls.Add(this.nudLoad);
-            this.splitContainerHoriz.Panel1.Controls.Add(this.lbLoad);
+            this.splitContainerHoriz.Panel1.Controls.Add(this.uCtrlLoad);
             this.splitContainerHoriz.Panel1.Controls.Add(this.label1);
             this.splitContainerHoriz.Panel1.Controls.Add(this.cbMcKeeFormulaType);
             this.splitContainerHoriz.Panel1.Controls.Add(this.uCtrlCaseDimensions);
@@ -98,6 +93,44 @@
             this.splitContainerHoriz.Size = new System.Drawing.Size(884, 561);
             this.splitContainerHoriz.SplitterDistance = 59;
             this.splitContainerHoriz.TabIndex = 2;
+            // 
+            // uCtrlLoad
+            // 
+            this.uCtrlLoad.Location = new System.Drawing.Point(490, 6);
+            this.uCtrlLoad.Minimum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            -2147483648});
+            this.uCtrlLoad.MinimumSize = new System.Drawing.Size(100, 20);
+            this.uCtrlLoad.Name = "uCtrlLoad";
+            this.uCtrlLoad.Size = new System.Drawing.Size(268, 20);
+            this.uCtrlLoad.TabIndex = 8;
+            this.uCtrlLoad.Text = "Expected load";
+            this.uCtrlLoad.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_MASS;
+            this.uCtrlLoad.ValueChanged += new treeDiM.Basics.UCtrlDouble.ValueChangedDelegate(this.OnInputChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 37);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(81, 13);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Mc Kee formula";
+            // 
+            // cbMcKeeFormulaType
+            // 
+            this.cbMcKeeFormulaType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbMcKeeFormulaType.FormattingEnabled = true;
+            this.cbMcKeeFormulaType.Items.AddRange(new object[] {
+            "Classic",
+            "Improved"});
+            this.cbMcKeeFormulaType.Location = new System.Drawing.Point(123, 33);
+            this.cbMcKeeFormulaType.Name = "cbMcKeeFormulaType";
+            this.cbMcKeeFormulaType.Size = new System.Drawing.Size(121, 21);
+            this.cbMcKeeFormulaType.TabIndex = 3;
+            this.cbMcKeeFormulaType.SelectedIndexChanged += new System.EventHandler(this.OnInputChanged);
             // 
             // uCtrlCaseDimensions
             // 
@@ -150,71 +183,14 @@
             this.gridMat.TabStop = true;
             this.gridMat.ToolTipText = "";
             // 
-            // cbMcKeeFormulaType
+            // lbPrintedArea
             // 
-            this.cbMcKeeFormulaType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbMcKeeFormulaType.FormattingEnabled = true;
-            this.cbMcKeeFormulaType.Items.AddRange(new object[] {
-            "classic",
-            "improved"});
-            this.cbMcKeeFormulaType.Location = new System.Drawing.Point(123, 33);
-            this.cbMcKeeFormulaType.Name = "cbMcKeeFormulaType";
-            this.cbMcKeeFormulaType.Size = new System.Drawing.Size(121, 21);
-            this.cbMcKeeFormulaType.TabIndex = 3;
-            this.cbMcKeeFormulaType.SelectedIndexChanged += new System.EventHandler(this.OnInputChanged);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 37);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(81, 13);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Mc Kee formula";
-            // 
-            // lbLoad
-            // 
-            this.lbLoad.AutoSize = true;
-            this.lbLoad.Location = new System.Drawing.Point(418, 9);
-            this.lbLoad.Name = "lbLoad";
-            this.lbLoad.Size = new System.Drawing.Size(65, 13);
-            this.lbLoad.TabIndex = 5;
-            this.lbLoad.Text = "Applied load";
-            // 
-            // nudLoad
-            // 
-            this.nudLoad.DecimalPlaces = 2;
-            this.nudLoad.Location = new System.Drawing.Point(502, 6);
-            this.nudLoad.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.nudLoad.Name = "nudLoad";
-            this.nudLoad.Size = new System.Drawing.Size(75, 20);
-            this.nudLoad.TabIndex = 6;
-            this.nudLoad.ValueChanged += new System.EventHandler(this.OnInputChanged);
-            // 
-            // lbUnitLoad
-            // 
-            this.lbUnitLoad.AutoSize = true;
-            this.lbUnitLoad.Location = new System.Drawing.Point(583, 8);
-            this.lbUnitLoad.Name = "lbUnitLoad";
-            this.lbUnitLoad.Size = new System.Drawing.Size(15, 13);
-            this.lbUnitLoad.TabIndex = 7;
-            this.lbUnitLoad.Text = "N";
-            // 
-            // gridDynamicBCT
-            // 
-            this.gridDynamicBCT.EnableSort = true;
-            this.gridDynamicBCT.Location = new System.Drawing.Point(15, 191);
-            this.gridDynamicBCT.Name = "gridDynamicBCT";
-            this.gridDynamicBCT.OptimizeMode = SourceGrid.CellOptimizeMode.ForRows;
-            this.gridDynamicBCT.SelectionMode = SourceGrid.GridSelectionMode.Cell;
-            this.gridDynamicBCT.Size = new System.Drawing.Size(370, 295);
-            this.gridDynamicBCT.TabIndex = 0;
-            this.gridDynamicBCT.TabStop = true;
-            this.gridDynamicBCT.ToolTipText = "";
+            this.lbPrintedArea.AutoSize = true;
+            this.lbPrintedArea.Location = new System.Drawing.Point(15, 15);
+            this.lbPrintedArea.Name = "lbPrintedArea";
+            this.lbPrintedArea.Size = new System.Drawing.Size(64, 13);
+            this.lbPrintedArea.TabIndex = 2;
+            this.lbPrintedArea.Text = "Printed area";
             // 
             // cbPrintedArea
             // 
@@ -226,14 +202,19 @@
             this.cbPrintedArea.TabIndex = 1;
             this.cbPrintedArea.SelectedIndexChanged += new System.EventHandler(this.OnMaterialChanged);
             // 
-            // lbPrintedArea
+            // gridDynamicBCT
             // 
-            this.lbPrintedArea.AutoSize = true;
-            this.lbPrintedArea.Location = new System.Drawing.Point(15, 15);
-            this.lbPrintedArea.Name = "lbPrintedArea";
-            this.lbPrintedArea.Size = new System.Drawing.Size(64, 13);
-            this.lbPrintedArea.TabIndex = 2;
-            this.lbPrintedArea.Text = "Printed area";
+            this.gridDynamicBCT.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gridDynamicBCT.EnableSort = true;
+            this.gridDynamicBCT.Location = new System.Drawing.Point(3, 191);
+            this.gridDynamicBCT.Name = "gridDynamicBCT";
+            this.gridDynamicBCT.OptimizeMode = SourceGrid.CellOptimizeMode.ForRows;
+            this.gridDynamicBCT.SelectionMode = SourceGrid.GridSelectionMode.Cell;
+            this.gridDynamicBCT.Size = new System.Drawing.Size(391, 304);
+            this.gridDynamicBCT.TabIndex = 0;
+            this.gridDynamicBCT.TabStop = true;
+            this.gridDynamicBCT.ToolTipText = "";
             // 
             // FormComputeECT
             // 
@@ -259,7 +240,6 @@
             this.splitContainerVert.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerVert)).EndInit();
             this.splitContainerVert.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.nudLoad)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -272,13 +252,11 @@
         private System.Windows.Forms.SplitContainer splitContainerVert;
         private Basics.UCtrlTriDouble uCtrlCaseDimensions;
         private SourceGrid.Grid gridMat;
-        private System.Windows.Forms.Label lbUnitLoad;
-        private System.Windows.Forms.NumericUpDown nudLoad;
-        private System.Windows.Forms.Label lbLoad;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cbMcKeeFormulaType;
         private SourceGrid.Grid gridDynamicBCT;
         private System.Windows.Forms.Label lbPrintedArea;
         private System.Windows.Forms.ComboBox cbPrintedArea;
+        private Basics.UCtrlDouble uCtrlLoad;
     }
 }

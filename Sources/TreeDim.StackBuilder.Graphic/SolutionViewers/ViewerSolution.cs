@@ -270,8 +270,10 @@ namespace treeDiM.StackBuilder.Graphics
                     {
                         for (int i = 0; i < 4; ++i)
                         {
-                            corners[i] = new Corner(0, analysisCasePallet.PalletCornerProperties);
-                            corners[i].Height = Math.Min(analysisCasePallet.PalletCornerProperties.Length, loadBBox.Height);
+                            corners[i] = new Corner(0, analysisCasePallet.PalletCornerProperties)
+                            {
+                                Height = Math.Min(analysisCasePallet.PalletCornerProperties.Length, loadBBox.Height)
+                            };
                             corners[i].SetPosition(
                                 transform.transform(cornerPositions[i])
                                 , HalfAxis.Transform(lAxes[i], transform), HalfAxis.Transform(wAxes[i], transform)

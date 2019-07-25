@@ -758,6 +758,8 @@ namespace treeDiM.StackBuilder.Desktop
             // disconnected mode
             toolStripMenuItemEditDB.Enabled = true;
             editPaletSolutionsDB.Enabled = true;
+
+            toolStripSB_ECT.Enabled = !Program.UseDisconnected;
         }
         #endregion
 

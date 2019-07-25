@@ -131,7 +131,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;bnOk.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>5</value>
   </data>
   <data name="bnCancel.Location" type="System.Drawing.Point, System.Drawing">
     <value>505, 38</value>
@@ -146,7 +146,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;bnCancel.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>4</value>
   </data>
   <data name="&gt;&gt;lbName.Name" xml:space="preserve">
     <value>lbName</value>
@@ -158,7 +158,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lbName.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>3</value>
   </data>
   <data name="&gt;&gt;lbDescription.Name" xml:space="preserve">
     <value>lbDescription</value>
@@ -170,7 +170,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lbDescription.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>2</value>
   </data>
   <data name="&gt;&gt;tbName.Name" xml:space="preserve">
     <value>tbName</value>
@@ -182,7 +182,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;tbName.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>1</value>
   </data>
   <data name="tbDescription.Size" type="System.Drawing.Size, System.Drawing">
     <value>384, 20</value>
@@ -197,7 +197,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;tbDescription.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>0</value>
   </data>
   <data name="uCtrlHeight.Location" type="System.Drawing.Point, System.Drawing">
     <value>9, 68</value>
@@ -219,7 +219,7 @@
     <value>uCtrlHeight</value>
   </data>
   <data name="&gt;&gt;uCtrlHeight.Type" xml:space="preserve">
-    <value>treeDiM.Basics.UCtrlDouble, treeDiM.Basics, Version=3.0.0.92, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.Basics.UCtrlDouble, treeDiM.Basics, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlHeight.Parent" xml:space="preserve">
     <value>gbDimensions</value>
@@ -246,7 +246,7 @@
     <value>uCtrlDiameterInner</value>
   </data>
   <data name="&gt;&gt;uCtrlDiameterInner.Type" xml:space="preserve">
-    <value>treeDiM.Basics.UCtrlDouble, treeDiM.Basics, Version=3.0.0.92, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.Basics.UCtrlDouble, treeDiM.Basics, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlDiameterInner.Parent" xml:space="preserve">
     <value>gbDimensions</value>
@@ -273,7 +273,7 @@
     <value>uCtrlDiameterOuter</value>
   </data>
   <data name="&gt;&gt;uCtrlDiameterOuter.Type" xml:space="preserve">
-    <value>treeDiM.Basics.UCtrlDouble, treeDiM.Basics, Version=3.0.0.92, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.Basics.UCtrlDouble, treeDiM.Basics, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlDiameterOuter.Parent" xml:space="preserve">
     <value>gbDimensions</value>
@@ -303,7 +303,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;gbDimensions.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>10</value>
   </data>
   <data name="uCtrlNetWeight.Location" type="System.Drawing.Point, System.Drawing">
     <value>9, 47</value>
@@ -324,7 +324,7 @@
     <value>uCtrlNetWeight</value>
   </data>
   <data name="&gt;&gt;uCtrlNetWeight.Type" xml:space="preserve">
-    <value>treeDiM.Basics.UCtrlOptDouble, treeDiM.Basics, Version=3.0.0.96, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.Basics.UCtrlOptDouble, treeDiM.Basics, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlNetWeight.Parent" xml:space="preserve">
     <value>gbWeight</value>
@@ -351,7 +351,7 @@
     <value>uCtrlWeight</value>
   </data>
   <data name="&gt;&gt;uCtrlWeight.Type" xml:space="preserve">
-    <value>treeDiM.Basics.UCtrlDouble, treeDiM.Basics, Version=3.0.0.92, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.Basics.UCtrlDouble, treeDiM.Basics, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlWeight.Parent" xml:space="preserve">
     <value>gbWeight</value>
@@ -381,7 +381,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;gbWeight.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>9</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="graphCtrl.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
@@ -403,13 +403,13 @@
     <value>graphCtrl</value>
   </data>
   <data name="&gt;&gt;graphCtrl.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Graphics.Graphics3DControl, treeDiM.StackBuilder.Graphics, Version=3.0.0.92, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Graphics.Graphics3DControl, treeDiM.StackBuilder.Graphics, Version=3.0.0.98, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;graphCtrl.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;graphCtrl.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>8</value>
   </data>
   <data name="cbColorWallInner.IntegralHeight" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -658,10 +658,10 @@
     <value>Color</value>
   </data>
   <data name="cbColorWallInner.Items80" xml:space="preserve">
-    <value>Farbe</value>
+    <value>Color</value>
   </data>
   <data name="cbColorWallInner.Items81" xml:space="preserve">
-    <value>Color</value>
+    <value>Farbe</value>
   </data>
   <data name="cbColorWallInner.Items82" xml:space="preserve">
     <value>Color</value>
@@ -679,7 +679,7 @@
     <value>Color</value>
   </data>
   <data name="cbColorWallInner.Items87" xml:space="preserve">
-    <value>Farbe</value>
+    <value>Color</value>
   </data>
   <data name="cbColorWallInner.Items88" xml:space="preserve">
     <value>Farbe</value>
@@ -688,6 +688,9 @@
     <value>Farbe</value>
   </data>
   <data name="cbColorWallInner.Items90" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="cbColorWallInner.Items91" xml:space="preserve">
     <value>Farbe</value>
   </data>
   <data name="cbColorWallInner.Location" type="System.Drawing.Point, System.Drawing">
@@ -703,7 +706,7 @@
     <value>cbColorWallInner</value>
   </data>
   <data name="&gt;&gt;cbColorWallInner.Type" xml:space="preserve">
-    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=3.0.0.92, Culture=neutral, PublicKeyToken=null</value>
+    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=3.0.0.98, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;cbColorWallInner.Parent" xml:space="preserve">
     <value>gbFaceColor</value>
@@ -1017,6 +1020,9 @@
   <data name="cbColorWallOuter.Items89" xml:space="preserve">
     <value>Color</value>
   </data>
+  <data name="cbColorWallOuter.Items90" xml:space="preserve">
+    <value>Color</value>
+  </data>
   <data name="cbColorWallOuter.Location" type="System.Drawing.Point, System.Drawing">
     <value>131, 38</value>
   </data>
@@ -1030,7 +1036,7 @@
     <value>cbColorWallOuter</value>
   </data>
   <data name="&gt;&gt;cbColorWallOuter.Type" xml:space="preserve">
-    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=3.0.0.92, Culture=neutral, PublicKeyToken=null</value>
+    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=3.0.0.98, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;cbColorWallOuter.Parent" xml:space="preserve">
     <value>gbFaceColor</value>
@@ -1338,6 +1344,9 @@
   <data name="cbColorTop.Items88" xml:space="preserve">
     <value>Color</value>
   </data>
+  <data name="cbColorTop.Items89" xml:space="preserve">
+    <value>Color</value>
+  </data>
   <data name="cbColorTop.Location" type="System.Drawing.Point, System.Drawing">
     <value>131, 13</value>
   </data>
@@ -1351,7 +1360,7 @@
     <value>cbColorTop</value>
   </data>
   <data name="&gt;&gt;cbColorTop.Type" xml:space="preserve">
-    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=3.0.0.92, Culture=neutral, PublicKeyToken=null</value>
+    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=3.0.0.98, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;cbColorTop.Parent" xml:space="preserve">
     <value>gbFaceColor</value>
@@ -1411,7 +1420,10 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;gbFaceColor.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>7</value>
+  </data>
+  <data name="bnSendToDB.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
   </data>
   <data name="bnSendToDB.Location" type="System.Drawing.Point, System.Drawing">
     <value>429, 356</value>
@@ -1435,7 +1447,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;bnSendToDB.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>6</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -1453,6 +1465,6 @@
     <value>FormNewCylinder</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Desktop.FormNewBase, treeDiM.StackBuilder.Desktop, Version=3.0.0.92, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Desktop.FormNewBase, treeDiM.StackBuilder.Desktop, Version=3.0.0.98, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

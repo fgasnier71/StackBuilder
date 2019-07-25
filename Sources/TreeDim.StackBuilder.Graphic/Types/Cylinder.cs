@@ -1,9 +1,10 @@
 ﻿#region Using directives
 using System;
 using System.Collections.Generic;
-using System.Text;
-using Sharp3D.Math.Core;
 using System.Drawing;
+
+using Sharp3D.Math.Core;
+
 using treeDiM.StackBuilder.Basics;
 #endregion
 
@@ -13,9 +14,7 @@ namespace treeDiM.StackBuilder.Graphics
     {
         #region Data members
         private uint _pickId = 0;
-        private double _radiusOuter, _radiusInner, _height;
-        private Color _colorTop, _colorWallOuter, _colorWallInner;
-        private List<Texture> _textureList = new List<Texture>();
+        private double _radiusOuter, _radiusInner;
         private uint _noFaces = 36;
         private CylPosition _cylPosition = new CylPosition(Vector3D.Zero, HalfAxis.HAxis.AXIS_Z_P);
         #endregion
@@ -26,38 +25,38 @@ namespace treeDiM.StackBuilder.Graphics
             _pickId = pickId;
             _radiusOuter = radiusOuter;
             _radiusInner = radiusInner;
-            _height = height;
-            _colorTop = colorTop;
-            _colorWallOuter = colorWallOuter;
-            _colorWallInner = colorWallInner;
+            Height = height;
+            ColorTop = colorTop;
+            ColorWallOuter = colorWallOuter;
+            ColorWallInner = colorWallInner;
         }
         public Cylinder(uint pickId, CylinderProperties cylProperties)
         {
             _pickId = pickId;
             _radiusOuter = cylProperties.RadiusOuter;
             _radiusInner = cylProperties.RadiusInner;
-            _height = cylProperties.Height;
-            _colorTop = cylProperties.ColorTop;
-            _colorWallOuter = cylProperties.ColorWallOuter;
-            _colorWallInner = cylProperties.ColorWallInner;
+            Height = cylProperties.Height;
+            ColorTop = cylProperties.ColorTop;
+            ColorWallOuter = cylProperties.ColorWallOuter;
+            ColorWallInner = cylProperties.ColorWallInner;
         }
         public Cylinder(uint pickId, CylinderProperties cylProperties, CylPosition cylPosition)
         {
             _pickId = pickId;
             _radiusOuter = cylProperties.RadiusOuter;
             _radiusInner = cylProperties.RadiusInner;
-            _height = cylProperties.Height;
-            _colorTop = cylProperties.ColorTop;
-            _colorWallOuter = cylProperties.ColorWallOuter;
-            _colorWallInner = cylProperties.ColorWallInner;
+            Height = cylProperties.Height;
+            ColorTop = cylProperties.ColorTop;
+            ColorWallOuter = cylProperties.ColorWallOuter;
+            ColorWallInner = cylProperties.ColorWallInner;
             _cylPosition = cylPosition;
         }
         #endregion
 
         #region Public properties
-        public double DiameterOuter { get { return 2.0 * _radiusOuter; } }
-        public double DiameterInner  { get { return 2.0 * _radiusInner; } }
-        public double Height { get { return _height; } }
+        public double DiameterOuter => 2.0 * _radiusOuter;
+        public double DiameterInner => 2.0 * _radiusInner;
+        public double Height { get; }
         public CylPosition Position  { get { return _cylPosition; } }
         public Face[] FacesWalls
         {
@@ -75,11 +74,10 @@ namespace treeDiM.StackBuilder.Graphics
                         double angleEnd = (double)(i + 1) * 2.0 * Math.PI / (double)_noFaces;
                         Vector3D vRadiusBeg = new Vector3D(0.0, Math.Cos(angleBeg), Math.Sin(angleBeg));
                         Vector3D vRadiusEnd = new Vector3D(0.0, Math.Cos(angleEnd), Math.Sin(angleEnd));
-                        Vector3D vLength = _height * Vector3D.XAxis;
                         Vector3D[] vertices = new Vector3D[4];
                         vertices[0] = t.transform(_radiusInner * vRadiusBeg);
-                        vertices[1] = t.transform(_radiusInner * vRadiusBeg + _height * Vector3D.XAxis);
-                        vertices[2] = t.transform(_radiusInner * vRadiusEnd + _height * Vector3D.XAxis);
+                        vertices[1] = t.transform(_radiusInner * vRadiusBeg + Height * Vector3D.XAxis);
+                        vertices[2] = t.transform(_radiusInner * vRadiusEnd + Height * Vector3D.XAxis);
                         vertices[3] = t.transform(_radiusInner * vRadiusEnd);
                         faces[i] = new Face(_pickId, vertices, true);
                         faces[i].ColorFill = ColorWallInner;
@@ -92,12 +90,11 @@ namespace treeDiM.StackBuilder.Graphics
                     double angleEnd = (i + 1) * 2.0 * Math.PI / _noFaces;
                     Vector3D vRadiusBeg = new Vector3D(0.0, Math.Cos(angleBeg), Math.Sin(angleBeg));
                     Vector3D vRadiusEnd = new Vector3D(0.0, Math.Cos(angleEnd), Math.Sin(angleEnd));
-                    Vector3D vLength = _height * Vector3D.XAxis;
                     Vector3D[] vertices = new Vector3D[4];
                     vertices[0] = t.transform(_radiusOuter * vRadiusBeg);
                     vertices[1] = t.transform(_radiusOuter * vRadiusEnd);
-                    vertices[2] = t.transform(_radiusOuter * vRadiusEnd + _height * Vector3D.XAxis);
-                    vertices[3] = t.transform(_radiusOuter * vRadiusBeg + _height * Vector3D.XAxis);
+                    vertices[2] = t.transform(_radiusOuter * vRadiusEnd + Height * Vector3D.XAxis);
+                    vertices[3] = t.transform(_radiusOuter * vRadiusBeg + Height * Vector3D.XAxis);
                     faces[(showInnerFaces ? _noFaces : 0) + i] = new Face(_pickId, vertices, true);
                     faces[(showInnerFaces ? _noFaces : 0) + i].ColorFill = ColorWallOuter;
                 }
@@ -116,12 +113,11 @@ namespace treeDiM.StackBuilder.Graphics
                     double angleEnd = (i + 1) * 2.0 * Math.PI / _noFaces;
                     Vector3D vRadiusBeg = new Vector3D(0.0, Math.Cos(angleBeg), Math.Sin(angleBeg));
                     Vector3D vRadiusEnd = new Vector3D(0.0, Math.Cos(angleEnd), Math.Sin(angleEnd));
-                    Vector3D vLength = _height * Vector3D.XAxis;
                     Vector3D[] vertices = new Vector3D[4];
-                    vertices[0] = t.transform(_radiusInner * vRadiusBeg + _height * Vector3D.XAxis);
-                    vertices[1] = t.transform(_radiusOuter * vRadiusBeg + _height * Vector3D.XAxis);
-                    vertices[2] = t.transform(_radiusOuter * vRadiusEnd + _height * Vector3D.XAxis);
-                    vertices[3] = t.transform(_radiusInner * vRadiusEnd + _height * Vector3D.XAxis);
+                    vertices[0] = t.transform(_radiusInner * vRadiusBeg + Height * Vector3D.XAxis);
+                    vertices[1] = t.transform(_radiusOuter * vRadiusBeg + Height * Vector3D.XAxis);
+                    vertices[2] = t.transform(_radiusOuter * vRadiusEnd + Height * Vector3D.XAxis);
+                    vertices[3] = t.transform(_radiusInner * vRadiusEnd + Height * Vector3D.XAxis);
                     faces[i] = new Face(_pickId, vertices, true);
                     faces[i].ColorFill = ColorTop;
                 }
@@ -132,7 +128,6 @@ namespace treeDiM.StackBuilder.Graphics
                     double angleEnd = (i + 1) * 2.0 * Math.PI / _noFaces;
                     Vector3D vRadiusBeg = new Vector3D(0.0, Math.Cos(angleBeg), Math.Sin(angleBeg));
                     Vector3D vRadiusEnd = new Vector3D(0.0, Math.Cos(angleEnd), Math.Sin(angleEnd));
-                    Vector3D vLength = _height * Vector3D.XAxis;
                     Vector3D[] vertices = new Vector3D[4];
                     vertices[0] = t.transform(_radiusInner * vRadiusEnd);
                     vertices[1] = t.transform(_radiusOuter * vRadiusEnd);
@@ -144,27 +139,14 @@ namespace treeDiM.StackBuilder.Graphics
                 return faces;
             }        
         }
-        public Color ColorWallInner
-        {
-            get { return _colorWallInner; }
-        }
-        public Color ColorWallOuter
-        {
-            get { return _colorWallOuter; }
-        }
-        public Color ColorTop
-        {
-            get { return _colorTop; }
-        }
+        public Color ColorWallInner { get; }
+        public Color ColorWallOuter { get; }
+        public Color ColorTop { get; }
         public Color ColorPath
         {
             get { return Color.Black; }
         }
-        public List<Texture> Textures
-        {
-            get { return _textureList; }
-            set { _textureList = value; }
-        }
+        public List<Texture> Textures { get; set; } = new List<Texture>();
         public Vector3D[] BottomPoints
         {
             get
@@ -190,7 +172,7 @@ namespace treeDiM.StackBuilder.Graphics
                 {
                     double angle = i * 2.0 * Math.PI / _noFaces;
                     Vector3D vRadius = new Vector3D(0.0, Math.Cos(angle), Math.Sin(angle));
-                    pts[i] = t.transform(_radiusOuter * vRadius + _height * Vector3D.XAxis);
+                    pts[i] = t.transform(_radiusOuter * vRadius + Height * Vector3D.XAxis);
                 }
                 return pts;
             }
@@ -200,13 +182,13 @@ namespace treeDiM.StackBuilder.Graphics
             get
             {
                 Transform3D t = _cylPosition.Transf;
-                var pts = new Vector3D[8];
-                for (int i = 0; i < 4; ++i)
+                var pts = new Vector3D[2*_noFaces];
+                for (int i = 0; i < _noFaces; ++i)
                 {
-                    double angle = i *  Math.PI / 2.0;
+                    double angle = i *  2.0 * Math.PI / _noFaces;
                     var vRadius = new Vector3D(0.0, Math.Cos(angle), Math.Sin(angle));
                     pts[i] = t.transform(_radiusOuter * vRadius);
-                    pts[i + 4] = t.transform(_radiusOuter * vRadius + _height * Vector3D.XAxis);
+                    pts[i + _noFaces] = t.transform(_radiusOuter * vRadius + Height * Vector3D.XAxis);
                 }
                 return pts;
             }
@@ -221,7 +203,7 @@ namespace treeDiM.StackBuilder.Graphics
                 {
                     double angle = i * 2.0 * Math.PI / _noFaces;
                     Vector3D vRadius = new Vector3D(0.0, Math.Cos(angle), Math.Sin(angle));
-                    pts[i] = t.transform(_radiusInner * vRadius + _height * Vector3D.XAxis);
+                    pts[i] = t.transform(_radiusInner * vRadius + Height * Vector3D.XAxis);
                 }
                 return pts;
             }        
@@ -232,7 +214,7 @@ namespace treeDiM.StackBuilder.Graphics
             {
                 return new BBox3D(
                     new Vector3D(-_radiusOuter, -_radiusOuter, 0.0) + _cylPosition.XYZ
-                    , new Vector3D(_radiusOuter, _radiusOuter, _height) + _cylPosition.XYZ
+                    , new Vector3D(_radiusOuter, _radiusOuter, Height) + _cylPosition.XYZ
                     );
             }
         }
