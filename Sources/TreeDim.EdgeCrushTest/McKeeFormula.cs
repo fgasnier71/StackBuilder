@@ -1,9 +1,7 @@
 ﻿#region Using directives
 using System;
 using System.Collections.Generic;
-using System.Text;
-using System.IO;
-using System.Linq;
+using System.Collections.Specialized;
 
 using log4net;
 
@@ -191,7 +189,7 @@ namespace treeDiM.EdgeCrushTest
         {
             get
             {
-                Dictionary<string, double> printCoefDictionary = new Dictionary<string,double>()
+                var printCoefDictionary = new Dictionary<string,double>()
                 {
                     {Resources.PRINTEDSURFACE_SIMPLE, 1.0}
                     , {Resources.PRINTEDSURFACE_DISTRIBUTED, 0.9}
@@ -202,9 +200,9 @@ namespace treeDiM.EdgeCrushTest
             }
         }
         #endregion
+
         #region Data members
         static readonly ILog _log = LogManager.GetLogger(typeof(McKeeFormula));
         #endregion
-
     }
 }

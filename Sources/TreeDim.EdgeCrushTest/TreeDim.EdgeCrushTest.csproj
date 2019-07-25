@@ -87,6 +87,7 @@
     </Compile>
     <Compile Include="CardboardQualityAccessor.cs" />
     <Compile Include="CardboardQualityData\CardboardQualityData.designer.cs" />
+    <Compile Include="CellColorFromValue.cs" />
     <Compile Include="ECT_Forms.cs" />
     <Compile Include="Exception.cs" />
     <Compile Include="FormCardboardQualityList.cs">
