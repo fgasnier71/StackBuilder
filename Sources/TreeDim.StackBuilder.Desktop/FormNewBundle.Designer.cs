@@ -33,11 +33,11 @@
             this.lbColor = new System.Windows.Forms.Label();
             this.gbFaceColor = new System.Windows.Forms.GroupBox();
             this.gbWeight = new System.Windows.Forms.GroupBox();
-            this.uCtrlWeight = new treeDiM.StackBuilder.Basics.UCtrlDouble();
+            this.uCtrlWeight = new treeDiM.Basics.UCtrlDouble();
             this.gbDimensions = new System.Windows.Forms.GroupBox();
-            this.uCtrlThickness = new treeDiM.StackBuilder.Basics.UCtrlDouble();
-            this.uCtrlWidth = new treeDiM.StackBuilder.Basics.UCtrlDouble();
-            this.uCtrlLength = new treeDiM.StackBuilder.Basics.UCtrlDouble();
+            this.uCtrlThickness = new treeDiM.Basics.UCtrlDouble();
+            this.uCtrlWidth = new treeDiM.Basics.UCtrlDouble();
+            this.uCtrlLength = new treeDiM.Basics.UCtrlDouble();
             this.lbNoFlats = new System.Windows.Forms.Label();
             this.nudNoFlats = new System.Windows.Forms.NumericUpDown();
             this.graphCtrl = new treeDiM.StackBuilder.Graphics.Graphics3DControl();
@@ -143,9 +143,9 @@
             0,
             -2147483648});
             this.uCtrlWeight.Name = "uCtrlWeight";
-            this.uCtrlWeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_MASS;
+            this.uCtrlWeight.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_MASS;
             this.uCtrlWeight.Value = 0D;
-            this.uCtrlWeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.ValueChangedDelegate(this.OnBundlePropertyChanged);
+            this.uCtrlWeight.ValueChanged += new treeDiM.Basics.UCtrlDouble.ValueChangedDelegate(this.OnBundlePropertyChanged);
             // 
             // gbDimensions
             // 
@@ -167,9 +167,9 @@
             0,
             -2147483648});
             this.uCtrlThickness.Name = "uCtrlThickness";
-            this.uCtrlThickness.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlThickness.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlThickness.Value = 0D;
-            this.uCtrlThickness.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.ValueChangedDelegate(this.OnBundlePropertyChanged);
+            this.uCtrlThickness.ValueChanged += new treeDiM.Basics.UCtrlDouble.ValueChangedDelegate(this.OnBundlePropertyChanged);
             // 
             // uCtrlWidth
             // 
@@ -180,9 +180,9 @@
             0,
             -2147483648});
             this.uCtrlWidth.Name = "uCtrlWidth";
-            this.uCtrlWidth.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlWidth.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlWidth.Value = 0D;
-            this.uCtrlWidth.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.ValueChangedDelegate(this.OnBundlePropertyChanged);
+            this.uCtrlWidth.ValueChanged += new treeDiM.Basics.UCtrlDouble.ValueChangedDelegate(this.OnBundlePropertyChanged);
             // 
             // uCtrlLength
             // 
@@ -193,9 +193,9 @@
             0,
             -2147483648});
             this.uCtrlLength.Name = "uCtrlLength";
-            this.uCtrlLength.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlLength.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlLength.Value = 0D;
-            this.uCtrlLength.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.ValueChangedDelegate(this.OnBundlePropertyChanged);
+            this.uCtrlLength.ValueChanged += new treeDiM.Basics.UCtrlDouble.ValueChangedDelegate(this.OnBundlePropertyChanged);
             // 
             // lbNoFlats
             // 
@@ -279,10 +279,10 @@
         private System.Windows.Forms.GroupBox gbDimensions;
         private System.Windows.Forms.NumericUpDown nudNoFlats;
         private System.Windows.Forms.Label lbNoFlats;
-        private Basics.UCtrlDouble uCtrlWeight;
-        private Basics.UCtrlDouble uCtrlThickness;
-        private Basics.UCtrlDouble uCtrlWidth;
-        private Basics.UCtrlDouble uCtrlLength;
+        private treeDiM.Basics.UCtrlDouble uCtrlWeight;
+        private treeDiM.Basics.UCtrlDouble uCtrlThickness;
+        private treeDiM.Basics.UCtrlDouble uCtrlWidth;
+        private treeDiM.Basics.UCtrlDouble uCtrlLength;
         private System.Windows.Forms.Button bnSendToDB;
     }
 }

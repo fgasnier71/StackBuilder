@@ -181,7 +181,7 @@
     <value>uCtrlTrayHeight</value>
   </data>
   <data name="&gt;&gt;uCtrlTrayHeight.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.33, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.Basics.UCtrlDouble, treeDiM.Basics, Version=3.0.0.33, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlTrayHeight.Parent" xml:space="preserve">
     <value>gbWrapper</value>
@@ -439,7 +439,7 @@
     <value>uCtrlSurfacicMass</value>
   </data>
   <data name="&gt;&gt;uCtrlSurfacicMass.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.33, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.Basics.UCtrlDouble, treeDiM.Basics, Version=3.0.0.33, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlSurfacicMass.Parent" xml:space="preserve">
     <value>gbWrapper</value>
@@ -466,7 +466,7 @@
     <value>uCtrlWallThickness</value>
   </data>
   <data name="&gt;&gt;uCtrlWallThickness.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.33, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.Basics.UCtrlDouble, treeDiM.Basics, Version=3.0.0.33, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlWallThickness.Parent" xml:space="preserve">
     <value>gbWrapper</value>
@@ -490,7 +490,7 @@
     <value>uCtrlNoWalls</value>
   </data>
   <data name="&gt;&gt;uCtrlNoWalls.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.Controls.UCtrlTriInt, treeDiM.StackBuilder.Basics, Version=3.0.0.33, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.Basics.UCtrlTriInt, treeDiM.Basics, Version=3.0.0.96, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlNoWalls.Parent" xml:space="preserve">
     <value>gbWrapper</value>
@@ -562,7 +562,7 @@
     <value>uCtrlOverhang</value>
   </data>
   <data name="&gt;&gt;uCtrlOverhang.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlDualDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.33, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.Basics.UCtrlDualDouble, treeDiM.Basics, Version=3.0.0.33, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlOverhang.Parent" xml:space="preserve">
     <value>gbPallet</value>
@@ -589,7 +589,7 @@
     <value>uCtrlPalletHeight</value>
   </data>
   <data name="&gt;&gt;uCtrlPalletHeight.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.33, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.Basics.UCtrlDouble, treeDiM.Basics, Version=3.0.0.33, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlPalletHeight.Parent" xml:space="preserve">
     <value>gbPallet</value>
@@ -697,7 +697,7 @@
     <value>uCtrlPackDimensionsMax</value>
   </data>
   <data name="&gt;&gt;uCtrlPackDimensionsMax.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlTriDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.33, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Basics.UCtrlTriDouble, treeDiM.Basics, Version=3.0.0.33, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlPackDimensionsMax.Parent" xml:space="preserve">
     <value>gbCase</value>
@@ -721,7 +721,7 @@
     <value>uCtrlPackDimensionsMin</value>
   </data>
   <data name="&gt;&gt;uCtrlPackDimensionsMin.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlTriDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.33, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Basics.UCtrlTriDouble, treeDiM.Basics, Version=3.0.0.33, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlPackDimensionsMin.Parent" xml:space="preserve">
     <value>gbCase</value>
@@ -823,7 +823,7 @@
     <value>uCtrlDimensionsBox</value>
   </data>
   <data name="&gt;&gt;uCtrlDimensionsBox.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlTriDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.33, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Basics.UCtrlTriDouble, treeDiM.Basics, Version=3.0.0.33, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlDimensionsBox.Parent" xml:space="preserve">
     <value>groupBox</value>

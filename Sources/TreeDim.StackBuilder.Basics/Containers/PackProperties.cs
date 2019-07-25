@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Sharp3D.Math.Core;
 
-using Sharp3D.Math.Core;
+using treeDiM.Basics;
 
 namespace treeDiM.StackBuilder.Basics
 {

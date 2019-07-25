@@ -297,7 +297,7 @@
     <value>Color</value>
   </data>
   <data name="&gt;&gt;uCtrlAngle.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.35, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.Basics.UCtrlDouble, treeDiM.Basics, Version=3.0.0.35, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="chkbTransparency.Size" type="System.Drawing.Size, System.Drawing">
     <value>91, 17</value>
@@ -336,7 +336,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;uCtrlSpacing.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.35, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.Basics.UCtrlDouble, treeDiM.Basics, Version=3.0.0.35, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;bnCancel.Parent" xml:space="preserve">
     <value>$this</value>

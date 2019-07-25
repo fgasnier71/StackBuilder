@@ -31,7 +31,7 @@
             this.cbPallets = new treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered();
             this.cbCases = new treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered();
             this.lbBox = new System.Windows.Forms.Label();
-            this.uCtrlOverhang = new treeDiM.StackBuilder.Basics.UCtrlDualDouble();
+            this.uCtrlOverhang = new treeDiM.Basics.UCtrlDualDouble();
             this.lbPallet = new System.Windows.Forms.Label();
             this.uCtrlLayerList = new treeDiM.StackBuilder.Graphics.UCtrlLayerList();
             this.checkBoxBestLayersOnly = new System.Windows.Forms.CheckBox();
@@ -39,12 +39,12 @@
             this.uCtrlCaseOrientation = new treeDiM.StackBuilder.Graphics.uCtrlCaseOrientation();
             this.tabCtrlConstraints = new System.Windows.Forms.TabControl();
             this.tabPageStopCriterions = new System.Windows.Forms.TabPage();
-            this.uCtrlOptMaxNumber = new treeDiM.StackBuilder.Basics.UCtrlOptInt();
-            this.uCtrlOptMaximumWeight = new treeDiM.StackBuilder.Basics.UCtrlOptDouble();
-            this.uCtrlMaximumHeight = new treeDiM.StackBuilder.Basics.UCtrlDouble();
+            this.uCtrlOptMaxNumber = new treeDiM.Basics.UCtrlOptInt();
+            this.uCtrlOptMaximumWeight = new treeDiM.Basics.UCtrlOptDouble();
+            this.uCtrlMaximumHeight = new treeDiM.Basics.UCtrlDouble();
             this.tabPageOverhang = new System.Windows.Forms.TabPage();
             this.tabPageSpaces = new System.Windows.Forms.TabPage();
-            this.uCtrlOptSpace = new treeDiM.StackBuilder.Basics.UCtrlOptDouble();
+            this.uCtrlOptSpace = new treeDiM.Basics.UCtrlOptDouble();
             this.lbSelect = new System.Windows.Forms.Label();
             this.tabCtrlConstraints.SuspendLayout();
             this.tabPageStopCriterions.SuspendLayout();
@@ -82,10 +82,10 @@
             resources.ApplyResources(this.uCtrlOverhang, "uCtrlOverhang");
             this.uCtrlOverhang.MinValue = -10000D;
             this.uCtrlOverhang.Name = "uCtrlOverhang";
-            this.uCtrlOverhang.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlOverhang.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlOverhang.ValueX = 0D;
             this.uCtrlOverhang.ValueY = 0D;
-            this.uCtrlOverhang.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDualDouble.ValueChangedDelegate(this.OnInputChanged);
+            this.uCtrlOverhang.ValueChanged += new treeDiM.Basics.UCtrlDualDouble.ValueChangedDelegate(this.OnInputChanged);
             // 
             // lbPallet
             // 
@@ -145,8 +145,7 @@
             resources.ApplyResources(this.uCtrlOptMaxNumber, "uCtrlOptMaxNumber");
             this.uCtrlOptMaxNumber.Minimum = 0;
             this.uCtrlOptMaxNumber.Name = "uCtrlOptMaxNumber";
-            this.uCtrlOptMaxNumber.Value = ((treeDiM.StackBuilder.Basics.OptInt)(resources.GetObject("uCtrlOptMaxNumber.Value")));
-            this.uCtrlOptMaxNumber.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlOptInt.ValueChangedDelegate(this.OnInputChanged);
+            this.uCtrlOptMaxNumber.ValueChanged += new treeDiM.Basics.UCtrlOptInt.ValueChangedDelegate(this.OnInputChanged);
             // 
             // uCtrlOptMaximumWeight
             // 
@@ -157,9 +156,8 @@
             0,
             -2147483648});
             this.uCtrlOptMaximumWeight.Name = "uCtrlOptMaximumWeight";
-            this.uCtrlOptMaximumWeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_MASS;
-            this.uCtrlOptMaximumWeight.Value = ((treeDiM.StackBuilder.Basics.OptDouble)(resources.GetObject("uCtrlOptMaximumWeight.Value")));
-            this.uCtrlOptMaximumWeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlOptDouble.ValueChangedDelegate(this.OnInputChanged);
+            this.uCtrlOptMaximumWeight.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_MASS;
+            this.uCtrlOptMaximumWeight.ValueChanged += new treeDiM.Basics.UCtrlOptDouble.ValueChangedDelegate(this.OnInputChanged);
             // 
             // uCtrlMaximumHeight
             // 
@@ -170,9 +168,9 @@
             0,
             -2147483648});
             this.uCtrlMaximumHeight.Name = "uCtrlMaximumHeight";
-            this.uCtrlMaximumHeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlMaximumHeight.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlMaximumHeight.Value = 0D;
-            this.uCtrlMaximumHeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.ValueChangedDelegate(this.OnInputChanged);
+            this.uCtrlMaximumHeight.ValueChanged += new treeDiM.Basics.UCtrlDouble.ValueChangedDelegate(this.OnInputChanged);
             // 
             // tabPageOverhang
             // 
@@ -197,9 +195,8 @@
             0,
             -2147483648});
             this.uCtrlOptSpace.Name = "uCtrlOptSpace";
-            this.uCtrlOptSpace.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
-            this.uCtrlOptSpace.Value = ((treeDiM.StackBuilder.Basics.OptDouble)(resources.GetObject("uCtrlOptSpace.Value")));
-            this.uCtrlOptSpace.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlOptDouble.ValueChangedDelegate(this.OnInputChanged);
+            this.uCtrlOptSpace.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlOptSpace.ValueChanged += new treeDiM.Basics.UCtrlOptDouble.ValueChangedDelegate(this.OnInputChanged);
             // 
             // lbSelect
             // 
@@ -251,11 +248,11 @@
         private treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered cbCases;
         private Graphics.uCtrlCaseOrientation uCtrlCaseOrientation;
         private Graphics.UCtrlLayerList uCtrlLayerList;
-        private Basics.UCtrlOptDouble uCtrlOptSpace;
-        private Basics.UCtrlDualDouble uCtrlOverhang;
-        private Basics.UCtrlOptDouble uCtrlOptMaximumWeight;
-        private Basics.UCtrlDouble uCtrlMaximumHeight;
-        private Basics.UCtrlOptInt uCtrlOptMaxNumber;
+        private treeDiM.Basics.UCtrlOptDouble uCtrlOptSpace;
+        private treeDiM.Basics.UCtrlDualDouble uCtrlOverhang;
+        private treeDiM.Basics.UCtrlOptDouble uCtrlOptMaximumWeight;
+        private treeDiM.Basics.UCtrlDouble uCtrlMaximumHeight;
+        private treeDiM.Basics.UCtrlOptInt uCtrlOptMaxNumber;
         private System.Windows.Forms.Label lbBox;
         private System.Windows.Forms.Label lbPallet;
         private System.Windows.Forms.CheckBox checkBoxBestLayersOnly;

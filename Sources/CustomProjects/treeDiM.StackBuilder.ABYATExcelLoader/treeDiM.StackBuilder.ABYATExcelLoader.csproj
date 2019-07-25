@@ -57,10 +57,10 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>CDA7627C161DB03A5953043237AB1240E2C9CDC5</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>E560907200F8CCA932E8CA665AA2916D0D74ED5A</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>treedim.pfx</ManifestKeyFile>
+    <ManifestKeyFile>treedim2021.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestTimestampUrl>http://timestamp.comodoca.com/authenticode</ManifestTimestampUrl>
@@ -186,6 +186,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="treedim2021.pfx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -194,6 +195,10 @@
     <ProjectReference Include="..\..\OptionsLib\OptionsLib.csproj">
       <Project>{5035348f-344f-4822-823e-6cb4d79d80d7}</Project>
       <Name>OptionsLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\treeDiM.Basics\treeDiM.Basics.csproj">
+      <Project>{646ee507-e57d-43a7-93f3-365a687aec4b}</Project>
+      <Name>treeDiM.Basics</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\TreeDim.StackBuilder.Basics\treeDiM.StackBuilder.Basics.csproj">
       <Project>{444c01d0-53fd-49a1-9d55-267b49161357}</Project>

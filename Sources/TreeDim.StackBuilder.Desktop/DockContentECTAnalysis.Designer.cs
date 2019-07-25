@@ -1,5 +1,6 @@
 ﻿namespace treeDiM.StackBuilder.Desktop
 {
+    /*
     partial class DockContentECTAnalysis
     {
         /// <summary>
@@ -319,4 +320,5 @@
         private System.Windows.Forms.Label lbStaticBCT;
         private SourceGrid.Grid gridDynamicBCT;
     }
+    */
 }

@@ -7,6 +7,7 @@ using System.Globalization;
 // log4net
 using log4net;
 // treeDiM
+using treeDiM.Basics;
 using treeDiM.StackBuilder.Basics;
 using treeDiM.StackBuilder.Graphics;
 using treeDiM.StackBuilder.Desktop.Properties;

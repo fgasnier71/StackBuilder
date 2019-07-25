@@ -37,9 +37,9 @@
             this.statusStripDef = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelDef = new System.Windows.Forms.ToolStripStatusLabel();
             this.bnSendToDB = new System.Windows.Forms.Button();
-            this.uCtrlDimensions = new treeDiM.StackBuilder.Basics.UCtrlTriDouble();
-            this.uCtrlWeight = new treeDiM.StackBuilder.Basics.UCtrlDouble();
-            this.uCtrlAdmissibleLoad = new treeDiM.StackBuilder.Basics.UCtrlDouble();
+            this.uCtrlDimensions = new treeDiM.Basics.UCtrlTriDouble();
+            this.uCtrlWeight = new treeDiM.Basics.UCtrlDouble();
+            this.uCtrlAdmissibleLoad = new treeDiM.Basics.UCtrlDouble();
             ((System.ComponentModel.ISupportInitialize)(this.graphCtrl)).BeginInit();
             this.SuspendLayout();
             // 
@@ -149,12 +149,11 @@
             0,
             0});
             this.uCtrlDimensions.Name = "uCtrlDimensions";
-            this.uCtrlDimensions.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
-            this.uCtrlDimensions.Value = ((Sharp3D.Math.Core.Vector3D)(resources.GetObject("uCtrlDimensions.Value")));
+            this.uCtrlDimensions.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlDimensions.ValueX = 0D;
             this.uCtrlDimensions.ValueY = 0D;
             this.uCtrlDimensions.ValueZ = 0D;
-            this.uCtrlDimensions.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlTriDouble.ValueChangedDelegate(this.OnPalletPropertyChanged);
+            this.uCtrlDimensions.ValueChanged += new treeDiM.Basics.UCtrlTriDouble.ValueChangedDelegate(this.OnPalletPropertyChanged);
             // 
             // uCtrlWeight
             // 
@@ -165,9 +164,9 @@
             0,
             -2147483648});
             this.uCtrlWeight.Name = "uCtrlWeight";
-            this.uCtrlWeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_MASS;
+            this.uCtrlWeight.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_MASS;
             this.uCtrlWeight.Value = 0D;
-            this.uCtrlWeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.ValueChangedDelegate(this.OnPalletPropertyChanged);
+            this.uCtrlWeight.ValueChanged += new treeDiM.Basics.UCtrlDouble.ValueChangedDelegate(this.OnPalletPropertyChanged);
             // 
             // uCtrlAdmissibleLoad
             // 
@@ -178,9 +177,9 @@
             0,
             -2147483648});
             this.uCtrlAdmissibleLoad.Name = "uCtrlAdmissibleLoad";
-            this.uCtrlAdmissibleLoad.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_MASS;
+            this.uCtrlAdmissibleLoad.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_MASS;
             this.uCtrlAdmissibleLoad.Value = 0D;
-            this.uCtrlAdmissibleLoad.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.ValueChangedDelegate(this.OnPalletPropertyChanged);
+            this.uCtrlAdmissibleLoad.ValueChanged += new treeDiM.Basics.UCtrlDouble.ValueChangedDelegate(this.OnPalletPropertyChanged);
             // 
             // FormNewPallet
             // 
@@ -225,8 +224,8 @@
         private System.Windows.Forms.Label lbColor;
         private OfficePickers.ColorPicker.ComboBoxColorPicker cbColor;
         private System.Windows.Forms.Button bnSendToDB;
-        private Basics.UCtrlDouble uCtrlAdmissibleLoad;
-        private Basics.UCtrlDouble uCtrlWeight;
-        private Basics.UCtrlTriDouble uCtrlDimensions;
+        private treeDiM.Basics.UCtrlDouble uCtrlAdmissibleLoad;
+        private treeDiM.Basics.UCtrlDouble uCtrlWeight;
+        private treeDiM.Basics.UCtrlTriDouble uCtrlDimensions;
     }
 }

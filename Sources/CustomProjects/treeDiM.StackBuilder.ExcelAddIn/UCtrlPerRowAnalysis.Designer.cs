@@ -36,8 +36,8 @@
             this.lbPallets = new System.Windows.Forms.CheckedListBox();
             this.gbConstraints = new System.Windows.Forms.GroupBox();
             this.chkbOnlyZOrientation = new System.Windows.Forms.CheckBox();
-            this.uCtrlOverhang = new treeDiM.StackBuilder.Basics.UCtrlDualDouble();
-            this.uCtrlMaxPalletHeight = new treeDiM.StackBuilder.Basics.UCtrlDouble();
+            this.uCtrlOverhang = new treeDiM.Basics.UCtrlDualDouble();
+            this.uCtrlMaxPalletHeight = new treeDiM.Basics.UCtrlDouble();
             this.gbOptions = new System.Windows.Forms.GroupBox();
             this.reportFolderSelect = new treeDiM.UserControls.FileSelect();
             this.chkbGenerateReportInFolder = new System.Windows.Forms.CheckBox();
@@ -105,7 +105,7 @@
             resources.ApplyResources(this.uCtrlOverhang, "uCtrlOverhang");
             this.uCtrlOverhang.MinValue = -10000D;
             this.uCtrlOverhang.Name = "uCtrlOverhang";
-            this.uCtrlOverhang.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlOverhang.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlOverhang.ValueX = 0D;
             this.uCtrlOverhang.ValueY = 0D;
             // 
@@ -118,7 +118,7 @@
             0,
             -2147483648});
             this.uCtrlMaxPalletHeight.Name = "uCtrlMaxPalletHeight";
-            this.uCtrlMaxPalletHeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlMaxPalletHeight.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlMaxPalletHeight.Value = 0D;
             // 
             // gbOptions

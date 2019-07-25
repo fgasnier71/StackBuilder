@@ -3,9 +3,10 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 
-using treeDiM.StackBuilder.Basics;
-
 using Sharp3D.Math.Core;
+
+using treeDiM.Basics;
+using treeDiM.StackBuilder.Basics;
 #endregion
 
 namespace treeDiM.StackBuilder.Graphics

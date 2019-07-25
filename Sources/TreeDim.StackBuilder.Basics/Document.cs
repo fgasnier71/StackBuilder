@@ -10,8 +10,10 @@ using System.Text.RegularExpressions;
 using System.Globalization;
 using System.Linq;
 
-using Sharp3D.Math.Core;
 using log4net;
+using Sharp3D.Math.Core;
+
+using treeDiM.Basics;
 #endregion
 
 namespace treeDiM.StackBuilder.Basics
@@ -1403,8 +1405,8 @@ namespace treeDiM.StackBuilder.Basics
                     listTexture.Add(new Pair<HalfAxis.HAxis, Texture>(faceNormal
                         , new Texture(
                             bmp
-                            , UnitsManager.ConvertLengthFrom(position, UnitSystem)
-                            , UnitsManager.ConvertLengthFrom(size, UnitSystem)
+                            , UnitsManagerEx.ConvertLengthFrom(position, UnitSystem)
+                            , UnitsManagerEx.ConvertLengthFrom(size, UnitSystem)
                             , angle)));
                 }
                 catch (Exception ex)
@@ -2059,7 +2061,7 @@ namespace treeDiM.StackBuilder.Basics
                                 {
                                     hSolItem.InsertContainedElt(
                                         Convert.ToInt32(eltContained.Attributes["ContentTypeIndex"].Value),
-                                        UnitsManager.ConvertLengthFrom(BoxPosition.Parse(eltContained.Attributes["Position"].Value), UnitSystem));
+                                        UnitsManagerEx.ConvertLengthFrom(BoxPosition.Parse(eltContained.Attributes["Position"].Value), UnitSystem));
                                 }
                             }
                         }
@@ -2536,7 +2538,7 @@ namespace treeDiM.StackBuilder.Basics
                     string sAxisWidth = eltBoxPosition.Attributes["AxisWidth"].Value;
                     try
                     {
-                        boxLayer.AddPosition(UnitsManager.ConvertLengthFrom(Vector3D.Parse(sPosition), UnitSystem), HalfAxis.Parse(sAxisLength), HalfAxis.Parse(sAxisWidth));
+                        boxLayer.AddPosition(UnitsManagerEx.ConvertLengthFrom(Vector3D.Parse(sPosition), UnitSystem), HalfAxis.Parse(sAxisLength), HalfAxis.Parse(sAxisWidth));
                     }
                     catch (Exception /*ex*/)
                     {
@@ -2553,7 +2555,7 @@ namespace treeDiM.StackBuilder.Basics
                 {
                     XmlElement eltBoxPosition = nodePosition as XmlElement;
                     string sPosition = eltBoxPosition.Attributes["Position"].Value;
-                    cylLayer.Add(UnitsManager.ConvertLengthFrom(Vector3D.Parse(sPosition), UnitSystem));
+                    cylLayer.Add(UnitsManagerEx.ConvertLengthFrom(Vector3D.Parse(sPosition), UnitSystem));
                     layer = cylLayer;
                 }
             }
@@ -2573,7 +2575,7 @@ namespace treeDiM.StackBuilder.Basics
             string sPosition = eltBoxPosition.Attributes["Position"].Value;
             string sAxisLength = eltBoxPosition.Attributes["AxisLength"].Value;
             string sAxisWidth = eltBoxPosition.Attributes["AxisWidth"].Value;
-            return new BoxPosition(UnitsManager.ConvertLengthFrom(Vector3D.Parse(sPosition), UnitSystem), HalfAxis.Parse(sAxisLength), HalfAxis.Parse(sAxisWidth));
+            return new BoxPosition(UnitsManagerEx.ConvertLengthFrom(Vector3D.Parse(sPosition), UnitSystem), HalfAxis.Parse(sAxisLength), HalfAxis.Parse(sAxisWidth));
         }
         #endregion
 
@@ -3902,7 +3904,7 @@ namespace treeDiM.StackBuilder.Basics
                 solutionElt.Attributes.Append(selAttribute);
             }
         }
-
+/*
         public void Save(ECTAnalysis ectAnalysis, bool unique, XmlElement ectAnalysesElt, XmlDocument xmlDoc)
         {
             XmlElement ectAnalysisElt = xmlDoc.CreateElement("EctAnalysis");
@@ -3951,6 +3953,7 @@ namespace treeDiM.StackBuilder.Basics
             mcKeeFormulaAttribute.Value = ectAnalysis.McKeeFormulaText;
             ectAnalysisElt.Attributes.Append(mcKeeFormulaAttribute);
         }
+*/
         public void Save(Layer3DBox boxLayer, XmlElement layersElt, XmlDocument xmlDoc)
         {
             // BoxLayer

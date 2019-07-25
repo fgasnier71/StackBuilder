@@ -352,7 +352,7 @@
     <value>504, 20</value>
   </data>
   <data name="&gt;&gt;ctrlStrapperSet.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.Controls.CtrlStrapperSet, treeDiM.StackBuilder.Basics, Version=3.0.0.92, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Basics.Controls.CtrlStrapperSet, treeDiM.StackBuilder.Basics, Version=3.0.0.96, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;tabWrapper.Parent" xml:space="preserve">
     <value>tabCtrl</value>
@@ -452,7 +452,7 @@
     <value>True</value>
   </data>
   <data name="&gt;&gt;uCtrlWeight.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.92, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.Basics.UCtrlDouble, treeDiM.Basics, Version=3.0.0.92, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlOuterDimensions.ZOrder" xml:space="preserve">
     <value>2</value>
@@ -524,7 +524,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="&gt;&gt;uCtrlOuterDimensions.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlOptTriDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.92, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.Basics.UCtrlOptTriDouble, treeDiM.Basics, Version=3.0.0.92, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="cbColor.Items13" xml:space="preserve">
     <value>Color</value>
@@ -557,7 +557,7 @@
     <value>Weight</value>
   </data>
   <data name="&gt;&gt;uCtrlThickness.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.92, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.Basics.UCtrlDouble, treeDiM.Basics, Version=3.0.0.92, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="cbColor.Items14" xml:space="preserve">
     <value>Color</value>
@@ -656,7 +656,7 @@
     <value>True</value>
   </data>
   <data name="&gt;&gt;uCtrlLayout.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.Controls.UCtrlTriInt, treeDiM.StackBuilder.Basics, Version=3.0.0.92, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.Basics.UCtrlTriInt, treeDiM.Basics, Version=3.0.0.96, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="uCtrlWeight.Size" type="System.Drawing.Size, System.Drawing">
     <value>180, 20</value>
@@ -803,7 +803,7 @@
     <value>4</value>
   </data>
   <data name="&gt;&gt;uCtrlHeight.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.92, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.Basics.UCtrlDouble, treeDiM.Basics, Version=3.0.0.92, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="chkbTransparent.Text" xml:space="preserve">
     <value>Transparent</value>
@@ -815,7 +815,7 @@
     <value>7</value>
   </data>
   <data name="&gt;&gt;uCtrlWalls.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.Controls.UCtrlTriInt, treeDiM.StackBuilder.Basics, Version=3.0.0.92, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.Basics.UCtrlTriInt, treeDiM.Basics, Version=3.0.0.92, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="cbColor.Location" type="System.Drawing.Point, System.Drawing">
     <value>88, 35</value>

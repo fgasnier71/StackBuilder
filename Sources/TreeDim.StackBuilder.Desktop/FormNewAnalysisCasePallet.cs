@@ -1,7 +1,6 @@
 ﻿#region Using directives
 using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -9,6 +8,7 @@ using log4net;
 
 using Sharp3D.Math.Core;
 
+using treeDiM.Basics;
 using treeDiM.StackBuilder.Engine;
 using treeDiM.StackBuilder.Basics;
 using treeDiM.StackBuilder.Graphics.Controls;

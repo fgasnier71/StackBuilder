@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormNewHAnalysisCasePallet));
             this.lbPallet = new System.Windows.Forms.Label();
-            this.uCtrlPalletHeight = new treeDiM.StackBuilder.Basics.UCtrlDouble();
+            this.uCtrlPalletHeight = new treeDiM.Basics.UCtrlDouble();
             this.cbPallets = new treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerHoriz1)).BeginInit();
             this.splitContainerHoriz1.Panel1.SuspendLayout();
@@ -73,9 +73,9 @@
             0,
             -2147483648});
             this.uCtrlPalletHeight.Name = "uCtrlPalletHeight";
-            this.uCtrlPalletHeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlPalletHeight.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlPalletHeight.Value = 0D;
-            this.uCtrlPalletHeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.ValueChangedDelegate(this.OnDataModifiedOverride);
+            this.uCtrlPalletHeight.ValueChanged += new treeDiM.Basics.UCtrlDouble.ValueChangedDelegate(this.OnDataModifiedOverride);
             // 
             // cbPallets
             // 
@@ -109,7 +109,7 @@
         #endregion
 
         private treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered cbPallets;
-        private Basics.UCtrlDouble uCtrlPalletHeight;
+        private treeDiM.Basics.UCtrlDouble uCtrlPalletHeight;
         private System.Windows.Forms.Label lbPallet;
     }
 }

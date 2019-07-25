@@ -286,7 +286,7 @@
     <value>uCtrlPalletHeight</value>
   </data>
   <data name="&gt;&gt;uCtrlPalletHeight.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.82, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.Basics.UCtrlDouble, treeDiM.Basics, Version=3.0.0.96, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlPalletHeight.Parent" xml:space="preserve">
     <value>splitContainerVert.Panel1</value>
@@ -525,6 +525,6 @@
     <value>FormNewHAnalysisCasePallet</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Desktop.FormNewHAnalysis, treeDiM.StackBuilder.Desktop, Version=3.0.0.82, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Desktop.FormNewHAnalysis, treeDiM.StackBuilder.Desktop, Version=3.0.0.96, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

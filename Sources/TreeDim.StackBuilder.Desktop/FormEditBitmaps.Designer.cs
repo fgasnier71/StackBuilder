@@ -43,8 +43,8 @@
             this.openImageFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.listBoxTextures = new treeDiM.StackBuilder.Desktop.ListBoxImages();
             this.lbImage = new System.Windows.Forms.Label();
-            this.uCtrlOrigin = new treeDiM.StackBuilder.Basics.UCtrlDualDouble();
-            this.uCtrlSize = new treeDiM.StackBuilder.Basics.UCtrlDualDouble();
+            this.uCtrlOrigin = new treeDiM.Basics.UCtrlDualDouble();
+            this.uCtrlSize = new treeDiM.Basics.UCtrlDualDouble();
             this.graphCtrl = new treeDiM.StackBuilder.Graphics.Graphics3DControl();
             ((System.ComponentModel.ISupportInitialize)(this.nudAngle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.graphCtrl)).BeginInit();
@@ -156,20 +156,20 @@
             resources.ApplyResources(this.uCtrlOrigin, "uCtrlOrigin");
             this.uCtrlOrigin.MinValue = -10000D;
             this.uCtrlOrigin.Name = "uCtrlOrigin";
-            this.uCtrlOrigin.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlOrigin.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlOrigin.ValueX = 0D;
             this.uCtrlOrigin.ValueY = 0D;
-            this.uCtrlOrigin.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDualDouble.ValueChangedDelegate(this.OnTexturePositionChanged);
+            this.uCtrlOrigin.ValueChanged += new treeDiM.Basics.UCtrlDualDouble.ValueChangedDelegate(this.OnTexturePositionChanged);
             // 
             // uCtrlSize
             // 
             resources.ApplyResources(this.uCtrlSize, "uCtrlSize");
             this.uCtrlSize.MinValue = -10000D;
             this.uCtrlSize.Name = "uCtrlSize";
-            this.uCtrlSize.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlSize.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlSize.ValueX = 0D;
             this.uCtrlSize.ValueY = 0D;
-            this.uCtrlSize.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDualDouble.ValueChangedDelegate(this.OnTexturePositionChanged);
+            this.uCtrlSize.ValueChanged += new treeDiM.Basics.UCtrlDualDouble.ValueChangedDelegate(this.OnTexturePositionChanged);
             // 
             // graphCtrl
             // 
@@ -226,8 +226,8 @@
         private System.Windows.Forms.Button bnRemove;
         private System.Windows.Forms.OpenFileDialog openImageFileDialog;
         private System.Windows.Forms.Label lbImage;
-        private Basics.UCtrlDualDouble uCtrlOrigin;
-        private Basics.UCtrlDualDouble uCtrlSize;
+        private treeDiM.Basics.UCtrlDualDouble uCtrlOrigin;
+        private treeDiM.Basics.UCtrlDualDouble uCtrlSize;
         private Graphics.Graphics3DControl graphCtrl;
     }
 }

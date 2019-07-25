@@ -143,7 +143,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;uCtrlNoWalls.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.Controls.UCtrlTriInt, treeDiM.StackBuilder.Basics, Version=3.0.0.36, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.Basics.UCtrlTriInt, treeDiM.Basics, Version=3.0.0.36, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="splitContainerCasePallet.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
@@ -205,10 +205,10 @@
     <value>85, 13</value>
   </data>
   <data name="&gt;&gt;uCtrlPackDimensionsMax.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlTriDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.36, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.Basics.UCtrlTriDouble, treeDiM.Basics, Version=3.0.0.36, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlPackDimensionsMin.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlTriDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.36, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.Basics.UCtrlTriDouble, treeDiM.Basics, Version=3.0.0.36, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;cbWrapperType.Name" xml:space="preserve">
     <value>cbWrapperType</value>
@@ -427,7 +427,7 @@
     <value>16, 84</value>
   </data>
   <data name="&gt;&gt;uCtrlWallThickness.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.36, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.Basics.UCtrlDouble, treeDiM.Basics, Version=3.0.0.36, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;chkVerticalOrientationOnly.Type" xml:space="preserve">
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -646,7 +646,7 @@
     <value>1</value>
   </data>
   <data name="&gt;&gt;uCtrlOverhang.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlDualDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.36, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.Basics.UCtrlDualDouble, treeDiM.Basics, Version=3.0.0.36, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="lbPallet.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -745,7 +745,7 @@
     <value>5</value>
   </data>
   <data name="&gt;&gt;uCtrlPalletHeight.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.36, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.Basics.UCtrlDouble, treeDiM.Basics, Version=3.0.0.36, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;lbNumber.ZOrder" xml:space="preserve">
     <value>2</value>
@@ -859,7 +859,7 @@
     <value>lbWrapperColor</value>
   </data>
   <data name="&gt;&gt;uCtrlSurfacicMass.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.36, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.Basics.UCtrlDouble, treeDiM.Basics, Version=3.0.0.36, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="btOptimize.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -1009,7 +1009,7 @@
     <value>2</value>
   </data>
   <data name="&gt;&gt;uCtrlTrayHeight.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.36, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.Basics.UCtrlDouble, treeDiM.Basics, Version=3.0.0.36, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="lbNumber.Location" type="System.Drawing.Point, System.Drawing">
     <value>13, 63</value>

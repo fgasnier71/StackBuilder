@@ -512,7 +512,7 @@
     <value>uCtrlDimensions</value>
   </data>
   <data name="&gt;&gt;uCtrlDimensions.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlTriDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.80, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.Basics.UCtrlTriDouble, treeDiM.Basics, Version=3.0.0.80, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlDimensions.Parent" xml:space="preserve">
     <value>$this</value>
@@ -542,7 +542,7 @@
     <value>uCtrlWeight</value>
   </data>
   <data name="&gt;&gt;uCtrlWeight.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.80, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.Basics.UCtrlDouble, treeDiM.Basics, Version=3.0.0.80, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlWeight.Parent" xml:space="preserve">
     <value>$this</value>
@@ -572,7 +572,7 @@
     <value>uCtrlAdmissibleLoad</value>
   </data>
   <data name="&gt;&gt;uCtrlAdmissibleLoad.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.80, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.Basics.UCtrlDouble, treeDiM.Basics, Version=3.0.0.80, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlAdmissibleLoad.Parent" xml:space="preserve">
     <value>$this</value>

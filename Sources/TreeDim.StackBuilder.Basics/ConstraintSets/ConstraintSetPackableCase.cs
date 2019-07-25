@@ -1,5 +1,7 @@
 ﻿using System;
 
+using treeDiM.Basics;
+
 namespace treeDiM.StackBuilder.Basics
 {
     public abstract class ConstraintSetPackableContainer : ConstraintSetAbstract

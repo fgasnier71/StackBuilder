@@ -20,6 +20,7 @@ using treeDiM.StackBuilder.Basics;
 using treeDiM.StackBuilder.Engine;
 using treeDiM.StackBuilder.Reporting;
 using treeDiM.StackBuilder.Plugin;
+
 using treeDiM.PLMPack.DBClient;
 using treeDiM.PLMPack.DBClient.PLMPackSR;
 
@@ -1280,11 +1281,22 @@ namespace treeDiM.StackBuilder.Desktop
             {
                 if (Program.UseDisconnected)
                     return;
-                // Form show database
+                // show database browser
                 var form = new FormShowDatabase();
                 form.ShowDialog();
                 // update toolbar state as database may now be empty
                 UpdateToolbarState();
+            }
+            catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
+        }
+        private void OnShowMaterialList(object sender, EventArgs e)
+        {
+            try
+            {
+                if (Program.UseDisconnected)
+                    return;
+                // show material list browser
+                EdgeCrushTest.ECT_Forms.EditMaterialList();
             }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
@@ -1321,6 +1333,9 @@ namespace treeDiM.StackBuilder.Desktop
             catch (Exception ex) { _log.Error(ex.Message); }
         }
         #endregion
+        #region Edge Crush Test
+        private void OnComputeECT(object sender, EventArgs e) => EdgeCrushTest.ECT_Forms.ComputeECT();
+        #endregion
         #endregion
 
         #region Document / View status change handlers
@@ -1332,8 +1347,7 @@ namespace treeDiM.StackBuilder.Desktop
 
         #region Form activation/creation
         public void CreateOrActivateViewAnalysis(AnalysisHomo analysis)
-        { 
-            AnalysisPalletTruck analysisPalletTruck = analysis as AnalysisPalletTruck;
+        {
             // ---> search among existing views
             // ---> activate if found
             foreach (IDocument doc in Documents)
@@ -1344,7 +1358,7 @@ namespace treeDiM.StackBuilder.Desktop
                         formAnalysisEdit.Activate();
                         return;
                     }
-                    if (view is DockContentAnalysisPalletTruck formAnalysisPalletTruck && null != analysisPalletTruck)
+                    if (view is DockContentAnalysisPalletTruck formAnalysisPalletTruck && analysis is AnalysisPalletTruck analysisPalletTruck)
                     {
                         if (analysisPalletTruck == formAnalysisPalletTruck.Analysis)
                         {
@@ -1381,32 +1395,6 @@ namespace treeDiM.StackBuilder.Desktop
             if (null != formHAnalysis)
                 formHAnalysis.Show(dockPanel, DockState.Document);
         }
-
-        /// <summary>
-        /// ECT analysis view
-        /// </summary>
-        public void CreateOrActivateViewECTAnalysis(ECTAnalysis analysis)
-        { 
-            // search among existing views
-            foreach (IDocument doc in Documents)
-                foreach (IView view in doc.Views)
-                {
-                    if (!(view is DockContentECTAnalysis form)) continue;
-                    if (analysis == form.ECTAnalysis)
-                    {
-                        form.Activate();
-                        return;
-                    }
-                }
-            // ---> not found
-            // ---> create new form
-            // get document
-            DocumentSB parentDocument = analysis.ParentDocument as DocumentSB;
-            // instantiate form
-            DockContentECTAnalysis formECTAnalysis = parentDocument.CreateECTAnalysisView(analysis);
-            // show docked
-            formECTAnalysis.Show(dockPanel, DockState.Document);
-        }
         #endregion
 
         #region Helpers
@@ -1442,10 +1430,7 @@ namespace treeDiM.StackBuilder.Desktop
         private void OnOnlineHelp(object sender, EventArgs e)
         {
             try { Process.Start(Settings.Default.HelpPageUrl); }
-            catch (Exception ex)
-            {
-                _log.Error(ex.ToString());
-            }
+            catch (Exception ex) { _log.Error(ex.ToString()); }
         }
         private void OnDisconnect(object sender, EventArgs e)
         {
@@ -1465,5 +1450,7 @@ namespace treeDiM.StackBuilder.Desktop
         #region Static instance accessor
         public static FormMain GetInstance()  { return _instance; }
         #endregion
+
+
     }
 }

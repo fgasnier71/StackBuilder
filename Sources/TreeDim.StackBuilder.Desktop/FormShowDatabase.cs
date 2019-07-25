@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using log4net;
 using Sharp3D.Math.Core;
 
+using treeDiM.Basics;
 using treeDiM.StackBuilder.Basics;
 using treeDiM.StackBuilder.Graphics;
 
@@ -206,7 +207,7 @@ namespace treeDiM.StackBuilder.Desktop
         }
         #endregion
 
-        #region Public properties
+        #region Private properties
         private Document Document
         {
             get
@@ -214,6 +215,24 @@ namespace treeDiM.StackBuilder.Desktop
                 if (null == _doc)
                     _doc = FormMain.GetInstance().ActiveDocumentSB;
                 return _doc;
+            }
+        }
+        private DCSBTypeEnum CurrentType
+        {
+            get
+            {
+                string tabName = tabCtrlDBItems.SelectedTab.Name;
+                if (string.Equals(tabName, "tabPagePallet")) return DCSBTypeEnum.TPallet;
+                else if (string.Equals(tabName, "tabPagePalletCorner")) return DCSBTypeEnum.TPalletCorner;
+                else if (string.Equals(tabName, "tabPagePalletCap")) return DCSBTypeEnum.TPalletCap;
+                else if (string.Equals(tabName, "tabPagePalletFilm")) return DCSBTypeEnum.TPalletFilm;
+                else if (string.Equals(tabName, "tabPageInterlayer")) return DCSBTypeEnum.TInterlayer;
+                else if (string.Equals(tabName, "tabPageBundle")) return DCSBTypeEnum.TBundle;
+                else if (string.Equals(tabName, "tabPageBox")) return DCSBTypeEnum.TCase;
+                else if (string.Equals(tabName, "tabPageCase")) return DCSBTypeEnum.TCase;
+                else if (string.Equals(tabName, "tabPageCylinder")) return DCSBTypeEnum.TCylinder;
+                else if (string.Equals(tabName, "tabPageTruck")) return DCSBTypeEnum.TTruck;
+                else throw new Exception("Invalid type!");
             }
         }
         #endregion 
@@ -236,7 +255,7 @@ namespace treeDiM.StackBuilder.Desktop
             captionHeader.ForeColor = Color.Black;
             captionHeader.Font = new Font("Arial", 10, FontStyle.Bold);
             captionHeader.TextAlignment = DevAge.Drawing.ContentAlignment.MiddleCenter;
-            // viewRowHeader
+            // viewColumnHeader
             SourceGrid.Cells.Views.ColumnHeader viewColumnHeader = new SourceGrid.Cells.Views.ColumnHeader();
             DevAge.Drawing.VisualElements.ColumnHeader backHeader = new DevAge.Drawing.VisualElements.ColumnHeader()
             {
@@ -343,18 +362,23 @@ namespace treeDiM.StackBuilder.Desktop
                     else if (string.Equals(tabName, "tabPageTruck"))
                         FillGridTrucks(wcfClient);
                 }
-                // update buttons
-                bnPrev.Enabled = RangeIndex > 0;
-                bnNext.Enabled = (RangeIndex + 1) * 20 < _numberOfItems;
-                lbCount.Text = string.Format(Properties.Resources.ID_DATABASEITEMCOUNT
-                    , (RangeIndex * 20) + 1
-                    , Math.Min( (RangeIndex + 1) * 20, _numberOfItems)
-                    , _numberOfItems);
+                UpdateButtons();
             }
             catch (Exception ex)
             {
                 _log.Error(ex.Message);
             }
+        }
+
+        private void UpdateButtons()
+        {
+            // update buttons
+            bnPrev.Enabled = RangeIndex > 0;
+            bnNext.Enabled = (RangeIndex + 1) * 20 < _numberOfItems;
+            lbCount.Text = string.Format(Properties.Resources.ID_DATABASEITEMCOUNT
+                , (RangeIndex * 20) + 1
+                , Math.Min((RangeIndex + 1) * 20, _numberOfItems)
+                , _numberOfItems);
         }
         private string SearchString => tbSearch.Text.Trim();
         private bool SearchDescription { get => chkbSearchDescription.Checked; set => chkbSearchDescription.Checked = value; }
@@ -397,10 +421,7 @@ namespace treeDiM.StackBuilder.Desktop
                     );
                 gridPallets[iIndex, iCol] = new SourceGrid.Cells.CheckBox(null, p.AutoInsert);
                 gridPallets[iIndex, iCol++].AddController(checkBoxEvent);
-                gridPallets[iIndex, iCol] = new SourceGrid.Cells.Button("")
-                {
-                    Image = Properties.Resources.Delete
-                };
+                gridPallets[iIndex, iCol] = new SourceGrid.Cells.Button("") { Image = Properties.Resources.Delete };
                 gridPallets[iIndex, iCol++].AddController(buttonDelete);
             }
             GridFinalize(gridPallets);
@@ -945,6 +966,7 @@ namespace treeDiM.StackBuilder.Desktop
                         FillGridTrucks(wcfClient);
                     }
                 }
+                UpdateButtons();
             }
             catch (Exception ex)
             {
@@ -1193,6 +1215,24 @@ namespace treeDiM.StackBuilder.Desktop
         {
             UpdateGrid();
         }
+        private void OnRemoveAll(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
+                return;
+            try
+            {
+                string tabName = tabCtrlDBItems.SelectedTab.Name;
+                using (WCFClient wcfClient = new WCFClient())
+                {
+                    wcfClient.Client.RemoveAll(CurrentType);
+                }
+                UpdateGrid();
+            }
+            catch (Exception ex)
+            {
+                _log.Error(ex.ToString());
+            }
+        }
         #endregion
 
         #region Private properties
@@ -1215,9 +1255,6 @@ namespace treeDiM.StackBuilder.Desktop
         private DCSBInterlayer[] _interlayers = null;
         private DCSBTruck[] _trucks = null;
         private DocumentSB _doc = null;
-
         #endregion
-
-
     }
 }

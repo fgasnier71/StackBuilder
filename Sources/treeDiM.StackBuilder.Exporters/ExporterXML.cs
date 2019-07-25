@@ -6,6 +6,7 @@ using System.Xml.Serialization;
 
 using Sharp3D.Math.Core;
 
+using treeDiM.Basics;
 using treeDiM.StackBuilder.Basics;
 using stb;
 

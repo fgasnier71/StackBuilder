@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Drawing;
 
 using Sharp3D.Math.Core;
+
+using treeDiM.Basics;
 #endregion
 
 namespace treeDiM.StackBuilder.Basics

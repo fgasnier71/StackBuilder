@@ -29,14 +29,12 @@
     <!--Icon-->
     <Icon Id="StackBuilder.ico" SourceFile="StackBuilder.ico"/>
     <!--Upgrade table-->
-    <!--
     <MajorUpgrade
       Schedule="afterInstallInitialize"
       AllowDowngrades="no"
       AllowSameVersionUpgrades="no"
       DowngradeErrorMessage="A newer version of [ProductName] is already installed."
       />
-     --> 
     <Upgrade Id="FC448406-ACD2-42DB-91B6-5E37A43C949C">
       <UpgradeVersion Minimum="0.0.0.0"
                       Maximum="99.0.0.0"
@@ -48,7 +46,7 @@
     </Upgrade>
     <InstallExecuteSequence>
       <!-- Potential scheduling (after): InstallValidate, InstallInitialize, InstallExecute, InstallExecuteAgain, InstallFinalize -->
-      <RemoveExistingProducts After="InstallInitialize" />
+      <!--<RemoveExistingProducts After="InstallInitialize" />-->
     </InstallExecuteSequence>
     
     <!--PackLib merge module-->

@@ -5,6 +5,7 @@ using System.Drawing;
 
 using log4net;
 
+using treeDiM.Basics;
 using treeDiM.StackBuilder.Basics;
 using treeDiM.PLMPack.DBClient;
 using treeDiM.PLMPack.DBClient.PLMPackSR;

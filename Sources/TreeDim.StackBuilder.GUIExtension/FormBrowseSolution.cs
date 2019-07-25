@@ -15,6 +15,7 @@ using log4net;
 
 using Sharp3D.Math.Core;
 
+using treeDiM.Basics;
 using treeDiM.StackBuilder.Basics;
 using treeDiM.StackBuilder.Graphics;
 using treeDiM.StackBuilder.Engine;
@@ -61,8 +62,8 @@ namespace treeDiM.StackBuilder.GUIExtension
             UpdateControls();
 
 
-            uCtrlMaxPalletHeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.ValueChangedDelegate(this.OnCriterionChanged);
-            uCtrlOptMaximumWeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlOptDouble.ValueChangedDelegate(this.OnCriterionChanged);
+            uCtrlMaxPalletHeight.ValueChanged += new treeDiM.Basics.UCtrlDouble.ValueChangedDelegate(this.OnCriterionChanged);
+            uCtrlOptMaximumWeight.ValueChanged += new treeDiM.Basics.UCtrlOptDouble.ValueChangedDelegate(this.OnCriterionChanged);
 
             FillGrid();
             UpdateGrid();

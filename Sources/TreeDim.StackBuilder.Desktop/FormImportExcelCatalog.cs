@@ -14,7 +14,7 @@ using log4net;
 
 using Syroot.Windows.IO;
 
-using treeDiM.StackBuilder.Basics;
+using treeDiM.Basics;
 using treeDiM.StackBuilder.ExcelReader;
 
 using treeDiM.PLMPack.DBClient;

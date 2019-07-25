@@ -34,8 +34,8 @@
             this.chkbTransparency = new System.Windows.Forms.CheckBox();
             this.chkbHatching = new System.Windows.Forms.CheckBox();
             this.bnSendToDB = new System.Windows.Forms.Button();
-            this.uCtrlSpacing = new treeDiM.StackBuilder.Basics.UCtrlDouble();
-            this.uCtrlAngle = new treeDiM.StackBuilder.Basics.UCtrlDouble();
+            this.uCtrlSpacing = new treeDiM.Basics.UCtrlDouble();
+            this.uCtrlAngle = new treeDiM.Basics.UCtrlDouble();
             this.SuspendLayout();
             // 
             // bnOk
@@ -122,7 +122,7 @@
             0,
             -2147483648});
             this.uCtrlSpacing.Name = "uCtrlSpacing";
-            this.uCtrlSpacing.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlSpacing.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlSpacing.Value = 0D;
             // 
             // uCtrlAngle
@@ -134,7 +134,7 @@
             0,
             -2147483648});
             this.uCtrlAngle.Name = "uCtrlAngle";
-            this.uCtrlAngle.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_NONE;
+            this.uCtrlAngle.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_NONE;
             this.uCtrlAngle.Value = 0D;
             // 
             // FormNewPalletFilm
@@ -173,7 +173,7 @@
         private System.Windows.Forms.CheckBox chkbTransparency;
         private System.Windows.Forms.CheckBox chkbHatching;
         private System.Windows.Forms.Button bnSendToDB;
-        private Basics.UCtrlDouble uCtrlSpacing;
-        private Basics.UCtrlDouble uCtrlAngle;
+        private treeDiM.Basics.UCtrlDouble uCtrlSpacing;
+        private treeDiM.Basics.UCtrlDouble uCtrlAngle;
     }
 }

@@ -790,7 +790,7 @@
     <value>uCtrlImageDim</value>
   </data>
   <data name="&gt;&gt;uCtrlImageDim.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlDualDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.74, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.Basics.UCtrlDualDouble, treeDiM.Basics, Version=3.0.0.74, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlImageDim.Parent" xml:space="preserve">
     <value>gbResults</value>
@@ -814,7 +814,7 @@
     <value>uCtrlImageLeftTop</value>
   </data>
   <data name="&gt;&gt;uCtrlImageLeftTop.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlDualDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.74, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.Basics.UCtrlDualDouble, treeDiM.Basics, Version=3.0.0.74, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlImageLeftTop.Parent" xml:space="preserve">
     <value>gbResults</value>

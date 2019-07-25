@@ -6,6 +6,8 @@ using System.Diagnostics;
 using System.Linq;
 
 using Sharp3D.Math.Core;
+
+using treeDiM.Basics;
 using treeDiM.StackBuilder.Basics;
 #endregion
 

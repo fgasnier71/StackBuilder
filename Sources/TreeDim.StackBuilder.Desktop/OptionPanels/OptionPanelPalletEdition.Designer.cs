@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.uCtrlDistAbove = new treeDiM.StackBuilder.Basics.UCtrlDouble();
+            this.uCtrlDistAbove = new treeDiM.Basics.UCtrlDouble();
             this.chkbDummyMode = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
@@ -45,7 +45,7 @@
             this.uCtrlDistAbove.Size = new System.Drawing.Size(333, 20);
             this.uCtrlDistAbove.TabIndex = 0;
             this.uCtrlDistAbove.Text = "Distance above selected layer";
-            this.uCtrlDistAbove.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlDistAbove.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlDistAbove.Value = 0D;
             // 
             // chkbDummyMode
@@ -77,7 +77,7 @@
 
         #endregion
 
-        private Basics.UCtrlDouble uCtrlDistAbove;
+        private treeDiM.Basics.UCtrlDouble uCtrlDistAbove;
         private System.Windows.Forms.CheckBox chkbDummyMode;
     }
 }

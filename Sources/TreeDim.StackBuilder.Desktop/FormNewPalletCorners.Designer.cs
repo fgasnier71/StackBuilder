@@ -31,10 +31,10 @@
             this.graphCtrl = new treeDiM.StackBuilder.Graphics.Graphics3DControl();
             this.lbColor = new System.Windows.Forms.Label();
             this.cbColorCorners = new OfficePickers.ColorPicker.ComboBoxColorPicker();
-            this.uCtrlLength = new treeDiM.StackBuilder.Basics.UCtrlDouble();
-            this.uCtrlWidth = new treeDiM.StackBuilder.Basics.UCtrlDouble();
-            this.uCtrlThickness = new treeDiM.StackBuilder.Basics.UCtrlDouble();
-            this.uCtrlWeight = new treeDiM.StackBuilder.Basics.UCtrlDouble();
+            this.uCtrlLength = new treeDiM.Basics.UCtrlDouble();
+            this.uCtrlWidth = new treeDiM.Basics.UCtrlDouble();
+            this.uCtrlThickness = new treeDiM.Basics.UCtrlDouble();
+            this.uCtrlWeight = new treeDiM.Basics.UCtrlDouble();
             this.bnSendToDB = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.graphCtrl)).BeginInit();
             this.SuspendLayout();
@@ -112,9 +112,9 @@
             this.uCtrlLength.Size = new System.Drawing.Size(195, 20);
             this.uCtrlLength.TabIndex = 26;
             this.uCtrlLength.Text = "Length";
-            this.uCtrlLength.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlLength.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlLength.Value = 0D;
-            this.uCtrlLength.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.ValueChangedDelegate(this.OnValueChanged);
+            this.uCtrlLength.ValueChanged += new treeDiM.Basics.UCtrlDouble.ValueChangedDelegate(this.OnValueChanged);
             // 
             // uCtrlWidth
             // 
@@ -129,9 +129,9 @@
             this.uCtrlWidth.Size = new System.Drawing.Size(195, 20);
             this.uCtrlWidth.TabIndex = 27;
             this.uCtrlWidth.Text = "Width";
-            this.uCtrlWidth.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlWidth.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlWidth.Value = 0D;
-            this.uCtrlWidth.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.ValueChangedDelegate(this.OnValueChanged);
+            this.uCtrlWidth.ValueChanged += new treeDiM.Basics.UCtrlDouble.ValueChangedDelegate(this.OnValueChanged);
             // 
             // uCtrlThickness
             // 
@@ -146,9 +146,9 @@
             this.uCtrlThickness.Size = new System.Drawing.Size(195, 20);
             this.uCtrlThickness.TabIndex = 28;
             this.uCtrlThickness.Text = "Thickness";
-            this.uCtrlThickness.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlThickness.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlThickness.Value = 0D;
-            this.uCtrlThickness.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.ValueChangedDelegate(this.OnValueChanged);
+            this.uCtrlThickness.ValueChanged += new treeDiM.Basics.UCtrlDouble.ValueChangedDelegate(this.OnValueChanged);
             // 
             // uCtrlWeight
             // 
@@ -163,9 +163,9 @@
             this.uCtrlWeight.Size = new System.Drawing.Size(195, 20);
             this.uCtrlWeight.TabIndex = 29;
             this.uCtrlWeight.Text = "Weight";
-            this.uCtrlWeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_MASS;
+            this.uCtrlWeight.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_MASS;
             this.uCtrlWeight.Value = 0D;
-            this.uCtrlWeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.ValueChangedDelegate(this.OnValueChanged);
+            this.uCtrlWeight.ValueChanged += new treeDiM.Basics.UCtrlDouble.ValueChangedDelegate(this.OnValueChanged);
             // 
             // bnSendToDB
             // 
@@ -216,10 +216,10 @@
         private treeDiM.StackBuilder.Graphics.Graphics3DControl graphCtrl;
         private System.Windows.Forms.Label lbColor;
         private OfficePickers.ColorPicker.ComboBoxColorPicker cbColorCorners;
-        private Basics.UCtrlDouble uCtrlLength;
-        private Basics.UCtrlDouble uCtrlWidth;
-        private Basics.UCtrlDouble uCtrlThickness;
-        private Basics.UCtrlDouble uCtrlWeight;
+        private treeDiM.Basics.UCtrlDouble uCtrlLength;
+        private treeDiM.Basics.UCtrlDouble uCtrlWidth;
+        private treeDiM.Basics.UCtrlDouble uCtrlThickness;
+        private treeDiM.Basics.UCtrlDouble uCtrlWeight;
         private System.Windows.Forms.Button bnSendToDB;
     }
 }

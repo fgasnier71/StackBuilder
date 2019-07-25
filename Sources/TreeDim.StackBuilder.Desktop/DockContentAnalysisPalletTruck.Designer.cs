@@ -33,7 +33,7 @@
             this.splitContainerVert = new System.Windows.Forms.SplitContainer();
             this.graphCtrlSolution = new treeDiM.StackBuilder.Graphics.Graphics3DControl();
             this.gridSolution = new SourceGrid.Grid();
-            this.uCtrlMaxNoPallets = new treeDiM.StackBuilder.Basics.UCtrlOptInt();
+            this.uCtrlMaxNoPallets = new treeDiM.Basics.UCtrlOptInt();
             this.toolStripAnalysis = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonBack = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonReport = new System.Windows.Forms.ToolStripButton();
@@ -96,8 +96,7 @@
             resources.ApplyResources(this.uCtrlMaxNoPallets, "uCtrlMaxNoPallets");
             this.uCtrlMaxNoPallets.Minimum = 0;
             this.uCtrlMaxNoPallets.Name = "uCtrlMaxNoPallets";
-            this.uCtrlMaxNoPallets.Value = ((treeDiM.StackBuilder.Basics.OptInt)(resources.GetObject("uCtrlMaxNoPallets.Value")));
-            this.uCtrlMaxNoPallets.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlOptInt.ValueChangedDelegate(this.OnCriterionChanged);
+            this.uCtrlMaxNoPallets.ValueChanged += new treeDiM.Basics.UCtrlOptInt.ValueChangedDelegate(this.OnCriterionChanged);
             // 
             // toolStripAnalysis
             // 
@@ -154,6 +153,6 @@
         private System.Windows.Forms.SplitContainer splitContainerVert;
         private Graphics.Graphics3DControl graphCtrlSolution;
         private SourceGrid.Grid gridSolution;
-        private Basics.UCtrlOptInt uCtrlMaxNoPallets;
+        private treeDiM.Basics.UCtrlOptInt uCtrlMaxNoPallets;
     }
 }

@@ -30,8 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DockContentAnalysisBoxCase));
             this.gbStopCriterions = new System.Windows.Forms.GroupBox();
-            this.uCtrlOptMaxNumber = new treeDiM.StackBuilder.Basics.UCtrlOptInt();
-            this.uCtrlOptMaximumWeight = new treeDiM.StackBuilder.Basics.UCtrlOptDouble();
+            this.uCtrlOptMaxNumber = new treeDiM.Basics.UCtrlOptInt();
+            this.uCtrlOptMaximumWeight = new treeDiM.Basics.UCtrlOptDouble();
             ((System.ComponentModel.ISupportInitialize)(this.graphCtrlSolution)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerHoriz)).BeginInit();
             this.splitContainerHoriz.Panel1.SuspendLayout();
@@ -67,7 +67,6 @@
             resources.ApplyResources(this.uCtrlOptMaxNumber, "uCtrlOptMaxNumber");
             this.uCtrlOptMaxNumber.Minimum = 0;
             this.uCtrlOptMaxNumber.Name = "uCtrlOptMaxNumber";
-            this.uCtrlOptMaxNumber.Value = ((treeDiM.StackBuilder.Basics.OptInt)(resources.GetObject("uCtrlOptMaxNumber.Value")));
             // 
             // uCtrlOptMaximumWeight
             // 
@@ -78,8 +77,7 @@
             0,
             -2147483648});
             this.uCtrlOptMaximumWeight.Name = "uCtrlOptMaximumWeight";
-            this.uCtrlOptMaximumWeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_MASS;
-            this.uCtrlOptMaximumWeight.Value = ((treeDiM.StackBuilder.Basics.OptDouble)(resources.GetObject("uCtrlOptMaximumWeight.Value")));
+            this.uCtrlOptMaximumWeight.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_MASS;
             // 
             // DockContentAnalysisBoxCase
             // 
@@ -105,7 +103,7 @@
         #endregion
 
         private System.Windows.Forms.GroupBox gbStopCriterions;
-        private Basics.UCtrlOptInt uCtrlOptMaxNumber;
-        private Basics.UCtrlOptDouble uCtrlOptMaximumWeight;
+        private treeDiM.Basics.UCtrlOptInt uCtrlOptMaxNumber;
+        private treeDiM.Basics.UCtrlOptDouble uCtrlOptMaximumWeight;
     }
 }

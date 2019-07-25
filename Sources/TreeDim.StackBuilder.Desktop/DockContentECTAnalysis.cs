@@ -3,11 +3,17 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+
 using WeifenLuo.WinFormsUI.Docking;
+
 using log4net;
+
+using treeDiM.Basics;
 using treeDiM.StackBuilder.Basics;
-using treeDiM.EdgeCrushTest;
 #endregion
+/*
+using treeDiM.EdgeCrushTest;
+
 
 namespace treeDiM.StackBuilder.Desktop
 {
@@ -315,3 +321,4 @@ namespace treeDiM.StackBuilder.Desktop
     }
     #endregion
 }
+*/

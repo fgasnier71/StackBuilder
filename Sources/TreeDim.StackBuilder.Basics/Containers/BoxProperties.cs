@@ -4,6 +4,8 @@ using System.Drawing;
 
 using Sharp3D.Math.Core;
 
+using treeDiM.Basics;
+
 namespace treeDiM.StackBuilder.Basics
 {
     /// <summary>

@@ -33,12 +33,12 @@
             this.lbTrucks = new System.Windows.Forms.Label();
             this.checkBoxBestLayersOnly = new System.Windows.Forms.CheckBox();
             this.chkbAllowMultipleLayers = new System.Windows.Forms.CheckBox();
-            this.uCtrlMinDistanceLoadWall = new treeDiM.StackBuilder.Basics.UCtrlDualDouble();
-            this.uCtrlMinDistanceLoadRoof = new treeDiM.StackBuilder.Basics.UCtrlDouble();
+            this.uCtrlMinDistanceLoadWall = new treeDiM.Basics.UCtrlDualDouble();
+            this.uCtrlMinDistanceLoadRoof = new treeDiM.Basics.UCtrlDouble();
             this.uCtrlLayerList = new treeDiM.StackBuilder.Graphics.UCtrlLayerList();
             this.cbTrucks = new treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered();
             this.cbPallets = new treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered();
-            this.uCtrlMaxNoPallets = new treeDiM.StackBuilder.Basics.UCtrlOptInt();
+            this.uCtrlMaxNoPallets = new treeDiM.Basics.UCtrlOptInt();
             this.SuspendLayout();
             // 
             // tbDescription
@@ -74,10 +74,10 @@
             resources.ApplyResources(this.uCtrlMinDistanceLoadWall, "uCtrlMinDistanceLoadWall");
             this.uCtrlMinDistanceLoadWall.MinValue = 0D;
             this.uCtrlMinDistanceLoadWall.Name = "uCtrlMinDistanceLoadWall";
-            this.uCtrlMinDistanceLoadWall.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlMinDistanceLoadWall.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlMinDistanceLoadWall.ValueX = 0D;
             this.uCtrlMinDistanceLoadWall.ValueY = 0D;
-            this.uCtrlMinDistanceLoadWall.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDualDouble.ValueChangedDelegate(this.OnInputChanged);
+            this.uCtrlMinDistanceLoadWall.ValueChanged += new treeDiM.Basics.UCtrlDualDouble.ValueChangedDelegate(this.OnInputChanged);
             // 
             // uCtrlMinDistanceLoadRoof
             // 
@@ -88,9 +88,9 @@
             0,
             0});
             this.uCtrlMinDistanceLoadRoof.Name = "uCtrlMinDistanceLoadRoof";
-            this.uCtrlMinDistanceLoadRoof.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlMinDistanceLoadRoof.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlMinDistanceLoadRoof.Value = 0D;
-            this.uCtrlMinDistanceLoadRoof.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.ValueChangedDelegate(this.OnInputChanged);
+            this.uCtrlMinDistanceLoadRoof.ValueChanged += new treeDiM.Basics.UCtrlDouble.ValueChangedDelegate(this.OnInputChanged);
             // 
             // uCtrlLayerList
             // 
@@ -119,8 +119,7 @@
             resources.ApplyResources(this.uCtrlMaxNoPallets, "uCtrlMaxNoPallets");
             this.uCtrlMaxNoPallets.Minimum = 0;
             this.uCtrlMaxNoPallets.Name = "uCtrlMaxNoPallets";
-            this.uCtrlMaxNoPallets.Value = ((treeDiM.StackBuilder.Basics.OptInt)(resources.GetObject("uCtrlMaxNoPallets.Value")));
-            this.uCtrlMaxNoPallets.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlOptInt.ValueChangedDelegate(this.OnInputChanged);
+            this.uCtrlMaxNoPallets.ValueChanged += new treeDiM.Basics.UCtrlOptInt.ValueChangedDelegate(this.OnInputChanged);
             // 
             // FormNewAnalysisPalletTruck
             // 
@@ -164,9 +163,9 @@
         private System.Windows.Forms.Label lbTrucks;
         private Graphics.UCtrlLayerList uCtrlLayerList;
         private System.Windows.Forms.CheckBox checkBoxBestLayersOnly;
-        private Basics.UCtrlDouble uCtrlMinDistanceLoadRoof;
-        private Basics.UCtrlDualDouble uCtrlMinDistanceLoadWall;
+        private treeDiM.Basics.UCtrlDouble uCtrlMinDistanceLoadRoof;
+        private treeDiM.Basics.UCtrlDualDouble uCtrlMinDistanceLoadWall;
         private System.Windows.Forms.CheckBox chkbAllowMultipleLayers;
-        private Basics.UCtrlOptInt uCtrlMaxNoPallets;
+        private treeDiM.Basics.UCtrlOptInt uCtrlMaxNoPallets;
     }
 }

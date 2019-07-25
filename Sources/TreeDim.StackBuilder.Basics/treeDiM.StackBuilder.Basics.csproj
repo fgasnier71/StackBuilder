@@ -153,42 +153,6 @@
     <Compile Include="Controls\FormValueArray.Designer.cs">
       <DependentUpon>FormValueArray.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\UCtrlDualDouble.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controls\UCtrlDualDouble.Designer.cs">
-      <DependentUpon>UCtrlDualDouble.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\UCtrlInt.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controls\UCtrlInt.Designer.cs">
-      <DependentUpon>UCtrlInt.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\UCtrlOptInt.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controls\UCtrlOptInt.Designer.cs">
-      <DependentUpon>UCtrlOptInt.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\UCtrlTriInt.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controls\UCtrlTriInt.Designer.cs">
-      <DependentUpon>UCtrlTriInt.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\UCtrlOptTriDouble.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controls\UCtrlOptTriDouble.Designer.cs">
-      <DependentUpon>UCtrlOptTriDouble.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\UCtrlTriDouble.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controls\UCtrlTriDouble.Designer.cs">
-      <DependentUpon>UCtrlTriDouble.cs</DependentUpon>
-    </Compile>
     <Compile Include="Extensions\EnumerableExtensions.cs" />
     <Compile Include="Helpers\BBox3D.cs" />
     <Compile Include="AnalysesLegacy\BoxCaseAnalysis.cs" />
@@ -199,14 +163,6 @@
     <Compile Include="Helpers\ItemBaseNamed.cs" />
     <Compile Include="Helpers\Packable.cs" />
     <Compile Include="Helpers\CylinderPosition.cs" />
-    <Compile Include="OptValue\OptDouble.cs" />
-    <Compile Include="Controls\UCtrlOptDouble.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controls\UCtrlOptDouble.Designer.cs">
-      <DependentUpon>UCtrlOptDouble.cs</DependentUpon>
-    </Compile>
-    <Compile Include="OptValue\OptInt.cs" />
     <Compile Include="Helpers\PackableBrick.cs" />
     <Compile Include="Helpers\PackableBrickNamed.cs" />
     <Compile Include="Helpers\PackableNamed.cs" />
@@ -256,21 +212,15 @@
     <Compile Include="ConstraintSets\TruckConstraintSet.cs" />
     <Compile Include="Solutions\Solution.cs" />
     <Compile Include="UnitsManager.cs" />
-    <Compile Include="Controls\UCtrlDouble.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controls\UCtrlDouble.Designer.cs">
-      <DependentUpon>UCtrlDouble.cs</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OfficePickers\OfficePickers.csproj">
       <Project>{cad56b75-481b-4c76-b090-4bc2ff5e5681}</Project>
       <Name>OfficePickers</Name>
     </ProjectReference>
-    <ProjectReference Include="..\TreeDim.EdgeCrushTest\treeDiM.EdgeCrushTest.csproj">
-      <Project>{E4240EE0-60B3-4435-BD09-F81D56C0899A}</Project>
-      <Name>treeDiM.EdgeCrushTest</Name>
+    <ProjectReference Include="..\treeDiM.Basics\treeDiM.Basics.csproj">
+      <Project>{646ee507-e57d-43a7-93f3-365a687aec4b}</Project>
+      <Name>treeDiM.Basics</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -301,6 +251,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="OptValue\" />
     <Folder Include="Schemas\" />
   </ItemGroup>
   <ItemGroup>
@@ -316,66 +267,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\FormValueArray.resx">
       <DependentUpon>FormValueArray.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\UCtrlDouble.pt.resx">
-      <DependentUpon>UCtrlDouble.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\UCtrlDouble.tr.resx">
-      <DependentUpon>UCtrlDouble.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\UCtrlInt.pt.resx">
-      <DependentUpon>UCtrlInt.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\UCtrlInt.resx">
-      <DependentUpon>UCtrlInt.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\UCtrlOptDouble.pt.resx">
-      <DependentUpon>UCtrlOptDouble.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\UCtrlOptDouble.tr.resx">
-      <DependentUpon>UCtrlOptDouble.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\UCtrlOptInt.pt.resx">
-      <DependentUpon>UCtrlOptInt.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\UCtrlOptInt.resx">
-      <DependentUpon>UCtrlOptInt.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\UCtrlOptInt.tr.resx">
-      <DependentUpon>UCtrlOptInt.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\UCtrlOptTriDouble.pt.resx">
-      <DependentUpon>UCtrlOptTriDouble.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\UCtrlOptTriDouble.tr.resx">
-      <DependentUpon>UCtrlOptTriDouble.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\UCtrlTriDouble.pt.resx">
-      <DependentUpon>UCtrlTriDouble.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\UCtrlTriDouble.tr.resx">
-      <DependentUpon>UCtrlTriDouble.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\UCtrlTriInt.pt.resx">
-      <DependentUpon>UCtrlTriInt.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\UCtrlTriInt.resx">
-      <DependentUpon>UCtrlTriInt.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\UCtrlOptDouble.resx">
-      <DependentUpon>UCtrlOptDouble.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\UCtrlDouble.resx">
-      <DependentUpon>UCtrlDouble.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\UCtrlOptTriDouble.resx">
-      <DependentUpon>UCtrlOptTriDouble.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\UCtrlTriDouble.resx">
-      <DependentUpon>UCtrlTriDouble.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\UCtrlTriInt.tr.resx">
-      <DependentUpon>UCtrlTriInt.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.de.resx" />
     <EmbeddedResource Include="Properties\Resources.es.resx" />

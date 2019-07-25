@@ -15,6 +15,7 @@ using log4net;
 
 using Sharp3D.Math.Core;
 
+using treeDiM.Basics;
 using treeDiM.StackBuilder.Basics;
 using treeDiM.StackBuilder.Graphics;
 using treeDiM.StackBuilder.Reporting.Properties;

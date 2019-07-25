@@ -46,10 +46,10 @@
             this.chkUseIntermediatePacking = new System.Windows.Forms.CheckBox();
             this.statusStripDef = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelDef = new System.Windows.Forms.ToolStripStatusLabel();
-            this.uCtrlTriDimensions = new treeDiM.StackBuilder.Basics.UCtrlTriDouble();
-            this.uCtrlWeight = new treeDiM.StackBuilder.Basics.UCtrlDouble();
-            this.uCtrlThickness = new treeDiM.StackBuilder.Basics.UCtrlDouble();
-            this.uCtrlPalletHeight = new treeDiM.StackBuilder.Basics.UCtrlDouble();
+            this.uCtrlTriDimensions = new treeDiM.Basics.UCtrlTriDouble();
+            this.uCtrlWeight = new treeDiM.Basics.UCtrlDouble();
+            this.uCtrlThickness = new treeDiM.Basics.UCtrlDouble();
+            this.uCtrlPalletHeight = new treeDiM.Basics.UCtrlDouble();
             this.statusStripDef.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -170,7 +170,7 @@
             0,
             0});
             this.uCtrlTriDimensions.Name = "uCtrlTriDimensions";
-            this.uCtrlTriDimensions.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlTriDimensions.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlTriDimensions.ValueX = 0D;
             this.uCtrlTriDimensions.ValueY = 0D;
             this.uCtrlTriDimensions.ValueZ = 0D;
@@ -184,7 +184,7 @@
             0,
             -2147483648});
             this.uCtrlWeight.Name = "uCtrlWeight";
-            this.uCtrlWeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_MASS;
+            this.uCtrlWeight.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_MASS;
             this.uCtrlWeight.Value = 0D;
             // 
             // uCtrlThickness
@@ -196,7 +196,7 @@
             0,
             -2147483648});
             this.uCtrlThickness.Name = "uCtrlThickness";
-            this.uCtrlThickness.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlThickness.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlThickness.Value = 0D;
             // 
             // uCtrlPalletHeight
@@ -208,7 +208,7 @@
             0,
             -2147483648});
             this.uCtrlPalletHeight.Name = "uCtrlPalletHeight";
-            this.uCtrlPalletHeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlPalletHeight.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlPalletHeight.Value = 0D;
             // 
             // FormNewINTEX

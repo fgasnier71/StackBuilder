@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using Sharp3D.Math.Core;
 using log4net;
 
+using treeDiM.Basics;
 using treeDiM.StackBuilder.Basics;
 using treeDiM.StackBuilder.Graphics;
 using treeDiM.StackBuilder.Desktop.Properties;

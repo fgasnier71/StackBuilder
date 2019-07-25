@@ -53,7 +53,7 @@
             this.gpConditions = new System.Windows.Forms.GroupBox();
             this.nudMaxCountImage = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
-            this.uCtrlMinDimensions = new treeDiM.StackBuilder.Basics.UCtrlDouble();
+            this.uCtrlMinDimensions = new treeDiM.Basics.UCtrlDouble();
             this.label8 = new System.Windows.Forms.Label();
             this.cbUnitSystem = new System.Windows.Forms.ComboBox();
             this.gbInputColumns.SuspendLayout();
@@ -435,7 +435,7 @@
             0,
             0});
             this.uCtrlMinDimensions.Name = "uCtrlMinDimensions";
-            this.uCtrlMinDimensions.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlMinDimensions.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlMinDimensions.Value = 0D;
             // 
             // label8
@@ -512,7 +512,7 @@
         private System.Windows.Forms.NumericUpDown nudImageSize;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox gpConditions;
-        private Basics.UCtrlDouble uCtrlMinDimensions;
+        private treeDiM.Basics.UCtrlDouble uCtrlMinDimensions;
         private System.Windows.Forms.NumericUpDown nudMaxCountImage;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label8;

@@ -30,8 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormOptimiseMultiCase));
             this.splitContainerHoriz = new System.Windows.Forms.SplitContainer();
-            this.uCtrlCaseDimensionsMax = new treeDiM.StackBuilder.Basics.UCtrlOptTriDouble();
-            this.uCtrlCaseDimensionsMin = new treeDiM.StackBuilder.Basics.UCtrlOptTriDouble();
+            this.uCtrlCaseDimensionsMax = new treeDiM.Basics.UCtrlOptTriDouble();
+            this.uCtrlCaseDimensionsMin = new treeDiM.Basics.UCtrlOptTriDouble();
             this.gridSolutions = new SourceGrid.Grid();
             this.cbBoxes = new treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered();
             this.uCtrlCaseOrient = new treeDiM.StackBuilder.Graphics.uCtrlCaseOrientation();
@@ -47,7 +47,7 @@
             this.graphCtrl = new treeDiM.StackBuilder.Graphics.Graphics3DControl();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelDef = new System.Windows.Forms.ToolStripStatusLabel();
-            this.uCtrlNumberPerCase = new treeDiM.StackBuilder.Basics.UCtrlOptInt();
+            this.uCtrlNumberPerCase = new treeDiM.Basics.UCtrlOptInt();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerHoriz)).BeginInit();
             this.splitContainerHoriz.Panel1.SuspendLayout();
             this.splitContainerHoriz.Panel2.SuspendLayout();
@@ -94,12 +94,11 @@
             0,
             0});
             this.uCtrlCaseDimensionsMax.Name = "uCtrlCaseDimensionsMax";
-            this.uCtrlCaseDimensionsMax.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
-            this.uCtrlCaseDimensionsMax.Value = ((Sharp3D.Math.Core.Vector3D)(resources.GetObject("uCtrlCaseDimensionsMax.Value")));
+            this.uCtrlCaseDimensionsMax.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlCaseDimensionsMax.X = 0D;
             this.uCtrlCaseDimensionsMax.Y = 0D;
             this.uCtrlCaseDimensionsMax.Z = 0D;
-            this.uCtrlCaseDimensionsMax.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlOptTriDouble.ValueChangedDelegate(this.OnFillListCases);
+            this.uCtrlCaseDimensionsMax.ValueChanged += new treeDiM.Basics.UCtrlOptTriDouble.ValueChangedDelegate(this.OnFillListCases);
             // 
             // uCtrlCaseDimensionsMin
             // 
@@ -111,12 +110,11 @@
             0,
             0});
             this.uCtrlCaseDimensionsMin.Name = "uCtrlCaseDimensionsMin";
-            this.uCtrlCaseDimensionsMin.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
-            this.uCtrlCaseDimensionsMin.Value = ((Sharp3D.Math.Core.Vector3D)(resources.GetObject("uCtrlCaseDimensionsMin.Value")));
+            this.uCtrlCaseDimensionsMin.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlCaseDimensionsMin.X = 0D;
             this.uCtrlCaseDimensionsMin.Y = 0D;
             this.uCtrlCaseDimensionsMin.Z = 0D;
-            this.uCtrlCaseDimensionsMin.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlOptTriDouble.ValueChangedDelegate(this.OnFillListCases);
+            this.uCtrlCaseDimensionsMin.ValueChanged += new treeDiM.Basics.UCtrlOptTriDouble.ValueChangedDelegate(this.OnFillListCases);
             // 
             // gridSolutions
             // 
@@ -221,8 +219,7 @@
             resources.ApplyResources(this.uCtrlNumberPerCase, "uCtrlNumberPerCase");
             this.uCtrlNumberPerCase.Minimum = -10000;
             this.uCtrlNumberPerCase.Name = "uCtrlNumberPerCase";
-            this.uCtrlNumberPerCase.Value = ((treeDiM.StackBuilder.Basics.OptInt)(resources.GetObject("uCtrlNumberPerCase.Value")));
-            this.uCtrlNumberPerCase.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlOptInt.ValueChangedDelegate(this.OnConstraintsChanged);
+            this.uCtrlNumberPerCase.ValueChanged += new treeDiM.Basics.UCtrlOptInt.ValueChangedDelegate(this.OnConstraintsChanged);
             // 
             // FormOptimiseMultiCase
             // 
@@ -266,8 +263,8 @@
         private System.Windows.Forms.TextBox tbAnalysisName;
         private System.Windows.Forms.Label lbAnalysisDescription;
         private System.Windows.Forms.Label lbAnalysisName;
-        private Basics.UCtrlOptTriDouble uCtrlCaseDimensionsMax;
-        private Basics.UCtrlOptTriDouble uCtrlCaseDimensionsMin;
-        private Basics.UCtrlOptInt uCtrlNumberPerCase;
+        private treeDiM.Basics.UCtrlOptTriDouble uCtrlCaseDimensionsMax;
+        private treeDiM.Basics.UCtrlOptTriDouble uCtrlCaseDimensionsMin;
+        private treeDiM.Basics.UCtrlOptInt uCtrlNumberPerCase;
     }
 }

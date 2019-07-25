@@ -36,10 +36,10 @@
             this.cbPallets = new treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered();
             this.tabCtrlContraints = new System.Windows.Forms.TabControl();
             this.tabPageStopCriterions = new System.Windows.Forms.TabPage();
-            this.uCtrlOptMaximumWeight = new treeDiM.StackBuilder.Basics.UCtrlOptDouble();
-            this.uCtrlMaximumHeight = new treeDiM.StackBuilder.Basics.UCtrlDouble();
+            this.uCtrlOptMaximumWeight = new treeDiM.Basics.UCtrlOptDouble();
+            this.uCtrlMaximumHeight = new treeDiM.Basics.UCtrlDouble();
             this.tabPageOverhang = new System.Windows.Forms.TabPage();
-            this.uCtrlOverhang = new treeDiM.StackBuilder.Basics.UCtrlDualDouble();
+            this.uCtrlOverhang = new treeDiM.Basics.UCtrlDualDouble();
             this.lbSelect = new System.Windows.Forms.Label();
             this.checkBoxBestLayersOnly = new System.Windows.Forms.CheckBox();
             this.uCtrlPackable = new treeDiM.StackBuilder.Graphics.Controls.UCtrlPackable();
@@ -121,9 +121,8 @@
             0,
             -2147483648});
             this.uCtrlOptMaximumWeight.Name = "uCtrlOptMaximumWeight";
-            this.uCtrlOptMaximumWeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_MASS;
-            this.uCtrlOptMaximumWeight.Value = ((treeDiM.StackBuilder.Basics.OptDouble)(resources.GetObject("uCtrlOptMaximumWeight.Value")));
-            this.uCtrlOptMaximumWeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlOptDouble.ValueChangedDelegate(this.onInputChanged);
+            this.uCtrlOptMaximumWeight.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_MASS;
+            this.uCtrlOptMaximumWeight.ValueChanged += new treeDiM.Basics.UCtrlOptDouble.ValueChangedDelegate(this.onInputChanged);
             // 
             // uCtrlMaximumHeight
             // 
@@ -134,9 +133,9 @@
             0,
             -2147483648});
             this.uCtrlMaximumHeight.Name = "uCtrlMaximumHeight";
-            this.uCtrlMaximumHeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlMaximumHeight.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlMaximumHeight.Value = 0D;
-            this.uCtrlMaximumHeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.ValueChangedDelegate(this.onInputChanged);
+            this.uCtrlMaximumHeight.ValueChanged += new treeDiM.Basics.UCtrlDouble.ValueChangedDelegate(this.onInputChanged);
             // 
             // tabPageOverhang
             // 
@@ -150,10 +149,10 @@
             resources.ApplyResources(this.uCtrlOverhang, "uCtrlOverhang");
             this.uCtrlOverhang.MinValue = -10000D;
             this.uCtrlOverhang.Name = "uCtrlOverhang";
-            this.uCtrlOverhang.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlOverhang.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlOverhang.ValueX = 0D;
             this.uCtrlOverhang.ValueY = 0D;
-            this.uCtrlOverhang.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDualDouble.ValueChangedDelegate(this.onInputChanged);
+            this.uCtrlOverhang.ValueChanged += new treeDiM.Basics.UCtrlDualDouble.ValueChangedDelegate(this.onInputChanged);
             // 
             // lbSelect
             // 
@@ -218,9 +217,9 @@
         private System.Windows.Forms.TabPage tabPageStopCriterions;
         private System.Windows.Forms.TabPage tabPageOverhang;
         private System.Windows.Forms.Label lbSelect;
-        private Basics.UCtrlDouble uCtrlMaximumHeight;
-        private Basics.UCtrlOptDouble uCtrlOptMaximumWeight;
-        private Basics.UCtrlDualDouble uCtrlOverhang;
+        private treeDiM.Basics.UCtrlDouble uCtrlMaximumHeight;
+        private treeDiM.Basics.UCtrlOptDouble uCtrlOptMaximumWeight;
+        private treeDiM.Basics.UCtrlDualDouble uCtrlOverhang;
         private System.Windows.Forms.CheckBox checkBoxBestLayersOnly;
         private Graphics.Controls.UCtrlPackable uCtrlPackable;
     }

@@ -38,8 +38,8 @@
             this.uCtrlCaseOrientation = new treeDiM.StackBuilder.Graphics.uCtrlCaseOrientation();
             this.tabControlConstraints = new System.Windows.Forms.TabControl();
             this.tabPageStopCriterions = new System.Windows.Forms.TabPage();
-            this.uCtrlOptMaxNumber = new treeDiM.StackBuilder.Basics.UCtrlOptInt();
-            this.uCtrlOptMaximumWeight = new treeDiM.StackBuilder.Basics.UCtrlOptDouble();
+            this.uCtrlOptMaxNumber = new treeDiM.Basics.UCtrlOptInt();
+            this.uCtrlOptMaximumWeight = new treeDiM.Basics.UCtrlOptDouble();
             this.bnBestCombination = new System.Windows.Forms.Button();
             this.tabControlConstraints.SuspendLayout();
             this.tabPageStopCriterions.SuspendLayout();
@@ -124,7 +124,6 @@
             resources.ApplyResources(this.uCtrlOptMaxNumber, "uCtrlOptMaxNumber");
             this.uCtrlOptMaxNumber.Minimum = 0;
             this.uCtrlOptMaxNumber.Name = "uCtrlOptMaxNumber";
-            this.uCtrlOptMaxNumber.Value = ((treeDiM.StackBuilder.Basics.OptInt)(resources.GetObject("uCtrlOptMaxNumber.Value")));
             // 
             // uCtrlOptMaximumWeight
             // 
@@ -135,8 +134,7 @@
             0,
             -2147483648});
             this.uCtrlOptMaximumWeight.Name = "uCtrlOptMaximumWeight";
-            this.uCtrlOptMaximumWeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_MASS;
-            this.uCtrlOptMaximumWeight.Value = ((treeDiM.StackBuilder.Basics.OptDouble)(resources.GetObject("uCtrlOptMaximumWeight.Value")));
+            this.uCtrlOptMaximumWeight.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_MASS;
             // 
             // bnBestCombination
             // 
@@ -190,8 +188,8 @@
         private System.Windows.Forms.Label lbCase;
         private System.Windows.Forms.TabControl tabControlConstraints;
         private System.Windows.Forms.TabPage tabPageStopCriterions;
-        private Basics.UCtrlOptDouble uCtrlOptMaximumWeight;
-        private Basics.UCtrlOptInt uCtrlOptMaxNumber;
+        private treeDiM.Basics.UCtrlOptDouble uCtrlOptMaximumWeight;
+        private treeDiM.Basics.UCtrlOptInt uCtrlOptMaxNumber;
         private System.Windows.Forms.Button bnBestCombination;
     }
 }

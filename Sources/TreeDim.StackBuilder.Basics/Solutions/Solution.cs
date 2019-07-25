@@ -8,6 +8,8 @@ using System.Text.RegularExpressions;
 using Sharp3D.Math.Core;
 
 using log4net;
+
+using treeDiM.Basics;
 #endregion
 
 namespace treeDiM.StackBuilder.Basics

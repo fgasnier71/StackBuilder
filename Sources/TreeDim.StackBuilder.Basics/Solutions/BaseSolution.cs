@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 
+using treeDiM.Basics;
+
 namespace treeDiM.StackBuilder.Basics
 {
     public class DataDef

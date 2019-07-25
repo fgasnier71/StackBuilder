@@ -8,7 +8,7 @@ using System.Globalization;
 using System.Reflection;
 using System.Resources;
 
-using treeDiM.StackBuilder.Basics;
+using treeDiM.Basics;
 #endregion
 
 namespace treeDiM.StackBuilder.Desktop

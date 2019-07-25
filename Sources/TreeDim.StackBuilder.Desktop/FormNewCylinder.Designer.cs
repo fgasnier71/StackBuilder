@@ -30,12 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormNewCylinder));
             this.gbDimensions = new System.Windows.Forms.GroupBox();
-            this.uCtrlHeight = new treeDiM.StackBuilder.Basics.UCtrlDouble();
-            this.uCtrlDiameterInner = new treeDiM.StackBuilder.Basics.UCtrlDouble();
-            this.uCtrlDiameterOuter = new treeDiM.StackBuilder.Basics.UCtrlDouble();
+            this.uCtrlHeight = new treeDiM.Basics.UCtrlDouble();
+            this.uCtrlDiameterInner = new treeDiM.Basics.UCtrlDouble();
+            this.uCtrlDiameterOuter = new treeDiM.Basics.UCtrlDouble();
             this.gbWeight = new System.Windows.Forms.GroupBox();
-            this.uCtrlNetWeight = new treeDiM.StackBuilder.Basics.UCtrlOptDouble();
-            this.uCtrlWeight = new treeDiM.StackBuilder.Basics.UCtrlDouble();
+            this.uCtrlNetWeight = new treeDiM.Basics.UCtrlOptDouble();
+            this.uCtrlWeight = new treeDiM.Basics.UCtrlDouble();
             this.graphCtrl = new treeDiM.StackBuilder.Graphics.Graphics3DControl();
             this.gbFaceColor = new System.Windows.Forms.GroupBox();
             this.cbColorWallInner = new OfficePickers.ColorPicker.ComboBoxColorPicker();
@@ -81,9 +81,9 @@
             0,
             0});
             this.uCtrlHeight.Name = "uCtrlHeight";
-            this.uCtrlHeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlHeight.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlHeight.Value = 0D;
-            this.uCtrlHeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.ValueChangedDelegate(this.OnValueChanged);
+            this.uCtrlHeight.ValueChanged += new treeDiM.Basics.UCtrlDouble.ValueChangedDelegate(this.OnValueChanged);
             // 
             // uCtrlDiameterInner
             // 
@@ -94,9 +94,9 @@
             0,
             0});
             this.uCtrlDiameterInner.Name = "uCtrlDiameterInner";
-            this.uCtrlDiameterInner.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlDiameterInner.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlDiameterInner.Value = 0D;
-            this.uCtrlDiameterInner.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.ValueChangedDelegate(this.OnValueChanged);
+            this.uCtrlDiameterInner.ValueChanged += new treeDiM.Basics.UCtrlDouble.ValueChangedDelegate(this.OnValueChanged);
             // 
             // uCtrlDiameterOuter
             // 
@@ -107,9 +107,9 @@
             0,
             0});
             this.uCtrlDiameterOuter.Name = "uCtrlDiameterOuter";
-            this.uCtrlDiameterOuter.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlDiameterOuter.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlDiameterOuter.Value = 0D;
-            this.uCtrlDiameterOuter.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.ValueChangedDelegate(this.OnValueChanged);
+            this.uCtrlDiameterOuter.ValueChanged += new treeDiM.Basics.UCtrlDouble.ValueChangedDelegate(this.OnValueChanged);
             // 
             // gbWeight
             // 
@@ -128,9 +128,8 @@
             0,
             -2147483648});
             this.uCtrlNetWeight.Name = "uCtrlNetWeight";
-            this.uCtrlNetWeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_MASS;
-            this.uCtrlNetWeight.Value = ((treeDiM.StackBuilder.Basics.OptDouble)(resources.GetObject("uCtrlNetWeight.Value")));
-            this.uCtrlNetWeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlOptDouble.ValueChangedDelegate(this.OnValueChanged);
+            this.uCtrlNetWeight.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_MASS;
+            this.uCtrlNetWeight.ValueChanged += new treeDiM.Basics.UCtrlOptDouble.ValueChangedDelegate(this.OnValueChanged);
             // 
             // uCtrlWeight
             // 
@@ -141,9 +140,9 @@
             0,
             0});
             this.uCtrlWeight.Name = "uCtrlWeight";
-            this.uCtrlWeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_MASS;
+            this.uCtrlWeight.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_MASS;
             this.uCtrlWeight.Value = 0D;
-            this.uCtrlWeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.ValueChangedDelegate(this.OnValueChanged);
+            this.uCtrlWeight.ValueChanged += new treeDiM.Basics.UCtrlDouble.ValueChangedDelegate(this.OnValueChanged);
             // 
             // graphCtrl
             // 
@@ -535,11 +534,11 @@
         private System.Windows.Forms.Label lbWallColor;
         private System.Windows.Forms.Label lbTop;
         private System.Windows.Forms.Label label1;
-        private Basics.UCtrlDouble uCtrlHeight;
-        private Basics.UCtrlDouble uCtrlDiameterInner;
-        private Basics.UCtrlDouble uCtrlDiameterOuter;
-        private Basics.UCtrlOptDouble uCtrlNetWeight;
-        private Basics.UCtrlDouble uCtrlWeight;
+        private treeDiM.Basics.UCtrlDouble uCtrlHeight;
+        private treeDiM.Basics.UCtrlDouble uCtrlDiameterInner;
+        private treeDiM.Basics.UCtrlDouble uCtrlDiameterOuter;
+        private treeDiM.Basics.UCtrlOptDouble uCtrlNetWeight;
+        private treeDiM.Basics.UCtrlDouble uCtrlWeight;
         private System.Windows.Forms.Button bnSendToDB;
     }
 }

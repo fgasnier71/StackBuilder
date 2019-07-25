@@ -1,10 +1,10 @@
 ﻿#region Using directives
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 using Sharp3D.Math.Core;
+
+using treeDiM.Basics;
 using treeDiM.StackBuilder.Basics.Properties;
 #endregion
 

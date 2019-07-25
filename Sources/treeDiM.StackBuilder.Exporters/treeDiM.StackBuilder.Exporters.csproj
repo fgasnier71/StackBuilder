@@ -86,6 +86,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\treeDiM.Basics\treeDiM.Basics.csproj">
+      <Project>{646ee507-e57d-43a7-93f3-365a687aec4b}</Project>
+      <Name>treeDiM.Basics</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TreeDim.StackBuilder.Basics\treeDiM.StackBuilder.Basics.csproj">
       <Project>{444c01d0-53fd-49a1-9d55-267b49161357}</Project>
       <Name>treeDiM.StackBuilder.Basics</Name>

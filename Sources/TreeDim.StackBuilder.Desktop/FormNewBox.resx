@@ -185,14 +185,6 @@
   <data name="&gt;&gt;bnOk.Name" xml:space="preserve">
     <value>bnOk</value>
   </data>
-  <data name="uCtrlNetWeight.Value" mimetype="application/x-microsoft.net.object.binary.base64">
-    <value>
-        AAEAAAD/////AQAAAAAAAAAMAgAAAFN0cmVlRGlNLlN0YWNrQnVpbGRlci5CYXNpY3MsIFZlcnNpb249
-        My4wLjAuODMsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49bnVsbAUBAAAAJXRyZWVEaU0u
-        U3RhY2tCdWlsZGVyLkJhc2ljcy5PcHREb3VibGUCAAAACl9hY3RpdmF0ZWQEX3ZhbAAAAQYCAAAAAAAA
-        AAAAAAAACw==
-</value>
-  </data>
   <data name="&gt;&gt;chkAllFaces.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
@@ -376,7 +368,7 @@
     <value>Color</value>
   </data>
   <data name="&gt;&gt;uCtrlDimensionsOuter.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlTriDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.83, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.Basics.UCtrlTriDouble, treeDiM.Basics, Version=3.0.0.96, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="cbTapeColor.Items" xml:space="preserve">
     <value>Color</value>
@@ -385,7 +377,7 @@
     <value>Color</value>
   </data>
   <data name="&gt;&gt;ctrlStrapperSet.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.Controls.CtrlStrapperSet, treeDiM.StackBuilder.Basics, Version=3.0.0.83, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Basics.Controls.CtrlStrapperSet, treeDiM.StackBuilder.Basics, Version=3.0.0.96, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;tabCtrl.Parent" xml:space="preserve">
     <value>$this</value>
@@ -448,7 +440,7 @@
     <value>188, 37</value>
   </data>
   <data name="&gt;&gt;uCtrlMaxWeight.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlOptDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.83, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.Basics.UCtrlOptDouble, treeDiM.Basics, Version=3.0.0.96, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;tabCtrl.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -560,14 +552,6 @@
   </data>
   <data name="bnSaveToDB.Location" type="System.Drawing.Point, System.Drawing">
     <value>433, 413</value>
-  </data>
-  <data name="uCtrlMaxWeight.Value" mimetype="application/x-microsoft.net.object.binary.base64">
-    <value>
-        AAEAAAD/////AQAAAAAAAAAMAgAAAFN0cmVlRGlNLlN0YWNrQnVpbGRlci5CYXNpY3MsIFZlcnNpb249
-        My4wLjAuODMsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49bnVsbAUBAAAAJXRyZWVEaU0u
-        U3RhY2tCdWlsZGVyLkJhc2ljcy5PcHREb3VibGUCAAAACl9hY3RpdmF0ZWQEX3ZhbAAAAQYCAAAAAAAA
-        AAAAAAAACw==
-</value>
   </data>
   <data name="&gt;&gt;btBitmaps.Name" xml:space="preserve">
     <value>btBitmaps</value>
@@ -894,7 +878,7 @@
     <value>Tape color</value>
   </data>
   <data name="&gt;&gt;uCtrlTapeWidth.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlOptDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.83, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.Basics.UCtrlOptDouble, treeDiM.Basics, Version=3.0.0.96, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;bnSaveToDB.ZOrder" xml:space="preserve">
     <value>7</value>
@@ -948,7 +932,7 @@
     <value>Color</value>
   </data>
   <data name="&gt;&gt;uCtrlNetWeight.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlOptDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.83, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.Basics.UCtrlOptDouble, treeDiM.Basics, Version=3.0.0.96, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="graphCtrl.Size" type="System.Drawing.Size, System.Drawing">
     <value>210, 227</value>
@@ -975,7 +959,7 @@
     <value>Color</value>
   </data>
   <data name="&gt;&gt;uCtrlDimensionsInner.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlOptTriDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.83, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.Basics.UCtrlOptTriDouble, treeDiM.Basics, Version=3.0.0.83, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="cbColor.Items18" xml:space="preserve">
     <value>Color</value>
@@ -1412,14 +1396,6 @@
   <data name="&gt;&gt;tbDescription.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="uCtrlTapeWidth.Value" mimetype="application/x-microsoft.net.object.binary.base64">
-    <value>
-        AAEAAAD/////AQAAAAAAAAAMAgAAAFN0cmVlRGlNLlN0YWNrQnVpbGRlci5CYXNpY3MsIFZlcnNpb249
-        My4wLjAuODMsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49bnVsbAUBAAAAJXRyZWVEaU0u
-        U3RhY2tCdWlsZGVyLkJhc2ljcy5PcHREb3VibGUCAAAACl9hY3RpdmF0ZWQEX3ZhbAAAAQYCAAAAAAAA
-        AAAAAAAACw==
-</value>
-  </data>
   <data name="cbTapeColor.Items26" xml:space="preserve">
     <value>Color</value>
   </data>
@@ -1442,7 +1418,7 @@
     <value>Color</value>
   </data>
   <data name="&gt;&gt;vcWeight.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.83, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.Basics.UCtrlDouble, treeDiM.Basics, Version=3.0.0.96, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="cbColor.Items103" xml:space="preserve">
     <value>Color</value>

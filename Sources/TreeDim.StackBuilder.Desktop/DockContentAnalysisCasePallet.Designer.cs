@@ -30,9 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DockContentAnalysisCasePallet));
             this.gbStopCriterions = new System.Windows.Forms.GroupBox();
-            this.uCtrlOptMaxNumber = new treeDiM.StackBuilder.Basics.UCtrlOptInt();
-            this.uCtrlOptMaximumWeight = new treeDiM.StackBuilder.Basics.UCtrlOptDouble();
-            this.uCtrlMaxPalletHeight = new treeDiM.StackBuilder.Basics.UCtrlDouble();
+            this.uCtrlOptMaxNumber = new treeDiM.Basics.UCtrlOptInt();
+            this.uCtrlOptMaximumWeight = new treeDiM.Basics.UCtrlOptDouble();
+            this.uCtrlMaxPalletHeight = new treeDiM.Basics.UCtrlDouble();
             this.tabCtrl = new System.Windows.Forms.TabControl();
             this.tabPagePalletCorners = new System.Windows.Forms.TabPage();
             this.cbPalletCorners = new System.Windows.Forms.ComboBox();
@@ -93,8 +93,7 @@
             resources.ApplyResources(this.uCtrlOptMaxNumber, "uCtrlOptMaxNumber");
             this.uCtrlOptMaxNumber.Minimum = 0;
             this.uCtrlOptMaxNumber.Name = "uCtrlOptMaxNumber";
-            this.uCtrlOptMaxNumber.Value = ((treeDiM.StackBuilder.Basics.OptInt)(resources.GetObject("uCtrlOptMaxNumber.Value")));
-            this.uCtrlOptMaxNumber.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlOptInt.ValueChangedDelegate(this.OnCriterionChanged);
+            this.uCtrlOptMaxNumber.ValueChanged += new treeDiM.Basics.UCtrlOptInt.ValueChangedDelegate(this.OnCriterionChanged);
             // 
             // uCtrlOptMaximumWeight
             // 
@@ -105,8 +104,7 @@
             0,
             -2147483648});
             this.uCtrlOptMaximumWeight.Name = "uCtrlOptMaximumWeight";
-            this.uCtrlOptMaximumWeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_MASS;
-            this.uCtrlOptMaximumWeight.Value = ((treeDiM.StackBuilder.Basics.OptDouble)(resources.GetObject("uCtrlOptMaximumWeight.Value")));
+            this.uCtrlOptMaximumWeight.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_MASS;
             // 
             // uCtrlMaxPalletHeight
             // 
@@ -117,7 +115,7 @@
             0,
             -2147483648});
             this.uCtrlMaxPalletHeight.Name = "uCtrlMaxPalletHeight";
-            this.uCtrlMaxPalletHeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlMaxPalletHeight.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlMaxPalletHeight.Value = 0D;
             // 
             // tabCtrl
@@ -240,8 +238,8 @@
         private System.Windows.Forms.ComboBox cbPalletFilm;
         private System.Windows.Forms.CheckBox chkbPalletFilm;
         private System.Windows.Forms.GroupBox gbStopCriterions;
-        private Basics.UCtrlDouble uCtrlMaxPalletHeight;
-        private Basics.UCtrlOptDouble uCtrlOptMaximumWeight;
-        private Basics.UCtrlOptInt uCtrlOptMaxNumber;
+        private treeDiM.Basics.UCtrlDouble uCtrlMaxPalletHeight;
+        private treeDiM.Basics.UCtrlOptDouble uCtrlOptMaximumWeight;
+        private treeDiM.Basics.UCtrlOptInt uCtrlOptMaxNumber;
     }
 }

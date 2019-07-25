@@ -2,11 +2,12 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-
 using System.IO;
-using treeDiM.EdgeCrushTest.Properties;
+using System.Linq;
 
 using log4net;
+
+using treeDiM.EdgeCrushTest.Properties;
 #endregion
 
 namespace treeDiM.EdgeCrushTest
@@ -19,11 +20,6 @@ namespace treeDiM.EdgeCrushTest
             MCKEE_CLASSIC
             , MCKEE_IMPROVED
         }
-        #endregion
-
-        #region Data members
-        static readonly ILog _log = LogManager.GetLogger(typeof(McKeeFormula));
-        static private Dictionary<string, QualityData> _cardboardQualityDictionary;
         #endregion
 
         #region Formula implementation
@@ -63,9 +59,10 @@ namespace treeDiM.EdgeCrushTest
             , string cardboardId, string caseType
             , FormulaType mcKeeFormulaType)
         {
-            if (!CardboardQualityDictionary.ContainsKey(cardboardId))
+            var dictQuality = CardboardQualityAccessor.Instance.CardboardQualityDictionary;
+            if (!dictQuality.ContainsKey(cardboardId))
                 throw new Exception(Exception.ErrorType.ERROR_INVALIDCARDBOARD, cardboardId);
-            QualityData qualityData = CardboardQualityDictionary[cardboardId];
+            QualityData qualityData = dictQuality[cardboardId];
 
             if (!CaseTypeDictionary.ContainsKey(caseType))
                 throw new Exception(Exception.ErrorType.ERROR_INVALIDCASETYPE, caseType);
@@ -117,8 +114,8 @@ namespace treeDiM.EdgeCrushTest
         {
             switch (type)
             {
-                case FormulaType.MCKEE_CLASSIC: return Resource.MCKEEFORMULA_CLASSIC;
-                case FormulaType.MCKEE_IMPROVED: return Resource.MCKEEFORMULA_IMPROVED;
+                case FormulaType.MCKEE_CLASSIC: return Resources.MCKEEFORMULA_CLASSIC;
+                case FormulaType.MCKEE_IMPROVED: return Resources.MCKEEFORMULA_IMPROVED;
                 default: return "";
             }
         }
@@ -127,9 +124,9 @@ namespace treeDiM.EdgeCrushTest
         /// </summary>
         public static FormulaType TextToMode(string sMode)
         {
-            if (string.Equals(sMode, Resource.MCKEEFORMULA_CLASSIC))
+            if (string.Equals(sMode, Resources.MCKEEFORMULA_CLASSIC))
                 return FormulaType.MCKEE_CLASSIC;
-            else if (string.Equals(sMode, Resource.MCKEEFORMULA_IMPROVED))
+            else if (string.Equals(sMode, Resources.MCKEEFORMULA_IMPROVED))
                 return FormulaType.MCKEE_IMPROVED;
             else
                 return FormulaType.MCKEE_CLASSIC;
@@ -143,7 +140,7 @@ namespace treeDiM.EdgeCrushTest
             {
                 Dictionary<string, double> caseTypeDictionary = new Dictionary<string,double>()
                 {
-                    { Resource.CASETYPE_AMERICANCASE, 1.0 }
+                    { Resources.CASETYPE_AMERICANCASE, 1.0 }
                 };
                 return caseTypeDictionary;
             }
@@ -176,13 +173,13 @@ namespace treeDiM.EdgeCrushTest
             {
                 Dictionary<string, double> jStockCoef = new Dictionary<string, double>()
                 {
-                    {Resource.STORAGEDURATION_0DAY, 1.0}
-                    , {Resource.STORAGEDURATION_1_3DAYS, 0.7}
-                    , {Resource.STORAGEDURATION_4_10DAYS, 0.65}
-                    , {Resource.STORAGEDURATION_11_30DAYS, 0.6}
-                    , {Resource.STORAGEDURATION_1_3MONTHES, 0.55}
-                    , {Resource.STORAGEDURATION_3_4MONTHES, 0.5}
-                    , {Resource.STORAGEDURATION_4_MONTHES, 0.45}
+                    {Resources.STORAGEDURATION_0DAY, 1.0}
+                    , {Resources.STORAGEDURATION_1_3DAYS, 0.7}
+                    , {Resources.STORAGEDURATION_4_10DAYS, 0.65}
+                    , {Resources.STORAGEDURATION_11_30DAYS, 0.6}
+                    , {Resources.STORAGEDURATION_1_3MONTHES, 0.55}
+                    , {Resources.STORAGEDURATION_3_4MONTHES, 0.5}
+                    , {Resources.STORAGEDURATION_4_MONTHES, 0.45}
                 };
                 return jStockCoef;
             }
@@ -196,49 +193,18 @@ namespace treeDiM.EdgeCrushTest
             {
                 Dictionary<string, double> printCoefDictionary = new Dictionary<string,double>()
                 {
-                    {Resource.PRINTEDSURFACE_SIMPLE, 1.0}
-                    , {Resource.PRINTEDSURFACE_DISTRIBUTED, 0.9}
-                    , {Resource.PRINTEDSURFACE_COMPLEX, 0.8}
-                    , {Resource.PRINTEDSURFACE_COVERED, 0.7}
+                    {Resources.PRINTEDSURFACE_SIMPLE, 1.0}
+                    , {Resources.PRINTEDSURFACE_DISTRIBUTED, 0.9}
+                    , {Resources.PRINTEDSURFACE_COMPLEX, 0.8}
+                    , {Resources.PRINTEDSURFACE_COVERED, 0.7}
                 };
                 return printCoefDictionary;
             }
         }
-        /// <summary>
-        /// Cardboard quality dictionary
-        /// </summary>
-        public static Dictionary<string, QualityData> CardboardQualityDictionary
-        {
-            get
-            {
-                if (null == _cardboardQualityDictionary)
-                {
-                    // instantiate
-                    _cardboardQualityDictionary = new Dictionary<string, QualityData>();
-                    // get db file path
-                    string dbFilePath = Settings.Default.CardboardQualityDBFile;
-                    // check existence
-                    if (!File.Exists(dbFilePath))
-                        throw new FileNotFoundException(Resource.MESSAGE_CARDBOARDQUALITYDBNOTFOUND, dbFilePath);
-                    // load file
-                    CardboardQualityList cardboardQualityList = CardboardQualityList.LoadFromFile(dbFilePath);
-                    // load dictionary
-                    foreach (CardboardQualityListCardboardQuality quality in cardboardQualityList.CardboardQuality)
-                    {
-                        try
-                        {
-                            _cardboardQualityDictionary.Add(quality.Name + " - " + quality.Thickness.ToString() + " mm"
-                                , new QualityData(quality.Name, quality.Profile, quality.Thickness, quality.ECT, quality.RigidityDX, quality.RigidityDY));
-                        }
-                        catch (Exception ex)
-                        {   _log.Error(quality.Name + " -> " + ex.Message); }
-                    }
-                    // log info -> cardboard quality db successfully loaded
-                    _log.DebugFormat("Successfully loaded cardboard quality db: {0}", dbFilePath);
-                }
-                return _cardboardQualityDictionary;
-            }
-        }
         #endregion
+        #region Data members
+        static readonly ILog _log = LogManager.GetLogger(typeof(McKeeFormula));
+        #endregion
+
     }
 }

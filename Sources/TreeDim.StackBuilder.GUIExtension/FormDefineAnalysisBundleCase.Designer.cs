@@ -30,13 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDefineAnalysisBundleCase));
             this.gbFlatDim = new System.Windows.Forms.GroupBox();
-            this.uCtrlFlatWeight = new treeDiM.StackBuilder.Basics.UCtrlDouble();
-            this.uCtrlFlatDimensions = new treeDiM.StackBuilder.Basics.UCtrlTriDouble();
+            this.uCtrlFlatWeight = new treeDiM.Basics.UCtrlDouble();
+            this.uCtrlFlatDimensions = new treeDiM.Basics.UCtrlTriDouble();
             this.nudNumberOfFlats = new System.Windows.Forms.NumericUpDown();
             this.lbNumberOfFlats = new System.Windows.Forms.Label();
             this.gbCaseDim = new System.Windows.Forms.GroupBox();
-            this.uCtrlCaseWeight = new treeDiM.StackBuilder.Basics.UCtrlDouble();
-            this.uCtrlCaseDimensions = new treeDiM.StackBuilder.Basics.UCtrlTriDouble();
+            this.uCtrlCaseWeight = new treeDiM.Basics.UCtrlDouble();
+            this.uCtrlCaseDimensions = new treeDiM.Basics.UCtrlTriDouble();
             this.bnCancel = new System.Windows.Forms.Button();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.statusLabelDef = new System.Windows.Forms.ToolStripStatusLabel();
@@ -67,9 +67,9 @@
             0,
             0});
             this.uCtrlFlatWeight.Name = "uCtrlFlatWeight";
-            this.uCtrlFlatWeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_MASS;
+            this.uCtrlFlatWeight.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_MASS;
             this.uCtrlFlatWeight.Value = 0D;
-            this.uCtrlFlatWeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.ValueChangedDelegate(this.OnInputValueChanged);
+            this.uCtrlFlatWeight.ValueChanged += new treeDiM.Basics.UCtrlDouble.ValueChangedDelegate(this.OnInputValueChanged);
             // 
             // uCtrlFlatDimensions
             // 
@@ -80,12 +80,11 @@
             0,
             0});
             this.uCtrlFlatDimensions.Name = "uCtrlFlatDimensions";
-            this.uCtrlFlatDimensions.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
-            this.uCtrlFlatDimensions.Value = ((Sharp3D.Math.Core.Vector3D)(resources.GetObject("uCtrlFlatDimensions.Value")));
+            this.uCtrlFlatDimensions.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlFlatDimensions.ValueX = 0D;
             this.uCtrlFlatDimensions.ValueY = 0D;
             this.uCtrlFlatDimensions.ValueZ = 0D;
-            this.uCtrlFlatDimensions.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlTriDouble.ValueChangedDelegate(this.OnInputValueChanged);
+            this.uCtrlFlatDimensions.ValueChanged += new treeDiM.Basics.UCtrlTriDouble.ValueChangedDelegate(this.OnInputValueChanged);
             // 
             // nudNumberOfFlats
             // 
@@ -125,9 +124,9 @@
             0,
             0});
             this.uCtrlCaseWeight.Name = "uCtrlCaseWeight";
-            this.uCtrlCaseWeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_MASS;
+            this.uCtrlCaseWeight.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_MASS;
             this.uCtrlCaseWeight.Value = 0D;
-            this.uCtrlCaseWeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.ValueChangedDelegate(this.OnInputValueChanged);
+            this.uCtrlCaseWeight.ValueChanged += new treeDiM.Basics.UCtrlDouble.ValueChangedDelegate(this.OnInputValueChanged);
             // 
             // uCtrlCaseDimensions
             // 
@@ -138,12 +137,11 @@
             0,
             0});
             this.uCtrlCaseDimensions.Name = "uCtrlCaseDimensions";
-            this.uCtrlCaseDimensions.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
-            this.uCtrlCaseDimensions.Value = ((Sharp3D.Math.Core.Vector3D)(resources.GetObject("uCtrlCaseDimensions.Value")));
+            this.uCtrlCaseDimensions.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlCaseDimensions.ValueX = 0D;
             this.uCtrlCaseDimensions.ValueY = 0D;
             this.uCtrlCaseDimensions.ValueZ = 0D;
-            this.uCtrlCaseDimensions.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlTriDouble.ValueChangedDelegate(this.OnInputValueChanged);
+            this.uCtrlCaseDimensions.ValueChanged += new treeDiM.Basics.UCtrlTriDouble.ValueChangedDelegate(this.OnInputValueChanged);
             // 
             // bnCancel
             // 
@@ -214,10 +212,10 @@
         private System.Windows.Forms.GroupBox gbCaseDim;
         private System.Windows.Forms.Button bnCancel;
         private System.Windows.Forms.StatusStrip statusStrip;
-        private Basics.UCtrlDouble uCtrlFlatWeight;
-        private Basics.UCtrlTriDouble uCtrlFlatDimensions;
-        private Basics.UCtrlDouble uCtrlCaseWeight;
-        private Basics.UCtrlTriDouble uCtrlCaseDimensions;
+        private treeDiM.Basics.UCtrlDouble uCtrlFlatWeight;
+        private treeDiM.Basics.UCtrlTriDouble uCtrlFlatDimensions;
+        private treeDiM.Basics.UCtrlDouble uCtrlCaseWeight;
+        private treeDiM.Basics.UCtrlTriDouble uCtrlCaseDimensions;
         private Graphics.UCtrlLayerList uCtrlLayerList;
         private System.Windows.Forms.ToolStripStatusLabel statusLabelDef;
         private System.Windows.Forms.Button bnNext;

@@ -149,6 +149,10 @@
     <Compile Include="ReportNode.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\treeDiM.Basics\treeDiM.Basics.csproj">
+      <Project>{646ee507-e57d-43a7-93f3-365a687aec4b}</Project>
+      <Name>treeDiM.Basics</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TreeDim.EdgeCrushTest\treeDiM.EdgeCrushTest.csproj">
       <Project>{E4240EE0-60B3-4435-BD09-F81D56C0899A}</Project>
       <Name>treeDiM.EdgeCrushTest</Name>

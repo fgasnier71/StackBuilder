@@ -35,8 +35,8 @@
             this.lbSelect = new System.Windows.Forms.Label();
             this.checkBoxBestLayersOnly = new System.Windows.Forms.CheckBox();
             this.uCtrlLayerList = new treeDiM.StackBuilder.Graphics.UCtrlLayerList();
-            this.uCtrlMinDistanceLoadRoof = new treeDiM.StackBuilder.Basics.UCtrlDouble();
-            this.uCtrlMinDistanceLoadWall = new treeDiM.StackBuilder.Basics.UCtrlDualDouble();
+            this.uCtrlMinDistanceLoadRoof = new treeDiM.Basics.UCtrlDouble();
+            this.uCtrlMinDistanceLoadWall = new treeDiM.Basics.UCtrlDualDouble();
             this.uCtrlPackable = new treeDiM.StackBuilder.Graphics.Controls.UCtrlPackable();
             this.SuspendLayout();
             // 
@@ -135,7 +135,7 @@
             this.uCtrlMinDistanceLoadRoof.Size = new System.Drawing.Size(322, 20);
             this.uCtrlMinDistanceLoadRoof.TabIndex = 38;
             this.uCtrlMinDistanceLoadRoof.Text = "Minimum distance load/roof";
-            this.uCtrlMinDistanceLoadRoof.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlMinDistanceLoadRoof.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlMinDistanceLoadRoof.Value = 0D;
             // 
             // uCtrlMinDistanceLoadWall
@@ -146,7 +146,7 @@
             this.uCtrlMinDistanceLoadWall.Size = new System.Drawing.Size(322, 20);
             this.uCtrlMinDistanceLoadWall.TabIndex = 37;
             this.uCtrlMinDistanceLoadWall.Text = "Minimum distance load/wall";
-            this.uCtrlMinDistanceLoadWall.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlMinDistanceLoadWall.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlMinDistanceLoadWall.ValueX = 0D;
             this.uCtrlMinDistanceLoadWall.ValueY = 0D;
             // 
@@ -202,8 +202,8 @@
         private System.Windows.Forms.Label lbSelect;
         private System.Windows.Forms.CheckBox checkBoxBestLayersOnly;
         private Graphics.UCtrlLayerList uCtrlLayerList;
-        private Basics.UCtrlDouble uCtrlMinDistanceLoadRoof;
-        private Basics.UCtrlDualDouble uCtrlMinDistanceLoadWall;
+        private treeDiM.Basics.UCtrlDouble uCtrlMinDistanceLoadRoof;
+        private treeDiM.Basics.UCtrlDualDouble uCtrlMinDistanceLoadWall;
         private Graphics.Controls.UCtrlPackable uCtrlPackable;
     }
 }

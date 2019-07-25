@@ -33,27 +33,27 @@
             this.splitContainer = new System.Windows.Forms.SplitContainer();
             this.btClose = new System.Windows.Forms.Button();
             this.gbWrapper = new System.Windows.Forms.GroupBox();
-            this.uCtrlTrayHeight = new treeDiM.StackBuilder.Basics.UCtrlDouble();
+            this.uCtrlTrayHeight = new treeDiM.Basics.UCtrlDouble();
             this.lbWrapperColor = new System.Windows.Forms.Label();
             this.cbColor = new OfficePickers.ColorPicker.ComboBoxColorPicker();
             this.cbWrapperType = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.uCtrlSurfacicMass = new treeDiM.StackBuilder.Basics.UCtrlDouble();
-            this.uCtrlWallThickness = new treeDiM.StackBuilder.Basics.UCtrlDouble();
-            this.uCtrlNoWalls = new treeDiM.StackBuilder.Basics.Controls.UCtrlTriInt();
+            this.uCtrlSurfacicMass = new treeDiM.Basics.UCtrlDouble();
+            this.uCtrlWallThickness = new treeDiM.Basics.UCtrlDouble();
+            this.uCtrlNoWalls = new treeDiM.Basics.UCtrlTriInt();
             this.gbPallet = new System.Windows.Forms.GroupBox();
             this.cbPallet = new treeDiM.StackBuilder.GUIExtension.CtrlComboDBPallet();
-            this.uCtrlOverhang = new treeDiM.StackBuilder.Basics.UCtrlDualDouble();
-            this.uCtrlPalletHeight = new treeDiM.StackBuilder.Basics.UCtrlDouble();
+            this.uCtrlOverhang = new treeDiM.Basics.UCtrlDualDouble();
+            this.uCtrlPalletHeight = new treeDiM.Basics.UCtrlDouble();
             this.lbPallet = new System.Windows.Forms.Label();
             this.gridSolutions = new SourceGrid.Grid();
             this.gbCase = new System.Windows.Forms.GroupBox();
-            this.uCtrlPackDimensionsMax = new treeDiM.StackBuilder.Basics.UCtrlTriDouble();
-            this.uCtrlPackDimensionsMin = new treeDiM.StackBuilder.Basics.UCtrlTriDouble();
+            this.uCtrlPackDimensionsMax = new treeDiM.Basics.UCtrlTriDouble();
+            this.uCtrlPackDimensionsMin = new treeDiM.Basics.UCtrlTriDouble();
             this.btSetMaximum = new System.Windows.Forms.Button();
             this.btSetMinimum = new System.Windows.Forms.Button();
             this.groupBox = new System.Windows.Forms.GroupBox();
-            this.uCtrlDimensionsBox = new treeDiM.StackBuilder.Basics.UCtrlTriDouble();
+            this.uCtrlDimensionsBox = new treeDiM.Basics.UCtrlTriDouble();
             this.chkVerticalOrientationOnly = new System.Windows.Forms.CheckBox();
             this.nudNumber = new System.Windows.Forms.NumericUpDown();
             this.lbNumber = new System.Windows.Forms.Label();
@@ -127,9 +127,9 @@
             0,
             -2147483648});
             this.uCtrlTrayHeight.Name = "uCtrlTrayHeight";
-            this.uCtrlTrayHeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlTrayHeight.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlTrayHeight.Value = 0D;
-            this.uCtrlTrayHeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.ValueChangedDelegate(this.OnDataChanged);
+            this.uCtrlTrayHeight.ValueChanged += new treeDiM.Basics.UCtrlDouble.ValueChangedDelegate(this.OnDataChanged);
             // 
             // lbWrapperColor
             // 
@@ -213,9 +213,9 @@
             0,
             -2147483648});
             this.uCtrlSurfacicMass.Name = "uCtrlSurfacicMass";
-            this.uCtrlSurfacicMass.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_SURFACEMASS;
+            this.uCtrlSurfacicMass.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_SURFACEMASS;
             this.uCtrlSurfacicMass.Value = 0D;
-            this.uCtrlSurfacicMass.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.ValueChangedDelegate(this.OnDataChanged);
+            this.uCtrlSurfacicMass.ValueChanged += new treeDiM.Basics.UCtrlDouble.ValueChangedDelegate(this.OnDataChanged);
             // 
             // uCtrlWallThickness
             // 
@@ -226,9 +226,9 @@
             0,
             -2147483648});
             this.uCtrlWallThickness.Name = "uCtrlWallThickness";
-            this.uCtrlWallThickness.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlWallThickness.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlWallThickness.Value = 0D;
-            this.uCtrlWallThickness.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.ValueChangedDelegate(this.OnDataChanged);
+            this.uCtrlWallThickness.ValueChanged += new treeDiM.Basics.UCtrlDouble.ValueChangedDelegate(this.OnDataChanged);
             // 
             // uCtrlNoWalls
             // 
@@ -237,7 +237,7 @@
             this.uCtrlNoWalls.NoX = 1;
             this.uCtrlNoWalls.NoY = 1;
             this.uCtrlNoWalls.NoZ = 1;
-            this.uCtrlNoWalls.ValueChanged += new treeDiM.StackBuilder.Basics.Controls.UCtrlTriInt.ValueChangedDelegate(this.OnDataChanged);
+            this.uCtrlNoWalls.ValueChanged += new treeDiM.Basics.UCtrlTriInt.ValueChangedDelegate(this.OnDataChanged);
             // 
             // gbPallet
             // 
@@ -261,10 +261,10 @@
             // 
             resources.ApplyResources(this.uCtrlOverhang, "uCtrlOverhang");
             this.uCtrlOverhang.Name = "uCtrlOverhang";
-            this.uCtrlOverhang.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlOverhang.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlOverhang.ValueX = 0D;
             this.uCtrlOverhang.ValueY = 0D;
-            this.uCtrlOverhang.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDualDouble.ValueChangedDelegate(this.OnDataChanged);
+            this.uCtrlOverhang.ValueChanged += new treeDiM.Basics.UCtrlDualDouble.ValueChangedDelegate(this.OnDataChanged);
             // 
             // uCtrlPalletHeight
             // 
@@ -275,9 +275,9 @@
             0,
             0});
             this.uCtrlPalletHeight.Name = "uCtrlPalletHeight";
-            this.uCtrlPalletHeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlPalletHeight.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlPalletHeight.Value = 0D;
-            this.uCtrlPalletHeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.ValueChangedDelegate(this.OnDataChanged);
+            this.uCtrlPalletHeight.ValueChanged += new treeDiM.Basics.UCtrlDouble.ValueChangedDelegate(this.OnDataChanged);
             // 
             // lbPallet
             // 
@@ -314,11 +314,11 @@
             0,
             0});
             this.uCtrlPackDimensionsMax.Name = "uCtrlPackDimensionsMax";
-            this.uCtrlPackDimensionsMax.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlPackDimensionsMax.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlPackDimensionsMax.ValueX = 0D;
             this.uCtrlPackDimensionsMax.ValueY = 0D;
             this.uCtrlPackDimensionsMax.ValueZ = 0D;
-            this.uCtrlPackDimensionsMax.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlTriDouble.ValueChangedDelegate(this.OnDataChanged);
+            this.uCtrlPackDimensionsMax.ValueChanged += new treeDiM.Basics.UCtrlTriDouble.ValueChangedDelegate(this.OnDataChanged);
             // 
             // uCtrlPackDimensionsMin
             // 
@@ -329,11 +329,11 @@
             0,
             0});
             this.uCtrlPackDimensionsMin.Name = "uCtrlPackDimensionsMin";
-            this.uCtrlPackDimensionsMin.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlPackDimensionsMin.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlPackDimensionsMin.ValueX = 0D;
             this.uCtrlPackDimensionsMin.ValueY = 0D;
             this.uCtrlPackDimensionsMin.ValueZ = 0D;
-            this.uCtrlPackDimensionsMin.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlTriDouble.ValueChangedDelegate(this.OnDataChanged);
+            this.uCtrlPackDimensionsMin.ValueChanged += new treeDiM.Basics.UCtrlTriDouble.ValueChangedDelegate(this.OnDataChanged);
             // 
             // btSetMaximum
             // 
@@ -368,11 +368,11 @@
             0,
             0});
             this.uCtrlDimensionsBox.Name = "uCtrlDimensionsBox";
-            this.uCtrlDimensionsBox.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlDimensionsBox.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlDimensionsBox.ValueX = 0D;
             this.uCtrlDimensionsBox.ValueY = 0D;
             this.uCtrlDimensionsBox.ValueZ = 0D;
-            this.uCtrlDimensionsBox.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlTriDouble.ValueChangedDelegate(this.OnBoxChanged);
+            this.uCtrlDimensionsBox.ValueChanged += new treeDiM.Basics.UCtrlTriDouble.ValueChangedDelegate(this.OnBoxChanged);
             // 
             // chkVerticalOrientationOnly
             // 
@@ -483,21 +483,21 @@
         private System.Windows.Forms.SplitContainer splitContainer;
         private System.Windows.Forms.Button btClose;
         private System.Windows.Forms.GroupBox gbWrapper;
-        private Basics.UCtrlDouble uCtrlTrayHeight;
+        private treeDiM.Basics.UCtrlDouble uCtrlTrayHeight;
         private System.Windows.Forms.Label lbWrapperColor;
         private System.Windows.Forms.ComboBox cbWrapperType;
         private System.Windows.Forms.Label label1;
-        private Basics.UCtrlDouble uCtrlSurfacicMass;
-        private Basics.UCtrlDouble uCtrlWallThickness;
-        private Basics.Controls.UCtrlTriInt uCtrlNoWalls;
+        private treeDiM.Basics.UCtrlDouble uCtrlSurfacicMass;
+        private treeDiM.Basics.UCtrlDouble uCtrlWallThickness;
+        private treeDiM.Basics.UCtrlTriInt uCtrlNoWalls;
         private System.Windows.Forms.GroupBox gbPallet;
-        private Basics.UCtrlDualDouble uCtrlOverhang;
-        private Basics.UCtrlDouble uCtrlPalletHeight;
+        private treeDiM.Basics.UCtrlDualDouble uCtrlOverhang;
+        private treeDiM.Basics.UCtrlDouble uCtrlPalletHeight;
         private System.Windows.Forms.Label lbPallet;
         private SourceGrid.Grid gridSolutions;
         private System.Windows.Forms.GroupBox gbCase;
-        private Basics.UCtrlTriDouble uCtrlPackDimensionsMax;
-        private Basics.UCtrlTriDouble uCtrlPackDimensionsMin;
+        private treeDiM.Basics.UCtrlTriDouble uCtrlPackDimensionsMax;
+        private treeDiM.Basics.UCtrlTriDouble uCtrlPackDimensionsMin;
         private System.Windows.Forms.Button btSetMaximum;
         private System.Windows.Forms.Button btSetMinimum;
         private System.Windows.Forms.GroupBox groupBox;
@@ -506,7 +506,7 @@
         private System.Windows.Forms.Label lbNumber;
         private Graphics.Graphics3DControl graphCtrlSolution;
         private Graphics.Graphics3DControl graphCtrlPack;
-        private Basics.UCtrlTriDouble uCtrlDimensionsBox;
+        private treeDiM.Basics.UCtrlTriDouble uCtrlDimensionsBox;
         private CtrlComboDBPallet cbPallet;
         private System.Windows.Forms.Timer _timer;
         private OfficePickers.ColorPicker.ComboBoxColorPicker cbColor;

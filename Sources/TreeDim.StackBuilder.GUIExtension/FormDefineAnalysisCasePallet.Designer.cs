@@ -38,13 +38,13 @@
             this.uCtrlBundle = new treeDiM.StackBuilder.GUIExtension.UCtrlBundle();
             this.uCtrlCaseOrientation = new treeDiM.StackBuilder.Graphics.uCtrlCaseOrientation();
             this.gpPallet = new System.Windows.Forms.GroupBox();
-            this.uCtrlOverhang = new treeDiM.StackBuilder.Basics.UCtrlDualDouble();
+            this.uCtrlOverhang = new treeDiM.Basics.UCtrlDualDouble();
             this.graphCtrlPallet = new treeDiM.StackBuilder.Graphics.Graphics3DControl();
             this.cbPallet = new treeDiM.StackBuilder.GUIExtension.CtrlComboDBPallet();
             this.lbPallets = new System.Windows.Forms.Label();
             this.gpConstraintSet = new System.Windows.Forms.GroupBox();
-            this.uCtrlOptMaximumWeight = new treeDiM.StackBuilder.Basics.UCtrlOptDouble();
-            this.uCtrlMaximumHeight = new treeDiM.StackBuilder.Basics.UCtrlDouble();
+            this.uCtrlOptMaximumWeight = new treeDiM.Basics.UCtrlOptDouble();
+            this.uCtrlMaximumHeight = new treeDiM.Basics.UCtrlDouble();
             this.uCtrlLayerList = new treeDiM.StackBuilder.Graphics.UCtrlLayerList();
             this.statusStrip.SuspendLayout();
             this.gbCase.SuspendLayout();
@@ -162,10 +162,10 @@
             this.uCtrlOverhang.Size = new System.Drawing.Size(243, 20);
             this.uCtrlOverhang.TabIndex = 0;
             this.uCtrlOverhang.Text = "Overhang";
-            this.uCtrlOverhang.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlOverhang.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlOverhang.ValueX = 0D;
             this.uCtrlOverhang.ValueY = 0D;
-            this.uCtrlOverhang.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDualDouble.ValueChangedDelegate(this.OnInputChanged);
+            this.uCtrlOverhang.ValueChanged += new treeDiM.Basics.UCtrlDualDouble.ValueChangedDelegate(this.OnInputChanged);
             // 
             // graphCtrlPallet
             // 
@@ -220,9 +220,8 @@
             this.uCtrlOptMaximumWeight.Size = new System.Drawing.Size(303, 20);
             this.uCtrlOptMaximumWeight.TabIndex = 1;
             this.uCtrlOptMaximumWeight.Text = "Maximum pallet weight";
-            this.uCtrlOptMaximumWeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_MASS;
-            this.uCtrlOptMaximumWeight.Value = ((treeDiM.StackBuilder.Basics.OptDouble)(resources.GetObject("uCtrlOptMaximumWeight.Value")));
-            this.uCtrlOptMaximumWeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlOptDouble.ValueChangedDelegate(this.OnInputChanged);
+            this.uCtrlOptMaximumWeight.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_MASS;
+            this.uCtrlOptMaximumWeight.ValueChanged += new treeDiM.Basics.UCtrlOptDouble.ValueChangedDelegate(this.OnInputChanged);
             // 
             // uCtrlMaximumHeight
             // 
@@ -237,9 +236,9 @@
             this.uCtrlMaximumHeight.Size = new System.Drawing.Size(243, 20);
             this.uCtrlMaximumHeight.TabIndex = 0;
             this.uCtrlMaximumHeight.Text = "Maximum pallet height";
-            this.uCtrlMaximumHeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlMaximumHeight.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlMaximumHeight.Value = 0D;
-            this.uCtrlMaximumHeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.ValueChangedDelegate(this.OnInputChanged);
+            this.uCtrlMaximumHeight.ValueChanged += new treeDiM.Basics.UCtrlDouble.ValueChangedDelegate(this.OnInputChanged);
             // 
             // uCtrlLayerList
             // 
@@ -296,9 +295,9 @@
         private CtrlComboDBPallet cbPallet;
         private Graphics.Graphics3DControl graphCtrlPallet;
         private Graphics.UCtrlLayerList uCtrlLayerList;
-        private Basics.UCtrlDualDouble uCtrlOverhang;
-        private Basics.UCtrlOptDouble uCtrlOptMaximumWeight;
-        private Basics.UCtrlDouble uCtrlMaximumHeight;
+        private treeDiM.Basics.UCtrlDualDouble uCtrlOverhang;
+        private treeDiM.Basics.UCtrlOptDouble uCtrlOptMaximumWeight;
+        private treeDiM.Basics.UCtrlDouble uCtrlMaximumHeight;
         private UCtrlBundle uCtrlBundle;
         private UCtrlCase uCtrlCase;
     }

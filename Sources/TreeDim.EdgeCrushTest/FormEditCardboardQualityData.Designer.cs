@@ -37,8 +37,6 @@
             this.lbECT = new System.Windows.Forms.Label();
             this.lbRigidityX = new System.Windows.Forms.Label();
             this.lbRigidityY = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.nudThickness = new System.Windows.Forms.NumericUpDown();
             this.nudRigidityX = new System.Windows.Forms.NumericUpDown();
             this.nudRigidityY = new System.Windows.Forms.NumericUpDown();
@@ -47,21 +45,28 @@
             this.lbStiffnessXUnit = new System.Windows.Forms.Label();
             this.lbStiffnessYUnit = new System.Windows.Forms.Label();
             this.lbECTUnit = new System.Windows.Forms.Label();
+            this.tbQualityName = new System.Windows.Forms.TextBox();
+            this.tbProfile = new System.Windows.Forms.TextBox();
+            this.statusStrip = new System.Windows.Forms.StatusStrip();
+            this.statusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             ((System.ComponentModel.ISupportInitialize)(this.nudThickness)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudRigidityX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudRigidityY)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudECT)).BeginInit();
+            this.statusStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // bnOk
             // 
             resources.ApplyResources(this.bnOk, "bnOk");
+            this.bnOk.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.bnOk.Name = "bnOk";
             this.bnOk.UseVisualStyleBackColor = true;
             // 
             // bnCancel
             // 
             resources.ApplyResources(this.bnCancel, "bnCancel");
+            this.bnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.bnCancel.Name = "bnCancel";
             this.bnCancel.UseVisualStyleBackColor = true;
             // 
@@ -95,38 +100,28 @@
             resources.ApplyResources(this.lbRigidityY, "lbRigidityY");
             this.lbRigidityY.Name = "lbRigidityY";
             // 
-            // textBox1
-            // 
-            resources.ApplyResources(this.textBox1, "textBox1");
-            this.textBox1.Name = "textBox1";
-            // 
-            // textBox2
-            // 
-            resources.ApplyResources(this.textBox2, "textBox2");
-            this.textBox2.Name = "textBox2";
-            // 
             // nudThickness
             // 
-            resources.ApplyResources(this.nudThickness, "nudThickness");
             this.nudThickness.DecimalPlaces = 2;
+            resources.ApplyResources(this.nudThickness, "nudThickness");
             this.nudThickness.Name = "nudThickness";
             // 
             // nudRigidityX
             // 
-            resources.ApplyResources(this.nudRigidityX, "nudRigidityX");
             this.nudRigidityX.DecimalPlaces = 2;
+            resources.ApplyResources(this.nudRigidityX, "nudRigidityX");
             this.nudRigidityX.Name = "nudRigidityX";
             // 
             // nudRigidityY
             // 
-            resources.ApplyResources(this.nudRigidityY, "nudRigidityY");
             this.nudRigidityY.DecimalPlaces = 2;
+            resources.ApplyResources(this.nudRigidityY, "nudRigidityY");
             this.nudRigidityY.Name = "nudRigidityY";
             // 
             // nudECT
             // 
-            resources.ApplyResources(this.nudECT, "nudECT");
             this.nudECT.DecimalPlaces = 2;
+            resources.ApplyResources(this.nudECT, "nudECT");
             this.nudECT.Name = "nudECT";
             // 
             // lbThicknessUnit
@@ -149,10 +144,35 @@
             resources.ApplyResources(this.lbECTUnit, "lbECTUnit");
             this.lbECTUnit.Name = "lbECTUnit";
             // 
+            // tbQualityName
+            // 
+            resources.ApplyResources(this.tbQualityName, "tbQualityName");
+            this.tbQualityName.Name = "tbQualityName";
+            // 
+            // tbProfile
+            // 
+            resources.ApplyResources(this.tbProfile, "tbProfile");
+            this.tbProfile.Name = "tbProfile";
+            // 
+            // statusStrip
+            // 
+            this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.statusLabel});
+            resources.ApplyResources(this.statusStrip, "statusStrip");
+            this.statusStrip.Name = "statusStrip";
+            // 
+            // statusLabel
+            // 
+            this.statusLabel.Name = "statusLabel";
+            resources.ApplyResources(this.statusLabel, "statusLabel");
+            // 
             // FormEditCardboardQualityData
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.statusStrip);
+            this.Controls.Add(this.tbProfile);
+            this.Controls.Add(this.tbQualityName);
             this.Controls.Add(this.lbECTUnit);
             this.Controls.Add(this.lbStiffnessYUnit);
             this.Controls.Add(this.lbStiffnessXUnit);
@@ -161,8 +181,6 @@
             this.Controls.Add(this.nudRigidityY);
             this.Controls.Add(this.nudRigidityX);
             this.Controls.Add(this.nudThickness);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.lbRigidityY);
             this.Controls.Add(this.lbRigidityX);
             this.Controls.Add(this.lbECT);
@@ -179,6 +197,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudRigidityX)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudRigidityY)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudECT)).EndInit();
+            this.statusStrip.ResumeLayout(false);
+            this.statusStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -194,8 +214,6 @@
         private System.Windows.Forms.Label lbECT;
         private System.Windows.Forms.Label lbRigidityX;
         private System.Windows.Forms.Label lbRigidityY;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.NumericUpDown nudThickness;
         private System.Windows.Forms.NumericUpDown nudRigidityX;
         private System.Windows.Forms.NumericUpDown nudRigidityY;
@@ -204,5 +222,9 @@
         private System.Windows.Forms.Label lbStiffnessXUnit;
         private System.Windows.Forms.Label lbStiffnessYUnit;
         private System.Windows.Forms.Label lbECTUnit;
+        private System.Windows.Forms.TextBox tbQualityName;
+        private System.Windows.Forms.TextBox tbProfile;
+        private System.Windows.Forms.StatusStrip statusStrip;
+        private System.Windows.Forms.ToolStripStatusLabel statusLabel;
     }
 }

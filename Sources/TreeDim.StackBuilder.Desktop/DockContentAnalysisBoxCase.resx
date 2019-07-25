@@ -121,7 +121,7 @@
     <value>graphCtrlSolution</value>
   </data>
   <data name="&gt;&gt;graphCtrlSolution.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Graphics.Graphics3DControl, treeDiM.StackBuilder.Graphics, Version=3.0.0.82, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Graphics.Graphics3DControl, treeDiM.StackBuilder.Graphics, Version=3.0.0.96, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;graphCtrlSolution.Parent" xml:space="preserve">
     <value>splitContainerVert.Panel1</value>
@@ -162,18 +162,11 @@
   <data name="uCtrlOptMaxNumber.Text" xml:space="preserve">
     <value>Maximum number</value>
   </data>
-  <data name="uCtrlOptMaxNumber.Value" mimetype="application/x-microsoft.net.object.binary.base64">
-    <value>
-        AAEAAAD/////AQAAAAAAAAAMAgAAAFN0cmVlRGlNLlN0YWNrQnVpbGRlci5CYXNpY3MsIFZlcnNpb249
-        My4wLjAuODIsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49bnVsbAUBAAAAInRyZWVEaU0u
-        U3RhY2tCdWlsZGVyLkJhc2ljcy5PcHRJbnQCAAAACl9hY3RpdmF0ZWQEX3ZhbAAAAQgCAAAAAAAAAAAL
-</value>
-  </data>
   <data name="&gt;&gt;uCtrlOptMaxNumber.Name" xml:space="preserve">
     <value>uCtrlOptMaxNumber</value>
   </data>
   <data name="&gt;&gt;uCtrlOptMaxNumber.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlOptInt, treeDiM.StackBuilder.Basics, Version=3.0.0.82, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.Basics.UCtrlOptInt, treeDiM.Basics, Version=3.0.0.96, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlOptMaxNumber.Parent" xml:space="preserve">
     <value>gbStopCriterions</value>
@@ -196,19 +189,11 @@
   <data name="uCtrlOptMaximumWeight.Text" xml:space="preserve">
     <value>Maximum weight</value>
   </data>
-  <data name="uCtrlOptMaximumWeight.Value" mimetype="application/x-microsoft.net.object.binary.base64">
-    <value>
-        AAEAAAD/////AQAAAAAAAAAMAgAAAFN0cmVlRGlNLlN0YWNrQnVpbGRlci5CYXNpY3MsIFZlcnNpb249
-        My4wLjAuODIsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49bnVsbAUBAAAAJXRyZWVEaU0u
-        U3RhY2tCdWlsZGVyLkJhc2ljcy5PcHREb3VibGUCAAAACl9hY3RpdmF0ZWQEX3ZhbAAAAQYCAAAAAAAA
-        AAAAAAAACw==
-</value>
-  </data>
   <data name="&gt;&gt;uCtrlOptMaximumWeight.Name" xml:space="preserve">
     <value>uCtrlOptMaximumWeight</value>
   </data>
   <data name="&gt;&gt;uCtrlOptMaximumWeight.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlOptDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.82, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.Basics.UCtrlOptDouble, treeDiM.Basics, Version=3.0.0.96, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlOptMaximumWeight.Parent" xml:space="preserve">
     <value>gbStopCriterions</value>
@@ -304,7 +289,7 @@
     <value>cbInterlayer</value>
   </data>
   <data name="&gt;&gt;cbInterlayer.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered, treeDiM.StackBuilder.Graphics, Version=3.0.0.82, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered, treeDiM.StackBuilder.Graphics, Version=3.0.0.96, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;cbInterlayer.Parent" xml:space="preserve">
     <value>gbLayer</value>
@@ -340,6 +325,6 @@
     <value>DockContentAnalysisBoxCase</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Desktop.DockContentAnalysisEdit, treeDiM.StackBuilder.Desktop, Version=3.0.0.82, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Desktop.DockContentAnalysisEdit, treeDiM.StackBuilder.Desktop, Version=3.0.0.96, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

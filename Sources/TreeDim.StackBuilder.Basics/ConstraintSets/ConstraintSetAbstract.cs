@@ -1,4 +1,6 @@
-﻿namespace treeDiM.StackBuilder.Basics
+﻿using treeDiM.Basics;
+
+namespace treeDiM.StackBuilder.Basics
 {
     public abstract class ConstraintSetAbstract
     {

@@ -31,19 +31,19 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormNewBox));
             this.lbFace = new System.Windows.Forms.Label();
             this.gbDimensions = new System.Windows.Forms.GroupBox();
-            this.uCtrlDimensionsInner = new treeDiM.StackBuilder.Basics.UCtrlOptTriDouble();
-            this.uCtrlDimensionsOuter = new treeDiM.StackBuilder.Basics.UCtrlTriDouble();
+            this.uCtrlDimensionsInner = new treeDiM.Basics.UCtrlOptTriDouble();
+            this.uCtrlDimensionsOuter = new treeDiM.Basics.UCtrlTriDouble();
             this.cbFace = new System.Windows.Forms.ComboBox();
             this.cbColor = new OfficePickers.ColorPicker.ComboBoxColorPicker();
             this.gbFaceColor = new System.Windows.Forms.GroupBox();
             this.btBitmaps = new System.Windows.Forms.Button();
             this.chkAllFaces = new System.Windows.Forms.CheckBox();
             this.gbWeight = new System.Windows.Forms.GroupBox();
-            this.uCtrlMaxWeight = new treeDiM.StackBuilder.Basics.UCtrlOptDouble();
-            this.vcWeight = new treeDiM.StackBuilder.Basics.UCtrlDouble();
-            this.uCtrlNetWeight = new treeDiM.StackBuilder.Basics.UCtrlOptDouble();
+            this.uCtrlMaxWeight = new treeDiM.Basics.UCtrlOptDouble();
+            this.vcWeight = new treeDiM.Basics.UCtrlDouble();
+            this.uCtrlNetWeight = new treeDiM.Basics.UCtrlOptDouble();
             this.graphCtrl = new treeDiM.StackBuilder.Graphics.Graphics3DControl();
-            this.uCtrlTapeWidth = new treeDiM.StackBuilder.Basics.UCtrlOptDouble();
+            this.uCtrlTapeWidth = new treeDiM.Basics.UCtrlOptDouble();
             this.cbTapeColor = new OfficePickers.ColorPicker.ComboBoxColorPicker();
             this.lbTapeColor = new System.Windows.Forms.Label();
             this.bnSaveToDB = new System.Windows.Forms.Button();
@@ -107,12 +107,11 @@
             0,
             0});
             this.uCtrlDimensionsInner.Name = "uCtrlDimensionsInner";
-            this.uCtrlDimensionsInner.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
-            this.uCtrlDimensionsInner.Value = ((Sharp3D.Math.Core.Vector3D)(resources.GetObject("uCtrlDimensionsInner.Value")));
+            this.uCtrlDimensionsInner.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlDimensionsInner.X = 0D;
             this.uCtrlDimensionsInner.Y = 0D;
             this.uCtrlDimensionsInner.Z = 0D;
-            this.uCtrlDimensionsInner.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlOptTriDouble.ValueChangedDelegate(this.OnBoxPropertyChanged);
+            this.uCtrlDimensionsInner.ValueChanged += new treeDiM.Basics.UCtrlOptTriDouble.ValueChangedDelegate(this.OnBoxPropertyChanged);
             // 
             // uCtrlDimensionsOuter
             // 
@@ -123,12 +122,11 @@
             0,
             0});
             this.uCtrlDimensionsOuter.Name = "uCtrlDimensionsOuter";
-            this.uCtrlDimensionsOuter.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
-            this.uCtrlDimensionsOuter.Value = ((Sharp3D.Math.Core.Vector3D)(resources.GetObject("uCtrlDimensionsOuter.Value")));
+            this.uCtrlDimensionsOuter.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlDimensionsOuter.ValueX = 0D;
             this.uCtrlDimensionsOuter.ValueY = 0D;
             this.uCtrlDimensionsOuter.ValueZ = 0D;
-            this.uCtrlDimensionsOuter.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlTriDouble.ValueChangedDelegate(this.OnBoxPropertyChanged);
+            this.uCtrlDimensionsOuter.ValueChanged += new treeDiM.Basics.UCtrlTriDouble.ValueChangedDelegate(this.OnBoxPropertyChanged);
             // 
             // cbFace
             // 
@@ -327,9 +325,8 @@
             0,
             0});
             this.uCtrlMaxWeight.Name = "uCtrlMaxWeight";
-            this.uCtrlMaxWeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_MASS;
-            this.uCtrlMaxWeight.Value = ((treeDiM.StackBuilder.Basics.OptDouble)(resources.GetObject("uCtrlMaxWeight.Value")));
-            this.uCtrlMaxWeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlOptDouble.ValueChangedDelegate(this.OnBoxPropertyChanged);
+            this.uCtrlMaxWeight.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_MASS;
+            this.uCtrlMaxWeight.ValueChanged += new treeDiM.Basics.UCtrlOptDouble.ValueChangedDelegate(this.OnBoxPropertyChanged);
             // 
             // vcWeight
             // 
@@ -340,9 +337,9 @@
             0,
             -2147483648});
             this.vcWeight.Name = "vcWeight";
-            this.vcWeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_MASS;
+            this.vcWeight.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_MASS;
             this.vcWeight.Value = 0D;
-            this.vcWeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.ValueChangedDelegate(this.OnBoxPropertyChanged);
+            this.vcWeight.ValueChanged += new treeDiM.Basics.UCtrlDouble.ValueChangedDelegate(this.OnBoxPropertyChanged);
             // 
             // uCtrlNetWeight
             // 
@@ -353,9 +350,8 @@
             0,
             0});
             this.uCtrlNetWeight.Name = "uCtrlNetWeight";
-            this.uCtrlNetWeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_MASS;
-            this.uCtrlNetWeight.Value = ((treeDiM.StackBuilder.Basics.OptDouble)(resources.GetObject("uCtrlNetWeight.Value")));
-            this.uCtrlNetWeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlOptDouble.ValueChangedDelegate(this.OnBoxPropertyChanged);
+            this.uCtrlNetWeight.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_MASS;
+            this.uCtrlNetWeight.ValueChanged += new treeDiM.Basics.UCtrlOptDouble.ValueChangedDelegate(this.OnBoxPropertyChanged);
             // 
             // graphCtrl
             // 
@@ -373,9 +369,8 @@
             0,
             -2147483648});
             this.uCtrlTapeWidth.Name = "uCtrlTapeWidth";
-            this.uCtrlTapeWidth.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
-            this.uCtrlTapeWidth.Value = ((treeDiM.StackBuilder.Basics.OptDouble)(resources.GetObject("uCtrlTapeWidth.Value")));
-            this.uCtrlTapeWidth.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlOptDouble.ValueChangedDelegate(this.OnTapeWidthChecked);
+            this.uCtrlTapeWidth.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlTapeWidth.ValueChanged += new treeDiM.Basics.UCtrlOptDouble.ValueChangedDelegate(this.OnTapeWidthChecked);
             // 
             // cbTapeColor
             // 
@@ -611,13 +606,13 @@
         private System.Windows.Forms.Button btBitmaps;
         private OfficePickers.ColorPicker.ComboBoxColorPicker cbTapeColor;
         private System.Windows.Forms.Label lbTapeColor;
-        private Basics.UCtrlOptDouble uCtrlNetWeight;
-        private Basics.UCtrlDouble vcWeight;
-        private Basics.UCtrlTriDouble uCtrlDimensionsOuter;
-        private Basics.UCtrlOptTriDouble uCtrlDimensionsInner;
-        private Basics.UCtrlOptDouble uCtrlTapeWidth;
+        private treeDiM.Basics.UCtrlOptDouble uCtrlNetWeight;
+        private treeDiM.Basics.UCtrlDouble vcWeight;
+        private treeDiM.Basics.UCtrlTriDouble uCtrlDimensionsOuter;
+        private treeDiM.Basics.UCtrlOptTriDouble uCtrlDimensionsInner;
+        private treeDiM.Basics.UCtrlOptDouble uCtrlTapeWidth;
         private System.Windows.Forms.Button bnSaveToDB;
-        private Basics.UCtrlOptDouble uCtrlMaxWeight;
+        private treeDiM.Basics.UCtrlOptDouble uCtrlMaxWeight;
         private System.Windows.Forms.TabControl tabCtrl;
         private System.Windows.Forms.TabPage tabPageTape;
         private System.Windows.Forms.TabPage tabPageStrappers;

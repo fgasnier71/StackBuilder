@@ -1,4 +1,6 @@
-﻿namespace treeDiM.StackBuilder.Basics.Controls
+﻿using treeDiM.Basics;
+
+namespace treeDiM.StackBuilder.Basics.Controls
 {
     partial class CtrlStrapperSet
     {
@@ -30,11 +32,11 @@
         {
             this.cbDir = new System.Windows.Forms.ComboBox();
             this.lbDirection = new System.Windows.Forms.Label();
-            this.uCtrlWidth = new treeDiM.StackBuilder.Basics.UCtrlDouble();
-            this.uCtrlNumber = new treeDiM.StackBuilder.Basics.UCtrlInt();
+            this.uCtrlWidth = new treeDiM.Basics.UCtrlDouble();
+            this.uCtrlNumber = new treeDiM.Basics.UCtrlInt();
             this.cbColor = new OfficePickers.ColorPicker.ComboBoxColorPicker();
             this.lbColor = new System.Windows.Forms.Label();
-            this.uCtrlSpacing = new treeDiM.StackBuilder.Basics.UCtrlDouble();
+            this.uCtrlSpacing = new treeDiM.Basics.UCtrlDouble();
             this.SuspendLayout();
             // 
             // cbDir
@@ -73,9 +75,9 @@
             this.uCtrlWidth.Size = new System.Drawing.Size(165, 20);
             this.uCtrlWidth.TabIndex = 3;
             this.uCtrlWidth.Text = "Width";
-            this.uCtrlWidth.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlWidth.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlWidth.Value = 0D;
-            this.uCtrlWidth.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.ValueChangedDelegate(this.OnStrapperChanged);
+            this.uCtrlWidth.ValueChanged += new treeDiM.Basics.UCtrlDouble.ValueChangedDelegate(this.OnStrapperChanged);
             // 
             // uCtrlNumber
             // 
@@ -91,7 +93,7 @@
             this.uCtrlNumber.TabIndex = 2;
             this.uCtrlNumber.Text = "Number";
             this.uCtrlNumber.Value = 0;
-            this.uCtrlNumber.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlInt.ValueChangedDelegate(this.OnNumberChanged);
+            this.uCtrlNumber.ValueChanged += new treeDiM.Basics.UCtrlInt.ValueChangedDelegate(this.OnNumberChanged);
             // 
             // cbColor
             // 
@@ -139,9 +141,9 @@
             this.uCtrlSpacing.Size = new System.Drawing.Size(209, 20);
             this.uCtrlSpacing.TabIndex = 8;
             this.uCtrlSpacing.Text = "Spacing";
-            this.uCtrlSpacing.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlSpacing.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlSpacing.Value = 0D;
-            this.uCtrlSpacing.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.ValueChangedDelegate(this.OnStrapperChanged);
+            this.uCtrlSpacing.ValueChanged += new treeDiM.Basics.UCtrlDouble.ValueChangedDelegate(this.OnStrapperChanged);
             // 
             // CtrlStrapperSet
             // 

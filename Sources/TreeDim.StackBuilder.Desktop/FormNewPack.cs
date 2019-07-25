@@ -5,6 +5,7 @@ using System.Drawing;
 
 using log4net;
 
+using treeDiM.Basics;
 using treeDiM.StackBuilder.Basics;
 using treeDiM.StackBuilder.Graphics;
 using Sharp3D.Math.Core;

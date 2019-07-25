@@ -485,7 +485,7 @@
     <value>uCtrlInnerDimensions</value>
   </data>
   <data name="&gt;&gt;uCtrlInnerDimensions.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlTriDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.92, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.Basics.UCtrlTriDouble, treeDiM.Basics, Version=3.0.0.92, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlInnerDimensions.Parent" xml:space="preserve">
     <value>$this</value>
@@ -512,7 +512,7 @@
     <value>uCtrlMaxLoadWeight</value>
   </data>
   <data name="&gt;&gt;uCtrlMaxLoadWeight.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.92, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.Basics.UCtrlDouble, treeDiM.Basics, Version=3.0.0.92, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlMaxLoadWeight.Parent" xml:space="preserve">
     <value>$this</value>

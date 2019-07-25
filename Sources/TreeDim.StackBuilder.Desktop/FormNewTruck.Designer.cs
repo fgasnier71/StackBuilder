@@ -33,8 +33,8 @@
             this.lbColor = new System.Windows.Forms.Label();
             this.graphCtrl = new treeDiM.StackBuilder.Graphics.Graphics3DControl();
             this.bnSendToDB = new System.Windows.Forms.Button();
-            this.uCtrlInnerDimensions = new treeDiM.StackBuilder.Basics.UCtrlTriDouble();
-            this.uCtrlMaxLoadWeight = new treeDiM.StackBuilder.Basics.UCtrlDouble();
+            this.uCtrlInnerDimensions = new treeDiM.Basics.UCtrlTriDouble();
+            this.uCtrlMaxLoadWeight = new treeDiM.Basics.UCtrlDouble();
             ((System.ComponentModel.ISupportInitialize)(this.graphCtrl)).BeginInit();
             this.SuspendLayout();
             // 
@@ -143,8 +143,7 @@
             0,
             0});
             this.uCtrlInnerDimensions.Name = "uCtrlInnerDimensions";
-            this.uCtrlInnerDimensions.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
-            this.uCtrlInnerDimensions.Value = ((Sharp3D.Math.Core.Vector3D)(resources.GetObject("uCtrlInnerDimensions.Value")));
+            this.uCtrlInnerDimensions.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlInnerDimensions.ValueX = 0D;
             this.uCtrlInnerDimensions.ValueY = 0D;
             this.uCtrlInnerDimensions.ValueZ = 0D;
@@ -158,7 +157,7 @@
             0,
             0});
             this.uCtrlMaxLoadWeight.Name = "uCtrlMaxLoadWeight";
-            this.uCtrlMaxLoadWeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_MASS;
+            this.uCtrlMaxLoadWeight.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_MASS;
             this.uCtrlMaxLoadWeight.Value = 0D;
             // 
             // FormNewTruck
@@ -195,7 +194,7 @@
         private OfficePickers.ColorPicker.ComboBoxColorPicker cbColor;
         private System.Windows.Forms.Label lbColor;
         private System.Windows.Forms.Button bnSendToDB;
-        private Basics.UCtrlTriDouble uCtrlInnerDimensions;
-        private Basics.UCtrlDouble uCtrlMaxLoadWeight;
+        private treeDiM.Basics.UCtrlTriDouble uCtrlInnerDimensions;
+        private treeDiM.Basics.UCtrlDouble uCtrlMaxLoadWeight;
     }
 }

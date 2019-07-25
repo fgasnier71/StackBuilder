@@ -420,7 +420,7 @@
     <value>uCtrlWeight</value>
   </data>
   <data name="&gt;&gt;uCtrlWeight.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.92, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.Basics.UCtrlDouble, treeDiM.Basics, Version=3.0.0.92, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlWeight.Parent" xml:space="preserve">
     <value>gbWeight</value>
@@ -471,7 +471,7 @@
     <value>uCtrlThickness</value>
   </data>
   <data name="&gt;&gt;uCtrlThickness.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.92, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.Basics.UCtrlDouble, treeDiM.Basics, Version=3.0.0.96, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlThickness.Parent" xml:space="preserve">
     <value>gbDimensions</value>
@@ -498,7 +498,7 @@
     <value>uCtrlWidth</value>
   </data>
   <data name="&gt;&gt;uCtrlWidth.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.92, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.Basics.UCtrlDouble, treeDiM.Basics, Version=3.0.0.96, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlWidth.Parent" xml:space="preserve">
     <value>gbDimensions</value>
@@ -525,7 +525,7 @@
     <value>uCtrlLength</value>
   </data>
   <data name="&gt;&gt;uCtrlLength.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.92, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.Basics.UCtrlDouble, treeDiM.Basics, Version=3.0.0.96, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlLength.Parent" xml:space="preserve">
     <value>gbDimensions</value>

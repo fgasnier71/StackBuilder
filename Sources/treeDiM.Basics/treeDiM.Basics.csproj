@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{646EE507-E57D-43A7-93F3-365A687AEC4B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>treeDiM.Basics</RootNamespace>
+    <AssemblyName>treeDiM.Basics</AssemblyName>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Cureos.Measures">
+      <HintPath>..\ThirdPartyAssemblies\Cureos.Measures.dll</HintPath>
+    </Reference>
+    <Reference Include="Sharp3D.Math, Version=1.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Sharp3D.Math.1.0.3\lib\net45\Sharp3D.Math.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="OptDouble.cs" />
+    <Compile Include="OptInt.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UCtrlDouble.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCtrlDouble.Designer.cs">
+      <DependentUpon>UCtrlDouble.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCtrlDualDouble.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCtrlDualDouble.Designer.cs">
+      <DependentUpon>UCtrlDualDouble.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCtrlInt.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCtrlInt.Designer.cs">
+      <DependentUpon>UCtrlInt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCtrlOptDouble.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCtrlOptDouble.Designer.cs">
+      <DependentUpon>UCtrlOptDouble.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCtrlOptInt.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCtrlOptInt.Designer.cs">
+      <DependentUpon>UCtrlOptInt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCtrlOptTriDouble.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCtrlOptTriDouble.Designer.cs">
+      <DependentUpon>UCtrlOptTriDouble.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCtrlTriDouble.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCtrlTriDouble.Designer.cs">
+      <DependentUpon>UCtrlTriDouble.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCtrlTriInt.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCtrlTriInt.Designer.cs">
+      <DependentUpon>UCtrlTriInt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UnitsManager.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="UCtrlDouble.resx">
+      <DependentUpon>UCtrlDouble.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCtrlDualDouble.resx">
+      <DependentUpon>UCtrlDualDouble.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCtrlInt.resx">
+      <DependentUpon>UCtrlInt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCtrlOptDouble.resx">
+      <DependentUpon>UCtrlOptDouble.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCtrlOptInt.resx">
+      <DependentUpon>UCtrlOptInt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCtrlOptTriDouble.resx">
+      <DependentUpon>UCtrlOptTriDouble.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCtrlTriDouble.resx">
+      <DependentUpon>UCtrlTriDouble.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCtrlTriInt.resx">
+      <DependentUpon>UCtrlTriInt.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\NuGet.Build.Tasks.Pack.4.4.0\build\NuGet.Build.Tasks.Pack.targets" Condition="Exists('..\packages\NuGet.Build.Tasks.Pack.4.4.0\build\NuGet.Build.Tasks.Pack.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\NuGet.Build.Tasks.Pack.4.4.0\build\NuGet.Build.Tasks.Pack.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NuGet.Build.Tasks.Pack.4.4.0\build\NuGet.Build.Tasks.Pack.targets'))" />
+  </Target>
+  <PropertyGroup>
+    <PostBuildEvent>if $(ConfigurationName) == Release "$(SolutionDir)Signfile.bat" "$(TargetPath)"
+
+</PostBuildEvent>
+  </PropertyGroup>
+</Project>

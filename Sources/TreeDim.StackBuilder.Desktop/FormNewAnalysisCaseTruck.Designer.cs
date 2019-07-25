@@ -37,8 +37,8 @@
             this.checkBoxBestLayersOnly = new System.Windows.Forms.CheckBox();
             this.cbTrucks = new treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered();
             this.lbTrucks = new System.Windows.Forms.Label();
-            this.uCtrlMinDistanceLoadWall = new treeDiM.StackBuilder.Basics.UCtrlDualDouble();
-            this.uCtrlMinDistanceLoadRoof = new treeDiM.StackBuilder.Basics.UCtrlDouble();
+            this.uCtrlMinDistanceLoadWall = new treeDiM.Basics.UCtrlDualDouble();
+            this.uCtrlMinDistanceLoadRoof = new treeDiM.Basics.UCtrlDouble();
             this.SuspendLayout();
             // 
             // tbDescription
@@ -118,10 +118,10 @@
             resources.ApplyResources(this.uCtrlMinDistanceLoadWall, "uCtrlMinDistanceLoadWall");
             this.uCtrlMinDistanceLoadWall.MinValue = -10000D;
             this.uCtrlMinDistanceLoadWall.Name = "uCtrlMinDistanceLoadWall";
-            this.uCtrlMinDistanceLoadWall.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlMinDistanceLoadWall.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlMinDistanceLoadWall.ValueX = 0D;
             this.uCtrlMinDistanceLoadWall.ValueY = 0D;
-            this.uCtrlMinDistanceLoadWall.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDualDouble.ValueChangedDelegate(this.OnInputChanged);
+            this.uCtrlMinDistanceLoadWall.ValueChanged += new treeDiM.Basics.UCtrlDualDouble.ValueChangedDelegate(this.OnInputChanged);
             // 
             // uCtrlMinDistanceLoadRoof
             // 
@@ -132,9 +132,9 @@
             0,
             -2147483648});
             this.uCtrlMinDistanceLoadRoof.Name = "uCtrlMinDistanceLoadRoof";
-            this.uCtrlMinDistanceLoadRoof.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlMinDistanceLoadRoof.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlMinDistanceLoadRoof.Value = 0D;
-            this.uCtrlMinDistanceLoadRoof.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.ValueChangedDelegate(this.OnInputChanged);
+            this.uCtrlMinDistanceLoadRoof.ValueChanged += new treeDiM.Basics.UCtrlDouble.ValueChangedDelegate(this.OnInputChanged);
             // 
             // FormNewAnalysisCaseTruck
             // 
@@ -180,7 +180,7 @@
         private System.Windows.Forms.CheckBox checkBoxBestLayersOnly;
         private Graphics.Controls.CCtrlComboFiltered cbTrucks;
         private System.Windows.Forms.Label lbTrucks;
-        private Basics.UCtrlDualDouble uCtrlMinDistanceLoadWall;
-        private Basics.UCtrlDouble uCtrlMinDistanceLoadRoof;
+        private treeDiM.Basics.UCtrlDualDouble uCtrlMinDistanceLoadWall;
+        private treeDiM.Basics.UCtrlDouble uCtrlMinDistanceLoadRoof;
     }
 }

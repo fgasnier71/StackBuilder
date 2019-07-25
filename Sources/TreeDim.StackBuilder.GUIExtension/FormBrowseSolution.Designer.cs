@@ -35,8 +35,8 @@
             this.splitContainerHoriz = new System.Windows.Forms.SplitContainer();
             this.graphCtrl = new treeDiM.StackBuilder.Graphics.Graphics3DControl();
             this.gbStopCriterions = new System.Windows.Forms.GroupBox();
-            this.uCtrlOptMaximumWeight = new treeDiM.StackBuilder.Basics.UCtrlOptDouble();
-            this.uCtrlMaxPalletHeight = new treeDiM.StackBuilder.Basics.UCtrlDouble();
+            this.uCtrlOptMaximumWeight = new treeDiM.Basics.UCtrlOptDouble();
+            this.uCtrlMaxPalletHeight = new treeDiM.Basics.UCtrlDouble();
             this.gbLayer = new System.Windows.Forms.GroupBox();
             this.cbLayerType = new treeDiM.StackBuilder.Graphics.Controls.CCtrlComboLayer();
             this.bnSymmetryX = new System.Windows.Forms.Button();
@@ -149,8 +149,7 @@
             this.uCtrlOptMaximumWeight.Size = new System.Drawing.Size(206, 20);
             this.uCtrlOptMaximumWeight.TabIndex = 1;
             this.uCtrlOptMaximumWeight.Text = "Maximum weight";
-            this.uCtrlOptMaximumWeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_MASS;
-            this.uCtrlOptMaximumWeight.Value = ((treeDiM.StackBuilder.Basics.OptDouble)(resources.GetObject("uCtrlOptMaximumWeight.Value")));
+            this.uCtrlOptMaximumWeight.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_MASS;
             // 
             // uCtrlMaxPalletHeight
             // 
@@ -165,7 +164,7 @@
             this.uCtrlMaxPalletHeight.Size = new System.Drawing.Size(206, 20);
             this.uCtrlMaxPalletHeight.TabIndex = 0;
             this.uCtrlMaxPalletHeight.Text = "Maximum height";
-            this.uCtrlMaxPalletHeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlMaxPalletHeight.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlMaxPalletHeight.Value = 0D;
             // 
             // gbLayer
@@ -288,8 +287,8 @@
         private SourceGrid.Grid gridSolution;
         private System.Windows.Forms.SplitContainer splitContainerHoriz;
         private System.Windows.Forms.GroupBox gbStopCriterions;
-        private Basics.UCtrlOptDouble uCtrlOptMaximumWeight;
-        private Basics.UCtrlDouble uCtrlMaxPalletHeight;
+        private treeDiM.Basics.UCtrlOptDouble uCtrlOptMaximumWeight;
+        private treeDiM.Basics.UCtrlDouble uCtrlMaxPalletHeight;
         private System.Windows.Forms.GroupBox gbLayer;
         private Graphics.Controls.CCtrlComboLayer cbLayerType;
         private System.Windows.Forms.Button bnSymmetryX;

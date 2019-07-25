@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.uCtrlDimensions = new treeDiM.StackBuilder.Basics.UCtrlDualDouble();
-            this.uCtrlUnitThickness = new treeDiM.StackBuilder.Basics.UCtrlDouble();
+            this.uCtrlDimensions = new treeDiM.Basics.UCtrlDualDouble();
+            this.uCtrlUnitThickness = new treeDiM.Basics.UCtrlDouble();
             this.lbNoFlats = new System.Windows.Forms.Label();
             this.nudNoFlats = new System.Windows.Forms.NumericUpDown();
-            this.uCtrlUnitWeight = new treeDiM.StackBuilder.Basics.UCtrlDouble();
+            this.uCtrlUnitWeight = new treeDiM.Basics.UCtrlDouble();
             ((System.ComponentModel.ISupportInitialize)(this.nudNoFlats)).BeginInit();
             this.SuspendLayout();
             // 
@@ -43,7 +43,7 @@
             this.uCtrlDimensions.Size = new System.Drawing.Size(274, 20);
             this.uCtrlDimensions.TabIndex = 1;
             this.uCtrlDimensions.Text = "Dimensions";
-            this.uCtrlDimensions.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlDimensions.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlDimensions.ValueX = 0D;
             this.uCtrlDimensions.ValueY = 0D;
             // 
@@ -60,7 +60,7 @@
             this.uCtrlUnitThickness.Size = new System.Drawing.Size(212, 20);
             this.uCtrlUnitThickness.TabIndex = 2;
             this.uCtrlUnitThickness.Text = "Unit thickness";
-            this.uCtrlUnitThickness.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlUnitThickness.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlUnitThickness.Value = 0D;
             // 
             // lbNoFlats
@@ -92,7 +92,7 @@
             this.uCtrlUnitWeight.Size = new System.Drawing.Size(212, 20);
             this.uCtrlUnitWeight.TabIndex = 5;
             this.uCtrlUnitWeight.Text = "Unit weight";
-            this.uCtrlUnitWeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_MASS;
+            this.uCtrlUnitWeight.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_MASS;
             this.uCtrlUnitWeight.Value = 0D;
             // 
             // UCtrlBundle
@@ -112,10 +112,10 @@
 
         #endregion
 
-        private Basics.UCtrlDualDouble uCtrlDimensions;
-        private Basics.UCtrlDouble uCtrlUnitThickness;
+        private treeDiM.Basics.UCtrlDualDouble uCtrlDimensions;
+        private treeDiM.Basics.UCtrlDouble uCtrlUnitThickness;
         private System.Windows.Forms.Label lbNoFlats;
         private System.Windows.Forms.NumericUpDown nudNoFlats;
-        private Basics.UCtrlDouble uCtrlUnitWeight;
+        private treeDiM.Basics.UCtrlDouble uCtrlUnitWeight;
     }
 }

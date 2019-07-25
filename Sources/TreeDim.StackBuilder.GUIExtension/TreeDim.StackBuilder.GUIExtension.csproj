@@ -151,6 +151,10 @@
       <Project>{cad56b75-481b-4c76-b090-4bc2ff5e5681}</Project>
       <Name>OfficePickers</Name>
     </ProjectReference>
+    <ProjectReference Include="..\treeDiM.Basics\treeDiM.Basics.csproj">
+      <Project>{646ee507-e57d-43a7-93f3-365a687aec4b}</Project>
+      <Name>treeDiM.Basics</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TreeDim.StackBuilder.Basics\treeDiM.StackBuilder.Basics.csproj">
       <Project>{444C01D0-53FD-49A1-9D55-267B49161357}</Project>
       <Name>treeDiM.StackBuilder.Basics</Name>
@@ -196,6 +200,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormBrowseSolution.resx">
       <DependentUpon>FormBrowseSolution.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FormBrowseSolution.ru.resx">
       <DependentUpon>FormBrowseSolution.cs</DependentUpon>
@@ -250,6 +255,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormDefineAnalysisCasePallet.resx">
       <DependentUpon>FormDefineAnalysisCasePallet.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FormDefineAnalysisBundleCase.resx">
       <DependentUpon>FormDefineAnalysisBundleCase.cs</DependentUpon>

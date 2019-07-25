@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.Linq;
 
+using treeDiM.Basics;
 using treeDiM.StackBuilder.ExcelReader;
 using treeDiM.StackBuilder.Basics;
 using treeDiM.StackBuilder.Graphics;

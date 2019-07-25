@@ -1,4 +1,6 @@
-﻿namespace treeDiM.StackBuilder.ExcelListEvaluator
+﻿using treeDiM.Basics;
+
+namespace treeDiM.StackBuilder.ExcelListEvaluator
 {
     partial class FormMain
     {
@@ -39,16 +41,16 @@
             this.lbFilePath = new System.Windows.Forms.Label();
             this.fileSelectExcel = new treeDiM.UserControls.FileSelect();
             this.graphCtrlPallet = new treeDiM.StackBuilder.Graphics.Graphics3DControl();
-            this.uCtrlPalletDimensions = new treeDiM.StackBuilder.Basics.UCtrlTriDouble();
+            this.uCtrlPalletDimensions = new treeDiM.Basics.UCtrlTriDouble();
             this.gbInput = new System.Windows.Forms.GroupBox();
             this.chkbOnlyVerticalOrientation = new System.Windows.Forms.CheckBox();
             this.tabCtrl = new System.Windows.Forms.TabControl();
             this.tabPallet = new System.Windows.Forms.TabPage();
-            this.uCtrlMaximumPalletHeight = new treeDiM.StackBuilder.Basics.UCtrlDouble();
+            this.uCtrlMaximumPalletHeight = new treeDiM.Basics.UCtrlDouble();
             this.cbPalletType = new System.Windows.Forms.ComboBox();
             this.lbPalletType = new System.Windows.Forms.Label();
             this.tabContainer = new System.Windows.Forms.TabPage();
-            this.uCtrlTruckDimensions = new treeDiM.StackBuilder.Basics.UCtrlTriDouble();
+            this.uCtrlTruckDimensions = new treeDiM.Basics.UCtrlTriDouble();
             this.lbCaseLoaded = new System.Windows.Forms.Label();
             this.gbOutput = new System.Windows.Forms.GroupBox();
             this.chkbGenerateImageFolder = new System.Windows.Forms.CheckBox();
@@ -143,12 +145,11 @@
             0,
             0});
             this.uCtrlPalletDimensions.Name = "uCtrlPalletDimensions";
-            this.uCtrlPalletDimensions.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
-            this.uCtrlPalletDimensions.Value = ((Sharp3D.Math.Core.Vector3D)(resources.GetObject("uCtrlPalletDimensions.Value")));
+            this.uCtrlPalletDimensions.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlPalletDimensions.ValueX = 0D;
             this.uCtrlPalletDimensions.ValueY = 0D;
             this.uCtrlPalletDimensions.ValueZ = 0D;
-            this.uCtrlPalletDimensions.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlTriDouble.ValueChangedDelegate(this.OnDataChanged);
+            this.uCtrlPalletDimensions.ValueChanged += new treeDiM.Basics.UCtrlTriDouble.ValueChangedDelegate(this.OnDataChanged);
             // 
             // gbInput
             // 
@@ -196,7 +197,7 @@
             0,
             -2147483648});
             this.uCtrlMaximumPalletHeight.Name = "uCtrlMaximumPalletHeight";
-            this.uCtrlMaximumPalletHeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlMaximumPalletHeight.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlMaximumPalletHeight.Value = 0D;
             // 
             // cbPalletType
@@ -228,12 +229,11 @@
             0,
             0});
             this.uCtrlTruckDimensions.Name = "uCtrlTruckDimensions";
-            this.uCtrlTruckDimensions.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
-            this.uCtrlTruckDimensions.Value = ((Sharp3D.Math.Core.Vector3D)(resources.GetObject("uCtrlTruckDimensions.Value")));
+            this.uCtrlTruckDimensions.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlTruckDimensions.ValueX = 0D;
             this.uCtrlTruckDimensions.ValueY = 0D;
             this.uCtrlTruckDimensions.ValueZ = 0D;
-            this.uCtrlTruckDimensions.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlTriDouble.ValueChangedDelegate(this.OnDataChanged);
+            this.uCtrlTruckDimensions.ValueChanged += new treeDiM.Basics.UCtrlTriDouble.ValueChangedDelegate(this.OnDataChanged);
             // 
             // lbCaseLoaded
             // 
@@ -352,12 +352,12 @@
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private UserControls.FileSelect fileSelectExcel;
         private Graphics.Graphics3DControl graphCtrlPallet;
-        private Basics.UCtrlTriDouble uCtrlPalletDimensions;
+        private treeDiM.Basics.UCtrlTriDouble uCtrlPalletDimensions;
         private System.Windows.Forms.GroupBox gbInput;
         private System.Windows.Forms.ComboBox cbPalletType;
         private System.Windows.Forms.Label lbPalletType;
-        private Basics.UCtrlTriDouble uCtrlTruckDimensions;
-        private Basics.UCtrlDouble uCtrlMaximumPalletHeight;
+        private treeDiM.Basics.UCtrlTriDouble uCtrlTruckDimensions;
+        private treeDiM.Basics.UCtrlDouble uCtrlMaximumPalletHeight;
         private System.Windows.Forms.GroupBox gbOutput;
         private System.Windows.Forms.CheckBox chkbOpenFile;
         private System.Windows.Forms.Button bnGenerate;

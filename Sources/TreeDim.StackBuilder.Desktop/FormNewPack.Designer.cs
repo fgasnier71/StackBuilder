@@ -34,15 +34,15 @@
             this.cbInnerBox = new System.Windows.Forms.ComboBox();
             this.lbDir = new System.Windows.Forms.Label();
             this.cbDir = new System.Windows.Forms.ComboBox();
-            this.uCtrlOuterDimensions = new treeDiM.StackBuilder.Basics.UCtrlOptTriDouble();
-            this.uCtrlLayout = new treeDiM.StackBuilder.Basics.Controls.UCtrlTriInt();
-            this.uCtrlHeight = new treeDiM.StackBuilder.Basics.UCtrlDouble();
-            this.uCtrlWalls = new treeDiM.StackBuilder.Basics.Controls.UCtrlTriInt();
+            this.uCtrlOuterDimensions = new treeDiM.Basics.UCtrlOptTriDouble();
+            this.uCtrlLayout = new treeDiM.Basics.UCtrlTriInt();
+            this.uCtrlHeight = new treeDiM.Basics.UCtrlDouble();
+            this.uCtrlWalls = new treeDiM.Basics.UCtrlTriInt();
             this.chkbTransparent = new System.Windows.Forms.CheckBox();
             this.lbType = new System.Windows.Forms.Label();
             this.cbType = new System.Windows.Forms.ComboBox();
-            this.uCtrlWeight = new treeDiM.StackBuilder.Basics.UCtrlDouble();
-            this.uCtrlThickness = new treeDiM.StackBuilder.Basics.UCtrlDouble();
+            this.uCtrlWeight = new treeDiM.Basics.UCtrlDouble();
+            this.uCtrlThickness = new treeDiM.Basics.UCtrlDouble();
             this.lbWrapperColor = new System.Windows.Forms.Label();
             this.cbColor = new OfficePickers.ColorPicker.ComboBoxColorPicker();
             this.tabCtrl = new System.Windows.Forms.TabControl();
@@ -127,12 +127,11 @@
             0,
             0});
             this.uCtrlOuterDimensions.Name = "uCtrlOuterDimensions";
-            this.uCtrlOuterDimensions.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
-            this.uCtrlOuterDimensions.Value = ((Sharp3D.Math.Core.Vector3D)(resources.GetObject("uCtrlOuterDimensions.Value")));
+            this.uCtrlOuterDimensions.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlOuterDimensions.X = 0D;
             this.uCtrlOuterDimensions.Y = 0D;
             this.uCtrlOuterDimensions.Z = 0D;
-            this.uCtrlOuterDimensions.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlOptTriDouble.ValueChangedDelegate(this.OnPackChanged);
+            this.uCtrlOuterDimensions.ValueChanged += new treeDiM.Basics.UCtrlOptTriDouble.ValueChangedDelegate(this.OnPackChanged);
             // 
             // uCtrlLayout
             // 
@@ -141,7 +140,7 @@
             this.uCtrlLayout.NoX = 1;
             this.uCtrlLayout.NoY = 1;
             this.uCtrlLayout.NoZ = 1;
-            this.uCtrlLayout.ValueChanged += new treeDiM.StackBuilder.Basics.Controls.UCtrlTriInt.ValueChangedDelegate(this.OnPackChanged);
+            this.uCtrlLayout.ValueChanged += new treeDiM.Basics.UCtrlTriInt.ValueChangedDelegate(this.OnPackChanged);
             // 
             // uCtrlHeight
             // 
@@ -152,9 +151,9 @@
             0,
             0});
             this.uCtrlHeight.Name = "uCtrlHeight";
-            this.uCtrlHeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlHeight.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlHeight.Value = 40D;
-            this.uCtrlHeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.ValueChangedDelegate(this.OnPackChanged);
+            this.uCtrlHeight.ValueChanged += new treeDiM.Basics.UCtrlDouble.ValueChangedDelegate(this.OnPackChanged);
             // 
             // uCtrlWalls
             // 
@@ -163,7 +162,7 @@
             this.uCtrlWalls.NoX = 1;
             this.uCtrlWalls.NoY = 1;
             this.uCtrlWalls.NoZ = 1;
-            this.uCtrlWalls.ValueChanged += new treeDiM.StackBuilder.Basics.Controls.UCtrlTriInt.ValueChangedDelegate(this.OnPackChanged);
+            this.uCtrlWalls.ValueChanged += new treeDiM.Basics.UCtrlTriInt.ValueChangedDelegate(this.OnPackChanged);
             // 
             // chkbTransparent
             // 
@@ -199,9 +198,9 @@
             0,
             -2147483648});
             this.uCtrlWeight.Name = "uCtrlWeight";
-            this.uCtrlWeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_MASS;
+            this.uCtrlWeight.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_MASS;
             this.uCtrlWeight.Value = 0D;
-            this.uCtrlWeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.ValueChangedDelegate(this.OnPackChanged);
+            this.uCtrlWeight.ValueChanged += new treeDiM.Basics.UCtrlDouble.ValueChangedDelegate(this.OnPackChanged);
             // 
             // uCtrlThickness
             // 
@@ -212,9 +211,9 @@
             0,
             0});
             this.uCtrlThickness.Name = "uCtrlThickness";
-            this.uCtrlThickness.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlThickness.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlThickness.Value = 0D;
-            this.uCtrlThickness.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.ValueChangedDelegate(this.OnPackChanged);
+            this.uCtrlThickness.ValueChanged += new treeDiM.Basics.UCtrlDouble.ValueChangedDelegate(this.OnPackChanged);
             // 
             // lbWrapperColor
             // 
@@ -354,17 +353,17 @@
         private System.Windows.Forms.ComboBox cbInnerBox;
         private System.Windows.Forms.Label lbDir;
         private System.Windows.Forms.ComboBox cbDir;
-        private Basics.UCtrlOptTriDouble uCtrlOuterDimensions;
-        private Basics.Controls.UCtrlTriInt uCtrlLayout;
-        private Basics.UCtrlDouble uCtrlWeight;
-        private Basics.UCtrlDouble uCtrlThickness;
+        private treeDiM.Basics.UCtrlOptTriDouble uCtrlOuterDimensions;
+        private treeDiM.Basics.UCtrlTriInt uCtrlLayout;
+        private treeDiM.Basics.UCtrlDouble uCtrlWeight;
+        private treeDiM.Basics.UCtrlDouble uCtrlThickness;
         private System.Windows.Forms.Label lbWrapperColor;
         private OfficePickers.ColorPicker.ComboBoxColorPicker cbColor;
         private System.Windows.Forms.Label lbType;
         private System.Windows.Forms.ComboBox cbType;
-        private Basics.Controls.UCtrlTriInt uCtrlWalls;
+        private treeDiM.Basics.UCtrlTriInt uCtrlWalls;
         private System.Windows.Forms.CheckBox chkbTransparent;
-        private Basics.UCtrlDouble uCtrlHeight;
+        private treeDiM.Basics.UCtrlDouble uCtrlHeight;
         private System.Windows.Forms.TabControl tabCtrl;
         private System.Windows.Forms.TabPage tabWrapper;
         private System.Windows.Forms.TabPage tabStrappers;

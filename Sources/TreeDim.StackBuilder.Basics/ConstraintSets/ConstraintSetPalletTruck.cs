@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-using Sharp3D.Math.Core;
 
 using log4net;
+
+using treeDiM.Basics;
 
 namespace treeDiM.StackBuilder.Basics
 {

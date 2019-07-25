@@ -57,8 +57,8 @@
             this.gbResults = new System.Windows.Forms.GroupBox();
             this.nudImageDef = new System.Windows.Forms.NumericUpDown();
             this.label7 = new System.Windows.Forms.Label();
-            this.uCtrlImageDim = new treeDiM.StackBuilder.Basics.UCtrlDualDouble();
-            this.uCtrlImageLeftTop = new treeDiM.StackBuilder.Basics.UCtrlDualDouble();
+            this.uCtrlImageDim = new treeDiM.Basics.UCtrlDualDouble();
+            this.uCtrlImageLeftTop = new treeDiM.Basics.UCtrlDualDouble();
             this.label5 = new System.Windows.Forms.Label();
             this.lbNoCases = new System.Windows.Forms.Label();
             this.tbNoCases = new System.Windows.Forms.TextBox();
@@ -262,7 +262,7 @@
             resources.ApplyResources(this.uCtrlImageDim, "uCtrlImageDim");
             this.uCtrlImageDim.MinValue = -10000D;
             this.uCtrlImageDim.Name = "uCtrlImageDim";
-            this.uCtrlImageDim.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlImageDim.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlImageDim.ValueX = 0D;
             this.uCtrlImageDim.ValueY = 0D;
             // 
@@ -271,7 +271,7 @@
             resources.ApplyResources(this.uCtrlImageLeftTop, "uCtrlImageLeftTop");
             this.uCtrlImageLeftTop.MinValue = -10000D;
             this.uCtrlImageLeftTop.Name = "uCtrlImageLeftTop";
-            this.uCtrlImageLeftTop.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlImageLeftTop.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlImageLeftTop.ValueX = 0D;
             this.uCtrlImageLeftTop.ValueY = 0D;
             // 

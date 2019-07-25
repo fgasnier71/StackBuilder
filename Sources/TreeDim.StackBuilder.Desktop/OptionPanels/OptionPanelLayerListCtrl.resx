@@ -246,6 +246,6 @@
     <value>OptionPanelLayerListCtrl</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>GLib.Options.OptionsPanel, OptionsLib, Version=3.0.0.82, Culture=neutral, PublicKeyToken=null</value>
+    <value>GLib.Options.OptionsPanel, OptionsLib, Version=3.0.0.96, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

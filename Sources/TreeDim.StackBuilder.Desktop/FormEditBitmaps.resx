@@ -508,7 +508,7 @@
     <value>uCtrlOrigin</value>
   </data>
   <data name="&gt;&gt;uCtrlOrigin.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlDualDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.46, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.Basics.UCtrlDualDouble, treeDiM.Basics, Version=3.0.0.96, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlOrigin.Parent" xml:space="preserve">
     <value>$this</value>
@@ -532,7 +532,7 @@
     <value>uCtrlSize</value>
   </data>
   <data name="&gt;&gt;uCtrlSize.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.UCtrlDualDouble, treeDiM.StackBuilder.Basics, Version=3.0.0.46, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.Basics.UCtrlDualDouble, treeDiM.Basics, Version=3.0.0.46, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlSize.Parent" xml:space="preserve">
     <value>$this</value>

@@ -30,8 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormNewInterlayer));
             this.graphCtrl = new treeDiM.StackBuilder.Graphics.Graphics3DControl();
-            this.uCtrlDimensions = new treeDiM.StackBuilder.Basics.UCtrlTriDouble();
-            this.uCtrlWeight = new treeDiM.StackBuilder.Basics.UCtrlDouble();
+            this.uCtrlDimensions = new treeDiM.Basics.UCtrlTriDouble();
+            this.uCtrlWeight = new treeDiM.Basics.UCtrlDouble();
             this.cbColor = new OfficePickers.ColorPicker.ComboBoxColorPicker();
             this.lbColor = new System.Windows.Forms.Label();
             this.bnSendToDB = new System.Windows.Forms.Button();
@@ -70,11 +70,11 @@
             0,
             0});
             this.uCtrlDimensions.Name = "uCtrlDimensions";
-            this.uCtrlDimensions.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlDimensions.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlDimensions.ValueX = 0D;
             this.uCtrlDimensions.ValueY = 0D;
             this.uCtrlDimensions.ValueZ = 0D;
-            this.uCtrlDimensions.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlTriDouble.ValueChangedDelegate(this.OnValueChanged);
+            this.uCtrlDimensions.ValueChanged += new treeDiM.Basics.UCtrlTriDouble.ValueChangedDelegate(this.OnValueChanged);
             // 
             // uCtrlWeight
             // 
@@ -85,9 +85,9 @@
             0,
             -2147483648});
             this.uCtrlWeight.Name = "uCtrlWeight";
-            this.uCtrlWeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_MASS;
+            this.uCtrlWeight.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_MASS;
             this.uCtrlWeight.Value = 0D;
-            this.uCtrlWeight.ValueChanged += new treeDiM.StackBuilder.Basics.UCtrlDouble.ValueChangedDelegate(this.OnValueChanged);
+            this.uCtrlWeight.ValueChanged += new treeDiM.Basics.UCtrlDouble.ValueChangedDelegate(this.OnValueChanged);
             // 
             // cbColor
             // 
@@ -189,8 +189,8 @@
         #endregion
 
         private treeDiM.StackBuilder.Graphics.Graphics3DControl graphCtrl;
-        private Basics.UCtrlTriDouble uCtrlDimensions;
-        private Basics.UCtrlDouble uCtrlWeight;
+        private treeDiM.Basics.UCtrlTriDouble uCtrlDimensions;
+        private treeDiM.Basics.UCtrlDouble uCtrlWeight;
         private OfficePickers.ColorPicker.ComboBoxColorPicker cbColor;
         private System.Windows.Forms.Label lbColor;
         private System.Windows.Forms.Button bnSendToDB;

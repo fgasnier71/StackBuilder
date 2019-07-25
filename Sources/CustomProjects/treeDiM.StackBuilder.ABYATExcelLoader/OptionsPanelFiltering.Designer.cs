@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.uCtrlLargestDimMin = new treeDiM.StackBuilder.Basics.UCtrlDouble();
+            this.uCtrlLargestDimMin = new treeDiM.Basics.UCtrlDouble();
             this.nudStackCountMax = new System.Windows.Forms.NumericUpDown();
             this.lbDrawing = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nudStackCountMax)).BeginInit();
@@ -47,7 +47,7 @@
             this.uCtrlLargestDimMin.Size = new System.Drawing.Size(340, 20);
             this.uCtrlLargestDimMin.TabIndex = 5;
             this.uCtrlLargestDimMin.Text = "Skip computation if largest dimension below ";
-            this.uCtrlLargestDimMin.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlLargestDimMin.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlLargestDimMin.Value = 10D;
             // 
             // nudStackCountMax
@@ -101,7 +101,7 @@
 
         #endregion
 
-        private Basics.UCtrlDouble uCtrlLargestDimMin;
+        private treeDiM.Basics.UCtrlDouble uCtrlLargestDimMin;
         private System.Windows.Forms.NumericUpDown nudStackCountMax;
         private System.Windows.Forms.Label lbDrawing;
     }

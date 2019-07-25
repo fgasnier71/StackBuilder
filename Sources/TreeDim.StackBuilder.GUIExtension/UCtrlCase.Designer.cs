@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.uCtrlDimensions = new treeDiM.StackBuilder.Basics.UCtrlTriDouble();
-            this.uCtrlWeight = new treeDiM.StackBuilder.Basics.UCtrlDouble();
+            this.uCtrlDimensions = new treeDiM.Basics.UCtrlTriDouble();
+            this.uCtrlWeight = new treeDiM.Basics.UCtrlDouble();
             this.SuspendLayout();
             // 
             // uCtrlDimensions
@@ -44,7 +44,7 @@
             this.uCtrlDimensions.Size = new System.Drawing.Size(300, 20);
             this.uCtrlDimensions.TabIndex = 1;
             this.uCtrlDimensions.Text = "Dimensions";
-            this.uCtrlDimensions.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlDimensions.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlDimensions.ValueX = 0D;
             this.uCtrlDimensions.ValueY = 0D;
             this.uCtrlDimensions.ValueZ = 0D;
@@ -62,7 +62,7 @@
             this.uCtrlWeight.Size = new System.Drawing.Size(176, 20);
             this.uCtrlWeight.TabIndex = 2;
             this.uCtrlWeight.Text = "Weight";
-            this.uCtrlWeight.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_MASS;
+            this.uCtrlWeight.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_MASS;
             this.uCtrlWeight.Value = 0D;
             // 
             // UCtrlCase
@@ -75,12 +75,10 @@
             this.Controls.SetChildIndex(this.uCtrlDimensions, 0);
             this.Controls.SetChildIndex(this.uCtrlWeight, 0);
             this.ResumeLayout(false);
-
         }
-
         #endregion
 
-        private Basics.UCtrlTriDouble uCtrlDimensions;
-        private Basics.UCtrlDouble uCtrlWeight;
+        private treeDiM.Basics.UCtrlTriDouble uCtrlDimensions;
+        private treeDiM.Basics.UCtrlDouble uCtrlWeight;
     }
 }

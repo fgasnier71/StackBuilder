@@ -137,7 +137,7 @@ namespace treeDiM.StackBuilder.Desktop
             AddView(form);
             return form;
         }
-
+        /*
         /// <summary>
         /// creates a new DockContentECTAnalysis view
         /// </summary>
@@ -147,6 +147,7 @@ namespace treeDiM.StackBuilder.Desktop
             AddView(form);
             return form;
         }
+        */
         #endregion
 
         #region UI item creation

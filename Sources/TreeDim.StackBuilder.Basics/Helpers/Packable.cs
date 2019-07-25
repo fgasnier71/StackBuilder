@@ -3,6 +3,8 @@ using System.Text;
 
 using Sharp3D.Math.Core;
 
+using treeDiM.Basics;
+
 namespace treeDiM.StackBuilder.Basics
 {
     public abstract class Packable : ItemBase

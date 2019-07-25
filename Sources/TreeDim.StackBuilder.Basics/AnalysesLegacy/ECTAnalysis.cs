@@ -1,8 +1,9 @@
 ﻿#region Using directives
 using System.Collections.Generic;
-
-using treeDiM.EdgeCrushTest;
 #endregion
+/*
+using treeDiM.EdgeCrushTest;
+
 
 namespace treeDiM.StackBuilder.Basics
 {
@@ -12,10 +13,7 @@ namespace treeDiM.StackBuilder.Basics
     public class ECTAnalysis : AnalysisLegacy
     {
         #region Data members
-        private McKeeFormula.QualityData _qualityData;
         private McKeeFormula.FormulaType _mcKeeFormula;
-        private string _caseType;
-        private string _printSurface;
         #endregion
 
         #region Constructor
@@ -26,11 +24,7 @@ namespace treeDiM.StackBuilder.Basics
         #endregion
 
         #region Public properties
-        public McKeeFormula.QualityData Cardboard
-        {
-            get { return _qualityData; }
-            set { _qualityData = value; }
-        }
+        public McKeeFormula.QualityData Cardboard { get; set; }
         /// <summary>
         /// Use improved mc kee formula ?
         /// </summary>
@@ -57,17 +51,9 @@ namespace treeDiM.StackBuilder.Basics
         /// <summary>
         /// Case type
         /// </summary>
-        public string CaseType
-        {
-            get { return _caseType; }
-            set { _caseType = value; }
-        }
+        public string CaseType { get; set; }
 
-        public string PrintSurface
-        {
-            get { return _printSurface; }
-            set { _printSurface = value; }
-        }
+        public string PrintSurface { get; set; }
 
         public double LoadOnFirstLayerCase
         {
@@ -84,7 +70,7 @@ namespace treeDiM.StackBuilder.Basics
             get
             {
                 BoxProperties boxProperties = null;
-                return McKeeFormula.ComputeStaticBCT(boxProperties.Length, boxProperties.Width, boxProperties.Height, _qualityData.Id, _caseType, _mcKeeFormula); 
+                return McKeeFormula.ComputeStaticBCT(boxProperties.Length, boxProperties.Width, boxProperties.Height, Cardboard.Id, CaseType, _mcKeeFormula); 
             }
         }
         public Dictionary<KeyValuePair<string, string>, double> DynamicBCTDictionary
@@ -92,7 +78,7 @@ namespace treeDiM.StackBuilder.Basics
             get
             {
                 BoxProperties boxProperties = null;
-                return McKeeFormula.EvaluateEdgeCrushTestMatrix(boxProperties.Length, boxProperties.Width, boxProperties.Height, _qualityData.Id, _caseType, _printSurface, _mcKeeFormula);
+                return McKeeFormula.EvaluateEdgeCrushTestMatrix(boxProperties.Length, boxProperties.Width, boxProperties.Height, Cardboard.Id, CaseType, PrintSurface, _mcKeeFormula);
             }
         }
         #endregion
@@ -105,3 +91,4 @@ namespace treeDiM.StackBuilder.Basics
         #endregion
     }
 }
+*/
