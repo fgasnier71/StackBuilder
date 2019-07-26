@@ -31,8 +31,8 @@
             Controls.Add(btn);
             btn.Click += new EventHandler(btn_Click);
             base.AllowDrop = true;
-            file.FileChanged += new EventHandler(file_FileChanged);
-            this.EnabledChanged += new EventHandler(FileSelect_EnabledChanged);
+            file.FileChanged += new EventHandler(OnFileNameChanged);
+            EnabledChanged += new EventHandler(FileSelect_EnabledChanged);
         }
         void FileSelect_EnabledChanged(object sender, EventArgs e)
         {
@@ -148,13 +148,10 @@
         [DefaultValue(null)]
         public string FileName
         {
-            get { return file.FileName; }
-            set
-            {
-                file.FileName = value;
-            }
+            get => file.FileName;
+            set => file.FileName = value;
         }
-        void file_FileChanged(object sender, EventArgs e)
+        void OnFileNameChanged(object sender, EventArgs e)
         {
             txtFile.Text = file.FileName;
             OnPropertyChanged("FileName", FileNameChanged);
@@ -532,7 +529,7 @@ namespace treeDiM.IO
             set
             {
                 starter = value;
-                AssociatedName = value?.Name;
+                AssociatedName = value == null ? null : value.Name;
             }
         }
 
@@ -659,9 +656,7 @@ namespace treeDiM.IO
         {
             get
             {
-                if (Root == null)
-                    return rootkey;
-                return Root.RegistryKey;
+                return Root == null ? rootkey : Root.RegistryKey;
             }
         }
         public string FullName
@@ -681,7 +676,7 @@ namespace treeDiM.IO
         }
         public RegKey(RegistryKey BaseDir, string Name)
         {
-            rootkey = BaseDir ?? throw new ArgumentNullException();
+            this.rootkey = BaseDir ?? throw new ArgumentNullException();
             this.Name = Name;
         }
         private string name;
@@ -935,22 +930,27 @@ namespace treeDiM.IO
         /// Loads the icon specified in <see cref=&quotIconFileName"/>
         /// </summary>
         /// <returns></returns>
-        public Icon GetIcon()
+        public System.Drawing.Icon GetIcon()
         {
-            string file = IconFileName;
-            if (file != null)
+            try
             {
-                if (File.Exists(file))
-                    return new Icon(file);
-                else
+                string file = IconFileName;
+                if (file != null)
                 {
-                    int p = file.LastIndexOf(',');
-                    if (p != -1 && int.TryParse(file.Substring(p + 1), out int i))
+                    if (File.Exists(file))
+                        return new System.Drawing.Icon(file);
+                    else
                     {
-                        return FileExtension.ExtractIcon(file.Substring(0, p), i);
+                        int p = file.LastIndexOf(',');
+                        int i;
+                        if (p != -1 && int.TryParse(file.Substring(p + 1), out i))
+                        {
+                            return FileExtension.ExtractIcon(file.Substring(0, p), i);
+                        }
                     }
                 }
             }
+            catch (Exception /*ex*/) {}
             return FileExtension.GetDefaultIcon();
         }
         public RegKey GetIconEntry()
@@ -1081,7 +1081,7 @@ namespace treeDiM.IO
         internal FileStarterShellMenu(FileStarterShell owner, string Name)
             : base(owner, Name)
         {
-            Owner = owner;
+            this.Owner = owner;
             commandKey = new RegKey(this, "command");
         }
         protected override bool AllowNameChange()
@@ -1195,8 +1195,10 @@ namespace treeDiM.IO
         /// <param name=&quotExtension"></param>
         public static FileExtension AssignExtension(string StarterGroup, string Extension)
         {
-            FileExtension ext = new FileExtension(Extension);
-            ext.AssociatedName = StarterGroup;
+            FileExtension ext = new FileExtension(Extension)
+            {
+                AssociatedName = StarterGroup
+            };
             return ext;
         }
     }

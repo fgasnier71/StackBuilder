@@ -61,7 +61,7 @@
 
         #endregion
 
-        private UserControls.FileSelect fileSelectPlugin;
+        private treeDiM.UserControls.FileSelect fileSelectPlugin;
         private System.Windows.Forms.CheckBox chkbUsePlugin;
     }
 }

@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{7FF9B713-8D36-4887-BF50-2B9E2B28808D}</ProjectGuid>
+    <ProjectGuid>{D75634E3-34AA-4418-A6B6-3647BFF90606}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>treeDiM.UserControls</RootNamespace>
@@ -59,7 +59,7 @@
     <OutputPath>bin\x86\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <DebugType>full</DebugType>
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x86</PlatformTarget>
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
@@ -74,9 +74,6 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
-  <PropertyGroup>
-    <SignAssembly>false</SignAssembly>
-  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -88,17 +85,22 @@
     <Compile Include="..\SharedAssemblyInfo.cs">
       <Link>Properties\SharedAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="FileSelect.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="IProgressCallback.cs" />
     <Compile Include="ProgressWindow.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ProgressWindow.Designer.cs">
       <DependentUpon>ProgressWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ThreadWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ThreadWindow.Designer.cs">
+      <DependentUpon>ThreadWindow.cs</DependentUpon>
+    </Compile>
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>
   <ItemGroup>
@@ -134,9 +136,6 @@
     <EmbeddedResource Include="ProgressWindow.ja.resx">
       <DependentUpon>ProgressWindow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ProgressWindow.nl.resx">
-      <DependentUpon>ProgressWindow.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="ProgressWindow.pl.resx">
       <DependentUpon>ProgressWindow.cs</DependentUpon>
     </EmbeddedResource>
@@ -145,25 +144,53 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ProgressWindow.resx">
       <DependentUpon>ProgressWindow.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ProgressWindow.ru.resx">
-      <DependentUpon>ProgressWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProgressWindow.sv.resx">
-      <DependentUpon>ProgressWindow.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ProgressWindow.tr.resx">
       <DependentUpon>ProgressWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProgressWindow.zh.resx">
       <DependentUpon>ProgressWindow.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ThreadWindow.de.resx">
+      <DependentUpon>ThreadWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThreadWindow.es.resx">
+      <DependentUpon>ThreadWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThreadWindow.fr.resx">
+      <DependentUpon>ThreadWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThreadWindow.it.resx">
+      <DependentUpon>ThreadWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThreadWindow.ja.resx">
+      <DependentUpon>ThreadWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThreadWindow.pl.resx">
+      <DependentUpon>ThreadWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThreadWindow.pt.resx">
+      <DependentUpon>ThreadWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThreadWindow.resx">
+      <DependentUpon>ThreadWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThreadWindow.sv.resx">
+      <DependentUpon>ThreadWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThreadWindow.zh.resx">
+      <DependentUpon>ThreadWindow.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\treeDiM.ThreadCallback\treeDiM.ThreadCallback.csproj">
+      <Project>{d61900fb-fbf1-4075-bef4-6b828a840050}</Project>
+      <Name>treeDiM.ThreadCallback</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>if $(ConfigurationName) == Release "$(SolutionDir)Signfile.bat" $(TargetPath)
-</PostBuildEvent>
+    <PostBuildEvent>if $(ConfigurationName) == Release "$(SolutionDir)Signfile.bat" $(TargetPath)</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

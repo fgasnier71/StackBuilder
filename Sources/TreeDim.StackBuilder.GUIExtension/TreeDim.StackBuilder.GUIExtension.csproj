@@ -171,10 +171,6 @@
       <Project>{1505A6E5-E6F9-4408-A5C8-968417081CBD}</Project>
       <Name>treeDiM.StackBuilder.Reporting</Name>
     </ProjectReference>
-    <ProjectReference Include="..\TreeDim.UserControls\treeDiM.UserControls.csproj">
-      <Project>{7FF9B713-8D36-4887-BF50-2B9E2B28808D}</Project>
-      <Name>treeDiM.UserControls</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="CtrlComboDBPallet.pt.resx">

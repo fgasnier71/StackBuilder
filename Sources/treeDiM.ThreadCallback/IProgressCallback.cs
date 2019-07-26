@@ -1,8 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿#region Using directives
+using System;
+#endregion
 
-namespace treeDiM.UserControls
+namespace treeDiM.ThreadCallback
 {
     /// <summary>
     /// This defines an interface which can be implemented by UI elements

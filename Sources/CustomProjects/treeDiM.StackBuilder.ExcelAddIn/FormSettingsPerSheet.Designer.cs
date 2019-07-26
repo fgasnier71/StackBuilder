@@ -389,8 +389,8 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.NumericUpDown nudImageDef;
         private System.Windows.Forms.Label label7;
-        private Basics.UCtrlDualDouble uCtrlImageDim;
-        private Basics.UCtrlDualDouble uCtrlImageLeftTop;
+        private treeDiM.Basics.UCtrlDualDouble uCtrlImageDim;
+        private treeDiM.Basics.UCtrlDualDouble uCtrlImageLeftTop;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox cbUnitSystem;
     }

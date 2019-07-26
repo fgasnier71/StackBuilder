@@ -34,7 +34,7 @@
             this.bnBundleCaseAnalysis = new System.Windows.Forms.Button();
             this.lbName = new System.Windows.Forms.Label();
             this.tbName = new System.Windows.Forms.TextBox();
-            this.uCtrlDimensions = new treeDiM.StackBuilder.Basics.UCtrlTriDouble();
+            this.uCtrlDimensions = new treeDiM.Basics.UCtrlTriDouble();
             this.bnClose = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -46,7 +46,7 @@
             this.bnCasePalletAnalysis.TabIndex = 0;
             this.bnCasePalletAnalysis.Text = "Case / Pallet analysis";
             this.bnCasePalletAnalysis.UseVisualStyleBackColor = true;
-            this.bnCasePalletAnalysis.Click += new System.EventHandler(this.onAnalysisCasePallet);
+            this.bnCasePalletAnalysis.Click += new System.EventHandler(this.OnAnalysisCasePallet);
             // 
             // bnBoxCasePalletOptimization
             // 
@@ -56,7 +56,7 @@
             this.bnBoxCasePalletOptimization.TabIndex = 1;
             this.bnBoxCasePalletOptimization.Text = "Box / Case / Pallet optimization ";
             this.bnBoxCasePalletOptimization.UseVisualStyleBackColor = true;
-            this.bnBoxCasePalletOptimization.Click += new System.EventHandler(this.onBoxCasePalletOptimisation);
+            this.bnBoxCasePalletOptimization.Click += new System.EventHandler(this.OnBoxCasePalletOptimisation);
             // 
             // bnBundlePalletAnalysis
             // 
@@ -66,7 +66,7 @@
             this.bnBundlePalletAnalysis.TabIndex = 2;
             this.bnBundlePalletAnalysis.Text = "Bundle / Pallet analysis";
             this.bnBundlePalletAnalysis.UseVisualStyleBackColor = true;
-            this.bnBundlePalletAnalysis.Click += new System.EventHandler(this.onAnalysisBundlePallet);
+            this.bnBundlePalletAnalysis.Click += new System.EventHandler(this.OnAnalysisBundlePallet);
             // 
             // bnBundleCaseAnalysis
             // 
@@ -76,7 +76,7 @@
             this.bnBundleCaseAnalysis.TabIndex = 3;
             this.bnBundleCaseAnalysis.Text = "Bundle / Case analysis";
             this.bnBundleCaseAnalysis.UseVisualStyleBackColor = true;
-            this.bnBundleCaseAnalysis.Click += new System.EventHandler(this.onAnalysisBundleCase);
+            this.bnBundleCaseAnalysis.Click += new System.EventHandler(this.OnAnalysisBundleCase);
             // 
             // lbName
             // 
@@ -106,7 +106,7 @@
             this.uCtrlDimensions.Size = new System.Drawing.Size(350, 20);
             this.uCtrlDimensions.TabIndex = 6;
             this.uCtrlDimensions.Text = "Dimensions";
-            this.uCtrlDimensions.Unit = treeDiM.StackBuilder.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlDimensions.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlDimensions.ValueX = 0D;
             this.uCtrlDimensions.ValueY = 0D;
             this.uCtrlDimensions.ValueZ = 0D;
@@ -154,7 +154,7 @@
         private System.Windows.Forms.Button bnBundleCaseAnalysis;
         private System.Windows.Forms.Label lbName;
         private System.Windows.Forms.TextBox tbName;
-        private Basics.UCtrlTriDouble uCtrlDimensions;
+        private treeDiM.Basics.UCtrlTriDouble uCtrlDimensions;
         private System.Windows.Forms.Button bnClose;
     }
 }

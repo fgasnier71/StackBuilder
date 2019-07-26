@@ -1,4 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
+<?include $(sys.CURRENTDIR)\Config.wxi?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
     <Fragment>
         <DirectoryRef Id="PackLib">
@@ -13,17 +14,11 @@
             <Component Id="cmp960CC6EA38C7A83413CF75710E06C496" Directory="PackLib" Guid="5F1A323D-1E3E-4883-A613-90F23CBDED98">
                 <File Id="filC60D61262B97ED76F2E1BE8102004371" KeyPath="yes" Source="$(var.GuiExtensionSourceDir)\Cureos.Measures.dll" />
             </Component>
-            <Component Id="cmp89FC8ABEDD831167F7D6B0F259CE89D2" Directory="PackLib" Guid="35E56A11-F1BD-4EF5-8CBE-3C469AA66CB1">
-                <File Id="fil3402157D4471A85A37031186BA8E3DEC" KeyPath="yes" Source="$(var.GuiExtensionSourceDir)\log4net.dll" />
-            </Component>
             <Component Id="cmp9290D46B6026A25218F3EBC03A5DA9E7" Directory="PackLib" Guid="388A5421-B6C3-43BF-87DE-E93B928CB333">
                 <File Id="filEB3A0AF0F1444C0B1231A68A60DE54BD" KeyPath="yes" Source="$(var.GuiExtensionSourceDir)\OfficePickers.dll" />
             </Component>
             <Component Id="cmp8BAA81A5050BEE054760FFE5D21A91F5" Directory="PackLib" Guid="A3092429-9A2E-4EE4-9A09-963D0046CE3D">
                 <File Id="filA8CCB9470F9EB62798D0ABB5998B6BF2" KeyPath="yes" Source="$(var.GuiExtensionSourceDir)\Sharp3D.Boxologic.dll" />
-            </Component>
-            <Component Id="cmp9A3E3C344FBAFCFB319D0A8CF3271BDA" Directory="PackLib" Guid="94579B7D-68F1-4D92-B9AA-F06ED60BC00B">
-                <File Id="fil236A047DE84250D9C8BAEE316F35D1E0" KeyPath="yes" Source="$(var.GuiExtensionSourceDir)\Sharp3D.Math.dll" />
             </Component>
             <Component Id="cmp3D8942C01A3692C1E9EE5E453F8DE832" Directory="PackLib" Guid="6D38A39E-54CA-44C6-99AE-454A3B36AC37">
                 <File Id="fil03FC6279B88DF9F467E1929C4EB6204C" KeyPath="yes" Source="$(var.GuiExtensionSourceDir)\Sharp3DBinPacking.dll" />
@@ -36,12 +31,6 @@
             </Component>
             <Component Id="cmp69C2398D40D4AA0BB30B33FE3E429199" Directory="PackLib" Guid="2C794244-A34E-45CB-8AFE-9C431B3CD589">
                 <File Id="fil33910F09D36FD7F63EB80D982807B7D4" KeyPath="yes" Source="$(var.GuiExtensionSourceDir)\treeDiM.Basics.dll" />
-            </Component>
-            <Component Id="cmp60E31C055E81F5B6599511B3B1FD4F4C" Directory="PackLib" Guid="2B89F7B6-5432-4540-A264-2FF7AB43B125">
-                <File Id="fil2041D141A2AEFEDEE58CC6BBC7D12EE0" KeyPath="yes" Source="$(var.GuiExtensionSourceDir)\treeDiM.EdgeCrushTest.dll" />
-            </Component>
-            <Component Id="cmp913ABD9A19A06FC3889E27AA26C3CF1A" Directory="PackLib" Guid="4D548CC3-5976-4EA9-A247-B9D903E79F5E">
-                <File Id="fil45E701526B82EC92BB8109CD879C7712" KeyPath="yes" Source="$(var.GuiExtensionSourceDir)\treeDiM.PLMPack.DBClient.dll" />
             </Component>
             <Component Id="cmpB4802717C409462FA4E36F6A8C2239A8" Directory="PackLib" Guid="B3160B55-6C41-4974-BB33-5E3F73FC4759">
                 <File Id="filE8D70236EE15DF18F673FD1EA6D86E76" KeyPath="yes" Source="$(var.GuiExtensionSourceDir)\treeDiM.StackBuilder.Basics.dll" />
@@ -58,9 +47,6 @@
             <Component Id="cmp70A4ABF5C79059380816AB7A29F9D3A8" Directory="PackLib" Guid="E40EA79C-3DB4-420E-B633-61598F083FE2">
                 <File Id="fil7A71608EC4B29453144172A85889B9C4" KeyPath="yes" Source="$(var.GuiExtensionSourceDir)\treeDiM.StackBuilder.Reporting.dll" />
             </Component>
-            <Component Id="cmpC7EFAAA5D9B1A5B4ED6791171571AF0B" Directory="PackLib" Guid="D2CEED99-74E8-4826-A165-23C62DF5582B">
-                <File Id="fil2C71A3AFFB5168EC8E7E85104BFC4C30" KeyPath="yes" Source="$(var.GuiExtensionSourceDir)\treeDiM.UserControls.dll" />
-            </Component>
             <Component Id="cmpA71AA1235D8155159D157B8687F579F3" Directory="PackLib" Guid="0BA537B5-ED2A-472C-8B56-5F50E5DD6D4D">
                 <File Id="fil48C9EC104554AD74DDFCBB46D1B81A18" KeyPath="yes" Source="$(var.GuiExtensionSourceDir)\WkHtmlToXSharp.dll" />
             </Component>
@@ -69,12 +55,6 @@
             </Component>
             <Component Id="cmp9C1FF0CE3D12AC79F43580C419F7B964" Directory="PackLib" Guid="61AB4F3F-749D-4602-8C58-B7AA1B7E324C">
                 <File Id="fil0CB21B1BA20D687DB43406275306D8AB" KeyPath="yes" Source="$(var.GuiExtensionSourceDir)\WkHtmlToXSharp.Win64.dll" />
-            </Component>
-            <Component Id="cmp6483AC45B5E580336E0D8C4FF0011651" Directory="dir4431E62B5252BACA246AF9E6BA4559E2" Guid="7832D1C9-52B3-4E6B-ABAE-4B90002C902F">
-                <File Id="filAED177AF34F13E2CD33309D2D34D9A2A" KeyPath="yes" Source="$(var.GuiExtensionSourceDir)\es\treeDiM.EdgeCrushTest.resources.dll" />
-            </Component>
-            <Component Id="cmp5CE94F95EAE504A8B109002BD890C803" Directory="dir4431E62B5252BACA246AF9E6BA4559E2" Guid="AEAD8874-CD24-4EAD-A595-BCF4CAF9A6EE">
-                <File Id="fil92A582A7D498318F7F424AB23C4D82EF" KeyPath="yes" Source="$(var.GuiExtensionSourceDir)\es\treeDiM.PLMPack.DBClient.resources.dll" />
             </Component>
             <Component Id="cmpD5A5F3FC2F369A33BEBD8119D926B846" Directory="dir4431E62B5252BACA246AF9E6BA4559E2" Guid="68BEAADA-B947-4968-92F9-F289C2C4D719">
                 <File Id="filF425823CBEFD8DA6426C9BD3ECA62AE6" KeyPath="yes" Source="$(var.GuiExtensionSourceDir)\es\treeDiM.StackBuilder.Basics.resources.dll" />
@@ -85,15 +65,6 @@
             <Component Id="cmp61D2866BBF7B0A0778C00CC5EAA5ED93" Directory="dir4431E62B5252BACA246AF9E6BA4559E2" Guid="0E213BEA-8034-4723-8D05-DE7D045093BC">
                 <File Id="fil5B8D09669BE92A0279E8623720F7558E" KeyPath="yes" Source="$(var.GuiExtensionSourceDir)\es\treeDiM.StackBuilder.Reporting.resources.dll" />
             </Component>
-            <Component Id="cmp2AF17549230A2CE9CB8ABBD19378BE7A" Directory="dir4431E62B5252BACA246AF9E6BA4559E2" Guid="EC1D43F3-1488-428E-959C-D53CE0938D31">
-                <File Id="fil08A3CB21F0E906DC45B64E02547F398B" KeyPath="yes" Source="$(var.GuiExtensionSourceDir)\es\treeDiM.UserControls.resources.dll" />
-            </Component>
-            <Component Id="cmp6AFFBAFBF3A9DCBC6B0F53B04A3986EE" Directory="dir121AD825E8F6B653DB85D253D7A6287E" Guid="A441A3D3-FE21-4F9A-AF8E-077AB64D7106">
-                <File Id="fil0FEB1D0BDDD126C101FBA8C4843A852B" KeyPath="yes" Source="$(var.GuiExtensionSourceDir)\fr\treeDiM.EdgeCrushTest.resources.dll" />
-            </Component>
-            <Component Id="cmp2374B49FC805E9BD469928D335A74AF9" Directory="dir121AD825E8F6B653DB85D253D7A6287E" Guid="088B7EE2-81B1-4D53-9C81-5D43D2FA8A00">
-                <File Id="fil32B08251FCAA785AC7DF5E2113D3C070" KeyPath="yes" Source="$(var.GuiExtensionSourceDir)\fr\treeDiM.PLMPack.DBClient.resources.dll" />
-            </Component>
             <Component Id="cmp3FB75F3DB1B18FC042D58BC5E12E9364" Directory="dir121AD825E8F6B653DB85D253D7A6287E" Guid="28188D42-B2EA-4FBC-9453-C641CFC11495">
                 <File Id="fil97150843E6BDDE1E73ED10E5FD0473DC" KeyPath="yes" Source="$(var.GuiExtensionSourceDir)\fr\treeDiM.StackBuilder.Basics.resources.dll" />
             </Component>
@@ -102,15 +73,6 @@
             </Component>
             <Component Id="cmpF70EB50B10A19C7700063A81527605FE" Directory="dir121AD825E8F6B653DB85D253D7A6287E" Guid="25198F32-D061-4F11-9171-BC4867F539CA">
                 <File Id="filB3EFB26E00527FD4400B210DEE7EA121" KeyPath="yes" Source="$(var.GuiExtensionSourceDir)\fr\treeDiM.StackBuilder.Reporting.resources.dll" />
-            </Component>
-            <Component Id="cmp8068C9B6FC8F23E3106AB06DA1D417F4" Directory="dir121AD825E8F6B653DB85D253D7A6287E" Guid="31423DFD-BA12-48E6-98FD-A08E8C7B8E6F">
-                <File Id="fil6FA363EF85375E5A1DEB14726C9C0466" KeyPath="yes" Source="$(var.GuiExtensionSourceDir)\fr\treeDiM.UserControls.resources.dll" />
-            </Component>
-            <Component Id="cmpEAB3F26DA9ED44814AE74B3C385CEBCD" Directory="dir8DAA10CD84A92C1FB7E7824BAD20829C" Guid="397FCFA6-BA55-42DA-8D51-EFA7C2F55D0A">
-                <File Id="fil73E804E6EB786A7BC69BAED663DE5EFD" KeyPath="yes" Source="$(var.GuiExtensionSourceDir)\it\treeDiM.EdgeCrushTest.resources.dll" />
-            </Component>
-            <Component Id="cmp07F308F2DDC419955B2F0721DA79618B" Directory="dir8DAA10CD84A92C1FB7E7824BAD20829C" Guid="F302FD82-1D33-423B-A5C8-0E1026B8D042">
-                <File Id="filF01F5425493AD9E0D397CEA94687C52B" KeyPath="yes" Source="$(var.GuiExtensionSourceDir)\it\treeDiM.PLMPack.DBClient.resources.dll" />
             </Component>
             <Component Id="cmp4324C448FE26AA6F40729F8038A87C82" Directory="dir8DAA10CD84A92C1FB7E7824BAD20829C" Guid="E5490A79-BB14-43E7-B9B3-D32AB32AA3FE">
                 <File Id="fil11BAA6A86E4A7710E97D419F76AAC983" KeyPath="yes" Source="$(var.GuiExtensionSourceDir)\it\treeDiM.StackBuilder.Basics.resources.dll" />
@@ -121,15 +83,6 @@
             <Component Id="cmp01CBA3008EC85840F64CF82419192550" Directory="dir8DAA10CD84A92C1FB7E7824BAD20829C" Guid="63170760-CFFF-4FA0-995E-4B1C9CE6F1AA">
                 <File Id="filC70A952C50CFB6A40E9A058CD5BE65B7" KeyPath="yes" Source="$(var.GuiExtensionSourceDir)\it\treeDiM.StackBuilder.Reporting.resources.dll" />
             </Component>
-            <Component Id="cmpF11EB80655D715B78EDCE32C70402568" Directory="dir8DAA10CD84A92C1FB7E7824BAD20829C" Guid="EC5A0269-E14F-4F3B-B30F-8F6D7DC5A589">
-                <File Id="fil381E7C3021840E3C7FF149334C12F98E" KeyPath="yes" Source="$(var.GuiExtensionSourceDir)\it\treeDiM.UserControls.resources.dll" />
-            </Component>
-            <Component Id="cmpF0699631E42A79C37165E766D8191EA5" Directory="dirB6BB113BCF0B3114A6A4A4DA1C25A330" Guid="35476245-DE5A-4E30-9B1F-376FD5EAAB0F">
-                <File Id="fil588F89434CA4B125763C4E86F60C4636" KeyPath="yes" Source="$(var.GuiExtensionSourceDir)\pl\treeDiM.EdgeCrushTest.resources.dll" />
-            </Component>
-            <Component Id="cmpD6799E7F4EDAF64FFE3AA95BCB8875F1" Directory="dirB6BB113BCF0B3114A6A4A4DA1C25A330" Guid="9E18C667-C8CD-426E-860F-D8B06E3A913B">
-                <File Id="fil5BB41016CE3FCCCDCF9D624B6BA447C9" KeyPath="yes" Source="$(var.GuiExtensionSourceDir)\pl\treeDiM.PLMPack.DBClient.resources.dll" />
-            </Component>
             <Component Id="cmpBFB8507B96CD508F2078B41872BFDD3D" Directory="dirB6BB113BCF0B3114A6A4A4DA1C25A330" Guid="98E87A90-D232-42EE-A256-75653CE2B8D2">
                 <File Id="filD660CEE3E6C62B04A83D06538B2E3009" KeyPath="yes" Source="$(var.GuiExtensionSourceDir)\pl\treeDiM.StackBuilder.Basics.resources.dll" />
             </Component>
@@ -138,9 +91,6 @@
             </Component>
             <Component Id="cmpCCDE56EA59F19904E99B5886E2F14E42" Directory="dirB6BB113BCF0B3114A6A4A4DA1C25A330" Guid="B930C754-5D10-4DD3-8995-0CA2049153AF">
                 <File Id="filCD8ECB042DC72D114D5E4290F1DCEAEB" KeyPath="yes" Source="$(var.GuiExtensionSourceDir)\pl\treeDiM.StackBuilder.Reporting.resources.dll" />
-            </Component>
-            <Component Id="cmp7D7672E52365E6C0C9DB096B337EBBA7" Directory="dirB6BB113BCF0B3114A6A4A4DA1C25A330" Guid="D78DAD66-E146-4166-B1F5-640CB89BA093">
-                <File Id="fil27211F931ED82281F412A5DBA425D1BB" KeyPath="yes" Source="$(var.GuiExtensionSourceDir)\pl\treeDiM.UserControls.resources.dll" />
             </Component>
         </ComponentGroup>
     </Fragment>

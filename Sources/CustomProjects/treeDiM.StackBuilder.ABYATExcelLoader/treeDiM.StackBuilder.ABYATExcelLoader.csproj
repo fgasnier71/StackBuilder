@@ -216,8 +216,8 @@
       <Project>{1505a6e5-e6f9-4408-a5c8-968417081cbd}</Project>
       <Name>treeDiM.StackBuilder.Reporting</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\TreeDim.UserControls\treeDiM.UserControls.csproj">
-      <Project>{7ff9b713-8d36-4887-bf50-2b9e2b28808d}</Project>
+    <ProjectReference Include="..\..\treeDiM.UserControls\treeDiM.UserControls.csproj">
+      <Project>{d75634e3-34aa-4418-a6b6-3647bff90606}</Project>
       <Name>treeDiM.UserControls</Name>
     </ProjectReference>
   </ItemGroup>

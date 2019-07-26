@@ -11,6 +11,7 @@ using treeDiM.StackBuilder.ExcelAddIn.Properties;
 
 using Sharp3D.Math.Core;
 
+using treeDiM.Basics;
 using treeDiM.StackBuilder.Basics;
 using treeDiM.StackBuilder.Engine;
 using treeDiM.StackBuilder.Graphics;
@@ -25,13 +26,13 @@ namespace treeDiM.StackBuilder.ExcelAddIn
         public Mode CurrentMode { get; set; }
         #endregion
         #region Handlers
-        private void StackBuilderAddIn_Startup(object sender, System.EventArgs e)
+        private void StackBuilderAddIn_Startup(object sender, EventArgs e)
         {
             UnitsManager.CurrentUnitSystem = (UnitsManager.UnitSystem)Settings.Default.UnitSystem;
             ChangeMode( (Mode)Settings.Default.Mode );
 
         }
-        private void StackBuilderAddIn_Shutdown(object sender, System.EventArgs e)
+        private void StackBuilderAddIn_Shutdown(object sender, EventArgs e)
         {
             Settings.Default.UnitSystem = (int)UnitsManager.CurrentUnitSystem;
             Settings.Default.Mode = (int)CurrentMode;

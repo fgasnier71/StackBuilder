@@ -155,7 +155,7 @@
         private System.Windows.Forms.Button bnInsert;
         private System.Windows.Forms.Button bnClose;
         private System.Windows.Forms.Button bnReload;
-        private UserControls.FileSelect excelFileSelect;
+        private treeDiM.UserControls.FileSelect excelFileSelect;
         private System.Windows.Forms.TabControl tabControlLibrary;
         private ListBoxWithToolTip.ToolTipListBox listBoxItem;
         private System.Windows.Forms.TextBox tbItem;

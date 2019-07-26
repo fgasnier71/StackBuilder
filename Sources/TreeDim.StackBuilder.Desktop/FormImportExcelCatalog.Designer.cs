@@ -171,7 +171,7 @@
         #endregion
 
         private System.Windows.Forms.Label lbExcelFilePath;
-        private UserControls.FileSelect excelFileSelect;
+        private treeDiM.UserControls.FileSelect excelFileSelect;
         private System.Windows.Forms.Button bnImport;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel statusLabel;

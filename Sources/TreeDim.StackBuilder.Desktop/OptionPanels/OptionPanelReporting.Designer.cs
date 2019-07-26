@@ -214,7 +214,7 @@
         #endregion
         private treeDiM.UserControls.FileSelect fileSelectCtrlReportTemplate;
         private System.Windows.Forms.Label label1;
-        private UserControls.FileSelect fileSelectCompanyLogo;
+        private treeDiM.UserControls.FileSelect fileSelectCompanyLogo;
         private System.Windows.Forms.Label lbReportTemplate;
         private System.Windows.Forms.GroupBox gbMSWordMargins;
         private System.Windows.Forms.NumericUpDown nudTop;

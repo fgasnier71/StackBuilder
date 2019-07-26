@@ -89,10 +89,6 @@
       <Project>{75769E19-2CCC-4DF0-88D9-CBAC14BB6329}</Project>
       <Name>treeDiM.StackBuilder.Plugin</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\TreeDim.UserControls\treeDiM.UserControls.csproj">
-      <Project>{7FF9B713-8D36-4887-BF50-2B9E2B28808D}</Project>
-      <Name>treeDiM.UserControls</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

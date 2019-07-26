@@ -185,8 +185,8 @@
         private System.Windows.Forms.Button bnCompute;
         private System.Windows.Forms.GroupBox gpPallets;
         private System.Windows.Forms.GroupBox gbConstraints;
-        private Basics.UCtrlDouble uCtrlMaxPalletHeight;
-        private Basics.UCtrlDualDouble uCtrlOverhang;
+        private treeDiM.Basics.UCtrlDouble uCtrlMaxPalletHeight;
+        private treeDiM.Basics.UCtrlDualDouble uCtrlOverhang;
         private System.Windows.Forms.GroupBox gbOptions;
         private System.Windows.Forms.CheckBox chkbOnlyZOrientation;
         private System.Windows.Forms.CheckBox chkbGenerateImageInFolder;

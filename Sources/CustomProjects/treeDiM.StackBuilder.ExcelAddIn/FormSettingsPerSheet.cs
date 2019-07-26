@@ -81,7 +81,7 @@ namespace treeDiM.StackBuilder.ExcelAddIn
 
         private void OnUnitSystemChanged(object sender, EventArgs e)
         {
-            Basics.UnitsManager.CurrentUnitSystem = (Basics.UnitsManager.UnitSystem)cbUnitSystem.SelectedIndex;
+            treeDiM.Basics.UnitsManager.CurrentUnitSystem = (treeDiM.Basics.UnitsManager.UnitSystem)cbUnitSystem.SelectedIndex;
             uCtrlImageDim.Invalidate();
             uCtrlImageLeftTop.Invalidate();
         }

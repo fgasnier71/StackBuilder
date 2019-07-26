@@ -1,21 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
+﻿#region Using directives
+using System;
 using System.Text;
 using System.Windows.Forms;
+
+using treeDiM.ThreadCallback;
+#endregion
 
 namespace treeDiM.UserControls
 {
     public partial class ProgressWindow : Form, IProgressCallback
     {
         #region Data members
-        private bool userCanceled = false;
         private string titleRoot = string.Empty;
         private bool requiresClose = true;
 
-        public delegate void SetTextInvoker(String text);
+        public delegate void SetTextInvoker(string text);
         public delegate void IncrementInvoker(int val);
         public delegate void StepToInvoker(int val);
         public delegate void RangeInvoker(int minimum, int maximum);
@@ -32,7 +31,7 @@ namespace treeDiM.UserControls
         #endregion
 
         #region Implementation members invoked on the owner thread
-        private void DoSetText(String text)
+        private void DoSetText(string text)
         {
             label.Text = text;
         }
@@ -75,13 +74,12 @@ namespace treeDiM.UserControls
         }
         #endregion
 
-
         #region Overrides
         /// <summary>
         /// Handles the form load, and sets an event to ensure that
         /// intialization is synchronized with the appearance of the form.
         /// </summary>
-        protected override void OnLoad(System.EventArgs e)
+        protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
             ControlBox = false;
@@ -93,7 +91,7 @@ namespace treeDiM.UserControls
         /// </summary>
         protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
         {
-            userCanceled = true;
+            UserAborted = true;
             AbortWork();
             base.OnClosing(e);
         }
@@ -105,7 +103,11 @@ namespace treeDiM.UserControls
         /// </summary>
         private void UpdateStatusText()
         {
-            Text = titleRoot + String.Format(" - {0}% complete", (progressBar.Value * 100) / (progressBar.Maximum - progressBar.Minimum));
+            StringBuilder sb = new StringBuilder();
+            if (string.IsNullOrEmpty(titleRoot))
+                sb.AppendFormat("{0} - ", titleRoot);
+            sb.AppendFormat("{0}% complete", (progressBar.Value * 100) / (progressBar.Maximum - progressBar.Minimum));
+            Text = sb.ToString();
         }
 
         /// <summary>
@@ -119,13 +121,7 @@ namespace treeDiM.UserControls
         /// <summary>
         /// True if user clicked 'Cancel' button
         /// </summary>
-        public bool UserAborted
-        {
-            get
-            {
-                return userCanceled;
-            }
-        }
+        public bool UserAborted { get; private set; } = false;
         #endregion
 
         #region Implementation of IProgressCallback
@@ -167,7 +163,7 @@ namespace treeDiM.UserControls
         /// Call this method from the worker thread to update the progress text.
         /// </summary>
         /// <param name="text">The progress text to display</param>
-        public void SetText(String text)
+        public void SetText(string text)
         {
             Invoke(new SetTextInvoker(DoSetText), new object[] { text });
         }
@@ -214,15 +210,14 @@ namespace treeDiM.UserControls
         }
         #endregion
 
-
         #region Event handlers
         /// <summary>
         /// Handling user cancelation
         /// Closing window directly would generate exception as thread would try to access disposed object
         /// </summary>
-        private void cancelButton_Click(object sender, EventArgs e)
+        private void OnCancelButtonClicked(object sender, EventArgs e)
         {
-            userCanceled = true;
+            UserAborted = true;
             AbortWork();
         }
         #endregion
