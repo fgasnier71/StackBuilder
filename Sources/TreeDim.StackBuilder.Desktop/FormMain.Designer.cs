@@ -137,6 +137,8 @@
             this.saveFileDialogWebGL = new System.Windows.Forms.SaveFileDialog();
             this.timerLogin = new System.Windows.Forms.Timer(this.components);
             this.saveFileDialogExport = new System.Windows.Forms.SaveFileDialog();
+            this.toolStripButtonExportToExcel = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.menuStripMain.SuspendLayout();
             this.toolStripStandard.SuspendLayout();
             this.SuspendLayout();
@@ -509,6 +511,8 @@
             this.toolStripSeparator10,
             this.toolStripSB_ECT,
             this.toolStripSeparator6,
+            this.toolStripButtonExportToExcel,
+            this.toolStripSeparator7,
             this.toolStripButtonHelp,
             this.toolStripSeparator8,
             this.toolStripButtonSettings});
@@ -882,6 +886,18 @@
             this.saveFileDialogExport.DefaultExt = "xml";
             resources.ApplyResources(this.saveFileDialogExport, "saveFileDialogExport");
             // 
+            // toolStripButtonExportToExcel
+            // 
+            this.toolStripButtonExportToExcel.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.toolStripButtonExportToExcel, "toolStripButtonExportToExcel");
+            this.toolStripButtonExportToExcel.Name = "toolStripButtonExportToExcel";
+            this.toolStripButtonExportToExcel.Click += new System.EventHandler(this.OnExportToExcel);
+            // 
+            // toolStripSeparator7
+            // 
+            this.toolStripSeparator7.Name = "toolStripSeparator7";
+            resources.ApplyResources(this.toolStripSeparator7, "toolStripSeparator7");
+            // 
             // FormMain
             // 
             resources.ApplyResources(this, "$this");
@@ -1009,5 +1025,7 @@
         private System.Windows.Forms.ToolStripButton toolStripSB_ECT;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.ToolStripMenuItem browseEditMaterialListToolStripMenuItem;
+        private System.Windows.Forms.ToolStripButton toolStripButtonExportToExcel;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
     }
 }

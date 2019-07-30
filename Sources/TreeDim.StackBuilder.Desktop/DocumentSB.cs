@@ -4,10 +4,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.ComponentModel;
 using System.Windows.Forms;
+using System.Drawing;
+using System.IO;
+
+using Sharp3D.Math.Core;
 
 using treeDiM.StackBuilder.Basics;
+using treeDiM.StackBuilder.Graphics;
 
-// Docking
+using Microsoft.Office.Core;
+using Microsoft.Office.Interop.Excel;
 #endregion
 
 namespace treeDiM.StackBuilder.Desktop
@@ -156,13 +162,15 @@ namespace treeDiM.StackBuilder.Desktop
         /// </summary>
         public void CreateNewBoxUI()
         {
-            FormNewBox form = new FormNewBox(this, FormNewBox.Mode.MODE_BOX);
-            if (DialogResult.OK == form.ShowDialog())
+            using (FormNewBox form = new FormNewBox(this, FormNewBox.Mode.MODE_BOX))
             {
-                BoxProperties boxProperties = CreateNewBox(form.BoxName, form.Description
-                    , form.BoxLength, form.BoxWidth, form.BoxHeight
-                    , form.Weight, form.Colors);
-                boxProperties.TextureList = form.TextureList;
+                if (DialogResult.OK == form.ShowDialog())
+                {
+                    BoxProperties boxProperties = CreateNewBox(form.BoxName, form.Description
+                        , form.BoxLength, form.BoxWidth, form.BoxHeight
+                        , form.Weight, form.Colors);
+                    boxProperties.TextureList = form.TextureList;
+                }
             }
         }
         /// <summary>
@@ -170,17 +178,19 @@ namespace treeDiM.StackBuilder.Desktop
         /// </summary>
         public void CreateNewCaseUI()
         {
-            FormNewBox form = new FormNewBox(this, FormNewBox.Mode.MODE_CASE);
-            if (DialogResult.OK == form.ShowDialog())
+            using (FormNewBox form = new FormNewBox(this, FormNewBox.Mode.MODE_CASE))
             {
-                BoxProperties boxProperties = CreateNewCase(form.BoxName, form.Description
-                    , form.BoxLength, form.BoxWidth, form.BoxHeight
-                    , form.InsideLength, form.InsideWidth, form.InsideHeight
-                    , form.Weight, form.Colors);
-                boxProperties.TapeColor = form.TapeColor;
-                boxProperties.TapeWidth = form.TapeWidth;
-                boxProperties.TextureList = form.TextureList;
-                boxProperties.StrapperSet = form.StrapperSet;
+                if (DialogResult.OK == form.ShowDialog())
+                {
+                    BoxProperties boxProperties = CreateNewCase(form.BoxName, form.Description
+                        , form.BoxLength, form.BoxWidth, form.BoxHeight
+                        , form.InsideLength, form.InsideWidth, form.InsideHeight
+                        , form.Weight, form.Colors);
+                    boxProperties.TapeColor = form.TapeColor;
+                    boxProperties.TapeWidth = form.TapeWidth;
+                    boxProperties.TextureList = form.TextureList;
+                    boxProperties.StrapperSet = form.StrapperSet;
+                }
             }
         }
         /// <summary>
@@ -188,121 +198,136 @@ namespace treeDiM.StackBuilder.Desktop
         /// </summary>
         public void CreateNewPackUI()
         {
-            FormNewPack form = new FormNewPack(this, null)
+            using (FormNewPack form = new FormNewPack(this, null) { Boxes = Boxes.ToList() })
             {
-                Boxes = Boxes.ToList()
-            };
-            if (DialogResult.OK == form.ShowDialog())
-            {
-                PackProperties packProperties = CreateNewPack(
-                    form.ItemName, form.ItemDescription
-                    , form.SelectedBox
-                    , form.Arrangement
-                    , form.BoxOrientation
-                    , form.Wrapper);
-                if (form.HasForcedOuterDimensions)
-                    packProperties.ForceOuterDimensions(form.OuterDimensions);
-                packProperties.StrapperSet = form.StrapperSet;
+                if (DialogResult.OK == form.ShowDialog())
+                {
+                    PackProperties packProperties = CreateNewPack(
+                        form.ItemName, form.ItemDescription
+                        , form.SelectedBox
+                        , form.Arrangement
+                        , form.BoxOrientation
+                        , form.Wrapper);
+                    if (form.HasForcedOuterDimensions)
+                        packProperties.ForceOuterDimensions(form.OuterDimensions);
+                    packProperties.StrapperSet = form.StrapperSet;
+                }
             }
         }
 
         public void CreateNewCylinderUI()
         {
-            FormNewCylinder form = new FormNewCylinder(this, null);
-            if (DialogResult.OK == form.ShowDialog())
-                CreateNewCylinder(
-                    form.ItemName, form.ItemDescription
-                    , form.RadiusOuter, form.RadiusInner, form.CylinderHeight, form.Weight
-                    , form.ColorTop, form.ColorWallOuter, form.ColorWallInner);
+            using (FormNewCylinder form = new FormNewCylinder(this, null))
+            {
+                if (DialogResult.OK == form.ShowDialog())
+                    CreateNewCylinder(
+                        form.ItemName, form.ItemDescription
+                        , form.RadiusOuter, form.RadiusInner, form.CylinderHeight, form.Weight
+                        , form.ColorTop, form.ColorWallOuter, form.ColorWallInner);
+            }
 
         }
         /// <summary>
         /// Creates a new BundleProperties object
         /// </summary>
         public void CreateNewBundleUI()
-        { 
-            FormNewBundle form = new FormNewBundle(this);
-            if (DialogResult.OK == form.ShowDialog())
-                CreateNewBundle(
-                    form.BundleName, form.Description
-                    , form.BundleLength, form.BundleWidth, form.UnitThickness
-                    , form.UnitWeight
-                    , form.Color
-                    , form.NoFlats);
+        {
+            using (FormNewBundle form = new FormNewBundle(this))
+            {
+                if (DialogResult.OK == form.ShowDialog())
+                    CreateNewBundle(
+                        form.BundleName, form.Description
+                        , form.BundleLength, form.BundleWidth, form.UnitThickness
+                        , form.UnitWeight
+                        , form.Color
+                        , form.NoFlats);
+            }
         }
         /// <summary>
         /// Creates a new InterlayerProperties object
         /// </summary>
         public void CreateNewInterlayerUI()
-        { 
-            FormNewInterlayer form = new FormNewInterlayer(this, null);
-            if (DialogResult.OK == form.ShowDialog())
-                CreateNewInterlayer(
-                    form.ItemName, form.ItemDescription
-                    , form.InterlayerLength, form.InterlayerWidth, form.Thickness
-                    , form.Weight
-                    , form.Color);
+        {
+            using (FormNewInterlayer form = new FormNewInterlayer(this, null))
+            {
+                if (DialogResult.OK == form.ShowDialog())
+                    CreateNewInterlayer(
+                        form.ItemName, form.ItemDescription
+                        , form.InterlayerLength, form.InterlayerWidth, form.Thickness
+                        , form.Weight
+                        , form.Color);
+            }
         }
         /// <summary>
         /// Creates new pallet corners
         /// </summary>
         public void CreateNewPalletCornersUI()
         {
-            FormNewPalletCorners form = new FormNewPalletCorners(this, null);
-            if (DialogResult.OK == form.ShowDialog())
-                CreateNewPalletCorners(form.ItemName, form.ItemDescription,
-                    form.CornerLength, form.CornerWidth, form.CornerThickness,
-                    form.CornerWeight,
-                    form.CornerColor);
+            using (FormNewPalletCorners form = new FormNewPalletCorners(this, null))
+            {
+                if (DialogResult.OK == form.ShowDialog())
+                    CreateNewPalletCorners(form.ItemName, form.ItemDescription,
+                        form.CornerLength, form.CornerWidth, form.CornerThickness,
+                        form.CornerWeight,
+                        form.CornerColor);
+            }
         }
         /// <summary>
         /// Creates a new pallet cap
         /// </summary>
         public void CreateNewPalletCapUI()
         {
-            FormNewPalletCap form = new FormNewPalletCap(this, null);
-            if (DialogResult.OK == form.ShowDialog())
-                CreateNewPalletCap(form.ItemName, form.ItemDescription, 
-                    form.CapLength, form.CapWidth, form.CapHeight,
-                    form.CapInnerLength, form.CapInnerWidth, form.CapInnerHeight,
-                    form.CapWeight, form.CapColor);
+            using (FormNewPalletCap form = new FormNewPalletCap(this, null))
+            {
+                if (DialogResult.OK == form.ShowDialog())
+                    CreateNewPalletCap(form.ItemName, form.ItemDescription,
+                        form.CapLength, form.CapWidth, form.CapHeight,
+                        form.CapInnerLength, form.CapInnerWidth, form.CapInnerHeight,
+                        form.CapWeight, form.CapColor);
+            }
         }
         /// <summary>
         /// Creates new pallet film
         /// </summary>
         public void CreateNewPalletFilmUI()
         {
-            FormNewPalletFilm form = new FormNewPalletFilm(this, null);
-            if (DialogResult.OK == form.ShowDialog())
-                CreateNewPalletFilm(form.ItemName, form.ItemDescription,
-                    form.UseTransparency,
-                    form.UseHatching, form.HatchSpacing, form.HatchAngle,
-                    form.FilmColor);
+            using (FormNewPalletFilm form = new FormNewPalletFilm(this, null))
+            {
+                if (DialogResult.OK == form.ShowDialog())
+                    CreateNewPalletFilm(form.ItemName, form.ItemDescription,
+                        form.UseTransparency,
+                        form.UseHatching, form.HatchSpacing, form.HatchAngle,
+                        form.FilmColor);
+            }
         }
         /// <summary>
         /// creates a new PalletProperties object
         /// </summary>
         public void CreateNewPalletUI()
-        {        
-            FormNewPallet form = new FormNewPallet(this, null);
-            if (DialogResult.OK == form.ShowDialog())
-                CreateNewPallet(form.ItemName, form.ItemDescription
-                    , form.PalletTypeName
-                    , form.PalletLength, form.PalletWidth, form.PalletHeight
-                    , form.Weight
-                    , form.PalletColor);
+        {
+            using (FormNewPallet form = new FormNewPallet(this, null))
+            {
+                if (DialogResult.OK == form.ShowDialog())
+                    CreateNewPallet(form.ItemName, form.ItemDescription
+                        , form.PalletTypeName
+                        , form.PalletLength, form.PalletWidth, form.PalletHeight
+                        , form.Weight
+                        , form.PalletColor);
+            }
         }
         /// <summary>
         /// Creates a new TruckProperties
         /// </summary>
         public void CreateNewTruckUI()
         {
-            FormNewTruck form = new FormNewTruck(this, null);
-            if (DialogResult.OK == form.ShowDialog())
-                CreateNewTruck(form.ItemName, form.ItemDescription
-                    , form.TruckLength, form.TruckWidth, form.TruckHeight
-                    , form.TruckAdmissibleLoadWeight
-                    , form.TruckColor);
+            using (FormNewTruck form = new FormNewTruck(this, null))
+            {
+                if (DialogResult.OK == form.ShowDialog())
+                    CreateNewTruck(form.ItemName, form.ItemDescription
+                        , form.TruckLength, form.TruckWidth, form.TruckHeight
+                        , form.TruckAdmissibleLoadWeight
+                        , form.TruckColor);
+            }
         }
         /// <summary>
         /// Creates a new palet analysis
@@ -313,66 +338,172 @@ namespace treeDiM.StackBuilder.Desktop
             if (!CanCreateAnalysisCasePallet && !CanCreateAnalysisBundlePallet) return;
             if (Properties.Settings.Default.DummyMode)
             {
-                FormNewAnalysisCasePalletDM form = new FormNewAnalysisCasePalletDM(this, null);
-                if (DialogResult.OK == form.ShowDialog()) {}
+                using (FormNewAnalysisCasePalletDM form = new FormNewAnalysisCasePalletDM(this, null))
+                    if (DialogResult.OK == form.ShowDialog()) { } 
             }
             else
             {
-                FormNewAnalysisCasePallet form = new FormNewAnalysisCasePallet(this, null);
-                if (DialogResult.OK == form.ShowDialog()) { }
+                using (FormNewAnalysisCasePallet form = new FormNewAnalysisCasePallet(this, null))
+                    if (DialogResult.OK == form.ShowDialog()) { } 
             }
         }
         public void CreateNewAnalysisBoxCaseUI()
         {
             if (!CanCreateAnalysisBoxCase && !CanCreateAnalysisBundleCase) return;
-            FormNewAnalysisBoxCase form = new FormNewAnalysisBoxCase(this, null);
-            if (DialogResult.OK == form.ShowDialog()) {}
+            using (FormNewAnalysisBoxCase form = new FormNewAnalysisBoxCase(this, null))
+                if (DialogResult.OK == form.ShowDialog()) { } 
         }
         public void CreateNewAnalysisCylinderPalletUI()
         {
             if (!CanCreateAnalysisCylinderPallet) return;
-            FormNewAnalysisCylinderPallet form = new FormNewAnalysisCylinderPallet(this, null);
-            if (DialogResult.OK == form.ShowDialog()) {}
+            using (FormNewAnalysisCylinderPallet form = new FormNewAnalysisCylinderPallet(this, null))
+                if (DialogResult.OK == form.ShowDialog()) { }
         }
         public void CreateNewAnalysisCylinderCaseUI()
         {
             if (!CanCreateAnalysisCylinderCase) return;
-            FormNewAnalysisCylinderCase form = new FormNewAnalysisCylinderCase(this, null);
-            if (DialogResult.OK == form.ShowDialog()) {}
+            using (FormNewAnalysisCylinderCase form = new FormNewAnalysisCylinderCase(this, null))
+                if (DialogResult.OK == form.ShowDialog()) { }
         }
         public AnalysisPalletTruck CreateNewAnalysisPalletTruckUI()
         {
             if (!CanCreateAnalysisPalletTruck) return null;
-            FormNewAnalysisPalletTruck form = new FormNewAnalysisPalletTruck(this, null);
-            if (DialogResult.OK == form.ShowDialog()) {}
+            using (FormNewAnalysisPalletTruck form = new FormNewAnalysisPalletTruck(this, null))
+                if (DialogResult.OK == form.ShowDialog()) { }
             return null;
         }
         public AnalysisCaseTruck CreateNewAnalysisCaseTruckUI()
         {
             if (!CanCreateAnalysisCaseTruck) return null;
-            FormNewAnalysisCaseTruck form = new FormNewAnalysisCaseTruck(this, null);
-            if (DialogResult.OK == form.ShowDialog()) {}
+            using (FormNewAnalysisCaseTruck form = new FormNewAnalysisCaseTruck(this, null))
+                if (DialogResult.OK == form.ShowDialog()) { }
             return null;
         }
         public AnalysisCylinderTruck CreateNewAnalysisCylinderTruckUI()
         {
             if (!CanCreateAnalysisCylinderTruck) return null;
-            FormNewAnalysisCylinderTruck form = new FormNewAnalysisCylinderTruck(this, null);
-            if (DialogResult.OK == form.ShowDialog()) {}
+            using (FormNewAnalysisCylinderTruck form = new FormNewAnalysisCylinderTruck(this, null))
+                if (DialogResult.OK == form.ShowDialog()) { }
             return null;
         }
 
         public void CreateNewHAnalysisPalletUI()
         {
             if (!CanCreateAnalysisCasePallet) return;
-            FormNewHAnalysis form = new FormNewHAnalysisCasePallet(this, null);
-            if (DialogResult.OK == form.ShowDialog()) {}
+            using (FormNewHAnalysis form = new FormNewHAnalysisCasePallet(this, null))
+                if (DialogResult.OK == form.ShowDialog()) { }
         }
         public void CreateNewHAnalysisTruckUI()
         {
             if (!CanCreateAnalysisCaseTruck) return;
-            FormNewHAnalysis form = new FormNewHAnalysisCaseTruck(this, null);
-            if (DialogResult.OK == form.ShowDialog()) {}
+            using (FormNewHAnalysis form = new FormNewHAnalysisCaseTruck(this, null))
+                if (DialogResult.OK == form.ShowDialog()) { }
+        }
+        public void ExportAnalysesToExcel()
+        {
+            // open excel file
+            object misValue = System.Reflection.Missing.Value;
+            Microsoft.Office.Interop.Excel.Application xlApp = new Microsoft.Office.Interop.Excel.Application
+            {
+                Visible = true,
+                DisplayAlerts = false
+            };
+            Workbooks xlWorkBooks = xlApp.Workbooks;
+            Workbook xlWorkBook = xlWorkBooks.Add(Type.Missing);
+            Worksheet xlWorkSheetCasePallet = xlWorkBook.Worksheets.get_Item(1);
+
+            // create header
+            xlWorkSheetCasePallet.Cells[1, 1] = "Analysis name";
+            xlWorkSheetCasePallet.Cells[1, 2] = "Case name";
+            xlWorkSheetCasePallet.Cells[1, 3] = "Case description";
+            xlWorkSheetCasePallet.Cells[1, 4] = "Ext. length";
+            xlWorkSheetCasePallet.Cells[1, 5] = "Ext. width";
+            xlWorkSheetCasePallet.Cells[1, 6] = "Ext. height";
+            xlWorkSheetCasePallet.Cells[1, 7] = "Max pallet height";
+            xlWorkSheetCasePallet.Cells[1, 8] = "Solution case count";
+            xlWorkSheetCasePallet.Cells[1, 9] = "Layers";
+            xlWorkSheetCasePallet.Cells[1, 10] = "Cases per layer";
+            xlWorkSheetCasePallet.Cells[1, 11] = "Load weight";
+            xlWorkSheetCasePallet.Cells[1, 12] = "Weight";
+            xlWorkSheetCasePallet.Cells[1, 13] = "Volume efficiency";
+            xlWorkSheetCasePallet.Cells[1, 14] = "Image";
+
+            Range headerRange = xlWorkSheetCasePallet.get_Range("A1", "N1");
+            headerRange.Font.Bold = true;
+            xlWorkSheetCasePallet.Columns.AutoFit();
+
+
+            // *** get all users from Azure database and write them down
+            int iRowCasePallet = 2;
+
+            foreach (var analysis in Analyses)
+            {
+                try
+                {
+                    if (analysis is AnalysisCasePallet analysisCasePallet)
+                    {
+                        // analysis name
+                        xlWorkSheetCasePallet.Cells[iRowCasePallet, 1] = analysisCasePallet.Name;
+                        // case
+                        BoxProperties caseProperties = analysisCasePallet.Content as BoxProperties;
+                        xlWorkSheetCasePallet.Cells[iRowCasePallet, 2] = caseProperties.Name;
+                        xlWorkSheetCasePallet.Cells[iRowCasePallet, 3] = caseProperties.Description;
+                        xlWorkSheetCasePallet.Cells[iRowCasePallet, 4] = caseProperties.Length;
+                        xlWorkSheetCasePallet.Cells[iRowCasePallet, 5] = caseProperties.Width;
+                        xlWorkSheetCasePallet.Cells[iRowCasePallet, 6] = caseProperties.Height;
+                        // constraints
+                        ConstraintSetCasePallet constraintSet = analysisCasePallet.ConstraintSet as ConstraintSetCasePallet;
+                        xlWorkSheetCasePallet.Cells[iRowCasePallet, 7] = constraintSet.OptMaxHeight.Value;
+                        // solution
+                        Solution sol = analysisCasePallet.Solution;
+                        xlWorkSheetCasePallet.Cells[iRowCasePallet, 8] = sol.ItemCount;
+                        xlWorkSheetCasePallet.Cells[iRowCasePallet, 9] = sol.LayerCount;
+                        xlWorkSheetCasePallet.Cells[iRowCasePallet, 10] = sol.LayerBoxCount(0);
+                        xlWorkSheetCasePallet.Cells[iRowCasePallet, 11] = sol.LoadWeight;
+                        xlWorkSheetCasePallet.Cells[iRowCasePallet, 12] = sol.Weight;
+                        xlWorkSheetCasePallet.Cells[iRowCasePallet, 13] = sol.VolumeEfficiency;
+
+                        var stackImagePath = Path.Combine(Path.ChangeExtension(Path.GetTempFileName(), "png"));
+                        var graphics = new Graphics3DImage(new Size(768, 768))
+                        {
+                            FontSizeRatio = 0.01f,
+                            CameraPosition = Graphics3D.Corner_0
+                        };
+                        using (ViewerSolution sv = new ViewerSolution(analysis.Solution))
+                            sv.Draw(graphics, Transform3D.Identity);
+                        graphics.Flush();
+                        Bitmap bmp = graphics.Bitmap;
+                        bmp.Save(stackImagePath, System.Drawing.Imaging.ImageFormat.Png);
+                        Range imageCell = (Range)xlWorkSheetCasePallet.Cells[iRowCasePallet, 14];
+                        imageCell.RowHeight = 128;
+                        imageCell.ColumnWidth = 24;
+                        xlWorkSheetCasePallet.Shapes.AddPicture(stackImagePath,
+                            LinkToFile: MsoTriState.msoFalse, SaveWithDocument: MsoTriState.msoCTrue,
+                            Left: imageCell.Left + 1, Top: imageCell.Top + 1, Width: imageCell.Width - 2, Height: imageCell.Height - 2);
+
+                        ++iRowCasePallet;
+                    }
+                    else if (analysis is AnalysisBoxCase analysisBoxCase)
+                    {
+                    }
+                    else if (analysis is AnalysisCaseTruck analysisCaseTruck)
+                    {
+                    }
+                    else if (analysis is AnalysisCylinderPallet analysisCylinderPallet)
+                    {
+                    }
+                    else if (analysis is AnalysisCylinderCase analysisCylinderCase)
+                    {
+                    }
+                    else if (analysis is AnalysisCylinderTruck analysisCylinderTruck)
+                    {
+                    }
+                }
+                catch (Exception ex)
+                {
+                    _log.Error(ex.ToString());
+                }
+            }
         }
         #endregion
 

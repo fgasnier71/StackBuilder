@@ -374,8 +374,8 @@ namespace treeDiM.StackBuilder.ABYATExcelLoader
                     {
                         if (GenerateImage)
                         {
-                            ViewerSolution sv = new ViewerSolution(analysis.Solution);
-                            sv.Draw(graphics, Transform3D.Identity);
+                            using (ViewerSolution sv = new ViewerSolution(analysis.Solution))
+                                sv.Draw(graphics, Transform3D.Identity);
                             graphics.Flush();
                         }
                         if (GenerateReport)
@@ -410,8 +410,8 @@ namespace treeDiM.StackBuilder.ABYATExcelLoader
 
                     if (GenerateImage && stackCount <= StackCountMax)
                     {
-                        ViewerSolution sv = new ViewerSolution(analysis.Solution);
-                        sv.Draw(graphics, Transform3D.Identity);
+                        using (ViewerSolution sv = new ViewerSolution(analysis.Solution))
+                        {   sv.Draw(graphics, Transform3D.Identity); }
                         graphics.Flush();
                     }
                 }

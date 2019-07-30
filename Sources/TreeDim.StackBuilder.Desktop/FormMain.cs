@@ -1338,6 +1338,13 @@ namespace treeDiM.StackBuilder.Desktop
         #region Edge Crush Test
         private void OnComputeECT(object sender, EventArgs e) => EdgeCrushTest.ECT_Forms.ComputeECT();
         #endregion
+        #region Export to Excel
+        private void OnExportToExcel(object sender, EventArgs e)
+        {
+            try { ((DocumentSB)ActiveDocument).ExportAnalysesToExcel(); }
+            catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
+        }
+        #endregion
         #endregion
 
         #region Document / View status change handlers
@@ -1451,6 +1458,7 @@ namespace treeDiM.StackBuilder.Desktop
 
         #region Static instance accessor
         public static FormMain GetInstance()  { return _instance; }
+
         #endregion
 
 
