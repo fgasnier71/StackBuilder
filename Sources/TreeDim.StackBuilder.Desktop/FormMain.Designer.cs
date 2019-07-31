@@ -128,6 +128,8 @@
             this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSB_ECT = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButtonExportToExcel = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButtonHelp = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButtonSettings = new System.Windows.Forms.ToolStripButton();
@@ -137,8 +139,6 @@
             this.saveFileDialogWebGL = new System.Windows.Forms.SaveFileDialog();
             this.timerLogin = new System.Windows.Forms.Timer(this.components);
             this.saveFileDialogExport = new System.Windows.Forms.SaveFileDialog();
-            this.toolStripButtonExportToExcel = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.menuStripMain.SuspendLayout();
             this.toolStripStandard.SuspendLayout();
             this.SuspendLayout();
@@ -839,6 +839,18 @@
             this.toolStripSeparator6.Name = "toolStripSeparator6";
             resources.ApplyResources(this.toolStripSeparator6, "toolStripSeparator6");
             // 
+            // toolStripButtonExportToExcel
+            // 
+            this.toolStripButtonExportToExcel.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.toolStripButtonExportToExcel, "toolStripButtonExportToExcel");
+            this.toolStripButtonExportToExcel.Name = "toolStripButtonExportToExcel";
+            this.toolStripButtonExportToExcel.Click += new System.EventHandler(this.OnExportToExcel);
+            // 
+            // toolStripSeparator7
+            // 
+            this.toolStripSeparator7.Name = "toolStripSeparator7";
+            resources.ApplyResources(this.toolStripSeparator7, "toolStripSeparator7");
+            // 
             // toolStripButtonHelp
             // 
             this.toolStripButtonHelp.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -885,18 +897,6 @@
             // 
             this.saveFileDialogExport.DefaultExt = "xml";
             resources.ApplyResources(this.saveFileDialogExport, "saveFileDialogExport");
-            // 
-            // toolStripButtonExportToExcel
-            // 
-            this.toolStripButtonExportToExcel.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            resources.ApplyResources(this.toolStripButtonExportToExcel, "toolStripButtonExportToExcel");
-            this.toolStripButtonExportToExcel.Name = "toolStripButtonExportToExcel";
-            this.toolStripButtonExportToExcel.Click += new System.EventHandler(this.OnExportToExcel);
-            // 
-            // toolStripSeparator7
-            // 
-            this.toolStripSeparator7.Name = "toolStripSeparator7";
-            resources.ApplyResources(this.toolStripSeparator7, "toolStripSeparator7");
             // 
             // FormMain
             // 

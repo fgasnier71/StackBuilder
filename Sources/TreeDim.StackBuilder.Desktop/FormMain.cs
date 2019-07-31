@@ -758,7 +758,9 @@ namespace treeDiM.StackBuilder.Desktop
             // disconnected mode
             toolStripMenuItemEditDB.Enabled = true;
             editPaletSolutionsDB.Enabled = true;
-
+            // allow export of project summary to Excel
+            toolStripButtonExportToExcel.Enabled = (null != doc) && doc.Analyses.Count > 0;
+            // BCT
             toolStripSB_ECT.Enabled = !Program.UseDisconnected;
         }
         #endregion
