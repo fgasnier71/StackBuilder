@@ -110,7 +110,7 @@
     <ManifestCertificateThumbprint>E560907200F8CCA932E8CA665AA2916D0D74ED5A</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>treedim.pfx</ManifestKeyFile>
+    <ManifestKeyFile>treedim2021.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestTimestampUrl>http://timestamp.comodoca.com/authenticode</ManifestTimestampUrl>
@@ -2858,6 +2858,7 @@
       <DependentUpon>ToolTipListBox.cs</DependentUpon>
     </Compile>
     <Compile Include="WindowSettings.cs" />
+    <None Include="treedim2021.pfx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Pallet.bmp" />
@@ -2919,6 +2920,10 @@
     <ProjectReference Include="..\TreeDim.StackBuilder.Engine\treeDiM.StackBuilder.Engine.csproj">
       <Project>{2E646606-052D-4063-9218-1379430B070E}</Project>
       <Name>treeDiM.StackBuilder.Engine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\treeDiM.StackBuilder.ExcelExporter\treeDiM.StackBuilder.ExcelExporter.csproj">
+      <Project>{44b54d61-823c-423b-83d5-fb138a321544}</Project>
+      <Name>treeDiM.StackBuilder.ExcelExporter</Name>
     </ProjectReference>
     <ProjectReference Include="..\treeDiM.StackBuilder.ExcelReader\treeDiM.StackBuilder.ExcelReader.csproj">
       <Project>{E9B15DC7-07A3-4398-AE3F-2ED6B1F5C0A6}</Project>

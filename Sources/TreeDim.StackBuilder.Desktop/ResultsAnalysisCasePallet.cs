@@ -11,8 +11,8 @@ namespace treeDiM.StackBuilder.Desktop
     {
 
         #region Private data members
-        double[] _dimensionsOuter = new double[3], _dimensionsLoad = new double[3];
-        List<KeyValuePair<int, int>> _layers = new List<KeyValuePair<int, int>>();
+        private double[] _dimensionsOuter = new double[3], _dimensionsLoad = new double[3];
+        private List<KeyValuePair<int, int>> _layers = new List<KeyValuePair<int, int>>();
         #endregion
 
         #region Properties

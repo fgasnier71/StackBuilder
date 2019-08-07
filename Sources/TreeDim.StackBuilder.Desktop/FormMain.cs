@@ -20,6 +20,7 @@ using treeDiM.StackBuilder.Basics;
 using treeDiM.StackBuilder.Engine;
 using treeDiM.StackBuilder.Reporting;
 using treeDiM.StackBuilder.Plugin;
+using treeDiM.StackBuilder.ExcelExporter;
 
 using treeDiM.PLMPack.DBClient;
 using treeDiM.PLMPack.DBClient.PLMPackSR;
@@ -1343,8 +1344,14 @@ namespace treeDiM.StackBuilder.Desktop
         #region Export to Excel
         private void OnExportToExcel(object sender, EventArgs e)
         {
-            try { ((DocumentSB)ActiveDocument).ExportAnalysesToExcel(); }
-            catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
+            try { ExporterProjetSummary.ExportProjectSummaryToExcel((DocumentSB)ActiveDocument);  }
+            catch (System.Runtime.InteropServices.COMException ex)
+            {
+                _log.Error($"MS Excel not installed? : {ex.Message}");
+                MessageBox.Show("MS Excel not installed?");
+            }
+            catch (Exception ex)
+            { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
         #endregion
         #endregion

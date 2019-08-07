@@ -402,7 +402,6 @@ namespace treeDiM.StackBuilder.Desktop
         public void ExportAnalysesToExcel()
         {
             // open excel file
-            object misValue = System.Reflection.Missing.Value;
             Microsoft.Office.Interop.Excel.Application xlApp = new Microsoft.Office.Interop.Excel.Application
             {
                 Visible = true,
