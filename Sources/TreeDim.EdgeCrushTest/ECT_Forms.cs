@@ -1,23 +1,17 @@
 ﻿#region Using directives
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 using log4net;
+using WeifenLuo.WinFormsUI.Docking;
 #endregion
 
 namespace treeDiM.EdgeCrushTest
 {
     public class ECT_Forms
     {
-        static public void ComputeECT()
+        static public void ComputeECT(DockPanel dockPanel)
         {
             try
             {
-                var form = new FormComputeECT();
-                form.ShowDialog();
+                _dockContentComputeBCT.Show(dockPanel, DockState.Document);
             }
             catch (Exception ex)
             {
@@ -28,8 +22,10 @@ namespace treeDiM.EdgeCrushTest
         {
             try
             {
-                var form = new FormCardboardQualityList();
-                form.ShowDialog();
+                using (var form = new FormCardboardQualityList())
+                {
+                    form.ShowDialog();
+                }
             }
             catch (Exception ex)
             {
@@ -37,6 +33,9 @@ namespace treeDiM.EdgeCrushTest
             }
         }
 
+        #region Static data members
+        private static DockContentComputeBCT _dockContentComputeBCT = new DockContentComputeBCT();
         private static readonly ILog _log = LogManager.GetLogger(typeof(ECT_Forms));
+        #endregion
     }
 }

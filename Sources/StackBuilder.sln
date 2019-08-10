@@ -98,6 +98,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "treeDiM.UserControls", "tre
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "treeDiM.StackBuilder.ExcelExporter", "treeDiM.StackBuilder.ExcelExporter\treeDiM.StackBuilder.ExcelExporter.csproj", "{44B54D61-823C-423B-83D5-FB138A321544}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "treeDiM.EdgeCrushTest.Desktop", "treeDiM.EdgeCrushTest.Desktop\treeDiM.EdgeCrushTest.Desktop.csproj", "{AB86D901-AFF1-4991-B9B6-F2A94EC33570}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -648,6 +650,22 @@ Global
 		{44B54D61-823C-423B-83D5-FB138A321544}.Release|x64.Build.0 = Release|Any CPU
 		{44B54D61-823C-423B-83D5-FB138A321544}.Release|x86.ActiveCfg = Release|Any CPU
 		{44B54D61-823C-423B-83D5-FB138A321544}.Release|x86.Build.0 = Release|Any CPU
+		{AB86D901-AFF1-4991-B9B6-F2A94EC33570}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB86D901-AFF1-4991-B9B6-F2A94EC33570}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB86D901-AFF1-4991-B9B6-F2A94EC33570}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{AB86D901-AFF1-4991-B9B6-F2A94EC33570}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{AB86D901-AFF1-4991-B9B6-F2A94EC33570}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{AB86D901-AFF1-4991-B9B6-F2A94EC33570}.Debug|x64.Build.0 = Debug|Any CPU
+		{AB86D901-AFF1-4991-B9B6-F2A94EC33570}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{AB86D901-AFF1-4991-B9B6-F2A94EC33570}.Debug|x86.Build.0 = Debug|Any CPU
+		{AB86D901-AFF1-4991-B9B6-F2A94EC33570}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB86D901-AFF1-4991-B9B6-F2A94EC33570}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB86D901-AFF1-4991-B9B6-F2A94EC33570}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{AB86D901-AFF1-4991-B9B6-F2A94EC33570}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{AB86D901-AFF1-4991-B9B6-F2A94EC33570}.Release|x64.ActiveCfg = Release|Any CPU
+		{AB86D901-AFF1-4991-B9B6-F2A94EC33570}.Release|x64.Build.0 = Release|Any CPU
+		{AB86D901-AFF1-4991-B9B6-F2A94EC33570}.Release|x86.ActiveCfg = Release|Any CPU
+		{AB86D901-AFF1-4991-B9B6-F2A94EC33570}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -679,9 +697,9 @@ Global
 		{D75634E3-34AA-4418-A6B6-3647BFF90606} = {C6DE47A1-1707-4139-9638-37CA983F3086}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		RESX_ConfirmAddLanguageFile = False
-		SolutionGuid = {A8385DDB-1893-4CF8-83DF-F57C7AB7069B}
-		RESX_AutoCreateNewLanguageFiles = True
 		RESX_PrefixTranslations = False
+		RESX_AutoCreateNewLanguageFiles = True
+		SolutionGuid = {A8385DDB-1893-4CF8-83DF-F57C7AB7069B}
+		RESX_ConfirmAddLanguageFile = False
 	EndGlobalSection
 EndGlobal

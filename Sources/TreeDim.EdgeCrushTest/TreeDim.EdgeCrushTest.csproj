@@ -80,6 +80,12 @@
     <Reference Include="treeDiM.PLMPack.DBClient">
       <HintPath>..\ThirdPartyAssemblies\treeDiM.PLMPack.DBClient.dll</HintPath>
     </Reference>
+    <Reference Include="WeifenLuo.WinFormsUI.Docking, Version=3.0.6.0, Culture=neutral, PublicKeyToken=5cded1a1a0a7b481, processorArchitecture=MSIL">
+      <HintPath>..\packages\DockPanelSuite.3.0.6\lib\net40\WeifenLuo.WinFormsUI.Docking.dll</HintPath>
+    </Reference>
+    <Reference Include="WeifenLuo.WinFormsUI.Docking.ThemeVS2015, Version=3.0.6.0, Culture=neutral, PublicKeyToken=5cded1a1a0a7b481, processorArchitecture=MSIL">
+      <HintPath>..\packages\DockPanelSuite.ThemeVS2015.3.0.6\lib\net40\WeifenLuo.WinFormsUI.Docking.ThemeVS2015.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\SharedAssemblyInfo.cs">
@@ -96,11 +102,11 @@
     <Compile Include="FormCardboardQualityList.Designer.cs">
       <DependentUpon>FormCardboardQualityList.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormComputeECT.cs">
+    <Compile Include="DockContentComputeBCT.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormComputeECT.Designer.cs">
-      <DependentUpon>FormComputeECT.cs</DependentUpon>
+    <Compile Include="DockContentComputeBCT.Designer.cs">
+      <DependentUpon>DockContentComputeBCT.cs</DependentUpon>
     </Compile>
     <Compile Include="FormEditCardboardQualityData.cs">
       <SubType>Form</SubType>
@@ -126,8 +132,8 @@
     <EmbeddedResource Include="FormCardboardQualityList.resx">
       <DependentUpon>FormCardboardQualityList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormComputeECT.resx">
-      <DependentUpon>FormComputeECT.cs</DependentUpon>
+    <EmbeddedResource Include="DockContentComputeBCT.resx">
+      <DependentUpon>DockContentComputeBCT.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormEditCardboardQualityData.de.resx">
       <DependentUpon>FormEditCardboardQualityData.cs</DependentUpon>

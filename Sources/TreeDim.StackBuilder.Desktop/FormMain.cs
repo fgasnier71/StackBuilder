@@ -1339,7 +1339,7 @@ namespace treeDiM.StackBuilder.Desktop
         }
         #endregion
         #region Edge Crush Test
-        private void OnComputeECT(object sender, EventArgs e) => EdgeCrushTest.ECT_Forms.ComputeECT();
+        private void OnComputeECT(object sender, EventArgs e) => EdgeCrushTest.ECT_Forms.ComputeECT(dockPanel);
         #endregion
         #region Export to Excel
         private void OnExportToExcel(object sender, EventArgs e)

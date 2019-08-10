@@ -1,6 +1,6 @@
 ﻿namespace treeDiM.EdgeCrushTest
 {
-    partial class FormComputeECT
+    partial class DockContentComputeBCT
     {
         /// <summary>
         /// Required designer variable.
@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.bnOK = new System.Windows.Forms.Button();
-            this.bnCancel = new System.Windows.Forms.Button();
             this.splitContainerHoriz = new System.Windows.Forms.SplitContainer();
             this.uCtrlLoad = new treeDiM.Basics.UCtrlDouble();
             this.label1 = new System.Windows.Forms.Label();
@@ -40,6 +38,7 @@
             this.lbPrintedArea = new System.Windows.Forms.Label();
             this.cbPrintedArea = new System.Windows.Forms.ComboBox();
             this.gridDynamicBCT = new SourceGrid.Grid();
+            this.uCtrlCaseWeight = new treeDiM.Basics.UCtrlOptDouble();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerHoriz)).BeginInit();
             this.splitContainerHoriz.Panel1.SuspendLayout();
             this.splitContainerHoriz.Panel2.SuspendLayout();
@@ -50,27 +49,6 @@
             this.splitContainerVert.SuspendLayout();
             this.SuspendLayout();
             // 
-            // bnOK
-            // 
-            this.bnOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.bnOK.Location = new System.Drawing.Point(806, 3);
-            this.bnOK.Name = "bnOK";
-            this.bnOK.Size = new System.Drawing.Size(75, 23);
-            this.bnOK.TabIndex = 0;
-            this.bnOK.Text = "OK";
-            this.bnOK.UseVisualStyleBackColor = true;
-            // 
-            // bnCancel
-            // 
-            this.bnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.bnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.bnCancel.Location = new System.Drawing.Point(806, 32);
-            this.bnCancel.Name = "bnCancel";
-            this.bnCancel.Size = new System.Drawing.Size(75, 23);
-            this.bnCancel.TabIndex = 1;
-            this.bnCancel.Text = "Cancel";
-            this.bnCancel.UseVisualStyleBackColor = true;
-            // 
             // splitContainerHoriz
             // 
             this.splitContainerHoriz.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -80,12 +58,10 @@
             // 
             // splitContainerHoriz.Panel1
             // 
-            this.splitContainerHoriz.Panel1.Controls.Add(this.uCtrlLoad);
+            this.splitContainerHoriz.Panel1.Controls.Add(this.uCtrlCaseWeight);
             this.splitContainerHoriz.Panel1.Controls.Add(this.label1);
             this.splitContainerHoriz.Panel1.Controls.Add(this.cbMcKeeFormulaType);
             this.splitContainerHoriz.Panel1.Controls.Add(this.uCtrlCaseDimensions);
-            this.splitContainerHoriz.Panel1.Controls.Add(this.bnOK);
-            this.splitContainerHoriz.Panel1.Controls.Add(this.bnCancel);
             // 
             // splitContainerHoriz.Panel2
             // 
@@ -96,7 +72,7 @@
             // 
             // uCtrlLoad
             // 
-            this.uCtrlLoad.Location = new System.Drawing.Point(490, 6);
+            this.uCtrlLoad.Location = new System.Drawing.Point(15, 39);
             this.uCtrlLoad.Minimum = new decimal(new int[] {
             10000,
             0,
@@ -113,7 +89,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 37);
+            this.label1.Location = new System.Drawing.Point(370, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(81, 13);
             this.label1.TabIndex = 4;
@@ -126,7 +102,7 @@
             this.cbMcKeeFormulaType.Items.AddRange(new object[] {
             "Classic",
             "Improved"});
-            this.cbMcKeeFormulaType.Location = new System.Drawing.Point(123, 33);
+            this.cbMcKeeFormulaType.Location = new System.Drawing.Point(490, 5);
             this.cbMcKeeFormulaType.Name = "cbMcKeeFormulaType";
             this.cbMcKeeFormulaType.Size = new System.Drawing.Size(121, 21);
             this.cbMcKeeFormulaType.TabIndex = 3;
@@ -162,6 +138,7 @@
             // 
             // splitContainerVert.Panel2
             // 
+            this.splitContainerVert.Panel2.Controls.Add(this.uCtrlLoad);
             this.splitContainerVert.Panel2.Controls.Add(this.lbPrintedArea);
             this.splitContainerVert.Panel2.Controls.Add(this.cbPrintedArea);
             this.splitContainerVert.Panel2.Controls.Add(this.gridDynamicBCT);
@@ -216,12 +193,25 @@
             this.gridDynamicBCT.TabStop = true;
             this.gridDynamicBCT.ToolTipText = "";
             // 
+            // uCtrlCaseWeight
+            // 
+            this.uCtrlCaseWeight.Location = new System.Drawing.Point(5, 32);
+            this.uCtrlCaseWeight.Minimum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            -2147483648});
+            this.uCtrlCaseWeight.MinimumSize = new System.Drawing.Size(100, 20);
+            this.uCtrlCaseWeight.Name = "uCtrlCaseWeight";
+            this.uCtrlCaseWeight.Size = new System.Drawing.Size(340, 20);
+            this.uCtrlCaseWeight.TabIndex = 5;
+            this.uCtrlCaseWeight.Text = "Case weight";
+            this.uCtrlCaseWeight.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_MASS;
+            // 
             // FormComputeECT
             // 
-            this.AcceptButton = this.bnOK;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CancelButton = this.bnCancel;
             this.ClientSize = new System.Drawing.Size(884, 561);
             this.Controls.Add(this.splitContainerHoriz);
             this.MaximizeBox = false;
@@ -245,9 +235,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button bnOK;
-        private System.Windows.Forms.Button bnCancel;
         private System.Windows.Forms.SplitContainer splitContainerHoriz;
         private System.Windows.Forms.SplitContainer splitContainerVert;
         private Basics.UCtrlTriDouble uCtrlCaseDimensions;
@@ -258,5 +245,6 @@
         private System.Windows.Forms.Label lbPrintedArea;
         private System.Windows.Forms.ComboBox cbPrintedArea;
         private Basics.UCtrlDouble uCtrlLoad;
+        private Basics.UCtrlOptDouble uCtrlCaseWeight;
     }
 }

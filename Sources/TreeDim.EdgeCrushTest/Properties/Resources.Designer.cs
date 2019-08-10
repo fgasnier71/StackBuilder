@@ -125,6 +125,15 @@ namespace treeDiM.EdgeCrushTest.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Max. layer count.
+        /// </summary>
+        internal static string ID_MAXLAYERCOUNT {
+            get {
+                return ResourceManager.GetString("ID_MAXLAYERCOUNT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Name.
         /// </summary>
         internal static string ID_NAME {

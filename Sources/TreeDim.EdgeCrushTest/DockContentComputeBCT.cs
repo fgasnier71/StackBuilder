@@ -5,17 +5,19 @@ using System.Drawing;
 using System.Collections.Generic;
 using System.Linq;
 
+using log4net;
 using Sharp3D.Math.Core;
+using WeifenLuo.WinFormsUI.Docking;
 
 using treeDiM.EdgeCrushTest.Properties;
 #endregion
 
 namespace treeDiM.EdgeCrushTest
 {
-    public partial class FormComputeECT : Form
+    public partial class DockContentComputeBCT : DockContent
     {
         #region Constructor
-        public FormComputeECT()
+        public DockContentComputeBCT()
         {
             InitializeComponent();
         }
@@ -36,7 +38,6 @@ namespace treeDiM.EdgeCrushTest
 
             // initialize dynamic BCT grid
             InitializeGridDynamicBCT();
-
 
             // fill printed combo
             cbPrintedArea.Items.AddRange(McKeeFormula.PrintCoefDictionary.Keys.ToArray());
@@ -132,7 +133,13 @@ namespace treeDiM.EdgeCrushTest
                 View = viewColumnHeader
             };
             gridMat[0, iCol++] = columnHeader;
-
+            // maximum number of layers
+            columnHeader = new SourceGrid.Cells.ColumnHeader(Resources.ID_MAXLAYERCOUNT)
+            {
+                AutomaticSortEnabled = false,
+                View = viewColumnHeader
+            };
+            gridMat[0, iCol++] = columnHeader;
             int iIndex = 0;
             var dictQuality = CardboardQualityAccessor.Instance.CardboardQualityDictionary;
             Vector3D dim = CaseDimensions;
@@ -296,6 +303,10 @@ namespace treeDiM.EdgeCrushTest
                         qdata.Name, Properties.Resources.CASETYPE_AMERICANCASE, PrintSurface, McKeeFormulaType)
                     );
         }
+        #endregion
+
+        #region Data members
+        protected ILog _log = LogManager.GetLogger(typeof(DockContentComputeBCT));
         #endregion
     }
 }
