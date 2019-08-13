@@ -118,13 +118,23 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="lbThickness.Size" type="System.Drawing.Size, System.Drawing">
-    <value>51, 13</value>
+  <data name="toolStripButtonNew.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGsSURBVDhPlZNNSwJRGIVnJ0YQRJu20TKINiEEfSxa5aZ+
+        RhD+hxYt+guBUFDp+MU4mSn4PVKoTaMtWgoiKIE5atOoOJ3mXlKaHMMOnM2973nuy733ZYZSFAWpVArp
+        dBqxWGzMiUQCT6KI73KjZFlGMBhEJpNBJBJBp91Go9EYudVqoVAoIJ/PjwOazSY4joMgCBQQjUZNTymV
+        SsjlcuN7oVCIBpPJJHU4HDYFFItFcwAJZ7NZkBMkSQIp/N4yiLRvCojH46jX66ahqUQA1Wr1T4Da7+Lw
+        4QSO3CmylUdj7TSAttoBc7kKi3sdZ6L7/4CPvooZlw3z3m2cFwPTATSlj4HcA9oDyK9vmGU3sODfgfOe
+        BRRAa/WpJwL2+EMw12uwum00vMTZqQmErA09EbB/64DVo7ft28KCb2cEWAzs0rWhJwJiLwIuCn64RB7O
+        vIdCSPjo7hg+KYwrkaOmgFqtNgb4KU3TRpd49cwba9P6TxT1KSNdVCoVg8vlMvAJvPcUWFzrmPNuwil5
+        jYBbfRZueB5BfaB+28Oy6KldqPozLnvsWAkcgH0O/QAwzBdlcLSwv9RQtAAAAABJRU5ErkJggg==
+</value>
   </data>
-  <data name="lbRigidityX.Size" type="System.Drawing.Size, System.Drawing">
-    <value>52, 13</value>
+  <data name="toolStripButtonNew.Text" xml:space="preserve">
+    <value>Nouvelle qualité carton...</value>
   </data>
-  <data name="lbRigidityY.Size" type="System.Drawing.Size, System.Drawing">
-    <value>52, 13</value>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Liste des qualités carton...</value>
   </data>
 </root>

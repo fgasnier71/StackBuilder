@@ -57,6 +57,12 @@
   <PropertyGroup>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>treedim2021.pfx</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Cureos.Measures">
       <HintPath>..\ThirdPartyAssemblies\Cureos.Measures.dll</HintPath>
@@ -115,6 +121,7 @@
       <DependentUpon>FormEditCardboardQualityData.cs</DependentUpon>
     </Compile>
     <Compile Include="McKeeFormula.cs" />
+    <Compile Include="PalletAccessor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -129,6 +136,12 @@
     <Compile Include="QualityData.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="DockContentComputeBCT.fr.resx">
+      <DependentUpon>DockContentComputeBCT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCardboardQualityList.fr.resx">
+      <DependentUpon>FormCardboardQualityList.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormCardboardQualityList.resx">
       <DependentUpon>FormCardboardQualityList.cs</DependentUpon>
     </EmbeddedResource>
@@ -142,9 +155,6 @@
       <DependentUpon>FormEditCardboardQualityData.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormEditCardboardQualityData.fr.resx">
-      <DependentUpon>FormEditCardboardQualityData.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormEditCardboardQualityData.it-IT.resx">
       <DependentUpon>FormEditCardboardQualityData.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormEditCardboardQualityData.it.resx">
@@ -223,6 +233,7 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <None Include="treedim2021.pfx" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="CardboardQualityData\CardboardQualityData.xml" />
@@ -232,6 +243,18 @@
     <ProjectReference Include="..\treeDiM.Basics\treeDiM.Basics.csproj">
       <Project>{646EE507-E57D-43A7-93F3-365A687AEC4B}</Project>
       <Name>treeDiM.Basics</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TreeDim.StackBuilder.Basics\treeDiM.StackBuilder.Basics.csproj">
+      <Project>{444c01d0-53fd-49a1-9d55-267b49161357}</Project>
+      <Name>treeDiM.StackBuilder.Basics</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TreeDim.StackBuilder.Engine\treeDiM.StackBuilder.Engine.csproj">
+      <Project>{2e646606-052d-4063-9218-1379430b070e}</Project>
+      <Name>treeDiM.StackBuilder.Engine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TreeDim.StackBuilder.Graphic\treeDiM.StackBuilder.Graphics.csproj">
+      <Project>{2ad4c04c-5b8a-4e69-9b1c-402cb86860a7}</Project>
+      <Name>treeDiM.StackBuilder.Graphics</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

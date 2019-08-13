@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?define PlatformProgramFilesFolder = "ProgramFilesFolder" ?>
+<?define InstallLocation = INSTALLFOLDER?>
+<!-- Product name as it appears in Add/Remove Programs-->
+<?define ProductName = "PackStress" ?>
+<!--Product code-->
+<?define ProductCode = "{3FBF2247-7550-4FE9-B90B-77F2F04EB637}"?>
+<!--Upgrade code-->
+<?define UpgradeCode = "{3131D86E-15A5-4ED2-AC21-8BEEA4CF7B83}"?>
+<!-- Package_Description -->
+<?define Package_Description = "Installs PLMPack PackStress files" ?>
+<!-- Package_Comments -->
+<?define Package_Comments = "PLMPack PackStress"?>
+<!--Keywords-->
+<?define Package_Keywords = "Installer, PackStress"?>
+<Include>
+</Include>

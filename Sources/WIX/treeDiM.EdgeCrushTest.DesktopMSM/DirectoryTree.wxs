@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?include $(sys.CURRENTDIR)\Config.wxi?>
+
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	<Fragment>
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="Bin" Name="Bin">
+        <Directory Id="fr" Name="fr"/>
+        <Directory Id="es" Name="es"/>
+        <Directory Id="it" Name="it"/>
+      </Directory>
+      <Directory Id="ProgramMenuFolder" Name="Programs" ShortName="PMenu">
+        <Directory Id="ApplicationProgramsFolder" Name="$(var.ShortcutFolder)"/>
+      </Directory>
+      <Directory Id="DesktopFolder" Name="Desktop"/>
+    </Directory>
+	</Fragment>
+</Wix>

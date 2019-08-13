@@ -19,23 +19,45 @@ namespace treeDiM.EdgeCrushTest.Desktop
 {
     public partial class FormMain : Form
     {
+        #region Constructor
         public FormMain()
         {
             InitializeComponent();
         }
+        #endregion
+        #region Form override
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
-            _dockContentComputeBCT.Show(dockPanel, DockState.Document);
+            timerMain.Start();
         }
         protected override void OnClosed(EventArgs e)
         {
             base.OnClosed(e);
         }
+        #endregion
+
+        #region Event handlers
+        private void OnExit(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+        private void OnAbout(object sender, EventArgs e)
+        {
+            using (AboutBox form = new AboutBox() {})
+            { form.ShowDialog(); }
+        }
+        private void OnTimerTick(object sender, EventArgs e)
+        {
+            timerMain.Stop();
+            _dockContentComputeBCT.Show(dockPanel, DockState.Document);
+        }
+        #endregion
 
         #region Data members
         private DockContentComputeBCT _dockContentComputeBCT = new DockContentComputeBCT();
         private static ILog _log = LogManager.GetLogger(typeof(FormMain));
         #endregion
+
     }
 }

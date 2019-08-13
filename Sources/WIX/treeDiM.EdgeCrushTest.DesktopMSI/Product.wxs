@@ -6,8 +6,8 @@
      xmlns:util="http://schemas.microsoft.com/wix/UtilExtension"
      xmlns:netfx="http://schemas.microsoft.com/wix/NetFxExtension"
      >
-	<Product Id="$(var.ProductCode)"
-           Name="$(var.ProductName)"
+	<Product Id="*"
+           Name="treeDiM.EdgeCrushTest.DesktopMSI"
            Language="1033"
            Version="$(var.ProductVersion)"
            Manufacturer="$(var.ProductManufacturer)"
@@ -27,36 +27,32 @@
              />
     <MediaTemplate EmbedCab="yes"/>
     <!--Icon-->
-    <Icon Id="StackBuilder.ico" SourceFile="StackBuilder.ico"/>
+    <Icon Id="ECT.ico" SourceFile="ECT.ico"/>
     <!--Upgrade table-->
-    <MajorUpgrade
+		<MajorUpgrade
       Schedule="afterInstallInitialize"
       AllowDowngrades="no"
       AllowSameVersionUpgrades="no"
       DowngradeErrorMessage="A newer version of [ProductName] is already installed."
       />
-    <Upgrade Id="FC448406-ACD2-42DB-91B6-5E37A43C949C">
+    <Upgrade Id="{0EB82C91-AF3F-4E52-8D0C-F3DFCF8B1AB1}">
       <UpgradeVersion Minimum="0.0.0.0"
                       Maximum="99.0.0.0"
                       Property="PREVIOUSVERSIONSINSTALLED"
                       IncludeMinimum="yes"
                       IncludeMaximum="no"
-                      IgnoreRemoveFailure="yes"
-                      />
+                      IgnoreRemoveFailure="yes"/>
     </Upgrade>
     <InstallExecuteSequence>
-      <!-- Potential scheduling (after): InstallValidate, InstallInitialize, InstallExecute, InstallExecuteAgain, InstallFinalize -->
-      <!--<RemoveExistingProducts After="InstallInitialize" />-->
     </InstallExecuteSequence>
-    
-    <!--StackBuilder merge module-->
+    <!--PackStress merge module-->
     <DirectoryRef Id="$(var.InstallLocation)">
-      <Merge Id="treeDiM.StackBuilder.DesktopMSM" Language="1033" DiskId="1" SourceFile="..\treeDiM.StackBuilder.DesktopMSM\bin\Release\treeDiM.StackBuilder.DesktopMSM.msm"/>
+      <Merge Id="treeDiM.EdgeCrushTest.DesktopMSM" Language="1033" DiskId="1" SourceFile="..\treeDiM.EdgeCrushTest.DesktopMSM\bin\Release\treeDiM.EdgeCrushTest.DesktopMSM.msm"/>
     </DirectoryRef>
     <!--Features-->
-    <Feature Id="ProductFeature" Title="treeDiM.StackBuilder.DesktopMSI" Level="1" Absent="disallow"
-             Display="expand" ConfigurableDirectory="$(var.InstallLocation)">
-      <MergeRef Id="treeDiM.StackBuilder.DesktopMSM" Primary="yes"/>
+		<Feature Id="ProductFeature" Title="treeDiM.EdgeCrushTest.DesktopMSI"
+             Level="1" Absent="disallow" Display="expand" ConfigurableDirectory="$(var.InstallLocation)">
+      <MergeRef Id="treeDiM.EdgeCrushTest.DesktopMSM" Primary="yes"/>
 		</Feature>
     <!--Properties-->
     <Property Id="REINSTALLMODE" Value="amus" />
@@ -68,7 +64,7 @@
     <PropertyRef Id="NETFRAMEWORK40CLIENT" />
     <PropertyRef Id="NETFRAMEWORK40FULL" />
     <!--Installer icon-->
-    <Property Id="ARPPRODUCTICON" Value="StackBuilder.ico" />
+    <Property Id="ARPPRODUCTICON" Value="ECT.ico" />
     <Property Id="ARPHELPLINK" Value="$(var.CompanyURL)" />
     <Property Id="ARPURLINFOABOUT" Value="$(var.CompanyURL)" />
     <!-- Conditions-->

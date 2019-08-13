@@ -62,7 +62,7 @@ namespace treeDiM.Basics
 
         #region Event handlers
         private void OnValueChangedLocal(object sender, EventArgs e) => ValueChanged?.Invoke(this, e);
-        private void ValueControl_SizeChanged(object sender, EventArgs e)
+        private void OnSizeChanged(object sender, EventArgs e)
         {
             // set nud location
             nudValue.Location = new Point(Width - stNudLength - stLbUnitLength, 0);

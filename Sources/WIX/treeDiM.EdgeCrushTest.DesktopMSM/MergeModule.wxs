@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?include $(sys.CURRENTDIR)\Config.wxi?>
+<?include $(sys.CURRENTDIR)..\treeDiM.stackBuilder.DesktopMSM\CommonConfig.wxi?>
+
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
+     xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
+	<Module Id="treeDiM.EdgeCrushTest.DesktopMSM"
+          Language="1033"
+          Version="$(var.ProductVersion)">
+		<Package Id="d4c880c6-b8ec-43dc-b190-48c1d6b2f443"
+             Description="$(var.PackageDescription)"
+             Comments="PLMPack PackStress"
+             Manufacturer="$(var.ProductManufacturer)"
+             InstallerVersion="301" />
+    <!-- Forcibly overwriting preexisting files during installation-->
+    <Property Id="ALLUSERS" Value="1"/>
+    <!--Shortcut icon-->
+    <Icon Id="ShortcutIcon.ico" SourceFile="..\..\treeDiM.EdgeCrushTest.Desktop\Bin\Release\treeDiM.EdgeCrushTest.Desktop.exe" />
+    <!--************ Application files : BEGIN **********-->
+    <DirectoryRef Id="Bin">
+      <Component Id="BinPermissions" Guid="{88F40CA2-B308-4C73-9E92-70660FE0DB21}">
+        <CreateFolder>
+          <util:PermissionEx User="Users" GenericAll="yes"/>
+        </CreateFolder>
+      </Component>
+    </DirectoryRef>
+    <DirectoryRef Id="ApplicationProgramsFolder">
+      <Component Id="ProgramMenuShortcutComp" Guid="{7EEC4FCC-7CD9-453B-B149-C751DCFF1AD7}">
+        <Shortcut Id="PMenuShortcut"
+                  Name="PackStress"
+                  Description="PLMPack PackStress"
+                  Target="[Bin]treeDiM.EdgeCrushTest.Desktop.exe"
+                  Icon="ShortcutIcon.ico"
+                  WorkingDirectory="Bin"/>
+        <RemoveFolder Id="ApplicationProgramsFolder" On="uninstall"/>
+        <RegistryValue Root="HKCR"
+                       Key="Software/$(var.ProductManufacturer)/PMenuShortcut"
+                       Name="installed"
+                       Type="integer"
+                       Value="1"
+                       KeyPath="yes"/>
+      </Component>
+    </DirectoryRef>
+    <DirectoryRef Id="DesktopFolder">
+      <Component Id="DesktopShortcutComp" Guid="{E75368FE-2CF8-47AF-8CC1-74F9716F8E3A}">
+        <Shortcut Id="DShortcut"
+                  Name="PackStress"
+                  Description="PLMPack PackStress"
+                  Target="[Bin]treeDiM.EdgeCrushTest.Desktop.exe"
+                  Icon="ShortcutIcon.ico"
+                  WorkingDirectory="Bin" />
+        <RemoveFolder Id="DesktopFolder" On="uninstall"/>
+        <RegistryValue Root="HKCR"
+                       Key="Software/$(var.ProductManufacturer)/DShortcut"
+                       Name="installed"
+                       Type="integer"
+                       Value="1"
+                       KeyPath="yes" />
+      </Component>
+    </DirectoryRef>
+
+
+    <!--ComponentGroupRefs (Components harvested with heat.exe) : BEGIN-->
+    <ComponentGroupRef Id="EdgeCrushTestDesktopGroup"/>
+    <!--ComponentGroupRefs : END-->
+	</Module>
+</Wix>

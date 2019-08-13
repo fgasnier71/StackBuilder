@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <?define PlatformProgramFilesFolder = "ProgramFilesFolder" ?>
 <?define InstallLocation = INSTALLFOLDER?>
+<!-- Product name as it appears in Add/Remove Programs-->
+<?define ProductName = "StackBuilder" ?>
 <!--Product code-->
 <?define ProductCode = "{4D4825CA-7F9D-42C3-8FD5-74D280F076BC}"?>
 <!--Upgrade code-->

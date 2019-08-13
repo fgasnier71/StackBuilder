@@ -6,6 +6,5 @@
   <?define ProductVersion = "3.0.0.99"?>
   <!-- Company URL -->
   <?define CompanyURL = "http://www.treedim.com/" ?>
-  <!-- Product name as it appears in Add/Remove Programs-->
-  <?define ProductName = "StackBuilder" ?>
+
 </Include>

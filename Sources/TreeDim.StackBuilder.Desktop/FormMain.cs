@@ -1438,12 +1438,8 @@ namespace treeDiM.StackBuilder.Desktop
         #region Help menu event handlers
         private void OnAbout(object sender, EventArgs e)
         {
-            AboutBox form = new AboutBox()
-            {
-                CompanyUrl = Settings.Default.CompanyUrl,
-                SupportEmail = Settings.Default.EmailSupport
-            };
-            form.ShowDialog();
+            using (AboutBox form = new AboutBox() { CompanyUrl = Settings.Default.CompanyUrl, SupportEmail = Settings.Default.EmailSupport })
+            {   form.ShowDialog(); }
         }
         private void OnOnlineHelp(object sender, EventArgs e)
         {

@@ -39,7 +39,7 @@
             this.lbUnit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lbUnit.AutoSize = true;
-            this.lbUnit.Location = new System.Drawing.Point(265, 4);
+            this.lbUnit.Location = new System.Drawing.Point(308, 4);
             this.lbUnit.Name = "lbUnit";
             this.lbUnit.Size = new System.Drawing.Size(24, 13);
             this.lbUnit.TabIndex = 4;
@@ -50,7 +50,7 @@
             this.nudValue.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.nudValue.DecimalPlaces = 2;
-            this.nudValue.Location = new System.Drawing.Point(200, 0);
+            this.nudValue.Location = new System.Drawing.Point(244, 0);
             this.nudValue.Maximum = new decimal(new int[] {
             100000,
             0,
@@ -74,7 +74,7 @@
             this.lbName.AutoEllipsis = true;
             this.lbName.Location = new System.Drawing.Point(0, 2);
             this.lbName.Name = "lbName";
-            this.lbName.Size = new System.Drawing.Size(194, 20);
+            this.lbName.Size = new System.Drawing.Size(234, 20);
             this.lbName.TabIndex = 5;
             this.lbName.Text = "Name";
             // 
@@ -87,8 +87,8 @@
             this.Controls.Add(this.nudValue);
             this.MinimumSize = new System.Drawing.Size(100, 20);
             this.Name = "UCtrlDouble";
-            this.Size = new System.Drawing.Size(300, 20);
-            this.SizeChanged += new System.EventHandler(this.ValueControl_SizeChanged);
+            this.Size = new System.Drawing.Size(340, 20);
+            this.SizeChanged += new System.EventHandler(this.OnSizeChanged);
             ((System.ComponentModel.ISupportInitialize)(this.nudValue)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

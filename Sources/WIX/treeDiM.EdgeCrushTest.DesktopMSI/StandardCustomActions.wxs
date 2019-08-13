@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Fragment>
+    <!-- This custom action prevents users from installing if a newer version of this product is already -->
+    <!-- installed on the system. This is a part of Windows Installer major upgrade functionality.       -->
+    <CustomAction Id="CA_BlockOlderVersionInstall" Error="A later version of [ProductName] is already installed." />
+    <!-- This custom action prevents users from installing this product on unsupported operating system  -->
+    <!-- versions. The conditions that are checked for operating system version are defined below.       -->
+    <CustomAction Id="CA_ErrWrongWindowsVersion" Error="[ProductName] can only be installed on Windows XP, Windows Vista, Windows Seven or Windows 8." />
+    <!-- This condition adds an item to the LaunchCondition table of the MSI to block a user from        -->
+    <!-- installing this product unless they have administrative privileges on the system.               -->
+    <Condition Message="You must have Administrative rights on this machine to install [ProductName].">
+      <![CDATA[Privileged]]>
+    </Condition>
+    <!-- The InstallUISequence table describes the order that actions will be executed when the user     -->
+    <!-- runs setup in full UI mode. Some actions must be scheduled in the UI and the execute sequence   -->
+    <!-- tables to ensure that they will run regardless of whether the user runs setup in full UI mode   -->
+    <!-- or in reduced UI or silent modes.                                                               -->
+    <InstallUISequence>
+      <Custom Action="CA_BlockOlderVersionInstall" After="FindRelatedProducts">
+        <![CDATA[NEWERVERSIONDETECTED]]>
+      </Custom>
+      <Custom Action="CA_ErrWrongWindowsVersion" Before="CostInitialize">
+        <![CDATA[(VersionNT < 500) AND NOT Installed]]>
+      </Custom>
+    </InstallUISequence>
+    <!-- The InstallExecuteSequence table describes the order that actions will be executed during       -->
+    <!-- installation, repair and uninstall of this product.                                             -->
+    <InstallExecuteSequence>
+      <Custom Action="CA_BlockOlderVersionInstall" After="FindRelatedProducts">
+        <![CDATA[NEWERVERSIONDETECTED]]>
+      </Custom>
+      <LaunchConditions After="AppSearch"/>
+      <!-- This custom action searches for Windows version 6.0, the Windows Media Center Ident registry  -->
+      <!-- value 5.0 and the presence of the file %windir%\eHome\RegisterMceApp.exe. If all of these     -->
+      <!-- conditions are met, the system is a Windows Vista Home Premium or Ultimate Edition operating  -->
+      <!-- system and the product will be allowed to install.                                            -->
+      <Custom Action="CA_ErrWrongWindowsVersion" Before="CostInitialize"><![CDATA[(VersionNT < 500) AND NOT Installed]]></Custom>
+    </InstallExecuteSequence>
+  </Fragment>
+</Wix>

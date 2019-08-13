@@ -1,14 +1,16 @@
-﻿using System.Collections.Generic;
+﻿#region Using directives
+using System.Collections.Generic;
 using System.Linq;
 
 using log4net;
 
 using treeDiM.PLMPack.DBClient;
 using treeDiM.PLMPack.DBClient.PLMPackSR;
+#endregion
 
 namespace treeDiM.EdgeCrushTest
 {
-    public abstract class CardboardQualityAccessor
+    internal abstract class CardboardQualityAccessor
     {
         protected Dictionary<string, QualityData> _cardboardQualityDictionary;
 
@@ -28,7 +30,7 @@ namespace treeDiM.EdgeCrushTest
         private static CardboardQualityAccessor _instance;
     }
 
-    public class CardboardQualityAccessorWCF : CardboardQualityAccessor
+    internal class CardboardQualityAccessorWCF : CardboardQualityAccessor
     {
         /// <summary>
         /// Access dictionnary of cardboard qualities

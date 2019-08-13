@@ -47,6 +47,12 @@ namespace treeDiM.Basics
             get { return nudValue.Minimum; }
             set { nudValue.Minimum = value; }
         }
+        [Browsable(true)]
+        public decimal Maximum
+        {
+            get => nudValue.Maximum;
+            set => nudValue.Maximum = value;
+        }
         #endregion
 
         #region Event handlers
