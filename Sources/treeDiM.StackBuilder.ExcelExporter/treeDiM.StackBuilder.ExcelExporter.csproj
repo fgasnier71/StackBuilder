@@ -64,6 +64,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AnalysisExporters\AnalysisExporter.cs" />
+    <Compile Include="AnalysisExporters\AnalysisExporterBoxCase.cs" />
+    <Compile Include="AnalysisExporters\AnalysisExporterCasePallet.cs" />
+    <Compile Include="AnalysisExporters\AnalysisExporterCaseTruck.cs" />
+    <Compile Include="AnalysisExporters\AnalysisExporterCylinderCase.cs" />
+    <Compile Include="AnalysisExporters\AnalysisExporterCylinderPallet.cs" />
+    <Compile Include="AnalysisExporters\AnalysisExporterCylinderTruck.cs" />
     <Compile Include="ExporterProjectSummary.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
