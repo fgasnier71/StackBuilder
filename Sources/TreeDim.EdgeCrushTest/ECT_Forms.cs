@@ -11,7 +11,8 @@ namespace treeDiM.EdgeCrushTest
         {
             try
             {
-                _dockContentComputeBCT.Show(dockPanel, DockState.Document);
+                using (var dockContentComputeBCT = new DockContentComputeBCT())
+                { dockContentComputeBCT.Show(dockPanel, DockState.Document); }
             }
             catch (Exception ex)
             {
@@ -23,9 +24,7 @@ namespace treeDiM.EdgeCrushTest
             try
             {
                 using (var form = new FormCardboardQualityList())
-                {
-                    form.ShowDialog();
-                }
+                { form.ShowDialog(); }
             }
             catch (Exception ex)
             {
@@ -34,7 +33,6 @@ namespace treeDiM.EdgeCrushTest
         }
 
         #region Static data members
-        private static DockContentComputeBCT _dockContentComputeBCT = new DockContentComputeBCT();
         private static readonly ILog _log = LogManager.GetLogger(typeof(ECT_Forms));
         #endregion
     }

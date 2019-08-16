@@ -9,11 +9,21 @@ namespace treeDiM.StackBuilder.ExcelReader
     #region Invalid Row Exception
     internal class InvalidRowException : Exception
     {
-        public InvalidRowException(string Type, int rowId, string column, Type expectedType)
-        {        
+        public InvalidRowException(string typeName, int rowId, string column, Type expectedType)
+        {
+            TypeName = typeName;
+            RowId = rowId;
+            Column = column;
+            ExpectedType = expectedType;
         }
-
-
+        public string TypeName      { get; set; }
+        public int RowId            { get; set; }
+        public string Column        { get; set; }
+        public Type ExpectedType    { get; set; }
+        public override string ToString()
+        {
+            return $"InvalidRowException reading {TypeName} at ({Column}, {RowId}) : expected type was {ExpectedType}";
+        }
     }
     #endregion
     #region DataType

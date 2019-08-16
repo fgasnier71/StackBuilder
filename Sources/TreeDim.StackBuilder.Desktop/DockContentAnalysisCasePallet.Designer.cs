@@ -70,6 +70,7 @@
             // 
             this.splitContainerHoriz.Panel2.Controls.Add(this.gbStopCriterions);
             this.splitContainerHoriz.Panel2.Controls.Add(this.tabCtrl);
+            resources.ApplyResources(this.splitContainerHoriz, "splitContainerHoriz");
             // 
             // splitContainerVert
             // 
@@ -116,7 +117,6 @@
             -2147483648});
             this.uCtrlMaxPalletHeight.Name = "uCtrlMaxPalletHeight";
             this.uCtrlMaxPalletHeight.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
-            this.uCtrlMaxPalletHeight.Value = 0D;
             // 
             // tabCtrl
             // 

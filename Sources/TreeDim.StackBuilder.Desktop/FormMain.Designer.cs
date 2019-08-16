@@ -45,6 +45,8 @@
             this.mnuFileMRU = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.projectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMIExportAnalysesSummaryToExcel = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemTools = new System.Windows.Forms.ToolStripMenuItem();
             this.editPaletSolutionsDB = new System.Windows.Forms.ToolStripMenuItem();
             this.browseEditMaterialListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -128,8 +130,6 @@
             this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSB_ECT = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButtonExportToExcel = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButtonHelp = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButtonSettings = new System.Windows.Forms.ToolStripButton();
@@ -154,6 +154,7 @@
             this.menuStripMain.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible;
             this.menuStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
+            this.projectToolStripMenuItem,
             this.toolStripMenuItemTools,
             this.helpToolStripMenuItem});
             resources.ApplyResources(this.menuStripMain, "menuStripMain");
@@ -244,6 +245,19 @@
             resources.ApplyResources(this.exitToolStripMenuItem, "exitToolStripMenuItem");
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.FileExit);
+            // 
+            // projectToolStripMenuItem
+            // 
+            this.projectToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMIExportAnalysesSummaryToExcel});
+            this.projectToolStripMenuItem.Name = "projectToolStripMenuItem";
+            resources.ApplyResources(this.projectToolStripMenuItem, "projectToolStripMenuItem");
+            // 
+            // toolStripMIExportAnalysesSummaryToExcel
+            // 
+            resources.ApplyResources(this.toolStripMIExportAnalysesSummaryToExcel, "toolStripMIExportAnalysesSummaryToExcel");
+            this.toolStripMIExportAnalysesSummaryToExcel.Name = "toolStripMIExportAnalysesSummaryToExcel";
+            this.toolStripMIExportAnalysesSummaryToExcel.Click += new System.EventHandler(this.OnExportToExcel);
             // 
             // toolStripMenuItemTools
             // 
@@ -511,8 +525,6 @@
             this.toolStripSeparator10,
             this.toolStripSB_ECT,
             this.toolStripSeparator6,
-            this.toolStripButtonExportToExcel,
-            this.toolStripSeparator7,
             this.toolStripButtonHelp,
             this.toolStripSeparator8,
             this.toolStripButtonSettings});
@@ -839,18 +851,6 @@
             this.toolStripSeparator6.Name = "toolStripSeparator6";
             resources.ApplyResources(this.toolStripSeparator6, "toolStripSeparator6");
             // 
-            // toolStripButtonExportToExcel
-            // 
-            this.toolStripButtonExportToExcel.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            resources.ApplyResources(this.toolStripButtonExportToExcel, "toolStripButtonExportToExcel");
-            this.toolStripButtonExportToExcel.Name = "toolStripButtonExportToExcel";
-            this.toolStripButtonExportToExcel.Click += new System.EventHandler(this.OnExportToExcel);
-            // 
-            // toolStripSeparator7
-            // 
-            this.toolStripSeparator7.Name = "toolStripSeparator7";
-            resources.ApplyResources(this.toolStripSeparator7, "toolStripSeparator7");
-            // 
             // toolStripButtonHelp
             // 
             this.toolStripButtonHelp.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -1025,7 +1025,7 @@
         private System.Windows.Forms.ToolStripButton toolStripSB_ECT;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.ToolStripMenuItem browseEditMaterialListToolStripMenuItem;
-        private System.Windows.Forms.ToolStripButton toolStripButtonExportToExcel;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
+        private System.Windows.Forms.ToolStripMenuItem projectToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMIExportAnalysesSummaryToExcel;
     }
 }

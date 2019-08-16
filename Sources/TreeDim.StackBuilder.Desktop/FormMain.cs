@@ -760,9 +760,9 @@ namespace treeDiM.StackBuilder.Desktop
             toolStripMenuItemEditDB.Enabled = true;
             editPaletSolutionsDB.Enabled = true;
             // allow export of project summary to Excel
-            toolStripButtonExportToExcel.Enabled = (null != doc) && doc.Analyses.Count > 0;
+            toolStripMIExportAnalysesSummaryToExcel.Enabled = (null != doc) && doc.Analyses.Count > 0;
             // BCT
-            toolStripSB_ECT.Enabled = !Program.UseDisconnected;
+            toolStripSB_ECT.Enabled = WCFClient.IsConnected;
         }
         #endregion
 
@@ -1062,6 +1062,7 @@ namespace treeDiM.StackBuilder.Desktop
                     }
                 }
             }
+            toolStripSB_ECT.Enabled = WCFClient.IsConnected;
             // create basic layout
             CreateBasicLayout();
             UpdateDisconnectButton();
