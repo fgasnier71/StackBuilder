@@ -32,13 +32,13 @@
             this.splitContainerVertical = new System.Windows.Forms.SplitContainer();
             this.grid = new SourceGrid.Grid();
             this.bnExit = new System.Windows.Forms.Button();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripMain = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonNew = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerVertical)).BeginInit();
             this.splitContainerVertical.Panel1.SuspendLayout();
             this.splitContainerVertical.Panel2.SuspendLayout();
             this.splitContainerVertical.SuspendLayout();
-            this.toolStrip1.SuspendLayout();
+            this.toolStripMain.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainerVertical
@@ -48,18 +48,16 @@
             // 
             // splitContainerVertical.Panel1
             // 
-            resources.ApplyResources(this.splitContainerVertical.Panel1, "splitContainerVertical.Panel1");
             this.splitContainerVertical.Panel1.Controls.Add(this.grid);
             // 
             // splitContainerVertical.Panel2
             // 
-            resources.ApplyResources(this.splitContainerVertical.Panel2, "splitContainerVertical.Panel2");
             this.splitContainerVertical.Panel2.Controls.Add(this.bnExit);
             // 
             // grid
             // 
             resources.ApplyResources(this.grid, "grid");
-            this.grid.EnableSort = true;
+            this.grid.EnableSort = false;
             this.grid.Name = "grid";
             this.grid.OptimizeMode = SourceGrid.CellOptimizeMode.ForRows;
             this.grid.SelectionMode = SourceGrid.GridSelectionMode.Cell;
@@ -73,17 +71,18 @@
             this.bnExit.Name = "bnExit";
             this.bnExit.UseVisualStyleBackColor = true;
             // 
-            // toolStrip1
+            // toolStripMain
             // 
-            resources.ApplyResources(this.toolStrip1, "toolStrip1");
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMain.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.toolStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButtonNew});
-            this.toolStrip1.Name = "toolStrip1";
+            resources.ApplyResources(this.toolStripMain, "toolStripMain");
+            this.toolStripMain.Name = "toolStripMain";
             // 
             // toolStripButtonNew
             // 
-            resources.ApplyResources(this.toolStripButtonNew, "toolStripButtonNew");
             this.toolStripButtonNew.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.toolStripButtonNew, "toolStripButtonNew");
             this.toolStripButtonNew.Name = "toolStripButtonNew";
             this.toolStripButtonNew.Click += new System.EventHandler(this.OnNewCardboardQuality);
             // 
@@ -93,7 +92,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.bnExit;
             this.Controls.Add(this.splitContainerVertical);
-            this.Controls.Add(this.toolStrip1);
+            this.Controls.Add(this.toolStripMain);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormCardboardQualityList";
@@ -103,8 +102,8 @@
             this.splitContainerVertical.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerVertical)).EndInit();
             this.splitContainerVertical.ResumeLayout(false);
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
+            this.toolStripMain.ResumeLayout(false);
+            this.toolStripMain.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -112,7 +111,7 @@
 
         #endregion
 
-        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStrip toolStripMain;
         private System.Windows.Forms.ToolStripButton toolStripButtonNew;
         private System.Windows.Forms.SplitContainer splitContainerVertical;
         private System.Windows.Forms.Button bnExit;

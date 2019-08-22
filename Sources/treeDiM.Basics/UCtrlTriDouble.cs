@@ -42,7 +42,13 @@ namespace treeDiM.Basics
         public Vector3D Value
         {
             get { return new Vector3D(ValueX, ValueY, ValueZ); }
-            set { try { ValueX = value.X; ValueY = value.Y; ValueZ = value.Z; } catch (ArgumentOutOfRangeException) {} }
+            set
+            {
+                SkipInvoke = true;
+                try { ValueX = value.X; ValueY = value.Y; ValueZ = value.Z; }
+                catch (ArgumentOutOfRangeException) { }
+                finally { SkipInvoke = false; }
+            }
         }
         [Browsable(true)]
         public double ValueX
@@ -82,7 +88,11 @@ namespace treeDiM.Basics
         #endregion
 
         #region Event handlers
-        private void OnValueChangedLocal(object sender, EventArgs e) => ValueChanged?.Invoke(this, e);
+        private void OnValueChangedLocal(object sender, EventArgs e)
+        {
+            if (!SkipInvoke)
+                ValueChanged?.Invoke(this, e);
+        }
         private void OnSizeChanged(object sender, EventArgs e)
         {
             // set nud location
@@ -96,6 +106,7 @@ namespace treeDiM.Basics
 
         #region Data members
         private UnitsManager.UnitType _unitType;
+        private bool SkipInvoke = false;
         #endregion
     }
 }

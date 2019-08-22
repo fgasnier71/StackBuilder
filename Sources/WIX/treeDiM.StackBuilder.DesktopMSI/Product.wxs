@@ -6,7 +6,7 @@
      xmlns:util="http://schemas.microsoft.com/wix/UtilExtension"
      xmlns:netfx="http://schemas.microsoft.com/wix/NetFxExtension"
      >
-	<Product Id="$(var.ProductCode)"
+	<Product Id="*"
            Name="$(var.ProductName)"
            Language="1033"
            Version="$(var.ProductVersion)"
@@ -26,29 +26,22 @@
              SummaryCodepage="1252"
              />
     <MediaTemplate EmbedCab="yes"/>
-    <!--Icon-->
-    <Icon Id="StackBuilder.ico" SourceFile="StackBuilder.ico"/>
     <!--Upgrade table-->
-    <MajorUpgrade
-      Schedule="afterInstallInitialize"
+    <!--MajorUpgrade
+      Schedule="afterInstallValidate"
       AllowDowngrades="no"
-      AllowSameVersionUpgrades="no"
-      DowngradeErrorMessage="A newer version of [ProductName] is already installed."
-      />
-    <Upgrade Id="FC448406-ACD2-42DB-91B6-5E37A43C949C">
-      <UpgradeVersion Minimum="0.0.0.0"
-                      Maximum="99.0.0.0"
-                      Property="PREVIOUSVERSIONSINSTALLED"
-                      IncludeMinimum="yes"
-                      IncludeMaximum="no"
-                      IgnoreRemoveFailure="yes"
-                      />
+      AllowSameVersionUpgrades="yes"
+      DowngradeErrorMessage="A later version of [ProductName] is already installed. Setup will now exit."
+      /-->
+    <Upgrade Id="$(var.UpgradeCode)">
+      <UpgradeVersion OnlyDetect="yes" Minimum="$(var.ProductVersion)" Property="NEWERVERSIONDETECTED" IncludeMinimum="no" />
+      <UpgradeVersion OnlyDetect="no" Maximum="$(var.ProductVersion)" Property="OLDERVERSIONBEINGUPGRADED" IncludeMaximum="no" />
     </Upgrade>
     <InstallExecuteSequence>
-      <!-- Potential scheduling (after): InstallValidate, InstallInitialize, InstallExecute, InstallExecuteAgain, InstallFinalize -->
-      <!--<RemoveExistingProducts After="InstallInitialize" />-->
+      <RemoveExistingProducts After="InstallInitialize" />
     </InstallExecuteSequence>
-    
+    <!--Icon-->
+    <Icon Id="StackBuilder.ico" SourceFile="StackBuilder.ico"/>
     <!--StackBuilder merge module-->
     <DirectoryRef Id="$(var.InstallLocation)">
       <Merge Id="treeDiM.StackBuilder.DesktopMSM" Language="1033" DiskId="1" SourceFile="..\treeDiM.StackBuilder.DesktopMSM\bin\Release\treeDiM.StackBuilder.DesktopMSM.msm"/>

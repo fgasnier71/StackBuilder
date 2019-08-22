@@ -11,7 +11,7 @@
              Description="$(var.PackageDescription)"
              Comments="StackBuilder"
              Manufacturer="$(var.ProductManufacturer)"
-             InstallerVersion="301" />
+             InstallerVersion="500" />
     <!-- Forcibly overwriting preexisting files during installation -->
     <Property Id="ALLUSERS" Value="1" />
     <!--Shortcut icon-->

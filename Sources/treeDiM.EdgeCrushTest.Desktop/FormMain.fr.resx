@@ -119,7 +119,7 @@
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="exitToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>111, 22</value>
   </data>
   <data name="exitToolStripMenuItem.Text" xml:space="preserve">
     <value>Quitter</value>
@@ -131,7 +131,7 @@
     <value>Fichier</value>
   </data>
   <data name="aboutToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>131, 22</value>
   </data>
   <data name="aboutToolStripMenuItem.Text" xml:space="preserve">
     <value>A propos...</value>
@@ -215,5 +215,41 @@
         AAAAAAAAAB8AAAAPAAAABwAAAAMAAAABAAAAAQAAAAEAAAABAACAAQAAAAEAAKABAACwAQAAo9EAALfb
         AAD3+wAA9/sAAA==
 </value>
+  </data>
+  <data name="toolStripMIFile.Text" xml:space="preserve">
+    <value>Fichier</value>
+  </data>
+  <data name="toolStripMIMode.Text" xml:space="preserve">
+    <value>Mode</value>
+  </data>
+  <data name="editMaterialListToolStripMenuItem.Text" xml:space="preserve">
+    <value>Editer la liste des matériaux...</value>
+  </data>
+  <data name="editPalletListToolStripMenuItem.Text" xml:space="preserve">
+    <value>Editer la liste des palettes...</value>
+  </data>
+  <data name="toolStripMIData.Text" xml:space="preserve">
+    <value>Base de données</value>
+  </data>
+  <data name="toolStripMIHelp.Text" xml:space="preserve">
+    <value>Aide</value>
+  </data>
+  <data name="menuStripMain.Text" xml:space="preserve">
+    <value>Menu principal</value>
+  </data>
+  <data name="toolStripMIMode1.Text" xml:space="preserve">
+    <value>RCV -&gt; Hauteur de palette</value>
+  </data>
+  <data name="toolStripMIMode2.Text" xml:space="preserve">
+    <value>Force appliquée -&gt; Meilleur matériaux</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>PLMPack PackStress</value>
+  </data>
+  <data name="toolStripMILogConsole.Text" xml:space="preserve">
+    <value>Console de log</value>
+  </data>
+  <data name="toolStripMIAbout.Text" xml:space="preserve">
+    <value>A propos...</value>
   </data>
 </root>

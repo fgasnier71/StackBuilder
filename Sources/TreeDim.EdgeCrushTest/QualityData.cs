@@ -1,5 +1,7 @@
 ﻿#region Using directives
 using System;
+
+using Sharp3D.Math.Core;
 #endregion
 
 namespace treeDiM.EdgeCrushTest
@@ -27,6 +29,23 @@ namespace treeDiM.EdgeCrushTest
             ECT = ect;
             RigidityDX = rigidityDX;
             RigidityDY = rigidityDY;
+        }
+        #endregion
+
+        #region BCT computation
+        public double ComputeStaticBCT(Vector3D dim, string caseType, McKeeFormula.FormulaType formulaType)
+        {
+            return McKeeFormula.ComputeStaticBCT(
+                dim.X, dim.Y, dim.Z, caseType,
+                this,
+                formulaType);
+        }
+        public double ComputeStaticBCT(double caseLength, double caseWidth, double caseHeight, string caseType, McKeeFormula.FormulaType formulaType)
+        {
+            return McKeeFormula.ComputeStaticBCT(
+                caseLength, caseWidth, caseHeight, caseType,
+                this,
+                formulaType);
         }
         #endregion
 

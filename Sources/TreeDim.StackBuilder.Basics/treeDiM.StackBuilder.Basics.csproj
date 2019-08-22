@@ -96,8 +96,6 @@
       <Link>Properties\SharedAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="AnalysesLegacy\AnalysisLegacy.cs" />
-    <Compile Include="AnalysesLegacy\IBoxCaseAnalysisSolver.cs" />
-    <Compile Include="AnalysesLegacy\IPackPalletAnalysisSolver.cs" />
     <Compile Include="Analyses\Analysis.cs" />
     <Compile Include="Analyses\AnalysisCylinderTruck.cs" />
     <Compile Include="Analyses\AnalysisHomo.cs" />
@@ -110,7 +108,6 @@
     <Compile Include="Analyses\AnalysisPackablePallet.cs" />
     <Compile Include="Analyses\AnalysisPackableTruck.cs" />
     <Compile Include="Analyses\AnalysisPalletTruck.cs" />
-    <Compile Include="AnalysesLegacy\PackPalletAnalysis.cs" />
     <Compile Include="Analyses\AnalysisComparer.cs" />
     <Compile Include="Analyses\AnalysisHetero.cs" />
     <Compile Include="Analyses\HAnalysisCase.cs" />
@@ -158,7 +155,6 @@
     </Compile>
     <Compile Include="Extensions\EnumerableExtensions.cs" />
     <Compile Include="Helpers\BBox3D.cs" />
-    <Compile Include="AnalysesLegacy\BoxCaseAnalysis.cs" />
     <Compile Include="ConstraintSets\BoxCaseConstraintSet.cs" />
     <Compile Include="Helpers\GlobID.cs" />
     <Compile Include="Helpers\IItemListener.cs" />
@@ -180,7 +176,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Solutions\BaseSolution.cs" />
-    <Compile Include="Solutions\BoxCaseSolution.cs" />
     <Compile Include="AnalysesLegacy\CaseOptimAnalysis.cs" />
     <Compile Include="AnalysesLegacy\ECTAnalysis.cs" />
     <Compile Include="Helpers\BoxPosition.cs" />
@@ -206,9 +201,7 @@
     <Compile Include="Solutions\Layer2D.cs" />
     <Compile Include="Solutions\Layer2DCyl.cs" />
     <Compile Include="Solutions\LayerPosition.cs" />
-    <Compile Include="Solutions\PackPalletSolution.cs" />
     <Compile Include="Solutions\ParamSetPackOptim.cs" />
-    <Compile Include="Solutions\SelSolution.cs" />
     <Compile Include="Solutions\PalletSolution.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Helpers\Texture.cs" />

@@ -37,7 +37,7 @@
     <PublishUrl>ftp://plmpack.com/public/www/stackbuilder_excelAddin/ClickOnce/</PublishUrl>
     <InstallUrl>http://www.plmpack.com/stackbuilder_excelAddin/ClickOnce/</InstallUrl>
     <TargetCulture>en</TargetCulture>
-    <ApplicationVersion>1.0.0.19</ApplicationVersion>
+    <ApplicationVersion>1.0.0.20</ApplicationVersion>
     <AutoIncrementApplicationRevision>true</AutoIncrementApplicationRevision>
     <UpdateEnabled>true</UpdateEnabled>
     <UpdateInterval>0</UpdateInterval>
@@ -46,15 +46,10 @@
     <PublisherName>treeDiM</PublisherName>
     <SupportUrl>//plmpack.com/public/www/stackbuilder_excelAddin/ClickOnce</SupportUrl>
     <FriendlyName>StackBuilder Excel Add-in</FriendlyName>
-    <OfficeApplicationDescription>An Excel addin that generates a palletization solution given a case, a pallet and a constraint set described in Excel sheet. Was tested with MS Excel 2016.</OfficeApplicationDescription>
+    <OfficeApplicationDescription>An Excel addin that generates a palletization solution given a case, a pallet and a constraint set described in Excel sheet. Was tested with MS Excel 2007 and 2016.</OfficeApplicationDescription>
     <LoadBehavior>3</LoadBehavior>
   </PropertyGroup>
   <ItemGroup>
-    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
-      <Visible>False</Visible>
-      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 and x64%29</ProductName>
-      <Install>true</Install>
-    </BootstrapperPackage>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.1">
       <Visible>False</Visible>
       <ProductName>Microsoft .NET Framework 4.7.1 %28x86 and x64%29</ProductName>
@@ -68,11 +63,6 @@
     <BootstrapperPackage Include="Microsoft.VSTORuntime.4.0">
       <Visible>False</Visible>
       <ProductName>Microsoft Visual Studio 2010 Tools for Office Runtime %28x86 and x64%29</ProductName>
-      <Install>true</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Windows.Installer.4.5">
-      <Visible>False</Visible>
-      <ProductName>Windows Installer 4.5</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
@@ -472,6 +462,7 @@
     <Error Condition="!Exists('..\..\packages\NuGet.Build.Tasks.Pack.5.2.0\build\NuGet.Build.Tasks.Pack.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\NuGet.Build.Tasks.Pack.5.2.0\build\NuGet.Build.Tasks.Pack.targets'))" />
   </Target>
   <PropertyGroup>
-    <PostBuildEvent>if $(ConfigurationName) == Release "$(SolutionDir)Signfile.bat" $(TargetPath)</PostBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
 </Project>

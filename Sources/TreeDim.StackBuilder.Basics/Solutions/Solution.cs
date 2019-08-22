@@ -692,13 +692,39 @@ namespace treeDiM.StackBuilder.Basics
                     return new OptDouble(true, 100.0 * (ItemCount * Analysis.ContentWeight) / Analysis.ConstraintSet.OptMaxWeight.Value);
             }
         }
-        public Vector3D LoadCOfG
+        public Vector3D LoadCOfG => Vector3D.Zero;
+        public Vector3D COfG => Vector3D.Zero;
+        public double LoadOnLowestCase
         {
-            get { return Vector3D.Zero; }
-        }
-        public Vector3D COfG
-        {
-            get { return Vector3D.Zero; }
+            get
+            {
+                if (LayerCount < 2)
+                    return 0.0;
+
+                int layerCount = 0;
+                double loadTopLayers = 0.0;
+                int noInFirstLayer = 0;
+                foreach (ILayer layer in Layers)
+                {
+                    if (layer is Layer3DBox blayer)
+                    {
+                        if (0 == layerCount)
+                            noInFirstLayer = blayer.BoxCount;
+                        else
+                            loadTopLayers += blayer.BoxCount * Analysis.ContentWeight;
+                        ++layerCount;
+                    }
+                    if (layer is Layer3DCyl clayer)
+                    {
+                        if (0 == layerCount)
+                            noInFirstLayer = clayer.CylinderCount;
+                        else
+                            loadTopLayers += clayer.CylinderCount * Analysis.ContentWeight;
+                        ++layerCount;
+                    }
+                }
+                return loadTopLayers / noInFirstLayer;
+            }
         }
         public Dictionary<LayerPhrase, int> LayerPhrases
         {

@@ -6,13 +6,18 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("treeDiM.EdgeCrushTest.Desktop")]
-[assembly: AssemblyDescription("Edge Crush Test")]
-[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyDescription("ECT (Edge Crush Test) - BCT (Box Compression Test) - Mc Kee Formula")]
 [assembly: AssemblyCompany("treeDiM")]
-[assembly: AssemblyProduct("treeDiM.EdgeCrushTest.Desktop")]
+[assembly: AssemblyProduct("PLMPack PackStress")]
 [assembly: AssemblyCopyright("Copyright ©  2019")]
 [assembly: AssemblyTrademark("treeDiM")]
 [assembly: AssemblyCulture("")]
+// Compile a Debug or Release flag into the assembly.
+#if DEBUG
+[assembly: AssemblyConfiguration("Debug")]
+#else
+[assembly: AssemblyConfiguration("Release")]
+#endif
 
 // Setting ComVisible to false makes the types in this assembly not visible
 // to COM components.  If you need to access a type in this assembly from

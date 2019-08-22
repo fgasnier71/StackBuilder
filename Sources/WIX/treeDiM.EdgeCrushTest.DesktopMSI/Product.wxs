@@ -7,7 +7,7 @@
      xmlns:netfx="http://schemas.microsoft.com/wix/NetFxExtension"
      >
 	<Product Id="*"
-           Name="treeDiM.EdgeCrushTest.DesktopMSI"
+           Name="$(var.ProductName)"
            Language="1033"
            Version="$(var.ProductVersion)"
            Manufacturer="$(var.ProductManufacturer)"
@@ -26,25 +26,15 @@
              SummaryCodepage="1252"
              />
     <MediaTemplate EmbedCab="yes"/>
-    <!--Icon-->
-    <Icon Id="ECT.ico" SourceFile="ECT.ico"/>
-    <!--Upgrade table-->
-		<MajorUpgrade
-      Schedule="afterInstallInitialize"
-      AllowDowngrades="no"
-      AllowSameVersionUpgrades="no"
-      DowngradeErrorMessage="A newer version of [ProductName] is already installed."
-      />
-    <Upgrade Id="{0EB82C91-AF3F-4E52-8D0C-F3DFCF8B1AB1}">
-      <UpgradeVersion Minimum="0.0.0.0"
-                      Maximum="99.0.0.0"
-                      Property="PREVIOUSVERSIONSINSTALLED"
-                      IncludeMinimum="yes"
-                      IncludeMaximum="no"
-                      IgnoreRemoveFailure="yes"/>
+    <Upgrade Id="$(var.UpgradeCode)">
+      <UpgradeVersion OnlyDetect="yes" Minimum="$(var.ProductVersion)" Property="NEWERVERSIONDETECTED" IncludeMinimum="no" />
+      <UpgradeVersion OnlyDetect="no" Maximum="$(var.ProductVersion)" Property="OLDERVERSIONBEINGUPGRADED" IncludeMaximum="no" />
     </Upgrade>
     <InstallExecuteSequence>
+      <RemoveExistingProducts After="InstallInitialize" />
     </InstallExecuteSequence>
+    <!--Icon-->
+    <Icon Id="ECT.ico" SourceFile="ECT.ico"/>
     <!--PackStress merge module-->
     <DirectoryRef Id="$(var.InstallLocation)">
       <Merge Id="treeDiM.EdgeCrushTest.DesktopMSM" Language="1033" DiskId="1" SourceFile="..\treeDiM.EdgeCrushTest.DesktopMSM\bin\Release\treeDiM.EdgeCrushTest.DesktopMSM.msm"/>

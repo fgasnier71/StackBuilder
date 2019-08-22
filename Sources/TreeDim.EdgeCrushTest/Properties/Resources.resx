@@ -133,11 +133,32 @@
   <data name="EXCEPTION_INVALIDFORMULA" xml:space="preserve">
     <value>Invalid formula type (Should be either CLASSIC or IMPROVED)</value>
   </data>
+  <data name="IDS_READY" xml:space="preserve">
+    <value>Ready</value>
+  </data>
+  <data name="ID_DATABASEITEMCOUNT" xml:space="preserve">
+    <value>{0}-{1} out of {2}</value>
+  </data>
   <data name="ID_DELETE" xml:space="preserve">
     <value>Delete</value>
   </data>
+  <data name="ID_DESCRIPTION" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="ID_DIMENSIONS" xml:space="preserve">
+    <value>Dimensions ({0})</value>
+  </data>
   <data name="ID_ECT" xml:space="preserve">
     <value>ECT</value>
+  </data>
+  <data name="ID_EDIT" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="ID_FIELDDESCRIPTIONEMPTY" xml:space="preserve">
+    <value>Description field is empty</value>
+  </data>
+  <data name="ID_FIELDNAMEEMPTY" xml:space="preserve">
+    <value>Name field is empty</value>
   </data>
   <data name="ID_MAXLAYERCOUNT" xml:space="preserve">
     <value>Max. layer count</value>
@@ -145,8 +166,14 @@
   <data name="ID_NAME" xml:space="preserve">
     <value>Name</value>
   </data>
+  <data name="ID_NAMEALREADYEXISTS" xml:space="preserve">
+    <value>{0} already exists!</value>
+  </data>
   <data name="ID_PROFILE" xml:space="preserve">
     <value>Profile</value>
+  </data>
+  <data name="ID_READY" xml:space="preserve">
+    <value>Ready</value>
   </data>
   <data name="ID_RIGIDITYX" xml:space="preserve">
     <value>Rigidity X</value>
@@ -157,8 +184,20 @@
   <data name="ID_STATICBCT" xml:space="preserve">
     <value>Static BCT</value>
   </data>
+  <data name="ID_STATICBCT_WU" xml:space="preserve">
+    <value>Static BCT ({0})</value>
+  </data>
   <data name="ID_THICKNESS" xml:space="preserve">
     <value>Thickness</value>
+  </data>
+  <data name="ID_THICKNESS_WU" xml:space="preserve">
+    <value>Thickness ({0})</value>
+  </data>
+  <data name="ID_VALUEOUGHTTOBESPOSITIVE" xml:space="preserve">
+    <value>Value ought to be positive.</value>
+  </data>
+  <data name="ID_WEIGHT_WU" xml:space="preserve">
+    <value>Weight ({0})</value>
   </data>
   <data name="MCKEEFORMULA_CLASSIC" xml:space="preserve">
     <value>Classic</value>

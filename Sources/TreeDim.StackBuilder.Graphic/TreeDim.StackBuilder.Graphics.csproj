@@ -146,7 +146,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="Types\Box.cs" />
-    <Compile Include="SolutionViewers\BoxCaseSolutionViewer.cs" />
     <Compile Include="BoxComparer.cs" />
     <Compile Include="BoxelOrderer.cs" />
     <Compile Include="BoxToPictureBox.cs" />

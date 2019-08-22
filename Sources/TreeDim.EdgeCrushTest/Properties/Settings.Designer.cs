@@ -82,5 +82,125 @@ namespace treeDiM.EdgeCrushTest.Properties {
                 this["CaseWeight"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("10")]
+        public double PalletWeight {
+            get {
+                return ((double)(this["PalletWeight"]));
+            }
+            set {
+                this["PalletWeight"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1200")]
+        public double PalletLength {
+            get {
+                return ((double)(this["PalletLength"]));
+            }
+            set {
+                this["PalletLength"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1000")]
+        public double PalletWidth {
+            get {
+                return ((double)(this["PalletWidth"]));
+            }
+            set {
+                this["PalletWidth"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("150")]
+        public double PalletHeight {
+            get {
+                return ((double)(this["PalletHeight"]));
+            }
+            set {
+                this["PalletHeight"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("200")]
+        public double ForceApplied {
+            get {
+                return ((double)(this["ForceApplied"]));
+            }
+            set {
+                this["ForceApplied"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("B")]
+        public string MatProfile {
+            get {
+                return ((string)(this["MatProfile"]));
+            }
+            set {
+                this["MatProfile"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("6")]
+        public double MatECT {
+            get {
+                return ((double)(this["MatECT"]));
+            }
+            set {
+                this["MatECT"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("3")]
+        public double MatThickness {
+            get {
+                return ((double)(this["MatThickness"]));
+            }
+            set {
+                this["MatThickness"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("7")]
+        public double MatStiffnessX {
+            get {
+                return ((double)(this["MatStiffnessX"]));
+            }
+            set {
+                this["MatStiffnessX"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("3")]
+        public double MatStiffnessY {
+            get {
+                return ((double)(this["MatStiffnessY"]));
+            }
+            set {
+                this["MatStiffnessY"] = value;
+            }
+        }
     }
 }

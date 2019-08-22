@@ -357,46 +357,46 @@
   <data name="&gt;&gt;nudThickness.ZOrder" xml:space="preserve">
     <value>10</value>
   </data>
-  <data name="nudRigidityX.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="nudStiffnessX.Location" type="System.Drawing.Point, System.Drawing">
     <value>81, 136</value>
   </data>
-  <data name="nudRigidityX.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="nudStiffnessX.Size" type="System.Drawing.Size, System.Drawing">
     <value>76, 20</value>
   </data>
-  <data name="nudRigidityX.TabIndex" type="System.Int32, mscorlib">
+  <data name="nudStiffnessX.TabIndex" type="System.Int32, mscorlib">
     <value>22</value>
   </data>
-  <data name="&gt;&gt;nudRigidityX.Name" xml:space="preserve">
-    <value>nudRigidityX</value>
+  <data name="&gt;&gt;nudStiffnessX.Name" xml:space="preserve">
+    <value>nudStiffnessX</value>
   </data>
-  <data name="&gt;&gt;nudRigidityX.Type" xml:space="preserve">
+  <data name="&gt;&gt;nudStiffnessX.Type" xml:space="preserve">
     <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;nudRigidityX.Parent" xml:space="preserve">
+  <data name="&gt;&gt;nudStiffnessX.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;nudRigidityX.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;nudStiffnessX.ZOrder" xml:space="preserve">
     <value>9</value>
   </data>
-  <data name="nudRigidityY.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="nudStiffnessY.Location" type="System.Drawing.Point, System.Drawing">
     <value>311, 136</value>
   </data>
-  <data name="nudRigidityY.Size" type="System.Drawing.Size, System.Drawing">
-    <value>74, 20</value>
+  <data name="nudStiffnessY.Size" type="System.Drawing.Size, System.Drawing">
+    <value>76, 20</value>
   </data>
-  <data name="nudRigidityY.TabIndex" type="System.Int32, mscorlib">
+  <data name="nudStiffnessY.TabIndex" type="System.Int32, mscorlib">
     <value>21</value>
   </data>
-  <data name="&gt;&gt;nudRigidityY.Name" xml:space="preserve">
-    <value>nudRigidityY</value>
+  <data name="&gt;&gt;nudStiffnessY.Name" xml:space="preserve">
+    <value>nudStiffnessY</value>
   </data>
-  <data name="&gt;&gt;nudRigidityY.Type" xml:space="preserve">
+  <data name="&gt;&gt;nudStiffnessY.Type" xml:space="preserve">
     <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;nudRigidityY.Parent" xml:space="preserve">
+  <data name="&gt;&gt;nudStiffnessY.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;nudRigidityY.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;nudStiffnessY.ZOrder" xml:space="preserve">
     <value>8</value>
   </data>
   <data name="nudECT.Location" type="System.Drawing.Point, System.Drawing">
@@ -424,7 +424,7 @@
     <value>True</value>
   </data>
   <data name="lbThicknessUnit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>160, 77</value>
+    <value>162, 73</value>
   </data>
   <data name="lbThicknessUnit.Size" type="System.Drawing.Size, System.Drawing">
     <value>23, 13</value>
@@ -451,7 +451,7 @@
     <value>True</value>
   </data>
   <data name="lbStiffnessXUnit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>163, 138</value>
+    <value>162, 139</value>
   </data>
   <data name="lbStiffnessXUnit.Size" type="System.Drawing.Size, System.Drawing">
     <value>26, 13</value>
@@ -505,7 +505,7 @@
     <value>True</value>
   </data>
   <data name="lbECTUnit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>161, 108</value>
+    <value>162, 105</value>
   </data>
   <data name="lbECTUnit.Size" type="System.Drawing.Size, System.Drawing">
     <value>34, 13</value>

@@ -1,8 +1,10 @@
 ﻿#region Using directives
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
 using log4net;
+using Sharp3D.Math.Core;
 
 using treeDiM.PLMPack.DBClient;
 using treeDiM.PLMPack.DBClient.PLMPackSR;
@@ -12,12 +14,34 @@ namespace treeDiM.EdgeCrushTest
 {
     internal abstract class CardboardQualityAccessor
     {
-        protected Dictionary<string, QualityData> _cardboardQualityDictionary;
-
-        public abstract Dictionary<string, QualityData> CardboardQualityDictionary { get; }
+        #region Abstract methods
+        public abstract List<QualityData> CardboardQualities { get; }
         public abstract void AddQuality(string name, string profile, double thickness, double ECT, double rigidityX, double rigidityY);
         public abstract void RemoveQuality(int index);
-
+        #endregion
+        #region public methods
+        public bool NameExists(string name)
+        {
+            var qualities = CardboardQualities;
+            return null != qualities.Find(q => q.Name.ToLower() == name.ToLower());
+        }
+        public QualityData GetQualityDataByName(string name)
+        {
+            var qualities = CardboardQualities;
+            QualityData qd = qualities.Find(q => q.Name.ToLower() == name.ToLower());
+            if (null == qd)
+                throw new ECTException(ECTException.ErrorType.ERROR_INVALIDCARDBOARD, name);
+            return qd;
+        }
+        public List<QualityData> GetSortedCardboardQualityDictionary(Vector3D dim, string caseType, McKeeFormula.FormulaType formulaType, bool filtered, double appliedLoad)
+        {
+            var qualities = CardboardQualities;
+            return qualities.Where(qd => (qd.ComputeStaticBCT(dim, caseType, formulaType) >= appliedLoad * 9.81 / 10) || !filtered)
+                          .OrderBy(qh => qh.ComputeStaticBCT(dim, caseType, formulaType))
+                          .ToList();
+        }
+        #endregion
+        #region Singleton
         public static CardboardQualityAccessor Instance
         {
             get
@@ -28,6 +52,10 @@ namespace treeDiM.EdgeCrushTest
             }
         }
         private static CardboardQualityAccessor _instance;
+        #endregion
+        #region Data members
+        protected List<QualityData> _listQualities;
+        #endregion
     }
 
     internal class CardboardQualityAccessorWCF : CardboardQualityAccessor
@@ -35,14 +63,14 @@ namespace treeDiM.EdgeCrushTest
         /// <summary>
         /// Access dictionnary of cardboard qualities
         /// </summary>
-        public override Dictionary<string, QualityData> CardboardQualityDictionary
+        public override List<QualityData> CardboardQualities
         {
             get
             {
-                if (null == _cardboardQualityDictionary)
+                if (null == _listQualities)
                 {
                     // instantiate
-                    _cardboardQualityDictionary = new Dictionary<string, QualityData>();
+                    var list = new List<QualityData>();
 
                     try
                     {
@@ -53,8 +81,7 @@ namespace treeDiM.EdgeCrushTest
                             {
                                 try
                                 {
-                                    _cardboardQualityDictionary.Add(
-                                        q.Name,
+                                    list.Add(                                        
                                         new QualityData(q.ID, q.Name, q.Profile, q.Thickness, q.ECT, q.Rigidity[0], q.Rigidity[1])
                                         );
                                 }
@@ -69,8 +96,9 @@ namespace treeDiM.EdgeCrushTest
                     {
                         _log.Error(ex.ToString());
                     }
+                    _listQualities = list.OrderBy(q => q.Profile).ThenBy(q => q.Name).ToList();
                 }
-                return _cardboardQualityDictionary;
+                return _listQualities;
             }
         }
         /// <summary>
@@ -89,7 +117,7 @@ namespace treeDiM.EdgeCrushTest
             {
                 _log.Error(ex.ToString());
             }
-            _cardboardQualityDictionary = null;
+            _listQualities = null;
         }
         /// <summary>
         /// Remove cardboard quality
@@ -98,10 +126,10 @@ namespace treeDiM.EdgeCrushTest
         {
             try
             {
-                var dict = CardboardQualityDictionary;
-                if (index < dict.Count)
+                var listQualities = CardboardQualities;
+                if (index < listQualities.Count)
                 {
-                    var qualityData = dict.Values.ElementAt(index);
+                    var qualityData = listQualities[index];
                     using (WCFClient wcfClient = new WCFClient())
                     {
                         wcfClient.Client.RemoveCardboardQuality(
@@ -124,9 +152,10 @@ namespace treeDiM.EdgeCrushTest
             {
                 _log.Error(ex.ToString());
             }
-            _cardboardQualityDictionary = null;
+            _listQualities = null;
         }
-
+        #region Data members
         private static ILog _log = LogManager.GetLogger(typeof(CardboardQualityAccessorWCF));
+        #endregion
     }
 }

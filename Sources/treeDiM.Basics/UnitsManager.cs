@@ -26,6 +26,7 @@ namespace treeDiM.Basics
             , UT_MASS
             , UT_VOLUME
             , UT_SURFACEMASS
+            , UT_FORCE
             , UT_NONE
         }
         #endregion
@@ -123,6 +124,22 @@ namespace treeDiM.Basics
                 }
             }
         }
+
+        public static string ForceUnitString
+        {
+            get
+            {
+                switch (Instance._currentUnitSystem)
+                {
+                    case UnitSystem.UNIT_METRIC1: return "daN";
+                    case UnitSystem.UNIT_METRIC2: return "daN";
+                    case UnitSystem.UNIT_IMPERIAL: return "daN";
+                    case UnitSystem.UNIT_US: return "daN";
+                    default: throw new Exception("Invalid unit system!");
+                }
+            }
+        }
+
         public static string SystemUnitString
         {
             get
@@ -189,6 +206,20 @@ namespace treeDiM.Basics
                 }
             }
         }
+        public static string ForceFormatString
+        {
+            get
+            {
+                switch (Instance._currentUnitSystem)
+                {
+                    case UnitSystem.UNIT_METRIC1: return "{0:0.###}";
+                    case UnitSystem.UNIT_METRIC2: return "{0:0.###}";
+                    case UnitSystem.UNIT_IMPERIAL: return "{0:0.###}";
+                    case UnitSystem.UNIT_US: return "{0:0.###}";
+                    default: throw new Exception("Invalid unit system!");
+                }
+            }
+        }
         #endregion
 
         #region Number of decimals
@@ -226,6 +257,8 @@ namespace treeDiM.Basics
 
         public static int SurfaceMassNoDecimals
         {   get { return 3; } }
+        public static int ForceNoDecimals
+        { get { return 2; } }
         public static int NoneNoDecimals
         {   get { return 0; } }
         #endregion
@@ -244,6 +277,7 @@ namespace treeDiM.Basics
                 case UnitType.UT_MASS: return MassUnitString;
                 case UnitType.UT_VOLUME: return VolumeUnitString;
                 case UnitType.UT_SURFACEMASS: return SurfaceMassUnitString;
+                case UnitType.UT_FORCE: return ForceUnitString;
                 default: return string.Empty;
             }
         }
@@ -255,6 +289,7 @@ namespace treeDiM.Basics
                 case UnitType.UT_MASS: return MassFormatString;
                 case UnitType.UT_VOLUME: return VolumeFormatString;
                 case UnitType.UT_SURFACEMASS: return SurfaceMassFormatString;
+                case UnitType.UT_FORCE: return ForceFormatString;
                 default: return string.Empty;            
             }
         }
@@ -266,6 +301,7 @@ namespace treeDiM.Basics
                 case UnitType.UT_MASS: return MassNoDecimals;
                 case UnitType.UT_VOLUME: return VolumeNoDecimals;
                 case UnitType.UT_SURFACEMASS: return SurfaceMassNoDecimals;
+                case UnitType.UT_FORCE: return ForceNoDecimals;
                 case UnitType.UT_NONE: return NoneNoDecimals;
                 default: return 3;
             }

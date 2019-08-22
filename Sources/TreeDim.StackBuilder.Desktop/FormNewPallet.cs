@@ -20,7 +20,6 @@ namespace treeDiM.StackBuilder.Desktop
 {
     public partial class FormNewPallet : FormNewBase, IDrawingContainer
     {
-
         #region Constructor
         public FormNewPallet(Document document, PalletProperties palletProperties)
             : base(document, palletProperties)
@@ -85,37 +84,12 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Public properties
-        public double PalletLength
-        {
-            get { return uCtrlDimensions.ValueX; }
-            set { uCtrlDimensions.ValueX = value; }
-        }
-        public double PalletWidth
-        {
-            get { return uCtrlDimensions.ValueY; }
-            set { uCtrlDimensions.ValueY = value; }
-        }
-        public double PalletHeight
-        {
-            get { return uCtrlDimensions.ValueZ; }
-            set { uCtrlDimensions.ValueZ = value; }
-        }
-        public double Weight
-        {
-            get { return uCtrlWeight.Value; }
-            set { uCtrlWeight.Value = value; }
-        }
-        public double AdmissibleLoad
-        {
-            get { return uCtrlAdmissibleLoad.Value; }
-            set { uCtrlAdmissibleLoad.Value = value; }
-        }
-        public Color PalletColor
-        {
-            get { return cbColor.Color; }
-            set { cbColor.Color = value; }
-        }
-
+        public double PalletLength { get => uCtrlDimensions.ValueX; set => uCtrlDimensions.ValueX = value; }
+        public double PalletWidth { get => uCtrlDimensions.ValueY; set => uCtrlDimensions.ValueY = value; }
+        public double PalletHeight { get => uCtrlDimensions.ValueZ; set => uCtrlDimensions.ValueZ = value; }
+        public double Weight { get => uCtrlWeight.Value; set => uCtrlWeight.Value = value; }
+        public double AdmissibleLoad { get => uCtrlAdmissibleLoad.Value; set => uCtrlAdmissibleLoad.Value = value; }
+        public Color PalletColor { get => cbColor.Color; set => cbColor.Color = value; }
         public string PalletTypeName
         {
             get { return cbType.Items[cbType.SelectedIndex].ToString(); }

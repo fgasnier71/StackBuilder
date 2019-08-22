@@ -14,7 +14,6 @@ using log4net;
 using log4net.Config;
 // treeDiM
 using treeDiM.Basics;
-using treeDiM.StackBuilder.Basics;
 using treeDiM.StackBuilder.Desktop.Properties;
 #endregion
 

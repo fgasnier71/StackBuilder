@@ -117,127 +117,29 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="CASETYPE_AMERICANCASE" xml:space="preserve">
-    <value>Caisse américaine</value>
+  <data name="bnCancel.Text" xml:space="preserve">
+    <value>Annuler</value>
   </data>
-  <data name="EXCEPTION_INVALIDCARDBOARDID" xml:space="preserve">
-    <value>Identifiant carton inconnu : {0}</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="lbName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>29, 13</value>
   </data>
-  <data name="EXCEPTION_INVALIDCASETYPE" xml:space="preserve">
-    <value>Type de caisse inconnu : {0}</value>
-  </data>
-  <data name="EXCEPTION_INVALIDFORMULA" xml:space="preserve">
-    <value>Type de formule non valide (elle doit être classique ou amélioré)</value>
-  </data>
-  <data name="ID_DELETE" xml:space="preserve">
-    <value>Effacer</value>
-  </data>
-  <data name="ID_ECT" xml:space="preserve">
-    <value>RCV</value>
-  </data>
-  <data name="ID_MAXLAYERCOUNT" xml:space="preserve">
-    <value>Nombre max. de couches</value>
-  </data>
-  <data name="ID_NAME" xml:space="preserve">
+  <data name="lbName.Text" xml:space="preserve">
     <value>Nom</value>
   </data>
-  <data name="ID_PROFILE" xml:space="preserve">
-    <value>Profil</value>
+  <data name="uCtrlWeight.Text" xml:space="preserve">
+    <value>Poids</value>
   </data>
-  <data name="ID_RIGIDITYX" xml:space="preserve">
-    <value>Rigidité X</value>
+  <data name="statusStrip.Text" xml:space="preserve">
+    <value>Barre d'état</value>
   </data>
-  <data name="ID_RIGIDITYY" xml:space="preserve">
-    <value>Rigidité Y</value>
+  <data name="statusLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>28, 17</value>
   </data>
-  <data name="ID_STATICBCT" xml:space="preserve">
-    <value>RCV statique</value>
-  </data>
-  <data name="ID_THICKNESS" xml:space="preserve">
-    <value>Thickness</value>
-  </data>
-  <data name="MCKEEFORMULA_CLASSIC" xml:space="preserve">
-    <value>Classique</value>
-  </data>
-  <data name="MCKEEFORMULA_IMPROVED" xml:space="preserve">
-    <value>Améliorée</value>
-  </data>
-  <data name="MESSAGE_CARDBOARDQUALITYDBNOTFOUND" xml:space="preserve">
-    <value>Le fichier de base de données de qualité en carton est introuvable.</value>
-  </data>
-  <data name="PRINTEDSURFACE_COMPLEX" xml:space="preserve">
-    <value>Complexe</value>
-  </data>
-  <data name="PRINTEDSURFACE_COVERED" xml:space="preserve">
-    <value>Couverts</value>
-  </data>
-  <data name="PRINTEDSURFACE_DISTRIBUTED" xml:space="preserve">
-    <value>Distribué</value>
-  </data>
-  <data name="PRINTEDSURFACE_SIMPLE" xml:space="preserve">
-    <value>Simple</value>
-  </data>
-  <data name="PRINTEDSURFACE_UNKNOWN" xml:space="preserve">
-    <value>Inconnu</value>
-  </data>
-  <data name="STORAGEDURATION_0DAY" xml:space="preserve">
-    <value>0day</value>
-  </data>
-  <data name="STORAGEDURATION_11_30DAYS" xml:space="preserve">
-    <value>11-30 jours</value>
-  </data>
-  <data name="STORAGEDURATION_1_3DAYS" xml:space="preserve">
-    <value>1-3 jours</value>
-  </data>
-  <data name="STORAGEDURATION_1_3MONTHES" xml:space="preserve">
-    <value>1-3 mois</value>
-  </data>
-  <data name="STORAGEDURATION_3_4MONTHES" xml:space="preserve">
-    <value>3-4 mois</value>
-  </data>
-  <data name="STORAGEDURATION_4_10DAYS" xml:space="preserve">
-    <value>4-10 jours</value>
-  </data>
-  <data name="STORAGEDURATION_4_MONTHES" xml:space="preserve">
-    <value>plus de 4 mois</value>
-  </data>
-  <data name="ID_DATABASEITEMCOUNT" xml:space="preserve">
-    <value>{0}-{1} de {2}</value>
-  </data>
-  <data name="ID_DESCRIPTION" xml:space="preserve">
-    <value>Description</value>
-  </data>
-  <data name="ID_DIMENSIONS" xml:space="preserve">
-    <value>Dimensions ({0})</value>
-  </data>
-  <data name="ID_FIELDDESCRIPTIONEMPTY" xml:space="preserve">
-    <value>Le champ de description est vide. </value>
-  </data>
-  <data name="ID_FIELDNAMEEMPTY" xml:space="preserve">
-    <value>Le champ Nom est vide.</value>
-  </data>
-  <data name="ID_NAMEALREADYEXISTS" xml:space="preserve">
-    <value>{0} existe déjà.</value>
-  </data>
-  <data name="ID_READY" xml:space="preserve">
+  <data name="statusLabel.Text" xml:space="preserve">
     <value>Prêt</value>
   </data>
-  <data name="ID_STATICBCT_WU" xml:space="preserve">
-    <value>RCV statique ({0})</value>
-  </data>
-  <data name="ID_THICKNESS_WU" xml:space="preserve">
-    <value>Epaisseur ({0})</value>
-  </data>
-  <data name="ID_WEIGHT_WU" xml:space="preserve">
-    <value>Poids ({0})</value>
-  </data>
-  <data name="ID_EDIT" xml:space="preserve">
-    <value>Editer</value>
-  </data>
-  <data name="IDS_READY" xml:space="preserve">
-    <value>Prêt</value>
-  </data>
-  <data name="ID_VALUEOUGHTTOBESPOSITIVE" xml:space="preserve">
-    <value>La valeur doit être strictement positive.</value>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Créer une nouvelle palette...</value>
   </data>
 </root>

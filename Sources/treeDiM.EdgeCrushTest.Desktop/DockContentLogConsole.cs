@@ -4,7 +4,7 @@ using System.Windows.Forms;
 using WeifenLuo.WinFormsUI.Docking;
 #endregion
 
-namespace treeDiM.StackBuilder.Desktop
+namespace treeDiM.EdgeCrushTest.Desktop
 {
     public partial class DockContentLogConsole : DockContent
     {
@@ -18,9 +18,10 @@ namespace treeDiM.StackBuilder.Desktop
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
-           log4net.Appender.RichTextBoxAppender.SetRichTextBox(richTextBoxLog, "RichTextBoxAppender");
+            log4net.Appender.RichTextBoxAppender.SetRichTextBox(richTextBoxLog, "RichTextBoxAppender");
         }
         #endregion
+
         #region Public properties
         public RichTextBox RichTextBox
         {

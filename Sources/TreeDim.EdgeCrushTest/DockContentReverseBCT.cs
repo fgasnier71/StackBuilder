@@ -1,67 +1,58 @@
 ﻿#region Using directives
 using System;
-using System.Windows.Forms;
-using System.Drawing;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
+using System.Windows.Forms;
 
 using log4net;
-using Sharp3D.Math.Core;
 using WeifenLuo.WinFormsUI.Docking;
+using Sharp3D.Math.Core;
+using SourceGrid;
 
 using treeDiM.Basics;
 using treeDiM.EdgeCrushTest.Properties;
-
-using treeDiM.StackBuilder.Basics;
-using treeDiM.StackBuilder.Graphics;
-using treeDiM.StackBuilder.Engine;
 #endregion
 
 namespace treeDiM.EdgeCrushTest
 {
-    public partial class DockContentComputeBCT : DockContent, IDrawingContainer
+    public partial class DockContentReverseBCT : DockContent
     {
         #region Constructor
-        public DockContentComputeBCT()
+        public DockContentReverseBCT()
         {
             InitializeComponent();
         }
         #endregion
-
         #region Form override
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
 
-            graphCtrl.DrawingContainer = this;
-
             try
             {
                 // initialize dimensions load
                 CaseDimensions = new Vector3D(Settings.Default.CaseDimX, Settings.Default.CaseDimY, Settings.Default.CaseDimZ);
-                CaseWeight = Settings.Default.CaseWeight;
+                ForceApplied = Settings.Default.ForceApplied;
                 McKeeFormulaType = McKeeFormula.FormulaType.MCKEE_CLASSIC;
+
+                // initialize dynamic BCT grid
+                InitializeGridDynamicBCT();
 
                 // fill printed combo
                 cbPrintedArea.Items.AddRange(McKeeFormula.PrintCoefDictionary.Keys.ToArray());
                 cbPrintedArea.SelectedIndex = 0;
 
-                // initialize dynamic BCT grid
-                InitializeGridDynamicBCT();
-
-                // fill pallet combo
-                FillPalletCombo();
-
                 // fill material grid
                 FillMaterialGrid();
                 gridMat.Selection.SelectionChanged += new SourceGrid.RangeRegionChangedEventHandler(OnMaterialChanged);
-                OnMaterialChanged(this, null);
             }
             catch (Exception ex)
             {
-                _log.Error(ex.ToString());
+                _log.Error(ex.Message);
             }
         }
+
         protected override void OnClosed(EventArgs e)
         {
             base.OnClosed(e);
@@ -69,62 +60,9 @@ namespace treeDiM.EdgeCrushTest
             Settings.Default.CaseDimX = CaseDimensions.X;
             Settings.Default.CaseDimY = CaseDimensions.Y;
             Settings.Default.CaseDimZ = CaseDimensions.Z;
-            Settings.Default.CaseWeight = CaseWeight;
+            Settings.Default.CaseWeight = ForceApplied;
         }
         #endregion
-
-        #region Private properties
-        private Vector3D CaseDimensions
-        {
-            get => uCtrlCaseDimensions.Value;
-            set => uCtrlCaseDimensions.Value = value;
-        }
-        private double CaseWeight
-        {
-            get => uCtrlCaseWeight.Value;
-            set => uCtrlCaseWeight.Value = value;
-        }
-        private McKeeFormula.FormulaType McKeeFormulaType
-        {
-            get => tsCBMcKeeFormula.SelectedIndex == 0 ? McKeeFormula.FormulaType.MCKEE_CLASSIC : McKeeFormula.FormulaType.MCKEE_IMPROVED;
-            set => tsCBMcKeeFormula.SelectedIndex = (value == McKeeFormula.FormulaType.MCKEE_CLASSIC ? 0 : 1);
-        }
-        private int ActualNoLayers
-        {
-            get => uCtrlNoLayers.Value;
-            set => uCtrlNoLayers.Value = value;
-        }
-        private double ActualLoad => (ActualNoLayers - 1) * CaseWeight * 9.81;
-        private string PrintSurface => McKeeFormula.PrintCoefDictionary.Keys.ToList()[cbPrintedArea.SelectedIndex];
-
-        private int StackCount { set => lbStackCount.Text = $": {value}"; }
-        private double StackWeight { set => lbStackWeight.Text = $": {value} kg"; }
-        private int CountMax { set => lbCountMax.Text = $"(Max. = {value})"; }
-        private double LoadBottomCase { set => lbWeightLowestCase.Text = $": {value} kg"; }
-        private double PalletHeight
-        {
-            get
-            {
-                if ((cbPallets.SelectedItem is PalletItem palletItem))
-                    return palletItem.PalletProp.Dimensions.M2;
-                else
-                    return 0.0;
-            }
-        }
-        private double MaximumPalletHeight => PalletHeight + ActualNoLayers * CaseDimensions.Z;
-        #endregion
-
-        #region Fill pallet combo
-        private void FillPalletCombo()
-        {
-            var pallets = PalletAccessor.Instance.GetAllPallets();
-            foreach (var p in pallets)
-                cbPallets.Items.Add(new PalletItem(p));
-            if (cbPallets.Items.Count > 0)
-                cbPallets.SelectedIndex = 0;
-        }
-        #endregion
-
         #region Fill material grid
         private void FillMaterialGrid()
         {
@@ -166,34 +104,34 @@ namespace treeDiM.EdgeCrushTest
             };
             gridMat[0, iCol++] = columnHeader;
             // thickness
-            columnHeader = new SourceGrid.Cells.ColumnHeader(Resources.ID_THICKNESS)
+            columnHeader = new SourceGrid.Cells.ColumnHeader(string.Format(Resources.ID_THICKNESS_WU, UnitsManager.LengthUnitString))
             {
                 AutomaticSortEnabled = false,
                 View = viewColumnHeader
             };
             gridMat[0, iCol++] = columnHeader;
             // ECT
-            columnHeader = new SourceGrid.Cells.ColumnHeader(Resources.ID_STATICBCT)
+            columnHeader = new SourceGrid.Cells.ColumnHeader(Resources.ID_ECT)
             {
                 AutomaticSortEnabled = false,
                 View = viewColumnHeader
             };
             gridMat[0, iCol++] = columnHeader;
-            // maximum number of layers
-            columnHeader = new SourceGrid.Cells.ColumnHeader(Resources.ID_MAXLAYERCOUNT)
+            // BCT
+            columnHeader = new SourceGrid.Cells.ColumnHeader(string.Format(Resources.ID_STATICBCT_WU, UnitsManager.ForceUnitString))
             {
                 AutomaticSortEnabled = false,
                 View = viewColumnHeader
             };
             gridMat[0, iCol++] = columnHeader;
+
             int iIndex = 0;
-            var dictQuality = CardboardQualityAccessor.Instance.CardboardQualities;
             Vector3D dim = CaseDimensions;
-            // views
-            CellColorFromValue viewNormal = new CellColorFromValue(ActualLoad * 9.81 / 10) {}; // convert mass in kg to load in daN
 
             // ROWS
-            foreach (var q in dictQuality)
+            _materialQualities = CardboardQualityAccessor.Instance.GetSortedCardboardQualityDictionary(
+                dim, Resources.CASETYPE_AMERICANCASE, McKeeFormulaType, true, ForceApplied);
+            foreach (var q in _materialQualities)
             {
                 gridMat.Rows.Insert(++iIndex);
                 iCol = 0;
@@ -202,11 +140,9 @@ namespace treeDiM.EdgeCrushTest
                 gridMat[iIndex, iCol++] = new SourceGrid.Cells.Cell(quality.Name);
                 gridMat[iIndex, iCol++] = new SourceGrid.Cells.Cell(quality.Profile);
                 gridMat[iIndex, iCol++] = new SourceGrid.Cells.Cell($"{quality.Thickness:0.##}");
-
-                double staticBCT = McKeeFormula.ComputeStaticBCT(dim.X, dim.Y, dim.Z, Resources.CASETYPE_AMERICANCASE, q, McKeeFormulaType);
-                int layerCount = (int)Math.Floor(staticBCT/(9.81 * CaseWeight)) + 1;
+                gridMat[iIndex, iCol++] = new SourceGrid.Cells.Cell($"{quality.ECT}");
+                double staticBCT = quality.ComputeStaticBCT(dim, Resources.CASETYPE_AMERICANCASE, McKeeFormulaType);
                 gridMat[iIndex, iCol++] = new SourceGrid.Cells.Cell($"{staticBCT:0.##}");
-                gridMat[iIndex, iCol++] = new SourceGrid.Cells.Cell($"{layerCount}");
             }
             gridMat.AutoStretchColumnsToFitWidth = true;
             gridMat.AutoSizeCells();
@@ -218,18 +154,8 @@ namespace treeDiM.EdgeCrushTest
             else
                 gridMat.Invalidate();
         }
-        private QualityData SelectedMaterial
-        {
-            get
-            {
-                SourceGrid.RangeRegion region = gridMat.Selection.GetSelectionRegion();
-                int[] indexes = region.GetRowsIndex();
-                // no selection -> exit
-                if (indexes.Length == 0)
-                    return null;
-                return CardboardQualityAccessor.Instance.CardboardQualities[indexes[0] - 1];
-            }
-        }
+        #endregion
+        #region Fill grid dynamic BCT
         private void InitializeGridDynamicBCT()
         {
             // border
@@ -303,6 +229,19 @@ namespace treeDiM.EdgeCrushTest
             gridDynamicBCT.AutoSizeCells();
             gridDynamicBCT.Columns.StretchToFit();
         }
+        private void FillGridDynamicBCT()
+        {
+            Vector3D caseDim = CaseDimensions;
+            QualityData qdata = SelectedMaterial;
+            if (null != qdata)
+                FillGridDynamicBCT(
+                    McKeeFormula.EvaluateEdgeCrushTestMatrix(
+                        caseDim.X, caseDim.Y, caseDim.Z, Resources.CASETYPE_AMERICANCASE, PrintSurface,
+                        qdata,
+                        McKeeFormulaType)
+                    );
+
+        }
         private void FillGridDynamicBCT(Dictionary<KeyValuePair<string, string>, double> dynamicBCTDictionary)
         {
             int indexCol = 1;
@@ -310,10 +249,11 @@ namespace treeDiM.EdgeCrushTest
             // views
             DevAge.Drawing.BorderLine border = new DevAge.Drawing.BorderLine(Color.DarkBlue, 1);
             DevAge.Drawing.RectangleBorder cellBorder = new DevAge.Drawing.RectangleBorder(border, border);
-            CellColorFromValue viewNormal = new CellColorFromValue(ActualLoad * 9.81 / 10)
+            CellColorFromValue viewNormal = new CellColorFromValue(ForceApplied * 9.81 / 10)
             {
                 Border = cellBorder
-            }; // convert mass in kg to load in daN
+            };
+            // convert mass in kg to load in daN
 
             foreach (string keyHumidity in McKeeFormula.HumidityCoefDictionary.Keys)
             {
@@ -332,101 +272,58 @@ namespace treeDiM.EdgeCrushTest
             gridDynamicBCT.Invalidate();
         }
         #endregion
-
-        #region Event handler
-        private void OnEditMaterialList(object sender, EventArgs e)
-        {
-            ECT_Forms.EditMaterialList();
-        }
+        #region Event handlers
         private void OnInputChanged(object sender, EventArgs args)
         {
             FillMaterialGrid();
         }
-        private void OnMaterialChanged(object sender, EventArgs args)
+        private void OnMaterialChanged(object sender, RangeRegionChangedEventArgs e)
         {
             // compute max layer count from static BCT
             QualityData qdata = SelectedMaterial;
             if (null == qdata) return;
             Vector3D caseDim = CaseDimensions;
-            double staticBCT = qdata.ComputeStaticBCT( caseDim, Resources.CASETYPE_AMERICANCASE, McKeeFormulaType);
-            int layerCount = (int)Math.Floor(staticBCT / (9.81 * CaseWeight)) + 1;
-            // display actual number of layers
-            uCtrlNoLayers.Maximum = layerCount;
-            CountMax = layerCount;
-            ActualNoLayers = layerCount;
-        }
-        #endregion
-
-        #region Palletisation computation
-        private void OnComputePalletization(object sender, EventArgs e)
-        {
-            // reinit solution
-            Sol = null;
-            // build BoxProperties
-            Vector3D caseDim = CaseDimensions;
-            var bProperties = new BoxProperties(null, caseDim.X, caseDim.Y, caseDim.Z)
-            {
-                TapeWidth = new OptDouble(true, 50.0),
-                TapeColor = Color.LightGray
-            };
-            bProperties.SetAllColors(Enumerable.Repeat(Color.Beige, 6).ToArray());
-            bProperties.SetWeight(CaseWeight);
-            // build pallet properties
-            if (!(cbPallets.SelectedItem is PalletItem palletItem)) return;
-            var dcsbPallet = palletItem.PalletProp;
-            var palletProperties = new PalletProperties(null,
-                dcsbPallet.PalletType,
-                dcsbPallet.Dimensions.M0, dcsbPallet.Dimensions.M1, dcsbPallet.Dimensions.M2)
-            {
-                Weight = dcsbPallet.Weight
-            };
-            // constraint set
-            ConstraintSetCasePallet constraintSet = new ConstraintSetCasePallet();
-            constraintSet.SetAllowedOrientations(new bool[] { false, false, true });
-            constraintSet.SetMaxHeight(new OptDouble(true, MaximumPalletHeight));
-            constraintSet.Overhang = uCtrlOverhang.Value;
-            // solve
-            SolverCasePallet solver = new SolverCasePallet(bProperties, palletProperties);
-            List<AnalysisHomo> analyses = solver.BuildAnalyses(constraintSet, false);
-            if (analyses.Count > 0)
-            {
-                AnalysisHomo analysis = analyses[0];
-                Sol = analysis.Solution;
-                StackCount = analysis.Solution.ItemCount;
-                StackWeight = analysis.Solution.Weight;
-                LoadBottomCase = analysis.Solution.LoadOnLowestCase;
-            }
-            // update graph control
-            graphCtrl.Invalidate();
-
+            double staticBCT = qdata.ComputeStaticBCT(caseDim, Resources.CASETYPE_AMERICANCASE, McKeeFormulaType);
             FillGridDynamicBCT();
         }
-        private void FillGridDynamicBCT()
+        private void OnComputeDynamicBCT(object sender, EventArgs e)
         {
-            Vector3D caseDim = CaseDimensions;
-            QualityData qdata = SelectedMaterial;
-            if (null != qdata)
-                FillGridDynamicBCT(
-                    McKeeFormula.EvaluateEdgeCrushTestMatrix(
-                        caseDim.X, caseDim.Y, caseDim.Z,
-                        Resources.CASETYPE_AMERICANCASE, PrintSurface,
-                        qdata, McKeeFormulaType)
-                    );
+            FillGridDynamicBCT();
         }
         #endregion
-
-        #region IDrawingContainer implementation
-        public void Draw(Graphics3DControl ctrl, Graphics3D graphics)
+        #region Private properties
+        private Vector3D CaseDimensions
         {
-            if (null == Sol) return;
-            using (ViewerSolution sv = new ViewerSolution(Sol))
-            { sv.Draw(graphics, Transform3D.Identity); }
+            get => uCtrlCaseDimensions.Value;
+            set => uCtrlCaseDimensions.Value = value;
         }
+        private double ForceApplied
+        {
+            get => uCtrlForceApplied.Value;
+            set => uCtrlForceApplied.Value = value;
+        }
+        private McKeeFormula.FormulaType McKeeFormulaType
+        {
+            get => tsCBMcKeeFormula.SelectedIndex == 0 ? McKeeFormula.FormulaType.MCKEE_CLASSIC : McKeeFormula.FormulaType.MCKEE_IMPROVED;
+            set => tsCBMcKeeFormula.SelectedIndex = (value == McKeeFormula.FormulaType.MCKEE_CLASSIC ? 0 : 1);
+        }
+        private QualityData SelectedMaterial
+        {
+            get
+            {
+                SourceGrid.RangeRegion region = gridMat.Selection.GetSelectionRegion();
+                int[] indexes = region.GetRowsIndex();
+                // no selection -> exit
+                if (indexes.Length == 0)
+                    return null;
+                return _materialQualities[indexes[0] - 1];
+            }
+        }
+        private string PrintSurface => McKeeFormula.PrintCoefDictionary.Keys.ToList()[cbPrintedArea.SelectedIndex];
         #endregion
-
         #region Data members
-        private Solution Sol { get; set; }
-        protected ILog _log = LogManager.GetLogger(typeof(DockContentComputeBCT));
+        private List<QualityData> _materialQualities;
+        protected ILog _log = LogManager.GetLogger(typeof(DockContentReverseBCT));
         #endregion
     }
 }

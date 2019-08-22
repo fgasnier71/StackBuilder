@@ -121,7 +121,7 @@
     <value>Débord</value>
   </data>
   <data name="uCtrlCaseWeight.Text" xml:space="preserve">
-    <value>Masse caisse</value>
+    <value>Poid total caisse</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="lbPallet.Size" type="System.Drawing.Size, System.Drawing">
@@ -129,21 +129,6 @@
   </data>
   <data name="lbPallet.Text" xml:space="preserve">
     <value>Palette</value>
-  </data>
-  <data name="toolStripButtonMaterialList.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIGSURBVDhPjZLfT1JhGMf5b/oP6qq6qa2LyjyEFOqcS71w
-        M1cz4wBlc+DSuiinyzVxhhKitmIgpwPiaNLaFPDH0mkbuLVEt2JtslEG8vXlefHiHAz9bmfn+57nOZ/3
-        e877aI40EliA+9MKXOFlvAlGYZcX8NLzBbapeTT1T6Ol/z0y2X2U2ss1Nb+MXP4AhUIBv/ey+PYjjcha
-        Eu8i67C6wxB6xmAclfH3X/54iCu8hDwDoJBH5k8O2z8zWN9KIfL1O4akGPqm5yjh3dczrH5MEmcoToCz
-        jRO40u6lhvMtE7hwZ5L8aGiJ7nY5Rkm203tKiCMUI0BpWaaRYBxrW7uYW03g/rAf+qduZe+wvEiAm6IP
-        OqNERd0jCVrRT/5SqwtnqobIPxkLodo6rgQMej5XTFAU+0FUl+ObEGxOZe+zySBPYPoIweyjYq1FgsEi
-        k7/W6cHFZr7rbDTJAG+VgC6HfGKCorK5fSRTaWjVANER4AmMftSwFMVnepElMAXIN3TPQujkPrqZgmBV
-        fcIRoLT8r4qDlthJ44YaYHLwf6B96GMnwU9Bb5Jwy8y9wRzA9Y4Z8osbKXYKKsADu3SqBAelBGWA1gEP
-        AXSiF7WP+U71XRLzfA7qLF5U3ftAfiWxWw5ofK6arAr6lcnitk01SOfaXsDQ60JNj7PipWcvXjXbcbnj
-        FQNoNIf14ZimbRTIjwAAAABJRU5ErkJggg==
-</value>
   </data>
   <data name="toolStripLabelMcKeeFormula.Size" type="System.Drawing.Size, System.Drawing">
     <value>109, 22</value>
@@ -154,17 +139,53 @@
   <data name="uCtrlCaseDimensions.Text" xml:space="preserve">
     <value>Dimensions caisse</value>
   </data>
-  <data name="lbDefWeight.Size" type="System.Drawing.Size, System.Drawing">
-    <value>33, 13</value>
+  <data name="lbWeightLowestCase.Location" type="System.Drawing.Point, System.Drawing">
+    <value>130, 77</value>
   </data>
-  <data name="lbDefWeight.Text" xml:space="preserve">
-    <value>Poids</value>
+  <data name="lbDefWeightOnLowestCase.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1, 77</value>
+  </data>
+  <data name="lbDefWeightOnLowestCase.Size" type="System.Drawing.Size, System.Drawing">
+    <value>127, 13</value>
+  </data>
+  <data name="lbDefWeightOnLowestCase.Text" xml:space="preserve">
+    <value>Poid sur caisse inférieure </value>
+  </data>
+  <data name="uCtrlNoLayers.Text" xml:space="preserve">
+    <value>Nombre de couche réel</value>
+  </data>
+  <data name="graphCtrl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>172, 37</value>
+  </data>
+  <data name="graphCtrl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>207, 197</value>
   </data>
   <data name="lbDefCount.Size" type="System.Drawing.Size, System.Drawing">
-    <value>44, 13</value>
+    <value>115, 13</value>
   </data>
   <data name="lbDefCount.Text" xml:space="preserve">
-    <value>Nombre</value>
+    <value>Nombre total de caisse</value>
+  </data>
+  <data name="lbStackWeight.Location" type="System.Drawing.Point, System.Drawing">
+    <value>130, 57</value>
+  </data>
+  <data name="lbDefWeight.Size" type="System.Drawing.Size, System.Drawing">
+    <value>117, 13</value>
+  </data>
+  <data name="lbDefWeight.Text" xml:space="preserve">
+    <value>Poids total de la palette</value>
+  </data>
+  <data name="lbStackCount.Location" type="System.Drawing.Point, System.Drawing">
+    <value>130, 37</value>
+  </data>
+  <data name="lbPrintedArea.Size" type="System.Drawing.Size, System.Drawing">
+    <value>88, 13</value>
+  </data>
+  <data name="lbPrintedArea.Text" xml:space="preserve">
+    <value>Surface imprimée</value>
+  </data>
+  <data name="gbDynamicBCT.Text" xml:space="preserve">
+    <value>RCV dynamique</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="lbCountMax.AutoSize" type="System.Boolean, mscorlib">
@@ -176,13 +197,25 @@
   <data name="lbCountMax.Text" xml:space="preserve">
     <value>(max: 0)</value>
   </data>
-  <data name="uCtrlNoLayers.Text" xml:space="preserve">
-    <value>Nombre de couche réel</value>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Calcul de RCV</value>
   </data>
-  <data name="lbPrintedArea.Size" type="System.Drawing.Size, System.Drawing">
-    <value>88, 13</value>
+  <data name="tsCBMcKeeFormula.Items" xml:space="preserve">
+    <value>Classique</value>
   </data>
-  <data name="lbPrintedArea.Text" xml:space="preserve">
-    <value>Surface imprimée</value>
+  <data name="tsCBMcKeeFormula.Items1" xml:space="preserve">
+    <value>Améliorée</value>
+  </data>
+  <data name="toolStripMain.Text" xml:space="preserve">
+    <value>Barre d'outils principale</value>
+  </data>
+  <data name="lbWeightLowestCase.Text" xml:space="preserve">
+    <value>: 0.0 kg</value>
+  </data>
+  <data name="lbStackWeight.Text" xml:space="preserve">
+    <value>: 0.0 kg</value>
+  </data>
+  <data name="lbStackCount.Text" xml:space="preserve">
+    <value>: 0</value>
   </data>
 </root>

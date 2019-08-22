@@ -38,8 +38,8 @@
             this.lbRigidityX = new System.Windows.Forms.Label();
             this.lbRigidityY = new System.Windows.Forms.Label();
             this.nudThickness = new System.Windows.Forms.NumericUpDown();
-            this.nudRigidityX = new System.Windows.Forms.NumericUpDown();
-            this.nudRigidityY = new System.Windows.Forms.NumericUpDown();
+            this.nudStiffnessX = new System.Windows.Forms.NumericUpDown();
+            this.nudStiffnessY = new System.Windows.Forms.NumericUpDown();
             this.nudECT = new System.Windows.Forms.NumericUpDown();
             this.lbThicknessUnit = new System.Windows.Forms.Label();
             this.lbStiffnessXUnit = new System.Windows.Forms.Label();
@@ -50,8 +50,8 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.statusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             ((System.ComponentModel.ISupportInitialize)(this.nudThickness)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudRigidityX)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudRigidityY)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudStiffnessX)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudStiffnessY)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudECT)).BeginInit();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -105,24 +105,28 @@
             this.nudThickness.DecimalPlaces = 2;
             resources.ApplyResources(this.nudThickness, "nudThickness");
             this.nudThickness.Name = "nudThickness";
+            this.nudThickness.ValueChanged += new System.EventHandler(this.OnInputChanged);
             // 
-            // nudRigidityX
+            // nudStiffnessX
             // 
-            this.nudRigidityX.DecimalPlaces = 2;
-            resources.ApplyResources(this.nudRigidityX, "nudRigidityX");
-            this.nudRigidityX.Name = "nudRigidityX";
+            this.nudStiffnessX.DecimalPlaces = 2;
+            resources.ApplyResources(this.nudStiffnessX, "nudStiffnessX");
+            this.nudStiffnessX.Name = "nudStiffnessX";
+            this.nudStiffnessX.ValueChanged += new System.EventHandler(this.OnInputChanged);
             // 
-            // nudRigidityY
+            // nudStiffnessY
             // 
-            this.nudRigidityY.DecimalPlaces = 2;
-            resources.ApplyResources(this.nudRigidityY, "nudRigidityY");
-            this.nudRigidityY.Name = "nudRigidityY";
+            this.nudStiffnessY.DecimalPlaces = 2;
+            resources.ApplyResources(this.nudStiffnessY, "nudStiffnessY");
+            this.nudStiffnessY.Name = "nudStiffnessY";
+            this.nudStiffnessY.ValueChanged += new System.EventHandler(this.OnInputChanged);
             // 
             // nudECT
             // 
             this.nudECT.DecimalPlaces = 2;
             resources.ApplyResources(this.nudECT, "nudECT");
             this.nudECT.Name = "nudECT";
+            this.nudECT.ValueChanged += new System.EventHandler(this.OnInputChanged);
             // 
             // lbThicknessUnit
             // 
@@ -148,11 +152,13 @@
             // 
             resources.ApplyResources(this.tbQualityName, "tbQualityName");
             this.tbQualityName.Name = "tbQualityName";
+            this.tbQualityName.TextChanged += new System.EventHandler(this.OnInputChanged);
             // 
             // tbProfile
             // 
             resources.ApplyResources(this.tbProfile, "tbProfile");
             this.tbProfile.Name = "tbProfile";
+            this.tbProfile.TextChanged += new System.EventHandler(this.OnInputChanged);
             // 
             // statusStrip
             // 
@@ -178,8 +184,8 @@
             this.Controls.Add(this.lbStiffnessXUnit);
             this.Controls.Add(this.lbThicknessUnit);
             this.Controls.Add(this.nudECT);
-            this.Controls.Add(this.nudRigidityY);
-            this.Controls.Add(this.nudRigidityX);
+            this.Controls.Add(this.nudStiffnessY);
+            this.Controls.Add(this.nudStiffnessX);
             this.Controls.Add(this.nudThickness);
             this.Controls.Add(this.lbRigidityY);
             this.Controls.Add(this.lbRigidityX);
@@ -194,8 +200,8 @@
             this.Name = "FormEditCardboardQualityData";
             this.ShowIcon = false;
             ((System.ComponentModel.ISupportInitialize)(this.nudThickness)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudRigidityX)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudRigidityY)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudStiffnessX)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudStiffnessY)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudECT)).EndInit();
             this.statusStrip.ResumeLayout(false);
             this.statusStrip.PerformLayout();
@@ -215,8 +221,8 @@
         private System.Windows.Forms.Label lbRigidityX;
         private System.Windows.Forms.Label lbRigidityY;
         private System.Windows.Forms.NumericUpDown nudThickness;
-        private System.Windows.Forms.NumericUpDown nudRigidityX;
-        private System.Windows.Forms.NumericUpDown nudRigidityY;
+        private System.Windows.Forms.NumericUpDown nudStiffnessX;
+        private System.Windows.Forms.NumericUpDown nudStiffnessY;
         private System.Windows.Forms.NumericUpDown nudECT;
         private System.Windows.Forms.Label lbThicknessUnit;
         private System.Windows.Forms.Label lbStiffnessXUnit;

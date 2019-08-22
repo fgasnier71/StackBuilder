@@ -117,185 +117,182 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="&gt;&gt;toolStrip1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="splitContainerVertical.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="&gt;&gt;splitContainerVertical.Panel2.Name" xml:space="preserve">
-    <value>splitContainerVertical.Panel2</value>
-  </data>
-  <data name="&gt;&gt;splitContainerVertical.Panel1.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 13</value>
+  <data name="splitContainerVertical.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 25</value>
   </data>
-  <data name="&gt;&gt;splitContainerVertical.Panel2.Parent" xml:space="preserve">
-    <value>splitContainerVertical</value>
+  <data name="grid.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="grid.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="grid.Size" type="System.Drawing.Size, System.Drawing">
+    <value>711, 425</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="grid.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;grid.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;splitContainerVertical.Type" xml:space="preserve">
-    <value>System.Windows.Forms.SplitContainer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="bnExit.Text" xml:space="preserve">
-    <value>Exit</value>
-  </data>
-  <data name="splitContainerVertical.SplitterDistance" type="System.Int32, mscorlib">
-    <value>711</value>
-  </data>
-  <data name="&gt;&gt;toolStrip1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="grid.Size" type="System.Drawing.Size, System.Drawing">
-    <value>711, 425</value>
-  </data>
-  <data name="toolStripButtonNew.Text" xml:space="preserve">
-    <value>New cardboard quality...</value>
-  </data>
-  <data name="toolStrip1.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;toolStrip1.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="toolStrip1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>800, 25</value>
-  </data>
-  <data name="&gt;&gt;toolStripButtonNew.Name" xml:space="preserve">
-    <value>toolStripButtonNew</value>
-  </data>
-  <data name="grid.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="&gt;&gt;splitContainerVertical.Panel1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="grid.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>800, 450</value>
+  <data name="&gt;&gt;grid.Name" xml:space="preserve">
+    <value>grid</value>
   </data>
   <data name="&gt;&gt;grid.Type" xml:space="preserve">
     <value>SourceGrid.Grid, SourceGrid, Version=4.40.4580.29115, Culture=neutral, PublicKeyToken=df6f5e538749e85d</value>
   </data>
-  <data name="toolStripButtonNew.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 22</value>
-  </data>
-  <data name="&gt;&gt;splitContainerVertical.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="bnExit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 3</value>
-  </data>
-  <data name="toolStrip1.Text" xml:space="preserve">
-    <value>toolStrip</value>
-  </data>
-  <data name="&gt;&gt;bnExit.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="bnExit.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;splitContainerVertical.Panel2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;bnExit.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="toolStripButtonNew.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wwAADsMBx2+oZAAAAaxJREFUOE+Vk01LAlEYhWcnRhBEm7bRMog2IQR9LFrlpn5GEP6HFi36C4FQUOn4
-        xTiZKfg9UqhNoy1aCiIogTlq06g4neZeUpocww6czb3vee7LvfdlhlIUBalUCul0GrFYbMyJRAJPoojv
-        cqNkWUYwGEQmk0EkEkGn3Uaj0Ri51WqhUCggn8+PA5rNJjiOgyAIFBCNRk1PKZVKyOVy43uhUIgGk8kk
-        dTgcNgUUi0VzAAlns1mQEyRJAin83jKItG8KiMfjqNfrpqGpRADVavVPgNrv4vDhBI7cKbKVR2PtNIC2
-        2gFzuQqLex1novv/gI++ihmXDfPebZwXA9MBNKWPgdwD2gPIr2+YZTew4N+B854FFEBr9aknAvb4QzDX
-        a7C6bTS8xNmpCYSsDT0RsH/rgNWjt+3bwoJvZwRYDOzStaEnAmIvAi4KfrhEHs68h0JI+OjuGD4pjCuR
-        o6aAWq02BvgpTdNGl3j1zBtr0/pPFPUpI11UKhWDy+Uy8Am89xRYXOuY827CKXmNgFt9Fm54HkF9oH7b
-        w7LoqV2o+jMue+xYCRyAfQ79ADDMF2VwtLC/1FC0AAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="bnExit.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
-  <data name="&gt;&gt;splitContainerVertical.Name" xml:space="preserve">
-    <value>splitContainerVertical</value>
-  </data>
-  <data name="bnExit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 23</value>
-  </data>
-  <data name="splitContainerVertical.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 25</value>
-  </data>
-  <data name="&gt;&gt;toolStrip1.Name" xml:space="preserve">
-    <value>toolStrip1</value>
-  </data>
   <data name="&gt;&gt;grid.Parent" xml:space="preserve">
     <value>splitContainerVertical.Panel1</value>
   </data>
-  <data name="&gt;&gt;bnExit.Name" xml:space="preserve">
-    <value>bnExit</value>
-  </data>
-  <data name="&gt;&gt;splitContainerVertical.Panel2.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;toolStripButtonNew.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;grid.Name" xml:space="preserve">
-    <value>grid</value>
-  </data>
-  <data name="toolStripButtonNew.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>White</value>
-  </data>
-  <data name="splitContainerVertical.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="toolStrip1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="&gt;&gt;splitContainerVertical.Panel1.Parent" xml:space="preserve">
-    <value>splitContainerVertical</value>
-  </data>
-  <data name="&gt;&gt;bnExit.Parent" xml:space="preserve">
-    <value>splitContainerVertical.Panel2</value>
-  </data>
-  <data name="&gt;&gt;splitContainerVertical.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;grid.ZOrder" xml:space="preserve">
     <value>0</value>
-  </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;splitContainerVertical.Panel1.Name" xml:space="preserve">
     <value>splitContainerVertical.Panel1</value>
   </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Cardboard quality list...</value>
+  <data name="&gt;&gt;splitContainerVertical.Panel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;splitContainerVertical.Panel1.Parent" xml:space="preserve">
+    <value>splitContainerVertical</value>
+  </data>
+  <data name="&gt;&gt;splitContainerVertical.Panel1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="bnExit.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="bnExit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 3</value>
+  </data>
+  <data name="bnExit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="bnExit.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="bnExit.Text" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="&gt;&gt;bnExit.Name" xml:space="preserve">
+    <value>bnExit</value>
+  </data>
+  <data name="&gt;&gt;bnExit.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;bnExit.Parent" xml:space="preserve">
+    <value>splitContainerVertical.Panel2</value>
+  </data>
+  <data name="&gt;&gt;bnExit.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;splitContainerVertical.Panel2.Name" xml:space="preserve">
+    <value>splitContainerVertical.Panel2</value>
+  </data>
+  <data name="&gt;&gt;splitContainerVertical.Panel2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;splitContainerVertical.Panel2.Parent" xml:space="preserve">
+    <value>splitContainerVertical</value>
+  </data>
+  <data name="&gt;&gt;splitContainerVertical.Panel2.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="splitContainerVertical.Size" type="System.Drawing.Size, System.Drawing">
     <value>800, 425</value>
   </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>FormCardboardQualityList</value>
+  <data name="splitContainerVertical.SplitterDistance" type="System.Int32, mscorlib">
+    <value>711</value>
   </data>
-  <metadata name="toolStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <data name="splitContainerVertical.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;splitContainerVertical.Name" xml:space="preserve">
+    <value>splitContainerVertical</value>
+  </data>
+  <data name="&gt;&gt;splitContainerVertical.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitContainer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;splitContainerVertical.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;splitContainerVertical.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="toolStripMain.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <data name="toolStripButtonNew.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGsSURBVDhPlZNNSwJRGIVnJ0YQRJu20TKINiEEfSxa5aZ+
+        RhD+hxYt+guBUFDp+MU4mSn4PVKoTaMtWgoiKIE5atOoOJ3mXlKaHMMOnM2973nuy733ZYZSFAWpVArp
+        dBqxWGzMiUQCT6KI73KjZFlGMBhEJpNBJBJBp91Go9EYudVqoVAoIJ/PjwOazSY4joMgCBQQjUZNTymV
+        SsjlcuN7oVCIBpPJJHU4HDYFFItFcwAJZ7NZkBMkSQIp/N4yiLRvCojH46jX66ahqUQA1Wr1T4Da7+Lw
+        4QSO3CmylUdj7TSAttoBc7kKi3sdZ6L7/4CPvooZlw3z3m2cFwPTATSlj4HcA9oDyK9vmGU3sODfgfOe
+        BRRAa/WpJwL2+EMw12uwum00vMTZqQmErA09EbB/64DVo7ft28KCb2cEWAzs0rWhJwJiLwIuCn64RB7O
+        vIdCSPjo7hg+KYwrkaOmgFqtNgb4KU3TRpd49cwba9P6TxT1KSNdVCoVg8vlMvAJvPcUWFzrmPNuwil5
+        jYBbfRZueB5BfaB+28Oy6KldqPozLnvsWAkcgH0O/QAwzBdlcLSwv9RQtAAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="toolStripButtonNew.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>White</value>
+  </data>
+  <data name="toolStripButtonNew.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 22</value>
+  </data>
+  <data name="toolStripButtonNew.Text" xml:space="preserve">
+    <value>New cardboard quality...</value>
+  </data>
+  <data name="toolStripMain.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="toolStripMain.Size" type="System.Drawing.Size, System.Drawing">
+    <value>800, 25</value>
+  </data>
+  <data name="toolStripMain.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="toolStripMain.Text" xml:space="preserve">
+    <value>toolStrip</value>
+  </data>
+  <data name="&gt;&gt;toolStripMain.Name" xml:space="preserve">
+    <value>toolStripMain</value>
+  </data>
+  <data name="&gt;&gt;toolStripMain.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripMain.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;toolStripMain.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>fr</value>
-  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>800, 450</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Cardboard quality list...</value>
+  </data>
+  <data name="&gt;&gt;toolStripButtonNew.Name" xml:space="preserve">
+    <value>toolStripButtonNew</value>
+  </data>
+  <data name="&gt;&gt;toolStripButtonNew.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>FormCardboardQualityList</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

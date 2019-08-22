@@ -6,7 +6,7 @@ using System.Text;
 
 namespace treeDiM.EdgeCrushTest
 {
-    public class Exception : System.Exception
+    public class ECTException : System.Exception
     {
         /// <summary>
         /// Expected exception types
@@ -21,29 +21,29 @@ namespace treeDiM.EdgeCrushTest
         /// <summary>
         /// Default constructor
         /// </summary>
-        public Exception()
+        public ECTException()
             :base()
         {
         }
         /// <summary>
         /// Constructor with message
         /// </summary>
-        public Exception(string message)
+        public ECTException(string message)
             : base(message)
         { 
         }
         /// <summary>
         /// Constructor with message + inner exception
         /// </summary>
-        public Exception(string message, Exception innerException)
+        public ECTException(string message, Exception innerException)
             : base(message, innerException)
         { 
         }
         /// <summary>
         /// Customized exception
         /// </summary>
-        public Exception(Exception.ErrorType error, string arg)
-            : base(Exception.ExceptionMessage(error, arg))
+        public ECTException(ECTException.ErrorType error, string arg)
+            : base(ECTException.ExceptionMessage(error, arg))
         { 
         }
 

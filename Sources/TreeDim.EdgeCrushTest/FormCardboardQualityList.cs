@@ -59,7 +59,7 @@ namespace treeDiM.EdgeCrushTest
             viewColumnHeader.ElementSort.SortStyle = DevAge.Drawing.HeaderSortStyle.None;
             // set first row
             grid.BorderStyle = BorderStyle.FixedSingle;
-            grid.ColumnsCount = 7;
+            grid.ColumnsCount = 8;
             grid.FixedRows = 1;
             grid.Rows.Insert(0);
             // header
@@ -107,6 +107,13 @@ namespace treeDiM.EdgeCrushTest
                 View = viewColumnHeader
             };
             grid[0, iCol++] = columnHeader;
+            // edit
+            columnHeader = new SourceGrid.Cells.ColumnHeader(Properties.Resources.ID_EDIT)
+            {
+                AutomaticSortEnabled = false,
+                View = viewColumnHeader
+            };
+            grid[0, iCol++] = columnHeader;
             // delete
             columnHeader = new SourceGrid.Cells.ColumnHeader(Properties.Resources.ID_DELETE)
             {
@@ -118,22 +125,25 @@ namespace treeDiM.EdgeCrushTest
             // handling delete event
             SourceGrid.Cells.Controllers.CustomEvents buttonDelete = new SourceGrid.Cells.Controllers.CustomEvents();
             buttonDelete.Click += new EventHandler(OnDeleteItem);
-
+            SourceGrid.Cells.Controllers.CustomEvents buttonEdit = new SourceGrid.Cells.Controllers.CustomEvents();
+            buttonEdit.Click += new EventHandler(OnEditItem);
             // ROWS
             int iIndex = 0;
-            var dictQuality = CardboardQualityAccessor.Instance.CardboardQualityDictionary;
+            var dictQuality = CardboardQualityAccessor.Instance.CardboardQualities;
             foreach (var q in dictQuality)
             {
                 grid.Rows.Insert(++iIndex);
                 iCol = 0;
 
-                var quality = q.Value;
+                var quality = q;
                 grid[iIndex, iCol++] = new SourceGrid.Cells.Cell(quality.Name);
                 grid[iIndex, iCol++] = new SourceGrid.Cells.Cell(quality.Profile);
                 grid[iIndex, iCol++] = new SourceGrid.Cells.Cell($"{quality.Thickness:0.##}");
                 grid[iIndex, iCol++] = new SourceGrid.Cells.Cell($"{quality.ECT:0.##}");
                 grid[iIndex, iCol++] = new SourceGrid.Cells.Cell($"{quality.RigidityDX:0.##}");
                 grid[iIndex, iCol++] = new SourceGrid.Cells.Cell($"{quality.RigidityDY:0.##}");
+                grid[iIndex, iCol] = new SourceGrid.Cells.Button(Properties.Resources.ID_EDIT);
+                grid[iIndex, iCol++].AddController(buttonEdit);
                 grid[iIndex, iCol] = new SourceGrid.Cells.Button("")
                 {
                     Image = Properties.Resources.Delete
@@ -145,14 +155,26 @@ namespace treeDiM.EdgeCrushTest
             grid.AutoSizeCells();
             grid.Columns.StretchToFit();
         }
+        private QualityData SelectedMaterial
+        {
+            get
+            {
+                SourceGrid.RangeRegion region = grid.Selection.GetSelectionRegion();
+                int[] indexes = region.GetRowsIndex();
+                // no selection -> exit
+                if (indexes.Length == 0)
+                    return null;
+                return CardboardQualityAccessor.Instance.CardboardQualities[indexes[0] - 1];
+            }
+        }
         #endregion
 
         #region Event handlers
         private void OnNewCardboardQuality(object sender, EventArgs e)
         {
-            var form = new FormEditCardboardQualityData();
+            var form = new FormEditCardboardQualityData() { Mode = FormEditCardboardQualityData.EMode.MODE_CREATE };
             if (DialogResult.OK == form.ShowDialog())
-                CardboardQualityAccessor.Instance.AddQuality(form.Name, form.Profile, form.Thickness, form.ECT, form.RigidityX, form.RigidityY);
+                CardboardQualityAccessor.Instance.AddQuality(form.QualityName, form.Profile, form.Thickness, form.ECT, form.StiffnessX, form.StiffnessY);
             FillGrid();
         }
         private void OnDeleteItem(object sender, EventArgs e)
@@ -161,6 +183,34 @@ namespace treeDiM.EdgeCrushTest
             int iSel = context.Position.Row - 1;
             CardboardQualityAccessor.Instance.RemoveQuality(iSel);
             FillGrid();
+        }
+        private void OnEditItem(object sender, EventArgs e)
+        {
+            SourceGrid.CellContext context = (SourceGrid.CellContext)sender;
+            int iSel = context.Position.Row - 1;
+            QualityData q = CardboardQualityAccessor.Instance.CardboardQualities[iSel];
+            var form = new FormEditCardboardQualityData()
+            {
+                Mode = FormEditCardboardQualityData.EMode.MODE_MODIFY,
+                QualityName = q.Name,
+                Profile = q.Profile,
+                Thickness = q.Thickness,
+                ECT = q.ECT,
+                StiffnessX = q.RigidityDX,
+                StiffnessY = q.RigidityDY
+            };
+            if (DialogResult.OK == form.ShowDialog())
+            {
+                CardboardQualityAccessor.Instance.RemoveQuality(iSel);
+                CardboardQualityAccessor.Instance.AddQuality(
+                    form.QualityName,
+                    form.Profile,
+                    form.Thickness,
+                    form.ECT,
+                    form.StiffnessX,
+                    form.StiffnessY);
+                FillGrid();
+            }
         }
         #endregion
 

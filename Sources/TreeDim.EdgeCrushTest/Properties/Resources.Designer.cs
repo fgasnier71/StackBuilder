@@ -107,6 +107,15 @@ namespace treeDiM.EdgeCrushTest.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {0}-{1} out of {2}.
+        /// </summary>
+        internal static string ID_DATABASEITEMCOUNT {
+            get {
+                return ResourceManager.GetString("ID_DATABASEITEMCOUNT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Delete.
         /// </summary>
         internal static string ID_DELETE {
@@ -116,11 +125,56 @@ namespace treeDiM.EdgeCrushTest.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Description.
+        /// </summary>
+        internal static string ID_DESCRIPTION {
+            get {
+                return ResourceManager.GetString("ID_DESCRIPTION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dimensions ({0}).
+        /// </summary>
+        internal static string ID_DIMENSIONS {
+            get {
+                return ResourceManager.GetString("ID_DIMENSIONS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ECT.
         /// </summary>
         internal static string ID_ECT {
             get {
                 return ResourceManager.GetString("ID_ECT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit.
+        /// </summary>
+        internal static string ID_EDIT {
+            get {
+                return ResourceManager.GetString("ID_EDIT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Description field is empty.
+        /// </summary>
+        internal static string ID_FIELDDESCRIPTIONEMPTY {
+            get {
+                return ResourceManager.GetString("ID_FIELDDESCRIPTIONEMPTY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name field is empty.
+        /// </summary>
+        internal static string ID_FIELDNAMEEMPTY {
+            get {
+                return ResourceManager.GetString("ID_FIELDNAMEEMPTY", resourceCulture);
             }
         }
         
@@ -143,11 +197,29 @@ namespace treeDiM.EdgeCrushTest.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {0} already exists!.
+        /// </summary>
+        internal static string ID_NAMEALREADYEXISTS {
+            get {
+                return ResourceManager.GetString("ID_NAMEALREADYEXISTS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Profile.
         /// </summary>
         internal static string ID_PROFILE {
             get {
                 return ResourceManager.GetString("ID_PROFILE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ready.
+        /// </summary>
+        internal static string ID_READY {
+            get {
+                return ResourceManager.GetString("ID_READY", resourceCulture);
             }
         }
         
@@ -179,11 +251,56 @@ namespace treeDiM.EdgeCrushTest.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Static BCT ({0}).
+        /// </summary>
+        internal static string ID_STATICBCT_WU {
+            get {
+                return ResourceManager.GetString("ID_STATICBCT_WU", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Thickness.
         /// </summary>
         internal static string ID_THICKNESS {
             get {
                 return ResourceManager.GetString("ID_THICKNESS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Thickness ({0}).
+        /// </summary>
+        internal static string ID_THICKNESS_WU {
+            get {
+                return ResourceManager.GetString("ID_THICKNESS_WU", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Value ought to be positive..
+        /// </summary>
+        internal static string ID_VALUEOUGHTTOBESPOSITIVE {
+            get {
+                return ResourceManager.GetString("ID_VALUEOUGHTTOBESPOSITIVE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Weight ({0}).
+        /// </summary>
+        internal static string ID_WEIGHT_WU {
+            get {
+                return ResourceManager.GetString("ID_WEIGHT_WU", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ready.
+        /// </summary>
+        internal static string IDS_READY {
+            get {
+                return ResourceManager.GetString("IDS_READY", resourceCulture);
             }
         }
         

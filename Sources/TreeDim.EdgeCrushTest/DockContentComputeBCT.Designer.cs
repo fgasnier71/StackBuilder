@@ -34,34 +34,41 @@
             this.cbPallets = new System.Windows.Forms.ComboBox();
             this.uCtrlCaseWeight = new treeDiM.Basics.UCtrlDouble();
             this.lbPallet = new System.Windows.Forms.Label();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButtonMaterialList = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripMain = new System.Windows.Forms.ToolStrip();
             this.toolStripLabelMcKeeFormula = new System.Windows.Forms.ToolStripLabel();
             this.tsCBMcKeeFormula = new System.Windows.Forms.ToolStripComboBox();
             this.uCtrlCaseDimensions = new treeDiM.Basics.UCtrlTriDouble();
             this.splitContainerVert = new System.Windows.Forms.SplitContainer();
             this.gridMat = new SourceGrid.Grid();
-            this.graphCtrl = new treeDiM.StackBuilder.Graphics.Graphics3DControl();
-            this.lbStackWeight = new System.Windows.Forms.Label();
-            this.lbStackCount = new System.Windows.Forms.Label();
-            this.lbDefWeight = new System.Windows.Forms.Label();
-            this.lbDefCount = new System.Windows.Forms.Label();
-            this.lbCountMax = new System.Windows.Forms.Label();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.lbWeightLowestCase = new System.Windows.Forms.Label();
+            this.lbDefWeightOnLowestCase = new System.Windows.Forms.Label();
             this.uCtrlNoLayers = new treeDiM.Basics.UCtrlInt();
+            this.graphCtrl = new treeDiM.StackBuilder.Graphics.Graphics3DControl();
+            this.lbDefCount = new System.Windows.Forms.Label();
+            this.lbStackWeight = new System.Windows.Forms.Label();
+            this.lbDefWeight = new System.Windows.Forms.Label();
+            this.lbStackCount = new System.Windows.Forms.Label();
+            this.gbDynamicBCT = new System.Windows.Forms.GroupBox();
             this.lbPrintedArea = new System.Windows.Forms.Label();
-            this.cbPrintedArea = new System.Windows.Forms.ComboBox();
             this.gridDynamicBCT = new SourceGrid.Grid();
+            this.cbPrintedArea = new System.Windows.Forms.ComboBox();
+            this.lbCountMax = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerHoriz)).BeginInit();
             this.splitContainerHoriz.Panel1.SuspendLayout();
             this.splitContainerHoriz.Panel2.SuspendLayout();
             this.splitContainerHoriz.SuspendLayout();
-            this.toolStrip1.SuspendLayout();
+            this.toolStripMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerVert)).BeginInit();
             this.splitContainerVert.Panel1.SuspendLayout();
             this.splitContainerVert.Panel2.SuspendLayout();
             this.splitContainerVert.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.graphCtrl)).BeginInit();
+            this.gbDynamicBCT.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainerHoriz
@@ -77,7 +84,7 @@
             this.splitContainerHoriz.Panel1.Controls.Add(this.cbPallets);
             this.splitContainerHoriz.Panel1.Controls.Add(this.uCtrlCaseWeight);
             this.splitContainerHoriz.Panel1.Controls.Add(this.lbPallet);
-            this.splitContainerHoriz.Panel1.Controls.Add(this.toolStrip1);
+            this.splitContainerHoriz.Panel1.Controls.Add(this.toolStripMain);
             this.splitContainerHoriz.Panel1.Controls.Add(this.uCtrlCaseDimensions);
             // 
             // splitContainerHoriz.Panel2
@@ -120,27 +127,14 @@
             resources.ApplyResources(this.lbPallet, "lbPallet");
             this.lbPallet.Name = "lbPallet";
             // 
-            // toolStrip1
+            // toolStripMain
             // 
-            resources.ApplyResources(this.toolStrip1, "toolStrip1");
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButtonMaterialList,
-            this.toolStripSeparator1,
+            resources.ApplyResources(this.toolStripMain, "toolStripMain");
+            this.toolStripMain.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.toolStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripLabelMcKeeFormula,
             this.tsCBMcKeeFormula});
-            this.toolStrip1.Name = "toolStrip1";
-            // 
-            // toolStripButtonMaterialList
-            // 
-            resources.ApplyResources(this.toolStripButtonMaterialList, "toolStripButtonMaterialList");
-            this.toolStripButtonMaterialList.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonMaterialList.Name = "toolStripButtonMaterialList";
-            this.toolStripButtonMaterialList.Click += new System.EventHandler(this.OnEditMaterialList);
-            // 
-            // toolStripSeparator1
-            // 
-            resources.ApplyResources(this.toolStripSeparator1, "toolStripSeparator1");
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripMain.Name = "toolStripMain";
             // 
             // toolStripLabelMcKeeFormula
             // 
@@ -186,16 +180,8 @@
             // splitContainerVert.Panel2
             // 
             resources.ApplyResources(this.splitContainerVert.Panel2, "splitContainerVert.Panel2");
-            this.splitContainerVert.Panel2.Controls.Add(this.graphCtrl);
-            this.splitContainerVert.Panel2.Controls.Add(this.lbStackWeight);
-            this.splitContainerVert.Panel2.Controls.Add(this.lbStackCount);
-            this.splitContainerVert.Panel2.Controls.Add(this.lbDefWeight);
-            this.splitContainerVert.Panel2.Controls.Add(this.lbDefCount);
+            this.splitContainerVert.Panel2.Controls.Add(this.splitContainer1);
             this.splitContainerVert.Panel2.Controls.Add(this.lbCountMax);
-            this.splitContainerVert.Panel2.Controls.Add(this.uCtrlNoLayers);
-            this.splitContainerVert.Panel2.Controls.Add(this.lbPrintedArea);
-            this.splitContainerVert.Panel2.Controls.Add(this.cbPrintedArea);
-            this.splitContainerVert.Panel2.Controls.Add(this.gridDynamicBCT);
             // 
             // gridMat
             // 
@@ -208,36 +194,37 @@
             this.gridMat.TabStop = true;
             this.gridMat.ToolTipText = "";
             // 
-            // graphCtrl
+            // splitContainer1
             // 
-            resources.ApplyResources(this.graphCtrl, "graphCtrl");
-            this.graphCtrl.Name = "graphCtrl";
-            this.graphCtrl.Viewer = null;
+            resources.ApplyResources(this.splitContainer1, "splitContainer1");
+            this.splitContainer1.Name = "splitContainer1";
             // 
-            // lbStackWeight
+            // splitContainer1.Panel1
             // 
-            resources.ApplyResources(this.lbStackWeight, "lbStackWeight");
-            this.lbStackWeight.Name = "lbStackWeight";
+            resources.ApplyResources(this.splitContainer1.Panel1, "splitContainer1.Panel1");
+            this.splitContainer1.Panel1.Controls.Add(this.lbWeightLowestCase);
+            this.splitContainer1.Panel1.Controls.Add(this.lbDefWeightOnLowestCase);
+            this.splitContainer1.Panel1.Controls.Add(this.uCtrlNoLayers);
+            this.splitContainer1.Panel1.Controls.Add(this.graphCtrl);
+            this.splitContainer1.Panel1.Controls.Add(this.lbDefCount);
+            this.splitContainer1.Panel1.Controls.Add(this.lbStackWeight);
+            this.splitContainer1.Panel1.Controls.Add(this.lbDefWeight);
+            this.splitContainer1.Panel1.Controls.Add(this.lbStackCount);
             // 
-            // lbStackCount
+            // splitContainer1.Panel2
             // 
-            resources.ApplyResources(this.lbStackCount, "lbStackCount");
-            this.lbStackCount.Name = "lbStackCount";
+            resources.ApplyResources(this.splitContainer1.Panel2, "splitContainer1.Panel2");
+            this.splitContainer1.Panel2.Controls.Add(this.gbDynamicBCT);
             // 
-            // lbDefWeight
+            // lbWeightLowestCase
             // 
-            resources.ApplyResources(this.lbDefWeight, "lbDefWeight");
-            this.lbDefWeight.Name = "lbDefWeight";
+            resources.ApplyResources(this.lbWeightLowestCase, "lbWeightLowestCase");
+            this.lbWeightLowestCase.Name = "lbWeightLowestCase";
             // 
-            // lbDefCount
+            // lbDefWeightOnLowestCase
             // 
-            resources.ApplyResources(this.lbDefCount, "lbDefCount");
-            this.lbDefCount.Name = "lbDefCount";
-            // 
-            // lbCountMax
-            // 
-            resources.ApplyResources(this.lbCountMax, "lbCountMax");
-            this.lbCountMax.Name = "lbCountMax";
+            resources.ApplyResources(this.lbDefWeightOnLowestCase, "lbDefWeightOnLowestCase");
+            this.lbDefWeightOnLowestCase.Name = "lbDefWeightOnLowestCase";
             // 
             // uCtrlNoLayers
             // 
@@ -255,18 +242,45 @@
             this.uCtrlNoLayers.Name = "uCtrlNoLayers";
             this.uCtrlNoLayers.ValueChanged += new treeDiM.Basics.UCtrlInt.ValueChangedDelegate(this.OnComputePalletization);
             // 
+            // graphCtrl
+            // 
+            resources.ApplyResources(this.graphCtrl, "graphCtrl");
+            this.graphCtrl.Name = "graphCtrl";
+            this.graphCtrl.Viewer = null;
+            // 
+            // lbDefCount
+            // 
+            resources.ApplyResources(this.lbDefCount, "lbDefCount");
+            this.lbDefCount.Name = "lbDefCount";
+            // 
+            // lbStackWeight
+            // 
+            resources.ApplyResources(this.lbStackWeight, "lbStackWeight");
+            this.lbStackWeight.Name = "lbStackWeight";
+            // 
+            // lbDefWeight
+            // 
+            resources.ApplyResources(this.lbDefWeight, "lbDefWeight");
+            this.lbDefWeight.Name = "lbDefWeight";
+            // 
+            // lbStackCount
+            // 
+            resources.ApplyResources(this.lbStackCount, "lbStackCount");
+            this.lbStackCount.Name = "lbStackCount";
+            // 
+            // gbDynamicBCT
+            // 
+            resources.ApplyResources(this.gbDynamicBCT, "gbDynamicBCT");
+            this.gbDynamicBCT.Controls.Add(this.lbPrintedArea);
+            this.gbDynamicBCT.Controls.Add(this.gridDynamicBCT);
+            this.gbDynamicBCT.Controls.Add(this.cbPrintedArea);
+            this.gbDynamicBCT.Name = "gbDynamicBCT";
+            this.gbDynamicBCT.TabStop = false;
+            // 
             // lbPrintedArea
             // 
             resources.ApplyResources(this.lbPrintedArea, "lbPrintedArea");
             this.lbPrintedArea.Name = "lbPrintedArea";
-            // 
-            // cbPrintedArea
-            // 
-            resources.ApplyResources(this.cbPrintedArea, "cbPrintedArea");
-            this.cbPrintedArea.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbPrintedArea.FormattingEnabled = true;
-            this.cbPrintedArea.Name = "cbPrintedArea";
-            this.cbPrintedArea.SelectedIndexChanged += new System.EventHandler(this.OnComputePalletization);
             // 
             // gridDynamicBCT
             // 
@@ -277,6 +291,19 @@
             this.gridDynamicBCT.SelectionMode = SourceGrid.GridSelectionMode.Cell;
             this.gridDynamicBCT.TabStop = true;
             this.gridDynamicBCT.ToolTipText = "";
+            // 
+            // cbPrintedArea
+            // 
+            resources.ApplyResources(this.cbPrintedArea, "cbPrintedArea");
+            this.cbPrintedArea.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbPrintedArea.FormattingEnabled = true;
+            this.cbPrintedArea.Name = "cbPrintedArea";
+            this.cbPrintedArea.SelectedIndexChanged += new System.EventHandler(this.OnComputePalletization);
+            // 
+            // lbCountMax
+            // 
+            resources.ApplyResources(this.lbCountMax, "lbCountMax");
+            this.lbCountMax.Name = "lbCountMax";
             // 
             // DockContentComputeBCT
             // 
@@ -293,14 +320,21 @@
             this.splitContainerHoriz.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerHoriz)).EndInit();
             this.splitContainerHoriz.ResumeLayout(false);
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
+            this.toolStripMain.ResumeLayout(false);
+            this.toolStripMain.PerformLayout();
             this.splitContainerVert.Panel1.ResumeLayout(false);
             this.splitContainerVert.Panel2.ResumeLayout(false);
             this.splitContainerVert.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerVert)).EndInit();
             this.splitContainerVert.ResumeLayout(false);
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel1.PerformLayout();
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.graphCtrl)).EndInit();
+            this.gbDynamicBCT.ResumeLayout(false);
+            this.gbDynamicBCT.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -313,9 +347,7 @@
         private SourceGrid.Grid gridDynamicBCT;
         private System.Windows.Forms.Label lbPrintedArea;
         private System.Windows.Forms.ComboBox cbPrintedArea;
-        private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton toolStripButtonMaterialList;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStrip toolStripMain;
         private System.Windows.Forms.ToolStripLabel toolStripLabelMcKeeFormula;
         private System.Windows.Forms.ToolStripComboBox tsCBMcKeeFormula;
         private Basics.UCtrlDouble uCtrlCaseWeight;
@@ -329,5 +361,9 @@
         private System.Windows.Forms.Label lbDefWeight;
         private System.Windows.Forms.Label lbDefCount;
         private StackBuilder.Graphics.Graphics3DControl graphCtrl;
+        private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.GroupBox gbDynamicBCT;
+        private System.Windows.Forms.Label lbWeightLowestCase;
+        private System.Windows.Forms.Label lbDefWeightOnLowestCase;
     }
 }
