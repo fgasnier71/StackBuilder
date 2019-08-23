@@ -133,7 +133,7 @@
     <value>Effacer</value>
   </data>
   <data name="ID_ECT" xml:space="preserve">
-    <value>RCV</value>
+    <value>ECT</value>
   </data>
   <data name="ID_MAXLAYERCOUNT" xml:space="preserve">
     <value>Nombre max. de couches</value>
@@ -154,7 +154,7 @@
     <value>RCV statique</value>
   </data>
   <data name="ID_THICKNESS" xml:space="preserve">
-    <value>Thickness</value>
+    <value>Epaisseur</value>
   </data>
   <data name="MCKEEFORMULA_CLASSIC" xml:space="preserve">
     <value>Classique</value>

@@ -145,7 +145,7 @@ namespace treeDiM.EdgeCrushTest
             viewColumnHeader.ElementSort.SortStyle = DevAge.Drawing.HeaderSortStyle.None;
             // set first row
             gridMat.BorderStyle = BorderStyle.FixedSingle;
-            gridMat.ColumnsCount = 5;
+            gridMat.ColumnsCount = 6;
             gridMat.FixedRows = 1;
             gridMat.Rows.Insert(0);
             // header
@@ -173,6 +173,13 @@ namespace treeDiM.EdgeCrushTest
             };
             gridMat[0, iCol++] = columnHeader;
             // ECT
+            columnHeader = new SourceGrid.Cells.ColumnHeader(Resources.ID_ECT)
+            {
+                AutomaticSortEnabled = false,
+                View = viewColumnHeader
+            };
+            gridMat[0, iCol++] = columnHeader;
+            // BCT
             columnHeader = new SourceGrid.Cells.ColumnHeader(Resources.ID_STATICBCT)
             {
                 AutomaticSortEnabled = false,
@@ -202,6 +209,7 @@ namespace treeDiM.EdgeCrushTest
                 gridMat[iIndex, iCol++] = new SourceGrid.Cells.Cell(quality.Name);
                 gridMat[iIndex, iCol++] = new SourceGrid.Cells.Cell(quality.Profile);
                 gridMat[iIndex, iCol++] = new SourceGrid.Cells.Cell($"{quality.Thickness:0.##}");
+                gridMat[iIndex, iCol++] = new SourceGrid.Cells.Cell($"{quality.ECT:0.##}");
 
                 double staticBCT = McKeeFormula.ComputeStaticBCT(dim.X, dim.Y, dim.Z, Resources.CASETYPE_AMERICANCASE, q, McKeeFormulaType);
                 int layerCount = (int)Math.Floor(staticBCT/(9.81 * CaseWeight)) + 1;
