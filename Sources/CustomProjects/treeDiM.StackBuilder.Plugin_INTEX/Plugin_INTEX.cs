@@ -1,8 +1,6 @@
 ﻿#region Using directives
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Drawing;
 
 using System.Windows.Forms;
@@ -10,6 +8,8 @@ using System.IO;
 
 using log4net;
 using Sharp3D.Math.Core;
+
+using treeDiM.Basics;
 using treeDiM.StackBuilder.Basics;
 using treeDiM.StackBuilder.Engine;
 #endregion
@@ -296,22 +296,29 @@ namespace treeDiM.StackBuilder.Plugin
                 double topPos = boxProperties.Height - margin - pictoSize;
                 // insert picto as a texture
                 boxProperties.AddTexture(HalfAxis.HAxis.AXIS_X_N
-                    , UnitsManager.ConvertLengthFrom(new Vector2D(width - margin - pictoSize, topPos), UnitsManager.UnitSystem.UNIT_METRIC2)
-                    , UnitsManager.ConvertLengthFrom(new Vector2D(pictoSize, pictoSize), UnitsManager.UnitSystem.UNIT_METRIC2)
+                    , ConvertLengthFrom(new Vector2D(width - margin - pictoSize, topPos), UnitsManager.UnitSystem.UNIT_METRIC2)
+                    , ConvertLengthFrom(new Vector2D(pictoSize, pictoSize), UnitsManager.UnitSystem.UNIT_METRIC2)
                     , 0, bmp);
                 boxProperties.AddTexture(HalfAxis.HAxis.AXIS_X_P
-                    , UnitsManager.ConvertLengthFrom(new Vector2D(width - margin - pictoSize, topPos), UnitsManager.UnitSystem.UNIT_METRIC2)
-                    , UnitsManager.ConvertLengthFrom(new Vector2D(pictoSize, pictoSize), UnitsManager.UnitSystem.UNIT_METRIC2)
+                    , ConvertLengthFrom(new Vector2D(width - margin - pictoSize, topPos), UnitsManager.UnitSystem.UNIT_METRIC2)
+                    , ConvertLengthFrom(new Vector2D(pictoSize, pictoSize), UnitsManager.UnitSystem.UNIT_METRIC2)
                     , 0, bmp);
                 boxProperties.AddTexture(HalfAxis.HAxis.AXIS_Y_N
-                    , UnitsManager.ConvertLengthFrom(new Vector2D(length - margin - pictoSize, topPos), UnitsManager.UnitSystem.UNIT_METRIC2)
-                    , UnitsManager.ConvertLengthFrom(new Vector2D(pictoSize, pictoSize), UnitsManager.UnitSystem.UNIT_METRIC2)
+                    , ConvertLengthFrom(new Vector2D(length - margin - pictoSize, topPos), UnitsManager.UnitSystem.UNIT_METRIC2)
+                    , ConvertLengthFrom(new Vector2D(pictoSize, pictoSize), UnitsManager.UnitSystem.UNIT_METRIC2)
                     , 0, bmp);
                 boxProperties.AddTexture(HalfAxis.HAxis.AXIS_Y_P
-                    , UnitsManager.ConvertLengthFrom(new Vector2D(length - margin - pictoSize, topPos), UnitsManager.UnitSystem.UNIT_METRIC2)
-                    , UnitsManager.ConvertLengthFrom(new Vector2D(pictoSize, pictoSize), UnitsManager.UnitSystem.UNIT_METRIC2)
+                    , ConvertLengthFrom(new Vector2D(length - margin - pictoSize, topPos), UnitsManager.UnitSystem.UNIT_METRIC2)
+                    , ConvertLengthFrom(new Vector2D(pictoSize, pictoSize), UnitsManager.UnitSystem.UNIT_METRIC2)
                     , 0, bmp);
             }
+        }
+        #endregion
+
+        #region Vector conversion
+        private Vector2D ConvertLengthFrom(Vector2D v, UnitsManager.UnitSystem us)
+        {
+            return new Vector2D(UnitsManager.ConvertLengthFrom(v.X, us), UnitsManager.ConvertLengthFrom(v.Y, us));
         }
         #endregion
 

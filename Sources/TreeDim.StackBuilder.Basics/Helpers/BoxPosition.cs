@@ -48,8 +48,8 @@ namespace treeDiM.StackBuilder.Basics
             pts[3] = Position + dimensions.X * vI + dimensions.Y * vJ;
             pts[4] = Position + dimensions.Z * vK;
             pts[5] = Position + dimensions.Y * vJ + dimensions.Z * vK;
-            pts[6] = Position + HalfAxis.ToVector3D(DirectionWidth) * dimensions.Y;
-            pts[7] = Position + HalfAxis.ToVector3D(DirectionLength) * dimensions.X + HalfAxis.ToVector3D(DirectionWidth) * dimensions.Y;
+            pts[6] = Position + dimensions.Y * vJ;
+            pts[7] = Position + dimensions.X * vI + dimensions.Y * vJ;
             foreach (Vector3D pt in pts)
                 bbox.Extend(pt);
             return bbox;
@@ -125,6 +125,59 @@ namespace treeDiM.StackBuilder.Basics
                 }
             }
             return boxPosTemp;
+        }
+        public bool IsPointInside(Vector3D dim, Vector3D pt)
+        {
+            var bbox = BBox(dim);
+            var ptMin = bbox.PtMin;
+            var ptMax = bbox.PtMax;
+            return (ptMin.X <= pt.X) && (pt.X <= ptMax.X)
+                && (ptMin.Y <= pt.Y) && (pt.Y <= ptMax.Y)
+                && (ptMin.Z <= pt.Z) && (pt.Z <= ptMax.Z);
+        }
+        public Vector3D[] TopFacePoints(Vector3D dim)
+        {
+            Vector3D[] points = Points(dim);
+            int[,] faceIndexes = {
+                { 3, 0, 4, 7},
+                { 1, 2, 6, 5},
+                { 0, 1, 5, 4},
+                { 2, 3, 7, 6},
+                { 3, 2, 1, 0},
+                { 4, 5, 6, 7}
+            };
+            Vector3D[] vFace = new Vector3D[4];
+            for (int i = 0; i < 6; ++i)
+            {
+                
+                for (int j = 0; j < 4; ++j)
+                    vFace[j] = points[faceIndexes[i, j]];
+                Vector3D faceNormal = Vector3D.CrossProduct(vFace[1] - vFace[0], vFace[2] - vFace[0]);
+                faceNormal.Normalize();
+                if (Math.Abs(Vector3D.DotProduct(faceNormal, Vector3D.ZAxis) - 1) < MathFunctions.EpsilonD)
+                    return vFace;
+            }
+            throw new Exception("No top face found?");
+        }
+        private Vector3D[] Points(Vector3D dim)
+        {
+            Vector3D position = Position;
+            Vector3D vI = HalfAxis.ToVector3D(DirectionLength);
+            Vector3D vJ = HalfAxis.ToVector3D(DirectionWidth);
+            Vector3D vK = Vector3D.CrossProduct(vI, vJ);
+
+            var points = new Vector3D[8];
+            points[0] = position;
+            points[1] = position + dim[0] * vI;
+            points[2] = position + dim[0] * vI + dim[1] * vJ;
+            points[3] = position + dim[1] * vJ;
+
+            points[4] = position + dim[2] * vK;
+            points[5] = position + dim[2] * vK + dim[0] * vI;
+            points[6] = position + dim[2] * vK + dim[0] * vI + dim[1] * vJ;
+            points[7] = position + dim[2] * vK + dim[1] * vJ;
+
+            return points;
         }
         #endregion
 
@@ -232,5 +285,92 @@ namespace treeDiM.StackBuilder.Basics
         #region Object method override
         public override string ToString() => $"{Position} | {Orientation}";
         #endregion
+    }
+
+    public class BoxInteraction
+    {
+        public static bool HaveIntersection(BoxPosition bPos1, Vector3D dim1, BoxPosition bPos2, Vector3D dim2)
+        {
+            var bbox1 = bPos1.BBox(dim1);
+            var bbox2 = bPos2.BBox(dim2);
+            Vector3D pt1 = bbox1.PtMin, pt2 = bbox1.PtMax;
+            Vector3D pt3 = bbox2.PtMin, pt4 = bbox2.PtMax;
+
+            Vector3D pt5 = new Vector3D(Math.Max(pt1.X, pt3.X), Math.Max(pt1.Y, pt3.Y), Math.Max(pt1.Z, pt3.Z));
+            Vector3D pt6 = new Vector3D(Math.Min(pt2.X, pt4.X), Math.Min(pt2.Y, pt4.Y), Math.Min(pt2.Z, pt4.Z));
+
+            // no intersections ?
+            if ((pt5.X - pt6.X > EPSILON)
+                || (pt5.Y - pt6.Y > EPSILON)
+                || (pt5.Z - pt6.Z > EPSILON))
+                return false;
+            else
+                return true;
+        }
+
+        public static bool MinDistance(
+            BoxPosition bPos1, Vector3D dim1
+            , BoxPosition bPos2, Vector3D dim2
+            , HalfAxis.HAxis axis
+            , ref double distance)
+        {
+            var bbox1 = bPos1.BBox(dim1);
+            var bbox2 = bPos2.BBox(dim2);
+            Vector3D pt1 = bbox1.PtMin, pt2 = bbox1.PtMax;
+            Vector3D pt3 = bbox2.PtMin, pt4 = bbox2.PtMax;
+
+            Vector3D pt5 = new Vector3D(Math.Max(pt1.X, pt3.X), Math.Max(pt1.Y, pt3.Y), Math.Max(pt1.Z, pt3.Z));
+            Vector3D pt6 = new Vector3D(Math.Min(pt2.X, pt4.X), Math.Min(pt2.Y, pt4.Y), Math.Min(pt2.Z, pt4.Z));
+
+            if (axis == HalfAxis.HAxis.AXIS_X_N || axis == HalfAxis.HAxis.AXIS_X_P)
+            {
+                if ((pt5.Y - pt6.Y > EPSILON) || (pt5.Z - pt6.Z > EPSILON))
+                    return false;
+                if (axis == HalfAxis.HAxis.AXIS_X_N)
+                {
+                    distance = pt1.X - pt4.X;
+                    return distance > 0.0;
+                }
+                else if (axis == HalfAxis.HAxis.AXIS_X_P)
+                {
+                    distance = pt3.X - pt2.X;
+                    return distance > 0.0;
+                }
+            }
+            else if (axis == HalfAxis.HAxis.AXIS_Y_N || axis == HalfAxis.HAxis.AXIS_Y_P)
+            {
+                if ((pt5.X - pt6.X > EPSILON) || (pt5.Z - pt6.Z > EPSILON))
+                    return false;
+                if (axis == HalfAxis.HAxis.AXIS_Y_N)
+                {
+                    distance = pt1.Y - pt4.Y;
+                    return distance > 0.0;
+                }
+                else if (axis == HalfAxis.HAxis.AXIS_Y_P)
+                {
+                    distance = pt3.Y - pt2.Y;
+                    return distance > 0.0;
+                }
+            }
+            else if (axis == HalfAxis.HAxis.AXIS_Z_N || axis == HalfAxis.HAxis.AXIS_Z_P)
+            {
+                if ((pt5.X - pt6.X > EPSILON) || (pt5.Y - pt6.Z > EPSILON))
+                    return false;
+                if (axis == HalfAxis.HAxis.AXIS_Z_N)
+                {
+                    distance = pt1.Z - pt4.Z;
+                    return distance > 0.0;
+                }
+                else if (axis == HalfAxis.HAxis.AXIS_Z_P)
+                {
+                    distance = pt3.Z - pt2.Z;
+                    return distance > 0.0;
+                }
+            }
+            distance = 0.0;
+            return false;
+        }
+
+        static readonly double EPSILON = 1.0E-03;
     }
 }

@@ -267,9 +267,9 @@
         private System.Windows.Forms.CheckBox chkUseIntermediatePacking;
         private System.Windows.Forms.StatusStrip statusStripDef;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelDef;
-        private Basics.UCtrlTriDouble uCtrlTriDimensions;
-        private Basics.UCtrlDouble uCtrlWeight;
-        private Basics.UCtrlDouble uCtrlThickness;
-        private Basics.UCtrlDouble uCtrlPalletHeight;
+        private treeDiM.Basics.UCtrlTriDouble uCtrlTriDimensions;
+        private treeDiM.Basics.UCtrlDouble uCtrlWeight;
+        private treeDiM.Basics.UCtrlDouble uCtrlThickness;
+        private treeDiM.Basics.UCtrlDouble uCtrlPalletHeight;
     }
 }

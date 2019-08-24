@@ -2,15 +2,12 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 using log4net;
 
-using treeDiM.StackBuilder.Basics;
+using treeDiM.Basics;
 #endregion
 
 namespace treeDiM.StackBuilder.Plugin
