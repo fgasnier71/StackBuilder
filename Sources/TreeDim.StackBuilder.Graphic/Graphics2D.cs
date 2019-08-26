@@ -12,9 +12,7 @@ namespace treeDiM.StackBuilder.Graphics
         /// Viewport
         /// </summary>
         private float[] _viewport = new float[4];
-        private uint _numberOfViews = 1;
         private uint _iIndexView = 0;
-        private Color _colorBackground = Color.White;
         #endregion
 
         #region Abstract methods and properties
@@ -28,8 +26,8 @@ namespace treeDiM.StackBuilder.Graphics
         /// </summary>
         public void Clear(Color color)
         {
-            _colorBackground = color;
-            Graphics.Clear(_colorBackground);
+            ColorBackground = color;
+            Graphics.Clear(ColorBackground);
         }
         /// <summary>
         /// SetViewport
@@ -40,20 +38,20 @@ namespace treeDiM.StackBuilder.Graphics
         /// <param name="ymax">ymax -> top</param>
         public void SetViewport(float xmin, float ymin, float xmax, float ymax)
         {
-            float aspectRatio = (float)Size.Width / ((float)Size.Height * _numberOfViews);
+            float aspectRatio = (float)Size.Width / ((float)Size.Height * NumberOfViews);
             float viewportRatio = (xmax-xmin)/(ymax-ymin);
 
             if (viewportRatio > aspectRatio)
             {   // pallet length
-                float margin = 0.1f * (xmax-xmin) / _numberOfViews;
+                float margin = 0.1f * (xmax-xmin) / NumberOfViews;
                 _viewport[0] = -margin;
                 _viewport[1] = -margin / aspectRatio;
-                _viewport[2] = (xmax-xmin)/_numberOfViews + margin;
-                _viewport[3] = ((xmax-xmin)/_numberOfViews + margin) / aspectRatio;
+                _viewport[2] = (xmax-xmin)/NumberOfViews + margin;
+                _viewport[3] = ((xmax-xmin)/NumberOfViews + margin) / aspectRatio;
             }
             else
             {   // pallet width
-                float margin = 0.1f * (xmax - xmin) / _numberOfViews;
+                float margin = 0.1f * (xmax - xmin) / NumberOfViews;
                 _viewport[0] = -margin * aspectRatio;
                 _viewport[1] = -margin;
                 _viewport[2] = (ymax - ymin + margin)*aspectRatio;
@@ -122,28 +120,21 @@ namespace treeDiM.StackBuilder.Graphics
             Pen pen = new Pen(penColor);
             g.DrawLines(pen, pt);
         }
-        public uint NumberOfViews
-        {
-            get { return _numberOfViews; }
-            set { _numberOfViews = value; }
-        }
+        public uint NumberOfViews { get; set; } = 1;
         public void SetCurrentView(uint iIndexView)
         {
             _iIndexView = iIndexView;
         }
         #endregion
 
-        #region Public properties
-        public Color ColorBackground
-        {
-            get { return _colorBackground; }
-        }
+        #region Private properties
+        public Color ColorBackground { get; private set; } = Color.White;
         #endregion
 
         #region Helpers
         private Point[] TransformPoint(Vector2D[] points2d)
         {
-            float aspectRatio = (float)Size.Width / ((float)Size.Height * _numberOfViews);
+            float aspectRatio = (float)Size.Width / ((float)Size.Height * NumberOfViews);
             float viewportRatio = (_viewport[2] - _viewport[0]) / (_viewport[3] - _viewport[1]);
             float margin = 0.1f * (_viewport[2] - _viewport[0]);
 
@@ -155,7 +146,7 @@ namespace treeDiM.StackBuilder.Graphics
                 {
                     points[i].X = (int)
                         (
-                        (float)(Size.Width / _numberOfViews)
+                        (float)(Size.Width / NumberOfViews)
                         * (_iIndexView + (v.X - _viewport[0] + margin)/(_viewport[2] - _viewport[0] + 2.0f * margin))
                         );
                     points[i].Y = (int)
@@ -167,7 +158,7 @@ namespace treeDiM.StackBuilder.Graphics
                 {
                     points[i].X = (int)
                         (
-                        (float)(Size.Width / _numberOfViews)
+                        (float)(Size.Width / NumberOfViews)
                         * (_iIndexView + (viewportRatio / aspectRatio) * (v.X - _viewport[0] + margin) / (_viewport[2] - _viewport[0] + 2.0f * margin))
                         );
                     points[i].Y = (int)
@@ -182,7 +173,7 @@ namespace treeDiM.StackBuilder.Graphics
 
         private Point[] TransformPoint(Vector3D[] points3d)
         {
-            float aspectRatio = (float)Size.Width / ((float)Size.Height * _numberOfViews);
+            float aspectRatio = (float)Size.Width / ((float)Size.Height * NumberOfViews);
             float viewportRatio = (_viewport[2] - _viewport[0]) / (_viewport[3] - _viewport[1]);
             float margin = 0.1f * (_viewport[2] - _viewport[0]);
 
@@ -194,7 +185,7 @@ namespace treeDiM.StackBuilder.Graphics
                 {
                     points[i].X = (int)
                         (
-                        (float)(Size.Width / _numberOfViews)
+                        (float)(Size.Width / NumberOfViews)
                         * (_iIndexView + (v.X - _viewport[0] + margin) / (_viewport[2] - _viewport[0] + 2.0f * margin))
                         );
                     points[i].Y = (int)
@@ -206,7 +197,7 @@ namespace treeDiM.StackBuilder.Graphics
                 {
                     points[i].X = (int)
                         (
-                        (float)(Size.Width / _numberOfViews)
+                        (float)(Size.Width / NumberOfViews)
                         * (_iIndexView + (viewportRatio / aspectRatio) * (v.X - _viewport[0] + margin) / (_viewport[2] - _viewport[0] + 2.0f * margin))
                         );
                     points[i].Y = (int)

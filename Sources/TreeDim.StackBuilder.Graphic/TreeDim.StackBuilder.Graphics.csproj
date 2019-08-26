@@ -89,6 +89,12 @@
     <Compile Include="Controls\CCtrlComboLayer.Designer.cs">
       <DependentUpon>CCtrlComboLayer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Graphics2DLayerEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Graphics2DLayerEditor.Designer.cs">
+      <DependentUpon>Graphics2DLayerEditor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\ItemBaseWrapper.cs" />
     <Compile Include="Controls\UCtrlCaseOrientation.cs">
       <SubType>UserControl</SubType>
@@ -230,11 +236,8 @@
     <EmbeddedResource Include="Controls\CCtrlComboLayer.tr.resx">
       <DependentUpon>CCtrlComboLayer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\Graphics3DControl.pt.resx">
-      <DependentUpon>Graphics3DControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\Graphics3DControl.tr.resx">
-      <DependentUpon>Graphics3DControl.cs</DependentUpon>
+    <EmbeddedResource Include="Controls\Graphics2DLayerEditor.resx">
+      <DependentUpon>Graphics2DLayerEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\UCtrlCaseOrientation.pt.resx">
       <DependentUpon>UCtrlCaseOrientation.cs</DependentUpon>
