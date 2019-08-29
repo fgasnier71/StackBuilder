@@ -30,7 +30,6 @@ namespace treeDiM.StackBuilder.Graphics
         #endregion
 
         #region Data members
-
         /// <summary>
         /// Viewport
         /// </summary>

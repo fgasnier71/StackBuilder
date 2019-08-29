@@ -1,5 +1,7 @@
 ﻿#region Data members
+using System;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using Sharp3D.Math.Core;
 #endregion
 
@@ -7,19 +9,10 @@ namespace treeDiM.StackBuilder.Graphics
 {
     public abstract class Graphics2D
     {
-        #region Data members
-        /// <summary>
-        /// Viewport
-        /// </summary>
-        private float[] _viewport = new float[4];
-        private uint _iIndexView = 0;
-        #endregion
-
         #region Abstract methods and properties
         abstract public System.Drawing.Graphics Graphics { get; }
-        abstract public System.Drawing.Size Size { get; }
+        abstract public Size Size { get; }
         #endregion
-
         #region Public methods
         /// <summary>
         /// Background color
@@ -38,42 +31,49 @@ namespace treeDiM.StackBuilder.Graphics
         /// <param name="ymax">ymax -> top</param>
         public void SetViewport(float xmin, float ymin, float xmax, float ymax)
         {
-            float aspectRatio = (float)Size.Width / ((float)Size.Height * NumberOfViews);
-            float viewportRatio = (xmax-xmin)/(ymax-ymin);
-
-            if (viewportRatio > aspectRatio)
+            if (ViewportRatio > AspectRatio)
             {   // pallet length
-                float margin = 0.1f * (xmax-xmin) / NumberOfViews;
-                _viewport[0] = -margin;
-                _viewport[1] = -margin / aspectRatio;
-                _viewport[2] = (xmax-xmin)/NumberOfViews + margin;
-                _viewport[3] = ((xmax-xmin)/NumberOfViews + margin) / aspectRatio;
+                float marginX = MarginRatio * (xmax - xmin) / NumberOfViews;
+                float marginY = MarginRatio * (ymax - ymin);
+                Viewport[0] = -marginX;
+                Viewport[1] = -marginX / AspectRatio;
+                Viewport[2] = (xmax - xmin) / NumberOfViews + marginX;
+                Viewport[3] = ((xmax - xmin) / NumberOfViews + marginX) / AspectRatio;
             }
             else
             {   // pallet width
                 float margin = 0.1f * (xmax - xmin) / NumberOfViews;
-                _viewport[0] = -margin * aspectRatio;
-                _viewport[1] = -margin;
-                _viewport[2] = (ymax - ymin + margin)*aspectRatio;
-                _viewport[3] = ymax - ymin + margin;
+                Viewport[0] = -margin * AspectRatio;
+                Viewport[1] = -margin;
+                Viewport[2] = (ymax - ymin + margin) * AspectRatio;
+                Viewport[3] = ymax - ymin + margin;
             }
-            
-            _viewport[0] = xmin;
-            _viewport[1] = ymin;
-            _viewport[2] = xmax;
-            _viewport[3] = ymax;
-        }
 
+            Viewport[0] = xmin;
+            Viewport[1] = ymin;
+            Viewport[2] = xmax;
+            Viewport[3] = ymax;
+        }
+        public void SetCurrentView(uint iIndexView)
+        {
+            IIndexView = iIndexView;
+        }
+        #endregion
+        #region Drawing methods
         public void DrawBox(Box box)
         {
             System.Drawing.Graphics g = Graphics;
 
+            Brush brushPath = new SolidBrush(box.TopFace.ColorPath);
+            Pen penPath = new Pen(brushPath);
+
             // get points
-            Point[] pt = TransformPoint( box.TopFace.Points);
+            Point[] pt = TransformPoint(box.TopFace.Points);
 
             // draw solid face
             Brush brushSolid = new SolidBrush(box.TopFace.ColorFill);
             g.FillPolygon(brushSolid, pt);
+            g.DrawPolygon(penPath, pt);
             // draw box tape
             if (box.TapeWidth.Activated)
             {
@@ -82,11 +82,17 @@ namespace treeDiM.StackBuilder.Graphics
                 // fill polygon
                 Point[] pts = TransformPoint(box.TapePoints);
                 g.FillPolygon(brushTape, pts);
+                g.DrawPolygon(penPath, pts);
             }
-
-            Brush brushPath = new SolidBrush(box.TopFace.ColorPath);
+        }
+        public void DrawBoxSelected(Box box)
+        {
+            Brush brushPath = new SolidBrush(Color.Red);
             Pen penPath = new Pen(brushPath);
-            g.DrawPolygon(penPath, pt);
+
+            // get points
+            Point[] pt = TransformPoint(box.TopFace.Points);
+            Graphics.DrawPolygon(penPath, pt);
         }
         public void DrawCylinder(Cylinder cyl)
         {
@@ -111,7 +117,7 @@ namespace treeDiM.StackBuilder.Graphics
             Point[] pt = TransformPoint(new Vector2D[] { vMin, vMax });
             System.Drawing.Graphics g = Graphics;
             Pen penRect = new Pen(penColor);
-            g.DrawRectangle(penRect, pt[0].X, pt[0].Y, pt[1].X-pt[0].X, pt[1].Y-pt[0].Y);
+            g.DrawRectangle(penRect, Math.Min(pt[0].X, pt[1].X), Math.Min(pt[0].Y, pt[1].Y), Math.Abs(pt[1].X - pt[0].X), Math.Abs(pt[1].Y - pt[0].Y));
         }
         public void DrawLine(Vector2D v1, Vector2D v2, Color penColor)
         {
@@ -120,95 +126,152 @@ namespace treeDiM.StackBuilder.Graphics
             Pen pen = new Pen(penColor);
             g.DrawLines(pen, pt);
         }
-        public uint NumberOfViews { get; set; } = 1;
-        public void SetCurrentView(uint iIndexView)
+
+        public void DrawArrow(Vector2D v, int iDir, int length, int baseDistance, int radius, Color color, out Rectangle rectButton)
         {
-            _iIndexView = iIndexView;
+            Pen pen = new Pen(color, 5)
+            {
+                StartCap = LineCap.Flat,
+                EndCap = LineCap.ArrowAnchor
+            };
+            Point[] pt = TransformPoint(new Vector2D[] { v });
+            Point pt0 = pt[0], pt1 = pt[0];
+            switch (iDir)
+            {
+                case 0: pt0.Offset(baseDistance, 0); pt1.Offset(length, 0); break;
+                case 1: pt0.Offset(0, -baseDistance); pt1.Offset(0, -length); break;
+                case 2: pt0.Offset(-baseDistance, 0); pt1.Offset(-length, 0); break;
+                case 3: pt0.Offset(0, baseDistance); pt1.Offset(0, length); break;
+                default: break;
+            }
+            Graphics.DrawLine(pen, pt0, pt1);
+
+            Point ptMiddle = new Point((pt0.X + pt1.X) / 2 - radius, (pt0.Y + pt1.Y) / 2 - radius);
+            rectButton = new Rectangle(ptMiddle, new Size(2 * radius, 2 * radius));
+
+            Brush brushSolid = new SolidBrush(color);
+            Graphics.FillEllipse(brushSolid, rectButton);
+        }
+        public void DrawArcArrow(Vector2D v, int length, int radius, Color color, out Rectangle rectButton)
+        {
+            Pen pen = new Pen(color, 5)
+            {
+                StartCap = LineCap.Flat,
+                EndCap = LineCap.ArrowAnchor
+            };
+            Point[] pt = TransformPoint(new Vector2D[] { v });
+
+            Graphics.DrawArc(pen, pt[0].X - length, pt[0].Y - length, 2 * length, 2 * length, -10.0F, -80.0F);
+
+            Point ptMiddle = new Point(pt[0].X + (int)(length * Math.Cos(0.25 * Math.PI)) - radius, pt[0].Y - (int)(length * Math.Sin(0.25 * Math.PI)) - radius);
+            rectButton = new Rectangle(ptMiddle, new Size(2 * radius, 2 * radius));
+
+            Brush brushSolid = new SolidBrush(color);
+            Graphics.FillEllipse(brushSolid, rectButton);
         }
         #endregion
-
-        #region Private properties
+        #region Public properties
+        public uint NumberOfViews { get; set; } = 1;
+        public float[] Viewport { get; set; } = new float[4];
+        public uint IIndexView { get; set; } = 0;
         public Color ColorBackground { get; private set; } = Color.White;
         #endregion
+        #region Private helpers
+        private float AspectRatio => Size.Width / ((float)Size.Height * NumberOfViews);
+        private float ViewportRatio => (Viewport[2] - Viewport[0]) / (Viewport[3] - Viewport[1]);
+        private float MarginX => MarginRatio * (Viewport[2] - Viewport[0]);
+        private float MarginY => MarginRatio * (Viewport[3] - Viewport[1]);
+        public float MarginRatio { get; set; } = 0.1f;
 
-        #region Helpers
+        public Vector2D ReverseTransform(Point pt)
+        {
+            double VPSpanX = Viewport[2] - Viewport[0] + 2 * MarginX;
+            double VPSpanY = Viewport[3] - Viewport[1] + 2 * MarginY;
+            double VRatio = ViewportRatio / AspectRatio;
+
+            if (VRatio >= 1)
+            {
+                return new Vector2D(
+                    Viewport[0] - MarginX + VPSpanX * (NumberOfViews * ((double)pt.X / Size.Width) - IIndexView),
+                    Viewport[3] + MarginY - pt.Y  * VRatio * VPSpanY / (double)Size.Height
+                    );
+            }
+            else
+            {
+                return new Vector2D(
+                    Viewport[0] - MarginX + (VPSpanX/VRatio) * ((pt.X/(double)Size.Width) * NumberOfViews - IIndexView),
+                    Viewport[3] + MarginY - (pt.Y / (double)Size.Height) * VPSpanY
+                    );
+            }
+        }
         private Point[] TransformPoint(Vector2D[] points2d)
         {
-            float aspectRatio = (float)Size.Width / ((float)Size.Height * NumberOfViews);
-            float viewportRatio = (_viewport[2] - _viewport[0]) / (_viewport[3] - _viewport[1]);
-            float margin = 0.1f * (_viewport[2] - _viewport[0]);
+            double VPSpanX = Viewport[2] - Viewport[0] + 2 * MarginX;
+            double VPSpanY = Viewport[3] - Viewport[1] + 2 * MarginY;
+            double VRatio = ViewportRatio / AspectRatio;
 
             Point[] points = new Point[points2d.Length];
             int i = 0;
+
             foreach (Vector2D v in points2d)
             {
-                if (viewportRatio > aspectRatio)
+                if (VRatio >= 1)
                 {
-                    points[i].X = (int)
-                        (
-                        (float)(Size.Width / NumberOfViews)
-                        * (_iIndexView + (v.X - _viewport[0] + margin)/(_viewport[2] - _viewport[0] + 2.0f * margin))
+                    points[i].X = (int) (
+                        (float)(Size.Width / NumberOfViews) * (IIndexView + (v.X - Viewport[0] + MarginX) / VPSpanX)
                         );
-                    points[i].Y = (int)
-                        (
-                        Size.Height * aspectRatio / viewportRatio * (1.0f - (_viewport[3] - v.Y + margin) / (_viewport[3] - _viewport[1] + 2.0f * margin))
+                    points[i].Y = (int) (
+                        (Size.Height / VRatio) * (Viewport[3] - v.Y + MarginY) / VPSpanY
                         );
                 }
                 else
                 {
-                    points[i].X = (int)
-                        (
-                        (float)(Size.Width / NumberOfViews)
-                        * (_iIndexView + (viewportRatio / aspectRatio) * (v.X - _viewport[0] + margin) / (_viewport[2] - _viewport[0] + 2.0f * margin))
+                    points[i].X = (int) (
+                        (float)(Size.Width / NumberOfViews) * (IIndexView + VRatio * (v.X - Viewport[0] + MarginX) / VPSpanX)
                         );
-                    points[i].Y = (int)
-                        (
-                        Size.Height * (v.Y - _viewport[1] + margin) / (_viewport[3] - _viewport[1] + 2.0f * margin)
+                    points[i].Y = (int) (
+                        Size.Height * (Viewport[3] - v.Y + MarginY) / VPSpanY
                         );
                 }
                 ++i;
             }
             return points;
         }
-
         private Point[] TransformPoint(Vector3D[] points3d)
         {
-            float aspectRatio = (float)Size.Width / ((float)Size.Height * NumberOfViews);
-            float viewportRatio = (_viewport[2] - _viewport[0]) / (_viewport[3] - _viewport[1]);
-            float margin = 0.1f * (_viewport[2] - _viewport[0]);
+            double VPSpanX = Viewport[2] - Viewport[0] + 2 * MarginX;
+            double VPSpanY = Viewport[3] - Viewport[1] + 2 * MarginY;
+            double VRatio = ViewportRatio / AspectRatio;
 
             Point[] points = new Point[points3d.Length];
-            int i=0;
+            int i = 0;
             foreach (Vector3D v in points3d)
             {
-                if (viewportRatio > aspectRatio)
+                if (ViewportRatio > AspectRatio)
                 {
-                    points[i].X = (int)
-                        (
-                        (float)(Size.Width / NumberOfViews)
-                        * (_iIndexView + (v.X - _viewport[0] + margin) / (_viewport[2] - _viewport[0] + 2.0f * margin))
+                    points[i].X = (int)(
+                        (float)(Size.Width / NumberOfViews) * (IIndexView + (v.X - Viewport[0] + MarginX) / VPSpanX)
                         );
-                    points[i].Y = (int)
-                        (
-                        Size.Height * aspectRatio / viewportRatio * (v.Y - _viewport[1] + margin) / (_viewport[3] - _viewport[1] + 2.0f * margin)
+                    points[i].Y = (int)(
+                        (Size.Height / VRatio) * (Viewport[3] - v.Y + MarginY) / VPSpanY
                         );
                 }
                 else
                 {
-                    points[i].X = (int)
-                        (
-                        (float)(Size.Width / NumberOfViews)
-                        * (_iIndexView + (viewportRatio / aspectRatio) * (v.X - _viewport[0] + margin) / (_viewport[2] - _viewport[0] + 2.0f * margin))
+                    points[i].X = (int)(
+                        (float)(Size.Width / NumberOfViews) * (IIndexView + VRatio * (v.X - Viewport[0] + MarginX) / VPSpanX)
                         );
-                    points[i].Y = (int)
-                        (
-                        Size.Height * (v.Y - _viewport[1] + margin) / (_viewport[3] - _viewport[1] + 2.0f * margin)
+                    points[i].Y = (int)(
+                        Size.Height * (Viewport[3] - v.Y + MarginY) / VPSpanY
                         );
                 }
                 ++i;
             }
             return points;
         }
+        #endregion
+        #region Data members
+        public int SelectedItem { get; set; } = -1;
         #endregion
     }
 }
