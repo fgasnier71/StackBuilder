@@ -169,6 +169,10 @@ namespace treeDiM.StackBuilder.Graphics
             Brush brushSolid = new SolidBrush(color);
             Graphics.FillEllipse(brushSolid, rectButton);
         }
+        public void DrawText(string sText)
+        {
+            Graphics.DrawString(sText, new Font("Arial", 10), new SolidBrush(Color.Red), new PointF(5, Size.Height - 20));
+        }
         #endregion
         #region Public properties
         public uint NumberOfViews { get; set; } = 1;

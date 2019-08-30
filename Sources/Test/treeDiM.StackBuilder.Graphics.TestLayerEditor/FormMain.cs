@@ -37,8 +37,11 @@ namespace treeDiM.StackBuilder.Graphics.TestLayerEditor
             BoxPositions.Add(new BoxPosition(new Vector3D(700.0, 300.0, 0.0), HalfAxis.HAxis.AXIS_Y_P, HalfAxis.HAxis.AXIS_X_N));
             BoxPositions.Add(new BoxPosition(new Vector3D(700.0, 400.0, 0.0), HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P));
 
-            layerEditor.PtMin = new Vector2D(-400.0, -400.0);
-            layerEditor.PtMax = new Vector2D(1500.0, 1400.0);
+            layerEditor.VPMin = new Vector2D(-400.0, -400.0);
+            layerEditor.VPMax = new Vector2D(1500.0, 1400.0);
+            layerEditor.PtMin = new Vector2D(0.0, 0.0);
+            layerEditor.PtMax = new Vector2D(1200.0, 1000.0);
+
             layerEditor.Content = Content;
             layerEditor.Positions = BoxPositions;
             layerEditor.Invalidate();
@@ -52,5 +55,10 @@ namespace treeDiM.StackBuilder.Graphics.TestLayerEditor
 
         public List<BoxPosition> BoxPositions { get; set; } = new List<BoxPosition>();
         public BoxProperties Content { get; set; }
+
+        private void OnSaveEnabled(bool enable)
+        {
+            bnOK.Enabled = enable;
+        }
     }
 }

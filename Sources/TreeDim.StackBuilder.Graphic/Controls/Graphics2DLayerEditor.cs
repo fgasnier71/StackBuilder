@@ -23,20 +23,21 @@ namespace treeDiM.StackBuilder.Graphics
             InitializeComponent();
         }
         #endregion
-
         #region Public properties
+        public Vector2D VPMin { get; set; }
+        public Vector2D VPMax { get; set; }
         public Vector2D PtMin { get; set; }
         public Vector2D PtMax { get; set; }
+        public bool AllBoxesInside => _allBoxesInside;
         #endregion
-
-        #region UserControl overrides
+        #region UserControl overrides (Drawing)
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
             try
             {
                 Graphics = new Graphics2DForm(this, e.Graphics);
-                Graphics.SetViewport((float)PtMin.X, (float)PtMin.Y, (float)PtMax.X, (float)PtMax.Y);
+                Graphics.SetViewport((float)VPMin.X, (float)VPMin.Y, (float)VPMax.X, (float)VPMax.Y);
 
                 BoxProperties boxProperties = Content as BoxProperties;
                 uint pickId = 0;
@@ -49,12 +50,14 @@ namespace treeDiM.StackBuilder.Graphics
 
                 if (-1 != SelectedIndex)
                 {
-                    Box boxSelected = new Box((uint)SelectedIndex, boxProperties, Positions[SelectedIndex]);
+                    BoxPosition bPos = Positions[SelectedIndex];
+                    Box boxSelected = new Box((uint)SelectedIndex, boxProperties, bPos);
                     Graphics.DrawBoxSelected(boxSelected);
 
                     ArrowButtons.Clear();
                     Vector2D ptCenter = new Vector2D(boxSelected.Center.X, boxSelected.Center.Y);
 
+                    // draw translation arrows
                     for (int i = 0; i < 4; ++i)
                     {
                         if (Arrows[i])
@@ -63,9 +66,12 @@ namespace treeDiM.StackBuilder.Graphics
                             ArrowButtons.Add(i, rect);
                         }
                     }
-
+                    // draw rotation arrows
                     if (ArrowRotate)
-                        Graphics.DrawArcArrow(ptCenter, 50, 10, Color.Red, out Rectangle rectRotation);
+                        Graphics.DrawArcArrow(ptCenter, 75, 10, Color.Red, out _rotateRectangle);
+
+                    // draw position
+                    Graphics.DrawText($"({bPos.Position.X:0.##}, {bPos.Position.Y:0.##}, {bPos.Position.Z:0.##}), {HalfAxis.ToString(bPos.DirectionLength)}, {HalfAxis.ToString(bPos.DirectionWidth)}");
                 }
             }
             catch (Exception ex)
@@ -74,7 +80,6 @@ namespace treeDiM.StackBuilder.Graphics
             }
         }
         #endregion
-
         #region Event handlers
         private void OnMouseDown(object sender, MouseEventArgs e)
         {
@@ -83,8 +88,14 @@ namespace treeDiM.StackBuilder.Graphics
                 if (item.Value.Contains(e.Location))
                 {
                     StartMove(item.Key);
-                    break;
+                    return;
                 }
+            }
+            if (null != _rotateRectangle && _rotateRectangle.Contains(e.Location))
+            {
+                BoxPosition pos = Positions[SelectedIndex].RotateZ90(Dimensions);
+                Positions[SelectedIndex] = pos;
+                Moving = true;
             }
         }
         private void OnMouseUp(object sender, MouseEventArgs e)
@@ -97,9 +108,8 @@ namespace treeDiM.StackBuilder.Graphics
             else
             {
                 Vector2D pt = Graphics.ReverseTransform(e.Location);
-                BoxProperties boxProperties = Content as BoxProperties;
                 // selected index
-                SelectedIndex = BoxInteraction.SelectedPosition(Positions, boxProperties.OuterDimensions, pt);
+                SelectedIndex = BoxInteraction.SelectedPosition(Positions, Dimensions, pt);
             }
 
             UpdateArrows();
@@ -124,7 +134,6 @@ namespace treeDiM.StackBuilder.Graphics
                 }
                 EndMove();
             }
-
             CountMove++;
 
             UpdateArrows();
@@ -139,10 +148,7 @@ namespace treeDiM.StackBuilder.Graphics
             timerMove.Start();
             Moving = true;
         }
-        private void EndMove()
-        {
-            timerMove.Stop();
-        }
+        private void EndMove() => timerMove.Stop();
         private double StepMove
         {
             get
@@ -155,17 +161,28 @@ namespace treeDiM.StackBuilder.Graphics
         }
         private int CountMove { get; set; }
         #endregion
-
-        #region Distances
+        #region Update arrows
         private void UpdateArrows()
         {
             Vector3D dim = Dimensions;
-            Arrows = Enumerable.Repeat(false, 4).ToArray();
-            for (int i = 0; i < 4; ++i)
+            if (-1 != SelectedIndex)
             {
-                double distance = 0.0;
-                if (!BoxInteraction.MinDistance(Positions, dim, SelectedIndex, Directions[i], ref distance) || distance > 0.1)
-                    Arrows[i] = true;
+                // allow translations
+                Arrows = Enumerable.Repeat(false, 4).ToArray();
+                for (int i = 0; i < 4; ++i)
+                {
+                    double distance = 0.0;
+                    if (!BoxInteraction.MinDistance(Positions, dim, SelectedIndex, Directions[i], ref distance) || distance > 0.1)
+                        Arrows[i] = true;
+                }
+                // allow rotations
+                ArrowRotate = !BoxInteraction.HaveIntersection(Positions, dim, SelectedIndex, Positions[SelectedIndex].RotateZ90(dim));
+            }
+            bool allBoxesInside = BoxInteraction.BoxesAreInside(Positions, dim, PtMin, PtMax);
+            if (_allBoxesInside != allBoxesInside)
+            {
+                _allBoxesInside = allBoxesInside;
+                SaveEnabled?.Invoke(_allBoxesInside);
             }
         }
         #endregion
@@ -180,6 +197,10 @@ namespace treeDiM.StackBuilder.Graphics
                     return Vector3D.Zero;
             }
         }
+        #endregion
+        #region Delegate / Event
+        public delegate void EnableSave(bool enable);
+        public event EnableSave SaveEnabled;
         #endregion
         #region Data members
         [Browsable(false),
@@ -199,9 +220,9 @@ namespace treeDiM.StackBuilder.Graphics
         private bool ArrowRotate = false;
         private bool Moving { get; set; } = false;
         private Dictionary<int, Rectangle> ArrowButtons { get; set; } = new Dictionary<int, Rectangle>();
+        private Rectangle _rotateRectangle;
+        private bool _allBoxesInside;
         private static readonly ILog _log = LogManager.GetLogger(typeof(Graphics2DLayerEditor));
         #endregion
-
-
     }
 }

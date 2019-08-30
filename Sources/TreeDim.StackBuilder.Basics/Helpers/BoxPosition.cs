@@ -76,6 +76,11 @@ namespace treeDiM.StackBuilder.Basics
             v += value * HalfAxis.ToVector3D(axis);
             return new BoxPosition(v, DirectionLength, DirectionWidth);
         }
+        public BoxPosition RotateZ90(Vector3D dim)
+        {
+            Vector3D centerOfRotation = Center(dim);
+            return Transform(this, Transform3D.Translation(centerOfRotation) * Transform3D.RotationZ(90.0) * Transform3D.Translation(-centerOfRotation));
+        }
         public BoxPosition RotateZ180(Vector3D dim)
         {
             Vector3D v = Position;
@@ -307,6 +312,21 @@ namespace treeDiM.StackBuilder.Basics
 
     public class BoxInteraction
     {
+        public static bool BoxIsInside(BoxPosition bPos, Vector3D dim, Vector2D ptMin, Vector2D ptMax)
+        {
+            var bbox = bPos.BBox(dim);
+            return ptMin.X <= bbox.PtMin.X && ptMin.Y <= bbox.PtMin.Y
+                && bbox.PtMax.X <= ptMax.X && bbox.PtMax.Y <= ptMax.Y;
+        }
+        public static bool BoxesAreInside(List<BoxPosition> list, Vector3D dim, Vector2D ptMin, Vector2D ptMax)
+        {
+            foreach (var bpos in list)
+            {
+                if (!BoxIsInside(bpos, dim, ptMin, ptMax))
+                    return false;
+            }
+            return true;
+        }
         public static bool PointIsInside(BoxPosition bPos, Vector3D dim, Vector2D pt)
         {
             var bbox = bPos.BBox(dim);
