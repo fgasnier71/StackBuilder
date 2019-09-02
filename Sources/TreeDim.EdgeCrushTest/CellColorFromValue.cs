@@ -50,7 +50,7 @@ namespace treeDiM.EdgeCrushTest
         #endregion
     }
     #endregion
-
+    /*
     internal class CellBackColorAlternate : SourceGrid.Cells.Views.Cell
     {
         public CellBackColorAlternate(Color firstColor, Color secondColor)
@@ -71,4 +71,5 @@ namespace treeDiM.EdgeCrushTest
                 Background = SecondBackground;
         }
     }
+    */
 }

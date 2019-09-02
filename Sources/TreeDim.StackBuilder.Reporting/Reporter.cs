@@ -55,71 +55,6 @@ namespace treeDiM.StackBuilder.Reporting
     }
     #endregion
 
-    #region ReportData
-    /// <summary>
-    /// class used to encapsulate an analysis and a solution
-    /// </summary>
-    public class ReportData
-    {
-        #region Data members
-        private Analysis _analysis;
-        #endregion
-
-        #region Constructors
-        public ReportData(Analysis analysis)
-        {
-            _analysis = analysis;
-        }
-        #endregion
-
-        #region Public accessors
-        public Document Document
-        {
-            get =>_analysis?.ParentDocument;
-        }
-
-        public string Title => _analysis != null ? _analysis.Name : string.Empty;
-        public Analysis MainAnalysis
-        {
-            get
-            {
-                if (null == _analysis) throw new ReportExceptionInvalidAnalysis();
-                return _analysis;
-            }
-        }
-        public bool IsValid => null != _analysis && (_analysis.HasValidSolution); 
-        #endregion
-
-        #region IItemListener related methods
-        public void AddListener(IItemListener listener)
-        {
-            _analysis.AddListener(listener);
-        }
-
-        public void RemoveListener(IItemListener listener)
-        {
-            _analysis.RemoveListener(listener);
-        }
-        #endregion
-
-        #region Object override
-        public override bool Equals(object obj)
-        {
-            if (obj is ReportData)
-            {
-                ReportData reportObject = obj as ReportData;
-                return _analysis == reportObject._analysis;
-            }
-            return false;
-        }
-        public override int GetHashCode()
-        {
-            return _analysis.GetHashCode();
-        }
-        #endregion
-    }
-    #endregion
-
     #region Reporter
     /// <summary>
     /// Generates pallet analyses reports
@@ -136,8 +71,6 @@ namespace treeDiM.StackBuilder.Reporting
 
         #region Data members
         protected static readonly ILog _log = LogManager.GetLogger(typeof(Reporter));
-        protected static bool _validateAgainstSchema = false;
-        protected static int _imageIndex = 0;
         #endregion
 
         #region Abstract members
@@ -199,10 +132,12 @@ namespace treeDiM.StackBuilder.Reporting
         private static int ImageHTMLSizeLarge { get; set; } = 500;
         public static float FontSizeRatioDetail { get; set; } = 6.0f;
         public static float FontSizeRatioLarge { get; set; } = 10.0f;
+        protected static bool ValidateAgainstSchema { get; set; } = false;
+        protected static int ImageIndex { get; set; } = 0;
         #endregion
 
         #region Report generation
-        public void BuildAnalysisReport(ReportData inputData, ref ReportNode rootNode, string reportTemplatePath, string outputFilePath)
+        public void BuildAnalysisReport(ReportDataAnalysis inputData, ref ReportNode rootNode, string reportTemplatePath, string outputFilePath)
         {
             // initialize image index
             // verify if inputData is a valid entry
@@ -224,7 +159,7 @@ namespace treeDiM.StackBuilder.Reporting
             // validate against schema
             // note xml file validation against xml schema produces a large number of errors
             // For the moment, I can not remove all errors
-            if (_validateAgainstSchema)
+            if (ValidateAgainstSchema)
                 ValidateXmlDocument(xmlData, Path.Combine(Path.GetDirectoryName(absReportTemplatePath), "ReportSchema.xsd"));
             // check availibility of files
             if (!File.Exists(absReportTemplatePath))
@@ -310,7 +245,7 @@ namespace treeDiM.StackBuilder.Reporting
         #endregion
 
         #region Static methods to build xml report
-        public void CreateAnalysisDataFile(ReportData inputData, ref ReportNode rootNode, string xmlDataFilePath, bool writeNamespace)
+        public void CreateAnalysisDataFile(ReportDataAnalysis inputData, ref ReportNode rootNode, string xmlDataFilePath, bool writeNamespace)
         {
             // instantiate XmlDocument
             XmlDocument xmlDoc = new XmlDocument();
@@ -651,8 +586,8 @@ namespace treeDiM.StackBuilder.Reporting
                 try
                 {
                     // instantiate solution viewer
-                    ViewerSolution sv = new ViewerSolution(sol);
-                    sv.Draw(graphics, Transform3D.Identity);
+                    using (ViewerSolution sv = new ViewerSolution(sol))
+                        sv.Draw(graphics, Transform3D.Identity);
                     graphics.Flush();
                 }
                 catch (Exception ex)
@@ -1497,7 +1432,7 @@ namespace treeDiM.StackBuilder.Reporting
         private string SaveImageAs(Bitmap bmp)
         {
             if (!WriteImageFiles) return string.Empty;
-            string fileName = string.Format("image_{0}.png", ++_imageIndex);
+            string fileName = string.Format("image_{0}.png", ++ImageIndex);
             try { bmp.Save(Path.Combine(ImageDirectory, fileName), System.Drawing.Imaging.ImageFormat.Png); }
             catch (Exception ex)
             {

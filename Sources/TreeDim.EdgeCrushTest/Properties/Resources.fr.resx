@@ -136,7 +136,8 @@
     <value>ECT</value>
   </data>
   <data name="ID_MAXLAYERCOUNT" xml:space="preserve">
-    <value>Nombre max. de couches</value>
+    <value>Nombre maximum
+de couches</value>
   </data>
   <data name="ID_NAME" xml:space="preserve">
     <value>Nom</value>
@@ -181,7 +182,7 @@
     <value>Inconnu</value>
   </data>
   <data name="STORAGEDURATION_0DAY" xml:space="preserve">
-    <value>0day</value>
+    <value>0 jour</value>
   </data>
   <data name="STORAGEDURATION_11_30DAYS" xml:space="preserve">
     <value>11-30 jours</value>
@@ -223,13 +224,16 @@
     <value>Prêt</value>
   </data>
   <data name="ID_STATICBCT_WU" xml:space="preserve">
-    <value>RCV statique ({0})</value>
+    <value>RCV statique
+({0})</value>
   </data>
   <data name="ID_THICKNESS_WU" xml:space="preserve">
-    <value>Epaisseur ({0})</value>
+    <value>Epaisseur
+({0})</value>
   </data>
   <data name="ID_WEIGHT_WU" xml:space="preserve">
-    <value>Poids ({0})</value>
+    <value>Poids
+({0})</value>
   </data>
   <data name="ID_EDIT" xml:space="preserve">
     <value>Editer</value>

@@ -251,7 +251,8 @@ namespace treeDiM.EdgeCrushTest.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Static BCT ({0}).
+        ///   Looks up a localized string similar to Static BCT
+        ///({0}).
         /// </summary>
         internal static string ID_STATICBCT_WU {
             get {
@@ -269,7 +270,8 @@ namespace treeDiM.EdgeCrushTest.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Thickness ({0}).
+        ///   Looks up a localized string similar to Thickness
+        ///({0}).
         /// </summary>
         internal static string ID_THICKNESS_WU {
             get {
@@ -287,7 +289,8 @@ namespace treeDiM.EdgeCrushTest.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Weight ({0}).
+        ///   Looks up a localized string similar to Weight
+        ///({0}).
         /// </summary>
         internal static string ID_WEIGHT_WU {
             get {

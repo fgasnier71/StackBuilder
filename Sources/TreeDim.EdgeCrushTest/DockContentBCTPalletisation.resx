@@ -124,15 +124,9 @@
   <data name="toolStripMain.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
-  <data name="&gt;&gt;lbCountMax.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>BCT computation...</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="splitContainer1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
+  <data name="lbPrintedArea.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 17</value>
   </data>
   <data name="&gt;&gt;splitContainerHoriz.Panel1.Parent" xml:space="preserve">
     <value>splitContainerHoriz</value>
@@ -140,12 +134,8 @@
   <data name="&gt;&gt;lbWeightLowestCase.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="gridDynamicBCT.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left, Right</value>
-  </data>
-  <data name="&gt;&gt;lbPallet.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;splitContainerVert.Panel2.Name" xml:space="preserve">
+    <value>splitContainerVert.Panel2</value>
   </data>
   <data name="uCtrlNoLayers.Size" type="System.Drawing.Size, System.Drawing">
     <value>264, 20</value>
@@ -153,14 +143,23 @@
   <data name="&gt;&gt;splitContainerHoriz.Panel1.Type" xml:space="preserve">
     <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="toolStripLabelProfile.Size" type="System.Drawing.Size, System.Drawing">
+    <value>41, 22</value>
+  </data>
   <data name="&gt;&gt;uCtrlCaseDimensions.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
-  <data name="&gt;&gt;gbDynamicBCT.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="&gt;&gt;chkbDblWall.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;splitContainer1.Panel1.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="&gt;&gt;tsCBMcKeeFormula.Name" xml:space="preserve">
+    <value>tsCBMcKeeFormula</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripMain.Name" xml:space="preserve">
+    <value>toolStripMain</value>
   </data>
   <data name="&gt;&gt;splitContainerHoriz.Name" xml:space="preserve">
     <value>splitContainerHoriz</value>
@@ -171,26 +170,21 @@
   <data name="&gt;&gt;cbPrintedArea.Parent" xml:space="preserve">
     <value>gbDynamicBCT</value>
   </data>
-  <data name="lbPallet.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="gridDynamicBCT.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left, Right</value>
   </data>
   <data name="&gt;&gt;splitContainerVert.Panel2.Parent" xml:space="preserve">
     <value>splitContainerVert</value>
   </data>
-  <data name="&gt;&gt;splitContainerVert.Panel2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="uCtrlNoLayers.Text" xml:space="preserve">
-    <value>Actual number of layers</value>
+  <data name="lbCountMax.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
   </data>
   <data name="tsCBMcKeeFormula.Items1" xml:space="preserve">
     <value>Improved</value>
   </data>
-  <data name="&gt;&gt;lbCountMax.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="lbPrintedArea.Text" xml:space="preserve">
-    <value>Printed area</value>
+  <data name="&gt;&gt;lbPallet.Parent" xml:space="preserve">
+    <value>splitContainerHoriz.Panel1</value>
   </data>
   <data name="&gt;&gt;gridDynamicBCT.ZOrder" xml:space="preserve">
     <value>1</value>
@@ -204,9 +198,6 @@
   <data name="gbDynamicBCT.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 7</value>
   </data>
-  <data name="splitContainer1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>397, 482</value>
-  </data>
   <data name="&gt;&gt;cbPallets.Type" xml:space="preserve">
     <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -216,20 +207,20 @@
   <data name="&gt;&gt;uCtrlNoLayers.Name" xml:space="preserve">
     <value>uCtrlNoLayers</value>
   </data>
-  <data name="graphCtrl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>220, 197</value>
+  <data name="toolStripMain.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
   </data>
-  <data name="lbPrintedArea.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 17</value>
+  <data name="chkbDblWall.Text" xml:space="preserve">
+    <value>Double wall</value>
+  </data>
+  <data name="&gt;&gt;uCtrlCaseWeight.Type" xml:space="preserve">
+    <value>treeDiM.Basics.UCtrlDouble, treeDiM.Basics, Version=3.0.1.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;toolStripLabelMcKeeFormula.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="lbDefWeight.Text" xml:space="preserve">
-    <value>Total pallet weight</value>
-  </data>
-  <data name="&gt;&gt;lbWeightLowestCase.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="&gt;&gt;tsCBProfile.Name" xml:space="preserve">
+    <value>tsCBProfile</value>
   </data>
   <data name="&gt;&gt;graphCtrl.Parent" xml:space="preserve">
     <value>splitContainer1.Panel1</value>
@@ -237,29 +228,23 @@
   <data name="&gt;&gt;lbDefWeightOnLowestCase.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;lbDefWeightOnLowestCase.Parent" xml:space="preserve">
-    <value>splitContainer1.Panel1</value>
-  </data>
   <data name="&gt;&gt;lbCountMax.Parent" xml:space="preserve">
     <value>splitContainerVert.Panel2</value>
   </data>
-  <data name="lbPallet.Text" xml:space="preserve">
-    <value>Pallet</value>
+  <data name="chkbDblWall.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="lbStackWeight.Text" xml:space="preserve">
     <value>: 0.0 kg</value>
   </data>
-  <data name="lbCountMax.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
+  <data name="$this.Text" xml:space="preserve">
+    <value>BCT palletisation</value>
   </data>
-  <data name="&gt;&gt;uCtrlCaseWeight.Type" xml:space="preserve">
-    <value>treeDiM.Basics.UCtrlDouble, treeDiM.Basics, Version=3.0.1.0, Culture=neutral, PublicKeyToken=null</value>
+  <data name="lbDefWeight.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
-  <data name="&gt;&gt;lbPrintedArea.Parent" xml:space="preserve">
-    <value>gbDynamicBCT</value>
-  </data>
-  <data name="&gt;&gt;cbPrintedArea.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;gbDynamicBCT.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="tsCBMcKeeFormula.MaxDropDownItems" type="System.Int32, mscorlib">
     <value>2</value>
@@ -273,8 +258,11 @@
   <data name="&gt;&gt;uCtrlOverhang.Type" xml:space="preserve">
     <value>treeDiM.Basics.UCtrlDualDouble, treeDiM.Basics, Version=3.0.1.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="splitContainerHoriz.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
+  <data name="uCtrlCaseDimensions.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="lbPallet.Size" type="System.Drawing.Size, System.Drawing">
+    <value>33, 13</value>
   </data>
   <data name="lbPrintedArea.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -282,35 +270,32 @@
   <data name="tsCBMcKeeFormula.Size" type="System.Drawing.Size, System.Drawing">
     <value>121, 25</value>
   </data>
-  <data name="lbStackCount.Size" type="System.Drawing.Size, System.Drawing">
-    <value>19, 13</value>
+  <data name="lbWeightLowestCase.Text" xml:space="preserve">
+    <value>: 0.0 kg</value>
   </data>
-  <data name="&gt;&gt;uCtrlNoLayers.Parent" xml:space="preserve">
-    <value>splitContainer1.Panel1</value>
+  <data name="uCtrlNoLayers.Text" xml:space="preserve">
+    <value>Actual number of layers</value>
   </data>
-  <data name="uCtrlCaseWeight.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>100, 20</value>
+  <data name="cbPrintedArea.Location" type="System.Drawing.Point, System.Drawing">
+    <value>160, 14</value>
   </data>
-  <data name="splitContainerVert.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
+  <data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>6, 25</value>
   </data>
   <data name="cbPrintedArea.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
   <data name="&gt;&gt;toolStripMain.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="uCtrlOverhang.Location" type="System.Drawing.Point, System.Drawing">
     <value>494, 50</value>
   </data>
-  <data name="&gt;&gt;splitContainerVert.Panel2.Name" xml:space="preserve">
-    <value>splitContainerVert.Panel2</value>
+  <data name="lbStackWeight.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
   </data>
-  <data name="lbWeightLowestCase.Location" type="System.Drawing.Point, System.Drawing">
-    <value>121, 77</value>
-  </data>
-  <data name="&gt;&gt;splitContainer1.Panel1.Parent" xml:space="preserve">
-    <value>splitContainer1</value>
+  <data name="&gt;&gt;lbPrintedArea.Parent" xml:space="preserve">
+    <value>gbDynamicBCT</value>
   </data>
   <data name="splitContainerHoriz.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
@@ -318,14 +303,14 @@
   <data name="lbStackCount.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
   </data>
-  <data name="gridDynamicBCT.Size" type="System.Drawing.Size, System.Drawing">
-    <value>386, 180</value>
+  <data name="splitContainer1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>397, 482</value>
   </data>
-  <data name="&gt;&gt;splitContainer1.Panel2.Name" xml:space="preserve">
-    <value>splitContainer1.Panel2</value>
+  <data name="lbCountMax.Text" xml:space="preserve">
+    <value>(max: 0)</value>
   </data>
-  <data name="gbDynamicBCT.Size" type="System.Drawing.Size, System.Drawing">
-    <value>394, 227</value>
+  <data name="&gt;&gt;splitContainer1.Name" xml:space="preserve">
+    <value>splitContainer1</value>
   </data>
   <data name="&gt;&gt;splitContainer1.Panel1.Name" xml:space="preserve">
     <value>splitContainer1.Panel1</value>
@@ -333,14 +318,14 @@
   <data name="gbDynamicBCT.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
-  <data name="&gt;&gt;splitContainerVert.Panel1.Name" xml:space="preserve">
-    <value>splitContainerVert.Panel1</value>
+  <data name="chkbDblWall.Size" type="System.Drawing.Size, System.Drawing">
+    <value>81, 17</value>
+  </data>
+  <data name="splitContainerHoriz.IsSplitterFixed" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="splitContainer1.SplitterDistance" type="System.Int32, mscorlib">
     <value>241</value>
-  </data>
-  <data name="&gt;&gt;splitContainerHoriz.Panel2.Name" xml:space="preserve">
-    <value>splitContainerHoriz.Panel2</value>
   </data>
   <data name="&gt;&gt;uCtrlOverhang.Parent" xml:space="preserve">
     <value>splitContainerHoriz.Panel1</value>
@@ -348,11 +333,20 @@
   <data name="uCtrlOverhang.Text" xml:space="preserve">
     <value>Overhang</value>
   </data>
+  <data name="lbWeightLowestCase.Location" type="System.Drawing.Point, System.Drawing">
+    <value>122, 226</value>
+  </data>
+  <data name="toolStripLabelProfile.Text" xml:space="preserve">
+    <value>Profile</value>
+  </data>
   <data name="&gt;&gt;cbPallets.Parent" xml:space="preserve">
     <value>splitContainerHoriz.Panel1</value>
   </data>
+  <data name="&gt;&gt;chkbDblWall.Name" xml:space="preserve">
+    <value>chkbDblWall</value>
+  </data>
   <data name="&gt;&gt;lbPallet.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="&gt;&gt;lbStackWeight.Parent" xml:space="preserve">
     <value>splitContainer1.Panel1</value>
@@ -363,20 +357,17 @@
   <data name="&gt;&gt;lbDefWeight.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="lbWeightLowestCase.Text" xml:space="preserve">
-    <value>: 0.0 kg</value>
+  <data name="gbDynamicBCT.Text" xml:space="preserve">
+    <value>Dynamic BCT</value>
   </data>
-  <data name="&gt;&gt;splitContainerHoriz.Panel1.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="&gt;&gt;gbDynamicBCT.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="lbDefWeightOnLowestCase.Size" type="System.Drawing.Size, System.Drawing">
     <value>115, 13</value>
   </data>
   <data name="&gt;&gt;lbPrintedArea.Name" xml:space="preserve">
     <value>lbPrintedArea</value>
-  </data>
-  <data name="&gt;&gt;cbPrintedArea.ZOrder" xml:space="preserve">
-    <value>2</value>
   </data>
   <data name="&gt;&gt;splitContainerHoriz.Panel2.Parent" xml:space="preserve">
     <value>splitContainerHoriz</value>
@@ -387,14 +378,14 @@
   <data name="&gt;&gt;lbStackWeight.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 13</value>
+  <data name="lbDefWeightOnLowestCase.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
   </data>
   <data name="&gt;&gt;lbDefWeight.Name" xml:space="preserve">
     <value>lbDefWeight</value>
   </data>
-  <data name="&gt;&gt;splitContainerVert.Type" xml:space="preserve">
-    <value>System.Windows.Forms.SplitContainer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="tsCBProfile.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 25</value>
   </data>
   <data name="splitContainerHoriz.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -403,28 +394,34 @@
     <value>483</value>
   </data>
   <data name="graphCtrl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>165, 37</value>
+    <value>7, 37</value>
   </data>
-  <data name="lbDefWeightOnLowestCase.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 77</value>
+  <data name="uCtrlCaseWeight.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>100, 20</value>
   </data>
   <data name="&gt;&gt;lbDefCount.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="&gt;&gt;lbStackWeight.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;splitContainerHoriz.Panel2.Name" xml:space="preserve">
+    <value>splitContainerHoriz.Panel2</value>
   </data>
   <data name="&gt;&gt;gridMat.Parent" xml:space="preserve">
     <value>splitContainerVert.Panel1</value>
   </data>
+  <data name="&gt;&gt;tsButtonReport.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripLabelProfile.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>DockContentComputeBCT</value>
+    <value>DockContentBCTPalletisation</value>
   </data>
   <data name="lbDefWeightOnLowestCase.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
   </data>
-  <data name="splitContainerHoriz.IsSplitterFixed" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="&gt;&gt;toolStripLabelMcKeeFormula.Name" xml:space="preserve">
+    <value>toolStripLabelMcKeeFormula</value>
   </data>
   <data name="gridMat.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -441,17 +438,20 @@
   <data name="graphCtrl.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
   </data>
+  <data name="&gt;&gt;cbPrintedArea.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;uCtrlCaseDimensions.Type" xml:space="preserve">
     <value>treeDiM.Basics.UCtrlTriDouble, treeDiM.Basics, Version=3.0.1.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="&gt;&gt;toolStripMain.Parent" xml:space="preserve">
-    <value>splitContainerHoriz.Panel1</value>
+  <data name="&gt;&gt;splitContainer1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;uCtrlNoLayers.Parent" xml:space="preserve">
+    <value>splitContainer1.Panel1</value>
   </data>
   <data name="lbDefWeight.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
-  </data>
-  <data name="&gt;&gt;splitContainerVert.Panel1.ZOrder" xml:space="preserve">
-    <value>0</value>
   </data>
   <data name="&gt;&gt;gbDynamicBCT.Name" xml:space="preserve">
     <value>gbDynamicBCT</value>
@@ -459,8 +459,8 @@
   <data name="&gt;&gt;lbDefCount.Name" xml:space="preserve">
     <value>lbDefCount</value>
   </data>
-  <data name="&gt;&gt;tsCBMcKeeFormula.Name" xml:space="preserve">
-    <value>tsCBMcKeeFormula</value>
+  <data name="&gt;&gt;tsButtonReport.Name" xml:space="preserve">
+    <value>tsButtonReport</value>
   </data>
   <data name="gridMat.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -475,37 +475,37 @@
     <value>graphCtrl</value>
   </data>
   <data name="&gt;&gt;uCtrlCaseWeight.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
-  <data name="lbPallet.Size" type="System.Drawing.Size, System.Drawing">
-    <value>33, 13</value>
+  <data name="&gt;&gt;lbPrintedArea.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="&gt;&gt;splitContainerVert.Name" xml:space="preserve">
     <value>splitContainerVert</value>
   </data>
-  <data name="&gt;&gt;splitContainer1.Name" xml:space="preserve">
-    <value>splitContainer1</value>
+  <data name="&gt;&gt;lbCountMax.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="&gt;&gt;toolStripMain.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="toolStripMain.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="lbDefCount.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="splitContainer1.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
-  </data>
-  <data name="&gt;&gt;lbDefWeightOnLowestCase.Name" xml:space="preserve">
-    <value>lbDefWeightOnLowestCase</value>
-  </data>
-  <data name="lbDefWeightOnLowestCase.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
   </data>
   <data name="&gt;&gt;lbStackCount.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;graphCtrl.ZOrder" xml:space="preserve">
-    <value>3</value>
+  <data name="&gt;&gt;lbWeightLowestCase.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
-  <data name="uCtrlOverhang.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
+  <data name="cbPrintedArea.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt</value>
   </data>
   <data name="splitContainerVert.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -513,38 +513,35 @@
   <data name="lbWeightLowestCase.Size" type="System.Drawing.Size, System.Drawing">
     <value>43, 13</value>
   </data>
-  <data name="&gt;&gt;splitContainerVert.Panel1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="uCtrlOverhang.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
   </data>
   <data name="&gt;&gt;gridMat.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;lbPallet.Name" xml:space="preserve">
-    <value>lbPallet</value>
-  </data>
   <data name="&gt;&gt;splitContainerHoriz.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="uCtrlCaseDimensions.Text" xml:space="preserve">
-    <value>Case dimensions</value>
+  <data name="&gt;&gt;lbDefWeightOnLowestCase.Name" xml:space="preserve">
+    <value>lbDefWeightOnLowestCase</value>
   </data>
-  <data name="lbDefCount.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1, 37</value>
+  <data name="lbPallet.Text" xml:space="preserve">
+    <value>Pallet</value>
+  </data>
+  <data name="gbDynamicBCT.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left, Right</value>
   </data>
   <data name="&gt;&gt;gridDynamicBCT.Name" xml:space="preserve">
     <value>gridDynamicBCT</value>
   </data>
-  <data name="gridDynamicBCT.Location" type="System.Drawing.Point, System.Drawing">
-    <value>5, 41</value>
+  <data name="lbDefWeight.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
   </data>
-  <data name="uCtrlCaseWeight.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
+  <data name="&gt;&gt;splitContainerVert.Panel2.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
-  <data name="gbDynamicBCT.Text" xml:space="preserve">
-    <value>Dynamic BCT</value>
-  </data>
-  <data name="&gt;&gt;gbDynamicBCT.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="toolStripMain.Size" type="System.Drawing.Size, System.Drawing">
+    <value>884, 25</value>
   </data>
   <data name="lbDefWeightOnLowestCase.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -558,8 +555,14 @@
   <data name="uCtrlCaseWeight.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 50</value>
   </data>
-  <data name="lbStackCount.Text" xml:space="preserve">
-    <value>: 0</value>
+  <data name="&gt;&gt;chkbDblWall.Parent" xml:space="preserve">
+    <value>splitContainerHoriz.Panel1</value>
+  </data>
+  <data name="&gt;&gt;splitContainerVert.Panel2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;splitContainerHoriz.Panel1.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="lbStackCount.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -570,53 +573,98 @@
   <data name="&gt;&gt;uCtrlCaseDimensions.Parent" xml:space="preserve">
     <value>splitContainerHoriz.Panel1</value>
   </data>
+  <data name="&gt;&gt;lbStackWeight.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="uCtrlCaseDimensions.Size" type="System.Drawing.Size, System.Drawing">
     <value>339, 20</value>
+  </data>
+  <data name="lbWeightLowestCase.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
   </data>
   <data name="lbPallet.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="&gt;&gt;splitContainer1.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="lbDefWeightOnLowestCase.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="&gt;&gt;cbPallets.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
-  <data name="toolStripMain.Size" type="System.Drawing.Size, System.Drawing">
-    <value>884, 25</value>
+  <data name="lbPrintedArea.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt</value>
+  </data>
+  <data name="&gt;&gt;cbPallets.Name" xml:space="preserve">
+    <value>cbPallets</value>
   </data>
   <data name="uCtrlCaseWeight.Text" xml:space="preserve">
     <value>Case weight</value>
   </data>
-  <data name="cbPallets.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
+  <data name="lbPallet.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
   </data>
   <data name="&gt;&gt;tsCBMcKeeFormula.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;uCtrlNoLayers.ZOrder" xml:space="preserve">
-    <value>2</value>
+  <data name="&gt;&gt;lbDefWeightOnLowestCase.Parent" xml:space="preserve">
+    <value>splitContainer1.Panel1</value>
   </data>
   <data name="&gt;&gt;splitContainerVert.Parent" xml:space="preserve">
     <value>splitContainerHoriz.Panel2</value>
   </data>
+  <data name="uCtrlCaseWeight.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator2.Name" xml:space="preserve">
+    <value>toolStripSeparator2</value>
+  </data>
+  <data name="&gt;&gt;splitContainerVert.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitContainer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="lbDefCount.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
-  <data name="&gt;&gt;gridMat.Name" xml:space="preserve">
-    <value>gridMat</value>
+  <data name="uCtrlCaseDimensions.Text" xml:space="preserve">
+    <value>Case dimensions</value>
   </data>
   <data name="splitContainerVert.Size" type="System.Drawing.Size, System.Drawing">
     <value>884, 482</value>
   </data>
+  <data name="gridMat.Size" type="System.Drawing.Size, System.Drawing">
+    <value>483, 482</value>
+  </data>
   <data name="lbStackCount.Location" type="System.Drawing.Point, System.Drawing">
-    <value>121, 37</value>
+    <value>122, 186</value>
+  </data>
+  <data name="lbStackCount.Text" xml:space="preserve">
+    <value>: 0</value>
   </data>
   <data name="lbWeightLowestCase.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
   </data>
-  <data name="uCtrlCaseDimensions.TabIndex" type="System.Int32, mscorlib">
+  <data name="&gt;&gt;uCtrlNoLayers.ZOrder" xml:space="preserve">
     <value>2</value>
+  </data>
+  <data name="&gt;&gt;splitContainer1.Panel2.Name" xml:space="preserve">
+    <value>splitContainer1.Panel2</value>
+  </data>
+  <data name="&gt;&gt;lbPallet.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="lbDefCount.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 186</value>
+  </data>
+  <data name="&gt;&gt;splitContainerVert.Panel1.Name" xml:space="preserve">
+    <value>splitContainerVert.Panel1</value>
+  </data>
+  <data name="lbPrintedArea.Text" xml:space="preserve">
+    <value>Printed area</value>
+  </data>
+  <data name="lbStackCount.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>WeifenLuo.WinFormsUI.Docking.DockContent, WeifenLuo.WinFormsUI.Docking, Version=3.0.6.0, Culture=neutral, PublicKeyToken=5cded1a1a0a7b481</value>
   </data>
   <data name="&gt;&gt;lbDefWeight.Parent" xml:space="preserve">
     <value>splitContainer1.Panel1</value>
@@ -627,17 +675,17 @@
   <data name="&gt;&gt;uCtrlNoLayers.Type" xml:space="preserve">
     <value>treeDiM.Basics.UCtrlInt, treeDiM.Basics, Version=3.0.1.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="&gt;&gt;splitContainerVert.Panel2.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>WeifenLuo.WinFormsUI.Docking.DockContent, WeifenLuo.WinFormsUI.Docking, Version=3.0.6.0, Culture=neutral, PublicKeyToken=5cded1a1a0a7b481</value>
+  <data name="gridDynamicBCT.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 6.75pt</value>
   </data>
   <data name="lbStackWeight.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="&gt;&gt;uCtrlCaseDimensions.Name" xml:space="preserve">
     <value>uCtrlCaseDimensions</value>
+  </data>
+  <data name="splitContainerVert.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
   </data>
   <data name="&gt;&gt;cbPrintedArea.Name" xml:space="preserve">
     <value>cbPrintedArea</value>
@@ -648,8 +696,14 @@
   <data name="&gt;&gt;splitContainerHoriz.Panel1.Name" xml:space="preserve">
     <value>splitContainerHoriz.Panel1</value>
   </data>
-  <data name="&gt;&gt;lbStackCount.ZOrder" xml:space="preserve">
-    <value>7</value>
+  <data name="&gt;&gt;toolStripLabelProfile.Name" xml:space="preserve">
+    <value>toolStripLabelProfile</value>
+  </data>
+  <data name="chkbDblWall.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="cbPallets.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
   </data>
   <data name="lbDefCount.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -657,17 +711,23 @@
   <data name="splitContainerHoriz.SplitterDistance" type="System.Int32, mscorlib">
     <value>75</value>
   </data>
+  <data name="gridDynamicBCT.Location" type="System.Drawing.Point, System.Drawing">
+    <value>5, 41</value>
+  </data>
   <data name="&gt;&gt;lbPrintedArea.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;toolStripMain.Name" xml:space="preserve">
-    <value>toolStripMain</value>
+  <data name="lbDefWeightOnLowestCase.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 226</value>
   </data>
   <data name="&gt;&gt;splitContainerVert.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="lbDefWeight.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="&gt;&gt;gridMat.Name" xml:space="preserve">
+    <value>gridMat</value>
+  </data>
+  <data name="&gt;&gt;toolStripMain.Parent" xml:space="preserve">
+    <value>splitContainerHoriz.Panel1</value>
   </data>
   <data name="lbWeightLowestCase.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -678,6 +738,12 @@
   <data name="toolStripMain.Text" xml:space="preserve">
     <value>Main tool strip</value>
   </data>
+  <data name="uCtrlCaseWeight.Size" type="System.Drawing.Size, System.Drawing">
+    <value>339, 20</value>
+  </data>
+  <data name="&gt;&gt;lbDefWeightOnLowestCase.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;lbDefCount.Parent" xml:space="preserve">
     <value>splitContainer1.Panel1</value>
   </data>
@@ -687,50 +753,74 @@
   <data name="&gt;&gt;splitContainer1.Panel2.Type" xml:space="preserve">
     <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="tsButtonReport.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 22</value>
+  </data>
+  <data name="&gt;&gt;splitContainer1.Panel1.Parent" xml:space="preserve">
+    <value>splitContainer1</value>
+  </data>
+  <data name="&gt;&gt;chkbDblWall.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="&gt;&gt;splitContainer1.Panel1.Type" xml:space="preserve">
     <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="uCtrlNoLayers.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1, 14</value>
+    <value>5, 14</value>
   </data>
-  <data name="&gt;&gt;lbPallet.Parent" xml:space="preserve">
-    <value>splitContainerHoriz.Panel1</value>
+  <data name="&gt;&gt;splitContainerVert.Panel1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;splitContainer1.Panel1.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="&gt;&gt;graphCtrl.Type" xml:space="preserve">
     <value>treeDiM.StackBuilder.Graphics.Graphics3DControl, treeDiM.StackBuilder.Graphics, Version=3.0.1.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="&gt;&gt;lbDefWeightOnLowestCase.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;graphCtrl.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
-  <data name="&gt;&gt;toolStripLabelMcKeeFormula.Name" xml:space="preserve">
-    <value>toolStripLabelMcKeeFormula</value>
+  <data name="&gt;&gt;splitContainerVert.Panel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tsCBProfile.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="toolStripSeparator2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>6, 25</value>
   </data>
   <data name="lbPrintedArea.Size" type="System.Drawing.Size, System.Drawing">
     <value>64, 13</value>
   </data>
-  <data name="&gt;&gt;gridDynamicBCT.Parent" xml:space="preserve">
-    <value>gbDynamicBCT</value>
+  <data name="&gt;&gt;lbStackCount.ZOrder" xml:space="preserve">
+    <value>7</value>
   </data>
-  <data name="gridMat.Size" type="System.Drawing.Size, System.Drawing">
-    <value>483, 482</value>
+  <data name="lbDefWeight.Text" xml:space="preserve">
+    <value>Total pallet weight</value>
   </data>
   <data name="&gt;&gt;uCtrlOverhang.Name" xml:space="preserve">
     <value>uCtrlOverhang</value>
   </data>
-  <data name="splitContainer1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+  <data name="splitContainerHoriz.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="&gt;&gt;cbPallets.Name" xml:space="preserve">
-    <value>cbPallets</value>
+  <data name="gbDynamicBCT.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;lbCountMax.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;uCtrlOverhang.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
-  <data name="&gt;&gt;lbStackWeight.Name" xml:space="preserve">
-    <value>lbStackWeight</value>
+  <data name="gridMat.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
   </data>
   <data name="uCtrlNoLayers.MinimumSize" type="System.Drawing.Size, System.Drawing">
     <value>100, 20</value>
+  </data>
+  <data name="&gt;&gt;gridDynamicBCT.Parent" xml:space="preserve">
+    <value>gbDynamicBCT</value>
   </data>
   <data name="lbCountMax.Location" type="System.Drawing.Point, System.Drawing">
     <value>280, 10</value>
@@ -744,17 +834,23 @@
   <data name="splitContainer1.Orientation" type="System.Windows.Forms.Orientation, System.Windows.Forms">
     <value>Horizontal</value>
   </data>
-  <data name="lbStackWeight.Location" type="System.Drawing.Point, System.Drawing">
-    <value>121, 57</value>
+  <data name="&gt;&gt;toolStripSeparator1.Name" xml:space="preserve">
+    <value>toolStripSeparator1</value>
   </data>
-  <data name="cbPrintedArea.Location" type="System.Drawing.Point, System.Drawing">
-    <value>160, 14</value>
+  <data name="lbPallet.Location" type="System.Drawing.Point, System.Drawing">
+    <value>494, 28</value>
+  </data>
+  <data name="&gt;&gt;cbPrintedArea.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="&gt;&gt;splitContainer1.Type" xml:space="preserve">
     <value>System.Windows.Forms.SplitContainer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="lbPrintedArea.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
+  </data>
+  <data name="splitContainer1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
   </data>
   <data name="lbDefWeightOnLowestCase.Text" xml:space="preserve">
     <value>Weight on lowest case</value>
@@ -783,6 +879,9 @@
   <data name="&gt;&gt;lbWeightLowestCase.Name" xml:space="preserve">
     <value>lbWeightLowestCase</value>
   </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
   <data name="&gt;&gt;splitContainerHoriz.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
@@ -795,17 +894,26 @@
   <data name="&gt;&gt;lbStackCount.Parent" xml:space="preserve">
     <value>splitContainer1.Panel1</value>
   </data>
-  <data name="uCtrlCaseWeight.Size" type="System.Drawing.Size, System.Drawing">
-    <value>339, 20</value>
+  <data name="&gt;&gt;lbPallet.Name" xml:space="preserve">
+    <value>lbPallet</value>
   </data>
   <data name="&gt;&gt;splitContainer1.Panel2.Parent" xml:space="preserve">
     <value>splitContainer1</value>
   </data>
-  <data name="&gt;&gt;lbPrintedArea.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="chkbDblWall.Location" type="System.Drawing.Point, System.Drawing">
+    <value>351, 27</value>
   </data>
-  <data name="gridMat.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
+  <data name="gridDynamicBCT.Size" type="System.Drawing.Size, System.Drawing">
+    <value>386, 180</value>
+  </data>
+  <data name="lbStackWeight.Location" type="System.Drawing.Point, System.Drawing">
+    <value>122, 206</value>
+  </data>
+  <data name="&gt;&gt;lbStackWeight.Name" xml:space="preserve">
+    <value>lbStackWeight</value>
+  </data>
+  <data name="graphCtrl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>378, 144</value>
   </data>
   <data name="&gt;&gt;lbDefCount.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -817,7 +925,7 @@
     <value>1</value>
   </data>
   <data name="lbDefWeight.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1, 57</value>
+    <value>6, 206</value>
   </data>
   <data name="lbDefWeight.Size" type="System.Drawing.Size, System.Drawing">
     <value>93, 13</value>
@@ -828,8 +936,11 @@
   <data name="cbPallets.Size" type="System.Drawing.Size, System.Drawing">
     <value>148, 21</value>
   </data>
-  <data name="lbPallet.Location" type="System.Drawing.Point, System.Drawing">
-    <value>494, 28</value>
+  <data name="gbDynamicBCT.Size" type="System.Drawing.Size, System.Drawing">
+    <value>394, 227</value>
+  </data>
+  <data name="lbStackCount.Size" type="System.Drawing.Size, System.Drawing">
+    <value>19, 13</value>
   </data>
   <data name="&gt;&gt;splitContainerHoriz.Panel2.Type" xml:space="preserve">
     <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -837,19 +948,16 @@
   <data name="splitContainerVert.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>fr</value>
-  </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <metadata name="toolStripMain.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 3</value>
   </metadata>
+  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>fr</value>
+  </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>25</value>
   </metadata>
-  <data name="lbCountMax.Text" xml:space="preserve">
-    <value>(max: 0)</value>
-  </data>
 </root>

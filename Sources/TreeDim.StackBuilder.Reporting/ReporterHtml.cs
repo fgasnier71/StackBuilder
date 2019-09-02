@@ -6,7 +6,7 @@
         /// <summary>
         /// ReportHtml : generate html report
         /// </summary>
-        public ReporterHtml(ReportData inputData, ref ReportNode rnRoot, string templatePath, string outpuFilePath)
+        public ReporterHtml(ReportDataAnalysis inputData, ref ReportNode rnRoot, string templatePath, string outpuFilePath)
         {
             BuildAnalysisReport(inputData, ref rnRoot, templatePath, outpuFilePath);
         }

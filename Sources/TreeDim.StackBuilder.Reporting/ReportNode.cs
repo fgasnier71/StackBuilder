@@ -19,7 +19,7 @@ namespace treeDiM.StackBuilder.Reporting
         #region Public properties
         public string Name { get; set; }
         public bool Activated { get; set; }
-        public ReportNode[] Children { get { return _children.ToArray(); } }
+        public ReportNode[] Children => _children.ToArray();
         #endregion
 
         #region Accessing child by Name
@@ -35,10 +35,7 @@ namespace treeDiM.StackBuilder.Reporting
         #endregion
 
         #region Object override
-        public override string ToString()
-        {
-            return Name;
-        }
+        public override string ToString() => Name;
         #endregion
 
         #region Data members

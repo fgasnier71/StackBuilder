@@ -420,7 +420,7 @@ namespace treeDiM.StackBuilder.ExcelAddIn
                     }
                     if (GenerateReport)
                     {
-                        ReportData inputData = new ReportData(analysis);
+                        ReportDataAnalysis inputData = new ReportDataAnalysis(analysis);
                         string outputFilePath = Path.ChangeExtension(Path.Combine(DirectoryPathReports, string.Format("Report_{0}_on_{1}", analysis.Content.Name, analysis.Container.Name)), "doc");
 
                         ReportNode rnRoot = null;

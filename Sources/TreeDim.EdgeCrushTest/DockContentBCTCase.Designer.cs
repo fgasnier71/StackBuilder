@@ -1,6 +1,6 @@
 ﻿namespace treeDiM.EdgeCrushTest
 {
-    partial class DockContentReverseBCT
+    partial class DockContentBCTCase
     {
         /// <summary>
         /// Required designer variable.
@@ -28,12 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DockContentReverseBCT));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DockContentBCTCase));
             this.splitContainerHoriz = new System.Windows.Forms.SplitContainer();
+            this.chkbDblWall = new System.Windows.Forms.CheckBox();
             this.uCtrlForceApplied = new treeDiM.Basics.UCtrlDouble();
             this.uCtrlCaseDimensions = new treeDiM.Basics.UCtrlTriDouble();
             this.splitContainerVert = new System.Windows.Forms.SplitContainer();
             this.gridMat = new SourceGrid.Grid();
+            this.graphCtrl = new treeDiM.StackBuilder.Graphics.Graphics3DControl();
             this.gbDynamicBCT = new System.Windows.Forms.GroupBox();
             this.lbPrintedArea = new System.Windows.Forms.Label();
             this.cbPrintedArea = new System.Windows.Forms.ComboBox();
@@ -41,6 +43,11 @@
             this.toolStripMain = new System.Windows.Forms.ToolStrip();
             this.toolStripLabelMcKeeFormula = new System.Windows.Forms.ToolStripLabel();
             this.tsCBMcKeeFormula = new System.Windows.Forms.ToolStripComboBox();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripLabelProfile = new System.Windows.Forms.ToolStripLabel();
+            this.tsCBProfile = new System.Windows.Forms.ToolStripComboBox();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsBnReport = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerHoriz)).BeginInit();
             this.splitContainerHoriz.Panel1.SuspendLayout();
             this.splitContainerHoriz.Panel2.SuspendLayout();
@@ -49,6 +56,7 @@
             this.splitContainerVert.Panel1.SuspendLayout();
             this.splitContainerVert.Panel2.SuspendLayout();
             this.splitContainerVert.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.graphCtrl)).BeginInit();
             this.gbDynamicBCT.SuspendLayout();
             this.toolStripMain.SuspendLayout();
             this.SuspendLayout();
@@ -61,14 +69,20 @@
             // 
             // splitContainerHoriz.Panel1
             // 
-            resources.ApplyResources(this.splitContainerHoriz.Panel1, "splitContainerHoriz.Panel1");
+            this.splitContainerHoriz.Panel1.Controls.Add(this.chkbDblWall);
             this.splitContainerHoriz.Panel1.Controls.Add(this.uCtrlForceApplied);
             this.splitContainerHoriz.Panel1.Controls.Add(this.uCtrlCaseDimensions);
             // 
             // splitContainerHoriz.Panel2
             // 
-            resources.ApplyResources(this.splitContainerHoriz.Panel2, "splitContainerHoriz.Panel2");
             this.splitContainerHoriz.Panel2.Controls.Add(this.splitContainerVert);
+            // 
+            // chkbDblWall
+            // 
+            resources.ApplyResources(this.chkbDblWall, "chkbDblWall");
+            this.chkbDblWall.Name = "chkbDblWall";
+            this.chkbDblWall.UseVisualStyleBackColor = true;
+            this.chkbDblWall.CheckedChanged += new System.EventHandler(this.OnInputChanged);
             // 
             // uCtrlForceApplied
             // 
@@ -104,12 +118,11 @@
             // 
             // splitContainerVert.Panel1
             // 
-            resources.ApplyResources(this.splitContainerVert.Panel1, "splitContainerVert.Panel1");
             this.splitContainerVert.Panel1.Controls.Add(this.gridMat);
             // 
             // splitContainerVert.Panel2
             // 
-            resources.ApplyResources(this.splitContainerVert.Panel2, "splitContainerVert.Panel2");
+            this.splitContainerVert.Panel2.Controls.Add(this.graphCtrl);
             this.splitContainerVert.Panel2.Controls.Add(this.gbDynamicBCT);
             // 
             // gridMat
@@ -121,6 +134,12 @@
             this.gridMat.SelectionMode = SourceGrid.GridSelectionMode.Row;
             this.gridMat.TabStop = true;
             this.gridMat.ToolTipText = "";
+            // 
+            // graphCtrl
+            // 
+            resources.ApplyResources(this.graphCtrl, "graphCtrl");
+            this.graphCtrl.Name = "graphCtrl";
+            this.graphCtrl.Viewer = null;
             // 
             // gbDynamicBCT
             // 
@@ -156,29 +175,63 @@
             // 
             // toolStripMain
             // 
-            resources.ApplyResources(this.toolStripMain, "toolStripMain");
             this.toolStripMain.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripLabelMcKeeFormula,
-            this.tsCBMcKeeFormula});
+            this.tsCBMcKeeFormula,
+            this.toolStripSeparator1,
+            this.toolStripLabelProfile,
+            this.tsCBProfile,
+            this.toolStripSeparator2,
+            this.tsBnReport});
+            resources.ApplyResources(this.toolStripMain, "toolStripMain");
             this.toolStripMain.Name = "toolStripMain";
             // 
             // toolStripLabelMcKeeFormula
             // 
-            resources.ApplyResources(this.toolStripLabelMcKeeFormula, "toolStripLabelMcKeeFormula");
             this.toolStripLabelMcKeeFormula.Name = "toolStripLabelMcKeeFormula";
+            resources.ApplyResources(this.toolStripLabelMcKeeFormula, "toolStripLabelMcKeeFormula");
             // 
             // tsCBMcKeeFormula
             // 
-            resources.ApplyResources(this.tsCBMcKeeFormula, "tsCBMcKeeFormula");
             this.tsCBMcKeeFormula.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.tsCBMcKeeFormula.Items.AddRange(new object[] {
             resources.GetString("tsCBMcKeeFormula.Items"),
             resources.GetString("tsCBMcKeeFormula.Items1")});
             this.tsCBMcKeeFormula.Name = "tsCBMcKeeFormula";
+            resources.ApplyResources(this.tsCBMcKeeFormula, "tsCBMcKeeFormula");
             this.tsCBMcKeeFormula.SelectedIndexChanged += new System.EventHandler(this.OnInputChanged);
             // 
-            // DockContentReverseBCT
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            resources.ApplyResources(this.toolStripSeparator1, "toolStripSeparator1");
+            // 
+            // toolStripLabelProfile
+            // 
+            this.toolStripLabelProfile.Name = "toolStripLabelProfile";
+            resources.ApplyResources(this.toolStripLabelProfile, "toolStripLabelProfile");
+            // 
+            // tsCBProfile
+            // 
+            this.tsCBProfile.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.tsCBProfile.Name = "tsCBProfile";
+            resources.ApplyResources(this.tsCBProfile, "tsCBProfile");
+            this.tsCBProfile.SelectedIndexChanged += new System.EventHandler(this.OnInputChanged);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            resources.ApplyResources(this.toolStripSeparator2, "toolStripSeparator2");
+            // 
+            // tsBnReport
+            // 
+            this.tsBnReport.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.tsBnReport, "tsBnReport");
+            this.tsBnReport.Name = "tsBnReport";
+            this.tsBnReport.Click += new System.EventHandler(this.OnReport);
+            // 
+            // DockContentBCTCase
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -186,10 +239,11 @@
             this.Controls.Add(this.toolStripMain);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "DockContentReverseBCT";
+            this.Name = "DockContentBCTCase";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.splitContainerHoriz.Panel1.ResumeLayout(false);
+            this.splitContainerHoriz.Panel1.PerformLayout();
             this.splitContainerHoriz.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerHoriz)).EndInit();
             this.splitContainerHoriz.ResumeLayout(false);
@@ -197,6 +251,7 @@
             this.splitContainerVert.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerVert)).EndInit();
             this.splitContainerVert.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.graphCtrl)).EndInit();
             this.gbDynamicBCT.ResumeLayout(false);
             this.gbDynamicBCT.PerformLayout();
             this.toolStripMain.ResumeLayout(false);
@@ -220,5 +275,12 @@
         private SourceGrid.Grid gridDynamicBCT;
         private System.Windows.Forms.Label lbPrintedArea;
         private System.Windows.Forms.ComboBox cbPrintedArea;
+        private System.Windows.Forms.CheckBox chkbDblWall;
+        private StackBuilder.Graphics.Graphics3DControl graphCtrl;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripLabel toolStripLabelProfile;
+        private System.Windows.Forms.ToolStripComboBox tsCBProfile;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripButton tsBnReport;
     }
 }

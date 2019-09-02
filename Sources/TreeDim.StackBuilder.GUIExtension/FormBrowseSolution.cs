@@ -370,8 +370,10 @@ namespace treeDiM.StackBuilder.GUIExtension
         {
             try
             {
-                FormReportDesign form = new FormReportDesign();
-                form.Analysis = _analysis;
+                var form = new FormReportDesign
+                {
+                    Analysis = _analysis
+                };
                 form.ShowDialog();
             }
             catch (Exception ex)

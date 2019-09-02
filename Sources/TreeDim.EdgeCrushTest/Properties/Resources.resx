@@ -185,19 +185,22 @@
     <value>Static BCT</value>
   </data>
   <data name="ID_STATICBCT_WU" xml:space="preserve">
-    <value>Static BCT ({0})</value>
+    <value>Static BCT
+({0})</value>
   </data>
   <data name="ID_THICKNESS" xml:space="preserve">
     <value>Thickness</value>
   </data>
   <data name="ID_THICKNESS_WU" xml:space="preserve">
-    <value>Thickness ({0})</value>
+    <value>Thickness
+({0})</value>
   </data>
   <data name="ID_VALUEOUGHTTOBESPOSITIVE" xml:space="preserve">
     <value>Value ought to be positive.</value>
   </data>
   <data name="ID_WEIGHT_WU" xml:space="preserve">
-    <value>Weight ({0})</value>
+    <value>Weight
+({0})</value>
   </data>
   <data name="MCKEEFORMULA_CLASSIC" xml:space="preserve">
     <value>Classic</value>

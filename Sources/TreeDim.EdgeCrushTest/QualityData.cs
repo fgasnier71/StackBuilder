@@ -33,17 +33,17 @@ namespace treeDiM.EdgeCrushTest
         #endregion
 
         #region BCT computation
-        public double ComputeStaticBCT(Vector3D dim, string caseType, McKeeFormula.FormulaType formulaType)
+        public double ComputeStaticBCT(Vector3D dim, string caseType, bool dblWall, McKeeFormula.FormulaType formulaType)
         {
             return McKeeFormula.ComputeStaticBCT(
-                dim.X, dim.Y, dim.Z, caseType,
+                dim.X, dim.Y, dim.Z, caseType, dblWall,
                 this,
                 formulaType);
         }
-        public double ComputeStaticBCT(double caseLength, double caseWidth, double caseHeight, string caseType, McKeeFormula.FormulaType formulaType)
+        public double ComputeStaticBCT(double caseLength, double caseWidth, double caseHeight, string caseType, bool dblWall, McKeeFormula.FormulaType formulaType)
         {
             return McKeeFormula.ComputeStaticBCT(
-                caseLength, caseWidth, caseHeight, caseType,
+                caseLength, caseWidth, caseHeight, caseType, dblWall,
                 this,
                 formulaType);
         }

@@ -124,7 +124,7 @@ namespace treeDiM.StackBuilder.Reporting
                 Reporter.SetFontSizeRatios(cbFontSizeDetail.FontSizeRatio, cbFontSizeLarge.FontSizeRatio);
 
                 // reporter
-                ReporterHtml reporter = new ReporterHtml(new ReportData(_analysis), ref _rnRoot, Reporter.TemplatePath, htmlFilePath);
+                ReporterHtml reporter = new ReporterHtml(new ReportDataAnalysis(_analysis), ref _rnRoot, Reporter.TemplatePath, htmlFilePath);
                 // display html
                 _webBrowser.Navigate(htmlFilePath, string.Empty, null, string.Empty);
                 // update tree view
@@ -188,7 +188,7 @@ namespace treeDiM.StackBuilder.Reporting
                     Settings.Default.ReportInitialDirectory = Path.GetDirectoryName(dlg.FileName);
                     // generate report
                     ReporterMSWord reporter = new ReporterMSWord(
-                        new ReportData(_analysis)
+                        new ReportDataAnalysis(_analysis)
                         , ref _rnRoot
                         , Reporter.TemplatePath
                         , dlg.FileName
@@ -223,7 +223,7 @@ namespace treeDiM.StackBuilder.Reporting
                     Settings.Default.ReportInitialDirectory = Path.GetDirectoryName(dlg.FileName);
                     // generate report
                     ReporterHtml reporter = new ReporterHtml(
-                        new ReportData(_analysis)
+                        new ReportDataAnalysis(_analysis)
                         , ref _rnRoot
                         , Reporter.TemplatePath
                         , dlg.FileName);
@@ -255,7 +255,7 @@ namespace treeDiM.StackBuilder.Reporting
                     Settings.Default.ReportInitialDirectory = Path.GetDirectoryName(dlg.FileName);
                     // generate report
                     ReporterPDF reporter = new ReporterPDF(
-                        new ReportData(_analysis)
+                        new ReportDataAnalysis(_analysis)
                         , ref _rnRoot
                         , Reporter.TemplatePath
                         , dlg.FileName);

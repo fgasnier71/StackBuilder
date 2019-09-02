@@ -29,7 +29,7 @@ namespace treeDiM.StackBuilder.Reporting
     public class ReporterMSWord : Reporter
     {
         #region Constructor
-        public ReporterMSWord(ReportData inputData, ref ReportNode rnRoot
+        public ReporterMSWord(ReportDataAnalysis inputData, ref ReportNode rnRoot
             , string templatePath, string outputFilePath, Margins margins)
         {
             // absolute output file path

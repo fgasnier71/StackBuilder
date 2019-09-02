@@ -43,21 +43,21 @@ namespace treeDiM.EdgeCrushTest.Desktop
         private void OnTimerTick(object sender, EventArgs e)
         {
             timerMain.Stop();
-            var dockContentReverseBCT = new DockContentReverseBCT();
+            var dockContentReverseBCT = new DockContentBCTCase();
             dockContentReverseBCT.Show(dockPanel, DockState.Document);
-            var dockContentComputeBCT = new DockContentComputeBCT();
+            var dockContentComputeBCT = new DockContentBCTPalletisation();
             dockContentComputeBCT.Show(dockPanel, DockState.Document);
         }
         private void OnMode1(object sender, EventArgs e)
         {
             CloseAllDockedForms();
-            var dockContentComputeBCT = new DockContentComputeBCT();
+            var dockContentComputeBCT = new DockContentBCTPalletisation();
             dockContentComputeBCT.Show(dockPanel, DockState.Document);
         }
         private void OnMode2(object sender, EventArgs e)
         {
             CloseAllDockedForms();
-            var dockContentReverseBCT = new DockContentReverseBCT();
+            var dockContentReverseBCT = new DockContentBCTCase();
             dockContentReverseBCT.Show(dockPanel, DockState.Document);
         }
         private void OnEditMaterialList(object sender, EventArgs e)

@@ -140,6 +140,10 @@
       <Project>{e4240ee0-60b3-4435-bd09-f81d56c0899a}</Project>
       <Name>treeDiM.EdgeCrushTest</Name>
     </ProjectReference>
+    <ProjectReference Include="..\TreeDim.StackBuilder.Reporting\treeDiM.StackBuilder.Reporting.csproj">
+      <Project>{1505a6e5-e6f9-4408-a5c8-968417081cbd}</Project>
+      <Name>treeDiM.StackBuilder.Reporting</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="ECT.ico" />

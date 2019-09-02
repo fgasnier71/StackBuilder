@@ -99,12 +99,13 @@
     </Compile>
     <Compile Include="CardboardQualityAccessor.cs" />
     <Compile Include="CardboardQualityData\CardboardQualityData.designer.cs" />
+    <Compile Include="CellBackColorAlternate.cs" />
     <Compile Include="CellColorFromValue.cs" />
-    <Compile Include="DockContentReverseBCT.cs">
+    <Compile Include="DockContentBCTCase.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DockContentReverseBCT.Designer.cs">
-      <DependentUpon>DockContentReverseBCT.cs</DependentUpon>
+    <Compile Include="DockContentBCTCase.Designer.cs">
+      <DependentUpon>DockContentBCTCase.cs</DependentUpon>
     </Compile>
     <Compile Include="ECT_Forms.cs" />
     <Compile Include="Exception.cs" />
@@ -114,11 +115,11 @@
     <Compile Include="FormCardboardQualityList.Designer.cs">
       <DependentUpon>FormCardboardQualityList.cs</DependentUpon>
     </Compile>
-    <Compile Include="DockContentComputeBCT.cs">
+    <Compile Include="DockContentBCTPalletisation.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DockContentComputeBCT.Designer.cs">
-      <DependentUpon>DockContentComputeBCT.cs</DependentUpon>
+    <Compile Include="DockContentBCTPalletisation.Designer.cs">
+      <DependentUpon>DockContentBCTPalletisation.cs</DependentUpon>
     </Compile>
     <Compile Include="FormEditCardboardQualityData.cs">
       <SubType>Form</SubType>
@@ -154,14 +155,14 @@
     <Compile Include="QualityData.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="DockContentComputeBCT.fr.resx">
-      <DependentUpon>DockContentComputeBCT.cs</DependentUpon>
+    <EmbeddedResource Include="DockContentBCTPalletisation.fr.resx">
+      <DependentUpon>DockContentBCTPalletisation.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DockContentReverseBCT.fr.resx">
-      <DependentUpon>DockContentReverseBCT.cs</DependentUpon>
+    <EmbeddedResource Include="DockContentBCTCase.fr.resx">
+      <DependentUpon>DockContentBCTCase.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DockContentReverseBCT.resx">
-      <DependentUpon>DockContentReverseBCT.cs</DependentUpon>
+    <EmbeddedResource Include="DockContentBCTCase.resx">
+      <DependentUpon>DockContentBCTCase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormCardboardQualityList.fr.resx">
       <DependentUpon>FormCardboardQualityList.cs</DependentUpon>
@@ -169,8 +170,8 @@
     <EmbeddedResource Include="FormCardboardQualityList.resx">
       <DependentUpon>FormCardboardQualityList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DockContentComputeBCT.resx">
-      <DependentUpon>DockContentComputeBCT.cs</DependentUpon>
+    <EmbeddedResource Include="DockContentBCTPalletisation.resx">
+      <DependentUpon>DockContentBCTPalletisation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormEditCardboardQualityData.de.resx">
       <DependentUpon>FormEditCardboardQualityData.cs</DependentUpon>

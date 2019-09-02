@@ -33,12 +33,23 @@ namespace treeDiM.EdgeCrushTest
                 throw new ECTException(ECTException.ErrorType.ERROR_INVALIDCARDBOARD, name);
             return qd;
         }
-        public List<QualityData> GetSortedCardboardQualityDictionary(Vector3D dim, string caseType, McKeeFormula.FormulaType formulaType, bool filtered, double appliedLoad)
+        public List<QualityData> GetFilteredListCardboardQuality(string profile)
         {
             var qualities = CardboardQualities;
-            return qualities.Where(qd => (qd.ComputeStaticBCT(dim, caseType, formulaType) >= appliedLoad * 9.81 / 10) || !filtered)
-                          .OrderBy(qh => qh.ComputeStaticBCT(dim, caseType, formulaType))
+            return qualities.Where(qd => (string.IsNullOrEmpty(profile) || string.Equals(qd.Profile, profile))).ToList();
+        }
+        public List<QualityData> GetSortedListCardboardQuality(Vector3D dim, string caseType, bool dblWall, McKeeFormula.FormulaType formulaType, string profile, bool filtered, double appliedLoad)
+        {
+            var qualities = CardboardQualities;
+            return qualities.Where(qd => (string.IsNullOrEmpty(profile) || string.Equals(qd.Profile, profile)))
+                          .Where(qd => (qd.ComputeStaticBCT(dim, caseType, dblWall, formulaType) >= appliedLoad * 9.81 / 10) || !filtered)
+                          .OrderBy(qh => qh.ComputeStaticBCT(dim, caseType, dblWall, formulaType))
                           .ToList();
+        }
+        public List<string> GetProfileList()
+        {
+            var qualities = CardboardQualities;
+            return qualities.Select(q => q.Profile).Distinct().ToList();
         }
         #endregion
         #region Singleton

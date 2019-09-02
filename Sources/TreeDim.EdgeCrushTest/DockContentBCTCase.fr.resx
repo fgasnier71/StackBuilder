@@ -117,66 +117,31 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="uCtrlOverhang.Text" xml:space="preserve">
-    <value>Débord</value>
-  </data>
-  <data name="uCtrlCaseWeight.Text" xml:space="preserve">
-    <value>Poid total caisse</value>
-  </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="lbPallet.Size" type="System.Drawing.Size, System.Drawing">
-    <value>40, 13</value>
-  </data>
-  <data name="lbPallet.Text" xml:space="preserve">
-    <value>Palette</value>
-  </data>
-  <data name="toolStripLabelMcKeeFormula.Size" type="System.Drawing.Size, System.Drawing">
-    <value>109, 22</value>
-  </data>
-  <data name="toolStripLabelMcKeeFormula.Text" xml:space="preserve">
-    <value>Formule de Mc Kee</value>
+  <data name="uCtrlForceApplied.Text" xml:space="preserve">
+    <value>Force appliquée</value>
   </data>
   <data name="uCtrlCaseDimensions.Text" xml:space="preserve">
-    <value>Dimensions caisse</value>
+    <value>Dimensions caisses</value>
   </data>
-  <data name="lbWeightLowestCase.Location" type="System.Drawing.Point, System.Drawing">
-    <value>130, 77</value>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="gbDynamicBCT.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Bottom</value>
   </data>
-  <data name="lbDefWeightOnLowestCase.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1, 77</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="gbDynamicBCT.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt, style=Bold</value>
   </data>
-  <data name="lbDefWeightOnLowestCase.Size" type="System.Drawing.Size, System.Drawing">
-    <value>127, 13</value>
+  <data name="gbDynamicBCT.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 229</value>
   </data>
-  <data name="lbDefWeightOnLowestCase.Text" xml:space="preserve">
-    <value>Poid sur caisse inférieure </value>
+  <data name="gbDynamicBCT.Size" type="System.Drawing.Size, System.Drawing">
+    <value>324, 243</value>
   </data>
-  <data name="uCtrlNoLayers.Text" xml:space="preserve">
-    <value>Nombre de couche réel</value>
+  <data name="gbDynamicBCT.Text" xml:space="preserve">
+    <value>RCV dynamique</value>
   </data>
-  <data name="graphCtrl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>172, 37</value>
-  </data>
-  <data name="graphCtrl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>207, 197</value>
-  </data>
-  <data name="lbDefCount.Size" type="System.Drawing.Size, System.Drawing">
-    <value>115, 13</value>
-  </data>
-  <data name="lbDefCount.Text" xml:space="preserve">
-    <value>Nombre total de caisse</value>
-  </data>
-  <data name="lbStackWeight.Location" type="System.Drawing.Point, System.Drawing">
-    <value>130, 57</value>
-  </data>
-  <data name="lbDefWeight.Size" type="System.Drawing.Size, System.Drawing">
-    <value>117, 13</value>
-  </data>
-  <data name="lbDefWeight.Text" xml:space="preserve">
-    <value>Poids total de la palette</value>
-  </data>
-  <data name="lbStackCount.Location" type="System.Drawing.Point, System.Drawing">
-    <value>130, 37</value>
+  <data name="lbPrintedArea.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt</value>
   </data>
   <data name="lbPrintedArea.Size" type="System.Drawing.Size, System.Drawing">
     <value>88, 13</value>
@@ -184,21 +149,17 @@
   <data name="lbPrintedArea.Text" xml:space="preserve">
     <value>Surface imprimée</value>
   </data>
-  <data name="gbDynamicBCT.Text" xml:space="preserve">
-    <value>RCV dynamique</value>
+  <data name="gridDynamicBCT.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 47</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="lbCountMax.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="toolStripMain.Text" xml:space="preserve">
+    <value>Menu principal</value>
   </data>
-  <data name="lbCountMax.Size" type="System.Drawing.Size, System.Drawing">
-    <value>44, 13</value>
+  <data name="toolStripLabelMcKeeFormula.Size" type="System.Drawing.Size, System.Drawing">
+    <value>109, 22</value>
   </data>
-  <data name="lbCountMax.Text" xml:space="preserve">
-    <value>(max: 0)</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Calcul de RCV</value>
+  <data name="toolStripLabelMcKeeFormula.Text" xml:space="preserve">
+    <value>Formule de Mc Kee</value>
   </data>
   <data name="tsCBMcKeeFormula.Items" xml:space="preserve">
     <value>Classique</value>
@@ -206,16 +167,7 @@
   <data name="tsCBMcKeeFormula.Items1" xml:space="preserve">
     <value>Améliorée</value>
   </data>
-  <data name="toolStripMain.Text" xml:space="preserve">
-    <value>Barre d'outils principale</value>
-  </data>
-  <data name="lbWeightLowestCase.Text" xml:space="preserve">
-    <value>: 0.0 kg</value>
-  </data>
-  <data name="lbStackWeight.Text" xml:space="preserve">
-    <value>: 0.0 kg</value>
-  </data>
-  <data name="lbStackCount.Text" xml:space="preserve">
-    <value>: 0</value>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Calcul RCV caisse</value>
   </data>
 </root>

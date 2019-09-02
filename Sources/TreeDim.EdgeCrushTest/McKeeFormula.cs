@@ -49,14 +49,14 @@ namespace treeDiM.EdgeCrushTest
         /// Compute static BCT
         /// </summary>
         public static double ComputeStaticBCT(
-            double length, double width, double height, string caseType
+            double length, double width, double height, string caseType, bool dblWall
             , string cardboardId
             , FormulaType mcKeeFormulaType)
         {
-           return ComputeStaticBCT(length, width, height, caseType, CardboardQualityAccessor.Instance.GetQualityDataByName(cardboardId), mcKeeFormulaType);
+           return ComputeStaticBCT(length, width, height, caseType, dblWall, CardboardQualityAccessor.Instance.GetQualityDataByName(cardboardId), mcKeeFormulaType);
         }
         public static double ComputeStaticBCT(
-            double length, double width, double height, string caseType
+            double length, double width, double height, string caseType, bool dblWall
             , QualityData qualityData
             , FormulaType mcKeeFormulaType)
         {
@@ -67,9 +67,9 @@ namespace treeDiM.EdgeCrushTest
             switch (mcKeeFormulaType)
             {
                 case FormulaType.MCKEE_CLASSIC:
-                    return ComputeBCT_ECT(length, width, qualityData.Thickness, qualityData.ECT) * caseTypeCoef;
+                    return ComputeBCT_ECT(length, width*(dblWall?2:1), qualityData.Thickness, qualityData.ECT) * caseTypeCoef;
                 case FormulaType.MCKEE_IMPROVED:
-                    return ComputeBCT_Stiffness(length, width, height,
+                    return ComputeBCT_Stiffness(length, width*(dblWall?2:1), height,
                         qualityData.Thickness, qualityData.RigidityDX, qualityData.RigidityDY,
                         qualityData.ECT) * caseTypeCoef;
                 default:
@@ -81,15 +81,15 @@ namespace treeDiM.EdgeCrushTest
         #region Dynamic BCT
         public static Dictionary<KeyValuePair<string, string>, double> EvaluateEdgeCrushTestMatrix(
             double L, double B, double H,
-            string caseType, string printType,
+            string caseType, bool dblWall, string printType,
             string cardboardId,
             FormulaType mcKeeFormulaType)
         {
-            return EvaluateEdgeCrushTestMatrix(L, B, H, caseType, printType, CardboardQualityAccessor.Instance.GetQualityDataByName(cardboardId), mcKeeFormulaType);
+            return EvaluateEdgeCrushTestMatrix(L, B, H, caseType, dblWall, printType, CardboardQualityAccessor.Instance.GetQualityDataByName(cardboardId), mcKeeFormulaType);
         }
         public static Dictionary<KeyValuePair<string, string>, double> EvaluateEdgeCrushTestMatrix(
             double L, double B, double H,
-            string caseType, string printType,
+            string caseType, bool dblWall, string printType,
             QualityData qualityData,
             FormulaType mcKeeFormulaType)
         {
@@ -98,7 +98,7 @@ namespace treeDiM.EdgeCrushTest
             Dictionary<string, double> stockCoefDictionary = StockCoefDictionary;
             double printCoef = PrintCoefDictionary[printType];
             // get cardboard quality data
-            double bct_static = ComputeStaticBCT(L, B, H, caseType, qualityData, mcKeeFormulaType);
+            double bct_static = ComputeStaticBCT(L, B, H, caseType, dblWall, qualityData, mcKeeFormulaType);
 
             Dictionary<KeyValuePair<string, string>, double> edgeCrushTestMatrix = new Dictionary<KeyValuePair<string, string>, double>();
             foreach (string humidityRange in HumidityCoefDictionary.Keys)

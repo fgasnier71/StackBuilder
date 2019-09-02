@@ -10,7 +10,7 @@ namespace treeDiM.StackBuilder.Reporting
     #region ReporterPDF
     public class ReporterPDF : Reporter
     {
-        public ReporterPDF(ReportData inputData, ref ReportNode rnRoot
+        public ReporterPDF(ReportDataAnalysis inputData, ref ReportNode rnRoot
             , string templatePath, string outputFilePath)
         {
             // absolute output file path

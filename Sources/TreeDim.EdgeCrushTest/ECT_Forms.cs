@@ -14,7 +14,7 @@ namespace treeDiM.EdgeCrushTest
         {
             try
             {
-                var dockContent = new DockContentComputeBCT();
+                var dockContent = new DockContentBCTPalletisation();
                 dockContent.Show(dockPanel, DockState.Document);
             }
             catch (Exception ex)
@@ -26,7 +26,7 @@ namespace treeDiM.EdgeCrushTest
         {
             try
             {
-                var dockContent = new DockContentReverseBCT();
+                var dockContent = new DockContentBCTCase();
                 dockContent.Show(dockPanel, DockState.Document);
             }
             catch (Exception ex)
