@@ -136,4 +136,13 @@
   <str name="Part">Part</str>
   <str name="Count">Count</str>
   <str name="Items">Items</str>
+  <str name="Material">Material</str>
+  <str name="Profile">Profile</str>
+  <str name="Static BCT">Static BCT</str>
+  <str name="Dynamic BCT">Dynamic BCT</str>
+  <str name="Palletisation">Palletisation</str>
+  <str name="Stiffness X">Stiffness X</str>
+  <str name="Stiffness Y">Stiffness Y</str>
+  <str name="Overhang">Overhang</str>
+  <str name="Load on lowest case">Load on lowest case</str>
 </strings>

@@ -15,9 +15,10 @@ namespace treeDiM.StackBuilder.Reporting
     public partial class FormReportDesign : Form
     {
         #region Constructor
-        public FormReportDesign()
+        public FormReportDesign(ReportData inputData)
         {
             InitializeComponent();
+            Data = inputData;
         }
         #endregion
 
@@ -26,7 +27,7 @@ namespace treeDiM.StackBuilder.Reporting
         {
             base.OnLoad(e);
             // caption
-            Text = string.Format(Resources.ID_REPORTANALYSIS, _analysis.Name);
+            Text = string.Format(Resources.ID_REPORT_CAPTION, Data.Title);
             // toolbar show dimension
             toolSBDimensions.Checked = Settings.Default.ShowDimensions;
             // tree initialize root
@@ -86,11 +87,7 @@ namespace treeDiM.StackBuilder.Reporting
         #endregion
 
         #region Public properties
-        public Analysis Analysis
-        {
-            get { return _analysis; }
-            set { _analysis = value; }
-        }
+        public ReportData Data { get; private set; }
         #endregion
 
         #region Helpers
@@ -124,7 +121,7 @@ namespace treeDiM.StackBuilder.Reporting
                 Reporter.SetFontSizeRatios(cbFontSizeDetail.FontSizeRatio, cbFontSizeLarge.FontSizeRatio);
 
                 // reporter
-                ReporterHtml reporter = new ReporterHtml(new ReportDataAnalysis(_analysis), ref _rnRoot, Reporter.TemplatePath, htmlFilePath);
+                ReporterHtml reporter = new ReporterHtml(Data, ref _rnRoot, Reporter.TemplatePath, htmlFilePath);
                 // display html
                 _webBrowser.Navigate(htmlFilePath, string.Empty, null, string.Empty);
                 // update tree view
@@ -176,7 +173,7 @@ namespace treeDiM.StackBuilder.Reporting
                 SaveFileDialog dlg = new SaveFileDialog
                 {
                     InitialDirectory = Settings.Default.ReportInitialDirectory,
-                    FileName = Path.ChangeExtension(CleanString(Analysis.Name), "doc"),
+                    FileName = Path.ChangeExtension(CleanString(Data.SuggestedFileName), "doc"),
                     Filter = Resources.ID_FILTER_MSWORD,
                     DefaultExt = "doc",
                     ValidateNames = true
@@ -188,7 +185,7 @@ namespace treeDiM.StackBuilder.Reporting
                     Settings.Default.ReportInitialDirectory = Path.GetDirectoryName(dlg.FileName);
                     // generate report
                     ReporterMSWord reporter = new ReporterMSWord(
-                        new ReportDataAnalysis(_analysis)
+                        Data
                         , ref _rnRoot
                         , Reporter.TemplatePath
                         , dlg.FileName
@@ -211,7 +208,7 @@ namespace treeDiM.StackBuilder.Reporting
                 SaveFileDialog dlg = new SaveFileDialog
                 {
                     InitialDirectory = Settings.Default.ReportInitialDirectory,
-                    FileName = Path.ChangeExtension(CleanString(Analysis.Name), "html"),
+                    FileName = Path.ChangeExtension(CleanString(Data.SuggestedFileName), "html"),
                     Filter = Resources.ID_FILTER_HTML,
                     DefaultExt = "html",
                     ValidateNames = true
@@ -223,7 +220,7 @@ namespace treeDiM.StackBuilder.Reporting
                     Settings.Default.ReportInitialDirectory = Path.GetDirectoryName(dlg.FileName);
                     // generate report
                     ReporterHtml reporter = new ReporterHtml(
-                        new ReportDataAnalysis(_analysis)
+                        Data
                         , ref _rnRoot
                         , Reporter.TemplatePath
                         , dlg.FileName);
@@ -243,7 +240,7 @@ namespace treeDiM.StackBuilder.Reporting
                 SaveFileDialog dlg = new SaveFileDialog()
                 {
                     InitialDirectory = Settings.Default.ReportInitialDirectory,
-                    FileName = Path.ChangeExtension(CleanString(Analysis.Name), "pdf"),
+                    FileName = Path.ChangeExtension(CleanString(Data.SuggestedFileName), "pdf"),
                     Filter = Resources.ID_FILTER_PDF,
                     DefaultExt = "pdf",
                     ValidateNames = true
@@ -255,7 +252,7 @@ namespace treeDiM.StackBuilder.Reporting
                     Settings.Default.ReportInitialDirectory = Path.GetDirectoryName(dlg.FileName);
                     // generate report
                     ReporterPDF reporter = new ReporterPDF(
-                        new ReportDataAnalysis(_analysis)
+                        Data
                         , ref _rnRoot
                         , Reporter.TemplatePath
                         , dlg.FileName);

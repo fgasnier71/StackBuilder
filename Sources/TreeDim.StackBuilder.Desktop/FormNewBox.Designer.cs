@@ -278,7 +278,8 @@
             resources.GetString("cbColor.Items123"),
             resources.GetString("cbColor.Items124"),
             resources.GetString("cbColor.Items125"),
-            resources.GetString("cbColor.Items126")});
+            resources.GetString("cbColor.Items126"),
+            resources.GetString("cbColor.Items127")});
             this.cbColor.Name = "cbColor";
             this.cbColor.SelectedColorChanged += new System.EventHandler(this.OnFaceColorChanged);
             // 
@@ -338,7 +339,6 @@
             -2147483648});
             this.vcWeight.Name = "vcWeight";
             this.vcWeight.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_MASS;
-            this.vcWeight.Value = 0D;
             this.vcWeight.ValueChanged += new treeDiM.Basics.UCtrlDouble.ValueChangedDelegate(this.OnBoxPropertyChanged);
             // 
             // uCtrlNetWeight
@@ -508,7 +508,8 @@
             resources.GetString("cbTapeColor.Items124"),
             resources.GetString("cbTapeColor.Items125"),
             resources.GetString("cbTapeColor.Items126"),
-            resources.GetString("cbTapeColor.Items127")});
+            resources.GetString("cbTapeColor.Items127"),
+            resources.GetString("cbTapeColor.Items128")});
             this.cbTapeColor.Name = "cbTapeColor";
             this.cbTapeColor.SelectedColorChanged += new System.EventHandler(this.OnFaceColorChanged);
             // 

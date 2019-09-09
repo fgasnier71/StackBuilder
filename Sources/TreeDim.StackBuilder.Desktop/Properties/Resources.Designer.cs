@@ -19,7 +19,7 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -1011,6 +1011,15 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Evaluating case {0} out of {1}....
+        /// </summary>
+        internal static string ID_EVALUATINGCASE {
+            get {
+                return ResourceManager.GetString("ID_EVALUATINGCASE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Can you confirm that values in Excel sheet ({0}) are expressed using the currently set StackBuilder unit system i.e. {1}?.
         /// </summary>
         internal static string ID_EXCELSHEETUNITSYSTEM {
@@ -1524,6 +1533,15 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No analysis selected..
+        /// </summary>
+        internal static string ID_NOANALYSISSELECTED {
+            get {
+                return ResourceManager.GetString("ID_NOANALYSISSELECTED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No case selected!.
         /// </summary>
         internal static string ID_NOCASESELECTED {
@@ -2026,6 +2044,15 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         internal static string ID_SENDTODATABASE {
             get {
                 return ResourceManager.GetString("ID_SENDTODATABASE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sorting solutions....
+        /// </summary>
+        internal static string ID_SORTINGSOLUTIONS {
+            get {
+                return ResourceManager.GetString("ID_SORTINGSOLUTIONS", resourceCulture);
             }
         }
         

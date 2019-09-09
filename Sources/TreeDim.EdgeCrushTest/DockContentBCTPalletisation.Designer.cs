@@ -336,7 +336,7 @@
             this.cbPrintedArea.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbPrintedArea.FormattingEnabled = true;
             this.cbPrintedArea.Name = "cbPrintedArea";
-            this.cbPrintedArea.SelectedIndexChanged += new System.EventHandler(this.OnComputePalletization);
+            this.cbPrintedArea.SelectedIndexChanged += new System.EventHandler(this.OnComputeDynamicBCT);
             // 
             // lbCountMax
             // 

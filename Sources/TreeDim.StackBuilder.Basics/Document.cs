@@ -1923,7 +1923,15 @@ namespace treeDiM.StackBuilder.Basics
                     if (node is XmlElement eltHConstraintSet)
                     {
                         string sMaximumHeight = eltHConstraintSet.Attributes["MaximumHeight"].Value;
-                        constraintSet = new HConstraintSetPallet() { MaximumHeight = UnitsManager.ConvertLengthFrom(Convert.ToDouble(sMaximumHeight), UnitSystem) };
+                        Vector2D vOverhang = Vector2D.Zero;
+                        if (eltHConstraintSet.HasAttribute("Overhang"))
+                            vOverhang = LoadVectorLength(eltHConstraintSet, "Overhang");
+
+                        constraintSet = new HConstraintSetPallet()
+                        {
+                            MaximumHeight = UnitsManager.ConvertLengthFrom(Convert.ToDouble(sMaximumHeight), UnitSystem),
+                            Overhang = vOverhang
+                        };
                     }
                 }
                 else if (string.Equals(node.Name, "HConstraintSettruck", StringComparison.CurrentCultureIgnoreCase))
@@ -3436,6 +3444,10 @@ namespace treeDiM.StackBuilder.Basics
                 var attMaximumHeight = xmlDoc.CreateAttribute("MaximumHeight");
                 attMaximumHeight.Value = string.Format(CultureInfo.InvariantCulture, "{0}",  constraintSet.MaximumHeight.ToString());
                 eltConstraintSet.Attributes.Append(attMaximumHeight);
+                // attribute Overhang
+                var attOverhang = xmlDoc.CreateAttribute("Overhang");
+                attOverhang.Value = constraintSet.Overhang.ToString();
+                eltConstraintSet.Attributes.Append(attOverhang);
             }
             else if (null != analysisCase)
             {

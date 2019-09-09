@@ -237,18 +237,42 @@
   <data name="&gt;&gt;splitContainerHoriz2.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="uCtrlOverhang.Location" type="System.Drawing.Point, System.Drawing">
+    <value>5, 33</value>
+  </data>
+  <data name="uCtrlOverhang.Size" type="System.Drawing.Size, System.Drawing">
+    <value>240, 20</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="uCtrlOverhang.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="uCtrlOverhang.Text" xml:space="preserve">
+    <value>Overhang</value>
+  </data>
+  <data name="&gt;&gt;uCtrlOverhang.Name" xml:space="preserve">
+    <value>uCtrlOverhang</value>
+  </data>
+  <data name="&gt;&gt;uCtrlOverhang.Type" xml:space="preserve">
+    <value>treeDiM.Basics.UCtrlDualDouble, treeDiM.Basics, Version=3.0.1.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;uCtrlOverhang.Parent" xml:space="preserve">
+    <value>splitContainerVert.Panel1</value>
+  </data>
+  <data name="&gt;&gt;uCtrlOverhang.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="cbPallets.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="cbPallets.Location" type="System.Drawing.Point, System.Drawing">
     <value>102, 7</value>
   </data>
   <data name="cbPallets.Size" type="System.Drawing.Size, System.Drawing">
     <value>145, 21</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="cbPallets.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
@@ -256,19 +280,19 @@
     <value>cbPallets</value>
   </data>
   <data name="&gt;&gt;cbPallets.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered, treeDiM.StackBuilder.Graphics, Version=3.0.0.82, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered, treeDiM.StackBuilder.Graphics, Version=3.0.1.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;cbPallets.Parent" xml:space="preserve">
     <value>splitContainerVert.Panel1</value>
   </data>
   <data name="&gt;&gt;cbPallets.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="uCtrlPalletHeight.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
   </data>
   <data name="uCtrlPalletHeight.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 35</value>
+    <value>5, 59</value>
   </data>
   <data name="uCtrlPalletHeight.MinimumSize" type="System.Drawing.Size, System.Drawing">
     <value>100, 20</value>
@@ -286,19 +310,19 @@
     <value>uCtrlPalletHeight</value>
   </data>
   <data name="&gt;&gt;uCtrlPalletHeight.Type" xml:space="preserve">
-    <value>treeDiM.Basics.UCtrlDouble, treeDiM.Basics, Version=3.0.0.98, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.Basics.UCtrlDouble, treeDiM.Basics, Version=3.0.1.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlPalletHeight.Parent" xml:space="preserve">
     <value>splitContainerVert.Panel1</value>
   </data>
   <data name="&gt;&gt;uCtrlPalletHeight.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="lbPallet.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="lbPallet.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 10</value>
+    <value>5, 10</value>
   </data>
   <data name="lbPallet.Size" type="System.Drawing.Size, System.Drawing">
     <value>33, 13</value>
@@ -319,7 +343,7 @@
     <value>splitContainerVert.Panel1</value>
   </data>
   <data name="&gt;&gt;lbPallet.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="&gt;&gt;splitContainerVert.Panel1.Name" xml:space="preserve">
     <value>splitContainerVert.Panel1</value>
@@ -525,6 +549,6 @@
     <value>FormNewHAnalysisCasePallet</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Desktop.FormNewHAnalysis, treeDiM.StackBuilder.Desktop, Version=3.0.0.98, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Desktop.FormNewHAnalysis, treeDiM.StackBuilder.Desktop, Version=3.0.1.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

@@ -121,18 +121,12 @@
   <data name="chkbHatching.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="&gt;&gt;cbColor.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="cbColor.Items6" xml:space="preserve">
-    <value>Color</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>584, 362</value>
+  </data>
   <data name="uCtrlSpacing.Location" type="System.Drawing.Point, System.Drawing">
     <value>25, 165</value>
-  </data>
-  <data name="cbColor.Items3" xml:space="preserve">
-    <value>Color</value>
   </data>
   <data name="lbColor.Location" type="System.Drawing.Point, System.Drawing">
     <value>13, 83</value>
@@ -155,14 +149,8 @@
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>FormNewPalletFilm</value>
   </data>
-  <data name="&gt;&gt;bnCancel.Name" xml:space="preserve">
-    <value>bnCancel</value>
-  </data>
   <data name="uCtrlAngle.Size" type="System.Drawing.Size, System.Drawing">
     <value>185, 20</value>
-  </data>
-  <data name="cbColor.Location" type="System.Drawing.Point, System.Drawing">
-    <value>111, 80</value>
   </data>
   <data name="chkbTransparency.Text" xml:space="preserve">
     <value>Transparency</value>
@@ -191,11 +179,14 @@
   <data name="chkbTransparency.TabIndex" type="System.Int32, mscorlib">
     <value>26</value>
   </data>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 13</value>
+  <data name="cbColor.Items6" xml:space="preserve">
+    <value>Color</value>
   </data>
   <data name="&gt;&gt;lbColor.Name" xml:space="preserve">
     <value>lbColor</value>
+  </data>
+  <data name="uCtrlSpacing.Size" type="System.Drawing.Size, System.Drawing">
+    <value>185, 20</value>
   </data>
   <data name="cbColor.Items8" xml:space="preserve">
     <value>Color</value>
@@ -203,11 +194,8 @@
   <data name="uCtrlSpacing.TabIndex" type="System.Int32, mscorlib">
     <value>34</value>
   </data>
-  <data name="tbDescription.Size" type="System.Drawing.Size, System.Drawing">
-    <value>384, 20</value>
-  </data>
-  <data name="cbColor.IntegralHeight" type="System.Boolean, mscorlib">
-    <value>False</value>
+  <data name="cbColor.Location" type="System.Drawing.Point, System.Drawing">
+    <value>111, 80</value>
   </data>
   <data name="&gt;&gt;lbColor.ZOrder" xml:space="preserve">
     <value>5</value>
@@ -233,20 +221,20 @@
   <data name="&gt;&gt;lbName.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
+  <data name="uCtrlAngle.Location" type="System.Drawing.Point, System.Drawing">
+    <value>25, 192</value>
+  </data>
+  <data name="bnSendToDB.Text" xml:space="preserve">
+    <value>Send to database</value>
+  </data>
   <data name="&gt;&gt;cbColor.Type" xml:space="preserve">
-    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=1.1.6414.19067, Culture=neutral, PublicKeyToken=null</value>
+    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=3.0.1.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;chkbTransparency.Name" xml:space="preserve">
     <value>chkbTransparency</value>
   </data>
-  <data name="lbColor.TabIndex" type="System.Int32, mscorlib">
-    <value>25</value>
-  </data>
   <data name="&gt;&gt;bnSendToDB.ZOrder" xml:space="preserve">
     <value>2</value>
-  </data>
-  <data name="chkbHatching.Text" xml:space="preserve">
-    <value>Hatching</value>
   </data>
   <data name="&gt;&gt;lbDescription.Name" xml:space="preserve">
     <value>lbDescription</value>
@@ -254,8 +242,8 @@
   <data name="&gt;&gt;tbName.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="uCtrlAngle.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>100, 20</value>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
   </data>
   <data name="&gt;&gt;bnCancel.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -266,11 +254,17 @@
   <data name="cbColor.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 22</value>
   </data>
+  <data name="cbColor.Items5" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="&gt;&gt;chkbHatching.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
   <data name="chkbHatching.Size" type="System.Drawing.Size, System.Drawing">
     <value>69, 17</value>
   </data>
-  <data name="uCtrlSpacing.Text" xml:space="preserve">
-    <value>Spacing</value>
+  <data name="&gt;&gt;lbColor.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;chkbHatching.Name" xml:space="preserve">
     <value>chkbHatching</value>
@@ -278,8 +272,8 @@
   <data name="bnCancel.Location" type="System.Drawing.Point, System.Drawing">
     <value>505, 38</value>
   </data>
-  <data name="cbColor.Items2" xml:space="preserve">
-    <value>Color</value>
+  <data name="uCtrlSpacing.Text" xml:space="preserve">
+    <value>Spacing</value>
   </data>
   <data name="&gt;&gt;bnSendToDB.Parent" xml:space="preserve">
     <value>$this</value>
@@ -296,8 +290,14 @@
   <data name="cbColor.Items9" xml:space="preserve">
     <value>Color</value>
   </data>
+  <data name="&gt;&gt;lbColor.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
   <data name="&gt;&gt;uCtrlAngle.Type" xml:space="preserve">
-    <value>treeDiM.Basics.UCtrlDouble, treeDiM.Basics, Version=3.0.0.35, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.Basics.UCtrlDouble, treeDiM.Basics, Version=3.0.1.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="tbDescription.Size" type="System.Drawing.Size, System.Drawing">
+    <value>384, 20</value>
   </data>
   <data name="chkbTransparency.Size" type="System.Drawing.Size, System.Drawing">
     <value>91, 17</value>
@@ -311,8 +311,8 @@
   <data name="cbColor.Items11" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="&gt;&gt;uCtrlSpacing.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="cbColor.Items15" xml:space="preserve">
+    <value>Color</value>
   </data>
   <data name="&gt;&gt;lbDescription.ZOrder" xml:space="preserve">
     <value>9</value>
@@ -335,8 +335,11 @@
   <data name="&gt;&gt;uCtrlAngle.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
+  <data name="bnOk.Location" type="System.Drawing.Point, System.Drawing">
+    <value>505, 10</value>
+  </data>
   <data name="&gt;&gt;uCtrlSpacing.Type" xml:space="preserve">
-    <value>treeDiM.Basics.UCtrlDouble, treeDiM.Basics, Version=3.0.0.35, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.Basics.UCtrlDouble, treeDiM.Basics, Version=3.0.1.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;bnCancel.Parent" xml:space="preserve">
     <value>$this</value>
@@ -344,20 +347,20 @@
   <data name="&gt;&gt;cbColor.Name" xml:space="preserve">
     <value>cbColor</value>
   </data>
-  <data name="uCtrlAngle.TabIndex" type="System.Int32, mscorlib">
-    <value>35</value>
+  <data name="uCtrlAngle.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>100, 20</value>
   </data>
   <data name="&gt;&gt;bnSendToDB.Name" xml:space="preserve">
     <value>bnSendToDB</value>
   </data>
-  <data name="uCtrlSpacing.Size" type="System.Drawing.Size, System.Drawing">
-    <value>185, 20</value>
+  <data name="chkbHatching.Text" xml:space="preserve">
+    <value>Hatching</value>
   </data>
   <data name="&gt;&gt;lbName.ZOrder" xml:space="preserve">
     <value>10</value>
   </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Create new pallet film...</value>
+  <data name="cbColor.IntegralHeight" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="bnSendToDB.Location" type="System.Drawing.Point, System.Drawing">
     <value>436, 314</value>
@@ -392,11 +395,11 @@
   <data name="&gt;&gt;bnOk.Name" xml:space="preserve">
     <value>bnOk</value>
   </data>
-  <data name="&gt;&gt;lbColor.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="cbColor.Items5" xml:space="preserve">
+  <data name="cbColor.Items3" xml:space="preserve">
     <value>Color</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Create new pallet film...</value>
   </data>
   <data name="lbColor.Size" type="System.Drawing.Size, System.Drawing">
     <value>31, 13</value>
@@ -407,8 +410,8 @@
   <data name="&gt;&gt;lbDescription.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="bnSendToDB.Text" xml:space="preserve">
-    <value>Send to database</value>
+  <data name="&gt;&gt;bnCancel.Name" xml:space="preserve">
+    <value>bnCancel</value>
   </data>
   <data name="uCtrlAngle.Text" xml:space="preserve">
     <value>Angle</value>
@@ -416,14 +419,14 @@
   <data name="chkbTransparency.Location" type="System.Drawing.Point, System.Drawing">
     <value>16, 118</value>
   </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>584, 362</value>
+  <data name="cbColor.Items2" xml:space="preserve">
+    <value>Color</value>
   </data>
-  <data name="uCtrlAngle.Location" type="System.Drawing.Point, System.Drawing">
-    <value>25, 192</value>
+  <data name="lbColor.TabIndex" type="System.Int32, mscorlib">
+    <value>25</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Desktop.FormNewBase, treeDiM.StackBuilder.Desktop, Version=3.0.0.35, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Desktop.FormNewBase, treeDiM.StackBuilder.Desktop, Version=3.0.1.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="uCtrlSpacing.MinimumSize" type="System.Drawing.Size, System.Drawing">
     <value>100, 20</value>
@@ -434,17 +437,17 @@
   <data name="&gt;&gt;chkbTransparency.Type" xml:space="preserve">
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;lbColor.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;cbColor.ZOrder" xml:space="preserve">
+    <value>6</value>
   </data>
   <data name="&gt;&gt;lbName.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;chkbHatching.ZOrder" xml:space="preserve">
-    <value>3</value>
+  <data name="&gt;&gt;uCtrlSpacing.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
-  <data name="bnOk.Location" type="System.Drawing.Point, System.Drawing">
-    <value>505, 10</value>
+  <data name="uCtrlAngle.TabIndex" type="System.Int32, mscorlib">
+    <value>35</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

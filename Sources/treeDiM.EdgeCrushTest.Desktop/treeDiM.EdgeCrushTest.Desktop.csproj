@@ -130,7 +130,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="treedim2021.pfx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -150,6 +149,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>if $(ConfigurationName) == Release "$(SolutionDir)Signfile.bat" "$(TargetPath)"</PostBuildEvent>
+    <PostBuildEvent>copy /Y "$(SolutionDir)TreeDim.StackBuilder.Reporting\ReportTemplates" "$(TargetDir)ReportTemplates\"
+if $(ConfigurationName) == Release "$(SolutionDir)Signfile.bat" "$(TargetPath)"</PostBuildEvent>
   </PropertyGroup>
 </Project>

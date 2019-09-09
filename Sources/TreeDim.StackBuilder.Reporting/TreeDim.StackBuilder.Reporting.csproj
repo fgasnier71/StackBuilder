@@ -155,10 +155,6 @@
       <Project>{646ee507-e57d-43a7-93f3-365a687aec4b}</Project>
       <Name>treeDiM.Basics</Name>
     </ProjectReference>
-    <ProjectReference Include="..\TreeDim.EdgeCrushTest\treeDiM.EdgeCrushTest.csproj">
-      <Project>{E4240EE0-60B3-4435-BD09-F81D56C0899A}</Project>
-      <Name>treeDiM.EdgeCrushTest</Name>
-    </ProjectReference>
     <ProjectReference Include="..\TreeDim.StackBuilder.Basics\treeDiM.StackBuilder.Basics.csproj">
       <Project>{444C01D0-53FD-49A1-9D55-267B49161357}</Project>
       <Name>treeDiM.StackBuilder.Basics</Name>
@@ -176,10 +172,9 @@
     <Content Include="ReportTemplates\ITA.xml" />
     <Content Include="ReportTemplates\JPN.xml" />
     <Content Include="ReportTemplates\SVE.xml" />
-    <Content Include="ReportTemplates\ReportTemplateHtml.xsl">
-      <SubType>Designer</SubType>
+    <None Include="ReportTemplates\ReportTemplateHtml.xsl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    </None>
     <Content Include="ReportTemplates\ReportTemplateHtml_INTEX.xsl">
       <SubType>Designer</SubType>
     </Content>

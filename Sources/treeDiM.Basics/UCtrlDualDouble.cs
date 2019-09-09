@@ -88,10 +88,7 @@ namespace treeDiM.Basics
         #endregion
 
         #region Event handlers
-        private void OnValueChangedLocal(object sender, EventArgs e)
-        {
-            ValueChanged?.Invoke(this, e);
-        }
+        private void OnValueChangedLocal(object sender, EventArgs e) => ValueChanged?.Invoke(this, e);
         private void OnSizeChanged(object sender, EventArgs e)
         {
             // set nud location

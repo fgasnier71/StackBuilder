@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ID_CASE_DIMENSIONS" xml:space="preserve">
+    <value>Case_{0}x{1}x{2}</value>
+  </data>
   <data name="ID_FILTER_HTML" xml:space="preserve">
     <value>HyperText Markup Language (*html)|*.html|All files (*.*)|*.*</value>
   </data>
@@ -129,7 +132,7 @@
   <data name="ID_REPORT" xml:space="preserve">
     <value>Report</value>
   </data>
-  <data name="ID_REPORTANALYSIS" xml:space="preserve">
+  <data name="ID_REPORT_CAPTION" xml:space="preserve">
     <value>Report {0}</value>
   </data>
   <data name="ID_RN_ANALYSIS" xml:space="preserve">
@@ -177,6 +180,9 @@
   <data name="ID_RN_DIMENSIONSOUTER" xml:space="preserve">
     <value>Outer dimensions</value>
   </data>
+  <data name="ID_RN_DYNAMICBCT" xml:space="preserve">
+    <value>Dynamic BCT</value>
+  </data>
   <data name="ID_RN_IMAGE" xml:space="preserve">
     <value>Image</value>
   </data>
@@ -195,6 +201,9 @@
   <data name="ID_RN_LOADWEIGHT" xml:space="preserve">
     <value>Load weight</value>
   </data>
+  <data name="ID_RN_MATERIAL" xml:space="preserve">
+    <value>Material</value>
+  </data>
   <data name="ID_RN_MAXIMUMHEIGHT" xml:space="preserve">
     <value>Maximum height</value>
   </data>
@@ -203,6 +212,9 @@
   </data>
   <data name="ID_RN_MAXIMUMWEIGHT" xml:space="preserve">
     <value>Maximum weight</value>
+  </data>
+  <data name="ID_RN_NAME" xml:space="preserve">
+    <value>Name</value>
   </data>
   <data name="ID_RN_NOLAYERSBYNOCASES" xml:space="preserve">
     <value>Layers x Cases</value>
@@ -213,14 +225,23 @@
   <data name="ID_RN_PACK" xml:space="preserve">
     <value>Pack</value>
   </data>
+  <data name="ID_RN_PACKSTRESS" xml:space="preserve">
+    <value>PackStress</value>
+  </data>
   <data name="ID_RN_PALLET" xml:space="preserve">
     <value>Pallet</value>
+  </data>
+  <data name="ID_RN_PALLETISATION" xml:space="preserve">
+    <value>Palletisation</value>
   </data>
   <data name="ID_RN_SOLUTION" xml:space="preserve">
     <value>Solution</value>
   </data>
   <data name="ID_RN_SPACES" xml:space="preserve">
     <value>Spaces</value>
+  </data>
+  <data name="ID_RN_STATICBCT" xml:space="preserve">
+    <value>Static BCT</value>
   </data>
   <data name="ID_RN_TOTALWEIGHT" xml:space="preserve">
     <value>Total weight</value>

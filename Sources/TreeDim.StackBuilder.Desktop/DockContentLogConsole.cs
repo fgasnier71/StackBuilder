@@ -22,10 +22,7 @@ namespace treeDiM.StackBuilder.Desktop
         }
         #endregion
         #region Public properties
-        public RichTextBox RichTextBox
-        {
-            get { return richTextBoxLog; }
-        }
+        public RichTextBox RichTextBox => richTextBoxLog;
         #endregion
     }
 }

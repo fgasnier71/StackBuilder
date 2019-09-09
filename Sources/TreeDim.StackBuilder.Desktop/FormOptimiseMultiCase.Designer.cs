@@ -28,8 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormOptimiseMultiCase));
             this.splitContainerHoriz = new System.Windows.Forms.SplitContainer();
+            this.uCtrlNumberPerCase = new treeDiM.Basics.UCtrlOptInt();
             this.uCtrlCaseDimensionsMax = new treeDiM.Basics.UCtrlOptTriDouble();
             this.uCtrlCaseDimensionsMin = new treeDiM.Basics.UCtrlOptTriDouble();
             this.gridSolutions = new SourceGrid.Grid();
@@ -47,7 +49,7 @@
             this.graphCtrl = new treeDiM.StackBuilder.Graphics.Graphics3DControl();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelDef = new System.Windows.Forms.ToolStripStatusLabel();
-            this.uCtrlNumberPerCase = new treeDiM.Basics.UCtrlOptInt();
+            this.timer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerHoriz)).BeginInit();
             this.splitContainerHoriz.Panel1.SuspendLayout();
             this.splitContainerHoriz.Panel2.SuspendLayout();
@@ -83,6 +85,13 @@
             this.splitContainerHoriz.Panel2.Controls.Add(this.lbAnalysisName);
             this.splitContainerHoriz.Panel2.Controls.Add(this.graphCtrl);
             this.splitContainerHoriz.Panel2.Controls.Add(this.statusStrip);
+            // 
+            // uCtrlNumberPerCase
+            // 
+            resources.ApplyResources(this.uCtrlNumberPerCase, "uCtrlNumberPerCase");
+            this.uCtrlNumberPerCase.Minimum = -10000;
+            this.uCtrlNumberPerCase.Name = "uCtrlNumberPerCase";
+            this.uCtrlNumberPerCase.ValueChanged += new treeDiM.Basics.UCtrlOptInt.ValueChangedDelegate(this.OnConstraintsChanged);
             // 
             // uCtrlCaseDimensionsMax
             // 
@@ -214,12 +223,10 @@
             this.toolStripStatusLabelDef.Name = "toolStripStatusLabelDef";
             resources.ApplyResources(this.toolStripStatusLabelDef, "toolStripStatusLabelDef");
             // 
-            // uCtrlNumberPerCase
+            // timer
             // 
-            resources.ApplyResources(this.uCtrlNumberPerCase, "uCtrlNumberPerCase");
-            this.uCtrlNumberPerCase.Minimum = -10000;
-            this.uCtrlNumberPerCase.Name = "uCtrlNumberPerCase";
-            this.uCtrlNumberPerCase.ValueChanged += new treeDiM.Basics.UCtrlOptInt.ValueChangedDelegate(this.OnConstraintsChanged);
+            this.timer.Interval = 3000;
+            this.timer.Tick += new System.EventHandler(this.OnTimerTick);
             // 
             // FormOptimiseMultiCase
             // 
@@ -266,5 +273,6 @@
         private treeDiM.Basics.UCtrlOptTriDouble uCtrlCaseDimensionsMax;
         private treeDiM.Basics.UCtrlOptTriDouble uCtrlCaseDimensionsMin;
         private treeDiM.Basics.UCtrlOptInt uCtrlNumberPerCase;
+        private System.Windows.Forms.Timer timer;
     }
 }

@@ -125,6 +125,7 @@
         </table>
         <xsl:apply-templates select="analysis"/>
         <xsl:apply-templates select="hAnalysis"/>
+        <xsl:apply-templates select="packStress"/>
       </body>
     </html>
   </xsl:template>
@@ -160,6 +161,7 @@
     <xsl:apply-templates select="palletFilm"/>
     <xsl:apply-templates select="constraintSet"/>
     <xsl:apply-templates select="solution"/>
+
   </xsl:template>
   <!--#### HANALYSIS ####-->
   <xsl:template match="hAnalysis">
@@ -184,6 +186,313 @@
     <xsl:apply-templates select="hConstraintSet"/>
     <xsl:apply-templates select="hSolution"/>
   </xsl:template>
+  <!--#### PACKSTRESS ####-->
+  <xsl:template match ="packStress">
+    <h2>
+      <xsl:value-of select ="$loc/str[@name='PackStress']"/>
+    </h2>
+    <xsl:apply-templates select="bctCase"/>
+    <xsl:apply-templates select="material"/>
+    <xsl:apply-templates select="staticBCT"/>
+    <xsl:apply-templates select="dynamicBCT"/>
+    <xsl:apply-templates select="palletisation"/>
+  </xsl:template>
+  <!--#### BCTCASE ####-->
+  <xsl:template match="bctCase">
+    <h3>
+      <xsl:value-of select="$loc/str[@name='Case']"/>
+    </h3>
+    <table class="style1" cellpadding="3">
+      <tr>
+        <xsl:if test="length">
+          <td class="style2" colspan="1">
+            <b>
+              <xsl:value-of select="$loc/str[@name='Dimensions']"/> (<xsl:value-of select="length/unit"/>*<xsl:value-of select="width/unit"/>*<xsl:value-of select="height/unit"/>)
+            </b>
+          </td>
+        </xsl:if>
+        <xsl:if test="weight">
+          <td class="style2" colspan="1">
+            <b>
+              <xsl:value-of select="$loc/str[@name='Weight']"/> (<xsl:value-of select="weight/unit"/>)
+            </b>
+          </td>
+        </xsl:if>
+      </tr>
+      <tr>
+        <xsl:if test="length">
+          <td class="style3" colspan="1">
+            <xsl:value-of select="length/value"/>*<xsl:value-of select="width/value"/>*<xsl:value-of select="height/value"/>
+          </td>
+        </xsl:if>
+        <xsl:if test="weight">
+          <td class="style3" colspan="1">
+            <xsl:value-of select="weight/value"></xsl:value-of>
+          </td>
+        </xsl:if>
+        <xsl:if test="imageThumbSize">
+          <td colspan="2" align="middle">
+            <xsl:apply-templates select="imageThumbSize"/>
+          </td>
+        </xsl:if>
+      </tr>
+    </table>
+  </xsl:template>
+  <!---->
+  <!--#### MATERIAL ####-->
+  <xsl:template match="material">
+    <h3>
+      <xsl:value-of select="$loc/str[@name='Material']"/>
+    </h3>
+    <table class="style1" cellpadding="2">
+      <tr>
+        <td class="style2" colspan="1">
+          <b>
+            <xsl:value-of select="$loc/str[@name='Name']"/>
+          </b>
+        </td>
+        <td class="style3" colspan="1">
+          <xsl:value-of select="name"/>
+        </td>
+      </tr>
+      <tr>
+        <td class="style2" colspan="1">
+          <b>
+            <xsl:value-of select="$loc/str[@name='Profile']"/>
+          </b>
+        </td>
+        <td class="style3" colspan="1">
+          <xsl:value-of select="profile"/>
+        </td>
+      </tr>
+      <tr>
+        <td class="style2" colspan="1">
+          <b>
+            <xsl:value-of select="$loc/str[@name='Thickness']"/> (<xsl:value-of select="thickness/unit"/>)
+          </b>
+        </td>
+        <td class="style3" colspan="1">
+          <xsl:value-of select="thickness/value"/>
+        </td>
+      </tr>
+      <tr>
+        <td class="style2" colspan="1">
+          <b>
+            <xsl:value-of select="$loc/str[@name='ECT']"/> (<xsl:value-of select="ect/unit"/>)
+          </b>
+        </td>
+        <td class="style3" colspan="1">
+          <xsl:value-of select="ect/value"/>
+        </td>
+      </tr>
+      <tr>
+        <td class="style2" colspan="1">
+          <b>
+            <xsl:value-of select="$loc/str[@name='Stiffness X']"/> (<xsl:value-of select="stiffnessX/unit"/>)
+          </b>
+        </td>
+        <td class="style3" colspan="1">
+          <xsl:value-of select="stiffnessX/value"/>
+        </td>
+      </tr>
+      <tr>
+        <td class="style2" colspan="1">
+          <b>
+            <xsl:value-of select="$loc/str[@name='Stiffness Y']"/> (<xsl:value-of select="stiffnessY/unit"/>)
+          </b>
+        </td>
+        <td class="style3" colspan="1">
+          <xsl:value-of select="stiffnessY/value"/>
+        </td>
+      </tr>
+    </table>
+  </xsl:template>
+  <!--#### static BCT ####-->
+  <xsl:template match="staticBCT">
+    <h3>
+      <xsl:value-of select="$loc/str[@name='Static BCT']"/>
+    </h3>
+    <table class="style1" cellpadding="2">
+      <tr>
+        <td class="style2" cellspan="1">
+          <b>
+            <xsl:value-of select="$loc/str[@name='Static BCT']"/> (<xsl:value-of select="bct/unit"/>)
+          </b>
+        </td>
+        <td class="style3" cellspan="1">
+          <xsl:value-of select="bct/value"/>
+        </td>
+      </tr>
+    </table>
+  </xsl:template>
+  <!--#### dynamic BCT ####-->
+  <xsl:template match="dynamicBCT">
+    <h3>
+      <xsl:value-of select="$loc/str[@name='Dynamic BCT']"/>
+    </h3>
+    <table class="style1" cellpadding="7">
+      <tr>
+        <td class="style2" cellspan="1">
+          <b>Humidity/Storage</b>
+        </td>
+        <td class="style2" cellspan="1">
+          <b>0-45%</b>
+        </td>
+        <td class="style2" cellspan="1">
+          <b>46-55%</b>
+        </td>
+        <td class="style2" cellspan="1">
+          <b>56-65%</b>
+        </td>
+        <td class="style2" cellspan="1">
+          <b>66-75%</b>
+        </td>
+        <td class="style2" cellspan="1">
+          <b>76-85%</b>
+        </td>
+        <td class="style2" cellspan="1">
+          <b>86-100%</b>
+        </td>
+      </tr>
+      <xsl:for-each select="bctRow">
+        <tr>
+          <td class="style2" cellspan="1">
+            <b>
+              <xsl:value-of select="name"/>
+            </b>
+          </td>
+          <xsl:for-each select ="bctValue">
+            <td class="style3" cellspan="1">
+              <xsl:value-of select="."/>
+            </td>            
+          </xsl:for-each>
+        </tr>
+      </xsl:for-each>
+    </table>
+  </xsl:template>
+  <!--#### palletisation ####-->
+  <xsl:template match="palletisation">
+    <h3>
+      <xsl:value-of select="$loc/str[@name='Palletisation']"/>
+    </h3>
+    <xsl:apply-templates select="bctPallet"/>
+    <xsl:apply-templates select="bctSolution"/>
+  </xsl:template>
+  <xsl:template match="bctPallet">
+    <table class="style1" cellpadding="4">
+      <tr>
+        <xsl:if test="length">
+          <td class="style2" cellspan="1">
+            <b>
+              <xsl:value-of select="$loc/str[@name='Dimensions']"/> (<xsl:value-of select="length/unit"/>x<xsl:value-of select="width/unit"/>x<xsl:value-of select="height/unit"/> )
+            </b>
+          </td>
+        </xsl:if>
+        <xsl:if test="weight">
+          <td class="style2" cellspan="1">
+            <b>
+              <xsl:value-of select="$loc/str[@name='Weight']"/> (<xsl:value-of select="weight/unit"/>)
+            </b>
+          </td>
+        </xsl:if>
+        <xsl:if test="overhangX">
+          <td class="style2" cellspan="1">
+            <b>
+              <xsl:value-of select="$loc/str[@name='Overhang']"/>(<xsl:value-of select="overhangX/unit"/>*<xsl:value-of select="overhangY/unit"/>)
+            </b>
+          </td>
+        </xsl:if>
+      </tr>
+      <tr>
+        <xsl:if test="length">
+          <td class="style3" cellspan="1">
+            <xsl:value-of select="length/value"/>x<xsl:value-of select="width/value"/>x<xsl:value-of select="height/value"/>
+          </td>
+        </xsl:if>
+        <xsl:if test="weight">
+          <td class="style3" cellspan="1">
+            <xsl:value-of select="weight/value"/>
+          </td>
+        </xsl:if>
+        <xsl:if test="overhangX">
+          <td class="style3" cellspan="1">
+            <xsl:value-of select="overhangX/value"/>*<xsl:value-of select="overhangY/value"/>
+          </td>
+        </xsl:if>
+        <xsl:if test="imageThumbSize">
+          <td colspan="2" align="middle">
+            <xsl:apply-templates select="imageThumbSize"/>
+          </td>
+        </xsl:if>
+      </tr>
+    </table>
+  </xsl:template>
+  <xsl:template match="bctSolution">
+    <table class="style1" cellpadding="3">
+      <xsl:if test="noLayersAndNoCases">
+        <tr>
+          <td class="style2" cellspan="1">
+            <b>
+              <xsl:value-of select="$loc/str[@name='Layers x Cases']"/>
+            </b>
+          </td>
+          <td class="style3" cellspan="1">
+            <xsl:value-of select="noLayersAndNoCases"/>
+          </td>
+          <td/>
+        </tr>
+      </xsl:if>
+      <xsl:if test="loadWeight">
+        <tr>
+          <td class="style2" cellspan="1">
+            <b>
+              <xsl:value-of select="$loc/str[@name='Load weight']"/> (<xsl:value-of select="loadWeight/unit"/>)
+            </b>
+          </td>
+          <td class="style3" cellspan="1">
+            <xsl:value-of select="loadWeight/value"/>
+          </td>
+          <td/>
+        </tr>
+      </xsl:if>
+      <xsl:if test="totalWeight">
+        <tr>
+          <td class="style2" cellspan="1">
+            <b>
+              <xsl:value-of select="$loc/str[@name='Total weight']"/> (<xsl:value-of select="totalWeight/unit"/>)
+            </b>
+          </td>
+          <td class="style3" cellspan="1">
+            <xsl:value-of select="totalWeight/value"/>
+          </td>
+          <td/>
+        </tr>
+      </xsl:if>
+      <xsl:if test="loadOnLowestCase">
+        <tr>
+          <td class="style2" cellspan="1">
+            <b>
+              <xsl:value-of select="$loc/str[@name='Load on lowest case']"/> (<xsl:value-of select="loadOnLowestCase/unit"/>)
+            </b>
+          </td>
+          <td class="style3" cellspan="1">
+            <xsl:value-of select="loadOnLowestCase/value"/>
+          </td>
+          <td/>
+        </tr>
+      </xsl:if>
+      <xsl:if test="view_solution_iso">
+        <tr>
+          <td/>
+          <td/>
+          <td colspan="2" align="middle">
+            <xsl:apply-templates select="view_solution_iso"/>
+          </td>
+        </tr>
+      </xsl:if>
+    </table>
+  </xsl:template>
+
   <!--#### ECTANALYSIS ####-->
   <xsl:template match="ectAnalysis">
     <h2>
@@ -810,116 +1119,25 @@
           <b>86-100 %</b>
         </td>
       </tr>
-      <xsl:apply-templates select="bct_dynamic_storage"></xsl:apply-templates>
+      <xsl:apply-templates select="bct_dynamic_row"></xsl:apply-templates>
     </table>
   </xsl:template>
   <!--BCT_DYNAMIC_STORAGE-->
-  <xsl:template match="bct_dynamic_storage">
+  <xsl:template match="bctDynRow">
     <tr>
       <td class="style2">
         <b>
-          <xsl:value-of select="duration"></xsl:value-of>
+          <xsl:value-of select="bctDynRowName"/>
         </b>
       </td>
-      <xsl:apply-templates select="humidity_0_45"></xsl:apply-templates>
-      <xsl:apply-templates select="humidity_46_55"></xsl:apply-templates>
-      <xsl:apply-templates select="humidity_56_65"></xsl:apply-templates>
-      <xsl:apply-templates select="humidity_66_75"></xsl:apply-templates>
-      <xsl:apply-templates select="humidity_76_85"></xsl:apply-templates>
-      <xsl:apply-templates select="humidity_86_100"></xsl:apply-templates>
+      <xsl:apply-templates select="bctDynRowValue"/>
     </tr>
   </xsl:template>
-  <!--humidity_0_45-->
-  <xsl:template match="humidity_0_45">
-    <xsl:choose>
-      <xsl:when test="@admissible=&apos;true&apos;">
-        <td class="style3">
-          <xsl:value-of select="."></xsl:value-of>
-        </td>
-      </xsl:when>
-      <xsl:otherwise>
-        <td class="style4">
-          <xsl:value-of select="."></xsl:value-of>
-        </td>
-      </xsl:otherwise>
-    </xsl:choose>
+  <xsl:template match="bctDynamicRowValue">
+    <td class="style2">
+      <xsl:value-of select="bct_value"/>
+    </td>
   </xsl:template>
-  <!--humidity_46_55-->
-  <xsl:template match="humidity_46_55">
-    <xsl:choose>
-      <xsl:when test="@admissible=&apos;true&apos;">
-        <td class="style3">
-          <xsl:value-of select="."></xsl:value-of>
-        </td>
-      </xsl:when>
-      <xsl:otherwise>
-        <td class="style4">
-          <xsl:value-of select="."></xsl:value-of>
-        </td>
-      </xsl:otherwise>
-    </xsl:choose>
-  </xsl:template>
-  <!--humidity_56_65-->
-  <xsl:template match="humidity_56_65">
-    <xsl:choose>
-      <xsl:when test="@admissible=&apos;true&apos;">
-        <td class="style3">
-          <xsl:value-of select="."></xsl:value-of>
-        </td>
-      </xsl:when>
-      <xsl:otherwise>
-        <td class="style4">
-          <xsl:value-of select="."></xsl:value-of>
-        </td>
-      </xsl:otherwise>
-    </xsl:choose>
-  </xsl:template>
-  <!--humidity_66_75-->
-  <xsl:template match="humidity_66_75">
-    <xsl:choose>
-      <xsl:when test="@admissible=&apos;true&apos;">
-        <td class="style3">
-          <xsl:value-of select="."></xsl:value-of>
-        </td>
-      </xsl:when>
-      <xsl:otherwise>
-        <td class="style4">
-          <xsl:value-of select="."></xsl:value-of>
-        </td>
-      </xsl:otherwise>
-    </xsl:choose>
-  </xsl:template>
-  <!--humidity_76_85-->
-  <xsl:template match="humidity_76_85">
-    <xsl:choose>
-      <xsl:when test="@admissible=&apos;true&apos;">
-        <td class="style3">
-          <xsl:value-of select="."></xsl:value-of>
-        </td>
-      </xsl:when>
-      <xsl:otherwise>
-        <td class="style4">
-          <xsl:value-of select="."></xsl:value-of>
-        </td>
-      </xsl:otherwise>
-    </xsl:choose>
-  </xsl:template>
-  <!--humidity_76_85-->
-  <xsl:template match="humidity_86_100">
-    <xsl:choose>
-      <xsl:when test="@admissible=&apos;true&apos;">
-        <td class="style3">
-          <xsl:value-of select="."></xsl:value-of>
-        </td>
-      </xsl:when>
-      <xsl:otherwise>
-        <td class="style4">
-          <xsl:value-of select="."></xsl:value-of>
-        </td>
-      </xsl:otherwise>
-    </xsl:choose>
-  </xsl:template>
-
   <!--#### #### #### #### #### #### #### #### ####-->
   <!--#### CASE ####-->
   <xsl:template match="case">
@@ -950,7 +1168,7 @@
       <tr>
         <td class="style2" colspan="1">
           <b>
-            <xsl:value-of select="$loc/str[@name='Length']"/> (<xsl:value-of select="length/unit"></xsl:value-of>)
+            <xsl:value-of select="$loc/str[@name='Length']"/> (<xsl:value-of select="length/unit"/>)
           </b>
         </td>
         <td class="style3" colspan="1">
@@ -963,7 +1181,7 @@
       <tr>
         <td class="style2">
           <b>
-            <xsl:value-of select="$loc/str[@name='Width']"/> (<xsl:value-of select="width/unit"></xsl:value-of>)
+            <xsl:value-of select="$loc/str[@name='Width']"/> (<xsl:value-of select="width/unit"/>)
           </b>
         </td>
         <td class="style3" colspan="1">
@@ -973,7 +1191,7 @@
       <tr>
         <td class="style2">
           <b>
-            <xsl:value-of select="$loc/str[@name='Height']"/> (<xsl:value-of select="height/unit"></xsl:value-of>)
+            <xsl:value-of select="$loc/str[@name='Height']"/> (<xsl:value-of select="height/unit"/>)
           </b>
         </td>
         <td class="style3" colspan="1">
@@ -1291,7 +1509,7 @@
         <xsl:if test="length">
           <td class="style2" colspan="1">
             <b>
-              <xsl:value-of select="$loc/str[@name='Length']"/> (<xsl:value-of select="length/unit"></xsl:value-of>)
+              <xsl:value-of select="$loc/str[@name='Length']"/> (<xsl:value-of select="length/unit"/>)
             </b>
           </td>
           <td class="style3" colspan="1">
@@ -1384,7 +1602,7 @@
         <xsl:if test="length">
           <td class="style2" colspan="1">
             <b>
-              <xsl:value-of select="$loc/str[@name='Length']"/> (<xsl:value-of select="length/unit"></xsl:value-of>)
+              <xsl:value-of select="$loc/str[@name='Length']"/> (<xsl:value-of select="length/unit"/>)
             </b>
           </td>
           <td class="style3" colspan="1">
@@ -1465,7 +1683,7 @@
         <xsl:if test="length">
           <td class="style2">
             <b>
-              <xsl:value-of select="$loc/str[@name='Length']"/> (<xsl:value-of select="length/unit"></xsl:value-of>)
+              <xsl:value-of select="$loc/str[@name='Length']"/> (<xsl:value-of select="length/unit"/>)
             </b>
           </td>
           <td class="style3">
@@ -1545,7 +1763,7 @@
       <tr>
         <td class="style2 " colspan="1">
           <b>
-            <xsl:value-of select="$loc/str[@name='Length']"/> (<xsl:value-of select="length/unit"></xsl:value-of>)
+            <xsl:value-of select="$loc/str[@name='Length']"/> (<xsl:value-of select="length/unit"/>)
           </b>
         </td>
         <td class="style3" colspan="1">
@@ -1749,7 +1967,7 @@
       <tr>
         <td class="style2">
           <strong>
-            <xsl:value-of select="$loc/str[@name='Length']"/> (<xsl:value-of select="length/unit"></xsl:value-of>)
+            <xsl:value-of select="$loc/str[@name='Length']"/> (<xsl:value-of select="length/unit"/>)
           </strong>
         </td>
         <td class="style3">
@@ -1850,7 +2068,7 @@
       <tr>
         <td class="style2">
           <b>
-            <xsl:value-of select="$loc/str[@name='Length']"/> (<xsl:value-of select="length/unit"></xsl:value-of>)
+            <xsl:value-of select="$loc/str[@name='Length']"/> (<xsl:value-of select="length/unit"/>)
           </b>
         </td>
         <td class="style3">
@@ -1863,7 +2081,7 @@
       <tr>
         <td class="style2">
           <b>
-            <xsl:value-of select="$loc/str[@name='Width']"/> (<xsl:value-of select="width/unit"></xsl:value-of>)
+            <xsl:value-of select="$loc/str[@name='Width']"/> (<xsl:value-of select="width/unit"/>)
           </b>
         </td>
         <td class="style3">

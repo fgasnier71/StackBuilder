@@ -15,6 +15,7 @@ using treeDiM.EdgeCrushTest.Properties;
 using treeDiM.StackBuilder.Basics;
 using treeDiM.StackBuilder.Graphics;
 using treeDiM.StackBuilder.Engine;
+using treeDiM.StackBuilder.Reporting;
 #endregion
 
 namespace treeDiM.EdgeCrushTest
@@ -27,7 +28,6 @@ namespace treeDiM.EdgeCrushTest
             InitializeComponent();
         }
         #endregion
-
         #region Form override
         protected override void OnLoad(EventArgs e)
         {
@@ -47,13 +47,13 @@ namespace treeDiM.EdgeCrushTest
                 tsCBProfile.Items.AddRange(CardboardQualityAccessor.Instance.GetProfileList().ToArray());
                 tsCBProfile.SelectedIndex = 0;
 
-                // fill printed combo
-                cbPrintedArea.Items.AddRange(McKeeFormula.PrintCoefDictionary.Keys.ToArray());
-                cbPrintedArea.SelectedIndex = 0;
-
                 // initialize dynamic BCT grid
                 InitializeGridDynamicBCT();
 
+                // fill printed combo
+                cbPrintedArea.Items.AddRange(McKeeFormula.PrintCoefDictionary.Keys.ToArray());
+                cbPrintedArea.SelectedIndex = 0;
+                
                 // fill pallet combo
                 FillPalletCombo();
 
@@ -77,7 +77,6 @@ namespace treeDiM.EdgeCrushTest
             Settings.Default.CaseWeight = CaseWeight;
         }
         #endregion
-
         #region Private properties
         private Vector3D CaseDimensions
         {
@@ -133,8 +132,17 @@ namespace treeDiM.EdgeCrushTest
                     return tsCBProfile.Items[iSel].ToString();
             }
         }
+        private double StaticBCT
+        {
+            get
+            {
+                QualityData qdata = SelectedMaterial;
+                return qdata.ComputeStaticBCT(
+                                CaseDimensions, Resources.CASETYPE_AMERICANCASE, IsDoubleWall,
+                                McKeeFormulaType);
+            }
+        }
         #endregion
-
         #region Fill pallet combo
         private void FillPalletCombo()
         {
@@ -145,7 +153,6 @@ namespace treeDiM.EdgeCrushTest
                 cbPallets.SelectedIndex = 0;
         }
         #endregion
-
         #region Fill material grid
         private void FillMaterialGrid()
         {
@@ -227,7 +234,7 @@ namespace treeDiM.EdgeCrushTest
                 double staticBCT = McKeeFormula.ComputeStaticBCT(
                     dim.X, dim.Y, dim.Z, Resources.CASETYPE_AMERICANCASE, IsDoubleWall
                     , q, McKeeFormulaType);
-                int layerCount = (int)Math.Floor(staticBCT/(9.81 * CaseWeight)) + 1;
+                int layerCount = (int)Math.Floor(staticBCT / (9.81 * CaseWeight)) + 1;
 
                 iCol = 0;
                 gridMat.Rows.Insert(++iIndex);
@@ -360,7 +367,6 @@ namespace treeDiM.EdgeCrushTest
             gridDynamicBCT.Invalidate();
         }
         #endregion
-
         #region Event handler
         private void OnEditMaterialList(object sender, EventArgs e)
         {
@@ -376,18 +382,62 @@ namespace treeDiM.EdgeCrushTest
             QualityData qdata = SelectedMaterial;
             if (null == qdata) return;
             Vector3D caseDim = CaseDimensions;
-            double staticBCT = qdata.ComputeStaticBCT( caseDim, Resources.CASETYPE_AMERICANCASE, IsDoubleWall, McKeeFormulaType);
+            double staticBCT = qdata.ComputeStaticBCT(caseDim, Resources.CASETYPE_AMERICANCASE, IsDoubleWall, McKeeFormulaType);
             int layerCount = (int)Math.Floor(staticBCT / (9.81 * CaseWeight)) + 1;
             // display actual number of layers
             uCtrlNoLayers.Maximum = layerCount;
             CountMax = layerCount;
             ActualNoLayers = layerCount;
         }
+        private void OnComputeDynamicBCT(object sender, EventArgs e)
+        {
+            FillGridDynamicBCT();
+        }
         private void OnReport(object sender, EventArgs e)
         {
             try
             {
-                throw new Exception("Not implemented!");
+                // Analysis
+                SolverCasePallet solver = new SolverCasePallet(CaseProperties, PalletProperties);
+                List<AnalysisHomo> analyses = solver.BuildAnalyses(ConstraintSet, false);
+                Analysis analysis = analyses.Count > 0 ? analyses[0] : null;
+
+                // build list of BCT
+                QualityData qdata = SelectedMaterial;
+                Vector3D caseDim = CaseDimensions;
+                var dynBCTmatrix = McKeeFormula.EvaluateEdgeCrushTestMatrix(
+                        caseDim.X, caseDim.Y, caseDim.Z,
+                        Resources.CASETYPE_AMERICANCASE, IsDoubleWall, PrintSurface,
+                        qdata, McKeeFormulaType);
+                List<DynamicBCTRow> listBCTRows = new List<DynamicBCTRow>();
+                foreach (var keyStorage in McKeeFormula.StockCoefDictionary.Keys)
+                {
+                    List<double> values = new List<double>();
+                    foreach (var keyHumidity in McKeeFormula.HumidityCoefDictionary.Keys)
+                        values.Add(dynBCTmatrix[new KeyValuePair<string, string>(keyStorage, keyHumidity)]);
+                    listBCTRows.Add(new DynamicBCTRow() { Name = keyStorage, Values = values });
+                }
+                // build report data 
+                var reportData = new ReportDataPackStress()
+                {
+                    Author = CardboardQualityAccessor.Instance.UserName,
+                    McKeeFormulaType = (int)McKeeFormulaType,
+                    Box = CaseProperties,
+                    Mat = new Material()
+                    {
+                        Name = qdata.Name,
+                        Profile = qdata.Profile,
+                        Thickness = qdata.Thickness,
+                        ECT = qdata.ECT,
+                        RigidityDX = qdata.RigidityDX,
+                        RigidityDY = qdata.RigidityDY
+                    },
+                    StaticBCT = StaticBCT,
+                    Analysis = analysis,
+                    BCTRows = listBCTRows 
+                };
+                using (var form = new FormReportDesign(reportData))
+                    form.ShowDialog();
             }
             catch (Exception ex)
             {
@@ -395,51 +445,80 @@ namespace treeDiM.EdgeCrushTest
             }
         }
         #endregion
-
         #region Palletisation computation
+        private BoxProperties CaseProperties
+        {
+            get
+            {
+                // build BoxProperties
+                Vector3D caseDim = CaseDimensions;
+                var bProperties = new BoxProperties(null, caseDim.X, caseDim.Y, caseDim.Z)
+                {
+                    TapeWidth = new OptDouble(true, 50.0),
+                    TapeColor = Color.LightGray
+                };
+                bProperties.SetAllColors(Enumerable.Repeat(Color.Beige, 6).ToArray());
+                bProperties.SetWeight(CaseWeight);
+                return bProperties;
+            }
+        }
+        private PalletProperties PalletProperties
+        {
+            get
+            {
+                // build pallet properties
+                if (!(cbPallets.SelectedItem is PalletItem palletItem)) return null;
+                var dcsbPallet = palletItem.PalletProp;
+
+                return new PalletProperties(null,
+                    dcsbPallet.PalletType,
+                    dcsbPallet.Dimensions.M0, dcsbPallet.Dimensions.M1, dcsbPallet.Dimensions.M2)
+                {
+                    Weight = dcsbPallet.Weight
+                };
+            }
+        }
+        private ConstraintSetCasePallet ConstraintSet
+        {
+            get
+            {
+                // build constraint set
+                var constraintSet = new ConstraintSetCasePallet() { Overhang = uCtrlOverhang.Value };
+                constraintSet.SetAllowedOrientations(new bool[] { false, false, true });
+                constraintSet.SetMaxHeight(new OptDouble(true, MaximumPalletHeight));
+                return constraintSet;
+            }
+        }
         private void OnComputePalletization(object sender, EventArgs e)
         {
             // reinit solution
             Sol = null;
-            // build BoxProperties
-            Vector3D caseDim = CaseDimensions;
-            var bProperties = new BoxProperties(null, caseDim.X, caseDim.Y, caseDim.Z)
+            try
             {
-                TapeWidth = new OptDouble(true, 50.0),
-                TapeColor = Color.LightGray
-            };
-            bProperties.SetAllColors(Enumerable.Repeat(Color.Beige, 6).ToArray());
-            bProperties.SetWeight(CaseWeight);
-            // build pallet properties
-            if (!(cbPallets.SelectedItem is PalletItem palletItem)) return;
-            var dcsbPallet = palletItem.PalletProp;
-            var palletProperties = new PalletProperties(null,
-                dcsbPallet.PalletType,
-                dcsbPallet.Dimensions.M0, dcsbPallet.Dimensions.M1, dcsbPallet.Dimensions.M2)
+                // solve
+                SolverCasePallet solver = new SolverCasePallet(CaseProperties, PalletProperties);
+                List<AnalysisHomo> analyses = solver.BuildAnalyses(ConstraintSet, false);
+                if (analyses.Count > 0)
+                {
+                    AnalysisHomo analysis = analyses[0];
+                    Sol = analysis.Solution;
+                    StackCount = analysis.Solution.ItemCount;
+                    StackWeight = analysis.Solution.Weight;
+                    LoadBottomCase = analysis.Solution.LoadOnLowestCase;
+                }
+            }
+            catch (Exception ex)
             {
-                Weight = dcsbPallet.Weight
-            };
-            // constraint set
-            ConstraintSetCasePallet constraintSet = new ConstraintSetCasePallet();
-            constraintSet.SetAllowedOrientations(new bool[] { false, false, true });
-            constraintSet.SetMaxHeight(new OptDouble(true, MaximumPalletHeight));
-            constraintSet.Overhang = uCtrlOverhang.Value;
-            // solve
-            SolverCasePallet solver = new SolverCasePallet(bProperties, palletProperties);
-            List<AnalysisHomo> analyses = solver.BuildAnalyses(constraintSet, false);
-            if (analyses.Count > 0)
-            {
-                AnalysisHomo analysis = analyses[0];
-                Sol = analysis.Solution;
-                StackCount = analysis.Solution.ItemCount;
-                StackWeight = analysis.Solution.Weight;
-                LoadBottomCase = analysis.Solution.LoadOnLowestCase;
+                _log.Error(ex.Message);
             }
             // update graph control
             graphCtrl.Invalidate();
-
+            // uodate dynamic BCT
             FillGridDynamicBCT();
         }
+        #endregion
+        #region Fill grid dynamic BCT
+
         private void FillGridDynamicBCT()
         {
             Vector3D caseDim = CaseDimensions;
@@ -453,7 +532,6 @@ namespace treeDiM.EdgeCrushTest
                     );
         }
         #endregion
-
         #region IDrawingContainer implementation
         public void Draw(Graphics3DControl ctrl, Graphics3D graphics)
         {
@@ -462,12 +540,9 @@ namespace treeDiM.EdgeCrushTest
             { sv.Draw(graphics, Transform3D.Identity); }
         }
         #endregion
-
         #region Data members
         private Solution Sol { get; set; }
         protected ILog _log = LogManager.GetLogger(typeof(DockContentBCTPalletisation));
         #endregion
-
-
     }
 }

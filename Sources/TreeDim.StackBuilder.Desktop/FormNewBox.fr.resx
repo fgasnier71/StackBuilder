@@ -123,6 +123,27 @@
   <data name="uCtrlDimensionsOuter.Text" xml:space="preserve">
     <value>Dimensions extérieures</value>
   </data>
+  <data name="cbFace.Items1" xml:space="preserve">
+    <value>Face</value>
+  </data>
+  <data name="cbFace.Items2" xml:space="preserve">
+    <value>Droite</value>
+  </data>
+  <data name="cbFace.Items3" xml:space="preserve">
+    <value>Gauche</value>
+  </data>
+  <data name="cbFace.Items4" xml:space="preserve">
+    <value>Dessous</value>
+  </data>
+  <data name="cbFace.Items5" xml:space="preserve">
+    <value>Dessus</value>
+  </data>
+  <data name="cbColor.Items7" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="gbFaceColor.Text" xml:space="preserve">
+    <value>Couleurs face</value>
+  </data>
   <data name="btBitmaps.Text" xml:space="preserve">
     <value>Images...</value>
   </data>
@@ -133,8 +154,8 @@
   <data name="chkAllFaces.Text" xml:space="preserve">
     <value>Toutes les faces sont de la même couleur</value>
   </data>
-  <data name="gbFaceColor.Text" xml:space="preserve">
-    <value>Couleurs face</value>
+  <data name="gbWeight.Text" xml:space="preserve">
+    <value>Poids</value>
   </data>
   <data name="uCtrlMaxWeight.Text" xml:space="preserve">
     <value>Masse maximale</value>
@@ -144,9 +165,6 @@
   </data>
   <data name="uCtrlNetWeight.Text" xml:space="preserve">
     <value>Poids net</value>
-  </data>
-  <data name="gbWeight.Text" xml:space="preserve">
-    <value>Poids</value>
   </data>
   <data name="uCtrlTapeWidth.Text" xml:space="preserve">
     <value>Largeur ruban</value>
@@ -161,27 +179,12 @@
     <value>Couleur ruban</value>
   </data>
   <data name="bnSaveToDB.Text" xml:space="preserve">
-    <value>Vers la base de données</value>
+    <value>&gt; Envoi vers BDD</value>
   </data>
   <data name="tabPageTape.Text" xml:space="preserve">
     <value>Ruban</value>
   </data>
-  <data name="cbColor.Items6" xml:space="preserve">
-    <value>Couleur</value>
-  </data>
-  <data name="cbFace.Items5" xml:space="preserve">
-    <value>Dessus</value>
-  </data>
-  <data name="cbFace.Items4" xml:space="preserve">
-    <value>Dessous</value>
-  </data>
-  <data name="cbFace.Items3" xml:space="preserve">
-    <value>Gauche</value>
-  </data>
-  <data name="cbFace.Items2" xml:space="preserve">
-    <value>Droite</value>
-  </data>
-  <data name="cbFace.Items1" xml:space="preserve">
-    <value>Face</value>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Définir un nouvel étui / une nouvelle caisse...</value>
   </data>
 </root>

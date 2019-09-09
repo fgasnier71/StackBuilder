@@ -60,6 +60,14 @@ namespace treeDiM.Basics
         }
         #endregion
 
+        #region Override UserControl
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            base.OnPaint(e);
+            Unit = _unitType;
+        }
+        #endregion
+
         #region Event handlers
         private void OnValueChangedLocal(object sender, EventArgs e) => ValueChanged?.Invoke(this, e);
         private void OnSizeChanged(object sender, EventArgs e)

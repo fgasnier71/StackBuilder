@@ -261,8 +261,8 @@
   <data name="&gt;&gt;splitContainerVert.Panel1.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="graphCtrl.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
+  <data name="graphCtrl.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
   </data>
   <data name="graphCtrl.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>

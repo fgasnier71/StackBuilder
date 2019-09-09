@@ -85,7 +85,8 @@
             resources.GetString("cbColor.Items11"),
             resources.GetString("cbColor.Items12"),
             resources.GetString("cbColor.Items13"),
-            resources.GetString("cbColor.Items14")});
+            resources.GetString("cbColor.Items14"),
+            resources.GetString("cbColor.Items15")});
             this.cbColor.Name = "cbColor";
             // 
             // lbColor
@@ -123,7 +124,6 @@
             -2147483648});
             this.uCtrlSpacing.Name = "uCtrlSpacing";
             this.uCtrlSpacing.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
-            this.uCtrlSpacing.Value = 0D;
             // 
             // uCtrlAngle
             // 
@@ -135,7 +135,6 @@
             -2147483648});
             this.uCtrlAngle.Name = "uCtrlAngle";
             this.uCtrlAngle.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_NONE;
-            this.uCtrlAngle.Value = 0D;
             // 
             // FormNewPalletFilm
             // 

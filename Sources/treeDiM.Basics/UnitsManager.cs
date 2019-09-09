@@ -21,12 +21,14 @@ namespace treeDiM.Basics
             , UNIT_US
         }
         public enum UnitType
-        { 
+        {
             UT_LENGTH
             , UT_MASS
             , UT_VOLUME
             , UT_SURFACEMASS
             , UT_FORCE
+            , UT_LINEARFORCE
+            , UT_STIFFNESS
             , UT_NONE
         }
         #endregion
@@ -67,10 +69,10 @@ namespace treeDiM.Basics
             {
                 switch (Instance._currentUnitSystem)
                 {
-                    case UnitSystem.UNIT_METRIC1:       return "mm";
-                    case UnitSystem.UNIT_METRIC2:       return "cm";
-                    case UnitSystem.UNIT_IMPERIAL:      return "in";
-                    case UnitSystem.UNIT_US:            return "in";
+                    case UnitSystem.UNIT_METRIC1: return "mm";
+                    case UnitSystem.UNIT_METRIC2: return "cm";
+                    case UnitSystem.UNIT_IMPERIAL: return "in";
+                    case UnitSystem.UNIT_US: return "in";
                     default: throw new Exception("Invalid unit system!");
                 }
             }
@@ -84,10 +86,10 @@ namespace treeDiM.Basics
             {
                 switch (Instance._currentUnitSystem)
                 {
-                    case UnitSystem.UNIT_METRIC1:   return "kg";
-                    case UnitSystem.UNIT_METRIC2:   return "kg";
-                    case UnitSystem.UNIT_IMPERIAL:  return "lb";
-                    case UnitSystem.UNIT_US:        return "lb";
+                    case UnitSystem.UNIT_METRIC1: return "kg";
+                    case UnitSystem.UNIT_METRIC2: return "kg";
+                    case UnitSystem.UNIT_IMPERIAL: return "lb";
+                    case UnitSystem.UNIT_US: return "lb";
                     default: throw new Exception("Invalid unit system!");
                 }
             }
@@ -101,10 +103,10 @@ namespace treeDiM.Basics
             {
                 switch (Instance._currentUnitSystem)
                 {
-                    case UnitSystem.UNIT_METRIC1:   return "l";
-                    case UnitSystem.UNIT_METRIC2:   return "l";
-                    case UnitSystem.UNIT_IMPERIAL:  return "in³";
-                    case UnitSystem.UNIT_US:        return "in³";
+                    case UnitSystem.UNIT_METRIC1: return "l";
+                    case UnitSystem.UNIT_METRIC2: return "l";
+                    case UnitSystem.UNIT_IMPERIAL: return "in³";
+                    case UnitSystem.UNIT_US: return "in³";
                     default: throw new Exception("Invalid unit system!");
                 }
             }
@@ -116,10 +118,10 @@ namespace treeDiM.Basics
             {
                 switch (Instance._currentUnitSystem)
                 {
-                    case UnitSystem.UNIT_METRIC1:   return "kg/m²";
-                    case UnitSystem.UNIT_METRIC2:   return "kg/m²";
-                    case UnitSystem.UNIT_IMPERIAL:  return "lb/in²";
-                    case UnitSystem.UNIT_US:        return "lb/in²";
+                    case UnitSystem.UNIT_METRIC1: return "kg/m²";
+                    case UnitSystem.UNIT_METRIC2: return "kg/m²";
+                    case UnitSystem.UNIT_IMPERIAL: return "lb/in²";
+                    case UnitSystem.UNIT_US: return "lb/in²";
                     default: throw new Exception("Invalid unit system!");
                 }
             }
@@ -139,7 +141,34 @@ namespace treeDiM.Basics
                 }
             }
         }
-
+        public static string LinearForceUnitString
+        {
+            get
+            {
+                switch (Instance._currentUnitSystem)
+                {
+                    case UnitSystem.UNIT_METRIC1: return "N/m";
+                    case UnitSystem.UNIT_METRIC2: return "N/m";
+                    case UnitSystem.UNIT_IMPERIAL: return "lb/in";
+                    case UnitSystem.UNIT_US: return "lb/in";
+                    default: throw new Exception("Invalid unit system!");
+                }
+            }
+        }
+        public static string StiffnessUnitString
+        {
+            get
+            {
+                switch (Instance._currentUnitSystem)
+                {
+                    case UnitSystem.UNIT_METRIC1: return "N.m";
+                    case UnitSystem.UNIT_METRIC2: return "N.m";
+                    case UnitSystem.UNIT_IMPERIAL: return "N.m";
+                    case UnitSystem.UNIT_US: return "N.m";
+                    default: throw new Exception("Invalid unit system!");
+                }
+            }
+        }
         public static string SystemUnitString
         {
             get
@@ -220,6 +249,34 @@ namespace treeDiM.Basics
                 }
             }
         }
+        public static string LinearForceFormatString
+        {
+            get
+            {
+                switch (Instance._currentUnitSystem)
+                {
+                    case UnitSystem.UNIT_METRIC1: return "{0:0.###}";
+                    case UnitSystem.UNIT_METRIC2: return "{0.0.###}";
+                    case UnitSystem.UNIT_IMPERIAL: return "{0:0.###}";
+                    case UnitSystem.UNIT_US: return "{0:0.###}";
+                    default: throw new Exception("Invalid unit system!");
+                }
+            }
+        }
+        public static string StiffnessFormatString
+        {
+            get
+            {
+                switch (Instance._currentUnitSystem)
+                {
+                    case UnitSystem.UNIT_METRIC1: return "{0:0.###}";
+                    case UnitSystem.UNIT_METRIC2: return "{0.0.###}";
+                    case UnitSystem.UNIT_IMPERIAL: return "{0:0.###}";
+                    case UnitSystem.UNIT_US: return "{0:0.###}";
+                    default: throw new Exception("Invalid unit system!");
+                }
+            }
+        }
         #endregion
 
         #region Number of decimals
@@ -237,9 +294,6 @@ namespace treeDiM.Basics
                 }
             }
         }
-        public static int MassNoDecimals
-        {   get { return 3; } }
-
         public static int VolumeNoDecimals
         {
             get
@@ -254,13 +308,12 @@ namespace treeDiM.Basics
                 }
             }
         }
-
-        public static int SurfaceMassNoDecimals
-        {   get { return 3; } }
-        public static int ForceNoDecimals
-        { get { return 2; } }
-        public static int NoneNoDecimals
-        {   get { return 0; } }
+        public static int MassNoDecimals => 3;
+        public static int SurfaceMassNoDecimals => 3;
+        public static int ForceNoDecimals => 2;
+        public static int LinearForceNoDecimals => 3;
+        public static int StiffnessNoDecimals => 3;
+        public static int NoneNoDecimals => 0;
         #endregion
 
         #region Data members
@@ -278,6 +331,8 @@ namespace treeDiM.Basics
                 case UnitType.UT_VOLUME: return VolumeUnitString;
                 case UnitType.UT_SURFACEMASS: return SurfaceMassUnitString;
                 case UnitType.UT_FORCE: return ForceUnitString;
+                case UnitType.UT_LINEARFORCE: return LinearForceUnitString;
+                case UnitType.UT_STIFFNESS: return StiffnessUnitString;
                 default: return string.Empty;
             }
         }
@@ -290,6 +345,8 @@ namespace treeDiM.Basics
                 case UnitType.UT_VOLUME: return VolumeFormatString;
                 case UnitType.UT_SURFACEMASS: return SurfaceMassFormatString;
                 case UnitType.UT_FORCE: return ForceFormatString;
+                case UnitType.UT_LINEARFORCE: return LinearForceFormatString;
+                case UnitType.UT_STIFFNESS: return StiffnessFormatString;
                 default: return string.Empty;            
             }
         }
@@ -302,11 +359,12 @@ namespace treeDiM.Basics
                 case UnitType.UT_VOLUME: return VolumeNoDecimals;
                 case UnitType.UT_SURFACEMASS: return SurfaceMassNoDecimals;
                 case UnitType.UT_FORCE: return ForceNoDecimals;
+                case UnitType.UT_LINEARFORCE: return LinearForceNoDecimals;
+                case UnitType.UT_STIFFNESS: return StiffnessNoDecimals;
                 case UnitType.UT_NONE: return NoneNoDecimals;
                 default: return 3;
             }
         }
-
         static public string ReplaceUnitStrings(string s)
         { 
             string sText = s;
@@ -314,23 +372,23 @@ namespace treeDiM.Basics
             sText = sText.Replace("uMass", MassUnitString);
             sText = sText.Replace("uVolume", VolumeUnitString);
             sText = sText.Replace("uSurfaceMass", SurfaceMassUnitString);
+            sText = sText.Replace("uLinearForce", LinearForceUnitString);
+            sText = sText.Replace("uStiffness", StiffnessUnitString);
             return sText;
         }
-
         public static void AdaptUnitLabels(Control c)
         { 
             foreach (Control ctrl in c.Controls)
             {
-                Label lb = ctrl as Label;
-                if (null != lb)
+                if (ctrl is Label lb)
                 {
                     if (lb.Name.Contains("uLength")) lb.Text = LengthUnitString;
                     else if (lb.Name.Contains("uMass")) lb.Text = MassUnitString;
                     else if (lb.Name.Contains("uVolume")) lb.Text = VolumeUnitString;
                     else if (lb.Name.Contains("uSurfaceMass")) lb.Text = SurfaceMassUnitString;
+                    else if (lb.Name.Contains("uStiffness")) lb.Text = StiffnessUnitString;
                 }
-                GroupBox gb = ctrl as GroupBox;
-                if (null != gb)
+                if (ctrl is GroupBox gb)
                 {
                     AdaptUnitLabels(gb);
                 }
@@ -420,46 +478,6 @@ namespace treeDiM.Basics
                 return measure.GetAmount(LengthUnitFromUnitSystem(CurrentUnitSystem));
             }
         }
-/*
-        public static Vector2D ConvertLengthFrom(Vector2D value, UnitSystem unitSystem)
-        {
-            if (unitSystem == CurrentUnitSystem)
-                return value;
-            else
-            {
-                StandardMeasure<Length> measureX = new StandardMeasure<Length>(value.X, LengthUnitFromUnitSystem(unitSystem));
-                StandardMeasure<Length> measureY = new StandardMeasure<Length>(value.Y, LengthUnitFromUnitSystem(unitSystem));
-                return new Vector2D(
-                    measureX.GetAmount(LengthUnitFromUnitSystem(CurrentUnitSystem))
-                    , measureY.GetAmount(LengthUnitFromUnitSystem(CurrentUnitSystem))
-                    );
-            }        
-        }
-        public static Vector3D ConvertLengthFrom(Vector3D value, UnitSystem unitSystem)
-        {
-            if (unitSystem == CurrentUnitSystem)
-                return value;
-            else
-            {
-                StandardMeasure<Length> measureX = new StandardMeasure<Length>(value.X, LengthUnitFromUnitSystem(unitSystem));
-                StandardMeasure<Length> measureY = new StandardMeasure<Length>(value.Y, LengthUnitFromUnitSystem(unitSystem));
-                StandardMeasure<Length> measureZ = new StandardMeasure<Length>(value.Z, LengthUnitFromUnitSystem(unitSystem));
-                return new Vector3D(
-                    measureX.GetAmount(LengthUnitFromUnitSystem(CurrentUnitSystem))
-                    , measureY.GetAmount(LengthUnitFromUnitSystem(CurrentUnitSystem))
-                    , measureZ.GetAmount(LengthUnitFromUnitSystem(CurrentUnitSystem))
-                    );
-            }
-        }
-        public static BoxPosition ConvertLengthFrom(BoxPosition value, UnitSystem unitSystem)
-        {
-            if (unitSystem == CurrentUnitSystem)
-                return value;
-            else
-                return new BoxPosition(
-                    ConvertLengthFrom(value.Position, unitSystem), value.DirectionLength, value.DirectionWidth);
-        }
-*/
         public static double ConvertMassTo(double value, UnitSystem unitSystem)
         {
             if (unitSystem == CurrentUnitSystem)

@@ -188,9 +188,6 @@
   <data name="&gt;&gt;chkAllFaces.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;uCtrlDimensionsInner.Parent" xml:space="preserve">
-    <value>gbDimensions</value>
-  </data>
   <data name="cbFace.Items5" xml:space="preserve">
     <value>Top</value>
   </data>
@@ -216,7 +213,7 @@
     <value>Color</value>
   </data>
   <data name="&gt;&gt;graphCtrl.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Graphics.Graphics3DControl, treeDiM.StackBuilder.Graphics, Version=3.0.0.83, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Graphics.Graphics3DControl, treeDiM.StackBuilder.Graphics, Version=3.0.1.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="tabCtrl.Size" type="System.Drawing.Size, System.Drawing">
     <value>578, 110</value>
@@ -319,6 +316,9 @@
   <data name="&gt;&gt;cbFace.Type" xml:space="preserve">
     <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="lbFace.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 42</value>
+  </data>
   <data name="cbTapeColor.Items48" xml:space="preserve">
     <value>Color</value>
   </data>
@@ -368,7 +368,7 @@
     <value>Color</value>
   </data>
   <data name="&gt;&gt;uCtrlDimensionsOuter.Type" xml:space="preserve">
-    <value>treeDiM.Basics.UCtrlTriDouble, treeDiM.Basics, Version=3.0.0.98, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.Basics.UCtrlTriDouble, treeDiM.Basics, Version=3.0.1.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="cbTapeColor.Items" xml:space="preserve">
     <value>Color</value>
@@ -377,12 +377,15 @@
     <value>Color</value>
   </data>
   <data name="&gt;&gt;ctrlStrapperSet.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.Controls.CtrlStrapperSet, treeDiM.StackBuilder.Basics, Version=3.0.0.98, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Basics.Controls.CtrlStrapperSet, treeDiM.StackBuilder.Basics, Version=3.0.1.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;tabCtrl.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="cbColor.Items86" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbTapeColor.Items14" xml:space="preserve">
     <value>Color</value>
   </data>
   <data name="cbColor.Items62" xml:space="preserve">
@@ -407,6 +410,9 @@
     <value>Color</value>
   </data>
   <data name="cbColor.Items37" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbTapeColor.Items104" xml:space="preserve">
     <value>Color</value>
   </data>
   <data name="bnOk.Location" type="System.Drawing.Point, System.Drawing">
@@ -440,7 +446,7 @@
     <value>188, 37</value>
   </data>
   <data name="&gt;&gt;uCtrlMaxWeight.Type" xml:space="preserve">
-    <value>treeDiM.Basics.UCtrlOptDouble, treeDiM.Basics, Version=3.0.0.98, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.Basics.UCtrlOptDouble, treeDiM.Basics, Version=3.0.1.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;tabCtrl.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -490,9 +496,6 @@
   <data name="cbColor.Items114" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbTapeColor.Items98" xml:space="preserve">
-    <value>Color</value>
-  </data>
   <data name="tabPageTape.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 22</value>
   </data>
@@ -526,9 +529,6 @@
   <data name="cbColor.Items28" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbTapeColor.Items24" xml:space="preserve">
-    <value>Color</value>
-  </data>
   <data name="cbColor.Items117" xml:space="preserve">
     <value>Color</value>
   </data>
@@ -537,9 +537,6 @@
   </data>
   <data name="cbColor.Items54" xml:space="preserve">
     <value>Color</value>
-  </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Desktop.FormNewBase, treeDiM.StackBuilder.Desktop, Version=3.0.0.83, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="cbTapeColor.Items45" xml:space="preserve">
     <value>Color</value>
@@ -568,8 +565,8 @@
   <data name="cbTapeColor.Items117" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColor.Items2" xml:space="preserve">
-    <value>Color</value>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>treeDiM.StackBuilder.Desktop.FormNewBase, treeDiM.StackBuilder.Desktop, Version=3.0.1.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="cbColor.Items116" xml:space="preserve">
     <value>Color</value>
@@ -667,8 +664,8 @@
   <data name="cbTapeColor.Items80" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="lbTapeColor.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="&gt;&gt;uCtrlDimensionsInner.Parent" xml:space="preserve">
+    <value>gbDimensions</value>
   </data>
   <data name="cbColor.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 22</value>
@@ -723,6 +720,9 @@
   </data>
   <data name="&gt;&gt;graphCtrl.ZOrder" xml:space="preserve">
     <value>8</value>
+  </data>
+  <data name="cbColor.Items56" xml:space="preserve">
+    <value>Color</value>
   </data>
   <data name="&gt;&gt;tbName.Parent" xml:space="preserve">
     <value>$this</value>
@@ -791,9 +791,6 @@
     <value>Color</value>
   </data>
   <data name="cbColor.Items70" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="cbTapeColor.Items65" xml:space="preserve">
     <value>Color</value>
   </data>
   <data name="cbTapeColor.Items71" xml:space="preserve">
@@ -878,7 +875,7 @@
     <value>Tape color</value>
   </data>
   <data name="&gt;&gt;uCtrlTapeWidth.Type" xml:space="preserve">
-    <value>treeDiM.Basics.UCtrlOptDouble, treeDiM.Basics, Version=3.0.0.98, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.Basics.UCtrlOptDouble, treeDiM.Basics, Version=3.0.1.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;bnSaveToDB.ZOrder" xml:space="preserve">
     <value>7</value>
@@ -897,6 +894,9 @@
   </data>
   <data name="&gt;&gt;gbFaceColor.Parent" xml:space="preserve">
     <value>$this</value>
+  </data>
+  <data name="cbColor.Items127" xml:space="preserve">
+    <value>Color</value>
   </data>
   <data name="&gt;&gt;tabPageTape.Name" xml:space="preserve">
     <value>tabPageTape</value>
@@ -932,7 +932,7 @@
     <value>Color</value>
   </data>
   <data name="&gt;&gt;uCtrlNetWeight.Type" xml:space="preserve">
-    <value>treeDiM.Basics.UCtrlOptDouble, treeDiM.Basics, Version=3.0.0.98, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.Basics.UCtrlOptDouble, treeDiM.Basics, Version=3.0.1.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="graphCtrl.Size" type="System.Drawing.Size, System.Drawing">
     <value>210, 227</value>
@@ -959,7 +959,7 @@
     <value>Color</value>
   </data>
   <data name="&gt;&gt;uCtrlDimensionsInner.Type" xml:space="preserve">
-    <value>treeDiM.Basics.UCtrlOptTriDouble, treeDiM.Basics, Version=3.0.0.83, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.Basics.UCtrlOptTriDouble, treeDiM.Basics, Version=3.0.1.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="cbColor.Items18" xml:space="preserve">
     <value>Color</value>
@@ -985,7 +985,7 @@
   <data name="cbColor.Items9" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColor.Items56" xml:space="preserve">
+  <data name="cbTapeColor.Items24" xml:space="preserve">
     <value>Color</value>
   </data>
   <data name="cbTapeColor.Items5" xml:space="preserve">
@@ -1081,7 +1081,7 @@
   <data name="cbTapeColor.Items120" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbTapeColor.Items14" xml:space="preserve">
+  <data name="cbTapeColor.Items53" xml:space="preserve">
     <value>Color</value>
   </data>
   <data name="&gt;&gt;tbName.Type" xml:space="preserve">
@@ -1117,7 +1117,13 @@
   <data name="cbColor.Items57" xml:space="preserve">
     <value>Color</value>
   </data>
+  <data name="lbTapeColor.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
   <data name="cbTapeColor.Items56" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbTapeColor.Items128" xml:space="preserve">
     <value>Color</value>
   </data>
   <data name="cbColor.Items26" xml:space="preserve">
@@ -1270,8 +1276,8 @@
   <data name="&gt;&gt;cbFace.Name" xml:space="preserve">
     <value>cbFace</value>
   </data>
-  <data name="lbFace.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 42</value>
+  <data name="cbTapeColor.Items98" xml:space="preserve">
+    <value>Color</value>
   </data>
   <data name="uCtrlMaxWeight.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -1298,7 +1304,7 @@
     <value>Color</value>
   </data>
   <data name="&gt;&gt;cbColor.Type" xml:space="preserve">
-    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=3.0.0.83, Culture=neutral, PublicKeyToken=null</value>
+    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=3.0.1.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="cbTapeColor.Items12" xml:space="preserve">
     <value>Color</value>
@@ -1345,7 +1351,7 @@
   <data name="gbWeight.Text" xml:space="preserve">
     <value>Weight</value>
   </data>
-  <data name="cbTapeColor.Items104" xml:space="preserve">
+  <data name="cbColor.Items2" xml:space="preserve">
     <value>Color</value>
   </data>
   <data name="cbTapeColor.Items119" xml:space="preserve">
@@ -1418,12 +1424,12 @@
     <value>Color</value>
   </data>
   <data name="&gt;&gt;vcWeight.Type" xml:space="preserve">
-    <value>treeDiM.Basics.UCtrlDouble, treeDiM.Basics, Version=3.0.0.98, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.Basics.UCtrlDouble, treeDiM.Basics, Version=3.0.1.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="cbColor.Items103" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbTapeColor.Items53" xml:space="preserve">
+  <data name="cbTapeColor.Items65" xml:space="preserve">
     <value>Color</value>
   </data>
   <data name="cbTapeColor.Items123" xml:space="preserve">
@@ -1460,7 +1466,7 @@
     <value>Color</value>
   </data>
   <data name="&gt;&gt;cbTapeColor.Type" xml:space="preserve">
-    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=3.0.0.83, Culture=neutral, PublicKeyToken=null</value>
+    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=3.0.1.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;lbName.ZOrder" xml:space="preserve">
     <value>4</value>

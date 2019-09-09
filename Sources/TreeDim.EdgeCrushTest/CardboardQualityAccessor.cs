@@ -51,6 +51,7 @@ namespace treeDiM.EdgeCrushTest
             var qualities = CardboardQualities;
             return qualities.Select(q => q.Profile).Distinct().ToList();
         }
+        public string UserName { get; set; }
         #endregion
         #region Singleton
         public static CardboardQualityAccessor Instance
@@ -87,6 +88,7 @@ namespace treeDiM.EdgeCrushTest
                     {
                         using (var wcfClient = new WCFClient())
                         {
+                            UserName = wcfClient.User.Name;
                             var qualities = wcfClient.Client.GetAllCardboardQualities();
                             foreach (var q in qualities)
                             {

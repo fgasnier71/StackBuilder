@@ -9,12 +9,14 @@ using System.Globalization;
 using log4net;
 using Sharp3D.Math.Core;
 
+using treeDiM.ThreadCallback;
+using treeDiM.UserControls;
+
 using treeDiM.Basics;
 using treeDiM.StackBuilder.Basics;
 using treeDiM.StackBuilder.Graphics;
 using treeDiM.StackBuilder.Graphics.Controls;
 using treeDiM.StackBuilder.Engine;
-using treeDiM.PLMPack.DBClient;
 using treeDiM.PLMPack.DBClient.PLMPackSR;
 using treeDiM.StackBuilder.Desktop.Properties;
 #endregion
@@ -49,29 +51,8 @@ namespace treeDiM.StackBuilder.Desktop
             uCtrlCaseDimensionsMax.X = Settings.Default.MaxCaseDimX;
             uCtrlCaseDimensionsMax.Y = Settings.Default.MaxCaseDimY;
             uCtrlCaseDimensionsMax.Z = Settings.Default.MaxCaseDimZ;
-            try
-            {
-                // load cases
-                using (WCFClient wcfClient = new WCFClient())
-                {
-                    var client = wcfClient.Client;
-                    if (null != client)
-                    {
-                        int rangeIndex = 0, number = 0;
-                        bool endReached = false;
-                        while (!endReached)
-                        {
-                            _listCases.AddRange(client.GetAllCases(rangeIndex++, ref number));
-                            endReached = (rangeIndex * 20 > number);
-                        }
-                    }
-                }
-                OnFillListCases(this, null);
-            }
-            catch (Exception ex)
-            {
-                _log.Error(ex.Message);
-            }
+            // fill list of cases
+            OnFillListCases(this, null);
             // Mode
             uCtrlNumberPerCase.Value = new OptInt(false, 2);
             // update graph control
@@ -98,10 +79,10 @@ namespace treeDiM.StackBuilder.Desktop
             // status + message
             if (!uCtrlCaseOrient.HasOrientationSelected)
                 message = Resources.ID_NOORIENTATIONSELECTED;
-            else if (_checkedIndices.Count < 1)
+            else if (CheckedIndices.Count < 1)
                 message = Resources.ID_NOCASESELECTED;
             else if (null == SelectedAnalysis)
-                message = Resources.ID_ANALYSISHASNOVALIDSOLUTION;
+                message = Resources.ID_NOANALYSISSELECTED;
             else if (string.IsNullOrEmpty(AnalysisName))
                 message = Resources.ID_FIELDNAMEEMPTY;
             else if (string.IsNullOrEmpty(AnalysisDescription))
@@ -152,29 +133,33 @@ namespace treeDiM.StackBuilder.Desktop
             if (0 == cbBoxes.Items.Count) return;
             if (cbBoxes.SelectedType is PackableBrick packable)
                 uCtrlCaseOrient.BProperties = packable;
-            ComputeSolutions();
+            
             UpdateStatus(string.Empty);
+            timer.Stop();
+            timer.Start();
         }
         private void OnConstraintsChanged(object sender, EventArgs e)
         {
-            ComputeSolutions();
             UpdateStatus(string.Empty);
+            timer.Stop();
+            timer.Start();
         }
         private void OnCaseChecked(object sender, ItemCheckEventArgs e)
         {
             // build list of checked items in chklbCases
-            _checkedIndices.Clear();
+            CheckedIndices.Clear();
             foreach (int index in chklbCases.CheckedIndices)
-                _checkedIndices.Add(index);
+                CheckedIndices.Add(index);
             if (null != e)
             {
                 if (e.NewValue == CheckState.Checked)
-                    _checkedIndices.Add(e.Index);
+                    CheckedIndices.Add(e.Index);
                 else if (e.NewValue == CheckState.Unchecked)
-                    _checkedIndices.Remove(e.Index);
+                    CheckedIndices.Remove(e.Index);
             }
-            ComputeSolutions();
             UpdateStatus(string.Empty);
+            timer.Stop();
+            timer.Start();
         }
         private void OnCreateAnalysis(object sender, EventArgs e)
         {
@@ -203,35 +188,44 @@ namespace treeDiM.StackBuilder.Desktop
         {
             try
             {
-                SourceGrid.Selection.RowSelection select = sender as SourceGrid.Selection.RowSelection;
-                SourceGrid.Grid g = select.Grid as SourceGrid.Grid;
-
-                SourceGrid.RangeRegion region = g.Selection.GetSelectionRegion();
-                int[] indexes = region.GetRowsIndex();
-                if (indexes.Length < 1 || indexes[0] < 1)
-                    _selectedAnalysis = null;
+                // analysis name/description
+                if (null != SelectedAnalysis)
+                {
+                    AnalysisName = string.Format("Analysis_{0}_in_{1}", SelectedAnalysis.Content.Name, SelectedAnalysis.Container.Name);
+                    AnalysisDescription = string.Format(" Packing {0} in {1}", SelectedAnalysis.Content.Name, SelectedAnalysis.Container.Name);
+                }
                 else
                 {
-                    _selectedAnalysis = _analyses[indexes[0] - 1];
-                    // analysis name/description
-                    if (null != _selectedAnalysis)
-                    {
-                        AnalysisName = string.Format("Analysis_{0}_in_{1}", _selectedAnalysis.Content.Name, _selectedAnalysis.Container.Name);
-                        AnalysisDescription = string.Format(" Packing {0} in {1}", _selectedAnalysis.Content.Name, _selectedAnalysis.Container.Name);
-                    }
-                    else
-                    {
-                        AnalysisName = string.Empty;
-                        AnalysisDescription = string.Empty;
-                    }
+                    AnalysisName = string.Empty;
+                    AnalysisDescription = string.Empty;
                 }
                 // update drawing
                 graphCtrl.Invalidate();
+
+                UpdateStatus(string.Empty);
             }
             catch (Exception ex)
             {
                 _log.Error(ex.Message);
             }
+        }
+        private AnalysisBoxCase SelectedAnalysis
+        {
+            get
+            {
+                SourceGrid.RangeRegion region = gridSolutions.Selection.GetSelectionRegion();
+                int[] indexes = region.GetRowsIndex();
+                if (indexes.Length < 1 || indexes[0] < 1)
+                    return null;
+                return indexes[0] <= Analyses.Count ? (Analyses[indexes[0]-1] as AnalysisBoxCase) : null;
+            }
+        }
+
+        private void OnTimerTick(object sender, EventArgs e)
+        {
+            timer.Stop();
+            if (!ThreadRunning)
+                ComputeSolutions();
         }
         #endregion
 
@@ -242,7 +236,7 @@ namespace treeDiM.StackBuilder.Desktop
             if (cbBoxes.Items.Count == 0 || chklbCases.Items.Count == 0)
                 return;
             // clear existing analyses
-            _analyses.Clear();
+            Analyses.Clear();
 
             int expectedCount = uCtrlNumberPerCase.Value.Activated ? uCtrlNumberPerCase.Value.Value : -1;
 
@@ -250,28 +244,12 @@ namespace treeDiM.StackBuilder.Desktop
             {
                 PackableBrick packable = cbBoxes.SelectedType as PackableBrick;
 
-                // build list of analyses
-                for (int i = 0; i < _checkedIndices.Count; ++i)
-                {
-                    if ((chklbCases.Items[_checkedIndices[i]] as ItemBaseCB).Item is BoxProperties caseProperties)
-                    {
-                        // build constraint set
-                        ConstraintSetBoxCase constraintSet = new ConstraintSetBoxCase(caseProperties);
-                        constraintSet.SetAllowedOrientations(uCtrlCaseOrient.AllowedOrientations);
-                        if (uCtrlNumberPerCase.Value.Activated)
-                            constraintSet.SetMaxNumber(uCtrlNumberPerCase.Value.Value);
-                        // build solver + get analyses
-                        SolverBoxCase solver = new SolverBoxCase(packable, caseProperties);
-                        var listAnalyses = solver.BuildAnalyses(constraintSet, false);
-                        foreach (var analysis in listAnalyses)
-                        {
-                            if ((-1 == expectedCount) || (expectedCount == analysis.Solution.ItemCount)  )
-                                _analyses.Add(analysis);
-                        }
-                    }
-                }
-                // sort analysis
-                _analyses.Sort(new AnalysisComparer());
+                ThreadRunning = true;
+
+                ProgressWindow progress = new ProgressWindow();
+                System.Threading.ThreadPool.QueueUserWorkItem(new System.Threading.WaitCallback(BuildAnalyses), progress);
+                progress.ShowDialog();
+
                 // fill grid
                 FillGrid();
             }
@@ -279,7 +257,52 @@ namespace treeDiM.StackBuilder.Desktop
             {
                 _log.Error(ex.Message);
             }
+            finally
+            {
+                ThreadRunning = false;
+            }
         }
+        private void BuildAnalyses(object status)
+        {
+            IProgressCallback callback = status as IProgressCallback;
+            callback.SetRange(0, CheckedIndices.Count-1);
+            callback.Begin();
+
+            int expectedCount = uCtrlNumberPerCase.Value.Activated ? uCtrlNumberPerCase.Value.Value : -1;
+            PackableBrick packable = cbBoxes.SelectedType as PackableBrick;
+
+            // build list of analyses
+            for (int i = 0; i < CheckedIndices.Count; ++i)
+            {
+                if (callback.IsAborting)
+                    break;
+                callback.StepTo(i);
+                callback.SetText(string.Format(Resources.ID_EVALUATINGCASE, i + 1, CheckedIndices.Count));
+
+                if ((chklbCases.Items[CheckedIndices[i]] as ItemBaseCB).Item is BoxProperties caseProperties)
+                {
+                    // build constraint set
+                    ConstraintSetBoxCase constraintSet = new ConstraintSetBoxCase(caseProperties);
+                    constraintSet.SetAllowedOrientations(uCtrlCaseOrient.AllowedOrientations);
+                    if (uCtrlNumberPerCase.Value.Activated)
+                        constraintSet.SetMaxNumber(uCtrlNumberPerCase.Value.Value);
+                    // build solver + get analyses
+                    SolverBoxCase solver = new SolverBoxCase(packable, caseProperties);
+                    var listAnalyses = solver.BuildAnalyses(constraintSet, false);
+                    foreach (var analysis in listAnalyses)
+                    {
+                        if ((-1 == expectedCount) || (expectedCount == analysis.Solution.ItemCount))
+                            Analyses.Add(analysis);
+                    }
+                }
+            }
+            callback.SetText(Resources.ID_SORTINGSOLUTIONS);
+            // sort analysis
+            Analyses.Sort(new AnalysisComparer());
+
+            callback.End();
+        }
+
         #endregion
 
         #region Grid
@@ -362,7 +385,7 @@ namespace treeDiM.StackBuilder.Desktop
             gridSolutions[0, iCol++] = columnHeader;
 
             int iRow = 0;
-            foreach (AnalysisHomo analysis in _analyses)
+            foreach (AnalysisHomo analysis in Analyses)
             {
                 AnalysisBoxCase analysisBoxCase = analysis as AnalysisBoxCase;
                 BoxProperties caseProperties = analysisBoxCase.CaseProperties;
@@ -388,13 +411,8 @@ namespace treeDiM.StackBuilder.Desktop
             else
             {
                 // grid empty -> clear drawing
-                _selectedAnalysis = null;
                 graphCtrl.Invalidate();
             }
-        }
-        private AnalysisBoxCase SelectedAnalysis
-        {
-            get { return _selectedAnalysis as AnalysisBoxCase; }
         }
         #endregion
 
@@ -416,11 +434,11 @@ namespace treeDiM.StackBuilder.Desktop
         private void OnFillListCases(object sender, EventArgs e)
         {
             // sanity check
-            if (_listCases.Count < 1) return;
+            if (null == ListCases || ListCases.Count < 1) return;
             // clear check list
             chklbCases.Items.Clear();
             // fill list of cases
-            foreach (DCSBCase sbCase in _listCases)
+            foreach (DCSBCase sbCase in ListCases)
             {
                 try
                 {
@@ -454,10 +472,10 @@ namespace treeDiM.StackBuilder.Desktop
                     BoxProperties bProperties = new BoxProperties(null
                         , boxLength, boxWidth, boxHeight
                         , innerLength, innerWidth, innerHeight);
-                    bProperties.ID.SetNameDesc(sbCase.Name, sbCase.Description);
-                    bProperties.SetWeight(weight);
                     bProperties.TapeWidth = new OptDouble(sbCase.ShowTape, sbCase.TapeWidth);
                     bProperties.TapeColor = Color.FromArgb(sbCase.TapeColor);
+                    bProperties.ID.SetNameDesc(sbCase.Name, sbCase.Description);
+                    bProperties.SetWeight(weight);
                     bProperties.SetAllColors(colors);
                     // insert in listbox control
                     chklbCases.Items.Add(new ItemBaseCB(bProperties), true);
@@ -470,12 +488,19 @@ namespace treeDiM.StackBuilder.Desktop
             OnCaseChecked(this, null);
         }
         #endregion
+
+        #region Public properties
+        public List<DCSBCase> ListCases { get; set; }
+        #endregion
+
         #region Data members
-        private List<AnalysisHomo> _analyses = new List<AnalysisHomo>();
-        private List<int> _checkedIndices = new List<int>();
-        private AnalysisHomo _selectedAnalysis;
-        private List<DCSBCase> _listCases = new List<DCSBCase>();
+        private List<AnalysisHomo> Analyses { get; set; } = new List<AnalysisHomo>();
+        private List<int> CheckedIndices { get; set; } = new List<int>();
+        private bool ThreadRunning { get; set; } = false;
+
+
         protected static ILog _log = LogManager.GetLogger(typeof(FormOptimiseMultiCase));
         #endregion
+
     }
 }

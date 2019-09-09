@@ -21,12 +21,8 @@ namespace treeDiM.EdgeCrushTest.Desktop
             log4net.Appender.RichTextBoxAppender.SetRichTextBox(richTextBoxLog, "RichTextBoxAppender");
         }
         #endregion
-
         #region Public properties
-        public RichTextBox RichTextBox
-        {
-            get { return richTextBoxLog; }
-        }
+        public RichTextBox RichTextBox => richTextBoxLog;
         #endregion
     }
 }

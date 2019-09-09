@@ -4,6 +4,7 @@
     xmlns:rpt="/treeDim/StackBuilder/ReportTypes"
     elementFormDefault="qualified"
 >
+
   <!--BOX : BEG-->
   <xs:complexType name="box">
     <xs:sequence>
@@ -19,6 +20,7 @@
     </xs:sequence>
   </xs:complexType>
   <!--BOX : END-->
+  <!--CASE : BEG -->
   <xs:complexType name="case">
     <xs:sequence>
       <xs:element name="name" type="xs:string"/>
@@ -32,6 +34,7 @@
       <xs:element name="imageThumbSize" minOccurs="0" maxOccurs="1" type="rpt:imageThumbSize"/>
     </xs:sequence>
   </xs:complexType>
+  <!--CASE : END-->
   <!--BUNDLE : BEG-->
   <xs:complexType name="bundle">
     <xs:sequence>
@@ -47,7 +50,7 @@
       <xs:element name="imageThumbSize" minOccurs="0" maxOccurs="1" type="rpt:imageThumbSize"/>
     </xs:sequence>
   </xs:complexType>
-  <!--BENDLE : END-->
+  <!--BUNDLE : END-->
   <!--CASEWITHINNERDIMS : BEG-->
   <xs:complexType name="caseWithInnerDims">
     <xs:sequence>
@@ -339,4 +342,83 @@
     </xs:sequence>
   </xs:complexType>
   <!--ITEMQUANTITY : END-->
+  <!--***-->
+  <!--BCTCASE : BEG-->
+  <xs:complexType name="bctCase">
+    <xs:sequence>
+      <xs:element name="length" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
+      <xs:element name="width" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
+      <xs:element name="height" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
+      <xs:element name="weight" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
+      <xs:element name="imageThumbSize" minOccurs="0" maxOccurs="1" type="rpt:imageThumbSize"/>
+    </xs:sequence>    
+  </xs:complexType>
+  <!--BCTCASE : END-->
+  <!--BCTPALLET : BEGIN-->
+  <xs:complexType name="bctPallet">
+    <xs:sequence>
+      <xs:element name="length" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
+      <xs:element name="width" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
+      <xs:element name="height" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
+      <xs:element name="weight" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
+      <xs:element name="overhangX" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
+      <xs:element name="overhangY" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
+      <xs:element name="imageThumbSize" minOccurs="0" maxOccurs="1" type="rpt:imageThumbSize"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--BCTPALLET : END-->
+  <!--BCTSOLUTION : BEGIN-->
+  <xs:complexType name="bctSolution">
+    <xs:sequence>
+      <xs:element name="noLayersAndCases" minOccurs="0" maxOccurs="1" type="xs:string"/>
+      <xs:element name="loadWeight" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
+      <xs:element name="totalWeight" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
+      <xs:element name="loadOnLowestCase" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
+      <xs:element name="view_solution_iso" minOccurs="0" maxOccurs="1" type="rpt:view_solution_iso"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--BCTSOLUTION : END-->
+  <!--MATERIAL : BEGIN-->
+  <xs:complexType name="material">
+    <xs:sequence>
+      <xs:element name="name" minOccurs="1" maxOccurs="1" type="xs:string"/>
+      <xs:element name="profile" minOccurs="1" maxOccurs="1" type="xs:string"/>
+      <xs:element name="thickness" minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>
+      <xs:element name="ect" minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>
+      <xs:element name="stiffnessX" minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>
+      <xs:element name="stiffnessY" minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>
+    </xs:sequence> 
+  </xs:complexType>
+  <!--MATERIAL : END-->
+  <!--STATIC BCT : BEGIN-->
+  <xs:complexType name="staticBCT">
+    <xs:sequence>
+      <xs:element name="bct" minOccurs="1" maxOccurs="1" type ="rpt:valueWUnit"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--STATIC BCT : END-->
+  <!--DYNAMIC BCT : BEGIN-->
+  <xs:complexType name="dynamicBCT">
+    <xs:sequence>
+    </xs:sequence>
+  </xs:complexType>
+  <!--DYNAMIC BCT : END-->
+  <xs:complexType name="palletisation">
+    <xs:sequence>
+      <xs:element name="solutionBCT">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="noLayers" minOccurs="0" maxOccurs="1" type="xs:int"/>
+            <xs:element name="noCasesPerLayer" minOccurs="0" maxOccurs="1" type="xs:int"/>
+            <xs:element name="noLayersAndNoCases" minOccurs="1" maxOccurs="1" type="xs:string"/>
+            <xs:element name="netWeight" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
+            <xs:element name="loadWeight" minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>
+            <xs:element name="totalWeight" minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>
+            <xs:element name="view_solution_iso" type="rpt:view_solution_iso"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>  
+  <!--***-->
 </xs:schema>

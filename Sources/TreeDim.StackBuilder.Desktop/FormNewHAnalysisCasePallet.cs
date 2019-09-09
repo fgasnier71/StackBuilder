@@ -46,7 +46,7 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region FormHAnalysis override
-        protected override HConstraintSet ConstraintSet => new HConstraintSetPallet() { MaximumHeight = uCtrlPalletHeight.Value };
+        protected override HConstraintSet ConstraintSet => new HConstraintSetPallet() { MaximumHeight = uCtrlPalletHeight.Value, Overhang = Overhang };
         protected override Vector3D DimContainer
         {
             get
@@ -93,7 +93,16 @@ namespace treeDiM.StackBuilder.Desktop
 
         #region Helpers
         private PalletProperties SelectedPallet => cbPallets.SelectedType as PalletProperties;
-        private double MaximumPalletHeight => uCtrlPalletHeight.Value;
+        private double MaximumPalletHeight
+        {
+            get => uCtrlPalletHeight.Value;
+            set => uCtrlPalletHeight.Value = value;
+        }
+        private Vector2D Overhang
+        {
+            get => uCtrlOverhang.Value;
+            set => uCtrlOverhang.Value = value;
+        }
         #endregion
 
         #region Data members

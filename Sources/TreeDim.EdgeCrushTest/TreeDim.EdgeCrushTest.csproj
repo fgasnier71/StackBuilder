@@ -61,7 +61,8 @@
     <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>treedim2021.pfx</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Cureos.Measures">
@@ -256,7 +257,6 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <None Include="treedim2021.pfx" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="CardboardQualityData\CardboardQualityData.xml" />
@@ -278,6 +278,10 @@
     <ProjectReference Include="..\TreeDim.StackBuilder.Graphic\treeDiM.StackBuilder.Graphics.csproj">
       <Project>{2ad4c04c-5b8a-4e69-9b1c-402cb86860a7}</Project>
       <Name>treeDiM.StackBuilder.Graphics</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TreeDim.StackBuilder.Reporting\treeDiM.StackBuilder.Reporting.csproj">
+      <Project>{1505a6e5-e6f9-4408-a5c8-968417081cbd}</Project>
+      <Name>treeDiM.StackBuilder.Reporting</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -140,8 +140,8 @@
     <AssemblyInfo CodeLanguage="CS" OutputFile="$(ProjectDir)..\SharedAssemblyInfo.cs" AssemblyVersion="$(AssemblyVersionToUse)" AssemblyFileVersion="$(AssemblyVersionToUse)" />
   </Target>
   <ItemGroup>
-    <Reference Include="AutoUpdater.NET, Version=1.5.5.0, Culture=neutral, PublicKeyToken=501435c91b35f4bc, processorArchitecture=MSIL">
-      <HintPath>..\packages\Autoupdater.NET.Official.1.5.5\lib\net40\AutoUpdater.NET.dll</HintPath>
+    <Reference Include="AutoUpdater.NET, Version=1.5.6.0, Culture=neutral, PublicKeyToken=501435c91b35f4bc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autoupdater.NET.Official.1.5.6\lib\net40\AutoUpdater.NET.dll</HintPath>
     </Reference>
     <Reference Include="CrashReporter.NET, Version=1.5.8.0, Culture=neutral, PublicKeyToken=7828e0fd88cab698, processorArchitecture=MSIL">
       <HintPath>..\packages\CrashReporter.NET.Official.1.5.8\lib\net462\CrashReporter.NET.dll</HintPath>
@@ -179,6 +179,9 @@
     </Reference>
     <Reference Include="PropertyGridEx, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\PropertyGridEx.1.0.0\lib\net20\PropertyGridEx.dll</HintPath>
+    </Reference>
+    <Reference Include="RichTextBoxAppender, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\RichTextBoxAppender.1.0.1\lib\net45\RichTextBoxAppender.dll</HintPath>
     </Reference>
     <Reference Include="Sharp3D.Math, Version=1.0.3.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Sharp3D.Math.1.0.3\lib\net45\Sharp3D.Math.dll</HintPath>
@@ -2844,7 +2847,6 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="ResultsAnalysisCasePallet.cs" />
-    <Compile Include="RichTextBoxAppender.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="FormSplashScreen.cs">
       <SubType>Form</SubType>
@@ -2945,6 +2947,10 @@
     <ProjectReference Include="..\TreeDim.StackBuilder.Reporting\treeDiM.StackBuilder.Reporting.csproj">
       <Project>{1505A6E5-E6F9-4408-A5C8-968417081CBD}</Project>
       <Name>treeDiM.StackBuilder.Reporting</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\treeDiM.ThreadCallback\treeDiM.ThreadCallback.csproj">
+      <Project>{d61900fb-fbf1-4075-bef4-6b828a840050}</Project>
+      <Name>treeDiM.ThreadCallback</Name>
     </ProjectReference>
     <ProjectReference Include="..\treeDiM.UserControls\treeDiM.UserControls.csproj">
       <Project>{d75634e3-34aa-4418-a6b6-3647bff90606}</Project>

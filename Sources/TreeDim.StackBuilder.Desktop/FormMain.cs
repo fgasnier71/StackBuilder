@@ -16,6 +16,8 @@ using Utilities;
 using AutoUpdaterDotNET;
 using Syroot.Windows.IO;
 
+using treeDiM.UserControls;
+using treeDiM.ThreadCallback;
 using treeDiM.StackBuilder.Basics;
 using treeDiM.StackBuilder.Engine;
 using treeDiM.StackBuilder.Reporting;
@@ -573,8 +575,8 @@ namespace treeDiM.StackBuilder.Desktop
         {
             try
             {
-                FormReportDesign form = new FormReportDesign() { Analysis = analysis };
-                form.ShowDialog();
+                var form = new FormReportDesign(new ReportDataAnalysis(analysis));
+                if (DialogResult.OK == form.ShowDialog()) {}
             }
             catch (Exception ex)
             {
@@ -586,45 +588,13 @@ namespace treeDiM.StackBuilder.Desktop
         {
             FormExporter form = new FormExporter() { Analysis = analysis, Extension = extension };
             if (DialogResult.OK == form.ShowDialog()) {}
-/*
-            try
-            {
-                Exporter exporter = ExporterFactory.GetExporterByExt(extension);
-                saveFileDialogExport.FileName = analysis.Name + "." + exporter.Extension;
-                saveFileDialogExport.Filter = exporter.Filter;
-                saveFileDialogExport.DefaultExt = exporter.Extension;
-
-                if (DialogResult.OK == saveFileDialogExport.ShowDialog())
-                {
-                    string filePath = saveFileDialogExport.FileName;
-                    exporter.Export(analysis, filePath);
-
-                    if (exporter.Extension == "dae")
-                    {
-                        // browse with google chrome
-                        if (ExporterCollada.ChromeInstalled)
-                            ExporterCollada.BrowseWithGoogleChrome(filePath);
-                        else
-                            MessageBox.Show(Resources.ID_CHROMEISNOTINSTALLED, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                }
-            }
-            catch (ExceptionUnexpectedAnalysisType ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            catch (Exception ex)
-            {
-                _log.Error(ex.ToString());
-            }
-            */
         }
 
         public void GenerateExport(AnalysisHetero analysis, string extension)
         {
             try
             {
-                var form = new FormReportDesign() { Analysis = analysis };
+                var form = new FormReportDesign( new ReportDataAnalysis(analysis) );
                 if (DialogResult.OK == form.ShowDialog()) { }
             }
             catch (Exception ex)
@@ -1271,13 +1241,57 @@ namespace treeDiM.StackBuilder.Desktop
         {
             try
             {
+                // load cases from the database
+                ProgressWindow progress = new ProgressWindow();
+                ThreadPool.QueueUserWorkItem(new WaitCallback(LoadCases), progress);
+                progress.ShowDialog();
+
                 FormOptimiseMultiCase form = new FormOptimiseMultiCase()
                 {
-                    Document = ActiveDocumentSB
+                    Document = ActiveDocumentSB,
+                    ListCases = ListDBCases
                 };
                 form.ShowDialog();
             }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
+        }
+        private void LoadCases(object status)
+        {
+            IProgressCallback callback = status as IProgressCallback;
+            callback.Begin();
+
+            ListDBCases.Clear();
+
+            using (WCFClient wcfClient = new WCFClient())
+            {
+                var client = wcfClient.Client;
+                if (null != client)
+                {
+                    int rangeIndex = 0, number = 0;
+                    bool endReached = false;
+                    bool firstCall = true;
+                    while (!endReached)
+                    {
+                        if (callback.IsAborting)
+                        {
+                            endReached = true;
+                            break;
+                        }
+                        ListDBCases.AddRange(client.GetAllCases(rangeIndex++, ref number));
+
+                        if (firstCall)
+                        {
+                            firstCall = false;
+                            callback.SetRange(0, number);
+                        }
+                        callback.StepTo((rangeIndex-1) * 20);
+                        callback.SetText($"Loading case {rangeIndex * 20} of {number}");
+
+                        endReached = (rangeIndex * 20 > number);
+                    }
+                }
+            }
+            callback.End();
         }
         #endregion
         #region Database / settings / excel sheet
@@ -1462,9 +1476,12 @@ namespace treeDiM.StackBuilder.Desktop
         }
         #endregion
 
+        #region Private data members
+        private List<DCSBCase> ListDBCases { get; set; } = new List<DCSBCase>();
+        #endregion
+
         #region Static instance accessor
         public static FormMain GetInstance()  { return _instance; }
-
         #endregion
 
 

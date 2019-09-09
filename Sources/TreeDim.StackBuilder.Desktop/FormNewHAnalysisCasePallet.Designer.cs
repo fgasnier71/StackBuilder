@@ -32,6 +32,7 @@
             this.lbPallet = new System.Windows.Forms.Label();
             this.uCtrlPalletHeight = new treeDiM.Basics.UCtrlDouble();
             this.cbPallets = new treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered();
+            this.uCtrlOverhang = new treeDiM.Basics.UCtrlDualDouble();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerHoriz1)).BeginInit();
             this.splitContainerHoriz1.Panel1.SuspendLayout();
             this.splitContainerHoriz1.Panel2.SuspendLayout();
@@ -55,6 +56,7 @@
             // 
             // splitContainerVert.Panel1
             // 
+            this.splitContainerVert.Panel1.Controls.Add(this.uCtrlOverhang);
             this.splitContainerVert.Panel1.Controls.Add(this.cbPallets);
             this.splitContainerVert.Panel1.Controls.Add(this.uCtrlPalletHeight);
             this.splitContainerVert.Panel1.Controls.Add(this.lbPallet);
@@ -68,13 +70,12 @@
             // 
             resources.ApplyResources(this.uCtrlPalletHeight, "uCtrlPalletHeight");
             this.uCtrlPalletHeight.Minimum = new decimal(new int[] {
-            10000,
             0,
             0,
-            -2147483648});
+            0,
+            0});
             this.uCtrlPalletHeight.Name = "uCtrlPalletHeight";
             this.uCtrlPalletHeight.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
-            this.uCtrlPalletHeight.Value = 0D;
             this.uCtrlPalletHeight.ValueChanged += new treeDiM.Basics.UCtrlDouble.ValueChangedDelegate(this.OnDataModifiedOverride);
             // 
             // cbPallets
@@ -84,6 +85,16 @@
             this.cbPallets.FormattingEnabled = true;
             this.cbPallets.Name = "cbPallets";
             this.cbPallets.SelectedIndexChanged += new System.EventHandler(this.OnDataModifiedOverride);
+            // 
+            // uCtrlOverhang
+            // 
+            resources.ApplyResources(this.uCtrlOverhang, "uCtrlOverhang");
+            this.uCtrlOverhang.MinValue = -10000D;
+            this.uCtrlOverhang.Name = "uCtrlOverhang";
+            this.uCtrlOverhang.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlOverhang.ValueX = 0D;
+            this.uCtrlOverhang.ValueY = 0D;
+            this.uCtrlOverhang.ValueChanged += new treeDiM.Basics.UCtrlDualDouble.ValueChangedDelegate(this.OnDataModifiedOverride);
             // 
             // FormNewHAnalysisCasePallet
             // 
@@ -111,5 +122,6 @@
         private treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered cbPallets;
         private treeDiM.Basics.UCtrlDouble uCtrlPalletHeight;
         private System.Windows.Forms.Label lbPallet;
+        private treeDiM.Basics.UCtrlDualDouble uCtrlOverhang;
     }
 }

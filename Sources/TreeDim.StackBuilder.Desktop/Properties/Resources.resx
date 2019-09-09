@@ -875,4 +875,13 @@ Closing form...</value>
   <data name="ID_TRUCKADMISSIBLELOAD" xml:space="preserve">
     <value>Truck must have a valid admissible load value.</value>
   </data>
+  <data name="ID_NOANALYSISSELECTED" xml:space="preserve">
+    <value>No analysis selected.</value>
+  </data>
+  <data name="ID_EVALUATINGCASE" xml:space="preserve">
+    <value>Evaluating case {0} out of {1}...</value>
+  </data>
+  <data name="ID_SORTINGSOLUTIONS" xml:space="preserve">
+    <value>Sorting solutions...</value>
+  </data>
 </root>

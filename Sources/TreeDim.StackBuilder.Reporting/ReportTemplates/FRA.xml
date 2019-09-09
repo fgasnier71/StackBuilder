@@ -132,9 +132,18 @@
   <str name="Spaces">Espace</str>
   <str name="Layer Indexes">Indexes couche</str>
   <str name="Number of cases per layer">Caisses par couche</str>
-  <str name="Layers x Cases">Couche x Caisse</str>
+  <str name="Layers x Cases">Nb de couches x Caisses par couche</str>
   <str name="Layers">Couches</str>
   <str name="Part">Partie</str>
   <str name="Count">Nombre</str>
   <str name="Items">Items</str>
+  <str name="Material">Matière</str>
+  <str name="Profile">Profile</str>
+  <str name="Static BCT">RCV statique</str>
+  <str name="Dynamic BCT">RCV dynamique</str>
+  <str name="Palletisation">Palletisation</str>
+  <str name="Stiffness X">Rigidité X</str>
+  <str name="Stiffness Y">Rigidité Y</str>
+  <str name="Overhang">Débord</str>
+  <str name="Load on lowest case">Load on lowest case</str>
 </strings>

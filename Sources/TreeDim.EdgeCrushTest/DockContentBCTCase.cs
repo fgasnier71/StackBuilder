@@ -13,6 +13,8 @@ using SourceGrid;
 using treeDiM.Basics;
 using treeDiM.StackBuilder.Basics;
 using treeDiM.StackBuilder.Graphics;
+using treeDiM.StackBuilder.Reporting;
+
 using treeDiM.EdgeCrushTest.Properties;
 #endregion
 
@@ -61,7 +63,6 @@ namespace treeDiM.EdgeCrushTest
                 _log.Error(ex.Message);
             }
         }
-
         protected override void OnClosed(EventArgs e)
         {
             base.OnClosed(e);
@@ -77,13 +78,7 @@ namespace treeDiM.EdgeCrushTest
         {
             try
             {
-                BoxProperties bProperties = new BoxProperties(null, CaseDimensions.X, CaseDimensions.Y, CaseDimensions.Z)
-                {
-                    TapeColor = Color.LightGray,
-                    TapeWidth = new OptDouble(true, 50.0)
-                };
-                bProperties.SetAllColors(Enumerable.Repeat(Color.Beige, 6).ToArray());
-                graphics.AddBox(new Box(0, bProperties));
+                graphics.AddBox(new Box(0, CaseProperties));
                 graphics.AddDimensions(new DimensionCube(CaseDimensions.X, CaseDimensions.Y, CaseDimensions.Z));
             }
             catch (Exception ex)
@@ -155,7 +150,7 @@ namespace treeDiM.EdgeCrushTest
                 View = viewColumnHeader
             };
             gridMat[0, iCol++] = columnHeader;
-                       
+
             int iIndex = 0;
             Vector3D dim = CaseDimensions;
 
@@ -285,7 +280,6 @@ namespace treeDiM.EdgeCrushTest
                 Border = cellBorder
             };
             // convert mass in kg to load in daN
-
             foreach (string keyHumidity in McKeeFormula.HumidityCoefDictionary.Keys)
             {
                 int indexRow = 1;
@@ -311,13 +305,6 @@ namespace treeDiM.EdgeCrushTest
         }
         private void OnMaterialChanged(object sender, RangeRegionChangedEventArgs e)
         {
-            // compute max layer count from static BCT
-            QualityData qdata = SelectedMaterial;
-            if (null == qdata) return;
-            Vector3D caseDim = CaseDimensions;
-            double staticBCT = qdata.ComputeStaticBCT(
-                caseDim, Resources.CASETYPE_AMERICANCASE, IsDoubleWall,
-                McKeeFormulaType);
             FillGridDynamicBCT();
         }
         private void OnComputeDynamicBCT(object sender, EventArgs e)
@@ -328,7 +315,42 @@ namespace treeDiM.EdgeCrushTest
         {
             try
             {
-                throw new Exception("Not implemented!");
+                // build list of BCT
+                QualityData qdata = SelectedMaterial;
+                Vector3D caseDim = CaseDimensions;
+                var dynBCTmatrix = McKeeFormula.EvaluateEdgeCrushTestMatrix(
+                        caseDim.X, caseDim.Y, caseDim.Z,
+                        Resources.CASETYPE_AMERICANCASE, IsDoubleWall, PrintSurface,
+                        qdata, McKeeFormulaType);
+                List<DynamicBCTRow> listBCTRows = new List<DynamicBCTRow>();
+                foreach (var keyStorage in McKeeFormula.StockCoefDictionary.Keys)
+                {
+                    List<double> values = new List<double>();
+                    foreach (var keyHumidity in McKeeFormula.HumidityCoefDictionary.Keys)
+                        values.Add(dynBCTmatrix[new KeyValuePair<string, string>(keyStorage, keyHumidity)]);
+                    listBCTRows.Add(new DynamicBCTRow() { Name = keyStorage, Values = values });
+                }
+                // build report data
+                var reportData = new ReportDataPackStress()
+                {
+                    Author = CardboardQualityAccessor.Instance.UserName,
+                    McKeeFormulaType = (int)McKeeFormulaType,
+                    Box = CaseProperties,
+                    Mat = new Material()
+                    {
+                        Name = qdata.Name,
+                        Profile = qdata.Profile,
+                        Thickness = qdata.Thickness,
+                        ECT = qdata.ECT,
+                        RigidityDX = qdata.RigidityDX,
+                        RigidityDY = qdata.RigidityDY
+                    },
+                    StaticBCT = StaticBCT,
+                    Analysis = null,
+                    BCTRows = listBCTRows
+                };
+                using (var form = new FormReportDesign(reportData))
+                    form.ShowDialog();
             }
             catch (Exception ex)
             {
@@ -381,12 +403,35 @@ namespace treeDiM.EdgeCrushTest
                     return tsCBProfile.Items[iSel].ToString();
             }
         }
+        private BoxProperties CaseProperties
+        {
+            get
+            {
+                Vector3D caseDim = CaseDimensions;
+                var bProperties = new BoxProperties(null, caseDim.X, caseDim.Y, caseDim.Z)
+                {
+                    TapeWidth = new OptDouble(true, 50.0),
+                    TapeColor = Color.LightGray
+                };
+                bProperties.SetAllColors(Enumerable.Repeat(Color.Beige, 6).ToArray());
+                bProperties.SetWeight(1.0);
+                return bProperties;
+            }
+        }
+        private double StaticBCT
+        {
+            get
+            {
+                QualityData qdata = SelectedMaterial;
+                return qdata.ComputeStaticBCT(
+                                CaseDimensions, Resources.CASETYPE_AMERICANCASE, IsDoubleWall,
+                                McKeeFormulaType);
+            }
+        }
         #endregion
         #region Data members
         private List<QualityData> _materialQualities;
         protected ILog _log = LogManager.GetLogger(typeof(DockContentBCTCase));
         #endregion
-
-
     }
 }

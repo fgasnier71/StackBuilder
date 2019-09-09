@@ -46,7 +46,7 @@
             this.richTextBoxLog.Dock = System.Windows.Forms.DockStyle.Fill;
             this.richTextBoxLog.Location = new System.Drawing.Point(0, 0);
             this.richTextBoxLog.Name = "richTextBoxLog";
-            this.richTextBoxLog.Size = new System.Drawing.Size(858, 106);
+            this.richTextBoxLog.Size = new System.Drawing.Size(784, 111);
             this.richTextBoxLog.TabIndex = 0;
             this.richTextBoxLog.Text = "";
             // 
@@ -59,14 +59,14 @@
             this.AutoHideToolStripMenuItem,
             this.HideToolStripMenuItem});
             this.ContextMenuDock.Name = "ContextMenuStrip1";
-            this.ContextMenuDock.Size = new System.Drawing.Size(174, 114);
+            this.ContextMenuDock.Size = new System.Drawing.Size(172, 114);
             this.ContextMenuDock.Text = "Window Position";
             // 
             // FloatingToolStripMenuItem
             // 
             this.FloatingToolStripMenuItem.CheckOnClick = true;
             this.FloatingToolStripMenuItem.Name = "FloatingToolStripMenuItem";
-            this.FloatingToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.FloatingToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.FloatingToolStripMenuItem.Text = "Floating";
             // 
             // DockableToolStripMenuItem
@@ -75,35 +75,35 @@
             this.DockableToolStripMenuItem.CheckOnClick = true;
             this.DockableToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.DockableToolStripMenuItem.Name = "DockableToolStripMenuItem";
-            this.DockableToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.DockableToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.DockableToolStripMenuItem.Text = "Dockable";
             // 
             // TabbedDocumentToolStripMenuItem
             // 
             this.TabbedDocumentToolStripMenuItem.CheckOnClick = true;
             this.TabbedDocumentToolStripMenuItem.Name = "TabbedDocumentToolStripMenuItem";
-            this.TabbedDocumentToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.TabbedDocumentToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.TabbedDocumentToolStripMenuItem.Text = "Tabbed Document";
             // 
             // AutoHideToolStripMenuItem
             // 
             this.AutoHideToolStripMenuItem.CheckOnClick = true;
             this.AutoHideToolStripMenuItem.Name = "AutoHideToolStripMenuItem";
-            this.AutoHideToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.AutoHideToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.AutoHideToolStripMenuItem.Text = "Auto Hide";
             // 
             // HideToolStripMenuItem
             // 
             this.HideToolStripMenuItem.CheckOnClick = true;
             this.HideToolStripMenuItem.Name = "HideToolStripMenuItem";
-            this.HideToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.HideToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.HideToolStripMenuItem.Text = "Hide";
             // 
             // DockContentLogConsole
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(858, 106);
+            this.ClientSize = new System.Drawing.Size(784, 111);
             this.ControlBox = false;
             this.Controls.Add(this.richTextBoxLog);
             this.DockAreas = ((WeifenLuo.WinFormsUI.Docking.DockAreas)((WeifenLuo.WinFormsUI.Docking.DockAreas.Float | WeifenLuo.WinFormsUI.Docking.DockAreas.DockBottom)));

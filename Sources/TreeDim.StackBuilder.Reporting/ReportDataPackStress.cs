@@ -1,10 +1,8 @@
 ﻿#region Using directives
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using treeDiM.StackBuilder.Basics;
+
+using treeDiM.StackBuilder.Reporting.Properties;
 #endregion
 
 namespace treeDiM.StackBuilder.Reporting
@@ -19,16 +17,43 @@ namespace treeDiM.StackBuilder.Reporting
         public double RigidityDY { get; set; }
     };
 
-
-
-    public class ReportDataPackStress
+    public class PalletisationResults
     {
+        public int NoCasesPerLayer { get; set; }
+        public int NoLayers { get; set; }
+        public int NoCases { get; set; }
+        public double LoadWeight { get; set; }
+        public double PalletWeight { get; set; }
+        public double LoadOnLowestCases { get; set; }
+    }
+
+    public class DynamicBCTRow
+    {
+        public string Name { get; set; }
+        public List<double> Values { get; set; } = new List<double>();
+    };
+
+    public class ReportDataPackStress : ReportData
+    {
+        #region Override ReportData
+        public override string Title => string.Format(Resources.ID_CASE_DIMENSIONS, Box.Length, Box.Width, Box.Height);
+        public override string SuggestedFileName => string.Format(Resources.ID_CASE_DIMENSIONS, Box.Length, Box.Width, Box.Height);
+        #endregion
+
+        // Author
+        public string Author { get; set; }
         // Case
         public BoxProperties Box { get; set; }
         // Material
         public Material Mat { get; set; }
-        // 
-        public enum McKeeFormulaType { MCKEE_CLASSIC, MCKEE_IMPROVED };
-        public McKeeFormulaType FormulaType;
+        // Static BCT
+        public double StaticBCT {get; set;}
+        // Dynamic BCT
+        public List<string> BCTColumnHeaders { get; set; } = new List<string>();
+        public List<DynamicBCTRow> BCTRows { get; set; } = new List<DynamicBCTRow>(); 
+        // Palletisation
+        public Analysis Analysis { get; set; }
+        // Formula type
+        public int McKeeFormulaType { get; set; }
     }
 }

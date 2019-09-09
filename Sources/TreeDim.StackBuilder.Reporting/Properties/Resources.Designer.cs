@@ -19,7 +19,7 @@ namespace treeDiM.StackBuilder.Reporting.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -57,6 +57,15 @@ namespace treeDiM.StackBuilder.Reporting.Properties {
             }
             set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Case_{0}x{1}x{2}.
+        /// </summary>
+        internal static string ID_CASE_DIMENSIONS {
+            get {
+                return ResourceManager.GetString("ID_CASE_DIMENSIONS", resourceCulture);
             }
         }
         
@@ -99,9 +108,9 @@ namespace treeDiM.StackBuilder.Reporting.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Report {0}.
         /// </summary>
-        internal static string ID_REPORTANALYSIS {
+        internal static string ID_REPORT_CAPTION {
             get {
-                return ResourceManager.GetString("ID_REPORTANALYSIS", resourceCulture);
+                return ResourceManager.GetString("ID_REPORT_CAPTION", resourceCulture);
             }
         }
         
@@ -241,6 +250,15 @@ namespace treeDiM.StackBuilder.Reporting.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Dynamic BCT.
+        /// </summary>
+        internal static string ID_RN_DYNAMICBCT {
+            get {
+                return ResourceManager.GetString("ID_RN_DYNAMICBCT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Image.
         /// </summary>
         internal static string ID_RN_IMAGE {
@@ -295,6 +313,15 @@ namespace treeDiM.StackBuilder.Reporting.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Material.
+        /// </summary>
+        internal static string ID_RN_MATERIAL {
+            get {
+                return ResourceManager.GetString("ID_RN_MATERIAL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Maximum height.
         /// </summary>
         internal static string ID_RN_MAXIMUMHEIGHT {
@@ -318,6 +345,15 @@ namespace treeDiM.StackBuilder.Reporting.Properties {
         internal static string ID_RN_MAXIMUMWEIGHT {
             get {
                 return ResourceManager.GetString("ID_RN_MAXIMUMWEIGHT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name.
+        /// </summary>
+        internal static string ID_RN_NAME {
+            get {
+                return ResourceManager.GetString("ID_RN_NAME", resourceCulture);
             }
         }
         
@@ -349,11 +385,29 @@ namespace treeDiM.StackBuilder.Reporting.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to PackStress.
+        /// </summary>
+        internal static string ID_RN_PACKSTRESS {
+            get {
+                return ResourceManager.GetString("ID_RN_PACKSTRESS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Pallet.
         /// </summary>
         internal static string ID_RN_PALLET {
             get {
                 return ResourceManager.GetString("ID_RN_PALLET", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Palletisation.
+        /// </summary>
+        internal static string ID_RN_PALLETISATION {
+            get {
+                return ResourceManager.GetString("ID_RN_PALLETISATION", resourceCulture);
             }
         }
         
@@ -372,6 +426,15 @@ namespace treeDiM.StackBuilder.Reporting.Properties {
         internal static string ID_RN_SPACES {
             get {
                 return ResourceManager.GetString("ID_RN_SPACES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Static BCT.
+        /// </summary>
+        internal static string ID_RN_STATICBCT {
+            get {
+                return ResourceManager.GetString("ID_RN_STATICBCT", resourceCulture);
             }
         }
         

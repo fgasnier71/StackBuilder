@@ -117,7 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="cbColor.Items14" xml:space="preserve">
+  <data name="cbColor.Items15" xml:space="preserve">
     <value>Color</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
@@ -133,61 +133,13 @@
   <data name="chkbHatching.Text" xml:space="preserve">
     <value>Hachure</value>
   </data>
+  <data name="bnSendToDB.Text" xml:space="preserve">
+    <value>&gt; Envoi vers BDD</value>
+  </data>
   <data name="uCtrlSpacing.Text" xml:space="preserve">
     <value>Espacement</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Créer un nouveau film palette...</value>
-  </data>
-  <data name="uCtrlAngle.Text" xml:space="preserve">
-    <value>Angle</value>
-  </data>
-  <data name="cbColor.Items6" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="cbColor.Items3" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="cbColor.Items10" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="cbColor.Items1" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="cbColor.Items8" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="lbColor.Text" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="cbColor.Items2" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="cbColor.Items7" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="cbColor.Items4" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="cbColor.Items9" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="cbColor.Items11" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="cbColor.Items13" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="cbColor.Items" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="cbColor.Items5" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="bnSendToDB.Text" xml:space="preserve">
-    <value>Envoi à la base de données</value>
-  </data>
-  <data name="cbColor.Items12" xml:space="preserve">
-    <value>Color</value>
   </data>
 </root>

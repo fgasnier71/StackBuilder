@@ -368,8 +368,8 @@ namespace treeDiM.StackBuilder.Graphics
         }
         public bool ShowTape
         { get { return TapeWidth.Activated; } }
-        public OptDouble TapeWidth { get; }
-        public Color TapeColor { get; }
+        public OptDouble TapeWidth { get; set; }
+        public Color TapeColor { get; set; }
         public Vector3D[] TapePoints
         {
             get
