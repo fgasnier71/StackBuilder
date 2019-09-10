@@ -2914,6 +2914,6 @@
     <value>Vensterpositie</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Document explorer</value>
+    <value>Project explorer</value>
   </data>
 </root>
