@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Product name as it appears in Add/Remove Programs-->
+<?define ProductName = "StackBuilder" ?>
 <!-- Package_Description -->
 <?define Package_Description = "Installs StackBuilder files" ?>
 <!-- Package_Comments -->

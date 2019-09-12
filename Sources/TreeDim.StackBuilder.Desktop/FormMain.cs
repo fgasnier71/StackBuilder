@@ -723,7 +723,6 @@ namespace treeDiM.StackBuilder.Desktop
             // optimisations
             toolStripMIBestCase.Enabled         = (null != doc) && doc.CanCreateOptiMulticase;
             toolStripMenuItemBestCase.Enabled   = (null != doc) && doc.CanCreateOptiMulticase;
-            toolStripMIBestCasePallet.Enabled   = (null != doc) && doc.CanCreateOptiCasePallet;
             toolStripMIBestPack.Enabled         = (null != doc) && doc.CanCreateOptiPack;
             toolStripMenuItemBestPack.Enabled   = (null != doc) && doc.CanCreateOptiPack;
             // disconnected mode
@@ -732,7 +731,7 @@ namespace treeDiM.StackBuilder.Desktop
             // allow export of project summary to Excel
             toolStripMIExportAnalysesSummaryToExcel.Enabled = (null != doc) && doc.Analyses.Count > 0;
             // BCT
-            toolStripSB_ECT.Enabled = WCFClient.IsConnected;
+            toolStripSB_BCT.Enabled = WCFClient.IsConnected;
         }
         #endregion
 
@@ -1032,7 +1031,7 @@ namespace treeDiM.StackBuilder.Desktop
                     }
                 }
             }
-            toolStripSB_ECT.Enabled = WCFClient.IsConnected;
+            toolStripSB_BCT.Enabled = WCFClient.IsConnected;
             // create basic layout
             CreateBasicLayout();
             UpdateDisconnectButton();
@@ -1354,7 +1353,8 @@ namespace treeDiM.StackBuilder.Desktop
         }
         #endregion
         #region Edge Crush Test
-        private void OnComputeECT(object sender, EventArgs e) => EdgeCrushTest.ECT_Forms.ComputeECT(dockPanel);
+        private void OnComputeCaseBCT(object sender, EventArgs e) => EdgeCrushTest.ECT_Forms.ComputeBCTCase(dockPanel);
+        private void OnComputePalletBCT(object sender, EventArgs e) => EdgeCrushTest.ECT_Forms.ComputeBCTPallet(dockPanel);
         #endregion
         #region Export to Excel
         private void OnExportToExcel(object sender, EventArgs e)
@@ -1483,7 +1483,5 @@ namespace treeDiM.StackBuilder.Desktop
         #region Static instance accessor
         public static FormMain GetInstance()  { return _instance; }
         #endregion
-
-
     }
 }

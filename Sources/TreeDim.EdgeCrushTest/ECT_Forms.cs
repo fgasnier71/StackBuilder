@@ -10,7 +10,7 @@ namespace treeDiM.EdgeCrushTest
     public class ECT_Forms
     {
         #region Static methods
-        static public void ComputeECT(DockPanel dockPanel)
+        static public void ComputeBCTPallet(DockPanel dockPanel)
         {
             try
             {
@@ -22,7 +22,7 @@ namespace treeDiM.EdgeCrushTest
                 _log.Error(ex.ToString());
             }
         }
-        static public void ComputeECTReverse(DockPanel dockPanel)
+        static public void ComputeBCTCase(DockPanel dockPanel)
         {
             try
             {

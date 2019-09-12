@@ -125,14 +125,15 @@
             this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSBOptimisations = new System.Windows.Forms.ToolStripSplitButton();
             this.toolStripMIBestCase = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMIBestCasePallet = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMIBestPack = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSB_ECT = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButtonHelp = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButtonSettings = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSB_BCT = new System.Windows.Forms.ToolStripSplitButton();
+            this.palletisationBCTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.caseBCTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuNewFileINTEX = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialogSB = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialogSB = new System.Windows.Forms.SaveFileDialog();
@@ -523,7 +524,7 @@
             this.toolStripSeparator11,
             this.toolStripSBOptimisations,
             this.toolStripSeparator10,
-            this.toolStripSB_ECT,
+            this.toolStripSB_BCT,
             this.toolStripSeparator6,
             this.toolStripButtonHelp,
             this.toolStripSeparator8,
@@ -810,7 +811,6 @@
             this.toolStripSBOptimisations.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripSBOptimisations.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMIBestCase,
-            this.toolStripMIBestCasePallet,
             this.toolStripMIBestPack});
             resources.ApplyResources(this.toolStripSBOptimisations, "toolStripSBOptimisations");
             this.toolStripSBOptimisations.Name = "toolStripSBOptimisations";
@@ -822,12 +822,6 @@
             this.toolStripMIBestCase.Name = "toolStripMIBestCase";
             this.toolStripMIBestCase.Click += new System.EventHandler(this.OnOptiSelectCase);
             // 
-            // toolStripMIBestCasePallet
-            // 
-            resources.ApplyResources(this.toolStripMIBestCasePallet, "toolStripMIBestCasePallet");
-            this.toolStripMIBestCasePallet.Name = "toolStripMIBestCasePallet";
-            this.toolStripMIBestCasePallet.Click += new System.EventHandler(this.OnOptiPack);
-            // 
             // toolStripMIBestPack
             // 
             resources.ApplyResources(this.toolStripMIBestPack, "toolStripMIBestPack");
@@ -838,13 +832,6 @@
             // 
             this.toolStripSeparator10.Name = "toolStripSeparator10";
             resources.ApplyResources(this.toolStripSeparator10, "toolStripSeparator10");
-            // 
-            // toolStripSB_ECT
-            // 
-            this.toolStripSB_ECT.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            resources.ApplyResources(this.toolStripSB_ECT, "toolStripSB_ECT");
-            this.toolStripSB_ECT.Name = "toolStripSB_ECT";
-            this.toolStripSB_ECT.Click += new System.EventHandler(this.OnComputeECT);
             // 
             // toolStripSeparator6
             // 
@@ -869,6 +856,27 @@
             resources.ApplyResources(this.toolStripButtonSettings, "toolStripButtonSettings");
             this.toolStripButtonSettings.Name = "toolStripButtonSettings";
             this.toolStripButtonSettings.Click += new System.EventHandler(this.OnShowSettings);
+            // 
+            // toolStripSB_BCT
+            // 
+            this.toolStripSB_BCT.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripSB_BCT.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.palletisationBCTToolStripMenuItem,
+            this.caseBCTToolStripMenuItem});
+            resources.ApplyResources(this.toolStripSB_BCT, "toolStripSB_BCT");
+            this.toolStripSB_BCT.Name = "toolStripSB_BCT";
+            // 
+            // palletisationBCTToolStripMenuItem
+            // 
+            this.palletisationBCTToolStripMenuItem.Name = "palletisationBCTToolStripMenuItem";
+            resources.ApplyResources(this.palletisationBCTToolStripMenuItem, "palletisationBCTToolStripMenuItem");
+            this.palletisationBCTToolStripMenuItem.Click += new System.EventHandler(this.OnComputePalletBCT);
+            // 
+            // caseBCTToolStripMenuItem
+            // 
+            this.caseBCTToolStripMenuItem.Name = "caseBCTToolStripMenuItem";
+            resources.ApplyResources(this.caseBCTToolStripMenuItem, "caseBCTToolStripMenuItem");
+            this.caseBCTToolStripMenuItem.Click += new System.EventHandler(this.OnComputeCaseBCT);
             // 
             // ToolStripMenuNewFileINTEX
             // 
@@ -1001,7 +1009,6 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMIAnalysisCylinderCase;
         private System.Windows.Forms.ToolStripSplitButton toolStripSBOptimisations;
         private System.Windows.Forms.ToolStripMenuItem toolStripMIBestCase;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMIBestCasePallet;
         private System.Windows.Forms.ToolStripMenuItem toolStripMIBestPack;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemBestCase;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator14;
@@ -1022,10 +1029,12 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMIHAnalysis;
         private System.Windows.Forms.ToolStripMenuItem toolStripMIHAnalysisCaseTruck;
         private System.Windows.Forms.ToolStripMenuItem toolStripMIAnalysisCylinderTruck;
-        private System.Windows.Forms.ToolStripButton toolStripSB_ECT;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.ToolStripMenuItem browseEditMaterialListToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem projectToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMIExportAnalysesSummaryToExcel;
+        private System.Windows.Forms.ToolStripSplitButton toolStripSB_BCT;
+        private System.Windows.Forms.ToolStripMenuItem palletisationBCTToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem caseBCTToolStripMenuItem;
     }
 }
