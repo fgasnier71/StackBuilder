@@ -39,8 +39,8 @@
     <MinimumRequiredVersion>3.0.0.0</MinimumRequiredVersion>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>1</ApplicationRevision>
-    <ApplicationVersion>3.0.1.1</ApplicationVersion>
+    <ApplicationRevision>2</ApplicationRevision>
+    <ApplicationVersion>3.0.1.2</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -3085,7 +3085,6 @@
     <None Include="Resources\Case.bmp" />
     <None Include="Resources\AnalysisCylinder.bmp" />
     <None Include="Resources\AnalysisHCylinder.bmp" />
-    <Content Include="Resources\AnalysisStackingStrength.ico" />
     <None Include="Resources\AnalysisStackingStrength.png" />
     <None Include="Resources\BoxCaseAnalysis.bmp" />
     <Content Include="Resources\CaseAnalysis.bmp" />

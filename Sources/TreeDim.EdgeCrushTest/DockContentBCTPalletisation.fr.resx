@@ -142,9 +142,6 @@
   <data name="tsCBMcKeeFormula.Items1" xml:space="preserve">
     <value>Améliorée</value>
   </data>
-  <data name="toolStripSeparator2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>6, 25</value>
-  </data>
   <data name="tsButtonReport.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -156,9 +153,6 @@
   <data name="tsButtonReport.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>White</value>
   </data>
-  <data name="tsButtonReport.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 22</value>
-  </data>
   <data name="tsButtonReport.Text" xml:space="preserve">
     <value>Report...</value>
   </data>
@@ -169,10 +163,10 @@
     <value>Dimensions caisse</value>
   </data>
   <data name="lbWeightLowestCase.Location" type="System.Drawing.Point, System.Drawing">
-    <value>140, 222</value>
+    <value>146, 223</value>
   </data>
   <data name="lbDefWeightOnLowestCase.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 182</value>
+    <value>7, 223</value>
   </data>
   <data name="lbDefWeightOnLowestCase.Size" type="System.Drawing.Size, System.Drawing">
     <value>127, 13</value>
@@ -190,7 +184,7 @@
     <value>397, 136</value>
   </data>
   <data name="lbDefCount.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 200</value>
+    <value>7, 177</value>
   </data>
   <data name="lbDefCount.Size" type="System.Drawing.Size, System.Drawing">
     <value>120, 13</value>
@@ -199,10 +193,10 @@
     <value>Nombre total de caisses</value>
   </data>
   <data name="lbStackWeight.Location" type="System.Drawing.Point, System.Drawing">
-    <value>140, 202</value>
+    <value>146, 200</value>
   </data>
   <data name="lbDefWeight.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 220</value>
+    <value>7, 200</value>
   </data>
   <data name="lbDefWeight.Size" type="System.Drawing.Size, System.Drawing">
     <value>117, 13</value>
@@ -211,7 +205,7 @@
     <value>Poids total de la palette</value>
   </data>
   <data name="lbStackCount.Location" type="System.Drawing.Point, System.Drawing">
-    <value>140, 182</value>
+    <value>146, 177</value>
   </data>
   <data name="lbPrintedArea.Size" type="System.Drawing.Size, System.Drawing">
     <value>88, 13</value>

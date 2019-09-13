@@ -2,6 +2,7 @@
 using System;
 using System.Reflection;
 using System.Windows.Forms;
+using System.Threading;
 
 using log4net;
 using WeifenLuo.WinFormsUI.Docking;
@@ -15,6 +16,8 @@ namespace treeDiM.EdgeCrushTest.Desktop
         public FormMain()
         {
             InitializeComponent();
+
+ 
         }
         #endregion
         #region Form override
@@ -23,11 +26,33 @@ namespace treeDiM.EdgeCrushTest.Desktop
             base.OnLoad(e);
             if (AssemblyConf == "debug")
                 OnShowLogConsole(this, null);
+            
+            // or show splash sceen 
+            bool multithreaded = false;
+            if (multithreaded)
+            {
+                // --- instantiate and start splach screen thread
+                Thread th = new Thread(new ThreadStart(DoSplash));
+                th.Start();
+                // ---
+            }
+            else
+                DoSplash();
             timerMain.Start();
         }
         protected override void OnClosed(EventArgs e)
         {
             base.OnClosed(e);
+        }
+        #endregion
+        #region SplashScreen
+        public void DoSplash()
+        {
+            using (FormSplashScreen sp = new FormSplashScreen(this))
+            {
+                sp.TimerInterval = 1000;
+                sp.ShowDialog();
+            }
         }
         #endregion
         #region Event handlers

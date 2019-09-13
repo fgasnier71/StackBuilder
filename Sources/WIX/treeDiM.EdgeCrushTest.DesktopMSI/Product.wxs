@@ -34,7 +34,7 @@
       <RemoveExistingProducts After="InstallInitialize" />
     </InstallExecuteSequence>
     <!--Icon-->
-    <Icon Id="ECT.ico" SourceFile="ECT.ico"/>
+    <Icon Id="PLMPackStress.ico" SourceFile="PLMPackStress.ico"/>
     <!--PackStress merge module-->
     <DirectoryRef Id="$(var.InstallLocation)">
       <Merge Id="treeDiM.EdgeCrushTest.DesktopMSM" Language="1033" DiskId="1" SourceFile="..\treeDiM.EdgeCrushTest.DesktopMSM\bin\Release\treeDiM.EdgeCrushTest.DesktopMSM.msm"/>
@@ -54,7 +54,7 @@
     <PropertyRef Id="NETFRAMEWORK40CLIENT" />
     <PropertyRef Id="NETFRAMEWORK40FULL" />
     <!--Installer icon-->
-    <Property Id="ARPPRODUCTICON" Value="ECT.ico" />
+    <Property Id="ARPPRODUCTICON" Value="PLMPackStress.ico" />
     <Property Id="ARPHELPLINK" Value="$(var.CompanyURL)" />
     <Property Id="ARPURLINFOABOUT" Value="$(var.CompanyURL)" />
     <!-- Conditions-->

@@ -5,20 +5,13 @@ using System.Windows.Forms;
 using System.Reflection;
 #endregion
 
-namespace treeDiM.StackBuilder.Desktop
+namespace treeDiM.EdgeCrushTest.Desktop
 {
-    /// <summary>
-    /// Splash screen form
-    /// </summary>
     public partial class FormSplashScreen : Form
     {
         #region Constructor
-        /// <summary>
-        /// Constructor
-        /// </summary>
-        public FormSplashScreen(Form parentForm)
+        public FormSplashScreen(Form parentFom)
         {
-            // save parent form
             InitializeComponent();
             // make lower right pixel color transparent
             Bitmap b = new Bitmap(BackgroundImage);
@@ -39,7 +32,7 @@ namespace treeDiM.StackBuilder.Desktop
         /// </summary>
         public int TimerInterval
         {
-            set { timerClose.Interval = value;  }
+            set { timerClose.Interval = value; }
             get { return timerClose.Interval; }
         }
         /// <summary>
@@ -47,7 +40,6 @@ namespace treeDiM.StackBuilder.Desktop
         /// </summary>
         public bool Transparent { get; set; } = true;
         #endregion
-
         /// <summary>
         /// handles timer tick and closes splashscreen
         /// </summary>

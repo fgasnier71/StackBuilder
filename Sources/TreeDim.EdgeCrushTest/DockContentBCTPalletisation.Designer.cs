@@ -41,6 +41,8 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabelProfile = new System.Windows.Forms.ToolStripLabel();
             this.tsCBProfile = new System.Windows.Forms.ToolStripComboBox();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsButtonReport = new System.Windows.Forms.ToolStripButton();
             this.uCtrlCaseDimensions = new treeDiM.Basics.UCtrlTriDouble();
             this.splitContainerVert = new System.Windows.Forms.SplitContainer();
             this.gridMat = new SourceGrid.Grid();
@@ -58,8 +60,6 @@
             this.gridDynamicBCT = new SourceGrid.Grid();
             this.cbPrintedArea = new System.Windows.Forms.ComboBox();
             this.lbCountMax = new System.Windows.Forms.Label();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsButtonReport = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerHoriz)).BeginInit();
             this.splitContainerHoriz.Panel1.SuspendLayout();
             this.splitContainerHoriz.Panel2.SuspendLayout();
@@ -85,7 +85,6 @@
             // 
             // splitContainerHoriz.Panel1
             // 
-            resources.ApplyResources(this.splitContainerHoriz.Panel1, "splitContainerHoriz.Panel1");
             this.splitContainerHoriz.Panel1.Controls.Add(this.chkbDblWall);
             this.splitContainerHoriz.Panel1.Controls.Add(this.uCtrlOverhang);
             this.splitContainerHoriz.Panel1.Controls.Add(this.cbPallets);
@@ -96,7 +95,6 @@
             // 
             // splitContainerHoriz.Panel2
             // 
-            resources.ApplyResources(this.splitContainerHoriz.Panel2, "splitContainerHoriz.Panel2");
             this.splitContainerHoriz.Panel2.Controls.Add(this.splitContainerVert);
             // 
             // chkbDblWall
@@ -118,9 +116,9 @@
             // 
             // cbPallets
             // 
-            resources.ApplyResources(this.cbPallets, "cbPallets");
             this.cbPallets.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbPallets.FormattingEnabled = true;
+            resources.ApplyResources(this.cbPallets, "cbPallets");
             this.cbPallets.Name = "cbPallets";
             this.cbPallets.SelectedIndexChanged += new System.EventHandler(this.OnComputePalletization);
             // 
@@ -143,7 +141,6 @@
             // 
             // toolStripMain
             // 
-            resources.ApplyResources(this.toolStripMain, "toolStripMain");
             this.toolStripMain.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripLabelMcKeeFormula,
@@ -153,41 +150,54 @@
             this.tsCBProfile,
             this.toolStripSeparator2,
             this.tsButtonReport});
+            resources.ApplyResources(this.toolStripMain, "toolStripMain");
             this.toolStripMain.Name = "toolStripMain";
             // 
             // toolStripLabelMcKeeFormula
             // 
-            resources.ApplyResources(this.toolStripLabelMcKeeFormula, "toolStripLabelMcKeeFormula");
             this.toolStripLabelMcKeeFormula.Name = "toolStripLabelMcKeeFormula";
+            resources.ApplyResources(this.toolStripLabelMcKeeFormula, "toolStripLabelMcKeeFormula");
             // 
             // tsCBMcKeeFormula
             // 
-            resources.ApplyResources(this.tsCBMcKeeFormula, "tsCBMcKeeFormula");
             this.tsCBMcKeeFormula.BackColor = System.Drawing.SystemColors.Control;
             this.tsCBMcKeeFormula.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.tsCBMcKeeFormula.Items.AddRange(new object[] {
             resources.GetString("tsCBMcKeeFormula.Items"),
             resources.GetString("tsCBMcKeeFormula.Items1")});
+            resources.ApplyResources(this.tsCBMcKeeFormula, "tsCBMcKeeFormula");
             this.tsCBMcKeeFormula.Name = "tsCBMcKeeFormula";
             this.tsCBMcKeeFormula.SelectedIndexChanged += new System.EventHandler(this.OnInputChanged);
             // 
             // toolStripSeparator1
             // 
-            resources.ApplyResources(this.toolStripSeparator1, "toolStripSeparator1");
             this.toolStripSeparator1.Name = "toolStripSeparator1";
+            resources.ApplyResources(this.toolStripSeparator1, "toolStripSeparator1");
             // 
             // toolStripLabelProfile
             // 
-            resources.ApplyResources(this.toolStripLabelProfile, "toolStripLabelProfile");
             this.toolStripLabelProfile.Name = "toolStripLabelProfile";
+            resources.ApplyResources(this.toolStripLabelProfile, "toolStripLabelProfile");
             // 
             // tsCBProfile
             // 
-            resources.ApplyResources(this.tsCBProfile, "tsCBProfile");
             this.tsCBProfile.BackColor = System.Drawing.SystemColors.Control;
             this.tsCBProfile.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.tsCBProfile.Name = "tsCBProfile";
+            resources.ApplyResources(this.tsCBProfile, "tsCBProfile");
             this.tsCBProfile.SelectedIndexChanged += new System.EventHandler(this.OnInputChanged);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            resources.ApplyResources(this.toolStripSeparator2, "toolStripSeparator2");
+            // 
+            // tsButtonReport
+            // 
+            this.tsButtonReport.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsButtonReport.Name = "tsButtonReport";
+            resources.ApplyResources(this.tsButtonReport, "tsButtonReport");
+            this.tsButtonReport.Click += new System.EventHandler(this.OnReport);
             // 
             // uCtrlCaseDimensions
             // 
@@ -211,12 +221,10 @@
             // 
             // splitContainerVert.Panel1
             // 
-            resources.ApplyResources(this.splitContainerVert.Panel1, "splitContainerVert.Panel1");
             this.splitContainerVert.Panel1.Controls.Add(this.gridMat);
             // 
             // splitContainerVert.Panel2
             // 
-            resources.ApplyResources(this.splitContainerVert.Panel2, "splitContainerVert.Panel2");
             this.splitContainerVert.Panel2.Controls.Add(this.splitContainer1);
             this.splitContainerVert.Panel2.Controls.Add(this.lbCountMax);
             // 
@@ -239,7 +247,6 @@
             // 
             // splitContainer1.Panel1
             // 
-            resources.ApplyResources(this.splitContainer1.Panel1, "splitContainer1.Panel1");
             this.splitContainer1.Panel1.Controls.Add(this.lbWeightLowestCase);
             this.splitContainer1.Panel1.Controls.Add(this.lbDefWeightOnLowestCase);
             this.splitContainer1.Panel1.Controls.Add(this.uCtrlNoLayers);
@@ -251,7 +258,6 @@
             // 
             // splitContainer1.Panel2
             // 
-            resources.ApplyResources(this.splitContainer1.Panel2, "splitContainer1.Panel2");
             this.splitContainer1.Panel2.Controls.Add(this.gbDynamicBCT);
             // 
             // lbWeightLowestCase
@@ -343,18 +349,6 @@
             resources.ApplyResources(this.lbCountMax, "lbCountMax");
             this.lbCountMax.Name = "lbCountMax";
             // 
-            // toolStripSeparator2
-            // 
-            resources.ApplyResources(this.toolStripSeparator2, "toolStripSeparator2");
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            // 
-            // tsButtonReport
-            // 
-            resources.ApplyResources(this.tsButtonReport, "tsButtonReport");
-            this.tsButtonReport.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsButtonReport.Name = "tsButtonReport";
-            this.tsButtonReport.Click += new System.EventHandler(this.OnReport);
-            // 
             // DockContentBCTPalletisation
             // 
             resources.ApplyResources(this, "$this");
@@ -374,7 +368,6 @@
             this.toolStripMain.PerformLayout();
             this.splitContainerVert.Panel1.ResumeLayout(false);
             this.splitContainerVert.Panel2.ResumeLayout(false);
-            this.splitContainerVert.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerVert)).EndInit();
             this.splitContainerVert.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
