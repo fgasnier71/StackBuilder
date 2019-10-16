@@ -31,14 +31,8 @@ namespace treeDiM.StackBuilder.Basics
             if (!(obj is LayerDesc layerDesc)) return false;
             return PatternName == layerDesc.PatternName && Swapped == layerDesc.Swapped;
         }
-        public override int GetHashCode()
-        {
-            return PatternName.GetHashCode() ^ Swapped.GetHashCode();
-        }
-        public override string ToString()
-        {
-            return $"{PatternName}_{(Swapped ? "1" : "0")}";
-        }
+        public override int GetHashCode() => PatternName.GetHashCode() ^ Swapped.GetHashCode();
+        public override string ToString()=> $"{PatternName}_{(Swapped ? "1" : "0")}";
     }
     #endregion
 
@@ -46,7 +40,7 @@ namespace treeDiM.StackBuilder.Basics
     public interface ILayer2D
     {
         #region Properties
-        string PatternName { get; set; }
+        string PatternName { get; }
         string Name { get; }
         bool Swapped { get; }
         double LayerHeight { get; }
@@ -70,9 +64,6 @@ namespace treeDiM.StackBuilder.Basics
     #region LayerDescBox
     public class LayerDescBox : LayerDesc
     {
-
-        #region Data members
-        #endregion
         #region Constructor
         public LayerDescBox(string patternName, HalfAxis.HAxis axis, bool swapped)
             : base(patternName, swapped)
@@ -120,43 +111,15 @@ namespace treeDiM.StackBuilder.Basics
     #endregion
 
     #region Layer2D
-    public class Layer2D : List<LayerPosition>, ILayer2D
+    public class Layer2D : List<BoxPosition>, ILayer2D
     {
-
-        #region Data members
-        private double _maximumSpace = 0.0;
-
-        private Vector2D _dimContainer;
-        private Vector3D _dimBox;
-
-        private static readonly double _epsilon = 1.0e-03;
-
-        protected static ILog _log = LogManager.GetLogger(typeof(Layer2D));
-        #endregion
-
-        #region Static methods
-        public static HalfAxis.HAxis VerticalAxis(HalfAxis.HAxis axisOrtho)
-        {
-            switch (axisOrtho)
-            {
-                case HalfAxis.HAxis.AXIS_X_N: return HalfAxis.HAxis.AXIS_X_N;
-                case HalfAxis.HAxis.AXIS_X_P: return HalfAxis.HAxis.AXIS_Y_P;
-                case HalfAxis.HAxis.AXIS_Y_N: return HalfAxis.HAxis.AXIS_Y_N;
-                case HalfAxis.HAxis.AXIS_Y_P: return HalfAxis.HAxis.AXIS_X_P;
-                case HalfAxis.HAxis.AXIS_Z_N: return HalfAxis.HAxis.AXIS_Z_N;
-                case HalfAxis.HAxis.AXIS_Z_P: return HalfAxis.HAxis.AXIS_Z_P;
-                default: throw new Exception("Invalid ortho axis");
-            }        
-        }
-        #endregion
-
         #region Constructor
         public Layer2D(Vector3D dimBox, Vector2D dimContainer, string patternName, HalfAxis.HAxis axisOrtho, bool swapped)
         {
             PatternName = patternName;
             AxisOrtho = axisOrtho;
-            _dimBox = dimBox;
-            _dimContainer = dimContainer;
+            DimBox = dimBox;
+            DimContainer = dimContainer;
             Swapped = swapped;
         }
         #endregion
@@ -188,16 +151,16 @@ namespace treeDiM.StackBuilder.Basics
             mat.M44 = 1.0;
             Transform3D localTransf = new Transform3D(mat);
             Transform3D localTransfInv = localTransf.Inverse();
-            Transform3D originTranslation = Transform3D.Translation(localTransfInv.transform(VecTransf) - new Vector3D(0.5*ForcedSpace, 0.5*ForcedSpace, 0.0));
+            Transform3D originTranslation = Transform3D.Translation(localTransfInv.transform(VecTransf) - new Vector3D(0.5 * ForcedSpace, 0.5 * ForcedSpace, 0.0));
 
-            LayerPosition layerPos = new LayerPosition(
-                originTranslation.transform(new Vector3D(vPosition.X, vPosition.Y, 0.0) + 0.5*ForcedSpace*vAxisLength + 0.5*ForcedSpace*vAxisWidth) 
+            var layerPos = new BoxPosition(
+                originTranslation.transform(new Vector3D(vPosition.X, vPosition.Y, 0.0) + 0.5 * ForcedSpace * vAxisLength + 0.5 * ForcedSpace * vAxisWidth)
                 , HalfAxis.ToHalfAxis(localTransfInv.transform(HalfAxis.ToVector3D(LengthAxis)))
                 , HalfAxis.ToHalfAxis(localTransfInv.transform(HalfAxis.ToVector3D(WidthAxis)))
                 );
             layerPos.Position += new Vector3D(0.5 * ForcedSpace, 0.5 * ForcedSpace, 0.0);
             // add position
-            Add(layerPos.Adjusted(_dimBox));
+            Add(layerPos.Adjusted(DimBox));
         }
         public bool IsValidPosition(Vector2D vPosition, HalfAxis.HAxis lengthAxis, HalfAxis.HAxis widthAxis)
         {
@@ -211,7 +174,7 @@ namespace treeDiM.StackBuilder.Basics
 
             foreach (Vector3D pt in pts)
             {
-                if (pt.X < (0.0 - _epsilon) || pt.X > (_dimContainer.X + _epsilon) || pt.Y < (0.0 - _epsilon) || pt.Y > (_dimContainer.Y + _epsilon))
+                if (pt.X < (0.0 - _epsilon) || pt.X > (DimContainer.X + _epsilon) || pt.Y < (0.0 - _epsilon) || pt.Y > (DimContainer.Y + _epsilon))
                     return false;
             }
             return true;
@@ -219,35 +182,17 @@ namespace treeDiM.StackBuilder.Basics
         #endregion
 
         #region ILayer2D implementation
-        public string PatternName { get; set; } = string.Empty;
-
+        public string PatternName { get; private set; } = string.Empty;
         public bool Swapped { get; } = false;
-
-        public string Name
-        {
-            get { return string.Format("{0}_{1}_{2}", PatternName, HalfAxis.ToString(AxisOrtho), Swapped ? "t" : "f"); }
-        }
-        public int NoLayers(double height)
-        {
-            return (int)Math.Floor(height / LayerHeight); 
-        }
-        public int CountInHeight(double height)
-        {
-            return NoLayers(height) * Count;
-        }
+        public string SwappedString => Swapped ? "t" : "f";
+        public string Name => $"{PatternName}_{HalfAxis.ToString(AxisOrtho)}_{SwappedString}";
+        public int NoLayers(double height) => (int)Math.Floor(height / LayerHeight);
+        public int CountInHeight(double height) => NoLayers(height) * Count;
         public double LayerHeight => BoxHeight;
-        public double Length => _dimContainer.X;
-        public double Width  => _dimContainer.Y;
+        public double Length => DimContainer.X;
+        public double Width => DimContainer.Y;
         public string Tooltip(double height)
-        {
-            return string.Format("{0} * {1} = {2}\n {3} | {4} | {5}"
-                    , Count
-                    , NoLayers(height)
-                    , CountInHeight(height)
-                    , HalfAxis.ToString(AxisOrtho)
-                    , PatternName
-                    , Swapped ? "t" : "f");
-        }
+            => $"{Count} * {NoLayers(height)} = {CountInHeight(height)}\n {HalfAxis.ToString(AxisOrtho)} | {PatternName} | {SwappedString}";
         #endregion
 
         #region Maximum space
@@ -256,7 +201,7 @@ namespace treeDiM.StackBuilder.Basics
             get
             {
                 System.Diagnostics.Debug.Assert(!double.IsNaN(_maximumSpace) && !double.IsInfinity(_maximumSpace));
-                return _maximumSpace; 
+                return _maximumSpace;
             }
             set { _maximumSpace = value; }
         }
@@ -264,17 +209,17 @@ namespace treeDiM.StackBuilder.Basics
         {
             if (space < 0.0 - _epsilon)
             {
-                _log.Info( string.Format("{0} : Negative space value? ({1})", patternName, space) );
+                _log.Info(string.Format("{0} : Negative space value? ({1})", patternName, space));
                 return;
             }
             else if (double.IsNaN(space))
             {
-                _log.Info( string.Format("{0} : Invalid space value! (NaN (NotANumber))", patternName) );
+                _log.Info(string.Format("{0} : Invalid space value! (NaN (NotANumber))", patternName));
                 return;
             }
             else if (double.IsInfinity(space))
-            { 
-                _log.Info( string.Format("{0} : Invalid space value! (Infinity)", patternName) );
+            {
+                _log.Info(string.Format("{0} : Invalid space value! (Infinity)", patternName));
                 return;
             }
             else
@@ -299,7 +244,7 @@ namespace treeDiM.StackBuilder.Basics
                     case HalfAxis.HAxis.AXIS_Z_P: return HalfAxis.HAxis.AXIS_X_P;
                     default: throw new Exception("Invalid ortho axis");
                 }
-            }    
+            }
         }
         public HalfAxis.HAxis WidthAxis
         {
@@ -325,12 +270,12 @@ namespace treeDiM.StackBuilder.Basics
             {
                 switch (AxisOrtho)
                 {
-                    case HalfAxis.HAxis.AXIS_X_N: return _dimBox.Z + ForcedSpace;
-                    case HalfAxis.HAxis.AXIS_X_P: return _dimBox.Z + ForcedSpace;
-                    case HalfAxis.HAxis.AXIS_Y_N: return _dimBox.X + ForcedSpace;
-                    case HalfAxis.HAxis.AXIS_Y_P: return _dimBox.Y + ForcedSpace;
-                    case HalfAxis.HAxis.AXIS_Z_N: return _dimBox.Y + ForcedSpace;
-                    case HalfAxis.HAxis.AXIS_Z_P: return _dimBox.X + ForcedSpace;
+                    case HalfAxis.HAxis.AXIS_X_N: return DimBox.Z + ForcedSpace;
+                    case HalfAxis.HAxis.AXIS_X_P: return DimBox.Z + ForcedSpace;
+                    case HalfAxis.HAxis.AXIS_Y_N: return DimBox.X + ForcedSpace;
+                    case HalfAxis.HAxis.AXIS_Y_P: return DimBox.Y + ForcedSpace;
+                    case HalfAxis.HAxis.AXIS_Z_N: return DimBox.Y + ForcedSpace;
+                    case HalfAxis.HAxis.AXIS_Z_P: return DimBox.X + ForcedSpace;
                     default: throw new Exception("Invalid ortho axis");
                 }
             }
@@ -340,13 +285,13 @@ namespace treeDiM.StackBuilder.Basics
             get
             {
                 switch (AxisOrtho)
-                { 
-                    case HalfAxis.HAxis.AXIS_X_N: return _dimBox.Y + ForcedSpace;
-                    case HalfAxis.HAxis.AXIS_X_P: return _dimBox.X + ForcedSpace;
-                    case HalfAxis.HAxis.AXIS_Y_N: return _dimBox.Z + ForcedSpace;
-                    case HalfAxis.HAxis.AXIS_Y_P: return _dimBox.Z + ForcedSpace;
-                    case HalfAxis.HAxis.AXIS_Z_N: return _dimBox.X + ForcedSpace;
-                    case HalfAxis.HAxis.AXIS_Z_P: return _dimBox.Y + ForcedSpace;
+                {
+                    case HalfAxis.HAxis.AXIS_X_N: return DimBox.Y + ForcedSpace;
+                    case HalfAxis.HAxis.AXIS_X_P: return DimBox.X + ForcedSpace;
+                    case HalfAxis.HAxis.AXIS_Y_N: return DimBox.Z + ForcedSpace;
+                    case HalfAxis.HAxis.AXIS_Y_P: return DimBox.Z + ForcedSpace;
+                    case HalfAxis.HAxis.AXIS_Z_N: return DimBox.X + ForcedSpace;
+                    case HalfAxis.HAxis.AXIS_Z_P: return DimBox.Y + ForcedSpace;
                     default: throw new Exception("Invalid ortho axis");
                 }
             }
@@ -357,12 +302,12 @@ namespace treeDiM.StackBuilder.Basics
             {
                 switch (AxisOrtho)
                 {
-                    case HalfAxis.HAxis.AXIS_X_N: return _dimBox.X;
-                    case HalfAxis.HAxis.AXIS_X_P: return _dimBox.Y;
-                    case HalfAxis.HAxis.AXIS_Y_N: return _dimBox.Y;
-                    case HalfAxis.HAxis.AXIS_Y_P: return _dimBox.X;
-                    case HalfAxis.HAxis.AXIS_Z_N: return _dimBox.Z;
-                    case HalfAxis.HAxis.AXIS_Z_P: return _dimBox.Z;
+                    case HalfAxis.HAxis.AXIS_X_N: return DimBox.X;
+                    case HalfAxis.HAxis.AXIS_X_P: return DimBox.Y;
+                    case HalfAxis.HAxis.AXIS_Y_N: return DimBox.Y;
+                    case HalfAxis.HAxis.AXIS_Y_P: return DimBox.X;
+                    case HalfAxis.HAxis.AXIS_Z_N: return DimBox.Z;
+                    case HalfAxis.HAxis.AXIS_Z_P: return DimBox.Z;
                     default: throw new Exception("Invalid ortho axis");
                 }
             }
@@ -373,27 +318,54 @@ namespace treeDiM.StackBuilder.Basics
             {
                 switch (AxisOrtho)
                 {
-                    case HalfAxis.HAxis.AXIS_X_N: return new Vector3D(_dimBox.Z, 0.0, 0.0);
+                    case HalfAxis.HAxis.AXIS_X_N: return new Vector3D(DimBox.Z, 0.0, 0.0);
                     case HalfAxis.HAxis.AXIS_X_P: return new Vector3D(0.0, 0.0, 0.0); ;
-                    case HalfAxis.HAxis.AXIS_Y_N: return new Vector3D(0.0, _dimBox.Z, 0.0);
+                    case HalfAxis.HAxis.AXIS_Y_N: return new Vector3D(0.0, DimBox.Z, 0.0);
                     case HalfAxis.HAxis.AXIS_Y_P: return Vector3D.Zero;
-                    case HalfAxis.HAxis.AXIS_Z_N: return new Vector3D(0.0, 0.0, _dimBox.Z);
+                    case HalfAxis.HAxis.AXIS_Z_N: return new Vector3D(0.0, 0.0, DimBox.Z);
                     case HalfAxis.HAxis.AXIS_Z_P: return Vector3D.Zero;
                     default: throw new Exception("Invalid ortho axis");
                 }
             }
         }
-        public int BoxCount
+        public int BoxCount => Count;
+        public LayerDesc LayerDescriptor => new LayerDescBox(PatternName, AxisOrtho, Swapped);
+        #endregion
+
+        #region Generate Layer2DEdited
+        public Layer2DEditable GenerateLayer2DEdited()
         {
-            get { return Count; }
+            var layer = new Layer2DEditable(DimBox, DimContainer, $"{Name}_edit", AxisOrtho);
+            foreach (var lp in this)
+                layer.Add(new BoxPosition(lp));
+            return layer;
         }
-        public LayerDesc LayerDescriptor
+        #endregion
+
+        #region Static methods
+        public static HalfAxis.HAxis VerticalAxis(HalfAxis.HAxis axisOrtho)
         {
-            get
+            switch (axisOrtho)
             {
-                return new LayerDescBox(PatternName, AxisOrtho, Swapped);
-            }
+                case HalfAxis.HAxis.AXIS_X_N: return HalfAxis.HAxis.AXIS_X_N;
+                case HalfAxis.HAxis.AXIS_X_P: return HalfAxis.HAxis.AXIS_Y_P;
+                case HalfAxis.HAxis.AXIS_Y_N: return HalfAxis.HAxis.AXIS_Y_N;
+                case HalfAxis.HAxis.AXIS_Y_P: return HalfAxis.HAxis.AXIS_X_P;
+                case HalfAxis.HAxis.AXIS_Z_N: return HalfAxis.HAxis.AXIS_Z_N;
+                case HalfAxis.HAxis.AXIS_Z_P: return HalfAxis.HAxis.AXIS_Z_P;
+                default: throw new Exception("Invalid ortho axis");
+            }        
         }
+        #endregion
+
+        #region Data members
+        private double _maximumSpace = 0.0;
+        public Vector2D DimContainer { get; private set; }
+        public Vector3D DimBox { get; private set; }
+
+        private static readonly double _epsilon = 1.0e-03;
+
+        protected static ILog _log = LogManager.GetLogger(typeof(Layer2D));
         #endregion
     }
     #endregion

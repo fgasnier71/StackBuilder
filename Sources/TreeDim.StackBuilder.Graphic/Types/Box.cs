@@ -172,48 +172,6 @@ namespace treeDiM.StackBuilder.Graphics
             if (packable is PackableBrickNamed packableBrickNamed)
                 StrapperList = new List<Strapper>(packableBrickNamed.StrapperSet.Strappers);
         }
-
-        public Box(uint pickId, PackableBrick packable, LayerPosition bPosition)
-        {
-            // sanity checks
-            CheckPosition(bPosition);
-            // dimensions
-            PickId = pickId;
-            _dim[0] = packable.Length;
-            _dim[1] = packable.Width;
-            _dim[2] = packable.Height;
-            // set position
-            BoxPosition = new BoxPosition( bPosition.Position, bPosition.LengthAxis, bPosition.WidthAxis);
-            // colors
-            Colors = Enumerable.Repeat(Color.Chocolate, 6).ToArray();
-
-            BProperties bProperties = PackableToBProperties(packable);
-            if (null != bProperties)
-            {
-                Colors = bProperties.Colors;
-
-                if (bProperties is BoxProperties boxProperties)
-                {
-                    List<Pair<HalfAxis.HAxis, Texture>> textures = boxProperties.TextureList;
-                    foreach (Pair<HalfAxis.HAxis, Texture> tex in textures)
-                    {
-                        int iIndex = (int)tex.first;
-                        if (null == TextureLists[iIndex])
-                            TextureLists[iIndex] = new List<Texture>();
-                        TextureLists[iIndex].Add(tex.second);
-                    }
-                    TapeWidth = boxProperties.TapeWidth;
-                    TapeColor = boxProperties.TapeColor;
-                }
-                // IsBundle ?
-                IsBundle = bProperties.IsBundle;
-                if (packable is BundleProperties bundleProp)
-                    BundleFlats = bundleProp.NoFlats;
-            }
-            if (packable is PackableBrickNamed packableBrickNamed)
-                StrapperList = new List<Strapper>(packableBrickNamed.StrapperSet.Strappers);
-        }
-
         public Box(uint pickId, PackProperties packProperties, BoxPosition bPosition)
         {
             // sanity checks
@@ -875,11 +833,6 @@ namespace treeDiM.StackBuilder.Graphics
         }
         private void CheckPosition(BoxPosition bPosition)
         {
-            if (!bPosition.IsValid)
-                throw new GraphicsException("Invalid BoxPosition: can not create box");
-        }
-        private void CheckPosition(LayerPosition bPosition)
-        { 
             if (!bPosition.IsValid)
                 throw new GraphicsException("Invalid BoxPosition: can not create box");
         }

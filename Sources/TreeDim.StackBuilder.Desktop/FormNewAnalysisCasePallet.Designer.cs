@@ -46,10 +46,17 @@
             this.tabPageSpaces = new System.Windows.Forms.TabPage();
             this.uCtrlOptSpace = new treeDiM.Basics.UCtrlOptDouble();
             this.lbSelect = new System.Windows.Forms.Label();
+            this.uCtrlLayerListEdited = new treeDiM.StackBuilder.Graphics.UCtrlLayerList();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.bnEditLayer = new System.Windows.Forms.Button();
             this.tabCtrlConstraints.SuspendLayout();
             this.tabPageStopCriterions.SuspendLayout();
             this.tabPageOverhang.SuspendLayout();
             this.tabPageSpaces.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tbDescription
@@ -95,7 +102,9 @@
             // uCtrlLayerList
             // 
             resources.ApplyResources(this.uCtrlLayerList, "uCtrlLayerList");
+            this.uCtrlLayerList.ButtonSizes = new System.Drawing.Size(150, 150);
             this.uCtrlLayerList.Name = "uCtrlLayerList";
+            this.uCtrlLayerList.Show3D = true;
             this.uCtrlLayerList.SingleSelection = false;
             // 
             // checkBoxBestLayersOnly
@@ -169,7 +178,6 @@
             -2147483648});
             this.uCtrlMaximumHeight.Name = "uCtrlMaximumHeight";
             this.uCtrlMaximumHeight.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
-            this.uCtrlMaximumHeight.Value = 0D;
             this.uCtrlMaximumHeight.ValueChanged += new treeDiM.Basics.UCtrlDouble.ValueChangedDelegate(this.OnInputChanged);
             // 
             // tabPageOverhang
@@ -203,15 +211,44 @@
             resources.ApplyResources(this.lbSelect, "lbSelect");
             this.lbSelect.Name = "lbSelect";
             // 
+            // uCtrlLayerListEdited
+            // 
+            resources.ApplyResources(this.uCtrlLayerListEdited, "uCtrlLayerListEdited");
+            this.uCtrlLayerListEdited.ButtonSizes = new System.Drawing.Size(150, 150);
+            this.uCtrlLayerListEdited.Name = "uCtrlLayerListEdited";
+            this.uCtrlLayerListEdited.Show3D = true;
+            this.uCtrlLayerListEdited.SingleSelection = false;
+            // 
+            // splitContainer1
+            // 
+            resources.ApplyResources(this.splitContainer1, "splitContainer1");
+            this.splitContainer1.Name = "splitContainer1";
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.Controls.Add(this.uCtrlLayerList);
+            this.splitContainer1.Panel1.Controls.Add(this.checkBoxBestLayersOnly);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.bnEditLayer);
+            this.splitContainer1.Panel2.Controls.Add(this.uCtrlLayerListEdited);
+            // 
+            // bnEditLayer
+            // 
+            resources.ApplyResources(this.bnEditLayer, "bnEditLayer");
+            this.bnEditLayer.Name = "bnEditLayer";
+            this.bnEditLayer.UseVisualStyleBackColor = true;
+            this.bnEditLayer.Click += new System.EventHandler(this.OnEditLayer);
+            // 
             // FormNewAnalysisCasePallet
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.lbSelect);
             this.Controls.Add(this.tabCtrlConstraints);
             this.Controls.Add(this.bnBestCombination);
-            this.Controls.Add(this.checkBoxBestLayersOnly);
-            this.Controls.Add(this.uCtrlLayerList);
             this.Controls.Add(this.uCtrlCaseOrientation);
             this.Controls.Add(this.cbPallets);
             this.Controls.Add(this.cbCases);
@@ -228,15 +265,19 @@
             this.Controls.SetChildIndex(this.cbCases, 0);
             this.Controls.SetChildIndex(this.cbPallets, 0);
             this.Controls.SetChildIndex(this.uCtrlCaseOrientation, 0);
-            this.Controls.SetChildIndex(this.uCtrlLayerList, 0);
-            this.Controls.SetChildIndex(this.checkBoxBestLayersOnly, 0);
             this.Controls.SetChildIndex(this.bnBestCombination, 0);
             this.Controls.SetChildIndex(this.tabCtrlConstraints, 0);
             this.Controls.SetChildIndex(this.lbSelect, 0);
+            this.Controls.SetChildIndex(this.splitContainer1, 0);
             this.tabCtrlConstraints.ResumeLayout(false);
             this.tabPageStopCriterions.ResumeLayout(false);
             this.tabPageOverhang.ResumeLayout(false);
             this.tabPageSpaces.ResumeLayout(false);
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel1.PerformLayout();
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -262,5 +303,8 @@
         private System.Windows.Forms.TabPage tabPageStopCriterions;
         private System.Windows.Forms.TabPage tabPageSpaces;
         private System.Windows.Forms.Label lbSelect;
+        private Graphics.UCtrlLayerList uCtrlLayerListEdited;
+        private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.Button bnEditLayer;
     }
 }

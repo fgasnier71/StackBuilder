@@ -43,7 +43,6 @@ namespace treeDiM.StackBuilder.Engine
                             };
                             if (layer.NoLayers(constraintSet.OptMaxHeight.Value) < 1)
                                 continue;
-                            layer.PatternName = pattern.Name;
                             if (!pattern.GetLayerDimensionsChecked(layer, out double actualLength, out double actualWidth))
                                 continue;
                             pattern.GenerateLayer(layer, actualLength, actualWidth);
@@ -120,7 +119,6 @@ namespace treeDiM.StackBuilder.Engine
                                 };
                                 if (layer.NoLayers(constraintSet.OptMaxHeight.Value) < 1)
                                     continue;
-                                layer.PatternName = pattern.Name;
                                 if (!pattern.GetLayerDimensionsChecked(layer, out double actualLength, out double actualWidth))
                                     continue;
                                 pattern.GenerateLayer(layer, actualLength, actualWidth);
@@ -389,7 +387,6 @@ namespace treeDiM.StackBuilder.Engine
                             };
                             if (layer.NoLayers(constraintSet.OptMaxHeight.Value) < 1)
                                 continue;
-                            layer.PatternName = pattern.Name;
                             if (!pattern.GetLayerDimensionsChecked(layer, out double actualLength, out double actualWidth))
                                 continue;
                             pattern.GenerateLayer(layer, actualLength, actualWidth);

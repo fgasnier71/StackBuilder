@@ -21,6 +21,12 @@ namespace treeDiM.StackBuilder.Basics
             DirectionLength = dirLength;
             DirectionWidth = dirWidth;
         }
+        public BoxPosition(BoxPosition bpos)
+        {
+            Position = bpos.Position;
+            DirectionLength = bpos.DirectionLength;
+            DirectionWidth = bpos.DirectionWidth;
+        }
         #endregion
 
         #region Public properties
@@ -201,9 +207,38 @@ namespace treeDiM.StackBuilder.Basics
 
             return points;
         }
+        public void MinMax2D(double boxLength, double boxWidth, out Vector2D vMin, out Vector2D vMax)
+        {
+            Vector3D[] pts = new Vector3D[4];
+            pts[0] = new Vector3D(Position.X, Position.Y, 0.0);
+            pts[1] = new Vector3D(Position.X, Position.Y, 0.0) + HalfAxis.ToVector3D(DirectionLength) * boxLength;
+            pts[2] = new Vector3D(Position.X, Position.Y, 0.0) + HalfAxis.ToVector3D(DirectionWidth) * boxWidth;
+            pts[3] = new Vector3D(Position.X, Position.Y, 0.0) + HalfAxis.ToVector3D(DirectionLength) * boxLength + HalfAxis.ToVector3D(DirectionWidth) * boxWidth;
+
+            vMin = new Vector2D(double.MaxValue, double.MaxValue);
+            vMax = new Vector2D(double.MinValue, double.MinValue);
+            foreach (Vector3D v in pts)
+            {
+                vMin.X = Math.Min(v.X, vMin.X);
+                vMin.Y = Math.Min(v.Y, vMin.Y);
+                vMax.X = Math.Max(v.X, vMax.X);
+                vMax.Y = Math.Max(v.Y, vMax.Y);
+            }
+        }
         #endregion
 
         #region Static members
+
+        public static bool Intersect(BoxPosition p1, BoxPosition p2, double boxLength, double boxWidth)
+        {
+            Vector2D v1Min, v1Max, v2Min, v2Max;
+            p1.MinMax2D(boxLength, boxWidth, out v1Min, out v1Max);
+            p2.MinMax2D(boxLength, boxWidth, out v2Min, out v2Max);
+            if (v1Max.X <= v2Min.X || v2Max.X <= v1Min.X || v1Max.Y <= v2Min.Y || v2Max.Y <= v1Min.Y)
+                return false;
+            return true;
+        }
+
         /// <summary>
         /// This method will be used to build 
         /// </summary>
@@ -261,6 +296,19 @@ namespace treeDiM.StackBuilder.Basics
         #region Object method overrides
         public override string ToString() => $"{Position} | ({HalfAxis.ToString(DirectionLength)},{HalfAxis.ToString(DirectionWidth)})";
         public object Clone() => new BoxPosition(Position, DirectionLength, DirectionWidth);
+        public override bool Equals(object obj)
+        {
+            BoxPosition bPos = (BoxPosition)obj;
+            return Position.Equals(bPos.Position)
+                && bPos.DirectionLength.Equals(DirectionLength)
+                && bPos.DirectionWidth.Equals(DirectionWidth); 
+        }
+        public override int GetHashCode()
+        {
+            return Position.GetHashCode() ^ DirectionLength.GetHashCode() ^ DirectionWidth.GetHashCode();
+        }
+        public static bool operator ==(BoxPosition left, BoxPosition right) { return left.Equals(right); }
+        public static bool operator !=(BoxPosition left, BoxPosition right) { return !(left == right); }
         #endregion
     }
 

@@ -135,14 +135,13 @@ namespace treeDiM.StackBuilder.Desktop
         public bool Accept(Control ctrl, ItemBase itemBase)
         {
             if (ctrl == cbCases)
-            { 
-                Packable packable = itemBase as Packable;
-                return null != packable
+            {
+                return itemBase is Packable packable
                     && (
                     (packable is BProperties) ||
                     (packable is PackProperties) ||
                     (packable is LoadedCase)
-                    ); 
+                    );
             }
             else if (ctrl == cbPallets)
             {
@@ -162,14 +161,8 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Private properties
-        private Packable SelectedPackable
-        {
-            get { return cbCases.SelectedType as Packable; }
-        }
-        private PalletProperties SelectedPallet
-        {
-            get { return cbPallets.SelectedType as PalletProperties; }
-        }
+        private Packable SelectedPackable => cbCases.SelectedType as Packable;
+        private PalletProperties SelectedPallet => cbPallets.SelectedType as PalletProperties;
         #endregion
 
         #region Event handlers
@@ -232,7 +225,7 @@ namespace treeDiM.StackBuilder.Desktop
                 PalletProperties palletProperties = cbPallets.SelectedType as PalletProperties;
                 if (!(cbCases.SelectedType is Packable packable) || null == palletProperties)
                     return;
-                ConstraintSetAbstract constraintSet = BuildConstraintSet();
+                ConstraintSetCasePallet constraintSet = BuildConstraintSet();
                 // get best combination
                 List<KeyValuePair<LayerDesc, int>> listLayer = new List<KeyValuePair<LayerDesc,int>>();
                 LayerSolver.GetBestCombination(
@@ -251,7 +244,7 @@ namespace treeDiM.StackBuilder.Desktop
                     , SelectedPackable, SelectedPallet
                     , new List<InterlayerProperties>()
                     , null, null, null
-                    , BuildConstraintSet()
+                    , constraintSet
                     , listLayer
                     );
                 Close();
@@ -261,6 +254,31 @@ namespace treeDiM.StackBuilder.Desktop
                 _log.Error(ex.ToString());
             }            
         }
+        private void OnEditLayer(object sender, EventArgs e)
+        {
+            try
+            {
+                // get content
+                if (!(cbCases.SelectedType is Packable packable))
+                    return;
+                // get container
+                var constraintSet = BuildConstraintSet();
+                Vector2D layerDim = new Vector2D(SelectedPallet.Length, SelectedPallet.Width) + 2 * constraintSet.Overhang;
+                // get selected layer
+                ILayer2D[] layers = uCtrlLayerList.Selected;
+                if (layers.Length != 1) return;
+                Layer2D layer = layers[0] as Layer2D;
+                using (var form = new FormEditLayer(layer.GenerateLayer2DEdited(), packable))
+                {
+                    form.TopMost = true;
+                    if (DialogResult.OK == form.ShowDialog()) {}
+                }
+            }
+            catch (Exception ex)
+            {
+                _log.Error(ex.ToString());
+            }
+        }
         #endregion
 
         #region Helpers
@@ -269,7 +287,6 @@ namespace treeDiM.StackBuilder.Desktop
             // constraint set
             ConstraintSetCasePallet constraintSet = new ConstraintSetCasePallet()
             {
-                // overhang
                 Overhang = new Vector2D(uCtrlOverhang.ValueX, uCtrlOverhang.ValueY)
             };
             // orientations

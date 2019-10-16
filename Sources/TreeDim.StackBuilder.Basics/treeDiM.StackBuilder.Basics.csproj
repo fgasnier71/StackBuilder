@@ -200,7 +200,7 @@
     <Compile Include="Solutions\HSolution.cs" />
     <Compile Include="Solutions\Layer2D.cs" />
     <Compile Include="Solutions\Layer2DCyl.cs" />
-    <Compile Include="Solutions\LayerPosition.cs" />
+    <Compile Include="Solutions\Layer2DEdited.cs" />
     <Compile Include="Solutions\ParamSetPackOptim.cs" />
     <Compile Include="Solutions\PalletSolution.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

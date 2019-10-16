@@ -34,7 +34,6 @@ namespace treeDiM.StackBuilder.Graphics
             if (ViewportRatio > AspectRatio)
             {   // pallet length
                 float marginX = MarginRatio * (xmax - xmin) / NumberOfViews;
-                float marginY = MarginRatio * (ymax - ymin);
                 Viewport[0] = -marginX;
                 Viewport[1] = -marginX / AspectRatio;
                 Viewport[2] = (xmax - xmin) / NumberOfViews + marginX;
@@ -54,6 +53,7 @@ namespace treeDiM.StackBuilder.Graphics
             Viewport[2] = xmax;
             Viewport[3] = ymax;
         }
+        public void SetViewport(Vector2D ptMin, Vector2D ptMax) => SetViewport((float)ptMin.X, (float)ptMin.Y, (float)ptMax.X, (float)ptMax.Y);
         public void SetCurrentView(uint iIndexView)
         {
             IIndexView = iIndexView;

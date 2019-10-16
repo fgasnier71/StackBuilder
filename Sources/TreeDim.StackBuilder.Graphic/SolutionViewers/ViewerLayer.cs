@@ -46,7 +46,7 @@ namespace treeDiM.StackBuilder.Graphics
             {
                 Layer2D layer2D = _layer as Layer2D;
                 uint pickId = 0;
-                foreach (LayerPosition bPosition in layer2D)
+                foreach (var bPosition in layer2D)
                 {
                     Box b = null;
                     if (packable is PackProperties)
@@ -91,7 +91,7 @@ namespace treeDiM.StackBuilder.Graphics
             {
                 Layer2D layer2D = _layer as Layer2D;
                 uint pickId = 0;
-                foreach (LayerPosition bPosition in layer2D)
+                foreach (var bPosition in layer2D)
                 {
                     if (packable is PackProperties)
                         graphics.AddBox( new Pack(pickId++, packable as PackProperties, bPosition) );

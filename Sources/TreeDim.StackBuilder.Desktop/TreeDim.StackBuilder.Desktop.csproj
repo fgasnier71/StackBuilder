@@ -39,8 +39,8 @@
     <MinimumRequiredVersion>3.0.0.0</MinimumRequiredVersion>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>2</ApplicationRevision>
-    <ApplicationVersion>3.0.1.2</ApplicationVersion>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>3.0.1.1</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -346,6 +346,12 @@
     </Compile>
     <Compile Include="FormEditBitmaps.Designer.cs">
       <DependentUpon>FormEditBitmaps.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormEditLayer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEditLayer.Designer.cs">
+      <DependentUpon>FormEditLayer.cs</DependentUpon>
     </Compile>
     <Compile Include="FormExcelLibrary.cs">
       <SubType>Form</SubType>
@@ -1200,6 +1206,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormEditBitmaps.zh.resx">
       <DependentUpon>FormEditBitmaps.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEditLayer.resx">
+      <DependentUpon>FormEditLayer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormExcelLibrary.de.resx">
       <DependentUpon>FormExcelLibrary.cs</DependentUpon>
