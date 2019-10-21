@@ -24,8 +24,8 @@ namespace treeDiM.StackBuilder.Desktop
         #region Mode enum
         public enum Mode
         { 
-            MODE_BOX
-            , MODE_CASE
+            BOX
+            , CASE
         }
         #endregion
 
@@ -59,7 +59,7 @@ namespace treeDiM.StackBuilder.Desktop
 
                 switch (_mode)
                 {
-                    case Mode.MODE_CASE:
+                    case Mode.CASE:
                         tbName.Text = _document.GetValidNewTypeName(Resources.ID_CASE);
                         uCtrlDimensionsOuter.ValueX = UnitsManager.ConvertLengthFrom(400.0, UnitsManager.UnitSystem.UNIT_METRIC1);
                         uCtrlDimensionsOuter.ValueY = UnitsManager.ConvertLengthFrom(300.0, UnitsManager.UnitSystem.UNIT_METRIC1);
@@ -72,7 +72,7 @@ namespace treeDiM.StackBuilder.Desktop
                         uCtrlTapeWidth.Value = new OptDouble(true, UnitsManager.ConvertLengthFrom(50, UnitsManager.UnitSystem.UNIT_METRIC1));
                         cbTapeColor.Color = Color.Beige;
                         break;
-                    case Mode.MODE_BOX:
+                    case Mode.BOX:
                         tbName.Text = _document.GetValidNewTypeName(Resources.ID_BOX);
                         uCtrlDimensionsOuter.ValueX = UnitsManager.ConvertLengthFrom(120.0, UnitsManager.UnitSystem.UNIT_METRIC1);
                         uCtrlDimensionsOuter.ValueY = UnitsManager.ConvertLengthFrom(60.0, UnitsManager.UnitSystem.UNIT_METRIC1);
@@ -93,7 +93,7 @@ namespace treeDiM.StackBuilder.Desktop
                 OnAllFacesColorCheckedChanged(this, null);
                 // set colors
                 for (int i = 0; i < 6; ++i)
-                    _faceColors[i] = _mode == Mode.MODE_BOX ? Color.Turquoise : Color.Chocolate;
+                    _faceColors[i] = _mode == Mode.BOX ? Color.Turquoise : Color.Chocolate;
                 // set textures
                 _textures = new List<Pair<HalfAxis.HAxis, Texture>>();
                 // set default face
@@ -124,7 +124,7 @@ namespace treeDiM.StackBuilder.Desktop
                 // set unit labels
                 UnitsManager.AdaptUnitLabels(this);
                 // save document reference
-                _mode = boxProperties.HasInsideDimensions ? Mode.MODE_CASE : Mode.MODE_BOX;
+                _mode = boxProperties.HasInsideDimensions ? Mode.CASE : Mode.BOX;
                 // set colors
                 for (int i = 0; i < 6; ++i)
                     _faceColors[i] = boxProperties.Colors[i];
@@ -291,14 +291,14 @@ namespace treeDiM.StackBuilder.Desktop
             graphCtrl.DrawingContainer = this;
 
             // show hide inside dimensions controls
-            uCtrlDimensionsInner.Visible = _mode == Mode.MODE_CASE;
-            uCtrlMaxWeight.Visible = _mode == Mode.MODE_CASE;
+            uCtrlDimensionsInner.Visible = _mode == Mode.CASE;
+            uCtrlMaxWeight.Visible = _mode == Mode.CASE;
 
-            lbTapeColor.Visible = _mode == Mode.MODE_CASE;
-            cbTapeColor.Visible = _mode == Mode.MODE_CASE;
-            uCtrlTapeWidth.Visible = _mode == Mode.MODE_CASE;
+            lbTapeColor.Visible = _mode == Mode.CASE;
+            cbTapeColor.Visible = _mode == Mode.CASE;
+            uCtrlTapeWidth.Visible = _mode == Mode.CASE;
             // caption
-            this.Text = Mode.MODE_CASE == _mode ? Resources.ID_ADDNEWCASE : Resources.ID_ADDNEWBOX;
+            this.Text = Mode.CASE == _mode ? Resources.ID_ADDNEWCASE : Resources.ID_ADDNEWBOX;
             // update thicknesses
             UpdateThicknesses();
             // update tape definition controls
@@ -393,13 +393,13 @@ namespace treeDiM.StackBuilder.Desktop
         public override void UpdateStatus(string message)
         {
             // case length consistency
-            if (_mode == Mode.MODE_CASE && InsideLength > BoxLength)
+            if (_mode == Mode.CASE && InsideLength > BoxLength)
                 message = string.Format(Resources.ID_INVALIDINSIDELENGTH, InsideLength, BoxLength);
             // case width consistency
-            else if (_mode == Mode.MODE_CASE && InsideWidth > BoxWidth)
+            else if (_mode == Mode.CASE && InsideWidth > BoxWidth)
                 message = string.Format(Resources.ID_INVALIDINSIDEWIDTH, InsideWidth, BoxWidth);
             // case height consistency
-            else if (_mode == Mode.MODE_CASE && InsideHeight > BoxHeight)
+            else if (_mode == Mode.CASE && InsideHeight > BoxHeight)
                 message = string.Format(Resources.ID_INVALIDINSIDEHEIGHT, InsideHeight, BoxHeight);
             // box/case net weight consistency
             else if (NetWeight.Activated && NetWeight > Weight)
@@ -515,7 +515,7 @@ namespace treeDiM.StackBuilder.Desktop
                             Name = form.ItemName,
                             Description = Description,
                             UnitSystem = (int)UnitsManager.CurrentUnitSystem,
-                            IsCase = (_mode == Mode.MODE_CASE),
+                            IsCase = (_mode == Mode.CASE),
                             DimensionsOuter = new DCSBDim3D() { M0 = uCtrlDimensionsOuter.ValueX, M1 = uCtrlDimensionsOuter.ValueY, M2 = uCtrlDimensionsOuter.ValueZ },
                             HasInnerDims = HasInsideDimensions,
                             DimensionsInner = new DCSBDim3D() { M0 = uCtrlDimensionsInner.X, M1 = uCtrlDimensionsInner.Y, M2 = uCtrlDimensionsInner.Z },

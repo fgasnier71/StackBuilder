@@ -108,6 +108,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EdgeCrushTest", "EdgeCrushT
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "treeDiM.StackBuilder.Graphics.TestLayerEditor", "Test\treeDiM.StackBuilder.Graphics.TestLayerEditor\treeDiM.StackBuilder.Graphics.TestLayerEditor.csproj", "{5510ED08-EF88-498B-99F5-7D77EDBFC6A5}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{B6AB0804-5D66-40F6-A467-609E45269AAB}"
+	ProjectSection(SolutionItems) = preProject
+		Documentation\FindBestCase.htm = Documentation\FindBestCase.htm
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -750,9 +755,9 @@ Global
 		{5510ED08-EF88-498B-99F5-7D77EDBFC6A5} = {36E4D3C5-28FD-46B9-8763-C3316F67C6BE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		RESX_ConfirmAddLanguageFile = False
-		SolutionGuid = {A8385DDB-1893-4CF8-83DF-F57C7AB7069B}
-		RESX_AutoCreateNewLanguageFiles = True
 		RESX_PrefixTranslations = False
+		RESX_AutoCreateNewLanguageFiles = True
+		SolutionGuid = {A8385DDB-1893-4CF8-83DF-F57C7AB7069B}
+		RESX_ConfirmAddLanguageFile = False
 	EndGlobalSection
 EndGlobal

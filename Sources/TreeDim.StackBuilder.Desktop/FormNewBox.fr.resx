@@ -138,11 +138,11 @@
   <data name="cbFace.Items5" xml:space="preserve">
     <value>Dessus</value>
   </data>
-  <data name="cbColor.Items7" xml:space="preserve">
+  <data name="cbColor.Items8" xml:space="preserve">
     <value>Couleur</value>
   </data>
-  <data name="gbFaceColor.Text" xml:space="preserve">
-    <value>Couleurs face</value>
+  <data name="cbColor.Items128" xml:space="preserve">
+    <value>Color</value>
   </data>
   <data name="btBitmaps.Text" xml:space="preserve">
     <value>Images...</value>
@@ -154,8 +154,8 @@
   <data name="chkAllFaces.Text" xml:space="preserve">
     <value>Toutes les faces sont de la même couleur</value>
   </data>
-  <data name="gbWeight.Text" xml:space="preserve">
-    <value>Poids</value>
+  <data name="gbFaceColor.Text" xml:space="preserve">
+    <value>Couleurs face</value>
   </data>
   <data name="uCtrlMaxWeight.Text" xml:space="preserve">
     <value>Masse maximale</value>
@@ -166,8 +166,14 @@
   <data name="uCtrlNetWeight.Text" xml:space="preserve">
     <value>Poids net</value>
   </data>
+  <data name="gbWeight.Text" xml:space="preserve">
+    <value>Poids</value>
+  </data>
   <data name="uCtrlTapeWidth.Text" xml:space="preserve">
     <value>Largeur ruban</value>
+  </data>
+  <data name="cbTapeColor.Items129" xml:space="preserve">
+    <value>Color</value>
   </data>
   <data name="cbTapeColor.Location" type="System.Drawing.Point, System.Drawing">
     <value>285, 5</value>

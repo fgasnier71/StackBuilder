@@ -89,8 +89,11 @@ namespace treeDiM.StackBuilder.ExcelAddIn
                     };
 
                     // build a constraint set
+                    bool[] allowedOrientations = { true, true, true };
+                    try { allowedOrientations = uCtrlCaseOrientation.AllowedOrientations; } catch (Exception ex) { Console.WriteLine(ex.Message); }
+
                     ConstraintSetCasePallet constraintSet = new ConstraintSetCasePallet();
-                    constraintSet.SetAllowedOrientations(new bool[] { false, false, true });
+                    constraintSet.SetAllowedOrientations(allowedOrientations);
                     constraintSet.SetMaxHeight(new OptDouble(true, palletMaximumHeight));
                     constraintSet.OptMaxWeight = new OptDouble(true, palletMaximumWeight);
 

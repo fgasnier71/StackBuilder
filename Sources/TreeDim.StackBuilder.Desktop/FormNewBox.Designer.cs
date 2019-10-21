@@ -279,7 +279,8 @@
             resources.GetString("cbColor.Items124"),
             resources.GetString("cbColor.Items125"),
             resources.GetString("cbColor.Items126"),
-            resources.GetString("cbColor.Items127")});
+            resources.GetString("cbColor.Items127"),
+            resources.GetString("cbColor.Items128")});
             this.cbColor.Name = "cbColor";
             this.cbColor.SelectedColorChanged += new System.EventHandler(this.OnFaceColorChanged);
             // 
@@ -509,7 +510,8 @@
             resources.GetString("cbTapeColor.Items125"),
             resources.GetString("cbTapeColor.Items126"),
             resources.GetString("cbTapeColor.Items127"),
-            resources.GetString("cbTapeColor.Items128")});
+            resources.GetString("cbTapeColor.Items128"),
+            resources.GetString("cbTapeColor.Items129")});
             this.cbTapeColor.Name = "cbTapeColor";
             this.cbTapeColor.SelectedColorChanged += new System.EventHandler(this.OnFaceColorChanged);
             // 

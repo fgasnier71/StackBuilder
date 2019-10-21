@@ -162,7 +162,7 @@ namespace treeDiM.StackBuilder.Desktop
         /// </summary>
         public void CreateNewBoxUI()
         {
-            using (FormNewBox form = new FormNewBox(this, FormNewBox.Mode.MODE_BOX))
+            using (FormNewBox form = new FormNewBox(this, FormNewBox.Mode.BOX))
             {
                 if (DialogResult.OK == form.ShowDialog())
                 {
@@ -178,7 +178,7 @@ namespace treeDiM.StackBuilder.Desktop
         /// </summary>
         public void CreateNewCaseUI()
         {
-            using (FormNewBox form = new FormNewBox(this, FormNewBox.Mode.MODE_CASE))
+            using (FormNewBox form = new FormNewBox(this, FormNewBox.Mode.CASE))
             {
                 if (DialogResult.OK == form.ShowDialog())
                 {
