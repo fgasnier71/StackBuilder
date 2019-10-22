@@ -9,7 +9,6 @@ namespace treeDiM.StackBuilder.Desktop
 {
     public class ResultsAnalysisCasePallet
     {
-
         #region Private data members
         private double[] _dimensionsOuter = new double[3], _dimensionsLoad = new double[3];
         private List<KeyValuePair<int, int>> _layers = new List<KeyValuePair<int, int>>();

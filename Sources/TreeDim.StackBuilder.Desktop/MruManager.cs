@@ -11,7 +11,6 @@ using System.Globalization;
 using System.Security;
 #endregion
 
-
 // Written by:
 // Alex Farber
 // alexf2062@yahoo.com
@@ -37,31 +36,22 @@ namespace Utilities
     {
         #region Members
         private Form ownerForm;                 // owner form
-
         private ToolStripMenuItem menuItemMRU;           // Recent Files menu item
         private ToolStripMenuItem menuItemParent;        // Recent Files menu item parent
-
         private string registryPath;            // Registry path to keep MRU list
-
         private int maxNumberOfFiles = 10;      // maximum number of files in MRU list
-
         private int maxDisplayLength = 40;      // maximum length of file name for display
-
-        private ArrayList mruList;              // MRU list (file names)
-
+        private readonly ArrayList mruList;              // MRU list (file names)
         private const string regEntryName = "file";  // entry name to keep MRU (file0, file1...)
-
         #endregion
 
         #region Windows API
-
         [DllImport("shlwapi.dll", CharSet = CharSet.Auto)]
         private static extern bool PathCompactPathEx(
             StringBuilder pszOut,
             string pszPath,
             int cchMax,
             int reserved);
-
         #endregion
 
         #region Constructor
@@ -207,9 +197,7 @@ namespace Utilities
         public void Remove(string file)
         {
             int i = 0;
-
             IEnumerator myEnumerator = mruList.GetEnumerator();
-
             while (myEnumerator.MoveNext())
             {
                 if ((string)myEnumerator.Current == file)
@@ -217,7 +205,6 @@ namespace Utilities
                     mruList.RemoveAt(i);
                     return;
                 }
-
                 i++;
             }
         }
@@ -260,10 +247,8 @@ namespace Utilities
                 {
                     ToolTipText = fileName
                 };
-
                 // subscribe to item's Click event
                 item.Click += new EventHandler(this.OnMRUClicked);
-
                 menuItemMRU.DropDownItems.Add(item);
             }
         }
@@ -439,7 +424,7 @@ namespace Utilities
 
     public delegate void MruFileOpenEventHandler(object sender, MruFileOpenEventArgs e);
 
-    public class MruFileOpenEventArgs : System.EventArgs
+    public class MruFileOpenEventArgs : EventArgs
     {
 
         /// <summary>
