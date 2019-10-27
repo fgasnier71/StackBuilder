@@ -61,9 +61,9 @@ namespace treeDiM.StackBuilder.Desktop
             base.OnNext();
             try
             {
-                List<LayerDesc> layerDescs = new List<LayerDesc>();
+               var layerEncaps = new List<LayerEncap>();
                 foreach (ILayer2D layer in uCtrlLayerList.Selected)
-                    layerDescs.Add(layer.LayerDescriptor);
+                    layerEncaps.Add(new LayerEncap(layer.LayerDescriptor));
 
                 Solution.SetSolver(new LayerSolver());
 
@@ -74,7 +74,7 @@ namespace treeDiM.StackBuilder.Desktop
                         , SelectedCylinder, SelectedCase
                         , new List<InterlayerProperties>()
                         , BuildConstraintSet()
-                        , layerDescs);
+                        , layerEncaps);
                 }
                 else
                 {
@@ -82,7 +82,7 @@ namespace treeDiM.StackBuilder.Desktop
                     analysis.Content = SelectedCylinder;
                     analysis.CaseProperties = SelectedCase;
                     analysis.ConstraintSet = BuildConstraintSet();
-                    analysis.AddSolution(layerDescs);
+                    analysis.AddSolution(layerEncaps);
 
                     _document.UpdateAnalysis(analysis);
                 }

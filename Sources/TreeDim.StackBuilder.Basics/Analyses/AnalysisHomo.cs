@@ -57,12 +57,21 @@ namespace treeDiM.StackBuilder.Basics
 
         public abstract BBox3D BBoxLoadWDeco(BBox3D loadBBox);
         public abstract BBox3D BBoxGlobal(BBox3D loadBBox);
-
-        public void AddSolution(List<LayerDesc> layers)
+        public void AddSolution(List<LayerDesc> layerDescs)
+        {
+            _solution = new Solution(this, layerDescs.ConvertAll(l => new LayerEncap(l)));
+        }
+        public void AddSolution(List<LayerEncap> layers)
         {
             _solution = new Solution(this, layers);
         }
-        public void AddSolution(List<KeyValuePair<LayerDesc,int>> listLayers)
+        public void AddSolution(List<KeyValuePair<LayerDesc, int>> listLayers)
+        {
+            _solution = new Solution(this,
+                listLayers.ConvertAll(l => new KeyValuePair<LayerEncap, int>(new LayerEncap(l.Key), l.Value))
+                );
+        }
+        public void AddSolution(List<KeyValuePair<LayerEncap,int>> listLayers)
         {
             _solution = new Solution(this, listLayers);
         }
@@ -93,10 +102,10 @@ namespace treeDiM.StackBuilder.Basics
         {
             // get best layers
             List<ILayer2D> bestLayers = Solution.Solver.BuildLayers(Content, ContainerDimensions, Offset.Z, ConstraintSet, true);
-            List<LayerDesc> bestLayerDescs = bestLayers.ConvertAll(l => l.LayerDescriptor);
+            List<LayerEncap> bestLayerDescs = bestLayers.ConvertAll(l => new LayerEncap(l.LayerDescriptor));
 
             bool allFound = true;
-            foreach (LayerDesc l in Solution.LayerDescriptors)
+            foreach (LayerEncap l in Solution.LayerDescriptors)
             {
                 if (null == bestLayerDescs.Find(bld => bld.Equals(l)))
                 {
@@ -113,8 +122,8 @@ namespace treeDiM.StackBuilder.Basics
             }
         }
         public override bool HasValidSolution => null != _solution;
+        public List<Layer2DEditable> EditedLayers { get; set; } = new List<Layer2DEditable>();
         #region Non-Public Members
-
         protected Solution _solution;
         protected List<InterlayerProperties> _interlayers;
         /// <summary>

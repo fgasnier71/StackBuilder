@@ -13,7 +13,7 @@ namespace treeDiM.StackBuilder.Engine
         public override bool CanBeSwapped => true;
         public override bool CanBeInverted => true;
         public override bool IsSymetric => true;
-        public override int GetNumberOfVariants(Layer2D layer) => 1;
+        public override int GetNumberOfVariants(Layer2DBrickDef layer) => 1;
 
         public override void GenerateLayer(ILayer2D layer, double actualLength, double actualWidth)
         {

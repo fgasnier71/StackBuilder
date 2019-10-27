@@ -10,7 +10,7 @@ namespace treeDiM.StackBuilder.Engine
     internal class LayerPatternBrick : LayerPatternBox
     {
         public override string Name => "Brick";
-        public override int GetNumberOfVariants(Layer2D layer) => 1;
+        public override int GetNumberOfVariants(Layer2DBrickDef layer) => 1;
         public override bool IsSymetric => true;
         public override bool CanBeSwapped => true;
         public override bool CanBeInverted => true;

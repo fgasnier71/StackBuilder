@@ -143,7 +143,7 @@ namespace treeDiM.StackBuilder.GUIExtension
                 Packable packable = BundleProp;
                 // compute
                 ILayerSolver solver = new LayerSolver();
-                List<Layer2D> layers = solver.BuildLayers(
+                List<Layer2DBrickDef> layers = solver.BuildLayers(
                     packable.OuterDimensions
                     , new Vector2D(CaseInsideLength, CaseInsideWidth)
                     , 0.0

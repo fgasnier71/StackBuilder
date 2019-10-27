@@ -53,7 +53,7 @@ namespace treeDiM.StackBuilder.Basics
         private Vector2D _dimContainer;
         private double _radius, _height;
 
-        protected static ILog _log = LogManager.GetLogger(typeof(Layer2D));
+        protected static ILog _log = LogManager.GetLogger(typeof(Layer2DBrickDef));
         #endregion
 
         #region Constructor

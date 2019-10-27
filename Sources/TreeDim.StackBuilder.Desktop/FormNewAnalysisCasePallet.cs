@@ -96,29 +96,33 @@ namespace treeDiM.StackBuilder.Desktop
         {
             try
             {
-                List<LayerDesc> layerDescs = new List<LayerDesc>();
-                foreach (Layer2D layer2D in uCtrlLayerList.Selected)
-                    layerDescs.Add(layer2D.LayerDescriptor);
+                var layerEncaps = new List<LayerEncap>();
+                foreach (Layer2DBrickDef layer2D in uCtrlLayerList.Selected)
+                    layerEncaps.Add(new LayerEncap(layer2D.LayerDescriptor));
 
                 Solution.SetSolver(new LayerSolver());
 
                 AnalysisCasePallet analysis = AnalysisCast;
                 if (null == analysis)
+                {
                     _item = _document.CreateNewAnalysisCasePallet(
                         ItemName, ItemDescription
                         , SelectedPackable, SelectedPallet
                         , new List<InterlayerProperties>()
                         , null, null, null
                         , BuildConstraintSet()
-                        , layerDescs
+                        , layerEncaps
                         );
+                    analysis.EditedLayers = _layersEditable;
+                }
+
                 else
                 {
                     analysis.ID.SetNameDesc(ItemName, ItemDescription);
                     analysis.Content = SelectedPackable;
                     analysis.PalletProperties = SelectedPallet;
                     analysis.ConstraintSet = BuildConstraintSet();
-                    analysis.AddSolution(layerDescs);
+                    analysis.AddSolution(layerEncaps);
 
                     _document.UpdateAnalysis(analysis);
                 }
@@ -145,8 +149,7 @@ namespace treeDiM.StackBuilder.Desktop
             }
             else if (ctrl == cbPallets)
             {
-                PalletProperties palletProperties = itemBase as PalletProperties;
-                return null != palletProperties;
+                return itemBase is PalletProperties;
             }
             return false;
         }
@@ -171,6 +174,8 @@ namespace treeDiM.StackBuilder.Desktop
             try
             {
                 uCtrlCaseOrientation.BProperties = cbCases.SelectedType as PackableBrick;
+
+                FillEditedLayerList();
                 OnInputChanged(sender, e);
                 OnLayerSelected(sender, e);
             }
@@ -183,8 +188,10 @@ namespace treeDiM.StackBuilder.Desktop
         {
             try
             {
+                ILayer2D[] layersEditable = uCtrlLayerListEdited.Selected;
                 ILayer2D[] layers = uCtrlLayerList.Selected;
-                UpdateStatus(layers.Length > 0 ? string.Empty : Resources.ID_SELECTATLEASTONELAYOUT);
+                bnEditLayer.Enabled = (layers.Length == 1);
+                UpdateStatus(layers.Length + layersEditable.Length > 0 ? string.Empty : Resources.ID_SELECTATLEASTONELAYOUT);
             }
             catch (Exception ex)
             {
@@ -193,41 +200,46 @@ namespace treeDiM.StackBuilder.Desktop
         }
         private void OnInputChanged(object sender, EventArgs e)
         {
-            try
-            {
-                // get case /pallet
-                PalletProperties palletProperties = cbPallets.SelectedType as PalletProperties;
-                if (!(cbCases.SelectedType is Packable packable) || null == palletProperties)
-                    return;
-                // compute
-                LayerSolver solver = new LayerSolver();
-                List<Layer2D> layers = solver.BuildLayers(
-                    packable.OuterDimensions
-                    , new Vector2D(palletProperties.Length + 2.0*uCtrlOverhang.ValueX, palletProperties.Width + 2.0*uCtrlOverhang.ValueY)
-                    , palletProperties.Height
-                    , BuildConstraintSet()
-                    , checkBoxBestLayersOnly.Checked);
-                // update control
-                uCtrlLayerList.Packable = packable;
-                uCtrlLayerList.ContainerHeight = uCtrlMaximumHeight.Value - palletProperties.Height;
-                uCtrlLayerList.FirstLayerSelected = true;
-                uCtrlLayerList.LayerList = layers.Cast<ILayer2D>().ToList();
-            }
-            catch (Exception ex)
-            {
-                _log.Error(ex.ToString());
-            }
+            try { FillLayerList(); } catch (Exception ex) { _log.Error(ex.ToString()); }
         }
+        private void FillLayerList()
+        { 
+            // get case /pallet
+            if (!(cbCases.SelectedType is Packable packable) || !(cbPallets.SelectedType is PalletProperties palletProperties))
+                return;
+            // compute
+            LayerSolver solver = new LayerSolver();
+            List<Layer2DBrickDef> layers = solver.BuildLayers(
+                packable.OuterDimensions
+                , new Vector2D(palletProperties.Length + 2.0*uCtrlOverhang.ValueX, palletProperties.Width + 2.0*uCtrlOverhang.ValueY)
+                , palletProperties.Height
+                , BuildConstraintSet()
+                , checkBoxBestLayersOnly.Checked);
+            // update control
+            uCtrlLayerList.Packable = packable;
+            uCtrlLayerList.ContainerHeight = uCtrlMaximumHeight.Value - palletProperties.Height;
+            uCtrlLayerList.FirstLayerSelected = true;
+            uCtrlLayerList.LayerList = layers.Cast<ILayer2D>().ToList();        
+        }
+        private void FillEditedLayerList()
+        {
+            if (!(cbCases.SelectedType is Packable packable) || !(cbPallets.SelectedType is PalletProperties palletProperties))
+                return;
+            uCtrlLayerListEdited.ContainerHeight = uCtrlMaximumHeight.Value - palletProperties.Height;
+            uCtrlLayerListEdited.FirstLayerSelected = true;
+            uCtrlLayerListEdited.Packable = packable;
+            uCtrlLayerListEdited.LayerList = _layersEditable.Cast<ILayer2D>().ToList();
+        }
+
         private void OnBestCombinationClicked(object sender, EventArgs e)
         {
             try
             {
-                PalletProperties palletProperties = cbPallets.SelectedType as PalletProperties;
-                if (!(cbCases.SelectedType is Packable packable) || null == palletProperties)
+                if (!(cbCases.SelectedType is Packable packable) || !(cbPallets.SelectedType is PalletProperties palletProperties))
                     return;
                 ConstraintSetCasePallet constraintSet = BuildConstraintSet();
                 // get best combination
-                List<KeyValuePair<LayerDesc, int>> listLayer = new List<KeyValuePair<LayerDesc,int>>();
+                List<KeyValuePair<LayerEncap, int>> listLayer = new List<KeyValuePair<LayerEncap,int>>();
                 LayerSolver.GetBestCombination(
                     packable.OuterDimensions,
                     palletProperties.GetStackingDimensions(constraintSet),
@@ -235,8 +247,8 @@ namespace treeDiM.StackBuilder.Desktop
                     ref listLayer);
                 // select best layers
                 List<LayerDesc> LayerDesc = new List<LayerDesc>();
-                foreach (KeyValuePair<LayerDesc, int> kvp in listLayer)
-                    LayerDesc.Add(kvp.Key);
+                foreach (KeyValuePair<LayerEncap, int> kvp in listLayer)
+                    LayerDesc.Add(kvp.Key.LayerDesc);
                 uCtrlLayerList.SelectLayers(LayerDesc);
 
                 _item = _document.CreateNewAnalysisCasePallet(
@@ -267,11 +279,15 @@ namespace treeDiM.StackBuilder.Desktop
                 // get selected layer
                 ILayer2D[] layers = uCtrlLayerList.Selected;
                 if (layers.Length != 1) return;
-                Layer2D layer = layers[0] as Layer2D;
+                Layer2DBrickDef layer = layers[0] as Layer2DBrickDef;
                 using (var form = new FormEditLayer(layer.GenerateLayer2DEdited(), packable))
                 {
                     form.TopMost = true;
-                    if (DialogResult.OK == form.ShowDialog()) {}
+                    if (DialogResult.OK == form.ShowDialog())
+                    {
+                        _layersEditable.Add( form.Layer );
+                        FillEditedLayerList();
+                    }
                 }
             }
             catch (Exception ex)
@@ -300,6 +316,7 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Data members
+        private List<Layer2DEditable> _layersEditable = new List<Layer2DEditable>(); 
         static readonly ILog _log = LogManager.GetLogger(typeof(FormNewAnalysisCasePallet));
         #endregion
     }

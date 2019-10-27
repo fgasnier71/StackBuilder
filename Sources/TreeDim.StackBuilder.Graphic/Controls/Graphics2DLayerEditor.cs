@@ -24,7 +24,6 @@ namespace treeDiM.StackBuilder.Graphics
         }
         #endregion
         #region Public properties
-        public bool AllBoxesInside => _allBoxesInside;
         public Layer2DEditable Layer  { get; set; }
         public Vector2D PtMin => Vector2D.Zero - new Vector2D(MaxContentDim, MaxContentDim);
         public Vector2D PtMax => Layer.DimContainer + new Vector2D(MaxContentDim, MaxContentDim);
@@ -44,7 +43,6 @@ namespace treeDiM.StackBuilder.Graphics
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
-
             try
             {
                 Graphics = new Graphics2DForm(this, e.Graphics);
@@ -53,16 +51,16 @@ namespace treeDiM.StackBuilder.Graphics
 
                 BoxProperties boxProperties = Content as BoxProperties;
                 uint pickId = 0;
-                foreach (var bp in Layer)
+                foreach (var bp in Layer.Positions)
                 {
                     Box b = new Box(pickId++, boxProperties, bp);
                     Graphics.DrawBox(b);
                 }
-                Graphics.DrawRectangle(PtMin, PtMax, Color.Red);
+                Graphics.DrawRectangle(Vector2D.Zero, Layer.DimContainer, Color.OrangeRed);
 
                 if (-1 != SelectedIndex)
                 {
-                    var bPos = Layer[SelectedIndex];
+                    var bPos = Layer.Positions[SelectedIndex];
                     Box boxSelected = new Box((uint)SelectedIndex, boxProperties, bPos);
                     Graphics.DrawBoxSelected(boxSelected);
 
@@ -105,8 +103,8 @@ namespace treeDiM.StackBuilder.Graphics
             }
             if (null != _rotateRectangle && _rotateRectangle.Contains(e.Location))
             {
-                BoxPosition pos = Layer[SelectedIndex].RotateZ90(Dimensions);
-                Layer[SelectedIndex] = pos;
+                BoxPosition pos = Layer.Positions[SelectedIndex].RotateZ90(Dimensions);
+                Layer.Positions[SelectedIndex] = pos;
                 Moving = true;
             }
         }
@@ -121,7 +119,7 @@ namespace treeDiM.StackBuilder.Graphics
             {
                 Vector2D pt = Graphics.ReverseTransform(e.Location);
                 // selected index
-                SelectedIndex = BoxInteraction.SelectedPosition(Layer, Dimensions, pt);
+                SelectedIndex = BoxInteraction.SelectedPosition(Layer.Positions, Dimensions, pt);
             }
 
             UpdateArrows();
@@ -132,17 +130,17 @@ namespace treeDiM.StackBuilder.Graphics
         private void OnTimerTick(object sender, EventArgs e)
         {
             if (-1 == SelectedIndex) return;
-            BoxPosition bpos = Layer[SelectedIndex];
+            BoxPosition bpos = Layer.Positions[SelectedIndex];
             BoxPosition bposNew = bpos.Translate(MoveDir, StepMove);
-            if (!BoxInteraction.HaveIntersection(Layer, Dimensions, SelectedIndex, bposNew))
-                Layer[SelectedIndex] = bposNew;
+            if (!BoxInteraction.HaveIntersection(Layer.Positions, Dimensions, SelectedIndex, bposNew))
+                Layer.Positions[SelectedIndex] = bposNew;
             else
             {
                 double distance = 0;
-                if (BoxInteraction.MinDistance(Layer, Dimensions, SelectedIndex, MoveDir, ref distance))
+                if (BoxInteraction.MinDistance(Layer.Positions, Dimensions, SelectedIndex, MoveDir, ref distance))
                 {
                     bposNew = bpos.Translate(MoveDir, distance);
-                    Layer[SelectedIndex] = bposNew;
+                    Layer.Positions[SelectedIndex] = bposNew;
                 }
                 EndMove();
             }
@@ -184,17 +182,17 @@ namespace treeDiM.StackBuilder.Graphics
                 for (int i = 0; i < 4; ++i)
                 {
                     double distance = 0.0;
-                    if (!BoxInteraction.MinDistance(Layer, dim, SelectedIndex, Directions[i], ref distance) || distance > 0.1)
+                    if (!BoxInteraction.MinDistance(Layer.Positions, dim, SelectedIndex, Directions[i], ref distance) || distance > 0.1)
                         Arrows[i] = true;
                 }
                 // allow rotations
-                ArrowRotate = !BoxInteraction.HaveIntersection(Layer, dim, SelectedIndex, Layer[SelectedIndex].RotateZ90(dim));
+                ArrowRotate = !BoxInteraction.HaveIntersection(Layer.Positions, dim, SelectedIndex, Layer.Positions[SelectedIndex].RotateZ90(dim));
             }
-            bool allBoxesInside = BoxInteraction.BoxesAreInside(Layer, dim, PtMin, PtMax);
-            if (_allBoxesInside != allBoxesInside)
+            bool allBoxesInside = BoxInteraction.BoxesAreInside(Layer.Positions, dim, Vector2D.Zero, Layer.DimContainer);
+            if (AllBoxesInside != allBoxesInside)
             {
-                _allBoxesInside = allBoxesInside;
-                SaveEnabled?.Invoke(_allBoxesInside);
+                AllBoxesInside = allBoxesInside;
+                SaveEnabled?.Invoke(AllBoxesInside);
             }
         }
         #endregion
@@ -231,8 +229,8 @@ namespace treeDiM.StackBuilder.Graphics
         private bool ArrowRotate = false;
         private bool Moving { get; set; } = false;
         private Dictionary<int, Rectangle> ArrowButtons { get; set; } = new Dictionary<int, Rectangle>();
+        public bool AllBoxesInside { get; private set; } = true;
         private Rectangle _rotateRectangle;
-        private bool _allBoxesInside;
         private static readonly ILog _log = LogManager.GetLogger(typeof(Graphics2DLayerEditor));
         #endregion
     }

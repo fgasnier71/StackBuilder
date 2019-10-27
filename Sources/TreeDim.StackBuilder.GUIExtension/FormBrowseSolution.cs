@@ -296,7 +296,7 @@ namespace treeDiM.StackBuilder.GUIExtension
                 foreach (LayerDesc layerDesc in solution.LayerDescriptors)
                 {
                     LayerSolver solver = new LayerSolver();
-                    Layer2D layer = solver.BuildLayer(_analysis.ContentDimensions, _analysis.ContainerDimensions, layerDesc as LayerDescBox, 0.0);
+                    Layer2DBrickDef layer = solver.BuildLayer(_analysis.ContentDimensions, _analysis.ContainerDimensions, layerDesc as LayerDescBox, 0.0);
                     cbLayerType.Items.Add(layer);
                 }
                 if (cbLayerType.Items.Count > 0)
@@ -333,7 +333,7 @@ namespace treeDiM.StackBuilder.GUIExtension
                     if (null != selItem)
                     {
                         // set current layer
-                        cbLayerType.SelectedIndex = selItem.LayerIndex;
+                        cbLayerType.SelectedIndex = selItem.IndexLayer;
                     }
                 }
                 else

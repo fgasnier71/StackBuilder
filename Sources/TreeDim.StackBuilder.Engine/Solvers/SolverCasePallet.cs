@@ -15,13 +15,13 @@ namespace treeDiM.StackBuilder.Engine
             _palletProperties = palletProperties;
         }
 
-        public Layer2D BuildBestLayer(ConstraintSetAbstract constraintSet)
+        public Layer2DBrickDef BuildBestLayer(ConstraintSetAbstract constraintSet)
         {
             var constraintSetCasePallet = constraintSet as ConstraintSetCasePallet;
             Vector2D overhang = constraintSetCasePallet.Overhang;
             // build layer list
             var solver = new LayerSolver();
-            List<Layer2D> layers = solver.BuildLayers(
+            List<Layer2DBrickDef> layers = solver.BuildLayers(
                 _packable.OuterDimensions
                 , new Vector2D(_palletProperties.Length + 2.0 * overhang.X, _palletProperties.Width + 2.0 * overhang.Y)
                 , _palletProperties.Height
@@ -43,15 +43,15 @@ namespace treeDiM.StackBuilder.Engine
 
             if (allowMultipleLayerOrientations)
             {
-                List<KeyValuePair<LayerDesc, int>> listLayer = new List<KeyValuePair<LayerDesc, int>>();
+                var listLayerEncap = new List<KeyValuePair<LayerEncap, int>>();
                 LayerSolver.GetBestCombination(
                     _packable.OuterDimensions,
                     _palletProperties.GetStackingDimensions(constraintSet),
                     constraintSet,
-                    ref listLayer);
+                    ref listLayerEncap);
                 Solution.SetSolver(new LayerSolver());
                 var analysis = new AnalysisCasePallet(_packable, _palletProperties, constraintSet as ConstraintSetCasePallet);
-                analysis.AddSolution(listLayer);
+                analysis.AddSolution(listLayerEncap);
                 // only add analysis if it has a valid solution
                 if (analysis.Solution.ItemCount > 0)
                     analyses.Add(analysis);
@@ -60,7 +60,7 @@ namespace treeDiM.StackBuilder.Engine
             {
                 // build layer list
                 var solver = new LayerSolver();
-                List<Layer2D> layers = solver.BuildLayers(
+                List<Layer2DBrickDef> layers = solver.BuildLayers(
                     _packable.OuterDimensions
                     , new Vector2D(_palletProperties.Length + 2.0 * overhang.X, _palletProperties.Width + 2.0 * overhang.Y)
                     , _palletProperties.Height
@@ -69,7 +69,7 @@ namespace treeDiM.StackBuilder.Engine
                     );
                 Solution.SetSolver(solver);
                 // loop on layers
-                foreach (Layer2D layer in layers)
+                foreach (Layer2DBrickDef layer in layers)
                 {
                     var layerDescs = new List<LayerDesc> { layer.LayerDescriptor };
                     var analysis = new AnalysisCasePallet(_packable, _palletProperties, constraintSet as ConstraintSetCasePallet);

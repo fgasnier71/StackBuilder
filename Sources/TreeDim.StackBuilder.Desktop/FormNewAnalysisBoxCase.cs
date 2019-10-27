@@ -83,9 +83,9 @@ namespace treeDiM.StackBuilder.Desktop
             base.OnNext();
             try
             {
-                List<LayerDesc> layerDescs = new List<LayerDesc>();
+                var layerEncaps = new List<LayerEncap>();
                 foreach (ILayer2D layer2D in uCtrlLayerList.Selected)
-                    layerDescs.Add(layer2D.LayerDescriptor);
+                    layerEncaps.Add(new LayerEncap(layer2D.LayerDescriptor));
 
                 Solution.SetSolver(new LayerSolver());
 
@@ -96,7 +96,7 @@ namespace treeDiM.StackBuilder.Desktop
                         , SelectedBoxProperties, SelectedCase
                         , new List<InterlayerProperties>()
                         , BuildConstraintSet()
-                        , layerDescs
+                        , layerEncaps
                         );
                 else
                 {
@@ -104,7 +104,7 @@ namespace treeDiM.StackBuilder.Desktop
                     analysis.Content = SelectedBoxProperties;
                     analysis.CaseProperties = SelectedCase;
                     analysis.ConstraintSet = BuildConstraintSet();
-                    analysis.AddSolution(layerDescs);
+                    analysis.AddSolution(layerEncaps);
 
                     _document.UpdateAnalysis(analysis);
                 }
@@ -125,7 +125,7 @@ namespace treeDiM.StackBuilder.Desktop
                     return;
                 var constraintSet = BuildConstraintSet();
                 // get best combination
-                List<KeyValuePair<LayerDesc, int>> listLayer = new List<KeyValuePair<LayerDesc, int>>();
+                var listLayer = new List<KeyValuePair<LayerEncap, int>>();
                 LayerSolver.GetBestCombination(
                     packable.OuterDimensions,
                     caseProperties.GetStackingDimensions(constraintSet),
@@ -138,8 +138,8 @@ namespace treeDiM.StackBuilder.Desktop
                 }
                 // select best layer
                 List<LayerDesc> layerDesc = new List<LayerDesc>();
-                foreach (KeyValuePair<LayerDesc, int> kvp in listLayer)
-                    layerDesc.Add(kvp.Key);
+                foreach (var kvp in listLayer)
+                    layerDesc.Add(kvp.Key.LayerDesc);
                 uCtrlLayerList.SelectLayers(layerDesc);
 
                 _item = _document.CreateNewAnalysisBoxCase(
@@ -218,7 +218,7 @@ namespace treeDiM.StackBuilder.Desktop
 
                 // compute
                 LayerSolver solver = new LayerSolver();
-                List<Layer2D> layers = solver.BuildLayers(
+                List<Layer2DBrickDef> layers = solver.BuildLayers(
                     packable.OuterDimensions
                     , new Vector2D(caseProperties.InsideLength, caseProperties.InsideWidth)
                     , 0.0 /* offsetZ */

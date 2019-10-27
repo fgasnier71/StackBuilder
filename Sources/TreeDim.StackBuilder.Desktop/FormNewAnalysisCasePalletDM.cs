@@ -99,8 +99,8 @@ namespace treeDiM.StackBuilder.Desktop
         {
             try
             {
-                Layer2D selLayer = SelectedLayer;
-                List<LayerDesc> layerDescs = new List<LayerDesc>() { selLayer.LayerDescriptor };
+                Layer2DBrickDef selLayer = SelectedLayer;
+                var layerEncaps = new List<LayerEncap>() { new LayerEncap(selLayer.LayerDescriptor) };
                 Solution.SetSolver(new LayerSolver());
                 AnalysisCasePallet analysis = AnalysisCast;
                 if (null == analysis)
@@ -110,7 +110,7 @@ namespace treeDiM.StackBuilder.Desktop
                         , new List<InterlayerProperties>()
                         , null, null, null
                         , BuildConstraintSet()
-                        , layerDescs
+                        , layerEncaps
                         );
                 else
                 {
@@ -118,7 +118,7 @@ namespace treeDiM.StackBuilder.Desktop
                     analysis.Content = SelectedPackable;
                     analysis.PalletProperties = SelectedPallet;
                     analysis.ConstraintSet = BuildConstraintSet();
-                    analysis.AddSolution(layerDescs);
+                    analysis.AddSolution(layerEncaps);
 
                     _document.UpdateAnalysis(analysis);
                 }
@@ -158,7 +158,7 @@ namespace treeDiM.StackBuilder.Desktop
         #region IDrawingContainer implementation
         public void Draw(Graphics3DControl ctrl, Graphics3D graphics)
         {
-            Layer2D selLayer = SelectedLayer;
+            Layer2DBrickDef selLayer = SelectedLayer;
             PalletProperties pallet = SelectedPallet;
             Packable packable = SelectedPackable;
             if (null == selLayer || null == packable || null == pallet)
@@ -290,7 +290,7 @@ namespace treeDiM.StackBuilder.Desktop
                     IsBalloon = false
                 };
 
-                foreach (Layer2D layer in _layers)
+                foreach (Layer2DBrickDef layer in _layers)
                 {
                     gridSolutions.Rows.Insert(++iRow);
                     iCol = 0;
@@ -331,7 +331,7 @@ namespace treeDiM.StackBuilder.Desktop
             }
         }
         private int GridFontSize => Settings.Default.GridFontSize;
-        private Layer2D SelectedLayer
+        private Layer2DBrickDef SelectedLayer
         {
             get
             {
@@ -387,7 +387,7 @@ namespace treeDiM.StackBuilder.Desktop
 
         #region Data members
         protected static ILog _log = LogManager.GetLogger(typeof(FormNewAnalysisCasePalletDM));
-        private List<Layer2D> _layers;
+        private List<Layer2DBrickDef> _layers;
         #endregion
     }
 }

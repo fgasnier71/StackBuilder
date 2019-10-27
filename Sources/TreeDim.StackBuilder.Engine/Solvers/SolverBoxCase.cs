@@ -17,11 +17,11 @@ namespace treeDiM.StackBuilder.Engine
             _caseProperties = bProperties;
         }
 
-        public Layer2D BuildBestLayer(ConstraintSetAbstract constraintSet)
+        public Layer2DBrickDef BuildBestLayer(ConstraintSetAbstract constraintSet)
         {
             // build layer list
             var solver = new LayerSolver();
-            List<Layer2D> layers = solver.BuildLayers(
+            List<Layer2DBrickDef> layers = solver.BuildLayers(
                     _packable.OuterDimensions
                     , new Vector2D(_caseProperties.InsideLength, _caseProperties.InsideWidth)
                     , 0.0 /* offsetZ */
@@ -40,19 +40,19 @@ namespace treeDiM.StackBuilder.Engine
             // get best set of layers
             if (allowMultipleLayerOrientations)
             {
-                List<KeyValuePair<LayerDesc, int>> listLayer = new List<KeyValuePair<LayerDesc, int>>();
+               var listLayerEncap = new List<KeyValuePair<LayerEncap, int>>();
                 LayerSolver.GetBestCombination(
                     _packable.OuterDimensions,
                     _caseProperties.GetStackingDimensions(constraintSet),
                     constraintSet,
-                    ref listLayer);
+                    ref listLayerEncap);
 
-                var layerDescs = new List<LayerDesc>();
-                foreach (KeyValuePair<LayerDesc, int> vp in listLayer)
-                    layerDescs.Add(vp.Key);
+                var layerEncaps = new List<LayerEncap>();
+                foreach (var vp in listLayerEncap)
+                    layerEncaps.Add(vp.Key);
 
                 var analysis = new AnalysisBoxCase(null, _packable, _caseProperties, constraintSet as ConstraintSetBoxCase);
-                analysis.AddSolution(layerDescs);
+                analysis.AddSolution(layerEncaps);
                 // only add analysis if it has a valid solution
                 if (analysis.Solution.ItemCount > 0)
                     analyses.Add(analysis);
@@ -61,7 +61,7 @@ namespace treeDiM.StackBuilder.Engine
             {
                 // build layer list
                 var solver = new LayerSolver();
-                List<Layer2D> layers = solver.BuildLayers(
+                List<Layer2DBrickDef> layers = solver.BuildLayers(
                      _packable.OuterDimensions
                      , new Vector2D(_caseProperties.InsideLength, _caseProperties.InsideWidth)
                      , 0.0 /* offsetZ */
@@ -70,7 +70,7 @@ namespace treeDiM.StackBuilder.Engine
                  );
                 Solution.SetSolver(solver);
                 // loop on layers
-                foreach (Layer2D layer in layers)
+                foreach (Layer2DBrickDef layer in layers)
                 {
                     var layerDescs = new List<LayerDesc> { layer.LayerDescriptor };
                     var analysis = new AnalysisBoxCase(null, _packable, _caseProperties, constraintSet as ConstraintSetBoxCase);

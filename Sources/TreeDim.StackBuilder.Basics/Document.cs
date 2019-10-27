@@ -572,7 +572,7 @@ namespace treeDiM.StackBuilder.Basics
             , List<InterlayerProperties> interlayers
             , PalletCornerProperties palletCorners, PalletCapProperties palletCap, PalletFilmProperties palletFilm
             , ConstraintSetCasePallet constraintSet
-            , List<LayerDesc> layerDescs
+            , List<LayerEncap> layerEncaps
             )
         {
             AnalysisCasePallet analysis = new AnalysisCasePallet(packable, pallet, constraintSet);
@@ -585,7 +585,7 @@ namespace treeDiM.StackBuilder.Basics
             analysis.PalletCornerProperties     = palletCorners;
             analysis.PalletCapProperties        = palletCap;
             analysis.PalletFilmProperties       = palletFilm;
-            analysis.AddSolution(layerDescs);
+            analysis.AddSolution(layerEncaps);
 
             return InsertAnalysis(analysis);
         }
@@ -596,7 +596,7 @@ namespace treeDiM.StackBuilder.Basics
             , List<InterlayerProperties> interlayers
             , PalletCornerProperties palletCorners, PalletCapProperties palletCap, PalletFilmProperties palletFilm
             , ConstraintSetCasePallet constraintSet
-            , List<KeyValuePair<LayerDesc, int>> listLayers
+            , List<KeyValuePair<LayerEncap, int>> listLayers
             )
         {
             AnalysisCasePallet analysis = new AnalysisCasePallet(packable, pallet, constraintSet);
@@ -619,7 +619,7 @@ namespace treeDiM.StackBuilder.Basics
             , Packable packable, BoxProperties caseProperties
             , List<InterlayerProperties> interlayers
             , ConstraintSetBoxCase constraintSet
-            , List<LayerDesc> layerDescs
+            , List<LayerEncap> layerDescs
             )
         {
             AnalysisBoxCase analysis = new AnalysisBoxCase(
@@ -639,7 +639,7 @@ namespace treeDiM.StackBuilder.Basics
             , Packable packable, BoxProperties caseProperties
             , List<InterlayerProperties> interlayers
             , ConstraintSetBoxCase constraintSet
-            , List<KeyValuePair<LayerDesc, int>> listLayers
+            , List<KeyValuePair<LayerEncap, int>> listLayers
             )
         {
             AnalysisBoxCase analysis = new AnalysisBoxCase(
@@ -659,7 +659,7 @@ namespace treeDiM.StackBuilder.Basics
             , Packable packable, TruckProperties truckProperties
             , List<InterlayerProperties> interlayers
             , ConstraintSetCaseTruck constraintSet
-            , List<LayerDesc> layerDescs)
+            , List<LayerEncap> layerEncaps)
         {
             AnalysisCaseTruck analysis = new AnalysisCaseTruck(
                 this, packable, truckProperties, constraintSet);
@@ -669,19 +669,19 @@ namespace treeDiM.StackBuilder.Basics
                 foreach (InterlayerProperties interlayer in interlayers)
                     analysis.AddInterlayer(interlayer);
             }
-            analysis.AddSolution(layerDescs);
+            analysis.AddSolution(layerEncaps);
             return InsertAnalysis(analysis);
         }
         public AnalysisHomo CreateNewAnalysisPalletTruck(
             string name, string description
             , Packable loadedPallet, TruckProperties truckProperties
             , ConstraintSetPalletTruck constraintSet
-            , List<LayerDesc> layerDescs)
+            , List<LayerEncap> layerEncaps)
         {
             AnalysisPalletTruck analysis = new AnalysisPalletTruck(
                 loadedPallet, truckProperties, constraintSet);
             analysis.ID.SetNameDesc( name, description );
-            analysis.AddSolution(layerDescs);
+            analysis.AddSolution(layerEncaps);
 
             return InsertAnalysis(analysis);
         }
@@ -690,7 +690,7 @@ namespace treeDiM.StackBuilder.Basics
             , CylinderProperties cylinder, PalletProperties palletProperties
             , List<InterlayerProperties> interlayers
             , ConstraintSetPackablePallet constraintSet
-            , List<LayerDesc> layerDescs
+            , List<LayerEncap> layerDescs
             )
         { 
             // analysis
@@ -711,7 +711,7 @@ namespace treeDiM.StackBuilder.Basics
             , CylinderProperties cylinder, BoxProperties caseProperties
             , List<InterlayerProperties> interlayers
             , ConstraintSetCylinderContainer constraintSet
-            , List<LayerDesc> layerDescs)
+            , List<LayerEncap> layerEncaps)
         {
             AnalysisCylinderCase analysis = new AnalysisCylinderCase(
                 this, cylinder, caseProperties, constraintSet);
@@ -721,8 +721,7 @@ namespace treeDiM.StackBuilder.Basics
                 foreach (InterlayerProperties interlayer in interlayers)
                     analysis.AddInterlayer(interlayer);
             }
-            analysis.AddSolution(layerDescs);
-
+            analysis.AddSolution(layerEncaps);
             return InsertAnalysis(analysis);
         }
 
@@ -730,12 +729,12 @@ namespace treeDiM.StackBuilder.Basics
             string name, string description
             , CylinderProperties cylinder, TruckProperties truckProperties
             , ConstraintSetCylinderTruck constraintSet
-            , List<LayerDesc> layerDescs)
+            , List<LayerEncap> layerEncaps)
         {
             var analysis = new AnalysisCylinderTruck(
                 this, cylinder, truckProperties, constraintSet);
             analysis.ID.SetNameDesc(name, description);
-            analysis.AddSolution(layerDescs);
+            analysis.AddSolution(layerEncaps);
             return InsertAnalysis(analysis);
         }
 
@@ -843,21 +842,21 @@ namespace treeDiM.StackBuilder.Basics
             if (null != interlayer)
                 listInterlayers.Add(interlayer);
 
-            List<LayerDesc> layerDescs = new List<LayerDesc>();
+            List<LayerEncap> layerEncaps = new List<LayerEncap>();
             if (null != solver)
             {
-                List<Layer2D> layers = solver.BuildLayers(
+                List<Layer2DBrickDef> layers = solver.BuildLayers(
                     box.OuterDimensions
                     , new Vector2D(pallet.Length + constraintSetNew.Overhang.X, pallet.Width + constraintSetNew.Overhang.Y), pallet.Height
                     , constraintSetNew
                     , true);
                 if (layers.Count > 0)
-                    layerDescs.Add(layers[0].LayerDescriptor);
+                    layerEncaps.Add(new LayerEncap(layers[0].LayerDescriptor));
             }
 
             AnalysisHomo analysis = CreateNewAnalysisCasePallet(name, description, box, pallet
                 , listInterlayers, palletCorners, palletCap, palletFilm
-                , constraintSetNew, layerDescs);
+                , constraintSetNew, layerEncaps);
 
             Modify();
             return analysis;
@@ -880,23 +879,23 @@ namespace treeDiM.StackBuilder.Basics
             if (null != interlayer)
                 listInterlayers.Add(interlayer);
 
-            List<LayerDesc> layerDescs = new List<LayerDesc>();
+            var layerEncaps = new List<LayerEncap>();
             if (null != solver)
             {
-                List<Layer2D> layers = solver.BuildLayers(
+                List<Layer2DBrickDef> layers = solver.BuildLayers(
                     pack.OuterDimensions
                     , new Vector2D(pallet.Length + constraintSetNew.Overhang.X, pallet.Width + constraintSetNew.Overhang.Y), pallet.Height
                     , constraintSetNew
                     , true);
                 if (layers.Count > 0)
-                    layerDescs.Add(layers[0].LayerDescriptor);
+                    layerEncaps.Add(new LayerEncap(layers[0].LayerDescriptor));
             }
 
             AnalysisHomo analysis = CreateNewAnalysisCasePallet(
                 name, description
                 , pack, pallet
                 , listInterlayers, null, null, null
-                , constraintSetNew, layerDescs);
+                , constraintSetNew, layerEncaps);
 
             Modify();
             return analysis;
@@ -1647,7 +1646,7 @@ namespace treeDiM.StackBuilder.Basics
                 sContainerId = eltAnalysis.Attributes["ContainerId"].Value;
             // interlayers
             List<InterlayerProperties> interlayers = new List<InterlayerProperties>();
-            List<LayerDesc> listLayerDesc = null;
+            List<LayerEncap> listLayerEncaps = null;
             List<int> listInterlayers = new List<int>();
             List<SolutionItem> listSolItems = null;
 
@@ -1665,7 +1664,7 @@ namespace treeDiM.StackBuilder.Basics
                     if (string.Equals(node.Name, "ConstraintSet", StringComparison.CurrentCultureIgnoreCase))
                         constraintSet = LoadConstraintSetCasePallet(node as XmlElement);
                     else if (string.Equals(node.Name, "Solution", StringComparison.CurrentCultureIgnoreCase))
-                        LoadSolution(node as XmlElement, out listLayerDesc, out listSolItems);
+                        LoadSolution(node as XmlElement, out listLayerEncaps, out listSolItems);
                     else if (string.Equals(node.Name, "Interlayers", StringComparison.CurrentCultureIgnoreCase))
                         interlayers = LoadInterlayers(node as XmlElement);
                 }
@@ -1675,7 +1674,8 @@ namespace treeDiM.StackBuilder.Basics
                     , packable, palletProperties
                     , interlayers
                     , palletCorners, palletCap, palletFilm
-                    , constraintSet as ConstraintSetCasePallet, listLayerDesc);
+                    , constraintSet as ConstraintSetCasePallet
+                    , listLayerEncaps);
                 if (!string.IsNullOrEmpty(sId))
                     analysis.ID.IGuid = Guid.Parse(sId);
                 analysis.Solution.SolutionItems = listSolItems;
@@ -1693,7 +1693,7 @@ namespace treeDiM.StackBuilder.Basics
                     if (string.Equals(node.Name, "ConstraintSet", StringComparison.CurrentCultureIgnoreCase))
                         constraintSet = LoadConstraintSetBoxCase(node as XmlElement, caseProperties);
                     else if (string.Equals(node.Name, "Solution", StringComparison.CurrentCultureIgnoreCase))
-                        LoadSolution(node as XmlElement, out listLayerDesc, out listSolItems);
+                        LoadSolution(node as XmlElement, out listLayerEncaps, out listSolItems);
                     else if (string.Equals(node.Name, "Interlayers", StringComparison.CurrentCultureIgnoreCase))
                         interlayers = LoadInterlayers(node as XmlElement);
                 }
@@ -1702,7 +1702,7 @@ namespace treeDiM.StackBuilder.Basics
                     sName, sDescription
                     , packable, caseProperties
                     , interlayers
-                    , constraintSet as ConstraintSetBoxCase, listLayerDesc);
+                    , constraintSet as ConstraintSetBoxCase, listLayerEncaps);
                 if (!string.IsNullOrEmpty(sId))
                     analysis.ID.IGuid = Guid.Parse(sId);
                 analysis.Solution.SolutionItems = listSolItems;
@@ -1718,7 +1718,7 @@ namespace treeDiM.StackBuilder.Basics
                     if (string.Equals(node.Name, "ConstraintSet", StringComparison.CurrentCultureIgnoreCase))
                         constraintSet = LoadConstraintSetCasePallet(node as XmlElement);
                     else if (string.Equals(node.Name, "Solution", StringComparison.CurrentCultureIgnoreCase))
-                        LoadSolution(node as XmlElement, out listLayerDesc, out listSolItems);
+                        LoadSolution(node as XmlElement, out listLayerEncaps, out listSolItems);
                     else if (string.Equals(node.Name, "Interlayers", StringComparison.CurrentCultureIgnoreCase))
                         interlayers = LoadInterlayers(node as XmlElement);
                 }
@@ -1727,7 +1727,7 @@ namespace treeDiM.StackBuilder.Basics
                     sName, sDescription
                     , cylinderProperties as CylinderProperties, palletProperties
                     , interlayers
-                    , constraintSet as ConstraintSetPackablePallet, listLayerDesc);
+                    , constraintSet as ConstraintSetPackablePallet, listLayerEncaps);
                 if (!string.IsNullOrEmpty(sId))
                     analysis.ID.IGuid = Guid.Parse(sId);
                 analysis.Solution.SolutionItems = listSolItems;
@@ -1743,7 +1743,7 @@ namespace treeDiM.StackBuilder.Basics
                     if (string.Equals(node.Name, "ConstraintSet", StringComparison.CurrentCultureIgnoreCase))
                         constraintSet = LoadConstraintSetCylinderCase(node as XmlElement, caseProperties);
                     else if (string.Equals(node.Name, "Solution", StringComparison.CurrentCultureIgnoreCase))
-                        LoadSolution(node as XmlElement, out listLayerDesc, out listSolItems);
+                        LoadSolution(node as XmlElement, out listLayerEncaps, out listSolItems);
                     else if (string.Equals(node.Name, "Interlayers", StringComparison.CurrentCultureIgnoreCase))
                         interlayers = LoadInterlayers(node as XmlElement);
                 }
@@ -1753,7 +1753,7 @@ namespace treeDiM.StackBuilder.Basics
                     , cylinderProperties as CylinderProperties, caseProperties
                     , interlayers
                     , constraintSet as ConstraintSetCylinderContainer
-                    , listLayerDesc);
+                    , listLayerEncaps);
                 if (!string.IsNullOrEmpty(sId))
                     analysis.ID.IGuid = Guid.Parse(sId);
                 analysis.Solution.SolutionItems = listSolItems;
@@ -1769,13 +1769,13 @@ namespace treeDiM.StackBuilder.Basics
                     if (string.Equals(node.Name, "ConstraintSet", StringComparison.CurrentCultureIgnoreCase))
                         constraintSet = LoadConstraintSetPalletTruck(node as XmlElement, truckProperties);
                     else if (string.Equals(node.Name, "Solution", StringComparison.CurrentCultureIgnoreCase))
-                        LoadSolution(node as XmlElement, out listLayerDesc, out listSolItems);
+                        LoadSolution(node as XmlElement, out listLayerEncaps, out listSolItems);
                 }
 
                 AnalysisHomo analysis = CreateNewAnalysisPalletTruck(sName, sDescription
                     , loadedPallet, truckProperties
                     , constraintSet as ConstraintSetPalletTruck
-                    , listLayerDesc);
+                    , listLayerEncaps);
                 if (!string.IsNullOrEmpty(sId))
                     analysis.ID.IGuid = Guid.Parse(sId);
                 analysis.Solution.SolutionItems = listSolItems;
@@ -1791,13 +1791,13 @@ namespace treeDiM.StackBuilder.Basics
                     if (string.Equals(node.Name, "ConstraintSet", StringComparison.CurrentCultureIgnoreCase))
                         constraintSet = LoadConstraintSetCaseTruck(node as XmlElement, truckProperties);
                     else if (string.Equals(node.Name, "Solution", StringComparison.CurrentCultureIgnoreCase))
-                        LoadSolution(node as XmlElement, out listLayerDesc, out listSolItems);
+                        LoadSolution(node as XmlElement, out listLayerEncaps, out listSolItems);
                     else if (string.Equals(node.Name, "Interlayers", StringComparison.CurrentCultureIgnoreCase))
                         interlayers = LoadInterlayers(node as XmlElement);
                 }
                 AnalysisHomo analysis = CreateNewAnalysisCaseTruck(sName, sDescription
                     , packable, truckProperties, interlayers
-                    , constraintSet as ConstraintSetCaseTruck, listLayerDesc);
+                    , constraintSet as ConstraintSetCaseTruck, listLayerEncaps);
             }
             else if (string.Equals(eltAnalysis.Name, "AnalysisPallet", StringComparison.CurrentCultureIgnoreCase))
             {
@@ -1859,7 +1859,7 @@ namespace treeDiM.StackBuilder.Basics
                         constraintSet = LoadConstraintSetCylinderTruck(node as XmlElement, truckProperties);
                     // load solutions
                     else if (string.Equals(node.Name, "Solution", StringComparison.CurrentCultureIgnoreCase))
-                        LoadSolution(node as XmlElement, out listLayerDesc, out listSolItems);
+                        LoadSolution(node as XmlElement, out listLayerEncaps, out listSolItems);
                 }                
 
                 var analysis = CreateNewAnalysisCylinderTruck(
@@ -1867,7 +1867,7 @@ namespace treeDiM.StackBuilder.Basics
                     GetTypeByGuid(sContentId) as CylinderProperties,
                     GetTypeByGuid(sContainerId) as TruckProperties,
                     constraintSet,
-                    listLayerDesc);
+                    listLayerEncaps);
 
                 if (!string.IsNullOrEmpty(sId))
                     analysis.ID.IGuid = Guid.Parse(sId);
@@ -2300,10 +2300,10 @@ namespace treeDiM.StackBuilder.Basics
 
         private void LoadSolution(
             XmlElement eltSolution
-            , out List<LayerDesc> listDesc
+            , out List<LayerEncap> listDesc
             , out List<SolutionItem> listSolItems)
         {
-            listDesc = new List<LayerDesc>();
+            listDesc = new List<LayerEncap>();
             listSolItems = new List<SolutionItem>();
 
             foreach (XmlNode node in eltSolution.ChildNodes)
@@ -2315,9 +2315,9 @@ namespace treeDiM.StackBuilder.Basics
                     {
                         XmlElement eltLayerDesc = nodeLayerDesc as XmlElement;
                         if (string.Equals(eltLayerDesc.Name, "LayerDescBox", StringComparison.CurrentCultureIgnoreCase))
-                            listDesc.Add( LayerDescBox.Parse(eltLayerDesc.InnerText) );
+                            listDesc.Add( new LayerEncap(LayerDescBox.Parse(eltLayerDesc.InnerText)) );
                         else if (string.Equals(eltLayerDesc.Name, "LayerDescCyl", StringComparison.CurrentCultureIgnoreCase))
-                            listDesc.Add( LayerDescCyl.Parse(eltLayerDesc.InnerText) );
+                            listDesc.Add( new LayerEncap(LayerDescCyl.Parse(eltLayerDesc.InnerText)) );
                     }
                 }
                 else if (string.Equals(node.Name, "SolutionItems", StringComparison.CurrentCultureIgnoreCase))
@@ -3317,17 +3317,17 @@ namespace treeDiM.StackBuilder.Basics
             // layer descriptors
             XmlElement eltLayerDescriptors = xmlDoc.CreateElement("LayerDescriptors");
             eltSolution.AppendChild(eltLayerDescriptors);
-            foreach (LayerDesc layerDesc in sol.LayerDescriptors)
+            foreach (var layerEncap in sol.LayerDescriptors)
             {
                 string eltLayerDescName = string.Empty;
-                if (layerDesc is LayerDescBox)
+                if (layerEncap.LayerDesc is LayerDescBox)
                     eltLayerDescName = "LayerDescBox";
-                else if (layerDesc is LayerDescCyl)
+                else if (layerEncap.LayerDesc is LayerDescCyl)
                     eltLayerDescName = "LayerDescCyl";
                 else
                     throw new Exception("Unexpected LayerDesc type!");
                 XmlElement eltLayerDesc = xmlDoc.CreateElement(eltLayerDescName);
-                eltLayerDesc.InnerText = layerDesc.ToString();
+                eltLayerDesc.InnerText = layerEncap.ToString();
                 eltLayerDescriptors.AppendChild(eltLayerDesc);
             }
             // solution items

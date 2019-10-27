@@ -94,9 +94,9 @@ namespace treeDiM.StackBuilder.Desktop
             base.OnNext();
             try
             {
-                List<LayerDesc> layerDescs = new List<LayerDesc>();
+                var layerEncaps = new List<LayerEncap>();
                 foreach (ILayer2D layer2D in uCtrlLayerList.Selected)
-                    layerDescs.Add(layer2D.LayerDescriptor);
+                    layerEncaps.Add(new LayerEncap(layer2D.LayerDescriptor));
 
                 Solution.SetSolver(new LayerSolver());
 
@@ -107,7 +107,7 @@ namespace treeDiM.StackBuilder.Desktop
                         , SelectedPackable, SelectedTruck
                         , new List<InterlayerProperties>()
                         , BuildConstraintSet()
-                        , layerDescs
+                        , layerEncaps
                         );
                 else
                 {
@@ -115,7 +115,7 @@ namespace treeDiM.StackBuilder.Desktop
                     analysis.Content = SelectedPackable;
                     analysis.TruckProperties = SelectedTruck;
                     analysis.ConstraintSet = BuildConstraintSet();
-                    analysis.AddSolution(layerDescs);
+                    analysis.AddSolution(layerEncaps);
 
                     _document.UpdateAnalysis(analysis);
                 }
@@ -192,7 +192,7 @@ namespace treeDiM.StackBuilder.Desktop
 
                 // compute
                 LayerSolver solver = new LayerSolver();
-                List<Layer2D> layers = solver.BuildLayers(
+                List<Layer2DBrickDef> layers = solver.BuildLayers(
                     packable.OuterDimensions
                     , new Vector2D(
                         truck.InsideLength - 2.0 * uCtrlMinDistanceLoadWall.ValueX

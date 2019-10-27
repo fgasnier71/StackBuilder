@@ -432,10 +432,10 @@ namespace treeDiM.StackBuilder.Desktop
             {
                 cbLayerType.Packable = _analysis.Content;
                 // build layers and fill CCtrl
-                foreach (LayerDesc layerDesc in _solution.LayerDescriptors)
+                foreach (var layerEncap in _solution.LayerDescriptors)
                 {
                     LayerSolver solver = new LayerSolver();
-                    ILayer2D layer = solver.BuildLayer(_analysis.Content, _analysis.ContainerDimensions, layerDesc, _analysis.ConstraintSet.MinimumSpace.Value);
+                    ILayer2D layer = solver.BuildLayer(_analysis.Content, _analysis.ContainerDimensions, layerEncap.LayerDesc, _analysis.ConstraintSet.MinimumSpace.Value);
                     cbLayerType.Items.Add(layer);
                 }
                 if (cbLayerType.Items.Count > 0)
@@ -472,7 +472,7 @@ namespace treeDiM.StackBuilder.Desktop
                     if (null != selItem)
                     {
                         // set current layer
-                        cbLayerType.SelectedIndex = selItem.LayerIndex;
+                        cbLayerType.SelectedIndex = selItem.IndexLayer;
                         // set interlayer
                         chkbInterlayer.Checked = selItem.HasInterlayer;
                         OnChkbInterlayerClicked(null, null);

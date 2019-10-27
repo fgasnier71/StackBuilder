@@ -42,11 +42,10 @@ namespace treeDiM.StackBuilder.Graphics
             graphics.DrawRectangle(Vector2D.Zero, new Vector2D(_layer.Length, _layer.Width), Color.Black);
 
             // draw layer (brick)
-            if (_layer is Layer2D)
+            if (_layer is Layer2DBrick layer2D)
             {
-                Layer2D layer2D = _layer as Layer2D;
                 uint pickId = 0;
-                foreach (var bPosition in layer2D)
+                foreach (var bPosition in layer2D.Positions)
                 {
                     Box b = null;
                     if (packable is PackProperties)
@@ -87,16 +86,15 @@ namespace treeDiM.StackBuilder.Graphics
             graphics.CameraPosition = Graphics3D.Corner_0;
 
             // draw layer (brick)
-            if (_layer is Layer2D)
+            if (_layer is Layer2DBrick layer2D)
             {
-                Layer2D layer2D = _layer as Layer2D;
                 uint pickId = 0;
-                foreach (var bPosition in layer2D)
+                foreach (var bPosition in layer2D.Positions)
                 {
                     if (packable is PackProperties)
-                        graphics.AddBox( new Pack(pickId++, packable as PackProperties, bPosition) );
+                        graphics.AddBox(new Pack(pickId++, packable as PackProperties, bPosition));
                     else if (packable is PackableBrick)
-                        graphics.AddBox( new Box(pickId++, packable as PackableBrick, bPosition) );
+                        graphics.AddBox(new Box(pickId++, packable as PackableBrick, bPosition));
                 }
             }
             // draw layer (cylinder)
