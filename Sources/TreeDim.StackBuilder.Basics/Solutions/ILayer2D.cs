@@ -17,6 +17,7 @@ namespace treeDiM.StackBuilder.Basics
         double Width { get; }
         LayerDesc LayerDescriptor { get; }
         double MaximumSpace { get; }
+        BBox3D BBox { get; }
         #endregion
 
         #region Methods
@@ -25,6 +26,7 @@ namespace treeDiM.StackBuilder.Basics
         int NoLayers(double height);
         string Tooltip(double height);
         void UpdateMaxSpace(double space, string patternName);
+
         #endregion
     }
     #endregion
@@ -67,7 +69,7 @@ namespace treeDiM.StackBuilder.Basics
             if (layer0Count < layer1Count) return 1;
             else if (layer0Count == layer1Count)
             {
-                if ((layer0 is Layer2DBrickDef layerBox0) && (layer1 is Layer2DBrickDef layerBox1))
+                if ((layer0 is Layer2DBrickImp layerBox0) && (layer1 is Layer2DBrickImp layerBox1))
                 {
                     if (layerBox0.AxisOrtho < layerBox1.AxisOrtho)
                         return 1;

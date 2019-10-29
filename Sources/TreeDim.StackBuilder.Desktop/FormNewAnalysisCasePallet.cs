@@ -97,7 +97,9 @@ namespace treeDiM.StackBuilder.Desktop
             try
             {
                 var layerEncaps = new List<LayerEncap>();
-                foreach (Layer2DBrickDef layer2D in uCtrlLayerList.Selected)
+                foreach (ILayer2D layer2D in uCtrlLayerListEdited.Selected)
+                    layerEncaps.Add(new LayerEncap(layer2D));
+                foreach (Layer2DBrickImp layer2D in uCtrlLayerList.Selected)
                     layerEncaps.Add(new LayerEncap(layer2D.LayerDescriptor));
 
                 Solution.SetSolver(new LayerSolver());
@@ -113,9 +115,7 @@ namespace treeDiM.StackBuilder.Desktop
                         , BuildConstraintSet()
                         , layerEncaps
                         );
-                    analysis.EditedLayers = _layersEditable;
                 }
-
                 else
                 {
                     analysis.ID.SetNameDesc(ItemName, ItemDescription);
@@ -209,7 +209,7 @@ namespace treeDiM.StackBuilder.Desktop
                 return;
             // compute
             LayerSolver solver = new LayerSolver();
-            List<Layer2DBrickDef> layers = solver.BuildLayers(
+            List<Layer2DBrickImp> layers = solver.BuildLayers(
                 packable.OuterDimensions
                 , new Vector2D(palletProperties.Length + 2.0*uCtrlOverhang.ValueX, palletProperties.Width + 2.0*uCtrlOverhang.ValueY)
                 , palletProperties.Height
@@ -279,7 +279,7 @@ namespace treeDiM.StackBuilder.Desktop
                 // get selected layer
                 ILayer2D[] layers = uCtrlLayerList.Selected;
                 if (layers.Length != 1) return;
-                Layer2DBrickDef layer = layers[0] as Layer2DBrickDef;
+                Layer2DBrickImp layer = layers[0] as Layer2DBrickImp;
                 using (var form = new FormEditLayer(layer.GenerateLayer2DEdited(), packable))
                 {
                     form.TopMost = true;
@@ -316,7 +316,7 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Data members
-        private List<Layer2DEditable> _layersEditable = new List<Layer2DEditable>(); 
+        private List<Layer2DBrickExp> _layersEditable = new List<Layer2DBrickExp>(); 
         static readonly ILog _log = LogManager.GetLogger(typeof(FormNewAnalysisCasePallet));
         #endregion
     }

@@ -105,7 +105,7 @@ namespace treeDiM.StackBuilder.Basics
             List<LayerEncap> bestLayerDescs = bestLayers.ConvertAll(l => new LayerEncap(l.LayerDescriptor));
 
             bool allFound = true;
-            foreach (LayerEncap l in Solution.LayerDescriptors)
+            foreach (LayerEncap l in Solution.LayerEncaps)
             {
                 if (null == bestLayerDescs.Find(bld => bld.Equals(l)))
                 {
@@ -122,7 +122,7 @@ namespace treeDiM.StackBuilder.Basics
             }
         }
         public override bool HasValidSolution => null != _solution;
-        public List<Layer2DEditable> EditedLayers { get; set; } = new List<Layer2DEditable>();
+        public List<Layer2DBrickExp> EditedLayers { get; set; } = new List<Layer2DBrickExp>();
         #region Non-Public Members
         protected Solution _solution;
         protected List<InterlayerProperties> _interlayers;

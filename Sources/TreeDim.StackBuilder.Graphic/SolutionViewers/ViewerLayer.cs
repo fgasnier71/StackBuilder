@@ -57,9 +57,9 @@ namespace treeDiM.StackBuilder.Graphics
                 }
             }
             // draw layer (cylinder)
-            else if (_layer is Layer2DCyl)
+            else if (_layer is Layer2DCylImp)
             {
-                Layer2DCyl layer2DCyl = _layer as Layer2DCyl;
+                Layer2DCylImp layer2DCyl = _layer as Layer2DCylImp;
                 uint pickId = 0;
                 foreach (Vector2D pos in layer2DCyl)
                 {
@@ -98,9 +98,9 @@ namespace treeDiM.StackBuilder.Graphics
                 }
             }
             // draw layer (cylinder)
-            else if (_layer is Layer2DCyl)
+            else if (_layer is Layer2DCylImp)
             {
-                Layer2DCyl layer2DCyl = _layer as Layer2DCyl;
+                Layer2DCylImp layer2DCyl = _layer as Layer2DCylImp;
                 uint pickId = 0;
                 foreach (Vector2D pos in layer2DCyl)
                 {

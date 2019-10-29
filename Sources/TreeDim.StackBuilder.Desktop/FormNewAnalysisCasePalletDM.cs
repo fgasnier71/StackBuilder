@@ -99,7 +99,7 @@ namespace treeDiM.StackBuilder.Desktop
         {
             try
             {
-                Layer2DBrickDef selLayer = SelectedLayer;
+                Layer2DBrickImp selLayer = SelectedLayer;
                 var layerEncaps = new List<LayerEncap>() { new LayerEncap(selLayer.LayerDescriptor) };
                 Solution.SetSolver(new LayerSolver());
                 AnalysisCasePallet analysis = AnalysisCast;
@@ -158,7 +158,7 @@ namespace treeDiM.StackBuilder.Desktop
         #region IDrawingContainer implementation
         public void Draw(Graphics3DControl ctrl, Graphics3D graphics)
         {
-            Layer2DBrickDef selLayer = SelectedLayer;
+            Layer2DBrickImp selLayer = SelectedLayer;
             PalletProperties pallet = SelectedPallet;
             Packable packable = SelectedPackable;
             if (null == selLayer || null == packable || null == pallet)
@@ -290,7 +290,7 @@ namespace treeDiM.StackBuilder.Desktop
                     IsBalloon = false
                 };
 
-                foreach (Layer2DBrickDef layer in _layers)
+                foreach (Layer2DBrickImp layer in _layers)
                 {
                     gridSolutions.Rows.Insert(++iRow);
                     iCol = 0;
@@ -331,7 +331,7 @@ namespace treeDiM.StackBuilder.Desktop
             }
         }
         private int GridFontSize => Settings.Default.GridFontSize;
-        private Layer2DBrickDef SelectedLayer
+        private Layer2DBrickImp SelectedLayer
         {
             get
             {
@@ -387,7 +387,7 @@ namespace treeDiM.StackBuilder.Desktop
 
         #region Data members
         protected static ILog _log = LogManager.GetLogger(typeof(FormNewAnalysisCasePalletDM));
-        private List<Layer2DBrickDef> _layers;
+        private List<Layer2DBrickImp> _layers;
         #endregion
     }
 }

@@ -293,11 +293,18 @@ namespace treeDiM.StackBuilder.GUIExtension
                 // packable
                 cbLayerType.Packable = _analysis.Content;
                 // build layers and fill CCtrl
-                foreach (LayerDesc layerDesc in solution.LayerDescriptors)
+                foreach (var layerEncap in solution.LayerEncaps)
                 {
-                    LayerSolver solver = new LayerSolver();
-                    Layer2DBrickDef layer = solver.BuildLayer(_analysis.ContentDimensions, _analysis.ContainerDimensions, layerDesc as LayerDescBox, 0.0);
-                    cbLayerType.Items.Add(layer);
+                    if (null != layerEncap.Layer2D)
+                    {
+                        cbLayerType.Items.Add(layerEncap.Layer2D);
+                    }
+                    else if (null != layerEncap.LayerDesc)
+                    {
+                        LayerSolver solver = new LayerSolver();
+                        Layer2DBrickImp layer = solver.BuildLayer(_analysis.ContentDimensions, _analysis.ContainerDimensions, layerEncap.LayerDesc as LayerDescBox, 0.0);
+                        cbLayerType.Items.Add(layer);
+                    }
                 }
                 if (cbLayerType.Items.Count > 0)
                     cbLayerType.SelectedIndex = 0;

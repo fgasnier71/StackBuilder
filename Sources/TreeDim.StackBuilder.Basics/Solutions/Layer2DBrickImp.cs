@@ -58,10 +58,10 @@ namespace treeDiM.StackBuilder.Basics
     }
     #endregion
     #region Layer2DBrickDef
-    public class Layer2DBrickDef : Layer2DBrick
+    public class Layer2DBrickImp : Layer2DBrick
     {
         #region Constructor
-        public Layer2DBrickDef(Vector3D dimBox, Vector2D dimContainer, string patternName, HalfAxis.HAxis axisOrtho, bool swapped)
+        public Layer2DBrickImp(Vector3D dimBox, Vector2D dimContainer, string patternName, HalfAxis.HAxis axisOrtho, bool swapped)
             : base(dimBox, dimContainer, patternName, axisOrtho)
         {
             Swapped = swapped;
@@ -164,7 +164,7 @@ namespace treeDiM.StackBuilder.Basics
         #endregion
 
         #region Public properties
-        public double BoxLength
+        public override double BoxLength
         {
             get
             {
@@ -180,7 +180,7 @@ namespace treeDiM.StackBuilder.Basics
                 }
             }
         }
-        public double BoxWidth
+        public override double BoxWidth
         {
             get
             {
@@ -217,9 +217,9 @@ namespace treeDiM.StackBuilder.Basics
         #endregion
 
         #region Generate Layer2DEdited
-        public Layer2DEditable GenerateLayer2DEdited()
+        public Layer2DBrickExp GenerateLayer2DEdited()
         {
-            var layer = new Layer2DEditable(DimBox, DimContainer, $"{Name}_edit", AxisOrtho);
+            var layer = new Layer2DBrickExp(DimBox, DimContainer, $"{Name}_edit_{_indexEdit++}", AxisOrtho);
             foreach (var lp in Positions)
                 layer.AddPosition(new BoxPosition(lp));
             return layer;
@@ -229,7 +229,8 @@ namespace treeDiM.StackBuilder.Basics
         #region Data members
         private double _maximumSpace = 0.0;
         private static readonly double _epsilon = 1.0e-03;
-        protected static ILog _log = LogManager.GetLogger(typeof(Layer2DBrickDef));
+        private static int _indexEdit = 0;
+        protected static ILog _log = LogManager.GetLogger(typeof(Layer2DBrickImp));
         #endregion
     }
     #endregion

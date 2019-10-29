@@ -17,10 +17,10 @@ namespace treeDiM.StackBuilder.Basics
     #region ILayerSolver
     public interface ILayerSolver
     {
-        List<Layer2DBrickDef> BuildLayers(Vector3D dimBox, Vector2D dimContainer, double offsetZ, ConstraintSetAbstract constraintSet, bool keepOnlyBest);
+        List<Layer2DBrickImp> BuildLayers(Vector3D dimBox, Vector2D dimContainer, double offsetZ, ConstraintSetAbstract constraintSet, bool keepOnlyBest);
         List<ILayer2D> BuildLayers(Packable packable, Vector2D dimContainer, double offsetZ, ConstraintSetAbstract constraintSet, bool keepOnlyBest);
-        Layer2DBrickDef BuildLayer(Vector3D dimBox, Vector2D actualDimensions, LayerDescBox layerDesc, double minSpace);
-        Layer2DBrickDef BuildLayer(Vector3D dimBox, Vector2D dimContainer, LayerDescBox layerDesc, Vector2D actualDimensions, double minSpace);
+        Layer2DBrickImp BuildLayer(Vector3D dimBox, Vector2D actualDimensions, LayerDescBox layerDesc, double minSpace);
+        Layer2DBrickImp BuildLayer(Vector3D dimBox, Vector2D dimContainer, LayerDescBox layerDesc, Vector2D actualDimensions, double minSpace);
         ILayer2D BuildLayer(Packable packable, Vector2D dimContainer, LayerDesc layerDesc, double minSpace);
         ILayer2D BuildLayer(Packable packable, Vector2D dimContainer, LayerDesc layerDesc, Vector2D actualDimensions, double minSpace);
         bool GetDimensions(List<LayerDesc> layers, Packable packable, Vector2D dimContainer, double minSpace, ref Vector2D actualDimensions);
@@ -126,8 +126,12 @@ namespace treeDiM.StackBuilder.Basics
         public override bool Equals(object obj)
         {
             if (obj is LayerEncap lObj)
-                return (((null == LayerDesc) && (null == lObj.LayerDesc)) || LayerDesc.Equals(lObj.LayerDesc))
-                    && (((null == Layer2D) && (null == lObj.Layer2D)) || Layer2D.Equals(lObj.Layer2D));
+            {
+                if ((null == LayerDesc && null != lObj.LayerDesc) || (null != LayerDesc && null == lObj.LayerDesc))
+                    return false;
+                return ( null != LayerDesc && LayerDesc.Equals(lObj.LayerDesc))
+                    || ( null != Layer2D && Layer2D.Equals(lObj.Layer2D));
+            }
             return false;
         }
         public override int GetHashCode()
@@ -139,6 +143,15 @@ namespace treeDiM.StackBuilder.Basics
             else
                 return 0;
         }
+        public override string ToString()
+        {
+            if (null != LayerDesc)
+                return LayerDesc.ToString();
+            else if (null != Layer2D)
+                return Layer2D.ToString();
+            else
+                throw new Exception("Unexpected LayerEncap type!");
+        }
         public ILayer2D BuildLayer(ILayerSolver solver, Packable packable, Vector2D containerDim, Vector2D actualDimensions, double minimumSpace)
         {
             if (null != LayerDesc)
@@ -147,6 +160,19 @@ namespace treeDiM.StackBuilder.Basics
                 return Layer2D;
             else
                 throw new Exception("Invalid LayerEncap");            
+        }
+        public Vector2D GetDimensions(ILayerSolver solver, Packable packable, Vector2D containerDim, double minimumSpace)
+        {
+            Vector2D dimensions = Vector2D.Zero;
+            if (null != LayerDesc)
+                solver.GetDimensions(new List<LayerDesc>() { LayerDesc }, packable, containerDim, minimumSpace, ref dimensions);
+            if (null != Layer2D)
+            {
+                BBox3D bb = Layer2D.BBox;
+                dimensions.X = bb.Length;
+                dimensions.Y = bb.Width;
+            }
+            return dimensions;
         }
     }
     #endregion
@@ -241,7 +267,7 @@ namespace treeDiM.StackBuilder.Basics
         public Solution(AnalysisHomo analysis, List<LayerEncap> layerDescs)
         {
             Analysis = analysis;
-            LayerDescriptors = layerDescs;
+            LayerEncaps = layerDescs;
 
             RebuildLayers();
             InitializeSolutionItemList();
@@ -249,7 +275,7 @@ namespace treeDiM.StackBuilder.Basics
         public Solution(AnalysisHomo analysis, List<KeyValuePair<LayerEncap, int>> layerList)
         {
             Analysis = analysis;
-            LayerDescriptors = layerList.ConvertAll(l => l.Key);
+            LayerEncaps = layerList.ConvertAll(l => l.Key);
 
             RebuildLayers();
             InitializeSolutionItemList(layerList);
@@ -261,7 +287,7 @@ namespace treeDiM.StackBuilder.Basics
         public void RebuildLayers()
         {
             // sanity checks
-            if ((null == LayerDescriptors) || (0 == LayerDescriptors.Count))
+            if ((null == LayerEncaps) || (0 == LayerEncaps.Count))
                 throw new Exception("No layer descriptors/edited layers available");
 
             // build list of used layers
@@ -270,31 +296,24 @@ namespace treeDiM.StackBuilder.Basics
             {
                 foreach (SolutionItem item in _solutionItems)
                 {
-                    if (!usedLayers.Contains(LayerDescriptors[item.IndexLayer]))
-                        usedLayers.Add(LayerDescriptors[item.IndexLayer]);
+                    if (!usedLayers.Contains(LayerEncaps[item.IndexLayer]))
+                        usedLayers.Add(LayerEncaps[item.IndexLayer]);
                 }
             }
+            // if there is no layer used (e.g. startup), choose the first one
             if (0 == usedLayers.Count)
-                usedLayers.Add(LayerDescriptors[0]);
-            // get dimensions
+                usedLayers.Add(LayerEncaps[0]);
+            // get actual dimensions
             Vector2D actualDimensions = Vector2D.Zero;
-
-            List<LayerDesc> usedLayerDesc = new List<LayerDesc>();
-            foreach (var layer in LayerDescriptors)
+            foreach (var layer in usedLayers)
             {
-                if (null != layer.Layer2D)
-                {
-
-                    actualDimensions.X = Math.Max(actualDimensions.X, layer.Layer2D.Length);
-                }
-                if (null != layer.LayerDesc)
-                    usedLayerDesc.Add(layer.LayerDesc);
+                Vector2D dim = layer.GetDimensions(Solver, Analysis.Content, Analysis.ContainerDimensions, ConstraintSet.MinimumSpace.Value);
+                actualDimensions.X = Math.Max(actualDimensions.X, dim.X);
+                actualDimensions.Y = Math.Max(actualDimensions.Y, dim.Y);
             }
-            Solver.GetDimensions(usedLayerDesc, Analysis.Content, Analysis.ContainerDimensions, ConstraintSet.MinimumSpace.Value, ref actualDimensions);
-
             // actually build layers
             _layerTypes = new List<ILayer2D>();
-            foreach (LayerEncap layer in LayerDescriptors)
+            foreach (LayerEncap layer in LayerEncaps)
                 _layerTypes.Add(layer.BuildLayer(Solver, Analysis.Content, Analysis.ContainerDimensions, actualDimensions, ConstraintSet.MinimumSpace.Value));
         }
         private void InitializeSolutionItemList()
@@ -496,7 +515,7 @@ namespace treeDiM.StackBuilder.Basics
         {
             get { return Analysis.ConstraintSet; }
         }
-        public List<LayerEncap> LayerDescriptors { get; }
+        public List<LayerEncap> LayerEncaps { get; }
         public List<InterlayerProperties> Interlayers
         {
             get { return Analysis.Interlayers; }
@@ -532,9 +551,9 @@ namespace treeDiM.StackBuilder.Basics
                 return boxLayer;
             }
 
-            if (currentLayer is Layer2DCyl)
+            if (currentLayer is Layer2DCylImp)
             {
-                Layer2DCyl layer2DCyl = currentLayer as Layer2DCyl;
+                Layer2DCylImp layer2DCyl = currentLayer as Layer2DCylImp;
                 Layer3DCyl cylLayer = new Layer3DCyl(0.0);
                 foreach (Vector2D vPos in layer2DCyl)
                 {
@@ -594,7 +613,7 @@ namespace treeDiM.StackBuilder.Basics
                         if (boxLayer.Count > 0)
                             llayers.Add(boxLayer);
                     }
-                    if (currentLayer is Layer2DCyl layer2DCyl)
+                    if (currentLayer is Layer2DCylImp layer2DCyl)
                     {
                         Layer3DCyl cylLayer = new Layer3DCyl(zLayer);
                         foreach (Vector2D vPos in layer2DCyl)

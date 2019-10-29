@@ -12,7 +12,7 @@ namespace treeDiM.StackBuilder.Engine
         public override bool GetLayerDimensions(ILayer2D layer, out double actualLength, out double actualWidth)
         {
             layer.Clear();
-            Layer2DCyl layerCyl = layer as Layer2DCyl;
+            Layer2DCylImp layerCyl = layer as Layer2DCylImp;
             ComputeRowNumberAndLength(layerCyl
                 , out int number
                 , out int firstRowLength, out int secondRowLength, out int rowNumber
@@ -27,7 +27,7 @@ namespace treeDiM.StackBuilder.Engine
             double diameter = GetDiameter(layer);
             double radius = 0.5 * diameter;
 
-            Layer2DCyl layerCyl = layer as Layer2DCyl;
+            Layer2DCylImp layerCyl = layer as Layer2DCylImp;
             if (!ComputeRowNumberAndLength(layerCyl
                 , out int number
                 , out int firstRowLength, out int secondRowLength, out int rowNumber
@@ -116,7 +116,7 @@ namespace treeDiM.StackBuilder.Engine
         }
 
         #region Non-public members
-        private bool ComputeRowNumberAndLength(Layer2DCyl layer
+        private bool ComputeRowNumberAndLength(Layer2DCylImp layer
             , out int number
             , out int firstRowLength, out int secondRowLength, out int rowNumber
             , out double actualLength, out double actualWidth)

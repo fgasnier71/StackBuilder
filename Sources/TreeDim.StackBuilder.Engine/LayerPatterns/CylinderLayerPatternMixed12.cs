@@ -16,8 +16,8 @@ namespace treeDiM.StackBuilder.Engine
             double palletLength = layer.Length;
             double palletWidth = layer.Width;
 
-            Layer2DCyl layerCyl = layer as Layer2DCyl;
-            double radius = layerCyl.CylinderRadius;
+            Layer2DCylImp layerCyl = layer as Layer2DCylImp;
+            double radius = layerCyl.Radius;
 
             int alignedRowLength = 0, stagRowLength = 0;
             int rowNumber1 = 0, rowNumber2 = 0;
@@ -40,7 +40,7 @@ namespace treeDiM.StackBuilder.Engine
 
             int alignedRowLength = 0, stagRowLength = 0;
             int rowNumber1 = 0, rowNumber2 = 0;
-            Layer2DCyl layerCyl = layer as Layer2DCyl;
+            Layer2DCylImp layerCyl = layer as Layer2DCylImp;
             ComputeRowNumberAndLength(layerCyl
                 , out alignedRowLength, out rowNumber1
                 , out stagRowLength, out rowNumber2
@@ -65,15 +65,15 @@ namespace treeDiM.StackBuilder.Engine
         }
 
         #region Non-Public Members
-        private bool ComputeRowNumberAndLength(Layer2DCyl layer
+        private bool ComputeRowNumberAndLength(Layer2DCylImp layer
             , out int alignedRowLength, out int rowNumber1
             , out int stagRowLength, out int rowNumber2
             , out double actualLength, out double actualWidth)
         {
             double palletLength = GetPalletLength(layer);
             double palletWidth = GetPalletWidth(layer);
-            double radius = layer.CylinderRadius;
-            double diameter = 2.0 * layer.CylinderRadius;
+            double radius = layer.Radius;
+            double diameter = 2.0 * layer.Radius;
 
             // initialize out parameters
             alignedRowLength = 0; rowNumber1 = 0;

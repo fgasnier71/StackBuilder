@@ -17,11 +17,11 @@ namespace treeDiM.StackBuilder.Engine
             _caseProperties = bProperties;
         }
 
-        public Layer2DBrickDef BuildBestLayer(ConstraintSetAbstract constraintSet)
+        public Layer2DBrickImp BuildBestLayer(ConstraintSetAbstract constraintSet)
         {
             // build layer list
             var solver = new LayerSolver();
-            List<Layer2DBrickDef> layers = solver.BuildLayers(
+            List<Layer2DBrickImp> layers = solver.BuildLayers(
                     _packable.OuterDimensions
                     , new Vector2D(_caseProperties.InsideLength, _caseProperties.InsideWidth)
                     , 0.0 /* offsetZ */
@@ -61,7 +61,7 @@ namespace treeDiM.StackBuilder.Engine
             {
                 // build layer list
                 var solver = new LayerSolver();
-                List<Layer2DBrickDef> layers = solver.BuildLayers(
+                List<Layer2DBrickImp> layers = solver.BuildLayers(
                      _packable.OuterDimensions
                      , new Vector2D(_caseProperties.InsideLength, _caseProperties.InsideWidth)
                      , 0.0 /* offsetZ */
@@ -70,7 +70,7 @@ namespace treeDiM.StackBuilder.Engine
                  );
                 Solution.SetSolver(solver);
                 // loop on layers
-                foreach (Layer2DBrickDef layer in layers)
+                foreach (Layer2DBrickImp layer in layers)
                 {
                     var layerDescs = new List<LayerDesc> { layer.LayerDescriptor };
                     var analysis = new AnalysisBoxCase(null, _packable, _caseProperties, constraintSet as ConstraintSetBoxCase);

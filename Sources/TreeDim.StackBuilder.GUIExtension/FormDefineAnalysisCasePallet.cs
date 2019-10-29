@@ -169,7 +169,7 @@ namespace treeDiM.StackBuilder.GUIExtension
                     return;
                 // compute
                 ILayerSolver solver = new LayerSolver();
-                List<Layer2DBrickDef> layers = solver.BuildLayers(
+                List<Layer2DBrickImp> layers = solver.BuildLayers(
                     packable.OuterDimensions
                     , new Vector2D(palletProperties.Length + 2.0*uCtrlOverhang.ValueX, palletProperties.Width + 2.0*uCtrlOverhang.ValueY)
                     , palletProperties.Height

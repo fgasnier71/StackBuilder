@@ -76,7 +76,7 @@ namespace treeDiM.StackBuilder.Engine
                 && maxSizeYWidth > 0;
         }
 
-        public override int GetNumberOfVariants(Layer2DBrickDef layer) => 1;
+        public override int GetNumberOfVariants(Layer2DBrickImp layer) => 1;
 
         #region Non-Public Members
 

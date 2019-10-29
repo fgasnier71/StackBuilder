@@ -203,7 +203,7 @@ namespace treeDiM.StackBuilder.Plugin
                     if (constraintSetBoxCase.Valid)
                     {
                         SolverBoxCase solver = new SolverBoxCase(itemProperties, currentCase);
-                        Layer2DBrickDef layer = solver.BuildBestLayer(constraintSetBoxCase);
+                        Layer2DBrickImp layer = solver.BuildBestLayer(constraintSetBoxCase);
                         List<LayerDesc> layerDescs = new List<LayerDesc>();
                         if (null != layer)
                             layerDescs.Add(layer.LayerDescriptor);
@@ -243,7 +243,7 @@ namespace treeDiM.StackBuilder.Plugin
                 if (constraintSet.Valid)
                 {
                     SolverCasePallet solver = new SolverCasePallet(form.UseIntermediatePacking ? currentCase : itemProperties, currentPallet);
-                    Layer2DBrickDef layer = solver.BuildBestLayer(constraintSet);
+                    Layer2DBrickImp layer = solver.BuildBestLayer(constraintSet);
                     List<LayerDesc> layerDescs = new List<LayerDesc>();
                     if (null != layer)
                         layerDescs.Add(layer.LayerDescriptor);                          

@@ -24,7 +24,7 @@ namespace treeDiM.StackBuilder.Graphics
         }
         #endregion
         #region Public properties
-        public Layer2DEditable Layer  { get; set; }
+        public Layer2DBrickExp Layer  { get; set; }
         public Vector2D PtMin => Vector2D.Zero - new Vector2D(MaxContentDim, MaxContentDim);
         public Vector2D PtMax => Layer.DimContainer + new Vector2D(MaxContentDim, MaxContentDim);
         public double MaxContentDim

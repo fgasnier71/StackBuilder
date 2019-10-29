@@ -45,31 +45,22 @@ namespace treeDiM.StackBuilder.Basics
     #endregion
 
     #region Layer2DCyl
-    public class Layer2DCyl : List<Vector2D>, ILayer2D
+    public class Layer2DCylImp : List<Vector2D>, ILayer2D
     {
-        #region Data members
-        private string _patternName = string.Empty;
-        private bool _swapped = false;
-        private Vector2D _dimContainer;
-        private double _radius, _height;
-
-        protected static ILog _log = LogManager.GetLogger(typeof(Layer2DBrickDef));
-        #endregion
-
         #region Constructor
-        public Layer2DCyl(double radius, double height, Vector2D dimContainer, bool swapped)
+        public Layer2DCylImp(double radius, double height, Vector2D dimContainer, bool swapped)
         {
-            _radius = radius; _height = height;
-            _dimContainer = dimContainer;
-            _swapped = swapped;
+            Radius = radius; LayerHeight = height;
+            DimContainer = dimContainer;
+            Swapped = swapped;
         }
         #endregion
 
         #region Public methods
         public bool IsValidPosition(Vector2D vPosition)
         {
-            return (vPosition.X - _radius >= -1) && (vPosition.X + _radius <= _dimContainer.X)
-                && (vPosition.Y - _radius >= -1) && (vPosition.Y + _radius <= _dimContainer.Y);
+            return (vPosition.X - Radius >= -1) && (vPosition.X + Radius <= DimContainer.X)
+                && (vPosition.Y - Radius >= -1) && (vPosition.Y + Radius <= DimContainer.Y);
         }
         public int CountInHeight(double height)
         {
@@ -83,33 +74,20 @@ namespace treeDiM.StackBuilder.Basics
         {
             return (int)Math.Floor(height / LayerHeight); 
         }
-        public double CylinderRadius
-        {
-            get { return _radius; }
-        }
+        public double Radius { get; }
         #endregion
 
         #region ILayer2D implementation
-        public string PatternName
-        {
-            get { return _patternName; }
-            set { _patternName = value; }
-        }
-        public bool Swapped
-        {
-            get { return _swapped; }
-        }
+        public string PatternName { get; set; } = string.Empty;
+        public bool Swapped { get; } = false;
         public string Name
         {
             get { return string.Format("{0}_{1}", PatternName, Swapped ? "t" : "f"); }
         }
-        public double LayerHeight
-        {
-            get { return _height; }
-        }
+        public double LayerHeight { get; }
         public double MaximumSpace { get { return 0.0; } }
-        public double Length { get { return _dimContainer.X; } }
-        public double Width  { get { return _dimContainer.Y; } }
+        public double Length { get { return DimContainer.X; } }
+        public double Width  { get { return DimContainer.Y; } }
         public string Tooltip(double height)
         {
             return string.Format("{0} * {1} = {2}\n {3}"
@@ -121,19 +99,46 @@ namespace treeDiM.StackBuilder.Basics
         public void UpdateMaxSpace(double space, string patternName)
         { 
         }
+        public BBox3D BBox
+        {
+            get
+            {
+                BBox3D bbox = BBox3D.Initial;
+                foreach (Vector2D v in this)
+                {
+                    Vector3D pos = new Vector3D(v.X, v.Y, 0.0);
+
+                    Vector3D[] pts = new Vector3D[8];
+                    pts[0] = pos - Radius * Vector3D.XAxis - Radius * Vector3D.YAxis;
+                    pts[1] = pos + Radius * Vector3D.XAxis - Radius * Vector3D.YAxis;
+                    pts[2] = pos + Radius * Vector3D.XAxis + Radius * Vector3D.YAxis;
+                    pts[3] = pos - Radius * Vector3D.XAxis + Radius * Vector3D.YAxis;
+                    pts[4] = pos - Radius * Vector3D.XAxis - Radius * Vector3D.YAxis + LayerHeight * Vector3D.ZAxis;
+                    pts[5] = pos + Radius * Vector3D.XAxis - Radius * Vector3D.YAxis + LayerHeight * Vector3D.ZAxis;
+                    pts[6] = pos + Radius * Vector3D.XAxis + Radius * Vector3D.YAxis + LayerHeight * Vector3D.ZAxis;
+                    pts[7] = pos - Radius * Vector3D.XAxis + Radius * Vector3D.YAxis + LayerHeight * Vector3D.ZAxis;
+
+                    foreach (Vector3D pt in pts)
+                        bbox.Extend(pt);
+                }
+                return bbox;
+            }
+        }
         #endregion
 
         #region Public properties
-        public LayerDesc LayerDescriptor
-        {
-            get { return new LayerDescCyl(_patternName, _swapped); }
-        }
+        public LayerDesc LayerDescriptor => new LayerDescCyl(PatternName, Swapped);
+        public Vector2D DimContainer { get; set; }
+        #endregion
+
+        #region Data members
+        protected static ILog _log = LogManager.GetLogger(typeof(Layer2DBrickImp));
         #endregion
     }
     #endregion
 
     #region Comparers
-    public class LayerCylComparerCount : IComparer<Layer2DCyl>
+    public class LayerCylComparerCount : IComparer<Layer2DCylImp>
     {
         #region Data members
         private double _height = 0;
@@ -147,7 +152,7 @@ namespace treeDiM.StackBuilder.Basics
         #endregion
 
         #region Implement IComparer
-        public int Compare(Layer2DCyl layer0, Layer2DCyl layer1)
+        public int Compare(Layer2DCylImp layer0, Layer2DCylImp layer1)
         {
             int layer0Count = layer0.CountInHeight(_height);
             int layer1Count = layer1.CountInHeight(_height);

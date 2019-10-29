@@ -177,7 +177,7 @@ namespace treeDiM.StackBuilder.Desktop
                     analysisSel.Content, caseProperties,
                     interlayers,
                     analysisSel.ConstraintSet as ConstraintSetBoxCase,
-                    analysisSel.Solution.LayerDescriptors);
+                    analysisSel.Solution.LayerEncaps);
             }
             catch (Exception ex)
             {

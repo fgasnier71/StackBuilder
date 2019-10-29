@@ -10,7 +10,7 @@ namespace treeDiM.StackBuilder.Engine
     internal class LayerPatternMSpirale4Parts : LayerPatternBox
     {
         public override string Name => "M Spirale 4 parts";
-        public override int GetNumberOfVariants(Layer2DBrickDef layer) => 1;
+        public override int GetNumberOfVariants(Layer2DBrickImp layer) => 1;
         public override bool IsSymetric => false;
         public override bool CanBeSwapped => true;
         public override bool CanBeInverted => true;

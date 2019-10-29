@@ -845,7 +845,7 @@ namespace treeDiM.StackBuilder.Basics
             List<LayerEncap> layerEncaps = new List<LayerEncap>();
             if (null != solver)
             {
-                List<Layer2DBrickDef> layers = solver.BuildLayers(
+                List<Layer2DBrickImp> layers = solver.BuildLayers(
                     box.OuterDimensions
                     , new Vector2D(pallet.Length + constraintSetNew.Overhang.X, pallet.Width + constraintSetNew.Overhang.Y), pallet.Height
                     , constraintSetNew
@@ -882,7 +882,7 @@ namespace treeDiM.StackBuilder.Basics
             var layerEncaps = new List<LayerEncap>();
             if (null != solver)
             {
-                List<Layer2DBrickDef> layers = solver.BuildLayers(
+                List<Layer2DBrickImp> layers = solver.BuildLayers(
                     pack.OuterDimensions
                     , new Vector2D(pallet.Length + constraintSetNew.Overhang.X, pallet.Width + constraintSetNew.Overhang.Y), pallet.Height
                     , constraintSetNew
@@ -2315,9 +2315,28 @@ namespace treeDiM.StackBuilder.Basics
                     {
                         XmlElement eltLayerDesc = nodeLayerDesc as XmlElement;
                         if (string.Equals(eltLayerDesc.Name, "LayerDescBox", StringComparison.CurrentCultureIgnoreCase))
-                            listDesc.Add( new LayerEncap(LayerDescBox.Parse(eltLayerDesc.InnerText)) );
+                            listDesc.Add(new LayerEncap(LayerDescBox.Parse(eltLayerDesc.InnerText)));
                         else if (string.Equals(eltLayerDesc.Name, "LayerDescCyl", StringComparison.CurrentCultureIgnoreCase))
-                            listDesc.Add( new LayerEncap(LayerDescCyl.Parse(eltLayerDesc.InnerText)) );
+                            listDesc.Add(new LayerEncap(LayerDescCyl.Parse(eltLayerDesc.InnerText)));
+                        else if (string.Equals(eltLayerDesc.Name, "LayerExpBoxes", StringComparison.CurrentCultureIgnoreCase))
+                        {
+                            string name = eltLayerDesc.Attributes["Name"].Value;
+                            Vector3D dimBox = Vector3D.Parse(eltLayerDesc.Attributes["DimBox"].Value);
+                            Vector2D dimContainer = Vector2D.Parse(eltLayerDesc.Attributes["DimContainer"].Value);
+                            HalfAxis.HAxis axisOrtho = HalfAxis.Parse(eltLayerDesc.Attributes["AxisOrtho"].Value);
+                            var layer2D = new Layer2DBrickExp(dimBox, dimContainer, name, axisOrtho);
+                            foreach (XmlNode nodeBP in eltLayerDesc.ChildNodes)
+                                layer2D.AddPosition(LoadBoxPosition(nodeBP as XmlElement));
+                            listDesc.Add(new LayerEncap(layer2D));
+                        }
+                        else if (string.Equals(eltLayerDesc.Name, "LayerExpCyl", StringComparison.CurrentCultureIgnoreCase))
+                        {
+                            double radius = 0.0;
+                            double height = 0.0;
+                            Vector2D dimContainer = Vector2D.Zero;
+                            var layer2D = new Layer2DCylExp(radius, height, dimContainer);
+                            listDesc.Add(new LayerEncap(layer2D));
+                        }
                     }
                 }
                 else if (string.Equals(node.Name, "SolutionItems", StringComparison.CurrentCultureIgnoreCase))
@@ -3313,22 +3332,60 @@ namespace treeDiM.StackBuilder.Basics
         {
             XmlElement eltSolution = xmlDoc.CreateElement("Solution");
             parentElement.AppendChild(eltSolution);
-
-            // layer descriptors
-            XmlElement eltLayerDescriptors = xmlDoc.CreateElement("LayerDescriptors");
-            eltSolution.AppendChild(eltLayerDescriptors);
-            foreach (var layerEncap in sol.LayerDescriptors)
+            // layer encaps
+            XmlElement eltLayerEncaps = xmlDoc.CreateElement("LayerDescriptors");
+            eltSolution.AppendChild(eltLayerEncaps);
+            foreach (var layerEncap in sol.LayerEncaps)
             {
-                string eltLayerDescName = string.Empty;
-                if (layerEncap.LayerDesc is LayerDescBox)
-                    eltLayerDescName = "LayerDescBox";
-                else if (layerEncap.LayerDesc is LayerDescCyl)
-                    eltLayerDescName = "LayerDescCyl";
-                else
-                    throw new Exception("Unexpected LayerDesc type!");
-                XmlElement eltLayerDesc = xmlDoc.CreateElement(eltLayerDescName);
-                eltLayerDesc.InnerText = layerEncap.ToString();
-                eltLayerDescriptors.AppendChild(eltLayerDesc);
+                if (null != layerEncap.LayerDesc)
+                {
+                    string eltLayerDescName = string.Empty;
+                    if (layerEncap.LayerDesc is LayerDescBox)
+                        eltLayerDescName = "LayerDescBox";
+                    else if (layerEncap.LayerDesc is LayerDescCyl)
+                        eltLayerDescName = "LayerDescCyl";
+                    else
+                        throw new Exception("Unexpected LayerDesc type!");
+                    XmlElement eltLayerDesc = xmlDoc.CreateElement(eltLayerDescName);
+                    eltLayerDesc.InnerText = layerEncap.ToString();
+                    eltLayerEncaps.AppendChild(eltLayerDesc);
+                }
+                else if (null != layerEncap.Layer2D)
+                {
+                    if (layerEncap.Layer2D is Layer2DBrickExp layerBrick)
+                    {
+                        XmlElement eltLayerExpBoxes = xmlDoc.CreateElement("LayerExpBoxes");
+                        eltLayerEncaps.AppendChild(eltLayerExpBoxes);
+                        // name
+                        XmlAttribute attName = xmlDoc.CreateAttribute("Name");
+                        attName.Value = layerBrick.Name;
+                        eltLayerExpBoxes.Attributes.Append(attName);
+                        // dimension box
+                        XmlAttribute attDimBox = xmlDoc.CreateAttribute("DimBox");
+                        attDimBox.Value = layerBrick.DimBox.ToString();
+                        eltLayerExpBoxes.Attributes.Append(attDimBox);
+                        // dimensions container
+                        XmlAttribute attDimContainer = xmlDoc.CreateAttribute("DimContainer");
+                        attDimContainer.Value = layerBrick.DimContainer.ToString();
+                        eltLayerExpBoxes.Attributes.Append(attDimContainer);
+                        // orientation
+                        XmlAttribute attAxisOrtho = xmlDoc.CreateAttribute("AxisOrtho");
+                        attAxisOrtho.Value = HalfAxis.ToString(layerBrick.AxisOrtho);
+                        eltLayerExpBoxes.Attributes.Append(attAxisOrtho);
+                        // positions
+                        foreach (var p in layerBrick.Positions)
+                            SaveBoxPosition(p, eltLayerExpBoxes, xmlDoc);
+                    }
+                    else if (layerEncap.Layer2D is Layer2DCylImp layerCyl)
+                    {
+                        XmlElement eltLayerExpCylinders = xmlDoc.CreateElement("LayerExpCyl");
+                        eltLayerEncaps.AppendChild(eltLayerExpCylinders);
+                        foreach (var p in layerCyl)
+                            SaveCylPosition(p, eltLayerExpCylinders, xmlDoc);
+                    }
+                    else
+                        throw new Exception("Unexpected Cylinder type!");
+                }
             }
             // solution items
             XmlElement eltSolutionItems = xmlDoc.CreateElement("SolutionItems");
@@ -3552,23 +3609,25 @@ namespace treeDiM.StackBuilder.Basics
             boxlayerElt.Attributes.Append(attributeMaxSpace);
 
             foreach (BoxPosition boxPosition in boxLayer)
-            {
-                // BoxPosition
-                XmlElement boxPositionElt = xmlDoc.CreateElement("BoxPosition");
-                boxlayerElt.AppendChild(boxPositionElt);
-                // Position
-                XmlAttribute positionAttribute = xmlDoc.CreateAttribute("Position");
-                positionAttribute.Value = boxPosition.Position.ToString();
-                boxPositionElt.Attributes.Append(positionAttribute);
-                // AxisLength
-                XmlAttribute axisLengthAttribute = xmlDoc.CreateAttribute("AxisLength");
-                axisLengthAttribute.Value = HalfAxis.ToString(boxPosition.DirectionLength);
-                boxPositionElt.Attributes.Append(axisLengthAttribute);
-                // AxisWidth
-                XmlAttribute axisWidthAttribute = xmlDoc.CreateAttribute("AxisWidth");
-                axisWidthAttribute.Value = HalfAxis.ToString(boxPosition.DirectionWidth);
-                boxPositionElt.Attributes.Append(axisWidthAttribute);
-            }
+                SaveBoxPosition(boxPosition, boxlayerElt, xmlDoc);            
+        }
+        private void SaveBoxPosition(BoxPosition bPos, XmlElement parentElt, XmlDocument xmlDoc)
+        {
+            // BoxPosition
+            XmlElement boxPositionElt = xmlDoc.CreateElement("BoxPosition");
+            parentElt.AppendChild(boxPositionElt);
+            // Position
+            XmlAttribute positionAttribute = xmlDoc.CreateAttribute("Position");
+            positionAttribute.Value = bPos.Position.ToString();
+            boxPositionElt.Attributes.Append(positionAttribute);
+            // AxisLength
+            XmlAttribute axisLengthAttribute = xmlDoc.CreateAttribute("AxisLength");
+            axisLengthAttribute.Value = HalfAxis.ToString(bPos.DirectionLength);
+            boxPositionElt.Attributes.Append(axisLengthAttribute);
+            // AxisWidth
+            XmlAttribute axisWidthAttribute = xmlDoc.CreateAttribute("AxisWidth");
+            axisWidthAttribute.Value = HalfAxis.ToString(bPos.DirectionWidth);
+            boxPositionElt.Attributes.Append(axisWidthAttribute);
         }
         public void Save(Layer3DCyl cylLayer, XmlElement layersElt, XmlDocument xmlDoc)
         {
@@ -3579,16 +3638,28 @@ namespace treeDiM.StackBuilder.Basics
             XmlAttribute zlowAttribute = xmlDoc.CreateAttribute("ZLow");
             zlowAttribute.Value = string.Format(CultureInfo.InvariantCulture, "{0}", cylLayer.ZLow);
             cylLayerElt.Attributes.Append(zlowAttribute);
-            foreach (Vector3D boxPosition in cylLayer)
-            {
-                // BoxPosition
-                XmlElement cylPositionElt = xmlDoc.CreateElement("CylPosition");
-                cylLayerElt.AppendChild(cylPositionElt);
-                // Position
-                XmlAttribute positionAttribute = xmlDoc.CreateAttribute("Position");
-                positionAttribute.Value = boxPosition.ToString();
-                cylPositionElt.Attributes.Append(positionAttribute);
-            }            
+            foreach (Vector3D cylPosition in cylLayer)
+                SaveCylPosition(cylPosition, cylLayerElt, xmlDoc);                    
+        }
+        private void SaveCylPosition(Vector3D vPos, XmlElement parentElt, XmlDocument xmlDoc)
+        {
+            // BoxPosition
+            XmlElement cylPositionElt = xmlDoc.CreateElement("CylPosition");
+            parentElt.AppendChild(cylPositionElt);
+            // Position
+            XmlAttribute positionAttribute = xmlDoc.CreateAttribute("Position");
+            positionAttribute.Value = vPos.ToString();
+            cylPositionElt.Attributes.Append(positionAttribute);
+        }
+        private void SaveCylPosition(Vector2D vPos, XmlElement parentElt, XmlDocument xmlDoc)
+        {
+            // BoxPosition
+            XmlElement cylPositionElt = xmlDoc.CreateElement("CylPosition");
+            parentElt.AppendChild(cylPositionElt);
+            // Position
+            XmlAttribute positionAttribute = xmlDoc.CreateAttribute("Position2D");
+            positionAttribute.Value = vPos.ToString();
+            cylPositionElt.Attributes.Append(positionAttribute);
         }
         #endregion
         #endregion

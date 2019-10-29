@@ -150,7 +150,7 @@ namespace treeDiM.StackBuilder.Desktop
                     return;
                 // compute
                 LayerSolver solver = new LayerSolver();
-                List<Layer2DCyl> layers = solver.BuildLayers(
+                List<Layer2DCylImp> layers = solver.BuildLayers(
                     cylinder.RadiusOuter, cylinder.Height
                     , new Vector2D(truck.InsideLength, truck.InsideWidth)
                     , 0.0

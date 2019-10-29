@@ -59,7 +59,7 @@ namespace treeDiM.StackBuilder.Engine
             var transfRotTranslation = new Transform3D(matRot);
             Vector3D vPositionSwapped = transfRotTranslation.transform(new Vector3D(vPosition.X, vPosition.Y, 0.0));
 
-            var layerCyl = layer as Layer2DCyl;
+            var layerCyl = layer as Layer2DCylImp;
 
             if (!layerCyl.IsValidPosition(new Vector2D(vPositionSwapped.X, vPositionSwapped.Y)))
             {
@@ -72,11 +72,11 @@ namespace treeDiM.StackBuilder.Engine
         #region Non-Public Members
         protected double GetRadius(ILayer2D layer)
         {
-            return ((Layer2DCyl)layer).CylinderRadius;
+            return ((Layer2DCylImp)layer).Radius;
         }
         protected double GetDiameter(ILayer2D layer)
         {
-            return 2.0 * ((Layer2DCyl)layer).CylinderRadius;
+            return 2.0 * ((Layer2DCylImp)layer).Radius;
         }
         protected static readonly ILog _log = LogManager.GetLogger(typeof(LayerPatternCyl));
         #endregion

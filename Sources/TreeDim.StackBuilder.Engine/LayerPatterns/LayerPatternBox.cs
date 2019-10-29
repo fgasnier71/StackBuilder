@@ -40,17 +40,17 @@ namespace treeDiM.StackBuilder.Engine
                 : throw new ArgumentException($"Invalid pattern name = {patternName}", nameof(patternName));
         }
 
-        public abstract int GetNumberOfVariants(Layer2DBrickDef layer);
+        public abstract int GetNumberOfVariants(Layer2DBrickImp layer);
         public abstract bool CanBeInverted { get; }
         public abstract bool IsSymetric { get; }
 
         public double GetBoxLength(ILayer2D layer)
         {
-            return ((Layer2DBrickDef)layer).BoxLength;
+            return ((Layer2DBrickImp)layer).BoxLength;
         }
         public double GetBoxWidth(ILayer2D layer)
         {
-            return ((Layer2DBrickDef)layer).BoxWidth;
+            return ((Layer2DBrickImp)layer).BoxWidth;
         }
         public void AddPosition(ILayer2D layer, Vector2D vPosition, HalfAxis.HAxis lengthAxis, HalfAxis.HAxis widthAxis)
         {
@@ -78,7 +78,7 @@ namespace treeDiM.StackBuilder.Engine
             Transform3D transfRotTranslation = new Transform3D(matRot);
             Vector3D vPositionSwapped = transfRotTranslation.transform(new Vector3D(vPosition.X, vPosition.Y, 0.0));
 
-            Layer2DBrickDef layerBox = layer as Layer2DBrickDef;
+            Layer2DBrickImp layerBox = layer as Layer2DBrickImp;
             if (!layerBox.IsValidPosition(new Vector2D(vPositionSwapped.X, vPositionSwapped.Y), lengthAxisSwapped, widthAxisSwapped))
             {
                 _log.Warn(string.Format("Attempt to add an invalid position in pattern = {0}, Swapped = {1}", Name, layer.Swapped));

@@ -199,10 +199,11 @@
     <Compile Include="Solutions\FastEvaluatorLayer2Pallet.cs" />
     <Compile Include="Solutions\HSolution.cs" />
     <Compile Include="Solutions\ILayer2D.cs" />
-    <Compile Include="Solutions\Layer2DBrickDef.cs" />
+    <Compile Include="Solutions\Layer2DBrickImp.cs" />
     <Compile Include="Solutions\Layer2DBrick.cs" />
-    <Compile Include="Solutions\Layer2DCyl.cs" />
-    <Compile Include="Solutions\Layer2DEdited.cs" />
+    <Compile Include="Solutions\Layer2DCylExp.cs" />
+    <Compile Include="Solutions\Layer2DCylImp.cs" />
+    <Compile Include="Solutions\Layer2DBrickExp.cs" />
     <Compile Include="Solutions\LayerDesc.cs" />
     <Compile Include="Solutions\ParamSetPackOptim.cs" />
     <Compile Include="Solutions\PalletSolution.cs" />

@@ -400,7 +400,7 @@ namespace treeDiM.StackBuilder.Desktop
                     AnalysisName, AnalysisDescription,
                     packProperties, SelectedPallet,
                     interlayers, null, null, null,
-                    BuildConstraintSet(), analysisSel.Solution.LayerDescriptors);
+                    BuildConstraintSet(), analysisSel.Solution.LayerEncaps);
             }
             catch (Exception ex)
             {

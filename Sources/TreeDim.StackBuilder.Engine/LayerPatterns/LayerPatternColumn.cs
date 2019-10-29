@@ -9,7 +9,7 @@ namespace treeDiM.StackBuilder.Engine
     class LayerPatternColumn : LayerPatternBox
     {
         public override string Name => "Column";
-        public override int GetNumberOfVariants(Layer2DBrickDef layer) => 1;
+        public override int GetNumberOfVariants(Layer2DBrickImp layer) => 1;
         public override bool IsSymetric => false;
         public override bool CanBeSwapped => false;
         public override bool CanBeInverted => false;

@@ -103,7 +103,7 @@ namespace treeDiM.StackBuilder.Desktop
             try
             {
                 var layerDescs = new List<LayerEncap>();
-                foreach (Layer2DBrickDef layer2D in uCtrlLayerList.Selected)
+                foreach (Layer2DBrickImp layer2D in uCtrlLayerList.Selected)
                     layerDescs.Add(new LayerEncap(layer2D.LayerDescriptor));
 
                 Solution.SetSolver(new LayerSolver());
@@ -168,7 +168,7 @@ namespace treeDiM.StackBuilder.Desktop
                     return;
                 // compute
                 LayerSolver solver = new LayerSolver();
-                List<Layer2DBrickDef> layers = solver.BuildLayers(
+                List<Layer2DBrickImp> layers = solver.BuildLayers(
                     packable.OuterDimensions
                     , new Vector2D(
                         truckProperties.InsideLength - 2.0 * uCtrlMinDistanceLoadWall.ValueX

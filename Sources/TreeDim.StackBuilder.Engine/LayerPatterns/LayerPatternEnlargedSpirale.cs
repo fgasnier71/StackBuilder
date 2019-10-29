@@ -8,7 +8,7 @@ namespace treeDiM.StackBuilder.Engine
     class LayerPatternEnlargedSpirale : LayerPatternBox
     {
         public override string Name => "Enlarged spiral";
-        public override int GetNumberOfVariants(Layer2DBrickDef layer) => 1;
+        public override int GetNumberOfVariants(Layer2DBrickImp layer) => 1;
         public override bool IsSymetric => true;
         public override bool CanBeSwapped => true;
         public override bool CanBeInverted => true;

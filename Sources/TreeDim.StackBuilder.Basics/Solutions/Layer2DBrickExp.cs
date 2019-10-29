@@ -4,10 +4,10 @@ using Sharp3D.Math.Core;
 
 namespace treeDiM.StackBuilder.Basics
 {
-    public class Layer2DEditable : Layer2DBrick
+    public class Layer2DBrickExp : Layer2DBrick
     {
         #region Constructor
-        public Layer2DEditable(Vector3D dimBox, Vector2D dimContainer, string name, HalfAxis.HAxis axisOrtho)
+        public Layer2DBrickExp(Vector3D dimBox, Vector2D dimContainer, string name, HalfAxis.HAxis axisOrtho)
             : base(dimBox, dimContainer, name, axisOrtho)
         {
         }
@@ -18,7 +18,7 @@ namespace treeDiM.StackBuilder.Basics
         #region Layer2DBrick override
         public override string PatternName => string.Empty;
         public override string Tooltip(double height) => $"{Count} * {NoLayers(height)} = {CountInHeight(height)} | {HalfAxis.ToString(AxisOrtho)} | {Name}";
-        public override string ToString() => $"{PatternName}_{(Swapped ? "1" : "0")}";
+        public override string ToString() => $"{Name}";
         #endregion
     }
 }

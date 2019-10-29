@@ -55,13 +55,13 @@
             // 
             resources.ApplyResources(this.tbDescription, "tbDescription");
             this.tbDescription.Name = "tbDescription";
-            this.tbDescription.TextChanged += new System.EventHandler(this.onTextChanged);
+            this.tbDescription.TextChanged += new System.EventHandler(this.OnTextChanged);
             // 
             // tbName
             // 
             resources.ApplyResources(this.tbName, "tbName");
             this.tbName.Name = "tbName";
-            this.tbName.TextChanged += new System.EventHandler(this.onTextChanged);
+            this.tbName.TextChanged += new System.EventHandler(this.OnTextChanged);
             // 
             // lbDescription
             // 
@@ -78,7 +78,7 @@
             resources.ApplyResources(this.bnNext, "bnNext");
             this.bnNext.Name = "bnNext";
             this.bnNext.UseVisualStyleBackColor = true;
-            this.bnNext.Click += new System.EventHandler(this.onButtonNext);
+            this.bnNext.Click += new System.EventHandler(this.OnButtonNext);
             // 
             // FormNewAnalysis
             // 

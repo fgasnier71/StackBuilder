@@ -11,7 +11,7 @@ namespace treeDiM.StackBuilder.Engine
         public override bool CanBeSwapped => true;
         public override bool GetLayerDimensions(ILayer2D layer, out double actualLength, out double actualWidth)
         {
-            Layer2DCyl layerCyl = layer as Layer2DCyl;
+            Layer2DCylImp layerCyl = layer as Layer2DCylImp;
             ComputeRowNumberAndLength(layerCyl
                 , out int firstRowLength, out int secondRowLength, out int rowNumber
                 , out actualLength, out actualWidth);
@@ -24,7 +24,7 @@ namespace treeDiM.StackBuilder.Engine
             double palletWidth = GetPalletWidth(layer);
             double radius = GetRadius(layer);
 
-            Layer2DCyl layerCyl = layer as Layer2DCyl;
+            Layer2DCylImp layerCyl = layer as Layer2DCylImp;
             if (!ComputeRowNumberAndLength(layerCyl
                 , out int firstRowLength, out int secondRowLength, out int rowNumber
                 , out actualLength, out actualWidth))
@@ -42,14 +42,14 @@ namespace treeDiM.StackBuilder.Engine
         }
 
         #region Non-Public Members
-        private bool ComputeRowNumberAndLength(Layer2DCyl layer
+        private bool ComputeRowNumberAndLength(Layer2DCylImp layer
             , out int firstRowLength, out int secondRowLength, out int rowNumber
             , out double actualLength, out double actualWidth)
         {
             double palletLength = GetPalletLength(layer);
             double palletWidth = GetPalletWidth(layer);
-            double radius = layer.CylinderRadius;
-            double diameter = 2.0 * layer.CylinderRadius;
+            double radius = layer.Radius;
+            double diameter = 2.0 * layer.Radius;
 
             // initialize out parameters
             firstRowLength = 0; secondRowLength = 0; rowNumber = 0;

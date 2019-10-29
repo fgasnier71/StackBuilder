@@ -432,11 +432,16 @@ namespace treeDiM.StackBuilder.Desktop
             {
                 cbLayerType.Packable = _analysis.Content;
                 // build layers and fill CCtrl
-                foreach (var layerEncap in _solution.LayerDescriptors)
+                foreach (var layerEncap in _solution.LayerEncaps)
                 {
-                    LayerSolver solver = new LayerSolver();
-                    ILayer2D layer = solver.BuildLayer(_analysis.Content, _analysis.ContainerDimensions, layerEncap.LayerDesc, _analysis.ConstraintSet.MinimumSpace.Value);
-                    cbLayerType.Items.Add(layer);
+                    if (null != layerEncap.LayerDesc)
+                    {
+                        LayerSolver solver = new LayerSolver();
+                        ILayer2D layer = solver.BuildLayer(_analysis.Content, _analysis.ContainerDimensions, layerEncap.LayerDesc, _analysis.ConstraintSet.MinimumSpace.Value);
+                        cbLayerType.Items.Add(layer);
+                    }
+                    else if (null != layerEncap.Layer2D)
+                        cbLayerType.Items.Add(layerEncap.Layer2D);
                 }
                 if (cbLayerType.Items.Count > 0)
                     cbLayerType.SelectedIndex = 0;

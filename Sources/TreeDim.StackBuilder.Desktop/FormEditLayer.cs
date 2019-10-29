@@ -12,7 +12,7 @@ namespace treeDiM.StackBuilder.Desktop
 {
     public partial class FormEditLayer : Form
     {
-        public FormEditLayer(Layer2DEditable layer, Packable content)
+        public FormEditLayer(Layer2DBrickExp layer, Packable content)
         {
             InitializeComponent();
 
@@ -38,7 +38,7 @@ namespace treeDiM.StackBuilder.Desktop
             uCtrlLayerEditor.Invalidate();
         }
 
-        public Layer2DEditable Layer { get; set; }
+        public Layer2DBrickExp Layer { get; set; }
         public BoxProperties Content { get; set; }
 
         private void OnSaveEnabled(bool enable)

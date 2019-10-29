@@ -218,7 +218,7 @@ namespace treeDiM.StackBuilder.Desktop
 
                 // compute
                 LayerSolver solver = new LayerSolver();
-                List<Layer2DBrickDef> layers = solver.BuildLayers(
+                List<Layer2DBrickImp> layers = solver.BuildLayers(
                     packable.OuterDimensions
                     , new Vector2D(caseProperties.InsideLength, caseProperties.InsideWidth)
                     , 0.0 /* offsetZ */

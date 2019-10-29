@@ -85,7 +85,7 @@ namespace treeDiM.StackBuilder.Desktop
 
             bnNext.Enabled = string.IsNullOrEmpty(message);
         }
-        private void onTextChanged(object sender, EventArgs e)
+        private void OnTextChanged(object sender, EventArgs e)
         {
             UpdateStatus(string.Empty);
         }
@@ -107,7 +107,7 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Handlers
-        private void onButtonNext(object sender, EventArgs e)
+        private void OnButtonNext(object sender, EventArgs e)
         {
             OnNext();
         }

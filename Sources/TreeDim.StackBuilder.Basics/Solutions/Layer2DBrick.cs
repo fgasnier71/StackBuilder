@@ -35,13 +35,54 @@ namespace treeDiM.StackBuilder.Basics
         public int NoLayers(double height) => (int) Math.Floor(height / LayerHeight);
         public virtual string Tooltip(double height) => $"{Count} * {NoLayers(height)} = {CountInHeight(height)} | {HalfAxis.ToString(AxisOrtho)}";
         public virtual void UpdateMaxSpace(double space, string patternName) {}
+        public BBox3D BBox
+        {
+            get
+            {
+                BBox3D bb = BBox3D.Initial;
+                foreach (BoxPosition bp in _listBoxPosition)
+                    bb.Extend(bp.BBox(new Vector3D(BoxLength, BoxWidth, BoxHeight)));
+                return bb;
+            }
+        }
         #endregion
 
         #region Layer2DBrick specific
         public HalfAxis.HAxis AxisOrtho { get; private set; } = HalfAxis.HAxis.AXIS_Z_P;
         public HalfAxis.HAxis VerticalAxisProp => VerticalAxis(AxisOrtho);
         public int VerticalDirection => HalfAxis.Direction(VerticalAxisProp);
-
+        public virtual double BoxLength
+        {
+            get
+            {
+                switch (AxisOrtho)
+                {
+                    case HalfAxis.HAxis.AXIS_X_N: return DimBox.Z;
+                    case HalfAxis.HAxis.AXIS_X_P: return DimBox.Z;
+                    case HalfAxis.HAxis.AXIS_Y_N: return DimBox.X;
+                    case HalfAxis.HAxis.AXIS_Y_P: return DimBox.Y;
+                    case HalfAxis.HAxis.AXIS_Z_N: return DimBox.Y;
+                    case HalfAxis.HAxis.AXIS_Z_P: return DimBox.X;
+                    default: throw new Exception("Invalid ortho axis");
+                }
+            }
+        }
+        public virtual double BoxWidth
+        {
+            get
+            {
+                switch (AxisOrtho)
+                {
+                    case HalfAxis.HAxis.AXIS_X_N: return DimBox.Y;
+                    case HalfAxis.HAxis.AXIS_X_P: return DimBox.X;
+                    case HalfAxis.HAxis.AXIS_Y_N: return DimBox.Z;
+                    case HalfAxis.HAxis.AXIS_Y_P: return DimBox.Z;
+                    case HalfAxis.HAxis.AXIS_Z_N: return DimBox.X;
+                    case HalfAxis.HAxis.AXIS_Z_P: return DimBox.Y;
+                    default: throw new Exception("Invalid ortho axis");
+                }
+            }
+        }
         public double BoxHeight
         {
             get

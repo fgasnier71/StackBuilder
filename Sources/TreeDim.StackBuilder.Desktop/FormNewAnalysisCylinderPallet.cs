@@ -159,7 +159,7 @@ namespace treeDiM.StackBuilder.Desktop
                     return;
                 // compute
                 LayerSolver solver = new LayerSolver();
-                List<Layer2DCyl> layers = solver.BuildLayers(
+                List<Layer2DCylImp> layers = solver.BuildLayers(
                     cylinder.RadiusOuter, cylinder.Height
                     , new Vector2D(palletProperties.Length + 2.0 * uCtrlOverhang.ValueX, palletProperties.Width + 2.0 * uCtrlOverhang.ValueY)
                     , palletProperties.Height
