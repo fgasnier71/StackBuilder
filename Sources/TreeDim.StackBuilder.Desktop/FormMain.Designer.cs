@@ -75,7 +75,7 @@
             this.toolStripSeparatorPLMPackLib = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMIPLMPackLib = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator21 = new System.Windows.Forms.ToolStripSeparator();
-            this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMISettings = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemHelpStartPage = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator16 = new System.Windows.Forms.ToolStripSeparator();
@@ -140,6 +140,9 @@
             this.saveFileDialogWebGL = new System.Windows.Forms.SaveFileDialog();
             this.timerLogin = new System.Windows.Forms.Timer(this.components);
             this.saveFileDialogExport = new System.Windows.Forms.SaveFileDialog();
+            this.toolStripButtonPremium = new System.Windows.Forms.ToolStripButton();
+            this.toolStripMIPremium = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.menuStripMain.SuspendLayout();
             this.toolStripStandard.SuspendLayout();
             this.SuspendLayout();
@@ -290,7 +293,9 @@
             this.toolStripSeparatorPLMPackLib,
             this.toolStripMIPLMPackLib,
             this.toolStripSeparator21,
-            this.settingsToolStripMenuItem});
+            this.toolStripMIPremium,
+            this.toolStripSeparator7,
+            this.toolStripMISettings});
             this.toolStripMenuItemTools.Name = "toolStripMenuItemTools";
             resources.ApplyResources(this.toolStripMenuItemTools, "toolStripMenuItemTools");
             // 
@@ -450,11 +455,11 @@
             this.toolStripSeparator21.Name = "toolStripSeparator21";
             resources.ApplyResources(this.toolStripSeparator21, "toolStripSeparator21");
             // 
-            // settingsToolStripMenuItem
+            // toolStripMISettings
             // 
-            this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            resources.ApplyResources(this.settingsToolStripMenuItem, "settingsToolStripMenuItem");
-            this.settingsToolStripMenuItem.Click += new System.EventHandler(this.OnShowSettings);
+            this.toolStripMISettings.Name = "toolStripMISettings";
+            resources.ApplyResources(this.toolStripMISettings, "toolStripMISettings");
+            this.toolStripMISettings.Click += new System.EventHandler(this.OnShowSettings);
             // 
             // helpToolStripMenuItem
             // 
@@ -526,6 +531,7 @@
             this.toolStripSeparator10,
             this.toolStripSB_BCT,
             this.toolStripSeparator6,
+            this.toolStripButtonPremium,
             this.toolStripButtonHelp,
             this.toolStripSeparator8,
             this.toolStripButtonSettings});
@@ -906,6 +912,24 @@
             this.saveFileDialogExport.DefaultExt = "xml";
             resources.ApplyResources(this.saveFileDialogExport, "saveFileDialogExport");
             // 
+            // toolStripButtonPremium
+            // 
+            this.toolStripButtonPremium.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.toolStripButtonPremium, "toolStripButtonPremium");
+            this.toolStripButtonPremium.Name = "toolStripButtonPremium";
+            this.toolStripButtonPremium.Click += new System.EventHandler(this.OnBecomeAPremiumUser);
+            // 
+            // toolStripMIPremium
+            // 
+            resources.ApplyResources(this.toolStripMIPremium, "toolStripMIPremium");
+            this.toolStripMIPremium.Name = "toolStripMIPremium";
+            this.toolStripMIPremium.Click += new System.EventHandler(this.OnBecomeAPremiumUser);
+            // 
+            // toolStripSeparator7
+            // 
+            this.toolStripSeparator7.Name = "toolStripSeparator7";
+            resources.ApplyResources(this.toolStripSeparator7, "toolStripSeparator7");
+            // 
             // FormMain
             // 
             resources.ApplyResources(this, "$this");
@@ -971,7 +995,7 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemBestPack;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator10;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparatorPLMPackLib;
-        private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMISettings;
         private System.Windows.Forms.SaveFileDialog saveFileDialogWebGL;
         private System.Windows.Forms.ToolStripButton toolStripButtonCylinder;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemCylinder;
@@ -1036,5 +1060,8 @@
         private System.Windows.Forms.ToolStripSplitButton toolStripSB_BCT;
         private System.Windows.Forms.ToolStripMenuItem palletisationBCTToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem caseBCTToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMIPremium;
+        private System.Windows.Forms.ToolStripButton toolStripButtonPremium;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
     }
 }

@@ -32,6 +32,8 @@ namespace treeDiM.StackBuilder.Engine
             {
                 for (int i = 0; i < ci.Number; ++i)
                 {
+                    if (!ci.AllowOrientX && !ci.AllowOrientY && !ci.AllowOrientZ)
+                        continue;
                     if (ci.Pack is BoxProperties b)
                         listCuboids.Add(
                             new Cuboid((decimal)b.Length, (decimal)b.Width, (decimal)b.Height)

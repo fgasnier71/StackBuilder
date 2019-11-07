@@ -40,7 +40,7 @@
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
     <ApplicationRevision>1</ApplicationRevision>
-    <ApplicationVersion>3.0.1.1</ApplicationVersion>
+    <ApplicationVersion>3.0.2.1</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -335,6 +335,12 @@
     </Compile>
     <Compile Include="DocumentSB.cs" />
     <Compile Include="FileAssociation.cs" />
+    <Compile Include="FormBecomePremiumUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBecomePremiumUser.Designer.cs">
+      <DependentUpon>FormBecomePremiumUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormDocDisambiguate.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1159,6 +1165,15 @@
     <EmbeddedResource Include="DockContentView.zh.resx">
       <DependentUpon>DockContentView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormBecomePremiumUser.fr.resx">
+      <DependentUpon>FormBecomePremiumUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormBecomePremiumUser.nl.resx">
+      <DependentUpon>FormBecomePremiumUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormBecomePremiumUser.resx">
+      <DependentUpon>FormBecomePremiumUser.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormDocDisambiguate.pt.resx">
       <DependentUpon>FormDocDisambiguate.cs</DependentUpon>
     </EmbeddedResource>
@@ -1849,6 +1864,9 @@
     <EmbeddedResource Include="FormNewDocument.zh.resx">
       <DependentUpon>FormNewDocument.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNewHAnalysis.fr.resx">
+      <DependentUpon>FormNewHAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewHAnalysis.pt.resx">
       <DependentUpon>FormNewHAnalysis.cs</DependentUpon>
     </EmbeddedResource>
@@ -1860,6 +1878,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewHAnalysisBoxCase.resx">
       <DependentUpon>FormNewHAnalysisBoxCase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewHAnalysisCasePallet.fr.resx">
+      <DependentUpon>FormNewHAnalysisCasePallet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewHAnalysisCasePallet.pt.resx">
       <DependentUpon>FormNewHAnalysisCasePallet.cs</DependentUpon>

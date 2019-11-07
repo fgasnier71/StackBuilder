@@ -154,7 +154,7 @@
     <value>White</value>
   </data>
   <data name="tsButtonReport.Text" xml:space="preserve">
-    <value>Report...</value>
+    <value>Rapport</value>
   </data>
   <data name="toolStripMain.Text" xml:space="preserve">
     <value>Barre d'outils principale</value>
@@ -225,5 +225,23 @@
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>RCV palettisation</value>
+  </data>
+  <data name="chkbDblWall.Text" xml:space="preserve">
+    <value>Double mur</value>
+  </data>
+  <data name="toolStripLabelProfile.Text" xml:space="preserve">
+    <value>Profil</value>
+  </data>
+  <data name="lbWeightLowestCase.Text" xml:space="preserve">
+    <value>: 0.0 kg</value>
+  </data>
+  <data name="lbStackWeight.Text" xml:space="preserve">
+    <value>:0.0 kg</value>
+  </data>
+  <data name="lbStackCount.Text" xml:space="preserve">
+    <value>: 0</value>
+  </data>
+  <data name="lbCountMax.Text" xml:space="preserve">
+    <value>(max: 0)</value>
   </data>
 </root>

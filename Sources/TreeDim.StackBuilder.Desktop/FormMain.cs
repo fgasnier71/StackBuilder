@@ -48,7 +48,6 @@ namespace treeDiM.StackBuilder.Desktop
         private static FormMain _instance;
         private MruManager _mruManager;
         #endregion
-
         #region Constructor
         public FormMain()
         {
@@ -88,7 +87,6 @@ namespace treeDiM.StackBuilder.Desktop
             }
         }
         #endregion
-
         #region Form override
         protected override void OnLoad(EventArgs e)
         {
@@ -187,7 +185,6 @@ namespace treeDiM.StackBuilder.Desktop
             base.OnClosing(e);
         }
         #endregion
-
         #region Plugin loading
         private bool HasPlugin
         {
@@ -246,7 +243,6 @@ namespace treeDiM.StackBuilder.Desktop
             return plugin;
         }
         #endregion
-
         #region SplashScreen
         public void DoSplash()
         {
@@ -257,7 +253,6 @@ namespace treeDiM.StackBuilder.Desktop
             }
         }
         #endregion
-
         #region Start page
         private string UrlStartPage => Settings.Default.StartPageUrl;
         private string UrlPLMPackLib => Settings.Default.UrlPLMPackLib;
@@ -314,7 +309,6 @@ namespace treeDiM.StackBuilder.Desktop
             }
         }
         #endregion
-
         #region Docking
         private void CreateBasicLayout()
         {
@@ -366,7 +360,6 @@ namespace treeDiM.StackBuilder.Desktop
             }
         }
         #endregion
-
         #region DocumentTreeView event handlers
         // ### AnalysisNodeClicked
         void DocumentTreeView_NodeClicked(object sender, AnalysisTreeViewEventArgs eventArg)
@@ -633,7 +626,6 @@ namespace treeDiM.StackBuilder.Desktop
             }
         }
         #endregion
-
         #region Caption text / toolbar state
         private void UpdateFormUI()
         {
@@ -644,7 +636,8 @@ namespace treeDiM.StackBuilder.Desktop
                 caption += Path.GetFileNameWithoutExtension(doc.FilePath);
                 caption += " - ";
             }
-            caption += Application.ProductName;
+            // + ProductName
+            caption += Application.ProductName + (Program.IsSubscribed ? " **Premium**" : string.Empty);
             Text = caption;
         }
         /// <summary>
@@ -734,7 +727,6 @@ namespace treeDiM.StackBuilder.Desktop
             toolStripSB_BCT.Enabled = WCFClient.IsConnected;
         }
         #endregion
-
         #region IDocumentFactory implementation
         public void NewDocument()
         {
@@ -750,7 +742,6 @@ namespace treeDiM.StackBuilder.Desktop
             }
             UpdateFormUI();
         }
-
         public void OpenDocument(string filePath)
         {
             try
@@ -786,7 +777,6 @@ namespace treeDiM.StackBuilder.Desktop
             }
             UpdateFormUI();
         }
-
         public void AddDocument(IDocument doc, bool newDoc)
         {
             // add this form as document listener
@@ -802,7 +792,6 @@ namespace treeDiM.StackBuilder.Desktop
             doc.Modified += new EventHandler(OnDocumentModified);
             UpdateToolbarState();
         }
-
         public void SaveDocument()
         {
             IDocument doc = ActiveDocument;
@@ -810,7 +799,6 @@ namespace treeDiM.StackBuilder.Desktop
             CancelEventArgs e = new CancelEventArgs();
             SaveDocument(doc, e);
         }
-
         public void SaveDocument(IDocument doc, CancelEventArgs e)
         {
             if (doc.IsNew)
@@ -818,20 +806,20 @@ namespace treeDiM.StackBuilder.Desktop
             else
                 doc.Save();
         }
-
         public void SaveAllDocuments()
         {
             CancelEventArgs e = new CancelEventArgs();
             SaveAllDocuments(e);
         }
-
         public void SaveAllDocuments(CancelEventArgs e)
         {
             if (e.Cancel) return;
             foreach (IDocument doc in Documents)
-                SaveDocument(doc, e);
+            {
+                try { SaveDocument(doc, e); }
+                catch (Exception ex) {  _log.Error(ex.Message); }
+            }
         }
-
         public void CloseAllDocuments(CancelEventArgs e)
         {
             // exit if already canceled
@@ -845,7 +833,6 @@ namespace treeDiM.StackBuilder.Desktop
                 CloseDocument(doc, e);
             }
         }
-
         public void CloseDocument(IDocument doc, CancelEventArgs e)
         {
             // exit if already canceled
@@ -875,7 +862,6 @@ namespace treeDiM.StackBuilder.Desktop
             // update toolbar
             UpdateToolbarState();
         }
-
         public void SaveDocumentAs(IDocument doc, CancelEventArgs e)
         {
             saveFileDialogSB.FileName = doc.Name + ".stb";
@@ -884,7 +870,6 @@ namespace treeDiM.StackBuilder.Desktop
             else
                 e.Cancel = true;
         }
-
         public void SaveDocumentAs()
         {
             IDocument doc = ActiveDocument;
@@ -892,7 +877,6 @@ namespace treeDiM.StackBuilder.Desktop
             CancelEventArgs e = new CancelEventArgs();
             SaveDocumentAs(doc, e);
         }
-
         public void CloseDocument()
         {
             IDocument doc = ActiveDocument;
@@ -985,7 +969,6 @@ namespace treeDiM.StackBuilder.Desktop
             }
         }
         #endregion
-
         #region IDocumentListener implementation
         // new
         public void OnNewDocument(Document doc) { doc.DocumentClosed += OnDocumentClosed; }
@@ -1004,7 +987,6 @@ namespace treeDiM.StackBuilder.Desktop
             doc.DocumentClosed -= OnDocumentClosed;
         }
         #endregion
-
         #region Connection / disconnection
         private void OnConnectionAvoided()
         {
@@ -1022,8 +1004,11 @@ namespace treeDiM.StackBuilder.Desktop
                     if (null != client)
                     {
                         DCGroup currentGroup = client.GetCurrentGroup();
+                        Program.IsSubscribed = currentGroup.IsSubscribed;
                         if (null != currentGroup)
-                            Text = Application.ProductName + " - (" + currentGroup.Name + "\\" + wcfClient.User.Name + ")";
+                            Text = Application.ProductName
+                                + (Program.IsSubscribed ? " **Premium**" : string.Empty)
+                                + " - (" + currentGroup.Name + "\\" + wcfClient.User.Name + ")";
                     }
                     else
                     {
@@ -1032,6 +1017,7 @@ namespace treeDiM.StackBuilder.Desktop
                 }
             }
             toolStripSB_BCT.Enabled = WCFClient.IsConnected;
+            toolStripButtonPremium.Visible = !Program.IsSubscribed;            
             // create basic layout
             CreateBasicLayout();
             UpdateDisconnectButton();
@@ -1043,10 +1029,9 @@ namespace treeDiM.StackBuilder.Desktop
             UpdateDisconnectButton();
         }
         private void UpdateDisconnectButton()
-        { 
+        {
         }
         #endregion
-
         #region File menu event handlers
         private void FileClose(object sender, EventArgs e)
         {
@@ -1066,8 +1051,10 @@ namespace treeDiM.StackBuilder.Desktop
                 foreach(string fileName in openFileDialogSB.FileNames)
                     OpenDocument(fileName);            
         }
-        private void FileSave(object sender, EventArgs e)        {   SaveDocument();                }
-        private void FileSaveAs(object sender, EventArgs e)      {   SaveDocumentAs();              }
+        private void FileSave(object sender, EventArgs e)
+        { try { SaveDocument(); } catch (Exception ex) { _log.Error(ex.ToString()); } }
+        private void FileSaveAs(object sender, EventArgs e)
+        { try { SaveDocumentAs(); } catch (Exception ex) { _log.Error(ex.ToString()); } }
         private void FileSaveAll(object sender, EventArgs e)     {   SaveAllDocuments();            }
         private void FileExit(object sender, EventArgs e)
         {
@@ -1084,6 +1071,18 @@ namespace treeDiM.StackBuilder.Desktop
             DocumentSB.SetSolver(new LayerSolver());
             // open file
             OpenDocument(filePath); // -> exception handled in OpenDocument
+        }
+        private void OnBecomeAPremiumUser(object sender, EventArgs e)
+        {
+            try
+            {
+                var form = new FormBecomePremiumUser();
+                if (DialogResult.Cancel == form.ShowDialog()) {}
+            }
+            catch (Exception ex)
+            {
+                _log.Error(ex.Message);
+            }
         }
         #endregion
 
@@ -1256,41 +1255,48 @@ namespace treeDiM.StackBuilder.Desktop
         }
         private void LoadCases(object status)
         {
-            IProgressCallback callback = status as IProgressCallback;
-            callback.Begin();
-
-            ListDBCases.Clear();
-
-            using (WCFClient wcfClient = new WCFClient())
+            try
             {
-                var client = wcfClient.Client;
-                if (null != client)
+                IProgressCallback callback = status as IProgressCallback;
+                callback.Begin();
+                ListDBCases.Clear();
+
+                using (WCFClient wcfClient = new WCFClient())
                 {
-                    int rangeIndex = 0, number = 0;
-                    bool endReached = false;
-                    bool firstCall = true;
-                    while (!endReached)
+                    var client = wcfClient.Client;
+                    if (null != client)
                     {
-                        if (callback.IsAborting)
+                        int rangeIndex = 0, number = 0;
+                        bool endReached = false;
+                        bool firstCall = true;
+                        while (!endReached)
                         {
-                            endReached = true;
-                            break;
-                        }
-                        ListDBCases.AddRange(client.GetAllCases(rangeIndex++, ref number));
+                            try
+                            {
+                                if (callback.IsAborting)
+                                {
+                                    endReached = true;
+                                    break;
+                                }
+                                ListDBCases.AddRange(client.GetAllCases(rangeIndex++, ref number));
 
-                        if (firstCall)
-                        {
-                            firstCall = false;
-                            callback.SetRange(0, number);
-                        }
-                        callback.StepTo((rangeIndex-1) * 20);
-                        callback.SetText($"Loading case {rangeIndex * 20} of {number}");
+                                if (firstCall)
+                                {
+                                    firstCall = false;
+                                    callback.SetRange(0, number);
+                                }
+                                callback.StepTo((rangeIndex - 1) * 20);
+                                callback.SetText($"Loading case {rangeIndex * 20} of {number}");
 
-                        endReached = (rangeIndex * 20 > number);
+                                endReached = (rangeIndex * 20 > number);
+                            }
+                            catch (Exception /*ex*/) {}
+                        }
                     }
                 }
+                callback.End();
             }
-            callback.End();
+            catch (Exception /*ex*/) {}
         }
         #endregion
         #region Database / settings / excel sheet
@@ -1377,7 +1383,6 @@ namespace treeDiM.StackBuilder.Desktop
             UpdateToolbarState();
         }
         #endregion
-
         #region Form activation/creation
         public void CreateOrActivateViewAnalysis(AnalysisHomo analysis)
         {
@@ -1429,7 +1434,6 @@ namespace treeDiM.StackBuilder.Desktop
                 formHAnalysis.Show(dockPanel, DockState.Document);
         }
         #endregion
-
         #region Helpers
         public string AssemblyConf
         {
@@ -1449,7 +1453,6 @@ namespace treeDiM.StackBuilder.Desktop
             }
         }
         #endregion
-
         #region Help menu event handlers
         private void OnAbout(object sender, EventArgs e)
         {
@@ -1475,11 +1478,9 @@ namespace treeDiM.StackBuilder.Desktop
             }
         }
         #endregion
-
         #region Private data members
         private List<DCSBCase> ListDBCases { get; set; } = new List<DCSBCase>();
         #endregion
-
         #region Static instance accessor
         public static FormMain GetInstance()  { return _instance; }
         #endregion

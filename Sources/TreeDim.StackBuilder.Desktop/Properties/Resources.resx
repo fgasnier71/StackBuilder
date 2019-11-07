@@ -884,4 +884,13 @@ Closing form...</value>
   <data name="ID_SORTINGSOLUTIONS" xml:space="preserve">
     <value>Sorting solutions...</value>
   </data>
+  <data name="ID_GOPREMIUMORUNSELECT" xml:space="preserve">
+    <value>Using edited layers is a "Premium" feature. Unselect edited layer. </value>
+  </data>
+  <data name="ID_WARNINGEDITLAYER" xml:space="preserve">
+    <value>Please, note that only "Premium" accounts are able to use the modified layer in a palletization.</value>
+  </data>
+  <data name="ID_PREMIUMVERSIONURL" xml:space="preserve">
+    <value>http://www.plmpack.com/stackbuilder/premium/premium.html</value>
+  </data>
 </root>

@@ -4,13 +4,13 @@ using System.Linq;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Drawing;
+using System.ComponentModel;
 
 using Sharp3D.Math.Core;
+using log4net;
 
 using treeDiM.StackBuilder.Basics;
-
-using log4net;
-using System.ComponentModel;
+using treeDiM.StackBuilder.Graphics.Properties;
 #endregion
 
 namespace treeDiM.StackBuilder.Graphics
@@ -21,6 +21,11 @@ namespace treeDiM.StackBuilder.Graphics
         public Graphics2DLayerEditor()
         {
             InitializeComponent();
+        }
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+            SelectionChanged += EnableDisableAddRemoveButtons;
         }
         #endregion
         #region Public properties
@@ -119,10 +124,32 @@ namespace treeDiM.StackBuilder.Graphics
             {
                 Vector2D pt = Graphics.ReverseTransform(e.Location);
                 // selected index
+                int initialIndex = SelectedIndex;
                 SelectedIndex = BoxInteraction.SelectedPosition(Layer.Positions, Dimensions, pt);
+                if (initialIndex != SelectedIndex)
+                    SelectionChanged();
             }
 
             UpdateArrows();
+            Invalidate();
+        }
+        private void OnItemAdd(object sender, EventArgs e)
+        {
+            BoxPosition bPosNew = new BoxPosition(new Vector3D(PtMin.X, PtMin.Y, 0.0), HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P);
+            if (!BoxInteraction.HaveIntersection(Layer.Positions, Dimensions, SelectedIndex, bPosNew))
+            {
+                Layer.AddPosition(bPosNew);
+                SelectedIndex = Layer.Positions.Count - 1;
+                Invalidate();
+            }
+            else
+                MessageBox.Show(Resources.ID_CANNOTADD);
+        }
+        private void OnItemRemove(object sender, EventArgs e)
+        {
+            if (-1 == SelectedIndex) return;
+            Layer.RemovePosition(SelectedIndex);
+            SelectedIndex = -1;
             Invalidate();
         }
         #endregion
@@ -158,7 +185,11 @@ namespace treeDiM.StackBuilder.Graphics
             timerMove.Start();
             Moving = true;
         }
-        private void EndMove() => timerMove.Stop();
+        private void EndMove()
+        {
+            timerMove.Stop();
+            EnableDisableAddRemoveButtons(); 
+        }
         private double StepMove
         {
             get
@@ -170,6 +201,18 @@ namespace treeDiM.StackBuilder.Graphics
             }
         }
         private int CountMove { get; set; }
+        #endregion
+        #region Update toolbars
+        private void EnableDisableAddRemoveButtons()
+        {
+            tsbAdd.Enabled = !BoxInteraction.HaveIntersection(
+                Layer.Positions,
+                Dimensions,
+                -1,
+                new BoxPosition(new Vector3D(PtMin.X, PtMin.Y, 0.0), HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P)
+                );
+            tsbRemove.Enabled = (-1 != SelectedIndex);
+        }
         #endregion
         #region Update arrows
         private void UpdateArrows()
@@ -211,6 +254,9 @@ namespace treeDiM.StackBuilder.Graphics
         #region Delegate / Event
         public delegate void EnableSave(bool enable);
         public event EnableSave SaveEnabled;
+
+        public delegate void SelectionChange();
+        public event SelectionChange SelectionChanged;
         #endregion
         #region Data members
         [Browsable(false),

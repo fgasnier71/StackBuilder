@@ -1119,6 +1119,15 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Using edited layers is a &quot;Premium&quot; feature. Unselect edited layer. .
+        /// </summary>
+        internal static string ID_GOPREMIUMORUNSELECT {
+            get {
+                return ResourceManager.GetString("ID_GOPREMIUMORUNSELECT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Hatching angle.
         /// </summary>
         internal static string ID_HATCHINGANGLE {
@@ -1967,6 +1976,15 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to http://www.plmpack.com/stackbuilder/premium/premium.html.
+        /// </summary>
+        internal static string ID_PREMIUMVERSIONURL {
+            get {
+                return ResourceManager.GetString("ID_PREMIUMVERSIONURL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ready.
         /// </summary>
         internal static string ID_READY {
@@ -2188,6 +2206,15 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         internal static string ID_VOLUMEEFFICIENCY {
             get {
                 return ResourceManager.GetString("ID_VOLUMEEFFICIENCY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please, note that only &quot;Premium&quot; accounts are able to use the modified layer in a palletization..
+        /// </summary>
+        internal static string ID_WARNINGEDITLAYER {
+            get {
+                return ResourceManager.GetString("ID_WARNINGEDITLAYER", resourceCulture);
             }
         }
         

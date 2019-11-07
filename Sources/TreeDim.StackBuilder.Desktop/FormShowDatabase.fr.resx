@@ -317,4 +317,13 @@
   <data name="$this.Text" xml:space="preserve">
     <value>Editer la base de données et importer des objets dans le projet...</value>
   </data>
+  <data name="lbCount.Text" xml:space="preserve">
+    <value>1-20 de 0</value>
+  </data>
+  <data name="bnNext.Text" xml:space="preserve">
+    <value>&gt;</value>
+  </data>
+  <data name="bnPrev.Text" xml:space="preserve">
+    <value>&lt;</value>
+  </data>
 </root>

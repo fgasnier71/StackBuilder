@@ -37,13 +37,19 @@ namespace treeDiM.StackBuilder.Desktop
             // event handling
             uCtrlLayerList.LayerSelected += OnLayerSelected;
             uCtrlLayerList.RefreshFinished += OnLayerSelected;
+            uCtrlLayerListEdited.LayerSelected += OnLayerSelected;
 
             if (null == AnalysisCast)
             {
                 tbName.Text = _document.GetValidNewAnalysisName(ItemDefaultName);
                 tbDescription.Text = tbName.Text;
 
-                uCtrlCaseOrientation.AllowedOrientations = new bool[] { Settings.Default.AllowVerticalX, Settings.Default.AllowVerticalY, Settings.Default.AllowVerticalZ };
+                uCtrlCaseOrientation.AllowedOrientations = new bool[]
+                    {
+                        Settings.Default.AllowVerticalX,
+                        Settings.Default.AllowVerticalY,
+                        Settings.Default.AllowVerticalZ
+                    };
                 uCtrlMaximumHeight.Value = Settings.Default.MaximumPalletHeight;
                 uCtrlOptMaximumWeight.Value = new OptDouble(false, Settings.Default.MaximumPalletWeight);
                 uCtrlOptMaxNumber.Value = new OptInt(false, 1000);
@@ -92,6 +98,16 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region FormNewAnalysis override
+        public override void UpdateStatus(string message)
+        {
+            ILayer2D[] layersEditable = uCtrlLayerListEdited.Selected;
+            ILayer2D[] layers = uCtrlLayerList.Selected;
+            if (layers.Length + layersEditable.Length == 0)
+                message = Resources.ID_SELECTATLEASTONELAYOUT;
+            else if (layersEditable.Length > 0 && !Program.IsSubscribed)
+                message = Resources.ID_GOPREMIUMORUNSELECT;
+            base.UpdateStatus(message);
+        }
         public override void OnNext()
         {
             try
@@ -191,7 +207,7 @@ namespace treeDiM.StackBuilder.Desktop
                 ILayer2D[] layersEditable = uCtrlLayerListEdited.Selected;
                 ILayer2D[] layers = uCtrlLayerList.Selected;
                 bnEditLayer.Enabled = (layers.Length == 1);
-                UpdateStatus(layers.Length + layersEditable.Length > 0 ? string.Empty : Resources.ID_SELECTATLEASTONELAYOUT);
+                UpdateStatus(string.Empty);
             }
             catch (Exception ex)
             {
@@ -270,6 +286,10 @@ namespace treeDiM.StackBuilder.Desktop
         {
             try
             {
+                if (!Program.IsSubscribed)
+                {
+                    MessageBox.Show(Properties.Resources.ID_WARNINGEDITLAYER, Application.ProductName, MessageBoxButtons.OK);
+                }
                 // get content
                 if (!(cbCases.SelectedType is Packable packable))
                     return;

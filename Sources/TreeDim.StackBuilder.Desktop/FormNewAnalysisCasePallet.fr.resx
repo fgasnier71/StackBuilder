@@ -181,4 +181,7 @@
   <data name="uCtrlOptMaxNumber.Text" xml:space="preserve">
     <value>Nombre maximum</value>
   </data>
+  <data name="bnEditLayer.Text" xml:space="preserve">
+    <value>Editer la couche sélectionnée</value>
+  </data>
 </root>

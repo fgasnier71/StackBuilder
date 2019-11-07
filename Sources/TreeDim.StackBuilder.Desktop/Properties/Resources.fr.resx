@@ -743,4 +743,52 @@ Souhaitez-vous continuer?</value>
   <data name="ID_CASECOUNTFORMATSTRING" xml:space="preserve">
     <value>{0} {1} x {2}</value>
   </data>
+  <data name="ID_DATABASEITEMCOUNT" xml:space="preserve">
+    <value>{0}-{1} de {2}</value>
+  </data>
+  <data name="ID_ALGORITHM" xml:space="preserve">
+    <value>Algorithme</value>
+  </data>
+  <data name="ID_LOADEDCASES" xml:space="preserve">
+    <value>Caisses chargées</value>
+  </data>
+  <data name="ID_LOADEDVOLUMEPERCENTAGE" xml:space="preserve">
+    <value>Pourcentage volume occupé</value>
+  </data>
+  <data name="ID_UNLOADEDCASES" xml:space="preserve">
+    <value>Caisse sans charge</value>
+  </data>
+  <data name="ID_NUMBEROFPALLETS" xml:space="preserve">
+    <value>Nombre de palettes</value>
+  </data>
+  <data name="ID_ITEMS" xml:space="preserve">
+    <value>Items</value>
+  </data>
+  <data name="ID_PALLET_NUMBER" xml:space="preserve">
+    <value>Palette #{0}</value>
+  </data>
+  <data name="ID_PALLETDATA" xml:space="preserve">
+    <value>Données palette</value>
+  </data>
+  <data name="ID_PALLETWEIGHT_WU" xml:space="preserve">
+    <value>Poid palette</value>
+  </data>
+  <data name="ID_SORTINGSOLUTIONS" xml:space="preserve">
+    <value>Trie des solutions</value>
+  </data>
+  <data name="ID_NOANALYSISSELECTED" xml:space="preserve">
+    <value>Pas d'analyse sélectionnée</value>
+  </data>
+  <data name="ID_TRUCKADMISSIBLELOAD" xml:space="preserve">
+    <value>Un camion doit avoir une charge admissible valide.</value>
+  </data>
+  <data name="ID_EVALUATINGCASE" xml:space="preserve">
+    <value>Evaluation de la caisse {0} de {1}...</value>
+  </data>
+  <data name="ID_WARNINGEDITLAYER" xml:space="preserve">
+    <value>Soyez informé du fait que seul les utilisateurs "Premium" peuvent utiliser les couches éditées dans une palettisation. </value>
+  </data>
+  <data name="ID_GOPREMIUMORUNSELECT" xml:space="preserve">
+    <value>L'utilisation des couches éditées est une fonctionnalité Premium. Désélectionnez les couches éditées.</value>
+  </data>
 </root>

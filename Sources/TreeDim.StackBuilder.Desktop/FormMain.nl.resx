@@ -839,4 +839,7 @@
   <data name="saveFileDialogExportXML.Filter" xml:space="preserve">
     <value>Wisselen van Markup Language (*.xml) | * .xml</value>
   </data>
+  <data name="toolStripMISettings.Text" xml:space="preserve">
+    <value>Paramètres...</value>
+  </data>
 </root>

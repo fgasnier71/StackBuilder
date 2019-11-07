@@ -133,6 +133,7 @@ namespace treeDiM.StackBuilder.Desktop
                 return _useDisconnected;
             }
         }
+        public static bool IsSubscribed { get; set; } = false;
         #endregion
 
         #region Culture

@@ -1,4 +1,5 @@
-﻿using System;
+﻿#region Using directives
+using System;
 using System.Text;
 using System.Collections.Generic;
 
@@ -6,6 +7,7 @@ using Sharp3D.Math.Core;
 using log4net;
 
 using treeDiM.StackBuilder.Basics;
+#endregion
 
 namespace treeDiM.StackBuilder.Engine
 {
@@ -156,7 +158,6 @@ namespace treeDiM.StackBuilder.Engine
         #endregion
     }
     #endregion
-
     #region HCylinderPalletAnalysis
     public class HCylinderPalletAnalysis : AnalysisLegacy
     {
@@ -300,12 +301,14 @@ namespace treeDiM.StackBuilder.Engine
         }
         #endregion
     }
-#endregion
+    #endregion
+    #region IHCylinderAnalysisSolver
     public interface IHCylinderAnalysisSolver
     {
         void ProcessAnalysis(HCylinderPalletAnalysis analysis);
     }
-
+    #endregion
+    #region HCylinderSolver
     public class HCylinderSolver : IHCylinderAnalysisSolver
     {
         #region Data members
@@ -315,14 +318,12 @@ namespace treeDiM.StackBuilder.Engine
         private HCylinderPalletConstraintSet _constraintSet;
         static readonly ILog _log = LogManager.GetLogger(typeof(HCylinderSolver));
         #endregion
-
         #region Constructor
         public HCylinderSolver()
         {
             HCylinderSolver.LoadPatterns();
         }
         #endregion
-
         #region Processing methods
         public void ProcessAnalysis(HCylinderPalletAnalysis analysis)
         {
@@ -406,7 +407,6 @@ namespace treeDiM.StackBuilder.Engine
             return solutions;
         }
         #endregion
-
         #region Static methods
         private static void LoadPatterns()
         {
@@ -419,4 +419,5 @@ namespace treeDiM.StackBuilder.Engine
         }
         #endregion
     }
+    #endregion
 }

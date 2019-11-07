@@ -170,4 +170,10 @@
   <data name="$this.Text" xml:space="preserve">
     <value>Calcul RCV caisse</value>
   </data>
+  <data name="toolStripLabelProfile.Text" xml:space="preserve">
+    <value>Profil</value>
+  </data>
+  <data name="tsBnReport.Text" xml:space="preserve">
+    <value>Rapport</value>
+  </data>
 </root>

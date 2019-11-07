@@ -1592,4 +1592,28 @@
   <data name="toolStripMIHAnalysisCaseTruck.Text" xml:space="preserve">
     <value>Caisse/Camion hétérogène</value>
   </data>
+  <data name="toolStripSB_BCT.Text" xml:space="preserve">
+    <value>Calcul BCT</value>
+  </data>
+  <data name="toolStripButtonPremium.Text" xml:space="preserve">
+    <value>Devenir un utilisateur "Premium"</value>
+  </data>
+  <data name="toolStripMIAnalysisCasePallet.ToolTipText" xml:space="preserve">
+    <value>Analyse caisse/palette</value>
+  </data>
+  <data name="toolStripMIAnalysisCylinderPallet.ToolTipText" xml:space="preserve">
+    <value>Analyse cylindre palette</value>
+  </data>
+  <data name="toolStripMIAnalysisBundlePallet.ToolTipText" xml:space="preserve">
+    <value>Analyse liasse/palette</value>
+  </data>
+  <data name="toolStripMIHAnalysis.Text" xml:space="preserve">
+    <value>Chargement palette hétérogène</value>
+  </data>
+  <data name="toolStripMIHAnalysis.ToolTipText" xml:space="preserve">
+    <value>Chargement palette hétérogène</value>
+  </data>
+  <data name="toolStripMIPremium.Text" xml:space="preserve">
+    <value>Devenir un utilisateur "Premium"</value>
+  </data>
 </root>

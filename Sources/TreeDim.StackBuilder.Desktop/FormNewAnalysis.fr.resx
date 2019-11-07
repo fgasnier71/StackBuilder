@@ -145,4 +145,7 @@
   <data name="lbDescription.Text" xml:space="preserve">
     <value>Description</value>
   </data>
+  <data name="bnCancel.Text" xml:space="preserve">
+    <value>Annuler</value>
+  </data>
 </root>

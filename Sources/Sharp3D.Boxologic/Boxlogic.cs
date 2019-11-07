@@ -170,6 +170,10 @@ namespace Sharp3D.Boxologic
             {
                 for (int y = 1; y <= 3; ++y)
                 {
+                    if (!bi1.AllowX && y == 1) continue;
+                    if (!bi1.AllowY && y == 2) continue;
+                    if (!bi1.AllowZ && y == 3) continue;
+
                     decimal exdim = 0, dimen2 = 0, dimen3 = 0;
                     switch (y)
                     {
@@ -215,7 +219,7 @@ namespace Sharp3D.Boxologic
                                 dimdif = Math.Abs(exdim - bi2.Dim2);
                             if (Math.Abs(exdim - bi2.Dim3) < dimdif)
                                 dimdif = Math.Abs(exdim - bi2.Dim3);
-                            layereval = layereval + dimdif;
+                            layereval += dimdif;
                         }
                     }
                     layers.Add(new Layer() { LayerEval = layereval, LayerDim = exdim });
@@ -274,13 +278,12 @@ namespace Sharp3D.Boxologic
                     if (layerdone) break;
                     if (evened) continue;
 
-                    BoxInfo bi = boxList[(int)cboxi];
                     boxList[(int)cboxi].Cox = 0;
                     boxList[(int)cboxi].Coy = packedy;
                     boxList[(int)cboxi].Coz = smallestz.Cumz;
                     if (cboxx == smallestz.Cumx)
                     {
-                        smallestz.Cumz = smallestz.Cumz + cboxz;
+                        smallestz.Cumz += cboxz;
                     }
                     else
                     {
@@ -291,7 +294,7 @@ namespace Sharp3D.Boxologic
                             Cumz = smallestz.Cumz
                         };
                         smallestz.Cumx = cboxx;
-                        smallestz.Cumz = smallestz.Cumz + cboxz;
+                        smallestz.Cumz += cboxz;
                     }
                     VolumeCheck((int)cboxi, cboxx, cboxy, cboxz, packingbest, ref hundredpercent);
                 }
@@ -326,7 +329,7 @@ namespace Sharp3D.Boxologic
                         }
                         else
                         {
-                            smallestz.Cumz = smallestz.Cumz + cboxz;
+                            smallestz.Cumz += cboxz;
                         }
                     }
                     else
@@ -335,7 +338,7 @@ namespace Sharp3D.Boxologic
                         bi.Cox = smallestz.Cumx - cboxx;
                         if (smallestz.Cumz + cboxz == smallestz.Next.Cumz)
                         {
-                            smallestz.Cumx = smallestz.Cumx - cboxx;
+                            smallestz.Cumx -= cboxx;
                         }
                         else
                         {
@@ -346,7 +349,7 @@ namespace Sharp3D.Boxologic
                             };
                             smallestz.Next = smallestz.Next.Prev;
                             smallestz.Next.Cumx = smallestz.Cumx;
-                            smallestz.Cumx = smallestz.Cumx - cboxx;
+                            smallestz.Cumx -= cboxx;
                             smallestz.Next.Cumz = smallestz.Cumz + cboxz;
                         }
                     }
@@ -434,14 +437,14 @@ namespace Sharp3D.Boxologic
                         }
                         else
                         {
-                            smallestz.Cumz = smallestz.Cumz + cboxz;
+                            smallestz.Cumz += cboxz;
                         }
                     }
                     else if (smallestz.Prev.Cumx < pallet.Pallet_x - smallestz.Cumx)
                     {
                         if (smallestz.Cumz + cboxz == smallestz.Prev.Cumz)
                         {
-                            smallestz.Cumx = smallestz.Cumx - cboxx;
+                            smallestz.Cumx -= cboxx;
                             boxList[(int)cboxi].Cox = smallestz.Cumx - cboxx;
                         }
                         else
@@ -475,7 +478,7 @@ namespace Sharp3D.Boxologic
                             smallestz.Next = smallestz.Next.Prev;
                             smallestz.Next.Cumx = smallestz.Cumx;
                             smallestz.Next.Cumz = smallestz.Cumz + cboxz;
-                            smallestz.Cumx = smallestz.Cumx - cboxx;
+                            smallestz.Cumx -= cboxx;
                         }
                     }
                     VolumeCheck((int)cboxi, cboxx, cboxy, cboxz, packingbest, ref hundredpercent);
@@ -504,9 +507,7 @@ namespace Sharp3D.Boxologic
                             smallestz.Next.Prev = smallestz.Prev;
                         }
                         else
-                        {
-                            smallestz.Cumz = smallestz.Cumz + cboxz;
-                        }
+                            smallestz.Cumz += cboxz;
                     }
                     else
                     {
@@ -517,7 +518,7 @@ namespace Sharp3D.Boxologic
                         else if (smallestz.Cumz + cboxz == smallestz.Next.Cumz)
                         {
                             boxList[(int)cboxi].Cox = smallestz.Cumx - cboxx;
-                            smallestz.Cumx = smallestz.Cumx - cboxx;
+                            smallestz.Cumx -= cboxx;
                         }
                         else
                         {
@@ -554,6 +555,10 @@ namespace Sharp3D.Boxologic
                     continue;
                 for (int y = 1; y <= 3; y++)
                 {
+                    if (!bi.AllowX && y == 1) continue;
+                    if (!bi.AllowY && y == 2) continue;
+                    if (!bi.AllowZ && y == 3) continue;
+
                     switch (y)
                     {
                         case 1:
@@ -588,7 +593,7 @@ namespace Sharp3D.Boxologic
                                     dimdif = Math.Abs(exdim - boxList[z].Dim2);
                                 if (Math.Abs(exdim - boxList[z].Dim3) < dimdif)
                                     dimdif = Math.Abs(exdim - boxList[z].Dim3);
-                                layereval = layereval + dimdif;
+                                layereval += dimdif;
                             }
                         }
                         if (layereval < eval)
@@ -836,8 +841,7 @@ namespace Sharp3D.Boxologic
                         , ref bbfx, ref bbfy, ref bbfz
                         , ref boxi, ref boxx, ref boxy, ref boxz
                         , ref bboxi, ref bboxx, ref bboxy, ref bboxz);
-                }
-                
+                }                
             }
             CheckFound(ref cboxi, ref cboxx, ref cboxy, ref cboxz
                 , boxi, boxx, boxy, boxz

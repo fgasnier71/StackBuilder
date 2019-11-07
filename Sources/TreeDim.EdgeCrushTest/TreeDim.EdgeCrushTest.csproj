@@ -156,6 +156,9 @@
     <Compile Include="QualityData.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="DockContentBCTCase.de.resx">
+      <DependentUpon>DockContentBCTCase.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DockContentBCTPalletisation.fr.resx">
       <DependentUpon>DockContentBCTPalletisation.cs</DependentUpon>
     </EmbeddedResource>

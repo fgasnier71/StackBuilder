@@ -31,7 +31,6 @@ namespace treeDiM.StackBuilder.Desktop
             InitializeComponent();
         }
         #endregion
-
         #region Form override
         protected override void OnLoad(EventArgs e)
         {
@@ -72,7 +71,6 @@ namespace treeDiM.StackBuilder.Desktop
             Settings.Default.MaxCaseDimZ = uCtrlCaseDimensionsMax.Z;
         }
         #endregion
-
         #region Status toolstrip updating
         public virtual void UpdateStatus(string message)
         {
@@ -94,7 +92,6 @@ namespace treeDiM.StackBuilder.Desktop
             bnCreateAnalysis.Enabled = string.IsNullOrEmpty(message);
         }
         #endregion
-
         #region IItemBaseFilter
         public bool Accept(Control ctrl, ItemBase itemBase)
         {
@@ -109,7 +106,6 @@ namespace treeDiM.StackBuilder.Desktop
             return false;
         }
         #endregion
-
         #region IDrawingContainer
         public void Draw(Graphics3DControl ctrl, Graphics3D graphics)
         {
@@ -126,7 +122,6 @@ namespace treeDiM.StackBuilder.Desktop
             }
         }
         #endregion
-
         #region Event handlers
         private void OnBoxChanged(object sender, EventArgs e)
         {
@@ -228,7 +223,6 @@ namespace treeDiM.StackBuilder.Desktop
                 ComputeSolutions();
         }
         #endregion
-
         #region Compute solutions
         protected void ComputeSolutions()
         {
@@ -264,47 +258,53 @@ namespace treeDiM.StackBuilder.Desktop
         }
         private void BuildAnalyses(object status)
         {
-            IProgressCallback callback = status as IProgressCallback;
-            callback.SetRange(0, CheckedIndices.Count-1);
-            callback.Begin();
-
-            int expectedCount = uCtrlNumberPerCase.Value.Activated ? uCtrlNumberPerCase.Value.Value : -1;
-            PackableBrick packable = cbBoxes.SelectedType as PackableBrick;
-
-            // build list of analyses
-            for (int i = 0; i < CheckedIndices.Count; ++i)
+            try
             {
-                if (callback.IsAborting)
-                    break;
-                callback.StepTo(i);
-                callback.SetText(string.Format(Resources.ID_EVALUATINGCASE, i + 1, CheckedIndices.Count));
+                IProgressCallback callback = status as IProgressCallback;
+                callback.SetRange(0, CheckedIndices.Count - 1);
+                callback.Begin();
 
-                if ((chklbCases.Items[CheckedIndices[i]] as ItemBaseCB).Item is BoxProperties caseProperties)
+                int expectedCount = uCtrlNumberPerCase.Value.Activated ? uCtrlNumberPerCase.Value.Value : -1;
+                PackableBrick packable = cbBoxes.SelectedType as PackableBrick;
+
+                // build list of analyses
+                for (int i = 0; i < CheckedIndices.Count; ++i)
                 {
-                    // build constraint set
-                    ConstraintSetBoxCase constraintSet = new ConstraintSetBoxCase(caseProperties);
-                    constraintSet.SetAllowedOrientations(uCtrlCaseOrient.AllowedOrientations);
-                    if (uCtrlNumberPerCase.Value.Activated)
-                        constraintSet.SetMaxNumber(uCtrlNumberPerCase.Value.Value);
-                    // build solver + get analyses
-                    SolverBoxCase solver = new SolverBoxCase(packable, caseProperties);
-                    var listAnalyses = solver.BuildAnalyses(constraintSet, false);
-                    foreach (var analysis in listAnalyses)
+                    try
                     {
-                        if ((-1 == expectedCount) || (expectedCount == analysis.Solution.ItemCount))
-                            Analyses.Add(analysis);
-                    }
-                }
-            }
-            callback.SetText(Resources.ID_SORTINGSOLUTIONS);
-            // sort analysis
-            Analyses.Sort(new AnalysisComparer());
+                        if (callback.IsAborting)
+                            break;
+                        callback.StepTo(i);
+                        callback.SetText(string.Format(Resources.ID_EVALUATINGCASE, i + 1, CheckedIndices.Count));
 
-            callback.End();
+                        if ((chklbCases.Items[CheckedIndices[i]] as ItemBaseCB).Item is BoxProperties caseProperties)
+                        {
+                            // build constraint set
+                            ConstraintSetBoxCase constraintSet = new ConstraintSetBoxCase(caseProperties);
+                            constraintSet.SetAllowedOrientations(uCtrlCaseOrient.AllowedOrientations);
+                            if (uCtrlNumberPerCase.Value.Activated)
+                                constraintSet.SetMaxNumber(uCtrlNumberPerCase.Value.Value);
+                            // build solver + get analyses
+                            SolverBoxCase solver = new SolverBoxCase(packable, caseProperties);
+                            var listAnalyses = solver.BuildAnalyses(constraintSet, false);
+                            foreach (var analysis in listAnalyses)
+                            {
+                                if ((-1 == expectedCount) || (expectedCount == analysis.Solution.ItemCount))
+                                    Analyses.Add(analysis);
+                            }
+                        }
+                    }
+                    catch (Exception) {}
+                }
+                callback.SetText(Resources.ID_SORTINGSOLUTIONS);
+                // sort analysis
+                Analyses.Sort(new AnalysisComparer());
+                callback.End();
+            }
+            catch (Exception) {}
         }
 
         #endregion
-
         #region Grid
         private int GridFontSize
         {
@@ -415,7 +415,6 @@ namespace treeDiM.StackBuilder.Desktop
             }
         }
         #endregion
-
         #region Public properties
         public DocumentSB Document { get; set; }
         private string AnalysisName
@@ -429,7 +428,6 @@ namespace treeDiM.StackBuilder.Desktop
             set { tbAnalysisDescription.Text = value; }
         }
         #endregion
-
         #region Private helpers
         private void OnFillListCases(object sender, EventArgs e)
         {
@@ -488,19 +486,14 @@ namespace treeDiM.StackBuilder.Desktop
             OnCaseChecked(this, null);
         }
         #endregion
-
         #region Public properties
         public List<DCSBCase> ListCases { get; set; }
         #endregion
-
         #region Data members
         private List<AnalysisHomo> Analyses { get; set; } = new List<AnalysisHomo>();
         private List<int> CheckedIndices { get; set; } = new List<int>();
         private bool ThreadRunning { get; set; } = false;
-
-
         protected static ILog _log = LogManager.GetLogger(typeof(FormOptimiseMultiCase));
         #endregion
-
     }
 }

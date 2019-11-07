@@ -388,7 +388,6 @@ namespace treeDiM.StackBuilder.Basics
                     return i;
             return -1;
         }
-
         public static bool HaveIntersection(List<BoxPosition> list, Vector3D dim, int selectedIndex, BoxPosition bPosition)
         {
             for (int i = 0; i < list.Count; ++i)
@@ -398,7 +397,6 @@ namespace treeDiM.StackBuilder.Basics
             }
             return false;
         }
-
         public static bool HaveIntersection(BoxPosition bPos1, Vector3D dim1, BoxPosition bPos2, Vector3D dim2)
         {
             var bbox1 = bPos1.BBox(dim1);
@@ -417,7 +415,6 @@ namespace treeDiM.StackBuilder.Basics
             else
                 return true;
         }
-
         public static bool MinDistance(List<BoxPosition> list, Vector3D dim, int selectedIndex, HalfAxis.HAxis axis, ref double distance)
         {
             if (selectedIndex < 0 || selectedIndex > list.Count - 1)
@@ -439,7 +436,6 @@ namespace treeDiM.StackBuilder.Basics
             if (!found) distance = 0.0;
             return found;
         }
-
         public static bool MinDistance(
             BoxPosition bPos1, Vector3D dim1
             , BoxPosition bPos2, Vector3D dim2
@@ -502,7 +498,6 @@ namespace treeDiM.StackBuilder.Basics
             distance = 0.0;
             return false;
         }
-
         static readonly double EPSILON = 1.0E-03;
     }
 }

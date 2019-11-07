@@ -12,9 +12,10 @@ namespace treeDiM.StackBuilder.Basics
         {
         }
         #endregion
-
+        #region Add/Remove methods
         public void AddPosition(BoxPosition position) => Add(position);
-
+        public void RemovePosition(int index) => Positions.RemoveAt(index);
+        #endregion
         #region Layer2DBrick override
         public override string PatternName => string.Empty;
         public override string Tooltip(double height) => $"{Count} * {NoLayers(height)} = {CountInHeight(height)} | {HalfAxis.ToString(AxisOrtho)} | {Name}";
