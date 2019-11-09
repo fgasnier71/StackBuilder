@@ -442,28 +442,28 @@
           <td/>
         </tr>
       </xsl:if>
-      <xsl:if test="loadWeight">
+      <xsl:if test="weightLoad">
         <tr>
           <td class="style2" cellspan="1">
             <b>
-              <xsl:value-of select="$loc/str[@name='Load weight']"/> (<xsl:value-of select="loadWeight/unit"/>)
+              <xsl:value-of select="$loc/str[@name='Load weight']"/> (<xsl:value-of select="weightLoad/unit"/>)
             </b>
           </td>
           <td class="style3" cellspan="1">
-            <xsl:value-of select="loadWeight/value"/>
+            <xsl:value-of select="weightLoad/value"/>
           </td>
           <td/>
         </tr>
       </xsl:if>
-      <xsl:if test="totalWeight">
+      <xsl:if test="weightTotal">
         <tr>
           <td class="style2" cellspan="1">
             <b>
-              <xsl:value-of select="$loc/str[@name='Total weight']"/> (<xsl:value-of select="totalWeight/unit"/>)
+              <xsl:value-of select="$loc/str[@name='Total weight']"/> (<xsl:value-of select="weightTotal/unit"/>)
             </b>
           </td>
           <td class="style3" cellspan="1">
-            <xsl:value-of select="totalWeight/value"/>
+            <xsl:value-of select="weightTotal/value"/>
           </td>
           <td/>
         </tr>
@@ -631,30 +631,55 @@
           </td>
         </tr>
       </xsl:if>
-      <xsl:if test="loadWeight">
+      <xsl:if test="weightLoad">
         <tr>
           <td class="style2" colspan="1">
             <b>
-              <xsl:value-of select="$loc/str[@name='Load weight']"/> (<xsl:value-of select="loadWeight/unit"/>)
+              <xsl:value-of select="$loc/str[@name='Load weight']"/> (<xsl:value-of select="weightLoad/unit"/>)
             </b>
           </td>
           <td class="style3" colspan="3">
-            <xsl:value-of select="loadWeight/value"/>
+            <xsl:value-of select="weightLoad/value"/>
           </td>
         </tr>
       </xsl:if>
-      <xsl:if test="totalWeight">
+      <xsl:if test="bboxLoad">
         <tr>
           <td class="style2" colspan="1">
             <b>
-              <xsl:value-of select="$loc/str[@name='Weight']"/> (<xsl:value-of select="totalWeight/unit"/>)
+              <xsl:value-of select="$loc/str[@name='Load dimensions']"/> (<xsl:value-of select="bboxLoad/unit"/>)
             </b>
           </td>
           <td class="style3" colspan="3">
-            <xsl:value-of select="totalWeight/value"/>
+            <xsl:value-of select="bboxLoad/v0"/> x <xsl:value-of select="bboxLoad/v1"/> x <xsl:value-of select="bboxLoad/v2"/>
           </td>
         </tr>
       </xsl:if>
+      <xsl:if test="weightTotal">
+        <tr>
+          <td class="style2" colspan="1">
+            <b>
+              <xsl:value-of select="$loc/str[@name='Weight']"/> (<xsl:value-of select="weightTotal/unit"/>)
+            </b>
+          </td>
+          <td class="style3" colspan="3">
+            <xsl:value-of select="weightTotal/value"/>
+          </td>
+        </tr>
+      </xsl:if>
+      <xsl:if test="bboxTotal">
+        <tr>
+          <td class="style2" colspan="1">
+            <b>
+              <xsl:value-of select="$loc/str[@name='Overall dimensions']"/> (<xsl:value-of select="bboxTotal/unit"/>)
+            </b>
+          </td>
+          <td class="style3" colspan="3">
+            <xsl:value-of select="bboxTotal/v0"/> x <xsl:value-of select="bboxTotal/v1"/> x <xsl:value-of select="bboxTotal/v2"/>
+          </td>
+        </tr>
+      </xsl:if>
+      
       <xsl:if test="efficiencyVolume">
         <tr>
           <td class="style2" colspan="1">
@@ -723,27 +748,27 @@
     </h4>
     <xsl:apply-templates select="itemQuantities"/>
     <table class="style1">
-      <xsl:if test="loadWeight">
+      <xsl:if test="weightLoad">
         <tr>
           <td class="style2" colspan="1">
             <b>
-              <xsl:value-of select="$loc/str[@name='Load weight']"/> (<xsl:value-of select="loadWeight/unit"/>)
+              <xsl:value-of select="$loc/str[@name='Load weight']"/> (<xsl:value-of select="weightLoad/unit"/>)
             </b>
           </td>
           <td class="style3" colspan="3">
-            <xsl:value-of select="loadWeight/value"/>
+            <xsl:value-of select="weightLoad/value"/>
           </td>
         </tr>
       </xsl:if>
-      <xsl:if test="totalWeight">
+      <xsl:if test="weightTotal">
         <tr>
           <td class="style2" colspan="1">
             <b>
-              <xsl:value-of select="$loc/str[@name='Weight']"/> (<xsl:value-of select="totalWeight/unit"/>)
+              <xsl:value-of select="$loc/str[@name='Weight']"/> (<xsl:value-of select="weightTotal/unit"/>)
             </b>
           </td>
           <td class="style3" colspan="3">
-            <xsl:value-of select="totalWeight/value"/>
+            <xsl:value-of select="weightTotal/value"/>
           </td>
         </tr>
       </xsl:if>
@@ -1400,7 +1425,7 @@
             </b>
           </td>
           <td class="style3" colspan="1">
-            <xsl:value-of select="length/value"></xsl:value-of>
+            <xsl:value-of select="length/value"/>
           </td>
         </xsl:if>
         <xsl:if test="innerLength">
@@ -2030,11 +2055,11 @@
       <tr>
         <td class="style3">
           <b>
-            <xsl:value-of select="$loc/str[@name='Total weight']"/> (<xsl:value-of select="totalWeight/unit"></xsl:value-of>)
+            <xsl:value-of select="$loc/str[@name='Total weight']"/> (<xsl:value-of select="weightTotal/unit"></xsl:value-of>)
           </b>
         </td>
         <td class="style3">
-          <xsl:value-of select="totalWeight/value"></xsl:value-of>
+          <xsl:value-of select="weightTotal/value"></xsl:value-of>
         </td>
       </tr>
     </table>

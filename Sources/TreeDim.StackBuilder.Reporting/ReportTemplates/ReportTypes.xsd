@@ -46,7 +46,7 @@
       <xs:element name="unitThickness" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
       <xs:element name="unitWeight" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
       <xs:element name="totalThickness" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
-      <xs:element name="totalWeight" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
+      <xs:element name="weightTotal" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
       <xs:element name="imageThumbSize" minOccurs="0" maxOccurs="1" type="rpt:imageThumbSize"/>
     </xs:sequence>
   </xs:complexType>
@@ -259,8 +259,10 @@
       <xs:element name="noCasesPerLayer" minOccurs="0" maxOccurs="1" type="xs:int"/>
       <xs:element name="noLayersAndNoCases" minOccurs="1" maxOccurs="1" type="xs:string"/>
       <xs:element name="netWeight" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
-      <xs:element name="loadWeight" minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>
-      <xs:element name="totalWeight" minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>
+      <xs:element name="weightLoad" minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>
+      <xs:element name="weightTotal" minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>
+      <xs:element name="bboxLoad" minOccurs="1" maxOccurs="1" type="rpt:value3WUnit"/>
+      <xs:element name="bboxTotal" minOccurs="1" maxOccurs="1" type="rpt:value3WUnit"/>
       <xs:element name="efficiencyVolume" minOccurs="1" maxOccurs="1"/>
       <xs:element name="view_solution_front" type="rpt:view_solution_front"/>
       <xs:element name="view_solution_left" type="rpt:view_solution_left"/>
@@ -312,10 +314,10 @@
     <xs:sequence>
       <xs:element name="index" type="xs:int"/>
       <xs:element name="itemQuantities" type="rpt:itemQuantities"/>
-      <xs:element name="loadBBox" minOccurs="1" maxOccurs="1" type="rpt:value3WUnit"/>
-      <xs:element name="totalBBox" minOccurs="1" maxOccurs="1" type="rpt:value3WUnit"/>
-      <xs:element name="loadWeight" minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>
-      <xs:element name="totalWeight" minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>
+      <xs:element name="bboxLoad" minOccurs="1" maxOccurs="1" type="rpt:value3WUnit"/>
+      <xs:element name="weightLoad" minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>
+      <xs:element name="bboxTotal" minOccurs="1" maxOccurs="1" type="rpt:value3WUnit"/>
+      <xs:element name="weightTotal" minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>
       <xs:element name="view_solution_front" type="rpt:view_solution_front"/>
       <xs:element name="view_solution_left" type="rpt:view_solution_left"/>
       <xs:element name="view_solution_right" type="rpt:view_solution_right"/>
@@ -371,8 +373,8 @@
   <xs:complexType name="bctSolution">
     <xs:sequence>
       <xs:element name="noLayersAndCases" minOccurs="0" maxOccurs="1" type="xs:string"/>
-      <xs:element name="loadWeight" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
-      <xs:element name="totalWeight" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
+      <xs:element name="weightLoad" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
+      <xs:element name="weightTotal" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
       <xs:element name="loadOnLowestCase" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
       <xs:element name="view_solution_iso" minOccurs="0" maxOccurs="1" type="rpt:view_solution_iso"/>
     </xs:sequence>
@@ -412,8 +414,8 @@
             <xs:element name="noCasesPerLayer" minOccurs="0" maxOccurs="1" type="xs:int"/>
             <xs:element name="noLayersAndNoCases" minOccurs="1" maxOccurs="1" type="xs:string"/>
             <xs:element name="netWeight" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
-            <xs:element name="loadWeight" minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>
-            <xs:element name="totalWeight" minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>
+            <xs:element name="weightLoad" minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>
+            <xs:element name="weightTotal" minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>
             <xs:element name="view_solution_iso" type="rpt:view_solution_iso"/>
           </xs:sequence>
         </xs:complexType>

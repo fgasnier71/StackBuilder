@@ -498,8 +498,14 @@ namespace treeDiM.StackBuilder.Reporting
                                 // pallet weight
                                 if (sol.HasNetWeight)
                                     AppendElementValue(xmlDoc, elemSolution, "netWeight", UnitsManager.UnitType.UT_MASS, sol.NetWeight.Value);
-                                AppendElementValue(xmlDoc, elemSolution, "loadWeight", UnitsManager.UnitType.UT_MASS, sol.LoadWeight);
-                                AppendElementValue(xmlDoc, elemSolution, "totalWeight", UnitsManager.UnitType.UT_MASS, sol.Weight);
+                                AppendElementValue(xmlDoc, elemSolution, "weightLoad", UnitsManager.UnitType.UT_MASS, sol.LoadWeight);
+                                AppendElementValue(xmlDoc, elemSolution, "weightTotal", UnitsManager.UnitType.UT_MASS, sol.Weight);
+                                if (rnPalletisationResults.GetChildByName(Resources.ID_RN_LOADDIMENSIONS).Activated)
+                                    AppendElementBB(xmlDoc, elemSolution, "bboxLoad", UnitsManager.UnitType.UT_LENGTH
+                                        , new double[3] { sol.BBoxLoad.Length, sol.BBoxLoad.Width, sol.BBoxLoad.Height });
+                                if (rnPalletisationResults.GetChildByName(Resources.ID_RN_OVERALLDIMENSIONS).Activated)
+                                    AppendElementBB(xmlDoc, elemSolution, "bboxTotal", UnitsManager.UnitType.UT_LENGTH
+                                        , new double[3] { sol.BBoxGlobal.Length, sol.BBoxGlobal.Width, sol.BBoxGlobal.Height });
                                 // average load on first layer
                                 AppendElementValue(xmlDoc, elemSolution, "loadOnLowestCase", UnitsManager.UnitType.UT_MASS, sol.LoadOnLowestCase);
                                 // image
@@ -781,9 +787,16 @@ namespace treeDiM.StackBuilder.Reporting
             {
                 if (sol.HasNetWeight)
                     AppendElementValue(xmlDoc, elemSolution, "netWeight", UnitsManager.UnitType.UT_MASS, sol.NetWeight.Value);
-                AppendElementValue(xmlDoc, elemSolution, "loadWeight", UnitsManager.UnitType.UT_MASS, sol.LoadWeight);
-                AppendElementValue(xmlDoc, elemSolution, "totalWeight", UnitsManager.UnitType.UT_MASS, sol.Weight);
+                AppendElementValue(xmlDoc, elemSolution, "weightLoad", UnitsManager.UnitType.UT_MASS, sol.LoadWeight);
+                AppendElementValue(xmlDoc, elemSolution, "weightTotal", UnitsManager.UnitType.UT_MASS, sol.Weight);
+
             }
+            if (rnSolution.GetChildByName(Resources.ID_RN_LOADDIMENSIONS).Activated)
+                AppendElementBB(xmlDoc, elemSolution, "bboxLoad", UnitsManager.UnitType.UT_LENGTH
+                    , new double[3] { sol.BBoxLoad.Length, sol.BBoxLoad.Width, sol.BBoxLoad.Height });
+            if (rnSolution.GetChildByName(Resources.ID_RN_OVERALLDIMENSIONS).Activated)
+                AppendElementBB(xmlDoc, elemSolution, "bboxTotal", UnitsManager.UnitType.UT_LENGTH
+                    , new double[3] { sol.BBoxGlobal.Length, sol.BBoxGlobal.Width, sol.BBoxGlobal.Height });
             if (rnSolution.GetChildByName(Resources.ID_RN_VOLUMEEFFICIENCY).Activated)
                 AppendElementValue(xmlDoc, elemSolution, "efficiencyVolume", sol.VolumeEfficiency);
 
@@ -979,10 +992,17 @@ namespace treeDiM.StackBuilder.Reporting
                 }
                 ReportNode rnLoadWeight = rnSolution.GetChildByName(Resources.ID_RN_LOADWEIGHT);
                 if (rnLoadWeight.Activated)
-                    AppendElementValue(xmlDoc, elemSolItem, "loadWeight", UnitsManager.UnitType.UT_MASS, sol.LoadWeight(solItemIndex));
+                    AppendElementValue(xmlDoc, elemSolItem, "weightLoad", UnitsManager.UnitType.UT_MASS, sol.LoadWeight(solItemIndex));
                 ReportNode rnTotalWeight = rnSolution.GetChildByName(Resources.ID_RN_TOTALWEIGHT);
                 if (rnTotalWeight.Activated)
-                    AppendElementValue(xmlDoc, elemSolItem, "totalWeight", UnitsManager.UnitType.UT_MASS, sol.Weight(solItemIndex));
+                    AppendElementValue(xmlDoc, elemSolItem, "weightTotal", UnitsManager.UnitType.UT_MASS, sol.Weight(solItemIndex));
+                if (rnSolution.GetChildByName(Resources.ID_RN_OVERALLDIMENSIONS).Activated)
+                    AppendElementBB(xmlDoc, elemSolution, "bboxLoad", UnitsManager.UnitType.UT_LENGTH
+                        , new double[3] { sol.BBoxGlobal(solItemIndex).Length, sol.BBoxGlobal(solItemIndex).Width, sol.BBoxGlobal(solItemIndex).Height });
+                if (rnSolution.GetChildByName(Resources.ID_RN_LOADDIMENSIONS).Activated)
+                    AppendElementBB(xmlDoc, elemSolution, "bboxTotal", UnitsManager.UnitType.UT_LENGTH
+                        , new double[3] { sol.BBoxLoad(solItemIndex).Length, sol.BBoxLoad(solItemIndex).Width, sol.BBoxLoad(solItemIndex).Height });
+
                 ReportNode rnViews = rnSolution.GetChildByName(Resources.ID_RN_VIEWS);
                 ReportNode rnViewIso = rnSolution.GetChildByName(Resources.ID_RN_VIEWISO);
 
@@ -1215,7 +1235,7 @@ namespace treeDiM.StackBuilder.Reporting
             if (rnBundle.GetChildByName(Resources.ID_RN_WEIGHT).Activated)
             {
                 AppendElementValue(xmlDoc, elemBundle, "unitWeight", UnitsManager.UnitType.UT_MASS, bundleProp.UnitWeight);
-                AppendElementValue(xmlDoc, elemBundle, "totalWeight", UnitsManager.UnitType.UT_MASS, bundleProp.UnitWeight * bundleProp.NoFlats);
+                AppendElementValue(xmlDoc, elemBundle, "weightTotal", UnitsManager.UnitType.UT_MASS, bundleProp.UnitWeight * bundleProp.NoFlats);
             }
             if (rnBundle.GetChildByName(Resources.ID_RN_IMAGE).Activated)
             {
@@ -1654,15 +1674,15 @@ namespace treeDiM.StackBuilder.Reporting
             createdElement.AppendChild(unitElement);
             // v0
             XmlElement valueElement0 = xmlDoc.CreateElement("v0", xmlDoc.DocumentElement.NamespaceURI);
-            valueElement0.InnerText = string.Format(UnitsManager.UnitFormat(unitType), eltValue);
+            valueElement0.InnerText = string.Format(UnitsManager.UnitFormat(unitType), eltValue[0]);
             createdElement.AppendChild(valueElement0);
             // v1
             XmlElement valueElement1 = xmlDoc.CreateElement("v1", xmlDoc.DocumentElement.NamespaceURI);
-            valueElement1.InnerText = string.Format(UnitsManager.UnitFormat(unitType), eltValue);
+            valueElement1.InnerText = string.Format(UnitsManager.UnitFormat(unitType), eltValue[1]);
             createdElement.AppendChild(valueElement1);
             // v2
             XmlElement valueElement2 = xmlDoc.CreateElement("v2", xmlDoc.DocumentElement.NamespaceURI);
-            valueElement2.InnerText = string.Format(UnitsManager.UnitFormat(unitType), eltValue);
+            valueElement2.InnerText = string.Format(UnitsManager.UnitFormat(unitType), eltValue[2]);
             createdElement.AppendChild(valueElement2);
         }
         private static void AppendElementValue(XmlDocument xmlDoc, XmlElement parent, string eltName, UnitsManager.UnitType unitType, double eltValue)

@@ -171,6 +171,7 @@
     <Content Include="ReportTemplates\FRA.xml" />
     <Content Include="ReportTemplates\ITA.xml" />
     <Content Include="ReportTemplates\JPN.xml" />
+    <Content Include="ReportTemplates\ReportTemplatesHtml_MAPASPONTEX.xsl" />
     <Content Include="ReportTemplates\SVE.xml" />
     <None Include="ReportTemplates\ReportTemplateHtml.xsl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -268,6 +269,7 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.ru.resx" />
     <EmbeddedResource Include="Properties\Resources.sv.resx" />

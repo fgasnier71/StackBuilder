@@ -304,6 +304,15 @@ namespace treeDiM.StackBuilder.Reporting.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Load dimensions.
+        /// </summary>
+        internal static string ID_RN_LOADDIMENSIONS {
+            get {
+                return ResourceManager.GetString("ID_RN_LOADDIMENSIONS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Load weight.
         /// </summary>
         internal static string ID_RN_LOADWEIGHT {
@@ -363,6 +372,15 @@ namespace treeDiM.StackBuilder.Reporting.Properties {
         internal static string ID_RN_NOLAYERSBYNOCASES {
             get {
                 return ResourceManager.GetString("ID_RN_NOLAYERSBYNOCASES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Overall dimensions.
+        /// </summary>
+        internal static string ID_RN_OVERALLDIMENSIONS {
+            get {
+                return ResourceManager.GetString("ID_RN_OVERALLDIMENSIONS", resourceCulture);
             }
         }
         

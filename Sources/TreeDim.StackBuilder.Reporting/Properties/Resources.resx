@@ -198,6 +198,9 @@
   <data name="ID_RN_LAYERS" xml:space="preserve">
     <value>Layers</value>
   </data>
+  <data name="ID_RN_LOADDIMENSIONS" xml:space="preserve">
+    <value>Load dimensions</value>
+  </data>
   <data name="ID_RN_LOADWEIGHT" xml:space="preserve">
     <value>Load weight</value>
   </data>
@@ -242,6 +245,9 @@
   </data>
   <data name="ID_RN_STATICBCT" xml:space="preserve">
     <value>Static BCT</value>
+  </data>
+  <data name="ID_RN_OVERALLDIMENSIONS" xml:space="preserve">
+    <value>Overall dimensions</value>
   </data>
   <data name="ID_RN_TOTALWEIGHT" xml:space="preserve">
     <value>Total weight</value>

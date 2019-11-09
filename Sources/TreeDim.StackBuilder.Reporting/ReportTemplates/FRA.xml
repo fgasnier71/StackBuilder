@@ -119,6 +119,7 @@
   <str name="Number of CSU">Nombre d'UC</str>
   <str name="Dimensions">Dimensions</str>
   <str name="Overall dimensions">Dimensions hors tout</str>
+  <str name="Load dimensions">Dimensions chargement</str>
   <str name="Load weight">Masse chargement</str>
   <str name="Overhang length">Débord (longueur)</str>
   <str name="Overhang width">Débord (largeur)</str>
@@ -145,5 +146,6 @@
   <str name="Stiffness X">Rigidité X</str>
   <str name="Stiffness Y">Rigidité Y</str>
   <str name="Overhang">Débord</str>
-  <str name="Load on lowest case">Load on lowest case</str>
+  <str name="Load on lowest case">Chargement sur caisse inférieure</str>
+  <str name="Product">Produit</str>
 </strings>
