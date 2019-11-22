@@ -110,7 +110,8 @@
             resources.GetString("cbColor.Items37"),
             resources.GetString("cbColor.Items38"),
             resources.GetString("cbColor.Items39"),
-            resources.GetString("cbColor.Items40")});
+            resources.GetString("cbColor.Items40"),
+            resources.GetString("cbColor.Items41")});
             this.cbColor.Name = "cbColor";
             this.cbColor.SelectedColorChanged += new System.EventHandler(this.OnBundlePropertyChanged);
             // 
@@ -144,7 +145,6 @@
             -2147483648});
             this.uCtrlWeight.Name = "uCtrlWeight";
             this.uCtrlWeight.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_MASS;
-            this.uCtrlWeight.Value = 0D;
             this.uCtrlWeight.ValueChanged += new treeDiM.Basics.UCtrlDouble.ValueChangedDelegate(this.OnBundlePropertyChanged);
             // 
             // gbDimensions
@@ -168,7 +168,6 @@
             -2147483648});
             this.uCtrlThickness.Name = "uCtrlThickness";
             this.uCtrlThickness.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
-            this.uCtrlThickness.Value = 0D;
             this.uCtrlThickness.ValueChanged += new treeDiM.Basics.UCtrlDouble.ValueChangedDelegate(this.OnBundlePropertyChanged);
             // 
             // uCtrlWidth
@@ -181,7 +180,6 @@
             -2147483648});
             this.uCtrlWidth.Name = "uCtrlWidth";
             this.uCtrlWidth.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
-            this.uCtrlWidth.Value = 0D;
             this.uCtrlWidth.ValueChanged += new treeDiM.Basics.UCtrlDouble.ValueChangedDelegate(this.OnBundlePropertyChanged);
             // 
             // uCtrlLength
@@ -194,7 +192,6 @@
             -2147483648});
             this.uCtrlLength.Name = "uCtrlLength";
             this.uCtrlLength.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
-            this.uCtrlLength.Value = 0D;
             this.uCtrlLength.ValueChanged += new treeDiM.Basics.UCtrlDouble.ValueChangedDelegate(this.OnBundlePropertyChanged);
             // 
             // lbNoFlats

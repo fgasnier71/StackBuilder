@@ -281,6 +281,12 @@
     <Compile Include="DockContentAnalysisEdit.Designer.cs">
       <DependentUpon>DockContentAnalysisEdit.cs</DependentUpon>
     </Compile>
+    <Compile Include="DockContentAnalysisHCylPallet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DockContentAnalysisHCylPallet.Designer.cs">
+      <DependentUpon>DockContentAnalysisHCylPallet.cs</DependentUpon>
+    </Compile>
     <Compile Include="DockContentAnalysisPalletTruck.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -424,6 +430,12 @@
     </Compile>
     <Compile Include="FormNewAnalysisCylinderTruck.Designer.cs">
       <DependentUpon>FormNewAnalysisCylinderTruck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNewAnalysisHCylPallet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNewAnalysisHCylPallet.Designer.cs">
+      <DependentUpon>FormNewAnalysisHCylPallet.cs</DependentUpon>
     </Compile>
     <Compile Include="FormNewAnalysisPalletTruck.cs">
       <SubType>Form</SubType>
@@ -950,6 +962,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DockContentAnalysisEdit.zh.resx">
       <DependentUpon>DockContentAnalysisEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentAnalysisHCylPallet.resx">
+      <DependentUpon>DockContentAnalysisHCylPallet.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="DockContentAnalysisPalletTruck.de.resx">
       <DependentUpon>DockContentAnalysisPalletTruck.cs</DependentUpon>
@@ -1606,6 +1622,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewAnalysisCylinderTruck.resx">
       <DependentUpon>FormNewAnalysisCylinderTruck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisHCylPallet.fr.resx">
+      <DependentUpon>FormNewAnalysisHCylPallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisHCylPallet.resx">
+      <DependentUpon>FormNewAnalysisHCylPallet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewAnalysisPalletTruck.de.resx">
       <DependentUpon>FormNewAnalysisPalletTruck.cs</DependentUpon>

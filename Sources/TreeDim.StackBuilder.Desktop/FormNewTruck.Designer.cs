@@ -111,7 +111,8 @@
             resources.GetString("cbColor.Items48"),
             resources.GetString("cbColor.Items49"),
             resources.GetString("cbColor.Items50"),
-            resources.GetString("cbColor.Items51")});
+            resources.GetString("cbColor.Items51"),
+            resources.GetString("cbColor.Items52")});
             this.cbColor.Name = "cbColor";
             this.cbColor.SelectedColorChanged += new System.EventHandler(this.OnTruckPropertyChanged);
             // 
@@ -147,6 +148,7 @@
             this.uCtrlInnerDimensions.ValueX = 0D;
             this.uCtrlInnerDimensions.ValueY = 0D;
             this.uCtrlInnerDimensions.ValueZ = 0D;
+            this.uCtrlInnerDimensions.ValueChanged += new treeDiM.Basics.UCtrlTriDouble.ValueChangedDelegate(this.OnTruckPropertyChanged);
             // 
             // uCtrlMaxLoadWeight
             // 
@@ -158,7 +160,7 @@
             0});
             this.uCtrlMaxLoadWeight.Name = "uCtrlMaxLoadWeight";
             this.uCtrlMaxLoadWeight.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_MASS;
-            this.uCtrlMaxLoadWeight.Value = 0D;
+            this.uCtrlMaxLoadWeight.ValueChanged += new treeDiM.Basics.UCtrlDouble.ValueChangedDelegate(this.OnTruckPropertyChanged);
             // 
             // FormNewTruck
             // 

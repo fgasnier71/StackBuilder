@@ -23,8 +23,8 @@ namespace treeDiM.StackBuilder.GUIExtension
     {
         #region Data members
         private Document _doc;
-        private List<AnalysisHomo> _analyses = new List<AnalysisHomo>();
-        private AnalysisHomo _selectedAnalysis;
+        private List<AnalysisLayered> _analyses = new List<AnalysisLayered>();
+        private AnalysisLayered _selectedAnalysis;
         private static readonly ILog _log = LogManager.GetLogger(typeof(FormDefineCaseOptimization));
         #endregion
 
@@ -262,7 +262,7 @@ namespace treeDiM.StackBuilder.GUIExtension
                 PalletProperties palletProperties = _doc.CreateNewPallet(SelectedPallet);
                 // create analysis
                 List<InterlayerProperties> interlayers = new List<InterlayerProperties>();
-                AnalysisHomo analysis = _doc.CreateNewAnalysisCasePallet(
+                AnalysisLayered analysis = _doc.CreateNewAnalysisCasePallet(
                     AnalysisName, AnalysisDescription,
                     packProperties, palletProperties,
                     interlayers, null, null, null,
@@ -457,7 +457,7 @@ namespace treeDiM.StackBuilder.GUIExtension
                 gridSolutions[0, iCol++] = columnHeader;
 
                 int iRow = 0;
-                foreach (AnalysisHomo analysis in _analyses)
+                foreach (AnalysisLayered analysis in _analyses)
                 {
                     AnalysisCasePallet analysisCasePallet = analysis as AnalysisCasePallet;
                     PackProperties pack = analysisCasePallet.Content as PackProperties;

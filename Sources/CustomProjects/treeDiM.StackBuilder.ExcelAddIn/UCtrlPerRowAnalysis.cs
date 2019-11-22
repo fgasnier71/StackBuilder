@@ -401,10 +401,10 @@ namespace treeDiM.StackBuilder.ExcelAddIn
             constraintSet.Overhang = Overhang;
 
             SolverCasePallet solver = new SolverCasePallet(bProperties, palletProperties);
-            List<AnalysisHomo> analyses = solver.BuildAnalyses(constraintSet, false);
+            List<AnalysisLayered> analyses = solver.BuildAnalyses(constraintSet, false);
             if (analyses.Count > 0)
             {
-                AnalysisHomo analysis = analyses[0];
+                AnalysisLayered analysis = analyses[0];
                 stackCount = analysis.Solution.ItemCount;
                 loadWeight = analysis.Solution.LoadWeight;
                 totalWeight = analysis.Solution.Weight;

@@ -30,11 +30,11 @@ namespace treeDiM.StackBuilder.GUIExtension
         #region Data members
         private static ILog _log = LogManager.GetLogger(typeof(FormBrowseSolution));
         private Document _doc;
-        private AnalysisHomo _analysis;
+        private AnalysisLayered _analysis;
         #endregion
 
         #region Constructor
-        public FormBrowseSolution(Document doc, AnalysisHomo analysis)
+        public FormBrowseSolution(Document doc, AnalysisLayered analysis)
         {
             InitializeComponent();
 
@@ -126,7 +126,7 @@ namespace treeDiM.StackBuilder.GUIExtension
                 CellBackColorAlternate viewNormal = new CellBackColorAlternate(Color.LightBlue, Color.White);
                 // ***
 
-                Solution solution = _analysis.Solution;
+                SolutionLayered solution = _analysis.Solution;
 
                 SourceGrid.Cells.RowHeader rowHeader;
                 int iRow = -1;
@@ -289,7 +289,7 @@ namespace treeDiM.StackBuilder.GUIExtension
             try
             {
                 // get solution
-                Solution solution = _analysis.Solution;
+                SolutionLayered solution = _analysis.Solution;
                 // packable
                 cbLayerType.Packable = _analysis.Content;
                 // build layers and fill CCtrl
@@ -319,7 +319,7 @@ namespace treeDiM.StackBuilder.GUIExtension
             try
             {
                 // get solution
-                Solution solution = _analysis.Solution;
+                SolutionLayered solution = _analysis.Solution;
 
                 int index = solution.SelectedLayerIndex;
                 bnSymmetryX.Enabled = (index != -1);
@@ -392,7 +392,7 @@ namespace treeDiM.StackBuilder.GUIExtension
         {
             try
             {
-                Solution solution = _analysis.Solution;
+                SolutionLayered solution = _analysis.Solution;
                 solution.SelectLayer(id);
                 UpdateControls();
             }
@@ -407,7 +407,7 @@ namespace treeDiM.StackBuilder.GUIExtension
             {
                 int iLayerType = cbLayerType.SelectedIndex;
                 // get selected layer
-                Solution solution = _analysis.Solution;
+                SolutionLayered solution = _analysis.Solution;
                 solution.SetLayerTypeOnSelected(iLayerType);
                 // redraw
                 graphCtrl.Invalidate();
@@ -420,13 +420,13 @@ namespace treeDiM.StackBuilder.GUIExtension
         }
         private void OnReflectionX(object sender, EventArgs e)
         {
-            Solution solution = _analysis.Solution;
+            SolutionLayered solution = _analysis.Solution;
             solution.ApplySymetryOnSelected(0);
             graphCtrl.Invalidate();
         }
         private void OnReflectionY(object sender, EventArgs e)
         {
-            Solution solution = _analysis.Solution;
+            SolutionLayered solution = _analysis.Solution;
             solution.ApplySymetryOnSelected(1);
             graphCtrl.Invalidate();
         }
@@ -434,7 +434,7 @@ namespace treeDiM.StackBuilder.GUIExtension
         {
             try
             {
-                Solution solution = _analysis.Solution;
+                SolutionLayered solution = _analysis.Solution;
                 ConstraintSetCasePallet constraintSet = solution.Analysis.ConstraintSet as ConstraintSetCasePallet;
                 constraintSet.SetMaxHeight(new OptDouble(true, uCtrlMaxPalletHeight.Value));
                 constraintSet.OptMaxWeight = uCtrlOptMaximumWeight.Value;

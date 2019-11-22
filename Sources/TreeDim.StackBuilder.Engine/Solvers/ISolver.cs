@@ -13,8 +13,8 @@ namespace treeDiM.StackBuilder.Engine
     /// </summary>
     interface ISolver
     {
-        List<AnalysisHomo> BuildAnalyses(ConstraintSetAbstract constraintSet, bool allowMultipleLayerOrientations);
-        Layer2DBrickImp BuildBestLayer(ConstraintSetAbstract constraintSet);
+        List<AnalysisLayered> BuildAnalyses(bool allowMultipleLayerOrientations);
+        Layer2DBrickImp BuildBestLayer();
     }
 
     /// <summary>

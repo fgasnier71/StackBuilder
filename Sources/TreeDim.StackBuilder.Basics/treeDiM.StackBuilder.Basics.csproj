@@ -98,6 +98,7 @@
     <Compile Include="AnalysesLegacy\AnalysisLegacy.cs" />
     <Compile Include="Analyses\Analysis.cs" />
     <Compile Include="Analyses\AnalysisCylinderTruck.cs" />
+    <Compile Include="Analyses\AnalysisHCyl.cs" />
     <Compile Include="Analyses\AnalysisHomo.cs" />
     <Compile Include="Analyses\AnalysisBoxCase.cs" />
     <Compile Include="Analyses\AnalysisCasePallet.cs" />
@@ -197,6 +198,9 @@
     <Compile Include="Containers\InterlayerProperties.cs" />
     <Compile Include="Helpers\ItemBase.cs" />
     <Compile Include="Solutions\FastEvaluatorLayer2Pallet.cs" />
+    <Compile Include="Solutions\HCylLayout.cs" />
+    <Compile Include="Solutions\Solution.cs" />
+    <Compile Include="Solutions\SolutionHCyl.cs" />
     <Compile Include="Solutions\HSolution.cs" />
     <Compile Include="Solutions\ILayer2D.cs" />
     <Compile Include="Solutions\Layer2DBrickImp.cs" />
@@ -210,7 +214,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Helpers\Texture.cs" />
     <Compile Include="ConstraintSets\TruckConstraintSet.cs" />
-    <Compile Include="Solutions\Solution.cs" />
+    <Compile Include="Solutions\SolutionLayered.cs" />
     <Compile Include="UnitsManager.cs" />
   </ItemGroup>
   <ItemGroup>

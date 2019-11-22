@@ -22,7 +22,7 @@ namespace treeDiM.StackBuilder.Desktop
     {
 
         #region Constructor
-        public FormNewAnalysisCylinderCase(Document doc, AnalysisHomo analysis)
+        public FormNewAnalysisCylinderCase(Document doc, AnalysisLayered analysis)
             : base(doc, analysis)
         {
             InitializeComponent();
@@ -65,7 +65,7 @@ namespace treeDiM.StackBuilder.Desktop
                 foreach (ILayer2D layer in uCtrlLayerList.Selected)
                     layerEncaps.Add(new LayerEncap(layer.LayerDescriptor));
 
-                Solution.SetSolver(new LayerSolver());
+                SolutionLayered.SetSolver(new LayerSolver());
 
                 if (!(_item is AnalysisCylinderCase analysis))
                 {

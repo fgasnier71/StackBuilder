@@ -12,19 +12,19 @@ namespace treeDiM.StackBuilder.Graphics
     public class ImageInst
     {
         #region Data members
-        private AnalysisHomo _analysis;
+        private AnalysisLayered _analysis;
         private BoxPosition _boxPosition;
         private Vector3D _dims = Vector3D.Zero;
         #endregion
         #region Constructor
-        public ImageInst(AnalysisHomo analysis, Vector3D dims, BoxPosition boxPosition)
+        public ImageInst(AnalysisLayered analysis, Vector3D dims, BoxPosition boxPosition)
         {
             _analysis = analysis; _dims = dims; _boxPosition = boxPosition;
         }
         #endregion
         #region Public properties
         public Vector3D PointBase { get { return _boxPosition.Position; } }
-        public AnalysisHomo Analysis { get { return _analysis; } }
+        public AnalysisLayered Analysis { get { return _analysis; } }
         public HalfAxis.HAxis AxisLength { get { return _boxPosition.DirectionLength; } }
         public HalfAxis.HAxis AxisWidth { get { return _boxPosition.DirectionWidth; } }
         #endregion
@@ -40,7 +40,7 @@ namespace treeDiM.StackBuilder.Graphics
     internal class ImageCached
     {
         #region Data members
-        private AnalysisHomo _analysis;
+        private AnalysisLayered _analysis;
         private HalfAxis.HAxis _axisLength, _axisWidth;
         private Bitmap _bitmap;
         private Point _offset;
@@ -48,13 +48,13 @@ namespace treeDiM.StackBuilder.Graphics
         #endregion
 
         #region Constructor
-        public ImageCached(AnalysisHomo analysis, HalfAxis.HAxis axisLength, HalfAxis.HAxis axisWidth)
+        public ImageCached(AnalysisLayered analysis, HalfAxis.HAxis axisLength, HalfAxis.HAxis axisWidth)
         {
             _analysis = analysis; _axisLength = axisLength; _axisWidth = axisWidth;
         }
         #endregion
         #region Public properties
-        public AnalysisHomo Analysis { get { return _analysis; } }
+        public AnalysisLayered Analysis { get { return _analysis; } }
         #endregion
         #region Public methods
         public Bitmap Image(Size s, Vector3D vCamera, Vector3D vTarget, ref Point offset)
@@ -74,7 +74,7 @@ namespace treeDiM.StackBuilder.Graphics
                 graphics.Target = vTarget;
                 graphics.MarginPercentage = 0.0;
                 graphics.ShowDimensions = false;
-                using (ViewerSolution viewer = new ViewerSolution(_analysis.Solution))
+                using (ViewerSolution viewer = new ViewerSolution(_analysis.SolutionLay))
                 { viewer.Draw(graphics, RelativeTransf); }
                 graphics.Flush();
 

@@ -11,17 +11,12 @@ namespace treeDiM.StackBuilder.Desktop
 {
     public partial class FormNewAnalysis : Form
     {
-        #region Data members
-        protected Document _document;
-        protected AnalysisHomo _item;
-        #endregion
-
         #region Constructors
         public FormNewAnalysis()
         {
             InitializeComponent();
         }
-        public FormNewAnalysis(Document document, AnalysisHomo item)
+        public FormNewAnalysis(Document document, AnalysisLayered item)
         {
             InitializeComponent();
 
@@ -99,10 +94,10 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Public properties
-        public AnalysisHomo AnalysisBase
+        public Analysis AnalysisBase
         {
-            get { return _item; }
-            set { _item = value; }
+            get => _item;
+            set => _item = value; 
         }
         #endregion
 
@@ -111,6 +106,10 @@ namespace treeDiM.StackBuilder.Desktop
         {
             OnNext();
         }
+        #endregion
+        #region Data members
+        protected Document _document;
+        protected Analysis _item;
         #endregion
     }
 }

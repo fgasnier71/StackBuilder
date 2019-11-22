@@ -488,7 +488,7 @@ namespace treeDiM.StackBuilder.Reporting
                             ReportNode rnPalletisationResults = rnPalletisation.GetChildByName(Resources.ID_RN_SOLUTION);
                             if (rnPalletisationResults.Activated)
                             {
-                                Solution sol = analysis.Solution;
+                                SolutionLayered sol = analysis.SolutionLay;
 
                                 XmlElement elemSolution = xmlDoc.CreateElement("bctSolution");
                                 elemPalletisation.AppendChild(elemSolution);
@@ -566,12 +566,12 @@ namespace treeDiM.StackBuilder.Reporting
         #region Analyses
         private void AppendAnalysisElement(Analysis analysis, ReportNode rnAnalysis, XmlElement elemDocument, XmlDocument xmlDoc)
         {
-            if (analysis is AnalysisHomo analysisHomo)
+            if (analysis is AnalysisLayered analysisHomo)
                 AppendAnalysisHomoElement(analysisHomo, rnAnalysis, elemDocument, xmlDoc);
             else if (analysis is AnalysisHetero analysisHetero)
                 AppendAnalysisHeterogeneousElement(analysisHetero, rnAnalysis, elemDocument, xmlDoc);
         }
-        private void AppendAnalysisHomoElement(AnalysisHomo analysis, ReportNode rnAnalysis, XmlElement elemDocument, XmlDocument xmlDoc)
+        private void AppendAnalysisHomoElement(AnalysisLayered analysis, ReportNode rnAnalysis, XmlElement elemDocument, XmlDocument xmlDoc)
         { 
             Packable content = analysis.Content;
 
@@ -583,7 +583,7 @@ namespace treeDiM.StackBuilder.Reporting
                 // -> proceed recursively
                 ReportNode rnInnerAnalysis = rnAnalysis.GetChildByName(string.Format(Resources.ID_RN_ANALYSIS, innerAnalysis.Name));
                 if (rnInnerAnalysis.Activated)
-                    AppendAnalysisHomoElement(innerAnalysis, rnInnerAnalysis, elemDocument, xmlDoc);
+                    AppendAnalysisHomoElement(innerAnalysis as AnalysisLayered, rnInnerAnalysis, elemDocument, xmlDoc);
             }
             else
                 hasContent = true;
@@ -633,7 +633,7 @@ namespace treeDiM.StackBuilder.Reporting
             // ### 5. SOLUTION
             ReportNode rnSolution = rnAnalysis.GetChildByName(Resources.ID_RN_SOLUTION);
             if (rnSolution.Activated)
-                AppendSolutionElement(analysis.Solution, rnSolution, eltAnalysis, xmlDoc);
+                AppendSolutionElement(analysis.SolutionLay, rnSolution, eltAnalysis, xmlDoc);
         }
 
         private void AppendAnalysisHeterogeneousElement(AnalysisHetero analysis, ReportNode rnAnalysis, XmlElement elemDocument, XmlDocument xmlDoc)
@@ -756,14 +756,14 @@ namespace treeDiM.StackBuilder.Reporting
             if (constraintSet is HConstraintSetCase constraintSetCase)
             { }
         }
-        private void AppendSolutionElement(Solution sol, ReportNode rnSolution, XmlElement elemAnalysis, XmlDocument xmlDoc)
+        private void AppendSolutionElement(SolutionLayered sol, ReportNode rnSolution, XmlElement elemAnalysis, XmlDocument xmlDoc)
         {
             string ns = xmlDoc.DocumentElement.NamespaceURI;
             XmlElement elemSolution = xmlDoc.CreateElement("solution", ns);
             elemAnalysis.AppendChild(elemSolution);
 
             // *** Item # (Recursive count)
-            AnalysisHomo analysis = sol.Analysis;
+            AnalysisLayered analysis = sol.AnalysisCast;
             Packable content = analysis.Content;
             int itemCount = sol.ItemCount;
             int number = 1;
@@ -1387,7 +1387,7 @@ namespace treeDiM.StackBuilder.Reporting
             AppendThumbnailElement(xmlDoc, elemPalletCap, graphics.Bitmap);
         }
 
-        private void AppendPalletFilmElement(PalletFilmProperties palletFilmProp, AnalysisHomo analyis, XmlElement elemPalletAnalysis, XmlDocument xmlDoc)
+        private void AppendPalletFilmElement(PalletFilmProperties palletFilmProp, AnalysisLayered analyis, XmlElement elemPalletAnalysis, XmlDocument xmlDoc)
         {
             // sanity check
             if (null == palletFilmProp) return;

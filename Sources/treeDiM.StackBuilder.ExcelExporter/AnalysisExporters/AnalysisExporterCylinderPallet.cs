@@ -50,7 +50,7 @@ namespace treeDiM.StackBuilder.ExcelExporter
             ConstraintSetPackablePallet constraintSet = analysisCylinderPallet.ConstraintSet as ConstraintSetPackablePallet;
             WSheet.Cells[RowIndex, 7] = constraintSet.OptMaxHeight.Value;
             // solution
-            Solution sol = analysisCylinderPallet.Solution;
+            SolutionLayered sol = analysisCylinderPallet.SolutionLay;
             WSheet.Cells[RowIndex, 8] = sol.ItemCount;
             WSheet.Cells[RowIndex, 9] = sol.LayerCount;
             WSheet.Cells[RowIndex, 10] = sol.LayerBoxCount(0);

@@ -100,12 +100,8 @@ namespace treeDiM.StackBuilder.Graphics
 
     public class ViewerSolution : Viewer
     {
-        #region Data members
-        private Solution _solution;
-        #endregion
-
         #region Constructor
-        public ViewerSolution(Solution solution)
+        public ViewerSolution(SolutionLayered solution)
         {
             _solution = solution;
         }
@@ -170,7 +166,7 @@ namespace treeDiM.StackBuilder.Graphics
                                 bbox.Extend(b.BBox);
                             }
                             else
-                                graphics.AddImage(loadedPallet.ParentAnalysis, solBBox.DimensionsVec, bPosition.Transform(transform));
+                                graphics.AddImage(loadedPallet.ParentAnalysis as AnalysisLayered, solBBox.DimensionsVec, bPosition.Transform(transform));
                         }
                     }
                     else
@@ -479,6 +475,10 @@ namespace treeDiM.StackBuilder.Graphics
             }
         }
 
+        #endregion
+
+        #region Data members
+        private SolutionLayered _solution;
         #endregion
     }
 }

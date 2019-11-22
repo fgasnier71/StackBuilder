@@ -75,6 +75,8 @@
             this.toolStripSeparatorPLMPackLib = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMIPLMPackLib = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator21 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripMIPremium = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMISettings = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemHelpStartPage = new System.Windows.Forms.ToolStripMenuItem();
@@ -111,6 +113,7 @@
             this.toolStripSBAnalysisPallet = new System.Windows.Forms.ToolStripSplitButton();
             this.toolStripMIAnalysisCasePallet = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMIAnalysisCylinderPallet = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMIAnalysisHCylPallet = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMIAnalysisBundlePallet = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMIHAnalysis = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSBAnalysesCase = new System.Windows.Forms.ToolStripSplitButton();
@@ -131,6 +134,7 @@
             this.palletisationBCTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.caseBCTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButtonPremium = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonHelp = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButtonSettings = new System.Windows.Forms.ToolStripButton();
@@ -140,9 +144,6 @@
             this.saveFileDialogWebGL = new System.Windows.Forms.SaveFileDialog();
             this.timerLogin = new System.Windows.Forms.Timer(this.components);
             this.saveFileDialogExport = new System.Windows.Forms.SaveFileDialog();
-            this.toolStripButtonPremium = new System.Windows.Forms.ToolStripButton();
-            this.toolStripMIPremium = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.menuStripMain.SuspendLayout();
             this.toolStripStandard.SuspendLayout();
             this.SuspendLayout();
@@ -455,6 +456,17 @@
             this.toolStripSeparator21.Name = "toolStripSeparator21";
             resources.ApplyResources(this.toolStripSeparator21, "toolStripSeparator21");
             // 
+            // toolStripMIPremium
+            // 
+            resources.ApplyResources(this.toolStripMIPremium, "toolStripMIPremium");
+            this.toolStripMIPremium.Name = "toolStripMIPremium";
+            this.toolStripMIPremium.Click += new System.EventHandler(this.OnBecomeAPremiumUser);
+            // 
+            // toolStripSeparator7
+            // 
+            this.toolStripSeparator7.Name = "toolStripSeparator7";
+            resources.ApplyResources(this.toolStripSeparator7, "toolStripSeparator7");
+            // 
             // toolStripMISettings
             // 
             this.toolStripMISettings.Name = "toolStripMISettings";
@@ -712,6 +724,7 @@
             this.toolStripSBAnalysisPallet.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMIAnalysisCasePallet,
             this.toolStripMIAnalysisCylinderPallet,
+            this.toolStripMIAnalysisHCylPallet,
             this.toolStripMIAnalysisBundlePallet,
             this.toolStripMIHAnalysis});
             resources.ApplyResources(this.toolStripSBAnalysisPallet, "toolStripSBAnalysisPallet");
@@ -729,6 +742,12 @@
             resources.ApplyResources(this.toolStripMIAnalysisCylinderPallet, "toolStripMIAnalysisCylinderPallet");
             this.toolStripMIAnalysisCylinderPallet.Name = "toolStripMIAnalysisCylinderPallet";
             this.toolStripMIAnalysisCylinderPallet.Click += new System.EventHandler(this.OnNewAnalysisCylinderPallet);
+            // 
+            // toolStripMIAnalysisHCylPallet
+            // 
+            resources.ApplyResources(this.toolStripMIAnalysisHCylPallet, "toolStripMIAnalysisHCylPallet");
+            this.toolStripMIAnalysisHCylPallet.Name = "toolStripMIAnalysisHCylPallet";
+            this.toolStripMIAnalysisHCylPallet.Click += new System.EventHandler(this.OnNewAnalysisHCylPallet);
             // 
             // toolStripMIAnalysisBundlePallet
             // 
@@ -865,6 +884,13 @@
             this.toolStripSeparator6.Name = "toolStripSeparator6";
             resources.ApplyResources(this.toolStripSeparator6, "toolStripSeparator6");
             // 
+            // toolStripButtonPremium
+            // 
+            this.toolStripButtonPremium.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.toolStripButtonPremium, "toolStripButtonPremium");
+            this.toolStripButtonPremium.Name = "toolStripButtonPremium";
+            this.toolStripButtonPremium.Click += new System.EventHandler(this.OnBecomeAPremiumUser);
+            // 
             // toolStripButtonHelp
             // 
             this.toolStripButtonHelp.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -911,24 +937,6 @@
             // 
             this.saveFileDialogExport.DefaultExt = "xml";
             resources.ApplyResources(this.saveFileDialogExport, "saveFileDialogExport");
-            // 
-            // toolStripButtonPremium
-            // 
-            this.toolStripButtonPremium.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            resources.ApplyResources(this.toolStripButtonPremium, "toolStripButtonPremium");
-            this.toolStripButtonPremium.Name = "toolStripButtonPremium";
-            this.toolStripButtonPremium.Click += new System.EventHandler(this.OnBecomeAPremiumUser);
-            // 
-            // toolStripMIPremium
-            // 
-            resources.ApplyResources(this.toolStripMIPremium, "toolStripMIPremium");
-            this.toolStripMIPremium.Name = "toolStripMIPremium";
-            this.toolStripMIPremium.Click += new System.EventHandler(this.OnBecomeAPremiumUser);
-            // 
-            // toolStripSeparator7
-            // 
-            this.toolStripSeparator7.Name = "toolStripSeparator7";
-            resources.ApplyResources(this.toolStripSeparator7, "toolStripSeparator7");
             // 
             // FormMain
             // 
@@ -1063,5 +1071,6 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMIPremium;
         private System.Windows.Forms.ToolStripButton toolStripButtonPremium;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMIAnalysisHCylPallet;
     }
 }

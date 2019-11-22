@@ -25,7 +25,7 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Constructor
-        public FormNewAnalysisPalletTruck(Document doc, AnalysisHomo analysis)
+        public FormNewAnalysisPalletTruck(Document doc, AnalysisLayered analysis)
             : base(doc, analysis)
         {
             InitializeComponent();
@@ -49,8 +49,8 @@ namespace treeDiM.StackBuilder.Desktop
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
-            cbPallets.Initialize(_document, this, null != AnalysisBase ? AnalysisBase.Content : null);
-            cbTrucks.Initialize(_document, this, null != AnalysisBase ? AnalysisBase.Container : null);
+            cbPallets.Initialize(_document, this, null != AnalysisBase ? AnalysisCast.Content : null);
+            cbTrucks.Initialize(_document, this, null != AnalysisBase ? AnalysisCast.Container : null);
 
             // event handling
             uCtrlLayerList.LayerSelected += OnLayerSelected;
@@ -73,7 +73,7 @@ namespace treeDiM.StackBuilder.Desktop
                 tbName.Text = AnalysisBase.Name;
                 tbDescription.Text = AnalysisBase.Description;
 
-                ConstraintSetPalletTruck  constraintSet = AnalysisBase.ConstraintSet as ConstraintSetPalletTruck;
+                ConstraintSetPalletTruck  constraintSet = AnalysisCast.ConstraintSet as ConstraintSetPalletTruck;
                 if (null == constraintSet) return;
 
                 uCtrlMinDistanceLoadWall.ValueX = constraintSet.MinDistanceLoadWall.X;
@@ -106,7 +106,7 @@ namespace treeDiM.StackBuilder.Desktop
                 foreach (Layer2DBrickImp layer2D in uCtrlLayerList.Selected)
                     layerDescs.Add(new LayerEncap(layer2D.LayerDescriptor));
 
-                Solution.SetSolver(new LayerSolver());
+                SolutionLayered.SetSolver(new LayerSolver());
 
                 AnalysisPalletTruck analysis = AnalysisCast;
                 if (null == analysis)

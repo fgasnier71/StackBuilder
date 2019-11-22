@@ -24,6 +24,7 @@ namespace treeDiM.Basics
         public UCtrlOptTriDouble()
         {
             InitializeComponent();
+            Checked = false;
         }
         #endregion
 

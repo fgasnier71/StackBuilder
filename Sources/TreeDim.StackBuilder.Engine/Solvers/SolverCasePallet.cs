@@ -1,42 +1,50 @@
-﻿using System.Collections.Generic;
+﻿#region Using directives
+using System.Collections.Generic;
 
 using Sharp3D.Math.Core;
-using log4net;
 
 using treeDiM.StackBuilder.Basics;
+#endregion
 
 namespace treeDiM.StackBuilder.Engine
 {
     public class SolverCasePallet : ISolver
     {
-        public SolverCasePallet(PackableBrick packable, PalletProperties palletProperties)
+        public SolverCasePallet(PackableBrick packable, PalletProperties palletProperties, ConstraintSetAbstract constraintSet)
         {
-            _packable = packable;
-            _palletProperties = palletProperties;
+            Packable = packable;
+            PalletProperties = palletProperties;
+            if (constraintSet is ConstraintSetCasePallet constraintSetCasePallet)
+                ConstraintSet = constraintSetCasePallet;
+            else
+                throw new InvalidConstraintSetException();
         }
-
-        public Layer2DBrickImp BuildBestLayer(ConstraintSetAbstract constraintSet)
+        public Layer2DBrickImp BuildBestLayer()
         {
-            var constraintSetCasePallet = constraintSet as ConstraintSetCasePallet;
-            Vector2D overhang = constraintSetCasePallet.Overhang;
             // build layer list
             var solver = new LayerSolver();
             List<Layer2DBrickImp> layers = solver.BuildLayers(
-                _packable.OuterDimensions
-                , new Vector2D(_palletProperties.Length + 2.0 * overhang.X, _palletProperties.Width + 2.0 * overhang.Y)
-                , _palletProperties.Height
-                , constraintSetCasePallet
+                Packable.OuterDimensions
+                , new Vector2D(PalletProperties.Length + 2.0 * ConstraintSet.Overhang.X, PalletProperties.Width + 2.0 * ConstraintSet.Overhang.Y)
+                , PalletProperties.Height
+                , ConstraintSet
                 , true
                 );
             if (layers.Count > 0)
                 return layers[0];
             return null;
         }
-
-        public List<AnalysisHomo> BuildAnalyses(ConstraintSetAbstract constraintSet, bool allowMultipleLayerOrientations)
+        public AnalysisLayered BuildAnalysis(LayerDescBox layerDesc)
         {
-            var analyses = new List<AnalysisHomo>();
-            var constraintSetCasePallet = constraintSet as ConstraintSetCasePallet;
+            SolutionLayered.SetSolver(new LayerSolver());
+            AnalysisLayered analysis = new AnalysisCasePallet(Packable, PalletProperties, ConstraintSet);
+            analysis.AddSolution(new List<LayerDesc>() { layerDesc });
+            return analysis;
+        }
+        public List<AnalysisLayered> BuildAnalyses(bool allowMultipleLayerOrientations)
+        {
+            var analyses = new List<AnalysisLayered>();
+            var constraintSetCasePallet = ConstraintSet as ConstraintSetCasePallet;
             if (null == constraintSetCasePallet)
                 return analyses;
             Vector2D overhang = constraintSetCasePallet.Overhang;
@@ -45,12 +53,14 @@ namespace treeDiM.StackBuilder.Engine
             {
                 var listLayerEncap = new List<KeyValuePair<LayerEncap, int>>();
                 LayerSolver.GetBestCombination(
-                    _packable.OuterDimensions,
-                    _palletProperties.GetStackingDimensions(constraintSet),
-                    constraintSet,
+                    Packable.OuterDimensions,
+                    PalletProperties.GetStackingDimensions(ConstraintSet),
+                    ConstraintSet,
                     ref listLayerEncap);
-                Solution.SetSolver(new LayerSolver());
-                var analysis = new AnalysisCasePallet(_packable, _palletProperties, constraintSet as ConstraintSetCasePallet);
+                SolutionLayered.SetSolver(new LayerSolver());
+                var analysis = new AnalysisCasePallet(Packable,
+                                                      PalletProperties,
+                                                      ConstraintSet);
                 analysis.AddSolution(listLayerEncap);
                 // only add analysis if it has a valid solution
                 if (analysis.Solution.ItemCount > 0)
@@ -61,18 +71,20 @@ namespace treeDiM.StackBuilder.Engine
                 // build layer list
                 var solver = new LayerSolver();
                 List<Layer2DBrickImp> layers = solver.BuildLayers(
-                    _packable.OuterDimensions
-                    , new Vector2D(_palletProperties.Length + 2.0 * overhang.X, _palletProperties.Width + 2.0 * overhang.Y)
-                    , _palletProperties.Height
+                    Packable.OuterDimensions
+                    , new Vector2D(PalletProperties.Length + 2.0 * overhang.X, PalletProperties.Width + 2.0 * overhang.Y)
+                    , PalletProperties.Height
                     , constraintSetCasePallet
                     , true
                     );
-                Solution.SetSolver(solver);
+                SolutionLayered.SetSolver(solver);
                 // loop on layers
                 foreach (Layer2DBrickImp layer in layers)
                 {
                     var layerDescs = new List<LayerDesc> { layer.LayerDescriptor };
-                    var analysis = new AnalysisCasePallet(_packable, _palletProperties, constraintSet as ConstraintSetCasePallet);
+                    var analysis = new AnalysisCasePallet(Packable,
+                                                          PalletProperties,
+                                                          ConstraintSet);
                     analysis.AddSolution(layerDescs);
                     // only add analysis if it has a valid solution
                     if (analysis.Solution.ItemCount > 0)
@@ -83,9 +95,9 @@ namespace treeDiM.StackBuilder.Engine
         }
 
         #region Non-Public Members
-        private PackableBrick _packable;
-        private PalletProperties _palletProperties;
-        static readonly ILog _log = LogManager.GetLogger(typeof(SolverCasePallet));
+        private PackableBrick Packable { get; set; }
+        private PalletProperties PalletProperties { get; set; }
+        private ConstraintSetCasePallet ConstraintSet { get; set; }
         #endregion
     }
 }

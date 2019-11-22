@@ -193,7 +193,7 @@ namespace treeDiM.StackBuilder.Plugin
                 }
 
                 // initialize Layer solver
-                Solution.SetSolver(new LayerSolver());
+                SolutionLayered.SetSolver(new LayerSolver());
 
                 if (form.UseIntermediatePacking)
                 { 
@@ -209,7 +209,7 @@ namespace treeDiM.StackBuilder.Plugin
                             layerDescs.Add(layer.LayerDescriptor);
 
                         // create case analysis
-                        AnalysisHomo analysis = document.CreateNewAnalysisBoxCase(
+                        AnalysisLayered analysis = document.CreateNewAnalysisBoxCase(
                             string.Format(Properties.Resources.ID_PACKING, item._ref)
                             , item._description
                             , itemProperties
@@ -249,7 +249,7 @@ namespace treeDiM.StackBuilder.Plugin
                         layerDescs.Add(layer.LayerDescriptor);                          
 
                     // create analysis
-                    AnalysisHomo palletAnalysis = document.CreateNewAnalysisCasePallet(
+                    AnalysisLayered palletAnalysis = document.CreateNewAnalysisCasePallet(
                         item._ref, item.ToString()
                         , form.UseIntermediatePacking ? currentCase : itemProperties
                         , currentPallet,

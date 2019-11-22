@@ -113,7 +113,7 @@ namespace treeDiM.StackBuilder.Desktop
                 return;
             try
             {
-                ViewerSolution sv = new ViewerSolution(SelectedAnalysis.Solution);
+                ViewerSolution sv = new ViewerSolution(SelectedAnalysis.SolutionLay);
                 sv.Draw(graphics, Transform3D.Identity);
             }
             catch (Exception ex)
@@ -167,12 +167,12 @@ namespace treeDiM.StackBuilder.Desktop
                 BoxProperties caseProperties = Document.CreateNewCase(caseSel);
                 // create analysis
                 List<InterlayerProperties> interlayers = new List<InterlayerProperties>();
-                AnalysisHomo analysis = Document.CreateNewAnalysisBoxCase(
+                Document.CreateNewAnalysisBoxCase(
                     AnalysisName, AnalysisDescription,
                     analysisSel.Content, caseProperties,
                     interlayers,
                     analysisSel.ConstraintSet as ConstraintSetBoxCase,
-                    analysisSel.Solution.LayerEncaps);
+                    analysisSel.SolutionLay.LayerEncaps);
             }
             catch (Exception ex)
             {
@@ -285,8 +285,8 @@ namespace treeDiM.StackBuilder.Desktop
                             if (uCtrlNumberPerCase.Value.Activated)
                                 constraintSet.SetMaxNumber(uCtrlNumberPerCase.Value.Value);
                             // build solver + get analyses
-                            SolverBoxCase solver = new SolverBoxCase(packable, caseProperties);
-                            var listAnalyses = solver.BuildAnalyses(constraintSet, false);
+                            SolverBoxCase solver = new SolverBoxCase(packable, caseProperties, constraintSet);
+                            var listAnalyses = solver.BuildAnalyses(false);
                             foreach (var analysis in listAnalyses)
                             {
                                 if ((-1 == expectedCount) || (expectedCount == analysis.Solution.ItemCount))
@@ -385,7 +385,7 @@ namespace treeDiM.StackBuilder.Desktop
             gridSolutions[0, iCol++] = columnHeader;
 
             int iRow = 0;
-            foreach (AnalysisHomo analysis in Analyses)
+            foreach (AnalysisLayered analysis in Analyses)
             {
                 AnalysisBoxCase analysisBoxCase = analysis as AnalysisBoxCase;
                 BoxProperties caseProperties = analysisBoxCase.CaseProperties;
@@ -490,7 +490,7 @@ namespace treeDiM.StackBuilder.Desktop
         public List<DCSBCase> ListCases { get; set; }
         #endregion
         #region Data members
-        private List<AnalysisHomo> Analyses { get; set; } = new List<AnalysisHomo>();
+        private List<AnalysisLayered> Analyses { get; set; } = new List<AnalysisLayered>();
         private List<int> CheckedIndices { get; set; } = new List<int>();
         private bool ThreadRunning { get; set; } = false;
         protected static ILog _log = LogManager.GetLogger(typeof(FormOptimiseMultiCase));

@@ -26,7 +26,6 @@ namespace treeDiM.StackBuilder.Basics
         int NoLayers(double height);
         string Tooltip(double height);
         void UpdateMaxSpace(double space, string patternName);
-
         #endregion
     }
     #endregion

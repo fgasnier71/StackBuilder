@@ -112,7 +112,7 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region View creation methods
-        public DockContentView CreateViewAnalysis(AnalysisHomo analysis)
+        public DockContentView CreateViewAnalysis(Analysis analysis)
         {
             DockContentView form = null;
             if (analysis is AnalysisCasePallet) form = new DockContentAnalysisCasePallet(this, analysis as AnalysisCasePallet);
@@ -122,6 +122,7 @@ namespace treeDiM.StackBuilder.Desktop
             else if (analysis is AnalysisPalletTruck) form = new DockContentAnalysisPalletTruck(this, analysis as AnalysisPalletTruck);
             else if (analysis is AnalysisCaseTruck) form = new DockContentAnalysisCaseTruck(this, analysis as AnalysisCaseTruck);
             else if (analysis is AnalysisCylinderTruck) form = new DockContentAnalysisCylinderTruck(this, analysis as AnalysisCylinderTruck);
+            else if (analysis is AnalysisHCylPallet) form = new DockContentAnalysisHCylPallet(this, analysis as AnalysisHCylPallet);
             else
             {
                 _log.Error(string.Format("Analysis ({0}) type not handled", analysis.Name));
@@ -399,6 +400,12 @@ namespace treeDiM.StackBuilder.Desktop
             using (FormNewHAnalysis form = new FormNewHAnalysisCaseTruck(this, null))
                 if (DialogResult.OK == form.ShowDialog()) { }
         }
+        public void CreateNewAnalysisHCylPalletUI()
+        {
+            if (!CanCreateAnalysisCylinderPallet) return;
+            using (var form = new FormNewAnalysisHCylPallet(this, null))
+                if (DialogResult.OK == form.ShowDialog()) { }
+        }
         public void ExportAnalysesToExcel()
         {
             // open excel file
@@ -454,7 +461,7 @@ namespace treeDiM.StackBuilder.Desktop
                         ConstraintSetCasePallet constraintSet = analysisCasePallet.ConstraintSet as ConstraintSetCasePallet;
                         xlWorkSheetCasePallet.Cells[iRowCasePallet, 7] = constraintSet.OptMaxHeight.Value;
                         // solution
-                        Solution sol = analysisCasePallet.Solution;
+                        SolutionLayered sol = analysisCasePallet.SolutionLay;
                         xlWorkSheetCasePallet.Cells[iRowCasePallet, 8] = sol.ItemCount;
                         xlWorkSheetCasePallet.Cells[iRowCasePallet, 9] = sol.LayerCount;
                         xlWorkSheetCasePallet.Cells[iRowCasePallet, 10] = sol.LayerBoxCount(0);
@@ -468,7 +475,7 @@ namespace treeDiM.StackBuilder.Desktop
                             FontSizeRatio = 0.01f,
                             CameraPosition = Graphics3D.Corner_0
                         };
-                        using (ViewerSolution sv = new ViewerSolution(analysis.Solution))
+                        using (ViewerSolution sv = new ViewerSolution(analysisCasePallet.SolutionLay))
                             sv.Draw(graphics, Transform3D.Identity);
                         graphics.Flush();
                         Bitmap bmp = graphics.Bitmap;
@@ -507,7 +514,7 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region UI item edition
-        public void EditAnalysis(AnalysisHomo analysis)
+        public void EditAnalysis(AnalysisLayered analysis)
         {
             // search for any DockContentAnalysis window and close it
             var seq = (from view in Views

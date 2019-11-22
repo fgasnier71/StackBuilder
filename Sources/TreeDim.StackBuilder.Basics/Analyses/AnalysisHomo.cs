@@ -6,6 +6,11 @@ namespace treeDiM.StackBuilder.Basics
 {
     public abstract class AnalysisHomo : Analysis
     {
+        #region Protected constructor
+        protected AnalysisHomo(Document doc, Packable packable) : base(doc) { Content = packable; }
+        #endregion
+
+        #region Properties
         public Packable Content
         {
             get { return _packable; }
@@ -21,72 +26,25 @@ namespace treeDiM.StackBuilder.Basics
         public virtual Vector3D ContentDimensions       => _packable.OuterDimensions;
         public virtual double ContentVolume             => _packable.Volume;
         public virtual double ContentWeight             => _packable.Weight;
-
-        public Solution Solution                        => _solution;
+        public override bool HasValidSolution           => null != Solution;
         public ConstraintSetAbstract ConstraintSet      { get; set; }
-        public List<InterlayerProperties> Interlayers   => _interlayers;
-        public virtual bool AlternateLayersPref         => true;
+        #endregion
 
+        #region Absctract properties
         public abstract ItemBase Container              { get; }
         public abstract Vector2D ContainerDimensions    { get; }
         public abstract Vector3D Offset                 { get; }
         public abstract double   ContainerWeight        { get; }
         public abstract double   ContainerLoadingVolume { get; }
-        /// <summary>
-        /// can analysis solution be reused in other analysis
-        /// </summary>
-        public abstract bool HasEquivalentPackable { get; }
-        /// <summary>
-        /// get equivalent packable
-        /// </summary>
-        public abstract PackableLoaded EquivalentPackable { get; }
-
-        public virtual bool AllowInterlayer(InterlayerProperties interlayer)
-        {
-            if (null == interlayer)
-                return false;
-            return true;    
-        }
-
-        public void AddInterlayer(InterlayerProperties interlayer)
-        {
-            _interlayers.Add(interlayer);
-            if (null != ParentDocument)
-                interlayer?.AddDependancy(this);
-        }
-
         public abstract BBox3D BBoxLoadWDeco(BBox3D loadBBox);
         public abstract BBox3D BBoxGlobal(BBox3D loadBBox);
-        public void AddSolution(List<LayerDesc> layerDescs)
-        {
-            _solution = new Solution(this, layerDescs.ConvertAll(l => new LayerEncap(l)));
-        }
-        public void AddSolution(List<LayerEncap> layers)
-        {
-            _solution = new Solution(this, layers);
-        }
-        public void AddSolution(List<KeyValuePair<LayerDesc, int>> listLayers)
-        {
-            _solution = new Solution(this,
-                listLayers.ConvertAll(l => new KeyValuePair<LayerEncap, int>(new LayerEncap(l.Key), l.Value))
-                );
-        }
-        public void AddSolution(List<KeyValuePair<LayerEncap,int>> listLayers)
-        {
-            _solution = new Solution(this, listLayers);
-        }
-        public int GetInterlayerIndex(InterlayerProperties interlayer)
-        {
-            if (null == interlayer) return -1;
-            if (!_interlayers.Contains(interlayer))
-                _interlayers.Add(interlayer);
-            return _interlayers.FindIndex(item => item == interlayer);
-        }
-        public virtual InterlayerProperties Interlayer(int index)
-        {
-            return _interlayers[index];
-        }
+        #endregion
 
+        #region Abstract dimensions
+        public abstract void RecomputeSolution();
+        #endregion
+
+        #region Analysis overrides
         public override void OnEndUpdate(ItemBase updatedAttribute)
         {
             base.OnEndUpdate(updatedAttribute);
@@ -98,14 +56,93 @@ namespace treeDiM.StackBuilder.Basics
             // ---
             EndUpdate();
         }
-        public virtual void RecomputeSolution()
+        protected override void RemoveItselfFromDependancies()
+        {
+            base.RemoveItselfFromDependancies();
+            _packable?.RemoveDependancy(this);
+        }
+        #endregion
+
+        #region Data members
+        protected Packable _packable;
+        public SolutionHomo Solution { get; protected set; }
+        #endregion
+    }
+
+    public abstract class AnalysisLayered : AnalysisHomo
+    {
+        #region Protected constructor
+        protected AnalysisLayered(Document doc, Packable packable) : base(doc, packable) {}
+        #endregion
+
+        #region Abstract methods
+        /// <summary>
+        /// can analysis solution be reused in other analysis
+        /// </summary>
+        public abstract bool HasEquivalentPackable { get; }
+        /// <summary>
+        /// get equivalent packable
+        /// </summary>
+        public abstract PackableLoaded EquivalentPackable { get; }
+        #endregion
+
+        #region Layer methods
+        public SolutionLayered SolutionLay            => Solution as SolutionLayered;
+        public List<InterlayerProperties> Interlayers   { get; private set; }
+        public virtual bool AlternateLayersPref         => true;
+        public List<Layer2DBrickExp> EditedLayers { get; set; } = new List<Layer2DBrickExp>();
+        public virtual bool AllowInterlayer(InterlayerProperties interlayer)
+        {
+            if (null == interlayer)
+                return false;
+            return true;    
+        }
+        public void AddInterlayer(InterlayerProperties interlayer)
+        {
+            Interlayers.Add(interlayer);
+            if (null != ParentDocument)
+                interlayer?.AddDependancy(this);
+        }
+        public int GetInterlayerIndex(InterlayerProperties interlayer)
+        {
+            if (null == interlayer) return -1;
+            if (Interlayers.Contains(interlayer))
+                Interlayers.Add(interlayer);
+            return Interlayers.FindIndex(item => item == interlayer);
+        }
+        public virtual InterlayerProperties Interlayer(int index) => Interlayers[index];
+        #endregion
+
+        #region Solution
+        public void AddSolution(List<LayerDesc> layerDescs)
+        {
+            Solution = new SolutionLayered(this, layerDescs.ConvertAll(l => new LayerEncap(l)));
+        }
+        public void AddSolution(List<LayerEncap> layers)
+        {
+            Solution = new SolutionLayered(this, layers);
+        }
+        public void AddSolution(List<KeyValuePair<LayerDesc, int>> listLayers)
+        {
+            Solution = new SolutionLayered(this,
+                listLayers.ConvertAll(l => new KeyValuePair<LayerEncap, int>(new LayerEncap(l.Key), l.Value))
+                );
+        }
+        public void AddSolution(List<KeyValuePair<LayerEncap,int>> listLayers)
+        {
+            Solution = new SolutionLayered(this, listLayers);
+        }
+        #endregion
+
+        #region AnalysisHomo overrides
+        public override void RecomputeSolution()
         {
             // get best layers
-            List<ILayer2D> bestLayers = Solution.Solver.BuildLayers(Content, ContainerDimensions, Offset.Z, ConstraintSet, true);
+            List<ILayer2D> bestLayers = SolutionLayered.Solver.BuildLayers(Content, ContainerDimensions, Offset.Z, ConstraintSet, true);
             List<LayerEncap> bestLayerDescs = bestLayers.ConvertAll(l => new LayerEncap(l.LayerDescriptor));
 
             bool allFound = true;
-            foreach (LayerEncap l in Solution.LayerEncaps)
+            foreach (LayerEncap l in SolutionLay.LayerEncaps)
             {
                 if (null == bestLayerDescs.Find(bld => bld.Equals(l)))
                 {
@@ -114,34 +151,14 @@ namespace treeDiM.StackBuilder.Basics
                 }
             }
             if (allFound)
-                Solution.RebuildLayers();
-            else
-            {
-                // recomputes whole new solution
-                _solution = new Solution(this, bestLayerDescs);
-            }
+                SolutionLay.RebuildLayers();
+            else // recomputes whole new solution
+                Solution = new SolutionLayered(this, bestLayerDescs);
         }
-        public override bool HasValidSolution => null != _solution;
-        public List<Layer2DBrickExp> EditedLayers { get; set; } = new List<Layer2DBrickExp>();
-        #region Non-Public Members
-        protected Solution _solution;
-        protected List<InterlayerProperties> _interlayers;
-        /// <summary>
-        /// Content
-        /// </summary>
-        protected Packable _packable;
-
-        protected AnalysisHomo(Document doc, Packable packable) : base(doc)
-        {
-            Content = packable;
-            _interlayers = new List<InterlayerProperties>();
-        }
-
         protected override void RemoveItselfFromDependancies()
         {
             base.RemoveItselfFromDependancies();
-            _packable?.RemoveDependancy(this);
-            foreach (InterlayerProperties interlayer in _interlayers)
+            foreach (InterlayerProperties interlayer in Interlayers)
                 interlayer.RemoveDependancy(this);
         }
         #endregion

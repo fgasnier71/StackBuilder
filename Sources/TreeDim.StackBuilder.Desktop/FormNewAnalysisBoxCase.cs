@@ -21,7 +21,7 @@ namespace treeDiM.StackBuilder.Desktop
     public partial class FormNewAnalysisBoxCase : FormNewAnalysis, IItemBaseFilter
     {
         #region Constructor
-        public FormNewAnalysisBoxCase(Document doc, AnalysisHomo analysis)
+        public FormNewAnalysisBoxCase(Document doc, AnalysisLayered analysis)
             : base(doc, analysis)
         {
             InitializeComponent();
@@ -87,7 +87,7 @@ namespace treeDiM.StackBuilder.Desktop
                 foreach (ILayer2D layer2D in uCtrlLayerList.Selected)
                     layerEncaps.Add(new LayerEncap(layer2D.LayerDescriptor));
 
-                Solution.SetSolver(new LayerSolver());
+                SolutionLayered.SetSolver(new LayerSolver());
 
                 AnalysisBoxCase analysis = AnalysisCast;
                 if (null == analysis)

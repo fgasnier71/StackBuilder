@@ -67,7 +67,9 @@
             // uCtrlLayerList
             // 
             resources.ApplyResources(this.uCtrlLayerList, "uCtrlLayerList");
+            this.uCtrlLayerList.ButtonSizes = new System.Drawing.Size(150, 150);
             this.uCtrlLayerList.Name = "uCtrlLayerList";
+            this.uCtrlLayerList.Show3D = true;
             this.uCtrlLayerList.SingleSelection = false;
             // 
             // lbCylinder
@@ -86,7 +88,7 @@
             this.cbCylinders.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCylinders.FormattingEnabled = true;
             this.cbCylinders.Name = "cbCylinders";
-            this.cbCylinders.SelectedIndexChanged += new System.EventHandler(this.onCylinderChanged);
+            this.cbCylinders.SelectedIndexChanged += new System.EventHandler(this.OnCylinderChanged);
             // 
             // cbPallets
             // 
@@ -94,7 +96,7 @@
             this.cbPallets.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbPallets.FormattingEnabled = true;
             this.cbPallets.Name = "cbPallets";
-            this.cbPallets.SelectedIndexChanged += new System.EventHandler(this.onInputChanged);
+            this.cbPallets.SelectedIndexChanged += new System.EventHandler(this.OnInputChanged);
             // 
             // tabCtrlContraints
             // 
@@ -122,7 +124,7 @@
             -2147483648});
             this.uCtrlOptMaximumWeight.Name = "uCtrlOptMaximumWeight";
             this.uCtrlOptMaximumWeight.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_MASS;
-            this.uCtrlOptMaximumWeight.ValueChanged += new treeDiM.Basics.UCtrlOptDouble.ValueChangedDelegate(this.onInputChanged);
+            this.uCtrlOptMaximumWeight.ValueChanged += new treeDiM.Basics.UCtrlOptDouble.ValueChangedDelegate(this.OnInputChanged);
             // 
             // uCtrlMaximumHeight
             // 
@@ -134,8 +136,7 @@
             -2147483648});
             this.uCtrlMaximumHeight.Name = "uCtrlMaximumHeight";
             this.uCtrlMaximumHeight.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
-            this.uCtrlMaximumHeight.Value = 0D;
-            this.uCtrlMaximumHeight.ValueChanged += new treeDiM.Basics.UCtrlDouble.ValueChangedDelegate(this.onInputChanged);
+            this.uCtrlMaximumHeight.ValueChanged += new treeDiM.Basics.UCtrlDouble.ValueChangedDelegate(this.OnInputChanged);
             // 
             // tabPageOverhang
             // 
@@ -152,7 +153,7 @@
             this.uCtrlOverhang.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlOverhang.ValueX = 0D;
             this.uCtrlOverhang.ValueY = 0D;
-            this.uCtrlOverhang.ValueChanged += new treeDiM.Basics.UCtrlDualDouble.ValueChangedDelegate(this.onInputChanged);
+            this.uCtrlOverhang.ValueChanged += new treeDiM.Basics.UCtrlDualDouble.ValueChangedDelegate(this.OnInputChanged);
             // 
             // lbSelect
             // 
@@ -164,7 +165,7 @@
             resources.ApplyResources(this.checkBoxBestLayersOnly, "checkBoxBestLayersOnly");
             this.checkBoxBestLayersOnly.Name = "checkBoxBestLayersOnly";
             this.checkBoxBestLayersOnly.UseVisualStyleBackColor = true;
-            this.checkBoxBestLayersOnly.CheckedChanged += new System.EventHandler(this.onInputChanged);
+            this.checkBoxBestLayersOnly.CheckedChanged += new System.EventHandler(this.OnInputChanged);
             // 
             // uCtrlPackable
             // 

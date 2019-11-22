@@ -162,7 +162,7 @@
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;cbPallets.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered, treeDiM.StackBuilder.Graphics, Version=3.0.0.40, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered, treeDiM.StackBuilder.Graphics, Version=3.0.2.1, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;lbPallet.Name" xml:space="preserve">
     <value>lbPallet</value>
@@ -201,7 +201,7 @@
     <value>cbCylinders</value>
   </data>
   <data name="&gt;&gt;uCtrlOverhang.Type" xml:space="preserve">
-    <value>treeDiM.Basics.UCtrlDualDouble, treeDiM.Basics, Version=3.0.0.98, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.Basics.UCtrlDualDouble, treeDiM.Basics, Version=3.0.1.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;bnCancel.ZOrder" xml:space="preserve">
     <value>13</value>
@@ -211,9 +211,6 @@
   </data>
   <data name="&gt;&gt;lbCylinder.ZOrder" xml:space="preserve">
     <value>7</value>
-  </data>
-  <data name="&gt;&gt;uCtrlPackable.Name" xml:space="preserve">
-    <value>uCtrlPackable</value>
   </data>
   <data name="tabPageStopCriterions.Size" type="System.Drawing.Size, System.Drawing">
     <value>469, 74</value>
@@ -228,7 +225,7 @@
     <value>8</value>
   </data>
   <data name="&gt;&gt;uCtrlOptMaximumWeight.Type" xml:space="preserve">
-    <value>treeDiM.Basics.UCtrlOptDouble, treeDiM.Basics, Version=3.0.0.98, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.Basics.UCtrlOptDouble, treeDiM.Basics, Version=3.0.1.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;checkBoxBestLayersOnly.Type" xml:space="preserve">
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -251,6 +248,9 @@
   <data name="uCtrlOverhang.Text" xml:space="preserve">
     <value>Overhang</value>
   </data>
+  <data name="&gt;&gt;lbCylinder.Name" xml:space="preserve">
+    <value>lbCylinder</value>
+  </data>
   <data name="&gt;&gt;cbPallets.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
@@ -268,9 +268,6 @@
   </data>
   <data name="cbCylinders.Location" type="System.Drawing.Point, System.Drawing">
     <value>104, 63</value>
-  </data>
-  <data name="&gt;&gt;lbDescription.Parent" xml:space="preserve">
-    <value>$this</value>
   </data>
   <data name="&gt;&gt;cbPallets.Name" xml:space="preserve">
     <value>cbPallets</value>
@@ -305,11 +302,14 @@
   <data name="&gt;&gt;cbCylinders.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
+  <data name="&gt;&gt;lbSelect.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
   <data name="tabPageOverhang.Text" xml:space="preserve">
     <value>Overhang</value>
   </data>
   <data name="&gt;&gt;uCtrlPackable.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Graphics.Controls.UCtrlPackable, treeDiM.StackBuilder.Graphics, Version=3.0.0.40, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Graphics.Controls.UCtrlPackable, treeDiM.StackBuilder.Graphics, Version=3.0.2.1, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="lbCylinder.Size" type="System.Drawing.Size, System.Drawing">
     <value>44, 13</value>
@@ -342,7 +342,7 @@
     <value>1</value>
   </data>
   <data name="&gt;&gt;uCtrlMaximumHeight.Type" xml:space="preserve">
-    <value>treeDiM.Basics.UCtrlDouble, treeDiM.Basics, Version=3.0.0.98, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.Basics.UCtrlDouble, treeDiM.Basics, Version=3.0.1.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="tabCtrlContraints.Location" type="System.Drawing.Point, System.Drawing">
     <value>307, 92</value>
@@ -387,6 +387,9 @@
   <data name="lbPallet.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="&gt;&gt;lbDescription.Name" xml:space="preserve">
+    <value>lbDescription</value>
+  </data>
   <data name="&gt;&gt;cbPallets.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
@@ -420,9 +423,6 @@
   <data name="uCtrlMaximumHeight.MinimumSize" type="System.Drawing.Size, System.Drawing">
     <value>100, 20</value>
   </data>
-  <data name="&gt;&gt;uCtrlMaximumHeight.Name" xml:space="preserve">
-    <value>uCtrlMaximumHeight</value>
-  </data>
   <data name="lbSelect.Text" xml:space="preserve">
     <value>Select one or more layers and click 'Next&gt;'...</value>
   </data>
@@ -442,13 +442,10 @@
     <value>30</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Desktop.FormNewAnalysis, treeDiM.StackBuilder.Desktop, Version=3.0.0.40, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Desktop.FormNewAnalysis, treeDiM.StackBuilder.Desktop, Version=3.0.2.1, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;tabCtrlContraints.Parent" xml:space="preserve">
     <value>$this</value>
-  </data>
-  <data name="&gt;&gt;tabCtrlContraints.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="uCtrlMaximumHeight.Location" type="System.Drawing.Point, System.Drawing">
     <value>9, 7</value>
@@ -457,7 +454,7 @@
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;cbCylinders.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered, treeDiM.StackBuilder.Graphics, Version=3.0.0.40, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered, treeDiM.StackBuilder.Graphics, Version=3.0.2.1, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;tabPageOverhang.Parent" xml:space="preserve">
     <value>tabCtrlContraints</value>
@@ -481,7 +478,7 @@
     <value>tbName</value>
   </data>
   <data name="&gt;&gt;uCtrlLayerList.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Graphics.UCtrlLayerList, treeDiM.StackBuilder.Graphics, Version=3.0.0.40, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Graphics.UCtrlLayerList, treeDiM.StackBuilder.Graphics, Version=3.0.2.1, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlOverhang.Name" xml:space="preserve">
     <value>uCtrlOverhang</value>
@@ -519,8 +516,8 @@
   <data name="uCtrlLayerList.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
   </data>
-  <data name="&gt;&gt;tbName.ZOrder" xml:space="preserve">
-    <value>10</value>
+  <data name="&gt;&gt;lbDescription.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="tabPageStopCriterions.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -528,11 +525,14 @@
   <data name="tabPageOverhang.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 3, 3, 3</value>
   </data>
+  <data name="&gt;&gt;tbName.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
   <data name="&gt;&gt;lbDescription.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;lbDescription.Name" xml:space="preserve">
-    <value>lbDescription</value>
+  <data name="&gt;&gt;uCtrlPackable.Name" xml:space="preserve">
+    <value>uCtrlPackable</value>
   </data>
   <data name="uCtrlLayerList.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
@@ -543,11 +543,11 @@
   <data name="&gt;&gt;lbPallet.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
-  <data name="&gt;&gt;lbSelect.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;uCtrlMaximumHeight.Name" xml:space="preserve">
+    <value>uCtrlMaximumHeight</value>
   </data>
-  <data name="&gt;&gt;lbCylinder.Name" xml:space="preserve">
-    <value>lbCylinder</value>
+  <data name="&gt;&gt;tabCtrlContraints.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="lbPallet.Text" xml:space="preserve">
     <value>Pallet</value>
@@ -563,8 +563,5 @@
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
-  </metadata>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>fr</value>
   </metadata>
 </root>

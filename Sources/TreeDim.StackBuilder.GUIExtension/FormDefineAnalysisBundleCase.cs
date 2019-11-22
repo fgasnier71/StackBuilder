@@ -187,8 +187,8 @@ namespace treeDiM.StackBuilder.GUIExtension
 
                 if (null == packable || null == caseProperties) return;
 
-                Solution.SetSolver(new LayerSolver());
-                AnalysisHomo analysis = doc.CreateNewAnalysisBoxCase(
+                SolutionLayered.SetSolver(new LayerSolver());
+                AnalysisLayered analysis = doc.CreateNewAnalysisBoxCase(
                     DocumentName, DocumentDescription
                     , packable, caseProperties
                     , new List<InterlayerProperties>()

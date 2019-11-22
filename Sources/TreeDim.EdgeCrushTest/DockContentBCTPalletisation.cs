@@ -398,8 +398,8 @@ namespace treeDiM.EdgeCrushTest
             try
             {
                 // Analysis
-                SolverCasePallet solver = new SolverCasePallet(CaseProperties, PalletProperties);
-                List<AnalysisHomo> analyses = solver.BuildAnalyses(ConstraintSet, false);
+                SolverCasePallet solver = new SolverCasePallet(CaseProperties, PalletProperties, ConstraintSet);
+                List<AnalysisLayered> analyses = solver.BuildAnalyses(false);
                 Analysis analysis = analyses.Count > 0 ? analyses[0] : null;
 
                 // build list of BCT
@@ -496,15 +496,15 @@ namespace treeDiM.EdgeCrushTest
             try
             {
                 // solve
-                SolverCasePallet solver = new SolverCasePallet(CaseProperties, PalletProperties);
-                List<AnalysisHomo> analyses = solver.BuildAnalyses(ConstraintSet, false);
+                SolverCasePallet solver = new SolverCasePallet(CaseProperties, PalletProperties, ConstraintSet);
+                List<AnalysisLayered> analyses = solver.BuildAnalyses(false);
                 if (analyses.Count > 0)
                 {
-                    AnalysisHomo analysis = analyses[0];
-                    Sol = analysis.Solution;
+                    AnalysisLayered analysis = analyses[0];
+                    Sol = analysis.SolutionLay;
                     StackCount = analysis.Solution.ItemCount;
                     StackWeight = analysis.Solution.Weight;
-                    LoadBottomCase = analysis.Solution.LoadOnLowestCase;
+                    LoadBottomCase = analysis.SolutionLay.LoadOnLowestCase;
                 }
             }
             catch (Exception ex)
@@ -541,7 +541,7 @@ namespace treeDiM.EdgeCrushTest
         }
         #endregion
         #region Data members
-        private Solution Sol { get; set; }
+        private SolutionLayered Sol { get; set; }
         protected ILog _log = LogManager.GetLogger(typeof(DockContentBCTPalletisation));
         #endregion
     }

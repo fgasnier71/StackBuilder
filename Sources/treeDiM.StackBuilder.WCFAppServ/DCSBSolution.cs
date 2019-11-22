@@ -30,6 +30,8 @@ namespace treeDiM.StackBuilder.WCFAppServ
         [DataMember]
         public string PalletMapPhrase { get; set; }
         [DataMember]
+        public string[] LayerDescs { get; set; }
+        [DataMember]
         public string[] Errors { get; set; }
     }
 }

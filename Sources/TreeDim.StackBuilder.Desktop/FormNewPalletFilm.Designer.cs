@@ -86,7 +86,8 @@
             resources.GetString("cbColor.Items12"),
             resources.GetString("cbColor.Items13"),
             resources.GetString("cbColor.Items14"),
-            resources.GetString("cbColor.Items15")});
+            resources.GetString("cbColor.Items15"),
+            resources.GetString("cbColor.Items16")});
             this.cbColor.Name = "cbColor";
             // 
             // lbColor

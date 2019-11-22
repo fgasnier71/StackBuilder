@@ -1,30 +1,35 @@
-﻿using treeDiM.Basics;
+﻿#region Using directives
+using treeDiM.Basics;
+#endregion
 
 namespace treeDiM.StackBuilder.Basics
 {
     public abstract class PackableLoaded : PackableBrick
     {
-        public override GlobID ID => _analysis.ID;
-        public override double Weight => ParentSolution.Weight;
-        public override OptDouble NetWeight => ParentSolution.NetWeight;
-        public AnalysisHomo ParentAnalysis => _analysis;
-
         #region Non-Public Members
         protected PackableLoaded(AnalysisHomo analysis)
             : base(analysis.ParentDocument)
         {
-            _analysis = analysis;
+            ParentAnalysis = analysis;
         }
+        protected SolutionHomo ParentSolution => ParentAnalysis.Solution;
+        #endregion
 
-        protected Solution ParentSolution => _analysis.Solution;
-        protected AnalysisHomo _analysis;
+        #region Public properties
+        public AnalysisHomo ParentAnalysis { get; private set; }
+        #endregion
+
+        #region Override 
+        public override GlobID ID => ParentAnalysis.ID;
+        public override double Weight => ParentSolution.Weight;
+        public override OptDouble NetWeight => ParentSolution.NetWeight;
         #endregion
 
         #region Override ItemBase (dependancies)
         public override void AddDependancy(ItemBase dependancy)
-        { _analysis?.AddDependancy(dependancy); }
+        { ParentAnalysis?.AddDependancy(dependancy); }
         public override void RemoveDependancy(ItemBase dependancy)
-        { _analysis?.RemoveDependancy(dependancy); }
+        { ParentAnalysis?.RemoveDependancy(dependancy); }
         #endregion
     }
 }

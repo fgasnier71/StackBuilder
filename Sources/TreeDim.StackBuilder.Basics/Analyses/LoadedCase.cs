@@ -6,24 +6,25 @@
             : base(analysis)
         {
         }
-
         public override GlobID ID
         {
             get
             {
                 return new GlobID(
-                    _analysis.ID.IGuid,
-                    string.Format("{0}({1})", Properties.Resources.ID_NAMECASE, _analysis.Name),
-                    _analysis.Description
+                    ParentAnalysis.ID.IGuid,
+                    $"{Properties.Resources.ID_NAMECASE}({ParentAnalysis.Name})",
+                    ParentAnalysis.Description
                     );
             }
         }
-
         public Packable Container => Analysis.CaseProperties;
+
+        #region Override PackableBrick
         public override bool IsCase => true;
         public override double Length => Analysis.CaseProperties.Length;
         public override double Width => Analysis.CaseProperties.Width;
         public override double Height => Analysis.CaseProperties.Height;
+        #endregion
 
         public override bool InnerContent(ref Packable innerPackable, ref int number)
         {

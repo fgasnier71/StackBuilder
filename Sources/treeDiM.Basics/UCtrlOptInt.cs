@@ -22,6 +22,7 @@ namespace treeDiM.Basics
         public UCtrlOptInt()
         {
             InitializeComponent();
+            Value = OptInt.Zero;
         }
         #endregion
 

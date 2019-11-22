@@ -366,6 +366,9 @@
   <data name="cbColor.Items51" xml:space="preserve">
     <value>Color</value>
   </data>
+  <data name="cbColor.Items52" xml:space="preserve">
+    <value>Color</value>
+  </data>
   <data name="cbColor.Location" type="System.Drawing.Point, System.Drawing">
     <value>111, 128</value>
   </data>
@@ -379,7 +382,7 @@
     <value>cbColor</value>
   </data>
   <data name="&gt;&gt;cbColor.Type" xml:space="preserve">
-    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=3.0.0.92, Culture=neutral, PublicKeyToken=null</value>
+    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=3.0.2.1, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;cbColor.Parent" xml:space="preserve">
     <value>$this</value>
@@ -433,13 +436,16 @@
     <value>graphCtrl</value>
   </data>
   <data name="&gt;&gt;graphCtrl.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Graphics.Graphics3DControl, treeDiM.StackBuilder.Graphics, Version=3.0.0.92, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Graphics.Graphics3DControl, treeDiM.StackBuilder.Graphics, Version=3.0.2.1, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;graphCtrl.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;graphCtrl.ZOrder" xml:space="preserve">
     <value>11</value>
+  </data>
+  <data name="bnSendToDB.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
   </data>
   <data name="bnSendToDB.Location" type="System.Drawing.Point, System.Drawing">
     <value>462, 313</value>
@@ -477,15 +483,11 @@
   <data name="uCtrlInnerDimensions.Text" xml:space="preserve">
     <value>Dimensions</value>
   </data>
-  <assembly alias="Sharp3D.Math" name="Sharp3D.Math, Version=1.0.3.0, Culture=neutral, PublicKeyToken=null" />
-  <data name="uCtrlInnerDimensions.Value" type="Sharp3D.Math.Core.Vector3D, Sharp3D.Math">
-    <value>(0, 0, 0)</value>
-  </data>
   <data name="&gt;&gt;uCtrlInnerDimensions.Name" xml:space="preserve">
     <value>uCtrlInnerDimensions</value>
   </data>
   <data name="&gt;&gt;uCtrlInnerDimensions.Type" xml:space="preserve">
-    <value>treeDiM.Basics.UCtrlTriDouble, treeDiM.Basics, Version=3.0.0.92, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.Basics.UCtrlTriDouble, treeDiM.Basics, Version=3.0.1.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlInnerDimensions.Parent" xml:space="preserve">
     <value>$this</value>
@@ -512,7 +514,7 @@
     <value>uCtrlMaxLoadWeight</value>
   </data>
   <data name="&gt;&gt;uCtrlMaxLoadWeight.Type" xml:space="preserve">
-    <value>treeDiM.Basics.UCtrlDouble, treeDiM.Basics, Version=3.0.0.92, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.Basics.UCtrlDouble, treeDiM.Basics, Version=3.0.1.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlMaxLoadWeight.Parent" xml:space="preserve">
     <value>$this</value>
@@ -536,6 +538,6 @@
     <value>FormNewTruck</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Desktop.FormNewBase, treeDiM.StackBuilder.Desktop, Version=3.0.0.92, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Desktop.FormNewBase, treeDiM.StackBuilder.Desktop, Version=3.0.2.1, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

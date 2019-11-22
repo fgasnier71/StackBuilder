@@ -28,12 +28,12 @@ namespace treeDiM.StackBuilder.Desktop
             _solution = null;
             InitializeComponent();
         }
-        public DockContentAnalysisEdit(IDocument document, AnalysisHomo analysis)
+        public DockContentAnalysisEdit(IDocument document, AnalysisLayered analysis)
             : base(document)
         {
             _analysis = analysis;
             _analysis.AddListener(this);
-            _solution = analysis.Solution;
+            _solution = analysis.SolutionLay;
 
             InitializeComponent();
         }
@@ -94,11 +94,11 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Public properties
-        public AnalysisHomo Analysis
+        public AnalysisLayered Analysis
         {
             get { return _analysis; }
         }
-        public Solution Solution
+        public SolutionLayered Solution
         {
             get { return _solution; }
             set { _solution = value; }
@@ -511,11 +511,11 @@ namespace treeDiM.StackBuilder.Desktop
         /// <summary>
         /// analysis
         /// </summary>
-        protected AnalysisHomo _analysis;
+        protected AnalysisLayered _analysis;
         /// <summary>
         /// solution
         /// </summary>
-        protected Solution _solution;
+        protected SolutionLayered _solution;
         /// <summary>
         /// logger
         /// </summary>

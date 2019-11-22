@@ -17,15 +17,6 @@ namespace treeDiM.StackBuilder.Desktop
 {
     public partial class DockContentAnalysisCasePallet : DockContentAnalysisEdit
     {
-        #region Data members
-        /// <summary>
-        /// logger
-        /// </summary>
-        static readonly new ILog _log = LogManager.GetLogger(typeof(DockContentAnalysisCasePallet));
-
-        private bool _initialized = false;
-        #endregion
-
         #region Constructor
         public DockContentAnalysisCasePallet(IDocument document, AnalysisCasePallet analysis)
             : base(document, analysis)
@@ -472,7 +463,16 @@ namespace treeDiM.StackBuilder.Desktop
             FormMain.GetInstance().GenerateReport(_analysis);
         }
         #endregion
- 
+
+        #region Data members
+        /// <summary>
+        /// logger
+        /// </summary>
+        static readonly new ILog _log = LogManager.GetLogger(typeof(DockContentAnalysisCasePallet));
+
+        private bool _initialized = false;
+        #endregion
+
         #region Layer controls
         /*
         private void FillLayerControls()

@@ -92,6 +92,7 @@
             "Color",
             "Color",
             "Color",
+            "Color",
             "Color"});
             this.cbColorCorners.Location = new System.Drawing.Point(111, 178);
             this.cbColorCorners.Name = "cbColorCorners";
@@ -113,7 +114,6 @@
             this.uCtrlLength.TabIndex = 26;
             this.uCtrlLength.Text = "Length";
             this.uCtrlLength.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
-            this.uCtrlLength.Value = 0D;
             this.uCtrlLength.ValueChanged += new treeDiM.Basics.UCtrlDouble.ValueChangedDelegate(this.OnValueChanged);
             // 
             // uCtrlWidth
@@ -130,7 +130,6 @@
             this.uCtrlWidth.TabIndex = 27;
             this.uCtrlWidth.Text = "Width";
             this.uCtrlWidth.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
-            this.uCtrlWidth.Value = 0D;
             this.uCtrlWidth.ValueChanged += new treeDiM.Basics.UCtrlDouble.ValueChangedDelegate(this.OnValueChanged);
             // 
             // uCtrlThickness
@@ -147,7 +146,6 @@
             this.uCtrlThickness.TabIndex = 28;
             this.uCtrlThickness.Text = "Thickness";
             this.uCtrlThickness.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
-            this.uCtrlThickness.Value = 0D;
             this.uCtrlThickness.ValueChanged += new treeDiM.Basics.UCtrlDouble.ValueChangedDelegate(this.OnValueChanged);
             // 
             // uCtrlWeight
@@ -164,11 +162,11 @@
             this.uCtrlWeight.TabIndex = 29;
             this.uCtrlWeight.Text = "Weight";
             this.uCtrlWeight.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_MASS;
-            this.uCtrlWeight.Value = 0D;
             this.uCtrlWeight.ValueChanged += new treeDiM.Basics.UCtrlDouble.ValueChangedDelegate(this.OnValueChanged);
             // 
             // bnSendToDB
             // 
+            this.bnSendToDB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.bnSendToDB.Location = new System.Drawing.Point(441, 314);
             this.bnSendToDB.Name = "bnSendToDB";
             this.bnSendToDB.Size = new System.Drawing.Size(138, 23);

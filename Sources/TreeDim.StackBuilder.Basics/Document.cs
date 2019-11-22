@@ -98,7 +98,7 @@ namespace treeDiM.StackBuilder.Basics
         {
             string trimmedName = name.Trim();
             return (null == Analyses.Find(
-                delegate(AnalysisHomo analysis)
+                delegate(Analysis analysis)
                 {
                     return analysis != analysisToRename
                         && string.Equals(analysis.ID.Name, trimmedName, StringComparison.InvariantCultureIgnoreCase);
@@ -566,7 +566,7 @@ namespace treeDiM.StackBuilder.Basics
         #endregion
 
         #region Analyses instantiation method
-        public AnalysisHomo CreateNewAnalysisCasePallet(
+        public Analysis CreateNewAnalysisCasePallet(
             string name, string description
             , Packable packable, PalletProperties pallet
             , List<InterlayerProperties> interlayers
@@ -590,7 +590,7 @@ namespace treeDiM.StackBuilder.Basics
             return InsertAnalysis(analysis);
         }
 
-        public AnalysisHomo CreateNewAnalysisCasePallet(
+        public Analysis CreateNewAnalysisCasePallet(
             string name, string description
             , Packable packable, PalletProperties pallet
             , List<InterlayerProperties> interlayers
@@ -614,7 +614,7 @@ namespace treeDiM.StackBuilder.Basics
             return InsertAnalysis(analysis);
         }
 
-        public AnalysisHomo CreateNewAnalysisBoxCase(
+        public Analysis CreateNewAnalysisBoxCase(
             string name, string description
             , Packable packable, BoxProperties caseProperties
             , List<InterlayerProperties> interlayers
@@ -634,7 +634,7 @@ namespace treeDiM.StackBuilder.Basics
             return InsertAnalysis(analysis);
         }
 
-        public AnalysisHomo CreateNewAnalysisBoxCase(
+        public Analysis CreateNewAnalysisBoxCase(
             string name, string description
             , Packable packable, BoxProperties caseProperties
             , List<InterlayerProperties> interlayers
@@ -654,7 +654,7 @@ namespace treeDiM.StackBuilder.Basics
             return InsertAnalysis(analysis);
         }
 
-        public AnalysisHomo CreateNewAnalysisCaseTruck(
+        public Analysis CreateNewAnalysisCaseTruck(
             string name, string description
             , Packable packable, TruckProperties truckProperties
             , List<InterlayerProperties> interlayers
@@ -672,7 +672,7 @@ namespace treeDiM.StackBuilder.Basics
             analysis.AddSolution(layerEncaps);
             return InsertAnalysis(analysis);
         }
-        public AnalysisHomo CreateNewAnalysisPalletTruck(
+        public Analysis CreateNewAnalysisPalletTruck(
             string name, string description
             , Packable loadedPallet, TruckProperties truckProperties
             , ConstraintSetPalletTruck constraintSet
@@ -685,7 +685,7 @@ namespace treeDiM.StackBuilder.Basics
 
             return InsertAnalysis(analysis);
         }
-        public AnalysisHomo CreateNewAnalysisCylinderPallet(
+        public Analysis CreateNewAnalysisCylinderPallet(
             string name, string description
             , CylinderProperties cylinder, PalletProperties palletProperties
             , List<InterlayerProperties> interlayers
@@ -706,7 +706,21 @@ namespace treeDiM.StackBuilder.Basics
 
             return InsertAnalysis(analysis);
         }
-        public AnalysisHomo CreateNewAnalysisCylinderCase(
+        public Analysis CreateNewAnalysisHCylPallet(
+            string name, string description
+            , CylinderProperties cylinder, PalletProperties palletProperties
+            , ConstraintSetPackablePallet constraintSet
+            , HCylLayout layout
+            )
+        {
+            // analysis
+            var analysis = new AnalysisHCylPallet(
+                this, cylinder, palletProperties, constraintSet);
+            analysis.ID.SetNameDesc(name, description);
+            analysis.SetSolution(layout);
+            return InsertAnalysis(analysis);
+        }
+        public Analysis CreateNewAnalysisCylinderCase(
             string name, string description
             , CylinderProperties cylinder, BoxProperties caseProperties
             , List<InterlayerProperties> interlayers
@@ -725,7 +739,7 @@ namespace treeDiM.StackBuilder.Basics
             return InsertAnalysis(analysis);
         }
 
-        public AnalysisHomo CreateNewAnalysisCylinderTruck(
+        public Analysis CreateNewAnalysisCylinderTruck(
             string name, string description
             , CylinderProperties cylinder, TruckProperties truckProperties
             , ConstraintSetCylinderTruck constraintSet
@@ -777,7 +791,7 @@ namespace treeDiM.StackBuilder.Basics
             return InsertAnalysis(analysis);
         }
 
-        private AnalysisHomo InsertAnalysis(AnalysisHomo analysis)
+        private Analysis InsertAnalysis(Analysis analysis)
         {
             Analyses.Add(analysis);
             // notify listeners
@@ -795,7 +809,7 @@ namespace treeDiM.StackBuilder.Basics
             Modify();
             return analysis;
         }
-        public void UpdateAnalysis(AnalysisHomo analysis)
+        public void UpdateAnalysis(Analysis analysis)
         {
             // notify listeners
             NotifyAnalysisUpdated(analysis);
@@ -823,7 +837,7 @@ namespace treeDiM.StackBuilder.Basics
         /// <param name="constraintSet"></param>
         /// <param name="solver">Node : analysis creation requires a solver</param>
         /// <returns>An analysis</returns>
-        public AnalysisHomo CreateNewCasePalletAnalysis(
+        public Analysis CreateNewCasePalletAnalysis(
             string name, string description
             , BProperties box, PalletProperties pallet
             , InterlayerProperties interlayer, InterlayerProperties interlayerAntiSlip
@@ -854,7 +868,7 @@ namespace treeDiM.StackBuilder.Basics
                     layerEncaps.Add(new LayerEncap(layers[0].LayerDescriptor));
             }
 
-            AnalysisHomo analysis = CreateNewAnalysisCasePallet(name, description, box, pallet
+            Analysis analysis = CreateNewAnalysisCasePallet(name, description, box, pallet
                 , listInterlayers, palletCorners, palletCap, palletFilm
                 , constraintSetNew, layerEncaps);
 
@@ -862,7 +876,7 @@ namespace treeDiM.StackBuilder.Basics
             return analysis;
         }
 
-        public AnalysisHomo CreateNewPackPalletAnalysis(
+        public Analysis CreateNewPackPalletAnalysis(
             string name, string description
             , PackProperties pack, PalletProperties pallet
             , InterlayerProperties interlayer
@@ -891,7 +905,7 @@ namespace treeDiM.StackBuilder.Basics
                     layerEncaps.Add(new LayerEncap(layers[0].LayerDescriptor));
             }
 
-            AnalysisHomo analysis = CreateNewAnalysisCasePallet(
+            Analysis analysis = CreateNewAnalysisCasePallet(
                 name, description
                 , pack, pallet
                 , listInterlayers, null, null, null
@@ -929,10 +943,10 @@ namespace treeDiM.StackBuilder.Basics
                 if (!_typeList.Remove(item))
                     _log.Warn(string.Format("Failed to properly remove item {0}", item.ID.Name));
             }
-            else if (item is AnalysisHomo)
+            else if (item is AnalysisLayered)
             {
-                NotifyOnAnalysisRemoved(item as AnalysisHomo);
-                if (!Analyses.Remove(item as AnalysisHomo))
+                NotifyOnAnalysisRemoved(item as AnalysisLayered);
+                if (!Analyses.Remove(item as Analysis))
                     _log.Warn(string.Format("Failed to properly remove analysis {0}", item.ID.Name));
             }
             else if (item is AnalysisHetero)
@@ -958,38 +972,18 @@ namespace treeDiM.StackBuilder.Basics
         public string Description { get; set; }
         public string Author { get; set; }
         public DateTime DateOfCreation { get; set; }
-        public ReadOnlyCollection<ItemBase> TypeList
-        {
-            get { return new ReadOnlyCollection<ItemBase>(_typeList); }
-        }
-        public IEnumerable<BoxProperties> Bricks =>
-            _typeList.OfType<BoxProperties>();
 
-        public IEnumerable<BoxProperties> Boxes =>
-            _typeList.OfType<BoxProperties>().Where(x => !x.HasInsideDimensions);
-
-        public IEnumerable<BoxProperties> Cases =>
-            _typeList.OfType<BoxProperties>().Where(x => x.HasInsideDimensions);
-
-        public IEnumerable<BundleProperties> Bundles =>
-            _typeList.OfType<BundleProperties>();
-
-        public IEnumerable<CylinderProperties> Cylinders =>
-            _typeList.OfType<CylinderProperties>();
-
-        public IEnumerable<PalletProperties> Pallets =>
-            _typeList.OfType<PalletProperties>();
-
-        public IEnumerable<InterlayerProperties> Interlayers =>
-            _typeList.OfType<InterlayerProperties>();
-
-        public IEnumerable<TruckProperties> Trucks =>
-            _typeList.OfType<TruckProperties>();
-
-        public IEnumerable<ItemBase> GetByType(Type t) =>
-            _typeList.Where(item => item.GetType() == t);
-
-        public List<AnalysisHomo> Analyses { get; } = new List<AnalysisHomo>();
+        public ReadOnlyCollection<ItemBase> TypeList =>new ReadOnlyCollection<ItemBase>(_typeList); 
+        public IEnumerable<BoxProperties> Bricks => _typeList.OfType<BoxProperties>();
+        public IEnumerable<BoxProperties> Boxes => _typeList.OfType<BoxProperties>().Where(x => !x.HasInsideDimensions);
+        public IEnumerable<BoxProperties> Cases => _typeList.OfType<BoxProperties>().Where(x => x.HasInsideDimensions);
+        public IEnumerable<BundleProperties> Bundles => _typeList.OfType<BundleProperties>();
+        public IEnumerable<CylinderProperties> Cylinders => _typeList.OfType<CylinderProperties>();
+        public IEnumerable<PalletProperties> Pallets => _typeList.OfType<PalletProperties>();
+        public IEnumerable<InterlayerProperties> Interlayers => _typeList.OfType<InterlayerProperties>();
+        public IEnumerable<TruckProperties> Trucks => _typeList.OfType<TruckProperties>();
+        public IEnumerable<ItemBase> GetByType(Type t) => _typeList.Where(item => item.GetType() == t);
+        public List<Analysis> Analyses { get; } = new List<Analysis>();
         public List<AnalysisHetero> HAnalyses { get; } = new List<AnalysisHetero>();
 
         /// <summary>
@@ -1293,7 +1287,7 @@ namespace treeDiM.StackBuilder.Basics
             string sid = eltCylinderProperties.Attributes["Id"].Value;
             string sname = eltCylinderProperties.Attributes["Name"].Value;
             string sdescription = eltCylinderProperties.Attributes["Description"].Value;
-            string sRadiusOuter = string.Empty, sRadiusInner = string.Empty;
+            string sRadiusOuter, sRadiusInner;
             if (eltCylinderProperties.HasAttribute("RadiusOuter"))
             {
                 sRadiusOuter = eltCylinderProperties.Attributes["RadiusOuter"].Value;
@@ -1669,16 +1663,16 @@ namespace treeDiM.StackBuilder.Basics
                         interlayers = LoadInterlayers(node as XmlElement);
                 }
 
-                AnalysisHomo analysis = CreateNewAnalysisCasePallet(
+                var analysis = CreateNewAnalysisCasePallet(
                     sName, sDescription
                     , packable, palletProperties
                     , interlayers
                     , palletCorners, palletCap, palletFilm
                     , constraintSet as ConstraintSetCasePallet
-                    , listLayerEncaps);
+                    , listLayerEncaps) as AnalysisLayered;
                 if (!string.IsNullOrEmpty(sId))
                     analysis.ID.IGuid = Guid.Parse(sId);
-                analysis.Solution.SolutionItems = listSolItems;
+                analysis.SolutionLay.SolutionItems = listSolItems;
 
             }
             else if (string.Equals(eltAnalysis.Name, "AnalysisBoxCase", StringComparison.CurrentCultureIgnoreCase))
@@ -1698,14 +1692,14 @@ namespace treeDiM.StackBuilder.Basics
                         interlayers = LoadInterlayers(node as XmlElement);
                 }
 
-                AnalysisHomo analysis = CreateNewAnalysisBoxCase(
+                AnalysisLayered analysis = CreateNewAnalysisBoxCase(
                     sName, sDescription
                     , packable, caseProperties
                     , interlayers
-                    , constraintSet as ConstraintSetBoxCase, listLayerEncaps);
+                    , constraintSet as ConstraintSetBoxCase, listLayerEncaps) as AnalysisLayered;
                 if (!string.IsNullOrEmpty(sId))
                     analysis.ID.IGuid = Guid.Parse(sId);
-                analysis.Solution.SolutionItems = listSolItems;
+                analysis.SolutionLay.SolutionItems = listSolItems;
             }
             else if (string.Equals(eltAnalysis.Name, "AnalysisCylinderPallet", StringComparison.CurrentCultureIgnoreCase))
             {
@@ -1723,14 +1717,15 @@ namespace treeDiM.StackBuilder.Basics
                         interlayers = LoadInterlayers(node as XmlElement);
                 }
 
-                AnalysisHomo analysis = CreateNewAnalysisCylinderPallet(
+                AnalysisLayered analysis = CreateNewAnalysisCylinderPallet(
                     sName, sDescription
                     , cylinderProperties as CylinderProperties, palletProperties
                     , interlayers
-                    , constraintSet as ConstraintSetPackablePallet, listLayerEncaps);
+                    , constraintSet as ConstraintSetPackablePallet, listLayerEncaps)
+                    as AnalysisLayered;
                 if (!string.IsNullOrEmpty(sId))
                     analysis.ID.IGuid = Guid.Parse(sId);
-                analysis.Solution.SolutionItems = listSolItems;
+                analysis.SolutionLay.SolutionItems = listSolItems;
             }
             else if (string.Equals(eltAnalysis.Name, "AnalysisCylinderCase", StringComparison.CurrentCultureIgnoreCase))
             {
@@ -1748,15 +1743,16 @@ namespace treeDiM.StackBuilder.Basics
                         interlayers = LoadInterlayers(node as XmlElement);
                 }
 
-                AnalysisHomo analysis = CreateNewAnalysisCylinderCase(
+                AnalysisLayered analysis = CreateNewAnalysisCylinderCase(
                     sName, sDescription
                     , cylinderProperties as CylinderProperties, caseProperties
                     , interlayers
                     , constraintSet as ConstraintSetCylinderContainer
-                    , listLayerEncaps);
+                    , listLayerEncaps)
+                    as AnalysisLayered;
                 if (!string.IsNullOrEmpty(sId))
                     analysis.ID.IGuid = Guid.Parse(sId);
-                analysis.Solution.SolutionItems = listSolItems;
+                analysis.SolutionLay.SolutionItems = listSolItems;
             }
             else if (string.Equals(eltAnalysis.Name, "AnalysisPalletTruck", StringComparison.CurrentCultureIgnoreCase))
             {
@@ -1772,13 +1768,14 @@ namespace treeDiM.StackBuilder.Basics
                         LoadSolution(node as XmlElement, out listLayerEncaps, out listSolItems);
                 }
 
-                AnalysisHomo analysis = CreateNewAnalysisPalletTruck(sName, sDescription
+                AnalysisLayered analysis = CreateNewAnalysisPalletTruck(sName, sDescription
                     , loadedPallet, truckProperties
                     , constraintSet as ConstraintSetPalletTruck
-                    , listLayerEncaps);
+                    , listLayerEncaps)
+                    as AnalysisLayered;
                 if (!string.IsNullOrEmpty(sId))
                     analysis.ID.IGuid = Guid.Parse(sId);
-                analysis.Solution.SolutionItems = listSolItems;
+                analysis.SolutionLay.SolutionItems = listSolItems;
             }
             else if (string.Equals(eltAnalysis.Name, "AnalysisCaseTruck", StringComparison.CurrentCultureIgnoreCase))
             {
@@ -1795,7 +1792,7 @@ namespace treeDiM.StackBuilder.Basics
                     else if (string.Equals(node.Name, "Interlayers", StringComparison.CurrentCultureIgnoreCase))
                         interlayers = LoadInterlayers(node as XmlElement);
                 }
-                AnalysisHomo analysis = CreateNewAnalysisCaseTruck(sName, sDescription
+                CreateNewAnalysisCaseTruck(sName, sDescription
                     , packable, truckProperties, interlayers
                     , constraintSet as ConstraintSetCaseTruck, listLayerEncaps);
             }
@@ -1833,7 +1830,7 @@ namespace treeDiM.StackBuilder.Basics
                 }
 
                 // instantiate analysis
-                AnalysisHomo analysis = CreateNewCasePalletAnalysis(
+                CreateNewCasePalletAnalysis(
                     sName
                     , sDescription
                     , GetTypeByGuid(new Guid(sBoxId)) as BProperties
@@ -1867,11 +1864,11 @@ namespace treeDiM.StackBuilder.Basics
                     GetTypeByGuid(sContentId) as CylinderProperties,
                     GetTypeByGuid(sContainerId) as TruckProperties,
                     constraintSet,
-                    listLayerEncaps);
+                    listLayerEncaps) as AnalysisLayered;
 
                 if (!string.IsNullOrEmpty(sId))
                     analysis.ID.IGuid = Guid.Parse(sId);
-                analysis.Solution.SolutionItems = listSolItems;
+                analysis.SolutionLay.SolutionItems = listSolItems;
             }
         }
 
@@ -2521,7 +2518,7 @@ namespace treeDiM.StackBuilder.Basics
                 // create Analyses element
                 XmlElement xmlAnalysesElt = xmlDoc.CreateElement("Analyses");
                 xmlRootElement.AppendChild(xmlAnalysesElt);
-                foreach (AnalysisHomo analysis in Analyses)
+                foreach (AnalysisLayered analysis in Analyses)
                     SaveAnalysis(analysis, xmlAnalysesElt, xmlDoc);
                 XmlElement xmlHAnalysesElt = xmlDoc.CreateElement("HAnalyses");
                 xmlRootElement.AppendChild(xmlHAnalysesElt);
@@ -3177,7 +3174,7 @@ namespace treeDiM.StackBuilder.Basics
         #endregion
 
         #region Save analysis
-        private void SaveAnalysis(AnalysisHomo analysis, XmlElement parentElement, XmlDocument xmlDoc)
+        private void SaveAnalysis(AnalysisLayered analysis, XmlElement parentElement, XmlDocument xmlDoc)
         {
             // analysis name
             AnalysisCasePallet analysisCasePallet = analysis as AnalysisCasePallet;
@@ -3326,9 +3323,9 @@ namespace treeDiM.StackBuilder.Basics
                 eltContraintSet.Attributes.Append(attMinDistanceLoadRoof);
             }
             // solution
-            SaveSolution(analysis.Solution, xmlAnalysisElt, xmlDoc);
+            SaveSolution(analysis.SolutionLay, xmlAnalysisElt, xmlDoc);
         }
-        private void SaveSolution(Solution sol, XmlElement parentElement, XmlDocument xmlDoc)
+        private void SaveSolution(SolutionLayered sol, XmlElement parentElement, XmlDocument xmlDoc)
         {
             XmlElement eltSolution = xmlDoc.CreateElement("Solution");
             parentElement.AppendChild(eltSolution);
@@ -3701,7 +3698,7 @@ namespace treeDiM.StackBuilder.Basics
                         throw new ArgumentException($"Guid {guid} found but not a PackableBrick", nameof(guid));
                 }
             }
-            foreach (AnalysisHomo analysis in Analyses)
+            foreach (AnalysisLayered analysis in Analyses)
             {
                 if (analysis.ID.IGuid == guid)
                     return analysis.EquivalentPackable;                
@@ -3773,12 +3770,12 @@ namespace treeDiM.StackBuilder.Basics
             foreach (IDocumentListener listener in _listeners)
                 listener.OnNewTypeCreated(this, item);
         }
-        private void NotifyOnNewAnalysisCreated(AnalysisHomo analysis)
+        private void NotifyOnNewAnalysisCreated(Analysis analysis)
         {
             foreach (IDocumentListener listener in _listeners)
                 listener.OnNewAnalysisCreated(this, analysis);
         }
-        private void NotifyAnalysisUpdated(AnalysisHomo analysis)
+        private void NotifyAnalysisUpdated(Analysis analysis)
         {
             foreach (IDocumentListener listener in _listeners)
                 listener.OnAnalysisUpdated(this, analysis);

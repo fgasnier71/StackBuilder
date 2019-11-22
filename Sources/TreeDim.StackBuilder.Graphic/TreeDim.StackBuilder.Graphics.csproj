@@ -108,6 +108,12 @@
     <Compile Include="Controls\UCtrlCaseOrientationSimple.Designer.cs">
       <DependentUpon>UCtrlCaseOrientationSimple.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\UCtrlHCylLayoutList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UCtrlHCylLayoutList.Designer.cs">
+      <DependentUpon>UCtrlHCylLayoutList.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\UCtrlLayerList.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -123,7 +129,10 @@
     <Compile Include="Corner.cs" />
     <Compile Include="CylinderComparer.cs" />
     <Compile Include="DrawableComparerSimplifiedPainterAlgo.cs" />
+    <Compile Include="HCylLayoutToImage.cs" />
+    <Compile Include="SolutionViewers\ViewerHCylLayout.cs" />
     <Compile Include="SolutionViewers\ViewerHSolution.cs" />
+    <Compile Include="SolutionViewers\ViewerSolutionHCyl.cs" />
     <Compile Include="Triangle.cs" />
     <Compile Include="Types\Film.cs" />
     <Compile Include="Controls\Graphics3DControl.cs">
@@ -260,8 +269,8 @@
     <EmbeddedResource Include="Controls\UCtrlCaseOrientationSimple.resx">
       <DependentUpon>UCtrlCaseOrientationSimple.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\UCtrlLayerList.pt.resx">
-      <DependentUpon>UCtrlLayerList.cs</DependentUpon>
+    <EmbeddedResource Include="Controls\UCtrlHCylLayoutList.resx">
+      <DependentUpon>UCtrlHCylLayoutList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\UCtrlLayerList.resx">
       <DependentUpon>UCtrlLayerList.cs</DependentUpon>

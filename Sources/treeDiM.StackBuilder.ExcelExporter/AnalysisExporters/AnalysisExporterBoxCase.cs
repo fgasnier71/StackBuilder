@@ -50,7 +50,7 @@ namespace treeDiM.StackBuilder.ExcelExporter
             if (analysisBoxCase.Container is BoxProperties caseProperties)
                 WSheet.Cells[RowIndex, 7] = caseProperties.Name;
             // solution
-            Solution sol = analysisBoxCase.Solution;
+            SolutionLayered sol = analysisBoxCase.SolutionLay;
             WSheet.Cells[RowIndex, 8] = sol.ItemCount;
             WSheet.Cells[RowIndex, 9] = sol.LayerCount;
             WSheet.Cells[RowIndex, 10] = sol.LayerBoxCount(0);

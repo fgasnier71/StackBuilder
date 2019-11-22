@@ -20,7 +20,7 @@ namespace treeDiM.StackBuilder.Desktop
         : FormNewAnalysis, IItemBaseFilter
     {
         #region Constructor
-        public FormNewAnalysisCylinderTruck(Document doc, AnalysisHomo analysis)
+        public FormNewAnalysisCylinderTruck(Document doc, AnalysisLayered analysis)
             : base(doc, analysis)
         {
             InitializeComponent();
@@ -52,7 +52,7 @@ namespace treeDiM.StackBuilder.Desktop
                 tbName.Text = AnalysisBase.Name;
                 tbDescription.Text = AnalysisBase.Description;
 
-                ConstraintSetCylinderTruck constraintSet = AnalysisBase.ConstraintSet as ConstraintSetCylinderTruck;
+                ConstraintSetCylinderTruck constraintSet = AnalysisCast.ConstraintSet as ConstraintSetCylinderTruck;
                 uCtrlMinDistanceLoadWall.ValueX = constraintSet.MinDistanceLoadWall.X;
                 uCtrlMinDistanceLoadWall.ValueY = constraintSet.MinDistanceLoadWall.Y;
                 uCtrlMinDistanceLoadRoof.Value = constraintSet.MinDistanceLoadRoof;
@@ -86,7 +86,7 @@ namespace treeDiM.StackBuilder.Desktop
                 foreach (ILayer2D layer in uCtrlLayerList.Selected)
                     layerEncaps.Add(new LayerEncap(layer.LayerDescriptor));
 
-                Solution.SetSolver(new LayerSolver());
+                SolutionLayered.SetSolver(new LayerSolver());
 
                 if (!(_item is AnalysisCylinderTruck analysis))
                 {

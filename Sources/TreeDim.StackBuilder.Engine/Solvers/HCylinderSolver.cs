@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using Sharp3D.Math.Core;
 using log4net;
 
+using treeDiM.Basics;
 using treeDiM.StackBuilder.Basics;
 #endregion
 
@@ -17,7 +18,7 @@ namespace treeDiM.StackBuilder.Engine
         #region Data members
         private HCylinderPalletAnalysis _analysis;
         private HCylinderPalletSolution _solution;
-        private List<AnalysisHomo> _truckAnalyses = new List<AnalysisHomo>();
+        private List<AnalysisLayered> _truckAnalyses = new List<AnalysisLayered>();
         #endregion
 
         #region Constructor
@@ -63,28 +64,21 @@ namespace treeDiM.StackBuilder.Engine
     public class HCylinderPalletSolution : List<CylPosition>, IComparable
     {
         #region Data members
-        private string _title;
-        private HCylinderPalletAnalysis _parentAnalysis;
-        private Limit _limitReached = Limit.LIMIT_UNKNOWN;
-        private BBox3D _bbox = new BBox3D();
+        private readonly BBox3D _bbox = new BBox3D();
         #endregion
 
         #region Constructor
         public HCylinderPalletSolution(HCylinderPalletAnalysis parentAnalysis, string title)
         {
-            _parentAnalysis = parentAnalysis;
-            _title = title;
+            Analysis = parentAnalysis;
+            Title = title;
         }
         #endregion
 
         #region Public properties
-        public string Title { get { return _title; } }
+        public string Title { get; }
         public int CylinderCount { get { return Count; } }
-        public HCylinderPalletAnalysis Analysis
-        {
-            get { return _parentAnalysis; }
-            set { _parentAnalysis = value; }
-        }
+        public HCylinderPalletAnalysis Analysis { get; set; }
         public BBox3D BoundingBox
         {
             get
@@ -107,7 +101,7 @@ namespace treeDiM.StackBuilder.Engine
                 if (!_bbox.IsValid)
                 {
                     foreach (CylPosition pos in this)
-                        _bbox.Extend(pos.BBox(_parentAnalysis.CylinderProperties.RadiusOuter, _parentAnalysis.CylinderProperties.Height));
+                        _bbox.Extend(pos.BBox(Analysis.CylinderProperties.RadiusOuter, Analysis.CylinderProperties.Height));
                 }
                 return _bbox;
             }
@@ -116,17 +110,13 @@ namespace treeDiM.StackBuilder.Engine
         #endregion
 
         #region Limit reached
-        public Limit LimitReached
-        {
-            get { return _limitReached; }
-            set { _limitReached = value; }
-        }
+        public Limit LimitReached { get; set; } = Limit.UNKNOWN;
 
         public double PalletWeight
         {
             get
             {
-                return _parentAnalysis.PalletProperties.Weight + Count * _parentAnalysis.CylinderProperties.Weight;
+                return Analysis.PalletProperties.Weight + Count * Analysis.CylinderProperties.Weight;
             }
         }
 
@@ -312,7 +302,7 @@ namespace treeDiM.StackBuilder.Engine
     public class HCylinderSolver : IHCylinderAnalysisSolver
     {
         #region Data members
-        private static List<HCylinderLoadPattern> _patterns = new List<HCylinderLoadPattern>();
+        private static List<HCylLoadPattern> _patterns = new List<HCylLoadPattern>();
         private CylinderProperties _cylProperties;
         private PalletProperties _palletProperties;
         private HCylinderPalletConstraintSet _constraintSet;
@@ -321,7 +311,7 @@ namespace treeDiM.StackBuilder.Engine
         #region Constructor
         public HCylinderSolver()
         {
-            HCylinderSolver.LoadPatterns();
+            LoadPatterns();
         }
         #endregion
         #region Processing methods
@@ -340,7 +330,7 @@ namespace treeDiM.StackBuilder.Engine
             List<HCylinderPalletSolution> solutions = new List<HCylinderPalletSolution>();
 
             // loop through all patterns
-            foreach (HCylinderLoadPattern pattern in _patterns)
+            foreach (HCylLoadPattern pattern in _patterns)
             {
                 if (!_constraintSet.AllowPattern(pattern.Name))
                     continue;
@@ -353,31 +343,29 @@ namespace treeDiM.StackBuilder.Engine
                     double actualLength = 0.0, actualWidth = 0.0;
                     double maxHeight = _constraintSet.UseMaximumPalletHeight ? _constraintSet.MaximumPalletHeight : -1;
 
-                    pattern.Swapped = (iDir % 2 != 0);
-
                     int maxCountNoItems = -1;
                     if (_constraintSet.UseMaximumNumberOfItems) maxCountNoItems = _constraintSet.MaximumNumberOfItems;
                     int maxCountWeight = -1;
                     if (_constraintSet.UseMaximumPalletWeight)
                         maxCountWeight = (int)Math.Floor((_constraintSet.MaximumPalletWeight - _palletProperties.Weight) / _cylProperties.Weight);
-                    int maxCount = -1;
+                    var maxCount  = OptInt.Zero;
                     if (-1 != maxCountNoItems && -1 == maxCountWeight) maxCount = maxCountNoItems;
                     else if (-1 == maxCountNoItems && -1 != maxCountWeight) maxCount = maxCountWeight;
                     else if (-1 != maxCountNoItems && -1 != maxCountWeight) maxCount = Math.Min(maxCountWeight, maxCountNoItems);
                     try
                     {
-                        CylLoad load = new CylLoad(_cylProperties, _palletProperties, _constraintSet);
+                        var load = new HCylLayout(_cylProperties.Diameter, _cylProperties.Height, new Vector3D(_palletProperties.Length, _palletProperties.Width, _constraintSet.MaximumPalletHeight - _palletProperties.Height), pattern.Name, iDir != 0);
                         pattern.GetDimensions(load, maxCount, out actualLength, out actualWidth);
                         pattern.Generate(load, maxCount, actualLength, actualWidth, maxHeight - _palletProperties.Height);
 
                         // Limit reached ?
                         sol.LimitReached = load.LimitReached;
                         // maxCount might actually max weight reached
-                        if (load.LimitReached == Limit.LIMIT_MAXNUMBERREACHED && maxCount == maxCountWeight)
-                            sol.LimitReached = Limit.LIMIT_MAXWEIGHTREACHED;
+                        if (load.LimitReached == Limit.MAXNUMBERREACHED && maxCount == maxCountWeight)
+                            sol.LimitReached = Limit.MAXWEIGHTREACHED;
 
                         // copies all cylinder positions
-                        foreach (CylPosition pos in load)
+                        foreach (CylPosition pos in load.Positions)
                         {
                             sol.Add(new CylPosition(
                                 pos.XYZ
@@ -412,9 +400,9 @@ namespace treeDiM.StackBuilder.Engine
         {
             if (0 == _patterns.Count)
             {
-                _patterns.Add(new HCylinderLoadPatternColumn());
-                _patterns.Add(new HCylinderLoadPatternStaggered());
-                _patterns.Add(new HCylinderLoadPatternDefault());
+                _patterns.Add(new HCylLoadPatternColumn());
+                _patterns.Add(new HCylLoadPatternStaggered());
+                _patterns.Add(new HCylLoadPatternPyramid());
             }
         }
         #endregion

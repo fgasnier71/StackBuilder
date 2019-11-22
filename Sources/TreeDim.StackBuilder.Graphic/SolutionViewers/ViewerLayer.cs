@@ -1,8 +1,5 @@
 ﻿#region Using directives
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Drawing;
 
 using Sharp3D.Math.Core;
@@ -127,16 +124,10 @@ namespace treeDiM.StackBuilder.Graphics
                     , _layer.NoLayers(height)
                     , _layer.CountInHeight(height));
                 Font tfont = new Font("Arial", _fontSize);
-                Color brushColor = Color.White;
-                Color backgroundColor = Color.Black;
-                StringFormat sf = new StringFormat
-                {
-                    Alignment = StringAlignment.Far,
-                    LineAlignment = StringAlignment.Far
-                };
+                StringFormat sf = new StringFormat { Alignment = StringAlignment.Far, LineAlignment = StringAlignment.Far };
                 Size txtSize = g.MeasureString(annotation, tfont).ToSize();
-                g.FillRectangle(new SolidBrush(backgroundColor), new Rectangle(s.Width - txtSize.Width - 2, s.Height - txtSize.Height - 2, txtSize.Width + 2, txtSize.Height + 2));
-                g.DrawString(annotation, tfont, new SolidBrush(brushColor), new Point(s.Width - 3, s.Height - 3), sf);
+                g.FillRectangle(new SolidBrush(Color.Black), new Rectangle(s.Width - txtSize.Width - 2, s.Height - txtSize.Height - 2, txtSize.Width + 2, txtSize.Height + 2));
+                g.DrawString(annotation, tfont, new SolidBrush(Color.White), new Point(s.Width - 3, s.Height - 3), sf);
             }
             // *** Annotate : end ***
         }

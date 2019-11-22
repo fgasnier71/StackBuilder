@@ -392,10 +392,10 @@ namespace treeDiM.StackBuilder.ExcelListEvaluator
                 constraintSet.SetMaxHeight(new OptDouble(true, PalletMaximumHeight));
 
                 SolverCasePallet solver = new SolverCasePallet(bProperties, PalletProperties);
-                List<AnalysisHomo> analyses = solver.BuildAnalyses(constraintSet, false);
+                List<AnalysisLayered> analyses = solver.BuildAnalyses(constraintSet, false);
                 if (analyses.Count > 0)
                 {
-                    AnalysisHomo analysis = analyses[0];
+                    AnalysisLayered analysis = analyses[0];
                     stackCount = analysis.Solution.ItemCount;
                     stackWeight = analysis.Solution.Weight;
                     stackEfficiency = analysis.Solution.VolumeEfficiency;
@@ -430,10 +430,10 @@ namespace treeDiM.StackBuilder.ExcelListEvaluator
                 constraintSet.SetAllowedOrientations(new bool[] { !AllowOnlyZOrientation, !AllowOnlyZOrientation, true });
 
                 SolverBoxCase solver = new SolverBoxCase(bProperties, container);
-                List<AnalysisHomo> analyses = solver.BuildAnalyses(constraintSet, false);
+                List<AnalysisLayered> analyses = solver.BuildAnalyses(constraintSet, false);
                 if (analyses.Count > 0)
                 {
-                    AnalysisHomo analysis = analyses[0];
+                    AnalysisLayered analysis = analyses[0];
                     stackCount = analysis.Solution.ItemCount;
                     stackWeight = analysis.Solution.Weight;
 

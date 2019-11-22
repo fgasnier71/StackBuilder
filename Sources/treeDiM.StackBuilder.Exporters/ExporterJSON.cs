@@ -15,9 +15,9 @@ namespace treeDiM.StackBuilder.Exporters
     {
         public override string Filter => "json|*.json";
         public override string Extension => "json";
-        public override void Export(AnalysisHomo analysis, ref Stream stream)
+        public override void Export(AnalysisLayered analysis, ref Stream stream)
         {
-            Solution sol = analysis.Solution;
+            SolutionLayered sol = analysis.SolutionLay;
             string nameContainer = analysis.Container.Name;
             string nameContent = analysis.Content.Name;
 
@@ -56,11 +56,6 @@ namespace treeDiM.StackBuilder.Exporters
                 Name = string.Format("Mat_{0}", nameContent)
 
             };
-
-            // 
-
-
-
 
             RootObject rootObj = new RootObject()
             {

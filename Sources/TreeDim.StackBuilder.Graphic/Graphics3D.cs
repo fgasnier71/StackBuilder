@@ -476,7 +476,7 @@ namespace treeDiM.StackBuilder.Graphics
             if (_listImageInst.Count > 0)
             {
                 // --- sort image inst
-                AnalysisHomo analysis = _listImageInst[0].Analysis;
+                AnalysisLayered analysis = _listImageInst[0].Analysis;
                 BBox3D bbox = analysis.Solution.BBoxGlobal;
                 List<Box> boxesImage = new List<Box>();
                 foreach (ImageInst imageInst in _listImageInst)
@@ -657,7 +657,7 @@ namespace treeDiM.StackBuilder.Graphics
         {
             Segments.Add(seg);
         }
-        public void AddImage(AnalysisHomo analysis, Vector3D vDimensions, BoxPosition boxPosition)
+        public void AddImage(AnalysisLayered analysis, Vector3D vDimensions, BoxPosition boxPosition)
         {
             _listImageInst.Add(new ImageInst(analysis, vDimensions, boxPosition));
         }
@@ -972,7 +972,7 @@ namespace treeDiM.StackBuilder.Graphics
                 imgCached = new ImageCached(img.Analysis, img.AxisLength, img.AxisWidth);
                 _listImageCached.Add(imgCached);
             }
-            AnalysisHomo analysis = imgCached.Analysis;
+            AnalysisLayered analysis = imgCached.Analysis;
 
             // *** get size in pixels
             int xmin = int.MaxValue, ymin = int.MaxValue, xmax = int.MinValue, ymax=int.MinValue;

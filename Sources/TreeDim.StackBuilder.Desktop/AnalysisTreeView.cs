@@ -83,13 +83,14 @@ namespace treeDiM.StackBuilder.Desktop
             else if (item is AnalysisCaseTruck) return 16;
             else if (item is AnalysisCylinderTruck) return 16;
             else if (item is AnalysisCylinderPallet) return 19;
+            else if (item is AnalysisHCylPallet) return 20;
             else if (item is AnalysisCylinderCase) return 17;
             else if (item is HAnalysisPallet) return 14;
             else if (item is HAnalysisCase) return 17;
             else if (item is HAnalysisTruck) return 16;
             else
             {
-                _log.Error("Unexpected analysis type");
+                _log.Error($"Unexpected analysis type = {item.GetType().ToString()}");
                 return 0;
             }
         }
@@ -610,8 +611,8 @@ namespace treeDiM.StackBuilder.Desktop
         public void OnNewTypeCreated(Document doc, ItemBase itemProperties)
         {
             int iconIndex = 0;
-            NodeTag.NodeType nodeType = NodeTag.NodeType.NT_BOX;
-            NodeTag.NodeType parentNodeType = NodeTag.NodeType.NT_LISTBOX;
+            NodeTag.NodeType nodeType;
+            NodeTag.NodeType parentNodeType;
             if (itemProperties.GetType() == typeof(CaseOfBoxesProperties))
             {
                 iconIndex = 17;
@@ -722,7 +723,7 @@ namespace treeDiM.StackBuilder.Desktop
                 nodeItem.Nodes.Add(subNode);
             }
         }
-        public void OnNewAnalysisCreated(Document doc, AnalysisHomo analysis)
+        public void OnNewAnalysisCreated(Document doc, Analysis analysis)
         {
             // get parent node
             TreeNode parentNode = FindNode(null, new NodeTag(NodeTag.NodeType.NT_LISTANALYSIS, doc));
@@ -735,7 +736,7 @@ namespace treeDiM.StackBuilder.Desktop
             parentNode.Nodes.Add( nodeAnalysis );
             parentNode.Expand();
         }
-        public void OnAnalysisUpdated(Document doc, AnalysisHomo analysis)
+        public void OnAnalysisUpdated(Document doc, Analysis analysis)
         {
             // get parent node
             TreeNode analysisNode = FindNode(null, new NodeTag(NodeTag.NodeType.NT_ANALYSIS, doc, analysis));
@@ -1101,7 +1102,7 @@ namespace treeDiM.StackBuilder.Desktop
         /// <summary>
         /// returns analysis if any
         /// </summary>
-        public AnalysisHomo Analysis => ItemProperties as AnalysisHomo;
+        public AnalysisLayered Analysis => ItemProperties as AnalysisLayered;
         public AnalysisHetero HAnalysis => ItemProperties as AnalysisHetero;
         #endregion
     }
@@ -1119,7 +1120,7 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
         #region Public properties
         public Document Document => NodeTag.Document;
-        public AnalysisHomo Analysis => NodeTag.Analysis;
+        public AnalysisLayered Analysis => NodeTag.Analysis;
         public AnalysisHetero HAnalysis => NodeTag.HAnalysis;
         public ItemBase ItemBase => NodeTag.ItemProperties;
         #endregion

@@ -1,7 +1,5 @@
 ﻿#region Using directives
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Text.RegularExpressions;
 using System.Runtime.InteropServices;
 #endregion
@@ -12,44 +10,25 @@ namespace treeDiM.Basics
     [StructLayout(LayoutKind.Sequential)]
     public struct OptInt : ICloneable
     {
-        #region Private fields
-        private bool _activated;
-        private int _val;
-        #endregion
-
         #region Constructors
         /// <summary>
         /// Initializes a new instance of the <see cref="OptInt"/> struct
         /// </summary>
         public OptInt(bool activated, int val)
         {
-            _activated = activated;
-            _val = val;
+            Activated = activated;
+            Value = val;
         }
         public OptInt(OptInt optValue)
         {
-            _activated = optValue._activated;
-            _val = optValue._val;
+            Activated = optValue.Activated;
+            Value = optValue.Value;
         }
         #endregion
-
-        #region Constants
-        public static readonly OptInt Zero = new OptInt(false, 0);
-        #endregion
-
         #region Public properties
-        public bool Activated
-        {
-            get { return _activated; }
-            set { _activated = value; }
-        }
-        public int Value
-        {
-            get { return _val; }
-            set { _val = value; }
-        }
+        public bool Activated { get; set; }
+        public int Value { get; set; }
         #endregion
-
         #region ICloneable members
         object ICloneable.Clone()
         {
@@ -60,7 +39,6 @@ namespace treeDiM.Basics
             return new OptInt(this);
         }
         #endregion
-
         #region Public Static Parse Methods
         /// <summary>
         /// Converts the specified string to its <see cref="OptInt"/> equivalent.
@@ -108,7 +86,9 @@ namespace treeDiM.Basics
             return false;
         }
         #endregion
-
+        #region Constants
+        public static readonly OptInt Zero = new OptInt(false, 0);
+        #endregion
         #region System.Object overrides
         /// <summary>
         /// Returns the hashcode for this instance.
@@ -116,7 +96,7 @@ namespace treeDiM.Basics
         /// <returns>A 32-bit signed integer hash code.</returns>
         public override int GetHashCode()
         {
-            return _activated.GetHashCode() ^ _val.GetHashCode();
+            return Activated.GetHashCode() ^ Value.GetHashCode();
         }
         /// <summary>
         /// Returns a string representation of this object.
@@ -127,14 +107,14 @@ namespace treeDiM.Basics
             if (obj is OptDouble)
             {
                 OptInt optValue = (OptInt)obj;
-                return (_activated == optValue._activated) && (_val == optValue._val);
+                return (Activated == optValue.Activated) && (Value == optValue.Value);
             }
             return false;
         }
-        public override string ToString()
-        {
-            return string.Format("{0}, {1}", _activated ? 1 : 0, _val.ToString());
-        }
+        public override string ToString() => $"{(Activated ? 1 : 0)}, {Value}";
+        public static implicit operator OptInt(int value) => new OptInt(true, value);
+        public static bool operator ==(OptInt left, OptInt right) => left.Equals(right);
+        public static bool operator !=(OptInt left, OptInt right) => !(left == right);
         #endregion
     }
 }

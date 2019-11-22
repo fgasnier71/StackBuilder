@@ -86,10 +86,10 @@
     <Compile Include="LayerPatterns\CylinderLayerPatternMixed121.cs" />
     <Compile Include="LayerPatterns\CylinderLayerPatternMixed212.cs" />
     <Compile Include="LayerPatterns\CylinderLayerPatternStaggered2.cs" />
-    <Compile Include="LayerPatterns\HCylinderLoadPattern.cs" />
-    <Compile Include="LayerPatterns\HCylinderLoadPatternColumnized.cs" />
-    <Compile Include="LayerPatterns\HCylinderLoadPatternDefault.cs" />
-    <Compile Include="LayerPatterns\HCylinderLoadPatternStaggered.cs" />
+    <Compile Include="LayerPatterns\HCylLoadPattern.cs" />
+    <Compile Include="LayerPatterns\HCylLoadPatternColumn.cs" />
+    <Compile Include="LayerPatterns\HCylLoadPatternPyramid.cs" />
+    <Compile Include="LayerPatterns\HCylLoadPatternStaggered.cs" />
     <Compile Include="LayerPatterns\LayerPatternBox.cs" />
     <Compile Include="LayerPatterns\LayerPatternBrick.cs" />
     <Compile Include="LayerPatterns\LayerPatternInterlockedFilled.cs" />
@@ -98,6 +98,7 @@
     <Compile Include="LayerPatterns\LayerPatternMSpirale4Parts.cs" />
     <Compile Include="LayerPatterns\LayerPatternMSpirale8Parts.cs" />
     <Compile Include="LayerPatterns\LayerPatternOpposed.cs" />
+    <Compile Include="Solvers\CylLayoutSolver.cs" />
     <Compile Include="Solvers\HCylinderSolver.cs" />
     <Compile Include="Solvers\HSolver.cs" />
     <Compile Include="Solvers\ISolver.cs" />

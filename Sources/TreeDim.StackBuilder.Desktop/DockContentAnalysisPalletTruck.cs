@@ -24,7 +24,7 @@ namespace treeDiM.StackBuilder.Desktop
         /// <summary>
         /// solution
         /// </summary>
-        private Solution _solution;
+        private SolutionLayered _solution;
         /// <summary>
         /// logger
         /// </summary>
@@ -37,8 +37,7 @@ namespace treeDiM.StackBuilder.Desktop
         {
             _analysis = analysis;
             _analysis.AddListener(this);
-
-            _solution = analysis.Solution;
+            _solution = analysis.SolutionLay;
 
             InitializeComponent();
         }

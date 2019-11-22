@@ -45,6 +45,7 @@ namespace treeDiM.StackBuilder.Basics
                 Modify();
             }
         }
+        public double Diameter => 2.0 * RadiusOuter;
         public double Height
         {
             get { return _height; }

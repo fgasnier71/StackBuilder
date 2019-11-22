@@ -1,13 +1,15 @@
-﻿using System;
+﻿#region Using directives
+using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.ComponentModel;
 
 using log4net;
 
 using Sharp3D.Math.Core;
 using PrimeFactorisation;
 using treeDiM.StackBuilder.Basics;
-using System.ComponentModel;
+#endregion
 
 namespace treeDiM.StackBuilder.Engine
 {
@@ -16,59 +18,35 @@ namespace treeDiM.StackBuilder.Engine
         public PackOptimizer(
             PackableBrick packable
             , PalletProperties palletProperties
+            , ConstraintSetAbstract constraintSet
             , ParamSetPackOptim paramSetPackOptim
             , Color packColor
             )
         {
-            _packable                   = packable;
-            _palletProperties           = palletProperties;
-            _paramSetPackOptim          = paramSetPackOptim;
+            BoxProperties = packable;
+            PalletProperties = palletProperties;
+            ConstraintSet = constraintSet;
+            ParamSetPackOpt = paramSetPackOptim;
             _packColor = packColor;
         }
-
-        public PalletProperties PalletProperties
-        {
-            set { _palletProperties = value; }
-            get { return _palletProperties; }
-        }
-        /// <summary>
-        /// Product BoxProperties
-        /// </summary>
-        public PackableBrick BoxProperties
-        {
-            set { _packable = value; }
-            get { return _packable; }
-        }
-        public Layer2DBrickImp BuildBestLayer(ConstraintSetAbstract constraintSet)
+        public Layer2DBrickImp BuildBestLayer()
         {
             throw new NotImplementedException();
         }
-        public List<AnalysisHomo> BuildAnalyses(ConstraintSetAbstract constraintSet, bool allowMultipleLayerOrientations)
+        public List<AnalysisLayered> BuildAnalyses(bool allowMultipleLayerOrientations)
         {
-            List<AnalysisHomo> analyses = PackOptimSolutions(
-                constraintSet as ConstraintSetCasePallet,
-                _paramSetPackOptim.NoBoxes);
+            List<AnalysisLayered> analyses = PackOptimSolutions(
+                ConstraintSet as ConstraintSetCasePallet,
+                ParamSetPackOpt.NoBoxes);
             return analyses;
         }
 
         #region Non-Public Members
-
-        /// <summary>
-        /// Input product used to search solution
-        /// </summary>
-        private PackableBrick _packable;
-        /// <summary>
-        /// Input pallet properties
-        /// </summary>
-        private PalletProperties _palletProperties;
-        /// <summary>
-        /// Optimisation parameters
-        /// </summary>
-        private ParamSetPackOptim _paramSetPackOptim;
-        /// <summary>
-        /// Wrapper color
-        /// </summary>
         private Color _packColor;
+        private ParamSetPackOptim ParamSetPackOpt { get; set; }
+        private  PalletProperties PalletProperties { set; get; }
+        private PackableBrick BoxProperties { set; get; }
+        private ConstraintSetAbstract ConstraintSet { get; set; }
 
         protected static readonly ILog _log = LogManager.GetLogger(typeof(PackOptimizer));
 
@@ -90,32 +68,32 @@ namespace treeDiM.StackBuilder.Engine
                             continue;
                         
                         var caseDefinition = new CaseDefinition(arr, i, j);
-                        if (caseDefinition.IsValid(_packable, _paramSetPackOptim))
+                        if (caseDefinition.IsValid(BoxProperties, ParamSetPackOpt))
                             caseDefinitionList.Add(caseDefinition);
                     }
             }
             return caseDefinitionList;
         }
 
-        private List<AnalysisHomo> PackOptimSolutions(ConstraintSetCasePallet constraintSet, int iNumber)
+        private List<AnalysisLayered> PackOptimSolutions(ConstraintSetCasePallet constraintSet, int iNumber)
         {
             // TODO: better as IEnumerable<>?
-            var analyses = new List<AnalysisHomo>();
+            var analyses = new List<AnalysisLayered>();
             foreach (CaseDefinition caseDefinition in CaseDefinitions(iNumber))
             {
                 try
                 {
                     // build pack properties
-                    Vector3D outerDimensions = caseDefinition.OuterDimensions(_packable, _paramSetPackOptim);
+                    Vector3D outerDimensions = caseDefinition.OuterDimensions(BoxProperties, ParamSetPackOpt);
                     var packProperties = new PackProperties(
-                        null, _packable,
+                        null, BoxProperties,
                         caseDefinition.Arrangement, PackProperties.Orientation(caseDefinition.Dim0, caseDefinition.Dim1),
                         BuildWrapper());
                     packProperties.ForceOuterDimensions(outerDimensions);
 
                     // solver
-                    var solver = new SolverCasePallet(packProperties, _palletProperties);
-                    analyses.AddRange(solver.BuildAnalyses(constraintSet, false));
+                    var solver = new SolverCasePallet(packProperties, PalletProperties, constraintSet);
+                    analyses.AddRange(solver.BuildAnalyses(false));
                 }
                 catch (Exception ex)
                 {
@@ -129,35 +107,37 @@ namespace treeDiM.StackBuilder.Engine
 
         private PackWrapper BuildWrapper()
         {
-            int[] noWalls = _paramSetPackOptim.NoWalls;
+            int[] noWalls = ParamSetPackOpt.NoWalls;
             double length = 0.0, width = 0.0, height = 0.0;
-            double weight = _paramSetPackOptim.WallSurfaceMass * (noWalls[0] * width * height + noWalls[1] * length * height + noWalls[2] * length * width);
+            double weight = ParamSetPackOpt.WallSurfaceMass * (noWalls[0] * width * height + noWalls[1] * length * height + noWalls[2] * length * width);
 
-            switch (_paramSetPackOptim.WrapperType)
+            switch (ParamSetPackOpt.WrapperType)
             { 
                 case PackWrapper.WType.WT_POLYETHILENE:
                     return new WrapperPolyethilene(
-                        _paramSetPackOptim.WallThickness, weight, _packColor, true);
+                        ParamSetPackOpt.WallThickness, weight, _packColor, true);
                 case PackWrapper.WType.WT_PAPER:
                     return new WrapperPaper(
-                        _paramSetPackOptim.WallThickness, weight, _packColor);
+                        ParamSetPackOpt.WallThickness, weight, _packColor);
                 case PackWrapper.WType.WT_CARDBOARD:
                     {
                         var wrapperCardboard = new WrapperCardboard(
-                            _paramSetPackOptim.WallThickness, weight, _packColor);
+                            ParamSetPackOpt.WallThickness, weight, _packColor);
                         wrapperCardboard.SetNoWalls(noWalls);
                         return wrapperCardboard;
                     }
                 case PackWrapper.WType.WT_TRAY:
                     {
                         var wrapperTray = new WrapperTray(
-                            _paramSetPackOptim.WallThickness, weight, _packColor);
-                        wrapperTray.Height = _paramSetPackOptim.TrayHeight;
+                            ParamSetPackOpt.WallThickness, weight, _packColor)
+                        {
+                            Height = ParamSetPackOpt.TrayHeight
+                        };
                         wrapperTray.SetNoWalls(noWalls);
                         return wrapperTray;
                     }
                 default:
-                    throw new InvalidEnumArgumentException(nameof(_paramSetPackOptim.WrapperType), (int)_paramSetPackOptim.WrapperType, typeof(PackWrapper.WType));
+                    throw new InvalidEnumArgumentException(nameof(ParamSetPackOpt.WrapperType), (int)ParamSetPackOpt.WrapperType, typeof(PackWrapper.WType));
             }
         }
 

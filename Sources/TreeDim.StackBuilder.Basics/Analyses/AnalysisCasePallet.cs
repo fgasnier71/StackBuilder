@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
+﻿#region Using directives
 using Sharp3D.Math.Core;
-
-using log4net;
+#endregion
 
 namespace treeDiM.StackBuilder.Basics
 {
@@ -18,7 +14,6 @@ namespace treeDiM.StackBuilder.Basics
             : base(packable, palletProperties, constraintSet, temporary)
         {
         }
-
         public PalletCornerProperties PalletCornerProperties
         {
             get { return _palletCornerProperties; }
@@ -94,15 +89,10 @@ namespace treeDiM.StackBuilder.Basics
             // --- extend for pallet cap : end 
             return bbox;
         }
-
         #region Non-Public Members
-
-        static readonly ILog _log = LogManager.GetLogger(typeof(AnalysisCasePallet));
-        
         PalletCornerProperties _palletCornerProperties;
         PalletCapProperties _palletCapProperties;
         PalletFilmProperties _palletFilmProperties;
-
         #endregion
     }
 }

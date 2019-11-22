@@ -14,8 +14,8 @@ namespace treeDiM.StackBuilder.Basics
         // new
         void OnNewDocument(Document doc);
         void OnNewTypeCreated(Document doc, ItemBase itemBase);
-        void OnNewAnalysisCreated(Document doc, AnalysisHomo analysis);
-        void OnAnalysisUpdated(Document doc, AnalysisHomo analysis);
+        void OnNewAnalysisCreated(Document doc, Analysis analysis);
+        void OnAnalysisUpdated(Document doc, Analysis analysis);
         void OnNewAnalysisCreated(Document doc, AnalysisHetero analysis);
         void OnAnalysisUpdated(Document doc, AnalysisHetero analysis);
         // remove

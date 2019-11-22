@@ -21,12 +21,8 @@ namespace treeDiM.StackBuilder.Desktop
     public partial class FormNewAnalysisCylinderPallet
         : FormNewAnalysis, IItemBaseFilter
     {
-        #region Data members
-        static readonly ILog _log = LogManager.GetLogger(typeof(FormNewAnalysisCylinderPallet));
-        #endregion
-
         #region Constructor
-        public FormNewAnalysisCylinderPallet(Document doc, AnalysisHomo analysis)
+        public FormNewAnalysisCylinderPallet(Document doc, AnalysisLayered analysis)
             : base(doc, analysis)
         {
             InitializeComponent();
@@ -46,8 +42,8 @@ namespace treeDiM.StackBuilder.Desktop
             cbPallets.Initialize(_document, this, null);
 
             // event handling
-            uCtrlLayerList.LayerSelected += onLayerSelected;
-            uCtrlLayerList.RefreshFinished += onLayerSelected;
+            uCtrlLayerList.LayerSelected += OnLayerSelected;
+            uCtrlLayerList.RefreshFinished += OnLayerSelected;
             uCtrlLayerList.ButtonSizes = new Size(100, 100);
 
             if (null == AnalysisBase)
@@ -89,7 +85,7 @@ namespace treeDiM.StackBuilder.Desktop
                 foreach (ILayer2D layer2D in uCtrlLayerList.Selected)
                     layerEncaps.Add(new LayerEncap(layer2D.LayerDescriptor));
 
-                Solution.SetSolver(new LayerSolver());
+                SolutionLayered.SetSolver(new LayerSolver());
 
                 AnalysisCylinderPallet analysis = AnalysisCast;
                 if (null == analysis)
@@ -122,21 +118,16 @@ namespace treeDiM.StackBuilder.Desktop
         public bool Accept(Control ctrl, ItemBase itemBase)
         {
             if (ctrl == cbCylinders)
-            {
-                CylinderProperties cylProp = itemBase as CylinderProperties;
-                return null != cylProp;
-            }
-            if (ctrl == cbPallets)
-            {
-                PalletProperties palletProperties = itemBase as PalletProperties;
-                return null != palletProperties; 
-            }
-            return false;
+                return itemBase is CylinderProperties;
+            else if (ctrl == cbPallets)
+                return itemBase is PalletProperties;
+            else
+                return false;
         }
         #endregion
 
         #region Event handlers
-        protected void onLayerSelected(object sender, EventArgs e)
+        protected void OnLayerSelected(object sender, EventArgs e)
         {
             try
             {
@@ -148,72 +139,64 @@ namespace treeDiM.StackBuilder.Desktop
                 _log.Error(ex.ToString());
             }
         }
-        private void onInputChanged(object sender, EventArgs e)
+        private void OnInputChanged(object sender, EventArgs e)
         {
             try
             {
                 // get cylinder / case
-                CylinderProperties cylinder = cbCylinders.SelectedType as CylinderProperties;
-                PalletProperties palletProperties = cbPallets.SelectedType as PalletProperties;
-                if (null == cylinder || null == palletProperties)
-                    return;
-                // compute
-                LayerSolver solver = new LayerSolver();
-                List<Layer2DCylImp> layers = solver.BuildLayers(
-                    cylinder.RadiusOuter, cylinder.Height
-                    , new Vector2D(palletProperties.Length + 2.0 * uCtrlOverhang.ValueX, palletProperties.Width + 2.0 * uCtrlOverhang.ValueY)
-                    , palletProperties.Height
-                    , BuildConstraintSet()
-                    , checkBoxBestLayersOnly.Checked
-                    );
-                //  update control
-                uCtrlLayerList.Packable = cylinder;
-                uCtrlLayerList.ContainerHeight = uCtrlMaximumHeight.Value - palletProperties.Height;
-                uCtrlLayerList.FirstLayerSelected = true;
-                uCtrlLayerList.LayerList = layers.Cast<ILayer2D>().ToList();
+                if (cbCylinders.SelectedType is CylinderProperties cylinder
+                    && cbPallets.SelectedType is PalletProperties palletProperties)
+                {
+                    // compute
+                    LayerSolver solver = new LayerSolver();
+                    List<Layer2DCylImp> layers = solver.BuildLayers(
+                        cylinder.RadiusOuter, cylinder.Height
+                        , new Vector2D(palletProperties.Length + 2.0 * uCtrlOverhang.ValueX, palletProperties.Width + 2.0 * uCtrlOverhang.ValueY)
+                        , palletProperties.Height
+                        , BuildConstraintSet()
+                        , checkBoxBestLayersOnly.Checked
+                        );
+                    //  update control
+                    uCtrlLayerList.Packable = cylinder;
+                    uCtrlLayerList.ContainerHeight = uCtrlMaximumHeight.Value - palletProperties.Height;
+                    uCtrlLayerList.FirstLayerSelected = true;
+                    uCtrlLayerList.LayerList = layers.Cast<ILayer2D>().ToList();
+                }
             }
             catch (Exception ex)
             {
                 _log.Error(ex.ToString());
             }
         }
-        protected void onCylinderChanged(object sender, EventArgs e)
+        protected void OnCylinderChanged(object sender, EventArgs e)
         {
             uCtrlPackable.PackableProperties = cbCylinders.SelectedType as Packable;
-            onInputChanged(sender, e);
-            onLayerSelected(sender, e);
+            OnInputChanged(sender, e);
+            OnLayerSelected(sender, e);
         }
         #endregion
 
         #region Private properties
-        private CylinderProperties SelectedCylinderProperties
-        {
-            get { return cbCylinders.SelectedType as CylinderProperties; }
-        }
-        private PalletProperties SelectedPallet
-        {
-            get { return cbPallets.SelectedType as PalletProperties; }
-        }
-        private AnalysisCylinderPallet AnalysisCast
-        {
-            get { return _item as AnalysisCylinderPallet; }
-        }
+        private CylinderProperties SelectedCylinderProperties=> cbCylinders.SelectedType as CylinderProperties;
+        private PalletProperties SelectedPallet => cbPallets.SelectedType as PalletProperties;
+        private AnalysisCylinderPallet AnalysisCast => _item as AnalysisCylinderPallet;
         #endregion
 
         #region Helpers
         private ConstraintSetPackablePallet BuildConstraintSet()
         {
-            // constraint set
-            ConstraintSetPackablePallet constraintSet = new ConstraintSetPackablePallet()
+            var constraintSet = new ConstraintSetPackablePallet()
             {
-                // overhang
-                Overhang = new Vector2D(uCtrlOverhang.ValueX, uCtrlOverhang.ValueY)
+                Overhang = new Vector2D(uCtrlOverhang.ValueX, uCtrlOverhang.ValueY),
+                OptMaxWeight = uCtrlOptMaximumWeight.Value
             };
-            // conditions
             constraintSet.SetMaxHeight(new OptDouble(true, uCtrlMaximumHeight.Value));
-            constraintSet.OptMaxWeight = uCtrlOptMaximumWeight.Value;
             return constraintSet;
         }
+        #endregion
+
+        #region Data members
+        static readonly ILog _log = LogManager.GetLogger(typeof(FormNewAnalysisCylinderPallet));
         #endregion
     }
 }

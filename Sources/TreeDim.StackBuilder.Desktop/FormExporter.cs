@@ -102,7 +102,7 @@ namespace treeDiM.StackBuilder.Desktop
         #region Data members
         protected ILog _log = LogManager.GetLogger(typeof(FormExporter));
         public string Extension { get; set; }
-        public AnalysisHomo Analysis { get; set; }
+        public AnalysisLayered Analysis { get; set; }
         #endregion
     }
 }

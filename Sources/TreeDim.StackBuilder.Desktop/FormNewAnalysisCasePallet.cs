@@ -17,10 +17,11 @@ using treeDiM.StackBuilder.Desktop.Properties;
 
 namespace treeDiM.StackBuilder.Desktop
 {
-    public partial class FormNewAnalysisCasePallet : FormNewAnalysis, IItemBaseFilter
+    public partial class FormNewAnalysisCasePallet
+        : FormNewAnalysis, IItemBaseFilter
     {
         #region Constructor
-        public FormNewAnalysisCasePallet(Document doc, AnalysisHomo analysis)
+        public FormNewAnalysisCasePallet(Document doc, AnalysisLayered analysis)
             : base(doc, analysis)
         {
             InitializeComponent();
@@ -62,7 +63,7 @@ namespace treeDiM.StackBuilder.Desktop
                 tbName.Text = AnalysisBase.Name;
                 tbDescription.Text = AnalysisBase.Description;
 
-                ConstraintSetCasePallet constraintSet = AnalysisBase.ConstraintSet as ConstraintSetCasePallet;
+                ConstraintSetCasePallet constraintSet = AnalysisCast.ConstraintSet as ConstraintSetCasePallet;
                 uCtrlCaseOrientation.AllowedOrientations = constraintSet.AllowedOrientations;
                 uCtrlMaximumHeight.Value = constraintSet.OptMaxHeight.Value;
                 uCtrlOptMaximumWeight.Value = constraintSet.OptMaxWeight;
@@ -118,7 +119,7 @@ namespace treeDiM.StackBuilder.Desktop
                 foreach (Layer2DBrickImp layer2D in uCtrlLayerList.Selected)
                     layerEncaps.Add(new LayerEncap(layer2D.LayerDescriptor));
 
-                Solution.SetSolver(new LayerSolver());
+                SolutionLayered.SetSolver(new LayerSolver());
 
                 AnalysisCasePallet analysis = AnalysisCast;
                 if (null == analysis)

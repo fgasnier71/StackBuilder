@@ -50,7 +50,7 @@ namespace treeDiM.StackBuilder.ExcelExporter
 
         protected void InsertImage(Analysis analysis, int colIndex)
         {
-            if (!(analysis is AnalysisHomo analysisHomo))
+            if (!(analysis is AnalysisLayered analysisHomo))
                 return;
             var stackImagePath = Path.Combine(Path.ChangeExtension(Path.GetTempFileName(), "png"));
             var graphics = new Graphics3DImage(new Size(768, 768))
@@ -58,7 +58,7 @@ namespace treeDiM.StackBuilder.ExcelExporter
                 FontSizeRatio = 0.01f,
                 CameraPosition = Graphics3D.Corner_0
             };
-            using (ViewerSolution sv = new ViewerSolution(analysisHomo.Solution))
+            using (ViewerSolution sv = new ViewerSolution(analysisHomo.SolutionLay))
                 sv.Draw(graphics, Transform3D.Identity);
             graphics.Flush();
             Bitmap bmp = graphics.Bitmap;

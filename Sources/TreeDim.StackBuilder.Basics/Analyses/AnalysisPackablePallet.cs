@@ -5,7 +5,7 @@ using Sharp3D.Math.Core;
 
 namespace treeDiM.StackBuilder.Basics
 {
-    public abstract class AnalysisPackablePallet : AnalysisHomo
+    public abstract class AnalysisPackablePallet : AnalysisLayered
     {
         public PalletProperties PalletProperties
         {
@@ -59,7 +59,7 @@ namespace treeDiM.StackBuilder.Basics
 
         public override InterlayerProperties Interlayer(int index)
         {
-            return _interlayers[index];
+            return Interlayers[index];
         }
         public override BBox3D BBoxGlobal(BBox3D loadBBox)
         {

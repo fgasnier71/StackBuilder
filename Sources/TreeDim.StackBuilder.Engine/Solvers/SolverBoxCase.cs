@@ -1,23 +1,26 @@
-﻿using System;
+﻿#region Using directives
 using System.Collections.Generic;
-using System.Linq;
 
 using Sharp3D.Math.Core;
-using log4net;
 
 using treeDiM.StackBuilder.Basics;
+#endregion
 
 namespace treeDiM.StackBuilder.Engine
 {
     public class SolverBoxCase : ISolver
     {
-        public SolverBoxCase(PackableBrick packable, BoxProperties bProperties)
+        public SolverBoxCase(PackableBrick packable, BoxProperties bProperties, ConstraintSetAbstract constraintSet)
         {
             _packable = packable;
             _caseProperties = bProperties;
+            if (constraintSet is ConstraintSetBoxCase constraintSetBoxCase)
+                ConstraintSet = constraintSetBoxCase;
+            else
+                throw new InvalidConstraintSetException();
         }
 
-        public Layer2DBrickImp BuildBestLayer(ConstraintSetAbstract constraintSet)
+        public Layer2DBrickImp BuildBestLayer()
         {
             // build layer list
             var solver = new LayerSolver();
@@ -25,7 +28,7 @@ namespace treeDiM.StackBuilder.Engine
                     _packable.OuterDimensions
                     , new Vector2D(_caseProperties.InsideLength, _caseProperties.InsideWidth)
                     , 0.0 /* offsetZ */
-                    , constraintSet
+                    , ConstraintSet
                     , true
                 );
             if (layers.Count > 0)
@@ -33,9 +36,9 @@ namespace treeDiM.StackBuilder.Engine
             return null;
         }
 
-        public List<AnalysisHomo> BuildAnalyses(ConstraintSetAbstract constraintSet, bool allowMultipleLayerOrientations)
+        public List<AnalysisLayered> BuildAnalyses(bool allowMultipleLayerOrientations)
         {
-            var analyses = new List<AnalysisHomo>();
+            var analyses = new List<AnalysisLayered>();
  
             // get best set of layers
             if (allowMultipleLayerOrientations)
@@ -43,15 +46,15 @@ namespace treeDiM.StackBuilder.Engine
                var listLayerEncap = new List<KeyValuePair<LayerEncap, int>>();
                 LayerSolver.GetBestCombination(
                     _packable.OuterDimensions,
-                    _caseProperties.GetStackingDimensions(constraintSet),
-                    constraintSet,
+                    _caseProperties.GetStackingDimensions(ConstraintSet),
+                    ConstraintSet,
                     ref listLayerEncap);
 
                 var layerEncaps = new List<LayerEncap>();
                 foreach (var vp in listLayerEncap)
                     layerEncaps.Add(vp.Key);
 
-                var analysis = new AnalysisBoxCase(null, _packable, _caseProperties, constraintSet as ConstraintSetBoxCase);
+                var analysis = new AnalysisBoxCase(null, _packable, _caseProperties, ConstraintSet);
                 analysis.AddSolution(layerEncaps);
                 // only add analysis if it has a valid solution
                 if (analysis.Solution.ItemCount > 0)
@@ -65,15 +68,15 @@ namespace treeDiM.StackBuilder.Engine
                      _packable.OuterDimensions
                      , new Vector2D(_caseProperties.InsideLength, _caseProperties.InsideWidth)
                      , 0.0 /* offsetZ */
-                     , constraintSet
+                     , ConstraintSet
                      , true
                  );
-                Solution.SetSolver(solver);
+                SolutionLayered.SetSolver(solver);
                 // loop on layers
                 foreach (Layer2DBrickImp layer in layers)
                 {
                     var layerDescs = new List<LayerDesc> { layer.LayerDescriptor };
-                    var analysis = new AnalysisBoxCase(null, _packable, _caseProperties, constraintSet as ConstraintSetBoxCase);
+                    var analysis = new AnalysisBoxCase(null, _packable, _caseProperties, ConstraintSet);
                     analysis.AddSolution(layerDescs);
                     // only add analysis if it has a valid solution
                     if (analysis.Solution.ItemCount > 0)
@@ -84,12 +87,9 @@ namespace treeDiM.StackBuilder.Engine
         }
 
         #region Non-Public Members
-
-        private PackableBrick _packable;
-        private BoxProperties _caseProperties;
-        static readonly ILog _log = LogManager.GetLogger(typeof(SolverBoxCase));
-
+        private PackableBrick _packable { get; set; }
+        private BoxProperties _caseProperties { get; set; }
+        private ConstraintSetBoxCase ConstraintSet { get; set; }
         #endregion
-
     }
 }

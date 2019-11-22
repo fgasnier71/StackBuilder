@@ -3,9 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 using log4net;
@@ -19,17 +16,6 @@ namespace treeDiM.StackBuilder.Graphics
     {
         #region Constants
         private Size szButtons = new Size(150, 150);
-        #endregion
-
-        #region Data members
-        protected static readonly ILog _log = LogManager.GetLogger(typeof(UCtrlLayerList));
-        private List<ILayer2D> _layerList = new List<ILayer2D>();
-        private Packable _packable;
-        private int _index;
-        private int _x, _y;
-        private ToolTip tooltip = new ToolTip();
-        private double _contHeight = 0.0;
-        private bool _show3D;
         #endregion
 
         #region Delegate
@@ -60,7 +46,6 @@ namespace treeDiM.StackBuilder.Graphics
                 case 3: ButtonSizes = new Size(200, 200); break;
                 default: break;
             }
-            OnButtonSizeChange(null, null);
         }
         #endregion
 
@@ -116,6 +101,9 @@ namespace treeDiM.StackBuilder.Graphics
                 Start();
             }
         }
+        [Browsable(false),
+        EditorBrowsable(EditorBrowsableState.Never),
+        DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public Packable Packable
         {
             set { _packable = value; }
@@ -136,7 +124,7 @@ namespace treeDiM.StackBuilder.Graphics
             get
             {
                 List<ILayer2D> layers = new List<ILayer2D>();
-                foreach (Control ctrl in this.Controls)
+                foreach (Control ctrl in Controls)
                 {
                     if (ctrl is Button button)
                     {
@@ -169,10 +157,10 @@ namespace treeDiM.StackBuilder.Graphics
             // do not do anything when in design mode
             if (DesignMode)
                 return;
-            // clear all controls
+            // clear all
             Controls.Clear();
-            // start timer
             _index = 0; _x = 0; _y = 0;
+            // start timer
             _timer.Interval = 50;
             _timer.Start();        
         }
@@ -234,30 +222,6 @@ namespace treeDiM.StackBuilder.Graphics
             bnSender.Tag = new LayerItem(lItem.Layer, selected);
             LayerSelected?.Invoke(this, e);
         }
-
-        private Image TryGenerateLayerImage(ILayer2D layer, Size szButtons, bool selected)
-        {
-            return LayerToImage.DrawEx(
-                    layer, _packable, _contHeight, szButtons, selected
-                    , Show3D ? LayerToImage.EGraphMode.GRAPH_3D : LayerToImage.EGraphMode.GRAPH_2D, true);
-        }
-        #endregion
-
-        #region Helper methods
-        /// <summary>
-        /// computes position of next button
-        /// </summary>
-        /// <param name="x">Abscissa</param>
-        /// <param name="y">Ordinate</param>
-        private void AdjustXY(ref int x, ref int y)
-        {
-            x += szButtons.Width;
-            if (x + szButtons.Width > Width - SystemInformation.VerticalScrollBarWidth)
-            {
-                x = 0;
-                y += szButtons.Height;
-            }
-        }
         #endregion
 
         #region Context menu
@@ -287,6 +251,40 @@ namespace treeDiM.StackBuilder.Graphics
             Show3D = !Show3D;
             toolStripMenuItem3D.Checked = Show3D;
         }
+        #endregion
+
+        #region Helper methods
+        private Image TryGenerateLayerImage(ILayer2D layer, Size szButtons, bool selected)
+        {
+            return LayerToImage.DrawEx(
+                    layer, _packable, _contHeight, szButtons, selected
+                    , Show3D ? LayerToImage.EGraphMode.GRAPH_3D : LayerToImage.EGraphMode.GRAPH_2D, true);
+        }
+        /// <summary>
+        /// computes position of next button
+        /// </summary>
+        /// <param name="x">Abscissa</param>
+        /// <param name="y">Ordinate</param>
+        private void AdjustXY(ref int x, ref int y)
+        {
+            x += szButtons.Width;
+            if (x + szButtons.Width > Width - SystemInformation.VerticalScrollBarWidth)
+            {
+                x = 0;
+                y += szButtons.Height;
+            }
+        }
+        #endregion
+
+        #region Data members
+        protected static readonly ILog _log = LogManager.GetLogger(typeof(UCtrlLayerList));
+        private List<ILayer2D> _layerList = new List<ILayer2D>();
+        private Packable _packable;
+        private int _index;
+        private int _x, _y;
+        private readonly ToolTip tooltip = new ToolTip();
+        private double _contHeight = 0.0;
+        private bool _show3D;
         #endregion
     }
     #region LayerItem

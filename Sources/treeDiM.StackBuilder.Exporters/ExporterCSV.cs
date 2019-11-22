@@ -13,10 +13,10 @@ namespace treeDiM.StackBuilder.Exporters
         public ExporterCSV() {}
         public override string Filter => "Comma Separated Values (*.csv)|*.csv";
         public override string Extension => "csv";
-        public override void Export(AnalysisHomo analysis, ref Stream stream)
+        public override void Export(AnalysisLayered analysis, ref Stream stream)
         {
             var csv = new StringBuilder();
-            Solution sol = analysis.Solution;
+            SolutionLayered sol = analysis.SolutionLay;
             List<ILayer> layers = sol.Layers;
             foreach (ILayer layer in layers)
             {

@@ -44,7 +44,7 @@ namespace treeDiM.StackBuilder.ExcelExporter
             var caseProperties = analysisCylinderCase.Container as BoxProperties;
             WSheet.Cells[RowIndex, 6] = caseProperties.Name;
             // solution
-            Solution sol = analysisCylinderCase.Solution;
+            SolutionLayered sol = analysisCylinderCase.SolutionLay;
             WSheet.Cells[RowIndex, 7] = sol.ItemCount;
             WSheet.Cells[RowIndex, 8] = sol.LayerCount;
             WSheet.Cells[RowIndex, 9] = sol.LayerBoxCount(0);

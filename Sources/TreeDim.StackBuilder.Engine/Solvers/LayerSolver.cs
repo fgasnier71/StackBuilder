@@ -55,7 +55,7 @@ namespace treeDiM.StackBuilder.Engine
                             _log.ErrorFormat("Pattern: {0} Orient: {1} Swapped: {2} Message: {3}"
                                 , pattern.Name
                                 , axisOrtho.ToString()
-                                , iSwapped == 1 ? "True" : "False"
+                                , iSwapped == 1 ? "true" : "false"
                                 , ex.Message);
                         }
                     }

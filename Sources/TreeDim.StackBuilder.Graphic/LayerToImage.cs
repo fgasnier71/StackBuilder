@@ -9,7 +9,7 @@ using treeDiM.StackBuilder.Basics;
 
 namespace treeDiM.StackBuilder.Graphics
 {
-    public class LayerToImage
+    public static class LayerToImage
     {
         #region Enums
         public enum EGraphMode { GRAPH_2D, GRAPH_3D };
@@ -36,7 +36,7 @@ namespace treeDiM.StackBuilder.Graphics
         {
             try
             {
-                return LayerToImage.Draw(layer, packable, height, size, selected, eMode, annotate);
+                return Draw(layer, packable, height, size, selected, eMode, annotate);
             }
             catch (Exception ex)
             {
@@ -47,7 +47,7 @@ namespace treeDiM.StackBuilder.Graphics
         #endregion
 
         #region Data members
-        private static ILog _log = LogManager.GetLogger(typeof(LayerToImage));
+        private static readonly ILog _log = LogManager.GetLogger(typeof(LayerToImage));
         #endregion
     }
 }

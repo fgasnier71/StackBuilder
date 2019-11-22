@@ -209,8 +209,8 @@ namespace treeDiM.StackBuilder.GUIExtension
                 PalletProperties palletProperties = doc.CreateNewPallet(cbPallet.SelectedPallet);
                 if (null == packable || null == palletProperties) return;
 
-                Solution.SetSolver(new LayerSolver());
-                AnalysisHomo analysis = doc.CreateNewAnalysisCasePallet(
+                SolutionLayered.SetSolver(new LayerSolver());
+                AnalysisLayered analysis = doc.CreateNewAnalysisCasePallet(
                     DocumentName, DocumentDescription
                     , packable, palletProperties, new List<InterlayerProperties>(), null, null, null
                     , BuildConstraintSet()

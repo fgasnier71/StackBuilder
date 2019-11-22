@@ -45,7 +45,7 @@ namespace treeDiM.StackBuilder.ExcelExporter
             var truckProperties = analysisCylinderTruck.Container as TruckProperties;
             WSheet.Cells[RowIndex, 6] = truckProperties.Name;
             // solution
-            Solution sol = analysisCylinderTruck.Solution;
+            SolutionLayered sol = analysisCylinderTruck.SolutionLay;
             WSheet.Cells[RowIndex, 7] = sol.ItemCount;
             WSheet.Cells[RowIndex, 8] = sol.LayerCount;
             WSheet.Cells[RowIndex, 9] = sol.LayerBoxCount(0);

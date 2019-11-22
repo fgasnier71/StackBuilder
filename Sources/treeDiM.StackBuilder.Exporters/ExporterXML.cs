@@ -21,9 +21,9 @@ namespace treeDiM.StackBuilder.Exporters
         public ExporterXML(){}
         public override string Filter => "eXchange Markup Language (*.xml)|*.xml";
         public override string Extension => "xml";
-        public override void Export(AnalysisHomo analysis, ref Stream stream)
+        public override void Export(AnalysisLayered analysis, ref Stream stream)
         {
-            Solution sol = analysis.Solution;
+            SolutionLayered sol = analysis.SolutionLay;
 
             // build orderDocument element
             orderDocument document = new orderDocument()
@@ -79,7 +79,7 @@ namespace treeDiM.StackBuilder.Exporters
                 }
             }
         }
-        private loadSpace BuildLoadSpace(AnalysisHomo analysis)
+        private loadSpace BuildLoadSpace(AnalysisLayered analysis)
         {
             if (analysis is AnalysisCasePallet analysisCasePallet)
             {
@@ -101,7 +101,7 @@ namespace treeDiM.StackBuilder.Exporters
             else
                 throw new Exception(string.Format("Unexpected analysis type : {0}", analysis.GetType()));
         }
-        private item BuildItem(AnalysisHomo analysis)
+        private item BuildItem(AnalysisLayered analysis)
         {
             if (analysis is AnalysisCasePallet analysisCasePallet)
             {
@@ -126,7 +126,7 @@ namespace treeDiM.StackBuilder.Exporters
             else
                 throw new Exception(string.Format("Unexpected analysis type : {0}", analysis.GetType()));
         }
-        private placement[] BuildPlacementArray(Solution sol, AnalysisHomo analysis)
+        private placement[] BuildPlacementArray(SolutionLayered sol, AnalysisLayered analysis)
         {
             List<placement> lPlacements = new List<placement>();
             List<ILayer> layers = sol.Layers;

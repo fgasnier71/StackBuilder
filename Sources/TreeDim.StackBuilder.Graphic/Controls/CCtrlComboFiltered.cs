@@ -38,7 +38,7 @@ namespace treeDiM.StackBuilder.Graphics.Controls
                         analysisInitial = packableLoadedInitial.ParentAnalysis;
                 }
 
-                foreach (AnalysisHomo analysis in doc.Analyses)
+                foreach (AnalysisLayered analysis in doc.Analyses)
                 {
                     PackableLoaded eqvtPackable = analysis.EquivalentPackable;
                     if (null == eqvtPackable) continue;

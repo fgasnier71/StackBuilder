@@ -141,7 +141,7 @@ namespace treeDiM.StackBuilder.Desktop
                 }
                 else if (graphCtrlSolution == ctrl)
                 {
-                    ViewerSolution sv = new ViewerSolution(SelectedAnalysis.Solution);
+                    ViewerSolution sv = new ViewerSolution(SelectedAnalysis.SolutionLay);
                     sv.Draw(graphics, Transform3D.Identity);
                 }
             }
@@ -237,7 +237,7 @@ namespace treeDiM.StackBuilder.Desktop
                 };
                 gridSolutions[0, iCol++] = columnHeader;
                 // maximum space
-                columnHeader = new SourceGrid.Cells.ColumnHeader(string.Format(Properties.Resources.ID_MAXIMUMSPACE, UnitsManager.LengthUnitString))
+                columnHeader = new SourceGrid.Cells.ColumnHeader(string.Format(Resources.ID_MAXIMUMSPACE, UnitsManager.LengthUnitString))
                 {
                     AutomaticSortEnabled = false,
                     View = viewColumnHeader
@@ -245,17 +245,17 @@ namespace treeDiM.StackBuilder.Desktop
                 gridSolutions[0, iCol++] = columnHeader;
 
                 int iRow = 0;
-                foreach (AnalysisHomo analysis in _analyses)
+                foreach (AnalysisLayered analysis in _analyses)
                 {
                     AnalysisCasePallet analysisCasePallet = analysis as AnalysisCasePallet;
                     PackProperties pack = analysisCasePallet.Content as PackProperties;
-                    int layerCount = analysisCasePallet.Solution.Layers.Count;
+                    int layerCount = analysisCasePallet.SolutionLay.Layers.Count;
                     if (layerCount < 1) continue;
-                    int packPerLayerCount = analysisCasePallet.Solution.Layers[0].BoxCount;
+                    int packPerLayerCount = analysisCasePallet.SolutionLay.Layers[0].BoxCount;
                     int itemCount = analysisCasePallet.Solution.ItemCount;
                     double palletWeight = analysisCasePallet.Solution.Weight;
                     double volumeEfficiency = analysisCasePallet.Solution.VolumeEfficiency;
-                    double maximumSpace = analysisCasePallet.Solution.LayerCount > 0 ? analysisCasePallet.Solution.LayerMaximumSpace(0) : 0;
+                    double maximumSpace = analysisCasePallet.SolutionLay.LayerCount > 0 ? analysisCasePallet.SolutionLay.LayerMaximumSpace(0) : 0;
 
 
                     gridSolutions.Rows.Insert(++iRow);
@@ -328,11 +328,11 @@ namespace treeDiM.StackBuilder.Desktop
                 _timer.Stop();
                 // recompute optimisation
                 PackOptimizer packOptimizer = new PackOptimizer(
-                    SelectedBox, SelectedPallet,
+                    SelectedBox, SelectedPallet, BuildConstraintSet(),
                     BuildParamSetPackOptim(),
                     cbColor.Color                    
                     );
-                _analyses = packOptimizer.BuildAnalyses( BuildConstraintSet(), false );
+                _analyses = packOptimizer.BuildAnalyses( false );
 
                 // refill solution grid
                 FillGrid();
@@ -396,11 +396,11 @@ namespace treeDiM.StackBuilder.Desktop
                 PackProperties packProperties = _doc.CreateNewPack(packSel);
                 // create analysis
                 List<InterlayerProperties> interlayers = new List<InterlayerProperties>();
-                AnalysisHomo packAnalysis = _doc.CreateNewAnalysisCasePallet(
+                _doc.CreateNewAnalysisCasePallet(
                     AnalysisName, AnalysisDescription,
                     packProperties, SelectedPallet,
                     interlayers, null, null, null,
-                    BuildConstraintSet(), analysisSel.Solution.LayerEncaps);
+                    BuildConstraintSet(), analysisSel.SolutionLay.LayerEncaps);
             }
             catch (Exception ex)
             {
@@ -511,8 +511,8 @@ namespace treeDiM.StackBuilder.Desktop
 
         #region Data members
         private DocumentSB _doc;
-        private List<AnalysisHomo> _analyses = new List<AnalysisHomo>();
-        private AnalysisHomo _selectedAnalysis;
+        private List<AnalysisLayered> _analyses = new List<AnalysisLayered>();
+        private AnalysisLayered _selectedAnalysis;
         private static ILog _log = LogManager.GetLogger(typeof(FormOptimizePack));
         #endregion
     }

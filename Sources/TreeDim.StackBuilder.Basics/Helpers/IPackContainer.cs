@@ -1,5 +1,7 @@
-﻿using System;
+﻿#region Using directives
+using System;
 using Sharp3D.Math.Core;
+#endregion
 
 namespace treeDiM.StackBuilder.Basics
 {

@@ -22,7 +22,7 @@ namespace treeDiM.StackBuilder.Desktop
     public partial class FormNewAnalysisCasePalletDM : FormNewAnalysis, IDrawingContainer, IItemBaseFilter
     {
         #region Constructor
-        public FormNewAnalysisCasePalletDM(Document doc, AnalysisHomo analysis)
+        public FormNewAnalysisCasePalletDM(Document doc, AnalysisLayered analysis)
             : base(doc, analysis)
         {
             InitializeComponent();
@@ -53,7 +53,7 @@ namespace treeDiM.StackBuilder.Desktop
                 ItemName = AnalysisBase.Name;
                 ItemDescription = AnalysisBase.Description;
 
-                ConstraintSetCasePallet constraintSet = AnalysisBase.ConstraintSet as ConstraintSetCasePallet;
+                ConstraintSetCasePallet constraintSet = AnalysisCast.ConstraintSet as ConstraintSetCasePallet;
                 uCtrlCaseOrientation.AllowedOrientations = constraintSet.AllowedOrientations;
                 uCtrlMaximumHeight.Value = constraintSet.OptMaxHeight.Value;
                 uCtrlOptMaximumWeight.Value = constraintSet.OptMaxWeight;
@@ -101,7 +101,7 @@ namespace treeDiM.StackBuilder.Desktop
             {
                 Layer2DBrickImp selLayer = SelectedLayer;
                 var layerEncaps = new List<LayerEncap>() { new LayerEncap(selLayer.LayerDescriptor) };
-                Solution.SetSolver(new LayerSolver());
+                SolutionLayered.SetSolver(new LayerSolver());
                 AnalysisCasePallet analysis = AnalysisCast;
                 if (null == analysis)
                     _item = _document.CreateNewAnalysisCasePallet(
@@ -166,7 +166,7 @@ namespace treeDiM.StackBuilder.Desktop
             var analysis = new AnalysisCasePallet(packable, pallet, BuildConstraintSet(), true /*temporary*/);
             analysis.AddSolution(new List<LayerDesc> { selLayer.LayerDescriptor });
 
-            ViewerSolution sv = new ViewerSolution(analysis.Solution);
+            ViewerSolution sv = new ViewerSolution(analysis.SolutionLay);
             sv.Draw(graphics, Transform3D.Identity);
         }
         #endregion

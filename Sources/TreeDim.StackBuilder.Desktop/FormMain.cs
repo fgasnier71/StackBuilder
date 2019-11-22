@@ -202,7 +202,7 @@ namespace treeDiM.StackBuilder.Desktop
                 || !File.Exists(pluginPath))
                 return null;
 
-            Solution.SetSolver(new LayerSolver());
+            SolutionLayered.SetSolver(new LayerSolver());
 
             IPlugin plugin = null;
             try
@@ -577,7 +577,7 @@ namespace treeDiM.StackBuilder.Desktop
             }
         }
 
-        public void GenerateExport(AnalysisHomo analysis, string extension)
+        public void GenerateExport(AnalysisLayered analysis, string extension)
         {
             FormExporter form = new FormExporter() { Analysis = analysis, Extension = extension };
             if (DialogResult.OK == form.ShowDialog()) {}
@@ -732,7 +732,7 @@ namespace treeDiM.StackBuilder.Desktop
         {
             // set solver
             Document.SetSolver(new LayerSolver());
-            Solution.SetSolver(new LayerSolver());
+            SolutionLayered.SetSolver(new LayerSolver());
 
             FormNewDocument form = new FormNewDocument();
             if (DialogResult.OK == form.ShowDialog())
@@ -748,7 +748,7 @@ namespace treeDiM.StackBuilder.Desktop
             {
                 // set solver
                 Document.SetSolver(new LayerSolver());
-                Solution.SetSolver(new LayerSolver());
+                SolutionLayered.SetSolver(new LayerSolver());
 
                 if (!File.Exists(filePath))
                 {
@@ -973,8 +973,8 @@ namespace treeDiM.StackBuilder.Desktop
         // new
         public void OnNewDocument(Document doc) { doc.DocumentClosed += OnDocumentClosed; }
         public void OnNewTypeCreated(Document doc, ItemBase itemBase) { }
-        public void OnNewAnalysisCreated(Document doc, AnalysisHomo analysis) => CreateOrActivateViewAnalysis(analysis);
-        public void OnAnalysisUpdated(Document doc, AnalysisHomo analysis) => CreateOrActivateViewAnalysis(analysis);
+        public void OnNewAnalysisCreated(Document doc, Analysis analysis) => CreateOrActivateViewAnalysis(analysis);
+        public void OnAnalysisUpdated(Document doc, Analysis analysis) => CreateOrActivateViewAnalysis(analysis);
         public void OnNewAnalysisCreated(Document doc, AnalysisHetero analysis) => CreateOrActivateViewHAnalysis(analysis);
         public void OnAnalysisUpdated(Document doc, AnalysisHetero analysis) =>  CreateOrActivateViewHAnalysis(analysis);
         public void OnNewECTAnalysisCreated(Document doc) {  }
@@ -1223,6 +1223,11 @@ namespace treeDiM.StackBuilder.Desktop
             try { ActiveDocumentSB?.CreateNewHAnalysisTruckUI(); }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
+        private void OnNewAnalysisHCylPallet(object sender, EventArgs e)
+        {
+            try { ActiveDocumentSB?.CreateNewAnalysisHCylPalletUI(); }
+            catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
+        }
         #endregion
         #region Optimisation
         private void OnOptiPack(object sender, EventArgs e)
@@ -1384,7 +1389,7 @@ namespace treeDiM.StackBuilder.Desktop
         }
         #endregion
         #region Form activation/creation
-        public void CreateOrActivateViewAnalysis(AnalysisHomo analysis)
+        public void CreateOrActivateViewAnalysis(Analysis analysis)
         {
             // ---> search among existing views
             // ---> activate if found
@@ -1484,5 +1489,7 @@ namespace treeDiM.StackBuilder.Desktop
         #region Static instance accessor
         public static FormMain GetInstance()  { return _instance; }
         #endregion
+
+ 
     }
 }

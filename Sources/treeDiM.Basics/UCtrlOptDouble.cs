@@ -24,6 +24,7 @@ namespace treeDiM.Basics
             InitializeComponent();
             // by default, no unit type
             Unit = UnitsManager.UnitType.UT_NONE;
+            Value = OptDouble.Zero;
         }
         #endregion
 
