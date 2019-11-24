@@ -44,7 +44,7 @@
             this.lbName.AutoEllipsis = true;
             this.lbName.Location = new System.Drawing.Point(0, 2);
             this.lbName.Name = "lbName";
-            this.lbName.Size = new System.Drawing.Size(128, 20);
+            this.lbName.Size = new System.Drawing.Size(168, 20);
             this.lbName.TabIndex = 0;
             this.lbName.Text = "Name";
             // 
@@ -53,7 +53,7 @@
             this.lbUnit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lbUnit.AutoSize = true;
-            this.lbUnit.Location = new System.Drawing.Point(265, 4);
+            this.lbUnit.Location = new System.Drawing.Point(305, 4);
             this.lbUnit.Name = "lbUnit";
             this.lbUnit.Size = new System.Drawing.Size(24, 13);
             this.lbUnit.TabIndex = 6;
@@ -64,7 +64,7 @@
             this.nudValueY.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.nudValueY.DecimalPlaces = 2;
-            this.nudValueY.Location = new System.Drawing.Point(200, 0);
+            this.nudValueY.Location = new System.Drawing.Point(240, 0);
             this.nudValueY.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -85,7 +85,7 @@
             this.nudValueX.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.nudValueX.DecimalPlaces = 2;
-            this.nudValueX.Location = new System.Drawing.Point(134, 0);
+            this.nudValueX.Location = new System.Drawing.Point(174, 0);
             this.nudValueX.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -110,7 +110,7 @@
             this.Controls.Add(this.nudValueY);
             this.Controls.Add(this.lbName);
             this.Name = "UCtrlDualDouble";
-            this.Size = new System.Drawing.Size(300, 20);
+            this.Size = new System.Drawing.Size(340, 20);
             this.SizeChanged += new System.EventHandler(this.OnSizeChanged);
             ((System.ComponentModel.ISupportInitialize)(this.nudValueY)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudValueX)).EndInit();

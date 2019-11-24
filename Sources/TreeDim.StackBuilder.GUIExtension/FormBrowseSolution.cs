@@ -289,7 +289,7 @@ namespace treeDiM.StackBuilder.GUIExtension
             try
             {
                 // get solution
-                SolutionLayered solution = _analysis.Solution;
+                SolutionLayered solution = _analysis.SolutionLay;
                 // packable
                 cbLayerType.Packable = _analysis.Content;
                 // build layers and fill CCtrl
@@ -319,7 +319,7 @@ namespace treeDiM.StackBuilder.GUIExtension
             try
             {
                 // get solution
-                SolutionLayered solution = _analysis.Solution;
+                SolutionLayered solution = _analysis.SolutionLay;
 
                 int index = solution.SelectedLayerIndex;
                 bnSymmetryX.Enabled = (index != -1);

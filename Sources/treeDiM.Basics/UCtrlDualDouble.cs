@@ -92,17 +92,15 @@ namespace treeDiM.Basics
         private void OnSizeChanged(object sender, EventArgs e)
         {
             // set nud location
-            nudValueX.Location = new Point(Width - 2 * UCtrlDualDouble.stNudLength - 2 - UCtrlDualDouble.stLbUnitLength, 0);
-            nudValueY.Location = new Point(Width - UCtrlDualDouble.stNudLength - UCtrlDualDouble.stLbUnitLength, 0);
+            nudValueX.Location = new Point(Width - 2 * UCtrlDouble.stNudLength - 2 - UCtrlDouble.stLbUnitLength, 0);
+            nudValueY.Location = new Point(Width - UCtrlDouble.stNudLength - UCtrlDouble.stLbUnitLength, 0);
             // set unit location
-            lbUnit.Location = new Point(Width - UCtrlDualDouble.stLbUnitLength + 1, 4);
+            lbUnit.Location = new Point(Width - UCtrlDouble.stLbUnitLength + 1, 4);
         }
         #endregion
 
         #region Data members
         private UnitsManager.UnitType _unitType;
-        public static int stNudLength = 60;
-        public static int stLbUnitLength = 38;
         #endregion
     }
 }

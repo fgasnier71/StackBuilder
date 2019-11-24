@@ -39,7 +39,7 @@
             this.nudValue.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.nudValue.DecimalPlaces = 2;
-            this.nudValue.Location = new System.Drawing.Point(200, 0);
+            this.nudValue.Location = new System.Drawing.Point(240, 0);
             this.nudValue.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -60,7 +60,7 @@
             this.lbUnit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lbUnit.AutoSize = true;
-            this.lbUnit.Location = new System.Drawing.Point(267, 4);
+            this.lbUnit.Location = new System.Drawing.Point(307, 4);
             this.lbUnit.Name = "lbUnit";
             this.lbUnit.Size = new System.Drawing.Size(24, 13);
             this.lbUnit.TabIndex = 2;
@@ -74,7 +74,7 @@
             this.chkbOpt.AutoEllipsis = true;
             this.chkbOpt.Location = new System.Drawing.Point(0, 2);
             this.chkbOpt.Name = "chkbOpt";
-            this.chkbOpt.Size = new System.Drawing.Size(194, 20);
+            this.chkbOpt.Size = new System.Drawing.Size(234, 20);
             this.chkbOpt.TabIndex = 3;
             this.chkbOpt.Text = "Optional value";
             this.chkbOpt.UseVisualStyleBackColor = true;
@@ -89,7 +89,7 @@
             this.Controls.Add(this.nudValue);
             this.MinimumSize = new System.Drawing.Size(100, 20);
             this.Name = "UCtrlOptDouble";
-            this.Size = new System.Drawing.Size(300, 20);
+            this.Size = new System.Drawing.Size(340, 20);
             this.SizeChanged += new System.EventHandler(this.OnSizeChanged);
             ((System.ComponentModel.ISupportInitialize)(this.nudValue)).EndInit();
             this.ResumeLayout(false);

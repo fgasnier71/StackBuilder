@@ -258,10 +258,20 @@ namespace treeDiM.StackBuilder.Basics
         #endregion
 
         #region Constructor
+        public SolutionLayered(AnalysisLayered analysis, LayerDesc layerDesc, bool alternateLayer)
+        {
+            Analysis = analysis;
+            LayerEncaps = new List<LayerEncap>() { new LayerEncap(layerDesc) };
+            AlternateLayers = alternateLayer;
+
+            RebuildLayers();
+            InitializeSolutionItemList();
+        }
         public SolutionLayered(AnalysisLayered analysis, List<LayerEncap> layerEncaps)
         {
             Analysis = analysis;
             LayerEncaps = layerEncaps;
+            AlternateLayers = AnalysisCast.AlternateLayersPref;
 
             RebuildLayers();
             InitializeSolutionItemList();
@@ -336,8 +346,8 @@ namespace treeDiM.StackBuilder.Basics
                     _solutionItems.Add(new SolutionItem(0, -1, symetryX, symetryY));
                 else
                     break;
-                symetryX = AnalysisCast.AlternateLayersPref ? !symetryX : symetryX;
-                symetryY = AnalysisCast.AlternateLayersPref ? !symetryY : symetryY;
+                symetryX = AlternateLayers ? !symetryX : symetryX;
+                symetryY = AlternateLayers ? !symetryY : symetryY;
             }
         }
         private void InitializeSolutionItemList(List<KeyValuePair<LayerEncap, int>> listLayers)
@@ -349,8 +359,8 @@ namespace treeDiM.StackBuilder.Basics
                 for (int i = 0; i < kvp.Value; ++i)
                 {
                     _solutionItems.Add(new SolutionItem(GetLayerIndexFromLayerDesc(kvp.Key), -1, symetryX, symetryY));
-                    symetryX = AnalysisCast.AlternateLayersPref ? !symetryX : symetryX;
-                    symetryY = AnalysisCast.AlternateLayersPref ? !symetryY : symetryY;
+                    symetryX = AlternateLayers ? !symetryX : symetryX;
+                    symetryY = AlternateLayers ? !symetryY : symetryY;
                 }
             }
         }
@@ -503,7 +513,7 @@ namespace treeDiM.StackBuilder.Basics
 
         #region Public properties
         public int SelectedLayerIndex { get; private set; } = -1;
-
+        public bool AlternateLayers { get; set; } = true;
         public AnalysisLayered AnalysisCast => Analysis as AnalysisLayered;
         public List<LayerEncap> LayerEncaps { get; }
         public List<InterlayerProperties> Interlayers => AnalysisCast.Interlayers;
@@ -1047,6 +1057,7 @@ namespace treeDiM.StackBuilder.Basics
         // cached data
         private BBox3D _bbox = BBox3D.Initial;
         #endregion
+
         #region Static members
         private static ILog _log = LogManager.GetLogger(typeof(SolutionLayered));
         #endregion

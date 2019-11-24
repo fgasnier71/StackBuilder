@@ -33,7 +33,7 @@ namespace treeDiM.StackBuilder.Graphics
         /// <summary>
         /// Viewport
         /// </summary>
-        private readonly float[] _viewport = new float[4];
+        private readonly float[] _viewport = new float[4] { -500.0f, -500.0f, 500.0f, 500.0f };
         /// <summary>
         /// Compute viewport automatically if enabled
         /// </summary>

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 
 using Sharp3D.Math.Core;
 
@@ -175,8 +176,7 @@ namespace treeDiM.StackBuilder.Basics
         // Colors
         public override void SetColor(Color color)
         {
-            for (int i = 0; i < _colors.Length; ++i)
-                _colors[i] = color;
+            _colors = Enumerable.Repeat(color, 6).ToArray();
             Modify();
         }
         public override Color GetColor(HalfAxis.HAxis axis)

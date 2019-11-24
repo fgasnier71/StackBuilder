@@ -114,6 +114,10 @@ namespace treeDiM.StackBuilder.Basics
         #endregion
 
         #region Solution
+        public void AddSolution(LayerDesc layerDesc, bool alternateLayers = true)
+        {
+            Solution = new SolutionLayered(this, layerDesc, alternateLayers);
+        }
         public void AddSolution(List<LayerDesc> layerDescs)
         {
             Solution = new SolutionLayered(this, layerDescs.ConvertAll(l => new LayerEncap(l)));
