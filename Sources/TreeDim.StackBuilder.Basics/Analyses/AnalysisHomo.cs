@@ -88,9 +88,9 @@ namespace treeDiM.StackBuilder.Basics
 
         #region Layer methods
         public SolutionLayered SolutionLay            => Solution as SolutionLayered;
-        public List<InterlayerProperties> Interlayers   { get; private set; }
         public virtual bool AlternateLayersPref         => true;
         public List<Layer2DBrickExp> EditedLayers { get; set; } = new List<Layer2DBrickExp>();
+        public List<InterlayerProperties> Interlayers { get; private set; } = new List<InterlayerProperties>();
         public virtual bool AllowInterlayer(InterlayerProperties interlayer)
         {
             if (null == interlayer)

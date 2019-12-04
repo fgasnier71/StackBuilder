@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Fragment>
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="ProgramFilesFolder">
+        <Directory Id="TechnologyBSA" Name="TechnologyBSA">
+          <Directory Id="INSTALLFOLDER" Name="treeDiM.StackBuilder.TechnologyBSA">
+            <Directory Id="BIN" Name="Bin"/>
+          </Directory>
+        </Directory>
+      </Directory>
+      <Directory Id="DesktopFolder" Name="Desktop"/>
+    </Directory>
+  </Fragment>
+</Wix>

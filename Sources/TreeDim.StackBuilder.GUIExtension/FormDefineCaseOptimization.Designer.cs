@@ -340,14 +340,14 @@
             resources.ApplyResources(this.btSetMaximum, "btSetMaximum");
             this.btSetMaximum.Name = "btSetMaximum";
             this.btSetMaximum.UseVisualStyleBackColor = true;
-            this.btSetMaximum.Click += new System.EventHandler(this.btSetMaximum_Click);
+            this.btSetMaximum.Click += new System.EventHandler(this.BtSetMaximum_Click);
             // 
             // btSetMinimum
             // 
             resources.ApplyResources(this.btSetMinimum, "btSetMinimum");
             this.btSetMinimum.Name = "btSetMinimum";
             this.btSetMinimum.UseVisualStyleBackColor = true;
-            this.btSetMinimum.Click += new System.EventHandler(this.btSetMinimum_Click);
+            this.btSetMinimum.Click += new System.EventHandler(this.BtSetMinimum_Click);
             // 
             // groupBox
             // 

@@ -53,7 +53,7 @@ namespace treeDiM.StackBuilder.GUIExtension
             uCtrlMaxPalletHeight.Value = _analysis.ConstraintSet.OptMaxHeight.Value;
             uCtrlOptMaximumWeight.Value = _analysis.ConstraintSet.OptMaxWeight;
 
-            graphCtrl.Viewer = new ViewerSolution(_analysis.Solution);
+            graphCtrl.Viewer = new ViewerSolution(_analysis.SolutionLay);
             graphCtrl.Invalidate();
             graphCtrl.VolumeSelected += OnLayerSelected;
 
@@ -62,8 +62,8 @@ namespace treeDiM.StackBuilder.GUIExtension
             UpdateControls();
 
 
-            uCtrlMaxPalletHeight.ValueChanged += new treeDiM.Basics.UCtrlDouble.ValueChangedDelegate(this.OnCriterionChanged);
-            uCtrlOptMaximumWeight.ValueChanged += new treeDiM.Basics.UCtrlOptDouble.ValueChangedDelegate(this.OnCriterionChanged);
+            uCtrlMaxPalletHeight.ValueChanged += new UCtrlDouble.ValueChangedDelegate(OnCriterionChanged);
+            uCtrlOptMaximumWeight.ValueChanged += new UCtrlOptDouble.ValueChangedDelegate(OnCriterionChanged);
 
             FillGrid();
             UpdateGrid();
@@ -79,7 +79,7 @@ namespace treeDiM.StackBuilder.GUIExtension
         {
             if (ctrl == graphCtrl)
             {
-                ViewerSolution vs = new ViewerSolution(_analysis.Solution);
+                ViewerSolution vs = new ViewerSolution(_analysis.SolutionLay);
                 vs.Draw(graphics, Transform3D.Identity);
             }
         }
@@ -126,7 +126,7 @@ namespace treeDiM.StackBuilder.GUIExtension
                 CellBackColorAlternate viewNormal = new CellBackColorAlternate(Color.LightBlue, Color.White);
                 // ***
 
-                SolutionLayered solution = _analysis.Solution;
+                SolutionLayered solution = _analysis.Solution as SolutionLayered;
 
                 SourceGrid.Cells.RowHeader rowHeader;
                 int iRow = -1;
@@ -392,8 +392,8 @@ namespace treeDiM.StackBuilder.GUIExtension
         {
             try
             {
-                SolutionLayered solution = _analysis.Solution;
-                solution.SelectLayer(id);
+                if (_analysis.Solution is SolutionLayered solution)
+                    solution.SelectLayer(id);
                 UpdateControls();
             }
             catch (Exception ex)
@@ -407,8 +407,8 @@ namespace treeDiM.StackBuilder.GUIExtension
             {
                 int iLayerType = cbLayerType.SelectedIndex;
                 // get selected layer
-                SolutionLayered solution = _analysis.Solution;
-                solution.SetLayerTypeOnSelected(iLayerType);
+                if (_analysis.Solution is SolutionLayered solution)
+                    solution.SetLayerTypeOnSelected(iLayerType);
                 // redraw
                 graphCtrl.Invalidate();
                 UpdateGrid();
@@ -420,25 +420,27 @@ namespace treeDiM.StackBuilder.GUIExtension
         }
         private void OnReflectionX(object sender, EventArgs e)
         {
-            SolutionLayered solution = _analysis.Solution;
-            solution.ApplySymetryOnSelected(0);
+            if (_analysis.Solution is SolutionLayered solution)
+                solution.ApplySymetryOnSelected(0);
             graphCtrl.Invalidate();
         }
         private void OnReflectionY(object sender, EventArgs e)
         {
-            SolutionLayered solution = _analysis.Solution;
-            solution.ApplySymetryOnSelected(1);
+            if (_analysis.Solution is SolutionLayered solution)
+                solution.ApplySymetryOnSelected(1);
             graphCtrl.Invalidate();
         }
         private void OnCriterionChanged(object sender, EventArgs args)
         {
             try
             {
-                SolutionLayered solution = _analysis.Solution;
-                ConstraintSetCasePallet constraintSet = solution.Analysis.ConstraintSet as ConstraintSetCasePallet;
-                constraintSet.SetMaxHeight(new OptDouble(true, uCtrlMaxPalletHeight.Value));
-                constraintSet.OptMaxWeight = uCtrlOptMaximumWeight.Value;
-                solution.RebuildSolutionItemList();
+                if (_analysis.Solution is SolutionLayered solution)
+                {
+                    ConstraintSetCasePallet constraintSet = solution.Analysis.ConstraintSet as ConstraintSetCasePallet;
+                    constraintSet.SetMaxHeight(new OptDouble(true, uCtrlMaxPalletHeight.Value));
+                    constraintSet.OptMaxWeight = uCtrlOptMaximumWeight.Value;
+                    solution.RebuildSolutionItemList();
+                }
             }
             catch (Exception ex)
             {

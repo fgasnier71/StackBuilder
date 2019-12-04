@@ -197,10 +197,9 @@ namespace treeDiM.StackBuilder.GUIExtension
             try
             {
                 Close();
-
-                List<LayerDesc> layerDescs = new List<LayerDesc>();
+                var layerEncaps = new List<LayerEncap>();
                 foreach (ILayer2D layer2D in uCtrlLayerList.Selected)
-                    layerDescs.Add(layer2D.LayerDescriptor);
+                    layerEncaps.Add(new LayerEncap(layer2D.LayerDescriptor));
 
                 string userName = string.Empty;
 
@@ -210,12 +209,12 @@ namespace treeDiM.StackBuilder.GUIExtension
                 if (null == packable || null == palletProperties) return;
 
                 SolutionLayered.SetSolver(new LayerSolver());
-                AnalysisLayered analysis = doc.CreateNewAnalysisCasePallet(
+                Analysis analysis = doc.CreateNewAnalysisCasePallet(
                     DocumentName, DocumentDescription
                     , packable, palletProperties, new List<InterlayerProperties>(), null, null, null
                     , BuildConstraintSet()
-                    , layerDescs);
-                FormBrowseSolution form = new FormBrowseSolution(doc, analysis);
+                    , layerEncaps);
+                FormBrowseSolution form = new FormBrowseSolution(doc, analysis as AnalysisLayered);
                 if (DialogResult.OK == form.ShowDialog()) {}
             }
             catch (Exception ex)

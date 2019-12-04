@@ -99,15 +99,15 @@ namespace treeDiM.StackBuilder.WCFAppServ
                         double? weightNet = optNetWeight.Activated ? optNetWeight.Value : (double?)null;
 
                         List<string> layerDescs = new List<string>();
-                        foreach (var lp in analysis.Solution.LayerPhrases.Keys)
+                        foreach (var lp in analysis.SolutionLay.LayerPhrases.Keys)
                             layerDescs.Add(lp.LayerDescriptor.ToString());
 
                         /*analysis.Solution.LayerPhrases,*/
                         DCSBSolution solution = new DCSBSolution()
                         {
-                            LayerCount = analysis.Solution.LayerCount,
+                            LayerCount = analysis.SolutionLay.LayerCount,
                             CaseCount = analysis.Solution.ItemCount,
-                            InterlayerCount = analysis.Solution.LayerCount,
+                            InterlayerCount = analysis.SolutionLay.InterlayerCount,
                             WeightLoad = analysis.Solution.LoadWeight,
                             WeightTotal = analysis.Solution.Weight,
                             NetWeight = weightNet,
@@ -116,7 +116,7 @@ namespace treeDiM.StackBuilder.WCFAppServ
                             Efficiency = analysis.Solution.VolumeEfficiency,
                             OutFile = null,
                             LayerDescs = layerDescs.ToArray(),
-                            PalletMapPhrase = StackBuilderProcessor.BuildPalletMapPhrase(analysis.Solution),
+                            PalletMapPhrase = StackBuilderProcessor.BuildPalletMapPhrase(analysis.SolutionLay),
                             Errors = lErrors.ToArray()
                         };
                         listSolution.Add(solution);
@@ -706,9 +706,9 @@ namespace treeDiM.StackBuilder.WCFAppServ
                 var analysis = new AnalysisCasePallet(packableProperties, palletProperties, constraintSet);
                 analysis.AddSolution(new List<LayerDesc>() { layerDesc });
 
-                layerCount = analysis.Solution.LayerCount;
+                layerCount = analysis.SolutionLay.LayerCount;
                 caseCount = analysis.Solution.ItemCount;
-                interlayerCount = analysis.Solution.LayerCount;
+                interlayerCount = analysis.SolutionLay.LayerCount;
 
                 weightLoad = analysis.Solution.LoadWeight;
                 weightTotal = analysis.Solution.Weight;
@@ -728,7 +728,7 @@ namespace treeDiM.StackBuilder.WCFAppServ
                     CameraPosition = cameraPosition,
                     ShowDimensions = showCotations
                 };
-                using (ViewerSolution sv = new ViewerSolution(analysis.Solution))
+                using (ViewerSolution sv = new ViewerSolution(analysis.SolutionLay))
                     sv.Draw(graphics, Transform3D.Identity);
                 graphics.Flush();
                 Bitmap bmp = graphics.Bitmap;
@@ -736,7 +736,7 @@ namespace treeDiM.StackBuilder.WCFAppServ
                 imageBytes = (byte[])converter.ConvertTo(bmp, typeof(byte[]));
 
                 // pallet phrase
-                palletMapPhrase = BuildPalletMapPhrase(analysis.Solution);
+                palletMapPhrase = BuildPalletMapPhrase(analysis.SolutionLay);
             }
             catch (Exception ex)
             {
@@ -772,9 +772,9 @@ namespace treeDiM.StackBuilder.WCFAppServ
                 {
                     // first solution
                     AnalysisLayered analysis = analyses[0];
-                    layerCount = analysis.Solution.LayerCount;
+                    layerCount = analysis.SolutionLay.LayerCount;
                     caseCount = analysis.Solution.ItemCount;
-                    interlayerCount = analysis.Solution.LayerCount;
+                    interlayerCount = analysis.SolutionLay.LayerCount;
 
                     weightLoad = analysis.Solution.LoadWeight;
                     weightTotal = analysis.Solution.Weight;
@@ -787,7 +787,7 @@ namespace treeDiM.StackBuilder.WCFAppServ
                     weightEfficiency = null;
                     if (analysis.Solution.WeightEfficiency.Activated)
                         weightEfficiency = analysis.Solution.WeightEfficiency.Value;
-                    palletMapPhrase = BuildPalletMapPhrase(analysis.Solution);
+                    palletMapPhrase = BuildPalletMapPhrase(analysis.SolutionLay);
 
                     Graphics3DImage graphics = null;
                     // generate image path
@@ -797,7 +797,7 @@ namespace treeDiM.StackBuilder.WCFAppServ
                         CameraPosition = cameraPosition,
                         ShowDimensions = showCotations
                     };
-                    using (ViewerSolution sv = new ViewerSolution(analysis.Solution))
+                    using (ViewerSolution sv = new ViewerSolution(analysis.SolutionLay))
                         sv.Draw(graphics, Transform3D.Identity);
                     graphics.Flush();
                     Bitmap bmp = graphics.Bitmap;
@@ -838,9 +838,9 @@ namespace treeDiM.StackBuilder.WCFAppServ
                 if (analyses.Count > 0)
                 {
                     AnalysisLayered analysis = analyses[0];
-                    layerCount = analysis.Solution.LayerCount;
+                    layerCount = analysis.SolutionLay.LayerCount;
                     caseCount = analysis.Solution.ItemCount;
-                    interlayerCount = analysis.Solution.LayerCount;
+                    interlayerCount = analysis.SolutionLay.LayerCount;
 
                     weightLoad = analysis.Solution.LoadWeight;
                     weightTotal = analysis.Solution.Weight;
@@ -861,7 +861,7 @@ namespace treeDiM.StackBuilder.WCFAppServ
                         CameraPosition = cameraPosition,
                         ShowDimensions = showCotations
                     };
-                    using (ViewerSolution sv = new ViewerSolution(analysis.Solution))
+                    using (ViewerSolution sv = new ViewerSolution(analysis.SolutionLay))
                         sv.Draw(graphics, Transform3D.Identity);
                     graphics.Flush();
                     Bitmap bmp = graphics.Bitmap;

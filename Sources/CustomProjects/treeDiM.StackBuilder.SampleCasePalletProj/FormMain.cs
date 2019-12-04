@@ -4,6 +4,8 @@ using System.Windows.Forms;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Text;
+using System.IO;
+using System.Diagnostics;
 
 using Sharp3D.Math.Core;
 
@@ -39,7 +41,7 @@ namespace treeDiM.StackBuilder.SampleCasePalletProj
         }
         #endregion
 
-        #region Private properties
+        #region Accessing control values
         private Vector3D CaseDimensions
         {
             get => uCtrlTriCaseDim.Value;
@@ -82,7 +84,7 @@ namespace treeDiM.StackBuilder.SampleCasePalletProj
         {
             try
             {
-                // define a BoxProperties object
+                // ### define a BoxProperties object
                 _caseProperties = new BoxProperties(null, CaseDimensions.X, CaseDimensions.Y, CaseDimensions.Z)
                 {
                     TapeColor = Color.LightGray,
@@ -90,11 +92,13 @@ namespace treeDiM.StackBuilder.SampleCasePalletProj
                 };
                 _caseProperties.SetWeight(CaseWeight);
                 _caseProperties.SetColor(Color.Beige);
+                // ###
 
-                // define a PalletProperties object
+                // ### define a PalletProperties object
                 string[] typeNames = PalletData.TypeNames;
-                _palletProperties = new PalletProperties(null, typeNames[4], PalletDimensions.X, PalletDimensions[1], PalletDimensions[2]) { Weight = PalletWeight };
-                // define a constraintset object
+                _palletProperties = new PalletProperties(null, typeNames[6] /*EUR2*/, PalletDimensions.X, PalletDimensions[1], PalletDimensions[2]) { Weight = PalletWeight };
+
+                // ### define a constraintset object
                 _constraintSet = new ConstraintSetCasePallet()
                 {
                     OptMaxNumber = new OptInt(false, 0),
@@ -105,18 +109,23 @@ namespace treeDiM.StackBuilder.SampleCasePalletProj
                 _constraintSet.SetMaxHeight(MaxPalletHeight);
                 _constraintSet.OptMaxNumber = MaximumNumber;
                 Vector3D vPalletDim = _palletProperties.GetStackingDimensions(_constraintSet);
-                // layers
+                // ###
+
+                // get a list of all possible layers
                 ILayerSolver solver = new LayerSolver();
                 // build layers and fill CCtrl
                 _layers = solver.BuildLayers(_caseProperties.OuterDimensions, new Vector2D(vPalletDim.X, vPalletDim.Y), 0.0, _constraintSet, BestLayersOnly);
                 cbLayers.Packable = _caseProperties;
-
+                // fill combo with layers
                 cbLayers.Items.Clear();
                 foreach (var l in _layers)
                     cbLayers.Items.Add(l);
-                // select first layer
                 if (_layers.Count > 0)
                     cbLayers.SelectedIndex = 0;
+                // --- To get an image of a single layer, you could use
+                
+                // ---
+
             }
             catch (Exception ex)
             {
@@ -137,14 +146,13 @@ namespace treeDiM.StackBuilder.SampleCasePalletProj
 
             // build image & assign to picture box
             Graphics3DImage graphics = new Graphics3DImage(pbPalletization.Size) { CameraPosition = Graphics3D.Corner_0, Target = Vector3D.Zero};
-            ViewerSolution viewer = new ViewerSolution(analysis.SolutionLay);
-            viewer.Draw(graphics, Transform3D.Identity);
+            using (ViewerSolution viewer = new ViewerSolution(analysis.SolutionLay))
+                viewer.Draw(graphics, Transform3D.Identity);
             graphics.Flush();
             pbPalletization.Image = graphics.Bitmap;
 
             // results
             var sol = analysis.SolutionLay;
-
             StringBuilder sb = new StringBuilder();
             sb.AppendLine($"Case count : {sol.ItemCount}");
             sb.AppendLine($"Layer count : {sol.LayerCount}");
@@ -153,11 +161,17 @@ namespace treeDiM.StackBuilder.SampleCasePalletProj
             sb.AppendLine($"Total weight : {sol.Weight} kg");
             sb.AppendLine($"Dimensions load (mm x mm x mm) : {sol.BBoxLoad.Length} x {sol.BBoxLoad.Width} x {sol.BBoxLoad.Height}");
             sb.AppendLine($"Dimensions (mm x mm x mm) : {sol.BBoxGlobal.Length} x {sol.BBoxGlobal.Width} x {sol.BBoxGlobal.Height}");
-
-
             rtbResults.Text = sb.ToString();
-
-
+        }
+        private void OnGenerateLayerImage(object sender, EventArgs e)
+        {
+            Layer2DBrickImp layer = _layers[cbLayers.SelectedIndex];
+            Bitmap bmp = LayerToImage.DrawEx(
+                   layer, _caseProperties, _constraintSet.OptMaxHeight.Value, new Size(150,150), false
+                   , true ? LayerToImage.EGraphMode.GRAPH_3D : LayerToImage.EGraphMode.GRAPH_2D, true);
+            string filePath = Path.ChangeExtension(Path.GetTempFileName(), "png");
+            bmp.Save(filePath);
+            Process.Start(filePath);
         }
         #endregion
 
@@ -167,6 +181,5 @@ namespace treeDiM.StackBuilder.SampleCasePalletProj
         private ConstraintSetCasePallet _constraintSet;
         private List<Layer2DBrickImp> _layers;
         #endregion
-
     }
 }

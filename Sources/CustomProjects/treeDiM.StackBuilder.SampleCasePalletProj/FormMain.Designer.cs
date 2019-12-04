@@ -43,12 +43,13 @@
             this.uCtrlMaxNumber = new treeDiM.Basics.UCtrlOptInt();
             this.uCtrlMaxHeight = new treeDiM.Basics.UCtrlDouble();
             this.gbLayer = new System.Windows.Forms.GroupBox();
+            this.chkbAlternateLayers = new System.Windows.Forms.CheckBox();
             this.chkbBestLayers = new System.Windows.Forms.CheckBox();
+            this.cbLayers = new treeDiM.StackBuilder.Graphics.Controls.CCtrlComboLayer();
             this.gbResults = new System.Windows.Forms.GroupBox();
             this.rtbResults = new System.Windows.Forms.RichTextBox();
             this.pbPalletization = new System.Windows.Forms.PictureBox();
-            this.cbLayers = new treeDiM.StackBuilder.Graphics.Controls.CCtrlComboLayer();
-            this.chkbAlternateLayers = new System.Windows.Forms.CheckBox();
+            this.bnLayerImage = new System.Windows.Forms.Button();
             this.gbCase.SuspendLayout();
             this.gbPallet.SuspendLayout();
             this.gbConstraints.SuspendLayout();
@@ -247,6 +248,7 @@
             // 
             this.gbLayer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbLayer.Controls.Add(this.bnLayerImage);
             this.gbLayer.Controls.Add(this.chkbAlternateLayers);
             this.gbLayer.Controls.Add(this.chkbBestLayers);
             this.gbLayer.Controls.Add(this.cbLayers);
@@ -256,6 +258,19 @@
             this.gbLayer.TabIndex = 4;
             this.gbLayer.TabStop = false;
             this.gbLayer.Text = "Layers";
+            // 
+            // chkbAlternateLayers
+            // 
+            this.chkbAlternateLayers.AutoSize = true;
+            this.chkbAlternateLayers.Checked = true;
+            this.chkbAlternateLayers.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkbAlternateLayers.Location = new System.Drawing.Point(147, 40);
+            this.chkbAlternateLayers.Name = "chkbAlternateLayers";
+            this.chkbAlternateLayers.Size = new System.Drawing.Size(98, 17);
+            this.chkbAlternateLayers.TabIndex = 3;
+            this.chkbAlternateLayers.Text = "Alternate layers";
+            this.chkbAlternateLayers.UseVisualStyleBackColor = true;
+            this.chkbAlternateLayers.CheckedChanged += new System.EventHandler(this.OnSelectedLayerChanged);
             // 
             // chkbBestLayers
             // 
@@ -267,6 +282,18 @@
             this.chkbBestLayers.Text = "Show best layers only";
             this.chkbBestLayers.UseVisualStyleBackColor = true;
             this.chkbBestLayers.CheckedChanged += new System.EventHandler(this.OnInputChanged);
+            // 
+            // cbLayers
+            // 
+            this.cbLayers.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbLayers.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbLayers.FormattingEnabled = true;
+            this.cbLayers.ItemHeight = 80;
+            this.cbLayers.Location = new System.Drawing.Point(6, 19);
+            this.cbLayers.Name = "cbLayers";
+            this.cbLayers.Size = new System.Drawing.Size(121, 86);
+            this.cbLayers.TabIndex = 1;
+            this.cbLayers.SelectedIndexChanged += new System.EventHandler(this.OnSelectedLayerChanged);
             // 
             // gbResults
             // 
@@ -304,30 +331,15 @@
             this.pbPalletization.TabIndex = 0;
             this.pbPalletization.TabStop = false;
             // 
-            // cbLayers
+            // bnLayerImage
             // 
-            this.cbLayers.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cbLayers.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbLayers.FormattingEnabled = true;
-            this.cbLayers.ItemHeight = 80;
-            this.cbLayers.Location = new System.Drawing.Point(6, 19);
-            this.cbLayers.Name = "cbLayers";
-            this.cbLayers.Size = new System.Drawing.Size(121, 86);
-            this.cbLayers.TabIndex = 1;
-            this.cbLayers.SelectedIndexChanged += new System.EventHandler(this.OnSelectedLayerChanged);
-            // 
-            // chkbAlternateLayers
-            // 
-            this.chkbAlternateLayers.AutoSize = true;
-            this.chkbAlternateLayers.Checked = true;
-            this.chkbAlternateLayers.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkbAlternateLayers.Location = new System.Drawing.Point(147, 40);
-            this.chkbAlternateLayers.Name = "chkbAlternateLayers";
-            this.chkbAlternateLayers.Size = new System.Drawing.Size(98, 17);
-            this.chkbAlternateLayers.TabIndex = 3;
-            this.chkbAlternateLayers.Text = "Alternate layers";
-            this.chkbAlternateLayers.UseVisualStyleBackColor = true;
-            this.chkbAlternateLayers.CheckedChanged += new System.EventHandler(this.OnSelectedLayerChanged);
+            this.bnLayerImage.Location = new System.Drawing.Point(147, 81);
+            this.bnLayerImage.Name = "bnLayerImage";
+            this.bnLayerImage.Size = new System.Drawing.Size(154, 23);
+            this.bnLayerImage.TabIndex = 4;
+            this.bnLayerImage.Text = "Generate layer image";
+            this.bnLayerImage.UseVisualStyleBackColor = true;
+            this.bnLayerImage.Click += new System.EventHandler(this.OnGenerateLayerImage);
             // 
             // FormMain
             // 
@@ -376,6 +388,7 @@
         private System.Windows.Forms.CheckBox chkbBestLayers;
         private treeDiM.Basics.UCtrlDualDouble uCtrlOverhang;
         private System.Windows.Forms.CheckBox chkbAlternateLayers;
+        private System.Windows.Forms.Button bnLayerImage;
     }
 }
 

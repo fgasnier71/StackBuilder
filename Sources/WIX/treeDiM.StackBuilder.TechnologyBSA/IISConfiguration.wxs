@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix  xmlns="http://schemas.microsoft.com/wix/2006/wi"
+      xmlns:iis="http://schemas.microsoft.com/wix/IIsExtension"
+      xmlns:util="http://schemas.microsoft.com/wix/UtilExtension"
+     >
+  <Fragment>
+    <PropertyRef Id="VIRTUAL_DIR_VAL"/>
+    <DirectoryRef Id="INSTALLFOLDER">
+      <Component Id="StackBuilder_IISConfigure" Guid="5146762F-0E78-47d2-A105-6E18E2993619" KeyPath="yes">
+        <!--define application pool-->
+        <iis:WebAppPool Id="StackBuilderAppPool"
+                        Name="StackBuilderWebApp"
+                        Identity="applicationPoolIdentity"
+                        ManagedPipelineMode="Integrated"
+                        ManagedRuntimeVersion="v4.6"
+                      />
+
+        <!--define web site-->
+        <iis:WebSite Id="StackBuilderWebSite"
+                     Description="StackBuilder WebSite for BSA technology"
+                     AutoStart="yes"
+                     StartOnInstall="yes"
+                     ConfigureIfExists="yes"
+                     Directory="INSTALLFOLDER">
+          <iis:WebAddress Id="AllUnassigned" Port="80" />
+          <iis:WebVirtualDir Id="WebVirtualDir" Alias="[VIRTUAL_DIR_VAL]" Directory="INSTALLFOLDER" >
+            <iis:WebDirProperties Id="WebDirProperties" AnonymousAccess="yes" BasicAuthentication="no" WindowsAuthentication="no" />
+          </iis:WebVirtualDir>
+        </iis:WebSite>
+      </Component>
+    </DirectoryRef>
+    <ComponentGroup Id="WebIISConfiguration">
+      <ComponentRef Id="StackBuilder_IISConfigure"/>
+    </ComponentGroup>
+  </Fragment>
+</Wix>

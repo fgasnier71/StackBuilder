@@ -204,11 +204,11 @@ namespace treeDiM.StackBuilder.GUIExtension
                     return;
                 // recompute optimisation
                 PackOptimizer packOptimizer = new PackOptimizer(
-                    SelectedBox, SelectedPallet,
+                    SelectedBox, SelectedPallet, BuildConstraintSet(),
                     BuildParamSetPackOptim(),
                     cbColor.Color
                     );
-                _analyses = packOptimizer.BuildAnalyses(BuildConstraintSet(), allowMultipleLayerOrientations: true);
+                _analyses = packOptimizer.BuildAnalyses(true);
                 // refill solution grid
                 FillGrid();
             }
@@ -260,14 +260,16 @@ namespace treeDiM.StackBuilder.GUIExtension
                 // create pack
                 PackProperties packProperties = _doc.CreateNewPack(packSel);
                 PalletProperties palletProperties = _doc.CreateNewPallet(SelectedPallet);
+
                 // create analysis
                 List<InterlayerProperties> interlayers = new List<InterlayerProperties>();
-                AnalysisLayered analysis = _doc.CreateNewAnalysisCasePallet(
+                Analysis analysis = _doc.CreateNewAnalysisCasePallet(
                     AnalysisName, AnalysisDescription,
                     packProperties, palletProperties,
                     interlayers, null, null, null,
-                    BuildConstraintSet(), analysisSel.Solution.LayerEncaps);
-                FormBrowseSolution form = new FormBrowseSolution(_doc, analysis);
+                    BuildConstraintSet(),
+                    analysisSel.SolutionLay.LayerEncaps);
+                FormBrowseSolution form = new FormBrowseSolution(_doc, analysis as AnalysisLayered);
                 if (DialogResult.OK == form.ShowDialog()) { }
             }
             catch (Exception ex)
@@ -275,17 +277,12 @@ namespace treeDiM.StackBuilder.GUIExtension
                 _log.Error(ex.Message);
             }
         }
-
-        private void cbPallet_SelectedIndexChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void btSetMinimum_Click(object sender, EventArgs e)
+        private void BtSetMinimum_Click(object sender, EventArgs e)
         {
             try { SetMinCaseDimensions(); }
             catch (Exception ex) { _log.Error(ex.ToString()); }
         }
-        private void btSetMaximum_Click(object sender, EventArgs e)
+        private void BtSetMaximum_Click(object sender, EventArgs e)
         {
             try { SetMaxCaseDimensions(); }
             catch (Exception ex) { _log.Error(ex.ToString()); }
@@ -355,8 +352,10 @@ namespace treeDiM.StackBuilder.GUIExtension
                     bool showDimensions = true;
                     // build pack
                     PackProperties packProperties = analysis.Content as PackProperties;
-                    Pack pack = new Pack(0, packProperties);
-                    pack.ForceTransparency = true;
+                    Pack pack = new Pack(0, packProperties)
+                    {
+                        ForceTransparency = true
+                    };
                     graphics.AddBox(pack);
                     if (showDimensions)
                     {
@@ -371,7 +370,7 @@ namespace treeDiM.StackBuilder.GUIExtension
                 }
                 else if (graphCtrlSolution == ctrl)
                 {
-                    ViewerSolution sv = new ViewerSolution(SelectedAnalysis.Solution);
+                    ViewerSolution sv = new ViewerSolution(SelectedAnalysis.SolutionLay);
                     sv.Draw(graphics, Transform3D.Identity);
                 }
             }
@@ -420,40 +419,54 @@ namespace treeDiM.StackBuilder.GUIExtension
                 int iCol = 0;
                 SourceGrid.Cells.ColumnHeader columnHeader;
                 // A1xA2xA3
-                columnHeader = new SourceGrid.Cells.ColumnHeader("A1 x A2 x A3");
-                columnHeader.AutomaticSortEnabled = false;
-                columnHeader.View = viewColumnHeader;
+                columnHeader = new SourceGrid.Cells.ColumnHeader("A1 x A2 x A3")
+                {
+                    AutomaticSortEnabled = false,
+                    View = viewColumnHeader
+                };
                 gridSolutions[0, iCol++] = columnHeader;
                 // dimensions
                 columnHeader = new SourceGrid.Cells.ColumnHeader(
-                    string.Format(Properties.Resources.ID_DIMENSIONS, UnitsManager.LengthUnitString));
-                columnHeader.AutomaticSortEnabled = false;
-                columnHeader.View = viewColumnHeader;
+                    string.Format(Resources.ID_DIMENSIONS, UnitsManager.LengthUnitString))
+                {
+                    AutomaticSortEnabled = false,
+                    View = viewColumnHeader
+                };
                 gridSolutions[0, iCol++] = columnHeader;
                 // weight
-                columnHeader = new SourceGrid.Cells.ColumnHeader(string.Format(Properties.Resources.ID_WEIGHT_WU, UnitsManager.MassUnitString));
-                columnHeader.AutomaticSortEnabled = false;
-                columnHeader.View = viewColumnHeader;
+                columnHeader = new SourceGrid.Cells.ColumnHeader(string.Format(Resources.ID_WEIGHT_WU, UnitsManager.MassUnitString))
+                {
+                    AutomaticSortEnabled = false,
+                    View = viewColumnHeader
+                };
                 gridSolutions[0, iCol++] = columnHeader;
                 // #packs 
-                columnHeader = new SourceGrid.Cells.ColumnHeader("#");
-                columnHeader.AutomaticSortEnabled = false;
-                columnHeader.View = viewColumnHeader;
+                columnHeader = new SourceGrid.Cells.ColumnHeader("#")
+                {
+                    AutomaticSortEnabled = false,
+                    View = viewColumnHeader
+                };
                 gridSolutions[0, iCol++] = columnHeader;
                 // weight
-                columnHeader = new SourceGrid.Cells.ColumnHeader(string.Format(Properties.Resources.ID_PALLETWEIGHT, UnitsManager.MassUnitString));
-                columnHeader.AutomaticSortEnabled = false;
-                columnHeader.View = viewColumnHeader;
+                columnHeader = new SourceGrid.Cells.ColumnHeader(string.Format(Resources.ID_PALLETWEIGHT, UnitsManager.MassUnitString))
+                {
+                    AutomaticSortEnabled = false,
+                    View = viewColumnHeader
+                };
                 gridSolutions[0, iCol++] = columnHeader;
                 // efficiency
-                columnHeader = new SourceGrid.Cells.ColumnHeader(Properties.Resources.ID_EFFICIENCYPERCENTAGE);
-                columnHeader.AutomaticSortEnabled = false;
-                columnHeader.View = viewColumnHeader;
+                columnHeader = new SourceGrid.Cells.ColumnHeader(Resources.ID_EFFICIENCYPERCENTAGE)
+                {
+                    AutomaticSortEnabled = false,
+                    View = viewColumnHeader
+                };
                 gridSolutions[0, iCol++] = columnHeader;
                 // maximum space
-                columnHeader = new SourceGrid.Cells.ColumnHeader(string.Format(Properties.Resources.ID_MAXIMUMSPACE, UnitsManager.LengthUnitString));
-                columnHeader.AutomaticSortEnabled = false;
-                columnHeader.View = viewColumnHeader;
+                columnHeader = new SourceGrid.Cells.ColumnHeader(string.Format(Resources.ID_MAXIMUMSPACE, UnitsManager.LengthUnitString))
+                {
+                    AutomaticSortEnabled = false,
+                    View = viewColumnHeader
+                };
                 gridSolutions[0, iCol++] = columnHeader;
 
                 int iRow = 0;
@@ -461,27 +474,23 @@ namespace treeDiM.StackBuilder.GUIExtension
                 {
                     AnalysisCasePallet analysisCasePallet = analysis as AnalysisCasePallet;
                     PackProperties pack = analysisCasePallet.Content as PackProperties;
-                    int layerCount = analysisCasePallet.Solution.Layers.Count;
+                    int layerCount = analysisCasePallet.SolutionLay.Layers.Count;
                     if (layerCount < 1) continue;
-                    int packPerLayerCount = analysisCasePallet.Solution.Layers[0].BoxCount;
+                    int packPerLayerCount = analysisCasePallet.SolutionLay.Layers[0].BoxCount;
                     int itemCount = analysisCasePallet.Solution.ItemCount;
                     double palletWeight = analysisCasePallet.Solution.Weight;
                     double volumeEfficiency = analysisCasePallet.Solution.VolumeEfficiency;
-                    double maximumSpace = analysisCasePallet.Solution.LayerCount > 0 ? analysisCasePallet.Solution.LayerMaximumSpace(0) : 0;
-
+                    double maximumSpace = analysisCasePallet.SolutionLay.LayerCount > 0 ? analysisCasePallet.SolutionLay.LayerMaximumSpace(0) : 0;
 
                     gridSolutions.Rows.Insert(++iRow);
                     iCol = 0;
-                    gridSolutions[iRow, iCol++] = new SourceGrid.Cells.Cell(string.Format("{0} x {1} x {2}",
-                        pack.Arrangement.Length, pack.Arrangement.Width, pack.Arrangement.Height));
-                    gridSolutions[iRow, iCol++] = new SourceGrid.Cells.Cell(string.Format("{0:0.#} x {1:0.#} x {2:0.#}",
-                        pack.OuterDimensions.X, pack.OuterDimensions.Y, pack.OuterDimensions.Z));
-                    gridSolutions[iRow, iCol++] = new SourceGrid.Cells.Cell(string.Format("{0:0.###}",
-                        pack.Weight));
-                    gridSolutions[iRow, iCol++] = new SourceGrid.Cells.Cell(string.Format("{0} = {1} x {2}", itemCount, packPerLayerCount, layerCount));
-                    gridSolutions[iRow, iCol++] = new SourceGrid.Cells.Cell(string.Format("{0:0.###}", palletWeight));
-                    gridSolutions[iRow, iCol++] = new SourceGrid.Cells.Cell(string.Format("{0:0.#}", volumeEfficiency));
-                    gridSolutions[iRow, iCol++] = new SourceGrid.Cells.Cell(string.Format("{0:0.#}", maximumSpace));
+                    gridSolutions[iRow, iCol++] = new SourceGrid.Cells.Cell($"{pack.Arrangement.Length} x {pack.Arrangement.Width} x {pack.Arrangement.Height}");
+                    gridSolutions[iRow, iCol++] = new SourceGrid.Cells.Cell($"{pack.OuterDimensions.X:0.#} x {pack.OuterDimensions.Y:0.#} x {pack.OuterDimensions.Z:0.#}");
+                    gridSolutions[iRow, iCol++] = new SourceGrid.Cells.Cell($"{pack.Weight:0.###}");
+                    gridSolutions[iRow, iCol++] = new SourceGrid.Cells.Cell($"{itemCount} = {packPerLayerCount} x {layerCount}");
+                    gridSolutions[iRow, iCol++] = new SourceGrid.Cells.Cell($"{palletWeight:0.###}");
+                    gridSolutions[iRow, iCol++] = new SourceGrid.Cells.Cell($"{volumeEfficiency:0.#}");
+                    gridSolutions[iRow, iCol++] = new SourceGrid.Cells.Cell($"{maximumSpace:0.#}");
                 }
 
                 gridSolutions.AutoStretchColumnsToFitWidth = true;

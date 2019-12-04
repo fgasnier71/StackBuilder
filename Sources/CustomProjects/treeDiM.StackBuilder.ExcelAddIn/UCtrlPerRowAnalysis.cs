@@ -400,8 +400,8 @@ namespace treeDiM.StackBuilder.ExcelAddIn
             constraintSet.SetMaxHeight(new OptDouble(true, PalletMaximumHeight));
             constraintSet.Overhang = Overhang;
 
-            SolverCasePallet solver = new SolverCasePallet(bProperties, palletProperties);
-            List<AnalysisLayered> analyses = solver.BuildAnalyses(constraintSet, false);
+            SolverCasePallet solver = new SolverCasePallet(bProperties, palletProperties, constraintSet);
+            List<AnalysisLayered> analyses = solver.BuildAnalyses(false);
             if (analyses.Count > 0)
             {
                 AnalysisLayered analysis = analyses[0];
