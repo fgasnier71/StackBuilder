@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="_Default" EnableSessionState="True"%>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="_Default" EnableSessionState="True" %>
 
 <!DOCTYPE html>
 
@@ -9,14 +9,16 @@
         .auto-style1 {
             width: 100%;
         }
+
         .auto-style2 {
             height: 11px;
             width: 65px;
         }
+
         .auto-style3 {
             width: 150px;
         }
-        </style>
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -42,7 +44,7 @@
                     </td>
                     <td class="auto-style2">
                         <asp:TextBox ID="TBPalletWidth" runat="server" Width="60px"></asp:TextBox>
-                        </td>
+                    </td>
                     <td class="auto-style2">
                         <asp:TextBox ID="TBPalletHeight" runat="server" Width="60px"></asp:TextBox>
                     </td>
@@ -60,24 +62,24 @@
                     <td>
                         <asp:TextBox ID="TBPalletWeight" runat="server" Width="60px"></asp:TextBox>
                     </td>
-                    <td/>
-                    <td/>
+                    <td />
+                    <td />
                     <td>kg</td>
                 </tr>
                 <tr>
-                    <td/>
-                    <td/>
-                    <td/>
-                    <td/>
-                    <td/>
-                    <td/>
+                    <td />
+                    <td />
+                    <td />
+                    <td />
+                    <td />
+                    <td />
                     <td />
                     <td />
                     <td />
                     <td />
                 </tr>
                 <tr>
-                    <td/>
+                    <td />
                     <td />
                     <td></td>
                     <td />
@@ -115,20 +117,29 @@
                     <td />
                     <td />
                     <td />
-
                 </tr>
-                </table>
+            </table>
         </div>
-    <p>
-        &nbsp;</p>
-    <table class="auto-style1">
-        <tr>
-            <td>
-                <asp:Image ID="ImagePallet" runat="server" Height="500px" Width="500px" alt="Dynamic Image"/>
-            </td>
-            <td>&nbsp;</td>
-        </tr>
-    </table>
+        <div>
+            <asp:DataList ID="dlLayers" RepeatDirection="Horizontal" RepeatLayout="Table" RepeatColumns="0" runat="server">
+                <ItemTemplate>
+                            <asp:Image ID="Image1"
+                                runat="server"
+                                Height='<%# Unit.Parse(ConfigSettings.ThumbSize) %>'
+                                Width='<%# Unit.Parse(ConfigSettings.ThumbSize) %>'
+                                ImageURL='<%# "LayerThumbHandler.ashx?LayerDesc=" + Eval("LayerDesc") %>' />
+                 </ItemTemplate>
+            </asp:DataList>
+        </div>
+        <p>&nbsp;</p>
+        <table class="auto-style1">
+            <tr>
+                <td>
+                    <asp:Image ID="ImagePallet" runat="server" Height="500px" Width="500px" alt="Dynamic Image" />
+                </td>
+                <td>&nbsp;</td>
+            </tr>
+        </table>
     </form>
-    </body>
+</body>
 </html>

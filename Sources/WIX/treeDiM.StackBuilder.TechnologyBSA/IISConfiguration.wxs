@@ -12,7 +12,7 @@
                         Name="StackBuilderWebApp"
                         Identity="applicationPoolIdentity"
                         ManagedPipelineMode="Integrated"
-                        ManagedRuntimeVersion="v4.6"
+                        ManagedRuntimeVersion="v4.7.1"
                       />
 
         <!--define web site-->
@@ -22,7 +22,7 @@
                      StartOnInstall="yes"
                      ConfigureIfExists="yes"
                      Directory="INSTALLFOLDER">
-          <iis:WebAddress Id="AllUnassigned" Port="80" />
+          <iis:WebAddress Id="AllUnassigned" Port="1000" />
           <iis:WebVirtualDir Id="WebVirtualDir" Alias="[VIRTUAL_DIR_VAL]" Directory="INSTALLFOLDER" >
             <iis:WebDirProperties Id="WebDirProperties" AnonymousAccess="yes" BasicAuthentication="no" WindowsAuthentication="no" />
           </iis:WebVirtualDir>

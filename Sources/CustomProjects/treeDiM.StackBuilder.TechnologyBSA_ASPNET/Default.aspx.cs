@@ -3,6 +3,8 @@ using System.Web.UI;
 using System.Linq;
 using System.Drawing;
 using System.Collections;
+using System.Collections.Generic;
+using System.Configuration;
 
 using Sharp3D.Math.Core;
 using treeDiM.Basics;
@@ -44,7 +46,26 @@ public partial class _Default : Page
             Vector3D palletDim = new Vector3D(double.Parse(TBPalletLength.Text), double.Parse(TBPalletWidth.Text), double.Parse(TBPalletHeight.Text));
             double palletWeight = double.Parse(TBPalletWeight.Text);
             double maxPalletHeight = double.Parse(TBMaxPalletHeight.Text);
+            bool onlyBestLayers = true;
+
+            Session["dimCase"] = caseDim.ToString();
+            Session["dimPallet"] = palletDim.ToString();
+            Session["maxPalletHeight"] = $"{maxPalletHeight}";
+            Session["thumbWidth"] = "100";
+            Session["thumbHeight"] = "100";
+
+
+            List<LayerDetails> listLayers = new List<LayerDetails>();
+            GetLayers(caseDim, caseWeight, palletDim, palletWeight, maxPalletHeight, onlyBestLayers, ref listLayers);
             
+            dlLayers.DataSource = listLayers;
+            dlLayers.DataBind();
+
+            /*
+            gvLayers.DataSource = listLayers;
+            gvLayers.DataBind();
+            */
+
 
             byte[] imageBytes = null;
             int caseCount = 0;
@@ -53,6 +74,7 @@ public partial class _Default : Page
             Vector3D bbLoad = Vector3D.Zero;
             Vector3D bbTotal = Vector3D.Zero;
             GetBestSolution(caseDim, caseWeight, palletDim, palletWeight, maxPalletHeight, ref imageBytes, ref caseCount, ref layerCount, ref weightLoad, ref weightTotal, ref bbLoad, ref bbTotal);
+
 
             Session["width"] = "500";
             Session["height"] = "500";
@@ -66,6 +88,50 @@ public partial class _Default : Page
     {
 
     }
+
+    public void GetLayers(Vector3D caseDim, double caseWeight, Vector3D palletDim, double palletWeight, double maxPalletHeight, bool bestLayersOnly, ref List<LayerDetails> listLayers)
+    {
+        // case
+        var boxProperties = new BoxProperties(null, caseDim.X, caseDim.Y, caseDim.Z)
+        {
+            TapeColor = Color.LightGray,
+            TapeWidth = new OptDouble(true, 50.0)
+        };
+        boxProperties.SetWeight(caseWeight);
+        boxProperties.SetAllColors(Enumerable.Repeat(Color.Beige, 6).ToArray());
+        // pallet
+        var palletProperties = new PalletProperties(null, "EUR2", palletDim.X, palletDim.Y, palletDim.Z)
+        {
+            Weight = palletWeight,
+            Color = Color.Yellow
+        };
+        // ### define a constraintset object
+        var constraintSet = new ConstraintSetCasePallet()
+        {
+            OptMaxNumber = new OptInt(false, 0),
+            OptMaxWeight = new OptDouble(true, 1000.0),
+            Overhang = Vector2D.Zero,
+        };
+        constraintSet.SetAllowedOrientations(new bool[] { false, false, true });
+        constraintSet.SetMaxHeight(new OptDouble(true, maxPalletHeight));
+        Vector3D vPalletDim = palletProperties.GetStackingDimensions(constraintSet);
+        // ###
+
+        // get a list of all possible layers
+        ILayerSolver solver = new LayerSolver();
+        // build layers and fill CCtrl
+        var layers = solver.BuildLayers(boxProperties.OuterDimensions, new Vector2D(vPalletDim.X, vPalletDim.Y), 0.0, constraintSet, bestLayersOnly);
+        foreach (var layer in layers)
+            listLayers.Add(
+                new LayerDetails(
+                    layer.Name,
+                    layer.LayerDescriptor.ToString(),
+                    layer.Count,
+                    layer.NoLayers(caseDim.Z))
+                );
+
+    }
+
     public void GetBestSolution(
         Vector3D caseDim, double caseWeight,
         Vector3D palletDim, double palletWeight,
@@ -124,4 +190,26 @@ public partial class _Default : Page
             imageBytes = (byte[])converter.ConvertTo(bmp, typeof(byte[]));
         }
     }
+}
+
+public class LayerDetails
+{
+    public LayerDetails(string name, string layerDesc, int noCasesPerLayer, int noLayers)
+    {
+        Name = name;
+        LayerDesc = layerDesc;
+        NoCasesPerLayer = noCasesPerLayer;
+        NoLayers = noLayers;
+    }
+    public string Name { get; set; }
+    public int NoLayers { get; set; }
+    public int NoCasesPerLayer { get; set; }
+    public int NoCases => NoLayers * NoCasesPerLayer;
+    public string LayerDesc { get; set; }
+}
+
+public class ConfigSettings
+{
+    public static string ThumbSize => ConfigurationManager.AppSettings["ThumbnailSize"] + "px";
+
 }
