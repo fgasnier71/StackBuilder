@@ -243,19 +243,6 @@ namespace treeDiM.StackBuilder.Basics
     public class SolutionLayered : SolutionHomo
     {
 
-        #region Static methods
-        public static void SetSolver(ILayerSolver solver)
-        { _solver = solver; }
-        public static ILayerSolver Solver
-        {
-            get
-            {
-                if (null == _solver)
-                    throw new Exception("Solver not initialized -> Call Solution.SetSolver() static function.");
-                return _solver;
-            }
-        }
-        #endregion
 
         #region Constructor
         public SolutionLayered(AnalysisLayered analysis, LayerDesc layerDesc, bool alternateLayer)
@@ -1050,10 +1037,23 @@ namespace treeDiM.StackBuilder.Basics
         }
         #endregion
 
+        #region Static solver instance
+        private static ILayerSolver _solver;
+        public static void SetSolver(ILayerSolver solver) => _solver = solver; 
+        public static ILayerSolver Solver
+        {
+            get
+            {
+                if (null == _solver)
+                    throw new Exception("Solver not initialized -> Call Solution.SetSolver() static function.");
+                return _solver;
+            }
+        }
+        #endregion
+
         #region Data members
         private List<SolutionItem> _solutionItems;
         internal List<ILayer2D> _layerTypes;
-        private static ILayerSolver _solver;
         // cached data
         private BBox3D _bbox = BBox3D.Initial;
         #endregion

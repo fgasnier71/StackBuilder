@@ -41,7 +41,7 @@
             this.chkbOpt.AutoEllipsis = true;
             this.chkbOpt.Location = new System.Drawing.Point(0, 2);
             this.chkbOpt.Name = "chkbOpt";
-            this.chkbOpt.Size = new System.Drawing.Size(194, 20);
+            this.chkbOpt.Size = new System.Drawing.Size(234, 20);
             this.chkbOpt.TabIndex = 0;
             this.chkbOpt.Text = "Optional value";
             this.chkbOpt.UseVisualStyleBackColor = true;
@@ -51,7 +51,7 @@
             // 
             this.nudInt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.nudInt.Location = new System.Drawing.Point(200, 0);
+            this.nudInt.Location = new System.Drawing.Point(240, 0);
             this.nudInt.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -75,7 +75,7 @@
             this.Controls.Add(this.chkbOpt);
             this.MinimumSize = new System.Drawing.Size(100, 20);
             this.Name = "UCtrlOptInt";
-            this.Size = new System.Drawing.Size(300, 20);
+            this.Size = new System.Drawing.Size(340, 20);
             this.SizeChanged += new System.EventHandler(this.OnSizeChanged);
             ((System.ComponentModel.ISupportInitialize)(this.nudInt)).EndInit();
             this.ResumeLayout(false);

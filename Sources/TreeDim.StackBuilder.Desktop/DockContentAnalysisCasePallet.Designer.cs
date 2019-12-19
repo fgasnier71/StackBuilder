@@ -76,9 +76,9 @@
             // 
             resources.ApplyResources(this.splitContainerVert, "splitContainerVert");
             // 
-            // gridSolutions
+            // gridSolution
             // 
-            resources.ApplyResources(this.gridSolutions, "gridSolutions");
+            resources.ApplyResources(this.gridSolution, "gridSolution");
             // 
             // gbStopCriterions
             // 

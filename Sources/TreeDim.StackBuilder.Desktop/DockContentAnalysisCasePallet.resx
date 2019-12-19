@@ -125,7 +125,7 @@
     <value>graphCtrlSolution</value>
   </data>
   <data name="&gt;&gt;graphCtrlSolution.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Graphics.Graphics3DControl, treeDiM.StackBuilder.Graphics, Version=3.0.0.99, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Graphics.Graphics3DControl, treeDiM.StackBuilder.Graphics, Version=3.0.2.1, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;graphCtrlSolution.Parent" xml:space="preserve">
     <value>splitContainerVert.Panel1</value>
@@ -169,7 +169,7 @@
     <value>uCtrlOptMaxNumber</value>
   </data>
   <data name="&gt;&gt;uCtrlOptMaxNumber.Type" xml:space="preserve">
-    <value>treeDiM.Basics.UCtrlOptInt, treeDiM.Basics, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.Basics.UCtrlOptInt, treeDiM.Basics, Version=3.0.1.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlOptMaxNumber.Parent" xml:space="preserve">
     <value>gbStopCriterions</value>
@@ -196,7 +196,7 @@
     <value>uCtrlOptMaximumWeight</value>
   </data>
   <data name="&gt;&gt;uCtrlOptMaximumWeight.Type" xml:space="preserve">
-    <value>treeDiM.Basics.UCtrlOptDouble, treeDiM.Basics, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.Basics.UCtrlOptDouble, treeDiM.Basics, Version=3.0.1.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlOptMaximumWeight.Parent" xml:space="preserve">
     <value>gbStopCriterions</value>
@@ -223,7 +223,7 @@
     <value>uCtrlMaxPalletHeight</value>
   </data>
   <data name="&gt;&gt;uCtrlMaxPalletHeight.Type" xml:space="preserve">
-    <value>treeDiM.Basics.UCtrlDouble, treeDiM.Basics, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.Basics.UCtrlDouble, treeDiM.Basics, Version=3.0.1.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlMaxPalletHeight.Parent" xml:space="preserve">
     <value>gbStopCriterions</value>
@@ -388,7 +388,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="tabPagePalletCap.Size" type="System.Drawing.Size, System.Drawing">
-    <value>307, 87</value>
+    <value>284, 87</value>
   </data>
   <data name="tabPagePalletCap.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -463,7 +463,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="tabPagePalletFilm.Size" type="System.Drawing.Size, System.Drawing">
-    <value>307, 87</value>
+    <value>284, 87</value>
   </data>
   <data name="tabPagePalletFilm.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -580,7 +580,7 @@
     <value>cbInterlayer</value>
   </data>
   <data name="&gt;&gt;cbInterlayer.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered, treeDiM.StackBuilder.Graphics, Version=3.0.0.99, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered, treeDiM.StackBuilder.Graphics, Version=3.0.2.1, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;cbInterlayer.Parent" xml:space="preserve">
     <value>gbLayer</value>
@@ -588,21 +588,24 @@
   <data name="&gt;&gt;cbInterlayer.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="gridSolutions.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="gridSolution.Size" type="System.Drawing.Size, System.Drawing">
     <value>200, 411</value>
   </data>
-  <data name="&gt;&gt;gridSolutions.Name" xml:space="preserve">
-    <value>gridSolutions</value>
+  <data name="&gt;&gt;gridSolution.Name" xml:space="preserve">
+    <value>gridSolution</value>
   </data>
-  <data name="&gt;&gt;gridSolutions.Type" xml:space="preserve">
+  <data name="&gt;&gt;gridSolution.Type" xml:space="preserve">
     <value>SourceGrid.Grid, SourceGrid, Version=4.40.4580.29115, Culture=neutral, PublicKeyToken=df6f5e538749e85d</value>
   </data>
-  <data name="&gt;&gt;gridSolutions.Parent" xml:space="preserve">
+  <data name="&gt;&gt;gridSolution.Parent" xml:space="preserve">
     <value>splitContainerVert.Panel2</value>
   </data>
-  <data name="&gt;&gt;gridSolutions.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;gridSolution.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>fr</value>
+  </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -750,6 +753,6 @@
     <value>DockContentAnalysisCasePallet</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Desktop.DockContentAnalysisEdit, treeDiM.StackBuilder.Desktop, Version=3.0.0.99, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Desktop.DockContentAnalysisEdit, treeDiM.StackBuilder.Desktop, Version=3.0.2.1, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

@@ -40,8 +40,6 @@ namespace treeDiM.StackBuilder.Desktop
             base.OnLoad(e);
             if (DesignMode) return;
 
-            GridFontSize = Settings.Default.GridFontSize;
-
             // --- window caption
             if (null != Analysis)
                 Text = Analysis.Name + " - " + Analysis.ParentDocument.Name;
@@ -85,7 +83,7 @@ namespace treeDiM.StackBuilder.Desktop
         public HSolution Solution { get; set; }
         #endregion
         #region Protected properties
-        protected int GridFontSize { get; set; }
+        protected int GridFontSize => Settings.Default.GridFontSize;
         protected virtual string GridCaption => Resources.ID_LOAD;
         #endregion
         #region Private properties

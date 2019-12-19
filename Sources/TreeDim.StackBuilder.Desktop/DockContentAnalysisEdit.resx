@@ -151,7 +151,7 @@
     <value>graphCtrlSolution</value>
   </data>
   <data name="&gt;&gt;graphCtrlSolution.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Graphics.Graphics3DControl, treeDiM.StackBuilder.Graphics, Version=3.0.0.80, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Graphics.Graphics3DControl, treeDiM.StackBuilder.Graphics, Version=3.0.2.1, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;graphCtrlSolution.Parent" xml:space="preserve">
     <value>splitContainerVert.Panel1</value>
@@ -171,28 +171,28 @@
   <data name="&gt;&gt;splitContainerVert.Panel1.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="gridSolutions.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+  <data name="gridSolution.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="gridSolutions.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="gridSolution.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
-  <data name="gridSolutions.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="gridSolution.Size" type="System.Drawing.Size, System.Drawing">
     <value>243, 411</value>
   </data>
-  <data name="gridSolutions.TabIndex" type="System.Int32, mscorlib">
+  <data name="gridSolution.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;gridSolutions.Name" xml:space="preserve">
-    <value>gridSolutions</value>
+  <data name="&gt;&gt;gridSolution.Name" xml:space="preserve">
+    <value>gridSolution</value>
   </data>
-  <data name="&gt;&gt;gridSolutions.Type" xml:space="preserve">
+  <data name="&gt;&gt;gridSolution.Type" xml:space="preserve">
     <value>SourceGrid.Grid, SourceGrid, Version=4.40.4580.29115, Culture=neutral, PublicKeyToken=df6f5e538749e85d</value>
   </data>
-  <data name="&gt;&gt;gridSolutions.Parent" xml:space="preserve">
+  <data name="&gt;&gt;gridSolution.Parent" xml:space="preserve">
     <value>splitContainerVert.Panel2</value>
   </data>
-  <data name="&gt;&gt;gridSolutions.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;gridSolution.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="&gt;&gt;splitContainerVert.Panel2.Name" xml:space="preserve">
@@ -289,7 +289,7 @@
     <value>cbInterlayer</value>
   </data>
   <data name="&gt;&gt;cbInterlayer.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered, treeDiM.StackBuilder.Graphics, Version=3.0.0.80, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered, treeDiM.StackBuilder.Graphics, Version=3.0.2.1, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;cbInterlayer.Parent" xml:space="preserve">
     <value>gbLayer</value>
@@ -316,7 +316,7 @@
     <value>cbLayerType</value>
   </data>
   <data name="&gt;&gt;cbLayerType.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Graphics.Controls.CCtrlComboLayer, treeDiM.StackBuilder.Graphics, Version=3.0.0.80, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Graphics.Controls.CCtrlComboLayer, treeDiM.StackBuilder.Graphics, Version=3.0.2.1, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;cbLayerType.Parent" xml:space="preserve">
     <value>gbLayer</value>
@@ -749,6 +749,12 @@
   <data name="&gt;&gt;toolStripButtonBack.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;toolStripSeparator2.Name" xml:space="preserve">
+    <value>toolStripSeparator2</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;toolStripButtonReport.Name" xml:space="preserve">
     <value>toolStripButtonReport</value>
   </data>
@@ -773,16 +779,10 @@
   <data name="&gt;&gt;toolStripButtonExportCSV.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;toolStripSeparator2.Name" xml:space="preserve">
-    <value>toolStripSeparator2</value>
-  </data>
-  <data name="&gt;&gt;toolStripSeparator2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>DockContentAnalysisEdit</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Desktop.DockContentView, treeDiM.StackBuilder.Desktop, Version=3.0.0.80, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Desktop.DockContentView, treeDiM.StackBuilder.Desktop, Version=3.0.2.1, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

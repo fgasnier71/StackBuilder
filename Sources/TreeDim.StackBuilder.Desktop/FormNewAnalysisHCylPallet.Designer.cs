@@ -78,7 +78,6 @@
             -2147483648});
             this.uCtrlOptMaximumWeight.Name = "uCtrlOptMaximumWeight";
             this.uCtrlOptMaximumWeight.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_MASS;
-            this.uCtrlOptMaximumWeight.ValueChanged += new treeDiM.Basics.UCtrlOptDouble.ValueChangedDelegate(this.OnInputChanged);
             // 
             // uCtrlMaximumHeight
             // 
@@ -90,7 +89,6 @@
             -2147483648});
             this.uCtrlMaximumHeight.Name = "uCtrlMaximumHeight";
             this.uCtrlMaximumHeight.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
-            this.uCtrlMaximumHeight.ValueChanged += new treeDiM.Basics.UCtrlDouble.ValueChangedDelegate(this.OnInputChanged);
             // 
             // tabPageOverhang
             // 
@@ -107,7 +105,6 @@
             this.uCtrlOverhang.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
             this.uCtrlOverhang.ValueX = 0D;
             this.uCtrlOverhang.ValueY = 0D;
-            this.uCtrlOverhang.ValueChanged += new treeDiM.Basics.UCtrlDualDouble.ValueChangedDelegate(this.OnInputChanged);
             // 
             // cbPallets
             // 
@@ -115,7 +112,6 @@
             this.cbPallets.FormattingEnabled = true;
             resources.ApplyResources(this.cbPallets, "cbPallets");
             this.cbPallets.Name = "cbPallets";
-            this.cbPallets.SelectedIndexChanged += new System.EventHandler(this.OnInputChanged);
             // 
             // cbCylinders
             // 
@@ -123,7 +119,6 @@
             this.cbCylinders.FormattingEnabled = true;
             resources.ApplyResources(this.cbCylinders, "cbCylinders");
             this.cbCylinders.Name = "cbCylinders";
-            this.cbCylinders.SelectedIndexChanged += new System.EventHandler(this.OnCylinderChanged);
             // 
             // lbPallet
             // 

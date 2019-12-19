@@ -18,12 +18,7 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Override DockContentAnalysisEdit
-        public override string GridCaption
-        {   get { return Resources.ID_TRUCK; } }
-        #endregion
-
-        #region Data members
-        static readonly new ILog _log = LogManager.GetLogger(typeof(DockContentAnalysisCaseTruck));
+        protected override string GridCaption => Resources.ID_TRUCK;
         #endregion
     }
 }

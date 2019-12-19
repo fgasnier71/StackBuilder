@@ -15,35 +15,30 @@ namespace treeDiM.StackBuilder.Basics
     {
         #region Data members
         private Vector3D _vPosition;
-        private HalfAxis.HAxis _axis;
         #endregion
 
         #region Constructor
         public CylPosition(Vector3D vPosition, HalfAxis.HAxis axis)
         {
             _vPosition = vPosition;
-            _axis = axis;        
+            Direction = axis;        
         }
         #endregion
 
         #region Public properties
         public Vector3D XYZ
         {
-            get { return _vPosition; }
-            set { _vPosition = value; }
+            get => _vPosition;
+            set => _vPosition = value; 
         }
-        public HalfAxis.HAxis Direction
-        {
-            get { return _axis; }
-            set { _axis = value; }
-        }
+        public HalfAxis.HAxis Direction { get; set; }
         public Transform3D Transf
         {
             get
             {
                 Matrix4D mat = new Matrix4D();
                 Vector4D vt = new Vector4D(XYZ.X, XYZ.Y, XYZ.Z, 1.0);
-                switch (_axis)
+                switch (Direction)
                 {
                     case HalfAxis.HAxis.AXIS_X_N: mat = new Matrix4D(new Vector4D(-1.0, 0.0, 0.0, 0.0), new Vector4D(0.0, -1.0, 0.0, 0.0), new Vector4D(0.0, 0.0, 1.0, 0.0), vt); break;
                     case HalfAxis.HAxis.AXIS_X_P: mat = new Matrix4D(new Vector4D(1.0, 0.0, 0.0, 0.0), new Vector4D(0.0, 1.0, 0.0, 0.0), new Vector4D(0.0, 0.0, 1.0, 0.0), vt); break;
@@ -80,8 +75,12 @@ namespace treeDiM.StackBuilder.Basics
         {
             return new CylPosition(
                 transf.transform(_vPosition),
-                HalfAxis.ToHalfAxis(transf.transformRot(HalfAxis.ToVector3D(_axis)))
+                HalfAxis.ToHalfAxis(transf.transformRot(HalfAxis.ToVector3D(Direction)))
                 );
+        }
+        public static CylPosition operator +(CylPosition cp, Vector3D v)
+        {
+            return new CylPosition(cp.XYZ + v, cp.Direction);
         }
         #endregion
 
@@ -91,7 +90,7 @@ namespace treeDiM.StackBuilder.Basics
             return new CylPosition(
                 transform.transform(cylPosition._vPosition),
                 HalfAxis.ToHalfAxis(
-                    transform.transformRot(HalfAxis.ToVector3D(cylPosition._axis))
+                    transform.transformRot(HalfAxis.ToVector3D(cylPosition.Direction))
                     )
                 );
         }

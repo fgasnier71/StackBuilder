@@ -1,4 +1,6 @@
 ﻿#region Using directives
+using System.Drawing;
+
 using Sharp3D.Math.Core;
 
 using treeDiM.StackBuilder.Basics;
@@ -36,15 +38,47 @@ namespace treeDiM.StackBuilder.Graphics
                 Cylinder c = new Cylinder(
                     pickId++
                     , analysis.Content as CylinderProperties
-                    , cp.Transform(transform * Transform3D.Translation(analysis.Offset)));
+                    , cp.Transform(transform));
                 graphics.AddCylinder(c);
             }
+            // ### dimensions
+            graphics.AddDimensions(new DimensionCube(BoundingBoxDim(DimCasePalletSol1), Color.Black, false));
+            graphics.AddDimensions(new DimensionCube(BoundingBoxDim(DimCasePalletSol2), Color.Red, true));
+            // ###
+
         }
         public override void Draw(Graphics2D graphics)
         {
         }
         #endregion
 
+        #region Helpers
+        private BBox3D BoundingBoxDim(int index)
+        {
+            PalletProperties palletProperties = null;
+            if (Solution.Analysis is AnalysisCasePallet analysisCasePallet)
+                palletProperties = analysisCasePallet.PalletProperties;
+            if (Solution.Analysis is AnalysisCylinderPallet analysisCylinderPallet)
+                palletProperties = analysisCylinderPallet.PalletProperties;
+
+            switch (index)
+            {
+                case 0: return Solution.BBoxGlobal;
+                case 1: return Solution.BBoxLoadWDeco;
+                case 2: return palletProperties.BoundingBox;
+                case 3: return new BBox3D(0.0, 0.0, 0.0, palletProperties.Length, palletProperties.Width, 0.0);
+                default: return Solution.BBoxGlobal;
+            }
+        }
+        #endregion
+
+        #region Public properties
+        public static int DimCasePalletSol1 { get; set; } = 0;
+        public static int DimCasePalletSol2 { get; set; } = 1;
+        #endregion
+
+        #region Private properties
         private SolutionHCyl Solution { get; set; }
+        #endregion
     }
 }

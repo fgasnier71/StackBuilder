@@ -101,9 +101,7 @@ namespace treeDiM.StackBuilder.Basics
             return bbox;
         }
         public override BBox3D BBoxLoadWDeco(BBox3D loadBBox) => loadBBox;
-        public override void RecomputeSolution()
-        {
-        }
+        public override void RecomputeSolution() {}
         #endregion
 
         #region Data members
@@ -138,22 +136,13 @@ namespace treeDiM.StackBuilder.Basics
         #region Override AnalysisHCyl
         public override Vector3D ContainerDimensions3D => TruckProperties.InsideDimensions;
         public override ItemBase Container => TruckProperties;
-        public override Vector2D ContainerDimensions => throw new System.NotImplementedException();
-        public override Vector3D Offset => throw new System.NotImplementedException();
-        public override double ContainerWeight => throw new System.NotImplementedException();
+        public override Vector2D ContainerDimensions => new Vector2D(TruckProperties.Length, TruckProperties.Width);
+        public override Vector3D Offset => Vector3D.Zero;
+        public override double ContainerWeight => 0.0;
         public override double ContainerLoadingVolume => throw new System.NotImplementedException();
-        public override BBox3D BBoxGlobal(BBox3D loadBBox)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public override BBox3D BBoxLoadWDeco(BBox3D loadBBox)
-        {
-            throw new System.NotImplementedException();
-        }
-        public override void RecomputeSolution()
-        {
-        }
+        public override BBox3D BBoxGlobal(BBox3D loadBBox) => TruckProperties.BoundingBox;
+        public override BBox3D BBoxLoadWDeco(BBox3D loadBBox) => loadBBox;
+        public override void RecomputeSolution() {}
         #endregion
         #region Data members
         private TruckProperties _truckProperties;

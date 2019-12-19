@@ -16,6 +16,7 @@ namespace treeDiM.StackBuilder.Basics
     }
     public interface IContainer
     {
+        double Weight { get; }
         Vector3D GetStackingDimensions(ConstraintSetAbstract constraintSet);
     }
     public class InvalidConstraintSetException : Exception

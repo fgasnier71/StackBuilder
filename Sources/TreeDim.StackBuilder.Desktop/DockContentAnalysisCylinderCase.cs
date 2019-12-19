@@ -16,8 +16,7 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Override DockContentAnalysisEdit
-        public override string GridCaption
-        { get { return Resources.ID_CASE; } }
+        protected override string GridCaption => Resources.ID_CASE;
         #endregion
     }
 }

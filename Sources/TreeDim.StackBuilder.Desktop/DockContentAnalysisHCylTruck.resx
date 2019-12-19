@@ -117,82 +117,24 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="label1.Text" xml:space="preserve">
-    <value>Логотип компании</value>
+  <metadata name="toolStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="toolStripBBack.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABYSURBVDhP3Y+xDcAwCASZk0FgZMaw9fHTpImxRBGfROG3
+        7hHSRkQMd3+G0T4pq+ows1rBW8abX9/8VAaQIFcGC6mfFcChvk7IEjSXTwCXlzCukSUYRh2ITINE0o5U
+        APEDAAAAAElFTkSuQmCC
+</value>
   </data>
-  <data name="lbECTCoefUnit.Text" xml:space="preserve">
-    <value>кН/м</value>
-  </data>
-  <data name="lbStiffnessYUnit.Text" xml:space="preserve">
-    <value>N.m</value>
-  </data>
-  <data name="lbStiffnessXUnit.Text" xml:space="preserve">
-    <value>N.m</value>
-  </data>
-  <data name="lbThicknessUnit.Text" xml:space="preserve">
-    <value>uLength</value>
-  </data>
-  <data name="lbECTCoefficient.Text" xml:space="preserve">
-    <value>Коэффициент внешнего типа контента</value>
-  </data>
-  <data name="lbEctCoef.Text" xml:space="preserve">
-    <value>Коэффициент внешнего типа контента</value>
-  </data>
-  <data name="lbValueStiffnessY.Text" xml:space="preserve">
-    <value>stiffnessY</value>
-  </data>
-  <data name="lbValueStiffnessX.Text" xml:space="preserve">
-    <value>stiffnessX</value>
-  </data>
-  <data name="lbValueThickness.Text" xml:space="preserve">
-    <value>lbValueThickness</value>
-  </data>
-  <data name="lbStiffnessY.Text" xml:space="preserve">
-    <value>Жесткость Y</value>
-  </data>
-  <data name="label3.Text" xml:space="preserve">
-    <value>Жесткость X</value>
-  </data>
-  <data name="label2.Text" xml:space="preserve">
-    <value>Правильно</value>
-  </data>
-  <data name="gbCardboardProperties.Text" xml:space="preserve">
-    <value>Картон</value>
-  </data>
-  <data name="lbPrintedSurface.Text" xml:space="preserve">
-    <value>Печатная поверхность</value>
-  </data>
-  <data name="lbCaseType.Text" xml:space="preserve">
-    <value>Тип корпуса</value>
-  </data>
-  <data name="gbCase.Text" xml:space="preserve">
-    <value>Дело</value>
-  </data>
-  <data name="rbFormula2.Text" xml:space="preserve">
-    <value>Улучшена (использует картонные жесткость)</value>
-  </data>
-  <data name="rbFormula1.Text" xml:space="preserve">
-    <value>Классика (использует на коэффициент внешнего типа контента)</value>
-  </data>
-  <data name="gbFormula.Text" xml:space="preserve">
-    <value>Макки формула</value>
-  </data>
-  <data name="label5.Text" xml:space="preserve">
-    <value>Дэн</value>
-  </data>
-  <data name="lbStaticBCTValue.Text" xml:space="preserve">
-    <value>lbStaticBCTValue</value>
-  </data>
-  <data name="lbDynamicBCT.Text" xml:space="preserve">
-    <value>Динамический BCT (Дэн) (показатель влажности / длительность хранения)</value>
-  </data>
-  <data name="lbStaticBCT.Text" xml:space="preserve">
-    <value>Статический BCT</value>
-  </data>
-  <data name="gbResults.Text" xml:space="preserve">
-    <value>Результаты</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Анализ теста раздавить Edge</value>
+  <data name="toolStripBReport.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABkSURBVDhPzYxBDoBACAP3/5/GFC0phAPuenCSapka11pm
+        Z7kfm/zsB3gzpHMgeY5JPnQOJK9jSOka9exxgDpOehygjpMeB6jjpMcBODJK571XoVE6770KjdJ57/XD
+        N3z3g92YXauEAwxp1v7WAAAAAElFTkSuQmCC
+</value>
   </data>
 </root>

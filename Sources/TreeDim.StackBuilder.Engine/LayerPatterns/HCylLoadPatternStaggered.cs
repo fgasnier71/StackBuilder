@@ -33,7 +33,7 @@ namespace treeDiM.StackBuilder.Engine
             int iLayer = 0;
             while (true)
             {
-                if ((iLayer + 1) * diameter >= maxHeight)
+                if (offsetZ + radius * (1.0 + iLayer * Math.Sqrt(3.0)) >= maxHeight)
                 {
                     layout.LimitReached = Limit.MAXHEIGHTREACHED;
                     return;
@@ -47,7 +47,7 @@ namespace treeDiM.StackBuilder.Engine
                             , new CylPosition(
                                 new Vector3D(
                                     offsetX + i * length - 0.5 * length
-                                    , offsetY  + radius + (iLayer % 2) * radius + j * diameter
+                                    , offsetY + radius + (iLayer % 2) * radius + j * diameter
                                     , offsetZ + iLayer * radius * Math.Sqrt(3.0))
                                 , HalfAxis.HAxis.AXIS_X_P)
                             );

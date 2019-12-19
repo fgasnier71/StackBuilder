@@ -24,9 +24,9 @@ namespace treeDiM.StackBuilder.Desktop
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
-
-            cbPaymentMode.SelectedIndex = 0;
+          
             cbSubscriptionDuration.SelectedIndex = 0;
+            rbSubscription1.Checked = true;
 
             using (var wcfClient = new WCFClient())
             {
@@ -38,16 +38,38 @@ namespace treeDiM.StackBuilder.Desktop
         #region Private properties
         private string Email { get => tbEmail.Text; set => tbEmail.Text = value; }
         private int SubscriptionDuration => cbSubscriptionDuration.SelectedIndex;
-        private int PaymentMode => cbPaymentMode.SelectedIndex;
+        private int PaymentMode => 1;
         #endregion
 
         #region Event handler
+        private void OnPaymentModeChanged(object sender, EventArgs e)
+        {
+            bool paypalMode = rbSubscription1.Checked;
+            ((Control)webBrowser).Enabled = paypalMode;
+
+            lbSubscribe.Enabled = !paypalMode;
+            cbSubscriptionDuration.Enabled = !paypalMode;
+            lbEmail.Enabled = !paypalMode;
+            tbEmail.Enabled = !paypalMode;
+        }
         private void OnPremiumVsFreeClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             // Specify that the link was visited.
             linkLabelPremiumVsFree.LinkVisited = true;
             try { Process.Start(Resources.ID_PREMIUMVERSIONURL); }
             catch (Exception ex) { _log.Error(ex.ToString()); }
+        }
+        private void OnNavigating(object sender, WebBrowserNavigatingEventArgs e)
+        {
+            e.Cancel = true;
+            try
+            {
+                Process.Start(e.Url.ToString());
+            }
+            catch (Exception ex)
+            {
+                _log.Error(ex.ToString());
+            }
         }
         private void OnSendClicked(object sender, EventArgs e)
         {
@@ -71,5 +93,7 @@ namespace treeDiM.StackBuilder.Desktop
         #region Logging
         private static ILog _log = LogManager.GetLogger(typeof(FormBecomePremiumUser));
         #endregion
+
+
     }
 }

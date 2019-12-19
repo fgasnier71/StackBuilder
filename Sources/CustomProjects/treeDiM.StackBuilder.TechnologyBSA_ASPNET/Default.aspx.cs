@@ -2,9 +2,9 @@
 using System.Web.UI;
 using System.Linq;
 using System.Drawing;
-using System.Collections;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Web.UI.WebControls;
 
 using Sharp3D.Math.Core;
 using treeDiM.Basics;
@@ -17,8 +17,11 @@ public partial class _Default : Page
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!Page.IsPostBack)
-        { 
-            TBCaseLength.Text = "300";        
+        {
+            if (ConfigSettings.ShowVirtualKeyboard)
+                ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "text", "ActivateVirtualKeyboard()", true);
+
+            TBCaseLength.Text = "300";
             TBCaseWidth.Text = "280";
             TBCaseHeight.Text = "275";
             TBCaseWeight.Text = "1";
@@ -29,6 +32,9 @@ public partial class _Default : Page
             TBPalletWeight.Text = "1";
 
             TBMaxPalletHeight.Text = "1700";
+            BTRefresh_Click(null, null);
+
+            ViewState["Angle"] = "45";
         }
     }
 
@@ -46,41 +52,18 @@ public partial class _Default : Page
             Vector3D palletDim = new Vector3D(double.Parse(TBPalletLength.Text), double.Parse(TBPalletWidth.Text), double.Parse(TBPalletHeight.Text));
             double palletWeight = double.Parse(TBPalletWeight.Text);
             double maxPalletHeight = double.Parse(TBMaxPalletHeight.Text);
-            bool onlyBestLayers = true;
+            bool onlyBestLayers = false;
 
             Session["dimCase"] = caseDim.ToString();
             Session["dimPallet"] = palletDim.ToString();
             Session["maxPalletHeight"] = $"{maxPalletHeight}";
-            Session["thumbWidth"] = "100";
-            Session["thumbHeight"] = "100";
-
 
             List<LayerDetails> listLayers = new List<LayerDetails>();
             GetLayers(caseDim, caseWeight, palletDim, palletWeight, maxPalletHeight, onlyBestLayers, ref listLayers);
-            
+
             dlLayers.DataSource = listLayers;
             dlLayers.DataBind();
 
-            /*
-            gvLayers.DataSource = listLayers;
-            gvLayers.DataBind();
-            */
-
-
-            byte[] imageBytes = null;
-            int caseCount = 0;
-            int layerCount = 0;
-            double weightLoad = 0.0, weightTotal =0.0;
-            Vector3D bbLoad = Vector3D.Zero;
-            Vector3D bbTotal = Vector3D.Zero;
-            GetBestSolution(caseDim, caseWeight, palletDim, palletWeight, maxPalletHeight, ref imageBytes, ref caseCount, ref layerCount, ref weightLoad, ref weightTotal, ref bbLoad, ref bbTotal);
-
-
-            Session["width"] = "500";
-            Session["height"] = "500";
-            Session["imageBytes"] = imageBytes;
-
-            ImagePallet.ImageUrl = "~/Handler.ashx";
         }
     }
 
@@ -117,9 +100,8 @@ public partial class _Default : Page
         Vector3D vPalletDim = palletProperties.GetStackingDimensions(constraintSet);
         // ###
 
-        // get a list of all possible layers
+        // get a list of all possible layers and fill ListView control
         ILayerSolver solver = new LayerSolver();
-        // build layers and fill CCtrl
         var layers = solver.BuildLayers(boxProperties.OuterDimensions, new Vector2D(vPalletDim.X, vPalletDim.Y), 0.0, constraintSet, bestLayersOnly);
         foreach (var layer in layers)
             listLayers.Add(
@@ -132,10 +114,12 @@ public partial class _Default : Page
 
     }
 
-    public void GetBestSolution(
+    public void GetSolution(
         Vector3D caseDim, double caseWeight,
         Vector3D palletDim, double palletWeight,
         double maxPalletHeight,
+        LayerDesc layerDesc,
+        double angle,
         ref byte[] imageBytes,
         ref int caseCount, ref int layerCount,
         ref double weightLoad, ref double weightTotal,
@@ -160,35 +144,105 @@ public partial class _Default : Page
         var constraintSet = new ConstraintSetCasePallet();
         constraintSet.SetAllowedOrientations(new bool[] { false, false, true });
         constraintSet.SetMaxHeight(new OptDouble(true, maxPalletHeight));
-        // use a solver and get a list of sorted analyses + select the best one
-        SolverCasePallet solver = new SolverCasePallet(boxProperties, palletProperties, constraintSet);
-        var analyses = solver.BuildAnalyses(false);
-        if (analyses.Count > 0)
+
+        SolutionLayered.SetSolver(new LayerSolver());
+
+        var analysis = new AnalysisCasePallet(boxProperties, palletProperties, constraintSet);
+        analysis.AddSolution(layerDesc);
+        layerCount = analysis.SolutionLay.LayerCount;
+        caseCount = analysis.Solution.ItemCount;
+        weightLoad = analysis.Solution.LoadWeight;
+        weightTotal = analysis.Solution.Weight;
+        bbGlob = analysis.Solution.BBoxGlobal.DimensionsVec;
+        bbLoad = analysis.Solution.BBoxLoad.DimensionsVec;
+
+        // generate image path
+        Graphics3DImage graphics = new Graphics3DImage(new Size(500, 500))
         {
-            // first solution
-            AnalysisLayered analysis = analyses[0];
-            layerCount = analysis.SolutionLay.LayerCount;
-            caseCount = analysis.Solution.ItemCount;
-            weightLoad = analysis.Solution.LoadWeight;
-            weightTotal = analysis.Solution.Weight;
-            bbGlob = analysis.Solution.BBoxGlobal.DimensionsVec;
-            bbLoad = analysis.Solution.BBoxLoad.DimensionsVec;
-            
-            // generate image path
-            Graphics3DImage graphics = new Graphics3DImage(new Size(500, 500))
-            {
-                FontSizeRatio = 0.01f,
-                CameraPosition = Graphics3D.Corner_0,
-                ShowDimensions = true
-            };
-            
-            using (ViewerSolution sv = new ViewerSolution(analysis.SolutionLay))
-                sv.Draw(graphics, Transform3D.Identity);
-            graphics.Flush();
-            Bitmap bmp = graphics.Bitmap;
-            ImageConverter converter = new ImageConverter();
-            imageBytes = (byte[])converter.ConvertTo(bmp, typeof(byte[]));
+            FontSizeRatio = 0.01f,
+            ShowDimensions = true
+        };
+        graphics.SetCameraPosition(10000.0, angle, 45.0);
+
+        using (ViewerSolution sv = new ViewerSolution(analysis.SolutionLay))
+            sv.Draw(graphics, Transform3D.Identity);
+        graphics.Flush();
+        Bitmap bmp = graphics.Bitmap;
+        ImageConverter converter = new ImageConverter();
+        imageBytes = (byte[])converter.ConvertTo(bmp, typeof(byte[]));
+    }
+
+    protected void OnIndexChanged(object sender, EventArgs e)
+    {
+    }
+
+    protected void OnLVLayersItemCommand(object sender, ListViewCommandEventArgs e)
+    {
+        if (e.CommandName == "ImageButtonClick")
+        {
+            // get layer description of selected button
+            ViewState["LayerDescriptor"] = e.CommandArgument.ToString();
+
+            UpdateImage();
+
         }
+    }
+    protected void UpdateImage()
+    {
+        Vector3D caseDim = new Vector3D(double.Parse(TBCaseLength.Text), double.Parse(TBCaseWidth.Text), double.Parse(TBCaseHeight.Text));
+        double caseWeight = double.Parse(TBCaseWeight.Text);
+        Vector3D palletDim = new Vector3D(double.Parse(TBPalletLength.Text), double.Parse(TBPalletWidth.Text), double.Parse(TBPalletHeight.Text));
+        double palletWeight = double.Parse(TBPalletWeight.Text);
+        double maxPalletHeight = double.Parse(TBMaxPalletHeight.Text);
+
+        byte[] imageBytes = null;
+        int caseCount = 0;
+        int layerCount = 0;
+        double weightLoad = 0.0, weightTotal = 0.0;
+        Vector3D bbLoad = Vector3D.Zero;
+        Vector3D bbTotal = Vector3D.Zero;
+
+        var layerDesc = LayerDescBox.Parse(ViewState["LayerDescriptor"].ToString()) as LayerDescBox;
+        double angle = double.Parse(ViewState["Angle"].ToString());
+        GetSolution(caseDim, caseWeight, palletDim, palletWeight, maxPalletHeight, layerDesc, angle, ref imageBytes, ref caseCount, ref layerCount, ref weightLoad, ref weightTotal, ref bbLoad, ref bbTotal);
+
+        var palletDetails = new List<PalletDetail>();
+        palletDetails.Add(new PalletDetail("Number of cases", $"{caseCount}", ""));
+        palletDetails.Add(new PalletDetail("Layer count", $"{layerCount}", ""));
+        palletDetails.Add(new PalletDetail("Load weight", $"{weightLoad}", "kg"));
+        palletDetails.Add(new PalletDetail("Total weight", $"{weightTotal}", "kg"));
+        palletDetails.Add(new PalletDetail("Load dimensions", $"{bbLoad.X} x {bbLoad.Y} x {bbLoad.Z}", "mm x mm x mm"));
+        palletDetails.Add(new PalletDetail("Overall dimensions", $"{bbTotal.X} x {bbTotal.Y} x {bbTotal.Z}", "mm x mm x mm"));
+
+
+        PalletDetails.DataSource = palletDetails;
+        PalletDetails.DataBind();
+
+
+        Session["dimCase"] = caseDim.ToString();
+        Session["dimPallet"] = palletDim.ToString();
+        Session["maxPalletHeight"] = $"{maxPalletHeight}";
+        Session["width"] = "500";
+        Session["height"] = "500";
+        Session["imageBytes"] = imageBytes;
+
+        ImagePallet.ImageUrl = "~/Handler.ashx";
+
+
+    }
+
+    protected void AngleIncrement(object sender, EventArgs e)
+    {
+        double angle = double.Parse(ViewState["Angle"].ToString());
+        angle += ConfigSettings.AngleStep; UpdateImage();
+        ViewState["Angle"] = $"{angle}";
+
+    }
+    protected void AngleDecrement(object sender, EventArgs e)
+    {
+        double angle = double.Parse(ViewState["Angle"].ToString());
+        angle -= ConfigSettings.AngleStep; UpdateImage();
+        ViewState["Angle"] = $"{angle}";
     }
 }
 
@@ -208,8 +262,21 @@ public class LayerDetails
     public string LayerDesc { get; set; }
 }
 
-public class ConfigSettings
+public class PalletDetail
+{
+    public PalletDetail(string name, string value, string unit)
+    {
+        Name = name; Value = value; Unit = unit;
+    }
+    public string Name { get; set; }
+    public string Value { get; set; }
+    public string Unit { get; set; }
+}
+
+public static class ConfigSettings
 {
     public static string ThumbSize => ConfigurationManager.AppSettings["ThumbnailSize"] + "px";
-
+    public static bool ShowVirtualKeyboard => bool.Parse(ConfigurationManager.AppSettings["ShowVirtualKeyboard"]);
+    public static bool Thumbnails3D => bool.Parse(ConfigurationManager.AppSettings["Use3DThumbnails"]);
+    public static int AngleStep => int.Parse(ConfigurationManager.AppSettings["AngleStep"]);
 }

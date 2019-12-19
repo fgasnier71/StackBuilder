@@ -1,6 +1,4 @@
 ﻿#region Using directives
-using log4net;
-
 using treeDiM.StackBuilder.Basics;
 using treeDiM.StackBuilder.Desktop.Properties;
 #endregion
@@ -18,12 +16,7 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Override DockContentAnalysisEdit
-        public override string GridCaption
-        { get { return Resources.ID_TRUCK; } }
-        #endregion
-
-        #region Data members
-        private new static readonly ILog _log = LogManager.GetLogger(typeof(DockContentAnalysisCylinderTruck));
+        protected override string GridCaption => Resources.ID_TRUCK;
         #endregion
     }
 }

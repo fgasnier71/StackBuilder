@@ -303,6 +303,9 @@
     <EmbeddedResource Include="Properties\Resources.sv.resx" />
     <EmbeddedResource Include="Properties\Resources.tr.resx" />
     <EmbeddedResource Include="Properties\Resources.zh.resx" />
+    <EmbeddedResource Include="RibbonStackBuilder.fr.resx">
+      <DependentUpon>RibbonStackBuilder.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RibbonStackBuilder.pt.resx">
       <DependentUpon>RibbonStackBuilder.cs</DependentUpon>
     </EmbeddedResource>
@@ -350,6 +353,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UCtrlPerRowAnalysis.tr.resx">
       <DependentUpon>UCtrlPerRowAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCtrlPerSheetAnalysis.fr.resx">
+      <DependentUpon>UCtrlPerSheetAnalysis.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UCtrlPerSheetAnalysis.pt.resx">
       <DependentUpon>UCtrlPerSheetAnalysis.cs</DependentUpon>

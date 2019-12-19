@@ -225,18 +225,18 @@ namespace treeDiM.StackBuilder.Graphics
                 );
             return new Transform3D(Mcam);
         }
-		private Transform3D GetPerspectiveTransformation1(double fov, double near, double far)
-		{
-			// set the basic projection matrix
-			double scale = 1.0 / Math.Tan(fov * 0.5 * Math.PI / 180.0);
-			Matrix4D Mpers = new Matrix4D(
-				scale, 0.0, 0.0, 0.0
-				, 0.0, scale, 0.0, 0.0
-				, 0.0, 0.0, -far / (far - near), -1.0
-				, 0.0, 0.0, -far * near / (far - near), 0.0
-				);
-			return new Transform3D(Mpers);			
-		}		
+        private Transform3D GetPerspectiveTransformation1(double fov, double near, double far)
+        {
+            // set the basic projection matrix
+            double scale = 1.0 / Math.Tan(fov * 0.5 * Math.PI / 180.0);
+            Matrix4D Mpers = new Matrix4D(
+                scale, 0.0, 0.0, 0.0
+                , 0.0, scale, 0.0, 0.0
+                , 0.0, 0.0, -far / (far - near), -1.0
+                , 0.0, 0.0, -far * near / (far - near), 0.0
+                );
+            return new Transform3D(Mpers);
+        }
 
         Transform3D GetPerspectiveTransformation2(double persProjWidth, double persProjHeight, double zNear, double zFar, double fov)
         {
@@ -285,11 +285,11 @@ namespace treeDiM.StackBuilder.Graphics
         }
 
 
-    /// <summary>
-    /// Background faces
-    /// </summary>
-    /// <param name="face">Face to be drawn before other faces</param>
-    public void AddFaceBackground(Face face)
+        /// <summary>
+        /// Background faces
+        /// </summary>
+        /// <param name="face">Face to be drawn before other faces</param>
+        public void AddFaceBackground(Face face)
         {
             _facesBackground.Add(face);
         }
@@ -349,6 +349,16 @@ namespace treeDiM.StackBuilder.Graphics
             _viewport[1] = ymin;
             _viewport[2] = xmax;
             _viewport[3] = ymax;
+        }
+
+        public void SetCameraPosition(double distance, double angleHorizDeg, double angleVertDeg)
+        {
+            double angleHorizRad = angleHorizDeg * Math.PI / 180.0;
+            double angleVertRad = angleVertDeg * Math.PI / 180.0;
+            CameraPosition = new Vector3D(
+                    distance * Math.Cos(angleHorizRad) * Math.Cos(angleVertRad)
+                    , distance * Math.Sin(angleHorizRad) * Math.Cos(angleVertRad)
+                    , distance * Math.Sin(angleVertRad));
         }
 
         /// <summary>

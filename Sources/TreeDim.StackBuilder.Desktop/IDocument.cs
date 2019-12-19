@@ -21,7 +21,7 @@ namespace treeDiM.StackBuilder.Desktop
         void AddView(IView view);
         void RemoveView(IView view);
 
-        void EditAnalysis(AnalysisLayered analysis);
+        void EditAnalysis(AnalysisHomo analysis);
         void EditAnalysis(AnalysisHetero analysis);
 
         event EventHandler Modified;

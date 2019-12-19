@@ -136,6 +136,9 @@
     <EmbeddedResource Include="OptionsForm.zh.resx">
       <DependentUpon>OptionsForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="OptionsPanel.fr.resx">
+      <DependentUpon>OptionsPanel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="OptionsPanel.pt.resx">
       <DependentUpon>OptionsPanel.cs</DependentUpon>
     </EmbeddedResource>

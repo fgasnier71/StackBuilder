@@ -29,9 +29,7 @@ namespace treeDiM.StackBuilder.Basics
         public Vector2D Overhang { get; set; }
 
         #region Non-Public Members
-
         protected OptDouble _maxHeight;
-
         #endregion
     }
 }

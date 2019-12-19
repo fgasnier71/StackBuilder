@@ -33,7 +33,7 @@ namespace treeDiM.StackBuilder.Engine
             while (true)
             {
                 // max height reached ?
-                if ((iLayer + 1) * diameter > maxHeight)
+                if ((iLayer + 1) * diameter + offsetZ > maxHeight)
                 {
                     layout.LimitReached = Limit.MAXHEIGHTREACHED;
                     return;

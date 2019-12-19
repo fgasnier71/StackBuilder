@@ -58,13 +58,11 @@ namespace treeDiM.StackBuilder.Basics
             for (int i = 0; i < 3; ++i)
                 _axesAllowed[i] = axesAllowed[i];
         }
-
         public int PalletFilmTurns { get; set; } = 0;
 
         #region Non-Public Members
         private bool[] _axesAllowed = new bool[] { true, true, true };
-        static readonly Regex AllowedOrientationRegex = new Regex(@"(?<x>.*),(?<y>.*),(?<z>.*)", RegexOptions.Singleline | RegexOptions.Compiled);
-        static readonly ILog _log = LogManager.GetLogger(typeof(ConstraintSetCasePallet));
+        private static readonly Regex AllowedOrientationRegex = new Regex(@"(?<x>.*),(?<y>.*),(?<z>.*)", RegexOptions.Singleline | RegexOptions.Compiled);
         #endregion
     }
 }

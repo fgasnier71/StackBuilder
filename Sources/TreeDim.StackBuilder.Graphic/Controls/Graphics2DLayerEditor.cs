@@ -21,6 +21,9 @@ namespace treeDiM.StackBuilder.Graphics
         public Graphics2DLayerEditor()
         {
             InitializeComponent();
+
+            // double buffering
+            SetDoubleBuffered();
         }
         protected override void OnLoad(EventArgs e)
         {
@@ -28,6 +31,19 @@ namespace treeDiM.StackBuilder.Graphics
             SelectionChanged += EnableDisableAddRemoveButtons;
         }
         #endregion
+        #region Double buffering
+        private void SetDoubleBuffered()
+        {
+            System.Reflection.PropertyInfo aProp =
+                typeof(Control).GetProperty(
+                    "DoubleBuffered",
+                    System.Reflection.BindingFlags.NonPublic |
+                    System.Reflection.BindingFlags.Instance);
+
+            aProp.SetValue(this, true, null);
+        }
+        #endregion
+
         #region Public properties
         public Layer2DBrickExp Layer  { get; set; }
         public Vector2D PtMin => Vector2D.Zero - new Vector2D(MaxContentDim, MaxContentDim);
@@ -159,8 +175,10 @@ namespace treeDiM.StackBuilder.Graphics
             if (-1 == SelectedIndex) return;
             BoxPosition bpos = Layer.Positions[SelectedIndex];
             BoxPosition bposNew = bpos.Translate(MoveDir, StepMove);
-            if (!BoxInteraction.HaveIntersection(Layer.Positions, Dimensions, SelectedIndex, bposNew))
-                Layer.Positions[SelectedIndex] = bposNew;
+            if (!BoxInteraction.HaveIntersection(Layer.Positions, Dimensions, SelectedIndex, bposNew)
+                && BoxInteraction.BoxCanMoveInside(Layer.Positions[SelectedIndex], Dimensions, PtMin, PtMax, MoveDir))
+               Layer.Positions[SelectedIndex] = bposNew;
+
             else
             {
                 double distance = 0;
@@ -225,7 +243,8 @@ namespace treeDiM.StackBuilder.Graphics
                 for (int i = 0; i < 4; ++i)
                 {
                     double distance = 0.0;
-                    if (!BoxInteraction.MinDistance(Layer.Positions, dim, SelectedIndex, Directions[i], ref distance) || distance > 0.1)
+                    if ((!BoxInteraction.MinDistance(Layer.Positions, dim, SelectedIndex, Directions[i], ref distance) || distance > 0.1)
+                        && BoxInteraction.BoxCanMoveInside(Layer.Positions[SelectedIndex], dim, PtMin, PtMax, Directions[i]))
                         Arrows[i] = true;
                 }
                 // allow rotations

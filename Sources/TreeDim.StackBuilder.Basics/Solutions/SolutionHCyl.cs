@@ -1,4 +1,6 @@
 ﻿#region Using directives
+using System;
+
 using Sharp3D.Math.Core;
 #endregion
 
@@ -9,6 +11,7 @@ namespace treeDiM.StackBuilder.Basics
     {
         HCylLayout BuildLayoutNonStatic(Packable packable
             , Vector3D dimContainer
+            , double offsetZ
             , ConstraintSetAbstract constraintSet
             , string patternName
             , bool swapped);
@@ -36,9 +39,11 @@ namespace treeDiM.StackBuilder.Basics
         #region Private methods
         public void RebuildSolution()
         {
+            Analysis.ConstraintSet.Container = AnalysisHCyl.Container as IContainer;
             Layout = Solver.BuildLayoutNonStatic(
                 Analysis.Content,
                 AnalysisHCyl.ContainerDimensions3D,
+                AnalysisHCyl.Offset.Z,
                 Analysis.ConstraintSet,
                 PatternName,
                 Swapped);
@@ -58,7 +63,20 @@ namespace treeDiM.StackBuilder.Basics
         public HCylLayout Layout { get; private set; }
         private string PatternName { get; set; }
         private bool Swapped { get; set; }
-        public static ILayoutSolver Solver { get; set; }
+        #endregion
+
+        #region Static solver instance
+        private static ILayoutSolver _solver;
+        public static void SetSolver(ILayoutSolver solver) => _solver = solver;
+        public static ILayoutSolver Solver
+        {
+            get
+            {
+                if (null == _solver)
+                    throw new Exception("Solver not initialized->Call SolutionHCyl.SetSolver() static function.");
+                return _solver;
+            }
+        }
         #endregion
     }
     #endregion

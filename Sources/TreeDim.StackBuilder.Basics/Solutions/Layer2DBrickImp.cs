@@ -23,10 +23,7 @@ namespace treeDiM.StackBuilder.Basics
         public HalfAxis.HAxis AxisOrtho { get; }
         #endregion
         #region Object override
-        public override string ToString()
-        {
-            return string.Format("{0}|{1}|{2}", PatternName, HalfAxis.ToString(AxisOrtho), Swapped ? "t" : "f");
-        }
+        public override string ToString() => string.Format("{0}|{1}|{2}", PatternName, HalfAxis.ToString(AxisOrtho), Swapped ? "t" : "f");
         public override bool Equals(object obj)
         {
             if (obj is LayerDescBox layerDesc)

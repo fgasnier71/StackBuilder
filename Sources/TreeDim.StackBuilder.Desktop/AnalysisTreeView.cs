@@ -55,11 +55,11 @@ namespace treeDiM.StackBuilder.Desktop
                // instantiate context menu
                 ContextMenuStrip = new ContextMenuStrip();
                 // attach event handlers
-                NodeMouseClick += new TreeNodeMouseClickEventHandler(AnalysisTreeView_NodeMouseClick);
-                NodeMouseDoubleClick += new TreeNodeMouseClickEventHandler(OnNodeLeftDoubleClick);
+                NodeMouseClick += new TreeNodeMouseClickEventHandler(OnNodeMouseClick);
+                NodeMouseDoubleClick += new TreeNodeMouseClickEventHandler(OnNodeMouseDoubleClick);
                 ContextMenuStrip.Opening += new CancelEventHandler(ContextMenuStrip_Opening);
                 DrawMode = TreeViewDrawMode.OwnerDrawText;
-                DrawNode += new DrawTreeNodeEventHandler(AnalysisTreeView_DrawNode);
+                DrawNode += new DrawTreeNodeEventHandler(OnDrawNode);
             }
             catch (Exception ex)
             {
@@ -404,7 +404,7 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Event handlers
-        void OnNodeLeftDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
+        void OnNodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
         {
             try
             {
@@ -439,22 +439,21 @@ namespace treeDiM.StackBuilder.Desktop
                 _log.Error(ex.ToString());
             }
         }
-        void AnalysisTreeView_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
+        void OnNodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
         {
         }
-        void AnalysisTreeView_DrawNode(object sender, System.Windows.Forms.DrawTreeNodeEventArgs e)
+        void OnDrawNode(object sender, DrawTreeNodeEventArgs e)
         {
             try
             {
                 // get NodeTag
-                NodeTag tag = e.Node.Tag as NodeTag;
-                if (null == tag)
+                if (!(e.Node.Tag is NodeTag tag))
                     throw new Exception(string.Format("Node {0} has null tag", e.Node.Text));
                 Rectangle nodeBounds = e.Node.Bounds;
                 if (null != tag.ItemProperties)
-                    TextRenderer.DrawText(e.Graphics, tag.ItemProperties.Name, Font, nodeBounds, System.Drawing.Color.Black, Color.Transparent, TextFormatFlags.VerticalCenter | TextFormatFlags.NoClipping);
+                    TextRenderer.DrawText(e.Graphics, tag.ItemProperties.Name, Font, nodeBounds, Color.Black, Color.Transparent, TextFormatFlags.VerticalCenter | TextFormatFlags.NoClipping);
                 else
-                    TextRenderer.DrawText(e.Graphics, e.Node.Text, Font, nodeBounds, System.Drawing.Color.Black, Color.Transparent, TextFormatFlags.VerticalCenter | TextFormatFlags.NoClipping);
+                    TextRenderer.DrawText(e.Graphics, e.Node.Text, Font, nodeBounds, Color.Black, Color.Transparent, TextFormatFlags.VerticalCenter | TextFormatFlags.NoClipping);
             }
             catch (Exception ex)
             {
@@ -528,7 +527,7 @@ namespace treeDiM.StackBuilder.Desktop
             {
                 Tag = new NodeTag(NodeTag.NodeType.NT_DOCUMENT, doc)
             };
-            this.Nodes.Add(nodeDoc);
+            Nodes.Add(nodeDoc);
             // add box list node
             TreeNode nodeBoxes = new TreeNode(Resources.ID_NODE_BOXES, 0, 1)
             {
@@ -610,9 +609,9 @@ namespace treeDiM.StackBuilder.Desktop
         /// <param name="itemProperties"></param>
         public void OnNewTypeCreated(Document doc, ItemBase itemProperties)
         {
-            int iconIndex = 0;
             NodeTag.NodeType nodeType;
             NodeTag.NodeType parentNodeType;
+            int iconIndex;
             if (itemProperties.GetType() == typeof(CaseOfBoxesProperties))
             {
                 iconIndex = 17;
@@ -1102,7 +1101,7 @@ namespace treeDiM.StackBuilder.Desktop
         /// <summary>
         /// returns analysis if any
         /// </summary>
-        public AnalysisLayered Analysis => ItemProperties as AnalysisLayered;
+        public AnalysisHomo Analysis => ItemProperties as AnalysisHomo;
         public AnalysisHetero HAnalysis => ItemProperties as AnalysisHetero;
         #endregion
     }
@@ -1120,7 +1119,7 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
         #region Public properties
         public Document Document => NodeTag.Document;
-        public AnalysisLayered Analysis => NodeTag.Analysis;
+        public AnalysisHomo Analysis => NodeTag.Analysis;
         public AnalysisHetero HAnalysis => NodeTag.HAnalysis;
         public ItemBase ItemBase => NodeTag.ItemProperties;
         #endregion

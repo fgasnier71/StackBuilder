@@ -1,4 +1,7 @@
-﻿using treeDiM.Basics;
+﻿using System;
+using Sharp3D.Math.Core;
+
+using treeDiM.Basics;
 
 namespace treeDiM.StackBuilder.Basics
 {
@@ -28,12 +31,18 @@ namespace treeDiM.StackBuilder.Basics
         public abstract bool AllowOrientation(HalfAxis.HAxis axisOrtho);
         public abstract string AllowedOrientationsString { get; set; }
         public abstract OptDouble OptMaxHeight { get; }
+        public virtual OptInt OptGlobMaxNumber(Packable packable)
+        {
+            OptInt optMaxNumberWeight = new OptInt(OptMaxWeight.Activated, (int)Math.Floor((OptMaxWeight.Value - Container.Weight) / packable.Weight));
+            return OptInt.Min(optMaxNumberWeight, OptMaxNumber);
+        }
         public virtual OptDouble OptMaxWeight { get; set; }
         public virtual OptInt OptMaxNumber { get; set; }
-        public virtual OptInt OptMaxLayerNumber { get { return new OptInt(false, 0); } }
+        public virtual OptInt OptMaxLayerNumber { get => new OptInt(false, 0); }
         public virtual OptDouble MinimumSpace { get; set; }
         public virtual bool AllowUncompleteLayer => false;
         public virtual bool Valid => HasSomeAllowedOrientations;
+        public IContainer Container { get; set; }
 
         public virtual bool CritHeightReached(double height) { return OptMaxHeight.Activated && OptMaxHeight.Value < height; }
         public virtual bool CritWeightReached(double weight) { return OptMaxWeight.Activated && OptMaxWeight.Value < weight; }

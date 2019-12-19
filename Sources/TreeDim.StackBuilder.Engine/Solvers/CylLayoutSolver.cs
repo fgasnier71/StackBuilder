@@ -33,8 +33,9 @@ namespace treeDiM.StackBuilder.Engine
                             , pattern.Name
                             , iDir == 1)
                         { OffsetZ = offsetZ };
-                        pattern.GetDimensions(layout, constraintSet.OptMaxNumber, out double actualLength, out double actualWidth);
-                        pattern.Generate(layout, constraintSet.OptMaxNumber, actualLength, actualWidth, constraintSet.OptMaxHeight.Value);
+
+                        pattern.GetDimensions(layout, constraintSet.OptGlobMaxNumber(packable), out double actualLength, out double actualWidth);
+                        pattern.Generate(layout, constraintSet.OptGlobMaxNumber(packable), actualLength, actualWidth, constraintSet.OptMaxHeight.Value);
                         layouts.Add(layout);
                     }
                 }
@@ -44,6 +45,7 @@ namespace treeDiM.StackBuilder.Engine
 
         public static HCylLayout BuildLayout(Packable packable
             , Vector3D dimContainer
+            , double offsetZ
             , ConstraintSetAbstract constraintSet
             , string patternName, bool swapped)
         {
@@ -59,19 +61,23 @@ namespace treeDiM.StackBuilder.Engine
                 , cylProperties.Height
                 , dimContainer
                 , pattern.Name
-                , swapped);
-            pattern.GetDimensions(layout, constraintSet.OptMaxNumber, out double actualLength, out double actualWidth);
-            pattern.Generate(layout, constraintSet.OptMaxNumber, actualLength, actualWidth, constraintSet.OptMaxHeight.Value);
+                , swapped)
+            {
+                OffsetZ = offsetZ
+            };
+            pattern.GetDimensions(layout, constraintSet.OptGlobMaxNumber(packable), out double actualLength, out double actualWidth);
+            pattern.Generate(layout, constraintSet.OptGlobMaxNumber(packable), actualLength, actualWidth, constraintSet.OptMaxHeight.Value);
             return layout;
         }
 
         public HCylLayout BuildLayoutNonStatic(Packable packable
             , Vector3D dimContainer
+            , double offsetZ
             , ConstraintSetAbstract constraintSet
             , string patternName
             , bool swapped)
         {
-            return CylLayoutSolver.BuildLayout(packable, dimContainer, constraintSet, patternName, swapped);
+            return BuildLayout(packable, dimContainer, offsetZ, constraintSet, patternName, swapped);
         }
     }
 }

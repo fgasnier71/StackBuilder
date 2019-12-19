@@ -893,4 +893,7 @@ Closing form...</value>
   <data name="ID_PREMIUMVERSIONURL" xml:space="preserve">
     <value>http://www.plmpack.com/stackbuilder/premium/premium.html</value>
   </data>
+  <data name="ID_PREMIUMFEATURE" xml:space="preserve">
+    <value>This feature is only accessible to Premium accounts.</value>
+  </data>
 </root>

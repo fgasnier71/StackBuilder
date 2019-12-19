@@ -1,6 +1,8 @@
 ﻿#region Using directives
 using System;
 using System.Drawing;
+
+using treeDiM.StackBuilder.Desktop.Properties;
 #endregion
 
 namespace treeDiM.StackBuilder.Desktop
@@ -44,5 +46,51 @@ namespace treeDiM.StackBuilder.Desktop
             else
                 Background = SecondBackground;
         }
+    }
+
+    internal class CellProperties
+    {
+        public static SourceGrid.Cells.Views.RowHeader VisualPropHeader
+        {
+            get
+            {
+                if (null == _captionHeader)
+                {
+                    _captionHeader = new SourceGrid.Cells.Views.RowHeader();
+                    DevAge.Drawing.VisualElements.RowHeader veHeaderCaption = new DevAge.Drawing.VisualElements.RowHeader()
+                    {
+                        BackColor = Color.SteelBlue,
+                        Border = DevAge.Drawing.RectangleBorder.NoBorder,
+                    };
+                    _captionHeader.Background = veHeaderCaption;
+                    _captionHeader.ForeColor = Color.Black;
+                    _captionHeader.Font = new Font("Arial", GridFontSize, FontStyle.Bold);
+                    _captionHeader.TextAlignment = DevAge.Drawing.ContentAlignment.MiddleCenter;
+                }
+                return _captionHeader;
+            }
+        }
+        public static SourceGrid.Cells.Views.RowHeader VisualPropValue
+        {
+            get
+            {
+                if (null == _viewRowHeader)
+                {
+                    _viewRowHeader = new SourceGrid.Cells.Views.RowHeader();
+                    DevAge.Drawing.VisualElements.RowHeader backHeader = new DevAge.Drawing.VisualElements.RowHeader()
+                    {
+                        BackColor = Color.LightGray,
+                        Border = DevAge.Drawing.RectangleBorder.NoBorder
+                    };
+                    _viewRowHeader.Background = backHeader;
+                    _viewRowHeader.ForeColor = Color.Black;
+                    _viewRowHeader.Font = new Font("Arial", GridFontSize, FontStyle.Regular);
+                }
+                return _viewRowHeader;
+            }
+        }
+
+        private static SourceGrid.Cells.Views.RowHeader _captionHeader, _viewRowHeader;
+        private static int GridFontSize => Settings.Default.GridFontSize;
     }
 }

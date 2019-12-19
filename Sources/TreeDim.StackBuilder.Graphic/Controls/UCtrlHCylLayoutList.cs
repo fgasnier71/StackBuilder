@@ -102,6 +102,13 @@ namespace treeDiM.StackBuilder.Graphics.Controls
             if (_index == HCylLayouts.Count)
             {
                 timer.Stop();
+                if (Controls.Count > 0)
+                {
+                    var bt = Controls[0] as Button;
+                    HCylLayoutItem btItem = bt.Tag as HCylLayoutItem;
+                    btItem.Selected = true;
+                    OnLayoutSelected(bt, null);
+                }
                 RefreshFinished?.Invoke(this, null);
                 return;
             }
@@ -120,7 +127,6 @@ namespace treeDiM.StackBuilder.Graphics.Controls
             Controls.Add(btn);
             // give button a tooltip
             tooltip.SetToolTip(btn, layout.Tooltip);
-
             // adjust i, x and y for next image
             AdjustXY(ref _x, ref _y);
             ++_index;

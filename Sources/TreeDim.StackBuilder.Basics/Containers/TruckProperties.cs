@@ -50,6 +50,7 @@ namespace treeDiM.StackBuilder.Basics
             get { return _color;  }
             set { _color = value; Modify();}
         }
+        public double Weight => 0.0;
 
         public bool HasInsideDimensions => true;
         public double InsideLength => _length;

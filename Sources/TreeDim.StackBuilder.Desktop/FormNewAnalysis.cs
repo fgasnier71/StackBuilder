@@ -16,7 +16,7 @@ namespace treeDiM.StackBuilder.Desktop
         {
             InitializeComponent();
         }
-        public FormNewAnalysis(Document document, AnalysisLayered item)
+        public FormNewAnalysis(Document document, Analysis item)
         {
             InitializeComponent();
 

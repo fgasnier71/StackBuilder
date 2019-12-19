@@ -287,6 +287,12 @@
     <Compile Include="DockContentAnalysisHCylPallet.Designer.cs">
       <DependentUpon>DockContentAnalysisHCylPallet.cs</DependentUpon>
     </Compile>
+    <Compile Include="DockContentAnalysisHCylTruck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DockContentAnalysisHCylTruck.Designer.cs">
+      <DependentUpon>DockContentAnalysisHCylTruck.cs</DependentUpon>
+    </Compile>
     <Compile Include="DockContentAnalysisPalletTruck.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -298,10 +304,6 @@
     </Compile>
     <Compile Include="DockContentDocumentExplorer.Designer.cs">
       <DependentUpon>DockContentDocumentExplorer.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DockContentECTAnalysis.cs" />
-    <Compile Include="DockContentECTAnalysis.Designer.cs">
-      <DependentUpon>DockContentECTAnalysis.cs</DependentUpon>
     </Compile>
     <Compile Include="DockContentHAnalysis.cs">
       <SubType>Form</SubType>
@@ -436,6 +438,12 @@
     </Compile>
     <Compile Include="FormNewAnalysisHCylPallet.Designer.cs">
       <DependentUpon>FormNewAnalysisHCylPallet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNewAnalysisHCylTruck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNewAnalysisHCylTruck.Designer.cs">
+      <DependentUpon>FormNewAnalysisHCylTruck.cs</DependentUpon>
     </Compile>
     <Compile Include="FormNewAnalysisPalletTruck.cs">
       <SubType>Form</SubType>
@@ -702,6 +710,9 @@
     <EmbeddedResource Include="CheckedListBoxWithImage.es.resx">
       <DependentUpon>CheckedListBoxWithImage.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CheckedListBoxWithImage.fr.resx">
+      <DependentUpon>CheckedListBoxWithImage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CheckedListBoxWithImage.it.resx">
       <DependentUpon>CheckedListBoxWithImage.cs</DependentUpon>
     </EmbeddedResource>
@@ -963,9 +974,18 @@
     <EmbeddedResource Include="DockContentAnalysisEdit.zh.resx">
       <DependentUpon>DockContentAnalysisEdit.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DockContentAnalysisHCylPallet.fr.resx">
+      <DependentUpon>DockContentAnalysisHCylPallet.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DockContentAnalysisHCylPallet.resx">
       <DependentUpon>DockContentAnalysisHCylPallet.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentAnalysisHCylTruck.fr.resx">
+      <DependentUpon>DockContentAnalysisHCylTruck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentAnalysisHCylTruck.resx">
+      <DependentUpon>DockContentAnalysisHCylTruck.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DockContentAnalysisPalletTruck.de.resx">
       <DependentUpon>DockContentAnalysisPalletTruck.cs</DependentUpon>
@@ -1051,45 +1071,8 @@
     <EmbeddedResource Include="DockContentDocumentExplorer.zh.resx">
       <DependentUpon>DockContentDocumentExplorer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DockContentECTAnalysis.de.resx">
-      <DependentUpon>DockContentECTAnalysis.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DockContentECTAnalysis.es.resx">
-      <DependentUpon>DockContentECTAnalysis.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DockContentECTAnalysis.fr.resx">
-      <DependentUpon>DockContentECTAnalysis.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DockContentECTAnalysis.it.resx">
-      <DependentUpon>DockContentECTAnalysis.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DockContentECTAnalysis.ja.resx">
-      <DependentUpon>DockContentECTAnalysis.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DockContentECTAnalysis.nl.resx">
-      <DependentUpon>DockContentECTAnalysis.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DockContentECTAnalysis.pl.resx">
-      <DependentUpon>DockContentECTAnalysis.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DockContentECTAnalysis.pt.resx">
-      <DependentUpon>DockContentECTAnalysis.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DockContentECTAnalysis.resx">
-      <DependentUpon>DockContentECTAnalysis.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DockContentECTAnalysis.ru.resx">
-      <DependentUpon>DockContentECTAnalysis.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DockContentECTAnalysis.sv.resx">
-      <DependentUpon>DockContentECTAnalysis.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DockContentECTAnalysis.tr.resx">
-      <DependentUpon>DockContentECTAnalysis.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DockContentECTAnalysis.zh.resx">
-      <DependentUpon>DockContentECTAnalysis.cs</DependentUpon>
+    <EmbeddedResource Include="DockContentHAnalysis.fr.resx">
+      <DependentUpon>DockContentHAnalysis.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DockContentHAnalysis.pt.resx">
       <DependentUpon>DockContentHAnalysis.cs</DependentUpon>
@@ -1098,6 +1081,9 @@
       <DependentUpon>DockContentHAnalysis.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DockContentLogConsole.es.resx">
+      <DependentUpon>DockContentLogConsole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentLogConsole.fr.resx">
       <DependentUpon>DockContentLogConsole.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DockContentLogConsole.it.resx">
@@ -1163,6 +1149,9 @@
     <EmbeddedResource Include="DockContentStartPage.zh.resx">
       <DependentUpon>DockContentStartPage.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DockContentView.fr.resx">
+      <DependentUpon>DockContentView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DockContentView.pt.resx">
       <DependentUpon>DockContentView.cs</DependentUpon>
     </EmbeddedResource>
@@ -1189,6 +1178,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormBecomePremiumUser.resx">
       <DependentUpon>FormBecomePremiumUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDocDisambiguate.fr.resx">
+      <DependentUpon>FormDocDisambiguate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormDocDisambiguate.pt.resx">
       <DependentUpon>FormDocDisambiguate.cs</DependentUpon>
@@ -1238,6 +1230,9 @@
     <EmbeddedResource Include="FormEditBitmaps.zh.resx">
       <DependentUpon>FormEditBitmaps.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormEditLayer.fr.resx">
+      <DependentUpon>FormEditLayer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormEditLayer.resx">
       <DependentUpon>FormEditLayer.cs</DependentUpon>
     </EmbeddedResource>
@@ -1277,6 +1272,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormExcelLibrary.zh.resx">
       <DependentUpon>FormExcelLibrary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormExporter.fr.resx">
+      <DependentUpon>FormExporter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormExporter.resx">
       <DependentUpon>FormExporter.cs</DependentUpon>
@@ -1477,6 +1475,9 @@
     <EmbeddedResource Include="FormNewAnalysisCasePallet.zh.resx">
       <DependentUpon>FormNewAnalysisCasePallet.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisCasePalletDM.fr.resx">
+      <DependentUpon>FormNewAnalysisCasePalletDM.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewAnalysisCasePalletDM.pt.resx">
       <DependentUpon>FormNewAnalysisCasePalletDM.cs</DependentUpon>
     </EmbeddedResource>
@@ -1620,6 +1621,9 @@
     <EmbeddedResource Include="FormNewAnalysisCylinderPallet.zh.resx">
       <DependentUpon>FormNewAnalysisCylinderPallet.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisCylinderTruck.fr.resx">
+      <DependentUpon>FormNewAnalysisCylinderTruck.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewAnalysisCylinderTruck.resx">
       <DependentUpon>FormNewAnalysisCylinderTruck.cs</DependentUpon>
     </EmbeddedResource>
@@ -1628,6 +1632,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewAnalysisHCylPallet.resx">
       <DependentUpon>FormNewAnalysisHCylPallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisHCylTruck.fr.resx">
+      <DependentUpon>FormNewAnalysisHCylTruck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisHCylTruck.resx">
+      <DependentUpon>FormNewAnalysisHCylTruck.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewAnalysisPalletTruck.de.resx">
       <DependentUpon>FormNewAnalysisPalletTruck.cs</DependentUpon>
@@ -1898,6 +1908,9 @@
     <EmbeddedResource Include="FormNewHAnalysis.tr.resx">
       <DependentUpon>FormNewHAnalysis.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNewHAnalysisBoxCase.fr.resx">
+      <DependentUpon>FormNewHAnalysisBoxCase.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewHAnalysisBoxCase.resx">
       <DependentUpon>FormNewHAnalysisBoxCase.cs</DependentUpon>
     </EmbeddedResource>
@@ -1913,6 +1926,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewHAnalysisCasePallet.tr.resx">
       <DependentUpon>FormNewHAnalysisCasePallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewHAnalysisCaseTruck.fr.resx">
+      <DependentUpon>FormNewHAnalysisCaseTruck.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewHAnalysisCaseTruck.pt.resx">
       <DependentUpon>FormNewHAnalysisCaseTruck.cs</DependentUpon>
@@ -2093,6 +2109,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewPalletCap.zh.resx">
       <DependentUpon>FormNewPalletCap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewPalletCorners.fr.resx">
+      <DependentUpon>FormNewPalletCorners.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewPalletCorners.pt.resx">
       <DependentUpon>FormNewPalletCorners.cs</DependentUpon>
@@ -2400,9 +2419,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormShowDatabase.zh.resx">
       <DependentUpon>FormShowDatabase.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormSplashScreen.pt.resx">
-      <DependentUpon>FormSplashScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormValidTypeName.de.resx">
       <DependentUpon>FormValidTypeName.cs</DependentUpon>

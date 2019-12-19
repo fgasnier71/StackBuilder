@@ -32,12 +32,13 @@
             this.linkLabelPremiumVsFree = new System.Windows.Forms.LinkLabel();
             this.lbSubscribe = new System.Windows.Forms.Label();
             this.cbSubscriptionDuration = new System.Windows.Forms.ComboBox();
-            this.lbProposal = new System.Windows.Forms.Label();
-            this.cbPaymentMode = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lbEmail = new System.Windows.Forms.Label();
             this.tbEmail = new System.Windows.Forms.TextBox();
             this.bnSend = new System.Windows.Forms.Button();
             this.bnCancel = new System.Windows.Forms.Button();
+            this.rbSubscription1 = new System.Windows.Forms.RadioButton();
+            this.webBrowser = new System.Windows.Forms.WebBrowser();
+            this.rbSubscription2 = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
             // linkLabelPremiumVsFree
@@ -62,25 +63,10 @@
             resources.GetString("cbSubscriptionDuration.Items1")});
             this.cbSubscriptionDuration.Name = "cbSubscriptionDuration";
             // 
-            // lbProposal
+            // lbEmail
             // 
-            resources.ApplyResources(this.lbProposal, "lbProposal");
-            this.lbProposal.Name = "lbProposal";
-            // 
-            // cbPaymentMode
-            // 
-            resources.ApplyResources(this.cbPaymentMode, "cbPaymentMode");
-            this.cbPaymentMode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbPaymentMode.FormattingEnabled = true;
-            this.cbPaymentMode.Items.AddRange(new object[] {
-            resources.GetString("cbPaymentMode.Items"),
-            resources.GetString("cbPaymentMode.Items1")});
-            this.cbPaymentMode.Name = "cbPaymentMode";
-            // 
-            // label1
-            // 
-            resources.ApplyResources(this.label1, "label1");
-            this.label1.Name = "label1";
+            resources.ApplyResources(this.lbEmail, "lbEmail");
+            this.lbEmail.Name = "lbEmail";
             // 
             // tbEmail
             // 
@@ -101,17 +87,41 @@
             this.bnCancel.Name = "bnCancel";
             this.bnCancel.UseVisualStyleBackColor = true;
             // 
+            // rbSubscription1
+            // 
+            resources.ApplyResources(this.rbSubscription1, "rbSubscription1");
+            this.rbSubscription1.Name = "rbSubscription1";
+            this.rbSubscription1.TabStop = true;
+            this.rbSubscription1.UseVisualStyleBackColor = true;
+            this.rbSubscription1.CheckedChanged += new System.EventHandler(this.OnPaymentModeChanged);
+            // 
+            // webBrowser
+            // 
+            this.webBrowser.AllowWebBrowserDrop = false;
+            resources.ApplyResources(this.webBrowser, "webBrowser");
+            this.webBrowser.Name = "webBrowser";
+            this.webBrowser.Url = new System.Uri("http://www.plmpack.com/stackbuilder/premium/paypal_small.htm", System.UriKind.Absolute);
+            // 
+            // rbSubscription2
+            // 
+            resources.ApplyResources(this.rbSubscription2, "rbSubscription2");
+            this.rbSubscription2.Name = "rbSubscription2";
+            this.rbSubscription2.TabStop = true;
+            this.rbSubscription2.UseVisualStyleBackColor = true;
+            this.rbSubscription2.CheckedChanged += new System.EventHandler(this.OnPaymentModeChanged);
+            // 
             // FormBecomePremiumUser
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.bnCancel;
+            this.Controls.Add(this.rbSubscription2);
+            this.Controls.Add(this.webBrowser);
+            this.Controls.Add(this.rbSubscription1);
             this.Controls.Add(this.bnCancel);
             this.Controls.Add(this.bnSend);
             this.Controls.Add(this.tbEmail);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.cbPaymentMode);
-            this.Controls.Add(this.lbProposal);
+            this.Controls.Add(this.lbEmail);
             this.Controls.Add(this.cbSubscriptionDuration);
             this.Controls.Add(this.lbSubscribe);
             this.Controls.Add(this.linkLabelPremiumVsFree);
@@ -130,11 +140,12 @@
         private System.Windows.Forms.LinkLabel linkLabelPremiumVsFree;
         private System.Windows.Forms.Label lbSubscribe;
         private System.Windows.Forms.ComboBox cbSubscriptionDuration;
-        private System.Windows.Forms.Label lbProposal;
-        private System.Windows.Forms.ComboBox cbPaymentMode;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbEmail;
         private System.Windows.Forms.TextBox tbEmail;
         private System.Windows.Forms.Button bnSend;
         private System.Windows.Forms.Button bnCancel;
+        private System.Windows.Forms.RadioButton rbSubscription1;
+        private System.Windows.Forms.WebBrowser webBrowser;
+        private System.Windows.Forms.RadioButton rbSubscription2;
     }
 }

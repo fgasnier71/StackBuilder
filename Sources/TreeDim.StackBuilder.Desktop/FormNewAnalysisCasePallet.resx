@@ -183,7 +183,7 @@
     <value>cbPallets</value>
   </data>
   <data name="&gt;&gt;cbPallets.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered, treeDiM.StackBuilder.Graphics, Version=3.0.1.1, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered, treeDiM.StackBuilder.Graphics, Version=3.0.2.1, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;cbPallets.Parent" xml:space="preserve">
     <value>$this</value>
@@ -204,7 +204,7 @@
     <value>cbCases</value>
   </data>
   <data name="&gt;&gt;cbCases.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered, treeDiM.StackBuilder.Graphics, Version=3.0.1.1, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered, treeDiM.StackBuilder.Graphics, Version=3.0.2.1, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;cbCases.Parent" xml:space="preserve">
     <value>$this</value>
@@ -316,7 +316,7 @@
     <value>uCtrlLayerList</value>
   </data>
   <data name="&gt;&gt;uCtrlLayerList.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Graphics.UCtrlLayerList, treeDiM.StackBuilder.Graphics, Version=3.0.1.1, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Graphics.UCtrlLayerList, treeDiM.StackBuilder.Graphics, Version=3.0.2.1, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlLayerList.Parent" xml:space="preserve">
     <value>splitContainer1.Panel1</value>
@@ -394,7 +394,7 @@
     <value>uCtrlCaseOrientation</value>
   </data>
   <data name="&gt;&gt;uCtrlCaseOrientation.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Graphics.uCtrlCaseOrientation, treeDiM.StackBuilder.Graphics, Version=3.0.1.1, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Graphics.uCtrlCaseOrientation, treeDiM.StackBuilder.Graphics, Version=3.0.2.1, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlCaseOrientation.Parent" xml:space="preserve">
     <value>$this</value>
@@ -658,13 +658,16 @@
     <value>uCtrlLayerListEdited</value>
   </data>
   <data name="&gt;&gt;uCtrlLayerListEdited.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Graphics.UCtrlLayerList, treeDiM.StackBuilder.Graphics, Version=3.0.1.1, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Graphics.UCtrlLayerList, treeDiM.StackBuilder.Graphics, Version=3.0.2.1, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlLayerListEdited.Parent" xml:space="preserve">
     <value>splitContainer1.Panel2</value>
   </data>
   <data name="&gt;&gt;uCtrlLayerListEdited.ZOrder" xml:space="preserve">
     <value>1</value>
+  </data>
+  <data name="splitContainer1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
   </data>
   <data name="splitContainer1.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 226</value>
@@ -785,15 +788,6 @@
     <value>FormNewAnalysisCasePallet</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Desktop.FormNewAnalysis, treeDiM.StackBuilder.Desktop, Version=3.0.1.1, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="tabPageLayerFilters.Text" xml:space="preserve">
-    <value>Layer filters</value>
-  </data>
-  <data name="uCtrlOptMaximumSpace.Text" xml:space="preserve">
-    <value>Maximum space</value>
-  </data>
-  <data name="uCtrlOptMaximumLayerWeight.Text" xml:space="preserve">
-    <value>Maximum layer weight</value>
+    <value>treeDiM.StackBuilder.Desktop.FormNewAnalysis, treeDiM.StackBuilder.Desktop, Version=3.0.2.1, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

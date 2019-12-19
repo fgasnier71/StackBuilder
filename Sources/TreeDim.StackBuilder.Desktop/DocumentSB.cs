@@ -114,7 +114,7 @@ namespace treeDiM.StackBuilder.Desktop
         #region View creation methods
         public DockContentView CreateViewAnalysis(Analysis analysis)
         {
-            DockContentView form = null;
+            DockContentView form;
             if (analysis is AnalysisCasePallet) form = new DockContentAnalysisCasePallet(this, analysis as AnalysisCasePallet);
             else if (analysis is AnalysisBoxCase) form = new DockContentAnalysisBoxCase(this, analysis as AnalysisBoxCase);
             else if (analysis is AnalysisCylinderPallet) form = new DockContentAnalysisCylinderPallet(this, analysis as AnalysisCylinderPallet);
@@ -123,6 +123,7 @@ namespace treeDiM.StackBuilder.Desktop
             else if (analysis is AnalysisCaseTruck) form = new DockContentAnalysisCaseTruck(this, analysis as AnalysisCaseTruck);
             else if (analysis is AnalysisCylinderTruck) form = new DockContentAnalysisCylinderTruck(this, analysis as AnalysisCylinderTruck);
             else if (analysis is AnalysisHCylPallet) form = new DockContentAnalysisHCylPallet(this, analysis as AnalysisHCylPallet);
+            else if (analysis is AnalysisHCylTruck) form = new DockContentAnalysisHCylTruck(this, analysis as AnalysisHCylTruck);
             else
             {
                 _log.Error(string.Format("Analysis ({0}) type not handled", analysis.Name));
@@ -144,17 +145,6 @@ namespace treeDiM.StackBuilder.Desktop
             AddView(form);
             return form;
         }
-        /*
-        /// <summary>
-        /// creates a new DockContentECTAnalysis view
-        /// </summary>
-        public DockContentECTAnalysis CreateECTAnalysisView(ECTAnalysis analysis)
-        {
-            DockContentECTAnalysis form = new DockContentECTAnalysis(this, analysis);
-            AddView(form);
-            return form;
-        }
-        */
         #endregion
 
         #region UI item creation
@@ -339,44 +329,50 @@ namespace treeDiM.StackBuilder.Desktop
             if (!CanCreateAnalysisCasePallet && !CanCreateAnalysisBundlePallet) return;
             if (Properties.Settings.Default.DummyMode)
             {
-                using (FormNewAnalysisCasePalletDM form = new FormNewAnalysisCasePalletDM(this, null))
+                using (var form = new FormNewAnalysisCasePalletDM(this, null))
                     if (DialogResult.OK == form.ShowDialog()) { } 
             }
             else
             {
-                using (FormNewAnalysisCasePallet form = new FormNewAnalysisCasePallet(this, null))
+                using (var form = new FormNewAnalysisCasePallet(this, null))
                     if (DialogResult.OK == form.ShowDialog()) { } 
             }
         }
         public void CreateNewAnalysisBoxCaseUI()
         {
             if (!CanCreateAnalysisBoxCase && !CanCreateAnalysisBundleCase) return;
-            using (FormNewAnalysisBoxCase form = new FormNewAnalysisBoxCase(this, null))
+            using (var form = new FormNewAnalysisBoxCase(this, null))
                 if (DialogResult.OK == form.ShowDialog()) { } 
         }
         public void CreateNewAnalysisCylinderPalletUI()
         {
             if (!CanCreateAnalysisCylinderPallet) return;
-            using (FormNewAnalysisCylinderPallet form = new FormNewAnalysisCylinderPallet(this, null))
+            using (var form = new FormNewAnalysisCylinderPallet(this, null))
+                if (DialogResult.OK == form.ShowDialog()) { }
+        }
+        public void CreateNewAnalysisHCylPalletUI()
+        {
+            if (!CanCreateAnalysisCylinderPallet) return;
+            using (var form = new FormNewAnalysisHCylPallet(this, null))
                 if (DialogResult.OK == form.ShowDialog()) { }
         }
         public void CreateNewAnalysisCylinderCaseUI()
         {
             if (!CanCreateAnalysisCylinderCase) return;
-            using (FormNewAnalysisCylinderCase form = new FormNewAnalysisCylinderCase(this, null))
+            using (var form = new FormNewAnalysisCylinderCase(this, null))
                 if (DialogResult.OK == form.ShowDialog()) { }
         }
         public AnalysisPalletTruck CreateNewAnalysisPalletTruckUI()
         {
             if (!CanCreateAnalysisPalletTruck) return null;
-            using (FormNewAnalysisPalletTruck form = new FormNewAnalysisPalletTruck(this, null))
+            using (var form = new FormNewAnalysisPalletTruck(this, null))
                 if (DialogResult.OK == form.ShowDialog()) { }
             return null;
         }
         public AnalysisCaseTruck CreateNewAnalysisCaseTruckUI()
         {
             if (!CanCreateAnalysisCaseTruck) return null;
-            using (FormNewAnalysisCaseTruck form = new FormNewAnalysisCaseTruck(this, null))
+            using (var form = new FormNewAnalysisCaseTruck(this, null))
                 if (DialogResult.OK == form.ShowDialog()) { }
             return null;
         }
@@ -400,12 +396,7 @@ namespace treeDiM.StackBuilder.Desktop
             using (FormNewHAnalysis form = new FormNewHAnalysisCaseTruck(this, null))
                 if (DialogResult.OK == form.ShowDialog()) { }
         }
-        public void CreateNewAnalysisHCylPalletUI()
-        {
-            if (!CanCreateAnalysisCylinderPallet) return;
-            using (var form = new FormNewAnalysisHCylPallet(this, null))
-                if (DialogResult.OK == form.ShowDialog()) { }
-        }
+
         public void ExportAnalysesToExcel()
         {
             // open excel file
@@ -514,7 +505,7 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region UI item edition
-        public void EditAnalysis(AnalysisLayered analysis)
+        public void EditAnalysis(AnalysisHomo analysis)
         {
             // search for any DockContentAnalysis window and close it
             var seq = (from view in Views
@@ -524,13 +515,15 @@ namespace treeDiM.StackBuilder.Desktop
 
             // instantiate a form to edit analysis
             Form form = null;
-            if (analysis is AnalysisCasePallet) form = new FormNewAnalysisCasePallet(this, analysis);
-            else if (analysis is AnalysisBoxCase) form = new FormNewAnalysisBoxCase(this, analysis);
-            else if (analysis is AnalysisCylinderPallet) form = new FormNewAnalysisCylinderPallet(this, analysis);
-            else if (analysis is AnalysisCylinderCase) form = new FormNewAnalysisCylinderCase(this, analysis);
-            else if (analysis is AnalysisPalletTruck) form = new FormNewAnalysisPalletTruck(this, analysis);
-            else if (analysis is AnalysisCaseTruck) form = new FormNewAnalysisCaseTruck(this, analysis);
-            else if (analysis is AnalysisCylinderTruck) form = new FormNewAnalysisCylinderTruck(this, analysis);
+            if (analysis is AnalysisCasePallet analysisCasePallet) form = new FormNewAnalysisCasePallet(this, analysisCasePallet);
+            else if (analysis is AnalysisBoxCase analysisBoxCase) form = new FormNewAnalysisBoxCase(this, analysisBoxCase);
+            else if (analysis is AnalysisCylinderPallet analysisCylinderPallet) form = new FormNewAnalysisCylinderPallet(this, analysisCylinderPallet);
+            else if (analysis is AnalysisCylinderCase analysisCylinderCase) form = new FormNewAnalysisCylinderCase(this, analysisCylinderCase);
+            else if (analysis is AnalysisPalletTruck analysisPalletTruck) form = new FormNewAnalysisPalletTruck(this, analysisPalletTruck);
+            else if (analysis is AnalysisCaseTruck analysisCaseTruck) form = new FormNewAnalysisCaseTruck(this, analysisCaseTruck);
+            else if (analysis is AnalysisCylinderTruck analysisCylinderTruck) form = new FormNewAnalysisCylinderTruck(this, analysisCylinderTruck);
+            else if (analysis is AnalysisHCylPallet analysisHCylPallet) form = new FormNewAnalysisHCylPallet(this, analysisHCylPallet);
+            else if (analysis is AnalysisHCylTruck analysisHCylTruck) form = new FormNewAnalysisHCylTruck(this, analysisHCylTruck);
             else
             {
                 MessageBox.Show("Unexepected analysis type!");

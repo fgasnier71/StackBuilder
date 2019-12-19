@@ -32,7 +32,7 @@
             this.splitContainerHoriz = new System.Windows.Forms.SplitContainer();
             this.splitContainerVert = new System.Windows.Forms.SplitContainer();
             this.graphCtrlSolution = new treeDiM.StackBuilder.Graphics.Graphics3DControl();
-            this.gridSolutions = new SourceGrid.Grid();
+            this.gridSolution = new SourceGrid.Grid();
             this.gbLayer = new System.Windows.Forms.GroupBox();
             this.chkbInterlayer = new System.Windows.Forms.CheckBox();
             this.cbInterlayer = new treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered();
@@ -42,11 +42,11 @@
             this.tbClickLayer = new System.Windows.Forms.TextBox();
             this.toolStripAnalysis = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonBack = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButtonReport = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButtonExportXML = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonExportCSV = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerHoriz)).BeginInit();
             this.splitContainerHoriz.Panel1.SuspendLayout();
             this.splitContainerHoriz.Panel2.SuspendLayout();
@@ -86,7 +86,7 @@
             // 
             // splitContainerVert.Panel2
             // 
-            this.splitContainerVert.Panel2.Controls.Add(this.gridSolutions);
+            this.splitContainerVert.Panel2.Controls.Add(this.gridSolution);
             // 
             // graphCtrlSolution
             // 
@@ -94,15 +94,16 @@
             this.graphCtrlSolution.Name = "graphCtrlSolution";
             this.graphCtrlSolution.Viewer = null;
             // 
-            // gridSolutions
+            // gridSolution
             // 
-            resources.ApplyResources(this.gridSolutions, "gridSolutions");
-            this.gridSolutions.EnableSort = false;
-            this.gridSolutions.Name = "gridSolutions";
-            this.gridSolutions.OptimizeMode = SourceGrid.CellOptimizeMode.ForRows;
-            this.gridSolutions.SelectionMode = SourceGrid.GridSelectionMode.Cell;
-            this.gridSolutions.TabStop = true;
-            this.gridSolutions.ToolTipText = "";
+            this.gridSolution.ColumnsCount = 2;
+            resources.ApplyResources(this.gridSolution, "gridSolution");
+            this.gridSolution.EnableSort = false;
+            this.gridSolution.Name = "gridSolution";
+            this.gridSolution.OptimizeMode = SourceGrid.CellOptimizeMode.ForRows;
+            this.gridSolution.SelectionMode = SourceGrid.GridSelectionMode.Cell;
+            this.gridSolution.TabStop = true;
+            this.gridSolution.ToolTipText = "";
             // 
             // gbLayer
             // 
@@ -178,6 +179,11 @@
             this.toolStripButtonBack.Name = "toolStripButtonBack";
             this.toolStripButtonBack.Click += new System.EventHandler(this.OnBack);
             // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            resources.ApplyResources(this.toolStripSeparator2, "toolStripSeparator2");
+            // 
             // toolStripButtonReport
             // 
             this.toolStripButtonReport.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -203,11 +209,6 @@
             resources.ApplyResources(this.toolStripButtonExportCSV, "toolStripButtonExportCSV");
             this.toolStripButtonExportCSV.Name = "toolStripButtonExportCSV";
             this.toolStripButtonExportCSV.Click += new System.EventHandler(this.OnGenerateExport);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            resources.ApplyResources(this.toolStripSeparator2, "toolStripSeparator2");
             // 
             // DockContentAnalysisEdit
             // 
@@ -250,7 +251,7 @@
         private System.Windows.Forms.Button bnSymmetryX;
         private System.Windows.Forms.Button bnSymetryY;
         private System.Windows.Forms.TextBox tbClickLayer;
-        protected SourceGrid.Grid gridSolutions;
+        protected SourceGrid.Grid gridSolution;
         private System.Windows.Forms.ToolStripButton toolStripButtonBack;
         private System.Windows.Forms.ToolStripButton toolStripButtonExportXML;
         private System.Windows.Forms.ToolStripButton toolStripButtonExportCSV;

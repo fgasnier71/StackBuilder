@@ -24,12 +24,6 @@ namespace treeDiM.StackBuilder.Graphics
     #region Graphics3DControl
     public partial class Graphics3DControl : UserControl, ISupportInitialize
     {
-        #region Data members
-        private Point _prevLocation;
-        private const int _toolbarButtonOffset = 17;
-        internal static Cursor _cursorRotate;
-        static readonly ILog _log = LogManager.GetLogger(typeof(Graphics3DControl));
-        #endregion
 
         #region Delegates
         public delegate void ButtonPressedHandler(int iIndex);
@@ -329,6 +323,13 @@ namespace treeDiM.StackBuilder.Graphics
             }
             Invalidate();
         }
+        #endregion
+
+        #region Data members
+        private Point _prevLocation;
+        private const int _toolbarButtonOffset = 17;
+        internal static Cursor _cursorRotate;
+        static readonly ILog _log = LogManager.GetLogger(typeof(Graphics3DControl));
         #endregion
     }
     #endregion

@@ -127,11 +127,23 @@
   <data name="lbSubscribe.Text" xml:space="preserve">
     <value>Je souhaiterai souscrire pour</value>
   </data>
+  <data name="cbSubscriptionDuration.Items" xml:space="preserve">
+    <value>1 an (50€ HT)</value>
+  </data>
+  <data name="cbSubscriptionDuration.Items1" xml:space="preserve">
+    <value>2 ans (90€ HT)</value>
+  </data>
   <data name="lbProposal.Size" type="System.Drawing.Size, System.Drawing">
     <value>183, 13</value>
   </data>
   <data name="lbProposal.Text" xml:space="preserve">
     <value>et préfèrerai recevoir un courriel avec</value>
+  </data>
+  <data name="cbPaymentMode.Items" xml:space="preserve">
+    <value>un lien pour payer via Paypal (grâce à un compte Paypal ou une carte de crédit)</value>
+  </data>
+  <data name="cbPaymentMode.Items1" xml:space="preserve">
+    <value>une facture avec un code IBAN</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>103, 13</value>
@@ -147,17 +159,5 @@
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Devenir un utilisateur "Premium"...</value>
-  </data>
-  <data name="cbSubscriptionDuration.Items" xml:space="preserve">
-    <value>1 an (50€ HT)</value>
-  </data>
-  <data name="cbSubscriptionDuration.Items1" xml:space="preserve">
-    <value>2 ans (90€ HT)</value>
-  </data>
-  <data name="cbPaymentMode.Items" xml:space="preserve">
-    <value>un lien pour payer via Paypal (grâce à un compte Paypal ou une carte de crédit)</value>
-  </data>
-  <data name="cbPaymentMode.Items1" xml:space="preserve">
-    <value>une facture avec un code IBAN</value>
   </data>
 </root>

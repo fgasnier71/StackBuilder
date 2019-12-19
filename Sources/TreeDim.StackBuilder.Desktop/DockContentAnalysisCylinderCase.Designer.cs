@@ -73,7 +73,7 @@
             // 
             // gridSolutions
             // 
-            resources.ApplyResources(this.gridSolutions, "gridSolutions");
+            resources.ApplyResources(this.gridSolution, "gridSolutions");
             // 
             // DockContentAnalysisCylinderCase
             // 

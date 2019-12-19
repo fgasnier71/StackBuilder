@@ -139,6 +139,7 @@ namespace treeDiM.StackBuilder.SampleCasePalletProj
 
             // assign static member with default layer solver
             SolutionLayered.SetSolver(new LayerSolver());
+            SolutionHCyl.SetSolver(new CylLayoutSolver());
 
             // build analysis
             var analysis = new AnalysisCasePallet(_caseProperties, _palletProperties, _constraintSet as ConstraintSetCasePallet);

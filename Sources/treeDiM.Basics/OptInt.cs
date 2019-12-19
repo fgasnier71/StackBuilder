@@ -116,5 +116,21 @@ namespace treeDiM.Basics
         public static bool operator ==(OptInt left, OptInt right) => left.Equals(right);
         public static bool operator !=(OptInt left, OptInt right) => !(left == right);
         #endregion
+        #region Static operators
+        public static OptInt Min(OptInt opt1, OptInt opt2)
+        {
+            if (opt1.Activated && !opt2.Activated) return opt1;
+            else if (!opt1.Activated && opt2.Activated) return opt2;
+            else if (opt1.Activated && opt2.Activated) return new OptInt(true, Math.Min(opt1.Value, opt2.Value));
+            else return Zero;
+        }
+        public static OptInt Max(OptInt opt1, OptInt opt2)
+        {
+            if (opt1.Activated && !opt2.Activated) return opt1;
+            else if (!opt1.Activated && opt2.Activated) return opt2;
+            else if (opt1.Activated && opt2.Activated) return new OptInt(true, Math.Max(opt1.Value, opt2.Value));
+            else return Zero;
+        }
+        #endregion
     }
 }

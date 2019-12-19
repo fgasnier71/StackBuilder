@@ -1,6 +1,7 @@
 ﻿#region Using directives
 using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 using Sharp3D.Math.Core;
 #endregion
@@ -27,7 +28,13 @@ namespace treeDiM.StackBuilder.Basics
             DimContainer = dimContainer;
             PatternName = patternName;
             Swapped = swapped;
-
+        }
+        public HCylLayout(double cylDiameter, double cyLength, Vector3D dimContainer, string descriptor)
+        {
+            CylDiameter = cylDiameter;
+            CylLength = CylLength;
+            DimContainer = dimContainer;
+            ParseDescString(descriptor);
         }
         #endregion
         #region Public properties
@@ -41,21 +48,24 @@ namespace treeDiM.StackBuilder.Basics
         public double StackingWidth => DimContainer.Y;
         public double StackingHeight => DimContainer.Z;
         public bool Swapped { get; protected set; } = false;
-        public BBox3D BBox
+        public BBox3D BBox => BBoxOffset(Vector3D.Zero);
+        public BBox3D BBoxOffset(Vector3D offset)
         {
-            get
+            var bb = BBox3D.Initial;
+            foreach (var cp in Positions)
             {
-                var bb = BBox3D.Initial;
-                foreach (var cp in Positions)
-                    bb.Extend(cp.BBox(CylRadius, CylLength));
-                return bb;
+                CylPosition cpOffset = cp + offset;
+                bb.Extend(cpOffset.BBox(CylRadius, CylLength));
             }
+            return bb;
         }
-        public string Tooltip => $"{PatternName}";
+        public string Descriptor => $"{PatternName}|{SwappedString}";
+        public string Tooltip => $"{Descriptor}";
         public Limit LimitReached { get; set; }
         public double RowSpacing { get; set; } = 0;
         #endregion
         #region Helpers
+        private string SwappedString => Swapped ? "t" : "f";
         public void Clear() => Positions.Clear();
         public bool IsValidPosition(CylPosition cylPosition)
         {
@@ -102,6 +112,18 @@ namespace treeDiM.StackBuilder.Basics
                     return true;
             }
             return false;
+        }
+        private void ParseDescString(string desc)
+        {
+            Regex r = new Regex(@"(?<name>.*)\|(?<swap>.*)", RegexOptions.Singleline);
+            Match m = r.Match(desc);
+            if (m.Success)
+            {
+                PatternName = m.Result("${name}");
+                Swapped = string.Equals("t", m.Result("${swap}"), StringComparison.CurrentCultureIgnoreCase);
+            }
+            else
+                throw new Exception("Failed to parse layout descriptor");
         }
         #endregion
         #region IDisposable

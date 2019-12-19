@@ -1616,4 +1616,7 @@
   <data name="toolStripMIPremium.Text" xml:space="preserve">
     <value>Devenir un utilisateur "Premium"</value>
   </data>
+  <data name="toolStripMIAnalysisHCylPallet.Text" xml:space="preserve">
+    <value>Cylindre horizontaux/palette</value>
+  </data>
 </root>

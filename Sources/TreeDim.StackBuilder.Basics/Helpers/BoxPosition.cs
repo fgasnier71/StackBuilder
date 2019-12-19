@@ -366,6 +366,20 @@ namespace treeDiM.StackBuilder.Basics
             return ptMin.X <= bbox.PtMin.X && ptMin.Y <= bbox.PtMin.Y
                 && bbox.PtMax.X <= ptMax.X && bbox.PtMax.Y <= ptMax.Y;
         }
+        public static bool BoxCanMoveInside(BoxPosition bPos, Vector3D dim, Vector2D ptMin, Vector2D ptMax, HalfAxis.HAxis axis)
+        {
+            var bbox = bPos.BBox(dim);
+            switch (axis)
+            {
+                case HalfAxis.HAxis.AXIS_X_N: return bbox.PtMin.X > ptMin.X;
+                case HalfAxis.HAxis.AXIS_X_P: return bbox.PtMax.X < ptMax.X;
+                case HalfAxis.HAxis.AXIS_Y_N: return bbox.PtMin.Y > ptMin.Y;
+                case HalfAxis.HAxis.AXIS_Y_P: return bbox.PtMax.Y < ptMax.Y;
+                default: return false;
+            }
+        }
+
+
         public static bool BoxesAreInside(List<BoxPosition> list, Vector3D dim, Vector2D ptMin, Vector2D ptMax)
         {
             foreach (var bpos in list)

@@ -566,12 +566,12 @@ namespace treeDiM.StackBuilder.Reporting
         #region Analyses
         private void AppendAnalysisElement(Analysis analysis, ReportNode rnAnalysis, XmlElement elemDocument, XmlDocument xmlDoc)
         {
-            if (analysis is AnalysisLayered analysisHomo)
+            if (analysis is AnalysisHomo analysisHomo)
                 AppendAnalysisHomoElement(analysisHomo, rnAnalysis, elemDocument, xmlDoc);
             else if (analysis is AnalysisHetero analysisHetero)
                 AppendAnalysisHeterogeneousElement(analysisHetero, rnAnalysis, elemDocument, xmlDoc);
         }
-        private void AppendAnalysisHomoElement(AnalysisLayered analysis, ReportNode rnAnalysis, XmlElement elemDocument, XmlDocument xmlDoc)
+        private void AppendAnalysisHomoElement(AnalysisHomo analysis, ReportNode rnAnalysis, XmlElement elemDocument, XmlDocument xmlDoc)
         { 
             Packable content = analysis.Content;
 
@@ -583,7 +583,7 @@ namespace treeDiM.StackBuilder.Reporting
                 // -> proceed recursively
                 ReportNode rnInnerAnalysis = rnAnalysis.GetChildByName(string.Format(Resources.ID_RN_ANALYSIS, innerAnalysis.Name));
                 if (rnInnerAnalysis.Activated)
-                    AppendAnalysisHomoElement(innerAnalysis as AnalysisLayered, rnInnerAnalysis, elemDocument, xmlDoc);
+                    AppendAnalysisHomoElement(innerAnalysis as AnalysisHomo, rnInnerAnalysis, elemDocument, xmlDoc);
             }
             else
                 hasContent = true;
@@ -618,13 +618,15 @@ namespace treeDiM.StackBuilder.Reporting
                 AppendContainerElement(analysis.Container, rnContainer, eltAnalysis, xmlDoc);
 
             // ### 3. INTERLAYERS
-            foreach (InterlayerProperties interlayer in analysis.Interlayers)
+            if (analysis is AnalysisLayered analysisLayered)
             {
-                ReportNode rnInterlayer = rnAnalysis.GetChildByName(string.Format("{0} ({1})", PackableType(interlayer), interlayer.Name));
-                if (rnInterlayer.Activated)
-                    AppendInterlayerElement(interlayer, rnInterlayer, eltAnalysis, xmlDoc);
+                foreach (InterlayerProperties interlayer in analysisLayered.Interlayers)
+                {
+                    ReportNode rnInterlayer = rnAnalysis.GetChildByName(string.Format("{0} ({1})", PackableType(interlayer), interlayer.Name));
+                    if (rnInterlayer.Activated)
+                        AppendInterlayerElement(interlayer, rnInterlayer, eltAnalysis, xmlDoc);
+                }
             }
-
             // ### 4. CONSTRAINTSET
             ReportNode rnConstraintSet = rnAnalysis.GetChildByName(Resources.ID_RN_CONSTRAINTSET);
             if (rnConstraintSet.Activated)
@@ -633,7 +635,7 @@ namespace treeDiM.StackBuilder.Reporting
             // ### 5. SOLUTION
             ReportNode rnSolution = rnAnalysis.GetChildByName(Resources.ID_RN_SOLUTION);
             if (rnSolution.Activated)
-                AppendSolutionElement(analysis.SolutionLay, rnSolution, eltAnalysis, xmlDoc);
+                AppendSolutionElement(analysis.Solution, rnSolution, eltAnalysis, xmlDoc);
         }
 
         private void AppendAnalysisHeterogeneousElement(AnalysisHetero analysis, ReportNode rnAnalysis, XmlElement elemDocument, XmlDocument xmlDoc)
@@ -756,14 +758,14 @@ namespace treeDiM.StackBuilder.Reporting
             if (constraintSet is HConstraintSetCase constraintSetCase)
             { }
         }
-        private void AppendSolutionElement(SolutionLayered sol, ReportNode rnSolution, XmlElement elemAnalysis, XmlDocument xmlDoc)
+        private void AppendSolutionElement(SolutionHomo sol, ReportNode rnSolution, XmlElement elemAnalysis, XmlDocument xmlDoc)
         {
             string ns = xmlDoc.DocumentElement.NamespaceURI;
             XmlElement elemSolution = xmlDoc.CreateElement("solution", ns);
             elemAnalysis.AppendChild(elemSolution);
 
             // *** Item # (Recursive count)
-            AnalysisLayered analysis = sol.AnalysisCast;
+            AnalysisHomo analysis = sol.Analysis;
             Packable content = analysis.Content;
             int itemCount = sol.ItemCount;
             int number = 1;
@@ -773,15 +775,19 @@ namespace treeDiM.StackBuilder.Reporting
                 AppendContentItem(xmlDoc, elemSolution, content.DetailedName, itemCount);
             }
             while (null != content && content.InnerContent(ref content, ref number));
-            // ***
-            // Number of layers
-            AppendElementValue(xmlDoc, elemSolution, "noLayers", sol.Layers.Count);
-            // Number of cases per layer
-            if (sol.HasConstantNoCasesPerLayer)
-                AppendElementValue(xmlDoc, elemSolution, "noCasesPerLayer", sol.Layers[0].BoxCount);
-            // number layers x number cases
-            if (rnSolution.GetChildByName(Resources.ID_RN_NOLAYERSBYNOCASES).Activated)
-                AppendElementValue(xmlDoc, elemSolution, "noLayersAndNoCases", sol.NoLayersPerNoCasesString);
+
+            if (sol is SolutionLayered solLayer)
+            {
+                // ***
+                // Number of layers
+                AppendElementValue(xmlDoc, elemSolution, "noLayers", solLayer.Layers.Count);
+                // Number of cases per layer
+                if (solLayer.HasConstantNoCasesPerLayer)
+                    AppendElementValue(xmlDoc, elemSolution, "noCasesPerLayer", solLayer.Layers[0].BoxCount);
+                // number layers x number cases
+                if (rnSolution.GetChildByName(Resources.ID_RN_NOLAYERSBYNOCASES).Activated)
+                    AppendElementValue(xmlDoc, elemSolution, "noLayersAndNoCases", solLayer.NoLayersPerNoCasesString);
+            }
             // ***
             if (rnSolution.GetChildByName(Resources.ID_RN_WEIGHT).Activated)
             {
@@ -837,9 +843,17 @@ namespace treeDiM.StackBuilder.Reporting
 
                 try
                 {
-                    // instantiate solution viewer
-                    using (ViewerSolution sv = new ViewerSolution(sol))
-                        sv.Draw(graphics, Transform3D.Identity);
+                    if (sol is SolutionLayered solLayer2)
+                    {
+                        // instantiate solution viewer
+                        using (ViewerSolution sv = new ViewerSolution(solLayer2))
+                            sv.Draw(graphics, Transform3D.Identity);
+                    }
+                    else if (sol is SolutionHCyl solHCyl)
+                    {
+                        using (ViewerSolutionHCyl sv = new ViewerSolutionHCyl(solHCyl))
+                            sv.Draw(graphics, Transform3D.Identity);
+                    }
                     graphics.Flush();
                 }
                 catch (Exception ex)
@@ -862,65 +876,67 @@ namespace treeDiM.StackBuilder.Reporting
                 elemImage.AppendChild(elemHeight);
                 elemHeight.InnerText = imgHTMLWidth.ToString();
             }
-
+            if (sol is SolutionLayered solLay3)
+            { 
             ReportNode rnLayers = rnSolution.GetChildByName(Resources.ID_RN_LAYERS);
-            if (rnLayers.Activated)
-            {
-                // layers
-                XmlElement elemLayers = xmlDoc.CreateElement("layers", ns);
-                elemSolution.AppendChild(elemLayers);
-
-                List<LayerSummary> layerSummaries = sol.ListLayerSummary;
-                foreach (LayerSummary layerSum in layerSummaries)
+                if (rnLayers.Activated)
                 {
-                    // layer
-                    XmlElement elemLayer = xmlDoc.CreateElement("layer", ns);
-                    elemLayers.AppendChild(elemLayer);
-                    // layerIndexes
-                    XmlElement elemLayerIndexes = xmlDoc.CreateElement("layerIndexes", ns);
-                    elemLayer.AppendChild(elemLayerIndexes);
-                    elemLayerIndexes.InnerText = layerSum.LayerIndexesString;
-                    // item count
-                    content = sol.Analysis.Content;
-                    itemCount = layerSum.ItemCount;
-                    number = 1;
-                    do
+                    // layers
+                    XmlElement elemLayers = xmlDoc.CreateElement("layers", ns);
+                    elemSolution.AppendChild(elemLayers);
+
+                    List<LayerSummary> layerSummaries = solLay3.ListLayerSummary;
+                    foreach (LayerSummary layerSum in layerSummaries)
                     {
-                        itemCount *= number;
-                        AppendContentItem(xmlDoc, elemLayer, content.DetailedName, itemCount);
-                    }
-                    while (null != content && content.InnerContent(ref content, ref number));
-                    // ***
-                    if (rnLayers.GetChildByName(Resources.ID_RN_DIMENSIONS).Activated)
-                    {
-                        // layerLength
-                        AppendElementValue(xmlDoc, elemLayer, "layerLength", UnitsManager.UnitType.UT_LENGTH, layerSum.LayerDimensions.X);
-                        // layerWidth
-                        AppendElementValue(xmlDoc, elemLayer, "layerWidth", UnitsManager.UnitType.UT_LENGTH, layerSum.LayerDimensions.Y);
-                        // layerHeight
-                        AppendElementValue(xmlDoc, elemLayer, "layerHeight", UnitsManager.UnitType.UT_LENGTH, layerSum.LayerDimensions.Z);
-                    }
-                    if (rnLayers.GetChildByName(Resources.ID_RN_WEIGHT).Activated)
-                    {
-                        // layerWeight
-                        AppendElementValue(xmlDoc, elemLayer, "layerWeight", UnitsManager.UnitType.UT_MASS, layerSum.LayerWeight);
-                        // layerNetWeight
-                        if (sol.HasNetWeight)
-                            AppendElementValue(xmlDoc, elemLayer, "layerNetWeight", UnitsManager.UnitType.UT_MASS, layerSum.LayerNetWeight);
-                    }
-                    // layer spaces
-                    if (rnLayers.GetChildByName(Resources.ID_RN_SPACES).Activated)
-                        AppendElementValue(xmlDoc, elemLayer, "layerSpaces", UnitsManager.UnitType.UT_LENGTH, layerSum.Space);
-                    // layer image
-                    if (rnLayers.GetChildByName(Resources.ID_RN_IMAGE).Activated)
-                    {
-                        Graphics3DImage graphics = new Graphics3DImage(new Size(ImageSizeDetail, ImageSizeDetail))
+                        // layer
+                        XmlElement elemLayer = xmlDoc.CreateElement("layer", ns);
+                        elemLayers.AppendChild(elemLayer);
+                        // layerIndexes
+                        XmlElement elemLayerIndexes = xmlDoc.CreateElement("layerIndexes", ns);
+                        elemLayer.AppendChild(elemLayerIndexes);
+                        elemLayerIndexes.InnerText = layerSum.LayerIndexesString;
+                        // item count
+                        content = sol.Analysis.Content;
+                        itemCount = layerSum.ItemCount;
+                        number = 1;
+                        do
                         {
-                            FontSizeRatio = FontSizeRatioDetail
-                        };
-                        ViewerSolution.DrawILayer(graphics, layerSum.Layer3D, sol.Analysis.Content, Reporter.ShowDimensions);
-                        graphics.Flush();
-                        AppendThumbnailElement(xmlDoc, elemLayer, graphics.Bitmap);
+                            itemCount *= number;
+                            AppendContentItem(xmlDoc, elemLayer, content.DetailedName, itemCount);
+                        }
+                        while (null != content && content.InnerContent(ref content, ref number));
+                        // ***
+                        if (rnLayers.GetChildByName(Resources.ID_RN_DIMENSIONS).Activated)
+                        {
+                            // layerLength
+                            AppendElementValue(xmlDoc, elemLayer, "layerLength", UnitsManager.UnitType.UT_LENGTH, layerSum.LayerDimensions.X);
+                            // layerWidth
+                            AppendElementValue(xmlDoc, elemLayer, "layerWidth", UnitsManager.UnitType.UT_LENGTH, layerSum.LayerDimensions.Y);
+                            // layerHeight
+                            AppendElementValue(xmlDoc, elemLayer, "layerHeight", UnitsManager.UnitType.UT_LENGTH, layerSum.LayerDimensions.Z);
+                        }
+                        if (rnLayers.GetChildByName(Resources.ID_RN_WEIGHT).Activated)
+                        {
+                            // layerWeight
+                            AppendElementValue(xmlDoc, elemLayer, "layerWeight", UnitsManager.UnitType.UT_MASS, layerSum.LayerWeight);
+                            // layerNetWeight
+                            if (sol.HasNetWeight)
+                                AppendElementValue(xmlDoc, elemLayer, "layerNetWeight", UnitsManager.UnitType.UT_MASS, layerSum.LayerNetWeight);
+                        }
+                        // layer spaces
+                        if (rnLayers.GetChildByName(Resources.ID_RN_SPACES).Activated)
+                            AppendElementValue(xmlDoc, elemLayer, "layerSpaces", UnitsManager.UnitType.UT_LENGTH, layerSum.Space);
+                        // layer image
+                        if (rnLayers.GetChildByName(Resources.ID_RN_IMAGE).Activated)
+                        {
+                            Graphics3DImage graphics = new Graphics3DImage(new Size(ImageSizeDetail, ImageSizeDetail))
+                            {
+                                FontSizeRatio = FontSizeRatioDetail
+                            };
+                            ViewerSolution.DrawILayer(graphics, layerSum.Layer3D, sol.Analysis.Content, Reporter.ShowDimensions);
+                            graphics.Flush();
+                            AppendThumbnailElement(xmlDoc, elemLayer, graphics.Bitmap);
+                        }
                     }
                 }
             }

@@ -1,6 +1,7 @@
 ﻿#region Using directives
 
 using treeDiM.StackBuilder.Basics;
+using treeDiM.StackBuilder.Desktop.Properties;
 #endregion
 
 namespace treeDiM.StackBuilder.Desktop
@@ -16,8 +17,7 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Override DockContentAnalysisEdit
-        public override string GridCaption
-        {   get { return Properties.Resources.ID_PALLET; } }
+        protected override string GridCaption => Resources.ID_PALLET;
         #endregion
     }
 }

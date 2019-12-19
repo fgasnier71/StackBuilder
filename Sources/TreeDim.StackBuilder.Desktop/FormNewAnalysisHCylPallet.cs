@@ -19,7 +19,7 @@ namespace treeDiM.StackBuilder.Desktop
     {
         #region Constructor
         public FormNewAnalysisHCylPallet() : base() => InitializeComponent();
-        public FormNewAnalysisHCylPallet(Document doc, AnalysisLayered analysis) : base(doc, analysis) => InitializeComponent();
+        public FormNewAnalysisHCylPallet(Document doc, AnalysisHCylPallet analysis) : base(doc, analysis) => InitializeComponent();
         #endregion
 
         #region IItemBaseFilter 
@@ -41,8 +41,6 @@ namespace treeDiM.StackBuilder.Desktop
             cbCylinders.Initialize(_document, this, null);
             cbPallets.Initialize(_document, this, null);
 
-            // event handling
-
             if (null == AnalysisBase)
             {
                 ItemName = _document.GetValidNewAnalysisName(ItemDefaultName);
@@ -50,16 +48,35 @@ namespace treeDiM.StackBuilder.Desktop
 
                 uCtrlMaximumHeight.Value = Settings.Default.MaximumPalletHeight;
                 uCtrlOptMaximumWeight.Value = new OptDouble(false, Settings.Default.MaximumPalletWeight);
-
-                uCtrlOverhang.ValueX = Settings.Default.OverhangX;
-                uCtrlOverhang.ValueY = Settings.Default.OverhangY;
+                uCtrlOptMaximumNumber.Value = new OptInt(false, 1);
+                uCtrlOverhang.Value = new Vector2D(Settings.Default.OverhangX, Settings.Default.OverhangY);
             }
+            else
+            {
+                ItemName = AnalysisCast.Name;
+                ItemDescription = AnalysisCast.Description;
+
+                var constraintSet = AnalysisCast.ConstraintSet as ConstraintSetCasePallet;
+                uCtrlMaximumHeight.Value = constraintSet.OptMaxHeight.Value;
+                uCtrlOptMaximumWeight.Value = constraintSet.OptMaxWeight;
+                uCtrlOptMaximumNumber.Value = constraintSet.OptMaxNumber;
+                uCtrlOverhang.Value = constraintSet.Overhang;
+            }
+            // event handling
+            cbCylinders.SelectedIndexChanged += new EventHandler(OnCylinderChanged);
+            cbPallets.SelectedIndexChanged += new EventHandler(OnInputChanged);
+            uCtrlMaximumHeight.ValueChanged += new UCtrlDouble.ValueChangedDelegate(OnInputChanged);
+            uCtrlOptMaximumWeight.ValueChanged += new UCtrlOptDouble.ValueChangedDelegate(OnInputChanged);
+            uCtrlOptMaximumNumber.ValueChanged += new UCtrlOptInt.ValueChangedDelegate(OnInputChanged);
+            uCtrlOverhang.ValueChanged += new UCtrlDualDouble.ValueChangedDelegate(OnInputChanged);
+
+            OnInputChanged(this, null);
         }
         protected override void OnClosed(EventArgs e)
         {
             base.OnClosed(e);
 
-            Settings.Default.MaximumPalletWeight = uCtrlMaximumHeight.Value;
+            Settings.Default.MaximumPalletHeight = uCtrlMaximumHeight.Value;
             if (uCtrlOptMaximumWeight.Value.Activated)
                 Settings.Default.MaximumPalletWeight = uCtrlOptMaximumWeight.Value.Value;
 
@@ -75,13 +92,16 @@ namespace treeDiM.StackBuilder.Desktop
         #region FormNewAnalysis override
         public override void UpdateStatus(string message)
         {            
+            if (null == SelectedLayout) message = Resources.ID_SELECTATLEASTONELAYOUT;
+            if (!Program.IsSubscribed) message = Resources.ID_PREMIUMFEATURE;
             base.UpdateStatus(message);
-        }
+       }
         public override void OnNext()
         {
             try
             {
-                SolutionHCyl.Solver = new CylLayoutSolver();
+                // sanity check
+                if (null == SelectedLayout)  return;
 
                 if (null == AnalysisCast)
                     AnalysisBase = _document.CreateNewAnalysisHCylPallet(
@@ -97,14 +117,10 @@ namespace treeDiM.StackBuilder.Desktop
                         analysisHCylPallet.ID.SetNameDesc(ItemName, ItemDescription);
                         analysisHCylPallet.Content = SelectedCylinder;
                         analysisHCylPallet.PalletProperties = SelectedPallet;
-                    /*
-                    analysis.Content = SelectedCylinder;
-                    analysis.PalletProperties = SelectedPallet;
-                    analysis.ConstraintSet = BuildConstraintSet();
-                    analysis.Solution(SelectedLayout);
-                    */
+                        analysisHCylPallet.ConstraintSet = BuildConstraintSet();
+                        analysisHCylPallet.SetSolution(SelectedLayout);
 
-                    _document.UpdateAnalysis(analysisHCylPallet);
+                        _document.UpdateAnalysis(analysisHCylPallet);
                     }
                 }
                 Close();
@@ -144,24 +160,8 @@ namespace treeDiM.StackBuilder.Desktop
         {
             uCtrlPackable.PackableProperties = cbCylinders.SelectedType as Packable;
             OnInputChanged(sender, e);
-            OnHCylLayoutSelected(sender, e);
         }
-        protected void OnHCylLayoutSelected(object sender, EventArgs e)
-        {
-            try
-            {
-                HCylLayout layout = uCtrlHCylLayoutList.Selected;
-                UpdateStatus(null != layout ? string.Empty : Resources.ID_SELECTATLEASTONELAYOUT);
-            }
-            catch (Exception ex)
-            {
-                _log.Error(ex.ToString());
-            }
-        }
-        private void OnLayoutSelected(object sender, EventArgs e)
-        {
-            UpdateStatus(string.Empty);
-        }
+        private void OnLayoutSelected(object sender, EventArgs e) => UpdateStatus(string.Empty);
         #endregion
 
         #region Helpers
@@ -181,11 +181,12 @@ namespace treeDiM.StackBuilder.Desktop
         {
             var constraintSet = new ConstraintSetPackablePallet()
             {
-                Overhang = uCtrlOverhang.Value,
+                Overhang = Overhang,
                 OptMaxWeight = MaxPalletWeight,
                 OptMaxNumber = MaxNumber
             };
             constraintSet.SetMaxHeight(new OptDouble(true, MaxPalletHeight));
+            constraintSet.Container = SelectedPallet;
             return constraintSet;
         }
         #endregion
@@ -193,7 +194,5 @@ namespace treeDiM.StackBuilder.Desktop
         #region Data members
         private ILog _log = LogManager.GetLogger(typeof(FormNewAnalysisHCylPallet));
         #endregion
-
-
     }
 }

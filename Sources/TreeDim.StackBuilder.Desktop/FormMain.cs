@@ -733,6 +733,7 @@ namespace treeDiM.StackBuilder.Desktop
             // set solver
             Document.SetSolver(new LayerSolver());
             SolutionLayered.SetSolver(new LayerSolver());
+            SolutionHCyl.SetSolver(new CylLayoutSolver());
 
             FormNewDocument form = new FormNewDocument();
             if (DialogResult.OK == form.ShowDialog())
@@ -749,6 +750,8 @@ namespace treeDiM.StackBuilder.Desktop
                 // set solver
                 Document.SetSolver(new LayerSolver());
                 SolutionLayered.SetSolver(new LayerSolver());
+                SolutionHCyl.SetSolver(new CylLayoutSolver());
+
 
                 if (!File.Exists(filePath))
                 {
@@ -977,7 +980,6 @@ namespace treeDiM.StackBuilder.Desktop
         public void OnAnalysisUpdated(Document doc, Analysis analysis) => CreateOrActivateViewAnalysis(analysis);
         public void OnNewAnalysisCreated(Document doc, AnalysisHetero analysis) => CreateOrActivateViewHAnalysis(analysis);
         public void OnAnalysisUpdated(Document doc, AnalysisHetero analysis) =>  CreateOrActivateViewHAnalysis(analysis);
-        public void OnNewECTAnalysisCreated(Document doc) {  }
         // remove
         public void OnTypeRemoved(Document doc, ItemBase itemBase) { }
         public void OnAnalysisRemoved(Document doc, ItemBase itemBase) { }
@@ -1085,7 +1087,6 @@ namespace treeDiM.StackBuilder.Desktop
             }
         }
         #endregion
-
         #region Tools
         #region User
         private void OnUserClicked(object sender, EventArgs e)
@@ -1381,7 +1382,6 @@ namespace treeDiM.StackBuilder.Desktop
         }
         #endregion
         #endregion
-
         #region Document / View status change handlers
         void OnDocumentModified(object sender, EventArgs e)
         {
@@ -1489,7 +1489,5 @@ namespace treeDiM.StackBuilder.Desktop
         #region Static instance accessor
         public static FormMain GetInstance()  { return _instance; }
         #endregion
-
- 
     }
 }

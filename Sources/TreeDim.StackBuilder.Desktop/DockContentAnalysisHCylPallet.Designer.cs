@@ -35,7 +35,7 @@
             this.gridSolution = new SourceGrid.Grid();
             this.uCtrlMaxWeight = new treeDiM.Basics.UCtrlOptDouble();
             this.uCtrlMaxNumber = new treeDiM.Basics.UCtrlOptInt();
-            this.uCtrlMaxHeight = new treeDiM.Basics.UCtrlDouble();
+            this.uCtrlMaxPalletHeight = new treeDiM.Basics.UCtrlDouble();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
             this.toolStripBBack = new System.Windows.Forms.ToolStripButton();
             this.toolStripBReport = new System.Windows.Forms.ToolStripButton();
@@ -66,7 +66,7 @@
             // 
             this.splitContainerHoriz.Panel2.Controls.Add(this.uCtrlMaxWeight);
             this.splitContainerHoriz.Panel2.Controls.Add(this.uCtrlMaxNumber);
-            this.splitContainerHoriz.Panel2.Controls.Add(this.uCtrlMaxHeight);
+            this.splitContainerHoriz.Panel2.Controls.Add(this.uCtrlMaxPalletHeight);
             this.splitContainerHoriz.Size = new System.Drawing.Size(784, 536);
             this.splitContainerHoriz.SplitterDistance = 458;
             this.splitContainerHoriz.TabIndex = 1;
@@ -85,7 +85,7 @@
             // 
             this.splitContainerVert.Panel2.Controls.Add(this.gridSolution);
             this.splitContainerVert.Size = new System.Drawing.Size(784, 458);
-            this.splitContainerVert.SplitterDistance = 628;
+            this.splitContainerVert.SplitterDistance = 537;
             this.splitContainerVert.TabIndex = 0;
             // 
             // graphCtrlSolution
@@ -93,19 +93,20 @@
             this.graphCtrlSolution.Dock = System.Windows.Forms.DockStyle.Fill;
             this.graphCtrlSolution.Location = new System.Drawing.Point(0, 0);
             this.graphCtrlSolution.Name = "graphCtrlSolution";
-            this.graphCtrlSolution.Size = new System.Drawing.Size(628, 458);
+            this.graphCtrlSolution.Size = new System.Drawing.Size(537, 458);
             this.graphCtrlSolution.TabIndex = 0;
             this.graphCtrlSolution.Viewer = null;
             // 
             // gridSolution
             // 
+            this.gridSolution.ColumnsCount = 2;
             this.gridSolution.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridSolution.EnableSort = true;
+            this.gridSolution.EnableSort = false;
             this.gridSolution.Location = new System.Drawing.Point(0, 0);
             this.gridSolution.Name = "gridSolution";
             this.gridSolution.OptimizeMode = SourceGrid.CellOptimizeMode.ForRows;
             this.gridSolution.SelectionMode = SourceGrid.GridSelectionMode.Cell;
-            this.gridSolution.Size = new System.Drawing.Size(152, 458);
+            this.gridSolution.Size = new System.Drawing.Size(243, 458);
             this.gridSolution.TabIndex = 0;
             this.gridSolution.TabStop = true;
             this.gridSolution.ToolTipText = "";
@@ -124,7 +125,6 @@
             this.uCtrlMaxWeight.TabIndex = 2;
             this.uCtrlMaxWeight.Text = "Maximum weight";
             this.uCtrlMaxWeight.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_MASS;
-            this.uCtrlMaxWeight.ValueChanged += new treeDiM.Basics.UCtrlOptDouble.ValueChangedDelegate(this.OnCriterionChanged);
             // 
             // uCtrlMaxNumber
             // 
@@ -135,23 +135,21 @@
             this.uCtrlMaxNumber.Size = new System.Drawing.Size(300, 20);
             this.uCtrlMaxNumber.TabIndex = 1;
             this.uCtrlMaxNumber.Text = "Maximum number";
-            this.uCtrlMaxNumber.ValueChanged += new treeDiM.Basics.UCtrlOptInt.ValueChangedDelegate(this.OnCriterionChanged);
             // 
-            // uCtrlMaxHeight
+            // uCtrlMaxPalletHeight
             // 
-            this.uCtrlMaxHeight.Location = new System.Drawing.Point(7, 5);
-            this.uCtrlMaxHeight.Minimum = new decimal(new int[] {
+            this.uCtrlMaxPalletHeight.Location = new System.Drawing.Point(7, 5);
+            this.uCtrlMaxPalletHeight.Minimum = new decimal(new int[] {
             10000,
             0,
             0,
             -2147483648});
-            this.uCtrlMaxHeight.MinimumSize = new System.Drawing.Size(100, 20);
-            this.uCtrlMaxHeight.Name = "uCtrlMaxHeight";
-            this.uCtrlMaxHeight.Size = new System.Drawing.Size(300, 20);
-            this.uCtrlMaxHeight.TabIndex = 0;
-            this.uCtrlMaxHeight.Text = "Maximum height";
-            this.uCtrlMaxHeight.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
-            this.uCtrlMaxHeight.ValueChanged += new treeDiM.Basics.UCtrlDouble.ValueChangedDelegate(this.OnCriterionChanged);
+            this.uCtrlMaxPalletHeight.MinimumSize = new System.Drawing.Size(100, 20);
+            this.uCtrlMaxPalletHeight.Name = "uCtrlMaxPalletHeight";
+            this.uCtrlMaxPalletHeight.Size = new System.Drawing.Size(300, 20);
+            this.uCtrlMaxPalletHeight.TabIndex = 0;
+            this.uCtrlMaxPalletHeight.Text = "Maximum height";
+            this.uCtrlMaxPalletHeight.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
             // 
             // toolStrip
             // 
@@ -172,6 +170,7 @@
             this.toolStripBBack.Name = "toolStripBBack";
             this.toolStripBBack.Size = new System.Drawing.Size(23, 22);
             this.toolStripBBack.Text = "Back...";
+            this.toolStripBBack.Click += new System.EventHandler(this.OnBack);
             // 
             // toolStripBReport
             // 
@@ -181,6 +180,7 @@
             this.toolStripBReport.Name = "toolStripBReport";
             this.toolStripBReport.Size = new System.Drawing.Size(23, 22);
             this.toolStripBReport.Text = "Generate report...";
+            this.toolStripBReport.Click += new System.EventHandler(this.OnGenerateReport);
             // 
             // DockContentAnalysisHCylPallet
             // 
@@ -218,9 +218,9 @@
         private System.Windows.Forms.SplitContainer splitContainerHoriz;
         private System.Windows.Forms.SplitContainer splitContainerVert;
         private Graphics.Graphics3DControl graphCtrlSolution;
-        private SourceGrid.Grid gridSolution;
         private treeDiM.Basics.UCtrlOptDouble uCtrlMaxWeight;
         private treeDiM.Basics.UCtrlOptInt uCtrlMaxNumber;
-        private treeDiM.Basics.UCtrlDouble uCtrlMaxHeight;
+        private treeDiM.Basics.UCtrlDouble uCtrlMaxPalletHeight;
+        protected SourceGrid.Grid gridSolution;
     }
 }

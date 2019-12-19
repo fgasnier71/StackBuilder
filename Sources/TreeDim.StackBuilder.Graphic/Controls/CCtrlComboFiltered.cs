@@ -38,16 +38,19 @@ namespace treeDiM.StackBuilder.Graphics.Controls
                         analysisInitial = packableLoadedInitial.ParentAnalysis;
                 }
 
-                foreach (AnalysisLayered analysis in doc.Analyses)
+                foreach (var analysis in doc.Analyses)
                 {
-                    PackableLoaded eqvtPackable = analysis.EquivalentPackable;
-                    if (null == eqvtPackable) continue;
-                    if (null == filter || filter.Accept(this, eqvtPackable))
+                    if (analysis is AnalysisLayered analysisLayered)
                     {
-                        Items.Add(new ItemBaseWrapper(eqvtPackable));
-                        if (analysisInitial == analysis)
-                            iSelected = index;
-                        ++index;
+                        PackableLoaded eqvtPackable = analysisLayered.EquivalentPackable;
+                        if (null == eqvtPackable) continue;
+                        if (null == filter || filter.Accept(this, eqvtPackable))
+                        {
+                            Items.Add(new ItemBaseWrapper(eqvtPackable));
+                            if (analysisInitial == analysis)
+                                iSelected = index;
+                            ++index;
+                        }
                     }
                 }
                 if (-1 == iSelected && Items.Count > 0)

@@ -1976,6 +1976,15 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to This feature is only accessible to Premium accounts..
+        /// </summary>
+        internal static string ID_PREMIUMFEATURE {
+            get {
+                return ResourceManager.GetString("ID_PREMIUMFEATURE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to http://www.plmpack.com/stackbuilder/premium/premium.html.
         /// </summary>
         internal static string ID_PREMIUMVERSIONURL {
