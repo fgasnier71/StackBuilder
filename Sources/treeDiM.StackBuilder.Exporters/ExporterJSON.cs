@@ -13,6 +13,8 @@ namespace treeDiM.StackBuilder.Exporters
 {
     class ExporterJSON : Exporter
     {
+        public ExporterJSON() {}
+        public override string Name => "json";
         public override string Filter => "json|*.json";
         public override string Extension => "json";
         public override void Export(AnalysisLayered analysis, ref Stream stream)

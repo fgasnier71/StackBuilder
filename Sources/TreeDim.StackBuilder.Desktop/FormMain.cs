@@ -576,14 +576,19 @@ namespace treeDiM.StackBuilder.Desktop
                 _log.Error(ex.ToString()); Program.SendCrashReport(ex);
             }
         }
-
-        public void GenerateExport(AnalysisLayered analysis, string extension)
+        public void GenerateExport(AnalysisLayered analysis, string formatName)
         {
-            FormExporter form = new FormExporter() { Analysis = analysis, Extension = extension };
-            if (DialogResult.OK == form.ShowDialog()) {}
+            try
+            {
+                FormExporter form = new FormExporter() { Analysis = analysis, FormatName = formatName };
+                if (DialogResult.OK == form.ShowDialog()) { }
+            }
+            catch (Exception ex)
+            {
+                _log.Error(ex.ToString());
+            }
         }
-
-        public void GenerateExport(AnalysisHetero analysis, string extension)
+        public void GenerateExport(AnalysisHetero analysis, string formatName)
         {
             try
             {
@@ -595,7 +600,6 @@ namespace treeDiM.StackBuilder.Desktop
                 _log.Error(ex.ToString()); Program.SendCrashReport(ex);
             }
         }
-
         private void OnSolutionReportNodeClicked(object sender, AnalysisTreeViewEventArgs eventArg)
         {
             if (null != eventArg.Analysis)

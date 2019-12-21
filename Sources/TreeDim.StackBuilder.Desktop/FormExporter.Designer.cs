@@ -96,9 +96,9 @@
             this.cbCoordinates.Items.AddRange(new object[] {
             "Case corner",
             "Case center"});
-            this.cbCoordinates.Location = new System.Drawing.Point(74, 38);
+            this.cbCoordinates.Location = new System.Drawing.Point(91, 38);
             this.cbCoordinates.Name = "cbCoordinates";
-            this.cbCoordinates.Size = new System.Drawing.Size(121, 21);
+            this.cbCoordinates.Size = new System.Drawing.Size(140, 21);
             this.cbCoordinates.TabIndex = 3;
             this.cbCoordinates.SelectedIndexChanged += new System.EventHandler(this.OnInputChanged);
             // 
@@ -125,11 +125,12 @@
             this.cbFileFormat.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbFileFormat.FormattingEnabled = true;
             this.cbFileFormat.Items.AddRange(new object[] {
-            "XML",
-            "CSV"});
-            this.cbFileFormat.Location = new System.Drawing.Point(74, 10);
+            "xml",
+            "csv (default)",
+            "csv (TechnologyBSA)"});
+            this.cbFileFormat.Location = new System.Drawing.Point(91, 10);
             this.cbFileFormat.Name = "cbFileFormat";
-            this.cbFileFormat.Size = new System.Drawing.Size(121, 21);
+            this.cbFileFormat.Size = new System.Drawing.Size(140, 21);
             this.cbFileFormat.TabIndex = 0;
             this.cbFileFormat.SelectedIndexChanged += new System.EventHandler(this.OnInputChanged);
             // 

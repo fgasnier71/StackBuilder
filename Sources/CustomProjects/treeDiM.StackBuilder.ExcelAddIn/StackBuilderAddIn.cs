@@ -135,8 +135,8 @@ namespace treeDiM.StackBuilder.ExcelAddIn
                 constraintSet.OptMaxWeight = new OptDouble(true, palletMaximumWeight);
 
                 // use a solver and get a list of sorted analyses + select the best one
-                SolverCasePallet solver = new SolverCasePallet(bProperties, palletProperties);
-                List<AnalysisLayered> analyses = solver.BuildAnalyses(constraintSet, true);
+                SolverCasePallet solver = new SolverCasePallet(bProperties, palletProperties, constraintSet);
+                List<AnalysisLayered> analyses = solver.BuildAnalyses(true);
                 if (analyses.Count > 0)
                 {
                     AnalysisLayered analysis = analyses[0];
@@ -153,7 +153,7 @@ namespace treeDiM.StackBuilder.ExcelAddIn
                         FontSizeRatio = Settings.Default.FontSizeRatio,
                         CameraPosition = Graphics3D.Corner_0
                     };
-                    ViewerSolution sv = new ViewerSolution(analysis.Solution);
+                    ViewerSolution sv = new ViewerSolution(analysis.SolutionLay);
                     sv.Draw(graphics, Transform3D.Identity);
                     graphics.Flush();
                     Bitmap bmp = graphics.Bitmap;

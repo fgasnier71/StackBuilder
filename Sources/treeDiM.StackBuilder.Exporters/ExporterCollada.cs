@@ -31,6 +31,10 @@ namespace treeDiM.StackBuilder.Exporters
     #region Exporter
     public class ExporterCollada : Exporter
     {
+        #region Static members
+        public static string FormatName => "dae";
+        #endregion
+
         #region Constructor
         public ExporterCollada()
         {
@@ -46,6 +50,7 @@ namespace treeDiM.StackBuilder.Exporters
         #endregion
 
         #region Export
+        public override string Name => FormatName;
         public override string Filter => "Collada (*.dae) | *.dae";
         public override string Extension => "dae";
         public override void Export(AnalysisLayered analysis, ref Stream stream)

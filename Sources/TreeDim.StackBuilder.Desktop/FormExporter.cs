@@ -17,6 +17,7 @@ namespace treeDiM.StackBuilder.Desktop
         public FormExporter()
         {
             InitializeComponent();
+
             textEditorControl.FoldingStrategy = "XML";
         }
         #endregion
@@ -26,7 +27,7 @@ namespace treeDiM.StackBuilder.Desktop
         {
             base.OnLoad(e);
 
-            int iFormat = cbFileFormat.FindStringExact(Extension.ToUpper());
+            int iFormat = cbFileFormat.FindStringExact(FormatName);
             cbFileFormat.SelectedIndex = iFormat > -1 ? iFormat : 0;
             cbCoordinates.SelectedIndex = Properties.Settings.Default.ExportCoordinatesMode;
             Recompute();
@@ -47,7 +48,7 @@ namespace treeDiM.StackBuilder.Desktop
             try
             {
                 Stream stream = new MemoryStream();
-                Exporter exporter = ExporterFactory.GetExporterByExt(cbFileFormat.SelectedItem.ToString());
+                Exporter exporter = ExporterFactory.GetExporterByName(cbFileFormat.SelectedItem.ToString());
                 exporter.PositionCoordinateMode = cbCoordinates.SelectedIndex == 1 ? Exporter.CoordinateMode.CM_COG : Exporter.CoordinateMode.CM_CORNER;
                 exporter.Export(Analysis, ref stream);
 
@@ -101,7 +102,7 @@ namespace treeDiM.StackBuilder.Desktop
 
         #region Data members
         protected ILog _log = LogManager.GetLogger(typeof(FormExporter));
-        public string Extension { get; set; }
+        public string FormatName { get; set; }
         public AnalysisLayered Analysis { get; set; }
         #endregion
     }

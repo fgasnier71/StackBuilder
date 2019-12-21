@@ -1,4 +1,5 @@
 ﻿#region Using directives
+using System;
 using System.IO;
 
 using treeDiM.StackBuilder.Basics;
@@ -10,8 +11,9 @@ namespace treeDiM.StackBuilder.Exporters
     public abstract class Exporter
     {
         public abstract void Export(AnalysisLayered analysis, ref Stream stream);
-        public abstract string Filter { get; }
+        public abstract string Name { get; }
         public abstract string Extension { get; }
+        public abstract string Filter { get; }
         public CoordinateMode PositionCoordinateMode { get; set; } = CoordinateMode.CM_CORNER;
 
         public enum CoordinateMode { CM_CORNER, CM_COG };
@@ -35,10 +37,19 @@ namespace treeDiM.StackBuilder.Exporters
         {
             foreach (Exporter exp in All)
             {
-                if (string.Equals(exp.Extension, extension, System.StringComparison.CurrentCultureIgnoreCase))
+                if (string.Equals(exp.Extension, extension, StringComparison.CurrentCultureIgnoreCase))
                     return exp;
             }
             throw new ExceptionInvalidExtension(extension);
+        }
+        public static Exporter GetExporterByName(string name)
+        {
+            foreach (Exporter exp in All)
+            {
+                if (string.Equals(exp.Name, name, StringComparison.CurrentCultureIgnoreCase))
+                    return exp;
+            }
+            throw new ExceptionInvalidName(name);
         }
         #region Data members
         private static Exporter[] All
@@ -48,6 +59,7 @@ namespace treeDiM.StackBuilder.Exporters
                 new ExporterCollada(),
                 new ExporterXML(),
                 new ExporterCSV(),
+                new ExporterCSV_TechBSA(),
                 new ExporterJSON()
             };
         }

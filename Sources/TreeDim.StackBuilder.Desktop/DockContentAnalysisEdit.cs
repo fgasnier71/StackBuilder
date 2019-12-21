@@ -387,15 +387,15 @@ namespace treeDiM.StackBuilder.Desktop
         private void OnGenerateExport(object sender, EventArgs e)
         {
             ToolStripButton tsb = sender as ToolStripButton;
-            string extension = string.Empty;
+            string formatName = string.Empty;
             switch (tsb.Name)
             {
-                case "toolStripButtonExportXML": extension = "xml"; break;
-                case "toolStripButtonExportCSV": extension = "csv"; break;
-                case "toolStripButtonExportDAE": extension = "dae"; break;
+                case "toolStripButtonExportXML": formatName = Exporters.ExporterXML.FormatName; break;
+                case "toolStripButtonExportCSV": formatName = Exporters.ExporterCSV.FormatName; break;
+                case "toolStripButtonExportDAE": formatName = Exporters.ExporterCollada.FormatName; break;
                 default: break;
             }
-            FormMain.GetInstance().GenerateExport(_analysis, extension);
+            FormMain.GetInstance().GenerateExport(_analysis, formatName);
         }
         #endregion
 

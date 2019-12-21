@@ -18,7 +18,12 @@ namespace treeDiM.StackBuilder.Exporters
     /// </summary>
     public class ExporterXML: Exporter
     {
-        public ExporterXML(){}
+        #region Static members
+        public static string FormatName => "xml";
+        #endregion
+
+        public ExporterXML() {}
+        public override string Name => FormatName;
         public override string Filter => "eXchange Markup Language (*.xml)|*.xml";
         public override string Extension => "xml";
         public override void Export(AnalysisLayered analysis, ref Stream stream)

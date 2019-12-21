@@ -404,7 +404,7 @@ namespace treeDiM.StackBuilder.ExcelAddIn
             List<AnalysisLayered> analyses = solver.BuildAnalyses(false);
             if (analyses.Count > 0)
             {
-                AnalysisLayered analysis = analyses[0];
+                var analysis = analyses[0];
                 stackCount = analysis.Solution.ItemCount;
                 loadWeight = analysis.Solution.LoadWeight;
                 totalWeight = analysis.Solution.Weight;
@@ -414,7 +414,7 @@ namespace treeDiM.StackBuilder.ExcelAddIn
                 {
                     if (GenerateImage || GenerateImageInFolder)
                     {
-                        ViewerSolution sv = new ViewerSolution(analysis.Solution);
+                        ViewerSolution sv = new ViewerSolution(analysis.SolutionLay);
                         sv.Draw(graphics, Transform3D.Identity);
                         graphics.Flush();
                     }
