@@ -673,7 +673,7 @@ namespace treeDiM.StackBuilder.Graphics
         }
         #endregion
 
-        #region Draw box
+        #region Drawing methods
         /// <summary>
         /// Draw a line segment
         /// </summary>
@@ -812,11 +812,8 @@ namespace treeDiM.StackBuilder.Graphics
         {
             System.Drawing.Graphics g = Graphics;
 
-            if (box is Pack)
-            {
-                Pack pack = box as Pack;
+            if (box is Pack pack)
                 pack.Draw(this);
-            }
             else
             {
                 Vector3D[] points = box.Points;

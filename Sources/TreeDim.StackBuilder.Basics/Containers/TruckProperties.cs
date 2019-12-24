@@ -6,7 +6,7 @@ using Sharp3D.Math.Core;
 
 namespace treeDiM.StackBuilder.Basics
 {
-    public class TruckProperties : ItemBaseNamed, IContainer, IPackContainer
+    public class TruckProperties : ItemBaseNamed, IContainer
     {
         public TruckProperties(Document document)
             : base(document)
@@ -70,6 +70,8 @@ namespace treeDiM.StackBuilder.Basics
             return InsideDimensions;
         }
         public BBox3D BoundingBox => new BBox3D(Vector3D.Zero, InsideDimensions);
+
+        public double OffsetZ => 0.0;
 
         public override string ToString()
         {

@@ -27,7 +27,7 @@ namespace treeDiM.StackBuilder.Graphics.Controls
         #endregion
 
         #region Event handlers
-        private void onPaint(object sender, PaintEventArgs e)
+        private void OnPaint(object sender, PaintEventArgs e)
         {
             if (null != _packable)
             {

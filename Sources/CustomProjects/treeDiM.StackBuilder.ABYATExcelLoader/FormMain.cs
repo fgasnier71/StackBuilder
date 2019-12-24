@@ -362,8 +362,8 @@ namespace treeDiM.StackBuilder.ABYATExcelLoader
                 constraintSet.SetAllowedOrientations(height > 15.0 ? AllowedCaseOrientations : new bool[]{ false, false, true });
                 constraintSet.SetMaxHeight(new OptDouble(true, PalletMaximumHeight));
 
-                SolverCasePallet solver = new SolverCasePallet(bProperties, PalletProperties);
-                List<AnalysisLayered> analyses = solver.BuildAnalyses(constraintSet, false);
+                SolverCasePallet solver = new SolverCasePallet(bProperties, PalletProperties, constraintSet);
+                List<AnalysisLayered> analyses = solver.BuildAnalyses(false);
                 if (analyses.Count > 0)
                 {
                     AnalysisLayered analysis = analyses[0];
@@ -374,7 +374,7 @@ namespace treeDiM.StackBuilder.ABYATExcelLoader
                     {
                         if (GenerateImage)
                         {
-                            using (ViewerSolution sv = new ViewerSolution(analysis.Solution))
+                            using (ViewerSolution sv = new ViewerSolution(analysis.SolutionLay))
                                 sv.Draw(graphics, Transform3D.Identity);
                             graphics.Flush();
                         }
@@ -400,8 +400,8 @@ namespace treeDiM.StackBuilder.ABYATExcelLoader
                 ConstraintSetBoxCase constraintSet = new ConstraintSetBoxCase(container);
                 constraintSet.SetAllowedOrientations(AllowedCaseOrientations);
 
-                SolverBoxCase solver = new SolverBoxCase(bProperties, container);
-                List<AnalysisLayered> analyses = solver.BuildAnalyses(constraintSet, false);
+                SolverBoxCase solver = new SolverBoxCase(bProperties, container, constraintSet);
+                List<AnalysisLayered> analyses = solver.BuildAnalyses(false);
                 if (analyses.Count > 0)
                 {
                     AnalysisLayered analysis = analyses[0];
@@ -410,7 +410,7 @@ namespace treeDiM.StackBuilder.ABYATExcelLoader
 
                     if (GenerateImage && stackCount <= StackCountMax)
                     {
-                        using (ViewerSolution sv = new ViewerSolution(analysis.Solution))
+                        using (ViewerSolution sv = new ViewerSolution(analysis.SolutionLay))
                         {   sv.Draw(graphics, Transform3D.Identity); }
                         graphics.Flush();
                     }

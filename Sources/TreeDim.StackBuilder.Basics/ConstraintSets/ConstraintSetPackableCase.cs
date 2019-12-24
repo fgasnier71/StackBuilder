@@ -10,12 +10,12 @@ namespace treeDiM.StackBuilder.Basics
         {
             get
             {
-                if (_container is BoxProperties caseProperties)
+                if (Container is BoxProperties caseProperties)
                 {
                     double wallThickness = caseProperties.Height - caseProperties.InsideHeight > 0 ? 0.5 * (caseProperties.Height - caseProperties.InsideHeight) : 0.0;
                     return new OptDouble(true, caseProperties.InsideHeight + wallThickness);
                 }
-                else if (_container is TruckProperties truckProperties)
+                else if (Container is TruckProperties truckProperties)
                 {
                     return new OptDouble(true, truckProperties.InsideHeight);
                 }
@@ -36,13 +36,9 @@ namespace treeDiM.StackBuilder.Basics
         }
 
         #region Non-Public Members
-        protected IPackContainer _container;
-
-        protected ConstraintSetPackableContainer(IPackContainer container)
+        protected ConstraintSetPackableContainer(IContainer container)
         {
-            _container = container;
-            if (!container.HasInsideDimensions)
-                throw new Exception("Invalid container!");
+            Container = container;
         }
         #endregion
     }

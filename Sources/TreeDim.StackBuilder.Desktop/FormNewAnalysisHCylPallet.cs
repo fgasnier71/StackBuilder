@@ -141,12 +141,7 @@ namespace treeDiM.StackBuilder.Desktop
                 if (cbCylinders.SelectedType is CylinderProperties cylinder
                     && cbPallets.SelectedType is PalletProperties palletProperties)
                 {
-                    var dimContainer = new Vector3D(
-                        palletProperties.Length + 2.0 * Overhang.Y,
-                        palletProperties.Width + 2.0 * Overhang.Y,
-                        MaxPalletHeight - palletProperties.Height);
-                    // compute
-                    var layouts = CylLayoutSolver.BuildLayout(cylinder, dimContainer, palletProperties.Height, BuildConstraintSet());
+                    var layouts = CylLayoutSolver.BuildLayout(cylinder, palletProperties, BuildConstraintSet());
                     uCtrlHCylLayoutList.Packable = cylinder;
                     uCtrlHCylLayoutList.HCylLayouts = layouts;
                 }

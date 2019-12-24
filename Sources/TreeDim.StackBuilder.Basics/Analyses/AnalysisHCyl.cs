@@ -9,7 +9,12 @@ namespace treeDiM.StackBuilder.Basics
         protected AnalysisHCyl(Document doc, CylinderProperties cylinder) : base(doc, cylinder)
         {
         }
-        public abstract Vector3D ContainerDimensions3D { get; }
+        #region Solution
+        public void SetSolution(HCylLayout layout)
+        {
+            Solution = new SolutionHCyl(this, layout.PatternName, layout.Swapped);
+        }
+        #endregion
     }
 
     public class AnalysisHCylPallet : AnalysisHCyl
@@ -38,12 +43,7 @@ namespace treeDiM.StackBuilder.Basics
         }
         #endregion
 
-        #region Solution
-        public void SetSolution(HCylLayout layout)
-        {
-            Solution = new SolutionHCyl(this, layout.PatternName, layout.Swapped);
-        }
-        #endregion
+
 
         #region Override AnalysisHomo
         public override ItemBase Container => PalletProperties;
@@ -56,18 +56,6 @@ namespace treeDiM.StackBuilder.Basics
                 return new Vector2D(
                     _palletProperties.Length + 2.0 * constraintSet.Overhang.X,
                     _palletProperties.Width + 2.0 * constraintSet.Overhang.Y);
-            }
-        }
-        public override Vector3D ContainerDimensions3D
-        {
-            get
-            {
-                ConstraintSetPackablePallet constraintSet = ConstraintSet as ConstraintSetPackablePallet;
-                return new Vector3D(
-                    _palletProperties.Length + 2.0 * constraintSet.Overhang.X,
-                    _palletProperties.Width + 2.0 * constraintSet.Overhang.Y,
-                    constraintSet.OptMaxHeight.Value - _palletProperties.Height
-                    );
             }
         }
         public override Vector3D Offset
@@ -112,7 +100,7 @@ namespace treeDiM.StackBuilder.Basics
     public class AnalysisHCylTruck : AnalysisHCyl
     {
         #region Constructor
-        public AnalysisHCylTruck(Document doc, CylinderProperties cylinder, TruckProperties truckProperties, ConstraintSetPackablePallet constraintSet)
+        public AnalysisHCylTruck(Document doc, CylinderProperties cylinder, TruckProperties truckProperties, ConstraintSetPackableTruck constraintSet)
             : base(doc, cylinder)
         {
             TruckProperties = truckProperties;
@@ -134,7 +122,6 @@ namespace treeDiM.StackBuilder.Basics
         }
         #endregion
         #region Override AnalysisHCyl
-        public override Vector3D ContainerDimensions3D => TruckProperties.InsideDimensions;
         public override ItemBase Container => TruckProperties;
         public override Vector2D ContainerDimensions => new Vector2D(TruckProperties.Length, TruckProperties.Width);
         public override Vector3D Offset => Vector3D.Zero;

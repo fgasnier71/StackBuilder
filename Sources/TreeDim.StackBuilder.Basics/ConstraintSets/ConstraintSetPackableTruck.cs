@@ -27,7 +27,7 @@ namespace treeDiM.StackBuilder.Basics
         {
             get
             {
-                if (_container is TruckProperties truckProperties)
+                if (Container is TruckProperties truckProperties)
                     return new OptDouble(truckProperties.AdmissibleLoadWeight > 0.0, truckProperties.AdmissibleLoadWeight);
                 else
                     return OptDouble.Zero;
@@ -37,7 +37,7 @@ namespace treeDiM.StackBuilder.Basics
         {
             get
             {
-                if (_container is TruckProperties truckProperties)
+                if (Container is TruckProperties truckProperties)
                     return new OptDouble(true, truckProperties.InsideHeight - MinDistanceLoadRoof);
                 else
                     return OptDouble.Zero;
@@ -46,12 +46,10 @@ namespace treeDiM.StackBuilder.Basics
         #endregion
 
         #region Non-Public Members
-        protected IPackContainer _container;
-
-        protected ConstraintSetPackableTruck(IPackContainer container)
+        protected ConstraintSetPackableTruck(IContainer container)
         {
-            _container = container;
-            if (!(_container is TruckProperties))
+            Container = container;
+            if (!(Container is TruckProperties))
                 throw new ArgumentException("Invalid container!");
         }
         #endregion

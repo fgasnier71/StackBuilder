@@ -383,7 +383,13 @@ namespace treeDiM.StackBuilder.Desktop
                 if (DialogResult.OK == form.ShowDialog()) { }
             return null;
         }
-
+        public AnalysisHCylTruck CreateNewAnalysisHCylinderTruckUI()
+        {
+            if (!CanCreateAnalysisCylinderTruck) return null;
+            using (FormNewAnalysisHCylTruck form = new FormNewAnalysisHCylTruck(this, null))
+                if (DialogResult.OK == form.ShowDialog()) { }
+            return null;
+        }
         public void CreateNewHAnalysisPalletUI()
         {
             if (!CanCreateAnalysisCasePallet) return;

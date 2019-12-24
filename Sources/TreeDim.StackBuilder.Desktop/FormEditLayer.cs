@@ -18,7 +18,7 @@ namespace treeDiM.StackBuilder.Desktop
             InitializeComponent();
 
             Layer = layer;
-            Content = content as BoxProperties;
+            Content = content as PackableBrick;
             uCtrlLayerEditor.Content = Content;
             uCtrlLayerEditor.Layer = Layer;
         }
@@ -40,7 +40,7 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
         #region Public accessors
         public Layer2DBrickExp Layer { get; set; }
-        public BoxProperties Content { get; set; }
+        public PackableBrick Content { get; set; }
         #endregion
         #region Event handlers
         private void OnSaveEnabled(bool enable) => bnOK.Enabled = enable;

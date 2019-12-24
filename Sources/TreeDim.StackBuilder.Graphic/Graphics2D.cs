@@ -64,25 +64,30 @@ namespace treeDiM.StackBuilder.Graphics
         {
             System.Drawing.Graphics g = Graphics;
 
-            Brush brushPath = new SolidBrush(box.TopFace.ColorPath);
-            Pen penPath = new Pen(brushPath);
-
-            // get points
-            Point[] pt = TransformPoint(box.TopFace.Points);
-
-            // draw solid face
-            Brush brushSolid = new SolidBrush(box.TopFace.ColorFill);
-            g.FillPolygon(brushSolid, pt);
-            g.DrawPolygon(penPath, pt);
-            // draw box tape
-            if (box.TapeWidth.Activated)
+            if (box is Pack pack)
+                pack.Draw(this);
+            else
             {
-                // instantiate brush
-                Brush brushTape = new SolidBrush(box.TapeColor);
-                // fill polygon
-                Point[] pts = TransformPoint(box.TapePoints);
-                g.FillPolygon(brushTape, pts);
-                g.DrawPolygon(penPath, pts);
+                Brush brushPath = new SolidBrush(box.TopFace.ColorPath);
+                Pen penPath = new Pen(brushPath);
+
+                // get points
+                Point[] pt = TransformPoint(box.TopFace.Points);
+
+                // draw solid face
+                Brush brushSolid = new SolidBrush(box.TopFace.ColorFill);
+                g.FillPolygon(brushSolid, pt);
+                g.DrawPolygon(penPath, pt);
+                // draw box tape
+                if (box.TapeWidth.Activated)
+                {
+                    // instantiate brush
+                    Brush brushTape = new SolidBrush(box.TapeColor);
+                    // fill polygon
+                    Point[] pts = TransformPoint(box.TapePoints);
+                    g.FillPolygon(brushTape, pts);
+                    g.DrawPolygon(penPath, pts);
+                }
             }
         }
         public void DrawBoxSelected(Box box)

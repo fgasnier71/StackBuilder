@@ -43,7 +43,6 @@ namespace treeDiM.StackBuilder.Graphics
             aProp.SetValue(this, true, null);
         }
         #endregion
-
         #region Public properties
         public Layer2DBrickExp Layer  { get; set; }
         public Vector2D PtMin => Vector2D.Zero - new Vector2D(MaxContentDim, MaxContentDim);
@@ -70,19 +69,27 @@ namespace treeDiM.StackBuilder.Graphics
                 if (null == Layer) return;
                 Graphics.SetViewport(PtMin, PtMax);
 
-                BoxProperties boxProperties = Content as BoxProperties;
                 uint pickId = 0;
                 foreach (var bp in Layer.Positions)
                 {
-                    Box b = new Box(pickId++, boxProperties, bp);
+                    Box b;
+                    if (Content is PackProperties pack)
+                        b = new Pack(pickId++, pack, bp);
+                    else
+                        b = new Box(pickId++, Content as PackableBrick, bp);
                     Graphics.DrawBox(b);
                 }
                 Graphics.DrawRectangle(Vector2D.Zero, Layer.DimContainer, Color.OrangeRed);
 
                 if (-1 != SelectedIndex)
                 {
-                    var bPos = Layer.Positions[SelectedIndex];
-                    Box boxSelected = new Box((uint)SelectedIndex, boxProperties, bPos);
+                    var bp = Layer.Positions[SelectedIndex];
+
+                    Box boxSelected;
+                    if (Content is PackProperties pack)
+                        boxSelected = new Pack((uint)SelectedIndex, pack, bp);
+                    else
+                        boxSelected = new Box(((uint)SelectedIndex), Content as PackableBrick, bp);
                     Graphics.DrawBoxSelected(boxSelected);
 
                     ArrowButtons.Clear();
@@ -102,7 +109,7 @@ namespace treeDiM.StackBuilder.Graphics
                         Graphics.DrawArcArrow(ptCenter, 75, 10, Color.Red, out _rotateRectangle);
 
                     // draw position
-                    Graphics.DrawText($"({bPos.Position.X:0.##}, {bPos.Position.Y:0.##}, {bPos.Position.Z:0.##}), {HalfAxis.ToString(bPos.DirectionLength)}, {HalfAxis.ToString(bPos.DirectionWidth)}");
+                    Graphics.DrawText($"({bp.Position.X:0.##}, {bp.Position.Y:0.##}, {bp.Position.Z:0.##}), {HalfAxis.ToString(bp.DirectionLength)}, {HalfAxis.ToString(bp.DirectionWidth)}");
                 }
             }
             catch (Exception ex)
@@ -259,16 +266,7 @@ namespace treeDiM.StackBuilder.Graphics
         }
         #endregion
         #region Helpers
-        private Vector3D Dimensions
-        {
-            get
-            {
-                if (Content is BoxProperties boxProperties)
-                    return boxProperties.OuterDimensions;
-                else
-                    return Vector3D.Zero;
-            }
-        }
+        private Vector3D Dimensions => Content.OuterDimensions;
         #endregion
         #region Delegate / Event
         public delegate void EnableSave(bool enable);

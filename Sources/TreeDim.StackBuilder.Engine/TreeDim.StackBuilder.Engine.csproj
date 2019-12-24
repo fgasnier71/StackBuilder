@@ -122,6 +122,7 @@
     <Compile Include="Solvers\SolverCasePallet.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="Engine.cd" />
     <None Include="packages.config" />
   </ItemGroup>

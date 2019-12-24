@@ -1,7 +1,9 @@
-﻿using System;
+﻿#region Using directives
+using System;
 
 using Sharp3D.Math.Core;
 using treeDiM.StackBuilder.Basics;
+#endregion
 
 namespace treeDiM.StackBuilder.Engine
 {
@@ -9,9 +11,9 @@ namespace treeDiM.StackBuilder.Engine
     {
         public override string Name => "Symetric Interlocked";
         public override int GetNumberOfVariants(Layer2DBrickImp layer) => 1;
-        public override bool IsSymetric => true;
+        public override bool IsSymetric => false;
         public override bool CanBeSwapped => true;
-        public override bool CanBeInverted => false;
+        public override bool CanBeInverted => true;
 
         public override void GenerateLayer(ILayer2D layer, double actualLength, double actualWidth)
         {
@@ -77,7 +79,6 @@ namespace treeDiM.StackBuilder.Engine
         }
 
         #region Non-Public Members
-
         protected void GetSizeXY(double boxLength, double boxWidth, double palletLength, double palletWidth,
             out int optSizeXLength, out int optSizeXWidth, out int optSizeYLength, out int optSizeYWidth)
         {
@@ -107,7 +108,6 @@ namespace treeDiM.StackBuilder.Engine
                 --sizeXLengthD2; 
             } 
         }
-
         #endregion
     }
 }

@@ -242,8 +242,6 @@ namespace treeDiM.StackBuilder.Basics
     #region Solution
     public class SolutionLayered : SolutionHomo
     {
-
-
         #region Constructor
         public SolutionLayered(AnalysisLayered analysis, LayerDesc layerDesc, bool alternateLayer)
         {

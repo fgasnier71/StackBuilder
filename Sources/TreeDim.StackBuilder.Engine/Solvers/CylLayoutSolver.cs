@@ -13,8 +13,7 @@ namespace treeDiM.StackBuilder.Engine
     {
         public static List<HCylLayout> BuildLayout(
             Packable packable
-            , Vector3D dimContainer
-            , double offsetZ
+            , IContainer container
             , ConstraintSetAbstract constraintSet)
         {
             var layouts = new List<HCylLayout>();
@@ -29,10 +28,10 @@ namespace treeDiM.StackBuilder.Engine
                         var layout = new HCylLayout(
                             cylProperties.Diameter
                             , cylProperties.Height
-                            , dimContainer
+                            , container.GetStackingDimensions(constraintSet)
                             , pattern.Name
                             , iDir == 1)
-                        { OffsetZ = offsetZ };
+                        { OffsetZ = container.OffsetZ };
 
                         pattern.GetDimensions(layout, constraintSet.OptGlobMaxNumber(packable), out double actualLength, out double actualWidth);
                         pattern.Generate(layout, constraintSet.OptGlobMaxNumber(packable), actualLength, actualWidth, constraintSet.OptMaxHeight.Value);
@@ -44,8 +43,7 @@ namespace treeDiM.StackBuilder.Engine
         }
 
         public static HCylLayout BuildLayout(Packable packable
-            , Vector3D dimContainer
-            , double offsetZ
+            , IContainer container
             , ConstraintSetAbstract constraintSet
             , string patternName, bool swapped)
         {
@@ -59,11 +57,11 @@ namespace treeDiM.StackBuilder.Engine
             var layout = new HCylLayout(
                 cylProperties.Diameter
                 , cylProperties.Height
-                , dimContainer
+                , container.GetStackingDimensions(constraintSet)
                 , pattern.Name
                 , swapped)
             {
-                OffsetZ = offsetZ
+                OffsetZ = container.OffsetZ
             };
             pattern.GetDimensions(layout, constraintSet.OptGlobMaxNumber(packable), out double actualLength, out double actualWidth);
             pattern.Generate(layout, constraintSet.OptGlobMaxNumber(packable), actualLength, actualWidth, constraintSet.OptMaxHeight.Value);
@@ -71,13 +69,12 @@ namespace treeDiM.StackBuilder.Engine
         }
 
         public HCylLayout BuildLayoutNonStatic(Packable packable
-            , Vector3D dimContainer
-            , double offsetZ
+            , IContainer container
             , ConstraintSetAbstract constraintSet
             , string patternName
             , bool swapped)
         {
-            return BuildLayout(packable, dimContainer, offsetZ, constraintSet, patternName, swapped);
+            return BuildLayout(packable, container, constraintSet, patternName, swapped);
         }
     }
 }

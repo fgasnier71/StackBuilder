@@ -8,7 +8,7 @@ namespace treeDiM.StackBuilder.Basics
 {
     public class ConstraintSetBoxCase : ConstraintSetPackableContainer
     {
-        public ConstraintSetBoxCase(IPackContainer container)
+        public ConstraintSetBoxCase(IContainer container)
             : base(container)
         {            
         }

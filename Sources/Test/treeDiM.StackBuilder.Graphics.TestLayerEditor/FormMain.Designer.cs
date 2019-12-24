@@ -81,9 +81,6 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.layerEditor.Location = new System.Drawing.Point(0, 0);
             this.layerEditor.Name = "layerEditor";
-            this.layerEditor.Positions = null;
-            this.layerEditor.PtMax = ((Sharp3D.Math.Core.Vector2D)(resources.GetObject("layerEditor.PtMax")));
-            this.layerEditor.PtMin = ((Sharp3D.Math.Core.Vector2D)(resources.GetObject("layerEditor.PtMin")));
             this.layerEditor.Size = new System.Drawing.Size(710, 427);
             this.layerEditor.TabIndex = 0;
             this.layerEditor.SaveEnabled += new treeDiM.StackBuilder.Graphics.Graphics2DLayerEditor.EnableSave(this.OnSaveEnabled);
@@ -92,9 +89,6 @@
             // 
             this.graphics2DLayerEditor1.Location = new System.Drawing.Point(0, 0);
             this.graphics2DLayerEditor1.Name = "graphics2DLayerEditor1";
-            this.graphics2DLayerEditor1.Positions = null;
-            this.graphics2DLayerEditor1.PtMax = ((Sharp3D.Math.Core.Vector2D)(resources.GetObject("graphics2DLayerEditor1.PtMax")));
-            this.graphics2DLayerEditor1.PtMin = ((Sharp3D.Math.Core.Vector2D)(resources.GetObject("graphics2DLayerEditor1.PtMin")));
             this.graphics2DLayerEditor1.Size = new System.Drawing.Size(150, 150);
             this.graphics2DLayerEditor1.TabIndex = 0;
             // 

@@ -41,7 +41,7 @@ namespace treeDiM.StackBuilder.Basics
             {
                 BBox3D bb = BBox3D.Initial;
                 foreach (BoxPosition bp in _listBoxPosition)
-                    bb.Extend(bp.BBox(new Vector3D(BoxLength, BoxWidth, BoxHeight)));
+                    bb.Extend(bp.BBox(DimBox));
                 return bb;
             }
         }

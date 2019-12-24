@@ -124,6 +124,7 @@
             this.toolStripMIAnalysisPalletTruck = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMIAnalysisCaseTruck = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMIAnalysisCylinderTruck = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMIAnalysisHCylTruck = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMIHAnalysisCaseTruck = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSBOptimisations = new System.Windows.Forms.ToolStripSplitButton();
@@ -797,6 +798,7 @@
             this.toolStripMIAnalysisPalletTruck,
             this.toolStripMIAnalysisCaseTruck,
             this.toolStripMIAnalysisCylinderTruck,
+            this.toolStripMIAnalysisHCylTruck,
             this.toolStripMIHAnalysisCaseTruck});
             resources.ApplyResources(this.toolStripSBAnalysesTruck, "toolStripSBAnalysesTruck");
             this.toolStripSBAnalysesTruck.Name = "toolStripSBAnalysesTruck";
@@ -819,6 +821,12 @@
             resources.ApplyResources(this.toolStripMIAnalysisCylinderTruck, "toolStripMIAnalysisCylinderTruck");
             this.toolStripMIAnalysisCylinderTruck.Name = "toolStripMIAnalysisCylinderTruck";
             this.toolStripMIAnalysisCylinderTruck.Click += new System.EventHandler(this.OnNewAnalysisCylinderTruck);
+            // 
+            // toolStripMIAnalysisHCylTruck
+            // 
+            resources.ApplyResources(this.toolStripMIAnalysisHCylTruck, "toolStripMIAnalysisHCylTruck");
+            this.toolStripMIAnalysisHCylTruck.Name = "toolStripMIAnalysisHCylTruck";
+            this.toolStripMIAnalysisHCylTruck.Click += new System.EventHandler(this.OnNewAnalysisHCylinderTruck);
             // 
             // toolStripMIHAnalysisCaseTruck
             // 
@@ -1072,5 +1080,6 @@
         private System.Windows.Forms.ToolStripButton toolStripButtonPremium;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
         private System.Windows.Forms.ToolStripMenuItem toolStripMIAnalysisHCylPallet;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMIAnalysisHCylTruck;
     }
 }

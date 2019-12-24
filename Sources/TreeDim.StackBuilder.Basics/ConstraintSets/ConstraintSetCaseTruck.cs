@@ -10,7 +10,7 @@ namespace treeDiM.StackBuilder.Basics
 {
     public class ConstraintSetCaseTruck : ConstraintSetPackableTruck
     {
-        public ConstraintSetCaseTruck(IPackContainer container)
+        public ConstraintSetCaseTruck(IContainer container)
             : base(container)
         {
         }

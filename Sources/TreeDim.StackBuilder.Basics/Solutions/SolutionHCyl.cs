@@ -10,8 +10,7 @@ namespace treeDiM.StackBuilder.Basics
     public interface ILayoutSolver
     {
         HCylLayout BuildLayoutNonStatic(Packable packable
-            , Vector3D dimContainer
-            , double offsetZ
+            , IContainer container
             , ConstraintSetAbstract constraintSet
             , string patternName
             , bool swapped);
@@ -42,8 +41,7 @@ namespace treeDiM.StackBuilder.Basics
             Analysis.ConstraintSet.Container = AnalysisHCyl.Container as IContainer;
             Layout = Solver.BuildLayoutNonStatic(
                 Analysis.Content,
-                AnalysisHCyl.ContainerDimensions3D,
-                AnalysisHCyl.Offset.Z,
+                Analysis.ConstraintSet.Container,
                 Analysis.ConstraintSet,
                 PatternName,
                 Swapped);

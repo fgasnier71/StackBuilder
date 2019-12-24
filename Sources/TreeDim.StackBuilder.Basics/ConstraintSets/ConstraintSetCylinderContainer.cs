@@ -4,7 +4,7 @@ namespace treeDiM.StackBuilder.Basics
 {
     public class ConstraintSetCylinderContainer : ConstraintSetPackableContainer
     {
-        public ConstraintSetCylinderContainer(IPackContainer container)
+        public ConstraintSetCylinderContainer(IContainer container)
             : base(container)
         {
         }

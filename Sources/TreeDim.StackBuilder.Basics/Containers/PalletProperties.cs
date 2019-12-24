@@ -60,10 +60,11 @@ namespace treeDiM.StackBuilder.Basics
         }
         public BBox3D BoundingBox => new BBox3D(Vector3D.Zero, new Vector3D(_length, _width, _height));
 
+        public double OffsetZ => Height;
+
         public Vector3D GetStackingDimensions(ConstraintSetAbstract constraintSet)
         {
-            ConstraintSetPackablePallet constraintSetPackablePallet = constraintSet as ConstraintSetPackablePallet;
-            if (null == constraintSetPackablePallet)
+            if (!(constraintSet is ConstraintSetPackablePallet constraintSetPackablePallet))
                 throw new InvalidConstraintSetException();
             return new Vector3D(
                 _length + 2.0 * constraintSetPackablePallet.Overhang.X

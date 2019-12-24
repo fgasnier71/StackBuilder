@@ -55,6 +55,5 @@ namespace treeDiM.StackBuilder.Engine
             layer.UpdateMaxSpace(spaceYLength, Name);
             layer.UpdateMaxSpace(spaceYWidth, Name);
         }
-
     }
 }

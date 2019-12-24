@@ -753,6 +753,20 @@ namespace treeDiM.StackBuilder.Basics
             return InsertAnalysis(analysis);
         }
 
+        public Analysis CreateNewAnalysisHCylTruck(
+            string name, string description
+            , CylinderProperties cylinder, TruckProperties truckProperties
+            , ConstraintSetCylinderTruck constraintSet
+            , HCylLayout layout
+            )
+        {
+            var analysis = new AnalysisHCylTruck(
+                this, cylinder, truckProperties, constraintSet);
+            analysis.ID.SetNameDesc(name, description);
+            analysis.SetSolution(layout);
+            return InsertAnalysis(analysis);
+        }
+
         public AnalysisHetero CreateNewHAnalysisCasePallet(
             string name, string description,
             List<ContentItem> contentItems,
@@ -996,7 +1010,7 @@ namespace treeDiM.StackBuilder.Basics
 
         #region Allowing analysis/opti
         public bool CanCreatePack => Boxes.Any();
-        public bool CanCreateAnalysisCasePallet => Cases.Any() && Pallets.Any();
+        public bool CanCreateAnalysisCasePallet => Bricks.Any() && Pallets.Any();
         public bool CanCreateAnalysisBundlePallet => Bundles.Any() && Pallets.Any();
         public bool CanCreateAnalysisBoxCase =>(Boxes.Any() || Cases.Any()) && Cases.Any();
         public bool CanCreateAnalysisBundleCase => Bundles.Any() && Cases.Any();
@@ -2038,17 +2052,17 @@ namespace treeDiM.StackBuilder.Basics
             constraintSet.PalletFilmTurns = LoadInt(eltConstraintSet, "PalletFilmTurns");
             return constraintSet;
         }
-        private ConstraintSetAbstract LoadConstraintSetBoxCase(XmlElement eltConstraintSet, IPackContainer container)
+        private ConstraintSetAbstract LoadConstraintSetBoxCase(XmlElement eltConstraintSet, IContainer container)
         {
             ConstraintSetBoxCase constraintSet = new ConstraintSetBoxCase(container);
             return constraintSet;
         }
-        private ConstraintSetAbstract LoadConstraintSetCylinderCase(XmlElement eltConstraintSet, IPackContainer container)
+        private ConstraintSetAbstract LoadConstraintSetCylinderCase(XmlElement eltConstraintSet, IContainer container)
         {
             ConstraintSetCylinderContainer constraintSet = new ConstraintSetCylinderContainer(container);
             return constraintSet;
         }
-        private ConstraintSetAbstract LoadConstraintSetPalletTruck(XmlElement eltConstraintSet, IPackContainer container)
+        private ConstraintSetAbstract LoadConstraintSetPalletTruck(XmlElement eltConstraintSet, IContainer container)
         {
             ConstraintSetPalletTruck constraintSet = new ConstraintSetPalletTruck(container)
             {
@@ -2058,7 +2072,7 @@ namespace treeDiM.StackBuilder.Basics
             };
             return constraintSet;
         }
-        private ConstraintSetAbstract LoadConstraintSetCaseTruck(XmlElement eltConstraintSet, IPackContainer container)
+        private ConstraintSetAbstract LoadConstraintSetCaseTruck(XmlElement eltConstraintSet, IContainer container)
         {
             ConstraintSetCaseTruck constraintSet = new ConstraintSetCaseTruck(container)
             {

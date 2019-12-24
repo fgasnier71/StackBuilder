@@ -36,9 +36,12 @@
             this.splitContainerVert = new System.Windows.Forms.SplitContainer();
             this.graphCtrlSolution = new treeDiM.StackBuilder.Graphics.Graphics3DControl();
             this.gridSolution = new SourceGrid.Grid();
+            this.uCtrlMaxWeight = new treeDiM.Basics.UCtrlOptDouble();
+            this.uCtrlMaxNumber = new treeDiM.Basics.UCtrlOptInt();
             this.toolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerHoriz)).BeginInit();
             this.splitContainerHoriz.Panel1.SuspendLayout();
+            this.splitContainerHoriz.Panel2.SuspendLayout();
             this.splitContainerHoriz.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerVert)).BeginInit();
             this.splitContainerVert.Panel1.SuspendLayout();
@@ -88,8 +91,13 @@
             // splitContainerHoriz.Panel1
             // 
             this.splitContainerHoriz.Panel1.Controls.Add(this.splitContainerVert);
+            // 
+            // splitContainerHoriz.Panel2
+            // 
+            this.splitContainerHoriz.Panel2.Controls.Add(this.uCtrlMaxWeight);
+            this.splitContainerHoriz.Panel2.Controls.Add(this.uCtrlMaxNumber);
             this.splitContainerHoriz.Size = new System.Drawing.Size(784, 536);
-            this.splitContainerHoriz.SplitterDistance = 384;
+            this.splitContainerHoriz.SplitterDistance = 458;
             this.splitContainerHoriz.TabIndex = 1;
             // 
             // splitContainerVert
@@ -105,8 +113,8 @@
             // splitContainerVert.Panel2
             // 
             this.splitContainerVert.Panel2.Controls.Add(this.gridSolution);
-            this.splitContainerVert.Size = new System.Drawing.Size(784, 384);
-            this.splitContainerVert.SplitterDistance = 586;
+            this.splitContainerVert.Size = new System.Drawing.Size(784, 458);
+            this.splitContainerVert.SplitterDistance = 537;
             this.splitContainerVert.TabIndex = 0;
             // 
             // graphCtrlSolution
@@ -114,7 +122,7 @@
             this.graphCtrlSolution.Dock = System.Windows.Forms.DockStyle.Fill;
             this.graphCtrlSolution.Location = new System.Drawing.Point(0, 0);
             this.graphCtrlSolution.Name = "graphCtrlSolution";
-            this.graphCtrlSolution.Size = new System.Drawing.Size(586, 384);
+            this.graphCtrlSolution.Size = new System.Drawing.Size(537, 458);
             this.graphCtrlSolution.TabIndex = 0;
             this.graphCtrlSolution.Viewer = null;
             // 
@@ -126,10 +134,35 @@
             this.gridSolution.Name = "gridSolution";
             this.gridSolution.OptimizeMode = SourceGrid.CellOptimizeMode.ForRows;
             this.gridSolution.SelectionMode = SourceGrid.GridSelectionMode.Row;
-            this.gridSolution.Size = new System.Drawing.Size(194, 384);
+            this.gridSolution.Size = new System.Drawing.Size(243, 458);
             this.gridSolution.TabIndex = 0;
             this.gridSolution.TabStop = true;
             this.gridSolution.ToolTipText = "";
+            // 
+            // uCtrlMaxWeight
+            // 
+            this.uCtrlMaxWeight.Location = new System.Drawing.Point(12, 12);
+            this.uCtrlMaxWeight.Minimum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            -2147483648});
+            this.uCtrlMaxWeight.MinimumSize = new System.Drawing.Size(100, 20);
+            this.uCtrlMaxWeight.Name = "uCtrlMaxWeight";
+            this.uCtrlMaxWeight.Size = new System.Drawing.Size(300, 20);
+            this.uCtrlMaxWeight.TabIndex = 4;
+            this.uCtrlMaxWeight.Text = "Maximum weight";
+            this.uCtrlMaxWeight.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_MASS;
+            // 
+            // uCtrlMaxNumber
+            // 
+            this.uCtrlMaxNumber.Location = new System.Drawing.Point(12, 35);
+            this.uCtrlMaxNumber.Minimum = -10000;
+            this.uCtrlMaxNumber.MinimumSize = new System.Drawing.Size(100, 20);
+            this.uCtrlMaxNumber.Name = "uCtrlMaxNumber";
+            this.uCtrlMaxNumber.Size = new System.Drawing.Size(300, 20);
+            this.uCtrlMaxNumber.TabIndex = 3;
+            this.uCtrlMaxNumber.Text = "Maximum number";
             // 
             // DockContentAnalysisHCylTruck
             // 
@@ -145,6 +178,7 @@
             this.toolStrip.ResumeLayout(false);
             this.toolStrip.PerformLayout();
             this.splitContainerHoriz.Panel1.ResumeLayout(false);
+            this.splitContainerHoriz.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerHoriz)).EndInit();
             this.splitContainerHoriz.ResumeLayout(false);
             this.splitContainerVert.Panel1.ResumeLayout(false);
@@ -166,5 +200,7 @@
         private SourceGrid.Grid gridSolution;
         private System.Windows.Forms.ToolStripButton toolStripBBack;
         private System.Windows.Forms.ToolStripButton toolStripBReport;
+        private treeDiM.Basics.UCtrlOptDouble uCtrlMaxWeight;
+        private treeDiM.Basics.UCtrlOptInt uCtrlMaxNumber;
     }
 }

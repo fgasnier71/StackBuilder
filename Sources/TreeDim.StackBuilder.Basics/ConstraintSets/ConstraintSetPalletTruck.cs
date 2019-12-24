@@ -8,7 +8,7 @@ namespace treeDiM.StackBuilder.Basics
 {
     public class ConstraintSetPalletTruck : ConstraintSetPackableTruck
     {
-        public ConstraintSetPalletTruck(IPackContainer container)
+        public ConstraintSetPalletTruck(IContainer container)
             : base(container)
         {
         }
@@ -23,7 +23,7 @@ namespace treeDiM.StackBuilder.Basics
         {
             get
             {
-                TruckProperties truck = _container as TruckProperties;
+                TruckProperties truck = Container as TruckProperties;
                 return new OptDouble(true, truck.Height - MinDistanceLoadRoof);
             } 
         }
@@ -31,7 +31,7 @@ namespace treeDiM.StackBuilder.Basics
         {
             get
             {
-                TruckProperties truck = _container as TruckProperties;
+                TruckProperties truck = Container as TruckProperties;
                 return new OptDouble(true, truck.AdmissibleLoadWeight);
             }
         }

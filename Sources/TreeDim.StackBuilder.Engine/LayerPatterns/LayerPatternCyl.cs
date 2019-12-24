@@ -1,4 +1,5 @@
-﻿using System;
+﻿#region Using directives
+using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
 
@@ -6,7 +7,7 @@ using Sharp3D.Math.Core;
 using log4net;
 
 using treeDiM.StackBuilder.Basics;
-using treeDiM.StackBuilder.Basics.Extensions;
+#endregion
 
 namespace treeDiM.StackBuilder.Engine
 {

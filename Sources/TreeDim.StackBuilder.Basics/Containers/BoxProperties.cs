@@ -12,7 +12,7 @@ namespace treeDiM.StackBuilder.Basics
     /// <summary>
     /// Box properties (dimensions, colors, textures)
     /// </summary>
-    public class BoxProperties : BProperties, IContainer, IPackContainer
+    public class BoxProperties : BProperties, IContainer
     {
         /// <summary>
         /// Constructor 1
@@ -252,6 +252,8 @@ namespace treeDiM.StackBuilder.Basics
 
         public override bool IsBundle => false;
         protected override string TypeName => IsCase ? Properties.Resources.ID_NAMECASE : Properties.Resources.ID_NAMEBOX;
+
+        public double OffsetZ => 0.5 * (Height - InsideHeight);
 
         #region Non-Public Members
         private double _height;

@@ -142,56 +142,41 @@ namespace treeDiM.StackBuilder.Graphics
             BoxPosition = bPosition;
             // colors
             Colors = Enumerable.Repeat(Color.Chocolate, 6).ToArray();
-
-            BProperties bProperties = PackableToBProperties(packable);
-            if (null == bProperties)
-                throw new Exception(string.Format("Type {0} cannot be handled by Box constructor", packable.GetType().ToString() ));
-
-            Colors = bProperties.Colors;
-            IsBundle = bProperties.IsBundle;
-            // is box ?
-            if (bProperties is BoxProperties boxProperties)
+            if (packable is PackProperties)
             {
-                List<Pair<HalfAxis.HAxis, Texture>> textures = boxProperties.TextureList;
-                foreach (Pair<HalfAxis.HAxis, Texture> tex in textures)
-                {
-                    int iIndex = (int)tex.first;
-                    if (null == TextureLists[iIndex])
-                        TextureLists[iIndex] = new List<Texture>();
-                    TextureLists[iIndex].Add(tex.second);
-                }
-                TapeWidth = boxProperties.TapeWidth;
-                TapeColor = boxProperties.TapeColor;
             }
-            // is bundle ?
-            else if (bProperties.IsBundle)
+            else
             {
-                if (bProperties is BundleProperties bundleProp)
-                    BundleFlats = bundleProp.NoFlats;
+                BProperties bProperties = PackableToBProperties(packable);
+                if (null == bProperties)
+                    throw new Exception(string.Format("Type {0} cannot be handled by Box constructor", packable.GetType().ToString()));
+
+                Colors = bProperties.Colors;
+                IsBundle = bProperties.IsBundle;
+                // is box ?
+                if (bProperties is BoxProperties boxProperties)
+                {
+                    List<Pair<HalfAxis.HAxis, Texture>> textures = boxProperties.TextureList;
+                    foreach (Pair<HalfAxis.HAxis, Texture> tex in textures)
+                    {
+                        int iIndex = (int)tex.first;
+                        if (null == TextureLists[iIndex])
+                            TextureLists[iIndex] = new List<Texture>();
+                        TextureLists[iIndex].Add(tex.second);
+                    }
+                    TapeWidth = boxProperties.TapeWidth;
+                    TapeColor = boxProperties.TapeColor;
+                }
+                // is bundle ?
+                else if (bProperties.IsBundle)
+                {
+                    if (bProperties is BundleProperties bundleProp)
+                        BundleFlats = bundleProp.NoFlats;
+                }
             }
             if (packable is PackableBrickNamed packableBrickNamed)
                 StrapperList = new List<Strapper>(packableBrickNamed.StrapperSet.Strappers);
         }
-        public Box(uint pickId, PackProperties packProperties, BoxPosition bPosition)
-        {
-            // sanity checks
-            CheckPosition(bPosition);
-            // dimensions
-            PickId = pickId;
-            _dim[0] = packProperties.Length;
-            _dim[1] = packProperties.Width;
-            _dim[2] = packProperties.Height;
-            // box position
-            BoxPosition = new BoxPosition(Vector3D.Zero, HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P);
-            // colors
-            Colors = Enumerable.Repeat(Color.Chocolate, 6).ToArray();
-            // set position
-            BoxPosition = bPosition;
-            // stappers
-            StrapperList = new List<Strapper>(packProperties.StrapperSet.Strappers);
-
-        }
-
         public Box(uint pickId, InterlayerProperties interlayerProperties)
         {
             // dimensions
@@ -204,7 +189,6 @@ namespace treeDiM.StackBuilder.Graphics
             // colors
             Colors = Enumerable.Repeat<Color>(interlayerProperties.Color, 6).ToArray();
         }
-
         public Box(uint pickId, InterlayerProperties interlayerProperties, BoxPosition bPosition)
         {
             // dimensions

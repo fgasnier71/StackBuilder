@@ -15,7 +15,7 @@ namespace treeDiM.StackBuilder.Exporters
         #region Static members
         public static string FormatName => "csv (TechnologyBSA)";
         #endregion
-
+        #region Constructor
         public ExporterCSV_TechBSA() {}
         public override string Name => FormatName;
         public override string Filter => "Comma Separated Values (*.csv) |*.csv";
@@ -85,20 +85,21 @@ namespace treeDiM.StackBuilder.Exporters
             csv.AppendLine($"Program: StackBuilder; Program: StackBuilder.PalletDimension.W; REAL; {palletProperties.Weight.ToString("0,0.0", nfi)}");
 
             bool hasInterlayerBottom = sol.Layers.Count > 0 && (sol.Layers[0] is InterlayerPos);
-            csv.AppendLine($"Program: StackBuilder; Program: StackBuilder.InterLayerBottomOnOff; BOOL; {bool2string(hasInterlayerBottom)}");
+            csv.AppendLine($"Program: StackBuilder; Program: StackBuilder.InterLayerBottomOnOff; BOOL; {Bool2string(hasInterlayerBottom)}");
             bool hasInterlayerMiddle = sol.Layers.Count > 2 && (sol.Layers[2] is InterlayerPos);
-            csv.AppendLine($"Program: StackBuilder; Program: StackBuilder.InterLayerIntermediateOnOff; BOOL; {bool2string(hasInterlayerMiddle) }");
-            bool topInterlayer = false;
-            if (analysis is AnalysisCasePallet analysisCasePallet) topInterlayer = analysisCasePallet.HasPalletCap;
-            csv.AppendLine($"Program: StackBuilder; Program: StackBuilder.InterLayerBottomOnOff; BOOL; {bool2string(topInterlayer)}");
-            csv.AppendLine($"Program:StackBuilder; Program: StackBuilder.TotalWeight; REAL; {sol.Weight}");
+            csv.AppendLine($"Program: StackBuilder; Program: StackBuilder.InterLayerIntermediateOnOff; BOOL; {Bool2string(hasInterlayerMiddle) }");
+            bool topInterlayer = (analysis is AnalysisCasePallet analysisCasePallet) &&  analysisCasePallet.HasPalletCap;
+            csv.AppendLine($"Program: StackBuilder; Program: StackBuilder.InterLayerTopOnOff; BOOL; {Bool2string(topInterlayer)}");
+            csv.AppendLine($"Program:StackBuilder; Program: StackBuilder.TotalWeight; REAL; {sol.Weight.ToString("0,0.0", nfi)}");
 
             var writer = new StreamWriter(stream);
             writer.Write(csv.ToString());
             writer.Flush();
             stream.Position = 0;
         }
-
-        private static string bool2string(bool b) => b ? "TRUE" : "FALSE"; 
+        #endregion
+        #region Helpers
+        private static string Bool2string(bool b) => b ? "TRUE" : "FALSE";
+        #endregion
     }
 }

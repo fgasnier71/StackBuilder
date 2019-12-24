@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace treeDiM.StackBuilder.Basics.Extensions
+namespace treeDiM.StackBuilder.Basics
 {
     public static class EnumerableExtensions
     {
