@@ -141,7 +141,7 @@ namespace treeDiM.StackBuilder.Desktop
                 if (cbCylinders.SelectedType is CylinderProperties cylinder
                     && cbPallets.SelectedType is PalletProperties palletProperties)
                 {
-                    var layouts = CylLayoutSolver.BuildLayout(cylinder, palletProperties, BuildConstraintSet());
+                    var layouts = CylLayoutSolver.BuildLayouts(cylinder, palletProperties, BuildConstraintSet());
                     uCtrlHCylLayoutList.Packable = cylinder;
                     uCtrlHCylLayoutList.HCylLayouts = layouts;
                 }

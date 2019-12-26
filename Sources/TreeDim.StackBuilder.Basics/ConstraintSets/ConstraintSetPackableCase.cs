@@ -26,14 +26,8 @@ namespace treeDiM.StackBuilder.Basics
         public override bool AllowUncompleteLayer => true;
         public override bool Valid => HasSomeAllowedOrientations && (!OptMaxNumber.Activated || (OptMaxNumber.Value > 0));
 
-        public void SetMaxWeight(OptDouble maxWeight)
-        {
-            OptMaxWeight = maxWeight;
-        }
-        public void SetMaxNumber(int maxNumber)
-        {
-            OptMaxNumber = new OptInt(true, maxNumber);
-        }
+        public void SetMaxWeight(OptDouble maxWeight) => OptMaxWeight = maxWeight;
+        public void SetMaxNumber(int maxNumber) => OptMaxNumber = new OptInt(true, maxNumber);
 
         #region Non-Public Members
         protected ConstraintSetPackableContainer(IContainer container)

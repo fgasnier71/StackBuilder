@@ -28,7 +28,6 @@ namespace treeDiM.StackBuilder.Basics
         #region Data members
         private UnitsManager.UnitSystem UnitSystem = UnitsManager.UnitSystem.UNIT_METRIC1;
         private List<ItemBase> _typeList = new List<ItemBase>();
-        private List<AnalysisLegacy> _analysesLegacy = new List<AnalysisLegacy>();
  
         private List<IDocumentListener> _listeners = new List<IDocumentListener>();
         private static ILayerSolver _solver;
@@ -99,14 +98,7 @@ namespace treeDiM.StackBuilder.Basics
         {
             string trimmedName = name.Trim();
             return (null == Analyses.Find(
-                delegate(Analysis analysis)
-                {
-                    return analysis != analysisToRename
-                        && string.Equals(analysis.ID.Name, trimmedName, StringComparison.InvariantCultureIgnoreCase);
-                }
-                ))
-                && (null == _analysesLegacy.Find(
-                delegate(AnalysisLegacy analysis)
+                delegate (Analysis analysis)
                 {
                     return analysis != analysisToRename
                         && string.Equals(analysis.ID.Name, trimmedName, StringComparison.InvariantCultureIgnoreCase);
@@ -970,12 +962,6 @@ namespace treeDiM.StackBuilder.Basics
                 if (!HAnalyses.Remove(item as AnalysisHetero))
                     _log.Warn(string.Format("Failed to properly remove analysis {0}", item.ID.Name));
             }
-            else if (item is AnalysisLegacy)
-            {
-                NotifyOnAnalysisRemoved(item);
-                if (!_analysesLegacy.Remove(item as AnalysisLegacy))
-                    _log.Warn(string.Format("Failed to properly remove analysis {0}", item.ID.Name));
-            }
             else
                 _log.Error(string.Format("Removing document {0} of unknown type {1}...", item.ID.Name, item.GetType()));
             Modify();
@@ -1001,11 +987,6 @@ namespace treeDiM.StackBuilder.Basics
         public List<Analysis> Analyses { get; } = new List<Analysis>();
         public List<AnalysisHetero> HAnalyses { get; } = new List<AnalysisHetero>();
 
-        /// <summary>
-        /// Get list of case/pallet analyses
-        /// </summary>
-        public IEnumerable<AnalysisLegacy> AnalysesCasePallet =>
-            _analysesLegacy.OfType<AnalysisLegacy>();
         #endregion
 
         #region Allowing analysis/opti
@@ -1810,55 +1791,7 @@ namespace treeDiM.StackBuilder.Basics
                     , packable, truckProperties, interlayers
                     , constraintSet as ConstraintSetCaseTruck, listLayerEncaps);
             }
-            else if (string.Equals(eltAnalysis.Name, "AnalysisPallet", StringComparison.CurrentCultureIgnoreCase))
-            {
-                string sBoxId = eltAnalysis.Attributes["BoxId"].Value;
-                string sPalletId = eltAnalysis.Attributes["PalletId"].Value;
-
-                // load constraint set / solution list
-                PalletConstraintSet constraintSet = null;
-                List<int> selectedIndices = new List<int>();
-
-                foreach (XmlNode node in eltAnalysis.ChildNodes)
-                {
-                    // load constraint set
-                    if (string.Equals(node.Name, "ConstraintSetBox", StringComparison.CurrentCultureIgnoreCase))
-                        constraintSet = LoadCasePalletConstraintSet_Box(node as XmlElement);
-                    else if (string.Equals(node.Name, "ConstraintSetBundle", StringComparison.CurrentCultureIgnoreCase))
-                        constraintSet = LoadCasePalletConstraintSet_Bundle(node as XmlElement);
-                    // load solutions
-                    else if (string.Equals(node.Name, "Solutions", StringComparison.CurrentCultureIgnoreCase))
-                    {
-                        int indexSol = 0;
-                        foreach (XmlNode solutionNode in node.ChildNodes)
-                        {
-                            XmlElement eltSolution = solutionNode as XmlElement;
-                            // is solution selected ?
-                            if (null != eltSolution.Attributes["Selected"] && "true" == eltSolution.Attributes["Selected"].Value)
-                                selectedIndices.Add(indexSol);
-                            ++indexSol;
-                        }
-                    }
-                    if (null == constraintSet)
-                        throw new Exception("Failed to load a valid ConstraintSet");
-                }
-
-                // instantiate analysis
-                CreateNewCasePalletAnalysis(
-                    sName
-                    , sDescription
-                    , GetTypeByGuid(new Guid(sBoxId)) as BProperties
-                    , GetTypeByGuid(new Guid(sPalletId)) as PalletProperties
-                    , string.IsNullOrEmpty(sInterlayerId) ? null : GetTypeByGuid(new Guid(sInterlayerId)) as InterlayerProperties
-                    , string.IsNullOrEmpty(sInterlayerAntiSlipId) ? null : GetTypeByGuid(new Guid(sInterlayerAntiSlipId)) as InterlayerProperties
-                    , string.IsNullOrEmpty(sPalletCornerId) ? null : GetTypeByGuid(new Guid(sPalletCornerId)) as PalletCornerProperties
-                    , string.IsNullOrEmpty(sPalletCapId) ? null : GetTypeByGuid(new Guid(sPalletCapId)) as PalletCapProperties
-                    , string.IsNullOrEmpty(sPalletFilmId) ? null : GetTypeByGuid(new Guid(sPalletFilmId)) as PalletFilmProperties
-                    , constraintSet
-                    , _solver);
-
-            }
-            else if (string.Equals(eltAnalysis.Name, "AnalysisCylinderTruck", StringComparison.CurrentCultureIgnoreCase))
+             else if (string.Equals(eltAnalysis.Name, "AnalysisCylinderTruck", StringComparison.CurrentCultureIgnoreCase))
             {
                 TruckProperties truckProperties = GetTypeByGuid(sContainerId) as TruckProperties;
                 ConstraintSetCylinderTruck constraintSet = null;
@@ -1898,8 +1831,6 @@ namespace treeDiM.StackBuilder.Basics
                     else if (string.Equals(node.Name, "Solution", StringComparison.CurrentCultureIgnoreCase))
                         LoadSolution(node as XmlElement, out sDescriptor);
                 }
-                // get layout descriptor
-
                 var analysis = CreateNewAnalysisHCylPallet(
                     sName, sDescription,
                     cylProperties,
@@ -1913,6 +1844,32 @@ namespace treeDiM.StackBuilder.Basics
                     );
                 if (!string.IsNullOrEmpty(sId))
                     analysis.ID.IGuid = Guid.Parse(sId);
+            }
+            else if (string.Equals(eltAnalysis.Name, "AnalysisHCylTruck", StringComparison.CurrentCultureIgnoreCase))
+            {
+                var cylProperties = GetTypeByGuid(sContentId) as CylinderProperties;
+                var truckProperties = GetTypeByGuid(sContainerId) as TruckProperties;
+
+                ConstraintSetCylinderTruck constraintSet = null;
+                string sDescriptor = string.Empty;
+                foreach (XmlNode node in eltAnalysis.ChildNodes)
+                {
+                    if (string.Equals(node.Name, "ConstraintSet", StringComparison.CurrentCultureIgnoreCase))
+                        constraintSet = LoadConstraintSetCylinderTruck(node as XmlElement, truckProperties) as ConstraintSetCylinderTruck;
+                    else if (string.Equals(node.Name, "Solution", StringComparison.CurrentCultureIgnoreCase))
+                        LoadSolution(node as XmlElement, out sDescriptor);
+                }
+                var analysis = CreateNewAnalysisHCylTruck(
+                    sName, sDescription,
+                    cylProperties,
+                    truckProperties,
+                    constraintSet,
+                    new HCylLayout(
+                        cylProperties.Diameter,
+                        cylProperties.Height,
+                        truckProperties.GetStackingDimensions(constraintSet),
+                        sDescriptor)
+                    );
             }
         }
 
@@ -2054,32 +2011,38 @@ namespace treeDiM.StackBuilder.Basics
         }
         private ConstraintSetAbstract LoadConstraintSetBoxCase(XmlElement eltConstraintSet, IContainer container)
         {
-            ConstraintSetBoxCase constraintSet = new ConstraintSetBoxCase(container);
-            return constraintSet;
+            return new ConstraintSetBoxCase(container)
+            {
+                OptMaxNumber = LoadOptInt(eltConstraintSet, "MaximumNumberOfItems"),
+                OptMaxWeight = LoadOptDouble(eltConstraintSet, "MaximumWeight", UnitsManager.UnitType.UT_MASS)
+            };
         }
         private ConstraintSetAbstract LoadConstraintSetCylinderCase(XmlElement eltConstraintSet, IContainer container)
         {
-            ConstraintSetCylinderContainer constraintSet = new ConstraintSetCylinderContainer(container);
-            return constraintSet;
+            return new ConstraintSetCylinderContainer(container)
+            {
+                OptMaxNumber = LoadOptInt(eltConstraintSet, "MaximumNumberOfItems"),
+                OptMaxWeight = LoadOptDouble(eltConstraintSet, "MaximumWeight", UnitsManager.UnitType.UT_MASS)
+            };
         }
         private ConstraintSetAbstract LoadConstraintSetPalletTruck(XmlElement eltConstraintSet, IContainer container)
         {
-            ConstraintSetPalletTruck constraintSet = new ConstraintSetPalletTruck(container)
+            return new ConstraintSetPalletTruck(container)
             {
                 MinDistanceLoadWall = LoadVectorLength(eltConstraintSet, "MinDistanceLoadWall"),
                 MinDistanceLoadRoof = LoadDouble(eltConstraintSet, "MinDistanceLoadRoof", UnitsManager.UnitType.UT_LENGTH),
                 AllowMultipleLayers = (1 == LoadInt(eltConstraintSet, "AllowMultipleLayers"))
             };
-            return constraintSet;
         }
         private ConstraintSetAbstract LoadConstraintSetCaseTruck(XmlElement eltConstraintSet, IContainer container)
         {
-            ConstraintSetCaseTruck constraintSet = new ConstraintSetCaseTruck(container)
+            return new ConstraintSetCaseTruck(container)
             {
                 MinDistanceLoadWall = LoadVectorLength(eltConstraintSet, "MinDistanceLoadWall"),
-                MinDistanceLoadRoof = LoadDouble(eltConstraintSet, "MinDistanceLoadRoof", UnitsManager.UnitType.UT_LENGTH)
+                MinDistanceLoadRoof = LoadDouble(eltConstraintSet, "MinDistanceLoadRoof", UnitsManager.UnitType.UT_LENGTH),
+                OptMaxNumber = LoadOptInt(eltConstraintSet, "MaximumNumberOfItems"),
+                OptMaxWeight = LoadOptDouble(eltConstraintSet, "MaximumWeight", UnitsManager.UnitType.UT_MASS)
             };
-            return constraintSet;
         }
         #endregion
 
@@ -2158,186 +2121,17 @@ namespace treeDiM.StackBuilder.Basics
         #endregion
 
         #region Legacy loading
-        private BoxCasePalletConstraintSet LoadCaseConstraintSet(XmlElement eltConstraintSet)
-        {
-            BoxCasePalletConstraintSet constraints = new BoxCasePalletConstraintSet();
-            // align layers allowed
-            if (eltConstraintSet.HasAttribute("AlignedLayersAllowed"))
-                constraints.AllowAlignedLayers = string.Equals(eltConstraintSet.Attributes["AlignedLayersAllowed"].Value, "true", StringComparison.CurrentCultureIgnoreCase);
-            // alternate layers allowed
-            if (eltConstraintSet.HasAttribute("AlternateLayersAllowed"))
-                constraints.AllowAlternateLayers = string.Equals(eltConstraintSet.Attributes["AlternateLayersAllowed"].Value, "true", StringComparison.CurrentCultureIgnoreCase);
-            // allowed orthogonal axes
-            if (eltConstraintSet.HasAttribute("AllowedBoxPositions"))
-                constraints.AllowOrthoAxisString = eltConstraintSet.Attributes["AllowedBoxPositions"].Value;
-            // allowed patterns
-            if (eltConstraintSet.HasAttribute("AllowedPatterns"))
-                constraints.AllowedPatternString = eltConstraintSet.Attributes["AllowedPatterns"].Value;
-            // stop criterions
-            if (constraints.UseMaximumNumberOfItems = eltConstraintSet.HasAttribute("ManimumNumberOfItems"))
-                constraints.MaximumNumberOfItems = int.Parse(eltConstraintSet.Attributes["ManimumNumberOfItems"].Value);
-            // maximum case weight
-            if (constraints.UseMaximumCaseWeight = eltConstraintSet.HasAttribute("MaximumCaseWeight"))
-                constraints.MaximumCaseWeight = UnitsManager.ConvertMassFrom(double.Parse(eltConstraintSet.Attributes["MaximumCaseWeight"].Value), UnitSystem);
-            // number of solutions to keep
-            if (constraints.UseNumberOfSolutionsKept = eltConstraintSet.HasAttribute("NumberOfSolutions"))
-                constraints.NumberOfSolutionsKept = int.Parse(eltConstraintSet.Attributes["NumberOfSolutions"].Value);
-            // minimum number of items
-            if (constraints.UseMinimumNumberOfItems = eltConstraintSet.HasAttribute("MinimumNumberOfItems"))
-                constraints.MinimumNumberOfItems = int.Parse(eltConstraintSet.Attributes["MinimumNumberOfItems"].Value);
-            // sanity check
-            if (!constraints.IsValid)
-                throw new Exception("Invalid constraint set");
-            return constraints;
-        }
-
-        private BCaseConstraintSet LoadBoxCaseConstraintSet(XmlElement eltConstraintSet)
-        {
-            BCaseConstraintSet constraints = null;
-            
-            // allowed orthogonal axes
-            if (eltConstraintSet.HasAttribute("AllowedBoxPositions"))
-            {
-                constraints = new BoxCaseConstraintSet();
-                BoxCaseConstraintSet boxCaseContraintSet = constraints as BoxCaseConstraintSet;
-                boxCaseContraintSet.AllowOrthoAxisString = eltConstraintSet.Attributes["AllowedBoxPositions"].Value;
-            }
-            else
-                constraints = new BundleCaseConstraintSet();
-            // maximum case weight
-            if (constraints.UseMaximumCaseWeight = eltConstraintSet.HasAttribute("MaximumCaseWeight"))
-                constraints.MaximumCaseWeight = UnitsManager.ConvertMassFrom(double.Parse(eltConstraintSet.Attributes["MaximumCaseWeight"].Value), UnitSystem);
-            // allowed patterns
-            if (constraints.UseMaximumNumberOfBoxes = eltConstraintSet.HasAttribute("ManimumNumberOfItems"))
-                constraints.MaximumNumberOfBoxes = int.Parse(eltConstraintSet.Attributes["ManimumNumberOfItems"].Value);
-            // sanity check
-            if (!constraints.IsValid)
-                throw new Exception("Invalid constraint set");
-            return constraints;
-        }
-
         private ConstraintSetCylinderTruck LoadConstraintSetCylinderTruck(XmlElement eltConstraintSet, TruckProperties truckProperties)
         {
-            return new ConstraintSetCylinderTruck(truckProperties);
-        }
-
-        private PalletConstraintSet LoadCasePalletConstraintSet_Box(XmlElement eltConstraintSet)
-        {
-            CasePalletConstraintSet constraints = new CasePalletConstraintSet();
-            // align layers allowed
-            if (eltConstraintSet.HasAttribute("AlignedLayersAllowed"))
-                constraints.AllowAlignedLayers = string.Equals(eltConstraintSet.Attributes["AlignedLayersAllowed"].Value, "true", StringComparison.CurrentCultureIgnoreCase);
-            // alternate layers allowed
-            if (eltConstraintSet.HasAttribute("AlternateLayersAllowed"))
-                constraints.AllowAlternateLayers = string.Equals(eltConstraintSet.Attributes["AlternateLayersAllowed"].Value, "true", StringComparison.CurrentCultureIgnoreCase);
-            // allowed orthogonal axes
-            if (eltConstraintSet.HasAttribute("AllowedBoxPositions"))
+            return new ConstraintSetCylinderTruck(truckProperties)
             {
-                string allowedOrthoAxes = eltConstraintSet.Attributes["AllowedBoxPositions"].Value;
-                string[] sAxes = allowedOrthoAxes.Split(',');
-                foreach (string sAxis in sAxes)
-                    constraints.SetAllowedOrthoAxis(HalfAxis.Parse(sAxis), true);
-            }
-            // allowed patterns
-            if (eltConstraintSet.HasAttribute("AllowedPatterns"))
-                constraints.AllowedPatternString = eltConstraintSet.Attributes["AllowedPatterns"].Value;
-            // stop criterions
-            if (constraints.UseMaximumHeight = eltConstraintSet.HasAttribute("MaximumHeight"))
-                constraints.MaximumHeight = UnitsManager.ConvertLengthFrom(double.Parse(eltConstraintSet.Attributes["MaximumHeight"].Value), UnitSystem);
-            if (constraints.UseMaximumNumberOfCases = eltConstraintSet.HasAttribute("ManimumNumberOfItems"))
-                constraints.MaximumNumberOfItems = int.Parse(eltConstraintSet.Attributes["ManimumNumberOfItems"].Value);
-            if (constraints.UseMaximumPalletWeight = eltConstraintSet.HasAttribute("MaximumPalletWeight"))
-                constraints.MaximumPalletWeight = UnitsManager.ConvertMassFrom(double.Parse(eltConstraintSet.Attributes["MaximumPalletWeight"].Value), UnitSystem);
-            if (constraints.UseMaximumWeightOnBox = eltConstraintSet.HasAttribute("MaximumWeightOnBox"))
-                constraints.MaximumWeightOnBox = UnitsManager.ConvertMassFrom(double.Parse(eltConstraintSet.Attributes["MaximumWeightOnBox"].Value), UnitSystem);
-            // overhang / underhang
-            if (eltConstraintSet.HasAttribute("OverhangX"))
-                constraints.OverhangX = UnitsManager.ConvertLengthFrom(double.Parse(eltConstraintSet.Attributes["OverhangX"].Value), UnitSystem);
-            if (eltConstraintSet.HasAttribute("OverhangY"))
-                constraints.OverhangY = UnitsManager.ConvertLengthFrom(double.Parse(eltConstraintSet.Attributes["OverhangY"].Value), UnitSystem);
-            // number of solutions to keep
-            if (constraints.UseNumberOfSolutionsKept = eltConstraintSet.HasAttribute("NumberOfSolutions"))
-                constraints.NumberOfSolutionsKept = int.Parse(eltConstraintSet.Attributes["NumberOfSolutions"].Value);
-            // pallet film turns
-            if (eltConstraintSet.HasAttribute("PalletFilmTurns"))
-                constraints.PalletFilmTurns = int.Parse(eltConstraintSet.Attributes["PalletFilmTurns"].Value);
-            // sanity check
-            if (!constraints.IsValid)
-                throw new Exception("Invalid constraint set");
-            return constraints;
-        }
-        PalletConstraintSet LoadCasePalletConstraintSet_Bundle(XmlElement eltConstraintSet)
-        {
-            BundlePalletConstraintSet constraints = new BundlePalletConstraintSet();
-            // aligned layers allowed
-            if (eltConstraintSet.HasAttribute("AlignedLayersAllowed"))
-                constraints.AllowAlignedLayers = string.Equals(eltConstraintSet.Attributes["AlignedLayersAllowed"].Value, "true", StringComparison.CurrentCultureIgnoreCase);
-            // alternate layers allowed
-            if (eltConstraintSet.HasAttribute("AlternateLayersAllowed"))
-                constraints.AllowAlternateLayers = string.Equals(eltConstraintSet.Attributes["AlternateLayersAllowed"].Value, "true", StringComparison.CurrentCultureIgnoreCase);
-            // allowed patterns
-            if (eltConstraintSet.HasAttribute("AllowedPatterns"))
-                constraints.AllowedPatternString = eltConstraintSet.Attributes["AllowedPatterns"].Value;
-            // stop criterions
-            if (constraints.UseMaximumHeight = eltConstraintSet.HasAttribute("MaximumHeight"))
-                constraints.MaximumHeight = UnitsManager.ConvertLengthFrom(double.Parse(eltConstraintSet.Attributes["MaximumHeight"].Value), UnitSystem);
-            if (constraints.UseMaximumNumberOfCases = eltConstraintSet.HasAttribute("ManimumNumberOfItems"))
-                constraints.MaximumNumberOfItems = int.Parse(eltConstraintSet.Attributes["ManimumNumberOfItems"].Value);
-            if (constraints.UseMaximumPalletWeight = eltConstraintSet.HasAttribute("MaximumPalletWeight"))
-                constraints.MaximumPalletWeight = UnitsManager.ConvertMassFrom(double.Parse(eltConstraintSet.Attributes["MaximumPalletWeight"].Value), UnitSystem);
-            // overhang / underhang
-            if (eltConstraintSet.HasAttribute("OverhangX"))
-                constraints.OverhangX = UnitsManager.ConvertLengthFrom(double.Parse(eltConstraintSet.Attributes["OverhangX"].Value), UnitSystem);
-            if (eltConstraintSet.HasAttribute("OverhangY"))
-                constraints.OverhangY = UnitsManager.ConvertLengthFrom(double.Parse(eltConstraintSet.Attributes["OverhangY"].Value), UnitSystem);
-            // number of solutions to keep
-            if (constraints.UseNumberOfSolutionsKept = eltConstraintSet.HasAttribute("NumberOfSolutions"))
-                constraints.NumberOfSolutionsKept = int.Parse(eltConstraintSet.Attributes["NumberOfSolutions"].Value);
-            // sanity check
-            if (!constraints.IsValid)
-                throw new Exception("Invalid constraint set");
-            return constraints;
-        }
-        private PackPalletConstraintSet LoadPackPalletConstraintSet(XmlElement eltContraintSet)
-        {
-            PackPalletConstraintSet constraints = new PackPalletConstraintSet();
-            if (eltContraintSet.HasAttribute("OverhangX"))
-                constraints.OverhangX = UnitsManager.ConvertLengthFrom(double.Parse(eltContraintSet.Attributes["OverhangX"].Value), UnitSystem);
-            if (eltContraintSet.HasAttribute("OverhangY"))
-                constraints.OverhangY = UnitsManager.ConvertLengthFrom(double.Parse(eltContraintSet.Attributes["OverhangY"].Value), UnitSystem);
-            constraints.MinOverhangX = LoadOptDouble(eltContraintSet, "MinOverhangX", UnitsManager.UnitType.UT_LENGTH);
-            constraints.MinOverhangY = LoadOptDouble(eltContraintSet, "MinOverhangY", UnitsManager.UnitType.UT_LENGTH);
-            constraints.MinimumSpace = LoadOptDouble(eltContraintSet, "MinimumSpace", UnitsManager.UnitType.UT_LENGTH);
-            constraints.MaximumSpaceAllowed = LoadOptDouble(eltContraintSet, "MaximumSpaceAllowed", UnitsManager.UnitType.UT_LENGTH);
-            constraints.MaximumPalletHeight = LoadOptDouble(eltContraintSet, "MaximumHeight", UnitsManager.UnitType.UT_LENGTH);
-            if (!constraints.MaximumPalletHeight.Activated || constraints.MaximumPalletHeight.Value < 1)
-                constraints.MaximumPalletHeight = new OptDouble(true, 1700);
-            constraints.MaximumPalletWeight = LoadOptDouble(eltContraintSet, "MaximumPalletWeight", UnitsManager.UnitType.UT_MASS);
-            constraints.LayerSwapPeriod = int.Parse( eltContraintSet.Attributes["LayerSwapPeriod"].Value );
-            constraints.InterlayerPeriod = int.Parse( eltContraintSet.Attributes["InterlayerPeriod"].Value );
-            if (!constraints.IsValid)
-                throw new Exception("Invalid constraint set");
-            return constraints;
+                MinDistanceLoadWall = LoadVectorLength(eltConstraintSet, "MinDistanceLoadWall"),
+                MinDistanceLoadRoof = LoadDouble(eltConstraintSet, "MinDistanceLoadRoof", UnitsManager.UnitType.UT_LENGTH),
+                OptMaxNumber = LoadOptInt(eltConstraintSet, "MaximumNumberOfItems"),
+                OptMaxWeight = LoadOptDouble(eltConstraintSet, "MaximumWeight", UnitsManager.UnitType.UT_MASS)
+            };
         }
         #endregion
-
-        private HCylinderPalletConstraintSet LoadHCylinderPalletConstraintSet(XmlElement eltConstraintSet)
-        {
-            HCylinderPalletConstraintSet constraints = new HCylinderPalletConstraintSet();
-            // stop criterions
-            if (constraints.UseMaximumPalletHeight = eltConstraintSet.HasAttribute("MaximumHeight"))
-                constraints.MaximumPalletHeight = UnitsManager.ConvertLengthFrom(double.Parse(eltConstraintSet.Attributes["MaximumHeight"].Value), UnitSystem);
-            if (constraints.UseMaximumNumberOfItems = eltConstraintSet.HasAttribute("ManimumNumberOfItems"))
-                constraints.MaximumNumberOfItems = int.Parse(eltConstraintSet.Attributes["ManimumNumberOfItems"].Value);
-            if (constraints.UseMaximumPalletWeight = eltConstraintSet.HasAttribute("MaximumPalletWeight"))
-                constraints.MaximumPalletWeight = UnitsManager.ConvertMassFrom(double.Parse(eltConstraintSet.Attributes["MaximumPalletWeight"].Value), UnitSystem);
-            // overhang / underhang
-            if (eltConstraintSet.HasAttribute("OverhangX"))
-                constraints.OverhangX = UnitsManager.ConvertLengthFrom(double.Parse(eltConstraintSet.Attributes["OverhangX"].Value), UnitSystem);
-            if (eltConstraintSet.HasAttribute("OverhangY"))
-                constraints.OverhangY = UnitsManager.ConvertLengthFrom(double.Parse(eltConstraintSet.Attributes["OverhangY"].Value), UnitSystem);
-            return constraints;
-        }
 
         private void LoadSolution(
             XmlElement eltSolution
@@ -2400,75 +2194,6 @@ namespace treeDiM.StackBuilder.Basics
             XmlElement eltLayoutDesc = listLayoutDesc[0] as XmlElement;
             sDescriptor = eltLayoutDesc.InnerText;
         }
-
-        private CylPosition LoadCylPosition(XmlElement eltCylPosition)
-        {
-            string sPosition = eltCylPosition.Attributes["Position"].Value;
-            string sAxisDir = eltCylPosition.Attributes["AxisDir"].Value;
-
-            return new CylPosition( Vector3D.Parse(sPosition), HalfAxis.Parse(sAxisDir));
-        }
-
-        private ILayer LoadLayer(XmlElement eltLayer)
-        {
-            ILayer layer = null;
-            double zLow = UnitsManager.ConvertLengthFrom(
-                Convert.ToDouble(eltLayer.Attributes["ZLow"].Value, CultureInfo.InvariantCulture)
-                , UnitSystem);
-            double maxSpace = 0.0;
-            if (eltLayer.HasAttribute("MaximumSpace"))
-                maxSpace = UnitsManager.ConvertLengthFrom(
-                    Convert.ToDouble(eltLayer.Attributes["MaximumSpace"].Value, CultureInfo.InvariantCulture)
-                    , UnitSystem);
-            string patternName = string.Empty;
-            if (eltLayer.HasAttribute("PatternName"))
-                patternName = eltLayer.Attributes["PatternName"].Value;
-            if (string.Equals(eltLayer.Name, "BoxLayer", StringComparison.CurrentCultureIgnoreCase))
-            {
-                Layer3DBox boxLayer = new Layer3DBox(UnitsManager.ConvertLengthFrom(zLow, UnitSystem), 0)
-                {
-                    MaximumSpace = maxSpace
-                };
-                foreach (XmlNode nodeBoxPosition in eltLayer.ChildNodes)
-                {
-                    XmlElement eltBoxPosition = nodeBoxPosition as XmlElement;
-                    string sPosition = eltBoxPosition.Attributes["Position"].Value;
-                    string sAxisLength = eltBoxPosition.Attributes["AxisLength"].Value;
-                    string sAxisWidth = eltBoxPosition.Attributes["AxisWidth"].Value;
-                    try
-                    {
-                        boxLayer.AddPosition(UnitsManagerEx.ConvertLengthFrom(Vector3D.Parse(sPosition), UnitSystem), HalfAxis.Parse(sAxisLength), HalfAxis.Parse(sAxisWidth));
-                    }
-                    catch (Exception /*ex*/)
-                    {
-                        _log.Error(string.Format("Exception thrown: Position = {0} | AxisLength = {1} | AxisWidth = {2}",
-                            sPosition, sAxisLength, sAxisWidth ));
-                    }
-                }
-                layer = boxLayer;
-            }
-            else if (string.Equals(eltLayer.Name, "CylLayer", StringComparison.CurrentCultureIgnoreCase))
-            {
-                Layer3DCyl cylLayer = new Layer3DCyl(UnitsManager.ConvertLengthFrom(zLow, UnitSystem));
-                foreach (XmlNode nodePosition in eltLayer.ChildNodes)
-                {
-                    XmlElement eltBoxPosition = nodePosition as XmlElement;
-                    string sPosition = eltBoxPosition.Attributes["Position"].Value;
-                    cylLayer.Add(UnitsManagerEx.ConvertLengthFrom(Vector3D.Parse(sPosition), UnitSystem));
-                    layer = cylLayer;
-                }
-            }
-            else if (string.Equals(eltLayer.Name, "InterLayer", StringComparison.CurrentCultureIgnoreCase))
-            {
-                int typeId = 0;
-                if (eltLayer.HasAttribute("TypeId"))
-                    typeId = Convert.ToInt32(eltLayer.Attributes["TypeId"].Value);
-                layer = new InterlayerPos(UnitsManager.ConvertLengthFrom(zLow, UnitSystem), typeId);
-            }
-
-            return layer;
-        }
-
         private BoxPosition LoadBoxPosition(XmlElement eltBoxPosition)
         {
             string sPosition = eltBoxPosition.Attributes["Position"].Value;
@@ -2478,27 +2203,7 @@ namespace treeDiM.StackBuilder.Basics
         }
         #endregion
 
-        #region TruckAnalysis
-        private TruckConstraintSet LoadTruckConstraintSet(XmlElement eltTruckConstraintSet)
-        {
-            TruckConstraintSet constraintSet = new TruckConstraintSet();
-            // multi layer allowed
-            if (eltTruckConstraintSet.HasAttribute("MultilayerAllowed"))
-                constraintSet.MultilayerAllowed = string.Equals(eltTruckConstraintSet.Attributes["MultilayerAllowed"].Value, "true", StringComparison.CurrentCultureIgnoreCase);
-            if (eltTruckConstraintSet.HasAttribute("MinDistancePalletWall"))
-            constraintSet.MinDistancePalletTruckWall = UnitsManager.ConvertLengthFrom(double.Parse(eltTruckConstraintSet.Attributes["MinDistancePalletWall"].Value), UnitSystem);
-            if (eltTruckConstraintSet.HasAttribute("MinDistancePalletRoof"))
-                constraintSet.MinDistancePalletTruckRoof = UnitsManager.ConvertLengthFrom(double.Parse(eltTruckConstraintSet.Attributes["MinDistancePalletRoof"].Value), UnitSystem);
-            if (eltTruckConstraintSet.HasAttribute("AllowedPalletOrientations"))
-            {
-                string sAllowedPalletOrientations = eltTruckConstraintSet.Attributes["AllowedPalletOrientations"].Value;
-                constraintSet.AllowPalletOrientationX = sAllowedPalletOrientations.Contains("X");
-                constraintSet.AllowPalletOrientationY = sAllowedPalletOrientations.Contains("Y");
-            }
-            return constraintSet;
-        }
-        #endregion // Load truck analysis
-
+ 
         #endregion // load methods
 
         #region Save methods

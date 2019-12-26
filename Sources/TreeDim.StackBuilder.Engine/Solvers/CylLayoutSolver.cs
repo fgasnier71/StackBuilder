@@ -2,8 +2,6 @@
 using System;
 using System.Collections.Generic;
 
-using Sharp3D.Math.Core;
-
 using treeDiM.StackBuilder.Basics;
 #endregion
 
@@ -11,7 +9,7 @@ namespace treeDiM.StackBuilder.Engine
 {
     public class CylLayoutSolver : ILayoutSolver
     {
-        public static List<HCylLayout> BuildLayout(
+        public static List<HCylLayout> BuildLayouts(
             Packable packable
             , IContainer container
             , ConstraintSetAbstract constraintSet)
@@ -35,7 +33,8 @@ namespace treeDiM.StackBuilder.Engine
 
                         pattern.GetDimensions(layout, constraintSet.OptGlobMaxNumber(packable), out double actualLength, out double actualWidth);
                         pattern.Generate(layout, constraintSet.OptGlobMaxNumber(packable), actualLength, actualWidth, constraintSet.OptMaxHeight.Value);
-                        layouts.Add(layout);
+                        if (layout.Positions.Count > 0)
+                            layouts.Add(layout);
                     }
                 }
             }

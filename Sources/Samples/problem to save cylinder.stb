@@ -31,6 +31,7 @@
     <PalletProperties Id="e5605db2-1419-4629-87ab-62e1073df697" Name="Palette0" Description="Palette0" Length="1200" Width="800" Height="144" Weight="20" AdmissibleLoadWeight="0" AdmissibleLoadHeight="0" Type="EUR" Color="-256" />
     <CylinderProperties Id="61b07fd2-fb4f-463e-b47a-d17f78505c0c" Name="Cylinder_600x1000" Description="Cylindre0" RadiusOuter="300" RadiusInner="250" Height="1000" Weight="1" ColorTop="-8355712" ColorWallOuter="-7876870" ColorWallInner="-2987746" />
     <TruckProperties Id="3f1c8e96-8d49-4c2b-924d-b59b690b8740" Name="Camion0" Description="Camion0" Length="13600" Width="2450" Height="2700" AdmissibleLoadWeight="38000" Color="-5383962" />
+    <CylinderProperties Id="1e8acd9c-5294-471a-a554-c7d4be5cbea0" Name="Cylindre0" Description="Cylindre0" RadiusOuter="75" RadiusInner="50" Height="150" Weight="1" ColorTop="-8355712" ColorWallOuter="-7876870" ColorWallInner="-2987746" />
   </ItemProperties>
   <Analyses>
     <AnalysisCasePallet Id="b6d65206-04b2-497b-8bdb-cb424df3303e" Name="Analyse0" Description="Analyse0" ContentId="32b2df92-9798-408e-ab4f-729c3e5673fb" ContainerId="e5605db2-1419-4629-87ab-62e1073df697" Orientations="1,1,1">
@@ -47,6 +48,14 @@
         </SolutionItems>
       </Solution>
     </AnalysisCasePallet>
+    <AnalysisHCylPallet Id="c6e3ecd9-84a3-432c-881e-5b27b1b0e5eb" Name="Analyse1" Description="Analyse1" ContentId="1e8acd9c-5294-471a-a554-c7d4be5cbea0" ContainerId="e5605db2-1419-4629-87ab-62e1073df697" Orientations="0,0,1">
+      <ConstraintSet MaximumWeight="0, 1000" MaximumNumberOfItems="0, 1" Overhang="(0, 0)" MaximumPalletHeight="1, 700" />
+      <Solution>
+        <CylLayout>
+          <LayoutDesc>Default|f</LayoutDesc>
+        </CylLayout>
+      </Solution>
+    </AnalysisHCylPallet>
   </Analyses>
   <HAnalyses />
 </Document>

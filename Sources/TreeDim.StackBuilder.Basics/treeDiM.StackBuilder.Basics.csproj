@@ -108,7 +108,6 @@
     <Compile Include="..\SharedAssemblyInfo.cs">
       <Link>Properties\SharedAssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="AnalysesLegacy\AnalysisLegacy.cs" />
     <Compile Include="Analyses\Analysis.cs" />
     <Compile Include="Analyses\AnalysisCylinderTruck.cs" />
     <Compile Include="Analyses\AnalysisHCyl.cs" />
@@ -130,8 +129,6 @@
     <Compile Include="Analyses\LoadedCase.cs" />
     <Compile Include="Analyses\LoadedPallet.cs" />
     <Compile Include="Analyses\PackableLoaded.cs" />
-    <Compile Include="ConstraintSets\BCaseConstraintSet.cs" />
-    <Compile Include="ConstraintSets\BundleCaseConstraintSet.cs" />
     <Compile Include="ConstraintSets\ConstraintSetAbstract.cs" />
     <Compile Include="ConstraintSets\ConstraintSetBoxCase.cs" />
     <Compile Include="ConstraintSets\ConstraintSetCasePallet.cs" />
@@ -145,7 +142,6 @@
     <Compile Include="ConstraintSets\HConstraintSetCase.cs" />
     <Compile Include="ConstraintSets\HConstraintSetPallet.cs" />
     <Compile Include="ConstraintSets\HConstraintSetTruck.cs" />
-    <Compile Include="ConstraintSets\HCylinderPalletConstraintSet.cs" />
     <Compile Include="ConstraintSets\PackPalletConstraintSet.cs" />
     <Compile Include="Containers\PackArrangement.cs" />
     <Compile Include="Containers\PackProperties.cs" />
@@ -169,7 +165,6 @@
     </Compile>
     <Compile Include="Extensions\EnumerableExtensions.cs" />
     <Compile Include="Helpers\BBox3D.cs" />
-    <Compile Include="ConstraintSets\BoxCaseConstraintSet.cs" />
     <Compile Include="Helpers\GlobID.cs" />
     <Compile Include="Helpers\IItemListener.cs" />
     <Compile Include="Helpers\IPackContainer.cs" />
@@ -190,8 +185,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Solutions\BaseSolution.cs" />
-    <Compile Include="AnalysesLegacy\CaseOptimAnalysis.cs" />
-    <Compile Include="AnalysesLegacy\ECTAnalysis.cs" />
     <Compile Include="Helpers\BoxPosition.cs" />
     <Compile Include="Containers\CylinderProperties.cs" />
     <Compile Include="Containers\BoxProperties.cs" />
@@ -200,12 +193,9 @@
     <Compile Include="Containers\BundleProperties.cs" />
     <Compile Include="Containers\PalletProperties.cs" />
     <Compile Include="Containers\TruckProperties.cs" />
-    <Compile Include="ConstraintSets\BoxCasePalletConstraintSet.cs" />
     <Compile Include="Solutions\CaseDefinition.cs" />
     <Compile Include="Solutions\CaseOptimSolution.cs" />
     <Compile Include="ConstraintSets\PalletConstraintSet.cs" />
-    <Compile Include="ConstraintSets\CasePalletConstraintSet.cs" />
-    <Compile Include="ConstraintSets\BundlePalletConstraintSet.cs" />
     <Compile Include="Document.cs" />
     <Compile Include="Helpers\HalfAxis.cs" />
     <Compile Include="Containers\InterlayerProperties.cs" />
