@@ -1,11 +1,8 @@
-﻿using System;
-using System.Linq;
-
-namespace treeDiM.StackBuilder.Basics
+﻿namespace treeDiM.StackBuilder.Basics
 {
     public class LoadedPallet : PackableLoaded
     {
-        internal LoadedPallet(AnalysisPackablePallet analysis)
+        internal LoadedPallet(AnalysisHomo analysis)
             : base(analysis)
         {
         }
@@ -26,10 +23,9 @@ namespace treeDiM.StackBuilder.Basics
         }
 
         #region Non-Public Members
-
-        private AnalysisCasePallet Analysis => ParentAnalysis as AnalysisCasePallet;
+        private AnalysisCasePallet AnalysisCasePallet => ParentAnalysis as AnalysisCasePallet;
+        private AnalysisHCylPallet AnalysisHCylPallet => ParentAnalysis as AnalysisHCylPallet;
         protected override string TypeName => Properties.Resources.ID_LOADEDPALLET;
-
         #endregion
     }
 }

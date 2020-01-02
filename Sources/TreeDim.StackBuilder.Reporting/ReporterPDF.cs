@@ -14,13 +14,13 @@ namespace treeDiM.StackBuilder.Reporting
             , string templatePath, string outputFilePath)
         {
             // absolute output file path
-            string absOutputFilePath = string.Empty;
+            string absOutputFilePath;
             if (Path.IsPathRooted(outputFilePath))
                 absOutputFilePath = outputFilePath;
             else
                 absOutputFilePath = Path.GetFullPath(Path.Combine(Directory.GetCurrentDirectory(), outputFilePath));
             // absolute template path
-            string absTemplatePath = string.Empty;
+            string absTemplatePath;
             if (Path.IsPathRooted(templatePath))
                 absTemplatePath = templatePath;
             else
@@ -46,7 +46,7 @@ namespace treeDiM.StackBuilder.Reporting
 
                 if (ignore == null || ignore.ToLower() != "true")
                 {
-                    // Register all available bundles..
+                    // Register all available bundles
                     WkHtmlToXLibrariesManager.Register(new Win32NativeBundle());
                     WkHtmlToXLibrariesManager.Register(new Win64NativeBundle());
                 }

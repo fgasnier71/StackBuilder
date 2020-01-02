@@ -19,9 +19,11 @@ namespace treeDiM.StackBuilder.Graphics
             {
                 if (null == cylProperties)
                     return Properties.Resources.QuestionMark;
-                Graphics3DImage graphics = new Graphics3DImage(size) { MarginPercentage = 0.05 };
-                
-                using (ViewerHCylLayout solViewer = new ViewerHCylLayout(cylLayout))
+                Graphics3DImage graphics = new Graphics3DImage(size)
+                {
+                    MarginPercentage = 0.05 
+                };                
+                using (var solViewer = new ViewerHCylLayout(cylLayout))
                 { solViewer.Draw(graphics, cylProperties, 0.0, selected, annotate); }
                 return graphics.Bitmap;
             }

@@ -51,6 +51,7 @@ namespace treeDiM.StackBuilder.Graphics
         {
             get
             {
+                if (null == Content) return 0.0;
                 double max = double.MinValue;
                 max = Math.Max(Content.OuterDimensions.X, max);
                 max = Math.Max(Content.OuterDimensions.Y, max);

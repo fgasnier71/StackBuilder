@@ -16,17 +16,14 @@ namespace treeDiM.StackBuilder.Graphics
     public abstract class Graphics3D
     {
         #region Enums
-        enum PaintingAlgorithm
-        {
+        enum PaintingAlgorithm  {
             ALGO_PAINTER,
             ALGO_BSPTREE
         }
-        public enum FaceDir
-        {
+        public enum FaceDir {
             FRONT
             , BACK
         }
-
         #endregion
 
         #region Data members
@@ -37,7 +34,7 @@ namespace treeDiM.StackBuilder.Graphics
         /// <summary>
         /// Compute viewport automatically if enabled
         /// </summary>
-        private readonly bool _autoViewport = true;
+        private bool AutoViewport { get; set; } = true;
 
         /// <summary>
         /// face in the background
@@ -54,7 +51,7 @@ namespace treeDiM.StackBuilder.Graphics
         /// </summary>
         private List<DimensionCube> _dimensions = new List<DimensionCube>();
         private uint _boxDrawingCounter = 0;
-        private static readonly double _cameraDistance = 100000.0;
+        private const double _cameraDistance = 100000.0;
 
         public static readonly Vector3D Front = new Vector3D(_cameraDistance, 0.0, 0.0);
         public static readonly Vector3D Back = new Vector3D(-_cameraDistance, 0.0, 0.0);
@@ -82,7 +79,7 @@ namespace treeDiM.StackBuilder.Graphics
         #endregion
 
         #region Constructors
-        public Graphics3D()
+        protected Graphics3D()
         {
             _viewport[0] = -500.0f;
             _viewport[1] = -500.0f;
@@ -95,16 +92,7 @@ namespace treeDiM.StackBuilder.Graphics
 
         #region Public properties
         public float FontSizeRatio { get; set; } = 0.015f;
-        public float FontSize
-        {
-            get
-            {
-                if (null == Size)
-                    return 0.0f;
-                else
-                    return FontSizeRatio * Size.Height;
-            }
-        }
+        public float FontSize => null == Size ? 0.0f : FontSizeRatio * Size.Height;
         /// <summary>
         /// Background color
         /// </summary>
@@ -486,8 +474,7 @@ namespace treeDiM.StackBuilder.Graphics
             if (_listImageInst.Count > 0)
             {
                 // --- sort image inst
-                AnalysisLayered analysis = _listImageInst[0].Analysis;
-                BBox3D bbox = analysis.Solution.BBoxGlobal;
+                AnalysisHomo analysis = _listImageInst[0].Analysis;
                 List<Box> boxesImage = new List<Box>();
                 foreach (ImageInst imageInst in _listImageInst)
                     boxesImage.Add(imageInst.ToBox());
@@ -540,10 +527,10 @@ namespace treeDiM.StackBuilder.Graphics
                     , new Vector3D(_viewport[2], _viewport[3], 10000.0));
 
                 // build automatic viewport
-                if (_autoViewport)
+                if (AutoViewport)
                 {
                     BBox3D bbox = new BBox3D();
-
+                    bbox.Reset();
                     // boxes
                     foreach (var box in Boxes)
                        bbox.Extend( box.GetBBox(world2eye) );
@@ -614,7 +601,7 @@ namespace treeDiM.StackBuilder.Graphics
                     , new Vector3D(_viewport[2], _viewport[3], 10000.0));
 
                 // build automatic viewport
-                if (_autoViewport)
+                if (AutoViewport)
                 {
                     Vector3D vecMin = new Vector3D(double.MaxValue, double.MaxValue, double.MaxValue);
                     Vector3D vecMax = new Vector3D(double.MinValue, double.MinValue, double.MinValue);
@@ -659,17 +646,11 @@ namespace treeDiM.StackBuilder.Graphics
             return CurrentTransf;
         }
 
-        public void AddSegmentBackgound(Segment seg)
-        { 
-            SegmentsBackground.Add(seg);
-        }
-        public void AddSegment(Segment seg)
+        public void AddSegmentBackgound(Segment seg) => SegmentsBackground.Add(seg);
+        public void AddSegment(Segment seg) => Segments.Add(seg);
+        public void AddImage(AnalysisHomo analysis, Vector3D vDimensions, BoxPosition boxPosition)
         {
-            Segments.Add(seg);
-        }
-        public void AddImage(AnalysisLayered analysis, Vector3D vDimensions, BoxPosition boxPosition)
-        {
-            _listImageInst.Add(new ImageInst(analysis, vDimensions, boxPosition));
+            _listImageInst.Add(new ImageInst(analysis, vDimensions, boxPosition)); 
         }
         #endregion
 
@@ -979,7 +960,7 @@ namespace treeDiM.StackBuilder.Graphics
                 imgCached = new ImageCached(img.Analysis, img.AxisLength, img.AxisWidth);
                 _listImageCached.Add(imgCached);
             }
-            AnalysisLayered analysis = imgCached.Analysis;
+            var analysis = imgCached.Analysis;
 
             // *** get size in pixels
             int xmin = int.MaxValue, ymin = int.MaxValue, xmax = int.MinValue, ymax=int.MinValue;
@@ -995,7 +976,7 @@ namespace treeDiM.StackBuilder.Graphics
             Size s = new Size(xmax-xmin + 1, ymax-ymin + 1);
             // ***
 
-            Point ptZero = TransformPoint(GetCurrentTransformation(), Vector3D.Zero);
+            //Point ptZero = TransformPoint(GetCurrentTransformation(), Vector3D.Zero);
             bmp = imgCached.Image(s, CameraPosition, Target, ref offset);
         }
         #endregion

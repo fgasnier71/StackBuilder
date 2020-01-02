@@ -11,28 +11,24 @@ namespace treeDiM.StackBuilder.Graphics
     #region ImageInst
     public class ImageInst
     {
-        #region Data members
-        private AnalysisLayered _analysis;
-        private BoxPosition _boxPosition;
-        private Vector3D _dims = Vector3D.Zero;
-        #endregion
         #region Constructor
-        public ImageInst(AnalysisLayered analysis, Vector3D dims, BoxPosition boxPosition)
+        public ImageInst(AnalysisHomo analysis, Vector3D dims, BoxPosition boxPosition)
         {
-            _analysis = analysis; _dims = dims; _boxPosition = boxPosition;
+            Analysis = analysis; Dims = dims; BoxPosition = boxPosition;
         }
+        #endregion
+        #region Private properties
+        private Vector3D Dims { get; set; }
+        private BoxPosition BoxPosition { get; set; }
         #endregion
         #region Public properties
-        public Vector3D PointBase { get { return _boxPosition.Position; } }
-        public AnalysisLayered Analysis { get { return _analysis; } }
-        public HalfAxis.HAxis AxisLength { get { return _boxPosition.DirectionLength; } }
-        public HalfAxis.HAxis AxisWidth { get { return _boxPosition.DirectionWidth; } }
+        public Vector3D PointBase { get { return BoxPosition.Position; } }
+        public AnalysisHomo Analysis { get; set; }
+        public HalfAxis.HAxis AxisLength { get { return BoxPosition.DirectionLength; } }
+        public HalfAxis.HAxis AxisWidth { get { return BoxPosition.DirectionWidth; } }
         #endregion
         #region Box conversion (needed for BoxelOrderer)
-        public Box ToBox()
-        {
-            return new Box(0, _dims.X, _dims.Y, _dims.Z, _boxPosition);
-        }
+        public Box ToBox() => new Box(0, Dims.X, Dims.Y, Dims.Z, BoxPosition);
         #endregion
     }
     #endregion
@@ -40,21 +36,21 @@ namespace treeDiM.StackBuilder.Graphics
     internal class ImageCached
     {
         #region Data members
-        private AnalysisLayered _analysis;
-        private HalfAxis.HAxis _axisLength, _axisWidth;
+        public HalfAxis.HAxis AxisLength { get; private set; }
+        public HalfAxis.HAxis AxisWidth { get; private set; }
         private Bitmap _bitmap;
-        private Point _offset;
+        private Point Offset { get; set; }
         private Vector3D _vTarget, _vCamera; 
         #endregion
 
         #region Constructor
-        public ImageCached(AnalysisLayered analysis, HalfAxis.HAxis axisLength, HalfAxis.HAxis axisWidth)
+        public ImageCached(AnalysisHomo analysis, HalfAxis.HAxis axisLength, HalfAxis.HAxis axisWidth)
         {
-            _analysis = analysis; _axisLength = axisLength; _axisWidth = axisWidth;
+            Analysis = analysis; AxisLength = axisLength; AxisWidth = axisWidth;
         }
         #endregion
         #region Public properties
-        public AnalysisLayered Analysis { get { return _analysis; } }
+        public AnalysisHomo Analysis { get; }
         #endregion
         #region Public methods
         public Bitmap Image(Size s, Vector3D vCamera, Vector3D vTarget, ref Point offset)
@@ -65,26 +61,36 @@ namespace treeDiM.StackBuilder.Graphics
                 null == _bitmap
                 || ((_vCamera - vCamera).GetLengthSquared() > 1.0E-06 && (_vTarget - vTarget).GetLengthSquared() > 1.0E-06)
                 )
-                && null != _analysis)
+                && null != Analysis)
             {
                 // generate bitmap
-                Graphics3DImage graphics = new Graphics3DImage(s);
-                graphics.BackgroundColor = Color.Transparent;
-                graphics.CameraPosition = vCamera;
-                graphics.Target = vTarget;
-                graphics.MarginPercentage = 0.0;
-                graphics.ShowDimensions = false;
-                using (ViewerSolution viewer = new ViewerSolution(_analysis.SolutionLay))
-                { viewer.Draw(graphics, RelativeTransf); }
+                Graphics3DImage graphics = new Graphics3DImage(s)
+                {
+                    BackgroundColor = Color.Transparent,
+                    CameraPosition = vCamera,
+                    Target = vTarget,
+                    MarginPercentage = 0.0,
+                    ShowDimensions = false
+                };
+                if (Analysis is AnalysisLayered analysisLay)
+                {
+                    using (var viewer = new ViewerSolution(analysisLay.SolutionLay))
+                    { viewer.Draw(graphics, RelativeTransf); }
+                }
+                else if (Analysis is AnalysisHCyl analysisHCyl)
+                {
+                    using (var viewer = new ViewerSolutionHCyl(analysisHCyl.Solution as SolutionHCyl))
+                    { viewer.Draw(graphics, RelativeTransf); }
+                }
                 graphics.Flush();
 
                 // save bitmap
                 _bitmap = graphics.Bitmap;
                 _vCamera = vCamera;
                 _vTarget = vTarget;
-                _offset = graphics.Offset;
+                Offset = graphics.Offset;
             }
-            offset = _offset;
+            offset = Offset;
             return _bitmap;
         }
         #endregion
@@ -97,8 +103,8 @@ namespace treeDiM.StackBuilder.Graphics
         {
             get
             { 
-                Vector3D v1 = HalfAxis.ToVector3D(_axisLength);
-                Vector3D v2 = HalfAxis.ToVector3D(_axisWidth);
+                Vector3D v1 = HalfAxis.ToVector3D(AxisLength);
+                Vector3D v2 = HalfAxis.ToVector3D(AxisWidth);
                 Vector3D v3 = Vector3D.CrossProduct(v1, v2);
                 Vector3D v4 = Vector3D.Zero;
                 return new Transform3D(new Matrix4D(v1,v2,v3,v4));            
@@ -106,7 +112,7 @@ namespace treeDiM.StackBuilder.Graphics
         }
         public bool Matches(ImageInst img)
         {
-            return _analysis == img.Analysis && _axisLength == img.AxisLength && _axisWidth == img.AxisWidth;
+            return Analysis == img.Analysis && AxisLength == img.AxisLength && AxisWidth == img.AxisWidth;
         }
         #endregion
     }

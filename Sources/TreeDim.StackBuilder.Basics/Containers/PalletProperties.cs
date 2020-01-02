@@ -1,8 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿#region Using directives
 using System.Drawing;
 
 using Sharp3D.Math.Core;
+#endregion
 
 namespace treeDiM.StackBuilder.Basics
 {
@@ -76,7 +76,7 @@ namespace treeDiM.StackBuilder.Basics
         {
             var sBuilder = new System.Text.StringBuilder();
             sBuilder.Append(base.ToString());
-            sBuilder.Append($"PalletProperties => Type {_typeName} Length {_length} Width {_width} Height {_height}");
+            sBuilder.Append($"PalletProperties => Type {_typeName} ({_length} x {_width} x {_height})");
             return sBuilder.ToString();
         }
 
@@ -87,6 +87,5 @@ namespace treeDiM.StackBuilder.Basics
         Color _color = Color.Yellow;
         string _typeName = "Block";
         #endregion
-
     }
 }

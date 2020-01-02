@@ -378,8 +378,6 @@ namespace treeDiM.StackBuilder.Basics
                 default: return false;
             }
         }
-
-
         public static bool BoxesAreInside(List<BoxPosition> list, Vector3D dim, Vector2D ptMin, Vector2D ptMax)
         {
             foreach (var bpos in list)

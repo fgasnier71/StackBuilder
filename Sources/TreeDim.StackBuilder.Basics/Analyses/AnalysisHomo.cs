@@ -30,6 +30,17 @@ namespace treeDiM.StackBuilder.Basics
         public ConstraintSetAbstract ConstraintSet      { get; set; }
         #endregion
 
+        #region Equivalent packable
+        /// <summary>
+        /// can analysis solution be reused in other analysis
+        /// </summary>
+        public abstract bool HasEquivalentPackable { get; }
+        /// <summary>
+        /// get equivalent packable
+        /// </summary>
+        public abstract PackableLoaded EquivalentPackable { get; }
+        #endregion
+
         #region Absctract properties
         public abstract ItemBase Container              { get; }
         public abstract Vector2D ContainerDimensions    { get; }
@@ -73,17 +84,6 @@ namespace treeDiM.StackBuilder.Basics
     {
         #region Protected constructor
         protected AnalysisLayered(Document doc, Packable packable) : base(doc, packable) {}
-        #endregion
-
-        #region Abstract methods
-        /// <summary>
-        /// can analysis solution be reused in other analysis
-        /// </summary>
-        public abstract bool HasEquivalentPackable { get; }
-        /// <summary>
-        /// get equivalent packable
-        /// </summary>
-        public abstract PackableLoaded EquivalentPackable { get; }
         #endregion
 
         #region Layer methods

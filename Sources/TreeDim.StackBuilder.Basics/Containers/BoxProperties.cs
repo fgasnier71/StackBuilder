@@ -118,6 +118,7 @@ namespace treeDiM.StackBuilder.Basics
         public virtual Vector3D InsideDimensions => new Vector3D(InsideLength, InsideWidth, InsideHeight);
         public virtual double[] OuterDimensionsArray => new double[] { _length, _width, _height };
         public virtual double[] InsideDimensionsArray => new double[] { InsideLength, InsideWidth, InsideHeight };
+        public virtual BBox3D BoundingBox => new BBox3D(0.0, 0.0, 0.0, _length, _width, _height);
 
         public OptDouble MaxWeight
         {

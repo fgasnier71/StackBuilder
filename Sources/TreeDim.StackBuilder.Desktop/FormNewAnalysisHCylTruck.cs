@@ -40,8 +40,8 @@ namespace treeDiM.StackBuilder.Desktop
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
-            cbCylinders.Initialize(_document, this, null);
-            cbTrucks.Initialize(_document, this, null);
+            cbCylinders.Initialize(_document, this, AnalysisCast?.Content);
+            cbTrucks.Initialize(_document, this, AnalysisCast?.TruckProperties);
 
             // event handling
             if (null == AnalysisBase)
@@ -87,7 +87,6 @@ namespace treeDiM.StackBuilder.Desktop
         #region FormNewBase override
         public override string ItemDefaultName => Resources.ID_ANALYSIS;
         #endregion
-
         #region FormNewAnalysis override
         public override void UpdateStatus(string message)
         {
@@ -131,7 +130,6 @@ namespace treeDiM.StackBuilder.Desktop
             }
         }
         #endregion
-
         #region Event handlers      
         private void OnInputChanged(object sender, EventArgs e)
         {
@@ -158,7 +156,6 @@ namespace treeDiM.StackBuilder.Desktop
         }
         private void OnLayoutSelected(object sender, EventArgs e) => UpdateStatus(string.Empty);
         #endregion
-
         #region Helpers
         private ConstraintSetCylinderTruck BuildConstraintSet()
         {
@@ -171,15 +168,13 @@ namespace treeDiM.StackBuilder.Desktop
             };
         }
         #endregion
-
         #region Private properties
         private CylinderProperties SelectedCylinder => cbCylinders.SelectedType as CylinderProperties;
         private TruckProperties SelectedTruck => cbTrucks.SelectedType as TruckProperties;
-        private AnalysisHCyl AnalysisCast => _item as AnalysisHCyl;
+        private AnalysisHCylTruck AnalysisCast => _item as AnalysisHCylTruck;
         private Vector2D DistanceLoadWall => uCtrlMinDistanceLoadWall.Value;
         private HCylLayout SelectedLayout => uCtrlHCylLayoutList.Selected;
         #endregion
-
         #region Data members
         protected ILog _log = LogManager.GetLogger(typeof(FormNewAnalysisHCylTruck));
         #endregion

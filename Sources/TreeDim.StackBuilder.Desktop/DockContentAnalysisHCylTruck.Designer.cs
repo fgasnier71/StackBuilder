@@ -143,26 +143,28 @@
             // 
             this.uCtrlMaxWeight.Location = new System.Drawing.Point(12, 12);
             this.uCtrlMaxWeight.Minimum = new decimal(new int[] {
-            10000,
             0,
             0,
-            -2147483648});
+            0,
+            0});
             this.uCtrlMaxWeight.MinimumSize = new System.Drawing.Size(100, 20);
             this.uCtrlMaxWeight.Name = "uCtrlMaxWeight";
             this.uCtrlMaxWeight.Size = new System.Drawing.Size(300, 20);
             this.uCtrlMaxWeight.TabIndex = 4;
             this.uCtrlMaxWeight.Text = "Maximum weight";
             this.uCtrlMaxWeight.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_MASS;
+            this.uCtrlMaxWeight.ValueChanged += new treeDiM.Basics.UCtrlOptDouble.ValueChangedDelegate(this.OnCriterionChanged);
             // 
             // uCtrlMaxNumber
             // 
             this.uCtrlMaxNumber.Location = new System.Drawing.Point(12, 35);
-            this.uCtrlMaxNumber.Minimum = -10000;
+            this.uCtrlMaxNumber.Minimum = 1;
             this.uCtrlMaxNumber.MinimumSize = new System.Drawing.Size(100, 20);
             this.uCtrlMaxNumber.Name = "uCtrlMaxNumber";
             this.uCtrlMaxNumber.Size = new System.Drawing.Size(300, 20);
             this.uCtrlMaxNumber.TabIndex = 3;
             this.uCtrlMaxNumber.Text = "Maximum number";
+            this.uCtrlMaxNumber.ValueChanged += new treeDiM.Basics.UCtrlOptInt.ValueChangedDelegate(this.OnCriterionChanged);
             // 
             // DockContentAnalysisHCylTruck
             // 

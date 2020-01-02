@@ -20,9 +20,6 @@ namespace treeDiM.StackBuilder.Desktop
 {
     public partial class FormNewAnalysisPalletTruck : FormNewAnalysis, IItemBaseFilter
     {
-        #region Data members
-        static readonly ILog _log = LogManager.GetLogger(typeof(FormNewAnalysisPalletTruck));
-        #endregion
 
         #region Constructor
         public FormNewAnalysisPalletTruck(Document doc, AnalysisLayered analysis)
@@ -73,14 +70,14 @@ namespace treeDiM.StackBuilder.Desktop
                 tbName.Text = AnalysisBase.Name;
                 tbDescription.Text = AnalysisBase.Description;
 
-                ConstraintSetPalletTruck  constraintSet = AnalysisCast.ConstraintSet as ConstraintSetPalletTruck;
-                if (null == constraintSet) return;
-
-                uCtrlMinDistanceLoadWall.ValueX = constraintSet.MinDistanceLoadWall.X;
-                uCtrlMinDistanceLoadWall.ValueY = constraintSet.MinDistanceLoadWall.Y;
-                uCtrlMinDistanceLoadRoof.Value = constraintSet.MinDistanceLoadRoof;
-                chkbAllowMultipleLayers.Checked = constraintSet.AllowMultipleLayers;
-                uCtrlMaxNoPallets.Value = constraintSet.OptMaxNumber;
+                if (AnalysisCast.ConstraintSet is ConstraintSetPalletTruck constraintSet)
+                {
+                    uCtrlMinDistanceLoadWall.ValueX = constraintSet.MinDistanceLoadWall.X;
+                    uCtrlMinDistanceLoadWall.ValueY = constraintSet.MinDistanceLoadWall.Y;
+                    uCtrlMinDistanceLoadRoof.Value = constraintSet.MinDistanceLoadRoof;
+                    chkbAllowMultipleLayers.Checked = !constraintSet.OptMaxLayerNumber.Activated;
+                    uCtrlMaxNoPallets.Value = constraintSet.OptMaxNumber;
+                }
             }
             checkBoxBestLayersOnly.Checked = Settings.Default.KeepBestSolutions;
         }
@@ -162,9 +159,8 @@ namespace treeDiM.StackBuilder.Desktop
             try
             {
                 // get loaded pallet / truck
-                PackableBrick packable = cbPallets.SelectedType as PackableBrick;
-                TruckProperties truckProperties = cbTrucks.SelectedType as TruckProperties;
-                if (null == packable || null == truckProperties)
+                if (!(cbPallets.SelectedType is PackableBrick packable)
+                    || !(cbTrucks.SelectedType is TruckProperties truckProperties))
                     return;
                 // compute
                 LayerSolver solver = new LayerSolver();
@@ -208,13 +204,17 @@ namespace treeDiM.StackBuilder.Desktop
         {
             ConstraintSetPalletTruck constraintSet = new ConstraintSetPalletTruck(SelectedTruckProperties)
             {
-                MinDistanceLoadWall = new Vector2D(uCtrlMinDistanceLoadWall.ValueX, uCtrlMinDistanceLoadWall.ValueY),
+                MinDistanceLoadWall = uCtrlMinDistanceLoadWall.Value,
                 MinDistanceLoadRoof = uCtrlMinDistanceLoadRoof.Value,
                 OptMaxNumber = uCtrlMaxNoPallets.Value,
-                AllowMultipleLayers = chkbAllowMultipleLayers.Checked
+                OptMaxLayerNumber = new OptInt(!chkbAllowMultipleLayers.Checked, 1)
             };
             return constraintSet;
         }
+        #endregion
+
+        #region Data members
+        static readonly ILog _log = LogManager.GetLogger(typeof(FormNewAnalysisPalletTruck));
         #endregion
     }
 }

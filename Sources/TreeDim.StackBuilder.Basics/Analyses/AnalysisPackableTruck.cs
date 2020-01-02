@@ -31,8 +31,8 @@ namespace treeDiM.StackBuilder.Basics
         }
         public override double ContainerLoadingVolume => _truckProperties.Volume;
         public override double ContainerWeight => 0.0;
-        public override bool HasEquivalentPackable { get { return false; } }
-        public override PackableLoaded EquivalentPackable { get { return null; } }
+        public override bool HasEquivalentPackable => false;
+        public override PackableLoaded EquivalentPackable => null;
         public override Vector3D Offset
         {
             get

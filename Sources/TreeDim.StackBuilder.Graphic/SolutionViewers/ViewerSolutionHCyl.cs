@@ -20,7 +20,12 @@ namespace treeDiM.StackBuilder.Graphics
         #region Viewer abstract method implementation
         public override void Draw(Graphics3D graphics, Transform3D transform)
         {
+            // clear list of picking box
+            ClearPickingBoxes();
+
+            if (null == Solution) return;
             AnalysisHCyl analysis = Solution.AnalysisHCyl;
+
             if (analysis is AnalysisHCylPallet analysisHCylPallet)
             {
                 Pallet pallet = new Pallet(analysisHCylPallet.PalletProperties);
@@ -40,12 +45,15 @@ namespace treeDiM.StackBuilder.Graphics
                     , analysis.Content as CylinderProperties
                     , cp.Transform(transform));
                 graphics.AddCylinder(c);
+
             }
             // ### dimensions
-            graphics.AddDimensions(new DimensionCube(BoundingBoxDim(DimCasePalletSol1), Color.Black, false));
-            graphics.AddDimensions(new DimensionCube(BoundingBoxDim(DimCasePalletSol2), Color.Red, true));
+            if (graphics.ShowDimensions)
+            {
+                graphics.AddDimensions(new DimensionCube(BoundingBoxDim(DimCasePalletSol1), Color.Black, false));
+                graphics.AddDimensions(new DimensionCube(BoundingBoxDim(DimCasePalletSol2), Color.Red, true));
+            }
             // ###
-
         }
         public override void Draw(Graphics2D graphics)
         {

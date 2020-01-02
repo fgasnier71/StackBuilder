@@ -1090,9 +1090,8 @@ namespace treeDiM.StackBuilder.Basics
                         }
                     }
                 }
-
                 // load analyses
-                if (string.Equals(docChildNode.Name, "Analyses", StringComparison.CurrentCultureIgnoreCase))
+                else if (string.Equals(docChildNode.Name, "Analyses", StringComparison.CurrentCultureIgnoreCase))
                 {
                     foreach (XmlNode analysisNode in docChildNode.ChildNodes)
                     {
@@ -1107,7 +1106,7 @@ namespace treeDiM.StackBuilder.Basics
                     }
                 }
                 // load heterogeneous analyses
-                if (string.Equals(docChildNode.Name, "HAnalyses", StringComparison.CurrentCultureIgnoreCase))
+                else if (string.Equals(docChildNode.Name, "HAnalyses", StringComparison.CurrentCultureIgnoreCase))
                 {
                     foreach (XmlNode analysisNode in docChildNode.ChildNodes)
                     {
@@ -1611,12 +1610,6 @@ namespace treeDiM.StackBuilder.Basics
                 sId = eltAnalysis.Attributes["Id"].Value;
             string sName = eltAnalysis.Attributes["Name"].Value;
             string sDescription = eltAnalysis.Attributes["Description"].Value;
-            string sInterlayerId = string.Empty;
-            if (eltAnalysis.HasAttribute("InterlayerId"))
-                sInterlayerId = eltAnalysis.Attributes["InterlayerId"].Value;
-            string sInterlayerAntiSlipId = string.Empty;
-            if (eltAnalysis.HasAttribute("InterlayerAntiSlipId"))
-                sInterlayerAntiSlipId = eltAnalysis.Attributes["InterlayerAntiSlipId"].Value;
             string sPalletCornerId = string.Empty;
             if (eltAnalysis.HasAttribute("PalletCornerId"))
                 sPalletCornerId = eltAnalysis.Attributes["PalletCornerId"].Value;
@@ -1687,7 +1680,7 @@ namespace treeDiM.StackBuilder.Basics
                         interlayers = LoadInterlayers(node as XmlElement);
                 }
 
-                AnalysisLayered analysis = CreateNewAnalysisBoxCase(
+                var analysis = CreateNewAnalysisBoxCase(
                     sName, sDescription
                     , packable, caseProperties
                     , interlayers
@@ -1712,7 +1705,7 @@ namespace treeDiM.StackBuilder.Basics
                         interlayers = LoadInterlayers(node as XmlElement);
                 }
 
-                AnalysisLayered analysis = CreateNewAnalysisCylinderPallet(
+                var analysis = CreateNewAnalysisCylinderPallet(
                     sName, sDescription
                     , cylinderProperties as CylinderProperties, palletProperties
                     , interlayers
@@ -1738,7 +1731,7 @@ namespace treeDiM.StackBuilder.Basics
                         interlayers = LoadInterlayers(node as XmlElement);
                 }
 
-                AnalysisLayered analysis = CreateNewAnalysisCylinderCase(
+                var analysis = CreateNewAnalysisCylinderCase(
                     sName, sDescription
                     , cylinderProperties as CylinderProperties, caseProperties
                     , interlayers
@@ -1763,7 +1756,7 @@ namespace treeDiM.StackBuilder.Basics
                         LoadSolution(node as XmlElement, out listLayerEncaps, out listSolItems);
                 }
 
-                AnalysisLayered analysis = CreateNewAnalysisPalletTruck(sName, sDescription
+                var analysis = CreateNewAnalysisPalletTruck(sName, sDescription
                     , loadedPallet, truckProperties
                     , constraintSet as ConstraintSetPalletTruck
                     , listLayerEncaps)
@@ -1827,7 +1820,7 @@ namespace treeDiM.StackBuilder.Basics
                 foreach (XmlNode node in eltAnalysis.ChildNodes)
                 {
                     if (string.Equals(node.Name, "ConstraintSet", StringComparison.CurrentCultureIgnoreCase))
-                        constraintSet = LoadConstraintSetCasePallet(node as XmlElement) as ConstraintSetCasePallet;
+                        constraintSet = LoadConstraintSetPackablePallet(node as XmlElement) as ConstraintSetPackablePallet;
                     else if (string.Equals(node.Name, "Solution", StringComparison.CurrentCultureIgnoreCase))
                         LoadSolution(node as XmlElement, out sDescriptor);
                 }
@@ -1932,7 +1925,7 @@ namespace treeDiM.StackBuilder.Basics
                         };
                     }
                 }
-                else if (string.Equals(node.Name, "HConstraintSettruck", StringComparison.CurrentCultureIgnoreCase))
+                else if (string.Equals(node.Name, "HConstraintSetTruck", StringComparison.CurrentCultureIgnoreCase))
                 {
                 }
                 else if (string.Equals(node.Name, "HSolution", StringComparison.CurrentCultureIgnoreCase))
@@ -2001,12 +1994,22 @@ namespace treeDiM.StackBuilder.Basics
             {
                 OptMaxWeight = LoadOptDouble(eltConstraintSet, "MaximumWeight", UnitsManager.UnitType.UT_MASS),
                 OptMaxNumber = LoadOptInt(eltConstraintSet, "MaximumNumberOfItems"),
-
                 Overhang = LoadVectorLength(eltConstraintSet, "Overhang"),
                 MinimumSpace = LoadOptDouble(eltConstraintSet, "MinSpace", UnitsManager.UnitType.UT_LENGTH)
             };
             constraintSet.SetMaxHeight(LoadOptDouble(eltConstraintSet, "MaximumPalletHeight", UnitsManager.UnitType.UT_LENGTH));
             constraintSet.PalletFilmTurns = LoadInt(eltConstraintSet, "PalletFilmTurns");
+            return constraintSet;
+        }
+        private ConstraintSetAbstract LoadConstraintSetPackablePallet(XmlElement eltConstraintSet)
+        {
+            var constraintSet = new ConstraintSetPackablePallet()
+            {
+                OptMaxWeight = LoadOptDouble(eltConstraintSet, "MaximumWeight", UnitsManager.UnitType.UT_MASS),
+                OptMaxNumber = LoadOptInt(eltConstraintSet, "MaximumNumberOfItems"),
+                Overhang = LoadVectorLength(eltConstraintSet, "Overhang"),
+            };
+            constraintSet.SetMaxHeight(LoadOptDouble(eltConstraintSet, "MaximumPalletHeight", UnitsManager.UnitType.UT_LENGTH));
             return constraintSet;
         }
         private ConstraintSetAbstract LoadConstraintSetBoxCase(XmlElement eltConstraintSet, IContainer container)
@@ -2031,7 +2034,7 @@ namespace treeDiM.StackBuilder.Basics
             {
                 MinDistanceLoadWall = LoadVectorLength(eltConstraintSet, "MinDistanceLoadWall"),
                 MinDistanceLoadRoof = LoadDouble(eltConstraintSet, "MinDistanceLoadRoof", UnitsManager.UnitType.UT_LENGTH),
-                AllowMultipleLayers = (1 == LoadInt(eltConstraintSet, "AllowMultipleLayers"))
+                OptMaxLayerNumber = new OptInt((1 != LoadInt(eltConstraintSet, "AllowMultipleLayers")), 1)
             };
         }
         private ConstraintSetAbstract LoadConstraintSetCaseTruck(XmlElement eltConstraintSet, IContainer container)
@@ -2936,11 +2939,12 @@ namespace treeDiM.StackBuilder.Basics
         {
             if (analysis is AnalysisBoxCase) return "AnalysisBoxCase";
             else if (analysis is AnalysisCylinderCase) return "AnalysisCylinderCase";
+            else if (analysis is AnalysisHCylCase) return "AnalysisHCylCase";
             else if (analysis is AnalysisCasePallet) return "AnalysisCasePallet";
-            else if (analysis is AnalysisCylinderCase) return "AnalysisCylinderPallet";
             else if (analysis is AnalysisHCylPallet) return "AnalysisHCylPallet";
             else if (analysis is AnalysisCaseTruck) return "AnalysisCaseTruck";
             else if (analysis is AnalysisCylinderTruck) return "AnalysisCylinderTruck";
+            else if (analysis is AnalysisHCylTruck) return "AnalysisHCylTruck";
             else if (analysis is AnalysisPalletTruck) return "AnalysisPalletTruck";
             else return TypeDescriptor.GetClassName(analysis.GetType());
         }
@@ -3057,7 +3061,7 @@ namespace treeDiM.StackBuilder.Basics
                 eltContraintSet.Attributes.Append(attMinDiastanceLoadRoof);
 
                 XmlAttribute attAllowMultipleLayers = xmlDoc.CreateAttribute("AllowMultipleLayers");
-                attAllowMultipleLayers.Value = constraintSetPalletTruck.AllowMultipleLayers ? "1" : "0";
+                attAllowMultipleLayers.Value = !constraintSetPalletTruck.OptMaxLayerNumber.Activated ? "1" : "0";
                 eltContraintSet.Attributes.Append(attAllowMultipleLayers);
             }
             else if (analysis is AnalysisCylinderTruck analysisCylinderTruck)
@@ -3087,6 +3091,14 @@ namespace treeDiM.StackBuilder.Basics
             else if (analysis is AnalysisHCylTruck analysisHCylTruck)
             {
                 var constraintSetPackableTruck = analysisHCylTruck.ConstraintSet as ConstraintSetPackableTruck;
+
+                XmlAttribute attMinDistanceLoadWall = xmlDoc.CreateAttribute("MinDistanceLoadWall");
+                attMinDistanceLoadWall.Value = constraintSetPackableTruck.MinDistanceLoadWall.ToString();
+                eltContraintSet.Attributes.Append(attMinDistanceLoadWall);
+
+                XmlAttribute attMinDistanceLoadRoof = xmlDoc.CreateAttribute("MinDistanceLoadRoof");
+                attMinDistanceLoadRoof.Value = constraintSetPackableTruck.MinDistanceLoadRoof.ToString();
+                eltContraintSet.Attributes.Append(attMinDistanceLoadRoof);
             }
             // solution
             if (analysis is AnalysisLayered analysisLay2)
@@ -3477,10 +3489,14 @@ namespace treeDiM.StackBuilder.Basics
                         throw new ArgumentException($"Guid {guid} found but not a PackableBrick", nameof(guid));
                 }
             }
-            foreach (AnalysisLayered analysis in Analyses)
+            foreach (var analysis in Analyses)
             {
                 if (analysis.ID.IGuid == guid)
-                    return analysis.EquivalentPackable;                
+                {
+                    if (analysis is AnalysisLayered analysisLayered)
+                        return analysisLayered.EquivalentPackable;
+
+                }
             }
             throw new ArgumentException($"No type with Guid = {guid.ToString()}", nameof(guid));
         }

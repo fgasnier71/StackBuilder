@@ -11,99 +11,12 @@ using treeDiM.StackBuilder.Basics;
 
 namespace treeDiM.StackBuilder.Graphics
 {
-    public abstract class Viewer : IDisposable
-    {
-        #region Data members
-        /// <summary>
-        /// list of picking boxes with id
-        /// </summary>
-        private List<Tuple<BBox3D, uint>> _listPickingBox = new List<Tuple<BBox3D, uint>>();
-        #endregion
-
-        #region Abstract methods
-        public abstract void Draw(Graphics3D graphics, Transform3D transform);
-        public abstract void Draw(Graphics2D graphics);
-        #endregion
-
-        #region Picking
-        protected void ClearPickingBoxes()
-        {
-            _listPickingBox.Clear();
-        }
-        protected void AddPickingBox(BBox3D bbox, uint id)
-        {
-            _listPickingBox.Add(new Tuple<BBox3D, uint>(bbox, id));
-        }
-        protected Ray GetPickingRay(int x, int y)
-        {
-            if (null == CurrentTransformation)
-                throw new Exception("CurrentTransformation is null");
-            // normalised_x = 2 * mouse_x / win_width - 1
-            // normalised_y = 1 - 2 * mouse_y / win_height
-            // note the y pos is inverted, so +y is at the top of the screen
-            // unviewMat = (projectionMat * modelViewMat).inverse()
-            // near_point = unviewMat * Vec(normalised_x, normalised_y, 0, 1)
-            // camera_pos = ray_origin = modelViewMat.inverse().col(4)
-            // ray_dir = near_point - camera_pos
-            Transform3D eye2worldTransf = CurrentTransformation.Inverse();
-            Vector3D vNear = eye2worldTransf.transform(new Vector3D(x, y, 0.0));
-            Vector3D vFar = eye2worldTransf.transform(new Vector3D(x, y, 1.0));
-            return new Ray(vNear, vFar);
-        }
-        public Transform3D CurrentTransformation { get; set; }
-        public Vector3D ViewDir { get; set; }
-
-        public bool TryPicking(int x, int y, out uint index)
-        {
-            Ray ray = GetPickingRay(x, y);
-            index = 0;
-            foreach (Tuple<BBox3D, uint> tBox in _listPickingBox)
-            {
-                index = tBox.Item2;
-                Vector3D ptMin = tBox.Item1.PtMin;
-                Vector3D ptMax = tBox.Item1.PtMax;
-
-                Vector3D[] vertices = {
-                    new Vector3D(ptMin.X, ptMin.Y, ptMin.Z)       // 0
-                    , new Vector3D(ptMax.X, ptMin.Y, ptMin.Z)     // 1
-                    , new Vector3D(ptMax.X, ptMax.Y, ptMin.Z)     // 2
-                    , new Vector3D(ptMin.X, ptMax.Y, ptMin.Z)     // 3
-                    , new Vector3D(ptMin.X, ptMin.Y, ptMax.Z)     // 4
-                    , new Vector3D(ptMax.X, ptMin.Y, ptMax.Z)     // 5
-                    , new Vector3D(ptMax.X, ptMax.Y, ptMax.Z)     // 6
-                    , new Vector3D(ptMin.X, ptMax.Y, ptMax.Z)     // 7
-                };
-                Face[] faces = new Face[]
-                {
-                    new Face(0, vertices[0], vertices[1], vertices[5], vertices[4], false),
-                    new Face(0, vertices[1], vertices[2], vertices[6], vertices[5], false),
-                    new Face(0, vertices[2], vertices[3], vertices[7], vertices[6], false),
-                    new Face(0, vertices[3], vertices[0], vertices[4], vertices[7], false),
-                };
-
-                foreach (Face f in faces)
-                {
-                    if (f.IsVisible(ViewDir) && f.RayIntersect(ray, out Vector3D ptInter))
-                        return true;
-                }
-            }
-            return false;
-        }
-        #endregion
-
-        #region IDisposable
-        public void Dispose()
-        {
-        }
-        #endregion
-    }
-
     public class ViewerSolution : Viewer
     {
         #region Constructor
         public ViewerSolution(SolutionLayered solution)
         {
-            _solution = solution;
+            Solution = solution;
         }
         #endregion
 
@@ -113,8 +26,8 @@ namespace treeDiM.StackBuilder.Graphics
             // clear list of picking box
             ClearPickingBoxes();
 
-            if (null == _solution) return;
-            AnalysisHomo analysis = _solution.Analysis;
+            if (null == Solution) return;
+            AnalysisHomo analysis = Solution.Analysis;
 
             if (analysis is AnalysisPackablePallet analysisPackablePallet)
             {
@@ -142,7 +55,7 @@ namespace treeDiM.StackBuilder.Graphics
             }
             // ### draw solution
             uint layerId = 0, pickId = 0;
-            List<ILayer> layers = _solution.Layers;
+            List<ILayer> layers = Solution.Layers;
             foreach (ILayer layer in layers)
             {
                 BBox3D bbox = new BBox3D();
@@ -166,12 +79,12 @@ namespace treeDiM.StackBuilder.Graphics
                                 bbox.Extend(b.BBox);
                             }
                             else
-                                graphics.AddImage(loadedPallet.ParentAnalysis as AnalysisLayered, solBBox.DimensionsVec, bPosition.Transform(transform));
+                                graphics.AddImage(loadedPallet.ParentAnalysis as AnalysisHomo, solBBox.DimensionsVec, bPosition.Transform(transform));
                         }
                     }
                     else
                     {
-                        bool aboveSelectedLayer = (_solution.SelectedLayerIndex != -1) && (layerId > _solution.SelectedLayerIndex);
+                        bool aboveSelectedLayer = (Solution.SelectedLayerIndex != -1) && (layerId > Solution.SelectedLayerIndex);
                         Transform3D upTranslation = Transform3D.Translation(new Vector3D(0.0, 0.0, aboveSelectedLayer ? DistanceAboveSelectedLayer : 0.0));
 
                         foreach (BoxPosition bPosition in layerBox)
@@ -192,7 +105,10 @@ namespace treeDiM.StackBuilder.Graphics
                 {
                     foreach (Vector3D vPos in layerCyl)
                     {
-                        Cylinder c = new Cylinder(pickId++, analysis.Content as CylinderProperties, new CylPosition(transform.transform(vPos), HalfAxis.HAxis.AXIS_Z_P));
+                        Cylinder c = new Cylinder(
+                            pickId++
+                            , analysis.Content as CylinderProperties
+                            , new CylPosition(transform.transform(vPos), HalfAxis.HAxis.AXIS_Z_P));
                         graphics.AddCylinder(c);
                         bbox.Extend(c.BBox);
                     }
@@ -202,7 +118,7 @@ namespace treeDiM.StackBuilder.Graphics
                     // add layer BBox
                     AddPickingBox(bbox, layerId);
                     // draw bounding box around selected layer
-                    if (layerId == _solution.SelectedLayerIndex)
+                    if (layerId == Solution.SelectedLayerIndex)
                         DrawLayerBoundingBox(graphics, bbox);
                     ++layerId;
                 }
@@ -210,10 +126,10 @@ namespace treeDiM.StackBuilder.Graphics
                 // ### interlayer
                 if (layer is InterlayerPos interlayerPos)
                 {
-                    InterlayerProperties interlayerProp = _solution.Interlayers[interlayerPos.TypeId];
+                    InterlayerProperties interlayerProp = Solution.Interlayers[interlayerPos.TypeId];
                     if (null != interlayerProp)
                     {
-                        bool aboveSelectedLayer = (_solution.SelectedLayerIndex != -1) && (layerId > _solution.SelectedLayerIndex);
+                        bool aboveSelectedLayer = (Solution.SelectedLayerIndex != -1) && (layerId > Solution.SelectedLayerIndex);
                         Transform3D upTranslation = Transform3D.Translation(new Vector3D(0.0, 0.0, aboveSelectedLayer ? DistanceAboveSelectedLayer : 0.0));
 
                         BoxPosition bPosition = new BoxPosition(
@@ -228,8 +144,8 @@ namespace treeDiM.StackBuilder.Graphics
                     }
                 }
             }
-            BBox3D loadBBox = _solution.BBoxLoad;
-            BBox3D loadBBoxWDeco = _solution.BBoxLoadWDeco;
+            BBox3D loadBBox = Solution.BBoxLoad;
+            BBox3D loadBBoxWDeco = Solution.BBoxLoadWDeco;
             if (analysis is AnalysisCasePallet analysisCasePallet)
             {
                 #region Pallet corners
@@ -283,7 +199,7 @@ namespace treeDiM.StackBuilder.Graphics
                 #region Pallet film
                 // ### pallet film
                 Film film = null;
-                if (analysisCasePallet.HasPalletFilm && -1 == _solution.SelectedLayerIndex)
+                if (analysisCasePallet.HasPalletFilm && -1 == Solution.SelectedLayerIndex)
                 {
                     // instantiate film
                     PalletFilmProperties palletFilmProperties = analysisCasePallet.PalletFilmProperties;
@@ -336,7 +252,7 @@ namespace treeDiM.StackBuilder.Graphics
                         , HalfAxis.Transform(HalfAxis.HAxis.AXIS_Y_P, transform)
                         );
 
-                    Transform3D upTranslation = Transform3D.Translation(new Vector3D(0.0, 0.0, -1 != _solution.SelectedLayerIndex ? DistanceAboveSelectedLayer : 0.0));
+                    Transform3D upTranslation = Transform3D.Translation(new Vector3D(0.0, 0.0, -1 != Solution.SelectedLayerIndex ? DistanceAboveSelectedLayer : 0.0));
                     PalletCap cap = new PalletCap(0, capProperties, bPosition.Transform(upTranslation));
                     cap.DrawEnd(graphics);
                 }
@@ -360,7 +276,7 @@ namespace treeDiM.StackBuilder.Graphics
             }
             // ### dimensions
             // dimensions should only be shown when no layer is selected
-            if (graphics.ShowDimensions && (-1 == _solution.SelectedLayerIndex))
+            if (graphics.ShowDimensions && (-1 == Solution.SelectedLayerIndex))
             {
                 graphics.AddDimensions(new DimensionCube(BoundingBoxDim(DimCasePalletSol1), Color.Black, false));
                 graphics.AddDimensions(new DimensionCube(BoundingBoxDim(DimCasePalletSol2), Color.Red, true));
@@ -369,7 +285,7 @@ namespace treeDiM.StackBuilder.Graphics
         }
         public override void Draw(Graphics2D graphics)
         {
-            if (null == _solution) return;
+            if (null == Solution) return;
         }
         #endregion
 
@@ -425,18 +341,18 @@ namespace treeDiM.StackBuilder.Graphics
         private BBox3D BoundingBoxDim(int index)
         {
             PalletProperties palletProperties = null;
-            if (_solution.Analysis is AnalysisCasePallet analysisCasePallet)
+            if (Solution.Analysis is AnalysisCasePallet analysisCasePallet)
                 palletProperties = analysisCasePallet.PalletProperties;
-            if (_solution.Analysis is AnalysisCylinderPallet analysisCylinderPallet)
+            if (Solution.Analysis is AnalysisCylinderPallet analysisCylinderPallet)
                 palletProperties = analysisCylinderPallet.PalletProperties;
 
             switch (index)
             {
-                case 0: return _solution.BBoxGlobal;
-                case 1: return _solution.BBoxLoadWDeco;
+                case 0: return Solution.BBoxGlobal;
+                case 1: return Solution.BBoxLoadWDeco;
                 case 2: return palletProperties.BoundingBox;
                 case 3: return new BBox3D(0.0, 0.0, 0.0, palletProperties.Length, palletProperties.Width, 0.0);
-                default: return _solution.BBoxGlobal;
+                default: return Solution.BBoxGlobal;
             }
         }
 
@@ -478,7 +394,7 @@ namespace treeDiM.StackBuilder.Graphics
         #endregion
 
         #region Data members
-        private SolutionLayered _solution;
+        private SolutionLayered Solution { get; set; }
         #endregion
     }
 }

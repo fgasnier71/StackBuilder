@@ -197,14 +197,34 @@ namespace treeDiM.StackBuilder.Desktop
                 _log.Error(ex.ToString());
             }
         }
-        private string GridCaption => string.Empty;
+        private string GridCaption => Resources.ID_LOAD;
+        #endregion
+        #region Private properties
+        private OptInt MaximumNumber => uCtrlMaxNumber.Value;
+        private OptDouble MaximumWeight => uCtrlMaxWeight.Value;
         #endregion
         #region Event handlers
         private void OnSizeChanged(object sender, EventArgs args)
         {
+            int splitDistance = splitContainerHoriz.Size.Height - 120;
+            if (splitDistance > 0)
+                splitContainerHoriz.SplitterDistance = splitDistance;
         }
         private void OnCriterionChanged(object sender, EventArgs args)
         {
+            try
+            {
+                var constraintSet = Solution.AnalysisHCyl.ConstraintSet as ConstraintSetCylinderTruck;
+                constraintSet.OptMaxWeight = MaximumWeight;
+                constraintSet.OptMaxNumber = MaximumNumber;
+                Solution.RebuildSolution();
+            }
+            catch (Exception ex)
+            {
+                _log.Error(ex.ToString());
+            }
+            // update drawing & grid
+            graphCtrlSolution.Invalidate();
             UpdateGrid();
         }
         private void OnGenerateReport(object sender, EventArgs e)
@@ -218,12 +238,10 @@ namespace treeDiM.StackBuilder.Desktop
             Document.EditAnalysis(Analysis);
         }
         #endregion
-
         #region Data members
         private AnalysisHCylTruck Analysis { get; set; }
         private SolutionHCyl Solution => Analysis.Solution as SolutionHCyl;
         protected static ILog _log = LogManager.GetLogger(typeof(DockContentAnalysisHCylTruck));
         #endregion
-
     }
 }

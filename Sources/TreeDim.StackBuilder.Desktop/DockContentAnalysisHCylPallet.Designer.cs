@@ -115,10 +115,10 @@
             // 
             this.uCtrlMaxWeight.Location = new System.Drawing.Point(7, 28);
             this.uCtrlMaxWeight.Minimum = new decimal(new int[] {
-            10000,
             0,
             0,
-            -2147483648});
+            0,
+            0});
             this.uCtrlMaxWeight.MinimumSize = new System.Drawing.Size(100, 20);
             this.uCtrlMaxWeight.Name = "uCtrlMaxWeight";
             this.uCtrlMaxWeight.Size = new System.Drawing.Size(300, 20);
@@ -129,7 +129,7 @@
             // uCtrlMaxNumber
             // 
             this.uCtrlMaxNumber.Location = new System.Drawing.Point(7, 51);
-            this.uCtrlMaxNumber.Minimum = -10000;
+            this.uCtrlMaxNumber.Minimum = 1;
             this.uCtrlMaxNumber.MinimumSize = new System.Drawing.Size(100, 20);
             this.uCtrlMaxNumber.Name = "uCtrlMaxNumber";
             this.uCtrlMaxNumber.Size = new System.Drawing.Size(300, 20);
@@ -140,10 +140,10 @@
             // 
             this.uCtrlMaxPalletHeight.Location = new System.Drawing.Point(7, 5);
             this.uCtrlMaxPalletHeight.Minimum = new decimal(new int[] {
-            10000,
             0,
             0,
-            -2147483648});
+            0,
+            0});
             this.uCtrlMaxPalletHeight.MinimumSize = new System.Drawing.Size(100, 20);
             this.uCtrlMaxPalletHeight.Name = "uCtrlMaxPalletHeight";
             this.uCtrlMaxPalletHeight.Size = new System.Drawing.Size(300, 20);

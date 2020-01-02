@@ -38,12 +38,6 @@ namespace treeDiM.StackBuilder.Basics
         public override bool AllowUncompleteLayer => true;
         public override bool Valid => true;
 
-        public bool AllowMultipleLayers { get; set; }
-        public override bool CritLayerNumberReached(int layerNumber)
-        {
-            return AllowMultipleLayers ? false : layerNumber > 1;
-        }
-
         #region Non-Public Members
         protected static readonly ILog _log = LogManager.GetLogger(typeof(ConstraintSetPalletTruck));
         #endregion

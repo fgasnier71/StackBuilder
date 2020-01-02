@@ -80,7 +80,6 @@
     <Compile Include="..\SharedAssemblyInfo.cs">
       <Link>Properties\SharedAssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="CylLoad.cs" />
     <Compile Include="LayerPatterns\CylinderLayerPatternExpanded.cs" />
     <Compile Include="LayerPatterns\CylinderLayerPatternMixed12.cs" />
     <Compile Include="LayerPatterns\CylinderLayerPatternMixed121.cs" />
@@ -99,7 +98,6 @@
     <Compile Include="LayerPatterns\LayerPatternMSpirale8Parts.cs" />
     <Compile Include="LayerPatterns\LayerPatternOpposed.cs" />
     <Compile Include="Solvers\CylLayoutSolver.cs" />
-    <Compile Include="Solvers\HCylinderSolver.cs" />
     <Compile Include="Solvers\HSolver.cs" />
     <Compile Include="Solvers\ISolver.cs" />
     <Compile Include="Solvers\PackOptimizer.cs" />

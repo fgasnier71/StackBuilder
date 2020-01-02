@@ -4,19 +4,25 @@ using Sharp3D.Math.Core;
 
 namespace treeDiM.StackBuilder.Basics
 {
+    #region AnalysisHCyl
     public abstract class AnalysisHCyl : AnalysisHomo
     {
-        protected AnalysisHCyl(Document doc, CylinderProperties cylinder) : base(doc, cylinder)
+        #region Protected constructor
+        protected AnalysisHCyl(Document doc, CylinderProperties cylinder)
+            : base(doc, cylinder)
         {
         }
-        #region Solution
+        #endregion
+        #region Instantiate solution
         public void SetSolution(HCylLayout layout)
         {
             Solution = new SolutionHCyl(this, layout.PatternName, layout.Swapped);
         }
         #endregion
     }
+    #endregion
 
+    #region AnalysisHCylPallet
     public class AnalysisHCylPallet : AnalysisHCyl
     {
         #region Constructor
@@ -27,7 +33,6 @@ namespace treeDiM.StackBuilder.Basics
             ConstraintSet = constraintSet;
         }
         #endregion
-
         #region Public properties
         public PalletProperties PalletProperties
         {
@@ -42,9 +47,6 @@ namespace treeDiM.StackBuilder.Basics
             }
         }
         #endregion
-
-
-
         #region Override AnalysisHomo
         public override ItemBase Container => PalletProperties;
         public override double ContainerWeight => PalletProperties.Weight;
@@ -80,6 +82,9 @@ namespace treeDiM.StackBuilder.Basics
                     * (constraintSet.OptMaxHeight.Value - _palletProperties.Height);
             }
         }
+        public override bool HasEquivalentPackable => true;
+        public override PackableLoaded EquivalentPackable => new LoadedPallet(this);
+
         public override BBox3D BBoxGlobal(BBox3D loadBBox)
         {
             BBox3D bbox = BBoxLoadWDeco(loadBBox);
@@ -91,12 +96,13 @@ namespace treeDiM.StackBuilder.Basics
         public override BBox3D BBoxLoadWDeco(BBox3D loadBBox) => loadBBox;
         public override void RecomputeSolution() {}
         #endregion
-
         #region Data members
         private PalletProperties _palletProperties;
         #endregion
     }
+    #endregion
 
+    #region AnalysisHCylTruck
     public class AnalysisHCylTruck : AnalysisHCyl
     {
         #region Constructor
@@ -126,7 +132,11 @@ namespace treeDiM.StackBuilder.Basics
         public override Vector2D ContainerDimensions => new Vector2D(TruckProperties.Length, TruckProperties.Width);
         public override Vector3D Offset => Vector3D.Zero;
         public override double ContainerWeight => 0.0;
-        public override double ContainerLoadingVolume => throw new System.NotImplementedException();
+        public override double ContainerLoadingVolume => TruckProperties.Volume;
+
+        public override bool HasEquivalentPackable => false;
+        public override PackableLoaded EquivalentPackable => null;
+
         public override BBox3D BBoxGlobal(BBox3D loadBBox) => TruckProperties.BoundingBox;
         public override BBox3D BBoxLoadWDeco(BBox3D loadBBox) => loadBBox;
         public override void RecomputeSolution() {}
@@ -135,4 +145,46 @@ namespace treeDiM.StackBuilder.Basics
         private TruckProperties _truckProperties;
         #endregion
     }
+    #endregion
+
+    #region AnalysisHCylCase
+    public class AnalysisHCylCase : AnalysisHCyl
+    {
+        #region Constructor
+        public AnalysisHCylCase(Document doc, CylinderProperties cylinder, BoxProperties caseProperties, ConstraintSetBoxCase constraintSet)
+            : base(doc, cylinder)
+        {
+        }
+        #endregion
+        #region Public properties
+        public BoxProperties CaseProperties
+        {
+            get => _caseProperties;
+            set
+            {
+                if (_caseProperties == value) return;
+                if (null != _caseProperties) _caseProperties.RemoveDependancy(this);
+                _caseProperties = value;
+                if (null != ParentDocument)
+                    _caseProperties.AddDependancy(this);
+            }
+        }
+        #endregion
+        #region Override AnalysisHCyl
+        public override ItemBase Container => CaseProperties;
+        public override Vector2D ContainerDimensions => new Vector2D(CaseProperties.InsideLength, CaseProperties.InsideWidth);
+        public override Vector3D Offset => Vector3D.Zero;
+        public override double ContainerWeight => CaseProperties.Weight;
+        public override double ContainerLoadingVolume => CaseProperties.InsideVolume;
+        public override bool HasEquivalentPackable => true;
+        public override PackableLoaded EquivalentPackable => new LoadedCase(this);
+        public override BBox3D BBoxGlobal(BBox3D loadBBox) => CaseProperties.BoundingBox;
+        public override BBox3D BBoxLoadWDeco(BBox3D loadBBox) => loadBBox;
+        public override void RecomputeSolution() {}
+        #endregion
+        #region Data members
+        private BoxProperties _caseProperties;
+        #endregion
+    }
+    #endregion
 }

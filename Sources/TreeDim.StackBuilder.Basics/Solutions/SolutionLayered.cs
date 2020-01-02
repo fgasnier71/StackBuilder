@@ -315,7 +315,8 @@ namespace treeDiM.StackBuilder.Basics
             int number = 0;
             bool allowMultipleLayers = true;
             if (constraintSet is ConstraintSetPalletTruck constraintSetPalletTruck)
-                allowMultipleLayers = constraintSetPalletTruck.AllowMultipleLayers;
+                allowMultipleLayers = (constraintSetPalletTruck.OptMaxLayerNumber.Activated
+                    && constraintSetPalletTruck.OptMaxLayerNumber.Value > 1);
 
             bool symetryX = false, symetryY = false;
 

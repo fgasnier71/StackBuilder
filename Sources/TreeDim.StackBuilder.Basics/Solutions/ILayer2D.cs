@@ -50,10 +50,9 @@ namespace treeDiM.StackBuilder.Basics
         {
             get
             {
-                if (ConstraintSet is ConstraintSetPalletTruck constraintSetPalletTruck)
-                    return constraintSetPalletTruck.AllowMultipleLayers;
-                else
-                    return true;
+                if (ConstraintSet.OptMaxLayerNumber.Activated)
+                    return ConstraintSet.OptMaxLayerNumber.Value <= 1;
+                return true;
             }
         }
         public double Height { get { return ConstraintSet.OptMaxHeight.Value - _offsetZ; } }

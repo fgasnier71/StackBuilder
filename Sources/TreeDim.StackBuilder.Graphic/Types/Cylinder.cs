@@ -13,18 +13,19 @@ namespace treeDiM.StackBuilder.Graphics
     public class Cylinder : Drawable
     {
         #region Data members
-        private uint _pickId = 0;
-        private double _radiusOuter, _radiusInner;
-        private uint _noFaces = 36;
+        public uint PickId { get; private set; } = 0;
+        public double RadiusOuter { get; private set; }
+        public double RadiusInner { get; private set; }
+        public uint NoFaces { get; private set; } = 36;
         private CylPosition _cylPosition = new CylPosition(Vector3D.Zero, HalfAxis.HAxis.AXIS_Z_P);
         #endregion
 
         #region Constructor
         public Cylinder(uint pickId, double radiusOuter, double radiusInner, double height, Color colorTop, Color colorWallOuter, Color colorWallInner)
         {
-            _pickId = pickId;
-            _radiusOuter = radiusOuter;
-            _radiusInner = radiusInner;
+            PickId = pickId;
+            RadiusOuter = radiusOuter;
+            RadiusInner = radiusInner;
             Height = height;
             ColorTop = colorTop;
             ColorWallOuter = colorWallOuter;
@@ -32,9 +33,9 @@ namespace treeDiM.StackBuilder.Graphics
         }
         public Cylinder(uint pickId, CylinderProperties cylProperties)
         {
-            _pickId = pickId;
-            _radiusOuter = cylProperties.RadiusOuter;
-            _radiusInner = cylProperties.RadiusInner;
+            PickId = pickId;
+            RadiusOuter = cylProperties.RadiusOuter;
+            RadiusInner = cylProperties.RadiusInner;
             Height = cylProperties.Height;
             ColorTop = cylProperties.ColorTop;
             ColorWallOuter = cylProperties.ColorWallOuter;
@@ -42,9 +43,9 @@ namespace treeDiM.StackBuilder.Graphics
         }
         public Cylinder(uint pickId, CylinderProperties cylProperties, CylPosition cylPosition)
         {
-            _pickId = pickId;
-            _radiusOuter = cylProperties.RadiusOuter;
-            _radiusInner = cylProperties.RadiusInner;
+            PickId = pickId;
+            RadiusOuter = cylProperties.RadiusOuter;
+            RadiusInner = cylProperties.RadiusInner;
             Height = cylProperties.Height;
             ColorTop = cylProperties.ColorTop;
             ColorWallOuter = cylProperties.ColorWallOuter;
@@ -54,8 +55,8 @@ namespace treeDiM.StackBuilder.Graphics
         #endregion
 
         #region Public properties
-        public double DiameterOuter => 2.0 * _radiusOuter;
-        public double DiameterInner => 2.0 * _radiusInner;
+        public double DiameterOuter => 2.0 * RadiusOuter;
+        public double DiameterInner => 2.0 * RadiusInner;
         public double Height { get; }
         public CylPosition Position  { get { return _cylPosition; } }
         public Face[] FacesWalls
@@ -64,39 +65,39 @@ namespace treeDiM.StackBuilder.Graphics
             {
                 Transform3D t = _cylPosition.Transf;
 
-                bool showInnerFaces = _radiusInner > 0;
-                Face[] faces = new Face[(showInnerFaces ? 2 : 1) * _noFaces];
+                bool showInnerFaces = RadiusInner > 0;
+                Face[] faces = new Face[(showInnerFaces ? 2 : 1) * NoFaces];
                 if (showInnerFaces)
                 {
-                    for (int i = 0; i < _noFaces; ++i)
+                    for (int i = 0; i < NoFaces; ++i)
                     {
-                        double angleBeg = (double)i * 2.0 * Math.PI / (double)_noFaces;
-                        double angleEnd = (double)(i + 1) * 2.0 * Math.PI / (double)_noFaces;
+                        double angleBeg = (double)i * 2.0 * Math.PI / (double)NoFaces;
+                        double angleEnd = (double)(i + 1) * 2.0 * Math.PI / (double)NoFaces;
                         Vector3D vRadiusBeg = new Vector3D(0.0, Math.Cos(angleBeg), Math.Sin(angleBeg));
                         Vector3D vRadiusEnd = new Vector3D(0.0, Math.Cos(angleEnd), Math.Sin(angleEnd));
                         Vector3D[] vertices = new Vector3D[4];
-                        vertices[0] = t.transform(_radiusInner * vRadiusBeg);
-                        vertices[1] = t.transform(_radiusInner * vRadiusBeg + Height * Vector3D.XAxis);
-                        vertices[2] = t.transform(_radiusInner * vRadiusEnd + Height * Vector3D.XAxis);
-                        vertices[3] = t.transform(_radiusInner * vRadiusEnd);
-                        faces[i] = new Face(_pickId, vertices, true);
+                        vertices[0] = t.transform(RadiusInner * vRadiusBeg);
+                        vertices[1] = t.transform(RadiusInner * vRadiusBeg + Height * Vector3D.XAxis);
+                        vertices[2] = t.transform(RadiusInner * vRadiusEnd + Height * Vector3D.XAxis);
+                        vertices[3] = t.transform(RadiusInner * vRadiusEnd);
+                        faces[i] = new Face(PickId, vertices, true);
                         faces[i].ColorFill = ColorWallInner;
                     }
                 }
 
-                for (int i = 0; i < _noFaces; ++i)
+                for (int i = 0; i < NoFaces; ++i)
                 {
-                    double angleBeg = i * 2.0 * Math.PI / _noFaces;
-                    double angleEnd = (i + 1) * 2.0 * Math.PI / _noFaces;
+                    double angleBeg = i * 2.0 * Math.PI / NoFaces;
+                    double angleEnd = (i + 1) * 2.0 * Math.PI / NoFaces;
                     Vector3D vRadiusBeg = new Vector3D(0.0, Math.Cos(angleBeg), Math.Sin(angleBeg));
                     Vector3D vRadiusEnd = new Vector3D(0.0, Math.Cos(angleEnd), Math.Sin(angleEnd));
                     Vector3D[] vertices = new Vector3D[4];
-                    vertices[0] = t.transform(_radiusOuter * vRadiusBeg);
-                    vertices[1] = t.transform(_radiusOuter * vRadiusEnd);
-                    vertices[2] = t.transform(_radiusOuter * vRadiusEnd + Height * Vector3D.XAxis);
-                    vertices[3] = t.transform(_radiusOuter * vRadiusBeg + Height * Vector3D.XAxis);
-                    faces[(showInnerFaces ? _noFaces : 0) + i] = new Face(_pickId, vertices, true);
-                    faces[(showInnerFaces ? _noFaces : 0) + i].ColorFill = ColorWallOuter;
+                    vertices[0] = t.transform(RadiusOuter * vRadiusBeg);
+                    vertices[1] = t.transform(RadiusOuter * vRadiusEnd);
+                    vertices[2] = t.transform(RadiusOuter * vRadiusEnd + Height * Vector3D.XAxis);
+                    vertices[3] = t.transform(RadiusOuter * vRadiusBeg + Height * Vector3D.XAxis);
+                    faces[(showInnerFaces ? NoFaces : 0) + i] = new Face(PickId, vertices, true);
+                    faces[(showInnerFaces ? NoFaces : 0) + i].ColorFill = ColorWallOuter;
                 }
                 return faces;
             }
@@ -106,35 +107,37 @@ namespace treeDiM.StackBuilder.Graphics
             get
             {
                 Transform3D t = _cylPosition.Transf;
-                Face[] faces = new Face[2 * _noFaces];
-                for (uint i = 0; i < _noFaces; ++i)
+                Face[] faces = new Face[2 * NoFaces];
+                for (uint i = 0; i < NoFaces; ++i)
                 {
-                    double angleBeg = i * 2.0 * Math.PI / _noFaces;
-                    double angleEnd = (i + 1) * 2.0 * Math.PI / _noFaces;
+                    double angleBeg = i * 2.0 * Math.PI / NoFaces;
+                    double angleEnd = (i + 1) * 2.0 * Math.PI / NoFaces;
                     Vector3D vRadiusBeg = new Vector3D(0.0, Math.Cos(angleBeg), Math.Sin(angleBeg));
                     Vector3D vRadiusEnd = new Vector3D(0.0, Math.Cos(angleEnd), Math.Sin(angleEnd));
                     Vector3D[] vertices = new Vector3D[4];
-                    vertices[0] = t.transform(_radiusInner * vRadiusBeg + Height * Vector3D.XAxis);
-                    vertices[1] = t.transform(_radiusOuter * vRadiusBeg + Height * Vector3D.XAxis);
-                    vertices[2] = t.transform(_radiusOuter * vRadiusEnd + Height * Vector3D.XAxis);
-                    vertices[3] = t.transform(_radiusInner * vRadiusEnd + Height * Vector3D.XAxis);
-                    faces[i] = new Face(_pickId, vertices, true);
+                    vertices[0] = t.transform(RadiusInner * vRadiusBeg + Height * Vector3D.XAxis);
+                    vertices[1] = t.transform(RadiusOuter * vRadiusBeg + Height * Vector3D.XAxis);
+                    vertices[2] = t.transform(RadiusOuter * vRadiusEnd + Height * Vector3D.XAxis);
+                    vertices[3] = t.transform(RadiusInner * vRadiusEnd + Height * Vector3D.XAxis);
+                    faces[i] = new Face(PickId, vertices, true);
                     faces[i].ColorFill = ColorTop;
                 }
 
-                for (uint i = 0; i < _noFaces; ++i)
+                for (uint i = 0; i < NoFaces; ++i)
                 {
-                    double angleBeg = i * 2.0 * Math.PI / _noFaces;
-                    double angleEnd = (i + 1) * 2.0 * Math.PI / _noFaces;
+                    double angleBeg = i * 2.0 * Math.PI / NoFaces;
+                    double angleEnd = (i + 1) * 2.0 * Math.PI / NoFaces;
                     Vector3D vRadiusBeg = new Vector3D(0.0, Math.Cos(angleBeg), Math.Sin(angleBeg));
                     Vector3D vRadiusEnd = new Vector3D(0.0, Math.Cos(angleEnd), Math.Sin(angleEnd));
                     Vector3D[] vertices = new Vector3D[4];
-                    vertices[0] = t.transform(_radiusInner * vRadiusEnd);
-                    vertices[1] = t.transform(_radiusOuter * vRadiusEnd);
-                    vertices[2] = t.transform(_radiusOuter * vRadiusBeg);
-                    vertices[3] = t.transform(_radiusInner * vRadiusBeg);
-                    faces[_noFaces + i] = new Face(_pickId, vertices, true);
-                    faces[_noFaces + i].ColorFill = ColorTop; 
+                    vertices[0] = t.transform(RadiusInner * vRadiusEnd);
+                    vertices[1] = t.transform(RadiusOuter * vRadiusEnd);
+                    vertices[2] = t.transform(RadiusOuter * vRadiusBeg);
+                    vertices[3] = t.transform(RadiusInner * vRadiusBeg);
+                    faces[NoFaces + i] = new Face(PickId, vertices, true)
+                    {
+                        ColorFill = ColorTop
+                    };
                 }
                 return faces;
             }        
@@ -152,12 +155,12 @@ namespace treeDiM.StackBuilder.Graphics
             get
             {
                 Transform3D t = _cylPosition.Transf;
-                Vector3D[] pts = new Vector3D[_noFaces];
-                for (int i = 0; i < _noFaces; ++i)
+                Vector3D[] pts = new Vector3D[NoFaces];
+                for (int i = 0; i < NoFaces; ++i)
                 {
-                    double angle = i * 2.0 * Math.PI / _noFaces;
+                    double angle = i * 2.0 * Math.PI / NoFaces;
                     Vector3D vRadius = new Vector3D(0.0, Math.Cos(angle), Math.Sin(angle));
-                    pts[i] = t.transform(_radiusOuter * vRadius);
+                    pts[i] = t.transform(RadiusOuter * vRadius);
                 }
                 return pts;
             }
@@ -167,12 +170,12 @@ namespace treeDiM.StackBuilder.Graphics
             get
             {
                 Transform3D t = _cylPosition.Transf;
-                Vector3D[] pts = new Vector3D[_noFaces];
-                for (int i = 0; i < _noFaces; ++i)
+                Vector3D[] pts = new Vector3D[NoFaces];
+                for (int i = 0; i < NoFaces; ++i)
                 {
-                    double angle = i * 2.0 * Math.PI / _noFaces;
+                    double angle = i * 2.0 * Math.PI / NoFaces;
                     Vector3D vRadius = new Vector3D(0.0, Math.Cos(angle), Math.Sin(angle));
-                    pts[i] = t.transform(_radiusOuter * vRadius + Height * Vector3D.XAxis);
+                    pts[i] = t.transform(RadiusOuter * vRadius + Height * Vector3D.XAxis);
                 }
                 return pts;
             }
@@ -181,14 +184,17 @@ namespace treeDiM.StackBuilder.Graphics
         {
             get
             {
+                uint noSteps = NoFaces;
+                var pts = new Vector3D[2* noSteps];
                 Transform3D t = _cylPosition.Transf;
-                var pts = new Vector3D[2*_noFaces];
-                for (int i = 0; i < _noFaces; ++i)
+                Vector3D vDir = HalfAxis.ToVector3D(_cylPosition.Direction);
+
+                for (int i = 0; i < noSteps; ++i)
                 {
-                    double angle = i *  2.0 * Math.PI / _noFaces;
+                    double angle = i *  2.0 * Math.PI / noSteps;
                     var vRadius = new Vector3D(0.0, Math.Cos(angle), Math.Sin(angle));
-                    pts[i] = t.transform(_radiusOuter * vRadius);
-                    pts[i + _noFaces] = t.transform(_radiusOuter * vRadius + Height * Vector3D.XAxis);
+                    pts[i] = t.transform(RadiusOuter * vRadius);
+                    pts[i + noSteps] = pts[i] + Height *vDir;
                 }
                 return pts;
             }
@@ -198,12 +204,12 @@ namespace treeDiM.StackBuilder.Graphics
            get
             {
                 Transform3D t = _cylPosition.Transf;
-                Vector3D[] pts = new Vector3D[_noFaces];
-                for (int i = 0; i < _noFaces; ++i)
+                Vector3D[] pts = new Vector3D[NoFaces];
+                for (int i = 0; i < NoFaces; ++i)
                 {
-                    double angle = i * 2.0 * Math.PI / _noFaces;
+                    double angle = i * 2.0 * Math.PI / NoFaces;
                     Vector3D vRadius = new Vector3D(0.0, Math.Cos(angle), Math.Sin(angle));
-                    pts[i] = t.transform(_radiusInner * vRadius + Height * Vector3D.XAxis);
+                    pts[i] = t.transform(RadiusInner * vRadius + Height * Vector3D.XAxis);
                 }
                 return pts;
             }        
@@ -213,8 +219,8 @@ namespace treeDiM.StackBuilder.Graphics
             get
             {
                 return new BBox3D(
-                    new Vector3D(-_radiusOuter, -_radiusOuter, 0.0) + _cylPosition.XYZ
-                    , new Vector3D(_radiusOuter, _radiusOuter, Height) + _cylPosition.XYZ
+                    new Vector3D(-RadiusOuter, -RadiusOuter, 0.0) + _cylPosition.XYZ
+                    , new Vector3D(RadiusOuter, RadiusOuter, Height) + _cylPosition.XYZ
                     );
             }
         }

@@ -38,7 +38,7 @@ namespace treeDiM.StackBuilder.Basics
         }
         public virtual OptDouble OptMaxWeight { get; set; }
         public virtual OptInt OptMaxNumber { get; set; }
-        public virtual OptInt OptMaxLayerNumber { get => new OptInt(false, 0); }
+        public virtual OptInt OptMaxLayerNumber { get; set; } = new OptInt(false, 1);
         public virtual OptDouble MinimumSpace { get; set; }
         public virtual bool AllowUncompleteLayer => false;
         public virtual bool Valid => HasSomeAllowedOrientations;
@@ -47,7 +47,7 @@ namespace treeDiM.StackBuilder.Basics
         public virtual bool CritHeightReached(double height) { return OptMaxHeight.Activated && OptMaxHeight.Value < height; }
         public virtual bool CritWeightReached(double weight) { return OptMaxWeight.Activated && OptMaxWeight.Value < weight; }
         public virtual bool CritNumberReached(int number) { return OptMaxNumber.Activated && OptMaxNumber.Value < number; }
-        public virtual bool CritLayerNumberReached(int layerNumber) { return OptMaxLayerNumber.Activated && OptMaxLayerNumber.Value < layerNumber; }
+        public virtual bool CritLayerNumberReached(int layerNumber) { return OptMaxLayerNumber.Activated && layerNumber >= OptMaxLayerNumber.Value; }
         public bool OneCriterionReached(double height, double weight, int number, int layerNumber)
         { return CritHeightReached(height) || CritWeightReached(weight) || CritNumberReached(number) || CritLayerNumberReached(layerNumber); }
     }

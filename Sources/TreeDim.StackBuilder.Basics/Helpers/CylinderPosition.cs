@@ -13,24 +13,16 @@ namespace treeDiM.StackBuilder.Basics
     /// </summary>
     public struct CylPosition
     {
-        #region Data members
-        private Vector3D _vPosition;
-        #endregion
-
         #region Constructor
         public CylPosition(Vector3D vPosition, HalfAxis.HAxis axis)
         {
-            _vPosition = vPosition;
+            XYZ = vPosition;
             Direction = axis;        
         }
         #endregion
 
         #region Public properties
-        public Vector3D XYZ
-        {
-            get => _vPosition;
-            set => _vPosition = value; 
-        }
+        public Vector3D XYZ { get; set; }
         public HalfAxis.HAxis Direction { get; set; }
         public Transform3D Transf
         {
@@ -70,25 +62,16 @@ namespace treeDiM.StackBuilder.Basics
                 bbox.Extend(t.transform(pt));
             return bbox;
         }
-
         public CylPosition Transform(Transform3D transf)
-        {
-            return new CylPosition(
-                transf.transform(_vPosition),
-                HalfAxis.ToHalfAxis(transf.transformRot(HalfAxis.ToVector3D(Direction)))
-                );
-        }
-        public static CylPosition operator +(CylPosition cp, Vector3D v)
-        {
-            return new CylPosition(cp.XYZ + v, cp.Direction);
-        }
+            => new CylPosition(transf.transform(XYZ), HalfAxis.Transform(Direction, transf));
+        public static CylPosition operator +(CylPosition cp, Vector3D v) => new CylPosition(cp.XYZ + v, cp.Direction);
         #endregion
 
         #region Transformation
         public static CylPosition Transform(CylPosition cylPosition, Transform3D transform)
         {
             return new CylPosition(
-                transform.transform(cylPosition._vPosition),
+                transform.transform(cylPosition.XYZ),
                 HalfAxis.ToHalfAxis(
                     transform.transformRot(HalfAxis.ToVector3D(cylPosition.Direction))
                     )

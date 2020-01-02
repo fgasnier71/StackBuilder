@@ -40,9 +40,9 @@ namespace treeDiM.StackBuilder.Graphics.Controls
 
                 foreach (var analysis in doc.Analyses)
                 {
-                    if (analysis is AnalysisLayered analysisLayered)
+                    if (analysis is AnalysisHomo analysisHomo)
                     {
-                        PackableLoaded eqvtPackable = analysisLayered.EquivalentPackable;
+                        PackableLoaded eqvtPackable = analysisHomo.EquivalentPackable;
                         if (null == eqvtPackable) continue;
                         if (null == filter || filter.Accept(this, eqvtPackable))
                         {

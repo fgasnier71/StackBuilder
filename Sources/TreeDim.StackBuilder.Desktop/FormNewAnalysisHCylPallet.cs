@@ -38,8 +38,8 @@ namespace treeDiM.StackBuilder.Desktop
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
-            cbCylinders.Initialize(_document, this, null);
-            cbPallets.Initialize(_document, this, null);
+            cbCylinders.Initialize(_document, this, AnalysisCast?.Content);
+            cbPallets.Initialize(_document, this, AnalysisCast?.PalletProperties);
 
             if (null == AnalysisBase)
             {
@@ -88,7 +88,6 @@ namespace treeDiM.StackBuilder.Desktop
         #region FormNewBase override
         public override string ItemDefaultName => Resources.ID_ANALYSIS;
         #endregion
-
         #region FormNewAnalysis override
         public override void UpdateStatus(string message)
         {            
@@ -131,7 +130,6 @@ namespace treeDiM.StackBuilder.Desktop
             }
         }
         #endregion
-
         #region Event handlers
         private void OnInputChanged(object sender, EventArgs e)
         {
@@ -158,20 +156,7 @@ namespace treeDiM.StackBuilder.Desktop
         }
         private void OnLayoutSelected(object sender, EventArgs e) => UpdateStatus(string.Empty);
         #endregion
-
         #region Helpers
-        private AnalysisHCyl AnalysisCast
-        {
-            get { return _item as AnalysisHCyl; }
-            set { _item = value; }
-        }
-        private CylinderProperties SelectedCylinder => cbCylinders.SelectedType as CylinderProperties;
-        private PalletProperties SelectedPallet => cbPallets.SelectedType as PalletProperties;
-        private HCylLayout SelectedLayout => uCtrlHCylLayoutList.Selected;
-        private double MaxPalletHeight => uCtrlMaximumHeight.Value;
-        private OptDouble MaxPalletWeight => uCtrlOptMaximumWeight.Value;
-        private OptInt MaxNumber => uCtrlOptMaximumNumber.Value;
-        private Vector2D Overhang => uCtrlOverhang.Value;
         private ConstraintSetPackablePallet BuildConstraintSet()
         {
             var constraintSet = new ConstraintSetPackablePallet()
@@ -185,7 +170,20 @@ namespace treeDiM.StackBuilder.Desktop
             return constraintSet;
         }
         #endregion
-
+        #region Private properties
+        private AnalysisHCylPallet AnalysisCast
+        {
+            get { return _item as AnalysisHCylPallet; }
+            set { _item = value; }
+        }
+        private CylinderProperties SelectedCylinder => cbCylinders.SelectedType as CylinderProperties;
+        private PalletProperties SelectedPallet => cbPallets.SelectedType as PalletProperties;
+        private HCylLayout SelectedLayout => uCtrlHCylLayoutList.Selected;
+        private double MaxPalletHeight => uCtrlMaximumHeight.Value;
+        private OptDouble MaxPalletWeight => uCtrlOptMaximumWeight.Value;
+        private OptInt MaxNumber => uCtrlOptMaximumNumber.Value;
+        private Vector2D Overhang => uCtrlOverhang.Value;
+        #endregion
         #region Data members
         private ILog _log = LogManager.GetLogger(typeof(FormNewAnalysisHCylPallet));
         #endregion
