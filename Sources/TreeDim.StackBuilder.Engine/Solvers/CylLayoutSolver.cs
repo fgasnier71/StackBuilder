@@ -38,6 +38,7 @@ namespace treeDiM.StackBuilder.Engine
                     }
                 }
             }
+            layouts.Sort(new HCylLayoutComparer());
             return layouts;
         }
 

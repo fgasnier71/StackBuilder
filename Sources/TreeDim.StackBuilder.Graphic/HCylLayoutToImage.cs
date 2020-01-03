@@ -24,7 +24,7 @@ namespace treeDiM.StackBuilder.Graphics
                     MarginPercentage = 0.05 
                 };                
                 using (var solViewer = new ViewerHCylLayout(cylLayout))
-                { solViewer.Draw(graphics, cylProperties, 0.0, selected, annotate); }
+                { solViewer.Draw(graphics, cylProperties, dimContainer.Z, selected, annotate); }
                 return graphics.Bitmap;
             }
             catch (Exception ex)

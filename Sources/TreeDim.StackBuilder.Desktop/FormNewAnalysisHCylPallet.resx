@@ -364,7 +364,7 @@
     <value>cbPallets</value>
   </data>
   <data name="&gt;&gt;cbPallets.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered, treeDiM.StackBuilder.Graphics, Version=3.0.2.1, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered, treeDiM.StackBuilder.Graphics, Version=3.0.2.2, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;cbPallets.Parent" xml:space="preserve">
     <value>$this</value>
@@ -385,7 +385,7 @@
     <value>cbCylinders</value>
   </data>
   <data name="&gt;&gt;cbCylinders.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered, treeDiM.StackBuilder.Graphics, Version=3.0.2.1, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered, treeDiM.StackBuilder.Graphics, Version=3.0.2.2, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;cbCylinders.Parent" xml:space="preserve">
     <value>$this</value>
@@ -466,7 +466,7 @@
     <value>uCtrlPackable</value>
   </data>
   <data name="&gt;&gt;uCtrlPackable.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Graphics.Controls.UCtrlPackable, treeDiM.StackBuilder.Graphics, Version=3.0.2.1, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Graphics.Controls.UCtrlPackable, treeDiM.StackBuilder.Graphics, Version=3.0.2.2, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlPackable.Parent" xml:space="preserve">
     <value>$this</value>
@@ -490,7 +490,7 @@
     <value>uCtrlHCylLayoutList</value>
   </data>
   <data name="&gt;&gt;uCtrlHCylLayoutList.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Graphics.Controls.UCtrlHCylLayoutList, treeDiM.StackBuilder.Graphics, Version=3.0.2.1, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Graphics.Controls.UCtrlHCylLayoutList, treeDiM.StackBuilder.Graphics, Version=3.0.2.2, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlHCylLayoutList.Parent" xml:space="preserve">
     <value>$this</value>
@@ -514,6 +514,6 @@
     <value>FormNewAnalysisHCylPallet</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Desktop.FormNewAnalysis, treeDiM.StackBuilder.Desktop, Version=3.0.2.1, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Desktop.FormNewAnalysis, treeDiM.StackBuilder.Desktop, Version=3.0.2.2, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

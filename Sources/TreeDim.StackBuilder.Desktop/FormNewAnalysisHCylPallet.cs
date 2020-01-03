@@ -56,11 +56,13 @@ namespace treeDiM.StackBuilder.Desktop
                 ItemName = AnalysisCast.Name;
                 ItemDescription = AnalysisCast.Description;
 
-                var constraintSet = AnalysisCast.ConstraintSet as ConstraintSetCasePallet;
-                uCtrlMaximumHeight.Value = constraintSet.OptMaxHeight.Value;
-                uCtrlOptMaximumWeight.Value = constraintSet.OptMaxWeight;
-                uCtrlOptMaximumNumber.Value = constraintSet.OptMaxNumber;
-                uCtrlOverhang.Value = constraintSet.Overhang;
+                if (AnalysisCast.ConstraintSet is ConstraintSetPackablePallet constraintSet)
+                {
+                    uCtrlMaximumHeight.Value = constraintSet.OptMaxHeight.Value;
+                    uCtrlOptMaximumWeight.Value = constraintSet.OptMaxWeight;
+                    uCtrlOptMaximumNumber.Value = constraintSet.OptMaxNumber;
+                    uCtrlOverhang.Value = constraintSet.Overhang;
+                }
             }
             // event handling
             cbCylinders.SelectedIndexChanged += new EventHandler(OnCylinderChanged);

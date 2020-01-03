@@ -253,6 +253,6 @@
     <value>OptionPanelDimensions</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>GLib.Options.OptionsPanel, OptionsLib, Version=3.0.2.1, Culture=neutral, PublicKeyToken=null</value>
+    <value>GLib.Options.OptionsPanel, OptionsLib, Version=3.0.2.2, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

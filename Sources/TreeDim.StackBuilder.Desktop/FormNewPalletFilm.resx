@@ -234,7 +234,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;cbColor.Type" xml:space="preserve">
-    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=3.0.2.1, Culture=neutral, PublicKeyToken=null</value>
+    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=3.0.2.2, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;chkbTransparency.Name" xml:space="preserve">
     <value>chkbTransparency</value>
@@ -429,7 +429,7 @@
     <value>25, 192</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Desktop.FormNewBase, treeDiM.StackBuilder.Desktop, Version=3.0.2.1, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Desktop.FormNewBase, treeDiM.StackBuilder.Desktop, Version=3.0.2.2, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="uCtrlSpacing.MinimumSize" type="System.Drawing.Size, System.Drawing">
     <value>100, 20</value>

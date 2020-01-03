@@ -3486,19 +3486,20 @@ namespace treeDiM.StackBuilder.Basics
                     if (type is Packable packable)
                         return packable;
                     else
-                        throw new ArgumentException($"Guid {guid} found but not a PackableBrick", nameof(guid));
+                        throw new ArgumentException($"Guid {guid} found but not a packable", nameof(guid));
                 }
             }
             foreach (var analysis in Analyses)
             {
                 if (analysis.ID.IGuid == guid)
                 {
-                    if (analysis is AnalysisLayered analysisLayered)
-                        return analysisLayered.EquivalentPackable;
-
+                    if (analysis is AnalysisHomo analysisHomo)
+                        return analysisHomo.EquivalentPackable;
+                    else
+                        throw new ArgumentException($"Guid {guid} found but not an hmomogeneous analysis", nameof(guid));
                 }
             }
-            throw new ArgumentException($"No type with Guid = {guid.ToString()}", nameof(guid));
+            throw new ArgumentException($"GetContentByGuid() -> No type with Guid = {guid.ToString()}", nameof(guid));
         }
         private static string BitmapToString(Bitmap bmp)
         {

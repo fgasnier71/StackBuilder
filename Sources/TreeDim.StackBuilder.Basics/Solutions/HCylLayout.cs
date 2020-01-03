@@ -134,4 +134,16 @@ namespace treeDiM.StackBuilder.Basics
         #endregion
     }
     #endregion
+
+    #region HCylLayout comparer
+    public class HCylLayoutComparer : Comparer<HCylLayout>
+    {
+        public override int Compare(HCylLayout x, HCylLayout y)
+        {
+            if (x.Positions.Count < y.Positions.Count) return 1;
+            else if (x.Positions.Count == y.Positions.Count) return 0;
+            else return -1;
+        }
+    }
+    #endregion
 }
