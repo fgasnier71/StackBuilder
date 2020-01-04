@@ -1,6 +1,6 @@
 ﻿<%@ Application Language="C#" %>
 
-<script RunAt="server">
+<script Runat="server">
 
     void Application_Start(object sender, EventArgs e)
     {
