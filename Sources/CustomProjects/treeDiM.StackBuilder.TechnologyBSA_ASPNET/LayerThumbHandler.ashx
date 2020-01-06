@@ -29,6 +29,8 @@ public class LayerThumbHandler : IHttpHandler, System.Web.SessionState.IRequires
         Vector2D dimContainer = new Vector2D(dimPallet.X, dimPallet.Y);
 
         string sLayerDesc = context.Request.QueryString["LayerDesc"];
+        string sDimensions = context.Request.QueryString["Dimensions"];
+
         var layerDesc = LayerDescBox.Parse(sLayerDesc) as LayerDescBox;
         LayerSolver solver = new LayerSolver();
         var layer = solver.BuildLayer(caseDim, dimContainer, layerDesc, 0.0);

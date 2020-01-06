@@ -1,9 +1,11 @@
-﻿using System;
+﻿#region Using directives
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+#endregion
 
 public partial class Validation : System.Web.UI.Page
 {

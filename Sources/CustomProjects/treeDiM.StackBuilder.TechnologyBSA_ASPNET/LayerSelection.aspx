@@ -8,20 +8,16 @@
         .auto-style1 {
             width: 100%;
         }
-
         .auto-style2 {
             height: 11px;
             width: 65px;
         }
-
         .auto-style3 {
             width: 150px;
         }
-
         .auto-style4 {
             text-align: right;
         }
-
         .border {
             border: solid 8px;
             color: lightblue;
@@ -168,7 +164,7 @@
                                 runat="server"
                                 Height='<%# Unit.Parse(ConfigSettings.ThumbSize) %>'
                                 Width='<%# Unit.Parse(ConfigSettings.ThumbSize) %>'
-                                ImageUrl='<%# "LayerThumbHandler.ashx?LayerDesc=" + Eval("LayerDesc") %>'
+                                ImageUrl='<%# "LayerThumbHandler.ashx?LayerDesc=" + Eval("LayerDesc") + "&Dimensions=" + Eval("Dimensions")%>'
                                 CommandName="ImageButtonClick"
                                 CommandArgument='<%# Eval("LayerDesc")%>' Style="flex: 0 0 auto;" />
                         </ItemTemplate>
