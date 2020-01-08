@@ -36,13 +36,13 @@
                                 <asp:Image ID="ImagePallet" runat="server" Height="500px" Width="500px" alt="Dynamic Image" />
                             </td>
                             <td colspan="2">
-                                <asp:CheckBox ID="ChkbAlignLayers" runat="server" Text="Align layers" OnCheckedChanged="OnInputChanged"/>
+                                <asp:CheckBox ID="ChkbAlternateLayers" runat="server" Text="Alternate layers" OnCheckedChanged="OnInputChanged" AutoPostBack="true"/>
                                 <br />
-                                <asp:CheckBox ID="ChkbBottomInterlayer" runat="server" Text="Bottom interlayer" OnCheckChanged="OnInputChanged"/>
+                                <asp:CheckBox ID="ChkbBottomInterlayer" runat="server" Text="Bottom interlayer" OnCheckChanged="OnInputChanged" AutoPostBack="true"/>
                                 <br />
-                                <asp:CheckBox ID="ChkbIntermediateInterlayers" runat="server" Text="Intermediate interlayers" OnCheckChanged="OnInputChanged"/>
+                                <asp:CheckBox ID="ChkbIntermediateInterlayers" runat="server" Text="Intermediate interlayers" OnCheckChanged="OnInputChanged" AutoPostBack="true"/>
                                 <br />
-                                <asp:CheckBox ID="ChkbTopInterlayer" runat="server" Text="Top interlayer" OnCheckChanged="OnInputChanged"/>
+                                <asp:CheckBox ID="ChkbTopInterlayer" runat="server" Text="Top interlayer" OnCheckChanged="OnInputChanged" AutoPostBack="true"/>
                             </td>
                         </tr>
                         <tr>

@@ -63,7 +63,7 @@ public static class PalletStacking
         Vector3D palletDim, double palletWeight,
         double maxPalletHeight,
         string layerDesc,
-        bool alignedLayer,
+        bool alternateLayer,
         bool interlayerBottom, bool interlayerIntermediate, bool interlayerTop,
         double angle,
         ref byte[] imageBytes,
@@ -94,7 +94,20 @@ public static class PalletStacking
         SolutionLayered.SetSolver(new LayerSolver());
 
         var analysis = new AnalysisCasePallet(boxProperties, palletProperties, constraintSet);
-        analysis.AddSolution(LayerDescBox.Parse(layerDesc));
+        analysis.AddInterlayer(new InterlayerProperties(null, "interlayer", "", palletDim.X, palletDim.Y, 1.0, 0.0, Color.LightYellow));
+        analysis.AddSolution(LayerDescBox.Parse(layerDesc), alternateLayer);
+        if (interlayerTop)
+            analysis.PalletCapProperties = new PalletCapProperties(null, "palletcap", "", palletDim.X, palletDim.Y, 1, palletDim.X, palletDim.Y, 0.0, 0.0, Color.LightYellow);
+
+        SolutionLayered sol = analysis.SolutionLay;
+        var solutionItems = sol.SolutionItems;
+        int iCount = solutionItems.Count;
+        for (int i = 0; i < iCount; ++i)
+        {
+            bool hasInterlayer = (i == 0 && interlayerBottom)
+                || (i != 0 && interlayerIntermediate);
+            solutionItems[i].InterlayerIndex = hasInterlayer ? 0 : -1;
+        }
         layerCount = analysis.SolutionLay.LayerCount;
         caseCount = analysis.Solution.ItemCount;
         weightLoad = analysis.Solution.LoadWeight;
@@ -117,6 +130,4 @@ public static class PalletStacking
         ImageConverter converter = new ImageConverter();
         imageBytes = (byte[])converter.ConvertTo(bmp, typeof(byte[]));
     }
-
-
 }

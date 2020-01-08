@@ -46,7 +46,7 @@ public partial class Validation : Page
 			dimCase, weightCase,
 			dimPallet, palletWeight,
 			maxPalletHeight, Session["layerDesc"].ToString(),
-			ChkbAlignLayers.Checked,
+			ChkbAlternateLayers.Checked,
 			ChkbBottomInterlayer.Checked,
 			ChkbIntermediateInterlayers.Checked,
 			ChkbTopInterlayer.Checked,
@@ -65,7 +65,6 @@ public partial class Validation : Page
 	{
 		UpdateImage();
 	}
-
 	protected void AngleIncrement(object sender, EventArgs e)
 	{
 		double angle = double.Parse(ViewState["Angle"].ToString());
