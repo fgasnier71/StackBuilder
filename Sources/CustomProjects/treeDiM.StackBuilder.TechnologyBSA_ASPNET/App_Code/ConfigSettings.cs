@@ -11,5 +11,6 @@ public static class ConfigSettings
     public static string FtpDirectory => ConfigurationManager.AppSettings["FtpDirectory"];
     public static string FtpUsername => ConfigurationManager.AppSettings["UserName"];
     public static string FtpPassword => ConfigurationManager.AppSettings["FtpPassword"];
+    public static float FontSizeRatio => float.Parse(ConfigurationManager.AppSettings["FontSizeRatio"]);
 }
 

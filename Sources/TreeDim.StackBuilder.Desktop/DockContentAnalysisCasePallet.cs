@@ -1,6 +1,5 @@
 ﻿#region Using directives
 using System;
-using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using System.Globalization;
@@ -444,92 +443,6 @@ namespace treeDiM.StackBuilder.Desktop
         static readonly new ILog _log = LogManager.GetLogger(typeof(DockContentAnalysisCasePallet));
 
         private bool _initialized = false;
-        #endregion
-
-        #region Layer controls
-        /*
-        private void FillLayerControls()
-        {
-            try
-            {
-                cbLayerType.Packable = _analysis.Content;
-                // build layers and fill CCtrl
-                foreach (LayerDesc layerDesc in _solution.LayerDescriptors)
-                {
-                    LayerSolver solver = new LayerSolver();
-                    Layer2D layer = solver.BuildLayer(_analysis.ContentDimensions, _analysis.ContainerDimensions, layerDesc as LayerDescBox);
-                    cbLayerType.Items.Add(layer);
-                }
-                if (cbLayerType.Items.Count > 0)
-                    cbLayerType.SelectedIndex = 0;
-
-                // interlayer combo box
-                Document doc = _document as Document;
-                if (null == doc) return;
-                ItemBase[] interlayers = doc.ListByType(typeof(InterlayerProperties)).ToArray();
-                ComboBoxHelpers.FillCombo(interlayers, cbInterlayer, null);
-            }
-            catch (Exception ex)
-            {
-                _log.Error( ex.Message );
-            }
-        }
-        */ 
-        /*
-        private void UpdateControls()
-        {
-            try
-            {
-                int index = _solution.SelectedLayerIndex;
-
-                bnSymmetryX.Enabled = (index != -1);
-                bnSymetryY.Enabled = (index != -1);
-                cbLayerType.Enabled = (index != -1);
-                chkbInterlayer.Enabled = (index != -1) && (cbInterlayer.Items.Count > 0);
-
-                gbLayer.Text = index != -1
-                    ? string.Format(Resources.ID_SELECTEDLAYER, index)
-                    : Resources.ID_DOUBLECLICKALAYER;
-
-                if (index != -1)
-                {
-                    tbClickLayer.Hide();
-                    gbLayer.Show();
-
-                    // get selected solution item
-                    SolutionItem selItem = _solution.SelectedSolutionItem;
-                    if (null != selItem)
-                    {
-                        // set current layer
-                        cbLayerType.SelectedIndex = selItem.LayerIndex;
-                        // set interlayer
-                        chkbInterlayer.Checked = selItem.HasInterlayer;
-                        onChkbInterlayerClicked(null, null);
-                    }
-                    // select combo box
-                    int selIndex = 0;
-                    foreach (object o in cbInterlayer.Items)
-                    {
-                        InterlayerProperties interlayerProp = o as InterlayerProperties;
-                        if (interlayerProp == _solution.SelectedInterlayer)
-                            break;
-                        ++selIndex;
-                    }
-                    if (selIndex < cbInterlayer.Items.Count)
-                        cbInterlayer.SelectedIndex = selIndex;
-                }
-                else
-                {
-                    gbLayer.Hide();
-                    tbClickLayer.Show();
-                }
-            }
-            catch (Exception ex)
-            {
-                _log.Error(ex.Message);
-            }
-        }
-         * */
         #endregion
     }
 }

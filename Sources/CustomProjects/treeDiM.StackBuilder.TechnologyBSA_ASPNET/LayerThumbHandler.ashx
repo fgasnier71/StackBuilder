@@ -21,15 +21,15 @@ public class LayerThumbHandler : IHttpHandler, System.Web.SessionState.IRequires
 {
     public void ProcessRequest(HttpContext context)
     {
-        string sDimBox = (string)context.Session["dimCase"];
-        Vector3D caseDim = Vector3D.Parse(sDimBox);
-
+        string sDimCase = (string)context.Session["dimCase"];
+        Vector3D caseDim = Vector3D.Parse(sDimCase);
         string sDimPallet = (string)context.Session["dimPallet"];
         Vector3D dimPallet = Vector3D.Parse(sDimPallet);
         Vector2D dimContainer = new Vector2D(dimPallet.X, dimPallet.Y);
 
         string sLayerDesc = context.Request.QueryString["LayerDesc"];
-        string sDimensions = context.Request.QueryString["Dimensions"];
+        string sMaxPalletHeight =  (string)context.Session["maxPalletHeight"];
+        double maxPalletHeight = double.Parse(sMaxPalletHeight, System.Globalization.CultureInfo.InvariantCulture);
 
         var layerDesc = LayerDescBox.Parse(sLayerDesc) as LayerDescBox;
         LayerSolver solver = new LayerSolver();
@@ -43,13 +43,10 @@ public class LayerThumbHandler : IHttpHandler, System.Web.SessionState.IRequires
         boxProperties.SetAllColors(Enumerable.Repeat(Color.Beige, 6).ToArray());
 
         // build image
-        Bitmap bmp;
-        Graphics2DImage graphics = new Graphics2DImage(ThumbnailSize);
-        using (ViewerILayer2D solViewer = new ViewerILayer2D(layer))
-        {
-            solViewer.Draw(graphics, boxProperties, 0.0, false, true);
-            bmp = graphics.Bitmap;
-        }
+        Bitmap bmp = LayerToImage.DrawEx(
+                    layer, boxProperties, maxPalletHeight - dimPallet.Z, ThumbnailSize, false
+                    , Show3D ? LayerToImage.EGraphMode.GRAPH_3D : LayerToImage.EGraphMode.GRAPH_2D, true);
+        
         try
         {
             context.Response.Clear();
@@ -80,6 +77,8 @@ public class LayerThumbHandler : IHttpHandler, System.Web.SessionState.IRequires
     {
         get { return true; }
     }
+
+    private static bool Show3D => ConfigSettings.Thumbnails3D;
 
     private static Size ThumbnailSize
     {

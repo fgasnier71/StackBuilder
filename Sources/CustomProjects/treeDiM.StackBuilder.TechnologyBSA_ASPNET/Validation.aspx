@@ -9,13 +9,6 @@
         .auto-style1 {
             width: 100%;
         }
-        .auto-style2 {
-            height: 11px;
-            width: 65px;
-        }
-        .auto-style3 {
-            width: 150px;
-        }
         .auto-style4 {
             text-align: right;
         }
@@ -24,18 +17,47 @@
             color: lightblue;
         }
     </style>
+    <script type="text/javascript" src="javascript/jquery1.11.0.min.js"></script>
+    <link type="text/css" href="css/jquery.keypad.css" rel="stylesheet" />
+    <script type="text/javascript" src="javascript/jquery.plugin.min.js"></script>
+    <script type="text/javascript" src="javascript/jquery.keypad.js"></script>
+    <script type="text/javascript">
+    </script>
 </head>
 <body>
     <form id="form1" runat="server">
         <div>
+            <asp:ScriptManager ID="pageUpdates" runat="server" EnablePartialRendering="true"></asp:ScriptManager>
             <asp:UpdatePanel ID="loadedPallet" runat="server" UpdateMode="Conditional">
-
+                <ContentTemplate>
+                    <table class="auto-style1">
+                        <tr>
+                            <td colspan="2">
+                                <asp:Image ID="ImagePallet" runat="server" Height="500px" Width="500px" alt="Dynamic Image" />
+                            </td>
+                            <td colspan="2">
+                                <asp:CheckBox ID="ChkbAlignLayers" runat="server" Text="Align layers" OnCheckedChanged="OnInputChanged"/>
+                                <br />
+                                <asp:CheckBox ID="ChkbBottomInterlayer" runat="server" Text="Bottom interlayer" OnCheckChanged="OnInputChanged"/>
+                                <br />
+                                <asp:CheckBox ID="ChkbIntermediateInterlayers" runat="server" Text="Intermediate interlayers" OnCheckChanged="OnInputChanged"/>
+                                <br />
+                                <asp:CheckBox ID="ChkbTopInterlayer" runat="server" Text="Top interlayer" OnCheckChanged="OnInputChanged"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <asp:Button ID="bnDecrement" runat="server" OnClick="AngleIncrement" Text="&lt;-" Width="130px" />
+                            </td>
+                            <td class="auto-style4">
+                                <asp:Button ID="bnIncrement" runat="server" OnClick="AngleDecrement" Text="-&gt;" Width="130px" />
+                            </td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </ContentTemplate>
             </asp:UpdatePanel>
-             <table class="auto-style1">
-                 <tr>
-
-                 </tr>
-             </table>
         </div>
     </form>
 </body>

@@ -102,7 +102,6 @@ namespace treeDiM.StackBuilder.WCFAppServ
                         foreach (var lp in analysis.SolutionLay.LayerPhrases.Keys)
                             layerDescs.Add(lp.LayerDescriptor.ToString());
 
-                        /*analysis.Solution.LayerPhrases,*/
                         DCSBSolution solution = new DCSBSolution()
                         {
                             LayerCount = analysis.SolutionLay.LayerCount,
@@ -200,7 +199,6 @@ namespace treeDiM.StackBuilder.WCFAppServ
             string palletMapPhrase = string.Empty;
             byte[] imageBytes = null;
             string[] errors = null;
-            var layerDescs = new List<LayerDesc>() { layerDesc };
             string[] listLayerDesc = new string[] { layerDesc.ToString() };
             StackBuilderProcessor.GetSolutionByLayer(
                 boxProperties, palletProperties, interlayerProperties,

@@ -1,10 +1,5 @@
 ﻿<<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="~/Default.aspx.cs" CodeFile="~/LayerSelection.aspx.cs" Inherits="_Default" EnableSessionState="True" %>
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-    <style type="text/css">
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head runat="server"><title></title><style type="text/css">
         .auto-style1 {
             width: 100%;
         }
@@ -41,16 +36,13 @@
         }
         function ScrollTo() {
             if ($('.border').length > 0) {
-                $('div.liste').animate({ scrollLeft: $('.border').position().left - 20 }, 2000);
+                $('div.liste').animate({ scrollLeft: $('.border').position().left - 20 }, 200);
             }
         }
     </script>
-
-
-
-</head>
-<body>
-    <form id="form1" runat="server">
+    </head>
+    <body>
+        <form id="form1" runat="server">
         <asp:ScriptManager ID="pageUpdates" runat="server" EnablePartialRendering="true"></asp:ScriptManager>
         <asp:UpdatePanel ID="controlsInput" runat="server">
             <ContentTemplate>
@@ -59,10 +51,10 @@
                         <tr>
                             <td id="Label_CaseDim" class="auto-style3">Case dimensions</td>
                             <td class="auto-style2">
-                                <asp:TextBox ID="TBCaseLength" runat="server" Width="60px" OnInit="ControlInit" PlaceHolder="TBCaseLength"></asp:TextBox>
+                                <asp:TextBox ID="TBCaseLength" runat="server" Width="60px"></asp:TextBox>
                             </td>
                             <td class="auto-style2">
-                                <asp:TextBox ID="TBCaseWidth" runat="server" Width="60px" PlaceHolder="TBCaseWidth"></asp:TextBox>
+                                <asp:TextBox ID="TBCaseWidth" runat="server" Width="60px"></asp:TextBox>
                             </td>
                             <td class="auto-style2">
                                 <asp:TextBox ID="TBCaseHeight" runat="server" Width="60px"></asp:TextBox>
@@ -158,7 +150,7 @@
         <asp:UpdatePanel ID="layersUpdate" runat="server" UpdateMode="Conditional" ChildrenAsTriggers="true">
             <ContentTemplate>
                 <div class="liste" style="margin: 0px; padding: 0px; border-style: solid; border-width: 1px; display: flex; overflow-x: auto; overflow-y: hidden; width: 100%; height: auto;">
-                    <asp:ListView ID="dlLayers" CellSpacing="0" runat="server" SelectedIndex="0" OnItemCommand="OnLVLayersItemCommand">
+                    <asp:ListView ID="dlLayers" CellSpacing="0" runat="server" OnItemCommand="OnLVLayersItemCommand">
                         <ItemTemplate>
                             <asp:ImageButton ID="Image1"
                                 runat="server"
@@ -203,7 +195,9 @@
                             <asp:Button ID="bnIncrement" runat="server" OnClick="AngleDecrement" Text="-&gt;" Width="130px" />
                         </td>
                         <td></td>
-                        <td></td>
+                        <td class="auto-style4">
+                            <asp:Button ID="bnNext" runat="server" OnClick="OnNext" Text="Next" Width="130px" />
+                        </td>
                     </tr>
                 </table>
             </ContentTemplate>
