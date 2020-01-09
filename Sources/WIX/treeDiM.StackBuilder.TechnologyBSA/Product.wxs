@@ -23,9 +23,33 @@
       <Component Id="CompDefault" Directory="INSTALLFOLDER" Guid="{8A21DF4C-06D3-40B8-8B21-F3781CFDBE1F}">
         <File Id="Default.aspx" KeyPath="yes" Source="$(var.StackBuilderTechBSASourceDir)\Default.aspx"/>
         <File Id="Default.aspx.cs" Source="$(var.StackBuilderTechBSASourceDir)\Default.aspx.cs"/>
+        <File Id="LayerSelection.aspx" Source="$(var.StackBuilderTechBSASourceDir)\LayerSelection.aspx"/>
+        <File Id="LayerSelection.aspx.cs" Source="$(var.StackBuilderTechBSASourceDir)\LayerSelection.aspx.cs"/>
+        <File Id="Validation.aspx" Source="$(var.StackBuilderTechBSASourceDir)\Validation.aspx"/>
+        <File Id="Validation.aspx.cs" Source="$(var.StackBuilderTechBSASourceDir)\Validation.aspx.cs"/>
         <File Id="Global.asax" Source="$(var.StackBuilderTechBSASourceDir)\Global.asax"/>
         <File Id="Handler.ashx" Source="$(var.StackBuilderTechBSASourceDir)\Handler.ashx"/>
+        <File Id="LayerThumbHandler.ashx" Source="$(var.StackBuilderTechBSASourceDir)\LayerThumbHandler.ashx"/>
         <File Id="Web.config" Source="$(var.StackBuilderTechBSASourceDir)\Web.config"/>
+      </Component>
+      <Component Id="AppCode" Directory="App_Code" Guid="{AA67DF40-522C-4513-B85A-8BDB40C462FF}">
+          <File Id="ConfigSettings.cs" Source="$(var.StackBuilderTechBSASourceDir)\App_code\ConfigSettings.cs" KeyPath="yes"/>
+          <File Id="Extensions.cs" Source="$(var.StackBuilderTechBSASourceDir)\App_code\Extensions.cs"/>
+          <File Id="FtpHelpers.cs" Source="$(var.StackBuilderTechBSASourceDir)\App_code\FtpHelpers.cs"/>
+          <File Id="LayerDetails.cs" Source="$(var.StackBuilderTechBSASourceDir)\App_code\LayerDetails.cs"/>
+          <File Id="PalletDetails.cs" Source="$(var.StackBuilderTechBSASourceDir)\App_code\PalletDetails.cs"/>
+          <File Id="PalletStacking.cs" Source="$(var.StackBuilderTechBSASourceDir)\App_code\PalletStacking.cs"/> 
+      </Component>
+      <Component Id="Javascript" Directory="Javascript" Guid="{E4DA2552-6C4C-4C2E-A80C-A976BB1A38CA}">
+        <File Id="jquery.keypad.js" Source="$(var.StackBuilderTechBSASourceDir)\javascript\jquery.keypad.js" KeyPath="yes"/>
+        <File Id="jquery.keypad.min.map" Source="$(var.StackBuilderTechBSASourceDir)\javascript\jquery.keypad.min.map"/>
+        <File Id="jquery.plugin.js" Source="$(var.StackBuilderTechBSASourceDir)\javascript\jquery.plugin.js"/>
+        <File Id="jquery.plugin.min.js" Source="$(var.StackBuilderTechBSASourceDir)\javascript\jquery.plugin.min.js"/>
+        <File Id="jquery.plugin.min.map" Source="$(var.StackBuilderTechBSASourceDir)\javascript\jquery.plugin.min.map"/>
+        <File Id="jquery1.11.0.min" Source="$(var.StackBuilderTechBSASourceDir)\javascript\jquery1.11.0.min.js"/>        
+      </Component>
+      <Component Id="Css" Directory="Css" Guid="{E943DA53-6825-4049-A417-D174A0D974EF}">
+        <File Id="jquery.keypad.css" Source="$(var.StackBuilderTechBSASourceDir)\css\jquery.keypad.css" KeyPath="yes"/>
       </Component>
     </ComponentGroup>
 

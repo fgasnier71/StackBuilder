@@ -9,9 +9,9 @@ using System.IO;
 /// <summary>
 /// Summary description for FtpHelpers
 /// </summary>
-public class FtpHelpers
+public static class FtpHelpers
 {
-    static bool Upload(byte[] fileContent, string ftpUrl, string fileName, string ftpUsername, string ftpPassword)
+    public static bool Upload(byte[] fileContent, string ftpUrl, string fileName, string ftpUsername, string ftpPassword)
     {
         try
         {
@@ -31,7 +31,7 @@ public class FtpHelpers
         }
     }
 
-    static List<string> GetListOfFiles(string ftpUrl, string ftpUsername, string ftpPassword)
+    public static List<string> GetListOfFiles(string ftpUrl, string ftpUsername, string ftpPassword)
     {
         string names = string.Empty;
 

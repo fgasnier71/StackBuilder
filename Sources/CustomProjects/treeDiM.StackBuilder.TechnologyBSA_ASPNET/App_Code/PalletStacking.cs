@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Drawing;
+using System.IO;
 
 using Sharp3D.Math.Core;
 
@@ -9,6 +10,7 @@ using treeDiM.Basics;
 using treeDiM.StackBuilder.Basics;
 using treeDiM.StackBuilder.Engine;
 using treeDiM.StackBuilder.Graphics;
+using treeDiM.StackBuilder.Exporters;
 #endregion
 
 /// <summary>
@@ -129,5 +131,59 @@ public static class PalletStacking
         Bitmap bmp = graphics.Bitmap;
         ImageConverter converter = new ImageConverter();
         imageBytes = (byte[])converter.ConvertTo(bmp, typeof(byte[]));
+    }
+
+    public static void Export(
+        Vector3D caseDim, double caseWeight,
+        Vector3D palletDim, double palletWeight,
+        double maxPalletHeight,
+        string layerDesc,
+        bool alternateLayer,
+        bool interlayerBottom, bool interlayerIntermediate, bool interlayerTop,
+        ref byte[] fileBytes)
+    {
+        // case
+        var boxProperties = new BoxProperties(null, caseDim.X, caseDim.Y, caseDim.Z)
+        {
+            TapeColor = Color.LightGray,
+            TapeWidth = new OptDouble(true, 50.0)
+        };
+        boxProperties.SetWeight(caseWeight);
+        boxProperties.SetAllColors(Enumerable.Repeat(Color.Beige, 6).ToArray());
+        // pallet
+        var palletProperties = new PalletProperties(null, "EUR2", palletDim.X, palletDim.Y, palletDim.Z)
+        {
+            Weight = palletWeight,
+            Color = Color.Yellow
+        };
+        // constraint set
+        var constraintSet = new ConstraintSetCasePallet();
+        constraintSet.SetAllowedOrientations(new bool[] { false, false, true });
+        constraintSet.SetMaxHeight(new OptDouble(true, maxPalletHeight));
+
+        SolutionLayered.SetSolver(new LayerSolver());
+
+        var analysis = new AnalysisCasePallet(boxProperties, palletProperties, constraintSet);
+        analysis.AddInterlayer(new InterlayerProperties(null, "interlayer", "", palletDim.X, palletDim.Y, 1.0, 0.0, Color.LightYellow));
+        analysis.AddSolution(LayerDescBox.Parse(layerDesc), alternateLayer);
+        if (interlayerTop)
+            analysis.PalletCapProperties = new PalletCapProperties(null, "palletcap", "", palletDim.X, palletDim.Y, 1, palletDim.X, palletDim.Y, 0.0, 0.0, Color.LightYellow);
+
+        SolutionLayered sol = analysis.SolutionLay;
+        var solutionItems = sol.SolutionItems;
+        int iCount = solutionItems.Count;
+        for (int i = 0; i < iCount; ++i)
+        {
+            bool hasInterlayer = (i == 0 && interlayerBottom)
+                || (i != 0 && interlayerIntermediate);
+            solutionItems[i].InterlayerIndex = hasInterlayer ? 0 : -1;
+        }
+        // export
+        Exporter exporter = ExporterFactory.GetExporterByName("csv (TechnologyBSA)");
+        exporter.PositionCoordinateMode = Exporter.CoordinateMode.CM_CORNER;
+        Stream stream = new MemoryStream();
+        exporter.Export(analysis, ref stream);
+        using (BinaryReader br = new BinaryReader(stream))
+            fileBytes = br.ReadBytes((int)stream.Length);
     }
 }

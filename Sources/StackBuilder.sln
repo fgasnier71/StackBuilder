@@ -117,7 +117,7 @@ EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "treeDiM.StackBuilder.TechnologyBSA_ASPNET", "CustomProjects\treeDiM.StackBuilder.TechnologyBSA_ASPNET\", "{22673792-BB1D-4A7D-A121-FFCA0E3F1C19}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.7.1"
-		ProjectReferences = "{2ad4c04c-5b8a-4e69-9b1c-402cb86860a7}|treeDiM.StackBuilder.Graphics.dll;{646EE507-E57D-43A7-93F3-365A687AEC4B}|treeDiM.Basics.dll;{444C01D0-53FD-49A1-9D55-267B49161357}|treeDiM.StackBuilder.Basics.dll;{CAD56B75-481B-4C76-B090-4BC2FF5E5681}|OfficePickers.dll;{2e646606-052d-4063-9218-1379430b070e}|treeDiM.StackBuilder.Engine.dll;{3B7A1F44-6B16-4559-ACF8-578B5AE88689}|Sharp3D.Boxologic.dll;"
+		ProjectReferences = "{2ad4c04c-5b8a-4e69-9b1c-402cb86860a7}|treeDiM.StackBuilder.Graphics.dll;{646EE507-E57D-43A7-93F3-365A687AEC4B}|treeDiM.Basics.dll;{444C01D0-53FD-49A1-9D55-267B49161357}|treeDiM.StackBuilder.Basics.dll;{CAD56B75-481B-4C76-B090-4BC2FF5E5681}|OfficePickers.dll;{2e646606-052d-4063-9218-1379430b070e}|treeDiM.StackBuilder.Engine.dll;{3B7A1F44-6B16-4559-ACF8-578B5AE88689}|Sharp3D.Boxologic.dll;{cad1dc6a-b121-4605-bef3-b38dae821401}|treeDiM.StackBuilder.Exporters.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_58681"
 		Debug.AspNetCompiler.PhysicalPath = "CustomProjects\treeDiM.StackBuilder.TechnologyBSA_ASPNET\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_58681\"
@@ -845,9 +845,9 @@ Global
 		{D26140E4-82E6-47FB-9F3C-180661867FDF} = {36E4D3C5-28FD-46B9-8763-C3316F67C6BE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		RESX_PrefixTranslations = False
-		RESX_AutoCreateNewLanguageFiles = True
-		SolutionGuid = {A8385DDB-1893-4CF8-83DF-F57C7AB7069B}
 		RESX_ConfirmAddLanguageFile = False
+		SolutionGuid = {A8385DDB-1893-4CF8-83DF-F57C7AB7069B}
+		RESX_AutoCreateNewLanguageFiles = True
+		RESX_PrefixTranslations = False
 	EndGlobalSection
 EndGlobal

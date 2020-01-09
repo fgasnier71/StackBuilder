@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Web.UI.WebControls;
 
 using Sharp3D.Math.Core;
-using treeDiM.StackBuilder.Basics;
 #endregion
 
 public partial class _Default : Page
@@ -30,6 +29,7 @@ public partial class _Default : Page
 
 			ViewState["Angle"] = "45";
 		}
+		ExecuteKeyPad();
 	}
 
 	protected void Page_LoadComplete(object sender, EventArgs e)

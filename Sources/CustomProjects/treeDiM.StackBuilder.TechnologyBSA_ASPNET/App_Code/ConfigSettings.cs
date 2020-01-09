@@ -9,7 +9,7 @@ public static class ConfigSettings
     public static bool Thumbnails3D => bool.Parse(ConfigurationManager.AppSettings["Use3DThumbnails"]);
     public static int AngleStep => int.Parse(ConfigurationManager.AppSettings["AngleStep"]);
     public static string FtpDirectory => ConfigurationManager.AppSettings["FtpDirectory"];
-    public static string FtpUsername => ConfigurationManager.AppSettings["UserName"];
+    public static string FtpUsername => ConfigurationManager.AppSettings["FtpUsername"];
     public static string FtpPassword => ConfigurationManager.AppSettings["FtpPassword"];
     public static float FontSizeRatio => float.Parse(ConfigurationManager.AppSettings["FontSizeRatio"]);
 }

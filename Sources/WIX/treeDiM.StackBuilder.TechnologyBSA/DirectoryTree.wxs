@@ -5,7 +5,10 @@
       <Directory Id="ProgramFilesFolder">
         <Directory Id="TechnologyBSA" Name="TechnologyBSA">
           <Directory Id="INSTALLFOLDER" Name="treeDiM.StackBuilder.TechnologyBSA">
+            <Directory Id="Css" Name="css"/>
             <Directory Id="Bin" Name="Bin"/>
+            <Directory Id="Javascript" Name="javascript"/>
+            <Directory Id="App_Code" Name="App_Code"/>
           </Directory>
         </Directory>
       </Directory>

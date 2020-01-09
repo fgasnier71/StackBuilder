@@ -1,38 +1,39 @@
 ﻿#region Using directives
 using System;
 using System.Web.UI;
+using System.IO;
 
 using Sharp3D.Math.Core;
 #endregion
 
 public partial class Validation : Page
 {
+    #region Page_Load 
     protected void Page_Load(object sender, EventArgs e)
     {
 		if (!Page.IsPostBack)
 		{
 			ViewState["Angle"] = "45";
 		}
+		ExecuteKeyPad();
 		UpdateImage();
     }
+	#endregion
 
-	protected void OnUnputChanged()
+	private void ExecuteKeyPad()
 	{
-		UpdateImage();
+		if (ConfigSettings.ShowVirtualKeyboard)
+			ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "VKeyPad", "ActivateVirtualKeyboard();", true);
 	}
 
+	#region Update image
 	protected void UpdateImage()
 	{
-		string sDimCase = (string)Session["dimCase"];
-		Vector3D dimCase = Vector3D.Parse(sDimCase);
-		string sWeightCase = (string)Session["weightCase"];
-		double weightCase = double.Parse(sWeightCase);
-		string sDimPallet = (string)Session["dimPallet"];
-		Vector3D dimPallet = Vector3D.Parse(sDimPallet);
-		string sPalletWeight = (string)Session["weightPallet"];
-		double palletWeight = double.Parse(sPalletWeight);
-		string sMaxPalletHeight = (string)Session["maxPalletHeight"];
-		double maxPalletHeight = double.Parse(sMaxPalletHeight);
+		Vector3D dimCase = Vector3D.Parse((string)Session["dimCase"]);
+		double weightCase = double.Parse((string)Session["weightCase"]);
+		Vector3D dimPallet = Vector3D.Parse((string)Session["dimPallet"]);
+		double palletWeight = double.Parse((string)Session["weightPallet"]);
+		double maxPalletHeight = double.Parse((string)Session["maxPalletHeight"]);
 
 		byte[] imageBytes = null;
 		int caseCount = 0;
@@ -61,6 +62,9 @@ public partial class Validation : Page
 
 		loadedPallet.Update();
 	}
+	#endregion
+
+	#region Event handlers
 	protected void OnInputChanged(object sender, EventArgs e)
 	{
 		UpdateImage();
@@ -79,4 +83,33 @@ public partial class Validation : Page
 		ViewState["Angle"] = $"{angle}";
 		UpdateImage();
 	}
+	protected void OnExport(object sender, EventArgs e)
+	{
+		string fileName = TBFileName.Text;
+		fileName = Path.ChangeExtension(fileName, "csv");
+
+		Vector3D dimCase = Vector3D.Parse((string)Session["dimCase"]);
+		double weightCase = double.Parse((string)Session["weightCase"]);
+		Vector3D dimPallet = Vector3D.Parse((string)Session["dimPallet"]);
+		double weightPallet = double.Parse((string)Session["weightPallet"]);
+		double maxPalletHeight = double.Parse((string)Session["maxPalletHeight"]);
+		string layerDesc = Session["layerDesc"].ToString();
+
+
+		byte[] fileBytes = null;
+		PalletStacking.Export(
+			dimCase, weightCase,
+			dimPallet, weightPallet,
+			maxPalletHeight, layerDesc,
+			ChkbAlternateLayers.Checked,
+			ChkbBottomInterlayer.Checked , ChkbIntermediateInterlayers.Checked, ChkbTopInterlayer.Checked,
+			ref fileBytes); 
+
+		if (FtpHelpers.Upload(fileBytes, ConfigSettings.FtpDirectory, fileName, ConfigSettings.FtpUsername, ConfigSettings.FtpPassword))
+		{
+			ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", $"alert('{fileName} was successfully exported!');", true);
+		}
+	}
+
+	#endregion
 }
