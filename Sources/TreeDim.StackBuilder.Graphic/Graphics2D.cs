@@ -202,7 +202,7 @@ namespace treeDiM.StackBuilder.Graphics
             {
                 return new Vector2D(
                     Viewport[0] - MarginX + VPSpanX * (NumberOfViews * ((double)pt.X / Size.Width) - IIndexView),
-                    Viewport[3] + MarginY - pt.Y  * VRatio * VPSpanY / (double)Size.Height
+                    Viewport[3] + MarginY - pt.Y  * VRatio * VPSpanY / Size.Height
                     );
             }
             else
@@ -213,6 +213,7 @@ namespace treeDiM.StackBuilder.Graphics
                     );
             }
         }
+
         private Point[] TransformPoint(Vector2D[] points2d)
         {
             double VPSpanX = Viewport[2] - Viewport[0] + 2 * MarginX;

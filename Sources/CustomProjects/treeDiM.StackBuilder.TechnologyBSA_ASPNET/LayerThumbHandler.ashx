@@ -21,10 +21,8 @@ public class LayerThumbHandler : IHttpHandler, System.Web.SessionState.IRequires
 {
     public void ProcessRequest(HttpContext context)
     {
-        string sDimCase = (string)context.Session["dimCase"];
-        Vector3D caseDim = Vector3D.Parse(sDimCase);
-        string sDimPallet = (string)context.Session["dimPallet"];
-        Vector3D dimPallet = Vector3D.Parse(sDimPallet);
+        Vector3D caseDim = Vector3D.Parse((string)context.Session["dimCase"]);
+        Vector3D dimPallet = Vector3D.Parse((string)context.Session["dimPallet"]);
         Vector2D dimContainer = new Vector2D(dimPallet.X, dimPallet.Y);
 
         string sLayerDesc = context.Request.QueryString["LayerDesc"];

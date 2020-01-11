@@ -6,6 +6,9 @@ using System.Collections.Generic;
 using System.Web.UI.WebControls;
 
 using Sharp3D.Math.Core;
+
+using treeDiM.StackBuilder.Basics;
+using treeDiM.StackBuilder.Engine;
 #endregion
 
 public partial class _Default : Page
@@ -188,4 +191,27 @@ public partial class _Default : Page
 		UpdateImage();
 		ExecuteKeyPad();
 	}
+
+	protected void OnEditLayer(object sender, EventArgs e)
+	{
+		var layerDesc = LayerDescBox.Parse(ViewState["LayerDescriptor"].ToString()) as LayerDescBox;
+		LayerSolver solver = new LayerSolver();
+		var layer = solver.BuildLayer(DimCase, DimContainer, layerDesc, 0.0);
+		var listBoxPositions = layer.Positions;
+
+		Session["dimCase"] = DimCase.ToString();
+		Session["weightCase"] = WeightCase.ToString(); 
+		Session["dimPallet"] = DimPallet.ToString();
+		Session["weightPallet"] = WeightPallet.ToString();
+		Session["boxPositions"] = listBoxPositions;
+		Session["layerDesc"] = ViewState["LayerDescriptor"].ToString();
+		Response.Redirect("LayerEdition.aspx");
+	}
+
+	private Vector3D DimCase => new Vector3D(double.Parse(TBCaseLength.Text), double.Parse(TBCaseWidth.Text), double.Parse(TBCaseHeight.Text));
+	private double WeightCase => double.Parse(TBCaseWeight.Text);
+	private Vector3D DimPallet => new Vector3D(double.Parse(TBPalletLength.Text), double.Parse(TBPalletWidth.Text), double.Parse(TBPalletHeight.Text));
+	private double WeightPallet => double.Parse(TBPalletWeight.Text);
+	private Vector2D DimContainer => new Vector2D(double.Parse(TBPalletLength.Text), double.Parse(TBPalletWidth.Text));
+
 }

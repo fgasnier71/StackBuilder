@@ -1,5 +1,8 @@
-﻿<<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="~/Default.aspx.cs" CodeFile="~/LayerSelection.aspx.cs" Inherits="_Default" EnableSessionState="True" %>
-<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head runat="server"><title></title><style type="text/css">
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="~/Default.aspx.cs" CodeFile="~/LayerSelection.aspx.cs" Inherits="_Default" EnableSessionState="True" %>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head runat="server">
+    <title></title>
+    <style type="text/css">
         .auto-style1 {
             width: 100%;
         }
@@ -16,6 +19,10 @@
         .border {
             border: solid 8px;
             color: lightblue;
+        }
+        .auto-style5 {
+            width: 390px;
+            text-align: right;
         }
     </style>
     <script type="text/javascript" src="javascript/jquery1.11.0.min.js"></script>
@@ -194,7 +201,9 @@
                         <td class="auto-style4">
                             <asp:Button ID="bnIncrement" runat="server" OnClick="AngleDecrement" Text="-&gt;" Width="130px" />
                         </td>
-                        <td></td>
+                        <td class="auto-style5">
+                            <asp:Button ID="bnEditLayer" runat="server" OnClick="OnEditLayer" Text="Edit layer" Width="130px" />
+                        </td>
                         <td class="auto-style4">
                             <asp:Button ID="bnNext" runat="server" OnClick="OnNext" Text="Next" Width="130px" />
                         </td>

@@ -130,6 +130,7 @@
     <Compile Include="CylinderComparer.cs" />
     <Compile Include="DrawableComparerSimplifiedPainterAlgo.cs" />
     <Compile Include="HCylLayoutToImage.cs" />
+    <Compile Include="LayerEditorHelpers.cs" />
     <Compile Include="SolutionViewers\Viewer.cs" />
     <Compile Include="SolutionViewers\ViewerHCylLayout.cs" />
     <Compile Include="SolutionViewers\ViewerHSolution.cs" />
