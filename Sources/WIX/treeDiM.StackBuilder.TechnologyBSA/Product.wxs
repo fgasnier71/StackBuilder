@@ -25,11 +25,14 @@
         <File Id="Default.aspx.cs" Source="$(var.StackBuilderTechBSASourceDir)\Default.aspx.cs"/>
         <File Id="LayerSelection.aspx" Source="$(var.StackBuilderTechBSASourceDir)\LayerSelection.aspx"/>
         <File Id="LayerSelection.aspx.cs" Source="$(var.StackBuilderTechBSASourceDir)\LayerSelection.aspx.cs"/>
+        <File Id="LayerEdition.aspx" Source="$(var.StackBuilderTechBSASourceDir)\LayerEdition.aspx"/>
+        <File Id="LayerEdition.aspx.cs" Source="$(var.StackBuilderTechBSASourceDir)\LayerEdition.aspx.cs"/>
         <File Id="Validation.aspx" Source="$(var.StackBuilderTechBSASourceDir)\Validation.aspx"/>
         <File Id="Validation.aspx.cs" Source="$(var.StackBuilderTechBSASourceDir)\Validation.aspx.cs"/>
         <File Id="Global.asax" Source="$(var.StackBuilderTechBSASourceDir)\Global.asax"/>
         <File Id="Handler.ashx" Source="$(var.StackBuilderTechBSASourceDir)\Handler.ashx"/>
-        <File Id="LayerThumbHandler.ashx" Source="$(var.StackBuilderTechBSASourceDir)\LayerThumbHandler.ashx"/>
+        <File Id="HandlerLayerEditor.ashx" Source="$(var.StackBuilderTechBSASourceDir)\HandlerLayerEditor.ashx"/>
+        <File Id="HandlerLayerThumb.ashx" Source="$(var.StackBuilderTechBSASourceDir)\HandlerLayerThumb.ashx"/>
         <File Id="Web.config" Source="$(var.StackBuilderTechBSASourceDir)\Web.config"/>
       </Component>
       <Component Id="AppCode" Directory="App_Code" Guid="{AA67DF40-522C-4513-B85A-8BDB40C462FF}">
@@ -39,6 +42,7 @@
           <File Id="LayerDetails.cs" Source="$(var.StackBuilderTechBSASourceDir)\App_code\LayerDetails.cs"/>
           <File Id="PalletDetails.cs" Source="$(var.StackBuilderTechBSASourceDir)\App_code\PalletDetails.cs"/>
           <File Id="PalletStacking.cs" Source="$(var.StackBuilderTechBSASourceDir)\App_code\PalletStacking.cs"/> 
+          <File Id="SessionVariables.cs" Source="$(var.StackBuilderTechBSASourceDir)\App_code\SessionVariables.cs"/> 
       </Component>
       <Component Id="Javascript" Directory="Javascript" Guid="{E4DA2552-6C4C-4C2E-A80C-A976BB1A38CA}">
         <File Id="jquery.keypad.js" Source="$(var.StackBuilderTechBSASourceDir)\javascript\jquery.keypad.js" KeyPath="yes"/>
@@ -50,6 +54,17 @@
       </Component>
       <Component Id="Css" Directory="Css" Guid="{E943DA53-6825-4049-A417-D174A0D974EF}">
         <File Id="jquery.keypad.css" Source="$(var.StackBuilderTechBSASourceDir)\css\jquery.keypad.css" KeyPath="yes"/>
+      </Component>
+      <Component Id="Images" Directory="Images" Guid="{37401D10-C707-4A65-B449-4076E2E5DF73}">
+        <File Source="$(var.StackBuilderTechBSASourceDir)\Images\ArrowDownB.png"/>
+        <File Source="$(var.StackBuilderTechBSASourceDir)\Images\ArrowDownBStop.png"/>
+        <File Source="$(var.StackBuilderTechBSASourceDir)\Images\ArrowUpB.png"/>
+        <File Source="$(var.StackBuilderTechBSASourceDir)\Images\ArrowUpBStop.png"/>
+        <File Source="$(var.StackBuilderTechBSASourceDir)\Images\ArrowLeftB.png"/>
+        <File Source="$(var.StackBuilderTechBSASourceDir)\Images\ArrowLeftBStop.png"/>
+        <File Source="$(var.StackBuilderTechBSASourceDir)\Images\ArrowRightB.png"/>
+        <File Source="$(var.StackBuilderTechBSASourceDir)\Images\ArrowRightBStop.png"/>
+        <File Source="$(var.StackBuilderTechBSASourceDir)\Images\ArrowRotate.png"/>
       </Component>
     </ComponentGroup>
 

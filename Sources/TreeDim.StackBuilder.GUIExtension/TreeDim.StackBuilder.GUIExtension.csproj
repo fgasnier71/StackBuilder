@@ -176,6 +176,9 @@
     <EmbeddedResource Include="CtrlComboDBPallet.fr.resx">
       <DependentUpon>CtrlComboDBPallet.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CtrlComboDBPallet.it.resx">
+      <DependentUpon>CtrlComboDBPallet.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CtrlComboDBPallet.pt.resx">
       <DependentUpon>CtrlComboDBPallet.cs</DependentUpon>
     </EmbeddedResource>
@@ -195,6 +198,9 @@
       <DependentUpon>CtrlComboDBPallet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormBrowseSolution.fr.resx">
+      <DependentUpon>FormBrowseSolution.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormBrowseSolution.it.resx">
       <DependentUpon>FormBrowseSolution.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormBrowseSolution.pt.resx">
@@ -253,6 +259,9 @@
       <DependentUpon>FormDefineAnalysisBundleCase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormDefineAnalysisCasePallet.fr.resx">
+      <DependentUpon>FormDefineAnalysisCasePallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDefineAnalysisCasePallet.it.resx">
       <DependentUpon>FormDefineAnalysisCasePallet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormDefineAnalysisCasePallet.pt.resx">
@@ -336,6 +345,9 @@
     <EmbeddedResource Include="UCtrlBundle.fr.resx">
       <DependentUpon>UCtrlBundle.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UCtrlBundle.it.resx">
+      <DependentUpon>UCtrlBundle.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UCtrlBundle.pt.resx">
       <DependentUpon>UCtrlBundle.cs</DependentUpon>
     </EmbeddedResource>
@@ -357,6 +369,9 @@
     <EmbeddedResource Include="UCtrlCase.fr.resx">
       <DependentUpon>UCtrlCase.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UCtrlCase.it.resx">
+      <DependentUpon>UCtrlCase.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UCtrlCase.pt.resx">
       <DependentUpon>UCtrlCase.cs</DependentUpon>
     </EmbeddedResource>
@@ -376,6 +391,9 @@
       <DependentUpon>UCtrlCase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UCtrlPackable.fr.resx">
+      <DependentUpon>UCtrlPackable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCtrlPackable.it.resx">
       <DependentUpon>UCtrlPackable.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UCtrlPackable.pt.resx">

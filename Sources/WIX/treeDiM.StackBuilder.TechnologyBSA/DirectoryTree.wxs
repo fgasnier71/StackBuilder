@@ -9,6 +9,7 @@
             <Directory Id="Bin" Name="Bin"/>
             <Directory Id="Javascript" Name="javascript"/>
             <Directory Id="App_Code" Name="App_Code"/>
+            <Directory Id="Images" Name="Images"/>
           </Directory>
         </Directory>
       </Directory>

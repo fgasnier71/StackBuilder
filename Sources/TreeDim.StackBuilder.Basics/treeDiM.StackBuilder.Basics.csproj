@@ -265,6 +265,9 @@
     <EmbeddedResource Include="Controls\CtrlStrapperSet.fr.resx">
       <DependentUpon>CtrlStrapperSet.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\CtrlStrapperSet.it.resx">
+      <DependentUpon>CtrlStrapperSet.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\CtrlStrapperSet.pt.resx">
       <DependentUpon>CtrlStrapperSet.cs</DependentUpon>
     </EmbeddedResource>
@@ -273,6 +276,9 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\FormValueArray.fr.resx">
+      <DependentUpon>FormValueArray.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\FormValueArray.it.resx">
       <DependentUpon>FormValueArray.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\FormValueArray.pt.resx">

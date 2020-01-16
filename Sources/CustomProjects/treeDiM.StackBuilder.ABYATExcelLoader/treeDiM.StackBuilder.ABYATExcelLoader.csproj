@@ -138,6 +138,9 @@
     <EmbeddedResource Include="FormMain.fr.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormMain.it.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormMain.pt.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
@@ -147,6 +150,9 @@
     <EmbeddedResource Include="FormOptionsSettings.fr.resx">
       <DependentUpon>FormOptionsSettings.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormOptionsSettings.it.resx">
+      <DependentUpon>FormOptionsSettings.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormOptionsSettings.pt.resx">
       <DependentUpon>FormOptionsSettings.cs</DependentUpon>
     </EmbeddedResource>
@@ -154,6 +160,9 @@
       <DependentUpon>FormOptionsSettings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OptionsPanelFiltering.fr.resx">
+      <DependentUpon>OptionsPanelFiltering.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OptionsPanelFiltering.it.resx">
       <DependentUpon>OptionsPanelFiltering.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OptionsPanelFiltering.pt.resx">
