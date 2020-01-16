@@ -120,32 +120,23 @@
   <data name="$this.Text" xml:space="preserve">
     <value>Skapa nytt ärende/lastpall analys...</value>
   </data>
+  <data name="bnBestCombination.Text" xml:space="preserve">
+    <value>Visa bästa kombinationerna &gt;</value>
+  </data>
   <data name="checkBoxBestLayersOnly.Text" xml:space="preserve">
     <value>Visa bästa lager endast</value>
-  </data>
-  <data name="uCtrlOptMaximumSpace.Text" xml:space="preserve">
-    <value>Maximalt utrymme</value>
-  </data>
-  <data name="uCtrlMaximumHeight.Text" xml:space="preserve">
-    <value>Maximala pall höjd</value>
-  </data>
-  <data name="tabPageLayerFilters.Text" xml:space="preserve">
-    <value>Lagerfilter</value>
-  </data>
-  <data name="uCtrlOverhang.Text" xml:space="preserve">
-    <value>Överhäng</value>
-  </data>
-  <data name="uCtrlOptMaximumWeight.Text" xml:space="preserve">
-    <value>Maximala pall vikt</value>
   </data>
   <data name="lbBox.Text" xml:space="preserve">
     <value>Fallet</value>
   </data>
-  <data name="uCtrlOptMaximumLayerWeight.Text" xml:space="preserve">
-    <value>Maximal layer vikt</value>
+  <data name="lbPallet.Text" xml:space="preserve">
+    <value>Lastpall</value>
   </data>
-  <data name="tabPageStopCriterions.Text" xml:space="preserve">
-    <value>Stoppa criterions</value>
+  <data name="lbSelect.Text" xml:space="preserve">
+    <value>Välj ett eller flera lager och klicka på ' Nästa &gt;'...</value>
+  </data>
+  <data name="tabPageLayerFilters.Text" xml:space="preserve">
+    <value>Lagerfilter</value>
   </data>
   <data name="tabPageOverhang.Text" xml:space="preserve">
     <value>Överhäng</value>
@@ -153,19 +144,28 @@
   <data name="tabPageSpaces.Text" xml:space="preserve">
     <value>Blanksteg</value>
   </data>
-  <data name="bnBestCombination.Text" xml:space="preserve">
-    <value>Visa bästa kombinationerna &gt;</value>
+  <data name="tabPageStopCriterions.Text" xml:space="preserve">
+    <value>Stoppa criterions</value>
   </data>
-  <data name="lbSelect.Text" xml:space="preserve">
-    <value>Välj ett eller flera lager och klicka på ' Nästa &gt;'...</value>
+  <data name="uCtrlMaximumHeight.Text" xml:space="preserve">
+    <value>Maximala pall höjd</value>
+  </data>
+  <data name="uCtrlOptMaximumLayerWeight.Text" xml:space="preserve">
+    <value>Maximal layer vikt</value>
+  </data>
+  <data name="uCtrlOptMaximumSpace.Text" xml:space="preserve">
+    <value>Maximalt utrymme</value>
+  </data>
+  <data name="uCtrlOptMaximumWeight.Text" xml:space="preserve">
+    <value>Maximala pall vikt</value>
+  </data>
+  <data name="uCtrlOptMaxNumber.Text" xml:space="preserve">
+    <value>Max. antal</value>
   </data>
   <data name="uCtrlOptSpace.Text" xml:space="preserve">
     <value>Utrymme</value>
   </data>
-  <data name="lbPallet.Text" xml:space="preserve">
-    <value>Lastpall</value>
-  </data>
-  <data name="uCtrlOptMaxNumber.Text" xml:space="preserve">
-    <value>Max. antal</value>
+  <data name="uCtrlOverhang.Text" xml:space="preserve">
+    <value>Överhäng</value>
   </data>
 </root>

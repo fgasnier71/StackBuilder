@@ -117,17 +117,20 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="uCtrlMaximumHeight.Text" xml:space="preserve">
-    <value>最大托盘高度</value>
-  </data>
   <data name="$this.Text" xml:space="preserve">
     <value>创建新的汽缸/托盘分析..。</value>
   </data>
   <data name="checkBoxBestLayersOnly.Text" xml:space="preserve">
     <value>仅显示最佳图层</value>
   </data>
-  <data name="uCtrlOverhang.Text" xml:space="preserve">
-    <value>伸出量</value>
+  <data name="lbCylinder.Text" xml:space="preserve">
+    <value>圆柱形</value>
+  </data>
+  <data name="lbPallet.Text" xml:space="preserve">
+    <value>托盘</value>
+  </data>
+  <data name="lbSelect.Text" xml:space="preserve">
+    <value>选择一个或多个图层, 然后单击 "下一步"..。</value>
   </data>
   <data name="tabPageOverhang.Text" xml:space="preserve">
     <value>伸出量</value>
@@ -135,16 +138,13 @@
   <data name="tabPageStopCriterions.Text" xml:space="preserve">
     <value>停止标准</value>
   </data>
-  <data name="lbCylinder.Text" xml:space="preserve">
-    <value>圆柱形</value>
+  <data name="uCtrlMaximumHeight.Text" xml:space="preserve">
+    <value>最大托盘高度</value>
   </data>
   <data name="uCtrlOptMaximumWeight.Text" xml:space="preserve">
     <value>最大托盘重量</value>
   </data>
-  <data name="lbSelect.Text" xml:space="preserve">
-    <value>选择一个或多个图层, 然后单击 "下一步"..。</value>
-  </data>
-  <data name="lbPallet.Text" xml:space="preserve">
-    <value>托盘</value>
+  <data name="uCtrlOverhang.Text" xml:space="preserve">
+    <value>伸出量</value>
   </data>
 </root>

@@ -118,11 +118,32 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="cbImageSizes.Items" xml:space="preserve">
+		<value>Images par défaut (768*768 &amp; 256*256)</value>
+	</data>
+  <data name="cbImageSizes.Items1" xml:space="preserve">
+		<value>Petites images (384*384 &amp; 128*128)</value>
+	</data>
+  <data name="cbImageSizes.Location" type="System.Drawing.Point, System.Drawing">
+    <value>96, 80</value>
+  </data>
+  <data name="fileSelectCompanyLogo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>96, 46</value>
+  </data>
+  <data name="fileSelectCompanyLogo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>242, 20</value>
+  </data>
   <data name="fileSelectCtrlReportTemplate.Location" type="System.Drawing.Point, System.Drawing">
     <value>96, 11</value>
   </data>
   <data name="fileSelectCtrlReportTemplate.Size" type="System.Drawing.Size, System.Drawing">
     <value>242, 20</value>
+  </data>
+  <data name="gbMSWordMargins.Size" type="System.Drawing.Size, System.Drawing">
+    <value>328, 87</value>
+  </data>
+  <data name="gbMSWordMargins.Text" xml:space="preserve">
+    <value>Marges (pour Microsoft Word seulement)</value>
   </data>
   <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
     <value>5, 50</value>
@@ -133,51 +154,6 @@
   <data name="label1.Text" xml:space="preserve">
     <value>Logo entreprise</value>
   </data>
-  <data name="fileSelectCompanyLogo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>96, 46</value>
-  </data>
-  <data name="fileSelectCompanyLogo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>242, 20</value>
-  </data>
-  <data name="lbImageSizes.Location" type="System.Drawing.Point, System.Drawing">
-    <value>5, 84</value>
-  </data>
-  <data name="lbImageSizes.Size" type="System.Drawing.Size, System.Drawing">
-    <value>73, 13</value>
-  </data>
-  <data name="lbImageSizes.Text" xml:space="preserve">
-    <value>Tailles images</value>
-  </data>
-  <data name="cbImageSizes.Location" type="System.Drawing.Point, System.Drawing">
-    <value>96, 80</value>
-  </data>
-  <data name="lbReportTemplate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>5, 15</value>
-  </data>
-  <data name="lbReportTemplate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>89, 13</value>
-  </data>
-  <data name="lbReportTemplate.Text" xml:space="preserve">
-    <value>Patron de rapport</value>
-  </data>
-  <data name="lbCmRight.Location" type="System.Drawing.Point, System.Drawing">
-    <value>286, 54</value>
-  </data>
-  <data name="lbCmLeft.Location" type="System.Drawing.Point, System.Drawing">
-    <value>286, 26</value>
-  </data>
-  <data name="lbcmBottom.Location" type="System.Drawing.Point, System.Drawing">
-    <value>107, 54</value>
-  </data>
-  <data name="lbcm.Location" type="System.Drawing.Point, System.Drawing">
-    <value>107, 26</value>
-  </data>
-  <data name="nudRight.Location" type="System.Drawing.Point, System.Drawing">
-    <value>238, 50</value>
-  </data>
-  <data name="nudLeft.Location" type="System.Drawing.Point, System.Drawing">
-    <value>238, 22</value>
-  </data>
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
     <value>166, 54</value>
   </data>
@@ -186,6 +162,45 @@
   </data>
   <data name="label2.Text" xml:space="preserve">
     <value>Droite</value>
+  </data>
+  <data name="lbBottom.Size" type="System.Drawing.Size, System.Drawing">
+    <value>25, 13</value>
+  </data>
+  <data name="lbBottom.Text" xml:space="preserve">
+    <value>Bas</value>
+  </data>
+  <data name="lbcm.Location" type="System.Drawing.Point, System.Drawing">
+    <value>107, 26</value>
+  </data>
+  <data name="lbcm.Text" xml:space="preserve">
+		<value>cm</value>
+	</data>
+  <data name="lbcmBottom.Location" type="System.Drawing.Point, System.Drawing">
+    <value>107, 54</value>
+  </data>
+  <data name="lbcmBottom.Text" xml:space="preserve">
+		<value>cm</value>
+	</data>
+  <data name="lbCmLeft.Location" type="System.Drawing.Point, System.Drawing">
+    <value>286, 26</value>
+  </data>
+  <data name="lbCmLeft.Text" xml:space="preserve">
+		<value>cm</value>
+	</data>
+  <data name="lbCmRight.Location" type="System.Drawing.Point, System.Drawing">
+    <value>286, 54</value>
+  </data>
+  <data name="lbCmRight.Text" xml:space="preserve">
+		<value>cm</value>
+	</data>
+  <data name="lbImageSizes.Location" type="System.Drawing.Point, System.Drawing">
+    <value>5, 84</value>
+  </data>
+  <data name="lbImageSizes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>73, 13</value>
+  </data>
+  <data name="lbImageSizes.Text" xml:space="preserve">
+    <value>Tailles images</value>
   </data>
   <data name="lbLeft.Location" type="System.Drawing.Point, System.Drawing">
     <value>166, 26</value>
@@ -196,11 +211,17 @@
   <data name="lbLeft.Text" xml:space="preserve">
     <value>Gauche</value>
   </data>
-  <data name="lbBottom.Size" type="System.Drawing.Size, System.Drawing">
-    <value>25, 13</value>
+  <data name="lbReportTemplate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>5, 15</value>
   </data>
-  <data name="lbBottom.Text" xml:space="preserve">
-    <value>Bas</value>
+  <data name="lbReportTemplate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>89, 13</value>
+  </data>
+  <data name="lbReportTemplate.Text" xml:space="preserve">
+    <value>Patron de rapport</value>
+  </data>
+  <data name="lbSleepTime.Text" xml:space="preserve">
+    <value>Temps avant la suppression de l’image</value>
   </data>
   <data name="lbTop.Size" type="System.Drawing.Size, System.Drawing">
     <value>30, 13</value>
@@ -208,31 +229,10 @@
   <data name="lbTop.Text" xml:space="preserve">
     <value>Haut</value>
   </data>
-  <data name="gbMSWordMargins.Size" type="System.Drawing.Size, System.Drawing">
-    <value>328, 87</value>
+  <data name="nudLeft.Location" type="System.Drawing.Point, System.Drawing">
+    <value>238, 22</value>
   </data>
-  <data name="gbMSWordMargins.Text" xml:space="preserve">
-    <value>Marges (pour Microsoft Word seulement)</value>
-  </data>
-  <data name="cbImageSizes.Items1" xml:space="preserve">
-		<value>Petites images (384*384 &amp; 128*128)</value>
-	</data>
-  <data name="lbCmLeft.Text" xml:space="preserve">
-		<value>cm</value>
-	</data>
-  <data name="lbcm.Text" xml:space="preserve">
-		<value>cm</value>
-	</data>
-  <data name="lbcmBottom.Text" xml:space="preserve">
-		<value>cm</value>
-	</data>
-  <data name="lbCmRight.Text" xml:space="preserve">
-		<value>cm</value>
-	</data>
-  <data name="cbImageSizes.Items" xml:space="preserve">
-		<value>Images par défaut (768*768 &amp; 256*256)</value>
-	</data>
-  <data name="lbSleepTime.Text" xml:space="preserve">
-    <value>Temps avant la suppression de l’image</value>
+  <data name="nudRight.Location" type="System.Drawing.Point, System.Drawing">
+    <value>238, 50</value>
   </data>
 </root>

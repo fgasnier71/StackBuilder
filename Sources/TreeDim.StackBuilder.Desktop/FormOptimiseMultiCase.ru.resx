@@ -117,20 +117,11 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="uCtrlCaseDimensionsMax.Text" xml:space="preserve">
-    <value>Макс. Размеры корпуса</value>
-  </data>
-  <data name="uCtrlCaseDimensionsMin.Text" xml:space="preserve">
-    <value>Размеры корпуса мин.</value>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Попробуйте и заполнить список дела...</value>
   </data>
   <data name="bnClose.Text" xml:space="preserve">
     <value>Закрыть</value>
-  </data>
-  <data name="lbCases.Text" xml:space="preserve">
-    <value>Случаи</value>
-  </data>
-  <data name="lbBox.Text" xml:space="preserve">
-    <value>Коробка</value>
   </data>
   <data name="bnCreateAnalysis.Text" xml:space="preserve">
     <value>Создайте анализ</value>
@@ -141,13 +132,22 @@
   <data name="lbAnalysisName.Text" xml:space="preserve">
     <value>Анализ название</value>
   </data>
-  <data name="toolStripStatusLabelDef.Text" xml:space="preserve">
-    <value>statusLabel</value>
+  <data name="lbBox.Text" xml:space="preserve">
+    <value>Коробка</value>
+  </data>
+  <data name="lbCases.Text" xml:space="preserve">
+    <value>Случаи</value>
   </data>
   <data name="statusStrip.Text" xml:space="preserve">
     <value>statusStrip1</value>
   </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Попробуйте и заполнить список дела...</value>
+  <data name="toolStripStatusLabelDef.Text" xml:space="preserve">
+    <value>statusLabel</value>
+  </data>
+  <data name="uCtrlCaseDimensionsMax.Text" xml:space="preserve">
+    <value>Макс. Размеры корпуса</value>
+  </data>
+  <data name="uCtrlCaseDimensionsMin.Text" xml:space="preserve">
+    <value>Размеры корпуса мин.</value>
   </data>
 </root>

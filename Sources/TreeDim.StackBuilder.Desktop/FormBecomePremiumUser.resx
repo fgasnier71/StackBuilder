@@ -118,64 +118,79 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="linkLabelPremiumVsFree.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="linkLabelPremiumVsFree.Location" type="System.Drawing.Point, System.Drawing">
-    <value>13, 11</value>
-  </data>
-  <data name="linkLabelPremiumVsFree.Size" type="System.Drawing.Size, System.Drawing">
-    <value>250, 13</value>
-  </data>
-  <data name="linkLabelPremiumVsFree.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="linkLabelPremiumVsFree.Text" xml:space="preserve">
-    <value>See difference between Premium and Free versions</value>
-  </data>
-  <data name="&gt;&gt;linkLabelPremiumVsFree.Name" xml:space="preserve">
-    <value>linkLabelPremiumVsFree</value>
-  </data>
-  <data name="&gt;&gt;linkLabelPremiumVsFree.Type" xml:space="preserve">
-    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;linkLabelPremiumVsFree.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;linkLabelPremiumVsFree.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="lbSubscribe.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left</value>
-  </data>
-  <data name="lbSubscribe.AutoSize" type="System.Boolean, mscorlib">
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
+  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
   </data>
-  <data name="lbSubscribe.Location" type="System.Drawing.Point, System.Drawing">
-    <value>13, 381</value>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>584, 461</value>
   </data>
-  <data name="lbSubscribe.Size" type="System.Drawing.Size, System.Drawing">
-    <value>141, 13</value>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>FormBecomePremiumUser</value>
   </data>
-  <data name="lbSubscribe.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Become a "Premium" user...</value>
   </data>
-  <data name="lbSubscribe.Text" xml:space="preserve">
-    <value>I would like to subscribe for  </value>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;lbSubscribe.Name" xml:space="preserve">
-    <value>lbSubscribe</value>
+  <data name="bnCancel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
   </data>
-  <data name="&gt;&gt;lbSubscribe.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="bnCancel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>477, 8</value>
   </data>
-  <data name="&gt;&gt;lbSubscribe.Parent" xml:space="preserve">
+  <data name="&gt;&gt;bnCancel.Name" xml:space="preserve">
+    <value>bnCancel</value>
+  </data>
+  <data name="&gt;&gt;bnCancel.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;lbSubscribe.ZOrder" xml:space="preserve">
+  <data name="bnCancel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 23</value>
+  </data>
+  <data name="bnCancel.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
+  </data>
+  <data name="bnCancel.Text" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="&gt;&gt;bnCancel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;bnCancel.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="bnSend.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
+  <data name="bnSend.Location" type="System.Drawing.Point, System.Drawing">
+    <value>418, 432</value>
+  </data>
+  <data name="&gt;&gt;bnSend.Name" xml:space="preserve">
+    <value>bnSend</value>
+  </data>
+  <data name="&gt;&gt;bnSend.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="bnSend.Size" type="System.Drawing.Size, System.Drawing">
+    <value>159, 23</value>
+  </data>
+  <data name="bnSend.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="bnSend.Text" xml:space="preserve">
+    <value>Send me an invoice!</value>
+  </data>
+  <data name="&gt;&gt;bnSend.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;bnSend.ZOrder" xml:space="preserve">
+    <value>4</value>
   </data>
   <data name="cbSubscriptionDuration.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left, Right</value>
@@ -189,20 +204,20 @@
   <data name="cbSubscriptionDuration.Location" type="System.Drawing.Point, System.Drawing">
     <value>230, 378</value>
   </data>
+  <data name="&gt;&gt;cbSubscriptionDuration.Name" xml:space="preserve">
+    <value>cbSubscriptionDuration</value>
+  </data>
+  <data name="&gt;&gt;cbSubscriptionDuration.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
   <data name="cbSubscriptionDuration.Size" type="System.Drawing.Size, System.Drawing">
     <value>347, 21</value>
   </data>
   <data name="cbSubscriptionDuration.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="&gt;&gt;cbSubscriptionDuration.Name" xml:space="preserve">
-    <value>cbSubscriptionDuration</value>
-  </data>
   <data name="&gt;&gt;cbSubscriptionDuration.Type" xml:space="preserve">
     <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cbSubscriptionDuration.Parent" xml:space="preserve">
-    <value>$this</value>
   </data>
   <data name="&gt;&gt;cbSubscriptionDuration.ZOrder" xml:space="preserve">
     <value>7</value>
@@ -216,6 +231,12 @@
   <data name="lbEmail.Location" type="System.Drawing.Point, System.Drawing">
     <value>13, 410</value>
   </data>
+  <data name="&gt;&gt;lbEmail.Name" xml:space="preserve">
+    <value>lbEmail</value>
+  </data>
+  <data name="&gt;&gt;lbEmail.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
   <data name="lbEmail.Size" type="System.Drawing.Size, System.Drawing">
     <value>118, 13</value>
   </data>
@@ -225,101 +246,80 @@
   <data name="lbEmail.Text" xml:space="preserve">
     <value>at the following address</value>
   </data>
-  <data name="&gt;&gt;lbEmail.Name" xml:space="preserve">
-    <value>lbEmail</value>
-  </data>
   <data name="&gt;&gt;lbEmail.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbEmail.Parent" xml:space="preserve">
-    <value>$this</value>
   </data>
   <data name="&gt;&gt;lbEmail.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
-  <data name="tbEmail.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left, Right</value>
+  <data name="lbSubscribe.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
   </data>
-  <data name="tbEmail.Location" type="System.Drawing.Point, System.Drawing">
-    <value>230, 407</value>
+  <data name="lbSubscribe.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
-  <data name="tbEmail.Size" type="System.Drawing.Size, System.Drawing">
-    <value>347, 20</value>
+  <data name="lbSubscribe.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 381</value>
   </data>
-  <data name="tbEmail.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
+  <data name="&gt;&gt;lbSubscribe.Name" xml:space="preserve">
+    <value>lbSubscribe</value>
   </data>
-  <data name="&gt;&gt;tbEmail.Name" xml:space="preserve">
-    <value>tbEmail</value>
-  </data>
-  <data name="&gt;&gt;tbEmail.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tbEmail.Parent" xml:space="preserve">
+  <data name="&gt;&gt;lbSubscribe.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;tbEmail.ZOrder" xml:space="preserve">
-    <value>5</value>
+  <data name="lbSubscribe.Size" type="System.Drawing.Size, System.Drawing">
+    <value>141, 13</value>
   </data>
-  <data name="bnSend.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Right</value>
+  <data name="lbSubscribe.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
-  <data name="bnSend.Location" type="System.Drawing.Point, System.Drawing">
-    <value>418, 432</value>
+  <data name="lbSubscribe.Text" xml:space="preserve">
+    <value>I would like to subscribe for  </value>
   </data>
-  <data name="bnSend.Size" type="System.Drawing.Size, System.Drawing">
-    <value>159, 23</value>
+  <data name="&gt;&gt;lbSubscribe.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="bnSend.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="bnSend.Text" xml:space="preserve">
-    <value>Send me an invoice!</value>
-  </data>
-  <data name="&gt;&gt;bnSend.Name" xml:space="preserve">
-    <value>bnSend</value>
-  </data>
-  <data name="&gt;&gt;bnSend.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;bnSend.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;bnSend.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="bnCancel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
-  <data name="bnCancel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>477, 8</value>
-  </data>
-  <data name="bnCancel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 23</value>
-  </data>
-  <data name="bnCancel.TabIndex" type="System.Int32, mscorlib">
+  <data name="&gt;&gt;lbSubscribe.ZOrder" xml:space="preserve">
     <value>8</value>
   </data>
-  <data name="bnCancel.Text" xml:space="preserve">
-    <value>Cancel</value>
+  <data name="linkLabelPremiumVsFree.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
-  <data name="&gt;&gt;bnCancel.Name" xml:space="preserve">
-    <value>bnCancel</value>
+  <data name="linkLabelPremiumVsFree.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 11</value>
   </data>
-  <data name="&gt;&gt;bnCancel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;linkLabelPremiumVsFree.Name" xml:space="preserve">
+    <value>linkLabelPremiumVsFree</value>
   </data>
-  <data name="&gt;&gt;bnCancel.Parent" xml:space="preserve">
+  <data name="&gt;&gt;linkLabelPremiumVsFree.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;bnCancel.ZOrder" xml:space="preserve">
-    <value>3</value>
+  <data name="linkLabelPremiumVsFree.Size" type="System.Drawing.Size, System.Drawing">
+    <value>250, 13</value>
+  </data>
+  <data name="linkLabelPremiumVsFree.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="linkLabelPremiumVsFree.Text" xml:space="preserve">
+    <value>See difference between Premium and Free versions</value>
+  </data>
+  <data name="&gt;&gt;linkLabelPremiumVsFree.Type" xml:space="preserve">
+    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;linkLabelPremiumVsFree.ZOrder" xml:space="preserve">
+    <value>9</value>
   </data>
   <data name="rbSubscription1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="rbSubscription1.Location" type="System.Drawing.Point, System.Drawing">
     <value>13, 43</value>
+  </data>
+  <data name="&gt;&gt;rbSubscription1.Name" xml:space="preserve">
+    <value>rbSubscription1</value>
+  </data>
+  <data name="&gt;&gt;rbSubscription1.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="rbSubscription1.Size" type="System.Drawing.Size, System.Drawing">
     <value>123, 17</value>
@@ -330,44 +330,11 @@
   <data name="rbSubscription1.Text" xml:space="preserve">
     <value>Subscribe via paypal</value>
   </data>
-  <data name="&gt;&gt;rbSubscription1.Name" xml:space="preserve">
-    <value>rbSubscription1</value>
-  </data>
   <data name="&gt;&gt;rbSubscription1.Type" xml:space="preserve">
     <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;rbSubscription1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
   <data name="&gt;&gt;rbSubscription1.ZOrder" xml:space="preserve">
     <value>2</value>
-  </data>
-  <data name="webBrowser.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left, Right</value>
-  </data>
-  <data name="webBrowser.Location" type="System.Drawing.Point, System.Drawing">
-    <value>5, 66</value>
-  </data>
-  <data name="webBrowser.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>20, 20</value>
-  </data>
-  <data name="webBrowser.Size" type="System.Drawing.Size, System.Drawing">
-    <value>572, 275</value>
-  </data>
-  <data name="webBrowser.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
-  </data>
-  <data name="&gt;&gt;webBrowser.Name" xml:space="preserve">
-    <value>webBrowser</value>
-  </data>
-  <data name="&gt;&gt;webBrowser.Type" xml:space="preserve">
-    <value>System.Windows.Forms.WebBrowser, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;webBrowser.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;webBrowser.ZOrder" xml:space="preserve">
-    <value>1</value>
   </data>
   <data name="rbSubscription2.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
@@ -378,6 +345,12 @@
   <data name="rbSubscription2.Location" type="System.Drawing.Point, System.Drawing">
     <value>13, 354</value>
   </data>
+  <data name="&gt;&gt;rbSubscription2.Name" xml:space="preserve">
+    <value>rbSubscription2</value>
+  </data>
+  <data name="&gt;&gt;rbSubscription2.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
   <data name="rbSubscription2.Size" type="System.Drawing.Size, System.Drawing">
     <value>126, 17</value>
   </data>
@@ -387,34 +360,61 @@
   <data name="rbSubscription2.Text" xml:space="preserve">
     <value>Subscribe via invoice</value>
   </data>
-  <data name="&gt;&gt;rbSubscription2.Name" xml:space="preserve">
-    <value>rbSubscription2</value>
-  </data>
   <data name="&gt;&gt;rbSubscription2.Type" xml:space="preserve">
     <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;rbSubscription2.Parent" xml:space="preserve">
-    <value>$this</value>
   </data>
   <data name="&gt;&gt;rbSubscription2.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 13</value>
+  <data name="tbEmail.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left, Right</value>
   </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>584, 461</value>
+  <data name="tbEmail.Location" type="System.Drawing.Point, System.Drawing">
+    <value>230, 407</value>
   </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Become a "Premium" user...</value>
+  <data name="&gt;&gt;tbEmail.Name" xml:space="preserve">
+    <value>tbEmail</value>
   </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>FormBecomePremiumUser</value>
+  <data name="&gt;&gt;tbEmail.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="tbEmail.Size" type="System.Drawing.Size, System.Drawing">
+    <value>347, 20</value>
+  </data>
+  <data name="tbEmail.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;tbEmail.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tbEmail.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="webBrowser.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="webBrowser.Location" type="System.Drawing.Point, System.Drawing">
+    <value>5, 66</value>
+  </data>
+  <data name="webBrowser.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>20, 20</value>
+  </data>
+  <data name="&gt;&gt;webBrowser.Name" xml:space="preserve">
+    <value>webBrowser</value>
+  </data>
+  <data name="&gt;&gt;webBrowser.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="webBrowser.Size" type="System.Drawing.Size, System.Drawing">
+    <value>572, 275</value>
+  </data>
+  <data name="webBrowser.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;webBrowser.Type" xml:space="preserve">
+    <value>System.Windows.Forms.WebBrowser, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;webBrowser.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
 </root>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,43 +117,25 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Optimizar las dimensiones de la caja...</value>
+  </data>
+  <data name="bnNext.Text" xml:space="preserve">
+    <value>Siguiente &amp;gt;</value>
+  </data>
   <data name="btClose.Text" xml:space="preserve">
     <value>Cerrar</value>
   </data>
-  <data name="uCtrlTrayHeight.Text" xml:space="preserve">
-    <value>Altura de bandeja</value>
+  <data name="btSetMaximum.Text" xml:space="preserve">
+    <value>Juego máximo</value>
   </data>
-  <data name="lbWrapperColor.Text" xml:space="preserve">
-    <value>Color</value>
+  <data name="btSetMinimum.Text" xml:space="preserve">
+    <value>Conjunto mínimo</value>
   </data>
   <data name="cbColor.Items" xml:space="preserve">
     <value>Color</value>
   </data>
   <data name="cbColor.Items1" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="cbColor.Items2" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="cbColor.Items3" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="cbColor.Items4" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="cbColor.Items5" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="cbColor.Items6" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="cbColor.Items7" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="cbColor.Items8" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="cbColor.Items9" xml:space="preserve">
     <value>Color</value>
   </data>
   <data name="cbColor.Items10" xml:space="preserve">
@@ -186,6 +168,9 @@
   <data name="cbColor.Items19" xml:space="preserve">
     <value>Color</value>
   </data>
+  <data name="cbColor.Items2" xml:space="preserve">
+    <value>Color</value>
+  </data>
   <data name="cbColor.Items20" xml:space="preserve">
     <value>Color</value>
   </data>
@@ -216,6 +201,9 @@
   <data name="cbColor.Items29" xml:space="preserve">
     <value>Color</value>
   </data>
+  <data name="cbColor.Items3" xml:space="preserve">
+    <value>Color</value>
+  </data>
   <data name="cbColor.Items30" xml:space="preserve">
     <value>Color</value>
   </data>
@@ -237,6 +225,24 @@
   <data name="cbColor.Items36" xml:space="preserve">
     <value>Color</value>
   </data>
+  <data name="cbColor.Items4" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items5" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items6" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items7" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items8" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items9" xml:space="preserve">
+    <value>Color</value>
+  </data>
   <data name="cbWrapperType.Items" xml:space="preserve">
     <value>Polietileno</value>
   </data>
@@ -249,32 +255,47 @@
   <data name="cbWrapperType.Items3" xml:space="preserve">
     <value>Bandeja</value>
   </data>
-  <data name="label1.Text" xml:space="preserve">
-    <value>Tipo de envoltura</value>
+  <data name="chkVerticalOrientationOnly.Text" xml:space="preserve">
+    <value>Sólo permiten la orientación vertical de la caja</value>
   </data>
-  <data name="uCtrlSurfacicMass.Text" xml:space="preserve">
-    <value>Misa surfacic</value>
+  <data name="gbCase.Text" xml:space="preserve">
+    <value>Restricciones del paquete</value>
   </data>
-  <data name="uCtrlWallThickness.Text" xml:space="preserve">
-    <value>Espesor de la pared</value>
-  </data>
-  <data name="uCtrlNoWalls.Text" xml:space="preserve">
-    <value>Número de paredes</value>
+  <data name="gbPallet.Text" xml:space="preserve">
+    <value>Plataforma</value>
   </data>
   <data name="gbWrapper.Text" xml:space="preserve">
     <value>Envoltura de la</value>
   </data>
-  <data name="uCtrlOverhang.Text" xml:space="preserve">
-    <value>Proyección de la</value>
+  <data name="groupBox.Text" xml:space="preserve">
+    <value>Caja (producto interno)</value>
   </data>
-  <data name="uCtrlPalletHeight.Text" xml:space="preserve">
-    <value>Altura máxima plataforma</value>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Tipo de envoltura</value>
+  </data>
+  <data name="lbNumber.Text" xml:space="preserve">
+    <value>Número de cajas por caso</value>
   </data>
   <data name="lbPallet.Text" xml:space="preserve">
     <value>Plataforma</value>
   </data>
-  <data name="gbPallet.Text" xml:space="preserve">
-    <value>Plataforma</value>
+  <data name="lbWrapperColor.Text" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="statusStrip.Text" xml:space="preserve">
+    <value>statusStrip</value>
+  </data>
+  <data name="toolStripStatusLabelDef.Text" xml:space="preserve">
+    <value>toolStripStatusLabelDef</value>
+  </data>
+  <data name="uCtrlDimensionsBox.Text" xml:space="preserve">
+    <value>Caja</value>
+  </data>
+  <data name="uCtrlNoWalls.Text" xml:space="preserve">
+    <value>Número de paredes</value>
+  </data>
+  <data name="uCtrlOverhang.Text" xml:space="preserve">
+    <value>Proyección de la</value>
   </data>
   <data name="uCtrlPackDimensionsMax.Text" xml:space="preserve">
     <value>Max. dimensiones del paquete</value>
@@ -282,37 +303,16 @@
   <data name="uCtrlPackDimensionsMin.Text" xml:space="preserve">
     <value>Dimensiones del paquete de minutos</value>
   </data>
-  <data name="btSetMaximum.Text" xml:space="preserve">
-    <value>Juego máximo</value>
+  <data name="uCtrlPalletHeight.Text" xml:space="preserve">
+    <value>Altura máxima plataforma</value>
   </data>
-  <data name="btSetMinimum.Text" xml:space="preserve">
-    <value>Conjunto mínimo</value>
+  <data name="uCtrlSurfacicMass.Text" xml:space="preserve">
+    <value>Misa surfacic</value>
   </data>
-  <data name="gbCase.Text" xml:space="preserve">
-    <value>Restricciones del paquete</value>
+  <data name="uCtrlTrayHeight.Text" xml:space="preserve">
+    <value>Altura de bandeja</value>
   </data>
-  <data name="uCtrlDimensionsBox.Text" xml:space="preserve">
-    <value>Caja</value>
-  </data>
-  <data name="chkVerticalOrientationOnly.Text" xml:space="preserve">
-    <value>Sólo permiten la orientación vertical de la caja</value>
-  </data>
-  <data name="lbNumber.Text" xml:space="preserve">
-    <value>Número de cajas por caso</value>
-  </data>
-  <data name="groupBox.Text" xml:space="preserve">
-    <value>Caja (producto interno)</value>
-  </data>
-  <data name="bnNext.Text" xml:space="preserve">
-    <value>Siguiente &amp;gt;</value>
-  </data>
-  <data name="toolStripStatusLabelDef.Text" xml:space="preserve">
-    <value>toolStripStatusLabelDef</value>
-  </data>
-  <data name="statusStrip.Text" xml:space="preserve">
-    <value>statusStrip</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Optimizar las dimensiones de la caja...</value>
+  <data name="uCtrlWallThickness.Text" xml:space="preserve">
+    <value>Espesor de la pared</value>
   </data>
 </root>

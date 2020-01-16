@@ -118,37 +118,55 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="bnOK.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <metadata name="openImageFileDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
   </data>
-  <data name="bnOK.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>584, 362</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>FormEditBitmaps</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Edit face images</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="bnAdd.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="bnOK.Location" type="System.Drawing.Point, System.Drawing">
-    <value>499, 7</value>
+  <data name="bnAdd.Location" type="System.Drawing.Point, System.Drawing">
+    <value>157, 133</value>
   </data>
-  <data name="bnOK.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 23</value>
+  <data name="&gt;&gt;bnAdd.Name" xml:space="preserve">
+    <value>bnAdd</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="bnOK.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="bnOK.Text" xml:space="preserve">
-    <value>OK</value>
-  </data>
-  <data name="&gt;&gt;bnOK.Name" xml:space="preserve">
-    <value>bnOK</value>
-  </data>
-  <data name="&gt;&gt;bnOK.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;bnOK.Parent" xml:space="preserve">
+  <data name="&gt;&gt;bnAdd.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;bnOK.ZOrder" xml:space="preserve">
-    <value>15</value>
+  <data name="bnAdd.Size" type="System.Drawing.Size, System.Drawing">
+    <value>81, 22</value>
+  </data>
+  <data name="bnAdd.TabIndex" type="System.Int32, mscorlib">
+    <value>23</value>
+  </data>
+  <data name="bnAdd.Text" xml:space="preserve">
+    <value>Add texture...</value>
+  </data>
+  <data name="&gt;&gt;bnAdd.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;bnAdd.ZOrder" xml:space="preserve">
+    <value>5</value>
   </data>
   <data name="bnCancel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -159,6 +177,12 @@
   <data name="bnCancel.Location" type="System.Drawing.Point, System.Drawing">
     <value>499, 36</value>
   </data>
+  <data name="&gt;&gt;bnCancel.Name" xml:space="preserve">
+    <value>bnCancel</value>
+  </data>
+  <data name="&gt;&gt;bnCancel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
   <data name="bnCancel.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
   </data>
@@ -168,47 +192,122 @@
   <data name="bnCancel.Text" xml:space="preserve">
     <value>Cancel</value>
   </data>
-  <data name="&gt;&gt;bnCancel.Name" xml:space="preserve">
-    <value>bnCancel</value>
-  </data>
   <data name="&gt;&gt;bnCancel.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;bnCancel.Parent" xml:space="preserve">
-    <value>$this</value>
   </data>
   <data name="&gt;&gt;bnCancel.ZOrder" xml:space="preserve">
     <value>14</value>
   </data>
-  <data name="labelFace.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="labelFace.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="bnMoveDown.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="labelFace.Location" type="System.Drawing.Point, System.Drawing">
-    <value>17, 9</value>
+  <data name="bnMoveDown.Location" type="System.Drawing.Point, System.Drawing">
+    <value>157, 90</value>
   </data>
-  <data name="labelFace.Size" type="System.Drawing.Size, System.Drawing">
-    <value>31, 13</value>
+  <data name="&gt;&gt;bnMoveDown.Name" xml:space="preserve">
+    <value>bnMoveDown</value>
   </data>
-  <data name="labelFace.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="labelFace.Text" xml:space="preserve">
-    <value>Face</value>
-  </data>
-  <data name="&gt;&gt;labelFace.Name" xml:space="preserve">
-    <value>labelFace</value>
-  </data>
-  <data name="&gt;&gt;labelFace.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;labelFace.Parent" xml:space="preserve">
+  <data name="&gt;&gt;bnMoveDown.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;labelFace.ZOrder" xml:space="preserve">
-    <value>13</value>
+  <data name="bnMoveDown.Size" type="System.Drawing.Size, System.Drawing">
+    <value>81, 22</value>
+  </data>
+  <data name="bnMoveDown.TabIndex" type="System.Int32, mscorlib">
+    <value>22</value>
+  </data>
+  <data name="bnMoveDown.Text" xml:space="preserve">
+    <value>Move down</value>
+  </data>
+  <data name="&gt;&gt;bnMoveDown.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;bnMoveDown.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="bnMoveUp.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="bnMoveUp.Location" type="System.Drawing.Point, System.Drawing">
+    <value>157, 64</value>
+  </data>
+  <data name="&gt;&gt;bnMoveUp.Name" xml:space="preserve">
+    <value>bnMoveUp</value>
+  </data>
+  <data name="&gt;&gt;bnMoveUp.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="bnMoveUp.Size" type="System.Drawing.Size, System.Drawing">
+    <value>81, 22</value>
+  </data>
+  <data name="bnMoveUp.TabIndex" type="System.Int32, mscorlib">
+    <value>21</value>
+  </data>
+  <data name="bnMoveUp.Text" xml:space="preserve">
+    <value>Move up</value>
+  </data>
+  <data name="&gt;&gt;bnMoveUp.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;bnMoveUp.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="bnOK.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="bnOK.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="bnOK.Location" type="System.Drawing.Point, System.Drawing">
+    <value>499, 7</value>
+  </data>
+  <data name="&gt;&gt;bnOK.Name" xml:space="preserve">
+    <value>bnOK</value>
+  </data>
+  <data name="&gt;&gt;bnOK.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="bnOK.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="bnOK.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="bnOK.Text" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="&gt;&gt;bnOK.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;bnOK.ZOrder" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <data name="bnRemove.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="bnRemove.Location" type="System.Drawing.Point, System.Drawing">
+    <value>157, 159</value>
+  </data>
+  <data name="&gt;&gt;bnRemove.Name" xml:space="preserve">
+    <value>bnRemove</value>
+  </data>
+  <data name="&gt;&gt;bnRemove.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="bnRemove.Size" type="System.Drawing.Size, System.Drawing">
+    <value>81, 22</value>
+  </data>
+  <data name="bnRemove.TabIndex" type="System.Int32, mscorlib">
+    <value>24</value>
+  </data>
+  <data name="bnRemove.Text" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="&gt;&gt;bnRemove.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;bnRemove.ZOrder" xml:space="preserve">
+    <value>4</value>
   </data>
   <data name="cbFace.Items" xml:space="preserve">
     <value>Rear</value>
@@ -231,23 +330,74 @@
   <data name="cbFace.Location" type="System.Drawing.Point, System.Drawing">
     <value>80, 9</value>
   </data>
+  <data name="&gt;&gt;cbFace.Name" xml:space="preserve">
+    <value>cbFace</value>
+  </data>
+  <data name="&gt;&gt;cbFace.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
   <data name="cbFace.Size" type="System.Drawing.Size, System.Drawing">
     <value>123, 21</value>
   </data>
   <data name="cbFace.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
-  <data name="&gt;&gt;cbFace.Name" xml:space="preserve">
-    <value>cbFace</value>
-  </data>
   <data name="&gt;&gt;cbFace.Type" xml:space="preserve">
     <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;cbFace.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
   <data name="&gt;&gt;cbFace.ZOrder" xml:space="preserve">
     <value>12</value>
+  </data>
+  <data name="graphCtrl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>245, 64</value>
+  </data>
+  <data name="&gt;&gt;graphCtrl.Name" xml:space="preserve">
+    <value>graphCtrl</value>
+  </data>
+  <data name="&gt;&gt;graphCtrl.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="graphCtrl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>329, 286</value>
+  </data>
+  <data name="graphCtrl.TabIndex" type="System.Int32, mscorlib">
+    <value>28</value>
+  </data>
+  <data name="&gt;&gt;graphCtrl.Type" xml:space="preserve">
+    <value>treeDiM.StackBuilder.Graphics.Graphics3DControl, treeDiM.StackBuilder.Graphics, Version=3.0.0.46, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;graphCtrl.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="labelFace.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="labelFace.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="labelFace.Location" type="System.Drawing.Point, System.Drawing">
+    <value>17, 9</value>
+  </data>
+  <data name="&gt;&gt;labelFace.Name" xml:space="preserve">
+    <value>labelFace</value>
+  </data>
+  <data name="&gt;&gt;labelFace.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="labelFace.Size" type="System.Drawing.Size, System.Drawing">
+    <value>31, 13</value>
+  </data>
+  <data name="labelFace.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="labelFace.Text" xml:space="preserve">
+    <value>Face</value>
+  </data>
+  <data name="&gt;&gt;labelFace.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelFace.ZOrder" xml:space="preserve">
+    <value>13</value>
   </data>
   <data name="lbAngle.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -258,6 +408,12 @@
   <data name="lbAngle.Location" type="System.Drawing.Point, System.Drawing">
     <value>20, 336</value>
   </data>
+  <data name="&gt;&gt;lbAngle.Name" xml:space="preserve">
+    <value>lbAngle</value>
+  </data>
+  <data name="&gt;&gt;lbAngle.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
   <data name="lbAngle.Size" type="System.Drawing.Size, System.Drawing">
     <value>34, 13</value>
   </data>
@@ -267,209 +423,23 @@
   <data name="lbAngle.Text" xml:space="preserve">
     <value>Angle</value>
   </data>
-  <data name="&gt;&gt;lbAngle.Name" xml:space="preserve">
-    <value>lbAngle</value>
-  </data>
   <data name="&gt;&gt;lbAngle.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;lbAngle.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
   <data name="&gt;&gt;lbAngle.ZOrder" xml:space="preserve">
     <value>10</value>
-  </data>
-  <data name="nudAngle.Location" type="System.Drawing.Point, System.Drawing">
-    <value>79, 334</value>
-  </data>
-  <data name="nudAngle.Size" type="System.Drawing.Size, System.Drawing">
-    <value>60, 20</value>
-  </data>
-  <data name="nudAngle.TabIndex" type="System.Int32, mscorlib">
-    <value>15</value>
-  </data>
-  <data name="&gt;&gt;nudAngle.Name" xml:space="preserve">
-    <value>nudAngle</value>
-  </data>
-  <data name="&gt;&gt;nudAngle.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;nudAngle.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;nudAngle.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="lbUnitAngle.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lbUnitAngle.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lbUnitAngle.Location" type="System.Drawing.Point, System.Drawing">
-    <value>144, 334</value>
-  </data>
-  <data name="lbUnitAngle.Size" type="System.Drawing.Size, System.Drawing">
-    <value>11, 13</value>
-  </data>
-  <data name="lbUnitAngle.TabIndex" type="System.Int32, mscorlib">
-    <value>18</value>
-  </data>
-  <data name="lbUnitAngle.Text" xml:space="preserve">
-    <value>°</value>
-  </data>
-  <data name="&gt;&gt;lbUnitAngle.Name" xml:space="preserve">
-    <value>lbUnitAngle</value>
-  </data>
-  <data name="&gt;&gt;lbUnitAngle.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbUnitAngle.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;lbUnitAngle.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="bnMoveUp.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="bnMoveUp.Location" type="System.Drawing.Point, System.Drawing">
-    <value>157, 64</value>
-  </data>
-  <data name="bnMoveUp.Size" type="System.Drawing.Size, System.Drawing">
-    <value>81, 22</value>
-  </data>
-  <data name="bnMoveUp.TabIndex" type="System.Int32, mscorlib">
-    <value>21</value>
-  </data>
-  <data name="bnMoveUp.Text" xml:space="preserve">
-    <value>Move up</value>
-  </data>
-  <data name="&gt;&gt;bnMoveUp.Name" xml:space="preserve">
-    <value>bnMoveUp</value>
-  </data>
-  <data name="&gt;&gt;bnMoveUp.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;bnMoveUp.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;bnMoveUp.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="bnMoveDown.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="bnMoveDown.Location" type="System.Drawing.Point, System.Drawing">
-    <value>157, 90</value>
-  </data>
-  <data name="bnMoveDown.Size" type="System.Drawing.Size, System.Drawing">
-    <value>81, 22</value>
-  </data>
-  <data name="bnMoveDown.TabIndex" type="System.Int32, mscorlib">
-    <value>22</value>
-  </data>
-  <data name="bnMoveDown.Text" xml:space="preserve">
-    <value>Move down</value>
-  </data>
-  <data name="&gt;&gt;bnMoveDown.Name" xml:space="preserve">
-    <value>bnMoveDown</value>
-  </data>
-  <data name="&gt;&gt;bnMoveDown.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;bnMoveDown.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;bnMoveDown.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="bnAdd.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="bnAdd.Location" type="System.Drawing.Point, System.Drawing">
-    <value>157, 133</value>
-  </data>
-  <data name="bnAdd.Size" type="System.Drawing.Size, System.Drawing">
-    <value>81, 22</value>
-  </data>
-  <data name="bnAdd.TabIndex" type="System.Int32, mscorlib">
-    <value>23</value>
-  </data>
-  <data name="bnAdd.Text" xml:space="preserve">
-    <value>Add texture...</value>
-  </data>
-  <data name="&gt;&gt;bnAdd.Name" xml:space="preserve">
-    <value>bnAdd</value>
-  </data>
-  <data name="&gt;&gt;bnAdd.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;bnAdd.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;bnAdd.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="bnRemove.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="bnRemove.Location" type="System.Drawing.Point, System.Drawing">
-    <value>157, 159</value>
-  </data>
-  <data name="bnRemove.Size" type="System.Drawing.Size, System.Drawing">
-    <value>81, 22</value>
-  </data>
-  <data name="bnRemove.TabIndex" type="System.Int32, mscorlib">
-    <value>24</value>
-  </data>
-  <data name="bnRemove.Text" xml:space="preserve">
-    <value>Remove</value>
-  </data>
-  <data name="&gt;&gt;bnRemove.Name" xml:space="preserve">
-    <value>bnRemove</value>
-  </data>
-  <data name="&gt;&gt;bnRemove.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;bnRemove.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;bnRemove.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <metadata name="openImageFileDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <data name="openImageFileDialog.Filter" xml:space="preserve">
-    <value>Image Files (*.bmp,*.gif, *.jpg)|*.bmp;*.gif;*.jpg</value>
-  </data>
-  <data name="listBoxTextures.Location" type="System.Drawing.Point, System.Drawing">
-    <value>17, 62</value>
-  </data>
-  <data name="listBoxTextures.Size" type="System.Drawing.Size, System.Drawing">
-    <value>128, 199</value>
-  </data>
-  <data name="listBoxTextures.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;listBoxTextures.Name" xml:space="preserve">
-    <value>listBoxTextures</value>
-  </data>
-  <data name="&gt;&gt;listBoxTextures.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Desktop.ListBoxImages, treeDiM.StackBuilder.Desktop, Version=3.0.0.46, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;listBoxTextures.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;listBoxTextures.ZOrder" xml:space="preserve">
-    <value>11</value>
   </data>
   <data name="lbImage.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="lbImage.Location" type="System.Drawing.Point, System.Drawing">
     <value>17, 43</value>
+  </data>
+  <data name="&gt;&gt;lbImage.Name" xml:space="preserve">
+    <value>lbImage</value>
+  </data>
+  <data name="&gt;&gt;lbImage.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="lbImage.Size" type="System.Drawing.Size, System.Drawing">
     <value>41, 13</value>
@@ -480,20 +450,107 @@
   <data name="lbImage.Text" xml:space="preserve">
     <value>Images</value>
   </data>
-  <data name="&gt;&gt;lbImage.Name" xml:space="preserve">
-    <value>lbImage</value>
-  </data>
   <data name="&gt;&gt;lbImage.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbImage.Parent" xml:space="preserve">
-    <value>$this</value>
   </data>
   <data name="&gt;&gt;lbImage.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
+  <data name="lbOrigin.Text" xml:space="preserve">
+    <value>Origin</value>
+  </data>
+  <data name="lbSize.Text" xml:space="preserve">
+    <value>Size</value>
+  </data>
+  <data name="lbUnitAngle.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbUnitAngle.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lbUnitAngle.Location" type="System.Drawing.Point, System.Drawing">
+    <value>144, 334</value>
+  </data>
+  <data name="&gt;&gt;lbUnitAngle.Name" xml:space="preserve">
+    <value>lbUnitAngle</value>
+  </data>
+  <data name="&gt;&gt;lbUnitAngle.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="lbUnitAngle.Size" type="System.Drawing.Size, System.Drawing">
+    <value>11, 13</value>
+  </data>
+  <data name="lbUnitAngle.TabIndex" type="System.Int32, mscorlib">
+    <value>18</value>
+  </data>
+  <data name="lbUnitAngle.Text" xml:space="preserve">
+    <value>°</value>
+  </data>
+  <data name="&gt;&gt;lbUnitAngle.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbUnitAngle.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="listBoxTextures.Location" type="System.Drawing.Point, System.Drawing">
+    <value>17, 62</value>
+  </data>
+  <data name="&gt;&gt;listBoxTextures.Name" xml:space="preserve">
+    <value>listBoxTextures</value>
+  </data>
+  <data name="&gt;&gt;listBoxTextures.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="listBoxTextures.Size" type="System.Drawing.Size, System.Drawing">
+    <value>128, 199</value>
+  </data>
+  <data name="listBoxTextures.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;listBoxTextures.Type" xml:space="preserve">
+    <value>treeDiM.StackBuilder.Desktop.ListBoxImages, treeDiM.StackBuilder.Desktop, Version=3.0.0.46, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;listBoxTextures.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="nudAngle.Location" type="System.Drawing.Point, System.Drawing">
+    <value>79, 334</value>
+  </data>
+  <data name="&gt;&gt;nudAngle.Name" xml:space="preserve">
+    <value>nudAngle</value>
+  </data>
+  <data name="&gt;&gt;nudAngle.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="nudAngle.Size" type="System.Drawing.Size, System.Drawing">
+    <value>60, 20</value>
+  </data>
+  <data name="nudAngle.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="&gt;&gt;nudAngle.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;nudAngle.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="openImageFileDialog.Filter" xml:space="preserve">
+    <value>Image Files (*.bmp,*.gif, *.jpg)|*.bmp;*.gif;*.jpg</value>
+  </data>
+  <data name="&gt;&gt;openImageFileDialog.Name" xml:space="preserve">
+    <value>openImageFileDialog</value>
+  </data>
+  <data name="&gt;&gt;openImageFileDialog.Type" xml:space="preserve">
+    <value>System.Windows.Forms.OpenFileDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="uCtrlOrigin.Location" type="System.Drawing.Point, System.Drawing">
     <value>20, 281</value>
+  </data>
+  <data name="&gt;&gt;uCtrlOrigin.Name" xml:space="preserve">
+    <value>uCtrlOrigin</value>
+  </data>
+  <data name="&gt;&gt;uCtrlOrigin.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="uCtrlOrigin.Size" type="System.Drawing.Size, System.Drawing">
     <value>218, 20</value>
@@ -504,20 +561,20 @@
   <data name="uCtrlOrigin.Text" xml:space="preserve">
     <value>Origin</value>
   </data>
-  <data name="&gt;&gt;uCtrlOrigin.Name" xml:space="preserve">
-    <value>uCtrlOrigin</value>
-  </data>
   <data name="&gt;&gt;uCtrlOrigin.Type" xml:space="preserve">
     <value>treeDiM.Basics.UCtrlDualDouble, treeDiM.Basics, Version=3.0.0.98, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;uCtrlOrigin.Parent" xml:space="preserve">
-    <value>$this</value>
   </data>
   <data name="&gt;&gt;uCtrlOrigin.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
   <data name="uCtrlSize.Location" type="System.Drawing.Point, System.Drawing">
     <value>20, 307</value>
+  </data>
+  <data name="&gt;&gt;uCtrlSize.Name" xml:space="preserve">
+    <value>uCtrlSize</value>
+  </data>
+  <data name="&gt;&gt;uCtrlSize.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="uCtrlSize.Size" type="System.Drawing.Size, System.Drawing">
     <value>218, 20</value>
@@ -528,67 +585,10 @@
   <data name="uCtrlSize.Text" xml:space="preserve">
     <value>Size</value>
   </data>
-  <data name="&gt;&gt;uCtrlSize.Name" xml:space="preserve">
-    <value>uCtrlSize</value>
-  </data>
   <data name="&gt;&gt;uCtrlSize.Type" xml:space="preserve">
     <value>treeDiM.Basics.UCtrlDualDouble, treeDiM.Basics, Version=3.0.0.46, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="&gt;&gt;uCtrlSize.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
   <data name="&gt;&gt;uCtrlSize.ZOrder" xml:space="preserve">
     <value>1</value>
-  </data>
-  <data name="graphCtrl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>245, 64</value>
-  </data>
-  <data name="graphCtrl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>329, 286</value>
-  </data>
-  <data name="graphCtrl.TabIndex" type="System.Int32, mscorlib">
-    <value>28</value>
-  </data>
-  <data name="&gt;&gt;graphCtrl.Name" xml:space="preserve">
-    <value>graphCtrl</value>
-  </data>
-  <data name="&gt;&gt;graphCtrl.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Graphics.Graphics3DControl, treeDiM.StackBuilder.Graphics, Version=3.0.0.46, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;graphCtrl.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;graphCtrl.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 13</value>
-  </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>584, 362</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Edit face images</value>
-  </data>
-  <data name="&gt;&gt;openImageFileDialog.Name" xml:space="preserve">
-    <value>openImageFileDialog</value>
-  </data>
-  <data name="&gt;&gt;openImageFileDialog.Type" xml:space="preserve">
-    <value>System.Windows.Forms.OpenFileDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>FormEditBitmaps</value>
-  </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="lbSize.Text" xml:space="preserve">
-    <value>Size</value>
-  </data>
-  <data name="lbOrigin.Text" xml:space="preserve">
-    <value>Origin</value>
   </data>
 </root>

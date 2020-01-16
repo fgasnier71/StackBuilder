@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,70 +117,70 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="cbColor.Items6" xml:space="preserve">
+  <data name="$this.Text" xml:space="preserve">
+    <value>Maak nieuwe pallet film...</value>
+  </data>
+  <data name="bnSendToDB.Text" xml:space="preserve">
+    <value>Verzenden naar database</value>
+  </data>
+  <data name="cbColor.Items" xml:space="preserve">
     <value>Kleur</value>
   </data>
-  <data name="cbColor.Items3" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items14" xml:space="preserve">
+  <data name="cbColor.Items1" xml:space="preserve">
     <value>Kleur</value>
   </data>
   <data name="cbColor.Items10" xml:space="preserve">
     <value>Kleur</value>
   </data>
-  <data name="chkbTransparency.Text" xml:space="preserve">
-    <value>Transparantie</value>
-  </data>
-  <data name="cbColor.Items1" xml:space="preserve">
+  <data name="cbColor.Items11" xml:space="preserve">
     <value>Kleur</value>
   </data>
-  <data name="cbColor.Items8" xml:space="preserve">
+  <data name="cbColor.Items12" xml:space="preserve">
     <value>Kleur</value>
   </data>
-  <data name="lbColor.Text" xml:space="preserve">
+  <data name="cbColor.Items13" xml:space="preserve">
     <value>Kleur</value>
   </data>
-  <data name="chkbHatching.Text" xml:space="preserve">
-    <value>Broedeieren</value>
-  </data>
-  <data name="uCtrlSpacing.Text" xml:space="preserve">
-    <value>Afstand</value>
+  <data name="cbColor.Items14" xml:space="preserve">
+    <value>Kleur</value>
   </data>
   <data name="cbColor.Items2" xml:space="preserve">
     <value>Kleur</value>
   </data>
-  <data name="cbColor.Items7" xml:space="preserve">
+  <data name="cbColor.Items3" xml:space="preserve">
     <value>Kleur</value>
   </data>
   <data name="cbColor.Items4" xml:space="preserve">
     <value>Kleur</value>
   </data>
-  <data name="cbColor.Items9" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items11" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Maak nieuwe pallet film...</value>
-  </data>
-  <data name="cbColor.Items13" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
   <data name="cbColor.Items5" xml:space="preserve">
     <value>Kleur</value>
   </data>
-  <data name="bnSendToDB.Text" xml:space="preserve">
-    <value>Verzenden naar database</value>
+  <data name="cbColor.Items6" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items7" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items8" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items9" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="chkbHatching.Text" xml:space="preserve">
+    <value>Broedeieren</value>
+  </data>
+  <data name="chkbTransparency.Text" xml:space="preserve">
+    <value>Transparantie</value>
+  </data>
+  <data name="lbColor.Text" xml:space="preserve">
+    <value>Kleur</value>
   </data>
   <data name="uCtrlAngle.Text" xml:space="preserve">
     <value>Hoek</value>
   </data>
-  <data name="cbColor.Items12" xml:space="preserve">
-    <value>Kleur</value>
+  <data name="uCtrlSpacing.Text" xml:space="preserve">
+    <value>Afstand</value>
   </data>
 </root>

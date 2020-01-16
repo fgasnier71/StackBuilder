@@ -118,119 +118,6 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="lbFontSizeDetail.Size" type="System.Drawing.Size, System.Drawing">
-    <value>72, 13</value>
-  </data>
-  <data name="lbFontSizeDetail.Text" xml:space="preserve">
-    <value>フォント サイズ</value>
-  </data>
-  <data name="lbHTMLSizeDetail.Size" type="System.Drawing.Size, System.Drawing">
-    <value>79, 13</value>
-  </data>
-  <data name="lbHTMLSizeDetail.Text" xml:space="preserve">
-    <value>HTML のサイズ</value>
-  </data>
-  <data name="lbDefinitionDetail.Size" type="System.Drawing.Size, System.Drawing">
-    <value>31, 13</value>
-  </data>
-  <data name="lbDefinitionDetail.Text" xml:space="preserve">
-    <value>定義</value>
-  </data>
-  <data name="tabPageDetail.Text" xml:space="preserve">
-    <value>詳細画像</value>
-  </data>
-  <data name="lbFontSizeLarge.Size" type="System.Drawing.Size, System.Drawing">
-    <value>72, 13</value>
-  </data>
-  <data name="lbFontSizeLarge.Text" xml:space="preserve">
-    <value>フォント サイズ</value>
-  </data>
-  <data name="lbHTMLSizeLarge.Size" type="System.Drawing.Size, System.Drawing">
-    <value>79, 13</value>
-  </data>
-  <data name="lbHTMLSizeLarge.Text" xml:space="preserve">
-    <value>HTML のサイズ</value>
-  </data>
-  <data name="lbDefinitionLarge.Size" type="System.Drawing.Size, System.Drawing">
-    <value>31, 13</value>
-  </data>
-  <data name="lbDefinitionLarge.Text" xml:space="preserve">
-    <value>定義</value>
-  </data>
-  <data name="tabPageLargeImg.Text" xml:space="preserve">
-    <value>大きな画像</value>
-  </data>
-  <data name="statusLabelDef.Size" type="System.Drawing.Size, System.Drawing">
-    <value>69, 17</value>
-  </data>
-  <data name="statusLabelDef.Text" xml:space="preserve">
-    <value>準備ができて</value>
-  </data>
-  <data name="toolSBReportWord.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABkSURBVDhPzYxBDoBACAP3/5/GFC0phAPuenCSapka11pm
-        Z7kfm/zsB3gzpHMgeY5JPnQOJK9jSOka9exxgDpOehygjpMeB6jjpMcBODJK571XoVE6770KjdJ57/XD
-        N3z3g92YXauEAwxp1v7WAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="toolSBReportWord.Text" xml:space="preserve">
-    <value>単語</value>
-  </data>
-  <data name="toolSBReportPDF.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACMSURBVDhPnZALEoAgCEQ7OkfzZsQilBL+2pnVsOWFXUFM
-        RGLsuZGp0VzDl6UUdkv55uSJVyaxNT6g2lrXtKk1ALiaNogAsJqPJqj/h/qrKH3D+mlTBwj6HDThTtsA
-        H9nKqDVgNIFpDcAEcvgfgGZM4HuYZg7wsDe21sAMEIIj5QBZdpqhHHCgFHDgi29hU/jjkYIOQAAAAABJ
-        RU5ErkJggg==
-</value>
-  </data>
-  <data name="toolSBReportPDF.Text" xml:space="preserve">
-    <value>PDF レポート</value>
-  </data>
-  <data name="toolSBReportHTML.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJHSURBVDhPlVNLTBNRFH3RKCJiBD+40IVbPzEmmvhZsHBt
-        TFy5cGdiNO79JUT8AIqAqagVUVTiwl+I0YAbWWiIKe20HYilQyifWtNQWtpK1QGrOd57p9Na0URvcvJm
-        3nv3zLnn3lH/E1r0M5zeKTS7JhGdmUNu+88xmpqFoz+Gk70RHOmegDrvQUWTHydeR9Dui2NLWwCTmW/z
-        SeJfstjofA91zoMlDV6UXfKhvNGH1c26oNUTyyfd1KaKCd5FMlCnXVjZpKOqRccawoorflTSl+33hXUa
-        trUPSeKzYLJAkPiahTrjkvrWXh1A+WUfSht82P8khB13g1ICE/BZKamq7jQwkf7Fhz33DQTjJpbS4TJK
-        3vtwuEiekTCx4KKWJ+ESQ0nTupM0s4h8mpNEll9Gqxz8Fo8C0+ILEyxv9ONod7hwbzcp4M1VZNT2O0Pg
-        +jr0eB6dAwlcc8fEVCZgQzffClgEL4ZTVKMmBww2Tp11z0euMzZKCEJQQQn8ZU62FdzTE9Kyv4LUSBvf
-        hql1tZ4ignUOMulf4/DLcex7PIJNVI9NsqjOizaattyVfBx6PgZVQ6VQuTwv10mFWu8YRN+HjEDVuoWg
-        qoUUXNBwsGsUPSNpdBkp7OoIYnG9VwaKB6uSumXRkjHWg1LHX1FbaGCYgMFd4aQSAvvE5LzynfTsdyuP
-        mcbpx5EXCicbU9Mv02aby7PBZKxqQ+sgzOyPQnk8QFtvB3Cq9yPq+6LS62ka6xvk9IGnIewk6dUPDBzr
-        CeNNeKaQKKHUTyBYAvpprH2bAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="toolSBReportPrint.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADxSURBVDhPxdO/TsJQGIbxegfOBIyCJI6ElcHNxRAHYww7
-        iZtRNhIWomEBHdVBr0F3bo7naXtMm/4LLr7JDz7ac77Qc06jTLr4wHODd5ygkCEekrI2jxgkZT7/1+AI
-        XnzBd1rX+cEmrVuIlrDjCJdpXccxjrV+Qryy+2aLC6z88ZcG/oNDFBp00G/gmJBcg1N4SBYN3tCDyTUI
-        2+hN6zKeVlffBTRxg3VcJgNscIVZCSeO0+/Q4NWPO3jRc/CJe3yVOIexDudg6oUD2HEC9/UG8wrXcMwt
-        nOPc34RHaOOsgveyj5CLr6i74MLUcReOQaJoB17QP0208ODJAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="toolSBReportPrint.Text" xml:space="preserve">
-    <value>印刷.</value>
-  </data>
-  <data name="toolSBReportPrint.ToolTipText" xml:space="preserve">
-    <value>印刷</value>
-  </data>
-  <data name="toolSBDimensions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABASURBVDhPYxgFcPAfSpMCUPQgc/AZhlMdjINPMwxgVQvi
-        kIPhAMZBEcQBsKpF5uAzBKc6fJpwgVEDyNODDhgYAPNoKddm5onHAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="toolSBDimensions.Text" xml:space="preserve">
-    <value>寸法を表示しない/表示</value>
-  </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAMAMDAAAAEACACoDgAANgAAACAgAAABAAgAqAgAAN4OAAAQEAAAAQAIAGgFAACGFwAAKAAAADAA
@@ -361,5 +248,118 @@
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>レポート.</value>
+  </data>
+  <data name="lbDefinitionDetail.Size" type="System.Drawing.Size, System.Drawing">
+    <value>31, 13</value>
+  </data>
+  <data name="lbDefinitionDetail.Text" xml:space="preserve">
+    <value>定義</value>
+  </data>
+  <data name="lbDefinitionLarge.Size" type="System.Drawing.Size, System.Drawing">
+    <value>31, 13</value>
+  </data>
+  <data name="lbDefinitionLarge.Text" xml:space="preserve">
+    <value>定義</value>
+  </data>
+  <data name="lbFontSizeDetail.Size" type="System.Drawing.Size, System.Drawing">
+    <value>72, 13</value>
+  </data>
+  <data name="lbFontSizeDetail.Text" xml:space="preserve">
+    <value>フォント サイズ</value>
+  </data>
+  <data name="lbFontSizeLarge.Size" type="System.Drawing.Size, System.Drawing">
+    <value>72, 13</value>
+  </data>
+  <data name="lbFontSizeLarge.Text" xml:space="preserve">
+    <value>フォント サイズ</value>
+  </data>
+  <data name="lbHTMLSizeDetail.Size" type="System.Drawing.Size, System.Drawing">
+    <value>79, 13</value>
+  </data>
+  <data name="lbHTMLSizeDetail.Text" xml:space="preserve">
+    <value>HTML のサイズ</value>
+  </data>
+  <data name="lbHTMLSizeLarge.Size" type="System.Drawing.Size, System.Drawing">
+    <value>79, 13</value>
+  </data>
+  <data name="lbHTMLSizeLarge.Text" xml:space="preserve">
+    <value>HTML のサイズ</value>
+  </data>
+  <data name="statusLabelDef.Size" type="System.Drawing.Size, System.Drawing">
+    <value>69, 17</value>
+  </data>
+  <data name="statusLabelDef.Text" xml:space="preserve">
+    <value>準備ができて</value>
+  </data>
+  <data name="tabPageDetail.Text" xml:space="preserve">
+    <value>詳細画像</value>
+  </data>
+  <data name="tabPageLargeImg.Text" xml:space="preserve">
+    <value>大きな画像</value>
+  </data>
+  <data name="toolSBDimensions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABASURBVDhPYxgFcPAfSpMCUPQgc/AZhlMdjINPMwxgVQvi
+        kIPhAMZBEcQBsKpF5uAzBKc6fJpwgVEDyNODDhgYAPNoKddm5onHAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="toolSBDimensions.Text" xml:space="preserve">
+    <value>寸法を表示しない/表示</value>
+  </data>
+  <data name="toolSBReportHTML.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJHSURBVDhPlVNLTBNRFH3RKCJiBD+40IVbPzEmmvhZsHBt
+        TFy5cGdiNO79JUT8AIqAqagVUVTiwl+I0YAbWWiIKe20HYilQyifWtNQWtpK1QGrOd57p9Na0URvcvJm
+        3nv3zLnn3lH/E1r0M5zeKTS7JhGdmUNu+88xmpqFoz+Gk70RHOmegDrvQUWTHydeR9Dui2NLWwCTmW/z
+        SeJfstjofA91zoMlDV6UXfKhvNGH1c26oNUTyyfd1KaKCd5FMlCnXVjZpKOqRccawoorflTSl+33hXUa
+        trUPSeKzYLJAkPiahTrjkvrWXh1A+WUfSht82P8khB13g1ICE/BZKamq7jQwkf7Fhz33DQTjJpbS4TJK
+        3vtwuEiekTCx4KKWJ+ESQ0nTupM0s4h8mpNEll9Gqxz8Fo8C0+ILEyxv9ONod7hwbzcp4M1VZNT2O0Pg
+        +jr0eB6dAwlcc8fEVCZgQzffClgEL4ZTVKMmBww2Tp11z0euMzZKCEJQQQn8ZU62FdzTE9Kyv4LUSBvf
+        hql1tZ4ignUOMulf4/DLcex7PIJNVI9NsqjOizaattyVfBx6PgZVQ6VQuTwv10mFWu8YRN+HjEDVuoWg
+        qoUUXNBwsGsUPSNpdBkp7OoIYnG9VwaKB6uSumXRkjHWg1LHX1FbaGCYgMFd4aQSAvvE5LzynfTsdyuP
+        mcbpx5EXCicbU9Mv02aby7PBZKxqQ+sgzOyPQnk8QFtvB3Cq9yPq+6LS62ka6xvk9IGnIewk6dUPDBzr
+        CeNNeKaQKKHUTyBYAvpprH2bAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="toolSBReportPDF.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACMSURBVDhPnZALEoAgCEQ7OkfzZsQilBL+2pnVsOWFXUFM
+        RGLsuZGp0VzDl6UUdkv55uSJVyaxNT6g2lrXtKk1ALiaNogAsJqPJqj/h/qrKH3D+mlTBwj6HDThTtsA
+        H9nKqDVgNIFpDcAEcvgfgGZM4HuYZg7wsDe21sAMEIIj5QBZdpqhHHCgFHDgi29hU/jjkYIOQAAAAABJ
+        RU5ErkJggg==
+</value>
+  </data>
+  <data name="toolSBReportPDF.Text" xml:space="preserve">
+    <value>PDF レポート</value>
+  </data>
+  <data name="toolSBReportPrint.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADxSURBVDhPxdO/TsJQGIbxegfOBIyCJI6ElcHNxRAHYww7
+        iZtRNhIWomEBHdVBr0F3bo7naXtMm/4LLr7JDz7ac77Qc06jTLr4wHODd5ygkCEekrI2jxgkZT7/1+AI
+        XnzBd1rX+cEmrVuIlrDjCJdpXccxjrV+Qryy+2aLC6z88ZcG/oNDFBp00G/gmJBcg1N4SBYN3tCDyTUI
+        2+hN6zKeVlffBTRxg3VcJgNscIVZCSeO0+/Q4NWPO3jRc/CJe3yVOIexDudg6oUD2HEC9/UG8wrXcMwt
+        nOPc34RHaOOsgveyj5CLr6i74MLUcReOQaJoB17QP0208ODJAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="toolSBReportPrint.Text" xml:space="preserve">
+    <value>印刷.</value>
+  </data>
+  <data name="toolSBReportPrint.ToolTipText" xml:space="preserve">
+    <value>印刷</value>
+  </data>
+  <data name="toolSBReportWord.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABkSURBVDhPzYxBDoBACAP3/5/GFC0phAPuenCSapka11pm
+        Z7kfm/zsB3gzpHMgeY5JPnQOJK9jSOka9exxgDpOehygjpMeB6jjpMcBODJK571XoVE6770KjdJ57/XD
+        N3z3g92YXauEAwxp1v7WAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="toolSBReportWord.Text" xml:space="preserve">
+    <value>単語</value>
   </data>
 </root>

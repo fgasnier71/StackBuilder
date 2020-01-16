@@ -117,14 +117,26 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="bnOK.Text" xml:space="preserve">
-    <value>Okej</value>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Redigera ansikte bilder</value>
+  </data>
+  <data name="bnAdd.Text" xml:space="preserve">
+    <value>Lägga till textur...</value>
   </data>
   <data name="bnCancel.Text" xml:space="preserve">
     <value>Avbryt</value>
   </data>
-  <data name="labelFace.Text" xml:space="preserve">
-    <value>Ansikte</value>
+  <data name="bnMoveDown.Text" xml:space="preserve">
+    <value>Flytta ned</value>
+  </data>
+  <data name="bnMoveUp.Text" xml:space="preserve">
+    <value>Flytta upp</value>
+  </data>
+  <data name="bnOK.Text" xml:space="preserve">
+    <value>Okej</value>
+  </data>
+  <data name="bnRemove.Text" xml:space="preserve">
+    <value>Ta bort</value>
   </data>
   <data name="cbFace.Items" xml:space="preserve">
     <value>Bakre</value>
@@ -144,55 +156,43 @@
   <data name="cbFace.Items5" xml:space="preserve">
     <value>Topp</value>
   </data>
+  <data name="labelFace.Text" xml:space="preserve">
+    <value>Ansikte</value>
+  </data>
+  <data name="lbAngle.Text" xml:space="preserve">
+    <value>Vinkel</value>
+  </data>
+  <data name="lbImage.Text" xml:space="preserve">
+    <value>Bilder</value>
+  </data>
   <data name="lbOrigin.Text" xml:space="preserve">
     <value>Ursprung</value>
   </data>
   <data name="lbSize.Text" xml:space="preserve">
     <value>Storlek</value>
   </data>
-  <data name="lbAngle.Text" xml:space="preserve">
-    <value>Vinkel</value>
-  </data>
-  <data name="uLengthOriginX.Text" xml:space="preserve">
-    <value>uLength</value>
-  </data>
-  <data name="uLengthSizeX.Text" xml:space="preserve">
-    <value>uLength</value>
-  </data>
   <data name="lbUnitAngle.Text" xml:space="preserve">
     <value>°</value>
   </data>
-  <data name="uLengthOriginY.Text" xml:space="preserve">
-    <value>uLength</value>
-  </data>
-  <data name="uLengthSizeY.Text" xml:space="preserve">
-    <value>uLength</value>
-  </data>
-  <data name="bnMoveUp.Text" xml:space="preserve">
-    <value>Flytta upp</value>
-  </data>
-  <data name="bnMoveDown.Text" xml:space="preserve">
-    <value>Flytta ned</value>
-  </data>
-  <data name="bnAdd.Text" xml:space="preserve">
-    <value>Lägga till textur...</value>
-  </data>
-  <data name="bnRemove.Text" xml:space="preserve">
-    <value>Ta bort</value>
-  </data>
   <data name="openImageFileDialog.Filter" xml:space="preserve">
     <value>Bildfiler (*.bmp, *.gif, *.jpg) | * .bmp; *.gif; *.jpg</value>
-  </data>
-  <data name="lbImage.Text" xml:space="preserve">
-    <value>Bilder</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Redigera ansikte bilder</value>
   </data>
   <data name="uCtrlOrigin.Text" xml:space="preserve">
     <value>Ursprung</value>
   </data>
   <data name="uCtrlSize.Text" xml:space="preserve">
     <value>Storlek</value>
+  </data>
+  <data name="uLengthOriginX.Text" xml:space="preserve">
+    <value>uLength</value>
+  </data>
+  <data name="uLengthOriginY.Text" xml:space="preserve">
+    <value>uLength</value>
+  </data>
+  <data name="uLengthSizeX.Text" xml:space="preserve">
+    <value>uLength</value>
+  </data>
+  <data name="uLengthSizeY.Text" xml:space="preserve">
+    <value>uLength</value>
   </data>
 </root>

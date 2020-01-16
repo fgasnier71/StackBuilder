@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,29 +117,23 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="uCtrlFlatWeight.Text" xml:space="preserve">
-    <value>Peso plana</value>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Paquete / caso análisis...</value>
   </data>
-  <data name="uCtrlFlatDimensions.Text" xml:space="preserve">
-    <value>Dimensiones planos</value>
+  <data name="bnCancel.Text" xml:space="preserve">
+    <value>Cancelar</value>
   </data>
-  <data name="lbNumberOfFlats.Text" xml:space="preserve">
-    <value>Número de pisos</value>
-  </data>
-  <data name="gbFlatDim.Text" xml:space="preserve">
-    <value>Paquete</value>
-  </data>
-  <data name="uCtrlCaseWeight.Text" xml:space="preserve">
-    <value>Caso peso</value>
-  </data>
-  <data name="uCtrlCaseDimensions.Text" xml:space="preserve">
-    <value>Dimensiones de la caja</value>
+  <data name="bnNext.Text" xml:space="preserve">
+    <value>Siguiente &amp;gt;</value>
   </data>
   <data name="gbCaseDim.Text" xml:space="preserve">
     <value>Caso</value>
   </data>
-  <data name="bnCancel.Text" xml:space="preserve">
-    <value>Cancelar</value>
+  <data name="gbFlatDim.Text" xml:space="preserve">
+    <value>Paquete</value>
+  </data>
+  <data name="lbNumberOfFlats.Text" xml:space="preserve">
+    <value>Número de pisos</value>
   </data>
   <data name="statusLabelDef.Text" xml:space="preserve">
     <value>statusLabelDef</value>
@@ -147,10 +141,16 @@
   <data name="statusStrip.Text" xml:space="preserve">
     <value>statusStrip1</value>
   </data>
-  <data name="bnNext.Text" xml:space="preserve">
-    <value>Siguiente &amp;gt;</value>
+  <data name="uCtrlCaseDimensions.Text" xml:space="preserve">
+    <value>Dimensiones de la caja</value>
   </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Paquete / caso análisis...</value>
+  <data name="uCtrlCaseWeight.Text" xml:space="preserve">
+    <value>Caso peso</value>
+  </data>
+  <data name="uCtrlFlatDimensions.Text" xml:space="preserve">
+    <value>Dimensiones planos</value>
+  </data>
+  <data name="uCtrlFlatWeight.Text" xml:space="preserve">
+    <value>Peso plana</value>
   </data>
 </root>

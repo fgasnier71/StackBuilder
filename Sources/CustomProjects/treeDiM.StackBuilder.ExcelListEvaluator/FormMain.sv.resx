@@ -117,79 +117,79 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="menuStrip.Text" xml:space="preserve">
-    <value>menuStrip</value>
-  </data>
-  <data name="toolStripMIFile.Text" xml:space="preserve">
-    <value>Fil</value>
-  </data>
-  <data name="exitToolStripMenuItem.Text" xml:space="preserve">
-    <value>Exit</value>
-  </data>
-  <data name="toolStripMITools.Text" xml:space="preserve">
-    <value>Verktyg</value>
-  </data>
-  <data name="toolStripMISettings.Text" xml:space="preserve">
-    <value>Inställningar</value>
-  </data>
-  <data name="statusStrip.Text" xml:space="preserve">
-    <value>statusStrip</value>
-  </data>
-  <data name="statusLabel.Text" xml:space="preserve">
-    <value>statusLabel</value>
-  </data>
-  <data name="lbFilePath.Text" xml:space="preserve">
-    <value>Sökväg till Excel</value>
-  </data>
-  <data name="uCtrlPalletDimensions.Text" xml:space="preserve">
-    <value>Dimensioner</value>
-  </data>
-  <data name="gbInput.Text" xml:space="preserve">
-    <value>Ingång</value>
-  </data>
-  <data name="chkbOnlyVerticalOrientation.Text" xml:space="preserve">
-    <value>Tillåta endast lodrät orientering</value>
-  </data>
-  <data name="tabPallet.Text" xml:space="preserve">
-    <value>Lastpall</value>
-  </data>
-  <data name="uCtrlMaximumPalletHeight.Text" xml:space="preserve">
-    <value>Maximala lastad pall höjd</value>
-  </data>
-  <data name="lbPalletType.Text" xml:space="preserve">
-    <value>Lastpallstyp</value>
-  </data>
-  <data name="tabContainer.Text" xml:space="preserve">
-    <value>Behållare</value>
-  </data>
-  <data name="uCtrlTruckDimensions.Text" xml:space="preserve">
-    <value>Dimensioner</value>
-  </data>
-  <data name="lbCaseLoaded.Text" xml:space="preserve">
-    <value>(Inget fall laddad!)</value>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Snabb stapling uppskattning</value>
   </data>
   <data name="bnDirectoryPath.Text" xml:space="preserve">
     <value>...</value>
   </data>
-  <data name="chkbGenerateImageFolder.Text" xml:space="preserve">
-    <value>Generera bild i mappen</value>
+  <data name="bnGenerate.Text" xml:space="preserve">
+    <value>Generera</value>
   </data>
   <data name="chkbGenerateImage.Text" xml:space="preserve">
     <value>Generera bild i utdata Excelark</value>
   </data>
+  <data name="chkbGenerateImageFolder.Text" xml:space="preserve">
+    <value>Generera bild i mappen</value>
+  </data>
+  <data name="chkbOnlyVerticalOrientation.Text" xml:space="preserve">
+    <value>Tillåta endast lodrät orientering</value>
+  </data>
   <data name="chkbOpenFile.Text" xml:space="preserve">
     <value>Öppna genererade filen</value>
   </data>
-  <data name="lbOutputFilePath.Text" xml:space="preserve">
-    <value>Pappersbana Excel-fil</value>
+  <data name="exitToolStripMenuItem.Text" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="gbInput.Text" xml:space="preserve">
+    <value>Ingång</value>
   </data>
   <data name="gbOutput.Text" xml:space="preserve">
     <value>Utdata</value>
   </data>
-  <data name="bnGenerate.Text" xml:space="preserve">
-    <value>Generera</value>
+  <data name="lbCaseLoaded.Text" xml:space="preserve">
+    <value>(Inget fall laddad!)</value>
   </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Snabb stapling uppskattning</value>
+  <data name="lbFilePath.Text" xml:space="preserve">
+    <value>Sökväg till Excel</value>
+  </data>
+  <data name="lbOutputFilePath.Text" xml:space="preserve">
+    <value>Pappersbana Excel-fil</value>
+  </data>
+  <data name="lbPalletType.Text" xml:space="preserve">
+    <value>Lastpallstyp</value>
+  </data>
+  <data name="menuStrip.Text" xml:space="preserve">
+    <value>menuStrip</value>
+  </data>
+  <data name="statusLabel.Text" xml:space="preserve">
+    <value>statusLabel</value>
+  </data>
+  <data name="statusStrip.Text" xml:space="preserve">
+    <value>statusStrip</value>
+  </data>
+  <data name="tabContainer.Text" xml:space="preserve">
+    <value>Behållare</value>
+  </data>
+  <data name="tabPallet.Text" xml:space="preserve">
+    <value>Lastpall</value>
+  </data>
+  <data name="toolStripMIFile.Text" xml:space="preserve">
+    <value>Fil</value>
+  </data>
+  <data name="toolStripMISettings.Text" xml:space="preserve">
+    <value>Inställningar</value>
+  </data>
+  <data name="toolStripMITools.Text" xml:space="preserve">
+    <value>Verktyg</value>
+  </data>
+  <data name="uCtrlMaximumPalletHeight.Text" xml:space="preserve">
+    <value>Maximala lastad pall höjd</value>
+  </data>
+  <data name="uCtrlPalletDimensions.Text" xml:space="preserve">
+    <value>Dimensioner</value>
+  </data>
+  <data name="uCtrlTruckDimensions.Text" xml:space="preserve">
+    <value>Dimensioner</value>
   </data>
 </root>

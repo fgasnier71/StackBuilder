@@ -117,11 +117,11 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="toolStripStatusLabelDef.Text" xml:space="preserve">
-    <value>toolStripStatusLabelDef</value>
+  <data name="$this.Text" xml:space="preserve">
+    <value>新的分析..。</value>
   </data>
-  <data name="statusStripDef.Text" xml:space="preserve">
-    <value>statusStripDef</value>
+  <data name="bnNext.Text" xml:space="preserve">
+    <value>下一页</value>
   </data>
   <data name="lbDescription.Text" xml:space="preserve">
     <value>描述</value>
@@ -129,10 +129,10 @@
   <data name="lbName.Text" xml:space="preserve">
     <value>名称</value>
   </data>
-  <data name="bnNext.Text" xml:space="preserve">
-    <value>下一页</value>
+  <data name="statusStripDef.Text" xml:space="preserve">
+    <value>statusStripDef</value>
   </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>新的分析..。</value>
+  <data name="toolStripStatusLabelDef.Text" xml:space="preserve">
+    <value>toolStripStatusLabelDef</value>
   </data>
 </root>

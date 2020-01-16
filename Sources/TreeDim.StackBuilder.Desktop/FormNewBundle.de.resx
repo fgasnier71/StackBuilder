@@ -117,28 +117,23 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="cbColor.Items2" xml:space="preserve">
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="$this.Text" xml:space="preserve">
+    <value>Erzeuge neues Bundle…</value>
+  </data>
+  <data name="bnCancel.Text" xml:space="preserve">
+    <value>Abbrechen</value>
+  </data>
+  <data name="bnOk.Text" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="bnSendToDB.Text" xml:space="preserve">
+    <value>In Datenbank speichern</value>
+  </data>
+  <data name="cbColor.Items" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbColor.Items3" xml:space="preserve">
-    <value>Farbe</value>
-  </data>
-  <data name="cbColor.Items4" xml:space="preserve">
-    <value>Farbe</value>
-  </data>
-  <data name="cbColor.Items5" xml:space="preserve">
-    <value>Farbe</value>
-  </data>
-  <data name="cbColor.Items6" xml:space="preserve">
-    <value>Farbe</value>
-  </data>
-  <data name="cbColor.Items7" xml:space="preserve">
-    <value>Farbe</value>
-  </data>
-  <data name="cbColor.Items8" xml:space="preserve">
-    <value>Farbe</value>
-  </data>
-  <data name="cbColor.Items9" xml:space="preserve">
+  <data name="cbColor.Items1" xml:space="preserve">
     <value>Farbe</value>
   </data>
   <data name="cbColor.Items10" xml:space="preserve">
@@ -171,6 +166,9 @@
   <data name="cbColor.Items19" xml:space="preserve">
     <value>Farbe</value>
   </data>
+  <data name="cbColor.Items2" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
   <data name="cbColor.Items20" xml:space="preserve">
     <value>Farbe</value>
   </data>
@@ -198,77 +196,16 @@
   <data name="cbColor.Items28" xml:space="preserve">
     <value>Farbe</value>
   </data>
+  <data name="cbColor.Items29" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="cbColor.Items3" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
   <data name="cbColor.Items30" xml:space="preserve">
     <value>Color</value>
   </data>
   <data name="cbColor.Items31" xml:space="preserve">
-    <value>Farbe</value>
-  </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="lbColor.Size" type="System.Drawing.Size, System.Drawing">
-    <value>34, 13</value>
-  </data>
-  <data name="lbColor.Text" xml:space="preserve">
-    <value>Farbe</value>
-  </data>
-  <data name="lbWeight.Size" type="System.Drawing.Size, System.Drawing">
-    <value>46, 13</value>
-  </data>
-  <data name="lbWeight.Text" xml:space="preserve">
-    <value>Gewicht</value>
-  </data>
-  <data name="gbFaceColor.Text" xml:space="preserve">
-    <value>Flächen Farbe</value>
-  </data>
-  <data name="gbWeight.Text" xml:space="preserve">
-    <value>Gewicht</value>
-  </data>
-  <data name="lbThickness.Size" type="System.Drawing.Size, System.Drawing">
-    <value>35, 13</value>
-  </data>
-  <data name="lbThickness.Text" xml:space="preserve">
-    <value>Dicke</value>
-  </data>
-  <data name="lblDescription.Size" type="System.Drawing.Size, System.Drawing">
-    <value>72, 13</value>
-  </data>
-  <data name="lblDescription.Text" xml:space="preserve">
-    <value>Beschreibung</value>
-  </data>
-  <data name="lbNoFlats.Size" type="System.Drawing.Size, System.Drawing">
-    <value>98, 13</value>
-  </data>
-  <data name="lbNoFlats.Text" xml:space="preserve">
-    <value>Anzahl der Flächen</value>
-  </data>
-  <data name="lbWidth.Size" type="System.Drawing.Size, System.Drawing">
-    <value>34, 13</value>
-  </data>
-  <data name="lbWidth.Text" xml:space="preserve">
-    <value>Breite</value>
-  </data>
-  <data name="lbLength.Size" type="System.Drawing.Size, System.Drawing">
-    <value>37, 13</value>
-  </data>
-  <data name="lbLength.Text" xml:space="preserve">
-    <value>Länge</value>
-  </data>
-  <data name="gbDimensions.Text" xml:space="preserve">
-    <value>Masse</value>
-  </data>
-  <data name="bnCancel.Text" xml:space="preserve">
-    <value>Abbrechen</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Erzeuge neues Bundle…</value>
-  </data>
-  <data name="cbColor.Items" xml:space="preserve">
-    <value>Farbe</value>
-  </data>
-  <data name="cbColor.Items1" xml:space="preserve">
-    <value>Farbe</value>
-  </data>
-  <data name="cbColor.Items29" xml:space="preserve">
     <value>Farbe</value>
   </data>
   <data name="cbColor.Items32" xml:space="preserve">
@@ -283,33 +220,6 @@
   <data name="cbColor.Items35" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="lblName.Text" xml:space="preserve">
-    <value>Name</value>
-  </data>
-  <data name="uCtrlWeight.Text" xml:space="preserve">
-    <value>Stückgewicht</value>
-  </data>
-  <data name="uCtrlThickness.Text" xml:space="preserve">
-    <value>Dicke</value>
-  </data>
-  <data name="uCtrlWidth.Text" xml:space="preserve">
-    <value>Breite</value>
-  </data>
-  <data name="uCtrlLength.Text" xml:space="preserve">
-    <value>Länge</value>
-  </data>
-  <data name="bnOk.Text" xml:space="preserve">
-    <value>OK</value>
-  </data>
-  <data name="toolStripStatusLabelDef.Text" xml:space="preserve">
-    <value>toolStripStatusLabelDef</value>
-  </data>
-  <data name="statusStripDef.Text" xml:space="preserve">
-    <value>statusStripDef</value>
-  </data>
-  <data name="bnSendToDB.Text" xml:space="preserve">
-    <value>In Datenbank speichern</value>
-  </data>
   <data name="cbColor.Items36" xml:space="preserve">
     <value>Farbe</value>
   </data>
@@ -318,5 +228,95 @@
   </data>
   <data name="cbColor.Items38" xml:space="preserve">
     <value>Farbe</value>
+  </data>
+  <data name="cbColor.Items4" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="cbColor.Items5" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="cbColor.Items6" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="cbColor.Items7" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="cbColor.Items8" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="cbColor.Items9" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="gbDimensions.Text" xml:space="preserve">
+    <value>Masse</value>
+  </data>
+  <data name="gbFaceColor.Text" xml:space="preserve">
+    <value>Flächen Farbe</value>
+  </data>
+  <data name="gbWeight.Text" xml:space="preserve">
+    <value>Gewicht</value>
+  </data>
+  <data name="lbColor.Size" type="System.Drawing.Size, System.Drawing">
+    <value>34, 13</value>
+  </data>
+  <data name="lbColor.Text" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="lblDescription.Size" type="System.Drawing.Size, System.Drawing">
+    <value>72, 13</value>
+  </data>
+  <data name="lblDescription.Text" xml:space="preserve">
+    <value>Beschreibung</value>
+  </data>
+  <data name="lbLength.Size" type="System.Drawing.Size, System.Drawing">
+    <value>37, 13</value>
+  </data>
+  <data name="lbLength.Text" xml:space="preserve">
+    <value>Länge</value>
+  </data>
+  <data name="lblName.Text" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="lbNoFlats.Size" type="System.Drawing.Size, System.Drawing">
+    <value>98, 13</value>
+  </data>
+  <data name="lbNoFlats.Text" xml:space="preserve">
+    <value>Anzahl der Flächen</value>
+  </data>
+  <data name="lbThickness.Size" type="System.Drawing.Size, System.Drawing">
+    <value>35, 13</value>
+  </data>
+  <data name="lbThickness.Text" xml:space="preserve">
+    <value>Dicke</value>
+  </data>
+  <data name="lbWeight.Size" type="System.Drawing.Size, System.Drawing">
+    <value>46, 13</value>
+  </data>
+  <data name="lbWeight.Text" xml:space="preserve">
+    <value>Gewicht</value>
+  </data>
+  <data name="lbWidth.Size" type="System.Drawing.Size, System.Drawing">
+    <value>34, 13</value>
+  </data>
+  <data name="lbWidth.Text" xml:space="preserve">
+    <value>Breite</value>
+  </data>
+  <data name="statusStripDef.Text" xml:space="preserve">
+    <value>statusStripDef</value>
+  </data>
+  <data name="toolStripStatusLabelDef.Text" xml:space="preserve">
+    <value>toolStripStatusLabelDef</value>
+  </data>
+  <data name="uCtrlLength.Text" xml:space="preserve">
+    <value>Länge</value>
+  </data>
+  <data name="uCtrlThickness.Text" xml:space="preserve">
+    <value>Dicke</value>
+  </data>
+  <data name="uCtrlWeight.Text" xml:space="preserve">
+    <value>Stückgewicht</value>
+  </data>
+  <data name="uCtrlWidth.Text" xml:space="preserve">
+    <value>Breite</value>
   </data>
 </root>

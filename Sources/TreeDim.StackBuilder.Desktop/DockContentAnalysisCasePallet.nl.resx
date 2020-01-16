@@ -117,35 +117,35 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="gbStopCriterions.Text" xml:space="preserve">
-    <value>Stop criteria</value>
-  </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Zaak/Pallet analyse...</value>
   </data>
-  <data name="tabPagePalletFilm.Text" xml:space="preserve">
-    <value>Pallet Film</value>
-  </data>
-  <data name="uCtrlOptMaximumWeight.Text" xml:space="preserve">
-    <value>Maximaal gewicht</value>
+  <data name="chkbPalletCap.Text" xml:space="preserve">
+    <value>Pallet GLB</value>
   </data>
   <data name="chkbPalletCorners.Text" xml:space="preserve">
     <value>Pallet hoeken</value>
   </data>
-  <data name="tabPagePalletCap.Text" xml:space="preserve">
-    <value>Pallet Cap</value>
-  </data>
-  <data name="uCtrlMaxPalletHeight.Text" xml:space="preserve">
-    <value>Maximale hoogte</value>
-  </data>
   <data name="chkbPalletFilm.Text" xml:space="preserve">
     <value>Pallet film</value>
+  </data>
+  <data name="gbStopCriterions.Text" xml:space="preserve">
+    <value>Stop criteria</value>
+  </data>
+  <data name="tabPagePalletCap.Text" xml:space="preserve">
+    <value>Pallet Cap</value>
   </data>
   <data name="tabPagePalletCorners.Text" xml:space="preserve">
     <value>Pallet hoeken</value>
   </data>
-  <data name="chkbPalletCap.Text" xml:space="preserve">
-    <value>Pallet GLB</value>
+  <data name="tabPagePalletFilm.Text" xml:space="preserve">
+    <value>Pallet Film</value>
+  </data>
+  <data name="uCtrlMaxPalletHeight.Text" xml:space="preserve">
+    <value>Maximale hoogte</value>
+  </data>
+  <data name="uCtrlOptMaximumWeight.Text" xml:space="preserve">
+    <value>Maximaal gewicht</value>
   </data>
   <data name="uCtrlOptMaxNumber.Text" xml:space="preserve">
     <value>Maximum aantal</value>

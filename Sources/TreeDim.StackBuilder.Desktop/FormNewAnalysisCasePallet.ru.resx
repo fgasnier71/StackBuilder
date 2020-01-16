@@ -117,41 +117,38 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="lbBox.Text" xml:space="preserve">
-    <value>Дело</value>
-  </data>
-  <data name="uCtrlOverhang.Text" xml:space="preserve">
-    <value>Вылет</value>
-  </data>
-  <data name="lbPallet.Text" xml:space="preserve">
-    <value>Поддон</value>
-  </data>
-  <data name="checkBoxBestLayersOnly.Text" xml:space="preserve">
-    <value>Показать только лучшие слои</value>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Создайте новый анализ дела в паллете...</value>
   </data>
   <data name="bnBestCombination.Text" xml:space="preserve">
     <value>Показать лучшие комбинации &gt;</value>
   </data>
-  <data name="uCtrlOptMaxNumber.Text" xml:space="preserve">
-    <value>Максимальное число</value>
+  <data name="checkBoxBestLayersOnly.Text" xml:space="preserve">
+    <value>Показать только лучшие слои</value>
   </data>
-  <data name="uCtrlOptMaximumWeight.Text" xml:space="preserve">
-    <value>Вес паллеты</value>
+  <data name="lbBox.Text" xml:space="preserve">
+    <value>Дело</value>
   </data>
-  <data name="uCtrlMaximumHeight.Text" xml:space="preserve">
-    <value>Высота паллеты</value>
+  <data name="lbPallet.Text" xml:space="preserve">
+    <value>Поддон</value>
   </data>
-  <data name="tabPageStopCriterions.Text" xml:space="preserve">
-    <value>Остановить критерии</value>
+  <data name="lbSelect.Text" xml:space="preserve">
+    <value>Выберите один или несколько слоев и нажмите ' следующей &gt;'...</value>
+  </data>
+  <data name="tabPageLayerFilters.Text" xml:space="preserve">
+    <value>Фильтры слоев</value>
   </data>
   <data name="tabPageOverhang.Text" xml:space="preserve">
     <value>Вылет</value>
   </data>
-  <data name="uCtrlOptSpace.Text" xml:space="preserve">
-    <value>Пространство</value>
-  </data>
   <data name="tabPageSpaces.Text" xml:space="preserve">
     <value>Запрещено</value>
+  </data>
+  <data name="tabPageStopCriterions.Text" xml:space="preserve">
+    <value>Остановить критерии</value>
+  </data>
+  <data name="uCtrlMaximumHeight.Text" xml:space="preserve">
+    <value>Высота паллеты</value>
   </data>
   <data name="uCtrlOptMaximumLayerWeight.Text" xml:space="preserve">
     <value>Максимальный уровень-вес</value>
@@ -159,13 +156,16 @@
   <data name="uCtrlOptMaximumSpace.Text" xml:space="preserve">
     <value>Максимальное пространство</value>
   </data>
-  <data name="tabPageLayerFilters.Text" xml:space="preserve">
-    <value>Фильтры слоев</value>
+  <data name="uCtrlOptMaximumWeight.Text" xml:space="preserve">
+    <value>Вес паллеты</value>
   </data>
-  <data name="lbSelect.Text" xml:space="preserve">
-    <value>Выберите один или несколько слоев и нажмите ' следующей &gt;'...</value>
+  <data name="uCtrlOptMaxNumber.Text" xml:space="preserve">
+    <value>Максимальное число</value>
   </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Создайте новый анализ дела в паллете...</value>
+  <data name="uCtrlOptSpace.Text" xml:space="preserve">
+    <value>Пространство</value>
+  </data>
+  <data name="uCtrlOverhang.Text" xml:space="preserve">
+    <value>Вылет</value>
   </data>
 </root>

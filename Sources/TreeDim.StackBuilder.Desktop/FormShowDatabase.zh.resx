@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="$this.Text" xml:space="preserve">
+    <value>编辑项目中的数据库和导入项目..。</value>
+  </data>
   <data name="bnClose.Text" xml:space="preserve">
     <value>关闭</value>
   </data>
@@ -126,11 +129,11 @@
   <data name="tabPageBox.Text" xml:space="preserve">
     <value>盒子</value>
   </data>
-  <data name="tabPageCase.Text" xml:space="preserve">
-    <value>箱子</value>
-  </data>
   <data name="tabPageBundle.Text" xml:space="preserve">
     <value>一捆/一束</value>
+  </data>
+  <data name="tabPageCase.Text" xml:space="preserve">
+    <value>箱子</value>
   </data>
   <data name="tabPageCylinder.Text" xml:space="preserve">
     <value>圆柱体</value>
@@ -144,25 +147,22 @@
   <data name="tabPagePallet.ToolTipText" xml:space="preserve">
     <value>托盘</value>
   </data>
-  <data name="tabPageTruck.Text" xml:space="preserve">
-    <value>卡车</value>
+  <data name="tabPagePalletCap.Text" xml:space="preserve">
+    <value>托盘盖子</value>
   </data>
   <data name="tabPagePalletCorner.Text" xml:space="preserve">
     <value>托盘护角</value>
   </data>
-  <data name="tabPagePalletCap.Text" xml:space="preserve">
-    <value>托盘盖子</value>
-  </data>
   <data name="tabPagePalletFilm.Text" xml:space="preserve">
     <value>托盘膜</value>
+  </data>
+  <data name="tabPageTruck.Text" xml:space="preserve">
+    <value>卡车</value>
   </data>
   <data name="toolStripBExcel.Text" xml:space="preserve">
     <value>从 Excel 文件导入..。</value>
   </data>
   <data name="toolStripMain.Text" xml:space="preserve">
     <value>工具</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>编辑项目中的数据库和导入项目..。</value>
   </data>
 </root>

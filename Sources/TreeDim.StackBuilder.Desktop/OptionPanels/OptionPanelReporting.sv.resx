@@ -117,40 +117,40 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="gbMSWordMargins.Text" xml:space="preserve">
+    <value>Marginaler (endast Microsoft Word)</value>
+  </data>
   <data name="label1.Text" xml:space="preserve">
     <value>Företagets logotyp</value>
   </data>
-  <data name="lbReportTemplate.Text" xml:space="preserve">
-    <value>Rapportmall</value>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Höger</value>
   </data>
-  <data name="lbCmRight.Text" xml:space="preserve">
-    <value>cm</value>
+  <data name="lbBottom.Text" xml:space="preserve">
+    <value>Botten</value>
   </data>
-  <data name="lbCmLeft.Text" xml:space="preserve">
+  <data name="lbcm.Text" xml:space="preserve">
     <value>cm</value>
   </data>
   <data name="lbcmBottom.Text" xml:space="preserve">
     <value>cm</value>
   </data>
-  <data name="lbcm.Text" xml:space="preserve">
+  <data name="lbCmLeft.Text" xml:space="preserve">
     <value>cm</value>
   </data>
-  <data name="label2.Text" xml:space="preserve">
-    <value>Höger</value>
+  <data name="lbCmRight.Text" xml:space="preserve">
+    <value>cm</value>
   </data>
   <data name="lbLeft.Text" xml:space="preserve">
     <value>Vänster</value>
   </data>
-  <data name="lbBottom.Text" xml:space="preserve">
-    <value>Botten</value>
-  </data>
-  <data name="lbTop.Text" xml:space="preserve">
-    <value>Topp</value>
-  </data>
-  <data name="gbMSWordMargins.Text" xml:space="preserve">
-    <value>Marginaler (endast Microsoft Word)</value>
+  <data name="lbReportTemplate.Text" xml:space="preserve">
+    <value>Rapportmall</value>
   </data>
   <data name="lbSleepTime.Text" xml:space="preserve">
     <value>Tid innan bilden borttagning</value>
+  </data>
+  <data name="lbTop.Text" xml:space="preserve">
+    <value>Topp</value>
   </data>
 </root>

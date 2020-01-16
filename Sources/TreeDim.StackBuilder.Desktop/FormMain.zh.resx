@@ -117,44 +117,17 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="newToolStripMenuItem.Text" xml:space="preserve">
-    <value>新增功能</value>
-  </data>
-  <data name="newToolStripMenuItem.ToolTipText" xml:space="preserve">
-    <value>创建新文件</value>
-  </data>
-  <data name="openToolStripMenuItem.Text" xml:space="preserve">
-    <value>打开</value>
-  </data>
-  <data name="openToolStripMenuItem.ToolTipText" xml:space="preserve">
-    <value>打开文件</value>
-  </data>
-  <data name="toolStripMenuItemSave.Text" xml:space="preserve">
-    <value>保存</value>
-  </data>
-  <data name="toolStripMenuItemSave.ToolTipText" xml:space="preserve">
-    <value>保存文件</value>
-  </data>
-  <data name="toolStripMenuItemSaveAs.Text" xml:space="preserve">
-    <value>另存为..。</value>
-  </data>
-  <data name="toolStripMenuItemSaveAs.ToolTipText" xml:space="preserve">
-    <value>另存为..。</value>
-  </data>
-  <data name="toolStripMenuItemSaveAll.Text" xml:space="preserve">
-    <value>保存所有</value>
-  </data>
-  <data name="toolStripMenuItemClose.Text" xml:space="preserve">
-    <value>关闭</value>
-  </data>
-  <data name="toolStripMenuItemClose.ToolTipText" xml:space="preserve">
-    <value>关闭活动文档</value>
+  <data name="$this.Text" xml:space="preserve">
+    <value>器</value>
   </data>
   <data name="disconnectToolStripMenuItem.Text" xml:space="preserve">
     <value>断开</value>
   </data>
-  <data name="mnuFileMRU.Text" xml:space="preserve">
-    <value>最近的文件..。</value>
+  <data name="donateToolStripMenuItem.Text" xml:space="preserve">
+    <value>捐赠!</value>
+  </data>
+  <data name="editPaletSolutionsDB.Text" xml:space="preserve">
+    <value>浏览/编辑数据库..。</value>
   </data>
   <data name="exitToolStripMenuItem.Text" xml:space="preserve">
     <value>退出</value>
@@ -165,53 +138,98 @@
   <data name="fileToolStripMenuItem.Text" xml:space="preserve">
     <value>文件</value>
   </data>
-  <data name="editPaletSolutionsDB.Text" xml:space="preserve">
-    <value>浏览/编辑数据库..。</value>
+  <data name="helpToolStripMenuItem.Text" xml:space="preserve">
+    <value>帮助</value>
   </data>
-  <data name="toolStripMenuItemBox.Text" xml:space="preserve">
-    <value>新框</value>
+  <data name="helpToolStripMenuItemAbout.Text" xml:space="preserve">
+    <value>关于器..。</value>
   </data>
-  <data name="toolStripMenuItemCase.Text" xml:space="preserve">
-    <value>新案例</value>
+  <data name="helpToolStripMenuItemHelp.Text" xml:space="preserve">
+    <value>帮助</value>
   </data>
-  <data name="toolStripMenuItemPack.Text" xml:space="preserve">
-    <value>新包</value>
+  <data name="menuStripMain.Text" xml:space="preserve">
+    <value>menuStripMain</value>
   </data>
-  <data name="toolStripMenuItemBundle.Text" xml:space="preserve">
-    <value>新捆绑</value>
+  <data name="mnuFileMRU.Text" xml:space="preserve">
+    <value>最近的文件..。</value>
   </data>
-  <data name="toolStripMenuItemCylinder.Text" xml:space="preserve">
-    <value>新气缸</value>
+  <data name="newToolStripMenuItem.Text" xml:space="preserve">
+    <value>新增功能</value>
   </data>
-  <data name="toolStripMenuItemPallet.Text" xml:space="preserve">
-    <value>新托盘</value>
+  <data name="newToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>创建新文件</value>
   </data>
-  <data name="toolStripMenuItemTruck.Text" xml:space="preserve">
-    <value>新卡车</value>
+  <data name="openFileDialogSB.Filter" xml:space="preserve">
+    <value>StackBuilder (*.stb)|*.stb|All files (*.*)|*.*</value>
   </data>
-  <data name="toolStripMenuItemInterlayer.Text" xml:space="preserve">
-    <value>新的夹层</value>
+  <data name="openFileDialogSB.Title" xml:space="preserve">
+    <value>打开文件..。</value>
   </data>
-  <data name="toolStripMenuItemPalletCorners.Text" xml:space="preserve">
-    <value>新托盘角</value>
+  <data name="openToolStripMenuItem.Text" xml:space="preserve">
+    <value>打开</value>
   </data>
-  <data name="toolStripMenuItemPalletCap.Text" xml:space="preserve">
-    <value>新托盘盖</value>
+  <data name="openToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>打开文件</value>
   </data>
-  <data name="toolStripMenuItemPalletFilm.Text" xml:space="preserve">
-    <value>新的托盘膜</value>
+  <data name="saveFileDialogExportXML.Filter" xml:space="preserve">
+    <value>交换标记语言 (*.xml)|*.xml</value>
   </data>
-  <data name="toolStripMenuItemNewAnalysisCasePallet.Text" xml:space="preserve">
-    <value>新案例/托盘分析</value>
+  <data name="saveFileDialogSB.Filter" xml:space="preserve">
+    <value>器文件 (* 机顶盒) | * 机顶盒</value>
   </data>
-  <data name="toolStripMenuItemNewAnalysisCylinderPallet.Text" xml:space="preserve">
-    <value>新气缸/托盘分析</value>
+  <data name="saveFileDialogSB.Title" xml:space="preserve">
+    <value>保存文件..。</value>
   </data>
-  <data name="toolStripMenuItemNewAnalysisBoxCase.Text" xml:space="preserve">
-    <value>新机箱/案例分析</value>
+  <data name="saveFileDialogWebGL.Filter" xml:space="preserve">
+    <value>Htlm 文件 (*.html) |*.html</value>
   </data>
-  <data name="toolStripMenuItemNewAnalysisCylinderCase.Text" xml:space="preserve">
-    <value>新气缸/案例分析</value>
+  <data name="settingsToolStripMenuItem.Text" xml:space="preserve">
+    <value>设置。。。</value>
+  </data>
+  <data name="toolStripButtonBox.Text" xml:space="preserve">
+    <value>添加新框</value>
+  </data>
+  <data name="toolStripButtonBundle.Text" xml:space="preserve">
+    <value>添加新包</value>
+  </data>
+  <data name="toolStripButtonCase.Text" xml:space="preserve">
+    <value>添加新的箱子</value>
+  </data>
+  <data name="toolStripButtonCylinder.Text" xml:space="preserve">
+    <value>添加新气缸</value>
+  </data>
+  <data name="toolStripButtonFileOpen.Text" xml:space="preserve">
+    <value>打开文件</value>
+  </data>
+  <data name="toolStripButtonFileOpen.ToolTipText" xml:space="preserve">
+    <value>打开文件</value>
+  </data>
+  <data name="toolStripButtonHelp.Text" xml:space="preserve">
+    <value>帮助</value>
+  </data>
+  <data name="toolStripButtonHelp.ToolTipText" xml:space="preserve">
+    <value>帮助</value>
+  </data>
+  <data name="toolStripButtonPack.Text" xml:space="preserve">
+    <value>添加新包..。</value>
+  </data>
+  <data name="toolStripButtonPallet.Text" xml:space="preserve">
+    <value>添加新托盘</value>
+  </data>
+  <data name="toolStripButtonPallet.ToolTipText" xml:space="preserve">
+    <value>添加新托盘</value>
+  </data>
+  <data name="toolStripButtonSave.Text" xml:space="preserve">
+    <value>保存文件</value>
+  </data>
+  <data name="toolStripButtonSaveAll.Text" xml:space="preserve">
+    <value>保存所有文件</value>
+  </data>
+  <data name="toolStripButtonSettings.Text" xml:space="preserve">
+    <value>设置</value>
+  </data>
+  <data name="toolStripButtonTruck.Text" xml:space="preserve">
+    <value>添加新的卡车</value>
   </data>
   <data name="toolStripMenuItemAnalysisPalletTruck.Text" xml:space="preserve">
     <value>新托盘/卡车分析</value>
@@ -225,152 +243,107 @@
   <data name="toolStripMenuItemBestPack.ToolTipText" xml:space="preserve">
     <value>搜索最佳案例</value>
   </data>
-  <data name="toolStripMIPLMPackLib.Text" xml:space="preserve">
-    <value>启动 PLMPackLib</value>
+  <data name="toolStripMenuItemBox.Text" xml:space="preserve">
+    <value>新框</value>
   </data>
-  <data name="settingsToolStripMenuItem.Text" xml:space="preserve">
-    <value>设置。。。</value>
+  <data name="toolStripMenuItemBundle.Text" xml:space="preserve">
+    <value>新捆绑</value>
   </data>
-  <data name="toolStripMenuItemTools.Text" xml:space="preserve">
-    <value>工具</value>
+  <data name="toolStripMenuItemCase.Text" xml:space="preserve">
+    <value>新案例</value>
   </data>
-  <data name="toolStripMenuItemHelpStartPage.Text" xml:space="preserve">
-    <value>显示开始页</value>
+  <data name="toolStripMenuItemClose.Text" xml:space="preserve">
+    <value>关闭</value>
   </data>
-  <data name="helpToolStripMenuItemHelp.Text" xml:space="preserve">
-    <value>帮助</value>
+  <data name="toolStripMenuItemClose.ToolTipText" xml:space="preserve">
+    <value>关闭活动文档</value>
   </data>
-  <data name="helpToolStripMenuItemAbout.Text" xml:space="preserve">
-    <value>关于器..。</value>
-  </data>
-  <data name="donateToolStripMenuItem.Text" xml:space="preserve">
-    <value>捐赠!</value>
-  </data>
-  <data name="helpToolStripMenuItem.Text" xml:space="preserve">
-    <value>帮助</value>
-  </data>
-  <data name="menuStripMain.Text" xml:space="preserve">
-    <value>menuStripMain</value>
-  </data>
-  <data name="toolStripMIUserDisconnect.Text" xml:space="preserve">
-    <value>断开</value>
-  </data>
-  <data name="toolStripSBUser.Text" xml:space="preserve">
-    <value>toolStripSplitButton1</value>
-  </data>
-  <data name="toolStripSBUser.ToolTipText" xml:space="preserve">
-    <value>用户</value>
-  </data>
-  <data name="toolStripMenuNewFile.Text" xml:space="preserve">
-    <value>新增功能。。。</value>
-  </data>
-  <data name="toolStripSplitButtonNew.Text" xml:space="preserve">
-    <value>创建新文件..。</value>
-  </data>
-  <data name="toolStripButtonFileOpen.Text" xml:space="preserve">
-    <value>打开文件</value>
-  </data>
-  <data name="toolStripButtonFileOpen.ToolTipText" xml:space="preserve">
-    <value>打开文件</value>
-  </data>
-  <data name="toolStripButtonSave.Text" xml:space="preserve">
-    <value>保存文件</value>
-  </data>
-  <data name="toolStripButtonSaveAll.Text" xml:space="preserve">
-    <value>保存所有文件</value>
+  <data name="toolStripMenuItemCylinder.Text" xml:space="preserve">
+    <value>新气缸</value>
   </data>
   <data name="toolStripMenuItemEditDB.ToolTipText" xml:space="preserve">
     <value>编辑托盘解决方案数据库</value>
   </data>
-  <data name="toolStripButtonBox.Text" xml:space="preserve">
-    <value>添加新框</value>
+  <data name="toolStripMenuItemHelpStartPage.Text" xml:space="preserve">
+    <value>显示开始页</value>
   </data>
-  <data name="toolStripButtonCase.Text" xml:space="preserve">
-    <value>添加新的箱子</value>
+  <data name="toolStripMenuItemInterlayer.Text" xml:space="preserve">
+    <value>新的夹层</value>
   </data>
-  <data name="toolStripButtonPack.Text" xml:space="preserve">
-    <value>添加新包..。</value>
+  <data name="toolStripMenuItemNewAnalysisBoxCase.Text" xml:space="preserve">
+    <value>新机箱/案例分析</value>
   </data>
-  <data name="toolStripButtonBundle.Text" xml:space="preserve">
-    <value>添加新包</value>
+  <data name="toolStripMenuItemNewAnalysisCasePallet.Text" xml:space="preserve">
+    <value>新案例/托盘分析</value>
   </data>
-  <data name="toolStripButtonCylinder.Text" xml:space="preserve">
-    <value>添加新气缸</value>
+  <data name="toolStripMenuItemNewAnalysisCylinderCase.Text" xml:space="preserve">
+    <value>新气缸/案例分析</value>
   </data>
-  <data name="toolStripButtonPallet.Text" xml:space="preserve">
-    <value>添加新托盘</value>
+  <data name="toolStripMenuItemNewAnalysisCylinderPallet.Text" xml:space="preserve">
+    <value>新气缸/托盘分析</value>
   </data>
-  <data name="toolStripButtonPallet.ToolTipText" xml:space="preserve">
-    <value>添加新托盘</value>
+  <data name="toolStripMenuItemPack.Text" xml:space="preserve">
+    <value>新包</value>
   </data>
-  <data name="toolStripButtonTruck.Text" xml:space="preserve">
-    <value>添加新的卡车</value>
+  <data name="toolStripMenuItemPallet.Text" xml:space="preserve">
+    <value>新托盘</value>
   </data>
-  <data name="toolStripMIInterlayer.Text" xml:space="preserve">
-    <value>隔层</value>
+  <data name="toolStripMenuItemPalletCap.Text" xml:space="preserve">
+    <value>新托盘盖</value>
   </data>
-  <data name="toolStripMIInterlayer.ToolTipText" xml:space="preserve">
-    <value>添加新隔层…</value>
+  <data name="toolStripMenuItemPalletCorners.Text" xml:space="preserve">
+    <value>新托盘角</value>
   </data>
-  <data name="toolStripMIPalletCorner.Text" xml:space="preserve">
-    <value>托盘角</value>
+  <data name="toolStripMenuItemPalletFilm.Text" xml:space="preserve">
+    <value>新的托盘膜</value>
   </data>
-  <data name="toolStripMIPalletCorner.ToolTipText" xml:space="preserve">
-    <value>添加新托盘角..。</value>
+  <data name="toolStripMenuItemSave.Text" xml:space="preserve">
+    <value>保存</value>
   </data>
-  <data name="toolStripMIPalletCap.Text" xml:space="preserve">
-    <value>托盘盖</value>
+  <data name="toolStripMenuItemSave.ToolTipText" xml:space="preserve">
+    <value>保存文件</value>
   </data>
-  <data name="toolStripMIPalletCap.ToolTipText" xml:space="preserve">
-    <value>添加新托盘盖……</value>
+  <data name="toolStripMenuItemSaveAll.Text" xml:space="preserve">
+    <value>保存所有</value>
   </data>
-  <data name="toolStripMIPalletFilm.Text" xml:space="preserve">
-    <value>托盘膜</value>
+  <data name="toolStripMenuItemSaveAs.Text" xml:space="preserve">
+    <value>另存为..。</value>
   </data>
-  <data name="toolStripMIPalletFilm.ToolTipText" xml:space="preserve">
-    <value>添加新托盘的膜……</value>
+  <data name="toolStripMenuItemSaveAs.ToolTipText" xml:space="preserve">
+    <value>另存为..。</value>
   </data>
-  <data name="toolStripSBPalletDeco.Text" xml:space="preserve">
-    <value>创建新的夹层..。</value>
+  <data name="toolStripMenuItemTools.Text" xml:space="preserve">
+    <value>工具</value>
   </data>
-  <data name="toolStripMIAnalysisCasePallet.Text" xml:space="preserve">
-    <value>箱子/托盘</value>
+  <data name="toolStripMenuItemTruck.Text" xml:space="preserve">
+    <value>新卡车</value>
   </data>
-  <data name="toolStripMIAnalysisCylinderPallet.Text" xml:space="preserve">
-    <value>气缸/托盘</value>
-  </data>
-  <data name="toolStripMIAnalysisBundlePallet.Text" xml:space="preserve">
-    <value>捆绑/托盘</value>
-  </data>
-  <data name="toolStripSBAnalysisPallet.Text" xml:space="preserve">
-    <value>托盘分析</value>
+  <data name="toolStripMenuNewFile.Text" xml:space="preserve">
+    <value>新增功能。。。</value>
   </data>
   <data name="toolStripMIAnalysisBoxCase.Text" xml:space="preserve">
     <value>盒子/箱子</value>
   </data>
-  <data name="toolStripMIAnalysisCylinderCase.Text" xml:space="preserve">
-    <value>汽缸/箱</value>
-  </data>
   <data name="toolStripMIAnalysisBundleCase.Text" xml:space="preserve">
     <value>捆绑/案例</value>
   </data>
-  <data name="toolStripSBAnalysesCase.Text" xml:space="preserve">
-    <value>案例分析</value>
+  <data name="toolStripMIAnalysisBundlePallet.Text" xml:space="preserve">
+    <value>捆绑/托盘</value>
   </data>
-  <data name="toolStripSBAnalysesCase.ToolTipText" xml:space="preserve">
-    <value>案例分析</value>
-  </data>
-  <data name="toolStripMIAnalysisPalletTruck.Text" xml:space="preserve">
-    <value>托盘/卡车</value>
+  <data name="toolStripMIAnalysisCasePallet.Text" xml:space="preserve">
+    <value>箱子/托盘</value>
   </data>
   <data name="toolStripMIAnalysisCaseTruck.Text" xml:space="preserve">
     <value>箱/卡车</value>
   </data>
-  <data name="toolStripSBAnalysesTruck.Text" xml:space="preserve">
-    <value>卡车分析</value>
+  <data name="toolStripMIAnalysisCylinderCase.Text" xml:space="preserve">
+    <value>汽缸/箱</value>
   </data>
-  <data name="toolStripSBAnalysesTruck.ToolTipText" xml:space="preserve">
-    <value>卡车分析</value>
+  <data name="toolStripMIAnalysisCylinderPallet.Text" xml:space="preserve">
+    <value>气缸/托盘</value>
+  </data>
+  <data name="toolStripMIAnalysisPalletTruck.Text" xml:space="preserve">
+    <value>托盘/卡车</value>
   </data>
   <data name="toolStripMIBestCase.Text" xml:space="preserve">
     <value>查找最佳案例</value>
@@ -390,43 +363,70 @@
   <data name="toolStripMIBestPack.ToolTipText" xml:space="preserve">
     <value>建议包装的最佳 palletisation</value>
   </data>
+  <data name="toolStripMIInterlayer.Text" xml:space="preserve">
+    <value>隔层</value>
+  </data>
+  <data name="toolStripMIInterlayer.ToolTipText" xml:space="preserve">
+    <value>添加新隔层…</value>
+  </data>
+  <data name="toolStripMIPalletCap.Text" xml:space="preserve">
+    <value>托盘盖</value>
+  </data>
+  <data name="toolStripMIPalletCap.ToolTipText" xml:space="preserve">
+    <value>添加新托盘盖……</value>
+  </data>
+  <data name="toolStripMIPalletCorner.Text" xml:space="preserve">
+    <value>托盘角</value>
+  </data>
+  <data name="toolStripMIPalletCorner.ToolTipText" xml:space="preserve">
+    <value>添加新托盘角..。</value>
+  </data>
+  <data name="toolStripMIPalletFilm.Text" xml:space="preserve">
+    <value>托盘膜</value>
+  </data>
+  <data name="toolStripMIPalletFilm.ToolTipText" xml:space="preserve">
+    <value>添加新托盘的膜……</value>
+  </data>
+  <data name="toolStripMIPLMPackLib.Text" xml:space="preserve">
+    <value>启动 PLMPackLib</value>
+  </data>
+  <data name="toolStripMIUserDisconnect.Text" xml:space="preserve">
+    <value>断开</value>
+  </data>
+  <data name="toolStripSBAnalysesCase.Text" xml:space="preserve">
+    <value>案例分析</value>
+  </data>
+  <data name="toolStripSBAnalysesCase.ToolTipText" xml:space="preserve">
+    <value>案例分析</value>
+  </data>
+  <data name="toolStripSBAnalysesTruck.Text" xml:space="preserve">
+    <value>卡车分析</value>
+  </data>
+  <data name="toolStripSBAnalysesTruck.ToolTipText" xml:space="preserve">
+    <value>卡车分析</value>
+  </data>
+  <data name="toolStripSBAnalysisPallet.Text" xml:space="preserve">
+    <value>托盘分析</value>
+  </data>
   <data name="toolStripSBOptimisations.Text" xml:space="preserve">
     <value>包装优化</value>
   </data>
   <data name="toolStripSBOptimisations.ToolTipText" xml:space="preserve">
     <value>包装优化</value>
   </data>
-  <data name="toolStripButtonHelp.Text" xml:space="preserve">
-    <value>帮助</value>
+  <data name="toolStripSBPalletDeco.Text" xml:space="preserve">
+    <value>创建新的夹层..。</value>
   </data>
-  <data name="toolStripButtonHelp.ToolTipText" xml:space="preserve">
-    <value>帮助</value>
+  <data name="toolStripSBUser.Text" xml:space="preserve">
+    <value>toolStripSplitButton1</value>
   </data>
-  <data name="toolStripButtonSettings.Text" xml:space="preserve">
-    <value>设置</value>
+  <data name="toolStripSBUser.ToolTipText" xml:space="preserve">
+    <value>用户</value>
+  </data>
+  <data name="toolStripSplitButtonNew.Text" xml:space="preserve">
+    <value>创建新文件..。</value>
   </data>
   <data name="toolStripStandard.Text" xml:space="preserve">
     <value>标准</value>
-  </data>
-  <data name="openFileDialogSB.Filter" xml:space="preserve">
-    <value>StackBuilder (*.stb)|*.stb|All files (*.*)|*.*</value>
-  </data>
-  <data name="openFileDialogSB.Title" xml:space="preserve">
-    <value>打开文件..。</value>
-  </data>
-  <data name="saveFileDialogSB.Filter" xml:space="preserve">
-    <value>器文件 (* 机顶盒) | * 机顶盒</value>
-  </data>
-  <data name="saveFileDialogSB.Title" xml:space="preserve">
-    <value>保存文件..。</value>
-  </data>
-  <data name="saveFileDialogWebGL.Filter" xml:space="preserve">
-    <value>Htlm 文件 (*.html) |*.html</value>
-  </data>
-  <data name="saveFileDialogExportXML.Filter" xml:space="preserve">
-    <value>交换标记语言 (*.xml)|*.xml</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>器</value>
   </data>
 </root>

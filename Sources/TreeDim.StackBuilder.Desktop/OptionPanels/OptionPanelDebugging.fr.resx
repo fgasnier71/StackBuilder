@@ -117,17 +117,17 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="bnShowAppFolder.Text" xml:space="preserve">
-    <value>Explorer le dossier de l'application</value>
-  </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="bnResetDefaultSettings.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="bnResetDefaultSettings.Text" xml:space="preserve">
     <value>Reset paramètres par défaut</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="bnShowAppFolder.Text" xml:space="preserve">
+    <value>Explorer le dossier de l'application</value>
+  </data>
   <data name="chkbDisconnected.Size" type="System.Drawing.Size, System.Drawing">
     <value>197, 17</value>
   </data>

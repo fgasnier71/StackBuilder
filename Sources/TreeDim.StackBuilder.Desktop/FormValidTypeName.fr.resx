@@ -117,26 +117,26 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="$this.Text" xml:space="preserve">
+    <value>Saisir un nom valide...</value>
+  </data>
   <data name="bnCancel.Text" xml:space="preserve">
     <value>Annuler</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="bnOK.Text" xml:space="preserve">
+    <value>OK</value>
+  </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>29, 13</value>
   </data>
   <data name="label1.Text" xml:space="preserve">
     <value>Nom</value>
   </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Saisir un nom valide...</value>
+  <data name="statusLabelDef.Text" xml:space="preserve">
+    <value>statusLabelDef</value>
   </data>
   <data name="statusStrip1.Text" xml:space="preserve">
     <value>statusStrip1</value>
-  </data>
-  <data name="bnOK.Text" xml:space="preserve">
-    <value>OK</value>
-  </data>
-  <data name="statusLabelDef.Text" xml:space="preserve">
-    <value>statusLabelDef</value>
   </data>
 </root>

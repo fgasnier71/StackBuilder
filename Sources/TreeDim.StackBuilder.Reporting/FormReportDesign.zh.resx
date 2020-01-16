@@ -117,58 +117,58 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="toolSBReportPrint.Text" xml:space="preserve">
-    <value>打印.</value>
-  </data>
-  <data name="statusStrip.Text" xml:space="preserve">
-    <value>statusStrip</value>
-  </data>
   <data name="$this.Text" xml:space="preserve">
     <value>报告.</value>
-  </data>
-  <data name="lbDefinitionLarge.Text" xml:space="preserve">
-    <value>定义</value>
-  </data>
-  <data name="statusLabelDef.Text" xml:space="preserve">
-    <value>准备就绪</value>
-  </data>
-  <data name="toolSBReportWord.Text" xml:space="preserve">
-    <value>词</value>
-  </data>
-  <data name="lbHTMLSizeDetail.Text" xml:space="preserve">
-    <value>HTML 大小</value>
-  </data>
-  <data name="toolSBReportPrint.ToolTipText" xml:space="preserve">
-    <value>打印</value>
-  </data>
-  <data name="toolSBReportPDF.Text" xml:space="preserve">
-    <value>PDF 报告</value>
-  </data>
-  <data name="lbHTMLSizeLarge.Text" xml:space="preserve">
-    <value>HTML 大小</value>
-  </data>
-  <data name="lbFontSizeLarge.Text" xml:space="preserve">
-    <value>字号</value>
-  </data>
-  <data name="lbFontSizeDetail.Text" xml:space="preserve">
-    <value>字号</value>
-  </data>
-  <data name="tabPageDetail.Text" xml:space="preserve">
-    <value>详细图像</value>
-  </data>
-  <data name="toolSBDimensions.Text" xml:space="preserve">
-    <value>显示/隐藏尺寸</value>
-  </data>
-  <data name="tabPageLargeImg.Text" xml:space="preserve">
-    <value>大图像</value>
   </data>
   <data name="lbDefinitionDetail.Text" xml:space="preserve">
     <value>定义</value>
   </data>
-  <data name="toolStrip.Text" xml:space="preserve">
-    <value>toolStrip1</value>
+  <data name="lbDefinitionLarge.Text" xml:space="preserve">
+    <value>定义</value>
+  </data>
+  <data name="lbFontSizeDetail.Text" xml:space="preserve">
+    <value>字号</value>
+  </data>
+  <data name="lbFontSizeLarge.Text" xml:space="preserve">
+    <value>字号</value>
+  </data>
+  <data name="lbHTMLSizeDetail.Text" xml:space="preserve">
+    <value>HTML 大小</value>
+  </data>
+  <data name="lbHTMLSizeLarge.Text" xml:space="preserve">
+    <value>HTML 大小</value>
+  </data>
+  <data name="statusLabelDef.Text" xml:space="preserve">
+    <value>准备就绪</value>
+  </data>
+  <data name="statusStrip.Text" xml:space="preserve">
+    <value>statusStrip</value>
+  </data>
+  <data name="tabPageDetail.Text" xml:space="preserve">
+    <value>详细图像</value>
+  </data>
+  <data name="tabPageLargeImg.Text" xml:space="preserve">
+    <value>大图像</value>
+  </data>
+  <data name="toolSBDimensions.Text" xml:space="preserve">
+    <value>显示/隐藏尺寸</value>
   </data>
   <data name="toolSBReportHTML.Text" xml:space="preserve">
     <value>html</value>
+  </data>
+  <data name="toolSBReportPDF.Text" xml:space="preserve">
+    <value>PDF 报告</value>
+  </data>
+  <data name="toolSBReportPrint.Text" xml:space="preserve">
+    <value>打印.</value>
+  </data>
+  <data name="toolSBReportPrint.ToolTipText" xml:space="preserve">
+    <value>打印</value>
+  </data>
+  <data name="toolSBReportWord.Text" xml:space="preserve">
+    <value>词</value>
+  </data>
+  <data name="toolStrip.Text" xml:space="preserve">
+    <value>toolStrip1</value>
   </data>
 </root>

@@ -117,79 +117,79 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="menuStrip.Text" xml:space="preserve">
-    <value>menuStrip</value>
-  </data>
-  <data name="toolStripMIFile.Text" xml:space="preserve">
-    <value>Файл</value>
-  </data>
-  <data name="exitToolStripMenuItem.Text" xml:space="preserve">
-    <value>Выход</value>
-  </data>
-  <data name="toolStripMITools.Text" xml:space="preserve">
-    <value>Инструменты</value>
-  </data>
-  <data name="toolStripMISettings.Text" xml:space="preserve">
-    <value>Параметры</value>
-  </data>
-  <data name="statusStrip.Text" xml:space="preserve">
-    <value>statusStrip</value>
-  </data>
-  <data name="statusLabel.Text" xml:space="preserve">
-    <value>statusLabel</value>
-  </data>
-  <data name="lbFilePath.Text" xml:space="preserve">
-    <value>Путь к файлу Excel</value>
-  </data>
-  <data name="uCtrlPalletDimensions.Text" xml:space="preserve">
-    <value>Габаритные размеры</value>
-  </data>
-  <data name="gbInput.Text" xml:space="preserve">
-    <value>Вход</value>
-  </data>
-  <data name="chkbOnlyVerticalOrientation.Text" xml:space="preserve">
-    <value>Разрешить только вертикальной ориентации</value>
-  </data>
-  <data name="tabPallet.Text" xml:space="preserve">
-    <value>Поддон</value>
-  </data>
-  <data name="uCtrlMaximumPalletHeight.Text" xml:space="preserve">
-    <value>Высота загруженные паллеты</value>
-  </data>
-  <data name="lbPalletType.Text" xml:space="preserve">
-    <value>Тип палеты</value>
-  </data>
-  <data name="tabContainer.Text" xml:space="preserve">
-    <value>Контейнер</value>
-  </data>
-  <data name="uCtrlTruckDimensions.Text" xml:space="preserve">
-    <value>Габаритные размеры</value>
-  </data>
-  <data name="lbCaseLoaded.Text" xml:space="preserve">
-    <value>(Не загружается!)</value>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Быстрая укладка оценки</value>
   </data>
   <data name="bnDirectoryPath.Text" xml:space="preserve">
     <value>...</value>
   </data>
-  <data name="chkbGenerateImageFolder.Text" xml:space="preserve">
-    <value>Создайте изображение в папке</value>
+  <data name="bnGenerate.Text" xml:space="preserve">
+    <value>Генерировать</value>
   </data>
   <data name="chkbGenerateImage.Text" xml:space="preserve">
     <value>Создать изображение в выходных данных листа Excel</value>
   </data>
+  <data name="chkbGenerateImageFolder.Text" xml:space="preserve">
+    <value>Создайте изображение в папке</value>
+  </data>
+  <data name="chkbOnlyVerticalOrientation.Text" xml:space="preserve">
+    <value>Разрешить только вертикальной ориентации</value>
+  </data>
   <data name="chkbOpenFile.Text" xml:space="preserve">
     <value>Открыть сгенерированный файл</value>
   </data>
-  <data name="lbOutputFilePath.Text" xml:space="preserve">
-    <value>Путь к файлу Excel вывода</value>
+  <data name="exitToolStripMenuItem.Text" xml:space="preserve">
+    <value>Выход</value>
+  </data>
+  <data name="gbInput.Text" xml:space="preserve">
+    <value>Вход</value>
   </data>
   <data name="gbOutput.Text" xml:space="preserve">
     <value>Выход</value>
   </data>
-  <data name="bnGenerate.Text" xml:space="preserve">
-    <value>Генерировать</value>
+  <data name="lbCaseLoaded.Text" xml:space="preserve">
+    <value>(Не загружается!)</value>
   </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Быстрая укладка оценки</value>
+  <data name="lbFilePath.Text" xml:space="preserve">
+    <value>Путь к файлу Excel</value>
+  </data>
+  <data name="lbOutputFilePath.Text" xml:space="preserve">
+    <value>Путь к файлу Excel вывода</value>
+  </data>
+  <data name="lbPalletType.Text" xml:space="preserve">
+    <value>Тип палеты</value>
+  </data>
+  <data name="menuStrip.Text" xml:space="preserve">
+    <value>menuStrip</value>
+  </data>
+  <data name="statusLabel.Text" xml:space="preserve">
+    <value>statusLabel</value>
+  </data>
+  <data name="statusStrip.Text" xml:space="preserve">
+    <value>statusStrip</value>
+  </data>
+  <data name="tabContainer.Text" xml:space="preserve">
+    <value>Контейнер</value>
+  </data>
+  <data name="tabPallet.Text" xml:space="preserve">
+    <value>Поддон</value>
+  </data>
+  <data name="toolStripMIFile.Text" xml:space="preserve">
+    <value>Файл</value>
+  </data>
+  <data name="toolStripMISettings.Text" xml:space="preserve">
+    <value>Параметры</value>
+  </data>
+  <data name="toolStripMITools.Text" xml:space="preserve">
+    <value>Инструменты</value>
+  </data>
+  <data name="uCtrlMaximumPalletHeight.Text" xml:space="preserve">
+    <value>Высота загруженные паллеты</value>
+  </data>
+  <data name="uCtrlPalletDimensions.Text" xml:space="preserve">
+    <value>Габаритные размеры</value>
+  </data>
+  <data name="uCtrlTruckDimensions.Text" xml:space="preserve">
+    <value>Габаритные размеры</value>
   </data>
 </root>

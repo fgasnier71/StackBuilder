@@ -118,43 +118,43 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="lbReportTemplatesDir.Size" type="System.Drawing.Size, System.Drawing">
-    <value>133, 13</value>
+  <data name="gbMSWordMargins.Text" xml:space="preserve">
+    <value>Ränder (nur Microsoft Word)</value>
   </data>
   <data name="label1.Text" xml:space="preserve">
     <value>Firmen-logo</value>
   </data>
-  <data name="lbReportTemplate.Text" xml:space="preserve">
-    <value>Report-Vorlage</value>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Richting</value>
   </data>
-  <data name="lbCmRight.Text" xml:space="preserve">
-    <value>cm</value>
+  <data name="lbBottom.Text" xml:space="preserve">
+    <value>Unten</value>
   </data>
-  <data name="lbCmLeft.Text" xml:space="preserve">
+  <data name="lbcm.Text" xml:space="preserve">
     <value>cm</value>
   </data>
   <data name="lbcmBottom.Text" xml:space="preserve">
     <value>cm</value>
   </data>
-  <data name="lbcm.Text" xml:space="preserve">
+  <data name="lbCmLeft.Text" xml:space="preserve">
     <value>cm</value>
   </data>
-  <data name="label2.Text" xml:space="preserve">
-    <value>Richting</value>
+  <data name="lbCmRight.Text" xml:space="preserve">
+    <value>cm</value>
   </data>
   <data name="lbLeft.Text" xml:space="preserve">
     <value>Links</value>
   </data>
-  <data name="lbBottom.Text" xml:space="preserve">
-    <value>Unten</value>
+  <data name="lbReportTemplate.Text" xml:space="preserve">
+    <value>Report-Vorlage</value>
   </data>
-  <data name="lbTop.Text" xml:space="preserve">
-    <value>Nach oben</value>
-  </data>
-  <data name="gbMSWordMargins.Text" xml:space="preserve">
-    <value>Ränder (nur Microsoft Word)</value>
+  <data name="lbReportTemplatesDir.Size" type="System.Drawing.Size, System.Drawing">
+    <value>133, 13</value>
   </data>
   <data name="lbSleepTime.Text" xml:space="preserve">
     <value>Zeit vor dem Bild löschen</value>
+  </data>
+  <data name="lbTop.Text" xml:space="preserve">
+    <value>Nach oben</value>
   </data>
 </root>

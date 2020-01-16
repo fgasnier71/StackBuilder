@@ -117,35 +117,35 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="gbStopCriterions.Text" xml:space="preserve">
-    <value>Stop kryteria</value>
-  </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Analiza przypadku/paleta...</value>
   </data>
-  <data name="tabPagePalletFilm.Text" xml:space="preserve">
-    <value>Folii palet</value>
-  </data>
-  <data name="uCtrlOptMaximumWeight.Text" xml:space="preserve">
-    <value>Maksymalna waga</value>
+  <data name="chkbPalletCap.Text" xml:space="preserve">
+    <value>Cap palet</value>
   </data>
   <data name="chkbPalletCorners.Text" xml:space="preserve">
     <value>Narożniki do palet</value>
   </data>
-  <data name="tabPagePalletCap.Text" xml:space="preserve">
-    <value>Cap palet</value>
-  </data>
-  <data name="uCtrlMaxPalletHeight.Text" xml:space="preserve">
-    <value>Maksymalna wysokość</value>
-  </data>
   <data name="chkbPalletFilm.Text" xml:space="preserve">
     <value>Folii palet</value>
+  </data>
+  <data name="gbStopCriterions.Text" xml:space="preserve">
+    <value>Stop kryteria</value>
+  </data>
+  <data name="tabPagePalletCap.Text" xml:space="preserve">
+    <value>Cap palet</value>
   </data>
   <data name="tabPagePalletCorners.Text" xml:space="preserve">
     <value>Narożniki do palet</value>
   </data>
-  <data name="chkbPalletCap.Text" xml:space="preserve">
-    <value>Cap palet</value>
+  <data name="tabPagePalletFilm.Text" xml:space="preserve">
+    <value>Folii palet</value>
+  </data>
+  <data name="uCtrlMaxPalletHeight.Text" xml:space="preserve">
+    <value>Maksymalna wysokość</value>
+  </data>
+  <data name="uCtrlOptMaximumWeight.Text" xml:space="preserve">
+    <value>Maksymalna waga</value>
   </data>
   <data name="uCtrlOptMaxNumber.Text" xml:space="preserve">
     <value>Maksymalna liczba</value>

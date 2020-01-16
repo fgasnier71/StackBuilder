@@ -117,100 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="cbColor.Items20" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="lbBox.Text" xml:space="preserve">
-    <value>Box</value>
-  </data>
-  <data name="lbDir.Text" xml:space="preserve">
-    <value>Richtung</value>
-  </data>
-  <data name="cbDir.Items" xml:space="preserve">
-    <value>X-</value>
-  </data>
-  <data name="cbDir.Items1" xml:space="preserve">
-    <value>X +</value>
-  </data>
-  <data name="cbDir.Items2" xml:space="preserve">
-    <value>Y-</value>
-  </data>
-  <data name="cbDir.Items3" xml:space="preserve">
-    <value>Y +</value>
-  </data>
-  <data name="cbDir.Items4" xml:space="preserve">
-    <value>Z-</value>
-  </data>
-  <data name="cbDir.Items5" xml:space="preserve">
-    <value>Z +</value>
-  </data>
-  <data name="uCtrlOuterDimensions.Text" xml:space="preserve">
-    <value>Außenabmessungen</value>
-  </data>
-  <data name="uCtrlLayout.Text" xml:space="preserve">
-    <value>Layout</value>
-  </data>
-  <data name="uCtrlHeight.Text" xml:space="preserve">
-    <value>Höhe</value>
-  </data>
-  <data name="uCtrlWalls.Text" xml:space="preserve">
-    <value>Numer der Wände</value>
-  </data>
-  <data name="chkbTransparent.Text" xml:space="preserve">
-    <value>Transparente</value>
-  </data>
-  <data name="lbType.Text" xml:space="preserve">
-    <value>Typ</value>
-  </data>
-  <data name="cbType.Items" xml:space="preserve">
-    <value>Aus Polyethylen</value>
-  </data>
-  <data name="cbType.Items1" xml:space="preserve">
-    <value>Papier</value>
-  </data>
-  <data name="cbType.Items2" xml:space="preserve">
-    <value>Karton</value>
-  </data>
-  <data name="cbType.Items3" xml:space="preserve">
-    <value>Tablett</value>
-  </data>
-  <data name="uCtrlWeight.Text" xml:space="preserve">
-    <value>Gewicht</value>
-  </data>
-  <data name="uCtrlThickness.Text" xml:space="preserve">
-    <value>Dicke</value>
-  </data>
-  <data name="lbWrapperColor.Text" xml:space="preserve">
-    <value>Color</value>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Erstellen Sie neue Pack...</value>
   </data>
   <data name="cbColor.Items" xml:space="preserve">
     <value>Color</value>
   </data>
   <data name="cbColor.Items1" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="cbColor.Items2" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="cbColor.Items3" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="cbColor.Items4" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="cbColor.Items5" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="cbColor.Items6" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="cbColor.Items7" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="cbColor.Items8" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="cbColor.Items9" xml:space="preserve">
     <value>Color</value>
   </data>
   <data name="cbColor.Items10" xml:space="preserve">
@@ -243,6 +156,12 @@
   <data name="cbColor.Items19" xml:space="preserve">
     <value>Color</value>
   </data>
+  <data name="cbColor.Items2" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items20" xml:space="preserve">
+    <value>Color</value>
+  </data>
   <data name="cbColor.Items21" xml:space="preserve">
     <value>Color</value>
   </data>
@@ -261,10 +180,91 @@
   <data name="cbColor.Items26" xml:space="preserve">
     <value>Color</value>
   </data>
+  <data name="cbColor.Items3" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items4" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items5" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items6" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items7" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items8" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items9" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbDir.Items" xml:space="preserve">
+    <value>X-</value>
+  </data>
+  <data name="cbDir.Items1" xml:space="preserve">
+    <value>X +</value>
+  </data>
+  <data name="cbDir.Items2" xml:space="preserve">
+    <value>Y-</value>
+  </data>
+  <data name="cbDir.Items3" xml:space="preserve">
+    <value>Y +</value>
+  </data>
+  <data name="cbDir.Items4" xml:space="preserve">
+    <value>Z-</value>
+  </data>
+  <data name="cbDir.Items5" xml:space="preserve">
+    <value>Z +</value>
+  </data>
+  <data name="cbType.Items" xml:space="preserve">
+    <value>Aus Polyethylen</value>
+  </data>
+  <data name="cbType.Items1" xml:space="preserve">
+    <value>Papier</value>
+  </data>
+  <data name="cbType.Items2" xml:space="preserve">
+    <value>Karton</value>
+  </data>
+  <data name="cbType.Items3" xml:space="preserve">
+    <value>Tablett</value>
+  </data>
+  <data name="chkbTransparent.Text" xml:space="preserve">
+    <value>Transparente</value>
+  </data>
   <data name="groupBox1.Text" xml:space="preserve">
     <value>Wrapper</value>
   </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Erstellen Sie neue Pack...</value>
+  <data name="lbBox.Text" xml:space="preserve">
+    <value>Box</value>
+  </data>
+  <data name="lbDir.Text" xml:space="preserve">
+    <value>Richtung</value>
+  </data>
+  <data name="lbType.Text" xml:space="preserve">
+    <value>Typ</value>
+  </data>
+  <data name="lbWrapperColor.Text" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="uCtrlHeight.Text" xml:space="preserve">
+    <value>Höhe</value>
+  </data>
+  <data name="uCtrlLayout.Text" xml:space="preserve">
+    <value>Layout</value>
+  </data>
+  <data name="uCtrlOuterDimensions.Text" xml:space="preserve">
+    <value>Außenabmessungen</value>
+  </data>
+  <data name="uCtrlThickness.Text" xml:space="preserve">
+    <value>Dicke</value>
+  </data>
+  <data name="uCtrlWalls.Text" xml:space="preserve">
+    <value>Numer der Wände</value>
+  </data>
+  <data name="uCtrlWeight.Text" xml:space="preserve">
+    <value>Gewicht</value>
   </data>
 </root>

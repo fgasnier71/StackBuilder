@@ -117,28 +117,28 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="lbName.Text" xml:space="preserve">
-    <value>Nom</value>
-  </data>
-  <data name="lbDescription.Text" xml:space="preserve">
-    <value>Description</value>
-  </data>
-  <data name="bnSolItemIndexUp.Text" xml:space="preserve">
-    <value>+</value>
-  </data>
-  <data name="lbSolItemIndex.Text" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="bnSolItemIndexDown.Text" xml:space="preserve">
-    <value>-</value>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Nouvelle analyse hétérogène...</value>
   </data>
   <data name="bnNext.Text" xml:space="preserve">
     <value>Suivant &gt;</value>
   </data>
+  <data name="bnSolItemIndexDown.Text" xml:space="preserve">
+    <value>-</value>
+  </data>
+  <data name="bnSolItemIndexUp.Text" xml:space="preserve">
+    <value>+</value>
+  </data>
+  <data name="lbDescription.Text" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="lbName.Text" xml:space="preserve">
+    <value>Nom</value>
+  </data>
+  <data name="lbSolItemIndex.Text" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="statusLabel.Text" xml:space="preserve">
     <value>Prêt</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Nouvelle analyse hétérogène...</value>
   </data>
 </root>

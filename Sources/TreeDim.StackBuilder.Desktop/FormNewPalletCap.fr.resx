@@ -118,40 +118,37 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="lbLength.Size" type="System.Drawing.Size, System.Drawing">
-    <value>52, 13</value>
-  </data>
-  <data name="lbWidth.Size" type="System.Drawing.Size, System.Drawing">
-    <value>43, 13</value>
-  </data>
-  <data name="lbHeight.Size" type="System.Drawing.Size, System.Drawing">
-    <value>45, 13</value>
-  </data>
-  <data name="lbWeight.Size" type="System.Drawing.Size, System.Drawing">
-    <value>38, 13</value>
-  </data>
-  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>43, 13</value>
-  </data>
-  <data name="label1.Text" xml:space="preserve">
-    <value>Couleur</value>
-  </data>
-  <data name="lbInsideLength.Size" type="System.Drawing.Size, System.Drawing">
-    <value>98, 13</value>
-  </data>
-  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>89, 13</value>
-  </data>
-  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>91, 13</value>
-  </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Créer une nouvelle coiffe...</value>
+  </data>
+  <data name="bnSendToDB.Text" xml:space="preserve">
+    <value>Envoi à la base de données</value>
   </data>
   <data name="cbColor.Items" xml:space="preserve">
     <value>Couleur</value>
   </data>
   <data name="cbColor.Items1" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbColor.Items10" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbColor.Items11" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbColor.Items12" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbColor.Items13" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbColor.Items14" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbColor.Items15" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbColor.Items16" xml:space="preserve">
     <value>Couleur</value>
   </data>
   <data name="cbColor.Items2" xml:space="preserve">
@@ -178,37 +175,40 @@
   <data name="cbColor.Items9" xml:space="preserve">
     <value>Couleur</value>
   </data>
-  <data name="cbColor.Items10" xml:space="preserve">
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>43, 13</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
     <value>Couleur</value>
   </data>
-  <data name="cbColor.Items11" xml:space="preserve">
-    <value>Couleur</value>
+  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>89, 13</value>
   </data>
-  <data name="cbColor.Items12" xml:space="preserve">
-    <value>Couleur</value>
+  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>91, 13</value>
   </data>
-  <data name="cbColor.Items13" xml:space="preserve">
-    <value>Couleur</value>
+  <data name="lbHeight.Size" type="System.Drawing.Size, System.Drawing">
+    <value>45, 13</value>
   </data>
-  <data name="cbColor.Items14" xml:space="preserve">
-    <value>Couleur</value>
+  <data name="lbInsideLength.Size" type="System.Drawing.Size, System.Drawing">
+    <value>98, 13</value>
   </data>
-  <data name="cbColor.Items15" xml:space="preserve">
-    <value>Couleur</value>
+  <data name="lbLength.Size" type="System.Drawing.Size, System.Drawing">
+    <value>52, 13</value>
   </data>
-  <data name="uCtrlDimensionsOuter.Text" xml:space="preserve">
-    <value>Dimensions extérieures</value>
+  <data name="lbWeight.Size" type="System.Drawing.Size, System.Drawing">
+    <value>38, 13</value>
+  </data>
+  <data name="lbWidth.Size" type="System.Drawing.Size, System.Drawing">
+    <value>43, 13</value>
   </data>
   <data name="uCtrlDimensionsInner.Text" xml:space="preserve">
     <value>Dimensions intérieures</value>
   </data>
+  <data name="uCtrlDimensionsOuter.Text" xml:space="preserve">
+    <value>Dimensions extérieures</value>
+  </data>
   <data name="uCtrlWeight.Text" xml:space="preserve">
     <value>Poids</value>
-  </data>
-  <data name="bnSendToDB.Text" xml:space="preserve">
-    <value>Envoi à la base de données</value>
-  </data>
-  <data name="cbColor.Items16" xml:space="preserve">
-    <value>Couleur</value>
   </data>
 </root>

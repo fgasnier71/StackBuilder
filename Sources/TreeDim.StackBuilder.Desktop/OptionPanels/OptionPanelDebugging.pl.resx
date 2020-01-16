@@ -117,16 +117,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="chkShowLogConsole.Text" xml:space="preserve">
-    <value>Pokaż dziennik konsoli</value>
-  </data>
   <data name="bnShowAppFolder.Text" xml:space="preserve">
     <value>Otwórz aplikację folderu</value>
+  </data>
+  <data name="chkbDisconnected.Text" xml:space="preserve">
+    <value>Zezwolić na używanie rozłączonych</value>
   </data>
   <data name="chkbShowStartPage.Text" xml:space="preserve">
     <value>Pokaż stronę aplikacji przy uruchomieniu...</value>
   </data>
-  <data name="chkbDisconnected.Text" xml:space="preserve">
-    <value>Zezwolić na używanie rozłączonych</value>
+  <data name="chkShowLogConsole.Text" xml:space="preserve">
+    <value>Pokaż dziennik konsoli</value>
   </data>
 </root>

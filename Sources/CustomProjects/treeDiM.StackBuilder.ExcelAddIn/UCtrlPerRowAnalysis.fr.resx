@@ -117,10 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="bnCompute.Text" xml:space="preserve">
     <value>Calculer</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="bnEditPallets.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
@@ -137,30 +137,6 @@
   <data name="bnRefreshPallets.Text" xml:space="preserve">
     <value>Rafraîchir</value>
   </data>
-  <data name="gpPallets.Text" xml:space="preserve">
-    <value>Palettes</value>
-  </data>
-  <data name="chkbOnlyZOrientation.Size" type="System.Drawing.Size, System.Drawing">
-    <value>234, 17</value>
-  </data>
-  <data name="chkbOnlyZOrientation.Text" xml:space="preserve">
-    <value>Autoriser seulement une orientation verticale</value>
-  </data>
-  <data name="uCtrlOverhang.Text" xml:space="preserve">
-    <value>Débord</value>
-  </data>
-  <data name="uCtrlMaxPalletHeight.Text" xml:space="preserve">
-    <value>Hauteur palette</value>
-  </data>
-  <data name="gbConstraints.Text" xml:space="preserve">
-    <value>Contraintes</value>
-  </data>
-  <data name="chkbGenerateReportInFolder.Size" type="System.Drawing.Size, System.Drawing">
-    <value>191, 17</value>
-  </data>
-  <data name="chkbGenerateReportInFolder.Text" xml:space="preserve">
-    <value>Générer un rapport dans le dossier:</value>
-  </data>
   <data name="chkbGenerateImageInFolder.Size" type="System.Drawing.Size, System.Drawing">
     <value>192, 17</value>
   </data>
@@ -172,5 +148,29 @@
   </data>
   <data name="chkbGenerateImageInRow.Text" xml:space="preserve">
     <value>Générer une image pour chaque ligne Excel</value>
+  </data>
+  <data name="chkbGenerateReportInFolder.Size" type="System.Drawing.Size, System.Drawing">
+    <value>191, 17</value>
+  </data>
+  <data name="chkbGenerateReportInFolder.Text" xml:space="preserve">
+    <value>Générer un rapport dans le dossier:</value>
+  </data>
+  <data name="chkbOnlyZOrientation.Size" type="System.Drawing.Size, System.Drawing">
+    <value>234, 17</value>
+  </data>
+  <data name="chkbOnlyZOrientation.Text" xml:space="preserve">
+    <value>Autoriser seulement une orientation verticale</value>
+  </data>
+  <data name="gbConstraints.Text" xml:space="preserve">
+    <value>Contraintes</value>
+  </data>
+  <data name="gpPallets.Text" xml:space="preserve">
+    <value>Palettes</value>
+  </data>
+  <data name="uCtrlMaxPalletHeight.Text" xml:space="preserve">
+    <value>Hauteur palette</value>
+  </data>
+  <data name="uCtrlOverhang.Text" xml:space="preserve">
+    <value>Débord</value>
   </data>
 </root>

@@ -117,43 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="gbStopCriterions.Text" xml:space="preserve">
-    <value>Critères de fin</value>
-  </data>
-  <data name="uCtrlOptMaximumWeight.Text" xml:space="preserve">
-    <value>Poid maximum</value>
-  </data>
-  <data name="uCtrlMaxPalletHeight.Text" xml:space="preserve">
-    <value>Hauteur maximale</value>
-  </data>
-  <data name="tabPagePalletCorners.Text" xml:space="preserve">
-    <value>Cornières</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="chkbPalletCorners.Size" type="System.Drawing.Size, System.Drawing">
-    <value>70, 17</value>
-  </data>
-  <data name="chkbPalletCorners.Text" xml:space="preserve">
-    <value>Cornières</value>
-  </data>
-  <data name="tabPagePalletCap.Text" xml:space="preserve">
-    <value>Coiffe</value>
-  </data>
-  <data name="chkbPalletCap.Size" type="System.Drawing.Size, System.Drawing">
-    <value>53, 17</value>
-  </data>
-  <data name="chkbPalletCap.Text" xml:space="preserve">
-    <value>Coiffe</value>
-  </data>
-  <data name="tabPagePalletFilm.Text" xml:space="preserve">
-    <value>Film palettisation</value>
-  </data>
-  <data name="chkbPalletFilm.Size" type="System.Drawing.Size, System.Drawing">
-    <value>103, 17</value>
-  </data>
-  <data name="chkbPalletFilm.Text" xml:space="preserve">
-    <value>Film palettisation</value>
-  </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAMAMDAAAAEACACoDgAANgAAACAgAAABAAgAqAgAAN4OAAAQEAAAAQAIAGgFAACGFwAAKAAAADAA
@@ -284,6 +248,42 @@
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Analyse caisse/palette...</value>
+  </data>
+  <data name="chkbPalletCap.Size" type="System.Drawing.Size, System.Drawing">
+    <value>53, 17</value>
+  </data>
+  <data name="chkbPalletCap.Text" xml:space="preserve">
+    <value>Coiffe</value>
+  </data>
+  <data name="chkbPalletCorners.Size" type="System.Drawing.Size, System.Drawing">
+    <value>70, 17</value>
+  </data>
+  <data name="chkbPalletCorners.Text" xml:space="preserve">
+    <value>Cornières</value>
+  </data>
+  <data name="chkbPalletFilm.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 17</value>
+  </data>
+  <data name="chkbPalletFilm.Text" xml:space="preserve">
+    <value>Film palettisation</value>
+  </data>
+  <data name="gbStopCriterions.Text" xml:space="preserve">
+    <value>Critères de fin</value>
+  </data>
+  <data name="tabPagePalletCap.Text" xml:space="preserve">
+    <value>Coiffe</value>
+  </data>
+  <data name="tabPagePalletCorners.Text" xml:space="preserve">
+    <value>Cornières</value>
+  </data>
+  <data name="tabPagePalletFilm.Text" xml:space="preserve">
+    <value>Film palettisation</value>
+  </data>
+  <data name="uCtrlMaxPalletHeight.Text" xml:space="preserve">
+    <value>Hauteur maximale</value>
+  </data>
+  <data name="uCtrlOptMaximumWeight.Text" xml:space="preserve">
+    <value>Poid maximum</value>
   </data>
   <data name="uCtrlOptMaxNumber.Text" xml:space="preserve">
     <value>Nombre maximum</value>

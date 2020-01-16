@@ -117,44 +117,8 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="CatDescr.AccessibleDescription" xml:space="preserve">
-    <value>Это поле показывает описание для каждой категории в дереве.</value>
-  </data>
-  <data name="CatDescr.Text" xml:space="preserve">
-    <value>Описание.</value>
-  </data>
-  <data name="CatTree.AccessibleDescription" xml:space="preserve">
-    <value>Параметры категории.</value>
-  </data>
-  <data name="CatHeader.AccessibleDescription" xml:space="preserve">
-    <value>Категории дерева заголовок.</value>
-  </data>
-  <data name="CatHeader.Text" xml:space="preserve">
-    <value>Категории:</value>
-  </data>
-  <data name="OptionsPanelPath.AccessibleDescription" xml:space="preserve">
-    <value>Это поле показывает параметры путь к текущей панели.</value>
-  </data>
-  <data name="OptionsPanelPath.Text" xml:space="preserve">
-    <value>Параметры» путь</value>
-  </data>
-  <data name="OptionDescrLabel.AccessibleDescription" xml:space="preserve">
-    <value>Это поле показывает краткое описание для каждого элемента управления.</value>
-  </data>
-  <data name="OptionDescrLabel.Text" xml:space="preserve">
-    <value>Описание.</value>
-  </data>
-  <data name="AppRestartLabel.AccessibleDescription" xml:space="preserve">
-    <value>Это поле указывает, что приложение необходимо перезапустить, чтобы изменения вступили в силу.</value>
-  </data>
-  <data name="AppRestartLabel.Text" xml:space="preserve">
-    <value>Для изменения вступили в силу необходимо перезапустить приложение.</value>
-  </data>
-  <data name="OKBtn.AccessibleDescription" xml:space="preserve">
-    <value>Применить изменения и закрыть форму параметры.</value>
-  </data>
-  <data name="OKBtn.Text" xml:space="preserve">
-    <value>&amp; OK</value>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Параметры</value>
   </data>
   <data name="ApplyBtn.AccessibleDescription" xml:space="preserve">
     <value>Примените изменения.</value>
@@ -162,13 +126,49 @@
   <data name="ApplyBtn.Text" xml:space="preserve">
     <value>A &amp; ь</value>
   </data>
+  <data name="AppRestartLabel.AccessibleDescription" xml:space="preserve">
+    <value>Это поле указывает, что приложение необходимо перезапустить, чтобы изменения вступили в силу.</value>
+  </data>
+  <data name="AppRestartLabel.Text" xml:space="preserve">
+    <value>Для изменения вступили в силу необходимо перезапустить приложение.</value>
+  </data>
   <data name="CancelBtn.AccessibleDescription" xml:space="preserve">
     <value>Отменить изменения и закрыть форму параметры.</value>
   </data>
   <data name="CancelBtn.Text" xml:space="preserve">
     <value>&amp; Отмена</value>
   </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Параметры</value>
+  <data name="CatDescr.AccessibleDescription" xml:space="preserve">
+    <value>Это поле показывает описание для каждой категории в дереве.</value>
+  </data>
+  <data name="CatDescr.Text" xml:space="preserve">
+    <value>Описание.</value>
+  </data>
+  <data name="CatHeader.AccessibleDescription" xml:space="preserve">
+    <value>Категории дерева заголовок.</value>
+  </data>
+  <data name="CatHeader.Text" xml:space="preserve">
+    <value>Категории:</value>
+  </data>
+  <data name="CatTree.AccessibleDescription" xml:space="preserve">
+    <value>Параметры категории.</value>
+  </data>
+  <data name="OKBtn.AccessibleDescription" xml:space="preserve">
+    <value>Применить изменения и закрыть форму параметры.</value>
+  </data>
+  <data name="OKBtn.Text" xml:space="preserve">
+    <value>&amp; OK</value>
+  </data>
+  <data name="OptionDescrLabel.AccessibleDescription" xml:space="preserve">
+    <value>Это поле показывает краткое описание для каждого элемента управления.</value>
+  </data>
+  <data name="OptionDescrLabel.Text" xml:space="preserve">
+    <value>Описание.</value>
+  </data>
+  <data name="OptionsPanelPath.AccessibleDescription" xml:space="preserve">
+    <value>Это поле показывает параметры путь к текущей панели.</value>
+  </data>
+  <data name="OptionsPanelPath.Text" xml:space="preserve">
+    <value>Параметры» путь</value>
   </data>
 </root>

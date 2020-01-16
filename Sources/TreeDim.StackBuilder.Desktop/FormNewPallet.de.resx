@@ -117,56 +117,77 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="$this.Text" xml:space="preserve">
+    <value>Neue Palette anlegen…</value>
+  </data>
   <data name="bnCancel.Text" xml:space="preserve">
     <value>Abbrechen</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="lbDescription.Size" type="System.Drawing.Size, System.Drawing">
-    <value>72, 13</value>
+  <data name="bnSendToDB.Text" xml:space="preserve">
+    <value>In Datenbank speichern</value>
   </data>
-  <data name="lbDescription.Text" xml:space="preserve">
-    <value>Beschreibung</value>
-  </data>
-  <data name="lbLength.Size" type="System.Drawing.Size, System.Drawing">
-    <value>37, 13</value>
-  </data>
-  <data name="lbLength.Text" xml:space="preserve">
-    <value>Länge</value>
-  </data>
-  <data name="lbWidth.Size" type="System.Drawing.Size, System.Drawing">
-    <value>34, 13</value>
-  </data>
-  <data name="lbWidth.Text" xml:space="preserve">
-    <value>Breite</value>
-  </data>
-  <data name="lbHeight.Size" type="System.Drawing.Size, System.Drawing">
-    <value>33, 13</value>
-  </data>
-  <data name="lbHeight.Text" xml:space="preserve">
-    <value>Höhe</value>
-  </data>
-  <data name="lbWeight.Size" type="System.Drawing.Size, System.Drawing">
-    <value>46, 13</value>
-  </data>
-  <data name="lbWeight.Text" xml:space="preserve">
-    <value>Gewicht</value>
-  </data>
-  <data name="lbType.Size" type="System.Drawing.Size, System.Drawing">
-    <value>25, 13</value>
-  </data>
-  <data name="lbType.Text" xml:space="preserve">
-    <value>Typ</value>
-  </data>
-  <data name="lbColor.Size" type="System.Drawing.Size, System.Drawing">
-    <value>34, 13</value>
-  </data>
-  <data name="lbColor.Text" xml:space="preserve">
+  <data name="cbColor.Items" xml:space="preserve">
     <value>Farbe</value>
   </data>
   <data name="cbColor.Items1" xml:space="preserve">
     <value>Farbe</value>
   </data>
+  <data name="cbColor.Items10" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="cbColor.Items11" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="cbColor.Items12" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="cbColor.Items13" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="cbColor.Items14" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="cbColor.Items15" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="cbColor.Items16" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="cbColor.Items17" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="cbColor.Items18" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="cbColor.Items19" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
   <data name="cbColor.Items2" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="cbColor.Items20" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="cbColor.Items21" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="cbColor.Items22" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="cbColor.Items23" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="cbColor.Items24" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="cbColor.Items25" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="cbColor.Items26" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="cbColor.Items27" xml:space="preserve">
     <value>Farbe</value>
   </data>
   <data name="cbColor.Items3" xml:space="preserve">
@@ -190,82 +211,61 @@
   <data name="cbColor.Items9" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbColor.Items10" xml:space="preserve">
+  <data name="lbColor.Size" type="System.Drawing.Size, System.Drawing">
+    <value>34, 13</value>
+  </data>
+  <data name="lbColor.Text" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbColor.Items11" xml:space="preserve">
-    <value>Farbe</value>
+  <data name="lbDescription.Size" type="System.Drawing.Size, System.Drawing">
+    <value>72, 13</value>
   </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Neue Palette anlegen…</value>
+  <data name="lbDescription.Text" xml:space="preserve">
+    <value>Beschreibung</value>
   </data>
-  <data name="uCtrlDimensions.Text" xml:space="preserve">
-    <value>Abmessungen</value>
+  <data name="lbHeight.Size" type="System.Drawing.Size, System.Drawing">
+    <value>33, 13</value>
   </data>
-  <data name="cbColor.Items21" xml:space="preserve">
-    <value>Farbe</value>
+  <data name="lbHeight.Text" xml:space="preserve">
+    <value>Höhe</value>
   </data>
-  <data name="cbColor.Items12" xml:space="preserve">
-    <value>Farbe</value>
+  <data name="lbLength.Size" type="System.Drawing.Size, System.Drawing">
+    <value>37, 13</value>
   </data>
-  <data name="cbColor.Items20" xml:space="preserve">
-    <value>Farbe</value>
+  <data name="lbLength.Text" xml:space="preserve">
+    <value>Länge</value>
+  </data>
+  <data name="lbType.Size" type="System.Drawing.Size, System.Drawing">
+    <value>25, 13</value>
+  </data>
+  <data name="lbType.Text" xml:space="preserve">
+    <value>Typ</value>
+  </data>
+  <data name="lbWeight.Size" type="System.Drawing.Size, System.Drawing">
+    <value>46, 13</value>
+  </data>
+  <data name="lbWeight.Text" xml:space="preserve">
+    <value>Gewicht</value>
+  </data>
+  <data name="lbWidth.Size" type="System.Drawing.Size, System.Drawing">
+    <value>34, 13</value>
+  </data>
+  <data name="lbWidth.Text" xml:space="preserve">
+    <value>Breite</value>
   </data>
   <data name="statusStripDef.Text" xml:space="preserve">
     <value>statusStripDef</value>
   </data>
-  <data name="cbColor.Items25" xml:space="preserve">
-    <value>Farbe</value>
-  </data>
-  <data name="cbColor.Items26" xml:space="preserve">
-    <value>Farbe</value>
-  </data>
-  <data name="cbColor.Items15" xml:space="preserve">
-    <value>Farbe</value>
-  </data>
-  <data name="cbColor.Items16" xml:space="preserve">
-    <value>Farbe</value>
-  </data>
-  <data name="cbColor.Items23" xml:space="preserve">
-    <value>Farbe</value>
-  </data>
-  <data name="cbColor.Items19" xml:space="preserve">
-    <value>Farbe</value>
-  </data>
-  <data name="cbColor.Items24" xml:space="preserve">
-    <value>Farbe</value>
-  </data>
-  <data name="cbColor.Items13" xml:space="preserve">
-    <value>Farbe</value>
+  <data name="toolStripStatusLabelDef.Text" xml:space="preserve">
+    <value>toolStripStatusLabelDef</value>
   </data>
   <data name="uCtrlAdmissibleLoad.Text" xml:space="preserve">
     <value>Zulässige Last</value>
   </data>
+  <data name="uCtrlDimensions.Text" xml:space="preserve">
+    <value>Abmessungen</value>
+  </data>
   <data name="uCtrlWeight.Text" xml:space="preserve">
     <value>Gewicht</value>
-  </data>
-  <data name="cbColor.Items14" xml:space="preserve">
-    <value>Farbe</value>
-  </data>
-  <data name="cbColor.Items" xml:space="preserve">
-    <value>Farbe</value>
-  </data>
-  <data name="cbColor.Items18" xml:space="preserve">
-    <value>Farbe</value>
-  </data>
-  <data name="cbColor.Items17" xml:space="preserve">
-    <value>Farbe</value>
-  </data>
-  <data name="bnSendToDB.Text" xml:space="preserve">
-    <value>In Datenbank speichern</value>
-  </data>
-  <data name="toolStripStatusLabelDef.Text" xml:space="preserve">
-    <value>toolStripStatusLabelDef</value>
-  </data>
-  <data name="cbColor.Items22" xml:space="preserve">
-    <value>Farbe</value>
-  </data>
-  <data name="cbColor.Items27" xml:space="preserve">
-    <value>Farbe</value>
   </data>
 </root>

@@ -117,36 +117,21 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="$this.Text" xml:space="preserve">
+    <value>ケースの寸法を最適化する...</value>
+  </data>
+  <data name="btAddCasePalletAnalysis.Text" xml:space="preserve">
+    <value>ケース/パレット解析機能の追加します。</value>
+  </data>
+  <data name="btAddPackPalletAnalysis.Text" xml:space="preserve">
+    <value>パック/パレット解析機能の追加します。</value>
+  </data>
   <data name="btClose.Text" xml:space="preserve">
     <value>閉じる</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="chkVerticalOrientationOnly.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 17</value>
-  </data>
-  <data name="chkVerticalOrientationOnly.Text" xml:space="preserve">
-    <value>箱は垂直方向のみ使用する</value>
-  </data>
-  <data name="lbNumber.Size" type="System.Drawing.Size, System.Drawing">
-    <value>88, 13</value>
-  </data>
-  <data name="lbNumber.Text" xml:space="preserve">
-    <value>ケース当たり箱数</value>
-  </data>
-  <data name="lbBoxDimensions.Size" type="System.Drawing.Size, System.Drawing">
-    <value>165, 13</value>
-  </data>
-  <data name="lbBoxDimensions.Text" xml:space="preserve">
-    <value>ケースやパレットの分析を作成する</value>
-  </data>
-  <data name="lbBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>41, 13</value>
-  </data>
-  <data name="lbBox.Text" xml:space="preserve">
-    <value>ボックス</value>
-  </data>
-  <data name="groupBox.Text" xml:space="preserve">
-    <value>ボックス（内積）</value>
+  <data name="btOptimize.Text" xml:space="preserve">
+    <value>最適化</value>
   </data>
   <data name="btSetMaximum.Text" xml:space="preserve">
     <value>最大値を設定</value>
@@ -154,182 +139,56 @@
   <data name="btSetMinimum.Text" xml:space="preserve">
     <value>最小値を設定</value>
   </data>
-  <data name="gbCase.Text" xml:space="preserve">
-    <value>ケースの制約</value>
-  </data>
-  <data name="lbPalletDimensions.Size" type="System.Drawing.Size, System.Drawing">
-    <value>43, 13</value>
-  </data>
-  <data name="lbPalletDimensions.Text" xml:space="preserve">
-    <value>（寸法）</value>
-  </data>
-  <data name="lbPallet.Size" type="System.Drawing.Size, System.Drawing">
-    <value>41, 13</value>
-  </data>
-  <data name="lbPallet.Text" xml:space="preserve">
-    <value>パレット</value>
-  </data>
-  <data name="gbPallet.Text" xml:space="preserve">
-    <value>パレット</value>
-  </data>
-  <data name="btOptimize.Text" xml:space="preserve">
-    <value>最適化</value>
-  </data>
-  <data name="cbColor.Items42" xml:space="preserve">
+  <data name="cbColor.Items" xml:space="preserve">
     <value>Color</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>ケースの寸法を最適化する...</value>
   </data>
   <data name="cbColor.Items1" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColor.Items26" xml:space="preserve">
+  <data name="cbColor.Items10" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="btAddPackPalletAnalysis.Text" xml:space="preserve">
-    <value>パック/パレット解析機能の追加します。</value>
+  <data name="cbColor.Items11" xml:space="preserve">
+    <value>Color</value>
   </data>
-  <data name="cbColor.Items33" xml:space="preserve">
+  <data name="cbColor.Items12" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items13" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items14" xml:space="preserve">
     <value>Color</value>
   </data>
   <data name="cbColor.Items15" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColor.Items39" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="cbColor.Items6" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="uCtrlPackDimensionsMax.Text" xml:space="preserve">
-    <value>Max。パック寸法</value>
-  </data>
-  <data name="btAddCasePalletAnalysis.Text" xml:space="preserve">
-    <value>ケース/パレット解析機能の追加します。</value>
-  </data>
-  <data name="uCtrlPackDimensionsMin.Text" xml:space="preserve">
-    <value>分パック寸法</value>
-  </data>
-  <data name="uCtrlOverhang.Text" xml:space="preserve">
-    <value>オーバー ハング</value>
-  </data>
-  <data name="toolStripStatusLabelDef.Text" xml:space="preserve">
-    <value>toolStripStatusLabelDef</value>
-  </data>
-  <data name="cbColor.Items37" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="cbWrapperType.Items1" xml:space="preserve">
-    <value>トレイ</value>
-  </data>
-  <data name="cbColor.Items30" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="cbColor.Items43" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="cbWrapperType.Items3" xml:space="preserve">
-    <value>ポリエチレン</value>
-  </data>
-  <data name="cbColor.Items28" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="statusStripDef.Text" xml:space="preserve">
-    <value>statusStripDef</value>
-  </data>
-  <data name="uCtrlTrayHeight.Text" xml:space="preserve">
-    <value>トレイの高さ</value>
-  </data>
-  <data name="cbWrapperType.Items2" xml:space="preserve">
-    <value>紙</value>
-  </data>
-  <data name="cbColor.Items5" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="cbColor.Items34" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="cbColor.Items31" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="cbColor.Items" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="cbColor.Items23" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="cbColor.Items40" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="cbColor.Items29" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="label1.Text" xml:space="preserve">
-    <value>ラッパー型</value>
-  </data>
-  <data name="cbColor.Items3" xml:space="preserve">
-    <value>Color</value>
-  </data>
   <data name="cbColor.Items16" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColor.Items35" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="cbColor.Items27" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="cbColor.Items44" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="cbColor.Items20" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="cbColor.Items41" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="cbColor.Items9" xml:space="preserve">
+  <data name="cbColor.Items17" xml:space="preserve">
     <value>Color</value>
   </data>
   <data name="cbColor.Items18" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColor.Items32" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="uCtrlWallThickness.Text" xml:space="preserve">
-    <value>壁の厚さ</value>
-  </data>
-  <data name="cbColor.Items4" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="cbColor.Items21" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="uCtrlNoWalls.Text" xml:space="preserve">
-    <value>壁の数</value>
-  </data>
-  <data name="cbColor.Items13" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="cbColor.Items7" xml:space="preserve">
-    <value>Color</value>
-  </data>
   <data name="cbColor.Items19" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="cbColor.Items36" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="lbWrapperColor.Text" xml:space="preserve">
     <value>Color</value>
   </data>
   <data name="cbColor.Items2" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="uCtrlSurfacicMass.Text" xml:space="preserve">
-    <value>Surfacic 質量</value>
+  <data name="cbColor.Items20" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items21" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items22" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items23" xml:space="preserve">
+    <value>Color</value>
   </data>
   <data name="cbColor.Items24" xml:space="preserve">
     <value>Color</value>
@@ -337,40 +196,181 @@
   <data name="cbColor.Items25" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColor.Items17" xml:space="preserve">
+  <data name="cbColor.Items26" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColor.Items10" xml:space="preserve">
+  <data name="cbColor.Items27" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColor.Items12" xml:space="preserve">
+  <data name="cbColor.Items28" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColor.Items8" xml:space="preserve">
+  <data name="cbColor.Items29" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbWrapperType.Items" xml:space="preserve">
-    <value>段ボール</value>
-  </data>
-  <data name="cbColor.Items22" xml:space="preserve">
+  <data name="cbColor.Items3" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="uCtrlPalletHeight.Text" xml:space="preserve">
-    <value>最大パレット高さ</value>
+  <data name="cbColor.Items30" xml:space="preserve">
+    <value>Color</value>
   </data>
-  <data name="cbColor.Items14" xml:space="preserve">
+  <data name="cbColor.Items31" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items32" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items33" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items34" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items35" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items36" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items37" xml:space="preserve">
     <value>Color</value>
   </data>
   <data name="cbColor.Items38" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColor.Items11" xml:space="preserve">
+  <data name="cbColor.Items39" xml:space="preserve">
     <value>Color</value>
+  </data>
+  <data name="cbColor.Items4" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items40" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items41" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items42" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items43" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items44" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items45" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items5" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items6" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items7" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items8" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items9" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbWrapperType.Items" xml:space="preserve">
+    <value>段ボール</value>
+  </data>
+  <data name="cbWrapperType.Items1" xml:space="preserve">
+    <value>トレイ</value>
+  </data>
+  <data name="cbWrapperType.Items2" xml:space="preserve">
+    <value>紙</value>
+  </data>
+  <data name="cbWrapperType.Items3" xml:space="preserve">
+    <value>ポリエチレン</value>
+  </data>
+  <data name="chkVerticalOrientationOnly.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 17</value>
+  </data>
+  <data name="chkVerticalOrientationOnly.Text" xml:space="preserve">
+    <value>箱は垂直方向のみ使用する</value>
+  </data>
+  <data name="gbCase.Text" xml:space="preserve">
+    <value>ケースの制約</value>
+  </data>
+  <data name="gbPallet.Text" xml:space="preserve">
+    <value>パレット</value>
   </data>
   <data name="gbWrapper.Text" xml:space="preserve">
     <value>ラッパー</value>
   </data>
-  <data name="cbColor.Items45" xml:space="preserve">
-    <value>Kleur</value>
+  <data name="groupBox.Text" xml:space="preserve">
+    <value>ボックス（内積）</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>ラッパー型</value>
+  </data>
+  <data name="lbBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>41, 13</value>
+  </data>
+  <data name="lbBox.Text" xml:space="preserve">
+    <value>ボックス</value>
+  </data>
+  <data name="lbBoxDimensions.Size" type="System.Drawing.Size, System.Drawing">
+    <value>165, 13</value>
+  </data>
+  <data name="lbBoxDimensions.Text" xml:space="preserve">
+    <value>ケースやパレットの分析を作成する</value>
+  </data>
+  <data name="lbNumber.Size" type="System.Drawing.Size, System.Drawing">
+    <value>88, 13</value>
+  </data>
+  <data name="lbNumber.Text" xml:space="preserve">
+    <value>ケース当たり箱数</value>
+  </data>
+  <data name="lbPallet.Size" type="System.Drawing.Size, System.Drawing">
+    <value>41, 13</value>
+  </data>
+  <data name="lbPallet.Text" xml:space="preserve">
+    <value>パレット</value>
+  </data>
+  <data name="lbPalletDimensions.Size" type="System.Drawing.Size, System.Drawing">
+    <value>43, 13</value>
+  </data>
+  <data name="lbPalletDimensions.Text" xml:space="preserve">
+    <value>（寸法）</value>
+  </data>
+  <data name="lbWrapperColor.Text" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="statusStripDef.Text" xml:space="preserve">
+    <value>statusStripDef</value>
+  </data>
+  <data name="toolStripStatusLabelDef.Text" xml:space="preserve">
+    <value>toolStripStatusLabelDef</value>
+  </data>
+  <data name="uCtrlNoWalls.Text" xml:space="preserve">
+    <value>壁の数</value>
+  </data>
+  <data name="uCtrlOverhang.Text" xml:space="preserve">
+    <value>オーバー ハング</value>
+  </data>
+  <data name="uCtrlPackDimensionsMax.Text" xml:space="preserve">
+    <value>Max。パック寸法</value>
+  </data>
+  <data name="uCtrlPackDimensionsMin.Text" xml:space="preserve">
+    <value>分パック寸法</value>
+  </data>
+  <data name="uCtrlPalletHeight.Text" xml:space="preserve">
+    <value>最大パレット高さ</value>
+  </data>
+  <data name="uCtrlSurfacicMass.Text" xml:space="preserve">
+    <value>Surfacic 質量</value>
+  </data>
+  <data name="uCtrlTrayHeight.Text" xml:space="preserve">
+    <value>トレイの高さ</value>
+  </data>
+  <data name="uCtrlWallThickness.Text" xml:space="preserve">
+    <value>壁の厚さ</value>
   </data>
 </root>

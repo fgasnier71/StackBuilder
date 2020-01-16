@@ -117,35 +117,35 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="gbStopCriterions.Text" xml:space="preserve">
-    <value>Stoppa criterions</value>
-  </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Ärende/lastpall analys...</value>
   </data>
-  <data name="tabPagePalletFilm.Text" xml:space="preserve">
-    <value>Lastpall Film</value>
-  </data>
-  <data name="uCtrlOptMaximumWeight.Text" xml:space="preserve">
-    <value>Maximal vikt</value>
+  <data name="chkbPalletCap.Text" xml:space="preserve">
+    <value>Lastpall cap</value>
   </data>
   <data name="chkbPalletCorners.Text" xml:space="preserve">
     <value>Lastpall hörn</value>
   </data>
-  <data name="tabPagePalletCap.Text" xml:space="preserve">
-    <value>Lastpall Cap</value>
-  </data>
-  <data name="uCtrlMaxPalletHeight.Text" xml:space="preserve">
-    <value>Maximal höjd</value>
-  </data>
   <data name="chkbPalletFilm.Text" xml:space="preserve">
     <value>Lastpall film</value>
+  </data>
+  <data name="gbStopCriterions.Text" xml:space="preserve">
+    <value>Stoppa criterions</value>
+  </data>
+  <data name="tabPagePalletCap.Text" xml:space="preserve">
+    <value>Lastpall Cap</value>
   </data>
   <data name="tabPagePalletCorners.Text" xml:space="preserve">
     <value>Lastpall hörn</value>
   </data>
-  <data name="chkbPalletCap.Text" xml:space="preserve">
-    <value>Lastpall cap</value>
+  <data name="tabPagePalletFilm.Text" xml:space="preserve">
+    <value>Lastpall Film</value>
+  </data>
+  <data name="uCtrlMaxPalletHeight.Text" xml:space="preserve">
+    <value>Maximal höjd</value>
+  </data>
+  <data name="uCtrlOptMaximumWeight.Text" xml:space="preserve">
+    <value>Maximal vikt</value>
   </data>
   <data name="uCtrlOptMaxNumber.Text" xml:space="preserve">
     <value>Max. antal</value>

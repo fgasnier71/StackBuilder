@@ -117,29 +117,17 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="bnClose.Text" xml:space="preserve">
-    <value>Zamknij</value>
-  </data>
-  <data name="tabPagePallet.Text" xml:space="preserve">
-    <value>Palety</value>
-  </data>
-  <data name="tabPageInterlayer.Text" xml:space="preserve">
-    <value>PVB</value>
-  </data>
-  <data name="tabPageTruck.Text" xml:space="preserve">
-    <value>Samochody ciężarowe</value>
-  </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Edycja bazy danych &amp; importowania elementów w projekcie...</value>
   </data>
-  <data name="tabPagePallet.ToolTipText" xml:space="preserve">
-    <value>Palety</value>
+  <data name="bnClose.Text" xml:space="preserve">
+    <value>Zamknij</value>
   </data>
   <data name="bnImport.Text" xml:space="preserve">
     <value>Importu</value>
   </data>
-  <data name="tabPagePalletFilm.Text" xml:space="preserve">
-    <value>Filmy palet</value>
+  <data name="tabPageBox.Text" xml:space="preserve">
+    <value>Pudełka</value>
   </data>
   <data name="tabPageBundle.Text" xml:space="preserve">
     <value>Pakiety</value>
@@ -147,17 +135,29 @@
   <data name="tabPageCase.Text" xml:space="preserve">
     <value>Przypadkach</value>
   </data>
-  <data name="tabPagePalletCorner.Text" xml:space="preserve">
-    <value>Narożniki do palet</value>
+  <data name="tabPageCylinder.Text" xml:space="preserve">
+    <value>Cylindry</value>
+  </data>
+  <data name="tabPageInterlayer.Text" xml:space="preserve">
+    <value>PVB</value>
+  </data>
+  <data name="tabPagePallet.Text" xml:space="preserve">
+    <value>Palety</value>
+  </data>
+  <data name="tabPagePallet.ToolTipText" xml:space="preserve">
+    <value>Palety</value>
   </data>
   <data name="tabPagePalletCap.Text" xml:space="preserve">
     <value>Palet</value>
   </data>
-  <data name="tabPageCylinder.Text" xml:space="preserve">
-    <value>Cylindry</value>
+  <data name="tabPagePalletCorner.Text" xml:space="preserve">
+    <value>Narożniki do palet</value>
   </data>
-  <data name="tabPageBox.Text" xml:space="preserve">
-    <value>Pudełka</value>
+  <data name="tabPagePalletFilm.Text" xml:space="preserve">
+    <value>Filmy palet</value>
+  </data>
+  <data name="tabPageTruck.Text" xml:space="preserve">
+    <value>Samochody ciężarowe</value>
   </data>
   <data name="toolStripBExcel.Text" xml:space="preserve">
     <value>Importowanie z pliku Excel...</value>

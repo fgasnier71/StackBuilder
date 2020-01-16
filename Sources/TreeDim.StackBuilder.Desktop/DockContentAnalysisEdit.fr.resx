@@ -118,56 +118,6 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="chkbInterlayer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>80, 17</value>
-  </data>
-  <data name="chkbInterlayer.Text" xml:space="preserve">
-    <value>Intercallaire</value>
-  </data>
-  <data name="bnSymmetryX.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAMAAABg3Am1AAAABGdBTUEAALGPC/xhBQAAABJQTFRF7e3t
-        i0UTmZmZAAAAjEYU////vjOrZAAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAACS
-        SURBVEhL1ZTRDoAgCEUt8/9/OQQeaAoDs2lnDh+6Z17nVipBthayCYcewmXQFQ6DRQKVVeBQR8DZ7FOF
-        lFK7r61EzBBIipyAI1SpztgdYBOCCWek4CIPCecJyzdIgILY0jEGK0WQQj1ThzPvHo6+4OwJtCIC9fpW
-        qEbs0sAEYb/fjAKHWkHhL4IJh6TgZDuhlBuX5iXHVdaTfwAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="bnSymetryY.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAMAAABg3Am1AAAABGdBTUEAALGPC/xhBQAAABJQTFRF7e3t
-        i0UTmZmZAAAAjEYU////vjOrZAAAAAlwSFlzAAAOwwAADsMBx2+oZAAAABl0RVh0U29mdHdhcmUAQWRv
-        YmUgSW1hZ2VSZWFkeXHJZTwAAADHSURBVEhL1dDbEoMgDEVRqfL/v9yQiwQ4CMzotO6XSmQN1C0uhsHO
-        6aIMAdsKCQBuGz3WqAWy4yM/7cUaoBvmgSYA/PVrAOqBbgzSyUVygi5yGRwhhP04M6BLih9vABu/bACN
-        x0DG0hSYO8GqAAWBS4ELgTSTDOiSGgMZn43B3AnLX+l5YPGbDCgIXHqCC4E0kwzokvoZcF9JxtKNn3UZ
-        WBWgIHApcAGQRhq/KU7gLkF1Je6/QV0adsYMQOkE2ItAtxddqVOMX64UJcfaxRFaAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="gbLayer.Text" xml:space="preserve">
-    <value>Double-cliquer une couche...</value>
-  </data>
-  <data name="toolStripButtonBack.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABYSURBVDhP3Y+xDcAwCASZk0FgZMaw9fHTpImxRBGfROG3
-        7hHSRkQMd3+G0T4pq+ows1rBW8abX9/8VAaQIFcGC6mfFcChvk7IEjSXTwCXlzCukSUYRh2ITINE0o5U
-        APEDAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="toolStripButtonBack.Text" xml:space="preserve">
-    <value>Précédent...</value>
-  </data>
-  <data name="toolStripButtonBack.ToolTipText" xml:space="preserve">
-    <value>Précédent...</value>
-  </data>
-  <data name="toolStripButtonReportWord.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABkSURBVDhPzYxBDoBACAP3/5/GFC0phAPuenCSapka11pm
-        Z7kfm/zsB3gzpHMgeY5JPnQOJK9jSOka9exxgDpOehygjpMeB6jjpMcBODJK571XoVE6770KjdJ57/XD
-        N3z3g92YXauEAwxp1v7WAAAAAElFTkSuQmCC
-</value>
-  </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAMAMDAAAAEACACoDgAANgAAACAgAAABAAgAqAgAAN4OAAAQEAAAAQAIAGgFAACGFwAAKAAAADAA
@@ -299,19 +249,69 @@
   <data name="$this.Text" xml:space="preserve">
     <value>Analyse...</value>
   </data>
+  <data name="bnSymetryY.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAMAAABg3Am1AAAABGdBTUEAALGPC/xhBQAAABJQTFRF7e3t
+        i0UTmZmZAAAAjEYU////vjOrZAAAAAlwSFlzAAAOwwAADsMBx2+oZAAAABl0RVh0U29mdHdhcmUAQWRv
+        YmUgSW1hZ2VSZWFkeXHJZTwAAADHSURBVEhL1dDbEoMgDEVRqfL/v9yQiwQ4CMzotO6XSmQN1C0uhsHO
+        6aIMAdsKCQBuGz3WqAWy4yM/7cUaoBvmgSYA/PVrAOqBbgzSyUVygi5yGRwhhP04M6BLih9vABu/bACN
+        x0DG0hSYO8GqAAWBS4ELgTSTDOiSGgMZn43B3AnLX+l5YPGbDCgIXHqCC4E0kwzokvoZcF9JxtKNn3UZ
+        WBWgIHApcAGQRhq/KU7gLkF1Je6/QV0adsYMQOkE2ItAtxddqVOMX64UJcfaxRFaAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="bnSymmetryX.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAMAAABg3Am1AAAABGdBTUEAALGPC/xhBQAAABJQTFRF7e3t
+        i0UTmZmZAAAAjEYU////vjOrZAAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAACS
+        SURBVEhL1ZTRDoAgCEUt8/9/OQQeaAoDs2lnDh+6Z17nVipBthayCYcewmXQFQ6DRQKVVeBQR8DZ7FOF
+        lFK7r61EzBBIipyAI1SpztgdYBOCCWek4CIPCecJyzdIgILY0jEGK0WQQj1ThzPvHo6+4OwJtCIC9fpW
+        qEbs0sAEYb/fjAKHWkHhL4IJh6TgZDuhlBuX5iXHVdaTfwAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="chkbInterlayer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>80, 17</value>
+  </data>
+  <data name="chkbInterlayer.Text" xml:space="preserve">
+    <value>Intercallaire</value>
+  </data>
+  <data name="gbLayer.Text" xml:space="preserve">
+    <value>Double-cliquer une couche...</value>
+  </data>
   <data name="tbClickLayer.Text" xml:space="preserve">
     <value>Double-cliquer une couche pour éditer patron/orientation/intercalaire.</value>
   </data>
   <data name="toolStripAnalysis.Text" xml:space="preserve">
     <value>Générer un rapport...</value>
   </data>
-  <data name="toolStripButtonReport.Text" xml:space="preserve">
-    <value>Générer un rapport...</value>
+  <data name="toolStripButtonBack.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABYSURBVDhP3Y+xDcAwCASZk0FgZMaw9fHTpImxRBGfROG3
+        7hHSRkQMd3+G0T4pq+ows1rBW8abX9/8VAaQIFcGC6mfFcChvk7IEjSXTwCXlzCukSUYRh2ITINE0o5U
+        APEDAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="toolStripButtonBack.Text" xml:space="preserve">
+    <value>Précédent...</value>
+  </data>
+  <data name="toolStripButtonBack.ToolTipText" xml:space="preserve">
+    <value>Précédent...</value>
+  </data>
+  <data name="toolStripButtonExportCSV.Text" xml:space="preserve">
+    <value>Exporter en CSV...</value>
   </data>
   <data name="toolStripButtonExportXML.Text" xml:space="preserve">
     <value>Exporter au format XML...</value>
   </data>
-  <data name="toolStripButtonExportCSV.Text" xml:space="preserve">
-    <value>Exporter en CSV...</value>
+  <data name="toolStripButtonReport.Text" xml:space="preserve">
+    <value>Générer un rapport...</value>
+  </data>
+  <data name="toolStripButtonReportWord.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABkSURBVDhPzYxBDoBACAP3/5/GFC0phAPuenCSapka11pm
+        Z7kfm/zsB3gzpHMgeY5JPnQOJK9jSOka9exxgDpOehygjpMeB6jjpMcBODJK571XoVE6770KjdJ57/XD
+        N3z3g92YXauEAwxp1v7WAAAAAElFTkSuQmCC
+</value>
   </data>
 </root>

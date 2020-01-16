@@ -117,17 +117,23 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="bnOK.Text" xml:space="preserve">
-    <value>Хорошо</value>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Создайте новый проект...</value>
   </data>
   <data name="bnCancel.Text" xml:space="preserve">
     <value>Отмена</value>
   </data>
-  <data name="lbRefDescription.Text" xml:space="preserve">
-    <value>Ссылка/Описание</value>
+  <data name="bnOK.Text" xml:space="preserve">
+    <value>Хорошо</value>
   </data>
-  <data name="lbUPC.Text" xml:space="preserve">
-    <value>СКП</value>
+  <data name="chkUseIntermediatePacking.Text" xml:space="preserve">
+    <value>Использование промежуточной упаковки</value>
+  </data>
+  <data name="lbCase.Text" xml:space="preserve">
+    <value>Дело</value>
+  </data>
+  <data name="lbFilePath.Text" xml:space="preserve">
+    <value>Путь к файлу</value>
   </data>
   <data name="lbGenCode.Text" xml:space="preserve">
     <value>Поколения кода</value>
@@ -135,14 +141,11 @@
   <data name="lbPallet.Text" xml:space="preserve">
     <value>Поддон</value>
   </data>
-  <data name="lbFilePath.Text" xml:space="preserve">
-    <value>Путь к файлу</value>
+  <data name="lbRefDescription.Text" xml:space="preserve">
+    <value>Ссылка/Описание</value>
   </data>
-  <data name="lbCase.Text" xml:space="preserve">
-    <value>Дело</value>
-  </data>
-  <data name="chkUseIntermediatePacking.Text" xml:space="preserve">
-    <value>Использование промежуточной упаковки</value>
+  <data name="lbUPC.Text" xml:space="preserve">
+    <value>СКП</value>
   </data>
   <data name="statusStripDef.Text" xml:space="preserve">
     <value>statusStripDef</value>
@@ -150,19 +153,16 @@
   <data name="toolStripStatusLabelDef.Text" xml:space="preserve">
     <value>toolStripStatusLabelDef</value>
   </data>
+  <data name="uCtrlPalletHeight.Text" xml:space="preserve">
+    <value>Высота паллеты</value>
+  </data>
+  <data name="uCtrlThickness.Text" xml:space="preserve">
+    <value>Толщина</value>
+  </data>
   <data name="uCtrlTriDimensions.Text" xml:space="preserve">
     <value>Габаритные размеры</value>
   </data>
   <data name="uCtrlWeight.Text" xml:space="preserve">
     <value>Вес</value>
-  </data>
-  <data name="uCtrlThickness.Text" xml:space="preserve">
-    <value>Толщина</value>
-  </data>
-  <data name="uCtrlPalletHeight.Text" xml:space="preserve">
-    <value>Высота паллеты</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Создайте новый проект...</value>
   </data>
 </root>

@@ -117,29 +117,23 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="uCtrlFlatWeight.Text" xml:space="preserve">
-    <value>Плоские вес</value>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Расслоение / Case анализ...</value>
   </data>
-  <data name="uCtrlFlatDimensions.Text" xml:space="preserve">
-    <value>Плоский размеры</value>
+  <data name="bnCancel.Text" xml:space="preserve">
+    <value>Отмена</value>
   </data>
-  <data name="lbNumberOfFlats.Text" xml:space="preserve">
-    <value>Количество квартир</value>
-  </data>
-  <data name="gbFlatDim.Text" xml:space="preserve">
-    <value>Расслоение</value>
-  </data>
-  <data name="uCtrlCaseWeight.Text" xml:space="preserve">
-    <value>Случае вес</value>
-  </data>
-  <data name="uCtrlCaseDimensions.Text" xml:space="preserve">
-    <value>Размеры корпуса</value>
+  <data name="bnNext.Text" xml:space="preserve">
+    <value>Следующая &gt;</value>
   </data>
   <data name="gbCaseDim.Text" xml:space="preserve">
     <value>Дело</value>
   </data>
-  <data name="bnCancel.Text" xml:space="preserve">
-    <value>Отмена</value>
+  <data name="gbFlatDim.Text" xml:space="preserve">
+    <value>Расслоение</value>
+  </data>
+  <data name="lbNumberOfFlats.Text" xml:space="preserve">
+    <value>Количество квартир</value>
   </data>
   <data name="statusLabelDef.Text" xml:space="preserve">
     <value>statusLabelDef</value>
@@ -147,10 +141,16 @@
   <data name="statusStrip.Text" xml:space="preserve">
     <value>statusStrip1</value>
   </data>
-  <data name="bnNext.Text" xml:space="preserve">
-    <value>Следующая &gt;</value>
+  <data name="uCtrlCaseDimensions.Text" xml:space="preserve">
+    <value>Размеры корпуса</value>
   </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Расслоение / Case анализ...</value>
+  <data name="uCtrlCaseWeight.Text" xml:space="preserve">
+    <value>Случае вес</value>
+  </data>
+  <data name="uCtrlFlatDimensions.Text" xml:space="preserve">
+    <value>Плоский размеры</value>
+  </data>
+  <data name="uCtrlFlatWeight.Text" xml:space="preserve">
+    <value>Плоские вес</value>
   </data>
 </root>

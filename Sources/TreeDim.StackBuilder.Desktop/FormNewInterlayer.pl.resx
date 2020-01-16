@@ -118,12 +118,25 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="bnOk.Location" type="System.Drawing.Point, System.Drawing">
-    <value>403, 8</value>
-  </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="bnOk.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>484, 341</value>
+  </data>
+  <data name="$this.Localizable" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="$this.MaximumSize" type="System.Drawing.Size, System.Drawing">
+    <value>500, 380</value>
+  </data>
+  <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>500, 380</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Utwórz nowy międzywarstwy...</value>
   </data>
   <data name="bnCancel.Location" type="System.Drawing.Point, System.Drawing">
     <value>403, 34</value>
@@ -131,87 +144,11 @@
   <data name="bnCancel.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
-  <data name="tbName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>96, 8</value>
+  <data name="bnOk.Location" type="System.Drawing.Point, System.Drawing">
+    <value>403, 8</value>
   </data>
-  <data name="tbName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>150, 20</value>
-  </data>
-  <data name="tbName.TabIndex" type="System.Int32, mscorlib">
-    <value>27</value>
-  </data>
-  <data name="tbDescription.Location" type="System.Drawing.Point, System.Drawing">
-    <value>96, 34</value>
-  </data>
-  <data name="tbDescription.Size" type="System.Drawing.Size, System.Drawing">
-    <value>280, 20</value>
-  </data>
-  <data name="tbDescription.TabIndex" type="System.Int32, mscorlib">
-    <value>28</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="graphCtrl.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left, Right</value>
-  </data>
-  <data name="graphCtrl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>219, 113</value>
-  </data>
-  <data name="graphCtrl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>258, 174</value>
-  </data>
-  <data name="graphCtrl.TabIndex" type="System.Int32, mscorlib">
-    <value>30</value>
-  </data>
-  <data name="uCtrlDimensions.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 61</value>
-  </data>
-  <data name="uCtrlDimensions.Size" type="System.Drawing.Size, System.Drawing">
-    <value>305, 20</value>
-  </data>
-  <data name="uCtrlDimensions.TabIndex" type="System.Int32, mscorlib">
-    <value>39</value>
-  </data>
-  <data name="uCtrlWeight.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 87</value>
-  </data>
-  <data name="uCtrlWeight.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>100, 20</value>
-  </data>
-  <data name="uCtrlWeight.Size" type="System.Drawing.Size, System.Drawing">
-    <value>305, 20</value>
-  </data>
-  <data name="uCtrlWeight.TabIndex" type="System.Int32, mscorlib">
-    <value>40</value>
-  </data>
-  <data name="cbColor.IntegralHeight" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="cbColor.ItemHeight" type="System.Int32, mscorlib">
-    <value>16</value>
-  </data>
-  <data name="cbColor.Location" type="System.Drawing.Point, System.Drawing">
-    <value>95, 116</value>
-  </data>
-  <data name="cbColor.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 22</value>
-  </data>
-  <data name="cbColor.TabIndex" type="System.Int32, mscorlib">
-    <value>42</value>
-  </data>
-  <data name="lbColor.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lbColor.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lbColor.Location" type="System.Drawing.Point, System.Drawing">
-    <value>13, 119</value>
-  </data>
-  <data name="lbColor.Size" type="System.Drawing.Size, System.Drawing">
-    <value>31, 13</value>
-  </data>
-  <data name="lbColor.TabIndex" type="System.Int32, mscorlib">
-    <value>41</value>
+  <data name="bnOk.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
   <data name="bnSendToDatabase.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
@@ -225,55 +162,19 @@
   <data name="bnSendToDatabase.TabIndex" type="System.Int32, mscorlib">
     <value>43</value>
   </data>
-  <data name="$this.Localizable" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="bnSendToDatabase.Text" xml:space="preserve">
+    <value>Wyślij do bazy danych</value>
   </data>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 13</value>
+  <data name="cbColor.IntegralHeight" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>484, 341</value>
-  </data>
-  <data name="$this.MaximumSize" type="System.Drawing.Size, System.Drawing">
-    <value>500, 380</value>
-  </data>
-  <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>500, 380</value>
-  </data>
-  <data name="uCtrlDimensions.Text" xml:space="preserve">
-    <value>Wymiary</value>
-  </data>
-  <data name="uCtrlWeight.Text" xml:space="preserve">
-    <value>Waga</value>
+  <data name="cbColor.ItemHeight" type="System.Int32, mscorlib">
+    <value>16</value>
   </data>
   <data name="cbColor.Items" xml:space="preserve">
     <value>Kolor</value>
   </data>
   <data name="cbColor.Items1" xml:space="preserve">
-    <value>Kolor</value>
-  </data>
-  <data name="cbColor.Items2" xml:space="preserve">
-    <value>Kolor</value>
-  </data>
-  <data name="cbColor.Items3" xml:space="preserve">
-    <value>Kolor</value>
-  </data>
-  <data name="cbColor.Items4" xml:space="preserve">
-    <value>Kolor</value>
-  </data>
-  <data name="cbColor.Items5" xml:space="preserve">
-    <value>Kolor</value>
-  </data>
-  <data name="cbColor.Items6" xml:space="preserve">
-    <value>Kolor</value>
-  </data>
-  <data name="cbColor.Items7" xml:space="preserve">
-    <value>Kolor</value>
-  </data>
-  <data name="cbColor.Items8" xml:space="preserve">
-    <value>Kolor</value>
-  </data>
-  <data name="cbColor.Items9" xml:space="preserve">
     <value>Kolor</value>
   </data>
   <data name="cbColor.Items10" xml:space="preserve">
@@ -306,6 +207,9 @@
   <data name="cbColor.Items19" xml:space="preserve">
     <value>Kolor</value>
   </data>
+  <data name="cbColor.Items2" xml:space="preserve">
+    <value>Kolor</value>
+  </data>
   <data name="cbColor.Items20" xml:space="preserve">
     <value>Kolor</value>
   </data>
@@ -334,6 +238,9 @@
     <value>Kolor</value>
   </data>
   <data name="cbColor.Items29" xml:space="preserve">
+    <value>Kolor</value>
+  </data>
+  <data name="cbColor.Items3" xml:space="preserve">
     <value>Kolor</value>
   </data>
   <data name="cbColor.Items30" xml:space="preserve">
@@ -366,6 +273,9 @@
   <data name="cbColor.Items39" xml:space="preserve">
     <value>Kolor</value>
   </data>
+  <data name="cbColor.Items4" xml:space="preserve">
+    <value>Kolor</value>
+  </data>
   <data name="cbColor.Items40" xml:space="preserve">
     <value>Kolor</value>
   </data>
@@ -378,13 +288,103 @@
   <data name="cbColor.Items43" xml:space="preserve">
     <value>Kolor</value>
   </data>
+  <data name="cbColor.Items5" xml:space="preserve">
+    <value>Kolor</value>
+  </data>
+  <data name="cbColor.Items6" xml:space="preserve">
+    <value>Kolor</value>
+  </data>
+  <data name="cbColor.Items7" xml:space="preserve">
+    <value>Kolor</value>
+  </data>
+  <data name="cbColor.Items8" xml:space="preserve">
+    <value>Kolor</value>
+  </data>
+  <data name="cbColor.Items9" xml:space="preserve">
+    <value>Kolor</value>
+  </data>
+  <data name="cbColor.Location" type="System.Drawing.Point, System.Drawing">
+    <value>95, 116</value>
+  </data>
+  <data name="cbColor.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 22</value>
+  </data>
+  <data name="cbColor.TabIndex" type="System.Int32, mscorlib">
+    <value>42</value>
+  </data>
+  <data name="graphCtrl.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="graphCtrl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>219, 113</value>
+  </data>
+  <data name="graphCtrl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>258, 174</value>
+  </data>
+  <data name="graphCtrl.TabIndex" type="System.Int32, mscorlib">
+    <value>30</value>
+  </data>
+  <data name="lbColor.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbColor.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lbColor.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 119</value>
+  </data>
+  <data name="lbColor.Size" type="System.Drawing.Size, System.Drawing">
+    <value>31, 13</value>
+  </data>
+  <data name="lbColor.TabIndex" type="System.Int32, mscorlib">
+    <value>41</value>
+  </data>
   <data name="lbColor.Text" xml:space="preserve">
     <value>Kolor</value>
   </data>
-  <data name="bnSendToDatabase.Text" xml:space="preserve">
-    <value>Wyślij do bazy danych</value>
+  <data name="tbDescription.Location" type="System.Drawing.Point, System.Drawing">
+    <value>96, 34</value>
   </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Utwórz nowy międzywarstwy...</value>
+  <data name="tbDescription.Size" type="System.Drawing.Size, System.Drawing">
+    <value>280, 20</value>
+  </data>
+  <data name="tbDescription.TabIndex" type="System.Int32, mscorlib">
+    <value>28</value>
+  </data>
+  <data name="tbName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>96, 8</value>
+  </data>
+  <data name="tbName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>150, 20</value>
+  </data>
+  <data name="tbName.TabIndex" type="System.Int32, mscorlib">
+    <value>27</value>
+  </data>
+  <data name="uCtrlDimensions.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 61</value>
+  </data>
+  <data name="uCtrlDimensions.Size" type="System.Drawing.Size, System.Drawing">
+    <value>305, 20</value>
+  </data>
+  <data name="uCtrlDimensions.TabIndex" type="System.Int32, mscorlib">
+    <value>39</value>
+  </data>
+  <data name="uCtrlDimensions.Text" xml:space="preserve">
+    <value>Wymiary</value>
+  </data>
+  <data name="uCtrlWeight.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 87</value>
+  </data>
+  <data name="uCtrlWeight.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>100, 20</value>
+  </data>
+  <data name="uCtrlWeight.Size" type="System.Drawing.Size, System.Drawing">
+    <value>305, 20</value>
+  </data>
+  <data name="uCtrlWeight.TabIndex" type="System.Int32, mscorlib">
+    <value>40</value>
+  </data>
+  <data name="uCtrlWeight.Text" xml:space="preserve">
+    <value>Waga</value>
   </data>
 </root>

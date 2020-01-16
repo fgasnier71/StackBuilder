@@ -222,6 +222,9 @@
   <data name="ID_RN_NOLAYERSBYNOCASES" xml:space="preserve">
     <value>Layers x Cases</value>
   </data>
+  <data name="ID_RN_OVERALLDIMENSIONS" xml:space="preserve">
+    <value>Overall dimensions</value>
+  </data>
   <data name="ID_RN_OVERHANG" xml:space="preserve">
     <value>Overhang</value>
   </data>
@@ -245,9 +248,6 @@
   </data>
   <data name="ID_RN_STATICBCT" xml:space="preserve">
     <value>Static BCT</value>
-  </data>
-  <data name="ID_RN_OVERALLDIMENSIONS" xml:space="preserve">
-    <value>Overall dimensions</value>
   </data>
   <data name="ID_RN_TOTALWEIGHT" xml:space="preserve">
     <value>Total weight</value>

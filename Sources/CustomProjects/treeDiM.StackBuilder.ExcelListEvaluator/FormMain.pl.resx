@@ -117,79 +117,79 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="menuStrip.Text" xml:space="preserve">
-    <value>menuStrip</value>
-  </data>
-  <data name="toolStripMIFile.Text" xml:space="preserve">
-    <value>plik</value>
-  </data>
-  <data name="exitToolStripMenuItem.Text" xml:space="preserve">
-    <value>Wyjścia</value>
-  </data>
-  <data name="toolStripMITools.Text" xml:space="preserve">
-    <value>Narzędzia</value>
-  </data>
-  <data name="toolStripMISettings.Text" xml:space="preserve">
-    <value>Ustawienia</value>
-  </data>
-  <data name="statusStrip.Text" xml:space="preserve">
-    <value>statusStrip</value>
-  </data>
-  <data name="statusLabel.Text" xml:space="preserve">
-    <value>statusLabel</value>
-  </data>
-  <data name="lbFilePath.Text" xml:space="preserve">
-    <value>Ścieżka do pliku programu Excel</value>
-  </data>
-  <data name="uCtrlPalletDimensions.Text" xml:space="preserve">
-    <value>Wymiary</value>
-  </data>
-  <data name="gbInput.Text" xml:space="preserve">
-    <value>Dane wejściowe</value>
-  </data>
-  <data name="chkbOnlyVerticalOrientation.Text" xml:space="preserve">
-    <value>Zezwalaj tylko orientacja pionowa</value>
-  </data>
-  <data name="tabPallet.Text" xml:space="preserve">
-    <value>Palety</value>
-  </data>
-  <data name="uCtrlMaximumPalletHeight.Text" xml:space="preserve">
-    <value>Wysokość maksymalna załadowane palety</value>
-  </data>
-  <data name="lbPalletType.Text" xml:space="preserve">
-    <value>Typ palety</value>
-  </data>
-  <data name="tabContainer.Text" xml:space="preserve">
-    <value>Kontener</value>
-  </data>
-  <data name="uCtrlTruckDimensions.Text" xml:space="preserve">
-    <value>Wymiary</value>
-  </data>
-  <data name="lbCaseLoaded.Text" xml:space="preserve">
-    <value>(Przypadku załadowany!)</value>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Szybkie układanie szacowania</value>
   </data>
   <data name="bnDirectoryPath.Text" xml:space="preserve">
     <value>...</value>
   </data>
-  <data name="chkbGenerateImageFolder.Text" xml:space="preserve">
-    <value>Wygenerować obraz w folderze</value>
+  <data name="bnGenerate.Text" xml:space="preserve">
+    <value>Generowania</value>
   </data>
   <data name="chkbGenerateImage.Text" xml:space="preserve">
     <value>Generowanie obrazu w danych wyjściowych arkusza programu Excel</value>
   </data>
+  <data name="chkbGenerateImageFolder.Text" xml:space="preserve">
+    <value>Wygenerować obraz w folderze</value>
+  </data>
+  <data name="chkbOnlyVerticalOrientation.Text" xml:space="preserve">
+    <value>Zezwalaj tylko orientacja pionowa</value>
+  </data>
   <data name="chkbOpenFile.Text" xml:space="preserve">
     <value>Otwórz plik wygenerowany</value>
   </data>
-  <data name="lbOutputFilePath.Text" xml:space="preserve">
-    <value>Ścieżka do pliku programu Excel dane wyjściowe</value>
+  <data name="exitToolStripMenuItem.Text" xml:space="preserve">
+    <value>Wyjścia</value>
+  </data>
+  <data name="gbInput.Text" xml:space="preserve">
+    <value>Dane wejściowe</value>
   </data>
   <data name="gbOutput.Text" xml:space="preserve">
     <value>Dane wyjściowe</value>
   </data>
-  <data name="bnGenerate.Text" xml:space="preserve">
-    <value>Generowania</value>
+  <data name="lbCaseLoaded.Text" xml:space="preserve">
+    <value>(Przypadku załadowany!)</value>
   </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Szybkie układanie szacowania</value>
+  <data name="lbFilePath.Text" xml:space="preserve">
+    <value>Ścieżka do pliku programu Excel</value>
+  </data>
+  <data name="lbOutputFilePath.Text" xml:space="preserve">
+    <value>Ścieżka do pliku programu Excel dane wyjściowe</value>
+  </data>
+  <data name="lbPalletType.Text" xml:space="preserve">
+    <value>Typ palety</value>
+  </data>
+  <data name="menuStrip.Text" xml:space="preserve">
+    <value>menuStrip</value>
+  </data>
+  <data name="statusLabel.Text" xml:space="preserve">
+    <value>statusLabel</value>
+  </data>
+  <data name="statusStrip.Text" xml:space="preserve">
+    <value>statusStrip</value>
+  </data>
+  <data name="tabContainer.Text" xml:space="preserve">
+    <value>Kontener</value>
+  </data>
+  <data name="tabPallet.Text" xml:space="preserve">
+    <value>Palety</value>
+  </data>
+  <data name="toolStripMIFile.Text" xml:space="preserve">
+    <value>plik</value>
+  </data>
+  <data name="toolStripMISettings.Text" xml:space="preserve">
+    <value>Ustawienia</value>
+  </data>
+  <data name="toolStripMITools.Text" xml:space="preserve">
+    <value>Narzędzia</value>
+  </data>
+  <data name="uCtrlMaximumPalletHeight.Text" xml:space="preserve">
+    <value>Wysokość maksymalna załadowane palety</value>
+  </data>
+  <data name="uCtrlPalletDimensions.Text" xml:space="preserve">
+    <value>Wymiary</value>
+  </data>
+  <data name="uCtrlTruckDimensions.Text" xml:space="preserve">
+    <value>Wymiary</value>
   </data>
 </root>

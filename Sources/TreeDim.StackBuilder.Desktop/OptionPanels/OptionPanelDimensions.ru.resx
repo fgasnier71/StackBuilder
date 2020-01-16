@@ -117,12 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="lbDimensions1.Text" xml:space="preserve">
-    <value>Размеры 1</value>
-  </data>
-  <data name="lbDimensions2.Text" xml:space="preserve">
-    <value>Размеры 2</value>
-  </data>
   <data name="cbDim1.Items" xml:space="preserve">
     <value>Габаритные размеры</value>
   </data>
@@ -146,5 +140,11 @@
   </data>
   <data name="cbDim2.Items3" xml:space="preserve">
     <value>Размеры поддона (wo высота)</value>
+  </data>
+  <data name="lbDimensions1.Text" xml:space="preserve">
+    <value>Размеры 1</value>
+  </data>
+  <data name="lbDimensions2.Text" xml:space="preserve">
+    <value>Размеры 2</value>
   </data>
 </root>

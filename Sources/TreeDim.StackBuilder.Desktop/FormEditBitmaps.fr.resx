@@ -117,89 +117,77 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="bnCancel.Text" xml:space="preserve">
-    <value>Annuler</value>
-  </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Editer les images de la face...</value>
   </data>
-  <data name="lbUnitOriginX.Text" xml:space="preserve">
-		<value>uLength</value>
+  <data name="bnAdd.Text" xml:space="preserve">
+		<value>Ajouter texture</value>
 	</data>
-  <data name="bnOK.Text" xml:space="preserve">
-		<value>OK</value>
-	</data>
-  <data name="labelFace.Text" xml:space="preserve">
-		<value>Face</value>
-	</data>
+  <data name="bnCancel.Text" xml:space="preserve">
+    <value>Annuler</value>
+  </data>
   <data name="bnMoveDown.Text" xml:space="preserve">
 		<value>Vers le bas</value>
 	</data>
   <data name="bnMoveUp.Text" xml:space="preserve">
 		<value>Vers le haut</value>
 	</data>
-  <data name="openImageFileDialog.Filter" xml:space="preserve">
-		<value>Fichiers image (*.bmp,*.gif, *.jpg)|*.bmp;*.gif;*.jpg</value>
-	</data>
-  <data name="cbFace.Items" xml:space="preserve">
-		<value>Arrière</value>
-	</data>
-  <data name="lbUnitSizeX.Text" xml:space="preserve">
-		<value>uLength</value>
+  <data name="bnOK.Text" xml:space="preserve">
+		<value>OK</value>
 	</data>
   <data name="bnRemove.Text" xml:space="preserve">
 		<value>Supprimer</value>
 	</data>
-  <data name="cbFace.Items5" xml:space="preserve">
-		<value>Dessus</value>
+  <data name="cbFace.Items" xml:space="preserve">
+		<value>Arrière</value>
 	</data>
-  <data name="cbFace.Items4" xml:space="preserve">
-		<value>Fond</value>
-	</data>
-  <data name="cbFace.Items3" xml:space="preserve">
-		<value>Gauche</value>
+  <data name="cbFace.Items1" xml:space="preserve">
+		<value>Face</value>
 	</data>
   <data name="cbFace.Items2" xml:space="preserve">
 		<value>Droite</value>
 	</data>
-  <data name="cbFace.Items1" xml:space="preserve">
+  <data name="cbFace.Items3" xml:space="preserve">
+		<value>Gauche</value>
+	</data>
+  <data name="cbFace.Items4" xml:space="preserve">
+		<value>Fond</value>
+	</data>
+  <data name="cbFace.Items5" xml:space="preserve">
+		<value>Dessus</value>
+	</data>
+  <data name="labelFace.Text" xml:space="preserve">
 		<value>Face</value>
 	</data>
   <data name="lbAngle.Text" xml:space="preserve">
 		<value>Angle</value>
 	</data>
-  <data name="lbUnitSizeY.Text" xml:space="preserve">
-		<value>uLength</value>
-	</data>
-  <data name="bnAdd.Text" xml:space="preserve">
-		<value>Ajouter texture</value>
-	</data>
-  <data name="lbSize.Text" xml:space="preserve">
-		<value>Taille</value>
+  <data name="lbImage.Text" xml:space="preserve">
+		<value>Images</value>
 	</data>
   <data name="lbOrigin.Text" xml:space="preserve">
 		<value>Origine</value>
 	</data>
+  <data name="lbSize.Text" xml:space="preserve">
+		<value>Taille</value>
+	</data>
   <data name="lbUnitAngle.Text" xml:space="preserve">
 		<value>°</value>
+	</data>
+  <data name="lbUnitOriginX.Text" xml:space="preserve">
+		<value>uLength</value>
 	</data>
   <data name="lbUnitOriginY.Text" xml:space="preserve">
 		<value>uLength</value>
 	</data>
-  <data name="lbImage.Text" xml:space="preserve">
-		<value>Images</value>
-	</data>
-  <data name="uLengthOriginX.Text" xml:space="preserve">
+  <data name="lbUnitSizeX.Text" xml:space="preserve">
 		<value>uLength</value>
 	</data>
-  <data name="uLengthSizeX.Text" xml:space="preserve">
+  <data name="lbUnitSizeY.Text" xml:space="preserve">
 		<value>uLength</value>
 	</data>
-  <data name="uLengthOriginY.Text" xml:space="preserve">
-		<value>uLength</value>
-	</data>
-  <data name="uLengthSizeY.Text" xml:space="preserve">
-		<value>uLength</value>
+  <data name="openImageFileDialog.Filter" xml:space="preserve">
+		<value>Fichiers image (*.bmp,*.gif, *.jpg)|*.bmp;*.gif;*.jpg</value>
 	</data>
   <data name="uCtrlOrigin.Text" xml:space="preserve">
     <value>Origine</value>
@@ -207,4 +195,16 @@
   <data name="uCtrlSize.Text" xml:space="preserve">
     <value>Taille</value>
   </data>
+  <data name="uLengthOriginX.Text" xml:space="preserve">
+		<value>uLength</value>
+	</data>
+  <data name="uLengthOriginY.Text" xml:space="preserve">
+		<value>uLength</value>
+	</data>
+  <data name="uLengthSizeX.Text" xml:space="preserve">
+		<value>uLength</value>
+	</data>
+  <data name="uLengthSizeY.Text" xml:space="preserve">
+		<value>uLength</value>
+	</data>
 </root>

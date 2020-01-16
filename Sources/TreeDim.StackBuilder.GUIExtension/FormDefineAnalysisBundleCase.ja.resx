@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,29 +117,23 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="uCtrlFlatWeight.Text" xml:space="preserve">
-    <value>フラットの重量</value>
+  <data name="$this.Text" xml:space="preserve">
+    <value>バンドル/事例分析.</value>
   </data>
-  <data name="uCtrlFlatDimensions.Text" xml:space="preserve">
-    <value>平面寸法</value>
+  <data name="bnCancel.Text" xml:space="preserve">
+    <value>キャンセル</value>
   </data>
-  <data name="lbNumberOfFlats.Text" xml:space="preserve">
-    <value>フラットの数</value>
-  </data>
-  <data name="gbFlatDim.Text" xml:space="preserve">
-    <value>バンドル</value>
-  </data>
-  <data name="uCtrlCaseWeight.Text" xml:space="preserve">
-    <value>ケース重量</value>
-  </data>
-  <data name="uCtrlCaseDimensions.Text" xml:space="preserve">
-    <value>ケースの寸法</value>
+  <data name="bnNext.Text" xml:space="preserve">
+    <value>次へ &gt;</value>
   </data>
   <data name="gbCaseDim.Text" xml:space="preserve">
     <value>ケース</value>
   </data>
-  <data name="bnCancel.Text" xml:space="preserve">
-    <value>キャンセル</value>
+  <data name="gbFlatDim.Text" xml:space="preserve">
+    <value>バンドル</value>
+  </data>
+  <data name="lbNumberOfFlats.Text" xml:space="preserve">
+    <value>フラットの数</value>
   </data>
   <data name="statusLabelDef.Text" xml:space="preserve">
     <value>statusLabelDef</value>
@@ -147,10 +141,16 @@
   <data name="statusStrip.Text" xml:space="preserve">
     <value>statusStrip1</value>
   </data>
-  <data name="bnNext.Text" xml:space="preserve">
-    <value>次へ &gt;</value>
+  <data name="uCtrlCaseDimensions.Text" xml:space="preserve">
+    <value>ケースの寸法</value>
   </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>バンドル/事例分析.</value>
+  <data name="uCtrlCaseWeight.Text" xml:space="preserve">
+    <value>ケース重量</value>
+  </data>
+  <data name="uCtrlFlatDimensions.Text" xml:space="preserve">
+    <value>平面寸法</value>
+  </data>
+  <data name="uCtrlFlatWeight.Text" xml:space="preserve">
+    <value>フラットの重量</value>
   </data>
 </root>

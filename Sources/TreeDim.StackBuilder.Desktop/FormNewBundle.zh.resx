@@ -117,34 +117,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="$this.Text" xml:space="preserve">
+    <value>创建新包..。</value>
+  </data>
+  <data name="bnSendToDB.Text" xml:space="preserve">
+    <value>保存到数据库</value>
+  </data>
   <data name="cbColor.Items" xml:space="preserve">
     <value>颜色</value>
   </data>
   <data name="cbColor.Items1" xml:space="preserve">
-    <value>颜色</value>
-  </data>
-  <data name="cbColor.Items2" xml:space="preserve">
-    <value>颜色</value>
-  </data>
-  <data name="cbColor.Items3" xml:space="preserve">
-    <value>颜色</value>
-  </data>
-  <data name="cbColor.Items4" xml:space="preserve">
-    <value>颜色</value>
-  </data>
-  <data name="cbColor.Items5" xml:space="preserve">
-    <value>颜色</value>
-  </data>
-  <data name="cbColor.Items6" xml:space="preserve">
-    <value>颜色</value>
-  </data>
-  <data name="cbColor.Items7" xml:space="preserve">
-    <value>颜色</value>
-  </data>
-  <data name="cbColor.Items8" xml:space="preserve">
-    <value>颜色</value>
-  </data>
-  <data name="cbColor.Items9" xml:space="preserve">
     <value>颜色</value>
   </data>
   <data name="cbColor.Items10" xml:space="preserve">
@@ -177,6 +159,9 @@
   <data name="cbColor.Items19" xml:space="preserve">
     <value>颜色</value>
   </data>
+  <data name="cbColor.Items2" xml:space="preserve">
+    <value>颜色</value>
+  </data>
   <data name="cbColor.Items20" xml:space="preserve">
     <value>颜色</value>
   </data>
@@ -207,6 +192,9 @@
   <data name="cbColor.Items29" xml:space="preserve">
     <value>颜色</value>
   </data>
+  <data name="cbColor.Items3" xml:space="preserve">
+    <value>颜色</value>
+  </data>
   <data name="cbColor.Items30" xml:space="preserve">
     <value>颜色</value>
   </data>
@@ -234,37 +222,49 @@
   <data name="cbColor.Items38" xml:space="preserve">
     <value>颜色</value>
   </data>
-  <data name="lbColor.Text" xml:space="preserve">
+  <data name="cbColor.Items4" xml:space="preserve">
     <value>颜色</value>
   </data>
-  <data name="gbFaceColor.Text" xml:space="preserve">
-    <value>脸部颜色</value>
+  <data name="cbColor.Items5" xml:space="preserve">
+    <value>颜色</value>
   </data>
-  <data name="uCtrlWeight.Text" xml:space="preserve">
-    <value>单位重量</value>
+  <data name="cbColor.Items6" xml:space="preserve">
+    <value>颜色</value>
   </data>
-  <data name="gbWeight.Text" xml:space="preserve">
-    <value>重量</value>
+  <data name="cbColor.Items7" xml:space="preserve">
+    <value>颜色</value>
   </data>
-  <data name="uCtrlThickness.Text" xml:space="preserve">
-    <value>厚度</value>
+  <data name="cbColor.Items8" xml:space="preserve">
+    <value>颜色</value>
   </data>
-  <data name="uCtrlWidth.Text" xml:space="preserve">
-    <value>宽度</value>
-  </data>
-  <data name="uCtrlLength.Text" xml:space="preserve">
-    <value>长度</value>
-  </data>
-  <data name="lbNoFlats.Text" xml:space="preserve">
-    <value>单位数目</value>
+  <data name="cbColor.Items9" xml:space="preserve">
+    <value>颜色</value>
   </data>
   <data name="gbDimensions.Text" xml:space="preserve">
     <value>维</value>
   </data>
-  <data name="bnSendToDB.Text" xml:space="preserve">
-    <value>保存到数据库</value>
+  <data name="gbFaceColor.Text" xml:space="preserve">
+    <value>脸部颜色</value>
   </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>创建新包..。</value>
+  <data name="gbWeight.Text" xml:space="preserve">
+    <value>重量</value>
+  </data>
+  <data name="lbColor.Text" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="lbNoFlats.Text" xml:space="preserve">
+    <value>单位数目</value>
+  </data>
+  <data name="uCtrlLength.Text" xml:space="preserve">
+    <value>长度</value>
+  </data>
+  <data name="uCtrlThickness.Text" xml:space="preserve">
+    <value>厚度</value>
+  </data>
+  <data name="uCtrlWeight.Text" xml:space="preserve">
+    <value>单位重量</value>
+  </data>
+  <data name="uCtrlWidth.Text" xml:space="preserve">
+    <value>宽度</value>
   </data>
 </root>

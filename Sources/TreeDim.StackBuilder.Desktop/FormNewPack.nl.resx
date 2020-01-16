@@ -118,133 +118,19 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="bnOk.Location" type="System.Drawing.Point, System.Drawing">
-    <value>505, 10</value>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>584, 362</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Maak nieuwe pack...</value>
   </data>
   <data name="bnCancel.Location" type="System.Drawing.Point, System.Drawing">
     <value>505, 38</value>
   </data>
-  <data name="lbBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>26, 13</value>
-  </data>
-  <data name="lbBox.Text" xml:space="preserve">
-    <value>Vak</value>
-  </data>
-  <data name="lbDir.Size" type="System.Drawing.Size, System.Drawing">
-    <value>46, 13</value>
-  </data>
-  <data name="lbDir.Text" xml:space="preserve">
-    <value>Richting</value>
-  </data>
-  <data name="cbDir.Items1" xml:space="preserve">
-    <value>X +</value>
-  </data>
-  <data name="cbDir.Items3" xml:space="preserve">
-    <value>Y +</value>
-  </data>
-  <data name="cbDir.Items5" xml:space="preserve">
-    <value>Z +</value>
-  </data>
-  <data name="cbDir.Location" type="System.Drawing.Point, System.Drawing">
-    <value>422, 65</value>
-  </data>
-  <data name="uCtrlOuterDimensions.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 317</value>
-  </data>
-  <data name="uCtrlOuterDimensions.Size" type="System.Drawing.Size, System.Drawing">
-    <value>343, 22</value>
-  </data>
-  <data name="uCtrlOuterDimensions.Text" xml:space="preserve">
-    <value>Buitenafmeting</value>
-  </data>
-  <data name="uCtrlLayout.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 95</value>
-  </data>
-  <data name="uCtrlLayout.Text" xml:space="preserve">
-    <value>Lay-out</value>
-  </data>
-  <data name="uCtrlHeight.Location" type="System.Drawing.Point, System.Drawing">
-    <value>-110, 162</value>
-  </data>
-  <data name="uCtrlHeight.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 20</value>
-  </data>
-  <data name="uCtrlHeight.Text" xml:space="preserve">
-    <value>Hoogte</value>
-  </data>
-  <data name="uCtrlWalls.Location" type="System.Drawing.Point, System.Drawing">
-    <value>-110, 135</value>
-  </data>
-  <data name="uCtrlWalls.Text" xml:space="preserve">
-    <value>Aantal muren</value>
-  </data>
-  <data name="chkbTransparent.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 113</value>
-  </data>
-  <data name="chkbTransparent.Text" xml:space="preserve">
-    <value>Transparant</value>
-  </data>
-  <data name="lbType.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 9</value>
-  </data>
-  <data name="cbType.Items" xml:space="preserve">
-    <value>Polyethyleen</value>
-  </data>
-  <data name="cbType.Items1" xml:space="preserve">
-    <value>Papier</value>
-  </data>
-  <data name="cbType.Items2" xml:space="preserve">
-    <value>Kartonnen</value>
-  </data>
-  <data name="cbType.Items3" xml:space="preserve">
-    <value>Lade</value>
-  </data>
-  <data name="cbType.Location" type="System.Drawing.Point, System.Drawing">
-    <value>88, 6</value>
-  </data>
-  <data name="uCtrlWeight.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 89</value>
-  </data>
-  <data name="uCtrlWeight.Text" xml:space="preserve">
-    <value>Gewicht</value>
-  </data>
-  <data name="uCtrlThickness.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 64</value>
-  </data>
-  <data name="uCtrlThickness.Text" xml:space="preserve">
-    <value>Dikte</value>
-  </data>
-  <data name="lbWrapperColor.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 34</value>
-  </data>
-  <data name="lbWrapperColor.Text" xml:space="preserve">
-    <value>Kleur</value>
+  <data name="bnOk.Location" type="System.Drawing.Point, System.Drawing">
+    <value>505, 10</value>
   </data>
   <data name="cbColor.Items1" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items2" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items3" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items4" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items5" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items6" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items7" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items8" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items9" xml:space="preserve">
     <value>Kleur</value>
   </data>
   <data name="cbColor.Items10" xml:space="preserve">
@@ -277,6 +163,9 @@
   <data name="cbColor.Items19" xml:space="preserve">
     <value>Kleur</value>
   </data>
+  <data name="cbColor.Items2" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
   <data name="cbColor.Items20" xml:space="preserve">
     <value>Kleur</value>
   </data>
@@ -301,25 +190,136 @@
   <data name="cbColor.Items27" xml:space="preserve">
     <value>Kleur</value>
   </data>
+  <data name="cbColor.Items3" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items4" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items5" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items6" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items7" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items8" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items9" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
   <data name="cbColor.Location" type="System.Drawing.Point, System.Drawing">
     <value>88, 31</value>
   </data>
-  <data name="tabWrapper.Size" type="System.Drawing.Size, System.Drawing">
-    <value>573, 56</value>
+  <data name="cbDir.Items1" xml:space="preserve">
+    <value>X +</value>
+  </data>
+  <data name="cbDir.Items3" xml:space="preserve">
+    <value>Y +</value>
+  </data>
+  <data name="cbDir.Items5" xml:space="preserve">
+    <value>Z +</value>
+  </data>
+  <data name="cbDir.Location" type="System.Drawing.Point, System.Drawing">
+    <value>422, 65</value>
+  </data>
+  <data name="cbType.Items" xml:space="preserve">
+    <value>Polyethyleen</value>
+  </data>
+  <data name="cbType.Items1" xml:space="preserve">
+    <value>Papier</value>
+  </data>
+  <data name="cbType.Items2" xml:space="preserve">
+    <value>Kartonnen</value>
+  </data>
+  <data name="cbType.Items3" xml:space="preserve">
+    <value>Lade</value>
+  </data>
+  <data name="cbType.Location" type="System.Drawing.Point, System.Drawing">
+    <value>88, 6</value>
+  </data>
+  <data name="chkbTransparent.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 113</value>
+  </data>
+  <data name="chkbTransparent.Text" xml:space="preserve">
+    <value>Transparant</value>
   </data>
   <data name="ctrlStrapperSet.Size" type="System.Drawing.Size, System.Drawing">
     <value>565, 56</value>
   </data>
-  <data name="tabStrappers.Size" type="System.Drawing.Size, System.Drawing">
-    <value>573, 56</value>
+  <data name="lbBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>26, 13</value>
+  </data>
+  <data name="lbBox.Text" xml:space="preserve">
+    <value>Vak</value>
+  </data>
+  <data name="lbDir.Size" type="System.Drawing.Size, System.Drawing">
+    <value>46, 13</value>
+  </data>
+  <data name="lbDir.Text" xml:space="preserve">
+    <value>Richting</value>
+  </data>
+  <data name="lbType.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 9</value>
+  </data>
+  <data name="lbWrapperColor.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 34</value>
+  </data>
+  <data name="lbWrapperColor.Text" xml:space="preserve">
+    <value>Kleur</value>
   </data>
   <data name="tabCtrl.Size" type="System.Drawing.Size, System.Drawing">
     <value>581, 82</value>
   </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>584, 362</value>
+  <data name="tabStrappers.Size" type="System.Drawing.Size, System.Drawing">
+    <value>573, 56</value>
   </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Maak nieuwe pack...</value>
+  <data name="tabWrapper.Size" type="System.Drawing.Size, System.Drawing">
+    <value>573, 56</value>
+  </data>
+  <data name="uCtrlHeight.Location" type="System.Drawing.Point, System.Drawing">
+    <value>-110, 162</value>
+  </data>
+  <data name="uCtrlHeight.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 20</value>
+  </data>
+  <data name="uCtrlHeight.Text" xml:space="preserve">
+    <value>Hoogte</value>
+  </data>
+  <data name="uCtrlLayout.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 95</value>
+  </data>
+  <data name="uCtrlLayout.Text" xml:space="preserve">
+    <value>Lay-out</value>
+  </data>
+  <data name="uCtrlOuterDimensions.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 317</value>
+  </data>
+  <data name="uCtrlOuterDimensions.Size" type="System.Drawing.Size, System.Drawing">
+    <value>343, 22</value>
+  </data>
+  <data name="uCtrlOuterDimensions.Text" xml:space="preserve">
+    <value>Buitenafmeting</value>
+  </data>
+  <data name="uCtrlThickness.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 64</value>
+  </data>
+  <data name="uCtrlThickness.Text" xml:space="preserve">
+    <value>Dikte</value>
+  </data>
+  <data name="uCtrlWalls.Location" type="System.Drawing.Point, System.Drawing">
+    <value>-110, 135</value>
+  </data>
+  <data name="uCtrlWalls.Text" xml:space="preserve">
+    <value>Aantal muren</value>
+  </data>
+  <data name="uCtrlWeight.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 89</value>
+  </data>
+  <data name="uCtrlWeight.Text" xml:space="preserve">
+    <value>Gewicht</value>
   </data>
 </root>

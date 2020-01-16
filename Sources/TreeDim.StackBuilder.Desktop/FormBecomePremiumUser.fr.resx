@@ -118,26 +118,14 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="linkLabelPremiumVsFree.Size" type="System.Drawing.Size, System.Drawing">
-    <value>201, 13</value>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Devenir un utilisateur "Premium"...</value>
   </data>
-  <data name="linkLabelPremiumVsFree.Text" xml:space="preserve">
-    <value>Comparer les versions Premium / Gratuite</value>
+  <data name="bnCancel.Text" xml:space="preserve">
+    <value>Annuler</value>
   </data>
-  <data name="lbSubscribe.Text" xml:space="preserve">
-    <value>Je souhaiterai souscrire pour</value>
-  </data>
-  <data name="cbSubscriptionDuration.Items" xml:space="preserve">
-    <value>1 an (50€ HT)</value>
-  </data>
-  <data name="cbSubscriptionDuration.Items1" xml:space="preserve">
-    <value>2 ans (90€ HT)</value>
-  </data>
-  <data name="lbProposal.Size" type="System.Drawing.Size, System.Drawing">
-    <value>183, 13</value>
-  </data>
-  <data name="lbProposal.Text" xml:space="preserve">
-    <value>et préfèrerai recevoir un courriel avec</value>
+  <data name="bnSend.Text" xml:space="preserve">
+    <value>Envoyer!</value>
   </data>
   <data name="cbPaymentMode.Items" xml:space="preserve">
     <value>un lien pour payer via Paypal (grâce à un compte Paypal ou une carte de crédit)</value>
@@ -145,19 +133,31 @@
   <data name="cbPaymentMode.Items1" xml:space="preserve">
     <value>une facture avec un code IBAN</value>
   </data>
+  <data name="cbSubscriptionDuration.Items" xml:space="preserve">
+    <value>1 an (50€ HT)</value>
+  </data>
+  <data name="cbSubscriptionDuration.Items1" xml:space="preserve">
+    <value>2 ans (90€ HT)</value>
+  </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>103, 13</value>
   </data>
   <data name="label1.Text" xml:space="preserve">
     <value>à l'adresse suivante:</value>
   </data>
-  <data name="bnSend.Text" xml:space="preserve">
-    <value>Envoyer!</value>
+  <data name="lbProposal.Size" type="System.Drawing.Size, System.Drawing">
+    <value>183, 13</value>
   </data>
-  <data name="bnCancel.Text" xml:space="preserve">
-    <value>Annuler</value>
+  <data name="lbProposal.Text" xml:space="preserve">
+    <value>et préfèrerai recevoir un courriel avec</value>
   </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Devenir un utilisateur "Premium"...</value>
+  <data name="lbSubscribe.Text" xml:space="preserve">
+    <value>Je souhaiterai souscrire pour</value>
+  </data>
+  <data name="linkLabelPremiumVsFree.Size" type="System.Drawing.Size, System.Drawing">
+    <value>201, 13</value>
+  </data>
+  <data name="linkLabelPremiumVsFree.Text" xml:space="preserve">
+    <value>Comparer les versions Premium / Gratuite</value>
   </data>
 </root>

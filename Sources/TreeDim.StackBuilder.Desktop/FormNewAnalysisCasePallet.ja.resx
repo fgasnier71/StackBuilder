@@ -120,32 +120,23 @@
   <data name="$this.Text" xml:space="preserve">
     <value>ケース/パレットの新しい分析を作成.</value>
   </data>
+  <data name="bnBestCombination.Text" xml:space="preserve">
+    <value>最高の組み合わせを表示 &gt;</value>
+  </data>
   <data name="checkBoxBestLayersOnly.Text" xml:space="preserve">
     <value>最高のレイヤーのみを表示します。</value>
-  </data>
-  <data name="uCtrlOptMaximumSpace.Text" xml:space="preserve">
-    <value>最大の空間</value>
-  </data>
-  <data name="uCtrlMaximumHeight.Text" xml:space="preserve">
-    <value>最大パレット高さ</value>
-  </data>
-  <data name="tabPageLayerFilters.Text" xml:space="preserve">
-    <value>画層フィルター</value>
-  </data>
-  <data name="uCtrlOverhang.Text" xml:space="preserve">
-    <value>オーバー ハング</value>
-  </data>
-  <data name="uCtrlOptMaximumWeight.Text" xml:space="preserve">
-    <value>最大パレット重量</value>
   </data>
   <data name="lbBox.Text" xml:space="preserve">
     <value>ケース</value>
   </data>
-  <data name="uCtrlOptMaximumLayerWeight.Text" xml:space="preserve">
-    <value>最大レイヤーの重み</value>
+  <data name="lbPallet.Text" xml:space="preserve">
+    <value>パレット</value>
   </data>
-  <data name="tabPageStopCriterions.Text" xml:space="preserve">
-    <value>停止基準</value>
+  <data name="lbSelect.Text" xml:space="preserve">
+    <value>1 つまたは複数のレイヤーを選択しをクリックして ' 次へ &gt;'.</value>
+  </data>
+  <data name="tabPageLayerFilters.Text" xml:space="preserve">
+    <value>画層フィルター</value>
   </data>
   <data name="tabPageOverhang.Text" xml:space="preserve">
     <value>オーバー ハング</value>
@@ -153,19 +144,28 @@
   <data name="tabPageSpaces.Text" xml:space="preserve">
     <value>スペース</value>
   </data>
-  <data name="bnBestCombination.Text" xml:space="preserve">
-    <value>最高の組み合わせを表示 &gt;</value>
+  <data name="tabPageStopCriterions.Text" xml:space="preserve">
+    <value>停止基準</value>
   </data>
-  <data name="lbSelect.Text" xml:space="preserve">
-    <value>1 つまたは複数のレイヤーを選択しをクリックして ' 次へ &gt;'.</value>
+  <data name="uCtrlMaximumHeight.Text" xml:space="preserve">
+    <value>最大パレット高さ</value>
+  </data>
+  <data name="uCtrlOptMaximumLayerWeight.Text" xml:space="preserve">
+    <value>最大レイヤーの重み</value>
+  </data>
+  <data name="uCtrlOptMaximumSpace.Text" xml:space="preserve">
+    <value>最大の空間</value>
+  </data>
+  <data name="uCtrlOptMaximumWeight.Text" xml:space="preserve">
+    <value>最大パレット重量</value>
+  </data>
+  <data name="uCtrlOptMaxNumber.Text" xml:space="preserve">
+    <value>最大数</value>
   </data>
   <data name="uCtrlOptSpace.Text" xml:space="preserve">
     <value>スペース</value>
   </data>
-  <data name="lbPallet.Text" xml:space="preserve">
-    <value>パレット</value>
-  </data>
-  <data name="uCtrlOptMaxNumber.Text" xml:space="preserve">
-    <value>最大数</value>
+  <data name="uCtrlOverhang.Text" xml:space="preserve">
+    <value>オーバー ハング</value>
   </data>
 </root>

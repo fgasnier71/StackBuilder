@@ -120,32 +120,23 @@
   <data name="$this.Text" xml:space="preserve">
     <value>Maak nieuwe geval/pallet analyse...</value>
   </data>
+  <data name="bnBestCombination.Text" xml:space="preserve">
+    <value>Toon van de beste combinaties &gt;</value>
+  </data>
   <data name="checkBoxBestLayersOnly.Text" xml:space="preserve">
     <value>Toon beste lagen alleen</value>
-  </data>
-  <data name="uCtrlOptMaximumSpace.Text" xml:space="preserve">
-    <value>Maximale ruimte</value>
-  </data>
-  <data name="uCtrlMaximumHeight.Text" xml:space="preserve">
-    <value>Maximale pallet hoogte</value>
-  </data>
-  <data name="tabPageLayerFilters.Text" xml:space="preserve">
-    <value>Laag filters</value>
-  </data>
-  <data name="uCtrlOverhang.Text" xml:space="preserve">
-    <value>Overhang</value>
-  </data>
-  <data name="uCtrlOptMaximumWeight.Text" xml:space="preserve">
-    <value>Maximale pallet gewicht</value>
   </data>
   <data name="lbBox.Text" xml:space="preserve">
     <value>Geval</value>
   </data>
-  <data name="uCtrlOptMaximumLayerWeight.Text" xml:space="preserve">
-    <value>Maximale laag gewicht</value>
+  <data name="lbPallet.Text" xml:space="preserve">
+    <value>Pallet</value>
   </data>
-  <data name="tabPageStopCriterions.Text" xml:space="preserve">
-    <value>Stop criteria</value>
+  <data name="lbSelect.Text" xml:space="preserve">
+    <value>Selecteer een of meer lagen en klik op ' volgende &gt;'...</value>
+  </data>
+  <data name="tabPageLayerFilters.Text" xml:space="preserve">
+    <value>Laag filters</value>
   </data>
   <data name="tabPageOverhang.Text" xml:space="preserve">
     <value>Overhang</value>
@@ -153,19 +144,28 @@
   <data name="tabPageSpaces.Text" xml:space="preserve">
     <value>Spaties</value>
   </data>
-  <data name="bnBestCombination.Text" xml:space="preserve">
-    <value>Toon van de beste combinaties &gt;</value>
+  <data name="tabPageStopCriterions.Text" xml:space="preserve">
+    <value>Stop criteria</value>
   </data>
-  <data name="lbSelect.Text" xml:space="preserve">
-    <value>Selecteer een of meer lagen en klik op ' volgende &gt;'...</value>
+  <data name="uCtrlMaximumHeight.Text" xml:space="preserve">
+    <value>Maximale pallet hoogte</value>
+  </data>
+  <data name="uCtrlOptMaximumLayerWeight.Text" xml:space="preserve">
+    <value>Maximale laag gewicht</value>
+  </data>
+  <data name="uCtrlOptMaximumSpace.Text" xml:space="preserve">
+    <value>Maximale ruimte</value>
+  </data>
+  <data name="uCtrlOptMaximumWeight.Text" xml:space="preserve">
+    <value>Maximale pallet gewicht</value>
+  </data>
+  <data name="uCtrlOptMaxNumber.Text" xml:space="preserve">
+    <value>Maximum aantal</value>
   </data>
   <data name="uCtrlOptSpace.Text" xml:space="preserve">
     <value>Ruimte</value>
   </data>
-  <data name="lbPallet.Text" xml:space="preserve">
-    <value>Pallet</value>
-  </data>
-  <data name="uCtrlOptMaxNumber.Text" xml:space="preserve">
-    <value>Maximum aantal</value>
+  <data name="uCtrlOverhang.Text" xml:space="preserve">
+    <value>Overhang</value>
   </data>
 </root>

@@ -255,6 +255,9 @@
   <data name="ID_READY" xml:space="preserve">
 		<value>准备就绪</value>
 	</data>
+  <data name="ID_SELECTATLEASTONELAYOUT" xml:space="preserve">
+    <value>选择真皮一层</value>
+  </data>
   <data name="ID_SELECTEDLAYER" xml:space="preserve">
 		<value>已选择的层 ({0})</value>
 	</data>
@@ -270,7 +273,4 @@
   <data name="ID_WIDTH" xml:space="preserve">
 		<value>宽度</value>
 	</data>
-  <data name="ID_SELECTATLEASTONELAYOUT" xml:space="preserve">
-    <value>选择真皮一层</value>
-  </data>
 </root>

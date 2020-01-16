@@ -117,10 +117,37 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Создать новый поддон Кап...</value>
+  </data>
+  <data name="bnSendToDB.Text" xml:space="preserve">
+    <value>Отправка в базу данных</value>
+  </data>
   <data name="cbColor.Items" xml:space="preserve">
     <value>Цвет</value>
   </data>
   <data name="cbColor.Items1" xml:space="preserve">
+    <value>Цвет</value>
+  </data>
+  <data name="cbColor.Items10" xml:space="preserve">
+    <value>Цвет</value>
+  </data>
+  <data name="cbColor.Items11" xml:space="preserve">
+    <value>Цвет</value>
+  </data>
+  <data name="cbColor.Items12" xml:space="preserve">
+    <value>Цвет</value>
+  </data>
+  <data name="cbColor.Items13" xml:space="preserve">
+    <value>Цвет</value>
+  </data>
+  <data name="cbColor.Items14" xml:space="preserve">
+    <value>Цвет</value>
+  </data>
+  <data name="cbColor.Items15" xml:space="preserve">
+    <value>Цвет</value>
+  </data>
+  <data name="cbColor.Items16" xml:space="preserve">
     <value>Цвет</value>
   </data>
   <data name="cbColor.Items2" xml:space="preserve">
@@ -147,43 +174,16 @@
   <data name="cbColor.Items9" xml:space="preserve">
     <value>Цвет</value>
   </data>
-  <data name="cbColor.Items10" xml:space="preserve">
-    <value>Цвет</value>
-  </data>
-  <data name="cbColor.Items11" xml:space="preserve">
-    <value>Цвет</value>
-  </data>
-  <data name="cbColor.Items12" xml:space="preserve">
-    <value>Цвет</value>
-  </data>
-  <data name="cbColor.Items13" xml:space="preserve">
-    <value>Цвет</value>
-  </data>
-  <data name="cbColor.Items14" xml:space="preserve">
-    <value>Цвет</value>
-  </data>
-  <data name="cbColor.Items15" xml:space="preserve">
-    <value>Цвет</value>
-  </data>
-  <data name="cbColor.Items16" xml:space="preserve">
-    <value>Цвет</value>
-  </data>
   <data name="label1.Text" xml:space="preserve">
     <value>Цвет</value>
-  </data>
-  <data name="uCtrlDimensionsOuter.Text" xml:space="preserve">
-    <value>Внешние размеры</value>
   </data>
   <data name="uCtrlDimensionsInner.Text" xml:space="preserve">
     <value>Внутренние размеры</value>
   </data>
+  <data name="uCtrlDimensionsOuter.Text" xml:space="preserve">
+    <value>Внешние размеры</value>
+  </data>
   <data name="uCtrlWeight.Text" xml:space="preserve">
     <value>Вес</value>
-  </data>
-  <data name="bnSendToDB.Text" xml:space="preserve">
-    <value>Отправка в базу данных</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Создать новый поддон Кап...</value>
   </data>
 </root>

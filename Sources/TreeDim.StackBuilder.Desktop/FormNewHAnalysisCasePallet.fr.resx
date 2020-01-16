@@ -117,16 +117,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="lbPallet.Text" xml:space="preserve">
-    <value>Palette</value>
-  </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Créer une nouvelle analyse hétérogène caisse/palette</value>
   </data>
-  <data name="uCtrlPalletHeight.Text" xml:space="preserve">
-    <value>Masse palette max.</value>
+  <data name="lbPallet.Text" xml:space="preserve">
+    <value>Palette</value>
   </data>
   <data name="uCtrlOverhang.Text" xml:space="preserve">
     <value>Débord</value>
+  </data>
+  <data name="uCtrlPalletHeight.Text" xml:space="preserve">
+    <value>Masse palette max.</value>
   </data>
 </root>

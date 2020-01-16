@@ -117,97 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="lbBox.Text" xml:space="preserve">
-    <value>盒子</value>
-  </data>
-  <data name="lbDir.Text" xml:space="preserve">
-    <value>方向</value>
-  </data>
-  <data name="cbDir.Items" xml:space="preserve">
-    <value>x-</value>
-  </data>
-  <data name="cbDir.Items1" xml:space="preserve">
-    <value>X +</value>
-  </data>
-  <data name="cbDir.Items2" xml:space="preserve">
-    <value>y-</value>
-  </data>
-  <data name="cbDir.Items3" xml:space="preserve">
-    <value>Y +</value>
-  </data>
-  <data name="cbDir.Items4" xml:space="preserve">
-    <value>z-</value>
-  </data>
-  <data name="cbDir.Items5" xml:space="preserve">
-    <value>Z +</value>
-  </data>
-  <data name="uCtrlOuterDimensions.Text" xml:space="preserve">
-    <value>外部尺寸</value>
-  </data>
-  <data name="uCtrlLayout.Text" xml:space="preserve">
-    <value>布局</value>
-  </data>
-  <data name="uCtrlHeight.Text" xml:space="preserve">
-    <value>高度</value>
-  </data>
-  <data name="uCtrlWalls.Text" xml:space="preserve">
-    <value>号码墙</value>
-  </data>
-  <data name="chkbTransparent.Text" xml:space="preserve">
-    <value>透明</value>
-  </data>
-  <data name="lbType.Text" xml:space="preserve">
-    <value>类型</value>
-  </data>
-  <data name="cbType.Items" xml:space="preserve">
-    <value>聚乙烯</value>
-  </data>
-  <data name="cbType.Items1" xml:space="preserve">
-    <value>本文</value>
-  </data>
-  <data name="cbType.Items2" xml:space="preserve">
-    <value>纸板</value>
-  </data>
-  <data name="cbType.Items3" xml:space="preserve">
-    <value>托盘</value>
-  </data>
-  <data name="uCtrlWeight.Text" xml:space="preserve">
-    <value>重量</value>
-  </data>
-  <data name="uCtrlThickness.Text" xml:space="preserve">
-    <value>厚度</value>
-  </data>
-  <data name="lbWrapperColor.Text" xml:space="preserve">
-    <value>颜色</value>
+  <data name="$this.Text" xml:space="preserve">
+    <value>创建新包..。</value>
   </data>
   <data name="cbColor.Items" xml:space="preserve">
     <value>颜色</value>
   </data>
   <data name="cbColor.Items1" xml:space="preserve">
-    <value>颜色</value>
-  </data>
-  <data name="cbColor.Items2" xml:space="preserve">
-    <value>颜色</value>
-  </data>
-  <data name="cbColor.Items3" xml:space="preserve">
-    <value>颜色</value>
-  </data>
-  <data name="cbColor.Items4" xml:space="preserve">
-    <value>颜色</value>
-  </data>
-  <data name="cbColor.Items5" xml:space="preserve">
-    <value>颜色</value>
-  </data>
-  <data name="cbColor.Items6" xml:space="preserve">
-    <value>颜色</value>
-  </data>
-  <data name="cbColor.Items7" xml:space="preserve">
-    <value>颜色</value>
-  </data>
-  <data name="cbColor.Items8" xml:space="preserve">
-    <value>颜色</value>
-  </data>
-  <data name="cbColor.Items9" xml:space="preserve">
     <value>颜色</value>
   </data>
   <data name="cbColor.Items10" xml:space="preserve">
@@ -240,6 +156,9 @@
   <data name="cbColor.Items19" xml:space="preserve">
     <value>颜色</value>
   </data>
+  <data name="cbColor.Items2" xml:space="preserve">
+    <value>颜色</value>
+  </data>
   <data name="cbColor.Items20" xml:space="preserve">
     <value>颜色</value>
   </data>
@@ -261,10 +180,91 @@
   <data name="cbColor.Items26" xml:space="preserve">
     <value>颜色</value>
   </data>
+  <data name="cbColor.Items3" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items4" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items5" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items6" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items7" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items8" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items9" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbDir.Items" xml:space="preserve">
+    <value>x-</value>
+  </data>
+  <data name="cbDir.Items1" xml:space="preserve">
+    <value>X +</value>
+  </data>
+  <data name="cbDir.Items2" xml:space="preserve">
+    <value>y-</value>
+  </data>
+  <data name="cbDir.Items3" xml:space="preserve">
+    <value>Y +</value>
+  </data>
+  <data name="cbDir.Items4" xml:space="preserve">
+    <value>z-</value>
+  </data>
+  <data name="cbDir.Items5" xml:space="preserve">
+    <value>Z +</value>
+  </data>
+  <data name="cbType.Items" xml:space="preserve">
+    <value>聚乙烯</value>
+  </data>
+  <data name="cbType.Items1" xml:space="preserve">
+    <value>本文</value>
+  </data>
+  <data name="cbType.Items2" xml:space="preserve">
+    <value>纸板</value>
+  </data>
+  <data name="cbType.Items3" xml:space="preserve">
+    <value>托盘</value>
+  </data>
+  <data name="chkbTransparent.Text" xml:space="preserve">
+    <value>透明</value>
+  </data>
   <data name="groupBox1.Text" xml:space="preserve">
     <value>包装</value>
   </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>创建新包..。</value>
+  <data name="lbBox.Text" xml:space="preserve">
+    <value>盒子</value>
+  </data>
+  <data name="lbDir.Text" xml:space="preserve">
+    <value>方向</value>
+  </data>
+  <data name="lbType.Text" xml:space="preserve">
+    <value>类型</value>
+  </data>
+  <data name="lbWrapperColor.Text" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="uCtrlHeight.Text" xml:space="preserve">
+    <value>高度</value>
+  </data>
+  <data name="uCtrlLayout.Text" xml:space="preserve">
+    <value>布局</value>
+  </data>
+  <data name="uCtrlOuterDimensions.Text" xml:space="preserve">
+    <value>外部尺寸</value>
+  </data>
+  <data name="uCtrlThickness.Text" xml:space="preserve">
+    <value>厚度</value>
+  </data>
+  <data name="uCtrlWalls.Text" xml:space="preserve">
+    <value>号码墙</value>
+  </data>
+  <data name="uCtrlWeight.Text" xml:space="preserve">
+    <value>重量</value>
   </data>
 </root>

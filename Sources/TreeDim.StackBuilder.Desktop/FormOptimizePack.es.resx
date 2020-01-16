@@ -117,11 +117,22 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <assembly alias="Sharp3D.Math" name="Sharp3D.Math, Version=1.0.3.0, Culture=neutral, PublicKeyToken=null" />
+  <data name="$this.Text" xml:space="preserve">
+    <value>Find optimal pack..</value>
+  </data>
+  <data name="bnCreateAnalysis.Text" xml:space="preserve">
+    <value>Crear análisis</value>
+  </data>
   <data name="btClose.Text" xml:space="preserve">
     <value>Cerrar</value>
   </data>
-  <data name="uCtrlTrayHeight.Text" xml:space="preserve">
-    <value>Altura de bandeja</value>
+  <data name="btSetMaximum.Text" xml:space="preserve">
+    <value>Juego máximo</value>
+  </data>
+  <data name="btSetMinimum.Text" xml:space="preserve">
+    <value>Conjunto mínimo</value>
   </data>
   <data name="cbColor.Items39" xml:space="preserve">
     <value>Color</value>
@@ -138,91 +149,29 @@
   <data name="cbWrapperType.Items3" xml:space="preserve">
     <value>Bandeja</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>90, 13</value>
-  </data>
-  <data name="label1.Text" xml:space="preserve">
-    <value>Tipo de envoltura</value>
-  </data>
-  <data name="uCtrlSurfacicMass.Text" xml:space="preserve">
-    <value>Misa surfacic</value>
-  </data>
-  <data name="uCtrlWallThickness.Text" xml:space="preserve">
-    <value>Espesor de la pared</value>
-  </data>
-  <data name="uCtrlNoWalls.Text" xml:space="preserve">
-    <value>Número de paredes</value>
-  </data>
-  <data name="gbWrapper.Text" xml:space="preserve">
-    <value>Envoltura de la</value>
-  </data>
-  <data name="uCtrlOverhang.Text" xml:space="preserve">
-    <value>Proyección de la</value>
-  </data>
-  <data name="uCtrlPalletHeight.Text" xml:space="preserve">
-    <value>Altura máxima plataforma</value>
-  </data>
-  <data name="lbPalletDimensions.Size" type="System.Drawing.Size, System.Drawing">
-    <value>71, 13</value>
-  </data>
-  <data name="lbPalletDimensions.Text" xml:space="preserve">
-    <value>(dimensiones)</value>
-  </data>
-  <data name="lbPallet.Size" type="System.Drawing.Size, System.Drawing">
-    <value>57, 13</value>
-  </data>
-  <data name="lbPallet.Text" xml:space="preserve">
-    <value>Plataforma</value>
-  </data>
-  <data name="gbPallet.Text" xml:space="preserve">
-    <value>Plataforma</value>
-  </data>
-  <data name="uCtrlPackDimensionsMax.Text" xml:space="preserve">
-    <value>Max. dimensiones del paquete</value>
-  </data>
-  <assembly alias="Sharp3D.Math" name="Sharp3D.Math, Version=1.0.3.0, Culture=neutral, PublicKeyToken=null" />
-  <data name="uCtrlPackDimensionsMax.Value" type="Sharp3D.Math.Core.Vector3D, Sharp3D.Math">
-    <value>(0, 0, 0)</value>
-  </data>
-  <data name="uCtrlPackDimensionsMin.Text" xml:space="preserve">
-    <value>Dimensiones del paquete de minutos</value>
-  </data>
-  <data name="uCtrlPackDimensionsMin.Value" type="Sharp3D.Math.Core.Vector3D, Sharp3D.Math">
-    <value>(0, 0, 0)</value>
-  </data>
-  <data name="btSetMaximum.Text" xml:space="preserve">
-    <value>Juego máximo</value>
-  </data>
-  <data name="btSetMinimum.Text" xml:space="preserve">
-    <value>Conjunto mínimo</value>
-  </data>
-  <data name="gbCase.Text" xml:space="preserve">
-    <value>Restricciones del paquete</value>
-  </data>
   <data name="chkVerticalOrientationOnly.Size" type="System.Drawing.Size, System.Drawing">
     <value>242, 17</value>
   </data>
   <data name="chkVerticalOrientationOnly.Text" xml:space="preserve">
     <value>Sólo permiten la orientación vertical de la caja</value>
   </data>
-  <data name="lbNumber.Text" xml:space="preserve">
-    <value>Número de cajas por caso</value>
+  <data name="gbCase.Text" xml:space="preserve">
+    <value>Restricciones del paquete</value>
   </data>
-  <data name="lbBoxDimensions.Size" type="System.Drawing.Size, System.Drawing">
-    <value>120, 13</value>
+  <data name="gbPallet.Text" xml:space="preserve">
+    <value>Plataforma</value>
   </data>
-  <data name="lbBoxDimensions.Text" xml:space="preserve">
-    <value>(dimensiones de la caja)</value>
-  </data>
-  <data name="lbBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>28, 13</value>
-  </data>
-  <data name="lbBox.Text" xml:space="preserve">
-    <value>Caja</value>
+  <data name="gbWrapper.Text" xml:space="preserve">
+    <value>Envoltura de la</value>
   </data>
   <data name="groupBox.Text" xml:space="preserve">
     <value>Caja (producto interno)</value>
+  </data>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>90, 13</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Tipo de envoltura</value>
   </data>
   <data name="lbAnalysisDescription.Size" type="System.Drawing.Size, System.Drawing">
     <value>117, 13</value>
@@ -236,10 +185,61 @@
   <data name="lbAnalysisName.Text" xml:space="preserve">
     <value>Nombre de análisis</value>
   </data>
-  <data name="bnCreateAnalysis.Text" xml:space="preserve">
-    <value>Crear análisis</value>
+  <data name="lbBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>28, 13</value>
   </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Find optimal pack..</value>
+  <data name="lbBox.Text" xml:space="preserve">
+    <value>Caja</value>
+  </data>
+  <data name="lbBoxDimensions.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 13</value>
+  </data>
+  <data name="lbBoxDimensions.Text" xml:space="preserve">
+    <value>(dimensiones de la caja)</value>
+  </data>
+  <data name="lbNumber.Text" xml:space="preserve">
+    <value>Número de cajas por caso</value>
+  </data>
+  <data name="lbPallet.Size" type="System.Drawing.Size, System.Drawing">
+    <value>57, 13</value>
+  </data>
+  <data name="lbPallet.Text" xml:space="preserve">
+    <value>Plataforma</value>
+  </data>
+  <data name="lbPalletDimensions.Size" type="System.Drawing.Size, System.Drawing">
+    <value>71, 13</value>
+  </data>
+  <data name="lbPalletDimensions.Text" xml:space="preserve">
+    <value>(dimensiones)</value>
+  </data>
+  <data name="uCtrlNoWalls.Text" xml:space="preserve">
+    <value>Número de paredes</value>
+  </data>
+  <data name="uCtrlOverhang.Text" xml:space="preserve">
+    <value>Proyección de la</value>
+  </data>
+  <data name="uCtrlPackDimensionsMax.Text" xml:space="preserve">
+    <value>Max. dimensiones del paquete</value>
+  </data>
+  <data name="uCtrlPackDimensionsMax.Value" type="Sharp3D.Math.Core.Vector3D, Sharp3D.Math">
+    <value>(0, 0, 0)</value>
+  </data>
+  <data name="uCtrlPackDimensionsMin.Text" xml:space="preserve">
+    <value>Dimensiones del paquete de minutos</value>
+  </data>
+  <data name="uCtrlPackDimensionsMin.Value" type="Sharp3D.Math.Core.Vector3D, Sharp3D.Math">
+    <value>(0, 0, 0)</value>
+  </data>
+  <data name="uCtrlPalletHeight.Text" xml:space="preserve">
+    <value>Altura máxima plataforma</value>
+  </data>
+  <data name="uCtrlSurfacicMass.Text" xml:space="preserve">
+    <value>Misa surfacic</value>
+  </data>
+  <data name="uCtrlTrayHeight.Text" xml:space="preserve">
+    <value>Altura de bandeja</value>
+  </data>
+  <data name="uCtrlWallThickness.Text" xml:space="preserve">
+    <value>Espesor de la pared</value>
   </data>
 </root>

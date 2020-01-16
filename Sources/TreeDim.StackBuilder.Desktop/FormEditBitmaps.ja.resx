@@ -117,14 +117,26 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="bnOK.Text" xml:space="preserve">
-		<value>[OK]</value>
+  <data name="$this.Text" xml:space="preserve">
+		<value>面の画像を編集する</value>
+	</data>
+  <data name="bnAdd.Text" xml:space="preserve">
+		<value>テクスチャを追加...</value>
 	</data>
   <data name="bnCancel.Text" xml:space="preserve">
 		<value>キャンセル</value>
 	</data>
-  <data name="labelFace.Text" xml:space="preserve">
-		<value>前面</value>
+  <data name="bnMoveDown.Text" xml:space="preserve">
+		<value>下に移動</value>
+	</data>
+  <data name="bnMoveUp.Text" xml:space="preserve">
+		<value>上に移動</value>
+	</data>
+  <data name="bnOK.Text" xml:space="preserve">
+		<value>[OK]</value>
+	</data>
+  <data name="bnRemove.Text" xml:space="preserve">
+		<value>削除</value>
 	</data>
   <data name="cbFace.Items" xml:space="preserve">
 		<value>後</value>
@@ -132,6 +144,9 @@
   <data name="cbFace.Items1" xml:space="preserve">
 		<value>前</value>
 	</data>
+  <data name="cbFace.Items2" xml:space="preserve">
+    <value>Right</value>
+  </data>
   <data name="cbFace.Items3" xml:space="preserve">
 		<value>左</value>
 	</data>
@@ -141,70 +156,55 @@
   <data name="cbFace.Items5" xml:space="preserve">
 		<value>トップ</value>
 	</data>
+  <data name="labelFace.Text" xml:space="preserve">
+		<value>前面</value>
+	</data>
+  <data name="lbAngle.Text" xml:space="preserve">
+		<value>角度</value>
+	</data>
+  <data name="lbImage.Text" xml:space="preserve">
+		<value>画像</value>
+	</data>
   <data name="lbOrigin.Text" xml:space="preserve">
 		<value>起源</value>
 	</data>
   <data name="lbSize.Text" xml:space="preserve">
 		<value>サイズ</value>
 	</data>
-  <data name="lbAngle.Text" xml:space="preserve">
-		<value>角度</value>
+  <data name="lbUnitAngle.Text" xml:space="preserve">
+		<value>°</value>
 	</data>
   <data name="lbUnitOriginX.Text" xml:space="preserve">
+		<value>ミリメートル</value>
+	</data>
+  <data name="lbUnitOriginY.Text" xml:space="preserve">
 		<value>ミリメートル</value>
 	</data>
   <data name="lbUnitSizeX.Text" xml:space="preserve">
 		<value>ミリメートル</value>
 	</data>
-  <data name="lbUnitAngle.Text" xml:space="preserve">
-		<value>°</value>
-	</data>
-  <data name="lbUnitOriginY.Text" xml:space="preserve">
-		<value>ミリメートル</value>
-	</data>
   <data name="lbUnitSizeY.Text" xml:space="preserve">
 		<value>ミリメートル</value>
-	</data>
-  <data name="bnMoveUp.Text" xml:space="preserve">
-		<value>上に移動</value>
-	</data>
-  <data name="bnMoveDown.Text" xml:space="preserve">
-		<value>下に移動</value>
-	</data>
-  <data name="bnAdd.Text" xml:space="preserve">
-		<value>テクスチャを追加...</value>
-	</data>
-  <data name="bnRemove.Text" xml:space="preserve">
-		<value>削除</value>
 	</data>
   <data name="openImageFileDialog.Filter" xml:space="preserve">
 		<value>画像ファイル（*. BMP、*. GIF、*. JPG）| *. bmpファイル、*. GIF、*. JPG</value>
 	</data>
-  <data name="lbImage.Text" xml:space="preserve">
-		<value>画像</value>
-	</data>
-  <data name="$this.Text" xml:space="preserve">
-		<value>面の画像を編集する</value>
-	</data>
-  <data name="uLengthOriginX.Text" xml:space="preserve">
-		<value>uLength</value>
-	</data>
-  <data name="uLengthSizeX.Text" xml:space="preserve">
-		<value>uLength</value>
-	</data>
-  <data name="uLengthOriginY.Text" xml:space="preserve">
-		<value>uLength</value>
-	</data>
-  <data name="uLengthSizeY.Text" xml:space="preserve">
-		<value>uLength</value>
-	</data>
-  <data name="cbFace.Items2" xml:space="preserve">
-    <value>Right</value>
-  </data>
   <data name="uCtrlOrigin.Text" xml:space="preserve">
     <value>起源</value>
   </data>
   <data name="uCtrlSize.Text" xml:space="preserve">
     <value>サイズ</value>
   </data>
+  <data name="uLengthOriginX.Text" xml:space="preserve">
+		<value>uLength</value>
+	</data>
+  <data name="uLengthOriginY.Text" xml:space="preserve">
+		<value>uLength</value>
+	</data>
+  <data name="uLengthSizeX.Text" xml:space="preserve">
+		<value>uLength</value>
+	</data>
+  <data name="uLengthSizeY.Text" xml:space="preserve">
+		<value>uLength</value>
+	</data>
 </root>

@@ -118,16 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="tabPageBox.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="gridBoxes.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 3</value>
-  </data>
-  <data name="gridBoxes.Size" type="System.Drawing.Size, System.Drawing">
-    <value>770, 302</value>
-  </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAMAMDAAAAEACACoDgAANgAAACAgAAABAAgAqAgAAN4OAAAQEAAAAQAIAGgFAACGFwAAKAAAADAA
@@ -256,29 +247,26 @@
         AACAAQAAgAEAAMABAADgAQAA8AEAAP//AAA=
 </value>
   </data>
-  <data name="bnClose.Text" xml:space="preserve">
-    <value>Cerrar</value>
-  </data>
-  <data name="tabPagePallet.Text" xml:space="preserve">
-    <value>Palets</value>
-  </data>
-  <data name="tabPageInterlayer.Text" xml:space="preserve">
-    <value>Separadores</value>
-  </data>
-  <data name="tabPageTruck.Text" xml:space="preserve">
-    <value>Camiones</value>
-  </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Editar base de datos y elementos de proyecto de importación...</value>
   </data>
-  <data name="tabPagePallet.ToolTipText" xml:space="preserve">
-    <value>Palets</value>
+  <data name="bnClose.Text" xml:space="preserve">
+    <value>Cerrar</value>
   </data>
   <data name="bnImport.Text" xml:space="preserve">
     <value>Importación</value>
   </data>
-  <data name="tabPagePalletFilm.Text" xml:space="preserve">
-    <value>Películas de plataforma</value>
+  <data name="gridBoxes.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="gridBoxes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>770, 302</value>
+  </data>
+  <data name="tabPageBox.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="tabPageBox.Text" xml:space="preserve">
+    <value>Cajas</value>
   </data>
   <data name="tabPageBundle.Text" xml:space="preserve">
     <value>Bultos</value>
@@ -286,17 +274,29 @@
   <data name="tabPageCase.Text" xml:space="preserve">
     <value>Embalajes</value>
   </data>
-  <data name="tabPagePalletCorner.Text" xml:space="preserve">
-    <value>Esquinas de la plataforma</value>
+  <data name="tabPageCylinder.Text" xml:space="preserve">
+    <value>Cilindros de</value>
+  </data>
+  <data name="tabPageInterlayer.Text" xml:space="preserve">
+    <value>Separadores</value>
+  </data>
+  <data name="tabPagePallet.Text" xml:space="preserve">
+    <value>Palets</value>
+  </data>
+  <data name="tabPagePallet.ToolTipText" xml:space="preserve">
+    <value>Palets</value>
   </data>
   <data name="tabPagePalletCap.Text" xml:space="preserve">
     <value>Tapas de palet</value>
   </data>
-  <data name="tabPageCylinder.Text" xml:space="preserve">
-    <value>Cilindros de</value>
+  <data name="tabPagePalletCorner.Text" xml:space="preserve">
+    <value>Esquinas de la plataforma</value>
   </data>
-  <data name="tabPageBox.Text" xml:space="preserve">
-    <value>Cajas</value>
+  <data name="tabPagePalletFilm.Text" xml:space="preserve">
+    <value>Películas de plataforma</value>
+  </data>
+  <data name="tabPageTruck.Text" xml:space="preserve">
+    <value>Camiones</value>
   </data>
   <data name="toolStripBExcel.Text" xml:space="preserve">
     <value>Importar desde archivo Excel...</value>

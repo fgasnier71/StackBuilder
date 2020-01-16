@@ -118,6 +118,42 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="$this.Text" xml:space="preserve">
+    <value>A propos de StackBuilder...</value>
+  </data>
+  <data name="labelCompanyName.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="labelCompanyName.Text" xml:space="preserve">
+    <value>Entreprise</value>
+  </data>
+  <data name="labelCopyright.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="labelCopyright.Text" xml:space="preserve">
+    <value>Licence</value>
+  </data>
+  <data name="labelProductName.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="labelProductName.Text" xml:space="preserve">
+    <value>Produit</value>
+  </data>
+  <data name="labelRegisteredUserCount.Text" xml:space="preserve">
+    <value>Nombre d'utilisateurs</value>
+  </data>
+  <data name="labelVersion.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="labelVersion.Text" xml:space="preserve">
+    <value>Version</value>
+  </data>
+  <data name="linkLabelEmail.Text" xml:space="preserve">
+    <value>Courriel</value>
+  </data>
+  <data name="linkLabelUrl.Text" xml:space="preserve">
+    <value>CompanyWebSiteUrl</value>
+  </data>
   <data name="logoPictureBox.ErrorImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
     <value />
   </data>
@@ -127,49 +163,13 @@
   <data name="logoPictureBox.InitialImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
     <value />
   </data>
-  <data name="labelProductName.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="labelProductName.Text" xml:space="preserve">
-    <value>Produit</value>
-  </data>
-  <data name="labelVersion.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="labelCopyright.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="labelCopyright.Text" xml:space="preserve">
-    <value>Licence</value>
-  </data>
-  <data name="labelCompanyName.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="labelCompanyName.Text" xml:space="preserve">
-    <value>Entreprise</value>
-  </data>
   <data name="okButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
-  </data>
-  <data name="linkLabelUrl.Text" xml:space="preserve">
-    <value>CompanyWebSiteUrl</value>
-  </data>
-  <data name="linkLabelEmail.Text" xml:space="preserve">
-    <value>Courriel</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>A propos de StackBuilder...</value>
   </data>
   <data name="okButton.Text" xml:space="preserve">
     <value>OK</value>
   </data>
   <data name="textBoxDescription.Text" xml:space="preserve">
     <value>Description</value>
-  </data>
-  <data name="labelVersion.Text" xml:space="preserve">
-    <value>Version</value>
-  </data>
-  <data name="labelRegisteredUserCount.Text" xml:space="preserve">
-    <value>Nombre d'utilisateurs</value>
   </data>
 </root>

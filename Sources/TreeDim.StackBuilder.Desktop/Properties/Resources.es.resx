@@ -123,365 +123,51 @@
   <data name="ID_A2" xml:space="preserve">
     <value>A2</value>
   </data>
-  <data name="ID_NAME" xml:space="preserve">
-		<value>Nombre</value>
-	</data>
-  <data name="ID_HEIGHT" xml:space="preserve">
-		<value>Altura</value>
-	</data>
-  <data name="ID_CASESLAYER" xml:space="preserve">
-		<value>Embalajes/capas</value>
-	</data>
-  <data name="ID_VERSION" xml:space="preserve">
-		<value>Versión {0}</value>
-	</data>
-  <data name="ID_ECT" xml:space="preserve">
-		<value>ECT</value>
-	</data>
-  <data name="ID_LENGTH" xml:space="preserve">
-		<value>Longitud</value>
-	</data>
-  <data name="ID_PALLETMAXNUMBER" xml:space="preserve">
-		<value>Número</value>
-	</data>
-  <data name="ID_LAYERPATTERN" xml:space="preserve">
-		<value>Patrón de capas</value>
-	</data>
-  <data name="ID_ADDNEWANALYSIS" xml:space="preserve">
-		<value>Añadir nuevo analisis…</value>
-	</data>
-  <data name="ID_ADDNEWTRUCK" xml:space="preserve">
-		<value>Añadir nuevo camión…</value>
-	</data>
-  <data name="ID_FILENOTFOUND" xml:space="preserve">
-		<value>Archivo {0} no encontrado</value>
-	</data>
-  <data name="ID_GENERATEREPORT" xml:space="preserve">
-		<value>Generar un informe para {0}</value>
-	</data>
-  <data name="ID_SELECTED" xml:space="preserve">
-		<value>Seleccionado</value>
-	</data>
-  <data name="ID_CLOSE" xml:space="preserve">
-		<value>Cerrar</value>
-	</data>
-  <data name="ID_INVALIDINSIDEHEIGHT" xml:space="preserve">
-		<value>La altura interior {0} debe ser menor que la altura {1}</value>
-	</data>
-  <data name="ID_PALLETWEIGHT" xml:space="preserve">
-		<value>Peso del palet ({0})</value>
-	</data>
-  <data name="ID_ADDNEWECTANALYSIS" xml:space="preserve">
-		<value>Añadir nuevo analisis ECT…</value>
-	</data>
-  <data name="ID_CASECOUNT" xml:space="preserve">
-		<value>Recuento de embalajes</value>
-	</data>
-  <data name="ID_WEIGHT" xml:space="preserve">
-		<value>Peso</value>
-	</data>
-  <data name="ID_PALLETMAXHEIGHT" xml:space="preserve">
-		<value>Altura</value>
-	</data>
-  <data name="ID_ADDNEWPALLET" xml:space="preserve">
-		<value>Añadir nuevo palet…</value>
-	</data>
-  <data name="ID_TRUCK" xml:space="preserve">
-		<value>Camión</value>
-	</data>
-  <data name="ID_LOADWEIGHT" xml:space="preserve">
-		<value>Carga</value>
-	</data>
-  <data name="ID_USEATLEASTONESTOPSTACKINGCRITERION" xml:space="preserve">
-		<value>Defina como mínimo un criterio de fin de apilamiento</value>
-	</data>
-  <data name="ID_CASEDIMENSIONS" xml:space="preserve">
-		<value>Dimensiones del embalaje</value>
-	</data>
-  <data name="ID_AREA" xml:space="preserve">
-		<value>Area</value>
-	</data>
-  <data name="ID_EDGECRUSHTEST" xml:space="preserve">
-		<value>Analisis de aplastamiento de bordes</value>
-	</data>
-  <data name="ID_INVALIDINSIDEWIDTH" xml:space="preserve">
-		<value>El ancho interior {0} debe ser menor que en ancho {1}</value>
-	</data>
-  <data name="ID_ADDNEWBOX" xml:space="preserve">
-		<value>Añadir nueva caja…</value>
-	</data>
-  <data name="ID_ADDNEWBUNDLE" xml:space="preserve">
-		<value>Añadir nuevo bulto…</value>
-	</data>
-  <data name="ID_GENERATEREPORTMSWORD" xml:space="preserve">
-		<value>Generar informe en Word para {0}</value>
-	</data>
-  <data name="ID_NODE_ANALYSES" xml:space="preserve">
-		<value>Analisis</value>
-	</data>
-  <data name="ID_INVALIDINSIDELENGTH" xml:space="preserve">
-		<value>La longitud interior {0} debe ser menor que la longitud {1}</value>
-	</data>
-  <data name="ID_ADDNEWCASE" xml:space="preserve">
-		<value>Añadir nuevo embalaje…</value>
-	</data>
-  <data name="ID_SENDTODATABASE" xml:space="preserve">
-		<value>Enviar a la base de datos</value>
-	</data>
-  <data name="ID_BOXCASECOUNT" xml:space="preserve">
-		<value>Recuento de cajas/embalaje</value>
-	</data>
-  <data name="ID_PALLETCOUNT" xml:space="preserve">
-		<value>Recuento de palets</value>
-	</data>
-  <data name="ID_INTERLAYER" xml:space="preserve">
-		<value>Separador</value>
-	</data>
-  <data name="ID_INSUFFICIENTVOLUME" xml:space="preserve">
-		<value>El volumen máximo es insuficiente per empaquetar {0} {1}.</value>
-	</data>
-  <data name="ID_FIELDNAMEEMPTY" xml:space="preserve">
-		<value>El nombre del campo está vacio</value>
-	</data>
-  <data name="ID_GENERATEREPORTHTML" xml:space="preserve">
-		<value>Generar informe en HTML para {0}</value>
-	</data>
-  <data name="ID_NODE_CASES" xml:space="preserve">
-		<value>Embalajes</value>
-	</data>
-  <data name="ID_EFFICIENCYPERCENTAGE" xml:space="preserve">
-		<value>Eficiencia (%)</value>
-	</data>
-  <data name="ID_INDEX" xml:space="preserve">
-		<value>Indice</value>
-	</data>
-  <data name="ID_READY" xml:space="preserve">
-		<value>Preparado</value>
-	</data>
-  <data name="ID_GENERATECOLLADA" xml:space="preserve">
-		<value>Generar una animación 3D para {0}</value>
-	</data>
-  <data name="ID_MAXLOWERTHANMIN" xml:space="preserve">
-		<value>Inconsistencia:Máximo {0} és menor que el mínimo {1}</value>
-	</data>
-  <data name="ID_INVALIDNAME" xml:space="preserve">
-		<value>El nombre {0} no es válido</value>
-	</data>
-  <data name="ID_ADDNEWTRUCKANALYSIS" xml:space="preserve">
-		<value>Añadir nuevo analisis de camión…</value>
-	</data>
-  <data name="ID_NODE_INTERLAYERS" xml:space="preserve">
-		<value>Separadores</value>
-	</data>
-  <data name="ID_BOX" xml:space="preserve">
-		<value>Caja</value>
-	</data>
-  <data name="ID_UNSELECTSOLUTION" xml:space="preserve">
-		<value>Solución {0} no seleccionada</value>
-	</data>
-  <data name="ID_NODE_TRUCKS" xml:space="preserve">
-		<value>Camiones</value>
-	</data>
-  <data name="ID_BUNDLE" xml:space="preserve">
-		<value>Fajo</value>
-	</data>
-  <data name="ID_PALLETHEIGHT" xml:space="preserve">
-		<value>Altura del palet ({0})</value>
-	</data>
-  <data name="ID_ADDNEWBUNDLEANALYSIS" xml:space="preserve">
-		<value>Añadir nuevo analisis de bulto…</value>
-	</data>
-  <data name="ID_LAYERPATTERNS" xml:space="preserve">
-		<value>Patrones de capas</value>
-	</data>
-  <data name="ID_CASESPALLET" xml:space="preserve">
-		<value>Embalajes/palet</value>
-	</data>
-  <data name="ID_ALLOWALIGNEDORALTERNATELAYERS" xml:space="preserve">
-		<value>Permitir capas alineadas y/o alternadas</value>
-	</data>
-  <data name="ID_PALLETCAPTIONEDIT" xml:space="preserve">
-		<value>Editar palet {0}…</value>
-	</data>
-  <data name="ID_VOLUMEEFFICIENCY" xml:space="preserve">
-		<value>Eficiencia (%)</value>
-	</data>
-  <data name="ID_DEFINEATLEASTONEPATTERN" xml:space="preserve">
-		<value>Defina como mínimo un patrón de apilamiento</value>
-	</data>
-  <data name="ID_DESELECT" xml:space="preserve">
-		<value>Anular la selección</value>
-	</data>
-  <data name="ID_SAVEMODIFIEDFILE" xml:space="preserve">
-		<value>¿guardar archivo {0}?</value>
-	</data>
-  <data name="ID_ADDNEWCASEANALYSIS" xml:space="preserve">
-		<value>Añadir nuevo analisis de embalaje…</value>
-	</data>
-  <data name="ID_CASEANALYSIS_INVALIDCONSTRAINTSET" xml:space="preserve">
-		<value>Imposible crear el analisis de embalaje porque las limitaciones parecen incorrectas</value>
-	</data>
-  <data name="ID_DELETE" xml:space="preserve">
-		<value>Borrar {0}</value>
-	</data>
-  <data name="ID_NODE_BOXES" xml:space="preserve">
-		<value>Cajas</value>
-	</data>
-  <data name="ID_DEFINEATLEASTONEVERTICALAXIS" xml:space="preserve">
-		<value>Definir como mínimo un eje vertical</value>
-	</data>
-  <data name="ID_NODE_BUNDLES" xml:space="preserve">
-		<value>Bultos</value>
+  <data name="ID_A3" xml:space="preserve">
+		<value>A3</value>
 	</data>
   <data name="ID_ABOUT" xml:space="preserve">
 		<value>Acerca de {0}</value>
 	</data>
-  <data name="ID_A3" xml:space="preserve">
-		<value>A3</value>
+  <data name="ID_ADDNEWANALYSIS" xml:space="preserve">
+		<value>Añadir nuevo analisis…</value>
 	</data>
-  <data name="ID_ADDNEWINTERLAYER" xml:space="preserve">
-		<value>Añadir nuevo separador…</value>
+  <data name="ID_ADDNEWBOX" xml:space="preserve">
+		<value>Añadir nueva caja…</value>
 	</data>
-  <data name="ID_NODE_PALLETS" xml:space="preserve">
-		<value>Palets</value>
-	</data>
-  <data name="ID_CHROMEISNOTINSTALLED" xml:space="preserve">
-		<value>Necesita tener instaldo el navegador Google Chrome para visualizar las animaciones collada/webGL</value>
-	</data>
-  <data name="ID_SELECT" xml:space="preserve">
-		<value>Seleccionar</value>
-	</data>
-  <data name="ID_CASE" xml:space="preserve">
-		<value>Embalaje</value>
-	</data>
-  <data name="ID_WIDTH" xml:space="preserve">
-		<value>Ancho</value>
-	</data>
-  <data name="ID_PALLETMAXWEIGHT" xml:space="preserve">
-		<value>Peso</value>
-	</data>
-  <data name="ID_LOADHEIGHT" xml:space="preserve">
-		<value>Altura de la carga</value>
-	</data>
-  <data name="ID_ORIENTATION" xml:space="preserve">
-		<value>Orientación</value>
-	</data>
-  <data name="ID_FIELDDESCRIPTIONEMPTY" xml:space="preserve">
-		<value>El campo de descripción está vacio</value>
-	</data>
-  <data name="ID_LAYOUT" xml:space="preserve">
-		<value>disposición</value>
-	</data>
-  <data name="ID_EDIT" xml:space="preserve">
-		<value>Editar {0}</value>
-	</data>
-  <data name="ID_CASEINSIDEDIMENSIONS" xml:space="preserve">
-		<value>Dimensiones interiores del embalaje</value>
-	</data>
-  <data name="ID_CASEPERPALLET" xml:space="preserve">
-		<value>Embalaje/palet</value>
-	</data>
-  <data name="ID_LAYERS" xml:space="preserve">
-		<value>Capas</value>
-	</data>
-  <data name="ID_CYLINDER" xml:space="preserve">
-		<value>Cilindro</value>
-	</data>
-  <data name="ID_CASEOFBOXES" xml:space="preserve">
-		<value>Embalaje de cajas</value>
-	</data>
-  <data name="ID_PALLETCORNERS" xml:space="preserve">
-		<value>Esquinas</value>
-	</data>
-  <data name="ID_PALLETFILM" xml:space="preserve">
-		<value>Película</value>
-	</data>
-  <data name="ID_BOXES" xml:space="preserve">
-		<value>Cajas</value>
-	</data>
-  <data name="ID_CASES" xml:space="preserve">
-		<value>Embalajes</value>
-	</data>
-  <data name="ID_INTERLAYERS" xml:space="preserve">
-		<value>Separadores</value>
-	</data>
-  <data name="ID_PALLETS" xml:space="preserve">
-		<value>Palets</value>
-	</data>
-  <data name="ID_CASEWEIGHT" xml:space="preserve">
-    <value>Caso peso ({0})</value>
-  </data>
-  <data name="ID_CYLINDERCOUNT" xml:space="preserve">
-    <value>Conde de cilindro</value>
-  </data>
-  <data name="ID_NODE_CYLINDERS" xml:space="preserve">
-    <value>Cilindros de</value>
-  </data>
-  <data name="ID_BOXCOUNT" xml:space="preserve">
-    <value>Caja/caso</value>
-  </data>
-  <data name="ID_FIELDNAMEINVALID" xml:space="preserve">
-    <value>Nombre ya existe.</value>
-  </data>
-  <data name="ID_DEPENDINGANALYSES" xml:space="preserve">
-    <value>{0} tiene las siguientes dependencias: {1} si proceder con las modificaciones, análisis se recalcula y cualquiera seleccionado eliminadas las soluciones.
-¿Desea continuar?</value>
-  </data>
-  <data name="ID_WEIGHT_WU" xml:space="preserve">
-    <value>Peso ({0})</value>
-  </data>
-  <data name="ID_NOPALLETSOLUTIONSELECTED" xml:space="preserve">
-    <value>Ninguna solución de la plataforma seleccionada</value>
-  </data>
-  <data name="ID_PALLETLIMIT" xml:space="preserve">
-    <value>Límite alcanzado</value>
-  </data>
-  <data name="ID_ANALYSIS" xml:space="preserve">
-    <value>Análisis</value>
-  </data>
-  <data name="ID_FILTER_MSWORD" xml:space="preserve">
-    <value>Microsoft Office Word (proyecto; *.docx) | * .doc; * .docx | Todos los archivos (*. *) | *. *</value>
-  </data>
-  <data name="ID_BOXDOESNOTFITINCASE" xml:space="preserve">
-    <value>Caja {0} no se ajusta en caso {1}.</value>
-  </data>
-  <data name="ID_INVALIDDIAMETER" xml:space="preserve">
-    <value>Diámetro interior debe ser más pequeño que el diámetro externo.</value>
-  </data>
-  <data name="ID_DELETEITEM" xml:space="preserve">
-    <value>Eliminar {0}</value>
-  </data>
-  <data name="ID_DATABASEEMPTY" xml:space="preserve">
-    <value>Plataforma solución la base de datos está vacío.
-Cierre el formulario...</value>
-  </data>
   <data name="ID_ADDNEWBOXCASEANALYSIS" xml:space="preserve">
     <value>Añadir un nuevo análisis de la caja/cartón...</value>
   </data>
-  <data name="ID_ANALYSISHASNOVALIDSOLUTION" xml:space="preserve">
-    <value>Análisis {0} no tiene ninguna solución válida.</value>
-  </data>
-  <data name="ID_INSUFFICIENTPALLETHEIGHT" xml:space="preserve">
-    <value>Altura de plataforma máxima ({0} {1}) debería superar {2} {3}</value>
-  </data>
+  <data name="ID_ADDNEWBUNDLE" xml:space="preserve">
+		<value>Añadir nuevo bulto…</value>
+	</data>
+  <data name="ID_ADDNEWBUNDLEANALYSIS" xml:space="preserve">
+		<value>Añadir nuevo analisis de bulto…</value>
+	</data>
+  <data name="ID_ADDNEWCASE" xml:space="preserve">
+		<value>Añadir nuevo embalaje…</value>
+	</data>
+  <data name="ID_ADDNEWCASEANALYSIS" xml:space="preserve">
+		<value>Añadir nuevo analisis de embalaje…</value>
+	</data>
   <data name="ID_ADDNEWCYLINDER" xml:space="preserve">
     <value>Añadir nuevo cilindro...</value>
   </data>
   <data name="ID_ADDNEWCYLINDERANALYSIS" xml:space="preserve">
     <value>Añadir un nuevo análisis de cilindro...</value>
   </data>
-  <data name="ID_CASELIMIT" xml:space="preserve">
-    <value>Límite alcanzado</value>
+  <data name="ID_ADDNEWECTANALYSIS" xml:space="preserve">
+		<value>Añadir nuevo analisis ECT…</value>
+	</data>
+  <data name="ID_ADDNEWINTERLAYER" xml:space="preserve">
+		<value>Añadir nuevo separador…</value>
+	</data>
+  <data name="ID_ADDNEWPACKANALYSIS" xml:space="preserve">
+    <value>Añadir un nuevo análisis de paquete/plataforma...</value>
   </data>
-  <data name="ID_MAXIMUMCASEWEIGHTSHOULDEXCEED" xml:space="preserve">
-    <value>Peso máximo del caso debe superar {0} {1}.</value>
-  </data>
-  <data name="ID_CANNOTUSEWEIGHTLIMIT" xml:space="preserve">
-    <value>Límite de peso no puede utilizarse porque {0} como ninguna masa.</value>
-  </data>
-  <data name="ID_INVALIDMASS" xml:space="preserve">
-    <value>Valor debe ser positivo</value>
-  </data>
+  <data name="ID_ADDNEWPALLET" xml:space="preserve">
+		<value>Añadir nuevo palet…</value>
+	</data>
   <data name="ID_ADDNEWPALLETCAP" xml:space="preserve">
     <value>Añadir nueva tapa de la plataforma...</value>
   </data>
@@ -491,74 +177,157 @@ Cierre el formulario...</value>
   <data name="ID_ADDNEWPALLETFILM" xml:space="preserve">
     <value>Añadir nueva película de plataforma...</value>
   </data>
-  <data name="ID_NODE_PALLETCAPS" xml:space="preserve">
-    <value>Tapas de palet</value>
-  </data>
-  <data name="ID_NODE_PALLETCORNERS" xml:space="preserve">
-    <value>Esquinas de la plataforma</value>
-  </data>
-  <data name="ID_NODE_PALLETFILMS" xml:space="preserve">
-    <value>Películas de plataforma</value>
-  </data>
-  <data name="ID_PALLETCAP" xml:space="preserve">
-    <value>Cap</value>
-  </data>
-  <data name="ID_USETRANSPARENCYORHATCHING" xml:space="preserve">
-    <value>Transparencia de uso o eclosión</value>
-  </data>
-  <data name="ID_PALLETCAPNOTLONGENOUGH" xml:space="preserve">
-    <value>Plataforma tapa longitud debe superar la longitud de la plataforma + proyección X...</value>
-  </data>
-  <data name="ID_PALLETCAPNOTWIDEENOUGH" xml:space="preserve">
-    <value>Ancho de tapa de la plataforma debe superar la anchura de la plataforma + saliente Y...</value>
-  </data>
-  <data name="ID_INVALIDTHICKNESSWIDTHPAIR" xml:space="preserve">
-    <value>Espesor no debe exceder el ancho</value>
-  </data>
-  <data name="ID_INVALIDNETWEIGHT" xml:space="preserve">
-    <value>Peso neto ({0}) no debe exceder peso ({1})</value>
-  </data>
-  <data name="ID_PACK" xml:space="preserve">
-    <value>Pack</value>
-  </data>
-  <data name="ID_NODE_PACKS" xml:space="preserve">
-    <value>Paquetes de</value>
-  </data>
-  <data name="ID_INVALIDOUTERDIMENSION" xml:space="preserve">
-    <value>Dimensiones exteriores deben exceder dimensiones contenidos...</value>
-  </data>
-  <data name="ID_CONSUMERSALESUNITS" xml:space="preserve">
-    <value># CSU</value>
-  </data>
-  <data name="ID_LAYERWEIGHT" xml:space="preserve">
-    <value>Peso de capa ({0})</value>
-  </data>
-  <data name="ID_MAXIMUMSPACE" xml:space="preserve">
-    <value>Espacio máximo ({0})</value>
-  </data>
-  <data name="ID_PACKCOUNT" xml:space="preserve">
-    <value># Paquetes</value>
-  </data>
-  <data name="ID_ADDNEWPACKANALYSIS" xml:space="preserve">
-    <value>Añadir un nuevo análisis de paquete/plataforma...</value>
+  <data name="ID_ADDNEWTRUCK" xml:space="preserve">
+		<value>Añadir nuevo camión…</value>
+	</data>
+  <data name="ID_ADDNEWTRUCKANALYSIS" xml:space="preserve">
+		<value>Añadir nuevo analisis de camión…</value>
+	</data>
+  <data name="ID_ALLOWALIGNEDORALTERNATELAYERS" xml:space="preserve">
+		<value>Permitir capas alineadas y/o alternadas</value>
+	</data>
+  <data name="ID_ANALYSIS" xml:space="preserve">
+    <value>Análisis</value>
   </data>
   <data name="ID_ANALYSISHASNOSOLUTION" xml:space="preserve">
     <value>¿El análisis no tiene soluciones? \nTo muchas restricciones?</value>
   </data>
+  <data name="ID_ANALYSISHASNOVALIDSOLUTION" xml:space="preserve">
+    <value>Análisis {0} no tiene ninguna solución válida.</value>
+  </data>
+  <data name="ID_AREA" xml:space="preserve">
+		<value>Area</value>
+	</data>
+  <data name="ID_AUTOIMPORT" xml:space="preserve">
+    <value>Auto Import</value>
+  </data>
+  <data name="ID_BOX" xml:space="preserve">
+		<value>Caja</value>
+	</data>
+  <data name="ID_BOXCASECOUNT" xml:space="preserve">
+		<value>Recuento de cajas/embalaje</value>
+	</data>
+  <data name="ID_BOXCOUNT" xml:space="preserve">
+    <value>Caja/caso</value>
+  </data>
+  <data name="ID_BOXDOESNOTFITINCASE" xml:space="preserve">
+    <value>Caja {0} no se ajusta en caso {1}.</value>
+  </data>
+  <data name="ID_BOXES" xml:space="preserve">
+		<value>Cajas</value>
+	</data>
+  <data name="ID_BUNDLE" xml:space="preserve">
+		<value>Fajo</value>
+	</data>
+  <data name="ID_CANNOTUSEWEIGHTLIMIT" xml:space="preserve">
+    <value>Límite de peso no puede utilizarse porque {0} como ninguna masa.</value>
+  </data>
+  <data name="ID_CASE" xml:space="preserve">
+		<value>Embalaje</value>
+	</data>
+  <data name="ID_CASEANALYSIS_INVALIDCONSTRAINTSET" xml:space="preserve">
+		<value>Imposible crear el analisis de embalaje porque las limitaciones parecen incorrectas</value>
+	</data>
+  <data name="ID_CASECOUNT" xml:space="preserve">
+		<value>Recuento de embalajes</value>
+	</data>
+  <data name="ID_CASECOUNTFORMATSTRING" xml:space="preserve">
+    <value>{0} {1} x {2}</value>
+  </data>
+  <data name="ID_CASEDIMENSIONS" xml:space="preserve">
+		<value>Dimensiones del embalaje</value>
+	</data>
+  <data name="ID_CASEINSIDEDIMENSIONS" xml:space="preserve">
+		<value>Dimensiones interiores del embalaje</value>
+	</data>
+  <data name="ID_CASELIMIT" xml:space="preserve">
+    <value>Límite alcanzado</value>
+  </data>
+  <data name="ID_CASENAME" xml:space="preserve">
+    <value>Caisse</value>
+  </data>
+  <data name="ID_CASEOFBOXES" xml:space="preserve">
+		<value>Embalaje de cajas</value>
+	</data>
   <data name="ID_CASEPERLAYERCOUNT" xml:space="preserve">
     <value># Casos/capa</value>
   </data>
-  <data name="ID_LAYERCOUNT" xml:space="preserve">
-    <value>Capa #</value>
+  <data name="ID_CASEPERPALLET" xml:space="preserve">
+		<value>Embalaje/palet</value>
+	</data>
+  <data name="ID_CASES" xml:space="preserve">
+		<value>Embalajes</value>
+	</data>
+  <data name="ID_CASESLAYER" xml:space="preserve">
+		<value>Embalajes/capas</value>
+	</data>
+  <data name="ID_CASESPALLET" xml:space="preserve">
+		<value>Embalajes/palet</value>
+	</data>
+  <data name="ID_CASEWEIGHT" xml:space="preserve">
+    <value>Caso peso ({0})</value>
+  </data>
+  <data name="ID_CHROMEISNOTINSTALLED" xml:space="preserve">
+		<value>Necesita tener instaldo el navegador Google Chrome para visualizar las animaciones collada/webGL</value>
+	</data>
+  <data name="ID_CLOSE" xml:space="preserve">
+		<value>Cerrar</value>
+	</data>
+  <data name="ID_CONSUMERSALESUNITS" xml:space="preserve">
+    <value># CSU</value>
+  </data>
+  <data name="ID_CYLINDER" xml:space="preserve">
+		<value>Cilindro</value>
+	</data>
+  <data name="ID_CYLINDERCOUNT" xml:space="preserve">
+    <value>Conde de cilindro</value>
   </data>
   <data name="ID_CYLINDERS" xml:space="preserve">
     <value>Cilindros de</value>
   </data>
-  <data name="ID_PALLETCAPS" xml:space="preserve">
-    <value>Tapas de palet</value>
+  <data name="ID_DATABASEEMPTY" xml:space="preserve">
+    <value>Plataforma solución la base de datos está vacío.
+Cierre el formulario...</value>
   </data>
-  <data name="ID_PALLETFILMS" xml:space="preserve">
-    <value>Películas de plataforma</value>
+  <data name="ID_DEFINEATLEASTONEPATTERN" xml:space="preserve">
+		<value>Defina como mínimo un patrón de apilamiento</value>
+	</data>
+  <data name="ID_DEFINEATLEASTONEVERTICALAXIS" xml:space="preserve">
+		<value>Definir como mínimo un eje vertical</value>
+	</data>
+  <data name="ID_DEFINEVALIDFILEPATH" xml:space="preserve">
+    <value>Definir una ruta de archivo válido.</value>
+  </data>
+  <data name="ID_DELETE" xml:space="preserve">
+		<value>Borrar {0}</value>
+	</data>
+  <data name="ID_DELETEITEM" xml:space="preserve">
+    <value>Eliminar {0}</value>
+  </data>
+  <data name="ID_DEPENDINGANALYSES" xml:space="preserve">
+    <value>{0} tiene las siguientes dependencias: {1} si proceder con las modificaciones, análisis se recalcula y cualquiera seleccionado eliminadas las soluciones.
+¿Desea continuar?</value>
+  </data>
+  <data name="ID_DESCRIPTION" xml:space="preserve">
+    <value>Descripción</value>
+  </data>
+  <data name="ID_DESELECT" xml:space="preserve">
+		<value>Anular la selección</value>
+	</data>
+  <data name="ID_DIAMETERINNER_WU" xml:space="preserve">
+    <value>Diámetro interno ({0})</value>
+  </data>
+  <data name="ID_DIAMETEROUTER_WU" xml:space="preserve">
+    <value>Diámetro externo ({0})</value>
+  </data>
+  <data name="ID_DIMENSIONS" xml:space="preserve">
+    <value>Dimensiones ({0})</value>
+  </data>
+  <data name="ID_DIMEXT_WU" xml:space="preserve">
+    <value>Dim EXT ({0})</value>
+  </data>
+  <data name="ID_DIMINT_WU" xml:space="preserve">
+    <value>Dim int ({0})</value>
   </data>
   <data name="ID_DISPLAYDEBUGGING" xml:space="preserve">
     <value>Depuración de</value>
@@ -569,11 +338,245 @@ Cierre el formulario...</value>
   <data name="ID_DISPLAYMEASUREMENTSYSTEM" xml:space="preserve">
     <value>Sistema de medición y la lengua</value>
   </data>
+  <data name="ID_DISPLAYPALLETEDITION" xml:space="preserve">
+    <value>Parámetros de edición de la plataforma</value>
+  </data>
   <data name="ID_DISPLAYPLUGINS" xml:space="preserve">
     <value>Plugins</value>
   </data>
   <data name="ID_DISPLAYREPORTING" xml:space="preserve">
     <value>Presentación de informes</value>
+  </data>
+  <data name="ID_DONE" xml:space="preserve">
+    <value>¡Hecho!</value>
+  </data>
+  <data name="ID_DOUBLECLICKALAYER" xml:space="preserve">
+    <value>¡Haga doble clic en una capa!</value>
+  </data>
+  <data name="ID_ECT" xml:space="preserve">
+		<value>ECT</value>
+	</data>
+  <data name="ID_EDGECRUSHTEST" xml:space="preserve">
+		<value>Analisis de aplastamiento de bordes</value>
+	</data>
+  <data name="ID_EDIT" xml:space="preserve">
+		<value>Editar {0}</value>
+	</data>
+  <data name="ID_EFFICIENCY" xml:space="preserve">
+    <value>Eficiencia</value>
+  </data>
+  <data name="ID_EFFICIENCYPERCENTAGE" xml:space="preserve">
+		<value>Eficiencia (%)</value>
+	</data>
+  <data name="ID_EXCELSHEETUNITSYSTEM" xml:space="preserve">
+    <value>¿Puede confirmar que los valores en la hoja de Excel ({0}) se expresan utilizando el sistema de unidad de StackBuilder actualmente establecido es decir, {1}?</value>
+  </data>
+  <data name="ID_FIELDDESCRIPTIONEMPTY" xml:space="preserve">
+		<value>El campo de descripción está vacio</value>
+	</data>
+  <data name="ID_FIELDNAMEEMPTY" xml:space="preserve">
+		<value>El nombre del campo está vacio</value>
+	</data>
+  <data name="ID_FIELDNAMEINVALID" xml:space="preserve">
+    <value>Nombre ya existe.</value>
+  </data>
+  <data name="ID_FILENOTFOUND" xml:space="preserve">
+		<value>Archivo {0} no encontrado</value>
+	</data>
+  <data name="ID_FILTER_MSWORD" xml:space="preserve">
+    <value>Microsoft Office Word (proyecto; *.docx) | * .doc; * .docx | Todos los archivos (*. *) | *. *</value>
+  </data>
+  <data name="ID_GENERATECOLLADA" xml:space="preserve">
+		<value>Generar una animación 3D para {0}</value>
+	</data>
+  <data name="ID_GENERATEREPORT" xml:space="preserve">
+		<value>Generar un informe para {0}</value>
+	</data>
+  <data name="ID_GENERATEREPORTHTML" xml:space="preserve">
+		<value>Generar informe en HTML para {0}</value>
+	</data>
+  <data name="ID_GENERATEREPORTMSWORD" xml:space="preserve">
+		<value>Generar informe en Word para {0}</value>
+	</data>
+  <data name="ID_GENERATEREPORTPDF" xml:space="preserve">
+    <value>Generar reporte PDF</value>
+  </data>
+  <data name="ID_HATCHINGANGLE" xml:space="preserve">
+    <value>Ángulo de trama</value>
+  </data>
+  <data name="ID_HATCHINGSPACING" xml:space="preserve">
+    <value>Espacio trama</value>
+  </data>
+  <data name="ID_HEIGHT" xml:space="preserve">
+		<value>Altura</value>
+	</data>
+  <data name="ID_HEIGHT_WU" xml:space="preserve">
+    <value>Altura ({0})</value>
+  </data>
+  <data name="ID_IMPORTLOADING" xml:space="preserve">
+    <value>Cargando {0}...</value>
+  </data>
+  <data name="ID_IMPORTSKIPPING" xml:space="preserve">
+    <value>Saltar {0}...</value>
+  </data>
+  <data name="ID_INDEX" xml:space="preserve">
+		<value>Indice</value>
+	</data>
+  <data name="ID_INSUFFICIENTPALLETHEIGHT" xml:space="preserve">
+    <value>Altura de plataforma máxima ({0} {1}) debería superar {2} {3}</value>
+  </data>
+  <data name="ID_INSUFFICIENTVOLUME" xml:space="preserve">
+		<value>El volumen máximo es insuficiente per empaquetar {0} {1}.</value>
+	</data>
+  <data name="ID_INTERLAYER" xml:space="preserve">
+		<value>Separador</value>
+	</data>
+  <data name="ID_INTERLAYERCOUNT" xml:space="preserve">
+    <value># Capa intermediaria</value>
+  </data>
+  <data name="ID_INTERLAYERNUMBER" xml:space="preserve">
+    <value># Capa intermediaria</value>
+  </data>
+  <data name="ID_INTERLAYERS" xml:space="preserve">
+		<value>Separadores</value>
+	</data>
+  <data name="ID_INVALIDDIAMETER" xml:space="preserve">
+    <value>Diámetro interior debe ser más pequeño que el diámetro externo.</value>
+  </data>
+  <data name="ID_INVALIDINSIDEHEIGHT" xml:space="preserve">
+		<value>La altura interior {0} debe ser menor que la altura {1}</value>
+	</data>
+  <data name="ID_INVALIDINSIDELENGTH" xml:space="preserve">
+		<value>La longitud interior {0} debe ser menor que la longitud {1}</value>
+	</data>
+  <data name="ID_INVALIDINSIDEWIDTH" xml:space="preserve">
+		<value>El ancho interior {0} debe ser menor que en ancho {1}</value>
+	</data>
+  <data name="ID_INVALIDMASS" xml:space="preserve">
+    <value>Valor debe ser positivo</value>
+  </data>
+  <data name="ID_INVALIDNAME" xml:space="preserve">
+		<value>El nombre {0} no es válido</value>
+	</data>
+  <data name="ID_INVALIDNETWEIGHT" xml:space="preserve">
+    <value>Peso neto ({0}) no debe exceder peso ({1})</value>
+  </data>
+  <data name="ID_INVALIDOUTERDIMENSION" xml:space="preserve">
+    <value>Dimensiones exteriores deben exceder dimensiones contenidos...</value>
+  </data>
+  <data name="ID_INVALIDTHICKNESSWIDTHPAIR" xml:space="preserve">
+    <value>Espesor no debe exceder el ancho</value>
+  </data>
+  <data name="ID_LAYER" xml:space="preserve">
+    <value>Capa</value>
+  </data>
+  <data name="ID_LAYERCOUNT" xml:space="preserve">
+    <value>Capa #</value>
+  </data>
+  <data name="ID_LAYERNUMBER" xml:space="preserve">
+    <value>Capa #</value>
+  </data>
+  <data name="ID_LAYERPATTERN" xml:space="preserve">
+		<value>Patrón de capas</value>
+	</data>
+  <data name="ID_LAYERPATTERNS" xml:space="preserve">
+		<value>Patrones de capas</value>
+	</data>
+  <data name="ID_LAYERS" xml:space="preserve">
+		<value>Capas</value>
+	</data>
+  <data name="ID_LAYERWEIGHT" xml:space="preserve">
+    <value>Peso de capa ({0})</value>
+  </data>
+  <data name="ID_LAYOUT" xml:space="preserve">
+		<value>disposición</value>
+	</data>
+  <data name="ID_LENGTH" xml:space="preserve">
+		<value>Longitud</value>
+	</data>
+  <data name="ID_LENGTH_WU" xml:space="preserve">
+    <value>Longitud ({0})</value>
+  </data>
+  <data name="ID_LOAD" xml:space="preserve">
+    <value>Carga</value>
+  </data>
+  <data name="ID_LOADDIMENSIONS" xml:space="preserve">
+    <value>Dimensiones de carga ({0})</value>
+  </data>
+  <data name="ID_LOADHEIGHT" xml:space="preserve">
+		<value>Altura de la carga</value>
+	</data>
+  <data name="ID_LOADWEIGHT" xml:space="preserve">
+		<value>Carga</value>
+	</data>
+  <data name="ID_LOADWEIGHT_WU" xml:space="preserve">
+    <value>Peso de la carga ({0})</value>
+  </data>
+  <data name="ID_MAXIMUMCASEWEIGHTSHOULDEXCEED" xml:space="preserve">
+    <value>Peso máximo del caso debe superar {0} {1}.</value>
+  </data>
+  <data name="ID_MAXIMUMSPACE" xml:space="preserve">
+    <value>Espacio máximo ({0})</value>
+  </data>
+  <data name="ID_MAXLOWERTHANMIN" xml:space="preserve">
+		<value>Inconsistencia:Máximo {0} és menor que el mínimo {1}</value>
+	</data>
+  <data name="ID_NAME" xml:space="preserve">
+		<value>Nombre</value>
+	</data>
+  <data name="ID_NAMEALREADYEXISTSINDB" xml:space="preserve">
+    <value>{0} {1} el nombre ya existe en la base de datos.</value>
+  </data>
+  <data name="ID_NETWEIGHT_WU" xml:space="preserve">
+    <value>Peso neto ({0})</value>
+  </data>
+  <data name="ID_NOCASESELECTED" xml:space="preserve">
+    <value>¡Ningún caso seleccionado!</value>
+  </data>
+  <data name="ID_NODE_ANALYSES" xml:space="preserve">
+		<value>Analisis</value>
+	</data>
+  <data name="ID_NODE_BOXES" xml:space="preserve">
+		<value>Cajas</value>
+	</data>
+  <data name="ID_NODE_BUNDLES" xml:space="preserve">
+		<value>Bultos</value>
+	</data>
+  <data name="ID_NODE_CASES" xml:space="preserve">
+		<value>Embalajes</value>
+	</data>
+  <data name="ID_NODE_CYLINDERS" xml:space="preserve">
+    <value>Cilindros de</value>
+  </data>
+  <data name="ID_NODE_INTERLAYERS" xml:space="preserve">
+		<value>Separadores</value>
+	</data>
+  <data name="ID_NODE_PACKS" xml:space="preserve">
+    <value>Paquetes de</value>
+  </data>
+  <data name="ID_NODE_PALLETCAPS" xml:space="preserve">
+    <value>Tapas de palet</value>
+  </data>
+  <data name="ID_NODE_PALLETCORNERS" xml:space="preserve">
+    <value>Esquinas de la plataforma</value>
+  </data>
+  <data name="ID_NODE_PALLETFILMS" xml:space="preserve">
+    <value>Películas de plataforma</value>
+  </data>
+  <data name="ID_NODE_PALLETS" xml:space="preserve">
+		<value>Palets</value>
+	</data>
+  <data name="ID_NODE_TRUCKS" xml:space="preserve">
+		<value>Camiones</value>
+	</data>
+  <data name="ID_NOORIENTATIONSELECTED" xml:space="preserve">
+    <value>¡Ninguna orientación seleccionada!</value>
+  </data>
+  <data name="ID_NOPALLETSOLUTIONSELECTED" xml:space="preserve">
+    <value>Ninguna solución de la plataforma seleccionada</value>
+  </data>
+  <data name="ID_NUMBER" xml:space="preserve">
+    <value>Número</value>
   </data>
   <data name="ID_OPTIONSDEBUGGING" xml:space="preserve">
     <value>Options\\Debugging</value>
@@ -584,157 +587,154 @@ Cierre el formulario...</value>
   <data name="ID_OPTIONSMEASUREMENTSYSTEM" xml:space="preserve">
     <value>Options\\Language y sistema de</value>
   </data>
+  <data name="ID_OPTIONSPALLETEDITION" xml:space="preserve">
+    <value>Options\\Pallet edición</value>
+  </data>
   <data name="ID_OPTIONSPLUGINS" xml:space="preserve">
     <value>Options\\Plugins</value>
   </data>
   <data name="ID_OPTIONSREPORTING" xml:space="preserve">
     <value>Options\\Reporting</value>
   </data>
-  <data name="ID_SELECTATLEASTONELAYOUT" xml:space="preserve">
-    <value>Seleccionar como mínimo una capa</value>
-  </data>
-  <data name="ID_AUTOIMPORT" xml:space="preserve">
-    <value>Auto Import</value>
-  </data>
-  <data name="ID_DESCRIPTION" xml:space="preserve">
-    <value>Descripción</value>
-  </data>
-  <data name="ID_DIMENSIONS" xml:space="preserve">
-    <value>Dimensiones ({0})</value>
-  </data>
-  <data name="ID_NAMEALREADYEXISTSINDB" xml:space="preserve">
-    <value>{0} {1} el nombre ya existe en la base de datos.</value>
-  </data>
-  <data name="ID_DIAMETERINNER_WU" xml:space="preserve">
-    <value>Diámetro interno ({0})</value>
-  </data>
-  <data name="ID_DIAMETEROUTER_WU" xml:space="preserve">
-    <value>Diámetro externo ({0})</value>
-  </data>
-  <data name="ID_HEIGHT_WU" xml:space="preserve">
-    <value>Altura ({0})</value>
-  </data>
-  <data name="ID_DIMEXT_WU" xml:space="preserve">
-    <value>Dim EXT ({0})</value>
-  </data>
-  <data name="ID_DIMINT_WU" xml:space="preserve">
-    <value>Dim int ({0})</value>
-  </data>
-  <data name="ID_LENGTH_WU" xml:space="preserve">
-    <value>Longitud ({0})</value>
-  </data>
-  <data name="ID_NUMBER" xml:space="preserve">
-    <value>Número</value>
-  </data>
-  <data name="ID_THICKNESS_WU" xml:space="preserve">
-    <value>Grueso ({0})</value>
-  </data>
-  <data name="ID_WIDTH_WU" xml:space="preserve">
-    <value>Anchura ({0})</value>
-  </data>
-  <data name="ID_HATCHINGANGLE" xml:space="preserve">
-    <value>Ángulo de trama</value>
-  </data>
-  <data name="ID_HATCHINGSPACING" xml:space="preserve">
-    <value>Espacio trama</value>
-  </data>
-  <data name="ID_TRANSPARENCY" xml:space="preserve">
-    <value>Transparencia de uso</value>
-  </data>
-  <data name="ID_CASENAME" xml:space="preserve">
-    <value>Caisse</value>
-  </data>
-  <data name="ID_NOCASESELECTED" xml:space="preserve">
-    <value>¡Ningún caso seleccionado!</value>
-  </data>
-  <data name="ID_NOORIENTATIONSELECTED" xml:space="preserve">
-    <value>¡Ninguna orientación seleccionada!</value>
-  </data>
-  <data name="ID_DOUBLECLICKALAYER" xml:space="preserve">
-    <value>¡Haga doble clic en una capa!</value>
-  </data>
-  <data name="ID_INTERLAYERNUMBER" xml:space="preserve">
-    <value># Capa intermediaria</value>
-  </data>
-  <data name="ID_LAYER" xml:space="preserve">
-    <value>Capa</value>
-  </data>
-  <data name="ID_LAYERNUMBER" xml:space="preserve">
-    <value>Capa #</value>
-  </data>
-  <data name="ID_LOADDIMENSIONS" xml:space="preserve">
-    <value>Dimensiones de carga ({0})</value>
-  </data>
-  <data name="ID_LOADWEIGHT_WU" xml:space="preserve">
-    <value>Peso de la carga ({0})</value>
-  </data>
-  <data name="ID_NETWEIGHT_WU" xml:space="preserve">
-    <value>Peso neto ({0})</value>
-  </data>
+  <data name="ID_ORIENTATION" xml:space="preserve">
+		<value>Orientación</value>
+	</data>
   <data name="ID_OUTERDIMENSIONS" xml:space="preserve">
     <value>Dimensiones exteriores ({0})</value>
+  </data>
+  <data name="ID_PACK" xml:space="preserve">
+    <value>Pack</value>
+  </data>
+  <data name="ID_PACKCOUNT" xml:space="preserve">
+    <value># Paquetes</value>
   </data>
   <data name="ID_PALLET" xml:space="preserve">
     <value>Plataforma</value>
   </data>
-  <data name="ID_SELECTEDLAYER" xml:space="preserve">
-    <value>Capa seleccionada: {0} </value>
+  <data name="ID_PALLETCAP" xml:space="preserve">
+    <value>Cap</value>
   </data>
-  <data name="ID_TOTALWEIGHT_WU" xml:space="preserve">
-    <value>Peso total ({0})</value>
+  <data name="ID_PALLETCAPNOTLONGENOUGH" xml:space="preserve">
+    <value>Plataforma tapa longitud debe superar la longitud de la plataforma + proyección X...</value>
   </data>
-  <data name="ID_INTERLAYERCOUNT" xml:space="preserve">
-    <value># Capa intermediaria</value>
+  <data name="ID_PALLETCAPNOTWIDEENOUGH" xml:space="preserve">
+    <value>Ancho de tapa de la plataforma debe superar la anchura de la plataforma + saliente Y...</value>
   </data>
-  <data name="ID_SPACES_WU" xml:space="preserve">
-    <value>Espacios ({0})</value>
+  <data name="ID_PALLETCAPS" xml:space="preserve">
+    <value>Tapas de palet</value>
   </data>
-  <data name="ID_LOAD" xml:space="preserve">
-    <value>Carga</value>
+  <data name="ID_PALLETCAPTIONEDIT" xml:space="preserve">
+		<value>Editar palet {0}…</value>
+	</data>
+  <data name="ID_PALLETCORNERS" xml:space="preserve">
+		<value>Esquinas</value>
+	</data>
+  <data name="ID_PALLETCOUNT" xml:space="preserve">
+		<value>Recuento de palets</value>
+	</data>
+  <data name="ID_PALLETFILM" xml:space="preserve">
+		<value>Película</value>
+	</data>
+  <data name="ID_PALLETFILMS" xml:space="preserve">
+    <value>Películas de plataforma</value>
   </data>
+  <data name="ID_PALLETHEIGHT" xml:space="preserve">
+		<value>Altura del palet ({0})</value>
+	</data>
+  <data name="ID_PALLETLIMIT" xml:space="preserve">
+    <value>Límite alcanzado</value>
+  </data>
+  <data name="ID_PALLETMAXHEIGHT" xml:space="preserve">
+		<value>Altura</value>
+	</data>
+  <data name="ID_PALLETMAXNUMBER" xml:space="preserve">
+		<value>Número</value>
+	</data>
+  <data name="ID_PALLETMAXWEIGHT" xml:space="preserve">
+		<value>Peso</value>
+	</data>
+  <data name="ID_PALLETS" xml:space="preserve">
+		<value>Palets</value>
+	</data>
+  <data name="ID_PALLETWEIGHT" xml:space="preserve">
+		<value>Peso del palet ({0})</value>
+	</data>
+  <data name="ID_READY" xml:space="preserve">
+		<value>Preparado</value>
+	</data>
   <data name="ID_REGISTEREDUSERCOUNT" xml:space="preserve">
     <value>Cuenta de usuario = {0}</value>
-  </data>
-  <data name="ID_EFFICIENCY" xml:space="preserve">
-    <value>Eficiencia</value>
-  </data>
-  <data name="ID_GENERATEREPORTPDF" xml:space="preserve">
-    <value>Generar reporte PDF</value>
-  </data>
-  <data name="ID_DONE" xml:space="preserve">
-    <value>¡Hecho!</value>
-  </data>
-  <data name="ID_EXCELSHEETUNITSYSTEM" xml:space="preserve">
-    <value>¿Puede confirmar que los valores en la hoja de Excel ({0}) se expresan utilizando el sistema de unidad de StackBuilder actualmente establecido es decir, {1}?</value>
-  </data>
-  <data name="ID_IMPORTLOADING" xml:space="preserve">
-    <value>Cargando {0}...</value>
-  </data>
-  <data name="ID_IMPORTSKIPPING" xml:space="preserve">
-    <value>Saltar {0}...</value>
   </data>
   <data name="ID_REMOVINGEXISTINGTYPE" xml:space="preserve">
     <value>Eliminando los de tipo {0}...</value>
   </data>
+  <data name="ID_SAVEMODIFIEDFILE" xml:space="preserve">
+		<value>¿guardar archivo {0}?</value>
+	</data>
+  <data name="ID_SELECT" xml:space="preserve">
+		<value>Seleccionar</value>
+	</data>
+  <data name="ID_SELECTATLEASTONELAYOUT" xml:space="preserve">
+    <value>Seleccionar como mínimo una capa</value>
+  </data>
+  <data name="ID_SELECTED" xml:space="preserve">
+		<value>Seleccionado</value>
+	</data>
+  <data name="ID_SELECTEDLAYER" xml:space="preserve">
+    <value>Capa seleccionada: {0} </value>
+  </data>
+  <data name="ID_SENDTODATABASE" xml:space="preserve">
+		<value>Enviar a la base de datos</value>
+	</data>
+  <data name="ID_SPACES_WU" xml:space="preserve">
+    <value>Espacios ({0})</value>
+  </data>
   <data name="ID_TASKCANCELED" xml:space="preserve">
     <value>¡Cancelado!</value>
   </data>
+  <data name="ID_THICKNESS_WU" xml:space="preserve">
+    <value>Grueso ({0})</value>
+  </data>
+  <data name="ID_TOTALWEIGHT_WU" xml:space="preserve">
+    <value>Peso total ({0})</value>
+  </data>
+  <data name="ID_TRANSPARENCY" xml:space="preserve">
+    <value>Transparencia de uso</value>
+  </data>
+  <data name="ID_TRUCK" xml:space="preserve">
+		<value>Camión</value>
+	</data>
   <data name="ID_UNEXPECTEDTYPE" xml:space="preserve">
     <value>Tipo inesperado: {0}</value>
   </data>
   <data name="ID_UNITSYSTEM" xml:space="preserve">
     <value>Sistema de la unidad...</value>
   </data>
-  <data name="ID_DEFINEVALIDFILEPATH" xml:space="preserve">
-    <value>Definir una ruta de archivo válido.</value>
+  <data name="ID_UNSELECTSOLUTION" xml:space="preserve">
+		<value>Solución {0} no seleccionada</value>
+	</data>
+  <data name="ID_USEATLEASTONESTOPSTACKINGCRITERION" xml:space="preserve">
+		<value>Defina como mínimo un criterio de fin de apilamiento</value>
+	</data>
+  <data name="ID_USETRANSPARENCYORHATCHING" xml:space="preserve">
+    <value>Transparencia de uso o eclosión</value>
   </data>
-  <data name="ID_DISPLAYPALLETEDITION" xml:space="preserve">
-    <value>Parámetros de edición de la plataforma</value>
+  <data name="ID_VERSION" xml:space="preserve">
+		<value>Versión {0}</value>
+	</data>
+  <data name="ID_VOLUMEEFFICIENCY" xml:space="preserve">
+		<value>Eficiencia (%)</value>
+	</data>
+  <data name="ID_WEIGHT" xml:space="preserve">
+		<value>Peso</value>
+	</data>
+  <data name="ID_WEIGHT_WU" xml:space="preserve">
+    <value>Peso ({0})</value>
   </data>
-  <data name="ID_OPTIONSPALLETEDITION" xml:space="preserve">
-    <value>Options\\Pallet edición</value>
-  </data>
-  <data name="ID_CASECOUNTFORMATSTRING" xml:space="preserve">
-    <value>{0} {1} x {2}</value>
+  <data name="ID_WIDTH" xml:space="preserve">
+		<value>Ancho</value>
+	</data>
+  <data name="ID_WIDTH_WU" xml:space="preserve">
+    <value>Anchura ({0})</value>
   </data>
 </root>

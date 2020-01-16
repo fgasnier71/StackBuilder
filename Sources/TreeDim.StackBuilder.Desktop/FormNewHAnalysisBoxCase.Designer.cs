@@ -42,7 +42,7 @@
             // 
             // tbDescription
             // 
-            this.tbDescription.Size = new System.Drawing.Size(696, 20);
+            this.tbDescription.Size = new System.Drawing.Size(712, 20);
             // 
             // splitContainerHoriz1
             // 
@@ -51,16 +51,22 @@
             // splitContainerHoriz2
             // 
             this.splitContainerHoriz2.Size = new System.Drawing.Size(800, 370);
-            this.splitContainerHoriz2.SplitterDistance = 338;
+            this.splitContainerHoriz2.SplitterDistance = 335;
             // 
             // splitContainerVert
             // 
-            this.splitContainerVert.Size = new System.Drawing.Size(800, 338);
-            this.splitContainerVert.SplitterDistance = 266;
+            this.splitContainerVert.Size = new System.Drawing.Size(800, 335);
+            this.splitContainerVert.SplitterDistance = 271;
+            // 
+            // gridContent
+            // 
+            this.gridContent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridContent.Location = new System.Drawing.Point(0, 0);
+            this.gridContent.Size = new System.Drawing.Size(271, 335);
             // 
             // gridSolutions
             // 
-            this.gridSolutions.Size = new System.Drawing.Size(530, 48);
+            this.gridSolutions.Size = new System.Drawing.Size(525, 48);
             // 
             // FormNewHAnalysisBoxCase
             // 

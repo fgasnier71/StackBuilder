@@ -117,71 +117,8 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="bnClose.Text" xml:space="preserve">
-    <value>Fermer</value>
-  </data>
-  <data name="bnImport.Text" xml:space="preserve">
-    <value>Importer</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="chkbSearchDescription.Size" type="System.Drawing.Size, System.Drawing">
-    <value>116, 17</value>
-  </data>
-  <data name="chkbSearchDescription.Text" xml:space="preserve">
-    <value>Dans la description</value>
-  </data>
-  <data name="bnSearch.Text" xml:space="preserve">
-    <value>Rechercher</value>
-  </data>
-  <data name="tabPageBox.Text" xml:space="preserve">
-    <value>Etuis</value>
-  </data>
-  <data name="tabPageCase.Text" xml:space="preserve">
-    <value>Caisses</value>
-  </data>
-  <data name="tabPageBundle.Text" xml:space="preserve">
-    <value>Liasses</value>
-  </data>
-  <data name="tabPageCylinder.Text" xml:space="preserve">
-    <value>Cylindres</value>
-  </data>
-  <data name="tabPageInterlayer.Text" xml:space="preserve">
-    <value>Intercallaires</value>
-  </data>
-  <data name="tabPagePallet.Text" xml:space="preserve">
-    <value>Palettes</value>
-  </data>
-  <data name="tabPagePallet.ToolTipText" xml:space="preserve">
-    <value>Palettes</value>
-  </data>
-  <data name="tabPageTruck.Text" xml:space="preserve">
-    <value>Camions</value>
-  </data>
-  <data name="tabPagePalletCorner.Text" xml:space="preserve">
-    <value>Cornières</value>
-  </data>
-  <data name="tabPagePalletCap.Text" xml:space="preserve">
-    <value>Coiffes</value>
-  </data>
-  <data name="tabPagePalletFilm.Text" xml:space="preserve">
-    <value>Films de palettes</value>
-  </data>
-  <data name="toolStripMain.Text" xml:space="preserve">
-    <value>Outils</value>
-  </data>
-  <data name="toolStripBExcel.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADSSURBVDhPY0AHbKK8/3mN5P4Lu+v8l4y1/C9f5PYfKoUd
-        8GhJ/Rd0UP8vHmoCVowNg9RhEwdhnBLImGoGIAO4HIzx8dvn/4/fvgCzrz69A+bDFRFjQN+ORWCJOQfX
-        gmkQH64IagA2DJfQqQoE2woCIBrEhysixgAQXnVqJ9gAEI0sDjMAGcDlYAxiXIAM4HIwBszvDeungWmS
-        wsCqOQas6fidi2BBUGwgu4KgASCFYVOLwQaB+CAaxEc3ABmA+GA5GAMfppoB2DDlmQkdkJadGRgAYgvn
-        cIORBHwAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="toolStripBExcel.Text" xml:space="preserve">
-    <value>Import de fichier Excel...</value>
-  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAMAMDAAAAEACACoDgAANgAAACAgAAABAAgAqAgAAN4OAAAQEAAAAQAIAGgFAACGFwAAKAAAADAA
@@ -310,20 +247,83 @@
         AACAAQAAgAEAAMABAADgAQAA8AEAAP//AAA=
 </value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>Inherit</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Editer la base de données et importer des objets dans le projet...</value>
   </data>
-  <data name="lbCount.Text" xml:space="preserve">
-    <value>1-20 de 0</value>
+  <data name="bnClose.Text" xml:space="preserve">
+    <value>Fermer</value>
+  </data>
+  <data name="bnImport.Text" xml:space="preserve">
+    <value>Importer</value>
   </data>
   <data name="bnNext.Text" xml:space="preserve">
     <value>&gt;</value>
   </data>
   <data name="bnPrev.Text" xml:space="preserve">
     <value>&lt;</value>
+  </data>
+  <data name="bnSearch.Text" xml:space="preserve">
+    <value>Rechercher</value>
+  </data>
+  <data name="chkbSearchDescription.Size" type="System.Drawing.Size, System.Drawing">
+    <value>116, 17</value>
+  </data>
+  <data name="chkbSearchDescription.Text" xml:space="preserve">
+    <value>Dans la description</value>
+  </data>
+  <data name="lbCount.Text" xml:space="preserve">
+    <value>1-20 de 0</value>
+  </data>
+  <data name="tabPageBox.Text" xml:space="preserve">
+    <value>Etuis</value>
+  </data>
+  <data name="tabPageBundle.Text" xml:space="preserve">
+    <value>Liasses</value>
+  </data>
+  <data name="tabPageCase.Text" xml:space="preserve">
+    <value>Caisses</value>
+  </data>
+  <data name="tabPageCylinder.Text" xml:space="preserve">
+    <value>Cylindres</value>
+  </data>
+  <data name="tabPageInterlayer.Text" xml:space="preserve">
+    <value>Intercallaires</value>
+  </data>
+  <data name="tabPagePallet.Text" xml:space="preserve">
+    <value>Palettes</value>
+  </data>
+  <data name="tabPagePallet.ToolTipText" xml:space="preserve">
+    <value>Palettes</value>
+  </data>
+  <data name="tabPagePalletCap.Text" xml:space="preserve">
+    <value>Coiffes</value>
+  </data>
+  <data name="tabPagePalletCorner.Text" xml:space="preserve">
+    <value>Cornières</value>
+  </data>
+  <data name="tabPagePalletFilm.Text" xml:space="preserve">
+    <value>Films de palettes</value>
+  </data>
+  <data name="tabPageTruck.Text" xml:space="preserve">
+    <value>Camions</value>
+  </data>
+  <data name="toolStripBExcel.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADSSURBVDhPY0AHbKK8/3mN5P4Lu+v8l4y1/C9f5PYfKoUd
+        8GhJ/Rd0UP8vHmoCVowNg9RhEwdhnBLImGoGIAO4HIzx8dvn/4/fvgCzrz69A+bDFRFjQN+ORWCJOQfX
+        gmkQH64IagA2DJfQqQoE2woCIBrEhysixgAQXnVqJ9gAEI0sDjMAGcDlYAxiXIAM4HIwBszvDeungWmS
+        wsCqOQas6fidi2BBUGwgu4KgASCFYVOLwQaB+CAaxEc3ABmA+GA5GAMfppoB2DDlmQkdkJadGRgAYgvn
+        cIORBHwAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="toolStripBExcel.Text" xml:space="preserve">
+    <value>Import de fichier Excel...</value>
+  </data>
+  <data name="toolStripMain.Text" xml:space="preserve">
+    <value>Outils</value>
   </data>
 </root>

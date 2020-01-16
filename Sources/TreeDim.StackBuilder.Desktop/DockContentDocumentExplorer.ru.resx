@@ -117,25 +117,25 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="FloatingToolStripMenuItem.Text" xml:space="preserve">
-    <value>Плавающий</value>
-  </data>
-  <data name="DockableToolStripMenuItem.Text" xml:space="preserve">
-    <value>Прикрепить</value>
-  </data>
-  <data name="TabbedDocumentToolStripMenuItem.Text" xml:space="preserve">
-    <value>Документ с вкладками</value>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Обозреватель документов</value>
   </data>
   <data name="AutoHideToolStripMenuItem.Text" xml:space="preserve">
     <value>Автоматическое скрытие</value>
   </data>
-  <data name="HideToolStripMenuItem.Text" xml:space="preserve">
-    <value>Скрыть</value>
-  </data>
   <data name="ContextMenuDock.Text" xml:space="preserve">
     <value>Позиция окна</value>
   </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Обозреватель документов</value>
+  <data name="DockableToolStripMenuItem.Text" xml:space="preserve">
+    <value>Прикрепить</value>
+  </data>
+  <data name="FloatingToolStripMenuItem.Text" xml:space="preserve">
+    <value>Плавающий</value>
+  </data>
+  <data name="HideToolStripMenuItem.Text" xml:space="preserve">
+    <value>Скрыть</value>
+  </data>
+  <data name="TabbedDocumentToolStripMenuItem.Text" xml:space="preserve">
+    <value>Документ с вкладками</value>
   </data>
 </root>

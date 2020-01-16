@@ -44,7 +44,7 @@
             // 
             // tbDescription
             // 
-            this.tbDescription.Size = new System.Drawing.Size(712, 20);
+            this.tbDescription.Size = new System.Drawing.Size(728, 20);
             // 
             // splitContainerHoriz1
             // 
@@ -53,7 +53,7 @@
             // splitContainerHoriz2
             // 
             this.splitContainerHoriz2.Size = new System.Drawing.Size(800, 370);
-            this.splitContainerHoriz2.SplitterDistance = 227;
+            this.splitContainerHoriz2.SplitterDistance = 336;
             // 
             // splitContainerVert
             // 
@@ -62,12 +62,17 @@
             // 
             this.splitContainerVert.Panel1.Controls.Add(this.cbTrucks);
             this.splitContainerVert.Panel1.Controls.Add(this.lbTruck);
-            this.splitContainerVert.Size = new System.Drawing.Size(800, 227);
-            this.splitContainerVert.SplitterDistance = 271;
+            this.splitContainerVert.Size = new System.Drawing.Size(800, 336);
+            this.splitContainerVert.SplitterDistance = 276;
+            // 
+            // gridContent
+            // 
+            this.gridContent.Location = new System.Drawing.Point(0, 34);
+            this.gridContent.Size = new System.Drawing.Size(273, 299);
             // 
             // gridSolutions
             // 
-            this.gridSolutions.Size = new System.Drawing.Size(525, 48);
+            this.gridSolutions.Size = new System.Drawing.Size(520, 48);
             // 
             // cbTrucks
             // 
@@ -77,7 +82,7 @@
             this.cbTrucks.FormattingEnabled = true;
             this.cbTrucks.Location = new System.Drawing.Point(102, 7);
             this.cbTrucks.Name = "cbTrucks";
-            this.cbTrucks.Size = new System.Drawing.Size(150, 21);
+            this.cbTrucks.Size = new System.Drawing.Size(155, 21);
             this.cbTrucks.TabIndex = 6;
             this.cbTrucks.SelectedIndexChanged += new System.EventHandler(this.OnDataModifiedOverride);
             // 

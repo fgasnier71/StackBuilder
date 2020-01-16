@@ -117,79 +117,79 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="menuStrip.Text" xml:space="preserve">
-    <value>menuStrip</value>
-  </data>
-  <data name="toolStripMIFile.Text" xml:space="preserve">
-    <value>Bestand</value>
-  </data>
-  <data name="exitToolStripMenuItem.Text" xml:space="preserve">
-    <value>Uitgang</value>
-  </data>
-  <data name="toolStripMITools.Text" xml:space="preserve">
-    <value>Hulpmiddelen</value>
-  </data>
-  <data name="toolStripMISettings.Text" xml:space="preserve">
-    <value>Instellingen</value>
-  </data>
-  <data name="statusStrip.Text" xml:space="preserve">
-    <value>statusStrip</value>
-  </data>
-  <data name="statusLabel.Text" xml:space="preserve">
-    <value>statusLabel</value>
-  </data>
-  <data name="lbFilePath.Text" xml:space="preserve">
-    <value>Excel bestandspad</value>
-  </data>
-  <data name="uCtrlPalletDimensions.Text" xml:space="preserve">
-    <value>Afmetingen</value>
-  </data>
-  <data name="gbInput.Text" xml:space="preserve">
-    <value>Input</value>
-  </data>
-  <data name="chkbOnlyVerticalOrientation.Text" xml:space="preserve">
-    <value>Toestaan dat alleen verticale oriëntatie</value>
-  </data>
-  <data name="tabPallet.Text" xml:space="preserve">
-    <value>Pallet</value>
-  </data>
-  <data name="uCtrlMaximumPalletHeight.Text" xml:space="preserve">
-    <value>Hoogte van de maximale geladen pallet</value>
-  </data>
-  <data name="lbPalletType.Text" xml:space="preserve">
-    <value>Type pallet</value>
-  </data>
-  <data name="tabContainer.Text" xml:space="preserve">
-    <value>Container</value>
-  </data>
-  <data name="uCtrlTruckDimensions.Text" xml:space="preserve">
-    <value>Afmetingen</value>
-  </data>
-  <data name="lbCaseLoaded.Text" xml:space="preserve">
-    <value>(Geen letters geladen!)</value>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Snel stapelen schatting</value>
   </data>
   <data name="bnDirectoryPath.Text" xml:space="preserve">
     <value>...</value>
   </data>
-  <data name="chkbGenerateImageFolder.Text" xml:space="preserve">
-    <value>Genereer afbeelding in de map</value>
+  <data name="bnGenerate.Text" xml:space="preserve">
+    <value>Genereren</value>
   </data>
   <data name="chkbGenerateImage.Text" xml:space="preserve">
     <value>Genereer afbeelding in uitvoer Excel sheet</value>
   </data>
+  <data name="chkbGenerateImageFolder.Text" xml:space="preserve">
+    <value>Genereer afbeelding in de map</value>
+  </data>
+  <data name="chkbOnlyVerticalOrientation.Text" xml:space="preserve">
+    <value>Toestaan dat alleen verticale oriëntatie</value>
+  </data>
   <data name="chkbOpenFile.Text" xml:space="preserve">
     <value>Open het gegenereerde bestand</value>
   </data>
-  <data name="lbOutputFilePath.Text" xml:space="preserve">
-    <value>Output Excel bestandspad</value>
+  <data name="exitToolStripMenuItem.Text" xml:space="preserve">
+    <value>Uitgang</value>
+  </data>
+  <data name="gbInput.Text" xml:space="preserve">
+    <value>Input</value>
   </data>
   <data name="gbOutput.Text" xml:space="preserve">
     <value>Uitgang</value>
   </data>
-  <data name="bnGenerate.Text" xml:space="preserve">
-    <value>Genereren</value>
+  <data name="lbCaseLoaded.Text" xml:space="preserve">
+    <value>(Geen letters geladen!)</value>
   </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Snel stapelen schatting</value>
+  <data name="lbFilePath.Text" xml:space="preserve">
+    <value>Excel bestandspad</value>
+  </data>
+  <data name="lbOutputFilePath.Text" xml:space="preserve">
+    <value>Output Excel bestandspad</value>
+  </data>
+  <data name="lbPalletType.Text" xml:space="preserve">
+    <value>Type pallet</value>
+  </data>
+  <data name="menuStrip.Text" xml:space="preserve">
+    <value>menuStrip</value>
+  </data>
+  <data name="statusLabel.Text" xml:space="preserve">
+    <value>statusLabel</value>
+  </data>
+  <data name="statusStrip.Text" xml:space="preserve">
+    <value>statusStrip</value>
+  </data>
+  <data name="tabContainer.Text" xml:space="preserve">
+    <value>Container</value>
+  </data>
+  <data name="tabPallet.Text" xml:space="preserve">
+    <value>Pallet</value>
+  </data>
+  <data name="toolStripMIFile.Text" xml:space="preserve">
+    <value>Bestand</value>
+  </data>
+  <data name="toolStripMISettings.Text" xml:space="preserve">
+    <value>Instellingen</value>
+  </data>
+  <data name="toolStripMITools.Text" xml:space="preserve">
+    <value>Hulpmiddelen</value>
+  </data>
+  <data name="uCtrlMaximumPalletHeight.Text" xml:space="preserve">
+    <value>Hoogte van de maximale geladen pallet</value>
+  </data>
+  <data name="uCtrlPalletDimensions.Text" xml:space="preserve">
+    <value>Afmetingen</value>
+  </data>
+  <data name="uCtrlTruckDimensions.Text" xml:space="preserve">
+    <value>Afmetingen</value>
   </data>
 </root>

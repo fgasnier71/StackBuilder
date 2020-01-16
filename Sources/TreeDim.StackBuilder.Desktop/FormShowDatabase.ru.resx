@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Редактирование базы данных &amp; импорта элементов в проекте...</value>
+  </data>
   <data name="bnClose.Text" xml:space="preserve">
     <value>Закрыть</value>
   </data>
@@ -126,11 +129,11 @@
   <data name="tabPageBox.Text" xml:space="preserve">
     <value>Коробки</value>
   </data>
-  <data name="tabPageCase.Text" xml:space="preserve">
-    <value>Случаи</value>
-  </data>
   <data name="tabPageBundle.Text" xml:space="preserve">
     <value>Связки</value>
+  </data>
+  <data name="tabPageCase.Text" xml:space="preserve">
+    <value>Случаи</value>
   </data>
   <data name="tabPageCylinder.Text" xml:space="preserve">
     <value>Цилиндры</value>
@@ -144,25 +147,22 @@
   <data name="tabPagePallet.ToolTipText" xml:space="preserve">
     <value>Поддоны</value>
   </data>
-  <data name="tabPageTruck.Text" xml:space="preserve">
-    <value>Грузовые автомобили</value>
+  <data name="tabPagePalletCap.Text" xml:space="preserve">
+    <value>Поддон шапки</value>
   </data>
   <data name="tabPagePalletCorner.Text" xml:space="preserve">
     <value>Углах паллета</value>
   </data>
-  <data name="tabPagePalletCap.Text" xml:space="preserve">
-    <value>Поддон шапки</value>
-  </data>
   <data name="tabPagePalletFilm.Text" xml:space="preserve">
     <value>Паллетные пленки</value>
+  </data>
+  <data name="tabPageTruck.Text" xml:space="preserve">
+    <value>Грузовые автомобили</value>
   </data>
   <data name="toolStripBExcel.Text" xml:space="preserve">
     <value>Импорт из файла Excel...</value>
   </data>
   <data name="toolStripMain.Text" xml:space="preserve">
     <value>Инструменты</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Редактирование базы данных &amp; импорта элементов в проекте...</value>
   </data>
 </root>

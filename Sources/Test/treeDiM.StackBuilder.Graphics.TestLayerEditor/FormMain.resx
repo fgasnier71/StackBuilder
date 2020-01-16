@@ -121,16 +121,16 @@
     <value>17, 17</value>
   </metadata>
   <assembly alias="Sharp3D.Math" name="Sharp3D.Math, Version=1.0.3.0, Culture=neutral, PublicKeyToken=null" />
-  <data name="layerEditor.PtMax" type="Sharp3D.Math.Core.Vector2D, Sharp3D.Math">
-    <value>(0, 0)</value>
-  </data>
-  <data name="layerEditor.PtMin" type="Sharp3D.Math.Core.Vector2D, Sharp3D.Math">
-    <value>(0, 0)</value>
-  </data>
   <data name="graphics2DLayerEditor1.PtMax" type="Sharp3D.Math.Core.Vector2D, Sharp3D.Math">
     <value>(0, 0)</value>
   </data>
   <data name="graphics2DLayerEditor1.PtMin" type="Sharp3D.Math.Core.Vector2D, Sharp3D.Math">
+    <value>(0, 0)</value>
+  </data>
+  <data name="layerEditor.PtMax" type="Sharp3D.Math.Core.Vector2D, Sharp3D.Math">
+    <value>(0, 0)</value>
+  </data>
+  <data name="layerEditor.PtMin" type="Sharp3D.Math.Core.Vector2D, Sharp3D.Math">
     <value>(0, 0)</value>
   </data>
 </root>

@@ -117,25 +117,25 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="toolStripStatusLabelDef.Text" xml:space="preserve">
-    <value>toolStripStatusLabelDef</value>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Análisis de nuevas...</value>
   </data>
   <data name="bnCancel.Text" xml:space="preserve">
     <value>Cancelar</value>
   </data>
-  <data name="statusStripDef.Text" xml:space="preserve">
-    <value>statusStripDef</value>
+  <data name="bnNext.Text" xml:space="preserve">
+    <value>Siguiente &gt;</value>
+  </data>
+  <data name="lbDescription.Text" xml:space="preserve">
+    <value>Descripción</value>
   </data>
   <data name="lbName.Text" xml:space="preserve">
     <value>Nombre</value>
   </data>
-  <data name="bnNext.Text" xml:space="preserve">
-    <value>Siguiente &gt;</value>
+  <data name="statusStripDef.Text" xml:space="preserve">
+    <value>statusStripDef</value>
   </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Análisis de nuevas...</value>
-  </data>
-  <data name="lbDescription.Text" xml:space="preserve">
-    <value>Descripción</value>
+  <data name="toolStripStatusLabelDef.Text" xml:space="preserve">
+    <value>toolStripStatusLabelDef</value>
   </data>
 </root>

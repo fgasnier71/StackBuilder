@@ -118,29 +118,29 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="lbTrucks.Size" type="System.Drawing.Size, System.Drawing">
-    <value>43, 13</value>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Crear un nuevo análisis del carro de plataforma...</value>
   </data>
   <data name="checkBoxBestLayersOnly.Text" xml:space="preserve">
     <value>Mostrar sólo las capas mejor</value>
   </data>
-  <data name="lbTrucks.Text" xml:space="preserve">
-    <value>Camiones</value>
-  </data>
   <data name="chkbAllowMultipleLayers.Text" xml:space="preserve">
     <value>Permite múltiples capas</value>
-  </data>
-  <data name="uCtrlMinDistanceLoadWall.Text" xml:space="preserve">
-    <value>Carga/distancia mínima de pared</value>
   </data>
   <data name="lbPallets.Text" xml:space="preserve">
     <value>Palets cargados</value>
   </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Crear un nuevo análisis del carro de plataforma...</value>
+  <data name="lbTrucks.Size" type="System.Drawing.Size, System.Drawing">
+    <value>43, 13</value>
+  </data>
+  <data name="lbTrucks.Text" xml:space="preserve">
+    <value>Camiones</value>
   </data>
   <data name="uCtrlMinDistanceLoadRoof.Text" xml:space="preserve">
     <value>Distancia mínima/carga de la azotea</value>
+  </data>
+  <data name="uCtrlMinDistanceLoadWall.Text" xml:space="preserve">
+    <value>Carga/distancia mínima de pared</value>
   </data>
   <data name="uCtrlMinDistLoadRoof.Text" xml:space="preserve">
     <value>Distancia mínima/carga de la azotea</value>

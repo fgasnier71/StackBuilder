@@ -118,291 +118,6 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="newToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>155, 22</value>
-  </data>
-  <data name="newToolStripMenuItem.Text" xml:space="preserve">
-    <value>新</value>
-  </data>
-  <data name="newToolStripMenuItem.ToolTipText" xml:space="preserve">
-    <value>新しいファイルを作成します。</value>
-  </data>
-  <data name="openToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>155, 22</value>
-  </data>
-  <data name="openToolStripMenuItem.Text" xml:space="preserve">
-    <value>開く</value>
-  </data>
-  <data name="openToolStripMenuItem.ToolTipText" xml:space="preserve">
-    <value>開いているファイル</value>
-  </data>
-  <data name="saveToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>155, 22</value>
-  </data>
-  <data name="saveToolStripMenuItem.Text" xml:space="preserve">
-    <value>保存</value>
-  </data>
-  <data name="saveToolStripMenuItem.ToolTipText" xml:space="preserve">
-    <value>ファイルを保存</value>
-  </data>
-  <data name="saveAsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>155, 22</value>
-  </data>
-  <data name="saveAsToolStripMenuItem.Text" xml:space="preserve">
-    <value>名前を付けて保存...</value>
-  </data>
-  <data name="saveAsToolStripMenuItem.ToolTipText" xml:space="preserve">
-    <value>名前を付けて保存...</value>
-  </data>
-  <data name="saveAllToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>155, 22</value>
-  </data>
-  <data name="saveAllToolStripMenuItem.Text" xml:space="preserve">
-    <value>すべてを保存</value>
-  </data>
-  <data name="closeToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>155, 22</value>
-  </data>
-  <data name="closeToolStripMenuItem.Text" xml:space="preserve">
-    <value>閉じる</value>
-  </data>
-  <data name="closeToolStripMenuItem.ToolTipText" xml:space="preserve">
-    <value>アクティブなドキュメントを閉じます</value>
-  </data>
-  <data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 6</value>
-  </data>
-  <data name="mnuFileMRU.Size" type="System.Drawing.Size, System.Drawing">
-    <value>155, 22</value>
-  </data>
-  <data name="mnuFileMRU.Text" xml:space="preserve">
-    <value>最近使ったファイル...</value>
-  </data>
-  <data name="toolStripSeparator2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 6</value>
-  </data>
-  <data name="exitToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>155, 22</value>
-  </data>
-  <data name="exitToolStripMenuItem.Text" xml:space="preserve">
-    <value>終了</value>
-  </data>
-  <data name="exitToolStripMenuItem.ToolTipText" xml:space="preserve">
-    <value>アプリケーションを終了します</value>
-  </data>
-  <data name="fileToolStripMenuItem.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="fileToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>51, 20</value>
-  </data>
-  <data name="fileToolStripMenuItem.Text" xml:space="preserve">
-    <value>ファイル</value>
-  </data>
-  <data name="newBoxToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>259, 22</value>
-  </data>
-  <data name="newBoxToolStripMenuItem.Text" xml:space="preserve">
-    <value>新しいボックス</value>
-  </data>
-  <data name="newCaseToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>259, 22</value>
-  </data>
-  <data name="newCaseToolStripMenuItem.Text" xml:space="preserve">
-    <value>新しいケース</value>
-  </data>
-  <data name="newInterlayerToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>259, 22</value>
-  </data>
-  <data name="newInterlayerToolStripMenuItem.Text" xml:space="preserve">
-    <value>新しいパッド</value>
-  </data>
-  <data name="newBundleToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>259, 22</value>
-  </data>
-  <data name="newBundleToolStripMenuItem.Text" xml:space="preserve">
-    <value>新しいバンドル</value>
-  </data>
-  <data name="newPalletToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>259, 22</value>
-  </data>
-  <data name="newPalletToolStripMenuItem.Text" xml:space="preserve">
-    <value>新しいパレット</value>
-  </data>
-  <data name="newTruckToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>259, 22</value>
-  </data>
-  <data name="newTruckToolStripMenuItem.Text" xml:space="preserve">
-    <value>新しいトラック</value>
-  </data>
-  <data name="toolStripSeparator5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>256, 6</value>
-  </data>
-  <data name="newAnalysisToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>259, 22</value>
-  </data>
-  <data name="newAnalysisToolStripMenuItem.Text" xml:space="preserve">
-    <value>新しいケース/パレット分析</value>
-  </data>
-  <data name="newAnalysisBundleToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>259, 22</value>
-  </data>
-  <data name="newAnalysisBundleToolStripMenuItem.Text" xml:space="preserve">
-    <value>新しいバンドル/パレット分析</value>
-  </data>
-  <data name="newCaseAnalysisToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>259, 22</value>
-  </data>
-  <data name="newCaseAnalysisToolStripMenuItem.Text" xml:space="preserve">
-    <value>新しいケースの分析</value>
-  </data>
-  <data name="caseOptimisationToolStripMenu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>259, 22</value>
-  </data>
-  <data name="caseOptimisationToolStripMenu.Text" xml:space="preserve">
-    <value>最適なケースサイズの検索</value>
-  </data>
-  <data name="caseOptimisationToolStripMenu.ToolTipText" xml:space="preserve">
-    <value>最適なケースの検索</value>
-  </data>
-  <data name="toolStripSeparator7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>256, 6</value>
-  </data>
-  <data name="editPaletSolutionsDB.Size" type="System.Drawing.Size, System.Drawing">
-    <value>259, 22</value>
-  </data>
-  <data name="editPaletSolutionsDB.Text" xml:space="preserve">
-    <value>パレットのソリューションのデータベースを編集...</value>
-  </data>
-  <data name="toolStripSeparator6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>256, 6</value>
-  </data>
-  <data name="settingsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>259, 22</value>
-  </data>
-  <data name="settingsToolStripMenuItem.Text" xml:space="preserve">
-    <value>設定...</value>
-  </data>
-  <data name="toolStripMenuItemTools.Size" type="System.Drawing.Size, System.Drawing">
-    <value>43, 20</value>
-  </data>
-  <data name="toolStripMenuItemTools.Text" xml:space="preserve">
-    <value>ツール</value>
-  </data>
-  <data name="helpToolStripMenuItemHelp.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
-  </data>
-  <data name="helpToolStripMenuItemHelp.Text" xml:space="preserve">
-    <value>ヘルプ</value>
-  </data>
-  <data name="tutorialToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
-  </data>
-  <data name="tutorialToolStripMenuItem.Text" xml:space="preserve">
-    <value>チュートリアル</value>
-  </data>
-  <data name="toolStripSeparator9.Size" type="System.Drawing.Size, System.Drawing">
-    <value>177, 6</value>
-  </data>
-  <data name="helpToolStripMenuItemAbout.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
-  </data>
-  <data name="helpToolStripMenuItemAbout.Text" xml:space="preserve">
-    <value>StackBuilderについて...</value>
-  </data>
-  <data name="helpToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>43, 20</value>
-  </data>
-  <data name="helpToolStripMenuItem.Text" xml:space="preserve">
-    <value>ヘルプ</value>
-  </data>
-  <data name="toolStripButtonNewFile.Text" xml:space="preserve">
-    <value>新しいファイル</value>
-  </data>
-  <data name="toolStripButtonNewFile.ToolTipText" xml:space="preserve">
-    <value>新しいファイルを作成します。</value>
-  </data>
-  <data name="toolStripButtonFileOpen.Text" xml:space="preserve">
-    <value>開いているファイル</value>
-  </data>
-  <data name="toolStripButtonFileOpen.ToolTipText" xml:space="preserve">
-    <value>開いているファイル</value>
-  </data>
-  <data name="toolStripButtonFileSave.Text" xml:space="preserve">
-    <value>ファイルを保存</value>
-  </data>
-  <data name="toolStripButtonFileSaveAll.Text" xml:space="preserve">
-    <value>すべてのファイルの保存</value>
-  </data>
-  <data name="toolStripButtonAddNewBox.Text" xml:space="preserve">
-    <value>新しいボックスを追加</value>
-  </data>
-  <data name="toolStripButtonAddNewCase.Text" xml:space="preserve">
-    <value>新しいケースを追加...</value>
-  </data>
-  <data name="toolStripButtonCreateNewBundle.Text" xml:space="preserve">
-    <value>新しいバンドルを追加</value>
-  </data>
-  <data name="toolStripButtonCreateNewInterlayer.Text" xml:space="preserve">
-    <value>新しいパッドを追加</value>
-  </data>
-  <data name="toolStripButtonCreateNewInterlayer.ToolTipText" xml:space="preserve">
-    <value>新しいパッドを追加</value>
-  </data>
-  <data name="toolStripButtonAddNewPallet.Text" xml:space="preserve">
-    <value>新しいパレットを追加</value>
-  </data>
-  <data name="toolStripButtonAddNewPallet.ToolTipText" xml:space="preserve">
-    <value>新しいパレットを追加</value>
-  </data>
-  <data name="toolStripButtonAddNewTruck.Text" xml:space="preserve">
-    <value>新しいトラックを追加</value>
-  </data>
-  <data name="toolStripButtonCreateNewAnalysis.Text" xml:space="preserve">
-    <value>新しいケース/パレット解析を作成</value>
-  </data>
-  <data name="toolStripButtonCreateNewAnalysis.ToolTipText" xml:space="preserve">
-    <value>新しいパレットの解析を追加</value>
-  </data>
-  <data name="toolStripButtonCreateNewBundleAnalysis.Text" xml:space="preserve">
-    <value>新しいバンドル/パレット解析を作成</value>
-  </data>
-  <data name="toolStripButtonCreateNewBundleAnalysis.ToolTipText" xml:space="preserve">
-    <value>新しいバンドルの解析を追加</value>
-  </data>
-  <data name="toolStripButtonCreateNewCaseAnalysis.Text" xml:space="preserve">
-    <value>新しいケースの分析を作成します。</value>
-  </data>
-  <data name="toolStripButtonCreateNewCaseAnalysis.ToolTipText" xml:space="preserve">
-    <value>追加</value>
-  </data>
-  <data name="toolStripButtonOptimiseCase.Text" xml:space="preserve">
-    <value>最適なケースの検索</value>
-  </data>
-  <data name="editPaletSolutionsDBToolStripMenuItem.ToolTipText" xml:space="preserve">
-    <value>パレットのソリューションのデータベースを編集する</value>
-  </data>
-  <data name="toolStripButtonHelp.Text" xml:space="preserve">
-    <value>ヘルプ</value>
-  </data>
-  <data name="toolStripButtonHelp.ToolTipText" xml:space="preserve">
-    <value>ヘルプ</value>
-  </data>
-  <data name="toolStripStandard.Text" xml:space="preserve">
-    <value>標準</value>
-  </data>
-  <data name="openFileDialogSB.Filter" xml:space="preserve">
-    <value>StackBuilderファイル（*. STB）| *. STB |すべてのファイル(*.*)|*.*</value>
-  </data>
-  <data name="openFileDialogSB.Title" xml:space="preserve">
-    <value>ファイルを開く...</value>
-  </data>
-  <data name="saveFileDialogSB.Filter" xml:space="preserve">
-    <value>StackBuilderファイル（*. stb）|*.stb</value>
-  </data>
-  <data name="saveFileDialogSB.Title" xml:space="preserve">
-    <value>ファイルを保存...</value>
-  </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAIAICAAAAAAGACoDAAAJgAAABAQAAAAABgAaAMAAM4MAAAoAAAAIAAAAEAAAAABABgAAAAAAAAM
@@ -480,36 +195,255 @@
   <data name="$this.Text" xml:space="preserve">
     <value>StackBuilder</value>
   </data>
-  <data name="newCylinderToolStripMenuItem.Text" xml:space="preserve">
-		<value>新しいシリンダー</value>
+  <data name="caseOptimisationToolStripMenu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>259, 22</value>
+  </data>
+  <data name="caseOptimisationToolStripMenu.Text" xml:space="preserve">
+    <value>最適なケースサイズの検索</value>
+  </data>
+  <data name="caseOptimisationToolStripMenu.ToolTipText" xml:space="preserve">
+    <value>最適なケースの検索</value>
+  </data>
+  <data name="closeToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>155, 22</value>
+  </data>
+  <data name="closeToolStripMenuItem.Text" xml:space="preserve">
+    <value>閉じる</value>
+  </data>
+  <data name="closeToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>アクティブなドキュメントを閉じます</value>
+  </data>
+  <data name="disconnectToolStripMenuItem.Text" xml:space="preserve">
+    <value>切断</value>
+  </data>
+  <data name="donateToolStripMenuItem.Text" xml:space="preserve">
+    <value>寄付する!</value>
+  </data>
+  <data name="editPaletSolutionsDB.Size" type="System.Drawing.Size, System.Drawing">
+    <value>259, 22</value>
+  </data>
+  <data name="editPaletSolutionsDB.Text" xml:space="preserve">
+    <value>パレットのソリューションのデータベースを編集...</value>
+  </data>
+  <data name="editPaletSolutionsDBToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>パレットのソリューションのデータベースを編集する</value>
+  </data>
+  <data name="exitToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>155, 22</value>
+  </data>
+  <data name="exitToolStripMenuItem.Text" xml:space="preserve">
+    <value>終了</value>
+  </data>
+  <data name="exitToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>アプリケーションを終了します</value>
+  </data>
+  <data name="fileToolStripMenuItem.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="fileToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>51, 20</value>
+  </data>
+  <data name="fileToolStripMenuItem.Text" xml:space="preserve">
+    <value>ファイル</value>
+  </data>
+  <data name="helpToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>43, 20</value>
+  </data>
+  <data name="helpToolStripMenuItem.Text" xml:space="preserve">
+    <value>ヘルプ</value>
+  </data>
+  <data name="helpToolStripMenuItemAbout.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="helpToolStripMenuItemAbout.Text" xml:space="preserve">
+    <value>StackBuilderについて...</value>
+  </data>
+  <data name="helpToolStripMenuItemHelp.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="helpToolStripMenuItemHelp.Text" xml:space="preserve">
+    <value>ヘルプ</value>
+  </data>
+  <data name="menuStripMain.Text" xml:space="preserve">
+		<value>menuStripMain</value>
 	</data>
-  <data name="newToolStripMenuItemCylinderPalletAnalysis.Text" xml:space="preserve">
-		<value>新しいシリンダー/パレット分析</value>
-	</data>
+  <data name="mnuFileMRU.Size" type="System.Drawing.Size, System.Drawing">
+    <value>155, 22</value>
+  </data>
+  <data name="mnuFileMRU.Text" xml:space="preserve">
+    <value>最近使ったファイル...</value>
+  </data>
+  <data name="newAnalysisBundleToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>259, 22</value>
+  </data>
+  <data name="newAnalysisBundleToolStripMenuItem.Text" xml:space="preserve">
+    <value>新しいバンドル/パレット分析</value>
+  </data>
+  <data name="newAnalysisToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>259, 22</value>
+  </data>
+  <data name="newAnalysisToolStripMenuItem.Text" xml:space="preserve">
+    <value>新しいケース/パレット分析</value>
+  </data>
   <data name="newBoxCaseAnalysisToolStripMenuItem.Text" xml:space="preserve">
 		<value>新しいボックス/ケース分析</value>
 	</data>
   <data name="newBoxCasePalletOptimizationToolStripMenuItem.Text" xml:space="preserve">
 		<value>新しいボックス/ケース/パレット分析</value>
 	</data>
-  <data name="menuStripMain.Text" xml:space="preserve">
-		<value>menuStripMain</value>
+  <data name="newBoxToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>259, 22</value>
+  </data>
+  <data name="newBoxToolStripMenuItem.Text" xml:space="preserve">
+    <value>新しいボックス</value>
+  </data>
+  <data name="newBundleToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>259, 22</value>
+  </data>
+  <data name="newBundleToolStripMenuItem.Text" xml:space="preserve">
+    <value>新しいバンドル</value>
+  </data>
+  <data name="newCaseAnalysisToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>259, 22</value>
+  </data>
+  <data name="newCaseAnalysisToolStripMenuItem.Text" xml:space="preserve">
+    <value>新しいケースの分析</value>
+  </data>
+  <data name="newCaseToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>259, 22</value>
+  </data>
+  <data name="newCaseToolStripMenuItem.Text" xml:space="preserve">
+    <value>新しいケース</value>
+  </data>
+  <data name="newCylinderToolStripMenuItem.Text" xml:space="preserve">
+		<value>新しいシリンダー</value>
 	</data>
-  <data name="toolStripMenuNewFile.Text" xml:space="preserve">
-		<value>新規…</value>
+  <data name="newInterlayerToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>259, 22</value>
+  </data>
+  <data name="newInterlayerToolStripMenuItem.Text" xml:space="preserve">
+    <value>新しいパッド</value>
+  </data>
+  <data name="newPalletToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>259, 22</value>
+  </data>
+  <data name="newPalletToolStripMenuItem.Text" xml:space="preserve">
+    <value>新しいパレット</value>
+  </data>
+  <data name="newToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>155, 22</value>
+  </data>
+  <data name="newToolStripMenuItem.Text" xml:space="preserve">
+    <value>新</value>
+  </data>
+  <data name="newToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>新しいファイルを作成します。</value>
+  </data>
+  <data name="newToolStripMenuItemCylinderPalletAnalysis.Text" xml:space="preserve">
+		<value>新しいシリンダー/パレット分析</value>
 	</data>
-  <data name="toolStripSplitButtonNew.Text" xml:space="preserve">
-		<value>新規ファイルの作成…</value>
+  <data name="newTruckToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>259, 22</value>
+  </data>
+  <data name="newTruckToolStripMenuItem.Text" xml:space="preserve">
+    <value>新しいトラック</value>
+  </data>
+  <data name="openFileDialogSB.Filter" xml:space="preserve">
+    <value>StackBuilderファイル（*. STB）| *. STB |すべてのファイル(*.*)|*.*</value>
+  </data>
+  <data name="openFileDialogSB.Title" xml:space="preserve">
+    <value>ファイルを開く...</value>
+  </data>
+  <data name="openLibraryToolStripMenuItem.Text" xml:space="preserve">
+    <value>Excel シートのライブラリを開く.</value>
+  </data>
+  <data name="openLibraryToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>オープン ライブラリ (Excel シート)</value>
+  </data>
+  <data name="openToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>155, 22</value>
+  </data>
+  <data name="openToolStripMenuItem.Text" xml:space="preserve">
+    <value>開く</value>
+  </data>
+  <data name="openToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>開いているファイル</value>
+  </data>
+  <data name="saveAllToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>155, 22</value>
+  </data>
+  <data name="saveAllToolStripMenuItem.Text" xml:space="preserve">
+    <value>すべてを保存</value>
+  </data>
+  <data name="saveAsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>155, 22</value>
+  </data>
+  <data name="saveAsToolStripMenuItem.Text" xml:space="preserve">
+    <value>名前を付けて保存...</value>
+  </data>
+  <data name="saveAsToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>名前を付けて保存...</value>
+  </data>
+  <data name="saveFileDialogExportXML.Filter" xml:space="preserve">
+    <value>交換マークアップ言語 (*.xml) | * .xml</value>
+  </data>
+  <data name="saveFileDialogSB.Filter" xml:space="preserve">
+    <value>StackBuilderファイル（*. stb）|*.stb</value>
+  </data>
+  <data name="saveFileDialogSB.Title" xml:space="preserve">
+    <value>ファイルを保存...</value>
+  </data>
+  <data name="saveFileDialogWebGL.Filter" xml:space="preserve">
+		<value>Htlm file (*.html)|*.html</value>
 	</data>
+  <data name="saveToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>155, 22</value>
+  </data>
+  <data name="saveToolStripMenuItem.Text" xml:space="preserve">
+    <value>保存</value>
+  </data>
+  <data name="saveToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>ファイルを保存</value>
+  </data>
+  <data name="settingsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>259, 22</value>
+  </data>
+  <data name="settingsToolStripMenuItem.Text" xml:space="preserve">
+    <value>設定...</value>
+  </data>
+  <data name="toolStripButtonAddNewBox.Text" xml:space="preserve">
+    <value>新しいボックスを追加</value>
+  </data>
+  <data name="toolStripButtonAddNewCase.Text" xml:space="preserve">
+    <value>新しいケースを追加...</value>
+  </data>
   <data name="toolStripButtonAddNewCylinder.Text" xml:space="preserve">
 		<value>新しいシリンダーを追加</value>
 	</data>
-  <data name="toolStripButtonCreateNewCylinderPalletAnalysis.Text" xml:space="preserve">
-		<value>新しいシリンダー/パレット解析を作成</value>
-	</data>
-  <data name="toolStripButtonCreateNewCylinderPalletAnalysis.ToolTipText" xml:space="preserve">
-		<value>新しいシリンダー/パレット解析を追加</value>
-	</data>
+  <data name="toolStripButtonAddNewPallet.Text" xml:space="preserve">
+    <value>新しいパレットを追加</value>
+  </data>
+  <data name="toolStripButtonAddNewPallet.ToolTipText" xml:space="preserve">
+    <value>新しいパレットを追加</value>
+  </data>
+  <data name="toolStripButtonAddNewTruck.Text" xml:space="preserve">
+    <value>新しいトラックを追加</value>
+  </data>
+  <data name="toolStripButtonBox.Text" xml:space="preserve">
+    <value>新しいボックスを追加します。</value>
+  </data>
+  <data name="toolStripButtonBundle.Text" xml:space="preserve">
+    <value>新しいバンドルを追加します。</value>
+  </data>
+  <data name="toolStripButtonCase.Text" xml:space="preserve">
+    <value>新しいケースを追加.</value>
+  </data>
+  <data name="toolStripButtonCreateNewAnalysis.Text" xml:space="preserve">
+    <value>新しいケース/パレット解析を作成</value>
+  </data>
+  <data name="toolStripButtonCreateNewAnalysis.ToolTipText" xml:space="preserve">
+    <value>新しいパレットの解析を追加</value>
+  </data>
   <data name="toolStripButtonCreateNewBoxCaseAnalysis.Text" xml:space="preserve">
 		<value>新しいボックス/ケース解析を作成</value>
 	</data>
@@ -519,86 +453,83 @@
   <data name="toolStripButtonCreateNewBoxCasePalletOptimization.Text" xml:space="preserve">
 		<value>新しいボックス/ケース/パレット解析を作成</value>
 	</data>
-  <data name="ToolStripMenuNewFileINTEX.Text" xml:space="preserve">
-		<value>新規 (INTEX Corp)...</value>
-	</data>
-  <data name="saveFileDialogWebGL.Filter" xml:space="preserve">
-		<value>Htlm file (*.html)|*.html</value>
-	</data>
-  <data name="toolStripMenuItemSave.Text" xml:space="preserve">
-    <value>保存</value>
+  <data name="toolStripButtonCreateNewBundle.Text" xml:space="preserve">
+    <value>新しいバンドルを追加</value>
   </data>
-  <data name="toolStripMenuItemSave.ToolTipText" xml:space="preserve">
+  <data name="toolStripButtonCreateNewBundleAnalysis.Text" xml:space="preserve">
+    <value>新しいバンドル/パレット解析を作成</value>
+  </data>
+  <data name="toolStripButtonCreateNewBundleAnalysis.ToolTipText" xml:space="preserve">
+    <value>新しいバンドルの解析を追加</value>
+  </data>
+  <data name="toolStripButtonCreateNewCaseAnalysis.Text" xml:space="preserve">
+    <value>新しいケースの分析を作成します。</value>
+  </data>
+  <data name="toolStripButtonCreateNewCaseAnalysis.ToolTipText" xml:space="preserve">
+    <value>追加</value>
+  </data>
+  <data name="toolStripButtonCreateNewCylinderPalletAnalysis.Text" xml:space="preserve">
+		<value>新しいシリンダー/パレット解析を作成</value>
+	</data>
+  <data name="toolStripButtonCreateNewCylinderPalletAnalysis.ToolTipText" xml:space="preserve">
+		<value>新しいシリンダー/パレット解析を追加</value>
+	</data>
+  <data name="toolStripButtonCreateNewInterlayer.Text" xml:space="preserve">
+    <value>新しいパッドを追加</value>
+  </data>
+  <data name="toolStripButtonCreateNewInterlayer.ToolTipText" xml:space="preserve">
+    <value>新しいパッドを追加</value>
+  </data>
+  <data name="toolStripButtonCylinder.Text" xml:space="preserve">
+    <value>新しいシリンダーを追加します。</value>
+  </data>
+  <data name="toolStripButtonFileOpen.Text" xml:space="preserve">
+    <value>開いているファイル</value>
+  </data>
+  <data name="toolStripButtonFileOpen.ToolTipText" xml:space="preserve">
+    <value>開いているファイル</value>
+  </data>
+  <data name="toolStripButtonFileSave.Text" xml:space="preserve">
+    <value>ファイルを保存</value>
+  </data>
+  <data name="toolStripButtonFileSaveAll.Text" xml:space="preserve">
+    <value>すべてのファイルの保存</value>
+  </data>
+  <data name="toolStripButtonHelp.Text" xml:space="preserve">
+    <value>ヘルプ</value>
+  </data>
+  <data name="toolStripButtonHelp.ToolTipText" xml:space="preserve">
+    <value>ヘルプ</value>
+  </data>
+  <data name="toolStripButtonNewFile.Text" xml:space="preserve">
+    <value>新しいファイル</value>
+  </data>
+  <data name="toolStripButtonNewFile.ToolTipText" xml:space="preserve">
+    <value>新しいファイルを作成します。</value>
+  </data>
+  <data name="toolStripButtonOptimiseCase.Text" xml:space="preserve">
+    <value>最適なケースの検索</value>
+  </data>
+  <data name="toolStripButtonPack.Text" xml:space="preserve">
+    <value>新しいパックを追加.</value>
+  </data>
+  <data name="toolStripButtonPallet.Text" xml:space="preserve">
+    <value>新しいパレットを追加します。</value>
+  </data>
+  <data name="toolStripButtonPallet.ToolTipText" xml:space="preserve">
+    <value>新しいパレットを追加します。</value>
+  </data>
+  <data name="toolStripButtonSave.Text" xml:space="preserve">
     <value>ファイルを保存します。</value>
   </data>
-  <data name="toolStripMenuItemSaveAs.Text" xml:space="preserve">
-    <value>としてを保存.</value>
+  <data name="toolStripButtonSaveAll.Text" xml:space="preserve">
+    <value>すべてのファイルを保存します。</value>
   </data>
-  <data name="toolStripMenuItemSaveAs.ToolTipText" xml:space="preserve">
-    <value>としてを保存.</value>
+  <data name="toolStripButtonSettings.Text" xml:space="preserve">
+    <value>設定</value>
   </data>
-  <data name="toolStripMenuItemSaveAll.Text" xml:space="preserve">
-    <value>すべて保存します。</value>
-  </data>
-  <data name="toolStripMenuItemClose.Text" xml:space="preserve">
-    <value>閉じる</value>
-  </data>
-  <data name="toolStripMenuItemClose.ToolTipText" xml:space="preserve">
-    <value>アクティブなドキュメントを閉じる</value>
-  </data>
-  <data name="disconnectToolStripMenuItem.Text" xml:space="preserve">
-    <value>切断</value>
-  </data>
-  <data name="openLibraryToolStripMenuItem.Text" xml:space="preserve">
-    <value>Excel シートのライブラリを開く.</value>
-  </data>
-  <data name="openLibraryToolStripMenuItem.ToolTipText" xml:space="preserve">
-    <value>オープン ライブラリ (Excel シート)</value>
-  </data>
-  <data name="toolStripMenuItemBox.Text" xml:space="preserve">
-    <value>新しいボックス</value>
-  </data>
-  <data name="toolStripMenuItemCase.Text" xml:space="preserve">
-    <value>新しいケース</value>
-  </data>
-  <data name="toolStripMenuItemPack.Text" xml:space="preserve">
-    <value>新しいパック</value>
-  </data>
-  <data name="toolStripMenuItemBundle.Text" xml:space="preserve">
-    <value>新しいバンドル</value>
-  </data>
-  <data name="toolStripMenuItemCylinder.Text" xml:space="preserve">
-    <value>新しいシリンダー</value>
-  </data>
-  <data name="toolStripMenuItemPallet.Text" xml:space="preserve">
-    <value>新しいパレット</value>
-  </data>
-  <data name="toolStripMenuItemTruck.Text" xml:space="preserve">
-    <value>新しいトラック</value>
-  </data>
-  <data name="toolStripMenuItemInterlayer.Text" xml:space="preserve">
-    <value>新しい中間層</value>
-  </data>
-  <data name="toolStripMenuItemPalletCorners.Text" xml:space="preserve">
-    <value>新しいパレット コーナー</value>
-  </data>
-  <data name="toolStripMenuItemPalletCap.Text" xml:space="preserve">
-    <value>新しいパレット キャップ</value>
-  </data>
-  <data name="toolStripMenuItemPalletFilm.Text" xml:space="preserve">
-    <value>新しいパレット フィルム</value>
-  </data>
-  <data name="toolStripMenuItemNewAnalysisCasePallet.Text" xml:space="preserve">
-    <value>新しいケース/パレット解析</value>
-  </data>
-  <data name="toolStripMenuItemNewAnalysisCylinderPallet.Text" xml:space="preserve">
-    <value>新しいシリンダー/パレット解析</value>
-  </data>
-  <data name="toolStripMenuItemNewAnalysisBoxCase.Text" xml:space="preserve">
-    <value>新しいボックス/ケース分析</value>
-  </data>
-  <data name="toolStripMenuItemNewAnalysisCylinderCase.Text" xml:space="preserve">
-    <value>新しいシリンダー/ケース分析</value>
+  <data name="toolStripButtonTruck.Text" xml:space="preserve">
+    <value>新しいトラックを追加します。</value>
   </data>
   <data name="toolStripMenuItemAnalysisPalletTruck.Text" xml:space="preserve">
     <value>新しいパレット/トラック分析</value>
@@ -612,122 +543,113 @@
   <data name="toolStripMenuItemBestPack.ToolTipText" xml:space="preserve">
     <value>最良のケースの検索</value>
   </data>
-  <data name="toolStripMIPLMPackLib.Text" xml:space="preserve">
-    <value>PLMPackLib を起動します。</value>
+  <data name="toolStripMenuItemBox.Text" xml:space="preserve">
+    <value>新しいボックス</value>
   </data>
-  <data name="toolStripMenuItemHelpStartPage.Text" xml:space="preserve">
-    <value>スタート ページを表示します。</value>
+  <data name="toolStripMenuItemBundle.Text" xml:space="preserve">
+    <value>新しいバンドル</value>
   </data>
-  <data name="donateToolStripMenuItem.Text" xml:space="preserve">
-    <value>寄付する!</value>
+  <data name="toolStripMenuItemCase.Text" xml:space="preserve">
+    <value>新しいケース</value>
   </data>
-  <data name="toolStripMIUserDisconnect.Text" xml:space="preserve">
-    <value>切断</value>
+  <data name="toolStripMenuItemClose.Text" xml:space="preserve">
+    <value>閉じる</value>
   </data>
-  <data name="toolStripSBUser.Text" xml:space="preserve">
-    <value>toolStripSplitButton1</value>
+  <data name="toolStripMenuItemClose.ToolTipText" xml:space="preserve">
+    <value>アクティブなドキュメントを閉じる</value>
   </data>
-  <data name="toolStripSBUser.ToolTipText" xml:space="preserve">
-    <value>ユーザー</value>
-  </data>
-  <data name="toolStripButtonSave.Text" xml:space="preserve">
-    <value>ファイルを保存します。</value>
-  </data>
-  <data name="toolStripButtonSaveAll.Text" xml:space="preserve">
-    <value>すべてのファイルを保存します。</value>
+  <data name="toolStripMenuItemCylinder.Text" xml:space="preserve">
+    <value>新しいシリンダー</value>
   </data>
   <data name="toolStripMenuItemEditDB.ToolTipText" xml:space="preserve">
     <value>パレット ソリューション データベースを編集します。</value>
   </data>
-  <data name="toolStripButtonBox.Text" xml:space="preserve">
-    <value>新しいボックスを追加します。</value>
+  <data name="toolStripMenuItemHelpStartPage.Text" xml:space="preserve">
+    <value>スタート ページを表示します。</value>
   </data>
-  <data name="toolStripButtonCase.Text" xml:space="preserve">
-    <value>新しいケースを追加.</value>
+  <data name="toolStripMenuItemInterlayer.Text" xml:space="preserve">
+    <value>新しい中間層</value>
   </data>
-  <data name="toolStripButtonPack.Text" xml:space="preserve">
-    <value>新しいパックを追加.</value>
+  <data name="toolStripMenuItemNewAnalysisBoxCase.Text" xml:space="preserve">
+    <value>新しいボックス/ケース分析</value>
   </data>
-  <data name="toolStripButtonBundle.Text" xml:space="preserve">
-    <value>新しいバンドルを追加します。</value>
+  <data name="toolStripMenuItemNewAnalysisCasePallet.Text" xml:space="preserve">
+    <value>新しいケース/パレット解析</value>
   </data>
-  <data name="toolStripButtonCylinder.Text" xml:space="preserve">
-    <value>新しいシリンダーを追加します。</value>
+  <data name="toolStripMenuItemNewAnalysisCylinderCase.Text" xml:space="preserve">
+    <value>新しいシリンダー/ケース分析</value>
   </data>
-  <data name="toolStripButtonPallet.Text" xml:space="preserve">
-    <value>新しいパレットを追加します。</value>
+  <data name="toolStripMenuItemNewAnalysisCylinderPallet.Text" xml:space="preserve">
+    <value>新しいシリンダー/パレット解析</value>
   </data>
-  <data name="toolStripButtonPallet.ToolTipText" xml:space="preserve">
-    <value>新しいパレットを追加します。</value>
+  <data name="toolStripMenuItemPack.Text" xml:space="preserve">
+    <value>新しいパック</value>
   </data>
-  <data name="toolStripButtonTruck.Text" xml:space="preserve">
-    <value>新しいトラックを追加します。</value>
+  <data name="toolStripMenuItemPallet.Text" xml:space="preserve">
+    <value>新しいパレット</value>
   </data>
-  <data name="toolStripMIInterlayer.Text" xml:space="preserve">
-    <value>中間膜</value>
+  <data name="toolStripMenuItemPalletCap.Text" xml:space="preserve">
+    <value>新しいパレット キャップ</value>
   </data>
-  <data name="toolStripMIInterlayer.ToolTipText" xml:space="preserve">
-    <value>新しい中間層を追加.</value>
+  <data name="toolStripMenuItemPalletCorners.Text" xml:space="preserve">
+    <value>新しいパレット コーナー</value>
   </data>
-  <data name="toolStripMIPalletCorner.Text" xml:space="preserve">
-    <value>パレット コーナー</value>
+  <data name="toolStripMenuItemPalletFilm.Text" xml:space="preserve">
+    <value>新しいパレット フィルム</value>
   </data>
-  <data name="toolStripMIPalletCorner.ToolTipText" xml:space="preserve">
-    <value>新しいパレット コーナーを追加.</value>
+  <data name="toolStripMenuItemSave.Text" xml:space="preserve">
+    <value>保存</value>
   </data>
-  <data name="toolStripMIPalletCap.Text" xml:space="preserve">
-    <value>パレット キャップ</value>
+  <data name="toolStripMenuItemSave.ToolTipText" xml:space="preserve">
+    <value>ファイルを保存します。</value>
   </data>
-  <data name="toolStripMIPalletCap.ToolTipText" xml:space="preserve">
-    <value>新しいパレット キャップを追加.</value>
+  <data name="toolStripMenuItemSaveAll.Text" xml:space="preserve">
+    <value>すべて保存します。</value>
   </data>
-  <data name="toolStripMIPalletFilm.Text" xml:space="preserve">
-    <value>パレット フィルム</value>
+  <data name="toolStripMenuItemSaveAs.Text" xml:space="preserve">
+    <value>としてを保存.</value>
   </data>
-  <data name="toolStripMIPalletFilm.ToolTipText" xml:space="preserve">
-    <value>新しいパレット フィルムを追加.</value>
+  <data name="toolStripMenuItemSaveAs.ToolTipText" xml:space="preserve">
+    <value>としてを保存.</value>
   </data>
-  <data name="toolStripSBPalletDeco.Text" xml:space="preserve">
-    <value>新しい中間層を作成する.</value>
+  <data name="toolStripMenuItemTools.Size" type="System.Drawing.Size, System.Drawing">
+    <value>43, 20</value>
   </data>
-  <data name="toolStripMIAnalysisCasePallet.Text" xml:space="preserve">
-    <value>ケース/パレット</value>
+  <data name="toolStripMenuItemTools.Text" xml:space="preserve">
+    <value>ツール</value>
   </data>
-  <data name="toolStripMIAnalysisCylinderPallet.Text" xml:space="preserve">
-    <value>シリンダー/パレット</value>
+  <data name="toolStripMenuItemTruck.Text" xml:space="preserve">
+    <value>新しいトラック</value>
   </data>
-  <data name="toolStripMIAnalysisBundlePallet.Text" xml:space="preserve">
-    <value>バンドル/パレット</value>
-  </data>
-  <data name="toolStripSBAnalysisPallet.Text" xml:space="preserve">
-    <value>パレットの解析</value>
-  </data>
+  <data name="toolStripMenuNewFile.Text" xml:space="preserve">
+		<value>新規…</value>
+	</data>
+  <data name="ToolStripMenuNewFileINTEX.Text" xml:space="preserve">
+		<value>新規 (INTEX Corp)...</value>
+	</data>
   <data name="toolStripMIAnalysisBoxCase.Text" xml:space="preserve">
     <value>ボックス/ケース</value>
-  </data>
-  <data name="toolStripMIAnalysisCylinderCase.Text" xml:space="preserve">
-    <value>シリンダー/ケース</value>
   </data>
   <data name="toolStripMIAnalysisBundleCase.Text" xml:space="preserve">
     <value>束/ケース</value>
   </data>
-  <data name="toolStripSBAnalysesCase.Text" xml:space="preserve">
-    <value>事件の分析</value>
+  <data name="toolStripMIAnalysisBundlePallet.Text" xml:space="preserve">
+    <value>バンドル/パレット</value>
   </data>
-  <data name="toolStripSBAnalysesCase.ToolTipText" xml:space="preserve">
-    <value>事件の分析</value>
-  </data>
-  <data name="toolStripMIAnalysisPalletTruck.Text" xml:space="preserve">
-    <value>パレット ・ トラック</value>
+  <data name="toolStripMIAnalysisCasePallet.Text" xml:space="preserve">
+    <value>ケース/パレット</value>
   </data>
   <data name="toolStripMIAnalysisCaseTruck.Text" xml:space="preserve">
     <value>ケース/トラック</value>
   </data>
-  <data name="toolStripSBAnalysesTruck.Text" xml:space="preserve">
-    <value>トラック分析</value>
+  <data name="toolStripMIAnalysisCylinderCase.Text" xml:space="preserve">
+    <value>シリンダー/ケース</value>
   </data>
-  <data name="toolStripSBAnalysesTruck.ToolTipText" xml:space="preserve">
-    <value>トラック分析</value>
+  <data name="toolStripMIAnalysisCylinderPallet.Text" xml:space="preserve">
+    <value>シリンダー/パレット</value>
+  </data>
+  <data name="toolStripMIAnalysisPalletTruck.Text" xml:space="preserve">
+    <value>パレット ・ トラック</value>
   </data>
   <data name="toolStripMIBestCase.Text" xml:space="preserve">
     <value>最高のケースを見つける</value>
@@ -747,16 +669,94 @@
   <data name="toolStripMIBestPack.ToolTipText" xml:space="preserve">
     <value>最適なパレット化のパックをお勧め</value>
   </data>
+  <data name="toolStripMIInterlayer.Text" xml:space="preserve">
+    <value>中間膜</value>
+  </data>
+  <data name="toolStripMIInterlayer.ToolTipText" xml:space="preserve">
+    <value>新しい中間層を追加.</value>
+  </data>
+  <data name="toolStripMIPalletCap.Text" xml:space="preserve">
+    <value>パレット キャップ</value>
+  </data>
+  <data name="toolStripMIPalletCap.ToolTipText" xml:space="preserve">
+    <value>新しいパレット キャップを追加.</value>
+  </data>
+  <data name="toolStripMIPalletCorner.Text" xml:space="preserve">
+    <value>パレット コーナー</value>
+  </data>
+  <data name="toolStripMIPalletCorner.ToolTipText" xml:space="preserve">
+    <value>新しいパレット コーナーを追加.</value>
+  </data>
+  <data name="toolStripMIPalletFilm.Text" xml:space="preserve">
+    <value>パレット フィルム</value>
+  </data>
+  <data name="toolStripMIPalletFilm.ToolTipText" xml:space="preserve">
+    <value>新しいパレット フィルムを追加.</value>
+  </data>
+  <data name="toolStripMIPLMPackLib.Text" xml:space="preserve">
+    <value>PLMPackLib を起動します。</value>
+  </data>
+  <data name="toolStripMIUserDisconnect.Text" xml:space="preserve">
+    <value>切断</value>
+  </data>
+  <data name="toolStripSBAnalysesCase.Text" xml:space="preserve">
+    <value>事件の分析</value>
+  </data>
+  <data name="toolStripSBAnalysesCase.ToolTipText" xml:space="preserve">
+    <value>事件の分析</value>
+  </data>
+  <data name="toolStripSBAnalysesTruck.Text" xml:space="preserve">
+    <value>トラック分析</value>
+  </data>
+  <data name="toolStripSBAnalysesTruck.ToolTipText" xml:space="preserve">
+    <value>トラック分析</value>
+  </data>
+  <data name="toolStripSBAnalysisPallet.Text" xml:space="preserve">
+    <value>パレットの解析</value>
+  </data>
   <data name="toolStripSBOptimisations.Text" xml:space="preserve">
     <value>最適化を梱包</value>
   </data>
   <data name="toolStripSBOptimisations.ToolTipText" xml:space="preserve">
     <value>最適化を梱包</value>
   </data>
-  <data name="toolStripButtonSettings.Text" xml:space="preserve">
-    <value>設定</value>
+  <data name="toolStripSBPalletDeco.Text" xml:space="preserve">
+    <value>新しい中間層を作成する.</value>
   </data>
-  <data name="saveFileDialogExportXML.Filter" xml:space="preserve">
-    <value>交換マークアップ言語 (*.xml) | * .xml</value>
+  <data name="toolStripSBUser.Text" xml:space="preserve">
+    <value>toolStripSplitButton1</value>
+  </data>
+  <data name="toolStripSBUser.ToolTipText" xml:space="preserve">
+    <value>ユーザー</value>
+  </data>
+  <data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 6</value>
+  </data>
+  <data name="toolStripSeparator2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 6</value>
+  </data>
+  <data name="toolStripSeparator5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>256, 6</value>
+  </data>
+  <data name="toolStripSeparator6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>256, 6</value>
+  </data>
+  <data name="toolStripSeparator7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>256, 6</value>
+  </data>
+  <data name="toolStripSeparator9.Size" type="System.Drawing.Size, System.Drawing">
+    <value>177, 6</value>
+  </data>
+  <data name="toolStripSplitButtonNew.Text" xml:space="preserve">
+		<value>新規ファイルの作成…</value>
+	</data>
+  <data name="toolStripStandard.Text" xml:space="preserve">
+    <value>標準</value>
+  </data>
+  <data name="tutorialToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="tutorialToolStripMenuItem.Text" xml:space="preserve">
+    <value>チュートリアル</value>
   </data>
 </root>

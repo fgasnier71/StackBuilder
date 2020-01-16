@@ -117,18 +117,33 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="$this.Text" xml:space="preserve">
+    <value>Bearbeite Flächen Bilder</value>
+  </data>
+  <data name="bnAdd.Text" xml:space="preserve">
+    <value>Textur einfügen…</value>
+  </data>
   <data name="bnCancel.Text" xml:space="preserve">
     <value>Abbrechen</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="labelFace.Size" type="System.Drawing.Size, System.Drawing">
-    <value>39, 13</value>
+  <data name="bnMoveDown.Text" xml:space="preserve">
+    <value>nach Unten</value>
   </data>
-  <data name="labelFace.Text" xml:space="preserve">
-    <value>Fläche</value>
+  <data name="bnMoveUp.Text" xml:space="preserve">
+    <value>nach Oben</value>
+  </data>
+  <data name="bnOK.Text" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="bnRemove.Text" xml:space="preserve">
+    <value>Löschen</value>
   </data>
   <data name="cbFace.Items" xml:space="preserve">
     <value>Rückseite</value>
+  </data>
+  <data name="cbFace.Items1" xml:space="preserve">
+    <value>Vorne</value>
   </data>
   <data name="cbFace.Items2" xml:space="preserve">
     <value>Rechts</value>
@@ -142,6 +157,24 @@
   <data name="cbFace.Items5" xml:space="preserve">
     <value>Oben</value>
   </data>
+  <data name="labelFace.Size" type="System.Drawing.Size, System.Drawing">
+    <value>39, 13</value>
+  </data>
+  <data name="labelFace.Text" xml:space="preserve">
+    <value>Fläche</value>
+  </data>
+  <data name="lbAngle.Size" type="System.Drawing.Size, System.Drawing">
+    <value>40, 13</value>
+  </data>
+  <data name="lbAngle.Text" xml:space="preserve">
+    <value>Winkel</value>
+  </data>
+  <data name="lbImage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>33, 13</value>
+  </data>
+  <data name="lbImage.Text" xml:space="preserve">
+    <value>Bilder</value>
+  </data>
   <data name="lbOrigin.Size" type="System.Drawing.Size, System.Drawing">
     <value>50, 13</value>
   </data>
@@ -154,22 +187,13 @@
   <data name="lbSize.Text" xml:space="preserve">
     <value>Größe</value>
   </data>
-  <data name="lbAngle.Size" type="System.Drawing.Size, System.Drawing">
-    <value>40, 13</value>
-  </data>
-  <data name="lbAngle.Text" xml:space="preserve">
-    <value>Winkel</value>
+  <data name="lbUnitAngle.Text" xml:space="preserve">
+    <value>°</value>
   </data>
   <data name="lbUnitOriginX.Size" type="System.Drawing.Size, System.Drawing">
     <value>46, 13</value>
   </data>
   <data name="lbUnitOriginX.Text" xml:space="preserve">
-    <value>uLength</value>
-  </data>
-  <data name="lbUnitSizeX.Size" type="System.Drawing.Size, System.Drawing">
-    <value>46, 13</value>
-  </data>
-  <data name="lbUnitSizeX.Text" xml:space="preserve">
     <value>uLength</value>
   </data>
   <data name="lbUnitOriginY.Size" type="System.Drawing.Size, System.Drawing">
@@ -178,61 +202,37 @@
   <data name="lbUnitOriginY.Text" xml:space="preserve">
     <value>uLength</value>
   </data>
+  <data name="lbUnitSizeX.Size" type="System.Drawing.Size, System.Drawing">
+    <value>46, 13</value>
+  </data>
+  <data name="lbUnitSizeX.Text" xml:space="preserve">
+    <value>uLength</value>
+  </data>
   <data name="lbUnitSizeY.Size" type="System.Drawing.Size, System.Drawing">
     <value>46, 13</value>
   </data>
   <data name="lbUnitSizeY.Text" xml:space="preserve">
     <value>uLength</value>
   </data>
-  <data name="bnMoveUp.Text" xml:space="preserve">
-    <value>nach Oben</value>
-  </data>
-  <data name="bnMoveDown.Text" xml:space="preserve">
-    <value>nach Unten</value>
-  </data>
-  <data name="bnAdd.Text" xml:space="preserve">
-    <value>Textur einfügen…</value>
-  </data>
-  <data name="bnRemove.Text" xml:space="preserve">
-    <value>Löschen</value>
-  </data>
   <data name="openImageFileDialog.Filter" xml:space="preserve">
     <value>Bild Dateien (*.bmp,*.gif, *.jpg)|*.bmp;*.gif;*.jpg</value>
-  </data>
-  <data name="lbImage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>33, 13</value>
-  </data>
-  <data name="lbImage.Text" xml:space="preserve">
-    <value>Bilder</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Bearbeite Flächen Bilder</value>
-  </data>
-  <data name="bnOK.Text" xml:space="preserve">
-    <value>OK</value>
-  </data>
-  <data name="cbFace.Items1" xml:space="preserve">
-    <value>Vorne</value>
-  </data>
-  <data name="uLengthOriginX.Text" xml:space="preserve">
-    <value>uLength</value>
-  </data>
-  <data name="uLengthSizeX.Text" xml:space="preserve">
-    <value>uLength</value>
-  </data>
-  <data name="lbUnitAngle.Text" xml:space="preserve">
-    <value>°</value>
-  </data>
-  <data name="uLengthOriginY.Text" xml:space="preserve">
-    <value>uLength</value>
-  </data>
-  <data name="uLengthSizeY.Text" xml:space="preserve">
-    <value>uLength</value>
   </data>
   <data name="uCtrlOrigin.Text" xml:space="preserve">
     <value>Herkunft</value>
   </data>
   <data name="uCtrlSize.Text" xml:space="preserve">
     <value>Größe</value>
+  </data>
+  <data name="uLengthOriginX.Text" xml:space="preserve">
+    <value>uLength</value>
+  </data>
+  <data name="uLengthOriginY.Text" xml:space="preserve">
+    <value>uLength</value>
+  </data>
+  <data name="uLengthSizeX.Text" xml:space="preserve">
+    <value>uLength</value>
+  </data>
+  <data name="uLengthSizeY.Text" xml:space="preserve">
+    <value>uLength</value>
   </data>
 </root>

@@ -117,37 +117,37 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="uCtrlOptMaxNumber.Text" xml:space="preserve">
-    <value>Максимальное число</value>
-  </data>
-  <data name="uCtrlOptMaximumWeight.Text" xml:space="preserve">
-    <value>Максимальный вес</value>
-  </data>
-  <data name="uCtrlMaxPalletHeight.Text" xml:space="preserve">
-    <value>Максимальная высота</value>
-  </data>
-  <data name="gbStopCriterions.Text" xml:space="preserve">
-    <value>Остановить критерии</value>
-  </data>
-  <data name="chkbPalletCorners.Text" xml:space="preserve">
-    <value>Углах паллета</value>
-  </data>
-  <data name="tabPagePalletCorners.Text" xml:space="preserve">
-    <value>Углах паллета</value>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Анализ дело в паллете...</value>
   </data>
   <data name="chkbPalletCap.Text" xml:space="preserve">
     <value>Крышка поддона</value>
   </data>
-  <data name="tabPagePalletCap.Text" xml:space="preserve">
-    <value>Крышка поддона</value>
+  <data name="chkbPalletCorners.Text" xml:space="preserve">
+    <value>Углах паллета</value>
   </data>
   <data name="chkbPalletFilm.Text" xml:space="preserve">
     <value>Паллетные пленки</value>
   </data>
+  <data name="gbStopCriterions.Text" xml:space="preserve">
+    <value>Остановить критерии</value>
+  </data>
+  <data name="tabPagePalletCap.Text" xml:space="preserve">
+    <value>Крышка поддона</value>
+  </data>
+  <data name="tabPagePalletCorners.Text" xml:space="preserve">
+    <value>Углах паллета</value>
+  </data>
   <data name="tabPagePalletFilm.Text" xml:space="preserve">
     <value>Паллетные пленки</value>
   </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Анализ дело в паллете...</value>
+  <data name="uCtrlMaxPalletHeight.Text" xml:space="preserve">
+    <value>Максимальная высота</value>
+  </data>
+  <data name="uCtrlOptMaximumWeight.Text" xml:space="preserve">
+    <value>Максимальный вес</value>
+  </data>
+  <data name="uCtrlOptMaxNumber.Text" xml:space="preserve">
+    <value>Максимальное число</value>
   </data>
 </root>

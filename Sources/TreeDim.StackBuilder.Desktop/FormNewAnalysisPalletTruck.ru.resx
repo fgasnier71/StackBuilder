@@ -117,28 +117,28 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Создайте новый анализ/тележки...</value>
+  </data>
   <data name="checkBoxBestLayersOnly.Text" xml:space="preserve">
     <value>Показать только лучшие слои</value>
-  </data>
-  <data name="lbTrucks.Text" xml:space="preserve">
-    <value>Грузовые автомобили</value>
   </data>
   <data name="chkbAllowMultipleLayers.Text" xml:space="preserve">
     <value>Разрешить несколько слоев</value>
   </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Создайте новый анализ/тележки...</value>
+  <data name="lbPallets.Text" xml:space="preserve">
+    <value>Загруженные паллеты</value>
+  </data>
+  <data name="lbTrucks.Text" xml:space="preserve">
+    <value>Грузовые автомобили</value>
+  </data>
+  <data name="uCtrlMinDistanceLoadRoof.Text" xml:space="preserve">
+    <value>Минимальное расстояние нагрузки/крыша</value>
   </data>
   <data name="uCtrlMinDistanceLoadWall.Text" xml:space="preserve">
     <value>Минимальное расстояние нагрузки/стены</value>
   </data>
-  <data name="lbPallets.Text" xml:space="preserve">
-    <value>Загруженные паллеты</value>
-  </data>
   <data name="uCtrlMinDistLoadRoof.Text" xml:space="preserve">
-    <value>Минимальное расстояние нагрузки/крыша</value>
-  </data>
-  <data name="uCtrlMinDistanceLoadRoof.Text" xml:space="preserve">
     <value>Минимальное расстояние нагрузки/крыша</value>
   </data>
 </root>

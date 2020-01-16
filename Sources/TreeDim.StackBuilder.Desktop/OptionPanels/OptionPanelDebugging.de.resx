@@ -118,19 +118,19 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="chkShowLogConsole.Size" type="System.Drawing.Size, System.Drawing">
-    <value>113, 17</value>
-  </data>
   <data name="bnShowAppFolder.Text" xml:space="preserve">
     <value>Initiativbewerbung-Ordner</value>
+  </data>
+  <data name="chkbDisconnected.Text" xml:space="preserve">
+    <value>Getrennte Nutzung zu ermöglichen</value>
   </data>
   <data name="chkbShowStartPage.Text" xml:space="preserve">
     <value>Anwendungsseite beim Start anzeigen...</value>
   </data>
+  <data name="chkShowLogConsole.Size" type="System.Drawing.Size, System.Drawing">
+    <value>113, 17</value>
+  </data>
   <data name="chkShowLogConsole.Text" xml:space="preserve">
     <value>Zeige Log Konsole</value>
-  </data>
-  <data name="chkbDisconnected.Text" xml:space="preserve">
-    <value>Getrennte Nutzung zu ermöglichen</value>
   </data>
 </root>

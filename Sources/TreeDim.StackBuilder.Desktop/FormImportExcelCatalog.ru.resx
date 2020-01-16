@@ -117,32 +117,32 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="lbExcelFilePath.Text" xml:space="preserve">
-    <value>Путь к каталогу Excel</value>
-  </data>
-  <data name="bnStop.Text" xml:space="preserve">
-    <value>Остановить</value>
-  </data>
-  <data name="lbExcelFileTemplate.Text" xml:space="preserve">
-    <value>Скачать пустой Excel файл шаблона-&gt;</value>
-  </data>
-  <data name="bnDownload.Text" xml:space="preserve">
-    <value>Скачать</value>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Импорт каталога Excel в базу данных...</value>
   </data>
   <data name="bnCancel.Text" xml:space="preserve">
     <value>Отмена</value>
   </data>
+  <data name="bnDownload.Text" xml:space="preserve">
+    <value>Скачать</value>
+  </data>
   <data name="bnImport.Text" xml:space="preserve">
     <value>Импорт</value>
+  </data>
+  <data name="bnStop.Text" xml:space="preserve">
+    <value>Остановить</value>
   </data>
   <data name="chkbOverwrite.Text" xml:space="preserve">
     <value>Перезаписать существующие элементы</value>
   </data>
+  <data name="lbExcelFilePath.Text" xml:space="preserve">
+    <value>Путь к каталогу Excel</value>
+  </data>
+  <data name="lbExcelFileTemplate.Text" xml:space="preserve">
+    <value>Скачать пустой Excel файл шаблона-&gt;</value>
+  </data>
   <data name="statusLabel.Text" xml:space="preserve">
     <value>statusLabel</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Импорт каталога Excel в базу данных...</value>
   </data>
   <data name="statusStrip1.Text" xml:space="preserve">
     <value>statusStrip</value>

@@ -186,35 +186,11 @@
   <data name="ID_RN_LAYERS" xml:space="preserve">
     <value>Couches</value>
   </data>
+  <data name="ID_RN_LOADWEIGHT" xml:space="preserve">
+    <value>Poids chargement</value>
+  </data>
   <data name="ID_RN_MAXIMUMHEIGHT" xml:space="preserve">
     <value>Hauteur maximale</value>
-  </data>
-  <data name="ID_RN_SPACES" xml:space="preserve">
-    <value>Espaces</value>
-  </data>
-  <data name="ID_RN_TRUCK" xml:space="preserve">
-    <value>Camion</value>
-  </data>
-  <data name="ID_RN_VIEWISO" xml:space="preserve">
-    <value>Iso</value>
-  </data>
-  <data name="ID_RN_SOLUTION" xml:space="preserve">
-    <value>Solution</value>
-  </data>
-  <data name="ID_RN_PALLET" xml:space="preserve">
-    <value>Palette</value>
-  </data>
-  <data name="ID_RN_WEIGHT" xml:space="preserve">
-    <value>Poids</value>
-  </data>
-  <data name="ID_RN_VOLUMEEFFICIENCY" xml:space="preserve">
-    <value>Efficacité volumique</value>
-  </data>
-  <data name="ID_RN_VIEWS" xml:space="preserve">
-    <value>Devant/Gauche/Droite/Arrière</value>
-  </data>
-  <data name="ID_RN_OVERHANG" xml:space="preserve">
-    <value>Débord</value>
   </data>
   <data name="ID_RN_MAXIMUMNUMBER" xml:space="preserve">
     <value>Nombre maximum</value>
@@ -222,16 +198,40 @@
   <data name="ID_RN_MAXIMUMWEIGHT" xml:space="preserve">
     <value>Poids maximal</value>
   </data>
-  <data name="ID_RN_PACK" xml:space="preserve">
-    <value>Fardeau</value>
-  </data>
   <data name="ID_RN_NOLAYERSBYNOCASES" xml:space="preserve">
     <value>Couches x Caisses</value>
   </data>
-  <data name="ID_RN_LOADWEIGHT" xml:space="preserve">
-    <value>Poids chargement</value>
+  <data name="ID_RN_OVERHANG" xml:space="preserve">
+    <value>Débord</value>
+  </data>
+  <data name="ID_RN_PACK" xml:space="preserve">
+    <value>Fardeau</value>
+  </data>
+  <data name="ID_RN_PALLET" xml:space="preserve">
+    <value>Palette</value>
+  </data>
+  <data name="ID_RN_SOLUTION" xml:space="preserve">
+    <value>Solution</value>
+  </data>
+  <data name="ID_RN_SPACES" xml:space="preserve">
+    <value>Espaces</value>
   </data>
   <data name="ID_RN_TOTALWEIGHT" xml:space="preserve">
     <value>Poids total</value>
+  </data>
+  <data name="ID_RN_TRUCK" xml:space="preserve">
+    <value>Camion</value>
+  </data>
+  <data name="ID_RN_VIEWISO" xml:space="preserve">
+    <value>Iso</value>
+  </data>
+  <data name="ID_RN_VIEWS" xml:space="preserve">
+    <value>Devant/Gauche/Droite/Arrière</value>
+  </data>
+  <data name="ID_RN_VOLUMEEFFICIENCY" xml:space="preserve">
+    <value>Efficacité volumique</value>
+  </data>
+  <data name="ID_RN_WEIGHT" xml:space="preserve">
+    <value>Poids</value>
   </data>
 </root>

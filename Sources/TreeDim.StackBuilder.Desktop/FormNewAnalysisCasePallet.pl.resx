@@ -120,32 +120,23 @@
   <data name="$this.Text" xml:space="preserve">
     <value>Tworzenie nowej analizy skrzynka/paleta...</value>
   </data>
+  <data name="bnBestCombination.Text" xml:space="preserve">
+    <value>Pokaż najlepsze kombinacje &gt;</value>
+  </data>
   <data name="checkBoxBestLayersOnly.Text" xml:space="preserve">
     <value>Pokaż tylko najlepsze warstwy</value>
-  </data>
-  <data name="uCtrlOptMaximumSpace.Text" xml:space="preserve">
-    <value>maksymalna przestrzeń</value>
-  </data>
-  <data name="uCtrlMaximumHeight.Text" xml:space="preserve">
-    <value>Wysokość maksymalna palety</value>
-  </data>
-  <data name="tabPageLayerFilters.Text" xml:space="preserve">
-    <value>Filtry warstw</value>
-  </data>
-  <data name="uCtrlOverhang.Text" xml:space="preserve">
-    <value>Zwis</value>
-  </data>
-  <data name="uCtrlOptMaximumWeight.Text" xml:space="preserve">
-    <value>Waga palety Maksymalna</value>
   </data>
   <data name="lbBox.Text" xml:space="preserve">
     <value>skrzynia</value>
   </data>
-  <data name="uCtrlOptMaximumLayerWeight.Text" xml:space="preserve">
-    <value>Warstwy Maksymalna waga</value>
+  <data name="lbPallet.Text" xml:space="preserve">
+    <value>Palety</value>
   </data>
-  <data name="tabPageStopCriterions.Text" xml:space="preserve">
-    <value>Stop kryteria</value>
+  <data name="lbSelect.Text" xml:space="preserve">
+    <value>Wybierz jedną lub więcej warstw, a następnie kliknij przycisk ' Dalej &amp;gt; '...</value>
+  </data>
+  <data name="tabPageLayerFilters.Text" xml:space="preserve">
+    <value>Filtry warstw</value>
   </data>
   <data name="tabPageOverhang.Text" xml:space="preserve">
     <value>Zwis</value>
@@ -153,19 +144,28 @@
   <data name="tabPageSpaces.Text" xml:space="preserve">
     <value>Przestrzenie</value>
   </data>
-  <data name="bnBestCombination.Text" xml:space="preserve">
-    <value>Pokaż najlepsze kombinacje &gt;</value>
+  <data name="tabPageStopCriterions.Text" xml:space="preserve">
+    <value>Stop kryteria</value>
   </data>
-  <data name="lbSelect.Text" xml:space="preserve">
-    <value>Wybierz jedną lub więcej warstw, a następnie kliknij przycisk ' Dalej &amp;gt; '...</value>
+  <data name="uCtrlMaximumHeight.Text" xml:space="preserve">
+    <value>Wysokość maksymalna palety</value>
+  </data>
+  <data name="uCtrlOptMaximumLayerWeight.Text" xml:space="preserve">
+    <value>Warstwy Maksymalna waga</value>
+  </data>
+  <data name="uCtrlOptMaximumSpace.Text" xml:space="preserve">
+    <value>maksymalna przestrzeń</value>
+  </data>
+  <data name="uCtrlOptMaximumWeight.Text" xml:space="preserve">
+    <value>Waga palety Maksymalna</value>
+  </data>
+  <data name="uCtrlOptMaxNumber.Text" xml:space="preserve">
+    <value>Maksymalna liczba</value>
   </data>
   <data name="uCtrlOptSpace.Text" xml:space="preserve">
     <value>Miejsca</value>
   </data>
-  <data name="lbPallet.Text" xml:space="preserve">
-    <value>Palety</value>
-  </data>
-  <data name="uCtrlOptMaxNumber.Text" xml:space="preserve">
-    <value>Maksymalna liczba</value>
+  <data name="uCtrlOverhang.Text" xml:space="preserve">
+    <value>Zwis</value>
   </data>
 </root>

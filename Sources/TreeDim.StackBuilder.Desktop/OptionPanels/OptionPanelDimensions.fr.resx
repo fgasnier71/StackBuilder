@@ -118,19 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="lbDimensions1.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="lbDimensions1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>70, 13</value>
-  </data>
-  <data name="lbDimensions2.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lbDimensions2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>70, 13</value>
-  </data>
   <data name="cbDim1.Items" xml:space="preserve">
     <value>Dimensions Hors Tout</value>
   </data>
@@ -155,8 +143,20 @@
   <data name="cbDim2.Items3" xml:space="preserve">
     <value>Dimensions palette (sans hauteur)</value>
   </data>
+  <data name="lbDimensions1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbDimensions1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>70, 13</value>
+  </data>
   <data name="lbDimensions1.Text" xml:space="preserve">
     <value>Dimensions 1</value>
+  </data>
+  <data name="lbDimensions2.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbDimensions2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>70, 13</value>
   </data>
   <data name="lbDimensions2.Text" xml:space="preserve">
     <value>Dimensions 2</value>

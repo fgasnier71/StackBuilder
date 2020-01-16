@@ -61,6 +61,10 @@
             this.splitContainerVert.Panel1.Controls.Add(this.uCtrlPalletHeight);
             this.splitContainerVert.Panel1.Controls.Add(this.lbPallet);
             // 
+            // gridContent
+            // 
+            resources.ApplyResources(this.gridContent, "gridContent");
+            // 
             // lbPallet
             // 
             resources.ApplyResources(this.lbPallet, "lbPallet");

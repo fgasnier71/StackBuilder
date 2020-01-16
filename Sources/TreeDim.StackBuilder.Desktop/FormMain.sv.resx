@@ -117,44 +117,17 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="newToolStripMenuItem.Text" xml:space="preserve">
-    <value>Nya</value>
-  </data>
-  <data name="newToolStripMenuItem.ToolTipText" xml:space="preserve">
-    <value>Skapa ny fil</value>
-  </data>
-  <data name="openToolStripMenuItem.Text" xml:space="preserve">
-    <value>Öppna</value>
-  </data>
-  <data name="openToolStripMenuItem.ToolTipText" xml:space="preserve">
-    <value>Öppna fil</value>
-  </data>
-  <data name="toolStripMenuItemSave.Text" xml:space="preserve">
-    <value>Spara</value>
-  </data>
-  <data name="toolStripMenuItemSave.ToolTipText" xml:space="preserve">
-    <value>Spara filen</value>
-  </data>
-  <data name="toolStripMenuItemSaveAs.Text" xml:space="preserve">
-    <value>Spara som...</value>
-  </data>
-  <data name="toolStripMenuItemSaveAs.ToolTipText" xml:space="preserve">
-    <value>Spara som...</value>
-  </data>
-  <data name="toolStripMenuItemSaveAll.Text" xml:space="preserve">
-    <value>Spara alla</value>
-  </data>
-  <data name="toolStripMenuItemClose.Text" xml:space="preserve">
-    <value>Stäng</value>
-  </data>
-  <data name="toolStripMenuItemClose.ToolTipText" xml:space="preserve">
-    <value>Stäng aktivt dokument</value>
+  <data name="$this.Text" xml:space="preserve">
+    <value>StackBuilder</value>
   </data>
   <data name="disconnectToolStripMenuItem.Text" xml:space="preserve">
     <value>Koppla från</value>
   </data>
-  <data name="mnuFileMRU.Text" xml:space="preserve">
-    <value>Senaste filerna...</value>
+  <data name="donateToolStripMenuItem.Text" xml:space="preserve">
+    <value>Donera!</value>
+  </data>
+  <data name="editPaletSolutionsDB.Text" xml:space="preserve">
+    <value>Bläddra/redigera databasen...</value>
   </data>
   <data name="exitToolStripMenuItem.Text" xml:space="preserve">
     <value>Exit</value>
@@ -165,8 +138,32 @@
   <data name="fileToolStripMenuItem.Text" xml:space="preserve">
     <value>Fil</value>
   </data>
-  <data name="editPaletSolutionsDB.Text" xml:space="preserve">
-    <value>Bläddra/redigera databasen...</value>
+  <data name="helpToolStripMenuItem.Text" xml:space="preserve">
+    <value>Hjälp</value>
+  </data>
+  <data name="helpToolStripMenuItemAbout.Text" xml:space="preserve">
+    <value>Om StackBuilder...</value>
+  </data>
+  <data name="helpToolStripMenuItemHelp.Text" xml:space="preserve">
+    <value>Hjälp</value>
+  </data>
+  <data name="menuStripMain.Text" xml:space="preserve">
+    <value>menuStripMain</value>
+  </data>
+  <data name="mnuFileMRU.Text" xml:space="preserve">
+    <value>Senaste filerna...</value>
+  </data>
+  <data name="newToolStripMenuItem.Text" xml:space="preserve">
+    <value>Nya</value>
+  </data>
+  <data name="newToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>Skapa ny fil</value>
+  </data>
+  <data name="openFileDialogSB.Filter" xml:space="preserve">
+    <value>StackBuilder filer (*.stb) | * .stb | Alla filer (*. *) | *. *</value>
+  </data>
+  <data name="openFileDialogSB.Title" xml:space="preserve">
+    <value>Öppna fil...</value>
   </data>
   <data name="openLibraryToolStripMenuItem.Text" xml:space="preserve">
     <value>Öppna Excel ark bibliotek...</value>
@@ -174,50 +171,71 @@
   <data name="openLibraryToolStripMenuItem.ToolTipText" xml:space="preserve">
     <value>Öppna bibliotek (Excelark)</value>
   </data>
-  <data name="toolStripMenuItemBox.Text" xml:space="preserve">
-    <value>Ny låda</value>
+  <data name="openToolStripMenuItem.Text" xml:space="preserve">
+    <value>Öppna</value>
   </data>
-  <data name="toolStripMenuItemCase.Text" xml:space="preserve">
-    <value>Nytt ärende</value>
+  <data name="openToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>Öppna fil</value>
   </data>
-  <data name="toolStripMenuItemPack.Text" xml:space="preserve">
-    <value>Ny förpackning</value>
+  <data name="saveFileDialogExportXML.Filter" xml:space="preserve">
+    <value>Utbyta Markup Language (*.xml) | * .xml</value>
   </data>
-  <data name="toolStripMenuItemBundle.Text" xml:space="preserve">
-    <value>Ny bunt</value>
+  <data name="saveFileDialogSB.Filter" xml:space="preserve">
+    <value>StackBuilder filer (*.stb) | * .stb</value>
   </data>
-  <data name="toolStripMenuItemCylinder.Text" xml:space="preserve">
-    <value>Ny Cylinder</value>
+  <data name="saveFileDialogSB.Title" xml:space="preserve">
+    <value>Spara filen...</value>
   </data>
-  <data name="toolStripMenuItemPallet.Text" xml:space="preserve">
-    <value>Ny pall</value>
+  <data name="saveFileDialogWebGL.Filter" xml:space="preserve">
+    <value>HTLM-fil (*.html) | * .html</value>
   </data>
-  <data name="toolStripMenuItemTruck.Text" xml:space="preserve">
-    <value>Ny lastbil</value>
+  <data name="settingsToolStripMenuItem.Text" xml:space="preserve">
+    <value>Inställningar...</value>
   </data>
-  <data name="toolStripMenuItemInterlayer.Text" xml:space="preserve">
-    <value>Nya mellanlager</value>
+  <data name="toolStripButtonBox.Text" xml:space="preserve">
+    <value>Lägg till ny låda</value>
   </data>
-  <data name="toolStripMenuItemPalletCorners.Text" xml:space="preserve">
-    <value>Ny pall hörn</value>
+  <data name="toolStripButtonBundle.Text" xml:space="preserve">
+    <value>Lägg till ny bunt</value>
   </data>
-  <data name="toolStripMenuItemPalletCap.Text" xml:space="preserve">
-    <value>Ny pall Cap</value>
+  <data name="toolStripButtonCase.Text" xml:space="preserve">
+    <value>Lägg till nytt ärende...</value>
   </data>
-  <data name="toolStripMenuItemPalletFilm.Text" xml:space="preserve">
-    <value>Ny pall Film</value>
+  <data name="toolStripButtonCylinder.Text" xml:space="preserve">
+    <value>Lägg till ny cylinder</value>
   </data>
-  <data name="toolStripMenuItemNewAnalysisCasePallet.Text" xml:space="preserve">
-    <value>Nytt ärende/lastpall analys</value>
+  <data name="toolStripButtonFileOpen.Text" xml:space="preserve">
+    <value>Öppna fil</value>
   </data>
-  <data name="toolStripMenuItemNewAnalysisCylinderPallet.Text" xml:space="preserve">
-    <value>Ny Cylinder/pall analys</value>
+  <data name="toolStripButtonFileOpen.ToolTipText" xml:space="preserve">
+    <value>Öppna fil</value>
   </data>
-  <data name="toolStripMenuItemNewAnalysisBoxCase.Text" xml:space="preserve">
-    <value>Ny Box/Case analys</value>
+  <data name="toolStripButtonHelp.Text" xml:space="preserve">
+    <value>Hjälp</value>
   </data>
-  <data name="toolStripMenuItemNewAnalysisCylinderCase.Text" xml:space="preserve">
-    <value>Ny cylinder/fallet analys</value>
+  <data name="toolStripButtonHelp.ToolTipText" xml:space="preserve">
+    <value>Hjälp</value>
+  </data>
+  <data name="toolStripButtonPack.Text" xml:space="preserve">
+    <value>Lägg till ny förpackning...</value>
+  </data>
+  <data name="toolStripButtonPallet.Text" xml:space="preserve">
+    <value>Lägg till ny lastpall</value>
+  </data>
+  <data name="toolStripButtonPallet.ToolTipText" xml:space="preserve">
+    <value>Lägga till en ny lastpall</value>
+  </data>
+  <data name="toolStripButtonSave.Text" xml:space="preserve">
+    <value>Spara filen</value>
+  </data>
+  <data name="toolStripButtonSaveAll.Text" xml:space="preserve">
+    <value>Spara alla filer</value>
+  </data>
+  <data name="toolStripButtonSettings.Text" xml:space="preserve">
+    <value>Inställningar</value>
+  </data>
+  <data name="toolStripButtonTruck.Text" xml:space="preserve">
+    <value>Lägg till ny lastbil</value>
   </data>
   <data name="toolStripMenuItemAnalysisPalletTruck.Text" xml:space="preserve">
     <value>Ny gåvagn/analys</value>
@@ -231,152 +249,107 @@
   <data name="toolStripMenuItemBestPack.ToolTipText" xml:space="preserve">
     <value>Sök efter optimala fallet</value>
   </data>
-  <data name="toolStripMIPLMPackLib.Text" xml:space="preserve">
-    <value>Starta PLMPackLib</value>
+  <data name="toolStripMenuItemBox.Text" xml:space="preserve">
+    <value>Ny låda</value>
   </data>
-  <data name="settingsToolStripMenuItem.Text" xml:space="preserve">
-    <value>Inställningar...</value>
+  <data name="toolStripMenuItemBundle.Text" xml:space="preserve">
+    <value>Ny bunt</value>
   </data>
-  <data name="toolStripMenuItemTools.Text" xml:space="preserve">
-    <value>Verktyg</value>
+  <data name="toolStripMenuItemCase.Text" xml:space="preserve">
+    <value>Nytt ärende</value>
   </data>
-  <data name="toolStripMenuItemHelpStartPage.Text" xml:space="preserve">
-    <value>Visa startsidan</value>
+  <data name="toolStripMenuItemClose.Text" xml:space="preserve">
+    <value>Stäng</value>
   </data>
-  <data name="helpToolStripMenuItemHelp.Text" xml:space="preserve">
-    <value>Hjälp</value>
+  <data name="toolStripMenuItemClose.ToolTipText" xml:space="preserve">
+    <value>Stäng aktivt dokument</value>
   </data>
-  <data name="helpToolStripMenuItemAbout.Text" xml:space="preserve">
-    <value>Om StackBuilder...</value>
-  </data>
-  <data name="donateToolStripMenuItem.Text" xml:space="preserve">
-    <value>Donera!</value>
-  </data>
-  <data name="helpToolStripMenuItem.Text" xml:space="preserve">
-    <value>Hjälp</value>
-  </data>
-  <data name="menuStripMain.Text" xml:space="preserve">
-    <value>menuStripMain</value>
-  </data>
-  <data name="toolStripMIUserDisconnect.Text" xml:space="preserve">
-    <value>Koppla från</value>
-  </data>
-  <data name="toolStripSBUser.Text" xml:space="preserve">
-    <value>toolStripSplitButton1</value>
-  </data>
-  <data name="toolStripSBUser.ToolTipText" xml:space="preserve">
-    <value>Användaren</value>
-  </data>
-  <data name="toolStripMenuNewFile.Text" xml:space="preserve">
-    <value>Ny...</value>
-  </data>
-  <data name="toolStripSplitButtonNew.Text" xml:space="preserve">
-    <value>Skapa en ny fil...</value>
-  </data>
-  <data name="toolStripButtonFileOpen.Text" xml:space="preserve">
-    <value>Öppna fil</value>
-  </data>
-  <data name="toolStripButtonFileOpen.ToolTipText" xml:space="preserve">
-    <value>Öppna fil</value>
-  </data>
-  <data name="toolStripButtonSave.Text" xml:space="preserve">
-    <value>Spara filen</value>
-  </data>
-  <data name="toolStripButtonSaveAll.Text" xml:space="preserve">
-    <value>Spara alla filer</value>
+  <data name="toolStripMenuItemCylinder.Text" xml:space="preserve">
+    <value>Ny Cylinder</value>
   </data>
   <data name="toolStripMenuItemEditDB.ToolTipText" xml:space="preserve">
     <value>Redigera pall lösning databas</value>
   </data>
-  <data name="toolStripButtonBox.Text" xml:space="preserve">
-    <value>Lägg till ny låda</value>
+  <data name="toolStripMenuItemHelpStartPage.Text" xml:space="preserve">
+    <value>Visa startsidan</value>
   </data>
-  <data name="toolStripButtonCase.Text" xml:space="preserve">
-    <value>Lägg till nytt ärende...</value>
+  <data name="toolStripMenuItemInterlayer.Text" xml:space="preserve">
+    <value>Nya mellanlager</value>
   </data>
-  <data name="toolStripButtonPack.Text" xml:space="preserve">
-    <value>Lägg till ny förpackning...</value>
+  <data name="toolStripMenuItemNewAnalysisBoxCase.Text" xml:space="preserve">
+    <value>Ny Box/Case analys</value>
   </data>
-  <data name="toolStripButtonBundle.Text" xml:space="preserve">
-    <value>Lägg till ny bunt</value>
+  <data name="toolStripMenuItemNewAnalysisCasePallet.Text" xml:space="preserve">
+    <value>Nytt ärende/lastpall analys</value>
   </data>
-  <data name="toolStripButtonCylinder.Text" xml:space="preserve">
-    <value>Lägg till ny cylinder</value>
+  <data name="toolStripMenuItemNewAnalysisCylinderCase.Text" xml:space="preserve">
+    <value>Ny cylinder/fallet analys</value>
   </data>
-  <data name="toolStripButtonPallet.Text" xml:space="preserve">
-    <value>Lägg till ny lastpall</value>
+  <data name="toolStripMenuItemNewAnalysisCylinderPallet.Text" xml:space="preserve">
+    <value>Ny Cylinder/pall analys</value>
   </data>
-  <data name="toolStripButtonPallet.ToolTipText" xml:space="preserve">
-    <value>Lägga till en ny lastpall</value>
+  <data name="toolStripMenuItemPack.Text" xml:space="preserve">
+    <value>Ny förpackning</value>
   </data>
-  <data name="toolStripButtonTruck.Text" xml:space="preserve">
-    <value>Lägg till ny lastbil</value>
+  <data name="toolStripMenuItemPallet.Text" xml:space="preserve">
+    <value>Ny pall</value>
   </data>
-  <data name="toolStripMIInterlayer.Text" xml:space="preserve">
-    <value>Mellanlagret</value>
+  <data name="toolStripMenuItemPalletCap.Text" xml:space="preserve">
+    <value>Ny pall Cap</value>
   </data>
-  <data name="toolStripMIInterlayer.ToolTipText" xml:space="preserve">
-    <value>Lägg till nya mellanlagret...</value>
+  <data name="toolStripMenuItemPalletCorners.Text" xml:space="preserve">
+    <value>Ny pall hörn</value>
   </data>
-  <data name="toolStripMIPalletCorner.Text" xml:space="preserve">
-    <value>Lastpall hörnet</value>
+  <data name="toolStripMenuItemPalletFilm.Text" xml:space="preserve">
+    <value>Ny pall Film</value>
   </data>
-  <data name="toolStripMIPalletCorner.ToolTipText" xml:space="preserve">
-    <value>Lägg till nya pall hörn...</value>
+  <data name="toolStripMenuItemSave.Text" xml:space="preserve">
+    <value>Spara</value>
   </data>
-  <data name="toolStripMIPalletCap.Text" xml:space="preserve">
-    <value>Lastpall cap</value>
+  <data name="toolStripMenuItemSave.ToolTipText" xml:space="preserve">
+    <value>Spara filen</value>
   </data>
-  <data name="toolStripMIPalletCap.ToolTipText" xml:space="preserve">
-    <value>Lägg till nya pall cap...</value>
+  <data name="toolStripMenuItemSaveAll.Text" xml:space="preserve">
+    <value>Spara alla</value>
   </data>
-  <data name="toolStripMIPalletFilm.Text" xml:space="preserve">
-    <value>Lastpall film</value>
+  <data name="toolStripMenuItemSaveAs.Text" xml:space="preserve">
+    <value>Spara som...</value>
   </data>
-  <data name="toolStripMIPalletFilm.ToolTipText" xml:space="preserve">
-    <value>Lägg till nya pall film...</value>
+  <data name="toolStripMenuItemSaveAs.ToolTipText" xml:space="preserve">
+    <value>Spara som...</value>
   </data>
-  <data name="toolStripSBPalletDeco.Text" xml:space="preserve">
-    <value>Skapa nya mellanlagret...</value>
+  <data name="toolStripMenuItemTools.Text" xml:space="preserve">
+    <value>Verktyg</value>
   </data>
-  <data name="toolStripMIAnalysisCasePallet.Text" xml:space="preserve">
-    <value>Ärende/lastpall</value>
+  <data name="toolStripMenuItemTruck.Text" xml:space="preserve">
+    <value>Ny lastbil</value>
   </data>
-  <data name="toolStripMIAnalysisCylinderPallet.Text" xml:space="preserve">
-    <value>Cylinder/pall</value>
-  </data>
-  <data name="toolStripMIAnalysisBundlePallet.Text" xml:space="preserve">
-    <value>Paket/pall</value>
-  </data>
-  <data name="toolStripSBAnalysisPallet.Text" xml:space="preserve">
-    <value>Lastpall analyser</value>
+  <data name="toolStripMenuNewFile.Text" xml:space="preserve">
+    <value>Ny...</value>
   </data>
   <data name="toolStripMIAnalysisBoxCase.Text" xml:space="preserve">
     <value>Box/Case</value>
   </data>
-  <data name="toolStripMIAnalysisCylinderCase.Text" xml:space="preserve">
-    <value>Cylinder/fallet</value>
-  </data>
   <data name="toolStripMIAnalysisBundleCase.Text" xml:space="preserve">
     <value>Bunt/Case</value>
   </data>
-  <data name="toolStripSBAnalysesCase.Text" xml:space="preserve">
-    <value>Mål analyser</value>
+  <data name="toolStripMIAnalysisBundlePallet.Text" xml:space="preserve">
+    <value>Paket/pall</value>
   </data>
-  <data name="toolStripSBAnalysesCase.ToolTipText" xml:space="preserve">
-    <value>Mål analyser</value>
-  </data>
-  <data name="toolStripMIAnalysisPalletTruck.Text" xml:space="preserve">
-    <value>Pall/lastbil</value>
+  <data name="toolStripMIAnalysisCasePallet.Text" xml:space="preserve">
+    <value>Ärende/lastpall</value>
   </data>
   <data name="toolStripMIAnalysisCaseTruck.Text" xml:space="preserve">
     <value>Fall och lastbilar</value>
   </data>
-  <data name="toolStripSBAnalysesTruck.Text" xml:space="preserve">
-    <value>Lastbil analyser</value>
+  <data name="toolStripMIAnalysisCylinderCase.Text" xml:space="preserve">
+    <value>Cylinder/fallet</value>
   </data>
-  <data name="toolStripSBAnalysesTruck.ToolTipText" xml:space="preserve">
-    <value>Lastbil analyser</value>
+  <data name="toolStripMIAnalysisCylinderPallet.Text" xml:space="preserve">
+    <value>Cylinder/pall</value>
+  </data>
+  <data name="toolStripMIAnalysisPalletTruck.Text" xml:space="preserve">
+    <value>Pall/lastbil</value>
   </data>
   <data name="toolStripMIBestCase.Text" xml:space="preserve">
     <value>Hitta bästa fall</value>
@@ -396,43 +369,70 @@
   <data name="toolStripMIBestPack.ToolTipText" xml:space="preserve">
     <value>Föreslå pack för optimal palletter</value>
   </data>
+  <data name="toolStripMIInterlayer.Text" xml:space="preserve">
+    <value>Mellanlagret</value>
+  </data>
+  <data name="toolStripMIInterlayer.ToolTipText" xml:space="preserve">
+    <value>Lägg till nya mellanlagret...</value>
+  </data>
+  <data name="toolStripMIPalletCap.Text" xml:space="preserve">
+    <value>Lastpall cap</value>
+  </data>
+  <data name="toolStripMIPalletCap.ToolTipText" xml:space="preserve">
+    <value>Lägg till nya pall cap...</value>
+  </data>
+  <data name="toolStripMIPalletCorner.Text" xml:space="preserve">
+    <value>Lastpall hörnet</value>
+  </data>
+  <data name="toolStripMIPalletCorner.ToolTipText" xml:space="preserve">
+    <value>Lägg till nya pall hörn...</value>
+  </data>
+  <data name="toolStripMIPalletFilm.Text" xml:space="preserve">
+    <value>Lastpall film</value>
+  </data>
+  <data name="toolStripMIPalletFilm.ToolTipText" xml:space="preserve">
+    <value>Lägg till nya pall film...</value>
+  </data>
+  <data name="toolStripMIPLMPackLib.Text" xml:space="preserve">
+    <value>Starta PLMPackLib</value>
+  </data>
+  <data name="toolStripMIUserDisconnect.Text" xml:space="preserve">
+    <value>Koppla från</value>
+  </data>
+  <data name="toolStripSBAnalysesCase.Text" xml:space="preserve">
+    <value>Mål analyser</value>
+  </data>
+  <data name="toolStripSBAnalysesCase.ToolTipText" xml:space="preserve">
+    <value>Mål analyser</value>
+  </data>
+  <data name="toolStripSBAnalysesTruck.Text" xml:space="preserve">
+    <value>Lastbil analyser</value>
+  </data>
+  <data name="toolStripSBAnalysesTruck.ToolTipText" xml:space="preserve">
+    <value>Lastbil analyser</value>
+  </data>
+  <data name="toolStripSBAnalysisPallet.Text" xml:space="preserve">
+    <value>Lastpall analyser</value>
+  </data>
   <data name="toolStripSBOptimisations.Text" xml:space="preserve">
     <value>Förpackning optimeringar</value>
   </data>
   <data name="toolStripSBOptimisations.ToolTipText" xml:space="preserve">
     <value>Förpackning optimeringar</value>
   </data>
-  <data name="toolStripButtonHelp.Text" xml:space="preserve">
-    <value>Hjälp</value>
+  <data name="toolStripSBPalletDeco.Text" xml:space="preserve">
+    <value>Skapa nya mellanlagret...</value>
   </data>
-  <data name="toolStripButtonHelp.ToolTipText" xml:space="preserve">
-    <value>Hjälp</value>
+  <data name="toolStripSBUser.Text" xml:space="preserve">
+    <value>toolStripSplitButton1</value>
   </data>
-  <data name="toolStripButtonSettings.Text" xml:space="preserve">
-    <value>Inställningar</value>
+  <data name="toolStripSBUser.ToolTipText" xml:space="preserve">
+    <value>Användaren</value>
+  </data>
+  <data name="toolStripSplitButtonNew.Text" xml:space="preserve">
+    <value>Skapa en ny fil...</value>
   </data>
   <data name="toolStripStandard.Text" xml:space="preserve">
     <value>Standard</value>
-  </data>
-  <data name="openFileDialogSB.Filter" xml:space="preserve">
-    <value>StackBuilder filer (*.stb) | * .stb | Alla filer (*. *) | *. *</value>
-  </data>
-  <data name="openFileDialogSB.Title" xml:space="preserve">
-    <value>Öppna fil...</value>
-  </data>
-  <data name="saveFileDialogSB.Filter" xml:space="preserve">
-    <value>StackBuilder filer (*.stb) | * .stb</value>
-  </data>
-  <data name="saveFileDialogSB.Title" xml:space="preserve">
-    <value>Spara filen...</value>
-  </data>
-  <data name="saveFileDialogWebGL.Filter" xml:space="preserve">
-    <value>HTLM-fil (*.html) | * .html</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>StackBuilder</value>
-  </data>
-  <data name="saveFileDialogExportXML.Filter" xml:space="preserve">
-    <value>Utbyta Markup Language (*.xml) | * .xml</value>
   </data>
 </root>

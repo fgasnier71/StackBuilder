@@ -117,14 +117,26 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="bnOK.Text" xml:space="preserve">
-    <value>Хорошо</value>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Редактирование изображений</value>
+  </data>
+  <data name="bnAdd.Text" xml:space="preserve">
+    <value>Добавление текстуры...</value>
   </data>
   <data name="bnCancel.Text" xml:space="preserve">
     <value>Отмена</value>
   </data>
-  <data name="labelFace.Text" xml:space="preserve">
-    <value>Лицо</value>
+  <data name="bnMoveDown.Text" xml:space="preserve">
+    <value>Переместить вниз</value>
+  </data>
+  <data name="bnMoveUp.Text" xml:space="preserve">
+    <value>Перемещение вверх</value>
+  </data>
+  <data name="bnOK.Text" xml:space="preserve">
+    <value>Хорошо</value>
+  </data>
+  <data name="bnRemove.Text" xml:space="preserve">
+    <value>Удалить</value>
   </data>
   <data name="cbFace.Items" xml:space="preserve">
     <value>Задний</value>
@@ -144,37 +156,25 @@
   <data name="cbFace.Items5" xml:space="preserve">
     <value>Вверх</value>
   </data>
+  <data name="labelFace.Text" xml:space="preserve">
+    <value>Лицо</value>
+  </data>
   <data name="lbAngle.Text" xml:space="preserve">
     <value>Угол</value>
+  </data>
+  <data name="lbImage.Text" xml:space="preserve">
+    <value>Изображения</value>
   </data>
   <data name="lbUnitAngle.Text" xml:space="preserve">
     <value>°</value>
   </data>
-  <data name="bnMoveUp.Text" xml:space="preserve">
-    <value>Перемещение вверх</value>
-  </data>
-  <data name="bnMoveDown.Text" xml:space="preserve">
-    <value>Переместить вниз</value>
-  </data>
-  <data name="bnAdd.Text" xml:space="preserve">
-    <value>Добавление текстуры...</value>
-  </data>
-  <data name="bnRemove.Text" xml:space="preserve">
-    <value>Удалить</value>
-  </data>
   <data name="openImageFileDialog.Filter" xml:space="preserve">
     <value>Графические файлы (*.bmp, *.gif, *.jpg) | * .bmp; *.gif, *.jpg</value>
-  </data>
-  <data name="lbImage.Text" xml:space="preserve">
-    <value>Изображения</value>
   </data>
   <data name="uCtrlOrigin.Text" xml:space="preserve">
     <value>Происхождение</value>
   </data>
   <data name="uCtrlSize.Text" xml:space="preserve">
     <value>Размер</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Редактирование изображений</value>
   </data>
 </root>

@@ -120,13 +120,13 @@
   <data name="$this.Text" xml:space="preserve">
     <value>Analyse Etui/Caisse...</value>
   </data>
-  <data name="uCtrlOptMaxNumber.Text" xml:space="preserve">
-    <value>Nombre maximum</value>
+  <data name="gbStopCriterions.Text" xml:space="preserve">
+    <value>Critère de fin</value>
   </data>
   <data name="uCtrlOptMaximumWeight.Text" xml:space="preserve">
     <value>Poid maximum</value>
   </data>
-  <data name="gbStopCriterions.Text" xml:space="preserve">
-    <value>Critère de fin</value>
+  <data name="uCtrlOptMaxNumber.Text" xml:space="preserve">
+    <value>Nombre maximum</value>
   </data>
 </root>

@@ -117,32 +117,32 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="lbExcelFilePath.Text" xml:space="preserve">
-    <value>Percorso del catalogo di Excel</value>
-  </data>
-  <data name="bnStop.Text" xml:space="preserve">
-    <value>Fermata</value>
-  </data>
-  <data name="lbExcelFileTemplate.Text" xml:space="preserve">
-    <value>Scaricare Excel vuoto modello file-&gt;</value>
-  </data>
-  <data name="bnDownload.Text" xml:space="preserve">
-    <value>Scarica</value>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Catalogo di Excel di importazione database...</value>
   </data>
   <data name="bnCancel.Text" xml:space="preserve">
     <value>Cancella</value>
   </data>
+  <data name="bnDownload.Text" xml:space="preserve">
+    <value>Scarica</value>
+  </data>
   <data name="bnImport.Text" xml:space="preserve">
     <value>Importazione</value>
+  </data>
+  <data name="bnStop.Text" xml:space="preserve">
+    <value>Fermata</value>
   </data>
   <data name="chkbOverwrite.Text" xml:space="preserve">
     <value>Sovrascrivere gli elementi esistenti</value>
   </data>
+  <data name="lbExcelFilePath.Text" xml:space="preserve">
+    <value>Percorso del catalogo di Excel</value>
+  </data>
+  <data name="lbExcelFileTemplate.Text" xml:space="preserve">
+    <value>Scaricare Excel vuoto modello file-&gt;</value>
+  </data>
   <data name="statusLabel.Text" xml:space="preserve">
     <value>statusLabel</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Catalogo di Excel di importazione database...</value>
   </data>
   <data name="statusStrip1.Text" xml:space="preserve">
     <value>controllo statusStrip</value>

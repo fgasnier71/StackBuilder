@@ -120,19 +120,19 @@
   <data name="$this.Text" xml:space="preserve">
     <value>Введите допустимое имя...</value>
   </data>
-  <data name="label1.Text" xml:space="preserve">
-    <value>Имя</value>
-  </data>
-  <data name="statusStrip1.Text" xml:space="preserve">
-    <value>statusStrip1</value>
+  <data name="bnCancel.Text" xml:space="preserve">
+    <value>Отмена</value>
   </data>
   <data name="bnOK.Text" xml:space="preserve">
     <value>Хорошо</value>
   </data>
-  <data name="bnCancel.Text" xml:space="preserve">
-    <value>Отмена</value>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Имя</value>
   </data>
   <data name="statusLabelDef.Text" xml:space="preserve">
     <value>statusLabelDef</value>
+  </data>
+  <data name="statusStrip1.Text" xml:space="preserve">
+    <value>statusStrip1</value>
   </data>
 </root>

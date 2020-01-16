@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Анализ...</value>
+  </data>
   <data name="chkbInterlayer.Text" xml:space="preserve">
     <value>Прослойка</value>
   </data>
@@ -132,16 +135,13 @@
   <data name="toolStripButtonBack.ToolTipText" xml:space="preserve">
     <value>Назад...</value>
   </data>
-  <data name="toolStripButtonReport.Text" xml:space="preserve">
-    <value>Создать отчет...</value>
+  <data name="toolStripButtonExportCSV.Text" xml:space="preserve">
+    <value>Экспорт в CSV...</value>
   </data>
   <data name="toolStripButtonExportXML.Text" xml:space="preserve">
     <value>Экспорт в XML...</value>
   </data>
-  <data name="toolStripButtonExportCSV.Text" xml:space="preserve">
-    <value>Экспорт в CSV...</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Анализ...</value>
+  <data name="toolStripButtonReport.Text" xml:space="preserve">
+    <value>Создать отчет...</value>
   </data>
 </root>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,25 +117,25 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="FloatingToolStripMenuItem.Text" xml:space="preserve">
-    <value>Flytande</value>
-  </data>
-  <data name="DockableToolStripMenuItem.Text" xml:space="preserve">
-    <value>Dockningsbara</value>
-  </data>
-  <data name="TabbedDocumentToolStripMenuItem.Text" xml:space="preserve">
-    <value>Flikar dokument</value>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Dokumentet explorer</value>
   </data>
   <data name="AutoHideToolStripMenuItem.Text" xml:space="preserve">
     <value>Auto Dölj</value>
   </data>
-  <data name="HideToolStripMenuItem.Text" xml:space="preserve">
-    <value>Dölj</value>
-  </data>
   <data name="ContextMenuDock.Text" xml:space="preserve">
     <value>Fönsterposition</value>
   </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Dokumentet explorer</value>
+  <data name="DockableToolStripMenuItem.Text" xml:space="preserve">
+    <value>Dockningsbara</value>
+  </data>
+  <data name="FloatingToolStripMenuItem.Text" xml:space="preserve">
+    <value>Flytande</value>
+  </data>
+  <data name="HideToolStripMenuItem.Text" xml:space="preserve">
+    <value>Dölj</value>
+  </data>
+  <data name="TabbedDocumentToolStripMenuItem.Text" xml:space="preserve">
+    <value>Flikar dokument</value>
   </data>
 </root>

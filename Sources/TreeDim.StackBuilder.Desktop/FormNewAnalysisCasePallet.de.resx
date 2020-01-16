@@ -120,32 +120,23 @@
   <data name="$this.Text" xml:space="preserve">
     <value>Erstellen Sie neue Fall/Palette Analyse...</value>
   </data>
+  <data name="bnBestCombination.Text" xml:space="preserve">
+    <value>Zeigen die beste Kombinationen &gt;</value>
+  </data>
   <data name="checkBoxBestLayersOnly.Text" xml:space="preserve">
     <value>Nur beste Ebenen anzeigen</value>
-  </data>
-  <data name="uCtrlOptMaximumSpace.Text" xml:space="preserve">
-    <value>Maximale Fläche</value>
-  </data>
-  <data name="uCtrlMaximumHeight.Text" xml:space="preserve">
-    <value>Maximale Palettenhöhe</value>
-  </data>
-  <data name="tabPageLayerFilters.Text" xml:space="preserve">
-    <value>Layer-Filter</value>
-  </data>
-  <data name="uCtrlOverhang.Text" xml:space="preserve">
-    <value>Überhang</value>
-  </data>
-  <data name="uCtrlOptMaximumWeight.Text" xml:space="preserve">
-    <value>Maximale Palette Gewicht</value>
   </data>
   <data name="lbBox.Text" xml:space="preserve">
     <value>Fall</value>
   </data>
-  <data name="uCtrlOptMaximumLayerWeight.Text" xml:space="preserve">
-    <value>Maximale Auflagengewicht</value>
+  <data name="lbPallet.Text" xml:space="preserve">
+    <value>Palette</value>
   </data>
-  <data name="tabPageStopCriterions.Text" xml:space="preserve">
-    <value>Kriterien zu stoppen</value>
+  <data name="lbSelect.Text" xml:space="preserve">
+    <value>Wählen Sie eine oder mehrere Ebenen aus und klicken Sie auf "nächste &gt;'...</value>
+  </data>
+  <data name="tabPageLayerFilters.Text" xml:space="preserve">
+    <value>Layer-Filter</value>
   </data>
   <data name="tabPageOverhang.Text" xml:space="preserve">
     <value>Überhang</value>
@@ -153,19 +144,28 @@
   <data name="tabPageSpaces.Text" xml:space="preserve">
     <value>Räume</value>
   </data>
-  <data name="bnBestCombination.Text" xml:space="preserve">
-    <value>Zeigen die beste Kombinationen &gt;</value>
+  <data name="tabPageStopCriterions.Text" xml:space="preserve">
+    <value>Kriterien zu stoppen</value>
   </data>
-  <data name="lbSelect.Text" xml:space="preserve">
-    <value>Wählen Sie eine oder mehrere Ebenen aus und klicken Sie auf "nächste &gt;'...</value>
+  <data name="uCtrlMaximumHeight.Text" xml:space="preserve">
+    <value>Maximale Palettenhöhe</value>
+  </data>
+  <data name="uCtrlOptMaximumLayerWeight.Text" xml:space="preserve">
+    <value>Maximale Auflagengewicht</value>
+  </data>
+  <data name="uCtrlOptMaximumSpace.Text" xml:space="preserve">
+    <value>Maximale Fläche</value>
+  </data>
+  <data name="uCtrlOptMaximumWeight.Text" xml:space="preserve">
+    <value>Maximale Palette Gewicht</value>
+  </data>
+  <data name="uCtrlOptMaxNumber.Text" xml:space="preserve">
+    <value>Maximale Anzahl</value>
   </data>
   <data name="uCtrlOptSpace.Text" xml:space="preserve">
     <value>Raum</value>
   </data>
-  <data name="lbPallet.Text" xml:space="preserve">
-    <value>Palette</value>
-  </data>
-  <data name="uCtrlOptMaxNumber.Text" xml:space="preserve">
-    <value>Maximale Anzahl</value>
+  <data name="uCtrlOverhang.Text" xml:space="preserve">
+    <value>Überhang</value>
   </data>
 </root>

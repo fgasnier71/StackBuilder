@@ -246,29 +246,17 @@
         AACAAQAAgAEAAMABAADgAQAA8AEAAP//AAA=
 </value>
   </data>
-  <data name="bnClose.Text" xml:space="preserve">
-    <value>In der Nähe</value>
-  </data>
-  <data name="tabPagePallet.Text" xml:space="preserve">
-    <value>Paletten</value>
-  </data>
-  <data name="tabPageInterlayer.Text" xml:space="preserve">
-    <value>Zwischenlagen</value>
-  </data>
-  <data name="tabPageTruck.Text" xml:space="preserve">
-    <value>LKW</value>
-  </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Bearbeiten Sie Datenbank &amp; importieren Sie Elemente im Projekt...</value>
   </data>
-  <data name="tabPagePallet.ToolTipText" xml:space="preserve">
-    <value>Paletten</value>
+  <data name="bnClose.Text" xml:space="preserve">
+    <value>In der Nähe</value>
   </data>
   <data name="bnImport.Text" xml:space="preserve">
     <value>Import</value>
   </data>
-  <data name="tabPagePalletFilm.Text" xml:space="preserve">
-    <value>Paletten-Filme</value>
+  <data name="tabPageBox.Text" xml:space="preserve">
+    <value>Schachteln</value>
   </data>
   <data name="tabPageBundle.Text" xml:space="preserve">
     <value>Bundles</value>
@@ -276,17 +264,29 @@
   <data name="tabPageCase.Text" xml:space="preserve">
     <value>Umverpackungen</value>
   </data>
-  <data name="tabPagePalletCorner.Text" xml:space="preserve">
-    <value>Paletten-Ecken</value>
+  <data name="tabPageCylinder.Text" xml:space="preserve">
+    <value>Zylinder</value>
+  </data>
+  <data name="tabPageInterlayer.Text" xml:space="preserve">
+    <value>Zwischenlagen</value>
+  </data>
+  <data name="tabPagePallet.Text" xml:space="preserve">
+    <value>Paletten</value>
+  </data>
+  <data name="tabPagePallet.ToolTipText" xml:space="preserve">
+    <value>Paletten</value>
   </data>
   <data name="tabPagePalletCap.Text" xml:space="preserve">
     <value>Paletten-Kappen</value>
   </data>
-  <data name="tabPageCylinder.Text" xml:space="preserve">
-    <value>Zylinder</value>
+  <data name="tabPagePalletCorner.Text" xml:space="preserve">
+    <value>Paletten-Ecken</value>
   </data>
-  <data name="tabPageBox.Text" xml:space="preserve">
-    <value>Schachteln</value>
+  <data name="tabPagePalletFilm.Text" xml:space="preserve">
+    <value>Paletten-Filme</value>
+  </data>
+  <data name="tabPageTruck.Text" xml:space="preserve">
+    <value>LKW</value>
   </data>
   <data name="toolStripBExcel.Text" xml:space="preserve">
     <value>Import aus Excel-Datei...</value>

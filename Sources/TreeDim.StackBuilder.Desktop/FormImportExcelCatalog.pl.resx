@@ -117,32 +117,32 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="lbExcelFilePath.Text" xml:space="preserve">
-    <value>Ścieżka katalogu programu Excel</value>
-  </data>
-  <data name="bnStop.Text" xml:space="preserve">
-    <value>Przystanek</value>
-  </data>
-  <data name="lbExcelFileTemplate.Text" xml:space="preserve">
-    <value>Pobierz pusty programu Excel plik szablonu-&gt;</value>
-  </data>
-  <data name="bnDownload.Text" xml:space="preserve">
-    <value>Pobierz</value>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Importuj katalog programu Excel do bazy danych...</value>
   </data>
   <data name="bnCancel.Text" xml:space="preserve">
     <value>Anuluj</value>
   </data>
+  <data name="bnDownload.Text" xml:space="preserve">
+    <value>Pobierz</value>
+  </data>
   <data name="bnImport.Text" xml:space="preserve">
     <value>Importu</value>
+  </data>
+  <data name="bnStop.Text" xml:space="preserve">
+    <value>Przystanek</value>
   </data>
   <data name="chkbOverwrite.Text" xml:space="preserve">
     <value>Zastąpienie istniejących elementów</value>
   </data>
+  <data name="lbExcelFilePath.Text" xml:space="preserve">
+    <value>Ścieżka katalogu programu Excel</value>
+  </data>
+  <data name="lbExcelFileTemplate.Text" xml:space="preserve">
+    <value>Pobierz pusty programu Excel plik szablonu-&gt;</value>
+  </data>
   <data name="statusLabel.Text" xml:space="preserve">
     <value>statusLabel</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Importuj katalog programu Excel do bazy danych...</value>
   </data>
   <data name="statusStrip1.Text" xml:space="preserve">
     <value>statusStrip</value>

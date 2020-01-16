@@ -117,67 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="btClose.Text" xml:space="preserve">
-    <value>Sluiten</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="chkVerticalOrientationOnly.Size" type="System.Drawing.Size, System.Drawing">
-    <value>209, 17</value>
-  </data>
-  <data name="chkVerticalOrientationOnly.Text" xml:space="preserve">
-    <value>Alleen toestaan verticaal vak oriëntatie</value>
-  </data>
-  <data name="lbNumber.Size" type="System.Drawing.Size, System.Drawing">
-    <value>116, 13</value>
-  </data>
-  <data name="lbNumber.Text" xml:space="preserve">
-    <value>Aantal dozen per geval</value>
-  </data>
-  <data name="lbBoxDimensions.Size" type="System.Drawing.Size, System.Drawing">
-    <value>86, 13</value>
-  </data>
-  <data name="lbBoxDimensions.Text" xml:space="preserve">
-    <value>(vak afmetingen)</value>
-  </data>
-  <data name="lbBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>26, 13</value>
-  </data>
-  <data name="lbBox.Text" xml:space="preserve">
-    <value>Vak</value>
-  </data>
-  <data name="groupBox.Text" xml:space="preserve">
-    <value>Box (inwendig product)</value>
-  </data>
-  <data name="uCtrlPackDimensionsMax.Text" xml:space="preserve">
-    <value>Max. Pack afmetingen</value>
-  </data>
   <assembly alias="Sharp3D.Math" name="Sharp3D.Math, Version=1.0.3.0, Culture=neutral, PublicKeyToken=null" />
-  <data name="uCtrlPackDimensionsMax.Value" type="Sharp3D.Math.Core.Vector3D, Sharp3D.Math">
-    <value>(0, 0, 0)</value>
-  </data>
-  <data name="uCtrlPackDimensionsMin.Text" xml:space="preserve">
-    <value>Min. pack afmetingen</value>
-  </data>
-  <data name="uCtrlPackDimensionsMin.Value" type="Sharp3D.Math.Core.Vector3D, Sharp3D.Math">
-    <value>(0, 0, 0)</value>
-  </data>
-  <data name="btSetMaximum.Text" xml:space="preserve">
-    <value>Maximum instellen</value>
-  </data>
-  <data name="btSetMinimum.Text" xml:space="preserve">
-    <value>Stel minimale</value>
-  </data>
-  <data name="gbCase.Text" xml:space="preserve">
-    <value>Pack beperkingen</value>
-  </data>
-  <data name="uCtrlPalletHeight.Text" xml:space="preserve">
-    <value>Maximale pallet hoogte</value>
-  </data>
-  <data name="lbPalletDimensions.Text" xml:space="preserve">
-    <value>(afmetingen)</value>
-  </data>
-  <data name="btOptimize.Text" xml:space="preserve">
-    <value>Optimaliseren</value>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Optimaliseren zaak afmetingen...</value>
   </data>
   <data name="btAddCasePalletAnalysis.Text" xml:space="preserve">
     <value>Zaak/pallet analyse toevoegen</value>
@@ -185,37 +128,22 @@
   <data name="btAddPackPalletAnalysis.Text" xml:space="preserve">
     <value>Pack/pallet analyse toevoegen</value>
   </data>
-  <data name="uCtrlTrayHeight.Text" xml:space="preserve">
-    <value>Hoogte van de lade</value>
+  <data name="btClose.Text" xml:space="preserve">
+    <value>Sluiten</value>
   </data>
-  <data name="lbWrapperColor.Text" xml:space="preserve">
+  <data name="btOptimize.Text" xml:space="preserve">
+    <value>Optimaliseren</value>
+  </data>
+  <data name="btSetMaximum.Text" xml:space="preserve">
+    <value>Maximum instellen</value>
+  </data>
+  <data name="btSetMinimum.Text" xml:space="preserve">
+    <value>Stel minimale</value>
+  </data>
+  <data name="cbColor.Items" xml:space="preserve">
     <value>Kleur</value>
   </data>
   <data name="cbColor.Items1" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items2" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items3" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items4" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items5" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items6" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items7" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items8" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="cbColor.Items9" xml:space="preserve">
     <value>Kleur</value>
   </data>
   <data name="cbColor.Items10" xml:space="preserve">
@@ -248,6 +176,9 @@
   <data name="cbColor.Items19" xml:space="preserve">
     <value>Kleur</value>
   </data>
+  <data name="cbColor.Items2" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
   <data name="cbColor.Items20" xml:space="preserve">
     <value>Kleur</value>
   </data>
@@ -276,6 +207,9 @@
     <value>Kleur</value>
   </data>
   <data name="cbColor.Items29" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items3" xml:space="preserve">
     <value>Kleur</value>
   </data>
   <data name="cbColor.Items30" xml:space="preserve">
@@ -308,6 +242,9 @@
   <data name="cbColor.Items39" xml:space="preserve">
     <value>Kleur</value>
   </data>
+  <data name="cbColor.Items4" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
   <data name="cbColor.Items40" xml:space="preserve">
     <value>Kleur</value>
   </data>
@@ -326,6 +263,21 @@
   <data name="cbColor.Items45" xml:space="preserve">
     <value>Kleur</value>
   </data>
+  <data name="cbColor.Items5" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items6" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items7" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items8" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbColor.Items9" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
   <data name="cbWrapperType.Items" xml:space="preserve">
     <value>Kartonnen</value>
   </data>
@@ -338,40 +290,88 @@
   <data name="cbWrapperType.Items3" xml:space="preserve">
     <value>Polyethyleen</value>
   </data>
-  <data name="uCtrlSurfacicMass.Text" xml:space="preserve">
-    <value>Surfacic massa</value>
+  <data name="chkVerticalOrientationOnly.Size" type="System.Drawing.Size, System.Drawing">
+    <value>209, 17</value>
   </data>
-  <data name="uCtrlWallThickness.Text" xml:space="preserve">
-    <value>Wanddikte</value>
+  <data name="chkVerticalOrientationOnly.Text" xml:space="preserve">
+    <value>Alleen toestaan verticaal vak oriëntatie</value>
   </data>
-  <data name="uCtrlNoWalls.Text" xml:space="preserve">
-    <value>Aantal muren</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Optimaliseren zaak afmetingen...</value>
-  </data>
-  <data name="uCtrlOverhang.Text" xml:space="preserve">
-    <value>Overhang</value>
-  </data>
-  <data name="toolStripStatusLabelDef.Text" xml:space="preserve">
-    <value>toolStripStatusLabelDef</value>
-  </data>
-  <data name="statusStripDef.Text" xml:space="preserve">
-    <value>statusStripDef</value>
-  </data>
-  <data name="lbPallet.Text" xml:space="preserve">
-    <value>Pallet</value>
-  </data>
-  <data name="cbColor.Items" xml:space="preserve">
-    <value>Kleur</value>
-  </data>
-  <data name="label1.Text" xml:space="preserve">
-    <value>Wrapper type</value>
+  <data name="gbCase.Text" xml:space="preserve">
+    <value>Pack beperkingen</value>
   </data>
   <data name="gbPallet.Text" xml:space="preserve">
     <value>Pallet</value>
   </data>
   <data name="gbWrapper.Text" xml:space="preserve">
     <value>Wrapper</value>
+  </data>
+  <data name="groupBox.Text" xml:space="preserve">
+    <value>Box (inwendig product)</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Wrapper type</value>
+  </data>
+  <data name="lbBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>26, 13</value>
+  </data>
+  <data name="lbBox.Text" xml:space="preserve">
+    <value>Vak</value>
+  </data>
+  <data name="lbBoxDimensions.Size" type="System.Drawing.Size, System.Drawing">
+    <value>86, 13</value>
+  </data>
+  <data name="lbBoxDimensions.Text" xml:space="preserve">
+    <value>(vak afmetingen)</value>
+  </data>
+  <data name="lbNumber.Size" type="System.Drawing.Size, System.Drawing">
+    <value>116, 13</value>
+  </data>
+  <data name="lbNumber.Text" xml:space="preserve">
+    <value>Aantal dozen per geval</value>
+  </data>
+  <data name="lbPallet.Text" xml:space="preserve">
+    <value>Pallet</value>
+  </data>
+  <data name="lbPalletDimensions.Text" xml:space="preserve">
+    <value>(afmetingen)</value>
+  </data>
+  <data name="lbWrapperColor.Text" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="statusStripDef.Text" xml:space="preserve">
+    <value>statusStripDef</value>
+  </data>
+  <data name="toolStripStatusLabelDef.Text" xml:space="preserve">
+    <value>toolStripStatusLabelDef</value>
+  </data>
+  <data name="uCtrlNoWalls.Text" xml:space="preserve">
+    <value>Aantal muren</value>
+  </data>
+  <data name="uCtrlOverhang.Text" xml:space="preserve">
+    <value>Overhang</value>
+  </data>
+  <data name="uCtrlPackDimensionsMax.Text" xml:space="preserve">
+    <value>Max. Pack afmetingen</value>
+  </data>
+  <data name="uCtrlPackDimensionsMax.Value" type="Sharp3D.Math.Core.Vector3D, Sharp3D.Math">
+    <value>(0, 0, 0)</value>
+  </data>
+  <data name="uCtrlPackDimensionsMin.Text" xml:space="preserve">
+    <value>Min. pack afmetingen</value>
+  </data>
+  <data name="uCtrlPackDimensionsMin.Value" type="Sharp3D.Math.Core.Vector3D, Sharp3D.Math">
+    <value>(0, 0, 0)</value>
+  </data>
+  <data name="uCtrlPalletHeight.Text" xml:space="preserve">
+    <value>Maximale pallet hoogte</value>
+  </data>
+  <data name="uCtrlSurfacicMass.Text" xml:space="preserve">
+    <value>Surfacic massa</value>
+  </data>
+  <data name="uCtrlTrayHeight.Text" xml:space="preserve">
+    <value>Hoogte van de lade</value>
+  </data>
+  <data name="uCtrlWallThickness.Text" xml:space="preserve">
+    <value>Wanddikte</value>
   </data>
 </root>

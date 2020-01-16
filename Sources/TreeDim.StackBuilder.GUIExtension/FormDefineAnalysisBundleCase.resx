@@ -118,327 +118,12 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="uCtrlFlatWeight.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 43</value>
-  </data>
-  <data name="uCtrlFlatWeight.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>100, 20</value>
-  </data>
-  <data name="uCtrlFlatWeight.Size" type="System.Drawing.Size, System.Drawing">
-    <value>223, 20</value>
-  </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="uCtrlFlatWeight.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
-  </data>
-  <data name="uCtrlFlatWeight.Text" xml:space="preserve">
-    <value>Flat weight</value>
-  </data>
-  <data name="&gt;&gt;uCtrlFlatWeight.Name" xml:space="preserve">
-    <value>uCtrlFlatWeight</value>
-  </data>
-  <data name="&gt;&gt;uCtrlFlatWeight.Type" xml:space="preserve">
-    <value>treeDiM.Basics.UCtrlDouble, treeDiM.Basics, Version=3.0.0.92, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;uCtrlFlatWeight.Parent" xml:space="preserve">
-    <value>gbFlatDim</value>
-  </data>
-  <data name="&gt;&gt;uCtrlFlatWeight.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="uCtrlFlatDimensions.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 15</value>
-  </data>
-  <data name="uCtrlFlatDimensions.Size" type="System.Drawing.Size, System.Drawing">
-    <value>350, 20</value>
-  </data>
-  <data name="uCtrlFlatDimensions.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
-  </data>
-  <data name="uCtrlFlatDimensions.Text" xml:space="preserve">
-    <value>Flat dimensions</value>
-  </data>
   <assembly alias="Sharp3D.Math" name="Sharp3D.Math, Version=1.0.3.0, Culture=neutral, PublicKeyToken=null" />
-  <data name="uCtrlFlatDimensions.Value" type="Sharp3D.Math.Core.Vector3D, Sharp3D.Math">
-    <value>(0, 0, 0)</value>
-  </data>
-  <data name="&gt;&gt;uCtrlFlatDimensions.Name" xml:space="preserve">
-    <value>uCtrlFlatDimensions</value>
-  </data>
-  <data name="&gt;&gt;uCtrlFlatDimensions.Type" xml:space="preserve">
-    <value>treeDiM.Basics.UCtrlTriDouble, treeDiM.Basics, Version=3.0.0.92, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;uCtrlFlatDimensions.Parent" xml:space="preserve">
-    <value>gbFlatDim</value>
-  </data>
-  <data name="&gt;&gt;uCtrlFlatDimensions.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="nudNumberOfFlats.Location" type="System.Drawing.Point, System.Drawing">
-    <value>461, 43</value>
-  </data>
-  <data name="nudNumberOfFlats.Size" type="System.Drawing.Size, System.Drawing">
-    <value>57, 20</value>
-  </data>
-  <data name="nudNumberOfFlats.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;nudNumberOfFlats.Name" xml:space="preserve">
-    <value>nudNumberOfFlats</value>
-  </data>
-  <data name="&gt;&gt;nudNumberOfFlats.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;nudNumberOfFlats.Parent" xml:space="preserve">
-    <value>gbFlatDim</value>
-  </data>
-  <data name="&gt;&gt;nudNumberOfFlats.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="lbNumberOfFlats.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lbNumberOfFlats.Location" type="System.Drawing.Point, System.Drawing">
-    <value>379, 47</value>
-  </data>
-  <data name="lbNumberOfFlats.Size" type="System.Drawing.Size, System.Drawing">
-    <value>78, 13</value>
-  </data>
-  <data name="lbNumberOfFlats.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="lbNumberOfFlats.Text" xml:space="preserve">
-    <value>Number of flats</value>
-  </data>
-  <data name="&gt;&gt;lbNumberOfFlats.Name" xml:space="preserve">
-    <value>lbNumberOfFlats</value>
-  </data>
-  <data name="&gt;&gt;lbNumberOfFlats.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbNumberOfFlats.Parent" xml:space="preserve">
-    <value>gbFlatDim</value>
-  </data>
-  <data name="&gt;&gt;lbNumberOfFlats.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="gbFlatDim.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 5</value>
-  </data>
-  <data name="gbFlatDim.Size" type="System.Drawing.Size, System.Drawing">
-    <value>527, 68</value>
-  </data>
-  <data name="gbFlatDim.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="gbFlatDim.Text" xml:space="preserve">
-    <value>Bundle</value>
-  </data>
-  <data name="&gt;&gt;gbFlatDim.Name" xml:space="preserve">
-    <value>gbFlatDim</value>
-  </data>
-  <data name="&gt;&gt;gbFlatDim.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;gbFlatDim.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;gbFlatDim.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="uCtrlCaseWeight.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 43</value>
-  </data>
-  <data name="uCtrlCaseWeight.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>100, 20</value>
-  </data>
-  <data name="uCtrlCaseWeight.Size" type="System.Drawing.Size, System.Drawing">
-    <value>223, 20</value>
-  </data>
-  <data name="uCtrlCaseWeight.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
-  </data>
-  <data name="uCtrlCaseWeight.Text" xml:space="preserve">
-    <value>Case weight</value>
-  </data>
-  <data name="&gt;&gt;uCtrlCaseWeight.Name" xml:space="preserve">
-    <value>uCtrlCaseWeight</value>
-  </data>
-  <data name="&gt;&gt;uCtrlCaseWeight.Type" xml:space="preserve">
-    <value>treeDiM.Basics.UCtrlDouble, treeDiM.Basics, Version=3.0.0.92, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;uCtrlCaseWeight.Parent" xml:space="preserve">
-    <value>gbCaseDim</value>
-  </data>
-  <data name="&gt;&gt;uCtrlCaseWeight.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="uCtrlCaseDimensions.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 16</value>
-  </data>
-  <data name="uCtrlCaseDimensions.Size" type="System.Drawing.Size, System.Drawing">
-    <value>350, 20</value>
-  </data>
-  <data name="uCtrlCaseDimensions.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="uCtrlCaseDimensions.Text" xml:space="preserve">
-    <value>Case dimensions</value>
-  </data>
-  <data name="uCtrlCaseDimensions.Value" type="Sharp3D.Math.Core.Vector3D, Sharp3D.Math">
-    <value>(0, 0, 0)</value>
-  </data>
-  <data name="&gt;&gt;uCtrlCaseDimensions.Name" xml:space="preserve">
-    <value>uCtrlCaseDimensions</value>
-  </data>
-  <data name="&gt;&gt;uCtrlCaseDimensions.Type" xml:space="preserve">
-    <value>treeDiM.Basics.UCtrlTriDouble, treeDiM.Basics, Version=3.0.0.98, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;uCtrlCaseDimensions.Parent" xml:space="preserve">
-    <value>gbCaseDim</value>
-  </data>
-  <data name="&gt;&gt;uCtrlCaseDimensions.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="gbCaseDim.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 77</value>
-  </data>
-  <data name="gbCaseDim.Size" type="System.Drawing.Size, System.Drawing">
-    <value>527, 74</value>
-  </data>
-  <data name="gbCaseDim.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="gbCaseDim.Text" xml:space="preserve">
-    <value>Case</value>
-  </data>
-  <data name="&gt;&gt;gbCaseDim.Name" xml:space="preserve">
-    <value>gbCaseDim</value>
-  </data>
-  <data name="&gt;&gt;gbCaseDim.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;gbCaseDim.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;gbCaseDim.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="bnCancel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
-  <data name="bnCancel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>547, 9</value>
-  </data>
-  <data name="bnCancel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>82, 23</value>
-  </data>
-  <data name="bnCancel.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="bnCancel.Text" xml:space="preserve">
-    <value>Cancel</value>
-  </data>
-  <data name="&gt;&gt;bnCancel.Name" xml:space="preserve">
-    <value>bnCancel</value>
-  </data>
-  <data name="&gt;&gt;bnCancel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;bnCancel.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;bnCancel.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
   <metadata name="statusStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>145, 17</value>
   </metadata>
-  <data name="statusLabelDef.Size" type="System.Drawing.Size, System.Drawing">
-    <value>84, 17</value>
-  </data>
-  <data name="statusLabelDef.Text" xml:space="preserve">
-    <value>statusLabelDef</value>
-  </data>
-  <data name="statusStrip.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 639</value>
-  </data>
-  <data name="statusStrip.Size" type="System.Drawing.Size, System.Drawing">
-    <value>634, 22</value>
-  </data>
-  <data name="statusStrip.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="statusStrip.Text" xml:space="preserve">
-    <value>statusStrip1</value>
-  </data>
-  <data name="&gt;&gt;statusStrip.Name" xml:space="preserve">
-    <value>statusStrip</value>
-  </data>
-  <data name="&gt;&gt;statusStrip.Type" xml:space="preserve">
-    <value>System.Windows.Forms.StatusStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;statusStrip.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;statusStrip.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="uCtrlLayerList.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left, Right</value>
-  </data>
-  <data name="uCtrlLayerList.AutoScroll" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="uCtrlLayerList.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 157</value>
-  </data>
-  <data name="uCtrlLayerList.Size" type="System.Drawing.Size, System.Drawing">
-    <value>634, 450</value>
-  </data>
-  <data name="uCtrlLayerList.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;uCtrlLayerList.Name" xml:space="preserve">
-    <value>uCtrlLayerList</value>
-  </data>
-  <data name="&gt;&gt;uCtrlLayerList.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Graphics.UCtrlLayerList, treeDiM.StackBuilder.Graphics, Version=3.0.0.92, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;uCtrlLayerList.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;uCtrlLayerList.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="bnNext.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Right</value>
-  </data>
-  <data name="bnNext.Location" type="System.Drawing.Point, System.Drawing">
-    <value>547, 613</value>
-  </data>
-  <data name="bnNext.Size" type="System.Drawing.Size, System.Drawing">
-    <value>82, 23</value>
-  </data>
-  <data name="bnNext.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="bnNext.Text" xml:space="preserve">
-    <value>Next &gt;</value>
-  </data>
-  <data name="&gt;&gt;bnNext.Name" xml:space="preserve">
-    <value>bnNext</value>
-  </data>
-  <data name="&gt;&gt;bnNext.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;bnNext.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;bnNext.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -454,19 +139,334 @@
   <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
     <value>650, 700</value>
   </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>FormDefineAnalysisBundleCase</value>
+  </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Bundle / Case analysis...</value>
   </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="bnCancel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="bnCancel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>547, 9</value>
+  </data>
+  <data name="&gt;&gt;bnCancel.Name" xml:space="preserve">
+    <value>bnCancel</value>
+  </data>
+  <data name="&gt;&gt;bnCancel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="bnCancel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>82, 23</value>
+  </data>
+  <data name="bnCancel.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="bnCancel.Text" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="&gt;&gt;bnCancel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;bnCancel.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="bnNext.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
+  <data name="bnNext.Location" type="System.Drawing.Point, System.Drawing">
+    <value>547, 613</value>
+  </data>
+  <data name="&gt;&gt;bnNext.Name" xml:space="preserve">
+    <value>bnNext</value>
+  </data>
+  <data name="&gt;&gt;bnNext.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="bnNext.Size" type="System.Drawing.Size, System.Drawing">
+    <value>82, 23</value>
+  </data>
+  <data name="bnNext.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="bnNext.Text" xml:space="preserve">
+    <value>Next &gt;</value>
+  </data>
+  <data name="&gt;&gt;bnNext.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;bnNext.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="gbCaseDim.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 77</value>
+  </data>
+  <data name="&gt;&gt;gbCaseDim.Name" xml:space="preserve">
+    <value>gbCaseDim</value>
+  </data>
+  <data name="&gt;&gt;gbCaseDim.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="gbCaseDim.Size" type="System.Drawing.Size, System.Drawing">
+    <value>527, 74</value>
+  </data>
+  <data name="gbCaseDim.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="gbCaseDim.Text" xml:space="preserve">
+    <value>Case</value>
+  </data>
+  <data name="&gt;&gt;gbCaseDim.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;gbCaseDim.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="gbFlatDim.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 5</value>
+  </data>
+  <data name="&gt;&gt;gbFlatDim.Name" xml:space="preserve">
+    <value>gbFlatDim</value>
+  </data>
+  <data name="&gt;&gt;gbFlatDim.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="gbFlatDim.Size" type="System.Drawing.Size, System.Drawing">
+    <value>527, 68</value>
+  </data>
+  <data name="gbFlatDim.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="gbFlatDim.Text" xml:space="preserve">
+    <value>Bundle</value>
+  </data>
+  <data name="&gt;&gt;gbFlatDim.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;gbFlatDim.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="lbNumberOfFlats.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbNumberOfFlats.Location" type="System.Drawing.Point, System.Drawing">
+    <value>379, 47</value>
+  </data>
+  <data name="&gt;&gt;lbNumberOfFlats.Name" xml:space="preserve">
+    <value>lbNumberOfFlats</value>
+  </data>
+  <data name="&gt;&gt;lbNumberOfFlats.Parent" xml:space="preserve">
+    <value>gbFlatDim</value>
+  </data>
+  <data name="lbNumberOfFlats.Size" type="System.Drawing.Size, System.Drawing">
+    <value>78, 13</value>
+  </data>
+  <data name="lbNumberOfFlats.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="lbNumberOfFlats.Text" xml:space="preserve">
+    <value>Number of flats</value>
+  </data>
+  <data name="&gt;&gt;lbNumberOfFlats.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbNumberOfFlats.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="nudNumberOfFlats.Location" type="System.Drawing.Point, System.Drawing">
+    <value>461, 43</value>
+  </data>
+  <data name="&gt;&gt;nudNumberOfFlats.Name" xml:space="preserve">
+    <value>nudNumberOfFlats</value>
+  </data>
+  <data name="&gt;&gt;nudNumberOfFlats.Parent" xml:space="preserve">
+    <value>gbFlatDim</value>
+  </data>
+  <data name="nudNumberOfFlats.Size" type="System.Drawing.Size, System.Drawing">
+    <value>57, 20</value>
+  </data>
+  <data name="nudNumberOfFlats.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;nudNumberOfFlats.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;nudNumberOfFlats.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
   <data name="&gt;&gt;statusLabelDef.Name" xml:space="preserve">
+    <value>statusLabelDef</value>
+  </data>
+  <data name="statusLabelDef.Size" type="System.Drawing.Size, System.Drawing">
+    <value>84, 17</value>
+  </data>
+  <data name="statusLabelDef.Text" xml:space="preserve">
     <value>statusLabelDef</value>
   </data>
   <data name="&gt;&gt;statusLabelDef.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>FormDefineAnalysisBundleCase</value>
+  <data name="statusStrip.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 639</value>
   </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;statusStrip.Name" xml:space="preserve">
+    <value>statusStrip</value>
+  </data>
+  <data name="&gt;&gt;statusStrip.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="statusStrip.Size" type="System.Drawing.Size, System.Drawing">
+    <value>634, 22</value>
+  </data>
+  <data name="statusStrip.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="statusStrip.Text" xml:space="preserve">
+    <value>statusStrip1</value>
+  </data>
+  <data name="&gt;&gt;statusStrip.Type" xml:space="preserve">
+    <value>System.Windows.Forms.StatusStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;statusStrip.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="uCtrlCaseDimensions.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 16</value>
+  </data>
+  <data name="&gt;&gt;uCtrlCaseDimensions.Name" xml:space="preserve">
+    <value>uCtrlCaseDimensions</value>
+  </data>
+  <data name="&gt;&gt;uCtrlCaseDimensions.Parent" xml:space="preserve">
+    <value>gbCaseDim</value>
+  </data>
+  <data name="uCtrlCaseDimensions.Size" type="System.Drawing.Size, System.Drawing">
+    <value>350, 20</value>
+  </data>
+  <data name="uCtrlCaseDimensions.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="uCtrlCaseDimensions.Text" xml:space="preserve">
+    <value>Case dimensions</value>
+  </data>
+  <data name="&gt;&gt;uCtrlCaseDimensions.Type" xml:space="preserve">
+    <value>treeDiM.Basics.UCtrlTriDouble, treeDiM.Basics, Version=3.0.0.98, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="uCtrlCaseDimensions.Value" type="Sharp3D.Math.Core.Vector3D, Sharp3D.Math">
+    <value>(0, 0, 0)</value>
+  </data>
+  <data name="&gt;&gt;uCtrlCaseDimensions.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="uCtrlCaseWeight.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 43</value>
+  </data>
+  <data name="uCtrlCaseWeight.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>100, 20</value>
+  </data>
+  <data name="&gt;&gt;uCtrlCaseWeight.Name" xml:space="preserve">
+    <value>uCtrlCaseWeight</value>
+  </data>
+  <data name="&gt;&gt;uCtrlCaseWeight.Parent" xml:space="preserve">
+    <value>gbCaseDim</value>
+  </data>
+  <data name="uCtrlCaseWeight.Size" type="System.Drawing.Size, System.Drawing">
+    <value>223, 20</value>
+  </data>
+  <data name="uCtrlCaseWeight.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="uCtrlCaseWeight.Text" xml:space="preserve">
+    <value>Case weight</value>
+  </data>
+  <data name="&gt;&gt;uCtrlCaseWeight.Type" xml:space="preserve">
+    <value>treeDiM.Basics.UCtrlDouble, treeDiM.Basics, Version=3.0.0.92, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;uCtrlCaseWeight.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="uCtrlFlatDimensions.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 15</value>
+  </data>
+  <data name="&gt;&gt;uCtrlFlatDimensions.Name" xml:space="preserve">
+    <value>uCtrlFlatDimensions</value>
+  </data>
+  <data name="&gt;&gt;uCtrlFlatDimensions.Parent" xml:space="preserve">
+    <value>gbFlatDim</value>
+  </data>
+  <data name="uCtrlFlatDimensions.Size" type="System.Drawing.Size, System.Drawing">
+    <value>350, 20</value>
+  </data>
+  <data name="uCtrlFlatDimensions.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="uCtrlFlatDimensions.Text" xml:space="preserve">
+    <value>Flat dimensions</value>
+  </data>
+  <data name="&gt;&gt;uCtrlFlatDimensions.Type" xml:space="preserve">
+    <value>treeDiM.Basics.UCtrlTriDouble, treeDiM.Basics, Version=3.0.0.92, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="uCtrlFlatDimensions.Value" type="Sharp3D.Math.Core.Vector3D, Sharp3D.Math">
+    <value>(0, 0, 0)</value>
+  </data>
+  <data name="&gt;&gt;uCtrlFlatDimensions.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="uCtrlFlatWeight.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 43</value>
+  </data>
+  <data name="uCtrlFlatWeight.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>100, 20</value>
+  </data>
+  <data name="&gt;&gt;uCtrlFlatWeight.Name" xml:space="preserve">
+    <value>uCtrlFlatWeight</value>
+  </data>
+  <data name="&gt;&gt;uCtrlFlatWeight.Parent" xml:space="preserve">
+    <value>gbFlatDim</value>
+  </data>
+  <data name="uCtrlFlatWeight.Size" type="System.Drawing.Size, System.Drawing">
+    <value>223, 20</value>
+  </data>
+  <data name="uCtrlFlatWeight.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="uCtrlFlatWeight.Text" xml:space="preserve">
+    <value>Flat weight</value>
+  </data>
+  <data name="&gt;&gt;uCtrlFlatWeight.Type" xml:space="preserve">
+    <value>treeDiM.Basics.UCtrlDouble, treeDiM.Basics, Version=3.0.0.92, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;uCtrlFlatWeight.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="uCtrlLayerList.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="uCtrlLayerList.AutoScroll" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="uCtrlLayerList.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 157</value>
+  </data>
+  <data name="&gt;&gt;uCtrlLayerList.Name" xml:space="preserve">
+    <value>uCtrlLayerList</value>
+  </data>
+  <data name="&gt;&gt;uCtrlLayerList.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="uCtrlLayerList.Size" type="System.Drawing.Size, System.Drawing">
+    <value>634, 450</value>
+  </data>
+  <data name="uCtrlLayerList.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;uCtrlLayerList.Type" xml:space="preserve">
+    <value>treeDiM.StackBuilder.Graphics.UCtrlLayerList, treeDiM.StackBuilder.Graphics, Version=3.0.0.92, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;uCtrlLayerList.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
 </root>

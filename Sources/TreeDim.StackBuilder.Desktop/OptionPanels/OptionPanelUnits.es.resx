@@ -118,25 +118,25 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="lbUnitSystem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>64, 13</value>
-  </data>
-  <data name="lbUnitSystem.Text" xml:space="preserve">
-    <value>Unit system </value>
-  </data>
-  <data name="lbLanguage.Text" xml:space="preserve">
-    <value>Idioma</value>
+  <data name="cbUnitSystem.Items" xml:space="preserve">
+    <value>Métrico 1 (kg/m/l)</value>
   </data>
   <data name="cbUnitSystem.Items1" xml:space="preserve">
     <value>Métrica 2 (cm/kg/l)</value>
-  </data>
-  <data name="cbUnitSystem.Items" xml:space="preserve">
-    <value>Métrico 1 (kg/m/l)</value>
   </data>
   <data name="cbUnitSystem.Items2" xml:space="preserve">
     <value>UK (en/lb/gal)</value>
   </data>
   <data name="cbUnitSystem.Items3" xml:space="preserve">
     <value>US (en/lb/gal)</value>
+  </data>
+  <data name="lbLanguage.Text" xml:space="preserve">
+    <value>Idioma</value>
+  </data>
+  <data name="lbUnitSystem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>64, 13</value>
+  </data>
+  <data name="lbUnitSystem.Text" xml:space="preserve">
+    <value>Unit system </value>
   </data>
 </root>

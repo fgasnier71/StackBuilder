@@ -139,8 +139,8 @@
             // 
             // gridContent
             // 
-            this.gridContent.EnableSort = true;
             resources.ApplyResources(this.gridContent, "gridContent");
+            this.gridContent.EnableSort = true;
             this.gridContent.Name = "gridContent";
             this.gridContent.OptimizeMode = SourceGrid.CellOptimizeMode.ForRows;
             this.gridContent.SelectionMode = SourceGrid.GridSelectionMode.Cell;
@@ -235,7 +235,7 @@
             this.statusLabel.Name = "statusLabel";
             resources.ApplyResources(this.statusLabel, "statusLabel");
             // 
-            // timer
+            // _timer
             // 
             this._timer.Interval = 1000;
             this._timer.Tick += new System.EventHandler(this.OnTimerTick);

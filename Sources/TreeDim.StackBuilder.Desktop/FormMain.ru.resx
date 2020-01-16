@@ -117,44 +117,17 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="newToolStripMenuItem.Text" xml:space="preserve">
-    <value>Новые функции</value>
-  </data>
-  <data name="newToolStripMenuItem.ToolTipText" xml:space="preserve">
-    <value>Создать новый файл</value>
-  </data>
-  <data name="openToolStripMenuItem.Text" xml:space="preserve">
-    <value>Открытые</value>
-  </data>
-  <data name="openToolStripMenuItem.ToolTipText" xml:space="preserve">
-    <value>Открыть файл</value>
-  </data>
-  <data name="toolStripMenuItemSave.Text" xml:space="preserve">
-    <value>Сохранить</value>
-  </data>
-  <data name="toolStripMenuItemSave.ToolTipText" xml:space="preserve">
-    <value>Сохранить файл</value>
-  </data>
-  <data name="toolStripMenuItemSaveAs.Text" xml:space="preserve">
-    <value>Сохранить как...</value>
-  </data>
-  <data name="toolStripMenuItemSaveAs.ToolTipText" xml:space="preserve">
-    <value>Сохранить как...</value>
-  </data>
-  <data name="toolStripMenuItemSaveAll.Text" xml:space="preserve">
-    <value>Сохранить все</value>
-  </data>
-  <data name="toolStripMenuItemClose.Text" xml:space="preserve">
-    <value>Закрыть</value>
-  </data>
-  <data name="toolStripMenuItemClose.ToolTipText" xml:space="preserve">
-    <value>Закрыть активный документ</value>
+  <data name="$this.Text" xml:space="preserve">
+    <value>StackBuilder</value>
   </data>
   <data name="disconnectToolStripMenuItem.Text" xml:space="preserve">
     <value>Отключите</value>
   </data>
-  <data name="mnuFileMRU.Text" xml:space="preserve">
-    <value>Последние файлы...</value>
+  <data name="donateToolStripMenuItem.Text" xml:space="preserve">
+    <value>Пожертвование!</value>
+  </data>
+  <data name="editPaletSolutionsDB.Text" xml:space="preserve">
+    <value>Просмотр/редактирование базы данных...</value>
   </data>
   <data name="exitToolStripMenuItem.Text" xml:space="preserve">
     <value>Выход</value>
@@ -165,53 +138,98 @@
   <data name="fileToolStripMenuItem.Text" xml:space="preserve">
     <value>Файл</value>
   </data>
-  <data name="editPaletSolutionsDB.Text" xml:space="preserve">
-    <value>Просмотр/редактирование базы данных...</value>
+  <data name="helpToolStripMenuItem.Text" xml:space="preserve">
+    <value>Справка</value>
   </data>
-  <data name="toolStripMenuItemBox.Text" xml:space="preserve">
-    <value>Новое поле</value>
+  <data name="helpToolStripMenuItemAbout.Text" xml:space="preserve">
+    <value>О StackBuilder...</value>
   </data>
-  <data name="toolStripMenuItemCase.Text" xml:space="preserve">
-    <value>Новый случай</value>
+  <data name="helpToolStripMenuItemHelp.Text" xml:space="preserve">
+    <value>Справка</value>
   </data>
-  <data name="toolStripMenuItemPack.Text" xml:space="preserve">
-    <value>Новый пакет</value>
+  <data name="menuStripMain.Text" xml:space="preserve">
+    <value>menuStripMain</value>
   </data>
-  <data name="toolStripMenuItemBundle.Text" xml:space="preserve">
-    <value>Новый пакет</value>
+  <data name="mnuFileMRU.Text" xml:space="preserve">
+    <value>Последние файлы...</value>
   </data>
-  <data name="toolStripMenuItemCylinder.Text" xml:space="preserve">
-    <value>Новый цилиндр</value>
+  <data name="newToolStripMenuItem.Text" xml:space="preserve">
+    <value>Новые функции</value>
   </data>
-  <data name="toolStripMenuItemPallet.Text" xml:space="preserve">
-    <value>Новый поддон</value>
+  <data name="newToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>Создать новый файл</value>
   </data>
-  <data name="toolStripMenuItemTruck.Text" xml:space="preserve">
-    <value>Новый грузовик</value>
+  <data name="openFileDialogSB.Filter" xml:space="preserve">
+    <value>StackBuilder файлы (*.stb) | * .stb | Все файлы (*. *) | *. *</value>
   </data>
-  <data name="toolStripMenuItemInterlayer.Text" xml:space="preserve">
-    <value>Новые прослойки</value>
+  <data name="openFileDialogSB.Title" xml:space="preserve">
+    <value>Открыть файл...</value>
   </data>
-  <data name="toolStripMenuItemPalletCorners.Text" xml:space="preserve">
-    <value>Новый углах паллета</value>
+  <data name="openToolStripMenuItem.Text" xml:space="preserve">
+    <value>Открытые</value>
   </data>
-  <data name="toolStripMenuItemPalletCap.Text" xml:space="preserve">
-    <value>Новая крышка поддона</value>
+  <data name="openToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>Открыть файл</value>
   </data>
-  <data name="toolStripMenuItemPalletFilm.Text" xml:space="preserve">
-    <value>Новый фильм поддон</value>
+  <data name="saveFileDialogExportXML.Filter" xml:space="preserve">
+    <value>Обмен язык разметки (*.xml) | * .xml</value>
   </data>
-  <data name="toolStripMenuItemNewAnalysisCasePallet.Text" xml:space="preserve">
-    <value>Новый анализ дела в паллете</value>
+  <data name="saveFileDialogSB.Filter" xml:space="preserve">
+    <value>StackBuilder файлы (*.stb) | * .stb</value>
   </data>
-  <data name="toolStripMenuItemNewAnalysisCylinderPallet.Text" xml:space="preserve">
-    <value>Новый анализ цилиндр/поддон</value>
+  <data name="saveFileDialogSB.Title" xml:space="preserve">
+    <value>Сохраните файл...</value>
   </data>
-  <data name="toolStripMenuItemNewAnalysisBoxCase.Text" xml:space="preserve">
-    <value>Новый анализ Box/случай</value>
+  <data name="saveFileDialogWebGL.Filter" xml:space="preserve">
+    <value>Файл htlm (дописывая) | * .html</value>
   </data>
-  <data name="toolStripMenuItemNewAnalysisCylinderCase.Text" xml:space="preserve">
-    <value>Новый анализ цилиндр/случай</value>
+  <data name="settingsToolStripMenuItem.Text" xml:space="preserve">
+    <value>Параметры...</value>
+  </data>
+  <data name="toolStripButtonBox.Text" xml:space="preserve">
+    <value>Добавить новое поле</value>
+  </data>
+  <data name="toolStripButtonBundle.Text" xml:space="preserve">
+    <value>Добавление нового комплекта</value>
+  </data>
+  <data name="toolStripButtonCase.Text" xml:space="preserve">
+    <value>Добавьте новый случай...</value>
+  </data>
+  <data name="toolStripButtonCylinder.Text" xml:space="preserve">
+    <value>Добавить новый цилиндр</value>
+  </data>
+  <data name="toolStripButtonFileOpen.Text" xml:space="preserve">
+    <value>Открыть файл</value>
+  </data>
+  <data name="toolStripButtonFileOpen.ToolTipText" xml:space="preserve">
+    <value>Открыть файл</value>
+  </data>
+  <data name="toolStripButtonHelp.Text" xml:space="preserve">
+    <value>Справка</value>
+  </data>
+  <data name="toolStripButtonHelp.ToolTipText" xml:space="preserve">
+    <value>Справка</value>
+  </data>
+  <data name="toolStripButtonPack.Text" xml:space="preserve">
+    <value>Добавьте новый пакет...</value>
+  </data>
+  <data name="toolStripButtonPallet.Text" xml:space="preserve">
+    <value>Добавить новый поддон</value>
+  </data>
+  <data name="toolStripButtonPallet.ToolTipText" xml:space="preserve">
+    <value>Добавить новый поддон</value>
+  </data>
+  <data name="toolStripButtonSave.Text" xml:space="preserve">
+    <value>Сохранить файл</value>
+  </data>
+  <data name="toolStripButtonSaveAll.Text" xml:space="preserve">
+    <value>Сохранить все файлы</value>
+  </data>
+  <data name="toolStripButtonSettings.Text" xml:space="preserve">
+    <value>Параметры</value>
+  </data>
+  <data name="toolStripButtonTruck.Text" xml:space="preserve">
+    <value>Добавить новый грузовик</value>
   </data>
   <data name="toolStripMenuItemAnalysisPalletTruck.Text" xml:space="preserve">
     <value>Новый анализ тележка паллета</value>
@@ -225,152 +243,107 @@
   <data name="toolStripMenuItemBestPack.ToolTipText" xml:space="preserve">
     <value>Поиск для оптимального варианта</value>
   </data>
-  <data name="toolStripMIPLMPackLib.Text" xml:space="preserve">
-    <value>Запуск PLMPackLib</value>
+  <data name="toolStripMenuItemBox.Text" xml:space="preserve">
+    <value>Новое поле</value>
   </data>
-  <data name="settingsToolStripMenuItem.Text" xml:space="preserve">
-    <value>Параметры...</value>
+  <data name="toolStripMenuItemBundle.Text" xml:space="preserve">
+    <value>Новый пакет</value>
   </data>
-  <data name="toolStripMenuItemTools.Text" xml:space="preserve">
-    <value>Инструменты</value>
+  <data name="toolStripMenuItemCase.Text" xml:space="preserve">
+    <value>Новый случай</value>
   </data>
-  <data name="toolStripMenuItemHelpStartPage.Text" xml:space="preserve">
-    <value>Показать начальную страницу</value>
+  <data name="toolStripMenuItemClose.Text" xml:space="preserve">
+    <value>Закрыть</value>
   </data>
-  <data name="helpToolStripMenuItemHelp.Text" xml:space="preserve">
-    <value>Справка</value>
+  <data name="toolStripMenuItemClose.ToolTipText" xml:space="preserve">
+    <value>Закрыть активный документ</value>
   </data>
-  <data name="helpToolStripMenuItemAbout.Text" xml:space="preserve">
-    <value>О StackBuilder...</value>
-  </data>
-  <data name="donateToolStripMenuItem.Text" xml:space="preserve">
-    <value>Пожертвование!</value>
-  </data>
-  <data name="helpToolStripMenuItem.Text" xml:space="preserve">
-    <value>Справка</value>
-  </data>
-  <data name="menuStripMain.Text" xml:space="preserve">
-    <value>menuStripMain</value>
-  </data>
-  <data name="toolStripMIUserDisconnect.Text" xml:space="preserve">
-    <value>Отключите</value>
-  </data>
-  <data name="toolStripSBUser.Text" xml:space="preserve">
-    <value>toolStripSplitButton1</value>
-  </data>
-  <data name="toolStripSBUser.ToolTipText" xml:space="preserve">
-    <value>Пользователь</value>
-  </data>
-  <data name="toolStripMenuNewFile.Text" xml:space="preserve">
-    <value>Новые функции...</value>
-  </data>
-  <data name="toolStripSplitButtonNew.Text" xml:space="preserve">
-    <value>Создайте новый файл...</value>
-  </data>
-  <data name="toolStripButtonFileOpen.Text" xml:space="preserve">
-    <value>Открыть файл</value>
-  </data>
-  <data name="toolStripButtonFileOpen.ToolTipText" xml:space="preserve">
-    <value>Открыть файл</value>
-  </data>
-  <data name="toolStripButtonSave.Text" xml:space="preserve">
-    <value>Сохранить файл</value>
-  </data>
-  <data name="toolStripButtonSaveAll.Text" xml:space="preserve">
-    <value>Сохранить все файлы</value>
+  <data name="toolStripMenuItemCylinder.Text" xml:space="preserve">
+    <value>Новый цилиндр</value>
   </data>
   <data name="toolStripMenuItemEditDB.ToolTipText" xml:space="preserve">
     <value>Редактировать поддон решения базы данных</value>
   </data>
-  <data name="toolStripButtonBox.Text" xml:space="preserve">
-    <value>Добавить новое поле</value>
+  <data name="toolStripMenuItemHelpStartPage.Text" xml:space="preserve">
+    <value>Показать начальную страницу</value>
   </data>
-  <data name="toolStripButtonCase.Text" xml:space="preserve">
-    <value>Добавьте новый случай...</value>
+  <data name="toolStripMenuItemInterlayer.Text" xml:space="preserve">
+    <value>Новые прослойки</value>
   </data>
-  <data name="toolStripButtonPack.Text" xml:space="preserve">
-    <value>Добавьте новый пакет...</value>
+  <data name="toolStripMenuItemNewAnalysisBoxCase.Text" xml:space="preserve">
+    <value>Новый анализ Box/случай</value>
   </data>
-  <data name="toolStripButtonBundle.Text" xml:space="preserve">
-    <value>Добавление нового комплекта</value>
+  <data name="toolStripMenuItemNewAnalysisCasePallet.Text" xml:space="preserve">
+    <value>Новый анализ дела в паллете</value>
   </data>
-  <data name="toolStripButtonCylinder.Text" xml:space="preserve">
-    <value>Добавить новый цилиндр</value>
+  <data name="toolStripMenuItemNewAnalysisCylinderCase.Text" xml:space="preserve">
+    <value>Новый анализ цилиндр/случай</value>
   </data>
-  <data name="toolStripButtonPallet.Text" xml:space="preserve">
-    <value>Добавить новый поддон</value>
+  <data name="toolStripMenuItemNewAnalysisCylinderPallet.Text" xml:space="preserve">
+    <value>Новый анализ цилиндр/поддон</value>
   </data>
-  <data name="toolStripButtonPallet.ToolTipText" xml:space="preserve">
-    <value>Добавить новый поддон</value>
+  <data name="toolStripMenuItemPack.Text" xml:space="preserve">
+    <value>Новый пакет</value>
   </data>
-  <data name="toolStripButtonTruck.Text" xml:space="preserve">
-    <value>Добавить новый грузовик</value>
+  <data name="toolStripMenuItemPallet.Text" xml:space="preserve">
+    <value>Новый поддон</value>
   </data>
-  <data name="toolStripMIInterlayer.Text" xml:space="preserve">
-    <value>Прослойка</value>
+  <data name="toolStripMenuItemPalletCap.Text" xml:space="preserve">
+    <value>Новая крышка поддона</value>
   </data>
-  <data name="toolStripMIInterlayer.ToolTipText" xml:space="preserve">
-    <value>Добавление новой прослойки...</value>
+  <data name="toolStripMenuItemPalletCorners.Text" xml:space="preserve">
+    <value>Новый углах паллета</value>
   </data>
-  <data name="toolStripMIPalletCorner.Text" xml:space="preserve">
-    <value>Поддон угол</value>
+  <data name="toolStripMenuItemPalletFilm.Text" xml:space="preserve">
+    <value>Новый фильм поддон</value>
   </data>
-  <data name="toolStripMIPalletCorner.ToolTipText" xml:space="preserve">
-    <value>Добавьте новый поддон углу...</value>
+  <data name="toolStripMenuItemSave.Text" xml:space="preserve">
+    <value>Сохранить</value>
   </data>
-  <data name="toolStripMIPalletCap.Text" xml:space="preserve">
-    <value>Крышка поддона</value>
+  <data name="toolStripMenuItemSave.ToolTipText" xml:space="preserve">
+    <value>Сохранить файл</value>
   </data>
-  <data name="toolStripMIPalletCap.ToolTipText" xml:space="preserve">
-    <value>Добавить новый поддон Кап...</value>
+  <data name="toolStripMenuItemSaveAll.Text" xml:space="preserve">
+    <value>Сохранить все</value>
   </data>
-  <data name="toolStripMIPalletFilm.Text" xml:space="preserve">
-    <value>Паллетные пленки</value>
+  <data name="toolStripMenuItemSaveAs.Text" xml:space="preserve">
+    <value>Сохранить как...</value>
   </data>
-  <data name="toolStripMIPalletFilm.ToolTipText" xml:space="preserve">
-    <value>Добавьте новый поддон фильм...</value>
+  <data name="toolStripMenuItemSaveAs.ToolTipText" xml:space="preserve">
+    <value>Сохранить как...</value>
   </data>
-  <data name="toolStripSBPalletDeco.Text" xml:space="preserve">
-    <value>Создание новой прослойки...</value>
+  <data name="toolStripMenuItemTools.Text" xml:space="preserve">
+    <value>Инструменты</value>
   </data>
-  <data name="toolStripMIAnalysisCasePallet.Text" xml:space="preserve">
-    <value>Дело/поддон</value>
+  <data name="toolStripMenuItemTruck.Text" xml:space="preserve">
+    <value>Новый грузовик</value>
   </data>
-  <data name="toolStripMIAnalysisCylinderPallet.Text" xml:space="preserve">
-    <value>Цилиндр/поддон</value>
-  </data>
-  <data name="toolStripMIAnalysisBundlePallet.Text" xml:space="preserve">
-    <value>Расслоение/поддон</value>
-  </data>
-  <data name="toolStripSBAnalysisPallet.Text" xml:space="preserve">
-    <value>Поддон анализы</value>
+  <data name="toolStripMenuNewFile.Text" xml:space="preserve">
+    <value>Новые функции...</value>
   </data>
   <data name="toolStripMIAnalysisBoxCase.Text" xml:space="preserve">
     <value>Коробки/случай</value>
   </data>
-  <data name="toolStripMIAnalysisCylinderCase.Text" xml:space="preserve">
-    <value>Цилиндр/случай</value>
-  </data>
   <data name="toolStripMIAnalysisBundleCase.Text" xml:space="preserve">
     <value>Расслоение/случай</value>
   </data>
-  <data name="toolStripSBAnalysesCase.Text" xml:space="preserve">
-    <value>Дело анализ</value>
+  <data name="toolStripMIAnalysisBundlePallet.Text" xml:space="preserve">
+    <value>Расслоение/поддон</value>
   </data>
-  <data name="toolStripSBAnalysesCase.ToolTipText" xml:space="preserve">
-    <value>Дело анализ</value>
-  </data>
-  <data name="toolStripMIAnalysisPalletTruck.Text" xml:space="preserve">
-    <value>Тележки гидравлические</value>
+  <data name="toolStripMIAnalysisCasePallet.Text" xml:space="preserve">
+    <value>Дело/поддон</value>
   </data>
   <data name="toolStripMIAnalysisCaseTruck.Text" xml:space="preserve">
     <value>Дело/грузовик</value>
   </data>
-  <data name="toolStripSBAnalysesTruck.Text" xml:space="preserve">
-    <value>Грузовик анализы</value>
+  <data name="toolStripMIAnalysisCylinderCase.Text" xml:space="preserve">
+    <value>Цилиндр/случай</value>
   </data>
-  <data name="toolStripSBAnalysesTruck.ToolTipText" xml:space="preserve">
-    <value>Грузовик анализы</value>
+  <data name="toolStripMIAnalysisCylinderPallet.Text" xml:space="preserve">
+    <value>Цилиндр/поддон</value>
+  </data>
+  <data name="toolStripMIAnalysisPalletTruck.Text" xml:space="preserve">
+    <value>Тележки гидравлические</value>
   </data>
   <data name="toolStripMIBestCase.Text" xml:space="preserve">
     <value>Найти лучший случай</value>
@@ -390,43 +363,70 @@
   <data name="toolStripMIBestPack.ToolTipText" xml:space="preserve">
     <value>Предложить пакет для оптимального товаров на поддоны</value>
   </data>
+  <data name="toolStripMIInterlayer.Text" xml:space="preserve">
+    <value>Прослойка</value>
+  </data>
+  <data name="toolStripMIInterlayer.ToolTipText" xml:space="preserve">
+    <value>Добавление новой прослойки...</value>
+  </data>
+  <data name="toolStripMIPalletCap.Text" xml:space="preserve">
+    <value>Крышка поддона</value>
+  </data>
+  <data name="toolStripMIPalletCap.ToolTipText" xml:space="preserve">
+    <value>Добавить новый поддон Кап...</value>
+  </data>
+  <data name="toolStripMIPalletCorner.Text" xml:space="preserve">
+    <value>Поддон угол</value>
+  </data>
+  <data name="toolStripMIPalletCorner.ToolTipText" xml:space="preserve">
+    <value>Добавьте новый поддон углу...</value>
+  </data>
+  <data name="toolStripMIPalletFilm.Text" xml:space="preserve">
+    <value>Паллетные пленки</value>
+  </data>
+  <data name="toolStripMIPalletFilm.ToolTipText" xml:space="preserve">
+    <value>Добавьте новый поддон фильм...</value>
+  </data>
+  <data name="toolStripMIPLMPackLib.Text" xml:space="preserve">
+    <value>Запуск PLMPackLib</value>
+  </data>
+  <data name="toolStripMIUserDisconnect.Text" xml:space="preserve">
+    <value>Отключите</value>
+  </data>
+  <data name="toolStripSBAnalysesCase.Text" xml:space="preserve">
+    <value>Дело анализ</value>
+  </data>
+  <data name="toolStripSBAnalysesCase.ToolTipText" xml:space="preserve">
+    <value>Дело анализ</value>
+  </data>
+  <data name="toolStripSBAnalysesTruck.Text" xml:space="preserve">
+    <value>Грузовик анализы</value>
+  </data>
+  <data name="toolStripSBAnalysesTruck.ToolTipText" xml:space="preserve">
+    <value>Грузовик анализы</value>
+  </data>
+  <data name="toolStripSBAnalysisPallet.Text" xml:space="preserve">
+    <value>Поддон анализы</value>
+  </data>
   <data name="toolStripSBOptimisations.Text" xml:space="preserve">
     <value>Упаковка оптимизаций</value>
   </data>
   <data name="toolStripSBOptimisations.ToolTipText" xml:space="preserve">
     <value>Упаковка оптимизаций</value>
   </data>
-  <data name="toolStripButtonHelp.Text" xml:space="preserve">
-    <value>Справка</value>
+  <data name="toolStripSBPalletDeco.Text" xml:space="preserve">
+    <value>Создание новой прослойки...</value>
   </data>
-  <data name="toolStripButtonHelp.ToolTipText" xml:space="preserve">
-    <value>Справка</value>
+  <data name="toolStripSBUser.Text" xml:space="preserve">
+    <value>toolStripSplitButton1</value>
   </data>
-  <data name="toolStripButtonSettings.Text" xml:space="preserve">
-    <value>Параметры</value>
+  <data name="toolStripSBUser.ToolTipText" xml:space="preserve">
+    <value>Пользователь</value>
+  </data>
+  <data name="toolStripSplitButtonNew.Text" xml:space="preserve">
+    <value>Создайте новый файл...</value>
   </data>
   <data name="toolStripStandard.Text" xml:space="preserve">
     <value>Стандарт</value>
-  </data>
-  <data name="openFileDialogSB.Filter" xml:space="preserve">
-    <value>StackBuilder файлы (*.stb) | * .stb | Все файлы (*. *) | *. *</value>
-  </data>
-  <data name="openFileDialogSB.Title" xml:space="preserve">
-    <value>Открыть файл...</value>
-  </data>
-  <data name="saveFileDialogSB.Filter" xml:space="preserve">
-    <value>StackBuilder файлы (*.stb) | * .stb</value>
-  </data>
-  <data name="saveFileDialogSB.Title" xml:space="preserve">
-    <value>Сохраните файл...</value>
-  </data>
-  <data name="saveFileDialogWebGL.Filter" xml:space="preserve">
-    <value>Файл htlm (дописывая) | * .html</value>
-  </data>
-  <data name="saveFileDialogExportXML.Filter" xml:space="preserve">
-    <value>Обмен язык разметки (*.xml) | * .xml</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>StackBuilder</value>
   </data>
 </root>

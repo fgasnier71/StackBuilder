@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,17 +117,23 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="bnOK.Text" xml:space="preserve">
-    <value>OK</value>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Erstellen Sie neues Projekt...</value>
   </data>
   <data name="bnCancel.Text" xml:space="preserve">
     <value>Abbrechen</value>
   </data>
-  <data name="lbRefDescription.Text" xml:space="preserve">
-    <value>Ref/Beschreibung</value>
+  <data name="bnOK.Text" xml:space="preserve">
+    <value>OK</value>
   </data>
-  <data name="lbUPC.Text" xml:space="preserve">
-    <value>UPC</value>
+  <data name="chkUseIntermediatePacking.Text" xml:space="preserve">
+    <value>Verwenden Sie fortgeschrittene Verpackung</value>
+  </data>
+  <data name="lbCase.Text" xml:space="preserve">
+    <value>Fall</value>
+  </data>
+  <data name="lbFilePath.Text" xml:space="preserve">
+    <value>Dateipfad</value>
   </data>
   <data name="lbGenCode.Text" xml:space="preserve">
     <value>Gen-Code</value>
@@ -135,14 +141,11 @@
   <data name="lbPallet.Text" xml:space="preserve">
     <value>Palette</value>
   </data>
-  <data name="lbFilePath.Text" xml:space="preserve">
-    <value>Dateipfad</value>
+  <data name="lbRefDescription.Text" xml:space="preserve">
+    <value>Ref/Beschreibung</value>
   </data>
-  <data name="lbCase.Text" xml:space="preserve">
-    <value>Fall</value>
-  </data>
-  <data name="chkUseIntermediatePacking.Text" xml:space="preserve">
-    <value>Verwenden Sie fortgeschrittene Verpackung</value>
+  <data name="lbUPC.Text" xml:space="preserve">
+    <value>UPC</value>
   </data>
   <data name="statusStripDef.Text" xml:space="preserve">
     <value>statusStripDef</value>
@@ -150,19 +153,16 @@
   <data name="toolStripStatusLabelDef.Text" xml:space="preserve">
     <value>toolStripStatusLabelDef</value>
   </data>
+  <data name="uCtrlPalletHeight.Text" xml:space="preserve">
+    <value>Palettenhöhe</value>
+  </data>
+  <data name="uCtrlThickness.Text" xml:space="preserve">
+    <value>Dicke</value>
+  </data>
   <data name="uCtrlTriDimensions.Text" xml:space="preserve">
     <value>Abmessungen</value>
   </data>
   <data name="uCtrlWeight.Text" xml:space="preserve">
     <value>Gewicht</value>
-  </data>
-  <data name="uCtrlThickness.Text" xml:space="preserve">
-    <value>Dicke</value>
-  </data>
-  <data name="uCtrlPalletHeight.Text" xml:space="preserve">
-    <value>Palettenhöhe</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Erstellen Sie neues Projekt...</value>
   </data>
 </root>

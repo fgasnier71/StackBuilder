@@ -120,6 +120,9 @@
   <data name="$this.Text" xml:space="preserve">
     <value>Analisi...</value>
   </data>
+  <data name="chkbInterlayer.Text" xml:space="preserve">
+    <value>Strato intermedio</value>
+  </data>
   <data name="gbLayer.Text" xml:space="preserve">
     <value>Fare doppio clic su un livello...</value>
   </data>
@@ -129,22 +132,19 @@
   <data name="toolStripAnalysis.Text" xml:space="preserve">
     <value>Strumenti</value>
   </data>
-  <data name="chkbInterlayer.Text" xml:space="preserve">
-    <value>Strato intermedio</value>
-  </data>
   <data name="toolStripButtonBack.Text" xml:space="preserve">
     <value>Indietro...</value>
   </data>
   <data name="toolStripButtonBack.ToolTipText" xml:space="preserve">
     <value>Indietro...</value>
   </data>
-  <data name="toolStripButtonReport.Text" xml:space="preserve">
-    <value>Generare report...</value>
+  <data name="toolStripButtonExportCSV.Text" xml:space="preserve">
+    <value>Esporta come file CSV...</value>
   </data>
   <data name="toolStripButtonExportXML.Text" xml:space="preserve">
     <value>Esporta come XML...</value>
   </data>
-  <data name="toolStripButtonExportCSV.Text" xml:space="preserve">
-    <value>Esporta come file CSV...</value>
+  <data name="toolStripButtonReport.Text" xml:space="preserve">
+    <value>Generare report...</value>
   </data>
 </root>

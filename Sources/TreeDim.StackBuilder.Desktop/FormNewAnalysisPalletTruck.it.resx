@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,26 +117,26 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Creare nuovo transpallet/analisi...</value>
+  </data>
   <data name="checkBoxBestLayersOnly.Text" xml:space="preserve">
     <value>Visualizzare solo i migliori livelli</value>
-  </data>
-  <data name="lbTrucks.Text" xml:space="preserve">
-    <value>Camion</value>
   </data>
   <data name="chkbAllowMultipleLayers.Text" xml:space="preserve">
     <value>Consentire più livelli</value>
   </data>
-  <data name="uCtrlMinDistanceLoadWall.Text" xml:space="preserve">
-    <value>Distanza minima carico/parete</value>
-  </data>
   <data name="lbPallets.Text" xml:space="preserve">
     <value>Pallet caricato</value>
   </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Creare nuovo transpallet/analisi...</value>
+  <data name="lbTrucks.Text" xml:space="preserve">
+    <value>Camion</value>
   </data>
   <data name="uCtrlMinDistanceLoadRoof.Text" xml:space="preserve">
     <value>Distanza minima carico/tetto</value>
+  </data>
+  <data name="uCtrlMinDistanceLoadWall.Text" xml:space="preserve">
+    <value>Distanza minima carico/parete</value>
   </data>
   <data name="uCtrlMinDistLoadRoof.Text" xml:space="preserve">
     <value>Distanza minima carico/tetto</value>

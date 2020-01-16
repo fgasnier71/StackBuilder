@@ -118,19 +118,19 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="lbName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>38, 13</value>
+  <data name="bnCancel.Text" xml:space="preserve">
+    <value>Cancelar</value>
   </data>
   <data name="bnOk.Text" xml:space="preserve">
     <value>Vale</value>
   </data>
-  <data name="bnCancel.Text" xml:space="preserve">
-    <value>Cancelar</value>
+  <data name="lbDescription.Text" xml:space="preserve">
+    <value>Descripción</value>
+  </data>
+  <data name="lbName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>38, 13</value>
   </data>
   <data name="lbName.Text" xml:space="preserve">
     <value>Nombre</value>
-  </data>
-  <data name="lbDescription.Text" xml:space="preserve">
-    <value>Descripción</value>
   </data>
 </root>

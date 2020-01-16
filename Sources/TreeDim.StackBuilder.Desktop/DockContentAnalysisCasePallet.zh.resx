@@ -117,37 +117,37 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="uCtrlOptMaxNumber.Text" xml:space="preserve">
-    <value>最大数量</value>
-  </data>
-  <data name="uCtrlOptMaximumWeight.Text" xml:space="preserve">
-    <value>最大重量</value>
-  </data>
-  <data name="uCtrlMaxPalletHeight.Text" xml:space="preserve">
-    <value>最大高度</value>
-  </data>
-  <data name="gbStopCriterions.Text" xml:space="preserve">
-    <value>停止标准</value>
-  </data>
-  <data name="chkbPalletCorners.Text" xml:space="preserve">
-    <value>托盘护角</value>
-  </data>
-  <data name="tabPagePalletCorners.Text" xml:space="preserve">
-    <value>托盘角</value>
+  <data name="$this.Text" xml:space="preserve">
+    <value>案例/托盘分析..。</value>
   </data>
   <data name="chkbPalletCap.Text" xml:space="preserve">
     <value>托盘盖</value>
   </data>
-  <data name="tabPagePalletCap.Text" xml:space="preserve">
-    <value>托盘盖</value>
+  <data name="chkbPalletCorners.Text" xml:space="preserve">
+    <value>托盘护角</value>
   </data>
   <data name="chkbPalletFilm.Text" xml:space="preserve">
     <value>托盘膜</value>
   </data>
+  <data name="gbStopCriterions.Text" xml:space="preserve">
+    <value>停止标准</value>
+  </data>
+  <data name="tabPagePalletCap.Text" xml:space="preserve">
+    <value>托盘盖</value>
+  </data>
+  <data name="tabPagePalletCorners.Text" xml:space="preserve">
+    <value>托盘角</value>
+  </data>
   <data name="tabPagePalletFilm.Text" xml:space="preserve">
     <value>托盘膜</value>
   </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>案例/托盘分析..。</value>
+  <data name="uCtrlMaxPalletHeight.Text" xml:space="preserve">
+    <value>最大高度</value>
+  </data>
+  <data name="uCtrlOptMaximumWeight.Text" xml:space="preserve">
+    <value>最大重量</value>
+  </data>
+  <data name="uCtrlOptMaxNumber.Text" xml:space="preserve">
+    <value>最大数量</value>
   </data>
 </root>
