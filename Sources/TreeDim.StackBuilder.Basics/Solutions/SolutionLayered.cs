@@ -252,6 +252,15 @@ namespace treeDiM.StackBuilder.Basics
             RebuildLayers();
             InitializeSolutionItemList();
         }
+        public SolutionLayered(AnalysisLayered analysis, ILayer2D layer, bool alternateLayer)
+        {
+            Analysis = analysis;
+            LayerEncaps = new List<LayerEncap>() { new LayerEncap(layer) };
+            AlternateLayers = alternateLayer;
+
+            RebuildLayers();
+            InitializeSolutionItemList();
+        }
         public SolutionLayered(AnalysisLayered analysis, List<LayerEncap> layerEncaps)
         {
             Analysis = analysis;

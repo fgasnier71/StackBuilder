@@ -163,7 +163,7 @@
                                 runat="server"
                                 Height='<%# Unit.Parse(ConfigSettings.ThumbSize) %>'
                                 Width='<%# Unit.Parse(ConfigSettings.ThumbSize) %>'
-                                ImageUrl='<%# "LayerThumbHandler.ashx?LayerDesc=" + Eval("LayerDesc") + "&Dimensions=" + Eval("Dimensions")%>'
+                                ImageUrl='<%# "HandlerLayerThumb.ashx?LayerDesc=" + Eval("LayerDesc") + "&Dimensions=" + Eval("Dimensions")%>'
                                 CommandName="ImageButtonClick"
                                 CommandArgument='<%# Eval("LayerDesc")%>' Style="flex: 0 0 auto;" />
                         </ItemTemplate>

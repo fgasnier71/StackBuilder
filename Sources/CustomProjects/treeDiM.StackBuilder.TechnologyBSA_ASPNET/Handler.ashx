@@ -13,11 +13,11 @@ public class Handler : IHttpHandler, System.Web.SessionState.IRequiresSessionSta
 
     public void ProcessRequest(HttpContext context)
     {
-        if (context.Session["height"] != null)
+        if (context.Session[SessionVariables.ImageWidth] != null)
         {
-            ImageHeight = int.Parse((string)context.Session["height"]);
-            ImageWidth = int.Parse((string)context.Session["width"]);
-            imageBytes = (byte[])(context.Session["imageBytes"]);
+            ImageWidth = (int)context.Session[SessionVariables.ImageWidth];
+            ImageHeight = (int)context.Session[SessionVariables.ImageHeight];
+            imageBytes = (byte[])context.Session[SessionVariables.ImageBytes];
         }
         if (ImageWidth > 0 && ImageHeight > 0)
         {

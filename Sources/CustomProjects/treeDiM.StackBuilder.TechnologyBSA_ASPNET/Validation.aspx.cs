@@ -1,9 +1,12 @@
 ﻿#region Using directives
 using System;
+using System.Collections.Generic;
 using System.Web.UI;
 using System.IO;
 
 using Sharp3D.Math.Core;
+
+using treeDiM.StackBuilder.Basics;
 #endregion
 
 public partial class Validation : Page
@@ -13,7 +16,12 @@ public partial class Validation : Page
     {
 		if (!Page.IsPostBack)
 		{
-			ViewState["Angle"] = "45";
+			Angle = 45.0;
+			ChkbAlternateLayers.Checked = AlternateLayers;
+			ChkbInterlayerBottom.Checked = InterlayerBottom;
+			ChkbInterlayerTop.Checked = InterlayerTop;
+			ChkbInterlayersIntermediate.Checked = InterlayersIntermediate;
+			TBFileName.Text = FileName;
 		}
 		ExecuteKeyPad();
 		UpdateImage();
@@ -29,12 +37,6 @@ public partial class Validation : Page
 	#region Update image
 	protected void UpdateImage()
 	{
-		Vector3D dimCase = Vector3D.Parse((string)Session["dimCase"]);
-		double weightCase = double.Parse((string)Session["weightCase"]);
-		Vector3D dimPallet = Vector3D.Parse((string)Session["dimPallet"]);
-		double palletWeight = double.Parse((string)Session["weightPallet"]);
-		double maxPalletHeight = double.Parse((string)Session["maxPalletHeight"]);
-
 		byte[] imageBytes = null;
 		int caseCount = 0;
 		int layerCount = 0;
@@ -42,21 +44,20 @@ public partial class Validation : Page
 		Vector3D bbLoad = Vector3D.Zero;
 		Vector3D bbTotal = Vector3D.Zero;
 
-		double angle = double.Parse(ViewState["Angle"].ToString());
 		PalletStacking.GetSolution(
-			dimCase, weightCase,
-			dimPallet, palletWeight,
-			maxPalletHeight, Session["layerDesc"].ToString(),
+			DimCase, WeightCase,
+			DimPallet, WeightPallet,
+			MaxPalletHeight, BoxPositions,
 			ChkbAlternateLayers.Checked,
-			ChkbBottomInterlayer.Checked,
-			ChkbIntermediateInterlayers.Checked,
-			ChkbTopInterlayer.Checked,
-			angle,
+			ChkbInterlayerBottom.Checked,
+			ChkbInterlayersIntermediate.Checked,
+			ChkbInterlayerTop.Checked,
+			Angle,
 			ref imageBytes, ref caseCount, ref layerCount, ref weightLoad, ref weightTotal, ref bbLoad, ref bbTotal);
 
-		Session["width"] = "500";
-		Session["height"] = "500";
-		Session["imageBytes"] = imageBytes;
+		Session[SessionVariables.ImageWidth] = 500;
+		Session[SessionVariables.ImageHeight] = 500;
+		Session[SessionVariables.ImageBytes] = imageBytes;
 
 		ImagePallet.ImageUrl = "~/Handler.ashx?param=" + DateTime.Now.Ticks.ToString();
 
@@ -71,16 +72,12 @@ public partial class Validation : Page
 	}
 	protected void AngleIncrement(object sender, EventArgs e)
 	{
-		double angle = double.Parse(ViewState["Angle"].ToString());
-		angle += ConfigSettings.AngleStep;
-		ViewState["Angle"] = $"{angle}";
+		Angle += ConfigSettings.AngleStep;
 		UpdateImage();
 	}
 	protected void AngleDecrement(object sender, EventArgs e)
 	{
-		double angle = double.Parse(ViewState["Angle"].ToString());
-		angle -= ConfigSettings.AngleStep;
-		ViewState["Angle"] = $"{angle}";
+		Angle -= ConfigSettings.AngleStep;
 		UpdateImage();
 	}
 	protected void OnExport(object sender, EventArgs e)
@@ -88,21 +85,13 @@ public partial class Validation : Page
 		string fileName = TBFileName.Text;
 		fileName = Path.ChangeExtension(fileName, "csv");
 
-		Vector3D dimCase = Vector3D.Parse((string)Session["dimCase"]);
-		double weightCase = double.Parse((string)Session["weightCase"]);
-		Vector3D dimPallet = Vector3D.Parse((string)Session["dimPallet"]);
-		double weightPallet = double.Parse((string)Session["weightPallet"]);
-		double maxPalletHeight = double.Parse((string)Session["maxPalletHeight"]);
-		string layerDesc = Session["layerDesc"].ToString();
-
-
 		byte[] fileBytes = null;
 		PalletStacking.Export(
-			dimCase, weightCase,
-			dimPallet, weightPallet,
-			maxPalletHeight, layerDesc,
+			DimCase, WeightCase,
+			DimPallet, WeightPallet,
+			MaxPalletHeight, BoxPositions,
 			ChkbAlternateLayers.Checked,
-			ChkbBottomInterlayer.Checked , ChkbIntermediateInterlayers.Checked, ChkbTopInterlayer.Checked,
+			ChkbInterlayerBottom.Checked , ChkbInterlayersIntermediate.Checked, ChkbInterlayerTop.Checked,
 			ref fileBytes); 
 
 		if (FtpHelpers.Upload(fileBytes, ConfigSettings.FtpDirectory, fileName, ConfigSettings.FtpUsername, ConfigSettings.FtpPassword))
@@ -110,6 +99,24 @@ public partial class Validation : Page
 			ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", $"alert('{fileName} was successfully exported!');", true);
 		}
 	}
-
 	#endregion
+
+	#region Private variables
+	private Vector3D DimCase=> Vector3D.Parse((string)Session[SessionVariables.DimCase]);
+	private double WeightCase => (double)Session[SessionVariables.WeightCase];
+	private Vector3D DimPallet => Vector3D.Parse((string)Session[SessionVariables.DimPallet]);
+	private double WeightPallet => (double)Session[SessionVariables.WeightPallet];
+	private double MaxPalletHeight => (double)Session[SessionVariables.MaxPalletHeight];
+	private bool AlternateLayers => (bool)Session[SessionVariables.AlternateLayers];
+	private bool InterlayerBottom => (bool)Session[SessionVariables.InterlayerBottom];
+	private bool InterlayerTop => (bool)Session[SessionVariables.InterlayerTop];
+	private bool InterlayersIntermediate => (bool)Session[SessionVariables.InterlayersIntermadiate];
+	private double Angle
+	{
+		get => (double)ViewState["Angle"];
+		set => ViewState["Angle"] = value;
+	}
+	private string FileName => (string)Session[SessionVariables.FileName];
+	private List<BoxPosition> BoxPositions => (List<BoxPosition>)Session[SessionVariables.BoxPositions];
+    #endregion
 }

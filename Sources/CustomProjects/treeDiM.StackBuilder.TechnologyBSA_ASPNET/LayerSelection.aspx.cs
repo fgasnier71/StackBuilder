@@ -17,20 +17,15 @@ public partial class _Default : Page
 	{
 		if (!Page.IsPostBack)
 		{
-			TBCaseLength.Text = "300";
-			TBCaseWidth.Text = "280";
-			TBCaseHeight.Text = "275";
-			TBCaseWeight.Text = "1";
+			DimCaseCtrl = DimCase;
+			WeightCaseCtrl = WeightCase;
+			DimPalletCtrl = DimPallet;
+			WeightPalletCtrl = WeightPallet;
+			MaxPalletHeightCtrl = MaxPalletHeight;
 
-			TBPalletLength.Text = "1200";
-			TBPalletWidth.Text = "1000";
-			TBPalletHeight.Text = "155";
-			TBPalletWeight.Text = "1";
-
-			TBMaxPalletHeight.Text = "1700";
 			BTRefresh_Click(null, null);
 
-			ViewState["Angle"] = "45";
+			Angle = 45.0;
 		}
 		ExecuteKeyPad();
 	}
@@ -60,19 +55,16 @@ public partial class _Default : Page
 		Page.Validate();
 		if (Page.IsValid)
 		{
-			Vector3D caseDim = new Vector3D(double.Parse(TBCaseLength.Text), double.Parse(TBCaseWidth.Text), double.Parse(TBCaseHeight.Text));
-			double caseWeight = double.Parse(TBCaseWeight.Text);
-			Vector3D palletDim = new Vector3D(double.Parse(TBPalletLength.Text), double.Parse(TBPalletWidth.Text), double.Parse(TBPalletHeight.Text));
-			double palletWeight = double.Parse(TBPalletWeight.Text);
-			double maxPalletHeight = double.Parse(TBMaxPalletHeight.Text);
 			bool onlyBestLayers = false;
 
-			Session["dimCase"] = caseDim.ToString();
-			Session["dimPallet"] = palletDim.ToString();
-			Session["maxPalletHeight"] = $"{maxPalletHeight}";
+			DimCase = DimCaseCtrl;
+			WeightCase = WeightCaseCtrl;
+			DimPallet = DimPalletCtrl;
+			WeightPallet = WeightPalletCtrl;
+			MaxPalletHeight = MaxPalletHeightCtrl;
 
 			List<LayerDetails> listLayers = new List<LayerDetails>();
-			PalletStacking.GetLayers(caseDim, caseWeight, palletDim, palletWeight, maxPalletHeight, onlyBestLayers, ref listLayers);
+			PalletStacking.GetLayers(DimCaseCtrl, WeightCaseCtrl, DimPalletCtrl, WeightPalletCtrl, MaxPalletHeightCtrl, onlyBestLayers, ref listLayers);
 
 			dlLayers.DataSource = listLayers;
 			dlLayers.DataBind();
@@ -89,18 +81,12 @@ public partial class _Default : Page
 
 	protected void OnNext(object sender, EventArgs e)
 	{
-		Vector3D dimCase = new Vector3D(double.Parse(TBCaseLength.Text), double.Parse(TBCaseWidth.Text), double.Parse(TBCaseHeight.Text));
-		double weightCase = double.Parse(TBCaseWeight.Text);
-		Vector3D dimPallet = new Vector3D(double.Parse(TBPalletLength.Text), double.Parse(TBPalletWidth.Text), double.Parse(TBPalletHeight.Text));
-		double weightPallet = double.Parse(TBPalletWeight.Text);
-		double maxPalletHeight = double.Parse(TBMaxPalletHeight.Text);
-
-		Session["dimCase"] = dimCase.ToString();
-		Session["weightCase"] = weightCase.ToString();
-		Session["dimPallet"] = dimPallet.ToString();
-		Session["weightPallet"] = weightPallet.ToString();
-		Session["maxPalletHeight"] = $"{maxPalletHeight}";
-		Session["layerDesc"] = ViewState["LayerDescriptor"].ToString();
+		DimCase = DimCaseCtrl;
+		WeightCase = WeightCaseCtrl;
+		DimPallet = DimPalletCtrl;
+		WeightPallet = WeightPalletCtrl;
+		MaxPalletHeight = MaxPalletHeightCtrl;
+		BoxPositions = BoxPositionsLayer;
 
 		Response.Redirect("Validation.aspx");
 	}
@@ -131,11 +117,11 @@ public partial class _Default : Page
 
 	protected void UpdateImage()
 	{
-		Vector3D caseDim = new Vector3D(double.Parse(TBCaseLength.Text), double.Parse(TBCaseWidth.Text), double.Parse(TBCaseHeight.Text));
-		double caseWeight = double.Parse(TBCaseWeight.Text);
-		Vector3D palletDim = new Vector3D(double.Parse(TBPalletLength.Text), double.Parse(TBPalletWidth.Text), double.Parse(TBPalletHeight.Text));
-		double palletWeight = double.Parse(TBPalletWeight.Text);
-		double maxPalletHeight = double.Parse(TBMaxPalletHeight.Text);
+		Vector3D caseDim = DimCaseCtrl;
+		double caseWeight = WeightCaseCtrl;
+		Vector3D palletDim = DimPalletCtrl;
+		double palletWeight = WeightPalletCtrl;
+		double maxPalletHeight = MaxPalletHeightCtrl;
 
 		byte[] imageBytes = null;
 		int caseCount = 0;
@@ -144,13 +130,11 @@ public partial class _Default : Page
 		Vector3D bbLoad = Vector3D.Zero;
 		Vector3D bbTotal = Vector3D.Zero;
 
-		string layerDesc = ViewState["LayerDescriptor"].ToString();
-		double angle = double.Parse(ViewState["Angle"].ToString());
 		PalletStacking.GetSolution(
 			caseDim, caseWeight,
 			palletDim, palletWeight,
-			maxPalletHeight, layerDesc,
-			false, false, false, false, angle, ref imageBytes, ref caseCount, ref layerCount, ref weightLoad, ref weightTotal, ref bbLoad, ref bbTotal);
+			maxPalletHeight, BoxPositionsLayer,
+			false, false, false, false, Angle, ref imageBytes, ref caseCount, ref layerCount, ref weightLoad, ref weightTotal, ref bbLoad, ref bbTotal);
 
 		var palletDetails = new List<PalletDetails>();
 		palletDetails.Add(new PalletDetails("Number of cases", $"{caseCount}", ""));
@@ -163,12 +147,12 @@ public partial class _Default : Page
 		PalletDetails.DataSource = palletDetails;
 		PalletDetails.DataBind();
 
-		Session["dimCase"] = caseDim.ToString();
-		Session["dimPallet"] = palletDim.ToString();
-		Session["maxPalletHeight"] = $"{maxPalletHeight}";
-		Session["width"] = "500";
-		Session["height"] = "500";
-		Session["imageBytes"] = imageBytes;
+		DimCase = caseDim;
+		DimPallet = palletDim;
+		MaxPalletHeight = maxPalletHeight;
+		Session[SessionVariables.ImageWidth] = 500;
+		Session[SessionVariables.ImageHeight] = 500;
+		Session[SessionVariables.ImageBytes] = imageBytes;
 
 		ImagePallet.ImageUrl = "~/Handler.ashx?param=" + DateTime.Now.Ticks.ToString();
 
@@ -177,41 +161,108 @@ public partial class _Default : Page
 
 	protected void AngleIncrement(object sender, EventArgs e)
 	{
-		double angle = double.Parse(ViewState["Angle"].ToString());
-		angle += ConfigSettings.AngleStep;
-		ViewState["Angle"] = $"{angle}";
+		Angle += ConfigSettings.AngleStep;
 		UpdateImage();
-		ExecuteKeyPad();
 	}
 	protected void AngleDecrement(object sender, EventArgs e)
 	{
-		double angle = double.Parse(ViewState["Angle"].ToString());
-		angle -= ConfigSettings.AngleStep;
-		ViewState["Angle"] = $"{angle}";
+		Angle -= ConfigSettings.AngleStep;
 		UpdateImage();
-		ExecuteKeyPad();
 	}
 
 	protected void OnEditLayer(object sender, EventArgs e)
 	{
-		var layerDesc = LayerDescBox.Parse(ViewState["LayerDescriptor"].ToString()) as LayerDescBox;
-		LayerSolver solver = new LayerSolver();
-		var layer = solver.BuildLayer(DimCase, DimContainer, layerDesc, 0.0);
-		var listBoxPositions = layer.Positions;
 
-		Session["dimCase"] = DimCase.ToString();
-		Session["weightCase"] = WeightCase.ToString(); 
-		Session["dimPallet"] = DimPallet.ToString();
-		Session["weightPallet"] = WeightPallet.ToString();
-		Session["boxPositions"] = listBoxPositions;
-		Session["layerDesc"] = ViewState["LayerDescriptor"].ToString();
+		DimCase = DimCaseCtrl;
+		WeightCase = WeightCaseCtrl; 
+		DimPallet = DimPalletCtrl;
+		WeightPallet = WeightPalletCtrl;
+		SelectedIndex = -1;
+		BoxPositions = BoxPositionsLayer;
 		Response.Redirect("LayerEdition.aspx");
 	}
-
-	private Vector3D DimCase => new Vector3D(double.Parse(TBCaseLength.Text), double.Parse(TBCaseWidth.Text), double.Parse(TBCaseHeight.Text));
-	private double WeightCase => double.Parse(TBCaseWeight.Text);
-	private Vector3D DimPallet => new Vector3D(double.Parse(TBPalletLength.Text), double.Parse(TBPalletWidth.Text), double.Parse(TBPalletHeight.Text));
-	private double WeightPallet => double.Parse(TBPalletWeight.Text);
+	private double Angle
+	{
+		get => (double)ViewState["Angle"];
+		set => ViewState["Angle"] = value;
+	}
+	private Vector3D DimCaseCtrl
+	{
+		get => new Vector3D(double.Parse(TBCaseLength.Text), double.Parse(TBCaseWidth.Text), double.Parse(TBCaseHeight.Text));
+		set
+		{
+			TBCaseLength.Text = value.X.ToString();
+			TBCaseWidth.Text = value.Y.ToString();
+			TBCaseHeight.Text = value.Z.ToString();
+		}
+	}
+	private double WeightCaseCtrl
+	{
+		get => double.Parse(TBCaseWeight.Text);
+		set => TBCaseWeight.Text = value.ToString();
+	}
+	private Vector3D DimPalletCtrl
+	{
+		get => new Vector3D(double.Parse(TBPalletLength.Text), double.Parse(TBPalletWidth.Text), double.Parse(TBPalletHeight.Text));
+		set
+		{
+			TBPalletLength.Text = value.X.ToString();
+			TBPalletWidth.Text = value.Y.ToString();
+			TBPalletHeight.Text = value.Z.ToString();
+		}
+	}
+	private double WeightPalletCtrl
+	{
+		get => double.Parse(TBPalletWeight.Text);
+		set => TBPalletWeight.Text = value.ToString();
+	}
+	private double MaxPalletHeightCtrl
+	{
+		get => double.Parse(TBMaxPalletHeight.Text);
+		set => TBMaxPalletHeight.Text = value.ToString();
+	}
+	private Vector3D DimCase
+	{
+		get => Vector3D.Parse((string)Session[SessionVariables.DimCase]);
+		set => Session[SessionVariables.DimCase] = value.ToString();
+	}
+	private double WeightCase
+	{
+		get => (double)Session[SessionVariables.WeightCase];
+		set => Session[SessionVariables.WeightCase] = value;
+	}
+	private Vector3D DimPallet
+	{
+		get => Vector3D.Parse((string)Session[SessionVariables.DimPallet]);
+		set => Session[SessionVariables.DimPallet] = value.ToString();
+	}
+	private double WeightPallet
+	{ 
+		get => (double)Session[SessionVariables.WeightPallet];
+		set => Session[SessionVariables.WeightPallet] = value;
+	}
+	private double MaxPalletHeight
+	{
+		get => (double)Session[SessionVariables.MaxPalletHeight];
+		set => Session[SessionVariables.MaxPalletHeight] = value;
+	}
 	private Vector2D DimContainer => new Vector2D(double.Parse(TBPalletLength.Text), double.Parse(TBPalletWidth.Text));
-
+	private List<BoxPosition> BoxPositions
+	{
+		set => Session[SessionVariables.BoxPositions] = value;
+	}
+	private int SelectedIndex
+	{
+		set => Session[SessionVariables.SelectedIndex] = value;
+	}
+	private List<BoxPosition> BoxPositionsLayer
+	{
+		get
+		{
+			var layerDesc = LayerDescBox.Parse(ViewState["LayerDescriptor"].ToString()) as LayerDescBox;
+			LayerSolver solver = new LayerSolver();
+			var layer = solver.BuildLayer(DimCaseCtrl, DimContainer, layerDesc, 0.0);
+			return layer.Positions;
+		}
+	}
 }

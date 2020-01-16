@@ -21,7 +21,6 @@
 
     void Session_Start(object sender, EventArgs e)
     {
-        Session["MySessionVar"] = 1;
     }
 
     void Session_End(object sender, EventArgs e)

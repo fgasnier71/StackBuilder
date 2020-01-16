@@ -64,7 +64,7 @@ public static class PalletStacking
         Vector3D caseDim, double caseWeight,
         Vector3D palletDim, double palletWeight,
         double maxPalletHeight,
-        string layerDesc,
+        List<BoxPosition> boxPositions,
         bool alternateLayer,
         bool interlayerBottom, bool interlayerIntermediate, bool interlayerTop,
         double angle,
@@ -74,6 +74,7 @@ public static class PalletStacking
         ref Vector3D bbLoad, ref Vector3D bbGlob
         )
     {
+        SolutionLayered.SetSolver(new LayerSolver());
         // case
         var boxProperties = new BoxProperties(null, caseDim.X, caseDim.Y, caseDim.Z)
         {
@@ -92,15 +93,16 @@ public static class PalletStacking
         var constraintSet = new ConstraintSetCasePallet();
         constraintSet.SetAllowedOrientations(new bool[] { false, false, true });
         constraintSet.SetMaxHeight(new OptDouble(true, maxPalletHeight));
-
-        SolutionLayered.SetSolver(new LayerSolver());
-
+        // layer 2D
+        var layer2D = new Layer2DBrickExp(caseDim, new Vector2D(), "", HalfAxis.HAxis.AXIS_Z_P);
+        layer2D.SetPositions(boxPositions);
+        // analysis
         var analysis = new AnalysisCasePallet(boxProperties, palletProperties, constraintSet);
         analysis.AddInterlayer(new InterlayerProperties(null, "interlayer", "", palletDim.X, palletDim.Y, 1.0, 0.0, Color.LightYellow));
-        analysis.AddSolution(LayerDescBox.Parse(layerDesc), alternateLayer);
+        analysis.AddSolution(layer2D, alternateLayer);
         if (interlayerTop)
             analysis.PalletCapProperties = new PalletCapProperties(null, "palletcap", "", palletDim.X, palletDim.Y, 1, palletDim.X, palletDim.Y, 0.0, 0.0, Color.LightYellow);
-
+        // solution
         SolutionLayered sol = analysis.SolutionLay;
         var solutionItems = sol.SolutionItems;
         int iCount = solutionItems.Count;
@@ -137,11 +139,13 @@ public static class PalletStacking
         Vector3D caseDim, double caseWeight,
         Vector3D palletDim, double palletWeight,
         double maxPalletHeight,
-        string layerDesc,
+        List<BoxPosition> boxPositions,
         bool alternateLayer,
         bool interlayerBottom, bool interlayerIntermediate, bool interlayerTop,
         ref byte[] fileBytes)
     {
+        SolutionLayered.SetSolver(new LayerSolver());
+
         // case
         var boxProperties = new BoxProperties(null, caseDim.X, caseDim.Y, caseDim.Z)
         {
@@ -160,12 +164,13 @@ public static class PalletStacking
         var constraintSet = new ConstraintSetCasePallet();
         constraintSet.SetAllowedOrientations(new bool[] { false, false, true });
         constraintSet.SetMaxHeight(new OptDouble(true, maxPalletHeight));
-
-        SolutionLayered.SetSolver(new LayerSolver());
-
+        // layer
+        var layer2D = new Layer2DBrickExp(caseDim, new Vector2D(palletDim.X, palletDim.Y), "", HalfAxis.HAxis.AXIS_Z_P);
+        layer2D.SetPositions(boxPositions);
+        // analysis
         var analysis = new AnalysisCasePallet(boxProperties, palletProperties, constraintSet);
         analysis.AddInterlayer(new InterlayerProperties(null, "interlayer", "", palletDim.X, palletDim.Y, 1.0, 0.0, Color.LightYellow));
-        analysis.AddSolution(LayerDescBox.Parse(layerDesc), alternateLayer);
+        analysis.AddSolution(layer2D, alternateLayer);
         if (interlayerTop)
             analysis.PalletCapProperties = new PalletCapProperties(null, "palletcap", "", palletDim.X, palletDim.Y, 1, palletDim.X, palletDim.Y, 0.0, 0.0, Color.LightYellow);
 
@@ -180,7 +185,7 @@ public static class PalletStacking
         }
         // export
         Exporter exporter = ExporterFactory.GetExporterByName("csv (TechnologyBSA)");
-        exporter.PositionCoordinateMode = Exporter.CoordinateMode.CM_CORNER;
+        exporter.PositionCoordinateMode = Exporter.CoordinateMode.CM_COG;
         Stream stream = new MemoryStream();
         exporter.Export(analysis, ref stream);
         using (BinaryReader br = new BinaryReader(stream))

@@ -118,6 +118,10 @@ namespace treeDiM.StackBuilder.Basics
         {
             Solution = new SolutionLayered(this, layerDesc, alternateLayers);
         }
+        public void AddSolution(ILayer2D layer, bool alternateLayers = true)
+        {
+            Solution = new SolutionLayered(this, layer, alternateLayers);
+        }
         public void AddSolution(List<LayerDesc> layerDescs)
         {
             Solution = new SolutionLayered(this, layerDescs.ConvertAll(l => new LayerEncap(l)));

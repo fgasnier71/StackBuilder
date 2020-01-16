@@ -13,14 +13,16 @@ namespace treeDiM.StackBuilder.Graphics
     public class LayerEditorHelpers
     {
         #region Constructor
-        public LayerEditorHelpers(Size sz)
+        public LayerEditorHelpers(Size sz, Vector3D dimCase, Vector2D dimContainer)
         {
             SizeImage = sz;
+            DimCase = dimCase;
+            DimContainer = dimContainer;
         }
         #endregion
 
         #region Public methods
-        public Bitmap GetLayerImage()
+        public Bitmap GetLayerImage(Packable content)
         {
             Graphics2DImage graphics = new Graphics2DImage(SizeImage);
             graphics.SetViewport(PtMin, PtMax);
@@ -29,10 +31,10 @@ namespace treeDiM.StackBuilder.Graphics
             foreach (var bp in Positions)
             {
                 Box b;
-                if (Content is PackProperties pack)
+                if (content is PackProperties pack)
                     b = new Pack(pickId++, pack, bp);
                 else
-                    b = new Box(pickId++, Content as PackableBrick, bp);
+                    b = new Box(pickId++, content as PackableBrick, bp);
                 graphics.DrawBox(b);
             }
             graphics.DrawRectangle(Vector2D.Zero, DimContainer, Color.OrangeRed);
@@ -42,48 +44,61 @@ namespace treeDiM.StackBuilder.Graphics
                 var bp = Positions[SelectedIndex];
 
                 Box boxSelected;
-                if (Content is PackProperties pack)
+                if (content is PackProperties pack)
                     boxSelected = new Pack((uint)SelectedIndex, pack, bp);
                 else
-                    boxSelected = new Box(((uint)SelectedIndex), Content as PackableBrick, bp);
+                    boxSelected = new Box((uint)SelectedIndex, content as PackableBrick, bp);
                 graphics.DrawBoxSelected(boxSelected);
+
+                // draw position
+                graphics.DrawText($"({bp.Position.X:0.##}, {bp.Position.Y:0.##}, {bp.Position.Z:0.##}), {HalfAxis.ToString(bp.DirectionLength)}, {HalfAxis.ToString(bp.DirectionWidth)}");
             }
             return graphics.Bitmap;
         }
 
-        public int GetPickedIndex(Point pt, Vector3D dimCase, Vector2D dimContainer)
+        public int GetPickedIndex(Point pt)
         {
-            return BoxInteraction.SelectedPosition(Positions, dimCase, ReverseTransform(pt, dimCase, dimContainer));
+            return BoxInteraction.SelectedPosition(Positions, DimCase, ReverseTransform(pt, DimCase, DimContainer));
         }
 
-        public void MoveMax(HalfAxis.HAxis moveDir, Vector3D dimCase)
+        public void MoveMax(HalfAxis.HAxis moveDir)
         {
             // sanity check
-            if (SelectedIndex < 0 || SelectedIndex > Positions.Count - 1) return;
+            if (!IsSelectionValid) return;
             // update position
             BoxPosition bpos = Positions[SelectedIndex];
+            double distance = 0;
+            if (BoxInteraction.MinDistance(Positions, DimCase, SelectedIndex, moveDir, ref distance))
+            {
+            }
+            if (distance > 0)
+                Positions[SelectedIndex] = bpos.Translate(moveDir, distance); ;
         }
 
-        public void Move(HalfAxis.HAxis moveDir, double stepMove, Vector3D dimCase)
+        public void Move(HalfAxis.HAxis moveDir, double stepMove)
         {
             // sanity check
-            if (SelectedIndex < 0 || SelectedIndex > Positions.Count - 1) return;
+            if (!IsSelectionValid) return;
             // update position
             BoxPosition bpos = Positions[SelectedIndex];
             BoxPosition bposNew = bpos.Translate(moveDir, stepMove);
-            if (!BoxInteraction.HaveIntersection(Positions, dimCase, SelectedIndex, bposNew)
-                && BoxInteraction.BoxCanMoveInside(Positions[SelectedIndex], dimCase, PtMin, PtMax, moveDir))
+            if (!BoxInteraction.HaveIntersection(Positions, DimCase, SelectedIndex, bposNew)
+                && BoxInteraction.BoxCanMoveInside(Positions[SelectedIndex], DimCase, PtMin, PtMax, moveDir))
                 Positions[SelectedIndex] = bposNew;
-
             else
             {
                 double distance = 0;
-                if (BoxInteraction.MinDistance(Positions, dimCase, SelectedIndex, moveDir, ref distance))
+                if (BoxInteraction.MinDistance(Positions, DimCase, SelectedIndex, moveDir, ref distance))
                 {
                     bposNew = bpos.Translate(moveDir, distance);
                     Positions[SelectedIndex] = bposNew;
                 }
             }
+        }
+        public void Rotate()
+        {
+            if (!IsSelectionValid) return;
+            Positions[SelectedIndex] = Positions[SelectedIndex].RotateZ90(DimCase); ;
         }
 
         private Vector2D ReverseTransform(Point pt, Vector3D dimCase, Vector2D dimContainer)
@@ -131,20 +146,20 @@ namespace treeDiM.StackBuilder.Graphics
         {
             get
             {
-                if (null == Content) return 0.0;
                 double max = double.MinValue;
-                max = Math.Max(Content.OuterDimensions.X, max);
-                max = Math.Max(Content.OuterDimensions.Y, max);
-                max = Math.Max(Content.OuterDimensions.Z, max);
+                max = Math.Max(DimCase.X, max);
+                max = Math.Max(DimCase.Y, max);
+                max = Math.Max(DimCase.Z, max);
                 return max;
             }
         }
+        private bool IsSelectionValid => (SelectedIndex > -1) || (SelectedIndex < Positions.Count);
         #endregion
 
         #region Data members
         public List<BoxPosition> Positions { get; set; }
         public Size SizeImage { get; set; }
-        public Packable Content { get; set; }
+        public Vector3D DimCase { get; set; }
         public Vector2D DimContainer { get; set; }
         public int SelectedIndex { get; set; } = -1;
         #endregion

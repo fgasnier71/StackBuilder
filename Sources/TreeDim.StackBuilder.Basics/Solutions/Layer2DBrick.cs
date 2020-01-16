@@ -135,6 +135,7 @@ namespace treeDiM.StackBuilder.Basics
         public Vector3D DimBox { get; private set; }
         public Vector2D DimContainer { get; private set; }
         protected void Add(BoxPosition position) => _listBoxPosition.Add(position);
+        protected void AddRange(List<BoxPosition> positions) => _listBoxPosition.AddRange(positions);
         public List<BoxPosition> Positions => _listBoxPosition;
         #endregion
 

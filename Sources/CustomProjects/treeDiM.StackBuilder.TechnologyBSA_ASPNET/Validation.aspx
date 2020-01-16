@@ -60,11 +60,11 @@
                             <td colspan="2" class="auto-style3">
                                 <asp:CheckBox ID="ChkbAlternateLayers" runat="server" Text="Alternate layers" OnCheckedChanged="OnInputChanged" AutoPostBack="true"/>
                                 <br />
-                                <asp:CheckBox ID="ChkbBottomInterlayer" runat="server" Text="Bottom interlayer" OnCheckChanged="OnInputChanged" AutoPostBack="true"/>
+                                <asp:CheckBox ID="ChkbInterlayerBottom" runat="server" Text="Bottom interlayer" OnCheckChanged="OnInputChanged" AutoPostBack="true"/>
                                 <br />
-                                <asp:CheckBox ID="ChkbIntermediateInterlayers" runat="server" Text="Intermediate interlayers" OnCheckChanged="OnInputChanged" AutoPostBack="true"/>
+                                <asp:CheckBox ID="ChkbInterlayersIntermediate" runat="server" Text="Intermediate interlayers" OnCheckChanged="OnInputChanged" AutoPostBack="true"/>
                                 <br />
-                                <asp:CheckBox ID="ChkbTopInterlayer" runat="server" Text="Top interlayer" OnCheckChanged="OnInputChanged" AutoPostBack="true"/>
+                                <asp:CheckBox ID="ChkbInterlayerTop" runat="server" Text="Top interlayer" OnCheckChanged="OnInputChanged" AutoPostBack="true"/>
                             </td>
                         </tr>
                         <tr>

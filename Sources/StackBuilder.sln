@@ -139,6 +139,8 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "treeDiM.StackBuilder.Techno
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "treeDiM.StackBuilder.FTPExport.Test", "Test\treeDiM.StackBuilder.FTPExport.Test\treeDiM.StackBuilder.FTPExport.Test.csproj", "{D26140E4-82E6-47FB-9F3C-180661867FDF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "treeDiM.StackBuilder.ImportBSA.Test", "Test\treeDiM.StackBuilder.ImportBSA.Test\treeDiM.StackBuilder.ImportBSA.Test.csproj", "{9C04F265-B58B-4179-A1EE-20BA4C9A4EC9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -805,6 +807,22 @@ Global
 		{D26140E4-82E6-47FB-9F3C-180661867FDF}.Release|x64.Build.0 = Release|Any CPU
 		{D26140E4-82E6-47FB-9F3C-180661867FDF}.Release|x86.ActiveCfg = Release|Any CPU
 		{D26140E4-82E6-47FB-9F3C-180661867FDF}.Release|x86.Build.0 = Release|Any CPU
+		{9C04F265-B58B-4179-A1EE-20BA4C9A4EC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C04F265-B58B-4179-A1EE-20BA4C9A4EC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C04F265-B58B-4179-A1EE-20BA4C9A4EC9}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{9C04F265-B58B-4179-A1EE-20BA4C9A4EC9}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{9C04F265-B58B-4179-A1EE-20BA4C9A4EC9}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{9C04F265-B58B-4179-A1EE-20BA4C9A4EC9}.Debug|x64.Build.0 = Debug|Any CPU
+		{9C04F265-B58B-4179-A1EE-20BA4C9A4EC9}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{9C04F265-B58B-4179-A1EE-20BA4C9A4EC9}.Debug|x86.Build.0 = Debug|Any CPU
+		{9C04F265-B58B-4179-A1EE-20BA4C9A4EC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C04F265-B58B-4179-A1EE-20BA4C9A4EC9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C04F265-B58B-4179-A1EE-20BA4C9A4EC9}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{9C04F265-B58B-4179-A1EE-20BA4C9A4EC9}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{9C04F265-B58B-4179-A1EE-20BA4C9A4EC9}.Release|x64.ActiveCfg = Release|Any CPU
+		{9C04F265-B58B-4179-A1EE-20BA4C9A4EC9}.Release|x64.Build.0 = Release|Any CPU
+		{9C04F265-B58B-4179-A1EE-20BA4C9A4EC9}.Release|x86.ActiveCfg = Release|Any CPU
+		{9C04F265-B58B-4179-A1EE-20BA4C9A4EC9}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -843,11 +861,12 @@ Global
 		{1D796399-2028-4128-AC97-6598B5C38EE9} = {7C541C76-20F1-40D8-A683-29062638D9B9}
 		{22673792-BB1D-4A7D-A121-FFCA0E3F1C19} = {6A9F4A88-DE9C-4EAB-9659-197FF7DFF6AD}
 		{D26140E4-82E6-47FB-9F3C-180661867FDF} = {36E4D3C5-28FD-46B9-8763-C3316F67C6BE}
+		{9C04F265-B58B-4179-A1EE-20BA4C9A4EC9} = {36E4D3C5-28FD-46B9-8763-C3316F67C6BE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		RESX_ConfirmAddLanguageFile = False
-		SolutionGuid = {A8385DDB-1893-4CF8-83DF-F57C7AB7069B}
-		RESX_AutoCreateNewLanguageFiles = True
 		RESX_PrefixTranslations = False
+		RESX_AutoCreateNewLanguageFiles = True
+		SolutionGuid = {A8385DDB-1893-4CF8-83DF-F57C7AB7069B}
+		RESX_ConfirmAddLanguageFile = False
 	EndGlobalSection
 EndGlobal

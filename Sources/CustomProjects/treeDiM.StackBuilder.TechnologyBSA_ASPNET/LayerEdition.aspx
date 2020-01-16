@@ -16,9 +16,6 @@
             text-align: right;
             width: 49px;
         }
-        .auto-style8 {
-            width: 317px;
-        }
         .auto-style9 {
             text-align: right;
             width: 388px;
@@ -60,7 +57,7 @@
                             <td />
                             <td class="auto-style13" />
                             <td class="auto-style10" />
-                            <td class="auto-style11"> <asp:ImageButton ID="ButtonUpMost" runat="server" Width="32px" Text="To Top" Height="32px" ImageUrl="~/Images/ArrowUp.png" OnClick="OnArrowClicked" /></td>
+                            <td class="auto-style11"> <asp:ImageButton ID="ButtonUpMost" runat="server" Width="32px" Text="To Top" Height="32px" ImageUrl="~/Images/ArrowUpBStop.png" OnClick="OnArrowMaxClicked" BorderStyle="Solid" BorderWidth="1px"/></td>
                             <td class="auto-style12" />
                             <td />
                             <td />
@@ -69,43 +66,67 @@
                             <td />
                             <td class="auto-style13" />
                             <td class="auto-style10" />
-                            <td class="auto-style11"><asp:ImageButton ID="ButtonUp" runat="server" Width="32px" Text="To Top" Height="32px" ImageUrl="~/Images/ArrowUp.png" OnClick="OnArrowClicked" /></td>
+                            <td class="auto-style11"><asp:ImageButton ID="ButtonUp" runat="server" Width="32px" Text="To Top" Height="32px" ImageUrl="~/Images/ArrowUpB.png" OnClick="OnArrowClicked" BorderStyle="Solid" BorderWidth="1px"/></td>
                             <td class="auto-style12" />
                             <td />
                             <td />
                         </tr>
                         <tr>
                             <td />
-                            <td class="auto-style9"><asp:ImageButton ID="ButtonLeftMost" runat="server" Width="32px" Text="To Top" Height="32px" ImageUrl="~/Images/ArrowLeft.png" OnClick="OnArrowClicked" /></td>
-                            <td class="auto-style6"><asp:ImageButton ID="ButtonLeft" runat="server" Width="32px" Text="To Top" Height="32px" ImageUrl="~/Images/ArrowLeft.png" OnClick="OnArrowClicked" /></td>
-                            <td class="auto-style11"><asp:ImageButton ID="ButtonRotate" runat="server" Width="32px" Text="To Top" Height="32px" ImageUrl="~/Images/ArrowRotate.png" OnClick="OnArrowClicked" /></td>
-                            <td class="auto-style12"><asp:ImageButton ID="ButtonRight" runat="server" Width="32px" Text="To Top" Height="32px" ImageUrl="~/Images/ArrowRight.png" OnClick="OnArrowClicked" /></td>
-                            <td><asp:ImageButton ID="ButtonRightMost" runat="server" Width="32px" Text="To Top" Height="32px" ImageUrl="~/Images/ArrowRight.png" OnClick="OnArrowClicked" /></td>
-                            <td />
-                        </tr>
-                        <tr>
-                            <td />
-                            <td class="auto-style13" />
-                            <td class="auto-style10" />
-                            <td class="auto-style11"><asp:ImageButton ID="ButtonDown" runat="server" Width="32px" Text="To Top" Height="32px" ImageUrl="~/Images/ArrowDown.png" OnClick="OnArrowClicked" /></td>
-                            <td class="auto-style12" />
-                            <td />
+                            <td class="auto-style9"><asp:ImageButton ID="ButtonLeftMost" runat="server" Width="32px" Text="To Top" Height="32px" ImageUrl="~/Images/ArrowLeftBStop.png" OnClick="OnArrowMaxClicked" BorderStyle="Solid" BorderWidth="1px" /></td>
+                            <td class="auto-style6"><asp:ImageButton ID="ButtonLeft" runat="server" Width="32px" Text="To Top" Height="32px" ImageUrl="~/Images/ArrowLeftB.png" OnClick="OnArrowClicked" BorderStyle="Solid" BorderWidth="1px" /></td>
+                            <td class="auto-style11"><asp:ImageButton ID="ButtonRotate" runat="server" Width="32px" Text="To Top" Height="32px" ImageUrl="~/Images/ArrowRotate.png" OnClick="OnRotateClicked" BorderStyle="Solid" BorderWidth="1px"/></td>
+                            <td class="auto-style12"><asp:ImageButton ID="ButtonRight" runat="server" Width="32px" Text="To Top" Height="32px" ImageUrl="~/Images/ArrowRightB.png" OnClick="OnArrowClicked" BorderStyle="Solid" BorderWidth="1px"/></td>
+                            <td><asp:ImageButton ID="ButtonRightMost" runat="server" Width="32px" Text="To Top" Height="32px" ImageUrl="~/Images/ArrowRightBStop.png" OnClick="OnArrowMaxClicked" BorderStyle="Solid" BorderWidth="1px"/></td>
                             <td />
                         </tr>
                         <tr>
                             <td />
                             <td class="auto-style13" />
                             <td class="auto-style10" />
-                            <td class="auto-style11"><asp:ImageButton ID="ButtonDownMost" runat="server" Width="32px" Text="To Top" Height="32px" ImageUrl="~/Images/ArrowDown.png" OnClick="OnArrowClicked" /></td>
+                            <td class="auto-style11"><asp:ImageButton ID="ButtonDown" runat="server" Width="32px" Text="To Top" Height="32px" ImageUrl="~/Images/ArrowDownB.png" OnClick="OnArrowClicked" BorderStyle="Solid" BorderWidth="1px"/></td>
                             <td class="auto-style12" />
                             <td />
                             <td />
                         </tr>
+                        <tr>
+                            <td />
+                            <td class="auto-style13" />
+                            <td class="auto-style10" />
+                            <td class="auto-style11"><asp:ImageButton ID="ButtonDownMost" runat="server" Width="32px" Text="To Top" Height="32px" ImageUrl="~/Images/ArrowDownBStop.png" OnClick="OnArrowMaxClicked" BorderStyle="Solid" BorderWidth="1px"/></td>
+                            <td class="auto-style12" />
+                            <td />
+                            <td />
+                        </tr>
+                        <tr>
+                            <td />
+                            <td />
+                            <td />
+                            <td />
+                            <td />
+                            <td />
+                            <td />
+                        </tr>
+
                     </table>
                 </div>
             </ContentTemplate>
         </asp:UpdatePanel>
         <div>
+            <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional" ChildrenAsTriggers="true">
+                <ContentTemplate>
+                    <table class="auto-style1">
+                        <tr>
+                            <td class="auto-style1" />
+                            <asp:Button ID="bnPrev" runat="server" OnClick="OnPrevious" Text="&lt; Previous" Width="130px" />
+                            <td class="auto-style1" />
+                            <asp:Button ID="bnNext" runat="server" Text="Next &gt;" Width="130px" OnClick="OnNext" />
+                        </tr>
+                    </table>
+                </ContentTemplate>
+
+
+            </asp:UpdatePanel>
         </div>
     </form>
 </body>

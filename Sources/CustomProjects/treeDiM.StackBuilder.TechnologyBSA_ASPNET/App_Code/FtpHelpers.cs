@@ -31,6 +31,23 @@ public static class FtpHelpers
         }
     }
 
+    public static bool Download(ref byte[] fileContent, string ftpUrl, string fileName, string ftpUsername, string ftpPassword)
+    {
+        try
+        {
+            using (var client = new WebClient())
+            {
+                client.Credentials = new NetworkCredential(ftpUsername, ftpPassword);
+                fileContent = client.DownloadData(new Uri(ftpUrl + fileName));
+            }
+            return true;
+        }
+        catch (Exception /*ex*/)
+        {
+            return false;
+        }
+    }
+
     public static List<string> GetListOfFiles(string ftpUrl, string ftpUsername, string ftpPassword)
     {
         string names = string.Empty;

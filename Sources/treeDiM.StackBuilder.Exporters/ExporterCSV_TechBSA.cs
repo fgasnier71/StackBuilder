@@ -1,8 +1,12 @@
 ﻿#region Using directives
+using System;
 using System.Text;
 using System.IO;
 using System.Globalization;
+using System.Collections.Generic;
+using Microsoft.VisualBasic.FileIO;
 
+using log4net;
 using Sharp3D.Math.Core;
 
 using treeDiM.StackBuilder.Basics;
@@ -10,7 +14,7 @@ using treeDiM.StackBuilder.Basics;
 
 namespace treeDiM.StackBuilder.Exporters
 {
-    class ExporterCSV_TechBSA : Exporter
+    public class ExporterCSV_TechBSA : Exporter
     {
         #region Static members
         public static string FormatName => "csv (TechnologyBSA)";
@@ -74,23 +78,28 @@ namespace treeDiM.StackBuilder.Exporters
             }
 
             var bProperties = analysis.Content as BoxProperties;
-            csv.AppendLine($"Program: StackBuilder; Program: StackBuilder.BoxDimension.L; REAL; {bProperties.Length.ToString("0,0.0", nfi)}");
-            csv.AppendLine($"Program: StackBuilder; Program: StackBuilder.BoxDimension.P; REAL; {bProperties.Width.ToString("0,0.0", nfi)}");
-            csv.AppendLine($"Program: StackBuilder; Program: StackBuilder.BoxDimension.H; REAL; {bProperties.Height.ToString("0,0.0", nfi)}");
-            csv.AppendLine($"Program: StackBuilder; Peogram: StackBuilder.BoxDimension.W; REAL; {bProperties.Weight.ToString("0,0.0", nfi)}");
+            csv.AppendLine($"Program:StackBuilder;Program:StackBuilder.BoxDimension.L;REAL;{bProperties.Length.ToString("0,0.0", nfi)}");
+            csv.AppendLine($"Program:StackBuilder;Program:StackBuilder.BoxDimension.P;REAL;{bProperties.Width.ToString("0,0.0", nfi)}");
+            csv.AppendLine($"Program:StackBuilder;Program:StackBuilder.BoxDimension.H;REAL;{bProperties.Height.ToString("0,0.0", nfi)}");
+            csv.AppendLine($"Program:StackBuilder;Program:StackBuilder.BoxDimension.W;REAL;{bProperties.Weight.ToString("0,0.0", nfi)}");
             var palletProperties = analysis.Container as PalletProperties;
-            csv.AppendLine($"Program: StackBuilder; Program: StackBuilder.PalletDimension.L; REAL; {palletProperties.Length.ToString("0,0.0", nfi)}");
-            csv.AppendLine($"Program: StackBuilder; Program: StackBuilder.PalletDimension.P; REAL; {palletProperties.Width.ToString("0,0.0", nfi)}");
-            csv.AppendLine($"Program: StackBuilder; Program: StackBuilder.PalletDimension.H; REAL; {palletProperties.Height.ToString("0,0.0", nfi)}");
-            csv.AppendLine($"Program: StackBuilder; Program: StackBuilder.PalletDimension.W; REAL; {palletProperties.Weight.ToString("0,0.0", nfi)}");
-
+            csv.AppendLine($"Program:StackBuilder;Program:StackBuilder.PalletDimension.L;REAL;{palletProperties.Length.ToString("0,0.0", nfi)}");
+            csv.AppendLine($"Program:StackBuilder;Program:StackBuilder.PalletDimension.P;REAL;{palletProperties.Width.ToString("0,0.0", nfi)}");
+            csv.AppendLine($"Program:StackBuilder;Program:StackBuilder.PalletDimension.H;REAL;{palletProperties.Height.ToString("0,0.0", nfi)}");
+            csv.AppendLine($"Program:StackBuilder;Program:StackBuilder.PalletDimension.W;REAL;{palletProperties.Weight.ToString("0,0.0", nfi)}");
+            double maxPalletHeight = analysis.ConstraintSet.OptMaxHeight.Value;
+            csv.AppendLine($"Program:StackBuilder;Program:StackBuilder.Pallet.MaxPalletHeight;REAL;{maxPalletHeight.ToString("0,0.0", nfi)}");
+            bool alternateLayers = false;
+            if (sol.ItemCount > 1)
+                alternateLayers = sol.SolutionItems[0].SymetryX != sol.SolutionItems[1].SymetryX;
+            csv.AppendLine($"Program:StackBuilder;Program:StackBuilder.AlternateLayersOnOff;BOOL;{Bool2string(alternateLayers)}");
             bool hasInterlayerBottom = sol.Layers.Count > 0 && (sol.Layers[0] is InterlayerPos);
-            csv.AppendLine($"Program: StackBuilder; Program: StackBuilder.InterLayerBottomOnOff; BOOL; {Bool2string(hasInterlayerBottom)}");
+            csv.AppendLine($"Program:StackBuilder;Program:StackBuilder.InterLayerBottomOnOff;BOOL;{Bool2string(hasInterlayerBottom)}");
             bool hasInterlayerMiddle = sol.Layers.Count > 2 && (sol.Layers[2] is InterlayerPos);
-            csv.AppendLine($"Program: StackBuilder; Program: StackBuilder.InterLayerIntermediateOnOff; BOOL; {Bool2string(hasInterlayerMiddle) }");
+            csv.AppendLine($"Program:StackBuilder;Program:StackBuilder.InterLayerIntermediateOnOff;BOOL;{Bool2string(hasInterlayerMiddle) }");
             bool topInterlayer = (analysis is AnalysisCasePallet analysisCasePallet) &&  analysisCasePallet.HasPalletCap;
-            csv.AppendLine($"Program: StackBuilder; Program: StackBuilder.InterLayerTopOnOff; BOOL; {Bool2string(topInterlayer)}");
-            csv.AppendLine($"Program:StackBuilder; Program: StackBuilder.TotalWeight; REAL; {sol.Weight.ToString("0,0.0", nfi)}");
+            csv.AppendLine($"Program:StackBuilder;Program:StackBuilder.InterLayerTopOnOff;BOOL;{Bool2string(topInterlayer)}");
+            csv.AppendLine($"Program:StackBuilder;Program:StackBuilder.TotalWeight;REAL;{sol.Weight.ToString("0,0.0", nfi)}");
 
             var writer = new StreamWriter(stream);
             writer.Write(csv.ToString());
@@ -98,8 +107,143 @@ namespace treeDiM.StackBuilder.Exporters
             stream.Position = 0;
         }
         #endregion
+
+        #region Import methods
+        public static void Import(Stream csvStream,
+            ref List<BoxPosition> boxPositions,
+            ref Vector3D dimCase, ref double weightCase,
+            ref Vector3D dimPallet, ref double weightPallet,
+            ref double maxPalletHeight,
+            ref bool alternateLayers,
+            ref bool hasInterlayerBottom, ref bool hasInterlayerTop, ref bool hasInterlayerMiddle)
+        {
+            using (TextFieldParser csvParser = new TextFieldParser(csvStream))
+            {
+                csvParser.CommentTokens = new string[] { "#" };
+                csvParser.SetDelimiters(new string[] { ";" });
+                csvParser.HasFieldsEnclosedInQuotes = false;
+
+                // Skip the row with the column names
+                csvParser.ReadLine();
+                csvParser.ReadLine();
+
+                double zMin = double.MaxValue;
+                maxPalletHeight = 1700.0;
+
+                while (!csvParser.EndOfData)
+                {
+                    // Read current line fields, pointer moves to the next line.
+                    string[] fields = csvParser.ReadFields();
+
+                    string f1 = fields[1];
+                    if (f1.Contains("Program:StackBuilder.Box") && f1.EndsWith(".C"))
+                    {
+                        try
+                        {
+                            int angle = int.Parse(fields[3]);
+                            fields = csvParser.ReadFields();
+                            double x = double.Parse(fields[3], NumberFormatInfo.InvariantInfo);
+                            fields = csvParser.ReadFields();
+                            double y = double.Parse(fields[3], NumberFormatInfo.InvariantInfo);
+                            fields = csvParser.ReadFields();
+                            double z = double.Parse(fields[3], NumberFormatInfo.InvariantInfo);
+                            if (angle == 0 && x == 0 && y == 0 && z == 0)
+                                continue;
+                            if (z < zMin) zMin = z;
+
+                            HalfAxis.HAxis axisL = HalfAxis.HAxis.AXIS_X_P;
+                            HalfAxis.HAxis axisW = HalfAxis.HAxis.AXIS_Y_P;
+                            switch (angle)
+                            {
+                                case 0:
+                                    axisL = HalfAxis.HAxis.AXIS_X_P;
+                                    axisW = HalfAxis.HAxis.AXIS_Y_P;
+                                    break;
+                                case 90:
+                                    axisL = HalfAxis.HAxis.AXIS_Y_P;
+                                    axisW = HalfAxis.HAxis.AXIS_X_N;
+                                    break;
+                                case 180:
+                                    axisL = HalfAxis.HAxis.AXIS_X_N;
+                                    axisW = HalfAxis.HAxis.AXIS_Y_N;
+                                    break;
+                                case 270:
+                                    axisL = HalfAxis.HAxis.AXIS_Y_N;
+                                    axisW = HalfAxis.HAxis.AXIS_X_P;
+                                    break;
+                                default:
+                                    break;
+                            }
+                            if (Math.Abs(z - zMin) < 1.0E-06)
+                                boxPositions.Add(new BoxPosition(new Vector3D(x, y, z), axisL, axisW));
+                        }
+                        catch (Exception ex)
+                        {
+                            _log.Error(ex.ToString());
+                        }
+                    }
+                    else if (f1.Contains("Program:StackBuilder.BoxDimension.L"))
+                    {
+                        dimCase.X = double.Parse(fields[3], NumberFormatInfo.InvariantInfo);
+                        fields = csvParser.ReadFields();
+                        dimCase.Y = double.Parse(fields[3], NumberFormatInfo.InvariantInfo);
+                        fields = csvParser.ReadFields();
+                        dimCase.Z = double.Parse(fields[3], NumberFormatInfo.InvariantInfo);
+                        fields = csvParser.ReadFields();
+                        weightCase = double.Parse(fields[3], NumberFormatInfo.InvariantInfo);
+                    }
+                    else if (f1.Contains("Program:StackBuilder.PalletDimension"))
+                    {
+                        dimPallet.X = double.Parse(fields[3], NumberFormatInfo.InvariantInfo);
+                        fields = csvParser.ReadFields();
+                        dimPallet.Y = double.Parse(fields[3], NumberFormatInfo.InvariantInfo);
+                        fields = csvParser.ReadFields();
+                        dimPallet.Z = double.Parse(fields[3], NumberFormatInfo.InvariantInfo);
+                        fields = csvParser.ReadFields();
+                        weightPallet = double.Parse(fields[3], NumberFormatInfo.InvariantInfo);
+
+                    }
+                    else if (f1.Contains("Program:StackBuilder.MaxPalletHeight"))
+                    {
+                        maxPalletHeight = double.Parse(fields[3], NumberFormatInfo.InvariantInfo);
+                    }
+                    else if (f1.Contains("Program:StackBuilder.AlternateLayersOnOff"))
+                    {
+                        alternateLayers = string.Equals(fields[3], "TRUE", StringComparison.InvariantCultureIgnoreCase);
+                    }
+                    else if (f1.Contains("Program:StackBuilder.InterLayerBottomOnOff"))
+                    {
+                        hasInterlayerBottom = string.Equals(fields[3], "TRUE", StringComparison.InvariantCultureIgnoreCase);
+                    }
+                    else if (f1.Contains("Program:StackBuilder.InterLayerIntermediateOnOff"))
+                    {
+                        hasInterlayerMiddle = string.Equals(fields[3], "TRUE", StringComparison.InvariantCultureIgnoreCase);
+                    }
+                    else if (f1.Contains("Program:StackBuilder.InterLayerTopOnOff"))
+                    {
+                        hasInterlayerTop = string.Equals(fields[3], "TRUE", StringComparison.InvariantCultureIgnoreCase);
+                    }                    
+                }
+            }
+
+            // reset position
+            for (int i = 0; i < boxPositions.Count; ++i)
+            {
+                var bpos = boxPositions[i];
+                HalfAxis.HAxis axisLength = bpos.DirectionLength;
+                HalfAxis.HAxis axisWidth = bpos.DirectionWidth;
+                Vector3D vI = HalfAxis.ToVector3D(axisLength);
+                Vector3D vJ = HalfAxis.ToVector3D(axisWidth);
+                Vector3D vK = Vector3D.CrossProduct(vI, vJ);
+                var v = bpos.Position - 0.5 * dimCase.X * vI - 0.5 * dimCase.Y * vJ - 0.5 * dimCase.Z * vK - dimPallet.Z * Vector3D.ZAxis;
+                boxPositions[i] = new BoxPosition(v, axisLength, axisWidth);
+            }
+        }
+        #endregion
+
         #region Helpers
         private static string Bool2string(bool b) => b ? "TRUE" : "FALSE";
+        private static ILog _log = LogManager.GetLogger(typeof(ExporterCSV_TechBSA));
         #endregion
     }
 }

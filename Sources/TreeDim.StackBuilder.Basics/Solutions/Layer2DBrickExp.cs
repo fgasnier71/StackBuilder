@@ -1,4 +1,6 @@
 ﻿#region Using directives
+using System.Collections.Generic;
+
 using Sharp3D.Math.Core;
 #endregion
 
@@ -15,6 +17,7 @@ namespace treeDiM.StackBuilder.Basics
         #region Add/Remove methods
         public void AddPosition(BoxPosition position) => Add(position);
         public void RemovePosition(int index) => Positions.RemoveAt(index);
+        public void SetPositions(List<BoxPosition> positions) => AddRange(positions);
         #endregion
         #region Layer2DBrick override
         public override string PatternName => string.Empty;
