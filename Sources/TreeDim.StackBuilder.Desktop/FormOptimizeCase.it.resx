@@ -300,13 +300,13 @@
     <value>262, 17</value>
   </data>
   <data name="chkVerticalOrientationOnly.Text" xml:space="preserve">
-    <value>Consenti solo l'orientamento verticale della scatola</value>
+    <value>Consenti solo l'orientamento verticale del cartone</value>
   </data>
   <data name="gbCase.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 246</value>
   </data>
   <data name="gbCase.Text" xml:space="preserve">
-    <value>Astuccio vincolato</value>
+    <value>Vincoli Pack</value>
   </data>
   <data name="gbPallet.Text" xml:space="preserve">
     <value>Pallet</value>
@@ -324,7 +324,7 @@
     <value>584, 140</value>
   </data>
   <data name="groupBox.Text" xml:space="preserve">
-    <value>Scatola (interno prodotto)</value>
+    <value>Astuccio (interno prodotto)</value>
   </data>
   <data name="groupBox1.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 174</value>
@@ -342,13 +342,13 @@
     <value>43, 13</value>
   </data>
   <data name="lbBox.Text" xml:space="preserve">
-    <value>Scatola</value>
+    <value>Astuccio</value>
   </data>
   <data name="lbBoxDimensions.Size" type="System.Drawing.Size, System.Drawing">
     <value>141, 13</value>
   </data>
   <data name="lbBoxDimensions.Text" xml:space="preserve">
-    <value>Crea analisi astuccio e pallet</value>
+    <value>(dimensioni astuccio)</value>
   </data>
   <data name="lbHeight.Size" type="System.Drawing.Size, System.Drawing">
     <value>41, 13</value>
@@ -378,7 +378,7 @@
     <value>153, 13</value>
   </data>
   <data name="lbNumber.Text" xml:space="preserve">
-    <value>Numero di scatole per astuccio</value>
+    <value>Numero di astucci per cartone</value>
   </data>
   <data name="lbPallet.Text" xml:space="preserve">
     <value>Pallet</value>

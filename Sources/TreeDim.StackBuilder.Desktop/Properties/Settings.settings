@@ -200,9 +200,6 @@
     <Setting Name="CloseDbBrowserAfterImport" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
-    <Setting Name="HelpPageUrl" Type="System.String" Scope="User">
-      <Value Profile="(Default)">http://www.treedim.com/stackbuilder/en/documentation/user-guide/</Value>
-    </Setting>
     <Setting Name="WrapperType" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
@@ -286,6 +283,9 @@
     </Setting>
     <Setting Name="NoItemsHeterogeneous" Type="System.UInt32" Scope="User">
       <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="HelpPageUrl" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://www.plmpack.com/stackbuilder/Help/enu/Welcome.html</Value>
     </Setting>
   </Settings>
 </SettingsFile>

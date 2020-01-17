@@ -238,7 +238,7 @@
     <value>Wrapper</value>
   </data>
   <data name="lbBox.Text" xml:space="preserve">
-    <value>Casella</value>
+    <value>Astuccio</value>
   </data>
   <data name="lbDir.Text" xml:space="preserve">
     <value>Direzione</value>
@@ -247,7 +247,7 @@
     <value>Tipo</value>
   </data>
   <data name="lbWrapperColor.Text" xml:space="preserve">
-    <value>Color</value>
+    <value>Colore</value>
   </data>
   <data name="uCtrlHeight.Text" xml:space="preserve">
     <value>Altezza</value>

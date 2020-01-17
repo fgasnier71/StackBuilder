@@ -12,7 +12,7 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.1.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.4.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -796,18 +796,6 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://www.treedim.com/stackbuilder/en/documentation/user-guide/")]
-        public string HelpPageUrl {
-            get {
-                return ((string)(this["HelpPageUrl"]));
-            }
-            set {
-                this["HelpPageUrl"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public int WrapperType {
             get {
@@ -1127,6 +1115,18 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
             }
             set {
                 this["NoItemsHeterogeneous"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://www.plmpack.com/stackbuilder/Help/enu/Welcome.html")]
+        public string HelpPageUrl {
+            get {
+                return ((string)(this["HelpPageUrl"]));
+            }
+            set {
+                this["HelpPageUrl"] = value;
             }
         }
     }

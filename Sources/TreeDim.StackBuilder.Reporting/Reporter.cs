@@ -787,6 +787,10 @@ namespace treeDiM.StackBuilder.Reporting
                 // number layers x number cases
                 if (rnSolution.GetChildByName(Resources.ID_RN_NOLAYERSBYNOCASES).Activated)
                     AppendElementValue(xmlDoc, elemSolution, "noLayersAndNoCases", solLayer.NoLayersPerNoCasesString);
+                // Number of interlayers
+                if (solLayer.InterlayerCount > 0 && rnSolution.GetChildByName(Resources.ID_RN_NOINTERLAYERS).Activated)
+                    AppendElementValue(xmlDoc, elemSolution, "noInterlayers", solLayer.InterlayerCount);
+
             }
             // ***
             if (rnSolution.GetChildByName(Resources.ID_RN_WEIGHT).Activated)

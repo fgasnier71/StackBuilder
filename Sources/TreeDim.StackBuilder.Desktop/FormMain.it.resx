@@ -530,7 +530,7 @@
     <value>261, 22</value>
   </data>
   <data name="newBoxCaseAnalysisToolStripMenuItem.Text" xml:space="preserve">
-    <value>Nuova Analisi Scatola/Astuccio</value>
+    <value>Nuova Analisi Cartone/Astuccio</value>
   </data>
   <data name="&gt;&gt;newBoxCaseAnalysisToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -554,7 +554,7 @@
     <value>261, 22</value>
   </data>
   <data name="newBoxCasePalletOptimizationToolStripMenuItem.Text" xml:space="preserve">
-    <value>Nuova ottimizzazione Scatola/Astuccio/Pallet</value>
+    <value>Nuova ottimizzazione Cartone/Astuccio/Pallet</value>
   </data>
   <data name="&gt;&gt;newBoxCasePalletOptimizationToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -577,7 +577,7 @@
     <value>261, 22</value>
   </data>
   <data name="newBoxToolStripMenuItem.Text" xml:space="preserve">
-    <value>Nuova Scatola</value>
+    <value>Nuovo Cartone</value>
   </data>
   <data name="&gt;&gt;newBoxToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -638,7 +638,7 @@
     <value>261, 22</value>
   </data>
   <data name="newCylinderToolStripMenuItem.Text" xml:space="preserve">
-    <value>Nuovo Cilindro</value>
+    <value>Nuova bobina</value>
   </data>
   <data name="&gt;&gt;newCylinderToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -660,7 +660,7 @@
     <value>261, 22</value>
   </data>
   <data name="newInterlayerToolStripMenuItem.Text" xml:space="preserve">
-    <value>Nuovo Interstrato</value>
+    <value>Nuovo Divisore</value>
   </data>
   <data name="&gt;&gt;newInterlayerToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -730,7 +730,7 @@
     <value>261, 22</value>
   </data>
   <data name="newToolStripMenuItemCylinderPalletAnalysis.Text" xml:space="preserve">
-    <value>Nuova Analisi Cilindro/Pallet</value>
+    <value>Nuova Analisi bobina/pallet</value>
   </data>
   <data name="&gt;&gt;newToolStripMenuItemCylinderPalletAnalysis.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -950,7 +950,7 @@
     <value>36, 36</value>
   </data>
   <data name="toolStripButtonAddNewBox.Text" xml:space="preserve">
-    <value>Aggiungi nuova scatola</value>
+    <value>Aggiungi nuovo cartone</value>
   </data>
   <data name="&gt;&gt;toolStripButtonAddNewBox.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -1010,7 +1010,7 @@
     <value>36, 36</value>
   </data>
   <data name="toolStripButtonAddNewCylinder.Text" xml:space="preserve">
-    <value>Aggiungi nuovo cilindro</value>
+    <value>Aggiungi nuova bobina</value>
   </data>
   <data name="&gt;&gt;toolStripButtonAddNewCylinder.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -1073,13 +1073,13 @@
     <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="toolStripButtonBox.Text" xml:space="preserve">
-    <value>Aggiungi nuova casella</value>
+    <value>Aggiungi nuovo astuccio</value>
   </data>
   <data name="toolStripButtonBundle.Text" xml:space="preserve">
-    <value>Aggiungere nuovo Bundle</value>
+    <value>Aggiungi nuovo fascicolo</value>
   </data>
   <data name="toolStripButtonCase.Text" xml:space="preserve">
-    <value>Aggiungi nuovo caso...</value>
+    <value>Aggiungi nuovo cartone</value>
   </data>
   <data name="toolStripButtonCreateNewAnalysis.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1137,10 +1137,10 @@
     <value>36, 36</value>
   </data>
   <data name="toolStripButtonCreateNewBoxCaseAnalysis.Text" xml:space="preserve">
-    <value>Crea nuova analisi scatola/astuccio...</value>
+    <value>Crea nuova analisi cartone/astuccio...</value>
   </data>
   <data name="toolStripButtonCreateNewBoxCaseAnalysis.ToolTipText" xml:space="preserve">
-    <value>Aggiungi nuova analisi scatola/astuccio...</value>
+    <value>Aggiungi nuova analisi cartone/astuccio...</value>
   </data>
   <data name="&gt;&gt;toolStripButtonCreateNewBoxCaseAnalysis.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -1170,7 +1170,7 @@
     <value>36, 36</value>
   </data>
   <data name="toolStripButtonCreateNewBoxCasePalletOptimization.Text" xml:space="preserve">
-    <value>Crea nuova ottimizzazione scatola/astuccio/pallet</value>
+    <value>Crea nuova ottimizzazione cartone/astuccio/pallet</value>
   </data>
   <data name="&gt;&gt;toolStripButtonCreateNewBoxCasePalletOptimization.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -1254,19 +1254,19 @@
     <value>36, 36</value>
   </data>
   <data name="toolStripButtonCreateNewCylinderPalletAnalysis.Text" xml:space="preserve">
-    <value>Crea nuova analisi cilindro/pallet</value>
+    <value>Crea nuova analisi bobina/pallet</value>
   </data>
   <data name="toolStripButtonCreateNewCylinderPalletAnalysis.ToolTipText" xml:space="preserve">
-    <value>Aggiungi nuova analisi cilindro/pallet</value>
+    <value>Aggiungi nuova analisi bobina/pallet</value>
   </data>
   <data name="&gt;&gt;toolStripButtonCreateNewCylinderPalletAnalysis.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="toolStripButtonCreateNewHCylinderPalletAnalysis.Text" xml:space="preserve">
-		<value>Crea nuova analisi cilindro/pallet</value>
+		<value>Crea nuova analisi bobina/pallet</value>
 	</data>
   <data name="toolStripButtonCreateNewHCylinderPalletAnalysis.ToolTipText" xml:space="preserve">
-		<value>Aggiungi nuova analisi cilindro/pallet</value>
+		<value>Aggiungi nuova analisi bobina/pallet</value>
 	</data>
   <data name="toolStripButtonCreateNewInterlayer.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1300,7 +1300,7 @@
     <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="toolStripButtonCylinder.Text" xml:space="preserve">
-    <value>Aggiungere nuovo cilindro</value>
+    <value>Aggiungi nuova bobina</value>
   </data>
   <data name="toolStripButtonFileOpen.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1502,13 +1502,13 @@
     <value>Ricerca per caso ottimale</value>
   </data>
   <data name="toolStripMenuItemBox.Text" xml:space="preserve">
-    <value>Nuova casella</value>
+    <value>Nuovo Astuccio</value>
   </data>
   <data name="toolStripMenuItemBundle.Text" xml:space="preserve">
-    <value>Nuovo Bundle</value>
+    <value>Nuovo Fascicolo</value>
   </data>
   <data name="toolStripMenuItemCase.Text" xml:space="preserve">
-    <value>Nuovo caso</value>
+    <value>Nuovo Cartone</value>
   </data>
   <data name="toolStripMenuItemClose.Text" xml:space="preserve">
     <value>Chiudere</value>
@@ -1517,7 +1517,7 @@
     <value>Chiudi documento attivo</value>
   </data>
   <data name="toolStripMenuItemCylinder.Text" xml:space="preserve">
-    <value>Nuovo cilindro</value>
+    <value>Nuova Bobina</value>
   </data>
   <data name="toolStripMenuItemEditDB.ToolTipText" xml:space="preserve">
     <value>Modificare il database delle soluzioni pallet</value>
@@ -1526,19 +1526,19 @@
     <value>Visualizza pagina iniziale</value>
   </data>
   <data name="toolStripMenuItemInterlayer.Text" xml:space="preserve">
-    <value>Nuovo strato intermedio</value>
+    <value>Nuovo divisore</value>
   </data>
   <data name="toolStripMenuItemNewAnalysisBoxCase.Text" xml:space="preserve">
-    <value>Nuova scatola/caso analisi</value>
+    <value>Nuova analisi astuccio/cartone</value>
   </data>
   <data name="toolStripMenuItemNewAnalysisCasePallet.Text" xml:space="preserve">
-    <value>Nuova analisi di caso/Pallet</value>
+    <value>Nuova analisi cartone/pallet</value>
   </data>
   <data name="toolStripMenuItemNewAnalysisCylinderCase.Text" xml:space="preserve">
-    <value>Nuove analisi di cilindro/caso</value>
+    <value>Nuova analisi bobina/cartone</value>
   </data>
   <data name="toolStripMenuItemNewAnalysisCylinderPallet.Text" xml:space="preserve">
-    <value>Nuovo cilindro/Pallet analisi</value>
+    <value>Nuova analisi bobina/Pallet</value>
   </data>
   <data name="toolStripMenuItemPack.Text" xml:space="preserve">
     <value>Nuovo Pack</value>
@@ -1547,13 +1547,13 @@
     <value>Nuovo Pallet</value>
   </data>
   <data name="toolStripMenuItemPalletCap.Text" xml:space="preserve">
-    <value>Nuovo Pallet Cap</value>
+    <value>Nuovo Copripallet</value>
   </data>
   <data name="toolStripMenuItemPalletCorners.Text" xml:space="preserve">
-    <value>Nuovi angoli di Pallet</value>
+    <value>Nuovo Angolare</value>
   </data>
   <data name="toolStripMenuItemPalletFilm.Text" xml:space="preserve">
-    <value>Nuovo Film di Pallet</value>
+    <value>Nuovo Film per Pallet</value>
   </data>
   <data name="toolStripMenuItemSave.Text" xml:space="preserve">
     <value>Salva</value>
@@ -1610,25 +1610,25 @@
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="toolStripMIAnalysisBoxCase.Text" xml:space="preserve">
-    <value>Scatola/caso</value>
+    <value>Astuccio/Cartone</value>
   </data>
   <data name="toolStripMIAnalysisBundleCase.Text" xml:space="preserve">
-    <value>Bundle/caso</value>
+    <value>Fascicolo/Cartone</value>
   </data>
   <data name="toolStripMIAnalysisBundlePallet.Text" xml:space="preserve">
-    <value>Bundle/Pallet</value>
+    <value>Fascicolo/Pallet</value>
   </data>
   <data name="toolStripMIAnalysisCasePallet.Text" xml:space="preserve">
-    <value>Caso/Pallet</value>
+    <value>Cartone/Pallet</value>
   </data>
   <data name="toolStripMIAnalysisCaseTruck.Text" xml:space="preserve">
-    <value>Case/camion</value>
+    <value>Cartone/Camion</value>
   </data>
   <data name="toolStripMIAnalysisCylinderCase.Text" xml:space="preserve">
-    <value>Cilindro/caso</value>
+    <value>Bobina/Cartone</value>
   </data>
   <data name="toolStripMIAnalysisCylinderPallet.Text" xml:space="preserve">
-    <value>Cilindro/Pallet</value>
+    <value>Bobina/Pallet</value>
   </data>
   <data name="toolStripMIAnalysisPalletTruck.Text" xml:space="preserve">
     <value>Camion di pallet</value>
@@ -1652,13 +1652,13 @@
     <value>Suggeriscono pack per palettizzazione ottimale</value>
   </data>
   <data name="toolStripMIInterlayer.Text" xml:space="preserve">
-    <value>Strato intermedio</value>
+    <value>Divisorio</value>
   </data>
   <data name="toolStripMIInterlayer.ToolTipText" xml:space="preserve">
-    <value>Aggiungi nuovo intercalare...</value>
+    <value>Aggiungi nuovo divisorio</value>
   </data>
   <data name="toolStripMIPalletCap.Text" xml:space="preserve">
-    <value>Cap di pallet</value>
+    <value>Copripallet</value>
   </data>
   <data name="toolStripMIPalletCap.ToolTipText" xml:space="preserve">
     <value>Aggiungi nuovo pallet cap...</value>
@@ -1670,10 +1670,10 @@
     <value>Aggiungi nuovo angolo di pallet...</value>
   </data>
   <data name="toolStripMIPalletFilm.Text" xml:space="preserve">
-    <value>Pellicola di pallet</value>
+    <value>Film per pallet</value>
   </data>
   <data name="toolStripMIPalletFilm.ToolTipText" xml:space="preserve">
-    <value>Aggiungere il nuovo film di pallet...</value>
+    <value>Aggiungere il nuovo film per pallet...</value>
   </data>
   <data name="toolStripMIPLMPackLib.Text" xml:space="preserve">
     <value>Lancio PLMPackLib</value>
@@ -1682,19 +1682,19 @@
     <value>Scollegare</value>
   </data>
   <data name="toolStripSBAnalysesCase.Text" xml:space="preserve">
-    <value>Analisi di caso</value>
+    <value>Analisi Cartone</value>
   </data>
   <data name="toolStripSBAnalysesCase.ToolTipText" xml:space="preserve">
-    <value>Analisi di caso</value>
+    <value>Analisi Cartone</value>
   </data>
   <data name="toolStripSBAnalysesTruck.Text" xml:space="preserve">
-    <value>Analisi di camion</value>
+    <value>Analisi Camion</value>
   </data>
   <data name="toolStripSBAnalysesTruck.ToolTipText" xml:space="preserve">
-    <value>Analisi di camion</value>
+    <value>Analisi Camion</value>
   </data>
   <data name="toolStripSBAnalysisPallet.Text" xml:space="preserve">
-    <value>Analisi di pallet</value>
+    <value>Analisi Pallet</value>
   </data>
   <data name="toolStripSBOptimisations.Text" xml:space="preserve">
     <value>Ottimizzazioni di imballaggio</value>
@@ -1703,7 +1703,7 @@
     <value>Ottimizzazioni di imballaggio</value>
   </data>
   <data name="toolStripSBPalletDeco.Text" xml:space="preserve">
-    <value>Creare nuove intercalare...</value>
+    <value>Creare nuovo divisorio…</value>
   </data>
   <data name="toolStripSBUser.Text" xml:space="preserve">
     <value>toolStripSplitButton1</value>
@@ -1876,5 +1876,8 @@
   </data>
   <data name="&gt;&gt;tutorialToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="toolStripMIAnalysisCasePallet.ToolTipText" xml:space="preserve">
+    <value>Analisi Cartone/Pallet</value>
   </data>
 </root>

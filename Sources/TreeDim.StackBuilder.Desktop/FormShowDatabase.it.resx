@@ -256,19 +256,19 @@
     <value>Importazione</value>
   </data>
   <data name="tabPageBox.Text" xml:space="preserve">
-    <value>Scatole</value>
+    <value>Astucci</value>
   </data>
   <data name="tabPageBundle.Text" xml:space="preserve">
     <value>Fascicoli</value>
   </data>
   <data name="tabPageCase.Text" xml:space="preserve">
-    <value>Astucci</value>
+    <value>Cartoni</value>
   </data>
   <data name="tabPageCylinder.Text" xml:space="preserve">
-    <value>Cilindri</value>
+    <value>Bobine</value>
   </data>
   <data name="tabPageInterlayer.Text" xml:space="preserve">
-    <value>Interstrati</value>
+    <value>Divisori</value>
   </data>
   <data name="tabPagePallet.Text" xml:space="preserve">
     <value>Pallets</value>
@@ -277,13 +277,13 @@
     <value>Pallets</value>
   </data>
   <data name="tabPagePalletCap.Text" xml:space="preserve">
-    <value>Tappi di pallet</value>
+    <value>Copripallet</value>
   </data>
   <data name="tabPagePalletCorner.Text" xml:space="preserve">
-    <value>Angoli di pallet</value>
+    <value>Angolari</value>
   </data>
   <data name="tabPagePalletFilm.Text" xml:space="preserve">
-    <value>Film di pallet</value>
+    <value>Film per pallet</value>
   </data>
   <data name="tabPageTruck.Text" xml:space="preserve">
     <value>Camion</value>
@@ -293,5 +293,8 @@
   </data>
   <data name="toolStripMain.Text" xml:space="preserve">
     <value>Strumenti</value>
+  </data>
+  <data name="bnRemoveAll.Text" xml:space="preserve">
+    <value>Rimuovi tutto</value>
   </data>
 </root>

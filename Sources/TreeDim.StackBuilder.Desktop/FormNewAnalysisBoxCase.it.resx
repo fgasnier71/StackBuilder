@@ -118,15 +118,15 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="$this.Text" xml:space="preserve">
-    <value>Creare nuova scatola/caso analisi...</value>
+    <value>Creare nuova analisi astuccio/cartone...</value>
   </data>
   <data name="checkBoxBestLayersOnly.Text" xml:space="preserve">
     <value>Visualizzare solo i migliori livelli</value>
   </data>
   <data name="lbBox.Text" xml:space="preserve">
-    <value>Casella</value>
+    <value>Astuccio</value>
   </data>
   <data name="lbCase.Text" xml:space="preserve">
-    <value>Caso</value>
+    <value>Cartone</value>
   </data>
 </root>

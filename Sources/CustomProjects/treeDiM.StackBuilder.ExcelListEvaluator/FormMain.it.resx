@@ -127,13 +127,13 @@
     <value>Generare</value>
   </data>
   <data name="chkbGenerateImage.Text" xml:space="preserve">
-    <value>Generare l'immagine in uscita foglio Excel</value>
+    <value>Generare l'immagine su di un foglio Excel</value>
   </data>
   <data name="chkbGenerateImageFolder.Text" xml:space="preserve">
     <value>Generare l'immagine nella cartella</value>
   </data>
   <data name="chkbOnlyVerticalOrientation.Text" xml:space="preserve">
-    <value>Consentire solo l'orientamento verticale</value>
+    <value>E' consentito solo l'orientamento verticale</value>
   </data>
   <data name="chkbOpenFile.Text" xml:space="preserve">
     <value>Aprire il file generato</value>
@@ -148,7 +148,7 @@
     <value>Uscita</value>
   </data>
   <data name="lbCaseLoaded.Text" xml:space="preserve">
-    <value>(Nessun caso caricato!)</value>
+    <value>(Nessun cartone caricato!)</value>
   </data>
   <data name="lbFilePath.Text" xml:space="preserve">
     <value>Percorso del file di Excel</value>

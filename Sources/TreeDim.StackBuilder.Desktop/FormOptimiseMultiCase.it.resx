@@ -118,10 +118,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="$this.Text" xml:space="preserve">
-    <value>Cercare di colmare una serie di caso...</value>
+    <value>Cercare di allineare una serie di cartoni..</value>
   </data>
   <data name="bnClose.Text" xml:space="preserve">
-    <value>Chiudere</value>
+    <value>Chiudi</value>
   </data>
   <data name="bnCreateAnalysis.Text" xml:space="preserve">
     <value>Creare analisi</value>
@@ -133,10 +133,10 @@
     <value>Nome di analisi</value>
   </data>
   <data name="lbBox.Text" xml:space="preserve">
-    <value>Casella</value>
+    <value>Astuccio</value>
   </data>
   <data name="lbCases.Text" xml:space="preserve">
-    <value>Casi</value>
+    <value>Cartoni</value>
   </data>
   <data name="statusStrip.Text" xml:space="preserve">
     <value>statusStrip1</value>
@@ -145,9 +145,9 @@
     <value>statusLabel</value>
   </data>
   <data name="uCtrlCaseDimensionsMax.Text" xml:space="preserve">
-    <value>Max. dimensioni della cassa</value>
+    <value>Dimensioni max cartone</value>
   </data>
   <data name="uCtrlCaseDimensionsMin.Text" xml:space="preserve">
-    <value>Caso le dimensioni min.</value>
+    <value>Dimensioni min. cartone</value>
   </data>
 </root>

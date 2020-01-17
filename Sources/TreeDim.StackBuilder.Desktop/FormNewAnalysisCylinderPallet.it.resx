@@ -118,13 +118,13 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="$this.Text" xml:space="preserve">
-    <value>Creare nuove analisi di cilindro/pallet...</value>
+    <value>Creare nuove analisi di bobina/pallet...</value>
   </data>
   <data name="checkBoxBestLayersOnly.Text" xml:space="preserve">
     <value>Visualizzare solo i migliori livelli</value>
   </data>
   <data name="lbCylinder.Text" xml:space="preserve">
-    <value>Cilindro</value>
+    <value>Bobina</value>
   </data>
   <data name="lbPallet.Text" xml:space="preserve">
     <value>Pallet</value>

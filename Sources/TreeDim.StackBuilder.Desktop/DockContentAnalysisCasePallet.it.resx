@@ -121,25 +121,25 @@
     <value>Analisi di caso/Pallet...</value>
   </data>
   <data name="chkbPalletCap.Text" xml:space="preserve">
-    <value>Cap di pallet</value>
+    <value>Copripallet</value>
   </data>
   <data name="chkbPalletCorners.Text" xml:space="preserve">
-    <value>Angoli di pallet</value>
+    <value>Angolari</value>
   </data>
   <data name="chkbPalletFilm.Text" xml:space="preserve">
-    <value>Pellicola di pallet</value>
+    <value>Film per pallet</value>
   </data>
   <data name="gbStopCriterions.Text" xml:space="preserve">
     <value>Smettere di criteri</value>
   </data>
   <data name="tabPagePalletCap.Text" xml:space="preserve">
-    <value>Cap di pallet</value>
+    <value>Copripallet</value>
   </data>
   <data name="tabPagePalletCorners.Text" xml:space="preserve">
-    <value>Angoli di pallet</value>
+    <value>Angolari</value>
   </data>
   <data name="tabPagePalletFilm.Text" xml:space="preserve">
-    <value>Film di pallet</value>
+    <value>Film per pallet</value>
   </data>
   <data name="uCtrlMaxPalletHeight.Text" xml:space="preserve">
     <value>Altezza massima</value>

@@ -118,19 +118,19 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="$this.Text" xml:space="preserve">
-    <value>Bundle / analisi di caso...</value>
+    <value>Analisi Fascicolo / Cartone</value>
   </data>
   <data name="bnCancel.Text" xml:space="preserve">
     <value>Annulla</value>
   </data>
   <data name="bnNext.Text" xml:space="preserve">
-    <value>Successivo &amp;gt;</value>
+    <value>Successivo &gt;</value>
   </data>
   <data name="gbCaseDim.Text" xml:space="preserve">
-    <value>Caso</value>
+    <value>Cartone</value>
   </data>
   <data name="gbFlatDim.Text" xml:space="preserve">
-    <value>Bundle</value>
+    <value>Fascicolo</value>
   </data>
   <data name="lbNumberOfFlats.Text" xml:space="preserve">
     <value>Numero di appartamenti</value>
@@ -142,10 +142,10 @@
     <value>statusStrip1</value>
   </data>
   <data name="uCtrlCaseDimensions.Text" xml:space="preserve">
-    <value>Dimensioni della cassa</value>
+    <value>Dimensioni del cartone</value>
   </data>
   <data name="uCtrlCaseWeight.Text" xml:space="preserve">
-    <value>Peso della cassa</value>
+    <value>Peso del cartone</value>
   </data>
   <data name="uCtrlFlatDimensions.Text" xml:space="preserve">
     <value>Dimensioni piatti</value>

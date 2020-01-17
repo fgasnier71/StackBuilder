@@ -119,7 +119,7 @@
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="ID_CASECANNOTCONTAINITEM" xml:space="preserve">
-    <value>Causa {0} non può contenere elementi {1}.</value>
+    <value>Il Cartone {0} non può contenere elementi {1}.</value>
   </data>
   <data name="ID_ERROR_INVALIDFILE" xml:space="preserve">
     <value>Il file {0} non contiene sia un valido elenco di elementi e un elenco valido di pallet.</value>

@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="$this.Text" xml:space="preserve">
-    <value>Ottimizzare le dimensioni della cassa...</value>
+    <value>Ottimizzare le dimensioni del cartone...</value>
   </data>
   <data name="bnNext.Text" xml:space="preserve">
     <value>Successivo &gt;</value>
@@ -127,10 +127,10 @@
     <value>Chiudere</value>
   </data>
   <data name="btSetMaximum.Text" xml:space="preserve">
-    <value>Impostate al massimo</value>
+    <value>Imposta il massimo</value>
   </data>
   <data name="btSetMinimum.Text" xml:space="preserve">
-    <value>Impostare il minimo</value>
+    <value>Imposta il massimo</value>
   </data>
   <data name="cbColor.Items" xml:space="preserve">
     <value>Colore</value>
@@ -274,7 +274,7 @@
     <value>Tipo di wrapper</value>
   </data>
   <data name="lbNumber.Text" xml:space="preserve">
-    <value>Numero di scatole per cartone</value>
+    <value>Numero di astucci per cartone</value>
   </data>
   <data name="lbPallet.Text" xml:space="preserve">
     <value>Pallet</value>
@@ -289,7 +289,7 @@
     <value>toolStripStatusLabelDef</value>
   </data>
   <data name="uCtrlDimensionsBox.Text" xml:space="preserve">
-    <value>Casella</value>
+    <value>Astuccio</value>
   </data>
   <data name="uCtrlNoWalls.Text" xml:space="preserve">
     <value>Numero di pareti</value>
@@ -298,7 +298,7 @@
     <value>Sbalzo</value>
   </data>
   <data name="uCtrlPackDimensionsMax.Text" xml:space="preserve">
-    <value>Max. Dimensioni confezione</value>
+    <value>Dimensioni confezione max</value>
   </data>
   <data name="uCtrlPackDimensionsMin.Text" xml:space="preserve">
     <value>Dimensioni confezione min.</value>

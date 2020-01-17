@@ -106,7 +106,7 @@ namespace treeDiM.StackBuilder.Basics
         public int GetInterlayerIndex(InterlayerProperties interlayer)
         {
             if (null == interlayer) return -1;
-            if (Interlayers.Contains(interlayer))
+            if (!Interlayers.Contains(interlayer))
                 Interlayers.Add(interlayer);
             return Interlayers.FindIndex(item => item == interlayer);
         }

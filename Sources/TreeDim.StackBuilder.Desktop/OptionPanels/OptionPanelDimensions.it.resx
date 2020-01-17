@@ -142,9 +142,9 @@
     <value>Dimensioni del pallet (altezza wo)</value>
   </data>
   <data name="lbDimensions1.Text" xml:space="preserve">
-    <value>Dimensions 1 </value>
+    <value>Dimensione 1</value>
   </data>
   <data name="lbDimensions2.Text" xml:space="preserve">
-    <value>Dimensioni 2</value>
+    <value>Dimensione 2</value>
   </data>
 </root>

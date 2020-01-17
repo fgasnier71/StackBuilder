@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,4 +117,31 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="CASETYPE_AMERICANCASE" xml:space="preserve">
+    <value>Cartone Americano</value>
+  </data>
+  <data name="IDS_READY" xml:space="preserve">
+    <value>Pronto</value>
+  </data>
+  <data name="ID_DELETE" xml:space="preserve">
+    <value>Cancella</value>
+  </data>
+  <data name="ID_DESCRIPTION" xml:space="preserve">
+    <value>Descrizione</value>
+  </data>
+  <data name="ID_DIMENSIONS" xml:space="preserve">
+    <value>Dimensione ({0})</value>
+  </data>
+  <data name="ID_EDIT" xml:space="preserve">
+    <value>Modifica</value>
+  </data>
+  <data name="ID_FIELDDESCRIPTIONEMPTY" xml:space="preserve">
+    <value>La descrizione del campo è vuota</value>
+  </data>
+  <data name="ID_FIELDNAMEEMPTY" xml:space="preserve">
+    <value>Nome del campo vuoto</value>
+  </data>
+  <data name="ID_NAME" xml:space="preserve">
+    <value>Nome</value>
+  </data>
 </root>

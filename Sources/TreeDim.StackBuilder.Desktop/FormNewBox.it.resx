@@ -122,7 +122,7 @@
     <value>600, 400</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Definisci nuovo scatola/astuccio...</value>
+    <value>Definisci nuovo cartone/astuccio...</value>
   </data>
   <data name="bnCancel.Text" xml:space="preserve">
     <value>Cancella</value>
@@ -188,7 +188,7 @@
     <value>Colore</value>
   </data>
   <data name="cbColor.Items113" xml:space="preserve">
-    <value>Color</value>
+    <value>Colore</value>
   </data>
   <data name="cbColor.Items114" xml:space="preserve">
     <value>Colore</value>

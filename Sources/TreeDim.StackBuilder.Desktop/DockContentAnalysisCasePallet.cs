@@ -440,8 +440,7 @@ namespace treeDiM.StackBuilder.Desktop
         /// <summary>
         /// logger
         /// </summary>
-        static readonly new ILog _log = LogManager.GetLogger(typeof(DockContentAnalysisCasePallet));
-
+        protected static readonly new ILog _log = LogManager.GetLogger(typeof(DockContentAnalysisCasePallet));
         private bool _initialized = false;
         #endregion
     }

@@ -619,6 +619,18 @@
           </td>
         </tr>
       </xsl:if>
+      <xsl:if test="noInterlayers">
+        <tr>
+          <td class="style2" colspan="1">
+            <b>
+              <xsl:value-of select="$loc/str[@name='Number of interlayers']"/>
+            </b>
+          </td>
+          <td class="style3" colspan="3">
+            <xsl:value-of select="noInterlayers"/>
+          </td>
+        </tr>
+      </xsl:if>
       <xsl:if test="netWeight">
         <tr>
           <td class="style2" colspan="1">

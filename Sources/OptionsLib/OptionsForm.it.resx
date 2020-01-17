@@ -124,19 +124,19 @@
     <value>Applicare le modifiche.</value>
   </data>
   <data name="ApplyBtn.Text" xml:space="preserve">
-    <value>A &amp; pplica</value>
+    <value>A&amp;pplica</value>
   </data>
   <data name="AppRestartLabel.AccessibleDescription" xml:space="preserve">
-    <value>Questa casella indica che l'applicazione deve riavviare per rendere effettive le modifiche.</value>
+    <value>Riavviare l'applicazione per rendere effettive le modifiche.</value>
   </data>
   <data name="AppRestartLabel.Text" xml:space="preserve">
-    <value>Applicazione necessario riavviare per rendere effettive le modifiche.</value>
+    <value>Riavviare l'applicazione per rendere effettive le modifiche.</value>
   </data>
   <data name="CancelBtn.AccessibleDescription" xml:space="preserve">
-    <value>Annullare le modifiche e chiudere il modulo opzioni.</value>
+    <value>Chiudi annullando le modifiche</value>
   </data>
   <data name="CancelBtn.Text" xml:space="preserve">
-    <value>&amp; Annulla</value>
+    <value>&amp;Annulla</value>
   </data>
   <data name="CatDescr.AccessibleDescription" xml:space="preserve">
     <value>Questo mostra una descrizione per ogni categoria nell'albero.</value>
@@ -154,10 +154,10 @@
     <value>Categorie di opzioni.</value>
   </data>
   <data name="OKBtn.AccessibleDescription" xml:space="preserve">
-    <value>Applicare le modifiche e chiudere il modulo opzioni.</value>
+    <value>Applica e chiudi.</value>
   </data>
   <data name="OKBtn.Text" xml:space="preserve">
-    <value>&amp; OK</value>
+    <value>&amp;OK</value>
   </data>
   <data name="OptionDescrLabel.AccessibleDescription" xml:space="preserve">
     <value>Questo box Mostra una breve descrizione per ogni controllo.</value>
@@ -169,6 +169,6 @@
     <value>Questa casella Visualizza il percorso di opzioni per il pannello di opzioni corrente.</value>
   </data>
   <data name="OptionsPanelPath.Text" xml:space="preserve">
-    <value>Percorso opzioni»</value>
+    <value>Opzioni » Percorso</value>
   </data>
 </root>

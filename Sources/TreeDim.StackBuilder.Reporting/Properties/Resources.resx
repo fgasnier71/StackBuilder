@@ -219,6 +219,9 @@
   <data name="ID_RN_NAME" xml:space="preserve">
     <value>Name</value>
   </data>
+  <data name="ID_RN_NOINTERLAYERS" xml:space="preserve">
+    <value>Number of interlayers</value>
+  </data>
   <data name="ID_RN_NOLAYERSBYNOCASES" xml:space="preserve">
     <value>Layers x Cases</value>
   </data>

@@ -31,7 +31,7 @@ namespace treeDiM.StackBuilder.Basics
         {
             var sBuilder = new System.Text.StringBuilder();
             sBuilder.Append(base.ToString());
-            sBuilder.Append($"Length= {Length} Width = {Width} Thickness = {Thickness.ToString("0.##")} Weight = {Weight.ToString("0.##")}");
+            sBuilder.Append($" Length= {Length} Width = {Width} Thickness = {Thickness.ToString("0.##")} Weight = {Weight.ToString("0.##")}");
             return sBuilder.ToString();
         }
     }

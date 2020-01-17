@@ -130,7 +130,7 @@
     <value>Uso imballaggio intermedio</value>
   </data>
   <data name="lbCase.Text" xml:space="preserve">
-    <value>Caso</value>
+    <value>Cartone</value>
   </data>
   <data name="lbFilePath.Text" xml:space="preserve">
     <value>Percorso del file</value>

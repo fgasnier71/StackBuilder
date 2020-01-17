@@ -127,7 +127,7 @@
     <value>Chiudere</value>
   </data>
   <data name="btSetMaximum.Text" xml:space="preserve">
-    <value>Impostate al massimo</value>
+    <value>Impostare il massimo</value>
   </data>
   <data name="btSetMinimum.Text" xml:space="preserve">
     <value>Impostare il minimo</value>
@@ -286,13 +286,13 @@
     <value>Nome di analisi</value>
   </data>
   <data name="lbBox.Text" xml:space="preserve">
-    <value>Casella</value>
+    <value>Astuccio</value>
   </data>
   <data name="lbBoxDimensions.Text" xml:space="preserve">
-    <value>(dimensioni della scatola)</value>
+    <value>(dimensioni del cartone)</value>
   </data>
   <data name="lbNumber.Text" xml:space="preserve">
-    <value>Numero di scatole per cartone</value>
+    <value>Numero di astucci per cartone</value>
   </data>
   <data name="lbPallet.Text" xml:space="preserve">
     <value>Pallet</value>

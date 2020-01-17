@@ -310,7 +310,7 @@
     <value>27</value>
   </data>
   <data name="gbDimensions.Text" xml:space="preserve">
-    <value>Dimentioni</value>
+    <value>Dimenzioni</value>
   </data>
   <data name="gbFaceColor.Location" type="System.Drawing.Point, System.Drawing">
     <value>8, 199</value>

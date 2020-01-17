@@ -367,6 +367,15 @@ namespace treeDiM.StackBuilder.Reporting.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Number of interlayers.
+        /// </summary>
+        internal static string ID_RN_NOINTERLAYERS {
+            get {
+                return ResourceManager.GetString("ID_RN_NOINTERLAYERS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Layers x Cases.
         /// </summary>
         internal static string ID_RN_NOLAYERSBYNOCASES {

@@ -185,10 +185,10 @@
     <value>Aggiungi nuova analisi...</value>
   </data>
   <data name="ID_ADDNEWBOX" xml:space="preserve">
-    <value>Aggiungi nuova scatola…</value>
+    <value>Aggiungi nuovo astuccio…</value>
   </data>
   <data name="ID_ADDNEWBOXCASEANALYSIS" xml:space="preserve">
-    <value>Aggiungi nuova analisi scatola/astuccio...</value>
+    <value>Aggiungi nuova analisi astuccio/cartone...</value>
   </data>
   <data name="ID_ADDNEWBUNDLE" xml:space="preserve">
     <value>Aggiungi nuovo fascicolo…</value>
@@ -197,22 +197,22 @@
     <value>Aggiungi nuova analisi fascicolo...</value>
   </data>
   <data name="ID_ADDNEWCASE" xml:space="preserve">
-    <value>Aggiungi nuovo astuccio...</value>
+    <value>Aggiungi nuovo cartone...</value>
   </data>
   <data name="ID_ADDNEWCASEANALYSIS" xml:space="preserve">
-    <value>Aggiungi nuova analisi astuccio...</value>
+    <value>Aggiungi nuova analisi cartone...</value>
   </data>
   <data name="ID_ADDNEWCYLINDER" xml:space="preserve">
-    <value>Aggiungi nuovo cilindro…</value>
+    <value>Aggiungi nuova bobina…</value>
   </data>
   <data name="ID_ADDNEWCYLINDERANALYSIS" xml:space="preserve">
-    <value>Aggiungi nuova analisi cilindro...</value>
+    <value>Aggiungi nuova analisi bobina...</value>
   </data>
   <data name="ID_ADDNEWECTANALYSIS" xml:space="preserve">
     <value>Aggiungi nuova analisi ECT...</value>
   </data>
   <data name="ID_ADDNEWINTERLAYER" xml:space="preserve">
-    <value>Aggiungi nuovo intestrato…</value>
+    <value>Aggiungi nuovo divisorio…</value>
   </data>
   <data name="ID_ADDNEWPACKANALYSIS" xml:space="preserve">
     <value>Aggiungi nuovo pacco/Pallet analisi...</value>
@@ -221,10 +221,10 @@
     <value>Aggiungi nuovo pallet...</value>
   </data>
   <data name="ID_ADDNEWPALLETCAP" xml:space="preserve">
-    <value>Aggiungi nuovo pallet cap...</value>
+    <value>Aggiungi nuovo copripallet...</value>
   </data>
   <data name="ID_ADDNEWPALLETCORNERS" xml:space="preserve">
-    <value>Aggiungi nuovo pallet angoli...</value>
+    <value>Aggiungi nuovo angolare...</value>
   </data>
   <data name="ID_ADDNEWPALLETFILM" xml:space="preserve">
     <value>Aggiungere il nuovo film di pallet...</value>
@@ -251,22 +251,22 @@
     <value>Area</value>
   </data>
   <data name="ID_AUTOIMPORT" xml:space="preserve">
-    <value>Auto di importazione</value>
+    <value>Importazione automatica</value>
   </data>
   <data name="ID_BOX" xml:space="preserve">
-    <value>Scatola</value>
+    <value>Astuccio</value>
   </data>
   <data name="ID_BOXCASECOUNT" xml:space="preserve">
-    <value>Conteggio Scatola/Astuccio</value>
+    <value>Conteggio Astuccio/Cartone</value>
   </data>
   <data name="ID_BOXCOUNT" xml:space="preserve">
-    <value>Scatola/Astuccio</value>
+    <value>Astuccio/Cartone</value>
   </data>
   <data name="ID_BOXDOESNOTFITINCASE" xml:space="preserve">
-    <value>La scatola {0} non va bene per l'astuccio {1}.</value>
+    <value>L'astuccio {0} non va bene per il cartone {1}.</value>
   </data>
   <data name="ID_BOXES" xml:space="preserve">
-    <value>Scatole</value>
+    <value>Astucci</value>
   </data>
   <data name="ID_BUNDLE" xml:space="preserve">
     <value>Fascicolo</value>
@@ -275,7 +275,7 @@
     <value>Limite di peso non può essere utilizzato perché {0} come nessuna massa.</value>
   </data>
   <data name="ID_CASE" xml:space="preserve">
-    <value>Astuccio</value>
+    <value>Cartone</value>
   </data>
   <data name="ID_CASEANALYSIS_INVALIDCONSTRAINTSET" xml:space="preserve">
     <value>Impossibile creare un'analisi del caso in quanto il vincolo impostato sembra non essere valido.</value>
@@ -299,25 +299,25 @@
     <value>Caisse</value>
   </data>
   <data name="ID_CASEOFBOXES" xml:space="preserve">
-    <value>Astuccio delle scatole</value>
+    <value>Cartone di astucci</value>
   </data>
   <data name="ID_CASEPERLAYERCOUNT" xml:space="preserve">
-    <value># Casi/Layer</value>
+    <value># Cartoni/Strato</value>
   </data>
   <data name="ID_CASEPERPALLET" xml:space="preserve">
-    <value>Astuccio/Pallet</value>
+    <value>Cartone/Pallet</value>
   </data>
   <data name="ID_CASES" xml:space="preserve">
-    <value>Astucci</value>
+    <value>Cartoni</value>
   </data>
   <data name="ID_CASESLAYER" xml:space="preserve">
-    <value>Astucci/Livello</value>
+    <value>Cartoni/Strato</value>
   </data>
   <data name="ID_CASESPALLET" xml:space="preserve">
-    <value>Scatole/Pallet</value>
+    <value>Cartoni/Pallet</value>
   </data>
   <data name="ID_CASEWEIGHT" xml:space="preserve">
-    <value>Peso astuccio ({0})</value>
+    <value>Peso cartone ({0})</value>
   </data>
   <data name="ID_CHROMEISNOTINSTALLED" xml:space="preserve">
     <value>Deve essere installato il browser Google Chrome per visualizzare l'animazione Collada/WebGL.</value>
@@ -329,13 +329,13 @@
     <value># CSU</value>
   </data>
   <data name="ID_CYLINDER" xml:space="preserve">
-    <value>Cilindro</value>
+    <value>Bobina</value>
   </data>
   <data name="ID_CYLINDERCOUNT" xml:space="preserve">
     <value>Numero di cilindri</value>
   </data>
   <data name="ID_CYLINDERS" xml:space="preserve">
-    <value>Cilindri</value>
+    <value>Bobine</value>
   </data>
   <data name="ID_DATABASEEMPTY" xml:space="preserve">
     <value>Pallet solution database is empty.
@@ -582,37 +582,37 @@ Closing form...</value>
     <value>Peso netto ({0})</value>
   </data>
   <data name="ID_NOCASESELECTED" xml:space="preserve">
-    <value>Nessun caso selezionato!</value>
+    <value>Nessun cartone selezionato!</value>
   </data>
   <data name="ID_NODE_ANALYSES" xml:space="preserve">
     <value>Analisi</value>
   </data>
   <data name="ID_NODE_BOXES" xml:space="preserve">
-    <value>Scatole</value>
+    <value>Astucci</value>
   </data>
   <data name="ID_NODE_BUNDLES" xml:space="preserve">
     <value>Fascicoli</value>
   </data>
   <data name="ID_NODE_CASES" xml:space="preserve">
-    <value>Astucci</value>
+    <value>Cartoni</value>
   </data>
   <data name="ID_NODE_CYLINDERS" xml:space="preserve">
-    <value>Cilindri</value>
+    <value>Bobine</value>
   </data>
   <data name="ID_NODE_INTERLAYERS" xml:space="preserve">
-    <value>Interstrati</value>
+    <value>Divisori</value>
   </data>
   <data name="ID_NODE_PACKS" xml:space="preserve">
     <value>Pack</value>
   </data>
   <data name="ID_NODE_PALLETCAPS" xml:space="preserve">
-    <value>Tappi di pallet</value>
+    <value>Copripallet</value>
   </data>
   <data name="ID_NODE_PALLETCORNERS" xml:space="preserve">
-    <value>Angoli di pallet</value>
+    <value>Angolari</value>
   </data>
   <data name="ID_NODE_PALLETFILMS" xml:space="preserve">
-    <value>Film di pallet</value>
+    <value>Film per pallet</value>
   </data>
   <data name="ID_NODE_PALLETS" xml:space="preserve">
     <value>Pallets</value>
@@ -663,7 +663,7 @@ Closing form...</value>
     <value>Pallet</value>
   </data>
   <data name="ID_PALLETCAP" xml:space="preserve">
-    <value>Tappo</value>
+    <value>Copripallet</value>
   </data>
   <data name="ID_PALLETCAPNOTLONGENOUGH" xml:space="preserve">
     <value>Pallet tappo lunghezza dovrebbe superare pallet lunghezza + sporgenza X...</value>
@@ -678,7 +678,7 @@ Closing form...</value>
     <value>Modifica pallet {0}...</value>
   </data>
   <data name="ID_PALLETCORNERS" xml:space="preserve">
-    <value>Angoli</value>
+    <value>Angolari</value>
   </data>
   <data name="ID_PALLETCOUNT" xml:space="preserve">
     <value>Conteggio Pallet</value>
@@ -687,7 +687,7 @@ Closing form...</value>
     <value>Film</value>
   </data>
   <data name="ID_PALLETFILMS" xml:space="preserve">
-    <value>Film di pallet</value>
+    <value>Films</value>
   </data>
   <data name="ID_PALLETHEIGHT" xml:space="preserve">
     <value>Altezza Pallet ({0})</value>
@@ -832,5 +832,8 @@ Closing form...</value>
   </data>
   <data name="View_Top" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\View_Top.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ID_ITEMS" xml:space="preserve">
+    <value>Articoli</value>
   </data>
 </root>
