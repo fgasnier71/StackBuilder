@@ -28,7 +28,7 @@ namespace treeDiM.StackBuilder.Engine
 
             double offsetX = 0.5 * (palletLength - actualLength);
             double offsetY = 0.5 * (palletWidth - actualWidth);
-            double offsetZ = radius + layout.OffsetZ;
+            double offsetZ = radius;
 
             int iLayer = 0;
             while (true)

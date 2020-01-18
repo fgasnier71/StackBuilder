@@ -9,7 +9,7 @@ namespace treeDiM.StackBuilder.Basics
     {
         double Weight { get; }
         Vector3D GetStackingDimensions(ConstraintSetAbstract constraintSet);
-        double OffsetZ { get; }
+        Vector3D GetOffset(ConstraintSetAbstract constraintSet);
     }
     public class InvalidConstraintSetException : Exception
     {

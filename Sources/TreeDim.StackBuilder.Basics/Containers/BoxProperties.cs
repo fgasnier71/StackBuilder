@@ -136,10 +136,9 @@ namespace treeDiM.StackBuilder.Basics
                 && dimItem[1] <= dimCase[1]
                 && dimItem[2] <= dimCase[2];        
         }
-        public Vector3D GetStackingDimensions(ConstraintSetAbstract constraintSet)
-        {
-            return InsideDimensions;
-        }
+        public Vector3D GetStackingDimensions(ConstraintSetAbstract constraintSet) => InsideDimensions;
+        public Vector3D GetOffset(ConstraintSetAbstract constraintSet) => new Vector3D(0.0, 0.0, 0.5 * (Height - InsideHeight));
+
         public bool FitsIn(BoxProperties caseProperties, bool allowVerticalX, bool allowVerticalY, bool allowVerticalZ)
         {
             double[] dimItem = OuterDimensionsArray;
@@ -254,7 +253,6 @@ namespace treeDiM.StackBuilder.Basics
         public override bool IsBundle => false;
         protected override string TypeName => IsCase ? Properties.Resources.ID_NAMECASE : Properties.Resources.ID_NAMEBOX;
 
-        public double OffsetZ => 0.5 * (Height - InsideHeight);
 
         #region Non-Public Members
         private double _height;

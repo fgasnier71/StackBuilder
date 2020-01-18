@@ -29,7 +29,7 @@ namespace treeDiM.StackBuilder.Engine
                             , container.GetStackingDimensions(constraintSet)
                             , pattern.Name
                             , iDir == 1)
-                        { OffsetZ = container.OffsetZ };
+                        { Offset = container.GetOffset(constraintSet) };
 
                         pattern.GetDimensions(layout, constraintSet.OptGlobMaxNumber(packable), out double actualLength, out double actualWidth);
                         pattern.Generate(layout, constraintSet.OptGlobMaxNumber(packable), actualLength, actualWidth, constraintSet.OptMaxHeight.Value);
@@ -61,7 +61,7 @@ namespace treeDiM.StackBuilder.Engine
                 , pattern.Name
                 , swapped)
             {
-                OffsetZ = container.OffsetZ
+                Offset = container.GetOffset(constraintSet)
             };
             pattern.GetDimensions(layout, constraintSet.OptGlobMaxNumber(packable), out double actualLength, out double actualWidth);
             pattern.Generate(layout, constraintSet.OptGlobMaxNumber(packable), actualLength, actualWidth, constraintSet.OptMaxHeight.Value);

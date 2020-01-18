@@ -40,6 +40,7 @@ namespace treeDiM.StackBuilder.Graphics
             // ### draw solution
             foreach (var cp in Solution.Layout.Positions)
             {
+                //var cylPos = cp.Transform(Transform3D.Translation(analysis.Offset));
                 Cylinder c = new Cylinder(
                     pickId++
                     , analysis.Content as CylinderProperties

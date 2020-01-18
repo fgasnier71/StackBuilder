@@ -69,9 +69,9 @@ namespace treeDiM.StackBuilder.Basics
             }
             return InsideDimensions;
         }
+        public Vector3D GetOffset(ConstraintSetAbstract constraintSet) => Vector3D.Zero;
         public BBox3D BoundingBox => new BBox3D(Vector3D.Zero, InsideDimensions);
 
-        public double OffsetZ => 0.0;
 
         public override string ToString()
         {

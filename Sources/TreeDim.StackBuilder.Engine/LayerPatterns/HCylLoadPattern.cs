@@ -62,10 +62,10 @@ namespace treeDiM.StackBuilder.Engine
         protected double GetStackingWidth(HCylLayout layout) => !layout.Swapped ? layout.StackingWidth : layout.StackingLength;
         protected void AddPosition(HCylLayout layout, CylPosition pos)
         {
-            Matrix4D matRot = Matrix4D.Identity;
+            Transform3D transfRot = Transform3D.Identity;
             if (layout.Swapped)
             {
-                matRot = new Matrix4D(
+                Matrix4D matRot = new Matrix4D(
                     0.0, -1.0, 0.0, 0.0
                     , 1.0, 0.0, 0.0, 0.0
                     , 0.0, 0.0, 1.0, 0.0
@@ -75,8 +75,9 @@ namespace treeDiM.StackBuilder.Engine
                 matRot.M14 = vTranslation[0];
                 matRot.M24 = vTranslation[1];
                 matRot.M34 = vTranslation[2];
+                transfRot = new Transform3D(matRot);
             }
-            layout.Positions.Add(pos.Transform(new Transform3D(matRot)));
+            layout.Positions.Add(pos.Transform(Transform3D.Translation(layout.Offset) * transfRot));
         }
         #endregion
     }

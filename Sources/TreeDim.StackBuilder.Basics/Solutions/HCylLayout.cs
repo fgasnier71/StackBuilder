@@ -38,7 +38,7 @@ namespace treeDiM.StackBuilder.Basics
         }
         #endregion
         #region Public properties
-        public double OffsetZ { get; set; } = 0.0;
+        public Vector3D Offset { get; set; }
         public string PatternName { get; private set; } = string.Empty;
         public double CylDiameter { get; set; }
         public double CylRadius => 0.5 * CylDiameter;
