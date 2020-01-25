@@ -1426,6 +1426,8 @@ namespace treeDiM.StackBuilder.Basics
             string swidth = eltPalletProperties.Attributes["Width"].Value;
             string sheight = eltPalletProperties.Attributes["Height"].Value;
             string sweight = eltPalletProperties.Attributes["Weight"].Value;
+            string sadmissibleloadweight = eltPalletProperties.Attributes["AdmissibleLoadWeight"].Value;
+            string sadmissibleloadheight = eltPalletProperties.Attributes["AdmissibleLoadHeight"].Value;
             string stype = eltPalletProperties.Attributes["Type"].Value;
             string sColor = eltPalletProperties.Attributes["Color"].Value;
 
@@ -1444,6 +1446,8 @@ namespace treeDiM.StackBuilder.Basics
                 , UnitsManager.ConvertLengthFrom(Convert.ToDouble(sheight, CultureInfo.InvariantCulture), UnitSystem)
                 , UnitsManager.ConvertMassFrom(Convert.ToDouble(sweight, CultureInfo.InvariantCulture), UnitSystem)
                 , Color.FromArgb(Convert.ToInt32(sColor)));
+            palletProperties.AdmissibleLoadWeight = UnitsManager.ConvertMassFrom(Convert.ToDouble(sadmissibleloadweight, CultureInfo.InvariantCulture), UnitSystem);
+            palletProperties.AdmissibleLoadHeight = UnitsManager.ConvertLengthFrom(Convert.ToDouble(sadmissibleloadheight, CultureInfo.InvariantCulture), UnitSystem);
             palletProperties.ID.IGuid = new Guid(sid);
         }
         private void LoadInterlayerProperties(XmlElement eltInterlayerProperties)
