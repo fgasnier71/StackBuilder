@@ -924,12 +924,6 @@
   <data name="lbWidth.Text" xml:space="preserve">
 		<value>幅</value>
 	</data>
-  <data name="statusStripDef.Text" xml:space="preserve">
-		<value>statusStripDef</value>
-	</data>
-  <data name="toolStripStatusLabelDef.Text" xml:space="preserve">
-		<value>toolStripStatusLabelDef</value>
-	</data>
   <data name="uCtrlDimensionsInner.Text" xml:space="preserve">
     <value>内側の寸法</value>
   </data>

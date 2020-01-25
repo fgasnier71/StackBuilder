@@ -1234,15 +1234,6 @@
   <data name="&gt;&gt;tbName.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="&gt;&gt;toolStripStatusLabelDef.Name" xml:space="preserve">
-    <value>toolStripStatusLabelDef</value>
-  </data>
-  <data name="toolStripStatusLabelDef.Text" xml:space="preserve">
-		<value>etykieta stanu paska narzędziowego</value>
-	</data>
-  <data name="&gt;&gt;toolStripStatusLabelDef.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;uCtrlDimensionsInner.Name" xml:space="preserve">
     <value>uCtrlDimensionsInner</value>
   </data>

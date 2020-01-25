@@ -34,8 +34,6 @@
             this.lbColor = new System.Windows.Forms.Label();
             this.cbColor = new OfficePickers.ColorPicker.ComboBoxColorPicker();
             this.graphCtrl = new treeDiM.StackBuilder.Graphics.Graphics3DControl();
-            this.statusStripDef = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabelDef = new System.Windows.Forms.ToolStripStatusLabel();
             this.bnSendToDB = new System.Windows.Forms.Button();
             this.uCtrlDimensions = new treeDiM.Basics.UCtrlTriDouble();
             this.uCtrlWeight = new treeDiM.Basics.UCtrlDouble();

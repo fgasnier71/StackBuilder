@@ -465,9 +465,6 @@
   <data name="toolStripStatusLabelDef.Size" type="System.Drawing.Size, System.Drawing">
     <value>130, 17</value>
   </data>
-  <data name="toolStripStatusLabelDef.Text" xml:space="preserve">
-    <value>toolStripStatusLabelDef</value>
-  </data>
   <data name="uCtrlLength.Location" type="System.Drawing.Point, System.Drawing">
     <value>9, 20</value>
   </data>
