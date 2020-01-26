@@ -639,11 +639,12 @@ namespace treeDiM.StackBuilder.Basics
             {
                 if (!_bbox.IsValid)
                 {
+                    bool firstLayer = true;
                     foreach (ILayer layer in Layers)
                     {
                         if (layer is Layer3DBox || layer is Layer3DCyl)
                             _bbox.Extend(layer.BoundingBox(Analysis.Content));
-                        else if (layer is InterlayerPos)
+                        else if (layer is InterlayerPos && !firstLayer)
                         {
                             InterlayerPos interLayerPos = layer as InterlayerPos;
                             InterlayerProperties interlayerProp = Interlayers[interLayerPos.TypeId];
@@ -654,6 +655,7 @@ namespace treeDiM.StackBuilder.Basics
                                 + Analysis.Offset;
                             _bbox.Extend(new BBox3D(vecMin, vecMin + interlayerProp.Dimensions));
                         }
+                        firstLayer = false;
                     }
                     // sanity check
                     if (!_bbox.IsValid)
