@@ -72,20 +72,21 @@ namespace treeDiM.StackBuilder.Graphics
         {
             get
             {
+                //     |1
+                //    5---4
+                //    |   |  |2
+                //    |   |  |3
+                //|0  |   0 ----- 2
+                //    |           |  |4
+                //    1 --------- 3
+                //         |5 
                 //
-                // 5---4
-                // |   |
-                // |   |
-                // |   0 ----- 2
-                // |           |
-                // 1 --------- 3
-                //
-                // 11--10
-                // |   |
-                // |   |
-                // |   6 ----- 8
-                // |           |
-                // 7 --------- 9
+                //   11--10
+                //   |   |
+                //   |   |
+                //   |   6 ----- 8
+                //   |           |
+                //   7 --------- 9
                 //
                 Vector3D[] points = new Vector3D[12];
 
@@ -110,25 +111,39 @@ namespace treeDiM.StackBuilder.Graphics
         {
             get
             {
-                int[,] indexes
-                = {
-                    {1, 7, 11, 5}
-                    , {5, 11, 10, 4}
-                    , {4, 10, 6, 0}
-                    , {7, 6, 10, 11}
-                    , {3, 9, 7, 1}
-                    , {6, 7, 9, 8}
-                    , {0, 6, 8, 2}
-                    , {2, 8, 9, 3}
+                //     
+                //    5---4
+                //    |   |  
+                //    |   |  
+                //    |   0 ----- 2
+                //    |           |  
+                //    1 --------- 3
+                // 
+                //
+                //    11--10
+                //    |   |
+                //    |   |
+                //    |   6 ----- 8
+                //    |           |
+                //    7 --------- 9
+                //
+                int[,] indexes = {
+                    // side 1
+                    {1, 7, 11, 5}       //0
+                    , {5, 11, 10, 4}    //1
+                    , {4, 10, 6, 0}     //2    
+                    , {6, 10, 11, 7}    //7
+                    // side 2
+                    , {3, 9, 7, 1}      //5
+                    , {0, 6, 8, 2}      //3
+                    , {2, 8, 9, 3}      //4
+                    , {6, 7, 9, 8}      //6
                 };
 
                 Face[] faces = new Face[8];
                 Vector3D[] points = Points;
                 for (int i = 0; i < 8; ++i)
-                {
-                    faces[i] = new Face(_pickId, new Vector3D[] { points[indexes[i, 0]], points[indexes[i, 1]], points[indexes[i, 2]], points[indexes[i, 3]] }, true);
-                    faces[i].ColorFill = _color;
-                }
+                    faces[i] = new Face(_pickId, new Vector3D[] { points[indexes[i, 0]], points[indexes[i, 1]], points[indexes[i, 2]], points[indexes[i, 3]] }, true) { ColorFill = _color };
                 return faces;
             }
         }
@@ -175,6 +190,12 @@ namespace treeDiM.StackBuilder.Graphics
                 for (int i = 4; i < 8; ++i)
                     graphics.AddFaceBackground(faces[i]); 
             }
+
+            if (Math.Abs(Vector3D.DotProduct(faces[0].Normal, graphics.ViewDirection)) < 1.0E-3)
+                graphics.AddFaceBackground(faces[3]);
+
+            if (Math.Abs(Vector3D.DotProduct(faces[4].Normal, graphics.ViewDirection)) < 1.0E-3)
+                graphics.AddFaceBackground(faces[7]);
         }
         public override void DrawEnd(Graphics3D graphics)
         {
@@ -182,15 +203,19 @@ namespace treeDiM.StackBuilder.Graphics
             if (Vector3D.DotProduct(faces[0].Normal, graphics.ViewDirection) <= 0.0)
             {
                 for (int i = 0; i < 4; ++i)
-                {
                     graphics.AddFace(faces[i]);
-                }
             }
             if (Vector3D.DotProduct(faces[4].Normal, graphics.ViewDirection) <= 0.0)
             {
                 for (int i = 4; i < 8; ++i)
                     graphics.AddFace(faces[i]); 
             }
+            if (Math.Abs(Vector3D.DotProduct(faces[0].Normal, graphics.ViewDirection)) < 1.0E-3)
+                graphics.AddFace(faces[3]);
+
+            if (Math.Abs(Vector3D.DotProduct(faces[4].Normal, graphics.ViewDirection)) < 1.0E-3)
+                graphics.AddFace(faces[7]);
+
         }
         #endregion
     }
