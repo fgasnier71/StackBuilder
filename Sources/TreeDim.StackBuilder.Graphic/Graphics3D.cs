@@ -52,6 +52,7 @@ namespace treeDiM.StackBuilder.Graphics
         private List<DimensionCube> _dimensions = new List<DimensionCube>();
         private uint _boxDrawingCounter = 0;
         private const double _cameraDistance = 100000.0;
+        private static Vector3D XAxisPrev { get; set; } = Vector3D.Zero;
 
         public static readonly Vector3D Front = new Vector3D(_cameraDistance, 0.0, 0.0);
         public static readonly Vector3D Back = new Vector3D(-_cameraDistance, 0.0, 0.0);
@@ -201,9 +202,12 @@ namespace treeDiM.StackBuilder.Graphics
             if (Vector3D.CrossProduct(up, zaxis).GetLengthSquared() < 0.0001)
             {
                 up = Vector3D.ZAxis;
-                xaxis = Vector3D.XAxis;
+                xaxis = XAxisPrev.GetLength() > 0 ? XAxisPrev : -Vector3D.XAxis;
+                xaxis.Z = 0.0;
             }
             xaxis.Normalize();
+            XAxisPrev = xaxis;
+
             Vector3D yaxis = Vector3D.CrossProduct(zaxis, xaxis);
             Matrix4D Mcam = new Matrix4D(
                     xaxis.X, xaxis.Y, xaxis.Z, -Vector3D.DotProduct(CameraPosition - Target, xaxis),
@@ -348,7 +352,7 @@ namespace treeDiM.StackBuilder.Graphics
                     , distance * Math.Sin(angleHorizRad) * Math.Cos(angleVertRad)
                     , distance * Math.Sin(angleVertRad));
         }
-
+        public static void Reset() { XAxisPrev = Vector3D.Zero; }
         /// <summary>
         /// Draw all entities stored in buffer
         /// </summary>

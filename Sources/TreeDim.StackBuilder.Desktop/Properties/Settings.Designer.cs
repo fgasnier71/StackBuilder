@@ -1118,15 +1118,12 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
             }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("http://www.plmpack.com/stackbuilder/Help/enu/Welcome.html")]
         public string HelpPageUrl {
             get {
                 return ((string)(this["HelpPageUrl"]));
-            }
-            set {
-                this["HelpPageUrl"] = value;
             }
         }
     }

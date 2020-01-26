@@ -17,17 +17,17 @@ namespace treeDiM.StackBuilder.Graphics
         #region Constructor
         public ViewerPallet(PalletProperties palletProperties)
         {
-            _palletProperties = palletProperties;
+            PalletProperties = palletProperties;
         }
         #endregion
 
         #region Drawing
         public override void Draw(Graphics3D graphics, Transform3D transform)
         {
-            Pallet pallet = new Pallet(_palletProperties);
+            Pallet pallet = new Pallet(PalletProperties);
             pallet.Draw(graphics, transform);
             if (graphics.ShowDimensions)
-                graphics.AddDimensions(new DimensionCube(_palletProperties.Dimensions));
+                graphics.AddDimensions(new DimensionCube(PalletProperties.Dimensions));
         }
         public override void Draw(Graphics2D graphics)
         {
@@ -35,7 +35,7 @@ namespace treeDiM.StackBuilder.Graphics
         #endregion
 
         #region Data members
-        private PalletProperties _palletProperties;
+        private PalletProperties PalletProperties { get; set; }
         #endregion
     }
 }

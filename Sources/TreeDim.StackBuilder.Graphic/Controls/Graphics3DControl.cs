@@ -24,7 +24,6 @@ namespace treeDiM.StackBuilder.Graphics
     #region Graphics3DControl
     public partial class Graphics3DControl : UserControl, ISupportInitialize
     {
-
         #region Delegates
         public delegate void ButtonPressedHandler(int iIndex);
         public delegate void VolumeSelectedHandler(int id);
@@ -181,8 +180,7 @@ namespace treeDiM.StackBuilder.Graphics
         {
             return -1 != ToolbarButtonIndex(pt);
         }
-
-        public int ToolbarButtonIndex(Point pt)
+        public static int ToolbarButtonIndex(Point pt)
         {
             for (int i = 0; i < 10; ++i)
             {
@@ -192,7 +190,6 @@ namespace treeDiM.StackBuilder.Graphics
             }
             return -1;
         }
-
         void DrawToolBar(System.Drawing.Graphics g)
         { 
             int offsetIcon = 0;
@@ -209,10 +206,10 @@ namespace treeDiM.StackBuilder.Graphics
                 g.DrawImage(Properties.Resources.CotationHide, new Point(offsetIcon += _toolbarButtonOffset, 1));
             else
                 g.DrawImage(Properties.Resources.CotationShow, new Point(offsetIcon += _toolbarButtonOffset, 1));
-
         }
         void OnButtonPressed(int iIndex)
         {
+            Graphics3D.Reset();
             switch (iIndex)
             {
                 case 0: AngleHoriz = 0.0; AngleVert = 0.0; break;
@@ -267,7 +264,6 @@ namespace treeDiM.StackBuilder.Graphics
                 Invalidate();
             }
         }
-
         private void OnMouseDown(object sender, MouseEventArgs e)
         {
             // clicking toolbar ?
@@ -289,7 +285,6 @@ namespace treeDiM.StackBuilder.Graphics
             // set rotate cursor
             Cursor.Current = Dragging ? CursorRotate : Cursors.Default;
         }
-
         private void OnMouseUp(object sender, MouseEventArgs e)
         {
             if (MouseButtons.Left == e.Button)

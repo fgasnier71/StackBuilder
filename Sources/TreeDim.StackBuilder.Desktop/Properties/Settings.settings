@@ -284,7 +284,7 @@
     <Setting Name="NoItemsHeterogeneous" Type="System.UInt32" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
-    <Setting Name="HelpPageUrl" Type="System.String" Scope="User">
+    <Setting Name="HelpPageUrl" Type="System.String" Scope="Application">
       <Value Profile="(Default)">http://www.plmpack.com/stackbuilder/Help/enu/Welcome.html</Value>
     </Setting>
   </Settings>
