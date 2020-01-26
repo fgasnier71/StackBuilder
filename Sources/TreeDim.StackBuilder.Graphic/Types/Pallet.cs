@@ -196,6 +196,78 @@ namespace treeDiM.StackBuilder.Graphics
                     Pool.Add(new PalletData("GMA 48x40", "Grocery Manufacturer Association (North America)", lumbers, positions, dimensions, 20, Color.Yellow));
                 }
                 #endregion
+                #region GMA 48*40 with four-way forklift entry
+                {
+                    Vector3D[] lumbers = {
+                            new Vector3D(40.0 * 25.4,   3.5 * 25.4, 0.625 * 25.4)
+                            , new Vector3D(40.0 * 25.4, 5.5 * 25.4, 0.625 * 25.4)
+                            , new Vector3D(48.0 * 25.4, 1.375 * 25.4, 3.5 * 25.4)
+                            , new Vector3D(48.0 * 25.4, 1.375 * 25.4, 1.5 * 25.4)
+                            , new Vector3D(7.0 * 25.4, 1.375 * 25.4, 2.0 * 25.4)
+                            , new Vector3D(20.0 * 25.4, 1.375 * 25.4, 2.0 * 25.4)
+                        };
+
+                    Vector3D dimensions = new Vector3D(48.0 * 25.4, 40.0 * 25.4, 4.75 * 25.4);
+
+                    Position[] positions = {
+                            // bottom deck                            
+                            new Position(1, new Vector3D(lumbers[1].Y, 0.0, 0.0)
+                                , HalfAxis.HAxis.AXIS_Y_P, HalfAxis.HAxis.AXIS_X_N)
+                            , new Position(1, new Vector3D(dimensions.X, 0.0, 0.0)
+                                , HalfAxis.HAxis.AXIS_Y_P, HalfAxis.HAxis.AXIS_X_N)
+                            , new Position(0, new Vector3D(0.5 * (dimensions.X - 3 * lumbers[0].Y), 0.0, 0.0)
+                                , HalfAxis.HAxis.AXIS_Y_P, HalfAxis.HAxis.AXIS_X_N)
+                            , new Position(0, new Vector3D(0.5 * (dimensions.X + 1 * lumbers[0].Y), 0.0, 0.0)
+                                , HalfAxis.HAxis.AXIS_Y_P, HalfAxis.HAxis.AXIS_X_N)
+                            , new Position(0, new Vector3D(0.5 * (dimensions.X + 5 * lumbers[0].Y), 0.0, 0.0)
+                                , HalfAxis.HAxis.AXIS_Y_P, HalfAxis.HAxis.AXIS_X_N)
+                            // stringers
+                            // 1
+                            , new Position(3, new Vector3D(0.0, 0.0, 2.625 * 25.4)
+                                , HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P)
+                            , new Position(4, new Vector3D(0.0, 0.0, 0.625 * 25.4)
+                                , HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P)
+                            , new Position(5, new Vector3D(0.5*(lumbers[3].X-lumbers[5].X), 0.0, 0.625 * 25.4)
+                                , HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P)
+                            , new Position(4, new Vector3D(lumbers[3].X - lumbers[4].X, 0.0, 0.625 * 25.4)
+                                , HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P)
+                            // 2
+                            , new Position(3, new Vector3D(0.0, 0.5 * (dimensions.Y - lumbers[2].Y), 2.625 * 25.4)
+                                , HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P)
+                            , new Position(4, new Vector3D(0.0, 0.5 * (dimensions.Y - lumbers[2].Y), 0.625 * 25.4)
+                                , HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P)
+                            , new Position(5, new Vector3D(0.5*(lumbers[3].X-lumbers[5].X), 0.5 * (dimensions.Y - lumbers[2].Y), 0.625 * 25.4)
+                                , HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P)
+                            , new Position(4, new Vector3D(lumbers[3].X - lumbers[4].X, 0.5 * (dimensions.Y - lumbers[2].Y), 0.625 * 25.4)
+                                , HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P)
+                            // 3
+                            , new Position(3, new Vector3D(0.0, dimensions.Y - lumbers[2].Y, 2.625 * 25.4)
+                                , HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P)
+                            , new Position(4, new Vector3D(0.0, dimensions.Y - lumbers[2].Y, 0.625 * 25.4)
+                                , HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P)
+                            , new Position(5, new Vector3D(0.5*(lumbers[3].X-lumbers[5].X), dimensions.Y - lumbers[2].Y, 0.625 * 25.4)
+                                , HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P)
+                            , new Position(4, new Vector3D(lumbers[3].X - lumbers[4].X, dimensions.Y - lumbers[2].Y, 0.625 * 25.4)
+                                , HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P)
+                            // top deck
+                            , new Position(1, new Vector3D(lumbers[1].Y, 0.0, (0.625+3.5) * 25.4)
+                                , HalfAxis.HAxis.AXIS_Y_P, HalfAxis.HAxis.AXIS_X_N)
+                            , new Position(1, new Vector3D(dimensions.X, 0.0, (0.625+3.5) * 25.4)
+                                , HalfAxis.HAxis.AXIS_Y_P, HalfAxis.HAxis.AXIS_X_N)
+                            , new Position(0, new Vector3D(0.5 * (dimensions.X - 7 * lumbers[0].Y), 0.0, (0.625+3.5) * 25.4)
+                                , HalfAxis.HAxis.AXIS_Y_P, HalfAxis.HAxis.AXIS_X_N)
+                            , new Position(0, new Vector3D(0.5 * (dimensions.X - 3 * lumbers[0].Y), 0.0, (0.625+3.5) * 25.4)
+                                , HalfAxis.HAxis.AXIS_Y_P, HalfAxis.HAxis.AXIS_X_N)
+                            , new Position(0, new Vector3D(0.5 * (dimensions.X + 1 * lumbers[0].Y), 0.0, (0.625+3.5) * 25.4)
+                                , HalfAxis.HAxis.AXIS_Y_P, HalfAxis.HAxis.AXIS_X_N)
+                            , new Position(0, new Vector3D(0.5 * (dimensions.X + 5 * lumbers[0].Y), 0.0, (0.625+3.5) * 25.4)
+                                , HalfAxis.HAxis.AXIS_Y_P, HalfAxis.HAxis.AXIS_X_N)
+                            , new Position(0, new Vector3D(0.5 * (dimensions.X + 9 * lumbers[0].Y), 0.0, (0.625+3.5) * 25.4)
+                                , HalfAxis.HAxis.AXIS_Y_P, HalfAxis.HAxis.AXIS_X_N)
+                    };
+                    Pool.Add(new PalletData("GMA 48*40 with 4-way forklift entry", "Grocery Manufacturer Association (North America)", lumbers, positions, dimensions, 20, Color.Yellow));
+                }
+                #endregion
                 #region CHEP AU
                 {
                     Vector3D[] lumbers = {
