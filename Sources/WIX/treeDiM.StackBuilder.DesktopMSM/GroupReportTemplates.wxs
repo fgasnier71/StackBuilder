@@ -6,61 +6,64 @@
     </Fragment>
     <Fragment>
         <ComponentGroup Id="ReportTemplatesGroup">
-            <Component Id="cmp482E22FB157E214BD74A3672565A5903" Directory="ReportTemplates" Guid="4B3E35BB-D2A0-4DD6-B8B5-5986F05FF0BF">
+            <Component Id="cmp482E22FB157E214BD74A3672565A5903" Directory="ReportTemplates" Guid="46851A97-F746-4745-89CD-4AE716BFDCC7">
                 <File Id="fil3AFEF988572280AFF9F0F51D9CD13993" KeyPath="yes" Source="$(var.ReportTemplatesSourceDir)\CAT.xml" />
             </Component>
-            <Component Id="cmpE47887A0ED190B351DDB768F1A063D5B" Directory="ReportTemplates" Guid="CBED9CA6-6889-4790-A5F6-667CD0F26855">
+            <Component Id="cmpE47887A0ED190B351DDB768F1A063D5B" Directory="ReportTemplates" Guid="A080DF7D-EF3F-4EDF-934C-ADD2F84AAEE5">
                 <File Id="filB6E1071E777BDE0247B42D8B0285638F" KeyPath="yes" Source="$(var.ReportTemplatesSourceDir)\CHS.xml" />
             </Component>
-            <Component Id="cmp1DCFF6D17C58B01430AD4C99F21D1038" Directory="ReportTemplates" Guid="DAD633E5-5B78-4E40-BDE8-0E2747045411">
+            <Component Id="cmp1DCFF6D17C58B01430AD4C99F21D1038" Directory="ReportTemplates" Guid="EBA8F724-E12D-43B2-A63B-D784577AD0DF">
                 <File Id="fil403E70671A5A1CCAB79AD0592AFEAD46" KeyPath="yes" Source="$(var.ReportTemplatesSourceDir)\CopyToUntranslatedFiles.bat" />
             </Component>
-            <Component Id="cmp69C78908184D299E16A7E214F496E2D3" Directory="ReportTemplates" Guid="39C7D3D0-2451-411E-9700-1CB77AD1233D">
+            <Component Id="cmp69C78908184D299E16A7E214F496E2D3" Directory="ReportTemplates" Guid="6D64DBDC-B27F-4C33-9D64-AE4C0950147D">
                 <File Id="fil12C4437F8971BCE8E4ACDC1AD827FBB4" KeyPath="yes" Source="$(var.ReportTemplatesSourceDir)\DEU.xml" />
             </Component>
-            <Component Id="cmp30F59078BB59B5E0E2969DD9FDBBE634" Directory="ReportTemplates" Guid="6FE1D0AD-9EA1-40AF-80B4-6FA8B5BF817C">
+            <Component Id="cmp30F59078BB59B5E0E2969DD9FDBBE634" Directory="ReportTemplates" Guid="4369843B-0706-4717-A633-20F7827798D7">
                 <File Id="fil101D645F6573770E58BEDF361E288042" KeyPath="yes" Source="$(var.ReportTemplatesSourceDir)\ENU.xml" />
             </Component>
-            <Component Id="cmp001392DE317985F5FEA6D565986FC761" Directory="ReportTemplates" Guid="A90C8E97-F072-47C1-9177-BB38730E3D30">
+            <Component Id="cmp001392DE317985F5FEA6D565986FC761" Directory="ReportTemplates" Guid="B2A45A83-6BEB-4F6E-9B4C-8740A533EBCE">
                 <File Id="fil3F5B979D71D9B742944A60B0C7EC4870" KeyPath="yes" Source="$(var.ReportTemplatesSourceDir)\ESP.xml" />
             </Component>
-            <Component Id="cmpFFF349F50885C97750DB043B47731F07" Directory="ReportTemplates" Guid="A66AD21E-ED71-4845-9A66-51A82A54C811">
+            <Component Id="cmpFFF349F50885C97750DB043B47731F07" Directory="ReportTemplates" Guid="ED32A477-1E40-49F9-9B5B-35C674AB1513">
                 <File Id="filF8952EA8AC2C111ACAF8ACDC4FDD7367" KeyPath="yes" Source="$(var.ReportTemplatesSourceDir)\FRA.xml" />
             </Component>
-            <Component Id="cmp2D1E2E054058C6CDCD042F79870A3DD9" Directory="ReportTemplates" Guid="D5C5A49B-0224-49D5-B6C2-8DDCF97CAFA6">
+            <Component Id="cmp2D1E2E054058C6CDCD042F79870A3DD9" Directory="ReportTemplates" Guid="35E72CEC-7244-4FDC-9D95-CD4D3ED8608D">
                 <File Id="fil8100D0260059083AC206C48591DC6BCD" KeyPath="yes" Source="$(var.ReportTemplatesSourceDir)\ITA.xml" />
             </Component>
-            <Component Id="cmp8068D920DABFC778E9A73BBADE741946" Directory="ReportTemplates" Guid="CD2599B5-3B70-4DD1-B444-8E7EFDACB9FB">
+            <Component Id="cmp8068D920DABFC778E9A73BBADE741946" Directory="ReportTemplates" Guid="FB1401CD-29A2-4525-8567-35D1F272CC15">
                 <File Id="fil553EDB560B0405A03357F7BD6AC6DB28" KeyPath="yes" Source="$(var.ReportTemplatesSourceDir)\JPN.xml" />
             </Component>
-            <Component Id="cmp944949958F33568EDEDCB85718037236" Directory="ReportTemplates" Guid="E91BEAF2-1977-4176-8331-066419E6273B">
+            <Component Id="cmp944949958F33568EDEDCB85718037236" Directory="ReportTemplates" Guid="C4580A83-5DDF-484D-9742-144B313B9972">
                 <File Id="fil12E70F8B61C737F25E53BD705CEC5AB8" KeyPath="yes" Source="$(var.ReportTemplatesSourceDir)\NDL.xml" />
             </Component>
-            <Component Id="cmpCBAC3D3A19A4A143D720507D8A6A27C8" Directory="ReportTemplates" Guid="438AB603-025D-4509-B17C-A3E3B51A5C95">
+            <Component Id="cmpCBAC3D3A19A4A143D720507D8A6A27C8" Directory="ReportTemplates" Guid="614D39EB-5CBC-45F6-B856-78A558B50BA2">
                 <File Id="filF0F3BB7AC745DFB0E7D2E16C3F2DF1F9" KeyPath="yes" Source="$(var.ReportTemplatesSourceDir)\ReportSchema.xsd" />
             </Component>
-            <Component Id="cmp810F30493AAF0B7F1A5CDBDE63CCBA52" Directory="ReportTemplates" Guid="154FE99F-E7D3-4042-8B01-CAC96FF7850F">
+            <Component Id="cmp810F30493AAF0B7F1A5CDBDE63CCBA52" Directory="ReportTemplates" Guid="1203C409-CFD3-4383-9C98-28C52E2CD8DF">
                 <File Id="fil6817008A38F4273BA21D9689D57991CD" KeyPath="yes" Source="$(var.ReportTemplatesSourceDir)\ReportTemplateHtml.xsl" />
             </Component>
-            <Component Id="cmp4A722F8129DDDF311C27AD4EABCA9036" Directory="ReportTemplates" Guid="97873FFE-B82A-4F9E-BF61-F73D00F4E60F">
+            <Component Id="cmp4A722F8129DDDF311C27AD4EABCA9036" Directory="ReportTemplates" Guid="36CB0F5E-9DCD-437D-AA31-935FA095EA1A">
                 <File Id="fil87A7DA6D17D363070CC31793B6654613" KeyPath="yes" Source="$(var.ReportTemplatesSourceDir)\ReportTemplateHtml_INTEX.xsl" />
             </Component>
-            <Component Id="cmp2119CB4E20B16B2BFBCB95D1858E4477" Directory="ReportTemplates" Guid="FACC1631-EE7E-46E0-84AF-B5B2329D55AF">
+            <Component Id="cmp95C61B725C2FF331CA9A6A41F14908D2" Directory="ReportTemplates" Guid="6AF3B7E7-B5EA-4393-BA16-AFB4152793CB">
+                <File Id="fil5D85455FA8ABAC8869B0004E1B9B0BEA" KeyPath="yes" Source="$(var.ReportTemplatesSourceDir)\ReportTemplatesHtml_MAPASPONTEX.xsl" />
+            </Component>
+            <Component Id="cmp2119CB4E20B16B2BFBCB95D1858E4477" Directory="ReportTemplates" Guid="FB1D34CD-9D0D-446B-A45D-433275E32A86">
                 <File Id="fil69A52C386652B455F1E0465FB9ACE3C8" KeyPath="yes" Source="$(var.ReportTemplatesSourceDir)\ReportTypes.xsd" />
             </Component>
-            <Component Id="cmp547F38028498A9E4BCA2F025B2CCE0E7" Directory="ReportTemplates" Guid="A991D852-0A31-45E2-A3D0-645ACABCB6EB">
+            <Component Id="cmp547F38028498A9E4BCA2F025B2CCE0E7" Directory="ReportTemplates" Guid="499246A8-06E3-46BF-8273-82D7A39F0D66">
                 <File Id="fil22AA2DF0706C87D3BFC3C785301CA386" KeyPath="yes" Source="$(var.ReportTemplatesSourceDir)\ReportTypes.xsl" />
             </Component>
-            <Component Id="cmp84F5DBB9E5E5ACE18D20E23EEB57B04C" Directory="ReportTemplates" Guid="2E89331F-F62B-4371-AF88-354490CFC36E">
+            <Component Id="cmp84F5DBB9E5E5ACE18D20E23EEB57B04C" Directory="ReportTemplates" Guid="F64CEF1D-C8B6-44B0-AB10-2EFD4C24EED5">
                 <File Id="filB1C23B06CAA290B92B89872F61873F6F" KeyPath="yes" Source="$(var.ReportTemplatesSourceDir)\RUS.xml" />
             </Component>
-            <Component Id="cmp09EA61468D98E0C4068BE97121C1CBA4" Directory="ReportTemplates" Guid="19D67F6C-70FE-4C3C-877C-F80A113D69CA">
+            <Component Id="cmp09EA61468D98E0C4068BE97121C1CBA4" Directory="ReportTemplates" Guid="D373D332-9FF5-4749-992F-D83895187231">
                 <File Id="fil0459E20E2EDA6BDECFDB91D4BD0C7549" KeyPath="yes" Source="$(var.ReportTemplatesSourceDir)\SVE.xml" />
             </Component>
-            <Component Id="cmp9720548CB9571553547ACB516D3A29E1" Directory="ReportTemplates" Guid="7515FBD4-1E91-446C-B8D8-E6E06B2BDBDA">
+            <Component Id="cmp9720548CB9571553547ACB516D3A29E1" Directory="ReportTemplates" Guid="3F9C48C1-213D-4AE1-8AD9-467E1F294E2E">
                 <File Id="fil09BF5AAB1A3274E4D7B11FF43247706D" KeyPath="yes" Source="$(var.ReportTemplatesSourceDir)\treeDiM.png" />
             </Component>
-            <Component Id="cmpB9037227CA5E2CDEFE192C795F4E7AE9" Directory="ReportTemplates" Guid="749F2BCE-E02B-4E98-A368-057D9BCC9219">
+            <Component Id="cmpB9037227CA5E2CDEFE192C795F4E7AE9" Directory="ReportTemplates" Guid="1EBE26F7-363B-4885-A3F4-61702C51E58C">
                 <File Id="fil024332F0B64BBEEDF808DB0B01F10758" KeyPath="yes" Source="$(var.ReportTemplatesSourceDir)\YourLogoHere.png" />
             </Component>
         </ComponentGroup>
