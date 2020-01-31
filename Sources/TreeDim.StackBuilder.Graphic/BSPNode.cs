@@ -345,13 +345,13 @@ namespace treeDiM.StackBuilder.Graphics
                                 v1[1] = f.Points[(i + 1) % 4];
                                 v1[2] = ptInter1;
                                 v1[3] = ptInter2;
-                                f1.Add(new Face(f.PickingId, v1, f.ColorFill, f.ColorPath, f.IsSolid));
+                                f1.Add(new Face(f.PickingId, v1, f.ColorFill, f.ColorPath, "", f.IsSolid));
                                 Vector3D[] v2 = new Vector3D[4];
                                 v2[0] = ptInter2;
                                 v2[1] = ptInter1;
                                 v2[2] = f.Points[(i + 2) % 4];
                                 v2[3] = f.Points[(i + 3) % 4];
-                                f2.Add(new Face(f.PickingId, v2, f.ColorFill, f.ColorPath, f.IsSolid));
+                                f2.Add(new Face(f.PickingId, v2, f.ColorFill, f.ColorPath, "", f.IsSolid));
                             }
                         }
                         return 2;

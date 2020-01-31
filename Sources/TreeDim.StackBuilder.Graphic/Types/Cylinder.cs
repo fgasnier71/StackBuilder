@@ -71,8 +71,8 @@ namespace treeDiM.StackBuilder.Graphics
                 {
                     for (int i = 0; i < NoFaces; ++i)
                     {
-                        double angleBeg = (double)i * 2.0 * Math.PI / (double)NoFaces;
-                        double angleEnd = (double)(i + 1) * 2.0 * Math.PI / (double)NoFaces;
+                        double angleBeg = i * 2.0 * Math.PI / NoFaces;
+                        double angleEnd = (i + 1) * 2.0 * Math.PI / NoFaces;
                         Vector3D vRadiusBeg = new Vector3D(0.0, Math.Cos(angleBeg), Math.Sin(angleBeg));
                         Vector3D vRadiusEnd = new Vector3D(0.0, Math.Cos(angleEnd), Math.Sin(angleEnd));
                         Vector3D[] vertices = new Vector3D[4];
@@ -80,7 +80,7 @@ namespace treeDiM.StackBuilder.Graphics
                         vertices[1] = t.transform(RadiusInner * vRadiusBeg + Height * Vector3D.XAxis);
                         vertices[2] = t.transform(RadiusInner * vRadiusEnd + Height * Vector3D.XAxis);
                         vertices[3] = t.transform(RadiusInner * vRadiusEnd);
-                        faces[i] = new Face(PickId, vertices, true);
+                        faces[i] = new Face(PickId, vertices, "CYLINDER");
                         faces[i].ColorFill = ColorWallInner;
                     }
                 }
@@ -96,7 +96,7 @@ namespace treeDiM.StackBuilder.Graphics
                     vertices[1] = t.transform(RadiusOuter * vRadiusEnd);
                     vertices[2] = t.transform(RadiusOuter * vRadiusEnd + Height * Vector3D.XAxis);
                     vertices[3] = t.transform(RadiusOuter * vRadiusBeg + Height * Vector3D.XAxis);
-                    faces[(showInnerFaces ? NoFaces : 0) + i] = new Face(PickId, vertices, true);
+                    faces[(showInnerFaces ? NoFaces : 0) + i] = new Face(PickId, vertices, "CYLINDER");
                     faces[(showInnerFaces ? NoFaces : 0) + i].ColorFill = ColorWallOuter;
                 }
                 return faces;
@@ -119,7 +119,7 @@ namespace treeDiM.StackBuilder.Graphics
                     vertices[1] = t.transform(RadiusOuter * vRadiusBeg + Height * Vector3D.XAxis);
                     vertices[2] = t.transform(RadiusOuter * vRadiusEnd + Height * Vector3D.XAxis);
                     vertices[3] = t.transform(RadiusInner * vRadiusEnd + Height * Vector3D.XAxis);
-                    faces[i] = new Face(PickId, vertices, true);
+                    faces[i] = new Face(PickId, vertices, "CYLINDER");
                     faces[i].ColorFill = ColorTop;
                 }
 
@@ -134,10 +134,7 @@ namespace treeDiM.StackBuilder.Graphics
                     vertices[1] = t.transform(RadiusOuter * vRadiusEnd);
                     vertices[2] = t.transform(RadiusOuter * vRadiusBeg);
                     vertices[3] = t.transform(RadiusInner * vRadiusBeg);
-                    faces[NoFaces + i] = new Face(PickId, vertices, true)
-                    {
-                        ColorFill = ColorTop
-                    };
+                    faces[NoFaces + i] = new Face(PickId, vertices, ColorTop, Color.Black, "CYLINDER", true);
                 }
                 return faces;
             }        

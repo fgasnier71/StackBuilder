@@ -10,7 +10,7 @@ using treeDiM.Basics;
 namespace treeDiM.StackBuilder.Basics
 {
     #region Strapper
-    public class Strapper
+    public class PalletStrapper
     {
         public int Axis { get; set; }
         public double Abscissa { get; set; }
@@ -155,15 +155,15 @@ namespace treeDiM.StackBuilder.Basics
         }
         public Color Color { get; set; } = Color.LightGray;
         public double Width { get; set; } = UnitsManager.ConvertLengthFrom(10.0, UnitsManager.UnitSystem.UNIT_METRIC1);
-        public IEnumerable<Strapper> Strappers
+        public IEnumerable<PalletStrapper> Strappers
         {
             get
             {
-                List<Strapper> strappers = new List<Strapper>();
+                List<PalletStrapper> strappers = new List<PalletStrapper>();
                 for (int dir = 0; dir < 3; ++dir)
                 {
                     foreach (double d in strapperSetDirs[dir].ActualAbscissas)
-                        strappers.Add(new Strapper() { Abscissa = d, Axis = dir, Color = Color, Width = Width });
+                        strappers.Add(new PalletStrapper() { Abscissa = d, Axis = dir, Color = Color, Width = Width });
                 }
                 return strappers;
             }
@@ -182,6 +182,12 @@ namespace treeDiM.StackBuilder.Basics
             strapperSetDirs[0].DimStored = dim.X;
             strapperSetDirs[1].DimStored = dim.Y;
             strapperSetDirs[2].DimStored = dim.Z;
+        }
+        public void SetDimension(double[] dim)
+        {
+            strapperSetDirs[0].DimStored = dim[0];
+            strapperSetDirs[1].DimStored = dim[1];
+            strapperSetDirs[2].DimStored = dim[2];
         }
         #endregion
 

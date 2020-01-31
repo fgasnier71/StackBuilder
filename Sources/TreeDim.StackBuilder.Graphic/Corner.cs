@@ -143,7 +143,9 @@ namespace treeDiM.StackBuilder.Graphics
                 Face[] faces = new Face[8];
                 Vector3D[] points = Points;
                 for (int i = 0; i < 8; ++i)
-                    faces[i] = new Face(_pickId, new Vector3D[] { points[indexes[i, 0]], points[indexes[i, 1]], points[indexes[i, 2]], points[indexes[i, 3]] }, true) { ColorFill = _color };
+                    faces[i] = new Face(_pickId,
+                        new Vector3D[] { points[indexes[i, 0]], points[indexes[i, 1]], points[indexes[i, 2]], points[indexes[i, 3]] },
+                        _color, Color.Black, "CORNER", true);
                 return faces;
             }
         }
@@ -179,6 +181,9 @@ namespace treeDiM.StackBuilder.Graphics
         }
         public override void DrawBegin(Graphics3D graphics)
         {
+            // sanity check
+            if (_height <= 1.0E-3) return;
+
             Face[] faces = Faces;
             if (Vector3D.DotProduct(faces[0].Normal, graphics.ViewDirection) >= 0.0)
             {
@@ -199,6 +204,9 @@ namespace treeDiM.StackBuilder.Graphics
         }
         public override void DrawEnd(Graphics3D graphics)
         {
+            // sanity check
+            if (_height <= 1.0E-3) return;
+
             Face[] faces = Faces;
             if (Vector3D.DotProduct(faces[0].Normal, graphics.ViewDirection) <= 0.0)
             {

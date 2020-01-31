@@ -84,19 +84,13 @@ namespace treeDiM.StackBuilder.Graphics
                 Vector3D[] points = Points;
 
                 Face[] faces = new Face[6];
-                faces[0] = new Face(_pickId, new Vector3D[] { points[3], points[0], points[4], points[7] }, true); // AXIS_X_N
-                faces[1] = new Face(_pickId, new Vector3D[] { points[1], points[2], points[6], points[5] }, true); // AXIS_X_P
-                faces[2] = new Face(_pickId, new Vector3D[] { points[0], points[1], points[5], points[4] }, true); // AXIS_Y_N
-                faces[3] = new Face(_pickId, new Vector3D[] { points[2], points[3], points[7], points[6] }, true); // AXIS_Y_P
-                faces[4] = new Face(_pickId, new Vector3D[] { points[3], points[2], points[1], points[0] }, true); // AXIS_Z_N
-                faces[5] = new Face(_pickId, new Vector3D[] { points[4], points[5], points[6], points[7] }, true); // AXIS_Z_P
+                faces[0] = new Face(_pickId, new Vector3D[] { points[3], points[0], points[4], points[7] }, _color, Color.Black, "PALLETCAP"); // AXIS_X_N
+                faces[1] = new Face(_pickId, new Vector3D[] { points[1], points[2], points[6], points[5] }, _color, Color.Black, "PALLETCAP"); // AXIS_X_P
+                faces[2] = new Face(_pickId, new Vector3D[] { points[0], points[1], points[5], points[4] }, _color, Color.Black, "PALLETCAP"); // AXIS_Y_N
+                faces[3] = new Face(_pickId, new Vector3D[] { points[2], points[3], points[7], points[6] }, _color, Color.Black, "PALLETCAP"); // AXIS_Y_P
+                faces[4] = new Face(_pickId, new Vector3D[] { points[3], points[2], points[1], points[0] }, _color, Color.Black, "PALLETCAP"); // AXIS_Z_N
+                faces[5] = new Face(_pickId, new Vector3D[] { points[4], points[5], points[6], points[7] }, _color, Color.Black, "PALLETCAP"); // AXIS_Z_P
 
-                int i = 0;
-                foreach (Face face in faces)
-                {
-                    face.ColorFill = _color;
-                    ++i;
-                }
                 return faces;
             }
         }

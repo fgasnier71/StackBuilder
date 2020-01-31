@@ -6,13 +6,26 @@ namespace treeDiM.StackBuilder.Basics
 {
     public class AnalysisCasePallet : AnalysisPackablePallet
     {
+        #region Constructor
         public AnalysisCasePallet(
-            Packable packable, 
+            Packable packable,
             PalletProperties palletProperties,
             ConstraintSetCasePallet constraintSet,
             bool temporary = false)
             : base(packable, palletProperties, constraintSet, temporary)
         {
+        }
+        #endregion
+
+        #region Specific case/pallet decoration 
+        public StrapperSet StrapperSet
+        {
+            get => _strapperSet;
+            set
+            {
+                _strapperSet = value;
+                SolutionLay.ClearStrapperSets();
+            }
         }
         public PalletCornerProperties PalletCornerProperties
         {
@@ -53,7 +66,10 @@ namespace treeDiM.StackBuilder.Basics
         public bool HasPalletCorners => null != _palletCornerProperties;
         public bool HasPalletCap => null != _palletCapProperties;
         public bool HasPalletFilm => null != _palletFilmProperties;
+        public bool HasStrappers => null != StrapperSet;
+        #endregion
 
+        #region Override AnalysisHomo
         public override BBox3D BBoxLoadWDeco(BBox3D loadBBox)
         {
             var bbox = new BBox3D(loadBBox);
@@ -89,10 +105,13 @@ namespace treeDiM.StackBuilder.Basics
             // --- extend for pallet cap : end 
             return bbox;
         }
+        #endregion
+
         #region Non-Public Members
-        PalletCornerProperties _palletCornerProperties;
-        PalletCapProperties _palletCapProperties;
-        PalletFilmProperties _palletFilmProperties;
+        private PalletCornerProperties _palletCornerProperties;
+        private PalletCapProperties _palletCapProperties;
+        private PalletFilmProperties _palletFilmProperties;
+        private StrapperSet _strapperSet = new StrapperSet();
         #endregion
     }
 }

@@ -181,6 +181,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DimensionCube.cs" />
     <Compile Include="Types\PalletCap.cs" />
+    <Compile Include="Types\Strapper.cs" />
     <Compile Include="Types\Truck.cs" />
   </ItemGroup>
   <ItemGroup>

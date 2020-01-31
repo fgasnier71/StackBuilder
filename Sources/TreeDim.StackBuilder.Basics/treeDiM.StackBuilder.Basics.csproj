@@ -178,7 +178,6 @@
     <Compile Include="PalletDecoration\PalletCornerProperties.cs" />
     <Compile Include="PalletDecoration\PalletCapProperties.cs" />
     <Compile Include="PalletDecoration\PalletFilmProperties.cs" />
-    <Compile Include="PalletDecoration\PalletStrapper.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -258,7 +257,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="OptValue\" />
     <Folder Include="Schemas\" />
   </ItemGroup>
   <ItemGroup>

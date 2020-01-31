@@ -60,6 +60,7 @@ namespace treeDiM.StackBuilder.Desktop
                 chkbPalletCorners.Checked = null != analysisCasePallet.PalletCornerProperties;
                 chkbPalletCap.Checked = null != analysisCasePallet.PalletCapProperties;
                 chkbPalletFilm.Checked = null != analysisCasePallet.PalletFilmProperties;
+                ctrlStrapperSet.StrapperSet = analysisCasePallet.StrapperSet;
             }
             // ---
             // --- initialize grid control
@@ -83,13 +84,13 @@ namespace treeDiM.StackBuilder.Desktop
             cbPalletCap.Enabled = chkbPalletCap.Checked;
             cbPalletFilm.Enabled = chkbPalletFilm.Checked;
 
-            if (_solution.Analysis is AnalysisCasePallet casePalletAnalysis)
+            if (_solution.Analysis is AnalysisCasePallet analysisCasePallet)
             {
-                casePalletAnalysis.PalletCornerProperties = SelectedPalletCorners;
-                casePalletAnalysis.PalletCapProperties = SelectedPalletCap;
-                casePalletAnalysis.PalletFilmProperties = SelectedPalletFilm;
+                analysisCasePallet.PalletCornerProperties = SelectedPalletCorners;
+                analysisCasePallet.PalletCapProperties = SelectedPalletCap;
+                analysisCasePallet.PalletFilmProperties = SelectedPalletFilm;
+                analysisCasePallet.StrapperSet = ctrlStrapperSet.StrapperSet;
             }
-
             graphCtrlSolution.Invalidate();
         }
         #endregion

@@ -1,7 +1,8 @@
-﻿using System;
-using System.Linq;
+﻿#region Using directives
+using System;
 
 using Sharp3D.Math.Core;
+#endregion
 
 namespace treeDiM.StackBuilder.Basics
 {
@@ -61,6 +62,7 @@ namespace treeDiM.StackBuilder.Basics
         {
             return Interlayers[index];
         }
+        #region Override AnalysisHomo
         public override BBox3D BBoxGlobal(BBox3D loadBBox)
         {
             BBox3D bbox = BBoxLoadWDeco(loadBBox);
@@ -69,6 +71,7 @@ namespace treeDiM.StackBuilder.Basics
             // --- extend for pallet : end
             return bbox;
         }
+        #endregion
 
         #region Non-Public Members
         // container

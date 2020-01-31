@@ -22,25 +22,20 @@ namespace treeDiM.StackBuilder.Basics
 
     public class InterlayerPos : ILayer
     {
-        #region Data members
-        private double _zLower = 0.0;
-        private int _typeId = 0;
-        #endregion
-
         #region Constructor
         public InterlayerPos(double zLow, int typeId)
         {
-            _zLower = zLow;
-            _typeId = typeId;
+            ZLow = zLow;
+            TypeId = typeId;
         }
         #endregion
 
         #region Interlayer specific properties
-        public int TypeId { get { return _typeId; } }
+        public int TypeId { get; } = 0;
         #endregion
 
         #region ILayer implementation
-        public double ZLow { get { return _zLower; } }
+        public double ZLow { get; } = 0.0;
         public int BoxCount { get { return 0; } }
         public int InterlayerCount {  get { return 1; } }
         public int CylinderCount {  get { return 0; } }
@@ -49,7 +44,7 @@ namespace treeDiM.StackBuilder.Basics
             BBox3D bbox = new BBox3D();
             Vector3D dimensions = packable.OuterDimensions;
             Vector3D[] pts = new Vector3D[8];
-            pts[0] = new Vector3D(0.0, 0.0, _zLower);
+            pts[0] = new Vector3D(0.0, 0.0, ZLow);
             pts[1] = pts[0] + dimensions.X * Vector3D.XAxis;
             pts[2] = pts[0] + dimensions.Y * Vector3D.YAxis;
             pts[3] = pts[0] + dimensions.X * Vector3D.XAxis + dimensions.Y * Vector3D.YAxis;

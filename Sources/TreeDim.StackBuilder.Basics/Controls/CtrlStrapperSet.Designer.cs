@@ -47,16 +47,16 @@ namespace treeDiM.StackBuilder.Basics.Controls
             "X",
             "Y",
             "Z"});
-            this.cbDir.Location = new System.Drawing.Point(218, 10);
+            this.cbDir.Location = new System.Drawing.Point(237, 2);
             this.cbDir.Name = "cbDir";
-            this.cbDir.Size = new System.Drawing.Size(55, 21);
+            this.cbDir.Size = new System.Drawing.Size(60, 21);
             this.cbDir.TabIndex = 0;
             this.cbDir.SelectedIndexChanged += new System.EventHandler(this.OnDirectionChanged);
             // 
             // lbDirection
             // 
             this.lbDirection.AutoSize = true;
-            this.lbDirection.Location = new System.Drawing.Point(173, 12);
+            this.lbDirection.Location = new System.Drawing.Point(175, 5);
             this.lbDirection.Name = "lbDirection";
             this.lbDirection.Size = new System.Drawing.Size(26, 13);
             this.lbDirection.TabIndex = 1;
@@ -64,7 +64,7 @@ namespace treeDiM.StackBuilder.Basics.Controls
             // 
             // uCtrlWidth
             // 
-            this.uCtrlWidth.Location = new System.Drawing.Point(6, 9);
+            this.uCtrlWidth.Location = new System.Drawing.Point(6, 2);
             this.uCtrlWidth.Minimum = new decimal(new int[] {
             10000,
             0,
@@ -76,12 +76,16 @@ namespace treeDiM.StackBuilder.Basics.Controls
             this.uCtrlWidth.TabIndex = 3;
             this.uCtrlWidth.Text = "Width";
             this.uCtrlWidth.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
-            this.uCtrlWidth.Value = 0D;
             this.uCtrlWidth.ValueChanged += new treeDiM.Basics.UCtrlDouble.ValueChangedDelegate(this.OnStrapperChanged);
             // 
             // uCtrlNumber
             // 
-            this.uCtrlNumber.Location = new System.Drawing.Point(293, 12);
+            this.uCtrlNumber.Location = new System.Drawing.Point(174, 24);
+            this.uCtrlNumber.Maximum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
             this.uCtrlNumber.Minimum = new decimal(new int[] {
             0,
             0,
@@ -89,10 +93,9 @@ namespace treeDiM.StackBuilder.Basics.Controls
             0});
             this.uCtrlNumber.MinimumSize = new System.Drawing.Size(100, 20);
             this.uCtrlNumber.Name = "uCtrlNumber";
-            this.uCtrlNumber.Size = new System.Drawing.Size(171, 20);
+            this.uCtrlNumber.Size = new System.Drawing.Size(123, 20);
             this.uCtrlNumber.TabIndex = 2;
             this.uCtrlNumber.Text = "Number";
-            this.uCtrlNumber.Value = 0;
             this.uCtrlNumber.ValueChanged += new treeDiM.Basics.UCtrlInt.ValueChangedDelegate(this.OnNumberChanged);
             // 
             // cbColor
@@ -112,8 +115,9 @@ namespace treeDiM.StackBuilder.Basics.Controls
             "Color",
             "Color",
             "Color",
+            "Color",
             "Color"});
-            this.cbColor.Location = new System.Drawing.Point(73, 35);
+            this.cbColor.Location = new System.Drawing.Point(73, 25);
             this.cbColor.Name = "cbColor";
             this.cbColor.Size = new System.Drawing.Size(61, 22);
             this.cbColor.TabIndex = 6;
@@ -122,7 +126,7 @@ namespace treeDiM.StackBuilder.Basics.Controls
             // lbColor
             // 
             this.lbColor.AutoSize = true;
-            this.lbColor.Location = new System.Drawing.Point(6, 38);
+            this.lbColor.Location = new System.Drawing.Point(6, 28);
             this.lbColor.Name = "lbColor";
             this.lbColor.Size = new System.Drawing.Size(31, 13);
             this.lbColor.TabIndex = 7;
@@ -130,7 +134,7 @@ namespace treeDiM.StackBuilder.Basics.Controls
             // 
             // uCtrlSpacing
             // 
-            this.uCtrlSpacing.Location = new System.Drawing.Point(293, 35);
+            this.uCtrlSpacing.Location = new System.Drawing.Point(174, 45);
             this.uCtrlSpacing.Minimum = new decimal(new int[] {
             10000,
             0,
@@ -138,11 +142,10 @@ namespace treeDiM.StackBuilder.Basics.Controls
             -2147483648});
             this.uCtrlSpacing.MinimumSize = new System.Drawing.Size(100, 20);
             this.uCtrlSpacing.Name = "uCtrlSpacing";
-            this.uCtrlSpacing.Size = new System.Drawing.Size(209, 20);
+            this.uCtrlSpacing.Size = new System.Drawing.Size(161, 20);
             this.uCtrlSpacing.TabIndex = 8;
             this.uCtrlSpacing.Text = "Spacing";
             this.uCtrlSpacing.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
-            this.uCtrlSpacing.Value = 0D;
             this.uCtrlSpacing.ValueChanged += new treeDiM.Basics.UCtrlDouble.ValueChangedDelegate(this.OnStrapperChanged);
             // 
             // CtrlStrapperSet
@@ -157,7 +160,7 @@ namespace treeDiM.StackBuilder.Basics.Controls
             this.Controls.Add(this.lbDirection);
             this.Controls.Add(this.cbDir);
             this.Name = "CtrlStrapperSet";
-            this.Size = new System.Drawing.Size(540, 60);
+            this.Size = new System.Drawing.Size(340, 68);
             this.ResumeLayout(false);
             this.PerformLayout();
 

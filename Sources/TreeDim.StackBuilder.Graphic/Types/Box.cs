@@ -113,7 +113,7 @@ namespace treeDiM.StackBuilder.Graphics
                     }
                 }
                 if (packable is PackableBrickNamed packableBrickNamed)
-                     StrapperList = new List<Strapper>(packableBrickNamed.StrapperSet.Strappers);
+                     StrapperList = new List<Basics.PalletStrapper>(packableBrickNamed.StrapperSet.Strappers);
             }
        }
         public Box(uint pickId, PalletCapProperties capProperties, Vector3D position)
@@ -175,7 +175,7 @@ namespace treeDiM.StackBuilder.Graphics
                 }
             }
             if (packable is PackableBrickNamed packableBrickNamed)
-                StrapperList = new List<Strapper>(packableBrickNamed.StrapperSet.Strappers);
+                StrapperList = new List<Basics.PalletStrapper>(packableBrickNamed.StrapperSet.Strappers);
         }
         public Box(uint pickId, InterlayerProperties interlayerProperties)
         {
@@ -331,10 +331,6 @@ namespace treeDiM.StackBuilder.Graphics
         {
             get
             {
-                Vector3D lengthAxis = LengthAxis;
-                Vector3D widthAxis = WidthAxis;
-                Vector3D heightAxis = HeightAxis;
-
                 List<Face> faces = new List<Face>();
                 foreach (var s in StrapperList)
                 {
@@ -378,13 +374,13 @@ namespace treeDiM.StackBuilder.Graphics
                         vertices[1] = pt0 + 0.5 * s.Width * axis;
                         vertices[2] = pt1 + 0.5 * s.Width * axis;
                         vertices[3] = pt1 - 0.5 * s.Width * axis;
-                        faces.Add( new Face(0, vertices, true){ ColorFill = s.Color } );
+                        faces.Add( new Face(0, vertices, s.Color, Color.Black, "BOX"));
                     }
                 }
                 return faces.ToArray();
             }
         }
-        public List<Strapper> StrapperList { get; } = new List<Strapper>();
+        public List<PalletStrapper> StrapperList { get; } = new List<PalletStrapper>();
         #endregion
 
         #region XMin / XMax / YMin / YMax / ZMin
@@ -678,19 +674,17 @@ namespace treeDiM.StackBuilder.Graphics
                 points[7] = position + _dim[2] * heightAxis + _dim[1] * widthAxis;
 
                 var faces = new Face[6];
-                faces[0] = new Face(PickId, new Vector3D[] { points[3], points[0], points[4], points[7] }, false); // AXIS_X_N
-                faces[1] = new Face(PickId, new Vector3D[] { points[1], points[2], points[6], points[5] }, false); // AXIS_X_P
-                faces[2] = new Face(PickId, new Vector3D[] { points[0], points[1], points[5], points[4] }, false); // AXIS_Y_N
-                faces[3] = new Face(PickId, new Vector3D[] { points[2], points[3], points[7], points[6] }, false); // AXIS_Y_P
-                faces[4] = new Face(PickId, new Vector3D[] { points[3], points[2], points[1], points[0] }, false); // AXIS_Z_N
-                faces[5] = new Face(PickId, new Vector3D[] { points[4], points[5], points[6], points[7] }, false); // AXIS_Z_P
+                faces[0] = new Face(PickId, new Vector3D[] { points[3], points[0], points[4], points[7] }, Colors[0], Color.Black, "BOX", false); // AXIS_X_N
+                faces[1] = new Face(PickId, new Vector3D[] { points[1], points[2], points[6], points[5] }, Colors[1], Color.Black, "BOX", false); // AXIS_X_P
+                faces[2] = new Face(PickId, new Vector3D[] { points[0], points[1], points[5], points[4] }, Colors[2], Color.Black, "BOX", false); // AXIS_Y_N
+                faces[3] = new Face(PickId, new Vector3D[] { points[2], points[3], points[7], points[6] }, Colors[3], Color.Black, "BOX", false); // AXIS_Y_P
+                faces[4] = new Face(PickId, new Vector3D[] { points[3], points[2], points[1], points[0] }, Colors[4], Color.Black, "BOX", false); // AXIS_Z_N
+                faces[5] = new Face(PickId, new Vector3D[] { points[4], points[5], points[6], points[7] }, Colors[5], Color.Black, "BOX", false); // AXIS_Z_P
 
                 int i = 0;
                 foreach (var face in faces)
                 {
-                    face.ColorFill = Colors[i];
-                    face.Textures = TextureLists[i];
-                    ++i;
+                    face.Textures = TextureLists[i++];
                 }
                 return faces;
             }

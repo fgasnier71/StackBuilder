@@ -10,6 +10,7 @@ using Sharp3D.Math.Core;
 using log4net;
 
 using treeDiM.Basics;
+using MIConvexHull;
 #endregion
 
 namespace treeDiM.StackBuilder.Basics
@@ -380,7 +381,6 @@ namespace treeDiM.StackBuilder.Basics
                     if (constraintSet.OneCriterionReached(zTop, weight, number, solutionItems.Count))
                         break;
                 }
-
                 // add layers until 
                 while (!constraintSet.OneCriterionReached(zTop, weight, number, solutionItems.Count))
                 {
@@ -430,6 +430,7 @@ namespace treeDiM.StackBuilder.Basics
 
                 // reset bounding box to force recompute
                 _bbox.Reset();
+                _strappers.Clear();
             }
             catch (Exception ex)
             {
@@ -519,6 +520,7 @@ namespace treeDiM.StackBuilder.Basics
             {
                 _solutionItems = value;
                 _bbox.Reset();
+                _strappers.Clear();
             }
         }
         /// <summary>
@@ -664,6 +666,31 @@ namespace treeDiM.StackBuilder.Basics
                 return _bbox.Clone();
             }
         }
+
+        public IEnumerable<StrapperData> Strappers
+        {
+            get
+            {
+                var bboxLoad = BBoxLoad;
+                if (_strappers.Count == 0 && Analysis is AnalysisCasePallet analysisCasePallet && null != analysisCasePallet.StrapperSet)
+                {
+                    analysisCasePallet.StrapperSet.SetDimension(bboxLoad.PtMax - bboxLoad.PtMin);
+                    foreach (var strapper in analysisCasePallet.StrapperSet.Strappers)
+                    {
+                        double topDeckThickness = UnitsManager.ConvertLengthFrom(22, UnitsManager.UnitSystem.UNIT_METRIC1);
+                        _strappers.Add(
+                            new StrapperData(
+                                strapper,
+                                IntersectionWPlane(strapper.Abscissa + bboxLoad.PtMin[strapper.Axis], strapper.Axis, topDeckThickness)
+                                )
+                            );
+                    }
+                }
+                return _strappers;
+            }
+        }
+        public void ClearStrapperSets() { _strappers.Clear();}
+
         public int InterlayerCount
         {
             get
@@ -1045,6 +1072,136 @@ namespace treeDiM.StackBuilder.Basics
                 throw new Exception("No valid layer with desc {layerDesc}");
             return index;
         }
+
+        private List<Vector3D> IntersectionWPlane(double abs, int axis, double topDeckThickness)
+        {
+            var points = new List<Vector3D>();
+            var dim = Analysis.ContentDimensions;
+            // layers
+            foreach (ILayer layer in Layers)
+            {
+                if (layer is Layer3DBox layerBox)
+                {
+                    foreach (var bp in layerBox)
+                        bp.IntersectPlane(dim, abs, axis, ref points);
+                }
+                else if (layer is InterlayerPos)
+                {
+                    InterlayerPos interLayerPos = layer as InterlayerPos;
+                    InterlayerProperties interlayerProp = Interlayers[interLayerPos.TypeId];
+                    var bp = new BoxPosition(new Vector3D(
+                        0.5 * (Analysis.ContainerDimensions.X - interlayerProp.Length)
+                        , 0.5 * (Analysis.ContainerDimensions.Y - interlayerProp.Width)
+                        , 0.0)
+                        + Analysis.Offset, HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P);
+                    bp.IntersectPlane(dim, abs, axis, ref points);
+                }
+            }
+            // pallet top deck
+            if (Analysis.Container is PalletProperties palletProperties)
+            {
+                Vector3D dimTopDeck = new Vector3D(palletProperties.Length, palletProperties.Width, topDeckThickness);
+                var bp = new BoxPosition(new Vector3D(0.0, 0.0, palletProperties.Height - topDeckThickness), HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P);
+                bp.IntersectPlane(dimTopDeck, abs, axis, ref points);
+            }
+            // pallet cap
+            if (Analysis is AnalysisCasePallet analysisCasePallet)
+            {
+                BBox3D loadBBox = BBoxLoad;
+                if (analysisCasePallet.HasPalletCap)
+                {
+                    PalletCapProperties capProperties = analysisCasePallet.PalletCapProperties;
+                    Vector3D dimCap = new Vector3D(capProperties.Length, capProperties.Width, capProperties.Height);
+                    var bp = new BoxPosition(new Vector3D(
+                        0.5 * (analysisCasePallet.PalletProperties.Length - capProperties.Length),
+                        0.5 * (analysisCasePallet.PalletProperties.Width - capProperties.Width),
+                        loadBBox.PtMax.Z - capProperties.InsideHeight)
+                        , HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P
+                        );
+                    bp.IntersectPlane(dimCap, abs, axis, ref points);
+                }
+                if (analysisCasePallet.HasPalletCorners)
+                {
+                    PalletCornerProperties cornerProperties = analysisCasePallet.PalletCornerProperties;
+                    double th = cornerProperties.Thickness;
+                    // positions
+                    Vector3D[] cornerPositions =
+                    {
+                        loadBBox.PtMin + new Vector3D(-th, -th, 0.0)
+                        , new Vector3D(loadBBox.PtMax.X, loadBBox.PtMin.Y, loadBBox.PtMin.Z) + new Vector3D(th, -th, 0.0)
+                        , new Vector3D(loadBBox.PtMax.X, loadBBox.PtMax.Y, loadBBox.PtMin.Z) + new Vector3D(th, th, 0.0)
+                        , new Vector3D(loadBBox.PtMin.X, loadBBox.PtMax.Y, loadBBox.PtMin.Z) + new Vector3D(-th, th, 0.0)
+                    };
+                    // length axes
+                    HalfAxis.HAxis[] lAxes =
+                    {
+                        HalfAxis.HAxis.AXIS_X_P,
+                        HalfAxis.HAxis.AXIS_Y_P,
+                        HalfAxis.HAxis.AXIS_X_N,
+                        HalfAxis.HAxis.AXIS_Y_N
+                    };
+                    // width axes
+                    HalfAxis.HAxis[] wAxes =
+                    {
+                        HalfAxis.HAxis.AXIS_Y_P,
+                        HalfAxis.HAxis.AXIS_X_N,
+                        HalfAxis.HAxis.AXIS_Y_N,
+                        HalfAxis.HAxis.AXIS_X_P
+                    };
+                    double height = Math.Min(analysisCasePallet.PalletCornerProperties.Length, loadBBox.Height);
+                    Vector3D dimCorner = new Vector3D(cornerProperties.Width, cornerProperties.Width, height);
+
+                    for (int i = 0; i < 4; ++i)
+                    {
+                        var bp = new BoxPosition(cornerPositions[i], lAxes[i], wAxes[i]);
+                        bp.IntersectPlane(dimCorner, abs, axis, ref points);
+                    }
+                }
+            }
+            // build convexhull
+            var convexHullResult = ConvexHull.Create2D(ListVector3DToListArray(points, axis), 1.0E-10);
+            if (null != convexHullResult.Result && convexHullResult.Result.Count > 2)
+                return ListVertex2DToVector3D(convexHullResult.Result, abs, axis);
+            else
+                return new List<Vector3D>();
+        }
+
+        private List<double[]> ListVector3DToListArray(List<Vector3D> points, int axis)
+        {
+            var listResult = new List<double[]>();
+            foreach (var pt in points)
+            {
+                double x, y;
+                switch (axis)
+                {
+                    case 0: x = pt.Y; y = pt.Z; break;
+                    case 1: x = pt.X; y = pt.Z; break;
+                    case 2: x = pt.X; y = pt.Y; break;
+                    default: x = 0.0; y = 0.0; break;
+                }
+                listResult.Add(new double[] { x, y });
+            }
+            return listResult;
+        }
+        private List<Vector3D> ListVertex2DToVector3D(IList<DefaultVertex2D> vertices, double abs, int axis)
+        {
+            var listPoints = new List<Vector3D>();
+            foreach (var v in vertices)
+            {
+                Vector3D point;
+                switch (axis)
+                {
+                    case 0: point = new Vector3D(abs, v.X, v.Y); break;
+                    case 1: point = new Vector3D(v.X, abs, v.Y); break;
+                    case 2: point = new Vector3D(v.X, v.Y, abs); break;
+                    default: point = Vector3D.Zero; break;
+                }
+                listPoints.Add(point);
+            }
+            if (1 == axis) listPoints.Reverse();
+
+            return listPoints;
+        }
         #endregion
 
         #region Static solver instance
@@ -1066,11 +1223,21 @@ namespace treeDiM.StackBuilder.Basics
         internal List<ILayer2D> _layerTypes;
         // cached data
         private BBox3D _bbox = BBox3D.Initial;
+        private List<StrapperData> _strappers = new List<StrapperData>();
         #endregion
 
         #region Static members
         private static ILog _log = LogManager.GetLogger(typeof(SolutionLayered));
         #endregion
+    }
+    #endregion
+
+    #region StrapperData class
+    public class StrapperData
+    {
+        public StrapperData(PalletStrapper strapper, List<Vector3D> points) { Strapper = strapper; Points = points; }
+        public PalletStrapper Strapper { get; set; }
+        public List<Vector3D> Points { get; set; }
     }
     #endregion
 }

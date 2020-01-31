@@ -34,6 +34,8 @@
             this.uCtrlOptMaximumWeight = new treeDiM.Basics.UCtrlOptDouble();
             this.uCtrlMaxPalletHeight = new treeDiM.Basics.UCtrlDouble();
             this.tabCtrl = new System.Windows.Forms.TabControl();
+            this.tabPageStrappers = new System.Windows.Forms.TabPage();
+            this.ctrlStrapperSet = new treeDiM.StackBuilder.Basics.Controls.CtrlStrapperSet();
             this.tabPagePalletCorners = new System.Windows.Forms.TabPage();
             this.cbPalletCorners = new System.Windows.Forms.ComboBox();
             this.chkbPalletCorners = new System.Windows.Forms.CheckBox();
@@ -54,6 +56,7 @@
             this.splitContainerVert.SuspendLayout();
             this.gbStopCriterions.SuspendLayout();
             this.tabCtrl.SuspendLayout();
+            this.tabPageStrappers.SuspendLayout();
             this.tabPagePalletCorners.SuspendLayout();
             this.tabPagePalletCap.SuspendLayout();
             this.tabPagePalletFilm.SuspendLayout();
@@ -121,12 +124,28 @@
             // tabCtrl
             // 
             resources.ApplyResources(this.tabCtrl, "tabCtrl");
+            this.tabCtrl.Controls.Add(this.tabPageStrappers);
             this.tabCtrl.Controls.Add(this.tabPagePalletCorners);
             this.tabCtrl.Controls.Add(this.tabPagePalletCap);
             this.tabCtrl.Controls.Add(this.tabPagePalletFilm);
             this.tabCtrl.Multiline = true;
             this.tabCtrl.Name = "tabCtrl";
             this.tabCtrl.SelectedIndex = 0;
+            // 
+            // tabPageStrappers
+            // 
+            this.tabPageStrappers.Controls.Add(this.ctrlStrapperSet);
+            resources.ApplyResources(this.tabPageStrappers, "tabPageStrappers");
+            this.tabPageStrappers.Name = "tabPageStrappers";
+            this.tabPageStrappers.UseVisualStyleBackColor = true;
+            // 
+            // ctrlStrapperSet
+            // 
+            resources.ApplyResources(this.ctrlStrapperSet, "ctrlStrapperSet");
+            this.ctrlStrapperSet.Name = "ctrlStrapperSet";
+            this.ctrlStrapperSet.Number = 0;
+            this.ctrlStrapperSet.StrapperSet = null;
+            this.ctrlStrapperSet.ValueChanged += new treeDiM.StackBuilder.Basics.Controls.CtrlStrapperSet.OnValueChanged(this.OnPalletProtectionChanged);
             // 
             // tabPagePalletCorners
             // 
@@ -215,6 +234,7 @@
             this.splitContainerVert.ResumeLayout(false);
             this.gbStopCriterions.ResumeLayout(false);
             this.tabCtrl.ResumeLayout(false);
+            this.tabPageStrappers.ResumeLayout(false);
             this.tabPagePalletCorners.ResumeLayout(false);
             this.tabPagePalletCorners.PerformLayout();
             this.tabPagePalletCap.ResumeLayout(false);
@@ -241,5 +261,7 @@
         private treeDiM.Basics.UCtrlDouble uCtrlMaxPalletHeight;
         private treeDiM.Basics.UCtrlOptDouble uCtrlOptMaximumWeight;
         private treeDiM.Basics.UCtrlOptInt uCtrlOptMaxNumber;
+        private System.Windows.Forms.TabPage tabPageStrappers;
+        private Basics.Controls.CtrlStrapperSet ctrlStrapperSet;
     }
 }

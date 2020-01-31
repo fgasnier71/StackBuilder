@@ -1643,6 +1643,7 @@ namespace treeDiM.StackBuilder.Basics
                 PalletCornerProperties palletCorners = GetTypeByGuid(sPalletCornerId) as PalletCornerProperties;
                 PalletCapProperties palletCap = GetTypeByGuid(sPalletCapId) as PalletCapProperties;
                 PalletFilmProperties palletFilm = GetTypeByGuid(sPalletFilmId) as PalletFilmProperties;
+                StrapperSet strapperSet = new StrapperSet();
 
                 ConstraintSetAbstract constraintSet = null;
                 foreach (XmlNode node in eltAnalysis.ChildNodes)
@@ -1653,6 +1654,8 @@ namespace treeDiM.StackBuilder.Basics
                         LoadSolution(node as XmlElement, out listLayerEncaps, out listSolItems);
                     else if (string.Equals(node.Name, "Interlayers", StringComparison.CurrentCultureIgnoreCase))
                         interlayers = LoadInterlayers(node as XmlElement);
+                    else if (string.Equals(node.Name, "StrapperSet", StringComparison.CurrentCultureIgnoreCase))
+                        LoadStrapperSet(node as XmlElement, ref strapperSet);
                 }
 
                 var analysis = CreateNewAnalysisCasePallet(
@@ -1662,6 +1665,9 @@ namespace treeDiM.StackBuilder.Basics
                     , palletCorners, palletCap, palletFilm
                     , constraintSet as ConstraintSetCasePallet
                     , listLayerEncaps) as AnalysisLayered;
+                AnalysisCasePallet analysisCasePallet = analysis as AnalysisCasePallet;
+                analysisCasePallet.StrapperSet = strapperSet;
+
                 if (!string.IsNullOrEmpty(sId))
                     analysis.ID.IGuid = Guid.Parse(sId);
                 analysis.SolutionLay.SolutionItems = listSolItems;
@@ -2845,11 +2851,11 @@ namespace treeDiM.StackBuilder.Basics
         #endregion
 
         #region SaveStrappers
-        private void SaveStrappers(StrapperSet strapperSet, XmlElement eltBoxProperties, XmlDocument xmlDoc)
+        private void SaveStrappers(StrapperSet strapperSet, XmlElement eltParent, XmlDocument xmlDoc)
         {
             // strapperSet
             XmlElement eltStrapperSet = xmlDoc.CreateElement("StrapperSet");
-            eltBoxProperties.AppendChild(eltStrapperSet);
+            eltParent.AppendChild(eltStrapperSet);
             // strapperWidth
             XmlAttribute xmlWidth = xmlDoc.CreateAttribute("Width");
             xmlWidth.Value = string.Format(CultureInfo.InvariantCulture, "{0}", strapperSet.Width);
@@ -3013,6 +3019,8 @@ namespace treeDiM.StackBuilder.Basics
                     palletFilmIdAttribute.Value = string.Format("{0}", analysisCasePallet1.PalletFilmProperties.ID.IGuid);
                     xmlAnalysisElt.Attributes.Append(palletFilmIdAttribute);
                 }
+                // StrapperSet
+                SaveStrappers(analysisCasePallet1.StrapperSet, xmlAnalysisElt, xmlDoc);
             }
 
             // constraint set

@@ -31,11 +31,9 @@ namespace treeDiM.StackBuilder.Basics
         public Vector3D LoadCOfG => Vector3D.Zero;
         public Vector3D COfG => Vector3D.Zero;
 
-
         #region Abstract properties
         public abstract int ItemCount { get; }
         public abstract BBox3D BBoxLoad { get; }
         #endregion
-
     }
 }

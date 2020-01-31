@@ -50,15 +50,18 @@ namespace treeDiM.StackBuilder.Graphics
         #endregion
 
         #region Constructor
-        public Face(uint pickId, Vector3D[] vertices, bool isSolid)
+        public Face(uint pickId, Vector3D[] vertices,
+            string partName = "", bool isSolid = true)
         {
             Points = vertices;
             if (Points.Length < 3)
                 throw new GraphicsException("Face is degenerated");
             PickingId = pickId;
+            PartName = partName;
             IsSolid = isSolid;
         }
-        public Face(uint pickId, Vector3D[] vertices, Color colorFill, Color colorPath, bool isSolid)
+        public Face(uint pickId, Vector3D[] vertices, Color colorFill, Color colorPath,
+            string partName = "", bool isSolid = true)
         {
             Points = vertices;
             if (Points.Length < 3)
@@ -66,6 +69,7 @@ namespace treeDiM.StackBuilder.Graphics
             PickingId = pickId;
             ColorFill = colorFill;
             ColorPath = colorPath;
+            PartName = partName;
             IsSolid = isSolid;
         }
         /// <summary>
@@ -77,7 +81,8 @@ namespace treeDiM.StackBuilder.Graphics
         /// <param name="pt2">Upper right point</param>
         /// <param name="pt3">Upper left point</param>
         /// <param name="isSolid">Is solid</param>
-        public Face(uint pickId, Vector3D pt0, Vector3D pt1, Vector3D pt2, Vector3D pt3, bool isSolid)
+        public Face(uint pickId, Vector3D pt0, Vector3D pt1, Vector3D pt2, Vector3D pt3,
+            string partName = "", bool isSolid = true)
         {
             PickingId = pickId;
             Points = new Vector3D[4];
@@ -90,19 +95,7 @@ namespace treeDiM.StackBuilder.Graphics
         #endregion
 
         #region Public properties
-        /// <summary>
-        /// fill color of face
-        /// </summary>
-        public Color ColorFill { get; set; } = Color.Red;
-        /// <summary>
-        /// path color of face
-        /// </summary>
-        public Color ColorPath { get; set; } = Color.Black;
-        public bool IsSolid { set; get; } = false;
-        /// <summary>
-        /// The array of 3D Points corresponding to the corners of this Face
-        /// </summary>
-        public Vector3D[] Points { get; }
+
 
         /// <summary>
         /// The center point of the face
@@ -287,7 +280,7 @@ namespace treeDiM.StackBuilder.Graphics
             Vector3D[] points = new Vector3D[4];
             for (int i = 0; i < 4; ++i)
                 points[i] = transf.transform(Points[i]);
-            Face faceNew = new Face(PickingId, points, ColorFill, ColorPath, IsSolid);
+            Face faceNew = new Face(PickingId, points, ColorFill, ColorPath, PartName, IsSolid);
             foreach (Texture t in Textures)
                 faceNew.Textures.Add(t);
             return faceNew;
@@ -303,6 +296,26 @@ namespace treeDiM.StackBuilder.Graphics
                 sb.Append(point.ToString());
             return sb.ToString();
         }
+        #endregion
+
+        #region Data members
+        /// <summary>
+        /// fill color of face
+        /// </summary>
+        public Color ColorFill { get; set; } = Color.Red;
+        /// <summary>
+        /// path color of face
+        /// </summary>
+        public Color ColorPath { get; set; } = Color.Black;
+        public bool IsSolid { set; get; } = false;
+        /// <summary>
+        /// The array of 3D Points corresponding to the corners of this Face
+        /// </summary>
+        public Vector3D[] Points { get; } 
+        /// <summary>
+        ///  Part name
+        /// </summary>
+        public string PartName { get; set; }
         #endregion
     }
     #endregion
@@ -330,6 +343,10 @@ namespace treeDiM.StackBuilder.Graphics
         /// <returns>integer "f1>f2 => 1", "f1<f2 => -1", "f1==f2 => 0"  </returns>
         public int Compare(Face f1, Face f2)
         {
+            if (f1.PartName == "STRAPPER" && f2.PartName != "STRAPPER")
+                return 1;
+            else if (f1.PartName != "STRAPPER" && f2.PartName == "STRAPPER")
+                return -1;
             int mode = 0;
             if (0 == mode) // use barycenter.Z in global coordinate then in distance
             {

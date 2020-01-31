@@ -72,10 +72,10 @@ namespace treeDiM.StackBuilder.Graphics
                 };
                 Face[] faces = new Face[]
                 {
-                    new Face(0, vertices[0], vertices[1], vertices[5], vertices[4], false),
-                    new Face(0, vertices[1], vertices[2], vertices[6], vertices[5], false),
-                    new Face(0, vertices[2], vertices[3], vertices[7], vertices[6], false),
-                    new Face(0, vertices[3], vertices[0], vertices[4], vertices[7], false),
+                    new Face(0, vertices[0], vertices[1], vertices[5], vertices[4], "PICKING", false),
+                    new Face(0, vertices[1], vertices[2], vertices[6], vertices[5], "PICKING", false),
+                    new Face(0, vertices[2], vertices[3], vertices[7], vertices[6], "PICKING", false),
+                    new Face(0, vertices[3], vertices[0], vertices[4], vertices[7], "PICKING", false),
                 };
 
                 foreach (Face f in faces)

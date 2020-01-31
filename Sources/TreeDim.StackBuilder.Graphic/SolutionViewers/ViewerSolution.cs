@@ -31,6 +31,19 @@ namespace treeDiM.StackBuilder.Graphics
 
             if (analysis is AnalysisPackablePallet analysisPackablePallet)
             {
+                if (analysis is AnalysisCasePallet && -1 == Solution.SelectedLayerIndex)
+                {
+                    // ### strappers
+                    SolutionLayered sol = Solution as SolutionLayered;
+                    foreach (var strapperData in sol.Strappers)
+                    {
+                        if (null != strapperData.Points && strapperData.Points.Count > 0)
+                        {
+                            Strapper s = new Strapper(strapperData.Strapper.Axis, strapperData.Strapper.Width, strapperData.Strapper.Color, strapperData.Points);
+                            s.DrawBegin(graphics);
+                        }
+                    }
+                }
                 // ### draw pallet
                 Pallet pallet = new Pallet(analysisPackablePallet.PalletProperties);
                 pallet.Draw(graphics, transform);
@@ -155,43 +168,39 @@ namespace treeDiM.StackBuilder.Graphics
                 {
                     // positions
                     Vector3D[] cornerPositions =
-                {
-                    loadBBox.PtMin
-                    , new Vector3D(loadBBox.PtMax.X, loadBBox.PtMin.Y, loadBBox.PtMin.Z)
-                    , new Vector3D(loadBBox.PtMax.X, loadBBox.PtMax.Y, loadBBox.PtMin.Z)
-                    , new Vector3D(loadBBox.PtMin.X, loadBBox.PtMax.Y, loadBBox.PtMin.Z)
-                };
+                    {
+                        loadBBox.PtMin
+                        , new Vector3D(loadBBox.PtMax.X, loadBBox.PtMin.Y, loadBBox.PtMin.Z)
+                        , new Vector3D(loadBBox.PtMax.X, loadBBox.PtMax.Y, loadBBox.PtMin.Z)
+                        , new Vector3D(loadBBox.PtMin.X, loadBBox.PtMax.Y, loadBBox.PtMin.Z)
+                    };
                     // length axes
                     HalfAxis.HAxis[] lAxes =
-                {
-                    HalfAxis.HAxis.AXIS_X_P,
-                    HalfAxis.HAxis.AXIS_Y_P,
-                    HalfAxis.HAxis.AXIS_X_N,
-                    HalfAxis.HAxis.AXIS_Y_N
-                };
+                    {
+                        HalfAxis.HAxis.AXIS_X_P,
+                        HalfAxis.HAxis.AXIS_Y_P,
+                        HalfAxis.HAxis.AXIS_X_N,
+                        HalfAxis.HAxis.AXIS_Y_N
+                    };
                     // width axes
                     HalfAxis.HAxis[] wAxes =
-                {
-                    HalfAxis.HAxis.AXIS_Y_P,
-                    HalfAxis.HAxis.AXIS_X_N,
-                    HalfAxis.HAxis.AXIS_Y_N,
-                    HalfAxis.HAxis.AXIS_X_P
-                };
-                    // corners
-                    if (analysisCasePallet.HasPalletCorners)
                     {
-                        for (int i = 0; i < 4; ++i)
+                        HalfAxis.HAxis.AXIS_Y_P,
+                        HalfAxis.HAxis.AXIS_X_N,
+                        HalfAxis.HAxis.AXIS_Y_N,
+                        HalfAxis.HAxis.AXIS_X_P
+                    };
+                    for (int i = 0; i < 4; ++i)
+                    {
+                        corners[i] = new Corner(0, analysisCasePallet.PalletCornerProperties)
                         {
-                            corners[i] = new Corner(0, analysisCasePallet.PalletCornerProperties)
-                            {
-                                Height = Math.Min(analysisCasePallet.PalletCornerProperties.Length, loadBBox.Height)
-                            };
-                            corners[i].SetPosition(
-                                transform.transform(cornerPositions[i])
-                                , HalfAxis.Transform(lAxes[i], transform), HalfAxis.Transform(wAxes[i], transform)
-                                );
-                            corners[i].DrawBegin(graphics);
-                        }
+                            Height = Math.Min(analysisCasePallet.PalletCornerProperties.Length, loadBBox.Height)
+                        };
+                        corners[i].SetPosition(
+                            transform.transform(cornerPositions[i])
+                            , HalfAxis.Transform(lAxes[i], transform), HalfAxis.Transform(wAxes[i], transform)
+                            );
+                        corners[i].DrawBegin(graphics);
                     }
                 }
                 #endregion
@@ -255,6 +264,21 @@ namespace treeDiM.StackBuilder.Graphics
                     Transform3D upTranslation = Transform3D.Translation(new Vector3D(0.0, 0.0, -1 != Solution.SelectedLayerIndex ? DistanceAboveSelectedLayer : 0.0));
                     PalletCap cap = new PalletCap(0, capProperties, bPosition.Transform(upTranslation));
                     cap.DrawEnd(graphics);
+                }
+                #endregion
+
+                #region Strappers
+                // ### strappers
+                if (-1 == Solution.SelectedLayerIndex)
+                {
+                    foreach (var sd in Solution.Strappers)
+                    {
+                        if (null == sd.Points && sd.Points.Count > 0)
+                        {
+                            var strapper = new Strapper(sd.Strapper.Axis, sd.Strapper.Width, sd.Strapper.Color, sd.Points);
+                            strapper.DrawEnd(graphics);
+                        }
+                    }
                 }
                 #endregion
 
@@ -372,10 +396,10 @@ namespace treeDiM.StackBuilder.Graphics
                             , new Vector3D(ptMin.X, ptMax.Y, ptMax.Z)     // 7
                         };
             Face[] faces = {
-                            new Face(0, vertices[0], vertices[1], vertices[5], vertices[4], false),
-                            new Face(0, vertices[1], vertices[2], vertices[6], vertices[5], false),
-                            new Face(0, vertices[2], vertices[3], vertices[7], vertices[6], false),
-                            new Face(0, vertices[3], vertices[0], vertices[4], vertices[7], false),
+                            new Face(0, vertices[0], vertices[1], vertices[5], vertices[4], "CASE", false),
+                            new Face(0, vertices[1], vertices[2], vertices[6], vertices[5], "CASE", false),
+                            new Face(0, vertices[2], vertices[3], vertices[7], vertices[6], "CASE", false),
+                            new Face(0, vertices[3], vertices[0], vertices[4], vertices[7], "CASE", false),
                         };
 
             foreach (Face f in faces)

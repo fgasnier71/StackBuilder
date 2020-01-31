@@ -16,8 +16,6 @@ namespace treeDiM.StackBuilder.Basics
             _width = width;
             _height = height;
         }
-
-        public double[] Dimensions => new double[] { _length, _width, _height };
         public double Length
         {
             get { return _length; }
@@ -58,8 +56,13 @@ namespace treeDiM.StackBuilder.Basics
             get { return _color; }
             set { _color = value; Modify(); }
         }
-        public BBox3D BoundingBox => new BBox3D(Vector3D.Zero, new Vector3D(_length, _width, _height));
 
+        #region Computed properties
+        public double[] Dimensions => new double[] { Length, Width, Height };
+        public BBox3D BoundingBox => new BBox3D(Vector3D.Zero, new Vector3D(Length, Width, Height));
+        #endregion
+
+        #region IContainer implementation
         public Vector3D GetOffset(ConstraintSetAbstract constraintSet)
         {
             if (!(constraintSet is ConstraintSetPackablePallet constraintSetPackablePallet))
@@ -73,14 +76,15 @@ namespace treeDiM.StackBuilder.Basics
             return new Vector3D(
                 _length + 2.0 * constraintSetPackablePallet.Overhang.X
                 , _width + 2.0 * constraintSetPackablePallet.Overhang.Y
-                , constraintSetPackablePallet.OptMaxHeight.Value - _height);
+                , constraintSetPackablePallet.OptMaxHeight.Value - Height);
         }
+        #endregion
 
         public override string ToString()
         {
             var sBuilder = new System.Text.StringBuilder();
             sBuilder.Append(base.ToString());
-            sBuilder.Append($"PalletProperties => Type {_typeName} ({_length} x {_width} x {_height})");
+            sBuilder.Append($"PalletProperties => Type {TypeName} ({Length} x {Width} x {Height})");
             return sBuilder.ToString();
         }
 

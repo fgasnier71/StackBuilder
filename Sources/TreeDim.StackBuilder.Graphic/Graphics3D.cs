@@ -201,7 +201,6 @@ namespace treeDiM.StackBuilder.Graphics
             Vector3D xaxis = Vector3D.CrossProduct(up, zaxis);
             if (Vector3D.CrossProduct(up, zaxis).GetLengthSquared() < 0.0001)
             {
-                up = Vector3D.ZAxis;
                 xaxis = XAxisPrev.GetLength() > 0 ? XAxisPrev : -Vector3D.XAxis;
                 xaxis.Z = 0.0;
             }
@@ -258,7 +257,6 @@ namespace treeDiM.StackBuilder.Graphics
                 M43 = 1.0,
                 M44 = 0.0
             };
-
             return new Transform3D(m);
         }
 
@@ -979,8 +977,6 @@ namespace treeDiM.StackBuilder.Graphics
             }
             Size s = new Size(xmax-xmin + 1, ymax-ymin + 1);
             // ***
-
-            //Point ptZero = TransformPoint(GetCurrentTransformation(), Vector3D.Zero);
             bmp = imgCached.Image(s, CameraPosition, Target, ref offset);
         }
         #endregion

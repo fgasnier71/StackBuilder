@@ -94,8 +94,7 @@ namespace treeDiM.StackBuilder.Graphics
             get
             {
                 double height = _dim[2];
-                WrapperTray tray = _packProperties.Wrap as WrapperTray;
-                if (null != tray) height = tray.Height;
+                if (_packProperties.Wrap is WrapperTray tray) height = tray.Height;
                 if (height <= 1.0)
                     height = 40.0;
                 Vector3D position = BoxPosition.Position;
@@ -114,11 +113,11 @@ namespace treeDiM.StackBuilder.Graphics
                 points[7] = position + height * heightAxis + _dim[1] * widthAxis;
 
                 Face[] faces = new Face[5];
-                faces[0] = new Face(PickId, new Vector3D[] { points[3], points[0], points[4], points[7] }, false); // AXIS_X_N
-                faces[1] = new Face(PickId, new Vector3D[] { points[1], points[2], points[6], points[5] }, false); // AXIS_X_P
-                faces[2] = new Face(PickId, new Vector3D[] { points[0], points[1], points[5], points[4] }, false); // AXIS_Y_N
-                faces[3] = new Face(PickId, new Vector3D[] { points[2], points[3], points[7], points[6] }, false); // AXIS_Y_P
-                faces[4] = new Face(PickId, new Vector3D[] { points[3], points[2], points[1], points[0] }, false); // AXIS_Z_N
+                faces[0] = new Face(PickId, new Vector3D[] { points[3], points[0], points[4], points[7] }, "PACK", false); // AXIS_X_N
+                faces[1] = new Face(PickId, new Vector3D[] { points[1], points[2], points[6], points[5] }, "PACK", false); // AXIS_X_P
+                faces[2] = new Face(PickId, new Vector3D[] { points[0], points[1], points[5], points[4] }, "PACK", false); // AXIS_Y_N
+                faces[3] = new Face(PickId, new Vector3D[] { points[2], points[3], points[7], points[6] }, "PACK", false); // AXIS_Y_P
+                faces[4] = new Face(PickId, new Vector3D[] { points[3], points[2], points[1], points[0] }, "PACK", false); // AXIS_Z_N
 
                 return faces;
             }

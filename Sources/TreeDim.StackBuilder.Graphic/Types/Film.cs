@@ -96,7 +96,7 @@ namespace treeDiM.StackBuilder.Graphics
                         , Transformation.transform(new Vector3D(0.0, _dimensions.Y, 0.0))
                     };
                     Face[] faces = new Face[1];
-                    faces[0] = new Face(0, points, _color, _color, false);
+                    faces[0] = new Face(0, points, _color, _color, "PALLETFILM", false);
                     return faces;
                 }
                 else
@@ -122,10 +122,10 @@ namespace treeDiM.StackBuilder.Graphics
 
 
                     Face[] faces = new Face[4];
-                    faces[0] = new Face(0, new Vector3D[] { points[0], points[1], points[5], points[4] }, _color, _color, false);
-                    faces[1] = new Face(0, new Vector3D[] { points[1], points[2], points[6], points[5] }, _color, _color, false);
-                    faces[2] = new Face(0, new Vector3D[] { points[2], points[3], points[7], points[6] }, _color, _color, false);
-                    faces[3] = new Face(0, new Vector3D[] { points[3], points[0], points[4], points[7] }, _color, _color, false);
+                    faces[0] = new Face(0, new Vector3D[] { points[0], points[1], points[5], points[4] }, _color, _color, "FILM", false);
+                    faces[1] = new Face(0, new Vector3D[] { points[1], points[2], points[6], points[5] }, _color, _color, "FILM", false);
+                    faces[2] = new Face(0, new Vector3D[] { points[2], points[3], points[7], points[6] }, _color, _color, "FILM", false);
+                    faces[3] = new Face(0, new Vector3D[] { points[3], points[0], points[4], points[7] }, _color, _color, "FILM", false);
                     return faces;
                 }
             }

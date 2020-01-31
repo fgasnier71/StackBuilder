@@ -225,15 +225,43 @@ namespace treeDiM.StackBuilder.Basics
                 vMax.Y = Math.Max(v.Y, vMax.Y);
             }
         }
+        public bool IntersectPlane(Vector3D dim, double absValue, int axis, ref List<Vector3D> ptsInter)
+        {
+            var bbox = BBox(dim);
+            var ptMin = bbox.PtMin;
+            var ptMax = bbox.PtMax;
+            if (0 == axis && absValue >= ptMin.X && absValue <= ptMax.X)
+            {
+                ptsInter.Add(new Vector3D(absValue, ptMin.Y, ptMin.Z));
+                ptsInter.Add(new Vector3D(absValue, ptMin.Y, ptMax.Z));
+                ptsInter.Add(new Vector3D(absValue, ptMax.Y, ptMax.Z));
+                ptsInter.Add(new Vector3D(absValue, ptMax.Y, ptMin.Z));
+            }
+            else if (1 == axis && absValue >= ptMin.Y && absValue <= ptMax.Y)
+            {
+                ptsInter.Add(new Vector3D(ptMin.X, absValue, ptMin.Z));
+                ptsInter.Add(new Vector3D(ptMin.X, absValue, ptMax.Z));
+                ptsInter.Add(new Vector3D(ptMax.X, absValue, ptMax.Z));
+                ptsInter.Add(new Vector3D(ptMax.X, absValue, ptMin.Z));
+            }
+            else if (2 == axis && absValue >= ptMin.Z && absValue <= ptMax.Z)
+            {
+                ptsInter.Add(new Vector3D(ptMin.X, ptMin.Y, absValue));
+                ptsInter.Add(new Vector3D(ptMin.X, ptMax.Y, absValue));
+                ptsInter.Add(new Vector3D(ptMax.X, ptMax.Y, absValue));
+                ptsInter.Add(new Vector3D(ptMax.X, ptMin.Y, absValue));
+            }
+            else
+                return false;
+            return true;
+        }
         #endregion
 
         #region Static members
-
         public static bool Intersect(BoxPosition p1, BoxPosition p2, double boxLength, double boxWidth)
         {
-            Vector2D v1Min, v1Max, v2Min, v2Max;
-            p1.MinMax2D(boxLength, boxWidth, out v1Min, out v1Max);
-            p2.MinMax2D(boxLength, boxWidth, out v2Min, out v2Max);
+            p1.MinMax2D(boxLength, boxWidth, out Vector2D v1Min, out Vector2D v1Max);
+            p2.MinMax2D(boxLength, boxWidth, out Vector2D v2Min, out Vector2D v2Max);
             if (v1Max.X <= v2Min.X || v2Max.X <= v1Min.X || v1Max.Y <= v2Min.Y || v2Max.Y <= v1Min.Y)
                 return false;
             return true;
