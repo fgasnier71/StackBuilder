@@ -169,6 +169,15 @@ namespace treeDiM.StackBuilder.Basics.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Bottle.
+        /// </summary>
+        internal static string ID_NAMEBOTTLE {
+            get {
+                return ResourceManager.GetString("ID_NAMEBOTTLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Box.
         /// </summary>
         internal static string ID_NAMEBOX {

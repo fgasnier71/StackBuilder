@@ -30,7 +30,6 @@ namespace treeDiM.StackBuilder.Basics
         private List<ItemBase> _typeList = new List<ItemBase>();
  
         private List<IDocumentListener> _listeners = new List<IDocumentListener>();
-        private static ILayerSolver _solver;
         protected static readonly ILog _log = LogManager.GetLogger(typeof(Document));
 
         public delegate void DocumentClosing(Document document);
@@ -335,18 +334,38 @@ namespace treeDiM.StackBuilder.Basics
         public CylinderProperties CreateNewCylinder(
             string name, string description
             , double radiusOuter, double radiusInner, double height
-            , double weight
+            , double weight, OptDouble netWeight
             , Color colorTop, Color colorWallOuter, Color colorWallInner)
         {
-            CylinderProperties cylinder = new CylinderProperties(this, name, description
+            var cylinder = new CylinderProperties(this, name, description
                 , radiusOuter, radiusInner, height, weight
                 , colorTop, colorWallOuter, colorWallInner);
+            cylinder.SetNetWeight(netWeight);
             // insert in list
             _typeList.Add(cylinder);
             // notify listeners
             NotifyOnNewTypeCreated(cylinder);
             Modify();
             return cylinder;        
+        }
+
+        public BottleProperties CreateNewBottle(
+            string name, string description
+            , List<Vector2D> profile
+            , double weight, OptDouble netWeight
+            , Color color)
+        {
+            var bottle = new BottleProperties(this, name, description
+                , profile
+                , weight
+                , color);
+            bottle.SetNetWeight(netWeight);
+            // insert in list
+            _typeList.Add(bottle);
+            // notify listeners
+            NotifyOnNewTypeCreated(bottle);
+            Modify();
+            return bottle;
         }
 
         public void AddType(ItemBase item)
@@ -548,13 +567,6 @@ namespace treeDiM.StackBuilder.Basics
             NotifyOnNewTypeCreated(truckProperties);
             Modify();
             return truckProperties;
-        }
-        #endregion
-
-        #region Public static methods
-        public static void SetSolver(ILayerSolver solver)
-        {
-            _solver = solver;
         }
         #endregion
 
@@ -944,7 +956,8 @@ namespace treeDiM.StackBuilder.Basics
                 || item.GetType() == typeof(PalletCapProperties)
                 || item.GetType() == typeof(PalletFilmProperties)
                 || item.GetType() == typeof(TruckProperties)
-                || item.GetType() == typeof(CylinderProperties))
+                || item.GetType() == typeof(CylinderProperties)
+                || item.GetType() == typeof(BottleProperties))
             {
                 NotifyOnTypeRemoved(item);
                 if (!_typeList.Remove(item))
@@ -1296,7 +1309,7 @@ namespace treeDiM.StackBuilder.Basics
             string sheight = eltCylinderProperties.Attributes["Height"].Value;
             string sweight = eltCylinderProperties.Attributes["Weight"].Value;
             string sColorTop = eltCylinderProperties.Attributes["ColorTop"].Value;
-            string sColorWallOuter = string.Empty, sColorWallInner = string.Empty;
+            string sColorWallOuter, sColorWallInner;
             if (eltCylinderProperties.HasAttribute("ColorWall"))
             {
                 sColorWallOuter = eltCylinderProperties.Attributes["ColorWall"].Value;
@@ -1315,6 +1328,7 @@ namespace treeDiM.StackBuilder.Basics
                 UnitsManager.ConvertLengthFrom(Convert.ToDouble(sRadiusInner, CultureInfo.InvariantCulture), UnitSystem),
                 UnitsManager.ConvertLengthFrom(Convert.ToDouble(sheight, CultureInfo.InvariantCulture), UnitSystem),
                 UnitsManager.ConvertMassFrom(Convert.ToDouble(sweight, CultureInfo.InvariantCulture), UnitSystem),
+                OptDouble.Zero,                
                 Color.FromArgb(Convert.ToInt32(sColorTop)),
                 Color.FromArgb(Convert.ToInt32(sColorWallOuter)),
                 Color.FromArgb(Convert.ToInt32(sColorWallInner))

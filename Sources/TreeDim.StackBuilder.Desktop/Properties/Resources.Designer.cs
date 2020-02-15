@@ -502,6 +502,15 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Bottle.
+        /// </summary>
+        internal static string ID_BOTTLE {
+            get {
+                return ResourceManager.GetString("ID_BOTTLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Box.
         /// </summary>
         internal static string ID_BOX {

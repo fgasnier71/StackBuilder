@@ -23,7 +23,7 @@ namespace treeDiM.StackBuilder.Graphics
         #region Data members
         protected double[] _dim = new double[3];
         protected BoxPosition _boxPosition;
-        private readonly Packable _packable; 
+        private readonly Packable _packable;
         #endregion
 
         #region Constructor
@@ -113,9 +113,9 @@ namespace treeDiM.StackBuilder.Graphics
                     }
                 }
                 if (packable is PackableBrickNamed packableBrickNamed)
-                     StrapperList = new List<Basics.PalletStrapper>(packableBrickNamed.StrapperSet.Strappers);
+                    StrapperList = new List<Basics.PalletStrapper>(packableBrickNamed.StrapperSet.Strappers);
             }
-       }
+        }
         public Box(uint pickId, PalletCapProperties capProperties, Vector3D position)
         {
             PickId = pickId;
@@ -257,18 +257,18 @@ namespace treeDiM.StackBuilder.Graphics
         public BoxPosition BPosition => BoxPosition;
         public HalfAxis.HAxis HLengthAxis
         {
-            get { return BoxPosition.DirectionLength;  }
+            get { return BoxPosition.DirectionLength; }
             set { _boxPosition.DirectionLength = value; }
         }
         public HalfAxis.HAxis HWidthAxis
         {
-            get { return _boxPosition.DirectionWidth;  }
+            get { return _boxPosition.DirectionWidth; }
             set { _boxPosition.DirectionWidth = value; }
         }
         public Vector3D LengthAxis
-        {   get { return HalfAxis.ToVector3D(BoxPosition.DirectionLength); } }
+        { get { return HalfAxis.ToVector3D(BoxPosition.DirectionLength); } }
         public Vector3D WidthAxis
-        {   get { return HalfAxis.ToVector3D(BoxPosition.DirectionWidth); } }
+        { get { return HalfAxis.ToVector3D(BoxPosition.DirectionWidth); } }
         public Vector3D HeightAxis
         { get { return Vector3D.CrossProduct(LengthAxis, WidthAxis); } }
 
@@ -317,13 +317,13 @@ namespace treeDiM.StackBuilder.Graphics
             get
             {
                 Vector3D lengthAxis = LengthAxis;
-                Vector3D widthAxis  = WidthAxis;
+                Vector3D widthAxis = WidthAxis;
                 Vector3D heightAxis = HeightAxis;
                 var points = new Vector3D[4];
-                points[0] = Position + 0.0 * lengthAxis     + 0.5 * (_dim[1] - TapeWidth) * widthAxis + _dim[2] * heightAxis;
+                points[0] = Position + 0.0 * lengthAxis + 0.5 * (_dim[1] - TapeWidth) * widthAxis + _dim[2] * heightAxis;
                 points[1] = Position + _dim[0] * lengthAxis + 0.5 * (_dim[1] - TapeWidth) * widthAxis + _dim[2] * heightAxis;
                 points[2] = Position + _dim[0] * lengthAxis + 0.5 * (_dim[1] + TapeWidth) * widthAxis + _dim[2] * heightAxis;
-                points[3] = Position + 0.0 * lengthAxis     + 0.5 * (_dim[1] + TapeWidth) * widthAxis + _dim[2] * heightAxis;
+                points[3] = Position + 0.0 * lengthAxis + 0.5 * (_dim[1] + TapeWidth) * widthAxis + _dim[2] * heightAxis;
                 return points;
             }
         }
@@ -374,7 +374,7 @@ namespace treeDiM.StackBuilder.Graphics
                         vertices[1] = pt0 + 0.5 * s.Width * axis;
                         vertices[2] = pt1 + 0.5 * s.Width * axis;
                         vertices[3] = pt1 - 0.5 * s.Width * axis;
-                        faces.Add( new Face(0, vertices, s.Color, Color.Black, "BOX"));
+                        faces.Add(new Face(0, vertices, s.Color, Color.Black, "BOX"));
                     }
                 }
                 return faces.ToArray();
@@ -467,10 +467,10 @@ namespace treeDiM.StackBuilder.Graphics
                 points[2] = origin + (_dim[0] - 2.0 * offset) * lengthAxis + (_dim[1] - 2.0 * offset) * widthAxis;
                 points[3] = origin + (_dim[1] - 2.0 * offset) * widthAxis;
 
-                points[4] = origin + (_dim[2]- 2.0 * offset) * heightAxis;
-                points[5] = origin + (_dim[2]- 2.0 * offset) * heightAxis + (_dim[0]- 2.0 * offset) * lengthAxis;
-                points[6] = origin + (_dim[2]- 2.0 * offset) * heightAxis + (_dim[0]- 2.0 * offset) * lengthAxis + (_dim[1]- 2.0 * offset) * widthAxis;
-                points[7] = origin + (_dim[2]- 2.0 * offset) * heightAxis + (_dim[1]- 2.0 * offset) * widthAxis;
+                points[4] = origin + (_dim[2] - 2.0 * offset) * heightAxis;
+                points[5] = origin + (_dim[2] - 2.0 * offset) * heightAxis + (_dim[0] - 2.0 * offset) * lengthAxis;
+                points[6] = origin + (_dim[2] - 2.0 * offset) * heightAxis + (_dim[0] - 2.0 * offset) * lengthAxis + (_dim[1] - 2.0 * offset) * widthAxis;
+                points[7] = origin + (_dim[2] - 2.0 * offset) * heightAxis + (_dim[1] - 2.0 * offset) * widthAxis;
 
                 return points;
             }
@@ -741,19 +741,118 @@ namespace treeDiM.StackBuilder.Graphics
         public bool IsValid => _dim[0] > 0.0 && _dim[1] > 0.0 && _dim[2] > 0.0 && (LengthAxis != WidthAxis);
         #endregion
 
-        #region Public methods
+        #region Overrides Drawable
         public override void Draw(Graphics2D graphics)
         {
             graphics.DrawBox(this);
         }
         public override void Draw(Graphics3D graphics)
         {
-            foreach (Face face in Faces)
-                graphics.AddFace(face);
+            System.Drawing.Graphics g = graphics.Graphics;
+            var viewDir = graphics.ViewDirection;
+
+            Face[] faces = Faces;
+            for (int i = 0; i < 6; ++i)
+            {
+                // Face
+                Face face = faces[i];
+                // visible ?
+                if (!faces[i].IsVisible(viewDir)) continue;
+                // color
+                faces[i].ColorFill = Colors[i];
+                // points
+                Vector3D[] points3D = faces[i].Points;
+                Point[] pt = graphics.TransformPoint(points3D);
+                //  draw solid face
+                Brush brush = new SolidBrush(faces[i].ColorGraph(graphics));
+                g.FillPolygon(brush, pt);
+                // draw textures
+                if (null != face.Textures && graphics.ShowTextures)
+                    foreach (Texture texture in face.Textures)
+                    {
+                        Point[] ptsImage = graphics.TransformPoint(PointsImage(i, texture));
+                        Point[] pts = new Point[3];
+                        pts[0] = ptsImage[3];
+                        pts[1] = ptsImage[2];
+                        pts[2] = ptsImage[0];
+                        g.DrawImage(texture.Bitmap, pts);
+                    }
+                // draw path
+                Brush brushPath = new SolidBrush(faces[i].ColorPath);
+                Pen penPathThick = new Pen(brushPath, IsBundle ? 2.0f : 1.5f);
+                int ptCount = pt.Length;
+                for (int j = 1; j < ptCount; ++j)
+                    g.DrawLine(penPathThick, pt[j - 1], pt[j]);
+                g.DrawLine(penPathThick, pt[ptCount - 1], pt[0]);
+                // draw bundle lines
+                if (IsBundle && i < 4)
+                {
+                    Pen penPathThin = new Pen(brushPath, 1.5f);
+                    int noSlice = Math.Min(BundleFlats, 4);
+                    for (int iSlice = 0; iSlice < noSlice - 1; ++iSlice)
+                    {
+                        Vector3D[] ptSlice = new Vector3D[2];
+                        ptSlice[0] = points3D[0] + (iSlice + 1) / (double)noSlice * (points3D[3] - points3D[0]);
+                        ptSlice[1] = points3D[1] + (iSlice + 1) / (double)noSlice * (points3D[2] - points3D[1]);
+
+                        Point[] pt2D = graphics.TransformPoint(ptSlice);
+                        g.DrawLine(penPathThin, pt2D[0], pt2D[1]);
+                    }
+                }
+            }
+            Pen penBlack = new Pen(new SolidBrush(Color.Black), 1.5f);
+            // draw box tape
+            if (ShowTape && faces[5].IsVisible(viewDir))
+            {
+                // instantiate brush
+                Brush brushTape = new SolidBrush(faces[5].ColorGraph(graphics, TapeColor));
+                // get tape points
+                Point[] pts = graphics.TransformPoint(TapePoints);
+                // fill polygon
+                g.FillPolygon(brushTape, pts);
+                // draw path
+                for (int j = 1; j < pts.Length; ++j)
+                    g.DrawLine(penBlack, pts[j - 1], pts[j]);
+                g.DrawLine(penBlack, pts[pts.Length - 1], pts[0]);
+            }
+            // draw strappers
+            foreach (var sf in StrapperFaces)
+            {
+                if (sf.IsVisible(viewDir))
+                {
+                    // get color
+                    double cosA = Math.Abs(Vector3D.DotProduct(sf.Normal, graphics.VLight));
+                    Color color = Color.FromArgb((int)(sf.ColorFill.R * cosA), (int)(sf.ColorFill.G * cosA), (int)(sf.ColorFill.B * cosA));
+                    // instantiate brush
+                    Brush brushStrapper = new SolidBrush(color);
+                    // get face points
+                    Point[] pts = graphics.TransformPoint(sf.Points);
+                    // fill polygon
+                    g.FillPolygon(brushStrapper, pts);
+                    // draw path
+                    int ptCount = pts.Length;
+                    for (int j = 1; j < ptCount; ++j)
+                        g.DrawLine(penBlack, pts[j - 1], pts[j]);
+                    g.DrawLine(penBlack, pts[ptCount - 1], pts[0]);
+                }
+            }
+            if (graphics.ShowBoxIds)
+            {
+                // draw box id
+                Point ptId = graphics.TransformPoint(TopFace.Center);
+                g.DrawString(
+                    PickId.ToString()
+                    , new Font("Arial", graphics.GridFontSize)
+                    , Brushes.Black
+                    , new Rectangle(ptId.X - 15, ptId.Y - 10, 30, 20)
+                    , StringFormat.GenericDefault);
+            }
         }
         public override void DrawWireframe(Graphics3D graphics)
         {
         }
+        #endregion
+        #region 
         public void SetAllFacesColor(Color color)
         {
             for (int i = 0; i < 6; ++i)
@@ -807,7 +906,7 @@ namespace treeDiM.StackBuilder.Graphics
 
         #region Private helpers
         private void SetDimensions(PackableBrick packable)
-        {            
+        {
         }
         private void CheckPosition(BoxPosition bPosition)
         {
@@ -824,7 +923,7 @@ namespace treeDiM.StackBuilder.Graphics
         #endregion
     }
     #endregion
- 
+
     #region TriangleIndices
     public class TriangleIndices
     {

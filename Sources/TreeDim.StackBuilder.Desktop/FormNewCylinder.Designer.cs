@@ -59,28 +59,16 @@
             // 
             resources.ApplyResources(this.bnCancel, "bnCancel");
             // 
-            // lbName
-            // 
-            resources.ApplyResources(this.lbName, "lbName");
-            // 
-            // lbDescription
-            // 
-            resources.ApplyResources(this.lbDescription, "lbDescription");
-            // 
-            // tbName
-            // 
-            resources.ApplyResources(this.tbName, "tbName");
-            // 
             // tbDescription
             // 
             resources.ApplyResources(this.tbDescription, "tbDescription");
             // 
             // gbDimensions
             // 
-            resources.ApplyResources(this.gbDimensions, "gbDimensions");
             this.gbDimensions.Controls.Add(this.uCtrlHeight);
             this.gbDimensions.Controls.Add(this.uCtrlDiameterInner);
             this.gbDimensions.Controls.Add(this.uCtrlDiameterOuter);
+            resources.ApplyResources(this.gbDimensions, "gbDimensions");
             this.gbDimensions.Name = "gbDimensions";
             this.gbDimensions.TabStop = false;
             // 
@@ -122,9 +110,9 @@
             // 
             // gbWeight
             // 
-            resources.ApplyResources(this.gbWeight, "gbWeight");
             this.gbWeight.Controls.Add(this.uCtrlNetWeight);
             this.gbWeight.Controls.Add(this.uCtrlWeight);
+            resources.ApplyResources(this.gbWeight, "gbWeight");
             this.gbWeight.Name = "gbWeight";
             this.gbWeight.TabStop = false;
             // 
@@ -161,24 +149,24 @@
             // 
             // gbFaceColor
             // 
-            resources.ApplyResources(this.gbFaceColor, "gbFaceColor");
             this.gbFaceColor.Controls.Add(this.cbColorWallInner);
             this.gbFaceColor.Controls.Add(this.label1);
             this.gbFaceColor.Controls.Add(this.cbColorWallOuter);
             this.gbFaceColor.Controls.Add(this.lbWallColor);
             this.gbFaceColor.Controls.Add(this.cbColorTop);
             this.gbFaceColor.Controls.Add(this.lbTop);
+            resources.ApplyResources(this.gbFaceColor, "gbFaceColor");
             this.gbFaceColor.Name = "gbFaceColor";
             this.gbFaceColor.TabStop = false;
             // 
             // cbColorWallInner
             // 
-            resources.ApplyResources(this.cbColorWallInner, "cbColorWallInner");
             this.cbColorWallInner.Color = System.Drawing.Color.LightSkyBlue;
             this.cbColorWallInner.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cbColorWallInner.DropDownHeight = 1;
             this.cbColorWallInner.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbColorWallInner.DropDownWidth = 1;
+            resources.ApplyResources(this.cbColorWallInner, "cbColorWallInner");
             this.cbColorWallInner.Items.AddRange(new object[] {
             resources.GetString("cbColorWallInner.Items"),
             resources.GetString("cbColorWallInner.Items1"),
@@ -273,7 +261,8 @@
             resources.GetString("cbColorWallInner.Items90"),
             resources.GetString("cbColorWallInner.Items91"),
             resources.GetString("cbColorWallInner.Items92"),
-            resources.GetString("cbColorWallInner.Items93")});
+            resources.GetString("cbColorWallInner.Items93"),
+            resources.GetString("cbColorWallInner.Items94")});
             this.cbColorWallInner.Name = "cbColorWallInner";
             this.cbColorWallInner.SelectedColorChanged += new System.EventHandler(this.OnValueChanged);
             // 
@@ -284,12 +273,12 @@
             // 
             // cbColorWallOuter
             // 
-            resources.ApplyResources(this.cbColorWallOuter, "cbColorWallOuter");
             this.cbColorWallOuter.Color = System.Drawing.Color.LightSkyBlue;
             this.cbColorWallOuter.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cbColorWallOuter.DropDownHeight = 1;
             this.cbColorWallOuter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbColorWallOuter.DropDownWidth = 1;
+            resources.ApplyResources(this.cbColorWallOuter, "cbColorWallOuter");
             this.cbColorWallOuter.Items.AddRange(new object[] {
             resources.GetString("cbColorWallOuter.Items"),
             resources.GetString("cbColorWallOuter.Items1"),
@@ -383,7 +372,8 @@
             resources.GetString("cbColorWallOuter.Items89"),
             resources.GetString("cbColorWallOuter.Items90"),
             resources.GetString("cbColorWallOuter.Items91"),
-            resources.GetString("cbColorWallOuter.Items92")});
+            resources.GetString("cbColorWallOuter.Items92"),
+            resources.GetString("cbColorWallOuter.Items93")});
             this.cbColorWallOuter.Name = "cbColorWallOuter";
             this.cbColorWallOuter.SelectedColorChanged += new System.EventHandler(this.OnValueChanged);
             // 
@@ -394,12 +384,12 @@
             // 
             // cbColorTop
             // 
-            resources.ApplyResources(this.cbColorTop, "cbColorTop");
             this.cbColorTop.Color = System.Drawing.Color.Gray;
             this.cbColorTop.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cbColorTop.DropDownHeight = 1;
             this.cbColorTop.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbColorTop.DropDownWidth = 1;
+            resources.ApplyResources(this.cbColorTop, "cbColorTop");
             this.cbColorTop.Items.AddRange(new object[] {
             resources.GetString("cbColorTop.Items"),
             resources.GetString("cbColorTop.Items1"),
@@ -492,7 +482,8 @@
             resources.GetString("cbColorTop.Items88"),
             resources.GetString("cbColorTop.Items89"),
             resources.GetString("cbColorTop.Items90"),
-            resources.GetString("cbColorTop.Items91")});
+            resources.GetString("cbColorTop.Items91"),
+            resources.GetString("cbColorTop.Items92")});
             this.cbColorTop.Name = "cbColorTop";
             this.cbColorTop.SelectedColorChanged += new System.EventHandler(this.OnValueChanged);
             // 

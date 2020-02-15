@@ -1,8 +1,7 @@
 ﻿#region Using directives
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System.Drawing;
 
 using treeDiM.StackBuilder.Basics;
 
@@ -50,6 +49,9 @@ namespace treeDiM.StackBuilder.Graphics
         }
         public override void Draw(Graphics3D graphics)
         {
+            System.Drawing.Graphics g = graphics.Graphics;
+            var viewDir = graphics.ViewDirection;
+
             // draw tray back faces
             if (_packProperties.Wrap.Type == PackWrapper.WType.WT_TRAY)
             {}
@@ -61,7 +63,7 @@ namespace treeDiM.StackBuilder.Graphics
                 List<Box> boxes = InnerBoxes;
                 boxes.Sort( new BoxComparerSimplifiedPainterAlgo(graphics.GetWorldToEyeTransformation()) );
                 foreach (Box b in boxes)
-                    graphics.Draw(b);
+                    b.Draw(graphics);
             }
             if (_packProperties.Wrap.Type != PackWrapper.WType.WT_TRAY)
             {
@@ -85,6 +87,29 @@ namespace treeDiM.StackBuilder.Graphics
                         , Graphics3D.FaceDir.FRONT
                         , _packProperties.Wrap.Color
                         , _packProperties.Wrap.Transparent);
+                }
+            }
+
+            // draw strappers
+            Pen penBlack = new Pen(new SolidBrush(Color.Black), 1.5f);
+            foreach (var sf in StrapperFaces)
+            {
+                if (sf.IsVisible(viewDir))
+                {
+                    // get color
+                    double cosA = Math.Abs(Vector3D.DotProduct(sf.Normal, graphics.VLight));
+                    Color color = Color.FromArgb((int)(sf.ColorFill.R * cosA), (int)(sf.ColorFill.G * cosA), (int)(sf.ColorFill.B * cosA));
+                    // instantiate brush
+                    Brush brushStrapper = new SolidBrush(color);
+                    // get face points
+                    Point[] pts = graphics.TransformPoint(sf.Points);
+                    // fill polygon
+                    g.FillPolygon(brushStrapper, pts);
+                    // draw path
+                    int ptCount = pts.Length;
+                    for (int j = 1; j < ptCount; ++j)
+                        g.DrawLine(penBlack, pts[j - 1], pts[j]);
+                    g.DrawLine(penBlack, pts[ptCount - 1], pts[0]);
                 }
             }
         }

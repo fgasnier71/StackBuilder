@@ -9,15 +9,9 @@ namespace treeDiM.StackBuilder.Graphics
 {
     public class Strapper : Drawable
     {
-        public Strapper(int axis, double width, Color color, List<Vector3D> pts)
+        public Strapper(Vector3D axis, double width, Color color, List<Vector3D> pts)
         {
-            switch (axis)
-            {
-                case 0: Axis = Vector3D.XAxis; break;
-                case 1: Axis = Vector3D.YAxis; break;
-                case 2: Axis = Vector3D.ZAxis; break;
-                default: break;
-            }
+            Axis = axis;
             HullPoints = pts;
             Width = width;
             Color = color;
@@ -45,7 +39,6 @@ namespace treeDiM.StackBuilder.Graphics
             }
             AddFace(graphics, ptPrev, HullPoints[0]);
         }
-
         private void AddFace(Graphics3D graphics, Vector3D p0, Vector3D p1)
         {
             var pt0 = p0 + 0.5 * Width * Axis;

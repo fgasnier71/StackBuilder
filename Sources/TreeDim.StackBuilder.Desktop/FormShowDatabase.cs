@@ -1106,6 +1106,7 @@ namespace treeDiM.StackBuilder.Desktop
                         UnitsManager.ConvertLengthFrom(dcsbCylinder.RadiusInner, us),
                         UnitsManager.ConvertLengthFrom(dcsbCylinder.Height, us),
                         UnitsManager.ConvertMassFrom(dcsbCylinder.Weight, us),
+                        OptDouble.Zero,
                         Color.FromArgb(dcsbCylinder.ColorTop), Color.FromArgb(dcsbCylinder.ColorOuter), Color.FromArgb(dcsbCylinder.ColorInner)
                         );
                 }

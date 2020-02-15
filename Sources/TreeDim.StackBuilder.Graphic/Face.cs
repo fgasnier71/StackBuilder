@@ -125,6 +125,16 @@ namespace treeDiM.StackBuilder.Graphics
             }
         }
         /// <summary>
+        /// Compute color from set color + angle with light
+        /// </summary>
+        public Color ColorGraph(Graphics3D graphics, Color color)
+        { 
+            double cosA = Math.Abs(Vector3D.DotProduct(Normal, graphics.VLight));
+            if (cosA < 0 || cosA > 1) cosA = 1.0;
+            return Color.FromArgb((int)(color.R * cosA), (int)(color.G * cosA), (int)(color.B * cosA));
+        }
+        public Color ColorGraph(Graphics3D graphics) => ColorGraph(graphics, ColorFill);
+        /// <summary>
         /// Is face degenerate
         /// </summary>
         public bool IsDegenerate
@@ -203,11 +213,8 @@ namespace treeDiM.StackBuilder.Graphics
                 return -1; // int
         }
 
-        public bool IsVisible(Vector3D viewDir)
-        {
-            return Vector3D.DotProduct(viewDir, Normal) < 0.0;
-        }
-
+        public bool IsVisible(Graphics3D graphics) => Vector3D.DotProduct(graphics.ViewDirection, Normal) < 0.0;
+        public bool IsVisible(Vector3D viewDir) => Vector3D.DotProduct(viewDir, Normal) < 0.0;
         public bool PointIsBehind(Vector3D pt, Vector3D viewDir)
         {
             return (Vector3D.DotProduct(pt - Center, Normal) * Vector3D.DotProduct(viewDir, Normal)) > eps;

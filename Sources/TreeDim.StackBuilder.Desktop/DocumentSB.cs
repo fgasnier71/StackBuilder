@@ -211,12 +211,26 @@ namespace treeDiM.StackBuilder.Desktop
             using (FormNewCylinder form = new FormNewCylinder(this, null))
             {
                 if (DialogResult.OK == form.ShowDialog())
+                {
                     CreateNewCylinder(
                         form.ItemName, form.ItemDescription
-                        , form.RadiusOuter, form.RadiusInner, form.CylinderHeight, form.Weight
+                        , form.RadiusOuter, form.RadiusInner, form.CylinderHeight
+                        , form.Weight, form.NetWeight
                         , form.ColorTop, form.ColorWallOuter, form.ColorWallInner);
+                }  
             }
-
+        }
+        public void CreateNewBottleUI()
+        {
+            using (FormNewBottle form = new FormNewBottle(this, null))
+            {
+                if (DialogResult.OK == form.ShowDialog())
+                    CreateNewBottle(
+                        form.ItemName, form.ItemDescription
+                        , form.Profile, form.Weight, form.NetWeight
+                        , form.ColorBottle
+                        );
+            }
         }
         /// <summary>
         /// Creates a new BundleProperties object

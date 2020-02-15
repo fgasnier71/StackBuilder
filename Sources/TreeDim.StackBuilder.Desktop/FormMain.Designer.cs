@@ -101,6 +101,7 @@
             this.toolStripButtonPack = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonBundle = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonCylinder = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonBottle = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonPallet = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonTruck = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator12 = new System.Windows.Forms.ToolStripSeparator();
@@ -531,6 +532,7 @@
             this.toolStripButtonPack,
             this.toolStripButtonBundle,
             this.toolStripButtonCylinder,
+            this.toolStripButtonBottle,
             this.toolStripButtonPallet,
             this.toolStripButtonTruck,
             this.toolStripSeparator12,
@@ -658,6 +660,13 @@
             resources.ApplyResources(this.toolStripButtonCylinder, "toolStripButtonCylinder");
             this.toolStripButtonCylinder.Name = "toolStripButtonCylinder";
             this.toolStripButtonCylinder.Click += new System.EventHandler(this.ToolAddNewCylinder);
+            // 
+            // toolStripButtonBottle
+            // 
+            this.toolStripButtonBottle.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.toolStripButtonBottle, "toolStripButtonBottle");
+            this.toolStripButtonBottle.Name = "toolStripButtonBottle";
+            this.toolStripButtonBottle.Click += new System.EventHandler(this.ToolAddNewBottle);
             // 
             // toolStripButtonPallet
             // 
@@ -1081,5 +1090,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
         private System.Windows.Forms.ToolStripMenuItem toolStripMIAnalysisHCylPallet;
         private System.Windows.Forms.ToolStripMenuItem toolStripMIAnalysisHCylTruck;
+        private System.Windows.Forms.ToolStripButton toolStripButtonBottle;
     }
 }

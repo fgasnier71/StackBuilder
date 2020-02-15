@@ -49,8 +49,6 @@ namespace treeDiM.StackBuilder.Desktop
                 cbColorWallInner.Color = Color.Chocolate;
                 cbColorTop.Color = Color.Gray;            
             }
-            // disable Ok button
-            UpdateStatus(string.Empty);        
             // units
             UnitsManager.AdaptUnitLabels(this);
         }
@@ -66,9 +64,10 @@ namespace treeDiM.StackBuilder.Desktop
         {
             base.OnLoad(e);
             graphCtrl.DrawingContainer = this;
-
             // enable / disable 
             bnSendToDB.Enabled = WCFClient.IsConnected;
+            // disable Ok button
+            UpdateStatus(string.Empty);        
         }
         #endregion
 
@@ -123,7 +122,6 @@ namespace treeDiM.StackBuilder.Desktop
             // update cylinder drawing
             graphCtrl.Invalidate();
         }
-
         public override void UpdateStatus(string message)
         {
             if (RadiusInner > RadiusOuter)

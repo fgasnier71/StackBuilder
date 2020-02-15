@@ -4,20 +4,32 @@ using System.Collections.Generic;
 using System.Drawing;
 
 using Sharp3D.Math.Core;
+using log4net;
 
 using treeDiM.StackBuilder.Basics;
 #endregion
 
 namespace treeDiM.StackBuilder.Graphics
 {
-    public class Cylinder : Drawable
+    public abstract class Cyl : Drawable
+    { 
+        public uint PickId { get; protected set; } = 0;
+        public CylPosition Position  { get; set; } = new CylPosition(Vector3D.Zero, HalfAxis.HAxis.AXIS_Z_P);
+        public abstract double RadiusOuter { get; protected set; }
+        public double DiameterOuter => 2.0 * RadiusOuter;
+        public abstract double Height { get; protected set; }
+        public BBox3D BBox => new BBox3D(
+            new Vector3D(-RadiusOuter, -RadiusOuter, 0.0) + Position.XYZ
+            , new Vector3D(RadiusOuter, RadiusOuter, Height) + Position.XYZ);
+    }
+
+    public class Cylinder : Cyl
     {
         #region Data members
-        public uint PickId { get; private set; } = 0;
-        public double RadiusOuter { get; private set; }
+        public override double RadiusOuter { get; protected set; }
+        public override double Height { get; protected set; }
         public double RadiusInner { get; private set; }
         public uint NoFaces { get; private set; } = 36;
-        private CylPosition _cylPosition = new CylPosition(Vector3D.Zero, HalfAxis.HAxis.AXIS_Z_P);
         #endregion
 
         #region Constructor
@@ -50,20 +62,17 @@ namespace treeDiM.StackBuilder.Graphics
             ColorTop = cylProperties.ColorTop;
             ColorWallOuter = cylProperties.ColorWallOuter;
             ColorWallInner = cylProperties.ColorWallInner;
-            _cylPosition = cylPosition;
+            Position = cylPosition;
         }
         #endregion
 
         #region Public properties
-        public double DiameterOuter => 2.0 * RadiusOuter;
         public double DiameterInner => 2.0 * RadiusInner;
-        public double Height { get; }
-        public CylPosition Position  { get { return _cylPosition; } }
         public Face[] FacesWalls
         {
             get
             {
-                Transform3D t = _cylPosition.Transf;
+                Transform3D t = Position.Transf;
 
                 bool showInnerFaces = RadiusInner > 0;
                 Face[] faces = new Face[(showInnerFaces ? 2 : 1) * NoFaces];
@@ -80,8 +89,7 @@ namespace treeDiM.StackBuilder.Graphics
                         vertices[1] = t.transform(RadiusInner * vRadiusBeg + Height * Vector3D.XAxis);
                         vertices[2] = t.transform(RadiusInner * vRadiusEnd + Height * Vector3D.XAxis);
                         vertices[3] = t.transform(RadiusInner * vRadiusEnd);
-                        faces[i] = new Face(PickId, vertices, "CYLINDER");
-                        faces[i].ColorFill = ColorWallInner;
+                        faces[i] = new Face(PickId, vertices, "CYLINDER") { ColorFill = ColorWallInner };
                     }
                 }
 
@@ -96,8 +104,7 @@ namespace treeDiM.StackBuilder.Graphics
                     vertices[1] = t.transform(RadiusOuter * vRadiusEnd);
                     vertices[2] = t.transform(RadiusOuter * vRadiusEnd + Height * Vector3D.XAxis);
                     vertices[3] = t.transform(RadiusOuter * vRadiusBeg + Height * Vector3D.XAxis);
-                    faces[(showInnerFaces ? NoFaces : 0) + i] = new Face(PickId, vertices, "CYLINDER");
-                    faces[(showInnerFaces ? NoFaces : 0) + i].ColorFill = ColorWallOuter;
+                    faces[(showInnerFaces ? NoFaces : 0) + i] = new Face(PickId, vertices, "CYLINDER") { ColorFill = ColorWallOuter };
                 }
                 return faces;
             }
@@ -106,7 +113,7 @@ namespace treeDiM.StackBuilder.Graphics
         {
             get
             {
-                Transform3D t = _cylPosition.Transf;
+                Transform3D t = Position.Transf;
                 Face[] faces = new Face[2 * NoFaces];
                 for (uint i = 0; i < NoFaces; ++i)
                 {
@@ -142,16 +149,13 @@ namespace treeDiM.StackBuilder.Graphics
         public Color ColorWallInner { get; }
         public Color ColorWallOuter { get; }
         public Color ColorTop { get; }
-        public Color ColorPath
-        {
-            get { return Color.Black; }
-        }
+        public Color ColorPath => Color.Black; 
         public List<Texture> Textures { get; set; } = new List<Texture>();
         public Vector3D[] BottomPoints
         {
             get
             {
-                Transform3D t = _cylPosition.Transf;
+                Transform3D t = Position.Transf;
                 Vector3D[] pts = new Vector3D[NoFaces];
                 for (int i = 0; i < NoFaces; ++i)
                 {
@@ -166,7 +170,7 @@ namespace treeDiM.StackBuilder.Graphics
         {
             get
             {
-                Transform3D t = _cylPosition.Transf;
+                Transform3D t = Position.Transf;
                 Vector3D[] pts = new Vector3D[NoFaces];
                 for (int i = 0; i < NoFaces; ++i)
                 {
@@ -183,8 +187,8 @@ namespace treeDiM.StackBuilder.Graphics
             {
                 uint noSteps = NoFaces;
                 var pts = new Vector3D[2* noSteps];
-                Transform3D t = _cylPosition.Transf;
-                Vector3D vDir = HalfAxis.ToVector3D(_cylPosition.Direction);
+                Transform3D t = Position.Transf;
+                Vector3D vDir = HalfAxis.ToVector3D(Position.Direction);
 
                 for (int i = 0; i < noSteps; ++i)
                 {
@@ -200,7 +204,7 @@ namespace treeDiM.StackBuilder.Graphics
         { 
            get
             {
-                Transform3D t = _cylPosition.Transf;
+                Transform3D t = Position.Transf;
                 Vector3D[] pts = new Vector3D[NoFaces];
                 for (int i = 0; i < NoFaces; ++i)
                 {
@@ -211,24 +215,87 @@ namespace treeDiM.StackBuilder.Graphics
                 return pts;
             }        
         }
-        public BBox3D BBox
-        {
-            get
-            {
-                return new BBox3D(
-                    new Vector3D(-RadiusOuter, -RadiusOuter, 0.0) + _cylPosition.XYZ
-                    , new Vector3D(RadiusOuter, RadiusOuter, Height) + _cylPosition.XYZ
-                    );
-            }
-        }
+
+
         #endregion
 
         #region Drawable overrides
-        public override void DrawBegin(Graphics3D graphics)
-        {            
-        }
         public override void Draw(Graphics3D graphics)
         {
+            System.Drawing.Graphics g = graphics.Graphics;
+            Vector3D viewDir = graphics.ViewDirection;
+
+            // build pen path
+            Brush brushPath = new SolidBrush(ColorPath);
+            Pen penPathThick = new Pen(brushPath, 1.5f);
+
+            // bottom (draw only path)
+            Point[] ptsBottom = graphics.TransformPoint(BottomPoints);
+            g.DrawPolygon(penPathThick, ptsBottom);
+            // top
+            Point[] ptsTop = graphics.TransformPoint(TopPoints);
+            g.DrawPolygon(penPathThick, ptsTop);
+
+            // outer wall
+            Face[] facesWalls = FacesWalls;
+            foreach (Face face in facesWalls)
+            {
+                try
+                {
+                    var normal = face.Normal;
+                    // visible ?
+                    if (!face.IsVisible(viewDir)) continue;
+                    // draw polygon
+                    Point[] ptsFace = graphics.TransformPoint(face.Points);
+                    g.FillPolygon(new SolidBrush(face.ColorGraph(graphics)), ptsFace);
+                }
+                catch (Exception /*ex*/)
+                {
+                }
+            }
+            // top
+            double cosTop = Math.Abs(Vector3D.DotProduct(HalfAxis.ToVector3D(Position.Direction), graphics.VLight));
+            Color colorTop = Color.FromArgb((int)(ColorTop.R * cosTop), (int)(ColorTop.G * cosTop), (int)(ColorTop.B * cosTop));
+            Brush brushTop = new SolidBrush(colorTop);
+            bool topVisible = Vector3D.DotProduct(HalfAxis.ToVector3D(Position.Direction), viewDir) < 0;
+
+            if (DiameterInner > 0)
+            {
+                Face[] facesTop = FacesTop;
+                foreach (Face face in facesTop)
+                {
+                    try
+                    {
+                        Vector3D normal = face.Normal;
+
+                        // visible ?
+                        if (!face.IsVisible(viewDir))
+                            continue;
+                        // color
+                        // draw polygon
+                        Point[] ptsFace = graphics.TransformPoint(face.Points);
+                        g.FillPolygon(brushTop, ptsFace);
+                    }
+                    catch (Exception /*ex*/)
+                    {
+                    }
+                }
+            }
+            else
+            {
+                if (topVisible)
+                    g.FillPolygon(brushTop, ptsTop);
+                else
+                    g.FillPolygon(brushTop, ptsBottom);
+            }
+
+            if (topVisible)
+                g.DrawPolygon(penPathThick, ptsTop);
+            else
+                g.DrawPolygon(penPathThick, ptsBottom);
+        }
+        public override void DrawBegin(Graphics3D graphics)
+        {            
         }
         public override void DrawEnd(Graphics3D graphics)
         {

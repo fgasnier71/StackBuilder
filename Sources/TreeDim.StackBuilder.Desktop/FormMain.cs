@@ -428,10 +428,25 @@ namespace treeDiM.StackBuilder.Desktop
                         cylinderProperties.RadiusInner = form.RadiusInner;
                         cylinderProperties.Height = form.CylinderHeight;
                         cylinderProperties.SetWeight(form.Weight);
+                        cylinderProperties.SetNetWeight(form.NetWeight);
                         cylinderProperties.ColorTop = form.ColorTop;
                         cylinderProperties.ColorWallOuter = form.ColorWallOuter;
                         cylinderProperties.ColorWallInner = form.ColorWallInner;
                         cylinderProperties.EndUpdate();
+                    }
+                }
+                else if (itemProp.GetType() == typeof(BottleProperties))
+                {
+                    var bottleProperties = itemProp as BottleProperties;
+                    FormNewBottle form = new FormNewBottle(eventArg.Document, bottleProperties);
+                    if (form.ShowDialog() == DialogResult.OK)
+                    {
+                        if (!UserAcknowledgeDependancies(bottleProperties)) return;
+                        bottleProperties.ID.SetNameDesc(form.ItemName, form.ItemDescription);
+                        bottleProperties.Color = form.ColorBottle;
+                        bottleProperties.SetWeight(form.Weight);
+                        bottleProperties.SetNetWeight(form.NetWeight);
+                        bottleProperties.EndUpdate();
                     }
                 }
                 else if (itemProp.GetType() == typeof(BundleProperties))
@@ -675,6 +690,7 @@ namespace treeDiM.StackBuilder.Desktop
             // new cylinder
             toolStripMenuItemCylinder.Enabled = (null != doc);
             toolStripButtonCylinder.Enabled = (null != doc);
+            toolStripButtonBottle.Enabled = (null != doc);
             // new pallet
             toolStripMenuItemPallet.Enabled = (null != doc);
             toolStripButtonPallet.Enabled = (null != doc);
@@ -736,7 +752,6 @@ namespace treeDiM.StackBuilder.Desktop
         public void NewDocument()
         {
             // set solver
-            Document.SetSolver(new LayerSolver());
             SolutionLayered.SetSolver(new LayerSolver());
             SolutionHCyl.SetSolver(new CylLayoutSolver());
 
@@ -753,7 +768,6 @@ namespace treeDiM.StackBuilder.Desktop
             try
             {
                 // set solver
-                Document.SetSolver(new LayerSolver());
                 SolutionLayered.SetSolver(new LayerSolver());
                 SolutionHCyl.SetSolver(new CylLayoutSolver());
 
@@ -1073,9 +1087,6 @@ namespace treeDiM.StackBuilder.Desktop
         public void OpenMRUFile(string filePath)
         {
             CloseStartPage();
-
-            // instantiate solver
-            DocumentSB.SetSolver(new LayerSolver());
             // open file
             OpenDocument(filePath); // -> exception handled in OpenDocument
         }
@@ -1124,7 +1135,12 @@ namespace treeDiM.StackBuilder.Desktop
         {
             try { ActiveDocumentSB.CreateNewCylinderUI(); }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
-         }
+        }
+        private void ToolAddNewBottle(object sender, EventArgs e)
+        {
+            try { ActiveDocumentSB.CreateNewBottleUI(); }
+            catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
+        }
         private void ToolAddNewPallet(object sender, EventArgs e)
         {
             try { ActiveDocumentSB.CreateNewPalletUI(); }
@@ -1499,6 +1515,7 @@ namespace treeDiM.StackBuilder.Desktop
         #region Static instance accessor
         public static FormMain GetInstance()  { return _instance; }
         #endregion
+
 
     }
 }

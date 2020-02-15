@@ -48,7 +48,8 @@ namespace treeDiM.StackBuilder.Engine
                             pattern.GenerateLayer(layer, actualLength, actualWidth);
                             if (0 == layer.Count)
                                 continue;
-                            listLayers0.Add(layer);
+                            if (layer.CountInHeight(constraintSet.OptMaxHeight.Value - offsetZ) > 0)
+                                listLayers0.Add(layer);
                         }
                         catch (Exception ex)
                         {

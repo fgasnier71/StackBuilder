@@ -39,8 +39,8 @@
     <MinimumRequiredVersion>3.0.0.0</MinimumRequiredVersion>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>6</ApplicationRevision>
-    <ApplicationVersion>3.0.2.6</ApplicationVersion>
+    <ApplicationRevision>7</ApplicationRevision>
+    <ApplicationVersion>3.0.2.7</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -457,6 +457,12 @@
     <Compile Include="FormNewBase.Designer.cs">
       <DependentUpon>FormNewBase.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormNewBottle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNewBottle.Designer.cs">
+      <DependentUpon>FormNewBottle.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormNewBox.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -699,9 +705,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AboutBox.zh.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AnalysisTreeView.it.resx">
-      <DependentUpon>AnalysisTreeView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AnalysisTreeView.resx">
       <DependentUpon>AnalysisTreeView.cs</DependentUpon>
@@ -1756,6 +1759,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewBase.zh.resx">
       <DependentUpon>FormNewBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewBottle.resx">
+      <DependentUpon>FormNewBottle.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewBox.fr.resx">
       <DependentUpon>FormNewBox.cs</DependentUpon>
@@ -3160,7 +3166,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Solution.bmp" />
     <Content Include="..\TreeDim.StackBuilder.Reporting\ReportTemplates\DEU.xml">
       <Link>ReportTemplates\DEU.xml</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

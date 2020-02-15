@@ -49,8 +49,7 @@ namespace treeDiM.StackBuilder.Graphics
         /// <summary>
         /// dimensions cube
         /// </summary>
-        private List<DimensionCube> _dimensions = new List<DimensionCube>();
-        private uint _boxDrawingCounter = 0;
+        private List<DimensionCube> Dimensions { get; set; } = new List<DimensionCube>();
         private const double _cameraDistance = 100000.0;
         private static Vector3D XAxisPrev { get; set; } = Vector3D.Zero;
 
@@ -155,34 +154,33 @@ namespace treeDiM.StackBuilder.Graphics
         /// </summary>
         public bool EnableFaceSorting { get; set; } = true;
 
-        public Point Offset
-        {
-            get { return TransformPoint(GetCurrentTransformation(), Vector3D.Zero); }
-        }
+        public Point Offset => TransformPoint(Vector3D.Zero);
         #endregion
 
         #region Private properties
-        private int GridFontSize { get; set; }
+        internal int GridFontSize { get; set; }
         #endregion
 
         #region Helpers
-        private Point[] TransformPoint(Transform3D transform, Vector3D[] points3d)
-        {
-            Point[] points = new Point[points3d.Length];
+        internal Point[] TransformPoint(Transform3D transform, Vector3D[] pts)
+        { 
+            Point[] points = new Point[pts.Length];
             int i = 0;
-            foreach (Vector3D v in points3d)
+            foreach (Vector3D v in pts)
             {
                 Vector3D vt = transform.transform(v);
-                points[i] = new Point((int)vt.X, (int)vt.Y);
-                ++i;
+                points[i++] = new Point((int)vt.X, (int)vt.Y);
             }
-            return points;
+            return points;        
         }
-        private Point TransformPoint(Transform3D transform, Vector3D point3d)
-        {
-            Vector3D vt = transform.transform(point3d);
-            return new Point((int)vt.X, (int)vt.Y);
+        internal Point[] TransformPoint(Vector3D[] pts) => TransformPoint(GetCurrentTransformation(), pts);
+        internal Point TransformPoint(Transform3D transform, Vector3D pt)
+        { 
+            Vector3D vt = transform.transform(pt);
+            return new Point((int)vt.X, (int)vt.Y);        
         }
+        internal Point TransformPoint(Vector3D pt) => TransformPoint(GetCurrentTransformation(), pt);
+
         public Transform3D GetWorldToEyeTransformation()
         {
             /*
@@ -287,36 +285,25 @@ namespace treeDiM.StackBuilder.Graphics
         /// add face
         /// </summary>
         /// <param name="face">Face item</param>
-        public void AddFace(Face face)
-        {
-            Faces.Add(face);
-        }
-        public void AddTriangle(Triangle triangle)
-        {
-            Triangles.Add(triangle);
-        }
+        public void AddFace(Face face) => Faces.Add(face);
+        public void AddTriangle(Triangle triangle) => Triangles.Add(triangle);
         public void AddBox(Box box)
         {
             if (!box.IsValid)
                 throw new GraphicsException("Box is invalid and cannot be drawn!");
             Boxes.Add(box);
         }
-
-        public void AddCylinder(Cylinder cylinder)
-        {
-            Cylinders.Add(cylinder);
-        }
-
+        public void AddCylinder(Cyl cylinder) => Cylinders.Add(cylinder);
         public void AddDimensions(DimensionCube dimensionCube)
         {
-            _dimensions.Add(dimensionCube);
+            Dimensions.Add(dimensionCube);
         }
         #endregion
 
         #region Abstract methods and properties
         abstract public Size Size { get; }
         abstract public System.Drawing.Graphics Graphics { get; }
-        public List<Cylinder> Cylinders { get; set; } = new List<Cylinder>();
+        public List<Cyl> Cylinders { get; set; } = new List<Cyl>();
         public List<Segment> Segments { get; set; } = new List<Segment>();
         public List<Segment> SegmentsBackground { get; set; } = new List<Segment>();
         public List<Box> Boxes { get; set; } = new List<Box>();
@@ -358,7 +345,6 @@ namespace treeDiM.StackBuilder.Graphics
         {
             // initialize
             Vector3D vLight = CameraPosition - Target; vLight.Normalize();
-            _boxDrawingCounter = 0;
             CurrentTransf = null;
             System.Drawing.Graphics g = Graphics;
             g.Clear(BackgroundColor);
@@ -385,7 +371,7 @@ namespace treeDiM.StackBuilder.Graphics
             // sort box list
             if (UseBoxelOrderer)
             {
-                BoxelOrderer boxelOrderer = new BoxelOrderer(Boxes) { Direction = Target - CameraPosition };
+                BoxelOrderer boxelOrderer = new BoxelOrderer(Boxes) { Direction = ViewDirection };
                 Boxes = boxelOrderer.GetSortedList();
             }
             else
@@ -403,12 +389,12 @@ namespace treeDiM.StackBuilder.Graphics
                 drawableList.Sort(new DrawableComparerSimplifiedPainterAlgo());
 
                 List<Box> boxes = new List<Box>();
-                List<Cylinder> cylinders = new List<Cylinder>();
+                List<Cyl> cylinders = new List<Cyl>();
                 bool processingBox = drawableList[0] is Box;
                 foreach (Drawable drawable in drawableList)
                 {
                     Box b = drawable as Box;
-                    Cylinder c = drawable as Cylinder;
+                    Cyl c = drawable as Cyl;
 
                     if ((null != b) && processingBox)
                         boxes.Add(b);
@@ -418,11 +404,11 @@ namespace treeDiM.StackBuilder.Graphics
                     {
                         if (boxes.Count > 0)
                         {
-                            BoxelOrderer boxelOrderer = new BoxelOrderer(boxes) { Direction = Target - CameraPosition };
+                            BoxelOrderer boxelOrderer = new BoxelOrderer(boxes) { Direction = ViewDirection };
                             boxes = boxelOrderer.GetSortedList();
                             // draw boxes
                             foreach (Box bb in boxes)
-                                Draw(bb);
+                                bb.Draw(this);
                             // clear
                             boxes.Clear();
                         }
@@ -430,8 +416,8 @@ namespace treeDiM.StackBuilder.Graphics
                         {
                             cylinders.Sort(new CylinderComparerSimplifiedPainterAlgo(GetWorldToEyeTransformation()));
                             // draw cylinders
-                            foreach (Cylinder cc in cylinders)
-                                Draw(cc);
+                            foreach (Cyl cc in cylinders)
+                                cc.Draw(this);
                             // clear
                             cylinders.Clear();
                         }
@@ -449,17 +435,17 @@ namespace treeDiM.StackBuilder.Graphics
                 }
 
                 // remaining boxes
-                BoxelOrderer boxelOrdererRem = new BoxelOrderer(boxes) { Direction = Target - CameraPosition };
+                BoxelOrderer boxelOrdererRem = new BoxelOrderer(boxes) { Direction = ViewDirection };
                 boxes = boxelOrdererRem.GetSortedList();
                 // draw boxes
                 foreach (Box bb in boxes)
-                    Draw(bb);
+                    bb.Draw(this);
 
                 // remaining cylinders
                 cylinders.Sort(new CylinderComparerSimplifiedPainterAlgo(GetWorldToEyeTransformation()));
                 // draw cylinders
-                foreach (Cylinder cc in cylinders)
-                    Draw(cc);
+                foreach (var cc in cylinders)
+                    cc.Draw(this);
                 // clear
                 boxes.Clear();
             }
@@ -467,7 +453,7 @@ namespace treeDiM.StackBuilder.Graphics
             {
                 // draw all boxes
                 foreach (Box box in Boxes)
-                    Draw(box);
+                    box.Draw(this);
                 // draw all triangles
                 foreach (Triangle tr in Triangles)
                     Draw(tr, FaceDir.FRONT);
@@ -513,7 +499,7 @@ namespace treeDiM.StackBuilder.Graphics
             // draw cotation cubes
             if (ShowDimensions)
             {
-                foreach (DimensionCube qc in _dimensions)
+                foreach (DimensionCube qc in Dimensions)
                     qc.Draw(this);
             }
         }
@@ -552,7 +538,7 @@ namespace treeDiM.StackBuilder.Graphics
                         foreach (Vector3D pt in seg.Points)
                             bbox.Extend( world2eye.transform(pt) );
                     // cube dimensions
-                    foreach (DimensionCube dimCube in _dimensions)
+                    foreach (DimensionCube dimCube in Dimensions)
                         foreach (Vector3D pt in dimCube.DrawingPoints(this))
                            bbox.Extend( world2eye.transform(pt) );
                     // image inst
@@ -666,7 +652,7 @@ namespace treeDiM.StackBuilder.Graphics
             System.Drawing.Graphics g = Graphics;
             Brush brush = new SolidBrush(seg.Color);
             Pen pen = new Pen(brush);
-            Point[] pt = TransformPoint(GetCurrentTransformation(), seg.Points);
+            Point[] pt = TransformPoint(seg.Points);
             g.DrawLine(pen, pt[0], pt[1]);
         }
         /// <summary>
@@ -679,7 +665,7 @@ namespace treeDiM.StackBuilder.Graphics
         internal void Draw(string text, Vector3D position, Color color, float fontSize)
         {
             System.Drawing.Graphics g = Graphics;
-            Point pt = TransformPoint(GetCurrentTransformation(), position);
+            Point pt = TransformPoint(position);
             Font font = new Font("Arial", fontSize > 1.0f ? fontSize : 1.0f);
             SizeF sizeF = g.MeasureString(text, font);
             g.DrawString(text
@@ -706,7 +692,7 @@ namespace treeDiM.StackBuilder.Graphics
                 , (int)(tr.ColorFill.B * cosA));
             Brush brush = new SolidBrush(color);
             // draw filled triangle
-            Point[] pt = TransformPoint(GetCurrentTransformation(), tr.Points);
+            Point[] pt = TransformPoint(tr.Points);
             g.FillPolygon(brush, pt);
             // draw path
             Brush brush0 = new SolidBrush(tr.ColorPath);
@@ -729,8 +715,8 @@ namespace treeDiM.StackBuilder.Graphics
             System.Drawing.Graphics g = Graphics;
 
             // test if face can actually be seen
-            if ((Vector3D.DotProduct(face.Normal, CameraPosition - Target) > 0.0 && dir == FaceDir.BACK)
-                || (Vector3D.DotProduct(face.Normal, CameraPosition - Target) < 0.0 && dir == FaceDir.FRONT))
+            if ((Vector3D.DotProduct(face.Normal, ViewDirection) < 0.0 && dir == FaceDir.BACK)
+                || (Vector3D.DotProduct(face.Normal, ViewDirection) > 0.0 && dir == FaceDir.FRONT))
                 return;
 
             // compute face color
@@ -740,7 +726,7 @@ namespace treeDiM.StackBuilder.Graphics
                 , (int)(face.ColorFill.R * cosA)
                 , (int)(face.ColorFill.G * cosA)
                 , (int)(face.ColorFill.B * cosA));
-            Point[] pt = TransformPoint(GetCurrentTransformation(), face.Points);
+            Point[] pt = TransformPoint(face.Points);
 
             Brush brush = new SolidBrush(color);
             g.FillPolygon(brush, pt);
@@ -762,8 +748,8 @@ namespace treeDiM.StackBuilder.Graphics
             System.Drawing.Graphics g = Graphics;
 
             // test if face can actuallt be seen
-            if ((Vector3D.DotProduct(face.Normal, CameraPosition - Target) > 0.0 && dir == FaceDir.BACK)
-                || (Vector3D.DotProduct(face.Normal, CameraPosition - Target) < 0.0 && dir == FaceDir.FRONT))
+            if ((Vector3D.DotProduct(face.Normal, ViewDirection) < 0.0 && dir == FaceDir.BACK)
+                || (Vector3D.DotProduct(face.Normal, ViewDirection) > 0.0 && dir == FaceDir.FRONT))
                 return;
 
             // compute face color
@@ -773,7 +759,7 @@ namespace treeDiM.StackBuilder.Graphics
                 , (int)(colorApply.R * cosA)
                 , (int)(colorApply.G * cosA)
                 , (int)(colorApply.B * cosA));
-            Point[] pt = TransformPoint(GetCurrentTransformation(), face.Points);
+            Point[] pt = TransformPoint(face.Points);
 
             Brush brush = new SolidBrush(color);
             g.FillPolygon(brush, pt);
@@ -790,7 +776,7 @@ namespace treeDiM.StackBuilder.Graphics
             }
             g.DrawLine(new Pen(brush0, fThickness), pt[ptCount - 1], pt[0]);
         }
-
+        /*
         internal void Draw(Box box)
         {
             System.Drawing.Graphics g = Graphics;
@@ -817,7 +803,7 @@ namespace treeDiM.StackBuilder.Graphics
                     Color color = Color.FromArgb((int)(faces[i].ColorFill.R * cosA), (int)(faces[i].ColorFill.G * cosA), (int)(faces[i].ColorFill.B * cosA));
                     // points
                     Vector3D[] points3D = faces[i].Points;
-                    Point[] pt = TransformPoint(GetCurrentTransformation(), points3D);
+                    Point[] pt = TransformPoint(points3D);
                     //  draw solid face
                     Brush brush = new SolidBrush(color);
                     g.FillPolygon(brush, pt);
@@ -825,7 +811,7 @@ namespace treeDiM.StackBuilder.Graphics
                     if (null != face.Textures && ShowTextures)
                         foreach (Texture texture in face.Textures)
                         {
-                            Point[] ptsImage = TransformPoint(GetCurrentTransformation(), box.PointsImage(i, texture));
+                            Point[] ptsImage = TransformPoint(box.PointsImage(i, texture));
                             Point[] pts = new Point[3];
                             pts[0] = ptsImage[3];
                             pts[1] = ptsImage[2];
@@ -850,7 +836,7 @@ namespace treeDiM.StackBuilder.Graphics
                             ptSlice[0] = points3D[0] + ((iSlice + 1) / (double)noSlice) * (points3D[3] - points3D[0]);
                             ptSlice[1] = points3D[1] + ((iSlice + 1) / (double)noSlice) * (points3D[2] - points3D[1]);
 
-                            Point[] pt2D = TransformPoint(GetCurrentTransformation(), ptSlice);
+                            Point[] pt2D = TransformPoint(ptSlice);
                             g.DrawLine(penPathThin, pt2D[0], pt2D[1]);
                         }
                     }
@@ -865,7 +851,7 @@ namespace treeDiM.StackBuilder.Graphics
                     // instantiate brush
                     Brush brushTape = new SolidBrush(color);
                     // get tape points
-                    Point[] pts = TransformPoint(GetCurrentTransformation(), box.TapePoints);
+                    Point[] pts = TransformPoint(box.TapePoints);
                     // fill polygon
                     g.FillPolygon(brushTape, pts);
                     // draw path
@@ -887,7 +873,7 @@ namespace treeDiM.StackBuilder.Graphics
                     // instantiate brush
                     Brush brushStrapper = new SolidBrush(color);
                     // get face points
-                    Point[] pts = TransformPoint(GetCurrentTransformation(), sf.Points);
+                    Point[] pts = TransformPoint(sf.Points);
                     // fill polygon
                     g.FillPolygon(brushStrapper, pts);
                     // draw path
@@ -902,7 +888,7 @@ namespace treeDiM.StackBuilder.Graphics
             if (ShowBoxIds)
             {
                 // draw box id
-                Point ptId = TransformPoint(GetCurrentTransformation(), box.TopFace.Center);
+                Point ptId = TransformPoint(box.TopFace.Center);
                 g.DrawString(
                     box.PickId.ToString()
                     , new Font("Arial", GridFontSize)
@@ -918,22 +904,12 @@ namespace treeDiM.StackBuilder.Graphics
             }
             ++_boxDrawingCounter;
         }
-
-        internal void DrawWireFrame(Box box)
-        {
-        }
-
-        internal void Draw(Pack pack)
-        {
-            System.Drawing.Graphics g = Graphics;
-            Vector3D[] points = pack.Points;
-        }
-
+        */
         internal void Draw(ImageInst img)
         {
             try
             {
-                Point ptImg = TransformPoint(GetCurrentTransformation(), img.PointBase);
+                Point ptImg = TransformPoint(img.PointBase);
 
                 Bitmap bmp = null;
                 Point ptOffset = Point.Empty;
@@ -981,89 +957,5 @@ namespace treeDiM.StackBuilder.Graphics
         }
         #endregion
 
-        #region Draw cylinder
-        internal void Draw(Cylinder cyl)
-        {
-            System.Drawing.Graphics g = Graphics;
-
-            // build pen path
-            Brush brushPath = new SolidBrush(cyl.ColorPath);
-            Pen penPathThick = new Pen(brushPath, 1.7f);
-            Pen penPathThin = new Pen(brushPath, 1.5f);
-
-            // bottom (draw only path)
-            Point[] ptsBottom = TransformPoint(GetCurrentTransformation(), cyl.BottomPoints);
-            g.DrawPolygon(penPathThick, ptsBottom);
-            // top
-            Point[] ptsTop = TransformPoint(GetCurrentTransformation(), cyl.TopPoints);
-            g.DrawPolygon(penPathThick, ptsTop);
-
-            // outer wall
-            Face[] facesWalls = cyl.FacesWalls;
-            foreach (Face face in facesWalls)
-            {
-                try
-                {
-                    Vector3D normal = face.Normal;
-                    // visible ?
-                    if (!face.IsVisible(Target - CameraPosition))
-                        continue;
-
-                    // color
-                    double cosA = System.Math.Abs(Vector3D.DotProduct(face.Normal, VLight));
-                    if (cosA < 0 || cosA > 1) cosA = 1.0;
-                    Color color = Color.FromArgb((int)(face.ColorFill.R * cosA), (int)(face.ColorFill.G * cosA), (int)(face.ColorFill.B * cosA));
-                    // brush
-                    Brush brush = new SolidBrush(color);
-                    // draw polygon
-                    Point[] ptsFace = TransformPoint(GetCurrentTransformation(), face.Points);
-                    g.FillPolygon(brush, ptsFace);
-                }
-                catch (Exception ex)
-                { _log.Error(ex.ToString()); }
-            }
-            // top
-            double cosTop = System.Math.Abs(Vector3D.DotProduct(HalfAxis.ToVector3D(cyl.Position.Direction), VLight));
-            Color colorTop = Color.FromArgb((int)(cyl.ColorTop.R * cosTop), (int)(cyl.ColorTop.G * cosTop), (int)(cyl.ColorTop.B * cosTop));
-            Brush brushTop = new SolidBrush(colorTop);
-            bool topVisible = Vector3D.DotProduct(HalfAxis.ToVector3D(cyl.Position.Direction), Target - CameraPosition) < 0;
-
-            if (cyl.DiameterInner > 0)
-            {
-                Face[] facesTop = cyl.FacesTop;
-                foreach (Face face in facesTop)
-                {
-                    try
-                    {
-                        Vector3D normal = face.Normal;
-
-                        // visible ?
-                        if (!face.IsVisible(Target - CameraPosition))
-                            continue;
-                        // color
-                        // draw polygon
-                        Point[] ptsFace = TransformPoint(GetCurrentTransformation(), face.Points);
-                        g.FillPolygon(brushTop, ptsFace);
-                    }
-                    catch (Exception ex)
-                    { _log.Error(ex.ToString()); }
-                }
-            }
-            else
-            {
-                if (topVisible)
-                    g.FillPolygon(brushTop, ptsTop);
-                else
-                    g.FillPolygon(brushTop, ptsBottom);
-            }
-
-            if (topVisible)
-                g.DrawPolygon(penPathThin, ptsTop);
-            else
-                g.DrawPolygon(penPathThin, ptsBottom);
-
-            ++_boxDrawingCounter;
-        }
-        #endregion
     }
 }

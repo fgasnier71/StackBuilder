@@ -56,6 +56,7 @@ namespace treeDiM.StackBuilder.Desktop
             {
                 if (AnalysisCast.ConstraintSet is ConstraintSetBoxCase constraintSet)
                 {
+                    uCtrlCaseOrientation.AllowedOrientations = constraintSet.AllowedOrientations;
                     uCtrlOptMaximumWeight.Value = constraintSet.OptMaxWeight;
                     uCtrlOptMaxNumber.Value = constraintSet.OptMaxNumber;
                 }
@@ -119,9 +120,9 @@ namespace treeDiM.StackBuilder.Desktop
         {
             try
             {
-                // get case
-                BoxProperties caseProperties = cbCases.SelectedType as BoxProperties;
-                if (!(cbBoxes.SelectedType is PackableBrick packable) || null == caseProperties)
+                // get box & case
+                if (!(cbBoxes.SelectedType is PackableBrick packable)
+                    || !(cbCases.SelectedType is BoxProperties caseProperties))
                     return;
                 var constraintSet = BuildConstraintSet();
                 // get best combination
@@ -209,8 +210,8 @@ namespace treeDiM.StackBuilder.Desktop
             try
             {
                 // get box / case
-                BoxProperties caseProperties = cbCases.SelectedType as BoxProperties;
-                if (!(cbBoxes.SelectedType is PackableBrick packable) || null == caseProperties)
+                if (!(cbBoxes.SelectedType is PackableBrick packable)
+                    || !(cbCases.SelectedType is BoxProperties caseProperties))
                     return;
 
                 // update orientation control
@@ -221,7 +222,7 @@ namespace treeDiM.StackBuilder.Desktop
                 List<Layer2DBrickImp> layers = solver.BuildLayers(
                     packable.OuterDimensions
                     , new Vector2D(caseProperties.InsideLength, caseProperties.InsideWidth)
-                    , 0.0 /* offsetZ */
+                    , 0.5 * (caseProperties.Height-caseProperties.InsideHeight)
                     , BuildConstraintSet()
                     , checkBoxBestLayersOnly.Checked
                     );

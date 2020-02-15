@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 
 using Sharp3D.Math.Core;
 
@@ -35,11 +36,15 @@ namespace treeDiM.StackBuilder.Graphics
                 {
                     // ### strappers
                     SolutionLayered sol = Solution as SolutionLayered;
-                    foreach (var strapperData in sol.Strappers)
+                    foreach (var sd in sol.Strappers)
                     {
-                        if (null != strapperData.Points && strapperData.Points.Count > 0)
+                        if (null != sd.Points && sd.Points.Count > 0)
                         {
-                            Strapper s = new Strapper(strapperData.Strapper.Axis, strapperData.Strapper.Width, strapperData.Strapper.Color, strapperData.Points);
+                            Strapper s = new Strapper(
+                                transform.transform(IntToAxis(sd.Strapper.Axis)),
+                                sd.Strapper.Width,
+                                sd.Strapper.Color,
+                                sd.Points.ConvertAll(p => transform.transform(p)).ToList());
                             s.DrawBegin(graphics);
                         }
                     }
@@ -275,7 +280,11 @@ namespace treeDiM.StackBuilder.Graphics
                     {
                         if (null == sd.Points && sd.Points.Count > 0)
                         {
-                            var strapper = new Strapper(sd.Strapper.Axis, sd.Strapper.Width, sd.Strapper.Color, sd.Points);
+                            var strapper = new Strapper(
+                                transform.transform(IntToAxis(sd.Strapper.Axis)),
+                                sd.Strapper.Width,
+                                sd.Strapper.Color,
+                                sd.Points.Select(p => transform.transform(p)).ToList());
                             strapper.DrawEnd(graphics);
                         }
                     }
@@ -316,7 +325,7 @@ namespace treeDiM.StackBuilder.Graphics
         #region Public static methods
         public static void DrawILayer(Graphics3D graphics, ILayer layer, Packable packable, bool showDimensions)
         {
-            bool show3D = Graphics.Properties.Settings.Default.LayerView3D;
+            bool show3D = Properties.Settings.Default.LayerView3D;
             graphics.CameraPosition = show3D ? Graphics3D.Corner_0 : Graphics3D.Top;
 
             uint pickId = 0;
@@ -414,7 +423,16 @@ namespace treeDiM.StackBuilder.Graphics
                 }
             }
         }
-
+        private Vector3D IntToAxis(int iAxis)
+        {
+            switch (iAxis)
+            {
+                case 0: return Vector3D.XAxis;
+                case 1: return Vector3D.YAxis;
+                case 2: return Vector3D.ZAxis;
+                default: return Vector3D.Zero;
+            }
+        }
         #endregion
 
         #region Data members

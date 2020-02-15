@@ -259,6 +259,9 @@
   <data name="ID_AUTOIMPORT" xml:space="preserve">
     <value>Import auto</value>
   </data>
+  <data name="ID_BOTTLE" xml:space="preserve">
+    <value>Bottle</value>
+  </data>
   <data name="ID_BOX" xml:space="preserve">
     <value>Box</value>
   </data>

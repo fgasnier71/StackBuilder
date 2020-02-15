@@ -21,9 +21,9 @@
 
         #region Override PackableBrick
         public override bool IsCase => true;
-        public override double Length => ParentSolution.BBoxGlobal.Length;
-        public override double Width => ParentSolution.BBoxGlobal.Width;
-        public override double Height => ParentSolution.BBoxGlobal.Height;
+        public override double Length => Analysis.CaseProperties.Length;
+        public override double Width => Analysis.CaseProperties.Width;
+        public override double Height => Analysis.CaseProperties.Height;
         #endregion
 
         public override bool InnerContent(ref Packable innerPackable, ref int number)

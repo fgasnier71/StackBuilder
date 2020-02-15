@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Text;
 using System.Drawing;
 
 using Sharp3D.Math.Core;
@@ -89,7 +89,7 @@ namespace treeDiM.StackBuilder.Basics
 
         public override string ToString()
         {
-            var sBuilder = new System.Text.StringBuilder();
+            var sBuilder = new StringBuilder();
             sBuilder.Append(base.ToString());
             sBuilder.Append(string.Format("Cylinder => Outer radius = {0} Inner radius = {1} Height = {2} Weight = {3}"
                 , _radiusOuter, _radiusInner, _height, _weight) );
@@ -106,8 +106,6 @@ namespace treeDiM.StackBuilder.Basics
         private Color _colorWallInner;
 
         protected override string TypeName => Properties.Resources.ID_NAMECYLINDER;
-
         #endregion
-
     }
 }

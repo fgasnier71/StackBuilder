@@ -153,6 +153,9 @@
   <data name="ID_MAXIMUMSPACE" xml:space="preserve">
     <value>Maximum space</value>
   </data>
+  <data name="ID_NAMEBOTTLE" xml:space="preserve">
+    <value>Bottle</value>
+  </data>
   <data name="ID_NAMEBOX" xml:space="preserve">
     <value>Box</value>
   </data>

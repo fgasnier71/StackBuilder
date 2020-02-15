@@ -122,7 +122,7 @@
             // uCtrlOptMaxNumber
             // 
             resources.ApplyResources(this.uCtrlOptMaxNumber, "uCtrlOptMaxNumber");
-            this.uCtrlOptMaxNumber.Minimum = 0;
+            this.uCtrlOptMaxNumber.Minimum = 1;
             this.uCtrlOptMaxNumber.Name = "uCtrlOptMaxNumber";
             // 
             // uCtrlOptMaximumWeight

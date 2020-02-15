@@ -73,7 +73,7 @@ namespace treeDiM.StackBuilder.Desktop
             {
                 AnalysisCasePallet analysisCasePallet = item as AnalysisCasePallet;
                 Packable content = analysisCasePallet.Content;
-                if (content is BoxProperties) return 14;
+                if (content is BoxProperties || content is LoadedCase) return 14;
                 else if (content is BundleProperties) return 15;
                 else if (content is PackProperties) return 21;
                 else return 0;
@@ -647,6 +647,12 @@ namespace treeDiM.StackBuilder.Desktop
                 nodeType = NodeTag.NodeType.NT_CYLINDER;
                 parentNodeType = NodeTag.NodeType.NT_LISTCYLINDER;
             }
+            else if (itemProperties.GetType() == typeof(BottleProperties))
+            {
+                iconIndex = 6;
+                nodeType = NodeTag.NodeType.NT_CYLINDER;
+                parentNodeType = NodeTag.NodeType.NT_LISTCYLINDER;
+            }
             else if (itemProperties.GetType() == typeof(PalletProperties))
             {
                 iconIndex = 7;
@@ -799,7 +805,7 @@ namespace treeDiM.StackBuilder.Desktop
                 nodeType = NodeTag.NodeType.NT_PALLET;
             else if (itemBase.GetType() == typeof(TruckProperties))
                 nodeType = NodeTag.NodeType.NT_TRUCK;
-            else if (itemBase.GetType() == typeof(CylinderProperties))
+            else if (itemBase.GetType() == typeof(CylinderProperties) || itemBase.GetType() == typeof(BottleProperties))
                 nodeType = NodeTag.NodeType.NT_CYLINDER;
             Debug.Assert(nodeType != NodeTag.NodeType.NT_UNKNOWN);
             if (nodeType == NodeTag.NodeType.NT_UNKNOWN)
