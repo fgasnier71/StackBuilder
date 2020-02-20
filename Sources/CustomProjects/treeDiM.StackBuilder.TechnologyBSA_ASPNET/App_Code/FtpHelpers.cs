@@ -19,9 +19,7 @@ public static class FtpHelpers
             {
                 client.Credentials = new NetworkCredential(ftpUsername, ftpPassword);
                 using (var postStream = client.OpenWrite(ftpUrl + fileName))
-                {
                     postStream.Write(fileContent, 0, fileContent.Length);
-                }
             }
             return true;
         }

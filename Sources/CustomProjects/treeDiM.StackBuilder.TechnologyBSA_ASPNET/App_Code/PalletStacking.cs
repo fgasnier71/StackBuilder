@@ -61,11 +61,11 @@ public static class PalletStacking
     }
 
     public static void GetSolution(
-        Vector3D caseDim, double caseWeight,
+        Vector3D caseDim, double caseWeight, Bitmap bmpTexture,
         Vector3D palletDim, double palletWeight,
         double maxPalletHeight,
         List<BoxPosition> boxPositions,
-        bool alternateLayer,
+        bool mirrorLength, bool mirrorWidth,
         bool interlayerBottom, bool interlayerIntermediate, bool interlayerTop,
         double angle,
         ref byte[] imageBytes,
@@ -81,6 +81,16 @@ public static class PalletStacking
             TapeColor = Color.LightGray,
             TapeWidth = new OptDouble(true, 50.0)
         };
+        if (null != bmpTexture)
+        {
+            double ratio = (double)bmpTexture.Height / bmpTexture.Width;
+
+            boxProperties.AddTexture(HalfAxis.HAxis.AXIS_X_N, TexturePosition(caseDim.Y, caseDim.Z, ratio), TextureSize(caseDim.Y, caseDim.Z, ratio), 0.0, bmpTexture);
+            boxProperties.AddTexture(HalfAxis.HAxis.AXIS_X_P, TexturePosition(caseDim.Y, caseDim.Z, ratio), TextureSize(caseDim.Y, caseDim.Z, ratio), 0.0, bmpTexture);
+            boxProperties.AddTexture(HalfAxis.HAxis.AXIS_Y_N, TexturePosition(caseDim.X, caseDim.Z, ratio), TextureSize(caseDim.X, caseDim.Z, ratio), 0.0, bmpTexture);
+            boxProperties.AddTexture(HalfAxis.HAxis.AXIS_Y_P, TexturePosition(caseDim.X, caseDim.Z, ratio), TextureSize(caseDim.X, caseDim.Z, ratio), 0.0, bmpTexture);
+
+        }
         boxProperties.SetWeight(caseWeight);
         boxProperties.SetAllColors(Enumerable.Repeat(Color.Beige, 6).ToArray());
         // pallet
@@ -99,7 +109,7 @@ public static class PalletStacking
         // analysis
         var analysis = new AnalysisCasePallet(boxProperties, palletProperties, constraintSet);
         analysis.AddInterlayer(new InterlayerProperties(null, "interlayer", "", palletDim.X, palletDim.Y, 1.0, 0.0, Color.LightYellow));
-        analysis.AddSolution(layer2D, alternateLayer);
+        analysis.AddSolution(layer2D, mirrorLength, mirrorWidth);
         if (interlayerTop)
             analysis.PalletCapProperties = new PalletCapProperties(null, "palletcap", "", palletDim.X, palletDim.Y, 1, palletDim.X, palletDim.Y, 0.0, 0.0, Color.LightYellow);
         // solution
@@ -122,6 +132,7 @@ public static class PalletStacking
         // generate image path
         Graphics3DImage graphics = new Graphics3DImage(new Size(500, 500))
         {
+            BackgroundColor = Color.Transparent,
             FontSizeRatio = ConfigSettings.FontSizeRatio,
             ShowDimensions = true
         };
@@ -135,12 +146,44 @@ public static class PalletStacking
         imageBytes = (byte[])converter.ConvertTo(bmp, typeof(byte[]));
     }
 
+    public static Vector2D TexturePosition(double W, double H, double szRatio)
+    {
+        double xL, yL;
+        if (szRatio > H / W)
+        {
+            yL = H * 2.0/3.0;
+            xL = yL / szRatio;
+        }
+        else
+        {
+            xL = W * 2.0 / 3.0;
+            yL = xL * szRatio;
+        }
+        return new Vector2D(0.5 * (W - xL), 0.5 * (H - yL));
+    }
+    public static Vector2D TextureSize(double W, double H, double szRatio)
+    {
+        double xL, yL;
+        if (szRatio > H / W)
+        {
+            yL = H * 2.0 / 3.0;
+            xL = yL / szRatio;
+        }
+        else
+        {
+            xL = W * 2.0 / 3.0;
+            yL = xL * szRatio;
+        }
+        return new Vector2D(xL, yL);
+    }
+
+
     public static void Export(
         Vector3D caseDim, double caseWeight,
         Vector3D palletDim, double palletWeight,
         double maxPalletHeight,
         List<BoxPosition> boxPositions,
-        bool alternateLayer,
+        bool mirrorLength, bool mirrorWidth,
         bool interlayerBottom, bool interlayerIntermediate, bool interlayerTop,
         ref byte[] fileBytes)
     {
@@ -170,7 +213,7 @@ public static class PalletStacking
         // analysis
         var analysis = new AnalysisCasePallet(boxProperties, palletProperties, constraintSet);
         analysis.AddInterlayer(new InterlayerProperties(null, "interlayer", "", palletDim.X, palletDim.Y, 1.0, 0.0, Color.LightYellow));
-        analysis.AddSolution(layer2D, alternateLayer);
+        analysis.AddSolution(layer2D, mirrorLength, mirrorWidth);
         if (interlayerTop)
             analysis.PalletCapProperties = new PalletCapProperties(null, "palletcap", "", palletDim.X, palletDim.Y, 1, palletDim.X, palletDim.Y, 0.0, 0.0, Color.LightYellow);
 

@@ -1,0 +1,96 @@
+﻿body {
+}
+div.ex2 {
+    max-width: 980px;
+    height: 780px;
+    margin: auto;
+    border: 1px solid #000000;
+}
+.button {
+    background-color: #F2F4F4;
+    color: dimgray;
+    border: none;
+    padding: 20px;
+    text-align: right;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    border-radius: 5px;
+    width: 160px;
+    height: 55px;
+}
+.buttonRefresh {
+    background-color: #F2F4F4;
+    color: dimgray;
+    border: none;
+    padding: 20px;
+    text-align: right;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 100px;
+    height: 40px;
+}
+
+.buttonInc {
+    background-color: #F2F4F4;
+    border: none;
+    width: 48px;
+    height: 48px;
+    border-radius: 5px;
+}
+.textbox {
+    font-size:16px;
+    font-family:Arial, Verdana;
+    color:dimgray;
+}
+.label {
+    font-size:16px;
+    font-family:Arial, Verdana;
+    color:dimgray;
+}
+.checkbox {
+    margin: 10px 10px;
+    padding: 20px;
+    font-size:16px;
+    font-family:Arial, Verdana;
+}
+.select {
+    border-radius: 5px;
+    background-color: #F2F4F4;
+    font-size: 16px;
+    color: dimgray;
+    padding: 20px;
+    width: 160px;
+}
+.style100pct {
+    width: 100%;
+}
+.style50px {
+    width: 50px;
+}
+.style65px {
+    width: 65px;
+}
+.style150px {
+    width: 150px;
+}
+.style250px {
+    width: 250px;
+}
+.style500px {
+    width: 500px;
+}
+.styleTextAlignRight {
+    text-align: right
+}
+.stylefont {
+    font: normal, 16px arial, verdana;
+}
+.headercell {
+    font-weight: normal;
+    font-size: 16px;
+    font-family: Arial
+}

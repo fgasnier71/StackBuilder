@@ -174,9 +174,9 @@ namespace treeDiM.StackBuilder.Graphics
             Brush brushSolid = new SolidBrush(color);
             Graphics.FillEllipse(brushSolid, rectButton);
         }
-        public void DrawText(string sText)
+        public void DrawText(string sText, int size)
         {
-            Graphics.DrawString(sText, new Font("Arial", 10), new SolidBrush(Color.Red), new PointF(5, Size.Height - 20));
+            Graphics.DrawString(sText, new Font("Arial", size), new SolidBrush(Color.Red), new PointF(5, Size.Height - 20));
         }
         #endregion
         #region Public properties

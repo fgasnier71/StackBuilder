@@ -114,13 +114,13 @@ namespace treeDiM.StackBuilder.Basics
         #endregion
 
         #region Solution
-        public void AddSolution(LayerDesc layerDesc, bool alternateLayers = true)
+        public void AddSolution(LayerDesc layerDesc, bool mirrorLength = true, bool mirrorWidth = true)
         {
-            Solution = new SolutionLayered(this, layerDesc, alternateLayers);
+            Solution = new SolutionLayered(this, layerDesc, mirrorLength, mirrorWidth);
         }
-        public void AddSolution(ILayer2D layer, bool alternateLayers = true)
+        public void AddSolution(ILayer2D layer, bool mirrorLength = true, bool mirrorWidth = true)
         {
-            Solution = new SolutionLayered(this, layer, alternateLayers);
+            Solution = new SolutionLayered(this, layer, mirrorLength, mirrorWidth);
         }
         public void AddSolution(List<LayerDesc> layerDescs)
         {

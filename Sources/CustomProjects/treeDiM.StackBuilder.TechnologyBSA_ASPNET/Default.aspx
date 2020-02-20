@@ -5,23 +5,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <style type="text/css">
-        .auto-style1 {
-            width: 100%;
-        }
-        .auto-style2 {
-            height: 11px;
-            width: 65px;
-        }
-        .auto-style3 {
-            width: 150px
-        }
-        .auto-style4 {
-            text-align: right;
-        }
-    </style>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <link type="text/css" href="css/jquery.keypad.css" rel="stylesheet" />
+    <link type="text/css" href="css/default.css" rel="stylesheet" />
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script type="text/javascript" src="javascript/jquery.plugin.min.js"></script>
     <script type="text/javascript" src="javascript/jquery.keypad.js"></script>
     <script type="text/javascript">
@@ -31,20 +17,20 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-            <table class="auto-style1">
+        <div class="ex2">
+            <table class="style100pct">
                 <tr>
-                    <td class="auto-style3">
-                        <asp:Button ID="bnNew" runat="server" Text="New project" Width="130px" OnClick="OnNewProject" />
+                    <td class="style250px">
+                        <asp:Button ID="bnNew" CssClass ="button" runat="server" Text="New project" Width="200px" OnClick="OnNewProject" Style="background-image:url('Images/Create.png'); background-repeat:no-repeat"/>
                     </td>
                     <td></td>
                 </tr>
                 <tr>
-                    <td class="auto-style3">
-                        <asp:Button ID="bnOpen" runat="server" Text="Open project" Width="130px" OnClick="OnOpenProject" />
+                    <td class="style250px">
+                        <asp:Button ID="bnOpen" CssClass ="button" runat="server" Text="Open project" Width="200px" OnClick="OnOpenProject" Style="background-image:url('Images/open.png'); background-repeat:no-repeat"/>
                     </td>
                     <td>
-                        <asp:DropDownList ID="DropDownListFiles" runat="server" Width="130px" />
+                        <asp:DropDownList ID="DropDownListFiles" CssClass="select" runat="server" Width="160px"/>
                     </td>
                 </tr>
             </table>

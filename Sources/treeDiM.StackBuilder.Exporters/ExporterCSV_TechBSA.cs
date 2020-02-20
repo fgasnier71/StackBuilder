@@ -89,10 +89,14 @@ namespace treeDiM.StackBuilder.Exporters
             csv.AppendLine($"Program:StackBuilder;Program:StackBuilder.PalletDimension.W;REAL;{palletProperties.Weight.ToString("0,0.0", nfi)}");
             double maxPalletHeight = analysis.ConstraintSet.OptMaxHeight.Value;
             csv.AppendLine($"Program:StackBuilder;Program:StackBuilder.Pallet.MaxPalletHeight;REAL;{maxPalletHeight.ToString("0,0.0", nfi)}");
-            bool alternateLayers = false;
+            bool layersMirrorX = false;
             if (sol.ItemCount > 1)
-                alternateLayers = sol.SolutionItems[0].SymetryX != sol.SolutionItems[1].SymetryX;
-            csv.AppendLine($"Program:StackBuilder;Program:StackBuilder.AlternateLayersOnOff;BOOL;{Bool2string(alternateLayers)}");
+                layersMirrorX = sol.SolutionItems[0].SymetryX != sol.SolutionItems[1].SymetryX;
+            csv.AppendLine($"Program:StackBuilder;Program:StackBuilder.LayersMirrorXOnOff;BOOL;{Bool2string(layersMirrorX)}");
+            bool layersMirrorY = false;
+            if (sol.ItemCount > 1)
+                layersMirrorY = sol.SolutionItems[0].SymetryY != sol.SolutionItems[1].SymetryY;
+            csv.AppendLine($"Program:StackBuilder;Program:StackBuilder.LayersMirrorYOnOff;BOOL;{Bool2string(layersMirrorY)}");
             bool hasInterlayerBottom = sol.Layers.Count > 0 && (sol.Layers[0] is InterlayerPos);
             csv.AppendLine($"Program:StackBuilder;Program:StackBuilder.InterLayerBottomOnOff;BOOL;{Bool2string(hasInterlayerBottom)}");
             bool hasInterlayerMiddle = sol.Layers.Count > 2 && (sol.Layers[2] is InterlayerPos);
@@ -114,7 +118,7 @@ namespace treeDiM.StackBuilder.Exporters
             ref Vector3D dimCase, ref double weightCase,
             ref Vector3D dimPallet, ref double weightPallet,
             ref double maxPalletHeight,
-            ref bool alternateLayers,
+            ref bool layersMirrorX, ref bool layersMirrorY,
             ref bool hasInterlayerBottom, ref bool hasInterlayerTop, ref bool hasInterlayerMiddle)
         {
             using (TextFieldParser csvParser = new TextFieldParser(csvStream))
@@ -207,9 +211,13 @@ namespace treeDiM.StackBuilder.Exporters
                     {
                         maxPalletHeight = double.Parse(fields[3], NumberFormatInfo.InvariantInfo);
                     }
-                    else if (f1.Contains("Program:StackBuilder.AlternateLayersOnOff"))
+                    else if (f1.Contains("Program:StackBuilder.LayersMirrorXOnOff"))
                     {
-                        alternateLayers = string.Equals(fields[3], "TRUE", StringComparison.InvariantCultureIgnoreCase);
+                        layersMirrorX = string.Equals(fields[3], "TRUE", StringComparison.InvariantCultureIgnoreCase);
+                    }
+                    else if (f1.Contains("Program:StackBuilder.LayersMirrorYOnOff"))
+                    {
+                        layersMirrorY = string.Equals(fields[3], "TRUE", StringComparison.InvariantCultureIgnoreCase); 
                     }
                     else if (f1.Contains("Program:StackBuilder.InterLayerBottomOnOff"))
                     {

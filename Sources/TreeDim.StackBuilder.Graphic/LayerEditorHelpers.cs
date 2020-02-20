@@ -51,7 +51,7 @@ namespace treeDiM.StackBuilder.Graphics
                 graphics.DrawBoxSelected(boxSelected);
 
                 // draw position
-                graphics.DrawText($"({bp.Position.X:0.##}, {bp.Position.Y:0.##}, {bp.Position.Z:0.##}), {HalfAxis.ToString(bp.DirectionLength)}, {HalfAxis.ToString(bp.DirectionWidth)}");
+                graphics.DrawText($"({bp.Position.X:0.##}, {bp.Position.Y:0.##}, {bp.Position.Z:0.##}), {HalfAxis.ToString(bp.DirectionLength)}, {HalfAxis.ToString(bp.DirectionWidth)}", 16);
             }
             return graphics.Bitmap;
         }

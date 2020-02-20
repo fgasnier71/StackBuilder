@@ -12,9 +12,12 @@ public static class SessionVariables
     public const string ImageHeight = "ImageHeight";
     public const string ImageWidth = "ImageWidth";
     public const string ImageBytes = "ImageBytes";
-    public const string AlternateLayers = "AlternateLayers";
+    public const string LayersMirrorLength = "LayersMirrorLength";
+    public const string LayersMirrorWidth = "LayersMirrorWidth";
     public const string InterlayerBottom = "InterlayerBottom";
     public const string InterlayerTop = "InterlayerTop";
     public const string InterlayersIntermadiate = "InterlayersIntermadiate";
     public const string FileName = "FileName";
+    public const string LayerEdited = "LayerEdited";
+    public const string BitmapTexture = "BitmapTexture";
 }

@@ -35,7 +35,7 @@ public partial class _Default : Page
         DimPallet = new Vector3D(1200.0, 1000.0, 155.0);
         WeightPallet = 23.0;
         MaxPalletHeight = 1700.0;
-        AlternateLayers = true;
+        LayersMirrorX = true; LayersMirrorY = true;
         InterlayerBottom = false;
         InterlayerTop = false;
         InterlayersIntermadiate = false;
@@ -52,7 +52,7 @@ public partial class _Default : Page
         Vector3D dimPallet = Vector3D.Zero;
         double weightPallet = 0.0;
         double maxPalletHeight = 0.0;
-        bool alternateLayers = false;
+        bool MirrorX = false, MirrorY = false; ;
         bool interlayerBottom = false, interlayerTop = false, interlayerMiddle = false;
         List<BoxPosition> boxPositions = new List<BoxPosition>();
 
@@ -64,14 +64,15 @@ public partial class _Default : Page
             ref dimCase, ref weightCase,
             ref dimPallet, ref weightPallet,
             ref maxPalletHeight,
-            ref alternateLayers,
+            ref MirrorX, ref MirrorY,
             ref interlayerBottom, ref interlayerTop, ref interlayerMiddle);
 
         DimCase = dimCase; WeightCase = weightCase;
         DimPallet = dimPallet; WeightPallet = weightPallet;
         MaxPalletHeight = maxPalletHeight;
         BoxPositions = boxPositions;
-        AlternateLayers = alternateLayers;
+        LayersMirrorX = MirrorX;
+        LayersMirrorY = MirrorY;
         InterlayerBottom = interlayerBottom;
         InterlayerTop = interlayerTop;
         InterlayersIntermadiate = interlayerMiddle;
@@ -111,8 +112,10 @@ public partial class _Default : Page
         get => Session[SessionVariables.BoxPositions] as List<BoxPosition>;
         set => Session[SessionVariables.BoxPositions] = value;
     }
-    private bool AlternateLayers
-    { set => Session[SessionVariables.AlternateLayers] = value; }
+    private bool LayersMirrorX
+    { set => Session[SessionVariables.LayersMirrorLength] = value; }
+    private bool LayersMirrorY
+    { set => Session[SessionVariables.LayersMirrorWidth] = value; }
     private bool InterlayerBottom
     { set => Session[SessionVariables.InterlayerBottom] = value; }
     private bool InterlayerTop

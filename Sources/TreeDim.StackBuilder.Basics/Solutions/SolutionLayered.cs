@@ -244,20 +244,21 @@ namespace treeDiM.StackBuilder.Basics
     public class SolutionLayered : SolutionHomo
     {
         #region Constructor
-        public SolutionLayered(AnalysisLayered analysis, LayerDesc layerDesc, bool alternateLayer)
+        public SolutionLayered(AnalysisLayered analysis, LayerDesc layerDesc, bool mirrorLength, bool mirrorWidth)
         {
             Analysis = analysis;
             LayerEncaps = new List<LayerEncap>() { new LayerEncap(layerDesc) };
-            AlternateLayers = alternateLayer;
+            LayersMirrorX = mirrorLength;
+            LayersMirrorY = mirrorWidth;
 
             RebuildLayers();
             InitializeSolutionItemList();
         }
-        public SolutionLayered(AnalysisLayered analysis, ILayer2D layer, bool alternateLayer)
+        public SolutionLayered(AnalysisLayered analysis, ILayer2D layer, bool mirrorLength, bool mirrorWidth)
         {
             Analysis = analysis;
             LayerEncaps = new List<LayerEncap>() { new LayerEncap(layer) };
-            AlternateLayers = alternateLayer;
+            LayersMirrorX = mirrorLength;
 
             RebuildLayers();
             InitializeSolutionItemList();
@@ -266,7 +267,8 @@ namespace treeDiM.StackBuilder.Basics
         {
             Analysis = analysis;
             LayerEncaps = layerEncaps;
-            AlternateLayers = AnalysisCast.AlternateLayersPref;
+            LayersMirrorX = AnalysisCast.AlternateLayersPref;
+            LayersMirrorY = AnalysisCast.AlternateLayersPref;
 
             RebuildLayers();
             InitializeSolutionItemList();
@@ -342,8 +344,8 @@ namespace treeDiM.StackBuilder.Basics
                     _solutionItems.Add(new SolutionItem(0, -1, symetryX, symetryY));
                 else
                     break;
-                symetryX = AlternateLayers ? !symetryX : symetryX;
-                symetryY = AlternateLayers ? !symetryY : symetryY;
+                symetryX = LayersMirrorX ? !symetryX : symetryX;
+                symetryY = LayersMirrorY ? !symetryY : symetryY;
             }
         }
         private void InitializeSolutionItemList(List<KeyValuePair<LayerEncap, int>> listLayers)
@@ -355,8 +357,8 @@ namespace treeDiM.StackBuilder.Basics
                 for (int i = 0; i < kvp.Value; ++i)
                 {
                     _solutionItems.Add(new SolutionItem(GetLayerIndexFromLayerDesc(kvp.Key), -1, symetryX, symetryY));
-                    symetryX = AlternateLayers ? !symetryX : symetryX;
-                    symetryY = AlternateLayers ? !symetryY : symetryY;
+                    symetryX = LayersMirrorX ? !symetryX : symetryX;
+                    symetryY = LayersMirrorY ? !symetryY : symetryY;
                 }
             }
         }
@@ -509,7 +511,8 @@ namespace treeDiM.StackBuilder.Basics
 
         #region Public properties
         public int SelectedLayerIndex { get; private set; } = -1;
-        public bool AlternateLayers { get; set; } = true;
+        public bool LayersMirrorX { get; set; } = true;
+        public bool LayersMirrorY { get; set; } = true;
         public AnalysisLayered AnalysisCast => Analysis as AnalysisLayered;
         public List<LayerEncap> LayerEncaps { get; }
         public List<InterlayerProperties> Interlayers => AnalysisCast.Interlayers;

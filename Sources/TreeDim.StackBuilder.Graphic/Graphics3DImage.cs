@@ -16,14 +16,8 @@ namespace treeDiM.StackBuilder.Graphics
         #endregion
 
         #region Graphics3D abstract method implementation
-        public override Size Size
-        {
-            get { return Bitmap.Size;}
-        }
-        public override System.Drawing.Graphics Graphics
-        {
-            get { return System.Drawing.Graphics.FromImage(Bitmap); }
-        }
+        public override Size Size => Bitmap.Size;
+        public override System.Drawing.Graphics Graphics => System.Drawing.Graphics.FromImage(Bitmap);
         #endregion
 
         #region Public methods
@@ -35,34 +29,28 @@ namespace treeDiM.StackBuilder.Graphics
         #endregion
 
         #region Public properties
-        public Bitmap Bitmap { get; }
+        public Bitmap Bitmap { get; private set; }
         #endregion
     }
 
     public class Graphics3DForm : Graphics3D
     {
-        #region Data members
-        private System.Drawing.Graphics _g;
-        private Control _ctrl;
-        #endregion
-
         #region Constructor
         public Graphics3DForm(Control ctrl, System.Drawing.Graphics g)
         {
-            _ctrl = ctrl;
+            Ctrl = ctrl;
             _g = g;
         }
         #endregion
 
         #region Graphics3D abstract method implementation
-        public override Size Size
-        {
-            get { return _ctrl.Size; }
-        }
-        public override System.Drawing.Graphics Graphics
-        {
-            get { return _g; }
-        }
+        public override Size Size => Ctrl.Size;
+        public override System.Drawing.Graphics Graphics => _g;
+        #endregion
+
+        #region Data members
+        private System.Drawing.Graphics _g;
+        private Control Ctrl { get; set; }
         #endregion
     }
 }

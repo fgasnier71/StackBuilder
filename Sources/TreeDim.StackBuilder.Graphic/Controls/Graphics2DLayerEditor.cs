@@ -110,7 +110,7 @@ namespace treeDiM.StackBuilder.Graphics
                         Graphics.DrawArcArrow(ptCenter, 75, 10, Color.Red, out _rotateRectangle);
 
                     // draw position
-                    Graphics.DrawText($"({bp.Position.X:0.##}, {bp.Position.Y:0.##}, {bp.Position.Z:0.##}), {HalfAxis.ToString(bp.DirectionLength)}, {HalfAxis.ToString(bp.DirectionWidth)}");
+                    Graphics.DrawText($"({bp.Position.X:0.##}, {bp.Position.Y:0.##}, {bp.Position.Z:0.##}), {HalfAxis.ToString(bp.DirectionLength)}, {HalfAxis.ToString(bp.DirectionWidth)}", 16);
                 }
             }
             catch (Exception ex)

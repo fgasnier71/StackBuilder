@@ -93,7 +93,5 @@ namespace treeDiM.StackBuilder.Desktop
         #region Logging
         private static ILog _log = LogManager.GetLogger(typeof(FormBecomePremiumUser));
         #endregion
-
-
     }
 }

@@ -17,7 +17,8 @@ public partial class Validation : Page
 		if (!Page.IsPostBack)
 		{
 			Angle = 45.0;
-			ChkbAlternateLayers.Checked = AlternateLayers;
+			ChkbMirrorLength.Checked = LayersMirrorLength;
+			ChkbMirrorWidth.Checked = 
 			ChkbInterlayerBottom.Checked = InterlayerBottom;
 			ChkbInterlayerTop.Checked = InterlayerTop;
 			ChkbInterlayersIntermediate.Checked = InterlayersIntermediate;
@@ -45,10 +46,11 @@ public partial class Validation : Page
 		Vector3D bbTotal = Vector3D.Zero;
 
 		PalletStacking.GetSolution(
-			DimCase, WeightCase,
+			DimCase, WeightCase, BitmapTexture,
 			DimPallet, WeightPallet,
 			MaxPalletHeight, BoxPositions,
-			ChkbAlternateLayers.Checked,
+			ChkbMirrorLength.Checked,
+			ChkbMirrorWidth.Checked,
 			ChkbInterlayerBottom.Checked,
 			ChkbInterlayersIntermediate.Checked,
 			ChkbInterlayerTop.Checked,
@@ -90,7 +92,7 @@ public partial class Validation : Page
 			DimCase, WeightCase,
 			DimPallet, WeightPallet,
 			MaxPalletHeight, BoxPositions,
-			ChkbAlternateLayers.Checked,
+			LayersMirrorLength, LayersMirrorWidth,
 			ChkbInterlayerBottom.Checked , ChkbInterlayersIntermediate.Checked, ChkbInterlayerTop.Checked,
 			ref fileBytes); 
 
@@ -98,6 +100,13 @@ public partial class Validation : Page
 		{
 			ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", $"alert('{fileName} was successfully exported!');", true);
 		}
+	}
+	protected void OnPrevious(object sender, EventArgs e)
+	{
+		if (LayerEdited)
+			Response.Redirect("LayerEdition.aspx");
+		else
+			Response.Redirect("LayerSelection.aspx");
 	}
 	#endregion
 
@@ -107,10 +116,12 @@ public partial class Validation : Page
 	private Vector3D DimPallet => Vector3D.Parse((string)Session[SessionVariables.DimPallet]);
 	private double WeightPallet => (double)Session[SessionVariables.WeightPallet];
 	private double MaxPalletHeight => (double)Session[SessionVariables.MaxPalletHeight];
-	private bool AlternateLayers => (bool)Session[SessionVariables.AlternateLayers];
+	private bool LayersMirrorLength => (bool)Session[SessionVariables.LayersMirrorLength];
+	private bool LayersMirrorWidth => (bool)Session[SessionVariables.LayersMirrorWidth];
 	private bool InterlayerBottom => (bool)Session[SessionVariables.InterlayerBottom];
 	private bool InterlayerTop => (bool)Session[SessionVariables.InterlayerTop];
 	private bool InterlayersIntermediate => (bool)Session[SessionVariables.InterlayersIntermadiate];
+	private bool LayerEdited => (bool)Session[SessionVariables.LayerEdited];
 	private double Angle
 	{
 		get => (double)ViewState["Angle"];
@@ -118,5 +129,7 @@ public partial class Validation : Page
 	}
 	private string FileName => (string)Session[SessionVariables.FileName];
 	private List<BoxPosition> BoxPositions => (List<BoxPosition>)Session[SessionVariables.BoxPositions];
-    #endregion
+	private System.Drawing.Bitmap BitmapTexture => (System.Drawing.Bitmap)Session[SessionVariables.BitmapTexture];
+	#endregion
+
 }

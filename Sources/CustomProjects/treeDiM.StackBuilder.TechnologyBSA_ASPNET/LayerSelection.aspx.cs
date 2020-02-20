@@ -4,6 +4,7 @@ using System.Web.UI;
 using System.Linq;
 using System.Collections.Generic;
 using System.Web.UI.WebControls;
+using System.Drawing;
 
 using Sharp3D.Math.Core;
 
@@ -17,6 +18,16 @@ public partial class _Default : Page
 	{
 		if (!Page.IsPostBack)
 		{
+			try
+			{
+				string filePath = Server.MapPath(@"~\Images\Texture.png");
+				if (System.IO.File.Exists(filePath))
+					BitmapTexture = new Bitmap(filePath);
+			}
+			catch (Exception ex)
+			{
+				string message = ex.ToString();
+			}
 			DimCaseCtrl = DimCase;
 			WeightCaseCtrl = WeightCase;
 			DimPalletCtrl = DimPallet;
@@ -88,6 +99,7 @@ public partial class _Default : Page
 		MaxPalletHeight = MaxPalletHeightCtrl;
 		BoxPositions = BoxPositionsLayer;
 
+		Session[SessionVariables.LayerEdited] = false;
 		Response.Redirect("Validation.aspx");
 	}
 
@@ -131,18 +143,28 @@ public partial class _Default : Page
 		Vector3D bbTotal = Vector3D.Zero;
 
 		PalletStacking.GetSolution(
-			caseDim, caseWeight,
+			caseDim, caseWeight, BitmapTexture,
 			palletDim, palletWeight,
-			maxPalletHeight, BoxPositionsLayer,
-			false, false, false, false, Angle, ref imageBytes, ref caseCount, ref layerCount, ref weightLoad, ref weightTotal, ref bbLoad, ref bbTotal);
+			maxPalletHeight,
+			BoxPositionsLayer,
+			false, false,
+			false, false, false,
+			Angle,
+			ref imageBytes,
+			ref caseCount, ref layerCount,
+			ref weightLoad, ref weightTotal,
+			ref bbLoad, ref bbTotal
+			);
 
-		var palletDetails = new List<PalletDetails>();
-		palletDetails.Add(new PalletDetails("Number of cases", $"{caseCount}", ""));
-		palletDetails.Add(new PalletDetails("Layer count", $"{layerCount}", ""));
-		palletDetails.Add(new PalletDetails("Load weight", $"{weightLoad}", "kg"));
-		palletDetails.Add(new PalletDetails("Total weight", $"{weightTotal}", "kg"));
-		palletDetails.Add(new PalletDetails("Load dimensions", $"{bbLoad.X} x {bbLoad.Y} x {bbLoad.Z}", "mm x mm x mm"));
-		palletDetails.Add(new PalletDetails("Overall dimensions", $"{bbTotal.X} x {bbTotal.Y} x {bbTotal.Z}", "mm x mm x mm"));
+		var palletDetails = new List<PalletDetails>
+		{
+			new PalletDetails("Number of cases", $"{caseCount}", ""),
+			new PalletDetails("Layer count", $"{layerCount}", ""),
+			new PalletDetails("Load weight", $"{weightLoad}", "kg"),
+			new PalletDetails("Total weight", $"{weightTotal}", "kg"),
+			new PalletDetails("Load dimensions", $"{bbLoad.X} x {bbLoad.Y} x {bbLoad.Z}", "mm"),
+			new PalletDetails("Overall dimensions", $"{bbTotal.X} x {bbTotal.Y} x {bbTotal.Z}", "mm")
+		};
 
 		PalletDetails.DataSource = palletDetails;
 		PalletDetails.DataBind();
@@ -179,6 +201,8 @@ public partial class _Default : Page
 		WeightPallet = WeightPalletCtrl;
 		SelectedIndex = -1;
 		BoxPositions = BoxPositionsLayer;
+
+		Session[SessionVariables.LayerEdited] = true;
 		Response.Redirect("LayerEdition.aspx");
 	}
 	private double Angle
@@ -264,5 +288,10 @@ public partial class _Default : Page
 			var layer = solver.BuildLayer(DimCaseCtrl, DimContainer, layerDesc, 0.0);
 			return layer.Positions;
 		}
+	}
+	private Bitmap BitmapTexture
+	{
+		get => (Bitmap)Session[SessionVariables.BitmapTexture];
+		set => Session[SessionVariables.BitmapTexture] = value;
 	}
 }
