@@ -150,6 +150,7 @@ public partial class _Default : Page
 			false, false,
 			false, false, false,
 			Angle,
+			new Size(500,460),
 			ref imageBytes,
 			ref caseCount, ref layerCount,
 			ref weightLoad, ref weightTotal,
@@ -173,7 +174,7 @@ public partial class _Default : Page
 		DimPallet = palletDim;
 		MaxPalletHeight = maxPalletHeight;
 		Session[SessionVariables.ImageWidth] = 500;
-		Session[SessionVariables.ImageHeight] = 500;
+		Session[SessionVariables.ImageHeight] = 460;
 		Session[SessionVariables.ImageBytes] = imageBytes;
 
 		ImagePallet.ImageUrl = "~/Handler.ashx?param=" + DateTime.Now.Ticks.ToString();

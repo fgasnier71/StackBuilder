@@ -21,16 +21,16 @@
             <table class="style100pct">
                 <tr>
                     <td class="style250px">
-                        <asp:Button ID="bnNew" CssClass ="button" runat="server" Text="New project" Width="200px" OnClick="OnNewProject" Style="background-image:url('Images/Create.png'); background-repeat:no-repeat"/>
+                        <asp:Button ID="bnNew" CssClass ="buttonIntro" runat="server" Text="New project" OnClick="OnNewProject" Style="background-image:url('Images/Create.png'); background-repeat:no-repeat"/>
                     </td>
-                    <td></td>
+                    <td/>
                 </tr>
                 <tr>
                     <td class="style250px">
-                        <asp:Button ID="bnOpen" CssClass ="button" runat="server" Text="Open project" Width="200px" OnClick="OnOpenProject" Style="background-image:url('Images/open.png'); background-repeat:no-repeat"/>
+                        <asp:Button ID="bnOpen" CssClass ="buttonIntro" runat="server" Text="Open project" OnClick="OnOpenProject" Style="background-image:url('Images/open.png'); background-repeat:no-repeat"/>
                     </td>
                     <td>
-                        <asp:DropDownList ID="DropDownListFiles" CssClass="select" runat="server" Width="160px"/>
+                        <asp:DropDownList ID="DropDownListFiles" CssClass="select" runat="server" Width="160px" Height="60px"/>
                     </td>
                 </tr>
             </table>

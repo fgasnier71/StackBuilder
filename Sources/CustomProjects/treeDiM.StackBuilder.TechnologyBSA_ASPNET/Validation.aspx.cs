@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Web.UI;
 using System.IO;
+using System.Drawing;
 
 using Sharp3D.Math.Core;
 
@@ -18,7 +19,7 @@ public partial class Validation : Page
 		{
 			Angle = 45.0;
 			ChkbMirrorLength.Checked = LayersMirrorLength;
-			ChkbMirrorWidth.Checked = 
+			ChkbMirrorWidth.Checked = LayersMirrorWidth;
 			ChkbInterlayerBottom.Checked = InterlayerBottom;
 			ChkbInterlayerTop.Checked = InterlayerTop;
 			ChkbInterlayersIntermediate.Checked = InterlayersIntermediate;
@@ -27,13 +28,13 @@ public partial class Validation : Page
 		ExecuteKeyPad();
 		UpdateImage();
     }
-	#endregion
-
 	private void ExecuteKeyPad()
 	{
 		if (ConfigSettings.ShowVirtualKeyboard)
 			ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "VKeyPad", "ActivateVirtualKeyboard();", true);
 	}
+	#endregion
+
 
 	#region Update image
 	protected void UpdateImage()
@@ -49,16 +50,14 @@ public partial class Validation : Page
 			DimCase, WeightCase, BitmapTexture,
 			DimPallet, WeightPallet,
 			MaxPalletHeight, BoxPositions,
-			ChkbMirrorLength.Checked,
-			ChkbMirrorWidth.Checked,
-			ChkbInterlayerBottom.Checked,
-			ChkbInterlayersIntermediate.Checked,
-			ChkbInterlayerTop.Checked,
+			ChkbMirrorLength.Checked, ChkbMirrorWidth.Checked,
+			ChkbInterlayerBottom.Checked, ChkbInterlayersIntermediate.Checked, ChkbInterlayerTop.Checked,
 			Angle,
+			new System.Drawing.Size(550, 550),
 			ref imageBytes, ref caseCount, ref layerCount, ref weightLoad, ref weightTotal, ref bbLoad, ref bbTotal);
 
-		Session[SessionVariables.ImageWidth] = 500;
-		Session[SessionVariables.ImageHeight] = 500;
+		Session[SessionVariables.ImageWidth] = 550;
+		Session[SessionVariables.ImageHeight] = 550;
 		Session[SessionVariables.ImageBytes] = imageBytes;
 
 		ImagePallet.ImageUrl = "~/Handler.ashx?param=" + DateTime.Now.Ticks.ToString();
@@ -92,7 +91,7 @@ public partial class Validation : Page
 			DimCase, WeightCase,
 			DimPallet, WeightPallet,
 			MaxPalletHeight, BoxPositions,
-			LayersMirrorLength, LayersMirrorWidth,
+			ChkbMirrorLength.Checked, ChkbMirrorWidth.Checked,
 			ChkbInterlayerBottom.Checked , ChkbInterlayersIntermediate.Checked, ChkbInterlayerTop.Checked,
 			ref fileBytes); 
 
@@ -122,11 +121,7 @@ public partial class Validation : Page
 	private bool InterlayerTop => (bool)Session[SessionVariables.InterlayerTop];
 	private bool InterlayersIntermediate => (bool)Session[SessionVariables.InterlayersIntermadiate];
 	private bool LayerEdited => (bool)Session[SessionVariables.LayerEdited];
-	private double Angle
-	{
-		get => (double)ViewState["Angle"];
-		set => ViewState["Angle"] = value;
-	}
+	private double Angle	{	get => (double)ViewState["Angle"];	set => ViewState["Angle"] = value;	}
 	private string FileName => (string)Session[SessionVariables.FileName];
 	private List<BoxPosition> BoxPositions => (List<BoxPosition>)Session[SessionVariables.BoxPositions];
 	private System.Drawing.Bitmap BitmapTexture => (System.Drawing.Bitmap)Session[SessionVariables.BitmapTexture];

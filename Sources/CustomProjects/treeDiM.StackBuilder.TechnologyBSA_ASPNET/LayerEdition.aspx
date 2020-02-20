@@ -9,34 +9,27 @@
         .auto-style1 {
             width: 100%;
         }
-
         .auto-style5 {
             text-align: center;
         }
-
         .auto-style6 {
             text-align: right;
             width: 49px;
         }
-
         .auto-style9 {
             text-align: right;
             width: 388px;
         }
-
         .auto-style10 {
             width: 49px;
         }
-
         .auto-style11 {
             text-align: center;
             width: 70px;
         }
-
         .auto-style12 {
             width: 53px;
         }
-
         .auto-style13 {
             width: 388px;
         }
@@ -122,16 +115,18 @@
             <div>
                 <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional" ChildrenAsTriggers="true">
                     <ContentTemplate>
-                        <table class="auto-style1">
+                        <table class="style100pct">
                             <tr>
-                                <td class="auto-style1" />
-                                &nbsp;<td class="auto-style1" />
-                                &nbsp;</tr>
+                                <td class="style100pct"/>
+                                &nbsp;
+                                <td class="style100pct"/>
+                                &nbsp;
+                            </tr>
                             <tr>
-                                <td class="auto-style1" />
-                                <asp:Button ID="bnPrev" runat="server" CssClass="button" OnClick="OnPrevious" Text="&lt; Previous" />
-                                <td class="auto-style1" />
-                                <asp:Button ID="bnNext" runat="server" CssClass="button" OnClick="OnNext" Text="Next &gt;" />
+                                <td class="style100pct" />
+                                <asp:Button ID="bnPrev" runat="server" CssClass="buttonPrev" OnClick="OnPrevious" Text="&lt; Previous" />
+                                <td class="style100pct" />
+                                <asp:Button ID="bnNext" runat="server" CssClass="buttonNext" OnClick="OnNext" Text="Next &gt;" />
                             </tr>
                         </table>
                     </ContentTemplate>

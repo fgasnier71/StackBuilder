@@ -53,18 +53,26 @@
         <File Id="jquery1.11.0.min" Source="$(var.StackBuilderTechBSASourceDir)\javascript\jquery1.11.0.min.js"/>        
       </Component>
       <Component Id="Css" Directory="Css" Guid="{E943DA53-6825-4049-A417-D174A0D974EF}">
-        <File Id="jquery.keypad.css" Source="$(var.StackBuilderTechBSASourceDir)\css\jquery.keypad.css" KeyPath="yes"/>
+        <File Id="default.css" Source="$(var.StackBuilderTechBSASourceDir)\css\default.css" KeyPath="yes"/>
+        <File Id="jquery.keypad.css" Source="$(var.StackBuilderTechBSASourceDir)\css\jquery.keypad.css"/>        
       </Component>
       <Component Id="Images" Directory="Images" Guid="{37401D10-C707-4A65-B449-4076E2E5DF73}">
-        <File Source="$(var.StackBuilderTechBSASourceDir)\Images\ArrowDownB.png"/>
-        <File Source="$(var.StackBuilderTechBSASourceDir)\Images\ArrowDownBStop.png"/>
-        <File Source="$(var.StackBuilderTechBSASourceDir)\Images\ArrowUpB.png"/>
-        <File Source="$(var.StackBuilderTechBSASourceDir)\Images\ArrowUpBStop.png"/>
-        <File Source="$(var.StackBuilderTechBSASourceDir)\Images\ArrowLeftB.png"/>
-        <File Source="$(var.StackBuilderTechBSASourceDir)\Images\ArrowLeftBStop.png"/>
-        <File Source="$(var.StackBuilderTechBSASourceDir)\Images\ArrowRightB.png"/>
-        <File Source="$(var.StackBuilderTechBSASourceDir)\Images\ArrowRightBStop.png"/>
         <File Source="$(var.StackBuilderTechBSASourceDir)\Images\ArrowRotate.png"/>
+        <File Source="$(var.StackBuilderTechBSASourceDir)\Images\down.png"/>
+        <File Source="$(var.StackBuilderTechBSASourceDir)\Images\downMost.png"/>
+        <File Source="$(var.StackBuilderTechBSASourceDir)\Images\up.png"/>
+        <File Source="$(var.StackBuilderTechBSASourceDir)\Images\upMost.png"/>
+        <File Source="$(var.StackBuilderTechBSASourceDir)\Images\left.png"/>
+        <File Source="$(var.StackBuilderTechBSASourceDir)\Images\leftMost.png"/>
+        <File Source="$(var.StackBuilderTechBSASourceDir)\Images\right.png"/>
+        <File Source="$(var.StackBuilderTechBSASourceDir)\Images\rightMost.png"/>
+        <File Source="$(var.StackBuilderTechBSASourceDir)\Images\MirrorLength.png"/>
+        <File Source="$(var.StackBuilderTechBSASourceDir)\Images\MirrorWidth.png"/>
+        <File Source="$(var.StackBuilderTechBSASourceDir)\Images\create.png"/>
+        <File Source="$(var.StackBuilderTechBSASourceDir)\Images\open.png"/>
+        <File Source="$(var.StackBuilderTechBSASourceDir)\Images\editlayer.png"/>
+        <File Source="$(var.StackBuilderTechBSASourceDir)\Images\export.png"/>
+        <File Source="$(var.StackBuilderTechBSASourceDir)\Images\Texture.png"/>
       </Component>
     </ComponentGroup>
 

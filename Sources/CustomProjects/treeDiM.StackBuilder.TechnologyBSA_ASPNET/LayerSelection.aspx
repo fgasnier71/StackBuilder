@@ -5,23 +5,12 @@
 <head runat="server">
     <title></title>
     <style type="text/css">
-        .auto-style1 {
-            width: 100%;
-        }
-        .auto-style2 {
-            height: 11px;
-            width: 65px;
-        }
-        .auto-style3 {
-            width: 150px;
-        }
         .border {
             border: solid 8px;
             color: lightblue;
         }
-        .auto-style5 {
-            width: 390px;
-            text-align: right;
+        .auto-style6 {
+            height: 504px;
         }
     </style>
     <link type="text/css" href="css/jquery.keypad.css" rel="stylesheet" />
@@ -156,20 +145,21 @@
             </asp:UpdatePanel>
             <asp:UpdatePanel ID="selectedLayer" runat="server" UpdateMode="Conditional">
                 <ContentTemplate>
-                    <table class="auto-style1">
+                    <table class="style100pct">
                         <tr>
                             <td colspan="2">
-                                <asp:Image ID="ImagePallet" runat="server" Height="500px" Width="500px" alt="Dynamic Image" />
+                                <asp:Image ID="ImagePallet" runat="server" Height="460px" Width="500px" alt="Dynamic Image" />
                             </td>
                             <td colspan="2">
                                 <asp:GridView ID="PalletDetails" runat="server" AllowPaging="false" BackColor="White" ForeColor="Black" BorderColor="Black"
-                                    AutoGenerateColumns="false" Width="300px">
-                                    <AlternatingRowStyle BackColor="LightBlue" />
+                                    AutoGenerateColumns="false" Width="400px">
+                                    <RowStyle Font-Names="Arial" Font-Size="16px" />
+                                    <AlternatingRowStyle Font-Names="Arial" Font-Size="16px" BackColor="LightBlue" />
                                     <PagerStyle BackColor="LightGray" ForeColor="Black" />
                                     <HeaderStyle BackColor="LightGray" ForeColor="Black" CssClass="headercell"/>
                                     <Columns>
-                                        <asp:BoundField DataField="Name" HeaderText="Name" ControlStyle-CssClass="stylefont" ItemStyle-Width="60%" ReadOnly="true" />
-                                        <asp:BoundField DataField="ValueUnit" HeaderText="Value" ControlStyle-CssClass="stylefont" ItemStyle-Width="40%" />
+                                        <asp:BoundField DataField="Name" HeaderText="Name" ControlStyle-CssClass="stylefont" ItemStyle-Width="50%" ReadOnly="true" />
+                                        <asp:BoundField DataField="ValueUnit" HeaderText="Value" ControlStyle-CssClass="stylefont" ItemStyle-Width="50%" />
                                     </Columns>
                                 </asp:GridView>
                             </td>
@@ -181,11 +171,11 @@
                             <td class="styleTextAlignRight">
                                 <asp:Button ID="bnIncrement" CssClass="buttonInc" runat="server" OnClick="AngleDecrement" Style="background-image:url('Images/right.png'); background-repeat:no-repeat"/>
                             </td>
-                            <td class="auto-style5">
-                                <asp:Button ID="bnEditLayer" CssClass="button" runat="server" OnClick="OnEditLayer" Style="background-image:url('Images/editlayer.png'); background-repeat:no-repeat" Width="130px" />
+                            <td  class="styleTextAlignRight">
+                                <asp:Button ID="bnEditLayer" CssClass="button" runat="server" OnClick="OnEditLayer" Text="Edit layer" Style="background-image:url('Images/editlayer.png'); background-repeat:no-repeat" Width="150px" />
                             </td>
-                            <td class="auto-style4">
-                                <asp:Button ID="bnNext" CssClass="button" runat="server" OnClick="OnNext" Text="Next" Width="130px" />
+                            <td  class="styleTextAlignRight">
+                                <asp:Button ID="bnNext" CssClass="buttonNext" runat="server" OnClick="OnNext" Text="Next &gt;" />
                             </td>
                         </tr>
                     </table>

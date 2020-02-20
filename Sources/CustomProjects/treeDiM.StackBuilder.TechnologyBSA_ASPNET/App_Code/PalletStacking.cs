@@ -68,6 +68,7 @@ public static class PalletStacking
         bool mirrorLength, bool mirrorWidth,
         bool interlayerBottom, bool interlayerIntermediate, bool interlayerTop,
         double angle,
+        Size sz,
         ref byte[] imageBytes,
         ref int caseCount, ref int layerCount,
         ref double weightLoad, ref double weightTotal,
@@ -130,7 +131,7 @@ public static class PalletStacking
         bbLoad = analysis.Solution.BBoxLoad.DimensionsVec;
 
         // generate image path
-        Graphics3DImage graphics = new Graphics3DImage(new Size(500, 500))
+        Graphics3DImage graphics = new Graphics3DImage(sz)
         {
             BackgroundColor = Color.Transparent,
             FontSizeRatio = ConfigSettings.FontSizeRatio,

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Configuration;
+using System.Web.SessionState;
 
 using Sharp3D.Math.Core;
 
@@ -16,7 +17,7 @@ using treeDiM.StackBuilder.Graphics;
 using treeDiM.StackBuilder.Engine;
 #endregion
 
-public class HandlerLayerThumb : IHttpHandler, System.Web.SessionState.IRequiresSessionState
+public class HandlerLayerThumb : IHttpHandler, IRequiresSessionState
 {
     public void ProcessRequest(HttpContext context)
     {
@@ -60,9 +61,8 @@ public class HandlerLayerThumb : IHttpHandler, System.Web.SessionState.IRequires
                 throw;
             }
         }
-        catch (Exception ex)
+        catch (Exception /*ex*/)
         {
-            string message = ex.ToString();
         }
     }
 
@@ -91,5 +91,4 @@ public class HandlerLayerThumb : IHttpHandler, System.Web.SessionState.IRequires
             return new Size(thumbSize, thumbSize);
         }
     }
-
 }

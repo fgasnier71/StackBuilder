@@ -51,7 +51,7 @@ namespace treeDiM.StackBuilder.Graphics
                 graphics.DrawBoxSelected(boxSelected);
 
                 // draw position
-                graphics.DrawText($"({bp.Position.X:0.##}, {bp.Position.Y:0.##}, {bp.Position.Z:0.##}), {HalfAxis.ToString(bp.DirectionLength)}, {HalfAxis.ToString(bp.DirectionWidth)}", 16);
+                graphics.DrawText($"({bp.Position.X:0.##}, {bp.Position.Y:0.##}, {bp.Position.Z:0.##}), {HalfAxis.ToString(bp.DirectionLength)}, {HalfAxis.ToString(bp.DirectionWidth)}", FontSize);
             }
             return graphics.Bitmap;
         }
@@ -162,6 +162,8 @@ namespace treeDiM.StackBuilder.Graphics
         public Vector3D DimCase { get; set; }
         public Vector2D DimContainer { get; set; }
         public int SelectedIndex { get; set; } = -1;
+        public double FontSizeRatio { get; set; }
+        public int FontSize => (int)(FontSizeRatio * SizeImage.Height);
         #endregion
     }
 }

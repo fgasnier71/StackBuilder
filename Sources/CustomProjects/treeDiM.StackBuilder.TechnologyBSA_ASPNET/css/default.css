@@ -10,7 +10,7 @@ div.ex2 {
     background-color: #F2F4F4;
     color: dimgray;
     border: none;
-    padding: 20px;
+    padding: 5px;
     text-align: right;
     text-decoration: none;
     display: inline-block;
@@ -18,22 +18,61 @@ div.ex2 {
     margin: 4px 2px;
     border-radius: 5px;
     width: 160px;
-    height: 55px;
+    height: 50px;
+}
+.buttonNext {
+    background-color: #F2F4F4;
+    color: dimgray;
+    border: none;
+    padding: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 5px;
+    width: 160px;
+    height: 50px;
+}
+.buttonPrev {
+    background-color: #F2F4F4;
+    color: dimgray;
+    border: none;
+    padding: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 5px;
+    width: 160px;
+    height: 50px;
+}
+.buttonIntro {
+    background-color: #F2F4F4;
+    color: dimgray;
+    border: none;
+    padding: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    border-radius: 5px;
+    width: 200px;
+    height: 50px;
 }
 .buttonRefresh {
     background-color: #F2F4F4;
     color: dimgray;
     border: none;
-    padding: 20px;
-    text-align: right;
+    padding: 5px;
+    text-align: center;
     text-decoration: none;
     display: inline-block;
     border-radius: 5px;
     font-size: 16px;
     width: 100px;
-    height: 40px;
+    height: 30px;
 }
-
 .buttonInc {
     background-color: #F2F4F4;
     border: none;
@@ -58,12 +97,14 @@ div.ex2 {
     font-family:Arial, Verdana;
 }
 .select {
-    border-radius: 5px;
     background-color: #F2F4F4;
     font-size: 16px;
+    border: none;
+    padding: 5px;
     color: dimgray;
-    padding: 20px;
-    width: 160px;
+    width: 200px;
+    height: 50px;
+    border-radius: 5px;
 }
 .style100pct {
     width: 100%;
@@ -88,6 +129,9 @@ div.ex2 {
 }
 .stylefont {
     font: normal, 16px arial, verdana;
+    font-weight: normal;
+    font-size: 16px;
+    font-family: Arial;
 }
 .headercell {
     font-weight: normal;

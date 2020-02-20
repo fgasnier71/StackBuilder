@@ -259,6 +259,7 @@ namespace treeDiM.StackBuilder.Basics
             Analysis = analysis;
             LayerEncaps = new List<LayerEncap>() { new LayerEncap(layer) };
             LayersMirrorX = mirrorLength;
+            LayersMirrorY = mirrorWidth;
 
             RebuildLayers();
             InitializeSolutionItemList();

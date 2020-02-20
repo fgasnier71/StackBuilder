@@ -11,7 +11,7 @@
         }
 
         .auto-style2 {
-            width: 500px;
+            width: 550px;
             text-align: center;
         }
 
@@ -63,7 +63,7 @@
                     <table class="style100pct">
                         <tr>
                             <td colspan="3" class="auto-style2">
-                                <asp:Image ID="ImagePallet" runat="server" Height="500px" Width="500px" alt="Dynamic Image" />
+                                <asp:Image ID="ImagePallet" runat="server" Height="550px" Width="550px" alt="Dynamic Image" ImageAlign="Middle" />
                             </td>
                             <td colspan="2" class="auto-style3">
                                 <asp:Panel ID="PanelLayerOrientation" runat="server" GroupingText="Alternate layer orientation" Width="100%" BorderColor="LightGray" BackColor="Transparent">
@@ -103,11 +103,11 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="auto-style5">
+                            <td>
                                 <asp:Button ID="bnDecrement" CssClass="buttonInc" runat="server" OnClick="AngleIncrement" Style="background-image: url('Images/left.png'); background-repeat: no-repeat" />
                             </td>
-                            <td class="auto-style6" />
-                            <td class="auto-style7">
+                            <td/>
+                            <td class="styleTextAlignRight">
                                 <asp:Button ID="bnIncrement" CssClass="buttonInc" runat="server" OnClick="AngleDecrement" Style="background-image: url('Images/right.png'); background-repeat: no-repeat" />
                             </td>
                             <td class="auto-style6"></td>
@@ -122,7 +122,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <asp:Button ID="BTPrev" runat="server" Text="&lt; Previous" CssClass="button" OnClick="OnPrevious" />
+                                <asp:Button ID="BTPrev" runat="server" Text="&lt; Previous" CssClass="buttonPrev" OnClick="OnPrevious" />
                             </td>
                             <td />
                             <td>

@@ -32,7 +32,8 @@ public class HandlerLayerEditor : IHttpHandler, System.Web.SessionState.IRequire
         var layerEditorHelpers = new LayerEditorHelpers(sz, dimCase, dimContainer)
         {
             Positions = (List<BoxPosition>)context.Session[SessionVariables.BoxPositions],
-            SelectedIndex = selectedIndex
+            SelectedIndex = selectedIndex,
+            FontSizeRatio = ConfigSettings.FontSizeRatio
         };
 
         ImageConverter converter = new ImageConverter();
