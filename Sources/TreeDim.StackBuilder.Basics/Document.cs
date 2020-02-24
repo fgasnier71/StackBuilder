@@ -1108,14 +1108,47 @@ namespace treeDiM.StackBuilder.Basics
                 {
                     foreach (XmlNode analysisNode in docChildNode.ChildNodes)
                     {
-                        try
+                        if (string.Equals(analysisNode.Name, "Analysis"))
                         {
-                            LoadAnalysis(analysisNode as XmlElement);
+                            try
+                            {
+                                LoadAnalysis(analysisNode as XmlElement);
+                            }
+                            catch (Exception ex)
+                            {
+                                _log.Error($"Failed to load analysis: {ex.Message}");
+                            }
                         }
-                        catch (Exception ex)
+                        // StackBuilder 2.0 analyses
+                        else if (string.Equals(analysisNode.Name, "AnalysisPallet"))
                         {
-                            _log.Error($"Failed to load analysis: {ex.Message}");
+                            try
+                            {
+                                var analysisElt = analysisNode as XmlElement;
+                                string sName = analysisElt.Attributes["Name"].Value;
+                                _log.Info($"Loading analysis {sName}...");
+                                LoadAnalysisPallet(analysisNode as XmlElement);
+                            }
+                            catch (Exception ex)
+                            {
+                                _log.Error($"Failed to load AnalysisPallet (StackBuilder 2): {ex.Message}");
+                            }
                         }
+                        else if (string.Equals(analysisNode.Name, "AnalysisBoxCase"))
+                        {
+                            try
+                            {
+                                var analysisElt = analysisNode as XmlElement;
+                                string sName = analysisElt.Attributes["Name"].Value;
+                                _log.Info($"Loading analysis {sName}...");
+                                LoadAnalysisBoxCase(analysisNode as XmlElement);
+                            }
+                            catch (Exception ex)
+                            {
+                                _log.Error($"Failed to load AnalysisBoxCase (StackBuilder 2): {ex.Message}");
+                            }
+                        }
+
                     }
                 }
                 // load heterogeneous analyses
@@ -1889,6 +1922,126 @@ namespace treeDiM.StackBuilder.Basics
                     );
             }
         }
+        #region StackBuilder 2.0
+        private void LoadAnalysisPallet(XmlElement eltAnalysis)
+        {
+            string sId = string.Empty;
+            if (eltAnalysis.HasAttribute("Id"))
+                sId = eltAnalysis.Attributes["Id"].Value;
+            string sName = eltAnalysis.Attributes["Name"].Value;
+            string sDescription = eltAnalysis.Attributes["Description"].Value;
+            string sContentId = eltAnalysis.Attributes["BoxId"].Value;
+            string sContainerId = eltAnalysis.Attributes["PalletId"].Value;
+            string sPalletCornerId = string.Empty, sPalletCapId = string.Empty, sPalletFilmId = string.Empty;
+            string sInterlayerId = string.Empty;
+
+
+            Packable packable = GetContentByGuid(Guid.Parse(sContentId)) as Packable;
+            PalletProperties palletProperties = GetTypeByGuid(sContainerId) as PalletProperties;
+            PalletCornerProperties palletCorners = GetTypeByGuid(sPalletCornerId) as PalletCornerProperties;
+            PalletCapProperties palletCap = GetTypeByGuid(sPalletCapId) as PalletCapProperties;
+            PalletFilmProperties palletFilm = GetTypeByGuid(sPalletFilmId) as PalletFilmProperties;
+            StrapperSet strapperSet = new StrapperSet();            
+
+            var interlayers = new List<InterlayerProperties>();
+            if (GetTypeByGuid(sInterlayerId) is InterlayerProperties interlayer)
+                interlayers.Add(interlayer);
+            bool allowAlignedLayers = true, allowAlternateLayers = true;
+            string sAllowedBoxPositions = string.Empty;
+            string[] sAllowedPatterns;
+            OptDouble maxPalletHeight = new OptDouble(true, 2000);
+            OptDouble maxPalletWeight = OptDouble.Zero;
+            OptInt maxNumberOfItems = OptInt.Zero;
+            Vector2D overhang = Vector2D.Zero;
+
+            foreach (var constraintSetNode in eltAnalysis.SelectNodes("ConstraintSetBox"))
+            {
+                if (constraintSetNode is XmlElement constraintSetElt)
+                {
+                    if (constraintSetElt.HasAttribute("AlignedLayersAllowed"))
+                        allowAlignedLayers = bool.Parse(constraintSetElt.Attributes["AlignedLayersAllowed"].Value);
+                    if (constraintSetElt.HasAttribute("AlternateLayersAllowed"))
+                        allowAlternateLayers = bool.Parse(constraintSetElt.Attributes["AlternateLayersAllowed"].Value);
+                    if (constraintSetElt.HasAttribute("AllowedBoxPositions"))
+                        sAllowedBoxPositions = constraintSetElt.Attributes["AllowedBoxPositions"].Value;
+                    if (constraintSetElt.HasAttribute("AllowedPatterns"))
+                        sAllowedPatterns = constraintSetElt.Attributes["AllowedPatterns"].Value.Split(',');
+                    if (constraintSetElt.HasAttribute("MaximumHeight"))
+                        maxPalletHeight = new OptDouble(true, double.Parse(constraintSetElt.Attributes["MaximumHeight"].Value, NumberFormatInfo.InvariantInfo));
+                    if (constraintSetElt.HasAttribute("MaximumPalletWeight"))
+                        maxPalletWeight = new OptDouble(true, double.Parse(constraintSetElt.Attributes["MaximumPalletWeight"].Value, NumberFormatInfo.InvariantInfo));
+                    if (constraintSetElt.HasAttribute("ManimumNumberOfItems"))
+                        maxNumberOfItems = new OptInt(true, int.Parse(constraintSetElt.Attributes["ManimumNumberOfItems"].Value));
+                }
+            }
+
+            bool[] allowedOrientations = { sAllowedBoxPositions.Contains("XP"), sAllowedBoxPositions.Contains("YP"), sAllowedBoxPositions.Contains("ZP") };
+
+            ConstraintSetCasePallet constraintSet = new ConstraintSetCasePallet()
+            {
+                Overhang = overhang,
+                OptMaxWeight = maxPalletWeight,
+                OptMaxNumber = maxNumberOfItems
+            };
+            constraintSet.SetAllowedOrientations(allowedOrientations);
+            constraintSet.SetMaxHeight(maxPalletHeight);
+
+            var layerDesc = new LayerDescBox("Column", HalfAxis.HAxis.AXIS_Z_P, false);
+            List<LayerEncap> listLayerEncaps = new List<LayerEncap>() { new LayerEncap(layerDesc) };
+
+            var analysis = CreateNewAnalysisCasePallet(
+                sName, sDescription
+                , packable, palletProperties
+                , interlayers
+                , palletCorners, palletCap, palletFilm
+                , constraintSet as ConstraintSetCasePallet
+                , listLayerEncaps) as AnalysisLayered;
+            if (!string.IsNullOrEmpty(sId))
+                analysis.ID.IGuid = Guid.Parse(sId);
+            AnalysisCasePallet analysisCasePallet = analysis as AnalysisCasePallet;
+            analysisCasePallet.StrapperSet = strapperSet;
+
+        }
+        private void LoadAnalysisBoxCase(XmlElement eltAnalysis)
+        {
+            string sId = string.Empty;
+            if (eltAnalysis.HasAttribute("Id"))
+                sId = eltAnalysis.Attributes["Id"].Value;
+            string sName = eltAnalysis.Attributes["Name"].Value;
+            string sDescription = eltAnalysis.Attributes["Description"].Value;
+            string sContentId = eltAnalysis.Attributes["BoxId"].Value;
+            string sContainerId = eltAnalysis.Attributes["CaseId"].Value;
+
+            Packable packable = GetContentByGuid(Guid.Parse(sContentId)) as Packable;
+            BoxProperties caseProperties = GetTypeByGuid(sContainerId) as BoxProperties;
+            List<InterlayerProperties> interlayers = new List<InterlayerProperties>();
+
+            var layerDesc = new LayerDescBox("Column", HalfAxis.HAxis.AXIS_Z_P, false);
+            List<LayerEncap> listLayerEncaps = new List<LayerEncap>() { new LayerEncap(layerDesc) };
+
+            string sAllowedBoxPositions = string.Empty;
+            foreach (var constraintSetNode in eltAnalysis.SelectNodes("ConstraintSetCase"))
+            {
+
+                if (constraintSetNode is XmlElement constraintSetElt)
+                {
+                if (constraintSetElt.HasAttribute("AllowedBoxPositions"))
+                    sAllowedBoxPositions = constraintSetElt.Attributes["AllowedBoxPositions"].Value;
+                }
+            }
+            bool[] allowedOrientations = { sAllowedBoxPositions.Contains("XP"), sAllowedBoxPositions.Contains("YP"), sAllowedBoxPositions.Contains("ZP") };
+            var constraintSet = new ConstraintSetBoxCase(caseProperties);
+            constraintSet.SetAllowedOrientations(allowedOrientations);
+
+            var analysis = CreateNewAnalysisBoxCase(
+                sName, sDescription,
+                packable, caseProperties,
+                interlayers, constraintSet,
+                listLayerEncaps);
+            if (!string.IsNullOrEmpty(sId))
+                analysis.ID.IGuid = Guid.Parse(sId);
+        }
+        #endregion
 
         private void LoadHAnalysis(XmlElement eltAnalysis)
         {
