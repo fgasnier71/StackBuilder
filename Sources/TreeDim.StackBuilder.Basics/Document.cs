@@ -25,17 +25,6 @@ namespace treeDiM.StackBuilder.Basics
     /// </summary>
     public class Document
     {
-        #region Data members
-        private UnitsManager.UnitSystem UnitSystem = UnitsManager.UnitSystem.UNIT_METRIC1;
-        private List<ItemBase> _typeList = new List<ItemBase>();
- 
-        private List<IDocumentListener> _listeners = new List<IDocumentListener>();
-        protected static readonly ILog _log = LogManager.GetLogger(typeof(Document));
-
-        public delegate void DocumentClosing(Document document);
-        public event DocumentClosing DocumentClosed;
-        #endregion
-
         #region Constructor
         public Document(string filePath, IDocumentListener listener)
         {
@@ -1124,9 +1113,6 @@ namespace treeDiM.StackBuilder.Basics
                         {
                             try
                             {
-                                var analysisElt = analysisNode as XmlElement;
-                                string sName = analysisElt.Attributes["Name"].Value;
-                                _log.Info($"Loading analysis {sName}...");
                                 LoadAnalysisPallet(analysisNode as XmlElement);
                             }
                             catch (Exception ex)
@@ -1138,9 +1124,6 @@ namespace treeDiM.StackBuilder.Basics
                         {
                             try
                             {
-                                var analysisElt = analysisNode as XmlElement;
-                                string sName = analysisElt.Attributes["Name"].Value;
-                                _log.Info($"Loading analysis {sName}...");
                                 LoadAnalysisBoxCase(analysisNode as XmlElement);
                             }
                             catch (Exception ex)
@@ -1453,16 +1436,6 @@ namespace treeDiM.StackBuilder.Basics
                 return false;
             }
             return true;
-        }
-        private void LoadCaseDefinition(XmlElement eltCaseDefinition, out CaseDefinition caseDefinition)
-        {
-            string sArrangement = eltCaseDefinition.Attributes["Arrangement"].Value;
-            string sDim = eltCaseDefinition.Attributes["Orientation"].Value;
-            int[] iOrientation = Document.ParseInt2(sDim);
-            caseDefinition = new CaseDefinition(
-                PackArrangement.TryParse(sArrangement)
-                , iOrientation[0]
-                , iOrientation[1]);
         }
         private void LoadPalletProperties(XmlElement eltPalletProperties)
         {
@@ -1986,8 +1959,13 @@ namespace treeDiM.StackBuilder.Basics
             constraintSet.SetAllowedOrientations(allowedOrientations);
             constraintSet.SetMaxHeight(maxPalletHeight);
 
-            var layerDesc = new LayerDescBox("Column", HalfAxis.HAxis.AXIS_Z_P, false);
-            List<LayerEncap> listLayerEncaps = new List<LayerEncap>() { new LayerEncap(layerDesc) };
+            LayerDesc layerDesc = new LayerDescBox("Column", HalfAxis.HAxis.AXIS_Z_P, false);
+            if (null != SolutionLayered.Solver)
+                layerDesc = SolutionLayered.Solver.BestLayerDesc(
+                    packable.OuterDimensions,
+                    new Vector2D(palletProperties.Length + 2.0 * overhang.X, palletProperties.Width + 2.0 * overhang.Y),
+                    palletProperties.Height,
+                    constraintSet);
 
             var analysis = CreateNewAnalysisCasePallet(
                 sName, sDescription
@@ -1995,7 +1973,7 @@ namespace treeDiM.StackBuilder.Basics
                 , interlayers
                 , palletCorners, palletCap, palletFilm
                 , constraintSet as ConstraintSetCasePallet
-                , listLayerEncaps) as AnalysisLayered;
+                , new List<LayerEncap>() { new LayerEncap(layerDesc) }) as AnalysisLayered;
             if (!string.IsNullOrEmpty(sId))
                 analysis.ID.IGuid = Guid.Parse(sId);
             AnalysisCasePallet analysisCasePallet = analysis as AnalysisCasePallet;
@@ -2016,8 +1994,6 @@ namespace treeDiM.StackBuilder.Basics
             BoxProperties caseProperties = GetTypeByGuid(sContainerId) as BoxProperties;
             List<InterlayerProperties> interlayers = new List<InterlayerProperties>();
 
-            var layerDesc = new LayerDescBox("Column", HalfAxis.HAxis.AXIS_Z_P, false);
-            List<LayerEncap> listLayerEncaps = new List<LayerEncap>() { new LayerEncap(layerDesc) };
 
             string sAllowedBoxPositions = string.Empty;
             foreach (var constraintSetNode in eltAnalysis.SelectNodes("ConstraintSetCase"))
@@ -2033,11 +2009,21 @@ namespace treeDiM.StackBuilder.Basics
             var constraintSet = new ConstraintSetBoxCase(caseProperties);
             constraintSet.SetAllowedOrientations(allowedOrientations);
 
+            var layerDesc = new LayerDescBox("Column", HalfAxis.HAxis.AXIS_Z_P, false);
+            if (null != SolutionLayered.Solver)
+                SolutionLayered.Solver.BestLayerDesc(
+                    packable.OuterDimensions,
+                    new Vector2D(caseProperties.InsideDimensions.X, caseProperties.InsideDimensions.Y),
+                    0.0,
+                    constraintSet
+                    );
+
             var analysis = CreateNewAnalysisBoxCase(
                 sName, sDescription,
                 packable, caseProperties,
                 interlayers, constraintSet,
-                listLayerEncaps);
+                new List<LayerEncap>() { new LayerEncap(layerDesc) }
+                );
             if (!string.IsNullOrEmpty(sId))
                 analysis.ID.IGuid = Guid.Parse(sId);
         }
@@ -3775,6 +3761,19 @@ namespace treeDiM.StackBuilder.Basics
             foreach (IDocumentListener listener in _listeners)
                 listener.OnAnalysisRemoved(this, analysis);
         }
+        #endregion
+
+        #region Events
+        public delegate void DocumentClosing(Document document);
+        public event DocumentClosing DocumentClosed;
+        #endregion
+
+        #region Data members
+        private UnitsManager.UnitSystem UnitSystem = UnitsManager.UnitSystem.UNIT_METRIC1;
+        private List<ItemBase> _typeList = new List<ItemBase>();
+        private List<IDocumentListener> _listeners = new List<IDocumentListener>();
+
+        protected static readonly ILog _log = LogManager.GetLogger(typeof(Document));
         #endregion
     }
 }

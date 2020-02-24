@@ -18,6 +18,7 @@ namespace treeDiM.StackBuilder.Basics
     #region ILayerSolver
     public interface ILayerSolver
     {
+        LayerDesc BestLayerDesc(Vector3D dimBox, Vector2D dimContainer, double offsetZ, ConstraintSetAbstract constraintSet);
         List<Layer2DBrickImp> BuildLayers(Vector3D dimBox, Vector2D dimContainer, double offsetZ, ConstraintSetAbstract constraintSet, bool keepOnlyBest);
         List<ILayer2D> BuildLayers(Packable packable, Vector2D dimContainer, double offsetZ, ConstraintSetAbstract constraintSet, bool keepOnlyBest);
         Layer2DBrickImp BuildLayer(Vector3D dimBox, Vector2D actualDimensions, LayerDescBox layerDesc, double minSpace);

@@ -10,6 +10,11 @@ namespace treeDiM.StackBuilder.Engine
 {
     public class LayerSolver : ILayerSolver
     {
+        public LayerDesc BestLayerDesc(Vector3D dimBox, Vector2D dimContainer, double offsetZ, ConstraintSetAbstract constraintSet)
+        {
+            var layers = BuildLayers(dimBox, dimContainer, offsetZ, constraintSet, true);
+            return layers[0].LayerDescriptor;
+        }
         public List<Layer2DBrickImp> BuildLayers(
             Vector3D dimBox, Vector2D dimContainer,
             double offsetZ, /* e.g. pallet height */
