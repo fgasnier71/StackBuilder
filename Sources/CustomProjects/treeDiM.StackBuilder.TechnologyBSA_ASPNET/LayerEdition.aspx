@@ -38,7 +38,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div class="ex2">
+        <div class="div980x780">
             <asp:ScriptManager ID="pageUpdate" runat="server" EnablePartialRendering="true"></asp:ScriptManager>
             <asp:UpdatePanel ID="layerImage" runat="server" UpdateMode="Conditional" ChildrenAsTriggers="true">
                 <ContentTemplate>

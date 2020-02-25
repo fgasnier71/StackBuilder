@@ -17,7 +17,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div class="ex2">
+        <div class="div980x780">
             <table class="style100pct">
                 <tr>
                     <td class="style250px">

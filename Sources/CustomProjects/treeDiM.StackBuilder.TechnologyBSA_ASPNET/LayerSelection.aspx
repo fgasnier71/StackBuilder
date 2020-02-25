@@ -39,7 +39,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div class="ex2">
+        <div class="div980x780">
             <asp:ScriptManager ID="pageUpdates" runat="server" EnablePartialRendering="true"></asp:ScriptManager>
             <asp:UpdatePanel ID="controlsInput" runat="server">
                 <ContentTemplate>

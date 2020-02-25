@@ -31,16 +31,13 @@
 
         .auto-style5 {
             text-align: left;
-            height: 34px;
         }
 
         .auto-style6 {
-            height: 34px;
         }
 
         .auto-style7 {
             text-align: right;
-            height: 34px;
         }
     </style>
     <script type="text/javascript" src="javascript/jquery1.11.0.min.js"></script>
@@ -56,7 +53,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div class="ex2">
+        <div class="div980x780">
             <asp:ScriptManager ID="pageUpdates" runat="server" EnablePartialRendering="true"></asp:ScriptManager>
             <asp:UpdatePanel ID="loadedPallet" runat="server" UpdateMode="Conditional">
                 <ContentTemplate>
@@ -67,7 +64,7 @@
                             </td>
                             <td colspan="2" class="auto-style3">
                                 <asp:Panel ID="PanelLayerOrientation" runat="server" GroupingText="Alternate layer orientation" Width="100%" BorderColor="LightGray" BackColor="Transparent">
-                                    <table>
+                                    <table class="style100pct">
                                         <tr>
                                             <td>
                                                 <asp:CheckBox ID="ChkbMirrorLength" runat="server" OnCheckedChanged="OnInputChanged" AutoPostBack="true" CssClass="checkbox" Width="25px"/>
@@ -125,13 +122,13 @@
                                 <asp:Button ID="BTPrev" runat="server" Text="&lt; Previous" CssClass="buttonPrev" OnClick="OnPrevious" />
                             </td>
                             <td />
-                            <td>
-                                <asp:Label ID="lbFileName" runat="server" Text="File name" CssClass="label" />
-                            </td>
-                            <td>
-                                <asp:TextBox ID="TBFileName" runat="server" Width="250px" CssClass="textbox" />
+                            <td class="styleTextAlignRight">
+                                <asp:Label ID="lbFileName" runat="server" Text="File name" CssClass="labelRight" />
                             </td>
                             <td class="auto-style4">
+                                <asp:TextBox ID="TBFileName" runat="server" Width="100%" CssClass="textbox" />
+                            </td>
+                            <td >
                                 <asp:Button ID="btExport" runat="server" OnClick="OnExport" Text="Export" CssClass="button" Style="background-image: url('Images/Export.png'); background-repeat: no-repeat" />
                             </td>
                         </tr>

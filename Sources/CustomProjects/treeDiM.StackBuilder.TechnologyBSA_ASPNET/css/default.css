@@ -1,10 +1,10 @@
 ﻿body {
 }
-div.ex2 {
+div.div980x780 {
     max-width: 980px;
     height: 780px;
     margin: auto;
-    border: 1px solid #000000;
+    border: 0px solid #000000;
 }
 .button {
     background-color: #F2F4F4;
@@ -90,9 +90,14 @@ div.ex2 {
     font-family:Arial, Verdana;
     color:dimgray;
 }
+.labelRight {
+    font-size:16px;
+    font-family:Arial, Verdana;
+    color:dimgray;
+    text-align:right;
+}
 .checkbox {
-    margin: 10px 10px;
-    padding: 20px;
+    padding: 10px;
     font-size:16px;
     font-family:Arial, Verdana;
 }
