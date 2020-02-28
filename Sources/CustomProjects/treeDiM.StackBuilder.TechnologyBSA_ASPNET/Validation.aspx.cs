@@ -53,7 +53,7 @@ public partial class Validation : Page
 			ChkbMirrorLength.Checked, ChkbMirrorWidth.Checked,
 			ChkbInterlayerBottom.Checked, ChkbInterlayersIntermediate.Checked, ChkbInterlayerTop.Checked,
 			Angle,
-			new System.Drawing.Size(550, 550),
+			new Size(550, 550),
 			ref imageBytes, ref caseCount, ref layerCount, ref weightLoad, ref weightTotal, ref bbLoad, ref bbTotal);
 
 		Session[SessionVariables.ImageWidth] = 550;

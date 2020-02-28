@@ -1097,19 +1097,9 @@ namespace treeDiM.StackBuilder.Basics
                 {
                     foreach (XmlNode analysisNode in docChildNode.ChildNodes)
                     {
-                        if (string.Equals(analysisNode.Name, "Analysis"))
-                        {
-                            try
-                            {
-                                LoadAnalysis(analysisNode as XmlElement);
-                            }
-                            catch (Exception ex)
-                            {
-                                _log.Error($"Failed to load analysis: {ex.Message}");
-                            }
-                        }
+                        XmlElement analysisElt = analysisNode as XmlElement;
                         // StackBuilder 2.0 analyses
-                        else if (string.Equals(analysisNode.Name, "AnalysisPallet"))
+                        if (string.Equals(analysisNode.Name, "AnalysisPallet") && !analysisElt.HasAttribute("ContentId"))
                         {
                             try
                             {
@@ -1120,7 +1110,7 @@ namespace treeDiM.StackBuilder.Basics
                                 _log.Error($"Failed to load AnalysisPallet (StackBuilder 2): {ex.Message}");
                             }
                         }
-                        else if (string.Equals(analysisNode.Name, "AnalysisBoxCase"))
+                        else if (string.Equals(analysisNode.Name, "AnalysisBoxCase") && !analysisElt.HasAttribute("ContentId"))
                         {
                             try
                             {
@@ -1130,6 +1120,17 @@ namespace treeDiM.StackBuilder.Basics
                             {
                                 _log.Error($"Failed to load AnalysisBoxCase (StackBuilder 2): {ex.Message}");
                             }
+                        }
+                        else
+                        { 
+                            try
+                            {
+                                LoadAnalysis(analysisNode as XmlElement);
+                            }
+                            catch (Exception ex)
+                            {
+                                _log.Error($"Failed to load analysis: {ex.Message}");
+                            }                        
                         }
 
                     }
@@ -1695,7 +1696,6 @@ namespace treeDiM.StackBuilder.Basics
             }
             else if (string.Equals(eltAnalysis.Name, "AnalysisBoxCase", StringComparison.CurrentCultureIgnoreCase))
             {
-
                 Packable packable = GetContentByGuid(Guid.Parse(sContentId)) as Packable;
                 BoxProperties caseProperties = GetTypeByGuid(sContainerId) as BoxProperties;
 

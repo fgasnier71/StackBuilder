@@ -21,13 +21,13 @@ namespace treeDiM.StackBuilder.ImportBSA.Test
                 Vector3D dimPallet = Vector3D.Zero;
                 double weightCase = 0.0, weightPallet = 0.0, maxPalletHeight = 0.0;
                 List<BoxPosition> boxPositions = new List<BoxPosition>();
-                bool hasInterlayerBottom = false, hasInterlayerTop = false, hasInterlayersMiddle = false, alternateLayers = false;
+                bool hasInterlayerBottom = false, hasInterlayerTop = false, hasInterlayersMiddle = false, layerMirrorX = false, layerMirrorY = false;
                 ExporterCSV_TechBSA.Import(fs,
                     ref boxPositions,
                     ref dimCase, ref weightCase,
                     ref dimPallet, ref weightPallet,
                     ref maxPalletHeight,
-                    ref alternateLayers,
+                    ref layerMirrorX, ref layerMirrorY,
                     ref hasInterlayerBottom, ref hasInterlayerTop, ref hasInterlayersMiddle);
 
                 Console.WriteLine("Box positions:");

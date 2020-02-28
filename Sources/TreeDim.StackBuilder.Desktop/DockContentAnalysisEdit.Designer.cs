@@ -47,6 +47,8 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButtonExportXML = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonExportCSV = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonExport3D = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerHoriz)).BeginInit();
             this.splitContainerHoriz.Panel1.SuspendLayout();
             this.splitContainerHoriz.Panel2.SuspendLayout();
@@ -168,7 +170,9 @@
             this.toolStripButtonReport,
             this.toolStripSeparator1,
             this.toolStripButtonExportXML,
-            this.toolStripButtonExportCSV});
+            this.toolStripButtonExportCSV,
+            this.toolStripSeparator3,
+            this.toolStripButtonExport3D});
             resources.ApplyResources(this.toolStripAnalysis, "toolStripAnalysis");
             this.toolStripAnalysis.Name = "toolStripAnalysis";
             // 
@@ -209,6 +213,18 @@
             resources.ApplyResources(this.toolStripButtonExportCSV, "toolStripButtonExportCSV");
             this.toolStripButtonExportCSV.Name = "toolStripButtonExportCSV";
             this.toolStripButtonExportCSV.Click += new System.EventHandler(this.OnGenerateExport);
+            // 
+            // toolStripButtonExport3D
+            // 
+            this.toolStripButtonExport3D.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.toolStripButtonExport3D, "toolStripButtonExport3D");
+            this.toolStripButtonExport3D.Name = "toolStripButtonExport3D";
+            this.toolStripButtonExport3D.Click += new System.EventHandler(this.OnExport3D);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            resources.ApplyResources(this.toolStripSeparator3, "toolStripSeparator3");
             // 
             // DockContentAnalysisEdit
             // 
@@ -257,5 +273,7 @@
         private System.Windows.Forms.ToolStripButton toolStripButtonExportCSV;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripButton toolStripButtonExport3D;
     }
 }

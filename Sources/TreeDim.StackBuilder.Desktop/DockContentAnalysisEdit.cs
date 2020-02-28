@@ -397,6 +397,11 @@ namespace treeDiM.StackBuilder.Desktop
             }
             FormMain.GetInstance().GenerateExport(_analysis, formatName);
         }
+        private void OnExport3D(object sender, EventArgs e)
+        {
+            var exporter = new Exporters.ExporterGLB();
+            exporter.Export(_analysis as AnalysisLayered, @"d:\Github\StackBuilder\LoadedPallet.glb");
+        }
         #endregion
 
         #region Layer controls
@@ -495,5 +500,7 @@ namespace treeDiM.StackBuilder.Desktop
         /// </summary>
         protected static readonly ILog _log = LogManager.GetLogger(typeof(DockContentAnalysisEdit));
         #endregion
+
+
     }
 }
