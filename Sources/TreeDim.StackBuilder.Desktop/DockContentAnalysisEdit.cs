@@ -399,8 +399,17 @@ namespace treeDiM.StackBuilder.Desktop
         }
         private void OnExport3D(object sender, EventArgs e)
         {
-            var exporter = new Exporters.ExporterGLB();
-            exporter.Export(_analysis as AnalysisLayered, @"d:\Github\StackBuilder\LoadedPallet.glb");
+            var form = new SaveFileDialog()
+            {
+                Filter = "Binary GL Transmission Format (*.glb)|*.glb",
+                DefaultExt = "glb",
+                FileName = $"{_analysis.Name}.glb"
+            };
+            if (DialogResult.OK == form.ShowDialog())
+            {
+                var exporter = new Exporters.ExporterGLB();
+                exporter.Export(_analysis as AnalysisLayered, form.FileName);
+            }
         }
         #endregion
 

@@ -12,5 +12,6 @@ public static class ConfigSettings
     public static string FtpUsername => ConfigurationManager.AppSettings["FtpUsername"];
     public static string FtpPassword => ConfigurationManager.AppSettings["FtpPassword"];
     public static float FontSizeRatio => float.Parse(ConfigurationManager.AppSettings["FontSizeRatio"]);
+    public static bool WebGLMode => bool.Parse(ConfigurationManager.AppSettings["WebGLMode"]);
 }
 

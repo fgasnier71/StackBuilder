@@ -239,46 +239,36 @@ namespace treeDiM.StackBuilder.Desktop
         #region Implement IDrawingContainer
         public void Draw(Graphics3DControl ctrl, Graphics3D graphics)
         {
-            if (null == _dt)
-                return;
-            DataCase dtCase = _dt as DataCase;
-            if (null != dtCase)
+            if (_dt is DataCase dtCase)
             {
                 Box b = new Box(0, ToCase(dtCase));
                 graphics.AddBox(b);
                 graphics.AddDimensions(new DimensionCube(dtCase.OuterDimensions));
             }
-            DataBox dtBox = _dt as DataBox;
-            if (null != dtBox)
+            else if (_dt is DataBox dtBox)
             {
                 Box b = new Box(0, ToBox(dtBox));
                 graphics.AddBox(b);
                 graphics.AddDimensions(new DimensionCube(dtBox.Dimensions));
             }
-            DataPallet dtPallet = _dt as DataPallet;
-            if (null != dtPallet)
+            else if (_dt is DataPallet dtPallet)
             {
                 Pallet pallet = new Pallet(ToPallet(dtPallet));
                 pallet.Draw(graphics, Sharp3D.Math.Core.Transform3D.Identity);
                 graphics.AddDimensions(new DimensionCube(dtPallet.Dimensions));
             }
-            DataInterlayer dtInterlayer = _dt as DataInterlayer;
-            if (null != dtInterlayer)
+            else if (_dt is DataInterlayer dtInterlayer)
             {
                 graphics.AddBox(new Box(0, ToInterlayer(dtInterlayer)));
                 graphics.AddDimensions(new DimensionCube(dtInterlayer.Dimensions));
             }
-
-            DataPalletCap dtPalletCap = _dt as DataPalletCap;
-            if (null != dtPalletCap)
+            else if (_dt is DataPalletCap dtPalletCap)
             {
                 PalletCap palletCap = new PalletCap(0, ToPalletCap(dtPalletCap), BoxPosition.Zero);
                 palletCap.Draw(graphics);
                 graphics.AddDimensions(new DimensionCube(dtPalletCap.Dimensions));
             }
-
-            DataCylinder dtCylinder = _dt as DataCylinder;
-            if (null != dtCylinder)
+            else if (_dt is DataCylinder dtCylinder)
             {
                 Cylinder cyl = new Cylinder(0, ToCylinder(dtCylinder));
                 graphics.AddCylinder(cyl);

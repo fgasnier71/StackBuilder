@@ -36,7 +36,7 @@ public class HandlerLayerThumb : IHttpHandler, IRequiresSessionState
 
             var boxProperties = new BoxProperties(null, caseDim.X, caseDim.Y, caseDim.Z)
             {
-                TapeColor = Color.LightGray,
+                TapeColor = Color.Tan,
                 TapeWidth = new OptDouble(true, 50.0)
             };
             boxProperties.SetAllColors(Enumerable.Repeat(Color.Beige, 6).ToArray());

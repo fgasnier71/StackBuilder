@@ -41,7 +41,10 @@ public partial class _Default : Page
         InterlayersIntermadiate = false;
         FileName = "Untitled.csv";
 
-        Response.Redirect("LayerSelection.aspx");
+        if (ConfigSettings.WebGLMode)
+            Response.Redirect("LayerSelectionWebGL.aspx");
+        else
+            Response.Redirect("LayerSelection.aspx");
     }
 
     protected void OnOpenProject(object sender, EventArgs e)
@@ -78,7 +81,10 @@ public partial class _Default : Page
         InterlayersIntermadiate = interlayerMiddle;
         FileName = filePath;
 
-        Response.Redirect("Validation.aspx");
+        if (ConfigSettings.WebGLMode)
+            Response.Redirect("ValidationWebGL.axpx");
+        else
+            Response.Redirect("Validation.aspx");
     }
 
     #region Private properties

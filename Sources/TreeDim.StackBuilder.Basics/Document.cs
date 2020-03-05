@@ -403,20 +403,20 @@ namespace treeDiM.StackBuilder.Basics
             return palletCorners;
         }
         public PalletCapProperties CreateNewPalletCap(PalletCapProperties palletCap)
-        { 
+        {
             // instantiate and initialize
-                PalletCapProperties palletCapClone = new PalletCapProperties(
-                    this,
-                    palletCap.ID.Name, palletCap.ID.Description,
-                    palletCap.Length, palletCap.Width, palletCap.Height,
-                    palletCap.InsideLength, palletCap.InsideWidth, palletCap.InsideHeight,
-                    palletCap.Weight, palletCap.Color);
-                // insert in list
-                _typeList.Add(palletCapClone);
-                // notify listeners
-                NotifyOnNewTypeCreated(palletCapClone);
-                Modify();
-                return palletCapClone;
+            PalletCapProperties palletCapClone = new PalletCapProperties(
+                this,
+                palletCap.ID.Name, palletCap.ID.Description,
+                palletCap.Length, palletCap.Width, palletCap.Height,
+                palletCap.InsideLength, palletCap.InsideWidth, palletCap.InsideHeight,
+                palletCap.Weight, palletCap.Color);
+            // insert in list
+            _typeList.Add(palletCapClone);
+            // notify listeners
+            NotifyOnNewTypeCreated(palletCapClone);
+            Modify();
+            return palletCapClone;
         }
 
         public PalletCapProperties CreateNewPalletCap(

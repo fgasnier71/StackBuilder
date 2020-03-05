@@ -91,11 +91,17 @@ public partial class LayerEdition : Page
     }
     protected void OnPrevious(object sender, EventArgs e)
     {
-        Response.Redirect("LayerSelection.aspx");
+        if (ConfigSettings.WebGLMode)
+            Response.Redirect("LayerSelectionWebGL.aspx");
+        else
+            Response.Redirect("LayerSelection.aspx");
     }
     protected void OnNext(object sender, EventArgs e)
     {
-        Response.Redirect("Validation.aspx");
+        if (ConfigSettings.WebGLMode)
+            Response.Redirect("ValidationWebGL.aspx");
+        else
+            Response.Redirect("Validation.aspx");
     }
     #endregion
     #region Private properties

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Collections.Generic;
 using System.Web.UI.WebControls;
 using System.Drawing;
+using System.IO;
 
 using Sharp3D.Math.Core;
 
@@ -18,10 +19,13 @@ public partial class _Default : Page
 	{
 		if (!Page.IsPostBack)
 		{
+			// clear output directory
+			DirectoryHelpers.ClearDirectory(OutputDirectory);
+
 			try
 			{
 				string filePath = Server.MapPath(@"~\Images\Texture.png");
-				if (System.IO.File.Exists(filePath))
+				if (File.Exists(filePath))
 					BitmapTexture = new Bitmap(filePath);
 			}
 			catch (Exception ex)
@@ -35,8 +39,6 @@ public partial class _Default : Page
 			MaxPalletHeightCtrl = MaxPalletHeight;
 
 			BTRefresh_Click(null, null);
-
-			Angle = 45.0;
 		}
 		ExecuteKeyPad();
 	}
@@ -99,7 +101,6 @@ public partial class _Default : Page
 		BoxPositions = BoxPositionsLayer;
 
 		Session[SessionVariables.LayerEdited] = false;
-
 		if (ConfigSettings.WebGLMode)
 			Response.Redirect("ValidationWebGL.aspx");
 		else
@@ -144,6 +145,7 @@ public partial class _Default : Page
 		double weightLoad = 0.0, weightTotal = 0.0;
 		Vector3D bbLoad = Vector3D.Zero;
 		Vector3D bbTotal = Vector3D.Zero;
+		string fileGuid = Guid.NewGuid().ToString() + ".glb";
 
 		PalletStacking.GenerateExport(
 			caseDim, caseWeight, BitmapTexture,
@@ -152,26 +154,13 @@ public partial class _Default : Page
 			BoxPositionsLayer,
 			false, false,
 			false, false, false,
-			@".\Output\Analysis.glb",
-			ref caseCount, ref layerCount,
-			ref weightLoad, ref weightTotal, 
-			ref bbLoad, ref bbTotal
-			);
-
-		PalletStacking.GetSolution(
-			caseDim, caseWeight, BitmapTexture,
-			palletDim, palletWeight,
-			maxPalletHeight,
-			BoxPositionsLayer,
-			false, false,
-			false, false, false,
-			Angle,
-			new Size(500,460),
-			ref imageBytes,
+			Path.Combine(OutputDirectory, fileGuid),
 			ref caseCount, ref layerCount,
 			ref weightLoad, ref weightTotal,
 			ref bbLoad, ref bbTotal
 			);
+
+		XModelDiv.InnerHtml = string.Format("<x-model class=\"x-model\" src=\"./Output/{0}\"/>", fileGuid);
 
 		var palletDetails = new List<PalletDetails>
 		{
@@ -195,18 +184,6 @@ public partial class _Default : Page
 
 		selectedLayer.Update();
 	}
-
-	protected void AngleIncrement(object sender, EventArgs e)
-	{
-		Angle += ConfigSettings.AngleStep;
-		UpdateImage();
-	}
-	protected void AngleDecrement(object sender, EventArgs e)
-	{
-		Angle -= ConfigSettings.AngleStep;
-		UpdateImage();
-	}
-
 	protected void OnEditLayer(object sender, EventArgs e)
 	{
 
@@ -219,11 +196,6 @@ public partial class _Default : Page
 
 		Session[SessionVariables.LayerEdited] = true;
 		Response.Redirect("LayerEdition.aspx");
-	}
-	private double Angle
-	{
-		get => (double)ViewState["Angle"];
-		set => ViewState["Angle"] = value;
 	}
 	private Vector3D DimCaseCtrl
 	{
@@ -309,4 +281,5 @@ public partial class _Default : Page
 		get => (Bitmap)Session[SessionVariables.BitmapTexture];
 		set => Session[SessionVariables.BitmapTexture] = value;
 	}
+	private string OutputDirectory => Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Output");
 }

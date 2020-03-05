@@ -10,6 +10,7 @@
             <Directory Id="Javascript" Name="javascript"/>
             <Directory Id="App_Code" Name="App_Code"/>
             <Directory Id="Images" Name="Images"/>
+            <Directory Id="Output" Name="Output"/>
           </Directory>
         </Directory>
       </Directory>

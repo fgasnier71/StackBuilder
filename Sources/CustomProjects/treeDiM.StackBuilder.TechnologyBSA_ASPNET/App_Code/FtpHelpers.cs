@@ -67,3 +67,18 @@ public static class FtpHelpers
         return names.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries).ToList();
     }
 }
+
+public static class DirectoryHelpers
+{
+    public static void ClearDirectory(string dirPath)
+    {
+        try
+        {
+            DirectoryInfo di = new DirectoryInfo(dirPath);
+            foreach (FileInfo file in di.GetFiles()) { file.Delete(); }
+        }
+        catch (Exception)
+        { 
+        }
+    }
+}
