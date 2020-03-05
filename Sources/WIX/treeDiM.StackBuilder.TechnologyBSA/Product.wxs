@@ -25,10 +25,14 @@
         <File Id="Default.aspx.cs" Source="$(var.StackBuilderTechBSASourceDir)\Default.aspx.cs"/>
         <File Id="LayerSelection.aspx" Source="$(var.StackBuilderTechBSASourceDir)\LayerSelection.aspx"/>
         <File Id="LayerSelection.aspx.cs" Source="$(var.StackBuilderTechBSASourceDir)\LayerSelection.aspx.cs"/>
+        <File Id="LayerSelectionWebGL.aspx" Source="$(var.StackBuilderTechBSASourceDir)\LayerSelectionWebGL.aspx"/>
+        <File Id="LayerSelectionWebGL.aspx.cs" Source="$(var.StackBuilderTechBSASourceDir)\LayerSelectionWebGL.aspx.cs"/>
         <File Id="LayerEdition.aspx" Source="$(var.StackBuilderTechBSASourceDir)\LayerEdition.aspx"/>
         <File Id="LayerEdition.aspx.cs" Source="$(var.StackBuilderTechBSASourceDir)\LayerEdition.aspx.cs"/>
         <File Id="Validation.aspx" Source="$(var.StackBuilderTechBSASourceDir)\Validation.aspx"/>
         <File Id="Validation.aspx.cs" Source="$(var.StackBuilderTechBSASourceDir)\Validation.aspx.cs"/>
+        <File Id="ValidationWebGL.aspx" Source="$(var.StackBuilderTechBSASourceDir)\ValidationWebGL.aspx"/>
+        <File Id="ValidationWebGL.aspx.cs" Source="$(var.StackBuilderTechBSASourceDir)\ValidationWebGL.aspx.cs"/>
         <File Id="Global.asax" Source="$(var.StackBuilderTechBSASourceDir)\Global.asax"/>
         <File Id="Handler.ashx" Source="$(var.StackBuilderTechBSASourceDir)\Handler.ashx"/>
         <File Id="HandlerLayerEditor.ashx" Source="$(var.StackBuilderTechBSASourceDir)\HandlerLayerEditor.ashx"/>
@@ -51,9 +55,9 @@
         <File Id="jquery.plugin.min.js" Source="$(var.StackBuilderTechBSASourceDir)\javascript\jquery.plugin.min.js"/>
         <File Id="jquery.plugin.min.map" Source="$(var.StackBuilderTechBSASourceDir)\javascript\jquery.plugin.min.map"/>
         <File Id="jquery1.11.0.min" Source="$(var.StackBuilderTechBSASourceDir)\javascript\jquery1.11.0.min.js"/>
-        <File Id="model-element.min.js" Source="$(var.StackBuilderTechBSASourceDir)\javascript\model-element.min.js"/>
+        <File Id="model_element.min.js" Source="$(var.StackBuilderTechBSASourceDir)\javascript\model-element.min.js"/>
         <File Id="three.min.js" Source="$(var.StackBuilderTechBSASourceDir)\javascript\three.min.js"/>
-        <File Id="three-gltf-loader.min.js" Source="$(var.StackBuilderTechBSASourceDir)\javascript\three-gltf-loader.min.js"/>
+        <File Id="three_gltf_loader.min.js" Source="$(var.StackBuilderTechBSASourceDir)\javascript\three-gltf-loader.min.js"/>
       </Component>
       <Component Id="Css" Directory="Css" Guid="{E943DA53-6825-4049-A417-D174A0D974EF}">
         <File Id="default.css" Source="$(var.StackBuilderTechBSASourceDir)\css\default.css" KeyPath="yes"/>
