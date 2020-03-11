@@ -1,12 +1,26 @@
-﻿using System;
+﻿#region Using directives
+using System;
 using System.Text;
 using System.Drawing;
 
 using Sharp3D.Math.Core;
+#endregion
 
 namespace treeDiM.StackBuilder.Basics
 {
-    public class CylinderProperties : PackableNamed
+    public abstract class RevSolidProperties : PackableNamed
+    {
+        public RevSolidProperties(Document doc) : base(doc) { }
+        public RevSolidProperties(Document doc, string name, string description) :base(doc, name, description) { }
+        public abstract double RadiusOuter { get; set; }
+        public abstract double Height { get; set; }
+        public double Diameter => 2.0 * RadiusOuter;
+
+        public override Vector3D OuterDimensions => new Vector3D(Diameter, Diameter, Height);
+        public override bool IsBrick => false;
+    }
+
+    public class CylinderProperties : RevSolidProperties
     {
         public CylinderProperties(Document document)
             : base(document)
@@ -27,7 +41,7 @@ namespace treeDiM.StackBuilder.Basics
             _colorWallInner = colorWallInner;
         }
 
-        public double RadiusOuter
+        public override double RadiusOuter
         {
             get { return _radiusOuter; }
             set
@@ -45,8 +59,7 @@ namespace treeDiM.StackBuilder.Basics
                 Modify();
             }
         }
-        public double Diameter => 2.0 * RadiusOuter;
-        public double Height
+        public override double Height
         {
             get { return _height; }
             set
@@ -83,9 +96,7 @@ namespace treeDiM.StackBuilder.Basics
             }
         }
 
-        public override double Volume => _height * Math.PI * _radiusOuter * _radiusOuter;
-        public override Vector3D OuterDimensions => new Vector3D(2.0 * _radiusOuter, 2.0 * _radiusOuter, _height);
-        public override bool IsBrick => false;
+        public override double Volume => _height * Math.PI * RadiusOuter * RadiusOuter;
 
         public override string ToString()
         {

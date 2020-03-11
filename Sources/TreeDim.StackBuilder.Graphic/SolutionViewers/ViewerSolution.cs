@@ -123,12 +123,20 @@ namespace treeDiM.StackBuilder.Graphics
                 {
                     foreach (Vector3D vPos in layerCyl)
                     {
-                        Cylinder c = new Cylinder(
-                            pickId++
-                            , analysis.Content as CylinderProperties
-                            , new CylPosition(transform.transform(vPos), HalfAxis.HAxis.AXIS_Z_P));
-                        graphics.AddCylinder(c);
-                        bbox.Extend(c.BBox);
+                        Cyl cyl = null;
+                        if (analysis.Content is CylinderProperties cylProp)
+                            cyl = new Cylinder(
+                                pickId++
+                                , cylProp
+                                , new CylPosition(transform.transform(vPos), HalfAxis.HAxis.AXIS_Z_P));
+                        else if (analysis.Content is BottleProperties bottleProperties)
+                            cyl = new Bottle(
+                                pickId++
+                                , bottleProperties
+                                , new CylPosition(transform.transform(vPos), HalfAxis.HAxis.AXIS_Z_P));
+
+                        graphics.AddCylinder(cyl);
+                        bbox.Extend(cyl.BBox);
                     }
                 }
                 if (null != layerBox || null != layerCyl)
@@ -351,9 +359,13 @@ namespace treeDiM.StackBuilder.Graphics
             {
                 foreach (Vector3D vPos in layerCyl)
                 {
-                    Cylinder c = new Cylinder(pickId++, packable as CylinderProperties, new CylPosition(vPos, HalfAxis.HAxis.AXIS_Z_P));
-                    graphics.AddCylinder(c);
-                    bbox.Extend(c.BBox);
+                    Cyl cyl = null;
+                    if (packable is CylinderProperties cylinderProp)
+                        cyl = new Cylinder(pickId++, cylinderProp, new CylPosition(vPos, HalfAxis.HAxis.AXIS_Z_P));
+                    else if (packable is BottleProperties bottleProp)
+                        cyl = new Bottle(pickId++, bottleProp, new CylPosition(vPos, HalfAxis.HAxis.AXIS_Z_P));
+                    graphics.AddCylinder(cyl);
+                    bbox.Extend(cyl.BBox);
                 }
             }
             // ###

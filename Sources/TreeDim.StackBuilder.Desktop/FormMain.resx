@@ -147,6 +147,36 @@
   <metadata name="menuStripMain.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>0, 0</value>
   </metadata>
+  <data name="menuStripMain.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="menuStripMain.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1180, 24</value>
+  </data>
+  <data name="menuStripMain.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="menuStripMain.Text" xml:space="preserve">
+    <value>menuStripMain</value>
+  </data>
+  <data name="&gt;&gt;menuStripMain.Name" xml:space="preserve">
+    <value>menuStripMain</value>
+  </data>
+  <data name="&gt;&gt;menuStripMain.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;menuStripMain.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;menuStripMain.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="fileToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>37, 20</value>
+  </data>
+  <data name="fileToolStripMenuItem.Text" xml:space="preserve">
+    <value>File</value>
+  </data>
   <data name="newToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -303,11 +333,11 @@
   <data name="exitToolStripMenuItem.ToolTipText" xml:space="preserve">
     <value>Exit the application</value>
   </data>
-  <data name="fileToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>37, 20</value>
+  <data name="projectToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>56, 20</value>
   </data>
-  <data name="fileToolStripMenuItem.Text" xml:space="preserve">
-    <value>File</value>
+  <data name="projectToolStripMenuItem.Text" xml:space="preserve">
+    <value>Project</value>
   </data>
   <data name="toolStripMIExportAnalysesSummaryToExcel.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -337,31 +367,31 @@
   <data name="toolStripMIExportAnalysesSummaryToExcel.ToolTipText" xml:space="preserve">
     <value>Export project analyses summary to Excel...</value>
   </data>
-  <data name="projectToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>56, 20</value>
+  <data name="toolStripMenuItemTools.Size" type="System.Drawing.Size, System.Drawing">
+    <value>46, 20</value>
   </data>
-  <data name="projectToolStripMenuItem.Text" xml:space="preserve">
-    <value>Project</value>
+  <data name="toolStripMenuItemTools.Text" xml:space="preserve">
+    <value>Tools</value>
   </data>
   <data name="editPaletSolutionsDB.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         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
-        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
+        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
 </value>
   </data>
   <data name="editPaletSolutionsDB.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
@@ -806,11 +836,11 @@
   <data name="toolStripMISettings.Text" xml:space="preserve">
     <value>Settings...</value>
   </data>
-  <data name="toolStripMenuItemTools.Size" type="System.Drawing.Size, System.Drawing">
-    <value>46, 20</value>
+  <data name="helpToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>44, 20</value>
   </data>
-  <data name="toolStripMenuItemTools.Text" xml:space="preserve">
-    <value>Tools</value>
+  <data name="helpToolStripMenuItem.Text" xml:space="preserve">
+    <value>Help</value>
   </data>
   <data name="toolStripMenuItemHelpStartPage.Size" type="System.Drawing.Size, System.Drawing">
     <value>184, 22</value>
@@ -854,59 +884,9 @@
   <data name="helpToolStripMenuItemAbout.Text" xml:space="preserve">
     <value>About StackBuilder...</value>
   </data>
-  <data name="helpToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>44, 20</value>
-  </data>
-  <data name="helpToolStripMenuItem.Text" xml:space="preserve">
-    <value>Help</value>
-  </data>
-  <data name="menuStripMain.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="menuStripMain.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1180, 24</value>
-  </data>
-  <data name="menuStripMain.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="menuStripMain.Text" xml:space="preserve">
-    <value>menuStripMain</value>
-  </data>
-  <data name="&gt;&gt;menuStripMain.Name" xml:space="preserve">
-    <value>menuStripMain</value>
-  </data>
-  <data name="&gt;&gt;menuStripMain.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;menuStripMain.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;menuStripMain.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
   <metadata name="toolStripStandard.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>299, 0</value>
   </metadata>
-  <data name="toolStripMIUserDisconnect.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEBSURBVFhHzZbBDYMwDEXZhCOjMAYjMAJjcmQMjmmDaiuA
-        G79UAfqkpyLxv2OJtqL5EC4SY5VriNkV+74P67oWDTggszB6eGrXdWGe53hdiszA6KGWPywiXYwelrNg
-        Eelg9BCoB80p6XCiB80p6XCixy43DIPbkQLV45gL0zRle1KglrL1ckukw4mlaPfbEhqACtY9V2uJU8hR
-        sO4hx3GMn8op4ChY95CPLlDzEVC0W/tLSNl6d/4Mj7ns4REpUD12uX/4K3ZJhxM9aE5JhxM9aE5JhxM9
-        aE5Jh9cUY5VryIgvmvGF831JvYaCRa4FLHIPmUXuxVjkGZZlCW3bVlygaV72tRlzQiPgEwAAAABJRU5E
-        rkJggg==
-</value>
-  </data>
-  <data name="toolStripMIUserDisconnect.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>White</value>
-  </data>
-  <data name="toolStripMIUserDisconnect.Size" type="System.Drawing.Size, System.Drawing">
-    <value>133, 22</value>
-  </data>
-  <data name="toolStripMIUserDisconnect.Text" xml:space="preserve">
-    <value>Disconnect</value>
-  </data>
   <data name="toolStripSBUser.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -935,12 +915,6 @@
   </data>
   <data name="toolStripSeparator20.Size" type="System.Drawing.Size, System.Drawing">
     <value>6, 39</value>
-  </data>
-  <data name="toolStripMenuNewFile.Size" type="System.Drawing.Size, System.Drawing">
-    <value>107, 22</value>
-  </data>
-  <data name="toolStripMenuNewFile.Text" xml:space="preserve">
-    <value>New...</value>
   </data>
   <data name="toolStripSplitButtonNew.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1055,57 +1029,57 @@
   <data name="toolStripMenuItemEditDB.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         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
-        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
-        RK5CYII=
+        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
+        rkJggg==
 </value>
   </data>
   <data name="toolStripMenuItemEditDB.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
@@ -1318,124 +1292,6 @@
   <data name="toolStripSeparator12.Size" type="System.Drawing.Size, System.Drawing">
     <value>6, 39</value>
   </data>
-  <data name="toolStripMIInterlayer.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGFSURBVFhH7VSxSsRAEM0XCIJdmqQ560DA+4IE0qYT4eD+
-        wsLCvxBOOawsJCTCxc7G2speG0+8xu5MsDDjTdhZMW4uk9weWOTBI2GZfe9ldidGjx49OHBdFxzH0cbh
-        8ACKogAh3wzf9+Fjfq6F709nMB4fQZ7nvABhGEL2dlVufn443YiosXy5gNHokGceBAEs59NfX7ARX6eA
-        mkJ+PTzPW6WdqIU6EjVN02wOgIUqga7MFtfSvDFA1Vx1llyWGqu2o+b+YAC3aVoGqJ0CnbcdmS1iQE00
-        RXPbtst35RTobjsSNS3Lkq2nDiinQPXD0MEkjqU5awqouMou6+lsJjtAHcF3YaUGFujkTZLIKaBgwkoN
-        LKh+DW1sux5FkZwCWkMKq7/Y5hTgGOJzcrynDrCtKcAjoABwvwNfJ4Y6gOoG6yBdQjKvDUDAYp3EAI+X
-        u9KcFaB6oegCtV1Hft79tJ0dQBfXnnkdcJMutjZHUJt0UEi2A2dzUw1HoxaczU01HI0e/wSG8Q282zsa
-        AVtztAAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="toolStripMIInterlayer.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>White</value>
-  </data>
-  <data name="toolStripMIInterlayer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>140, 22</value>
-  </data>
-  <data name="toolStripMIInterlayer.Text" xml:space="preserve">
-    <value>Interlayer</value>
-  </data>
-  <data name="toolStripMIInterlayer.ToolTipText" xml:space="preserve">
-    <value>Add new interlayer...</value>
-  </data>
-  <data name="toolStripMIPalletCorner.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGISURBVFhH7VRBSsNAFM0JBEFI00QsWdSLeAGP48K1FxAq
-        uHJRoaaBxibu3HgEdx5FUEZeyI+vk7T9k4bSRR88Zvrz/v9vZj71jjhCizAMDbMKq0G5P1VIDyTeX4fm
-        6+6q5I4GnHMbp+9KHAJrVXY9WBTHsXmeTs1bUawQmpfZrDU+T5JGPE8TnQEIRHQ5HjcLLZdGE784jxrf
-        nAz0ySiK3AzwsMkp0jQ1o9HIPEwmdYzjnCeN+Bu0nQ0UeV7uX7NspTnHOU8agTsbcGGbATSWtfMNcBGb
-        Euc8acSanWeA90yJcx4byBaLer93A70MoQttAyCb3PsNsOYgZgArWLVqBxcaDoeNRjYlDm2bAZ4BrI83
-        Z3oDQRCUSRpCaxsApTGewHycmN9bT29gMBiUBaSI7JkSh9Y2wBpp3skAv6PNTQbwV40n+Hw6rZs7GfB9
-        v9HIpsShtQ2A3+//1642IMSp+PcmtmlVb24DSX3RuTkg19QHq5Ju0CRv02hqrIUmeZtGU+OIA4Hn/QFl
-        qmw8JloaNQAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="toolStripMIPalletCorner.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>White</value>
-  </data>
-  <data name="toolStripMIPalletCorner.Size" type="System.Drawing.Size, System.Drawing">
-    <value>140, 22</value>
-  </data>
-  <data name="toolStripMIPalletCorner.Text" xml:space="preserve">
-    <value>Pallet corner</value>
-  </data>
-  <data name="toolStripMIPalletCorner.ToolTipText" xml:space="preserve">
-    <value>Add new pallet corner...</value>
-  </data>
-  <data name="toolStripMIPalletCap.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAE5SURBVFhH7VMxbsJAEPQLIkWisxXZLuAj+QB5SjpewAdC
-        RZUH2NjBpktDR0vHU1IdGusWbaxVvHc5xUjxSKM7lt2Zvbt1NGGCBlmWmTiOg9HK6pDnubmsn4PQuYHF
-        fC4K+RBab0uHBpAoCfkwSZLOXN1AmqaikA+hxc0HGwh5cmhx80Pb6hoIxb65ugHpNK6EzuYluTUzSgNk
-        zFfQWsmgJE5MsUucyE+Nz1B9A1TI6Ruvq+pbDvbWSoavkRQviqL7DHkO9tZKBhJCkkxpBa2VDEru8zdx
-        7P/nDGDlM4B1u5qNMwN4AnN8MKfXp3FmgMy9Gui/IyfFd2VpPuraNPu9aZumi2PFE5zfH2/Gf3oD4Nen
-        4to5qDAEVW/eB4pC0dkcQFEoWkk3DBVrDIb+/xFacU2O/TnhnhFFV6Xz5e2aEyL1AAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="toolStripMIPalletCap.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>White</value>
-  </data>
-  <data name="toolStripMIPalletCap.Size" type="System.Drawing.Size, System.Drawing">
-    <value>140, 22</value>
-  </data>
-  <data name="toolStripMIPalletCap.Text" xml:space="preserve">
-    <value>Pallet cap</value>
-  </data>
-  <data name="toolStripMIPalletCap.ToolTipText" xml:space="preserve">
-    <value>Add new pallet cap...</value>
-  </data>
-  <data name="toolStripMIPalletFilm.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        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
-</value>
-  </data>
-  <data name="toolStripMIPalletFilm.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>White</value>
-  </data>
-  <data name="toolStripMIPalletFilm.Size" type="System.Drawing.Size, System.Drawing">
-    <value>140, 22</value>
-  </data>
-  <data name="toolStripMIPalletFilm.Text" xml:space="preserve">
-    <value>Pallet film</value>
-  </data>
-  <data name="toolStripMIPalletFilm.ToolTipText" xml:space="preserve">
-    <value>Add new pallet film...</value>
-  </data>
   <data name="toolStripSBPalletDeco.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -1460,122 +1316,6 @@
   </data>
   <data name="toolStripSeparator13.Size" type="System.Drawing.Size, System.Drawing">
     <value>6, 39</value>
-  </data>
-  <data name="toolStripMIAnalysisCasePallet.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFVSURBVFhHYxgFQwIoKcj/l5aWphqGGkscUJKX/d8XYvV/
-        TpQNBEfbgmmQQZNCLRHiUAwSnxyGpB5NjiQHqCrIYhgyK9LmPyniMDkVoEcmBRoT7wCYa6mFJ/gbgjGI
-        DbUCN5CXlfnf7GeG4oup4Vb/SRFHliPJASAFMyKsUQyaDcSkiCPL9foZkO4AamFkS0lyALpvQJgccXQH
-        gGgQhlqFHeAzkFRxZAeAcsHEAKOBcwAyG2oVdkCORbjEu30NycsF1MRk5QJcPiJVHNlSGA3CUKuwA3wG
-        kiqO7ABQIoSxoVZhB+RYhEsc2QHIbKhV2AE5FuES7/IxGFyJcMDLARA9u1Jk4BLh/0N8///WMgyMA2CW
-        09UBsER4aaEg3HK6OgCEf+5FBDvRDqAWJirO0QFIE7UwyZaDACyYqIGhRpIGiNFMSA0xZuAExGgmpIYY
-        M0YBBDAwAADcRnq7Br4O9QAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="toolStripMIAnalysisCasePallet.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>White</value>
-  </data>
-  <data name="toolStripMIAnalysisCasePallet.Size" type="System.Drawing.Size, System.Drawing">
-    <value>230, 22</value>
-  </data>
-  <data name="toolStripMIAnalysisCasePallet.Text" xml:space="preserve">
-    <value>Case/pallet</value>
-  </data>
-  <data name="toolStripMIAnalysisCasePallet.ToolTipText" xml:space="preserve">
-    <value>Case/Pallet analysis</value>
-  </data>
-  <data name="toolStripMIAnalysisCylinderPallet.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFuSURBVFhHYxgFo2AUjIIhBXZWhf9Hx1ApMCAkTxEAGfb/
-        EwMGhllCSJ5i8P8QH4rPYBgkTow8yQCrYWg+wycPx+Q4AJdhMHFC8iiYHAfgC06YoXjlqeEADIOghqHQ
-        6HjUATgcgIKnGxF2EFaDYIYh0+gYmzhIDIb7Ff+fymSkrwNgifNfuyDY8nmx9pQ5AGdqR5JHxmDL6xjA
-        ls+Ntvs/J9qWwhCAYRzyWzdt+L9t21Yw+8duwf//W/mgPodYTpQDwC7HYgHMR/jkYZaDcT0jxOcxkGAn
-        2gEwS9Ax2NAWHrgjsMrDMFAd2HJi4hwZwAz408D+f8v6NSg++lvLgCEGU7d9ywYw/98BoHgzF9hyonyL
-        DkAaScEnM5kwMEh8bqwD6ZaDwJwom//UwFDjSAegrDI3xu7/mTNnwBgqDAfzE5zBQYtLfl6cI1g/lEs6
-        ABkOcwBUCAUszfT7D7IEp3yG7/+FSW7kO2AU0BcwMAAAyRr3q8g0KnYAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="toolStripMIAnalysisCylinderPallet.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>White</value>
-  </data>
-  <data name="toolStripMIAnalysisCylinderPallet.Size" type="System.Drawing.Size, System.Drawing">
-    <value>230, 22</value>
-  </data>
-  <data name="toolStripMIAnalysisCylinderPallet.Text" xml:space="preserve">
-    <value>Cylinder/Pallet</value>
-  </data>
-  <data name="toolStripMIAnalysisCylinderPallet.ToolTipText" xml:space="preserve">
-    <value>Cylinder/pallet analysis</value>
-  </data>
-  <data name="toolStripMIAnalysisHCylPallet.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGESURBVFhH7ZOxTsMwEIZdFiRUterEzMTODAWExAYPQFuE
-        mMhDQCugYmRkaYoY2JBY2FiADZSnYUAgQQ77fAl2E6u+EoQQ+aVT7N/x/50dRZQqVerPCrrzoIqmqVx+
-        oULIs9BFsAQ86hcuC2LAXD5tK0a5EAK5fNr6ff0+PA80zpdFEZPLAnDHNKcovjJhFMjyaY0ieWKBHPCX
-        /iw+KZIvK1iOyXZ/GrPIx/cfaoB1tuDfDAYYZXp56ybcPHkKP52Dp6Di14AVKMe+nnq+HVbxiesEj08a
-        CB92lsc3YIUmxfRUTnxf1/ADgfCw1YRBa+nnG8AMCX69bQD0a3RyDfdqQMkKT0J9Pbp26Fb0ydv62r0b
-        +AqQ4ZlQT++4quE+39xUEvDem4ab6ysr9GNfZLzR9+I76R/NINz7uk2pjZx6DKYypfyws8KHKw22FqGI
-        oji+1K8StpsQRREW2anOd9bwal3rw+1V3E9TvlR40gBZli6DTVAQ5/reBlzsrk/eQKl/JiE+AeWwf9AA
-        dxDmAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="toolStripMIAnalysisHCylPallet.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>White</value>
-  </data>
-  <data name="toolStripMIAnalysisHCylPallet.Size" type="System.Drawing.Size, System.Drawing">
-    <value>230, 22</value>
-  </data>
-  <data name="toolStripMIAnalysisHCylPallet.Text" xml:space="preserve">
-    <value>Horizontal cylinder/Pallet</value>
-  </data>
-  <data name="toolStripMIAnalysisBundlePallet.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEqSURBVFhH7VRLDoIwEOUEJibuYAEs8IwuPIcmrlxootgA
-        Cu7ceARv48LUDHawlBqnpPGT9CUvTaev8x5DwHNwcPgLRFHEfd+3RtGWhjiO+Xq14seqahEabTcbbX2X
-        pp16yVLzAOMk6TY6HLhJXT4zCoBiGwyCoAkHe2HxGmEY8vls1noKxhg3qctnYAp7DCRs9ADBvihajaqy
-        rC9S6/IZBiBPAAQ2WeR5vaI5UFjpgWKVferyK/iJCeD/RFjpgWKVferyBFAHq7DSA8W2mGdZvaI5UFjp
-        gWKVferwJbivQJ4ArIvJ6DsTgAD8POC3qfedCaA5KYBNQoDLctiYf3QCwOvpOXZyAFskvXMVcMkWjc0B
-        OCYbFC3NQLn8TkPp8RKUy+80lB4OD3jeHaXoJ3wk446MAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="toolStripMIAnalysisBundlePallet.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>White</value>
-  </data>
-  <data name="toolStripMIAnalysisBundlePallet.Size" type="System.Drawing.Size, System.Drawing">
-    <value>230, 22</value>
-  </data>
-  <data name="toolStripMIAnalysisBundlePallet.Text" xml:space="preserve">
-    <value>Bundle/Pallet</value>
-  </data>
-  <data name="toolStripMIAnalysisBundlePallet.ToolTipText" xml:space="preserve">
-    <value>Bundle/pallet analysis</value>
-  </data>
-  <data name="toolStripMIHAnalysis.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEPSURBVFhHYxgFQwIoKcj/l5aWphqGGkscUJKX/a+00Ydo
-        DLLg/ycGrJhkB6gqkGY5SD02i0EYaByYJtoBIIXYLMGF8fkcaBycTZQD5GVlsFqCC4PUI1uIjNHlCDqA
-        mj7HJkeUA6iF0S0n2gHYfIoL47MIm9iAOUAFmJ3/16sPjAPAbKDlA+IAUC4g2QHUxG9lVMA0SQ6YE2WD
-        gWGGEYuR1Y86YOg5ABdGtoAQRlYPYg+KEADRsytFBsYB4JLwEN//v7Xg6hk3oJUDYJbT3QGgkvDSQkG4
-        5XR1AAj/3IsIdqIdQC1MVJyjA5AmamGSLQcBWDBRA0ONJA0Qo5mQGmLMwAmI0UxIDTFmjAIIYGAAAGc/
-        54V4Jm1nAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="toolStripMIHAnalysis.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>White</value>
-  </data>
-  <data name="toolStripMIHAnalysis.Size" type="System.Drawing.Size, System.Drawing">
-    <value>230, 22</value>
-  </data>
-  <data name="toolStripMIHAnalysis.Text" xml:space="preserve">
-    <value>Heterogeneous pallet loading</value>
-  </data>
-  <data name="toolStripMIHAnalysis.ToolTipText" xml:space="preserve">
-    <value>Heterogeneous pallet loading</value>
   </data>
   <data name="toolStripSBAnalysisPallet.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1623,20 +1363,22 @@
   </data>
   <data name="toolStripMIAnalysisCylinderCase.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        xAAADsQBlSsOGwAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAGuSURBVFhH7ZQ/
-        SwMxGMZvsoIK1uogRRAc3EQRHMRdEIpuBT+BONgut1mcWgdbxA5Ojn5Cv0D0SZP0zXtJ7k88i9AHnl4u
-        l7zP722OS8SCtQRYAvxvgCRJKlurMgCKfPYuK7kUACeGYsJ31huqykxBABpkUUcAZJpR14xcIZj7zXDI
-        CRAK0RBVzZWZwSJXMEyfiadDy3nz2LvSWFUpc1kApcK/frZS61DHPN2LMZW5KxoOmzBqCkHsqkshLBwf
-        hKuwL5B2n9eUzJS/RHSTXMSKSjvCzLwaFwmH5iMiLKAFTKByaL5MOBQEwFtLvdneF2vNlrnXa/gcXCQc
-        ysz4Nhcx9uJTO+4cZ+oAjn+GIQsgNvzl5kyGvF6fSOt6CH++OsoHwAJeuKgRNuycWgAwwvGPYIxnaZqq
-        tJkMQGz3791zaQ5AvbfdFP1+T1rLAqhqdP5xeyHtA2hvbZjwweBRpbIj0EJRXTDP6JreuwAOdlvi4f5O
-        misagJsDoHOc+3T6pqrbqhUA41A4VBsArjjr0WioqrpVCwDOHOGTyVhV9MsLEGO86XmdazkB/lILBhDi
-        G61XqyXRij14AAAAAElFTkSuQmCC
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGjSURBVFhH7ZQxSwNBEIWvMoIKxmghQRAs7EQRLMReEIJ2
+        gr9ALEyadAarxMIEMYWVpb/QP7D65u6W2b2527k9O+/BRzazO+/N5o4krVq1aijTgMYyX8PLKNCbWugk
+        NYjGGnbWO/XC80as0xLJMa0DelOLsMqaC3UtWb9KogHAXkOCEoMB3zPPhw6hOnpXOqvBAWyDD98j8+/E
+        JQ8V6rwXawRJsod8/D0bxuFDMCRf1BAoqXAYSMZlgfz2ZX4Ae5QoyDnkmxJCmK1na+7jgz0EVckxsIEZ
+        VfW/CIfoIN5azmZ/36x1e/Z7fsavgUbhUrMG9OKvdj44LgyB4TR/w05THdD7enNGIW/XJ0Tuh/CXq6Pw
+        ADjgG2v5bTfTwakzAEA4fhGssTcej0uHEI01oPfj9pzwB+DsbXfNaDQk0khXZBQDbv55d0GUDdDf2rDh
+        k8kT+iplDUPg1vy7NMDBbs88PtwTmX9Qjmkd/AFwczz35fJdHQ6J5hr4AFjHhEOiuYZ8AHziWc9m09rh
+        kGiuAcF45ghfLOZR4RAao8GbHnvz/6Yk+QES/z4wk83B4gAAAABJRU5ErkJggg==
 </value>
   </data>
+  <data name="toolStripMIAnalysisCylinderCase.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>White</value>
+  </data>
   <data name="toolStripMIAnalysisCylinderCase.Size" type="System.Drawing.Size, System.Drawing">
-    <value>148, 22</value>
+    <value>196, 38</value>
   </data>
   <data name="toolStripMIAnalysisCylinderCase.Text" xml:space="preserve">
     <value>Cylinder/Case</value>
@@ -1691,111 +1433,6 @@
   <data name="toolStripSBAnalysesCase.ToolTipText" xml:space="preserve">
     <value>Case analyses</value>
   </data>
-  <data name="toolStripMIAnalysisPalletTruck.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGHSURBVFhHYxgFo2AUjIJRMGSAViDrfxA2ieQG0+hY3Y8Z
-        qzgyBqmBYaixxAOQxXNfBf6f+dzrf98N1/+1hy3/l+8x+Z+9ThOMU5ep/k+Yr/g/aqbM/9BJEv8DeoT/
-        e7cL/ndr4gFjhxoWMLYpo8ABC9+HgB0x5T7EEZ2XHP83n7KBO6Zwqz7YIfFYHAJzDMgRZDvgrYwKBgY5
-        AJs4yHJs4oPfAS1BrP/RMUicLg6AWVhx5j8Yz17aQnUH4E2EIMs8Zj/777v6DxjvmO1NPwfAfO/TugNs
-        efSy+/8PV1I/CvA6AGThnlpRMA3C+0qZURzw/xMDBgY5AJs4yAHYxAk6AGTpskwuOAaJg2iYA0DlAIgG
-        lQMgGuYAUP4H0dGzxcE0KP9jE8frgOnxEAfMT+GCY5gDQJpAGL1IJRdDrUWAxEg7sANAFobFhfwXEBIA
-        Y2Q2MdjcxgzOxqUXaiVugKyIaE1QQIleOEA3BMokCsDU//jxgzzLQQA9CqDCRAFK9I6CUTAAgIEBAA1u
-        nFqEG3pmAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="toolStripMIAnalysisPalletTruck.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>White</value>
-  </data>
-  <data name="toolStripMIAnalysisPalletTruck.Size" type="System.Drawing.Size, System.Drawing">
-    <value>216, 22</value>
-  </data>
-  <data name="toolStripMIAnalysisPalletTruck.Text" xml:space="preserve">
-    <value>Pallet/Truck</value>
-  </data>
-  <data name="toolStripMIAnalysisCaseTruck.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFXSURBVFhHYxgFo2AUjIJRMGSAViDrfxA2ieQG0+hY3Y8Z
-        qzgyBqmBYaixxAOQxXNfBf6f+dzrf98N1/+1hy3/l+8x+Z+9ThOMU5ep/k+Yr/g/aqbM/9BJEv8DeoT/
-        e7cL/ndr4gFjhxoWMLYpo8ABC9+H/P//ieH/zqpwsmmQIyhyAMgQGIYZSgqfqg4gBxN0QEsQ6390DBKn
-        SwjALKw48x+MZy9twXAAzFByabyJEGSZx+xn/31X/wHjHbO9qR4COB0A871P6w6w5dHL7v8/XIk/CsjB
-        eB0AsnBPrSiYBuF9pcz0DQGYpcsyueAYJA6ikdMAJRivA6bHQxwwP4ULjmEOAGkCYfQilVwMtRYBEiPt
-        wA4AWRgWF/JfQEgAjJHZxGBzGzM4G5deqJW4AbIiojVBASV64QDdECiTKABT/+PHD/IsBwH0KIAKEwUo
-        0TsKRsEAAAYGAD9x01Mm4ludAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="toolStripMIAnalysisCaseTruck.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>White</value>
-  </data>
-  <data name="toolStripMIAnalysisCaseTruck.Size" type="System.Drawing.Size, System.Drawing">
-    <value>216, 22</value>
-  </data>
-  <data name="toolStripMIAnalysisCaseTruck.Text" xml:space="preserve">
-    <value>Case/Truck</value>
-  </data>
-  <data name="toolStripMIAnalysisCylinderTruck.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGASURBVFhHYxgFo2AUjIJRMGSAViDrfxA2ieQG0+hY3Y8Z
-        qzgyBqmBYaixxAOQxXNfBf6f+dzrf98N1/+1hy3/l+8x+Z+9ThOMU5ep/k+Yr/g/aqbM/9BJEv8DeoT/
-        e7cL/ndr4gFjhxoWMLYpo8ABC9+HgB0Bwv9P8qFgkANgGF0O2QEgTJEDYIa2BLGiYGQLccmBfE+5Az4x
-        /N9ZFY5iIQiDxQjIEeUAdNeDMEgc3QHYMCE5gg6AWVhx5j8Yz17aQnUH4E2EIMs8Zj/777v6DxjvmO1N
-        PwfAfO/TugNsefSy+/8PV1I/CvA6AGThnlpRMA3C+0qZsToAm0UwcXxyRDkAZOmyTC44BomDaJgDwGUA
-        kmXIGFwGYBEHYVDiI+iA6fEQB8xP4YJjmANAmkAYvUglF0OtRYDESDuwA0AWhsWF/BcQEgBjZDYx2NzG
-        DM7GpRdqJW6ArIhoTVBAiV44QDcEyiQKwNT/+PGDPMtBAD0KoMJEAUr0joJRMACAgQEA+I3E0/qYyn8A
-        AAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="toolStripMIAnalysisCylinderTruck.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>White</value>
-  </data>
-  <data name="toolStripMIAnalysisCylinderTruck.Size" type="System.Drawing.Size, System.Drawing">
-    <value>216, 22</value>
-  </data>
-  <data name="toolStripMIAnalysisCylinderTruck.Text" xml:space="preserve">
-    <value>Cylinder/Truck</value>
-  </data>
-  <data name="toolStripMIAnalysisHCylTruck.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEhSURBVFhHYxgFo2AUjIJRMGSAViDrfxA2ieQG0+hY3Y8Z
-        qzgyBqmBYaixxAOQxQ41LCj4/0k+OCZG3KaMGUxTxQFgC+rVERhqGS5xZDzqALwOaAli/Y+OQeLUSAMw
-        jNMBMAsrzvwH49lLWzAcgMtwUsTxOsBj9rP/vqv/gPGO2d4oDgAbhCV4SRXH6gCY731ad4Atj152///h
-        StQoINUiXOI4HQCycE+tKJgG4X2lzPR3AMjSZZlccAwSB9E0TwMgi6bHQxwwP4ULjmEOAGkCYfQilVwM
-        tRYBEiPtwA4AWRgWF/JfQEgAjJHZxGBzGzM4G5deqJW4AbIiojVBASV64QDdECiTKABT/+PHD/IsBwH0
-        KIAKEwUo0TsKRsEAAAYGAByNpnZw4rZrAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="toolStripMIAnalysisHCylTruck.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>White</value>
-  </data>
-  <data name="toolStripMIAnalysisHCylTruck.Size" type="System.Drawing.Size, System.Drawing">
-    <value>216, 22</value>
-  </data>
-  <data name="toolStripMIAnalysisHCylTruck.Text" xml:space="preserve">
-    <value>Horizontal cylinder/Truck</value>
-  </data>
-  <data name="toolStripMIHAnalysisCaseTruck.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEOSURBVFhHYxgFo2AUjIJRMGSAViDrfxA2ieQG0+hY3Y8Z
-        qzgyBqmBYaixxAOQxfYeZ1Dw/08MGFhpow8GXuy5BAWPOmBwO6AliPU/OgaJ08UBMAsrgGaD8OylLSgO
-        eCujQhBjc8D/enUUjNcBHrOf/fdd/QeMd8z2pp8DYL73ad0Btjx62f3/hytRowCbheiYIgeALNxTKwqm
-        QXhfKTP9HQCydFkmFxyDxEE0XRwwPR7igPkpXHAMcwBIEwijF6nkYqi1CJAYaQd2AMjCsLiQ/wJCAmCM
-        zCYGm9uYwdm49EKtxA2QFRGtCQoo0QsH6IZAmUQBmPofP36QZzkIoEcBVJgoQIneUTAKBgAwMAAAA6Cu
-        ONeFRvgAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="toolStripMIHAnalysisCaseTruck.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>White</value>
-  </data>
-  <data name="toolStripMIHAnalysisCaseTruck.Size" type="System.Drawing.Size, System.Drawing">
-    <value>216, 22</value>
-  </data>
-  <data name="toolStripMIHAnalysisCaseTruck.Text" xml:space="preserve">
-    <value>Heterogeneous Case/Truck</value>
-  </data>
   <data name="toolStripSBAnalysesTruck.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -1824,58 +1461,6 @@
   <data name="toolStripSeparator11.Size" type="System.Drawing.Size, System.Drawing">
     <value>6, 39</value>
   </data>
-  <data name="toolStripMIBestCase.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJQSURBVFhH7ZXLTxNRGMVvNK5qm6otGlOxJEBFKVL6wCqU
-        IqQo0GLTglpiCqmFYKtSrExTUYnGjXGliZpKfITIK2k1+CgmmBCI8bFg6caVW/+J48y1jBlbN70xacyc
-        5GQWM7/zzdy5M4eUtFY+fEJo5AIisfE8D4bCyF32VxXFd3n76Im1z+sImlRIjx7FXLRF4tdjTnTajQUD
-        mHhLXQ2ysWZ0u1oROOHGm/EezI1KnY57wR2vxio/IIeJYuIFePFSOzKXu8B1HobNuAWxkwQRn9R3okQA
-        Cw4vmjdV7kaWc1E45GhG9gFB6tpB4KsCWFf99g8l2hoU+HjTD7vpgBjCytP3FW3ahYTHieVHBPhGcC/x
-        R8B3FWwGBRY5Hx00bFFi6f0KDSmWp8M3lLx1F9rtBBf7CcL8UtXvV4pLeHVwM7apCVZvBJDm4TFXFd6t
-        fZEEMPHChhi2l+Ft0ov5WA91Ju6mm2Zpog9WvQ7+2nJY9BrcHnAIoGQ4K0+ET2I5eQwZrlviV0kP4l4z
-        v7w16DDsxPTpRoRtFXBXqXHl+qQYwsqTkch5VNSacUSnhn2vVrRVtwNnD1Xj5VA7Wiu1uO8zI9VrRYd+
-        K/qDA2IAK08Vn5jEfKARz4MtEj874+CPTjHgsd+E+vIyPExNSQJYeRKNJ/Ck14ypQFOeNwJmTplh3KPF
-        05lZKcyLlacBhZ5A8ItwGzz7NPydawrDvFh5MnQuCsMmgjplvhtUv/5eswsLhWFerHxpSq5juY5Lvo5z
-        uFzHch3LdUwl1/H/Wcf/XoT8BAjBlUThkVnhAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="toolStripMIBestCase.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>White</value>
-  </data>
-  <data name="toolStripMIBestCase.Size" type="System.Drawing.Size, System.Drawing">
-    <value>150, 22</value>
-  </data>
-  <data name="toolStripMIBestCase.Text" xml:space="preserve">
-    <value>Find best case</value>
-  </data>
-  <data name="toolStripMIBestCase.ToolTipText" xml:space="preserve">
-    <value>Help selecting case among those available in database!</value>
-  </data>
-  <data name="toolStripMIBestPack.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFqSURBVFhH1VW9TsMwGExVUNl4A2ao1FAQEjOwQNWnYUew
-        IkCCV2BkZGDIAmJD8E4mn/FHP8c+ks9YKZx0cny27y4/VYv/BJOJSTAvu/sBU3RHFaCZVp/ezdUFPJPn
-        mk/TvSCE9IfJTlR/3P7aT+HaAp4ZMRbepg9HK9/hmgKBGTFFl+FdCwRGscfbRW+Gjy+OWgvwhl+zGU4U
-        6xDm/XUjYIoeCxclIKChVufg8mZmhmuLD5HWakJAQ63OgavrI1Nez5ZTgEdJ0mpCQEOtTmyGdyqQiz+E
-        EyHgHWn1WLgoAQENtToHj88PvTld14SAhlqdwiaXx/aaxqUUoFGG91pgMFg8dlWBXEThH/dbNELAO9Lq
-        KPzt1K5DQEOtboNv52bz7MAL77VAeXVi/wtkeK8FaJSPvdcC9Cvo8s6bsIdzMCW8oEO5qA4n8DvKQWep
-        Ax+uqsrSyR7a9vC6m+ogzZ0UoG0Pr7vpX0dRfAI/DGEHVn41JgAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="toolStripMIBestPack.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>White</value>
-  </data>
-  <data name="toolStripMIBestPack.Size" type="System.Drawing.Size, System.Drawing">
-    <value>150, 22</value>
-  </data>
-  <data name="toolStripMIBestPack.Text" xml:space="preserve">
-    <value>Find best pack</value>
-  </data>
-  <data name="toolStripMIBestPack.ToolTipText" xml:space="preserve">
-    <value>Suggest pack for optimal palletisation</value>
-  </data>
   <data name="toolStripSBOptimisations.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -1902,18 +1487,6 @@
   </data>
   <data name="toolStripSeparator10.Size" type="System.Drawing.Size, System.Drawing">
     <value>6, 39</value>
-  </data>
-  <data name="palletisationBCTToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>162, 22</value>
-  </data>
-  <data name="palletisationBCTToolStripMenuItem.Text" xml:space="preserve">
-    <value>Palletisation BCT</value>
-  </data>
-  <data name="caseBCTToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>162, 22</value>
-  </data>
-  <data name="caseBCTToolStripMenuItem.Text" xml:space="preserve">
-    <value>Case BCT</value>
   </data>
   <data name="toolStripSB_BCT.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -2066,6 +1639,435 @@
   <data name="&gt;&gt;toolStripStandard.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="toolStripMIUserDisconnect.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEBSURBVFhHzZbBDYMwDEXZhCOjMAYjMAJjcmQMjmmDaiuA
+        G79UAfqkpyLxv2OJtqL5EC4SY5VriNkV+74P67oWDTggszB6eGrXdWGe53hdiszA6KGWPywiXYwelrNg
+        Eelg9BCoB80p6XCiB80p6XCixy43DIPbkQLV45gL0zRle1KglrL1ckukw4mlaPfbEhqACtY9V2uJU8hR
+        sO4hx3GMn8op4ChY95CPLlDzEVC0W/tLSNl6d/4Mj7ns4REpUD12uX/4K3ZJhxM9aE5JhxM9aE5JhxM9
+        aE5Jh9cUY5VryIgvmvGF831JvYaCRa4FLHIPmUXuxVjkGZZlCW3bVlygaV72tRlzQiPgEwAAAABJRU5E
+        rkJggg==
+</value>
+  </data>
+  <data name="toolStripMIUserDisconnect.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>White</value>
+  </data>
+  <data name="toolStripMIUserDisconnect.Size" type="System.Drawing.Size, System.Drawing">
+    <value>133, 22</value>
+  </data>
+  <data name="toolStripMIUserDisconnect.Text" xml:space="preserve">
+    <value>Disconnect</value>
+  </data>
+  <data name="toolStripMenuNewFile.Size" type="System.Drawing.Size, System.Drawing">
+    <value>107, 22</value>
+  </data>
+  <data name="toolStripMenuNewFile.Text" xml:space="preserve">
+    <value>New...</value>
+  </data>
+  <data name="toolStripMIInterlayer.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGFSURBVFhH7VSxSsRAEM0XCIJdmqQ560DA+4IE0qYT4eD+
+        wsLCvxBOOawsJCTCxc7G2speG0+8xu5MsDDjTdhZMW4uk9weWOTBI2GZfe9ldidGjx49OHBdFxzH0cbh
+        8ACKogAh3wzf9+Fjfq6F709nMB4fQZ7nvABhGEL2dlVufn443YiosXy5gNHokGceBAEs59NfX7ARX6eA
+        mkJ+PTzPW6WdqIU6EjVN02wOgIUqga7MFtfSvDFA1Vx1llyWGqu2o+b+YAC3aVoGqJ0CnbcdmS1iQE00
+        RXPbtst35RTobjsSNS3Lkq2nDiinQPXD0MEkjqU5awqouMou6+lsJjtAHcF3YaUGFujkTZLIKaBgwkoN
+        LKh+DW1sux5FkZwCWkMKq7/Y5hTgGOJzcrynDrCtKcAjoABwvwNfJ4Y6gOoG6yBdQjKvDUDAYp3EAI+X
+        u9KcFaB6oegCtV1Hft79tJ0dQBfXnnkdcJMutjZHUJt0UEi2A2dzUw1HoxaczU01HI0e/wSG8Q282zsa
+        AVtztAAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="toolStripMIInterlayer.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>White</value>
+  </data>
+  <data name="toolStripMIInterlayer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>140, 22</value>
+  </data>
+  <data name="toolStripMIInterlayer.Text" xml:space="preserve">
+    <value>Interlayer</value>
+  </data>
+  <data name="toolStripMIInterlayer.ToolTipText" xml:space="preserve">
+    <value>Add new interlayer...</value>
+  </data>
+  <data name="toolStripMIPalletCorner.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGISURBVFhH7VRBSsNAFM0JBEFI00QsWdSLeAGP48K1FxAq
+        uHJRoaaBxibu3HgEdx5FUEZeyI+vk7T9k4bSRR88Zvrz/v9vZj71jjhCizAMDbMKq0G5P1VIDyTeX4fm
+        6+6q5I4GnHMbp+9KHAJrVXY9WBTHsXmeTs1bUawQmpfZrDU+T5JGPE8TnQEIRHQ5HjcLLZdGE784jxrf
+        nAz0ySiK3AzwsMkp0jQ1o9HIPEwmdYzjnCeN+Bu0nQ0UeV7uX7NspTnHOU8agTsbcGGbATSWtfMNcBGb
+        Euc8acSanWeA90yJcx4byBaLer93A70MoQttAyCb3PsNsOYgZgArWLVqBxcaDoeNRjYlDm2bAZ4BrI83
+        Z3oDQRCUSRpCaxsApTGewHycmN9bT29gMBiUBaSI7JkSh9Y2wBpp3skAv6PNTQbwV40n+Hw6rZs7GfB9
+        v9HIpsShtQ2A3+//1642IMSp+PcmtmlVb24DSX3RuTkg19QHq5Ju0CRv02hqrIUmeZtGU+OIA4Hn/QFl
+        qmw8JloaNQAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="toolStripMIPalletCorner.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>White</value>
+  </data>
+  <data name="toolStripMIPalletCorner.Size" type="System.Drawing.Size, System.Drawing">
+    <value>140, 22</value>
+  </data>
+  <data name="toolStripMIPalletCorner.Text" xml:space="preserve">
+    <value>Pallet corner</value>
+  </data>
+  <data name="toolStripMIPalletCorner.ToolTipText" xml:space="preserve">
+    <value>Add new pallet corner...</value>
+  </data>
+  <data name="toolStripMIPalletCap.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAE5SURBVFhH7VMxbsJAEPQLIkWisxXZLuAj+QB5SjpewAdC
+        RZUH2NjBpktDR0vHU1IdGusWbaxVvHc5xUjxSKM7lt2Zvbt1NGGCBlmWmTiOg9HK6pDnubmsn4PQuYHF
+        fC4K+RBab0uHBpAoCfkwSZLOXN1AmqaikA+hxc0HGwh5cmhx80Pb6hoIxb65ugHpNK6EzuYluTUzSgNk
+        zFfQWsmgJE5MsUucyE+Nz1B9A1TI6Ruvq+pbDvbWSoavkRQviqL7DHkO9tZKBhJCkkxpBa2VDEru8zdx
+        7P/nDGDlM4B1u5qNMwN4AnN8MKfXp3FmgMy9Gui/IyfFd2VpPuraNPu9aZumi2PFE5zfH2/Gf3oD4Nen
+        4to5qDAEVW/eB4pC0dkcQFEoWkk3DBVrDIb+/xFacU2O/TnhnhFFV6Xz5e2aEyL1AAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="toolStripMIPalletCap.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>White</value>
+  </data>
+  <data name="toolStripMIPalletCap.Size" type="System.Drawing.Size, System.Drawing">
+    <value>140, 22</value>
+  </data>
+  <data name="toolStripMIPalletCap.Text" xml:space="preserve">
+    <value>Pallet cap</value>
+  </data>
+  <data name="toolStripMIPalletCap.ToolTipText" xml:space="preserve">
+    <value>Add new pallet cap...</value>
+  </data>
+  <data name="toolStripMIPalletFilm.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+</value>
+  </data>
+  <data name="toolStripMIPalletFilm.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>White</value>
+  </data>
+  <data name="toolStripMIPalletFilm.Size" type="System.Drawing.Size, System.Drawing">
+    <value>140, 22</value>
+  </data>
+  <data name="toolStripMIPalletFilm.Text" xml:space="preserve">
+    <value>Pallet film</value>
+  </data>
+  <data name="toolStripMIPalletFilm.ToolTipText" xml:space="preserve">
+    <value>Add new pallet film...</value>
+  </data>
+  <data name="toolStripMIAnalysisCasePallet.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFVSURBVFhHYxgFQwIoKcj/l5aWphqGGkscUJKX/d8XYvV/
+        TpQNBEfbgmmQQZNCLRHiUAwSnxyGpB5NjiQHqCrIYhgyK9LmPyniMDkVoEcmBRoT7wCYa6mFJ/gbgjGI
+        DbUCN5CXlfnf7GeG4oup4Vb/SRFHliPJASAFMyKsUQyaDcSkiCPL9foZkO4AamFkS0lyALpvQJgccXQH
+        gGgQhlqFHeAzkFRxZAeAcsHEAKOBcwAyG2oVdkCORbjEu30NycsF1MRk5QJcPiJVHNlSGA3CUKuwA3wG
+        kiqO7ABQIoSxoVZhB+RYhEsc2QHIbKhV2AE5FuES7/IxGFyJcMDLARA9u1Jk4BLh/0N8///WMgyMA2CW
+        09UBsER4aaEg3HK6OgCEf+5FBDvRDqAWJirO0QFIE7UwyZaDACyYqIGhRpIGiNFMSA0xZuAExGgmpIYY
+        M0YBBDAwAADcRnq7Br4O9QAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="toolStripMIAnalysisCasePallet.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>White</value>
+  </data>
+  <data name="toolStripMIAnalysisCasePallet.Size" type="System.Drawing.Size, System.Drawing">
+    <value>230, 22</value>
+  </data>
+  <data name="toolStripMIAnalysisCasePallet.Text" xml:space="preserve">
+    <value>Case/pallet</value>
+  </data>
+  <data name="toolStripMIAnalysisCasePallet.ToolTipText" xml:space="preserve">
+    <value>Case/Pallet analysis</value>
+  </data>
+  <data name="toolStripMIAnalysisCylinderPallet.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFuSURBVFhHYxgFo2AUjIIhBXZWhf9Hx1ApMCAkTxEAGfb/
+        EwMGhllCSJ5i8P8QH4rPYBgkTow8yQCrYWg+wycPx+Q4AJdhMHFC8iiYHAfgC06YoXjlqeEADIOghqHQ
+        6HjUATgcgIKnGxF2EFaDYIYh0+gYmzhIDIb7Ff+fymSkrwNgifNfuyDY8nmx9pQ5AGdqR5JHxmDL6xjA
+        ls+Ntvs/J9qWwhCAYRzyWzdt+L9t21Yw+8duwf//W/mgPodYTpQDwC7HYgHMR/jkYZaDcT0jxOcxkGAn
+        2gEwS9Ax2NAWHrgjsMrDMFAd2HJi4hwZwAz408D+f8v6NSg++lvLgCEGU7d9ywYw/98BoHgzF9hyonyL
+        DkAaScEnM5kwMEh8bqwD6ZaDwJwom//UwFDjSAegrDI3xu7/mTNnwBgqDAfzE5zBQYtLfl6cI1g/lEs6
+        ABkOcwBUCAUszfT7D7IEp3yG7/+FSW7kO2AU0BcwMAAAyRr3q8g0KnYAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="toolStripMIAnalysisCylinderPallet.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>White</value>
+  </data>
+  <data name="toolStripMIAnalysisCylinderPallet.Size" type="System.Drawing.Size, System.Drawing">
+    <value>230, 22</value>
+  </data>
+  <data name="toolStripMIAnalysisCylinderPallet.Text" xml:space="preserve">
+    <value>Cylinder/Pallet</value>
+  </data>
+  <data name="toolStripMIAnalysisCylinderPallet.ToolTipText" xml:space="preserve">
+    <value>Cylinder/pallet analysis</value>
+  </data>
+  <data name="toolStripMIAnalysisHCylPallet.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGESURBVFhH7ZOxTsMwEIZdFiRUterEzMTODAWExAYPQFuE
+        mMhDQCugYmRkaYoY2JBY2FiADZSnYUAgQQ77fAl2E6u+EoQQ+aVT7N/x/50dRZQqVerPCrrzoIqmqVx+
+        oULIs9BFsAQ86hcuC2LAXD5tK0a5EAK5fNr6ff0+PA80zpdFEZPLAnDHNKcovjJhFMjyaY0ieWKBHPCX
+        /iw+KZIvK1iOyXZ/GrPIx/cfaoB1tuDfDAYYZXp56ybcPHkKP52Dp6Di14AVKMe+nnq+HVbxiesEj08a
+        CB92lsc3YIUmxfRUTnxf1/ADgfCw1YRBa+nnG8AMCX69bQD0a3RyDfdqQMkKT0J9Pbp26Fb0ydv62r0b
+        +AqQ4ZlQT++4quE+39xUEvDem4ab6ysr9GNfZLzR9+I76R/NINz7uk2pjZx6DKYypfyws8KHKw22FqGI
+        oji+1K8StpsQRREW2anOd9bwal3rw+1V3E9TvlR40gBZli6DTVAQ5/reBlzsrk/eQKl/JiE+AeWwf9AA
+        dxDmAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="toolStripMIAnalysisHCylPallet.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>White</value>
+  </data>
+  <data name="toolStripMIAnalysisHCylPallet.Size" type="System.Drawing.Size, System.Drawing">
+    <value>230, 22</value>
+  </data>
+  <data name="toolStripMIAnalysisHCylPallet.Text" xml:space="preserve">
+    <value>Horizontal cylinder/Pallet</value>
+  </data>
+  <data name="toolStripMIAnalysisBundlePallet.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEqSURBVFhH7VRLDoIwEOUEJibuYAEs8IwuPIcmrlxootgA
+        Cu7ceARv48LUDHawlBqnpPGT9CUvTaev8x5DwHNwcPgLRFHEfd+3RtGWhjiO+Xq14seqahEabTcbbX2X
+        pp16yVLzAOMk6TY6HLhJXT4zCoBiGwyCoAkHe2HxGmEY8vls1noKxhg3qctnYAp7DCRs9ADBvihajaqy
+        rC9S6/IZBiBPAAQ2WeR5vaI5UFjpgWKVferyK/iJCeD/RFjpgWKVferyBFAHq7DSA8W2mGdZvaI5UFjp
+        gWKVferwJbivQJ4ArIvJ6DsTgAD8POC3qfedCaA5KYBNQoDLctiYf3QCwOvpOXZyAFskvXMVcMkWjc0B
+        OCYbFC3NQLn8TkPp8RKUy+80lB4OD3jeHaXoJ3wk446MAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="toolStripMIAnalysisBundlePallet.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>White</value>
+  </data>
+  <data name="toolStripMIAnalysisBundlePallet.Size" type="System.Drawing.Size, System.Drawing">
+    <value>230, 22</value>
+  </data>
+  <data name="toolStripMIAnalysisBundlePallet.Text" xml:space="preserve">
+    <value>Bundle/Pallet</value>
+  </data>
+  <data name="toolStripMIAnalysisBundlePallet.ToolTipText" xml:space="preserve">
+    <value>Bundle/pallet analysis</value>
+  </data>
+  <data name="toolStripMIHAnalysis.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEPSURBVFhHYxgFQwIoKcj/l5aWphqGGkscUJKX/a+00Ydo
+        DLLg/ycGrJhkB6gqkGY5SD02i0EYaByYJtoBIIXYLMGF8fkcaBycTZQD5GVlsFqCC4PUI1uIjNHlCDqA
+        mj7HJkeUA6iF0S0n2gHYfIoL47MIm9iAOUAFmJ3/16sPjAPAbKDlA+IAUC4g2QHUxG9lVMA0SQ6YE2WD
+        gWGGEYuR1Y86YOg5ABdGtoAQRlYPYg+KEADRsytFBsYB4JLwEN//v7Xg6hk3oJUDYJbT3QGgkvDSQkG4
+        5XR1AAj/3IsIdqIdQC1MVJyjA5AmamGSLQcBWDBRA0ONJA0Qo5mQGmLMwAmI0UxIDTFmjAIIYGAAAGc/
+        54V4Jm1nAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="toolStripMIHAnalysis.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>White</value>
+  </data>
+  <data name="toolStripMIHAnalysis.Size" type="System.Drawing.Size, System.Drawing">
+    <value>230, 22</value>
+  </data>
+  <data name="toolStripMIHAnalysis.Text" xml:space="preserve">
+    <value>Heterogeneous pallet loading</value>
+  </data>
+  <data name="toolStripMIHAnalysis.ToolTipText" xml:space="preserve">
+    <value>Heterogeneous pallet loading</value>
+  </data>
+  <data name="toolStripMIAnalysisPalletTruck.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGHSURBVFhHYxgFo2AUjIJRMGSAViDrfxA2ieQG0+hY3Y8Z
+        qzgyBqmBYaixxAOQxXNfBf6f+dzrf98N1/+1hy3/l+8x+Z+9ThOMU5ep/k+Yr/g/aqbM/9BJEv8DeoT/
+        e7cL/ndr4gFjhxoWMLYpo8ABC9+HgB0x5T7EEZ2XHP83n7KBO6Zwqz7YIfFYHAJzDMgRZDvgrYwKBgY5
+        AJs4yHJs4oPfAS1BrP/RMUicLg6AWVhx5j8Yz17aQnUH4E2EIMs8Zj/777v6DxjvmO1NPwfAfO/TugNs
+        efSy+/8PV1I/CvA6AGThnlpRMA3C+0qZURzw/xMDBgY5AJs4yAHYxAk6AGTpskwuOAaJg2iYA0DlAIgG
+        lQMgGuYAUP4H0dGzxcE0KP9jE8frgOnxEAfMT+GCY5gDQJpAGL1IJRdDrUWAxEg7sANAFobFhfwXEBIA
+        Y2Q2MdjcxgzOxqUXaiVugKyIaE1QQIleOEA3BMokCsDU//jxgzzLQQA9CqDCRAFK9I6CUTAAgIEBAA1u
+        nFqEG3pmAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="toolStripMIAnalysisPalletTruck.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>White</value>
+  </data>
+  <data name="toolStripMIAnalysisPalletTruck.Size" type="System.Drawing.Size, System.Drawing">
+    <value>216, 22</value>
+  </data>
+  <data name="toolStripMIAnalysisPalletTruck.Text" xml:space="preserve">
+    <value>Pallet/Truck</value>
+  </data>
+  <data name="toolStripMIAnalysisCaseTruck.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFXSURBVFhHYxgFo2AUjIJRMGSAViDrfxA2ieQG0+hY3Y8Z
+        qzgyBqmBYaixxAOQxXNfBf6f+dzrf98N1/+1hy3/l+8x+Z+9ThOMU5ep/k+Yr/g/aqbM/9BJEv8DeoT/
+        e7cL/ndr4gFjhxoWMLYpo8ABC9+H/P//ieH/zqpwsmmQIyhyAMgQGIYZSgqfqg4gBxN0QEsQ6390DBKn
+        SwjALKw48x+MZy9twXAAzFByabyJEGSZx+xn/31X/wHjHbO9qR4COB0A871P6w6w5dHL7v8/XIk/CsjB
+        eB0AsnBPrSiYBuF9pcz0DQGYpcsyueAYJA6ikdMAJRivA6bHQxwwP4ULjmEOAGkCYfQilVwMtRYBEiPt
+        wA4AWRgWF/JfQEgAjJHZxGBzGzM4G5deqJW4AbIiojVBASV64QDdECiTKABT/+PHD/IsBwH0KIAKEwUo
+        0TsKRsEAAAYGAD9x01Mm4ludAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="toolStripMIAnalysisCaseTruck.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>White</value>
+  </data>
+  <data name="toolStripMIAnalysisCaseTruck.Size" type="System.Drawing.Size, System.Drawing">
+    <value>216, 22</value>
+  </data>
+  <data name="toolStripMIAnalysisCaseTruck.Text" xml:space="preserve">
+    <value>Case/Truck</value>
+  </data>
+  <data name="toolStripMIAnalysisCylinderTruck.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGASURBVFhHYxgFo2AUjIJRMGSAViDrfxA2ieQG0+hY3Y8Z
+        qzgyBqmBYaixxAOQxXNfBf6f+dzrf98N1/+1hy3/l+8x+Z+9ThOMU5ep/k+Yr/g/aqbM/9BJEv8DeoT/
+        e7cL/ndr4gFjhxoWMLYpo8ABC9+HgB0Bwv9P8qFgkANgGF0O2QEgTJEDYIa2BLGiYGQLccmBfE+5Az4x
+        /N9ZFY5iIQiDxQjIEeUAdNeDMEgc3QHYMCE5gg6AWVhx5j8Yz17aQnUH4E2EIMs8Zj/777v6DxjvmO1N
+        PwfAfO/TugNsefSy+/8PV1I/CvA6AGThnlpRMA3C+0qZsToAm0UwcXxyRDkAZOmyTC44BomDaJgDwGUA
+        kmXIGFwGYBEHYVDiI+iA6fEQB8xP4YJjmANAmkAYvUglF0OtRYDESDuwA0AWhsWF/BcQEgBjZDYx2NzG
+        DM7GpRdqJW6ArIhoTVBAiV44QDcEyiQKwNT/+PGDPMtBAD0KoMJEAUr0joJRMACAgQEA+I3E0/qYyn8A
+        AAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="toolStripMIAnalysisCylinderTruck.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>White</value>
+  </data>
+  <data name="toolStripMIAnalysisCylinderTruck.Size" type="System.Drawing.Size, System.Drawing">
+    <value>216, 22</value>
+  </data>
+  <data name="toolStripMIAnalysisCylinderTruck.Text" xml:space="preserve">
+    <value>Cylinder/Truck</value>
+  </data>
+  <data name="toolStripMIAnalysisHCylTruck.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEhSURBVFhHYxgFo2AUjIJRMGSAViDrfxA2ieQG0+hY3Y8Z
+        qzgyBqmBYaixxAOQxQ41LCj4/0k+OCZG3KaMGUxTxQFgC+rVERhqGS5xZDzqALwOaAli/Y+OQeLUSAMw
+        jNMBMAsrzvwH49lLWzAcgMtwUsTxOsBj9rP/vqv/gPGO2d4oDgAbhCV4SRXH6gCY731ad4Atj152///h
+        StQoINUiXOI4HQCycE+tKJgG4X2lzPR3AMjSZZlccAwSB9E0TwMgi6bHQxwwP4ULjmEOAGkCYfQilVwM
+        tRYBEiPtwA4AWRgWF/JfQEgAjJHZxGBzGzM4G5deqJW4AbIiojVBASV64QDdECiTKABT/+PHD/IsBwH0
+        KIAKEwUo0TsKRsEAAAYGAByNpnZw4rZrAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="toolStripMIAnalysisHCylTruck.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>White</value>
+  </data>
+  <data name="toolStripMIAnalysisHCylTruck.Size" type="System.Drawing.Size, System.Drawing">
+    <value>216, 22</value>
+  </data>
+  <data name="toolStripMIAnalysisHCylTruck.Text" xml:space="preserve">
+    <value>Horizontal cylinder/Truck</value>
+  </data>
+  <data name="toolStripMIHAnalysisCaseTruck.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEOSURBVFhHYxgFo2AUjIJRMGSAViDrfxA2ieQG0+hY3Y8Z
+        qzgyBqmBYaixxAOQxfYeZ1Dw/08MGFhpow8GXuy5BAWPOmBwO6AliPU/OgaJ08UBMAsrgGaD8OylLSgO
+        eCujQhBjc8D/enUUjNcBHrOf/fdd/QeMd8z2pp8DYL73ad0Btjx62f3/hytRowCbheiYIgeALNxTKwqm
+        QXhfKTP9HQCydFkmFxyDxEE0XRwwPR7igPkpXHAMcwBIEwijF6nkYqi1CJAYaQd2AMjCsLiQ/wJCAmCM
+        zCYGm9uYwdm49EKtxA2QFRGtCQoo0QsH6IZAmUQBmPofP36QZzkIoEcBVJgoQIneUTAKBgAwMAAAA6Cu
+        ONeFRvgAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="toolStripMIHAnalysisCaseTruck.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>White</value>
+  </data>
+  <data name="toolStripMIHAnalysisCaseTruck.Size" type="System.Drawing.Size, System.Drawing">
+    <value>216, 22</value>
+  </data>
+  <data name="toolStripMIHAnalysisCaseTruck.Text" xml:space="preserve">
+    <value>Heterogeneous Case/Truck</value>
+  </data>
+  <data name="toolStripMIBestCase.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJQSURBVFhH7ZXLTxNRGMVvNK5qm6otGlOxJEBFKVL6wCqU
+        IqQo0GLTglpiCqmFYKtSrExTUYnGjXGliZpKfITIK2k1+CgmmBCI8bFg6caVW/+J48y1jBlbN70xacyc
+        5GQWM7/zzdy5M4eUtFY+fEJo5AIisfE8D4bCyF32VxXFd3n76Im1z+sImlRIjx7FXLRF4tdjTnTajQUD
+        mHhLXQ2ysWZ0u1oROOHGm/EezI1KnY57wR2vxio/IIeJYuIFePFSOzKXu8B1HobNuAWxkwQRn9R3okQA
+        Cw4vmjdV7kaWc1E45GhG9gFB6tpB4KsCWFf99g8l2hoU+HjTD7vpgBjCytP3FW3ahYTHieVHBPhGcC/x
+        R8B3FWwGBRY5Hx00bFFi6f0KDSmWp8M3lLx1F9rtBBf7CcL8UtXvV4pLeHVwM7apCVZvBJDm4TFXFd6t
+        fZEEMPHChhi2l+Ft0ov5WA91Ju6mm2Zpog9WvQ7+2nJY9BrcHnAIoGQ4K0+ET2I5eQwZrlviV0kP4l4z
+        v7w16DDsxPTpRoRtFXBXqXHl+qQYwsqTkch5VNSacUSnhn2vVrRVtwNnD1Xj5VA7Wiu1uO8zI9VrRYd+
+        K/qDA2IAK08Vn5jEfKARz4MtEj874+CPTjHgsd+E+vIyPExNSQJYeRKNJ/Ck14ypQFOeNwJmTplh3KPF
+        05lZKcyLlacBhZ5A8ItwGzz7NPydawrDvFh5MnQuCsMmgjplvhtUv/5eswsLhWFerHxpSq5juY5Lvo5z
+        uFzHch3LdUwl1/H/Wcf/XoT8BAjBlUThkVnhAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="toolStripMIBestCase.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>White</value>
+  </data>
+  <data name="toolStripMIBestCase.Size" type="System.Drawing.Size, System.Drawing">
+    <value>150, 22</value>
+  </data>
+  <data name="toolStripMIBestCase.Text" xml:space="preserve">
+    <value>Find best case</value>
+  </data>
+  <data name="toolStripMIBestCase.ToolTipText" xml:space="preserve">
+    <value>Help selecting case among those available in database!</value>
+  </data>
+  <data name="toolStripMIBestPack.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFqSURBVFhH1VW9TsMwGExVUNl4A2ao1FAQEjOwQNWnYUew
+        IkCCV2BkZGDIAmJD8E4mn/FHP8c+ks9YKZx0cny27y4/VYv/BJOJSTAvu/sBU3RHFaCZVp/ezdUFPJPn
+        mk/TvSCE9IfJTlR/3P7aT+HaAp4ZMRbepg9HK9/hmgKBGTFFl+FdCwRGscfbRW+Gjy+OWgvwhl+zGU4U
+        6xDm/XUjYIoeCxclIKChVufg8mZmhmuLD5HWakJAQ63OgavrI1Nez5ZTgEdJ0mpCQEOtTmyGdyqQiz+E
+        EyHgHWn1WLgoAQENtToHj88PvTld14SAhlqdwiaXx/aaxqUUoFGG91pgMFg8dlWBXEThH/dbNELAO9Lq
+        KPzt1K5DQEOtboNv52bz7MAL77VAeXVi/wtkeK8FaJSPvdcC9Cvo8s6bsIdzMCW8oEO5qA4n8DvKQWep
+        Ax+uqsrSyR7a9vC6m+ogzZ0UoG0Pr7vpX0dRfAI/DGEHVn41JgAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="toolStripMIBestPack.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>White</value>
+  </data>
+  <data name="toolStripMIBestPack.Size" type="System.Drawing.Size, System.Drawing">
+    <value>150, 22</value>
+  </data>
+  <data name="toolStripMIBestPack.Text" xml:space="preserve">
+    <value>Find best pack</value>
+  </data>
+  <data name="toolStripMIBestPack.ToolTipText" xml:space="preserve">
+    <value>Suggest pack for optimal palletisation</value>
+  </data>
+  <data name="palletisationBCTToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>162, 22</value>
+  </data>
+  <data name="palletisationBCTToolStripMenuItem.Text" xml:space="preserve">
+    <value>Palletisation BCT</value>
+  </data>
+  <data name="caseBCTToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>162, 22</value>
+  </data>
+  <data name="caseBCTToolStripMenuItem.Text" xml:space="preserve">
+    <value>Case BCT</value>
+  </data>
   <data name="ToolStripMenuNewFileINTEX.Size" type="System.Drawing.Size, System.Drawing">
     <value>32, 19</value>
   </data>
@@ -2101,6 +2103,29 @@
   </metadata>
   <data name="saveFileDialogExport.Filter" xml:space="preserve">
     <value>eXchange Markup Language (*.xml)|*.xml</value>
+  </data>
+  <data name="toolStripMenuItemNewBottle.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAG3SURBVDhPnc9PSJNxHMfxwU4dPGuHToaYK4RI55yTOWt7
+        5vZsz/b0LI0toYkmAyUkA4MihVQiEPUqnkR0FYoWamDJmB5C1OafzNQUOggzLA8Gie9WseM21xt+fE+v
+        D/xU/1P4/Wv+XE6O/960+v7jGwbhIg+fVqePP21F8NTo8XhldMbLTL0dOd3I6scF2nsbuO7XUR2wY5EM
+        bH/ZSo3XNxe5VSeg3KxAll34G0XESgNLkYXU+MWrPhSficamWrw+BbtZolwn0tLWkBrvrD3GUSXG8B0q
+        q2ScNgnR4qYwt5x306HkA7tr92BfYHr0NtesHhxWCdtVN+ZiicIcU3K8s9oMX6382vVBtJQHAQHdFQVL
+        kRtNZgmhmXDigcFgJxwIHMfwyYYRVgpgO4/uu0bOZVjobO1KjAeGe7C7nAz1+2GvFJZjeD4fwjmxp2Zx
+        yJsYh+be4HBYCdTXoy++wYeXJbCh+Ycnz7D5vCL5v49+HiKaZcQyBUHv5FK2wliHFmbVfA7akuN4S5F5
+        LmRpMeW7KNNInFWZedZy/3Q43uTEBNkZWs6rDTxqfpIejhfdjzISHE8Dq1S/Adrz/sS0gHJBAAAAAElF
+        TkSuQmCC
+</value>
+  </data>
+  <data name="toolStripMenuItemNewBottle.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>White</value>
+  </data>
+  <data name="toolStripMenuItemNewBottle.Size" type="System.Drawing.Size, System.Drawing">
+    <value>225, 22</value>
+  </data>
+  <data name="toolStripMenuItemNewBottle.Text" xml:space="preserve">
+    <value>New bottle</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -2868,6 +2893,12 @@
   </data>
   <data name="&gt;&gt;saveFileDialogExport.Type" xml:space="preserve">
     <value>System.Windows.Forms.SaveFileDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItemNewBottle.Name" xml:space="preserve">
+    <value>toolStripMenuItemNewBottle</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItemNewBottle.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>FormMain</value>

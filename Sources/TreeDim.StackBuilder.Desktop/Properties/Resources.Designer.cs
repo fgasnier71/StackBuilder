@@ -286,6 +286,15 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add new bottle....
+        /// </summary>
+        internal static string ID_ADDNEWBOTTLE {
+            get {
+                return ResourceManager.GetString("ID_ADDNEWBOTTLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add new box....
         /// </summary>
         internal static string ID_ADDNEWBOX {
@@ -854,6 +863,15 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         internal static string ID_DESELECT {
             get {
                 return ResourceManager.GetString("ID_DESELECT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Diameter.
+        /// </summary>
+        internal static string ID_DIAMETER {
+            get {
+                return ResourceManager.GetString("ID_DIAMETER", resourceCulture);
             }
         }
         

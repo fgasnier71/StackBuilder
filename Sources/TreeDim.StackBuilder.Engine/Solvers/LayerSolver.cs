@@ -240,7 +240,7 @@ namespace treeDiM.StackBuilder.Engine
             else if (packable.IsCylinder)
             {
                 // casts
-                CylinderProperties cylProperties = packable as CylinderProperties;
+                var cylProperties = packable as RevSolidProperties;
                 // layer instantiation
                 layer = new Layer2DCylImp(cylProperties.RadiusOuter, cylProperties.Height, dimContainer, layerDesc.Swapped);
                 // get layer pattern
@@ -273,7 +273,7 @@ namespace treeDiM.StackBuilder.Engine
             }
             else if (packable.IsCylinder)
             {
-                CylinderProperties cylProperties = packable as CylinderProperties;
+                var cylProperties = packable as RevSolidProperties;
                 layer = new Layer2DCylImp(cylProperties.RadiusOuter, cylProperties.Height, dimContainer, layerDesc.Swapped);
                 // get layer pattern
                 pattern = LayerPatternCyl.GetByName(layerDesc.PatternName);
@@ -336,7 +336,7 @@ namespace treeDiM.StackBuilder.Engine
                 }
                 else if (packable.IsCylinder)
                 {
-                    CylinderProperties cylProp = packable as CylinderProperties;
+                    var cylProp = packable as RevSolidProperties;
                     // instantiate layer
                     var layer = new Layer2DCylImp(cylProp.RadiusOuter, cylProp.Height, dimContainer, layerDesc.Swapped);
                     // get layer pattern

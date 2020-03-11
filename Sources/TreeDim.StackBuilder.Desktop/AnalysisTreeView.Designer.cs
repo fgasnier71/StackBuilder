@@ -290,5 +290,13 @@ namespace treeDiM.StackBuilder.Desktop {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        internal static System.Drawing.Bitmap Bottle
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("Bottle", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

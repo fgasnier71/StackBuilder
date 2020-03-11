@@ -155,7 +155,7 @@
     <xs:sequence>
       <xs:element name="name" type="xs:string"/>
       <xs:element name="description" type="xs:string"/>
-      <xs:element name="radius" minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>
+      <xs:element name="diameter" minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>
       <xs:element name="height" minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>
       <xs:element name="weight" minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>
       <xs:element name="imageThumbSize" minOccurs="1" maxOccurs="1" type="rpt:imageThumbSize"/>

@@ -52,6 +52,7 @@ namespace treeDiM.StackBuilder.Desktop
                 ImageList.Images.Add(AnalysisCylinderPallet);      // 19
                 ImageList.Images.Add(AnalysisHCylinderPallet);     // 20
                 ImageList.Images.Add(AnalysisPackPallet);          // 21
+                ImageList.Images.Add(Bottle);                      // 22 
                // instantiate context menu
                 ContextMenuStrip = new ContextMenuStrip();
                 // attach event handlers
@@ -144,6 +145,7 @@ namespace treeDiM.StackBuilder.Desktop
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWBOX, Box, new EventHandler(OnCreateNewBox)) { ImageTransparentColor = Color.White } );
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWCASE, Case, new EventHandler(OnCreateNewCase)) { ImageTransparentColor = Color.White });
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWCYLINDER, Cylinder, new EventHandler(OnCreateNewCylinder)) { ImageTransparentColor = Color.White });
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWBOTTLE, Bottle, new EventHandler(OnCreateNewCylinder)) { ImageTransparentColor = Color.White });
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWPALLET, Pallet, new EventHandler(OnCreateNewPallet)) { ImageTransparentColor = Color.White });
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWINTERLAYER, Interlayer, new EventHandler(OnCreateNewInterlayer)) { ImageTransparentColor = Color.White });
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWBUNDLE, Bundle, new EventHandler(OnCreateNewBundle)) { ImageTransparentColor = Color.White });
@@ -168,6 +170,7 @@ namespace treeDiM.StackBuilder.Desktop
                 || nodeTag.Type == NodeTag.NodeType.NT_PACK
                 || nodeTag.Type == NodeTag.NodeType.NT_CASEOFBOXES
                 || nodeTag.Type == NodeTag.NodeType.NT_CYLINDER
+                || nodeTag.Type == NodeTag.NodeType.NT_BOTTLE
                 || nodeTag.Type == NodeTag.NodeType.NT_PALLET
                 || nodeTag.Type == NodeTag.NodeType.NT_BUNDLE
                 || nodeTag.Type == NodeTag.NodeType.NT_INTERLAYER
@@ -181,33 +184,36 @@ namespace treeDiM.StackBuilder.Desktop
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(message, DELETE, new EventHandler(OnDeleteBaseItem)));
             }
             else if (nodeTag.Type == NodeTag.NodeType.NT_LISTBOX)
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWBOX, Box, new EventHandler(OnCreateNewBox)) { ImageTransparentColor = Color.White} );
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWBOX, Box, new EventHandler(OnCreateNewBox)) { ImageTransparentColor = Color.White });
             else if (nodeTag.Type == NodeTag.NodeType.NT_LISTCASE)
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWCASE, Case, new EventHandler(OnCreateNewCase)) { ImageTransparentColor = Color.White} );
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWCASE, Case, new EventHandler(OnCreateNewCase)) { ImageTransparentColor = Color.White });
             else if (nodeTag.Type == NodeTag.NodeType.NT_LISTCYLINDER)
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWCYLINDER, Cylinder, new EventHandler(OnCreateNewCylinder)) { ImageTransparentColor = Color.White} );
+            {
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWCYLINDER, Cylinder, new EventHandler(OnCreateNewCylinder)) { ImageTransparentColor = Color.White });
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWBOTTLE, Bottle, new EventHandler(OnCreateNewBottle)) { ImageTransparentColor = Color.White });
+            }
             else if (nodeTag.Type == NodeTag.NodeType.NT_LISTPALLET)
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWPALLET, Pallet, new EventHandler(OnCreateNewPallet)) { ImageTransparentColor = Color.White} );
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWPALLET, Pallet, new EventHandler(OnCreateNewPallet)) { ImageTransparentColor = Color.White });
             else if (nodeTag.Type == NodeTag.NodeType.NT_LISTINTERLAYER)
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWINTERLAYER, Interlayer, new EventHandler(OnCreateNewInterlayer)) { ImageTransparentColor = Color.White} );
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWINTERLAYER, Interlayer, new EventHandler(OnCreateNewInterlayer)) { ImageTransparentColor = Color.White });
             else if (nodeTag.Type == NodeTag.NodeType.NT_LISTBUNDLE)
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWBUNDLE, Bundle, new EventHandler(OnCreateNewBundle)) { ImageTransparentColor = Color.White} );
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWBUNDLE, Bundle, new EventHandler(OnCreateNewBundle)) { ImageTransparentColor = Color.White });
             else if (nodeTag.Type == NodeTag.NodeType.NT_LISTTRUCK)
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWTRUCK, Truck, new EventHandler(OnCreateNewTruck)) { ImageTransparentColor = Color.White} );
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWTRUCK, Truck, new EventHandler(OnCreateNewTruck)) { ImageTransparentColor = Color.White });
             else if (nodeTag.Type == NodeTag.NodeType.NT_LISTPALLETCORNERS)
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWPALLETCORNERS, PalletCorners, new EventHandler(OnCreateNewPalletCorners)) { ImageTransparentColor = Color.White} );
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWPALLETCORNERS, PalletCorners, new EventHandler(OnCreateNewPalletCorners)) { ImageTransparentColor = Color.White });
             else if (nodeTag.Type == NodeTag.NodeType.NT_LISTPALLETCAP)
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWPALLETCAP, PalletCap, new EventHandler(OnCreateNewPalletCap)) { ImageTransparentColor = Color.White} );
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWPALLETCAP, PalletCap, new EventHandler(OnCreateNewPalletCap)) { ImageTransparentColor = Color.White });
             else if (nodeTag.Type == NodeTag.NodeType.NT_LISTPALLETFILM)
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWPALLETFILM, PalletFilm, new EventHandler(OnCreateNewPalletFilm)) { ImageTransparentColor = Color.White} );
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWPALLETFILM, PalletFilm, new EventHandler(OnCreateNewPalletFilm)) { ImageTransparentColor = Color.White });
             else if (nodeTag.Type == NodeTag.NodeType.NT_LISTANALYSIS)
             {
                 if (nodeTag.Document.CanCreateAnalysisCasePallet)
-                    contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWANALYSIS, AnalysisCasePallet, new EventHandler(OnCreateNewAnalysisCasePallet)) { ImageTransparentColor = Color.White} );
+                    contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWANALYSIS, AnalysisCasePallet, new EventHandler(OnCreateNewAnalysisCasePallet)) { ImageTransparentColor = Color.White });
                 if (nodeTag.Document.CanCreateAnalysisCylinderPallet)
-                    contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWCYLINDERANALYSIS, AnalysisCylinderPallet, new EventHandler(OnCreateNewAnalysisCylinderPallet)) { ImageTransparentColor = Color.White} );
+                    contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWCYLINDERANALYSIS, AnalysisCylinderPallet, new EventHandler(OnCreateNewAnalysisCylinderPallet)) { ImageTransparentColor = Color.White });
                 if (nodeTag.Document.CanCreateAnalysisPalletTruck)
-                    contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWTRUCKANALYSIS, AnalysisTruck, new EventHandler(OnCreateNewAnalysisPalletTruck)) { ImageTransparentColor = Color.White} );
+                    contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWTRUCKANALYSIS, AnalysisTruck, new EventHandler(OnCreateNewAnalysisPalletTruck)) { ImageTransparentColor = Color.White });
             }
             else if (nodeTag.Type == NodeTag.NodeType.NT_ANALYSIS)
             {
@@ -218,11 +224,14 @@ namespace treeDiM.StackBuilder.Desktop
                     analysisName = nodeTag.HAnalysis.Name;
 
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(
-                    string.Format(Resources.ID_EDIT, analysisName), null, new EventHandler(OnEditAnalysis)) { ImageTransparentColor = Color.White });
+                    string.Format(Resources.ID_EDIT, analysisName), null, new EventHandler(OnEditAnalysis))
+                { ImageTransparentColor = Color.White });
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(
-                    string.Format(Resources.ID_DELETEITEM, analysisName), DELETE, new EventHandler(OnDeleteBaseItem)) { ImageTransparentColor = Color.White });
+                    string.Format(Resources.ID_DELETEITEM, analysisName), DELETE, new EventHandler(OnDeleteBaseItem))
+                { ImageTransparentColor = Color.White });
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(
-                    string.Format(Resources.ID_GENERATEREPORT, analysisName), WORD, new EventHandler(OnAnalysisReport)) { ImageTransparentColor = Color.White });
+                    string.Format(Resources.ID_GENERATEREPORT, analysisName), WORD, new EventHandler(OnAnalysisReport))
+                { ImageTransparentColor = Color.White });
             }
         }
         #endregion
@@ -288,6 +297,15 @@ namespace treeDiM.StackBuilder.Desktop
             {
                 NodeTag tag = SelectedNode.Tag as NodeTag;
                 ((DocumentSB)tag.Document).CreateNewCylinderUI();
+            }
+            catch (Exception ex) { _log.Error(ex.ToString()); }
+        }
+        private void OnCreateNewBottle(object sender, EventArgs e)
+        {
+            try
+            {
+                NodeTag tag = SelectedNode.Tag as NodeTag;
+                ((DocumentSB)tag.Document).CreateNewBottleUI();
             }
             catch (Exception ex) { _log.Error(ex.ToString()); }
         }
@@ -422,6 +440,7 @@ namespace treeDiM.StackBuilder.Desktop
                     || (tag.Type == NodeTag.NodeType.NT_PACK)
                     || (tag.Type == NodeTag.NodeType.NT_BUNDLE)
                     || (tag.Type == NodeTag.NodeType.NT_CYLINDER)
+                    || (tag.Type == NodeTag.NodeType.NT_BOTTLE)
                     || (tag.Type == NodeTag.NodeType.NT_CASEOFBOXES)
                     || (tag.Type == NodeTag.NodeType.NT_PALLET)
                     || (tag.Type == NodeTag.NodeType.NT_INTERLAYER)
@@ -649,8 +668,8 @@ namespace treeDiM.StackBuilder.Desktop
             }
             else if (itemProperties.GetType() == typeof(BottleProperties))
             {
-                iconIndex = 6;
-                nodeType = NodeTag.NodeType.NT_CYLINDER;
+                iconIndex = 22;
+                nodeType = NodeTag.NodeType.NT_BOTTLE;
                 parentNodeType = NodeTag.NodeType.NT_LISTCYLINDER;
             }
             else if (itemProperties.GetType() == typeof(PalletProperties))
@@ -805,8 +824,10 @@ namespace treeDiM.StackBuilder.Desktop
                 nodeType = NodeTag.NodeType.NT_PALLET;
             else if (itemBase.GetType() == typeof(TruckProperties))
                 nodeType = NodeTag.NodeType.NT_TRUCK;
-            else if (itemBase.GetType() == typeof(CylinderProperties) || itemBase.GetType() == typeof(BottleProperties))
+            else if (itemBase.GetType() == typeof(CylinderProperties))
                 nodeType = NodeTag.NodeType.NT_CYLINDER;
+            else if (itemBase.GetType() == typeof(BottleProperties))
+                nodeType = NodeTag.NodeType.NT_BOTTLE;
             Debug.Assert(nodeType != NodeTag.NodeType.NT_UNKNOWN);
             if (nodeType == NodeTag.NodeType.NT_UNKNOWN)
                 return; // ->not found exit
@@ -942,7 +963,11 @@ namespace treeDiM.StackBuilder.Desktop
             /// </summary>
             NT_CYLINDER,
             /// <summary>
-            /// palet
+            /// bottle
+            /// </summary>
+            NT_BOTTLE,
+            /// <summary>
+            /// pallet
             /// </summary>
             NT_PALLET,
             /// <summary>
@@ -1058,7 +1083,6 @@ namespace treeDiM.StackBuilder.Desktop
             /// </summary>
             NT_UNKNOWN
         }
-
         #endregion
 
         #region Constructor

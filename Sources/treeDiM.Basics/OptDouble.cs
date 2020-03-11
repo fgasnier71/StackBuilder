@@ -149,7 +149,7 @@ namespace treeDiM.Basics
         }
         public override string ToString()
         {
-            return string.Format("{0}, {1}", _activated ? 1 : 0, _val.ToString(System.Globalization.CultureInfo.InvariantCulture));
+            return $"{(_activated ? 1 : 0)}, {_val.ToString(System.Globalization.CultureInfo.InvariantCulture)}";
         }
         #endregion
 

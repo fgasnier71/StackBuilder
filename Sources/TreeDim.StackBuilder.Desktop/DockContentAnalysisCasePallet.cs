@@ -97,6 +97,7 @@ namespace treeDiM.StackBuilder.Desktop
 
         #region Override DockContentAnalysisEdit
         protected override string GridCaption => Resources.ID_PALLET;
+        protected override bool AllowExport3D => true;
         #endregion
 
         #region Private properties (Pallet corners, pallet caps, pallet film)

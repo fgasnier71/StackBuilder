@@ -39,6 +39,8 @@
             this.rbSubscription1 = new System.Windows.Forms.RadioButton();
             this.webBrowser = new System.Windows.Forms.WebBrowser();
             this.rbSubscription2 = new System.Windows.Forms.RadioButton();
+            this.lbVATNumber = new System.Windows.Forms.Label();
+            this.tbVATNumber = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // linkLabelPremiumVsFree
@@ -97,8 +99,8 @@
             // 
             // webBrowser
             // 
-            this.webBrowser.AllowWebBrowserDrop = false;
             resources.ApplyResources(this.webBrowser, "webBrowser");
+            this.webBrowser.AllowWebBrowserDrop = false;
             this.webBrowser.Name = "webBrowser";
             this.webBrowser.Url = new System.Uri("http://www.plmpack.com/stackbuilder/premium/paypal_small.htm", System.UriKind.Absolute);
             // 
@@ -110,11 +112,24 @@
             this.rbSubscription2.UseVisualStyleBackColor = true;
             this.rbSubscription2.CheckedChanged += new System.EventHandler(this.OnPaymentModeChanged);
             // 
+            // lbVATNumber
+            // 
+            resources.ApplyResources(this.lbVATNumber, "lbVATNumber");
+            this.lbVATNumber.Name = "lbVATNumber";
+            // 
+            // tbVATNumber
+            // 
+            resources.ApplyResources(this.tbVATNumber, "tbVATNumber");
+            this.tbVATNumber.Name = "tbVATNumber";
+            this.tbVATNumber.TextChanged += new System.EventHandler(this.OnInputChanged);
+            // 
             // FormBecomePremiumUser
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.bnCancel;
+            this.Controls.Add(this.tbVATNumber);
+            this.Controls.Add(this.lbVATNumber);
             this.Controls.Add(this.rbSubscription2);
             this.Controls.Add(this.webBrowser);
             this.Controls.Add(this.rbSubscription1);
@@ -147,5 +162,7 @@
         private System.Windows.Forms.RadioButton rbSubscription1;
         private System.Windows.Forms.WebBrowser webBrowser;
         private System.Windows.Forms.RadioButton rbSubscription2;
+        private System.Windows.Forms.Label lbVATNumber;
+        private System.Windows.Forms.TextBox tbVATNumber;
     }
 }

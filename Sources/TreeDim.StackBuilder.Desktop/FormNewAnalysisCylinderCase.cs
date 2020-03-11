@@ -100,7 +100,7 @@ namespace treeDiM.StackBuilder.Desktop
         {
             if (ctrl == cbCylinders)
             {
-                return itemBase is CylinderProperties;
+                return itemBase is RevSolidProperties;
             }
             else if (ctrl == cbCases)
             {
@@ -130,7 +130,7 @@ namespace treeDiM.StackBuilder.Desktop
             {
                 // get cylinder & case
                 BoxProperties caseProperties = SelectedCase;
-                CylinderProperties cylinder = SelectedCylinder;
+                RevSolidProperties cylinder = SelectedCylinder;
                 if (null == cylinder || null == caseProperties)
                     return;
                 // compute
@@ -161,7 +161,7 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Private properties
-        private CylinderProperties SelectedCylinder => cbCylinders.SelectedType as CylinderProperties;
+        private RevSolidProperties SelectedCylinder => cbCylinders.SelectedType as RevSolidProperties;
         private BoxProperties SelectedCase => cbCases.SelectedType as BoxProperties;
         private AnalysisCylinderCase AnalysisCast => _item as AnalysisCylinderCase;
         #endregion

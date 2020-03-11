@@ -146,6 +146,7 @@
             this.saveFileDialogWebGL = new System.Windows.Forms.SaveFileDialog();
             this.timerLogin = new System.Windows.Forms.Timer(this.components);
             this.saveFileDialogExport = new System.Windows.Forms.SaveFileDialog();
+            this.toolStripMenuItemNewBottle = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripMain.SuspendLayout();
             this.toolStripStandard.SuspendLayout();
             this.SuspendLayout();
@@ -277,6 +278,7 @@
             this.toolStripMenuItemPack,
             this.toolStripMenuItemBundle,
             this.toolStripMenuItemCylinder,
+            this.toolStripMenuItemNewBottle,
             this.toolStripMenuItemPallet,
             this.toolStripMenuItemTruck,
             this.toolStripSeparator18,
@@ -955,6 +957,12 @@
             this.saveFileDialogExport.DefaultExt = "xml";
             resources.ApplyResources(this.saveFileDialogExport, "saveFileDialogExport");
             // 
+            // toolStripMenuItemNewBottle
+            // 
+            resources.ApplyResources(this.toolStripMenuItemNewBottle, "toolStripMenuItemNewBottle");
+            this.toolStripMenuItemNewBottle.Name = "toolStripMenuItemNewBottle";
+            this.toolStripMenuItemNewBottle.Click += new System.EventHandler(this.ToolAddNewBottle);
+            // 
             // FormMain
             // 
             resources.ApplyResources(this, "$this");
@@ -1091,5 +1099,6 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMIAnalysisHCylPallet;
         private System.Windows.Forms.ToolStripMenuItem toolStripMIAnalysisHCylTruck;
         private System.Windows.Forms.ToolStripButton toolStripButtonBottle;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemNewBottle;
     }
 }

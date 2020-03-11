@@ -159,7 +159,7 @@ namespace treeDiM.StackBuilder.Basics
         public BBox3D BoundingBox(Packable packable)
         {
             BBox3D bbox = new BBox3D();
-            if (packable is CylinderProperties cylProperties)
+            if (packable is RevSolidProperties cylProperties)
             {
                 double radius = cylProperties.RadiusOuter;
                 double height = cylProperties.Height;

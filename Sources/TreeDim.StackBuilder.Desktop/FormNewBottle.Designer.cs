@@ -40,6 +40,10 @@
             this.graphCtrl = new treeDiM.StackBuilder.Graphics.Graphics3DControl();
             this.cbBottleType = new System.Windows.Forms.ComboBox();
             this.bnInitialize = new System.Windows.Forms.Button();
+            this.lbMaxDiameter = new System.Windows.Forms.Label();
+            this.lbMaxDiameterValue = new System.Windows.Forms.Label();
+            this.lbHeight = new System.Windows.Forms.Label();
+            this.lbHeightValue = new System.Windows.Forms.Label();
             this.gbWeight.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.graphCtrl)).BeginInit();
             this.SuspendLayout();
@@ -60,7 +64,7 @@
             // 
             this.bnSendToDB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.bnSendToDB.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.bnSendToDB.Location = new System.Drawing.Point(438, 353);
+            this.bnSendToDB.Location = new System.Drawing.Point(438, 413);
             this.bnSendToDB.Name = "bnSendToDB";
             this.bnSendToDB.Size = new System.Drawing.Size(142, 23);
             this.bnSendToDB.TabIndex = 23;
@@ -70,7 +74,7 @@
             // 
             // uCtrlNetWeight
             // 
-            this.uCtrlNetWeight.Location = new System.Drawing.Point(9, 47);
+            this.uCtrlNetWeight.Location = new System.Drawing.Point(9, 35);
             this.uCtrlNetWeight.Minimum = new decimal(new int[] {
             10000,
             0,
@@ -88,16 +92,16 @@
             this.gbWeight.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.gbWeight.Controls.Add(this.uCtrlNetWeight);
             this.gbWeight.Controls.Add(this.uCtrlWeight);
-            this.gbWeight.Location = new System.Drawing.Point(4, 260);
+            this.gbWeight.Location = new System.Drawing.Point(4, 375);
             this.gbWeight.Name = "gbWeight";
-            this.gbWeight.Size = new System.Drawing.Size(252, 78);
+            this.gbWeight.Size = new System.Drawing.Size(252, 59);
             this.gbWeight.TabIndex = 24;
             this.gbWeight.TabStop = false;
             this.gbWeight.Text = "Weight";
             // 
             // uCtrlWeight
             // 
-            this.uCtrlWeight.Location = new System.Drawing.Point(9, 20);
+            this.uCtrlWeight.Location = new System.Drawing.Point(9, 12);
             this.uCtrlWeight.Minimum = new decimal(new int[] {
             0,
             0,
@@ -114,7 +118,7 @@
             // 
             this.lbColor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lbColor.AutoSize = true;
-            this.lbColor.Location = new System.Drawing.Point(13, 240);
+            this.lbColor.Location = new System.Drawing.Point(12, 356);
             this.lbColor.Name = "lbColor";
             this.lbColor.Size = new System.Drawing.Size(31, 13);
             this.lbColor.TabIndex = 25;
@@ -229,8 +233,11 @@
             "Color",
             "Color",
             "Color",
+            "Color",
+            "Color",
+            "Color",
             "Color"});
-            this.cbColorTop.Location = new System.Drawing.Point(131, 238);
+            this.cbColorTop.Location = new System.Drawing.Point(131, 347);
             this.cbColorTop.Name = "cbColorTop";
             this.cbColorTop.Size = new System.Drawing.Size(75, 22);
             this.cbColorTop.TabIndex = 26;
@@ -241,11 +248,11 @@
             this.gridProfile.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.gridProfile.EnableSort = true;
-            this.gridProfile.Location = new System.Drawing.Point(4, 91);
+            this.gridProfile.Location = new System.Drawing.Point(4, 93);
             this.gridProfile.Name = "gridProfile";
             this.gridProfile.OptimizeMode = SourceGrid.CellOptimizeMode.ForRows;
             this.gridProfile.SelectionMode = SourceGrid.GridSelectionMode.Cell;
-            this.gridProfile.Size = new System.Drawing.Size(252, 113);
+            this.gridProfile.Size = new System.Drawing.Size(252, 170);
             this.gridProfile.TabIndex = 27;
             this.gridProfile.TabStop = true;
             this.gridProfile.ToolTipText = "";
@@ -253,7 +260,7 @@
             // bnInsert
             // 
             this.bnInsert.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.bnInsert.Location = new System.Drawing.Point(4, 210);
+            this.bnInsert.Location = new System.Drawing.Point(4, 270);
             this.bnInsert.Name = "bnInsert";
             this.bnInsert.Size = new System.Drawing.Size(75, 23);
             this.bnInsert.TabIndex = 28;
@@ -264,7 +271,7 @@
             // bnRemove
             // 
             this.bnRemove.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.bnRemove.Location = new System.Drawing.Point(85, 209);
+            this.bnRemove.Location = new System.Drawing.Point(85, 269);
             this.bnRemove.Name = "bnRemove";
             this.bnRemove.Size = new System.Drawing.Size(75, 23);
             this.bnRemove.TabIndex = 29;
@@ -280,7 +287,7 @@
             this.graphCtrl.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.graphCtrl.Location = new System.Drawing.Point(262, 64);
             this.graphCtrl.Name = "graphCtrl";
-            this.graphCtrl.Size = new System.Drawing.Size(318, 274);
+            this.graphCtrl.Size = new System.Drawing.Size(318, 334);
             this.graphCtrl.TabIndex = 22;
             this.graphCtrl.TabStop = false;
             this.graphCtrl.Viewer = null;
@@ -310,11 +317,51 @@
             this.bnInitialize.UseVisualStyleBackColor = true;
             this.bnInitialize.Click += new System.EventHandler(this.OnInitialize);
             // 
+            // lbMaxDiameter
+            // 
+            this.lbMaxDiameter.AutoSize = true;
+            this.lbMaxDiameter.Location = new System.Drawing.Point(10, 296);
+            this.lbMaxDiameter.Name = "lbMaxDiameter";
+            this.lbMaxDiameter.Size = new System.Drawing.Size(94, 13);
+            this.lbMaxDiameter.TabIndex = 32;
+            this.lbMaxDiameter.Text = "Maximum diameter";
+            // 
+            // lbMaxDiameterValue
+            // 
+            this.lbMaxDiameterValue.AutoSize = true;
+            this.lbMaxDiameterValue.Location = new System.Drawing.Point(156, 296);
+            this.lbMaxDiameterValue.Name = "lbMaxDiameterValue";
+            this.lbMaxDiameterValue.Size = new System.Drawing.Size(47, 13);
+            this.lbMaxDiameterValue.TabIndex = 33;
+            this.lbMaxDiameterValue.Text = ": 0.0 mm";
+            // 
+            // lbHeight
+            // 
+            this.lbHeight.AutoSize = true;
+            this.lbHeight.Location = new System.Drawing.Point(10, 313);
+            this.lbHeight.Name = "lbHeight";
+            this.lbHeight.Size = new System.Drawing.Size(38, 13);
+            this.lbHeight.TabIndex = 34;
+            this.lbHeight.Text = "Height";
+            // 
+            // lbHeightValue
+            // 
+            this.lbHeightValue.AutoSize = true;
+            this.lbHeightValue.Location = new System.Drawing.Point(156, 313);
+            this.lbHeightValue.Name = "lbHeightValue";
+            this.lbHeightValue.Size = new System.Drawing.Size(47, 13);
+            this.lbHeightValue.TabIndex = 35;
+            this.lbHeightValue.Text = ": 0.0 mm";
+            // 
             // FormNewBottle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(584, 401);
+            this.ClientSize = new System.Drawing.Size(584, 461);
+            this.Controls.Add(this.lbHeightValue);
+            this.Controls.Add(this.lbHeight);
+            this.Controls.Add(this.lbMaxDiameterValue);
+            this.Controls.Add(this.lbMaxDiameter);
             this.Controls.Add(this.bnInitialize);
             this.Controls.Add(this.cbBottleType);
             this.Controls.Add(this.bnRemove);
@@ -343,6 +390,10 @@
             this.Controls.SetChildIndex(this.bnRemove, 0);
             this.Controls.SetChildIndex(this.cbBottleType, 0);
             this.Controls.SetChildIndex(this.bnInitialize, 0);
+            this.Controls.SetChildIndex(this.lbMaxDiameter, 0);
+            this.Controls.SetChildIndex(this.lbMaxDiameterValue, 0);
+            this.Controls.SetChildIndex(this.lbHeight, 0);
+            this.Controls.SetChildIndex(this.lbHeightValue, 0);
             this.gbWeight.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.graphCtrl)).EndInit();
             this.ResumeLayout(false);
@@ -364,5 +415,9 @@
         private System.Windows.Forms.Button bnRemove;
         private System.Windows.Forms.ComboBox cbBottleType;
         private System.Windows.Forms.Button bnInitialize;
+        private System.Windows.Forms.Label lbMaxDiameter;
+        private System.Windows.Forms.Label lbMaxDiameterValue;
+        private System.Windows.Forms.Label lbHeight;
+        private System.Windows.Forms.Label lbHeightValue;
     }
 }

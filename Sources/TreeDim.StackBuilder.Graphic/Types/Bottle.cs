@@ -20,6 +20,19 @@ namespace treeDiM.StackBuilder.Graphics
             Profile = profile;
             Color = color;
         }
+        public Bottle(uint pickId, BottleProperties bottleProp)
+        {
+            PickId = pickId;
+            Profile = bottleProp.Profile;
+            Color = bottleProp.Color;
+        }
+        public Bottle(uint pickId, BottleProperties bottleProp, CylPosition position)
+        {
+            PickId = pickId;
+            Profile = bottleProp.Profile;
+            Color = bottleProp.Color;
+            Position = position;
+        }
         #endregion
         #region Overrides Drawable
         public override void Draw(Graphics3D graphics)
@@ -31,13 +44,9 @@ namespace treeDiM.StackBuilder.Graphics
             Brush brushPath = new SolidBrush(ColorPath);
             Pen penPath = new Pen(brushPath, 1.7f);
  
-            // bottom (draw only path)
+            // bottom, top
             Point[] ptsBottom = graphics.TransformPoint(GetBottomPoints());
-            g.DrawPolygon(penPath, ptsBottom);
-
-            // top
             Point[] ptsTop = graphics.TransformPoint(GetTopPoints());
-            g.DrawPolygon(penPath, ptsTop);
 
             // outer wall
             Face[] facesWalls = GetFaceWalls();
@@ -56,22 +65,15 @@ namespace treeDiM.StackBuilder.Graphics
                 { 
                 }
             }
-
             // top
             double cosTop = Math.Abs(Vector3D.DotProduct(HalfAxis.ToVector3D(Position.Direction), graphics.VLight));
             Color colorTop = Color.FromArgb((int)(Color.R * cosTop), (int)(Color.G * cosTop), (int)(Color.B * cosTop));
             Brush brushTop = new SolidBrush(colorTop);
             bool topVisible = Vector3D.DotProduct(HalfAxis.ToVector3D(Position.Direction), viewDir) < 0;
             if (topVisible)
-            {
                 g.FillPolygon(brushTop, ptsTop);
-                g.DrawPolygon(penPath, ptsTop);
-            }
             else
-            {
                 g.FillPolygon(brushTop, ptsBottom);
-                g.DrawPolygon(penPath, ptsBottom);
-            }
         }
         #endregion
         #region Private properties
@@ -79,7 +81,7 @@ namespace treeDiM.StackBuilder.Graphics
         private Color Color;
         private Color ColorPath => Color.Black;
         private int NoFaces => 36;
-        public override double RadiusOuter { get => Profile.Max(p => p.Y); protected set { } }
+        public override double RadiusOuter { get => 0.5 * Profile.Max(p => p.Y); protected set { } }
         public override double Height { get => Profile.Max(p => p.X); protected set { } }
         #endregion
         #region Helpers
@@ -109,7 +111,7 @@ namespace treeDiM.StackBuilder.Graphics
             {
                 double angle = i * 2.0 * Math.PI / NoFaces;
                 var vRadius = new Vector3D(0.0, Math.Cos(angle), Math.Sin(angle));
-                pts[i] = t.transform(pfPoint.Y * vRadius + pfPoint.X * Vector3D.XAxis);
+                pts[i] = t.transform(0.5 * pfPoint.Y * vRadius + pfPoint.X * Vector3D.XAxis);
             }
             return pts;
         }
@@ -123,7 +125,7 @@ namespace treeDiM.StackBuilder.Graphics
             {
                 double angle = i * 2.0 * Math.PI / NoFaces;
                 var vRadius = new Vector3D(pfPoint.X, Math.Cos(angle), Math.Sin(angle));
-                pts[i] = t.transform(pfPoint.Y * vRadius + pfPoint.X * Vector3D.XAxis);
+                pts[i] = t.transform(0.5 * pfPoint.Y * vRadius + pfPoint.X * Vector3D.XAxis);
             }
             return pts;
         }
@@ -143,10 +145,10 @@ namespace treeDiM.StackBuilder.Graphics
                     Vector3D vRadiusBeg = new Vector3D(0.0, Math.Cos(angleBeg), Math.Sin(angleBeg));
                     Vector3D vRadiusEnd = new Vector3D(0.0, Math.Cos(angleEnd), Math.Sin(angleEnd));
                     Vector3D[] vertices = new Vector3D[4];
-                    vertices[0] = t.transform(v1.Y * vRadiusBeg + v1.X * Vector3D.XAxis);
-                    vertices[1] = t.transform(v1.Y * vRadiusEnd + v1.X * Vector3D.XAxis);
-                    vertices[2] = t.transform(v2.Y * vRadiusEnd + v2.X * Vector3D.XAxis);
-                    vertices[3] = t.transform(v2.Y * vRadiusBeg + v2.X * Vector3D.XAxis);
+                    vertices[0] = t.transform(0.5 * v1.Y * vRadiusBeg + v1.X * Vector3D.XAxis);
+                    vertices[1] = t.transform(0.5 * v1.Y * vRadiusEnd + v1.X * Vector3D.XAxis);
+                    vertices[2] = t.transform(0.5 * v2.Y * vRadiusEnd + v2.X * Vector3D.XAxis);
+                    vertices[3] = t.transform(0.5 * v2.Y * vRadiusBeg + v2.X * Vector3D.XAxis);
                     faces[i * NoFaces + j] = new Face(PickId, vertices, "CYLINDER") { ColorFill = Color };
                 }
             }

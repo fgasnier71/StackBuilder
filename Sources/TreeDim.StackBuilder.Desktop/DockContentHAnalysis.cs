@@ -186,10 +186,9 @@ namespace treeDiM.StackBuilder.Desktop
                                 View = viewRowHeader
                             };
                             gridSolutions[iRow, 0] = itemHeader;
-                            gridSolutions[iRow, 1] = new SourceGrid.Cells.Cell(string.Format("{0}", count));
+                            gridSolutions[iRow, 1] = new SourceGrid.Cells.Cell($"{count}");
                         }
                     }
-
                     // pallet data header
                     gridSolutions.Rows.Insert(++iRow);
                     rowHeader = new SourceGrid.Cells.RowHeader(Resources.ID_PALLETDATA)

@@ -716,7 +716,7 @@ namespace treeDiM.StackBuilder.Basics
         }
         public Analysis CreateNewAnalysisCylinderCase(
             string name, string description
-            , CylinderProperties cylinder, BoxProperties caseProperties
+            , RevSolidProperties cylinder, BoxProperties caseProperties
             , List<InterlayerProperties> interlayers
             , ConstraintSetCylinderContainer constraintSet
             , List<LayerEncap> layerEncaps)
@@ -1069,6 +1069,8 @@ namespace treeDiM.StackBuilder.Basics
                                 LoadBoxProperties(itemPropertiesNode as XmlElement);
                             else if (string.Equals(itemPropertiesNode.Name, "CylinderProperties", StringComparison.CurrentCultureIgnoreCase))
                                 LoadCylinderProperties(itemPropertiesNode as XmlElement);
+                            else if (string.Equals(itemPropertiesNode.Name, "BottleProperties", StringComparison.CurrentCultureIgnoreCase))
+                                LoadBottleProperties(itemPropertiesNode as XmlElement);
                             else if (string.Equals(itemPropertiesNode.Name, "PalletProperties", StringComparison.CurrentCultureIgnoreCase))
                                 LoadPalletProperties(itemPropertiesNode as XmlElement);
                             else if (string.Equals(itemPropertiesNode.Name, "InterlayerProperties", StringComparison.CurrentCultureIgnoreCase))
@@ -1129,7 +1131,10 @@ namespace treeDiM.StackBuilder.Basics
                             }
                             catch (Exception ex)
                             {
-                                _log.Error($"Failed to load analysis: {ex.Message}");
+                                string analysisName = "Unknown";
+                                if (null != analysisElt && analysisElt.HasAttribute("Name"))
+                                    analysisName = analysisElt.GetAttribute("Name");
+                                _log.Error($"Failed to load {analysisNode.Name} ({analysisName}) with error: {ex.Message}");
                             }                        
                         }
 
@@ -1351,6 +1356,42 @@ namespace treeDiM.StackBuilder.Basics
                 Color.FromArgb(Convert.ToInt32(sColorWallInner))
                 );
             cylinderProperties.ID.IGuid = new Guid(sid);
+        }
+        private void LoadBottleProperties(XmlElement eltBottleProperties)
+        {
+            string sid = eltBottleProperties.Attributes["Id"].Value;
+            string sname = eltBottleProperties.Attributes["Name"].Value;
+            string sdescription = eltBottleProperties.Attributes["Description"].Value;
+            string sweight = eltBottleProperties.Attributes["Weight"].Value;
+            string scolor = eltBottleProperties.Attributes["Color"].Value;
+
+            List<Vector2D> profile = new List<Vector2D>();
+            foreach (var xmlNode in eltBottleProperties.SelectNodes("Profile"))
+            {
+                XmlElement xmlEltProfile = xmlNode as XmlElement;
+                foreach (var hdNode in xmlEltProfile.SelectNodes("HeightDiameter"))
+                {
+                    try
+                    {
+                        XmlElement hdElt = hdNode as XmlElement;
+                        profile.Add(LoadVectorLength(hdElt, "value"));
+                    }
+                    catch (Exception ex)
+                    {
+                        _log.Warn(ex.ToString());
+                    }
+                }
+            }
+            var bottleProperties = CreateNewBottle(
+                sname,
+                sdescription,
+                profile,
+                UnitsManager.ConvertMassFrom(Convert.ToDouble(sweight, CultureInfo.InvariantCulture), UnitSystem),
+                LoadOptDouble(eltBottleProperties, "NetWeight", UnitsManager.UnitType.UT_MASS),
+                Color.FromArgb(Convert.ToInt32(scolor))
+                );
+            bottleProperties.ID.IGuid = Guid.Parse(sid);
+
         }
         private void LoadFaceColors(XmlElement eltColors, ref Color[] colors)
         {
@@ -1747,7 +1788,7 @@ namespace treeDiM.StackBuilder.Basics
             }
             else if (string.Equals(eltAnalysis.Name, "AnalysisCylinderCase", StringComparison.CurrentCultureIgnoreCase))
             {
-                Packable cylinderProperties = GetContentByGuid(Guid.Parse(sContentId)) as Packable;
+                Packable revSolidProperties = GetContentByGuid(Guid.Parse(sContentId)) as Packable;
                 BoxProperties caseProperties = GetTypeByGuid(sContainerId) as BoxProperties;
 
                 ConstraintSetAbstract constraintSet = null;
@@ -1763,7 +1804,7 @@ namespace treeDiM.StackBuilder.Basics
 
                 var analysis = CreateNewAnalysisCylinderCase(
                     sName, sDescription
-                    , cylinderProperties as CylinderProperties, caseProperties
+                    , revSolidProperties as RevSolidProperties, caseProperties
                     , interlayers
                     , constraintSet as ConstraintSetCylinderContainer
                     , listLayerEncaps)
@@ -2251,7 +2292,22 @@ namespace treeDiM.StackBuilder.Basics
         {
             if (xmlElement.HasAttribute(attribute))
             {
-                Vector2D v0 = Vector2D.Parse(xmlElement.Attributes[attribute].Value);
+                Regex r = new Regex(@"\((?<x>.*),(?<y>.*)\)", RegexOptions.Singleline);
+                Match m = r.Match(xmlElement.Attributes[attribute].Value);
+                Vector2D v0;
+                if (m.Success)
+                {
+                    NumberStyles style = NumberStyles.Number;
+                    CultureInfo culture = CultureInfo.InvariantCulture;
+                    v0 = new Vector2D(
+                        double.Parse(m.Result("${x}"), style, culture),
+                        double.Parse(m.Result("${y}"), style, culture)
+                        );
+                }
+                else
+                {
+                    throw new ParseException("Unsuccessful Match.");
+                }
                 return new Vector2D(UnitsManager.ConvertLengthFrom(v0.X, UnitSystem), UnitsManager.ConvertLengthFrom(v0.Y, UnitSystem));
             }
             return Vector2D.Zero;
@@ -2411,28 +2467,32 @@ namespace treeDiM.StackBuilder.Basics
                 xmlRootElement.AppendChild(xmlItemPropertiesElt);
                 foreach (ItemBase itemProperties in _typeList)
                 {
-                    CaseOfBoxesProperties caseOfBoxesProperties = itemProperties as CaseOfBoxesProperties;
-                    if (null != caseOfBoxesProperties)
+                    if (itemProperties is CaseOfBoxesProperties caseOfBoxesProperties)
                         Save(caseOfBoxesProperties, xmlItemPropertiesElt, xmlDoc);
-                    if (itemProperties is BoxProperties boxProperties && null == caseOfBoxesProperties)
+                    else if (itemProperties is BoxProperties boxProperties && !(itemProperties is CaseOfBoxesProperties))
                         Save(boxProperties, xmlItemPropertiesElt, xmlDoc);
-                    if (itemProperties is BundleProperties bundleProperties)
+                    else if (itemProperties is BundleProperties bundleProperties)
                         Save(bundleProperties, xmlItemPropertiesElt, xmlDoc);
-                    if (itemProperties is CylinderProperties cylinderProperties)
+                    else if (itemProperties is CylinderProperties cylinderProperties)
                         Save(cylinderProperties, xmlItemPropertiesElt, xmlDoc);
-                    if (itemProperties is PalletProperties palletProperties)
+                    else if (itemProperties is BottleProperties bottleProperties)
+                        Save(bottleProperties, xmlItemPropertiesElt, xmlDoc);
+                    else if (itemProperties is PalletProperties palletProperties)
                         Save(palletProperties, xmlItemPropertiesElt, xmlDoc);
-                    if (itemProperties is InterlayerProperties interlayerProperties)
+                    else if (itemProperties is InterlayerProperties interlayerProperties)
                         Save(interlayerProperties, xmlItemPropertiesElt, xmlDoc);
-                    if (itemProperties is PalletCornerProperties cornerProperties)
+                    else if (itemProperties is PalletCornerProperties cornerProperties)
                         Save(cornerProperties, xmlItemPropertiesElt, xmlDoc);
-                    if (itemProperties is PalletCapProperties capProperties)
+                    else if (itemProperties is PalletCapProperties capProperties)
                         Save(capProperties, xmlItemPropertiesElt, xmlDoc);
-                    if (itemProperties is PalletFilmProperties filmProperties)
+                    else if (itemProperties is PalletFilmProperties filmProperties)
                         Save(filmProperties, xmlItemPropertiesElt, xmlDoc);
-                    if (itemProperties is TruckProperties truckProperties)
+                    else if (itemProperties is TruckProperties truckProperties)
                         Save(truckProperties, xmlItemPropertiesElt, xmlDoc);
-                    if (itemProperties is PackProperties packProperties) { }
+                    else if (itemProperties is PackProperties packProperties)
+                    { }
+                    else
+                        _log.Warn($"Type {itemProperties.Name}({itemProperties.GetType()}) not saved!");
                 }
                 foreach (ItemBase itemProperties in _typeList)
                 {
@@ -2585,49 +2645,96 @@ namespace treeDiM.StackBuilder.Basics
         }
         public void Save(CylinderProperties cylinderProperties, XmlElement parentElement, XmlDocument xmlDoc)
         {
-            // create xmlBoxProperties element
-            XmlElement eltBoxProperties = xmlDoc.CreateElement("CylinderProperties");
-            parentElement.AppendChild(eltBoxProperties);
+            // create "CylinderProperties" element
+            XmlElement eltCylProperties = xmlDoc.CreateElement("CylinderProperties");
+            parentElement.AppendChild(eltCylProperties);
             // Id
             XmlAttribute guidAttribute = xmlDoc.CreateAttribute("Id");
             guidAttribute.Value = cylinderProperties.ID.IGuid.ToString();
-            eltBoxProperties.Attributes.Append(guidAttribute);
+            eltCylProperties.Attributes.Append(guidAttribute);
             // name
             XmlAttribute nameAttribute = xmlDoc.CreateAttribute("Name");
             nameAttribute.Value = cylinderProperties.ID.Name;
-            eltBoxProperties.Attributes.Append(nameAttribute);
+            eltCylProperties.Attributes.Append(nameAttribute);
             // description
             XmlAttribute descAttribute = xmlDoc.CreateAttribute("Description");
             descAttribute.Value = cylinderProperties.ID.Description;
-            eltBoxProperties.Attributes.Append(descAttribute);
+            eltCylProperties.Attributes.Append(descAttribute);
             // radius outer
             XmlAttribute radiusOuterAttribute = xmlDoc.CreateAttribute("RadiusOuter");
             radiusOuterAttribute.Value = string.Format(CultureInfo.InvariantCulture, "{0}", cylinderProperties.RadiusOuter);
-            eltBoxProperties.Attributes.Append(radiusOuterAttribute);
+            eltCylProperties.Attributes.Append(radiusOuterAttribute);
             // radius inner
             XmlAttribute radiusInnerAttribute = xmlDoc.CreateAttribute("RadiusInner");
             radiusInnerAttribute.Value = string.Format(CultureInfo.InvariantCulture, "{0}", cylinderProperties.RadiusInner);
-            eltBoxProperties.Attributes.Append(radiusInnerAttribute);
+            eltCylProperties.Attributes.Append(radiusInnerAttribute);
             // height
             XmlAttribute heightAttribute = xmlDoc.CreateAttribute("Height");
             heightAttribute.Value = string.Format(CultureInfo.InvariantCulture, "{0}", cylinderProperties.Height);
-            eltBoxProperties.Attributes.Append(heightAttribute);
+            eltCylProperties.Attributes.Append(heightAttribute);
             // weight
             XmlAttribute weightAttribute = xmlDoc.CreateAttribute("Weight");
             weightAttribute.Value = string.Format(CultureInfo.InvariantCulture, "{0}", cylinderProperties.Weight);
-            eltBoxProperties.Attributes.Append(weightAttribute);
+            eltCylProperties.Attributes.Append(weightAttribute);
+            // net weight
+            XmlAttribute netWeightAttribute = xmlDoc.CreateAttribute("NetWeight");
+            netWeightAttribute.Value = cylinderProperties.NetWeight.ToString();
+            eltCylProperties.Attributes.Append(netWeightAttribute);
             // colorTop
             XmlAttribute topAttribute = xmlDoc.CreateAttribute("ColorTop");
             topAttribute.Value = string.Format(CultureInfo.InvariantCulture, "{0}", cylinderProperties.ColorTop.ToArgb());
-            eltBoxProperties.Attributes.Append(topAttribute);
+            eltCylProperties.Attributes.Append(topAttribute);
             // colorWall
             XmlAttribute outerWallAttribute = xmlDoc.CreateAttribute("ColorWallOuter");
             outerWallAttribute.Value = string.Format(CultureInfo.InvariantCulture, "{0}", cylinderProperties.ColorWallOuter.ToArgb());
-            eltBoxProperties.Attributes.Append(outerWallAttribute);
+            eltCylProperties.Attributes.Append(outerWallAttribute);
             // color inner wall
             XmlAttribute innerWallAttribute = xmlDoc.CreateAttribute("ColorWallInner");
             innerWallAttribute.Value = string.Format(CultureInfo.InvariantCulture, "{0}", cylinderProperties.ColorWallInner.ToArgb());
-            eltBoxProperties.Attributes.Append(innerWallAttribute);
+            eltCylProperties.Attributes.Append(innerWallAttribute);
+        }
+        public void Save(BottleProperties bottleProperties, XmlElement parentElement, XmlDocument xmlDoc)
+        {
+            // create element "BottleProperties"
+            XmlElement eltBottleProperties = xmlDoc.CreateElement("BottleProperties");
+            parentElement.AppendChild(eltBottleProperties);
+            // Id
+            XmlAttribute guidAttribute = xmlDoc.CreateAttribute("Id");
+            guidAttribute.Value = bottleProperties.ID.IGuid.ToString();
+            eltBottleProperties.Attributes.Append(guidAttribute);
+            // name
+            XmlAttribute nameAttribute = xmlDoc.CreateAttribute("Name");
+            nameAttribute.Value = bottleProperties.ID.Name;
+            eltBottleProperties.Attributes.Append(nameAttribute);
+            // description
+            XmlAttribute descAttribute = xmlDoc.CreateAttribute("Description");
+            descAttribute.Value = bottleProperties.ID.Description;
+            eltBottleProperties.Attributes.Append(descAttribute);
+            // color
+            XmlAttribute colorAttribute = xmlDoc.CreateAttribute("Color");
+            colorAttribute.Value = $"{bottleProperties.Color.ToArgb()}";
+            eltBottleProperties.Attributes.Append(colorAttribute);
+            // weight
+            XmlAttribute weightAttribute = xmlDoc.CreateAttribute("Weight");
+            weightAttribute.Value = string.Format(CultureInfo.InvariantCulture, "{0}", bottleProperties.Weight);
+            eltBottleProperties.Attributes.Append(weightAttribute);
+            // netWeight
+            XmlAttribute netWeightAttribute = xmlDoc.CreateAttribute("NetWeight");
+            netWeightAttribute.Value = bottleProperties.NetWeight.ToString();
+            eltBottleProperties.Attributes.Append(netWeightAttribute);
+            // create element "Profile"
+            var eltProfile = xmlDoc.CreateElement("Profile");
+            eltBottleProperties.AppendChild(eltProfile);
+            // create element "HeightDiameter"
+            foreach (var hd in bottleProperties.Profile)
+            {
+                var eltHd = xmlDoc.CreateElement("HeightDiameter");
+                eltProfile.AppendChild(eltHd);
+
+                XmlAttribute heightDiamAttribute = xmlDoc.CreateAttribute("value");
+                heightDiamAttribute.Value = hd.ToString();
+                eltHd.Attributes.Append(heightDiamAttribute);
+            }
         }
         public void Save(PalletProperties palletProperties, XmlElement parentElement, XmlDocument xmlDoc)
         {
@@ -3102,6 +3209,7 @@ namespace treeDiM.StackBuilder.Basics
         {
             if (analysis is AnalysisBoxCase) return "AnalysisBoxCase";
             else if (analysis is AnalysisCylinderCase) return "AnalysisCylinderCase";
+            else if (analysis is AnalysisCylinderPallet) return "AnalysisCylinderPallet";
             else if (analysis is AnalysisHCylCase) return "AnalysisHCylCase";
             else if (analysis is AnalysisCasePallet) return "AnalysisCasePallet";
             else if (analysis is AnalysisHCylPallet) return "AnalysisHCylPallet";
@@ -3193,9 +3301,10 @@ namespace treeDiM.StackBuilder.Basics
             attMaximumNumber.Value = constraintSet.OptMaxNumber.ToString();
             eltContraintSet.Attributes.Append(attMaximumNumber);
 
-            if (analysis is AnalysisCasePallet analysisCasePallet2)
+            if (analysis is AnalysisCasePallet
+                || analysis is AnalysisCylinderPallet)
             {
-                ConstraintSetCasePallet constraintSetCasePallet = analysisCasePallet2.ConstraintSet as ConstraintSetCasePallet;
+                ConstraintSetCasePallet constraintSetCasePallet = analysis.ConstraintSet as ConstraintSetCasePallet;
 
                 XmlAttribute attOverhang = xmlDoc.CreateAttribute("Overhang");
                 attOverhang.Value = constraintSetCasePallet.Overhang.ToString();

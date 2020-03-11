@@ -686,6 +686,8 @@ namespace treeDiM.StackBuilder.Reporting
                 return Resources.ID_RN_BUNDLE;
             else if (itemBase is CylinderProperties)
                 return Resources.ID_RN_CYLINDER;
+            else if (itemBase is BottleProperties)
+                return Resources.ID_RN_BOTTLE;
             else if (itemBase is PalletProperties)
                 return Resources.ID_RN_PALLET;
             else if (itemBase is TruckProperties)
@@ -708,13 +710,13 @@ namespace treeDiM.StackBuilder.Reporting
                 AppendBundleElement(packable as BundleProperties, rnContent, elemAnalysis, xmlDoc);
             else if (packable is PackProperties)
                 AppendPackElement(packable as PackProperties, rnContent, elemAnalysis, xmlDoc);
-            else if (packable is CylinderProperties)
-                AppendCylinderElement(packable as CylinderProperties, rnContent, elemAnalysis, xmlDoc);
+            else if (packable is RevSolidProperties)
+                AppendCylinderElement(packable as RevSolidProperties, rnContent, elemAnalysis, xmlDoc);
             else if (packable is LoadedCase)
-            { 
+            {
             }
             else if (packable is LoadedPallet)
-            { 
+            {
             }
             else
                 throw new ReportExceptionUnexpectedItem(packable);
@@ -1179,7 +1181,7 @@ namespace treeDiM.StackBuilder.Reporting
 
         }
 
-        private void AppendCylinderElement(CylinderProperties cylProperties, ReportNode rnCylinder, XmlElement elemAnalysis, XmlDocument xmlDoc)
+        private void AppendCylinderElement(RevSolidProperties cylProperties, ReportNode rnCylinder, XmlElement elemAnalysis, XmlDocument xmlDoc)
         {
             string ns = xmlDoc.DocumentElement.NamespaceURI;
             // get CylinderProperties
@@ -1198,9 +1200,9 @@ namespace treeDiM.StackBuilder.Reporting
             }
             if (rnCylinder.GetChildByName(Resources.ID_RN_DIMENSIONS).Activated)
             {
-                AppendElementValue(xmlDoc, elemCylinder, "radius", UnitsManager.UnitType.UT_LENGTH, cylProperties.RadiusOuter);
-                AppendElementValue(xmlDoc, elemCylinder, "width", UnitsManager.UnitType.UT_LENGTH, cylProperties.Height);
-                AppendElementValue(xmlDoc, elemCylinder, "height", UnitsManager.UnitType.UT_MASS, cylProperties.Weight);
+                AppendElementValue(xmlDoc, elemCylinder, "diameter", UnitsManager.UnitType.UT_LENGTH, cylProperties.Diameter);
+                AppendElementValue(xmlDoc, elemCylinder, "height", UnitsManager.UnitType.UT_LENGTH, cylProperties.Height);
+                AppendElementValue(xmlDoc, elemCylinder, "weight", UnitsManager.UnitType.UT_MASS, cylProperties.Weight);
             }
             if (rnCylinder.GetChildByName(Resources.ID_RN_IMAGE).Activated)
             {
@@ -1211,12 +1213,18 @@ namespace treeDiM.StackBuilder.Reporting
                     CameraPosition = Graphics3D.Corner_0,
                     Target = Vector3D.Zero
                 };
-                Cylinder cyl = new Cylinder(0, cylProperties);
+                Cyl cyl = null;
+                if (cylProperties is CylinderProperties cylProp)
+                    cyl = new Cylinder(0, cylProp);
+                else if (cylProperties is BottleProperties bottleProp)
+                    cyl = new Bottle(0, bottleProp);
                 graphics.AddCylinder(cyl);
                 if (ShowDimensions)
                 {
-                    DimensionCube dc = new DimensionCube(cyl.DiameterOuter, cyl.DiameterOuter, cyl.Height);
-                    graphics.AddDimensions(dc);
+                    graphics.AddDimensions( new DimensionCube(
+                        new Vector3D(-cyl.RadiusOuter, -cyl.RadiusOuter, 0.0),
+                        cyl.DiameterOuter, cyl.DiameterOuter, cyl.Height,
+                        Color.Black, false));
                 }
                 graphics.Flush();
                 // ---

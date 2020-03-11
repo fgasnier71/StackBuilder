@@ -1360,15 +1360,15 @@
           </td>
         </tr>
       </xsl:if>
-      <xsl:if test="radius">
+      <xsl:if test="diameter">
         <tr>
           <td class="style2" colspan="1">
             <b>
-              <xsl:value-of select="$loc/str[@name='Radius']"/> (<xsl:value-of select="radius/unit"></xsl:value-of>)
+              <xsl:value-of select="$loc/str[@name='Diameter']"/> (<xsl:value-of select="diameter/unit"></xsl:value-of>)
             </b>
           </td>
           <td class="style3" colspan="1">
-            <xsl:value-of select="radius/value"></xsl:value-of>
+            <xsl:value-of select="diameter/value"></xsl:value-of>
           </td>
         </tr>
       </xsl:if>

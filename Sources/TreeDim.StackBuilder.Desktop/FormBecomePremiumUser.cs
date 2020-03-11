@@ -39,6 +39,7 @@ namespace treeDiM.StackBuilder.Desktop
         private string Email { get => tbEmail.Text; set => tbEmail.Text = value; }
         private int SubscriptionDuration => cbSubscriptionDuration.SelectedIndex;
         private int PaymentMode => 1;
+        private string VATNumber => tbVATNumber.Text;
         #endregion
 
         #region Event handler
@@ -51,6 +52,8 @@ namespace treeDiM.StackBuilder.Desktop
             cbSubscriptionDuration.Enabled = !paypalMode;
             lbEmail.Enabled = !paypalMode;
             tbEmail.Enabled = !paypalMode;
+            lbVATNumber.Enabled = !paypalMode;
+            tbVATNumber.Enabled = !paypalMode;
         }
         private void OnPremiumVsFreeClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
@@ -71,6 +74,10 @@ namespace treeDiM.StackBuilder.Desktop
                 _log.Error(ex.ToString());
             }
         }
+        private void OnInputChanged(object sender, EventArgs e)
+        {
+            bnSend.Enabled = !string.IsNullOrEmpty(VATNumber);
+        }
         private void OnSendClicked(object sender, EventArgs e)
         {
             try
@@ -78,7 +85,7 @@ namespace treeDiM.StackBuilder.Desktop
                 // send email via server
                 using (var wcfClient = new WCFClient())
                 {
-                    if (wcfClient.Client.RequestForPremiumAccount(Email, SubscriptionDuration, PaymentMode))
+                    if (wcfClient.Client.RequestForPremiumAccount(Email, SubscriptionDuration, PaymentMode, VATNumber))
                         Close();
                 }
                 // ---

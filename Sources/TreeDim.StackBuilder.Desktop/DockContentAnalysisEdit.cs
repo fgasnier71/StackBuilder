@@ -46,6 +46,9 @@ namespace treeDiM.StackBuilder.Desktop
             base.OnLoad(e);
             if (DesignMode) return;
 
+            toolStripSepExport3D.Visible = AllowExport3D;
+            toolStripButtonExport3D.Visible = AllowExport3D;
+
             // --- window caption
             if (null != Analysis)
                 Text = Analysis.Name + " - " + Analysis.ParentDocument.Name;
@@ -93,6 +96,7 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Public properties
+        protected virtual bool AllowExport3D => false; 
         public AnalysisLayered Analysis => _analysis;
         public SolutionLayered Solution
         {

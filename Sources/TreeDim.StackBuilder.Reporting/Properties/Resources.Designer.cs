@@ -142,6 +142,15 @@ namespace treeDiM.StackBuilder.Reporting.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Bottle.
+        /// </summary>
+        internal static string ID_RN_BOTTLE {
+            get {
+                return ResourceManager.GetString("ID_RN_BOTTLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Box.
         /// </summary>
         internal static string ID_RN_BOX {

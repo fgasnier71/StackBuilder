@@ -133,7 +133,7 @@
     <value>OptionPanelDimensions</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>GLib.Options.OptionsPanel, OptionsLib, Version=3.0.2.7, Culture=neutral, PublicKeyToken=null</value>
+    <value>GLib.Options.OptionsPanel, OptionsLib, Version=3.0.2.9, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="cbDim1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>

@@ -324,7 +324,7 @@ namespace treeDiM.StackBuilder.ExcelReader
             Height = (double)dtRow[4];
 
             if (DBNull.Value != dtRow[5]) Weight = (double)dtRow[5];
-            if (DBNull.Value != dtRow[6]) Weight = (double)dtRow[6];
+            if (DBNull.Value != dtRow[6]) NetWeight = (double)dtRow[6];
         }
 
         public double Diameter      { get; set; }
@@ -342,6 +342,15 @@ namespace treeDiM.StackBuilder.ExcelReader
             sb.AppendLine(string.Format("Weight           = {0}", Weight));
             sb.AppendLine(string.Format("Net weight       = {0}", NetWeight));
             return sb.ToString();
+        }
+    }
+    #endregion
+    #region DataBottle
+    public class DataBottle : DataType
+    {
+        public DataBottle(int iRow, DataRow dtRow)
+            : base(iRow, dtRow)
+        { 
         }
     }
     #endregion

@@ -86,20 +86,14 @@ namespace treeDiM.StackBuilder.Graphics
             graphics.SetViewport(-500.0f, -500.0f, 500.0f, 500.0f);
 
             // ### draw : begin ##############################
-            if (packable is PackProperties)
-            {
-                Box box = new Pack(0, packable as PackProperties);
-                graphics.AddBox(box);
-            }
-            else if (packable is BProperties)
-            { 
-                Box box = new Box(0, packable as PackableBrick);
-                graphics.AddBox(box);
-            }
-            else if (packable is CylinderProperties)
-            {
-                graphics.AddCylinder(new Cylinder(0, packable as CylinderProperties));
-            }
+            if (packable is PackProperties packProperties)
+                graphics.AddBox(new Pack(0, packProperties));
+            else if (packable is BProperties bProperties)
+                graphics.AddBox(new Box(0, bProperties));
+            else if (packable is CylinderProperties cylinderProp)
+                graphics.AddCylinder(new Cylinder(0, cylinderProp));
+            else if (packable is BottleProperties bottleProp)
+                graphics.AddCylinder(new Bottle(0, bottleProp));
             // ### draw : end #################################
 
             graphics.Flush();

@@ -101,8 +101,12 @@ namespace treeDiM.StackBuilder.Graphics
                 uint pickId = 0;
                 foreach (Vector2D pos in layer2DCyl)
                 {
-                    Cylinder c = new Cylinder(pickId++, packable as CylinderProperties, new CylPosition(new Vector3D(pos.X, pos.Y, 0.0), HalfAxis.HAxis.AXIS_Z_P));
-                    graphics.AddCylinder(c);
+                    Cyl cyl = null;
+                    if (packable is CylinderProperties cylProperties)
+                        cyl = new Cylinder(pickId++, cylProperties, new CylPosition(new Vector3D(pos.X, pos.Y, 0.0), HalfAxis.HAxis.AXIS_Z_P));
+                    else if (packable is BottleProperties bottleProperties)
+                        cyl = new Bottle(pickId++, bottleProperties, new CylPosition(new Vector3D(pos.X, pos.Y, 0.0), HalfAxis.HAxis.AXIS_Z_P));
+                    graphics.AddCylinder(cyl);
                 }
             }
             graphics.Flush();
