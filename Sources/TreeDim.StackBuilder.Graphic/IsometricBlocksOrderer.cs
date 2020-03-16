@@ -237,7 +237,7 @@ namespace treeDiM.StackBuilder.Graphics.IsometricBlocks
         public override List<Box> GetSortedList()
         {
             List<Block> blocks = new List<Block>();
-            foreach (Box box in _boxes)
+            foreach (Box box in Boxes)
                 blocks.Add(new Block(box));
 
             // Initialize the list of blocks that each block is behind.

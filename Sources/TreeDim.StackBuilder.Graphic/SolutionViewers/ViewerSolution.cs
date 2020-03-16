@@ -32,6 +32,10 @@ namespace treeDiM.StackBuilder.Graphics
 
             if (analysis is AnalysisPackablePallet analysisPackablePallet)
             {
+                // ### draw pallet
+                Pallet pallet = new Pallet(analysisPackablePallet.PalletProperties);
+                pallet.Draw(graphics, transform);
+
                 if (analysis is AnalysisCasePallet && -1 == Solution.SelectedLayerIndex)
                 {
                     // ### strappers
@@ -49,9 +53,6 @@ namespace treeDiM.StackBuilder.Graphics
                         }
                     }
                 }
-                // ### draw pallet
-                Pallet pallet = new Pallet(analysisPackablePallet.PalletProperties);
-                pallet.Draw(graphics, transform);
             }
             else if (analysis is AnalysisPackableCase analysisPackableCase)
             {
@@ -87,17 +88,19 @@ namespace treeDiM.StackBuilder.Graphics
                         BBox3D solBBox = loadedPallet.ParentAnalysis.Solution.BBoxGlobal;
                         foreach (BoxPosition bPosition in layerBox)
                         {
-                            bool simplified = false;
-                            if (simplified)
-                            {
-                                BoxProperties bProperties = new BoxProperties(null, solBBox.Dimensions);
-                                bProperties.SetColor(Color.Chocolate);
-                                Box b = new Box(pickId++, bProperties, bPosition.Transform(transform));
-                                graphics.AddBox(b);
-                                bbox.Extend(b.BBox);
-                            }
-                            else
-                                graphics.AddImage(loadedPallet.ParentAnalysis as AnalysisHomo, solBBox.DimensionsVec, bPosition.Transform(transform));
+                            var dim = solBBox.DimensionsVec;
+                            graphics.AddImage(++pickId, new SubContent(loadedPallet.ParentAnalysis as AnalysisHomo), solBBox.DimensionsVec, bPosition.Transform(transform));
+                        }
+                    }
+                    else if (analysis.Content is PackProperties packProperties)
+                    {
+                        bool aboveSelectedLayer = (Solution.SelectedLayerIndex != -1) && (layerId > Solution.SelectedLayerIndex);
+                        Transform3D upTranslation = Transform3D.Translation(new Vector3D(0.0, 0.0, aboveSelectedLayer ? DistanceAboveSelectedLayer : 0.0));
+
+                        foreach (BoxPosition bPosition in layerBox)
+                        {
+                            BoxPosition boxPositionModified = bPosition.Transform(transform * upTranslation);
+                            graphics.AddImage(++pickId, new SubContent(packProperties), packProperties.OuterDimensions, boxPositionModified);
                         }
                     }
                     else

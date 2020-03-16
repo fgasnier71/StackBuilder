@@ -130,7 +130,7 @@ namespace treeDiM.StackBuilder.Graphics
                         _log.Error(ex.ToString());
                     }
                 }
-                if (null != Viewer)
+                else if (null != Viewer)
                 {
                     try
                     {

@@ -247,6 +247,7 @@ namespace treeDiM.StackBuilder.Graphics
         public double Length => _dim[0];
         public double Width => _dim[1];
         public double Height => _dim[2];
+        public Vector3D Dim => new Vector3D(_dim[0], _dim[1], _dim[2]);
         protected BoxPosition BoxPosition { get => _boxPosition; set => _boxPosition = value; }
         public List<Texture>[] TextureLists { get; } = new List<Texture>[6];
         public Vector3D Position
@@ -918,7 +919,7 @@ namespace treeDiM.StackBuilder.Graphics
         #region Objet overrides
         public override string ToString()
         {
-            return string.Format("BoxPosition={0} Dimensions=({1},{2},{3})", BoxPosition, _dim[0], _dim[1], _dim[2]);
+            return string.Format("BoxPosition={0} # Dimensions={1}", BoxPosition, Dim);
         }
         #endregion
     }

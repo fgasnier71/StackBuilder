@@ -28,13 +28,13 @@ namespace treeDiM.StackBuilder.Graphics
     internal class BoxComparerXMin : IComparer<Box>
     {
         #region Data members
-        private Vector3D _direction;
+        private Vector3D Direction { get; set; }
         #endregion
 
         #region Constructor
         public BoxComparerXMin(Vector3D direction)
         {
-            _direction = direction;
+            Direction = direction;
         }
         #endregion
 
@@ -46,7 +46,7 @@ namespace treeDiM.StackBuilder.Graphics
                 return 1;
             else if (b1PtMin.X == b2PtMin.X)
             {
-                if (_direction.Y >= 0)
+                if (Direction.Y >= 0)
                 {
                     if (b1PtMin.Y > b2PtMin.Y)
                         return 1;
@@ -74,12 +74,12 @@ namespace treeDiM.StackBuilder.Graphics
     internal class BoxComparerXMax : IComparer<Box>
     {
         #region Data members
-        private Vector3D _direction;
+        private Vector3D Direction { get; set; }
         #endregion
         #region Constructor
         public BoxComparerXMax(Vector3D direction)
         {
-            _direction = direction;
+            Direction = direction;
         }
         #endregion
         #region IComparer<Box> implementation
@@ -91,7 +91,7 @@ namespace treeDiM.StackBuilder.Graphics
                 return -1;
             else if (b1PtMax.X == b2PtMax.X)
             {
-                if (_direction.Y >= 0)
+                if (Direction.Y >= 0)
                 {
                     Vector3D b1PtMin = b1.PtMin, b2PtMin = b2.PtMin;
                     if (b1PtMin.Y > b2PtMin.Y)
@@ -122,13 +122,13 @@ namespace treeDiM.StackBuilder.Graphics
     public abstract class BoxOrderer
     {
         #region Data members
-        protected List<Box> _boxes = new List<Box>();
+        protected List<Box> Boxes { get; set; } = new List<Box>();
         #endregion
 
         #region Public methods
         public void Add(Box b)
         {
-            _boxes.Add(b);
+            Boxes.Add(b);
         }
         #endregion
 
@@ -143,30 +143,19 @@ namespace treeDiM.StackBuilder.Graphics
     {
         #region Data members
         private static readonly double _epsilon = 0.0001;
-        private Vector3D _direction;
-        private double _tuneParam = 1.0;
         #endregion
 
         #region Constructor
-        public BoxelOrderer()
+        public BoxelOrderer(List<Box> boxes, Vector3D direction)
         {
-            _direction = new Vector3D(1000.0, 1000.0, -1000.0);
-            _tuneParam = UnitsManager.ConvertLengthFrom(1.0, UnitsManager.UnitSystem.UNIT_METRIC1);
-        }
-        public BoxelOrderer(List<Box> boxes)
-        {
-            _boxes.AddRange(boxes);
-            _direction = new Vector3D(1000.0, 1000.0, -1000.0);
-            _tuneParam = UnitsManager.ConvertLengthFrom(1.0, UnitsManager.UnitSystem.UNIT_METRIC1);
+            Boxes.AddRange(boxes);
+            Direction = direction;
+            TuneParam = UnitsManager.ConvertLengthFrom(1.0, UnitsManager.UnitSystem.UNIT_METRIC1);
         }
         #endregion
 
         #region Public properties
-        public double TuneParam
-        {
-            get { return _tuneParam; }
-            set { _tuneParam = value; }
-        }
+        public double TuneParam { get; set; } = 1.0;
         #endregion
 
         #region Public methods
@@ -174,54 +163,50 @@ namespace treeDiM.StackBuilder.Graphics
         {
             // first sort by Z
             BoxComparerZ boxComparerZ = new BoxComparerZ();
-            _boxes.Sort(boxComparerZ);
+            Boxes.Sort(boxComparerZ);
 
-            List<Box> _sortedList = new List<Box>();
-            if (_boxes.Count == 0)
-                return _sortedList;
+            List<Box> sortedList = new List<Box>();
+            if (Boxes.Count == 0)
+                return sortedList;
 
             // build same Z layers
             int index = 0;
-            double zCurrent = _boxes[index].PtMin.Z;
+            double zCurrent = Boxes[index].PtMin.Z;
             List<Box> tempList = new List<Box>();
-            while (index < _boxes.Count)
+            while (index < Boxes.Count)
             {
-                if (Math.Abs(zCurrent - _boxes[index].PtMin.Z) < _epsilon)
-                    tempList.Add(_boxes[index]);
+                if (Math.Abs(zCurrent - Boxes[index].PtMin.Z) < _epsilon)
+                    tempList.Add(Boxes[index]);
                 else
                 {
                     // sort layer
                     SortLayer(ref tempList);
                     // add to sorted list
-                    _sortedList.AddRange(tempList);
+                    sortedList.AddRange(tempList);
                     // start new layer
-                    zCurrent = _boxes[index].PtMin.Z;
+                    zCurrent = Boxes[index].PtMin.Z;
                     tempList.Clear();
-                    tempList.Add(_boxes[index]);
+                    tempList.Add(Boxes[index]);
                 }
                 ++index;
             }
             // processing last layer
             SortLayer(ref tempList);
-            _sortedList.AddRange(tempList);
+            sortedList.AddRange(tempList);
 
-            return _sortedList;
+            return sortedList;
         }
         #endregion
 
         #region Public properties
-        public Vector3D Direction
-        {
-            get { return _direction; }
-            set { _direction = value; }
-        }
+        public Vector3D Direction { get; set; }
         #endregion
 
         #region Private methods
         private void SortLayer(ref List<Box> layerList)
         {
             foreach (Box b in layerList)
-                b.ApplyElong(-_tuneParam);
+                b.ApplyElong(-TuneParam);
 
             // build y list
             List<double> yList = new List<double>();
@@ -231,7 +216,7 @@ namespace treeDiM.StackBuilder.Graphics
                 if (!yList.Contains(b.PtMax.Y)) yList.Add(b.PtMax.Y);
             }
             yList.Sort();
-            if (_direction.Y < 0)
+            if (Direction.Y < 0)
                 yList.Reverse();
 
             List<Box> treeList = new List<Box>();
@@ -240,7 +225,7 @@ namespace treeDiM.StackBuilder.Graphics
             foreach (double y in yList)
             {
                 // clean treelist
-                if (_direction.Y > 0.0)
+                if (Direction.Y > 0.0)
                 {
                     CleanByYMax(treeList, y);
                     // add new 
@@ -249,10 +234,10 @@ namespace treeDiM.StackBuilder.Graphics
                     foreach (Box by in listYMin)
                     {
                         treeList.Add(by);
-                        if (_direction.X > 0.0)
-                            treeList.Sort(new BoxComparerXMin(_direction));
+                        if (Direction.X > 0.0)
+                            treeList.Sort(new BoxComparerXMin(Direction));
                         else
-                            treeList.Sort(new BoxComparerXMax(_direction));
+                            treeList.Sort(new BoxComparerXMax(Direction));
 
                         // find successor of by
                         int id = treeList.FindIndex(delegate(Box b) { return b.PickId == by.PickId; });
@@ -279,10 +264,10 @@ namespace treeDiM.StackBuilder.Graphics
                     foreach (Box by in listYMax)
                     {
                         treeList.Add(by);
-                        if (_direction.X > 0.0)
-                            treeList.Sort(new BoxComparerXMin(_direction));
+                        if (Direction.X > 0.0)
+                            treeList.Sort(new BoxComparerXMin(Direction));
                         else
-                            treeList.Sort(new BoxComparerXMax(_direction));
+                            treeList.Sort(new BoxComparerXMax(Direction));
 
                         // find successor of by
                         int id = treeList.FindIndex(delegate(Box b) { return b.PickId == by.PickId; });
@@ -307,7 +292,7 @@ namespace treeDiM.StackBuilder.Graphics
             layerList.AddRange(resList);
 
             foreach (Box b in layerList)
-                b.ApplyElong(_tuneParam);
+                b.ApplyElong(TuneParam);
         }
 
         private List<Box> GetByYMin(List<Box> inList, double y)

@@ -29,8 +29,8 @@ namespace treeDiM.StackBuilder.Basics
         }
         public BBox3D(double xmin, double ymin, double zmin, double xmax, double ymax, double zmax)
         {
-            Extend( new Vector3D(xmin, ymin, zmin) );
-            Extend( new Vector3D(xmax, ymax, zmax) );
+            Extend(new Vector3D(xmin, ymin, zmin));
+            Extend(new Vector3D(xmax, ymax, zmax));
         }
         public BBox3D(Vector3D pt0, Vector3D pt1)
         {
@@ -41,6 +41,26 @@ namespace treeDiM.StackBuilder.Basics
         {
             PtMin = new Vector3D(box.PtMin);
             PtMax = new Vector3D(box.PtMax);
+        }
+        public BBox3D(BoxPosition bPos, Vector3D dim)
+        {
+            Vector3D lengthAxis = HalfAxis.ToVector3D(bPos.DirectionLength);
+            Vector3D widthAxis = HalfAxis.ToVector3D(bPos.DirectionWidth);
+            Vector3D heightAxis = HalfAxis.ToVector3D(bPos.DirectionHeight);
+
+            var points = new Vector3D[8];
+            points[0] = bPos.Position;
+            points[1] = bPos.Position + dim[0] * lengthAxis;
+            points[2] = bPos.Position + dim[0] * lengthAxis + dim[1] * widthAxis;
+            points[3] = bPos.Position + dim[1] * widthAxis;
+
+            points[4] = bPos.Position + dim[2] * heightAxis;
+            points[5] = bPos.Position + dim[2] * heightAxis + dim[0] * lengthAxis;
+            points[6] = bPos.Position + dim[2] * heightAxis + dim[0] * lengthAxis + dim[1] * widthAxis;
+            points[7] = bPos.Position + dim[2] * heightAxis + dim[1] * widthAxis;
+
+            foreach (var pt in points)
+                Extend(pt);
         }
         #endregion
 
@@ -72,8 +92,8 @@ namespace treeDiM.StackBuilder.Basics
         {
             if (!IsValid)
                 throw new InvalidBBoxException("Box is invalid: can not set margin");
-            PtMin = PtMin - new Vector3D(margin, margin, margin);
-            PtMax = PtMax + new Vector3D(margin, margin, margin);
+            PtMin -= new Vector3D(margin, margin, margin);
+            PtMax += new Vector3D(margin, margin, margin);
         }
         #endregion
 

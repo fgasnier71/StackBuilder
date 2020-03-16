@@ -8,27 +8,77 @@ using treeDiM.StackBuilder.Basics;
 
 namespace treeDiM.StackBuilder.Graphics
 {
+    #region SubContent
+    public class SubContent
+    {
+        // constructors
+        public SubContent(AnalysisHomo analysis)
+        {
+            Analysis = analysis;
+        }
+        public SubContent(PackProperties pack)
+        {
+            PackProperties = pack;
+        }
+        public void Draw(Graphics3D graphics, Transform3D transf)
+        {
+            if (Analysis is AnalysisLayered analysisLay)
+            {
+                using (var viewer = new ViewerSolution(analysisLay.SolutionLay))
+                { viewer.Draw(graphics, transf); }
+            }
+            else if (Analysis is AnalysisHCyl analysisHCyl)
+            {
+                using (var viewer = new ViewerSolutionHCyl(analysisHCyl.Solution as SolutionHCyl))
+                { viewer.Draw(graphics, transf); }
+            }
+            else if (null != PackProperties)
+            {
+                Pack pack = new Pack(0, PackProperties, new BoxPosition(Vector3D.Zero).Transform(transf));
+                graphics.AddBox(pack);
+            }
+        }
+        public BBox3D Bbox
+        {
+            get
+            {
+                if (null != Analysis) return Analysis.Solution.BBoxGlobal;
+                else if (null != PackProperties) return new BBox3D(Vector3D.Zero, PackProperties.OuterDimensions);
+                else return BBox3D.Initial;
+            }
+        }
+
+        private AnalysisHomo Analysis { get; set; }
+        private PackProperties PackProperties { get; set; }
+    }
+    #endregion
+
     #region ImageInst
     public class ImageInst
     {
         #region Constructor
-        public ImageInst(AnalysisHomo analysis, Vector3D dims, BoxPosition boxPosition)
+        public ImageInst(uint pickId, SubContent content, Vector3D dims, BoxPosition boxPosition)
         {
-            Analysis = analysis; Dims = dims; BoxPosition = boxPosition;
+            PickId = pickId;
+            Content = content;
+            Dimensions = dims;
+            BoxPosition = boxPosition;
         }
         #endregion
         #region Private properties
-        private Vector3D Dims { get; set; }
+        private uint PickId { get; set; }
+        private Vector3D Dimensions { get; set; }
         private BoxPosition BoxPosition { get; set; }
+        public BBox3D GetBBox() => new BBox3D(BoxPosition, Dimensions);
         #endregion
         #region Public properties
         public Vector3D PointBase { get { return BoxPosition.Position; } }
-        public AnalysisHomo Analysis { get; set; }
+        public SubContent Content { get; set; }
         public HalfAxis.HAxis AxisLength { get { return BoxPosition.DirectionLength; } }
         public HalfAxis.HAxis AxisWidth { get { return BoxPosition.DirectionWidth; } }
         #endregion
         #region Box conversion (needed for BoxelOrderer)
-        public Box ToBox() => new Box(0, Dims.X, Dims.Y, Dims.Z, BoxPosition);
+        public Box ToBox() => new Box(PickId, Dimensions.X, Dimensions.Y, Dimensions.Z, BoxPosition);
         #endregion
     }
     #endregion
@@ -38,30 +88,29 @@ namespace treeDiM.StackBuilder.Graphics
         #region Data members
         public HalfAxis.HAxis AxisLength { get; private set; }
         public HalfAxis.HAxis AxisWidth { get; private set; }
-        private Bitmap _bitmap;
+        private Bitmap Bitmap { get; set; }
         private Point Offset { get; set; }
-        private Vector3D _vTarget, _vCamera; 
+        private Vector3D VTarget;
+        private Vector3D VCamera; 
         #endregion
 
         #region Constructor
-        public ImageCached(AnalysisHomo analysis, HalfAxis.HAxis axisLength, HalfAxis.HAxis axisWidth)
+        public ImageCached(SubContent subContent, HalfAxis.HAxis axisLength, HalfAxis.HAxis axisWidth)
         {
-            Analysis = analysis; AxisLength = axisLength; AxisWidth = axisWidth;
+            Content = subContent; AxisLength = axisLength; AxisWidth = axisWidth;
         }
         #endregion
         #region Public properties
-        public AnalysisHomo Analysis { get; }
+        public SubContent Content { get; }
         #endregion
         #region Public methods
         public Bitmap Image(Size s, Vector3D vCamera, Vector3D vTarget, ref Point offset)
         {
-
-            if (
+            if 
                 (
-                null == _bitmap
-                || ((_vCamera - vCamera).GetLengthSquared() > 1.0E-06 && (_vTarget - vTarget).GetLengthSquared() > 1.0E-06)
+                null == Bitmap
+                || ((VCamera - vCamera).GetLengthSquared() > 1.0E-06 && (VTarget - vTarget).GetLengthSquared() > 1.0E-06)
                 )
-                && null != Analysis)
             {
                 // generate bitmap
                 Graphics3DImage graphics = new Graphics3DImage(s)
@@ -72,26 +121,18 @@ namespace treeDiM.StackBuilder.Graphics
                     MarginPercentage = 0.0,
                     ShowDimensions = false
                 };
-                if (Analysis is AnalysisLayered analysisLay)
-                {
-                    using (var viewer = new ViewerSolution(analysisLay.SolutionLay))
-                    { viewer.Draw(graphics, RelativeTransf); }
-                }
-                else if (Analysis is AnalysisHCyl analysisHCyl)
-                {
-                    using (var viewer = new ViewerSolutionHCyl(analysisHCyl.Solution as SolutionHCyl))
-                    { viewer.Draw(graphics, RelativeTransf); }
-                }
+                if (null != Content)
+                    Content.Draw(graphics, RelativeTransf);                
                 graphics.Flush();
 
                 // save bitmap
-                _bitmap = graphics.Bitmap;
-                _vCamera = vCamera;
-                _vTarget = vTarget;
+                Bitmap = graphics.Bitmap;
+                VCamera = vCamera;
+                VTarget = vTarget;
                 Offset = graphics.Offset;
             }
             offset = Offset;
-            return _bitmap;
+            return Bitmap;
         }
         #endregion
 
@@ -112,7 +153,7 @@ namespace treeDiM.StackBuilder.Graphics
         }
         public bool Matches(ImageInst img)
         {
-            return Analysis == img.Analysis && AxisLength == img.AxisLength && AxisWidth == img.AxisWidth;
+            return Content == img.Content && AxisLength == img.AxisLength && AxisWidth == img.AxisWidth;
         }
         #endregion
     }
