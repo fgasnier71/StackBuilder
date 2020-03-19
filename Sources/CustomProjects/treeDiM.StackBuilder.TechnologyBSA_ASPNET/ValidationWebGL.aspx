@@ -39,6 +39,54 @@
         .auto-style7 {
             text-align: right;
         }
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 24px;
+        }
+        .switch input {
+            opacity: 0;
+        }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 16px;
+            width: 16px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+        input:checked + .slider {
+            background-color: #2196F3;
+        }
+        input:focus + .slider {
+            box-shadow: 0 0 1px #2196F3;
+        }
+        input:checked + .slider:before {
+            -webkit-transform: translateX(26px);
+            -ms-transform: translateX(26px);
+            transform: translateX(26px);
+        }
+        .slider.round {
+            border-radius: 34px;
+        }
+        .slider.round:before {
+            border-radius: 50%;
+        }
     </style>
     <script type="text/javascript" src="javascript/jquery1.11.0.min.js"></script>
     <script type="text/javascript" src="javascript/jquery.plugin.min.js"></script>
@@ -46,21 +94,21 @@
     <script type="text/javascript" src="javascript/three.min.js"></script>
     <script type="text/javascript" src="javascript/three-gltf-loader.min.js"></script>
     <script type="text/javascript" src="javascript/model-element.min.js"></script>
-        <script type="text/javascript">
-            function updateStyles() {
-                var css;
-                if (!css) {
-                    css = document.createElement('style');
-                    document.body.appendChild(css);
-                }
-                let cssText = `
+    <script type="text/javascript">
+        function updateStyles() {
+            var css;
+            if (!css) {
+                css = document.createElement('style');
+                document.body.appendChild(css);
+            }
+            let cssText = `
               x-model {
                 width: 300px;
                 height: 150px;
                 transform: rotateX(60deg) rotateY(0deg) rotateZ(${rotateZ.value}deg);
               }`;
-                css.textContent = cssText;
-            }
+            css.textContent = cssText;
+        }
     </script>
 
     <script type="text/javascript">
@@ -68,6 +116,8 @@
             $('#TBFileName').keypad({ keypadOnly: true, layout: $.keypad.qwertyLayout });
         }
     </script>
+    <style type="text/css">
+    </style>
     <link type="text/css" href="css/jquery.keypad.css" rel="stylesheet" />
     <link type="text/css" href="css/default.css" rel="stylesheet" />
 </head>
@@ -100,13 +150,19 @@
                                     <table class="style100pct">
                                         <tr>
                                             <td>
-                                                <asp:CheckBox ID="ChkbMirrorLength" runat="server" OnCheckedChanged="OnInputChanged" AutoPostBack="true" CssClass="checkbox" Width="25px" />
+                                                <label class="switch">
+                                                    <asp:CheckBox ID="ChkbMirrorLength" runat="server" OnCheckedChanged="OnInputChanged" AutoPostBack="true" />
+                                                    <span class="slider round"/>
+                                                </label>
                                             </td>
                                             <td>
                                                 <asp:Image ID="IMGMirrorLength" runat="server" ImageUrl="Images/MirrorLength.png" />
                                             </td>
                                             <td>
-                                                <asp:CheckBox ID="ChkbMirrorWidth" runat="server" OnCheckedChanged="OnInputChanged" AutoPostBack="true" CssClass="checkbox" Width="25px" />
+                                                <label class="switch">
+                                                    <asp:CheckBox ID="ChkbMirrorWidth" runat="server" OnCheckedChanged="OnInputChanged" AutoPostBack="true" />
+                                                    <span class="slider round"/>
+                                                </label>
                                             </td>
                                             <td>
                                                 <asp:Image ID="IMGMirrorWidth" runat="server" ImageUrl="Images/MirrorWidth.png" />
@@ -116,16 +172,34 @@
                                 </asp:Panel>
                                 <br />
                                 <asp:Panel ID="PanelInterlayer" runat="server" GroupingText="Interlayers" Width="100%" BorderColor="LightGray" BackColor="Transparent">
-                                    <table>
+                                    <table  class="style100pct">
                                         <tr>
                                             <td>
-                                                <asp:CheckBox ID="ChkbInterlayerBottom" runat="server" Text="Bottom" OnCheckChanged="OnInputChanged" AutoPostBack="true" CssClass="checkbox" />
+                                                <label class="switch">
+                                                    <asp:CheckBox ID="ChkbInterlayerBottom" runat="server" OnCheckedChanged="OnInputChanged" AutoPostBack="true" />
+                                                    <span class="slider round"/>
+                                                </label>
                                             </td>
                                             <td>
-                                                <asp:CheckBox ID="ChkbInterlayersIntermediate" runat="server" Text="Intermediate" OnCheckChanged="OnInputChanged" AutoPostBack="true" CssClass="checkbox" />
+                                                <asp:Label ID="LBInterlayerBottom" runat="server" Text="Bottom" />
                                             </td>
                                             <td>
-                                                <asp:CheckBox ID="ChkbInterlayerTop" runat="server" Text="Top" OnCheckChanged="OnInputChanged" AutoPostBack="true" CssClass="checkbox" />
+                                                <label class="switch">
+                                                    <asp:CheckBox ID="ChkbInterlayersIntermediate" runat="server" OnCheckedChanged="OnInputChanged" AutoPostBack="true" />
+                                                    <span class="slider round"/>
+                                                </label>
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="LbInterlayerIntermadiates" runat="server" Text="Intermediate" />
+                                            </td>
+                                            <td>
+                                                <label class="switch">
+                                                    <asp:CheckBox ID="ChkbInterlayerTop" runat="server" OnCheckedChanged="OnInputChanged" AutoPostBack="true" />
+                                                    <span class="slider round"/>
+                                                </label>
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="LbInterlayerTop" runat="server" Text="Top" />
                                             </td>
                                         </tr>
                                     </table>
@@ -158,7 +232,6 @@
                 </ContentTemplate>
             </asp:UpdatePanel>
         </div>
-
     </form>
 </body>
 </html>

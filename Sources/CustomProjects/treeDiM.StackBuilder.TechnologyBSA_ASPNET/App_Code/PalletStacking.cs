@@ -249,7 +249,6 @@ public static class PalletStacking
         return new Vector2D(xL, yL);
     }
 
-
     public static void Export(
         Vector3D caseDim, double caseWeight,
         Vector3D palletDim, double palletWeight,

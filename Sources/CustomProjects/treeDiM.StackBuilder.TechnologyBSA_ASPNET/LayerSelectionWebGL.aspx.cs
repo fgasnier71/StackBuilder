@@ -20,7 +20,7 @@ public partial class _Default : Page
 		if (!Page.IsPostBack)
 		{
 			// clear output directory
-			DirectoryHelpers.ClearDirectory(OutputDirectory);
+			DirectoryHelpers.ClearDirectory(Output);
 
 			try
 			{
@@ -154,7 +154,7 @@ public partial class _Default : Page
 			BoxPositionsLayer,
 			false, false,
 			false, false, false,
-			Path.Combine(OutputDirectory, fileGuid),
+			Path.Combine(Output, fileGuid),
 			ref caseCount, ref layerCount,
 			ref weightLoad, ref weightTotal,
 			ref bbLoad, ref bbTotal
@@ -281,5 +281,5 @@ public partial class _Default : Page
 		get => (Bitmap)Session[SessionVariables.BitmapTexture];
 		set => Session[SessionVariables.BitmapTexture] = value;
 	}
-	private string OutputDirectory => Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Output");
+	private string Output => Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Output");
 }

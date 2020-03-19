@@ -576,3 +576,4 @@ packages/DockPanelSuite.2.9.0.0/content/license.txt
 
 Sources/Documentation/
 /Sources/CustomProjects/treeDiM.StackBuilder.TechnologyBSA_ASPNET_fgaModified
+*.glb

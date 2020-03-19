@@ -145,19 +145,6 @@ public partial class _Default : Page
 		Vector3D bbLoad = Vector3D.Zero;
 		Vector3D bbTotal = Vector3D.Zero;
 
-		PalletStacking.GenerateExport(
-			caseDim, caseWeight, BitmapTexture,
-			palletDim, palletWeight,
-			maxPalletHeight,
-			BoxPositionsLayer,
-			false, false,
-			false, false, false,
-			@".\Output\Analysis.glb",
-			ref caseCount, ref layerCount,
-			ref weightLoad, ref weightTotal, 
-			ref bbLoad, ref bbTotal
-			);
-
 		PalletStacking.GetSolution(
 			caseDim, caseWeight, BitmapTexture,
 			palletDim, palletWeight,

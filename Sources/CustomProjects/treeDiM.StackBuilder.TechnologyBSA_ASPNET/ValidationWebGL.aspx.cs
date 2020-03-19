@@ -17,7 +17,6 @@ public partial class Validation : Page
     {
 		if (!Page.IsPostBack)
 		{
-			Angle = 45.0;
 			ChkbMirrorLength.Checked = LayersMirrorLength;
 			ChkbMirrorWidth.Checked = LayersMirrorWidth;
 			ChkbInterlayerBottom.Checked = InterlayerBottom;
@@ -26,7 +25,7 @@ public partial class Validation : Page
 			TBFileName.Text = FileName;
 
 			// clear output directory
-			DirectoryHelpers.ClearDirectory(OutputDirectory);
+			DirectoryHelpers.ClearDirectory(Output);
 		}
 		ExecuteKeyPad();
 		UpdateImage();
@@ -55,7 +54,7 @@ public partial class Validation : Page
 			BoxPositions,
 			ChkbMirrorLength.Checked, ChkbMirrorWidth.Checked,
 			ChkbInterlayerBottom.Checked, ChkbInterlayersIntermediate.Checked, ChkbInterlayerTop.Checked,
-			Path.Combine(OutputDirectory, fileGuid),
+			Path.Combine(Output, fileGuid),
 			ref caseCount, ref layerCount,
 			ref weightLoad, ref weightTotal,
 			ref bbLoad, ref bbTotal
@@ -70,16 +69,6 @@ public partial class Validation : Page
 	#region Event handlers
 	protected void OnInputChanged(object sender, EventArgs e)
 	{
-		UpdateImage();
-	}
-	protected void AngleIncrement(object sender, EventArgs e)
-	{
-		Angle += ConfigSettings.AngleStep;
-		UpdateImage();
-	}
-	protected void AngleDecrement(object sender, EventArgs e)
-	{
-		Angle -= ConfigSettings.AngleStep;
 		UpdateImage();
 	}
 	protected void OnExport(object sender, EventArgs e)
@@ -103,10 +92,13 @@ public partial class Validation : Page
 	}
 	protected void OnPrevious(object sender, EventArgs e)
 	{
+		// clear output directory
+		DirectoryHelpers.ClearDirectory(Output);
+
 		if (LayerEdited)
 			Response.Redirect("LayerEdition.aspx");
 		else
-			Response.Redirect("LayerSelection.aspx");
+			Response.Redirect("LayerSelectionWebGL.aspx");
 	}
 	#endregion
 
@@ -122,11 +114,10 @@ public partial class Validation : Page
 	private bool InterlayerTop => (bool)Session[SessionVariables.InterlayerTop];
 	private bool InterlayersIntermediate => (bool)Session[SessionVariables.InterlayersIntermadiate];
 	private bool LayerEdited => (bool)Session[SessionVariables.LayerEdited];
-	private double Angle	{	get => (double)ViewState["Angle"];	set => ViewState["Angle"] = value;	}
 	private string FileName => (string)Session[SessionVariables.FileName];
 	private List<BoxPosition> BoxPositions => (List<BoxPosition>)Session[SessionVariables.BoxPositions];
 	private Bitmap BitmapTexture => (Bitmap)Session[SessionVariables.BitmapTexture];
-	private string OutputDirectory => Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Output");
+	private string Output => Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Output");
 	#endregion
 
 }
