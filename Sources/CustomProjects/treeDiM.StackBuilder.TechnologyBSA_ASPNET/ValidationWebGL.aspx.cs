@@ -40,6 +40,9 @@ public partial class Validation : Page
 	#region Update image
 	protected void UpdateImage()
 	{
+		// clear output directory
+		DirectoryHelpers.ClearDirectory(Output);
+
 		int caseCount = 0;
 		int layerCount = 0;
 		double weightLoad = 0.0, weightTotal = 0.0;
@@ -73,21 +76,28 @@ public partial class Validation : Page
 	}
 	protected void OnExport(object sender, EventArgs e)
 	{
-		string fileName = TBFileName.Text;
-		fileName = Path.ChangeExtension(fileName, "csv");
-
-		byte[] fileBytes = null;
-		PalletStacking.Export(
-			DimCase, WeightCase,
-			DimPallet, WeightPallet,
-			MaxPalletHeight, BoxPositions,
-			ChkbMirrorLength.Checked, ChkbMirrorWidth.Checked,
-			ChkbInterlayerBottom.Checked , ChkbInterlayersIntermediate.Checked, ChkbInterlayerTop.Checked,
-			ref fileBytes); 
-
-		if (FtpHelpers.Upload(fileBytes, ConfigSettings.FtpDirectory, fileName, ConfigSettings.FtpUsername, ConfigSettings.FtpPassword))
+		try
 		{
-			ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", $"alert('{fileName} was successfully exported!');", true);
+			string fileName = TBFileName.Text;
+			fileName = Path.ChangeExtension(fileName, "csv");
+
+			byte[] fileBytes = null;
+			PalletStacking.Export(
+				DimCase, WeightCase,
+				DimPallet, WeightPallet,
+				MaxPalletHeight, BoxPositions,
+				ChkbMirrorLength.Checked, ChkbMirrorWidth.Checked,
+				ChkbInterlayerBottom.Checked, ChkbInterlayersIntermediate.Checked, ChkbInterlayerTop.Checked,
+				ref fileBytes);
+
+			if (FtpHelpers.Upload(fileBytes, ConfigSettings.FtpDirectory, fileName, ConfigSettings.FtpUsername, ConfigSettings.FtpPassword))
+			{
+				ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", $"alert('{fileName} was successfully exported!');", true);
+			}
+		}
+		catch (Exception ex)
+		{
+			ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", $"alert('{ex.Message}');", true);
 		}
 	}
 	protected void OnPrevious(object sender, EventArgs e)

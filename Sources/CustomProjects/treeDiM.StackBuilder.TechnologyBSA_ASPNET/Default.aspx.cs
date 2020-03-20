@@ -35,7 +35,7 @@ public partial class _Default : Page
         DimPallet = new Vector3D(1200.0, 1000.0, 155.0);
         WeightPallet = 23.0;
         MaxPalletHeight = 1700.0;
-        LayersMirrorX = true; LayersMirrorY = true;
+        LayersMirrorX = false; LayersMirrorY = false;
         InterlayerBottom = false;
         InterlayerTop = false;
         InterlayersIntermadiate = false;

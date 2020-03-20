@@ -185,7 +185,7 @@ namespace treeDiM.StackBuilder.Exporters
             };
 
             Vector3[] vectors = {
-                                // 0
+                // 0
                 new Vector3(0.0f, 0.0f, 0.0f),                           // 0
                 new Vector3(0.0f + filet, 0.0f + filet, 0.0f), // B      // 1
                 new Vector3(0.0f + filet, 0.0f, 0.0f + filet), // F      // 2
@@ -261,18 +261,18 @@ namespace treeDiM.StackBuilder.Exporters
             };
             int[,] edges = new int[,]
             {
-                { 0, 4 },
-                { 4, 8 },
-                { 8, 12 },
-                { 12, 0 },
-                { 16, 20 },
-                { 20, 24 },
-                { 24, 28 },
-                { 28, 16 },
-                { 0, 16 },
-                { 4, 20 },
-                { 8, 24 },
-                { 16, 28 }
+                { 0, 4 },   // 0
+                { 4, 8 },   // 1
+                { 8, 12 },  // 2
+                { 12, 0 },  // 3
+                { 16, 20 }, // 4
+                { 20, 24 }, // 5
+                { 24, 28 }, // 6
+                { 28, 16 }, // 7
+                { 0, 16 },  // 8
+                { 4, 20 },  // 9
+                { 8, 24 },  // 10
+                { 12, 28 }  // 11
             };
             var materialBlack = new MaterialBuilder()
                 .WithUnlitShader()
@@ -463,7 +463,7 @@ namespace treeDiM.StackBuilder.Exporters
                 { 0, 16 },
                 { 4, 20 },
                 { 8, 24 },
-                { 16, 28 }
+                { 12, 28 }
             };
             for (int i = 0; i < 6; ++i)
             {

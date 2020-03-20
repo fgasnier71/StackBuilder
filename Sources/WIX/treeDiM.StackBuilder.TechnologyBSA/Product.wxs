@@ -5,7 +5,7 @@
      xmlns:netfx="http://schemas.microsoft.com/wix/NetFxExtension">
 	<Product Id="*" Name="treeDiM.StackBuilder.TechnologyBSA"
            Language="1033"
-           Version="1.0.0.0"
+           Version="$(var.ProductVersion)"
            Manufacturer="$(var.Manufacturer)"
            UpgradeCode="7c46518b-a78e-4201-bbaa-0937ee994794">
 		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
@@ -80,6 +80,8 @@
         <File Source="$(var.StackBuilderTechBSASourceDir)\Images\editlayer.png"/>
         <File Source="$(var.StackBuilderTechBSASourceDir)\Images\export.png"/>
         <File Source="$(var.StackBuilderTechBSASourceDir)\Images\Texture.png"/>
+        <File Source="$(var.StackBuilderTechBSASourceDir)\Images\BtnInsert.png"/>
+        <File Source="$(var.StackBuilderTechBSASourceDir)\Images\BtnRemove.png"/>       
       </Component>
       <Component Id="CreateFolder" Directory="Output" Guid="{EF0D883F-2500-4C41-83D5-183186DF13A5}">
         <CreateFolder Directory="Output">

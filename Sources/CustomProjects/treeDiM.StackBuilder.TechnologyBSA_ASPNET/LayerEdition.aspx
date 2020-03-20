@@ -58,6 +58,12 @@
                                 <td class="auto-style50px" />
                                 <td />
                                 <td />
+                                <td class="style50px">
+                                    <asp:ImageButton ID="ButtonInsert" runat="server" ImageUrl="~/Images/BtnInsert.png" OnClick="OnButtonInsert" CssClass="buttonInc" />
+                                </td>
+                                <td class="style50px">
+                                    <asp:ImageButton ID="ButtonRemove" runat="server" ImageUrl="~/Images/BtnRemove.png" OnClick="OnButtonRemove" CssClass="buttonInc" />
+                                </td>
                             </tr>
                             <tr>
                                 <td class="style50px" />
@@ -65,6 +71,8 @@
                                 <td class="style50px">
                                     <asp:ImageButton ID="ButtonUp" runat="server" ImageUrl="~/Images/up.png" OnClick="OnArrowClicked" CssClass="buttonInc" /></td>
                                 <td class="style50px" />
+                                <td />
+                                <td />
                                 <td />
                                 <td />
                             </tr>
@@ -80,6 +88,8 @@
                                 <td class="style50px">
                                     <asp:ImageButton ID="ButtonRightMost" runat="server" ImageUrl="~/Images/rightMost.png" OnClick="OnArrowMaxClicked" CssClass="buttonInc" /></td>
                                 <td />
+                                <td />
+                                <td />
                             </tr>
                             <tr>
                                 <td class="style50px" />
@@ -87,6 +97,8 @@
                                 <td class="style50px">
                                     <asp:ImageButton ID="ButtonDown" runat="server" ImageUrl="~/Images/down.png" OnClick="OnArrowClicked" CssClass="buttonInc" /></td>
                                 <td class="style50px" />
+                                <td />
+                                <td />
                                 <td />
                                 <td />
                             </tr>
@@ -98,8 +110,12 @@
                                 <td class="style50px" />
                                 <td />
                                 <td />
+                                <td />
+                                <td />
                             </tr>
                             <tr>
+                                <td />
+                                <td />
                                 <td />
                                 <td />
                                 <td />

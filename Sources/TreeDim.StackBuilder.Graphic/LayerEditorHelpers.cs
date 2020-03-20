@@ -98,9 +98,30 @@ namespace treeDiM.StackBuilder.Graphics
         public void Rotate()
         {
             if (!IsSelectionValid) return;
-            Positions[SelectedIndex] = Positions[SelectedIndex].RotateZ90(DimCase); ;
+
+            var boxPositionRotated = Positions[SelectedIndex].RotateZ90(DimCase);
+            if (!BoxInteraction.HaveIntersection(Positions, DimCase, SelectedIndex, boxPositionRotated))
+            Positions[SelectedIndex] = boxPositionRotated;
+        }
+        public void Insert()
+        {
+            BoxPosition bPosNew = new BoxPosition(new Vector3D(0.0, -DimCase.Y, 0.0), HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P);
+            if (!BoxInteraction.HaveIntersection(Positions, DimCase, -1, bPosNew))
+                Positions.Add(bPosNew);
+        }
+        public void Remove()
+        {
+            if (!IsSelectionValid) return;
+            Positions.RemoveAt(SelectedIndex);
         }
 
+        public bool IsValidLayer
+        {
+            get
+            {
+                return BoxInteraction.BoxesAreInside(Positions, DimCase, Vector2D.Zero, DimContainer);
+            }
+        }
         private Vector2D ReverseTransform(Point pt, Vector3D dimCase, Vector2D dimContainer)
         {
             double maxDim = double.MinValue;
@@ -136,7 +157,6 @@ namespace treeDiM.StackBuilder.Graphics
                     );
             }
         }
-
         #endregion
 
         #region Private properties

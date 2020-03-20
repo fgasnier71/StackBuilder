@@ -133,6 +133,9 @@ public partial class _Default : Page
 
 	protected void UpdateImage()
 	{
+		// clear output directory
+		DirectoryHelpers.ClearDirectory(Output);
+
 		Vector3D caseDim = DimCaseCtrl;
 		double caseWeight = WeightCaseCtrl;
 		Vector3D palletDim = DimPalletCtrl;

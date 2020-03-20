@@ -89,6 +89,30 @@ public partial class LayerEdition : Page
         BoxPositions = layerEditHelper.Positions;
         UpdateImage();  
     }
+    protected void OnButtonInsert(object sender, ImageClickEventArgs e)
+    {
+        var layerEditHelper = new LayerEditorHelpers(ImageSize, DimCase, DimContainer)
+        {
+            Positions = BoxPositions,
+            SelectedIndex = SelectedIndex
+        };
+        layerEditHelper.Insert();
+        BoxPositions = layerEditHelper.Positions;
+        SelectedIndex = -1;
+        UpdateImage();
+    }
+    protected void OnButtonRemove(object sender, ImageClickEventArgs e)
+    {
+        var layerEditHelper = new LayerEditorHelpers(ImageSize, DimCase, DimContainer)
+        {
+            Positions = BoxPositions,
+            SelectedIndex = SelectedIndex
+        };
+        layerEditHelper.Remove();
+        SelectedIndex = -1;
+        UpdateImage();
+    }
+
     protected void OnPrevious(object sender, EventArgs e)
     {
         if (ConfigSettings.WebGLMode)
@@ -98,10 +122,18 @@ public partial class LayerEdition : Page
     }
     protected void OnNext(object sender, EventArgs e)
     {
-        if (ConfigSettings.WebGLMode)
-            Response.Redirect("ValidationWebGL.aspx");
-        else
-            Response.Redirect("Validation.aspx");
+        var layerEditHelper = new LayerEditorHelpers(ImageSize, DimCase, DimContainer)
+        {
+            Positions = BoxPositions,
+            SelectedIndex = SelectedIndex
+        };
+        if (layerEditHelper.IsValidLayer)
+        {
+            if (ConfigSettings.WebGLMode)
+                Response.Redirect("ValidationWebGL.aspx");
+            else
+                Response.Redirect("Validation.aspx");
+        }
     }
     #endregion
     #region Private properties
