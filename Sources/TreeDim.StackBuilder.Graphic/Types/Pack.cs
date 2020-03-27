@@ -18,8 +18,13 @@ namespace treeDiM.StackBuilder.Graphics
         {
             _packProperties = packProperties;
             _arrangement = _packProperties.Arrangement;
-            _innerBox = new Box(0, packProperties.Box);
-            _forceTransparency = false;
+            if (packProperties.Content is PackableBrick boxProperties)
+                _innerBox = new Box(0, boxProperties);
+            else if (packProperties.Content is CylinderProperties cylProp)
+                _innerBox = new Cylinder(0, cylProp);
+            else if (packProperties.Content is BottleProperties bottleProp)
+                _innerBox = new Bottle(0, bottleProp);
+            ForceTransparency = false;
             BoxPosition = BoxPosition.Zero;
         }
         public Pack(uint pickId, PackProperties packProperties, BoxPosition position)
@@ -27,25 +32,28 @@ namespace treeDiM.StackBuilder.Graphics
         {
             _packProperties = packProperties;
             _arrangement = _packProperties.Arrangement;
-            _innerBox = new Box(0, packProperties.Box);
-            _forceTransparency = false;
+            if (packProperties.Content is PackableBrick boxProperties)
+                _innerBox = new Box(0, boxProperties);
+            else if (packProperties.Content is CylinderProperties cylProp)
+                _innerBox = new Cylinder(0, cylProp);
+            else if (packProperties.Content is BottleProperties bottleProp)
+                _innerBox = new Bottle(0, bottleProp);
+            ForceTransparency = false;
         }
         #endregion
 
         #region Public properties
-        public bool ForceTransparency
-        {
-            get { return _forceTransparency; }
-            set { _forceTransparency = value; }
-        }
+        public bool ForceTransparency { get; set; } = false;
         #endregion
 
         #region Drawable implementation
         public override void Draw(Graphics2D graphics)
         {
-            List<Box> boxes = InnerBoxes;
-            foreach (Box b in boxes)
-                graphics.DrawBox(b);              
+            var drawables = InnerDrawables;
+            foreach (var b in drawables)
+            {
+                b.Draw(graphics);
+            }
         }
         public override void Draw(Graphics3D graphics)
         {
@@ -53,19 +61,27 @@ namespace treeDiM.StackBuilder.Graphics
             var viewDir = graphics.ViewDirection;
 
             // draw tray back faces
-            if (_packProperties.Wrap.Type == PackWrapper.WType.WT_TRAY)
-            {}
-            // draw inner boxes
-            if (_packProperties.Wrap.Type == PackWrapper.WType.WT_POLYETHILENE
-                || _packProperties.Wrap.Type == PackWrapper.WType.WT_TRAY
-                || _forceTransparency)
+            if (null != _packProperties.Tray)
             {
-                List<Box> boxes = InnerBoxes;
-                boxes.Sort( new BoxComparerSimplifiedPainterAlgo(graphics.GetWorldToEyeTransformation()) );
-                foreach (Box b in boxes)
+                foreach (Face f in TrayFaces)
+                {
+                    graphics.Draw(
+                        f
+                        , Graphics3D.FaceDir.BACK
+                        , _packProperties.Tray.Color
+                        , false);
+                }
+            }
+            // draw inner boxes
+            if (null == _packProperties.Wrap
+                || _packProperties.Wrap.Type == PackWrapper.WType.WT_POLYETHILENE)
+            {
+                var innerDrawables = InnerDrawables;
+                innerDrawables.Sort( new DrawableComparerSimplifiedPainterAlgo(graphics.GetWorldToEyeTransformation()) );
+                foreach (var b in innerDrawables)
                     b.Draw(graphics);
             }
-            if (_packProperties.Wrap.Type != PackWrapper.WType.WT_TRAY)
+            if (null != _packProperties.Wrap)
             {
                 // draw front faces
                 foreach (Face f in Faces)
@@ -74,10 +90,10 @@ namespace treeDiM.StackBuilder.Graphics
                         f
                         , Graphics3D.FaceDir.FRONT
                         , _packProperties.Wrap.Color
-                        , _packProperties.Wrap.Transparent || _forceTransparency);
+                        , _packProperties.Wrap.Transparent);
                 }
             }
-            else
+            if (null != _packProperties.Tray)
             {
                 // draw tray front faces
                 foreach (Face f in TrayFaces)
@@ -85,8 +101,8 @@ namespace treeDiM.StackBuilder.Graphics
                     graphics.Draw(
                         f
                         , Graphics3D.FaceDir.FRONT
-                        , _packProperties.Wrap.Color
-                        , _packProperties.Wrap.Transparent);
+                        , _packProperties.Tray.Color
+                        , false);
                 }
             }
 
@@ -119,9 +135,8 @@ namespace treeDiM.StackBuilder.Graphics
             get
             {
                 double height = _dim[2];
-                if (_packProperties.Wrap is WrapperTray tray) height = tray.Height;
-                if (height <= 1.0)
-                    height = 40.0;
+                if (null != _packProperties.Tray) height = _packProperties.Tray.Height;
+                if (height <= 1.0)  height = 40.0;
                 Vector3D position = BoxPosition.Position;
                 Vector3D lengthAxis = HalfAxis.ToVector3D(BoxPosition.DirectionLength);
                 Vector3D widthAxis = HalfAxis.ToVector3D(BoxPosition.DirectionWidth);
@@ -148,23 +163,74 @@ namespace treeDiM.StackBuilder.Graphics
             }
         }
 
-        public List<Box> InnerBoxes
+        public List<Drawable> InnerDrawables
         {
             get
             { 
-                List<Box> boxes = new List<Box>();
+                List<Drawable> drawables = new List<Drawable>();
                 uint pickId = 0;
-                for (int i = 0; i < _arrangement.Length; ++i)
+                if (_packProperties.Content is PackableBrick boxProp)
+                {
+                    for (int i = 0; i < _arrangement.Length; ++i)
+                        for (int j = 0; j < _arrangement.Width; ++j)
+                            for (int k = 0; k < _arrangement.Height; ++k)
+                                drawables.Add(
+                                    new Box(pickId++, boxProp, GetPosition(i, j, k, _packProperties.Dim0, _packProperties.Dim1))
+                                );
+                }
+                else if (_packProperties.Content is RevSolidProperties revSolid)
+                {
+                    double diameter = revSolid.Diameter;
+                    double height = revSolid.Height;
+
                     for (int j = 0; j < _arrangement.Width; ++j)
-                        for (int k = 0; k < _arrangement.Height; ++k)
-                            boxes.Add(new Box(pickId++, _packProperties.Box, GetPosition(i, j, k, _packProperties.Dim0, _packProperties.Dim1)));
-                return boxes;
+                    {
+                        double xOffset = 0.0;
+                        double y = 0.0;
+                        int noX = _arrangement.Length;
+
+                        switch (_packProperties.RevSolidLayout)
+                        {
+                            case PackProperties.EnuRevSolidLayout.ALIGNED:
+                                y = ((double)j + 0.5) * diameter;
+                                break;
+                            case PackProperties.EnuRevSolidLayout.STAGGERED_REGULAR:
+                                y = 0.5 * diameter * (1 + j * Math.Sqrt(3.0)); 
+                                xOffset = 0.5 * diameter * (j % 2);
+                                break;
+                            case PackProperties.EnuRevSolidLayout.STAGGERED_MINUS1:
+                                noX = _arrangement.Length - j % 2;
+                                y = 0.5 * diameter * (1 + j * Math.Sqrt(3.0));
+                                xOffset = 0.5 * diameter * (j % 2);
+                                break;
+                            case PackProperties.EnuRevSolidLayout.STAGGERED_PLUS1:
+                                noX = _arrangement.Length + j % 2;
+                                y = 0.5 * diameter * (1 + j * Math.Sqrt(3.0));
+                                xOffset = 0.5 * diameter * ((j+1) % 2);
+                                break;
+                        }
+                        for (int i = 0; i < noX; ++i)
+                        {
+                            var vPos = new Vector3D(((int)i + 0.5) * diameter + xOffset, y, 0.0);
+                            for (int k = 0; k < _arrangement.Height; ++k)
+                            {
+                                CylPosition cylPos = new CylPosition(vPos + k * height * Vector3D.ZAxis, HalfAxis.HAxis.AXIS_Z_P);
+                                if (_packProperties.Content is CylinderProperties cylinderProp)
+                                    drawables.Add(new Cylinder(pickId++, cylinderProp, cylPos.Transform(GlobalTransformation)));
+                                else if (_packProperties.Content is BottleProperties bottleProp)
+                                    drawables.Add(new Bottle(pickId++, bottleProp, cylPos.Transform(GlobalTransformation)));
+                            }
+                        }
+                    }
+
+                }
+                return drawables;
             }
         }
 
         private BoxPosition GetPosition(int i, int j, int k, int dim0, int dim1)
         {
-            PackableBrick packable = _packProperties.Box;
+            PackableBrick packable = _packProperties.Content as PackableBrick;
             double boxLength = packable.Dim(dim0);
             double boxWidth =  packable.Dim(dim1);
             double boxHeight =  packable.Dim(3 - dim0 - dim1);
@@ -238,10 +304,9 @@ namespace treeDiM.StackBuilder.Graphics
         #endregion
 
         #region Data members
-        private Box _innerBox;
+        private Drawable _innerBox;
         private PackArrangement _arrangement;
         private PackProperties _packProperties;
-        private bool _forceTransparency = false;
         #endregion
     }
 }

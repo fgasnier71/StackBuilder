@@ -86,9 +86,14 @@ namespace treeDiM.StackBuilder.Engine
                     // build pack properties
                     Vector3D outerDimensions = caseDefinition.OuterDimensions(BoxProperties, ParamSetPackOpt);
                     var packProperties = new PackProperties(
-                        null, BoxProperties,
-                        caseDefinition.Arrangement, PackProperties.Orientation(caseDefinition.Dim0, caseDefinition.Dim1),
-                        BuildWrapper());
+                        null,
+                        BoxProperties,
+                        caseDefinition.Arrangement,
+                        PackProperties.Orientation(caseDefinition.Dim0, caseDefinition.Dim1),
+                        PackProperties.EnuRevSolidLayout.ALIGNED,
+                        BuildWrapper(),
+                        BuildTray()
+                        );
                     packProperties.ForceOuterDimensions(outerDimensions);
 
                     // solver
@@ -115,7 +120,7 @@ namespace treeDiM.StackBuilder.Engine
             { 
                 case PackWrapper.WType.WT_POLYETHILENE:
                     return new WrapperPolyethilene(
-                        ParamSetPackOpt.WallThickness, weight, _packColor, true);
+                        ParamSetPackOpt.WallThickness, weight, _packColor);
                 case PackWrapper.WType.WT_PAPER:
                     return new WrapperPaper(
                         ParamSetPackOpt.WallThickness, weight, _packColor);
@@ -126,19 +131,16 @@ namespace treeDiM.StackBuilder.Engine
                         wrapperCardboard.SetNoWalls(noWalls);
                         return wrapperCardboard;
                     }
-                case PackWrapper.WType.WT_TRAY:
-                    {
-                        var wrapperTray = new WrapperTray(
-                            ParamSetPackOpt.WallThickness, weight, _packColor)
-                        {
-                            Height = ParamSetPackOpt.TrayHeight
-                        };
-                        wrapperTray.SetNoWalls(noWalls);
-                        return wrapperTray;
-                    }
                 default:
                     throw new InvalidEnumArgumentException(nameof(ParamSetPackOpt.WrapperType), (int)ParamSetPackOpt.WrapperType, typeof(PackWrapper.WType));
             }
+        }
+        private PackTray BuildTray()
+        {
+            double weight = 0.0;
+            var packTray = new PackTray(ParamSetPackOpt.TrayHeight, weight, _packColor);
+            packTray.SetNoWalls(ParamSetPackOpt.NoWalls);
+            return packTray;
         }
 
         private IEnumerable<PackArrangement> BoxArrangements(int iNumber)

@@ -8,6 +8,8 @@ using System.Linq;
 using log4net;
 using Sharp3D.Math.Core;
 
+using SourceGrid;
+
 using treeDiM.Basics;
 using treeDiM.StackBuilder.Basics;
 using treeDiM.StackBuilder.Graphics;
@@ -228,60 +230,184 @@ namespace treeDiM.StackBuilder.Desktop
         #region Grid
         private void FillGrid()
         {
-            // clear grid
-            gridProfile.Rows.Clear();
-            // border
-            gridProfile.BorderStyle = BorderStyle.FixedSingle;
-            gridProfile.ColumnsCount = 2;
-            // *** IViews
-            // caption header
-            DevAge.Drawing.VisualElements.RowHeader veHeaderCaption = new DevAge.Drawing.VisualElements.RowHeader()
+            try
             {
-                BackColor = Color.SteelBlue,
-                Border = DevAge.Drawing.RectangleBorder.NoBorder
-            };
-            SourceGrid.Cells.Views.RowHeader captionHeader = new SourceGrid.Cells.Views.RowHeader
-            {
-                Background = veHeaderCaption,
-                ForeColor = Color.Black,
-                Font = new Font("Arial", GridFontSize + 2, FontStyle.Bold),
-                TextAlignment = DevAge.Drawing.ContentAlignment.MiddleCenter
-            };
-            // viewRowHeader
-            DevAge.Drawing.VisualElements.RowHeader backHeader = new DevAge.Drawing.VisualElements.RowHeader()
-            {
-                BackColor = Color.LightGray,
-                Border = DevAge.Drawing.RectangleBorder.NoBorder
-            };
-            SourceGrid.Cells.Views.RowHeader viewRowHeader = new SourceGrid.Cells.Views.RowHeader
-            {
-                Background = backHeader,
-                ForeColor = Color.Black,
-                Font = new Font("Arial", GridFontSize, FontStyle.Regular)
-            };
-            // viewNormal
-            CellBackColorAlternate viewNormal = new CellBackColorAlternate(Color.LightBlue, Color.White);
-            // ***
+                // clear grid
+                gridProfile.Rows.Clear();
+                // border
+                gridProfile.BorderStyle = BorderStyle.FixedSingle;
 
-            int iRow = -1;
-            // ### sol items : begin
-            gridProfile.Rows.Insert(++iRow);
-            gridProfile[iRow, 0] = new SourceGrid.Cells.RowHeader($"{Resources.ID_HEIGHT} ({UnitsManager.LengthUnitString})") { View = captionHeader };
-            gridProfile[iRow, 1] = new SourceGrid.Cells.RowHeader($"{Resources.ID_DIAMETER} ({UnitsManager.LengthUnitString})") { View = captionHeader };
+                gridProfile.SelectionMode = GridSelectionMode.Row;
+                gridProfile.ColumnsCount = 3;
+                // *** IViews
+                // caption header
+                DevAge.Drawing.VisualElements.RowHeader veHeaderCaption = new DevAge.Drawing.VisualElements.RowHeader()
+                {
+                    BackColor = Color.SteelBlue,
+                    Border = DevAge.Drawing.RectangleBorder.NoBorder
+                };
+                SourceGrid.Cells.Views.RowHeader captionHeader = new SourceGrid.Cells.Views.RowHeader
+                {
+                    Background = veHeaderCaption,
+                    ForeColor = Color.Black,
+                    Font = new Font("Arial", GridFontSize + 2, FontStyle.Bold),
+                    TextAlignment = DevAge.Drawing.ContentAlignment.MiddleCenter
+                };
+                // viewRowHeader
+                DevAge.Drawing.VisualElements.RowHeader backHeader = new DevAge.Drawing.VisualElements.RowHeader()
+                {
+                    BackColor = Color.LightGray,
+                    Border = DevAge.Drawing.RectangleBorder.NoBorder
+                };
+                SourceGrid.Cells.Views.RowHeader viewRowHeader = new SourceGrid.Cells.Views.RowHeader
+                {
+                    Background = backHeader,
+                    ForeColor = Color.Black,
+                    Font = new Font("Arial", GridFontSize, FontStyle.Regular)
+                };
+                // viewNormal
+                CellBackColorAlternate viewNormal = new CellBackColorAlternate(Color.LightBlue, Color.White);
+                // ***
 
-            foreach (var item in Profile)
-            {
+                int iRow = -1;
+                // ### sol items : begin
                 gridProfile.Rows.Insert(++iRow);
-                gridProfile[iRow, 0] = new SourceGrid.Cells.Cell($"{item.X}");
-                gridProfile[iRow, 1] = new SourceGrid.Cells.Cell($"{item.Y}");
-            }
+                gridProfile[iRow, 1] = new SourceGrid.Cells.RowHeader($"{Resources.ID_HEIGHT} ({UnitsManager.LengthUnitString})") { View = captionHeader };
+                gridProfile[iRow, 2] = new SourceGrid.Cells.RowHeader($"{Resources.ID_DIAMETER} ({UnitsManager.LengthUnitString})") { View = captionHeader };
 
-            gridProfile.AutoSizeCells();
-            gridProfile.AutoStretchColumnsToFitWidth = true;
-            gridProfile.Invalidate();
-        }
-        private void SaveGrid()
-        { 
+                decimal inc = 0.0m;
+                switch (UnitsManager.CurrentUnitSystem)
+                {
+                    case UnitsManager.UnitSystem.UNIT_METRIC1: inc = 1.0m; break;
+                    case UnitsManager.UnitSystem.UNIT_METRIC2: inc = 0.1m; break;
+                    case UnitsManager.UnitSystem.UNIT_IMPERIAL:
+                    case UnitsManager.UnitSystem.UNIT_US: inc = 1.0m / 16.0m; break;
+                    default: break;
+                }
+                foreach (var item in Profile)
+                {
+                    gridProfile.Rows.Insert(++iRow);
+
+                    gridProfile[iRow, 0] = new SourceGrid.Cells.Cell() { Value = $"{iRow}" };
+
+                    for (int j = 0; j < 2; ++j)
+                    {
+                        decimal dValue = (decimal)item[j];
+                        var usedControl = new NumericUpDown()
+                        {
+                            Minimum = 0.0m,
+                            Maximum = 1000.0m,
+                            Increment = inc,
+                            Value = dValue
+                        };
+                        usedControl.Enter += delegate (object sender, EventArgs e)
+                        {
+                            IsRechangingSelection = true;
+                            foreach (RowInfo rowInfo in gridProfile.Rows)
+                            {
+                                gridProfile.Selection.SelectRow(rowInfo.Index, false);
+                            }
+                            foreach (LinkedControlValue lcv in gridProfile.LinkedControls)
+                            {
+                                if (lcv.Control == usedControl)
+                                {
+                                    gridProfile.Selection.SelectRow(lcv.Position.Row, true);
+                                    break;
+                                }
+                            }
+                            IsRechangingSelection = false;
+                        };
+                        usedControl.ValueChanged += delegate (object sender, EventArgs e)
+                        {
+                            foreach (LinkedControlValue lcv in gridProfile.LinkedControls)
+                            {
+                                if (lcv.Control == usedControl && lcv.Control is NumericUpDown nud)
+                                {
+                                    Vector2D v = Profile[lcv.Position.Row - 1];
+                                    if (lcv.Position.Column == 1)
+                                        Profile[lcv.Position.Row - 1] = new Vector2D((double)nud.Value, v.Y);
+                                    else if (lcv.Position.Column == 2)
+                                        Profile[lcv.Position.Row - 1] = new Vector2D(v.X, (double)nud.Value);
+
+                                    OnInputChanged(sender, e);
+                                }
+                            }
+                        };
+                        gridProfile[iRow, j + 1] = new SourceGrid.Cells.Cell();
+                        gridProfile.LinkedControls.Add(new LinkedControlValue(usedControl, new SourceGrid.Position(iRow, j + 1)));
+                    }
+                }
+
+                gridProfile.VScrollBar.ValueChanged += delegate (object sender, EventArgs valueChangedEventArgs)
+                {
+                // Hide all linked controls above 'new value'
+                // Show all linked controls beyond 'new value'
+                foreach (LinkedControlValue lcv in gridProfile.LinkedControls)
+                    {
+                        lcv.Control.Visible = lcv.Position.Row > gridProfile.VScrollBar.Value;
+                    }
+
+                // Reselecting works more or less when scrolling down. But what when scrolling up?
+                if (gridProfile.Selection.ActivePosition.Row <= gridProfile.VScrollBar.Value)
+                    {
+                        IsRechangingSelection = false;
+
+                        foreach (LinkedControlValue lcv in gridProfile.LinkedControls)
+                        {
+                            gridProfile.Selection.SelectRow(lcv.Position.Row, false);
+                        }
+
+                        IsRechangingSelection = true;
+
+                        gridProfile.Selection.SelectRow(gridProfile.VScrollBar.Value + 1, true);
+                    }
+                };
+
+                gridProfile.Selection.SelectionChanged += delegate (object sender, RangeRegionChangedEventArgs e)
+                {
+                    if (!IsRechangingSelection && e.AddedRange != null && e.RemovedRange == null)
+                    {
+                        bool isFound = false;
+                        int selectedRow = -1;
+                        int selectedCol = -1;
+                        int[] selectedRows = e.AddedRange.GetRowsIndex();
+
+                        if (sender is SourceGrid.Selection.SelectionBase)
+                        {
+                            selectedRow = (sender as SourceGrid.Selection.SelectionBase).ActivePosition.Row;
+                            selectedCol = (sender as SourceGrid.Selection.SelectionBase).ActivePosition.Column;
+                        }
+                        if (selectedRows[0] != -1)
+                        {
+                            selectedRow = selectedRows[0];
+                        }
+                        foreach (LinkedControlValue lcv in gridProfile.LinkedControls)
+                        {
+                            if (lcv.Position.Row == selectedRow)
+                            {
+                            // Remove focus from control
+                            isFound = true;
+                                lcv.Control.Focus();
+                                break;
+                            }
+                        }
+                        if (!isFound)
+                        {
+                            IsRechangingSelection = true;
+                            gridProfile.Selection.Focus(new SourceGrid.Position(selectedRow, selectedCol), true);
+                            IsRechangingSelection = false;
+                        }
+                    }
+                };
+
+                gridProfile.AutoSizeCells();
+                gridProfile.AutoStretchColumnsToFitWidth = true;
+                gridProfile.Invalidate();
+            }
+            catch (Exception ex)
+            {
+                _log.Error(ex.ToString());
+            }
         }
         #endregion
 
@@ -346,9 +472,6 @@ namespace treeDiM.StackBuilder.Desktop
         }
         #endregion
 
-        #region Update handling
-        #endregion
-
         #region Events
         private void OnInitialize(object sender, EventArgs e)
         {
@@ -357,10 +480,35 @@ namespace treeDiM.StackBuilder.Desktop
         }
         private void OnRowInsert(object sender, EventArgs e)
         {
+            int[] rowsIndex = gridProfile.Selection.GetSelectionRegion().GetRowsIndex();
+            if (null == rowsIndex || rowsIndex.Length == 0)
+                return;
+            int index = rowsIndex[0] - 1;
+            var v0 = Profile[index];
+            if (index < Profile.Count - 1)
+            {
+                var v1 = Profile[index + 1];
+                Profile.Insert(index + 1, 0.5 * (v0 + v1));
+            }
+            else
+                Profile.Insert(index + 1, v0);
+            if (!IsSorted) Sort();
+
+            FillGrid();
             OnInputChanged(sender, e);
         }
         private void OnRowRemove(object sender, EventArgs e)
         {
+            int[] rowsIndex = gridProfile.Selection.GetSelectionRegion().GetRowsIndex();
+            for (int i = 0; i < rowsIndex.Length; i++)
+                Profile.RemoveAt(rowsIndex[i] - 1);
+            if (!IsSorted) Sort();
+
+            FillGrid();
+
+            if (gridProfile.RowsCount > 1)
+                gridProfile.Selection.FocusRow(1);
+
             OnInputChanged(sender, e);
         }
         private void OnInputChanged(object sender, EventArgs e)
@@ -371,8 +519,38 @@ namespace treeDiM.StackBuilder.Desktop
         }
         #endregion
 
+        #region Helpers
+        private bool IsSorted
+        {
+            get
+            {
+                double prevH = 0.0;
+                foreach (var v in Profile)
+                {
+                    if (prevH > v.X)
+                        return false;
+                    prevH = v.X;
+                }
+                return true;
+            }
+        }
+        private void Sort()
+        {
+            Profile.Sort(SortVecXAscending.Comparer);
+        }
+        #endregion
+
         #region Data members
-        static readonly ILog _log = LogManager.GetLogger(typeof(FormNewBottle));
+        private bool IsRechangingSelection { get; set; }
+        protected static readonly ILog _log = LogManager.GetLogger(typeof(FormNewBottle));
+        #endregion
+
+        #region Comparer
+        internal class SortVecXAscending : IComparer<Vector2D>
+        {
+            public int Compare(Vector2D v0, Vector2D v1) => Comparer<double>.Default.Compare(v0.X, v1.X);
+            public static IComparer<Vector2D> Comparer { get; } = new SortVecXAscending();
+        }
         #endregion
     }
 }

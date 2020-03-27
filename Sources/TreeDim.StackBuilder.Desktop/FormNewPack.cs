@@ -4,21 +4,23 @@ using System.Collections.Generic;
 using System.Drawing;
 
 using log4net;
+using Sharp3D.Math.Core;
 
 using treeDiM.Basics;
 using treeDiM.StackBuilder.Basics;
 using treeDiM.StackBuilder.Graphics;
-using Sharp3D.Math.Core;
+using treeDiM.StackBuilder.Graphics.Controls;
 
 using treeDiM.StackBuilder.Desktop.Properties;
+using System.Windows.Forms;
 #endregion
 
 namespace treeDiM.StackBuilder.Desktop
 {
-    public partial class FormNewPack : FormNewBase, IDrawingContainer
+    public partial class FormNewPack : FormNewBase, IDrawingContainer, IItemBaseFilter
     {
         #region Data members
-        private PackProperties _packProperties;
+        private PackProperties PackProp { get; set; }
         public StrapperSet StrapperSet { get; } = new StrapperSet();
         static readonly ILog _log = LogManager.GetLogger(typeof(FormNewPack));
         #endregion
@@ -28,8 +30,8 @@ namespace treeDiM.StackBuilder.Desktop
             : base(doc, packProperties)
         {
             InitializeComponent();
-            _packProperties = packProperties;
-            StrapperSet = null != _packProperties ? _packProperties.StrapperSet.Clone() : new StrapperSet();
+            PackProp = packProperties;
+            StrapperSet = null != PackProp ? PackProp.StrapperSet.Clone() : new StrapperSet();
         }
         #endregion
 
@@ -39,25 +41,36 @@ namespace treeDiM.StackBuilder.Desktop
             base.OnLoad(e);
             // Graphics3DControl
             graphCtrl.DrawingContainer = this;
+
             // list of packs
-            ComboBoxHelpers.FillCombo(Boxes.ToArray(), cbInnerBox, null != _packProperties ? _packProperties.Box : Boxes[0]);
+            cbInnerPackable.Initialize(_document, this, PackProp?.Content);
+
             // arrangement
-            if (null != _packProperties)
+            if (null != PackProp)
             {
-                cbDir.SelectedIndex = (int)(_packProperties.BoxOrientation);
-                Arrangement = _packProperties.Arrangement;
-                Wrapper = _packProperties.Wrap;
-                uCtrlOuterDimensions.Checked = _packProperties.HasForcedOuterDimensions;
-                OuterDimensions = _packProperties.OuterDimensions;
+                cbDir.SelectedIndex = (int)(PackProp.BoxOrientation);
+                RevSolidLayout = PackProp.RevSolidLayout;
+                Arrangement = PackProp.Arrangement;
+                Wrapper = PackProp.Wrap;
+                uCtrlOuterDimensions.Checked = PackProp.HasForcedOuterDimensions;
+                OuterDimensions = PackProp.OuterDimensions;
             }
             else
-            { 
+            {
                 cbDir.SelectedIndex = 5; // HalfAxis.HAxis.AXIS_Z_P
+                RevSolidLayout = PackProperties.EnuRevSolidLayout.ALIGNED;
                 Arrangement = new PackArrangement(3, 2, 1);
-                Wrapper = new WrapperPolyethilene(0.1, 0.010, Color.LightGray, true);
+                Wrapper = new WrapperPolyethilene(0.1, 0.010, Color.LightGray)
+                {
+                    
+                };
+                Tray = new PackTray(UnitsManager.ConvertLengthFrom(40, UnitsManager.UnitSystem.UNIT_METRIC1), 0.0, Color.Chocolate)
+                {
 
-                uCtrlThickness.Value = UnitsManager.ConvertLengthFrom(0.1, UnitsManager.UnitSystem.UNIT_METRIC1);
-                uCtrlHeight.Value = UnitsManager.ConvertLengthFrom(40, UnitsManager.UnitSystem.UNIT_METRIC1);
+                };
+
+                uCtrlWrapperThickness.Value = UnitsManager.ConvertLengthFrom(0.1, UnitsManager.UnitSystem.UNIT_METRIC1);
+                uCtrlTrayHeight.Value = UnitsManager.ConvertLengthFrom(40, UnitsManager.UnitSystem.UNIT_METRIC1);
             }
             // set StrapperSet
             ctrlStrapperSet.StrapperSet = StrapperSet;
@@ -75,7 +88,7 @@ namespace treeDiM.StackBuilder.Desktop
             {
                 double length = 0.0, width = 0.0, height = 0.0;
                 PackProperties.GetDimensions(
-                    SelectedBox,
+                    SelectedPackable as BoxProperties,
                     BoxOrientation,
                     Arrangement,
                     ref length, ref width, ref height);
@@ -86,18 +99,17 @@ namespace treeDiM.StackBuilder.Desktop
         }
         #endregion
 
+        #region Implementation IItemBaseFilter
+        public bool Accept(Control ctrl, ItemBase itemBase)
+        {
+            return (itemBase is PackableBrick || itemBase is RevSolidProperties)
+                && itemBase != PackProp;
+        }
+        #endregion
+
         #region Public properties
         public List<BoxProperties> Boxes { set; get; } = new List<BoxProperties>();
-        public BoxProperties SelectedBox
-        {
-            get
-            {
-                if (Boxes.Count > 0 && -1 != cbInnerBox.SelectedIndex)
-                    return Boxes[cbInnerBox.SelectedIndex];
-                else
-                    return null;
-            }
-        }
+        public Packable SelectedPackable => cbInnerPackable.SelectedType as Packable;
         public HalfAxis.HAxis BoxOrientation
         {
             get
@@ -113,6 +125,11 @@ namespace treeDiM.StackBuilder.Desktop
                       };
                 return axes[cbDir.SelectedIndex != -1 ? cbDir.SelectedIndex : 5];
             }
+        }
+        public PackProperties.EnuRevSolidLayout RevSolidLayout
+        {
+            get => (PackProperties.EnuRevSolidLayout)cbCylLayoutType.SelectedIndex;
+            set => cbCylLayoutType.SelectedIndex = (int)value;
         }
         public PackArrangement Arrangement
         {
@@ -132,82 +149,106 @@ namespace treeDiM.StackBuilder.Desktop
             get
             {
                 PackWrapper wrapper = null;
-                switch (cbType.SelectedIndex)
+                if (chkbWrapper.Checked)
                 {
-                    case 0:
-                        wrapper = new WrapperPolyethilene(
-                            uCtrlThickness.Value, uCtrlWeight.Value, cbColor.Color, chkbTransparent.Checked);
-                        break;
-                    case 1:
-                        wrapper = new WrapperPaper(
-                            uCtrlThickness.Value, uCtrlWeight.Value, cbColor.Color
-                            );
-                        break;
-                    case 2:
-                        {
-                            WrapperCardboard wrapperCardboard = new WrapperCardboard(
-                                uCtrlThickness.Value, uCtrlWeight.Value, cbColor.Color
+                    switch (cbType.SelectedIndex)
+                    {
+                        case 0:
+                            wrapper = new WrapperPolyethilene(
+                                uCtrlWrapperThickness.Value, uCtrlWrapperWeight.Value, cbWrapperColor.Color);
+                            break;
+                        case 1:
+                            wrapper = new WrapperPaper(
+                                uCtrlWrapperThickness.Value, uCtrlWrapperWeight.Value, cbWrapperColor.Color
                                 );
-                            wrapperCardboard.SetNoWalls(uCtrlWalls.NoX, uCtrlWalls.NoY, uCtrlWalls.NoZ);
-                            wrapper = wrapperCardboard;
-                        }
-                        break;
-                    case 3:
-                        {
-                            WrapperTray wrapperTray = new WrapperTray(
-                                uCtrlThickness.Value, uCtrlHeight.Value, cbColor.Color
-                                );
-                            wrapperTray.SetNoWalls(uCtrlWalls.NoX, uCtrlWalls.NoY, uCtrlWalls.NoZ);
-                            wrapperTray.Height = uCtrlHeight.Value;
-                            wrapperTray.Weight = uCtrlWeight.Value;
-                            wrapper = wrapperTray;
-                        }
-                        break;
-                    default:
-                        break;
+                            break;
+                        case 2:
+                            {
+                                WrapperCardboard wrapperCardboard = new WrapperCardboard(
+                                    uCtrlWrapperThickness.Value, uCtrlWrapperWeight.Value, cbWrapperColor.Color
+                                    );
+                                wrapperCardboard.SetNoWalls(uCtrlWrapperWalls.NoX, uCtrlWrapperWalls.NoY, uCtrlWrapperWalls.NoZ);
+                                wrapper = wrapperCardboard;
+                            }
+                            break;
+                        default:
+                            break;
+                    }
                 }
-                return wrapper;  
+                return wrapper;
             }
             set
             {
                 PackWrapper wrapper = value;
-                if (null == wrapper) return;
-                cbType.SelectedIndex = (int)wrapper.Type;
-                OnWrapperTypeChanged(this, null);
-
-                uCtrlThickness.Value = wrapper.UnitThickness;
-                uCtrlWeight.Value = wrapper.Weight;
-                cbColor.Color = wrapper.Color;
-
-                switch (wrapper.Type)
+                chkbWrapper.Checked = (null != wrapper);
+                if (null != wrapper)
                 {
-                    case PackWrapper.WType.WT_POLYETHILENE:
-                        chkbTransparent.Checked = wrapper.Transparent;
-                        break;
-                    case PackWrapper.WType.WT_PAPER:
-                        break;
-                    case PackWrapper.WType.WT_CARDBOARD:
-                        {
-                            WrapperCardboard wrapperCardboard = wrapper as WrapperCardboard;
-                            uCtrlWalls.NoX = wrapperCardboard.Wall(0);
-                            uCtrlWalls.NoY = wrapperCardboard.Wall(1);
-                            uCtrlWalls.NoZ = wrapperCardboard.Wall(2);
-                        }
-                        break;
-                    case PackWrapper.WType.WT_TRAY:
-                        {
-                            WrapperTray wrapperTray = wrapper as WrapperTray;
-                            uCtrlWalls.NoX = wrapperTray.Wall(0);
-                            uCtrlWalls.NoY = wrapperTray.Wall(1);
-                            uCtrlWalls.NoZ = wrapperTray.Wall(2);
-                            uCtrlHeight.Value = wrapperTray.Height;
-                        }
-                        break;
-                    default:
-                        break;
+                    cbType.SelectedIndex = (int)wrapper.Type;
+                    OnWrapperTypeChanged(this, null);
+
+                    uCtrlWrapperThickness.Value = wrapper.UnitThickness;
+                    uCtrlWrapperWeight.Value = wrapper.Weight;
+                    cbWrapperColor.Color = wrapper.Color;
+
+                    switch (wrapper.Type)
+                    {
+                        case PackWrapper.WType.WT_POLYETHILENE:
+                            break;
+                        case PackWrapper.WType.WT_PAPER:
+                            break;
+                        case PackWrapper.WType.WT_CARDBOARD:
+                            {
+                                WrapperCardboard wrapperCardboard = wrapper as WrapperCardboard;
+                                uCtrlWrapperWalls.NoX = wrapperCardboard.Wall(0);
+                                uCtrlWrapperWalls.NoY = wrapperCardboard.Wall(1);
+                                uCtrlWrapperWalls.NoZ = wrapperCardboard.Wall(2);
+                            }
+                            break;
+                        default:
+                            break;
+                    }
                 }
             }
         }
+        public PackTray Tray
+        {
+            get
+            {
+                if (chkbTray.Checked)
+                {
+                    var packTray = new PackTray(TrayHeight, TrayWeight, TrayColor);
+                    return packTray;
+                }
+                else
+                    return null;
+            }
+            set
+            {
+                var packTray = value;
+                if (null != packTray)
+                {
+                    TrayHeight = value.Height;
+                    TrayWeight = value.Weight;
+                    TrayColor = value.Color;
+                }
+            }
+        }
+        private double TrayHeight
+        {
+            get => uCtrlTrayHeight.Value;
+            set => uCtrlTrayHeight.Value = value;
+        }
+        private double TrayWeight
+        {
+            get => uCtrlTrayWeight.Value;
+            set => uCtrlTrayWeight.Value = value;
+        }
+        private Color TrayColor
+        {
+            get => cbTrayColor.Color;
+            set => cbTrayColor.Color = value;
+        }
+
         public bool HasForcedOuterDimensions
         { get { return uCtrlOuterDimensions.Checked; } }
         public Vector3D OuterDimensions
@@ -217,7 +258,7 @@ namespace treeDiM.StackBuilder.Desktop
                 return new Vector3D(
                     uCtrlOuterDimensions.X,
                     uCtrlOuterDimensions.Y,
-                    uCtrlOuterDimensions.Z); 
+                    uCtrlOuterDimensions.Z);
             }
             set
             {
@@ -228,11 +269,40 @@ namespace treeDiM.StackBuilder.Desktop
         }
         #endregion
 
-        #region Event handlers
-        private void FormNewPack_Load(object sender, EventArgs e)
+        #region Enable/disable
+        private void EnableDisableWrapper()
         {
-            graphCtrl.DrawingContainer = this;
-            UpdateStatus(string.Empty);
+            bool enable = chkbWrapper.Checked;
+            cbType.Enabled = enable;
+            lbWrapperColor.Enabled = enable;
+            cbWrapperColor.Enabled = enable;
+            uCtrlWrapperWeight.Enabled = enable;
+            uCtrlWrapperWalls.Enabled = enable;
+            uCtrlWrapperThickness.Enabled = enable;
+        }
+        private void EnableDisableTray()
+        {
+            bool enable = chkbTray.Enabled;
+            cbTrayColor.Enabled = enable;
+            uCtrlTrayHeight.Enabled = enable;
+            uCtrlTrayWeight.Enabled = enable;
+            uCtrlTrayWalls.Enabled = enable;
+            uCtrlTrayUnitThickness.Enabled = enable;
+        }
+        #endregion
+
+        #region Event handlers
+        private void OnWrapperChecked(object sender, EventArgs e) { EnableDisableWrapper(); }
+        private void OnTrayChecked(object sender, EventArgs e) { EnableDisableTray(); }
+        private void OnContentChanged(object sender, EventArgs e)
+        {
+            bool isBox = SelectedPackable is PackableBrick;
+            lbDir.Visible = isBox;
+            cbDir.Visible = isBox;
+            lbCylLayoutType.Visible = !isBox;
+            cbCylLayoutType.Visible = !isBox;
+
+            OnPackChanged(sender, e);
         }
         private void OnPackChanged(object sender, EventArgs e)
         {
@@ -241,7 +311,10 @@ namespace treeDiM.StackBuilder.Desktop
                 if (sender != uCtrlOuterDimensions && !this.DesignMode)
                 {
                     double length = 0.0, width = 0.0, height = 0.0;
-                    PackProperties.GetDimensions(SelectedBox, BoxOrientation, Arrangement, ref length, ref width, ref height);
+                    if (SelectedPackable is BoxProperties boxProperties)
+                        PackProperties.GetDimensions(boxProperties, BoxOrientation, Arrangement, ref length, ref width, ref height);
+                    else if (SelectedPackable is RevSolidProperties revSolidProperties)
+                        PackProperties.GetDimensions(revSolidProperties, RevSolidLayout, Arrangement, ref length, ref width, ref height);
                     uCtrlOuterDimensions.X = length;
                     uCtrlOuterDimensions.Y = width;
                     uCtrlOuterDimensions.Z = height;
@@ -256,22 +329,7 @@ namespace treeDiM.StackBuilder.Desktop
         }
         private void OnWrapperTypeChanged(object sender, EventArgs e)
         {
-
-            bool showTransparent = false, showWalls = false, showHeight = false; 
-
-            switch (cbType.SelectedIndex)
-            {
-                case 0: showTransparent = true; showWalls = false; showHeight = false; break;
-                case 1: showTransparent = false; showWalls = false; showHeight = false; break;
-                case 2: showTransparent = false; showWalls = true; showHeight = false; break;
-                case 3: showTransparent = false; showWalls = true; showHeight = true; break;
-                default: showTransparent = false; showWalls = false; showHeight = false; break;
-            }
-
-            chkbTransparent.Visible = showTransparent;
-            uCtrlWalls.Visible = showWalls;
-            uCtrlHeight.Visible = showHeight;
-
+            uCtrlWrapperWalls.Visible = cbType.SelectedIndex == 2;
             graphCtrl.Invalidate();
         }
         #endregion
@@ -282,26 +340,27 @@ namespace treeDiM.StackBuilder.Desktop
             StrapperSet.SetDimension(OuterDimensions);
             // build pack
             PackProperties packProperties = new PackProperties(
-                null, SelectedBox, Arrangement, BoxOrientation, Wrapper)
-            {
-                StrapperSet = StrapperSet
-            };
+                    null, SelectedPackable, Arrangement, BoxOrientation, RevSolidLayout, Wrapper, Tray)
+                {
+                    StrapperSet = StrapperSet
+                };
             if (uCtrlOuterDimensions.Checked)
                 packProperties.ForceOuterDimensions(
-                    new Vector3D(uCtrlOuterDimensions.X, uCtrlOuterDimensions.Y, uCtrlOuterDimensions.Z) );
+                    new Vector3D(uCtrlOuterDimensions.X, uCtrlOuterDimensions.Y, uCtrlOuterDimensions.Z));
             Pack pack = new Pack(0, packProperties)
             {
                 ForceTransparency = true
             };
             graphics.AddBox(pack);
             graphics.AddDimensions(new DimensionCube(Vector3D.Zero, pack.Length, pack.Width, pack.Height, Color.Black, true));
-            if (packProperties.Wrap.Transparent)
+            if (null != packProperties.Wrap && packProperties.Wrap.Transparent)
                 graphics.AddDimensions(
                     new DimensionCube(
                         packProperties.InnerOffset
                         , packProperties.InnerLength, packProperties.InnerWidth, packProperties.InnerHeight
                         , Color.Red, false));
         }
+
         #endregion
     }
 }

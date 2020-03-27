@@ -193,12 +193,14 @@ namespace treeDiM.StackBuilder.Desktop
             {
                 if (DialogResult.OK == form.ShowDialog())
                 {
+
                     PackProperties packProperties = CreateNewPack(
                         form.ItemName, form.ItemDescription
-                        , form.SelectedBox
+                        , form.SelectedPackable
                         , form.Arrangement
-                        , form.BoxOrientation
-                        , form.Wrapper);
+                        , form.BoxOrientation, form.RevSolidLayout
+                        , form.Wrapper
+                        , form.Tray);
                     if (form.HasForcedOuterDimensions)
                         packProperties.ForceOuterDimensions(form.OuterDimensions);
                     packProperties.StrapperSet = form.StrapperSet;

@@ -1,6 +1,4 @@
-﻿using System;
-using System.Drawing;
-using System.Linq;
+﻿using System.Drawing;
 
 namespace treeDiM.StackBuilder.Basics
 {
@@ -8,6 +6,6 @@ namespace treeDiM.StackBuilder.Basics
     {
         public WrapperPaper(double thickness, double weight, Color color)
             : base(thickness, weight, color) { }
-        public override PackWrapper.WType Type => PackWrapper.WType.WT_PAPER;
+        public override WType Type => PackWrapper.WType.WT_PAPER;
     }
 }

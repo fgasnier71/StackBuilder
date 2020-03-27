@@ -17,7 +17,6 @@ namespace treeDiM.StackBuilder.Graphics.TestLayerEditor
         public FormMain()
         {
             InitializeComponent();
-
         }
 
         protected override void OnLoad(EventArgs e)
@@ -25,7 +24,7 @@ namespace treeDiM.StackBuilder.Graphics.TestLayerEditor
             base.OnLoad(e);
 
             var bProperties = new BoxProperties(null, 400.0, 300.0, 200.0);
-            bProperties.SetAllColors(Enumerable.Repeat<Color>(Color.Beige, 6).ToArray());
+            bProperties.SetAllColors(Enumerable.Repeat(Color.Beige, 6).ToArray());
             bProperties.TapeColor = Color.Orange;
             bProperties.TapeWidth = new treeDiM.Basics.OptDouble(true, 50.0);
             Content = bProperties;

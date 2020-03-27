@@ -394,10 +394,10 @@ namespace treeDiM.StackBuilder.Graphics
 
             }
             else
-                Boxes.Sort(new BoxComparerSimplifiedPainterAlgo(GetWorldToEyeTransformation()));
+                Boxes.Sort(new DrawableComparerSimplifiedPainterAlgo(GetWorldToEyeTransformation()));
 
             // sort cylinder list
-            Cylinders.Sort(new CylinderComparerSimplifiedPainterAlgo(GetWorldToEyeTransformation()));
+            Cylinders.Sort(new DrawableComparerSimplifiedPainterAlgo(GetWorldToEyeTransformation()));
 
             if (Cylinders.Count > 0)
             {
@@ -405,7 +405,7 @@ namespace treeDiM.StackBuilder.Graphics
                 List<Drawable> drawableList = new List<Drawable>();
                 drawableList.AddRange(Boxes);
                 drawableList.AddRange(Cylinders);
-                drawableList.Sort(new DrawableComparerSimplifiedPainterAlgo());
+                drawableList.Sort(new DrawableComparerSimplifiedPainterAlgo(GetWorldToEyeTransformation()));
 
                 List<Box> boxes = new List<Box>();
                 List<Cyl> cylinders = new List<Cyl>();
@@ -433,7 +433,7 @@ namespace treeDiM.StackBuilder.Graphics
                         }
                         if (cylinders.Count > 0)
                         {
-                            cylinders.Sort(new CylinderComparerSimplifiedPainterAlgo(GetWorldToEyeTransformation()));
+                            cylinders.Sort(new DrawableComparerSimplifiedPainterAlgo(GetWorldToEyeTransformation()));
                             // draw cylinders
                             foreach (Cyl cc in cylinders)
                                 cc.Draw(this);
@@ -461,7 +461,7 @@ namespace treeDiM.StackBuilder.Graphics
                     bb.Draw(this);
 
                 // remaining cylinders
-                cylinders.Sort(new CylinderComparerSimplifiedPainterAlgo(GetWorldToEyeTransformation()));
+                cylinders.Sort(new DrawableComparerSimplifiedPainterAlgo(GetWorldToEyeTransformation()));
                 // draw cylinders
                 foreach (var cc in cylinders)
                     cc.Draw(this);
@@ -824,6 +824,5 @@ namespace treeDiM.StackBuilder.Graphics
             bmp = imgCached.Image(s, CameraPosition, Target, ref offset);
         }
         #endregion
-
     }
 }

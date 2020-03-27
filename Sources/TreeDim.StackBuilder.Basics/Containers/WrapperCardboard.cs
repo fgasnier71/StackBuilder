@@ -1,7 +1,5 @@
 ﻿using System.Drawing;
-
 using Sharp3D.Math.Core;
-
 using treeDiM.Basics;
 
 namespace treeDiM.StackBuilder.Basics
@@ -30,8 +28,7 @@ namespace treeDiM.StackBuilder.Basics
 
         public int Wall(int index) => _walls[index];
 
-        public override PackWrapper.WType Type => PackWrapper.WType.WT_CARDBOARD;
-
+        public override WType Type => WType.WT_CARDBOARD;
         public override double Thickness(int dir) => _walls[dir] * _thickness;
 
         public static double EstimateWeight(

@@ -241,24 +241,26 @@ namespace treeDiM.StackBuilder.Basics
         /// </summary>
         /// <param name="name">Name</param>
         /// <param name="description">Description</param>
-        /// <param name="box">Inner box</param>
+        /// <param name="packable">Inner content (either box or revolution solid)</param>
         /// <param name="arrangement">Arrangement</param>
         /// <param name="axis">Axis</param>
         /// <param name="wrapper">Wrapper</param>
         /// <returns></returns>
         public PackProperties CreateNewPack(
             string name, string description
-            , BoxProperties box
+            , Packable packable
             , PackArrangement arrangement
-            , HalfAxis.HAxis axis
-            , PackWrapper wrapper)
+            , HalfAxis.HAxis axis, PackProperties.EnuRevSolidLayout revSolidLayout
+            , PackWrapper wrapper
+            , PackTray tray)
         { 
             // instantiate and initialize
             PackProperties packProperties = new PackProperties(this
-                , box
+                , packable
                 , arrangement
-                , axis
-                , wrapper);
+                , axis, revSolidLayout
+                , wrapper
+                , tray);
             packProperties.ID.SetNameDesc( name, description );
             // insert in list
             _typeList.Add(packProperties);
@@ -269,7 +271,7 @@ namespace treeDiM.StackBuilder.Basics
         }
         public PackProperties CreateNewPack(PackProperties pack)
         {
-            PackProperties packProperties = new PackProperties(this, pack.Box, pack.Arrangement, pack.BoxOrientation, pack.Wrap);
+            PackProperties packProperties = new PackProperties(this, pack.Content, pack.Arrangement, pack.BoxOrientation, pack.RevSolidLayout, pack.Wrap, pack.Tray);
             packProperties.ID.SetNameDesc(pack.ID.Name, pack.ID.Description);
             // insert in list
             _typeList.Add(packProperties);
@@ -1236,22 +1238,28 @@ namespace treeDiM.StackBuilder.Basics
             string sBoxId = eltPackProperties.Attributes["BoxProperties"].Value;
             string sOrientation = eltPackProperties.Attributes["Orientation"].Value;
             string sArrangement = eltPackProperties.Attributes["Arrangement"].Value;
+            string sRevSolidLayout = string.Empty;
+            PackProperties.EnuRevSolidLayout revSolidLayout = PackProperties.EnuRevSolidLayout.ALIGNED;
             PackWrapper wrapper = null;
+            PackTray tray = null;
             StrapperSet strapperSet = new StrapperSet();
             foreach (XmlElement node in eltPackProperties.ChildNodes)
             {
                 if (string.Equals(node.Name, "Wrapper", StringComparison.CurrentCultureIgnoreCase))
                     wrapper = LoadWrapper(node as XmlElement);
+                else if (string.Equals(node.Name, "Tray", StringComparison.CurrentCultureIgnoreCase))
+                    tray = LoadTray(node as XmlElement);
                 else if (string.Equals(node.Name, "StrapperSet", StringComparison.CurrentCultureIgnoreCase))
                     LoadStrapperSet(node as XmlElement, ref strapperSet);
             }
             PackProperties packProperties = CreateNewPack(
                 sname
                 , sdescription
-                , GetTypeByGuid(new Guid(sBoxId)) as BoxProperties
+                , GetTypeByGuid(new Guid(sBoxId)) as Packable
                 , PackArrangement.TryParse(sArrangement)
-                , HalfAxis.Parse(sOrientation)
-                , wrapper);
+                , HalfAxis.Parse(sOrientation), revSolidLayout
+                , wrapper
+                , tray);
             packProperties.ID.IGuid = new Guid(sid);
             packProperties.StrapperSet = strapperSet;
  
@@ -1278,7 +1286,7 @@ namespace treeDiM.StackBuilder.Basics
             if (sType == "WT_POLYETHILENE")
             {
                 bool transparent = bool.Parse(xmlWrapperElt.Attributes["Transparent"].Value);
-                return new WrapperPolyethilene(thickness, weight, wrapperColor, transparent);
+                return new WrapperPolyethilene(thickness, weight, wrapperColor);
             }
             else if (sType == "WT_PAPER")
             {
@@ -1294,7 +1302,45 @@ namespace treeDiM.StackBuilder.Basics
                 wrapper.SetNoWalls(walls[0], walls[1], walls[2]);
                 return wrapper;
             }
-            else if (sType == "WT_TRAY")
+            else
+                return null;
+        }
+        private PackTray LoadTray(XmlElement xmlTrayElt)
+        {
+            if (null == xmlTrayElt) return null;
+            string sColor = xmlTrayElt.Attributes["Color"].Value;
+            string sWeight = xmlTrayElt.Attributes["Weight"].Value;
+            string sHeight = xmlTrayElt.Attributes["Height"].Value;
+            string sUnitThickness = xmlTrayElt.Attributes["UnitThickness"].Value;
+            string sWalls = "1 1 1";
+            if (xmlTrayElt.HasAttribute("NumberOfWalls"))
+                sWalls = xmlTrayElt.Attributes["NumberOfWalls"].Value;
+
+            double height = UnitsManager.ConvertLengthFrom(Convert.ToDouble(sHeight, CultureInfo.InvariantCulture), UnitSystem);
+            double weight = UnitsManager.ConvertMassFrom(Convert.ToDouble(sWeight, CultureInfo.InvariantCulture), UnitSystem);
+            double unitThickness = UnitsManager.ConvertLengthFrom(Convert.ToDouble(sUnitThickness, CultureInfo.InvariantCulture), UnitSystem);
+            Color color = Color.FromArgb(Convert.ToInt32(sColor));
+            int[] walls = sWalls.Split(' ').Select(n => Convert.ToInt32(n)).ToArray();
+
+            PackTray tray = new PackTray(height, weight, color);
+            tray.SetNoWalls(walls);
+            return tray;
+        }
+
+        private PackTray LoadTrayLegacy(XmlElement xmlWrapperElt)
+        {
+            if (null == xmlWrapperElt) return null;
+
+            string sType = xmlWrapperElt.Attributes["Type"].Value;
+            string sColor = xmlWrapperElt.Attributes["Color"].Value;
+            string sWeight = xmlWrapperElt.Attributes["Weight"].Value;
+            string sUnitThickness = xmlWrapperElt.Attributes["UnitThickness"].Value;
+
+            double unitThickness = UnitsManager.ConvertLengthFrom(Convert.ToDouble(sUnitThickness, CultureInfo.InvariantCulture), UnitSystem);
+            Color trayColor = Color.FromArgb(Convert.ToInt32(sColor));
+            double weight = UnitsManager.ConvertMassFrom(Convert.ToDouble(sWeight, CultureInfo.InvariantCulture), UnitSystem);
+
+            if (sType == "WT_TRAY")
             {
                 string sWalls = "1 1 1";
                 if (xmlWrapperElt.HasAttribute("NumberOfWalls"))
@@ -1303,10 +1349,12 @@ namespace treeDiM.StackBuilder.Basics
 
                 string sHeight = xmlWrapperElt.Attributes["Height"].Value;
                 double height = UnitsManager.ConvertLengthFrom(Convert.ToDouble(sHeight, CultureInfo.InvariantCulture), UnitSystem);
-                WrapperTray wrapper = new WrapperTray(thickness, weight, wrapperColor);
-                wrapper.SetNoWalls(walls[0], walls[1], walls[2]);
-                wrapper.Height = height;
-                return wrapper;
+
+                PackTray tray = new PackTray(height, weight, trayColor);
+                tray.UnitThickness = unitThickness;
+                tray.SetNoWalls(walls);
+                tray.Height = height;
+                return tray;
             }
             else
                 return null;
@@ -2616,7 +2664,7 @@ namespace treeDiM.StackBuilder.Basics
             eltPackProperties.Attributes.Append(descAttribute);
             // boxProperties
             XmlAttribute boxPropAttribute = xmlDoc.CreateAttribute("BoxProperties");
-            boxPropAttribute.Value = packProperties.Box.ID.IGuid.ToString();
+            boxPropAttribute.Value = packProperties.Content.ID.IGuid.ToString();
             eltPackProperties.Attributes.Append(boxPropAttribute);
             // box orientation
             XmlAttribute orientationAttribute = xmlDoc.CreateAttribute("Orientation");
@@ -3189,11 +3237,12 @@ namespace treeDiM.StackBuilder.Basics
         private void SaveWrapper(WrapperCardboard wrapper, XmlElement wrapperElt, XmlDocument xmlDoc)
         {
             if (null == wrapper) return;
-           SaveWrapperBase(wrapper, wrapperElt, xmlDoc);
-           // wall distribution
-           XmlAttribute wallDistribAttrib = xmlDoc.CreateAttribute("NumberOfWalls");
-           wallDistribAttrib.Value = string.Format("{0} {1} {2}", wrapper.Wall(0), wrapper.Wall(1), wrapper.Wall(2));
-           wrapperElt.Attributes.Append(wallDistribAttrib);
+            SaveWrapperBase(wrapper, wrapperElt, xmlDoc);
+            // wall distribution
+            XmlAttribute wallDistribAttrib = xmlDoc.CreateAttribute("NumberOfWalls");
+            wallDistribAttrib.Value = string.Format("{0} {1} {2}", wrapper.Wall(0), wrapper.Wall(1), wrapper.Wall(2));
+            wrapperElt.Attributes.Append(wallDistribAttrib);
+/*
             // tray specific
             if (wrapper is WrapperTray wrapperTray)
             {
@@ -3201,6 +3250,7 @@ namespace treeDiM.StackBuilder.Basics
                 heightAttrib.Value = string.Format(CultureInfo.InvariantCulture, "{0}", wrapperTray.Height);
                 wrapperElt.Attributes.Append(heightAttrib);
             }
+*/
         }
         #endregion
 

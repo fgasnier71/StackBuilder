@@ -1,6 +1,4 @@
-﻿using System;
-using System.Drawing;
-using System.Linq;
+﻿using System.Drawing;
 
 namespace treeDiM.StackBuilder.Basics
 {
@@ -11,7 +9,6 @@ namespace treeDiM.StackBuilder.Basics
             WT_POLYETHILENE
             , WT_PAPER
             , WT_CARDBOARD
-            , WT_TRAY
         }
         protected PackWrapper(double thickness, double weight, Color color) { _thickness = thickness; Weight = weight; Color = color; }
         public double Weight { get; set; }

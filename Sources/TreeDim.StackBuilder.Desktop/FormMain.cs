@@ -406,7 +406,7 @@ namespace treeDiM.StackBuilder.Desktop
                     {
                         if (!UserAcknowledgeDependancies(pack)) return;
                         pack.ID.SetNameDesc(form.ItemName, form.ItemDescription);
-                        pack.Box = form.SelectedBox;
+                        pack.Content = form.SelectedPackable as RevSolidProperties;
                         pack.BoxOrientation = form.BoxOrientation;
                         pack.Arrangement = form.Arrangement;
                         pack.Wrap = form.Wrapper;

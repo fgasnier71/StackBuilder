@@ -299,7 +299,7 @@ namespace treeDiM.StackBuilder.Graphics
             else
                 return new Vector3D[] { pt3, pt2, pt1, pt0 };
         }
-        public Vector3D Center
+        public override Vector3D Center
         {
             get
             {

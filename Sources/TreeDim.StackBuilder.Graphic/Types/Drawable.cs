@@ -21,6 +21,7 @@ namespace treeDiM.StackBuilder.Graphics
         }
         // 3D wireframe
         public virtual void DrawWireframe(Graphics3D graphics) { }
+        public virtual Vector3D Center => Vector3D.Zero;
         // 2D
         public virtual void Draw(Graphics2D graphics) { }
     }

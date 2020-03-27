@@ -4,13 +4,13 @@ using System.Collections.Generic;
 using System.Drawing;
 
 using Sharp3D.Math.Core;
-using log4net;
 
 using treeDiM.StackBuilder.Basics;
 #endregion
 
 namespace treeDiM.StackBuilder.Graphics
 {
+    #region Cyl
     public abstract class Cyl : Drawable
     { 
         public uint PickId { get; protected set; } = 0;
@@ -21,7 +21,9 @@ namespace treeDiM.StackBuilder.Graphics
         public BBox3D BBox => new BBox3D(
             new Vector3D(-RadiusOuter, -RadiusOuter, 0.0) + Position.XYZ
             , new Vector3D(RadiusOuter, RadiusOuter, Height) + Position.XYZ);
+        public override Vector3D Center => Position.XYZ + 0.5 * Height * HalfAxis.ToVector3D(Position.Direction);
     }
+    #endregion
 
     public class Cylinder : Cyl
     {
@@ -215,8 +217,6 @@ namespace treeDiM.StackBuilder.Graphics
                 return pts;
             }        
         }
-
-
         #endregion
 
         #region Drawable overrides
