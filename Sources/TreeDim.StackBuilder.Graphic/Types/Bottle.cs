@@ -80,7 +80,6 @@ namespace treeDiM.StackBuilder.Graphics
         private List<Vector2D> Profile { get; set; } = new List<Vector2D>();
         private Color Color;
         private Color ColorPath => Color.Black;
-        private int NoFaces => 36;
         public override double RadiusOuter { get => 0.5 * Profile.Max(p => p.Y); protected set { } }
         public override double Height { get => Profile.Max(p => p.X); protected set { } }
         #endregion
@@ -89,7 +88,7 @@ namespace treeDiM.StackBuilder.Graphics
         {
             get
             {
-                int noSteps = NoFaces;
+                int noSteps = Cyl.NoFaces;
                 var pts = new Vector3D[noSteps * Profile.Count];
                 Transform3D t = Position.Transf;
                 for (int i = 0; i < Profile.Count; ++i)
@@ -105,11 +104,11 @@ namespace treeDiM.StackBuilder.Graphics
         public Vector3D[] GetTopPoints()
         {
             Transform3D t = Position.Transf;
-            Vector3D[] pts = new Vector3D[NoFaces];
+            Vector3D[] pts = new Vector3D[Cyl.NoFaces];
             Vector2D pfPoint = Profile.LastOrDefault();
-            for (int i = 0; i < NoFaces; ++i)
+            for (int i = 0; i < Cyl.NoFaces; ++i)
             {
-                double angle = i * 2.0 * Math.PI / NoFaces;
+                double angle = i * 2.0 * Math.PI / Cyl.NoFaces;
                 var vRadius = new Vector3D(0.0, Math.Cos(angle), Math.Sin(angle));
                 pts[i] = t.transform(0.5 * pfPoint.Y * vRadius + pfPoint.X * Vector3D.XAxis);
             }

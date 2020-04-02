@@ -97,28 +97,43 @@ namespace treeDiM.EdgeCrushTest.Desktop
         }
         private void OnShowLogConsole(object sender, EventArgs e)
         {
-            _logConsole = new DockContentLogConsole();
-            _logConsole.Show(dockPanel, DockState.DockBottom);
-
+            if (null == FindDocument("Log console"))
+            {
+                _logConsole = new DockContentLogConsole
+                {
+                    TabText = "Log console",
+                    Text = "Log console"
+                };
+                _logConsole.Show(dockPanel, DockState.DockBottom);
+            }
         }
         #endregion
         #region Helpers
+        private IDockContent FindDocument(string text)
+        {
+            foreach (IDockContent content in dockPanel.Contents)
+            {
+                if (content.DockHandler.TabText == text)
+                    return content;
+            }
+            return null;
+        }
         private void CloseAllDockedForms()
         {
-                if (dockPanel.DocumentStyle == DocumentStyle.SystemMdi)
+            if (dockPanel.DocumentStyle == DocumentStyle.SystemMdi)
+            {
+                foreach (Form form in MdiChildren)
+                    form.Close();
+            }
+            else
+            {
+                foreach (IDockContent document in dockPanel.DocumentsToArray())
                 {
-                    foreach (Form form in MdiChildren)
-                        form.Close();
+                    // IMPORANT: dispose all panes.
+                    document.DockHandler.DockPanel = null;
+                    document.DockHandler.Close();
                 }
-                else
-                {
-                    foreach (IDockContent document in dockPanel.DocumentsToArray())
-                    {
-                        // IMPORANT: dispose all panes.
-                        document.DockHandler.DockPanel = null;
-                        document.DockHandler.Close();
-                    }
-                }
+            }
         }
         #endregion
 

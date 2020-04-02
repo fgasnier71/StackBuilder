@@ -31,9 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DockContentDocumentExplorer));
             this.ContextMenuDock = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.FloatingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DockableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.TabbedDocumentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AutoHideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.HideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this._documentTreeView = new treeDiM.StackBuilder.Desktop.AnalysisTreeView();
@@ -43,20 +41,11 @@
             // ContextMenuDock
             // 
             this.ContextMenuDock.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.FloatingToolStripMenuItem,
             this.DockableToolStripMenuItem,
-            this.TabbedDocumentToolStripMenuItem,
             this.AutoHideToolStripMenuItem,
             this.HideToolStripMenuItem});
-            this.ContextMenuDock.Name = "ContextMenuStrip1";
+            this.ContextMenuDock.Name = "ContextMenuStrip";
             resources.ApplyResources(this.ContextMenuDock, "ContextMenuDock");
-            // 
-            // FloatingToolStripMenuItem
-            // 
-            this.FloatingToolStripMenuItem.CheckOnClick = true;
-            this.FloatingToolStripMenuItem.Name = "FloatingToolStripMenuItem";
-            resources.ApplyResources(this.FloatingToolStripMenuItem, "FloatingToolStripMenuItem");
-            this.FloatingToolStripMenuItem.Click += new System.EventHandler(this.FloatingToolStripMenuItem_Click);
             // 
             // DockableToolStripMenuItem
             // 
@@ -65,27 +54,20 @@
             this.DockableToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.DockableToolStripMenuItem.Name = "DockableToolStripMenuItem";
             resources.ApplyResources(this.DockableToolStripMenuItem, "DockableToolStripMenuItem");
-            this.DockableToolStripMenuItem.Click += new System.EventHandler(this.DockableToolStripMenuItem_Click);
-            // 
-            // TabbedDocumentToolStripMenuItem
-            // 
-            this.TabbedDocumentToolStripMenuItem.CheckOnClick = true;
-            this.TabbedDocumentToolStripMenuItem.Name = "TabbedDocumentToolStripMenuItem";
-            resources.ApplyResources(this.TabbedDocumentToolStripMenuItem, "TabbedDocumentToolStripMenuItem");
-            this.TabbedDocumentToolStripMenuItem.Click += new System.EventHandler(this.TabbedDocumentToolStripMenuItem_Click);
+            this.DockableToolStripMenuItem.Click += new System.EventHandler(this.OnMenuItemDockable);
             // 
             // AutoHideToolStripMenuItem
             // 
             this.AutoHideToolStripMenuItem.CheckOnClick = true;
             this.AutoHideToolStripMenuItem.Name = "AutoHideToolStripMenuItem";
             resources.ApplyResources(this.AutoHideToolStripMenuItem, "AutoHideToolStripMenuItem");
-            this.AutoHideToolStripMenuItem.Click += new System.EventHandler(this.AutoHideToolStripMenuItem_Click);
+            this.AutoHideToolStripMenuItem.Click += new System.EventHandler(this.OnMenuItemAutoHide);
             // 
             // HideToolStripMenuItem
             // 
-            this.HideToolStripMenuItem.CheckOnClick = true;
             this.HideToolStripMenuItem.Name = "HideToolStripMenuItem";
             resources.ApplyResources(this.HideToolStripMenuItem, "HideToolStripMenuItem");
+            this.HideToolStripMenuItem.Click += new System.EventHandler(this.OnMenuItemHide);
             // 
             // _documentTreeView
             // 
@@ -105,6 +87,7 @@
             | WeifenLuo.WinFormsUI.Docking.DockAreas.DockRight) 
             | WeifenLuo.WinFormsUI.Docking.DockAreas.DockTop) 
             | WeifenLuo.WinFormsUI.Docking.DockAreas.DockBottom)));
+            this.HideOnClose = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "DockContentDocumentExplorer";
@@ -118,9 +101,7 @@
         #endregion
 
         internal System.Windows.Forms.ContextMenuStrip ContextMenuDock;
-        internal System.Windows.Forms.ToolStripMenuItem FloatingToolStripMenuItem;
         internal System.Windows.Forms.ToolStripMenuItem DockableToolStripMenuItem;
-        internal System.Windows.Forms.ToolStripMenuItem TabbedDocumentToolStripMenuItem;
         internal System.Windows.Forms.ToolStripMenuItem AutoHideToolStripMenuItem;
         internal System.Windows.Forms.ToolStripMenuItem HideToolStripMenuItem;
         internal AnalysisTreeView _documentTreeView;

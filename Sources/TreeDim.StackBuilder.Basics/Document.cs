@@ -994,7 +994,7 @@ namespace treeDiM.StackBuilder.Basics
         #endregion
 
         #region Allowing analysis/opti
-        public bool CanCreatePack => Boxes.Any();
+        public bool CanCreatePack => Boxes.Any() || Cylinders.Any();
         public bool CanCreateAnalysisCasePallet => Bricks.Any() && Pallets.Any();
         public bool CanCreateAnalysisBundlePallet => Bundles.Any() && Pallets.Any();
         public bool CanCreateAnalysisBoxCase =>(Boxes.Any() || Cases.Any()) && Cases.Any();
@@ -1238,8 +1238,9 @@ namespace treeDiM.StackBuilder.Basics
             string sBoxId = eltPackProperties.Attributes["BoxProperties"].Value;
             string sOrientation = eltPackProperties.Attributes["Orientation"].Value;
             string sArrangement = eltPackProperties.Attributes["Arrangement"].Value;
-            string sRevSolidLayout = string.Empty;
             PackProperties.EnuRevSolidLayout revSolidLayout = PackProperties.EnuRevSolidLayout.ALIGNED;
+            if (eltPackProperties.HasAttribute("RevSolidLayout"))
+                revSolidLayout = (PackProperties.EnuRevSolidLayout)int.Parse(eltPackProperties.Attributes["RevSolidLayout"].Value);
             PackWrapper wrapper = null;
             PackTray tray = null;
             StrapperSet strapperSet = new StrapperSet();
@@ -1273,6 +1274,8 @@ namespace treeDiM.StackBuilder.Basics
         private PackWrapper LoadWrapper(XmlElement xmlWrapperElt)
         {
             if (null == xmlWrapperElt) return null;
+            if (!xmlWrapperElt.HasAttribute("Type"))
+                return null;
 
             string sType = xmlWrapperElt.Attributes["Type"].Value;
             string sColor = xmlWrapperElt.Attributes["Color"].Value;
@@ -2674,13 +2677,34 @@ namespace treeDiM.StackBuilder.Basics
             XmlAttribute arrAttribute = xmlDoc.CreateAttribute("Arrangement");
             arrAttribute.Value = packProperties.Arrangement.ToString();
             eltPackProperties.Attributes.Append(arrAttribute);
+            // revSolidLayout
+            if (packProperties.Content is RevSolidProperties)
+            {
+                XmlAttribute revSolidLayoutAttrib = xmlDoc.CreateAttribute("CylLayout");
+                revSolidLayoutAttrib.Value = packProperties.RevSolidLayout.ToString();
+                eltPackProperties.Attributes.Append(revSolidLayoutAttrib);
+            }
             // wrapper
-            XmlElement wrapperElt = xmlDoc.CreateElement("Wrapper");
-            eltPackProperties.AppendChild(wrapperElt);
             PackWrapper packWrapper = packProperties.Wrap;
-            SaveWrapper(packWrapper as WrapperPolyethilene, wrapperElt, xmlDoc);
-            SaveWrapper(packWrapper as WrapperPaper, wrapperElt, xmlDoc);
-            SaveWrapper(packWrapper as WrapperCardboard, wrapperElt, xmlDoc);
+            if (null != packWrapper)
+            {
+                XmlElement wrapperElt = xmlDoc.CreateElement("Wrapper");
+                eltPackProperties.AppendChild(wrapperElt);
+                if (packWrapper is WrapperPolyethilene wrapperPoly)
+                    SaveWrapper(wrapperPoly, wrapperElt, xmlDoc);
+                else if (packWrapper is WrapperPaper wrapperPaper)
+                    SaveWrapper(packWrapper as WrapperPaper, wrapperElt, xmlDoc);
+                else if (packWrapper is WrapperCardboard wrapperCardboat)
+                   SaveWrapper(wrapperCardboat, wrapperElt, xmlDoc);
+            }
+            // tray
+            PackTray packTray = packProperties.Tray;
+            if (null != packTray)
+            {
+                XmlElement trayElt = xmlDoc.CreateElement("Tray");
+                eltPackProperties.AppendChild(trayElt);
+                SaveTray(packTray, trayElt, xmlDoc);
+            }
             // strapper set
             SaveStrappers(packProperties.StrapperSet, eltPackProperties, xmlDoc);
             // outer dimensions
@@ -3242,15 +3266,30 @@ namespace treeDiM.StackBuilder.Basics
             XmlAttribute wallDistribAttrib = xmlDoc.CreateAttribute("NumberOfWalls");
             wallDistribAttrib.Value = string.Format("{0} {1} {2}", wrapper.Wall(0), wrapper.Wall(1), wrapper.Wall(2));
             wrapperElt.Attributes.Append(wallDistribAttrib);
-/*
-            // tray specific
-            if (wrapper is WrapperTray wrapperTray)
-            {
-                XmlAttribute heightAttrib = xmlDoc.CreateAttribute("Height");
-                heightAttrib.Value = string.Format(CultureInfo.InvariantCulture, "{0}", wrapperTray.Height);
-                wrapperElt.Attributes.Append(heightAttrib);
-            }
-*/
+        }
+        private void SaveTray(PackTray tray, XmlElement trayElt, XmlDocument xmlDoc)
+        {
+            if (null == tray) return;
+            // color
+            XmlAttribute colorAttrib = xmlDoc.CreateAttribute("Color");
+            colorAttrib.Value = string.Format("{0}", tray.Color.ToArgb());
+            trayElt.Attributes.Append(colorAttrib);
+            // height
+            XmlAttribute heightAttrib = xmlDoc.CreateAttribute("Height");
+            heightAttrib.Value = string.Format(CultureInfo.InvariantCulture, "{0}", tray.Height);
+            trayElt.Attributes.Append(heightAttrib);
+            // weight
+            XmlAttribute weightAttrib = xmlDoc.CreateAttribute("Weight");
+            weightAttrib.Value = string.Format(CultureInfo.InvariantCulture, "{0}", tray.Weight);
+            trayElt.Attributes.Append(weightAttrib);
+            // wall distribution
+            XmlAttribute wallDistribAttrib = xmlDoc.CreateAttribute("NumberOfWalls");
+            wallDistribAttrib.Value = string.Format("{0} {1} {2}", tray.Wall(0), tray.Wall(1), tray.Wall(2));
+            trayElt.Attributes.Append(wallDistribAttrib);
+            // unit thickness
+            XmlAttribute unitThicknessAttrib = xmlDoc.CreateAttribute("UnitThickness");
+            unitThicknessAttrib.Value = string.Format(CultureInfo.InvariantCulture, "{0}", tray.UnitThickness);
+            trayElt.Attributes.Append(unitThicknessAttrib);
         }
         #endregion
 
@@ -3351,26 +3390,26 @@ namespace treeDiM.StackBuilder.Basics
             attMaximumNumber.Value = constraintSet.OptMaxNumber.ToString();
             eltContraintSet.Attributes.Append(attMaximumNumber);
 
-            if (analysis is AnalysisCasePallet
-                || analysis is AnalysisCylinderPallet)
+            if (analysis.ConstraintSet is ConstraintSetPackablePallet constraintSetPackablePallet)
             {
-                ConstraintSetCasePallet constraintSetCasePallet = analysis.ConstraintSet as ConstraintSetCasePallet;
-
                 XmlAttribute attOverhang = xmlDoc.CreateAttribute("Overhang");
-                attOverhang.Value = constraintSetCasePallet.Overhang.ToString();
+                attOverhang.Value = constraintSetPackablePallet.Overhang.ToString();
                 eltContraintSet.Attributes.Append(attOverhang);
 
-                XmlAttribute attMinSpace = xmlDoc.CreateAttribute("MinSpace");
-                attMinSpace.Value = constraintSetCasePallet.MinimumSpace.ToString();
-                eltContraintSet.Attributes.Append(attMinSpace);
-
                 XmlAttribute attMaximumHeight = xmlDoc.CreateAttribute("MaximumPalletHeight");
-                attMaximumHeight.Value = constraintSetCasePallet.OptMaxHeight.ToString();
+                attMaximumHeight.Value = constraintSetPackablePallet.OptMaxHeight.ToString();
                 eltContraintSet.Attributes.Append(attMaximumHeight);
 
-                XmlAttribute attPalletFilmTurns = xmlDoc.CreateAttribute("PalletFilmTurns");
-                attPalletFilmTurns.Value = constraintSetCasePallet.PalletFilmTurns.ToString();
-                eltContraintSet.Attributes.Append(attPalletFilmTurns);
+                if (analysis.ConstraintSet is ConstraintSetCasePallet constraintSetCasePallet)
+                {
+                    XmlAttribute attMinSpace = xmlDoc.CreateAttribute("MinSpace");
+                    attMinSpace.Value = constraintSetCasePallet.MinimumSpace.ToString();
+                    eltContraintSet.Attributes.Append(attMinSpace);
+
+                    XmlAttribute attPalletFilmTurns = xmlDoc.CreateAttribute("PalletFilmTurns");
+                    attPalletFilmTurns.Value = constraintSetCasePallet.PalletFilmTurns.ToString();
+                    eltContraintSet.Attributes.Append(attPalletFilmTurns);
+                }
             }
             else if (analysis is AnalysisPalletTruck analysisPalletTruck)
             {

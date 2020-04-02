@@ -121,8 +121,68 @@
     <value>17, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="DockableToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="DockableToolStripMenuItem.Text" xml:space="preserve">
+    <value>Dock</value>
+  </data>
+  <data name="AutoHideToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="AutoHideToolStripMenuItem.Text" xml:space="preserve">
+    <value>Auto Hide</value>
+  </data>
+  <data name="HideToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="HideToolStripMenuItem.Text" xml:space="preserve">
+    <value>Hide</value>
+  </data>
+  <data name="ContextMenuDock.Size" type="System.Drawing.Size, System.Drawing">
+    <value>181, 92</value>
+  </data>
+  <data name="ContextMenuDock.Text" xml:space="preserve">
+    <value>Window Position</value>
+  </data>
+  <data name="&gt;&gt;ContextMenuDock.Name" xml:space="preserve">
+    <value>ContextMenuDock</value>
+  </data>
+  <data name="&gt;&gt;ContextMenuDock.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="_documentTreeView.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="_documentTreeView.ImageIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="_documentTreeView.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="_documentTreeView.SelectedImageIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="_documentTreeView.Size" type="System.Drawing.Size, System.Drawing">
+    <value>284, 549</value>
+  </data>
+  <data name="_documentTreeView.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;_documentTreeView.Name" xml:space="preserve">
+    <value>_documentTreeView</value>
+  </data>
+  <data name="&gt;&gt;_documentTreeView.Type" xml:space="preserve">
+    <value>treeDiM.StackBuilder.Desktop.AnalysisTreeView, treeDiM.StackBuilder.Desktop, Version=3.0.2.10, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_documentTreeView.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;_documentTreeView.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -2837,115 +2897,34 @@
         AAAAAAAAAAAAAAABAAAAAQAAAAMAAAADAAAABwAAAAcAAOAPAAD8DwAA
 </value>
   </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>DockContentDocumentExplorer</value>
+  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Project explorer</value>
   </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>WeifenLuo.WinFormsUI.Docking.DockContent, WeifenLuo.WinFormsUI.Docking, Version=2.16.0.0, Culture=neutral, PublicKeyToken=5cded1a1a0a7b481</value>
-  </data>
-  <data name="&gt;&gt;AutoHideToolStripMenuItem.Name" xml:space="preserve">
-    <value>AutoHideToolStripMenuItem</value>
-  </data>
-  <data name="AutoHideToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>172, 22</value>
-  </data>
-  <data name="AutoHideToolStripMenuItem.Text" xml:space="preserve">
-    <value>Auto Hide</value>
-  </data>
-  <data name="&gt;&gt;AutoHideToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ContextMenuDock.Name" xml:space="preserve">
-    <value>ContextMenuDock</value>
-  </data>
-  <data name="ContextMenuDock.Size" type="System.Drawing.Size, System.Drawing">
-    <value>173, 114</value>
-  </data>
-  <data name="ContextMenuDock.Text" xml:space="preserve">
-    <value>Window Position</value>
-  </data>
-  <data name="&gt;&gt;ContextMenuDock.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;DockableToolStripMenuItem.Name" xml:space="preserve">
     <value>DockableToolStripMenuItem</value>
-  </data>
-  <data name="DockableToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>172, 22</value>
-  </data>
-  <data name="DockableToolStripMenuItem.Text" xml:space="preserve">
-    <value>Dockable</value>
   </data>
   <data name="&gt;&gt;DockableToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;FloatingToolStripMenuItem.Name" xml:space="preserve">
-    <value>FloatingToolStripMenuItem</value>
+  <data name="&gt;&gt;AutoHideToolStripMenuItem.Name" xml:space="preserve">
+    <value>AutoHideToolStripMenuItem</value>
   </data>
-  <data name="FloatingToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>172, 22</value>
-  </data>
-  <data name="FloatingToolStripMenuItem.Text" xml:space="preserve">
-    <value>Floating</value>
-  </data>
-  <data name="&gt;&gt;FloatingToolStripMenuItem.Type" xml:space="preserve">
+  <data name="&gt;&gt;AutoHideToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;HideToolStripMenuItem.Name" xml:space="preserve">
     <value>HideToolStripMenuItem</value>
   </data>
-  <data name="HideToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>172, 22</value>
-  </data>
-  <data name="HideToolStripMenuItem.Text" xml:space="preserve">
-    <value>Hide</value>
-  </data>
   <data name="&gt;&gt;HideToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;TabbedDocumentToolStripMenuItem.Name" xml:space="preserve">
-    <value>TabbedDocumentToolStripMenuItem</value>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>DockContentDocumentExplorer</value>
   </data>
-  <data name="TabbedDocumentToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>172, 22</value>
-  </data>
-  <data name="TabbedDocumentToolStripMenuItem.Text" xml:space="preserve">
-    <value>Tabbed Document</value>
-  </data>
-  <data name="&gt;&gt;TabbedDocumentToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="_documentTreeView.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="_documentTreeView.ImageIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="_documentTreeView.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="&gt;&gt;_documentTreeView.Name" xml:space="preserve">
-    <value>_documentTreeView</value>
-  </data>
-  <data name="&gt;&gt;_documentTreeView.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="_documentTreeView.SelectedImageIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="_documentTreeView.Size" type="System.Drawing.Size, System.Drawing">
-    <value>284, 549</value>
-  </data>
-  <data name="_documentTreeView.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;_documentTreeView.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Desktop.AnalysisTreeView, treeDiM.StackBuilder.Desktop, Version=3.0.0.43, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;_documentTreeView.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>WeifenLuo.WinFormsUI.Docking.DockContent, WeifenLuo.WinFormsUI.Docking, Version=3.0.6.0, Culture=neutral, PublicKeyToken=5cded1a1a0a7b481</value>
   </data>
 </root>

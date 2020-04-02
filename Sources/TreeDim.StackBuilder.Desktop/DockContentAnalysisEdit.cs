@@ -112,8 +112,7 @@ namespace treeDiM.StackBuilder.Desktop
         #region IDrawingContainer
         public void Draw(Graphics3DControl ctrl, Graphics3D graphics)
         {
-            using (ViewerSolution sv = new ViewerSolution(Solution))
-                sv.Draw(graphics, Transform3D.Identity);
+            ctrl.Viewer.Draw(graphics, Transform3D.Identity);
         }
         #endregion
 

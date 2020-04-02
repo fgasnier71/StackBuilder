@@ -34,41 +34,6 @@ namespace treeDiM.StackBuilder.Basics
             Wrap = wrapper;
             Tray = tray;
         }
-        /*
-        public PackProperties(Document doc
-            , PackableBrick box
-            , PackArrangement arrangement
-            , HalfAxis.HAxis orientation
-            , PackWrapper wrapper
-            , PackTray tray)
-            : base(doc)
-        {
-            Content = box;
-            if (null != doc)
-                Content.AddDependancy(this);
-
-            Arrangement = arrangement;
-            BoxOrientation = orientation;
-            Wrap = wrapper;
-            Tray = tray;
-        }
-        public PackProperties(Document doc
-            , RevSolidProperties revSolidProperties
-            , PackArrangement arrangement
-            , EnuRevSolidLayout revSolidLayout
-            , PackWrapper wrapper
-            , PackTray tray)
-            : base(doc)
-        {
-            Content = revSolidProperties;
-            if (null != doc)
-                Content.AddDependancy(this);
-            Arrangement = arrangement;
-            RevSolidLayout = revSolidLayout;
-            Wrap = wrapper;
-            Tray = tray;
-        }
-        */
         #endregion
 
         #region Override PackableBrickNamed
@@ -124,14 +89,17 @@ namespace treeDiM.StackBuilder.Basics
             HasForcedOuterDimensions = true;
             _outerDimensions = outerDimensions;
         }
-        public override double Length => HasForcedOuterDimensions ? _outerDimensions.X : InnerLength + WrapperThickness(0);
-        public override double Width => HasForcedOuterDimensions ? _outerDimensions.Y : InnerWidth + WrapperThickness(1);
-        public override double Height => HasForcedOuterDimensions ? _outerDimensions.Z : InnerHeight + WrapperThickness(2);
+        public override double Length => HasForcedOuterDimensions ? _outerDimensions.X : InnerLength + WrapperThickness(0) + TrayThickness(0);
+        public override double Width => HasForcedOuterDimensions ? _outerDimensions.Y : InnerWidth + WrapperThickness(1) + TrayThickness(1);
+        public override double Height => HasForcedOuterDimensions ? _outerDimensions.Z : InnerHeight + WrapperThickness(2) + TrayThickness(2);
         public override bool OrientationAllowed(HalfAxis.HAxis axis) => (axis == HalfAxis.HAxis.AXIS_Z_N) || (axis == HalfAxis.HAxis.AXIS_Z_P);
 
         private PackableBrick ContentBrick => Content as PackableBrick;
         private RevSolidProperties ContentRev => Content as RevSolidProperties;
         private double WrapperThickness(int dir) => null != Wrap ? Wrap.Thickness(dir) : 0.0;
+        private double TrayThickness(int dir) => null != Tray ? Tray.Thickness(dir) : 0.0;
+
+        public double BottomThickness => 0.5 * WrapperThickness(2) + TrayThickness(2); 
         // Inner dimensions
         public double InnerLength
         {
@@ -189,7 +157,7 @@ namespace treeDiM.StackBuilder.Basics
             }
         }
         // Weight
-        public override double Weight => InnerWeight + Wrap.Weight;
+        public override double Weight => InnerWeight + (null != Wrap ? Wrap.Weight : 0.0);
         public double InnerWeight => Arrangement.Number * Content.Weight;
         public override OptDouble NetWeight => Arrangement.Number * Content.NetWeight;
         // Helpers

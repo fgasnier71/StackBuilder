@@ -48,7 +48,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 111);
             this.Controls.Add(this.richTextBoxLog);
+            this.DockAreas = WeifenLuo.WinFormsUI.Docking.DockAreas.DockBottom;
             this.Name = "DockContentLogConsole";
+            this.ShowHint = WeifenLuo.WinFormsUI.Docking.DockState.DockBottom;
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.Text = "Log console";

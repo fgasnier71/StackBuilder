@@ -25,7 +25,7 @@ namespace treeDiM.StackBuilder.Graphics
         #region Picking
         protected void ClearPickingBoxes()
         {
-            _listPickingBox.Clear();
+            //_listPickingBox.Clear();
         }
         protected void AddPickingBox(BBox3D bbox, uint id)
         {

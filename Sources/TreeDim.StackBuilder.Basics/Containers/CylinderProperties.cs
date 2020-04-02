@@ -2,6 +2,7 @@
 using System;
 using System.Text;
 using System.Drawing;
+using System.Collections.Generic;
 
 using Sharp3D.Math.Core;
 #endregion
@@ -11,13 +12,15 @@ namespace treeDiM.StackBuilder.Basics
     public abstract class RevSolidProperties : PackableNamed
     {
         public RevSolidProperties(Document doc) : base(doc) { }
-        public RevSolidProperties(Document doc, string name, string description) :base(doc, name, description) { }
+        public RevSolidProperties(Document doc, string name, string description) : base(doc, name, description) { }
         public abstract double RadiusOuter { get; set; }
         public abstract double Height { get; set; }
         public double Diameter => 2.0 * RadiusOuter;
 
         public override Vector3D OuterDimensions => new Vector3D(Diameter, Diameter, Height);
         public override bool IsBrick => false;
+
+        public abstract double TopRadius { get; }
     }
 
     public class CylinderProperties : RevSolidProperties
@@ -106,6 +109,8 @@ namespace treeDiM.StackBuilder.Basics
                 , _radiusOuter, _radiusInner, _height, _weight) );
             return sBuilder.ToString();
         }
+
+        public override double TopRadius => _radiusOuter;
 
         #region Non-Public Members
 

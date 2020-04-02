@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 
+using MIConvexHull;
 using treeDiM.StackBuilder.Basics;
 
 using Sharp3D.Math.Core;
@@ -106,6 +107,21 @@ namespace treeDiM.StackBuilder.Graphics
                 }
             }
 
+            // draw top points line
+            if (_packProperties.Content is RevSolidProperties)
+            {
+                Color colorTopPoints = (null != _packProperties.Wrap) ? _packProperties.Wrap.Color : Color.White;
+                Pen penTopPoints = new Pen(new SolidBrush(colorTopPoints), 1.5f);
+                var listConvexHull1 = new List<Vector3D>();
+                foreach (var pt in ConvexHullResult)
+                    listConvexHull1.Add(GlobalTransformation.transform(pt));
+                var tPoints = graphics.TransformPoint(listConvexHull1.ToArray());
+                int tPointCount = tPoints.Length;
+                for (int i = 1; i < tPointCount; ++i)
+                    g.DrawLine(penTopPoints, tPoints[i - 1], tPoints[i]);
+                g.DrawLine(penTopPoints, tPoints[tPointCount - 1], tPoints[0]);
+            }
+
             // draw strappers
             Pen penBlack = new Pen(new SolidBrush(Color.Black), 1.5f);
             foreach (var sf in StrapperFaces)
@@ -182,6 +198,8 @@ namespace treeDiM.StackBuilder.Graphics
                 {
                     double diameter = revSolid.Diameter;
                     double height = revSolid.Height;
+                    double bottomThickness =  (null != _packProperties.Wrap ? 0.5 * _packProperties.Wrap.Thickness(2) : 0.0)
+                                            + (null != _packProperties.Tray ? _packProperties.Tray.Thickness(2) : 0.0);
 
                     for (int j = 0; j < _arrangement.Width; ++j)
                     {
@@ -214,7 +232,7 @@ namespace treeDiM.StackBuilder.Graphics
                             var vPos = new Vector3D(((int)i + 0.5) * diameter + xOffset, y, 0.0);
                             for (int k = 0; k < _arrangement.Height; ++k)
                             {
-                                CylPosition cylPos = new CylPosition(vPos + k * height * Vector3D.ZAxis, HalfAxis.HAxis.AXIS_Z_P);
+                                CylPosition cylPos = new CylPosition(vPos + (bottomThickness + k * height) * Vector3D.ZAxis, HalfAxis.HAxis.AXIS_Z_P);
                                 if (_packProperties.Content is CylinderProperties cylinderProp)
                                     drawables.Add(new Cylinder(pickId++, cylinderProp, cylPos.Transform(GlobalTransformation)));
                                 else if (_packProperties.Content is BottleProperties bottleProp)
@@ -222,9 +240,64 @@ namespace treeDiM.StackBuilder.Graphics
                             }
                         }
                     }
-
                 }
                 return drawables;
+            }
+        }
+
+        private List<Vector3D> TopPoints
+        {
+            get
+            {
+                var listPoints = new List<Vector3D>();
+                if (_packProperties.Content is RevSolidProperties revSolid)
+                {
+                    double diameter = revSolid.Diameter;
+                    double height = revSolid.Height;
+                    double bottomThickness = (null != _packProperties.Wrap ? 0.5 * _packProperties.Wrap.Thickness(2) : 0.0)
+                                            + (null != _packProperties.Tray ? _packProperties.Tray.Thickness(2) : 0.0);
+
+                    for (int j = 0; j < _arrangement.Width; ++j)
+                    {
+                        double xOffset = 0.0;
+                        double y = 0.0;
+                        int noX = _arrangement.Length;
+
+                        switch (_packProperties.RevSolidLayout)
+                        {
+                            case PackProperties.EnuRevSolidLayout.ALIGNED:
+                                y = ((double)j + 0.5) * diameter;
+                                break;
+                            case PackProperties.EnuRevSolidLayout.STAGGERED_REGULAR:
+                                y = 0.5 * diameter * (1 + j * Math.Sqrt(3.0));
+                                xOffset = 0.5 * diameter * (j % 2);
+                                break;
+                            case PackProperties.EnuRevSolidLayout.STAGGERED_MINUS1:
+                                noX = _arrangement.Length - j % 2;
+                                y = 0.5 * diameter * (1 + j * Math.Sqrt(3.0));
+                                xOffset = 0.5 * diameter * (j % 2);
+                                break;
+                            case PackProperties.EnuRevSolidLayout.STAGGERED_PLUS1:
+                                noX = _arrangement.Length + j % 2;
+                                y = 0.5 * diameter * (1 + j * Math.Sqrt(3.0));
+                                xOffset = 0.5 * diameter * ((j + 1) % 2);
+                                break;
+                        }
+                        for (int i = 0; i < noX; ++i)
+                        {
+                            var vPos = new Vector3D(((int)i + 0.5) * diameter + xOffset, y, 0.0) + (bottomThickness + _arrangement.Height * height) * Vector3D.ZAxis;
+                            double radius = revSolid.TopRadius;
+                            for (int k=0; k<Cyl.NoFaces; ++k)
+                            {
+                                double angle = k * 2.0 * Math.PI / Cyl.NoFaces;
+                                Vector3D vRadius = new Vector3D(radius * Math.Cos(angle), radius * Math.Sin(angle), 0.0);
+                                listPoints.Add(vRadius + vPos);
+                            }
+                        }
+                    }
+                }
+
+                return listPoints;
             }
         }
 
@@ -300,13 +373,64 @@ namespace treeDiM.StackBuilder.Graphics
                 return bp.Transformation;
             }
         }
+        private List<double[]> ListVector3DToListArray(List<Vector3D> points, int axis)
+        {
+            var listResult = new List<double[]>();
+            foreach (var pt in points)
+            {
+                double x, y;
+                switch (axis)
+                {
+                    case 0: x = pt.Y; y = pt.Z; break;
+                    case 1: x = pt.X; y = pt.Z; break;
+                    case 2: x = pt.X; y = pt.Y; break;
+                    default: x = 0.0; y = 0.0; break;
+                }
+                listResult.Add(new double[] { x, y });
+            }
+            return listResult;
+        }
+        private List<Vector3D> ListVertex2DToVector3D(IList<DefaultVertex2D> vertices, double abs, int axis)
+        {
+            var listPoints = new List<Vector3D>();
+            foreach (var v in vertices)
+            {
+                Vector3D point;
+                switch (axis)
+                {
+                    case 0: point = new Vector3D(abs, v.X, v.Y); break;
+                    case 1: point = new Vector3D(v.X, abs, v.Y); break;
+                    case 2: point = new Vector3D(v.X, v.Y, abs); break;
+                    default: point = Vector3D.Zero; break;
+                }
+                listPoints.Add(point);
+            }
+            if (1 == axis) listPoints.Reverse();
 
+            return listPoints;
+        }
+        private List<Vector3D> ConvexHullResult
+        {
+            get
+            {
+                if (null == _convexHull)
+                {
+                    double coord = TopPoints[0].Z;
+                    var convexHullResult = ConvexHull.Create2D(ListVector3DToListArray(TopPoints, 2), 1.0E-10);
+                    if (null != convexHullResult.Result && convexHullResult.Result.Count > 2)
+                        _convexHull =  ListVertex2DToVector3D(convexHullResult.Result, coord, 2);
+                }
+                return _convexHull;
+            }
+        }
         #endregion
 
         #region Data members
         private Drawable _innerBox;
         private PackArrangement _arrangement;
         private PackProperties _packProperties;
+        private List<Vector3D> _convexHull;
+
         #endregion
     }
 }

@@ -1323,6 +1323,16 @@
       <tr>
         <td class="style2" colspan="1">
           <b>
+            <xsl:value-of select="$loc/str[@name='Tray weight']"/> (<xsl:value-of select="trayWeight/unit"/>)
+          </b>
+        </td>
+        <td class="style3" colspan="1">
+          <xsl:value-of select="trayWeight/value"/>
+        </td>
+      </tr>
+      <tr>
+        <td class="style2" colspan="1">
+          <b>
             <xsl:value-of select="$loc/str[@name='Weight']"/> (<xsl:value-of select="weight/unit"/>)
           </b>
         </td>

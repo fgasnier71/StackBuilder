@@ -240,7 +240,8 @@
             resources.GetString("cbWrapperColor.Items38"),
             resources.GetString("cbWrapperColor.Items39"),
             resources.GetString("cbWrapperColor.Items40"),
-            resources.GetString("cbWrapperColor.Items41")});
+            resources.GetString("cbWrapperColor.Items41"),
+            resources.GetString("cbWrapperColor.Items42")});
             this.cbWrapperColor.Name = "cbWrapperColor";
             this.cbWrapperColor.SelectedColorChanged += new System.EventHandler(this.OnPackChanged);
             // 
@@ -292,6 +293,7 @@
             this.uCtrlTrayWalls.NoX = 1;
             this.uCtrlTrayWalls.NoY = 1;
             this.uCtrlTrayWalls.NoZ = 1;
+            this.uCtrlTrayWalls.ValueChanged += new treeDiM.Basics.UCtrlTriInt.ValueChangedDelegate(this.OnPackChanged);
             // 
             // uCtrlTrayUnitThickness
             // 
@@ -303,6 +305,7 @@
             0});
             this.uCtrlTrayUnitThickness.Name = "uCtrlTrayUnitThickness";
             this.uCtrlTrayUnitThickness.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlTrayUnitThickness.ValueChanged += new treeDiM.Basics.UCtrlDouble.ValueChangedDelegate(this.OnPackChanged);
             // 
             // uCtrlTrayWeight
             // 
@@ -314,6 +317,7 @@
             -2147483648});
             this.uCtrlTrayWeight.Name = "uCtrlTrayWeight";
             this.uCtrlTrayWeight.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_MASS;
+            this.uCtrlTrayWeight.ValueChanged += new treeDiM.Basics.UCtrlDouble.ValueChangedDelegate(this.OnPackChanged);
             // 
             // chkbTray
             // 
@@ -375,8 +379,10 @@
             resources.GetString("cbTrayColor.Items40"),
             resources.GetString("cbTrayColor.Items41"),
             resources.GetString("cbTrayColor.Items42"),
-            resources.GetString("cbTrayColor.Items43")});
+            resources.GetString("cbTrayColor.Items43"),
+            resources.GetString("cbTrayColor.Items44")});
             this.cbTrayColor.Name = "cbTrayColor";
+            this.cbTrayColor.SelectedColorChanged += new System.EventHandler(this.OnPackChanged);
             // 
             // uCtrlTrayHeight
             // 
@@ -388,6 +394,7 @@
             0});
             this.uCtrlTrayHeight.Name = "uCtrlTrayHeight";
             this.uCtrlTrayHeight.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlTrayHeight.ValueChanged += new treeDiM.Basics.UCtrlDouble.ValueChangedDelegate(this.OnPackChanged);
             // 
             // tabStrappers
             // 

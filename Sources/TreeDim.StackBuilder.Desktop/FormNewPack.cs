@@ -52,6 +52,7 @@ namespace treeDiM.StackBuilder.Desktop
                 RevSolidLayout = PackProp.RevSolidLayout;
                 Arrangement = PackProp.Arrangement;
                 Wrapper = PackProp.Wrap;
+                Tray = PackProp.Tray;
                 uCtrlOuterDimensions.Checked = PackProp.HasForcedOuterDimensions;
                 OuterDimensions = PackProp.OuterDimensions;
             }
@@ -64,13 +65,10 @@ namespace treeDiM.StackBuilder.Desktop
                 {
                     
                 };
-                Tray = new PackTray(UnitsManager.ConvertLengthFrom(40, UnitsManager.UnitSystem.UNIT_METRIC1), 0.0, Color.Chocolate)
+                Tray = new PackTray(UnitsManager.ConvertLengthFrom(40, UnitsManager.UnitSystem.UNIT_METRIC1), 0.050, Color.Chocolate)
                 {
-
+                    UnitThickness = UnitsManager.ConvertLengthFrom(1.0, UnitsManager.UnitSystem.UNIT_METRIC1)
                 };
-
-                uCtrlWrapperThickness.Value = UnitsManager.ConvertLengthFrom(0.1, UnitsManager.UnitSystem.UNIT_METRIC1);
-                uCtrlTrayHeight.Value = UnitsManager.ConvertLengthFrom(40, UnitsManager.UnitSystem.UNIT_METRIC1);
             }
             // set StrapperSet
             ctrlStrapperSet.StrapperSet = StrapperSet;
@@ -216,7 +214,8 @@ namespace treeDiM.StackBuilder.Desktop
             {
                 if (chkbTray.Checked)
                 {
-                    var packTray = new PackTray(TrayHeight, TrayWeight, TrayColor);
+                    var packTray = new PackTray(TrayHeight, TrayWeight, TrayColor) { UnitThickness = uCtrlTrayUnitThickness.Value };
+                    packTray.SetNoWalls(new int[] { uCtrlTrayWalls.NoX, uCtrlTrayWalls.NoY, uCtrlTrayWalls.NoZ });
                     return packTray;
                 }
                 else
@@ -225,11 +224,16 @@ namespace treeDiM.StackBuilder.Desktop
             set
             {
                 var packTray = value;
+                chkbTray.Checked = (null != packTray);
+                EnableDisableTray();
                 if (null != packTray)
                 {
                     TrayHeight = value.Height;
                     TrayWeight = value.Weight;
                     TrayColor = value.Color;
+                    uCtrlTrayWalls.NoX = packTray.Wall(0);
+                    uCtrlTrayWalls.NoY = packTray.Wall(1);
+                    uCtrlTrayWalls.NoZ = packTray.Wall(2);
                 }
             }
         }
@@ -292,8 +296,8 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Event handlers
-        private void OnWrapperChecked(object sender, EventArgs e) { EnableDisableWrapper(); }
-        private void OnTrayChecked(object sender, EventArgs e) { EnableDisableTray(); }
+        private void OnWrapperChecked(object sender, EventArgs e) { EnableDisableWrapper(); graphCtrl.Invalidate(); }
+        private void OnTrayChecked(object sender, EventArgs e) { EnableDisableTray(); graphCtrl.Invalidate(); }
         private void OnContentChanged(object sender, EventArgs e)
         {
             bool isBox = SelectedPackable is PackableBrick;

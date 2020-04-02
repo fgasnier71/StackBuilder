@@ -79,6 +79,7 @@
       <xs:element name="height" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
       <xs:element name="netWeight" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
       <xs:element name="wrapperWeight" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
+      <xs:element name="trayWeight" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
       <xs:element name="weight" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
       <xs:element name="imageThumbSize" minOccurs="0" maxOccurs="1" type="rpt:imageThumbSize"/>
     </xs:sequence>

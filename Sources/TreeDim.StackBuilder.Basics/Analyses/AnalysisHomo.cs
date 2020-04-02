@@ -145,6 +145,12 @@ namespace treeDiM.StackBuilder.Basics
         #region AnalysisHomo overrides
         public override void RecomputeSolution()
         {
+            // workaround
+            if (Content is PackProperties)
+            {
+                if (ConstraintSet is ConstraintSetCasePallet constraintSet)
+                    constraintSet.SetAllowedOrientations(new bool[] { false, false, true });
+            }
             // get best layers
             List<ILayer2D> bestLayers = SolutionLayered.Solver.BuildLayers(Content, ContainerDimensions, Offset.Z, ConstraintSet, true);
             List<LayerEncap> bestLayerDescs = bestLayers.ConvertAll(l => new LayerEncap(l.LayerDescriptor));

@@ -327,7 +327,10 @@ namespace treeDiM.StackBuilder.Desktop
                 Overhang = new Vector2D(uCtrlOverhang.ValueX, uCtrlOverhang.ValueY)
             };
             // orientations
-            constraintSet.SetAllowedOrientations(uCtrlCaseOrientation.AllowedOrientations);
+            if (SelectedPackable is PackProperties)
+                constraintSet.SetAllowedOrientations(new bool[] { false, false, true });
+            else
+                constraintSet.SetAllowedOrientations(uCtrlCaseOrientation.AllowedOrientations);
             // conditions
             constraintSet.SetMaxHeight( new OptDouble(true, uCtrlMaximumHeight.Value));
             constraintSet.OptMaxWeight = uCtrlOptMaximumWeight.Value;

@@ -1590,7 +1590,10 @@ namespace treeDiM.StackBuilder.Reporting
             if (rnPack.GetChildByName(Resources.ID_RN_WEIGHT).Activated)
             {
                 AppendElementValue(xmlDoc, elemPack, "netWeight", UnitsManager.UnitType.UT_MASS, packProperties.NetWeight);
-                AppendElementValue(xmlDoc, elemPack, "wrapperWeight", UnitsManager.UnitType.UT_MASS, packProperties.Wrap.Weight);
+                if (null != packProperties.Wrap)
+                    AppendElementValue(xmlDoc, elemPack, "wrapperWeight", UnitsManager.UnitType.UT_MASS, packProperties.Wrap.Weight);
+                if (null != packProperties.Tray)
+                    AppendElementValue(xmlDoc, elemPack, "trayWeight", UnitsManager.UnitType.UT_MASS, packProperties.Tray.Weight);
                 AppendElementValue(xmlDoc, elemPack, "weight", UnitsManager.UnitType.UT_MASS, packProperties.Weight);
             }
             if (rnPack.GetChildByName(Resources.ID_RN_IMAGE).Activated)

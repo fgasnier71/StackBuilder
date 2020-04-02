@@ -22,6 +22,8 @@ namespace treeDiM.StackBuilder.Graphics
             new Vector3D(-RadiusOuter, -RadiusOuter, 0.0) + Position.XYZ
             , new Vector3D(RadiusOuter, RadiusOuter, Height) + Position.XYZ);
         public override Vector3D Center => Position.XYZ + 0.5 * Height * HalfAxis.ToVector3D(Position.Direction);
+
+        public static int NoFaces => 36;
     }
     #endregion
 
@@ -31,7 +33,6 @@ namespace treeDiM.StackBuilder.Graphics
         public override double RadiusOuter { get; protected set; }
         public override double Height { get; protected set; }
         public double RadiusInner { get; private set; }
-        public uint NoFaces { get; private set; } = 36;
         #endregion
 
         #region Constructor
@@ -187,7 +188,7 @@ namespace treeDiM.StackBuilder.Graphics
         {
             get
             {
-                uint noSteps = NoFaces;
+                int noSteps = NoFaces;
                 var pts = new Vector3D[2* noSteps];
                 Transform3D t = Position.Transf;
                 Vector3D vDir = HalfAxis.ToVector3D(Position.Direction);

@@ -90,6 +90,8 @@ namespace treeDiM.StackBuilder.Graphics
                         {
                             var dim = solBBox.DimensionsVec;
                             graphics.AddImage(++pickId, new SubContent(loadedPallet.ParentAnalysis as AnalysisHomo), solBBox.DimensionsVec, bPosition.Transform(transform));
+                            // bbox used for picking
+                            bbox.Extend(new BBox3D(bPosition.Transform(transform), solBBox.DimensionsVec));
                         }
                     }
                     else if (analysis.Content is PackProperties packProperties)
@@ -101,6 +103,8 @@ namespace treeDiM.StackBuilder.Graphics
                         {
                             BoxPosition boxPositionModified = bPosition.Transform(transform * upTranslation);
                             graphics.AddImage(++pickId, new SubContent(packProperties), packProperties.OuterDimensions, boxPositionModified);
+                            // bbox used for picking
+                            bbox.Extend(new BBox3D(boxPositionModified, packProperties.OuterDimensions));
                         }
                     }
                     else

@@ -53,6 +53,7 @@ namespace treeDiM.StackBuilder.Basics
         public override Vector3D OuterDimensions => new Vector3D(2.0*RadiusOuter, 2.0*RadiusOuter, Height);
         public override bool IsBrick => false;
         protected override string TypeName => Properties.Resources.ID_NAMEBOTTLE;
+        public override double TopRadius => 0.5 * Profile.Last().Y;
         #endregion
 
         #region Object override

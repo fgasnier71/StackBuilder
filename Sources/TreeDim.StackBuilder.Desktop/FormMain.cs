@@ -40,7 +40,7 @@ namespace treeDiM.StackBuilder.Desktop
         /// Docking manager
         /// </summary>
         private DockContentDocumentExplorer _documentExplorer = new DockContentDocumentExplorer();
-        private DockContentLogConsole _logConsole = new DockContentLogConsole();
+        private DockContentLogConsole _logConsole;
         private DockContentStartPage _dockStartPage = new DockContentStartPage();
         private ToolStripProfessionalRenderer _defaultRenderer = new ToolStripProfessionalRenderer(new PropertyGridEx.CustomColorScheme());
         private DeserializeDockContent _deserializeDockContent;
@@ -332,14 +332,17 @@ namespace treeDiM.StackBuilder.Desktop
             // show or hide log console ?
             if (AssemblyConf == "debug" || Settings.Default.ShowLogConsole)
             {
-                _logConsole = new DockContentLogConsole();
-                _logConsole.Show(dockPanel, DockState.DockBottom);
-            }
-            else
-            {
-                if (null != _logConsole)
-                    _logConsole.Close();
-                _logConsole = null;
+                if (null == FindDocument("Log console"))
+                {
+                    _logConsole = new DockContentLogConsole()
+                    {
+                        TabText = "Log console",
+                        Text = "Log console"
+                    };
+                    _logConsole.Show(dockPanel, DockState.DockBottom);
+                }
+                else
+                    _logConsole.IsHidden = false;
             }
         }
 
@@ -406,10 +409,12 @@ namespace treeDiM.StackBuilder.Desktop
                     {
                         if (!UserAcknowledgeDependancies(pack)) return;
                         pack.ID.SetNameDesc(form.ItemName, form.ItemDescription);
-                        pack.Content = form.SelectedPackable as RevSolidProperties;
+                        pack.Content = form.SelectedPackable;
                         pack.BoxOrientation = form.BoxOrientation;
                         pack.Arrangement = form.Arrangement;
+                        pack.RevSolidLayout = form.RevSolidLayout;
                         pack.Wrap = form.Wrapper;
+                        pack.Tray = form.Tray;
                         if (form.HasForcedOuterDimensions)
                             pack.ForceOuterDimensions(form.OuterDimensions);
                         pack.StrapperSet = form.StrapperSet;
@@ -690,6 +695,8 @@ namespace treeDiM.StackBuilder.Desktop
             // new cylinder
             toolStripMenuItemCylinder.Enabled = (null != doc);
             toolStripButtonCylinder.Enabled = (null != doc);
+            // new bottle
+            toolStripMenuItemNewBottle.Enabled = (null != doc);
             toolStripButtonBottle.Enabled = (null != doc);
             // new pallet
             toolStripMenuItemPallet.Enabled = (null != doc);
@@ -1483,6 +1490,15 @@ namespace treeDiM.StackBuilder.Desktop
                 return "release";
             }
         }
+        private IDockContent FindDocument(string text)
+        {
+            foreach (IDockContent content in dockPanel.Contents)
+            {
+                if (content.DockHandler.TabText == text)
+                    return content;
+            }
+            return null;
+        }
         #endregion
         #region Help menu event handlers
         private void OnAbout(object sender, EventArgs e)
@@ -1515,7 +1531,5 @@ namespace treeDiM.StackBuilder.Desktop
         #region Static instance accessor
         public static FormMain GetInstance()  { return _instance; }
         #endregion
-
-
     }
 }
