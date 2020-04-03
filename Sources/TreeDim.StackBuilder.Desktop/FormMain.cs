@@ -1045,7 +1045,9 @@ namespace treeDiM.StackBuilder.Desktop
                 }
             }
             toolStripSB_BCT.Enabled = WCFClient.IsConnected;
-            toolStripButtonPremium.Visible = !Program.IsSubscribed;            
+            toolStripButtonPremium.Visible = !Program.IsSubscribed;
+            toolStripMIPremium.Visible = !Program.IsSubscribed;
+
             // create basic layout
             CreateBasicLayout();
             UpdateDisconnectButton();

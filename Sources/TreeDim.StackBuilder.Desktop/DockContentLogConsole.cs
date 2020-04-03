@@ -76,7 +76,7 @@ namespace treeDiM.StackBuilder.Desktop
         }
         private void OnMenuItemHide(object sender, EventArgs e)
         {
-            VisibleState = DockState.DockBottomAutoHide;
+            Hide();
         }
         #endregion
         #region Data members

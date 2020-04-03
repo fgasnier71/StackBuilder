@@ -33,7 +33,6 @@
             this.ContextMenuDock = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.DockableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AutoHideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.HideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this._documentTreeView = new treeDiM.StackBuilder.Desktop.AnalysisTreeView();
             this.ContextMenuDock.SuspendLayout();
             this.SuspendLayout();
@@ -42,8 +41,8 @@
             // 
             this.ContextMenuDock.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.DockableToolStripMenuItem,
-            this.AutoHideToolStripMenuItem,
-            this.HideToolStripMenuItem});
+            this.AutoHideToolStripMenuItem
+            });
             this.ContextMenuDock.Name = "ContextMenuStrip";
             resources.ApplyResources(this.ContextMenuDock, "ContextMenuDock");
             // 
@@ -62,12 +61,6 @@
             this.AutoHideToolStripMenuItem.Name = "AutoHideToolStripMenuItem";
             resources.ApplyResources(this.AutoHideToolStripMenuItem, "AutoHideToolStripMenuItem");
             this.AutoHideToolStripMenuItem.Click += new System.EventHandler(this.OnMenuItemAutoHide);
-            // 
-            // HideToolStripMenuItem
-            // 
-            this.HideToolStripMenuItem.Name = "HideToolStripMenuItem";
-            resources.ApplyResources(this.HideToolStripMenuItem, "HideToolStripMenuItem");
-            this.HideToolStripMenuItem.Click += new System.EventHandler(this.OnMenuItemHide);
             // 
             // _documentTreeView
             // 
@@ -103,7 +96,6 @@
         internal System.Windows.Forms.ContextMenuStrip ContextMenuDock;
         internal System.Windows.Forms.ToolStripMenuItem DockableToolStripMenuItem;
         internal System.Windows.Forms.ToolStripMenuItem AutoHideToolStripMenuItem;
-        internal System.Windows.Forms.ToolStripMenuItem HideToolStripMenuItem;
         internal AnalysisTreeView _documentTreeView;
     }
 }

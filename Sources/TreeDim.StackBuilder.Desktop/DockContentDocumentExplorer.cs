@@ -63,10 +63,6 @@ namespace treeDiM.StackBuilder.Desktop
                 _log.Error(ex.Message);
             }
         }
-        private void OnMenuItemHide(object sender, EventArgs e)
-        {
-            VisibleState = DockState.DockLeftAutoHide;
-        }
         #endregion
         #region Public properties
         public AnalysisTreeView DocumentTreeView

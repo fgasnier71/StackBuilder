@@ -39,7 +39,7 @@ namespace treeDiM.StackBuilder.Desktop
         private string Email { get => tbEmail.Text; set => tbEmail.Text = value; }
         private int SubscriptionDuration => cbSubscriptionDuration.SelectedIndex;
         private int PaymentMode => 1;
-        private string VATNumber => tbVATNumber.Text;
+        private string VATNumber => tbVATNumber.Text.Trim();
         #endregion
 
         #region Event handler
